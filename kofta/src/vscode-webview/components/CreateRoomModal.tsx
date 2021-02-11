@@ -51,7 +51,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <div className={tw`flex mt-8`}>
+        <div className={tw`flex mt-8 items-center`}>
           <div className={tw`mr-4`}>privacy: </div>
           <select value={privacy} onChange={(e) => setPrivacy(e.target.value)}>
             <option value="public">public</option>
