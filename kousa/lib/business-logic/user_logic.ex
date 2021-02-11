@@ -1,4 +1,8 @@
 defmodule Kousa.BL.User do
+  # def search(query, cursor \\ nil) do
+  #   Kousa.D
+  # end
+
   def load_followers(access_token, user_id, cursor \\ nil, n \\ 0) do
     if n < 10 do
       case Kousa.Github.get_followers(access_token, cursor) do

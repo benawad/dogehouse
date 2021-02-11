@@ -6,6 +6,8 @@ import { wsend } from "../../createWebsocket";
 import { useMuteStore } from "../../webrtc/stores/useMuteStore";
 import { renameRoomAndMakePublic } from "../../webrtc/utils/renameRoomAndMakePublic";
 import { currentRoomAtom, meAtom, myCurrentRoomInfoAtom } from "../atoms";
+import { Codicon } from "../svgs/Codicon";
+import { PawPrint } from "../svgs/PawPrint";
 import { Button } from "./Button";
 import { Footer } from "./Footer";
 
@@ -18,6 +20,45 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = () => {
   const { muted, set } = useMuteStore();
   const [me] = useAtom(meAtom);
   const [{ canSpeak, isCreator }] = useAtom(myCurrentRoomInfoAtom);
+
+  let rightSide = null;
+
+  if (currentRoom) {
+    if (isCreator || canSpeak) {
+      rightSide = (
+        <Button
+          variant="small"
+          onClick={() => {
+            wsend({
+              op: "mute",
+              d: { value: !muted },
+            });
+            set({ muted: !muted });
+          }}
+        >
+          {muted ? "unmute" : "mute"}
+        </Button>
+      );
+    } else if (me) {
+      if (
+        me.id in currentRoom.raiseHandMap &&
+        currentRoom.raiseHandMap[me.id] !== 1
+      ) {
+        rightSide = <div>you can only ask to speak once per room</div>;
+      } else {
+        rightSide = (
+          <Button
+            onClick={() => {
+              wsend({ op: "ask_to_speak", d: {} });
+            }}
+            variant="small"
+          >
+            <PawPrint />
+          </Button>
+        );
+      }
+    }
+  }
 
   return (
     <div
@@ -69,25 +110,10 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = () => {
               </Button>
             </div>
           ) : null}
-          {!me || isCreator || canSpeak ? null : me.id in
-              currentRoom.raiseHandMap &&
-            currentRoom.raiseHandMap[me.id] !== 1 ? (
-            <div className={tw`mb-6`}>
-              you can only ask to speak once per room
-            </div>
-          ) : (
-            <div className={tw`mb-6`}>
-              <Button
-                onClick={() => {
-                  wsend({ op: "ask_to_speak", d: {} });
-                }}
-              >
-                ask to speak
-              </Button>
-            </div>
-          )}
-          <div className={tw`mb-6`}>
+          <div className={tw`mb-6 flex`}>
             <Button
+              variant="small"
+              style={{ marginRight: "auto" }}
               onClick={() => {
                 wsend({ op: "leave_room", d: {} });
                 if (location.pathname.startsWith("/room")) {
@@ -97,20 +123,18 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = () => {
             >
               leave room
             </Button>
-          </div>
-          {isCreator || canSpeak ? (
             <Button
               onClick={() => {
-                wsend({
-                  op: "mute",
-                  d: { value: !muted },
-                });
-                set({ muted: !muted });
+                wsend({ op: "fetch_invite_list", d: { cursor: 0 } });
+                history.push("/invite");
               }}
+              style={{ marginRight: 16 }}
+              variant="small"
             >
-              {muted ? "unmute" : "mute"}
+              <Codicon name="plus" />
             </Button>
-          ) : null}
+            {rightSide}
+          </div>
         </>
       ) : (
         <Footer />

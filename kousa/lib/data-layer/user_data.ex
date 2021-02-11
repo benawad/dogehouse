@@ -2,6 +2,28 @@ defmodule Kousa.Data.User do
   import Ecto.Query, warn: false
   alias Beef.{Repo, User}
 
+  @fetch_limit 16
+
+  def search(query, offset) do
+    query_with_percent = "%" <> query <> "%"
+
+    items =
+      from(u in Beef.User,
+        where:
+          ilike(u.username, ^query_with_percent) or
+            ilike(u.displayName, ^query_with_percent),
+        left_join: cr in Beef.Room,
+        on: u.currentRoomId == cr.id and cr.isPrivate == false,
+        select: %{u | currentRoom: cr},
+        limit: @fetch_limit,
+        offset: ^offset
+      )
+      |> Beef.Repo.all()
+
+    {Enum.slice(items, 0, -1 + @fetch_limit),
+     if(length(items) == @fetch_limit, do: -1 + offset + @fetch_limit, else: nil)}
+  end
+
   def bulk_insert(users) do
     Beef.Repo.insert_all(
       Beef.User,

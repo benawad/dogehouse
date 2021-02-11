@@ -22,7 +22,7 @@ export const InviteList: React.FC<InviteListProps> = () => {
   if (!room) {
     return (
       <Wrapper>
-        <Backbar to="/" />
+        <Backbar />
         <Button onClick={() => history.push("/")}>room gone, go back</Button>
       </Wrapper>
     );
@@ -31,17 +31,9 @@ export const InviteList: React.FC<InviteListProps> = () => {
   return (
     <Wrapper>
       <Backbar />
-      {room.isPrivate ? (
-        <div className={tw`mb-8`}>
-          You can invite users who are online and follow you:
-        </div>
-      ) : (
-        <div className={tw`mb-8`}>
-          <h3 className={tw`text-3xl font-semibold`}>
-            There are 2 ways to invite people to your room:
-          </h3>
-          <div className={tw`mt-4`} />
-          0. Send them the link:{" "}
+      {room.isPrivate ? null : (
+        <div className={tw`mb-8 text-2xl`}>
+          Share the link to your room:{" "}
           <Link
             style={{
               color: "var(--vscode-textLink-foreground)",
@@ -50,11 +42,13 @@ export const InviteList: React.FC<InviteListProps> = () => {
           >
             {url}
           </Link>
-          <div className={tw`mt-4`} />
-          1. You can invite users who are online and follow you:
         </div>
       )}
-      {users.length === 0 ? <div>all your followers are offline</div> : null}
+      {users.length ? (
+        <div className={tw`my-4 text-2xl`}>
+          You can invite users who are online and follow you:
+        </div>
+      ) : null}
       {users.map((u) => (
         <div
           style={{ borderBottom: "1px solid var( --vscode-dropdown-border)" }}

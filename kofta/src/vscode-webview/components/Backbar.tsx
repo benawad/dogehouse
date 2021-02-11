@@ -1,34 +1,23 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { tw } from "twind";
-import { Codicon } from "../svgs/Codicon";
+import DogeHouse from "../../assets/dogehouse.png";
 
-interface BackbarProps {
-  to?: string;
-  onBack?: () => void;
-}
+interface BackbarProps {}
 
-export const Backbar: React.FC<BackbarProps> = ({ onBack, to, children }) => {
+export const Backbar: React.FC<BackbarProps> = ({ children }) => {
   const history = useHistory();
   return (
     <div className={tw`flex py-2 mb-6`}>
-      {children ? (
-        children
-      ) : (
-        <button
-          className={tw`hover:bg-buttonHover p-2`}
-          onClick={() => {
-            onBack?.();
-            if (to) {
-              history.push(to);
-            } else {
-              history.goBack();
-            }
-          }}
-        >
-          <Codicon name="arrowLeft" />
-        </button>
-      )}
+      <button
+        className={tw`hover:bg-buttonHover`}
+        onClick={() => {
+          history.push("/");
+        }}
+      >
+        <img style={{ width: 50 }} src={DogeHouse} alt="dogehouse" />
+      </button>
+      {children}
     </div>
   );
 };

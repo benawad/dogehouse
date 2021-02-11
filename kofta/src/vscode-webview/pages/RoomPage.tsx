@@ -9,17 +9,16 @@ import { Avatar } from "../components/Avatar";
 import { Backbar } from "../components/Backbar";
 import { BottomVoiceControl } from "../components/BottomVoiceControl";
 import { Button } from "../components/Button";
+import { ProfileButton } from "../components/ProfileButton";
 import { ProfileModal } from "../components/ProfileModal";
 import { UserNode } from "../components/UserNode";
 import { Wrapper } from "../components/Wrapper";
-import { Codicon } from "../svgs/Codicon";
 import { User } from "../types";
 
 interface RoomPageProps {}
 
 export const RoomPage: React.FC<RoomPageProps> = () => {
   const [userProfileId, setUserProfileId] = useState("");
-  const history = useHistory();
   const [room, setRoom] = useAtom(currentRoomAtom);
   const { muted } = useMuteStore();
   const [me] = useAtom(meAtom);
@@ -150,13 +149,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
         profile={profile}
       />
       <Wrapper>
-        <Backbar to="/">
-          <button
-            className={tw`hover:bg-buttonHover p-2`}
-            onClick={() => history.push("/")}
-          >
-            <Codicon name="arrowLeft" />
-          </button>
+        <Backbar>
           <div
             style={{
               fontSize: "calc(var(--vscode-font-size)*1.1)",
@@ -165,7 +158,8 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
           >
             {room.name}
           </div>
-          <div className={tw`flex`}>
+          <ProfileButton />
+          {/* <div className={tw`flex`}>
             <button
               className={tw`hover:bg-buttonHover p-2 pr-3`}
               onClick={() => {
@@ -183,7 +177,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
             >
               <Codicon name="cog" />
             </button>
-          </div>
+          </div> */}
         </Backbar>
         <div
           style={{

@@ -11,6 +11,10 @@ let ws: ReconnectingWebSocket | null;
 let authGood = false;
 let lastMsg = "";
 
+export const closeWebSocket = () => {
+  ws?.close();
+};
+
 export const createWebSocket = () => {
   console.log("createWebSocket ");
   if (ws) {

@@ -19,6 +19,11 @@ export const followingOnlineAtom = atom<{
   users: User[];
   nextCursor: number | null;
 }>({ users: [], nextCursor: null });
+export const userSearchAtom = atom<{
+  loading: boolean;
+  users: User[];
+  nextCursor: number | null;
+}>({ users: [], loading: false, nextCursor: null });
 export const setFollowingOnlineAtom = createSetter(followingOnlineAtom);
 export const followerMapAtom = atom<
   Record<

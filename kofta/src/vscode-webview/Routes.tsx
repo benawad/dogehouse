@@ -1,11 +1,6 @@
 import { useAtom } from "jotai";
 import React, { useEffect } from "react";
-import {
-  Route,
-  useHistory,
-  useLocation,
-  useRouteMatch,
-} from "react-router-dom";
+import { Route, useHistory, useLocation } from "react-router-dom";
 import { wsend } from "../createWebsocket";
 import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
 import { invitationToRoom } from "../webrtc/utils/invitationToRoom";
@@ -22,7 +17,9 @@ import { FollowingOnlineList } from "./pages/FollowingOnlineList";
 import { FollowListPage } from "./pages/FollowListPage";
 import { Home } from "./pages/Home";
 import { InviteList } from "./pages/InviteList";
+import { MyProfilePage } from "./pages/MyProfilePage";
 import { RoomPage } from "./pages/RoomPage";
+import { SearchUsersPage } from "./pages/SearchUsersPage";
 import { ViewUserPage } from "./pages/ViewUserPage";
 import { VoiceSettingsPage } from "./pages/VoiceSettingsPage";
 import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
@@ -283,7 +280,9 @@ export const Routes: React.FC<RoutesProps> = () => {
       <Route exact path="/" component={Home} />
       <Route exact path="/room/:id" component={RoomPage} />
       <Route exact path="/user" component={ViewUserPage} />
+      <Route exact path="/me" component={MyProfilePage} />
       <Route exact path="/invite" component={InviteList} />
+      <Route exact path="/search/users" component={SearchUsersPage} />
       <Route exact path="/voice-settings" component={VoiceSettingsPage} />
       <Route exact path="/following-online" component={FollowingOnlineList} />
       <Route
