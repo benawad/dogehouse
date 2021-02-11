@@ -110,8 +110,9 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = () => {
           ) : null}
           <div className={tw`mb-8`} />
         </>
-      ) : null}
-      <Footer />
+      ) : (
+        <Footer />
+      )}
     </div>
   );
 };
