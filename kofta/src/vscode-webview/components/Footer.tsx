@@ -6,14 +6,17 @@ interface FooterProps {}
 export const Footer: React.FC<FooterProps> = ({}) => {
   return (
     <div className={tw`justify-around flex`}>
-      <a href="" style={{ color: "var(--vscode-textLink-foreground)" }}>
-        investors
+      <a
+        href="https://www.notion.so/Investing-in-DogeHouse-fd2f5351c26842309995ced2f1358f0e"
+        style={{ color: "var(--vscode-textLink-foreground)" }}
+      >
+        Investors
       </a>
       <a
         style={{ color: "var(--vscode-textLink-foreground)" }}
         href="https://github.com/benawad/dogehouse/issues"
       >
-        report a bug
+        Report a Bug
       </a>
     </div>
   );

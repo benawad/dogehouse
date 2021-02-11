@@ -37,6 +37,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
         onSubmit={(e) => {
           e.preventDefault();
           if (name) {
+            onRequestClose();
             wsend({
               op: "create-room",
               d: { roomName: name, value: privacy },

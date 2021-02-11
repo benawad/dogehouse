@@ -108,8 +108,10 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = () => {
               {muted ? "unmute" : "mute"}
             </Button>
           ) : null}
+          <div className={tw`mb-8`} />
         </>
       ) : null}
+      <Footer />
     </div>
   );
 };
