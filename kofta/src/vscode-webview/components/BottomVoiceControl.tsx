@@ -21,8 +21,11 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = () => {
 
   return (
     <div
-      style={{ backgroundColor: "var(--vscode-dropdown-border)" }}
-      className={tw`p-4 sticky bottom-0 w-full mt-auto`}
+      style={{
+        backgroundColor: "var(--vscode-dropdown-border)",
+        padding: "var(--container-paddding)",
+      }}
+      className={tw`py-4 sticky bottom-0 w-full mt-auto`}
     >
       {currentRoom ? (
         <>
@@ -108,7 +111,6 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = () => {
               {muted ? "unmute" : "mute"}
             </Button>
           ) : null}
-          <div className={tw`mb-8`} />
         </>
       ) : (
         <Footer />
