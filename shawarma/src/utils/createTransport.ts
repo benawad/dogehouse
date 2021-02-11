@@ -1,0 +1,34 @@
+import { config } from "../config";
+import debugModule from "debug";
+import { Router, WebRtcTransport } from "mediasoup/lib/types";
+
+const log = debugModule("shawarma:create-transport");
+
+export const transportToOptions = ({
+  id,
+  iceParameters,
+  iceCandidates,
+  dtlsParameters,
+}: WebRtcTransport) => ({ id, iceParameters, iceCandidates, dtlsParameters });
+
+export const createTransport = async (
+  direction: "recv" | "send",
+  router: Router,
+  peerId: string
+) => {
+  log("create-transport", direction);
+  const {
+    listenIps,
+    initialAvailableOutgoingBitrate,
+  } = config.mediasoup.webRtcTransport;
+
+  const transport = await router.createWebRtcTransport({
+    listenIps: listenIps,
+    enableUdp: true,
+    enableTcp: true,
+    preferUdp: true,
+    initialAvailableOutgoingBitrate: initialAvailableOutgoingBitrate,
+    appData: { peerId, clientDirection: direction },
+  });
+  return transport;
+};
