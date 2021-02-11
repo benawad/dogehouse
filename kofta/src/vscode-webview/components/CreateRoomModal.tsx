@@ -45,20 +45,19 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
           }
         }}
       >
-        <h3 className={tw`text-2xl mb-10`}>Room name:</h3>
         <input
+          placeholder="room name"
           autoFocus
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <div className={tw`flex mt-8 items-center`}>
-          <div className={tw`mr-4`}>privacy: </div>
+        <div className={tw`flex mt-10 items-center`}>
           <select value={privacy} onChange={(e) => setPrivacy(e.target.value)}>
             <option value="public">public</option>
             <option value="private">private</option>
           </select>
         </div>
-        <div className={tw`flex mt-8`}>
+        <div className={tw`flex mt-16`}>
           <Button
             type="button"
             onClick={onRequestClose}
