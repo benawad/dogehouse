@@ -18,7 +18,7 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
   const history = useHistory();
   return (
     <Wrapper>
-      <Backbar>
+      <Backbar actuallyGoBack>
         <div className={tw`ml-auto flex items-center`}>
           <Button
             onClick={() => {

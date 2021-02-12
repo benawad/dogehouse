@@ -19,7 +19,7 @@ export const WebviewWrapper: React.FC<WebviewWrapperProps> = () => {
   return (
     <Provider>
       <div
-        className={tw`max-w-screen-sm mx-auto w-full pt-8 h-full flex flex-col relative`}
+        className={tw`max-w-screen-sm mx-auto w-full h-full flex flex-col relative`}
       >
         {error ? <MicPermissionBanner /> : null}
         <WebviewApp />

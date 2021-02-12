@@ -1,7 +1,7 @@
 import React from "react";
 import { tw } from "twind";
 import { Codicon } from "../svgs/Codicon";
-import { MuteIcon } from "../svgs/MuteIcon";
+import { MicOff } from "react-feather";
 import { User } from "../types";
 import { Avatar } from "./Avatar";
 import GlassesDoge from "../../assets/glasses-doge.png";
@@ -48,7 +48,7 @@ export const UserNode: React.FC<UserNodeProps> = ({
     prefix = (
       <Codicon
         style={{ marginRight: 2, height: 16, width: 16 }}
-        name="feedback"
+        name="megaphone"
       />
     );
   }
@@ -59,16 +59,12 @@ export const UserNode: React.FC<UserNodeProps> = ({
       key={u.id}
     >
       <div className={tw`relative`}>
-        <Avatar size={70} active={isSpeaking} src={u.avatarUrl} />
+        <Avatar circle size={70} active={isSpeaking} src={u.avatarUrl} />
         {isMuted && isSpeaker ? (
           <div
             className={tw`absolute -bottom-2 -right-2 bg-button rounded-full p-1`}
           >
-            <MuteIcon
-              fill="white"
-              style={{ height: 16, width: 16 }}
-              name="mute"
-            />
+            <MicOff color="white" size={16} name="mute" />
           </div>
         ) : null}
       </div>

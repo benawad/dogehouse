@@ -1,6 +1,7 @@
 import { useAtom } from "jotai";
-import React from "react";
+import React, { useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
 import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
 import { currentRoomAtom, inviteListAtom } from "../atoms";
@@ -18,6 +19,7 @@ export const InviteList: React.FC<InviteListProps> = () => {
   const [room] = useAtom(currentRoomAtom);
   const path = `/room/${room?.id}`;
   const url = window.location.origin + path;
+  const inputRef = useRef<HTMLInputElement>(null);
 
   if (!room) {
     return (
@@ -27,28 +29,44 @@ export const InviteList: React.FC<InviteListProps> = () => {
       </Wrapper>
     );
   }
+  console.log(typeof navigator.share);
 
   return (
     <Wrapper>
-      <Backbar />
+      <Backbar actuallyGoBack />
       {room.isPrivate ? null : (
-        <div className={tw`mb-8 text-2xl`}>
-          Share the link to your room:{" "}
-          <Link
-            style={{
-              color: "var(--vscode-textLink-foreground)",
-            }}
-            to={path}
-          >
-            {url}
-          </Link>
-        </div>
+        <>
+          {!navigator.share ? (
+            <div className={tw`text-2xl mb-2`}>share link to room</div>
+          ) : null}
+          <div className={tw`mb-8 flex`}>
+            <input readOnly ref={inputRef} value={url} />
+            <Button
+              variant="small"
+              onClick={() => {
+                if (navigator.share) {
+                  navigator.share({ url });
+                } else {
+                  inputRef.current?.select();
+                  document.execCommand("copy");
+                  toast("copied to clipboard", { type: "success" });
+                }
+              }}
+            >
+              {!navigator.share ? "copy" : "share link to room"}
+            </Button>
+          </div>
+        </>
       )}
       {users.length ? (
         <div className={tw`my-4 text-2xl`}>
-          You can invite users who are online and follow you:
+          You can invite your followers that are online:
         </div>
-      ) : null}
+      ) : (
+        <div className={tw`my-4 text-2xl`}>
+          When your followers are online, they will show up here.
+        </div>
+      )}
       {users.map((u) => (
         <div
           style={{ borderBottom: "1px solid var( --vscode-dropdown-border)" }}

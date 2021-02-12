@@ -200,7 +200,7 @@ defmodule Kousa.BL.Room do
                      room.id,
                      {:redeem_invite, user_id}
                    ) do
-                {:ok, :error} -> {:err, "the room is private"}
+                {:ok, :error} -> {:err, "the room is private, ask someone inside to invite you"}
                 {:ok, :ok} -> {:ok}
                 _ -> {:err, "room session doesn't exist"}
               end

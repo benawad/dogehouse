@@ -1,30 +1,12 @@
 import React, { useState } from "react";
-import ReactModal from "react-modal";
 import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
 import { Button } from "./Button";
+import { Modal } from "./Modal";
 
 interface CreateRoomModalProps {
   onRequestClose: () => void;
 }
-
-const customStyles = {
-  overlay: {
-    backgroundColor: "rgba(0,0,0,.5)",
-  },
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    backgroundColor: "#262626",
-    border: "none",
-    width: "100%",
-    maxWidth: 500,
-  },
-};
 
 export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
   onRequestClose,
@@ -32,7 +14,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
   const [name, setName] = useState("");
   const [privacy, setPrivacy] = useState("public");
   return (
-    <ReactModal style={customStyles} isOpen onRequestClose={onRequestClose}>
+    <Modal isOpen onRequestClose={onRequestClose}>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -71,6 +53,6 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
           </Button>
         </div>
       </form>
-    </ReactModal>
+    </Modal>
   );
 };

@@ -1,6 +1,7 @@
 import { useAtom } from "jotai";
 import React, { useEffect } from "react";
 import { Route, useHistory, useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 import { wsend } from "../createWebsocket";
 import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
 import { invitationToRoom } from "../webrtc/utils/invitationToRoom";
@@ -46,6 +47,7 @@ export const Routes: React.FC<RoutesProps> = () => {
         setCurrentRoom((cr) =>
           !cr || cr.id !== roomId ? cr : { ...cr, name, isPrivate }
         );
+        toast("room is now public", { type: "info" });
       },
       invitation_to_room: (value) => {
         invitationToRoom(value, history);

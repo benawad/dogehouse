@@ -1,33 +1,65 @@
 import { useAtom } from "jotai";
-import React from "react";
+import React, { useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
 import { useMuteStore } from "../../webrtc/stores/useMuteStore";
-import { renameRoomAndMakePublic } from "../../webrtc/utils/renameRoomAndMakePublic";
 import { currentRoomAtom, meAtom, myCurrentRoomInfoAtom } from "../atoms";
 import { Codicon } from "../svgs/Codicon";
-import { PawPrint } from "../svgs/PawPrint";
-import { Button } from "./Button";
+import { PhoneMissed, UserPlus, Mic, MicOff, X, Settings } from "react-feather";
 import { Footer } from "./Footer";
+import { renameRoomAndMakePublic } from "../../webrtc/utils/renameRoomAndMakePublic";
+import { Modal } from "./Modal";
+import { Button } from "./Button";
 
 interface BottomVoiceControlProps {}
 
-export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = () => {
+const iconSize = 30;
+const iconColor = "#8C8C8C";
+
+export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
+  children,
+}) => {
   const location = useLocation();
   const history = useHistory();
   const [currentRoom, setCurrentRoom] = useAtom(currentRoomAtom);
   const { muted, set } = useMuteStore();
   const [me] = useAtom(meAtom);
   const [{ canSpeak, isCreator }] = useAtom(myCurrentRoomInfoAtom);
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
-  let rightSide = null;
+  const buttons = [];
 
   if (currentRoom) {
+    buttons.push(
+      <button
+        style={{ padding: "var(--container-paddding)" }}
+        key="leave-room"
+        onClick={() => {
+          wsend({ op: "leave_room", d: {} });
+          if (location.pathname.startsWith("/room")) {
+            history.push("/");
+          }
+        }}
+      >
+        <PhoneMissed size={iconSize} color={iconColor} />
+      </button>,
+      <button
+        style={{ padding: "var(--container-paddding)" }}
+        key="invite"
+        onClick={() => {
+          wsend({ op: "fetch_invite_list", d: { cursor: 0 } });
+          history.push("/invite");
+        }}
+      >
+        <UserPlus size={iconSize} color={iconColor} />
+      </button>
+    );
     if (isCreator || canSpeak) {
-      rightSide = (
-        <Button
-          variant="small"
+      buttons.push(
+        <button
+          style={{ padding: "var(--container-paddding)" }}
+          key="mute"
           onClick={() => {
             wsend({
               op: "mute",
@@ -36,43 +68,72 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = () => {
             set({ muted: !muted });
           }}
         >
-          {muted ? "unmute" : "mute"}
-        </Button>
+          {muted ? (
+            <MicOff size={iconSize} color={iconColor} />
+          ) : (
+            <Mic size={iconSize} color={iconColor} />
+          )}
+        </button>
       );
     } else if (me) {
-      if (
-        me.id in currentRoom.raiseHandMap &&
-        currentRoom.raiseHandMap[me.id] !== 1
-      ) {
-        rightSide = <div>you can only ask to speak once per room</div>;
-      } else {
-        rightSide = (
-          <Button
-            onClick={() => {
+      buttons.push(
+        <button
+          style={{ padding: "var(--container-paddding)" }}
+          key="ask-to-speak"
+          onClick={() => {
+            if (
+              me.id in currentRoom.raiseHandMap &&
+              currentRoom.raiseHandMap[me.id] !== 1
+            ) {
+              window.alert("You can only ask to speak once per room.");
+            } else {
               wsend({ op: "ask_to_speak", d: {} });
-            }}
-            variant="small"
-          >
-            <PawPrint />
-          </Button>
-        );
-      }
+            }
+          }}
+        >
+          <Codicon
+            width={iconSize}
+            height={iconSize}
+            fill={iconColor}
+            name="megaphone"
+          />
+        </button>
+      );
+    }
+
+    if (isCreator) {
+      buttons.push(
+        <button
+          style={{ padding: "var(--container-paddding)" }}
+          key="to-public-room"
+          onClick={() => {
+            setSettingsOpen(true);
+          }}
+        >
+          <Settings size={iconSize} color={iconColor} />
+        </button>
+      );
     }
   }
 
   return (
-    <div
-      style={{
-        backgroundColor: "var(--vscode-dropdown-border)",
-        padding: "var(--container-paddding)",
-      }}
-      className={tw`py-4 sticky bottom-0 w-full mt-auto`}
-    >
-      {currentRoom ? (
-        <>
-          {isCreator ? (
+    <>
+      <Modal
+        isOpen={settingsOpen}
+        onRequestClose={() => setSettingsOpen(false)}
+      >
+        <button
+          onClick={() => {
+            setSettingsOpen(false);
+          }}
+          className={tw`p-2 -ml-3`}
+        >
+          <X />
+        </button>
+        {currentRoom ? (
+          <>
             <label
-              className={tw`flex items-center mb-8`}
+              className={tw`flex items-center my-8`}
               htmlFor="auto-speaker"
             >
               <input
@@ -94,51 +155,44 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = () => {
                 id="auto-speaker"
                 type="checkbox"
               />
-              <span className={tw`ml-2`}>
-                require audience to ask permission to speak
-              </span>
+              <span className={tw`ml-2`}>require permission to speak</span>
             </label>
-          ) : null}
-          {isCreator && currentRoom.isPrivate ? (
-            <div className={tw`mb-6`}>
+            {currentRoom.isPrivate ? (
               <Button
                 onClick={() => {
                   renameRoomAndMakePublic(currentRoom.name);
+                  setSettingsOpen(false);
                 }}
               >
                 make room public
               </Button>
+            ) : null}
+          </>
+        ) : null}
+      </Modal>
+      <div className={tw`sticky bottom-0`}>
+        {children}
+        <div
+          style={{
+            borderTop: "1px solid rgb(255,255,255,.6)",
+            backgroundColor: "#262626",
+            padding: "0 var(--container-paddding)",
+          }}
+          className={tw`w-full mt-auto`}
+        >
+          {currentRoom ? (
+            <div className={tw`flex justify-around`}>{buttons}</div>
+          ) : (
+            <div
+              style={{
+                padding: "var(--container-paddding) 0",
+              }}
+            >
+              <Footer />
             </div>
-          ) : null}
-          <div className={tw`mb-6 flex`}>
-            <Button
-              variant="small"
-              style={{ marginRight: "auto" }}
-              onClick={() => {
-                wsend({ op: "leave_room", d: {} });
-                if (location.pathname.startsWith("/room")) {
-                  history.push("/");
-                }
-              }}
-            >
-              leave room
-            </Button>
-            <Button
-              onClick={() => {
-                wsend({ op: "fetch_invite_list", d: { cursor: 0 } });
-                history.push("/invite");
-              }}
-              style={{ marginRight: 16 }}
-              variant="small"
-            >
-              <Codicon name="plus" />
-            </Button>
-            {rightSide}
-          </div>
-        </>
-      ) : (
-        <Footer />
-      )}
-    </div>
+          )}
+        </div>
+      </div>
+    </>
   );
 };

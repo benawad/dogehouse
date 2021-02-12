@@ -40,7 +40,7 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
 
   return (
     <Wrapper>
-      <Backbar />
+      <Backbar actuallyGoBack />
       {!users.length ? <div>no users found</div> : null}
       {users.map((profile) => (
         <div

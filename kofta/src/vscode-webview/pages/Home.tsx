@@ -8,9 +8,10 @@ import { BottomVoiceControl } from "../components/BottomVoiceControl";
 import { tw } from "twind";
 import { Button } from "../components/Button";
 import { wsend } from "../../createWebsocket";
-import { createRoomPrompt } from "../utils/createRoomPrompt";
 import { Logo } from "../svgs/Logo";
 import { CreateRoomModal } from "../components/CreateRoomModal";
+import { ProfileButton } from "../components/ProfileButton";
+import { PeopleIcon } from "../svgs/PeopleIcon";
 
 interface HomeProps {}
 
@@ -36,36 +37,32 @@ export const Home: React.FC<HomeProps> = () => {
   return (
     <>
       <Wrapper>
-        <div className={tw`mb-10`}>
+        <div className={tw`mb-10 mt-8`}>
           <Logo />
         </div>
-        <div className={tw`mb-6`}>
-          <Button
+        <div className={tw`mb-6 flex justify-center`}>
+          <button
+            style={{
+              borderRadius: "50%",
+              backgroundColor: "rgba(255, 255, 255, 0.06)",
+              border: ".5px solid rgba(255, 255, 255, 0.4)",
+              height: 60,
+              width: 60,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              marginRight: 18,
+            }}
             onClick={() => {
               wsend({ op: "fetch_following_online", d: { cursor: 0 } });
               history.push("/following-online");
             }}
           >
-            friends
-          </Button>
-        </div>
-        <div className={tw`mb-4 flex`}>
-          <Button
-            onClick={() => {
-              setShowCreateRoomModal(true);
-              // createRoomPrompt("public");
-            }}
-          >
-            create room
-          </Button>
-          {/* <Button
-            style={{ marginLeft: 10 }}
-            onClick={() => {
-              createRoomPrompt("private");
-            }}
-          >
-            create private room
-          </Button> */}
+            <PeopleIcon width={30} height={30} fill="#fff" />
+          </button>
+          <div style={{ marginLeft: 9 }}>
+            <ProfileButton circle size={60} />
+          </div>
         </div>
         {currentRoom ? (
           <div className={tw`my-8`}>
@@ -107,7 +104,22 @@ export const Home: React.FC<HomeProps> = () => {
           </div>
         ) : null}
       </Wrapper>
-      <BottomVoiceControl />
+      <BottomVoiceControl>
+        <div
+          style={{
+            padding: "0 var(--container-paddding)",
+          }}
+          className={tw`mb-8 flex`}
+        >
+          <Button
+            onClick={() => {
+              setShowCreateRoomModal(true);
+            }}
+          >
+            create room
+          </Button>
+        </div>
+      </BottomVoiceControl>
       {showCreateRoomModal ? (
         <CreateRoomModal onRequestClose={() => setShowCreateRoomModal(false)} />
       ) : null}

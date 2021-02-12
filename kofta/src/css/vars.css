@@ -1,5 +1,5 @@
 :root {
-  --vscode-font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  --vscode-font-family: Heebo, -apple-system, BlinkMacSystemFont, sans-serif;
   --vscode-font-weight: normal;
   --vscode-font-size: 16px;
   --vscode-editor-font-family: Menlo, Monaco, "Courier New", monospace;
@@ -37,8 +37,8 @@
   --vscode-checkbox-foreground: #f0f0f0;
   --vscode-checkbox-border: #3c3c3c;
   --vscode-button-foreground: #ffffff;
-  --vscode-button-background: #0e639c;
-  --vscode-button-hoverBackground: #1177bb;
+  --vscode-button-background: #0b78e3;
+  --vscode-button-hoverBackground: #074d92;
   --vscode-button-secondaryForeground: #ffffff;
   --vscode-button-secondaryBackground: #3a3d41;
   --vscode-button-secondaryHoverBackground: #45494e;

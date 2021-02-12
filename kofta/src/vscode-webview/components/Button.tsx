@@ -17,13 +17,14 @@ export const Button: React.FC<
   return (
     <button
       style={{
+        borderRadius: 4,
         outline: "1px solid transparent",
         outlineOffset: 2,
         color:
           color === "secondary"
             ? "var(--vscode-button-secondaryForeground)"
             : "var(--vscode-button-foreground)",
-        padding: `var(--input-padding-vertical) var(--input-padding-horizontal)`,
+        padding: `10px var(--input-padding-horizontal)`,
         fontSize: `var(--vscode-font-size)`,
         textTransform: "capitalize",
         ...(variant === "small" ? { padding: "4px 8px", width: "unset" } : {}),

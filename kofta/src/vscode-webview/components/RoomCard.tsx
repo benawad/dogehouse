@@ -54,10 +54,8 @@ export const RoomCard: React.FC<RoomProps> = ({
         onClick={onClick}
         style={{
           width: "100%",
-          padding: "10px",
-          backgroundColor: active
-            ? "var(--vscode-charts-lines)"
-            : "var(--vscode-input-background)",
+          padding: "10px 20px",
+          backgroundColor: active ? "#4D4D4D" : "#333333",
           borderRadius: 9,
         }}
       >
@@ -70,7 +68,6 @@ export const RoomCard: React.FC<RoomProps> = ({
           <div
             style={{
               textAlign: "left",
-              fontWeight: 600,
               fontSize: "calc(var(--vscode-font-size)*1.2)",
               flex: 1,
             }}

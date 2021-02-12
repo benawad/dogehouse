@@ -159,32 +159,12 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
             {room.name}
           </div>
           <ProfileButton />
-          {/* <div className={tw`flex`}>
-            <button
-              className={tw`hover:bg-buttonHover p-2 pr-3`}
-              onClick={() => {
-                wsend({ op: "fetch_invite_list", d: { cursor: 0 } });
-                history.push("/invite");
-              }}
-            >
-              <Codicon name="plus" />
-            </button>
-            <button
-              className={tw`hover:bg-buttonHover p-2  pl-3`}
-              onClick={() => {
-                history.push("/voice-settings");
-              }}
-            >
-              <Codicon name="cog" />
-            </button>
-          </div> */}
         </Backbar>
         <div
           style={{
             width: "100%",
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, 90px)",
-            justifyContent: "center",
             gap: 20,
           }}
         >
@@ -217,9 +197,11 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
           {listeners.length ? (
             <div
               style={{
+                fontSize: 20,
+                marginLeft: 10,
                 marginTop: 10,
                 gridColumn: "1/-1",
-                color: "var(--vscode-descriptionForeground)",
+                color: "#fff",
               }}
             >
               Listeners

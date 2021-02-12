@@ -11,7 +11,7 @@ export const ViewUserPage: React.FC<ViewUserPageProps> = () => {
   const { state } = useLocation<User>();
   return (
     <Wrapper>
-      <Backbar />
+      <Backbar actuallyGoBack />
       <UserProfile profile={state} />
     </Wrapper>
   );
