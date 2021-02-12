@@ -60,3 +60,7 @@ config :sentry,
     env: "production"
   },
   included_environments: [:prod]
+
+config :joken,
+  access_token_key: System.fetch_env!("ACCESS_TOKEN_SECRET"),
+  refresh_token_key: System.fetch_env!("REFRESH_TOKEN_SECRET")
