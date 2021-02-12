@@ -20,8 +20,8 @@ export const Avatar: React.FC<AvatarProps> = ({
         width: size,
         height: size,
         borderRadius: circle ? "50%" : "30%",
-        border: active
-          ? "3px solid var(--vscode-textLink-foreground)"
+        boxShadow: active
+          ? "0 0 0 3px var(--vscode-textLink-foreground)"
           : undefined,
       }}
       src={src}
