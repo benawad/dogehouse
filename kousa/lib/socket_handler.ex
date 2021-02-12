@@ -409,6 +409,11 @@ defmodule Kousa.SocketHandler do
      }), state}
   end
 
+  def handler("set_listener", %{"userId" => user_id_to_make_listener}, state) do
+    Kousa.BL.Room.set_listener(state.user_id, user_id_to_make_listener)
+    {:ok, state}
+  end
+
   def handler("follow_info", %{"userId" => other_user_id}, state) do
     {:reply,
      construct_socket_msg(state.encoding, state.compression, %{

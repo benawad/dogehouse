@@ -137,6 +137,21 @@ defmodule Kousa.Gen.RoomSession do
      }}
   end
 
+  def handle_cast({:speaker_removed, user_id}, state) do
+    new_mm = Map.delete(state.muteMap, user_id)
+
+    ws_fan(state.users, :vscode, %{
+      op: "speaker_removed",
+      d: %{
+        userId: user_id,
+        roomId: state.room_id,
+        muteMap: new_mm
+      }
+    })
+
+    {:noreply, %{state | muteMap: new_mm}}
+  end
+
   def handle_cast({:speaker_added, user_id, muted}, state) do
     new_mm =
       if muted,

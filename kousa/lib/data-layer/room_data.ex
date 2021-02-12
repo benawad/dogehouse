@@ -3,6 +3,27 @@ defmodule Kousa.Data.Room do
 
   @fetch_limit 16
 
+  def get_room_status(user_id) do
+    room = Kousa.Data.User.get_current_room(user_id)
+
+    cond do
+      is_nil(room) ->
+        nil
+
+      room.creatorId == user_id ->
+        :creator
+
+      true ->
+        user = Kousa.Data.User.get_by_id(user_id)
+
+        cond do
+          room.id == user.modForRoomId -> :mod
+          room.id == user.canSpeakForRoomId -> :speaker
+          true -> :listener
+        end
+    end
+  end
+
   def set_room_privacy_by_creator_id(user_id, isPrivate, new_name) do
     from(r in Beef.Room,
       where: r.creatorId == ^user_id,

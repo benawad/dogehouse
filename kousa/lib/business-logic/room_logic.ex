@@ -61,6 +61,40 @@ defmodule Kousa.BL.Room do
     end
   end
 
+  def internal_set_listener(user_id_to_make_listener, room_id) do
+    {rows_affected, _} = Kousa.Data.User.set_speaker(user_id_to_make_listener, nil)
+
+    if rows_affected == 1 do
+      Kousa.Gen.Rabbit.send(%{
+        op: "remove-speaker",
+        d: %{roomId: room_id, peerId: user_id_to_make_listener},
+        uid: user_id_to_make_listener
+      })
+
+      Kousa.RegUtils.lookup_and_cast(
+        Kousa.Gen.RoomSession,
+        room_id,
+        {:speaker_removed, user_id_to_make_listener}
+      )
+    end
+  end
+
+  def set_listener(user_id, user_id_to_set_listener) do
+    if user_id == user_id_to_set_listener do
+      internal_set_listener(user_id, Kousa.Data.User.get_current_room_id(user_id))
+    else
+      status = Kousa.Data.Room.get_room_status(user_id)
+
+      if status == :creator or status == :mod do
+        internal_set_listener(
+          user_id,
+          Kousa.Data.User.get_current_room_id(user_id_to_set_listener)
+        )
+      end
+    end
+  end
+
+  @spec internal_set_speaker(any, any, any) :: nil | :ok | {:err, {:error, :not_found}}
   def internal_set_speaker(user_id_to_make_speaker, from_hand, room_id) do
     {rows_affected, _} = Kousa.Data.User.set_speaker(user_id_to_make_speaker, room_id)
 

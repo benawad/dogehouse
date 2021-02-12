@@ -166,6 +166,15 @@ defmodule Kousa.Data.User do
     |> Repo.update_all([])
   end
 
+  def get_current_room(user_id) do
+    room_id = get_current_room_id(user_id)
+
+    case room_id do
+      nil -> nil
+      id -> Kousa.Data.Room.get_room_by_id(id)
+    end
+  end
+
   def get_current_room_id(user_id) do
     case Kousa.RegUtils.lookup_and_call(
            Kousa.Gen.UserSession,
