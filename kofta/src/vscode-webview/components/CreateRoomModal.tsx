@@ -28,6 +28,11 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
         }}
       >
         <input
+          style={{
+            paddingLeft: 12,
+            paddingRight: 12,
+          }}
+          className={tw`text-xl`}
           placeholder="room name"
           autoFocus
           value={name}

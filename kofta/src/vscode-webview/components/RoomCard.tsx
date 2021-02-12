@@ -36,7 +36,7 @@ export const RoomCard: React.FC<RoomProps> = ({
         key={p.id}
         style={{
           marginTop: !i ? 6 : 2,
-          color: "var(--vscode-input-foreground)",
+          color: "#D9D9D9",
           textAlign: "left",
         }}
       >
@@ -70,6 +70,7 @@ export const RoomCard: React.FC<RoomProps> = ({
               textAlign: "left",
               fontSize: "calc(var(--vscode-font-size)*1.2)",
               flex: 1,
+              color: "#D9D9D9",
             }}
           >
             {room.name?.slice(0, 100)}

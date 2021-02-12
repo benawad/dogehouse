@@ -33,7 +33,7 @@ export const UserNode: React.FC<UserNodeProps> = ({
       <img
         src={GlassesDoge}
         alt="room creator"
-        style={{ height: 18, width: 18, marginRight: 4, marginBottom: 6 }}
+        style={{ height: 18, width: 18, marginLeft: 4, marginBottom: 6 }}
       />
     );
   } else if (isMod) {
@@ -41,13 +41,13 @@ export const UserNode: React.FC<UserNodeProps> = ({
       <img
         src={RegularDoge}
         alt="room mod"
-        style={{ height: 18, width: 18, marginRight: 4, marginBottom: 5 }}
+        style={{ height: 18, width: 18, marginLeft: 4, marginBottom: 5 }}
       />
     );
   } else if (raisedHand) {
     prefix = (
       <Codicon
-        style={{ marginRight: 2, height: 16, width: 16 }}
+        style={{ marginLeft: 2, height: 16, width: 16 }}
         name="megaphone"
       />
     );
@@ -69,10 +69,10 @@ export const UserNode: React.FC<UserNodeProps> = ({
         ) : null}
       </div>
       <div className={tw`mt-2 flex items-center`}>
-        {prefix}
         <div style={{ fontSize: 14 }}>
           {(u.displayName || "").split(" ")[0]?.slice(0, 9)}
         </div>
+        {prefix}
       </div>
     </button>
   );

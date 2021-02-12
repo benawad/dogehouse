@@ -13,7 +13,7 @@ export const Login: React.FC<LoginProps> = () => {
   return (
     <>
       <Wrapper>
-        <div className={tw`mb-8`}>
+        <div className={tw`my-8`}>
           <Logo />
         </div>
         <div className={tw`text-2xl`}>

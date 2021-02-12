@@ -117,7 +117,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
                   allow
                 </Button>
               </div>
-              <div className={tw`ml-2`}>
+              <div className={tw`ml-4`}>
                 <Button
                   onClick={() => {
                     wsend({ op: "decline_hand", d: { userId: u.id } });
@@ -148,18 +148,18 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
         onClose={() => setUserProfileId("")}
         profile={profile}
       />
+      <Backbar>
+        <div
+          style={{
+            fontSize: "calc(var(--vscode-font-size)*1.3)",
+          }}
+          className={tw`flex-1 text-center flex items-center justify-center font-semibold`}
+        >
+          {room.name.slice(0, 50)}
+        </div>
+        <ProfileButton />
+      </Backbar>
       <Wrapper>
-        <Backbar>
-          <div
-            style={{
-              fontSize: "calc(var(--vscode-font-size)*1.1)",
-            }}
-            className={tw`flex-1 text-center flex items-center justify-center font-semibold`}
-          >
-            {room.name}
-          </div>
-          <ProfileButton />
-        </Backbar>
         <div
           style={{
             width: "100%",
@@ -168,6 +168,16 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
             gap: 20,
           }}
         >
+          <div
+            style={{
+              fontSize: 20,
+              marginLeft: 10,
+              gridColumn: "1/-1",
+              color: "#fff",
+            }}
+          >
+            Speakers
+          </div>
           {speakers.map((u) => (
             <UserNode
               u={u}

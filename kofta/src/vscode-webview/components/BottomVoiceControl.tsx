@@ -174,7 +174,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
         {children}
         <div
           style={{
-            borderTop: "1px solid rgb(255,255,255,.6)",
+            borderTop: "1px solid #808080",
             backgroundColor: "#262626",
             padding: "0 var(--container-paddding)",
           }}

@@ -17,7 +17,7 @@ export const Backbar: React.FC<BackbarProps> = ({
     <div
       style={{
         backgroundColor: "#262626",
-        borderBottom: "1px solid rgb(255,255,255,.6)",
+        borderBottom: "1px solid #808080",
       }}
       className={tw`flex py-4 mb-12`}
     >
