@@ -45,7 +45,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ profile }) => {
       </div>
       <div className={tw`font-semibold`}>{profile.displayName}</div>
       <div className={tw`my-1 flex`}>
-        <div>@{profile.username}</div>
+        <div><a href={'https://github.com/' + profile.username} target="_blank">@{profile.username}</a></div>
         {me?.id !== profile.id && profile.followsYou ? (
           <div
             style={{
