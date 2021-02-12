@@ -37,7 +37,7 @@ export const Login: React.FC<LoginProps> = () => {
             (window.location.href = apiBaseUrl + "/auth/github/web")
           }
         >
-          login with Github
+          login with GitHub
         </Button>
         {process.env.NODE_ENV === "development" ? (
           <Button
