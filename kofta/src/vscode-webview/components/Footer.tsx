@@ -7,7 +7,7 @@ export const Footer: React.FC<FooterProps> = ({}) => {
   return (
     <div className={tw`justify-around flex`}>
       <a
-        href="https://www.notion.so/Investing-in-DogeHouse-fd2f5351c26842309995ced2f1358f0e"
+        href="https://github.com/benawad/dogehouse#investors"
         style={{ color: "var(--vscode-textLink-foreground)" }}
       >
         Investors
