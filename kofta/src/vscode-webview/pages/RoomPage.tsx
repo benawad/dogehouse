@@ -182,7 +182,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
               color: "#fff",
             }}
           >
-            Speakers
+            Speakers ({speakers.length})
           </div>
           {speakers.map((u) => (
             <UserNode
@@ -220,7 +220,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
                 color: "#fff",
               }}
             >
-              Listeners
+              Listeners ({listeners.length})
             </div>
           ) : null}
           {listeners.map((u) => (
