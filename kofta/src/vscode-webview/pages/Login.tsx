@@ -16,12 +16,8 @@ export const Login: React.FC<LoginProps> = () => {
         <div className={tw`my-8`}>
           <Logo />
         </div>
-        <div className={tw`text-2xl`}>
-          An audio livestreaming social network that may or may not be a
-          Clubhouse clone with:
-        </div>
+        <div className={tw`text-2xl`}>The home for voice conversations.</div>
         <ul className={tw`my-4 mb-8 text-xl`}>
-          <li>- Less features</li>
           <li>- Dark theme</li>
           <li>- Open sign ups</li>
           <li>- Cross platform support</li>
