@@ -1,21 +1,28 @@
 defmodule Kousa.SocketHandler do
-  require Logger
-
-  @type t :: %{
-          awaiting_init: boolean,
-          user_id: String.t(),
-          encoding: Atom.t(),
-          compression: String.t()
-        }
-
-  defstruct awaiting_init: true,
-            user_id: nil,
-            platform: nil,
-            encoding: nil,
-            compression: nil
-
   @behaviour :cowboy_websocket
 
+  alias Beef.Repo
+  alias Kousa.Data.{Follower, User}
+  alias Kousa.Gen.{RoomSession, UserSession}
+
+  require Logger
+
+  defmodule State do
+    @type t :: %__MODULE__{
+            awaiting_init: boolean(),
+            user_id: String.t(),
+            encoding: atom(),
+            compression: String.t()
+          }
+
+    defstruct awaiting_init: true,
+              user_id: nil,
+              platform: nil,
+              encoding: nil,
+              compression: nil
+  end
+
+  @impl true
   def init(request, _state) do
     compression =
       request
@@ -36,9 +43,8 @@ defmodule Kousa.SocketHandler do
         _ -> :json
       end
 
-    state = %__MODULE__{
+    state = %State{
       awaiting_init: true,
-      user_id: nil,
       encoding: encoding,
       compression: compression
     }
@@ -46,22 +52,24 @@ defmodule Kousa.SocketHandler do
     {:cowboy_websocket, request, state}
   end
 
+  @impl true
   def websocket_init(state) do
     Process.send_after(self(), {:finish_awaiting}, 10_000)
 
     {:ok, state}
   end
 
-  def websocket_info({:finish_awaiting}, state) do
-    if state.awaiting_init do
+  @impl true
+  def websocket_info({:finish_awaiting}, %State{awaiting_init: awaiting} = state) do
+    if awaiting do
       {:stop, state}
     else
       {:ok, state}
     end
   end
 
-  def websocket_info({:remote_send, message}, state) do
-    {:reply, construct_socket_msg(state.encoding, state.compression, message), state}
+  def websocket_info({:remote_send, message}, %State{} = state) do
+    {:reply, prepare_socket_msg(message, state), state}
   end
 
   def websocket_info({:send_to_linked_session, message}, state) do
@@ -73,133 +81,144 @@ defmodule Kousa.SocketHandler do
     {:reply, {:close, 4003, "killed_by_server"}, state}
   end
 
-  def websocket_handle({:text, "ping"}, state) do
-    {:reply, construct_socket_msg(state.encoding, state.compression, "pong"), state}
+  @impl true
+  def websocket_handle({:text, "ping"}, %State{} = state) do
+    {:reply, prepare_socket_msg("pong", state), state}
   end
 
-  def websocket_handle({:ping, _}, state) do
-    {:reply, construct_socket_msg(state.encoding, state.compression, "pong"), state}
+  def websocket_handle({:ping, _}, %State{} = state) do
+    {:reply, prepare_socket_msg("pong", state), state}
+  end
+
+  def websocket_handle({:text, _json}, %State{user_id: nil} = state) do
+    {:reply, {:close, 4004, "not_authenticated"}, state}
   end
 
   def websocket_handle({:text, json}, state) do
     with {:ok, json} <- Poison.decode(json) do
       case json["op"] do
         "auth" ->
-          %{
-            "accessToken" => accessToken,
-            "refreshToken" => refreshToken,
-            "platform" => platform,
-            "reconnectToVoice" => reconnectToVoice,
-            "muted" => muted
-          } = json["d"]
-
-          case Kousa.TokenUtils.tokens_to_user_id(accessToken, refreshToken) do
-            {nil, nil} ->
-              {:reply, {:close, 4001, "invalid_authentication"}, state}
-
-            x ->
-              {user_id, tokens, user} =
-                case x do
-                  {user_id, tokens} -> {user_id, tokens, Kousa.Data.User.get_by_id(user_id)}
-                  y -> y
-                end
-
-              cond do
-                user ->
-                  {:ok, session} =
-                    GenRegistry.lookup_or_start(Kousa.Gen.UserSession, user_id, [
-                      %{user_id: user_id, current_room_id: user.currentRoomId, muted: muted}
-                    ])
-
-                  GenServer.call(session, {:set_pid, self()})
-
-                  if tokens do
-                    GenServer.cast(session, {:new_tokens, tokens})
-                  end
-
-                  if not is_nil(user.currentRoomId) do
-                    {:ok, room_session} =
-                      GenRegistry.lookup_or_start(Kousa.Gen.RoomSession, user.currentRoomId, [
-                        %{user_id: user_id, room_id: user.currentRoomId, muted: muted}
-                      ])
-
-                    GenServer.cast(
-                      room_session,
-                      {:join_room, user, muted}
-                    )
-
-                    if reconnectToVoice == true do
-                      Kousa.BL.Room.join_vc_room(user.id, user.currentRoomId)
-                    end
-                  end
-
-                  {:reply,
-                   construct_socket_msg(state.encoding, state.compression, %{
-                     op: "auth-good",
-                     d: %{user: user}
-                   }), %{state | user_id: user_id, awaiting_init: false, platform: platform}}
-
-                true ->
-                  {:reply, {:close, 4001, "invalid_authentication"}, state}
-              end
-          end
+          handle_auth_operation(json["d"], state)
 
         _ ->
-          if not is_nil(state.user_id) do
-            try do
-              handler(json["op"], json["d"], state)
-            rescue
-              e ->
-                err_msg = Exception.message(e)
+          try do
+            handler(json["op"], json["d"], state)
+          rescue
+            e ->
+              err_msg = Exception.message(e)
 
-                IO.inspect(e)
-                Logger.error(err_msg)
-                Logger.error(Exception.format_stacktrace())
-                op = Map.get(json, "op", "")
-                IO.puts("error for op: " <> op)
+              IO.inspect(e)
+              Logger.error(err_msg)
+              Logger.error(Exception.format_stacktrace())
+              op = Map.get(json, "op", "")
+              IO.puts("error for op: " <> op)
 
-                Sentry.capture_exception(e,
-                  stacktrace: __STACKTRACE__,
-                  extra: %{op: op}
-                )
+              Sentry.capture_exception(e,
+                stacktrace: __STACKTRACE__,
+                extra: %{op: op}
+              )
 
-                {:reply,
-                 construct_socket_msg(state.encoding, state.compression, %{
+              {:reply,
+               prepare_socket_msg(
+                 %{
                    op: "error",
                    d: err_msg
-                 }), state}
-            end
-          else
-            {:reply, {:close, 4004, "not_authenticated"}, state}
+                 },
+                 state
+               ), state}
           end
       end
     end
   end
 
-  defp construct_socket_msg(encoding, compression, data) do
-    data =
-      case encoding do
-        :etf ->
-          data
+  defp handle_auth_operation(%{"d" => data}, state) do
+    %{
+      "accessToken" => accessToken,
+      "refreshToken" => refreshToken,
+      "platform" => platform,
+      "reconnectToVoice" => reconnectToVoice,
+      "muted" => muted
+    } = data
 
-        _ ->
-          data |> Poison.encode!()
-      end
+    case Kousa.TokenUtils.tokens_to_user_id(accessToken, refreshToken) do
+      {:error, _reason} ->
+        {:reply, {:close, 4001, "invalid_authentication"}, state}
 
-    case compression do
-      :zlib ->
-        z = :zlib.open()
-        :zlib.deflateInit(z)
+      result ->
+        {user_id, tokens} =
+          case result do
+            {:ok, user_id} -> {user_id, nil}
+            {:ok, user_id, tokens} -> {user_id, tokens}
+          end
 
-        data = :zlib.deflate(z, data, :finish)
+        with %Beef.User{id: user_id, currentRoomId: current_room_id} = user <-
+               Repo.get(Beef.User, user_id) do
+          start_params = [%{user_id: user_id, current_room_id: current_room_id, muted: muted}]
 
-        :zlib.deflateEnd(z)
+          {:ok, user_session} = GenRegistry.lookup_or_start(UserSession, user_id, start_params)
 
-        {:binary, data}
+          # TODO: consider creating functions in UserSession module instead of calling bare genserver
+          GenServer.call(user_session, {:set_pid, self()})
 
-      _ ->
-        {:text, data}
+          if tokens do
+            GenServer.cast(user_session, {:new_tokens, tokens})
+          end
+
+          if current_room_id do
+            {:ok, room_session} =
+              GenRegistry.lookup_or_start(RoomSession, current_room_id, start_params)
+
+            GenServer.cast(
+              room_session,
+              {:join_room, user, muted}
+            )
+
+            if reconnectToVoice == true do
+              Kousa.BL.Room.join_vc_room(user_id, current_room_id)
+            end
+          end
+
+          {:reply,
+           prepare_socket_msg(
+             %{
+               op: "auth-good",
+               d: %{user: user}
+             },
+             state
+           ), %{state | user_id: user_id, awaiting_init: false, platform: platform}}
+        else
+          nil ->
+            {:reply, {:close, 4001, "invalid_authentication"}, state}
+        end
     end
+  end
+
+  defp prepare_socket_msg(data, %State{compression: compression, encoding: encoding}) do
+    data
+    |> encode_data(encoding)
+    |> compress_data(compression)
+  end
+
+  defp encode_data(data, :etf) do
+    data
+  end
+
+  defp encode_data(data, _encoding) do
+    data |> Poison.encode!()
+  end
+
+  defp compress_data(data, :zlib) do
+    z = :zlib.open()
+
+    :zlib.deflateInit(z)
+    data = :zlib.deflate(z, data, :finish)
+    :zlib.deflateEnd(z)
+
+    {:binary, data}
+  end
+
+  defp compress_data(data, _compression) do
+    {:text, data}
   end
 
   # def handler("join-as-new-peer", _data, state) do
@@ -207,14 +226,17 @@ defmodule Kousa.SocketHandler do
   #   {:ok, state}
   # end
 
-  def handler("fetch_following_online", %{"cursor" => cursor}, state) do
-    {users, next_cursor} = Kousa.Data.Follower.fetch_following_online(state.user_id, cursor)
+  def handler("fetch_following_online", %{"cursor" => cursor}, %State{} = state) do
+    {users, next_cursor} = Follower.fetch_following_online(state.user_id, cursor)
 
     {:reply,
-     construct_socket_msg(state.encoding, state.compression, %{
-       op: "fetch_following_online_done",
-       d: %{users: users, nextCursor: next_cursor, initial: cursor == 0}
-     }), state}
+     prepare_socket_msg(
+       %{
+         op: "fetch_following_online_done",
+         d: %{users: users, nextCursor: next_cursor, initial: cursor == 0}
+       },
+       state
+     ), state}
   end
 
   def handler("invite_to_room", %{"userId" => user_id_to_invite}, state) do
@@ -228,23 +250,29 @@ defmodule Kousa.SocketHandler do
   end
 
   def handler("fetch_invite_list", %{"cursor" => cursor}, state) do
-    {users, next_cursor} = Kousa.Data.Follower.fetch_invite_list(state.user_id, cursor)
+    {users, next_cursor} = Follower.fetch_invite_list(state.user_id, cursor)
 
     {:reply,
-     construct_socket_msg(state.encoding, state.compression, %{
-       op: "fetch_invite_list_done",
-       d: %{users: users, nextCursor: next_cursor, initial: cursor == 0}
-     }), state}
+     prepare_socket_msg(
+       %{
+         op: "fetch_invite_list_done",
+         d: %{users: users, nextCursor: next_cursor, initial: cursor == 0}
+       },
+       state
+     ), state}
   end
 
   def handler("ban", %{"username" => username, "reason" => reason}, state) do
     worked = Kousa.BL.User.ban(state.user_id, username, reason)
 
     {:reply,
-     construct_socket_msg(state.encoding, state.compression, %{
-       op: "ban_done",
-       d: %{worked: worked}
-     }), state}
+     prepare_socket_msg(
+       %{
+         op: "ban_done",
+         d: %{worked: worked}
+       },
+       state
+     ), state}
   end
 
   def handler("set_auto_speaker", %{"value" => value}, state) do
@@ -255,26 +283,29 @@ defmodule Kousa.SocketHandler do
 
   def handler("create-room", data, state) do
     case Kousa.BL.Room.create_room(state.user_id, data["roomName"], data["value"] == "private") do
-      nil ->
-        nil
-
       {:ok, d} ->
         if Map.has_key?(data, "userIdToInvite") do
           Kousa.BL.Room.invite_to_room(state.user_id, data["userIdToInvite"])
         end
 
         {:reply,
-         construct_socket_msg(state.encoding, state.compression, %{
-           op: "new_current_room",
-           d: d
-         }), state}
+         prepare_socket_msg(
+           %{
+             op: "new_current_room",
+             d: d
+           },
+           state
+         ), state}
 
       {:error, d} ->
         {:reply,
-         construct_socket_msg(state.encoding, state.compression, %{
-           op: "error",
-           d: d
-         }), state}
+         prepare_socket_msg(
+           %{
+             op: "error",
+             d: d
+           },
+           state
+         ), state}
     end
   end
 
@@ -286,14 +317,17 @@ defmodule Kousa.SocketHandler do
       )
 
     {:reply,
-     construct_socket_msg(state.encoding, state.compression, %{
-       op: "get_top_public_rooms_done",
-       d: %{rooms: rooms, nextCursor: next_cursor, initial: data["cursor"] == 0}
-     }), state}
+     prepare_socket_msg(
+       %{
+         op: "get_top_public_rooms_done",
+         d: %{rooms: rooms, nextCursor: next_cursor, initial: data["cursor"] == 0}
+       },
+       state
+     ), state}
   end
 
   def handler("speaking_change", %{"value" => value}, state) do
-    current_room_id = Kousa.Data.User.get_current_room_id(state.user_id)
+    current_room_id = User.get_current_room_id(state.user_id)
 
     if not is_nil(current_room_id) do
       Kousa.RegUtils.lookup_and_cast(
@@ -314,15 +348,18 @@ defmodule Kousa.SocketHandler do
 
   def handler("join_room", %{"roomId" => room_id}, state) do
     case Kousa.BL.Room.join_room(state.user_id, room_id) do
-      nil ->
+      %{error: _reason} ->
         nil
 
-      d ->
+      %{room: room} ->
         {:reply,
-         construct_socket_msg(state.encoding, state.compression, %{
-           op: "join_room_done",
-           d: d
-         }), state}
+         prepare_socket_msg(
+           %{
+             op: "join_room_done",
+             d: room
+           },
+           state
+         ), state}
     end
   end
 
@@ -377,7 +414,7 @@ defmodule Kousa.SocketHandler do
   #     end
 
   #   {:reply,
-  #    construct_socket_msg(state.encoding, state.compression, %{
+  #    prepare_socket_msg(state.encoding, state.compression, %{
   #      op: "mute_changed",
   #      d: %{value: is_muted}
   #    }), state}
@@ -397,16 +434,19 @@ defmodule Kousa.SocketHandler do
       Kousa.BL.Follow.get_follow_list(state.user_id, user_id, get_following_list, cursor)
 
     {:reply,
-     construct_socket_msg(state.encoding, state.compression, %{
-       op: "fetch_follow_list_done",
-       d: %{
-         isFollowing: get_following_list,
-         userId: user_id,
-         users: users,
-         nextCursor: next_cursor,
-         initial: cursor == 0
-       }
-     }), state}
+     prepare_socket_msg(
+       %{
+         op: "fetch_follow_list_done",
+         d: %{
+           isFollowing: get_following_list,
+           userId: user_id,
+           users: users,
+           nextCursor: next_cursor,
+           initial: cursor == 0
+         }
+       },
+       state
+     ), state}
   end
 
   def handler("set_listener", %{"userId" => user_id_to_make_listener}, state) do
@@ -416,14 +456,17 @@ defmodule Kousa.SocketHandler do
 
   def handler("follow_info", %{"userId" => other_user_id}, state) do
     {:reply,
-     construct_socket_msg(state.encoding, state.compression, %{
-       op: "follow_info_done",
-       d:
-         Map.merge(
-           %{userId: other_user_id},
-           Kousa.Data.Follower.get_info(state.user_id, other_user_id)
-         )
-     }), state}
+     prepare_socket_msg(
+       %{
+         op: "follow_info_done",
+         d:
+           Map.merge(
+             %{userId: other_user_id},
+             Follower.get_info(state.user_id, other_user_id)
+           )
+       },
+       state
+     ), state}
   end
 
   def handler("mute", %{"value" => value}, state) do
@@ -449,7 +492,7 @@ defmodule Kousa.SocketHandler do
   end
 
   def handler("get_current_room_users", _data, state) do
-    {room_id, users} = Kousa.Data.User.get_users_in_current_room(state.user_id)
+    {room_id, users} = User.get_users_in_current_room(state.user_id)
 
     {muteMap, raiseHandMap, autoSpeaker} =
       cond do
@@ -467,16 +510,19 @@ defmodule Kousa.SocketHandler do
       end
 
     {:reply,
-     construct_socket_msg(state.encoding, state.compression, %{
-       op: "get_current_room_users_done",
-       d: %{
-         users: users,
-         muteMap: muteMap,
-         raiseHandMap: raiseHandMap,
-         roomId: room_id,
-         autoSpeaker: autoSpeaker
-       }
-     }), state}
+     prepare_socket_msg(
+       %{
+         op: "get_current_room_users_done",
+         d: %{
+           users: users,
+           muteMap: muteMap,
+           raiseHandMap: raiseHandMap,
+           roomId: room_id,
+           autoSpeaker: autoSpeaker
+         }
+       },
+       state
+     ), state}
   end
 
   def handler("decline_hand", %{"userId" => userId}, state) do
@@ -494,29 +540,20 @@ defmodule Kousa.SocketHandler do
   end
 
   def handler("ask_to_speak", _data, state) do
-    user = Kousa.Data.User.get_by_id(state.user_id)
-
-    if not is_nil(user.currentRoomId) do
-      case Kousa.RegUtils.lookup_and_call(
-             Kousa.Gen.RoomSession,
-             user.currentRoomId,
-             {:raise_hand, user.id}
-           ) do
-        {:ok, :speaker} ->
-          Kousa.BL.Room.internal_set_speaker(state.user_id, false, user.currentRoomId)
-
-        _ ->
-          nil
-      end
+    with %Beef.User{id: id, currentRoomId: current_room_id} when not is_nil(current_room_id) <-
+           User.get_by_id(state.user_id),
+         {:ok, :speaker} <-
+           Kousa.RegUtils.lookup_and_call(RoomSession, current_room_id, {:raise_hand, id}) do
+      Kousa.BL.Room.internal_set_speaker(id, false, current_room_id)
     end
 
     {:ok, state}
   end
 
-  def handler("audio_autoplay_error", _data, state) do
+  def handler("audio_autoplay_error", _data, %State{user_id: user_id} = state) do
     Kousa.RegUtils.lookup_and_cast(
-      Kousa.Gen.UserSession,
-      state.user_id,
+      UserSession,
+      user_id,
       {:send_ws_msg, :vscode,
        %{
          op: "error",
@@ -527,27 +564,27 @@ defmodule Kousa.SocketHandler do
     {:ok, state}
   end
 
-  def handler(op, data, state) do
+  def handler(op, data, %State{user_id: user_id} = state) do
     # @todo error handling null roomId
     d =
-      cond do
-        String.first(op) == "@" ->
-          roomId = Kousa.Data.User.get_by_id(state.user_id).currentRoomId
+      if String.starts_with?(op, "@") do
+        %Beef.User{currentRoomId: room_id} = User.get_by_id(user_id)
 
-          Map.merge(data, %{
-            peerId: state.user_id,
-            roomId: roomId
-          })
-
-        true ->
-          data
+        data
+        |> Map.merge(%{
+          peerId: user_id,
+          roomId: room_id
+        })
+      else
+        data
       end
 
-    Kousa.Gen.Rabbit.send(%{
+    %{
       op: op,
       d: d,
-      uid: state.user_id
-    })
+      uid: user_id
+    }
+    |> Kousa.Gen.Rabbit.send()
 
     {:ok, state}
   end

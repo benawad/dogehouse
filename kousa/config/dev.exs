@@ -38,3 +38,7 @@ config :kousa,
       environment variable GITHUB_CLIENT_SECRET is missing.
       Create an oauth application on GitHub to get one
       """)
+
+config :joken,
+  access_token_secret: System.fetch_env!("ACCESS_TOKEN_SECRET"),
+  refresh_token_secret: System.fetch_env!("REFRESH_TOKEN_SECRET")
