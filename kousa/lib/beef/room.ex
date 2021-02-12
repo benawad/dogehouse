@@ -2,6 +2,17 @@ defmodule Beef.Room do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias Beef.{User, UserPreview}
+
+  @type t :: %__MODULE__{
+          id: Ecto.UUID.t(),
+          name: String.t(),
+          numPeopleInside: integer(),
+          isPrivate: boolean(),
+          user: User.t() | Ecto.Association.NotLoaded.t(),
+          peoplePreviewList: [UserPreview.t()]
+        }
+
   @derive {Poison.Encoder,
            only: [
              :id,
@@ -23,10 +34,6 @@ defmodule Beef.Room do
     timestamps()
   end
 
-  @spec insert_changeset(
-          {map, map} | %{:__struct__ => atom | %{__changeset__: map}, optional(atom) => any},
-          :invalid | %{optional(:__struct__) => none, optional(atom | binary) => any}
-        ) :: Ecto.Changeset.t()
   @doc false
   def insert_changeset(room, attrs) do
     room

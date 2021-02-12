@@ -1,38 +1,62 @@
 defmodule Kousa.TokenUtils do
-  def create_tokens(user) do
+  alias Beef.{Repo, User}
+  alias Kousa.{AccessToken, RefreshToken}
+
+  @type tokens :: %{
+          accessToken: String.t(),
+          refreshToken: String.t()
+        }
+
+  @spec create_tokens(User.t()) :: tokens()
+  def create_tokens(%User{id: id, tokenVersion: version}) do
+    access_token_params = %{"userId" => id}
+
+    refresh_token_params =
+      access_token_params
+      |> Map.put("tokenVersion", version)
+
     %{
-      accessToken: Kousa.AccessToken.generate_and_sign!(%{"userId" => user.id}),
-      refreshToken:
-        Kousa.RefreshToken.generate_and_sign!(%{
-          "userId" => user.id,
-          "tokenVersion" => user.tokenVersion
-        })
+      accessToken: AccessToken.generate_and_sign!(access_token_params),
+      refreshToken: RefreshToken.generate_and_sign!(refresh_token_params)
     }
   end
 
+  @spec tokens_to_user_id(String.t(), String.t()) ::
+          {:ok, user_id :: String.t()} | {:ok, user_id :: String.t(), tokens()} | {:error, any()}
   def tokens_to_user_id(accessToken, refreshToken) do
-    accessToken = if is_nil(accessToken), do: "", else: accessToken
-    refreshToken = if is_nil(refreshToken), do: "", else: refreshToken
+    accessToken = accessToken || ""
+    refreshToken = refreshToken || ""
 
-    case Kousa.AccessToken.verify_and_validate(accessToken) do
-      {:ok, claims} ->
-        {claims["userId"], nil}
+    case AccessToken.verify_and_validate(accessToken) do
+      {:ok, %{"userId" => id}} ->
+        {:ok, id}
 
       _ ->
-        case Kousa.RefreshToken.verify_and_validate(refreshToken) do
-          {:ok, refreshClaims} ->
-            user = Beef.User |> Beef.Repo.get(refreshClaims["userId"])
+        refresh_token(refreshToken)
+    end
+  end
 
-            if is_nil(user) or not is_nil(user.reasonForBan) or
-                 user.tokenVersion != refreshClaims["tokenVersion"] do
-              {nil, nil}
-            else
-              {user.id, create_tokens(user), user}
-            end
+  defp refresh_token(refreshToken) do
+    case RefreshToken.verify_and_validate(refreshToken) do
+      {:ok, %{"userId" => id, "tokenVersion" => token_version}} ->
+        with %User{reasonForBan: reason, tokenVersion: version} = user <- Repo.get(User, id) do
+          cond do
+            not is_nil(reason) ->
+              {:error, :user_banned}
 
-          _ ->
-            {nil, nil}
+            version != token_version ->
+              {:error, :invalid_refresh_token_version}
+
+            true ->
+              {:ok, id, create_tokens(user)}
+          end
+        else
+          nil ->
+            {:error, :user_not_found}
         end
+
+      {:error, _reason} = error ->
+        error
     end
   end
 end
