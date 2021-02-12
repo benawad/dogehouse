@@ -21,6 +21,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   const [userProfileId, setUserProfileId] = useState("");
   const [room, setRoom] = useAtom(currentRoomAtom);
   const { muted } = useMuteStore();
+  const [open, setOpen] = useState(true);
   const [me] = useAtom(meAtom);
   const [{ isMod: iAmMod, isCreator: iAmCreator }] = useAtom(
     myCurrentRoomInfoAtom
@@ -78,66 +79,71 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
             padding: "16px var(--container-paddding)",
           }}
         >
-          {unansweredHands.map((u, i) => (
-            <div
-              style={{
-                borderBottom:
-                  i < unansweredHands.length - 1
-                    ? "1px solid var(--vscode-breadcrumb-background)"
-                    : "",
-              }}
-              key={u.id}
-              className={tw`flex items-center py-4`}
-            >
-              <Avatar src={u.avatarUrl} />
-              <div className={tw`flex-1 ml-4`}>
-                <span className={tw`font-semibold`}>{u.displayName}</span> would
-                like to speak
-              </div>
-              <div>
-                <Button
-                  onClick={() => {
-                    wsend({
-                      op: "add_speaker_from_hand",
-                      d: {
-                        userId: u.id,
-                      },
-                    });
-                    setRoom((r) =>
-                      !r
-                        ? r
-                        : {
-                            ...r,
-                            raiseHandMap: { ...r.raiseHandMap, [u.id]: 1 },
-                          }
-                    );
+          <Button onClick={() => setOpen(!open)}>
+            toggle show room requests
+          </Button>
+          {!open
+            ? null
+            : unansweredHands.map((u, i) => (
+                <div
+                  style={{
+                    borderBottom:
+                      i < unansweredHands.length - 1
+                        ? "1px solid var(--vscode-breadcrumb-background)"
+                        : "",
                   }}
-                  variant="small"
+                  key={u.id}
+                  className={tw`flex items-center py-4`}
                 >
-                  allow
-                </Button>
-              </div>
-              <div className={tw`ml-4`}>
-                <Button
-                  onClick={() => {
-                    wsend({ op: "decline_hand", d: { userId: u.id } });
-                    setRoom((r) =>
-                      !r
-                        ? r
-                        : {
-                            ...r,
-                            raiseHandMap: { ...r.raiseHandMap, [u.id]: 0 },
-                          }
-                    );
-                  }}
-                  color="red"
-                  variant="small"
-                >
-                  decline
-                </Button>
-              </div>
-            </div>
-          ))}
+                  <Avatar src={u.avatarUrl} />
+                  <div className={tw`flex-1 ml-4`}>
+                    <span className={tw`font-semibold`}>{u.displayName}</span>{" "}
+                    would like to speak
+                  </div>
+                  <div>
+                    <Button
+                      onClick={() => {
+                        wsend({
+                          op: "add_speaker_from_hand",
+                          d: {
+                            userId: u.id,
+                          },
+                        });
+                        setRoom((r) =>
+                          !r
+                            ? r
+                            : {
+                                ...r,
+                                raiseHandMap: { ...r.raiseHandMap, [u.id]: 1 },
+                              }
+                        );
+                      }}
+                      variant="small"
+                    >
+                      allow
+                    </Button>
+                  </div>
+                  <div className={tw`ml-4`}>
+                    <Button
+                      onClick={() => {
+                        wsend({ op: "decline_hand", d: { userId: u.id } });
+                        setRoom((r) =>
+                          !r
+                            ? r
+                            : {
+                                ...r,
+                                raiseHandMap: { ...r.raiseHandMap, [u.id]: 0 },
+                              }
+                        );
+                      }}
+                      color="red"
+                      variant="small"
+                    >
+                      decline
+                    </Button>
+                  </div>
+                </div>
+              ))}
         </div>
       ) : null}
       <ProfileModal
