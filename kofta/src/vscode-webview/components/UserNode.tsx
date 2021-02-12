@@ -13,7 +13,6 @@ interface UserNodeProps {
   isCreator: boolean;
   isSpeaker: boolean;
   isSpeaking?: boolean;
-  raisedHand: boolean;
   onClick: () => void;
 }
 
@@ -24,7 +23,6 @@ export const UserNode: React.FC<UserNodeProps> = ({
   isMod,
   isSpeaker,
   isCreator,
-  raisedHand,
   isSpeaking,
 }) => {
   let prefix = null;
@@ -42,13 +40,6 @@ export const UserNode: React.FC<UserNodeProps> = ({
         src={RegularDoge}
         alt="room mod"
         style={{ height: 18, width: 18, marginLeft: 4, marginBottom: 5 }}
-      />
-    );
-  } else if (raisedHand) {
-    prefix = (
-      <Codicon
-        style={{ marginLeft: 2, height: 16, width: 16 }}
-        name="megaphone"
       />
     );
   }

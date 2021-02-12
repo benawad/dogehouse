@@ -12,6 +12,7 @@ import { Logo } from "../svgs/Logo";
 import { CreateRoomModal } from "../components/CreateRoomModal";
 import { ProfileButton } from "../components/ProfileButton";
 import { PeopleIcon } from "../svgs/PeopleIcon";
+import { CircleButton } from "../components/CircleButton";
 
 interface HomeProps {}
 
@@ -41,25 +42,20 @@ export const Home: React.FC<HomeProps> = () => {
           <Logo />
         </div>
         <div className={tw`mb-6 flex justify-center`}>
-          <button
+          <div
             style={{
-              borderRadius: "50%",
-              backgroundColor: "rgba(255, 255, 255, 0.06)",
-              border: ".5px solid rgba(255, 255, 255, 0.4)",
-              height: 60,
-              width: 60,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
               marginRight: 18,
             }}
-            onClick={() => {
-              wsend({ op: "fetch_following_online", d: { cursor: 0 } });
-              history.push("/following-online");
-            }}
           >
-            <PeopleIcon width={30} height={30} fill="#fff" />
-          </button>
+            <CircleButton
+              onClick={() => {
+                wsend({ op: "fetch_following_online", d: { cursor: 0 } });
+                history.push("/following-online");
+              }}
+            >
+              <PeopleIcon width={30} height={30} fill="#fff" />
+            </CircleButton>
+          </div>
           <div style={{ marginLeft: 9 }}>
             <ProfileButton circle size={60} />
           </div>

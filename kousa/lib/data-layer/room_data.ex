@@ -8,19 +8,19 @@ defmodule Kousa.Data.Room do
 
     cond do
       is_nil(room) ->
-        nil
+        {nil, nil}
 
       room.creatorId == user_id ->
-        :creator
+        {:creator, room}
 
       true ->
         user = Kousa.Data.User.get_by_id(user_id)
 
-        cond do
-          room.id == user.modForRoomId -> :mod
-          room.id == user.canSpeakForRoomId -> :speaker
-          true -> :listener
-        end
+        {cond do
+           room.id == user.modForRoomId -> :mod
+           room.id == user.canSpeakForRoomId -> :speaker
+           true -> :listener
+         end, room}
     end
   end
 

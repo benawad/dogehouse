@@ -91,23 +91,6 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
           <UserProfile profile={profile} />
           {!isMe && iAmCreator ? (
             <>
-              {profile.canSpeakForRoomId !== room.id ? (
-                <div className={tw`mb-4`}>
-                  <Button
-                    onClick={() => {
-                      onClose();
-                      wsend({
-                        op: "add_speaker",
-                        d: {
-                          userId: profile.id,
-                        },
-                      });
-                    }}
-                  >
-                    add as speaker
-                  </Button>
-                </div>
-              ) : null}
               <div className={tw`mb-4`}>
                 <Button
                   onClick={() => {
@@ -127,19 +110,73 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
             </>
           ) : null}
           {!isMe && (iAmCreator || iAmMod) && profile.id !== room.creatorId ? (
-            <div>
+            <>
+              {profile.canSpeakForRoomId !== room.id &&
+              profile.id in room.raiseHandMap ? (
+                <div className={tw`mb-4`}>
+                  <Button
+                    onClick={() => {
+                      onClose();
+                      wsend({
+                        op: "add_speaker",
+                        d: {
+                          userId: profile.id,
+                        },
+                      });
+                    }}
+                  >
+                    add as speaker
+                  </Button>
+                </div>
+              ) : null}
+              {profile.canSpeakForRoomId === room.id ? (
+                <div className={tw`mb-4`}>
+                  <Button
+                    onClick={() => {
+                      onClose();
+                      wsend({
+                        op: "set_listener",
+                        d: {
+                          userId: profile.id,
+                        },
+                      });
+                    }}
+                  >
+                    move to listener
+                  </Button>
+                </div>
+              ) : null}
+              <div>
+                <Button
+                  onClick={() => {
+                    onClose();
+                    wsend({
+                      op: "block_from_room",
+                      d: {
+                        userId: profile.id,
+                      },
+                    });
+                  }}
+                >
+                  ban from room
+                </Button>
+              </div>
+            </>
+          ) : null}
+          {isMe && !iAmCreator && profile.canSpeakForRoomId === room.id ? (
+            <div className={tw`mb-4`}>
               <Button
                 onClick={() => {
                   onClose();
                   wsend({
-                    op: "block_from_room",
+                    op: "set_listener",
                     d: {
                       userId: profile.id,
                     },
                   });
                 }}
               >
-                ban from room
+                go back to listener
               </Button>
             </div>
           ) : null}

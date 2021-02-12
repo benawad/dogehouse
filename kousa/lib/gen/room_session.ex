@@ -52,6 +52,10 @@ defmodule Kousa.Gen.RoomSession do
     {:reply, {state.muteMap, state.raiseHandMap, state.auto_speaker}, state}
   end
 
+  def handle_call({:has_raised_hand, user_id}, _, state) do
+    {:reply, Map.has_key?(state.raiseHandMap, user_id), state}
+  end
+
   def handle_call({:redeem_invite, user_id}, _, state) do
     if Map.has_key?(state.inviteMap, user_id) do
       {:reply, :ok,
