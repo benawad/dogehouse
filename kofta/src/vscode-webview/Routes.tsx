@@ -2,7 +2,7 @@ import { useAtom } from "jotai";
 import React, { useEffect } from "react";
 import { Route, useHistory, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
-import { wsend } from "../createWebsocket";
+import { closeWebSocket, wsend } from "../createWebsocket";
 import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
 import { invitationToRoom } from "../webrtc/utils/invitationToRoom";
 import {
@@ -14,6 +14,7 @@ import {
   setMeAtom,
   setPublicRoomsAtom,
 } from "./atoms";
+import { BanUsersPage } from "./pages/BanUsersPage";
 import { FollowingOnlineList } from "./pages/FollowingOnlineList";
 import { FollowListPage } from "./pages/FollowListPage";
 import { Home } from "./pages/Home";
@@ -25,6 +26,7 @@ import { ViewUserPage } from "./pages/ViewUserPage";
 import { VoiceSettingsPage } from "./pages/VoiceSettingsPage";
 import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
 import { showErrorToast } from "./utils/showErrorToast";
+import { useTokenStore } from "./utils/useTokenStore";
 
 interface RoutesProps {}
 
@@ -48,6 +50,20 @@ export const Routes: React.FC<RoutesProps> = () => {
           !cr || cr.id !== roomId ? cr : { ...cr, name, isPrivate }
         );
         toast("room is now public", { type: "info" });
+      },
+      banned: () => {
+        toast("you got banned", { type: "error" });
+        closeWebSocket();
+        useTokenStore
+          .getState()
+          .setTokens({ accessToken: "", refreshToken: "" });
+      },
+      ban_done: ({ worked }) => {
+        if (worked) {
+          toast("ban worked", { type: "success" });
+        } else {
+          toast("ban failed", { type: "error" });
+        }
       },
       invitation_to_room: (value) => {
         invitationToRoom(value, history);
@@ -285,6 +301,7 @@ export const Routes: React.FC<RoutesProps> = () => {
       <Route exact path="/me" component={MyProfilePage} />
       <Route exact path="/invite" component={InviteList} />
       <Route exact path="/search/users" component={SearchUsersPage} />
+      <Route exact path="/ban/users" component={BanUsersPage} />
       <Route exact path="/voice-settings" component={VoiceSettingsPage} />
       <Route exact path="/following-online" component={FollowingOnlineList} />
       <Route

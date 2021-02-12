@@ -237,6 +237,16 @@ defmodule Kousa.SocketHandler do
      }), state}
   end
 
+  def handler("ban", %{"username" => username, "reason" => reason}, state) do
+    worked = Kousa.BL.User.ban(state.user_id, username, reason)
+
+    {:reply,
+     construct_socket_msg(state.encoding, state.compression, %{
+       op: "ban_done",
+       d: %{worked: worked}
+     }), state}
+  end
+
   def handler("set_auto_speaker", %{"value" => value}, state) do
     Kousa.BL.Room.set_auto_speaker(state.user_id, value)
 

@@ -79,6 +79,26 @@ defmodule Kousa.Data.User do
     Beef.Repo.get(Beef.User, user_id)
   end
 
+  def get_by_username(username) do
+    from(u in Beef.User,
+      where: u.username == ^username,
+      limit: 1
+    )
+    |> Beef.Repo.one()
+  end
+
+  def set_reason_for_ban(user_id, reason_for_ban) do
+    from(u in User,
+      where: u.id == ^user_id,
+      update: [
+        set: [
+          reasonForBan: ^reason_for_ban
+        ]
+      ]
+    )
+    |> Repo.update_all([])
+  end
+
   @spec get_by_id_with_current_room(any) :: any
   def get_by_id_with_current_room(user_id) do
     from(u in Beef.User,

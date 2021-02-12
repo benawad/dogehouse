@@ -10,6 +10,11 @@ database_url =
 config :kousa, Beef.Repo, url: database_url
 
 config :kousa,
+  ben_github_id:
+    System.get_env("BEN_GITHUB_ID") ||
+      raise("""
+      environment variable BEN_GITHUB_ID is missing.
+      """),
   rabbit_url:
     System.get_env("RABBITMQ_URL") ||
       raise("""

@@ -29,6 +29,7 @@ defmodule Beef.User do
     field(:displayName, :string)
     field(:avatarUrl, :string)
     field(:bio, :string)
+    field(:reasonForBan, :string)
     field(:tokenVersion, :integer)
     field(:numFollowing, :integer)
     field(:numFollowers, :integer)

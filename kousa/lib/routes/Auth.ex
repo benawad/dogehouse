@@ -78,18 +78,30 @@ defmodule Kousa.Auth do
                     do: Application.fetch_env!(:kousa, :web_url),
                     else: "http://localhost:54321"
 
-                conn
-                |> put_resp_content_type("application/json")
-                |> Kousa.Redirect.redirect(
-                  base_url <>
-                    "/?accessToken=" <>
-                    Kousa.AccessToken.generate_and_sign!(%{"userId" => db_user.id}) <>
-                    "&refreshToken=" <>
-                    Kousa.RefreshToken.generate_and_sign!(%{
-                      "userId" => db_user.id,
-                      "tokenVersion" => db_user.tokenVersion
+                if not is_nil(db_user.reasonForBan) do
+                  conn
+                  |> put_resp_content_type("application/json")
+                  |> send_resp(
+                    500,
+                    Poison.encode!(%{
+                      "error" =>
+                        "your account got banned, if you think this was a mistake, please send me an email at benawadapps@gmail.com"
                     })
-                )
+                  )
+                else
+                  conn
+                  |> put_resp_content_type("application/json")
+                  |> Kousa.Redirect.redirect(
+                    base_url <>
+                      "/?accessToken=" <>
+                      Kousa.AccessToken.generate_and_sign!(%{"userId" => db_user.id}) <>
+                      "&refreshToken=" <>
+                      Kousa.RefreshToken.generate_and_sign!(%{
+                        "userId" => db_user.id,
+                        "tokenVersion" => db_user.tokenVersion
+                      })
+                  )
+                end
               rescue
                 e in RuntimeError ->
                   conn

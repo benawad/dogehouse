@@ -9,6 +9,11 @@ config :kousa, Beef.Repo,
 config :kousa,
   web_url: "http://localhost:3000",
   api_url: "http://localhost:4001",
+  ben_github_id:
+    System.get_env("BEN_GITHUB_ID") ||
+      raise("""
+      environment variable BEN_GITHUB_ID is missing.
+      """),
   access_token_secret:
     System.get_env("ACCESS_TOKEN_SECRET") ||
       raise("""

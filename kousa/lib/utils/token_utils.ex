@@ -23,7 +23,8 @@ defmodule Kousa.TokenUtils do
           {:ok, refreshClaims} ->
             user = Beef.User |> Beef.Repo.get(refreshClaims["userId"])
 
-            if is_nil(user) or user.tokenVersion != refreshClaims["tokenVersion"] do
+            if is_nil(user) or not is_nil(user.reasonForBan) or
+                 user.tokenVersion != refreshClaims["tokenVersion"] do
               {nil, nil}
             else
               {user.id, create_tokens(user), user}
