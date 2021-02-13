@@ -71,6 +71,8 @@ export const RoomCard: React.FC<RoomProps> = ({
               fontSize: "calc(var(--vscode-font-size)*1.2)",
               flex: 1,
               color: "#D9D9D9",
+              overflow: "hidden",
+              textOverflow: "ellipsis"
             }}
           >
             {room.name?.slice(0, 100)}
