@@ -9,6 +9,7 @@ import { Codicon } from "../svgs/Codicon";
 import { PhoneMissed, UserPlus, Mic, MicOff, X, Settings } from "react-feather";
 import { Footer } from "./Footer";
 import { renameRoomAndMakePublic } from "../../webrtc/utils/renameRoomAndMakePublic";
+import { renameRoomAndMakePrivate } from "../../webrtc/utils/renameRoomAndMakePrivate";
 import { Modal } from "./Modal";
 import { Button } from "./Button";
 
@@ -166,7 +167,16 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
               >
                 make room public
               </Button>
-            ) : null}
+            ) : (
+              <Button
+                onClick={() => {
+                  renameRoomAndMakePrivate(currentRoom.name);
+                  setSettingsOpen(false);
+                }}
+              >
+                make room private
+              </Button>
+            )}
           </>
         ) : null}
       </Modal>

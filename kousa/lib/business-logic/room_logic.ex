@@ -26,6 +26,22 @@ defmodule Kousa.BL.Room do
     end
   end
 
+    @spec make_room_private(any, any) :: nil | :ok
+  def make_room_private(user_id, new_name) do
+    # this needs to be refactored if a user can have multiple rooms
+    case Kousa.Data.Room.set_room_privacy_by_creator_id(user_id, true, new_name) do
+      {1, [room]} ->
+        Kousa.Gen.RoomSession.send_cast(
+          room.id,
+          {:send_ws_msg, :vscode,
+           %{op: "room_privacy_change", d: %{roomId: room.id, name: room.name, isPrivate: true}}}
+        )
+
+      _ ->
+        nil
+    end
+  end
+
   def invite_to_room(user_id, user_id_to_invite) do
     user = Kousa.Data.User.get_by_id(user_id)
 
