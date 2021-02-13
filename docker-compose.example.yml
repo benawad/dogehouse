@@ -29,37 +29,38 @@ services:
 
   # The backend server
   backend:
-    build: ./kousa
+    build: 
+      context: ./kousa
+      dockerfile: Dockerfile
     depends_on: 
       - database
     environment:
       # Database of the Postgres server
       - DATABASE_URL=ecto://postgres:postgres@127.0.0.1/postgres
       # GitHub username or user ID for the instance owner
-      # By default, this should be 
+      # By default, this should be either Ben's or yours.
       - BEN_GITHUB_ID={username}
-      - RABBITMQ_URL=amqp://192.168.1.165:3000 # Not sure about this
+      
+      # The React frontend
+      - RABBITMQ_URL=amqp://192.168.1.165:3000
+      
       # Not needed in dev instances.
+      # But it up to you if you want this.
       # - SENTRY_DSN=NO_IDEA_WHAT_THIS_IS
+      
+      # OAuth stuff
       - GITHUB_CLIENT_ID=5d5xxxxxxab70
       - GITHUB_CLIENT_SECRET=48xxxxxxxxxxxxd1cd5
+      
+      # Enter some random stuff in these variables
+      # to generate some spice.
       - ACCESS_TOKEN_SECRET=8f51exxxxxx7211dd
       - REFRESH_TOKEN_SECRET=dbb85xxxxxx9ebde
-    networks:
-      - frontend
     ports:
       - 4001:4001
 
-  frontend:
-    build: ./kofta
-    networks: 
-      - db
-    ports:
-      - 3000:3000
-
 networks:
-  db:
-  frontend:
+  backend:
 
 volumes:
   dbdata:
