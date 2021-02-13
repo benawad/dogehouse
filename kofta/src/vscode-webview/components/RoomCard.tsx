@@ -71,6 +71,9 @@ export const RoomCard: React.FC<RoomProps> = ({
               fontSize: "calc(var(--vscode-font-size)*1.2)",
               flex: 1,
               color: "#D9D9D9",
+              display: "-webkit-box",  
+              WebkitBoxOrient: "vertical",
+              WebkitLineClamp: 3,
               overflow: "hidden",
               textOverflow: "ellipsis"
             }}
