@@ -18,8 +18,8 @@ export type User = {
   bio: string;
   displayName: string;
   avatarUrl: string;
-  modForRoomId: string;
-  canSpeakForRoomId: string;
+  modForRoomId: string | null;
+  canSpeakForRoomId: string | null;
   numFollowing: number;
   numFollowers: number;
   currentRoom?: Room;

@@ -1,5 +1,7 @@
 use Mix.Config
 
+config :logger, level: :info
+
 config :kousa, Beef.Repo,
   database: "kousa_repo2",
   username: "postgres",

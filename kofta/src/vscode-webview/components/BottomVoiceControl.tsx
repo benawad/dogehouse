@@ -78,31 +78,6 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           )}
         </button>
       );
-    } else if (me) {
-      buttons.push(
-        <button
-          style={{ padding: "var(--container-paddding)" }}
-          key="ask-to-speak"
-          onClick={() => {
-            if (
-              me.id in currentRoom.raiseHandMap &&
-              currentRoom.raiseHandMap[me.id] !== 1
-            ) {
-              window.alert("You can only ask to speak once per room.");
-            } else {
-              wsend({ op: "ask_to_speak", d: {} });
-            }
-          }}
-          title="Ask permission to speak"
-        >
-          <Codicon
-            width={iconSize}
-            height={iconSize}
-            fill={iconColor}
-            name="megaphone"
-          />
-        </button>
-      );
     }
 
     if (isCreator) {

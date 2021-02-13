@@ -48,6 +48,13 @@ async function main() {
   };
 
   await startRabbit({
+    "remove-speaker": ({ roomId, peerId }) => {
+      if (roomId in rooms) {
+        const peer = rooms[roomId].state[peerId];
+        peer?.producer?.close();
+        peer?.sendTransport?.close();
+      }
+    },
     ["destroy-room"]: ({ roomId }) => {
       if (roomId in rooms) {
         for (const peer of Object.values(rooms[roomId].state)) {

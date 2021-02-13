@@ -47,10 +47,6 @@ config :kousa,
       Create an oauth application on GitHub to get one
       """)
 
-config :joken,
-  access_token_key: System.fetch_env!("ACCESS_TOKEN_SECRET"),
-  refresh_token_key: System.fetch_env!("REFRESH_TOKEN_SECRET")
-
 config :sentry,
   dsn:
     System.get_env("SENTRY_DNS") ||
@@ -64,3 +60,7 @@ config :sentry,
     env: "production"
   },
   included_environments: [:prod]
+
+config :joken,
+  access_token_key: System.fetch_env!("ACCESS_TOKEN_SECRET"),
+  refresh_token_key: System.fetch_env!("REFRESH_TOKEN_SECRET")

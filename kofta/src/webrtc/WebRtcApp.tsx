@@ -7,7 +7,6 @@ import { ActiveSpeakerListener } from "./components/ActiveSpeakerListener";
 import { AudioRender } from "./components/AudioRender";
 import { useConsumerStore } from "./stores/useConsumerStore";
 import { useMuteStore } from "./stores/useMuteStore";
-import { useSocketStatus } from "./stores/useSocketStatus";
 import { useVoiceStore } from "./stores/useVoiceStore";
 import { useWsHandlerStore } from "./stores/useWsHandlerStore";
 import { consumeAudio } from "./utils/consumeAudio";

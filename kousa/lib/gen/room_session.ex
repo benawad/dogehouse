@@ -52,6 +52,10 @@ defmodule Kousa.Gen.RoomSession do
     {:reply, {state.muteMap, state.raiseHandMap, state.auto_speaker}, state}
   end
 
+  def handle_call({:has_raised_hand, user_id}, _, state) do
+    {:reply, Map.has_key?(state.raiseHandMap, user_id), state}
+  end
+
   def handle_call({:redeem_invite, user_id}, _, state) do
     if Map.has_key?(state.inviteMap, user_id) do
       {:reply, :ok,
@@ -135,6 +139,21 @@ defmodule Kousa.Gen.RoomSession do
        state
        | inviteMap: Map.put(state.inviteMap, user_id, true)
      }}
+  end
+
+  def handle_cast({:speaker_removed, user_id}, state) do
+    new_mm = Map.delete(state.muteMap, user_id)
+
+    ws_fan(state.users, :vscode, %{
+      op: "speaker_removed",
+      d: %{
+        userId: user_id,
+        roomId: state.room_id,
+        muteMap: new_mm
+      }
+    })
+
+    {:noreply, %{state | muteMap: new_mm}}
   end
 
   def handle_cast({:speaker_added, user_id, muted}, state) do

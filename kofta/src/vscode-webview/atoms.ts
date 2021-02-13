@@ -59,17 +59,19 @@ export const myCurrentRoomInfoAtom = atom((get) => {
     return {
       isMod: false,
       isCreator: false,
+      isSpeaker: false,
       canSpeak: false,
     };
   }
 
   let canSpeak = false;
   let isMod = false;
+  let isSpeaker = false;
 
   for (const u of room.users) {
     if (u.id === me.id) {
       if (u.canSpeakForRoomId === room.id) {
-        canSpeak = true;
+        isSpeaker = true;
       }
       if (u.modForRoomId === room.id) {
         isMod = true;
@@ -78,9 +80,12 @@ export const myCurrentRoomInfoAtom = atom((get) => {
     }
   }
 
+  const isCreator = me.id === room.creatorId;
+
   return {
-    isCreator: me.id === room.creatorId,
+    isCreator,
     isMod,
-    canSpeak,
+    isSpeaker,
+    canSpeak: isCreator || isSpeaker,
   };
 });
