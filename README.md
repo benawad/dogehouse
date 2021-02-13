@@ -9,6 +9,18 @@ https://dogehouse.tv/
 - kofta -> React frontend
 - dinner -> Puppeteer shenanigans
 
+## Setting up
+
+### With Docker
+
+1. Make sure Docker and Docker Compose is installed on your system. For macOS and Windows 10 Home/Pro users, Docker Desktop is fine.
+
+2. Clone the repository, the vhnage working directory with `cd dogehouse`.
+
+3. Copy `docker-compose.example.yml` into `docker-compose.yml` and edit environment variables for the backend server, such as GitHub OAuth app ID and secret, and Sentry DSN (only needed in production).
+
+4. Run `sudo docker-compose up` and hit the road!
+
 ## Contributions
 
 DogeHouse is open to contributions, but I recommend creating an issue or replying in a comment to let me know what you are working on first that way we don't overwrite each other.
