@@ -153,6 +153,19 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
               Requesting to speak ({unansweredHands.length})
             </div>
           ) : null}
+          {iCanSpeak && me && !(me.id in room.raiseHandMap) ? (
+            <CircleButton
+              size={70}
+              onClick={() => {
+                const y = window.confirm("Are you sure you want to remove as a speaker?");
+                if (y) {
+                  wsend({ op: "set_listener", d:{ userId: me.id } });
+                }
+              }}
+            >
+              <Codicon width={36} height={36} name="close" />
+            </CircleButton>
+          ) : null}
           {unansweredHands.map((u) => (
             <RoomUserNode
               key={u.id}
