@@ -49,9 +49,13 @@ config :kousa,
       Create an oauth application on GitHub to get one
       """)
 
+if(System.get_env("SENTRY_DNS") != nil) do
+    IO.warn("The SENTRY_DNS environment variable is deprecated, use SENTRY_DSN instead")
+end
+
 config :sentry,
   dsn:
-    System.get_env("SENTRY_DSN") ||
+    System.get_env("SENTRY_DSN") || System.get_env("SENTRY_DNS") ||
       raise("""
       environment variable SENTRY_DSN is missing.
       """),
