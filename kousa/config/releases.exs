@@ -20,8 +20,10 @@ config :kousa,
       raise("""
       environment variable RABBITMQ_URL is missing.
       """),
-  web_url: "https://dogehouse.tv",
-  api_url: "https://api.dogehouse.tv",
+  web_url: 
+    System.get_env("WEB_URL") || "https://dogehouse.tv",
+  api_url: 
+    System.get_env("API_URL") || "https://api.dogehouse.tv",
   access_token_secret:
     System.get_env("ACCESS_TOKEN_SECRET") ||
       raise("""
@@ -49,9 +51,9 @@ config :kousa,
 
 config :sentry,
   dsn:
-    System.get_env("SENTRY_DNS") ||
+    System.get_env("SENTRY_DSN") ||
       raise("""
-      environment variable SENTRY_DNS is missing.
+      environment variable SENTRY_DSN is missing.
       """),
   environment_name: :prod,
   enable_source_code_context: true,
