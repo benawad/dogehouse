@@ -1,0 +1,64 @@
+version: "3"
+services:
+  # The postgress server
+  database:
+    image: postgres
+    environment: 
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRE_DB=postgres
+    volumes:
+    - dbdata:/var/lib/postgresql/data
+  
+  # https://github.com/benawad/dogehouse/issues/101#issuecomment-778605325
+  adminer:
+    image: adminer
+    restart: "no"
+    ports:
+      - 5051:8080
+    depends_on:
+      - database
+  
+  # The WSS server used to establish and manage voice and text rooms
+  voice_server:
+    build:
+      context: ./shawarma
+      dockerfile: Dockerfile
+    depends_on: 
+      - backend
+
+  # The backend server
+  backend:
+    build: ./kousa
+    depends_on: 
+      - database
+    environment:
+      # Database of the Postgres server
+      - DATABASE_URL=ecto://postgres:postgres@127.0.0.1/postgres
+      # GitHub username or user ID for the instance owner
+      # By default, this should be 
+      - BEN_GITHUB_ID={username}
+      - RABBITMQ_URL=amqp://192.168.1.165:3000 # Not sure about this
+      - SENTRY_DSN=NO_IDEA_WHAT_THIS_IS
+      - GITHUB_CLIENT_ID=5d5xxxxxxab70
+      - GITHUB_CLIENT_SECRET=48xxxxxxxxxxxxd1cd5
+      - ACCESS_TOKEN_SECRET=8f51exxxxxx7211dd
+      - REFRESH_TOKEN_SECRET=dbb85xxxxxx9ebde
+    networks:
+      - frontend
+    ports:
+      - 4001:4001
+
+  frontend:
+    build: ./kofta
+    networks: 
+      - db
+    ports:
+      - 3000:3000
+
+networks:
+  db:
+  frontend:
+
+volumes:
+  dbdata:
