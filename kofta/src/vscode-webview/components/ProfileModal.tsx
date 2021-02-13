@@ -2,6 +2,7 @@ import React from "react";
 import ReactModal from "react-modal";
 import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
+import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
 import { Codicon } from "../svgs/Codicon";
 import { CurrentRoom, User } from "../types";
 import { Button } from "./Button";
@@ -42,6 +43,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
   iAmMod,
   room,
 }) => {
+  const bannedUserIdMap = useRoomChatStore((s) => s.bannedUserIdMap);
   return (
     <ReactModal
       isOpen={!!profile}
@@ -143,6 +145,23 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                     }}
                   >
                     move to listener
+                  </Button>
+                </div>
+              ) : null}
+              {!(profile.id in bannedUserIdMap) ? (
+                <div className={tw`mb-4`}>
+                  <Button
+                    onClick={() => {
+                      onClose();
+                      wsend({
+                        op: "ban_from_room_chat",
+                        d: {
+                          userId: profile.id,
+                        },
+                      });
+                    }}
+                  >
+                    ban from chat
                   </Button>
                 </div>
               ) : null}

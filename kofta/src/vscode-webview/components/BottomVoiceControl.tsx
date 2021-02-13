@@ -5,11 +5,22 @@ import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
 import { useMuteStore } from "../../webrtc/stores/useMuteStore";
 import { currentRoomAtom, myCurrentRoomInfoAtom } from "../atoms";
-import { PhoneMissed, UserPlus, Mic, MicOff, X, Settings } from "react-feather";
+import {
+  PhoneMissed,
+  UserPlus,
+  Mic,
+  MicOff,
+  X,
+  Settings,
+  MessageSquare,
+} from "react-feather";
 import { Footer } from "./Footer";
 import { renameRoomAndMakePublic } from "../../webrtc/utils/renameRoomAndMakePublic";
 import { Modal } from "./Modal";
 import { Button } from "./Button";
+import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
+import { RoomChat } from "../modules/room-chat/RoomChat";
+import { useShouldFullscreenChat } from "../modules/room-chat/useShouldFullscreenChat";
 
 interface BottomVoiceControlProps {}
 
@@ -26,6 +37,12 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   const { muted, set } = useMuteStore();
   const [{ canSpeak, isCreator }] = useAtom(myCurrentRoomInfoAtom);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [toggleOpen, newUnreadMessages] = useRoomChatStore((s) => [
+    s.toggleOpen,
+    s.newUnreadMessages,
+  ]);
+
+  const fullscreenChatOpen = useShouldFullscreenChat();
 
   const buttons = [];
 
@@ -47,6 +64,33 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           color={iconColor}
         />
         Leave
+      </button>,
+      <button
+        style={{ ...buttonStyle, position: "relative" }}
+        key="chat"
+        onClick={() => {
+          toggleOpen();
+        }}
+      >
+        <MessageSquare
+          style={{ margin: "auto", marginBottom: "3px" }}
+          size={iconSize}
+          color={iconColor}
+        />
+        {newUnreadMessages ? (
+          <span
+            style={{
+              position: "absolute",
+              backgroundColor: "#FF9900",
+              borderRadius: "50%",
+              right: 10,
+              top: 10,
+              width: 10,
+              height: 10,
+            }}
+          />
+        ) : null}
+        Chat
       </button>,
       <button
         style={buttonStyle}
@@ -169,8 +213,16 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           </>
         ) : null}
       </Modal>
-      <div className={tw`sticky bottom-0`}>
-        {children}
+      <div
+        style={{ height: fullscreenChatOpen ? "100%" : undefined }}
+        className={tw`${
+          fullscreenChatOpen
+            ? `fixed top-0 left-0 right-0 flex-col flex`
+            : `sticky`
+        } bottom-0 w-full`}
+      >
+        {fullscreenChatOpen ? null : children}
+        <RoomChat sidebar={false} />
         <div
           style={{
             borderTop: "1px solid #808080",

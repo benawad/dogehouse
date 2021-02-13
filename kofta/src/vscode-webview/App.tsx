@@ -22,7 +22,21 @@ setup({
       sans: ["var(--vscode-font-family)"],
       serif: ["var(--vscode-font-family)"],
     },
+    borderColor: {
+      tmpBo1: "#CCCCCC",
+    },
+    textColor: {
+      tmpC1: "#A6A6A6",
+      tmpC2: "#333333",
+      tmpC3: "#FEFEFE",
+      input: "var(--vscode-input-foreground)",
+    },
     backgroundColor: {
+      tmpBg1: "#262626",
+      tmpBg2: "#333333",
+      tmpBg3: "#666666",
+      tmpBg4: "#595959",
+      input: "var(--vscode-input-background)",
       buttonHover: "var(--vscode-button-hoverBackground)",
       button: "var(--vscode-button-background)",
       buttonHoverRed: "var(--vscode-errorForeground)",

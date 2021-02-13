@@ -1,10 +1,38 @@
 defmodule Kousa.Gen.UserSession do
   use GenServer
 
-  def start_link(%{user_id: user_id, current_room_id: current_room_id, muted: muted}) do
+  defmodule State do
+    @type t :: %__MODULE__{
+            user_id: String.t(),
+            avatar_url: String.t(),
+            display_name: String.t(),
+            current_room_id: String.t(),
+            muted: boolean(),
+            pid: pid(),
+            atomic_op: String.t()
+          }
+
+    defstruct user_id: nil,
+              current_room_id: nil,
+              muted: false,
+              pid: nil,
+              display_name: nil,
+              avatar_url: nil,
+              atomic_op: nil
+  end
+
+  def start_link(%State{
+        user_id: user_id,
+        display_name: display_name,
+        avatar_url: avatar_url,
+        current_room_id: current_room_id,
+        muted: muted
+      }) do
     GenServer.start_link(
       __MODULE__,
-      %{
+      %State{
+        display_name: display_name,
+        avatar_url: avatar_url,
         pid: nil,
         user_id: user_id,
         current_room_id: current_room_id,
@@ -86,6 +114,10 @@ defmodule Kousa.Gen.UserSession do
 
   def handle_cast({:set_current_room_id, current_room_id}, state) do
     {:noreply, %{state | current_room_id: current_room_id}}
+  end
+
+  def handle_call({:get_info_for_msg}, _, %State{} = state) do
+    {:reply, {state.avatar_url, state.display_name}, state}
   end
 
   def handle_call({:get_current_room_id}, _, state) do

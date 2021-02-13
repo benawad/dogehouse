@@ -5,6 +5,7 @@ interface AvatarProps {
   size?: number;
   active?: boolean;
   circle?: boolean;
+  style?: React.CSSProperties;
 }
 
 export const Avatar: React.FC<AvatarProps> = ({
@@ -12,6 +13,7 @@ export const Avatar: React.FC<AvatarProps> = ({
   size = 70,
   active,
   circle,
+  style,
 }) => {
   return (
     <img
@@ -23,6 +25,7 @@ export const Avatar: React.FC<AvatarProps> = ({
         boxShadow: active
           ? "0 0 0 3px var(--vscode-textLink-foreground)"
           : undefined,
+        ...style,
       }}
       src={src}
     />

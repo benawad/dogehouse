@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { tw } from "twind";
+import { useMicPermErrorStore } from "../../webrtc/stores/useMicPermErrorStore";
 import { sendVoice } from "../../webrtc/utils/sendVoice";
 import { isIOS } from "../utils/isIOS";
 import { Button } from "./Button";
@@ -7,7 +8,11 @@ import { Button } from "./Button";
 interface MicPermissionBannerProps {}
 
 export const MicPermissionBanner: React.FC<MicPermissionBannerProps> = () => {
+  const { error } = useMicPermErrorStore();
   const [count, setCount] = useState(0);
+  if (!error) {
+    return null;
+  }
   return (
     <div
       style={{

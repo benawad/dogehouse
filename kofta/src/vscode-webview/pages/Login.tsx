@@ -8,6 +8,7 @@ import { Logo } from "../svgs/Logo";
 import { useTokenStore } from "../utils/useTokenStore";
 import qs from "query-string";
 import { showErrorToast } from "../utils/showErrorToast";
+import { CenterLayout } from "../components/CenterLayout";
 
 interface LoginProps {}
 
@@ -19,7 +20,7 @@ export const Login: React.FC<LoginProps> = () => {
     }
   }, []);
   return (
-    <>
+    <CenterLayout>
       <Wrapper>
         <div className={tw`my-8`}>
           <Logo />
@@ -77,6 +78,6 @@ export const Login: React.FC<LoginProps> = () => {
       >
         <Footer />
       </div>
-    </>
+    </CenterLayout>
   );
 };

@@ -14,6 +14,7 @@ import {
   setMeAtom,
   setPublicRoomsAtom,
 } from "./atoms";
+import { useRoomChatStore } from "./modules/room-chat/useRoomChatStore";
 import { BanUsersPage } from "./pages/BanUsersPage";
 import { FollowingOnlineList } from "./pages/FollowingOnlineList";
 import { FollowListPage } from "./pages/FollowListPage";
@@ -46,6 +47,12 @@ export const Routes: React.FC<RoutesProps> = () => {
   const [, setInviteList] = useAtom(setInviteListAtom);
   useEffect(() => {
     addMultipleWsListener({
+      chat_user_banned: ({ userId }) => {
+        useRoomChatStore.getState().addBannedUser(userId);
+      },
+      new_chat_msg: ({ msg }) => {
+        useRoomChatStore.getState().addMessage(msg);
+      },
       room_privacy_change: ({ roomId, isPrivate, name }) => {
         setCurrentRoom((cr) =>
           !cr || cr.id !== roomId ? cr : { ...cr, name, isPrivate }
