@@ -73,6 +73,7 @@ export const RoomCard: React.FC<RoomProps> = ({
               color: "#D9D9D9",
               display: "-webkit-box",  
               WebkitBoxOrient: "vertical",
+              overflowWrap: "break-word",
               WebkitLineClamp: 3,
               overflow: "hidden",
               textOverflow: "ellipsis"
