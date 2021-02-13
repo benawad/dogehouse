@@ -24,6 +24,7 @@ import { RoomPage } from "./pages/RoomPage";
 import { SearchUsersPage } from "./pages/SearchUsersPage";
 import { ViewUserPage } from "./pages/ViewUserPage";
 import { VoiceSettingsPage } from "./pages/VoiceSettingsPage";
+import { isUuid } from "./utils/isUuid";
 import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
 import { showErrorToast } from "./utils/showErrorToast";
 import { useTokenStore } from "./utils/useTokenStore";
@@ -301,7 +302,7 @@ export const Routes: React.FC<RoutesProps> = () => {
         return false;
       });
 
-      if (id) {
+      if (id && isUuid(id)) {
         wsend({ op: "join_room", d: { roomId: id } });
       }
     }

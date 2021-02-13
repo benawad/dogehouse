@@ -1,5 +1,6 @@
 import { useAtom } from "jotai";
 import React, { useState } from "react";
+import { Redirect, useRouteMatch } from "react-router-dom";
 import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
 import { useMuteStore } from "../../webrtc/stores/useMuteStore";
@@ -13,10 +14,14 @@ import { RoomUserNode } from "../components/RoomUserNode";
 import { Wrapper } from "../components/Wrapper";
 import { Codicon } from "../svgs/Codicon";
 import { User } from "../types";
+import { isUuid } from "../utils/isUuid";
 
 interface RoomPageProps {}
 
 export const RoomPage: React.FC<RoomPageProps> = () => {
+  const {
+    params: { id },
+  } = useRouteMatch<{ id: string }>();
   const [userProfileId, setUserProfileId] = useState("");
   const [room] = useAtom(currentRoomAtom);
   const { muted } = useMuteStore();
@@ -31,6 +36,10 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   //     wsend({ op: "follow_info", d: { userId: room.users[0].id } });
   //   }
   // }, []);
+
+  if (!isUuid(id)) {
+    return <Redirect to="/" />;
+  }
 
   if (!room) {
     return (
