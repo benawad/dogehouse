@@ -14,7 +14,8 @@ import { Button } from "./Button";
 
 interface BottomVoiceControlProps {}
 
-const iconSize = 30;
+const iconSize = 24;
+const buttonpadding = "10px";
 const iconColor = "#8C8C8C";
 
 export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
@@ -33,7 +34,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   if (currentRoom) {
     buttons.push(
       <button
-        style={{ padding: "var(--container-paddding)" }}
+        style={{ padding: buttonpadding }}
         key="leave-room"
         onClick={() => {
           wsend({ op: "leave_room", d: {} });
@@ -42,23 +43,25 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           }
         }}
       >
-        <PhoneMissed size={iconSize} color={iconColor} />
+        <PhoneMissed style={{ margin: "auto", marginBottom: "3px" }} size={iconSize} color={iconColor} />
+        Leave
       </button>,
       <button
-        style={{ padding: "var(--container-paddding)" }}
+        style={{ padding: buttonpadding }}
         key="invite"
         onClick={() => {
           wsend({ op: "fetch_invite_list", d: { cursor: 0 } });
           history.push("/invite");
         }}
       >
-        <UserPlus size={iconSize} color={iconColor} />
+        <UserPlus style={{ margin: "auto", marginBottom: "3px" }} size={iconSize} color={iconColor} />
+        Invite
       </button>
     );
     if (isCreator || canSpeak) {
       buttons.push(
         <button
-          style={{ padding: "var(--container-paddding)" }}
+          style={{ padding: buttonpadding }}
           key="mute"
           onClick={() => {
             wsend({
@@ -69,10 +72,11 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           }}
         >
           {muted ? (
-            <MicOff size={iconSize} color={iconColor} />
+            <MicOff style={{ margin: "auto", marginBottom: "3px" }} size={iconSize} color={iconColor} />
           ) : (
-            <Mic size={iconSize} color={iconColor} />
+            <Mic style={{ margin: "auto", marginBottom: "3px" }} size={iconSize} color={iconColor} />
           )}
+          Mute
         </button>
       );
       // } else if (me) {
@@ -104,13 +108,14 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
     if (isCreator) {
       buttons.push(
         <button
-          style={{ padding: "var(--container-paddding)" }}
+          style={{ padding: buttonpadding }}
           key="to-public-room"
           onClick={() => {
             setSettingsOpen(true);
           }}
         >
-          <Settings size={iconSize} color={iconColor} />
+          <Settings style={{ margin: "auto", marginBottom: "3px" }} size={iconSize} color={iconColor} />
+        Settings  
         </button>
       );
     }
