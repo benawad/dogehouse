@@ -39,7 +39,8 @@ services:
       # By default, this should be 
       - BEN_GITHUB_ID={username}
       - RABBITMQ_URL=amqp://192.168.1.165:3000 # Not sure about this
-      - SENTRY_DSN=NO_IDEA_WHAT_THIS_IS
+      # Not needed in dev instances.
+      # - SENTRY_DSN=NO_IDEA_WHAT_THIS_IS
       - GITHUB_CLIENT_ID=5d5xxxxxxab70
       - GITHUB_CLIENT_SECRET=48xxxxxxxxxxxxd1cd5
       - ACCESS_TOKEN_SECRET=8f51exxxxxx7211dd
