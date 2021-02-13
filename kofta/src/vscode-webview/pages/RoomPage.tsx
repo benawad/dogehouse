@@ -150,7 +150,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
                 color: "#fff",
               }}
             >
-              Requesting to speak ({speakers.length})
+              Requesting to speak ({unansweredHands.length})
             </div>
           ) : null}
           {unansweredHands.map((u) => (
