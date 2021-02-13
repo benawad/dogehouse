@@ -39,16 +39,21 @@ form > * {
 }
 
 *:focus {
-  outline-color: var(--vscode-focusBorder) !important;
+  box-shadow: 0 0 0 3px rgb(153 204 255 / 50%);
 }
 
 a {
   color: var(--vscode-textLink-foreground);
+  padding: 0 3px;
 }
 
 a:hover,
 a:active {
   color: var(--vscode-textLink-activeForeground);
+}
+
+a:focus {
+  box-shadow: 0 0 0 3px rgb(153 204 255 / 50%);
 }
 
 code {
