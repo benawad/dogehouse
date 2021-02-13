@@ -81,7 +81,7 @@ button:hover {
 }
 
 button:focus {
-  outline-color: var(--vscode-focusBorder);
+  outline: none;
 }
 
 button.secondary {
