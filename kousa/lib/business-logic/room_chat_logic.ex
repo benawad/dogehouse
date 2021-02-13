@@ -32,9 +32,15 @@ defmodule Kousa.BL.RoomChat do
 
   def ban_user(user_id, user_id_to_ban) do
     case Data.Room.get_room_status(user_id) do
-      {status, room}
-      when status in [:creator, :mod] and not is_nil(room) and room.creatorId != user_id_to_ban ->
-        RegUtils.lookup_and_cast(Gen.RoomChat, room.id, {:ban_user, user_id_to_ban})
+      {:creator, room} ->
+        if room.creatorId != user_id_to_ban do
+          RegUtils.lookup_and_cast(Gen.RoomChat, room.id, {:ban_user, user_id_to_ban})
+        end
+
+      {:mod, room} ->
+        if room.creatorId != user_id_to_ban do
+          RegUtils.lookup_and_cast(Gen.RoomChat, room.id, {:ban_user, user_id_to_ban})
+        end
 
       _ ->
         nil
