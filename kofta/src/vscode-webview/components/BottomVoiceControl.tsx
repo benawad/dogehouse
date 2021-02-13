@@ -4,8 +4,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
 import { useMuteStore } from "../../webrtc/stores/useMuteStore";
-import { currentRoomAtom, meAtom, myCurrentRoomInfoAtom } from "../atoms";
-import { Codicon } from "../svgs/Codicon";
+import { currentRoomAtom, myCurrentRoomInfoAtom } from "../atoms";
 import { PhoneMissed, UserPlus, Mic, MicOff, X, Settings } from "react-feather";
 import { Footer } from "./Footer";
 import { renameRoomAndMakePublic } from "../../webrtc/utils/renameRoomAndMakePublic";
@@ -15,8 +14,8 @@ import { Button } from "./Button";
 interface BottomVoiceControlProps {}
 
 const iconSize = 24;
-const buttonpadding = "10px";
 const iconColor = "#8C8C8C";
+const buttonStyle = { padding: "10px", color: "#8C8C8C", fontSize: 14 };
 
 export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   children,
@@ -25,7 +24,6 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   const history = useHistory();
   const [currentRoom, setCurrentRoom] = useAtom(currentRoomAtom);
   const { muted, set } = useMuteStore();
-  const [me] = useAtom(meAtom);
   const [{ canSpeak, isCreator }] = useAtom(myCurrentRoomInfoAtom);
   const [settingsOpen, setSettingsOpen] = useState(false);
 
@@ -34,7 +32,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   if (currentRoom) {
     buttons.push(
       <button
-        style={{ padding: buttonpadding }}
+        style={buttonStyle}
         key="leave-room"
         onClick={() => {
           wsend({ op: "leave_room", d: {} });
@@ -43,25 +41,33 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           }
         }}
       >
-        <PhoneMissed style={{ margin: "auto", marginBottom: "3px" }} size={iconSize} color={iconColor} />
+        <PhoneMissed
+          style={{ margin: "auto", marginBottom: "3px" }}
+          size={iconSize}
+          color={iconColor}
+        />
         Leave
       </button>,
       <button
-        style={{ padding: buttonpadding }}
+        style={buttonStyle}
         key="invite"
         onClick={() => {
           wsend({ op: "fetch_invite_list", d: { cursor: 0 } });
           history.push("/invite");
         }}
       >
-        <UserPlus style={{ margin: "auto", marginBottom: "3px" }} size={iconSize} color={iconColor} />
+        <UserPlus
+          style={{ margin: "auto", marginBottom: "3px" }}
+          size={iconSize}
+          color={iconColor}
+        />
         Invite
       </button>
     );
     if (isCreator || canSpeak) {
       buttons.push(
         <button
-          style={{ padding: buttonpadding }}
+          style={buttonStyle}
           key="mute"
           onClick={() => {
             wsend({
@@ -72,50 +78,38 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           }}
         >
           {muted ? (
-            <MicOff style={{ margin: "auto", marginBottom: "3px" }} size={iconSize} color={iconColor} />
+            <MicOff
+              style={{ margin: "auto", marginBottom: "3px" }}
+              size={iconSize}
+              color={iconColor}
+            />
           ) : (
-            <Mic style={{ margin: "auto", marginBottom: "3px" }} size={iconSize} color={iconColor} />
+            <Mic
+              style={{ margin: "auto", marginBottom: "3px" }}
+              size={iconSize}
+              color={iconColor}
+            />
           )}
-          Mute
+          {muted ? "Unmute" : "Mute"}
         </button>
       );
-      // } else if (me) {
-      //   buttons.push(
-      //     <button
-      //       style={{ padding: "var(--container-paddding)" }}
-      //       key="ask-to-speak"
-      //       onClick={() => {
-      //         if (
-      //           me.id in currentRoom.raiseHandMap &&
-      //           currentRoom.raiseHandMap[me.id] !== 1
-      //         ) {
-      //           window.alert("You can only ask to speak once per room.");
-      //         } else {
-      //           wsend({ op: "ask_to_speak", d: {} });
-      //         }
-      //       }}
-      //     >
-      //       <Codicon
-      //         width={iconSize}
-      //         height={iconSize}
-      //         fill={iconColor}
-      //         name="megaphone"
-      //       />
-      //     </button>
-      //   );
     }
 
     if (isCreator) {
       buttons.push(
         <button
-          style={{ padding: buttonpadding }}
+          style={buttonStyle}
           key="to-public-room"
           onClick={() => {
             setSettingsOpen(true);
           }}
         >
-          <Settings style={{ margin: "auto", marginBottom: "3px" }} size={iconSize} color={iconColor} />
-        Settings  
+          <Settings
+            style={{ margin: "auto", marginBottom: "3px" }}
+            size={iconSize}
+            color={iconColor}
+          />
+          Settings
         </button>
       );
     }
