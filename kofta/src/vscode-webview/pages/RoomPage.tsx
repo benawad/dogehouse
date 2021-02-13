@@ -91,6 +91,9 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
         <div
           style={{
             fontSize: "calc(var(--vscode-font-size)*1.3)",
+            display: "block",
+            overflow: "hidden",
+            textOverflow: "ellipsis"
           }}
           className={tw`flex-1 text-center flex items-center justify-center font-semibold`}
         >
