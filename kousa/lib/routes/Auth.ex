@@ -32,6 +32,11 @@ defmodule Kousa.Auth do
     conn_with_qp = fetch_query_params(conn)
     code = conn_with_qp.query_params["code"]
 
+    base_url =
+      if Map.get(conn_with_qp.query_params, "state", "") == "web",
+        do: Application.fetch_env!(:kousa, :web_url),
+        else: "http://localhost:54321"
+
     case HTTPoison.post(
            "https://github.com/login/oauth/access_token",
            Poison.encode!(%{
@@ -73,24 +78,17 @@ defmodule Kousa.Auth do
                       uu
                   end
 
-                base_url =
-                  if Map.get(conn_with_qp.query_params, "state", "") == "web",
-                    do: Application.fetch_env!(:kousa, :web_url),
-                    else: "http://localhost:54321"
-
                 if not is_nil(db_user.reasonForBan) do
                   conn
-                  |> put_resp_content_type("application/json")
-                  |> send_resp(
-                    500,
-                    Poison.encode!(%{
-                      "error" =>
+                  |> Kousa.Redirect.redirect(
+                    base_url <>
+                      "/?error=" <>
+                      URI.encode(
                         "your account got banned, if you think this was a mistake, please send me an email at benawadapps@gmail.com"
-                    })
+                      )
                   )
                 else
                   conn
-                  |> put_resp_content_type("application/json")
                   |> Kousa.Redirect.redirect(
                     base_url <>
                       "/?accessToken=" <>
@@ -105,27 +103,29 @@ defmodule Kousa.Auth do
               rescue
                 e in RuntimeError ->
                   conn
-                  |> put_resp_content_type("application/json")
-                  |> send_resp(500, Poison.encode!(%{"error" => e.message}))
+                  |> Kousa.Redirect.redirect(
+                    base_url <>
+                      "/?error=" <>
+                      URI.encode(e.message)
+                  )
               end
             else
               conn
-              |> put_resp_content_type("application/json")
-              |> send_resp(
-                500,
-                Poison.encode!(%{
-                  "error" =>
+              |> Kousa.Redirect.redirect(
+                base_url <>
+                  "/?error=" <>
+                  URI.encode(
                     "something went wrong fetching the user, tell ben to check the server logs"
-                })
+                  )
               )
             end
 
           resp ->
             conn
-            |> put_resp_content_type("application/json")
-            |> send_resp(
-              500,
-              Poison.encode!(resp)
+            |> Kousa.Redirect.redirect(
+              base_url <>
+                "/?error=" <>
+                URI.encode(resp)
             )
         end
 
@@ -133,10 +133,10 @@ defmodule Kousa.Auth do
         IO.inspect(x)
 
         conn
-        |> put_resp_content_type("application/json")
-        |> send_resp(
-          500,
-          Poison.encode!(%{"error" => "something went wrong, tell ben to check the server logs"})
+        |> Kousa.Redirect.redirect(
+          base_url <>
+            "/?error=" <>
+            URI.encode("something went wrong, tell ben to check the server logs")
         )
     end
   end

@@ -124,7 +124,7 @@ export const WebviewApp: React.FC<AppProps> = () => {
       <Wrapper>
         <div
           style={{ fontSize: "calc(var(--vscode-font-size)*1.2)" }}
-          className={tw`mb-4`}
+          className={tw`mb-4 mt-8`}
         >
           Websocket was killed by the server. This usually happens when you open
           the website in another tab.

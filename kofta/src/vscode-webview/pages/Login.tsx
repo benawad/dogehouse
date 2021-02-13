@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { tw } from "twind";
 import { Button } from "../components/Button";
 import { Footer } from "../components/Footer";
@@ -6,10 +6,18 @@ import { Wrapper } from "../components/Wrapper";
 import { apiBaseUrl } from "../constants";
 import { Logo } from "../svgs/Logo";
 import { useTokenStore } from "../utils/useTokenStore";
+import qs from "query-string";
+import { showErrorToast } from "../utils/showErrorToast";
 
 interface LoginProps {}
 
 export const Login: React.FC<LoginProps> = () => {
+  useEffect(() => {
+    const { error } = qs.parse(window.location.search);
+    if (error && typeof error === "string") {
+      showErrorToast(error);
+    }
+  }, []);
   return (
     <>
       <Wrapper>
