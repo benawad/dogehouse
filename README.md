@@ -14,12 +14,11 @@ https://dogehouse.tv/
 ### With Docker
 
 1. Make sure Docker and Docker Compose is installed on your system. For macOS and Windows 10 Home/Pro users, Docker Desktop is fine.
-
 2. Clone the repository, the vhnage working directory with `cd dogehouse`.
-
 3. Copy `docker-compose.example.yml` into `docker-compose.yml` and edit environment variables for the backend server, such as GitHub OAuth app ID and secret, and Sentry DSN (only needed in production).
-
-4. Run `sudo docker-compose up` and hit the road!
+4. Run `sudo docker-compose up` to make the server alive.
+5. Edit `kofta/src/vscode-webview/constants.ts#L4` by changing the `"https://api.dogehouse.tv"` string into your API server host. Make sure your instance of DogeHouse API is available over the public internet traffic if you running in production. Otherwise, skip this step.
+6. To deploy the frontend files in `kofta` directory, run `npm i` followed by `bash ./deploy.sh` to deploy to Netlify. Othetwise, run `npm start` to run the development server.
 
 ## Contributions
 
