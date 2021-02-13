@@ -49,7 +49,7 @@ export const startRabbit = async (handler: HandlerMap) => {
   await channel.purgeQueue(receiveQueue);
   await channel.consume(
     receiveQueue,
-    async (e) => {
+    async (e: any) => {
       const m = e?.content.toString();
       if (m) {
         let data: any = null;
@@ -59,7 +59,7 @@ export const startRabbit = async (handler: HandlerMap) => {
         // console.log(data.op);
         if (data && data.op && data.op in handler) {
           try {
-            await handler[data.op](data.d, data.uid, send, () => {
+            handler[data.op](data.d, data.uid, send, () => {
               console.log(data.op);
               send({
                 op: "error",
