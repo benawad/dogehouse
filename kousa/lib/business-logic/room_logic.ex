@@ -26,7 +26,7 @@ defmodule Kousa.BL.Room do
     end
   end
 
-    @spec make_room_private(any, any) :: nil | :ok
+  @spec make_room_private(any, any) :: nil | :ok
   def make_room_private(user_id, new_name) do
     # this needs to be refactored if a user can have multiple rooms
     case Kousa.Data.Room.set_room_privacy_by_creator_id(user_id, true, new_name) do
@@ -78,7 +78,7 @@ defmodule Kousa.BL.Room do
     end
   end
 
-  def internal_set_listener(user_id_to_make_listener, room_id) do
+  defp internal_set_listener(user_id_to_make_listener, room_id) do
     {rows_affected, _} = Kousa.Data.User.set_speaker(user_id_to_make_listener, room_id)
 
     if rows_affected == 1 do

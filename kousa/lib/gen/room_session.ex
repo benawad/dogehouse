@@ -166,19 +166,21 @@ defmodule Kousa.Gen.RoomSession do
      }}
   end
 
-  def handle_cast({:speaker_removed, user_id}, state) do
+  def handle_cast({:speaker_removed, user_id}, %State{} = state) do
     new_mm = Map.delete(state.muteMap, user_id)
+    new_rhm = Map.delete(state.raiseHandMap, user_id)
 
     ws_fan(state.users, :vscode, %{
       op: "speaker_removed",
       d: %{
         userId: user_id,
         roomId: state.room_id,
-        muteMap: new_mm
+        muteMap: new_mm,
+        raiseHandMap: new_rhm
       }
     })
 
-    {:noreply, %{state | muteMap: new_mm}}
+    {:noreply, %State{state | muteMap: new_mm, raiseHandMap: new_rhm}}
   end
 
   def handle_cast({:speaker_added, user_id, muted}, state) do

@@ -143,13 +143,14 @@ export const Routes: React.FC<RoutesProps> = () => {
           cr && cr.id === roomId ? { ...cr, creatorId: userId } : cr
         );
       },
-      speaker_removed: ({ userId, roomId, muteMap }) => {
+      speaker_removed: ({ userId, roomId, muteMap, raiseHandMap }) => {
         setCurrentRoom((c) =>
           !c || c.id !== roomId
             ? c
             : {
                 ...c,
                 muteMap,
+                raiseHandMap,
                 users: c.users.map((x) =>
                   userId === x.id ? { ...x, canSpeakForRoomId: null } : x
                 ),

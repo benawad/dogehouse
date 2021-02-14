@@ -182,7 +182,10 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
               </div>
             </>
           ) : null}
-          {isMe && !iAmCreator && profile.canSpeakForRoomId === room.id ? (
+          {isMe &&
+          !iAmCreator &&
+          (profile.id in room.raiseHandMap ||
+            profile.canSpeakForRoomId === room.id) ? (
             <div className={tw`mb-4`}>
               <Button
                 onClick={() => {
