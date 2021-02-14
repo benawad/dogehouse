@@ -42,16 +42,25 @@ export const Login: React.FC<LoginProps> = () => {
           <li>- Text chat</li>
           <li>- Powered by Doge</li>
         </ul>
+        <div className={tw`mb-8`}>
+          <Button
+            onClick={() =>
+              (window.location.href = apiBaseUrl + "/auth/github/web")
+            }
+          >
+            login with GitHub
+          </Button>
+        </div>
         <Button
           onClick={() =>
-            (window.location.href = apiBaseUrl + "/auth/github/web")
+            (window.location.href = apiBaseUrl + "/auth/twitter/web")
           }
         >
-          login with GitHub
+          login with Twitter
         </Button>
         {process.env.NODE_ENV === "development" ? (
           <Button
-            style={{ marginTop: 10 }}
+            style={{ marginTop: 32 }}
             onClick={async () => {
               const name = window.prompt("username");
               if (!name) {

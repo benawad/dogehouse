@@ -1,4 +1,4 @@
-defmodule Kousa.Auth do
+defmodule Kousa.GitHubAuth do
   import Plug.Conn
   use Plug.Router
 
@@ -69,12 +69,12 @@ defmodule Kousa.Auth do
             if user do
               try do
                 db_user =
-                  case Kousa.Data.User.find_or_create(user, accessToken) do
+                  case Kousa.Data.User.github_find_or_create(user, accessToken) do
                     {:find, uu} ->
                       uu
 
                     {:create, uu} ->
-                      Kousa.BL.User.load_followers(accessToken, uu.id)
+                      # Kousa.BL.User.load_followers(accessToken, uu.id)
                       uu
                   end
 
