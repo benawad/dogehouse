@@ -53,12 +53,12 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
         style={buttonStyle}
         key="leave-room"
         onClick={() => {
-          if (
-            location.pathname.startsWith("/room") &&
-            window.confirm("Are you sure you want to leave?")
-          ) {
+          const y = window.confirm("Are you sure you want to leave?");
+          if (y) {
             wsend({ op: "leave_room", d: {} });
-            history.push("/");
+            if (location.pathname.startsWith("/room")) {
+              history.push("/");
+            }
           }
         }}
         title="Leave current room"
