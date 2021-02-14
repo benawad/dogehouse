@@ -14,6 +14,9 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
     <form
       onSubmit={(e) => {
         e.preventDefault();
+        if (!message || !message.trim()) {
+          return;
+        }
         if (!me) {
           return;
         }
