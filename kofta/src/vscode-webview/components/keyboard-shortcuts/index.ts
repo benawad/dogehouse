@@ -1,2 +1,2 @@
 export {MuteKeybind} from './MuteKeybind'
-export {PTTKeybind} from './PTTKeybind'
+export { PTTKeybind } from './PTTKeybind'
