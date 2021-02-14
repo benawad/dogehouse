@@ -14,7 +14,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        if (!message || !message.trim()) {
+        if (!message || !message.trim() || !message.replace(/[\u200B-\u200D\uFEFF]/g, '')) {
           return;
         }
         if (!me) {
