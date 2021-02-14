@@ -27,7 +27,12 @@ interface BottomVoiceControlProps {}
 
 const iconSize = 24;
 const iconColor = "#8C8C8C";
-const buttonStyle = { padding: "10px", color: "#8C8C8C", fontSize: 14, flex: 1 };
+const buttonStyle = {
+  padding: "10px",
+  color: "#8C8C8C",
+  fontSize: 14,
+  flex: 1,
+};
 
 export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   children,
@@ -68,30 +73,34 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
         Leave
       </button>,
       <button
-        style={{ ...buttonStyle, position: "relative" }}
+        style={buttonStyle}
         key="chat"
         onClick={() => {
           toggleOpen();
         }}
       >
-        <MessageSquare
-          style={{ margin: "auto", marginBottom: "3px" }}
-          size={iconSize}
-          color={iconColor}
-        />
-        {newUnreadMessages ? (
-          <span
-            style={{
-              position: "absolute",
-              backgroundColor: "#FF9900",
-              borderRadius: "50%",
-              right: 10,
-              top: 10,
-              width: 10,
-              height: 10,
-            }}
-          />
-        ) : null}
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{ position: "relative" }}>
+            <MessageSquare
+              style={{ margin: "auto", marginBottom: "3px" }}
+              size={iconSize}
+              color={iconColor}
+            />
+            {newUnreadMessages ? (
+              <span
+                style={{
+                  position: "absolute",
+                  backgroundColor: "#FF9900",
+                  borderRadius: "50%",
+                  right: -2,
+                  top: -1,
+                  width: 10,
+                  height: 10,
+                }}
+              />
+            ) : null}
+          </div>
+        </div>
         Chat
       </button>,
       <button
