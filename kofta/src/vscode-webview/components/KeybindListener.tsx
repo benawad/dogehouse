@@ -11,6 +11,7 @@ export const KeybindListener: React.FC<KeybindListenerProps> = ({}) => {
 
   return (
     <GlobalHotKeys
+      allowChanges={true}
       keyMap={keyMap}
       handlers={useMemo(
         () => ({
