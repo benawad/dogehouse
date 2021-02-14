@@ -30,8 +30,7 @@ export const Login: React.FC<LoginProps> = () => {
           <li>- Dark theme</li>
           <li>- Open sign ups</li>
           <li>- Cross platform support</li>
-          <li>
-            -{" "}
+          <li>- 
             <a
               style={{ color: "var(--vscode-textLink-foreground)" }}
               href="https://github.com/benawad/dogehouse"
