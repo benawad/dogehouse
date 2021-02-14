@@ -3,7 +3,7 @@ services:
   # The postgres server
   database:
     # Pulling the image in the latest tag is a disaster.
-    image: postgres:13
+    image: postgres:13-alpine
     environment: 
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
