@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { tw } from "twind";
 import DogeHouse from "../../assets/dogehouse.png";
 import { ArrowLeft } from "react-feather";
+import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
 
 interface BackbarProps {
   actuallyGoBack?: boolean;
@@ -13,6 +14,7 @@ export const Backbar: React.FC<BackbarProps> = ({
   actuallyGoBack,
 }) => {
   const history = useHistory();
+  const [open, toggleOpen] = useRoomChatStore((s) => [s.open, s.toggleOpen]);
   return (
     <div
       style={{
@@ -26,6 +28,7 @@ export const Backbar: React.FC<BackbarProps> = ({
           style={{ padding: "0 9px" }}
           className={tw`hover:bg-buttonHover`}
           onClick={() => {
+            if (open) toggleOpen();
             history.goBack();
           }}
         >
@@ -36,6 +39,7 @@ export const Backbar: React.FC<BackbarProps> = ({
           style={{ padding: "0 9px" }}
           className={tw`hover:bg-buttonHover`}
           onClick={() => {
+            if (open) toggleOpen();
             history.push("/");
           }}
         >

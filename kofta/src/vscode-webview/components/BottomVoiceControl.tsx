@@ -37,9 +37,10 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   const { muted, set } = useMuteStore();
   const [{ canSpeak, isCreator }] = useAtom(myCurrentRoomInfoAtom);
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const [toggleOpen, newUnreadMessages] = useRoomChatStore((s) => [
+  const [toggleOpen, newUnreadMessages, open] = useRoomChatStore((s) => [
     s.toggleOpen,
     s.newUnreadMessages,
+    s.open,
   ]);
 
   const fullscreenChatOpen = useShouldFullscreenChat();
@@ -97,6 +98,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
         key="invite"
         onClick={() => {
           wsend({ op: "fetch_invite_list", d: { cursor: 0 } });
+          if (open) toggleOpen();
           history.push("/invite");
         }}
       >
