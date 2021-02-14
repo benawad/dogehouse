@@ -8,6 +8,7 @@ import { useSocketStatus } from "../webrtc/stores/useSocketStatus";
 import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
 import { setMeAtom } from "./atoms";
 import { Button } from "./components/Button";
+import { CenterLayout } from "./components/CenterLayout";
 import { KeybindListener } from "./components/KeybindListener";
 import { Wrapper } from "./components/Wrapper";
 import { apiBaseUrl } from "./constants";
@@ -135,22 +136,24 @@ export const WebviewApp: React.FC<AppProps> = () => {
 
   if (wsKilledByServer) {
     return (
-      <Wrapper>
-        <div
-          style={{ fontSize: "calc(var(--vscode-font-size)*1.2)" }}
-          className={tw`mb-4 mt-8`}
-        >
-          Websocket was killed by the server. This usually happens when you open
-          the website in another tab.
-        </div>
-        <Button
-          onClick={() => {
-            createWebSocket();
-          }}
-        >
-          reconnect
-        </Button>
-      </Wrapper>
+      <CenterLayout>
+        <Wrapper>
+          <div
+            style={{ fontSize: "calc(var(--vscode-font-size)*1.2)" }}
+            className={tw`mb-4 mt-8`}
+          >
+            Websocket was killed by the server. This usually happens when you
+            open the website in another tab.
+          </div>
+          <Button
+            onClick={() => {
+              createWebSocket();
+            }}
+          >
+            reconnect
+          </Button>
+        </Wrapper>
+      </CenterLayout>
     );
   }
 
