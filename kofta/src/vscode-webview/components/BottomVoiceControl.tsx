@@ -123,7 +123,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             });
             set({ muted: !muted });
           }}
-          title="Mute microphone"
+          title="Toggle mute microphone"
         >
           {muted ? (
             <MicOff
