@@ -100,8 +100,8 @@ async function main() {
         if (theirPeerId === myPeerId || !peerState || !peerState.producer) {
           continue;
         }
-        const { producer } = peerState;
         try {
+          const { producer } = peerState;
           consumerParametersArr.push(
             await createConsumer(
               router,
