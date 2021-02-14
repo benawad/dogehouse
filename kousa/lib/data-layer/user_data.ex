@@ -175,6 +175,20 @@ defmodule Kousa.Data.User do
     end
   end
 
+  def tuple_get_current_room_id(user_id) do
+    case Kousa.RegUtils.lookup_and_call(
+           Kousa.Gen.UserSession,
+           user_id,
+           {:get_current_room_id}
+         ) do
+      {:ok, nil} ->
+        {nil, nil}
+
+      x ->
+        x
+    end
+  end
+
   def get_current_room_id(user_id) do
     case Kousa.RegUtils.lookup_and_call(
            Kousa.Gen.UserSession,

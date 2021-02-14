@@ -48,6 +48,11 @@ export const Routes: React.FC<RoutesProps> = () => {
   const [, setInviteList] = useAtom(setInviteListAtom);
   useEffect(() => {
     addMultipleWsListener({
+      new_room_name: ({ name, roomId }) => {
+        setCurrentRoom((cr) =>
+          !cr || cr.id !== roomId ? cr : { ...cr, name }
+        );
+      },
       chat_user_banned: ({ userId }) => {
         useRoomChatStore.getState().addBannedUser(userId);
       },

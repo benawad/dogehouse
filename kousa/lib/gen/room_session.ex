@@ -227,6 +227,15 @@ defmodule Kousa.Gen.RoomSession do
      }}
   end
 
+  def handle_cast({:new_room_name, new_name}, %State{} = state) do
+    ws_fan(state.users, :vscode, %{
+      op: "new_room_name",
+      d: %{name: new_name, roomId: state.room_id}
+    })
+
+    {:noreply, state}
+  end
+
   def handle_cast({:answer_hand, user_id, value}, state) do
     {:noreply,
      %{

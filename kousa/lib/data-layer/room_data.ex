@@ -174,6 +174,7 @@ defmodule Kousa.Data.Room do
       else 3
     end)
   """
+  @spec get_next_creator_for_room(any) :: any
   def get_next_creator_for_room(room_id) do
     {_, bin_room_id} = Ecto.UUID.dump(room_id)
 
@@ -271,6 +272,18 @@ defmodule Kousa.Data.Room do
     %Beef.Room{peoplePreviewList: peoplePreviewList}
     |> Beef.Room.insert_changeset(data)
     |> Beef.Repo.insert(returning: true)
+  end
+
+  def update_name(user_id, name) do
+    from(r in Beef.Room,
+      where: r.creatorId == ^user_id,
+      update: [
+        set: [
+          name: ^name
+        ]
+      ]
+    )
+    |> Beef.Repo.update_all([])
   end
 
   @spec create(:invalid | %{optional(:__struct__) => none, optional(atom | binary) => any}) :: any
