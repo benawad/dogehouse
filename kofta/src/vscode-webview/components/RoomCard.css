@@ -1,0 +1,18 @@
+.RoomCard {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #333333;
+  border-radius: 9px;
+}
+
+.RoomCard:hover {
+  background-color: #696969;
+}
+
+.RoomCard:active { /* Active button */
+  background-color: #232323;
+}
+
+.RoomCard.active { /* No idea */
+  background-color: #4D4D4D;
+}
