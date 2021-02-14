@@ -39,6 +39,7 @@ export const Login: React.FC<LoginProps> = () => {
               Open Source
             </a>
           </li>
+          <li>- Text chat</li>
           <li>- Powered by Doge</li>
         </ul>
         <Button
