@@ -96,10 +96,11 @@ async function main() {
       const consumerParametersArr = [];
 
       for (const theirPeerId of Object.keys(state)) {
-        const { producer } = state[theirPeerId];
-        if (theirPeerId === myPeerId || !producer) {
+        const peerState = state[theirPeerId];
+        if (theirPeerId === myPeerId || !peerState || !peerState.producer) {
           continue;
         }
+        const { producer } = peerState;
         try {
           consumerParametersArr.push(
             await createConsumer(
