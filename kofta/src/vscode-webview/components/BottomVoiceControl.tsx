@@ -58,6 +58,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             history.push("/");
           }
         }}
+        title="Leave current room"
       >
         <PhoneMissed
           style={{ margin: "auto", marginBottom: "3px" }}
@@ -100,6 +101,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           wsend({ op: "fetch_invite_list", d: { cursor: 0 } });
           history.push("/invite");
         }}
+        title="Invite users to room"
       >
         <UserPlus
           style={{ margin: "auto", marginBottom: "3px" }}
@@ -121,6 +123,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             });
             set({ muted: !muted });
           }}
+          title="Mute microphone"
         >
           {muted ? (
             <MicOff
@@ -148,6 +151,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           onClick={() => {
             setSettingsOpen(true);
           }}
+          title="Make room public!"
         >
           <Settings
             style={{ margin: "auto", marginBottom: "3px" }}
