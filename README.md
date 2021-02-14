@@ -1,5 +1,11 @@
 ![DogeHouse logo](/dogehouse-github.png "DogeHouse")
 
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=hy-EhJ_tTQo&t" target="_blank">
+    <img src="https://img.shields.io/youtube/likes/hy-EhJ_tTQo?style=for-the-badge" alt="youtube likes" />
+  </a>
+</p>
+
 https://dogehouse.tv/
 
 ## Structure
