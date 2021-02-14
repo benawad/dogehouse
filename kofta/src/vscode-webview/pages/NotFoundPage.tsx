@@ -17,7 +17,7 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = () => {
       </div>
       Not to worry. You can
       <Link to="/" style={{ color: "var(--vscode-textLink-foreground)" }}>
-        go to home
+        go home
       </Link>
     </Wrapper>
   );
