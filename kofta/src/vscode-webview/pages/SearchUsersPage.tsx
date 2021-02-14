@@ -1,5 +1,5 @@
-import { useAtom } from "jotai";
 import React, { useState } from "react";
+import { useAtom } from "jotai";
 import { tw } from "twind";
 import { userSearchAtom } from "../atoms";
 import { Backbar } from "../components/Backbar";
@@ -10,7 +10,7 @@ import { Codicon } from "../svgs/Codicon";
 interface SearchUsersProps {}
 
 export const SearchUsersPage: React.FC<SearchUsersProps> = ({}) => {
-  const [{ loading, nextCursor, users }] = useAtom(userSearchAtom);
+  const [{ loading }] = useAtom(userSearchAtom);
   const [query, setQuery] = useState("");
   return (
     <Wrapper>

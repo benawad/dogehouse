@@ -1,5 +1,5 @@
-import { useAtom } from "jotai";
 import React from "react";
+import { useAtom } from "jotai";
 import { useHistory } from "react-router-dom";
 import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
@@ -45,7 +45,15 @@ export const UserProfile: React.FC<UserProfileProps> = ({ profile }) => {
       </div>
       <div className={tw`font-semibold`}>{profile.displayName}</div>
       <div className={tw`my-1 flex`}>
-        <div><a href={'https://github.com/' + profile.username} target="_blank">@{profile.username}</a></div>
+        <div>
+          <a
+            href={"https://github.com/" + profile.username}
+            target="_blank"
+            rel="noreferrer"
+          >
+            @{profile.username}
+          </a>
+        </div>
         {me?.id !== profile.id && profile.followsYou ? (
           <div
             style={{

@@ -9,6 +9,7 @@ config :kousa, Beef.Repo,
   hostname: "localhost"
 
 config :kousa,
+  env: :dev,
   web_url: "http://localhost:3000",
   api_url: "http://localhost:4001",
   ben_github_id:

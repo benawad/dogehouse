@@ -1,7 +1,6 @@
 import { useAtom } from "jotai";
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { wsend } from "../../createWebsocket";
 import { meAtom } from "../atoms";
 import { Avatar } from "./Avatar";
 

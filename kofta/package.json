@@ -40,12 +40,6 @@
     "vscode:prod": "webpack --config src/vscode-webview/webpack.config.js --mode production",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",

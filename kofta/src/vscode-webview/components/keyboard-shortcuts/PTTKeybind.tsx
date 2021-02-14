@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { KeyMap, recordKeyCombination } from "react-hotkeys";
+import { recordKeyCombination } from "react-hotkeys";
 import { tw } from "twind";
 import { useKeyMapStore } from "../../../webrtc/stores/useKeyMapStore";
 import { Button } from "../Button";
 
-interface PTTKeybind {
-  className?: string 
+interface PTTKeybindProps {
+  className?: string;
 }
 
-export const PTTKeybind: React.FC<PTTKeybind> = ({className}) => {
+export const PTTKeybind: React.FC<PTTKeybindProps> = ({ className }) => {
   const [count, setCount] = useState(0);
   const [active, setActive] = useState(false);
   const {
