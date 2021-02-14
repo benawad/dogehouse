@@ -23,7 +23,7 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = ({}) => {
           setDevices(
             devices
               .filter(
-                (device) => device.kind === "audioinput" || device.deviceId
+                (device) => device.kind === "audioinput" && device.deviceId
               )
               .map((device) => ({ id: device.deviceId, label: device.label }))
           )
