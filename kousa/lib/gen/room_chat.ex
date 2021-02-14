@@ -5,10 +5,11 @@ defmodule Kousa.Gen.RoomChat do
     @type t :: %__MODULE__{
             room_id: String.t(),
             users: [String.t()],
-            ban_map: map()
+            ban_map: map(),
+            last_message_map: map()
           }
 
-    defstruct room_id: "", users: [], ban_map: %{}
+    defstruct room_id: "", users: [], ban_map: %{}, last_message_map: %{}
   end
 
   def start_link(state) do
@@ -58,8 +59,12 @@ defmodule Kousa.Gen.RoomChat do
     {:noreply, state}
   end
 
-  def handle_cast({:new_msg, user_id, msg}, state) do
-    if not Map.has_key?(state.ban_map, user_id) do
+  def handle_cast({:new_msg, user_id, msg}, %State{} = state) do
+    last_timestamp = Map.get(state.last_message_map, user_id)
+    {_, seconds, _} = :os.timestamp()
+
+    if not Map.has_key?(state.ban_map, user_id) and
+         (is_nil(last_timestamp) or seconds - last_timestamp > 0) do
       ws_fan(state.users, :chat, %{
         op: "new_chat_msg",
         d: %{
@@ -67,9 +72,12 @@ defmodule Kousa.Gen.RoomChat do
           msg: msg
         }
       })
-    end
 
-    {:noreply, state}
+      {:noreply,
+       %State{state | last_message_map: Map.put(state.last_message_map, user_id, seconds)}}
+    else
+      {:noreply, state}
+    end
   end
 
   def handle_cast({:ban_user, user_id}, state) do

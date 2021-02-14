@@ -41,7 +41,8 @@ defmodule Kousa.Gen.RoomSession do
     Kousa.Gen.RoomChat.start(x.room_id, %Kousa.Gen.RoomChat.State{
       room_id: x.room_id,
       users: x.users,
-      ban_map: %{}
+      ban_map: %{},
+      last_message_map: %{}
     })
 
     {:ok, x}
