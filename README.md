@@ -1,5 +1,12 @@
 ![DogeHouse logo](/dogehouse-github.png "DogeHouse")
 
+<p align="center">
+  <img src="https://img.shields.io/static/v1?label=PRs&message=welcome&style=for-the-badge&logo=appveyor" alt="PRs" />     
+  <img src="https://img.shields.io/github/license/benawad/dogehouse?style=for-the-badge&logo=appveyor" alt="license" />
+  <img src="https://img.shields.io/github/last-commit/benawad/dogehouse?style=for-the-badge&logo=appveyor" alt="last-commit" />
+  <img src="https://img.shields.io/youtube/likes/hy-EhJ_tTQo?style=for-the-badge" alt="youtube likes" />
+</p>
+
 https://dogehouse.tv/
 
 ## Structure
