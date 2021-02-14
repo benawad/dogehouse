@@ -50,11 +50,7 @@ export const Routes: React.FC<RoutesProps> = () => {
         setCurrentRoom((cr) =>
           !cr || cr.id !== roomId ? cr : { ...cr, name, isPrivate }
         );
-        if (isPrivate) {
-          toast("room is now public", { type: "info" });
-        } else {
-          toast("room is now private", { type: "info" });
-        }
+        toast(`Room is now ${isPrivate ? "private" : "public"}`, { type: "info" });
       },
       banned: () => {
         toast("you got banned", { type: "error" });
