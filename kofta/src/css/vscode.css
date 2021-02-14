@@ -23,7 +23,6 @@ body {
 #root {
   margin: 0;
   display: flex;
-  flex-direction: column;
   height: 100%;
 }
 
@@ -39,16 +38,21 @@ form > * {
 }
 
 *:focus {
-  outline-color: var(--vscode-focusBorder) !important;
+  box-shadow: 0 0 0 3px rgb(153 204 255 / 50%);
 }
 
 a {
   color: var(--vscode-textLink-foreground);
+  padding: 0 3px;
 }
 
 a:hover,
 a:active {
   color: var(--vscode-textLink-activeForeground);
+}
+
+a:focus {
+  box-shadow: 0 0 0 3px rgb(153 204 255 / 50%);
 }
 
 code {
@@ -76,7 +80,7 @@ button:hover {
 }
 
 button:focus {
-  outline-color: var(--vscode-focusBorder);
+  outline: none;
 }
 
 button.secondary {
@@ -94,10 +98,7 @@ textarea {
   width: 100%;
   border: none;
   font-family: var(--vscode-font-family);
-  padding: var(--input-padding-vertical) var(--input-padding-horizontal);
-  color: var(--vscode-input-foreground);
   outline-color: var(--vscode-input-border);
-  background-color: var(--vscode-input-background);
 }
 
 input::placeholder,

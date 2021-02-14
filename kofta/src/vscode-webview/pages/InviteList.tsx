@@ -8,6 +8,7 @@ import { currentRoomAtom, inviteListAtom } from "../atoms";
 import { Avatar } from "../components/Avatar";
 import { Backbar } from "../components/Backbar";
 import { Button } from "../components/Button";
+import { Input } from "../components/Input";
 import { InviteButton } from "../components/InviteButton";
 import { Wrapper } from "../components/Wrapper";
 
@@ -40,7 +41,7 @@ export const InviteList: React.FC<InviteListProps> = () => {
             <div className={tw`text-2xl mb-2`}>share link to room</div>
           ) : null}
           <div className={tw`mb-8 flex`}>
-            <input readOnly ref={inputRef} value={url} />
+            <Input readOnly ref={inputRef} value={url} />
             <Button
               variant="small"
               onClick={() => {

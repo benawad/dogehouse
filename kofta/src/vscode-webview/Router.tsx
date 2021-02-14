@@ -1,6 +1,10 @@
 import React from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
+import { tw } from "twind";
 import { WebRtcApp } from "../webrtc/WebRtcApp";
+import { CenterLayout } from "./components/CenterLayout";
+import { MicPermissionBanner } from "./components/MicPermissionBanner";
+import { RoomChat } from "./modules/room-chat/RoomChat";
 import { Routes } from "./Routes";
 
 interface RouterProps {}
@@ -9,9 +13,18 @@ export const Router: React.FC<RouterProps> = () => {
   return (
     <BrowserRouter>
       <WebRtcApp />
-      <Switch>
-        <Routes />
-      </Switch>
+      <div
+        style={{ maxWidth: 980 }}
+        className={tw`mx-auto w-full h-full flex relative`}
+      >
+        <CenterLayout>
+          <Switch>
+            <Routes />
+          </Switch>
+          <MicPermissionBanner />
+        </CenterLayout>
+        <RoomChat sidebar />
+      </div>
     </BrowserRouter>
   );
 };

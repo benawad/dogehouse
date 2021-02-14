@@ -91,8 +91,11 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
         <div
           style={{
             fontSize: "calc(var(--vscode-font-size)*1.3)",
+            display: "block",
+            overflow: "hidden",
+            textOverflow: "ellipsis"
           }}
-          className={tw`flex-1 text-center flex items-center justify-center font-semibold`}
+          className={tw`flex-1 text-center flex items-center justify-center text-2xl`}
         >
           {room.name.slice(0, 50)}
         </div>
@@ -129,17 +132,19 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
             />
           ))}
           {!iCanSpeak && me && !(me.id in room.raiseHandMap) ? (
-            <CircleButton
-              size={70}
-              onClick={() => {
-                const y = window.confirm("Would you like to ask to speak?");
-                if (y) {
-                  wsend({ op: "ask_to_speak", d: {} });
-                }
-              }}
-            >
-              <Codicon width={36} height={36} name="megaphone" />
-            </CircleButton>
+            <div className={tw`flex flex-col items-center`}>
+              <CircleButton
+                size={70}
+                onClick={() => {
+                  const y = window.confirm("Would you like to ask to speak?");
+                  if (y) {
+                    wsend({ op: "ask_to_speak", d: {} });
+                  }
+                }}
+              >
+                <Codicon width={36} height={36} name="megaphone" />
+              </CircleButton>
+            </div>
           ) : null}
           {unansweredHands.length ? (
             <div

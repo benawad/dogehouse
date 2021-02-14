@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
 import { Button } from "./Button";
+import { Input } from "./Input";
 import { Modal } from "./Modal";
 
 interface CreateRoomModalProps {
@@ -27,12 +28,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
           }
         }}
       >
-        <input
-          style={{
-            paddingLeft: 12,
-            paddingRight: 12,
-          }}
-          className={tw`text-xl`}
+        <Input
           placeholder="room name"
           autoFocus
           value={name}

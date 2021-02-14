@@ -13,6 +13,10 @@ defmodule Kousa do
         GenRegistry,
         worker_module: Kousa.Gen.RoomSession
       },
+      {
+        GenRegistry,
+        worker_module: Kousa.Gen.RoomChat
+      },
       {Beef.Repo, []},
       Kousa.Gen.Rabbit,
       Kousa.Gen.OnlineRabbit,

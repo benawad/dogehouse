@@ -1,18 +1,20 @@
 defmodule Kousa.SocketHandler do
   require Logger
 
-  @type t :: %{
-          awaiting_init: boolean,
-          user_id: String.t(),
-          encoding: Atom.t(),
-          compression: String.t()
-        }
+  defmodule State do
+    @type t :: %__MODULE__{
+            awaiting_init: boolean(),
+            user_id: String.t(),
+            encoding: atom(),
+            compression: String.t()
+          }
 
-  defstruct awaiting_init: true,
-            user_id: nil,
-            platform: nil,
-            encoding: nil,
-            compression: nil
+    defstruct awaiting_init: true,
+              user_id: nil,
+              platform: nil,
+              encoding: nil,
+              compression: nil
+  end
 
   @behaviour :cowboy_websocket
 
@@ -36,7 +38,7 @@ defmodule Kousa.SocketHandler do
         _ -> :json
       end
 
-    state = %__MODULE__{
+    state = %State{
       awaiting_init: true,
       user_id: nil,
       encoding: encoding,
@@ -108,7 +110,13 @@ defmodule Kousa.SocketHandler do
                 user ->
                   {:ok, session} =
                     GenRegistry.lookup_or_start(Kousa.Gen.UserSession, user_id, [
-                      %{user_id: user_id, current_room_id: user.currentRoomId, muted: muted}
+                      %Kousa.Gen.UserSession.State{
+                        user_id: user_id,
+                        avatar_url: user.avatarUrl,
+                        display_name: user.displayName,
+                        current_room_id: user.currentRoomId,
+                        muted: muted
+                      }
                     ])
 
                   GenServer.call(session, {:set_pid, self()})
@@ -357,31 +365,15 @@ defmodule Kousa.SocketHandler do
     {:ok, state}
   end
 
-  # def handler("get_mute", _data, state) do
-  #   user = Kousa.Data.User.get_by_id(state.user_id)
+  def handler("ban_from_room_chat", %{"userId" => user_id_to_ban}, state) do
+    Kousa.BL.RoomChat.ban_user(state.user_id, user_id_to_ban)
+    {:ok, state}
+  end
 
-  #   is_muted =
-  #     cond do
-  #       is_nil(user.currentRoomId) ->
-  #         false
-
-  #       true ->
-  #         case Kousa.RegUtils.lookup_and_call(
-  #                Kousa.Gen.RoomSession,
-  #                user.currentRoomId,
-  #                {:get_mute_map}
-  #              ) do
-  #           {:ok, {:ok, x}} -> Map.has_key?(x, state.user_id)
-  #           _ -> false
-  #         end
-  #     end
-
-  #   {:reply,
-  #    construct_socket_msg(state.encoding, state.compression, %{
-  #      op: "mute_changed",
-  #      d: %{value: is_muted}
-  #    }), state}
-  # end
+  def handler("send_room_chat_msg", %{"tokens" => tokens}, state) do
+    Kousa.BL.RoomChat.send_msg(state.user_id, tokens)
+    {:ok, state}
+  end
 
   def handler("follow", %{"userId" => userId, "value" => value}, state) do
     Kousa.BL.Follow.follow(state.user_id, userId, value)
@@ -550,5 +542,33 @@ defmodule Kousa.SocketHandler do
     })
 
     {:ok, state}
+  end
+
+  defp prepare_socket_msg(data, %State{compression: compression, encoding: encoding}) do
+    data
+    |> encode_data(encoding)
+    |> compress_data(compression)
+  end
+
+  defp encode_data(data, :etf) do
+    data
+  end
+
+  defp encode_data(data, _encoding) do
+    data |> Poison.encode!()
+  end
+
+  defp compress_data(data, :zlib) do
+    z = :zlib.open()
+
+    :zlib.deflateInit(z)
+    data = :zlib.deflate(z, data, :finish)
+    :zlib.deflateEnd(z)
+
+    {:binary, data}
+  end
+
+  defp compress_data(data, _compression) do
+    {:text, data}
   end
 end
