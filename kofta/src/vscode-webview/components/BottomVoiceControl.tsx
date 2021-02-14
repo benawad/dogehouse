@@ -188,6 +188,27 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
       >
         {fullscreenChatOpen ? null : children}
         <RoomChat sidebar={false} />
+        {currentRoom &&
+        !fullscreenChatOpen &&
+        !location.pathname.startsWith("/room") ? (
+          <button
+            onClick={() => history.push(`/room/${currentRoom.id}`)}
+            className={tw`bg-tmpBg1 py-5 px-10 w-full flex`}
+          >
+            <span
+              style={{
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+              className={tw`text-tmpC1 font-semibold`}
+            >
+              {currentRoom.name}{" "}
+            </span>
+            <span className={tw`text-tmpC4 ml-2`}>
+              {canSpeak ? "speaker" : "listener"}
+            </span>
+          </button>
+        ) : null}
         <div
           style={{
             borderTop: "1px solid #808080",
