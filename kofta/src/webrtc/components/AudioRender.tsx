@@ -80,7 +80,7 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
               const { consumer, volume: userVolume } = consumerMap[k];
               return (
                 <MyAudio
-                  volume={(userVolume / 100) * (globalVolume / 100)}
+                  volume={(userVolume / 200) * (globalVolume / 100)}
                   autoPlay
                   playsInline
                   controls={false}

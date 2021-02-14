@@ -2,12 +2,14 @@ import React from "react";
 
 interface VolumeSliderProps {
   label?: boolean;
+  max?: string;
   volume: number;
   onVolume: (n: number) => void;
 }
 
 export const VolumeSlider: React.FC<VolumeSliderProps> = ({
   label,
+  max = "100",
   volume,
   onVolume,
 }) => {
@@ -18,7 +20,7 @@ export const VolumeSlider: React.FC<VolumeSliderProps> = ({
       <input
         type="range"
         min="1"
-        max="100"
+        max={max}
         value={volume}
         onChange={(e) => {
           const n = parseInt(e.target.value);
