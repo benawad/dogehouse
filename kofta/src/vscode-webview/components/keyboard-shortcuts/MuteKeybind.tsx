@@ -4,15 +4,15 @@ import { tw } from "twind";
 import { useKeyMapStore } from "../../../webrtc/stores/useKeyMapStore";
 import { Button } from "../Button";
 
-interface MuteKeybind {
-  className?: string 
+interface MuteKeybindProps {
+  className?: string;
 }
 
-export const MuteKeybind: React.FC<MuteKeybind> = ({className}) => {
+export const MuteKeybind: React.FC<MuteKeybindProps> = ({ className }) => {
   const [count, setCount] = useState(0);
   const [active, setActive] = useState(false);
   const {
-    keyNames: { MUTE,},
+    keyNames: { MUTE },
     setMuteKeybind,
   } = useKeyMapStore();
   useEffect(() => {

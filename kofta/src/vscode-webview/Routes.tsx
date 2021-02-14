@@ -57,7 +57,9 @@ export const Routes: React.FC<RoutesProps> = () => {
         setCurrentRoom((cr) =>
           !cr || cr.id !== roomId ? cr : { ...cr, name, isPrivate }
         );
-        toast(`Room is now ${isPrivate ? "private" : "public"}`, { type: "info" });
+        toast(`Room is now ${isPrivate ? "private" : "public"}`, {
+          type: "info",
+        });
       },
       banned: () => {
         toast("you got banned", { type: "error" });
@@ -296,6 +298,7 @@ export const Routes: React.FC<RoutesProps> = () => {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   useEffect(() => {
     if (location.pathname.startsWith("/room/")) {
       let found = false;
@@ -315,6 +318,7 @@ export const Routes: React.FC<RoutesProps> = () => {
         wsend({ op: "join_room", d: { roomId: id } });
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>
