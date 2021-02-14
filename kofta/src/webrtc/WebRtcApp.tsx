@@ -5,7 +5,6 @@ import { setCurrentRoomAtom } from "../vscode-webview/atoms";
 import { useMicIdStore } from "../vscode-webview/shared-stores";
 import { ActiveSpeakerListener } from "./components/ActiveSpeakerListener";
 import { AudioRender } from "./components/AudioRender";
-import { useConsumerStore } from "./stores/useConsumerStore";
 import { useMuteStore } from "./stores/useMuteStore";
 import { useVoiceStore } from "./stores/useVoiceStore";
 import { useWsHandlerStore } from "./stores/useWsHandlerStore";
@@ -82,11 +81,6 @@ export const WebRtcApp: React.FC<App2Props> = () => {
           return cr;
         });
         closeVoiceConnections(d.roomId);
-      },
-      close_consumer: (d) => {
-        if (d.roomId === useVoiceStore.getState().roomId) {
-          useConsumerStore.getState().closeByProducerId(d.producerId);
-        }
       },
       "new-peer-speaker": async (d) => {
         const { roomId, recvTransport } = useVoiceStore.getState();

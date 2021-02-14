@@ -5,6 +5,7 @@ import { volumeAtom } from "../shared-atoms";
 import { useMicIdStore } from "../shared-stores";
 import { Button } from "./Button";
 import { MuteKeybind, PTTKeybind } from "./keyboard-shortcuts";
+import { VolumeSlider } from "./VolumeSlider";
 
 interface VoiceSettingsProps {}
 
@@ -68,17 +69,7 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = ({}) => {
       </div>
       <div className={tw`mt-8 mb-2`}>volume: </div>
       <div className={tw`mb-8`}>
-        {volume}
-        <input
-          type="range"
-          min="1"
-          max="100"
-          value={volume}
-          onChange={(e) => {
-            const n = parseInt(e.target.value);
-            setVolume(n);
-          }}
-        />
+        <VolumeSlider volume={volume} onVolume={(n) => setVolume(n)} />
       </div>
       <MuteKeybind className={tw`mb-4`} />
       <PTTKeybind />

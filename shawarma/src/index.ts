@@ -159,6 +159,7 @@ async function main() {
         if (previousProducer) {
           previousProducer.close();
           consumers.forEach((c) => c.close());
+          // @todo give some time for frontends to get update, but this can be removed
           send({
             platform: "web",
             rid: roomId,
