@@ -27,7 +27,7 @@ interface BottomVoiceControlProps {}
 
 const iconSize = 24;
 const iconColor = "#8C8C8C";
-const buttonStyle = { padding: "10px", color: "#8C8C8C", fontSize: 14 };
+const buttonStyle = { padding: "10px", color: "#8C8C8C", fontSize: 14, flex: 1 };
 
 export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   children,
