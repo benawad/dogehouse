@@ -11,6 +11,7 @@ config :kousa, Beef.Repo, url: database_url
 config :kousa,
   web_url: System.get_env("WEB_URL") || "http://localhost:3000",
   api_url: System.get_env("API_URL") || "http://localhost:4001",
+  env: :dev,
   ben_github_id:
     System.get_env("BEN_GITHUB_ID") ||
       raise("""
