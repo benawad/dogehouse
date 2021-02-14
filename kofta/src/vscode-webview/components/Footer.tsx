@@ -13,6 +13,12 @@ export const Footer: React.FC<FooterProps> = ({}) => {
         Investors
       </a>
       <a
+        href="https://discord.gg/wCbKBZF9cV"
+        style={{ color: "var(--vscode-textLink-foreground)" }}
+      >
+        Discord
+      </a>
+      <a
         style={{ color: "var(--vscode-textLink-foreground)" }}
         href="https://github.com/benawad/dogehouse/issues"
       >
