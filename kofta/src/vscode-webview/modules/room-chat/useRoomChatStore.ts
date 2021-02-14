@@ -25,7 +25,7 @@ function generateColorFromString(str: string) {
   return colors[sum % colors.length];
 }
 
-const MAX_MESSAGE = 99
+const MAX_MESSAGE = 99;
 
 export interface RoomChatMessage {
   id: string;
@@ -51,15 +51,17 @@ export const useRoomChatStore = create(
           bannedUserIdMap: { ...s.bannedUserIdMap, [userId]: true },
         })),
       addMessage: (m: RoomChatMessage) =>
-        set((s) => ({
-          newUnreadMessages: s.open ? 0 : s.newUnreadMessages + 1,
-          messages: [
+        set((s) => {
+          const messages = [
             { ...m, color: generateColorFromString(m.userId) },
-            ...(s.messages.length > MAX_MESSAGE
-              ? s.messages.slice(0, MAX_MESSAGE)
-              : s.messages),
-          ],
-        })),
+            ...s.messages,
+          ].slice(0, MAX_MESSAGE);
+
+          return {
+            newUnreadMessages: s.open ? 0 : messages.length,
+            messages,
+          };
+        }),
       clearChat: () =>
         set({
           messages: [],
