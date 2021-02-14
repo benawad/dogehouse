@@ -4,7 +4,7 @@ import { tw } from "twind";
 import { volumeAtom } from "../shared-atoms";
 import { useMicIdStore } from "../shared-stores";
 import { Button } from "./Button";
-import { SetKeyboardShortcuts } from "./SetKeyboardShortcuts";
+import { MuteKeybind, PTTKeybind } from "./keyboard-shortcuts";
 
 interface VoiceSettingsProps {}
 
@@ -82,7 +82,8 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = ({}) => {
           }}
         />
       </div>
-      <SetKeyboardShortcuts />
+      <MuteKeybind className={tw`mb-4`} />
+      <PTTKeybind />
     </>
   );
 };
