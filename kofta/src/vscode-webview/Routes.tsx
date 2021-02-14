@@ -268,6 +268,7 @@ export const Routes: React.FC<RoutesProps> = () => {
       },
       new_current_room: ({ room }) => {
         if (room) {
+          useRoomChatStore.getState().clearChat();
           wsend({ op: "get_current_room_users", d: {} });
           history.push("/room/" + room.id);
         }
@@ -287,6 +288,7 @@ export const Routes: React.FC<RoutesProps> = () => {
           }
           showErrorToast(d.error);
         } else {
+          useRoomChatStore.getState().clearChat();
           setCurrentRoom(() => roomToCurrentRoom(d.room));
           wsend({ op: "get_current_room_users", d: {} });
         }

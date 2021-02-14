@@ -58,6 +58,12 @@ export const useRoomChatStore = create(
               : s.messages),
           ],
         })),
+      clearChat: () =>
+        set({
+          messages: [],
+          newUnreadMessages: false,
+          bannedUserIdMap: {},
+        }),
       reset: () =>
         set({
           messages: [],
