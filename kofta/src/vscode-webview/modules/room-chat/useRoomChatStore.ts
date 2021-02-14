@@ -25,6 +25,8 @@ function generateColorFromString(str: string) {
   return colors[sum % colors.length];
 }
 
+const MAX_MESSAGE = 99
+
 export interface RoomChatMessage {
   id: string;
   userId: string;
@@ -40,7 +42,7 @@ export const useRoomChatStore = create(
       open: false,
       bannedUserIdMap: {} as Record<string, boolean>,
       messages: [] as RoomChatMessage[],
-      newUnreadMessages: false,
+      newUnreadMessages: 0,
     },
     (set) => ({
       addBannedUser: (userId: string) =>
@@ -50,24 +52,24 @@ export const useRoomChatStore = create(
         })),
       addMessage: (m: RoomChatMessage) =>
         set((s) => ({
-          newUnreadMessages: !s.open,
+          newUnreadMessages: s.open ? 0 : s.newUnreadMessages + 1,
           messages: [
             { ...m, color: generateColorFromString(m.userId) },
-            ...(s.messages.length > 100
-              ? s.messages.slice(0, 100)
+            ...(s.messages.length > MAX_MESSAGE
+              ? s.messages.slice(0, MAX_MESSAGE)
               : s.messages),
           ],
         })),
       clearChat: () =>
         set({
           messages: [],
-          newUnreadMessages: false,
+          newUnreadMessages: 0,
           bannedUserIdMap: {},
         }),
       reset: () =>
         set({
           messages: [],
-          newUnreadMessages: false,
+          newUnreadMessages: 0,
           open: false,
           bannedUserIdMap: {},
         }),
@@ -76,12 +78,12 @@ export const useRoomChatStore = create(
           if (s.open) {
             return {
               open: false,
-              newUnreadMessages: false,
+              newUnreadMessages: 0,
             };
           } else {
             return {
               open: true,
-              newUnreadMessages: false,
+              newUnreadMessages: 0,
             };
           }
         }),

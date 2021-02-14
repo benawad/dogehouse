@@ -91,16 +91,14 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             />
             {newUnreadMessages ? (
               <span
+                className={tw`-top-1 bg-yellow-600 flex items-center justify-center inline-flex absolute rounded-full text-sm font-semibold w-6 h-6`}
                 style={{
-                  position: "absolute",
                   backgroundColor: "#FF9900",
-                  borderRadius: "50%",
-                  right: -2,
-                  top: -1,
-                  width: 10,
-                  height: 10,
+                  color: "#fff",
                 }}
-              />
+              >
+                {newUnreadMessages}
+              </span>
             ) : null}
           </div>
         </div>
