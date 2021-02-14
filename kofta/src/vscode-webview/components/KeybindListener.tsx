@@ -11,7 +11,7 @@ export const KeybindListener: React.FC<KeybindListenerProps> = ({}) => {
 
   return (
     <GlobalHotKeys
-      key={keyMap.MUTE}
+      allowChanges={true}
       keyMap={keyMap}
       handlers={useMemo(
         () => ({
@@ -23,6 +23,17 @@ export const KeybindListener: React.FC<KeybindListenerProps> = ({}) => {
             });
             set({ muted: !muted });
           },
+          PTT: (e) => {
+            if (!e) return
+            
+            const { muted, set } = useMuteStore.getState();
+            const mute = e.type === 'keyup' 
+            wsend({
+              op: "mute",
+              d: { value: mute },
+            });
+            set({ muted: mute });
+          }
         }),
         []
       )}

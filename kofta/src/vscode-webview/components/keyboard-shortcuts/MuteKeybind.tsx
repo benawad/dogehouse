@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { recordKeyCombination } from "react-hotkeys";
 import { tw } from "twind";
-import { useKeyMapStore } from "../../webrtc/stores/useKeyMapStore";
-import { Button } from "./Button";
+import { useKeyMapStore } from "../../../webrtc/stores/useKeyMapStore";
+import { Button } from "../Button";
 
-interface SetKeyboardShortcutsProps {}
+interface MuteKeybind {
+  className?: string 
+}
 
-export const SetKeyboardShortcuts: React.FC<SetKeyboardShortcutsProps> = ({}) => {
+export const MuteKeybind: React.FC<MuteKeybind> = ({className}) => {
   const [count, setCount] = useState(0);
   const [active, setActive] = useState(false);
   const {
-    keyMap: { MUTE },
+    keyNames: { MUTE,},
     setMuteKeybind,
   } = useKeyMapStore();
   useEffect(() => {
@@ -25,7 +27,7 @@ export const SetKeyboardShortcuts: React.FC<SetKeyboardShortcutsProps> = ({}) =>
   }, [count, setMuteKeybind]);
 
   return (
-    <div className={tw`flex items-center`}>
+    <div className={tw`flex items-center ${className}`}>
       <Button
         variant="small"
         onClick={() => {
