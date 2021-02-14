@@ -1,8 +1,9 @@
 version: "3"
 services:
-  # The postgress server
+  # The postgres server
   database:
-    image: postgres
+    # Pulling the image in the latest tag is a disaster.
+    image: postgres:13
     environment: 
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
@@ -36,12 +37,16 @@ services:
       - database
     environment:
       # Database of the Postgres server
+      # Should be same as your Postgres DB config above
       - DATABASE_URL=ecto://postgres:postgres@127.0.0.1/postgres
+      
       # GitHub username or user ID for the instance owner
       # By default, this should be either Ben's or yours.
       - BEN_GITHUB_ID={username}
       
       # The React frontend
+      # Leave it as is if doing development locally
+      # Otherwise, edit this.
       - RABBITMQ_URL=amqp://192.168.1.165:3000
       
       # Not needed in dev instances.
@@ -58,9 +63,6 @@ services:
       - REFRESH_TOKEN_SECRET=dbb85xxxxxx9ebde
     ports:
       - 4001:4001
-
-networks:
-  backend:
 
 volumes:
   dbdata:
