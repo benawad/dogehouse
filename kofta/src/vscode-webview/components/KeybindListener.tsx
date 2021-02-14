@@ -24,16 +24,16 @@ export const KeybindListener: React.FC<KeybindListenerProps> = ({}) => {
             set({ muted: !muted });
           },
           PTT: (e) => {
-            if (!e) return
-            
-            const { muted, set } = useMuteStore.getState();
-            const mute = e.type === 'keyup' 
+            if (!e) return;
+
+            const { set } = useMuteStore.getState();
+            const mute = e.type === "keyup";
             wsend({
               op: "mute",
               d: { value: mute },
             });
             set({ muted: mute });
-          }
+          },
         }),
         []
       )}

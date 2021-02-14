@@ -64,7 +64,6 @@ export const myCurrentRoomInfoAtom = atom((get) => {
     };
   }
 
-  let canSpeak = false;
   let isMod = false;
   let isSpeaker = false;
 
