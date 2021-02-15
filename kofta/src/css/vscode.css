@@ -15,6 +15,10 @@ body {
   background-color: var(--vscode-editor-background);
 }
 
+::selection {
+  background-color: rgba(121, 119, 119, 0.486);
+}
+
 html,
 body {
   height: 100%;
