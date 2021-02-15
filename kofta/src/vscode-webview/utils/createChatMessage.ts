@@ -1,5 +1,4 @@
 import { User } from "../types";
-import splitOnFirst from "split-on-first";
 
 export const createChatMessage = (message: string, mentions: User[]) => {
   const tokens = ([] as unknown) as [
@@ -9,32 +8,29 @@ export const createChatMessage = (message: string, mentions: User[]) => {
     }
   ];
 
-  let i = 0;
-  // recursive function to create tokens
-  function createTokens(message: string) {
-    const mention = mentions[i];
-    if (mention) {
-      const chunk = splitOnFirst(message, "@" + mention.username);
-      if (chunk.length > 1)
-        tokens.push({
-          t: "mention",
-          v: "@" + mention.username
-        });
+  message.split(" ").forEach(item => {
+    const isLink = /(https?:\/\/|)[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(
+      item
+    );
+    const isMention = mentions.find(m => "@" + m.username === item);
 
-      if (chunk[0])
+    if (isLink || isMention) {
+      tokens.push({
+        t: isLink ? "link" : "mention",
+        v: item
+      });
+    } else {
+      const lastToken = tokens[tokens.length - 1];
+      if (lastToken && lastToken.t === "text") {
+        tokens[tokens.length - 1].v = lastToken.v + " " + item;
+      } else {
         tokens.push({
           t: "text",
-          v: message
+          v: item
         });
-      i++;
-      if (chunk[1]) createTokens(chunk[1]);
-    } else {
-      tokens.push({
-        t: "text",
-        v: message
-      });
+      }
     }
-  }
-  createTokens(message);
+  });
+
   return tokens;
 };
