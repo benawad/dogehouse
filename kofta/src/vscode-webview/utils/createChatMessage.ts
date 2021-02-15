@@ -12,12 +12,13 @@ export const createChatMessage = (message: string, mentions: User[]) => {
     const isLink = /(https?:\/\/|)[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(
       item
     );
-    const isMention = mentions.find(m => "@" + m.username === item);
+
+    const isMention = mentions.find(m => m.username === item.replace("@", ""));
 
     if (isLink || isMention) {
       tokens.push({
         t: isLink ? "link" : "mention",
-        v: item
+        v: isMention ? item.replace("@", "") : item
       });
     } else {
       const lastToken = tokens[tokens.length - 1];

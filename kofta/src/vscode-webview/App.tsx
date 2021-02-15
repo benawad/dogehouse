@@ -21,17 +21,17 @@ setup({
   theme: {
     fontFamily: {
       sans: ["var(--vscode-font-family)"],
-      serif: ["var(--vscode-font-family)"],
+      serif: ["var(--vscode-font-family)"]
     },
     borderColor: {
-      tmpBo1: "#CCCCCC",
+      tmpBo1: "#CCCCCC"
     },
     textColor: {
       tmpC1: "#A6A6A6",
       tmpC2: "#333333",
       tmpC3: "#FEFEFE",
       tmpC4: "#0B78E3",
-      input: "var(--vscode-input-foreground)",
+      input: "var(--vscode-input-foreground)"
     },
     backgroundColor: {
       tmpBg1: "#262626",
@@ -44,9 +44,9 @@ setup({
       buttonHoverRed: "var(--vscode-errorForeground)",
       buttonRed: "var(--vscode-inputValidation-errorBorder)",
       buttonHoverSecondary: "var(--vscode-button-secondaryHoverBackground)",
-      buttonSecondary: "var(--vscode-button-secondaryBackground)",
-    },
-  },
+      buttonSecondary: "var(--vscode-button-secondaryBackground)"
+    }
+  }
 });
 
 const defaultQueryFn = async ({ queryKey }: { queryKey: string }) => {
@@ -54,8 +54,8 @@ const defaultQueryFn = async ({ queryKey }: { queryKey: string }) => {
   const r = await fetch(`${apiBaseUrl}${queryKey[0]}`, {
     headers: {
       "X-Access-Token": accessToken,
-      "X-Refresh-Token": refreshToken,
-    },
+      "X-Refresh-Token": refreshToken
+    }
   });
   if (r.status !== 200) {
     throw new Error(await r.text());
@@ -65,7 +65,7 @@ const defaultQueryFn = async ({ queryKey }: { queryKey: string }) => {
   if (_accessToken && _refreshToken) {
     useTokenStore.getState().setTokens({
       accessToken: _accessToken,
-      refreshToken: _refreshToken,
+      refreshToken: _refreshToken
     });
   }
   return await r.json();
@@ -74,35 +74,35 @@ const defaultQueryFn = async ({ queryKey }: { queryKey: string }) => {
 const queryClient = new QueryClient({
   defaultOptions: {
     mutations: {
-      onError: (e) => {
+      onError: e => {
         if ("message" in (e as Error)) {
           showErrorToast((e as Error).message);
         }
-      },
+      }
     },
     queries: {
       retry: false,
       staleTime: 60 * 1000 * 5,
-      onError: (e) => {
+      onError: e => {
         if ("message" in (e as Error)) {
           showErrorToast((e as Error).message);
         }
       },
-      queryFn: defaultQueryFn,
-    },
-  },
+      queryFn: defaultQueryFn
+    }
+  }
 });
 
 interface AppProps {}
 
 export const WebviewApp: React.FC<AppProps> = () => {
-  const hasTokens = useTokenStore((s) => !!s.accessToken && !!s.refreshToken);
+  const hasTokens = useTokenStore(s => !!s.accessToken && !!s.refreshToken);
   const wsKilledByServer = useSocketStatus(
-    (s) => s.status === "closed-by-server"
+    s => s.status === "closed-by-server"
   );
   const [, setMe] = useAtom(setMeAtom);
   useState(() => {
-    useWsHandlerStore.getState().addWsListener("auth-good", (d) => {
+    useWsHandlerStore.getState().addWsListener("auth-good", d => {
       setMe(d.user);
     });
   });
@@ -125,7 +125,7 @@ export const WebviewApp: React.FC<AppProps> = () => {
     ) {
       useTokenStore.getState().setTokens({
         accessToken: params.accessToken,
-        refreshToken: params.refreshToken,
+        refreshToken: params.refreshToken
       });
       window.history.replaceState({}, document.title, "/");
     }

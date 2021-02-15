@@ -90,7 +90,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
         placeholder="Send a message"
         value={message}
         onChange={e => setMessage(e.target.value)}
-        className={tw`text-tmpC1 bg-tmpBg4 px-4 py-3 rounded text-lg`}
+        className={tw`text-tmpC1 bg-tmpBg4 px-4 py-3 rounded text-lg focus:outline-none`}
         onKeyDown={navigateThroughQueriedUsers}
       />
     </form>
