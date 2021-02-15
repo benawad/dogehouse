@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import React, { useState } from "react";
+import React from "react";
 import { tw } from "twind";
 import { wsend } from "../../../createWebsocket";
 import { meAtom } from "../../atoms";
@@ -8,13 +8,63 @@ import { useRoomChatStore } from "./useRoomChatStore";
 interface ChatInputProps {}
 
 export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
-  const [message, setMessage] = useState("");
+  const {
+    message,
+    setMessage,
+    setQueriedUsernames,
+    queriedUsernames,
+    mentions,
+    setMentions,
+    activeUsername,
+    setActiveUsername
+  } = useRoomChatStore();
   const [me] = useAtom(meAtom);
+
+  function navigateThroughQueriedUsers(e: any) {
+    // Use dom method, GlobalHotkeys apparently don't catch arrow events on inputs
+    if (
+      !["ArrowUp", "ArrowDown", "Enter"].includes(e.code) ||
+      !queriedUsernames.length
+    )
+      return;
+    e.preventDefault();
+
+    let changeToIndex = null;
+    const activeIndex = queriedUsernames.findIndex(
+      u => u.id === activeUsername
+    );
+
+    if (e.code === "ArrowUp") {
+      changeToIndex =
+        activeIndex === 0 ? queriedUsernames.length - 1 : activeIndex - 1;
+    } else if (e.code === "ArrowDown") {
+      changeToIndex =
+        activeIndex === queriedUsernames.length - 1 ? 0 : activeIndex + 1;
+    } else if (e.code === "Enter") {
+      const selected = queriedUsernames[activeIndex];
+      setMentions([...mentions, selected]);
+      setMessage(
+        message.substring(0, message.lastIndexOf("@") + 1) +
+          selected.username +
+          " "
+      );
+      setQueriedUsernames([]);
+    }
+
+    // navigate to next/prev item
+    if (changeToIndex !== null)
+      setActiveUsername(queriedUsernames[changeToIndex]?.id);
+  }
+
   return (
     <form
-      onSubmit={(e) => {
+      onSubmit={e => {
         e.preventDefault();
-        if (!message || !message.trim() || !message.replace(/[\u200B-\u200D\uFEFF]/g, '')) {
+        if (
+          !message ||
+          !message.trim() ||
+          !message.replace(/[\u200B-\u200D\uFEFF]/g, "")
+        ) {
           return;
         }
         if (!me) {
@@ -28,8 +78,9 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
         setMessage("");
         wsend({
           op: "send_room_chat_msg",
-          d: { tokens: [{ t: "text", v: tmp }] },
+          d: { tokens: [{ t: "text", v: tmp }] }
         });
+        setQueriedUsernames([]);
       }}
       className={tw`bg-tmpBg1 pb-8 px-8 pt-1`}
     >
@@ -37,8 +88,9 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
         maxLength={512}
         placeholder="Send a message"
         value={message}
-        onChange={(e) => setMessage(e.target.value)}
+        onChange={e => setMessage(e.target.value)}
         className={tw`text-tmpC1 bg-tmpBg4 px-4 py-3 rounded text-lg`}
+        onKeyDown={navigateThroughQueriedUsers}
       />
     </form>
   );

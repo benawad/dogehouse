@@ -8,7 +8,7 @@ interface ChatListProps {}
 
 export const RoomChatList: React.FC<ChatListProps> = ({}) => {
   const [profileId, setProfileId] = useState("");
-  const messages = useRoomChatStore((s) => s.messages);
+  const messages = useRoomChatStore(s => s.messages);
   return (
     <div
       className={tw`bg-tmpBg1 px-8 pt-8 flex-1 overflow-y-auto flex-col-reverse flex`}
@@ -20,7 +20,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
         />
       ) : null}
       <div className={tw`pb-6`} />
-      {messages.map((m) => (
+      {messages.map(m => (
         <div
           style={{ wordBreak: "break-word" }}
           className={tw`block py-1`}
