@@ -62,7 +62,10 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                     ? "bg-button text-tmpC3 px-2 rounded text-md"
                     : ""
                 }`}
-                style={{ textDecorationColor: m.color, color: m.color }}
+                style={{
+                  textDecorationColor: m.color,
+                  color: v === me?.username ? "" : m.color
+                }}
               >
                 @{v}
                 {"  "}

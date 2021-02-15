@@ -18,12 +18,16 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
     mentions,
     setMentions,
     message,
+    setMessage,
     activeUsername,
     setActiveUsername
   } = useRoomChatStore();
 
   function addMention(m: User) {
     setMentions([...mentions, m]);
+    setMessage(
+      message.substring(0, message.lastIndexOf("@") + 1) + m.username + " "
+    );
     setQueriedUsernames([]);
   }
 

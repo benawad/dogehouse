@@ -3,7 +3,7 @@ import { combine } from "zustand/middleware";
 import { User } from "../../types";
 
 interface TextToken {
-  t: "text";
+  t: string;
   v: string;
 }
 
@@ -45,7 +45,8 @@ export const useRoomChatStore = create(
       message: "" as string,
       mentions: [] as User[],
       queriedUsernames: [] as User[],
-      activeUsername: ""
+      activeUsername: "",
+      iAmMentioned: false
     },
     set => ({
       addBannedUser: (userId: string) =>
@@ -79,7 +80,8 @@ export const useRoomChatStore = create(
           if (s.open) {
             return {
               open: false,
-              newUnreadMessages: false
+              newUnreadMessages: false,
+              iAmMentioned: false
             };
           } else {
             return {
@@ -103,6 +105,10 @@ export const useRoomChatStore = create(
       setActiveUsername: (activeUsername: string) =>
         set({
           activeUsername
+        }),
+      setIAmMentioned: (iAmMentioned: boolean) =>
+        set({
+          iAmMentioned
         })
     })
   )

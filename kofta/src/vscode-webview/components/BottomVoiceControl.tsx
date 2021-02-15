@@ -6,7 +6,7 @@ import {
   MicOff,
   PhoneMissed,
   Settings,
-  UserPlus,
+  UserPlus
 } from "react-feather";
 import { useHistory, useLocation } from "react-router-dom";
 import { tw } from "twind";
@@ -27,11 +27,11 @@ const buttonStyle = {
   padding: "10px",
   color: "#8C8C8C",
   fontSize: 14,
-  flex: 1,
+  flex: 1
 };
 
 export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
-  children,
+  children
 }) => {
   const location = useLocation();
   const history = useHistory();
@@ -39,9 +39,10 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   const { muted, set } = useMuteStore();
   const [{ canSpeak, isCreator }] = useAtom(myCurrentRoomInfoAtom);
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const [toggleOpen, newUnreadMessages] = useRoomChatStore((s) => [
+  const [toggleOpen, newUnreadMessages, iAmMentioned] = useRoomChatStore(s => [
     s.toggleOpen,
     s.newUnreadMessages,
+    s.iAmMentioned
   ]);
 
   const fullscreenChatOpen = useShouldFullscreenChat();
@@ -89,12 +90,12 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
               <span
                 style={{
                   position: "absolute",
-                  backgroundColor: "#FF9900",
+                  backgroundColor: iAmMentioned ? "#ff3c00" : "#FF9900",
                   borderRadius: "50%",
                   right: -2,
                   top: -1,
                   width: 10,
-                  height: 10,
+                  height: 10
                 }}
               />
             ) : null}
@@ -127,7 +128,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           onClick={() => {
             wsend({
               op: "mute",
-              d: { value: !muted },
+              d: { value: !muted }
             });
             set({ muted: !muted });
           }}
@@ -198,7 +199,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             <span
               style={{
                 overflow: "hidden",
-                textOverflow: "ellipsis",
+                textOverflow: "ellipsis"
               }}
               className={tw`text-tmpC1 font-semibold`}
             >
@@ -213,7 +214,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           style={{
             borderTop: "1px solid #808080",
             backgroundColor: "#262626",
-            padding: "0 var(--container-paddding)",
+            padding: "0 var(--container-paddding)"
           }}
           className={tw`w-full mt-auto`}
         >
@@ -222,7 +223,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           ) : (
             <div
               style={{
-                padding: "var(--container-paddding) 0",
+                padding: "var(--container-paddding) 0"
               }}
             >
               <Footer />
