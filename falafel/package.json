@@ -1,0 +1,47 @@
+{
+  "name": "falafel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/electron.js",
+  "scripts": {
+    "dev": "tsc ./src/electron.ts && electron ./src/electron.js",
+    "build": "tsc ./src/electron.ts --outDir ./dist && npx electron-packager . DogeHouse --all --icon=./icons/icon.png --out=./builds/",
+    "build:mac:arm64": "tsc ./src/electron.ts --outDir ./dist && npx electron-packager . DogeHouse --icon=./icons/icon.png --platform=darwin --arch=arm64 --overwrite --out=./builds/",
+    "build:mac:x64": "tsc ./src/electron.ts --outDir ./dist && npx electron-packager . DogeHouse --icon=./icons/icon.png --platform=darwin --arch=x64 --overwrite --out=./builds/",
+    "build:win64": "tsc ./src/electron.ts --outDir ./dist && npx electron-packager . DogeHouse --icon=./icons/icon.png --platform=win32 --arch=x86_64 --overwrite --out=./builds/",
+    "build:linux:x64": "tsc ./src/electron.ts --outDir ./dist && npx electron-packager . DogeHouse --icon=./icons/icon.png --platform=linux --arch=x64 --overwrite --out=./builds/",
+    "build:linux:arm64": "tsc ./src/electron.ts --outDir ./dist && npx electron-packager . DogeHouse --icon=./icons/icon.png --platform=linux --arch=arm64 --overwrite --out=./builds/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^14.14.28",
+    "electron": "^11.2.3",
+    "electron-packager": "^15.2.0"
+  },
+  "build": {
+    "appId": "com.electron.dogehouse",
+    "asar": true,
+    "mac": {
+      "icon": "icons/icon.png",
+      "category": "public.app-category.social-networking",
+      "extendInfo": {
+        "NSMicrophoneUsageDescription": "Mic access for speeach input in voice."
+      },
+      "target": [
+        "dmg"
+      ]
+    },
+    "win": {
+      "icon": "icons/icon.png",
+      "target": "nsis"
+    },
+    "linux": {
+      "icon": "icons/icon.png",
+      "target": [
+        "deb"
+      ]
+    }
+  }
+}
