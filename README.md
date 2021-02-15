@@ -22,6 +22,20 @@ https://dogehouse.tv/
 
 DogeHouse is open to contributions, but I recommend creating an issue or replying in a comment to let me know what you are working on first that way we don't overwrite each other.
 
+## How to run locally
+
+### backend
+
+0. Install and start RabbitMQ
+1. Install and start Postgresql
+2. Create a DB inside Postgresql called `kousa_repo2`
+3. Install Elixir
+4. Inside `kousa` 
+- run `mix deps.get`
+- run `mix ecto.migrate`
+- run `iex -S mix` (This starts the server, read all the error messages and add those environment variables)
+5. 
+
 ## Investors
 
 If you are interested in investing in DogeHouse or know someone I should talk to, send me an email at benawadapps@gmail.com or dm me on [Twitter](https://twitter.com/benawad).
