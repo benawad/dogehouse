@@ -52,14 +52,16 @@ export const useRoomChatStore = create(
         })),
       addMessage: (m: RoomChatMessage) =>
         set((s) => {
-          const messages = [
-            { ...m, color: generateColorFromString(m.userId) },
-            ...s.messages,
-          ].slice(0, MAX_MESSAGE);
+          const newMessages = s.newUnreadMessages >= MAX_MESSAGE 
+            ? s.newUnreadMessages
+            : s.newUnreadMessages + 1
 
           return {
-            newUnreadMessages: s.open ? 0 : messages.length,
-            messages,
+            newUnreadMessages: s.open ? 0 : newMessages,
+            messages: [
+              { ...m, color: generateColorFromString(m.userId) },
+              ...s.messages,
+            ].slice(0, MAX_MESSAGE)
           };
         }),
       clearChat: () =>
