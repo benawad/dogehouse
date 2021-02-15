@@ -34,7 +34,16 @@ DogeHouse is open to contributions, but I recommend creating an issue or replyin
 - run `mix deps.get`
 - run `mix ecto.migrate`
 - run `iex -S mix` (This starts the server, read all the error messages and add those environment variables)
-5. 
+5. Inside `shawarma`
+- run `npm i`
+- set an env variable `WEBRTC_LISTEN_IP` to `127.0.0.1`
+- run `npm run build`
+- run `npm start`
+6. Inside `kofta`
+- run `npm i`
+- run `npm start`
+
+(Austin lost power so I'm doing this from my phone, will make a better version soon)
 
 ## Investors
 
