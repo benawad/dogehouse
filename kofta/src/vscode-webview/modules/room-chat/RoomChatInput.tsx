@@ -4,6 +4,7 @@ import { tw } from "twind";
 import { wsend } from "../../../createWebsocket";
 import { meAtom } from "../../atoms";
 import { useRoomChatStore } from "./useRoomChatStore";
+import { createChatMessage } from "../../utils/createChatMessage";
 
 interface ChatInputProps {}
 
@@ -21,7 +22,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
   const [me] = useAtom(meAtom);
 
   function navigateThroughQueriedUsers(e: any) {
-    // Use dom method, GlobalHotkeys apparently don't catch arrow events on inputs
+    // Use dom method, GlobalHotkeys apparently don't catch arrow-key events on inputs
     if (
       !["ArrowUp", "ArrowDown", "Enter"].includes(e.code) ||
       !queriedUsernames.length
@@ -51,7 +52,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
       setQueriedUsernames([]);
     }
 
-    // navigate to next/prev item
+    // navigate to next/prev mention suggestion item
     if (changeToIndex !== null)
       setActiveUsername(queriedUsernames[changeToIndex]?.id);
   }
@@ -78,7 +79,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
         setMessage("");
         wsend({
           op: "send_room_chat_msg",
-          d: { tokens: [{ t: "text", v: tmp }] }
+          d: { tokens: createChatMessage(tmp, mentions) }
         });
         setQueriedUsernames([]);
       }}
