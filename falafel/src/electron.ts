@@ -12,9 +12,7 @@ function createWindow() {
     },
   });
   console.log(systemPreferences.getMediaAccessStatus("microphone"));
-  mainWindow.loadURL(
-    `https://dogehouse.tv/`
-  );
+  mainWindow.loadURL(`https://dogehouse.tv/`);
 
   ipcMain.on("request-mic", async (event, serviceName) => {
     const isAllowed: boolean = await systemPreferences.askForMediaAccess(
@@ -29,8 +27,9 @@ app.on("ready", () => {
   createWindow();
 });
 app.on("window-all-closed", () => {
+  app.quit();
+
   if (process.platform !== "darwin") {
-    app.quit();
   }
 });
 app.on("activate", () => {
