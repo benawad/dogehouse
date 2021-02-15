@@ -27,20 +27,20 @@ const keyMap: KeyMap = {
   MUTE: getMuteKeybind(),
   PTT: [
     { sequence: getPTTKeybind(), action: "keydown" },
-    { sequence: getPTTKeybind(), action: "keyup" }
-  ]
+    { sequence: getPTTKeybind(), action: "keyup" },
+  ],
 };
 
 const keyNames: KeyMap = {
   MUTE: getMuteKeybind(),
-  PTT: getPTTKeybind()
+  PTT: getPTTKeybind(),
 };
 
 export const useKeyMapStore = create(
   combine(
     {
       keyMap,
-      keyNames
+      keyNames,
     },
     set => ({
       setMuteKeybind: (id: string) => {
@@ -49,7 +49,7 @@ export const useKeyMapStore = create(
         } catch {}
         set(x => ({
           keyMap: { ...x.keyMap, MUTE: id },
-          keyNames: { ...x.keyNames, MUTE: id }
+          keyNames: { ...x.keyNames, MUTE: id },
         }));
       },
       setPTTKeybind: (id: string) => {
@@ -61,12 +61,12 @@ export const useKeyMapStore = create(
             ...x.keyMap,
             PTT: [
               { sequence: id, action: "keydown" },
-              { sequence: id, action: "keyup" }
-            ]
+              { sequence: id, action: "keyup" },
+            ],
           },
-          keyNames: { ...x.keyNames, PTT: id }
+          keyNames: { ...x.keyNames, PTT: id },
         }));
-      }
-    })
-  )
+      },
+    }),
+  ),
 );

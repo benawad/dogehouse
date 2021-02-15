@@ -17,7 +17,7 @@ const colors = [
   "#56b2ba",
   "#00CCFF",
   "#FF9900",
-  "#FFFF66"
+  "#FFFF66",
 ];
 
 function generateColorFromString(str: string) {
@@ -46,34 +46,36 @@ export const useRoomChatStore = create(
       mentions: [] as User[],
       queriedUsernames: [] as User[],
       activeUsername: "",
-      iAmMentioned: false
+      iAmMentioned: false,
     },
     set => ({
       addBannedUser: (userId: string) =>
         set(s => ({
           messages: s.messages.filter(m => m.userId !== userId),
-          bannedUserIdMap: { ...s.bannedUserIdMap, [userId]: true }
+          bannedUserIdMap: { ...s.bannedUserIdMap, [userId]: true },
         })),
       addMessage: (m: RoomChatMessage) =>
         set(s => ({
           newUnreadMessages: !s.open,
           messages: [
             { ...m, color: generateColorFromString(m.userId) },
-            ...(s.messages.length > 100 ? s.messages.slice(0, 100) : s.messages)
-          ]
+            ...(s.messages.length > 100
+              ? s.messages.slice(0, 100)
+              : s.messages),
+          ],
         })),
       clearChat: () =>
         set({
           messages: [],
           newUnreadMessages: false,
-          bannedUserIdMap: {}
+          bannedUserIdMap: {},
         }),
       reset: () =>
         set({
           messages: [],
           newUnreadMessages: false,
           open: false,
-          bannedUserIdMap: {}
+          bannedUserIdMap: {},
         }),
       toggleOpen: () =>
         set(s => {
@@ -81,35 +83,35 @@ export const useRoomChatStore = create(
             return {
               open: false,
               newUnreadMessages: false,
-              iAmMentioned: false
+              iAmMentioned: false,
             };
           } else {
             return {
               open: true,
-              newUnreadMessages: false
+              newUnreadMessages: false,
             };
           }
         }),
       setMessage: (message: string) =>
         set({
-          message
+          message,
         }),
       setMentions: (mentions: User[]) =>
         set({
-          mentions
+          mentions,
         }),
       setQueriedUsernames: (queriedUsernames: User[]) =>
         set({
-          queriedUsernames
+          queriedUsernames,
         }),
       setActiveUsername: (activeUsername: string) =>
         set({
-          activeUsername
+          activeUsername,
         }),
       setIAmMentioned: (iAmMentioned: boolean) =>
         set({
-          iAmMentioned
-        })
-    })
-  )
+          iAmMentioned,
+        }),
+    }),
+  ),
 );

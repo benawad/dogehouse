@@ -17,7 +17,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
     mentions,
     setMentions,
     activeUsername,
-    setActiveUsername
+    setActiveUsername,
   } = useRoomChatStore();
   const [me] = useAtom(meAtom);
 
@@ -32,7 +32,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
 
     let changeToIndex = null;
     const activeIndex = queriedUsernames.findIndex(
-      u => u.id === activeUsername
+      u => u.id === activeUsername,
     );
 
     if (e.code === "ArrowUp") {
@@ -47,7 +47,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
       setMessage(
         message.substring(0, message.lastIndexOf("@") + 1) +
           selected.username +
-          " "
+          " ",
       );
       setQueriedUsernames([]);
     }
@@ -79,7 +79,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
         setMessage("");
         wsend({
           op: "send_room_chat_msg",
-          d: { tokens: createChatMessage(tmp, mentions) }
+          d: { tokens: createChatMessage(tmp, mentions) },
         });
         setQueriedUsernames([]);
       }}

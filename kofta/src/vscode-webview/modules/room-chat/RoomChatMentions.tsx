@@ -20,13 +20,13 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
     message,
     setMessage,
     activeUsername,
-    setActiveUsername
+    setActiveUsername,
   } = useRoomChatStore();
 
   function addMention(m: User) {
     setMentions([...mentions, m]);
     setMessage(
-      message.substring(0, message.lastIndexOf("@") + 1) + m.username + " "
+      message.substring(0, message.lastIndexOf("@") + 1) + m.username + " ",
     );
     setQueriedUsernames([]);
   }
@@ -48,7 +48,7 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
           ({ id, username }) =>
             username.toLowerCase().includes(useMention.toLowerCase()) &&
             !mentions.find(m => m.id === id) &&
-            me.id !== id
+            me.id !== id,
         );
 
         const firstFive = usernameMatches.slice(0, 5);
@@ -64,7 +64,7 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
     setMentions(
       mentions.filter(u => {
         return message.toLowerCase().indexOf(u.username.toLowerCase()) !== -1;
-      })
+      }),
     );
   }, [message]);
 

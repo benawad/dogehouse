@@ -13,7 +13,7 @@ export const Avatar: React.FC<AvatarProps> = ({
   size = 70,
   active,
   circle,
-  style
+  style,
 }) => {
   return (
     <img
@@ -25,7 +25,7 @@ export const Avatar: React.FC<AvatarProps> = ({
         boxShadow: active
           ? "0 0 0 3px var(--vscode-textLink-foreground)"
           : undefined,
-        ...style
+        ...style,
       }}
       src={src}
     />
