@@ -131,7 +131,7 @@ input {
 }
 
 option {
-  background-color: var(--vscode-editor-background);
+  background-color: var(--vscode-dropdown-background);
 }
 
 ::-webkit-scrollbar {
