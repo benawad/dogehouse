@@ -43,7 +43,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                 {
                   v.split(" ").map(segment => {
                     const isUrl = !!segment.match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g);
-                    return isUrl ? <a href={segment}>segment</a> : segment;
+                    return isUrl ? <a href={segment}>{segment}</a> : <span>{segment} </span>;
                   })
                 }
               </span>
