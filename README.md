@@ -12,11 +12,17 @@
 https://dogehouse.tv/
 
 ## Structure
-
-- kousa -> Elixir API
-- shawarma -> Voice Server
-- kofta -> React frontend
-- dinner -> Puppeteer shenanigans
+```
+📦 dogehouse
+┣ 📂 dinner
+┃ ┗ ⚙️ Puppeteer shenanigans
+┣ 📂 kofta
+┃ ┗ ⚙️ React Frontend
+┣ 📂 kousa
+┃ ┗ ⚙️ Elixir API
+┗ 📂 shawarma
+  ┗ ⚙️ Voice Server
+```
 
 ## Contributions
 
