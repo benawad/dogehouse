@@ -1,27 +1,23 @@
 import { useAtom } from "jotai";
 import React, { useState } from "react";
+import {
+  MessageSquare,
+  Mic,
+  MicOff,
+  PhoneMissed,
+  Settings,
+  UserPlus,
+} from "react-feather";
 import { useHistory, useLocation } from "react-router-dom";
 import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
 import { useMuteStore } from "../../webrtc/stores/useMuteStore";
 import { currentRoomAtom, myCurrentRoomInfoAtom } from "../atoms";
-import {
-  PhoneMissed,
-  UserPlus,
-  Mic,
-  MicOff,
-  X,
-  Settings,
-  MessageSquare,
-} from "react-feather";
-import { Footer } from "./Footer";
-import { renameRoomAndMakePublic } from "../../webrtc/utils/renameRoomAndMakePublic";
-import { renameRoomAndMakePrivate } from "../../webrtc/utils/renameRoomAndMakePrivate";
-import { Modal } from "./Modal";
-import { Button } from "./Button";
-import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
 import { RoomChat } from "../modules/room-chat/RoomChat";
+import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
 import { useShouldFullscreenChat } from "../modules/room-chat/useShouldFullscreenChat";
+import { Footer } from "./Footer";
+import { RoomSettingsModal } from "./RoomSettingsModal";
 
 interface BottomVoiceControlProps {}
 
@@ -39,7 +35,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
 }) => {
   const location = useLocation();
   const history = useHistory();
-  const [currentRoom, setCurrentRoom] = useAtom(currentRoomAtom);
+  const [currentRoom] = useAtom(currentRoomAtom);
   const { muted, set } = useMuteStore();
   const [{ canSpeak, isCreator }] = useAtom(myCurrentRoomInfoAtom);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -178,67 +174,10 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
 
   return (
     <>
-      <Modal
-        isOpen={settingsOpen}
+      <RoomSettingsModal
+        open={settingsOpen}
         onRequestClose={() => setSettingsOpen(false)}
-      >
-        <button
-          onClick={() => {
-            setSettingsOpen(false);
-          }}
-          className={tw`p-2 -ml-3`}
-        >
-          <X />
-        </button>
-        {currentRoom ? (
-          <>
-            <label
-              className={tw`flex items-center my-8`}
-              htmlFor="auto-speaker"
-            >
-              <input
-                checked={!currentRoom.autoSpeaker}
-                onChange={(e) => {
-                  setCurrentRoom((cr) =>
-                    !cr
-                      ? cr
-                      : {
-                          ...cr,
-                          autoSpeaker: !e.target.checked,
-                        }
-                  );
-                  wsend({
-                    op: "set_auto_speaker",
-                    d: { value: !e.target.checked },
-                  });
-                }}
-                id="auto-speaker"
-                type="checkbox"
-              />
-              <span className={tw`ml-2`}>require permission to speak</span>
-            </label>
-            {currentRoom.isPrivate ? (
-              <Button
-                onClick={() => {
-                  renameRoomAndMakePublic(currentRoom.name);
-                  setSettingsOpen(false);
-                }}
-              >
-                make room public
-              </Button>
-            ) : (
-              <Button
-                onClick={() => {
-                  renameRoomAndMakePrivate(currentRoom.name);
-                  setSettingsOpen(false);
-                }}
-              >
-                make room private
-              </Button>
-            )}
-          </>
-        ) : null}
-      </Modal>
+      />
       <div
         style={{ height: fullscreenChatOpen ? "100%" : undefined }}
         className={tw`${
@@ -249,6 +188,27 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
       >
         {fullscreenChatOpen ? null : children}
         <RoomChat sidebar={false} />
+        {currentRoom &&
+        !fullscreenChatOpen &&
+        !location.pathname.startsWith("/room") ? (
+          <button
+            onClick={() => history.push(`/room/${currentRoom.id}`)}
+            className={tw`bg-tmpBg1 py-5 px-10 w-full flex`}
+          >
+            <span
+              style={{
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+              className={tw`text-tmpC1 font-semibold`}
+            >
+              {currentRoom.name}{" "}
+            </span>
+            <span className={tw`text-tmpC4 ml-2`}>
+              {canSpeak ? "speaker" : "listener"}
+            </span>
+          </button>
+        ) : null}
         <div
           style={{
             borderTop: "1px solid #808080",

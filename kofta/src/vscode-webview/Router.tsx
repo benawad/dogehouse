@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { tw } from "twind";
 import { WebRtcApp } from "../webrtc/WebRtcApp";
 import { CenterLayout } from "./components/CenterLayout";
@@ -18,9 +18,7 @@ export const Router: React.FC<RouterProps> = () => {
         className={tw`mx-auto w-full h-full flex relative`}
       >
         <CenterLayout>
-          <Switch>
             <Routes />
-          </Switch>
           <MicPermissionBanner />
         </CenterLayout>
         <RoomChat sidebar />

@@ -1,6 +1,6 @@
 import { useAtom } from "jotai";
 import React, { useEffect } from "react";
-import { Route, useHistory, useLocation } from "react-router-dom";
+import { Switch, Route, useHistory, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { closeWebSocket, wsend } from "../createWebsocket";
 import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
@@ -25,6 +25,7 @@ import { RoomPage } from "./pages/RoomPage";
 import { SearchUsersPage } from "./pages/SearchUsersPage";
 import { ViewUserPage } from "./pages/ViewUserPage";
 import { VoiceSettingsPage } from "./pages/VoiceSettingsPage";
+import { NotFoundPage } from "./pages/NotFoundPage";
 import { isUuid } from "./utils/isUuid";
 import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
 import { showErrorToast } from "./utils/showErrorToast";
@@ -47,6 +48,11 @@ export const Routes: React.FC<RoutesProps> = () => {
   const [, setInviteList] = useAtom(setInviteListAtom);
   useEffect(() => {
     addMultipleWsListener({
+      new_room_name: ({ name, roomId }) => {
+        setCurrentRoom((cr) =>
+          !cr || cr.id !== roomId ? cr : { ...cr, name }
+        );
+      },
       chat_user_banned: ({ userId }) => {
         useRoomChatStore.getState().addBannedUser(userId);
       },
@@ -143,13 +149,14 @@ export const Routes: React.FC<RoutesProps> = () => {
           cr && cr.id === roomId ? { ...cr, creatorId: userId } : cr
         );
       },
-      speaker_removed: ({ userId, roomId, muteMap }) => {
+      speaker_removed: ({ userId, roomId, muteMap, raiseHandMap }) => {
         setCurrentRoom((c) =>
           !c || c.id !== roomId
             ? c
             : {
                 ...c,
                 muteMap,
+                raiseHandMap,
                 users: c.users.map((x) =>
                   userId === x.id ? { ...x, canSpeakForRoomId: null } : x
                 ),
@@ -321,7 +328,7 @@ export const Routes: React.FC<RoutesProps> = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <>
+    <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/room/:id" component={RoomPage} />
       <Route exact path="/user" component={ViewUserPage} />
@@ -336,6 +343,7 @@ export const Routes: React.FC<RoutesProps> = () => {
         path={["/followers/:userId", "/following/:userId"]}
         component={FollowListPage}
       />
-    </>
+      <Route component={NotFoundPage} />
+    </Switch>
   );
 };

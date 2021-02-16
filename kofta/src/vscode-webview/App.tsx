@@ -30,6 +30,7 @@ setup({
       tmpC1: "#A6A6A6",
       tmpC2: "#333333",
       tmpC3: "#FEFEFE",
+      tmpC4: "#0B78E3",
       input: "var(--vscode-input-foreground)",
     },
     backgroundColor: {
