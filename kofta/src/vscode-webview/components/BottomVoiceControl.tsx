@@ -30,6 +30,8 @@ const buttonStyle = {
   flex: 1,
 };
 
+const buttonClass = tw`focus:outline-none`;
+
 export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   children,
 }) => {
@@ -39,7 +41,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   const { muted, set } = useMuteStore();
   const [{ canSpeak, isCreator }] = useAtom(myCurrentRoomInfoAtom);
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const [toggleOpen, newUnreadMessages] = useRoomChatStore((s) => [
+  const [toggleOpen, newUnreadMessages] = useRoomChatStore(s => [
     s.toggleOpen,
     s.newUnreadMessages,
   ]);
@@ -52,6 +54,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
     buttons.push(
       <button
         style={buttonStyle}
+        className={buttonClass}
         key="leave-room"
         onClick={() => {
           const y = window.confirm("Are you sure you want to leave?");
@@ -73,6 +76,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
       </button>,
       <button
         style={buttonStyle}
+        className={buttonClass}
         key="chat"
         onClick={() => {
           toggleOpen();
@@ -104,6 +108,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
       </button>,
       <button
         style={buttonStyle}
+        className={buttonClass}
         key="invite"
         onClick={() => {
           wsend({ op: "fetch_invite_list", d: { cursor: 0 } });
@@ -117,12 +122,13 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           color={iconColor}
         />
         Invite
-      </button>
+      </button>,
     );
     if (isCreator || canSpeak) {
       buttons.push(
         <button
           style={buttonStyle}
+          className={buttonClass}
           key="mute"
           onClick={() => {
             wsend({
@@ -147,7 +153,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             />
           )}
           {muted ? "Unmute" : "Mute"}
-        </button>
+        </button>,
       );
     }
 
@@ -155,6 +161,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
       buttons.push(
         <button
           style={buttonStyle}
+          className={buttonClass}
           key="to-public-room"
           onClick={() => {
             setSettingsOpen(true);
@@ -167,7 +174,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             color={iconColor}
           />
           Settings
-        </button>
+        </button>,
       );
     }
   }
@@ -193,7 +200,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
         !location.pathname.startsWith("/room") ? (
           <button
             onClick={() => history.push(`/room/${currentRoom.id}`)}
-            className={tw`bg-tmpBg1 py-5 px-10 w-full flex`}
+            className={tw`bg-tmpBg1 py-5 px-10 w-full flex ${buttonClass}`}
           >
             <span
               style={{
