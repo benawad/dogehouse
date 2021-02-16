@@ -35,6 +35,8 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
     // regex to match mention patterns
     const mentionMatches = message.match(/^(?!.*\bRT\b)(?:.+\s)?@\w+/i);
 
+    console.log(mentionMatches);
+
     // query usernames for matched patterns
     if (mentionMatches && me && currentRoom) {
       const mentionsList = mentionMatches[0].replace(/@/g, "").split(" ");
@@ -45,8 +47,9 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
         setQueriedUsernames([]);
       } else {
         const usernameMatches = currentRoom.users.filter(
-          ({ id, username }) =>
-            username.toLowerCase().includes(useMention.toLowerCase()) &&
+          ({ id, username, displayName }) =>
+            (username.toLowerCase().includes(useMention.toLowerCase()) ||
+              displayName.toLowerCase().includes(useMention.toLowerCase())) &&
             !mentions.find(m => m.id === id) &&
             me.id !== id,
         );
@@ -86,7 +89,9 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
                 src={m.avatarUrl}
               />
             </span>
-            <p className={tw`m-0 mt-1`}>{m.username}</p>
+            <p className={tw`m-0 mt-1`}>
+              {m.displayName} ({m.username})
+            </p>
           </button>
         ))}
       </div>
