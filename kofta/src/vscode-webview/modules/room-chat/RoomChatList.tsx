@@ -87,7 +87,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
               >
                 {v}{" "}
               </a>
-            ) : t === "event" ? (
+            ) : t === "event" && !v.includes(me?.username || "") ? (
               <span className={tw`italic text-tmpC1`} key={i}>
                 {v}{" "}
               </span>
