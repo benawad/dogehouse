@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { tw } from "twind";
 import { Button } from "../../vscode-webview/components/Button";
 import { volumeAtom } from "../../vscode-webview/shared-atoms";
-import { useAudioTracks } from "../stores/useAudioTracks";
+import { useConsumerStore } from "../stores/useConsumerStore";
 
 interface AudioRenderProps {}
 
@@ -21,22 +21,10 @@ const MyAudio = ({
   const myRef = useRef<HTMLAudioElement>(null);
   useEffect(() => {
     if (myRef.current) {
-      myRef.current.volume = volume / 100;
+      myRef.current.volume = volume;
     }
   }, [volume]);
-  // useEffect(() => {
-  //   if (myRef.current) {
-  //     myRef.current.srcObject = new MediaStream([track]);
-  //     myRef.current.play().catch((error) => {
-  //       if (error.name === "NotAllowedError") {
-  //         onAutoPlayError();
-  //       } else {
-  //         // Handle a load or playback error
-  //       }
-  //       console.warn("audioElem.play() failed:%o", error);
-  //     });
-  //   }
-  // }, [track, playAgain]);
+
   return (
     <audio
       ref={(r) => {
@@ -54,9 +42,10 @@ const MyAudio = ({
 export const AudioRender: React.FC<AudioRenderProps> = () => {
   const hasShownAutoPlayModalBefore = useRef(false);
   const [showAutoPlayModal, setShowAutoPlayModal] = useState(false);
-  const [volume] = useAtom(volumeAtom);
-  const { tracks } = useAudioTracks();
+  const [globalVolume] = useAtom(volumeAtom);
+  const { consumerMap } = useConsumerStore();
   const audioRefs = useRef<HTMLAudioElement[]>([]);
+
   return (
     <>
       <div
@@ -87,29 +76,32 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
             }}
           >
             okay
-            {tracks.map((t) => (
-              <MyAudio
-                volume={volume}
-                autoPlay
-                playsInline
-                controls={false}
-                key={t.id}
-                onRef={(a) => {
-                  audioRefs.current.push(a);
-                  a.srcObject = new MediaStream([t]);
-                  a.play().catch((error) => {
-                    if (
-                      error.name === "NotAllowedError" &&
-                      !hasShownAutoPlayModalBefore.current
-                    ) {
-                      hasShownAutoPlayModalBefore.current = true;
-                      setShowAutoPlayModal(true);
-                    }
-                    console.warn("audioElem.play() failed:%o", error);
-                  });
-                }}
-              />
-            ))}
+            {Object.keys(consumerMap).map((k) => {
+              const { consumer, volume: userVolume } = consumerMap[k];
+              return (
+                <MyAudio
+                  volume={(userVolume / 200) * (globalVolume / 100)}
+                  autoPlay
+                  playsInline
+                  controls={false}
+                  key={consumer.id}
+                  onRef={(a) => {
+                    audioRefs.current.push(a);
+                    a.srcObject = new MediaStream([consumer.track]);
+                    a.play().catch((error) => {
+                      if (
+                        error.name === "NotAllowedError" &&
+                        !hasShownAutoPlayModalBefore.current
+                      ) {
+                        hasShownAutoPlayModalBefore.current = true;
+                        setShowAutoPlayModal(true);
+                      }
+                      console.warn("audioElem.play() failed:%o", error);
+                    });
+                  }}
+                />
+              );
+            })}
           </Button>
         </div>
       </div>

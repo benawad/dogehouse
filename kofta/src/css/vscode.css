@@ -129,3 +129,16 @@ input {
   padding-left: 8px;
   padding-right: 8px;
 }
+
+::-webkit-scrollbar {
+    width: 0.8rem;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 0.8rem;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 0.8rem;
+    background-color: rgb(140, 140, 140);
+}

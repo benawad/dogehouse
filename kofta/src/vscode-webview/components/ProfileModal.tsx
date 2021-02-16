@@ -7,6 +7,7 @@ import { Codicon } from "../svgs/Codicon";
 import { CurrentRoom, User } from "../types";
 import { Button } from "./Button";
 import { UserProfile } from "./UserProfile";
+import { UserVolumeSlider } from "./UserVolumeSlider";
 
 interface ProfileModalProps {
   onClose: () => void;
@@ -91,6 +92,11 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
             ) : null}
           </div>
           <UserProfile profile={profile} />
+          {!isMe && profile.canSpeakForRoomId === room.id ? (
+            <div className={tw`mb-4`}>
+              <UserVolumeSlider userId={profile.id} />
+            </div>
+          ) : null}
           {!isMe && iAmCreator ? (
             <>
               <div className={tw`mb-4`}>
