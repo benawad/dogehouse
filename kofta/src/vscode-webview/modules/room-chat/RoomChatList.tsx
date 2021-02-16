@@ -6,6 +6,7 @@ import { ProfileModalFetcher } from "./ProfileModalFetcher";
 import { useRoomChatStore } from "./useRoomChatStore";
 import normalizeUrl from "normalize-url";
 import { meAtom } from "../../atoms";
+import { isEventOnly } from "../../utils/isEventOnly";
 
 interface ChatListProps {}
 
@@ -33,19 +34,27 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
           className={tw`block py-1`}
           key={m.id}
         >
-          <span className={tw`pr-2 inline`}>
-            <Avatar style={{ display: "inline" }} size={20} src={m.avatarUrl} />
-          </span>{" "}
-          <button
-            onClick={() => {
-              setProfileId(m.userId);
-            }}
-            className={tw`hover:underline focus:outline-none`}
-            style={{ textDecorationColor: m.color, color: m.color }}
-          >
-            {m.displayName}
-          </button>
-          <span className={tw`mr-1`}>: </span>
+          {!isEventOnly(m) ? (
+            <>
+              <span className={tw`pr-2 inline`}>
+                <Avatar
+                  style={{ display: "inline" }}
+                  size={20}
+                  src={m.avatarUrl}
+                />
+              </span>
+              <button
+                onClick={() => {
+                  setProfileId(m.userId);
+                }}
+                className={tw`hover:underline focus:outline-none`}
+                style={{ textDecorationColor: m.color, color: m.color }}
+              >
+                {m.displayName}
+              </button>
+              <span className={tw`mr-1`}>: </span>
+            </>
+          ) : null}
           {m.tokens.map(({ t, v }, i) =>
             t === "text" ? (
               <span className={tw`flex-1 m-0`} key={i}>
@@ -67,8 +76,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                   color: v === me?.username ? "" : m.color,
                 }}
               >
-                @{v}
-                {"  "}
+                @{v}{" "}
               </button>
             ) : t === "link" ? (
               <a
@@ -79,6 +87,10 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
               >
                 {v}{" "}
               </a>
+            ) : t === "event" ? (
+              <span className={tw`italic text-tmpC1`} key={i}>
+                {v}{" "}
+              </span>
             ) : null,
           )}
         </div>

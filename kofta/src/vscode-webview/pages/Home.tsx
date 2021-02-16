@@ -13,6 +13,7 @@ import { CreateRoomModal } from "../components/CreateRoomModal";
 import { ProfileButton } from "../components/ProfileButton";
 import { PeopleIcon } from "../svgs/PeopleIcon";
 import { CircleButton } from "../components/CircleButton";
+import { meAtom } from "../atoms";
 
 interface HomeProps {}
 
@@ -21,6 +22,7 @@ export const Home: React.FC<HomeProps> = () => {
   const [currentRoom] = useAtom(currentRoomAtom);
   const [{ publicRooms: rooms, nextCursor }] = useAtom(publicRoomsAtom);
   const [showCreateRoomModal, setShowCreateRoomModal] = useState(false);
+  const [me] = useAtom(meAtom);
 
   useEffect(() => {
     if (rooms.length < 15) {
@@ -70,19 +72,28 @@ export const Home: React.FC<HomeProps> = () => {
             />
           </div>
         ) : null}
-        {rooms.map((r) =>
+        {rooms.map(r =>
           r.id === currentRoom?.id ? null : (
             <div className={tw(`mt-4`)} key={r.id}>
               <RoomCard
                 onClick={() => {
                   wsend({ op: "join_room", d: { roomId: r.id } });
+                  // Show joined message in chat
+                  setTimeout(() => {
+                    wsend({
+                      op: "send_room_chat_msg",
+                      d: {
+                        tokens: [{ t: "event", v: me?.username + " joined" }],
+                      },
+                    });
+                  }, 1000);
                   history.push("/room/" + r.id);
                 }}
                 room={r}
                 currentRoomId={currentRoom?.id}
               />
             </div>
-          )
+          ),
         )}
         {nextCursor ? (
           <div className={tw`flex justify-center my-10`}>

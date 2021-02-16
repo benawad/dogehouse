@@ -35,8 +35,6 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
     // regex to match mention patterns
     const mentionMatches = message.match(/^(?!.*\bRT\b)(?:.+\s)?@\w+/i);
 
-    console.log(mentionMatches);
-
     // query usernames for matched patterns
     if (mentionMatches && me && currentRoom) {
       const mentionsList = mentionMatches[0].replace(/@/g, "").split(" ");

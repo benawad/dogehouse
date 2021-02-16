@@ -1,6 +1,7 @@
 import create from "zustand";
 import { combine } from "zustand/middleware";
 import { User } from "../../types";
+import { isEventOnly } from "../../utils/isEventOnly";
 
 interface TextToken {
   t: string;
@@ -56,7 +57,7 @@ export const useRoomChatStore = create(
         })),
       addMessage: (m: RoomChatMessage) =>
         set(s => ({
-          newUnreadMessages: !s.open,
+          newUnreadMessages: !s.open && !isEventOnly(m),
           messages: [
             { ...m, color: generateColorFromString(m.userId) },
             ...(s.messages.length > 100
