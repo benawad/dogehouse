@@ -90,7 +90,8 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
               />
             </span>
             <p className={tw`m-0 mt-1`}>
-              {m.displayName} ({m.username})
+              {m.displayName}
+              {m.displayName !== m.username ? `(${m.username})` : null}
             </p>
           </button>
         ))}
