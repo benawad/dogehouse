@@ -331,13 +331,14 @@ export const Routes: React.FC<RoutesProps> = () => {
       if (id && isUuid(id)) {
         wsend({ op: "join_room", d: { roomId: id } });
 
+        // TODO: username is undefined when user directly joins via putting the link in url bar
         // Show joined message in chat
-        setTimeout(() => {
-          wsend({
-            op: "send_room_chat_msg",
-            d: { tokens: [{ t: "event", v: me?.username + " joined" }] },
-          });
-        }, 100);
+        // setTimeout(() => {
+        //   wsend({
+        //     op: "send_room_chat_msg",
+        //     d: { tokens: [{ t: "event", v: me?.username + " joined" }] },
+        //   });
+        // }, 1000);
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
