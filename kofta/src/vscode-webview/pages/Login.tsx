@@ -30,7 +30,7 @@ export const Login: React.FC<LoginProps> = () => {
           <li>- Dark theme</li>
           <li>- Open sign ups</li>
           <li>- Cross platform support</li>
-          <li>- 
+          <li>-
             <a
               style={{ color: "var(--vscode-textLink-foreground)" }}
               href="https://github.com/benawad/dogehouse"
@@ -44,16 +44,14 @@ export const Login: React.FC<LoginProps> = () => {
         <div className={tw`mb-8`}>
           <Button
             onClick={() =>
-              (window.location.href = apiBaseUrl + "/auth/github/web")
-            }
+              (window.location.href = apiBaseUrl + "/auth/github/web" + (process.env.REACT_APP_IS_STAGING === "true" ? "?redirect_after_base=" + window.location.origin : "")) }
           >
             login with GitHub
           </Button>
         </div>
         <Button
           onClick={() =>
-            (window.location.href = apiBaseUrl + "/auth/twitter/web")
-          }
+            (window.location.href = apiBaseUrl + "/auth/twitter/web" + (process.env.REACT_APP_IS_STAGING === "true" ? "?redirect_after_base=" + window.location.origin : "")) }
         >
           login with Twitter
         </Button>
