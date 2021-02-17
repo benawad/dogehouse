@@ -53,6 +53,7 @@ a:active {
 
 a:focus {
   box-shadow: 0 0 0 3px rgb(153 204 255 / 50%);
+  outline: none;
 }
 
 code {
@@ -130,15 +131,28 @@ input {
   padding-right: 8px;
 }
 
+option {
+  background-color: var(--vscode-dropdown-background);
+}
+
 ::-webkit-scrollbar {
     width: 0.8rem;
 }
 
 ::-webkit-scrollbar-track {
-    border-radius: 0.8rem;
+    background: rgb(66, 66, 66);
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 0.8rem;
-    background-color: rgb(140, 140, 140);
+    border-radius: 4px;
+    background-color: rgb(104, 104, 104);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(123, 123, 123);
+  
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: rgb(161, 161, 161, .8);
 }
