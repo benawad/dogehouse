@@ -43,7 +43,7 @@ How to run locally
 We use GitHub issues to track public bugs. Please ensure your description is
 clear and has sufficient instructions to be able to reproduce the issue. Report a bug by <a href="https://github.com/benawad/dogehouse/issues">opening a new issue</a>; it's that easy!
 
-Frequently Asked Questions (FAQs) 
+## Frequently Asked Questions (FAQs) 
 <!--- I thought it would be great to have a list of FAQs for the project to help save time for new contributors--->
     - Q: [The Question?]
     - A: [The Answer!]

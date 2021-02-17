@@ -25,7 +25,7 @@ DogeHouse is open to contributions, but I recommend creating an issue or replyin
 Please read [CONTRIBUTING.md](https://github.com/benawad/dogehouse/blob/master/CONTRIBUTING.md) for details on this project.
 ## Code of Conduct
 
-Please read [CODE_OF_CONDUCT.MD](https://github.com/benawad/dogehouse/blob/master/CODE_OF_CONDUCT.md) for details on our code of conduct.
+Please read [CODE_OF_CONDUCT.md](https://github.com/benawad/dogehouse/blob/master/CODE_OF_CONDUCT.md) for details on our code of conduct.
 
 ## How to run locally
 
