@@ -25,7 +25,7 @@ export const Login: React.FC<LoginProps> = () => {
         <div className={tw`my-8`}>
           <Logo />
         </div>
-        <div className={tw`text-2xl`}>The home for voice conversations.</div>
+        <div className={tw`text-2xl`}>The home for voice conversations. (testing if netlify preview deploys work)</div>
         <ul className={tw`my-4 mb-8 text-xl`}>
           <li>- Dark theme</li>
           <li>- Open sign ups</li>
