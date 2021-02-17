@@ -99,7 +99,7 @@ WEBRTC_LISTEN_IP=127.0.0.1
 
 Then run `npm run build` and `npm start`.
 
-### Frontend
+### Front-end
 
 #### `kofta`
 Navigate to `/kofta` and create an `.env` file based on `.env.example`.
