@@ -10,6 +10,8 @@ database_url =
 config :kousa, Beef.Repo, url: database_url
 
 config :kousa,
+  is_staging:
+    System.get_env("IS_STAGING") == "true",
   ben_github_id:
     System.get_env("BEN_GITHUB_ID") ||
       raise("""
