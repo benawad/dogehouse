@@ -28,6 +28,10 @@ DogeHouse is open to contributions, but I recommend creating an issue or replyin
 
 0. Install and start RabbitMQ
 1. Install and start Postgresql
+```
+sudo -u postgres psql -c "ALTER USER postgres PASSWORD 'postgres';"
+sudo server postgresql restart
+```
 2. Create a DB inside Postgresql called `kousa_repo2`
 3. Install Elixir
 4. Inside `kousa` 
