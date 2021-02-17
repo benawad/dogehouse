@@ -18,6 +18,9 @@ defmodule Kousa.GitHubAuth do
         else: "web"
       )
 
+    # @todo remove this
+    IO.puts("state: " <> state)
+
     url =
       "https://github.com/login/oauth/authorize?client_id=" <>
         Application.get_env(:kousa, :client_id) <>
@@ -46,12 +49,15 @@ defmodule Kousa.GitHubAuth do
     code = conn_with_qp.query_params["code"]
 
     base_url =
-      with state <- Map.get(conn_with_qp.query_params, "state", ""),
+      with true <- Kousa.Caster.bool(Application.get_env(:kousa, :is_staging)),
+           state <- Map.get(conn_with_qp.query_params, "state", ""),
            {:ok, json} <- Base.decode64(state),
-           {:ok, %{redirect_base_url: redirect_base_url}} <- Poison.decode(json) do
+           {:ok, %{"redirect_base_url" => redirect_base_url}} <- Poison.decode(json) do
         redirect_base_url
       else
-        _ ->
+        x ->
+          IO.puts("NOT STAGING OR SOMETHING?")
+          IO.inspect(x)
           Application.fetch_env!(:kousa, :web_url)
       end
 
