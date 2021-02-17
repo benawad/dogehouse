@@ -29,7 +29,6 @@ Please read [CODE_OF_CONDUCT.md](https://github.com/benawad/dogehouse/blob/maste
 
 ## How to run locally
 
-### Back-end
 Check <a href="https://github.com/benawad/dogehouse/blob/master/CONTRIBUTING.md#local-development">here</a> on how to run locally</a>
 
 ## Investors

@@ -20,25 +20,91 @@ All changes happen through pull requests, Pull requests are the best way to prop
 ## Local Development
 How to run locally
 ### Back-end
-0. Install and start RabbitMQ
-1. Install and start Postgresql
-2. Create a DB inside Postgresql called `kousa_repo2`
-3. Install Elixir
-4. Inside `kousa` 
-- run `mix deps.get`
-- run `mix ecto.migrate`
-- run `iex -S mix` (This starts the server, read all the error messages and add those environment variables)
-5. Inside `shawarma`
-- run `npm i`
-- set an env variable `WEBRTC_LISTEN_IP` to `127.0.0.1`
-- run `npm run build`
-- run `npm start`
-6. Inside `kofta`
-- run `npm i`
-- run `npm start`
+#### RabbitMQ
+Install RabbitMQ:
+- **macOS**: Run `brew install rabbitmq`
+- **Windows**: Run `choco install rabbitmq`
+- **Linux**: Follow their installation guide [here](https://www.rabbitmq.com/download.html).
 
-(Austin lost power so I'm doing this from my phone, will make a better version soon)
+Start RabbitMQ
+- **macOS**: Run `brew services start rabbitmq`
+- **Windows**: Setup guide [here](https://www.rabbitmq.com/install-windows.html).
+- **Linux**: Setup guide [here](https://www.rabbitmq.com/install-debian.html).
 
+#### PostgreSQL
+Install PostgreSQL:
+- **macOS**: Run `brew install postgresql`
+- **Windows**: Follow [this](https://www.postgresqltutorial.com/install-postgresql/) guide.
+- **Linux**: Follow [this](https://www.postgresqltutorial.com/install-postgresql-linux/) guide.
+
+Start PostgreSQL:
+- **macOS**: Run `brew services start postgresql`
+- **Windows**: Start PostgreSQL through the control panel or run `net start postgresql-{version}` 
+- **Linux**: Run `/etc/rc.d/init.d/postgresql start`
+
+Create a DB named `kousa_repo2`:
+
+```shell
+$ psql postgres
+
+$ CREATE DATABASE kousa_repo2;
+```
+
+#### Elixir
+Elixir installation guide [here](https://elixir-lang.org/install.html).
+
+
+#### `kousa`
+Navigate to `/kousa` and set the following environment variables:
+```
+export DATABASE_URL=postgres://user:password@localhost/kousa_repo2
+export BEN_GITHUB_ID=7872329
+export RABBITMQ_URL=amqp://user:password@yourinternalip:5672
+export ACCESS_TOKEN_SECRET=
+export REFRESH_TOKEN_SECRET=
+export GITHUB_CLIENT_ID=
+export TWITTER_API_KEY=
+export TWITTER_SECRET_KEY=
+export TWITTER_BEARER_TOKEN=
+export GITHUB_CLIENT_SECRET=
+export SENTRY_DNS=
+export API_URL=http://localhost:4001
+export WEB_URL=http://localhost:3000
+export PORT=4001
+```
+
+> You can save this variables in a `.txt` and run `source path/to/file.txt`
+
+Run the following commands:
+```shell
+$ mix deps.get
+$ mix ecto.migrate
+```
+
+Start the server
+```shell
+$ iex -S mix
+```
+
+#### `shawarma`
+Navigate to `/shawarma` and run `npm i`.
+
+> Mediasoup requires `node >=0.8 <=14` and has [specific requirements](https://mediasoup.org/documentation/v3/mediasoup/installation/#windows) on Windows.
+
+Create an `.env` file and set the following environment variable:
+
+```
+WEBRTC_LISTEN_IP=127.0.0.1
+```
+
+Then run `npm run build` and `npm start`.
+
+### Frontend
+
+#### `kofta`
+Navigate to `/kofta` and create an `.env` file based on `.env.example`.
+
+Run `npm i` and then `npm start`.
 ## Issues
 We use GitHub issues to track public bugs. Please ensure your description is
 clear and has sufficient instructions to be able to reproduce the issue. Report a bug by <a href="https://github.com/benawad/dogehouse/issues">opening a new issue</a>; it's that easy!
