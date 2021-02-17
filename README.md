@@ -29,6 +29,7 @@ DogeHouse is open to contributions, but I recommend creating an issue or replyin
 0. Install and start RabbitMQ
 1. Install and start Postgresql
 ```
+# this is needed for ecto.migrate to run fine
 sudo -u postgres psql -c "ALTER USER postgres PASSWORD 'postgres';"
 sudo server postgresql restart
 ```
