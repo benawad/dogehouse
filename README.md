@@ -17,6 +17,7 @@ https://dogehouse.tv/
 - shawarma -> Voice Server
 - kofta -> React frontend
 - dinner -> Puppeteer shenanigans
+- baklava -> Electron Wrapper
 
 ## Contributions
 
