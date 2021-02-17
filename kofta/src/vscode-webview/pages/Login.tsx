@@ -39,7 +39,7 @@ export const Login: React.FC<LoginProps> = () => {
             </a>
           </li>
           <li>- Text chat</li>
-          <li>- Powered by Doge</li>
+          <li>- Powered by Ɖoge</li>
         </ul>
         <div className={tw`mb-8`}>
           <Button
