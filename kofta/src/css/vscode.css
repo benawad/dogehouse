@@ -130,6 +130,10 @@ input {
   padding-right: 8px;
 }
 
+option {
+  background-color: var(--vscode-dropdown-background);
+}
+
 ::-webkit-scrollbar {
     width: 0.8rem;
 }
