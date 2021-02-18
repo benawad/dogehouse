@@ -83,7 +83,7 @@ export const Login: React.FC<LoginProps> = () => {
         }}
         className={tw`mb-6`}
       >
-        <Footer />
+        <Footer isLogin />
       </div>
     </CenterLayout>
   );
