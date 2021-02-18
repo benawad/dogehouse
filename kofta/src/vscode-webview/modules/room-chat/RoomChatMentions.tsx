@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { tw } from "twind";
 import { useRoomChatStore } from "./useRoomChatStore";
 import { Avatar } from "../../components/Avatar";
@@ -67,6 +67,7 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
         return message.toLowerCase().indexOf(u.username.toLowerCase()) !== -1;
       })
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [message]);
 
   if (queriedUsernames.length) {
