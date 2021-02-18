@@ -1,24 +1,27 @@
 import { User } from "../types";
-import normalizeUrl from "normalize-url";
+// import normalizeUrl from "normalize-url";
 
 export const createChatMessage = (message: string, mentions: User[]) => {
   const tokens = ([] as unknown) as [
     {
       t: string;
       v: string;
-    },
+    }
   ];
 
-  message.split(" ").forEach(item => {
+  message.split(" ").forEach((item) => {
     const isLink = /(https?:\/\/|)[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(
-      item,
+      item
     );
-    const isMention = mentions.find(m => item.replace("@", "") === m.username);
+    const isMention = mentions.find(
+      (m) => item.replace("@", "") === m.username
+    );
 
     if (isLink || isMention) {
       tokens.push({
         t: isLink ? "link" : "mention",
-        v: isMention ? item.replace("@", "") : normalizeUrl(item),
+        // v: isMention ? item.replace("@", "") : normalizeUrl(item),
+        v: isMention ? item.replace("@", "") : item,
       });
     } else {
       const lastToken = tokens[tokens.length - 1];
