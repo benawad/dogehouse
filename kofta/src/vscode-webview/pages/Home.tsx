@@ -13,7 +13,6 @@ import { CreateRoomModal } from "../components/CreateRoomModal";
 import { ProfileButton } from "../components/ProfileButton";
 import { PeopleIcon } from "../svgs/PeopleIcon";
 import { CircleButton } from "../components/CircleButton";
-import { meAtom } from "../atoms";
 
 interface HomeProps {}
 

@@ -3,11 +3,7 @@ import React, { useState } from "react";
 import { tw } from "twind";
 import { Avatar } from "../../components/Avatar";
 import { ProfileModalFetcher } from "./ProfileModalFetcher";
-import {
-  RoomChatMessage,
-  RoomChatMessageToken,
-  useRoomChatStore,
-} from "./useRoomChatStore";
+import { useRoomChatStore } from "./useRoomChatStore";
 import normalizeUrl from "normalize-url";
 import { meAtom } from "../../atoms";
 
