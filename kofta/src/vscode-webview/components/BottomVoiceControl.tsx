@@ -16,6 +16,7 @@ import { currentRoomAtom, myCurrentRoomInfoAtom } from "../atoms";
 import { RoomChat } from "../modules/room-chat/RoomChat";
 import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
 import { useShouldFullscreenChat } from "../modules/room-chat/useShouldFullscreenChat";
+import { modalConfirm } from "./ConfirmModal";
 import { Footer } from "./Footer";
 import { RoomSettingsModal } from "./RoomSettingsModal";
 
@@ -39,9 +40,10 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   const { muted, set } = useMuteStore();
   const [{ canSpeak, isCreator }] = useAtom(myCurrentRoomInfoAtom);
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const [toggleOpen, newUnreadMessages] = useRoomChatStore((s) => [
+  const [toggleOpen, newUnreadMessages, iAmMentioned] = useRoomChatStore(s => [
     s.toggleOpen,
     s.newUnreadMessages,
+    s.iAmMentioned,
   ]);
 
   const fullscreenChatOpen = useShouldFullscreenChat();
@@ -54,13 +56,12 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
         style={buttonStyle}
         key="leave-room"
         onClick={() => {
-          const y = window.confirm("Are you sure you want to leave?");
-          if (y) {
+          modalConfirm("Are you sure you want to leave?", () => {
             wsend({ op: "leave_room", d: {} });
             if (location.pathname.startsWith("/room")) {
               history.push("/");
             }
-          }
+          });
         }}
         title="Leave current room"
       >
@@ -89,7 +90,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
               <span
                 style={{
                   position: "absolute",
-                  backgroundColor: "#FF9900",
+                  backgroundColor: iAmMentioned ? "#ff3c00" : "#FF9900",
                   borderRadius: "50%",
                   right: -2,
                   top: -1,
@@ -117,7 +118,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           color={iconColor}
         />
         Invite
-      </button>
+      </button>,
     );
     if (isCreator || canSpeak) {
       buttons.push(
@@ -147,7 +148,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             />
           )}
           {muted ? "Unmute" : "Mute"}
-        </button>
+        </button>,
       );
     }
 
@@ -167,7 +168,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             color={iconColor}
           />
           Settings
-        </button>
+        </button>,
       );
     }
   }

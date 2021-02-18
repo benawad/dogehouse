@@ -29,12 +29,6 @@ export const Home: React.FC<HomeProps> = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // useEffect(() => {
-  //   if (currentRoom) {
-  //     history.push("/room", { room: currentRoom });
-  //   }
-  // }, [currentRoom]);
-
   return (
     <>
       <Wrapper>
@@ -70,7 +64,7 @@ export const Home: React.FC<HomeProps> = () => {
             />
           </div>
         ) : null}
-        {rooms.map((r) =>
+        {rooms.map(r =>
           r.id === currentRoom?.id ? null : (
             <div className={tw(`mt-4`)} key={r.id}>
               <RoomCard
@@ -82,7 +76,7 @@ export const Home: React.FC<HomeProps> = () => {
                 currentRoomId={currentRoom?.id}
               />
             </div>
-          )
+          ),
         )}
         {nextCursor ? (
           <div className={tw`flex justify-center my-10`}>

@@ -23,7 +23,7 @@ defmodule Kousa.Dev do
             Beef.Repo.insert!(
               %Beef.User{
                 username: username,
-                email: "test@"<>username<>"test.com",
+                email: "test@" <> username <> "test.com",
                 githubAccessToken: "",
                 githubId: "id:" <> username,
                 avatarUrl: "https://placekitten.com/200/200",

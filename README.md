@@ -12,38 +12,26 @@
 https://dogehouse.tv/
 
 ## Structure
-
-- kousa -> Elixir API
-- shawarma -> Voice Server
-- kofta -> React frontend
-- dinner -> Puppeteer shenanigans
+| Codebase |      Description      |
+| :------- | :-------------------: |
+| kousa    |      Elixir API       |
+| shawarma |     Voice Server      |
+| kofta    |    React frontend     |
+| dinner   | Puppeteer shenanigans |
+| baklava  |   Electron Wrapper    |
 
 ## Contributions
 
 DogeHouse is open to contributions, but I recommend creating an issue or replying in a comment to let me know what you are working on first that way we don't overwrite each other.
 
+Please read [CONTRIBUTING.md](https://github.com/benawad/dogehouse/blob/master/CONTRIBUTING.md) for details on this project.
+## Code of Conduct
+
+Please read [CODE_OF_CONDUCT.md](https://github.com/benawad/dogehouse/blob/master/CODE_OF_CONDUCT.md) for details on our code of conduct.
+
 ## How to run locally
 
-### backend
-
-0. Install and start RabbitMQ
-1. Install and start Postgresql
-2. Create a DB inside Postgresql called `kousa_repo2`
-3. Install Elixir
-4. Inside `kousa` 
-- run `mix deps.get`
-- run `mix ecto.migrate`
-- run `iex -S mix` (This starts the server, read all the error messages and add those environment variables)
-5. Inside `shawarma`
-- run `npm i`
-- set an env variable `WEBRTC_LISTEN_IP` to `127.0.0.1`
-- run `npm run build`
-- run `npm start`
-6. Inside `kofta`
-- run `npm i`
-- run `npm start`
-
-(Austin lost power so I'm doing this from my phone, will make a better version soon)
+Check <a href="https://github.com/benawad/dogehouse/blob/master/CONTRIBUTING.md#local-development">here</a> on how to run locally</a>
 
 ## Investors
 
