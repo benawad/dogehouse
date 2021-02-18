@@ -57,19 +57,10 @@ defmodule Kousa.BL.RoomChat do
   end
 
   @doc """
-    validate_token/1 validates each token by type and return {:ok, token} if the token is valid
+    validate_token/1 validates a token by type and return {:ok, token} if the token is valid
     otherwise return :invalid
   """
-  defp validate_token(token = %{"t" => "text", "v" => _}), do: {:ok, token}
-  defp validate_token(token = %{"t" => "mention", "v" => mention}) do 
-    mention
-    |> valid_mention?()
-    |> case do
-      true -> {:ok, token}
-      _ -> :invalid
-    end
-  end
-
+  defp validate_token(token = %{"t" => type, "v" => _}) when type in ["text", "mention"], do: {:ok, token}
   defp validate_token(token = %{"t" => "link", "v" => link}) do
     link
     |> URI.parse() 
@@ -84,15 +75,6 @@ defmodule Kousa.BL.RoomChat do
 
   defp valid_url?(%URI{host: host, scheme: scheme}) when is_binary(host) and is_binary(scheme), do: true
   defp valid_url?(_), do: false
-
-  defp valid_mention?(mention) do
-    mention
-    |> Data.User.get_by_username()
-    |> case do
-      %User{} -> true
-      _ -> false
-    end
-  end
 
   def ban_user(user_id, user_id_to_ban) do
     case Data.Room.get_room_status(user_id) do
