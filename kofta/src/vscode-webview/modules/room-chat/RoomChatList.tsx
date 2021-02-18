@@ -3,7 +3,11 @@ import React, { useState } from "react";
 import { tw } from "twind";
 import { Avatar } from "../../components/Avatar";
 import { ProfileModalFetcher } from "./ProfileModalFetcher";
-import { useRoomChatStore } from "./useRoomChatStore";
+import {
+  RoomChatMessage,
+  RoomChatMessageToken,
+  useRoomChatStore,
+} from "./useRoomChatStore";
 import normalizeUrl from "normalize-url";
 import { meAtom } from "../../atoms";
 
@@ -52,41 +56,44 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
           {m.tokens.map(({ t, v }, i) => {
             switch (t) {
               case "text":
-                <span className={tw`flex-1 m-0`} key={i}>
-                  {v}{" "}
-                </span>;
-                break;
+                return (
+                  <span className={tw`flex-1 m-0`} key={i}>
+                    {v}
+                  </span>
+                );
 
               case "mention":
-                <button
-                  onClick={() => {
-                    setProfileId(v);
-                  }}
-                  key={i}
-                  className={tw`hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
-                    v === me?.username
-                      ? "bg-button text-tmpC3 px-2 rounded text-md"
-                      : ""
-                  }`}
-                  style={{
-                    textDecorationColor: m.color,
-                    color: v === me?.username ? "" : m.color,
-                  }}
-                >
-                  @{v}{" "}
-                </button>;
-                break;
+                return (
+                  <button
+                    onClick={() => {
+                      setProfileId(v);
+                    }}
+                    key={i}
+                    className={tw`hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
+                      v === me?.username
+                        ? "bg-button text-tmpC3 px-2 rounded text-md"
+                        : ""
+                    }`}
+                    style={{
+                      textDecorationColor: m.color,
+                      color: v === me?.username ? "" : m.color,
+                    }}
+                  >
+                    @{v}{" "}
+                  </button>
+                );
 
               case "link":
-                <a
-                  target="_blank"
-                  href={v}
-                  className={tw`flex-1 hover:underline text-tmpC4`}
-                  key={i}
-                >
-                  {normalizeUrl(v, { stripProtocol: true })}{" "}
-                </a>;
-                break;
+                return (
+                  <a
+                    target="_blank"
+                    href={v}
+                    className={tw`flex-1 hover:underline text-tmpC4`}
+                    key={i}
+                  >
+                    {normalizeUrl(v, { stripProtocol: true })}{" "}
+                  </a>
+                );
             }
           })}
         </div>

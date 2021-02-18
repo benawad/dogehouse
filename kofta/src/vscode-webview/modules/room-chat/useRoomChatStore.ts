@@ -3,9 +3,19 @@ import { combine } from "zustand/middleware";
 import { User } from "../../types";
 
 interface TextToken {
-  t: string;
+  t: "text";
   v: string;
 }
+interface MentionToken {
+  t: "mention";
+  v: string;
+}
+interface LinkToken {
+  t: "link";
+  v: string;
+}
+
+export type RoomChatMessageToken = TextToken | MentionToken | LinkToken;
 
 const colors = [
   "#ff2366",
@@ -32,7 +42,7 @@ export interface RoomChatMessage {
   avatarUrl: string;
   color: string;
   displayName: string;
-  tokens: TextToken[];
+  tokens: RoomChatMessageToken[];
 }
 
 export const useRoomChatStore = create(
