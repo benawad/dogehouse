@@ -100,8 +100,8 @@ async function main() {
         if (theirPeerId === myPeerId || !peerState || !peerState.producer) {
           continue;
         }
-        const { producer } = peerState;
         try {
+          const { producer } = peerState;
           consumerParametersArr.push(
             await createConsumer(
               router,
@@ -159,6 +159,7 @@ async function main() {
         if (previousProducer) {
           previousProducer.close();
           consumers.forEach((c) => c.close());
+          // @todo give some time for frontends to get update, but this can be removed
           send({
             platform: "web",
             rid: roomId,

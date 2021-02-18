@@ -26,7 +26,7 @@ defmodule Kousa.BL.Room do
     end
   end
 
-    @spec make_room_private(any, any) :: nil | :ok
+  @spec make_room_private(any, any) :: nil | :ok
   def make_room_private(user_id, new_name) do
     # this needs to be refactored if a user can have multiple rooms
     case Kousa.Data.Room.set_room_privacy_by_creator_id(user_id, true, new_name) do
@@ -78,7 +78,7 @@ defmodule Kousa.BL.Room do
     end
   end
 
-  def internal_set_listener(user_id_to_make_listener, room_id) do
+  defp internal_set_listener(user_id_to_make_listener, room_id) do
     {rows_affected, _} = Kousa.Data.User.set_speaker(user_id_to_make_listener, room_id)
 
     if rows_affected == 1 do
@@ -211,6 +211,18 @@ defmodule Kousa.BL.Room do
     })
   end
 
+  def rename_room(_user_id, new_name) when byte_size(new_name) > 255 do
+    {:error, "name needs to be less than 255 characters"}
+  end
+
+  def rename_room(user_id, new_name) do
+    with {:ok, room_id} <- Data.User.tuple_get_current_room_id(user_id),
+         {1, _} <- Data.Room.update_name(user_id, new_name) do
+      nil
+      RegUtils.lookup_and_cast(Gen.RoomSession, room_id, {:new_room_name, new_name})
+    end
+  end
+
   # @decorate user_atomic()
   def create_room(user_id, room_name, is_private) do
     room_id = Kousa.Data.User.get_current_room_id(user_id)
@@ -221,7 +233,7 @@ defmodule Kousa.BL.Room do
 
     id = Ecto.UUID.generate()
 
-    case Kousa.Data.Room.create(%{
+    case Data.Room.create(%{
            id: id,
            name: room_name,
            creatorId: user_id,

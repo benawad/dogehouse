@@ -6,10 +6,26 @@ defmodule Kousa.GitHubAuth do
   plug(:dispatch)
 
   get "/web" do
+    state =
+      if(
+        Kousa.Caster.bool(Application.get_env(:kousa, :is_staging)),
+        do:
+          %{
+            redirect_base_url: fetch_query_params(conn).query_params["redirect_after_base"]
+          }
+          |> Poison.encode!()
+          |> Base.encode64(),
+        else: "web"
+      )
+
+    # @todo remove this
+    IO.puts("state: " <> state)
+
     url =
       "https://github.com/login/oauth/authorize?client_id=" <>
         Application.get_env(:kousa, :client_id) <>
-        "&state=web" <>
+        "&state=" <>
+        state <>
         "&redirect_uri=" <>
         Application.get_env(:kousa, :api_url) <>
         "/auth/github/callback&scope=read:user,user:email"
@@ -33,9 +49,15 @@ defmodule Kousa.GitHubAuth do
     code = conn_with_qp.query_params["code"]
 
     base_url =
-      if Map.get(conn_with_qp.query_params, "state", "") == "web",
-        do: Application.fetch_env!(:kousa, :web_url),
-        else: "http://localhost:54321"
+      with true <- Kousa.Caster.bool(Application.get_env(:kousa, :is_staging)),
+           state <- Map.get(conn_with_qp.query_params, "state", ""),
+           {:ok, json} <- Base.decode64(state),
+           {:ok, %{"redirect_base_url" => redirect_base_url}} <- Poison.decode(json) do
+        redirect_base_url
+      else
+        _ ->
+          Application.fetch_env!(:kousa, :web_url)
+      end
 
     case HTTPoison.post(
            "https://github.com/login/oauth/access_token",
