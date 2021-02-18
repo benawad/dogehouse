@@ -1,12 +1,11 @@
 import { useAtom } from "jotai";
 import React, { useEffect } from "react";
-import { Switch, Route, useHistory, useLocation } from "react-router-dom";
+import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { closeWebSocket, wsend } from "../createWebsocket";
 import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
 import { invitationToRoom } from "../webrtc/utils/invitationToRoom";
 import {
-  meAtom,
   setCurrentRoomAtom,
   setFollowerMapAtom,
   setFollowingMapAtom,
@@ -22,11 +21,11 @@ import { FollowListPage } from "./pages/FollowListPage";
 import { Home } from "./pages/Home";
 import { InviteList } from "./pages/InviteList";
 import { MyProfilePage } from "./pages/MyProfilePage";
+import { NotFoundPage } from "./pages/NotFoundPage";
 import { RoomPage } from "./pages/RoomPage";
 import { SearchUsersPage } from "./pages/SearchUsersPage";
 import { ViewUserPage } from "./pages/ViewUserPage";
 import { VoiceSettingsPage } from "./pages/VoiceSettingsPage";
-import { NotFoundPage } from "./pages/NotFoundPage";
 import { isUuid } from "./utils/isUuid";
 import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
 import { showErrorToast } from "./utils/showErrorToast";
