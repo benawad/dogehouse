@@ -2,9 +2,8 @@ defmodule Kousa.BL.RoomChat do
   alias Kousa.{Data, RegUtils, Gen}
 
   @spec send_msg(String.t(), any) :: any
-  def send_msg(user_id, tokens) do
-    # removed when byte_size(tokens.v) <= 512 until ben adds proper validation
-    # @todo validate token shape (I removed pattern matching for now because it beats me)
+  def send_msg(user_id, [%{"t" => "text", "v" => v}] = tokens) when byte_size(v) <= 512 do
+    # @todo validate token shape
     case Data.User.get_current_room_id(user_id) do
       nil ->
         nil
@@ -29,7 +28,6 @@ defmodule Kousa.BL.RoomChat do
   end
 
   def send_msg(_user_id, _tokens) do
-
   end
 
   def ban_user(user_id, user_id_to_ban) do
