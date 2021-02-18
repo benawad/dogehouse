@@ -97,11 +97,15 @@ defmodule Kousa.BL.Room do
   end
 
   def set_listener(user_id, user_id_to_set_listener) do
+    {_, room} = Kousa.Data.Room.get_room_status(user_id)
+    new_people_list = Enum.map(room.peoplePreviewList, fn x -> if x.id == user_id_to_set_listener, do: %{x | canSpeakForRoomId: nil}, else: x end)
+
     if user_id == user_id_to_set_listener do
       internal_set_listener(
         user_id_to_set_listener,
-        Kousa.Data.User.get_current_room_id(user_id_to_set_listener)
+        room.id
       )
+      Kousa.Data.Room.set_can_speak(room.id, new_people_list)
     else
       {status, room} = Kousa.Data.Room.get_room_status(user_id)
       is_creator = user_id_to_set_listener == not is_nil(room) and room.creatorId
@@ -109,8 +113,9 @@ defmodule Kousa.BL.Room do
       if not is_creator and (status == :creator or status == :mod) do
         internal_set_listener(
           user_id_to_set_listener,
-          Kousa.Data.User.get_current_room_id(user_id_to_set_listener)
+          room.id
         )
+        Kousa.Data.Room.set_can_speak(room.id, new_people_list)
       end
     end
   end
@@ -131,6 +136,7 @@ defmodule Kousa.BL.Room do
              room_id
            ) do
         {:ok, session} ->
+
           GenServer.cast(
             session,
             {:speaker_added, user_id_to_make_speaker,
@@ -164,6 +170,8 @@ defmodule Kousa.BL.Room do
 
           if status == :creator or status == :mod do
             internal_set_speaker(user_id_to_make_speaker, from_hand, room.id)
+            new_people_list = Enum.map(room.peoplePreviewList, fn x -> if x.id == user_id_to_make_speaker, do: %{x | canSpeakForRoomId: room_id}, else: x end)
+            Kousa.Data.Room.set_can_speak(room_id, new_people_list)
           end
 
         _ ->

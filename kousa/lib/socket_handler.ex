@@ -345,7 +345,6 @@ defmodule Kousa.SocketHandler do
 
   def handler("add_speaker_from_hand", %{"userId" => user_id_to_make_speaker}, state) do
     Kousa.BL.Room.make_speaker(state.user_id, user_id_to_make_speaker, true)
-
     {:ok, state}
   end
 

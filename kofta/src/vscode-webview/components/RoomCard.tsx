@@ -3,6 +3,7 @@ import React from "react";
 import { meAtom } from "../atoms";
 import { Codicon } from "../svgs/Codicon";
 import { CurrentRoom, Room } from "../types";
+import { tw } from "twind";
 
 interface RoomProps {
   active?: boolean;
@@ -18,7 +19,8 @@ export const RoomCard: React.FC<RoomProps> = ({
   currentRoomId,
 }) => {
   const [me] = useAtom(meAtom);
-  let n = room.numPeopleInside;
+  let n = room.numPeopleInside,
+    sn = room.peoplePreviewList.filter(x => x.canSpeakForRoomId).length;
   const previewNodes = [];
   let userList = room.peoplePreviewList;
   if (currentRoomId === room.id && "users" in room) {
@@ -41,7 +43,7 @@ export const RoomCard: React.FC<RoomProps> = ({
         }}
       >
         {p.displayName?.slice(0, 50)}
-      </div>
+      </div>,
     );
     if (i >= 4 && previewNodes.length >= 5) {
       break;
@@ -71,18 +73,21 @@ export const RoomCard: React.FC<RoomProps> = ({
               fontSize: "calc(var(--vscode-font-size)*1.2)",
               flex: 1,
               color: "#D9D9D9",
-              display: "-webkit-box",  
+              display: "-webkit-box",
               WebkitBoxOrient: "vertical",
               overflowWrap: "break-word",
               WebkitLineClamp: 3,
               overflow: "hidden",
-              textOverflow: "ellipsis"
+              textOverflow: "ellipsis",
             }}
           >
             {room.name?.slice(0, 100)}
           </div>
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <Codicon name="person" /> {n}
+          <div className={tw`flex items-center mr-4`}>
+            <Codicon name="person" /> {n - sn < 0 ? 0 : n - sn}
+          </div>
+          <div className={tw`flex items-center`}>
+            <Codicon name="megaphone" className={tw`mr-1`} /> {sn}
           </div>
         </div>
         {previewNodes}

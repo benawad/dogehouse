@@ -80,7 +80,8 @@ defmodule Kousa.Data.Room do
           %Beef.UserPreview{
             id: user.id,
             displayName: user.displayName,
-            numFollowers: user.numFollowers
+            numFollowers: user.numFollowers,
+            canSpeakForRoomId: user.canSpeakForRoomId
           }
           | room.peoplePreviewList
         ]
@@ -131,6 +132,21 @@ defmodule Kousa.Data.Room do
       update: [
         inc: [
           numPeopleInside: 1
+        ]
+      ]
+    )
+    |> Beef.Repo.update_all([])
+  end
+
+  def set_can_speak(room_id, new_people_list) do
+    from(r in Beef.Room,
+      where: r.id == ^room_id,
+      update: [
+        inc: [
+          numPeopleInside: -1
+        ],
+        set: [
+          peoplePreviewList: ^new_people_list
         ]
       ]
     )
@@ -276,9 +292,10 @@ defmodule Kousa.Data.Room do
   @spec create(:invalid | %{optional(:__struct__) => none, optional(atom | binary) => any}) :: any
   def create(data) do
     user = Kousa.Data.User.get_by_id(data.creatorId)
+    current_room_id = Kousa.Data.User.get_current_room_id(data.creatorId)
 
     peoplePreviewList = [
-      %{id: user.id, displayName: user.displayName, numFollowers: user.numFollowers}
+      %{id: user.id, displayName: user.displayName, numFollowers: user.numFollowers, canSpeakForRoomId: current_room_id}
     ]
 
     resp = raw_insert(data, peoplePreviewList)

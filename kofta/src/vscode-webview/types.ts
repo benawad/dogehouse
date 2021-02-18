@@ -8,6 +8,7 @@ export type Room = {
     id: string;
     displayName: string;
     numFollowers: number;
+    canSpeakForRoomId: string | null;
   }>;
 };
 export type User = {

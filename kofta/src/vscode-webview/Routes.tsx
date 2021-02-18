@@ -25,6 +25,7 @@ import { RoomPage } from "./pages/RoomPage";
 import { SearchUsersPage } from "./pages/SearchUsersPage";
 import { ViewUserPage } from "./pages/ViewUserPage";
 import { VoiceSettingsPage } from "./pages/VoiceSettingsPage";
+import { Room } from "./types";
 import { isUuid } from "./utils/isUuid";
 import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
 import { showErrorToast } from "./utils/showErrorToast";
@@ -35,9 +36,7 @@ interface RoutesProps {}
 export const Routes: React.FC<RoutesProps> = () => {
   const location = useLocation();
   const history = useHistory();
-  const addMultipleWsListener = useWsHandlerStore(
-    (s) => s.addMultipleWsListener
-  );
+  const addMultipleWsListener = useWsHandlerStore(s => s.addMultipleWsListener);
   const [, setCurrentRoom] = useAtom(setCurrentRoomAtom);
   const [, setMe] = useAtom(setMeAtom);
   const [, setPublicRooms] = useAtom(setPublicRoomsAtom);
@@ -54,8 +53,8 @@ export const Routes: React.FC<RoutesProps> = () => {
         useRoomChatStore.getState().addMessage(msg);
       },
       room_privacy_change: ({ roomId, isPrivate, name }) => {
-        setCurrentRoom((cr) =>
-          !cr || cr.id !== roomId ? cr : { ...cr, name, isPrivate }
+        setCurrentRoom(cr =>
+          !cr || cr.id !== roomId ? cr : { ...cr, name, isPrivate },
         );
         toast(`Room is now ${isPrivate ? "private" : "public"}`, {
           type: "info",
@@ -75,23 +74,25 @@ export const Routes: React.FC<RoutesProps> = () => {
           toast("ban failed", { type: "error" });
         }
       },
-      invitation_to_room: (value) => {
+      invitation_to_room: value => {
         invitationToRoom(value, history);
       },
       fetch_invite_list_done: ({ users, nextCursor, initial }) => {
-        setInviteList((x) => ({
+        setInviteList(x => ({
           users: initial ? users : [...x.users, ...users],
           nextCursor,
         }));
       },
       fetch_following_online_done: ({ users, nextCursor, initial }) => {
-        setFollowingOnline((x) => ({
+        setFollowingOnline(x => ({
           users: initial ? users : [...x.users, ...users],
           nextCursor,
         }));
       },
       get_top_public_rooms_done: ({ rooms, nextCursor, initial }) => {
-        setPublicRooms((r) => ({
+        console.log(rooms.map((r: Room) => r.peoplePreviewList));
+
+        setPublicRooms(r => ({
           publicRooms: initial ? rooms : [...r.publicRooms, ...rooms],
           nextCursor,
         }));
@@ -104,7 +105,7 @@ export const Routes: React.FC<RoutesProps> = () => {
         initial,
       }) => {
         const fn = isFollowing ? setFollowingMap : setFollowerMap;
-        fn((m) => ({
+        fn(m => ({
           ...m,
           [userId]: {
             users: initial ? users : [...m[userId].users, ...users],
@@ -113,24 +114,24 @@ export const Routes: React.FC<RoutesProps> = () => {
         }));
       },
       follow_info_done: ({ userId, followsYou, youAreFollowing }) => {
-        setCurrentRoom((c) =>
+        setCurrentRoom(c =>
           !c
             ? c
             : {
                 ...c,
-                users: c.users.map((x) =>
-                  x.id === userId ? { ...x, followsYou, youAreFollowing } : x
+                users: c.users.map(x =>
+                  x.id === userId ? { ...x, followsYou, youAreFollowing } : x,
                 ),
-              }
+              },
         );
       },
       active_speaker_change: ({ roomId, activeSpeakerMap }) => {
-        setCurrentRoom((c) =>
-          !c || c.id !== roomId ? c : { ...c, activeSpeakerMap }
+        setCurrentRoom(c =>
+          !c || c.id !== roomId ? c : { ...c, activeSpeakerMap },
         );
       },
       room_destroyed: ({ roomId }) => {
-        setCurrentRoom((c) => {
+        setCurrentRoom(c => {
           if (c && c.id === roomId) {
             history.replace("/");
             return null;
@@ -139,66 +140,66 @@ export const Routes: React.FC<RoutesProps> = () => {
         });
       },
       new_room_creator: ({ userId, roomId }) => {
-        setCurrentRoom((cr) =>
-          cr && cr.id === roomId ? { ...cr, creatorId: userId } : cr
+        setCurrentRoom(cr =>
+          cr && cr.id === roomId ? { ...cr, creatorId: userId } : cr,
         );
       },
       speaker_removed: ({ userId, roomId, muteMap, raiseHandMap }) => {
-        setCurrentRoom((c) =>
+        setCurrentRoom(c =>
           !c || c.id !== roomId
             ? c
             : {
                 ...c,
                 muteMap,
                 raiseHandMap,
-                users: c.users.map((x) =>
-                  userId === x.id ? { ...x, canSpeakForRoomId: null } : x
+                users: c.users.map(x =>
+                  userId === x.id ? { ...x, canSpeakForRoomId: null } : x,
                 ),
-              }
+              },
         );
       },
       speaker_added: ({ userId, roomId, muteMap }) => {
-        setCurrentRoom((c) =>
+        setCurrentRoom(c =>
           !c || c.id !== roomId
             ? c
             : {
                 ...c,
                 muteMap,
-                users: c.users.map((x) =>
-                  userId === x.id ? { ...x, canSpeakForRoomId: roomId } : x
+                users: c.users.map(x =>
+                  userId === x.id ? { ...x, canSpeakForRoomId: roomId } : x,
                 ),
-              }
+              },
         );
       },
       mod_changed: ({ modForRoomId, userId, roomId }) => {
-        setCurrentRoom((c) =>
+        setCurrentRoom(c =>
           !c || c.id !== roomId
             ? c
             : {
                 ...c,
-                users: c.users.map((x) =>
-                  userId === x.id ? { ...x, modForRoomId } : x
+                users: c.users.map(x =>
+                  userId === x.id ? { ...x, modForRoomId } : x,
                 ),
-              }
+              },
         );
       },
       user_left_room: ({ userId }) => {
-        setCurrentRoom((cr) =>
+        setCurrentRoom(cr =>
           !cr
             ? null
             : {
                 ...cr,
                 peoplePreviewList: cr.peoplePreviewList.filter(
-                  (x) => x.id !== userId
+                  x => x.id !== userId,
                 ),
                 numPeopleInside: cr.numPeopleInside - 1,
-                users: cr.users.filter((x) => x.id !== userId),
-              }
+                users: cr.users.filter(x => x.id !== userId),
+              },
         );
       },
       new_user_join_room: ({ user, muteMap }) => {
-        setCurrentRoom((cr) =>
-          !cr || cr.users.some((u) => u.id === user.id)
+        setCurrentRoom(cr =>
+          !cr || cr.users.some(u => u.id === user.id)
             ? cr
             : {
                 ...cr,
@@ -211,16 +212,17 @@ export const Routes: React.FC<RoutesProps> = () => {
                           id: user.id,
                           displayName: user.displayName,
                           numFollowers: user.numFollowers,
+                          canSpeakForRoomId: user.canSpeakForRoomId,
                         },
                       ]
                     : cr.peoplePreviewList,
                 numPeopleInside: cr.numPeopleInside + 1,
                 users: [...cr.users, user],
-              }
+              },
         );
       },
       hand_raised: ({ roomId, userId }) => {
-        setCurrentRoom((c) => {
+        setCurrentRoom(c => {
           if (!c || c.id !== roomId) {
             return c;
           }
@@ -234,7 +236,7 @@ export const Routes: React.FC<RoutesProps> = () => {
         });
       },
       mute_changed: ({ userId, value, roomId }) => {
-        setCurrentRoom((c) => {
+        setCurrentRoom(c => {
           if (!c || c.id !== roomId) {
             return c;
           }
@@ -256,7 +258,7 @@ export const Routes: React.FC<RoutesProps> = () => {
         roomId,
         autoSpeaker,
       }) => {
-        setCurrentRoom((c) => {
+        setCurrentRoom(c => {
           if (!c || c.id !== roomId) {
             return c;
           }
@@ -282,9 +284,10 @@ export const Routes: React.FC<RoutesProps> = () => {
         if (me.currentRoom) {
           setCurrentRoom(() => roomToCurrentRoom(me.currentRoom));
         }
+
         setPublicRooms(() => ({ publicRooms, nextCursor }));
       },
-      join_room_done: (d) => {
+      join_room_done: d => {
         if (d.error) {
           if (window.location.pathname.startsWith("/room")) {
             history.push("/");
@@ -304,7 +307,7 @@ export const Routes: React.FC<RoutesProps> = () => {
     if (location.pathname.startsWith("/room/")) {
       let found = false;
       const parts = location.pathname.split("/");
-      const id = parts.find((x) => {
+      const id = parts.find(x => {
         if (found) {
           return true;
         }
