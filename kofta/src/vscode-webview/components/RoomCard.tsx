@@ -4,6 +4,8 @@ import { meAtom } from "../atoms";
 import { Codicon } from "../svgs/Codicon";
 import { CurrentRoom, Room } from "../types";
 
+import "./RoomCard.css";
+
 interface RoomProps {
   active?: boolean;
   onClick: () => void;
@@ -52,12 +54,7 @@ export const RoomCard: React.FC<RoomProps> = ({
     <div>
       <button
         onClick={onClick}
-        style={{
-          width: "100%",
-          padding: "10px 20px",
-          backgroundColor: active ? "#4D4D4D" : "#333333",
-          borderRadius: 9,
-        }}
+        className={`RoomCard ${active ? "active" : ""}`}
       >
         <div
           style={{

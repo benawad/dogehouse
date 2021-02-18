@@ -1,31 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { recordKeyCombination } from "react-hotkeys";
 import { tw } from "twind";
-import { useKeyMapStore } from "../../webrtc/stores/useKeyMapStore";
-import { Button } from "./Button";
+import { useKeyMapStore } from "../../../webrtc/stores/useKeyMapStore";
+import { Button } from "../Button";
 
-interface SetKeyboardShortcutsProps {}
+interface PTTKeybindProps {
+  className?: string;
+}
 
-export const SetKeyboardShortcuts: React.FC<SetKeyboardShortcutsProps> = ({}) => {
+export const PTTKeybind: React.FC<PTTKeybindProps> = ({ className }) => {
   const [count, setCount] = useState(0);
   const [active, setActive] = useState(false);
   const {
-    keyMap: { MUTE },
-    setMuteKeybind,
+    keyNames: { PTT },
+    setPTTKeybind,
   } = useKeyMapStore();
   useEffect(() => {
     if (count > 0) {
       const unsub = recordKeyCombination(({ id }) => {
         setActive(false);
-        setMuteKeybind(id as string);
+        setPTTKeybind(id as string);
       });
 
       return () => unsub();
     }
-  }, [count, setMuteKeybind]);
+  }, [count, setPTTKeybind]);
 
   return (
-    <div className={tw`flex items-center`}>
+    <div className={tw`flex items-center ${className}`}>
       <Button
         variant="small"
         onClick={() => {
@@ -36,14 +38,14 @@ export const SetKeyboardShortcuts: React.FC<SetKeyboardShortcutsProps> = ({}) =>
         set keybind
       </Button>
       <div className={tw`ml-4`}>
-        toggle mute keybind:{" "}
+        toggle push-to-talk keybind:{" "}
         <span
           style={{
             fontSize: "calc(var(--vscode-font-size)*1.1)",
           }}
           className={tw`font-bold`}
         >
-          {active ? "listening" : MUTE}
+          {active ? "listening" : PTT}
         </span>
       </div>
     </div>

@@ -88,17 +88,24 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
         profile={profile}
       />
       <Backbar>
-        <div
+        <button
+          disabled={!iAmCreator}
+          onClick={() => {
+            const name = window.prompt("Edit Room Name", room.name);
+            if (name) {
+              wsend({ op: "edit_room_name", d: { name } });
+            }
+          }}
           style={{
             fontSize: "calc(var(--vscode-font-size)*1.3)",
             display: "block",
             overflow: "hidden",
-            textOverflow: "ellipsis"
+            textOverflow: "ellipsis",
           }}
           className={tw`flex-1 text-center flex items-center justify-center text-2xl`}
         >
           {room.name.slice(0, 50)}
-        </div>
+        </button>
         <ProfileButton />
       </Backbar>
       <Wrapper>

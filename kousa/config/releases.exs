@@ -10,6 +10,8 @@ database_url =
 config :kousa, Beef.Repo, url: database_url
 
 config :kousa,
+  is_staging:
+    System.get_env("IS_STAGING") == "true",
   ben_github_id:
     System.get_env("BEN_GITHUB_ID") ||
       raise("""
@@ -20,10 +22,8 @@ config :kousa,
       raise("""
       environment variable RABBITMQ_URL is missing.
       """),
-  web_url: 
-    System.get_env("WEB_URL") || "https://dogehouse.tv",
-  api_url: 
-    System.get_env("API_URL") || "https://api.dogehouse.tv",
+  web_url: System.get_env("WEB_URL") || "https://dogehouse.tv",
+  api_url: System.get_env("API_URL") || "https://api.dogehouse.tv",
   access_token_secret:
     System.get_env("ACCESS_TOKEN_SECRET") ||
       raise("""
@@ -50,7 +50,7 @@ config :kousa,
       """)
 
 if(System.get_env("SENTRY_DNS") != nil) do
-    IO.warn("The SENTRY_DNS environment variable is deprecated, use SENTRY_DSN instead")
+  IO.warn("The SENTRY_DNS environment variable is deprecated, use SENTRY_DSN instead")
 end
 
 config :sentry,
@@ -70,3 +70,24 @@ config :sentry,
 config :joken,
   access_token_key: System.fetch_env!("ACCESS_TOKEN_SECRET"),
   refresh_token_key: System.fetch_env!("REFRESH_TOKEN_SECRET")
+
+config :extwitter, :oauth,
+  consumer_key:
+    System.get_env("TWITTER_API_KEY") ||
+      raise("""
+      environment variable TWITTER_API_KEY is missing.
+      Create an oauth application on Twitter to get one
+      """),
+  consumer_secret:
+    System.get_env("TWITTER_SECRET_KEY") ||
+      raise("""
+      environment variable TWITTER_SECRET_KEY is missing.
+      Create an oauth application on Twitter to get one
+      """),
+  access_token:
+    System.get_env("TWITTER_BEARER_TOKEN") ||
+      raise("""
+      environment variable TWITTER_BEARER_TOKEN is missing.
+      Create an oauth application on Twitter to get one
+      """),
+  access_token_secret: ""

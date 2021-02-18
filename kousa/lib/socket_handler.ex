@@ -1,6 +1,8 @@
 defmodule Kousa.SocketHandler do
   require Logger
 
+  alias Kousa.{BL}
+
   defmodule State do
     @type t :: %__MODULE__{
             awaiting_init: boolean(),
@@ -312,6 +314,16 @@ defmodule Kousa.SocketHandler do
     end
 
     {:ok, state}
+  end
+
+  def handler("edit_room_name", %{"name" => name}, state) do
+    case BL.Room.rename_room(state.user_id, name) do
+      {:error, message} ->
+        {:reply, prepare_socket_msg(%{op: "error", d: message}, state), state}
+
+      _ ->
+        {:ok, state}
+    end
   end
 
   def handler("leave_room", _data, state) do

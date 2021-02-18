@@ -1,4 +1,4 @@
-defmodule Kousa.Auth do
+defmodule Kousa.GitHubAuth do
   import Plug.Conn
   use Plug.Router
 
@@ -6,10 +6,23 @@ defmodule Kousa.Auth do
   plug(:dispatch)
 
   get "/web" do
+    state =
+      if(
+        Kousa.Caster.bool(Application.get_env(:kousa, :is_staging)),
+        do:
+          %{
+            redirect_base_url: fetch_query_params(conn).query_params["redirect_after_base"]
+          }
+          |> Poison.encode!()
+          |> Base.encode64(),
+        else: "web"
+      )
+
     url =
       "https://github.com/login/oauth/authorize?client_id=" <>
         Application.get_env(:kousa, :client_id) <>
-        "&state=web" <>
+        "&state=" <>
+        state <>
         "&redirect_uri=" <>
         Application.get_env(:kousa, :api_url) <>
         "/auth/github/callback&scope=read:user,user:email"
@@ -33,9 +46,14 @@ defmodule Kousa.Auth do
     code = conn_with_qp.query_params["code"]
 
     base_url =
-      if Map.get(conn_with_qp.query_params, "state", "") == "web",
-        do: Application.fetch_env!(:kousa, :web_url),
-        else: "http://localhost:54321"
+      with state <- Map.get(conn_with_qp.query_params, "state", ""),
+           {:ok, json} <- Base.decode64(state),
+           {:ok, %{redirect_base_url: redirect_base_url}} <- Poison.decode(json) do
+        redirect_base_url
+      else
+        _ ->
+          Application.fetch_env!(:kousa, :web_url)
+      end
 
     case HTTPoison.post(
            "https://github.com/login/oauth/access_token",
@@ -69,12 +87,12 @@ defmodule Kousa.Auth do
             if user do
               try do
                 db_user =
-                  case Kousa.Data.User.find_or_create(user, accessToken) do
+                  case Kousa.Data.User.github_find_or_create(user, accessToken) do
                     {:find, uu} ->
                       uu
 
                     {:create, uu} ->
-                      Kousa.BL.User.load_followers(accessToken, uu.id)
+                      # Kousa.BL.User.load_followers(accessToken, uu.id)
                       uu
                   end
 

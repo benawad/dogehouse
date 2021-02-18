@@ -175,6 +175,20 @@ defmodule Kousa.Data.User do
     end
   end
 
+  def tuple_get_current_room_id(user_id) do
+    case Kousa.RegUtils.lookup_and_call(
+           Kousa.Gen.UserSession,
+           user_id,
+           {:get_current_room_id}
+         ) do
+      {:ok, nil} ->
+        {nil, nil}
+
+      x ->
+        x
+    end
+  end
+
   def get_current_room_id(user_id) do
     case Kousa.RegUtils.lookup_and_call(
            Kousa.Gen.UserSession,
@@ -215,26 +229,69 @@ defmodule Kousa.Data.User do
     |> Beef.Repo.update_all([])
   end
 
-  def find_or_create(user, github_access_token) do
-    githubId = Integer.to_string(user["id"])
-
+  def twitter_find_or_create(user) do
     db_user =
       from(u in Beef.User,
-        where: u.githubId == ^githubId
+        where: u.email == ^user.email or u.twitterId == ^user.twitterId
       )
       |> Repo.one()
 
     cond do
       db_user ->
-        if is_nil(db_user.email) do
-          email = Kousa.Github.get_email(github_access_token)
-
+        if is_nil(db_user.twitterId) do
           from(u in Beef.User,
-            where: u.githubId == ^githubId,
+            where: u.id == ^db_user.id,
             update: [
               set: [
-                hasLoggedIn: true,
-                email: ^email,
+                twitterId: ^user.twitterId
+              ]
+            ]
+          )
+          |> Repo.update_all([])
+        end
+
+        {:find, db_user}
+
+      true ->
+        {:create,
+         Repo.insert!(
+           %User{
+             username: user.username,
+             email: user.email,
+             twitterId: user.twitterId,
+             avatarUrl: user.avatarUrl,
+             displayName:
+               if(is_nil(user.displayName) or String.trim(user.displayName) == "",
+                 do: user.username,
+                 else: user.displayName
+               ),
+             bio: user.bio,
+             hasLoggedIn: true
+           },
+           returning: true
+         )}
+    end
+  end
+
+  def github_find_or_create(user, github_access_token) do
+    githubId = Integer.to_string(user["id"])
+
+    db_user =
+      from(u in Beef.User,
+        where:
+          u.githubId == ^githubId or
+            (not is_nil(u.email) and u.email != "" and u.email == ^user["email"])
+      )
+      |> Repo.one()
+
+    cond do
+      db_user ->
+        if is_nil(db_user.githubId) do
+          from(u in Beef.User,
+            where: u.id == ^db_user.id,
+            update: [
+              set: [
+                githubId: ^user.githubId,
                 githubAccessToken: ^github_access_token
               ]
             ]

@@ -42,7 +42,7 @@ defmodule Kousa.BL.User do
                   avatarUrl: user["avatarUrl"],
                   displayName: if(user["name"] == "", do: user["login"], else: user["name"]),
                   bio: user["bio"],
-                  hasLoggedIn: true
+                  hasLoggedIn: false
                 }
               end)
             )

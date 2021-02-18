@@ -2,15 +2,16 @@ use Mix.Config
 
 config :logger, level: :info
 
-config :kousa, Beef.Repo,
-  database: "kousa_repo2",
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost"
+database_url =
+  System.get_env("DATABASE_URL") ||
+    "postgres://postgres:postgres@localhost/kousa_repo2"
+
+config :kousa, Beef.Repo, url: database_url
 
 config :kousa,
-  web_url: "http://localhost:3000",
-  api_url: "http://localhost:4001",
+  web_url: System.get_env("WEB_URL") || "http://localhost:3000",
+  api_url: System.get_env("API_URL") || "http://localhost:4001",
+  env: :dev,
   ben_github_id:
     System.get_env("BEN_GITHUB_ID") ||
       raise("""
@@ -44,3 +45,24 @@ config :kousa,
 config :joken,
   access_token_secret: System.fetch_env!("ACCESS_TOKEN_SECRET"),
   refresh_token_secret: System.fetch_env!("REFRESH_TOKEN_SECRET")
+
+config :extwitter, :oauth,
+  consumer_key:
+    System.get_env("TWITTER_API_KEY") ||
+      raise("""
+      environment variable TWITTER_API_KEY is missing.
+      Create an oauth application on Twitter to get one
+      """),
+  consumer_secret:
+    System.get_env("TWITTER_SECRET_KEY") ||
+      raise("""
+      environment variable TWITTER_SECRET_KEY is missing.
+      Create an oauth application on Twitter to get one
+      """),
+  access_token:
+    System.get_env("TWITTER_BEARER_TOKEN") ||
+      raise("""
+      environment variable TWITTER_BEARER_TOKEN is missing.
+      Create an oauth application on Twitter to get one
+      """),
+  access_token_secret: System.get_env("TWITTER_ACCESS_TOKEN_SECRET") || ""

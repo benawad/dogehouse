@@ -4,31 +4,34 @@ import { tw } from "twind";
 import { volumeAtom } from "../shared-atoms";
 import { useMicIdStore } from "../shared-stores";
 import { Button } from "./Button";
-import { SetKeyboardShortcuts } from "./SetKeyboardShortcuts";
+import { MuteKeybind, PTTKeybind } from "./keyboard-shortcuts";
+import { VolumeSlider } from "./VolumeSlider";
 
 interface VoiceSettingsProps {}
 
 export const VoiceSettings: React.FC<VoiceSettingsProps> = ({}) => {
   const { micId, setMicId } = useMicIdStore();
   const [volume, setVolume] = useAtom(volumeAtom);
-  const [options, setOptions] = useState<
-    Array<{ id: string; label: string } | null>
-  >([]);
+  const [devices, setDevices] = useState<Array<{ id: string; label: string }>>(
+    []
+  );
+
   const fetchMics = useCallback(() => {
-    navigator.mediaDevices
-      ?.enumerateDevices()
-      .then((x) =>
-        setOptions(
-          x
-            .map((y) =>
-              y.kind !== "audioinput" || !y.deviceId
-                ? null
-                : { id: y.deviceId, label: y.label }
-            )
-            .filter((x) => x)
-        )
-      );
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(() => {
+      navigator.mediaDevices
+        ?.enumerateDevices()
+        .then((devices) =>
+          setDevices(
+            devices
+              .filter(
+                (device) => device.kind === "audioinput" && device.deviceId
+              )
+              .map((device) => ({ id: device.deviceId, label: device.label }))
+          )
+        );
+    });
   }, []);
+
   useEffect(() => {
     fetchMics();
   }, [fetchMics]);
@@ -36,27 +39,23 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = ({}) => {
   return (
     <>
       <div className={tw`mb-2`}>mic: </div>
-      {options.length ? (
+      {devices.length ? (
         <select
           className={tw`mb-4`}
           value={micId}
           onChange={(e) => setMicId(e.target.value)}
         >
-          {options.map((x) =>
-            !x ? null : (
-              <option key={x.id} value={x.id}>
-                {x.label}
-              </option>
-            )
-          )}
+          {devices.map(({ id, label }) => (
+            <option key={id} value={id}>
+              {label}
+            </option>
+          ))}
         </select>
       ) : (
-        <>
-          <div className={tw`mb-4`}>
-            no mics found, you either have none plugged in or haven't given this
-            website permission.
-          </div>
-        </>
+        <div className={tw`mb-4`}>
+          no mics found, you either have none plugged in or haven't given this
+          website permission.
+        </div>
       )}
       <div>
         <Button
@@ -70,19 +69,10 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = ({}) => {
       </div>
       <div className={tw`mt-8 mb-2`}>volume: </div>
       <div className={tw`mb-8`}>
-        {volume}
-        <input
-          type="range"
-          min="1"
-          max="100"
-          value={volume}
-          onChange={(e) => {
-            const n = parseInt(e.target.value);
-            setVolume(n);
-          }}
-        />
+        <VolumeSlider volume={volume} onVolume={(n) => setVolume(n)} />
       </div>
-      <SetKeyboardShortcuts />
+      <MuteKeybind className={tw`mb-4`} />
+      <PTTKeybind />
     </>
   );
 };

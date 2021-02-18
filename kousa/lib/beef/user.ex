@@ -23,6 +23,7 @@ defmodule Beef.User do
   @primary_key {:id, :binary_id, []}
   schema "users" do
     field(:githubId, :string)
+    field(:twitterId, :string)
     field(:username, :string)
     field(:email, :string)
     field(:githubAccessToken, :string)
