@@ -26,7 +26,7 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
   function addMention(m: User) {
     setMentions([...mentions, m]);
     setMessage(
-      message.substring(0, message.lastIndexOf("@") + 1) + m.username + " ",
+      message.substring(0, message.lastIndexOf("@") + 1) + m.username + " "
     );
     setQueriedUsernames([]);
   }
@@ -48,8 +48,8 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
           ({ id, username, displayName }) =>
             (username.toLowerCase().includes(useMention.toLowerCase()) ||
               displayName.toLowerCase().includes(useMention.toLowerCase())) &&
-            !mentions.find(m => m.id === id) &&
-            me.id !== id,
+            !mentions.find((m) => m.id === id) &&
+            me.id !== id
         );
 
         const firstFive = usernameMatches.slice(0, 5);
@@ -63,16 +63,16 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
 
     // Remove mention if user deleted text
     setMentions(
-      mentions.filter(u => {
+      mentions.filter((u) => {
         return message.toLowerCase().indexOf(u.username.toLowerCase()) !== -1;
-      }),
+      })
     );
   }, [message]);
 
   if (queriedUsernames.length) {
     return (
       <div className={tw`flex flex-col pb-1`}>
-        {queriedUsernames.map(m => (
+        {queriedUsernames.map((m) => (
           <button
             className={tw`flex py-3 items-center px-8 focus:outline-none ${
               activeUsername === m.id ? "bg-buttonHover" : ""
