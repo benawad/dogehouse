@@ -13,11 +13,14 @@ https://dogehouse.tv/
 
 ## Structure
 
-- kousa -> Elixir API
-- shawarma -> Voice Server
-- kofta -> React frontend
-- dinner -> Puppeteer shenanigans
-
+=======	
+| Codebase |      Description      |
+| :------- | :-------------------: |
+| kousa    |      Elixir API       |
+| shawarma |     Voice Server      |
+| kofta    |    React frontend     |
+| dinner   | Puppeteer shenanigans |
+| baklava  |   Electron Wrapper    |
 ## Contributions
 
 DogeHouse is open to contributions, but I recommend creating an issue or replying in a comment to let me know what you are working on first that way we don't overwrite each other.
