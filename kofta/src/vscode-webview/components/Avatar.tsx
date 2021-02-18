@@ -1,4 +1,5 @@
 import React from "react";
+import { getUserAvatarUrl } from "../utils/getUserAvatarUrl";
 
 interface AvatarProps {
   src: string;
@@ -15,6 +16,8 @@ export const Avatar: React.FC<AvatarProps> = ({
   circle,
   style,
 }) => {
+  const sizeSrc = getUserAvatarUrl(src, size);
+
   return (
     <img
       alt="avatar"
@@ -27,7 +30,7 @@ export const Avatar: React.FC<AvatarProps> = ({
           : undefined,
         ...style,
       }}
-      src={src}
+      src={sizeSrc}
     />
   );
 };
