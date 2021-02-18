@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface AvatarProps {
   src: string;
@@ -6,6 +6,7 @@ interface AvatarProps {
   active?: boolean;
   circle?: boolean;
   style?: React.CSSProperties;
+  usernameForErrorImg?: string;
 }
 
 export const Avatar: React.FC<AvatarProps> = ({
@@ -14,10 +15,13 @@ export const Avatar: React.FC<AvatarProps> = ({
   active,
   circle,
   style,
+  usernameForErrorImg,
 }) => {
+  const [error, setError] = useState(false);
   return (
     <img
       alt="avatar"
+      onError={() => setError(true)}
       style={{
         width: size,
         height: size,
@@ -27,7 +31,11 @@ export const Avatar: React.FC<AvatarProps> = ({
           : undefined,
         ...style,
       }}
-      src={src}
+      src={
+        error && usernameForErrorImg
+          ? `https://ui-avatars.com/api/?name=${usernameForErrorImg}`
+          : src
+      }
     />
   );
 };
