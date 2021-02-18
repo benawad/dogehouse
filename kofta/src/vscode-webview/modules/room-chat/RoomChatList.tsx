@@ -81,11 +81,11 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
             ) : t === "link" ? (
               <a
                 target="_blank"
-                href={normalizeUrl(v)}
+                href={v}
                 className={tw`flex-1 hover:underline text-tmpC4`}
                 key={i}
               >
-                {v}{" "}
+                {normalizeUrl(v, { stripProtocol: true })}{" "}
               </a>
             ) : t === "event" && !v.includes(me?.username || "") ? (
               <span className={tw`italic text-tmpC1`} key={i}>

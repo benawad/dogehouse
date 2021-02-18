@@ -1,4 +1,5 @@
 import { User } from "../types";
+import normalizeUrl from "normalize-url";
 
 export const createChatMessage = (message: string, mentions: User[]) => {
   const tokens = ([] as unknown) as [
@@ -17,7 +18,7 @@ export const createChatMessage = (message: string, mentions: User[]) => {
     if (isLink || isMention) {
       tokens.push({
         t: isLink ? "link" : "mention",
-        v: isMention ? item.replace("@", "") : item,
+        v: isMention ? item.replace("@", "") : normalizeUrl(item),
       });
     } else {
       const lastToken = tokens[tokens.length - 1];
