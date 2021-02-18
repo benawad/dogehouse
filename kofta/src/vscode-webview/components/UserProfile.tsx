@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAtom } from "jotai";
 import { useHistory } from "react-router-dom";
 import { tw } from "twind";
@@ -17,6 +17,9 @@ export const UserProfile: React.FC<UserProfileProps> = ({ profile }) => {
   const history = useHistory();
   const [me, setMe] = useAtom(meAtom);
   const [, setRoom] = useAtom(currentRoomAtom);
+  const [youAreFollowing, setYouAreFollowing] = useState(
+    profile.youAreFollowing
+  );
   return (
     <>
       <div className={tw`mb-4 flex justify-between align-center`}>
@@ -31,14 +34,15 @@ export const UserProfile: React.FC<UserProfileProps> = ({ profile }) => {
                   op: "follow",
                   d: {
                     userId: profile.id,
-                    value: !profile.youAreFollowing,
+                    value: !youAreFollowing,
                   },
                 });
+                setYouAreFollowing(!youAreFollowing);
                 onFollowUpdater(setRoom, setMe, me, profile);
               }}
               variant="small"
             >
-              {profile.youAreFollowing ? "following" : "follow"}
+              {youAreFollowing ? "following" : "follow"}
             </Button>
           </div>
         )}
