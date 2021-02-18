@@ -55,7 +55,7 @@ defmodule Kousa.GitHubAuth do
            {:ok, %{"redirect_base_url" => redirect_base_url}} <- Poison.decode(json) do
         redirect_base_url
       else
-        x ->
+        _ ->
           Application.fetch_env!(:kousa, :web_url)
       end
 
