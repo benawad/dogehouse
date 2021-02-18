@@ -21,6 +21,7 @@ export const Home: React.FC<HomeProps> = () => {
   const [currentRoom] = useAtom(currentRoomAtom);
   const [{ publicRooms: rooms, nextCursor }] = useAtom(publicRoomsAtom);
   const [showCreateRoomModal, setShowCreateRoomModal] = useState(false);
+  const [roomQuery, setRoomQuery] = useState("");
 
   useEffect(() => {
     if (rooms.length < 15) {
@@ -70,8 +71,19 @@ export const Home: React.FC<HomeProps> = () => {
             />
           </div>
         ) : null}
-        {rooms.map((r) =>
-          r.id === currentRoom?.id ? null : (
+
+        {rooms.length ? (
+          <input
+            placeholder="Search rooms"
+            value={roomQuery}
+            onChange={e => setRoomQuery(e.target.value)}
+            className={tw`text-tmpC1 bg-tmpBg4 px-4 py-3 rounded text-lg mb-4`}
+          />
+        ) : null}
+
+        {rooms.map(r =>
+          r.id === currentRoom?.id ||
+          (roomQuery && !r.name.includes(roomQuery)) ? null : (
             <div className={tw(`mt-4`)} key={r.id}>
               <RoomCard
                 onClick={() => {
@@ -82,7 +94,7 @@ export const Home: React.FC<HomeProps> = () => {
                 currentRoomId={currentRoom?.id}
               />
             </div>
-          )
+          ),
         )}
         {nextCursor ? (
           <div className={tw`flex justify-center my-10`}>
