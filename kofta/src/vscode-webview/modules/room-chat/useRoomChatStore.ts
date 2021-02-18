@@ -1,10 +1,21 @@
 import create from "zustand";
 import { combine } from "zustand/middleware";
+import { User } from "../../types";
 
 interface TextToken {
   t: "text";
   v: string;
 }
+interface MentionToken {
+  t: "mention";
+  v: string;
+}
+interface LinkToken {
+  t: "link";
+  v: string;
+}
+
+export type RoomChatMessageToken = TextToken | MentionToken | LinkToken;
 
 const colors = [
   "#ff2366",
@@ -31,7 +42,7 @@ export interface RoomChatMessage {
   avatarUrl: string;
   color: string;
   displayName: string;
-  tokens: TextToken[];
+  tokens: RoomChatMessageToken[];
 }
 
 export const useRoomChatStore = create(
@@ -41,15 +52,20 @@ export const useRoomChatStore = create(
       bannedUserIdMap: {} as Record<string, boolean>,
       messages: [] as RoomChatMessage[],
       newUnreadMessages: false,
+      message: "" as string,
+      mentions: [] as User[],
+      queriedUsernames: [] as User[],
+      activeUsername: "",
+      iAmMentioned: false,
     },
-    (set) => ({
+    set => ({
       addBannedUser: (userId: string) =>
-        set((s) => ({
-          messages: s.messages.filter((m) => m.userId !== userId),
+        set(s => ({
+          messages: s.messages.filter(m => m.userId !== userId),
           bannedUserIdMap: { ...s.bannedUserIdMap, [userId]: true },
         })),
       addMessage: (m: RoomChatMessage) =>
-        set((s) => ({
+        set(s => ({
           newUnreadMessages: !s.open,
           messages: [
             { ...m, color: generateColorFromString(m.userId) },
@@ -72,11 +88,12 @@ export const useRoomChatStore = create(
           bannedUserIdMap: {},
         }),
       toggleOpen: () =>
-        set((s) => {
+        set(s => {
           if (s.open) {
             return {
               open: false,
               newUnreadMessages: false,
+              iAmMentioned: false,
             };
           } else {
             return {
@@ -85,6 +102,26 @@ export const useRoomChatStore = create(
             };
           }
         }),
-    })
-  )
+      setMessage: (message: string) =>
+        set({
+          message,
+        }),
+      setMentions: (mentions: User[]) =>
+        set({
+          mentions,
+        }),
+      setQueriedUsernames: (queriedUsernames: User[]) =>
+        set({
+          queriedUsernames,
+        }),
+      setActiveUsername: (activeUsername: string) =>
+        set({
+          activeUsername,
+        }),
+      setIAmMentioned: (iAmMentioned: boolean) =>
+        set({
+          iAmMentioned,
+        }),
+    }),
+  ),
 );
