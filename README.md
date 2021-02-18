@@ -1,4 +1,6 @@
-![DogeHouse logo](/dogehouse-github.png "DogeHouse")
+<p align="center">
+  <img src="/dogehouse-github.png" alt="DogeHouse logo" />
+</p>
 
 <p align="center">
   <a href="https://www.youtube.com/watch?v=hy-EhJ_tTQo&t" target="_blank">
@@ -9,7 +11,7 @@
   </a>
 </p>
 
-https://dogehouse.tv/
+<p align="center"><b>https://dogehouse.tv/</b></p>
 
 ## Structure
 | Codebase |      Description      |
