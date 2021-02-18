@@ -21,6 +21,7 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
       <Backbar actuallyGoBack>
         <div className={tw`ml-auto flex items-center`}>
           <Button
+            style={{ marginRight: "9px" }}
             onClick={() => {
               history.push("/");
               closeWebSocket();
