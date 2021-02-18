@@ -12,7 +12,7 @@
 https://dogehouse.tv/
 
 ## Structure
-=======
+
 | Codebase    | Description           |
 | :---        |    :----:             |
 | kousa       | Elixir API            |
