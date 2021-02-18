@@ -4,7 +4,7 @@ import { tw } from "twind";
 import { Avatar } from "../../components/Avatar";
 import { ProfileModalFetcher } from "./ProfileModalFetcher";
 import { useRoomChatStore } from "./useRoomChatStore";
-// import normalizeUrl from "normalize-url";
+import normalizeUrl from "normalize-url";
 import { meAtom } from "../../atoms";
 
 interface ChatListProps {}
@@ -88,8 +88,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                     className={tw`flex-1 hover:underline text-tmpC4`}
                     key={i}
                   >
-                    {/* {normalizeUrl(v, { stripProtocol: true })}{" "} */}
-                    {v}{" "}
+                    {normalizeUrl(v, { stripProtocol: true })}{" "}
                   </a>
                 );
               default:
