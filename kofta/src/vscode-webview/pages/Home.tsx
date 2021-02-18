@@ -22,7 +22,6 @@ export const Home: React.FC<HomeProps> = () => {
   const [currentRoom] = useAtom(currentRoomAtom);
   const [{ publicRooms: rooms, nextCursor }] = useAtom(publicRoomsAtom);
   const [showCreateRoomModal, setShowCreateRoomModal] = useState(false);
-  const [me] = useAtom(meAtom);
 
   useEffect(() => {
     if (rooms.length < 15) {
@@ -30,12 +29,6 @@ export const Home: React.FC<HomeProps> = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // useEffect(() => {
-  //   if (currentRoom) {
-  //     history.push("/room", { room: currentRoom });
-  //   }
-  // }, [currentRoom]);
 
   return (
     <>
@@ -78,15 +71,6 @@ export const Home: React.FC<HomeProps> = () => {
               <RoomCard
                 onClick={() => {
                   wsend({ op: "join_room", d: { roomId: r.id } });
-                  // Show joined message in chat
-                  setTimeout(() => {
-                    wsend({
-                      op: "send_room_chat_msg",
-                      d: {
-                        tokens: [{ t: "event", v: me?.username + " joined" }],
-                      },
-                    });
-                  }, 1000);
                   history.push("/room/" + r.id);
                 }}
                 room={r}

@@ -6,7 +6,6 @@ import { ProfileModalFetcher } from "./ProfileModalFetcher";
 import { useRoomChatStore } from "./useRoomChatStore";
 import normalizeUrl from "normalize-url";
 import { meAtom } from "../../atoms";
-import { isEventOnly } from "../../utils/isEventOnly";
 
 interface ChatListProps {}
 
@@ -34,27 +33,22 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
           className={tw`block py-1`}
           key={m.id}
         >
-          {!isEventOnly(m) ? (
-            <>
-              <span className={tw`pr-2 inline`}>
-                <Avatar
-                  style={{ display: "inline" }}
-                  size={20}
-                  src={m.avatarUrl}
-                />
-              </span>
-              <button
-                onClick={() => {
-                  setProfileId(m.userId);
-                }}
-                className={tw`hover:underline focus:outline-none`}
-                style={{ textDecorationColor: m.color, color: m.color }}
-              >
-                {m.displayName}
-              </button>
-              <span className={tw`mr-1`}>: </span>
-            </>
-          ) : null}
+          <span className={tw`pr-2 inline`}>
+            <Avatar style={{ display: "inline" }} size={20} src={m.avatarUrl} />
+          </span>
+
+          <button
+            onClick={() => {
+              setProfileId(m.userId);
+            }}
+            className={tw`hover:underline focus:outline-none`}
+            style={{ textDecorationColor: m.color, color: m.color }}
+          >
+            {m.displayName}
+          </button>
+
+          <span className={tw`mr-1`}>: </span>
+
           {m.tokens.map(({ t, v }, i) => {
             switch (t) {
               case "text":
@@ -92,10 +86,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                 >
                   {normalizeUrl(v, { stripProtocol: true })}{" "}
                 </a>;
-                break;
-
-              default:
-                null;
                 break;
             }
           })}
