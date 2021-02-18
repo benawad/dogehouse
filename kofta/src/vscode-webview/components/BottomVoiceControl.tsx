@@ -39,9 +39,10 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   const { muted, set } = useMuteStore();
   const [{ canSpeak, isCreator }] = useAtom(myCurrentRoomInfoAtom);
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const [toggleOpen, newUnreadMessages] = useRoomChatStore((s) => [
+  const [toggleOpen, newUnreadMessages, iAmMentioned] = useRoomChatStore(s => [
     s.toggleOpen,
     s.newUnreadMessages,
+    s.iAmMentioned,
   ]);
 
   const fullscreenChatOpen = useShouldFullscreenChat();
@@ -89,7 +90,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
               <span
                 style={{
                   position: "absolute",
-                  backgroundColor: "#FF9900",
+                  backgroundColor: iAmMentioned ? "#ff3c00" : "#FF9900",
                   borderRadius: "50%",
                   right: -2,
                   top: -1,
@@ -117,7 +118,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           color={iconColor}
         />
         Invite
-      </button>
+      </button>,
     );
     if (isCreator || canSpeak) {
       buttons.push(
@@ -147,7 +148,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             />
           )}
           {muted ? "Unmute" : "Mute"}
-        </button>
+        </button>,
       );
     }
 
@@ -167,7 +168,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             color={iconColor}
           />
           Settings
-        </button>
+        </button>,
       );
     }
   }

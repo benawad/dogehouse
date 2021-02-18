@@ -4,6 +4,7 @@ import { tw } from "twind";
 import { currentRoomAtom } from "../../atoms";
 import { RoomChatInput } from "./RoomChatInput";
 import { RoomChatList } from "./RoomChatList";
+import { RoomChatMentions } from "./RoomChatMentions";
 import { useRoomChatStore } from "./useRoomChatStore";
 import { useMediaQuery } from "react-responsive";
 
@@ -57,6 +58,7 @@ export const RoomChat: React.FC<ChatProps> = ({ sidebar }) => {
           Chat <span className={tw`ml-2 text-tmpC1`}>[emotes soon]</span>
         </button>
         <RoomChatList />
+        <RoomChatMentions />
         <RoomChatInput />
       </div>
     </div>
