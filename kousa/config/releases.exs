@@ -10,8 +10,7 @@ database_url =
 config :kousa, Beef.Repo, url: database_url
 
 config :kousa,
-  is_staging:
-    System.get_env("IS_STAGING") == "true",
+  is_staging: System.get_env("IS_STAGING") == "true",
   ben_github_id:
     System.get_env("BEN_GITHUB_ID") ||
       raise("""
@@ -91,3 +90,6 @@ config :extwitter, :oauth,
       Create an oauth application on Twitter to get one
       """),
   access_token_secret: ""
+
+IO.puts("is_staging:")
+IO.puts(Application.get_env(:kousa, :is_staging))
