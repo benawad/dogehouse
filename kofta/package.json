@@ -13,7 +13,7 @@
     "hark": "^1.2.3",
     "jotai": "^0.12.7",
     "mediasoup-client": "^3.6.27",
-    "normalize-url": "^5.3.0",
+    "normalize-url": "^4.5.0",
     "postcss": "^8.2.4",
     "query-string": "^6.13.8",
     "react": "^17.0.1",
