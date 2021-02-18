@@ -16,6 +16,7 @@ import { currentRoomAtom, myCurrentRoomInfoAtom } from "../atoms";
 import { RoomChat } from "../modules/room-chat/RoomChat";
 import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
 import { useShouldFullscreenChat } from "../modules/room-chat/useShouldFullscreenChat";
+import { modalConfirm } from "./ConfirmModal";
 import { Footer } from "./Footer";
 import { RoomSettingsModal } from "./RoomSettingsModal";
 
@@ -54,13 +55,12 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
         style={buttonStyle}
         key="leave-room"
         onClick={() => {
-          const y = window.confirm("Are you sure you want to leave?");
-          if (y) {
+          modalConfirm("Are you sure you want to leave?", () => {
             wsend({ op: "leave_room", d: {} });
             if (location.pathname.startsWith("/room")) {
               history.push("/");
             }
-          }
+          });
         }}
         title="Leave current room"
       >

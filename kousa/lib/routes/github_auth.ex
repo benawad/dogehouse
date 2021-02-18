@@ -56,8 +56,6 @@ defmodule Kousa.GitHubAuth do
         redirect_base_url
       else
         x ->
-          IO.puts("NOT STAGING OR SOMETHING?")
-          IO.inspect(x)
           Application.fetch_env!(:kousa, :web_url)
       end
 

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { tw } from "twind";
 import { wsend } from "../../../createWebsocket";
 import { meAtom } from "../../atoms";
+import { modalAlert } from "../../components/AlertModal";
 import { useRoomChatStore } from "./useRoomChatStore";
 
 interface ChatInputProps {}
@@ -14,14 +15,18 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        if (!message || !message.trim() || !message.replace(/[\u200B-\u200D\uFEFF]/g, '')) {
+        if (
+          !message ||
+          !message.trim() ||
+          !message.replace(/[\u200B-\u200D\uFEFF]/g, "")
+        ) {
           return;
         }
         if (!me) {
           return;
         }
         if (me.id in useRoomChatStore.getState().bannedUserIdMap) {
-          window.alert("you got banned from chat");
+          modalAlert("you got banned from chat");
           return;
         }
         const tmp = message;
