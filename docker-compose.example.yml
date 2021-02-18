@@ -4,24 +4,29 @@ services:
   database:
     # Pulling the image in the latest tag is a disaster.
     image: postgres:13-alpine
+    network_mode: host
     environment: 
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRE_DB=postgres
     volumes:
     - dbdata:/var/lib/postgresql/data
+    ports:
+    - 5432
   
   # https://github.com/benawad/dogehouse/issues/101#issuecomment-778605325
   adminer:
     image: adminer
+    network_mode: host
     restart: "no"
     ports:
-      - 5051:8080
+      - 8080
     depends_on:
       - database
   
   # The WSS server used to establish and manage voice and text rooms
   voice_server:
+    network_mode: host
     build:
       context: ./shawarma
       dockerfile: Dockerfile
@@ -30,6 +35,7 @@ services:
 
   # The backend server
   backend:
+    network_mode: host
     build: 
       context: ./kousa
       dockerfile: Dockerfile
@@ -44,10 +50,8 @@ services:
       # By default, this should be either Ben's or yours.
       - BEN_GITHUB_ID={username}
       
-      # The React frontend
-      # Leave it as is if doing development locally
-      # Otherwise, edit this.
-      - RABBITMQ_URL=amqp://192.168.1.165:3000
+      # RabbitMQ instance
+      - RABBITMQ_URL=amqp://192.168.1.165:4001
       
       # Not needed in dev instances.
       # But it up to you if you want this.
@@ -61,8 +65,29 @@ services:
       # to generate some spice.
       - ACCESS_TOKEN_SECRET=8f51exxxxxx7211dd
       - REFRESH_TOKEN_SECRET=dbb85xxxxxx9ebde
+
+      # Optional settings for self-hosted DogeHouse instances
+      # - WEB_URL=https://dogehouse.tv
+      # - API_URL=https://api.dogehouse.tv
     ports:
-      - 4001:4001
+      - 4001
+
+  # https://gist.github.com/rafaelgalani/6730793c77b6f9bd6cad5bd30d2e7d2c
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq
+    volumes:
+      - ./.docker/rabbitmq/data/:/var/lib/rabbitmq/
+      - ./.docker/rabbitmq/logs/:/var/log/rabbitmq/
+    environment:
+      # Edit these passwords as needed
+      RABBITMQ_ERLANG_COOKIE: ${RABBITMQ_ERLANG_COOKIE}
+      RABBITMQ_DEFAULT_USER: dogehouse
+      # Generate a new one with "gpg2 --gen-random --armor 1 14"
+      RABBITMQ_DEFAULT_PASS: admeme
+    ports:
+      - 5672:5672
+      - 15672:15672
 
 volumes:
   dbdata:
