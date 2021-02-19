@@ -74,7 +74,7 @@ const defaultQueryFn = async ({ queryKey }: { queryKey: string }) => {
 const queryClient = new QueryClient({
   defaultOptions: {
     mutations: {
-      onError: (e) => {
+      onError: e => {
         if ("message" in (e as Error)) {
           showErrorToast((e as Error).message);
         }
@@ -83,7 +83,7 @@ const queryClient = new QueryClient({
     queries: {
       retry: false,
       staleTime: 60 * 1000 * 5,
-      onError: (e) => {
+      onError: e => {
         if ("message" in (e as Error)) {
           showErrorToast((e as Error).message);
         }
@@ -96,13 +96,13 @@ const queryClient = new QueryClient({
 interface AppProps {}
 
 export const WebviewApp: React.FC<AppProps> = () => {
-  const hasTokens = useTokenStore((s) => !!s.accessToken && !!s.refreshToken);
+  const hasTokens = useTokenStore(s => !!s.accessToken && !!s.refreshToken);
   const wsKilledByServer = useSocketStatus(
-    (s) => s.status === "closed-by-server"
+    s => s.status === "closed-by-server",
   );
   const [, setMe] = useAtom(setMeAtom);
   useState(() => {
-    useWsHandlerStore.getState().addWsListener("auth-good", (d) => {
+    useWsHandlerStore.getState().addWsListener("auth-good", d => {
       setMe(d.user);
     });
   });

@@ -1,9 +1,11 @@
 import React from "react";
 import { tw } from "twind";
 
-interface FooterProps {}
+interface FooterProps {
+  isLogin?: boolean
+}
 
-export const Footer: React.FC<FooterProps> = ({}) => {
+export const Footer: React.FC<FooterProps> = ({isLogin}) => {
   return (
     <div className={tw`justify-around flex`}>
       <a
@@ -12,6 +14,12 @@ export const Footer: React.FC<FooterProps> = ({}) => {
       >
         Investors
       </a>
+      {isLogin ? <a
+        href="https://www.youtube.com/watch?v=hy-EhJ_tTQo"
+        style={{ color: "var(--vscode-textLink-foreground)" }}
+      >
+        Origin Story
+      </a> : null}
       <a
         href="https://discord.gg/wCbKBZF9cV"
         style={{ color: "var(--vscode-textLink-foreground)" }}

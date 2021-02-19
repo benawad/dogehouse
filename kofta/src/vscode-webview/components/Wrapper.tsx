@@ -12,7 +12,7 @@ export const Wrapper: React.FC<WrapperProps> = ({ children }) => {
       }}
     >
       {children}
-      <div className={tw`mb-48`} />
+      <div className={tw`mb-8`} />
     </div>
   );
 };
