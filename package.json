@@ -1,0 +1,6 @@
+{
+"name":"dogehouse",
+"private": true,
+"description":"A",
+"workspaces": ["feta", "pilaf", "kofta"]
+}
