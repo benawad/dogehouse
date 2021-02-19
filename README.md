@@ -21,17 +21,6 @@ https://dogehouse.tv/
 | dinner      | Puppeteer shenanigans |
 | baklava     | Electron Wrapper      |
 
-## Setting up
-
-### With Docker
-
-1. Make sure Docker and Docker Compose is installed on your system. For macOS and Windows 10 Home/Pro users, Docker Desktop is fine.
-2. Clone the repository, the vhnage working directory with `cd dogehouse`.
-3. Copy `docker-compose.example.yml` into `docker-compose.yml` and edit environment variables for the backend server, such as GitHub OAuth app ID and secret, and Sentry DSN (only needed in production).
-4. Run `sudo docker-compose up` to make the server alive.
-5. Duplicate `kofta/.env.example` into `kofta/.env.production.local` and replace the value of the variable `REACT_APP_API_BASE_URL` pointing into your publicly-accessible Dogehouse API server.
-6. To deploy the frontend files in `kofta` directory, run `npm i` followed by `bash ./deploy.sh` to deploy to Netlify. Othetwise, run `npm start` to run the development server.
-
 ## Contributions
 
 DogeHouse is open to contributions, but I recommend creating an issue or replying in a comment to let me know what you are working on first that way we don't overwrite each other.
@@ -74,7 +63,7 @@ $ CREATE DATABASE kousa_repo2;
 Elixir installation guide [here](https://elixir-lang.org/install.html).
 
 
-#### `kousa`
+#### Elixir API server
 Navigate to `/kousa` and set the following environment variables:
 ```
 export DATABASE_URL=postgres://user:password@localhost/kousa_repo2
@@ -106,7 +95,7 @@ Start the server
 $ iex -S mix
 ```
 
-#### `shawarma`
+#### Voice Server
 Navigate to `/shawarma` and run `npm i`.
 
 > Mediasoup requires `node >=0.8 <=14` and has [specific requirements](https://mediasoup.org/documentation/v3/mediasoup/installation/#windows) on Windows.
@@ -121,10 +110,22 @@ Then run `npm run build` and `npm start`.
 
 ### Frontend
 
-#### `kofta`
+#### React Web UI
 Navigate to `/kofta` and create an `.env` file based on `.env.example`.
 
 Run `npm i` and then `npm start`.
+
+### With Docker
+
+1. Make sure Docker and Docker Compose is installed on your system.
+For macOS and Windows 10 Home/Pro users, Docker Desktop is fine.
+2. Clone the repository, the chnage working directory with `cd dogehouse`.
+3. Copy `docker-compose.example.yml` into `docker-compose.yml` and edit environment
+variables for the backend server, such as OAuth app IDs and secrets, and Sentry DSN
+(only needed in production).
+4. Run `sudo docker-compose up` to make the server alive.
+5. Duplicate `kofta/.env.example` into `kofta/.env.production.local` and replace the value of the variable `REACT_APP_API_BASE_URL` pointing into your publicly-accessible Dogehouse API server.
+6. To deploy the frontend files in `kofta` directory, run `npm i` followed by `bash ./deploy.sh` to deploy to Netlify. Othetwise, run `npm start` to run the development server.
 
 ## Investors
 
