@@ -39,12 +39,10 @@ defmodule Kousa.TwitterAuth do
              name: displayName,
              id_str: twitterId,
              raw_data: %{email: email},
-             profile_image_url_https: avatarUrl,
-             screen_name: username
+             profile_image_url_https: avatarUrl
            } <- ExTwitter.verify_credentials(include_email: true),
            {_, db_user} <-
              Data.User.twitter_find_or_create(%{
-               username: username <> Random.ascii_id(),
                bio: bio,
                displayName: displayName,
                twitterId: twitterId,

@@ -22,6 +22,7 @@ interface ProfileModalProps {
 const customStyles = {
   overlay: {
     backgroundColor: "rgba(0,0,0,.5)",
+    zIndex: 999,
   },
   content: {
     top: "50%",

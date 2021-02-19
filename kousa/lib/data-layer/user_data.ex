@@ -4,6 +4,12 @@ defmodule Kousa.Data.User do
 
   @fetch_limit 16
 
+  def edit_profile(user_id, data) do
+    %User{id: user_id}
+    |> User.edit_changeset(data)
+    |> Repo.update()
+  end
+
   def search(query, offset) do
     query_with_percent = "%" <> query <> "%"
 
@@ -256,13 +262,13 @@ defmodule Kousa.Data.User do
         {:create,
          Repo.insert!(
            %User{
-             username: user.username,
+             username: Kousa.Random.big_ascii_id(),
              email: user.email,
              twitterId: user.twitterId,
              avatarUrl: user.avatarUrl,
              displayName:
                if(is_nil(user.displayName) or String.trim(user.displayName) == "",
-                 do: user.username,
+                 do: "Novice Doge",
                  else: user.displayName
                ),
              bio: user.bio,
@@ -305,14 +311,14 @@ defmodule Kousa.Data.User do
         {:create,
          Repo.insert!(
            %User{
-             username: user["login"],
+             username: Kousa.Random.big_ascii_id(),
              githubId: githubId,
              email: user["email"],
              githubAccessToken: github_access_token,
              avatarUrl: user["avatar_url"],
              displayName:
                if(is_nil(user["name"]) or String.trim(user["name"]) == "",
-                 do: user["login"],
+                 do: "Novice Doge",
                  else: user["name"]
                ),
              bio: user["bio"],

@@ -8,22 +8,45 @@ import { User } from "../types";
 import { onFollowUpdater } from "../utils/onFollowUpdater";
 import { Avatar } from "./Avatar";
 import { Button } from "./Button";
+import { EditProfileModal } from "./EditProfileModal";
 
 interface UserProfileProps {
   profile: User;
 }
 
-export const UserProfile: React.FC<UserProfileProps> = ({ profile }) => {
+export const UserProfile: React.FC<UserProfileProps> = ({
+  profile: userProfile,
+}) => {
   const history = useHistory();
   const [me, setMe] = useAtom(meAtom);
   const [, setRoom] = useAtom(currentRoomAtom);
+  // if you edit your profile, me will be updated so we want to use that
+  const profile = me?.id === userProfile.id ? me : userProfile;
   const [youAreFollowing, setYouAreFollowing] = useState(
     profile.youAreFollowing
   );
+  const [editProfileModalOpen, setEditProfileModalOpen] = useState(false);
   return (
     <>
+      <EditProfileModal
+        user={profile}
+        isOpen={editProfileModalOpen}
+        onRequestClose={() => setEditProfileModalOpen(false)}
+      />
       <div className={tw`mb-4 flex justify-between align-center`}>
         <Avatar src={profile.avatarUrl} />
+        {me?.id === profile.id ? (
+          <div>
+            <Button
+              onClick={() => {
+                setEditProfileModalOpen(true);
+              }}
+              variant="small"
+            >
+              edit profile
+            </Button>
+          </div>
+        ) : null}
         {me?.id === profile.id ||
         profile.youAreFollowing === null ||
         profile.youAreFollowing === undefined ? null : (
