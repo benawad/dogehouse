@@ -6,6 +6,7 @@ import { closeWebSocket, wsend } from "../createWebsocket";
 import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
 import { invitationToRoom } from "../webrtc/utils/invitationToRoom";
 import {
+  meAtom,
   setCurrentRoomAtom,
   setFollowerMapAtom,
   setFollowingMapAtom,
@@ -14,7 +15,10 @@ import {
   setMeAtom,
   setPublicRoomsAtom,
 } from "./atoms";
-import { useRoomChatStore } from "./modules/room-chat/useRoomChatStore";
+import {
+  RoomChatMessageToken,
+  useRoomChatStore,
+} from "./modules/room-chat/useRoomChatStore";
 import { BanUsersPage } from "./pages/BanUsersPage";
 import { FollowingOnlineList } from "./pages/FollowingOnlineList";
 import { FollowListPage } from "./pages/FollowListPage";
@@ -26,6 +30,7 @@ import { RoomPage } from "./pages/RoomPage";
 import { SearchUsersPage } from "./pages/SearchUsersPage";
 import { ViewUserPage } from "./pages/ViewUserPage";
 import { VoiceSettingsPage } from "./pages/VoiceSettingsPage";
+import { useAFKStore } from "./stores/useAFKStore";
 import { isUuid } from "./utils/isUuid";
 import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
 import { showErrorToast } from "./utils/showErrorToast";
@@ -46,6 +51,11 @@ export const Routes: React.FC<RoutesProps> = () => {
   const [, setFollowingMap] = useAtom(setFollowingMapAtom);
   const [, setFollowingOnline] = useAtom(setFollowingOnlineAtom);
   const [, setInviteList] = useAtom(setInviteListAtom);
+  const [me] = useAtom(meAtom);
+
+  const { open } = useRoomChatStore();
+  const { isAFK } = useAFKStore();
+
   useEffect(() => {
     addMultipleWsListener({
       new_room_name: ({ name, roomId }) => {
@@ -58,6 +68,17 @@ export const Routes: React.FC<RoutesProps> = () => {
       },
       new_chat_msg: ({ msg }) => {
         useRoomChatStore.getState().addMessage(msg);
+
+        // Set i am mentioned if sidebar closed, or afk and was mentioned
+        if (
+          (!open || isAFK) &&
+          !!msg.tokens.filter(
+            (t: RoomChatMessageToken) =>
+              t.t === "mention" &&
+              t.v.includes(me?.username || Math.random().toString()) // need math.random cuz includes doesnt accept undefineds
+          ).length
+        )
+          useRoomChatStore.getState().setIAmMentioned(true);
       },
       room_privacy_change: ({ roomId, isPrivate, name }) => {
         setCurrentRoom((cr) =>
