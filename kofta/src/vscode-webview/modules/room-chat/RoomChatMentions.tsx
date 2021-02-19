@@ -46,9 +46,9 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
       } else {
         const usernameMatches = currentRoom.users.filter(
           ({ id, username, displayName }) =>
-            (username.toLowerCase().includes(useMention.toLowerCase()) ||
-              displayName.toLowerCase().includes(useMention.toLowerCase())) &&
-            !mentions.find((m) => m.id === id) &&
+            (username?.toLowerCase().includes(useMention?.toLowerCase()) ||
+              displayName?.toLowerCase().includes(useMention?.toLowerCase())) &&
+            !mentions.find((m: User) => m.id === id) &&
             me.id !== id
         );
 
@@ -64,7 +64,7 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
     // Remove mention if user deleted text
     setMentions(
       mentions.filter((u) => {
-        return message.toLowerCase().indexOf(u.username.toLowerCase()) !== -1;
+        return message.toLowerCase().indexOf(u.username?.toLowerCase()) !== -1;
       })
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
