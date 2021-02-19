@@ -50,7 +50,13 @@ export const UserNode: React.FC<UserNodeProps> = ({
       key={u.id}
     >
       <div className={tw`relative`}>
-        <Avatar circle size={70} active={isSpeaking} src={u.avatarUrl} />
+        <Avatar
+          usernameForErrorImg={u.username}
+          circle
+          size={70}
+          active={isSpeaking}
+          src={u.avatarUrl}
+        />
         {isMuted && isSpeaker ? (
           <div
             className={tw`absolute -bottom-2 -right-2 bg-button rounded-full p-1`}

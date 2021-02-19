@@ -34,3 +34,8 @@ export type CurrentRoom = Room & {
   raiseHandMap: Record<string, number>;
   autoSpeaker: boolean;
 };
+
+export type WsParam = {
+  op: string;
+  d: any;
+};

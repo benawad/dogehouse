@@ -11,7 +11,7 @@ interface ChatListProps {}
 
 export const RoomChatList: React.FC<ChatListProps> = ({}) => {
   const [profileId, setProfileId] = useState("");
-  const messages = useRoomChatStore(s => s.messages);
+  const messages = useRoomChatStore((s) => s.messages);
   const [me] = useAtom(meAtom);
 
   return (
@@ -27,7 +27,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
         />
       ) : null}
       <div className={tw`pb-6`} />
-      {messages.map(m => (
+      {messages.map((m) => (
         <div
           style={{ wordBreak: "break-word" }}
           className={tw`block py-1`}
@@ -83,6 +83,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                 return (
                   <a
                     target="_blank"
+                    rel="noreferrer"
                     href={v}
                     className={tw`flex-1 hover:underline text-tmpC4`}
                     key={i}
@@ -90,6 +91,8 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                     {normalizeUrl(v, { stripProtocol: true })}{" "}
                   </a>
                 );
+              default:
+                return null;
             }
           })}
         </div>

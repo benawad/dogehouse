@@ -157,7 +157,21 @@ defmodule Kousa.SocketHandler do
         _ ->
           if not is_nil(state.user_id) do
             try do
-              handler(json["op"], json["d"], state)
+              case json do
+                %{"op" => op, "d" => d, "fetchId" => fetch_id} ->
+                  {:reply,
+                   prepare_socket_msg(
+                     %{
+                       op: "fetch_done",
+                       d: f_handler(op, d, state),
+                       fetchId: fetch_id
+                     },
+                     state
+                   ), state}
+
+                %{"op" => op, "d" => d} ->
+                  handler(op, d, state)
+              end
             rescue
               e ->
                 err_msg = Exception.message(e)
@@ -554,6 +568,16 @@ defmodule Kousa.SocketHandler do
     })
 
     {:ok, state}
+  end
+
+  def f_handler("edit_profile", %{"data" => data}, state) do
+    %{
+      isUsernameTaken:
+        case BL.User.edit_profile(state.user_id, data) do
+          :username_taken -> true
+          _ -> false
+        end
+    }
   end
 
   defp prepare_socket_msg(data, %State{compression: compression, encoding: encoding}) do

@@ -52,4 +52,14 @@ defmodule Beef.User do
     user
     |> validate_required([:username, :githubId, :avatarUrl])
   end
+
+  def edit_changeset(user, attrs) do
+    user
+    |> cast(attrs, [:id, :username, :bio, :displayName])
+    |> validate_required([:username, :bio, :displayName])
+    |> validate_length(:bio, min: 2, max: 160)
+    |> validate_length(:displayName, min: 2, max: 50)
+    |> validate_format(:username, ~r/^(\w){4,15}$/)
+    |> unique_constraint(:username)
+  end
 end

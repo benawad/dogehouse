@@ -52,7 +52,7 @@ defmodule Kousa.Gen.RoomChat do
   end
 
   def handle_cast({:add_user, user_id}, %State{} = state) do
-    {:noreply, %State{state | users: [user_id | state.users]}}
+    {:noreply, %State{state | users: [user_id | Enum.filter(state.users, &(&1 != user_id))]}}
   end
 
   def handle_cast({:new, state}, _state) do

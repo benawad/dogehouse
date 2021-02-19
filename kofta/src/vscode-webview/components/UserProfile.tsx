@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAtom } from "jotai";
 import { useHistory } from "react-router-dom";
 import { tw } from "twind";
@@ -8,19 +8,45 @@ import { User } from "../types";
 import { onFollowUpdater } from "../utils/onFollowUpdater";
 import { Avatar } from "./Avatar";
 import { Button } from "./Button";
+import { EditProfileModal } from "./EditProfileModal";
 
 interface UserProfileProps {
   profile: User;
 }
 
-export const UserProfile: React.FC<UserProfileProps> = ({ profile }) => {
+export const UserProfile: React.FC<UserProfileProps> = ({
+  profile: userProfile,
+}) => {
   const history = useHistory();
   const [me, setMe] = useAtom(meAtom);
   const [, setRoom] = useAtom(currentRoomAtom);
+  // if you edit your profile, me will be updated so we want to use that
+  const profile = me?.id === userProfile.id ? me : userProfile;
+  const [youAreFollowing, setYouAreFollowing] = useState(
+    profile.youAreFollowing
+  );
+  const [editProfileModalOpen, setEditProfileModalOpen] = useState(false);
   return (
     <>
+      <EditProfileModal
+        user={profile}
+        isOpen={editProfileModalOpen}
+        onRequestClose={() => setEditProfileModalOpen(false)}
+      />
       <div className={tw`mb-4 flex justify-between align-center`}>
         <Avatar src={profile.avatarUrl} />
+        {me?.id === profile.id ? (
+          <div>
+            <Button
+              onClick={() => {
+                setEditProfileModalOpen(true);
+              }}
+              variant="small"
+            >
+              edit profile
+            </Button>
+          </div>
+        ) : null}
         {me?.id === profile.id ||
         profile.youAreFollowing === null ||
         profile.youAreFollowing === undefined ? null : (
@@ -31,29 +57,22 @@ export const UserProfile: React.FC<UserProfileProps> = ({ profile }) => {
                   op: "follow",
                   d: {
                     userId: profile.id,
-                    value: !profile.youAreFollowing,
+                    value: !youAreFollowing,
                   },
                 });
+                setYouAreFollowing(!youAreFollowing);
                 onFollowUpdater(setRoom, setMe, me, profile);
               }}
               variant="small"
             >
-              {profile.youAreFollowing ? "following" : "follow"}
+              {youAreFollowing ? "following" : "follow"}
             </Button>
           </div>
         )}
       </div>
       <div className={tw`font-semibold`}>{profile.displayName}</div>
       <div className={tw`my-1 flex`}>
-        <div>
-          <a
-            href={"https://github.com/" + profile.username}
-            target="_blank"
-            rel="noreferrer"
-          >
-            @{profile.username}
-          </a>
-        </div>
+        <div>@{profile.username}</div>
         {me?.id !== profile.id && profile.followsYou ? (
           <div
             style={{

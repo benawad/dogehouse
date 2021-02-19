@@ -78,6 +78,10 @@ defmodule Kousa.Gen.UserSession do
     end
   end
 
+  def handle_cast({:set, key, value}, state) do
+    {:noreply, Map.put(state, key, value)}
+  end
+
   def handle_cast({:send_ws_msg, _platform, msg}, state) do
     if not is_nil(state.pid) do
       send(state.pid, {:remote_send, msg})

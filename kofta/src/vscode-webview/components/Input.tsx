@@ -6,13 +6,13 @@ export const Input = forwardRef<
   React.DetailedHTMLProps<
     React.InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
-  >
->((props, ref) => {
-  return (
-    <input
-      ref={ref}
-      className={tw`py-2 px-3 text-xl text-input bg-input`}
-      {...props}
-    />
+  > & { textarea?: boolean }
+>(({ textarea, ...props }, ref) => {
+  const cn = tw`py-2 px-3 text-xl text-input bg-input`;
+
+  return textarea ? (
+    <textarea ref={ref as any} className={cn} {...(props as any)} />
+  ) : (
+    <input ref={ref} className={cn} {...props} />
   );
 });
