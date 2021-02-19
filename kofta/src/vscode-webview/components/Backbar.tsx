@@ -15,7 +15,7 @@ export const Backbar: React.FC<BackbarProps> = ({
   const history = useHistory();
   return (
     <div
-      className={tw`sticky top-0 flex py-4 mb-12`}
+      className={tw`sticky top-0 z-10 flex py-4 mb-12`}
       style={{
         backgroundColor: "#262626",
         borderBottom: "1px solid #808080",
