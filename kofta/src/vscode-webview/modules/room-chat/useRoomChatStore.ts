@@ -99,6 +99,7 @@ export const useRoomChatStore = create(
             return {
               open: true,
               newUnreadMessages: false,
+              iAmMentioned: 0,
             };
           }
         }),

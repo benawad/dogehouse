@@ -10,7 +10,9 @@ export const NotificationAudioRender: React.FC<NotificationAudioRenderProps> = (
   const [audio, setAudio] = useState<HTMLAudioElement | null>(new Audio());
   useEffect(() => {
     if (iAmMentioned && shouldPlayChatSound) {
-      audio?.play();
+      try {
+        audio?.play();
+      } catch (err) {}
     }
   }, [iAmMentioned]);
 
