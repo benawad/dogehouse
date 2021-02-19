@@ -3,7 +3,7 @@ defmodule Beef.Repo.Migrations.AddShouldPlayChatNotificationSoundColumnToUsersTa
 
   def change do
     alter table(:users) do
-      add :shouldPlayChatNotificationSound, :boolean
+      add :shouldPlayChatNotificationSound, :boolean, default: false, null: false
     end
   end
 end
