@@ -7,6 +7,7 @@ import { meAtom } from "../atoms";
 import { Backbar } from "../components/Backbar";
 import { Button } from "../components/Button";
 import { UserProfile } from "../components/UserProfile";
+import { ChatSettings } from "../components/ChatSettings";
 import { VoiceSettings } from "../components/VoiceSettings";
 import { Wrapper } from "../components/Wrapper";
 import { useTokenStore } from "../utils/useTokenStore";
@@ -36,8 +37,8 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
         </div>
       </Backbar>
       {me ? <UserProfile profile={me} /> : <div>probably loading...</div>}
-      <h1 className={tw`py-8 text-4xl`}>Voice Settings</h1>
       <VoiceSettings />
+      <ChatSettings className={tw`mt-8`} />
     </Wrapper>
   );
 };

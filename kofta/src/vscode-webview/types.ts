@@ -25,6 +25,7 @@ export type User = {
   currentRoom?: Room;
   followsYou?: boolean;
   youAreFollowing?: boolean;
+  setshouldPlayChatNotificationSound: boolean;
 };
 
 export type CurrentRoom = Room & {

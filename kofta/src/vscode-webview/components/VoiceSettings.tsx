@@ -7,9 +7,11 @@ import { Button } from "./Button";
 import { MuteKeybind, PTTKeybind } from "./keyboard-shortcuts";
 import { VolumeSlider } from "./VolumeSlider";
 
-interface VoiceSettingsProps {}
+interface VoiceSettingsProps {
+  className?: string;
+}
 
-export const VoiceSettings: React.FC<VoiceSettingsProps> = ({}) => {
+export const VoiceSettings: React.FC<VoiceSettingsProps> = ({ className }) => {
   const { micId, setMicId } = useMicIdStore();
   const [volume, setVolume] = useAtom(volumeAtom);
   const [devices, setDevices] = useState<Array<{ id: string; label: string }>>(
@@ -37,7 +39,8 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = ({}) => {
   }, [fetchMics]);
 
   return (
-    <>
+    <div className={className}>
+      <h1 className={tw`py-8 text-4xl`}>Voice Settings</h1>
       <div className={tw`mb-2`}>mic: </div>
       {devices.length ? (
         <select
@@ -73,6 +76,6 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = ({}) => {
       </div>
       <MuteKeybind className={tw`mb-4`} />
       <PTTKeybind />
-    </>
+    </div>
   );
 };
