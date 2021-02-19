@@ -1,6 +1,6 @@
 import React from "react";
 import { tw } from "twind";
-import { useChatSettingsStore } from "../../webrtc/stores/useChatSettingsStore";
+import { useRoomChatSettingsStore } from "../../webrtc/stores/useRoomChatSettingsStore";
 import { Checkbox } from "./Checkbox";
 
 interface ChatSettingsProps {
@@ -11,7 +11,7 @@ export const ChatSettings: React.FC<ChatSettingsProps> = ({ className }) => {
   const {
     shouldPlayChatSound,
     setShouldPlayChatSound,
-  } = useChatSettingsStore();
+  } = useRoomChatSettingsStore();
 
   return (
     <div className={className}>

@@ -9,7 +9,7 @@ export const AFKTimer: React.FC<AFKTimerProps> = () => {
 
   return (
     <IdleTimer
-      timeout={1000 * 60 * 3}
+      timeout={1000 * 45}
       onActive={() => setIsAFK(false)}
       onIdle={() => setIsAFK(true)}
       onAction={() => setIsAFK(false)}

@@ -17,6 +17,7 @@ import { Login } from "./pages/Login";
 import { Router } from "./Router";
 import { showErrorToast } from "./utils/showErrorToast";
 import { useTokenStore } from "./utils/useTokenStore";
+import { NotificationAudioRender } from "./modules/room-chat/NotificationAudioRender";
 
 setup({
   theme: {
@@ -161,6 +162,7 @@ export const WebviewApp: React.FC<AppProps> = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <NotificationAudioRender />
       <AFKTimer />
       <Router />
       <KeybindListener />

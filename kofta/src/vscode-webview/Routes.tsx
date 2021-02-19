@@ -53,7 +53,7 @@ export const Routes: React.FC<RoutesProps> = () => {
   const [, setInviteList] = useAtom(setInviteListAtom);
   const [me] = useAtom(meAtom);
 
-  const { open } = useRoomChatStore();
+  const { open, iAmMentioned } = useRoomChatStore();
   const { isAFK } = useAFKStore();
 
   useEffect(() => {
@@ -77,8 +77,9 @@ export const Routes: React.FC<RoutesProps> = () => {
               t.t === "mention" &&
               t.v.includes(me?.username || Math.random().toString()) // need math.random cuz includes doesnt accept undefineds
           ).length
-        )
-          useRoomChatStore.getState().setIAmMentioned(true);
+        ) {
+          useRoomChatStore.getState().setIAmMentioned(iAmMentioned + 1);
+        }
       },
       room_privacy_change: ({ roomId, isPrivate, name }) => {
         setCurrentRoom((cr) =>
@@ -325,7 +326,7 @@ export const Routes: React.FC<RoutesProps> = () => {
       },
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [me, iAmMentioned]);
 
   useEffect(() => {
     if (location.pathname.startsWith("/room/")) {

@@ -12,7 +12,7 @@ function getShouldPlayChatSound() {
   return v === "true";
 }
 
-export const useChatSettingsStore = create(
+export const useRoomChatSettingsStore = create(
   combine(
     {
       shouldPlayChatSound: getShouldPlayChatSound(),

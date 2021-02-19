@@ -56,16 +56,16 @@ export const useRoomChatStore = create(
       mentions: [] as User[],
       queriedUsernames: [] as User[],
       activeUsername: "",
-      iAmMentioned: false,
+      iAmMentioned: 0,
     },
-    set => ({
+    (set) => ({
       addBannedUser: (userId: string) =>
-        set(s => ({
-          messages: s.messages.filter(m => m.userId !== userId),
+        set((s) => ({
+          messages: s.messages.filter((m) => m.userId !== userId),
           bannedUserIdMap: { ...s.bannedUserIdMap, [userId]: true },
         })),
       addMessage: (m: RoomChatMessage) =>
-        set(s => ({
+        set((s) => ({
           newUnreadMessages: !s.open,
           messages: [
             { ...m, color: generateColorFromString(m.userId) },
@@ -88,12 +88,12 @@ export const useRoomChatStore = create(
           bannedUserIdMap: {},
         }),
       toggleOpen: () =>
-        set(s => {
+        set((s) => {
           if (s.open) {
             return {
               open: false,
               newUnreadMessages: false,
-              iAmMentioned: false,
+              iAmMentioned: 0,
             };
           } else {
             return {
@@ -118,10 +118,10 @@ export const useRoomChatStore = create(
         set({
           activeUsername,
         }),
-      setIAmMentioned: (iAmMentioned: boolean) =>
+      setIAmMentioned: (iAmMentioned: number) =>
         set({
           iAmMentioned,
         }),
-    }),
-  ),
+    })
+  )
 );
