@@ -1,5 +1,6 @@
 import React from "react";
 import { tw } from "twind";
+import { Spinner } from "./Spinner";
 
 const colorToBackground = {
   red: "bg-buttonRed hover:bg-buttonHoverRed",
@@ -10,12 +11,23 @@ export const Button: React.FC<
   React.DetailedHTMLProps<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
-  > & { variant?: "default" | "small" | "follow" } & {
+  > & {
+    variant?: "default" | "small" | "follow";
     color?: "default" | "red" | "secondary";
+    loading?: boolean;
   }
-> = ({ children, style, color = "default", variant = "default", ...props }) => {
+> = ({
+  children,
+  style,
+  loading,
+  disabled,
+  color = "default",
+  variant = "default",
+  ...props
+}) => {
   return (
     <button
+      disabled={loading || disabled}
       style={{
         borderRadius: 4,
         outline: "1px solid transparent",
@@ -30,13 +42,13 @@ export const Button: React.FC<
         ...(variant === "small" ? { padding: "4px 8px", width: "unset" } : {}),
         ...style,
       }}
-      className={tw`w-full text-center ${
+      className={tw`w-full flex items-center justify-center text-center ${
         colorToBackground[color as keyof typeof colorToBackground] ||
         "bg-button hover:bg-buttonHover"
       } `}
       {...props}
     >
-      {children}
+      {loading ? <Spinner /> : children}
     </button>
   );
 };

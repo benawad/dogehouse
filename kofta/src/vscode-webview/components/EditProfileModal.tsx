@@ -36,7 +36,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
   onRequestClose,
   user,
 }) => {
-  const { mutateAsync } = useMutation(wsFetch);
+  const { mutateAsync, isLoading } = useMutation(wsFetch);
   const [, setMe] = useAtom(setMeAtom);
   return (
     <Modal isOpen={isOpen} onRequestClose={onRequestClose}>
@@ -92,6 +92,8 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                   cancel
                 </Button>
                 <Button
+                  type="button"
+                  loading={isLoading}
                   onClick={() => handleSubmit()}
                   style={{ marginLeft: 8 }}
                 >
