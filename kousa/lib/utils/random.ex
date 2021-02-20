@@ -9,4 +9,8 @@ defmodule Kousa.Random do
     |> Kernel.+(min)
     |> Integer.to_string(36)
   end
+
+  def big_ascii_id() do
+    ascii_id() <> ascii_id()
+  end
 end

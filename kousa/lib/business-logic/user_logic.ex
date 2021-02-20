@@ -1,7 +1,19 @@
 defmodule Kousa.BL.User do
-  # def search(query, cursor \\ nil) do
-  #   Kousa.D
-  # end
+  alias Kousa.{Gen, Data, RegUtils}
+
+  def edit_profile(user_id, data) do
+    case Data.User.edit_profile(user_id, data) do
+      {:error, %Ecto.Changeset{errors: [{_, {"has already been taken", _}}]}} ->
+        :username_taken
+
+      {:ok, %{displayName: displayName}} ->
+        RegUtils.lookup_and_cast(Gen.UserSession, user_id, {:set, :display_name, displayName})
+        :ok
+
+      _ ->
+        :ok
+    end
+  end
 
   def ban(user_id, username_to_ban, reason_for_ban) do
     user = Kousa.Data.User.get_by_id(user_id)
@@ -37,7 +49,7 @@ defmodule Kousa.BL.User do
             Kousa.Data.User.bulk_insert(
               Enum.map(nodes, fn user ->
                 %{
-                  username: user["login"],
+                  username: Kousa.Random.big_ascii_id(),
                   githubId: Integer.to_string(user["databaseId"]),
                   avatarUrl: user["avatarUrl"],
                   displayName: if(user["name"] == "", do: user["login"], else: user["name"]),

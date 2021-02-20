@@ -5,6 +5,7 @@ export const useWsHandlerStore = create(
   combine(
     {
       handlerMap: {} as Record<string, (d: any) => void>,
+      fetchResolveMap: {} as Record<string, (d: any) => void>,
     },
     (set) => ({
       addMultipleWsListener: (x: Record<string, (d: any) => void>) => {
@@ -41,6 +42,24 @@ export const useWsHandlerStore = create(
               fn(dx);
               set(({ handlerMap: { [op]: _, ...handlerMap } }) => ({
                 handlerMap,
+              }));
+            },
+          },
+        }));
+      },
+      clearFetchListener: (id: string) => {
+        return set(({ fetchResolveMap: { [id]: _, ...fetchResolveMap } }) => ({
+          fetchResolveMap,
+        }));
+      },
+      addFetchListener: (id: string, fn: (d: any) => void) => {
+        return set((s) => ({
+          fetchResolveMap: {
+            ...s.fetchResolveMap,
+            [id]: (dx: any) => {
+              fn(dx);
+              set(({ fetchResolveMap: { [id]: _, ...fetchResolveMap } }) => ({
+                fetchResolveMap,
               }));
             },
           },
