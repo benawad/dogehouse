@@ -238,7 +238,10 @@ defmodule Kousa.Data.User do
   def twitter_find_or_create(user) do
     db_user =
       from(u in Beef.User,
-        where: u.email == ^user.email or u.twitterId == ^user.twitterId
+        where:
+          (not is_nil(u.email) and u.email == ^user.email and u.email != "") or
+            u.twitterId == ^user.twitterId,
+        limit: 1
       )
       |> Repo.one()
 
@@ -286,7 +289,8 @@ defmodule Kousa.Data.User do
       from(u in Beef.User,
         where:
           u.githubId == ^githubId or
-            (not is_nil(u.email) and u.email != "" and u.email == ^user["email"])
+            (not is_nil(u.email) and u.email != "" and u.email == ^user["email"]),
+        limit: 1
       )
       |> Repo.one()
 
@@ -297,7 +301,7 @@ defmodule Kousa.Data.User do
             where: u.id == ^db_user.id,
             update: [
               set: [
-                githubId: ^user.githubId,
+                githubId: ^githubId,
                 githubAccessToken: ^github_access_token
               ]
             ]

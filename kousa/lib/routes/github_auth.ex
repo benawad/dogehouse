@@ -18,9 +18,6 @@ defmodule Kousa.GitHubAuth do
         else: "web"
       )
 
-    # @todo remove this
-    IO.puts("state: " <> state)
-
     url =
       "https://github.com/login/oauth/authorize?client_id=" <>
         Application.get_env(:kousa, :client_id) <>
