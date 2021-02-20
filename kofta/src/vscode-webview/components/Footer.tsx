@@ -1,6 +1,5 @@
 import React from "react";
 import { tw } from "twind";
-import { Link as RouterLink } from "react-router-dom";
 
 interface FooterProps {
   isLogin?: boolean;
