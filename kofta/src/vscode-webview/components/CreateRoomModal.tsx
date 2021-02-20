@@ -29,6 +29,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
         }}
       >
         <Input
+          maxLength={255}
           placeholder="room name"
           autoFocus
           value={name}
