@@ -2,14 +2,14 @@ import { useAtom } from "jotai";
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { tw } from "twind";
-import { closeWebSocket } from "feta/createWebsocket";
+import { closeWebSocket } from "../../createWebsocket";
 import { meAtom } from "../atoms";
 import { Backbar } from "../components/Backbar";
 import { Button } from "../components/Button";
 import { UserProfile } from "../components/UserProfile";
 import { VoiceSettings } from "../components/VoiceSettings";
 import { Wrapper } from "../components/Wrapper";
-import { useTokenStore } from "feta/utils/useTokenStore";
+import { useTokenStore } from "../utils/useTokenStore";
 
 interface MyProfilePageProps {}
 

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { tw } from "twind";
-import { useMicPermErrorStore } from "feta/webrtc/stores/useMicPermErrorStore";
-import { sendVoice } from "feta/webrtc/utils/sendVoice";
-import { isIOS } from "feta/utils/isIOS";
+import { useMicPermErrorStore } from "../../webrtc/stores/useMicPermErrorStore";
+import { sendVoice } from "../../webrtc/utils/sendVoice";
+import { isIOS } from "../utils/isIOS";
 import { Button } from "./Button";
 
 interface MicPermissionBannerProps {}

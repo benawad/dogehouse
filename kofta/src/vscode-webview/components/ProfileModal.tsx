@@ -1,10 +1,10 @@
 import React from "react";
 import ReactModal from "react-modal";
 import { tw } from "twind";
-import { wsend } from "feta/createWebsocket";
+import { wsend } from "../../createWebsocket";
 import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
 import { Codicon } from "../svgs/Codicon";
-import { CurrentRoom, User } from "feta/types";
+import { CurrentRoom, User } from "../types";
 import { Button } from "./Button";
 import { modalConfirm } from "./ConfirmModal";
 import { UserProfile } from "./UserProfile";

@@ -2,7 +2,7 @@ import { useAtom } from "jotai";
 import React, { useCallback, useEffect, useState } from "react";
 import { tw } from "twind";
 import { volumeAtom } from "../shared-atoms";
-import { useMicIdStore } from "feta/shared-stores";
+import { useMicIdStore } from "../shared-stores";
 import { Button } from "./Button";
 import { MuteKeybind, PTTKeybind } from "./keyboard-shortcuts";
 import { VolumeSlider } from "./VolumeSlider";

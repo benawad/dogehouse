@@ -16,5 +16,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "../feta/shared-stores.ts"]
+  "include": ["src"]
 }

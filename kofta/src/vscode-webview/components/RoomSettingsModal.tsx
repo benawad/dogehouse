@@ -2,9 +2,9 @@ import { useAtom } from "jotai";
 import React from "react";
 import { X } from "react-feather";
 import { tw } from "twind";
-import { wsend } from "feta/createWebsocket";
-import { renameRoomAndMakePrivate } from "feta/webrtc/utils/renameRoomAndMakePrivate";
-import { renameRoomAndMakePublic } from "feta/webrtc/utils/renameRoomAndMakePublic";
+import { wsend } from "../../createWebsocket";
+import { renameRoomAndMakePrivate } from "../../webrtc/utils/renameRoomAndMakePrivate";
+import { renameRoomAndMakePublic } from "../../webrtc/utils/renameRoomAndMakePublic";
 import { currentRoomAtom } from "../atoms";
 import { Button } from "./Button";
 import { Modal } from "./Modal";
@@ -35,7 +35,7 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
             <input
               checked={!currentRoom.autoSpeaker}
               onChange={(e) => {
-                setCurrentRoom((cr: any) =>
+                setCurrentRoom((cr) =>
                   !cr
                     ? cr
                     : {

@@ -10,8 +10,8 @@ import {
 } from "react-feather";
 import { useHistory, useLocation } from "react-router-dom";
 import { tw } from "twind";
-import { wsend } from "feta/createWebsocket";
-import { useMuteStore } from "feta/webrtc/stores/useMuteStore";
+import { wsend } from "../../createWebsocket";
+import { useMuteStore } from "../../webrtc/stores/useMuteStore";
 import { currentRoomAtom, myCurrentRoomInfoAtom } from "../atoms";
 import { RoomChat } from "../modules/room-chat/RoomChat";
 import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
@@ -40,11 +40,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   const { muted, set } = useMuteStore();
   const [{ canSpeak, isCreator }] = useAtom(myCurrentRoomInfoAtom);
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const [
-    toggleOpen,
-    newUnreadMessages,
-    iAmMentioned,
-  ] = useRoomChatStore((s) => [
+  const [toggleOpen, newUnreadMessages, iAmMentioned] = useRoomChatStore(s => [
     s.toggleOpen,
     s.newUnreadMessages,
     s.iAmMentioned,
@@ -122,7 +118,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           color={iconColor}
         />
         Invite
-      </button>
+      </button>,
     );
     if (isCreator || canSpeak) {
       buttons.push(
@@ -152,7 +148,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             />
           )}
           {muted ? "Unmute" : "Mute"}
-        </button>
+        </button>,
       );
     }
 
@@ -172,7 +168,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             color={iconColor}
           />
           Settings
-        </button>
+        </button>,
       );
     }
   }

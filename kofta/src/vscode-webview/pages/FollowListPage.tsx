@@ -2,7 +2,7 @@ import { useAtom } from "jotai";
 import React from "react";
 import { useHistory, useLocation, useRouteMatch } from "react-router-dom";
 import { tw } from "twind";
-import { wsend } from "feta/createWebsocket";
+import { wsend } from "../../createWebsocket";
 import {
   currentRoomAtom,
   followerMapAtom,
@@ -13,7 +13,7 @@ import { Avatar } from "../components/Avatar";
 import { Backbar } from "../components/Backbar";
 import { Button } from "../components/Button";
 import { Wrapper } from "../components/Wrapper";
-import { onFollowUpdater } from "feta/utils/onFollowUpdater";
+import { onFollowUpdater } from "../utils/onFollowUpdater";
 
 interface FollowListPageProps {}
 

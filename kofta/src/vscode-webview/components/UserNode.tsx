@@ -1,10 +1,10 @@
 import React from "react";
 import { tw } from "twind";
 import { MicOff } from "react-feather";
-import { User } from "feta/types";
+import { User } from "../types";
 import { Avatar } from "./Avatar";
-import GlassesDoge from "feta/assets/glasses-doge.png";
-import RegularDoge from "feta/assets/regular-doge.png";
+import GlassesDoge from "../../assets/glasses-doge.png";
+import RegularDoge from "../../assets/regular-doge.png";
 
 interface UserNodeProps {
   u: User;
