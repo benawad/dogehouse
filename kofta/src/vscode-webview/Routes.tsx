@@ -30,7 +30,6 @@ import { RoomPage } from "./pages/RoomPage";
 import { SearchUsersPage } from "./pages/SearchUsersPage";
 import { ViewUserPage } from "./pages/ViewUserPage";
 import { VoiceSettingsPage } from "./pages/VoiceSettingsPage";
-import { useAFKStore } from "./stores/useAFKStore";
 import { isUuid } from "./utils/isUuid";
 import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
 import { showErrorToast } from "./utils/showErrorToast";
@@ -54,17 +53,14 @@ export const Routes: React.FC<RoutesProps> = () => {
   const [me] = useAtom(meAtom);
 
   const { open, iAmMentioned } = useRoomChatStore();
-  const { isAFK } = useAFKStore();
 
   // useEffect, need using me AND iAmMentioned
   useEffect(() => {
     addMultipleWsListener({
       new_chat_msg: ({ msg }) => {
         useRoomChatStore.getState().addMessage(msg);
-
-        // Set i am mentioned if sidebar closed, or afk and was mentioned
         if (
-          (!open || isAFK) &&
+          (!open || !document.hasFocus()) &&
           !!msg.tokens.filter(
             (t: RoomChatMessageToken) =>
               t.t === "mention" &&
@@ -75,7 +71,7 @@ export const Routes: React.FC<RoutesProps> = () => {
         }
       },
     });
-  }, [me, iAmMentioned, open, isAFK]);
+  }, [me, iAmMentioned, open, addMultipleWsListener]); // Add addMultipleWsListener to dependency array to disable warning
 
   useEffect(() => {
     addMultipleWsListener({

@@ -10,7 +10,6 @@ import { setMeAtom } from "./atoms";
 import { Button } from "./components/Button";
 import { CenterLayout } from "./components/CenterLayout";
 import { KeybindListener } from "./components/KeybindListener";
-import { AFKTimer } from "./components/AFKTimer";
 import { Wrapper } from "./components/Wrapper";
 import { Login } from "./pages/Login";
 import { queryClient } from "./queryClient";
@@ -86,7 +85,6 @@ export const WebviewApp: React.FC<AppProps> = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <NotificationAudioRender />
-      <AFKTimer />
       <Router />
       <KeybindListener />
     </QueryClientProvider>

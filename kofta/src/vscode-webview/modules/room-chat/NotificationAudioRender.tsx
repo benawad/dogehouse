@@ -14,7 +14,7 @@ export const NotificationAudioRender: React.FC<NotificationAudioRenderProps> = (
         audio?.play();
       } catch (err) {}
     }
-  }, [iAmMentioned]);
+  }, [iAmMentioned, shouldPlayChatSound, audio]);
 
   return <audio ref={(ref) => setAudio(ref)} src="/notif.ogg" />;
 };
