@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "react": "16.13.1",
-    "react-native": "0.63.4"
+    "react-native": "0.63.4",
+    "feta": "1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.17",

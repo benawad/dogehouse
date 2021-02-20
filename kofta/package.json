@@ -33,7 +33,8 @@
     "twind": "^0.14.6",
     "typescript": "^4.0.3",
     "web-vitals": "^0.2.4",
-    "zustand": "^3.3.1"
+    "zustand": "^3.3.1",
+    "feta": "1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
