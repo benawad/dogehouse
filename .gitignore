@@ -1,3 +1,8 @@
 .DS_Store
+
+# Docker stuff
 docker-compose.yml
 .docker/*
+
+# Local Netlify folder
+.netlify

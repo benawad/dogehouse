@@ -30,7 +30,13 @@ export const Home: React.FC<HomeProps> = () => {
   }, []);
 
   return (
-    <>
+    <div
+      style={{
+        display: "grid",
+        gridTemplateRows: "1fr auto",
+      }}
+      className={tw`flex-1`}
+    >
       <Wrapper>
         <div className={tw`mb-10 mt-8`}>
           <Logo />
@@ -64,7 +70,7 @@ export const Home: React.FC<HomeProps> = () => {
             />
           </div>
         ) : null}
-        {rooms.map(r =>
+        {rooms.map((r) =>
           r.id === currentRoom?.id ? null : (
             <div className={tw(`mt-4`)} key={r.id}>
               <RoomCard
@@ -76,7 +82,7 @@ export const Home: React.FC<HomeProps> = () => {
                 currentRoomId={currentRoom?.id}
               />
             </div>
-          ),
+          )
         )}
         {nextCursor ? (
           <div className={tw`flex justify-center my-10`}>
@@ -113,6 +119,6 @@ export const Home: React.FC<HomeProps> = () => {
       {showCreateRoomModal ? (
         <CreateRoomModal onRequestClose={() => setShowCreateRoomModal(false)} />
       ) : null}
-    </>
+    </div>
   );
 };
