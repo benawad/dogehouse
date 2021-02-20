@@ -2,7 +2,7 @@ import { useAtom } from "jotai";
 import React from "react";
 import { meAtom } from "../atoms";
 import { Codicon } from "../svgs/Codicon";
-import { CurrentRoom, Room } from "../types";
+import { CurrentRoom, Room } from "feta/types";
 
 import "./RoomCard.css";
 
@@ -68,12 +68,12 @@ export const RoomCard: React.FC<RoomProps> = ({
               fontSize: "calc(var(--vscode-font-size)*1.2)",
               flex: 1,
               color: "#D9D9D9",
-              display: "-webkit-box",  
+              display: "-webkit-box",
               WebkitBoxOrient: "vertical",
               overflowWrap: "break-word",
               WebkitLineClamp: 3,
               overflow: "hidden",
-              textOverflow: "ellipsis"
+              textOverflow: "ellipsis",
             }}
           >
             {room.name?.slice(0, 100)}

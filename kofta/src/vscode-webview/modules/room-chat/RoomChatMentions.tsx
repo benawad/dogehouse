@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { tw } from "twind";
 import { useRoomChatStore } from "./useRoomChatStore";
 import { Avatar } from "../../components/Avatar";
-import { User } from "../../types";
+import { User } from "feta/types";
 import { currentRoomAtom, meAtom } from "../../atoms";
 
 interface RoomChatMentionsProps {}
@@ -45,7 +45,15 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
         setQueriedUsernames([]);
       } else {
         const usernameMatches = currentRoom.users.filter(
-          ({ id, username, displayName }) =>
+          ({
+            id,
+            username,
+            displayName,
+          }: {
+            id: any;
+            username: any;
+            displayName: any;
+          }) =>
             (username?.toLowerCase().includes(useMention?.toLowerCase()) ||
               displayName?.toLowerCase().includes(useMention?.toLowerCase())) &&
             !mentions.find((m: User) => m.id === id) &&

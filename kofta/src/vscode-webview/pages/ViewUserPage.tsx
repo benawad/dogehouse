@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Backbar } from "../components/Backbar";
 import { UserProfile } from "../components/UserProfile";
 import { Wrapper } from "../components/Wrapper";
-import { User } from "../types";
+import { User } from "feta/types";
 
 interface ViewUserPageProps {}
 

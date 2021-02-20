@@ -2,8 +2,8 @@ import { useAtom } from "jotai";
 import React, { useState } from "react";
 import { Redirect, useRouteMatch } from "react-router-dom";
 import { tw } from "twind";
-import { wsend } from "../../createWebsocket";
-import { useMuteStore } from "../../webrtc/stores/useMuteStore";
+import { wsend } from "feta/createWebsocket";
+import { useMuteStore } from "feta/webrtc/stores/useMuteStore";
 import { currentRoomAtom, meAtom, myCurrentRoomInfoAtom } from "../atoms";
 import { Backbar } from "../components/Backbar";
 import { BottomVoiceControl } from "../components/BottomVoiceControl";
@@ -15,8 +15,8 @@ import { modalPrompt } from "../components/PromptModal";
 import { RoomUserNode } from "../components/RoomUserNode";
 import { Wrapper } from "../components/Wrapper";
 import { Codicon } from "../svgs/Codicon";
-import { User } from "../types";
-import { isUuid } from "../utils/isUuid";
+import { User } from "feta/types";
+import { isUuid } from "feta/utils/isUuid";
 
 interface RoomPageProps {}
 
@@ -52,13 +52,13 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
     );
   }
 
-  const profile = room.users.find((x) => x.id === userProfileId);
+  const profile = room.users.find((x: any) => x.id === userProfileId);
 
   const speakers: User[] = [];
   const unansweredHands: User[] = [];
   const listeners: User[] = [];
 
-  room.users.forEach((u) => {
+  room.users.forEach((u: any) => {
     if (u.id === room.creatorId || u.canSpeakForRoomId === room.id) {
       speakers.push(u);
     } else if (u.id in room.raiseHandMap) {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { recordKeyCombination } from "react-hotkeys";
 import { tw } from "twind";
-import { useKeyMapStore } from "../../../webrtc/stores/useKeyMapStore";
+import { useKeyMapStore } from "feta/webrtc/stores/useKeyMapStore";
 import { Button } from "../Button";
 
 interface MuteKeybindProps {

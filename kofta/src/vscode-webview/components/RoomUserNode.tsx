@@ -1,6 +1,6 @@
 import React from "react";
-import { wsend } from "../../createWebsocket";
-import { CurrentRoom, User } from "../types";
+import { wsend } from "feta/createWebsocket";
+import { CurrentRoom, User } from "feta/types";
 import { UserNode } from "./UserNode";
 
 interface RoomUserNodeProps {

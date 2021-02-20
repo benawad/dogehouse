@@ -1,6 +1,6 @@
 import { useAtom } from "jotai";
 import React, { useLayoutEffect } from "react";
-import { wsend } from "../../../createWebsocket";
+import { wsend } from "feta/createWebsocket";
 import { currentRoomAtom, meAtom, myCurrentRoomInfoAtom } from "../../atoms";
 import { ProfileModal } from "../../components/ProfileModal";
 
@@ -16,9 +16,11 @@ export const ProfileModalFetcher: React.FC<ProfileModalFetcherProps> = ({
   const [room] = useAtom(currentRoomAtom);
   const [me] = useAtom(meAtom);
   const [{ isMod: iAmMod, isCreator: iAmCreator }] = useAtom(
-    myCurrentRoomInfoAtom,
+    myCurrentRoomInfoAtom
   );
-  const profile = room?.users.find(x => [x.id, x.username].includes(userId));
+  const profile = room?.users.find((x: any) =>
+    [x.id, x.username].includes(userId)
+  );
 
   useLayoutEffect(() => {
     if (

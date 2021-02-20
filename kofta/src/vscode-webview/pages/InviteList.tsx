@@ -3,7 +3,7 @@ import { useAtom } from "jotai";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import { tw } from "twind";
-import { wsend } from "../../createWebsocket";
+import { wsend } from "feta/createWebsocket";
 import { currentRoomAtom, inviteListAtom } from "../atoms";
 import { Avatar } from "../components/Avatar";
 import { Backbar } from "../components/Backbar";
