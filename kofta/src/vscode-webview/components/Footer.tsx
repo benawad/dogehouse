@@ -38,6 +38,7 @@ export const Footer: React.FC<FooterProps> = ({ isLogin }) => {
         style={{ color: "var(--vscode-textLink-foreground)" }}
         href="https://github.com/benawad/dogehouse/blob/prod/CHANGELOG.md"
         target="_blank"
+        rel="noreferrer"
       >
         What's new?
       </a>
