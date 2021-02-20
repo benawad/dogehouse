@@ -71,7 +71,8 @@ export const Routes: React.FC<RoutesProps> = () => {
         }
       },
     });
-  }, [me, iAmMentioned, open, addMultipleWsListener]); // Add addMultipleWsListener to dependency array to disable warning
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [me, iAmMentioned, open]);
 
   useEffect(() => {
     addMultipleWsListener({
