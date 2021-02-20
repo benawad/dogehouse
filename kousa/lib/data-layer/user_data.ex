@@ -266,7 +266,7 @@ defmodule Kousa.Data.User do
          Repo.insert!(
            %User{
              username: Kousa.Random.big_ascii_id(),
-             email: user.email,
+             email: if(user.email == "", do: nil, else: user.email),
              twitterId: user.twitterId,
              avatarUrl: user.avatarUrl,
              displayName:
@@ -317,7 +317,7 @@ defmodule Kousa.Data.User do
            %User{
              username: Kousa.Random.big_ascii_id(),
              githubId: githubId,
-             email: user["email"],
+             email: if(user["email"] == "", do: nil, else: user["email"]),
              githubAccessToken: github_access_token,
              avatarUrl: user["avatar_url"],
              displayName:
