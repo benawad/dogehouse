@@ -4,7 +4,6 @@ services:
   database:
     # Pulling the image in the latest tag is a disaster.
     image: postgres:13-alpine
-    network_mode: host
     environment: 
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
@@ -12,7 +11,7 @@ services:
     volumes:
     - dbdata:/var/lib/postgresql/data
     ports:
-    - 5432
+    - 5432:5432
   
   # https://github.com/benawad/dogehouse/issues/101#issuecomment-778605325
   adminer:
@@ -44,7 +43,7 @@ services:
     environment:
       # Database of the Postgres server
       # Should be same as your Postgres DB config above
-      - DATABASE_URL=ecto://postgres:postgres@127.0.0.1/postgres
+      - DATABASE_URL=postgres://postgres:postgres@127.0.0.1/postgres
       
       # GitHub username or user ID for the instance owner
       # By default, this should be either Ben's or yours.
@@ -53,14 +52,21 @@ services:
       # RabbitMQ instance
       - RABBITMQ_URL=amqp://192.168.1.165:4001
       
-      # Not needed in dev instances.
-      # But it up to you if you want this.
+      # Not nee
       # - SENTRY_DSN=NO_IDEA_WHAT_THIS_IS
       
       # OAuth stuff
+      ## Get these from either your personal GH account's
+      ## developer settings or through your org's
+      ## settings. Requires signing up to
+      ## GitHub Developer Program.
       - GITHUB_CLIENT_ID=5d5xxxxxxab70
       - GITHUB_CLIENT_SECRET=48xxxxxxxxxxxxd1cd5
-      
+      ## Get these from developers.twitter.com/dashboard
+      ## Requires application for new dev accounts
+      - TWITTER_SECRET_KEY=
+      - TWITER_BEARER_TOKEN=
+
       # Enter some random stuff in these variables
       # to generate some spice.
       - ACCESS_TOKEN_SECRET=8f51exxxxxx7211dd
