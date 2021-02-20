@@ -5,6 +5,7 @@
  * @format
  */
 
+/*
 module.exports = {
   transformer: {
     getTransformOptions: async () => ({
@@ -14,4 +15,21 @@ module.exports = {
       },
     }),
   },
+};
+*/
+const path = require('path');
+
+const linkedLibs = [path.resolve(__dirname, '../', 'node_modules')];
+console.info('CONFIG', linkedLibs);
+
+module.exports = {
+  transformer: {
+    getTransformOptions: async () => ({
+      transform: {
+        experimentalImportSupport: false,
+        inlineRequires: false,
+      },
+    }),
+  },
+  watchFolders: linkedLibs,
 };

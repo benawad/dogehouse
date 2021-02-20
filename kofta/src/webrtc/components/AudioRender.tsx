@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { tw } from "twind";
 import { Button } from "../../vscode-webview/components/Button";
 import { volumeAtom } from "../../vscode-webview/shared-atoms";
-import { useConsumerStore } from "../stores/useConsumerStore";
+import { useConsumerStore } from "feta/webrtc/stores/useConsumerStore";
 
 interface AudioRenderProps {}
 

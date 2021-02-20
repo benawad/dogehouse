@@ -3,9 +3,9 @@ import queryString from "query-string";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { QueryClientProvider } from "react-query";
 import { tw } from "twind";
-import { createWebSocket } from "../createWebsocket";
-import { useSocketStatus } from "../webrtc/stores/useSocketStatus";
-import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
+import { createWebSocket } from "feta/createWebsocket";
+import { useSocketStatus } from "feta/webrtc/stores/useSocketStatus";
+import { useWsHandlerStore } from "feta/webrtc/stores/useWsHandlerStore";
 import { setMeAtom } from "./atoms";
 import { Button } from "./components/Button";
 import { CenterLayout } from "./components/CenterLayout";
@@ -14,7 +14,7 @@ import { Wrapper } from "./components/Wrapper";
 import { Login } from "./pages/Login";
 import { queryClient } from "./queryClient";
 import { Router } from "./Router";
-import { useTokenStore } from "./utils/useTokenStore";
+import { useTokenStore } from "feta/utils/useTokenStore";
 
 interface AppProps {}
 

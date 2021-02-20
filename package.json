@@ -1,6 +1,17 @@
 {
-"name":"dogehouse",
-"private": true,
-"description":"A",
-"workspaces": ["feta", "pilaf", "kofta"]
+  "name": "dogehouse",
+  "private": true,
+  "description": "A",
+  "workspaces": {
+    "packages": [
+      "feta",
+      "pilaf",
+      "kofta"
+    ],
+    "nohoist": [
+      "react-native",
+      "react-native/**",
+      "jetifier"
+    ]
+  }
 }
