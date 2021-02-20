@@ -13,27 +13,29 @@ export const SearchUsersPage: React.FC<SearchUsersProps> = ({}) => {
   const [{ loading }] = useAtom(userSearchAtom);
   const [query, setQuery] = useState("");
   return (
-    <Wrapper>
+    <Wrapper style={{ marginBottom: "auto" }}>
       <Backbar />
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (query) {
-          }
-        }}
-        className={tw`flex`}
-      >
-        <input
-          autoFocus
-          placeholder="search..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        <Button type="submit" variant="small">
-          <Codicon name="search" />
-        </Button>
-      </form>
-      {loading ? <div className={tw`my-8`}>loading...</div> : null}
+      <div style={{ padding: "0 var(--container-paddding)" }}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (query) {
+            }
+          }}
+          className={tw`flex`}
+        >
+          <input
+            autoFocus
+            placeholder="search..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <Button type="submit" variant="small">
+            <Codicon name="search" />
+          </Button>
+        </form>
+        {loading ? <div className={tw`my-8`}>loading...</div> : null}
+      </div>
     </Wrapper>
   );
 };

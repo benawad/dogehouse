@@ -24,37 +24,39 @@ export const BanUsersPage: React.FC<SearchUsersProps> = ({}) => {
   }
 
   return (
-    <Wrapper>
+    <Wrapper style={{ marginBottom: "auto" }}>
       <Backbar />
-      <input
-        className={tw`mb-8`}
-        autoFocus
-        placeholder="username to ban..."
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        className={tw`mb-16`}
-        autoFocus
-        placeholder="reason"
-        value={reason}
-        onChange={(e) => setReason(e.target.value)}
-      />
-      <Button
-        onClick={() => {
-          if (username && reason) {
-            wsend({
-              op: "ban",
-              d: {
-                username,
-                reason,
-              },
-            });
-          }
-        }}
-      >
-        ban
-      </Button>
+      <div style={{ padding: "0 var(--container-paddding)" }}>
+        <input
+          className={tw`mb-8`}
+          autoFocus
+          placeholder="username to ban..."
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          className={tw`mb-16`}
+          autoFocus
+          placeholder="reason"
+          value={reason}
+          onChange={(e) => setReason(e.target.value)}
+        />
+        <Button
+          onClick={() => {
+            if (username && reason) {
+              wsend({
+                op: "ban",
+                d: {
+                  username,
+                  reason,
+                },
+              });
+            }
+          }}
+        >
+          ban
+        </Button>
+      </div>
     </Wrapper>
   );
 };

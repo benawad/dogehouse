@@ -7,9 +7,11 @@ interface VoiceSettingsPageProps {}
 
 export const VoiceSettingsPage: React.FC<VoiceSettingsPageProps> = () => {
   return (
-    <Wrapper>
+    <Wrapper style={{ marginBottom: "auto" }}>
       <Backbar />
-      <VoiceSettings />
+      <div style={{ padding: "0 var(--container-paddding)" }}>
+        <VoiceSettings />
+      </div>
     </Wrapper>
   );
 };

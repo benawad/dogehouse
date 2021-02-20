@@ -17,7 +17,7 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
   const [me] = useAtom(meAtom);
   const history = useHistory();
   return (
-    <Wrapper>
+    <Wrapper style={{ marginBottom: "auto" }}>
       <Backbar actuallyGoBack>
         <div className={tw`ml-auto flex items-center`}>
           <Button
@@ -35,9 +35,11 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
           </Button>
         </div>
       </Backbar>
-      {me ? <UserProfile profile={me} /> : <div>probably loading...</div>}
-      <h1 className={tw`py-8 text-4xl`}>Voice Settings</h1>
-      <VoiceSettings />
+      <div style={{ padding: "0 var(--container-paddding)" }}>
+        {me ? <UserProfile profile={me} /> : <div>probably loading...</div>}
+        <h1 className={tw`py-8 text-4xl`}>Voice Settings</h1>
+        <VoiceSettings />
+      </div>
     </Wrapper>
   );
 };
