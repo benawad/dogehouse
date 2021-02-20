@@ -35,17 +35,17 @@ export const modalPrompt = (
 };
 
 export const PromptModal: React.FC<Props> = () => {
+  function confirm(e: MouseEvent | React.FormEvent) {
+    e.preventDefault();
+    close();
+    onConfirm?.(value);
+  }
+
   const { onConfirm, message, close, value, set } = usePromptModalStore();
   return (
     <Modal isOpen={!!onConfirm} onRequestClose={() => close()}>
       <div className={tw`mb-4`}>{message}</div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          close();
-          onConfirm?.(value);
-        }}
-      >
+      <form onSubmit={confirm}>
         <Input
           autoFocus
           value={value}
@@ -61,7 +61,7 @@ export const PromptModal: React.FC<Props> = () => {
         >
           cancel
         </Button>
-        <Button type="submit" style={{ marginLeft: 8 }}>
+        <Button type="submit" style={{ marginLeft: 8 }} onClick={confirm}>
           ok
         </Button>
       </div>
