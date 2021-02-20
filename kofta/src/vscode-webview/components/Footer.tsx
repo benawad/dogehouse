@@ -2,10 +2,10 @@ import React from "react";
 import { tw } from "twind";
 
 interface FooterProps {
-  isLogin?: boolean
+  isLogin?: boolean;
 }
 
-export const Footer: React.FC<FooterProps> = ({isLogin}) => {
+export const Footer: React.FC<FooterProps> = ({ isLogin }) => {
   return (
     <div className={tw`justify-around flex`}>
       <a
@@ -14,12 +14,14 @@ export const Footer: React.FC<FooterProps> = ({isLogin}) => {
       >
         Investors
       </a>
-      {isLogin ? <a
-        href="https://www.youtube.com/watch?v=hy-EhJ_tTQo"
-        style={{ color: "var(--vscode-textLink-foreground)" }}
-      >
-        Origin Story
-      </a> : null}
+      {isLogin ? (
+        <a
+          href="https://www.youtube.com/watch?v=hy-EhJ_tTQo"
+          style={{ color: "var(--vscode-textLink-foreground)" }}
+        >
+          Origin Story
+        </a>
+      ) : null}
       <a
         href="https://discord.gg/wCbKBZF9cV"
         style={{ color: "var(--vscode-textLink-foreground)" }}
@@ -31,6 +33,14 @@ export const Footer: React.FC<FooterProps> = ({isLogin}) => {
         href="https://github.com/benawad/dogehouse/issues"
       >
         Report a Bug
+      </a>
+      <a
+        style={{ color: "var(--vscode-textLink-foreground)" }}
+        href="https://github.com/benawad/dogehouse/blob/prod/CHANGELOG.md"
+        target="_blank"
+        rel="noreferrer"
+      >
+        What's new?
       </a>
     </div>
   );

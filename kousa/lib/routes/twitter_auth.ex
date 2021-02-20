@@ -2,7 +2,7 @@ defmodule Kousa.TwitterAuth do
   import Plug.Conn
   use Plug.Router
 
-  alias Kousa.{Redirect, Data, Random}
+  alias Kousa.{Redirect, Data}
 
   plug(:match)
   plug(:dispatch)

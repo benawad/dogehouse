@@ -51,20 +51,20 @@ export const PromptModal: React.FC<Props> = () => {
           value={value}
           onChange={(e) => set({ value: e.target.value })}
         />
+        <div className={tw`flex mt-12`}>
+          <Button
+            type="button"
+            onClick={close}
+            style={{ marginRight: 8 }}
+            color="secondary"
+          >
+            cancel
+          </Button>
+          <Button type="submit" style={{ marginLeft: 8 }}>
+            ok
+          </Button>
+        </div>
       </form>
-      <div className={tw`flex mt-12`}>
-        <Button
-          type="button"
-          onClick={close}
-          style={{ marginRight: 8 }}
-          color="secondary"
-        >
-          cancel
-        </Button>
-        <Button type="submit" style={{ marginLeft: 8 }}>
-          ok
-        </Button>
-      </div>
     </Modal>
   );
 };
