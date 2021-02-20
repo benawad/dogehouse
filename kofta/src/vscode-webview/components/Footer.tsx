@@ -35,12 +35,13 @@ export const Footer: React.FC<FooterProps> = ({ isLogin }) => {
       >
         Report a Bug
       </a>
-      <RouterLink
+      <a
         style={{ color: "var(--vscode-textLink-foreground)" }}
-        to="/change-log"
+        href="https://github.com/benawad/dogehouse/blob/prod/CHANGELOG.md"
+        target="_blank"
       >
         What's new?
-      </RouterLink>
+      </a>
     </div>
   );
 };
