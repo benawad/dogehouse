@@ -3,7 +3,7 @@ defmodule Beef.Repo.Migrations.ExternalProfileLink do
 
   def change do
     alter table(:users) do
-      add :externalProfileLink, :text, default: nil, allow_nil: true
+      add :externalProfileLink, :string, default: nil, allow_nil: true
     end
   end
 end
