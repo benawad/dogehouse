@@ -49,6 +49,7 @@ export const Login: React.FC<LoginProps> = () => {
           </ul>
           <div className={tw`mb-8`}>
             <Button
+              variant="slim"
               onClick={() =>
                 (window.location.href =
                   apiBaseUrl +
@@ -62,6 +63,7 @@ export const Login: React.FC<LoginProps> = () => {
             </Button>
           </div>
           <Button
+            variant="slim"
             onClick={() =>
               (window.location.href =
                 apiBaseUrl +
@@ -75,6 +77,7 @@ export const Login: React.FC<LoginProps> = () => {
           </Button>
           {process.env.NODE_ENV === "development" ? (
             <Button
+              variant="slim"
               style={{ marginTop: 32 }}
               onClick={() => {
                 modalPrompt("username", async (name) => {
