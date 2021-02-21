@@ -8,7 +8,7 @@ interface VoiceSettingsPageProps {}
 export const VoiceSettingsPage: React.FC<VoiceSettingsPageProps> = () => {
   return (
     <Wrapper>
-      <Backbar />
+      <Backbar actuallyGoBack />
       <VoiceSettings />
     </Wrapper>
   );
