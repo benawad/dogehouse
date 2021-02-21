@@ -14,6 +14,6 @@ defmodule Kousa.Data.UserBlock do
   def insert(data) do
     %Beef.UserBlock{}
     |> Beef.UserBlock.insert_changeset(data)
-    |> Beef.Repo.insert()
+    |> Beef.Repo.insert(on_conflict: :nothing)
   end
 end
