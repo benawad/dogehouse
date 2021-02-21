@@ -2,11 +2,12 @@ import { Formik } from "formik";
 import { useAtom } from "jotai";
 import React from "react";
 import { useMutation } from "react-query";
-import { object, pattern, size, string, optional } from "superstruct";
+import { object, pattern, size, string, union, empty } from "superstruct";
 import { tw } from "twind";
 import { wsFetch } from "../../createWebsocket";
 import { setMeAtom } from "../atoms";
 import { User } from "../types";
+import { linkRegex } from "../utils/linkRegex";
 import { showErrorToast } from "../utils/showErrorToast";
 import { validateStruct } from "../utils/validateStruct";
 import { Button } from "./Button";
@@ -18,9 +19,7 @@ const profileStruct = object({
   displayName: size(string(), 2, 50),
   username: pattern(string(), /^(\w){4,15}$/),
   bio: size(string(), 2, 160),
-  externalProfileLink: optional(
-    pattern(string(), /(^(http|https):\/\/[^ "]{1,255}$|)/)
-  ),
+  externalProfileLink: union([pattern(string(), linkRegex), empty(string())]),
 });
 
 interface Shared {
@@ -56,7 +55,12 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
           onSubmit={async (data) => {
             const { isUsernameTaken } = ((await mutateAsync({
               op: "edit_profile",
-              d: { data },
+              d: {
+                data: {
+                  ...data,
+                  externalProfileLink: data.externalProfileLink || null,
+                },
+              },
             })) as unknown) as { isUsernameTaken: boolean };
             if (isUsernameTaken) {
               showErrorToast("username taken");
@@ -83,7 +87,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
               />
               <FieldSpacer />
               <InputField
-                hint="This will open up when somebody clicks on your username"
+                hint="This link will open when somebody clicks on your username"
                 errorMsg="must be a valid url and length 1 to 255 characters"
                 label="Username link (optional)"
                 name="externalProfileLink"

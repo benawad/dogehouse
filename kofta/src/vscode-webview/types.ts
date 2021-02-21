@@ -25,7 +25,7 @@ export type User = {
   currentRoom?: Room;
   followsYou?: boolean;
   youAreFollowing?: boolean;
-  externalProfileLink?: string;
+  externalProfileLink?: string | null;
 };
 
 export type CurrentRoom = Room & {

@@ -1,5 +1,6 @@
 import { User } from "../types";
 import normalizeUrl from "normalize-url";
+import { linkRegex } from "./linkRegex";
 
 export const createChatMessage = (message: string, mentions: User[]) => {
   const tokens = ([] as unknown) as [
@@ -10,9 +11,7 @@ export const createChatMessage = (message: string, mentions: User[]) => {
   ];
 
   message.split(" ").forEach((item) => {
-    const isLink = /(https?:\/\/|)[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/.test(
-      item
-    );
+    const isLink = linkRegex.test(item);
     const isMention = mentions.find(
       (m) => item.replace("@", "") === m.username
     );
