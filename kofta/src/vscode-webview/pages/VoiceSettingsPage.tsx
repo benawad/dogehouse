@@ -1,5 +1,6 @@
 import React from "react";
 import { Backbar } from "../components/Backbar";
+import { BodyWrapper } from "../components/BodyWrapper";
 import { VoiceSettings } from "../components/VoiceSettings";
 import { Wrapper } from "../components/Wrapper";
 
@@ -9,7 +10,9 @@ export const VoiceSettingsPage: React.FC<VoiceSettingsPageProps> = () => {
   return (
     <Wrapper>
       <Backbar actuallyGoBack />
-      <VoiceSettings />
+      <BodyWrapper>
+        <VoiceSettings />
+      </BodyWrapper>
     </Wrapper>
   );
 };

@@ -1,7 +1,7 @@
 defmodule Kousa.SocketHandler do
   require Logger
 
-  alias Kousa.{BL}
+  alias Kousa.{BL, Data}
 
   defmodule State do
     @type t :: %__MODULE__{
@@ -369,12 +369,6 @@ defmodule Kousa.SocketHandler do
     {:ok, state}
   end
 
-  def handler("add_speaker_from_hand", %{"userId" => user_id_to_make_speaker}, state) do
-    Kousa.BL.Room.make_speaker(state.user_id, user_id_to_make_speaker, true)
-
-    {:ok, state}
-  end
-
   def handler("add_speaker", %{"userId" => user_id_to_make_speaker}, state) do
     Kousa.BL.Room.make_speaker(state.user_id, user_id_to_make_speaker)
     {:ok, state}
@@ -469,7 +463,7 @@ defmodule Kousa.SocketHandler do
   def handler("get_current_room_users", _data, state) do
     {room_id, users} = Kousa.Data.User.get_users_in_current_room(state.user_id)
 
-    {muteMap, raiseHandMap, autoSpeaker} =
+    {muteMap, autoSpeaker} =
       cond do
         not is_nil(room_id) ->
           case GenRegistry.lookup(Kousa.Gen.RoomSession, room_id) do
@@ -477,54 +471,46 @@ defmodule Kousa.SocketHandler do
               GenServer.call(session, {:get_maps})
 
             _ ->
-              {%{}, %{}, false}
+              {%{}, false}
           end
 
         true ->
-          {%{}, %{}, false}
+          {%{}, false}
       end
 
     {:reply,
-     construct_socket_msg(state.encoding, state.compression, %{
-       op: "get_current_room_users_done",
-       d: %{
-         users: users,
-         muteMap: muteMap,
-         raiseHandMap: raiseHandMap,
-         roomId: room_id,
-         autoSpeaker: autoSpeaker
-       }
-     }), state}
-  end
-
-  def handler("decline_hand", %{"userId" => userId}, state) do
-    room = Kousa.Data.Room.get_room_by_creator_id(state.user_id)
-
-    if not is_nil(room) do
-      Kousa.RegUtils.lookup_and_cast(
-        Kousa.Gen.RoomSession,
-        room.id,
-        {:answer_hand, userId, 0}
-      )
-    end
-
-    {:ok, state}
+     prepare_socket_msg(
+       %{
+         op: "get_current_room_users_done",
+         d: %{
+           users: users,
+           muteMap: muteMap,
+           # @deprecated
+           raiseHandMap: %{},
+           roomId: room_id,
+           autoSpeaker: autoSpeaker
+         }
+       },
+       state
+     ), state}
   end
 
   def handler("ask_to_speak", _data, state) do
-    user = Kousa.Data.User.get_by_id(state.user_id)
-
-    if not is_nil(user.currentRoomId) do
-      case Kousa.RegUtils.lookup_and_call(
-             Kousa.Gen.RoomSession,
-             user.currentRoomId,
-             {:raise_hand, user.id}
-           ) do
-        {:ok, :speaker} ->
-          Kousa.BL.Room.internal_set_speaker(state.user_id, false, user.currentRoomId)
+    with {:ok, room_id} <- Kousa.Data.User.tuple_get_current_room_id(state.user_id) do
+      case Data.RoomPermission.ask_to_speak(state.user_id, room_id) do
+        {:ok, %{isSpeaker: true}} ->
+          Kousa.BL.Room.internal_set_speaker(state.user_id, room_id)
 
         _ ->
-          nil
+          Kousa.RegUtils.lookup_and_cast(
+            Kousa.Gen.RoomSession,
+            room_id,
+            {:send_ws_msg, :vscode,
+             %{
+               op: "hand_raised",
+               d: %{userId: state.user_id, roomId: room_id}
+             }}
+          )
       end
     end
 

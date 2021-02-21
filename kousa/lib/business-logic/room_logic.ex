@@ -1,6 +1,6 @@
 defmodule Kousa.BL.Room do
   use Kousa.Dec.Atomic
-  alias Kousa.{Data, RegUtils, Gen}
+  alias Kousa.{Data, RegUtils, Gen, Caster}
 
   def set_auto_speaker(user_id, value) do
     room = Kousa.Data.Room.get_room_by_creator_id(user_id)
@@ -56,13 +56,9 @@ defmodule Kousa.BL.Room do
   end
 
   def block_from_room(user_id, user_id_to_block_from_room) do
-    user = Kousa.Data.User.get_by_id(user_id)
-
-    if not is_nil(user) and not is_nil(user.currentRoomId) do
-      room = Kousa.Data.Room.get_room_by_id(user.currentRoomId)
-
-      if room.creatorId != user_id_to_block_from_room and
-           (room.creatorId == user_id or room.id == user.modForRoomId) do
+    with {status, room} when status in [:creator, :mod] <-
+           Kousa.Data.Room.get_room_status(user_id) do
+      if room.creatorId != user_id_to_block_from_room do
         Kousa.Data.RoomBlock.insert(%{
           modId: user_id,
           userId: user_id_to_block_from_room,
@@ -79,21 +75,19 @@ defmodule Kousa.BL.Room do
   end
 
   defp internal_set_listener(user_id_to_make_listener, room_id) do
-    {rows_affected, _} = Kousa.Data.User.set_speaker(user_id_to_make_listener, room_id)
+    Data.RoomPermission.make_listener(user_id_to_make_listener, room_id)
 
-    if rows_affected == 1 do
-      Kousa.Gen.Rabbit.send(%{
-        op: "remove-speaker",
-        d: %{roomId: room_id, peerId: user_id_to_make_listener},
-        uid: user_id_to_make_listener
-      })
+    Kousa.Gen.Rabbit.send(%{
+      op: "remove-speaker",
+      d: %{roomId: room_id, peerId: user_id_to_make_listener},
+      uid: user_id_to_make_listener
+    })
 
-      Kousa.RegUtils.lookup_and_cast(
-        Kousa.Gen.RoomSession,
-        room_id,
-        {:speaker_removed, user_id_to_make_listener}
-      )
-    end
+    Kousa.RegUtils.lookup_and_cast(
+      Kousa.Gen.RoomSession,
+      room_id,
+      {:speaker_removed, user_id_to_make_listener}
+    )
   end
 
   def set_listener(user_id, user_id_to_set_listener) do
@@ -115,11 +109,10 @@ defmodule Kousa.BL.Room do
     end
   end
 
-  @spec internal_set_speaker(any, any, any) :: nil | :ok | {:err, {:error, :not_found}}
-  def internal_set_speaker(user_id_to_make_speaker, from_hand, room_id) do
-    {rows_affected, _} = Kousa.Data.User.set_speaker(user_id_to_make_speaker, room_id)
-
-    if rows_affected == 1 do
+  @spec internal_set_speaker(any, any) :: nil | :ok | {:err, {:error, :not_found}}
+  def internal_set_speaker(user_id_to_make_speaker, room_id) do
+    with {:ok, _} <-
+           Kousa.Data.RoomPermission.set_is_speaker(user_id_to_make_speaker, room_id, true) do
       Kousa.Gen.Rabbit.send(%{
         op: "add-speaker",
         d: %{roomId: room_id, peerId: user_id_to_make_speaker},
@@ -137,38 +130,16 @@ defmodule Kousa.BL.Room do
              Kousa.Gen.UserSession.send_call!(user_id_to_make_speaker, {:get, :muted})}
           )
 
-          if from_hand do
-            GenServer.cast(
-              session,
-              {:answer_hand, user_id_to_make_speaker, 1}
-            )
-          end
-
         err ->
           {:err, err}
       end
     end
   end
 
-  def make_speaker(user_id, user_id_to_make_speaker, from_hand \\ false) do
-    room_id = Data.User.get_current_room_id(user_id)
-
-    if room_id do
-      case RegUtils.lookup_and_call(
-             Gen.RoomSession,
-             room_id,
-             {:has_raised_hand, user_id_to_make_speaker}
-           ) do
-        {:ok, true} ->
-          {status, room} = Kousa.Data.Room.get_room_status(user_id)
-
-          if status == :creator or status == :mod do
-            internal_set_speaker(user_id_to_make_speaker, from_hand, room.id)
-          end
-
-        _ ->
-          nil
-      end
+  def make_speaker(user_id, user_id_to_make_speaker) do
+    with {status, room} when status in [:creator, :mod] <-
+           Kousa.Data.Room.get_room_status(user_id) do
+      internal_set_speaker(user_id_to_make_speaker, room.id)
     end
   end
 
@@ -176,8 +147,7 @@ defmodule Kousa.BL.Room do
     room = Kousa.Data.Room.get_room_by_creator_id(user_id)
 
     if room do
-      modForRoomId = if(value, do: room.id, else: nil)
-      Kousa.Data.User.change_mod(user_id_to_change, modForRoomId)
+      Kousa.Data.RoomPermission.set_is_mod(user_id_to_change, room.id, Caster.bool(value))
 
       Kousa.RegUtils.lookup_and_cast(
         Kousa.Gen.RoomSession,
@@ -185,7 +155,7 @@ defmodule Kousa.BL.Room do
         {:send_ws_msg, :vscode,
          %{
            op: "mod_changed",
-           d: %{roomId: room.id, userId: user_id_to_change, modForRoomId: modForRoomId}
+           d: %{roomId: room.id, userId: user_id_to_change}
          }}
       )
     end
@@ -196,7 +166,7 @@ defmodule Kousa.BL.Room do
       if is_nil(is_speaker),
         do:
           Kousa.Data.Room.is_owner(current_room_id, user_id) or
-            Kousa.Data.Room.is_speaker(current_room_id, user_id),
+            Kousa.Data.RoomPermission.is_speaker(current_room_id, user_id),
         else: is_speaker
 
     op =

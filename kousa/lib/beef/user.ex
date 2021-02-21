@@ -11,14 +11,13 @@ defmodule Beef.User do
              :online,
              :lastOnline,
              :currentRoomId,
-             :modForRoomId,
-             :canSpeakForRoomId,
              :displayName,
              :numFollowing,
              :numFollowers,
              :currentRoom,
              :youAreFollowing,
              :followsYou,
+             :roomPermissions
            ]}
   @primary_key {:id, :binary_id, []}
   schema "users" do
@@ -39,10 +38,9 @@ defmodule Beef.User do
     field(:lastOnline, :naive_datetime)
     field(:youAreFollowing, :boolean, virtual: true)
     field(:followsYou, :boolean, virtual: true)
+    field(:roomPermissions, :map, virtual: true, null: true)
 
     belongs_to(:currentRoom, Beef.Room, foreign_key: :currentRoomId, type: :binary_id)
-    belongs_to(:modForRoom, Beef.Room, foreign_key: :modForRoomId, type: :binary_id)
-    belongs_to(:canSpeakForRoom, Beef.Room, foreign_key: :canSpeakForRoomId, type: :binary_id)
 
     timestamps()
   end

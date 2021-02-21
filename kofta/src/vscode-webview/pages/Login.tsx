@@ -12,6 +12,7 @@ import { CenterLayout } from "../components/CenterLayout";
 import { modalPrompt, PromptModal } from "../components/PromptModal";
 import { AlertModal } from "../components/AlertModal";
 import { ConfirmModal } from "../components/ConfirmModal";
+import { BodyWrapper } from "../components/BodyWrapper";
 
 interface LoginProps {}
 
@@ -25,74 +26,79 @@ export const Login: React.FC<LoginProps> = () => {
   return (
     <CenterLayout>
       <Wrapper>
-        <div className={tw`my-8`}>
-          <Logo />
-        </div>
-        <div className={tw`text-2xl`}>The home for voice conversations.</div>
-        <ul className={tw`my-4 mb-8 text-xl`}>
-          <li>- Dark theme</li>
-          <li>- Open sign ups</li>
-          <li>- Cross platform support</li>
-          <li>
-            -
-            <a
-              style={{ color: "var(--vscode-textLink-foreground)" }}
-              href="https://github.com/benawad/dogehouse"
+        <BodyWrapper>
+          <div className={tw`my-8`}>
+            <Logo />
+          </div>
+          <div className={tw`text-2xl`}>The home for voice conversations.</div>
+          <ul className={tw`my-4 mb-8 text-xl`}>
+            <li>- Dark theme</li>
+            <li>- Open sign ups</li>
+            <li>- Cross platform support</li>
+            <li>
+              -
+              <a
+                style={{ color: "var(--vscode-textLink-foreground)" }}
+                href="https://github.com/benawad/dogehouse"
+              >
+                Open Source
+              </a>
+            </li>
+            <li>- Text chat</li>
+            <li>- Powered by Ɖoge</li>
+          </ul>
+          <div className={tw`mb-8`}>
+            <Button
+              variant="slim"
+              onClick={() =>
+                (window.location.href =
+                  apiBaseUrl +
+                  "/auth/github/web" +
+                  (process.env.REACT_APP_IS_STAGING === "true"
+                    ? "?redirect_after_base=" + window.location.origin
+                    : ""))
+              }
             >
-              Open Source
-            </a>
-          </li>
-          <li>- Text chat</li>
-          <li>- Powered by Ɖoge</li>
-        </ul>
-        <div className={tw`mb-8`}>
+              login with GitHub
+            </Button>
+          </div>
           <Button
+            variant="slim"
             onClick={() =>
               (window.location.href =
                 apiBaseUrl +
-                "/auth/github/web" +
+                "/auth/twitter/web" +
                 (process.env.REACT_APP_IS_STAGING === "true"
                   ? "?redirect_after_base=" + window.location.origin
                   : ""))
             }
           >
-            login with GitHub
+            login with Twitter
           </Button>
-        </div>
-        <Button
-          onClick={() =>
-            (window.location.href =
-              apiBaseUrl +
-              "/auth/twitter/web" +
-              (process.env.REACT_APP_IS_STAGING === "true"
-                ? "?redirect_after_base=" + window.location.origin
-                : ""))
-          }
-        >
-          login with Twitter
-        </Button>
-        {process.env.NODE_ENV === "development" ? (
-          <Button
-            style={{ marginTop: 32 }}
-            onClick={() => {
-              modalPrompt("username", async (name) => {
-                if (!name) {
-                  return;
-                }
-                const r = await fetch(
-                  `${apiBaseUrl}/dev/test-info?username=` + name
-                );
-                const d = await r.json();
-                useTokenStore.getState().setTokens({
-                  accessToken: d.accessToken,
-                  refreshToken: d.refreshToken,
+          {process.env.NODE_ENV === "development" ? (
+            <Button
+              variant="slim"
+              style={{ marginTop: 32 }}
+              onClick={() => {
+                modalPrompt("username", async (name) => {
+                  if (!name) {
+                    return;
+                  }
+                  const r = await fetch(
+                    `${apiBaseUrl}/dev/test-info?username=` + name
+                  );
+                  const d = await r.json();
+                  useTokenStore.getState().setTokens({
+                    accessToken: d.accessToken,
+                    refreshToken: d.refreshToken,
+                  });
                 });
-              });
-            }}
-          >
-            create test user
-          </Button>
-        ) : null}
+              }}
+            >
+              create test user
+            </Button>
+          ) : null}
+        </BodyWrapper>
       </Wrapper>
       <div
         style={{

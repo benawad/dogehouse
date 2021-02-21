@@ -5,6 +5,7 @@ import { tw } from "twind";
 import { closeWebSocket } from "../../createWebsocket";
 import { meAtom } from "../atoms";
 import { Backbar } from "../components/Backbar";
+import { BodyWrapper } from "../components/BodyWrapper";
 import { Button } from "../components/Button";
 import { UserProfile } from "../components/UserProfile";
 import { Wrapper } from "../components/Wrapper";
@@ -34,6 +35,7 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
           </Button>
         </div>
       </Backbar>
+              <BodyWrapper>
       {me ? <UserProfile profile={me} /> : <div>probably loading...</div>}
       <div className={tw`pt-6 flex`}>
         <Button
@@ -47,6 +49,7 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
           go to chat settings
         </Button>
       </div>
+              </BodyWrapper>
     </Wrapper>
   );
 };

@@ -1,7 +1,7 @@
-import { User } from "../types";
+import { BaseUser } from "../types";
 import normalizeUrl from "normalize-url";
 
-export const createChatMessage = (message: string, mentions: User[]) => {
+export const createChatMessage = (message: string, mentions: BaseUser[]) => {
   const tokens = ([] as unknown) as [
     {
       t: string;
