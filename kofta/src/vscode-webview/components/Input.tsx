@@ -12,6 +12,11 @@ export const Input = forwardRef<
 
   const [showHint, setShowHint] = useState(false);
 
+  const hintEvents = {
+    onFocus: () => setShowHint(true),
+    onBlur: () => setShowHint(false),
+  };
+
   return (
     <div className={tw``}>
       {textarea ? (
@@ -19,17 +24,10 @@ export const Input = forwardRef<
           ref={ref as any}
           className={cn}
           {...(props as any)}
-          onFocus={() => setShowHint(true)}
-          onBlur={() => setShowHint(false)}
+          {...hintEvents}
         />
       ) : (
-        <input
-          ref={ref}
-          className={cn}
-          {...props}
-          onFocus={() => setShowHint(true)}
-          onBlur={() => setShowHint(false)}
-        />
+        <input ref={ref} className={cn} {...props} {...hintEvents} />
       )}
       {hint && showHint ? (
         <span className={tw`text-sm text-tmpC1`}>{hint}</span>
