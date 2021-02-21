@@ -7,7 +7,7 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ isLogin }) => {
   return (
-    <div className={tw`justify-around flex`}>
+    <div className={tw`justify-around flex text-center`}>
       <a
         href="https://github.com/benawad/dogehouse#investors"
         style={{ color: "var(--vscode-textLink-foreground)" }}
