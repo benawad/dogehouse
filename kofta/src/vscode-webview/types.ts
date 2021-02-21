@@ -1,3 +1,4 @@
+import { string } from "superstruct";
 export type Room = {
   id: string;
   name: string;
@@ -25,7 +26,7 @@ export type User = {
   currentRoom?: Room;
   followsYou?: boolean;
   youAreFollowing?: boolean;
-  externalProfileLink?: string | null;
+  externalProfileLink?: string;
 };
 
 export type CurrentRoom = Room & {
