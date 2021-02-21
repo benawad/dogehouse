@@ -12,6 +12,7 @@ import { CenterLayout } from "../components/CenterLayout";
 import { modalPrompt, PromptModal } from "../components/PromptModal";
 import { AlertModal } from "../components/AlertModal";
 import { ConfirmModal } from "../components/ConfirmModal";
+import { BodyWrapper } from "../components/BodyWrapper";
 
 interface LoginProps {}
 
@@ -25,27 +26,27 @@ export const Login: React.FC<LoginProps> = () => {
   return (
     <CenterLayout>
       <Wrapper>
-        <div className={tw`my-8`}>
-          <Logo />
-        </div>
-        <div className={tw`text-2xl`}>The home for voice conversations.</div>
-        <ul className={tw`my-4 mb-8 text-xl`}>
-          <li>- Dark theme</li>
-          <li>- Open sign ups</li>
-          <li>- Cross platform support</li>
-          <li>
-            -
-            <a
-              style={{ color: "var(--vscode-textLink-foreground)" }}
-              href="https://github.com/benawad/dogehouse"
-            >
-              Open Source
-            </a>
-          </li>
-          <li>- Text chat</li>
-          <li>- Powered by Ɖoge</li>
-        </ul>
-        <div>
+        <BodyWrapper>
+          <div className={tw`my-8`}>
+            <Logo />
+          </div>
+          <div className={tw`text-2xl`}>The home for voice conversations.</div>
+          <ul className={tw`my-4 mb-8 text-xl`}>
+            <li>- Dark theme</li>
+            <li>- Open sign ups</li>
+            <li>- Cross platform support</li>
+            <li>
+              -
+              <a
+                style={{ color: "var(--vscode-textLink-foreground)" }}
+                href="https://github.com/benawad/dogehouse"
+              >
+                Open Source
+              </a>
+            </li>
+            <li>- Text chat</li>
+            <li>- Powered by Ɖoge</li>
+          </ul>
           <div className={tw`mb-8`}>
             <Button
               variant="slim"
@@ -97,7 +98,7 @@ export const Login: React.FC<LoginProps> = () => {
               create test user
             </Button>
           ) : null}
-        </div>
+        </BodyWrapper>
       </Wrapper>
       <div
         style={{

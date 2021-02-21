@@ -13,6 +13,7 @@ import { CreateRoomModal } from "../components/CreateRoomModal";
 import { ProfileButton } from "../components/ProfileButton";
 import { PeopleIcon } from "../svgs/PeopleIcon";
 import { CircleButton } from "../components/CircleButton";
+import { BodyWrapper } from "../components/BodyWrapper";
 
 interface HomeProps {}
 
@@ -38,67 +39,69 @@ export const Home: React.FC<HomeProps> = () => {
       className={tw`flex-1`}
     >
       <Wrapper>
-        <div className={tw`mb-10 mt-8`}>
-          <Logo />
-        </div>
-        <div className={tw`mb-6 flex justify-center`}>
-          <div
-            style={{
-              marginRight: 18,
-            }}
-          >
-            <CircleButton
-              onClick={() => {
-                wsend({ op: "fetch_following_online", d: { cursor: 0 } });
-                history.push("/following-online");
+        <BodyWrapper>
+          <div className={tw`mb-10 mt-8`}>
+            <Logo />
+          </div>
+          <div className={tw`mb-6 flex justify-center`}>
+            <div
+              style={{
+                marginRight: 18,
               }}
             >
-              <PeopleIcon width={30} height={30} fill="#fff" />
-            </CircleButton>
-          </div>
-          <div style={{ marginLeft: 9 }}>
-            <ProfileButton circle size={60} />
-          </div>
-        </div>
-        {currentRoom ? (
-          <div className={tw`my-8`}>
-            <RoomCard
-              active
-              onClick={() => history.push("/room/" + currentRoom.id)}
-              room={currentRoom}
-              currentRoomId={currentRoom.id}
-            />
-          </div>
-        ) : null}
-        {rooms.map((r) =>
-          r.id === currentRoom?.id ? null : (
-            <div className={tw(`mt-4`)} key={r.id}>
-              <RoomCard
+              <CircleButton
                 onClick={() => {
-                  wsend({ op: "join_room", d: { roomId: r.id } });
-                  history.push("/room/" + r.id);
+                  wsend({ op: "fetch_following_online", d: { cursor: 0 } });
+                  history.push("/following-online");
                 }}
-                room={r}
-                currentRoomId={currentRoom?.id}
+              >
+                <PeopleIcon width={30} height={30} fill="#fff" />
+              </CircleButton>
+            </div>
+            <div style={{ marginLeft: 9 }}>
+              <ProfileButton circle size={60} />
+            </div>
+          </div>
+          {currentRoom ? (
+            <div className={tw`my-8`}>
+              <RoomCard
+                active
+                onClick={() => history.push("/room/" + currentRoom.id)}
+                room={currentRoom}
+                currentRoomId={currentRoom.id}
               />
             </div>
-          )
-        )}
-        {nextCursor ? (
-          <div className={tw`flex justify-center my-10`}>
-            <Button
-              variant="small"
-              onClick={() =>
-                wsend({
-                  op: "get_top_public_rooms",
-                  d: { cursor: nextCursor },
-                })
-              }
-            >
-              load more
-            </Button>
-          </div>
-        ) : null}
+          ) : null}
+          {rooms.map((r) =>
+            r.id === currentRoom?.id ? null : (
+              <div className={tw(`mt-4`)} key={r.id}>
+                <RoomCard
+                  onClick={() => {
+                    wsend({ op: "join_room", d: { roomId: r.id } });
+                    history.push("/room/" + r.id);
+                  }}
+                  room={r}
+                  currentRoomId={currentRoom?.id}
+                />
+              </div>
+            )
+          )}
+          {nextCursor ? (
+            <div className={tw`flex justify-center my-10`}>
+              <Button
+                variant="small"
+                onClick={() =>
+                  wsend({
+                    op: "get_top_public_rooms",
+                    d: { cursor: nextCursor },
+                  })
+                }
+              >
+                load more
+              </Button>
+            </div>
+          ) : null}
+        </BodyWrapper>
       </Wrapper>
       <BottomVoiceControl>
         <div
