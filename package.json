@@ -7,11 +7,6 @@
       "feta",
       "pilaf",
       "kofta"
-    ],
-    "nohoist": [
-      "react-native",
-      "react-native/**",
-      "jetifier"
     ]
   }
 }

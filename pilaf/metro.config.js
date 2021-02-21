@@ -38,6 +38,7 @@ const {
   extraNodeModules,
   watchFolders,
 } = require('react-native-yarn-workspaces-v2')(__dirname);
+const path = require('path');
 
 module.exports = {
   watchFolders,

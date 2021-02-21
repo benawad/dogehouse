@@ -12,10 +12,18 @@
   },
   "dependencies": {
     "@dogehouse/feta": "1.0.0",
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-navigation/bottom-tabs": "^5.11.8",
+    "@react-navigation/native": "^5.9.3",
+    "@react-navigation/stack": "^5.14.3",
     "@types/react": "^17.0.2",
     "@types/react-native": "^0.63.50",
     "react": "16.13.1",
-    "react-native": "0.63.4"
+    "react-native": "0.63.4",
+    "react-native-gesture-handler": "^1.10.1",
+    "react-native-reanimated": "^1.13.2",
+    "react-native-safe-area-context": "^3.1.9",
+    "react-native-screens": "^2.17.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.17",
@@ -33,5 +41,10 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "workspaces": {
+    "nohoist": [
+      "**"
+    ]
   }
 }
