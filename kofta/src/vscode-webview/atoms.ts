@@ -69,7 +69,7 @@ export const myCurrentRoomInfoAtom = atom((get) => {
 
   for (const u of room.users) {
     if (u.id === me.id) {
-      if (u.roomPermissions?.isMod) {
+      if (u.roomPermissions?.isSpeaker) {
         isSpeaker = true;
       }
       if (u.roomPermissions?.isMod) {

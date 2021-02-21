@@ -24,12 +24,15 @@ export const RoomUserNode: React.FC<RoomUserNodeProps> = ({
   const isSpeaker = !!u.roomPermissions?.isSpeaker;
   const canSpeak = isCreator || isSpeaker;
   const isMuted = me?.id === u.id ? muted : room.muteMap[u.id];
+
   return (
     <UserNode
       u={u}
       isMuted={canSpeak && isMuted}
       isCreator={isCreator}
-      isSpeaking={isSpeaker && u.id in room.activeSpeakerMap}
+      isSpeaking={
+        canSpeak && u.id in room.activeSpeakerMap && !room.muteMap[u.id]
+      }
       isMod={!!u.roomPermissions?.isMod}
       isSpeaker={isSpeaker}
       onClick={() => {

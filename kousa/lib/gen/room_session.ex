@@ -199,7 +199,7 @@ defmodule Kousa.Gen.RoomSession do
     {:noreply, state}
   end
 
-  def handle_cast({:mute, user_id, value}, state) do
+  def handle_cast({:mute, user_id, value}, %State{} = state) do
     is_in_map = Map.has_key?(state.muteMap, user_id)
     changed = (not value and is_in_map) or (value and not is_in_map)
 
@@ -217,7 +217,9 @@ defmodule Kousa.Gen.RoomSession do
            if(not value,
              do: Map.delete(state.muteMap, user_id),
              else: Map.put(state.muteMap, user_id, true)
-           )
+           ),
+         activeSpeakerMap:
+           if(value, do: Map.delete(state.activeSpeakerMap, user_id), else: state.activeSpeakerMap)
      }}
   end
 

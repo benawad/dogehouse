@@ -40,7 +40,11 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   const { muted, set } = useMuteStore();
   const [{ canSpeak, isCreator }] = useAtom(myCurrentRoomInfoAtom);
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const [toggleOpen, newUnreadMessages, iAmMentioned] = useRoomChatStore(s => [
+  const [
+    toggleOpen,
+    newUnreadMessages,
+    iAmMentioned,
+  ] = useRoomChatStore((s) => [
     s.toggleOpen,
     s.newUnreadMessages,
     s.iAmMentioned,
@@ -118,7 +122,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           color={iconColor}
         />
         Invite
-      </button>,
+      </button>
     );
     if (isCreator || canSpeak) {
       buttons.push(
@@ -148,7 +152,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             />
           )}
           {muted ? "Unmute" : "Mute"}
-        </button>,
+        </button>
       );
     }
 
@@ -168,7 +172,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             color={iconColor}
           />
           Settings
-        </button>,
+        </button>
       );
     }
   }

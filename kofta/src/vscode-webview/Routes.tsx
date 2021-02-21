@@ -277,7 +277,10 @@ export const Routes: React.FC<RoutesProps> = () => {
             return c;
           }
           if (value) {
-            return { ...c, muteMap: { ...c.muteMap, [userId]: true } };
+            return {
+              ...c,
+              muteMap: { ...c.muteMap, [userId]: true },
+            };
           } else {
             const { [userId]: _, ...newMm } = c.muteMap;
             return {
