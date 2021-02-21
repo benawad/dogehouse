@@ -8,7 +8,6 @@ import { Backbar } from "../components/Backbar";
 import { BodyWrapper } from "../components/BodyWrapper";
 import { Button } from "../components/Button";
 import { UserProfile } from "../components/UserProfile";
-import { VoiceSettings } from "../components/VoiceSettings";
 import { Wrapper } from "../components/Wrapper";
 import { useTokenStore } from "../utils/useTokenStore";
 
@@ -36,11 +35,14 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
           </Button>
         </div>
       </Backbar>
-      <BodyWrapper>
-        {me ? <UserProfile profile={me} /> : <div>probably loading...</div>}
-        <h1 className={tw`py-8 text-4xl`}>Voice Settings</h1>
-        <VoiceSettings />
-      </BodyWrapper>
+              <BodyWrapper>
+      {me ? <UserProfile profile={me} /> : <div>probably loading...</div>}
+      <div className={tw`pt-6`}>
+        <Button variant="small" onClick={() => history.push(`/voice-settings`)}>
+          go to voice settings
+        </Button>
+      </div>
+              </BodyWrapper>
     </Wrapper>
   );
 };
