@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { closeWebSocket, wsend } from "../createWebsocket";
@@ -51,7 +51,10 @@ export const Routes: React.FC<RoutesProps> = () => {
   const [, setFollowingMap] = useAtom(setFollowingMapAtom);
   const [, setFollowingOnline] = useAtom(setFollowingOnlineAtom);
   const [, setInviteList] = useAtom(setInviteListAtom);
+
   const [me] = useAtom(meAtom);
+  const meRef = useRef(me);
+  meRef.current = me;
 
   const { open, iAmMentioned } = useRoomChatStore.getState();
 
@@ -72,7 +75,7 @@ export const Routes: React.FC<RoutesProps> = () => {
           !!msg.tokens.filter(
             (t: RoomChatMessageToken) =>
               t.t === "mention" &&
-              t.v?.toLowerCase() === me?.username?.toLowerCase()
+              t.v?.toLowerCase() === meRef?.current?.username?.toLowerCase()
           ).length
         ) {
           useRoomChatStore.getState().setIAmMentioned(iAmMentioned + 1);
