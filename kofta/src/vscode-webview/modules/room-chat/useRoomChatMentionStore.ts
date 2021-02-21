@@ -1,21 +1,21 @@
 import create from "zustand";
 import { combine } from "zustand/middleware";
-import { User } from "../../types";
+import { BaseUser } from "../../types";
 
 export const useRoomChatMentionStore = create(
   combine(
     {
-      mentions: [] as User[],
-      queriedUsernames: [] as User[],
+      mentions: [] as BaseUser[],
+      queriedUsernames: [] as BaseUser[],
       activeUsername: "",
       iAmMentioned: 0,
     },
     (set) => ({
-      setMentions: (mentions: User[]) =>
+      setMentions: (mentions: BaseUser[]) =>
         set({
           mentions,
         }),
-      setQueriedUsernames: (queriedUsernames: User[]) =>
+      setQueriedUsernames: (queriedUsernames: BaseUser[]) =>
         set({
           queriedUsernames,
         }),
