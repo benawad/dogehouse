@@ -127,26 +127,31 @@ defmodule Kousa.SocketHandler do
                     GenServer.cast(session, {:new_tokens, tokens})
                   end
 
-                  if not is_nil(user.currentRoomId) do
-                    {:ok, room_session} =
-                      GenRegistry.lookup_or_start(Kousa.Gen.RoomSession, user.currentRoomId, [
-                        %{user_id: user_id, room_id: user.currentRoomId, muted: muted}
-                      ])
+                  currentRoom =
+                    if not is_nil(user.currentRoomId) do
+                      {:ok, room_session} =
+                        GenRegistry.lookup_or_start(Kousa.Gen.RoomSession, user.currentRoomId, [
+                          %{user_id: user_id, room_id: user.currentRoomId, muted: muted}
+                        ])
 
-                    GenServer.cast(
-                      room_session,
-                      {:join_room, user, muted}
-                    )
+                      GenServer.cast(
+                        room_session,
+                        {:join_room, user, muted}
+                      )
 
-                    if reconnectToVoice == true do
-                      Kousa.BL.Room.join_vc_room(user.id, user.currentRoomId)
+                      if reconnectToVoice == true do
+                        Kousa.BL.Room.join_vc_room(user.id, user.currentRoomId)
+                      end
+
+                      Kousa.Data.Room.get_room_by_id(user.currentRoomId)
+                    else
+                      nil
                     end
-                  end
 
                   {:reply,
                    construct_socket_msg(state.encoding, state.compression, %{
                      op: "auth-good",
-                     d: %{user: user}
+                     d: %{user: user, currentRoom: currentRoom}
                    }), %{state | user_id: user_id, awaiting_init: false, platform: platform}}
 
                 true ->
