@@ -18,7 +18,8 @@ defmodule Beef.User do
              :numFollowers,
              :currentRoom,
              :youAreFollowing,
-             :followsYou
+             :followsYou,
+             :externalProfileLink
            ]}
   @primary_key {:id, :binary_id, []}
   schema "users" do
@@ -39,6 +40,7 @@ defmodule Beef.User do
     field(:lastOnline, :naive_datetime)
     field(:youAreFollowing, :boolean, virtual: true)
     field(:followsYou, :boolean, virtual: true)
+    field(:externalProfileLink, :string)
 
     belongs_to(:currentRoom, Beef.Room, foreign_key: :currentRoomId, type: :binary_id)
     belongs_to(:modForRoom, Beef.Room, foreign_key: :modForRoomId, type: :binary_id)
@@ -48,18 +50,19 @@ defmodule Beef.User do
   end
 
   @doc false
-  def changeset(user, attrs) do
+  def changeset(user, _attrs) do
     user
     |> validate_required([:username, :githubId, :avatarUrl])
   end
 
   def edit_changeset(user, attrs) do
     user
-    |> cast(attrs, [:id, :username, :bio, :displayName])
+    |> cast(attrs, [:id, :username, :bio, :displayName, :externalProfileLink])
     |> validate_required([:username, :bio, :displayName])
     |> validate_length(:bio, min: 2, max: 160)
     |> validate_length(:displayName, min: 2, max: 50)
     |> validate_format(:username, ~r/^(\w){4,15}$/)
+    |> validate_format(:externalProfileLink, ~r/^(http|https):\/\/[^ "]{1,255}$/)
     |> unique_constraint(:username)
   end
 end

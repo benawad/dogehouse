@@ -2,7 +2,7 @@ import { Formik } from "formik";
 import { useAtom } from "jotai";
 import React from "react";
 import { useMutation } from "react-query";
-import { object, pattern, size, string } from "superstruct";
+import { object, pattern, size, string, optional } from "superstruct";
 import { tw } from "twind";
 import { wsFetch } from "../../createWebsocket";
 import { setMeAtom } from "../atoms";
@@ -18,6 +18,9 @@ const profileStruct = object({
   displayName: size(string(), 2, 50),
   username: pattern(string(), /^(\w){4,15}$/),
   bio: size(string(), 2, 160),
+  externalProfileLink: optional(
+    pattern(string(), /(^(http|https):\/\/[^ "]{1,255}$|)/)
+  ),
 });
 
 interface Shared {
@@ -46,6 +49,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
             displayName: user.displayName,
             username: user.username,
             bio: user.bio,
+            externalProfileLink: user.externalProfileLink || "",
           }}
           validateOnChange={false}
           validate={validateFn}
@@ -57,7 +61,9 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
             if (isUsernameTaken) {
               showErrorToast("username taken");
             } else {
-              setMe((me) => (!me ? me : { ...me, ...data }));
+              setMe((me) => {
+                return !me ? me : { ...me, ...data };
+              });
               onRequestClose();
             }
           }}
@@ -74,6 +80,13 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                 errorMsg="length 4 to 15 characters and only alphanumeric/underscore"
                 label="Username"
                 name="username"
+              />
+              <FieldSpacer />
+              <InputField
+                hint="This will open up when somebody clicks on your username"
+                errorMsg="must be a valid url and length 1 to 255 characters"
+                label="Username link (optional)"
+                name="externalProfileLink"
               />
               <FieldSpacer />
               <InputField
