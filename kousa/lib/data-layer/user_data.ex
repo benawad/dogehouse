@@ -1,8 +1,10 @@
 defmodule Kousa.Data.User do
   import Ecto.Query, warn: false
   alias Beef.{Repo, User}
+  alias Kousa.{Pagination}
 
   @fetch_limit 16
+  @user_room_fetch_limit 4
 
   def edit_profile(user_id, data) do
     %User{id: user_id}
@@ -26,8 +28,7 @@ defmodule Kousa.Data.User do
       )
       |> Beef.Repo.all()
 
-    {Enum.slice(items, 0, -1 + @fetch_limit),
-     if(length(items) == @fetch_limit, do: -1 + offset + @fetch_limit, else: nil)}
+    Pagination.create_tuple(@fetch_limit, items, offset)
   end
 
   def bulk_insert(users) do
@@ -55,20 +56,88 @@ defmodule Kousa.Data.User do
     |> Repo.update_all([])
   end
 
-  def get_users_in_current_room(user_id) do
+  @room_users_order """
+    (case
+      when ? then 1
+      when ? then 2
+      when ? then 3
+      when ? then 4
+      when ? then 5
+      else 6
+    end)
+  """
+  @room_users_sort_key "cast(" <> @room_users_order <> " as text)"
+
+  def get_users_in_current_room_where(q, user_id, cursor) do
+    with [str_n, id] <- String.split(cursor, "|"),
+         {n, _} <- Integer.parse(str_n) do
+      where(
+        q,
+        [u, r, rp],
+        {fragment(
+           @room_users_sort_key,
+           u.id == ^user_id,
+           r.creatorId == u.id,
+           rp.isSpeaker,
+           rp.askedToSpeak,
+           rp.isMod
+         ), u.id} > {^n, ^id}
+      )
+    else
+      _ -> q
+    end
+  end
+
+  def get_users_in_current_room(user_id, cursor) do
     case tuple_get_current_room_id(user_id) do
       {:ok, current_room_id} ->
+        q =
+          from(u in Beef.User,
+            where: u.currentRoomId == ^current_room_id,
+            inner_join: r in Beef.Room,
+            on: r.id == u.currentRoomId,
+            left_join: rp in Beef.RoomPermission,
+            on: rp.userId == u.id and rp.roomId == u.currentRoomId,
+            select: %{
+              u
+              | roomPermissions: rp,
+                sortKey:
+                  fragment(
+                    @room_users_sort_key,
+                    u.id == ^user_id,
+                    r.creatorId == u.id,
+                    rp.isSpeaker,
+                    rp.askedToSpeak,
+                    rp.isMod
+                  )
+            },
+            limit: @user_room_fetch_limit,
+            order_by: [
+              asc:
+                fragment(
+                  @room_users_order,
+                  u.id == ^user_id,
+                  r.creatorId == u.id,
+                  rp.isSpeaker,
+                  rp.askedToSpeak,
+                  rp.isMod
+                ),
+              asc: u.id
+            ]
+          )
+
+        items =
+          if(is_nil(cursor),
+            do: q,
+            else: get_users_in_current_room_where(q, user_id, cursor)
+          )
+          |> Beef.Repo.all()
+
         {current_room_id,
-         from(u in Beef.User,
-           where: u.currentRoomId == ^current_room_id,
-           left_join: rp in Beef.RoomPermission,
-           on: rp.userId == u.id and rp.roomId == u.currentRoomId,
-           select: %{u | roomPermissions: rp}
-         )
-         |> Beef.Repo.all()}
+         Pagination.create_tuple_cursor(@user_room_fetch_limit, items, [:sortKey, :id])}
 
       _ ->
-        {nil, []}
+        {nil, {[], nil}}
     end
   end
 

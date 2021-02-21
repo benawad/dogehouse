@@ -40,6 +40,7 @@ export type RoomUser = {
 
 export type CurrentRoom = Room & {
   users: RoomUser[];
+  nextUsersCursor: string | null;
   muteMap: Record<string, boolean>;
   activeSpeakerMap: Record<string, boolean>;
   autoSpeaker: boolean;

@@ -295,6 +295,7 @@ export const Routes: React.FC<RoutesProps> = () => {
         users,
         muteMap,
         roomId,
+        nextCursor,
         autoSpeaker,
       }) => {
         setCurrentRoom((c) => {
@@ -304,6 +305,7 @@ export const Routes: React.FC<RoutesProps> = () => {
           return {
             ...c,
             users,
+            nextUsersCursor: nextCursor,
             muteMap,
             autoSpeaker,
           };

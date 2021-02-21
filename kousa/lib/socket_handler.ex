@@ -465,8 +465,27 @@ defmodule Kousa.SocketHandler do
     {:ok, state}
   end
 
+  def handler("get_current_room_users_next", %{"cursor" => cursor}, state) do
+    {room_id, {users, next_cursor}} =
+      Kousa.Data.User.get_users_in_current_room(state.user_id, cursor)
+
+    {:reply,
+     prepare_socket_msg(
+       %{
+         op: "get_current_room_users_next_done",
+         d: %{
+           users: users,
+           next_cursor: next_cursor,
+           roomId: room_id
+         }
+       },
+       state
+     ), state}
+  end
+
   def handler("get_current_room_users", _data, state) do
-    {room_id, users} = Kousa.Data.User.get_users_in_current_room(state.user_id)
+    {room_id, {users, next_cursor}} =
+      Kousa.Data.User.get_users_in_current_room(state.user_id, nil)
 
     {muteMap, autoSpeaker} =
       cond do
@@ -489,6 +508,7 @@ defmodule Kousa.SocketHandler do
          op: "get_current_room_users_done",
          d: %{
            users: users,
+           next_cursor: next_cursor,
            muteMap: muteMap,
            # @deprecated
            raiseHandMap: %{},
