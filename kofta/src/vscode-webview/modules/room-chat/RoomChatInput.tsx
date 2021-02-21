@@ -1,11 +1,14 @@
 import { useAtom } from "jotai";
-import React from "react";
+import React, { useState } from "react";
 import { tw } from "twind";
 import { wsend } from "../../../createWebsocket";
 import { meAtom } from "../../atoms";
 import { modalAlert } from "../../components/AlertModal";
 import { useRoomChatStore } from "./useRoomChatStore";
 import { createChatMessage } from "../../utils/createChatMessage";
+import { Smile } from "react-feather";
+import "emoji-mart/css/emoji-mart.css";
+import { Picker } from "emoji-mart";
 
 interface ChatInputProps {}
 
@@ -33,7 +36,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
 
     let changeToIndex = null;
     const activeIndex = queriedUsernames.findIndex(
-      u => u.id === activeUsername,
+      (u) => u.id === activeUsername
     );
 
     if (e.code === "ArrowUp") {
@@ -48,7 +51,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
       setMessage(
         message.substring(0, message.lastIndexOf("@") + 1) +
           selected.username +
-          " ",
+          " "
       );
       setQueriedUsernames([]);
     }
@@ -57,10 +60,14 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
     if (changeToIndex !== null)
       setActiveUsername(queriedUsernames[changeToIndex]?.id);
   }
+  const [isEmoji, setisEmoji] = useState(false);
+  const addEmoji = (emoji: any) => {
+    setMessage(message + emoji.native);
+  };
 
   return (
     <form
-      onSubmit={e => {
+      onSubmit={(e) => {
         e.preventDefault();
         if (
           !message ||
@@ -86,14 +93,46 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
       }}
       className={tw`bg-tmpBg1 pb-8 px-8 pt-1`}
     >
+      <i
+        style={{ padding: "5px", position: "absolute" }}
+        onClick={() => setisEmoji(!isEmoji)}
+      >
+        <Smile></Smile>
+      </i>
       <input
         maxLength={512}
         placeholder="Send a message"
         value={message}
-        onChange={e => setMessage(e.target.value)}
-        className={tw`text-tmpC1 bg-tmpBg4 px-4 py-3 rounded text-lg focus:outline-none`}
+        onChange={(e) => setMessage(e.target.value)}
+        className={tw`text-tmpC1 bg-tmpBg4 px-4 py-3 rounded text-lg focus:outline-none pl-10`}
         onKeyDown={navigateThroughQueriedUsers}
       />
+      {isEmoji ? (
+        <Picker
+          set="apple"
+          onSelect={(emoji) => {
+            addEmoji(emoji);
+          }}
+          style={{
+            position: "relative",
+            width: "100%",
+            height: "200px",
+            overflowY: "hidden",
+          }}
+          sheetSize={32}
+          theme="dark"
+          emojiTooltip={false}
+          showPreview={false}
+          showSkinTones={false}
+          i18n={{
+            search: "Search",
+            categories: {
+              search: "Search Results",
+              recent: "Frequently Used",
+            },
+          }}
+        />
+      ) : null}
     </form>
   );
 };
