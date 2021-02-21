@@ -5,11 +5,13 @@ import { QueryClientProvider } from "react-query";
 import { tw } from "twind";
 import { createWebSocket } from "../createWebsocket";
 import { useSocketStatus } from "../webrtc/stores/useSocketStatus";
+import { useVoiceStore } from "../webrtc/stores/useVoiceStore";
 import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
 import { setMeAtom } from "./atoms";
 import { Button } from "./components/Button";
 import { CenterLayout } from "./components/CenterLayout";
 import { KeybindListener } from "./components/KeybindListener";
+import { RegularAnchor } from "./components/RegularAnchor";
 import { Wrapper } from "./components/Wrapper";
 import { Login } from "./pages/Login";
 import { queryClient } from "./queryClient";
@@ -20,6 +22,7 @@ import { NotificationAudioRender } from "./modules/room-chat/NotificationAudioRe
 interface AppProps {}
 
 export const WebviewApp: React.FC<AppProps> = () => {
+  const isDeviceSupported = useVoiceStore((s) => !!s.device);
   const hasTokens = useTokenStore((s) => !!s.accessToken && !!s.refreshToken);
   const wsKilledByServer = useSocketStatus(
     (s) => s.status === "closed-by-server"
@@ -57,6 +60,25 @@ export const WebviewApp: React.FC<AppProps> = () => {
 
   if (!hasTokens) {
     return <Login />;
+  }
+
+  if (!isDeviceSupported) {
+    return (
+      <CenterLayout>
+        <Wrapper>
+          <div
+            style={{ fontSize: "calc(var(--vscode-font-size)*1.2)" }}
+            className={tw`mb-4 mt-8`}
+          >
+            Your device is currently not supported. You can create an{" "}
+            <RegularAnchor href="https://github.com/benawad/dogehouse/issues">
+              issue on GitHub
+            </RegularAnchor>{" "}
+            and I will try adding support for your device.
+          </div>
+        </Wrapper>
+      </CenterLayout>
+    );
   }
 
   if (wsKilledByServer) {

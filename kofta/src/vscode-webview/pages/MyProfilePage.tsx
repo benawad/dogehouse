@@ -7,8 +7,6 @@ import { meAtom } from "../atoms";
 import { Backbar } from "../components/Backbar";
 import { Button } from "../components/Button";
 import { UserProfile } from "../components/UserProfile";
-import { ChatSettings } from "../components/ChatSettings";
-import { VoiceSettings } from "../components/VoiceSettings";
 import { Wrapper } from "../components/Wrapper";
 import { useTokenStore } from "../utils/useTokenStore";
 
@@ -37,9 +35,17 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
         </div>
       </Backbar>
       {me ? <UserProfile profile={me} /> : <div>probably loading...</div>}
-      <VoiceSettings />
-      <div className={tw`mt-8`}>
-        <ChatSettings />
+      <div className={tw`pt-6 flex`}>
+        <Button
+          style={{ marginRight: "10px" }}
+          variant="small"
+          onClick={() => history.push(`/voice-settings`)}
+        >
+          go to voice settings
+        </Button>
+        <Button variant="small" onClick={() => history.push(`/chat-settings`)}>
+          go to chat settings
+        </Button>
       </div>
     </Wrapper>
   );

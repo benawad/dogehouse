@@ -1,7 +1,22 @@
 import { Device } from "mediasoup-client";
-import { Transport } from "mediasoup-client/lib/types";
+import { detectDevice, Transport } from "mediasoup-client/lib/types";
 import create from "zustand";
 import { combine } from "zustand/middleware";
+
+export const getDevice = () => {
+  try {
+    let handlerName = detectDevice();
+    if (!handlerName) {
+      console.warn(
+        "mediasoup does not recognize this device, so ben has defaulted it to Chrome74"
+      );
+      handlerName = "Chrome74";
+    }
+    return new Device({ handlerName });
+  } catch {
+    return null;
+  }
+};
 
 export const useVoiceStore = create(
   combine(
@@ -11,7 +26,7 @@ export const useVoiceStore = create(
       mic: null as MediaStreamTrack | null,
       recvTransport: null as Transport | null,
       sendTransport: null as Transport | null,
-      device: new Device(),
+      device: getDevice(),
     },
     (set) => ({
       nullify: () =>

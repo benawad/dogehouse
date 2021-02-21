@@ -1,15 +1,15 @@
 import React from "react";
 import { Backbar } from "../components/Backbar";
-import { VoiceSettings } from "../components/VoiceSettings";
+import { ChatSettings } from "../components/ChatSettings";
 import { Wrapper } from "../components/Wrapper";
 
-interface VoiceSettingsPageProps {}
+interface ChatSettingsPageProps {}
 
-export const VoiceSettingsPage: React.FC<VoiceSettingsPageProps> = () => {
+export const ChatSettingsPage: React.FC<ChatSettingsPageProps> = () => {
   return (
     <Wrapper>
       <Backbar actuallyGoBack />
-      <VoiceSettings />
+      <ChatSettings />
     </Wrapper>
   );
 };
