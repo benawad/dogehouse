@@ -3,6 +3,14 @@ import { Transport } from "mediasoup-client/lib/types";
 import create from "zustand";
 import { combine } from "zustand/middleware";
 
+export const getDevice = () => {
+  try {
+    return new Device();
+  } catch {
+    return null;
+  }
+};
+
 export const useVoiceStore = create(
   combine(
     {
@@ -11,7 +19,7 @@ export const useVoiceStore = create(
       mic: null as MediaStreamTrack | null,
       recvTransport: null as Transport | null,
       sendTransport: null as Transport | null,
-      device: new Device(),
+      device: getDevice(),
     },
     (set) => ({
       nullify: () =>
