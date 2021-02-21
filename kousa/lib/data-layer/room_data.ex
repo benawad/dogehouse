@@ -176,7 +176,7 @@ defmodule Kousa.Data.Room do
   def get_next_creator_for_room(room_id) do
     from(u in Beef.User,
       inner_join: rp in Beef.RoomPermission,
-      on: rp.roomId == ^room_id and rp.userId == u.id,
+      on: rp.roomId == ^room_id and rp.userId == u.id and u.currentRoomId == ^room_id,
       where: rp.isSpeaker == true,
       limit: 1,
       order_by: [
