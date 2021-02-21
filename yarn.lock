@@ -2099,6 +2099,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-native@^0.63.50":
+  version "0.63.50"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.63.50.tgz#cea13fb272983ec585179807d0cb4f84db0952f6"
+  integrity sha512-jWxsHDG/AHEaOrqqcI0Cth0WdPsgyaJ1nel5pS0uCzpt2RjwtkvEUAfu39paPr4i+9oUUgbJq3vkVXaj7n8RdQ==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-responsive@^8.0.2":
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/@types/react-responsive/-/react-responsive-8.0.2.tgz#959fdc32f72e38b807e32be617a74be2c315081b"
@@ -2123,7 +2130,7 @@
     "@types/history" "*"
     "@types/react" "*"
 
-"@types/react@*":
+"@types/react@*", "@types/react@^17.0.2":
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.2.tgz#3de24c4efef902dd9795a49c75f760cbe4f7a5a8"
   integrity sha512-Xt40xQsrkdvjn1EyWe1Bc0dJLcil/9x2vAuW7ya+PuQip4UYUaXyhzWmAbwRsdMgwOFHpfp7/FFZebDU6Y8VHA==
@@ -4228,6 +4235,14 @@ create-hmac@^1.1.0, create-hmac@^1.1.4, create-hmac@^1.1.7:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
+crna-make-symlinks-for-yarn-workspaces@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/crna-make-symlinks-for-yarn-workspaces/-/crna-make-symlinks-for-yarn-workspaces-1.0.1.tgz#5ad86caac2389daceec22978a0e30c969d55e3c6"
+  integrity sha512-pwA/6kLfDxUAezsfjMsghimhkK3qEWbtZDVNubQnkmgYfGuaZgVC02Q0G4JINegE5Do+1bs8vlqfp2txGa1thg==
+  dependencies:
+    find-root "^1.1.0"
+    fs-extra "^5.0.0"
+
 cross-spawn@7.0.3, cross-spawn@^7.0.0, cross-spawn@^7.0.2, cross-spawn@^7.0.3:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.3.tgz#f73a85b9d5d41d045551c177e2882d4ac85728a6"
@@ -5891,6 +5906,11 @@ find-cache-dir@^3.3.1:
     make-dir "^3.0.2"
     pkg-dir "^4.1.0"
 
+find-root@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/find-root/-/find-root-1.1.0.tgz#abcfc8ba76f708c42a97b3d685b7e9450bfb9ce4"
+  integrity sha512-NKfW6bec6GfKc0SGx1e07QZY9PE99u0Bft/0rzSD5k3sO/vwkVUpDUKVm5Gpp5Ue3YfShPFTX2070tDs5kB9Ng==
+
 find-up@4.1.0, find-up@^4.0.0, find-up@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/find-up/-/find-up-4.1.0.tgz#97afe7d6cdc0bc5928584b7c8d7b16e8a9aa5d19"
@@ -5912,6 +5932,13 @@ find-up@^3.0.0:
   integrity sha512-1yD6RmLI1XBfxugvORwlck6f75tYL+iR0jqwsOrOxMZyGYqUuDhJ0l4AXdO1iX/FTs9cBAMEk1gWSEx1kSbylg==
   dependencies:
     locate-path "^3.0.0"
+
+find-yarn-workspace-root@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/find-yarn-workspace-root/-/find-yarn-workspace-root-2.0.0.tgz#f47fb8d239c900eb78179aa81b66673eac88f7bd"
+  integrity sha512-1IMnbjt4KzsQfnhnzNd8wUEgXZ44IzZaZmnLYx7D5FZlaHt2gW20Cri8Q+E/t5tIj4+epTBub+2Zxu/vNILzqQ==
+  dependencies:
+    micromatch "^4.0.2"
 
 flat-cache@^3.0.4:
   version "3.0.4"
@@ -6022,6 +6049,15 @@ fs-extra@^1.0.0:
     graceful-fs "^4.1.2"
     jsonfile "^2.1.0"
     klaw "^1.0.0"
+
+fs-extra@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-5.0.0.tgz#414d0110cdd06705734d055652c5411260c31abd"
+  integrity sha512-66Pm4RYbjzdyeuqudYqhFiNBbCIuI9kgRqLPSHIlXHidW8NIQtVdkM1yeZ4lXwuhbTETv3EUGMNHAAw6hiundQ==
+  dependencies:
+    graceful-fs "^4.1.2"
+    jsonfile "^4.0.0"
+    universalify "^0.1.0"
 
 fs-extra@^7.0.0:
   version "7.0.1"
@@ -6153,6 +6189,15 @@ get-value@^2.0.3, get-value@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/get-value/-/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
   integrity sha1-3BXKHGcjh8p2vTesCjlbogQqLCg=
+
+get-yarn-workspaces@^1.0.0:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/get-yarn-workspaces/-/get-yarn-workspaces-1.0.2.tgz#81591bdb392f1c6bac09cdc8491a6d275781aa44"
+  integrity sha512-Auel048Uclfgr74oNXKZWH30UgKDZXQdfUfgD9iWXdoUGJpeWg9lSuX/FZkQ6RB3KnBfAaf70xQXfwOjiE9rPw==
+  dependencies:
+    find-root "^1.1.0"
+    flatten "^1.0.2"
+    glob "^7.1.2"
 
 getpass@^0.1.1:
   version "0.1.7"
@@ -8382,6 +8427,13 @@ metro-babel-transformer@0.59.0:
   dependencies:
     "@babel/core" "^7.0.0"
     metro-source-map "0.59.0"
+
+metro-bundler-config-yarn-workspaces@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/metro-bundler-config-yarn-workspaces/-/metro-bundler-config-yarn-workspaces-1.0.3.tgz#160ba7db8856fe218b866e5e4d2b2c9ac51203bd"
+  integrity sha512-lyaHhYzTmb/LPVKkaKfTrT01LvTqMFLfWEFssbooR1I/zdU90+hGOZ/fuoD0qc8AKeEQkZO6DL41kZdPL0v3rQ==
+  dependencies:
+    get-yarn-workspaces "^1.0.0"
 
 metro-cache@0.59.0:
   version "0.59.0"
@@ -10873,6 +10925,14 @@ react-modal@^3.12.1:
     prop-types "^15.5.10"
     react-lifecycles-compat "^3.0.0"
     warning "^4.0.3"
+
+react-native-yarn-workspaces-v2@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-yarn-workspaces-v2/-/react-native-yarn-workspaces-v2-0.0.2.tgz#339c636543f29b1dbf5e72a5a90659f44b226ac2"
+  integrity sha512-s4N0298UP4iDC+nOzqOGNbbDKjcbgpgIG5sMmoyMdzkGVpeTwHbQoTYpE9LrUibVGxsaHHBv9kklEMO8DJOV1Q==
+  dependencies:
+    find-yarn-workspace-root "^2.0.0"
+    mkdirp "^1.0.4"
 
 react-native@0.63.4:
   version "0.63.4"
