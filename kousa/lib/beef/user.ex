@@ -62,7 +62,7 @@ defmodule Beef.User do
     |> validate_length(:bio, min: 2, max: 160)
     |> validate_length(:displayName, min: 2, max: 50)
     |> validate_format(:username, ~r/^(\w){4,15}$/)
-    |> validate_format(:externalProfileLink, ~r/^(http|https):\/\/[^ "]{1,255}$/)
+    |> validate_format(:externalProfileLink, ~r/^(http|https):\/\/[^ "]{0,255}$/)
     |> unique_constraint(:username)
   end
 end
