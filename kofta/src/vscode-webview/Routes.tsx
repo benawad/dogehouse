@@ -229,6 +229,7 @@ export const Routes: React.FC<RoutesProps> = () => {
         });
       },
       new_user_join_room: ({ user, muteMap }) => {
+        console.log(user);
         setCurrentRoom((cr) =>
           !cr || cr.users.some((u) => u.id === user.id)
             ? cr

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { useHistory } from "react-router-dom";
 import { tw } from "twind";
@@ -26,6 +26,13 @@ export const UserProfile: React.FC<UserProfileProps> = ({
   const [youAreFollowing, setYouAreFollowing] = useState(
     "youAreFollowing" in profile ? profile.youAreFollowing : false
   );
+  const _youAreFollowing =
+    "youAreFollowing" in profile && profile.youAreFollowing;
+  useEffect(() => {
+    if (_youAreFollowing) {
+      setYouAreFollowing(_youAreFollowing);
+    }
+  }, [_youAreFollowing]);
   const [editProfileModalOpen, setEditProfileModalOpen] = useState(false);
   return (
     <>
