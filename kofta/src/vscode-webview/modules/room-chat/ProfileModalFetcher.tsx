@@ -16,10 +16,9 @@ export const ProfileModalFetcher: React.FC<ProfileModalFetcherProps> = ({
   const [room] = useAtom(currentRoomAtom);
   const [me] = useAtom(meAtom);
   const [{ isMod: iAmMod, isCreator: iAmCreator }] = useAtom(
-    myCurrentRoomInfoAtom,
+    myCurrentRoomInfoAtom
   );
-  const profile = room?.users.find(x => [x.id, x.username].includes(userId));
-
+  const profile = room?.users.find((x) => [x.id, x.username].includes(userId));
   useLayoutEffect(() => {
     if (
       profile &&

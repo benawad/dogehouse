@@ -13,8 +13,14 @@ export const Input = forwardRef<
   const [showHint, setShowHint] = useState(false);
 
   const hintEvents = {
-    onFocus: () => setShowHint(true),
-    onBlur: () => setShowHint(false),
+    onFocus: (e: React.FocusEvent<HTMLInputElement>) => {
+      !props.onFocus || props.onFocus(e);
+      setShowHint(true);
+    },
+    onBlur: (e: React.FocusEvent<HTMLInputElement>) => {
+      !props.onBlur || props.onBlur(e);
+      setShowHint(false);
+    },
   };
 
   return (

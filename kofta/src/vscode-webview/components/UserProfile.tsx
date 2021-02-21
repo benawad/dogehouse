@@ -26,6 +26,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
     profile.youAreFollowing
   );
   const [editProfileModalOpen, setEditProfileModalOpen] = useState(false);
+
   return (
     <>
       <EditProfileModal
@@ -72,7 +73,17 @@ export const UserProfile: React.FC<UserProfileProps> = ({
       </div>
       <div className={tw`font-semibold`}>{profile.displayName}</div>
       <div className={tw`my-1 flex`}>
-        <div>@{profile.username}</div>
+        {profile?.externalProfileLink ? (
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={profile.externalProfileLink}
+          >
+            @{profile.username}
+          </a>
+        ) : (
+          <div>@{profile.username}</div>
+        )}
         {me?.id !== profile.id && profile.followsYou ? (
           <div
             style={{
