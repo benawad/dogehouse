@@ -10,6 +10,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
+    "emoji-mart": "^3.0.0",
     "formik": "^2.2.6",
     "hark": "^1.2.3",
     "jotai": "^0.12.7",
@@ -56,6 +57,7 @@
     ]
   },
   "devDependencies": {
+    "@types/emoji-mart": "^3.0.4",
     "@types/hark": "^1.2.1",
     "@types/react-modal": "^3.12.0",
     "@types/react-responsive": "^8.0.2",
