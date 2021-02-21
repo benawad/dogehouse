@@ -57,18 +57,19 @@ defmodule Kousa.BL.Room do
 
   def block_from_room(user_id, user_id_to_block_from_room) do
     with {status, room} when status in [:creator, :mod] <-
-           Kousa.Data.Room.get_room_status(user_id),
-         _ when room.creatorId !== user_id_to_block_from_room <- room do
-      Kousa.Data.RoomBlock.insert(%{
-        modId: user_id,
-        userId: user_id_to_block_from_room,
-        roomId: room.id
-      })
+           Kousa.Data.Room.get_room_status(user_id) do
+      if room.creatorId != user_id_to_block_from_room do
+        Kousa.Data.RoomBlock.insert(%{
+          modId: user_id,
+          userId: user_id_to_block_from_room,
+          roomId: room.id
+        })
 
-      user_blocked = Kousa.Data.User.get_by_id(user_id_to_block_from_room)
+        user_blocked = Kousa.Data.User.get_by_id(user_id_to_block_from_room)
 
-      if user_blocked.currentRoomId == room.id do
-        leave_room(user_id_to_block_from_room, user_blocked.currentRoomId, true)
+        if user_blocked.currentRoomId == room.id do
+          leave_room(user_id_to_block_from_room, user_blocked.currentRoomId, true)
+        end
       end
     end
   end
