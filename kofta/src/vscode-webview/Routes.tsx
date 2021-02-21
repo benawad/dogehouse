@@ -52,11 +52,18 @@ export const Routes: React.FC<RoutesProps> = () => {
   const [, setInviteList] = useAtom(setInviteListAtom);
   const [me] = useAtom(meAtom);
 
-  const { open, iAmMentioned } = useRoomChatStore();
+  const { open, iAmMentioned } = useRoomChatStore.getState();
 
-  // useEffect, need using me AND iAmMentioned
   useEffect(() => {
     addMultipleWsListener({
+      new_room_name: ({ name, roomId }) => {
+        setCurrentRoom((cr) =>
+          !cr || cr.id !== roomId ? cr : { ...cr, name }
+        );
+      },
+      chat_user_banned: ({ userId }) => {
+        useRoomChatStore.getState().addBannedUser(userId);
+      },
       new_chat_msg: ({ msg }) => {
         useRoomChatStore.getState().addMessage(msg);
         if (
@@ -69,20 +76,6 @@ export const Routes: React.FC<RoutesProps> = () => {
         ) {
           useRoomChatStore.getState().setIAmMentioned(iAmMentioned + 1);
         }
-      },
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [me, iAmMentioned, open]);
-
-  useEffect(() => {
-    addMultipleWsListener({
-      new_room_name: ({ name, roomId }) => {
-        setCurrentRoom((cr) =>
-          !cr || cr.id !== roomId ? cr : { ...cr, name }
-        );
-      },
-      chat_user_banned: ({ userId }) => {
-        useRoomChatStore.getState().addBannedUser(userId);
       },
       room_privacy_change: ({ roomId, isPrivate, name }) => {
         setCurrentRoom((cr) =>

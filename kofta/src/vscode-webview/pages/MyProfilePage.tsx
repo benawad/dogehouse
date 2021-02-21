@@ -38,7 +38,9 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
       </Backbar>
       {me ? <UserProfile profile={me} /> : <div>probably loading...</div>}
       <VoiceSettings />
-      <ChatSettings className={tw`mt-8`} />
+      <div className={tw`mt-8`}>
+        <ChatSettings />
+      </div>
     </Wrapper>
   );
 };
