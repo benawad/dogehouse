@@ -14,6 +14,7 @@ import { wsend } from "../../createWebsocket";
 import { useMuteStore } from "../../webrtc/stores/useMuteStore";
 import { currentRoomAtom, myCurrentRoomInfoAtom } from "../atoms";
 import { RoomChat } from "../modules/room-chat/RoomChat";
+import { useRoomChatMentionStore } from "../modules/room-chat/useRoomChatMentionStore";
 import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
 import { useShouldFullscreenChat } from "../modules/room-chat/useShouldFullscreenChat";
 import { modalConfirm } from "./ConfirmModal";
@@ -40,15 +41,12 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   const { muted, set } = useMuteStore();
   const [{ canSpeak, isCreator }] = useAtom(myCurrentRoomInfoAtom);
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const [
-    toggleOpen,
-    newUnreadMessages,
-    iAmMentioned,
-  ] = useRoomChatStore((s) => [
+  const [toggleOpen, newUnreadMessages] = useRoomChatStore((s) => [
     s.toggleOpen,
     s.newUnreadMessages,
-    s.iAmMentioned,
   ]);
+
+  const { iAmMentioned } = useRoomChatMentionStore.getState();
 
   const fullscreenChatOpen = useShouldFullscreenChat();
 

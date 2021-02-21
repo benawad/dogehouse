@@ -15,6 +15,7 @@ import {
   setMeAtom,
   setPublicRoomsAtom,
 } from "./atoms";
+import { useRoomChatMentionStore } from "./modules/room-chat/useRoomChatMentionStore";
 import {
   RoomChatMessageToken,
   useRoomChatStore,
@@ -56,7 +57,7 @@ export const Routes: React.FC<RoutesProps> = () => {
   const meRef = useRef(me);
   meRef.current = me;
 
-  const { open, iAmMentioned } = useRoomChatStore.getState();
+  const { open } = useRoomChatStore.getState();
 
   useEffect(() => {
     addMultipleWsListener({
@@ -78,7 +79,7 @@ export const Routes: React.FC<RoutesProps> = () => {
               t.v?.toLowerCase() === meRef?.current?.username?.toLowerCase()
           ).length
         ) {
-          useRoomChatStore.getState().setIAmMentioned(iAmMentioned + 1);
+          useRoomChatMentionStore.getState().incrementIAmMentioned();
         }
       },
       room_privacy_change: ({ roomId, isPrivate, name }) => {

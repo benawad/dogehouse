@@ -1,6 +1,7 @@
 import create from "zustand";
 import { combine } from "zustand/middleware";
 import { User } from "../../types";
+import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 
 interface TextToken {
   t: "text";
@@ -53,10 +54,6 @@ export const useRoomChatStore = create(
       messages: [] as RoomChatMessage[],
       newUnreadMessages: false,
       message: "" as string,
-      mentions: [] as User[],
-      queriedUsernames: [] as User[],
-      activeUsername: "",
-      iAmMentioned: 0,
     },
     (set) => ({
       addBannedUser: (userId: string) =>
@@ -89,39 +86,24 @@ export const useRoomChatStore = create(
         }),
       toggleOpen: () =>
         set((s) => {
+          // Reset mention state
+          useRoomChatMentionStore.getState().setIAmMentioned(0);
+
           if (s.open) {
             return {
               open: false,
               newUnreadMessages: false,
-              iAmMentioned: 0,
             };
           } else {
             return {
               open: true,
               newUnreadMessages: false,
-              iAmMentioned: 0,
             };
           }
         }),
       setMessage: (message: string) =>
         set({
           message,
-        }),
-      setMentions: (mentions: User[]) =>
-        set({
-          mentions,
-        }),
-      setQueriedUsernames: (queriedUsernames: User[]) =>
-        set({
-          queriedUsernames,
-        }),
-      setActiveUsername: (activeUsername: string) =>
-        set({
-          activeUsername,
-        }),
-      setIAmMentioned: (iAmMentioned: number) =>
-        set({
-          iAmMentioned,
         }),
     })
   )

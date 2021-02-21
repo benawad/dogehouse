@@ -5,6 +5,7 @@ import { useRoomChatStore } from "./useRoomChatStore";
 import { Avatar } from "../../components/Avatar";
 import { User } from "../../types";
 import { currentRoomAtom, meAtom } from "../../atoms";
+import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 
 interface RoomChatMentionsProps {}
 
@@ -12,16 +13,16 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
   const [currentRoom] = useAtom(currentRoomAtom);
   const [me] = useAtom(meAtom);
 
+  const { message, setMessage } = useRoomChatStore();
+
   const {
+    activeUsername,
+    setActiveUsername,
     queriedUsernames,
     setQueriedUsernames,
     mentions,
     setMentions,
-    message,
-    setMessage,
-    activeUsername,
-    setActiveUsername,
-  } = useRoomChatStore();
+  } = useRoomChatMentionStore.getState();
 
   function addMention(m: User) {
     setMentions([...mentions, m]);
