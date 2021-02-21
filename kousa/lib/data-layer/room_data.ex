@@ -14,12 +14,11 @@ defmodule Kousa.Data.Room do
         {:creator, room}
 
       true ->
-        user = Kousa.Data.User.get_by_id(user_id)
-
-        {cond do
-           room.id == user.modForRoomId -> :mod
-           room.id == user.canSpeakForRoomId -> :speaker
-           true -> :listener
+        {case Kousa.Data.RoomPermission.get(user_id, room.id) do
+           %{isMod: true} -> :mod
+           %{isSpeaker: true} -> :speaker
+           %{askedToSpeak: true} -> :askedToSpeak
+           _ -> :listener
          end, room}
     end
   end
@@ -168,30 +167,21 @@ defmodule Kousa.Data.Room do
   end
 
   @user_order """
-    (case(?::uuid)
+    (case
       when ? then 1
-      when ? then 2
-      else 3
+      else 2
     end)
   """
   @spec get_next_creator_for_room(any) :: any
   def get_next_creator_for_room(room_id) do
-    {_, bin_room_id} = Ecto.UUID.dump(room_id)
-
     from(u in Beef.User,
-      where: u.modForRoomId == ^room_id or u.canSpeakForRoomId == ^room_id,
+      inner_join: rp in Beef.RoomPermission,
+      on: rp.roomId == ^room_id and rp.userId == u.id,
+      where: rp.isSpeaker == true,
       limit: 1,
       order_by: [
-        asc: fragment(@user_order, ^bin_room_id, u.modForRoomId, u.canSpeakForRoomId)
+        asc: fragment(@user_order, rp.isMod)
       ]
-    )
-    |> Beef.Repo.one()
-  end
-
-  def get_a_mod_for_room(room_id) do
-    from(u in Beef.User,
-      where: u.modForRoomId == ^room_id,
-      limit: 1
     )
     |> Beef.Repo.one()
   end
@@ -309,7 +299,7 @@ defmodule Kousa.Data.Room do
 
     case resp do
       {:ok, room} ->
-        Kousa.Data.User.set_current_room(data.creatorId, room.id, true)
+        Kousa.Data.User.set_current_room(data.creatorId, room.id)
 
       _ ->
         nil
@@ -321,14 +311,6 @@ defmodule Kousa.Data.Room do
   def is_owner(room_id, user_id) do
     not is_nil(
       Beef.Repo.one(from(r in Beef.Room, where: r.id == ^room_id and r.creatorId == ^user_id))
-    )
-  end
-
-  def is_speaker(room_id, user_id) do
-    not is_nil(
-      Beef.Repo.one(
-        from(u in Beef.User, where: u.canSpeakForRoomId == ^room_id and u.id == ^user_id)
-      )
     )
   end
 end

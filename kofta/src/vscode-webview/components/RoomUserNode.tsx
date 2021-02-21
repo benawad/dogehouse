@@ -1,12 +1,12 @@
 import React from "react";
 import { wsend } from "../../createWebsocket";
-import { CurrentRoom, User } from "../types";
+import { CurrentRoom, BaseUser, RoomUser } from "../types";
 import { UserNode } from "./UserNode";
 
 interface RoomUserNodeProps {
-  u: User;
-  me?: User | null;
-  profile?: User | null;
+  u: RoomUser;
+  me?: BaseUser | null;
+  profile?: BaseUser | null;
   room: CurrentRoom;
   setUserProfileId: (s: string) => void;
   muted: boolean;
@@ -21,7 +21,7 @@ export const RoomUserNode: React.FC<RoomUserNodeProps> = ({
   setUserProfileId,
 }) => {
   const isCreator = u.id === room.creatorId;
-  const isSpeaker = u.canSpeakForRoomId === room.id;
+  const isSpeaker = !!u.roomPermissions?.isSpeaker;
   const canSpeak = isCreator || isSpeaker;
   const isMuted = me?.id === u.id ? muted : room.muteMap[u.id];
   return (
@@ -30,7 +30,7 @@ export const RoomUserNode: React.FC<RoomUserNodeProps> = ({
       isMuted={canSpeak && isMuted}
       isCreator={isCreator}
       isSpeaking={isSpeaker && u.id in room.activeSpeakerMap}
-      isMod={u.modForRoomId === room.id}
+      isMod={!!u.roomPermissions?.isMod}
       isSpeaker={isSpeaker}
       onClick={() => {
         if (u.id === profile?.id) {

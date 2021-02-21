@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { closeWebSocket, wsend } from "../createWebsocket";
 import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
 import { invitationToRoom } from "../webrtc/utils/invitationToRoom";
+import { mergeRoomPermission } from "../webrtc/utils/mergeRoomPermission";
 import {
   setCurrentRoomAtom,
   setFollowerMapAtom,
@@ -149,16 +150,23 @@ export const Routes: React.FC<RoutesProps> = () => {
           cr && cr.id === roomId ? { ...cr, creatorId: userId } : cr
         );
       },
-      speaker_removed: ({ userId, roomId, muteMap, raiseHandMap }) => {
+      speaker_removed: ({ userId, roomId, muteMap }) => {
         setCurrentRoom((c) =>
           !c || c.id !== roomId
             ? c
             : {
                 ...c,
                 muteMap,
-                raiseHandMap,
                 users: c.users.map((x) =>
-                  userId === x.id ? { ...x, canSpeakForRoomId: null } : x
+                  userId === x.id
+                    ? {
+                        ...x,
+                        roomPermissions: mergeRoomPermission(
+                          x.roomPermissions,
+                          { isSpeaker: false, askedToSpeak: false }
+                        ),
+                      }
+                    : x
                 ),
               }
         );
@@ -171,19 +179,37 @@ export const Routes: React.FC<RoutesProps> = () => {
                 ...c,
                 muteMap,
                 users: c.users.map((x) =>
-                  userId === x.id ? { ...x, canSpeakForRoomId: roomId } : x
+                  userId === x.id
+                    ? {
+                        ...x,
+                        roomPermissions: mergeRoomPermission(
+                          x.roomPermissions,
+                          {
+                            isSpeaker: true,
+                          }
+                        ),
+                      }
+                    : x
                 ),
               }
         );
       },
-      mod_changed: ({ modForRoomId, userId, roomId }) => {
+      mod_changed: ({ userId, roomId }) => {
         setCurrentRoom((c) =>
           !c || c.id !== roomId
             ? c
             : {
                 ...c,
                 users: c.users.map((x) =>
-                  userId === x.id ? { ...x, modForRoomId } : x
+                  userId === x.id
+                    ? {
+                        ...x,
+                        roomPermissions: mergeRoomPermission(
+                          x.roomPermissions,
+                          { isMod: true }
+                        ),
+                      }
+                    : x
                 ),
               }
         );
@@ -232,10 +258,16 @@ export const Routes: React.FC<RoutesProps> = () => {
           }
           return {
             ...c,
-            raiseHandMap: {
-              ...c.raiseHandMap,
-              [userId]: -1,
-            },
+            users: c.users.map((u) =>
+              u.id === userId
+                ? {
+                    ...u,
+                    roomPermissions: mergeRoomPermission(u.roomPermissions, {
+                      askedToSpeak: true,
+                    }),
+                  }
+                : u
+            ),
           };
         });
       },
@@ -258,7 +290,6 @@ export const Routes: React.FC<RoutesProps> = () => {
       get_current_room_users_done: ({
         users,
         muteMap,
-        raiseHandMap,
         roomId,
         autoSpeaker,
       }) => {
@@ -270,7 +301,6 @@ export const Routes: React.FC<RoutesProps> = () => {
             ...c,
             users,
             muteMap,
-            raiseHandMap,
             autoSpeaker,
           };
         });

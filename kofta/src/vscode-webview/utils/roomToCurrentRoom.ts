@@ -7,7 +7,6 @@ export const roomToCurrentRoom = (r: Room): CurrentRoom =>
         muteMap: {},
         users: [],
         activeSpeakerMap: {},
-        raiseHandMap: {},
         autoSpeaker: false,
       }
     : r;

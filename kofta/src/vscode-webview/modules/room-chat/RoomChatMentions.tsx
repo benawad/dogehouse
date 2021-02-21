@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { tw } from "twind";
 import { useRoomChatStore } from "./useRoomChatStore";
 import { Avatar } from "../../components/Avatar";
-import { User } from "../../types";
+import { BaseUser } from "../../types";
 import { currentRoomAtom, meAtom } from "../../atoms";
 
 interface RoomChatMentionsProps {}
@@ -23,7 +23,7 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
     setActiveUsername,
   } = useRoomChatStore();
 
-  function addMention(m: User) {
+  function addMention(m: BaseUser) {
     setMentions([...mentions, m]);
     setMessage(
       message.substring(0, message.lastIndexOf("@") + 1) + m.username + " "
@@ -48,7 +48,7 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
           ({ id, username, displayName }) =>
             (username?.toLowerCase().includes(useMention?.toLowerCase()) ||
               displayName?.toLowerCase().includes(useMention?.toLowerCase())) &&
-            !mentions.find((m: User) => m.id === id) &&
+            !mentions.find((m: BaseUser) => m.id === id) &&
             me.id !== id
         );
 
