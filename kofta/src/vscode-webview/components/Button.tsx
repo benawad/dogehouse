@@ -42,7 +42,7 @@ export const Button: React.FC<
         ...(variant === "small" ? { padding: "4px 8px", width: "unset" } : (variant === "slim" ? { marginLeft: "auto", marginRight: "auto", padding: "10px 48px" } : {}) ),
         ...style,
       }}
-      className={tw`w-full flex items-center justify-center text-center ${variant === "slim" ? "sm:w-auto" : ""} ${
+      className={tw`w-full flex items-center justify-center text-center ${variant === "slim" ? "max-w-md" : ""} ${
         colorToBackground[color as keyof typeof colorToBackground] ||
         "bg-button hover:bg-buttonHover"
       } `}
