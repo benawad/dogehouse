@@ -1,6 +1,5 @@
 import create from "zustand";
 import { combine } from "zustand/middleware";
-import { User } from "../../types";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 
 interface TextToken {
