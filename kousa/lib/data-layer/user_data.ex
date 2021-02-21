@@ -187,9 +187,17 @@ defmodule Kousa.Data.User do
   end
 
   def set_current_room(user_id, room_id, can_speak \\ false, returning \\ false) do
-    if can_speak do
-      Kousa.Data.RoomPermission.insert(%{userId: user_id, roomId: room_id, isSpeaker: true})
-    end
+    roomPermissions =
+      case can_speak do
+        true ->
+          case Kousa.Data.RoomPermission.set_is_speaker(user_id, room_id, true, true) do
+            {:ok, x} -> x
+            _ -> nil
+          end
+
+        _ ->
+          Kousa.Data.RoomPermission.get(user_id, room_id)
+      end
 
     Kousa.RegUtils.lookup_and_cast(
       Kousa.Gen.UserSession,
@@ -209,8 +217,11 @@ defmodule Kousa.Data.User do
 
     q = if returning, do: select(q, [u], u), else: q
 
-    q
-    |> Beef.Repo.update_all([])
+    case q
+         |> Beef.Repo.update_all([]) do
+      {_, [user]} -> %{user | roomPermissions: roomPermissions}
+      _ -> nil
+    end
   end
 
   def twitter_find_or_create(user) do

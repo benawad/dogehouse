@@ -66,7 +66,7 @@ defmodule Kousa.Data.Room do
   end
 
   def join_room(room, user_id) do
-    {_, [user]} = Kousa.Data.User.set_current_room(user_id, room.id, room.isPrivate, true)
+    user = Kousa.Data.User.set_current_room(user_id, room.id, room.isPrivate, true)
 
     if (length(room.peoplePreviewList) < 10 or
           not is_nil(

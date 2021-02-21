@@ -471,11 +471,11 @@ defmodule Kousa.SocketHandler do
               GenServer.call(session, {:get_maps})
 
             _ ->
-              {%{}, %{}, false}
+              {%{}, false}
           end
 
         true ->
-          {%{}, %{}, false}
+          {%{}, false}
       end
 
     {:reply,

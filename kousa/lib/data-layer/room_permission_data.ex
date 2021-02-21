@@ -39,11 +39,11 @@ defmodule Kousa.Data.RoomPermission do
     upsert(%{roomId: room_id, userId: user_id, askedToSpeak: true}, askedToSpeak: true)
   end
 
-  def set_is_speaker(user_id, room_id, is_speaker) do
+  def set_is_speaker(user_id, room_id, is_speaker, returning \\ false) do
     upsert(
       %{roomId: room_id, userId: user_id, isSpeaker: is_speaker},
       [isSpeaker: is_speaker],
-      false
+      returning
     )
   end
 
