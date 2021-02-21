@@ -46,7 +46,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
     s.newUnreadMessages,
   ]);
 
-  const { iAmMentioned } = useRoomChatMentionStore.getState();
+  const { iAmMentioned } = useRoomChatMentionStore();
 
   const fullscreenChatOpen = useShouldFullscreenChat();
 
