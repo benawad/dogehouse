@@ -5,6 +5,7 @@ import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
 import { meAtom } from "../atoms";
 import { Backbar } from "../components/Backbar";
+import { BodyWrapper } from "../components/BodyWrapper";
 import { Button } from "../components/Button";
 import { Wrapper } from "../components/Wrapper";
 
@@ -24,9 +25,9 @@ export const BanUsersPage: React.FC<SearchUsersProps> = ({}) => {
   }
 
   return (
-    <Wrapper style={{ marginBottom: "auto" }}>
+    <Wrapper>
       <Backbar />
-      <div style={{ padding: "0 var(--container-paddding)" }}>
+      <BodyWrapper>
         <input
           className={tw`mb-8`}
           autoFocus
@@ -56,7 +57,7 @@ export const BanUsersPage: React.FC<SearchUsersProps> = ({}) => {
         >
           ban
         </Button>
-      </div>
+      </BodyWrapper>
     </Wrapper>
   );
 };

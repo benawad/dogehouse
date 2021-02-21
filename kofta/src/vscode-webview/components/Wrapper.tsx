@@ -1,16 +1,13 @@
 import React from "react";
 import { tw } from "twind";
 
-interface WrapperProps {
-  style?: React.CSSProperties;
-}
+interface WrapperProps {}
 
 export const Wrapper: React.FC<WrapperProps> = ({
-  children,
-  style = { padding: "0 var(--container-paddding)", marginBottom: "auto" },
+  children
 }) => {
   return (
-    <div style={style}>
+    <div style={{ marginBottom: "auto" }}>
       {children}
       <div className={tw`mb-8`} />
     </div>

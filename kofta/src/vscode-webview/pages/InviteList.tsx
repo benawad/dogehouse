@@ -11,6 +11,7 @@ import { Button } from "../components/Button";
 import { Input } from "../components/Input";
 import { InviteButton } from "../components/InviteButton";
 import { Wrapper } from "../components/Wrapper";
+import { BodyWrapper } from "../components/BodyWrapper";
 
 interface InviteListProps {}
 
@@ -24,20 +25,20 @@ export const InviteList: React.FC<InviteListProps> = () => {
 
   if (!room) {
     return (
-      <Wrapper style={{ marginBottom: "auto" }}>
+      <Wrapper>
         <Backbar />
-        <div style={{ padding: "0 var(--container-paddding)" }}>
+        <BodyWrapper>
           <Button onClick={() => history.push("/")}>room gone, go back</Button>
-        </div>
+        </BodyWrapper>
       </Wrapper>
     );
   }
   console.log(typeof navigator.share);
 
   return (
-    <Wrapper style={{ marginBottom: "auto" }}>
+    <Wrapper>
       <Backbar actuallyGoBack />
-      <div style={{ padding: "0 var(--container-paddding)" }}>
+      <BodyWrapper>
         {room.isPrivate ? null : (
           <>
             {!navigator.share ? (
@@ -124,7 +125,7 @@ export const InviteList: React.FC<InviteListProps> = () => {
             </Button>
           </div>
         ) : null}
-      </div>
+      </BodyWrapper>
     </Wrapper>
   );
 };

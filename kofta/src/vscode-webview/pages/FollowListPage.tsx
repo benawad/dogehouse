@@ -11,6 +11,7 @@ import {
 } from "../atoms";
 import { Avatar } from "../components/Avatar";
 import { Backbar } from "../components/Backbar";
+import { BodyWrapper } from "../components/BodyWrapper";
 import { Button } from "../components/Button";
 import { Wrapper } from "../components/Wrapper";
 import { onFollowUpdater } from "../utils/onFollowUpdater";
@@ -39,9 +40,9 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
     : followerMap[userId]?.nextCursor;
 
   return (
-    <Wrapper style={{ marginBottom: "auto" }}>
+    <Wrapper>
       <Backbar actuallyGoBack />
-      <div style={{ padding: "0 var(--container-paddding)" }}>
+      <BodyWrapper>
         {!users.length ? <div>no users found</div> : null}
         {users.map((profile) => (
           <div
@@ -119,7 +120,7 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
             </Button>
           </div>
         ) : null}
-      </div>
+      </BodyWrapper>
     </Wrapper>
   );
 };

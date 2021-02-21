@@ -5,6 +5,7 @@ import { tw } from "twind";
 import { closeWebSocket } from "../../createWebsocket";
 import { meAtom } from "../atoms";
 import { Backbar } from "../components/Backbar";
+import { BodyWrapper } from "../components/BodyWrapper";
 import { Button } from "../components/Button";
 import { UserProfile } from "../components/UserProfile";
 import { VoiceSettings } from "../components/VoiceSettings";
@@ -17,7 +18,7 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
   const [me] = useAtom(meAtom);
   const history = useHistory();
   return (
-    <Wrapper style={{ marginBottom: "auto" }}>
+    <Wrapper>
       <Backbar actuallyGoBack>
         <div className={tw`ml-auto flex items-center`}>
           <Button
@@ -35,11 +36,11 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
           </Button>
         </div>
       </Backbar>
-      <div style={{ padding: "0 var(--container-paddding)" }}>
+      <BodyWrapper>
         {me ? <UserProfile profile={me} /> : <div>probably loading...</div>}
         <h1 className={tw`py-8 text-4xl`}>Voice Settings</h1>
         <VoiceSettings />
-      </div>
+      </BodyWrapper>
     </Wrapper>
   );
 };

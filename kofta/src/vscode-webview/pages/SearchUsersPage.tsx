@@ -6,6 +6,7 @@ import { Backbar } from "../components/Backbar";
 import { Button } from "../components/Button";
 import { Wrapper } from "../components/Wrapper";
 import { Codicon } from "../svgs/Codicon";
+import { BodyWrapper } from "../components/BodyWrapper";
 
 interface SearchUsersProps {}
 
@@ -13,9 +14,9 @@ export const SearchUsersPage: React.FC<SearchUsersProps> = ({}) => {
   const [{ loading }] = useAtom(userSearchAtom);
   const [query, setQuery] = useState("");
   return (
-    <Wrapper style={{ marginBottom: "auto" }}>
+    <Wrapper>
       <Backbar />
-      <div style={{ padding: "0 var(--container-paddding)" }}>
+      <BodyWrapper>
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -35,7 +36,7 @@ export const SearchUsersPage: React.FC<SearchUsersProps> = ({}) => {
           </Button>
         </form>
         {loading ? <div className={tw`my-8`}>loading...</div> : null}
-      </div>
+      </BodyWrapper>
     </Wrapper>
   );
 };

@@ -6,6 +6,7 @@ import { wsend } from "../../createWebsocket";
 import { currentRoomAtom, followingOnlineAtom } from "../atoms";
 import { Avatar } from "../components/Avatar";
 import { Backbar } from "../components/Backbar";
+import { BodyWrapper } from "../components/BodyWrapper";
 import { Button } from "../components/Button";
 import { Wrapper } from "../components/Wrapper";
 
@@ -17,9 +18,9 @@ export const FollowingOnlineList: React.FC<FriendListProps> = () => {
   const [currentRoom] = useAtom(currentRoomAtom);
 
   return (
-    <Wrapper style={{ marginBottom: "auto" }}>
+    <Wrapper>
       <Backbar />
-      <div style={{ padding: "0 var(--container-paddding)" }}>
+      <BodyWrapper>
         <div className={tw`mb-4 text-2xl`}>
           List of users online that are not in a private room and you follow.
         </div>
@@ -91,7 +92,7 @@ export const FollowingOnlineList: React.FC<FriendListProps> = () => {
             </Button>
           </div>
         ) : null}
-      </div>
+      </BodyWrapper>
     </Wrapper>
   );
 };
