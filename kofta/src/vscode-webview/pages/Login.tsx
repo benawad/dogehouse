@@ -45,54 +45,59 @@ export const Login: React.FC<LoginProps> = () => {
           <li>- Text chat</li>
           <li>- Powered by Ɖoge</li>
         </ul>
-        <div className={tw`mb-8`}>
+        <div>
+          <div className={tw`mb-8`}>
+            <Button
+              variant="slim"
+              onClick={() =>
+                (window.location.href =
+                  apiBaseUrl +
+                  "/auth/github/web" +
+                  (process.env.REACT_APP_IS_STAGING === "true"
+                    ? "?redirect_after_base=" + window.location.origin
+                    : ""))
+              }
+            >
+              login with GitHub
+            </Button>
+          </div>
           <Button
+            variant="slim"
             onClick={() =>
               (window.location.href =
                 apiBaseUrl +
-                "/auth/github/web" +
+                "/auth/twitter/web" +
                 (process.env.REACT_APP_IS_STAGING === "true"
                   ? "?redirect_after_base=" + window.location.origin
                   : ""))
             }
           >
-            login with GitHub
+            login with Twitter
           </Button>
-        </div>
-        <Button
-          onClick={() =>
-            (window.location.href =
-              apiBaseUrl +
-              "/auth/twitter/web" +
-              (process.env.REACT_APP_IS_STAGING === "true"
-                ? "?redirect_after_base=" + window.location.origin
-                : ""))
-          }
-        >
-          login with Twitter
-        </Button>
-        {process.env.NODE_ENV === "development" ? (
-          <Button
-            style={{ marginTop: 32 }}
-            onClick={() => {
-              modalPrompt("username", async (name) => {
-                if (!name) {
-                  return;
-                }
-                const r = await fetch(
-                  `${apiBaseUrl}/dev/test-info?username=` + name
-                );
-                const d = await r.json();
-                useTokenStore.getState().setTokens({
-                  accessToken: d.accessToken,
-                  refreshToken: d.refreshToken,
+          {process.env.NODE_ENV === "development" ? (
+            <Button
+              variant="slim"
+              style={{ marginTop: 32 }}
+              onClick={() => {
+                modalPrompt("username", async (name) => {
+                  if (!name) {
+                    return;
+                  }
+                  const r = await fetch(
+                    `${apiBaseUrl}/dev/test-info?username=` + name
+                  );
+                  const d = await r.json();
+                  useTokenStore.getState().setTokens({
+                    accessToken: d.accessToken,
+                    refreshToken: d.refreshToken,
+                  });
                 });
-              });
-            }}
-          >
-            create test user
-          </Button>
-        ) : null}
+              }}
+            >
+              create test user
+            </Button>
+          ) : null}
+        </div>
       </Wrapper>
       <div
         style={{

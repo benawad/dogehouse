@@ -12,7 +12,7 @@ export const Button: React.FC<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > & {
-    variant?: "default" | "small" | "follow";
+    variant?: "default" | "small" | "slim" | "follow";
     color?: "default" | "red" | "secondary";
     loading?: boolean;
   }
@@ -39,10 +39,10 @@ export const Button: React.FC<
         padding: `10px var(--input-padding-horizontal)`,
         fontSize: `var(--vscode-font-size)`,
         textTransform: "capitalize",
-        ...(variant === "small" ? { padding: "4px 8px", width: "unset" } : {}),
+        ...(variant === "small" ? { padding: "4px 8px", width: "unset" } : (variant === "slim" ? { marginLeft: "auto", marginRight: "auto", padding: "10px 48px" } : {}) ),
         ...style,
       }}
-      className={tw`w-full flex items-center justify-center text-center ${
+      className={tw`w-full flex items-center justify-center text-center ${variant === "slim" ? "sm:w-auto" : ""} ${
         colorToBackground[color as keyof typeof colorToBackground] ||
         "bg-button hover:bg-buttonHover"
       } `}

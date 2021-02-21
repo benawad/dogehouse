@@ -108,11 +108,12 @@ export const Home: React.FC<HomeProps> = () => {
           className={tw`mb-8 flex`}
         >
           <Button
+            variant="slim"
             onClick={() => {
               setShowCreateRoomModal(true);
             }}
           >
-            create room
+            <h3 style={{ fontSize: "24px" }}>Create Room</h3>
           </Button>
         </div>
       </BottomVoiceControl>
