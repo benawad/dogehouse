@@ -7,7 +7,6 @@ import { meAtom } from "../atoms";
 import { Backbar } from "../components/Backbar";
 import { Button } from "../components/Button";
 import { UserProfile } from "../components/UserProfile";
-import { VoiceSettings } from "../components/VoiceSettings";
 import { Wrapper } from "../components/Wrapper";
 import { useTokenStore } from "../utils/useTokenStore";
 
