@@ -4,7 +4,7 @@ import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
 import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
 import { Codicon } from "../svgs/Codicon";
-import { CurrentRoom, User } from "../types";
+import { CurrentRoom, RoomUser } from "../types";
 import { Button } from "./Button";
 import { modalConfirm } from "./ConfirmModal";
 import { UserProfile } from "./UserProfile";
@@ -12,7 +12,7 @@ import { UserVolumeSlider } from "./UserVolumeSlider";
 
 interface ProfileModalProps {
   onClose: () => void;
-  profile: User | null | undefined;
+  profile: RoomUser | null | undefined;
   isMe: boolean;
   iAmCreator: boolean;
   iAmMod: boolean;
@@ -94,7 +94,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
             ) : null}
           </div>
           <UserProfile profile={profile} />
-          {!isMe && profile.canSpeakForRoomId === room.id ? (
+          {!isMe && profile.roomPermissions?.isSpeaker ? (
             <div className={tw`mb-4`}>
               <UserVolumeSlider userId={profile.id} />
             </div>
@@ -109,20 +109,20 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                       op: "change_mod_status",
                       d: {
                         userId: profile.id,
-                        value: !(profile.modForRoomId === room.id),
+                        value: !profile.roomPermissions?.isMod,
                       },
                     });
                   }}
                 >
-                  {profile.modForRoomId === room.id ? "unmod" : "make mod"}
+                  {profile.roomPermissions?.isMod ? "unmod" : "make mod"}
                 </Button>
               </div>
             </>
           ) : null}
           {!isMe && (iAmCreator || iAmMod) && profile.id !== room.creatorId ? (
             <>
-              {profile.canSpeakForRoomId !== room.id &&
-              profile.id in room.raiseHandMap ? (
+              {!profile.roomPermissions?.isSpeaker &&
+              profile.roomPermissions?.askedToSpeak ? (
                 <div className={tw`mb-4`}>
                   <Button
                     onClick={() => {
@@ -139,7 +139,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                   </Button>
                 </div>
               ) : null}
-              {profile.canSpeakForRoomId === room.id ? (
+              {profile.roomPermissions?.isSpeaker ? (
                 <div className={tw`mb-4`}>
                   <Button
                     onClick={() => {
@@ -192,8 +192,8 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
           ) : null}
           {isMe &&
           !iAmCreator &&
-          (profile.id in room.raiseHandMap ||
-            profile.canSpeakForRoomId === room.id) ? (
+          (profile.roomPermissions?.askedToSpeak ||
+            profile.roomPermissions?.isSpeaker) ? (
             <div className={tw`mb-4`}>
               <Button
                 onClick={() => {

@@ -1,0 +1,13 @@
+version: "3.6"
+
+services:
+  app:
+    build:
+      context: .
+    command: ["npm", "run", "debug"]
+    container_name: client
+    ports:
+      - "40000-49999:40000-49999/udp"
+      - "3000:3001"
+    volumes:
+      - "./:/usr/src/app"

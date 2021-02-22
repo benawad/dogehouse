@@ -6,7 +6,7 @@ import { object, pattern, size, string, optional } from "superstruct";
 import { tw } from "twind";
 import { wsFetch } from "../../createWebsocket";
 import { setMeAtom } from "../atoms";
-import { User } from "../types";
+import { BaseUser } from "../types";
 import { showErrorToast } from "../utils/showErrorToast";
 import { validateStruct } from "../utils/validateStruct";
 import { Button } from "./Button";
@@ -24,7 +24,7 @@ const profileStruct = object({
 });
 
 interface Shared {
-  user: User;
+  user: BaseUser;
   onRequestClose: () => void;
 }
 

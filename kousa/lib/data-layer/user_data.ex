@@ -55,29 +55,20 @@ defmodule Kousa.Data.User do
     |> Repo.update_all([])
   end
 
-  def change_mod(user_id_to_change, modForRoomId) do
-    from(u in User,
-      where: u.id == ^user_id_to_change,
-      update: [
-        set: [
-          modForRoomId: ^modForRoomId
-        ]
-      ]
-    )
-    |> Repo.update_all([])
-  end
-
   def get_users_in_current_room(user_id) do
-    user = get_by_id(user_id)
+    case tuple_get_current_room_id(user_id) do
+      {:ok, current_room_id} ->
+        {current_room_id,
+         from(u in Beef.User,
+           where: u.currentRoomId == ^current_room_id,
+           left_join: rp in Beef.RoomPermission,
+           on: rp.userId == u.id and rp.roomId == u.currentRoomId,
+           select: %{u | roomPermissions: rp}
+         )
+         |> Beef.Repo.all()}
 
-    if not is_nil(user.currentRoomId) do
-      {user.currentRoomId,
-       from(u in Beef.User,
-         where: u.currentRoomId == ^user.currentRoomId
-       )
-       |> Beef.Repo.all()}
-    else
-      {nil, []}
+      _ ->
+        {nil, []}
     end
   end
 
@@ -130,18 +121,6 @@ defmodule Kousa.Data.User do
     |> Repo.update_all([])
   end
 
-  def set_speaker(user_id, room_id) do
-    from(u in User,
-      where: u.id == ^user_id and u.currentRoomId == ^room_id,
-      update: [
-        set: [
-          canSpeakForRoomId: ^room_id
-        ]
-      ]
-    )
-    |> Repo.update_all([])
-  end
-
   def set_user_left_current_room(user_id) do
     Kousa.RegUtils.lookup_and_cast(Kousa.Gen.UserSession, user_id, {:set_current_room_id, nil})
 
@@ -149,9 +128,7 @@ defmodule Kousa.Data.User do
       where: u.id == ^user_id,
       update: [
         set: [
-          currentRoomId: nil,
-          modForRoomId: nil,
-          canSpeakForRoomId: nil
+          currentRoomId: nil
         ]
       ]
     )
@@ -210,7 +187,17 @@ defmodule Kousa.Data.User do
   end
 
   def set_current_room(user_id, room_id, can_speak \\ false, returning \\ false) do
-    canSpeakForRoomId = if can_speak, do: room_id, else: nil
+    roomPermissions =
+      case can_speak do
+        true ->
+          case Kousa.Data.RoomPermission.set_is_speaker(user_id, room_id, true, true) do
+            {:ok, x} -> x
+            _ -> nil
+          end
+
+        _ ->
+          Kousa.Data.RoomPermission.get(user_id, room_id)
+      end
 
     Kousa.RegUtils.lookup_and_cast(
       Kousa.Gen.UserSession,
@@ -223,16 +210,18 @@ defmodule Kousa.Data.User do
         where: u.id == ^user_id,
         update: [
           set: [
-            currentRoomId: ^room_id,
-            canSpeakForRoomId: ^canSpeakForRoomId
+            currentRoomId: ^room_id
           ]
         ]
       )
 
     q = if returning, do: select(q, [u], u), else: q
 
-    q
-    |> Beef.Repo.update_all([])
+    case q
+         |> Beef.Repo.update_all([]) do
+      {_, [user]} -> %{user | roomPermissions: roomPermissions}
+      _ -> nil
+    end
   end
 
   def twitter_find_or_create(user) do

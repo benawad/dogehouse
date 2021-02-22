@@ -16,8 +16,8 @@ export async function createTransport(
   console.log("transport options", transportOptions);
   let transport =
     direction === "recv"
-      ? await device.createRecvTransport(transportOptions)
-      : await device.createSendTransport(transportOptions);
+      ? await device!.createRecvTransport(transportOptions)
+      : await device!.createSendTransport(transportOptions);
 
   // mediasoup-client will emit a connect event when media needs to
   // start flowing for the first time. send dtlsParameters to the
@@ -82,7 +82,7 @@ export async function createTransport(
             transportId: transportOptions.id,
             kind,
             rtpParameters,
-            rtpCapabilities: device.rtpCapabilities,
+            rtpCapabilities: device!.rtpCapabilities,
             paused,
             appData,
             direction,

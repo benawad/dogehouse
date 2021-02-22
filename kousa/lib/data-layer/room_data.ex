@@ -14,12 +14,11 @@ defmodule Kousa.Data.Room do
         {:creator, room}
 
       true ->
-        user = Kousa.Data.User.get_by_id(user_id)
-
-        {cond do
-           room.id == user.modForRoomId -> :mod
-           room.id == user.canSpeakForRoomId -> :speaker
-           true -> :listener
+        {case Kousa.Data.RoomPermission.get(user_id, room.id) do
+           %{isMod: true} -> :mod
+           %{isSpeaker: true} -> :speaker
+           %{askedToSpeak: true} -> :askedToSpeak
+           _ -> :listener
          end, room}
     end
   end
@@ -67,7 +66,7 @@ defmodule Kousa.Data.Room do
   end
 
   def join_room(room, user_id) do
-    {_, [user]} = Kousa.Data.User.set_current_room(user_id, room.id, room.isPrivate, true)
+    user = Kousa.Data.User.set_current_room(user_id, room.id, room.isPrivate, true)
 
     if (length(room.peoplePreviewList) < 10 or
           not is_nil(
@@ -117,6 +116,7 @@ defmodule Kousa.Data.Room do
      if(length(items) == @fetch_limit, do: -1 + offset + @fetch_limit, else: nil)}
   end
 
+  @spec get_room_by_id(any) :: any
   def get_room_by_id(room_id) do
     Beef.Repo.get(Beef.Room, room_id)
   end
@@ -168,30 +168,21 @@ defmodule Kousa.Data.Room do
   end
 
   @user_order """
-    (case(?::uuid)
+    (case
       when ? then 1
-      when ? then 2
-      else 3
+      else 2
     end)
   """
   @spec get_next_creator_for_room(any) :: any
   def get_next_creator_for_room(room_id) do
-    {_, bin_room_id} = Ecto.UUID.dump(room_id)
-
     from(u in Beef.User,
-      where: u.modForRoomId == ^room_id or u.canSpeakForRoomId == ^room_id,
+      inner_join: rp in Beef.RoomPermission,
+      on: rp.roomId == ^room_id and rp.userId == u.id and u.currentRoomId == ^room_id,
+      where: rp.isSpeaker == true,
       limit: 1,
       order_by: [
-        asc: fragment(@user_order, ^bin_room_id, u.modForRoomId, u.canSpeakForRoomId)
+        asc: fragment(@user_order, rp.isMod)
       ]
-    )
-    |> Beef.Repo.one()
-  end
-
-  def get_a_mod_for_room(room_id) do
-    from(u in Beef.User,
-      where: u.modForRoomId == ^room_id,
-      limit: 1
     )
     |> Beef.Repo.one()
   end
@@ -232,11 +223,11 @@ defmodule Kousa.Data.Room do
   def leave_room(user_id, room_id) do
     room = get_room_by_id(room_id)
 
-    if room do
+    if not is_nil(room) do
       if room.numPeopleInside <= 1 do
         # IO.puts("delete_room_by_id")
         delete_room_by_id(room.id)
-        {:bye}
+        {:bye, room}
       else
         # IO.puts("set_user_left_current_room")
         Kousa.Data.User.set_user_left_current_room(user_id)
@@ -261,7 +252,7 @@ defmodule Kousa.Data.Room do
             # IO.puts("delete_room_by_id")
             delete_room_by_id(room.id)
             # IO.puts("end_fn")
-            {:bye}
+            {:bye, room}
           end
         end
       end
@@ -309,7 +300,7 @@ defmodule Kousa.Data.Room do
 
     case resp do
       {:ok, room} ->
-        Kousa.Data.User.set_current_room(data.creatorId, room.id, true)
+        Kousa.Data.User.set_current_room(data.creatorId, room.id)
 
       _ ->
         nil
@@ -321,14 +312,6 @@ defmodule Kousa.Data.Room do
   def is_owner(room_id, user_id) do
     not is_nil(
       Beef.Repo.one(from(r in Beef.Room, where: r.id == ^room_id and r.creatorId == ^user_id))
-    )
-  end
-
-  def is_speaker(room_id, user_id) do
-    not is_nil(
-      Beef.Repo.one(
-        from(u in Beef.User, where: u.canSpeakForRoomId == ^room_id and u.id == ^user_id)
-      )
     )
   end
 end

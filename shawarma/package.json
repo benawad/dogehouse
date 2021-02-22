@@ -7,7 +7,8 @@
     "watch": "tsc -w",
     "start": "node dist/index.js",
     "build": "tsc",
-    "dev": "DEBUG=shawarma:* nodemon dist/index.js"
+    "dev": "DEBUG=shawarma:* nodemon dist/index.js",
+    "dev2": "QUEUE_ID=1 DEBUG=shawarma:* nodemon dist/index.js"
   },
   "keywords": [],
   "author": "",

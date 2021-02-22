@@ -9,8 +9,42 @@ database_url =
 
 config :kousa, Beef.Repo, url: database_url
 
+config :ueberauth, Ueberauth.Strategy.Github.OAuth,
+  client_id:
+    System.get_env("GITHUB_CLIENT_ID") ||
+      raise("""
+      environment variable GITHUB_CLIENT_ID is missing.
+      Create an oauth application on GitHub to get one
+      """),
+  client_secret:
+    System.get_env("GITHUB_CLIENT_SECRET") ||
+      raise("""
+      environment variable GITHUB_CLIENT_SECRET is missing.
+      Create an oauth application on GitHub to get one
+      """)
+
+config :ueberauth, Ueberauth.Strategy.Twitter.OAuth,
+  consumer_key:
+    System.get_env("TWITTER_API_KEY") ||
+      raise("""
+        environment variable TWITTER_API_KEY is missing.
+        Create an oauth application on Twitter to get one
+      """),
+  consumer_secret:
+    System.get_env("TWITTER_SECRET_KEY") ||
+      raise("""
+      environment variable TWITTER_SECRET_KEY is missing.
+      Create an oauth application on Twitter to get one
+      """)
+
 config :kousa,
+  num_voice_servers: 1,
   is_staging: System.get_env("IS_STAGING") == "true",
+  secret_key_base:
+    System.get_env("SECRET_KEY_BASE") ||
+      raise("""
+      environment variable SECRET_KEY_BASE is missing.
+      """),
   ben_github_id:
     System.get_env("BEN_GITHUB_ID") ||
       raise("""
@@ -34,18 +68,6 @@ config :kousa,
       raise("""
       environment variable REFRESH_TOKEN_SECRET is missing.
       type some random characters to create one
-      """),
-  client_id:
-    System.get_env("GITHUB_CLIENT_ID") ||
-      raise("""
-      environment variable GITHUB_CLIENT_ID is missing.
-      Create an oauth application on GitHub to get one
-      """),
-  client_secret:
-    System.get_env("GITHUB_CLIENT_SECRET") ||
-      raise("""
-      environment variable GITHUB_CLIENT_SECRET is missing.
-      Create an oauth application on GitHub to get one
       """)
 
 if(System.get_env("SENTRY_DNS") != nil) do
@@ -69,27 +91,6 @@ config :sentry,
 config :joken,
   access_token_key: System.fetch_env!("ACCESS_TOKEN_SECRET"),
   refresh_token_key: System.fetch_env!("REFRESH_TOKEN_SECRET")
-
-config :extwitter, :oauth,
-  consumer_key:
-    System.get_env("TWITTER_API_KEY") ||
-      raise("""
-      environment variable TWITTER_API_KEY is missing.
-      Create an oauth application on Twitter to get one
-      """),
-  consumer_secret:
-    System.get_env("TWITTER_SECRET_KEY") ||
-      raise("""
-      environment variable TWITTER_SECRET_KEY is missing.
-      Create an oauth application on Twitter to get one
-      """),
-  access_token:
-    System.get_env("TWITTER_BEARER_TOKEN") ||
-      raise("""
-      environment variable TWITTER_BEARER_TOKEN is missing.
-      Create an oauth application on Twitter to get one
-      """),
-  access_token_secret: ""
 
 IO.puts("is_staging:")
 IO.puts(Application.get_env(:kousa, :is_staging))

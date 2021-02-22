@@ -21,6 +21,7 @@ export const RoomChat: React.FC<ChatProps> = ({ sidebar }) => {
     s.reset,
     s.toggleOpen,
   ]);
+
   useEffect(() => {
     if (!room) {
       reset();

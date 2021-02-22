@@ -1,5 +1,6 @@
 defmodule Kousa.Gen.UserSession do
   use GenServer
+  alias Kousa.{Gen, RegUtils, Data, BL}
 
   defmodule State do
     @type t :: %__MODULE__{
@@ -151,10 +152,16 @@ defmodule Kousa.Gen.UserSession do
     {:reply, :ok, %{state | pid: pid}}
   end
 
-  def handle_info({:reconnect_to_voice_server}, state) do
-    if not is_nil(state.pid) do
-      if not is_nil(state.current_room_id) do
-        Kousa.BL.Room.join_vc_room(state.user_id, state.current_room_id)
+  def handle_info({:reconnect_to_voice_server, voice_server_id}, %State{} = state) do
+    if not is_nil(state.pid) and not is_nil(state.current_room_id) do
+      with {:ok, ^voice_server_id} <-
+             RegUtils.lookup_and_call(
+               Gen.RoomSession,
+               state.current_room_id,
+               {:get_voice_server_id}
+             ) do
+        room = Data.Room.get_room_by_id(state.current_room_id)
+        BL.Room.join_vc_room(state.user_id, room)
       end
     end
 
