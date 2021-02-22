@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import React, { useState } from "react";
+import React, { createRef, useState } from "react";
 import { tw } from "twind";
 import { wsend } from "../../../createWebsocket";
 import { meAtom } from "../../atoms";
@@ -24,7 +24,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
     setActiveUsername,
   } = useRoomChatStore();
   const [me] = useAtom(meAtom);
-
+  const inputRef = createRef<HTMLInputElement>();
   function navigateThroughQueriedUsers(e: any) {
     // Use dom method, GlobalHotkeys apparently don't catch arrow-key events on inputs
     if (
@@ -62,7 +62,13 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
   }
   const [isEmoji, setisEmoji] = useState(false);
   const addEmoji = (emoji: any) => {
-    setMessage(message + emoji.native);
+    const position: number = inputRef.current!.selectionEnd!;
+    const newMsg = [
+      message.slice(0, position),
+      emoji.native,
+      message.slice(position),
+    ].join("");
+    setMessage(newMsg);
   };
 
   return (
@@ -120,20 +126,21 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
         />
       ) : null}
       <div>
-        <i
+        <div
           style={{
             color: "rgb(167, 167, 167)",
           }}
-          className={tw`absolute pt-3 right-12 cursor-pointer`}
+          className={tw`absolute mt-3 right-12 cursor-pointer`}
           onClick={() => setisEmoji(!isEmoji)}
         >
           <Smile style={{ inlineSize: "23px" }}></Smile>
-        </i>
+        </div>
         <input
           maxLength={512}
           placeholder="Send a message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
+          ref={inputRef}
           className={tw`text-tmpC1 bg-tmpBg4 px-4 py-3 rounded text-lg focus:outline-none pr-12`}
           onKeyDown={navigateThroughQueriedUsers}
           onFocus={() => setisEmoji(false)}
