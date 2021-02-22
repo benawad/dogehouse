@@ -14,6 +14,8 @@ import { AlertModal } from "../components/AlertModal";
 import { ConfirmModal } from "../components/ConfirmModal";
 import { BodyWrapper } from "../components/BodyWrapper";
 import { ListItem } from "../components/ListItem";
+import { GitHubIcon } from "../svgs/GitHubIcon";
+import { TwitterIcon } from "../svgs/TwitterIcon";
 
 interface LoginProps {}
 
@@ -61,7 +63,7 @@ export const Login: React.FC<LoginProps> = () => {
                     : ""))
               }
             >
-              login with GitHub
+              <GitHubIcon /><p className={tw`ml-3`}>login with GitHub</p>
             </Button>
           </div>
           <Button
@@ -75,7 +77,7 @@ export const Login: React.FC<LoginProps> = () => {
                   : ""))
             }
           >
-            login with Twitter
+            <TwitterIcon /><p className={tw`ml-3`}>login with Twitter</p>
           </Button>
           {process.env.NODE_ENV === "development" ? (
             <Button
