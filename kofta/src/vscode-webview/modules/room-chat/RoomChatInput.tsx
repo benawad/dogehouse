@@ -12,6 +12,7 @@ import { Picker } from "emoji-mart";
 
 interface ChatInputProps {}
 
+let position: number = 0;
 export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
   const {
     message,
@@ -61,8 +62,10 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
       setActiveUsername(queriedUsernames[changeToIndex]?.id);
   }
   const [isEmoji, setisEmoji] = useState(false);
+
   const addEmoji = (emoji: any) => {
-    const position: number = inputRef.current!.selectionEnd!;
+    if (position === 0) position = inputRef.current!.selectionStart!;
+    else position = position + 2;
     const newMsg = [
       message.slice(0, position),
       emoji.native,
@@ -131,7 +134,10 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
             color: "rgb(167, 167, 167)",
           }}
           className={tw`absolute mt-3 right-12 cursor-pointer`}
-          onClick={() => setisEmoji(!isEmoji)}
+          onClick={() => {
+            setisEmoji(!isEmoji);
+            position = 0;
+          }}
         >
           <Smile style={{ inlineSize: "23px" }}></Smile>
         </div>
@@ -143,7 +149,10 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
           ref={inputRef}
           className={tw`text-tmpC1 bg-tmpBg4 px-4 py-3 rounded text-lg focus:outline-none pr-12`}
           onKeyDown={navigateThroughQueriedUsers}
-          onClick={() => setisEmoji(false)}
+          onFocus={() => {
+            setisEmoji(false);
+            position = 0;
+          }}
         />
       </div>
     </form>
