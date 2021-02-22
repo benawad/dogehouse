@@ -216,16 +216,19 @@ export const Routes: React.FC<RoutesProps> = () => {
       },
       user_left_room: ({ userId }) => {
         setCurrentRoom((cr) => {
-          return !cr
-            ? null
-            : {
-                ...cr,
-                peoplePreviewList: cr.peoplePreviewList.filter(
-                  (x) => x.id !== userId
-                ),
-                numPeopleInside: cr.numPeopleInside - 1,
-                users: cr.users.filter((x) => x.id !== userId),
-              };
+          if (!cr) {
+            return cr;
+          }
+          const { [userId]: _, ...asm } = cr.activeSpeakerMap;
+          return {
+            ...cr,
+            activeSpeakerMap: asm,
+            peoplePreviewList: cr.peoplePreviewList.filter(
+              (x) => x.id !== userId
+            ),
+            numPeopleInside: cr.numPeopleInside - 1,
+            users: cr.users.filter((x) => x.id !== userId),
+          };
         });
       },
       new_user_join_room: ({ user, muteMap }) => {
@@ -294,6 +297,7 @@ export const Routes: React.FC<RoutesProps> = () => {
         users,
         muteMap,
         roomId,
+        activeSpeakerMap,
         autoSpeaker,
       }) => {
         setCurrentRoom((c) => {
@@ -302,6 +306,7 @@ export const Routes: React.FC<RoutesProps> = () => {
           }
           return {
             ...c,
+            activeSpeakerMap,
             users,
             muteMap,
             autoSpeaker,

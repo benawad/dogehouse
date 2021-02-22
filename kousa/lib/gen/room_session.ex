@@ -78,8 +78,8 @@ defmodule Kousa.Gen.RoomSession do
     {:reply, state.voice_server_id, state}
   end
 
-  def handle_call({:get_maps}, _, state) do
-    {:reply, {state.muteMap, state.auto_speaker}, state}
+  def handle_call({:get_maps}, _, %State{} = state) do
+    {:reply, {state.muteMap, state.auto_speaker, state.activeSpeakerMap}, state}
   end
 
   def handle_call({:redeem_invite, user_id}, _, state) do

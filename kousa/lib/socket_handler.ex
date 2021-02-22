@@ -475,7 +475,7 @@ defmodule Kousa.SocketHandler do
   def handler("get_current_room_users", _data, state) do
     {room_id, users} = Kousa.Data.User.get_users_in_current_room(state.user_id)
 
-    {muteMap, autoSpeaker} =
+    {muteMap, autoSpeaker, activeSpeakerMap} =
       cond do
         not is_nil(room_id) ->
           case GenRegistry.lookup(Kousa.Gen.RoomSession, room_id) do
@@ -483,11 +483,11 @@ defmodule Kousa.SocketHandler do
               GenServer.call(session, {:get_maps})
 
             _ ->
-              {%{}, false}
+              {%{}, false, %{}}
           end
 
         true ->
-          {%{}, false}
+          {%{}, false, %{}}
       end
 
     {:reply,
@@ -497,6 +497,7 @@ defmodule Kousa.SocketHandler do
          d: %{
            users: users,
            muteMap: muteMap,
+           activeSpeakerMap: activeSpeakerMap,
            # @deprecated
            raiseHandMap: %{},
            roomId: room_id,
