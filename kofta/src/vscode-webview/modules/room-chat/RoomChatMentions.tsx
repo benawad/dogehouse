@@ -75,7 +75,7 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
         {queriedUsernames.map((m) => (
           <button
             className={`flex py-3 items-center px-8 focus:outline-none ${
-              activeUsername === m.id ? "bg-blue-700" : ""
+              activeUsername === m.id ? "bg-blue-800" : ""
             }`}
             key={m.id}
             onClick={() => addMention(m)}

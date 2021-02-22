@@ -54,12 +54,12 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
           <Button
             type="button"
             onClick={onRequestClose}
-            className={`mr-0.5`}
+            className={`mr-1.5`}
             color="secondary"
           >
             cancel
           </Button>
-          <Button type="submit" className={`ml-0.5`}>
+          <Button type="submit" className={`ml-1.5`}>
             ok
           </Button>
         </div>

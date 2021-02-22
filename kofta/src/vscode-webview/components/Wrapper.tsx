@@ -8,7 +8,6 @@ export const Wrapper: React.FC<WrapperProps> = ({
   return (
     <div className={`mb-auto`}>
       {children}
-      <div className={`mb-8`} />
     </div>
   );
 };

@@ -34,7 +34,7 @@ export const ConfirmModal: React.FC<Props> = () => {
         <Button
           type="button"
           onClick={close}
-          className={`mr-0.5`}
+          className={`mr-1.5`}
           color="secondary"
         >
           cancel
@@ -45,7 +45,7 @@ export const ConfirmModal: React.FC<Props> = () => {
             onConfirm?.();
           }}
           type="submit"
-          className={`ml-0.5`}
+          className={`ml-1.5`}
         >
           yes
         </Button>

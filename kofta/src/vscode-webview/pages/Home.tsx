@@ -30,7 +30,7 @@ export const Home: React.FC<HomeProps> = () => {
   }, []);
 
   return (
-    <div className={`grid auto-rows-fr flex-1`}>
+    <div className={`grid grid-rows-fr-auto flex-1`}>
       <Wrapper>
         <BodyWrapper>
           <div className={`mb-10 mt-8`}>

@@ -23,7 +23,7 @@ interface BottomVoiceControlProps {}
 
 const iconSize = 24;
 const iconColor = "#8C8C8C";
-const buttonStyle = `p-2.5 text-gray-400 text-sm flex-1`;
+const buttonStyle = `px-2.5 text-gray-400 text-sm flex-1`;
 
 export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   children,
@@ -202,7 +202,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             </span>
           </button>
         ) : null}
-        <div className={`border-gray-400 border w-full mt-auto p-5`}>
+        <div className={`border-gray-400 bg-gray-800 border-t w-full mt-auto p-5`}>
           {currentRoom ? (
             <div className={`flex justify-around`}>{buttons}</div>
           ) : (
