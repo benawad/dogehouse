@@ -9,7 +9,8 @@ defmodule Beef.Room do
              :numPeopleInside,
              :isPrivate,
              :creatorId,
-             :peoplePreviewList
+             :peoplePreviewList,
+             :voiceServerId
            ]}
   @primary_key {:id, :binary_id, []}
   schema "rooms" do

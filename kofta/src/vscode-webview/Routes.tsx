@@ -310,6 +310,7 @@ export const Routes: React.FC<RoutesProps> = () => {
       },
       new_current_room: ({ room }) => {
         if (room) {
+          console.log("new room voice server id: " + room.voiceServerId);
           useRoomChatStore.getState().clearChat();
           wsend({ op: "get_current_room_users", d: {} });
           history.push("/room/" + room.id);
@@ -330,6 +331,7 @@ export const Routes: React.FC<RoutesProps> = () => {
           }
           showErrorToast(d.error);
         } else {
+          console.log("join with voice server id: " + d.room.voiceServerId);
           useRoomChatStore.getState().clearChat();
           setCurrentRoom(() => roomToCurrentRoom(d.room));
           wsend({ op: "get_current_room_users", d: {} });
