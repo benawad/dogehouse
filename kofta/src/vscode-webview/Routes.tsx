@@ -58,8 +58,6 @@ export const Routes: React.FC<RoutesProps> = () => {
   const meRef = useRef(me);
   meRef.current = me;
 
-  const { open } = useRoomChatStore.getState();
-
   useEffect(() => {
     addMultipleWsListener({
       new_room_name: ({ name, roomId }) => {
@@ -71,6 +69,7 @@ export const Routes: React.FC<RoutesProps> = () => {
         useRoomChatStore.getState().addBannedUser(userId);
       },
       new_chat_msg: ({ msg }) => {
+        const { open } = useRoomChatStore.getState();
         useRoomChatStore.getState().addMessage(msg);
         if (
           (!open || !document.hasFocus()) &&
