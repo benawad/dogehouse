@@ -122,11 +122,9 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
       <div>
         <i
           style={{
-            paddingTop: "8px",
-            position: "absolute",
-            right: "35px",
             color: "rgb(167, 167, 167)",
           }}
+          className={tw`absolute pt-3 right-12 cursor-pointer`}
           onClick={() => setisEmoji(!isEmoji)}
         >
           <Smile style={{ inlineSize: "23px" }}></Smile>
