@@ -73,7 +73,7 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
 
   if (queriedUsernames.length) {
     return (
-      <div className={tw`flex flex-col pb-1`}>
+      <div className={tw`flex flex-col pb-1 bg-tmpBg1`}>
         {queriedUsernames.map((m) => (
           <button
             className={tw`flex py-3 items-center px-8 focus:outline-none ${
