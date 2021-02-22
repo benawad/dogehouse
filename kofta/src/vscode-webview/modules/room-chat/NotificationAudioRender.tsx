@@ -18,5 +18,5 @@ export const NotificationAudioRender: React.FC<NotificationAudioRenderProps> = (
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [iAmMentioned]);
 
-  return <audio ref={(ref) => setAudio(ref)} src="/notif.ogg" />;
+  return <audio style={{ position: 'absolute' }} ref={(ref) => setAudio(ref)} src="/notif.ogg" />;
 };
