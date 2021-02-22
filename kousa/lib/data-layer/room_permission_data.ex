@@ -17,7 +17,7 @@ defmodule Kousa.Data.RoomPermission do
     )
   end
 
-  def is_speaker(room_id, user_id) do
+  def is_speaker(user_id, room_id) do
     not is_nil(
       Beef.Repo.one(
         from(rp in Beef.RoomPermission,

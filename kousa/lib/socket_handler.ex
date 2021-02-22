@@ -1,7 +1,7 @@
 defmodule Kousa.SocketHandler do
   require Logger
 
-  alias Kousa.{BL, Data}
+  alias Kousa.{BL, Data, RegUtils, Gen}
 
   defmodule State do
     @type t :: %__MODULE__{
@@ -127,26 +127,38 @@ defmodule Kousa.SocketHandler do
                     GenServer.cast(session, {:new_tokens, tokens})
                   end
 
-                  if not is_nil(user.currentRoomId) do
-                    {:ok, room_session} =
-                      GenRegistry.lookup_or_start(Kousa.Gen.RoomSession, user.currentRoomId, [
-                        %{user_id: user_id, room_id: user.currentRoomId, muted: muted}
-                      ])
+                  currentRoom =
+                    if not is_nil(user.currentRoomId) do
+                      room = Kousa.Data.Room.get_room_by_id(user.currentRoomId)
 
-                    GenServer.cast(
-                      room_session,
-                      {:join_room, user, muted}
-                    )
+                      {:ok, room_session} =
+                        GenRegistry.lookup_or_start(Kousa.Gen.RoomSession, user.currentRoomId, [
+                          %{
+                            user_id: user_id,
+                            room_id: user.currentRoomId,
+                            muted: muted,
+                            voice_server_id: room.voiceServerId
+                          }
+                        ])
 
-                    if reconnectToVoice == true do
-                      Kousa.BL.Room.join_vc_room(user.id, user.currentRoomId)
+                      GenServer.cast(
+                        room_session,
+                        {:join_room, user, muted}
+                      )
+
+                      if reconnectToVoice == true do
+                        Kousa.BL.Room.join_vc_room(user.id, room)
+                      end
+
+                      room
+                    else
+                      nil
                     end
-                  end
 
                   {:reply,
                    construct_socket_msg(state.encoding, state.compression, %{
                      op: "auth-good",
-                     d: %{user: user}
+                     d: %{user: user, currentRoom: currentRoom}
                    }), %{state | user_id: user_id, awaiting_init: false, platform: platform}}
 
                 true ->
@@ -463,7 +475,7 @@ defmodule Kousa.SocketHandler do
   def handler("get_current_room_users", _data, state) do
     {room_id, users} = Kousa.Data.User.get_users_in_current_room(state.user_id)
 
-    {muteMap, autoSpeaker} =
+    {muteMap, autoSpeaker, activeSpeakerMap} =
       cond do
         not is_nil(room_id) ->
           case GenRegistry.lookup(Kousa.Gen.RoomSession, room_id) do
@@ -471,11 +483,11 @@ defmodule Kousa.SocketHandler do
               GenServer.call(session, {:get_maps})
 
             _ ->
-              {%{}, false}
+              {%{}, false, %{}}
           end
 
         true ->
-          {%{}, false}
+          {%{}, false, %{}}
       end
 
     {:reply,
@@ -485,6 +497,7 @@ defmodule Kousa.SocketHandler do
          d: %{
            users: users,
            muteMap: muteMap,
+           activeSpeakerMap: activeSpeakerMap,
            # @deprecated
            raiseHandMap: %{},
            roomId: room_id,
@@ -532,28 +545,42 @@ defmodule Kousa.SocketHandler do
   end
 
   def handler(op, data, state) do
-    # @todo error handling null roomId
-    d =
-      cond do
-        String.first(op) == "@" ->
-          roomId = Kousa.Data.User.get_by_id(state.user_id).currentRoomId
+    with {:ok, room_id} <- Kousa.Data.User.tuple_get_current_room_id(state.user_id),
+         {:ok, voice_server_id} <-
+           RegUtils.lookup_and_call(Gen.RoomSession, room_id, {:get_voice_server_id}) do
+      d =
+        cond do
+          String.first(op) == "@" ->
+            Map.merge(data, %{
+              peerId: state.user_id,
+              roomId: room_id
+            })
 
-          Map.merge(data, %{
-            peerId: state.user_id,
-            roomId: roomId
-          })
+          true ->
+            data
+        end
 
-        true ->
-          data
-      end
+      Kousa.Gen.VoiceRabbit.send(voice_server_id, %{
+        op: op,
+        d: d,
+        uid: state.user_id
+      })
 
-    Kousa.Gen.Rabbit.send(%{
-      op: op,
-      d: d,
-      uid: state.user_id
-    })
+      {:ok, state}
+    else
+      x ->
+        IO.puts("you should never see this general rabbbitmq handler in socker_handler")
+        IO.inspect(x)
 
-    {:ok, state}
+        {:reply,
+         prepare_socket_msg(
+           %{
+             op: "error",
+             d: "you should never see this, if you do, try refreshing"
+           },
+           state
+         ), state}
+    end
   end
 
   def f_handler("edit_profile", %{"data" => data}, state) do

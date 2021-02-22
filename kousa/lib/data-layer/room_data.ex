@@ -116,6 +116,7 @@ defmodule Kousa.Data.Room do
      if(length(items) == @fetch_limit, do: -1 + offset + @fetch_limit, else: nil)}
   end
 
+  @spec get_room_by_id(any) :: any
   def get_room_by_id(room_id) do
     Beef.Repo.get(Beef.Room, room_id)
   end
@@ -176,7 +177,7 @@ defmodule Kousa.Data.Room do
   def get_next_creator_for_room(room_id) do
     from(u in Beef.User,
       inner_join: rp in Beef.RoomPermission,
-      on: rp.roomId == ^room_id and rp.userId == u.id,
+      on: rp.roomId == ^room_id and rp.userId == u.id and u.currentRoomId == ^room_id,
       where: rp.isSpeaker == true,
       limit: 1,
       order_by: [
@@ -222,11 +223,11 @@ defmodule Kousa.Data.Room do
   def leave_room(user_id, room_id) do
     room = get_room_by_id(room_id)
 
-    if room do
+    if not is_nil(room) do
       if room.numPeopleInside <= 1 do
         # IO.puts("delete_room_by_id")
         delete_room_by_id(room.id)
-        {:bye}
+        {:bye, room}
       else
         # IO.puts("set_user_left_current_room")
         Kousa.Data.User.set_user_left_current_room(user_id)
@@ -251,7 +252,7 @@ defmodule Kousa.Data.Room do
             # IO.puts("delete_room_by_id")
             delete_room_by_id(room.id)
             # IO.puts("end_fn")
-            {:bye}
+            {:bye, room}
           end
         end
       end

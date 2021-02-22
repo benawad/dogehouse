@@ -238,16 +238,19 @@ export const Routes: React.FC<RoutesProps> = () => {
       },
       user_left_room: ({ userId }) => {
         setCurrentRoom((cr) => {
-          return !cr
-            ? null
-            : {
-                ...cr,
-                peoplePreviewList: cr.peoplePreviewList.filter(
-                  (x) => x.id !== userId
-                ),
-                numPeopleInside: cr.numPeopleInside - 1,
-                users: cr.users.filter((x) => x.id !== userId),
-              };
+          if (!cr) {
+            return cr;
+          }
+          const { [userId]: _, ...asm } = cr.activeSpeakerMap;
+          return {
+            ...cr,
+            activeSpeakerMap: asm,
+            peoplePreviewList: cr.peoplePreviewList.filter(
+              (x) => x.id !== userId
+            ),
+            numPeopleInside: cr.numPeopleInside - 1,
+            users: cr.users.filter((x) => x.id !== userId),
+          };
         });
       },
       new_user_join_room: ({ user, muteMap }) => {
@@ -299,7 +302,10 @@ export const Routes: React.FC<RoutesProps> = () => {
             return c;
           }
           if (value) {
-            return { ...c, muteMap: { ...c.muteMap, [userId]: true } };
+            return {
+              ...c,
+              muteMap: { ...c.muteMap, [userId]: true },
+            };
           } else {
             const { [userId]: _, ...newMm } = c.muteMap;
             return {
@@ -313,6 +319,7 @@ export const Routes: React.FC<RoutesProps> = () => {
         users,
         muteMap,
         roomId,
+        activeSpeakerMap,
         autoSpeaker,
       }) => {
         setCurrentRoom((c) => {
@@ -321,6 +328,7 @@ export const Routes: React.FC<RoutesProps> = () => {
           }
           return {
             ...c,
+            activeSpeakerMap,
             users,
             muteMap,
             autoSpeaker,
@@ -329,6 +337,7 @@ export const Routes: React.FC<RoutesProps> = () => {
       },
       new_current_room: ({ room }) => {
         if (room) {
+          console.log("new room voice server id: " + room.voiceServerId);
           useRoomChatStore.getState().clearChat();
           wsend({ op: "get_current_room_users", d: {} });
           history.push("/room/" + room.id);
@@ -349,6 +358,7 @@ export const Routes: React.FC<RoutesProps> = () => {
           }
           showErrorToast(d.error);
         } else {
+          console.log("join with voice server id: " + d.room.voiceServerId);
           useRoomChatStore.getState().clearChat();
           setCurrentRoom(() => roomToCurrentRoom(d.room));
           wsend({ op: "get_current_room_users", d: {} });

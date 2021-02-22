@@ -151,8 +151,6 @@ defmodule Kousa.TwitterAuth do
             URI.encode("twitter login callback failed for some reason, tell ben to check logs")
         )
     end
-
-    conn
   end
 
   def handle_callback(conn) do

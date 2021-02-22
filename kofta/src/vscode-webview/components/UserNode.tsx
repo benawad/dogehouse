@@ -57,7 +57,7 @@ export const UserNode: React.FC<UserNodeProps> = ({
           active={isSpeaking}
           src={u.avatarUrl}
         />
-        {isMuted && isSpeaker ? (
+        {isMuted && (isCreator || isSpeaker) ? (
           <div
             className={tw`absolute -bottom-2 -right-2 bg-button rounded-full p-1`}
           >

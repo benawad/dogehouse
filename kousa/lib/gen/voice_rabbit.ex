@@ -1,9 +1,24 @@
-defmodule Kousa.Gen.Rabbit do
+defmodule Kousa.Gen.VoiceRabbit do
   use GenServer
   use AMQP
 
-  def start_link(_) do
-    GenServer.start_link(__MODULE__, [], name: __MODULE__)
+  defmodule State do
+    @type t :: %{
+            id: String.t(),
+            chan: map()
+          }
+
+    defstruct id: "", chan: nil
+  end
+
+  def start_link(%{id: id}) do
+    GenServer.start_link(
+      __MODULE__,
+      %State{
+        id: id
+      },
+      name: :"#{id}:voice_rabbit"
+    )
   end
 
   # @send_exchange "shawarma_exchange"
@@ -11,45 +26,45 @@ defmodule Kousa.Gen.Rabbit do
   @receive_exchange "kousa_exchange"
   @receive_queue "kousa_queue"
 
-  def init(_opts) do
+  def init(opts) do
     {:ok, conn} =
       Connection.open(Application.get_env(:kousa, :rabbit_url, "amqp://guest:guest@localhost"))
 
     {:ok, chan} = Channel.open(conn)
-    setup_queue(chan)
+    setup_queue(opts.id, chan)
 
     # Register the GenServer process as a consumer
-    {:ok, _consumer_tag} = Basic.consume(chan, @receive_queue, nil, no_ack: true)
-    {:ok, chan}
+    {:ok, _consumer_tag} = Basic.consume(chan, @receive_queue <> opts.id, nil, no_ack: true)
+    {:ok, %State{chan: chan, id: opts.id}}
   end
 
-  def send(msg) do
-    GenServer.cast(__MODULE__, {:send, Poison.encode!(msg)})
+  def send(id, msg) do
+    Kousa.RegUtils.lookup_and_cast(__MODULE__, id, {:send, Poison.encode!(msg)})
   end
 
-  def handle_cast({:send, msg}, chan) do
+  def handle_cast({:send, msg}, %State{chan: chan, id: id} = state) do
     # IO.puts("SENDING TO RABBIT : ")
-    AMQP.Basic.publish(chan, "", @send_queue, msg)
-    {:noreply, chan}
+    AMQP.Basic.publish(chan, "", @send_queue <> id, msg)
+    {:noreply, state}
   end
 
-  def handle_info({:basic_consume_ok, %{consumer_tag: _consumer_tag}}, chan) do
-    {:noreply, chan}
+  def handle_info({:basic_consume_ok, %{consumer_tag: _consumer_tag}}, state) do
+    {:noreply, state}
   end
 
   # Sent by the broker when the consumer is unexpectedly cancelled (such as after a queue deletion)
-  def handle_info({:basic_cancel, %{consumer_tag: _consumer_tag}}, chan) do
-    {:stop, :normal, chan}
+  def handle_info({:basic_cancel, %{consumer_tag: _consumer_tag}}, state) do
+    {:stop, :normal, state}
   end
 
   # Confirmation sent by the broker to the consumer process after a Basic.cancel
-  def handle_info({:basic_cancel_ok, %{consumer_tag: _consumer_tag}}, chan) do
-    {:noreply, chan}
+  def handle_info({:basic_cancel_ok, %{consumer_tag: _consumer_tag}}, state) do
+    {:noreply, state}
   end
 
   def handle_info(
         {:basic_deliver, payload, %{delivery_tag: _tag, redelivered: _redelivered}},
-        chan
+        %State{} = state
       ) do
     data = Poison.decode!(payload)
 
@@ -87,14 +102,14 @@ defmodule Kousa.Gen.Rabbit do
 
     # You might want to run payload consumption in separate Tasks in production
     # consume(chan, tag, redelivered, payload)
-    {:noreply, chan}
+    {:noreply, state}
   end
 
-  defp setup_queue(chan) do
-    {:ok, _} = Queue.declare(chan, @send_queue, durable: true)
-    {:ok, _} = Queue.declare(chan, @receive_queue, durable: true)
+  defp setup_queue(id, chan) do
+    {:ok, _} = Queue.declare(chan, @send_queue <> id, durable: true)
+    {:ok, _} = Queue.declare(chan, @receive_queue <> id, durable: true)
 
-    :ok = Exchange.fanout(chan, @receive_exchange, durable: true)
-    :ok = Queue.bind(chan, @receive_queue, @receive_exchange)
+    :ok = Exchange.fanout(chan, @receive_exchange <> id, durable: true)
+    :ok = Queue.bind(chan, @receive_queue <> id, @receive_exchange <> id)
   end
 end
