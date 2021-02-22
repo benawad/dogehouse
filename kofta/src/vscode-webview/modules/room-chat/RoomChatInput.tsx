@@ -143,7 +143,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
           ref={inputRef}
           className={tw`text-tmpC1 bg-tmpBg4 px-4 py-3 rounded text-lg focus:outline-none pr-12`}
           onKeyDown={navigateThroughQueriedUsers}
-          onFocus={() => setisEmoji(false)}
+          onClick={() => setisEmoji(false)}
         />
       </div>
     </form>
