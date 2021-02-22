@@ -2,7 +2,7 @@
 
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
 
-- Reporting a issue
+- Reporting an issue
 - Discussing the current state of the code
 - Submitting a fix
 - Proposing new features
@@ -129,7 +129,7 @@ Run `npm i` and then `npm start`.
 ## Issues
 
 We use GitHub issues to track public bugs. Please ensure your description is
-clear and has sufficient instructions to be able to reproduce the issue. Report a bug by <a href="https://github.com/benawad/dogehouse/issues">opening a new issue</a>; it's that easy!
+clear and has sufficient instructions to be able to reproduce the issue. Report a bug by <a href="https://github.com/benawad/dogehouse/issues">opening a new issue</a>, it's that easy!
 
 ## Frequently Asked Questions (FAQs)
 
