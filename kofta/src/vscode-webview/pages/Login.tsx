@@ -56,6 +56,7 @@ export const Login: React.FC<LoginProps> = () => {
           <div className={tw`mb-8`}>
             <Button
               variant="slim"
+              style={{ backgroundColor: "#333" }}
               onClick={() =>
                 (window.location.href =
                   apiBaseUrl +
@@ -73,6 +74,7 @@ export const Login: React.FC<LoginProps> = () => {
           </div>
           <Button
             variant="slim"
+            style={{ backgroundColor: "#1da1f2" }}
             onClick={() =>
               (window.location.href =
                 apiBaseUrl +
