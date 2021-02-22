@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { closeWebSocket, wsend } from "../createWebsocket";
@@ -7,6 +7,7 @@ import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
 import { invitationToRoom } from "../webrtc/utils/invitationToRoom";
 import { mergeRoomPermission } from "../webrtc/utils/mergeRoomPermission";
 import {
+  meAtom,
   setCurrentRoomAtom,
   setFollowerMapAtom,
   setFollowingMapAtom,
@@ -15,8 +16,13 @@ import {
   setMeAtom,
   setPublicRoomsAtom,
 } from "./atoms";
-import { useRoomChatStore } from "./modules/room-chat/useRoomChatStore";
+import { useRoomChatMentionStore } from "./modules/room-chat/useRoomChatMentionStore";
+import {
+  RoomChatMessageToken,
+  useRoomChatStore,
+} from "./modules/room-chat/useRoomChatStore";
 import { BanUsersPage } from "./pages/BanUsersPage";
+import { ChatSettingsPage } from "./pages/ChatSettingsPage";
 import { FollowingOnlineList } from "./pages/FollowingOnlineList";
 import { FollowListPage } from "./pages/FollowListPage";
 import { Home } from "./pages/Home";
@@ -47,6 +53,11 @@ export const Routes: React.FC<RoutesProps> = () => {
   const [, setFollowingMap] = useAtom(setFollowingMapAtom);
   const [, setFollowingOnline] = useAtom(setFollowingOnlineAtom);
   const [, setInviteList] = useAtom(setInviteListAtom);
+
+  const [me] = useAtom(meAtom);
+  const meRef = useRef(me);
+  meRef.current = me;
+
   useEffect(() => {
     addMultipleWsListener({
       new_room_name: ({ name, roomId }) => {
@@ -58,7 +69,18 @@ export const Routes: React.FC<RoutesProps> = () => {
         useRoomChatStore.getState().addBannedUser(userId);
       },
       new_chat_msg: ({ msg }) => {
+        const { open } = useRoomChatStore.getState();
         useRoomChatStore.getState().addMessage(msg);
+        if (
+          (!open || !document.hasFocus()) &&
+          !!msg.tokens.filter(
+            (t: RoomChatMessageToken) =>
+              t.t === "mention" &&
+              t.v?.toLowerCase() === meRef?.current?.username?.toLowerCase()
+          ).length
+        ) {
+          useRoomChatMentionStore.getState().incrementIAmMentioned();
+        }
       },
       room_privacy_change: ({ roomId, isPrivate, name }) => {
         setCurrentRoom((cr) =>
@@ -377,6 +399,7 @@ export const Routes: React.FC<RoutesProps> = () => {
       <Route exact path="/search/users" component={SearchUsersPage} />
       <Route exact path="/ban/users" component={BanUsersPage} />
       <Route exact path="/voice-settings" component={VoiceSettingsPage} />
+      <Route exact path="/chat-settings" component={ChatSettingsPage} />
       <Route exact path="/following-online" component={FollowingOnlineList} />
       <Route
         exact

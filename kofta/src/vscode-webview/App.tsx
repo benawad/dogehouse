@@ -18,6 +18,7 @@ import { queryClient } from "./queryClient";
 import { Router } from "./Router";
 import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
 import { useTokenStore } from "./utils/useTokenStore";
+import { NotificationAudioRender } from "./modules/room-chat/NotificationAudioRender";
 
 interface AppProps {}
 
@@ -111,6 +112,7 @@ export const WebviewApp: React.FC<AppProps> = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <NotificationAudioRender />
       <Router />
       <KeybindListener />
     </QueryClientProvider>
