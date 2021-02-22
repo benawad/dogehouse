@@ -154,7 +154,7 @@ defmodule Kousa.BL.Room do
       if is_nil(is_speaker),
         do:
           room.creatorId == user_id or
-            Kousa.Data.RoomPermission.is_speaker(room.id, user_id),
+            Kousa.Data.RoomPermission.is_speaker(user_id, room.id),
         else: is_speaker
 
     op =
@@ -271,7 +271,15 @@ defmodule Kousa.BL.Room do
                  Kousa.Gen.UserSession.send_call!(user_id, {:get, :muted})}
               )
 
-              join_vc_room(user_id, room, room.isPrivate)
+              canSpeak =
+                with %{roomPermissions: %{isSpeaker: true}} <- updated_user do
+                  true
+                else
+                  _ ->
+                    false
+                end
+
+              join_vc_room(user_id, room, canSpeak || room.isPrivate)
               %{room: room}
           end
       end
