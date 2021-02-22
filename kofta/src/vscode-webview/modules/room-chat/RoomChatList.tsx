@@ -29,10 +29,10 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
       <div className={`pb-6`} />
       {messages.map((m) => (
         <div
-          className={`block py-1 break-words`}
+          className={`flex py-1 break-words`}
           key={m.id}
         >
-          <span className={`pr-2 inline`}>
+          <span className={`pr-2`}>
             <Avatar size={20} src={m.avatarUrl} />
           </span>
 
