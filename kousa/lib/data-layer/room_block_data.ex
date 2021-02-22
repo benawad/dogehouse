@@ -14,6 +14,6 @@ defmodule Kousa.Data.RoomBlock do
   def insert(data) do
     %Beef.RoomBlock{}
     |> Beef.RoomBlock.insert_changeset(data)
-    |> Beef.Repo.insert()
+    |> Beef.Repo.insert(on_conflict: :nothing)
   end
 end

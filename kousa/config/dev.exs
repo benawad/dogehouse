@@ -23,6 +23,7 @@ config :ueberauth, Ueberauth.Strategy.Github.OAuth,
       """)
 
 config :kousa,
+  num_voice_servers: 1,
   web_url: System.get_env("WEB_URL") || "http://localhost:3000",
   api_url: System.get_env("API_URL") || "http://localhost:4001",
   secret_key_base:

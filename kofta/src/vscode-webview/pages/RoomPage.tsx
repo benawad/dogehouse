@@ -16,7 +16,7 @@ import { modalPrompt } from "../components/PromptModal";
 import { RoomUserNode } from "../components/RoomUserNode";
 import { Wrapper } from "../components/Wrapper";
 import { Codicon } from "../svgs/Codicon";
-import { User } from "../types";
+import { BaseUser } from "../types";
 import { isUuid } from "../utils/isUuid";
 
 interface RoomPageProps {}
@@ -57,30 +57,21 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
 
   const profile = room.users.find((x) => x.id === userProfileId);
 
-  const speakers: User[] = [];
-  const unansweredHands: User[] = [];
-  const listeners: User[] = [];
+  const speakers: BaseUser[] = [];
+  const unansweredHands: BaseUser[] = [];
+  const listeners: BaseUser[] = [];
+  let canIAskToSpeak = false;
 
   room.users.forEach((u) => {
-    if (u.id === room.creatorId || u.canSpeakForRoomId === room.id) {
+    if (u.id === room.creatorId || u.roomPermissions?.isSpeaker) {
       speakers.push(u);
-    } else if (u.id in room.raiseHandMap) {
+    } else if (u.roomPermissions?.askedToSpeak) {
       unansweredHands.push(u);
     } else {
+      canIAskToSpeak = true;
       listeners.push(u);
     }
   });
-
-  // if (iAmCreator) {
-  //   Object.keys(room.raiseHandMap).forEach((id) => {
-  //     if (room.raiseHandMap[id] === -1) {
-  //       const u = room.users.find((x) => x.id === id);
-  //       if (u && u.id !== me?.id && u.canSpeakForRoomId !== room.id) {
-  //         unansweredHands.push(u);
-  //       }
-  //     }
-  //   });
-  // }
 
   return (
     <>
@@ -145,7 +136,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
                 profile={profile}
               />
             ))}
-            {!iCanSpeak && me && !(me.id in room.raiseHandMap) ? (
+            {!iCanSpeak && me && canIAskToSpeak ? (
               <div className={tw`flex flex-col items-center`}>
                 <CircleButton
                   size={70}

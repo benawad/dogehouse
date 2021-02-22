@@ -37,9 +37,16 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
       </Backbar>
               <BodyWrapper>
       {me ? <UserProfile profile={me} /> : <div>probably loading...</div>}
-      <div className={tw`pt-6`}>
-        <Button variant="small" onClick={() => history.push(`/voice-settings`)}>
+      <div className={tw`pt-6 flex`}>
+        <Button
+          style={{ marginRight: "10px" }}
+          variant="small"
+          onClick={() => history.push(`/voice-settings`)}
+        >
           go to voice settings
+        </Button>
+        <Button variant="small" onClick={() => history.push(`/chat-settings`)}>
+          go to chat settings
         </Button>
       </div>
               </BodyWrapper>

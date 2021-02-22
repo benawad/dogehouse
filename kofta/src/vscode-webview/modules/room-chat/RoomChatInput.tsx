@@ -9,21 +9,23 @@ import { createChatMessage } from "../../utils/createChatMessage";
 import { Smile } from "react-feather";
 import "emoji-mart/css/emoji-mart.css";
 import { Picker } from "emoji-mart";
+import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 
 interface ChatInputProps {}
 
 let position: number = 0;
 export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
+  const { message, setMessage } = useRoomChatStore();
+
   const {
-    message,
-    setMessage,
     setQueriedUsernames,
     queriedUsernames,
     mentions,
     setMentions,
     activeUsername,
     setActiveUsername,
-  } = useRoomChatStore();
+  } = useRoomChatMentionStore.getState();
+
   const [me] = useAtom(meAtom);
   const inputRef = createRef<HTMLInputElement>();
   function navigateThroughQueriedUsers(e: any) {
@@ -102,7 +104,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
       }}
       className={tw`bg-tmpBg1 pb-8 px-8 pt-1`}
     >
-      {isEmoji ? (
+    {isEmoji ? (
         <Picker
           set="apple"
           onSelect={(emoji) => {

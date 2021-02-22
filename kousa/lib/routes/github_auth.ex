@@ -22,7 +22,7 @@ defmodule Kousa.GitHubAuth do
     |> Plug.Conn.put_private(:ueberauth_request_options, %{
       callback_url: Application.get_env(:kousa, :api_url) <> "/auth/github/callback",
       options: [
-        default_scope: "user,user:email"
+        default_scope: "read:user,user:email"
       ]
     })
     |> Ueberauth.Strategy.Github.handle_request!()

@@ -4,33 +4,38 @@ defmodule Kousa.Gen.RoomSession do
   defmodule State do
     @type t :: %__MODULE__{
             room_id: String.t(),
+            voice_server_id: String.t(),
             users: [String.t()],
             muteMap: map(),
-            raiseHandMap: map(),
             inviteMap: map(),
             activeSpeakerMap: map(),
             auto_speaker: boolean()
           }
 
     defstruct room_id: "",
+              voice_server_id: "",
               users: [],
               muteMap: %{},
-              raiseHandMap: %{},
               inviteMap: %{},
               activeSpeakerMap: %{},
               auto_speaker: false
   end
 
-  def start_link(%{room_id: room_id, user_id: user_id, muted: muted}) do
+  def start_link(%{
+        room_id: room_id,
+        user_id: user_id,
+        muted: muted,
+        voice_server_id: voice_server_id
+      }) do
     GenServer.start_link(
       __MODULE__,
       %State{
         room_id: room_id,
+        voice_server_id: voice_server_id,
         users: [user_id],
         auto_speaker: false,
         activeSpeakerMap: %{},
         muteMap: if(muted, do: Map.put(%{}, user_id, true), else: %{}),
-        raiseHandMap: %{},
         inviteMap: %{}
       },
       name: :"#{room_id}:room_session"
@@ -69,16 +74,12 @@ defmodule Kousa.Gen.RoomSession do
     {:reply, {:ok, state.muteMap}, state}
   end
 
-  def handle_call({:get_raise_hand_map}, _, state) do
-    {:reply, {:ok, state.raiseHandMap}, state}
+  def handle_call({:get_voice_server_id}, _, %State{} = state) do
+    {:reply, state.voice_server_id, state}
   end
 
-  def handle_call({:get_maps}, _, state) do
-    {:reply, {state.muteMap, state.raiseHandMap, state.auto_speaker}, state}
-  end
-
-  def handle_call({:has_raised_hand, user_id}, _, state) do
-    {:reply, Map.has_key?(state.raiseHandMap, user_id), state}
+  def handle_call({:get_maps}, _, %State{} = state) do
+    {:reply, {state.muteMap, state.auto_speaker, state.activeSpeakerMap}, state}
   end
 
   def handle_call({:redeem_invite, user_id}, _, state) do
@@ -90,31 +91,6 @@ defmodule Kousa.Gen.RoomSession do
        }}
     else
       {:reply, :error, state}
-    end
-  end
-
-  def handle_call({:raise_hand, user_id}, _, state) do
-    cond do
-      state.auto_speaker ->
-        {:reply, :speaker, state}
-
-      Map.get(state.raiseHandMap, user_id) == 1 ->
-        {:reply, :speaker, state}
-
-      Map.has_key?(state.raiseHandMap, user_id) ->
-        {:reply, :ok, state}
-
-      true ->
-        ws_fan(state.users, :vscode, %{
-          op: "hand_raised",
-          d: %{userId: user_id, roomId: state.room_id}
-        })
-
-        {:reply, :ok,
-         %{
-           state
-           | raiseHandMap: Map.put(state.raiseHandMap, user_id, -1)
-         }}
     end
   end
 
@@ -168,7 +144,12 @@ defmodule Kousa.Gen.RoomSession do
 
   def handle_cast({:speaker_removed, user_id}, %State{} = state) do
     new_mm = Map.delete(state.muteMap, user_id)
-    new_rhm = Map.delete(state.raiseHandMap, user_id)
+
+    Kousa.Gen.VoiceRabbit.send(state.voice_server_id, %{
+      op: "remove-speaker",
+      d: %{roomId: state.room_id, peerId: user_id},
+      uid: user_id
+    })
 
     ws_fan(state.users, :vscode, %{
       op: "speaker_removed",
@@ -176,18 +157,24 @@ defmodule Kousa.Gen.RoomSession do
         userId: user_id,
         roomId: state.room_id,
         muteMap: new_mm,
-        raiseHandMap: new_rhm
+        raiseHandMap: %{}
       }
     })
 
-    {:noreply, %State{state | muteMap: new_mm, raiseHandMap: new_rhm}}
+    {:noreply, %State{state | muteMap: new_mm}}
   end
 
-  def handle_cast({:speaker_added, user_id, muted}, state) do
+  def handle_cast({:speaker_added, user_id, muted}, %State{} = state) do
     new_mm =
       if muted,
         do: Map.put(state.muteMap, user_id, true),
         else: Map.delete(state.muteMap, user_id)
+
+    Kousa.Gen.VoiceRabbit.send(state.voice_server_id, %{
+      op: "add-speaker",
+      d: %{roomId: state.room_id, peerId: user_id},
+      uid: user_id
+    })
 
     ws_fan(state.users, :vscode, %{
       op: "speaker_added",
@@ -236,15 +223,7 @@ defmodule Kousa.Gen.RoomSession do
     {:noreply, state}
   end
 
-  def handle_cast({:answer_hand, user_id, value}, state) do
-    {:noreply,
-     %{
-       state
-       | raiseHandMap: Map.put(state.raiseHandMap, user_id, value)
-     }}
-  end
-
-  def handle_cast({:mute, user_id, value}, state) do
+  def handle_cast({:mute, user_id, value}, %State{} = state) do
     is_in_map = Map.has_key?(state.muteMap, user_id)
     changed = (not value and is_in_map) or (value and not is_in_map)
 
@@ -262,7 +241,9 @@ defmodule Kousa.Gen.RoomSession do
            if(not value,
              do: Map.delete(state.muteMap, user_id),
              else: Map.put(state.muteMap, user_id, true)
-           )
+           ),
+         activeSpeakerMap:
+           if(value, do: Map.delete(state.activeSpeakerMap, user_id), else: state.activeSpeakerMap)
      }}
   end
 
@@ -281,6 +262,12 @@ defmodule Kousa.Gen.RoomSession do
   def handle_cast({:leave_room, user_id}, %State{} = state) do
     users = Enum.filter(state.users, fn uid -> uid != user_id end)
     Kousa.RegUtils.lookup_and_cast(Kousa.Gen.RoomChat, state.room_id, {:remove_user, user_id})
+
+    Kousa.Gen.VoiceRabbit.send(state.voice_server_id, %{
+      op: "close-peer",
+      uid: user_id,
+      d: %{peerId: user_id, roomId: state.room_id}
+    })
 
     ws_fan(users, :vscode, %{
       op: "user_left_room",

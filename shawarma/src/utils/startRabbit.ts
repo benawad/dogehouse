@@ -34,11 +34,12 @@ export const startRabbit = async (handler: HandlerMap) => {
   const conn = await amqp.connect(
     process.env.RABBITMQ_URL || "amqp://localhost"
   );
-  console.log("rabbit connected2");
+  const id = process.env.QUEUE_ID || "";
+  console.log("rabbit connected " + id);
   const channel = await conn.createChannel();
-  const sendQueue = "kousa_queue";
-  const onlineQueue = "kousa_online_queue";
-  const receiveQueue = "shawarma_queue";
+  const sendQueue = "kousa_queue" + id;
+  const onlineQueue = "kousa_online_queue" + id;
+  const receiveQueue = "shawarma_queue" + id;
   await Promise.all([
     channel.assertQueue(receiveQueue),
     channel.assertQueue(sendQueue),

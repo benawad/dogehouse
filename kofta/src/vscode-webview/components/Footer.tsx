@@ -8,7 +8,7 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ isLogin }) => {
   return (
-    <div className={tw`justify-around flex`}>
+    <div className={tw`justify-around flex text-center`}>
       <RegularAnchor href="https://github.com/benawad/dogehouse#investors">
         Investors
       </RegularAnchor>

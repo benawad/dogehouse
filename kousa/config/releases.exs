@@ -38,6 +38,7 @@ config :ueberauth, Ueberauth.Strategy.Twitter.OAuth,
       """)
 
 config :kousa,
+  num_voice_servers: 1,
   is_staging: System.get_env("IS_STAGING") == "true",
   secret_key_base:
     System.get_env("SECRET_KEY_BASE") ||
