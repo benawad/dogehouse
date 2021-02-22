@@ -1,6 +1,6 @@
 # Contributing to DogeHouse
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
-- Reporting a issue
+- Reporting an issue
 - Discussing the current state of the code
 - Submitting a fix
 - Proposing new features
@@ -73,7 +73,7 @@ export WEB_URL=http://localhost:3000
 export PORT=4001
 ```
 
-> You can save this variables in a `.txt` and run `source path/to/file.txt`
+> You can save these variables in a `.txt` and run `source path/to/file.txt`
 
 Run the following commands:
 ```shell
