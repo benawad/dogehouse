@@ -4,6 +4,7 @@ import { tw } from "twind";
 import { Avatar } from "../../components/Avatar";
 import { ProfileModalFetcher } from "./ProfileModalFetcher";
 import { useRoomChatStore } from "./useRoomChatStore";
+// @ts-ignore
 import normalizeUrl from "normalize-url";
 import { meAtom } from "../../atoms";
 
@@ -29,8 +30,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
       <div className={tw`pb-6`} />
       {messages.map((m) => (
         <div
-          style={{ wordBreak: "break-word" }}
-          className={tw`block py-1`}
+          className={tw`block py-1 break-words`}
           key={m.id}
         >
           <span className={tw`pr-2 inline`}>
@@ -65,11 +65,13 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                       setProfileId(v);
                     }}
                     key={i}
-                    className={tw`hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
-                      v === me?.username
-                        ? "bg-button text-tmpC3 px-2 rounded text-md"
-                        : ""
-                    }`}
+                    className={
+                      tw`hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
+                        v === me?.username
+                          ? "bg-button text-tmpC3 px-2 rounded text-md"
+                          : ""
+                      }`
+                    }
                     style={{
                       textDecorationColor: m.color,
                       color: v === me?.username ? "" : m.color,

@@ -24,12 +24,7 @@ interface BottomVoiceControlProps {}
 
 const iconSize = 24;
 const iconColor = "#8C8C8C";
-const buttonStyle = {
-  padding: "10px",
-  color: "#8C8C8C",
-  fontSize: 14,
-  flex: 1,
-};
+const buttonStyleTw = tw`p-2.5 text-gray-400 text-sm flex-1`;
 
 export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   children,
@@ -57,7 +52,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   if (currentRoom) {
     buttons.push(
       <button
-        style={buttonStyle}
+        className={buttonStyleTw}
         key="leave-room"
         onClick={() => {
           modalConfirm("Are you sure you want to leave?", () => {
@@ -70,32 +65,31 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
         title="Leave current room"
       >
         <PhoneMissed
-          style={{ margin: "auto", marginBottom: "3px" }}
+          className={tw`m-auto mb-1`}
           size={iconSize}
           color={iconColor}
         />
         Leave
       </button>,
       <button
-        style={buttonStyle}
+        className={buttonStyleTw}
         key="chat"
         onClick={() => {
           toggleOpen();
         }}
       >
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <div style={{ position: "relative" }}>
+        <div className={tw`flex justify-center`}>
+          <div className={tw`relative`}>
             <MessageSquare
-              style={{ margin: "auto", marginBottom: "3px" }}
+              className={tw`m-auto mb-1`}
               size={iconSize}
               color={iconColor}
             />
             {newUnreadMessages ? (
               <span
+                className={tw`absolute rounded-full`}
                 style={{
-                  position: "absolute",
                   backgroundColor: iAmMentioned ? "#ff3c00" : "#FF9900",
-                  borderRadius: "50%",
                   right: -2,
                   top: -1,
                   width: 10,
@@ -108,7 +102,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
         Chat
       </button>,
       <button
-        style={buttonStyle}
+        className={buttonStyleTw}
         key="invite"
         onClick={() => {
           wsend({ op: "fetch_invite_list", d: { cursor: 0 } });
@@ -117,7 +111,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
         title="Invite users to room"
       >
         <UserPlus
-          style={{ margin: "auto", marginBottom: "3px" }}
+          className={tw`m-auto mb-1`}
           size={iconSize}
           color={iconColor}
         />
@@ -127,7 +121,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
     if (isCreator || canSpeak) {
       buttons.push(
         <button
-          style={buttonStyle}
+          className={buttonStyleTw}
           key="mute"
           onClick={() => {
             wsend({
@@ -140,13 +134,13 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
         >
           {muted ? (
             <MicOff
-              style={{ margin: "auto", marginBottom: "3px" }}
+              className={tw`m-auto mb-1`}
               size={iconSize}
               color={iconColor}
             />
           ) : (
             <Mic
-              style={{ margin: "auto", marginBottom: "3px" }}
+              className={tw`m-auto mb-1`}
               size={iconSize}
               color={iconColor}
             />
@@ -159,7 +153,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
     if (isCreator) {
       buttons.push(
         <button
-          style={buttonStyle}
+          className={buttonStyleTw}
           key="to-public-room"
           onClick={() => {
             setSettingsOpen(true);
@@ -167,7 +161,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           title="Make room public!"
         >
           <Settings
-            style={{ margin: "auto", marginBottom: "3px" }}
+            className={tw`m-auto mb-1`}
             size={iconSize}
             color={iconColor}
           />
@@ -184,12 +178,13 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
         onRequestClose={() => setSettingsOpen(false)}
       />
       <div
-        style={{ height: fullscreenChatOpen ? "100%" : undefined }}
-        className={tw`${
-          fullscreenChatOpen
-            ? `fixed top-0 left-0 right-0 flex-col flex`
-            : `sticky`
-        } bottom-0 w-full`}
+        className={
+          tw`${
+            fullscreenChatOpen
+              ? `fixed top-0 left-0 right-0 flex-col flex h-full`
+              : `sticky`
+          } bottom-0 w-full`
+        }
       >
         {fullscreenChatOpen ? null : children}
         <RoomChat sidebar={false} />
@@ -200,13 +195,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             onClick={() => history.push(`/room/${currentRoom.id}`)}
             className={tw`bg-tmpBg1 py-5 px-10 w-full flex`}
           >
-            <span
-              style={{
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-              }}
-              className={tw`text-tmpC1 font-semibold`}
-            >
+            <span className={tw`text-tmpC1 overflow-hidden overflow-ellipsis font-semibold`}>
               {currentRoom.name}{" "}
             </span>
             <span className={tw`text-tmpC4 ml-2`}>
@@ -216,11 +205,9 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
         ) : null}
         <div
           style={{
-            borderTop: "1px solid #808080",
-            backgroundColor: "#262626",
             padding: "0 var(--container-paddding)",
           }}
-          className={tw`w-full mt-auto`}
+          className={tw`border-gray-400 border w-full mt-auto`}
         >
           {currentRoom ? (
             <div className={tw`flex justify-around`}>{buttons}</div>

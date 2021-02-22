@@ -39,12 +39,7 @@ export const PTTKeybind: React.FC<PTTKeybindProps> = ({ className }) => {
       </Button>
       <div className={tw`ml-4`}>
         toggle push-to-talk keybind:{" "}
-        <span
-          style={{
-            fontSize: "calc(var(--vscode-font-size)*1.1)",
-          }}
-          className={tw`font-bold`}
-        >
+        <span className={tw`font-bold text-lg`}>
           {active ? "listening" : PTT}
         </span>
       </div>

@@ -31,7 +31,8 @@ export const UserNode: React.FC<UserNodeProps> = ({
       <img
         src={GlassesDoge}
         alt="room creator"
-        style={{ height: 18, width: 18, marginLeft: 4, marginBottom: 6 }}
+        style={{ marginLeft: 4, marginBottom: 6 }}
+        className={tw`w-4 h-4`}
       />
     );
   } else if (isMod) {
@@ -39,7 +40,8 @@ export const UserNode: React.FC<UserNodeProps> = ({
       <img
         src={RegularDoge}
         alt="room mod"
-        style={{ height: 18, width: 18, marginLeft: 4, marginBottom: 5 }}
+        style={{ marginLeft: 4, marginBottom: 6 }}
+        className={tw`w-4 h-4`}
       />
     );
   }
@@ -66,7 +68,7 @@ export const UserNode: React.FC<UserNodeProps> = ({
         ) : null}
       </div>
       <div className={tw`mt-2 flex items-center`}>
-        <div style={{ fontSize: 14 }}>
+        <div className={tw`text-sm`}>
           {(u.displayName || "").split(" ")[0]?.slice(0, 9)}
         </div>
         {prefix}

@@ -27,8 +27,8 @@ export const FollowingOnlineList: React.FC<FriendListProps> = () => {
         {users.length === 0 ? <div>no users found</div> : null}
         {users.map((u) => (
           <div
-            style={{ borderBottom: "1px solid var( --vscode-dropdown-border)" }}
-            className={tw`flex py-4 px-2 items-center`}
+            style={{ borderBottomColor: "var( --vscode-dropdown-border)" }}
+            className={tw`border flex py-4 px-2 items-center`}
             key={u.id}
           >
             <button onClick={() => history.push(`/user`, u)}>
@@ -45,11 +45,7 @@ export const FollowingOnlineList: React.FC<FriendListProps> = () => {
               }}
               className={tw`ml-4 flex-1 text-left`}
             >
-              <div
-                style={{
-                  fontSize: "calc(var(--vscode-font-size)*1.1)",
-                }}
-              >
+              <div className={tw`text-lg`}>
                 {u.displayName}
               </div>
               <div style={{ color: "" }}>
@@ -57,7 +53,7 @@ export const FollowingOnlineList: React.FC<FriendListProps> = () => {
               </div>
             </button>
             {u.followsYou ? (
-              <div style={{ marginLeft: "auto" }}>
+              <div className={tw`ml-auto`}>
                 <Button
                   onClick={() => {
                     wsend({

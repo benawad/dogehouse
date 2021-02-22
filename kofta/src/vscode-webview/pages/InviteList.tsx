@@ -74,8 +74,8 @@ export const InviteList: React.FC<InviteListProps> = () => {
         )}
         {users.map((u) => (
           <div
-            style={{ borderBottom: "1px solid var( --vscode-dropdown-border)" }}
-            className={tw`flex py-4 px-2 items-center`}
+            style={{ borderBottomColor: "var( --vscode-dropdown-border)" }}
+            className={tw`border flex py-4 px-2 items-center`}
             key={u.id}
           >
             <button onClick={() => history.push(`/user`, u)}>
@@ -87,16 +87,12 @@ export const InviteList: React.FC<InviteListProps> = () => {
               }}
               className={tw`ml-4`}
             >
-              <div
-                style={{
-                  fontSize: "calc(var(--vscode-font-size)*1.1)",
-                }}
-              >
+              <div className={tw`text-lg`}>
                 {u.displayName}
               </div>
               <div>@{u.username}</div>
             </button>
-            <div style={{ marginLeft: "auto" }}>
+            <div className={tw`ml-auto`}>
               <InviteButton
                 onClick={() => {
                   wsend({

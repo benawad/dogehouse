@@ -71,10 +71,7 @@ export const WebviewApp: React.FC<AppProps> = () => {
     return (
       <CenterLayout>
         <Wrapper>
-          <div
-            style={{ fontSize: "calc(var(--vscode-font-size)*1.2)" }}
-            className={tw`mb-4 mt-8`}
-          >
+          <div className={tw`mb-4 mt-8 text-xl`}>
             Your device is currently not supported. You can create an{" "}
             <RegularAnchor href="https://github.com/benawad/dogehouse/issues">
               issue on GitHub
@@ -90,10 +87,7 @@ export const WebviewApp: React.FC<AppProps> = () => {
     return (
       <CenterLayout>
         <Wrapper>
-          <div
-            style={{ fontSize: "calc(var(--vscode-font-size)*1.2)" }}
-            className={tw`mb-4 mt-8`}
-          >
+          <div className={tw`mb-4 mt-8 text-xl`}>
             Websocket was killed by the server. This usually happens when you
             open the website in another tab.
           </div>

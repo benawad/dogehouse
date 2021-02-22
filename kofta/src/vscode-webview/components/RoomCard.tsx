@@ -5,6 +5,7 @@ import { Codicon } from "../svgs/Codicon";
 import { CurrentRoom, Room } from "../types";
 
 import "./RoomCard.css";
+import {tw} from "twind";
 
 interface RoomProps {
   active?: boolean;
@@ -39,8 +40,8 @@ export const RoomCard: React.FC<RoomProps> = ({
         style={{
           marginTop: !i ? 6 : 2,
           color: "#D9D9D9",
-          textAlign: "left",
         }}
+        className={tw`text-left`}
       >
         {p.displayName?.slice(0, 50)}
       </div>
@@ -58,27 +59,21 @@ export const RoomCard: React.FC<RoomProps> = ({
       >
         <div
           style={{
-            display: "flex",
             color: "var(--vscode-inputOption-activeForeground)",
           }}
+          className={tw`flex`}
         >
           <div
             style={{
-              textAlign: "left",
-              fontSize: "calc(var(--vscode-font-size)*1.2)",
-              flex: 1,
-              color: "#D9D9D9",
-              display: "-webkit-box",  
+              display: "-webkit-box",
               WebkitBoxOrient: "vertical",
-              overflowWrap: "break-word",
               WebkitLineClamp: 3,
-              overflow: "hidden",
-              textOverflow: "ellipsis"
             }}
+            className={tw`text-left flex-1 text-xl text-gray-300 text-ellipsis overflow-hidden break-words`}
           >
             {room.name?.slice(0, 100)}
           </div>
-          <div style={{ display: "flex", alignItems: "center" }}>
+          <div className={tw`flex items-center`}>
             <Codicon name="person" /> {n}
           </div>
         </div>

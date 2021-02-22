@@ -14,7 +14,7 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = () => {
         <div className={tw`mb-10 mt-8`}>
           <Logo />
         </div>
-        <div style={{ fontSize: "24px" }}>
+        <div className={tw`text-2xl`}>
           Whoops! This page got lost in conversation.
         </div>
         Not to worry. You can

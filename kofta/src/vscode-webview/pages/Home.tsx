@@ -31,24 +31,14 @@ export const Home: React.FC<HomeProps> = () => {
   }, []);
 
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateRows: "1fr auto",
-      }}
-      className={tw`flex-1`}
-    >
+    <div className={tw`grid auto-rows-fr flex-1`}>
       <Wrapper>
         <BodyWrapper>
           <div className={tw`mb-10 mt-8`}>
             <Logo />
           </div>
           <div className={tw`mb-6 flex justify-center`}>
-            <div
-              style={{
-                marginRight: 18,
-              }}
-            >
+            <div className={tw`mr-4`}>
               <CircleButton
                 onClick={() => {
                   wsend({ op: "fetch_following_online", d: { cursor: 0 } });
@@ -58,7 +48,7 @@ export const Home: React.FC<HomeProps> = () => {
                 <PeopleIcon width={30} height={30} fill="#fff" />
               </CircleButton>
             </div>
-            <div style={{ marginLeft: 9 }}>
+            <div className={tw`ml-2`}>
               <ProfileButton circle size={60} />
             </div>
           </div>
@@ -116,7 +106,7 @@ export const Home: React.FC<HomeProps> = () => {
               setShowCreateRoomModal(true);
             }}
           >
-            <h3 style={{ fontSize: "24px" }}>Create Room</h3>
+            <h3 className={tw`text-2xl`}>Create Room</h3>
           </Button>
         </div>
       </BottomVoiceControl>

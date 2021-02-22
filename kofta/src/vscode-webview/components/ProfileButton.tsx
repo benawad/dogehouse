@@ -3,6 +3,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { meAtom } from "../atoms";
 import { Avatar } from "./Avatar";
+import { tw } from "twind";
 
 interface ProfileButtonProps {
   size?: number;
@@ -18,7 +19,7 @@ export const ProfileButton: React.FC<ProfileButtonProps> = ({
   return me ? (
     <button
       onClick={() => history.push("/me")}
-      style={{ paddingLeft: 9, paddingRight: 9 }}
+      className={tw`px-2.5`}
     >
       <Avatar circle={circle} size={size} src={me.avatarUrl} />
     </button>

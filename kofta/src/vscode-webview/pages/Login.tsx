@@ -40,8 +40,9 @@ export const Login: React.FC<LoginProps> = () => {
             <ListItem>Cross platform support</ListItem>
             <ListItem>
               <a
-                style={{ color: "var(--vscode-textLink-foreground)", padding: "0px" }}
+                style={{ color: "var(--vscode-textLink-foreground)" }}
                 href="https://github.com/benawad/dogehouse"
+                className={tw`p-0`}
               >
                 Open Source
               </a>
@@ -80,7 +81,7 @@ export const Login: React.FC<LoginProps> = () => {
           {process.env.NODE_ENV === "development" ? (
             <Button
               variant="slim"
-              style={{ marginTop: 32 }}
+              className={tw`m-8`}
               onClick={() => {
                 modalPrompt("username", async (name) => {
                   if (!name) {

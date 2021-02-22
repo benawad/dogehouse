@@ -86,7 +86,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                 <Button
                   type="button"
                   onClick={onRequestClose}
-                  style={{ marginRight: 8 }}
+                  className={tw`mr-0.5`}
                   color="secondary"
                 >
                   cancel
@@ -95,7 +95,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                   type="button"
                   loading={isLoading}
                   onClick={() => handleSubmit()}
-                  style={{ marginLeft: 8 }}
+                  className={tw`ml-0.5`}
                 >
                   save
                 </Button>

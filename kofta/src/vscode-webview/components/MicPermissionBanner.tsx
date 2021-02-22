@@ -23,9 +23,8 @@ export const MicPermissionBanner: React.FC<MicPermissionBannerProps> = () => {
       <div
         style={{
           color: "var(--vscode-errorForeground)",
-          fontSize: "calc(var(--vscode-font-size)*1.2)",
         }}
-        className={tw`font-semibold mb-4`}
+        className={tw`font-semibold text-xl mb-4`}
       >
         Permission denied trying to access your mic
       </div>

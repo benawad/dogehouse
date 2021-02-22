@@ -55,12 +55,12 @@ export const PromptModal: React.FC<Props> = () => {
           <Button
             type="button"
             onClick={close}
-            style={{ marginRight: 8 }}
+            className={tw`mr-0.5`}
             color="secondary"
           >
             cancel
           </Button>
-          <Button type="submit" style={{ marginLeft: 8 }}>
+          <Button type="submit" className={tw`ml-0.5`}>
             ok
           </Button>
         </div>

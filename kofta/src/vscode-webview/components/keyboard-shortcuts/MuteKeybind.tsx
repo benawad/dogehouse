@@ -39,12 +39,7 @@ export const MuteKeybind: React.FC<MuteKeybindProps> = ({ className }) => {
       </Button>
       <div className={tw`ml-4`}>
         toggle mute keybind:{" "}
-        <span
-          style={{
-            fontSize: "calc(var(--vscode-font-size)*1.1)",
-          }}
-          className={tw`font-bold`}
-        >
+        <span className={tw`font-bold text-lg`}>
           {active ? "listening" : MUTE}
         </span>
       </div>

@@ -66,11 +66,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
               <Codicon width={24} height={24} name="close" />
             </button>
             {iAmCreator && !isMe ? (
-              <div
-                style={{
-                  marginLeft: "auto",
-                }}
-              >
+              <div className={tw`ml-auto`}>
                 <Button
                   variant="small"
                   onClick={() => {

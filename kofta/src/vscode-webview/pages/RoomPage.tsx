@@ -93,13 +93,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
               }
             });
           }}
-          style={{
-            fontSize: "calc(var(--vscode-font-size)*1.3)",
-            display: "block",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-          }}
-          className={tw`flex-1 text-center flex items-center justify-center text-2xl`}
+          className={tw`block font-xl overflow-hidden overflow-ellipsis flex-1 text-center flex items-center justify-center text-2xl`}
         >
           {room.name.slice(0, 50)}
         </button>
@@ -109,19 +103,15 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
         <BodyWrapper>
           <div
             style={{
-              width: "100%",
-              display: "grid",
               gridTemplateColumns: "repeat(auto-fit, 90px)",
-              gap: 20,
             }}
+            className={tw`w-full grid gap-5`}
           >
             <div
               style={{
-                fontSize: 20,
-                marginLeft: 10,
                 gridColumn: "1/-1",
-                color: "#fff",
               }}
+              className={tw`text-xl ml-2.5 text-white`}
             >
               Speakers ({speakers.length})
             </div>
@@ -153,11 +143,9 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
             {unansweredHands.length ? (
               <div
                 style={{
-                  fontSize: 20,
-                  marginLeft: 10,
                   gridColumn: "1/-1",
-                  color: "#fff",
                 }}
+                className={tw`text-xl ml-2.5 text-white`}
               >
                 Requesting to speak ({unansweredHands.length})
               </div>
@@ -176,12 +164,9 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
             {listeners.length ? (
               <div
                 style={{
-                  fontSize: 20,
-                  marginLeft: 10,
-                  marginTop: 10,
                   gridColumn: "1/-1",
-                  color: "#fff",
                 }}
+                className={tw`text-xl mt-2.5 ml-2.5 text-white`}
               >
                 Listeners ({listeners.length})
               </div>
