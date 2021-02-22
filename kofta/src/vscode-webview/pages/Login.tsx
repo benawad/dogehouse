@@ -14,6 +14,7 @@ import { AlertModal } from "../components/AlertModal";
 import { ConfirmModal } from "../components/ConfirmModal";
 import { BodyWrapper } from "../components/BodyWrapper";
 import { ListItem } from "../components/ListItem";
+import { GitHub, Twitter } from "react-feather";
 
 interface LoginProps {}
 
@@ -40,7 +41,10 @@ export const Login: React.FC<LoginProps> = () => {
             <ListItem>Cross platform support</ListItem>
             <ListItem>
               <a
-                style={{ color: "var(--vscode-textLink-foreground)", padding: "0px" }}
+                style={{
+                  color: "var(--vscode-textLink-foreground)",
+                  padding: "0px",
+                }}
                 href="https://github.com/benawad/dogehouse"
               >
                 Open Source
@@ -61,7 +65,10 @@ export const Login: React.FC<LoginProps> = () => {
                     : ""))
               }
             >
-              login with GitHub
+              <span className={tw`inline-flex items-center`}>
+                <GitHub className={tw`h-6 w-6`} />
+                <p className={tw`ml-3`}>login with GitHub</p>
+              </span>
             </Button>
           </div>
           <Button
@@ -75,7 +82,10 @@ export const Login: React.FC<LoginProps> = () => {
                   : ""))
             }
           >
-            login with Twitter
+            <span className={tw`inline-flex items-center`}>
+              <Twitter className={tw`h-6 w-6`} />
+              <p className={tw`ml-3`}>login with Twitter</p>
+            </span>
           </Button>
           {process.env.NODE_ENV === "development" ? (
             <Button
