@@ -54,7 +54,7 @@ export const RoomCard: React.FC<RoomProps> = ({
         onClick={onClick}
         className={`RoomCard ${active ? "active" : ""}`}
       >
-        <div className={`flex text-gray-50`}>
+        <div className={`flex text-white`}>
           <div
             style={{
               display: "-webkit-box",

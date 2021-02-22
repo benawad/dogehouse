@@ -67,7 +67,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                     className={
                       `hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
                         v === me?.username
-                          ? "bg-500 text-gray-50 px-2 rounded text-md"
+                          ? "bg-500 text-white px-2 rounded text-md"
                           : ""
                       }`
                     }

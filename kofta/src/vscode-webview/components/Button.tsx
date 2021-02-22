@@ -24,7 +24,7 @@ export const Button: React.FC<
       disabled={loading || disabled}
       className={
         `
-          rounded capitalize outline-none w-full flex items-center justify-center text-center text-gray-50
+          rounded capitalize outline-none w-full flex items-center justify-center text-center text-white
           ${color === "secondary" ? "bg-gray-600 hover:bg-gray-500" : color === "red" ? "bg-red-400 hover:bg-red-600" : "bg-blue-500 hover:bg-blue-400"}
           ${variant === "small" ? "py-1 px-2 w-max" : variant === "slim" ? "max-w-md ml-auto mr-auto py-2.5 px-12" : "py-2.5 px-1"}
           ${props.className} 
