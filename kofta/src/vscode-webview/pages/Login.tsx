@@ -14,7 +14,8 @@ import { AlertModal } from "../components/AlertModal";
 import { ConfirmModal } from "../components/ConfirmModal";
 import { BodyWrapper } from "../components/BodyWrapper";
 import { ListItem } from "../components/ListItem";
-import { GitHub, Twitter } from "react-feather";
+import { GitHubIcon } from "../svgs/GitHubIcon";
+import { TwitterIcon } from "../svgs/TwitterIcon";
 
 interface LoginProps {}
 
@@ -67,14 +68,14 @@ export const Login: React.FC<LoginProps> = () => {
               }
             >
               <span className={tw`inline-flex items-center`}>
-                <GitHub className={tw`h-6 w-6`} />
+                <GitHubIcon className={tw`h-6 w-6`} />
                 <p className={tw`ml-3`}>login with GitHub</p>
               </span>
             </Button>
           </div>
           <Button
             variant="slim"
-            style={{ backgroundColor: "#1da1f2" }}
+            style={{ backgroundColor: "#0C84CF" }}
             onClick={() =>
               (window.location.href =
                 apiBaseUrl +
@@ -85,7 +86,7 @@ export const Login: React.FC<LoginProps> = () => {
             }
           >
             <span className={tw`inline-flex items-center`}>
-              <Twitter className={tw`h-6 w-6`} />
+              <TwitterIcon className={tw`h-6 w-6`} />
               <p className={tw`ml-3`}>login with Twitter</p>
             </span>
           </Button>
