@@ -36,9 +36,10 @@ export const startRabbit = async (handler: HandlerMap) => {
   );
   console.log("rabbit connected2");
   const channel = await conn.createChannel();
-  const sendQueue = "kousa_queue";
-  const onlineQueue = "kousa_online_queue";
-  const receiveQueue = "shawarma_queue";
+  const id = process.env.QUEUE_ID || "";
+  const sendQueue = "kousa_queue" + id;
+  const onlineQueue = "kousa_online_queue" + id;
+  const receiveQueue = "shawarma_queue" + id;
   await Promise.all([
     channel.assertQueue(receiveQueue),
     channel.assertQueue(sendQueue),

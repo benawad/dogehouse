@@ -21,9 +21,16 @@ defmodule Kousa do
         GenRegistry,
         worker_module: Kousa.Gen.RoomChat
       },
+      {
+        GenRegistry,
+        worker_module: Kousa.Gen.VoiceRabbit
+      },
+      {
+        GenRegistry,
+        worker_module: Kousa.Gen.VoiceOnlineRabbit
+      },
       {Beef.Repo, []},
-      Kousa.Gen.Rabbit,
-      Kousa.Gen.OnlineRabbit,
+      Kousa.Gen.StartRabbits,
       Kousa.Gen.Telemetry,
       Plug.Cowboy.child_spec(
         scheme: :http,
