@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import { tw } from "twind";
 import { WebRtcApp } from "../webrtc/WebRtcApp";
 import { AlertModal } from "./components/AlertModal";
 import { CenterLayout } from "./components/CenterLayout";
@@ -16,7 +15,7 @@ export const Router: React.FC<RouterProps> = () => {
   return (
     <BrowserRouter>
       <WebRtcApp />
-      <div className={tw`mx-auto max-w-5xl w-full h-full flex relative`}>
+      <div className={`mx-auto max-w-5xl w-full h-full flex relative`}>
         <CenterLayout>
           <Routes />
           <MicPermissionBanner />

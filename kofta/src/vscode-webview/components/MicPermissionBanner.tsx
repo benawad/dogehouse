@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { tw } from "twind";
 import { useMicPermErrorStore } from "../../webrtc/stores/useMicPermErrorStore";
 import { sendVoice } from "../../webrtc/utils/sendVoice";
 import { isIOS } from "../utils/isIOS";
@@ -14,8 +13,8 @@ export const MicPermissionBanner: React.FC<MicPermissionBannerProps> = () => {
     return null;
   }
   return (
-    <div className={tw`p-4 bg-gray-600`}>
-      <div className={tw`font-semibold text-xl mb-4 bg-red-400`}>
+    <div className={`p-4 bg-gray-600`}>
+      <div className={`font-semibold text-xl mb-4 bg-red-400`}>
         Permission denied trying to access your mic
       </div>
       <Button

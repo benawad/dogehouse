@@ -4,8 +4,6 @@ import { meAtom } from "../atoms";
 import { Codicon } from "../svgs/Codicon";
 import { CurrentRoom, Room } from "../types";
 
-import {tw} from "twind";
-
 interface RoomProps {
   active?: boolean;
   onClick: () => void;
@@ -40,7 +38,7 @@ export const RoomCard: React.FC<RoomProps> = ({
           marginTop: !i ? 6 : 2,
           color: "#D9D9D9",
         }}
-        className={tw`text-left`}
+        className={`text-left`}
       >
         {p.displayName?.slice(0, 50)}
       </div>
@@ -56,18 +54,18 @@ export const RoomCard: React.FC<RoomProps> = ({
         onClick={onClick}
         className={`RoomCard ${active ? "active" : ""}`}
       >
-        <div className={tw`flex text-gray-50`}>
+        <div className={`flex text-gray-50`}>
           <div
             style={{
               display: "-webkit-box",
               WebkitBoxOrient: "vertical",
               WebkitLineClamp: 3,
             }}
-            className={tw`text-left flex-1 text-xl text-gray-300 text-ellipsis overflow-hidden break-words`}
+            className={`text-left flex-1 text-xl text-gray-300 text-ellipsis overflow-hidden break-words`}
           >
             {room.name?.slice(0, 100)}
           </div>
-          <div className={tw`flex items-center`}>
+          <div className={`flex items-center`}>
             <Codicon name="person" /> {n}
           </div>
         </div>

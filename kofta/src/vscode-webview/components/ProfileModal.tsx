@@ -1,6 +1,5 @@
 import React from "react";
 import ReactModal from "react-modal";
-import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
 import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
 import { Codicon } from "../svgs/Codicon";
@@ -56,17 +55,17 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
     >
       {profile ? (
         <>
-          <div className={tw`mb-4 flex`}>
+          <div className={`mb-4 flex`}>
             <button
               onClick={() => {
                 onClose();
               }}
-              className={tw`p-2 -ml-2`}
+              className={`p-2 -ml-2`}
             >
               <Codicon width={24} height={24} name="close" />
             </button>
             {iAmCreator && !isMe ? (
-              <div className={tw`ml-auto`}>
+              <div className={`ml-auto`}>
                 <Button
                   variant="small"
                   onClick={() => {
@@ -91,13 +90,13 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
           </div>
           <UserProfile profile={profile} />
           {!isMe && profile.roomPermissions?.isSpeaker ? (
-            <div className={tw`mb-4`}>
+            <div className={`mb-4`}>
               <UserVolumeSlider userId={profile.id} />
             </div>
           ) : null}
           {!isMe && iAmCreator ? (
             <>
-              <div className={tw`mb-4`}>
+              <div className={`mb-4`}>
                 <Button
                   onClick={() => {
                     onClose();
@@ -119,7 +118,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
             <>
               {!profile.roomPermissions?.isSpeaker &&
               profile.roomPermissions?.askedToSpeak ? (
-                <div className={tw`mb-4`}>
+                <div className={`mb-4`}>
                   <Button
                     onClick={() => {
                       onClose();
@@ -136,7 +135,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                 </div>
               ) : null}
               {profile.roomPermissions?.isSpeaker ? (
-                <div className={tw`mb-4`}>
+                <div className={`mb-4`}>
                   <Button
                     onClick={() => {
                       onClose();
@@ -153,7 +152,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                 </div>
               ) : null}
               {!(profile.id in bannedUserIdMap) ? (
-                <div className={tw`mb-4`}>
+                <div className={`mb-4`}>
                   <Button
                     onClick={() => {
                       onClose();
@@ -190,7 +189,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
           !iAmCreator &&
           (profile.roomPermissions?.askedToSpeak ||
             profile.roomPermissions?.isSpeaker) ? (
-            <div className={tw`mb-4`}>
+            <div className={`mb-4`}>
               <Button
                 onClick={() => {
                   onClose();

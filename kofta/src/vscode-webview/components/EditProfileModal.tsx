@@ -3,7 +3,6 @@ import { useAtom } from "jotai";
 import React from "react";
 import { useMutation } from "react-query";
 import { object, pattern, size, string } from "superstruct";
-import { tw } from "twind";
 import { wsFetch } from "../../createWebsocket";
 import { setMeAtom } from "../atoms";
 import { BaseUser } from "../types";
@@ -82,11 +81,11 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                 textarea
                 name="bio"
               />
-              <div className={tw`flex mt-12`}>
+              <div className={`flex mt-12`}>
                 <Button
                   type="button"
                   onClick={onRequestClose}
-                  className={tw`mr-0.5`}
+                  className={`mr-0.5`}
                   color="secondary"
                 >
                   cancel
@@ -95,7 +94,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                   type="button"
                   loading={isLoading}
                   onClick={() => handleSubmit()}
-                  className={tw`ml-0.5`}
+                  className={`ml-0.5`}
                 >
                   save
                 </Button>

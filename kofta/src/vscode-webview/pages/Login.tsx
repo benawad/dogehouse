@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { tw } from "twind";
 import { Button } from "../components/Button";
 import { Footer } from "../components/Footer";
 import { Wrapper } from "../components/Wrapper";
@@ -28,20 +27,20 @@ export const Login: React.FC<LoginProps> = () => {
     <CenterLayout>
       <Wrapper>
         <BodyWrapper>
-          <div className={tw`my-8`}>
+          <div className={`my-8`}>
             <Logo />
           </div>
-          <div className={tw`text-4xl mb-4 tracking-tight font-extrabold`}>
+          <div className={`text-4xl mb-4 tracking-tight font-extrabold`}>
             The home for voice conversations.
           </div>
-          <ul className={tw`my-4 mb-10 text-xl`}>
+          <ul className={`my-4 mb-10 text-xl`}>
             <ListItem>Dark theme</ListItem>
             <ListItem>Open sign ups</ListItem>
             <ListItem>Cross platform support</ListItem>
             <ListItem>
               <a
                 href="https://github.com/benawad/dogehouse"
-                className={tw`p-0 text-blue-400`}
+                className={`p-0 text-blue-400`}
               >
                 Open Source
               </a>
@@ -49,7 +48,7 @@ export const Login: React.FC<LoginProps> = () => {
             <ListItem>Text chat</ListItem>
             <ListItem>Powered by Doge</ListItem>
           </ul>
-          <div className={tw`mb-8`}>
+          <div className={`mb-8`}>
             <Button
               variant="slim"
               onClick={() =>
@@ -69,18 +68,18 @@ export const Login: React.FC<LoginProps> = () => {
             onClick={() =>
               (window.location.href =
                 apiBaseUrl +
-                "/auth/twitter/web" +
+                "/auth/itter/web" +
                 (process.env.REACT_APP_IS_STAGING === "true"
                   ? "?redirect_after_base=" + window.location.origin
                   : ""))
             }
           >
-            login with Twitter
+            login with itter
           </Button>
           {process.env.NODE_ENV === "development" ? (
             <Button
               variant="slim"
-              className={tw`m-8`}
+              className={`m-8`}
               onClick={() => {
                 modalPrompt("username", async (name) => {
                   if (!name) {
@@ -102,7 +101,7 @@ export const Login: React.FC<LoginProps> = () => {
           ) : null}
         </BodyWrapper>
       </Wrapper>
-      <div className={tw`mb-6 px-5`}>
+      <div className={`mb-6 px-5`}>
         <Footer isLogin />
       </div>
       <AlertModal />

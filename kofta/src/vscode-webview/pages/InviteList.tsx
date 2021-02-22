@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import { useAtom } from "jotai";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
 import { currentRoomAtom, inviteListAtom } from "../atoms";
 import { Avatar } from "../components/Avatar";
@@ -42,9 +41,9 @@ export const InviteList: React.FC<InviteListProps> = () => {
         {room.isPrivate ? null : (
           <>
             {!navigator.share ? (
-              <div className={tw`text-2xl mb-2`}>share link to room</div>
+              <div className={`text-2xl mb-2`}>share link to room</div>
             ) : null}
-            <div className={tw`mb-8 flex`}>
+            <div className={`mb-8 flex`}>
               <Input readOnly ref={inputRef} value={url} />
               <Button
                 variant="small"
@@ -64,17 +63,17 @@ export const InviteList: React.FC<InviteListProps> = () => {
           </>
         )}
         {users.length ? (
-          <div className={tw`my-4 text-2xl`}>
+          <div className={`my-4 text-2xl`}>
             You can invite your followers that are online:
           </div>
         ) : (
-          <div className={tw`my-4 text-2xl`}>
+          <div className={`my-4 text-2xl`}>
             When your followers are online, they will show up here.
           </div>
         )}
         {users.map((u) => (
           <div
-            className={tw`border-b border-solid border-gray-600 flex py-4 px-2 items-center`}
+            className={`border-b border-solid border-gray-600 flex py-4 px-2 items-center`}
             key={u.id}
           >
             <button onClick={() => history.push(`/user`, u)}>
@@ -84,14 +83,14 @@ export const InviteList: React.FC<InviteListProps> = () => {
               onClick={() => {
                 history.push(`/user`, u);
               }}
-              className={tw`ml-4`}
+              className={`ml-4`}
             >
-              <div className={tw`text-lg`}>
+              <div className={`text-lg`}>
                 {u.displayName}
               </div>
               <div>@{u.username}</div>
             </button>
-            <div className={tw`ml-auto`}>
+            <div className={`ml-auto`}>
               <InviteButton
                 onClick={() => {
                   wsend({
@@ -106,7 +105,7 @@ export const InviteList: React.FC<InviteListProps> = () => {
           </div>
         ))}
         {nextCursor ? (
-          <div className={tw`flex justify-center my-10`}>
+          <div className={`flex justify-center my-10`}>
             <Button
               variant="small"
               onClick={() =>

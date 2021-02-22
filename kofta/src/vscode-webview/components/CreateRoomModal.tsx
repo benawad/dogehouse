@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
 import { Button } from "./Button";
 import { Input } from "./Input";
@@ -35,32 +34,32 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <div className={tw`flex mt-8 items-center`}>
+        <div className={`flex mt-8 items-center`}>
           <select value={privacy} onChange={(e) => setPrivacy(e.target.value)}>
             <option
               value="public"
-              className={tw`bg-gray-600`}
+              className={`bg-gray-600`}
             >
               public
             </option>
             <option
               value="private"
-              className={tw`bg-gray-600`}
+              className={`bg-gray-600`}
             >
               private
             </option>
           </select>
         </div>
-        <div className={tw`flex mt-12`}>
+        <div className={`flex mt-12`}>
           <Button
             type="button"
             onClick={onRequestClose}
-            className={tw`mr-0.5`}
+            className={`mr-0.5`}
             color="secondary"
           >
             cancel
           </Button>
-          <Button type="submit" className={tw`ml-0.5`}>
+          <Button type="submit" className={`ml-0.5`}>
             ok
           </Button>
         </div>

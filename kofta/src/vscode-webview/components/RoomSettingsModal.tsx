@@ -1,7 +1,6 @@
 import { useAtom } from "jotai";
 import React from "react";
 import { X } from "react-feather";
-import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
 import { renameRoomAndMakePrivate } from "../../webrtc/utils/renameRoomAndMakePrivate";
 import { renameRoomAndMakePublic } from "../../webrtc/utils/renameRoomAndMakePublic";
@@ -25,13 +24,13 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
         onClick={() => {
           onRequestClose();
         }}
-        className={tw`p-2 -ml-3`}
+        className={`p-2 -ml-3`}
       >
         <X />
       </button>
       {currentRoom ? (
         <>
-          <label className={tw`flex items-center my-8`} htmlFor="auto-speaker">
+          <label className={`flex items-center my-8`} htmlFor="auto-speaker">
             <input
               checked={!currentRoom.autoSpeaker}
               onChange={(e) => {
@@ -51,7 +50,7 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
               id="auto-speaker"
               type="checkbox"
             />
-            <span className={tw`ml-2`}>require permission to speak</span>
+            <span className={`ml-2`}>require permission to speak</span>
           </label>
           {currentRoom.isPrivate ? (
             <Button

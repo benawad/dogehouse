@@ -1,7 +1,6 @@
 import { useAtom } from "jotai";
 import React, { useState } from "react";
 import { Redirect, useRouteMatch } from "react-router-dom";
-import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
 import { useMuteStore } from "../../webrtc/stores/useMuteStore";
 import { currentRoomAtom, meAtom, myCurrentRoomInfoAtom } from "../atoms";
@@ -93,7 +92,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
               }
             });
           }}
-          className={tw`block font-xl overflow-hidden overflow-ellipsis flex-1 text-center flex items-center justify-center text-2xl`}
+          className={`block font-xl overflow-hidden overflow-ellipsis flex-1 text-center flex items-center justify-center text-2xl`}
         >
           {room.name.slice(0, 50)}
         </button>
@@ -105,13 +104,13 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
             style={{
               gridTemplateColumns: "repeat(auto-fit, 90px)",
             }}
-            className={tw`w-full grid gap-5`}
+            className={`w-full grid gap-5`}
           >
             <div
               style={{
                 gridColumn: "1/-1",
               }}
-              className={tw`text-xl ml-2.5 text-white`}
+              className={`text-xl ml-2.5 text-white`}
             >
               Speakers ({speakers.length})
             </div>
@@ -127,7 +126,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
               />
             ))}
             {!iCanSpeak && me && canIAskToSpeak ? (
-              <div className={tw`flex flex-col items-center`}>
+              <div className={`flex flex-col items-center`}>
                 <CircleButton
                   size={70}
                   onClick={() => {
@@ -145,7 +144,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
                 style={{
                   gridColumn: "1/-1",
                 }}
-                className={tw`text-xl ml-2.5 text-white`}
+                className={`text-xl ml-2.5 text-white`}
               >
                 Requesting to speak ({unansweredHands.length})
               </div>
@@ -166,7 +165,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
                 style={{
                   gridColumn: "1/-1",
                 }}
-                className={tw`text-xl mt-2.5 ml-2.5 text-white`}
+                className={`text-xl mt-2.5 ml-2.5 text-white`}
               >
                 Listeners ({listeners.length})
               </div>

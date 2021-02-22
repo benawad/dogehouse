@@ -1,5 +1,4 @@
 import React from "react";
-import { tw } from "twind";
 
 interface CircleButtonProps {
   size?: number;
@@ -19,7 +18,7 @@ export const CircleButton: React.FC<CircleButtonProps> = ({
         height: size,
         width: size,
       }}
-      className={tw`rounded-full flex items-center justify-center`}
+      className={`rounded-full flex items-center justify-center`}
       onClick={onClick}
     >
       {children}

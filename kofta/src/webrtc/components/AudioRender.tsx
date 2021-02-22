@@ -1,6 +1,5 @@
 import { useAtom } from "jotai";
 import React, { useEffect, useRef, useState } from "react";
-import { tw } from "twind";
 import { Button } from "../../vscode-webview/components/Button";
 import { volumeAtom } from "../../vscode-webview/shared-atoms";
 import { useConsumerStore } from "../stores/useConsumerStore";
@@ -49,14 +48,14 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
   return (
     <>
       <div
-        className={tw`absolute w-full h-full flex z-50`}
+        className={`absolute w-full h-full flex z-50`}
         style={{
           backgroundColor: "rgba(0,0,0,.5)",
           display: showAutoPlayModal ? "" : "none",
         }}
       >
-        <div className={tw`p-8 rounded m-auto bg-gray-600`}>
-          <div className={tw`text-center mb-4`}>
+        <div className={`p-8 rounded m-auto bg-gray-600`}>
+          <div className={`text-center mb-4`}>
             Browsers require user interaction before they will play audio. Just
             click okay to continue.
           </div>

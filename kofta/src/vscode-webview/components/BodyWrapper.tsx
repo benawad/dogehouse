@@ -6,7 +6,7 @@ export const BodyWrapper: React.FC<BodyWrapperProps> = ({
   children
 }) => {
   return (
-    <div className={tw`px-5`}>
+    <div className={`px-5`}>
       {children}
     </div>
   );

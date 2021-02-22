@@ -1,7 +1,6 @@
 import { useAtom } from "jotai";
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { tw } from "twind";
 import { closeWebSocket } from "../../createWebsocket";
 import { meAtom } from "../atoms";
 import { Backbar } from "../components/Backbar";
@@ -19,9 +18,9 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
   return (
     <Wrapper>
       <Backbar actuallyGoBack>
-        <div className={tw`ml-auto flex items-center`}>
+        <div className={`ml-auto flex items-center`}>
           <Button
-            className={tw`m-2.5`}
+            className={`m-2.5`}
             onClick={() => {
               history.push("/");
               closeWebSocket();
@@ -37,7 +36,7 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
       </Backbar>
               <BodyWrapper>
       {me ? <UserProfile profile={me} /> : <div>probably loading...</div>}
-      <div className={tw`pt-6`}>
+      <div className={`pt-6`}>
         <Button variant="small" onClick={() => history.push(`/voice-settings`)}>
           go to voice settings
         </Button>

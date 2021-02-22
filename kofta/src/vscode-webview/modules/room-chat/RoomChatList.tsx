@@ -1,6 +1,5 @@
 import { useAtom } from "jotai";
 import React, { useState } from "react";
-import { tw } from "twind";
 import { Avatar } from "../../components/Avatar";
 import { ProfileModalFetcher } from "./ProfileModalFetcher";
 import { useRoomChatStore } from "./useRoomChatStore";
@@ -17,7 +16,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 
   return (
     <div
-      className={tw`bg-gray-700 px-8 pt-8 flex-1 overflow-y-auto flex-col-reverse flex`}
+      className={`bg-gray-700 px-8 pt-8 flex-1 overflow-y-auto flex-col-reverse flex`}
     >
       {profileId ? (
         <ProfileModalFetcher
@@ -27,13 +26,13 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
           }}
         />
       ) : null}
-      <div className={tw`pb-6`} />
+      <div className={`pb-6`} />
       {messages.map((m) => (
         <div
-          className={tw`block py-1 break-words`}
+          className={`block py-1 break-words`}
           key={m.id}
         >
-          <span className={tw`pr-2 inline`}>
+          <span className={`pr-2 inline`}>
             <Avatar size={20} src={m.avatarUrl} />
           </span>
 
@@ -41,19 +40,19 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
             onClick={() => {
               setProfileId(m.userId);
             }}
-            className={tw`hover:underline focus:outline-none`}
+            className={`hover:underline focus:outline-none`}
             style={{ textDecorationColor: m.color, color: m.color }}
           >
             {m.displayName}
           </button>
 
-          <span className={tw`mr-1`}>: </span>
+          <span className={`mr-1`}>: </span>
 
           {m.tokens.map(({ t, v }, i) => {
             switch (t) {
               case "text":
                 return (
-                  <span className={tw`flex-1 m-0`} key={i}>
+                  <span className={`flex-1 m-0`} key={i}>
                     {v}
                   </span>
                 );
@@ -66,7 +65,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                     }}
                     key={i}
                     className={
-                      tw`hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
+                      `hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
                         v === me?.username
                           ? "bg-500 text-gray-50 px-2 rounded text-md"
                           : ""
@@ -87,7 +86,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                     target="_blank"
                     rel="noreferrer"
                     href={v}
-                    className={tw`flex-1 hover:underline text-blue-500`}
+                    className={`flex-1 hover:underline text-blue-500`}
                     key={i}
                   >
                     {normalizeUrl(v, { stripProtocol: true })}{" "}

@@ -3,7 +3,6 @@ import { Modal } from "./Modal";
 import create from "zustand";
 import { combine } from "zustand/middleware";
 import { Button } from "./Button";
-import { tw } from "twind";
 
 interface Props {}
 
@@ -31,11 +30,11 @@ export const ConfirmModal: React.FC<Props> = () => {
   return (
     <Modal isOpen={!!onConfirm} onRequestClose={() => close()}>
       <div>{message}</div>
-      <div className={tw`flex mt-12`}>
+      <div className={`flex mt-12`}>
         <Button
           type="button"
           onClick={close}
-          className={tw`mr-0.5`}
+          className={`mr-0.5`}
           color="secondary"
         >
           cancel
@@ -46,7 +45,7 @@ export const ConfirmModal: React.FC<Props> = () => {
             onConfirm?.();
           }}
           type="submit"
-          className={tw`ml-0.5`}
+          className={`ml-0.5`}
         >
           yes
         </Button>

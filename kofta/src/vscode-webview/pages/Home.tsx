@@ -5,7 +5,6 @@ import { currentRoomAtom, publicRoomsAtom } from "../atoms";
 import { RoomCard } from "../components/RoomCard";
 import { Wrapper } from "../components/Wrapper";
 import { BottomVoiceControl } from "../components/BottomVoiceControl";
-import { tw } from "twind";
 import { Button } from "../components/Button";
 import { wsend } from "../../createWebsocket";
 import { Logo } from "../svgs/Logo";
@@ -31,14 +30,14 @@ export const Home: React.FC<HomeProps> = () => {
   }, []);
 
   return (
-    <div className={tw`grid auto-rows-fr flex-1`}>
+    <div className={`grid auto-rows-fr flex-1`}>
       <Wrapper>
         <BodyWrapper>
-          <div className={tw`mb-10 mt-8`}>
+          <div className={`mb-10 mt-8`}>
             <Logo />
           </div>
-          <div className={tw`mb-6 flex justify-center`}>
-            <div className={tw`mr-4`}>
+          <div className={`mb-6 flex justify-center`}>
+            <div className={`mr-4`}>
               <CircleButton
                 onClick={() => {
                   wsend({ op: "fetch_following_online", d: { cursor: 0 } });
@@ -48,12 +47,12 @@ export const Home: React.FC<HomeProps> = () => {
                 <PeopleIcon width={30} height={30} fill="#fff" />
               </CircleButton>
             </div>
-            <div className={tw`ml-2`}>
+            <div className={`ml-2`}>
               <ProfileButton circle size={60} />
             </div>
           </div>
           {currentRoom ? (
-            <div className={tw`my-8`}>
+            <div className={`my-8`}>
               <RoomCard
                 active
                 onClick={() => history.push("/room/" + currentRoom.id)}
@@ -64,7 +63,7 @@ export const Home: React.FC<HomeProps> = () => {
           ) : null}
           {rooms.map((r) =>
             r.id === currentRoom?.id ? null : (
-              <div className={tw(`mt-4`)} key={r.id}>
+              <div className={(`mt-4`)} key={r.id}>
                 <RoomCard
                   onClick={() => {
                     wsend({ op: "join_room", d: { roomId: r.id } });
@@ -77,7 +76,7 @@ export const Home: React.FC<HomeProps> = () => {
             )
           )}
           {nextCursor ? (
-            <div className={tw`flex justify-center my-10`}>
+            <div className={`flex justify-center my-10`}>
               <Button
                 variant="small"
                 onClick={() =>
@@ -94,14 +93,14 @@ export const Home: React.FC<HomeProps> = () => {
         </BodyWrapper>
       </Wrapper>
       <BottomVoiceControl>
-        <div className={tw`mb-8 flex px-5`}>
+        <div className={`mb-8 flex px-5`}>
           <Button
             variant="slim"
             onClick={() => {
               setShowCreateRoomModal(true);
             }}
           >
-            <h3 className={tw`text-2xl`}>Create Room</h3>
+            <h3 className={`text-2xl`}>Create Room</h3>
           </Button>
         </div>
       </BottomVoiceControl>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { tw } from "twind";
 
 interface AvatarProps {
   src: string;
@@ -24,7 +23,7 @@ export const Avatar: React.FC<AvatarProps> = ({
       width={size}
       height={size}
       style={active ? { boxShadow: "0 0 0 3px #60A5FA" } : undefined}
-      className={circle ? tw`rounded-full` : tw`rounded-3xl`}
+      className={circle ? `rounded-full` : `rounded-3xl`}
       src={
         error && usernameForErrorImg
           ? `https://ui-avatars.com/api/?name=${usernameForErrorImg}`

@@ -1,5 +1,4 @@
 import React from "react";
-import { tw } from "twind";
 
 export const RegularAnchor: React.FC<
   React.DetailedHTMLProps<
@@ -8,7 +7,7 @@ export const RegularAnchor: React.FC<
   >
 > = ({ children, ...props }) => {
   return (
-    <a {...props} className={tw`text-blue-400`}>
+    <a {...props} className={`text-blue-400`}>
       {children}
     </a>
   );

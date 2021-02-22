@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { useHistory } from "react-router-dom";
-import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
 import { currentRoomAtom, meAtom } from "../atoms";
 import { BaseUser, RoomUser } from "../types";
@@ -41,7 +40,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
         isOpen={editProfileModalOpen}
         onRequestClose={() => setEditProfileModalOpen(false)}
       />
-      <div className={tw`mb-4 flex justify-between align-center`}>
+      <div className={`mb-4 flex justify-beeen align-center`}>
         <Avatar src={profile.avatarUrl} />
         {me?.id === profile.id ? (
           <div>
@@ -78,18 +77,18 @@ export const UserProfile: React.FC<UserProfileProps> = ({
           </div>
         )}
       </div>
-      <div className={tw`font-semibold`}>{profile.displayName}</div>
-      <div className={tw`my-1 flex`}>
+      <div className={`font-semibold`}>{profile.displayName}</div>
+      <div className={`my-1 flex`}>
         <div>@{profile.username}</div>
         {me?.id !== profile.id && userProfile.followsYou ? (
           <div
-            className={tw`ml-2 text-gray-300`}
+            className={`ml-2 text-gray-300`}
           >
             follows you
           </div>
         ) : null}
       </div>
-      <div className={tw`flex my-4`}>
+      <div className={`flex my-4`}>
         <button
           onClick={() => {
             wsend({
@@ -98,9 +97,9 @@ export const UserProfile: React.FC<UserProfileProps> = ({
             });
             history.push(`/followers/${profile.id}`);
           }}
-          className={tw`mr-3`}
+          className={`mr-3`}
         >
-          <span className={tw`font-bold`}>{profile.numFollowers}</span>{" "}
+          <span className={`font-bold`}>{profile.numFollowers}</span>{" "}
           followers
         </button>
         <button
@@ -112,11 +111,11 @@ export const UserProfile: React.FC<UserProfileProps> = ({
             history.push(`/following/${profile.id}`);
           }}
         >
-          <span className={tw`font-bold`}>{profile.numFollowing}</span>{" "}
+          <span className={`font-bold`}>{profile.numFollowing}</span>{" "}
           following
         </button>
       </div>
-      <div className={tw`mb-4`}>{profile.bio}</div>
+      <div className={`mb-4`}>{profile.bio}</div>
     </>
   );
 };
