@@ -9,7 +9,7 @@ function getShouldPlayChatSound() {
     v = localStorage.getItem(SHOULD_PLAY_CHAT_SOUND_KEY) || "";
   } catch {}
 
-  return v ? v === "true" : true;
+  return !v || v === "true";
 }
 
 export const useRoomChatSettingsStore = create(
