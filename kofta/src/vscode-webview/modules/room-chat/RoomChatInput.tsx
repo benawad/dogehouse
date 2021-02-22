@@ -93,20 +93,6 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
       }}
       className={tw`bg-tmpBg1 pb-8 px-8 pt-1`}
     >
-      <i
-        style={{ padding: "5px", position: "absolute" }}
-        onClick={() => setisEmoji(!isEmoji)}
-      >
-        <Smile></Smile>
-      </i>
-      <input
-        maxLength={512}
-        placeholder="Send a message"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        className={tw`text-tmpC1 bg-tmpBg4 px-4 py-3 rounded text-lg focus:outline-none pl-10`}
-        onKeyDown={navigateThroughQueriedUsers}
-      />
       {isEmoji ? (
         <Picker
           set="apple"
@@ -133,6 +119,28 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
           }}
         />
       ) : null}
+      <div>
+        <i
+          style={{
+            paddingTop: "8px",
+            position: "absolute",
+            right: "35px",
+            color: "rgb(167, 167, 167)",
+          }}
+          onClick={() => setisEmoji(!isEmoji)}
+        >
+          <Smile style={{ inlineSize: "23px" }}></Smile>
+        </i>
+        <input
+          maxLength={512}
+          placeholder="Send a message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          className={tw`text-tmpC1 bg-tmpBg4 px-4 py-3 rounded text-lg focus:outline-none pr-12`}
+          onKeyDown={navigateThroughQueriedUsers}
+          onFocus={() => setisEmoji(false)}
+        />
+      </div>
     </form>
   );
 };
