@@ -38,14 +38,14 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
         <div className={tw`flex mt-8 items-center`}>
           <select value={privacy} onChange={(e) => setPrivacy(e.target.value)}>
             <option
-              style={{ background: "var(--vscode-dropdown-background)" }}
               value="public"
+              className={tw`bg-gray-600`}
             >
               public
             </option>
             <option
-              style={{ background: "var(--vscode-dropdown-background)" }}
               value="private"
+              className={tw`bg-gray-600`}
             >
               private
             </option>

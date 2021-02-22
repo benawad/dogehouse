@@ -76,14 +76,13 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
         {queriedUsernames.map((m) => (
           <button
             className={tw`flex py-3 items-center px-8 focus:outline-none ${
-              activeUsername === m.id ? "bg-buttonHover" : ""
+              activeUsername === m.id ? "bg-blue-700" : ""
             }`}
             key={m.id}
             onClick={() => addMention(m)}
           >
             <span className={tw`pr-3 inline`}>
               <Avatar
-                style={{ display: "inline" }}
                 size={20}
                 src={m.avatarUrl}
               />

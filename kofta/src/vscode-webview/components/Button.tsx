@@ -13,7 +13,6 @@ export const Button: React.FC<
   }
 > = ({
   children,
-  style,
   loading,
   disabled,
   color = "default",
@@ -24,22 +23,11 @@ export const Button: React.FC<
     <button
       {...props}
       disabled={loading || disabled}
-      style={{
-        color:
-          color === "secondary"
-            ? "var(--vscode-button-secondaryForeground)"
-            : "var(--vscode-button-foreground)",
-        padding: `10px var(--input-padding-horizontal)`,
-        fontSize: `var(--vscode-font-size)`,
-        backgroundColor: `var(--vscode-button-background)`,
-        ...(variant === "small" ? { padding: "4px 8px", width: "unset" } : (variant === "slim" ? { marginLeft: "auto", marginRight: "auto", padding: "10px 48px" } : {}) ),
-        ...style,
-      }}
       className={
         tw`
-          rounded capitalize outline-none w-full flex items-center justify-center text-center 
-          ${variant === "slim" ? "max-w-md" : ""} 
-          ${props.className}
+          rounded capitalize outline-none w-full flex items-center justify-center text-center text-gray-50 py-1.5 px-1 bg-blue-500
+          ${variant === "small" ? "py-1 px-2 w-max" : variant === "slim" ? "max-w-md ml-auto mr-auto py-2.5 px-12" : ""}
+          ${props.className} 
         `
       }
     >

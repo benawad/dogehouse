@@ -40,9 +40,8 @@ export const Login: React.FC<LoginProps> = () => {
             <ListItem>Cross platform support</ListItem>
             <ListItem>
               <a
-                style={{ color: "var(--vscode-textLink-foreground)" }}
                 href="https://github.com/benawad/dogehouse"
-                className={tw`p-0`}
+                className={tw`p-0 text-blue-400`}
               >
                 Open Source
               </a>
@@ -103,12 +102,7 @@ export const Login: React.FC<LoginProps> = () => {
           ) : null}
         </BodyWrapper>
       </Wrapper>
-      <div
-        style={{
-          padding: "0 var(--container-paddding)",
-        }}
-        className={tw`mb-6`}
-      >
+      <div className={tw`mb-6 px-5`}>
         <Footer isLogin />
       </div>
       <AlertModal />

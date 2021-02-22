@@ -17,7 +17,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 
   return (
     <div
-      className={tw`bg-tmpBg1 px-8 pt-8 flex-1 overflow-y-auto flex-col-reverse flex`}
+      className={tw`bg-gray-700 px-8 pt-8 flex-1 overflow-y-auto flex-col-reverse flex`}
     >
       {profileId ? (
         <ProfileModalFetcher
@@ -34,7 +34,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
           key={m.id}
         >
           <span className={tw`pr-2 inline`}>
-            <Avatar style={{ display: "inline" }} size={20} src={m.avatarUrl} />
+            <Avatar size={20} src={m.avatarUrl} />
           </span>
 
           <button
@@ -68,7 +68,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                     className={
                       tw`hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
                         v === me?.username
-                          ? "bg-button text-tmpC3 px-2 rounded text-md"
+                          ? "bg-500 text-gray-50 px-2 rounded text-md"
                           : ""
                       }`
                     }
@@ -87,7 +87,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                     target="_blank"
                     rel="noreferrer"
                     href={v}
-                    className={tw`flex-1 hover:underline text-tmpC4`}
+                    className={tw`flex-1 hover:underline text-blue-500`}
                     key={i}
                   >
                     {normalizeUrl(v, { stripProtocol: true })}{" "}

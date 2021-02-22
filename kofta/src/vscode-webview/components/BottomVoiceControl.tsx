@@ -193,30 +193,21 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
         !location.pathname.startsWith("/room") ? (
           <button
             onClick={() => history.push(`/room/${currentRoom.id}`)}
-            className={tw`bg-tmpBg1 py-5 px-10 w-full flex`}
+            className={tw`bg-gray-700 py-5 px-10 w-full flex`}
           >
-            <span className={tw`text-tmpC1 overflow-hidden overflow-ellipsis font-semibold`}>
+            <span className={tw`text-gray-400 overflow-hidden overflow-ellipsis font-semibold`}>
               {currentRoom.name}{" "}
             </span>
-            <span className={tw`text-tmpC4 ml-2`}>
+            <span className={tw`text-blue-500 ml-2`}>
               {canSpeak ? "speaker" : "listener"}
             </span>
           </button>
         ) : null}
-        <div
-          style={{
-            padding: "0 var(--container-paddding)",
-          }}
-          className={tw`border-gray-400 border w-full mt-auto`}
-        >
+        <div className={`border-gray-400 border w-full mt-auto p-5`}>
           {currentRoom ? (
             <div className={tw`flex justify-around`}>{buttons}</div>
           ) : (
-            <div
-              style={{
-                padding: "var(--container-paddding) 0",
-              }}
-            >
+            <div className={tw`px-5`}>
               <Footer />
             </div>
           )}

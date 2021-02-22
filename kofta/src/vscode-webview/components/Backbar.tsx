@@ -17,7 +17,7 @@ export const Backbar: React.FC<BackbarProps> = ({
     <div className={tw`sticky top-0 z-10 flex py-4 mb-12 border-b border-gray-500 bg-gray-800`}>
       {actuallyGoBack ? (
         <button
-          className={tw`hover:bg-buttonHover px-2`}
+          className={tw`hover:bg-blue-700 px-2`}
           onClick={() => {
             history.goBack();
           }}
@@ -26,7 +26,7 @@ export const Backbar: React.FC<BackbarProps> = ({
         </button>
       ) : (
         <button
-          className={tw`hover:bg-buttonHover px-2`}
+          className={tw`hover:bg-blue-700 px-2`}
           onClick={() => {
             history.push("/");
           }}

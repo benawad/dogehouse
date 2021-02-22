@@ -18,7 +18,7 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = () => {
           Whoops! This page got lost in conversation.
         </div>
         Not to worry. You can
-        <Link to="/" style={{ color: "var(--vscode-textLink-foreground)" }}>
+        <Link to="/" className={tw`text-blue-400`}>
           go home
         </Link>
       </BodyWrapper>

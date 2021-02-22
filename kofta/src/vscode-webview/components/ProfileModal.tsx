@@ -31,7 +31,7 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
-    backgroundColor: "var(--vscode-dropdown-border)",
+    backgroundColor: "#4B5563",
     border: "none",
     width: "100%",
     maxWidth: 500,

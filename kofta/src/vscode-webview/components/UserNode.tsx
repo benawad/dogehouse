@@ -61,7 +61,7 @@ export const UserNode: React.FC<UserNodeProps> = ({
         />
         {isMuted && (isCreator || isSpeaker) ? (
           <div
-            className={tw`absolute -bottom-2 -right-2 bg-button rounded-full p-1`}
+            className={tw`absolute -bottom-2 -right-2 bg-500 rounded-full p-1`}
           >
             <MicOff color="white" size={16} name="mute" />
           </div>

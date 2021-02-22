@@ -4,7 +4,6 @@ import { meAtom } from "../atoms";
 import { Codicon } from "../svgs/Codicon";
 import { CurrentRoom, Room } from "../types";
 
-import "./RoomCard.css";
 import {tw} from "twind";
 
 interface RoomProps {
@@ -57,12 +56,7 @@ export const RoomCard: React.FC<RoomProps> = ({
         onClick={onClick}
         className={`RoomCard ${active ? "active" : ""}`}
       >
-        <div
-          style={{
-            color: "var(--vscode-inputOption-activeForeground)",
-          }}
-          className={tw`flex`}
-        >
+        <div className={tw`flex text-gray-50`}>
           <div
             style={{
               display: "-webkit-box",

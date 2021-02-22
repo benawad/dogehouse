@@ -94,12 +94,7 @@ export const Home: React.FC<HomeProps> = () => {
         </BodyWrapper>
       </Wrapper>
       <BottomVoiceControl>
-        <div
-          style={{
-            padding: "0 var(--container-paddding)",
-          }}
-          className={tw`mb-8 flex`}
-        >
+        <div className={tw`mb-8 flex px-5`}>
           <Button
             variant="slim"
             onClick={() => {

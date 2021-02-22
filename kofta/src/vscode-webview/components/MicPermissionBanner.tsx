@@ -14,18 +14,8 @@ export const MicPermissionBanner: React.FC<MicPermissionBannerProps> = () => {
     return null;
   }
   return (
-    <div
-      style={{
-        backgroundColor: "var(--vscode-input-background)",
-      }}
-      className={tw`p-4`}
-    >
-      <div
-        style={{
-          color: "var(--vscode-errorForeground)",
-        }}
-        className={tw`font-semibold text-xl mb-4`}
-      >
+    <div className={tw`p-4 bg-gray-600`}>
+      <div className={tw`font-semibold text-xl mb-4 bg-red-400`}>
         Permission denied trying to access your mic
       </div>
       <Button

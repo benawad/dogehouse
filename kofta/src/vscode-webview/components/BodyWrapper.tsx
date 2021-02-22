@@ -6,7 +6,7 @@ export const BodyWrapper: React.FC<BodyWrapperProps> = ({
   children
 }) => {
   return (
-    <div style={{ padding: "0 var(--container-paddding)" }}>
+    <div className={tw`px-5`}>
       {children}
     </div>
   );

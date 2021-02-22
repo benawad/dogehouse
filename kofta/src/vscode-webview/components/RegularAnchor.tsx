@@ -1,4 +1,5 @@
 import React from "react";
+import { tw } from "twind";
 
 export const RegularAnchor: React.FC<
   React.DetailedHTMLProps<
@@ -7,7 +8,7 @@ export const RegularAnchor: React.FC<
   >
 > = ({ children, ...props }) => {
   return (
-    <a style={{ color: "var(--vscode-textLink-foreground)" }} {...props}>
+    <a {...props} className={tw`text-blue-400`}>
       {children}
     </a>
   );
