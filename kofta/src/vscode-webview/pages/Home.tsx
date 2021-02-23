@@ -61,6 +61,21 @@ export const Home: React.FC<HomeProps> = () => {
               />
             </div>
           ) : null}
+          <RoomCard
+            currentRoomId={undefined}
+            onClick={() => {}}
+            room={{
+              id: "0",
+              name: "aaaa",
+              isPrivate: false,
+              numPeopleInside: 55555,
+              creatorId: "11",
+              peoplePreviewList: [
+                {id: "0", displayName: "who", numFollowers: 211212},
+                {id: "4", displayName: "another person", numFollowers: 0},
+              ]
+            }}
+          />
           {rooms.map((r) =>
             r.id === currentRoom?.id ? null : (
               <div className={(`mt-4`)} key={r.id}>

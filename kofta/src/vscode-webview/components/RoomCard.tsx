@@ -35,7 +35,7 @@ export const RoomCard: React.FC<RoomProps> = ({
     previewNodes.push(
       <div
         key={p.id}
-        className={`text-left text-simple-gray-d9 ${!i ? "m-1.5" : "m-0.5"}`}
+        className={`text-left text-simple-gray-d9 ${!i ? "mt-1.5" : "mt-0.5"}`}
       >
         {p.displayName?.slice(0, 50)}
       </div>
@@ -49,7 +49,7 @@ export const RoomCard: React.FC<RoomProps> = ({
     <div>
       <button
         onClick={onClick}
-        className={`RoomCard ${active ? "active" : ""}`}
+        className={`w-full ${active ? "bg-simple-gray-4d" : "bg-simple-gray-33"} hover:bg-simple-gray-69 active:bg-simple-gray-23 py-2.5 px-5 rounded-lg`}
       >
         <div className={`flex text-white`}>
           <div
