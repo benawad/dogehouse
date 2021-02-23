@@ -21,7 +21,7 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
     setQueriedUsernames,
     mentions,
     setMentions,
-  } = useRoomChatMentionStore.getState();
+  } = useRoomChatMentionStore();
 
   function addMention(m: BaseUser) {
     setMentions([...mentions, m]);
@@ -29,6 +29,9 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
       message.substring(0, message.lastIndexOf("@") + 1) + m.username + " "
     );
     setQueriedUsernames([]);
+
+    // Re-focus input after mention was clicked
+    document.getElementById("room-chat-input")?.focus();
   }
 
   useEffect(() => {

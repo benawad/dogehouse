@@ -23,7 +23,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
     setMentions,
     activeUsername,
     setActiveUsername,
-  } = useRoomChatMentionStore.getState();
+  } = useRoomChatMentionStore();
 
   const [me] = useAtom(meAtom);
   const inputRef = createRef<HTMLInputElement>();
@@ -59,8 +59,9 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
     }
 
     // navigate to next/prev mention suggestion item
-    if (changeToIndex !== null)
+    if (changeToIndex !== null) {
       setActiveUsername(queriedUsernames[changeToIndex]?.id);
+    }
   }
   const [isEmoji, setisEmoji] = useState(false);
 
@@ -154,6 +155,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
             setisEmoji(false);
             position = 0;
           }}
+          id="room-chat-input"
         />
       </div>
     </form>
