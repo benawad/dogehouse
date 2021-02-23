@@ -1,16 +1,11 @@
 import { useAtom } from "jotai";
-<<<<<<< HEAD
-import React, { createRef, useState } from "react";
-import { wsend } from "../../../createWebsocket";
-=======
-import React from "react";
+import React, { useState, createRef } from "react";
 import { tw } from "twind";
 import { wsend } from "@dogehouse/feta/createWebsocket";
->>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
 import { meAtom } from "../../atoms";
 import { modalAlert } from "../../components/AlertModal";
 import { useRoomChatStore } from "./useRoomChatStore";
-import { createChatMessage } from "../../utils/createChatMessage";
+import { createChatMessage } from "@dogehouse/feta/utils/createChatMessage";
 import { Smile } from "react-feather";
 import "emoji-mart/css/emoji-mart.css";
 import { Picker } from "emoji-mart";
@@ -110,62 +105,6 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
       }}
       className={`bg-simple-gray-26 pb-8 px-8 pt-1`}
     >
-<<<<<<< HEAD
-      {isEmoji ? (
-        <Picker
-          set="apple"
-          onSelect={(emoji) => {
-            addEmoji(emoji);
-          }}
-          style={{
-            position: "relative",
-            width: "100%",
-            height: "200px",
-            overflowY: "hidden",
-          }}
-          sheetSize={32}
-          theme="dark"
-          emojiTooltip={false}
-          showPreview={false}
-          showSkinTones={false}
-          i18n={{
-            search: "Search",
-            categories: {
-              search: "Search Results",
-              recent: "Frequently Used",
-            },
-          }}
-        />
-      ) : null}
-      <div>
-        <div
-          style={{
-            color: "rgb(167, 167, 167)",
-          }}
-          className={`absolute mt-3 right-12 cursor-pointer`}
-          onClick={() => {
-            setisEmoji(!isEmoji);
-            position = 0;
-          }}
-        >
-          <Smile style={{ inlineSize: "23px" }}></Smile>
-        </div>
-        <input
-          maxLength={512}
-          placeholder="Send a message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          ref={inputRef}
-          className={`text-simple-gray-9c bg-simple-gray-59 px-4 py-3 rounded text-lg focus:outline-none pr-12`}
-          onKeyDown={navigateThroughQueriedUsers}
-          onFocus={() => {
-            setisEmoji(false);
-            position = 0;
-          }}
-          id="room-chat-input"
-        />
-      </div>
-=======
       <input
         maxLength={512}
         placeholder="Send a message"
@@ -174,7 +113,6 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
         className={tw`text-tmpC1 bg-tmpBg4 px-4 py-3 rounded text-lg focus:outline-none`}
         onKeyDown={navigateThroughQueriedUsers}
       />
->>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
     </form>
   );
 };

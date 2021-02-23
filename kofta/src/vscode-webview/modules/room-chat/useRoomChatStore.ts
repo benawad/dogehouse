@@ -1,10 +1,6 @@
 import create from "zustand";
 import { combine } from "zustand/middleware";
-<<<<<<< HEAD
-import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
-=======
 import { User } from "@dogehouse/feta/types";
->>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
 
 interface TextToken {
   t: "text";

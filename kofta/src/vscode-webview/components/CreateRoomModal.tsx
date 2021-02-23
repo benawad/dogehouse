@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
-import { wsend } from "../../createWebsocket";
-=======
 import { tw } from "twind";
 import { wsend } from "@dogehouse/feta/createWebsocket";
->>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
 import { Button } from "./Button";
 import { Input } from "./Input";
 import { Modal } from "./Modal";
@@ -40,17 +36,15 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
           onChange={(e) => setName(e.target.value)}
         />
         <div className={`flex mt-8 items-center`}>
-          <select className={`border border-simple-gray-3c`} value={privacy} onChange={(e) => setPrivacy(e.target.value)}>
-            <option
-              value="public"
-              className={`bg-simple-gray-3c`}
-            >
+          <select
+            className={`border border-simple-gray-3c`}
+            value={privacy}
+            onChange={(e) => setPrivacy(e.target.value)}
+          >
+            <option value="public" className={`bg-simple-gray-3c`}>
               public
             </option>
-            <option
-              value="private"
-              className={`bg-simple-gray-3c`}
-            >
+            <option value="private" className={`bg-simple-gray-3c`}>
               private
             </option>
           </select>

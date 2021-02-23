@@ -9,14 +9,9 @@ import {
   UserPlus,
 } from "react-feather";
 import { useHistory, useLocation } from "react-router-dom";
-<<<<<<< HEAD
-import { wsend } from "../../createWebsocket";
-import { useMuteStore } from "../../webrtc/stores/useMuteStore";
-=======
 import { tw } from "twind";
 import { wsend } from "@dogehouse/feta/createWebsocket";
 import { useMuteStore } from "@dogehouse/feta/webrtc/stores/useMuteStore";
->>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
 import { currentRoomAtom, myCurrentRoomInfoAtom } from "../atoms";
 import { RoomChat } from "../modules/room-chat/RoomChat";
 import { useRoomChatMentionStore } from "../modules/room-chat/useRoomChatMentionStore";
@@ -41,20 +36,11 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   const { muted, set } = useMuteStore();
   const [{ canSpeak, isCreator }] = useAtom(myCurrentRoomInfoAtom);
   const [settingsOpen, setSettingsOpen] = useState(false);
-<<<<<<< HEAD
-  const [toggleOpen, newUnreadMessages] = useRoomChatStore((s) => [
-=======
   const [
     toggleOpen,
     newUnreadMessages,
     iAmMentioned,
-  ] = useRoomChatStore((s) => [
->>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
-    s.toggleOpen,
-    s.newUnreadMessages,
-  ]);
-
-  const { iAmMentioned } = useRoomChatMentionStore();
+  ] = useRoomChatStore((s) => [s.toggleOpen, s.newUnreadMessages]);
 
   const fullscreenChatOpen = useShouldFullscreenChat();
 

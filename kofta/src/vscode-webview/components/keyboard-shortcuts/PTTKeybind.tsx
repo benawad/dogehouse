@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { recordKeyCombination } from "react-hotkeys";
-<<<<<<< HEAD
-import { useKeyMapStore } from "../../../webrtc/stores/useKeyMapStore";
-=======
 import { tw } from "twind";
 import { useKeyMapStore } from "@dogehouse/feta/webrtc/stores/useKeyMapStore";
->>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
 import { Button } from "../Button";
 
 interface PTTKeybindProps {
