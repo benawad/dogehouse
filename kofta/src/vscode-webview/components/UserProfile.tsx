@@ -40,7 +40,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
         isOpen={editProfileModalOpen}
         onRequestClose={() => setEditProfileModalOpen(false)}
       />
-      <div className={`mb-4 flex justify-beeen align-center`}>
+      <div className={`mb-4 flex justify-between align-center`}>
         <Avatar src={profile.avatarUrl} />
         {me?.id === profile.id ? (
           <div>
