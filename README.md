@@ -23,6 +23,7 @@
 | dinner   | Puppeteer shenanigans |
 | baklava  |   Electron Wrapper    |
 | pilaf    |   React Native App    |
+| feta     |  Shared utils web/app |
 
 ## Contributions
 
