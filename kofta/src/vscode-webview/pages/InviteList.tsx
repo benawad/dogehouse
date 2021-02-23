@@ -32,7 +32,6 @@ export const InviteList: React.FC<InviteListProps> = () => {
       </Wrapper>
     );
   }
-  console.log(typeof navigator.share);
 
   return (
     <Wrapper>

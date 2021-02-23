@@ -1,12 +1,15 @@
 import React from "react";
-import { CheckIcon } from "../svgs/CheckIcon";
+import { Check } from "react-feather";
 
 interface ListItemProps {}
 
 export const ListItem: React.FC<ListItemProps> = ({ children }) => {
   return (
-    <li className={`flex my-2`}>
-      <CheckIcon /><p className={`ml-3`}>{children}</p>
+    <li className={`my-2`}>
+      <span className={`inline-flex items-center`}>
+        <Check className={`h-6 w-6`} />
+        <p className={`ml-3`}>{children}</p>
+      </span>
     </li>
   );
 };

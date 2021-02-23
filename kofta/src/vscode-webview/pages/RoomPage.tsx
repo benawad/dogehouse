@@ -123,6 +123,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
             {!iCanSpeak && me && canIAskToSpeak ? (
               <div className={`flex flex-col items-center`}>
                 <CircleButton
+                  title="Request to speak"
                   size={70}
                   onClick={() => {
                     modalConfirm("Would you like to ask to speak?", () => {

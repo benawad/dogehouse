@@ -18,6 +18,7 @@ export const RoomCard: React.FC<RoomProps> = ({
   currentRoomId,
 }) => {
   const [me] = useAtom(meAtom);
+
   let n = room.numPeopleInside;
   const previewNodes = [];
   let userList = room.peoplePreviewList;

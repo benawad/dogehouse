@@ -34,14 +34,24 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
           </Button>
         </div>
       </Backbar>
-              <BodyWrapper>
-      {me ? <UserProfile profile={me} /> : <div>probably loading...</div>}
-      <div className={`pt-6`}>
-        <Button variant="small" onClick={() => history.push(`/voice-settings`)}>
-          go to voice settings
-        </Button>
-      </div>
-              </BodyWrapper>
+      <BodyWrapper>
+        {me ? <UserProfile profile={me} /> : <div>probably loading...</div>}
+        <div className={`pt-6 flex`}>
+          <Button
+            style={{ marginRight: "10px" }}
+            variant="small"
+            onClick={() => history.push(`/voice-settings`)}
+          >
+            go to voice settings
+          </Button>
+          <Button
+            variant="small"
+            onClick={() => history.push(`/chat-settings`)}
+          >
+            go to chat settings
+          </Button>
+        </div>
+      </BodyWrapper>
     </Wrapper>
   );
 };

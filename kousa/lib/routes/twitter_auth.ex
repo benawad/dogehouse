@@ -42,14 +42,32 @@ defmodule Kousa.TwitterAuth do
   end
 
   get "/callback" do
-    conn
-    |> fetch_query_params
-    |> fetch_session()
-    |> Plug.Conn.put_private(:ueberauth_request_options, %{
-      options: []
-    })
-    |> Ueberauth.Strategy.Twitter.handle_callback!()
-    |> handle_callback()
+    conn_with_stuff =
+      conn
+      |> fetch_query_params
+      |> fetch_session()
+
+    try do
+      conn_with_stuff
+      |> Plug.Conn.put_private(:ueberauth_request_options, %{
+        options: []
+      })
+      |> Ueberauth.Strategy.Twitter.handle_callback!()
+      |> handle_callback()
+    rescue
+      e ->
+        Sentry.capture_exception(e,
+          stacktrace: __STACKTRACE__,
+          extra: %{twitter_auth: "/callback"}
+        )
+
+        conn_with_stuff
+        |> Kousa.Redirect.redirect(
+          get_base_url(conn_with_stuff) <>
+            "/?error=" <>
+            URI.encode("auth failed, enable cookies and try again or give GitHub a try")
+        )
+    end
   end
 
   def get_base_url(conn) do

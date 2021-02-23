@@ -4,6 +4,7 @@ import { useRoomChatStore } from "./useRoomChatStore";
 import { Avatar } from "../../components/Avatar";
 import { BaseUser } from "../../types";
 import { currentRoomAtom, meAtom } from "../../atoms";
+import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 
 interface RoomChatMentionsProps {}
 
@@ -11,16 +12,16 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
   const [currentRoom] = useAtom(currentRoomAtom);
   const [me] = useAtom(meAtom);
 
+  const { message, setMessage } = useRoomChatStore();
+
   const {
+    activeUsername,
+    setActiveUsername,
     queriedUsernames,
     setQueriedUsernames,
     mentions,
     setMentions,
-    message,
-    setMessage,
-    activeUsername,
-    setActiveUsername,
-  } = useRoomChatStore();
+  } = useRoomChatMentionStore();
 
   function addMention(m: BaseUser) {
     setMentions([...mentions, m]);
@@ -28,6 +29,9 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
       message.substring(0, message.lastIndexOf("@") + 1) + m.username + " "
     );
     setQueriedUsernames([]);
+
+    // Re-focus input after mention was clicked
+    document.getElementById("room-chat-input")?.focus();
   }
 
   useEffect(() => {
@@ -71,7 +75,7 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
 
   if (queriedUsernames.length) {
     return (
-      <div className={`flex flex-col pb-1`}>
+      <div className={`flex flex-col pb-1 bg-simple-gray-26`}>
         {queriedUsernames.map((m) => (
           <button
             className={`flex py-3 items-center px-8 focus:outline-none ${
@@ -81,10 +85,7 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
             onClick={() => addMention(m)}
           >
             <span className={`pr-3 inline`}>
-              <Avatar
-                size={20}
-                src={m.avatarUrl}
-              />
+              <Avatar size={20} src={m.avatarUrl} />
             </span>
             <p className={`m-0 mt-1`}>
               {m.displayName}

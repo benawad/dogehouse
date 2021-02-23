@@ -13,6 +13,7 @@ import { wsend } from "../../createWebsocket";
 import { useMuteStore } from "../../webrtc/stores/useMuteStore";
 import { currentRoomAtom, myCurrentRoomInfoAtom } from "../atoms";
 import { RoomChat } from "../modules/room-chat/RoomChat";
+import { useRoomChatMentionStore } from "../modules/room-chat/useRoomChatMentionStore";
 import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
 import { useShouldFullscreenChat } from "../modules/room-chat/useShouldFullscreenChat";
 import { modalConfirm } from "./ConfirmModal";
@@ -34,15 +35,12 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   const { muted, set } = useMuteStore();
   const [{ canSpeak, isCreator }] = useAtom(myCurrentRoomInfoAtom);
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const [
-    toggleOpen,
-    newUnreadMessages,
-    iAmMentioned,
-  ] = useRoomChatStore((s) => [
+  const [toggleOpen, newUnreadMessages] = useRoomChatStore((s) => [
     s.toggleOpen,
     s.newUnreadMessages,
-    s.iAmMentioned,
   ]);
+
+  const { iAmMentioned } = useRoomChatMentionStore();
 
   const fullscreenChatOpen = useShouldFullscreenChat();
 
@@ -107,11 +105,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
         }}
         title="Invite users to room"
       >
-        <UserPlus
-          className={`m-auto mb-1`}
-          size={iconSize}
-          color={iconColor}
-        />
+        <UserPlus className={`m-auto mb-1`} size={iconSize} color={iconColor} />
         Invite
       </button>
     );
@@ -136,11 +130,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
               color={iconColor}
             />
           ) : (
-            <Mic
-              className={`m-auto mb-1`}
-              size={iconSize}
-              color={iconColor}
-            />
+            <Mic className={`m-auto mb-1`} size={iconSize} color={iconColor} />
           )}
           {muted ? "Unmute" : "Mute"}
         </button>
@@ -175,13 +165,11 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
         onRequestClose={() => setSettingsOpen(false)}
       />
       <div
-        className={
-          `${
-            fullscreenChatOpen
-              ? `fixed top-0 left-0 right-0 flex-col flex h-full`
-              : `sticky`
-          } bottom-0 w-full`
-        }
+        className={`${
+          fullscreenChatOpen
+            ? `fixed top-0 left-0 right-0 flex-col flex h-full`
+            : `sticky`
+        } bottom-0 w-full`}
       >
         {fullscreenChatOpen ? null : children}
         <RoomChat sidebar={false} />
@@ -192,7 +180,9 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             onClick={() => history.push(`/room/${currentRoom.id}`)}
             className={`bg-simple-gray-26 py-5 px-10 w-full flex`}
           >
-            <span className={`text-simple-gray-a6 overflow-hidden overflow-ellipsis font-semibold`}>
+            <span
+              className={`text-simple-gray-a6 overflow-hidden overflow-ellipsis font-semibold`}
+            >
               {currentRoom.name}{" "}
             </span>
             <span className={`text-blue-500 ml-2`}>
@@ -200,7 +190,9 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             </span>
           </button>
         ) : null}
-        <div className={`border-simple-gray-80 bg-simple-gray-26 border-t w-full mt-auto p-5`}>
+        <div
+          className={`border-simple-gray-80 bg-simple-gray-26 border-t w-full mt-auto p-5`}
+        >
           {currentRoom ? (
             <div className={`flex justify-around`}>{buttons}</div>
           ) : (

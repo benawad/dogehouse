@@ -13,6 +13,8 @@ import { AlertModal } from "../components/AlertModal";
 import { ConfirmModal } from "../components/ConfirmModal";
 import { BodyWrapper } from "../components/BodyWrapper";
 import { ListItem } from "../components/ListItem";
+import { GitHubIcon } from "../svgs/GitHubIcon";
+import { TwitterIcon } from "../svgs/TwitterIcon";
 
 interface LoginProps {}
 
@@ -51,6 +53,7 @@ export const Login: React.FC<LoginProps> = () => {
           <div className={`mb-8`}>
             <Button
               variant="slim"
+              style={{ backgroundColor: "#333" }}
               onClick={() =>
                 (window.location.href =
                   apiBaseUrl +
@@ -60,11 +63,15 @@ export const Login: React.FC<LoginProps> = () => {
                     : ""))
               }
             >
-              login with GitHub
+              <span className={`inline-flex items-center`}>
+                <GitHubIcon className={`h-6 w-6`} />
+                <p className={`ml-3`}>login with GitHub</p>
+              </span>
             </Button>
           </div>
           <Button
             variant="slim"
+            style={{ backgroundColor: "#0C84CF" }}
             onClick={() =>
               (window.location.href =
                 apiBaseUrl +
@@ -74,7 +81,10 @@ export const Login: React.FC<LoginProps> = () => {
                   : ""))
             }
           >
-            login with Twitter
+            <span className={`inline-flex items-center`}>
+              <TwitterIcon className={`h-6 w-6`} />
+              <p className={`ml-3`}>login with Twitter</p>
+            </span>
           </Button>
           {process.env.NODE_ENV === "development" ? (
             <Button
