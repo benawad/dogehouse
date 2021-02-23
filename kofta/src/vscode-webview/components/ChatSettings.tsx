@@ -1,5 +1,4 @@
 import React from "react";
-import { tw } from "twind";
 import { useRoomChatSettingsStore } from "../../webrtc/stores/useRoomChatSettingsStore";
 import { Checkbox } from "./Checkbox";
 
@@ -13,7 +12,7 @@ export const ChatSettings: React.FC<ChatSettingsProps> = () => {
 
   return (
     <>
-      <h1 className={tw`py-8 text-4xl`}>Chat Settings</h1>
+      <h1 className={`py-8 text-4xl`}>Chat Settings</h1>
 
       <Checkbox
         value={shouldPlayChatSound}

@@ -1,5 +1,4 @@
 import React from "react";
-import { tw } from "twind";
 import { RegularAnchor } from "./RegularAnchor";
 
 interface FooterProps {
@@ -8,7 +7,7 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ isLogin }) => {
   return (
-    <div className={tw`justify-around flex text-center`}>
+    <div className={`justify-around flex text-center`}>
       <RegularAnchor href="https://github.com/benawad/dogehouse#investors">
         Investors
       </RegularAnchor>

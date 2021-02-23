@@ -1,6 +1,5 @@
 import { useAtom } from "jotai";
 import React, { useEffect } from "react";
-import { tw } from "twind";
 import { useRoomChatStore } from "./useRoomChatStore";
 import { Avatar } from "../../components/Avatar";
 import { BaseUser } from "../../types";
@@ -22,7 +21,7 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
     setQueriedUsernames,
     mentions,
     setMentions,
-  } = useRoomChatMentionStore.getState();
+  } = useRoomChatMentionStore();
 
   function addMention(m: BaseUser) {
     setMentions([...mentions, m]);
@@ -30,6 +29,9 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
       message.substring(0, message.lastIndexOf("@") + 1) + m.username + " "
     );
     setQueriedUsernames([]);
+
+    // Re-focus input after mention was clicked
+    document.getElementById("room-chat-input")?.focus();
   }
 
   useEffect(() => {
@@ -73,23 +75,19 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
 
   if (queriedUsernames.length) {
     return (
-      <div className={tw`flex flex-col pb-1 bg-tmpBg1`}>
+      <div className={`flex flex-col pb-1 bg-simple-gray-26`}>
         {queriedUsernames.map((m) => (
           <button
-            className={tw`flex py-3 items-center px-8 focus:outline-none ${
-              activeUsername === m.id ? "bg-buttonHover" : ""
+            className={`flex py-3 items-center px-8 focus:outline-none ${
+              activeUsername === m.id ? "bg-blue-800" : ""
             }`}
             key={m.id}
             onClick={() => addMention(m)}
           >
-            <span className={tw`pr-3 inline`}>
-              <Avatar
-                style={{ display: "inline" }}
-                size={20}
-                src={m.avatarUrl}
-              />
+            <span className={`pr-3 inline`}>
+              <Avatar size={20} src={m.avatarUrl} />
             </span>
-            <p className={tw`m-0 mt-1`}>
+            <p className={`m-0 mt-1`}>
               {m.displayName}
               {m.displayName !== m.username ? `(${m.username})` : null}
             </p>

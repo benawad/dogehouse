@@ -7,7 +7,7 @@ export const RegularAnchor: React.FC<
   >
 > = ({ children, ...props }) => {
   return (
-    <a style={{ color: "var(--vscode-textLink-foreground)" }} {...props}>
+    <a {...props} className={`text-blue-400`}>
       {children}
     </a>
   );
