@@ -44,14 +44,13 @@ export const RoomChat: React.FC<ChatProps> = ({ sidebar }) => {
           width: sidebar ? 340 : "100%",
           height: sidebar ? "100%" : undefined,
         }}
-        className={`flex flex-1 w-full flex-col ${sidebar ? `fixed bottom-0` : ``}`}
+        className={`bg-simple-gray-26 flex flex-1 w-full flex-col ${sidebar ? `fixed bottom-0` : ``}`}
       >
         <button
-          style={{ borderBottom: "1px solid #808080", height: 72 }}
           onClick={() => toggleOpen()}
-          className={`bg-gray-800 border-b border-gray-400 text-white py-4 px-8 text-2xl flex items-center h-20`}
+          className={`bg-simple-gray-26 border-b border-simple-gray-80 text-white py-4 px-8 text-2xl flex items-center h-20`}
         >
-          Chat <span className={`ml-2 text-gray-400`}>[emotes soon]</span>
+          Chat <span className={`ml-2 text-simple-gray-a6`}>[emotes soon]</span>
         </button>
         <RoomChatList />
         <RoomChatMentions />

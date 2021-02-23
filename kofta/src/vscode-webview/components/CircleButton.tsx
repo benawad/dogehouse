@@ -13,12 +13,10 @@ export const CircleButton: React.FC<CircleButtonProps> = ({
   return (
     <button
       style={{
-        backgroundColor: "rgba(255, 255, 255, 0.06)",
-        border: ".5px solid rgba(255, 255, 255, 0.4)",
         height: size,
         width: size,
       }}
-      className={`rounded-full flex items-center justify-center`}
+      className={`rounded-full border border-simple-gray-80 bg-simple-gray-2b flex items-center justify-center`}
       onClick={onClick}
     >
       {children}

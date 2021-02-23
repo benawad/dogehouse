@@ -54,7 +54,7 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
           display: showAutoPlayModal ? "" : "none",
         }}
       >
-        <div className={`p-8 rounded m-auto bg-gray-600`}>
+        <div className={`p-8 rounded m-auto bg-simple-gray-3c`}>
           <div className={`text-center mb-4`}>
             Browsers require user interaction before they will play audio. Just
             click okay to continue.

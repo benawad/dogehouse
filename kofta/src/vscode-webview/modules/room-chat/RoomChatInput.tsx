@@ -83,14 +83,14 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
         });
         setQueriedUsernames([]);
       }}
-      className={`bg-gray-800 pb-8 px-8 pt-1`}
+      className={`bg-simple-gray-26 pb-8 px-8 pt-1`}
     >
       <input
         maxLength={512}
         placeholder="Send a message"
         value={message}
         onChange={e => setMessage(e.target.value)}
-        className={`text-gray-400 bg-gray-600 px-4 py-3 rounded text-lg focus:outline-none`}
+        className={`text-simple-gray-9c bg-simple-gray-59 px-4 py-3 rounded text-lg focus:outline-none`}
         onKeyDown={navigateThroughQueriedUsers}
       />
     </form>

@@ -61,7 +61,7 @@ export const RoomCard: React.FC<RoomProps> = ({
               WebkitBoxOrient: "vertical",
               WebkitLineClamp: 3,
             }}
-            className={`text-left flex-1 text-xl text-gray-300 text-ellipsis overflow-hidden break-words`}
+            className={`text-left flex-1 text-xl text-simple-gray-d9 text-ellipsis overflow-hidden break-words`}
           >
             {room.name?.slice(0, 100)}
           </div>

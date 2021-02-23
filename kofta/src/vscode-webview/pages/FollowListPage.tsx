@@ -45,7 +45,7 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
         {!users.length ? <div>no users found</div> : null}
         {users.map((profile) => (
           <div
-            className={`border-b border-solid border-gray-600 flex py-4 px-2 items-center`}
+            className={`border-b border-solid border-simple-gray-3c flex py-4 px-2 items-center`}
             key={profile.id}
           >
             <button onClick={() => history.push(`/user`, profile)}>

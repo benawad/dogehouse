@@ -7,7 +7,7 @@ export const Input = forwardRef<
     HTMLInputElement
   > & { textarea?: boolean }
 >(({ textarea, ...props }, ref) => {
-  const cn = `py-2 px-3 text-white bg-gray-600`;
+  const cn = `py-2 px-3 text-white bg-simple-gray-3c`;
 
   return textarea ? (
     <textarea ref={ref as any} className={cn} {...(props as any)} />

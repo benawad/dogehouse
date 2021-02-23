@@ -1,8 +1,6 @@
 @tailwind base;
 @layer base {
   select {
-    @apply border border-gray-600;
-
     padding: 4px 23px 4px 12px !important;
     background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='grey'><polygon points='0,0 100,0 50,50'/></svg>");
     background-repeat: no-repeat;

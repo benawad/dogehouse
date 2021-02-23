@@ -82,7 +82,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
         <div>@{profile.username}</div>
         {me?.id !== profile.id && userProfile.followsYou ? (
           <div
-            className={`ml-2 text-gray-300`}
+            className={`ml-2 text-simple-gray-3d`}
           >
             follows you
           </div>

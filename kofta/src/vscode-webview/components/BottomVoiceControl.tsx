@@ -23,7 +23,7 @@ interface BottomVoiceControlProps {}
 
 const iconSize = 24;
 const iconColor = "#8C8C8C";
-const buttonStyle = `px-2.5 text-gray-400 text-sm flex-1`;
+const buttonStyle = `px-2.5 text-simple-gray-8c text-sm flex-1`;
 
 export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   children,
@@ -192,9 +192,9 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
         !location.pathname.startsWith("/room") ? (
           <button
             onClick={() => history.push(`/room/${currentRoom.id}`)}
-            className={`bg-gray-700 py-5 px-10 w-full flex`}
+            className={`bg-simple-gray-26 py-5 px-10 w-full flex`}
           >
-            <span className={`text-gray-400 overflow-hidden overflow-ellipsis font-semibold`}>
+            <span className={`text-simple-gray-a6 overflow-hidden overflow-ellipsis font-semibold`}>
               {currentRoom.name}{" "}
             </span>
             <span className={`text-blue-500 ml-2`}>
@@ -202,7 +202,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             </span>
           </button>
         ) : null}
-        <div className={`border-gray-400 bg-gray-800 border-t w-full mt-auto p-5`}>
+        <div className={`border-simple-gray-80 bg-simple-gray-26 border-t w-full mt-auto p-5`}>
           {currentRoom ? (
             <div className={`flex justify-around`}>{buttons}</div>
           ) : (

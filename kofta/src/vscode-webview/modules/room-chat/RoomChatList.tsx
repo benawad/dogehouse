@@ -16,7 +16,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 
   return (
     <div
-      className={`bg-gray-800 px-8 pt-8 flex-1 overflow-y-auto flex-col-reverse flex`}
+      className={`bg-simple-gray-26 px-8 pt-8 flex-1 overflow-y-auto flex-col-reverse flex`}
     >
       {profileId ? (
         <ProfileModalFetcher
@@ -67,7 +67,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                     className={
                       `hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
                         v === me?.username
-                          ? "bg-500 text-white px-2 rounded text-md"
+                          ? "bg-simple-gray-fe text-white px-2 rounded text-md"
                           : ""
                       }`
                     }
