@@ -17,6 +17,9 @@
     "jsx": "react"
   },
   "include": [
+    "../feta/webrtc/utils/mergeRoomPermission.ts",
+    "../feta/webrtc/types.ts",
+    "/feta/webrtc/utils/mergeRoomPermission.ts",
     "src",
     "../feta/constants.ts",
     "../feta/createWebsocket.ts",

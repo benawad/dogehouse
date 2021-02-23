@@ -6,7 +6,7 @@ import { apiBaseUrl } from "@dogehouse/feta/constants";
 import { Logo } from "../svgs/Logo";
 import { useTokenStore } from "@dogehouse/feta/utils/useTokenStore";
 import qs from "query-string";
-import { showErrorToast } from "../utils/showErrorToast";
+import { showErrorToast } from "@dogehouse/feta/utils/showErrorToast";
 import { CenterLayout } from "../components/CenterLayout";
 import { modalPrompt, PromptModal } from "../components/PromptModal";
 import { AlertModal } from "../components/AlertModal";

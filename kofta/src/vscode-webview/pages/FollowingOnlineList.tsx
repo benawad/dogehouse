@@ -1,12 +1,8 @@
 import { useAtom } from "jotai";
 import React from "react";
 import { useHistory } from "react-router-dom";
-<<<<<<< HEAD
-import { wsend } from "../../createWebsocket";
-=======
 import { tw } from "twind";
 import { wsend } from "@dogehouse/feta/createWebsocket";
->>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
 import { currentRoomAtom, followingOnlineAtom } from "../atoms";
 import { Avatar } from "../components/Avatar";
 import { Backbar } from "../components/Backbar";
@@ -48,9 +44,7 @@ export const FollowingOnlineList: React.FC<FriendListProps> = () => {
               }}
               className={`ml-4 flex-1 text-left`}
             >
-              <div className={`text-lg`}>
-                {u.displayName}
-              </div>
+              <div className={`text-lg`}>{u.displayName}</div>
               <div style={{ color: "" }}>
                 {u.currentRoom ? u.currentRoom.name : "online"}
               </div>

@@ -1,4 +1,4 @@
-import { RoomPermissions } from "../../vscode-webview/types";
+import { RoomPermissions } from "@dogehouse/feta/types";
 
 export const mergeRoomPermission = (
   currentRoomPermission: RoomPermissions | null | undefined,

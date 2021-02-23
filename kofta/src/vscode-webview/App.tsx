@@ -2,19 +2,11 @@ import { useAtom } from "jotai";
 import queryString from "query-string";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { QueryClientProvider } from "react-query";
-<<<<<<< HEAD
-import { tw } from "twind";
-import { createWebSocket } from "@dogehouse/feta/createWebsocket";
+import { createWebSocket, wsend } from "@dogehouse/feta/createWebsocket";
 import { useSocketStatus } from "@dogehouse/feta/webrtc/stores/useSocketStatus";
+import { useVoiceStore } from "@dogehouse/feta/webrtc/stores/useVoiceStore";
 import { useWsHandlerStore } from "@dogehouse/feta/webrtc/stores/useWsHandlerStore";
-import { setMeAtom } from "./atoms";
-=======
-import { createWebSocket, wsend } from "../createWebsocket";
-import { useSocketStatus } from "../webrtc/stores/useSocketStatus";
-import { useVoiceStore } from "../webrtc/stores/useVoiceStore";
-import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
 import { setCurrentRoomAtom, setMeAtom } from "./atoms";
->>>>>>> 693bada3f2167a808ae726913d78010eedf04c1a
 import { Button } from "./components/Button";
 import { CenterLayout } from "./components/CenterLayout";
 import { KeybindListener } from "./components/KeybindListener";
@@ -23,17 +15,9 @@ import { Wrapper } from "./components/Wrapper";
 import { Login } from "./pages/Login";
 import { queryClient } from "./queryClient";
 import { Router } from "./Router";
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { useTokenStore } from "feta/utils/useTokenStore";
-=======
-import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
-import { useTokenStore } from "./utils/useTokenStore";
-import { NotificationAudioRender } from "./modules/room-chat/NotificationAudioRender";
->>>>>>> 693bada3f2167a808ae726913d78010eedf04c1a
-=======
+import { roomToCurrentRoom } from "@dogehouse/feta/utils/roomToCurrentRoom";
 import { useTokenStore } from "@dogehouse/feta/utils/useTokenStore";
->>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
+import { NotificationAudioRender } from "./modules/room-chat/NotificationAudioRender";
 
 interface AppProps {}
 

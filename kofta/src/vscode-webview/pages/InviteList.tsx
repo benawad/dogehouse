@@ -2,12 +2,8 @@ import React, { useRef } from "react";
 import { useAtom } from "jotai";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-<<<<<<< HEAD
-import { wsend } from "../../createWebsocket";
-=======
 import { tw } from "twind";
 import { wsend } from "@dogehouse/feta/createWebsocket";
->>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
 import { currentRoomAtom, inviteListAtom } from "../atoms";
 import { Avatar } from "../components/Avatar";
 import { Backbar } from "../components/Backbar";
@@ -89,9 +85,7 @@ export const InviteList: React.FC<InviteListProps> = () => {
               }}
               className={`ml-4`}
             >
-              <div className={`text-lg`}>
-                {u.displayName}
-              </div>
+              <div className={`text-lg`}>{u.displayName}</div>
               <div>@{u.username}</div>
             </button>
             <div className={`ml-auto`}>

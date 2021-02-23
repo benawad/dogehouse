@@ -1,6 +1,6 @@
 import create from "zustand";
 import { combine } from "zustand/middleware";
-import { BaseUser } from "../../types";
+import { BaseUser } from "@dogehouse/feta/types";
 
 export const useRoomChatMentionStore = create(
   combine(
