@@ -30,6 +30,9 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
       message.substring(0, message.lastIndexOf("@") + 1) + m.username + " "
     );
     setQueriedUsernames([]);
+
+    // Re-focus input after mention was clicked
+    document.getElementById("room-chat-input")?.focus();
   }
 
   useEffect(() => {

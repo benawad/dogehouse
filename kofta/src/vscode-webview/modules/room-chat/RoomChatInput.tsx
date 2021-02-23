@@ -156,6 +156,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
             setisEmoji(false);
             position = 0;
           }}
+          id="room-chat-input"
         />
       </div>
     </form>
