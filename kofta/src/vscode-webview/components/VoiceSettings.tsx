@@ -9,7 +9,7 @@ import { VolumeSlider } from "./VolumeSlider";
 
 interface VoiceSettingsProps {}
 
-export const VoiceSettings: React.FC<VoiceSettingsProps> = ({}) => {
+export const VoiceSettings: React.FC<VoiceSettingsProps> = () => {
   const { micId, setMicId } = useMicIdStore();
   const [volume, setVolume] = useAtom(volumeAtom);
   const [devices, setDevices] = useState<Array<{ id: string; label: string }>>(
@@ -38,6 +38,7 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = ({}) => {
 
   return (
     <>
+      <h1 className={tw`py-8 text-4xl`}>Voice Settings</h1>
       <div className={tw`mb-2`}>mic: </div>
       {devices.length ? (
         <select

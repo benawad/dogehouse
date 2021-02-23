@@ -1,6 +1,6 @@
 import create from "zustand";
 import { combine } from "zustand/middleware";
-import { User } from "../../types";
+import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 
 interface TextToken {
   t: "text";
@@ -53,19 +53,15 @@ export const useRoomChatStore = create(
       messages: [] as RoomChatMessage[],
       newUnreadMessages: false,
       message: "" as string,
-      mentions: [] as User[],
-      queriedUsernames: [] as User[],
-      activeUsername: "",
-      iAmMentioned: false,
     },
-    set => ({
+    (set) => ({
       addBannedUser: (userId: string) =>
-        set(s => ({
-          messages: s.messages.filter(m => m.userId !== userId),
+        set((s) => ({
+          messages: s.messages.filter((m) => m.userId !== userId),
           bannedUserIdMap: { ...s.bannedUserIdMap, [userId]: true },
         })),
       addMessage: (m: RoomChatMessage) =>
-        set(s => ({
+        set((s) => ({
           newUnreadMessages: !s.open,
           messages: [
             { ...m, color: generateColorFromString(m.userId) },
@@ -88,12 +84,13 @@ export const useRoomChatStore = create(
           bannedUserIdMap: {},
         }),
       toggleOpen: () =>
-        set(s => {
+        set((s) => {
+          // Reset mention state
+          useRoomChatMentionStore.getState().setIAmMentioned(0);
           if (s.open) {
             return {
               open: false,
               newUnreadMessages: false,
-              iAmMentioned: false,
             };
           } else {
             return {
@@ -106,22 +103,6 @@ export const useRoomChatStore = create(
         set({
           message,
         }),
-      setMentions: (mentions: User[]) =>
-        set({
-          mentions,
-        }),
-      setQueriedUsernames: (queriedUsernames: User[]) =>
-        set({
-          queriedUsernames,
-        }),
-      setActiveUsername: (activeUsername: string) =>
-        set({
-          activeUsername,
-        }),
-      setIAmMentioned: (iAmMentioned: boolean) =>
-        set({
-          iAmMentioned,
-        }),
-    }),
-  ),
+    })
+  )
 );

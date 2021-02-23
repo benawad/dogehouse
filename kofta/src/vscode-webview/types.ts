@@ -10,7 +10,7 @@ export type Room = {
     numFollowers: number;
   }>;
 };
-export type User = {
+export type BaseUser = {
   username: string;
   online: boolean;
   lastOnline: Date;
@@ -18,20 +18,30 @@ export type User = {
   bio: string;
   displayName: string;
   avatarUrl: string;
-  modForRoomId: string | null;
-  canSpeakForRoomId: string | null;
   numFollowing: number;
   numFollowers: number;
   currentRoom?: Room;
+};
+
+export type RoomPermissions = {
+  askedToSpeak: boolean;
+  isSpeaker: boolean;
+  isMod: boolean;
+};
+
+export type UserWithFollowInfo = BaseUser & {
   followsYou?: boolean;
   youAreFollowing?: boolean;
 };
 
+export type RoomUser = {
+  roomPermissions?: RoomPermissions | null;
+} & UserWithFollowInfo;
+
 export type CurrentRoom = Room & {
-  users: User[];
+  users: RoomUser[];
   muteMap: Record<string, boolean>;
   activeSpeakerMap: Record<string, boolean>;
-  raiseHandMap: Record<string, number>;
   autoSpeaker: boolean;
 };
 

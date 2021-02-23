@@ -6,6 +6,7 @@ import { wsend } from "../../createWebsocket";
 import { useMuteStore } from "../../webrtc/stores/useMuteStore";
 import { currentRoomAtom, meAtom, myCurrentRoomInfoAtom } from "../atoms";
 import { Backbar } from "../components/Backbar";
+import { BodyWrapper } from "../components/BodyWrapper";
 import { BottomVoiceControl } from "../components/BottomVoiceControl";
 import { CircleButton } from "../components/CircleButton";
 import { modalConfirm } from "../components/ConfirmModal";
@@ -15,7 +16,7 @@ import { modalPrompt } from "../components/PromptModal";
 import { RoomUserNode } from "../components/RoomUserNode";
 import { Wrapper } from "../components/Wrapper";
 import { Codicon } from "../svgs/Codicon";
-import { User } from "../types";
+import { BaseUser } from "../types";
 import { isUuid } from "../utils/isUuid";
 
 interface RoomPageProps {}
@@ -47,37 +48,30 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
     return (
       <Wrapper>
         <Backbar />
-        <div>loading...</div>
+        <BodyWrapper>
+          <div>loading...</div>
+        </BodyWrapper>
       </Wrapper>
     );
   }
 
   const profile = room.users.find((x) => x.id === userProfileId);
 
-  const speakers: User[] = [];
-  const unansweredHands: User[] = [];
-  const listeners: User[] = [];
+  const speakers: BaseUser[] = [];
+  const unansweredHands: BaseUser[] = [];
+  const listeners: BaseUser[] = [];
+  let canIAskToSpeak = false;
 
   room.users.forEach((u) => {
-    if (u.id === room.creatorId || u.canSpeakForRoomId === room.id) {
+    if (u.id === room.creatorId || u.roomPermissions?.isSpeaker) {
       speakers.push(u);
-    } else if (u.id in room.raiseHandMap) {
+    } else if (u.roomPermissions?.askedToSpeak) {
       unansweredHands.push(u);
     } else {
+      canIAskToSpeak = true;
       listeners.push(u);
     }
   });
-
-  // if (iAmCreator) {
-  //   Object.keys(room.raiseHandMap).forEach((id) => {
-  //     if (room.raiseHandMap[id] === -1) {
-  //       const u = room.users.find((x) => x.id === id);
-  //       if (u && u.id !== me?.id && u.canSpeakForRoomId !== room.id) {
-  //         unansweredHands.push(u);
-  //       }
-  //     }
-  //   });
-  // }
 
   return (
     <>
@@ -112,97 +106,100 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
         <ProfileButton />
       </Backbar>
       <Wrapper>
-        <div
-          style={{
-            width: "100%",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, 90px)",
-            gap: 20,
-          }}
-        >
+        <BodyWrapper>
           <div
             style={{
-              fontSize: 20,
-              marginLeft: 10,
-              gridColumn: "1/-1",
-              color: "#fff",
+              width: "100%",
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, 90px)",
+              gap: 20,
             }}
           >
-            Speakers ({speakers.length})
-          </div>
-          {speakers.map((u) => (
-            <RoomUserNode
-              key={u.id}
-              room={room}
-              u={u}
-              muted={muted}
-              setUserProfileId={setUserProfileId}
-              me={me}
-              profile={profile}
-            />
-          ))}
-          {!iCanSpeak && me && !(me.id in room.raiseHandMap) ? (
-            <div className={tw`flex flex-col items-center`}>
-              <CircleButton
-                size={70}
-                onClick={() => {
-                  modalConfirm("Would you like to ask to speak?", () => {
-                    wsend({ op: "ask_to_speak", d: {} });
-                  });
+            <div
+              style={{
+                fontSize: 20,
+                marginLeft: 10,
+                gridColumn: "1/-1",
+                color: "#fff",
+              }}
+            >
+              Speakers ({speakers.length})
+            </div>
+            {speakers.map((u) => (
+              <RoomUserNode
+                key={u.id}
+                room={room}
+                u={u}
+                muted={muted}
+                setUserProfileId={setUserProfileId}
+                me={me}
+                profile={profile}
+              />
+            ))}
+            {!iCanSpeak && me && canIAskToSpeak ? (
+              <div className={tw`flex flex-col items-center`}>
+                <CircleButton
+                  title="Request to speak"
+                  size={70}
+                  onClick={() => {
+                    modalConfirm("Would you like to ask to speak?", () => {
+                      wsend({ op: "ask_to_speak", d: {} });
+                    });
+                  }}
+                >
+                  <Codicon width={36} height={36} name="megaphone" />
+                </CircleButton>
+              </div>
+            ) : null}
+            {unansweredHands.length ? (
+              <div
+                style={{
+                  fontSize: 20,
+                  marginLeft: 10,
+                  gridColumn: "1/-1",
+                  color: "#fff",
                 }}
               >
-                <Codicon width={36} height={36} name="megaphone" />
-              </CircleButton>
-            </div>
-          ) : null}
-          {unansweredHands.length ? (
-            <div
-              style={{
-                fontSize: 20,
-                marginLeft: 10,
-                gridColumn: "1/-1",
-                color: "#fff",
-              }}
-            >
-              Requesting to speak ({unansweredHands.length})
-            </div>
-          ) : null}
-          {unansweredHands.map((u) => (
-            <RoomUserNode
-              key={u.id}
-              room={room}
-              u={u}
-              muted={muted}
-              setUserProfileId={setUserProfileId}
-              me={me}
-              profile={profile}
-            />
-          ))}
-          {listeners.length ? (
-            <div
-              style={{
-                fontSize: 20,
-                marginLeft: 10,
-                marginTop: 10,
-                gridColumn: "1/-1",
-                color: "#fff",
-              }}
-            >
-              Listeners ({listeners.length})
-            </div>
-          ) : null}
-          {listeners.map((u) => (
-            <RoomUserNode
-              key={u.id}
-              room={room}
-              u={u}
-              muted={muted}
-              setUserProfileId={setUserProfileId}
-              me={me}
-              profile={profile}
-            />
-          ))}
-        </div>
+                Requesting to speak ({unansweredHands.length})
+              </div>
+            ) : null}
+            {unansweredHands.map((u) => (
+              <RoomUserNode
+                key={u.id}
+                room={room}
+                u={u}
+                muted={muted}
+                setUserProfileId={setUserProfileId}
+                me={me}
+                profile={profile}
+              />
+            ))}
+            {listeners.length ? (
+              <div
+                style={{
+                  fontSize: 20,
+                  marginLeft: 10,
+                  marginTop: 10,
+                  gridColumn: "1/-1",
+                  color: "#fff",
+                }}
+              >
+                Listeners ({listeners.length})
+              </div>
+            ) : null}
+            {listeners.map((u) => (
+              <RoomUserNode
+                key={u.id}
+                room={room}
+                u={u}
+                muted={muted}
+                setUserProfileId={setUserProfileId}
+                me={me}
+                profile={profile}
+              />
+            ))}
+          </div>
+        </BodyWrapper>
       </Wrapper>
       <BottomVoiceControl />
     </>

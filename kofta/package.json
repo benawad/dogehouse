@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@sentry/react": "^6.2.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -10,6 +11,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
+    "emoji-mart": "^3.0.0",
     "formik": "^2.2.6",
     "hark": "^1.2.3",
     "jotai": "^0.12.7",
@@ -37,7 +39,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "PUBLIC_URL=https://dogehouse.tv react-scripts build",
     "test": "react-scripts test",
     "vscode": "webpack --config src/vscode-webview/webpack.config.js --watch --mode development",
     "vscode:prod": "webpack --config src/vscode-webview/webpack.config.js --mode production",
@@ -56,6 +58,7 @@
     ]
   },
   "devDependencies": {
+    "@types/emoji-mart": "^3.0.4",
     "@types/hark": "^1.2.1",
     "@types/react-modal": "^3.12.0",
     "@types/react-responsive": "^8.0.2",

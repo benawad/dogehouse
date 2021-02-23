@@ -25,7 +25,7 @@ export const receiveVoice = (flushQueue: () => void) => {
   wsend({
     op: "@get-recv-tracks",
     d: {
-      rtpCapabilities: useVoiceStore.getState().device.rtpCapabilities,
+      rtpCapabilities: useVoiceStore.getState().device!.rtpCapabilities,
     },
   });
 };

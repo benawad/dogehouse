@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { useHistory } from "react-router-dom";
 import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
 import { currentRoomAtom, meAtom } from "../atoms";
-import { User } from "../types";
+import { BaseUser, RoomUser } from "../types";
 import { onFollowUpdater } from "../utils/onFollowUpdater";
 import { Avatar } from "./Avatar";
 import { Button } from "./Button";
 import { EditProfileModal } from "./EditProfileModal";
 
 interface UserProfileProps {
-  profile: User;
+  profile: RoomUser;
 }
 
 export const UserProfile: React.FC<UserProfileProps> = ({
@@ -21,10 +21,18 @@ export const UserProfile: React.FC<UserProfileProps> = ({
   const [me, setMe] = useAtom(meAtom);
   const [, setRoom] = useAtom(currentRoomAtom);
   // if you edit your profile, me will be updated so we want to use that
-  const profile = me?.id === userProfile.id ? me : userProfile;
+  const profile: BaseUser | RoomUser =
+    me?.id === userProfile.id ? me : userProfile;
   const [youAreFollowing, setYouAreFollowing] = useState(
-    profile.youAreFollowing
+    "youAreFollowing" in profile ? profile.youAreFollowing : false
   );
+  const _youAreFollowing =
+    "youAreFollowing" in profile && profile.youAreFollowing;
+  useEffect(() => {
+    if (_youAreFollowing) {
+      setYouAreFollowing(_youAreFollowing);
+    }
+  }, [_youAreFollowing]);
   const [editProfileModalOpen, setEditProfileModalOpen] = useState(false);
   return (
     <>
@@ -48,8 +56,8 @@ export const UserProfile: React.FC<UserProfileProps> = ({
           </div>
         ) : null}
         {me?.id === profile.id ||
-        profile.youAreFollowing === null ||
-        profile.youAreFollowing === undefined ? null : (
+        userProfile.youAreFollowing === null ||
+        userProfile.youAreFollowing === undefined ? null : (
           <div>
             <Button
               onClick={() => {
@@ -73,7 +81,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
       <div className={tw`font-semibold`}>{profile.displayName}</div>
       <div className={tw`my-1 flex`}>
         <div>@{profile.username}</div>
-        {me?.id !== profile.id && profile.followsYou ? (
+        {me?.id !== profile.id && userProfile.followsYou ? (
           <div
             style={{
               marginLeft: 8,

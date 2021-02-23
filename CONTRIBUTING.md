@@ -1,7 +1,7 @@
 # Contributing to DogeHouse
 
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
-- Reporting a issue
+- Reporting an issue
 - Discussing the current state of the code
 - Submitting a fix
 - Proposing new features
@@ -13,9 +13,8 @@ The code of conduct is described in [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md)
 ## Our Development Process
 All changes happen through pull requests. Pull requests are the best way to propose changes. We actively welcome your pull requests and invite you to submit pull requests directly <a href="https://github.com/benawad/dogehouse/pulls">here</a> and, after review, these can be merged into the project.
 
-### How Pull Requests Work
-
-1. Fork the repo and create your branch from `staging`.
+## Pull Requests
+1. Fork the repo and create your branch (usually named `patch-%the number of PRs you've already made%`) from `staging`.
 2. If you've added code that should be tested, add some tests' example.
 3. Ensure to describe your pull request.
 
@@ -82,7 +81,7 @@ export WEB_URL=http://localhost:3000
 export PORT=4001
 ```
 
-> You can save this variables in a `.txt` and run `source path/to/file.txt`
+> You can save these variables in a `.txt` and run `source path/to/file.txt`
 
 * Run the following commands:
 ```shell

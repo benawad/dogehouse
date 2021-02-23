@@ -5,9 +5,9 @@ import { tw } from "twind";
 import { closeWebSocket } from "../../createWebsocket";
 import { meAtom } from "../atoms";
 import { Backbar } from "../components/Backbar";
+import { BodyWrapper } from "../components/BodyWrapper";
 import { Button } from "../components/Button";
 import { UserProfile } from "../components/UserProfile";
-import { VoiceSettings } from "../components/VoiceSettings";
 import { Wrapper } from "../components/Wrapper";
 import { useTokenStore } from "../utils/useTokenStore";
 
@@ -35,9 +35,21 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
           </Button>
         </div>
       </Backbar>
+              <BodyWrapper>
       {me ? <UserProfile profile={me} /> : <div>probably loading...</div>}
-      <h1 className={tw`py-8 text-4xl`}>Voice Settings</h1>
-      <VoiceSettings />
+      <div className={tw`pt-6 flex`}>
+        <Button
+          style={{ marginRight: "10px" }}
+          variant="small"
+          onClick={() => history.push(`/voice-settings`)}
+        >
+          go to voice settings
+        </Button>
+        <Button variant="small" onClick={() => history.push(`/chat-settings`)}>
+          go to chat settings
+        </Button>
+      </div>
+              </BodyWrapper>
     </Wrapper>
   );
 };

@@ -1,5 +1,5 @@
 import { atom, WritableAtom } from "jotai";
-import { CurrentRoom, Room, User } from "./types";
+import { CurrentRoom, Room, BaseUser, UserWithFollowInfo } from "./types";
 
 const createSetter = <T>(a: WritableAtom<T, any>) =>
   atom(null, (get, set, fn: (x: T) => T) => {
@@ -8,20 +8,20 @@ const createSetter = <T>(a: WritableAtom<T, any>) =>
 
 export const voiceBrowserStatusAtom = atom(-1);
 export const setVoiceBrowserStatusAtom = createSetter(voiceBrowserStatusAtom);
-export const meAtom = atom<User | null>(null);
+export const meAtom = atom<BaseUser | null>(null);
 export const setMeAtom = createSetter(meAtom);
 export const inviteListAtom = atom<{
-  users: User[];
+  users: BaseUser[];
   nextCursor: number | null;
 }>({ users: [], nextCursor: null });
 export const setInviteListAtom = createSetter(inviteListAtom);
 export const followingOnlineAtom = atom<{
-  users: User[];
+  users: UserWithFollowInfo[];
   nextCursor: number | null;
 }>({ users: [], nextCursor: null });
 export const userSearchAtom = atom<{
   loading: boolean;
-  users: User[];
+  users: BaseUser[];
   nextCursor: number | null;
 }>({ users: [], loading: false, nextCursor: null });
 export const setFollowingOnlineAtom = createSetter(followingOnlineAtom);
@@ -29,7 +29,7 @@ export const followerMapAtom = atom<
   Record<
     string,
     {
-      users: User[];
+      users: UserWithFollowInfo[];
       nextCursor: number | null;
     }
   >
@@ -38,7 +38,7 @@ export const followingMapAtom = atom<
   Record<
     string,
     {
-      users: User[];
+      users: UserWithFollowInfo[];
       nextCursor: number | null;
     }
   >
@@ -69,10 +69,10 @@ export const myCurrentRoomInfoAtom = atom((get) => {
 
   for (const u of room.users) {
     if (u.id === me.id) {
-      if (u.canSpeakForRoomId === room.id) {
+      if (u.roomPermissions?.isSpeaker) {
         isSpeaker = true;
       }
-      if (u.modForRoomId === room.id) {
+      if (u.roomPermissions?.isMod) {
         isMod = true;
       }
       break;

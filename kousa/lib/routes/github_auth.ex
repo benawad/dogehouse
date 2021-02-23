@@ -18,148 +18,119 @@ defmodule Kousa.GitHubAuth do
         else: "web"
       )
 
-    # @todo remove this
-    IO.puts("state: " <> state)
-
-    url =
-      "https://github.com/login/oauth/authorize?client_id=" <>
-        Application.get_env(:kousa, :client_id) <>
-        "&state=" <>
-        state <>
-        "&redirect_uri=" <>
-        Application.get_env(:kousa, :api_url) <>
-        "/auth/github/callback&scope=read:user,user:email"
-
-    Kousa.Redirect.redirect(conn, url)
-  end
-
-  get "/" do
-    url =
-      "https://github.com/login/oauth/authorize?client_id=" <>
-        Application.get_env(:kousa, :client_id) <>
-        "&redirect_uri=" <>
-        Application.get_env(:kousa, :api_url) <>
-        "/auth/github/callback&scope=read:user,user:email"
-
-    Kousa.Redirect.redirect(conn, url)
+    %{conn | params: Map.put(conn.params, "state", state)}
+    |> Plug.Conn.put_private(:ueberauth_request_options, %{
+      callback_url: Application.get_env(:kousa, :api_url) <> "/auth/github/callback",
+      options: [
+        default_scope: "read:user,user:email"
+      ]
+    })
+    |> Ueberauth.Strategy.Github.handle_request!()
   end
 
   get "/callback" do
-    conn_with_qp = fetch_query_params(conn)
-    code = conn_with_qp.query_params["code"]
+    conn
+    |> fetch_query_params()
+    |> Plug.Conn.put_private(:ueberauth_request_options, %{
+      options: []
+    })
+    |> Ueberauth.Strategy.Github.handle_callback!()
+    |> handle_callback()
+  end
 
-    base_url =
-      with true <- Kousa.Caster.bool(Application.get_env(:kousa, :is_staging)),
-           state <- Map.get(conn_with_qp.query_params, "state", ""),
-           {:ok, json} <- Base.decode64(state),
-           {:ok, %{"redirect_base_url" => redirect_base_url}} <- Poison.decode(json) do
-        redirect_base_url
-      else
-        _ ->
-          Application.fetch_env!(:kousa, :web_url)
-      end
+  def get_base_url(conn) do
+    with true <- Kousa.Caster.bool(Application.get_env(:kousa, :is_staging)),
+         state <- Map.get(conn.query_params, "state", ""),
+         {:ok, json} <- Base.decode64(state),
+         {:ok, %{"redirect_base_url" => redirect_base_url}} <- Poison.decode(json) do
+      redirect_base_url
+    else
+      _ ->
+        Application.fetch_env!(:kousa, :web_url)
+    end
+  end
 
-    case HTTPoison.post(
-           "https://github.com/login/oauth/access_token",
-           Poison.encode!(%{
-             "code" => code,
-             "client_id" => Application.get_env(:kousa, :client_id),
-             "client_secret" => Application.get_env(:kousa, :client_secret)
-           }),
-           [
-             {"Content-Type", "application/json"},
-             {"Accept", "application/json"}
-           ]
-         ) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
-        json = Poison.decode!(body)
+  def handle_callback(
+        %Plug.Conn{assigns: %{ueberauth_failure: %{errors: [%{message_key: "missing_code"}]}}} =
+          conn
+      ) do
+    conn
+    |> Kousa.Redirect.redirect(
+      get_base_url(conn) <>
+        "/?error=" <>
+        URI.encode("try again")
+    )
+  end
 
-        case json do
-          %{"error" => "bad_verification_code"} ->
-            conn
-            |> put_resp_content_type("application/json")
-            |> send_resp(
-              500,
-              Poison.encode!(%{
-                "error" => "code expired, try to login again"
-              })
-            )
+  def handle_callback(%Plug.Conn{assigns: %{ueberauth_failure: failure}} = conn) do
+    IO.puts("github oauth failure")
+    IO.inspect(failure)
 
-          %{"access_token" => accessToken} ->
-            user = Kousa.Github.get_user(accessToken)
+    conn
+    |> Kousa.Redirect.redirect(
+      get_base_url(conn) <>
+        "/?error=" <>
+        URI.encode(
+          "something went wrong, try again and if the error persists, tell ben to check the server logs"
+        )
+    )
+  end
 
-            if user do
-              try do
-                db_user =
-                  case Kousa.Data.User.github_find_or_create(user, accessToken) do
-                    {:find, uu} ->
-                      uu
+  def handle_callback(
+        %Plug.Conn{private: %{github_user: user, github_token: %{access_token: access_token}}} =
+          conn
+      ) do
+    try do
+      {_, db_user} =
+        Kousa.Data.User.github_find_or_create(
+          %{user | "email" => Kousa.Github.pick_primary_email(user["emails"])},
+          access_token
+        )
 
-                    {:create, uu} ->
-                      # Kousa.BL.User.load_followers(accessToken, uu.id)
-                      uu
-                  end
-
-                if not is_nil(db_user.reasonForBan) do
-                  conn
-                  |> Kousa.Redirect.redirect(
-                    base_url <>
-                      "/?error=" <>
-                      URI.encode(
-                        "your account got banned, if you think this was a mistake, please send me an email at benawadapps@gmail.com"
-                      )
-                  )
-                else
-                  conn
-                  |> Kousa.Redirect.redirect(
-                    base_url <>
-                      "/?accessToken=" <>
-                      Kousa.AccessToken.generate_and_sign!(%{"userId" => db_user.id}) <>
-                      "&refreshToken=" <>
-                      Kousa.RefreshToken.generate_and_sign!(%{
-                        "userId" => db_user.id,
-                        "tokenVersion" => db_user.tokenVersion
-                      })
-                  )
-                end
-              rescue
-                e in RuntimeError ->
-                  conn
-                  |> Kousa.Redirect.redirect(
-                    base_url <>
-                      "/?error=" <>
-                      URI.encode(e.message)
-                  )
-              end
-            else
-              conn
-              |> Kousa.Redirect.redirect(
-                base_url <>
-                  "/?error=" <>
-                  URI.encode(
-                    "something went wrong fetching the user, tell ben to check the server logs"
-                  )
-              )
-            end
-
-          resp ->
-            conn
-            |> Kousa.Redirect.redirect(
-              base_url <>
-                "/?error=" <>
-                URI.encode(resp)
-            )
-        end
-
-      x ->
-        IO.inspect(x)
-
+      if not is_nil(db_user.reasonForBan) do
         conn
         |> Kousa.Redirect.redirect(
-          base_url <>
+          get_base_url(conn) <>
             "/?error=" <>
-            URI.encode("something went wrong, tell ben to check the server logs")
+            URI.encode(
+              "your account got banned, if you think this was a mistake, please send me an email at benawadapps@gmail.com"
+            )
+        )
+      else
+        conn
+        |> Kousa.Redirect.redirect(
+          get_base_url(conn) <>
+            "/?accessToken=" <>
+            Kousa.AccessToken.generate_and_sign!(%{"userId" => db_user.id}) <>
+            "&refreshToken=" <>
+            Kousa.RefreshToken.generate_and_sign!(%{
+              "userId" => db_user.id,
+              "tokenVersion" => db_user.tokenVersion
+            })
+        )
+      end
+    rescue
+      e in RuntimeError ->
+        conn
+        |> Kousa.Redirect.redirect(
+          get_base_url(conn) <>
+            "/?error=" <>
+            URI.encode(e.message)
         )
     end
+  end
+
+  def handle_callback(conn) do
+    IO.puts("expected never to see this handle_callback in github_auth")
+    IO.inspect(conn)
+
+    conn
+    |> Kousa.Redirect.redirect(
+      get_base_url(conn) <>
+        "/?error=" <>
+        URI.encode(
+          "something went wrong, try again and if the error persists, tell ben to check the server logs"
+        )
+    )
   end
 end

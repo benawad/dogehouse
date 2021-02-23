@@ -1,4 +1,17 @@
 defmodule Kousa.Github do
+  def pick_primary_email([]) do
+    nil
+  end
+
+  def pick_primary_email(emails) do
+    primary_email = Enum.find(emails, &(&1["primary"] == true))
+
+    if(is_nil(primary_email),
+      do: Enum.at(emails, 0)["email"],
+      else: primary_email["email"]
+    )
+  end
+
   def get_email(access_token) do
     case HTTPoison.get("https://api.github.com/user/emails", [
            {"Authorization", "token " <> access_token}
@@ -12,12 +25,8 @@ defmodule Kousa.Github do
             nil
 
           _ ->
-            primary_email = Enum.find(emails, &(&1["primary"] == true))
-
-            if(is_nil(primary_email),
-              do: Enum.at(emails, 0)["email"],
-              else: primary_email["email"]
-            )
+            emails
+            |> pick_primary_email()
         end
 
       x ->
