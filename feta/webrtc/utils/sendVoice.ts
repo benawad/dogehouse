@@ -1,4 +1,4 @@
-import { useMicIdStore } from "../../../kofta/src/vscode-webview/shared-stores";
+import { useMicIdStore } from "../../shared-stores";
 import { useMicPermErrorStore } from "@dogehouse/feta/webrtc/stores/useMicPermErrorStore";
 import { useProducerStore } from "@dogehouse/feta/webrtc/stores/useProducerStore";
 import { useVoiceStore } from "@dogehouse/feta/webrtc/stores/useVoiceStore";

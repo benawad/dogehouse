@@ -1,4 +1,4 @@
-import { wsend } from "../../../../feta/createWebsocket";
+import { wsend } from "@dogehouse/feta/createWebsocket";
 import { History } from "history";
 import { modalConfirm } from "../../vscode-webview/components/ConfirmModal";
 

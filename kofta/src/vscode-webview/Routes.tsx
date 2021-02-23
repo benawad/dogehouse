@@ -4,7 +4,7 @@ import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { closeWebSocket, wsend } from "@dogehouse/feta/createWebsocket";
 import { useWsHandlerStore } from "@dogehouse/feta/webrtc/stores/useWsHandlerStore";
-import { invitationToRoom } from "@dogehouse/feta/webrtc/utils/invitationToRoom";
+import { invitationToRoom } from "../webrtc/utils/invitationToRoom";
 import {
   meAtom,
   setCurrentRoomAtom,

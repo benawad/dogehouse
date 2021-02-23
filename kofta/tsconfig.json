@@ -17,7 +17,8 @@
     "jsx": "react"
   },
   "include": [
-    "../feta/webrtc/utils/mergeRoomPermission.ts",
+    "../feta/shared-stores.ts",
+    "./vscode-webview/webrtc/utils/mergeRoomPermission.ts",
     "../feta/webrtc/types.ts",
     "/feta/webrtc/utils/mergeRoomPermission.ts",
     "src",
