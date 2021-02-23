@@ -241,6 +241,10 @@ export const Routes: React.FC<RoutesProps> = () => {
           if (!cr) {
             return cr;
           }
+
+          const user = cr.users.find((x) => x.id === userId);
+          if(user) toast(`${user.displayName} left`, { type: "info", autoClose: 2000 });
+
           const { [userId]: _, ...asm } = cr.activeSpeakerMap;
           return {
             ...cr,
@@ -275,6 +279,8 @@ export const Routes: React.FC<RoutesProps> = () => {
                 users: [...cr.users, user],
               }
         );
+
+        toast(`${user.displayName} left`, { type: "info", autoClose: 2000 });
       },
       hand_raised: ({ roomId, userId }) => {
         setCurrentRoom((c) => {
