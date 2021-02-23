@@ -75,7 +75,7 @@ export const Login: React.FC<LoginProps> = () => {
             onClick={() =>
               (window.location.href =
                 apiBaseUrl +
-                "/auth/itter/web" +
+                "/auth/twitter/web" +
                 (process.env.REACT_APP_IS_STAGING === "true"
                   ? "?redirect_after_base=" + window.location.origin
                   : ""))
