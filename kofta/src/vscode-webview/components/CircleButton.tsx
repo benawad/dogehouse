@@ -3,10 +3,12 @@ import React from "react";
 interface CircleButtonProps {
   size?: number;
   onClick: () => void;
+  title?: string;
 }
 
 export const CircleButton: React.FC<CircleButtonProps> = ({
   size = 60,
+  title,
   onClick,
   children,
 }) => {
@@ -22,6 +24,7 @@ export const CircleButton: React.FC<CircleButtonProps> = ({
         alignItems: "center",
         justifyContent: "center",
       }}
+      title={title}
       onClick={onClick}
     >
       {children}
