@@ -13,6 +13,7 @@ import { ProfileButton } from "../components/ProfileButton";
 import { PeopleIcon } from "../svgs/PeopleIcon";
 import { CircleButton } from "../components/CircleButton";
 import { BodyWrapper } from "../components/BodyWrapper";
+import { __prod__ } from "../constants";
 
 interface HomeProps {}
 
@@ -61,21 +62,23 @@ export const Home: React.FC<HomeProps> = () => {
               />
             </div>
           ) : null}
-          <RoomCard
-            currentRoomId={undefined}
-            onClick={() => {}}
-            room={{
-              id: "0",
-              name: "aaaa",
-              isPrivate: false,
-              numPeopleInside: 55555,
-              creatorId: "11",
-              peoplePreviewList: [
-                {id: "0", displayName: "who", numFollowers: 211212},
-                {id: "4", displayName: "another person", numFollowers: 0},
-              ]
-            }}
-          />
+          {__prod__ ? null :
+            <RoomCard
+              currentRoomId={undefined}
+              onClick={() => alert("it's not a real room")}
+              room={{
+                id: "-1",
+                name: "Debug room",
+                isPrivate: false,
+                numPeopleInside: 1337,
+                creatorId: "-1",
+                peoplePreviewList: [
+                  {id: "-1", displayName: "person 1", numFollowers: 1337},
+                  {id: "-2", displayName: "person 2", numFollowers: 0},
+                ]
+              }}
+            />
+          }
           {rooms.map((r) =>
             r.id === currentRoom?.id ? null : (
               <div className={(`mt-4`)} key={r.id}>
