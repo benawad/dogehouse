@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { useHistory } from "react-router-dom";
-import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
 import { currentRoomAtom, meAtom } from "../atoms";
-import { User } from "../types";
+import { BaseUser, RoomUser } from "../types";
 import { onFollowUpdater } from "../utils/onFollowUpdater";
 import { Avatar } from "./Avatar";
 import { Button } from "./Button";
 import { EditProfileModal } from "./EditProfileModal";
+import { linkRegex } from "../constants";
+import normalizeUrl from "normalize-url";
 
 interface UserProfileProps {
-  profile: User;
+  profile: RoomUser;
 }
 
 export const UserProfile: React.FC<UserProfileProps> = ({
@@ -21,10 +22,18 @@ export const UserProfile: React.FC<UserProfileProps> = ({
   const [me, setMe] = useAtom(meAtom);
   const [, setRoom] = useAtom(currentRoomAtom);
   // if you edit your profile, me will be updated so we want to use that
-  const profile = me?.id === userProfile.id ? me : userProfile;
+  const profile: BaseUser | RoomUser =
+    me?.id === userProfile.id ? me : userProfile;
   const [youAreFollowing, setYouAreFollowing] = useState(
-    profile.youAreFollowing
+    "youAreFollowing" in profile ? profile.youAreFollowing : false
   );
+  const _youAreFollowing =
+    "youAreFollowing" in profile && profile.youAreFollowing;
+  useEffect(() => {
+    if (_youAreFollowing) {
+      setYouAreFollowing(_youAreFollowing);
+    }
+  }, [_youAreFollowing]);
   const [editProfileModalOpen, setEditProfileModalOpen] = useState(false);
   return (
     <>
@@ -33,7 +42,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
         isOpen={editProfileModalOpen}
         onRequestClose={() => setEditProfileModalOpen(false)}
       />
-      <div className={tw`mb-4 flex justify-between align-center`}>
+      <div className={`mb-4 flex justify-between align-center`}>
         <Avatar src={profile.avatarUrl} />
         {me?.id === profile.id ? (
           <div>
@@ -48,8 +57,8 @@ export const UserProfile: React.FC<UserProfileProps> = ({
           </div>
         ) : null}
         {me?.id === profile.id ||
-        profile.youAreFollowing === null ||
-        profile.youAreFollowing === undefined ? null : (
+        userProfile.youAreFollowing === null ||
+        userProfile.youAreFollowing === undefined ? null : (
           <div>
             <Button
               onClick={() => {
@@ -70,21 +79,18 @@ export const UserProfile: React.FC<UserProfileProps> = ({
           </div>
         )}
       </div>
-      <div className={tw`font-semibold`}>{profile.displayName}</div>
-      <div className={tw`my-1 flex`}>
+      <div className={`font-semibold`}>{profile.displayName}</div>
+      <div className={`my-1 flex`}>
         <div>@{profile.username}</div>
-        {me?.id !== profile.id && profile.followsYou ? (
+        {me?.id !== profile.id && userProfile.followsYou ? (
           <div
-            style={{
-              marginLeft: 8,
-              color: "--vscode-descriptionForeground",
-            }}
+            className={`ml-2 text-simple-gray-3d`}
           >
             follows you
           </div>
         ) : null}
       </div>
-      <div className={tw`flex my-4`}>
+      <div className={`flex my-4`}>
         <button
           onClick={() => {
             wsend({
@@ -93,9 +99,9 @@ export const UserProfile: React.FC<UserProfileProps> = ({
             });
             history.push(`/followers/${profile.id}`);
           }}
-          className={tw`mr-3`}
+          className={`mr-3`}
         >
-          <span className={tw`font-bold`}>{profile.numFollowers}</span>{" "}
+          <span className={`font-bold`}>{profile.numFollowers}</span>{" "}
           followers
         </button>
         <button
@@ -107,11 +113,27 @@ export const UserProfile: React.FC<UserProfileProps> = ({
             history.push(`/following/${profile.id}`);
           }}
         >
-          <span className={tw`font-bold`}>{profile.numFollowing}</span>{" "}
+          <span className={`font-bold`}>{profile.numFollowing}</span>{" "}
           following
         </button>
       </div>
-      <div className={tw`mb-4`}>{profile.bio}</div>
+      <div className="mb-4">
+        {profile.bio?.split(" ").map((chunk, i) => {
+          return linkRegex.test(chunk) ? (
+            <a
+              key={i}
+              href={normalizeUrl(chunk)}
+              target="_blank"
+              rel="noreferrer"
+              className="text-blue-500 p-0"
+            >
+              {chunk}{" "}
+            </a>
+          ) : (
+            <span>{chunk} </span>
+          );
+        })}
+      </div>
     </>
   );
 };

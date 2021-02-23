@@ -1,6 +1,5 @@
 import { useAtom } from "jotai";
 import React, { useEffect } from "react";
-import { tw } from "twind";
 import { currentRoomAtom } from "../../atoms";
 import { RoomChatInput } from "./RoomChatInput";
 import { RoomChatList } from "./RoomChatList";
@@ -21,6 +20,7 @@ export const RoomChat: React.FC<ChatProps> = ({ sidebar }) => {
     s.reset,
     s.toggleOpen,
   ]);
+
   useEffect(() => {
     if (!room) {
       reset();
@@ -36,26 +36,22 @@ export const RoomChat: React.FC<ChatProps> = ({ sidebar }) => {
   return (
     <div
       style={{
-        flex: 1,
-        display: "flex",
         width: sidebar ? 340 : "100%",
-        overflowY: "auto",
       }}
+      className={`flex flex-1 w-full overflow-y-auto`}
     >
       <div
         style={{
           width: sidebar ? 340 : "100%",
           height: sidebar ? "100%" : undefined,
-          flex: 1,
         }}
-        className={tw`flex flex-col ${sidebar ? `fixed bottom-0` : ``}`}
+        className={`bg-simple-gray-26 flex flex-1 w-full flex-col ${sidebar ? `fixed bottom-0` : ``}`}
       >
         <button
-          style={{ borderBottom: "1px solid #808080", height: 72 }}
           onClick={() => toggleOpen()}
-          className={tw`bg-tmpBg1 text-tmpC3 py-4 px-8 text-2xl flex items-center`}
+          className={`bg-simple-gray-26 border-b border-simple-gray-80 text-white py-4 px-8 text-2xl flex items-center h-20`}
         >
-          Chat <span className={tw`ml-2 text-tmpC1`}>[emotes soon]</span>
+          Chat <span className={`ml-2 text-simple-gray-a6`}>[emotes soon]</span>
         </button>
         <RoomChatList />
         <RoomChatMentions />

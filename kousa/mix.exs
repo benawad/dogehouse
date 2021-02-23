@@ -17,7 +17,7 @@ defmodule Kousa.MixProject do
 
     [
       mod: {Kousa, []},
-      extra_applications: [:logger, :amqp] ++ dev_only_apps
+      extra_applications: [:logger, :amqp, :ueberauth_github, :prometheus_ex] ++ dev_only_apps
     ]
   end
 
@@ -36,8 +36,13 @@ defmodule Kousa.MixProject do
       {:sentry, "~> 8.0"},
       {:postgrex, ">= 0.0.0"},
       {:remix, "~> 0.0.1", only: :dev},
+      {:ueberauth, "~> 0.6"},
+      {:ueberauth_github, "~> 0.7"},
       {:oauther, "~> 1.1"},
-      {:extwitter, "~> 0.12"}
+      {:extwitter, "~> 0.12"},
+      {:ueberauth_twitter, "~> 0.3"},
+      {:prometheus_ex, "~> 3.0"},
+      {:prometheus_plugs, "~> 1.1.1"}
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
     ]

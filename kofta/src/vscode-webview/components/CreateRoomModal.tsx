@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
 import { Button } from "./Button";
 import { Input } from "./Input";
@@ -29,37 +28,38 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
         }}
       >
         <Input
+          maxLength={255}
           placeholder="room name"
           autoFocus
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <div className={tw`flex mt-8 items-center`}>
-          <select value={privacy} onChange={(e) => setPrivacy(e.target.value)}>
+        <div className={`flex mt-8 items-center`}>
+          <select className={`border border-simple-gray-3c`} value={privacy} onChange={(e) => setPrivacy(e.target.value)}>
             <option
-              style={{ background: "var(--vscode-dropdown-background)" }}
               value="public"
+              className={`bg-simple-gray-3c`}
             >
               public
             </option>
             <option
-              style={{ background: "var(--vscode-dropdown-background)" }}
               value="private"
+              className={`bg-simple-gray-3c`}
             >
               private
             </option>
           </select>
         </div>
-        <div className={tw`flex mt-12`}>
+        <div className={`flex mt-12`}>
           <Button
             type="button"
             onClick={onRequestClose}
-            style={{ marginRight: 8 }}
+            className={`mr-1.5`}
             color="secondary"
           >
             cancel
           </Button>
-          <Button type="submit" style={{ marginLeft: 8 }}>
+          <Button type="submit" className={`ml-1.5`}>
             ok
           </Button>
         </div>

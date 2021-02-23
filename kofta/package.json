@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^6.1.1",
+    "@sentry/react": "^6.2.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -10,12 +12,12 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
+    "emoji-mart": "^3.0.0",
     "formik": "^2.2.6",
     "hark": "^1.2.3",
     "jotai": "^0.12.7",
     "mediasoup-client": "^3.6.27",
     "normalize-url": "^4.5.0",
-    "postcss": "^8.2.4",
     "query-string": "^6.13.8",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -29,17 +31,15 @@
     "react-toastify": "^7.0.2",
     "reconnecting-websocket": "^4.4.0",
     "superstruct": "^0.14.2",
-    "tailwindcss": "^2.0.2",
-    "twind": "^0.14.6",
-    "typescript": "^4.0.3",
+    "typescript": "^3.2.1npm",
     "web-vitals": "^0.2.4",
     "zustand": "^3.3.1",
     "@dogehouse/feta": "1.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "vscode": "webpack --config src/vscode-webview/webpack.config.js --watch --mode development",
     "vscode:prod": "webpack --config src/vscode-webview/webpack.config.js --mode production",
     "eject": "react-scripts eject"
@@ -57,12 +57,17 @@
     ]
   },
   "devDependencies": {
+    "@types/emoji-mart": "^3.0.4",
+    "@tailwindcss/postcss7-compat": "^2.0.3",
     "@types/hark": "^1.2.1",
     "@types/react-modal": "^3.12.0",
     "@types/react-responsive": "^8.0.2",
     "@types/react-router-dom": "^5.1.7",
+    "autoprefixer": "^9.8.6",
     "css-loader": "^5.0.1",
+    "postcss": "^7.0.35",
     "style-loader": "^2.0.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3",
     "ts-loader": "^8.0.14",
     "webpack-cli": "^4.4.0"
   }

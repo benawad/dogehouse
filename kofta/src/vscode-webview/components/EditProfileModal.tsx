@@ -3,10 +3,9 @@ import { useAtom } from "jotai";
 import React from "react";
 import { useMutation } from "react-query";
 import { object, pattern, size, string } from "superstruct";
-import { tw } from "twind";
 import { wsFetch } from "../../createWebsocket";
 import { setMeAtom } from "../atoms";
-import { User } from "../types";
+import { BaseUser } from "../types";
 import { showErrorToast } from "../utils/showErrorToast";
 import { validateStruct } from "../utils/validateStruct";
 import { Button } from "./Button";
@@ -21,7 +20,7 @@ const profileStruct = object({
 });
 
 interface Shared {
-  user: User;
+  user: BaseUser;
   onRequestClose: () => void;
 }
 
@@ -82,11 +81,11 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                 textarea
                 name="bio"
               />
-              <div className={tw`flex mt-12`}>
+              <div className={`flex mt-12`}>
                 <Button
                   type="button"
                   onClick={onRequestClose}
-                  style={{ marginRight: 8 }}
+                  className={`mr-0.5`}
                   color="secondary"
                 >
                   cancel
@@ -95,7 +94,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                   type="button"
                   loading={isLoading}
                   onClick={() => handleSubmit()}
-                  style={{ marginLeft: 8 }}
+                  className={`ml-0.5`}
                 >
                   save
                 </Button>

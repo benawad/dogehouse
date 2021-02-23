@@ -1,37 +1,35 @@
 import React from "react";
-import { tw } from "twind";
+import { RegularAnchor } from "./RegularAnchor";
 
 interface FooterProps {
-  isLogin?: boolean
+  isLogin?: boolean;
 }
 
-export const Footer: React.FC<FooterProps> = ({isLogin}) => {
+export const Footer: React.FC<FooterProps> = ({ isLogin }) => {
   return (
-    <div className={tw`justify-around flex`}>
-      <a
-        href="https://github.com/benawad/dogehouse#investors"
-        style={{ color: "var(--vscode-textLink-foreground)" }}
-      >
+    <div className={`justify-around flex text-center`}>
+      <RegularAnchor href="https://github.com/benawad/dogehouse#investors">
         Investors
-      </a>
-      {isLogin ? <a
-        href="https://www.youtube.com/watch?v=hy-EhJ_tTQo"
-        style={{ color: "var(--vscode-textLink-foreground)" }}
-      >
-        Origin Story
-      </a> : null}
-      <a
-        href="https://discord.gg/wCbKBZF9cV"
-        style={{ color: "var(--vscode-textLink-foreground)" }}
-      >
+      </RegularAnchor>
+      {isLogin ? (
+        <RegularAnchor href="https://www.youtube.com/watch?v=hy-EhJ_tTQo">
+          Origin Story
+        </RegularAnchor>
+      ) : null}
+      <RegularAnchor href="https://discord.gg/wCbKBZF9cV">
         Discord
-      </a>
-      <a
-        style={{ color: "var(--vscode-textLink-foreground)" }}
-        href="https://github.com/benawad/dogehouse/issues"
-      >
+      </RegularAnchor>
+      <RegularAnchor href="https://github.com/benawad/dogehouse/issues">
         Report a Bug
-      </a>
+      </RegularAnchor>
+      {/* cramps footer on mobile @todo think about how to incorporate this without cramping footer and making the footer really tall */}
+      {/* <RegularAnchor
+        href="https://github.com/benawad/dogehouse/blob/prod/CHANGELOG.md"
+        target="_blank"
+        rel="noreferrer"
+      >
+        What's new?
+      </RegularAnchor> */}
     </div>
   );
 };

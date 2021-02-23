@@ -1,7 +1,9 @@
-import { User } from "../types";
+import { linkRegex } from "./../constants";
+import { BaseUser } from "../types";
+// @ts-ignore
 import normalizeUrl from "normalize-url";
 
-export const createChatMessage = (message: string, mentions: User[]) => {
+export const createChatMessage = (message: string, mentions: BaseUser[]) => {
   const tokens = ([] as unknown) as [
     {
       t: string;
@@ -10,9 +12,7 @@ export const createChatMessage = (message: string, mentions: User[]) => {
   ];
 
   message.split(" ").forEach((item) => {
-    const isLink = /(https?:\/\/|)[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/.test(
-      item
-    );
+    const isLink = linkRegex.test(item);
     const isMention = mentions.find(
       (m) => item.replace("@", "") === m.username
     );
