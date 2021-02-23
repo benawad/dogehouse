@@ -1,7 +1,7 @@
 import { QueryClient } from "react-query";
-import { apiBaseUrl } from "./constants";
+import { apiBaseUrl } from "@dogehouse/feta/constants";
 import { showErrorToast } from "./utils/showErrorToast";
-import { useTokenStore } from "./utils/useTokenStore";
+import { useTokenStore } from "@dogehouse/feta/utils/useTokenStore";
 
 export const defaultQueryFn = async ({ queryKey }: { queryKey: string }) => {
   const { accessToken, refreshToken } = useTokenStore.getState();

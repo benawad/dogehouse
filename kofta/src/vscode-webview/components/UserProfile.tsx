@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { useHistory } from "react-router-dom";
+<<<<<<< HEAD
 import { wsend } from "../../createWebsocket";
 import { currentRoomAtom, meAtom } from "../atoms";
 import { BaseUser, RoomUser } from "../types";
 import { onFollowUpdater } from "../utils/onFollowUpdater";
+=======
+import { tw } from "twind";
+import { wsend } from "@dogehouse/feta/createWebsocket";
+import { currentRoomAtom, meAtom } from "../atoms";
+import { User } from "@dogehouse/feta/types";
+import { onFollowUpdater } from "@dogehouse/feta/utils/onFollowUpdater";
+>>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
 import { Avatar } from "./Avatar";
 import { Button } from "./Button";
 import { EditProfileModal } from "./EditProfileModal";

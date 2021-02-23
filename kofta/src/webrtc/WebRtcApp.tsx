@@ -5,14 +5,14 @@ import { setCurrentRoomAtom } from "../vscode-webview/atoms";
 import { useMicIdStore } from "../vscode-webview/shared-stores";
 import { ActiveSpeakerListener } from "./components/ActiveSpeakerListener";
 import { AudioRender } from "./components/AudioRender";
-import { useMuteStore } from "./stores/useMuteStore";
-import { useVoiceStore } from "./stores/useVoiceStore";
-import { useWsHandlerStore } from "./stores/useWsHandlerStore";
-import { consumeAudio } from "./utils/consumeAudio";
-import { createTransport } from "./utils/createTransport";
-import { joinRoom } from "./utils/joinRoom";
-import { receiveVoice } from "./utils/receiveVoice";
-import { sendVoice } from "./utils/sendVoice";
+import { useMuteStore } from "@dogehouse/feta/webrtc/stores/useMuteStore";
+import { useVoiceStore } from "@dogehouse/feta/webrtc/stores/useVoiceStore";
+import { useWsHandlerStore } from "@dogehouse/feta/webrtc/stores/useWsHandlerStore";
+import { consumeAudio } from "@dogehouse/feta/webrtc/utils/consumeAudio";
+import { createTransport } from "@dogehouse/feta/webrtc/utils/createTransport";
+import { joinRoom } from "@dogehouse/feta/webrtc/utils/joinRoom";
+import { receiveVoice } from "@dogehouse/feta/webrtc/utils/receiveVoice";
+import { sendVoice } from "@dogehouse/feta/webrtc/utils/sendVoice";
 
 interface App2Props {}
 

@@ -1,5 +1,9 @@
 import { atom, WritableAtom } from "jotai";
+<<<<<<< HEAD
 import { CurrentRoom, Room, BaseUser, UserWithFollowInfo } from "./types";
+=======
+import { CurrentRoom, Room, User } from "@dogehouse/feta/types";
+>>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
 
 const createSetter = <T>(a: WritableAtom<T, any>) =>
   atom(null, (get, set, fn: (x: T) => T) => {

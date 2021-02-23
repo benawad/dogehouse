@@ -3,11 +3,20 @@ import { useAtom } from "jotai";
 import React from "react";
 import { useMutation } from "react-query";
 import { object, pattern, size, string } from "superstruct";
+<<<<<<< HEAD
 import { wsFetch } from "../../createWebsocket";
 import { setMeAtom } from "../atoms";
 import { BaseUser } from "../types";
 import { showErrorToast } from "../utils/showErrorToast";
 import { validateStruct } from "../utils/validateStruct";
+=======
+import { tw } from "twind";
+import { wsFetch } from "@dogehouse/feta/createWebsocket";
+import { setMeAtom } from "../atoms";
+import { User } from "@dogehouse/feta/types";
+import { showErrorToast } from "@dogehouse/feta/utils/showErrorToast";
+import { validateStruct } from "@dogehouse/feta/utils/validateStruct";
+>>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
 import { Button } from "./Button";
 import { FieldSpacer } from "./form-fields/FieldSpacer";
 import { InputField } from "./form-fields/InputField";

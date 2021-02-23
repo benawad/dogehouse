@@ -1,5 +1,5 @@
-import { useConsumerStore } from "../stores/useConsumerStore";
-import { useVoiceStore } from "../stores/useVoiceStore";
+import { useConsumerStore } from "@dogehouse/feta/webrtc/stores/useConsumerStore";
+import { useVoiceStore } from "@dogehouse/feta/webrtc/stores/useVoiceStore";
 
 export const consumeAudio = async (consumerParameters: any, peerId: string) => {
   const { recvTransport } = useVoiceStore.getState();

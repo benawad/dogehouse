@@ -1,4 +1,4 @@
-import { wsend } from "../../createWebsocket";
+import { wsend } from "../../../../feta/createWebsocket";
 import { History } from "history";
 import { modalConfirm } from "../../vscode-webview/components/ConfirmModal";
 
@@ -13,9 +13,10 @@ export const invitationToRoom = (
   history: History
 ) => {
   modalConfirm(
-    `${displayName} invited you to a room, would you like to join?`, () => {
-    wsend({ op: "join_room", d: { roomId } });
-    history.push("/room/" + roomId);
+    `${displayName} invited you to a room, would you like to join?`,
+    () => {
+      wsend({ op: "join_room", d: { roomId } });
+      history.push("/room/" + roomId);
     }
   );
 };

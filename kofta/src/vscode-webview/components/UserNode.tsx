@@ -1,6 +1,10 @@
 import React from "react";
 import { MicOff } from "react-feather";
+<<<<<<< HEAD
 import { BaseUser } from "../types";
+=======
+import { User } from "@dogehouse/feta/types";
+>>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
 import { Avatar } from "./Avatar";
 import GlassesDoge from "../../assets/glasses-doge.png";
 import RegularDoge from "../../assets/regular-doge.png";

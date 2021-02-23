@@ -2,7 +2,7 @@ import { useAtom } from "jotai";
 import React from "react";
 import { meAtom } from "../atoms";
 import { Codicon } from "../svgs/Codicon";
-import { CurrentRoom, Room } from "../types";
+import { CurrentRoom, Room } from "@dogehouse/feta/types";
 
 interface RoomProps {
   active?: boolean;
@@ -54,9 +54,21 @@ export const RoomCard: React.FC<RoomProps> = ({
         <div className={`flex text-white`}>
           <div
             style={{
+<<<<<<< HEAD
+=======
+              textAlign: "left",
+              fontSize: "calc(var(--vscode-font-size)*1.2)",
+              flex: 1,
+              color: "#D9D9D9",
+>>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
               display: "-webkit-box",
               WebkitBoxOrient: "vertical",
               WebkitLineClamp: 3,
+<<<<<<< HEAD
+=======
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+>>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
             }}
             className={`text-left flex-1 text-xl text-simple-gray-d9 text-ellipsis overflow-hidden break-words`}
           >

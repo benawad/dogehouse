@@ -1,9 +1,16 @@
 import { useAtom } from "jotai";
 import React from "react";
 import { X } from "react-feather";
+<<<<<<< HEAD
 import { wsend } from "../../createWebsocket";
 import { renameRoomAndMakePrivate } from "../../webrtc/utils/renameRoomAndMakePrivate";
 import { renameRoomAndMakePublic } from "../../webrtc/utils/renameRoomAndMakePublic";
+=======
+import { tw } from "twind";
+import { wsend } from "@dogehouse/feta/createWebsocket";
+import { renameRoomAndMakePrivate } from "@dogehouse/feta/webrtc/utils/renameRoomAndMakePrivate";
+import { renameRoomAndMakePublic } from "@dogehouse/feta/webrtc/utils/renameRoomAndMakePublic";
+>>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
 import { currentRoomAtom } from "../atoms";
 import { Button } from "./Button";
 import { Modal } from "./Modal";

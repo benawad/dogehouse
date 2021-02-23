@@ -1,6 +1,10 @@
 import create from "zustand";
 import { combine } from "zustand/middleware";
+<<<<<<< HEAD
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
+=======
+import { User } from "@dogehouse/feta/types";
+>>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
 
 interface TextToken {
   t: "text";
@@ -85,8 +89,11 @@ export const useRoomChatStore = create(
         }),
       toggleOpen: () =>
         set((s) => {
+<<<<<<< HEAD
           // Reset mention state
           useRoomChatMentionStore.getState().setIAmMentioned(0);
+=======
+>>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
           if (s.open) {
             return {
               open: false,
@@ -103,6 +110,25 @@ export const useRoomChatStore = create(
         set({
           message,
         }),
+<<<<<<< HEAD
+=======
+      setMentions: (mentions: User[]) =>
+        set({
+          mentions,
+        }),
+      setQueriedUsernames: (queriedUsernames: User[]) =>
+        set({
+          queriedUsernames,
+        }),
+      setActiveUsername: (activeUsername: string) =>
+        set({
+          activeUsername,
+        }),
+      setIAmMentioned: (iAmMentioned: boolean) =>
+        set({
+          iAmMentioned,
+        }),
+>>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
     })
   )
 );

@@ -2,10 +2,16 @@ import { useAtom } from "jotai";
 import React, { useEffect, useRef } from "react";
 import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
+<<<<<<< HEAD
 import { closeWebSocket, wsend } from "../createWebsocket";
 import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
 import { invitationToRoom } from "../webrtc/utils/invitationToRoom";
 import { mergeRoomPermission } from "../webrtc/utils/mergeRoomPermission";
+=======
+import { closeWebSocket, wsend } from "@dogehouse/feta/createWebsocket";
+import { useWsHandlerStore } from "@dogehouse/feta/webrtc/stores/useWsHandlerStore";
+import { invitationToRoom } from "@dogehouse/feta/webrtc/utils/invitationToRoom";
+>>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
 import {
   meAtom,
   setCurrentRoomAtom,
@@ -33,10 +39,10 @@ import { RoomPage } from "./pages/RoomPage";
 import { SearchUsersPage } from "./pages/SearchUsersPage";
 import { ViewUserPage } from "./pages/ViewUserPage";
 import { VoiceSettingsPage } from "./pages/VoiceSettingsPage";
-import { isUuid } from "./utils/isUuid";
-import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
-import { showErrorToast } from "./utils/showErrorToast";
-import { useTokenStore } from "./utils/useTokenStore";
+import { isUuid } from "@dogehouse/feta/utils/isUuid";
+import { roomToCurrentRoom } from "@dogehouse/feta/utils/roomToCurrentRoom";
+import { showErrorToast } from "@dogehouse/feta/utils/showErrorToast";
+import { useTokenStore } from "@dogehouse/feta/utils/useTokenStore";
 
 interface RoutesProps {}
 

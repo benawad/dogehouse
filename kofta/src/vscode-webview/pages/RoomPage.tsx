@@ -1,8 +1,14 @@
 import { useAtom } from "jotai";
 import React, { useState } from "react";
 import { Redirect, useRouteMatch } from "react-router-dom";
+<<<<<<< HEAD
 import { wsend } from "../../createWebsocket";
 import { useMuteStore } from "../../webrtc/stores/useMuteStore";
+=======
+import { tw } from "twind";
+import { wsend } from "@dogehouse/feta/createWebsocket";
+import { useMuteStore } from "@dogehouse/feta/webrtc/stores/useMuteStore";
+>>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
 import { currentRoomAtom, meAtom, myCurrentRoomInfoAtom } from "../atoms";
 import { Backbar } from "../components/Backbar";
 import { BodyWrapper } from "../components/BodyWrapper";
@@ -15,8 +21,13 @@ import { modalPrompt } from "../components/PromptModal";
 import { RoomUserNode } from "../components/RoomUserNode";
 import { Wrapper } from "../components/Wrapper";
 import { Codicon } from "../svgs/Codicon";
+<<<<<<< HEAD
 import { BaseUser } from "../types";
 import { isUuid } from "../utils/isUuid";
+=======
+import { User } from "@dogehouse/feta/types";
+import { isUuid } from "@dogehouse/feta/utils/isUuid";
+>>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
 
 interface RoomPageProps {}
 

@@ -1,9 +1,17 @@
 import React from "react";
 import ReactModal from "react-modal";
+<<<<<<< HEAD
 import { wsend } from "../../createWebsocket";
 import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
 import { Codicon } from "../svgs/Codicon";
 import { CurrentRoom, RoomUser } from "../types";
+=======
+import { tw } from "twind";
+import { wsend } from "@dogehouse/feta/createWebsocket";
+import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
+import { Codicon } from "../svgs/Codicon";
+import { CurrentRoom, User } from "@dogehouse/feta/types";
+>>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
 import { Button } from "./Button";
 import { modalConfirm } from "./ConfirmModal";
 import { UserProfile } from "./UserProfile";

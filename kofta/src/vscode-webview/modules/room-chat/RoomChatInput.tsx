@@ -1,6 +1,12 @@
 import { useAtom } from "jotai";
+<<<<<<< HEAD
 import React, { createRef, useState } from "react";
 import { wsend } from "../../../createWebsocket";
+=======
+import React from "react";
+import { tw } from "twind";
+import { wsend } from "@dogehouse/feta/createWebsocket";
+>>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
 import { meAtom } from "../../atoms";
 import { modalAlert } from "../../components/AlertModal";
 import { useRoomChatStore } from "./useRoomChatStore";
@@ -104,6 +110,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
       }}
       className={`bg-simple-gray-26 pb-8 px-8 pt-1`}
     >
+<<<<<<< HEAD
       {isEmoji ? (
         <Picker
           set="apple"
@@ -158,6 +165,16 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
           id="room-chat-input"
         />
       </div>
+=======
+      <input
+        maxLength={512}
+        placeholder="Send a message"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        className={tw`text-tmpC1 bg-tmpBg4 px-4 py-3 rounded text-lg focus:outline-none`}
+        onKeyDown={navigateThroughQueriedUsers}
+      />
+>>>>>>> 76e5e6ddabfa381984235042bbfd5056e7372c0d
     </form>
   );
 };

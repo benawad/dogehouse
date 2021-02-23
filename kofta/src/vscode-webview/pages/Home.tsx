@@ -6,7 +6,7 @@ import { RoomCard } from "../components/RoomCard";
 import { Wrapper } from "../components/Wrapper";
 import { BottomVoiceControl } from "../components/BottomVoiceControl";
 import { Button } from "../components/Button";
-import { wsend } from "../../createWebsocket";
+import { wsend } from "@dogehouse/feta/createWebsocket";
 import { Logo } from "../svgs/Logo";
 import { CreateRoomModal } from "../components/CreateRoomModal";
 import { ProfileButton } from "../components/ProfileButton";
