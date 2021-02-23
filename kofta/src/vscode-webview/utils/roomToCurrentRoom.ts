@@ -1,4 +1,4 @@
-import { CurrentRoom, Room } from "../types";
+import { CurrentRoom, Room } from "@dogehouse/feta/types";
 
 export const roomToCurrentRoom = (r: Room): CurrentRoom =>
   r

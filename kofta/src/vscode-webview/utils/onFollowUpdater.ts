@@ -1,5 +1,9 @@
 import { SetStateAction } from "react";
-import { CurrentRoom, BaseUser, UserWithFollowInfo } from "../types";
+import {
+  CurrentRoom,
+  BaseUser,
+  UserWithFollowInfo,
+} from "@dogehouse/feta/types";
 
 export const onFollowUpdater = (
   setRoom: (update: SetStateAction<CurrentRoom | null>) => void,
