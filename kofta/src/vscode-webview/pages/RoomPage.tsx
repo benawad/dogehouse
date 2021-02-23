@@ -1,7 +1,6 @@
 import { useAtom } from "jotai";
 import React, { useState } from "react";
 import { Redirect, useRouteMatch } from "react-router-dom";
-import { tw } from "twind";
 import { wsend } from "@dogehouse/feta/createWebsocket";
 import { useMuteStore } from "@dogehouse/feta/webrtc/stores/useMuteStore";
 import { currentRoomAtom, meAtom, myCurrentRoomInfoAtom } from "../atoms";

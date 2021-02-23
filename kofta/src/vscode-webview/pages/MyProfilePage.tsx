@@ -1,7 +1,6 @@
 import { useAtom } from "jotai";
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { tw } from "twind";
 import { closeWebSocket } from "@dogehouse/feta/createWebsocket";
 import { meAtom } from "../atoms";
 import { Backbar } from "../components/Backbar";

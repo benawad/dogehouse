@@ -1,6 +1,5 @@
 import { useAtom } from "jotai";
 import React, { useState, createRef } from "react";
-import { tw } from "twind";
 import { wsend } from "@dogehouse/feta/createWebsocket";
 import { meAtom } from "../../atoms";
 import { modalAlert } from "../../components/AlertModal";
@@ -110,7 +109,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
         placeholder="Send a message"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
-        className={tw`text-tmpC1 bg-tmpBg4 px-4 py-3 rounded text-lg focus:outline-none`}
+        className={`text-tmpC1 bg-tmpBg4 px-4 py-3 rounded text-lg focus:outline-none`}
         onKeyDown={navigateThroughQueriedUsers}
       />
     </form>

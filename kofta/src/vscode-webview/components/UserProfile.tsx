@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { useHistory } from "react-router-dom";
-import { tw } from "twind";
 import { wsend } from "@dogehouse/feta/createWebsocket";
 import { currentRoomAtom, meAtom } from "../atoms";
 import { BaseUser } from "@dogehouse/feta/types";

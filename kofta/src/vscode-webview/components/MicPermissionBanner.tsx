@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { tw } from "twind";
 import { useMicPermErrorStore } from "@dogehouse/feta/webrtc/stores/useMicPermErrorStore";
 import { sendVoice } from "@dogehouse/feta/webrtc/utils/sendVoice";
 import { isIOS } from "@dogehouse/feta/utils/isIOS";
