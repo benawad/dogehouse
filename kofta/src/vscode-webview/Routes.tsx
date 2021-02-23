@@ -3,8 +3,8 @@ import React, { useEffect } from "react";
 import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { closeWebSocket, wsend } from "@dogehouse/feta/createWebsocket";
-import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
-import { invitationToRoom } from "../webrtc/utils/invitationToRoom";
+import { useWsHandlerStore } from "@dogehouse/feta/webrtc/stores/useWsHandlerStore";
+import { invitationToRoom } from "@dogehouse/feta/webrtc/utils/invitationToRoom";
 import {
   setCurrentRoomAtom,
   setFollowerMapAtom,
@@ -26,9 +26,9 @@ import { RoomPage } from "./pages/RoomPage";
 import { SearchUsersPage } from "./pages/SearchUsersPage";
 import { ViewUserPage } from "./pages/ViewUserPage";
 import { VoiceSettingsPage } from "./pages/VoiceSettingsPage";
-import { isUuid } from "./utils/isUuid";
-import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
-import { showErrorToast } from "./utils/showErrorToast";
+import { isUuid } from "@dogehouse/feta/utils/isUuid";
+import { roomToCurrentRoom } from "@dogehouse/feta/utils/roomToCurrentRoom";
+import { showErrorToast } from "@dogehouse/feta/utils/showErrorToast";
 import { useTokenStore } from "@dogehouse/feta/utils/useTokenStore";
 
 interface RoutesProps {}

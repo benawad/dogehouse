@@ -1,5 +1,5 @@
 import React from "react";
-import { useConsumerStore } from "../../webrtc/stores/useConsumerStore";
+import { useConsumerStore } from "@dogehouse/feta/webrtc/stores/useConsumerStore";
 import { VolumeSlider } from "./VolumeSlider";
 
 interface UserVolumeSliderProps {

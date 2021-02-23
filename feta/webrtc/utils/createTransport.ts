@@ -1,7 +1,7 @@
 import { TransportOptions } from "mediasoup-client/lib/types";
-import { wsend } from "../../../../feta/createWebsocket";
-import { useVoiceStore } from "../stores/useVoiceStore";
-import { useWsHandlerStore } from "../stores/useWsHandlerStore";
+import { wsend } from "../../createWebsocket";
+import { useVoiceStore } from "@dogehouse/feta/webrtc/stores/useVoiceStore";
+import { useWsHandlerStore } from "@dogehouse/feta/webrtc/stores/useWsHandlerStore";
 
 export async function createTransport(
   _roomId: string,

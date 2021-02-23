@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useMuteStore } from "../../webrtc/stores/useMuteStore";
+import { useMuteStore } from "@dogehouse/feta/webrtc/stores/useMuteStore";
 
 interface MuteTitleUpdaterProps {}
 

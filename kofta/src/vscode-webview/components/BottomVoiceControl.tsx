@@ -11,7 +11,7 @@ import {
 import { useHistory, useLocation } from "react-router-dom";
 import { tw } from "twind";
 import { wsend } from "@dogehouse/feta/createWebsocket";
-import { useMuteStore } from "../../webrtc/stores/useMuteStore";
+import { useMuteStore } from "@dogehouse/feta/webrtc/stores/useMuteStore";
 import { currentRoomAtom, myCurrentRoomInfoAtom } from "../atoms";
 import { RoomChat } from "../modules/room-chat/RoomChat";
 import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";

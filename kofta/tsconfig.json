@@ -20,6 +20,9 @@
     "src",
     "../feta/constants.ts",
     "../feta/createWebsocket.ts",
-    "../feta/utils/useTokenStore.ts"
+    "../feta/utils/useTokenStore.ts",
+    "../feta/types.ts",
+    "../feta/webrtc/utils",
+    "../feta/webrtc/stores"
   ]
 }

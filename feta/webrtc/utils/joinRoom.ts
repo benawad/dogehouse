@@ -1,5 +1,5 @@
 import { RtpCapabilities } from "mediasoup-client/lib/types";
-import { useVoiceStore } from "../stores/useVoiceStore";
+import { useVoiceStore } from "@dogehouse/feta/webrtc/stores/useVoiceStore";
 
 export const joinRoom = async (routerRtpCapabilities: RtpCapabilities) => {
   const { device } = useVoiceStore.getState();

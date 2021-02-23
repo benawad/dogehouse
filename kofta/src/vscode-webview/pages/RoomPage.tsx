@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Redirect, useRouteMatch } from "react-router-dom";
 import { tw } from "twind";
 import { wsend } from "@dogehouse/feta/createWebsocket";
-import { useMuteStore } from "../../webrtc/stores/useMuteStore";
+import { useMuteStore } from "@dogehouse/feta/webrtc/stores/useMuteStore";
 import { currentRoomAtom, meAtom, myCurrentRoomInfoAtom } from "../atoms";
 import { Backbar } from "../components/Backbar";
 import { BottomVoiceControl } from "../components/BottomVoiceControl";
@@ -15,8 +15,8 @@ import { modalPrompt } from "../components/PromptModal";
 import { RoomUserNode } from "../components/RoomUserNode";
 import { Wrapper } from "../components/Wrapper";
 import { Codicon } from "../svgs/Codicon";
-import { User } from "../types";
-import { isUuid } from "../utils/isUuid";
+import { User } from "@dogehouse/feta/types";
+import { isUuid } from "@dogehouse/feta/utils/isUuid";
 
 interface RoomPageProps {}
 

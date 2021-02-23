@@ -1,6 +1,6 @@
-import { wsend } from "../../../../feta/createWebsocket";
-import { useVoiceStore } from "../stores/useVoiceStore";
-import { useWsHandlerStore } from "../stores/useWsHandlerStore";
+import { wsend } from "../../createWebsocket";
+import { useVoiceStore } from "@dogehouse/feta/webrtc/stores/useVoiceStore";
+import { useWsHandlerStore } from "@dogehouse/feta/webrtc/stores/useWsHandlerStore";
 import { consumeAudio } from "./consumeAudio";
 
 export const receiveVoice = (flushQueue: () => void) => {

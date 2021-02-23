@@ -1,6 +1,6 @@
 import create from "zustand";
 import { combine } from "zustand/middleware";
-import { User } from "../../types";
+import { User } from "@dogehouse/feta/types";
 
 interface TextToken {
   t: "text";
@@ -58,14 +58,14 @@ export const useRoomChatStore = create(
       activeUsername: "",
       iAmMentioned: false,
     },
-    set => ({
+    (set) => ({
       addBannedUser: (userId: string) =>
-        set(s => ({
-          messages: s.messages.filter(m => m.userId !== userId),
+        set((s) => ({
+          messages: s.messages.filter((m) => m.userId !== userId),
           bannedUserIdMap: { ...s.bannedUserIdMap, [userId]: true },
         })),
       addMessage: (m: RoomChatMessage) =>
-        set(s => ({
+        set((s) => ({
           newUnreadMessages: !s.open,
           messages: [
             { ...m, color: generateColorFromString(m.userId) },
@@ -88,7 +88,7 @@ export const useRoomChatStore = create(
           bannedUserIdMap: {},
         }),
       toggleOpen: () =>
-        set(s => {
+        set((s) => {
           if (s.open) {
             return {
               open: false,
@@ -122,6 +122,6 @@ export const useRoomChatStore = create(
         set({
           iAmMentioned,
         }),
-    }),
-  ),
+    })
+  )
 );

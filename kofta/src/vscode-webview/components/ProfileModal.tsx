@@ -4,7 +4,7 @@ import { tw } from "twind";
 import { wsend } from "@dogehouse/feta/createWebsocket";
 import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
 import { Codicon } from "../svgs/Codicon";
-import { CurrentRoom, User } from "../types";
+import { CurrentRoom, User } from "@dogehouse/feta/types";
 import { Button } from "./Button";
 import { modalConfirm } from "./ConfirmModal";
 import { UserProfile } from "./UserProfile";

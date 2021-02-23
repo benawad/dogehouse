@@ -1,7 +1,7 @@
 import React from "react";
 import { tw } from "twind";
 import { MicOff } from "react-feather";
-import { User } from "../types";
+import { User } from "@dogehouse/feta/types";
 import { Avatar } from "./Avatar";
 import GlassesDoge from "../../assets/glasses-doge.png";
 import RegularDoge from "../../assets/regular-doge.png";

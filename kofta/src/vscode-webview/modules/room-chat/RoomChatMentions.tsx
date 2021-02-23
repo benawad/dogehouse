@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { tw } from "twind";
 import { useRoomChatStore } from "./useRoomChatStore";
 import { Avatar } from "../../components/Avatar";
-import { User } from "../../types";
+import { User } from "@dogehouse/feta/types";
 import { currentRoomAtom, meAtom } from "../../atoms";
 
 interface RoomChatMentionsProps {}
