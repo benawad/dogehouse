@@ -34,11 +34,7 @@ export const RoomCard: React.FC<RoomProps> = ({
     previewNodes.push(
       <div
         key={p.id}
-        style={{
-          marginTop: !i ? 6 : 2,
-          color: "#D9D9D9",
-        }}
-        className={`text-left`}
+        className={`text-left text-simple-gray-d9 ${!i ? "m-1.5" : "m-0.5"}`}
       >
         {p.displayName?.slice(0, 50)}
       </div>

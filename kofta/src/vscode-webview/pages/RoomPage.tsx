@@ -106,12 +106,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
             }}
             className={`w-full grid gap-5`}
           >
-            <div
-              style={{
-                gridColumn: "1/-1",
-              }}
-              className={`text-xl ml-2.5 text-white`}
-            >
+            <div className={`col-span-full text-xl ml-2.5 text-white`}>
               Speakers ({speakers.length})
             </div>
             {speakers.map((u) => (
@@ -140,12 +135,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
               </div>
             ) : null}
             {unansweredHands.length ? (
-              <div
-                style={{
-                  gridColumn: "1/-1",
-                }}
-                className={`text-xl ml-2.5 text-white`}
-              >
+              <div className={`col-span-full text-xl ml-2.5 text-white`}>
                 Requesting to speak ({unansweredHands.length})
               </div>
             ) : null}
@@ -161,12 +151,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
               />
             ))}
             {listeners.length ? (
-              <div
-                style={{
-                  gridColumn: "1/-1",
-                }}
-                className={`text-xl mt-2.5 ml-2.5 text-white`}
-              >
+              <div className={`col-span-full text-xl mt-2.5 ml-2.5 text-white`}>
                 Listeners ({listeners.length})
               </div>
             ) : null}

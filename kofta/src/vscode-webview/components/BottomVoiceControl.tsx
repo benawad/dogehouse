@@ -86,13 +86,11 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             />
             {newUnreadMessages ? (
               <span
-                className={`absolute rounded-full`}
+                className={`absolute rounded-full w-2.5 h-2.5`}
                 style={{
                   backgroundColor: iAmMentioned ? "#ff3c00" : "#FF9900",
                   right: -2,
                   top: -1,
-                  width: 10,
-                  height: 10,
                 }}
               />
             ) : null}

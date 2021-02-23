@@ -31,7 +31,7 @@ export const UserNode: React.FC<UserNodeProps> = ({
         src={GlassesDoge}
         alt="room creator"
         style={{ marginLeft: 4, marginBottom: 6 }}
-        className={`w-4 h-4`}
+        className={`w-4 h-4 ml-1 mb-1.5`}
       />
     );
   } else if (isMod) {
@@ -40,7 +40,7 @@ export const UserNode: React.FC<UserNodeProps> = ({
         src={RegularDoge}
         alt="room mod"
         style={{ marginLeft: 4, marginBottom: 6 }}
-        className={`w-4 h-4`}
+        className={`w-4 h-4 ml-1 mb-1.5`}
       />
     );
   }
