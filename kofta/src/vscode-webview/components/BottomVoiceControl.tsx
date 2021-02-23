@@ -30,6 +30,7 @@ const buttonStyle = {
   color: "#8C8C8C",
   fontSize: 14,
   flex: 1,
+  outline: "none",
 };
 
 export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
