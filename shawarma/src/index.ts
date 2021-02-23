@@ -180,7 +180,7 @@ async function main() {
           if (theirPeerId === myPeerId) {
             continue;
           }
-          const peerTransport = state[theirPeerId].recvTransport;
+          const peerTransport = state[theirPeerId]?.recvTransport;
           if (!peerTransport) {
             continue;
           }
