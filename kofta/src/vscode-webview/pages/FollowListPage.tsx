@@ -1,7 +1,6 @@
 import { useAtom } from "jotai";
 import React from "react";
 import { useHistory, useLocation, useRouteMatch } from "react-router-dom";
-import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
 import {
   currentRoomAtom,
@@ -46,8 +45,7 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
         {!users.length ? <div>no users found</div> : null}
         {users.map((profile) => (
           <div
-            style={{ borderBottom: "1px solid var( --vscode-dropdown-border)" }}
-            className={tw`flex py-4 px-2 items-center`}
+            className={`border-b border-solid border-simple-gray-3c flex py-4 px-2 items-center`}
             key={profile.id}
           >
             <button onClick={() => history.push(`/user`, profile)}>
@@ -55,13 +53,9 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
             </button>
             <button
               onClick={() => history.push(`/user`, profile)}
-              className={tw`ml-8`}
+              className={`ml-8`}
             >
-              <div
-                style={{
-                  fontSize: "calc(var(--vscode-font-size)*1.1)",
-                }}
-              >
+              <div className={`text-lg`}>
                 {profile.displayName}
               </div>
               <div style={{ color: "" }}>@{profile.username}</div>
@@ -69,7 +63,7 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
             {me?.id === profile.id ||
             profile.youAreFollowing === undefined ||
             profile.youAreFollowing === null ? null : (
-              <div style={{ marginLeft: "auto" }}>
+              <div className={`ml-auto`}>
                 <Button
                   onClick={() => {
                     wsend({
@@ -106,7 +100,7 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
           </div>
         ))}
         {nextCursor ? (
-          <div className={tw`flex justify-center my-10`}>
+          <div className={`flex justify-center my-10`}>
             <Button
               variant="small"
               onClick={() =>

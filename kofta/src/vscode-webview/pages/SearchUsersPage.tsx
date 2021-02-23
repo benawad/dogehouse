@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useAtom } from "jotai";
-import { tw } from "twind";
 import { userSearchAtom } from "../atoms";
 import { Backbar } from "../components/Backbar";
 import { Button } from "../components/Button";
@@ -23,7 +22,7 @@ export const SearchUsersPage: React.FC<SearchUsersProps> = ({}) => {
             if (query) {
             }
           }}
-          className={tw`flex`}
+          className={`flex`}
         >
           <input
             autoFocus
@@ -35,7 +34,7 @@ export const SearchUsersPage: React.FC<SearchUsersProps> = ({}) => {
             <Codicon name="search" />
           </Button>
         </form>
-        {loading ? <div className={tw`my-8`}>loading...</div> : null}
+        {loading ? <div className={`my-8`}>loading...</div> : null}
       </BodyWrapper>
     </Wrapper>
   );
