@@ -24,7 +24,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
     setMentions,
     activeUsername,
     setActiveUsername,
-  } = useRoomChatMentionStore.getState();
+  } = useRoomChatMentionStore();
 
   const [me] = useAtom(meAtom);
   const inputRef = createRef<HTMLInputElement>();
@@ -60,8 +60,9 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
     }
 
     // navigate to next/prev mention suggestion item
-    if (changeToIndex !== null)
+    if (changeToIndex !== null) {
       setActiveUsername(queriedUsernames[changeToIndex]?.id);
+    }
   }
   const [isEmoji, setisEmoji] = useState(false);
 
@@ -104,7 +105,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
       }}
       className={tw`bg-tmpBg1 pb-8 px-8 pt-1`}
     >
-    {isEmoji ? (
+      {isEmoji ? (
         <Picker
           set="apple"
           onSelect={(emoji) => {

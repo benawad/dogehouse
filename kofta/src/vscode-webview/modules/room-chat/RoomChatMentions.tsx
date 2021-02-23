@@ -22,7 +22,7 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
     setQueriedUsernames,
     mentions,
     setMentions,
-  } = useRoomChatMentionStore.getState();
+  } = useRoomChatMentionStore();
 
   function addMention(m: BaseUser) {
     setMentions([...mentions, m]);
