@@ -8,6 +8,8 @@ import { onFollowUpdater } from "../utils/onFollowUpdater";
 import { Avatar } from "./Avatar";
 import { Button } from "./Button";
 import { EditProfileModal } from "./EditProfileModal";
+import { linkRegex } from "../constants";
+import normalizeUrl from "normalize-url";
 
 interface UserProfileProps {
   profile: RoomUser;
@@ -115,7 +117,23 @@ export const UserProfile: React.FC<UserProfileProps> = ({
           following
         </button>
       </div>
-      <div className={`mb-4`}>{profile.bio}</div>
+      <div className="mb-4">
+        {profile.bio?.split(" ").map((chunk, i) => {
+          return linkRegex.test(chunk) ? (
+            <a
+              key={i}
+              href={normalizeUrl(chunk)}
+              target="_blank"
+              rel="noreferrer"
+              className="text-blue-500 p-0"
+            >
+              {chunk}{" "}
+            </a>
+          ) : (
+            <span>{chunk} </span>
+          );
+        })}
+      </div>
     </>
   );
 };
