@@ -19,10 +19,11 @@ export const useRoomChatMentionStore = create(
         set({
           queriedUsernames,
         }),
-      setActiveUsername: (activeUsername: string) =>
-        set({
+      setActiveUsername: (activeUsername: string) => {
+        return set({
           activeUsername,
-        }),
+        });
+      },
       setIAmMentioned: (iAmMentioned: number) =>
         set({
           iAmMentioned,
