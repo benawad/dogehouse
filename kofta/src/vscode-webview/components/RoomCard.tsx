@@ -35,9 +35,12 @@ export const RoomCard: React.FC<RoomProps> = ({
     previewNodes.push(
       <div
         key={p.id}
-        className={`text-left text-simple-gray-d9 ${!i ? "mt-1.5" : "mt-0.5"}`}
+        className={`flex items-center text-left text-simple-gray-d9 ${!i ? "mt-1.5" : "mt-0.5"}`}
       >
-        {p.displayName?.slice(0, 50)}
+        <img src={p.avatarUrl} alt="avatar" className="w-7 h-7 rounded-full object-cover" />
+        <span className="ml-4">
+          {p.displayName?.slice(0, 50)}
+        </span>
       </div>
     );
     if (i >= 4 && previewNodes.length >= 5) {
