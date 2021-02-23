@@ -4,7 +4,7 @@ import React from "react";
 import { useMutation } from "react-query";
 import { object, pattern, size, string } from "superstruct";
 import { tw } from "twind";
-import { wsFetch } from "../../createWebsocket";
+import { wsFetch } from "@dogehouse/feta/createWebsocket";
 import { setMeAtom } from "../atoms";
 import { User } from "../types";
 import { showErrorToast } from "../utils/showErrorToast";

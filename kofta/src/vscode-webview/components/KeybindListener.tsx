@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { GlobalHotKeys } from "react-hotkeys";
-import { wsend } from "../../createWebsocket";
+import { wsend } from "@dogehouse/feta/createWebsocket";
 import { useKeyMapStore } from "../../webrtc/stores/useKeyMapStore";
 import { useMuteStore } from "../../webrtc/stores/useMuteStore";
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useAtom } from "jotai";
 import { useHistory } from "react-router-dom";
 import { tw } from "twind";
-import { wsend } from "../../createWebsocket";
+import { wsend } from "@dogehouse/feta/createWebsocket";
 import { currentRoomAtom, meAtom } from "../atoms";
 import { User } from "../types";
 import { onFollowUpdater } from "../utils/onFollowUpdater";

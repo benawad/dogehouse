@@ -2,7 +2,7 @@ import { useAtom } from "jotai";
 import React, { useEffect } from "react";
 import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
-import { closeWebSocket, wsend } from "../createWebsocket";
+import { closeWebSocket, wsend } from "@dogehouse/feta/createWebsocket";
 import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
 import { invitationToRoom } from "../webrtc/utils/invitationToRoom";
 import {
@@ -29,7 +29,7 @@ import { VoiceSettingsPage } from "./pages/VoiceSettingsPage";
 import { isUuid } from "./utils/isUuid";
 import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
 import { showErrorToast } from "./utils/showErrorToast";
-import { useTokenStore } from "./utils/useTokenStore";
+import { useTokenStore } from "@dogehouse/feta/utils/useTokenStore";
 
 interface RoutesProps {}
 

@@ -8,23 +8,13 @@
 
 import 'react-native-gesture-handler';
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
+import LoginStackScreens from './screens/auth/login';
 
 const App: React.FC = () => {
   return (
     <NavigationContainer>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <Text>Dogehouse</Text>
-      </SafeAreaView>
+      <LoginStackScreens />
     </NavigationContainer>
   );
 };

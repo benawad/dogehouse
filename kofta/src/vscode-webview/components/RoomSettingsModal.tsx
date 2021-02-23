@@ -2,7 +2,7 @@ import { useAtom } from "jotai";
 import React from "react";
 import { X } from "react-feather";
 import { tw } from "twind";
-import { wsend } from "../../createWebsocket";
+import { wsend } from "@dogehouse/feta/createWebsocket";
 import { renameRoomAndMakePrivate } from "../../webrtc/utils/renameRoomAndMakePrivate";
 import { renameRoomAndMakePublic } from "../../webrtc/utils/renameRoomAndMakePublic";
 import { currentRoomAtom } from "../atoms";

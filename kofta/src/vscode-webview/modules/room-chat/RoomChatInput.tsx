@@ -1,7 +1,7 @@
 import { useAtom } from "jotai";
 import React from "react";
 import { tw } from "twind";
-import { wsend } from "../../../createWebsocket";
+import { wsend } from "@dogehouse/feta/createWebsocket";
 import { meAtom } from "../../atoms";
 import { modalAlert } from "../../components/AlertModal";
 import { useRoomChatStore } from "./useRoomChatStore";
@@ -33,7 +33,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
 
     let changeToIndex = null;
     const activeIndex = queriedUsernames.findIndex(
-      u => u.id === activeUsername,
+      (u) => u.id === activeUsername
     );
 
     if (e.code === "ArrowUp") {
@@ -48,7 +48,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
       setMessage(
         message.substring(0, message.lastIndexOf("@") + 1) +
           selected.username +
-          " ",
+          " "
       );
       setQueriedUsernames([]);
     }
@@ -60,7 +60,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
 
   return (
     <form
-      onSubmit={e => {
+      onSubmit={(e) => {
         e.preventDefault();
         if (
           !message ||
@@ -90,7 +90,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
         maxLength={512}
         placeholder="Send a message"
         value={message}
-        onChange={e => setMessage(e.target.value)}
+        onChange={(e) => setMessage(e.target.value)}
         className={tw`text-tmpC1 bg-tmpBg4 px-4 py-3 rounded text-lg focus:outline-none`}
         onKeyDown={navigateThroughQueriedUsers}
       />

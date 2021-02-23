@@ -1,7 +1,7 @@
 import React from "react";
 import ReactModal from "react-modal";
 import { tw } from "twind";
-import { wsend } from "../../createWebsocket";
+import { wsend } from "@dogehouse/feta/createWebsocket";
 import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
 import { Codicon } from "../svgs/Codicon";
 import { CurrentRoom, User } from "../types";

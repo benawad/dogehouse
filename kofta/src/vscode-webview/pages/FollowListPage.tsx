@@ -2,7 +2,7 @@ import { useAtom } from "jotai";
 import React from "react";
 import { useHistory, useLocation, useRouteMatch } from "react-router-dom";
 import { tw } from "twind";
-import { wsend } from "../../createWebsocket";
+import { wsend } from "@dogehouse/feta/createWebsocket";
 import {
   currentRoomAtom,
   followerMapAtom,

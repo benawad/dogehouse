@@ -4,4 +4,4 @@ export const apiBaseUrl =
   process.env.REACT_APP_API_BASE_URL ||
   (__prod__
     ? "https://api.dogehouse.tv"
-    : "https://doge-staging.stripcode.dev/help");
+    : "https://doge-staging.stripcode.dev");

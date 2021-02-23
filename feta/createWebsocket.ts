@@ -1,13 +1,13 @@
 import ReconnectingWebSocket from "reconnecting-websocket";
-import { useTokenStore } from "./vscode-webview/utils/useTokenStore";
-import { showErrorToast } from "./vscode-webview/utils/showErrorToast";
-import { apiBaseUrl } from "./vscode-webview/constants";
-import { useSocketStatus } from "./webrtc/stores/useSocketStatus";
-import { useWsHandlerStore } from "./webrtc/stores/useWsHandlerStore";
-import { useVoiceStore } from "./webrtc/stores/useVoiceStore";
-import { useMuteStore } from "./webrtc/stores/useMuteStore";
-import { uuidv4 } from "./webrtc/utils/uuidv4";
-import { WsParam } from "./vscode-webview/types";
+import { useTokenStore } from "kofta/src/vscode-webview/utils/useTokenStore";
+import { showErrorToast } from "kofta/src/vscode-webview/utils/showErrorToast";
+import { apiBaseUrl } from "./constants";
+import { useSocketStatus } from "kofta/src/webrtc/stores/useSocketStatus";
+import { useWsHandlerStore } from "kofta/src/webrtc/stores/useWsHandlerStore";
+import { useVoiceStore } from "kofta/src/webrtc/stores/useVoiceStore";
+import { useMuteStore } from "kofta/src/webrtc/stores/useMuteStore";
+import { uuidv4 } from "kofta/src/webrtc/utils/uuidv4";
+import { WsParam } from "kofta/src/vscode-webview/types";
 
 let ws: ReconnectingWebSocket | null;
 let authGood = false;

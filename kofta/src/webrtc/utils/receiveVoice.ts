@@ -1,4 +1,4 @@
-import { wsend } from "../../createWebsocket";
+import { wsend } from "../../../../feta/createWebsocket";
 import { useVoiceStore } from "../stores/useVoiceStore";
 import { useWsHandlerStore } from "../stores/useWsHandlerStore";
 import { consumeAudio } from "./consumeAudio";

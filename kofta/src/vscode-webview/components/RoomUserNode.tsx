@@ -1,5 +1,5 @@
 import React from "react";
-import { wsend } from "../../createWebsocket";
+import { wsend } from "@dogehouse/feta/createWebsocket";
 import { CurrentRoom, User } from "../types";
 import { UserNode } from "./UserNode";
 
