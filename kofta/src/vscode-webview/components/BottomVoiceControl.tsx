@@ -9,7 +9,6 @@ import {
   UserPlus,
 } from "react-feather";
 import { useHistory, useLocation } from "react-router-dom";
-import { tw } from "twind";
 import { wsend } from "@dogehouse/feta/createWebsocket";
 import { useMuteStore } from "@dogehouse/feta/webrtc/stores/useMuteStore";
 import { currentRoomAtom, myCurrentRoomInfoAtom } from "../atoms";
@@ -36,11 +35,12 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   const { muted, set } = useMuteStore();
   const [{ canSpeak, isCreator }] = useAtom(myCurrentRoomInfoAtom);
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const [
-    toggleOpen,
-    newUnreadMessages,
-    iAmMentioned,
-  ] = useRoomChatStore((s) => [s.toggleOpen, s.newUnreadMessages]);
+  const [toggleOpen, newUnreadMessages] = useRoomChatStore((s) => [
+    s.toggleOpen,
+    s.newUnreadMessages,
+  ]);
+
+  const { iAmMentioned } = useRoomChatMentionStore();
 
   const fullscreenChatOpen = useShouldFullscreenChat();
 
