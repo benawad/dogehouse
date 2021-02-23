@@ -18,7 +18,7 @@ export const ProfileButton: React.FC<ProfileButtonProps> = ({
   return me ? (
     <button
       onClick={() => history.push("/me")}
-      style={{ paddingLeft: 9, paddingRight: 9 }}
+      className={`px-2.5`}
     >
       <Avatar circle={circle} size={size} src={me.avatarUrl} />
     </button>

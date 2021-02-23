@@ -1,5 +1,4 @@
 import React, { forwardRef } from "react";
-import { tw } from "twind";
 
 export const Input = forwardRef<
   HTMLInputElement,
@@ -8,7 +7,7 @@ export const Input = forwardRef<
     HTMLInputElement
   > & { textarea?: boolean }
 >(({ textarea, ...props }, ref) => {
-  const cn = tw`py-2 px-3 text-xl text-input bg-input`;
+  const cn = `py-2 px-3 text-white bg-simple-gray-3c`;
 
   return textarea ? (
     <textarea ref={ref as any} className={cn} {...(props as any)} />

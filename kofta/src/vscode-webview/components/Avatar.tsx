@@ -5,7 +5,6 @@ interface AvatarProps {
   size?: number;
   active?: boolean;
   circle?: boolean;
-  style?: React.CSSProperties;
   usernameForErrorImg?: string;
 }
 
@@ -14,7 +13,6 @@ export const Avatar: React.FC<AvatarProps> = ({
   size = 70,
   active,
   circle,
-  style,
   usernameForErrorImg,
 }) => {
   const [error, setError] = useState(false);
@@ -22,15 +20,10 @@ export const Avatar: React.FC<AvatarProps> = ({
     <img
       alt="avatar"
       onError={() => setError(true)}
-      style={{
-        width: size,
-        height: size,
-        borderRadius: circle ? "50%" : "30%",
-        boxShadow: active
-          ? "0 0 0 3px var(--vscode-textLink-foreground)"
-          : undefined,
-        ...style,
-      }}
+      width={size}
+      height={size}
+      style={active ? { boxShadow: "0 0 0 3px #60A5FA" } : undefined}
+      className={circle ? `rounded-full` : `rounded-3xl`}
       src={
         error && usernameForErrorImg
           ? `https://ui-avatars.com/api/?name=${usernameForErrorImg}`

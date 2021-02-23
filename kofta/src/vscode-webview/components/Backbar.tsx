@@ -1,6 +1,5 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { tw } from "twind";
 import DogeHouse from "../../assets/dogehouse.png";
 import { ArrowLeft } from "react-feather";
 
@@ -14,17 +13,10 @@ export const Backbar: React.FC<BackbarProps> = ({
 }) => {
   const history = useHistory();
   return (
-    <div
-      className={tw`sticky top-0 z-10 flex py-4 mb-12`}
-      style={{
-        backgroundColor: "#262626",
-        borderBottom: "1px solid #808080",
-      }}
-    >
+    <div className={`sticky top-0 z-10 flex py-4 mb-12 border-b border-simple-gray-80 bg-simple-gray-26 h-20`}>
       {actuallyGoBack ? (
         <button
-          style={{ padding: "0 9px" }}
-          className={tw`hover:bg-buttonHover`}
+          className={`hover:bg-blue-700 px-2`}
           onClick={() => {
             history.goBack();
           }}
@@ -33,13 +25,12 @@ export const Backbar: React.FC<BackbarProps> = ({
         </button>
       ) : (
         <button
-          style={{ padding: "0 9px" }}
-          className={tw`hover:bg-buttonHover`}
+          className={`hover:bg-blue-700 px-2`}
           onClick={() => {
             history.push("/");
           }}
         >
-          <img style={{ width: 50 }} src={DogeHouse} alt="dogehouse" />
+          <img className={`w-12`} src={DogeHouse} alt="dogehouse" />
         </button>
       )}
       {children}

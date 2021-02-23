@@ -4,8 +4,6 @@ import { meAtom } from "../atoms";
 import { Codicon } from "../svgs/Codicon";
 import { CurrentRoom, Room } from "../types";
 
-import "./RoomCard.css";
-
 interface RoomProps {
   active?: boolean;
   onClick: () => void;
@@ -37,11 +35,7 @@ export const RoomCard: React.FC<RoomProps> = ({
     previewNodes.push(
       <div
         key={p.id}
-        style={{
-          marginTop: !i ? 6 : 2,
-          color: "#D9D9D9",
-          textAlign: "left",
-        }}
+        className={`text-left text-simple-gray-d9 ${!i ? "m-1.5" : "m-0.5"}`}
       >
         {p.displayName?.slice(0, 50)}
       </div>
@@ -57,29 +51,18 @@ export const RoomCard: React.FC<RoomProps> = ({
         onClick={onClick}
         className={`RoomCard ${active ? "active" : ""}`}
       >
-        <div
-          style={{
-            display: "flex",
-            color: "var(--vscode-inputOption-activeForeground)",
-          }}
-        >
+        <div className={`flex text-white`}>
           <div
             style={{
-              textAlign: "left",
-              fontSize: "calc(var(--vscode-font-size)*1.2)",
-              flex: 1,
-              color: "#D9D9D9",
               display: "-webkit-box",
               WebkitBoxOrient: "vertical",
-              overflowWrap: "break-word",
               WebkitLineClamp: 3,
-              overflow: "hidden",
-              textOverflow: "ellipsis",
             }}
+            className={`text-left flex-1 text-xl text-simple-gray-d9 text-ellipsis overflow-hidden break-words`}
           >
             {room.name?.slice(0, 100)}
           </div>
-          <div style={{ display: "flex", alignItems: "center" }}>
+          <div className={`flex items-center`}>
             <Codicon name="person" /> {n}
           </div>
         </div>

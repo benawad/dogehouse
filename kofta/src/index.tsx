@@ -4,6 +4,8 @@ import * as Sentry from "@sentry/react";
 import ReactModal from "react-modal";
 import { WebviewWrapper } from "./WebviewWrapper";
 
+import "./index.css";
+
 ReactModal.setAppElement("#root");
 
 Sentry.init({

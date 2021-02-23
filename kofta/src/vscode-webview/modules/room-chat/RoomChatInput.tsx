@@ -1,6 +1,5 @@
 import { useAtom } from "jotai";
 import React, { createRef, useState } from "react";
-import { tw } from "twind";
 import { wsend } from "../../../createWebsocket";
 import { meAtom } from "../../atoms";
 import { modalAlert } from "../../components/AlertModal";
@@ -102,9 +101,9 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
         });
         setQueriedUsernames([]);
       }}
-      className={tw`bg-tmpBg1 pb-8 px-8 pt-1`}
+      className={`bg-simple-gray-26 pb-8 px-8 pt-1`}
     >
-    {isEmoji ? (
+      {isEmoji ? (
         <Picker
           set="apple"
           onSelect={(emoji) => {
@@ -135,7 +134,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
           style={{
             color: "rgb(167, 167, 167)",
           }}
-          className={tw`absolute mt-3 right-12 cursor-pointer`}
+          className={`absolute mt-3 right-12 cursor-pointer`}
           onClick={() => {
             setisEmoji(!isEmoji);
             position = 0;
@@ -149,7 +148,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           ref={inputRef}
-          className={tw`text-tmpC1 bg-tmpBg4 px-4 py-3 rounded text-lg focus:outline-none pr-12`}
+          className={`text-simple-gray-9c bg-simple-gray-59 px-4 py-3 rounded text-lg focus:outline-none pr-12`}
           onKeyDown={navigateThroughQueriedUsers}
           onFocus={() => {
             setisEmoji(false);

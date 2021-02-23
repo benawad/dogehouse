@@ -3,7 +3,6 @@ import { Modal } from "./Modal";
 import create from "zustand";
 import { combine } from "zustand/middleware";
 import { Button } from "./Button";
-import { tw } from "twind";
 
 interface Props {}
 
@@ -35,7 +34,7 @@ export const AlertModal: React.FC<Props> = () => {
           close();
         }}
       >
-        <div className={tw`flex mt-12`}>
+        <div className={`flex mt-12`}>
           <Button type="submit">ok</Button>
         </div>
       </form>

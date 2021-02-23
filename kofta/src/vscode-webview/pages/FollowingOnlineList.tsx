@@ -1,7 +1,6 @@
 import { useAtom } from "jotai";
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
 import { currentRoomAtom, followingOnlineAtom } from "../atoms";
 import { Avatar } from "../components/Avatar";
@@ -21,14 +20,13 @@ export const FollowingOnlineList: React.FC<FriendListProps> = () => {
     <Wrapper>
       <Backbar />
       <BodyWrapper>
-        <div className={tw`mb-4 text-2xl`}>
+        <div className={`mb-4 text-2xl`}>
           List of users online that are not in a private room and you follow.
         </div>
         {users.length === 0 ? <div>no users found</div> : null}
         {users.map((u) => (
           <div
-            style={{ borderBottom: "1px solid var( --vscode-dropdown-border)" }}
-            className={tw`flex py-4 px-2 items-center`}
+            className={`border-b border-solid border-simple-gray-3c flex py-4 px-2 items-center`}
             key={u.id}
           >
             <button onClick={() => history.push(`/user`, u)}>
@@ -43,13 +41,9 @@ export const FollowingOnlineList: React.FC<FriendListProps> = () => {
                   history.push("/room/" + u.currentRoom.id);
                 }
               }}
-              className={tw`ml-4 flex-1 text-left`}
+              className={`ml-4 flex-1 text-left`}
             >
-              <div
-                style={{
-                  fontSize: "calc(var(--vscode-font-size)*1.1)",
-                }}
-              >
+              <div className={`text-lg`}>
                 {u.displayName}
               </div>
               <div style={{ color: "" }}>
@@ -57,7 +51,7 @@ export const FollowingOnlineList: React.FC<FriendListProps> = () => {
               </div>
             </button>
             {u.followsYou ? (
-              <div style={{ marginLeft: "auto" }}>
+              <div className={`ml-auto`}>
                 <Button
                   onClick={() => {
                     wsend({
@@ -78,7 +72,7 @@ export const FollowingOnlineList: React.FC<FriendListProps> = () => {
           </div>
         ))}
         {nextCursor ? (
-          <div className={tw`flex justify-center my-10`}>
+          <div className={`flex justify-center my-10`}>
             <Button
               variant="small"
               onClick={() =>

@@ -1,7 +1,6 @@
 import { useAtom } from "jotai";
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { tw } from "twind";
 import { closeWebSocket } from "../../createWebsocket";
 import { meAtom } from "../atoms";
 import { Backbar } from "../components/Backbar";
@@ -19,9 +18,9 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
   return (
     <Wrapper>
       <Backbar actuallyGoBack>
-        <div className={tw`ml-auto flex items-center`}>
+        <div className={`ml-auto flex items-center`}>
           <Button
-            style={{ marginRight: "9px" }}
+            className={`m-2.5`}
             onClick={() => {
               history.push("/");
               closeWebSocket();
@@ -35,21 +34,24 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
           </Button>
         </div>
       </Backbar>
-              <BodyWrapper>
-      {me ? <UserProfile profile={me} /> : <div>probably loading...</div>}
-      <div className={tw`pt-6 flex`}>
-        <Button
-          style={{ marginRight: "10px" }}
-          variant="small"
-          onClick={() => history.push(`/voice-settings`)}
-        >
-          go to voice settings
-        </Button>
-        <Button variant="small" onClick={() => history.push(`/chat-settings`)}>
-          go to chat settings
-        </Button>
-      </div>
-              </BodyWrapper>
+      <BodyWrapper>
+        {me ? <UserProfile profile={me} /> : <div>probably loading...</div>}
+        <div className={`pt-6 flex`}>
+          <Button
+            style={{ marginRight: "10px" }}
+            variant="small"
+            onClick={() => history.push(`/voice-settings`)}
+          >
+            go to voice settings
+          </Button>
+          <Button
+            variant="small"
+            onClick={() => history.push(`/chat-settings`)}
+          >
+            go to chat settings
+          </Button>
+        </div>
+      </BodyWrapper>
     </Wrapper>
   );
 };

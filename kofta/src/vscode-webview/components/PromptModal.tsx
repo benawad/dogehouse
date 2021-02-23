@@ -3,7 +3,6 @@ import { Modal } from "./Modal";
 import create from "zustand";
 import { combine } from "zustand/middleware";
 import { Button } from "./Button";
-import { tw } from "twind";
 import { Input } from "./Input";
 
 interface Props {}
@@ -38,7 +37,7 @@ export const PromptModal: React.FC<Props> = () => {
   const { onConfirm, message, close, value, set } = usePromptModalStore();
   return (
     <Modal isOpen={!!onConfirm} onRequestClose={() => close()}>
-      <div className={tw`mb-4`}>{message}</div>
+      <div className={`mb-4`}>{message}</div>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -51,16 +50,16 @@ export const PromptModal: React.FC<Props> = () => {
           value={value}
           onChange={(e) => set({ value: e.target.value })}
         />
-        <div className={tw`flex mt-12`}>
+        <div className={`flex mt-12`}>
           <Button
             type="button"
             onClick={close}
-            style={{ marginRight: 8 }}
+            className={`mr-0.5`}
             color="secondary"
           >
             cancel
           </Button>
-          <Button type="submit" style={{ marginLeft: 8 }}>
+          <Button type="submit" className={`ml-0.5`}>
             ok
           </Button>
         </div>

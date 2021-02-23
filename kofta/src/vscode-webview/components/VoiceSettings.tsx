@@ -1,6 +1,5 @@
 import { useAtom } from "jotai";
 import React, { useCallback, useEffect, useState } from "react";
-import { tw } from "twind";
 import { volumeAtom } from "../shared-atoms";
 import { useMicIdStore } from "../shared-stores";
 import { Button } from "./Button";
@@ -38,11 +37,10 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = () => {
 
   return (
     <>
-      <h1 className={tw`py-8 text-4xl`}>Voice Settings</h1>
-      <div className={tw`mb-2`}>mic: </div>
+      <div className={`mb-2`}>mic: </div>
       {devices.length ? (
         <select
-          className={tw`mb-4`}
+          className={`mb-4`}
           value={micId}
           onChange={(e) => setMicId(e.target.value)}
         >
@@ -53,7 +51,7 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = () => {
           ))}
         </select>
       ) : (
-        <div className={tw`mb-4`}>
+        <div className={`mb-4`}>
           no mics found, you either have none plugged in or haven't given this
           website permission.
         </div>
@@ -68,11 +66,11 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = () => {
           refresh mic list
         </Button>
       </div>
-      <div className={tw`mt-8 mb-2`}>volume: </div>
-      <div className={tw`mb-8`}>
+      <div className={`mt-8 mb-2`}>volume: </div>
+      <div className={`mb-8`}>
         <VolumeSlider volume={volume} onVolume={(n) => setVolume(n)} />
       </div>
-      <MuteKeybind className={tw`mb-4`} />
+      <MuteKeybind className={`mb-4`} />
       <PTTKeybind />
     </>
   );

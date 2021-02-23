@@ -1,7 +1,6 @@
 import { useAtom } from "jotai";
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import { tw } from "twind";
 import { wsend } from "../../createWebsocket";
 import { meAtom } from "../atoms";
 import { Backbar } from "../components/Backbar";
@@ -29,14 +28,14 @@ export const BanUsersPage: React.FC<SearchUsersProps> = ({}) => {
       <Backbar />
       <BodyWrapper>
         <input
-          className={tw`mb-8`}
+          className={`mb-8`}
           autoFocus
           placeholder="username to ban..."
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
-          className={tw`mb-16`}
+          className={`mb-16`}
           autoFocus
           placeholder="reason"
           value={reason}

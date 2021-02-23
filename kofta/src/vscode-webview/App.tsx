@@ -2,7 +2,6 @@ import { useAtom } from "jotai";
 import queryString from "query-string";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { QueryClientProvider } from "react-query";
-import { tw } from "twind";
 import { createWebSocket, wsend } from "../createWebsocket";
 import { useSocketStatus } from "../webrtc/stores/useSocketStatus";
 import { useVoiceStore } from "../webrtc/stores/useVoiceStore";
@@ -72,10 +71,7 @@ export const WebviewApp: React.FC<AppProps> = () => {
     return (
       <CenterLayout>
         <Wrapper>
-          <div
-            style={{ fontSize: "calc(var(--vscode-font-size)*1.2)" }}
-            className={tw`mb-4 mt-8`}
-          >
+          <div className={`mb-4 mt-8 text-xl`}>
             Your device is currently not supported. You can create an{" "}
             <RegularAnchor href="https://github.com/benawad/dogehouse/issues">
               issue on GitHub
@@ -91,10 +87,7 @@ export const WebviewApp: React.FC<AppProps> = () => {
     return (
       <CenterLayout>
         <Wrapper>
-          <div
-            style={{ fontSize: "calc(var(--vscode-font-size)*1.2)" }}
-            className={tw`mb-4 mt-8`}
-          >
+          <div className={`mb-4 mt-8 text-xl`}>
             Websocket was killed by the server. This usually happens when you
             open the website in another tab.
           </div>

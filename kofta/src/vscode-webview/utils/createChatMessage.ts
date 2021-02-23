@@ -1,4 +1,5 @@
 import { BaseUser } from "../types";
+// @ts-ignore
 import normalizeUrl from "normalize-url";
 
 export const createChatMessage = (message: string, mentions: BaseUser[]) => {
