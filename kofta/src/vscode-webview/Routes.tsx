@@ -23,7 +23,6 @@ import {
 } from "./modules/room-chat/useRoomChatStore";
 import { BanUsersPage } from "./pages/BanUsersPage";
 import { ChatSettingsPage } from "./pages/ChatSettingsPage";
-import { FollowingOnlineList } from "./pages/FollowingOnlineList";
 import { FollowListPage } from "./pages/FollowListPage";
 import { Home } from "./pages/Home";
 import { InviteList } from "./pages/InviteList";
@@ -400,10 +399,13 @@ export const Routes: React.FC<RoutesProps> = () => {
       <Route exact path="/ban/users" component={BanUsersPage} />
       <Route exact path="/voice-settings" component={VoiceSettingsPage} />
       <Route exact path="/chat-settings" component={ChatSettingsPage} />
-      <Route exact path="/following-online" component={FollowingOnlineList} />
       <Route
         exact
-        path={["/followers/:userId", "/following/:userId"]}
+        path={[
+          "/followers/:userId",
+          "/following/:userId",
+          "/following-status/:userId",
+        ]}
         component={FollowListPage}
       />
       <Route component={NotFoundPage} />

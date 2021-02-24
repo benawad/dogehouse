@@ -1,7 +1,7 @@
 import { useAtom } from "jotai";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { currentRoomAtom, publicRoomsAtom } from "../atoms";
+import { currentRoomAtom, meAtom, publicRoomsAtom } from "../atoms";
 import { RoomCard } from "../components/RoomCard";
 import { Wrapper } from "../components/Wrapper";
 import { BottomVoiceControl } from "../components/BottomVoiceControl";
@@ -23,6 +23,10 @@ export const Home: React.FC<HomeProps> = () => {
   const [{ publicRooms: rooms, nextCursor }] = useAtom(publicRoomsAtom);
   const [showCreateRoomModal, setShowCreateRoomModal] = useState(false);
 
+  const [me] = useAtom(meAtom);
+  const meRef = React.useRef(me);
+  meRef.current = me;
+
   useEffect(() => {
     if (rooms.length < 15) {
       wsend({ op: "get_top_public_rooms", d: { cursor: 0 } });
@@ -41,8 +45,15 @@ export const Home: React.FC<HomeProps> = () => {
             <div className={`mr-4`}>
               <CircleButton
                 onClick={() => {
-                  wsend({ op: "fetch_following_online", d: { cursor: 0 } });
-                  history.push("/following-online");
+                  wsend({
+                    op: `fetch_follow_list`,
+                    d: {
+                      isFollowing: true,
+                      userId: meRef.current?.id,
+                      cursor: 0,
+                    },
+                  });
+                  history.push("/following-status/" + meRef.current?.id);
                 }}
               >
                 <PeopleIcon width={30} height={30} fill="#fff" />
@@ -62,7 +73,7 @@ export const Home: React.FC<HomeProps> = () => {
               />
             </div>
           ) : null}
-          {__prod__ ? null :
+          {__prod__ ? null : (
             <RoomCard
               currentRoomId={undefined}
               onClick={() => alert("it's not a real room")}
@@ -73,15 +84,15 @@ export const Home: React.FC<HomeProps> = () => {
                 numPeopleInside: 1337,
                 creatorId: "-1",
                 peoplePreviewList: [
-                  {id: "-1", displayName: "person 1", numFollowers: 1337},
-                  {id: "-2", displayName: "person 2", numFollowers: 0},
-                ]
+                  { id: "-1", displayName: "person 1", numFollowers: 1337 },
+                  { id: "-2", displayName: "person 2", numFollowers: 0 },
+                ],
               }}
             />
-          }
+          )}
           {rooms.map((r) =>
             r.id === currentRoom?.id ? null : (
-              <div className={(`mt-4`)} key={r.id}>
+              <div className={`mt-4`} key={r.id}>
                 <RoomCard
                   onClick={() => {
                     wsend({ op: "join_room", d: { roomId: r.id } });
