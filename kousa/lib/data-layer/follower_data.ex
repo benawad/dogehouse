@@ -135,14 +135,15 @@ defmodule Kousa.Data.Follower do
     end
   end
 
-  # TODO: eliminate N+1 by setting up changesets
-  # in an idiomatic fashion.
   def insert(data) do
     %Beef.Follow{}
     |> Beef.Follow.insert_changeset(data)
     |> Beef.Repo.insert()
     |> case do
       {:ok, _} ->
+        # TODO: eliminate N+1 by setting up changesets
+        # in an idiomatic fashion.
+
         from(u in Beef.User,
           where: u.id == ^data.userId,
           update: [
