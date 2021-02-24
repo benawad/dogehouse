@@ -5,7 +5,7 @@ defmodule Kousa.MixProject do
     [
       app: :kousa,
       version: "0.1.0",
-      elixir: "~> 1.11",
+      elixir: "~> 1.9",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -60,5 +60,4 @@ defmodule Kousa.MixProject do
       test: ["ecto.create --quiet", "ecto.migrate", "test"]
     ]
   end
-
 end
