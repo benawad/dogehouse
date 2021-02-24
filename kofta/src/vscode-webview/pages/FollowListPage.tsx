@@ -42,7 +42,14 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
 
   return (
     <Wrapper>
-      <Backbar actuallyGoBack />
+      <Backbar actuallyGoBack>
+        {/* Title */}
+        {isFollowingStatus ? (
+          <h2 className="text-2xl font-xl mr-8 mb-0 text-center flex items-center justify-center flex-1">
+            people you follow
+          </h2>
+        ) : null}
+      </Backbar>
       <BodyWrapper>
         {/* No users found */}
         {!users.length ? <div>no users found</div> : null}
