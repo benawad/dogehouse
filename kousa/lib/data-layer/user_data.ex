@@ -3,7 +3,6 @@ defmodule Kousa.Data.User do
   alias Beef.{Repo, User}
 
   @fetch_limit 16
-
   def edit_profile(user_id, data) do
     %User{id: user_id}
     |> User.edit_changeset(data)

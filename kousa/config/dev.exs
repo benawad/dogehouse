@@ -8,6 +8,9 @@ database_url =
 
 config :kousa, Beef.Repo, url: database_url
 
+# TODO: remove system environment variables and make
+# dev deployment easier
+
 config :ueberauth, Ueberauth.Strategy.Github.OAuth,
   client_id:
     System.get_env("GITHUB_CLIENT_ID") ||
