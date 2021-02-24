@@ -8,6 +8,7 @@ export type Room = {
     id: string;
     displayName: string;
     numFollowers: number;
+    avatarUrl: string;
   }>;
 };
 export type BaseUser = {

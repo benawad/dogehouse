@@ -73,8 +73,8 @@ export const Home: React.FC<HomeProps> = () => {
                 numPeopleInside: 1337,
                 creatorId: "-1",
                 peoplePreviewList: [
-                  {id: "-1", displayName: "person 1", numFollowers: 1337},
-                  {id: "-2", displayName: "person 2", numFollowers: 0},
+                  {id: "-1", displayName: "person 1", numFollowers: 1337, avatarUrl: ""},
+                  {id: "-2", displayName: "person 2", numFollowers: 0, avatarUrl: ""},
                 ]
               }}
             />

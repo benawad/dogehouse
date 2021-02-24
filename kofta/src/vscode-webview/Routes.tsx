@@ -268,6 +268,7 @@ export const Routes: React.FC<RoutesProps> = () => {
                           id: user.id,
                           displayName: user.displayName,
                           numFollowers: user.numFollowers,
+                          avatarUrl: user.avatarUrl
                         },
                       ]
                     : cr.peoplePreviewList,
