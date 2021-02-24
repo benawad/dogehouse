@@ -4,6 +4,8 @@ database_url =
   System.get_env("DATABASE_URL") ||
     "postgres://postgres:postgres@localhost/kousa_repo2"
 
-config :kousa, Beef.Repo, url: database_url
+config :kousa, Beef.Repo,
+  url: database_url,
+  pool: Ecto.Adapters.SQL.Sandbox
 
 config :logger, level: :error
