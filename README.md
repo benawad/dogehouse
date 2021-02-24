@@ -23,7 +23,7 @@
 | dinner   | Puppeteer shenanigans |
 | baklava  |   Electron Wrapper    |
 | pilaf    |   React Native App    |
-| feta     |  Shared utils web/app |
+| feta     | Shared utils web/app  |
 
 ## Contributions
 
@@ -38,7 +38,3 @@ Please read [CODE_OF_CONDUCT.md](https://github.com/benawad/dogehouse/blob/maste
 ## How to run locally
 
 Check <a href="https://github.com/benawad/dogehouse/blob/master/CONTRIBUTING.md#local-development">here</a> on how to run locally</a>
-
-## Investors
-
-If you are interested in investing in DogeHouse or know someone I should talk to, send me an email at benawadapps@gmail.com or dm me on [Twitter](https://twitter.com/benawad).
