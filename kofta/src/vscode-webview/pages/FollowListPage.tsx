@@ -48,7 +48,7 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
         {!users.length ? <div>no users found</div> : null}
 
         {/* User status */}
-        {isFollowingStatus ? (
+        {isFollowingStatus && users.length ? (
           <div className="flex mb-5 text-lg">
             <button
               className={`mr-5  focus:outline-none ${
