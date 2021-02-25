@@ -51,9 +51,10 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
               onClick={() => {
                 setProfileId(m.userId);
                 setmessageToBeDeleted(
-                  me?.id === m.userId ||
+                  (me?.id === m.userId ||
                     iAmCreator ||
-                    (iAmMod && room?.creatorId !== m.userId && !m.deleted)
+                    (iAmMod && room?.creatorId !== m.userId)) &&
+                    !m.deleted
                     ? m
                     : null
                 );
