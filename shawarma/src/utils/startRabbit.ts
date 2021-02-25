@@ -61,6 +61,7 @@ export const startRabbit = async (handler: HandlerMap) => {
         // console.log(data.op);
         if (data && data.op && data.op in handler) {
           try {
+            console.log(data.op);
             await handler[data.op](data.d, data.uid, send, () => {
               console.log(data.op);
               send({

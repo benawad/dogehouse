@@ -43,7 +43,8 @@ defmodule Kousa.Gen.VoiceRabbit do
   end
 
   def handle_cast({:send, msg}, %State{chan: chan, id: id} = state) do
-    # IO.puts("SENDING TO RABBIT : ")
+    # @todo remove
+    IO.puts("SENDING TO RABBIT : ")
     AMQP.Basic.publish(chan, "", @send_queue <> id, msg)
     {:noreply, state}
   end
