@@ -1,11 +1,13 @@
 import { useAtom } from "jotai";
 import React, { useState } from "react";
+import { MoreVertical } from "react-feather";
 import { Avatar } from "../../components/Avatar";
 import { ProfileModalFetcher } from "./ProfileModalFetcher";
 import { useRoomChatStore } from "./useRoomChatStore";
 // @ts-ignore
 import normalizeUrl from "normalize-url";
-import { meAtom } from "../../atoms";
+import { meAtom, currentRoomAtom, myCurrentRoomInfoAtom } from "../../atoms";
+import { PopoverMenu, MenuItem } from "../../components/PopoverMenu";
 
 interface ChatListProps {}
 
@@ -13,6 +15,11 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
   const [profileId, setProfileId] = useState("");
   const messages = useRoomChatStore((s) => s.messages);
   const [me] = useAtom(meAtom);
+  const [room] = useAtom(currentRoomAtom);
+  const [{ isMod: iAmMod, isCreator: iAmCreator }] = useAtom(
+    myCurrentRoomInfoAtom
+  );
+  const [menuIconId, setMenuIconId] = useState("");
 
   return (
     <div
@@ -29,73 +36,95 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
       <div className={`pb-6`} />
       {messages.map((m) => (
         <div
-          className={`flex py-1 break-all items-start`}
+          className="flex items-center"
+          onMouseEnter={() => setMenuIconId(m.id)}
+          onMouseLeave={() => setMenuIconId("")}
           key={m.id}
         >
-          <span className={`pr-2`}>
-            <Avatar size={20} src={m.avatarUrl} />
-          </span>
+          <div className={`flex py-1 break-all items-start flex-1`} key={m.id}>
+            <span className={`pr-2`}>
+              <Avatar size={20} src={m.avatarUrl} />
+            </span>
 
-          <button
-            onClick={() => {
-              setProfileId(m.userId);
-            }}
-            className={`hover:underline focus:outline-none`}
-            style={{ textDecorationColor: m.color, color: m.color }}
-          >
-            {m.displayName}
-          </button>
+            <button
+              onClick={() => {
+                setProfileId(m.userId);
+              }}
+              className={`hover:underline focus:outline-none`}
+              style={{ textDecorationColor: m.color, color: m.color }}
+            >
+              {m.displayName}
+            </button>
 
-          <span className={`mr-1`}>: </span>
+            <span className={`mr-1`}>: </span>
 
-          {m.tokens.map(({ t, v }, i) => {
-            switch (t) {
-              case "text":
-                return (
-                  <span className={`flex-1 m-0`} key={i}>
-                    {v}
-                  </span>
-                );
+            {m.tokens.map(({ t, v }, i) => {
+              switch (t) {
+                case "text":
+                  return (
+                    <span className={`flex-1 m-0`} key={i}>
+                      {v}
+                    </span>
+                  );
 
-              case "mention":
-                return (
-                  <button
-                    onClick={() => {
-                      setProfileId(v);
-                    }}
-                    key={i}
-                    className={
-                      `hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
+                case "mention":
+                  return (
+                    <button
+                      onClick={() => {
+                        setProfileId(v);
+                      }}
+                      key={i}
+                      className={`hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
                         v === me?.username
                           ? "bg-simple-gray-fe text-white px-2 rounded text-md"
                           : ""
-                      }`
-                    }
-                    style={{
-                      textDecorationColor: m.color,
-                      color: v === me?.username ? "" : m.color,
-                    }}
-                  >
-                    @{v}{" "}
-                  </button>
-                );
+                      }`}
+                      style={{
+                        textDecorationColor: m.color,
+                        color: v === me?.username ? "" : m.color,
+                      }}
+                    >
+                      @{v}{" "}
+                    </button>
+                  );
 
-              case "link":
-                return (
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    href={v}
-                    className={`flex-1 hover:underline text-blue-500`}
-                    key={i}
-                  >
-                    {normalizeUrl(v, { stripProtocol: true })}{" "}
-                  </a>
-                );
-              default:
-                return null;
-            }
-          })}
+                case "link":
+                  return (
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href={v}
+                      className={`flex-1 hover:underline text-blue-500`}
+                      key={i}
+                    >
+                      {normalizeUrl(v, { stripProtocol: true })}{" "}
+                    </a>
+                  );
+                default:
+                  return null;
+              }
+            })}
+          </div>
+
+          {me?.id === m.userId ||
+          iAmCreator ||
+          (iAmMod && room?.creatorId !== m.userId) ? (
+            <PopoverMenu
+              trigger={
+                <MoreVertical
+                  size={15}
+                  className={`cursor-pointer ${
+                    menuIconId !== m.id ? "invisible" : "visible"
+                  }`}
+                />
+              }
+            >
+              <MenuItem>Delete</MenuItem>
+              {(iAmCreator || iAmMod) && me?.id !== m.userId ? (
+                <MenuItem>Delete all</MenuItem>
+              ) : null}
+            </PopoverMenu>
+          ) : null}
         </div>
       ))}
       {messages.length === 0 ? <div>Welcome to chat!</div> : null}
