@@ -16,7 +16,7 @@ interface ProfileModalProps {
   iAmCreator: boolean;
   iAmMod: boolean;
   room: CurrentRoom;
-  messageToDeleteId?: string;
+  messageToBeDelete?: string;
 }
 
 const customStyles = {
@@ -45,7 +45,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
   iAmCreator,
   iAmMod,
   room,
-  messageToDeleteId,
+  messageToBeDelete,
 }) => {
   const bannedUserIdMap = useRoomChatStore((s) => s.bannedUserIdMap);
   return (
@@ -224,14 +224,14 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
           ) : null}
 
           {/* Delete message */}
-          {messageToDeleteId ? (
+          {messageToBeDelete ? (
             <Button
               color="red"
               onClick={() => {
                 wsend({
                   op: "delete_room_chat_message",
                   d: {
-                    messageId: messageToDeleteId,
+                    messageId: messageToBeDelete,
                   },
                 });
 

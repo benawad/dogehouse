@@ -15,18 +15,18 @@ defmodule Kousa.BL.RoomChat do
 
         current_room_id ->
           with {avatar_url, display_name} <-
-                Gen.UserSession.send_call!(user_id, {:get_info_for_msg}) do
+                 Gen.UserSession.send_call!(user_id, {:get_info_for_msg}) do
             RegUtils.lookup_and_cast(
               Gen.RoomChat,
               current_room_id,
               {:new_msg, user_id,
-              %{
-                id: Ecto.UUID.generate(),
-                avatarUrl: avatar_url,
-                displayName: display_name,
-                userId: user_id,
-                tokens: tokens
-              }}
+               %{
+                 id: Ecto.UUID.generate(),
+                 avatarUrl: avatar_url,
+                 displayName: display_name,
+                 userId: user_id,
+                 tokens: tokens
+               }}
             )
           end
       end
@@ -60,7 +60,9 @@ defmodule Kousa.BL.RoomChat do
     validate_token/1 validates a token by type and return {:ok, token} if the token is valid
     otherwise return :invalid
   """
-  defp validate_token(token = %{"t" => type, "v" => _}) when type in ["text", "mention"], do: {:ok, token}
+  defp validate_token(token = %{"t" => type, "v" => _}) when type in ["text", "mention"],
+    do: {:ok, token}
+
   defp validate_token(token = %{"t" => "link", "v" => link}) do
     link
     |> URI.parse()
@@ -73,7 +75,9 @@ defmodule Kousa.BL.RoomChat do
 
   defp validate_token(_), do: :invalid
 
-  defp valid_url?(%URI{host: host, scheme: scheme}) when is_binary(host) and is_binary(scheme), do: true
+  defp valid_url?(%URI{host: host, scheme: scheme}) when is_binary(host) and is_binary(scheme),
+    do: true
+
   defp valid_url?(_), do: false
 
   def ban_user(user_id, user_id_to_ban) do
@@ -96,34 +100,35 @@ defmodule Kousa.BL.RoomChat do
   end
 
   # Delete room chat messages
-  def delete_message(user_id, message_id) do
-    case Data.User.get_current_room_id(user_id) do
-      nil ->
-        nil
-
-      current_room_id ->
+  def delete_message(deleter_id, message_id, user_id) do
+    case Kousa.Data.Room.get_room_status(deleter_id) do
+      {:creator, room} ->
         RegUtils.lookup_and_cast(
-            Gen.RoomChat,
-            current_room_id,
-            {:message_deleted, user_id,
-            message_id}
-          )
-    end
-  end
+          Gen.RoomChat,
+          room.id,
+          {:message_deleted, deleter_id, message_id}
+        )
 
-  # Delete all messages per user
-  def delete_messages(deleter_id, user_id) do
-    case Data.User.get_current_room_id(deleter_id) do
-      nil ->
+      {:mod, room} ->
+        if user_id != room.creatorId do
+          RegUtils.lookup_and_cast(
+            Gen.RoomChat,
+            room.id,
+            {:message_deleted, deleter_id, message_id}
+          )
+        end
+
+      {:listener, room} ->
+        if user_id == deleter_id do
+          RegUtils.lookup_and_cast(
+            Gen.RoomChat,
+            room.id,
+            {:message_deleted, deleter_id, message_id}
+          )
+        end
+
+      _ ->
         nil
-
-      current_room_id ->
-        RegUtils.lookup_and_cast(
-            Gen.RoomChat,
-            current_room_id,
-            {:messages_deleted, deleter_id,
-            user_id}
-          )
     end
   end
 end

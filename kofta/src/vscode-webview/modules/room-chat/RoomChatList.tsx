@@ -18,7 +18,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
   const [{ isMod: iAmMod, isCreator: iAmCreator }] = useAtom(
     myCurrentRoomInfoAtom
   );
-  const [messageToDeleteId, setMessageToDeleteId] = useState("");
+  const [messageToBeDelete, setmessageToBeDelete] = useState("");
 
   return (
     <div
@@ -27,7 +27,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
       {profileId ? (
         <ProfileModalFetcher
           userId={profileId}
-          messageToDeleteId={messageToDeleteId}
+          messageToBeDelete={messageToBeDelete}
           onClose={() => {
             setProfileId("");
           }}
@@ -52,7 +52,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                   iAmCreator ||
                   (iAmMod && room?.creatorId !== m.userId)
                 )
-                  setMessageToDeleteId(!m.deleted ? m.id : "");
+                  setmessageToBeDelete(!m.deleted ? m.id : "");
               }}
               className={`hover:underline focus:outline-none`}
               style={{ textDecorationColor: m.color, color: m.color }}

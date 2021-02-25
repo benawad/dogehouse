@@ -7,13 +7,14 @@ import { ProfileModal } from "../../components/ProfileModal";
 interface ProfileModalFetcherProps {
   userId: string;
   onClose: () => void;
-  messageToDeleteId?: string;
+  messageToBeDelete?: string;
+  messageToBeDeleteUserId?: string;
 }
 
 export const ProfileModalFetcher: React.FC<ProfileModalFetcherProps> = ({
   userId,
   onClose,
-  messageToDeleteId,
+  messageToBeDelete,
 }) => {
   const [room] = useAtom(currentRoomAtom);
   const [me] = useAtom(meAtom);
@@ -47,7 +48,7 @@ export const ProfileModalFetcher: React.FC<ProfileModalFetcherProps> = ({
       room={room}
       onClose={onClose}
       profile={profile}
-      messageToDeleteId={messageToDeleteId}
+      messageToBeDelete={messageToBeDelete}
     />
   );
 };
