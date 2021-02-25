@@ -162,9 +162,6 @@ defmodule Kousa.BL.Room do
         do: "join-as-speaker",
         else: "join-as-new-peer"
 
-    # @todo remove
-    IO.puts("sending to room: " <> room.voiceServerId)
-
     Kousa.Gen.VoiceRabbit.send(room.voiceServerId, %{
       op: op,
       d: %{roomId: room.id, peerId: user_id},
