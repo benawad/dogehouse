@@ -4,14 +4,16 @@ import { motion, AnimatePresence } from "framer-motion";
 
 interface PopoverMenuProps {
   trigger: React.ReactNode;
+  isOpen: boolean;
+  setOpen: (isOpen: boolean) => void;
 }
 
 export const PopoverMenu: React.FC<PopoverMenuProps> = ({
   children,
   trigger,
+  isOpen,
+  setOpen,
 }) => {
-  const [isOpen, setOpen] = React.useState(false);
-
   function close() {
     setOpen(false);
   }
@@ -30,7 +32,11 @@ export const PopoverMenu: React.FC<PopoverMenuProps> = ({
 
   return (
     <>
-      <button {...triggerProps} onClick={() => setOpen(!isOpen)}>
+      <button
+        className="focus:outline-none"
+        {...triggerProps}
+        onClick={() => setOpen(!isOpen)}
+      >
         {trigger}
       </button>
       {renderLayer(

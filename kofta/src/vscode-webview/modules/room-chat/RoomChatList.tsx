@@ -1,13 +1,13 @@
 import { useAtom } from "jotai";
 import React, { useState } from "react";
-import { MoreVertical } from "react-feather";
+
 import { Avatar } from "../../components/Avatar";
 import { ProfileModalFetcher } from "./ProfileModalFetcher";
 import { useRoomChatStore } from "./useRoomChatStore";
 // @ts-ignore
 import normalizeUrl from "normalize-url";
-import { meAtom, currentRoomAtom, myCurrentRoomInfoAtom } from "../../atoms";
-import { PopoverMenu, MenuItem } from "../../components/PopoverMenu";
+import { meAtom } from "../../atoms";
+import { RoomChatMessageMenu } from "./RoomChatMessageMenu";
 
 interface ChatListProps {}
 
@@ -15,10 +15,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
   const [profileId, setProfileId] = useState("");
   const messages = useRoomChatStore((s) => s.messages);
   const [me] = useAtom(meAtom);
-  const [room] = useAtom(currentRoomAtom);
-  const [{ isMod: iAmMod, isCreator: iAmCreator }] = useAtom(
-    myCurrentRoomInfoAtom
-  );
+
   const [menuIconId, setMenuIconId] = useState("");
 
   return (
@@ -106,25 +103,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
             })}
           </div>
 
-          {me?.id === m.userId ||
-          iAmCreator ||
-          (iAmMod && room?.creatorId !== m.userId) ? (
-            <PopoverMenu
-              trigger={
-                <MoreVertical
-                  size={15}
-                  className={`cursor-pointer ${
-                    menuIconId !== m.id ? "invisible" : "visible"
-                  }`}
-                />
-              }
-            >
-              <MenuItem>Delete</MenuItem>
-              {(iAmCreator || iAmMod) && me?.id !== m.userId ? (
-                <MenuItem>Delete all</MenuItem>
-              ) : null}
-            </PopoverMenu>
-          ) : null}
+          <RoomChatMessageMenu message={m} menuIconId={menuIconId} />
         </div>
       ))}
       {messages.length === 0 ? <div>Welcome to chat!</div> : null}
