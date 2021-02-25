@@ -272,8 +272,6 @@ async function main() {
         });
         return;
       }
-      // @todo remove
-      console.log("sending back", uid);
       send({
         op: `@connect-transport-${direction}-done`,
         platform: "web",

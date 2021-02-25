@@ -45,8 +45,6 @@ defmodule Kousa.Gen.VoiceRabbit do
   end
 
   def handle_cast({:send, msg}, %State{chan: chan, id: id} = state) do
-    # @todo remove
-    IO.puts("SENDING TO RABBIT : ")
     AMQP.Basic.publish(chan, "", @send_queue <> id, msg)
     {:noreply, state}
   end
@@ -70,9 +68,6 @@ defmodule Kousa.Gen.VoiceRabbit do
         %State{} = state
       ) do
     data = Poison.decode!(payload)
-    # @todo remove
-    IO.puts("GOT SOMETHING!")
-    IO.puts(payload)
 
     case data do
       %{"platform" => platform, "uid" => user_id} ->
@@ -82,10 +77,6 @@ defmodule Kousa.Gen.VoiceRabbit do
             "vscode" -> :vscode
             _ -> :all
           end
-
-        # @todo remove
-        IO.puts("RABBIT RESPONDED: " <> data["op"])
-        IO.puts("sending cast: " <> user_id)
 
         Kousa.Gen.UserSession.send_cast(
           user_id,
@@ -99,10 +90,6 @@ defmodule Kousa.Gen.VoiceRabbit do
             "vscode" -> :vscode
             _ -> :all
           end
-
-        # @todo remove
-        IO.puts("room RABBIT RESPONDED: " <> data["op"])
-        IO.puts("room sending cast: " <> room_id)
 
         # IO.puts("RABBIT RESPONDED: " <> data["op"])
 

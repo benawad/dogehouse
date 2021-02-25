@@ -61,9 +61,6 @@ defmodule Kousa.Gen.VoiceOnlineRabbit do
         %State{} = state
       ) do
     data = Poison.decode!(payload)
-    # @todo remove
-    IO.puts("online GOT SOMETHING!")
-    IO.puts(payload)
 
     case data do
       %{"op" => "online"} ->

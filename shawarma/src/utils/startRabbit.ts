@@ -24,10 +24,7 @@ export type HandlerMap = Record<
   ) => void
 >;
 
-export let send = (_obj: any) => {
-  // @todo remove
-  console.log("default send called??");
-};
+export let send = (_obj: any) => {};
 
 export const startRabbit = async (handler: HandlerMap) => {
   console.log(
@@ -50,12 +47,7 @@ export const startRabbit = async (handler: HandlerMap) => {
     channel.assertQueue(onlineQueue),
   ]);
   send = (obj: any) => {
-    // @todo remove
-    console.log("sending back: ", obj);
-    // @todo remove
-    console.log(
-      channel.sendToQueue(sendQueue, Buffer.from(JSON.stringify(obj)))
-    );
+    channel.sendToQueue(sendQueue, Buffer.from(JSON.stringify(obj)));
   };
   await channel.purgeQueue(receiveQueue);
   await channel.consume(
