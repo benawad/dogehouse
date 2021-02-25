@@ -21,7 +21,7 @@ export const FollowingOnlineList: React.FC<FriendListProps> = () => {
       <Backbar />
       <BodyWrapper>
         <div className={`mb-4 text-2xl`}>
-          List of users online that are not in a private room and you follow.
+          List of users that are not in a private room and you follow.
         </div>
         {users.length === 0 ? <div>no users found</div> : null}
         {users.map((u) => (
