@@ -99,6 +99,10 @@ defmodule Kousa.GitHubAuth do
       else
         IO.inspect(conn)
         base_url = get_base_url(conn)
+        IO.puts("before")
+        IO.inspect(base_url)
+        IO.puts(base_url)
+        IO.puts("HERE")
 
         conn
         |> Kousa.Redirect.redirect(
