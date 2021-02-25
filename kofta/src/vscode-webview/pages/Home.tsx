@@ -13,7 +13,6 @@ import { ProfileButton } from "../components/ProfileButton";
 import { PeopleIcon } from "../svgs/PeopleIcon";
 import { CircleButton } from "../components/CircleButton";
 import { BodyWrapper } from "../components/BodyWrapper";
-import { __prod__ } from "../constants";
 
 interface HomeProps {}
 
