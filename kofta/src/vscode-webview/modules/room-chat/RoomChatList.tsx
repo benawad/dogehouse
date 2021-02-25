@@ -55,55 +55,61 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 
             <span className={`mr-1`}>: </span>
 
-            {m.tokens.map(({ t, v }, i) => {
-              switch (t) {
-                case "text":
-                  return (
-                    <span className={`flex-1 m-0`} key={i}>
-                      {v}
-                    </span>
-                  );
+            {m.deleted ? (
+              <span className="text-gray-500">[message deleted]</span>
+            ) : (
+              m.tokens.map(({ t, v }, i) => {
+                switch (t) {
+                  case "text":
+                    return (
+                      <span className={`flex-1 m-0`} key={i}>
+                        {v}
+                      </span>
+                    );
 
-                case "mention":
-                  return (
-                    <button
-                      onClick={() => {
-                        setProfileId(v);
-                      }}
-                      key={i}
-                      className={`hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
-                        v === me?.username
-                          ? "bg-simple-gray-fe text-white px-2 rounded text-md"
-                          : ""
-                      }`}
-                      style={{
-                        textDecorationColor: m.color,
-                        color: v === me?.username ? "" : m.color,
-                      }}
-                    >
-                      @{v}{" "}
-                    </button>
-                  );
+                  case "mention":
+                    return (
+                      <button
+                        onClick={() => {
+                          setProfileId(v);
+                        }}
+                        key={i}
+                        className={`hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
+                          v === me?.username
+                            ? "bg-simple-gray-fe text-white px-2 rounded text-md"
+                            : ""
+                        }`}
+                        style={{
+                          textDecorationColor: m.color,
+                          color: v === me?.username ? "" : m.color,
+                        }}
+                      >
+                        @{v}{" "}
+                      </button>
+                    );
 
-                case "link":
-                  return (
-                    <a
-                      target="_blank"
-                      rel="noreferrer"
-                      href={v}
-                      className={`flex-1 hover:underline text-blue-500`}
-                      key={i}
-                    >
-                      {normalizeUrl(v, { stripProtocol: true })}{" "}
-                    </a>
-                  );
-                default:
-                  return null;
-              }
-            })}
+                  case "link":
+                    return (
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href={v}
+                        className={`flex-1 hover:underline text-blue-500`}
+                        key={i}
+                      >
+                        {normalizeUrl(v, { stripProtocol: true })}{" "}
+                      </a>
+                    );
+                  default:
+                    return null;
+                }
+              })
+            )}
           </div>
 
-          <RoomChatMessageMenu message={m} menuIconId={menuIconId} />
+          {!m.deleted ? (
+            <RoomChatMessageMenu message={m} menuIconId={menuIconId} />
+          ) : null}
         </div>
       ))}
       {messages.length === 0 ? <div>Welcome to chat!</div> : null}

@@ -87,7 +87,7 @@ export const Routes: React.FC<RoutesProps> = () => {
         setMessages(
           messages.map((m) => ({
             ...m,
-            deleted: m.id === messageId,
+            deleted: m.id === messageId || !!m.deleted,
           }))
         );
       },
