@@ -28,12 +28,9 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
       ) : null}
       <div className={`pb-6`} />
       {messages.map((m) => (
-        <div
-          className={`flex py-1 break-all items-start`}
-          key={m.id}
-        >
-          <span className={`pr-2`}>
-            <Avatar size={20} src={m.avatarUrl} />
+        <div className={`py-1 block break-words`} key={m.id}>
+          <span className={`pr-2 inline`}>
+            <Avatar size={20} src={m.avatarUrl} className="inline" />
           </span>
 
           <button
@@ -45,7 +42,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
           >
             {m.displayName}
           </button>
-
           <span className={`mr-1`}>: </span>
 
           {m.tokens.map(({ t, v }, i) => {
@@ -64,13 +60,11 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                       setProfileId(v);
                     }}
                     key={i}
-                    className={
-                      `hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
-                        v === me?.username
-                          ? "bg-simple-gray-fe text-white px-2 rounded text-md"
-                          : ""
-                      }`
-                    }
+                    className={`hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
+                      v === me?.username
+                        ? "bg-blue-500 text-white px-2 rounded text-md"
+                        : ""
+                    }`}
                     style={{
                       textDecorationColor: m.color,
                       color: v === me?.username ? "" : m.color,
