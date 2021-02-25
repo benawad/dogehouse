@@ -35,7 +35,7 @@ defmodule Kousa.Data.Follower do
         left_join: cr in Beef.Room,
         on: u.currentRoomId == cr.id,
         where:
-          f.followerId == ^user_id and u.online == true and
+          f.followerId == ^user_id and
             (is_nil(cr.isPrivate) or
                (cr.isPrivate == false and cr.numPeopleInside < ^max_room_size)),
         select: %{u | currentRoom: cr, followsYou: not is_nil(f2.userId)},
