@@ -16,6 +16,7 @@ interface ProfileModalProps {
   iAmCreator: boolean;
   iAmMod: boolean;
   room: CurrentRoom;
+  messageToDeleteId?: string;
 }
 
 const customStyles = {
@@ -44,6 +45,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
   iAmCreator,
   iAmMod,
   room,
+  messageToDeleteId,
 }) => {
   const bannedUserIdMap = useRoomChatStore((s) => s.bannedUserIdMap);
   return (
@@ -88,12 +90,18 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
               </div>
             ) : null}
           </div>
+
+          {/* Profile */}
           <UserProfile profile={profile} />
+
+          {/* User volume */}
           {!isMe && profile.roomPermissions?.isSpeaker ? (
             <div className={`mb-4`}>
               <UserVolumeSlider userId={profile.id} />
             </div>
           ) : null}
+
+          {/* Make mod button */}
           {!isMe && iAmCreator ? (
             <>
               <div className={`mb-4`}>
@@ -114,6 +122,8 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
               </div>
             </>
           ) : null}
+
+          {/* Add speaker button */}
           {!isMe && (iAmCreator || iAmMod) && profile.id !== room.creatorId ? (
             <>
               {!profile.roomPermissions?.isSpeaker &&
@@ -134,6 +144,8 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                   </Button>
                 </div>
               ) : null}
+
+              {/* Set listener */}
               {profile.roomPermissions?.isSpeaker ? (
                 <div className={`mb-4`}>
                   <Button
@@ -151,6 +163,8 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                   </Button>
                 </div>
               ) : null}
+
+              {/* Ban from chat */}
               {!(profile.id in bannedUserIdMap) ? (
                 <div className={`mb-4`}>
                   <Button
@@ -168,7 +182,9 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                   </Button>
                 </div>
               ) : null}
-              <div>
+
+              {/* Block from room */}
+              <div className="mb-4">
                 <Button
                   onClick={() => {
                     onClose();
@@ -185,6 +201,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
               </div>
             </>
           ) : null}
+
           {isMe &&
           !iAmCreator &&
           (profile.roomPermissions?.askedToSpeak ||
@@ -204,6 +221,25 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                 go back to listener
               </Button>
             </div>
+          ) : null}
+
+          {/* Delete message */}
+          {messageToDeleteId ? (
+            <Button
+              color="red"
+              onClick={() => {
+                wsend({
+                  op: "delete_room_chat_message",
+                  d: {
+                    messageId: messageToDeleteId,
+                  },
+                });
+
+                !onClose || onClose();
+              }}
+            >
+              delete this message
+            </Button>
           ) : null}
         </>
       ) : null}

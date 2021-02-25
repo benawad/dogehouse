@@ -7,18 +7,20 @@ import { ProfileModal } from "../../components/ProfileModal";
 interface ProfileModalFetcherProps {
   userId: string;
   onClose: () => void;
+  messageToDeleteId?: string;
 }
 
 export const ProfileModalFetcher: React.FC<ProfileModalFetcherProps> = ({
   userId,
   onClose,
+  messageToDeleteId,
 }) => {
   const [room] = useAtom(currentRoomAtom);
   const [me] = useAtom(meAtom);
   const [{ isMod: iAmMod, isCreator: iAmCreator }] = useAtom(
-    myCurrentRoomInfoAtom,
+    myCurrentRoomInfoAtom
   );
-  const profile = room?.users.find(x => [x.id, x.username].includes(userId));
+  const profile = room?.users.find((x) => [x.id, x.username].includes(userId));
 
   useLayoutEffect(() => {
     if (
@@ -45,6 +47,7 @@ export const ProfileModalFetcher: React.FC<ProfileModalFetcherProps> = ({
       room={room}
       onClose={onClose}
       profile={profile}
+      messageToDeleteId={messageToDeleteId}
     />
   );
 };

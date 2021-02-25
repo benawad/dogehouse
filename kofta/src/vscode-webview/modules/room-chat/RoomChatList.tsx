@@ -6,8 +6,7 @@ import { ProfileModalFetcher } from "./ProfileModalFetcher";
 import { useRoomChatStore } from "./useRoomChatStore";
 // @ts-ignore
 import normalizeUrl from "normalize-url";
-import { meAtom } from "../../atoms";
-import { RoomChatMessageMenu } from "./RoomChatMessageMenu";
+import { meAtom, currentRoomAtom, myCurrentRoomInfoAtom } from "../../atoms";
 
 interface ChatListProps {}
 
@@ -15,8 +14,11 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
   const [profileId, setProfileId] = useState("");
   const messages = useRoomChatStore((s) => s.messages);
   const [me] = useAtom(meAtom);
-
-  const [menuIconId, setMenuIconId] = useState("");
+  const [room] = useAtom(currentRoomAtom);
+  const [{ isMod: iAmMod, isCreator: iAmCreator }] = useAtom(
+    myCurrentRoomInfoAtom
+  );
+  const [messageToDeleteId, setMessageToDeleteId] = useState("");
 
   return (
     <div
@@ -25,6 +27,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
       {profileId ? (
         <ProfileModalFetcher
           userId={profileId}
+          messageToDeleteId={messageToDeleteId}
           onClose={() => {
             setProfileId("");
           }}
@@ -32,12 +35,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
       ) : null}
       <div className={`pb-6`} />
       {messages.map((m) => (
-        <div
-          className="flex items-center"
-          onMouseEnter={() => setMenuIconId(m.id)}
-          onMouseLeave={() => setMenuIconId("")}
-          key={m.id}
-        >
+        <div className="flex items-center" key={m.id}>
           <div
             className={`flex py-1 break-words items-start flex-1`}
             key={m.id}
@@ -49,6 +47,12 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
             <button
               onClick={() => {
                 setProfileId(m.userId);
+                if (
+                  me?.id === m.userId ||
+                  iAmCreator ||
+                  (iAmMod && room?.creatorId !== m.userId)
+                )
+                  setMessageToDeleteId(!m.deleted ? m.id : "");
               }}
               className={`hover:underline focus:outline-none`}
               style={{ textDecorationColor: m.color, color: m.color }}
@@ -110,9 +114,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
               })
             )}
           </div>
-          {!m.deleted ? (
-            <RoomChatMessageMenu message={m} menuIconId={menuIconId} />
-          ) : null}
         </div>
       ))}
       {messages.length === 0 ? <div>Welcome to chat!</div> : null}
