@@ -89,7 +89,8 @@ defmodule Kousa.Gen.RoomChat do
       ws_fan(state.users, :chat, %{
         op: "message_deleted",
         d: %{
-          messageId: message_id
+          messageId: message_id,
+          deleterId: user_id
         }
       })
 

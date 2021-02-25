@@ -56,7 +56,9 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
             <span className={`mr-1`}>: </span>
 
             {m.deleted ? (
-              <span className="text-gray-500">[message deleted]</span>
+              <span className="text-gray-500">
+                [message {m.deleterId === m.userId ? "retracted" : "deleted"}]
+              </span>
             ) : (
               m.tokens.map(({ t, v }, i) => {
                 switch (t) {

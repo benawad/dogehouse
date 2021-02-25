@@ -82,12 +82,13 @@ export const Routes: React.FC<RoutesProps> = () => {
           useRoomChatMentionStore.getState().incrementIAmMentioned();
         }
       },
-      message_deleted({ messageId }) {
+      message_deleted({ messageId, deleterId }) {
         const { messages, setMessages } = useRoomChatStore.getState();
         setMessages(
           messages.map((m) => ({
             ...m,
             deleted: m.id === messageId || !!m.deleted,
+            deleterId: m.id === messageId ? deleterId : m.deleterId,
           }))
         );
       },
