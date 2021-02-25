@@ -97,9 +97,12 @@ defmodule Kousa.GitHubAuth do
             )
         )
       else
+        IO.inspect(conn)
+        base_url = get_base_url(conn)
+
         conn
         |> Kousa.Redirect.redirect(
-          get_base_url(conn) <>
+          base_url <>
             "/?accessToken=" <>
             Kousa.AccessToken.generate_and_sign!(%{"userId" => db_user.id}) <>
             "&refreshToken=" <>
