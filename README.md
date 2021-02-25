@@ -29,12 +29,12 @@
 
 DogeHouse is open to contributions, but I recommend creating an issue or replying in a comment to let me know what you are working on first that way we don't overwrite each other.
 
-Please read [CONTRIBUTING.md](https://github.com/benawad/dogehouse/blob/master/CONTRIBUTING.md) for details on this project.
+Please read [CONTRIBUTING.md](https://github.com/benawad/dogehouse/blob/staging/CONTRIBUTING.md) for details on this project.
 
 ## Code of Conduct
 
-Please read [CODE_OF_CONDUCT.md](https://github.com/benawad/dogehouse/blob/master/CODE_OF_CONDUCT.md) for details on our code of conduct.
+Please read [CODE_OF_CONDUCT.md](https://github.com/benawad/dogehouse/blob/staging/CODE_OF_CONDUCT.md) for details on our code of conduct.
 
 ## How to run locally
 
-Check <a href="https://github.com/benawad/dogehouse/blob/master/CONTRIBUTING.md#local-development">here</a> on how to run locally</a>
+Check <a href="https://github.com/benawad/dogehouse/blob/staging/CONTRIBUTING.md#quickstart-local-frontend-development">here</a> on how to run locally</a>

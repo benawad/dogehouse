@@ -38,9 +38,12 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
           onMouseLeave={() => setMenuIconId("")}
           key={m.id}
         >
-          <div className={`flex py-1 break-all items-start flex-1`} key={m.id}>
+          <div
+            className={`flex py-1 break-words items-start flex-1`}
+            key={m.id}
+          >
             <span className={`pr-2`}>
-              <Avatar size={20} src={m.avatarUrl} />
+              <Avatar size={20} src={m.avatarUrl} className="inline" />
             </span>
 
             <button
@@ -78,7 +81,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                         key={i}
                         className={`hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
                           v === me?.username
-                            ? "bg-simple-gray-fe text-white px-2 rounded text-md"
+                            ? "bg-blue-500 text-white px-2 rounded text-md"
                             : ""
                         }`}
                         style={{
@@ -89,7 +92,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                         @{v}{" "}
                       </button>
                     );
-
                   case "link":
                     return (
                       <a
@@ -108,7 +110,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
               })
             )}
           </div>
-
           {!m.deleted ? (
             <RoomChatMessageMenu message={m} menuIconId={menuIconId} />
           ) : null}

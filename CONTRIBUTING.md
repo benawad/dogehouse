@@ -17,9 +17,18 @@ All changes happen through pull requests, Pull requests are the best way to prop
 2. If you've added code that should be tested, add some tests' example.
 3. Ensure to describe your pull request.
 
-## Local Development
+## Quickstart Local Frontend Development
+
+Do this if you only want to do React stuff and don't want to touch Elixir:
+
+Navigate to `/kofta`
+
+Run `npm i` and then `npm start:staging` (this tells React to connect to a hosted version of the backend for development purposes).
+
+## Full Local Development
 How to run locally
-### Back-end
+
+### Backend
 #### RabbitMQ
 Install RabbitMQ:
 - **macOS**: Run `brew install rabbitmq`
@@ -99,7 +108,7 @@ WEBRTC_LISTEN_IP=127.0.0.1
 
 Then run `npm run build` and `npm start`.
 
-### Front-end
+### Frontend
 
 #### `kofta`
 Navigate to `/kofta` and create an `.env` file based on `.env.example`.

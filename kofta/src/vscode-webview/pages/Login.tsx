@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Button } from "../components/Button";
 import { Footer } from "../components/Footer";
 import { Wrapper } from "../components/Wrapper";
-import { apiBaseUrl } from "../constants";
+import { apiBaseUrl, __prod__, __staging__ } from "../constants";
 import { Logo } from "../svgs/Logo";
 import { useTokenStore } from "../utils/useTokenStore";
 import qs from "query-string";
@@ -58,7 +58,7 @@ export const Login: React.FC<LoginProps> = () => {
                 (window.location.href =
                   apiBaseUrl +
                   "/auth/github/web" +
-                  (process.env.REACT_APP_IS_STAGING === "true"
+                  (__staging__
                     ? "?redirect_after_base=" + window.location.origin
                     : ""))
               }
@@ -69,24 +69,26 @@ export const Login: React.FC<LoginProps> = () => {
               </span>
             </Button>
           </div>
-          <Button
-            variant="slim"
-            style={{ backgroundColor: "#0C84CF" }}
-            onClick={() =>
-              (window.location.href =
-                apiBaseUrl +
-                "/auth/twitter/web" +
-                (process.env.REACT_APP_IS_STAGING === "true"
-                  ? "?redirect_after_base=" + window.location.origin
-                  : ""))
-            }
-          >
-            <span className={`inline-flex items-center`}>
-              <TwitterIcon className={`h-6 w-6`} />
-              <p className={`ml-3`}>login with Twitter</p>
-            </span>
-          </Button>
-          {process.env.NODE_ENV === "development" ? (
+          {!__staging__ ? (
+            <Button
+              variant="slim"
+              style={{ backgroundColor: "#0C84CF" }}
+              onClick={() =>
+                (window.location.href =
+                  apiBaseUrl +
+                  "/auth/twitter/web" +
+                  (process.env.REACT_APP_IS_STAGING === "true"
+                    ? "?redirect_after_base=" + window.location.origin
+                    : ""))
+              }
+            >
+              <span className={`inline-flex items-center`}>
+                <TwitterIcon className={`h-6 w-6`} />
+                <p className={`ml-3`}>login with Twitter</p>
+              </span>
+            </Button>
+          ) : null}
+          {!__prod__ ? (
             <Button
               variant="slim"
               className={`m-8`}
