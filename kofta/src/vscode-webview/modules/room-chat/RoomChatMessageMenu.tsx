@@ -31,6 +31,15 @@ export const RoomChatMessageMenu: React.FC<RoomChatMessageMenuProps> = ({
     });
   }
 
+  function deleteMessages() {
+    wsend({
+      op: "delete_room_chat_messages",
+      d: {
+        userId: message.userId,
+      },
+    });
+  }
+
   return me?.id === message.userId ||
     iAmCreator ||
     (iAmMod && room?.creatorId !== message.userId) ? (
@@ -48,7 +57,7 @@ export const RoomChatMessageMenu: React.FC<RoomChatMessageMenuProps> = ({
     >
       <MenuItem onClick={deleteMessage}>Delete</MenuItem>
       {(iAmCreator || iAmMod) && me?.id !== message.userId ? (
-        <MenuItem>Delete all</MenuItem>
+        <MenuItem onClick={deleteMessages}>Delete all</MenuItem>
       ) : null}
     </PopoverMenu>
   ) : null;

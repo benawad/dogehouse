@@ -412,6 +412,11 @@ defmodule Kousa.SocketHandler do
     {:ok, state}
   end
 
+  def handler("delete_room_chat_messages", %{"userId" => user_id}, state) do
+    Kousa.BL.RoomChat.delete_messages(state.user_id, user_id)
+    {:ok, state}
+  end
+
   def handler("follow", %{"userId" => userId, "value" => value}, state) do
     Kousa.BL.Follow.follow(state.user_id, userId, value)
     {:ok, state}

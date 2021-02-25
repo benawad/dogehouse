@@ -110,4 +110,20 @@ defmodule Kousa.BL.RoomChat do
           )
     end
   end
+
+  # Delete all messages per user
+  def delete_messages(deleter_id, user_id) do
+    case Data.User.get_current_room_id(deleter_id) do
+      nil ->
+        nil
+
+      current_room_id ->
+        RegUtils.lookup_and_cast(
+            Gen.RoomChat,
+            current_room_id,
+            {:messages_deleted, deleter_id,
+            user_id}
+          )
+    end
+  end
 end
