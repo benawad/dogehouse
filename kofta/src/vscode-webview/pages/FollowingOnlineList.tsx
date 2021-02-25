@@ -43,7 +43,9 @@ export const FollowingOnlineList: React.FC<FriendListProps> = () => {
               }}
               className={`ml-4 flex-1 text-left`}
             >
-              <div className={`text-lg`}>{u.displayName}</div>
+              <div className={`text-lg`}>
+                {u.displayName || "@" + u.username}
+              </div>
               <div style={{ color: "" }}>
                 {u.currentRoom ? (
                   <span>
