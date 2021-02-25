@@ -28,7 +28,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
       ) : null}
       <div className={`pb-6`} />
       {messages.map((m) => (
-        <div className={`py-1 block break-all`} key={m.id}>
+        <div className={`py-1 block break-words`} key={m.id}>
           <span className={`pr-2 inline`}>
             <Avatar size={20} src={m.avatarUrl} className="inline" />
           </span>
