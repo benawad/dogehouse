@@ -21,7 +21,7 @@ export const Avatar: React.FC<AvatarProps> = ({
 }) => {
   const [error, setError] = useState(false);
   return (
-    <div className="relative">
+    <div className="relative inline-block">
       <img
         alt="avatar"
         onError={() => setError(true)}
