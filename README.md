@@ -37,4 +37,4 @@ Please read [CODE_OF_CONDUCT.md](https://github.com/benawad/dogehouse/blob/maste
 
 ## How to run locally
 
-Check <a href="https://github.com/benawad/dogehouse/blob/master/CONTRIBUTING.md#local-development">here</a> on how to run locally</a>
+Check <a href="https://github.com/benawad/dogehouse/blob/master/CONTRIBUTING.md#quickstart-local-frontend-development">here</a> on how to run locally</a>
