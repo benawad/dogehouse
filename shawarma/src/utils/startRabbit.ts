@@ -9,7 +9,7 @@ export type HandlerMap = Record<
     send: (
       d: {
         op: string;
-        platform: "web" | "vscode" | "all";
+        platform: "all" | "web" | "vscode";
         d: any;
       } & (
         | {
