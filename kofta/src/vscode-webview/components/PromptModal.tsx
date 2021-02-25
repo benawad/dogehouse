@@ -54,12 +54,12 @@ export const PromptModal: React.FC<Props> = () => {
           <Button
             type="button"
             onClick={close}
-            className={`mr-0.5`}
+            className={`mr-3`}
             color="secondary"
           >
             cancel
           </Button>
-          <Button type="submit" className={`ml-0.5`}>
+          <Button type="submit" className={`ml-3`}>
             ok
           </Button>
         </div>
