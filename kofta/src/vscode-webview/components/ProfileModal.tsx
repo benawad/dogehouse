@@ -1,7 +1,10 @@
 import React from "react";
 import ReactModal from "react-modal";
 import { wsend } from "../../createWebsocket";
-import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
+import {
+  RoomChatMessage,
+  useRoomChatStore,
+} from "../modules/room-chat/useRoomChatStore";
 import { Codicon } from "../svgs/Codicon";
 import { CurrentRoom, RoomUser } from "../types";
 import { Button } from "./Button";
@@ -16,7 +19,7 @@ interface ProfileModalProps {
   iAmCreator: boolean;
   iAmMod: boolean;
   room: CurrentRoom;
-  messageToBeDelete?: string;
+  messageToBeDeleted?: RoomChatMessage | null;
 }
 
 const customStyles = {
@@ -45,7 +48,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
   iAmCreator,
   iAmMod,
   room,
-  messageToBeDelete,
+  messageToBeDeleted,
 }) => {
   const bannedUserIdMap = useRoomChatStore((s) => s.bannedUserIdMap);
   return (
@@ -224,14 +227,15 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
           ) : null}
 
           {/* Delete message */}
-          {messageToBeDelete ? (
+          {messageToBeDeleted ? (
             <Button
               color="red"
               onClick={() => {
                 wsend({
                   op: "delete_room_chat_message",
                   d: {
-                    messageId: messageToBeDelete,
+                    messageId: messageToBeDeleted.id,
+                    userId: messageToBeDeleted.userId,
                   },
                 });
 

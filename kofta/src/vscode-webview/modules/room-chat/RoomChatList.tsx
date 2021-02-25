@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 import { Avatar } from "../../components/Avatar";
 import { ProfileModalFetcher } from "./ProfileModalFetcher";
-import { useRoomChatStore } from "./useRoomChatStore";
+import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
 // @ts-ignore
 import normalizeUrl from "normalize-url";
 import { meAtom, currentRoomAtom, myCurrentRoomInfoAtom } from "../../atoms";
@@ -18,7 +18,10 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
   const [{ isMod: iAmMod, isCreator: iAmCreator }] = useAtom(
     myCurrentRoomInfoAtom
   );
-  const [messageToBeDelete, setmessageToBeDelete] = useState("");
+  const [
+    messageToBeDeleted,
+    setmessageToBeDeleted,
+  ] = useState<RoomChatMessage | null>(null);
 
   return (
     <div
@@ -27,7 +30,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
       {profileId ? (
         <ProfileModalFetcher
           userId={profileId}
-          messageToBeDelete={messageToBeDelete}
+          messageToBeDeleted={messageToBeDeleted}
           onClose={() => {
             setProfileId("");
           }}
@@ -52,7 +55,8 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                   iAmCreator ||
                   (iAmMod && room?.creatorId !== m.userId)
                 )
-                  setmessageToBeDelete(!m.deleted ? m.id : "");
+                  setmessageToBeDeleted(!m.deleted ? m : null);
+                else setmessageToBeDeleted(null);
               }}
               className={`hover:underline focus:outline-none`}
               style={{ textDecorationColor: m.color, color: m.color }}

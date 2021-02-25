@@ -3,18 +3,18 @@ import React, { useLayoutEffect } from "react";
 import { wsend } from "../../../createWebsocket";
 import { currentRoomAtom, meAtom, myCurrentRoomInfoAtom } from "../../atoms";
 import { ProfileModal } from "../../components/ProfileModal";
+import { RoomChatMessage } from "./useRoomChatStore";
 
 interface ProfileModalFetcherProps {
   userId: string;
   onClose: () => void;
-  messageToBeDelete?: string;
-  messageToBeDeleteUserId?: string;
+  messageToBeDeleted?: RoomChatMessage | null;
 }
 
 export const ProfileModalFetcher: React.FC<ProfileModalFetcherProps> = ({
   userId,
   onClose,
-  messageToBeDelete,
+  messageToBeDeleted,
 }) => {
   const [room] = useAtom(currentRoomAtom);
   const [me] = useAtom(meAtom);
@@ -48,7 +48,7 @@ export const ProfileModalFetcher: React.FC<ProfileModalFetcherProps> = ({
       room={room}
       onClose={onClose}
       profile={profile}
-      messageToBeDelete={messageToBeDelete}
+      messageToBeDeleted={messageToBeDeleted}
     />
   );
 };

@@ -101,6 +101,7 @@ defmodule Kousa.BL.RoomChat do
 
   # Delete room chat messages
   def delete_message(deleter_id, message_id, user_id) do
+
     case Kousa.Data.Room.get_room_status(deleter_id) do
       {:creator, room} ->
         RegUtils.lookup_and_cast(
