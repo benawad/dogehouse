@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import React, { useState } from "react";
+import React from "react";
 import { useHistory, useLocation, useRouteMatch } from "react-router-dom";
 import { wsend } from "../../createWebsocket";
 import {
@@ -27,10 +27,8 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
   const [me, setMe] = useAtom(meAtom);
   const [, setRoom] = useAtom(currentRoomAtom);
   const history = useHistory();
-  const [activeTab, setActiveTab] = useState("online");
 
   const isFollowing = pathname.includes("/following");
-  const isFollowingStatus = pathname.includes("/following-status");
 
   const users = isFollowing
     ? followingMap[userId]?.users || []
@@ -44,95 +42,69 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
     <Wrapper>
       <Backbar actuallyGoBack>
         {/* Title */}
-        {isFollowingStatus ? (
-          <h2 className="text-2xl font-xl mr-8 mb-0 text-center flex items-center justify-center flex-1">
-            people you follow
-          </h2>
-        ) : null}
+        <h2 className="text-2xl font-xl mr-8 mb-0 text-center flex items-center justify-center flex-1">
+          {isFollowing ? "people you follow" : "your followers"}
+        </h2>
       </Backbar>
       <BodyWrapper>
         {/* No users found */}
         {!users.length ? <div>no users found</div> : null}
 
-        {/* User status */}
-        {isFollowingStatus && users.length ? (
-          <div className="flex mb-5 text-lg">
-            <button
-              className={`mr-5  focus:outline-none ${
-                activeTab === "online" ? "text-white-500" : "text-gray-500"
-              }`}
-              onClick={() => setActiveTab("online")}
-            >
-              {users.filter((u) => u.online).length} Online
-            </button>
-            <button
-              className={`mr-5  focus:outline-none ${
-                activeTab === "offline" ? "text-white-500" : "text-gray-500 "
-              }`}
-              onClick={() => setActiveTab("offline")}
-            >
-              {users.filter((u) => !u.online).length} Offline
-            </button>
-          </div>
-        ) : null}
-
         {/* Users list */}
-        {users.map((profile) =>
-          !isFollowingStatus || profile.online === (activeTab === "online") ? (
-            <div
-              className={`border-b border-solid border-simple-gray-3c flex py-4 px-2 items-center`}
-              key={profile.id}
+        {users.map((profile) => (
+          <div
+            className={`border-b border-solid border-simple-gray-3c flex py-4 px-2 items-center`}
+            key={profile.id}
+          >
+            <button onClick={() => history.push(`/user`, profile)}>
+              <Avatar src={profile.avatarUrl} online={profile.online} />
+            </button>
+            <button
+              onClick={() => history.push(`/user`, profile)}
+              className={`ml-8`}
             >
-              <button onClick={() => history.push(`/user`, profile)}>
-                <Avatar src={profile.avatarUrl} />
-              </button>
-              <button
-                onClick={() => history.push(`/user`, profile)}
-                className={`ml-8`}
-              >
-                <div className={`text-lg`}>{profile.displayName}</div>
-                <div style={{ color: "" }}>@{profile.username}</div>
-              </button>
-              {me?.id === profile.id ||
-              profile.youAreFollowing === undefined ||
-              profile.youAreFollowing === null ? null : (
-                <div className={`ml-auto`}>
-                  <Button
-                    onClick={() => {
-                      wsend({
-                        op: "follow",
-                        d: {
-                          userId: profile.id,
-                          value: !profile.youAreFollowing,
-                        },
-                      });
-                      onFollowUpdater(setRoom, setMe, me, profile);
-                      const fn = isFollowing ? setFollowingMap : setFollowerMap;
-                      fn((m) => ({
-                        ...m,
-                        [userId]: {
-                          users: m[userId].users.map((u) => {
-                            if (profile.id === u.id) {
-                              return {
-                                ...u,
-                                youAreFollowing: !profile.youAreFollowing,
-                              };
-                            }
-                            return u;
-                          }),
-                          nextCursor: m[userId].nextCursor,
-                        },
-                      }));
-                    }}
-                    variant="small"
-                  >
-                    {profile.youAreFollowing ? "following" : "follow"}
-                  </Button>
-                </div>
-              )}
-            </div>
-          ) : null
-        )}
+              <div className={`text-lg`}>{profile.displayName}</div>
+              <div style={{ color: "" }}>@{profile.username}</div>
+            </button>
+            {me?.id === profile.id ||
+            profile.youAreFollowing === undefined ||
+            profile.youAreFollowing === null ? null : (
+              <div className={`ml-auto`}>
+                <Button
+                  onClick={() => {
+                    wsend({
+                      op: "follow",
+                      d: {
+                        userId: profile.id,
+                        value: !profile.youAreFollowing,
+                      },
+                    });
+                    onFollowUpdater(setRoom, setMe, me, profile);
+                    const fn = isFollowing ? setFollowingMap : setFollowerMap;
+                    fn((m) => ({
+                      ...m,
+                      [userId]: {
+                        users: m[userId].users.map((u) => {
+                          if (profile.id === u.id) {
+                            return {
+                              ...u,
+                              youAreFollowing: !profile.youAreFollowing,
+                            };
+                          }
+                          return u;
+                        }),
+                        nextCursor: m[userId].nextCursor,
+                      },
+                    }));
+                  }}
+                  variant="small"
+                >
+                  {profile.youAreFollowing ? "following" : "follow"}
+                </Button>
+              </div>
+            )}
+          </div>
+        ))}
         {nextCursor ? (
           <div className={`flex justify-center my-10`}>
             <Button
