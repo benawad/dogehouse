@@ -35,7 +35,7 @@ defmodule Kousa.Gen.VoiceOnlineRabbit do
 
     :ok = Basic.qos(chan, prefetch_count: 1)
     queue_to_consume = @online_receive_queue <> opts.id
-    IO.puts("queue_to_consume: " <> queue_to_consume)
+    IO.puts("queue_to_consume_online: " <> queue_to_consume)
     # Register the GenServer process as a consumer
     {:ok, _consumer_tag} = Basic.consume(chan, queue_to_consume, nil, no_ack: true)
 
