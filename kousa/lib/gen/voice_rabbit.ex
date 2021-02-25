@@ -78,7 +78,9 @@ defmodule Kousa.Gen.VoiceRabbit do
             _ -> :all
           end
 
-        # IO.puts("RABBIT RESPONDED: " <> data["op"])
+        # @todo remove
+        IO.puts("RABBIT RESPONDED: " <> data["op"])
+        IO.puts("sending cast: " <> user_id)
 
         Kousa.Gen.UserSession.send_cast(
           user_id,
@@ -92,6 +94,10 @@ defmodule Kousa.Gen.VoiceRabbit do
             "vscode" -> :vscode
             _ -> :all
           end
+
+        # @todo remove
+        IO.puts("room RABBIT RESPONDED: " <> data["op"])
+        IO.puts("room sending cast: " <> room_id)
 
         # IO.puts("RABBIT RESPONDED: " <> data["op"])
 
