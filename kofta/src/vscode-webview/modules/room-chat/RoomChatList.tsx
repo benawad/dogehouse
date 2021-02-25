@@ -40,7 +40,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
       {messages.map((m) => (
         <div className="flex items-center" key={m.id}>
           <div
-            className={`flex py-1 break-words items-start flex-1`}
+            className={`py-1 block break-words items-start flex-1`}
             key={m.id}
           >
             <span className={`pr-2`}>
