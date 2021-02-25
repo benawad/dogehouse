@@ -4,6 +4,7 @@ import { PopoverMenu, MenuItem } from "../../components/PopoverMenu";
 import { MoreVertical } from "react-feather";
 import { meAtom, currentRoomAtom, myCurrentRoomInfoAtom } from "../../atoms";
 import { RoomChatMessage } from "./useRoomChatStore";
+import { wsend } from "../../../createWebsocket";
 
 interface RoomChatMessageMenuProps {
   menuIconId?: string;
@@ -21,6 +22,15 @@ export const RoomChatMessageMenu: React.FC<RoomChatMessageMenuProps> = ({
   const [me] = useAtom(meAtom);
   const [isOpen, setOpen] = React.useState(false);
 
+  function deleteMessage() {
+    wsend({
+      op: "delete_room_chat_message",
+      d: {
+        messageId: message.id,
+      },
+    });
+  }
+
   return me?.id === message.userId ||
     iAmCreator ||
     (iAmMod && room?.creatorId !== message.userId) ? (
@@ -36,12 +46,10 @@ export const RoomChatMessageMenu: React.FC<RoomChatMessageMenuProps> = ({
         />
       }
     >
-      <MenuItem>Delete</MenuItem>
+      <MenuItem onClick={deleteMessage}>Delete</MenuItem>
       {(iAmCreator || iAmMod) && me?.id !== message.userId ? (
         <MenuItem>Delete all</MenuItem>
       ) : null}
     </PopoverMenu>
   ) : null;
-
-  return null;
 };

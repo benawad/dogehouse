@@ -7,7 +7,7 @@ defmodule Kousa.BL.RoomChat do
   @spec send_msg(String.t(), list(map)) :: any
   def send_msg(user_id, tokens) do
     tokens = validate_tokens(tokens)
-    
+
     if length(tokens) > 0 do
       case Data.User.get_current_room_id(user_id) do
         nil ->
@@ -35,7 +35,7 @@ defmodule Kousa.BL.RoomChat do
 
   defp validate_tokens(tokens) when is_list(tokens) do
     if Enum.reduce_while(tokens, 0, &count_message_characters/2) <= @message_character_limit do
-      tokens 
+      tokens
       |> Enum.reduce([], &validate_tokens/2)
       |> Enum.reverse()
     else
@@ -63,7 +63,7 @@ defmodule Kousa.BL.RoomChat do
   defp validate_token(token = %{"t" => type, "v" => _}) when type in ["text", "mention"], do: {:ok, token}
   defp validate_token(token = %{"t" => "link", "v" => link}) do
     link
-    |> URI.parse() 
+    |> URI.parse()
     |> valid_url?()
     |> case do
       true -> {:ok, token}
@@ -93,5 +93,21 @@ defmodule Kousa.BL.RoomChat do
     end
 
     :ok
+  end
+
+  # Delete room chat messages
+  def delete_message(user_id, message_id) do
+    case Data.User.get_current_room_id(user_id) do
+      nil ->
+        nil
+
+      current_room_id ->
+        RegUtils.lookup_and_cast(
+            Gen.RoomChat,
+            current_room_id,
+            {:message_deleted, user_id,
+            message_id}
+          )
+    end
   end
 end

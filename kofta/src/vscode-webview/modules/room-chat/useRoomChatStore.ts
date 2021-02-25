@@ -70,6 +70,10 @@ export const useRoomChatStore = create(
               : s.messages),
           ],
         })),
+      setMessages: (messages: RoomChatMessage[]) =>
+        set((s) => ({
+          messages,
+        })),
       clearChat: () =>
         set({
           messages: [],
