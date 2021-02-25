@@ -40,7 +40,8 @@ defmodule Kousa.Data.Follower do
                (cr.isPrivate == false and cr.numPeopleInside < ^max_room_size)),
         select: %{u | currentRoom: cr, followsYou: not is_nil(f2.userId)},
         limit: ^@fetch_limit,
-        offset: ^offset
+        offset: ^offset,
+        order_by: [desc: u.online]
       )
       |> Beef.Repo.all()
 
