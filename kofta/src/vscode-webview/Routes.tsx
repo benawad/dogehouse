@@ -357,7 +357,7 @@ export const Routes: React.FC<RoutesProps> = () => {
             history.push("/");
           }
           showErrorToast(d.error);
-        } else {
+        } else if (d.room) {
           console.log("join with voice server id: " + d.room.voiceServerId);
           useRoomChatStore.getState().clearChat();
           setCurrentRoom(() => roomToCurrentRoom(d.room));
