@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { closeWebSocket, wsend } from "../createWebsocket";
+import { useMuteStore } from "../webrtc/stores/useMuteStore";
 import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
 import { invitationToRoom } from "../webrtc/utils/invitationToRoom";
 import { mergeRoomPermission } from "../webrtc/utils/mergeRoomPermission";
@@ -194,6 +195,16 @@ export const Routes: React.FC<RoutesProps> = () => {
         );
       },
       speaker_added: ({ userId, roomId, muteMap }) => {
+        // Mute user upon added as speaker
+        if (meRef.current?.id === userId) {
+          const { set } = useMuteStore.getState();
+          wsend({
+            op: "mute",
+            d: { value: true },
+          });
+          set({ muted: true });
+        }
+
         setCurrentRoom((c) =>
           !c || c.id !== roomId
             ? c
