@@ -40,13 +40,15 @@ export const startRabbit = async (handler: HandlerMap) => {
   const sendQueue = "kousa_queue" + id;
   const onlineQueue = "kousa_online_queue" + id;
   const receiveQueue = "shawarma_queue" + id;
+  console.log(sendQueue, onlineQueue, receiveQueue);
   await Promise.all([
     channel.assertQueue(receiveQueue),
     channel.assertQueue(sendQueue),
     channel.assertQueue(onlineQueue),
   ]);
-  send = (obj: any) =>
+  send = (obj: any) => {
     channel.sendToQueue(sendQueue, Buffer.from(JSON.stringify(obj)));
+  };
   await channel.purgeQueue(receiveQueue);
   await channel.consume(
     receiveQueue,
@@ -60,6 +62,7 @@ export const startRabbit = async (handler: HandlerMap) => {
         // console.log(data.op);
         if (data && data.op && data.op in handler) {
           try {
+            console.log(data.op);
             await handler[data.op](data.d, data.uid, send, () => {
               console.log(data.op);
               send({

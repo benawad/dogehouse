@@ -113,7 +113,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
           style={{
             position: "relative",
             width: "100%",
-            height: "200px",
+            height: "400px",
             overflowY: "hidden",
           }}
           sheetSize={32}
@@ -149,7 +149,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           ref={inputRef}
-          className={`text-simple-gray-9c bg-simple-gray-59 px-4 py-3 rounded text-lg focus:outline-none pr-12`}
+          className={`w-full text-simple-gray-9c bg-simple-gray-59 px-4 py-3 rounded text-lg focus:outline-none pr-12`}
           onKeyDown={navigateThroughQueriedUsers}
           onFocus={() => {
             setisEmoji(false);

@@ -136,10 +136,14 @@ defmodule Kousa.Data.Follower do
   end
 
   def insert(data) do
-    case %Beef.Follow{}
-         |> Beef.Follow.insert_changeset(data)
-         |> Beef.Repo.insert() do
+    %Beef.Follow{}
+    |> Beef.Follow.insert_changeset(data)
+    |> Beef.Repo.insert()
+    |> case do
       {:ok, _} ->
+        # TODO: eliminate N+1 by setting up changesets
+        # in an idiomatic fashion.
+
         from(u in Beef.User,
           where: u.id == ^data.userId,
           update: [
@@ -160,40 +164,34 @@ defmodule Kousa.Data.Follower do
         )
         |> Beef.Repo.update_all([])
 
-      x ->
-        x
+      error -> error
     end
   end
 
   def get_info(me_id, other_user_id) do
-    users =
-      from(f in Beef.Follow,
+    from(f in Beef.Follow,
         where:
           (f.userId == ^me_id and f.followerId == ^other_user_id) or
             (f.userId == ^other_user_id and f.followerId == ^me_id),
         limit: 2
       )
-      |> Beef.Repo.all()
-
-    case length(users) do
-      2 ->
+    |> Beef.Repo.all()
+    |> case do
+      # when both follow each other there should be two results.
+      [_, _] ->
         %{followsYou: true, youAreFollowing: true}
 
-      0 ->
+      # when following is unidirectional, there should be one result.
+      # this susses out the direction of that relationship
+      [%{userId: ^me_id, followerId: ^other_user_id}] ->
+        %{followsYou: true, youAreFollowing: false}
+
+      [%{userId: ^other_user_id, followerId: ^me_id}] ->
+        %{followsYou: false, youAreFollowing: true}
+
+      # no relationship, no entries.
+      [] ->
         %{followsYou: false, youAreFollowing: false}
-
-      1 ->
-        case users do
-          [%{userId: ^me_id, followerId: ^other_user_id}] ->
-            %{followsYou: true, youAreFollowing: false}
-
-          [%{userId: ^other_user_id, followerId: ^me_id}] ->
-            %{followsYou: false, youAreFollowing: true}
-
-          _ ->
-            IO.puts("you should never see this")
-            %{followsYou: false, youAreFollowing: false}
-        end
     end
   end
 end

@@ -33,7 +33,7 @@ export const Login: React.FC<LoginProps> = () => {
             <Logo />
           </div>
           <div className={`text-4xl mb-4 tracking-tight font-extrabold`}>
-            The home for voice conversations.
+            Taking voice conversations to the moon 🚀
           </div>
           <ul className={`my-4 mb-10 text-xl`}>
             <ListItem>Dark theme</ListItem>

@@ -33,8 +33,10 @@ defmodule Kousa.Gen.VoiceRabbit do
     {:ok, chan} = Channel.open(conn)
     setup_queue(opts.id, chan)
 
+    queue_to_consume = @receive_queue <> opts.id
+    IO.puts("queue_to_consume: " <> queue_to_consume)
     # Register the GenServer process as a consumer
-    {:ok, _consumer_tag} = Basic.consume(chan, @receive_queue <> opts.id, nil, no_ack: true)
+    {:ok, _consumer_tag} = Basic.consume(chan, queue_to_consume, nil, no_ack: true)
     {:ok, %State{chan: chan, id: opts.id}}
   end
 
@@ -43,7 +45,6 @@ defmodule Kousa.Gen.VoiceRabbit do
   end
 
   def handle_cast({:send, msg}, %State{chan: chan, id: id} = state) do
-    # IO.puts("SENDING TO RABBIT : ")
     AMQP.Basic.publish(chan, "", @send_queue <> id, msg)
     {:noreply, state}
   end
@@ -76,8 +77,6 @@ defmodule Kousa.Gen.VoiceRabbit do
             "vscode" -> :vscode
             _ -> :all
           end
-
-        # IO.puts("RABBIT RESPONDED: " <> data["op"])
 
         Kousa.Gen.UserSession.send_cast(
           user_id,

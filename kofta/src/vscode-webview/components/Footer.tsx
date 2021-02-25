@@ -8,9 +8,6 @@ interface FooterProps {
 export const Footer: React.FC<FooterProps> = ({ isLogin }) => {
   return (
     <div className={`justify-around flex text-center`}>
-      <RegularAnchor href="https://github.com/benawad/dogehouse#investors">
-        Investors
-      </RegularAnchor>
       {isLogin ? (
         <RegularAnchor href="https://www.youtube.com/watch?v=hy-EhJ_tTQo">
           Origin Story
