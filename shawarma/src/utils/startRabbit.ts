@@ -51,7 +51,7 @@ export const startRabbit = async (handler: HandlerMap) => {
   ]);
   send = (obj: any) => {
     // @todo remove
-    console.log("sending to channel: ", sendQueue);
+    console.log("sending back: ", obj);
     channel.sendToQueue(sendQueue, Buffer.from(JSON.stringify(obj)));
   };
   await channel.purgeQueue(receiveQueue);

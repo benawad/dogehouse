@@ -70,6 +70,9 @@ defmodule Kousa.Gen.VoiceRabbit do
         %State{} = state
       ) do
     data = Poison.decode!(payload)
+    # @todo remove
+    IO.puts("GOT SOMETHING!")
+    IO.puts(payload)
 
     case data do
       %{"platform" => platform, "uid" => user_id} ->
