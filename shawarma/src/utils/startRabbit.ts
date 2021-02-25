@@ -40,6 +40,7 @@ export const startRabbit = async (handler: HandlerMap) => {
   const sendQueue = "kousa_queue" + id;
   const onlineQueue = "kousa_online_queue" + id;
   const receiveQueue = "shawarma_queue" + id;
+  console.log(sendQueue, onlineQueue, receiveQueue);
   await Promise.all([
     channel.assertQueue(receiveQueue),
     channel.assertQueue(sendQueue),
