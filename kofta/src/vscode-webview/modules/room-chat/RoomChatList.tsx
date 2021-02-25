@@ -50,13 +50,13 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
             <button
               onClick={() => {
                 setProfileId(m.userId);
-                if (
+                setmessageToBeDeleted(
                   me?.id === m.userId ||
-                  iAmCreator ||
-                  (iAmMod && room?.creatorId !== m.userId)
-                )
-                  setmessageToBeDeleted(!m.deleted ? m : null);
-                else setmessageToBeDeleted(null);
+                    iAmCreator ||
+                    (iAmMod && room?.creatorId !== m.userId && !m.deleted)
+                    ? m
+                    : null
+                );
               }}
               className={`hover:underline focus:outline-none`}
               style={{ textDecorationColor: m.color, color: m.color }}
