@@ -43,3 +43,7 @@ background: rgb(123, 123, 123);
 ::-webkit-scrollbar-thumb:active {
 background: rgb(161, 161, 161, .8);
 }
+
+option {
+  background: #232323;
+}
