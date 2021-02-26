@@ -81,11 +81,6 @@ defmodule Kousa.Gen.RoomChat do
   end
 
   def handle_cast({:message_deleted, user_id, message_id}, %State{} = state) do
-    last_timestamp = Map.get(state.last_message_map, user_id)
-    {_, seconds, _} = :os.timestamp()
-
-    if not Map.has_key?(state.ban_map, user_id) and
-         (is_nil(last_timestamp) or seconds - last_timestamp > 0) do
       ws_fan(state.users, :chat, %{
         op: "message_deleted",
         d: %{
@@ -95,31 +90,7 @@ defmodule Kousa.Gen.RoomChat do
       })
 
       {:noreply,
-       %State{state | last_message_map: Map.put(state.last_message_map, user_id, seconds)}}
-    else
-      {:noreply, state}
-    end
-  end
-
-  def handle_cast({:messages_deleted, deleter_id, user_id}, %State{} = state) do
-    last_timestamp = Map.get(state.last_message_map, user_id)
-    {_, seconds, _} = :os.timestamp()
-
-    if not Map.has_key?(state.ban_map, deleter_id) and
-         (is_nil(last_timestamp) or seconds - last_timestamp > 0) do
-      ws_fan(state.users, :chat, %{
-        op: "messages_deleted",
-        d: %{
-          userId: user_id,
-          deleterId: deleter_id
-        }
-      })
-
-      {:noreply,
-       %State{state | last_message_map: Map.put(state.last_message_map, user_id, seconds)}}
-    else
-      {:noreply, state}
-    end
+       %State{state}
   end
 
   def handle_cast({:ban_user, user_id}, state) do
