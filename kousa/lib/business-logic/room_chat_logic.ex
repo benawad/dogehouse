@@ -1,6 +1,5 @@
 defmodule Kousa.BL.RoomChat do
   alias Kousa.{Data, RegUtils, Gen}
-  alias Beef.User
 
   @message_character_limit 512
 
@@ -56,10 +55,6 @@ defmodule Kousa.BL.RoomChat do
     if acc <= @message_character_limit, do: {:cont, String.length(v) + acc}, else: {:halt, acc}
   end
 
-  @doc """
-    validate_token/1 validates a token by type and return {:ok, token} if the token is valid
-    otherwise return :invalid
-  """
   defp validate_token(token = %{"t" => type, "v" => _}) when type in ["text", "mention"],
     do: {:ok, token}
 
@@ -101,7 +96,6 @@ defmodule Kousa.BL.RoomChat do
 
   # Delete room chat messages
   def delete_message(deleter_id, message_id, user_id) do
-
     case Kousa.Data.Room.get_room_status(deleter_id) do
       {:creator, room} ->
         RegUtils.lookup_and_cast(
@@ -110,7 +104,7 @@ defmodule Kousa.BL.RoomChat do
           {:message_deleted, deleter_id, message_id}
         )
 
-      #Mods can delete other mod' messages
+      # Mods can delete other mod' messages
       {:mod, room} ->
         if user_id != room.creatorId do
           RegUtils.lookup_and_cast(
