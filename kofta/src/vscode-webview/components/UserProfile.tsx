@@ -128,7 +128,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
               );
             } catch {}
           }
-          return <span>{chunk} </span>;
+          return <span key={i}>{chunk} </span>;
         })}
       </div>
     </>
