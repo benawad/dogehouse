@@ -25,6 +25,15 @@ Navigate to `/kofta`
 
 Run `npm i` and then `npm start:staging` (this tells React to connect to a hosted version of the backend for development purposes).
 
+### Additional steps if you're on **Windows**:
+- Run `npm i -D cross-env` 
+- put `cross-env` in front of `start:staging` command in `package.json`. 
+
+    So, it should look like this:
+```js
+"start:staging": "cross-env REACT_APP_IS_STAGING=true REACT_APP_API_BASE_URL=https://doge-staging.stripcode.dev craco start" 
+```
+- Finally, run `npm run start:staging`
 ## Full Local Development
 How to run locally
 
