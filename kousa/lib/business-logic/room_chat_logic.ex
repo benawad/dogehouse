@@ -110,6 +110,7 @@ defmodule Kousa.BL.RoomChat do
           {:message_deleted, deleter_id, message_id}
         )
 
+      #Mods can delete other mod' messages
       {:mod, room} ->
         if user_id != room.creatorId do
           RegUtils.lookup_and_cast(
