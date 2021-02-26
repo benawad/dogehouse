@@ -23,3 +23,23 @@
   }
 }
 
+::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(66, 66, 66);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgb(104, 104, 104);
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: rgb(123, 123, 123);
+}
+
+::-webkit-scrollbar-thumb:active {
+background: rgb(161, 161, 161, .8);
+}
