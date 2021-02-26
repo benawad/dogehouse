@@ -10,7 +10,7 @@ We love your input! We want to make contributing to this project as easy and tra
 The code of conduct is described in [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md)
 
 ## Our Development Process
-All changes happen through pull requests, Pull requests are the best way to propose changes. We actively welcome your pull requests and invite you to submit pull requests directly <a href="https://github.com/benawad/dogehouse/pulls">here</a> and, after review, these can be merged into the project.
+All changes happen through pull requests. Pull requests are the best way to propose changes. We actively welcome your pull requests and invite you to submit pull requests directly <a href="https://github.com/benawad/dogehouse/pulls">here</a> and, after review, these can be merged into the project.
 
 ## Pull Requests
 1. Fork the repo and create your branch (usually named `patch-%the number of PRs you've already made%`) from `staging`.
