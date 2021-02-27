@@ -24,8 +24,7 @@ Do this if you only want to do React stuff and don't want to touch Elixir:
 Navigate to `/kofta`
 
 - Run `npm i`
-- Run `npm i -D cross-env`
-- Finally, run `npm run start:staging` (this tells React to connect to a hosted version of the backend for development purposes)
+- Run `npm run start:staging` (this tells React to connect to a hosted version of the backend for development purposes)
 
 ## Full Local Development
 
