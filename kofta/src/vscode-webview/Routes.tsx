@@ -207,12 +207,12 @@ export const Routes: React.FC<RoutesProps> = () => {
       speaker_added: ({ userId, roomId, muteMap }) => {
         // Mute user upon added as speaker
         if (meRef.current?.id === userId) {
-          const { set } = useMuteStore.getState();
+          const { setMute } = useMuteStore.getState();
           wsend({
             op: "mute",
             d: { value: true },
           });
-          set({ muted: true });
+          setMute(true);
         }
 
         setCurrentRoom((c) =>

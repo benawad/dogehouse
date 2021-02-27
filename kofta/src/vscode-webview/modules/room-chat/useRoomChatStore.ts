@@ -92,7 +92,7 @@ export const useRoomChatStore = create(
       toggleOpen: () =>
         set((s) => {
           // Reset mention state
-          useRoomChatMentionStore.getState().setIAmMentioned(0);
+          useRoomChatMentionStore.getState().resetIAmMentioned();
           if (s.open) {
             return {
               open: false,
