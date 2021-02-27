@@ -10,6 +10,7 @@ export const Button: React.FC<
     variant?: "default" | "small" | "slim" | "follow";
     color?: "default" | "red" | "secondary";
     loading?: boolean;
+    dogeProbability?: number;
   }
 > = ({
   children,
@@ -17,6 +18,7 @@ export const Button: React.FC<
   disabled,
   color = "default",
   variant = "default",
+  dogeProbability,
   ...props
 }) => {
   const [hasDoge, setHasDoge] = useState(false);
@@ -31,7 +33,7 @@ export const Button: React.FC<
           clearTimeout(dogeHideTimeout);
           setDogeHideTimeout(null);
           setHasDoge(true);
-      } else {
+      } else if ((dogeProbability ?? 0) > Math.random()) {
           setDogeXAnchor(Math.random() * 0.8 + 0.1);
           setHasDoge(true);
           setUseTopDoge(Math.random() < 0.5);
@@ -51,8 +53,8 @@ export const Button: React.FC<
   return (
     <button
       {...props}
-      onMouseOver={maybeShowDoge}
-      onMouseLeave={hideDoge}
+      onMouseOver={(dogeProbability ?? 0) > 0 ? maybeShowDoge : undefined}
+      onMouseLeave={(dogeProbability ?? 0) > 0? hideDoge : undefined}
       disabled={loading || disabled}
       className={
         `
@@ -64,13 +66,15 @@ export const Button: React.FC<
       }
     >
       {loading ? <Spinner /> : children}
-      <div className={`button-doge button-doge-top ${hasDoge && useTopDoge ? 'button-doge-shown' : ''} ${useGlassesDoge ? 'button-doge-cooler' : ''}`} style={{
-        left: `${dogeXAnchor * 100}%`
-      }}/>
-      <div className={`button-doge button-doge-bottom ${hasDoge && !useTopDoge ? 'button-doge-shown' : ''} ${useGlassesDoge ? 'button-doge-cooler' : ''}`} style={{
-        left: `${dogeXAnchor * 100}%`
-      }}/>
-
+      {(dogeProbability ?? 0) > 0 ? <>
+          <div className={`button-doge button-doge-top ${hasDoge && useTopDoge ? 'button-doge-shown' : ''} ${useGlassesDoge ? 'button-doge-cooler' : ''}`} style={{
+            left: `${dogeXAnchor * 100}%`
+          }}/>
+          <div className={`button-doge button-doge-bottom ${hasDoge && !useTopDoge ? 'button-doge-shown' : ''} ${useGlassesDoge ? 'button-doge-cooler' : ''}`} style={{
+            left: `${dogeXAnchor * 100}%`
+          }}/>
+        </> : <></>
+      }
     </button>
   );
 };
