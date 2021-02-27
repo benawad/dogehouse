@@ -131,18 +131,6 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
         />
       ) : null}
       <div>
-        <div
-          style={{
-            color: "rgb(167, 167, 167)",
-          }}
-          className={`absolute mt-3 right-12 cursor-pointer`}
-          onClick={() => {
-            setisEmoji(!isEmoji);
-            position = 0;
-          }}
-        >
-          <Smile style={{ inlineSize: "23px" }}></Smile>
-        </div>
         <input
           maxLength={512}
           placeholder="Send a message"
@@ -158,6 +146,22 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
           }}
           id="room-chat-input"
         />
+        <div
+          style={{
+            color: "rgb(167, 167, 167)",
+            display: "flex",
+            marginRight: 13,
+            marginTop: -37,
+            flexDirection: "row-reverse",
+          }}
+          className={`mt-3 right-12 cursor-pointer`}
+          onClick={() => {
+            setisEmoji(!isEmoji);
+            position = 0;
+          }}
+        >
+          <Smile style={{ inlineSize: "23px" }}></Smile>
+        </div>
       </div>
     </form>
   );
