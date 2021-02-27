@@ -16,7 +16,7 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = () => {
         <div className={`text-2xl`}>
           Whoops! This page got lost in conversation.
         </div>
-        Not to worry. You can
+        Not to worry. You can 
         <Link to="/" className={`text-blue-400`}>
           go home
         </Link>
