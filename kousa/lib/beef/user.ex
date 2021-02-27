@@ -28,7 +28,7 @@ defmodule Beef.User do
     field(:githubAccessToken, :string)
     field(:displayName, :string)
     field(:avatarUrl, :string)
-    field(:bio, :string)
+    field(:bio, :string, default: "")
     field(:reasonForBan, :string)
     field(:tokenVersion, :integer)
     field(:numFollowing, :integer)
@@ -54,8 +54,8 @@ defmodule Beef.User do
   def edit_changeset(user, attrs) do
     user
     |> cast(attrs, [:id, :username, :bio, :displayName])
-    |> validate_required([:username, :bio, :displayName])
-    |> validate_length(:bio, min: 2, max: 160)
+    |> validate_required([:username, :displayName])
+    |> validate_length(:bio, min: 0, max: 160)
     |> validate_length(:displayName, min: 2, max: 50)
     |> validate_format(:username, ~r/^(\w){4,15}$/)
     |> unique_constraint(:username)
