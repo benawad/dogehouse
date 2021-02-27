@@ -5,6 +5,7 @@ export const soundEffects = {
   roomChatMention: "roomChatMention.ogg",
   unmute: "unmute.wav",
   mute: "mute.wav",
+  roomInvite: "roomInvite.wav",
 };
 
 export type PossibleSoundEffect = keyof typeof soundEffects;
@@ -16,6 +17,7 @@ function getInitialSettings() {
     roomChatMention: true,
     unmute: true,
     mute: true,
+    roomInvite: true,
   };
 
   try {

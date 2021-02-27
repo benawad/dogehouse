@@ -18,7 +18,7 @@ export const SoundEffectProvider: React.FC = ({}) => {
           key={key}
           ref={(ref) => {
             if (ref) {
-              ref.volume = 0.8;
+              ref.volume = 0.2;
               add(key, ref);
             }
           }}
