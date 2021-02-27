@@ -14,6 +14,7 @@ export const SoundEffectProvider: React.FC = ({}) => {
     <>
       {soundKeys.map((key) => (
         <audio
+          preload="none"
           key={key}
           ref={(ref) => {
             if (ref) {
