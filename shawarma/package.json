@@ -8,7 +8,9 @@
     "start": "node dist/index.js",
     "build": "tsc",
     "dev": "DEBUG=shawarma:* nodemon dist/index.js",
-    "dev2": "QUEUE_ID=1 DEBUG=shawarma:* nodemon dist/index.js"
+    "dev2": "QUEUE_ID=1 DEBUG=shawarma:* nodemon dist/index.js",
+    "dev:ts": "DEBUG=shawarma:*  ts-node src",
+    "dev2:ts": "QUEUE_ID=1  DEBUG=shawarma:*  ts-node src"
   },
   "keywords": [],
   "author": "",
@@ -34,6 +36,7 @@
     "@types/node": "^14.14.21",
     "@types/pino": "^6.3.5",
     "@types/protoo-server": "^4.0.1",
+    "ts-node": "9.1.1",
     "@types/ws": "^7.4.0",
     "nodemon": "^2.0.7",
     "typescript": "^4.1.3"
