@@ -85,7 +85,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                 <Button
                   type="button"
                   onClick={onRequestClose}
-                  className={`mr-0.5`}
+                  className={`mr-2`}
                   color="secondary"
                 >
                   cancel
@@ -94,7 +94,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                   type="button"
                   loading={isLoading}
                   onClick={() => handleSubmit()}
-                  className={`ml-0.5`}
+                  className={`ml-2`}
                 >
                   save
                 </Button>
