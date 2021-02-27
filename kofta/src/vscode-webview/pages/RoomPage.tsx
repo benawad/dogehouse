@@ -95,9 +95,11 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
                 }
               });
             }}
-            className={`font-xl overflow-hidden overflow-ellipsis flex-1 text-center flex items-center justify-center text-2xl`}
+            className={`font-xl truncate flex-1 text-center flex items-center justify-center text-2xl`}
           >
-            {room.name.slice(0, 50)}
+            <span className={'px-2 truncate'}>
+              {room.name}
+            </span>
           </button>
           <ProfileButton />
         </Backbar>

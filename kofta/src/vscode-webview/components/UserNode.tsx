@@ -66,10 +66,10 @@ export const UserNode: React.FC<UserNodeProps> = ({
           </div>
         ) : null}
       </div>
-      <div className={`mt-2 flex items-center`}>
-        <div className={`text-sm`}>
-          {(u.displayName || "").split(" ")[0]?.slice(0, 9)}
-        </div>
+      <div className={`mt-2 flex w-full justify-center items-center truncate`}>
+        <span className={`text-sm truncate`}>
+          {(u.displayName || u.username).trim().split(" ")[0]}
+        </span>
         {prefix}
       </div>
     </button>
