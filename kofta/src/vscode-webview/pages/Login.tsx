@@ -53,6 +53,7 @@ export const Login: React.FC<LoginProps> = () => {
           <div className={`mb-8`}>
             <Button
               variant="slim"
+              dogeProbability={0.2}
               style={{ backgroundColor: "#333" }}
               onClick={() =>
                 (window.location.href =
