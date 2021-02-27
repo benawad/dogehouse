@@ -35,6 +35,7 @@ Run `npm i` and then `npm start:staging` (this tells React to connect to a hoste
 ```
 - Finally, run `npm run start:staging`
 ## Full Local Development
+
 How to run locally
 
 ### Backend
