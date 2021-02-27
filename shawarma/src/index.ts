@@ -206,7 +206,7 @@ async function main() {
           }
         }
         send({
-          op: `@send-track-${direction}-done`,
+          op: `@send-track-${direction}-done` as const,
           platform: "web",
           uid,
           d: {
@@ -216,7 +216,7 @@ async function main() {
         });
       } catch (e) {
         send({
-          op: `@send-track-${direction}-done`,
+          op: `@send-track-${direction}-done` as const,
           platform: "web",
           uid,
           d: {
@@ -261,7 +261,7 @@ async function main() {
       } catch (e) {
         console.log(e);
         send({
-          op: `@connect-transport-${direction}-done`,
+          op: `@connect-transport-${direction}-done` as const,
           platform: "web",
           uid,
           d: { error: e.message, roomId },
@@ -275,7 +275,7 @@ async function main() {
         return;
       }
       send({
-        op: `@connect-transport-${direction}-done`,
+        op: `@connect-transport-${direction}-done` as const,
         platform: "web",
         uid,
         d: { roomId },

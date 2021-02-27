@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 import { closeWebSocket, wsend } from "../createWebsocket";
 import { useMuteStore } from "../webrtc/stores/useMuteStore";
 import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
-import { invitationToRoom } from "../webrtc/utils/invitationToRoom";
 import { mergeRoomPermission } from "../webrtc/utils/mergeRoomPermission";
 import {
   meAtom,
@@ -38,6 +37,7 @@ import { isUuid } from "./utils/isUuid";
 import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
 import { showErrorToast } from "./utils/showErrorToast";
 import { useTokenStore } from "./utils/useTokenStore";
+import { invitedToRoomConfirm } from "./components/InvitedToJoinRoomModal";
 
 interface RoutesProps {}
 
@@ -115,8 +115,11 @@ export const Routes: React.FC<RoutesProps> = () => {
           toast("ban failed", { type: "error" });
         }
       },
+      someone_you_follow_created_a_room: (value) => {
+        invitedToRoomConfirm(value, history);
+      },
       invitation_to_room: (value) => {
-        invitationToRoom(value, history);
+        invitedToRoomConfirm(value, history);
       },
       fetch_invite_list_done: ({ users, nextCursor, initial }) => {
         setInviteList((x) => ({
