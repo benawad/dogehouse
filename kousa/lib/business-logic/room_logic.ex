@@ -1,6 +1,6 @@
 defmodule Kousa.BL.Room do
   use Kousa.Dec.Atomic
-  alias Kousa.{Data, RegUtils, Gen, Caster, VoiceServerUtils}
+  alias Kousa.{BL, Data, RegUtils, Gen, Caster, VoiceServerUtils}
 
   def set_auto_speaker(user_id, value) do
     room = Kousa.Data.Room.get_room_by_creator_id(user_id)
@@ -58,7 +58,8 @@ defmodule Kousa.BL.Room do
              roomName: room.name,
              displayName: user.displayName,
              username: user.username,
-             avatarUrl: user.avatarUrl
+             avatarUrl: user.avatarUrl,
+             type: "invite"
            }}
         )
       end
@@ -230,6 +231,7 @@ defmodule Kousa.BL.Room do
         })
 
         join_vc_room(user_id, room, true)
+        BL.Follow.notify_followers_you_created_a_room(user_id, room)
         {:ok, %{room: room}}
 
       {:error, x} ->

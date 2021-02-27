@@ -1,13 +1,18 @@
 import * as React from "react";
+import { History } from "history";
 import { Modal } from "./Modal";
 import create from "zustand";
 import { combine } from "zustand/middleware";
 import { Button } from "./Button";
 import { Avatar } from "./Avatar";
+import { useSoundEffectStore } from "../modules/sound-effects/useSoundEffectStore";
+import { wsend } from "../../createWebsocket";
 
 interface Props {}
 
 type Fn = () => void;
+
+export type JoinRoomModalType = "invite" | "someone_you_follow_created_a_room";
 
 export type UserPreviewInfo = {
   username: string;
@@ -15,14 +20,17 @@ export type UserPreviewInfo = {
   avatarUrl: string;
 };
 
+type Options = {
+  type: JoinRoomModalType;
+  roomId: string;
+  roomName: string;
+  onConfirm: Fn;
+} & UserPreviewInfo;
+
 const useConfirmModalStore = create(
   combine(
     {
-      options: null as null | {
-        roomName: string;
-        userInfo: UserPreviewInfo;
-        onConfirm: Fn;
-      },
+      options: null as null | Options,
     },
     (set) => ({
       close: () => set({ options: null }),
@@ -32,13 +40,19 @@ const useConfirmModalStore = create(
 );
 
 export const invitedToRoomConfirm = (
-  roomName: string,
-  userInfo: UserPreviewInfo,
-  onConfirm: Fn
+  options: Omit<Options, "onConfirm">,
+  history: History
 ) => {
-  useConfirmModalStore
-    .getState()
-    .set({ options: { onConfirm, userInfo, roomName } });
+  useSoundEffectStore.getState().playSoundEffect("roomInvite");
+  useConfirmModalStore.getState().set({
+    options: {
+      ...options,
+      onConfirm: () => {
+        wsend({ op: "join_room", d: { roomId: options.roomId } });
+        history.push("/room/" + options.roomId);
+      },
+    },
+  });
 };
 
 export const InvitedToJoinRoomModal: React.FC<Props> = () => {
@@ -47,20 +61,24 @@ export const InvitedToJoinRoomModal: React.FC<Props> = () => {
     <Modal isOpen={!!options} onRequestClose={() => close()}>
       {options ? (
         <>
-          <h1 className={`text-2xl mb-2`}>Room Invite from</h1>
+          <h1 className={`text-2xl mb-2`}>
+            {options.type === "someone_you_follow_created_a_room"
+              ? `New Room Created`
+              : `Room Invite from`}
+          </h1>
           <div className={`flex items-center`}>
-            <Avatar src={options.userInfo.avatarUrl} />
+            <Avatar src={options.avatarUrl} />
             <div className={`ml-2`}>
-              <div className={`font-semibold`}>
-                {options.userInfo.displayName}
-              </div>
+              <div className={`font-semibold`}>{options.displayName}</div>
               <div className={`my-1 flex`}>
-                <div>@{options.userInfo.username}</div>
+                <div>@{options.username}</div>
               </div>
             </div>
           </div>
           <div className={`mt-4`}>
-            you've been invited to{" "}
+            {options.type === "someone_you_follow_created_a_room"
+              ? `They just started`
+              : `you've been invited to`}{" "}
             <span className={`font-semibold`}>{options.roomName}</span>, would
             you like to join?
           </div>

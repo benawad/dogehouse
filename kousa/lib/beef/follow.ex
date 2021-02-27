@@ -2,6 +2,11 @@ defmodule Beef.Follow do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @type t :: %__MODULE__{
+          userId: Ecto.UUID.t(),
+          followerId: Ecto.UUID.t()
+        }
+
   @derive {Poison.Encoder, only: [:userId, :followerId]}
   @primary_key false
   schema "followers" do

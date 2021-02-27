@@ -2,6 +2,15 @@ defmodule Beef.Room do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @type t :: %__MODULE__{
+          id: Ecto.UUID.t(),
+          name: String.t(),
+          numPeopleInside: integer(),
+          isPrivate: boolean(),
+          user: User.t() | Ecto.Association.NotLoaded.t(),
+          peoplePreviewList: [UserPreview.t()]
+        }
+
   @derive {Poison.Encoder,
            only: [
              :id,
