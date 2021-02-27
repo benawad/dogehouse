@@ -50,11 +50,21 @@ export const Button: React.FC<
       setDogeHideTimeout(timeout);
   }
 
+  const onMouseOver = (dogeProbability ?? 0) > 0 ? (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    maybeShowDoge()
+    if (props.onMouseOver) props.onMouseOver(event);
+  } : props.onMouseOver;
+
+  const onMouseLeave = (dogeProbability ?? 0) > 0 ? (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    hideDoge()
+    if (props.onMouseLeave) props.onMouseLeave(event);
+  } : props.onMouseLeave;
+
   return (
     <button
       {...props}
-      onMouseOver={(dogeProbability ?? 0) > 0 ? maybeShowDoge : undefined}
-      onMouseLeave={(dogeProbability ?? 0) > 0? hideDoge : undefined}
+      onMouseOver={onMouseOver}
+      onMouseLeave={onMouseLeave}
       disabled={loading || disabled}
       className={
         `
