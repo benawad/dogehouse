@@ -43,15 +43,25 @@ defmodule Kousa.BL.Room do
   end
 
   def invite_to_room(user_id, user_id_to_invite) do
-    user = Kousa.Data.User.get_by_id(user_id)
+    user = Data.User.get_by_id(user_id)
 
     if not is_nil(user.currentRoomId) and
-         Kousa.Data.Follower.is_following_me(user_id, user_id_to_invite) do
-      Kousa.Gen.RoomSession.send_cast(
-        user.currentRoomId,
-        # @todo someone could change displayName to fool the person
-        {:create_invite, user_id_to_invite, user.displayName}
-      )
+         Data.Follower.is_following_me(user_id, user_id_to_invite) do
+      # @todo store room name in RoomSession to avoid db lookups
+      room = Data.Room.get_room_by_id(user.currentRoomId)
+
+      if not is_nil(room) do
+        Gen.RoomSession.send_cast(
+          user.currentRoomId,
+          {:create_invite, user_id_to_invite,
+           %{
+             roomName: room.name,
+             displayName: user.displayName,
+             username: user.username,
+             avatarUrl: user.avatarUrl
+           }}
+        )
+      end
     end
   end
 

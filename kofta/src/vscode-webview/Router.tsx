@@ -4,6 +4,7 @@ import { WebRtcApp } from "../webrtc/WebRtcApp";
 import { AlertModal } from "./components/AlertModal";
 import { CenterLayout } from "./components/CenterLayout";
 import { ConfirmModal } from "./components/ConfirmModal";
+import { InvitedToJoinRoomModal } from "./components/InvitedToJoinRoomModal";
 import { MicPermissionBanner } from "./components/MicPermissionBanner";
 import { PromptModal } from "./components/PromptModal";
 import { RoomChat } from "./modules/room-chat/RoomChat";
@@ -22,6 +23,7 @@ export const Router: React.FC<RouterProps> = () => {
         </CenterLayout>
         <RoomChat sidebar />
       </div>
+      <InvitedToJoinRoomModal />
       <AlertModal />
       <PromptModal />
       <ConfirmModal />

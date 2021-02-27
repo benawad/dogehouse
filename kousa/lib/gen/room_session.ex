@@ -128,11 +128,11 @@ defmodule Kousa.Gen.RoomSession do
     {:noreply, state}
   end
 
-  def handle_cast({:create_invite, user_id, displayName}, state) do
+  def handle_cast({:create_invite, user_id, user_info}, state) do
     Kousa.Gen.UserSession.send_cast(
       user_id,
       {:send_ws_msg, :vscode,
-       %{op: "invitation_to_room", d: %{roomId: state.room_id, displayName: displayName}}}
+       %{op: "invitation_to_room", d: Map.merge(%{roomId: state.room_id}, user_info)}}
     )
 
     {:noreply,
