@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import { wsend } from "../../../createWebsocket";
 import { meAtom } from "../../atoms";
@@ -26,13 +26,9 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
   const [me] = useAtom(meAtom);
   const [isEmoji, setIsEmoji] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const [messageTimeout, setMessageTimeout] = useState<boolean>(false);
+  const [lastMessageTimestamp, setLastMessageTimestamp] = useState<number>(0);
   
-  let timeout: number = 0;
   let position: number = 0;
-  
-  // Prevents memory leaks
-  useEffect(() => () => clearTimeout(timeout), [timeout]);
   
   const navigateThroughQueriedUsers = (e: any) => {
     // Use dom method, GlobalHotkeys apparently don't catch arrow-key events on inputs
@@ -83,7 +79,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
           return;
       }
       
-      if (messageTimeout) {
+      if (Date.now() - lastMessageTimestamp <= 1000) {
           if (!toast.isActive("message-timeout")) {
               toast(
                   "You have to wait a second before sending another message",
@@ -106,11 +102,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
       });
       setQueriedUsernames([]);
       
-      setMessageTimeout(true);
-      
-      timeout = window.setTimeout(() => {
-          setMessageTimeout(false);
-      }, 1000);
+      setLastMessageTimestamp(Date.now());
   }
 
   return (
