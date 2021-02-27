@@ -55,7 +55,7 @@ Further information can be found here: https://github.com/react-native-community
 
 ## :computer: Contributing
 
-Contributions are very welcome. Please check out the [contributing document](CONTRIBUTING.md).
+Contributions are very welcome. Please check out the [contributing document](../CONTRIBUTING.md).
 
 ## :bookmark: License
 
