@@ -43,6 +43,8 @@ export interface RoomChatMessage {
   color: string;
   displayName: string;
   tokens: RoomChatMessageToken[];
+  deleted?: boolean;
+  deleterId?: string;
 }
 
 export const useRoomChatStore = create(
@@ -70,6 +72,10 @@ export const useRoomChatStore = create(
               : s.messages),
           ],
         })),
+      setMessages: (messages: RoomChatMessage[]) =>
+        set((s) => ({
+          messages,
+        })),
       clearChat: () =>
         set({
           messages: [],
@@ -86,7 +92,7 @@ export const useRoomChatStore = create(
       toggleOpen: () =>
         set((s) => {
           // Reset mention state
-          useRoomChatMentionStore.getState().setIAmMentioned(0);
+          useRoomChatMentionStore.getState().resetIAmMentioned();
           if (s.open) {
             return {
               open: false,

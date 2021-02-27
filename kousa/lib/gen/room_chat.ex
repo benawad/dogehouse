@@ -80,6 +80,18 @@ defmodule Kousa.Gen.RoomChat do
     end
   end
 
+  def handle_cast({:message_deleted, user_id, message_id}, %State{} = state) do
+    ws_fan(state.users, :chat, %{
+      op: "message_deleted",
+      d: %{
+        messageId: message_id,
+        deleterId: user_id
+      }
+    })
+
+    {:noreply, state}
+  end
+
   def handle_cast({:ban_user, user_id}, state) do
     ws_fan(state.users, :chat, %{
       op: "chat_user_banned",

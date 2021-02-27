@@ -23,7 +23,7 @@ import {
   useRoomChatStore,
 } from "./modules/room-chat/useRoomChatStore";
 import { BanUsersPage } from "./pages/BanUsersPage";
-import { ChatSettingsPage } from "./pages/ChatSettingsPage";
+import { SoundEffectSettingsPage } from "./pages/SoundEffectSettingsPage";
 import { FollowingOnlineList } from "./pages/FollowingOnlineList";
 import { FollowListPage } from "./pages/FollowListPage";
 import { Home } from "./pages/Home";
@@ -82,6 +82,16 @@ export const Routes: React.FC<RoutesProps> = () => {
         ) {
           useRoomChatMentionStore.getState().incrementIAmMentioned();
         }
+      },
+      message_deleted({ messageId, deleterId }) {
+        const { messages, setMessages } = useRoomChatStore.getState();
+        setMessages(
+          messages.map((m) => ({
+            ...m,
+            deleted: m.id === messageId || !!m.deleted,
+            deleterId: m.id === messageId ? deleterId : m.deleterId,
+          }))
+        );
       },
       room_privacy_change: ({ roomId, isPrivate, name }) => {
         setCurrentRoom((cr) =>
@@ -197,12 +207,12 @@ export const Routes: React.FC<RoutesProps> = () => {
       speaker_added: ({ userId, roomId, muteMap }) => {
         // Mute user upon added as speaker
         if (meRef.current?.id === userId) {
-          const { set } = useMuteStore.getState();
+          const { setMute } = useMuteStore.getState();
           wsend({
             op: "mute",
             d: { value: true },
           });
-          set({ muted: true });
+          setMute(true);
         }
 
         setCurrentRoom((c) =>
@@ -410,7 +420,11 @@ export const Routes: React.FC<RoutesProps> = () => {
       <Route exact path="/search/users" component={SearchUsersPage} />
       <Route exact path="/ban/users" component={BanUsersPage} />
       <Route exact path="/voice-settings" component={VoiceSettingsPage} />
-      <Route exact path="/chat-settings" component={ChatSettingsPage} />
+      <Route
+        exact
+        path="/sound-effect-settings"
+        component={SoundEffectSettingsPage}
+      />
       <Route exact path="/following-online" component={FollowingOnlineList} />
       <Route
         exact

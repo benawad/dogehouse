@@ -1,6 +1,7 @@
 import create from "zustand";
 import { combine } from "zustand/middleware";
 import { BaseUser } from "../../types";
+import { useSoundEffectStore } from "../sound-effects/useSoundEffectStore";
 
 export const useRoomChatMentionStore = create(
   combine(
@@ -24,12 +25,14 @@ export const useRoomChatMentionStore = create(
           activeUsername,
         });
       },
-      setIAmMentioned: (iAmMentioned: number) =>
+      resetIAmMentioned: () =>
         set({
-          iAmMentioned,
+          iAmMentioned: 0,
         }),
-      incrementIAmMentioned: () =>
-        set((x) => ({ iAmMentioned: x.iAmMentioned + 1 })),
+      incrementIAmMentioned: () => {
+        useSoundEffectStore.getState().playSoundEffect("roomChatMention");
+        set((x) => ({ iAmMentioned: x.iAmMentioned + 1 }));
+      },
     })
   )
 );

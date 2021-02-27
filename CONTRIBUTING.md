@@ -7,10 +7,10 @@ We love your input! We want to make contributing to this project as easy and tra
 - Becoming a maintainer
 
 ## Code of Conduct
-The code of conduct is described in [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md)
+The code of conduct is described in [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
 
 ## Our Development Process
-All changes happen through pull requests, Pull requests are the best way to propose changes. We actively welcome your pull requests and invite you to submit pull requests directly <a href="https://github.com/benawad/dogehouse/pulls">here</a> and, after review, these can be merged into the project.
+All changes happen through pull requests. Pull requests are the best way to propose changes. We actively welcome your pull requests and invite you to submit pull requests directly <a href="https://github.com/benawad/dogehouse/pulls">here</a>, and after review, these can be merged into the project.
 
 ## Pull Requests
 1. Fork the repo and create your branch (usually named `patch-%the number of PRs you've already made%`) from `staging`.
@@ -18,7 +18,6 @@ All changes happen through pull requests, Pull requests are the best way to prop
 3. Ensure to describe your pull request.
 
 ## Quickstart Local Frontend Development
-
 Do this if you only want to do React stuff and don't want to touch Elixir:
 
 Navigate to `/kofta`
@@ -27,31 +26,30 @@ Navigate to `/kofta`
 - Run `npm run start:staging` (this tells React to connect to a hosted version of the backend for development purposes)
 
 ## Full Local Development
-
-How to run locally
+How to run locally:
 
 ### Backend
 #### RabbitMQ
 Install RabbitMQ:
-- **macOS**: Run `brew install rabbitmq`
-- **Windows**: Run `choco install rabbitmq`
+- **macOS**: Run `brew install rabbitmq`.
+- **Windows**: Run `choco install rabbitmq`.
 - **Linux**: Follow their installation guide [here](https://www.rabbitmq.com/download.html).
 
 Start RabbitMQ
-- **macOS**: Run `brew services start rabbitmq`
+- **macOS**: Run `brew services start rabbitmq`.
 - **Windows**: Setup guide [here](https://www.rabbitmq.com/install-windows.html).
 - **Linux**: Setup guide [here](https://www.rabbitmq.com/install-debian.html).
 
 #### PostgreSQL
 Install PostgreSQL:
-- **macOS**: Run `brew install postgresql`
+- **macOS**: Run `brew install postgresql`.
 - **Windows**: Follow [this](https://www.postgresqltutorial.com/install-postgresql/) guide.
 - **Linux**: Follow [this](https://www.postgresqltutorial.com/install-postgresql-linux/) guide.
 
 Start PostgreSQL:
-- **macOS**: Run `brew services start postgresql`
-- **Windows**: Start PostgreSQL through the control panel or run `net start postgresql-{version}` 
-- **Linux**: Run `/etc/rc.d/init.d/postgresql start`
+- **macOS**: Run `brew services start postgresql`.
+- **Windows**: Start PostgreSQL through the control panel or run `net start postgresql-{version}`.
+- **Linux**: Run `/etc/rc.d/init.d/postgresql start`.
 
 Create a DB named `kousa_repo2`:
 
@@ -63,7 +61,6 @@ $ CREATE DATABASE kousa_repo2;
 
 #### Elixir
 Elixir installation guide [here](https://elixir-lang.org/install.html).
-
 
 #### `kousa`
 Navigate to `/kousa` and set the following environment variables:
@@ -128,10 +125,10 @@ clear and has sufficient instructions to be able to reproduce the issue. Report 
 ## Feature Request
 Great Feature Requests tend to have:
 
-- A quick idea summary
-- What & why you wanted to add the specific feature
-- Additional Context like images, links to resources to implement the feature etc etc.
+- A quick idea summary.
+- What & why you wanted to add the specific feature.
+- Additional context like images, links to resources to implement the feature etc, etc.
 
 ## License
 By contributing to DogeHouse, you agree that your contributions will be licensed
-under the LICENSE file in the root directory of this source tree.
+under the [LICENSE file](LICENSE).

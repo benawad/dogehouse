@@ -32,7 +32,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   const location = useLocation();
   const history = useHistory();
   const [currentRoom] = useAtom(currentRoomAtom);
-  const { muted, set } = useMuteStore();
+  const { muted, setMute } = useMuteStore();
   const [{ canSpeak, isCreator }] = useAtom(myCurrentRoomInfoAtom);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [toggleOpen, newUnreadMessages] = useRoomChatStore((s) => [
@@ -119,7 +119,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
               op: "mute",
               d: { value: !muted },
             });
-            set({ muted: !muted });
+            setMute(!muted);
           }}
           title="Toggle mute microphone"
         >

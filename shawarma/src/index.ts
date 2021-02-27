@@ -16,10 +16,12 @@ const errLog = debugModule("shawarma:ERROR");
 const rooms: MyRooms = {};
 
 async function main() {
-  Sentry.init({
-    dsn: process.env.SENTRY_DNS,
-    enabled: !!process.env.SENTRY_DNS,
-  });
+  if (process.env.SENTRY_DNS) {
+    Sentry.init({
+      dsn: process.env.SENTRY_DNS,
+      enabled: !!process.env.SENTRY_DNS,
+    });
+  }
   // start mediasoup
   console.log("starting mediasoup");
   let workers: {
