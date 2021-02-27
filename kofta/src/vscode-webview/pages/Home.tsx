@@ -96,7 +96,7 @@ export const Home: React.FC<HomeProps> = () => {
         <div className={`mb-8 flex px-5`}>
           <Button
             variant="slim"
-            dogeProbability={0.2}
+            dogeProbability={0.01}
             onClick={() => {
               setShowCreateRoomModal(true);
             }}
