@@ -43,9 +43,9 @@ export const useSoundEffectStore = create(
           settings: { ...x.settings, [key]: value },
         }));
       },
-      playSoundEffect: (se: keyof typeof soundEffects) => {
+      playSoundEffect: (se: keyof typeof soundEffects, force = false) => {
         const { audioRefMap, settings } = get();
-        if (settings[se]) {
+        if (force || settings[se]) {
           audioRefMap[se]?.play();
         }
       },

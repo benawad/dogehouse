@@ -46,9 +46,9 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
           </Button>
           <Button
             variant="small"
-            onClick={() => history.push(`/chat-settings`)}
+            onClick={() => history.push(`/sound-effect-settings`)}
           >
-            go to chat settings
+            go to sound settings
           </Button>
         </div>
       </BodyWrapper>
