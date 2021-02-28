@@ -7,8 +7,6 @@ import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
 // @ts-ignore
 import normalizeUrl from "normalize-url";
 import { meAtom, currentRoomAtom, myCurrentRoomInfoAtom } from "../../atoms";
-import { dateFormat } from "../../utils/dateFormat";
-import ReactTooltip from "react-tooltip";
 
 interface ChatListProps {}
 
@@ -27,7 +25,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 
   return (
     <div
-      className={`bg-simple-gray-26 px-8 pt-8 flex-1 overflow-y-auto flex-col-reverse flex`}
+      className={`bg-simple-gray-26 px-8 pt-8 flex flex-1 flex-col-reverse overflow-y-auto `}
     >
       {profileId ? (
         <ProfileModalFetcher
@@ -40,13 +38,14 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
       ) : null}
       <div className={`pb-6`} />
       {messages.map((m) => (
-        <div className="flex flex-col" key={m.id} data-tip={dateFormat(m.sentAt)}>
+        <div className="flex flex-col-reverse flex-shrink-0" key={m.id}>
           {/* Whisper label */}
           {m.isWhisper ? (
             <p className="mb-0 text-xs text-gray-400 px-2 bg-simple-gray-3a w-16 rounded-t mt-1 text-center">
               Whisper
             </p>
           ) : null}
+
           <div
             className={`flex items-center px-1 ${
               m.isWhisper
@@ -135,8 +134,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
               )}
             </div>
           </div>
-
-          <ReactTooltip />
         </div>
       ))}
       {messages.length === 0 ? <div>Welcome to chat!</div> : null}
