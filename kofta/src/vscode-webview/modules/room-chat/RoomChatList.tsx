@@ -7,6 +7,8 @@ import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
 // @ts-ignore
 import normalizeUrl from "normalize-url";
 import { meAtom, currentRoomAtom, myCurrentRoomInfoAtom } from "../../atoms";
+import { dateFormat } from "../../utils/dateFormat";
+import ReactTooltip from "react-tooltip";
 
 interface ChatListProps {}
 
@@ -25,7 +27,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 
   return (
     <div
-      className={`bg-simple-gray-26 px-8 pt-8 flex flex-1 flex-col-reverse overflow-y-auto `}
+      className={`bg-simple-gray-26 px-8 pt-8 flex-1 overflow-y-auto flex-col-reverse flex`}
     >
       {profileId ? (
         <ProfileModalFetcher
@@ -45,7 +47,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
               Whisper
             </p>
           ) : null}
-
           <div
             className={`flex items-center px-1 ${
               m.isWhisper
@@ -134,6 +135,8 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
               )}
             </div>
           </div>
+
+          <ReactTooltip />
         </div>
       ))}
       {messages.length === 0 ? <div>Welcome to chat!</div> : null}
