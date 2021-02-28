@@ -90,6 +90,7 @@ export const Home: React.FC<HomeProps> = () => {
               </Button>
             </div>
           ) : null}
+          <div style={{ height: 40 }} />
         </BodyWrapper>
       </Wrapper>
       <BottomVoiceControl>

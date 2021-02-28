@@ -1,9 +1,14 @@
 import { linkRegex } from "./../constants";
 import { BaseUser } from "../types";
+
 // @ts-ignore
 import normalizeUrl from "normalize-url";
 
-export const createChatMessage = (message: string, mentions: BaseUser[]) => {
+export const createChatMessage = (
+  message: string,
+  mentions: BaseUser[],
+  roomUsers: BaseUser[] = []
+) => {
   const tokens = ([] as unknown) as [
     {
       t: string;
@@ -11,16 +16,22 @@ export const createChatMessage = (message: string, mentions: BaseUser[]) => {
     }
   ];
 
+  const whisperedToUsernames: string[] = [];
+
   message.split(" ").forEach((item) => {
     const isLink = linkRegex.test(item);
-    const isMention = mentions.find(
-      (m) => item.replace("@", "") === m.username
-    );
+    const withoutAt = item.replace(/@|#/g, "");
+    const isMention = mentions.find((m) => withoutAt === m.username);
+
+    // whisperedTo users list
+    !isMention ||
+      item.indexOf("#@") !== 0 ||
+      whisperedToUsernames.push(withoutAt);
 
     if (isLink || isMention) {
       tokens.push({
         t: isLink ? "link" : "mention",
-        v: isMention ? item.replace("@", "") : normalizeUrl(item),
+        v: isMention ? withoutAt : normalizeUrl(item),
       });
     } else {
       const lastToken = tokens[tokens.length - 1];
@@ -35,5 +46,14 @@ export const createChatMessage = (message: string, mentions: BaseUser[]) => {
     }
   });
 
-  return tokens;
+  return {
+    tokens,
+    whisperedTo: roomUsers
+      .filter((u) =>
+        whisperedToUsernames
+          .map((u) => u?.toLowerCase())
+          .includes(u.username?.toLowerCase())
+      )
+      .map((u) => u.id),
+  };
 };

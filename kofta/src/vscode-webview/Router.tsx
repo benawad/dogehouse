@@ -16,7 +16,7 @@ export const Router: React.FC<RouterProps> = () => {
   return (
     <BrowserRouter>
       <WebRtcApp />
-      <div className={`mx-auto w-full h-full flex relative items-center justify-around app-width-max`}>
+      <div className={`mx-auto max-w-5xl w-full h-full flex relative`}>
         <CenterLayout>
           <Routes />
           <MicPermissionBanner />

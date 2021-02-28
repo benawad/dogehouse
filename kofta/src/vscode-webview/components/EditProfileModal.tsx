@@ -3,7 +3,7 @@ import { useAtom } from "jotai";
 import React from "react";
 import { useMutation } from "react-query";
 import { object, pattern, size, string } from "superstruct";
-import { wsFetch } from "../../createWebsocket";
+import { wsMutation } from "../../createWebsocket";
 import { setMeAtom } from "../atoms";
 import { BaseUser } from "../types";
 import { showErrorToast } from "../utils/showErrorToast";
@@ -17,6 +17,10 @@ const profileStruct = object({
   displayName: size(string(), 2, 50),
   username: pattern(string(), /^(\w){4,15}$/),
   bio: size(string(), 0, 160),
+  avatarUrl: pattern(
+    string(),
+    /https?:\/\/(www\.|)(pbs.twimg.com\/profile_images\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/)/
+  ),
 });
 
 interface Shared {
@@ -35,7 +39,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
   onRequestClose,
   user,
 }) => {
-  const { mutateAsync, isLoading } = useMutation(wsFetch);
+  const { mutateAsync, isLoading } = useMutation(wsMutation);
   const [, setMe] = useAtom(setMeAtom);
   return (
     <Modal isOpen={isOpen} onRequestClose={onRequestClose}>
@@ -45,6 +49,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
             displayName: user.displayName,
             username: user.username,
             bio: user.bio,
+            avatarUrl: user.avatarUrl,
           }}
           validateOnChange={false}
           validate={validateFn}
@@ -63,6 +68,12 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
         >
           {({ handleSubmit }) => (
             <div>
+              <InputField
+                errorMsg="Invalid image"
+                label="Github/Twitter avatar url"
+                name="avatarUrl"
+              />
+              <FieldSpacer />
               <InputField
                 errorMsg="length 2 to 50 characters"
                 label="Display Name"

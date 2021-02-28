@@ -403,7 +403,12 @@ defmodule Kousa.SocketHandler do
   end
 
   def handler("send_room_chat_msg", %{"tokens" => tokens}, state) do
-    Kousa.BL.RoomChat.send_msg(state.user_id, tokens)
+    Kousa.BL.RoomChat.send_msg(state.user_id, tokens, [])
+    {:ok, state}
+  end
+
+  def handler("send_room_chat_msg", %{"tokens" => tokens, "whisperedTo" => whispered_to}, state) do
+    Kousa.BL.RoomChat.send_msg(state.user_id, tokens, whispered_to)
     {:ok, state}
   end
 
@@ -554,7 +559,7 @@ defmodule Kousa.SocketHandler do
   end
 
   def handler(op, data, state) do
-    with {:ok, room_id} <- Kousa.Data.User.tuple_get_current_room_id(state.user_id),
+    with {:ok, room_id} <- Data.User.tuple_get_current_room_id(state.user_id),
          {:ok, voice_server_id} <-
            RegUtils.lookup_and_call(Gen.RoomSession, room_id, {:get_voice_server_id}) do
       d =
@@ -592,7 +597,12 @@ defmodule Kousa.SocketHandler do
     end
   end
 
-  def f_handler("edit_profile", %{"data" => data}, state) do
+  def f_handler("unban_from_room", %{"userId" => user_id}, %State{} = state) do
+    BL.RoomBlock.unban(state.user_id, user_id)
+    %{}
+  end
+
+  def f_handler("edit_profile", %{"data" => data}, %State{} = state) do
     %{
       isUsernameTaken:
         case BL.User.edit_profile(state.user_id, data) do
@@ -600,6 +610,16 @@ defmodule Kousa.SocketHandler do
           _ -> false
         end
     }
+  end
+
+  def f_handler("get_blocked_from_room_users", %{"offset" => offset}, %State{} = state) do
+    case BL.RoomBlock.get_blocked_users(state.user_id, offset) do
+      {users, next_cursor} ->
+        %{users: users, nextCursor: next_cursor}
+
+      _ ->
+        %{users: [], nextCursor: nil}
+    end
   end
 
   defp prepare_socket_msg(data, %State{compression: compression, encoding: encoding}) do

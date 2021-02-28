@@ -2,7 +2,7 @@ import { useAtom } from "jotai";
 import React, { useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { wsend } from "../../../createWebsocket";
-import { meAtom } from "../../atoms";
+import { currentRoomAtom, meAtom } from "../../atoms";
 import { modalAlert } from "../../components/AlertModal";
 import { useRoomChatStore } from "./useRoomChatStore";
 import { createChatMessage } from "../../utils/createChatMessage";
@@ -25,6 +25,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
     activeUsername,
     setActiveUsername,
   } = useRoomChatMentionStore();
+  const [currentRoom] = useAtom(currentRoomAtom);
   const [me] = useAtom(meAtom);
   const [isEmoji, setIsEmoji] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -115,9 +116,10 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
 
     const tmp = message;
     setMessage("");
+
     wsend({
       op: "send_room_chat_msg",
-      d: { tokens: createChatMessage(tmp, mentions) },
+      d: createChatMessage(tmp, mentions, currentRoom?.users),
     });
     setQueriedUsernames([]);
 

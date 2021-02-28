@@ -25,7 +25,6 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
 
   function addMention(m: BaseUser) {
     setMentions([...mentions, m]);
-
     setMessage(
       message.substring(0, message.lastIndexOf("@") + 1) + m.username + " "
     );
@@ -37,11 +36,11 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
 
   useEffect(() => {
     // regex to match mention patterns
-    const mentionMatches = message.match(/^(?!.*\bRT\b)(?:.+\s)?@\w+/i);
+    const mentionMatches = message.match(/^(?!.*\bRT\b)(?:.+\s)?#?@\w+/i);
 
     // query usernames for matched patterns
     if (mentionMatches && me && currentRoom) {
-      const mentionsList = mentionMatches[0].replace(/@/g, "").split(" ");
+      const mentionsList = mentionMatches[0].replace(/@|#/g, "").split(" ");
       const useMention = mentionsList[mentionsList.length - 1];
 
       // hide usernames list if user continues typing without selecting

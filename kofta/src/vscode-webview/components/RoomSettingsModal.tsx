@@ -5,6 +5,7 @@ import { wsend } from "../../createWebsocket";
 import { renameRoomAndMakePrivate } from "../../webrtc/utils/renameRoomAndMakePrivate";
 import { renameRoomAndMakePublic } from "../../webrtc/utils/renameRoomAndMakePublic";
 import { currentRoomAtom } from "../atoms";
+import { BlockedFromRoomUsers } from "./BlockedFromRoomUsers";
 import { Button } from "./Button";
 import { Modal } from "./Modal";
 
@@ -71,6 +72,7 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
               make room private
             </Button>
           )}
+          {open ? <BlockedFromRoomUsers /> : null}
         </>
       ) : null}
     </Modal>
