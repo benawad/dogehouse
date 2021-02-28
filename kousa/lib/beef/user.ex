@@ -46,18 +46,19 @@ defmodule Beef.User do
   end
 
   @doc false
-  def changeset(user, attrs) do
+  def changeset(user, _attrs) do
     user
     |> validate_required([:username, :githubId, :avatarUrl])
   end
 
   def edit_changeset(user, attrs) do
     user
-    |> cast(attrs, [:id, :username, :bio, :displayName])
-    |> validate_required([:username, :displayName])
+    |> cast(attrs, [:id, :username, :bio, :displayName, :avatarUrl])
+    |> validate_required([:username, :displayName, :avatarUrl])
     |> validate_length(:bio, min: 0, max: 160)
     |> validate_length(:displayName, min: 2, max: 50)
     |> validate_format(:username, ~r/^(\w){4,15}$/)
+    |> validate_format(:avatarUrl, ~r/https?:\/\/(www\.|)(pbs.twimg.com\/profile_images\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/)/)
     |> unique_constraint(:username)
   end
 end
