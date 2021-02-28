@@ -3,7 +3,7 @@ import { useAtom } from "jotai";
 import React from "react";
 import { useMutation } from "react-query";
 import { object, pattern, size, string } from "superstruct";
-import { wsFetch } from "../../createWebsocket";
+import { wsMutation } from "../../createWebsocket";
 import { setMeAtom } from "../atoms";
 import { BaseUser } from "../types";
 import { showErrorToast } from "../utils/showErrorToast";
@@ -35,7 +35,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
   onRequestClose,
   user,
 }) => {
-  const { mutateAsync, isLoading } = useMutation(wsFetch);
+  const { mutateAsync, isLoading } = useMutation(wsMutation);
   const [, setMe] = useAtom(setMeAtom);
   return (
     <Modal isOpen={isOpen} onRequestClose={onRequestClose}>

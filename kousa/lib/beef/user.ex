@@ -2,6 +2,30 @@ defmodule Beef.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @type t :: %__MODULE__{
+          id: Ecto.UUID.t(),
+          twitterId: String.t(),
+          githubId: String.t(),
+          username: String.t(),
+          email: String.t(),
+          githubAccessToken: String.t(),
+          displayName: String.t(),
+          avatarUrl: String.t(),
+          bio: String.t(),
+          reasonForBan: String.t(),
+          tokenVersion: integer(),
+          numFollowing: integer(),
+          numFollowers: integer(),
+          hasLoggedIn: boolean(),
+          online: boolean(),
+          lastOnline: NaiveDateTime.t(),
+          youAreFollowing: boolean(),
+          followsYou: boolean(),
+          roomPermissions: nil | Beef.RoomPermission.t(),
+          currentRoomId: Ecto.UUID.t(),
+          currentRoom: Beef.Room.t() | Ecto.Association.NotLoaded.t()
+        }
+
   @derive {Poison.Encoder,
            only: [
              :id,

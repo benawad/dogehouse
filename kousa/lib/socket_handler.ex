@@ -592,7 +592,12 @@ defmodule Kousa.SocketHandler do
     end
   end
 
-  def f_handler("edit_profile", %{"data" => data}, state) do
+  def f_handler("unban_from_room", %{"userId" => user_id}, %State{} = state) do
+    BL.RoomBlock.unban(state.user_id, user_id)
+    %{}
+  end
+
+  def f_handler("edit_profile", %{"data" => data}, %State{} = state) do
     %{
       isUsernameTaken:
         case BL.User.edit_profile(state.user_id, data) do
@@ -600,6 +605,16 @@ defmodule Kousa.SocketHandler do
           _ -> false
         end
     }
+  end
+
+  def f_handler("get_blocked_from_room_users", %{"offset" => offset}, %State{} = state) do
+    case BL.RoomBlock.get_blocked_users(state.user_id, offset) do
+      {users, next_cursor} ->
+        %{users: users, nextCursor: next_cursor}
+
+      _ ->
+        %{users: [], nextCursor: nil}
+    end
   end
 
   defp prepare_socket_msg(data, %State{compression: compression, encoding: encoding}) do

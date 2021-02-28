@@ -146,8 +146,8 @@ export const wsend = (d: { op: string; d: any }) => {
   }
 };
 
-export const wsFetch = (d: WsParam) => {
-  return new Promise((res, rej) => {
+export const wsFetch = <T>(d: WsParam) => {
+  return new Promise<T>((res, rej) => {
     if (!authGood || !ws || ws.readyState !== ws.OPEN) {
       rej(new Error("can't connect to server"));
     } else {
@@ -163,3 +163,5 @@ export const wsFetch = (d: WsParam) => {
     }
   });
 };
+
+export const wsMutation = (d: WsParam) => wsFetch(d);

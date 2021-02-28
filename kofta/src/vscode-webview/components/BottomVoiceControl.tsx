@@ -8,14 +8,17 @@ import {
   Settings,
   UserPlus,
 } from "react-feather";
+import { useQueryClient } from "react-query";
 import { useHistory, useLocation } from "react-router-dom";
-import { wsend } from "../../createWebsocket";
+import { wsend, wsFetch } from "../../createWebsocket";
 import { useMuteStore } from "../../webrtc/stores/useMuteStore";
 import { currentRoomAtom, myCurrentRoomInfoAtom } from "../atoms";
 import { RoomChat } from "../modules/room-chat/RoomChat";
 import { useRoomChatMentionStore } from "../modules/room-chat/useRoomChatMentionStore";
 import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
 import { useShouldFullscreenChat } from "../modules/room-chat/useShouldFullscreenChat";
+import { PaginatedBaseUsers } from "../types";
+import { GET_BLOCKED_FROM_ROOM_USERS } from "./BlockedFromRoomUsers";
 import { modalConfirm } from "./ConfirmModal";
 import { Footer } from "./Footer";
 import { RoomSettingsModal } from "./RoomSettingsModal";
@@ -29,6 +32,7 @@ const buttonStyle = `px-2.5 text-simple-gray-8c text-sm flex-1`;
 export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   children,
 }) => {
+  const queryClient = useQueryClient();
   const location = useLocation();
   const history = useHistory();
   const [currentRoom] = useAtom(currentRoomAtom);
@@ -143,6 +147,15 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           className={buttonStyle}
           key="to-public-room"
           onClick={() => {
+            queryClient.prefetchQuery(
+              [GET_BLOCKED_FROM_ROOM_USERS, 0],
+              () =>
+                wsFetch<PaginatedBaseUsers>({
+                  op: GET_BLOCKED_FROM_ROOM_USERS,
+                  d: { offset: 0 },
+                }),
+              { staleTime: 0 }
+            );
             setSettingsOpen(true);
           }}
           title="Make room public!"

@@ -2,6 +2,14 @@ defmodule Beef.RoomPermission do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @type t :: %__MODULE__{
+          roomId: Ecto.UUID.t(),
+          userId: Ecto.UUID.t(),
+          isSpeaker: boolean(),
+          isMod: boolean(),
+          askedToSpeak: boolean()
+        }
+
   @derive {Poison.Encoder, only: [:isSpeaker, :isMod, :askedToSpeak]}
   @primary_key false
   schema "room_permissions" do
