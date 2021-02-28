@@ -7,7 +7,7 @@ import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
 // @ts-ignore
 import normalizeUrl from "normalize-url";
 import { meAtom, currentRoomAtom, myCurrentRoomInfoAtom } from "../../atoms";
-import { format } from "../../utils/format";
+import { dateFormat } from "../../utils/dateFormat";
 import ReactTooltip from "react-tooltip";
 
 interface ChatListProps {}
@@ -43,7 +43,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
         <div
           className="flex items-center"
           key={m.id}
-          data-tip={format(m.sentAt)}
+          data-tip={dateFormat(m.sentAt)}
         >
           <div
             className={`py-1 block break-words max-w-full items-start flex-1`}
