@@ -3,7 +3,7 @@ defmodule Kousa.BL.RoomChat do
 
   @message_character_limit 512
 
-  @spec send_msg(String.t(), list(map), String.t()) :: any
+  @spec send_msg(String.t(), list(map), list(String.t())) :: any
   def send_msg(user_id, tokens, whispered_to) do
     tokens = validate_tokens(tokens)
     if length(tokens) > 0 do
@@ -24,7 +24,7 @@ defmodule Kousa.BL.RoomChat do
                  displayName: display_name,
                  userId: user_id,
                  tokens: tokens,
-                 isWhisper: !!whispered_to
+                 isWhisper: whispered_to != []
                }, whispered_to}
             )
           end

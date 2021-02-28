@@ -16,14 +16,17 @@ export const createChatMessage = (
     }
   ];
 
-  let whisperedToUsername: string | null = null;
+  const whisperedToUsernames: string[] = [];
 
   message.split(" ").forEach((item) => {
     const isLink = linkRegex.test(item);
     const withoutAt = item.replace(/@|#/g, "");
     const isMention = mentions.find((m) => withoutAt === m.username);
-    const isWhisper = isMention && item.indexOf("#@") === 0;
-    whisperedToUsername || (whisperedToUsername = isWhisper ? withoutAt : null);
+
+    // whisperedTo users list
+    !isMention ||
+      item.indexOf("#@") !== 0 ||
+      whisperedToUsernames.push(withoutAt);
 
     if (isLink || isMention) {
       tokens.push({
@@ -43,12 +46,25 @@ export const createChatMessage = (
     }
   });
 
+  console.log({
+    tokens,
+    whisperedTo: roomUsers
+      .filter((u) =>
+        whisperedToUsernames
+          .map((u) => u?.toLowerCase())
+          .includes(u.username?.toLowerCase())
+      )
+      .map((u) => u.id),
+  });
+
   return {
     tokens,
-    whisperedTo:
-      roomUsers.find(
-        (u) =>
-          u.username?.toLowerCase() === whisperedToUsername?.toLocaleLowerCase()
-      )?.id || null,
+    whisperedTo: roomUsers
+      .filter((u) =>
+        whisperedToUsernames
+          .map((u) => u?.toLowerCase())
+          .includes(u.username?.toLowerCase())
+      )
+      .map((u) => u.id),
   };
 };

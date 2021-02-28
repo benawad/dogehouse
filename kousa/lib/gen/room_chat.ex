@@ -65,8 +65,7 @@ defmodule Kousa.Gen.RoomChat do
 
     if not Map.has_key?(state.ban_map, user_id) and
       (is_nil(last_timestamp) or seconds - last_timestamp > 0) do
-      users = if whispered_to, do: Enum.filter(state.users, fn uid -> uid == whispered_to end), else: state.users
-
+      users = if whispered_to != [], do: Enum.filter(state.users, fn uid -> Enum.member?([user_id] ++ whispered_to, uid) end), else: state.users
       ws_fan(users, :chat, %{
         op: "new_chat_msg",
         d: %{
