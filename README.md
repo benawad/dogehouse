@@ -3,9 +3,6 @@
 </p>
 
 <p align="center">
-  <a href="https://www.youtube.com/watch?v=hy-EhJ_tTQo&t" target="_blank">
-    <img src="https://img.shields.io/youtube/likes/hy-EhJ_tTQo?style=for-the-badge" alt="youtube likes" />
-  </a>
   <a href="https://discord.gg/wCbKBZF9cV">
     <img src="https://img.shields.io/discord/810571477316403233?style=for-the-badge" alt="discord - users online" />
   </a>
