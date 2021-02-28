@@ -296,7 +296,7 @@ export const Routes: React.FC<RoutesProps> = () => {
                       ]
                     : cr.peoplePreviewList,
                 numPeopleInside: cr.numPeopleInside + 1,
-                users: [...cr.users, user],
+                users: [...cr.users.filter((x) => x.id !== user.id), user],
               }
         );
       },

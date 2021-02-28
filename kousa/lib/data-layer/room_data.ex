@@ -1,5 +1,6 @@
 defmodule Kousa.Data.Room do
   import Ecto.Query
+  alias Beef.{Room, Repo}
 
   @fetch_limit 16
 
@@ -313,5 +314,9 @@ defmodule Kousa.Data.Room do
     not is_nil(
       Beef.Repo.one(from(r in Beef.Room, where: r.id == ^room_id and r.creatorId == ^user_id))
     )
+  end
+
+  def all_rooms() do
+    Repo.all(Room)
   end
 end

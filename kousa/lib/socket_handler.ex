@@ -104,15 +104,15 @@ defmodule Kousa.SocketHandler do
             x ->
               {user_id, tokens, user} =
                 case x do
-                  {user_id, tokens} -> {user_id, tokens, Kousa.Data.User.get_by_id(user_id)}
+                  {user_id, tokens} -> {user_id, tokens, Data.User.get_by_id(user_id)}
                   y -> y
                 end
 
               cond do
                 user ->
                   {:ok, session} =
-                    GenRegistry.lookup_or_start(Kousa.Gen.UserSession, user_id, [
-                      %Kousa.Gen.UserSession.State{
+                    GenRegistry.lookup_or_start(Gen.UserSession, user_id, [
+                      %Gen.UserSession.State{
                         user_id: user_id,
                         avatar_url: user.avatarUrl,
                         display_name: user.displayName,
@@ -132,11 +132,9 @@ defmodule Kousa.SocketHandler do
                       room = Kousa.Data.Room.get_room_by_id(user.currentRoomId)
 
                       {:ok, room_session} =
-                        GenRegistry.lookup_or_start(Kousa.Gen.RoomSession, user.currentRoomId, [
+                        GenRegistry.lookup_or_start(Gen.RoomSession, user.currentRoomId, [
                           %{
-                            user_id: user_id,
                             room_id: user.currentRoomId,
-                            muted: muted,
                             voice_server_id: room.voiceServerId
                           }
                         ])
