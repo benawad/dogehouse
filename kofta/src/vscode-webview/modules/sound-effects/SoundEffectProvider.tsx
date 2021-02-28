@@ -15,10 +15,11 @@ export const SoundEffectProvider: React.FC = ({}) => {
       {soundKeys.map((key) => (
         <audio
           preload="none"
+          controls={false}
           key={key}
           ref={(ref) => {
             if (ref) {
-              ref.volume = 0.8;
+              ref.volume = 0.7;
               add(key, ref);
             }
           }}

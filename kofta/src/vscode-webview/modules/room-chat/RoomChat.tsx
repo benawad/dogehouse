@@ -34,18 +34,9 @@ export const RoomChat: React.FC<ChatProps> = ({ sidebar }) => {
     return null;
   }
   return (
-    <div
-      style={{
-        width: sidebar ? 340 : "100%",
-      }}
-      className={`flex flex-1 w-full overflow-y-auto`}
-    >
+    <div className={`flex h-full flex-1 w-full overflow-y-auto chat-container`}>
       <div
-        style={{
-          width: sidebar ? 340 : "100%",
-          height: sidebar ? "100%" : undefined,
-        }}
-        className={`bg-simple-gray-26 flex flex-1 w-full flex-col ${sidebar ? `fixed bottom-0` : ``}`}
+        className={`bg-simple-gray-26 flex flex-1 w-full flex-col chat-room`}
       >
         <button
           onClick={() => toggleOpen()}

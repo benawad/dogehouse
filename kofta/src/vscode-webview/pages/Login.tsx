@@ -26,99 +26,101 @@ export const Login: React.FC<LoginProps> = () => {
     }
   }, []);
   return (
-    <CenterLayout>
-      <Wrapper>
-        <BodyWrapper>
-          <div className={`my-8`}>
-            <Logo />
-          </div>
-          <div className={`text-4xl mb-4 tracking-tight font-extrabold`}>
-            Taking voice conversations to the moon 🚀
-          </div>
-          <ul className={`my-4 mb-10 text-xl`}>
-            <ListItem>Dark theme</ListItem>
-            <ListItem>Open sign ups</ListItem>
-            <ListItem>Cross platform support</ListItem>
-            <ListItem>
-              <a
-                href="https://github.com/benawad/dogehouse"
-                className={`p-0 text-blue-400`}
+    <div className="flex items-center h-full justify-around">
+      <CenterLayout>
+        <Wrapper>
+          <BodyWrapper>
+            <div className={`my-8`}>
+              <Logo />
+            </div>
+            <div className={`text-4xl mb-4 tracking-tight font-extrabold`}>
+              Taking voice conversations to the moon 🚀
+            </div>
+            <ul className={`my-4 mb-10 text-xl`}>
+              <ListItem>Dark theme</ListItem>
+              <ListItem>Open sign ups</ListItem>
+              <ListItem>Cross platform support</ListItem>
+              <ListItem>
+                <a
+                  href="https://github.com/benawad/dogehouse"
+                  className={`p-0 text-blue-400`}
+                >
+                  Open Source
+                </a>
+              </ListItem>
+              <ListItem>Text chat</ListItem>
+              <ListItem>Powered by Doge</ListItem>
+            </ul>
+            <div className={`mb-8`}>
+              <Button
+                variant="slim"
+                style={{ backgroundColor: "#333" }}
+                onClick={() =>
+                  (window.location.href =
+                    apiBaseUrl +
+                    "/auth/github/web" +
+                    (__staging__
+                      ? "?redirect_after_base=" + window.location.origin
+                      : ""))
+                }
               >
-                Open Source
-              </a>
-            </ListItem>
-            <ListItem>Text chat</ListItem>
-            <ListItem>Powered by Doge</ListItem>
-          </ul>
-          <div className={`mb-8`}>
-            <Button
-              variant="slim"
-              style={{ backgroundColor: "#333" }}
-              onClick={() =>
-                (window.location.href =
-                  apiBaseUrl +
-                  "/auth/github/web" +
-                  (__staging__
-                    ? "?redirect_after_base=" + window.location.origin
-                    : ""))
-              }
-            >
-              <span className={`inline-flex items-center`}>
-                <GitHubIcon className={`h-6 w-6`} />
-                <p className={`ml-3`}>login with GitHub</p>
-              </span>
-            </Button>
-          </div>
-          {!__staging__ ? (
-            <Button
-              variant="slim"
-              style={{ backgroundColor: "#0C84CF" }}
-              onClick={() =>
-                (window.location.href =
-                  apiBaseUrl +
-                  "/auth/twitter/web" +
-                  (process.env.REACT_APP_IS_STAGING === "true"
-                    ? "?redirect_after_base=" + window.location.origin
-                    : ""))
-              }
-            >
-              <span className={`inline-flex items-center`}>
-                <TwitterIcon className={`h-6 w-6`} />
-                <p className={`ml-3`}>login with Twitter</p>
-              </span>
-            </Button>
-          ) : null}
-          {!__prod__ ? (
-            <Button
-              variant="slim"
-              className={`m-8`}
-              onClick={() => {
-                modalPrompt("username", async (name) => {
-                  if (!name) {
-                    return;
-                  }
-                  const r = await fetch(
-                    `${apiBaseUrl}/dev/test-info?username=` + name
-                  );
-                  const d = await r.json();
-                  useTokenStore.getState().setTokens({
-                    accessToken: d.accessToken,
-                    refreshToken: d.refreshToken,
+                <span className={`inline-flex items-center`}>
+                  <GitHubIcon className={`h-6 w-6`} />
+                  <p className={`ml-3`}>login with GitHub</p>
+                </span>
+              </Button>
+            </div>
+            {!__staging__ ? (
+              <Button
+                variant="slim"
+                style={{ backgroundColor: "#0C84CF" }}
+                onClick={() =>
+                  (window.location.href =
+                    apiBaseUrl +
+                    "/auth/twitter/web" +
+                    (process.env.REACT_APP_IS_STAGING === "true"
+                      ? "?redirect_after_base=" + window.location.origin
+                      : ""))
+                }
+              >
+                <span className={`inline-flex items-center`}>
+                  <TwitterIcon className={`h-6 w-6`} />
+                  <p className={`ml-3`}>login with Twitter</p>
+                </span>
+              </Button>
+            ) : null}
+            {!__prod__ ? (
+              <Button
+                variant="slim"
+                className={`m-8`}
+                onClick={() => {
+                  modalPrompt("username", async (name) => {
+                    if (!name) {
+                      return;
+                    }
+                    const r = await fetch(
+                      `${apiBaseUrl}/dev/test-info?username=` + name
+                    );
+                    const d = await r.json();
+                    useTokenStore.getState().setTokens({
+                      accessToken: d.accessToken,
+                      refreshToken: d.refreshToken,
+                    });
                   });
-                });
-              }}
-            >
-              create test user
-            </Button>
-          ) : null}
-        </BodyWrapper>
-      </Wrapper>
-      <div className={`mb-6 px-5`}>
-        <Footer isLogin />
-      </div>
-      <AlertModal />
-      <PromptModal />
-      <ConfirmModal />
-    </CenterLayout>
+                }}
+              >
+                create test user
+              </Button>
+            ) : null}
+          </BodyWrapper>
+        </Wrapper>
+        <div className={`mb-6 px-5`}>
+          <Footer isLogin />
+        </div>
+        <AlertModal />
+        <PromptModal />
+        <ConfirmModal />
+      </CenterLayout>
+    </div>
   );
 };

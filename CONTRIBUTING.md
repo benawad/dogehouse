@@ -20,9 +20,10 @@ All changes happen through pull requests. Pull requests are the best way to prop
 ## Quickstart Local Frontend Development
 Do this if you only want to do React stuff and don't want to touch Elixir:
 
-1. Navigate to `/kofta`
+Navigate to `/kofta`
 
-2. Run `npm i` and then `npm start:staging` (this tells React to connect to a hosted version of the backend for development purposes).
+- Run `npm i`
+- Run `npm run start:staging` (this tells React to connect to a hosted version of the backend for development purposes)
 
 ## Full Local Development
 How to run locally:

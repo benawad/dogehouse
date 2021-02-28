@@ -1,7 +1,9 @@
 import {
+  ConsumerType,
   Producer,
   Router,
   RtpCapabilities,
+  RtpParameters,
   Transport,
 } from "mediasoup/lib/types";
 import { MyPeer } from "../MyPeer";
@@ -13,7 +15,7 @@ export const createConsumer = async (
   transport: Transport,
   peerId: string,
   peerConsuming: MyPeer
-) => {
+): Promise<Consumer> => {
   if (!router.canConsume({ producerId: producer.id, rtpCapabilities })) {
     throw new Error(
       `recv-track: client cannot consume ${producer.appData.peerId}`
@@ -48,5 +50,17 @@ export const createConsumer = async (
       type: consumer.type,
       producerPaused: consumer.producerPaused,
     },
+  };
+};
+
+export interface Consumer {
+  peerId: string;
+  consumerParameters: {
+    producerId: string;
+    id: string;
+    kind: string;
+    rtpParameters: RtpParameters;
+    type: ConsumerType;
+    producerPaused: boolean;
   };
 };

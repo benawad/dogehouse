@@ -25,7 +25,7 @@ export const Modal: React.FC<ReactModal["props"]> = ({
   ...props
 }) => {
   return (
-    <ReactModal style={customStyles} {...props}>
+    <ReactModal shouldCloseOnEsc style={customStyles} {...props}>
       {children}
     </ReactModal>
   );

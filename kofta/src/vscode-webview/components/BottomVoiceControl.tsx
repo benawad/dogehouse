@@ -169,7 +169,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           fullscreenChatOpen
             ? `fixed top-0 left-0 right-0 flex-col flex h-full`
             : `sticky`
-        } bottom-0 w-full`}
+        } bottom-0 w-full phone-round-bottom`}
       >
         {fullscreenChatOpen ? null : children}
         <RoomChat sidebar={false} />
@@ -191,7 +191,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           </button>
         ) : null}
         <div
-          className={`border-simple-gray-80 bg-simple-gray-26 border-t w-full mt-auto p-5`}
+          className={`border-simple-gray-80 bg-simple-gray-26 border-t w-full mt-auto p-5 phone-round-bottom`}
         >
           {currentRoom ? (
             <div className={`flex justify-around`}>{buttons}</div>

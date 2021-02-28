@@ -16,7 +16,7 @@ import { Modal } from "./Modal";
 const profileStruct = object({
   displayName: size(string(), 2, 50),
   username: pattern(string(), /^(\w){4,15}$/),
-  bio: size(string(), 2, 160),
+  bio: size(string(), 0, 160),
 });
 
 interface Shared {
@@ -76,7 +76,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
               />
               <FieldSpacer />
               <InputField
-                errorMsg="length 2 to 160 characters"
+                errorMsg="max length of 160 characters"
                 label="Bio"
                 textarea
                 name="bio"
