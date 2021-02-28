@@ -11,16 +11,19 @@ export const createChatMessage = (message: string, mentions: BaseUser[]) => {
     }
   ];
 
+  let whisperedFor: string | null = null;
+
   message.split(" ").forEach((item) => {
     const isLink = linkRegex.test(item);
-    const isMention = mentions.find(
-      (m) => item.replace("@", "") === m.username
-    );
+    const withoutAt = item.replace(/@|#/g, "");
+    const isMention = mentions.find((m) => withoutAt === m.username);
+    const isWhisper = isMention && item.indexOf("#@") === 0;
+    whisperedFor || (whisperedFor = isWhisper ? withoutAt : null);
 
     if (isLink || isMention) {
       tokens.push({
         t: isLink ? "link" : "mention",
-        v: isMention ? item.replace("@", "") : normalizeUrl(item),
+        v: isMention ? withoutAt : normalizeUrl(item),
       });
     } else {
       const lastToken = tokens[tokens.length - 1];
@@ -35,5 +38,8 @@ export const createChatMessage = (message: string, mentions: BaseUser[]) => {
     }
   });
 
-  return tokens;
+  return {
+    tokens,
+    whisperedFor,
+  };
 };
