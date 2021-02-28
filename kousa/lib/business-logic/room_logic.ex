@@ -231,7 +231,11 @@ defmodule Kousa.BL.Room do
         })
 
         join_vc_room(user_id, room, true)
-        BL.Follow.notify_followers_you_created_a_room(user_id, room)
+
+        if not is_private do
+          BL.Follow.notify_followers_you_created_a_room(user_id, room)
+        end
+
         {:ok, %{room: room}}
 
       {:error, x} ->
