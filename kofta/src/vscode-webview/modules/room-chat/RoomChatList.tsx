@@ -8,6 +8,7 @@ import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
 import normalizeUrl from "normalize-url";
 import { meAtom, currentRoomAtom, myCurrentRoomInfoAtom } from "../../atoms";
 import { format } from "../../utils/format";
+import ReactTooltip from "react-tooltip";
 
 interface ChatListProps {}
 
@@ -39,7 +40,11 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
       ) : null}
       <div className={`pb-6`} />
       {messages.map((m) => (
-        <div className="flex items-center" key={m.id}>
+        <div
+          className="flex items-center"
+          key={m.id}
+          data-tip={format(m.sentAt)}
+        >
           <div
             className={`py-1 block break-words max-w-full items-start flex-1`}
             key={m.id}
@@ -66,7 +71,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
               {m.displayName}
             </button>
 
-            <span className={`mr-1`}>: ({format(m.sentAt)})</span>
+            <span className={`mr-1`}>: </span>
 
             {m.deleted ? (
               <span className="text-gray-500">
@@ -120,6 +125,8 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
               })
             )}
           </div>
+
+          <ReactTooltip />
         </div>
       ))}
       {messages.length === 0 ? <div>Welcome to chat!</div> : null}
