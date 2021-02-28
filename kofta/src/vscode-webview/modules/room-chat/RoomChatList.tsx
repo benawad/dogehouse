@@ -40,7 +40,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
       ) : null}
       <div className={`pb-6`} />
       {messages.map((m) => (
-        <div className="flex flex-col" key={m.id} data-tip={dateFormat(m.sentAt)}>
+        <div className="flex flex-col-reverse flex-shrink-0" key={m.id} data-tip={dateFormat(m.sentAt)}>
           {/* Whisper label */}
           {m.isWhisper ? (
             <p className="mb-0 text-xs text-gray-400 px-2 bg-simple-gray-3a w-16 rounded-t mt-1 text-center">
