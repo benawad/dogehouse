@@ -1,7 +1,7 @@
-var dateFormat = require("dateformat");
+var { format: dfsFormat } = require("date-fns");
 
 // This auto converts UTC to local
-export const format = (timestamp: string, format = "hh:MM tt") => {
+export const format = (timestamp: string, format = "hh:mm aaa") => {
   const date = new Date(timestamp);
-  return dateFormat(date, format);
+  return dfsFormat(date, format);
 };
