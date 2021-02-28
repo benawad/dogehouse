@@ -554,7 +554,7 @@ defmodule Kousa.SocketHandler do
   end
 
   def handler(op, data, state) do
-    with {:ok, room_id} <- Kousa.Data.User.tuple_get_current_room_id(state.user_id),
+    with {:ok, room_id} <- Data.User.tuple_get_current_room_id(state.user_id),
          {:ok, voice_server_id} <-
            RegUtils.lookup_and_call(Gen.RoomSession, room_id, {:get_voice_server_id}) do
       d =
