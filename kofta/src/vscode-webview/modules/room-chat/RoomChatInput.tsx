@@ -55,7 +55,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
       const selected = queriedUsernames[activeIndex];
       setMentions([...mentions, selected]);
       setMessage(
-        `${message.substring(0, message.lastIndexOf("@") + 1)} ${
+        `${message.substring(0, message.lastIndexOf("@") + 1)}${
           selected.username
         } `
       );
