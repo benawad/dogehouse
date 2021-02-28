@@ -6,6 +6,7 @@ import { meAtom } from "../atoms";
 import { Backbar } from "../components/Backbar";
 import { BodyWrapper } from "../components/BodyWrapper";
 import { Button } from "../components/Button";
+import { modalConfirm } from "../components/ConfirmModal";
 import { UserProfile } from "../components/UserProfile";
 import { Wrapper } from "../components/Wrapper";
 import { useTokenStore } from "../utils/useTokenStore";
@@ -22,11 +23,13 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
           <Button
             className={`m-2.5`}
             onClick={() => {
-              history.push("/");
-              closeWebSocket();
-              useTokenStore
-                .getState()
-                .setTokens({ accessToken: "", refreshToken: "" });
+              modalConfirm("Are you sure you want to logout?", () => {
+                history.push("/");
+                closeWebSocket();
+                useTokenStore
+                  .getState()
+                  .setTokens({ accessToken: "", refreshToken: "" });
+              });
             }}
             variant="small"
           >
