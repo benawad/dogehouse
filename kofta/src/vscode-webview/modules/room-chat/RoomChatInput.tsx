@@ -10,6 +10,8 @@ import { Smile } from "react-feather";
 import "emoji-mart/css/emoji-mart.css";
 import { Picker } from "emoji-mart";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
+import { Button } from "../../components/Button";
+import { Codicon } from "../../svgs/Codicon";
 
 interface ChatInputProps {}
 
@@ -55,7 +57,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
       const selected = queriedUsernames[activeIndex];
       setMentions([...mentions, selected]);
       setMessage(
-        `${message.substring(0, message.lastIndexOf("@") + 1)} ${
+        `${message.substring(0, message.lastIndexOf("@") + 1)}${
           selected.username
         } `
       );
@@ -80,7 +82,9 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
     setMessage(newMsg);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (
+    e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>
+  ) => {
     e.preventDefault();
 
     if (
@@ -123,7 +127,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className={`bg-simple-gray-26 pb-8 px-8 pt-1`}
+      className={`bg-simple-gray-26 pb-5 px-8 pt-1`}
     >
       {isEmoji ? (
         <Picker
@@ -151,38 +155,50 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
           }}
         />
       ) : null}
-      <div>
-        <input
-          maxLength={512}
-          placeholder="Send a message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          ref={inputRef}
-          className={`w-full text-simple-gray-9c bg-simple-gray-59 px-4 py-3 rounded text-lg focus:outline-none pr-12`}
-          autoComplete="off"
-          onKeyDown={navigateThroughQueriedUsers}
-          onFocus={() => {
-            setIsEmoji(false);
-            position = 0;
-          }}
-          id="room-chat-input"
-        />
-        <div
-          style={{
-            color: "rgb(167, 167, 167)",
-            display: "flex",
-            marginRight: 13,
-            marginTop: -37,
-            flexDirection: "row-reverse",
-          }}
-          className={`mt-3 right-12 cursor-pointer`}
-          onClick={() => {
-            setIsEmoji(!isEmoji);
-            position = 0;
-          }}
-        >
-          <Smile style={{ inlineSize: "23px" }}></Smile>
+      <div className="flex items-stretch">
+        <div className="flex-1 mr-2 lg:mr-0 items-end">
+          <input
+            maxLength={512}
+            placeholder="Send a message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            ref={inputRef}
+            className={`w-full text-simple-gray-9c bg-simple-gray-59 px-4 py-2 rounded text-lg focus:outline-none pr-12`}
+            autoComplete="off"
+            onKeyDown={navigateThroughQueriedUsers}
+            onFocus={() => {
+              setIsEmoji(false);
+              position = 0;
+            }}
+            id="room-chat-input"
+          />
+          <div
+            style={{
+              color: "rgb(167, 167, 167)",
+              display: "flex",
+              marginRight: 13,
+              marginTop: -35,
+              flexDirection: "row-reverse",
+            }}
+            className={`mt-3 right-12 cursor-pointer`}
+            onClick={() => {
+              setIsEmoji(!isEmoji);
+              position = 0;
+            }}
+          >
+            <Smile style={{ inlineSize: "23px" }}></Smile>
+          </div>
         </div>
+
+        {/* Send button (mobile only) */}
+        <Button
+          onClick={handleSubmit}
+          variant="small"
+          className="lg:hidden"
+          style={{ padding: "10px 12px" }}
+        >
+          <Codicon name="arrowRight" />
+        </Button>
       </div>
     </form>
   );

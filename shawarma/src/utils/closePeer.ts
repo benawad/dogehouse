@@ -1,4 +1,5 @@
 import { MyPeer } from "../MyPeer";
+
 export const closePeer = (state: MyPeer) => {
   state.producer?.close();
   state.recvTransport?.close();

@@ -3,9 +3,6 @@
 </p>
 
 <p align="center">
-  <a href="https://www.youtube.com/watch?v=hy-EhJ_tTQo&t" target="_blank">
-    <img src="https://img.shields.io/youtube/likes/hy-EhJ_tTQo?style=for-the-badge" alt="youtube likes" />
-  </a>
   <a href="https://discord.gg/wCbKBZF9cV">
     <img src="https://img.shields.io/discord/810571477316403233?style=for-the-badge" alt="discord - users online" />
   </a>
@@ -38,3 +35,7 @@ Please read [CODE_OF_CONDUCT.md](https://github.com/benawad/dogehouse/blob/stagi
 ## How to run locally
 
 Check <a href="https://github.com/benawad/dogehouse/blob/staging/CONTRIBUTING.md#quickstart-local-frontend-development">here</a> on how to run locally</a>
+
+## Why did you make this?
+
+https://www.youtube.com/watch?v=hy-EhJ_tTQo
