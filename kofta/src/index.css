@@ -21,53 +21,6 @@
   .grid-rows-auto-fr {
     grid-template-rows: auto 1fr;
   }
-  .app-width-max {
-    max-width: 1200px;
-  }
-  @media only screen and (max-width: 960px) {
-    .chat-is-open .phone-simulator {
-      border-radius: 0;
-      border: none;
-    }
-    .chat-is-open .phone-round-top {
-      border-radius: 0;
-    }
-    .chat-is-open .phone-round-bottom {
-      border-radius: 0;
-    }
-  }
-  @media only screen and (min-width: 960px) {
-    .chat-container {
-      max-width: 450px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 97%;
-      box-shadow: 0px 0px 20px -5px #000;
-      border: 1px solid rgb(38, 38, 38);
-      border-radius: 0.5rem;
-    }
-    .chat-room {
-      border-radius: 0.5rem;
-      height: 100%;
-    }
-  }
-  @media only screen and (min-width: 640px) {
-    .phone-simulator {
-      height: 97%;
-      box-shadow: 0px 0px 20px -5px #000;
-      border: 1px solid rgb(38, 38, 38);
-      border-radius: 0.5rem;
-    }
-    .phone-round-top {
-      border-top-left-radius: 0.5rem;
-      border-top-right-radius: 0.5rem;
-    }
-    .phone-round-bottom {
-      border-bottom-left-radius: 0.5rem;
-      border-bottom-right-radius: 0.5rem;
-    }
-  }
 }
 
 ::-webkit-scrollbar {
@@ -84,11 +37,11 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(123, 123, 123);
+background: rgb(123, 123, 123);
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: rgb(161, 161, 161, 0.8);
+background: rgb(161, 161, 161, .8);
 }
 
 option {
