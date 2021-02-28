@@ -35,3 +35,7 @@ Please read [CODE_OF_CONDUCT.md](https://github.com/benawad/dogehouse/blob/stagi
 ## How to run locally
 
 Check <a href="https://github.com/benawad/dogehouse/blob/staging/CONTRIBUTING.md#quickstart-local-frontend-development">here</a> on how to run locally</a>
+
+## Why did you make this?
+
+https://www.youtube.com/embed/hy-EhJ_tTQo
