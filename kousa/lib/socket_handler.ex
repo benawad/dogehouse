@@ -402,6 +402,11 @@ defmodule Kousa.SocketHandler do
     {:ok, state}
   end
 
+  def handler("send_room_chat_msg", %{"tokens" => tokens}, state) do
+    Kousa.BL.RoomChat.send_msg(state.user_id, tokens, [])
+    {:ok, state}
+  end
+
   def handler("send_room_chat_msg", %{"tokens" => tokens, "whisperedTo" => whispered_to}, state) do
     Kousa.BL.RoomChat.send_msg(state.user_id, tokens, whispered_to)
     {:ok, state}
