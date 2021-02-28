@@ -1,9 +1,14 @@
 import { linkRegex } from "./../constants";
 import { BaseUser } from "../types";
+
 // @ts-ignore
 import normalizeUrl from "normalize-url";
 
-export const createChatMessage = (message: string, mentions: BaseUser[]) => {
+export const createChatMessage = (
+  message: string,
+  mentions: BaseUser[],
+  roomUsers: BaseUser[] = []
+) => {
   const tokens = ([] as unknown) as [
     {
       t: string;
@@ -11,14 +16,14 @@ export const createChatMessage = (message: string, mentions: BaseUser[]) => {
     }
   ];
 
-  let whisperedFor: string | null = null;
+  let whisperedToUsername: string | null = null;
 
   message.split(" ").forEach((item) => {
     const isLink = linkRegex.test(item);
     const withoutAt = item.replace(/@|#/g, "");
     const isMention = mentions.find((m) => withoutAt === m.username);
     const isWhisper = isMention && item.indexOf("#@") === 0;
-    whisperedFor || (whisperedFor = isWhisper ? withoutAt : null);
+    whisperedToUsername || (whisperedToUsername = isWhisper ? withoutAt : null);
 
     if (isLink || isMention) {
       tokens.push({
@@ -40,6 +45,10 @@ export const createChatMessage = (message: string, mentions: BaseUser[]) => {
 
   return {
     tokens,
-    whisperedFor,
+    whisperedTo:
+      roomUsers.find(
+        (u) =>
+          u.username?.toLowerCase() === whisperedToUsername?.toLocaleLowerCase()
+      )?.id || null,
   };
 };

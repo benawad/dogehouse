@@ -59,13 +59,15 @@ defmodule Kousa.Gen.RoomChat do
     {:noreply, state}
   end
 
-  def handle_cast({:new_msg, user_id, msg}, %State{} = state) do
+  def handle_cast({:new_msg, user_id, msg, whispered_to}, %State{} = state) do
     last_timestamp = Map.get(state.last_message_map, user_id)
     {_, seconds, _} = :os.timestamp()
 
     if not Map.has_key?(state.ban_map, user_id) and
-         (is_nil(last_timestamp) or seconds - last_timestamp > 0) do
-      ws_fan(state.users, :chat, %{
+      (is_nil(last_timestamp) or seconds - last_timestamp > 0) do
+      users = if whispered_to, do: Enum.filter(state.users, fn uid -> uid == whispered_to end), else: state.users
+
+      ws_fan(users, :chat, %{
         op: "new_chat_msg",
         d: %{
           userId: user_id,
