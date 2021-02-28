@@ -45,6 +45,7 @@ export interface RoomChatMessage {
   tokens: RoomChatMessageToken[];
   deleted?: boolean;
   deleterId?: string;
+  sentAt: string;
 }
 
 export const useRoomChatStore = create(

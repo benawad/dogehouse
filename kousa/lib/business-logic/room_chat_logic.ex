@@ -24,7 +24,8 @@ defmodule Kousa.BL.RoomChat do
                  avatarUrl: avatar_url,
                  displayName: display_name,
                  userId: user_id,
-                 tokens: tokens
+                 tokens: tokens,
+                 sentAt: DateTime.utc_now()
                }}
             )
           end

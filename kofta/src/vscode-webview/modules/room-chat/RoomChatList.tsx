@@ -7,6 +7,7 @@ import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
 // @ts-ignore
 import normalizeUrl from "normalize-url";
 import { meAtom, currentRoomAtom, myCurrentRoomInfoAtom } from "../../atoms";
+import { format } from "../../utils/format";
 
 interface ChatListProps {}
 
@@ -65,7 +66,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
               {m.displayName}
             </button>
 
-            <span className={`mr-1`}>: </span>
+            <span className={`mr-1`}>: ({format(m.sentAt)})</span>
 
             {m.deleted ? (
               <span className="text-gray-500">
