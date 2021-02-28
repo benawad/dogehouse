@@ -3,6 +3,17 @@ defmodule Kousa.Data.Follower do
 
   @fetch_limit 21
 
+  @spec get_followers_online_and_not_in_a_room(String.t()) :: [Beef.Follow.t()]
+  def get_followers_online_and_not_in_a_room(user_id) do
+    from(
+      f in Beef.Follow,
+      inner_join: u in Beef.User,
+      on: f.followerId == u.id,
+      where: f.userId == ^user_id and u.online == true and is_nil(u.currentRoomId)
+    )
+    |> Beef.Repo.all()
+  end
+
   def bulk_insert(follows) do
     Beef.Repo.insert_all(
       Beef.Follow,
@@ -35,12 +46,13 @@ defmodule Kousa.Data.Follower do
         left_join: cr in Beef.Room,
         on: u.currentRoomId == cr.id,
         where:
-          f.followerId == ^user_id and u.online == true and
+          f.followerId == ^user_id and
             (is_nil(cr.isPrivate) or
                (cr.isPrivate == false and cr.numPeopleInside < ^max_room_size)),
         select: %{u | currentRoom: cr, followsYou: not is_nil(f2.userId)},
         limit: ^@fetch_limit,
-        offset: ^offset
+        offset: ^offset,
+        order_by: [desc: u.online]
       )
       |> Beef.Repo.all()
 
@@ -164,17 +176,18 @@ defmodule Kousa.Data.Follower do
         )
         |> Beef.Repo.update_all([])
 
-      error -> error
+      error ->
+        error
     end
   end
 
   def get_info(me_id, other_user_id) do
     from(f in Beef.Follow,
-        where:
-          (f.userId == ^me_id and f.followerId == ^other_user_id) or
-            (f.userId == ^other_user_id and f.followerId == ^me_id),
-        limit: 2
-      )
+      where:
+        (f.userId == ^me_id and f.followerId == ^other_user_id) or
+          (f.userId == ^other_user_id and f.followerId == ^me_id),
+      limit: 2
+    )
     |> Beef.Repo.all()
     |> case do
       # when both follow each other there should be two results.

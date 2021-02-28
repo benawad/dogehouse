@@ -49,7 +49,9 @@ export const RoomCard: React.FC<RoomProps> = ({
     <div>
       <button
         onClick={onClick}
-        className={`w-full ${active ? "bg-simple-gray-4d" : "bg-simple-gray-33"} hover:bg-simple-gray-69 active:bg-simple-gray-23 py-2.5 px-5 rounded-lg`}
+        className={`w-full ${
+          active ? "bg-simple-gray-4d" : "bg-simple-gray-33"
+        } hover:bg-simple-gray-69 active:bg-simple-gray-23 py-2.5 px-5 rounded-lg`}
       >
         <div className={`flex text-white`}>
           <div
@@ -58,7 +60,7 @@ export const RoomCard: React.FC<RoomProps> = ({
               WebkitBoxOrient: "vertical",
               WebkitLineClamp: 3,
             }}
-            className={`text-left flex-1 text-xl text-simple-gray-d9 text-ellipsis overflow-hidden break-words`}
+            className={`text-left flex-1 text-xl text-simple-gray-d9 text-ellipsis overflow-hidden break-all`}
           >
             {room.name?.slice(0, 100)}
           </div>

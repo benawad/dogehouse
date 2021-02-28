@@ -1,13 +1,12 @@
 defmodule Kousa.BL.RoomChat do
   alias Kousa.{Data, RegUtils, Gen}
-  alias Beef.User
 
   @message_character_limit 512
 
   @spec send_msg(String.t(), list(map)) :: any
   def send_msg(user_id, tokens) do
     tokens = validate_tokens(tokens)
-    
+
     if length(tokens) > 0 do
       case Data.User.get_current_room_id(user_id) do
         nil ->
@@ -15,18 +14,18 @@ defmodule Kousa.BL.RoomChat do
 
         current_room_id ->
           with {avatar_url, display_name} <-
-                Gen.UserSession.send_call!(user_id, {:get_info_for_msg}) do
+                 Gen.UserSession.send_call!(user_id, {:get_info_for_msg}) do
             RegUtils.lookup_and_cast(
               Gen.RoomChat,
               current_room_id,
               {:new_msg, user_id,
-              %{
-                id: Ecto.UUID.generate(),
-                avatarUrl: avatar_url,
-                displayName: display_name,
-                userId: user_id,
-                tokens: tokens
-              }}
+               %{
+                 id: Ecto.UUID.generate(),
+                 avatarUrl: avatar_url,
+                 displayName: display_name,
+                 userId: user_id,
+                 tokens: tokens
+               }}
             )
           end
       end
@@ -35,7 +34,7 @@ defmodule Kousa.BL.RoomChat do
 
   defp validate_tokens(tokens) when is_list(tokens) do
     if Enum.reduce_while(tokens, 0, &count_message_characters/2) <= @message_character_limit do
-      tokens 
+      tokens
       |> Enum.reduce([], &validate_tokens/2)
       |> Enum.reverse()
     else
@@ -56,14 +55,12 @@ defmodule Kousa.BL.RoomChat do
     if acc <= @message_character_limit, do: {:cont, String.length(v) + acc}, else: {:halt, acc}
   end
 
-  @doc """
-    validate_token/1 validates a token by type and return {:ok, token} if the token is valid
-    otherwise return :invalid
-  """
-  defp validate_token(token = %{"t" => type, "v" => _}) when type in ["text", "mention"], do: {:ok, token}
+  defp validate_token(token = %{"t" => type, "v" => _}) when type in ["text", "mention"],
+    do: {:ok, token}
+
   defp validate_token(token = %{"t" => "link", "v" => link}) do
     link
-    |> URI.parse() 
+    |> URI.parse()
     |> valid_url?()
     |> case do
       true -> {:ok, token}
@@ -73,7 +70,9 @@ defmodule Kousa.BL.RoomChat do
 
   defp validate_token(_), do: :invalid
 
-  defp valid_url?(%URI{host: host, scheme: scheme}) when is_binary(host) and is_binary(scheme), do: true
+  defp valid_url?(%URI{host: host, scheme: scheme}) when is_binary(host) and is_binary(scheme),
+    do: true
+
   defp valid_url?(_), do: false
 
   def ban_user(user_id, user_id_to_ban) do
@@ -93,5 +92,39 @@ defmodule Kousa.BL.RoomChat do
     end
 
     :ok
+  end
+
+  # Delete room chat messages
+  def delete_message(deleter_id, message_id, user_id) do
+    case Kousa.Data.Room.get_room_status(deleter_id) do
+      {:creator, room} ->
+        RegUtils.lookup_and_cast(
+          Gen.RoomChat,
+          room.id,
+          {:message_deleted, deleter_id, message_id}
+        )
+
+      # Mods can delete other mod' messages
+      {:mod, room} ->
+        if user_id != room.creatorId do
+          RegUtils.lookup_and_cast(
+            Gen.RoomChat,
+            room.id,
+            {:message_deleted, deleter_id, message_id}
+          )
+        end
+
+      {:listener, room} ->
+        if user_id == deleter_id do
+          RegUtils.lookup_and_cast(
+            Gen.RoomChat,
+            room.id,
+            {:message_deleted, deleter_id, message_id}
+          )
+        end
+
+      _ ->
+        nil
+    end
   end
 end

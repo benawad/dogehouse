@@ -30,7 +30,7 @@ export const Home: React.FC<HomeProps> = () => {
   }, []);
 
   return (
-    <div className={`grid grid-rows-fr-auto flex-1`}>
+    <div className={`flex flex-col flex-1`}>
       <Wrapper>
         <BodyWrapper>
           <div className={`mb-10 mt-8`}>
@@ -96,6 +96,7 @@ export const Home: React.FC<HomeProps> = () => {
         <div className={`mb-8 flex px-5`}>
           <Button
             variant="slim"
+            dogeProbability={0.01}
             onClick={() => {
               setShowCreateRoomModal(true);
             }}

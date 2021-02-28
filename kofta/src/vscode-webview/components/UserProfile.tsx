@@ -83,11 +83,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
       <div className={`my-1 flex`}>
         <div>@{profile.username}</div>
         {me?.id !== profile.id && userProfile.followsYou ? (
-          <div
-            className={`ml-2 text-simple-gray-3d`}
-          >
-            follows you
-          </div>
+          <div className={`ml-2 text-simple-gray-3d`}>follows you</div>
         ) : null}
       </div>
       <div className={`flex my-4`}>
@@ -101,8 +97,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
           }}
           className={`mr-3`}
         >
-          <span className={`font-bold`}>{profile.numFollowers}</span>{" "}
-          followers
+          <span className={`font-bold`}>{profile.numFollowers}</span> followers
         </button>
         <button
           onClick={() => {
@@ -113,25 +108,27 @@ export const UserProfile: React.FC<UserProfileProps> = ({
             history.push(`/following/${profile.id}`);
           }}
         >
-          <span className={`font-bold`}>{profile.numFollowing}</span>{" "}
-          following
+          <span className={`font-bold`}>{profile.numFollowing}</span> following
         </button>
       </div>
       <div className="mb-4">
         {profile.bio?.split(" ").map((chunk, i) => {
-          return linkRegex.test(chunk) ? (
-            <a
-              key={i}
-              href={normalizeUrl(chunk)}
-              target="_blank"
-              rel="noreferrer"
-              className="text-blue-500 p-0"
-            >
-              {chunk}{" "}
-            </a>
-          ) : (
-            <span>{chunk} </span>
-          );
+          if (linkRegex.test(chunk)) {
+            try {
+              return (
+                <a
+                  key={i}
+                  href={normalizeUrl(chunk)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-blue-500 p-0"
+                >
+                  {chunk}{" "}
+                </a>
+              );
+            } catch {}
+          }
+          return <span key={i}>{chunk} </span>;
         })}
       </div>
     </>

@@ -1,5 +1,6 @@
 import { useAtom } from "jotai";
-import React, { createRef, useState } from "react";
+import React, { useRef, useState } from "react";
+import { toast } from "react-toastify";
 import { wsend } from "../../../createWebsocket";
 import { meAtom } from "../../atoms";
 import { modalAlert } from "../../components/AlertModal";
@@ -12,10 +13,8 @@ import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 
 interface ChatInputProps {}
 
-let position: number = 0;
-export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
+export const RoomChatInput: React.FC<ChatInputProps> = () => {
   const { message, setMessage } = useRoomChatStore();
-
   const {
     setQueriedUsernames,
     queriedUsernames,
@@ -24,21 +23,26 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
     activeUsername,
     setActiveUsername,
   } = useRoomChatMentionStore();
-
   const [me] = useAtom(meAtom);
-  const inputRef = createRef<HTMLInputElement>();
-  function navigateThroughQueriedUsers(e: any) {
+  const [isEmoji, setIsEmoji] = useState<boolean>(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [lastMessageTimestamp, setLastMessageTimestamp] = useState<number>(0);
+
+  let position: number = 0;
+
+  const navigateThroughQueriedUsers = (e: any) => {
     // Use dom method, GlobalHotkeys apparently don't catch arrow-key events on inputs
     if (
       !["ArrowUp", "ArrowDown", "Enter"].includes(e.code) ||
       !queriedUsernames.length
     )
       return;
+
     e.preventDefault();
 
     let changeToIndex = null;
     const activeIndex = queriedUsernames.findIndex(
-      (u) => u.id === activeUsername
+      (username) => username.id === activeUsername
     );
 
     if (e.code === "ArrowUp") {
@@ -51,9 +55,9 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
       const selected = queriedUsernames[activeIndex];
       setMentions([...mentions, selected]);
       setMessage(
-        message.substring(0, message.lastIndexOf("@") + 1) +
-          selected.username +
-          " "
+        `${message.substring(0, message.lastIndexOf("@") + 1)} ${
+          selected.username
+        } `
       );
       setQueriedUsernames([]);
     }
@@ -62,12 +66,12 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
     if (changeToIndex !== null) {
       setActiveUsername(queriedUsernames[changeToIndex]?.id);
     }
-  }
-  const [isEmoji, setisEmoji] = useState(false);
+  };
 
   const addEmoji = (emoji: any) => {
-    if (position === 0) position = inputRef.current!.selectionStart!;
-    else position = position + 2;
+    position =
+      (position === 0 ? inputRef!.current!.selectionStart : position + 2) || 0;
+
     const newMsg = [
       message.slice(0, position),
       emoji.native,
@@ -76,32 +80,49 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
     setMessage(newMsg);
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (
+      !message ||
+      !message.trim() ||
+      !message.replace(/[\u200B-\u200D\uFEFF]/g, "")
+    )
+      return;
+
+    if (!me) return;
+
+    if (me.id in useRoomChatStore.getState().bannedUserIdMap) {
+      modalAlert("You got banned from chat");
+      return;
+    }
+
+    if (Date.now() - lastMessageTimestamp <= 1000) {
+      if (!toast.isActive("message-timeout")) {
+        toast("You have to wait a second before sending another message", {
+          toastId: "message-timeout",
+          type: "warning",
+          autoClose: 3000,
+        });
+      }
+
+      return;
+    }
+
+    const tmp = message;
+    setMessage("");
+    wsend({
+      op: "send_room_chat_msg",
+      d: { tokens: createChatMessage(tmp, mentions) },
+    });
+    setQueriedUsernames([]);
+
+    setLastMessageTimestamp(Date.now());
+  };
+
   return (
     <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        if (
-          !message ||
-          !message.trim() ||
-          !message.replace(/[\u200B-\u200D\uFEFF]/g, "")
-        ) {
-          return;
-        }
-        if (!me) {
-          return;
-        }
-        if (me.id in useRoomChatStore.getState().bannedUserIdMap) {
-          modalAlert("you got banned from chat");
-          return;
-        }
-        const tmp = message;
-        setMessage("");
-        wsend({
-          op: "send_room_chat_msg",
-          d: { tokens: createChatMessage(tmp, mentions) },
-        });
-        setQueriedUsernames([]);
-      }}
+      onSubmit={handleSubmit}
       className={`bg-simple-gray-26 pb-8 px-8 pt-1`}
     >
       {isEmoji ? (
@@ -131,18 +152,6 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
         />
       ) : null}
       <div>
-        <div
-          style={{
-            color: "rgb(167, 167, 167)",
-          }}
-          className={`absolute mt-3 right-12 cursor-pointer`}
-          onClick={() => {
-            setisEmoji(!isEmoji);
-            position = 0;
-          }}
-        >
-          <Smile style={{ inlineSize: "23px" }}></Smile>
-        </div>
         <input
           maxLength={512}
           placeholder="Send a message"
@@ -150,13 +159,30 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({}) => {
           onChange={(e) => setMessage(e.target.value)}
           ref={inputRef}
           className={`w-full text-simple-gray-9c bg-simple-gray-59 px-4 py-3 rounded text-lg focus:outline-none pr-12`}
+          autoComplete="off"
           onKeyDown={navigateThroughQueriedUsers}
           onFocus={() => {
-            setisEmoji(false);
+            setIsEmoji(false);
             position = 0;
           }}
           id="room-chat-input"
         />
+        <div
+          style={{
+            color: "rgb(167, 167, 167)",
+            display: "flex",
+            marginRight: 13,
+            marginTop: -37,
+            flexDirection: "row-reverse",
+          }}
+          className={`mt-3 right-12 cursor-pointer`}
+          onClick={() => {
+            setIsEmoji(!isEmoji);
+            position = 0;
+          }}
+        >
+          <Smile style={{ inlineSize: "23px" }}></Smile>
+        </div>
       </div>
     </form>
   );

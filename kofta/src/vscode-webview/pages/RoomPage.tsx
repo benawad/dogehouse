@@ -14,6 +14,7 @@ import { ProfileModal } from "../components/ProfileModal";
 import { modalPrompt } from "../components/PromptModal";
 import { RoomUserNode } from "../components/RoomUserNode";
 import { Wrapper } from "../components/Wrapper";
+import { useShouldFullscreenChat } from "../modules/room-chat/useShouldFullscreenChat";
 import { Codicon } from "../svgs/Codicon";
 import { BaseUser } from "../types";
 import { isUuid } from "../utils/isUuid";
@@ -31,6 +32,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   const [
     { isMod: iAmMod, isCreator: iAmCreator, canSpeak: iCanSpeak },
   ] = useAtom(myCurrentRoomInfoAtom);
+  const fullscreenChatOpen = useShouldFullscreenChat();
 
   // useEffect(() => {
   //   if (room?.users.length) {
@@ -82,22 +84,26 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
         onClose={() => setUserProfileId("")}
         profile={profile}
       />
-      <Backbar>
-        <button
-          disabled={!iAmCreator}
-          onClick={() => {
-            modalPrompt("Edit Room Name", (name) => {
-              if (name) {
-                wsend({ op: "edit_room_name", d: { name } });
-              }
-            });
-          }}
-          className={`block font-xl overflow-hidden overflow-ellipsis flex-1 text-center flex items-center justify-center text-2xl`}
-        >
-          {room.name.slice(0, 50)}
-        </button>
-        <ProfileButton />
-      </Backbar>
+      {fullscreenChatOpen ? null : (
+        <Backbar>
+          <button
+            disabled={!iAmCreator}
+            onClick={() => {
+              modalPrompt("Edit Room Name", (name) => {
+                if (name) {
+                  wsend({ op: "edit_room_name", d: { name } });
+                }
+              });
+            }}
+            className={`font-xl truncate flex-1 text-center flex items-center justify-center text-2xl`}
+          >
+            <span className={'px-2 truncate'}>
+              {room.name}
+            </span>
+          </button>
+          <ProfileButton />
+        </Backbar>
+      )}
       <Wrapper>
         <BodyWrapper>
           <div

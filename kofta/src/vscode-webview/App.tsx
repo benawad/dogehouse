@@ -17,7 +17,7 @@ import { queryClient } from "./queryClient";
 import { Router } from "./Router";
 import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
 import { useTokenStore } from "./utils/useTokenStore";
-import { NotificationAudioRender } from "./modules/room-chat/NotificationAudioRender";
+import { SoundEffectProvider } from "./modules/sound-effects/SoundEffectProvider";
 
 interface AppProps {}
 
@@ -69,43 +69,49 @@ export const WebviewApp: React.FC<AppProps> = () => {
 
   if (!isDeviceSupported) {
     return (
-      <CenterLayout>
-        <Wrapper>
-          <div className={`mb-4 mt-8 text-xl`}>
-            Your device is currently not supported. You can create an{" "}
-            <RegularAnchor href="https://github.com/benawad/dogehouse/issues">
-              issue on GitHub
-            </RegularAnchor>{" "}
-            and I will try adding support for your device.
-          </div>
-        </Wrapper>
-      </CenterLayout>
+      <div className="flex items-center h-full justify-around">
+        <CenterLayout>
+          <Wrapper>
+            <div className={`mb-4 mt-8 text-xl`}>
+              Your device is currently not supported. You can create an{" "}
+              <RegularAnchor href="https://github.com/benawad/dogehouse/issues">
+                issue on GitHub
+              </RegularAnchor>{" "}
+              and I will try adding support for your device.
+            </div>
+          </Wrapper>
+        </CenterLayout>
+      </div>
     );
   }
 
   if (wsKilledByServer) {
     return (
-      <CenterLayout>
-        <Wrapper>
-          <div className={`mb-4 mt-8 text-xl`}>
-            Websocket was killed by the server. This usually happens when you
-            open the website in another tab.
-          </div>
-          <Button
-            onClick={() => {
-              createWebSocket();
-            }}
-          >
-            reconnect
-          </Button>
-        </Wrapper>
-      </CenterLayout>
+      <div className="flex items-center h-full justify-around">
+        <CenterLayout>
+          <Wrapper>
+            <div className={`px-4`}>
+              <div className={`mb-4 mt-8 text-xl`}>
+                Websocket was killed by the server. This usually happens when
+                you open the website in another tab.
+              </div>
+              <Button
+                onClick={() => {
+                  createWebSocket();
+                }}
+              >
+                reconnect
+              </Button>
+            </div>
+          </Wrapper>
+        </CenterLayout>
+      </div>
     );
   }
 
   return (
     <QueryClientProvider client={queryClient}>
-      <NotificationAudioRender />
+      <SoundEffectProvider />
       <Router />
       <KeybindListener />
     </QueryClientProvider>

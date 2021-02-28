@@ -10,7 +10,6 @@
     "@testing-library/user-event": "^12.1.10",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
-    "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
     "emoji-mart": "^3.0.0",
     "formik": "^2.2.6",
@@ -37,7 +36,7 @@
   },
   "scripts": {
     "start": "craco start",
-    "start:staging": "IS_STAGING=true REACT_APP_API_BASE_URL=https://doge-staging.stripcode.dev craco start",
+    "start:staging": "cross-env REACT_APP_IS_STAGING=true REACT_APP_API_BASE_URL=https://doge-staging.stripcode.dev craco start",
     "build": "craco build",
     "test": "craco test",
     "vscode": "webpack --config src/vscode-webview/webpack.config.js --watch --mode development",
@@ -57,13 +56,15 @@
     ]
   },
   "devDependencies": {
-    "@types/emoji-mart": "^3.0.4",
     "@tailwindcss/postcss7-compat": "^2.0.3",
+    "@types/emoji-mart": "^3.0.4",
     "@types/hark": "^1.2.1",
+    "@types/react": "^17.0.2",
     "@types/react-modal": "^3.12.0",
     "@types/react-responsive": "^8.0.2",
     "@types/react-router-dom": "^5.1.7",
     "autoprefixer": "^9.8.6",
+    "cross-env": "^7.0.3",
     "css-loader": "^5.0.1",
     "postcss": "^7.0.35",
     "style-loader": "^2.0.0",

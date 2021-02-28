@@ -1,4 +1,5 @@
 export const __prod__ = process.env.NODE_ENV === "production";
+export const __staging__ = process.env.REACT_APP_IS_STAGING === "true";
 
 export const apiBaseUrl =
   process.env.REACT_APP_API_BASE_URL ||

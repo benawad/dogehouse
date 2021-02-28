@@ -1,5 +1,5 @@
 import { BrowserWindow, app, systemPreferences, ipcMain } from "electron";
-import * as path from "path";
+import { __prod__ } from "./constants";
 
 let mainWindow: BrowserWindow;
 
@@ -12,9 +12,16 @@ function createWindow() {
     },
   });
   console.log(systemPreferences.getMediaAccessStatus("microphone"));
-  mainWindow.loadURL(`https://dogehouse.tv/`);
+  // crashes on mac
+  // systemPreferences.askForMediaAccess("microphone");
+  if (!__prod__) {
+    mainWindow.webContents.openDevTools();
+  }
+  mainWindow.loadURL(
+    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/"
+  );
 
-  ipcMain.on("request-mic", async (event, serviceName) => {
+  ipcMain.on("request-mic", async (event, _serviceName) => {
     const isAllowed: boolean = await systemPreferences.askForMediaAccess(
       "microphone"
     );

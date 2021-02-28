@@ -3,8 +3,8 @@ import React, { useEffect, useRef } from "react";
 import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { closeWebSocket, wsend } from "../createWebsocket";
+import { useMuteStore } from "../webrtc/stores/useMuteStore";
 import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
-import { invitationToRoom } from "../webrtc/utils/invitationToRoom";
 import { mergeRoomPermission } from "../webrtc/utils/mergeRoomPermission";
 import {
   meAtom,
@@ -22,7 +22,7 @@ import {
   useRoomChatStore,
 } from "./modules/room-chat/useRoomChatStore";
 import { BanUsersPage } from "./pages/BanUsersPage";
-import { ChatSettingsPage } from "./pages/ChatSettingsPage";
+import { SoundEffectSettingsPage } from "./pages/SoundEffectSettingsPage";
 import { FollowingOnlineList } from "./pages/FollowingOnlineList";
 import { FollowListPage } from "./pages/FollowListPage";
 import { Home } from "./pages/Home";
@@ -37,6 +37,7 @@ import { isUuid } from "./utils/isUuid";
 import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
 import { showErrorToast } from "./utils/showErrorToast";
 import { useTokenStore } from "./utils/useTokenStore";
+import { invitedToRoomConfirm } from "./components/InvitedToJoinRoomModal";
 
 interface RoutesProps {}
 
@@ -82,6 +83,16 @@ export const Routes: React.FC<RoutesProps> = () => {
           useRoomChatMentionStore.getState().incrementIAmMentioned();
         }
       },
+      message_deleted({ messageId, deleterId }) {
+        const { messages, setMessages } = useRoomChatStore.getState();
+        setMessages(
+          messages.map((m) => ({
+            ...m,
+            deleted: m.id === messageId || !!m.deleted,
+            deleterId: m.id === messageId ? deleterId : m.deleterId,
+          }))
+        );
+      },
       room_privacy_change: ({ roomId, isPrivate, name }) => {
         setCurrentRoom((cr) =>
           !cr || cr.id !== roomId ? cr : { ...cr, name, isPrivate }
@@ -104,8 +115,11 @@ export const Routes: React.FC<RoutesProps> = () => {
           toast("ban failed", { type: "error" });
         }
       },
+      someone_you_follow_created_a_room: (value) => {
+        invitedToRoomConfirm(value, history);
+      },
       invitation_to_room: (value) => {
-        invitationToRoom(value, history);
+        invitedToRoomConfirm(value, history);
       },
       fetch_invite_list_done: ({ users, nextCursor, initial }) => {
         setInviteList((x) => ({
@@ -194,6 +208,16 @@ export const Routes: React.FC<RoutesProps> = () => {
         );
       },
       speaker_added: ({ userId, roomId, muteMap }) => {
+        // Mute user upon added as speaker
+        if (meRef.current?.id === userId) {
+          const { setMute } = useMuteStore.getState();
+          wsend({
+            op: "mute",
+            d: { value: true },
+          });
+          setMute(true);
+        }
+
         setCurrentRoom((c) =>
           !c || c.id !== roomId
             ? c
@@ -399,7 +423,11 @@ export const Routes: React.FC<RoutesProps> = () => {
       <Route exact path="/search/users" component={SearchUsersPage} />
       <Route exact path="/ban/users" component={BanUsersPage} />
       <Route exact path="/voice-settings" component={VoiceSettingsPage} />
-      <Route exact path="/chat-settings" component={ChatSettingsPage} />
+      <Route
+        exact
+        path="/sound-effect-settings"
+        component={SoundEffectSettingsPage}
+      />
       <Route exact path="/following-online" component={FollowingOnlineList} />
       <Route
         exact
