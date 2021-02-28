@@ -46,17 +46,6 @@ export const createChatMessage = (
     }
   });
 
-  console.log({
-    tokens,
-    whisperedTo: roomUsers
-      .filter((u) =>
-        whisperedToUsernames
-          .map((u) => u?.toLowerCase())
-          .includes(u.username?.toLowerCase())
-      )
-      .map((u) => u.id),
-  });
-
   return {
     tokens,
     whisperedTo: roomUsers
