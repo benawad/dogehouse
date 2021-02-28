@@ -410,6 +410,12 @@ defmodule Kousa.SocketHandler do
     {:ok, state}
   end
 
+  def handler("delete_account", _data, %State{} = state) do
+    BL.User.delete(state.user_id)
+    # this will log the user out
+    {:reply, {:close, 4001, "invalid_authentication"}, state}
+  end
+
   def handler(
         "delete_room_chat_message",
         %{"messageId" => message_id, "userId" => user_id},

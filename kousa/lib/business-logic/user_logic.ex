@@ -1,5 +1,10 @@
 defmodule Kousa.BL.User do
-  alias Kousa.{Gen, Data, RegUtils}
+  alias Kousa.{Gen, Data, RegUtils, BL}
+
+  def delete(user_id) do
+    BL.Room.leave_room(user_id)
+    Data.User.delete(user_id)
+  end
 
   def edit_profile(user_id, data) do
     case Data.User.edit_profile(user_id, data) do
