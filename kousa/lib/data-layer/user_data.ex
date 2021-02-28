@@ -167,8 +167,6 @@ defmodule Kousa.Data.User do
         {nil, nil}
 
       x ->
-        IO.puts("tuple_get_current_room_id")
-        IO.inspect(x)
         x
     end
   end
