@@ -16,6 +16,6 @@
   },
   "scripts": {
     "postinstall": "husky install",
-    "lint:fix": "npx eslint **/*.{js,jsx,ts,tsx} --fix"
+    "lint:fix": "eslint **/*.{js,ts,tsx} --fix"
   }
 }
