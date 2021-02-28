@@ -7,7 +7,7 @@ import { Button } from "./Button";
 interface MicPermissionBannerProps {}
 
 export const MicPermissionBanner: React.FC<MicPermissionBannerProps> = () => {
-  const { error } = useMicPermErrorStore();
+  const { error, set } = useMicPermErrorStore();
   const [count, setCount] = useState(0);
   if (!error) {
     return null;
@@ -18,18 +18,23 @@ export const MicPermissionBanner: React.FC<MicPermissionBannerProps> = () => {
         Permission denied trying to access your mic (you may need to go into
         browser settings and reload the page)
       </div>
-      <Button
-        onClick={() => {
-          if (count < 2 && !isIOS()) {
-            sendVoice();
-            setCount((c) => c + 1);
-          } else {
-            window.location.reload();
-          }
-        }}
-      >
-        try again
-      </Button>
+      <div className="flex space-x-2">
+        <Button color="secondary" onClick={() => set({ error: false })}>
+          dismiss
+        </Button>
+        <Button
+          onClick={() => {
+            if (count < 2 && !isIOS()) {
+              sendVoice();
+              setCount((c) => c + 1);
+            } else {
+              window.location.reload();
+            }
+          }}
+        >
+          try again
+        </Button>
+      </div>
     </div>
   );
 };
