@@ -1,6 +1,8 @@
 defmodule Kousa.Dev do
   import Plug.Conn
 
+  alias Beef.User
+
   use Plug.Router
 
   plug(:match)
@@ -22,7 +24,7 @@ defmodule Kousa.Dev do
         Poison.encode!(
           Kousa.TokenUtils.create_tokens(
             Beef.Repo.insert!(
-              %Beef.User{
+              %User{
                 username: username,
                 email: "test@" <> username <> "test.com",
                 githubAccessToken: "",

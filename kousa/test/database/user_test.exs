@@ -5,7 +5,7 @@ defmodule Kousa.Database.UserTest do
   alias Kousa.Support.Factory
   alias Beef.User
   alias Beef.Repo
-  alias Kousa.{Data}
+  alias Kousa.Data
 
   import Kousa.Support.Helpers, only: [checkout_ecto_sandbox: 1]
 

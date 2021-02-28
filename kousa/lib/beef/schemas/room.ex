@@ -2,6 +2,8 @@ defmodule Beef.Room do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias Beef.User
+
   @type t :: %__MODULE__{
           id: Ecto.UUID.t(),
           name: String.t(),
@@ -28,7 +30,7 @@ defmodule Beef.Room do
     field(:isPrivate, :boolean)
     field(:voiceServerId, :string)
 
-    belongs_to(:user, Beef.User, foreign_key: :creatorId, type: :binary_id)
+    belongs_to(:user, User, foreign_key: :creatorId, type: :binary_id)
     embeds_many(:peoplePreviewList, Beef.UserPreview)
 
     timestamps()

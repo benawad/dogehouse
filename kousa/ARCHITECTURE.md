@@ -11,6 +11,7 @@ Elixir contexts
  - `Beef.Access` nonmutating queries
  - `Beef.Changesets` ingress validation logic
  - `Beef.Mutations` mutating queries
+ - `Beef.Queries` composable queries
  - `Beef.Schemas` database table schemas
  - `Beef.Lenses` database struct logic
 2. `Zuke` - Business logic (functional core) for Kousa

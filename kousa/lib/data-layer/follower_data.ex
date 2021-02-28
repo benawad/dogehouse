@@ -3,11 +3,13 @@ defmodule Kousa.Data.Follower do
 
   @fetch_limit 21
 
+  alias Beef.User
+
   @spec get_followers_online_and_not_in_a_room(String.t()) :: [Beef.Follow.t()]
   def get_followers_online_and_not_in_a_room(user_id) do
     from(
       f in Beef.Follow,
-      inner_join: u in Beef.User,
+      inner_join: u in User,
       on: f.followerId == u.id,
       where: f.userId == ^user_id and u.online == true and is_nil(u.currentRoomId)
     )
@@ -39,7 +41,7 @@ defmodule Kousa.Data.Follower do
     items =
       from(
         f in Beef.Follow,
-        inner_join: u in Beef.User,
+        inner_join: u in User,
         on: f.userId == u.id,
         left_join: f2 in Beef.Follow,
         on: f2.userId == ^user_id and f2.followerId == u.id,
@@ -66,7 +68,7 @@ defmodule Kousa.Data.Follower do
     items =
       from(
         f in Beef.Follow,
-        inner_join: u in Beef.User,
+        inner_join: u in User,
         on: f.followerId == u.id,
         where:
           f.userId == ^user_id and u.online == true and
@@ -86,7 +88,7 @@ defmodule Kousa.Data.Follower do
       from(
         f in Beef.Follow,
         where: f.userId == ^user_id_to_get_followers_for,
-        inner_join: u in Beef.User,
+        inner_join: u in User,
         on: f.followerId == u.id,
         left_join: f2 in Beef.Follow,
         on: f2.userId == u.id and f2.followerId == ^user_id,
@@ -105,7 +107,7 @@ defmodule Kousa.Data.Follower do
       from(
         f in Beef.Follow,
         where: f.followerId == ^user_id_to_get_following_for,
-        inner_join: u in Beef.User,
+        inner_join: u in User,
         on: f.userId == u.id,
         left_join: f2 in Beef.Follow,
         on: f2.userId == u.id and f2.followerId == ^user_id,
@@ -125,7 +127,7 @@ defmodule Kousa.Data.Follower do
       |> Beef.Repo.delete_all()
 
     if rows_affected == 1 do
-      from(u in Beef.User,
+      from(u in User,
         where: u.id == ^user_id,
         update: [
           inc: [
@@ -135,7 +137,7 @@ defmodule Kousa.Data.Follower do
       )
       |> Beef.Repo.update_all([])
 
-      from(u in Beef.User,
+      from(u in User,
         where: u.id == ^follower_id,
         update: [
           inc: [
@@ -156,7 +158,7 @@ defmodule Kousa.Data.Follower do
         # TODO: eliminate N+1 by setting up changesets
         # in an idiomatic fashion.
 
-        from(u in Beef.User,
+        from(u in User,
           where: u.id == ^data.userId,
           update: [
             inc: [
@@ -166,7 +168,7 @@ defmodule Kousa.Data.Follower do
         )
         |> Beef.Repo.update_all([])
 
-        from(u in Beef.User,
+        from(u in User,
           where: u.id == ^data.followerId,
           update: [
             inc: [

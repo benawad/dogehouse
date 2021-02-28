@@ -3,6 +3,8 @@ defmodule Kousa.Data.Room do
 
   @fetch_limit 16
 
+  alias Beef.User
+
   def get_room_status(user_id) do
     room = Kousa.Data.User.get_current_room(user_id)
 
@@ -76,7 +78,7 @@ defmodule Kousa.Data.Room do
           )) and is_nil(Enum.find(room.peoplePreviewList, &(&1.id === user_id))) do
       list =
         [
-          %Beef.UserPreview{
+          %UserPreview{
             id: user.id,
             displayName: user.displayName,
             numFollowers: user.numFollowers
@@ -101,7 +103,7 @@ defmodule Kousa.Data.Room do
       from(r in Beef.Room,
         left_join: rb in Beef.RoomBlock,
         on: rb.roomId == r.id and rb.userId == ^user_id,
-        left_join: ub in Beef.UserBlock,
+        left_join: ub in UserBlock,
         on: ub.userIdBlocked == ^user_id,
         where:
           is_nil(ub.userIdBlocked) and is_nil(rb.roomId) and r.isPrivate == false and
@@ -175,7 +177,7 @@ defmodule Kousa.Data.Room do
   """
   @spec get_next_creator_for_room(any) :: any
   def get_next_creator_for_room(room_id) do
-    from(u in Beef.User,
+    from(u in User,
       inner_join: rp in Beef.RoomPermission,
       on: rp.roomId == ^room_id and rp.userId == u.id and u.currentRoomId == ^room_id,
       where: rp.isSpeaker == true,
@@ -188,7 +190,7 @@ defmodule Kousa.Data.Room do
   end
 
   def get_a_user_for_room(room_id) do
-    from(u in Beef.User,
+    from(u in User,
       where: u.currentRoomId == ^room_id,
       limit: 1
     )
