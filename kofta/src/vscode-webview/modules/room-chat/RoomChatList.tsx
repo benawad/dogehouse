@@ -34,6 +34,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
           messageToBeDeleted={messageToBeDeleted}
           onClose={() => {
             setProfileId("");
+            setMessageToBeDeleted(null);
           }}
         />
       ) : null}
