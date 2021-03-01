@@ -1,6 +1,7 @@
 defmodule Beef.Room do
   use Ecto.Schema
   import Ecto.Changeset
+  @timestamps_opts [type: :utc_datetime_usec]
 
   @type t :: %__MODULE__{
           id: Ecto.UUID.t(),

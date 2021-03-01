@@ -1,6 +1,7 @@
 defmodule Beef.Follow do
   use Ecto.Schema
   import Ecto.Changeset
+  @timestamps_opts [type: :utc_datetime_usec]
 
   @type t :: %__MODULE__{
           userId: Ecto.UUID.t(),

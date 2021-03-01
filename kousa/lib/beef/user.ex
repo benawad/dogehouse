@@ -1,6 +1,7 @@
 defmodule Beef.User do
   use Ecto.Schema
   import Ecto.Changeset
+  @timestamps_opts [type: :utc_datetime_usec]
 
   @type t :: %__MODULE__{
           id: Ecto.UUID.t(),
@@ -82,7 +83,10 @@ defmodule Beef.User do
     |> validate_length(:bio, min: 0, max: 160)
     |> validate_length(:displayName, min: 2, max: 50)
     |> validate_format(:username, ~r/^(\w){4,15}$/)
-    |> validate_format(:avatarUrl, ~r/https?:\/\/(www\.|)(pbs.twimg.com\/profile_images\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/)/)
+    |> validate_format(
+      :avatarUrl,
+      ~r/https?:\/\/(www\.|)(pbs.twimg.com\/profile_images\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/)/
+    )
     |> unique_constraint(:username)
   end
 end
