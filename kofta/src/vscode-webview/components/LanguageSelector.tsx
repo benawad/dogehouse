@@ -12,7 +12,7 @@ const dropDownStyles = {
     backgroundColor: "#FFFFFF"
 }
 
-const defaultValue = { value: "en", label: "en", style: dropDownStyles };
+const defaultValue = { value: "en", label: "en" };
 
 export const LanguageSelector: React.FC<LanguageSelectorProps<{}>> = ({
     values = [defaultValue],
