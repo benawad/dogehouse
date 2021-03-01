@@ -11,6 +11,7 @@ defmodule Kousa.Support.Factory do
         [
           githubId: Faker.Internet.user_name(),
           twitterId: Faker.Internet.user_name(),
+          displayName: Faker.Internet.user_name(),
           username: Faker.Internet.user_name(),
           email: Faker.Internet.free_email(),
           githubAccessToken: "ntoaunthanuheoh",

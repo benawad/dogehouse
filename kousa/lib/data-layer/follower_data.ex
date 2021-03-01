@@ -24,6 +24,8 @@ defmodule Kousa.Data.Follower do
     )
   end
 
+  # TODO: change the name of this, is_ by convention means
+  # "guard".
   def is_following_me(user_id, user_id_to_check) do
     not is_nil(
       from(

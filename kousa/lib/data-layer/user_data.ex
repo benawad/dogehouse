@@ -1,6 +1,7 @@
 defmodule Kousa.Data.User do
   import Ecto.Query, warn: false
-  alias Beef.{Repo, User}
+  alias Beef.Repo
+  alias Beef.User
 
   @fetch_limit 16
   def edit_profile(user_id, data) do
