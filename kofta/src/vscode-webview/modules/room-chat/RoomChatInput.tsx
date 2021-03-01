@@ -166,7 +166,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             ref={inputRef}
-            className={`w-full text-simple-gray-9c bg-simple-gray-59 px-4 py-2 rounded text-lg focus:outline-none pr-12`}
+            className={`w-full white bg-simple-gray-59 px-4 py-2 rounded text-lg focus:outline-none pr-12`}
             autoComplete="off"
             onKeyDown={navigateThroughQueriedUsers}
             onFocus={() => {

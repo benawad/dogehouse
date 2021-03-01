@@ -38,7 +38,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
       <div className={`pb-6`} />
       {messages.map((m) => (
         <div
-          className="flex flex-col"
+          className="flex flex-col-reverse flex-shrink-0"
           key={m.id}
           data-tip={dateFormat(m.sentAt)}
         >
