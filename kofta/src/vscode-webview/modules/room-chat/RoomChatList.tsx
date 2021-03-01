@@ -1,6 +1,6 @@
 import { useAtom } from "jotai";
 import normalizeUrl from "normalize-url";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactTooltip from "react-tooltip";
 import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
 import { meAtom, useCurrentRoomInfo } from "../../atoms";
@@ -21,10 +21,12 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
     messageToBeDeleted,
     setMessageToBeDeleted,
   ] = useState<RoomChatMessage | null>(null);
+  const bottomRef = useRef<null | HTMLDivElement>(null);
+  useEffect(() => bottomRef.current?.scrollIntoView());
 
   return (
     <div
-      className={`bg-simple-gray-26 px-8 pt-8 flex-1 overflow-y-auto flex-col-reverse flex`}
+      className={`bg-simple-gray-26 px-8 pt-8 flex-1 overflow-y-auto flex-col flex chat-message-container`}
     >
       {profileId ? (
         <ProfileModalFetcher
@@ -35,10 +37,9 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
           }}
         />
       ) : null}
-      <div className={`pb-6`} />
-      {messages.map((m) => (
+      {messages.slice().reverse().map((m) => (
         <div
-          className="flex flex-col-reverse flex-shrink-0"
+          className="flex flex-col flex-shrink-0"
           key={m.id}
           data-tip={dateFormat(m.sentAt)}
         >
@@ -141,6 +142,12 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
         </div>
       ))}
       {messages.length === 0 ? <div>Welcome to chat!</div> : null}
+      <div className={`pb-6`} ref={bottomRef} />
+      <style>{`
+        .chat-message-container > :first-child {
+          margin-top: auto;
+        }
+      `}</style>
     </div>
   );
 };
