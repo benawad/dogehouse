@@ -106,6 +106,36 @@ defmodule KousaTest.AdHocUserTest do
   end
 
   describe "Beef.UserBlock" do
+    alias Beef.UserBlock
+
+    test "you can add a room into the room table" do
+      %{id: uid} = Factory.create(User)
+      %{id: bid} = Factory.create(User)
+
+      assert {:ok,
+              %UserBlock{
+                userId: ^uid,
+                userIdBlocked: ^bid
+              }} =
+               %UserBlock{}
+               |> UserBlock.insert_changeset(%{
+                userId: uid,
+                userIdBlocked: bid
+               })
+               |> Repo.insert()
+
+      assert [user_block] = Repo.all(UserBlock)
+
+      assert %UserBlock{
+                userId: ^uid,
+                user: %User{id: ^uid},
+                ####################################
+                # NOTE these two don't match up.
+                userIdBlocked: ^bid,
+                blockedUser: %User{id: ^bid}
+                ####################################
+             } = Repo.preload(user_block, [:user, :blockedUser])
+    end
   end
 
   describe "Beef.FollowerData" do
