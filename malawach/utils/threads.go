@@ -1,6 +1,6 @@
 package utils
 
-func toChannel(toRun func(), channel chan bool) {
+func ToChannel(toRun func(), channel chan bool) {
 	toRun()
 	channel <- true
 }
@@ -8,11 +8,13 @@ func toChannel(toRun func(), channel chan bool) {
 func RunAtTheSameTime(toRuns []func()) {
 	var waitingChannels []chan bool
 	for _, toRun := range toRuns {
-		var channel chan bool
-		go toChannel(toRun, channel)
+		channel := make(chan bool)
+		go ToChannel(toRun, channel)
 		waitingChannels = append(waitingChannels, channel)
 	}
-	for _, channel := range waitingChannels {
-		<-channel
+	i := 0
+	for i < len(waitingChannels) {
+		<-waitingChannels[i]
+		i++
 	}
 }

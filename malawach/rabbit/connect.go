@@ -14,10 +14,11 @@ type RabbitMessage struct {
 }
 
 type RabbitMessageBody struct {
-	Operation string      `json:"os"`
+	Operation string      `json:"op"`
 	Platform  string      `json:"platform"`
 	Data      interface{} `json:"d"`
 	Uid       string      `json:"uid"`
+	RoomId    string      `json:"rid"`
 }
 
 type RabbitOnRequest struct {
@@ -87,16 +88,16 @@ func ConnectToRabbit() RabbitConnection {
 
 	publish := func(name string, message RabbitMessageBody) {
 		body, marshalError := json.Marshal(message)
-		if marshalError != nil{
+		if marshalError != nil {
 			panic(marshalError)
 		}
-		publishError := channel.Publish("", name, false, false,  amqp.Publishing{
-			Headers:         amqp.Table{},
-			DeliveryMode:    1,
-			Body:            body,
+		publishError := channel.Publish("", name, false, false, amqp.Publishing{
+			Headers:      amqp.Table{},
+			DeliveryMode: 1,
+			Body:         body,
 		})
 		if publishError != nil {
-			panic(publishError)
+			_ = fmt.Errorf(publishError.Error())
 		}
 	}
 
@@ -110,7 +111,7 @@ func ConnectToRabbit() RabbitConnection {
 			}
 			for _, handler := range listeners {
 				if handler.EventName == content.Operation {
-					handler.Handler(RabbitMessage{
+					go handler.Handler(RabbitMessage{
 						Data: content.Data,
 						Uid:  content.Uid,
 					}, func(message RabbitMessageBody) {
