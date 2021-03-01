@@ -56,7 +56,7 @@ defmodule Kousa.Data.User do
   end
 
   def get_users_in_current_room(user_id) do
-    case tuple_get_current_room_id(user_id) do
+    case tuple_get_current_room_id(user_id) |> IO.inspect(label: "59") do
       {:ok, current_room_id} ->
         {current_room_id,
          from(u in User,
@@ -217,8 +217,7 @@ defmodule Kousa.Data.User do
 
     q = if returning, do: select(q, [u], u), else: q
 
-    case q
-         |> Beef.Repo.update_all([]) do
+    case Beef.Repo.update_all(q, []) do
       {_, [user]} -> %{user | roomPermissions: roomPermissions}
       _ -> nil
     end

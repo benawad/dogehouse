@@ -250,8 +250,7 @@ defmodule KousaTest.AdHocUserTest do
       # but only make follower1 online
       Kousa.Data.User.set_online(fid1)
 
-      assert {[%User{id: fid1}], _} =
-        Follower.fetch_invite_list(uid)
+      assert {[%User{id: ^fid1}], _} = Follower.fetch_invite_list(uid)
     end
 
     @tag :skip
@@ -289,10 +288,12 @@ defmodule KousaTest.AdHocUserTest do
 
       Follower.delete(uid, fid2)
 
-      assert [%{
-        userId: ^uid,
-        followerId: ^fid1
-      }] = Repo.all(Follow)
+      assert [
+               %{
+                 userId: ^uid,
+                 followerId: ^fid1
+               }
+             ] = Repo.all(Follow)
     end
 
     test "insert/1" do
@@ -301,34 +302,222 @@ defmodule KousaTest.AdHocUserTest do
 
       Follower.insert(%{userId: uid, followerId: fid})
 
-      assert [%Follow{
-        userId: ^uid,
-        followerId: ^fid
-      }] = Repo.all(Follow)
+      assert [
+               %Follow{
+                 userId: ^uid,
+                 followerId: ^fid
+               }
+             ] = Repo.all(Follow)
     end
 
     test "get_info" do
       uid = Factory.create(User).id
       fid = Factory.create(User).id
 
-      assert %{followsYou: false, youAreFollowing: false} =
-        Follower.get_info(uid, fid)
+      assert %{followsYou: false, youAreFollowing: false} = Follower.get_info(uid, fid)
 
       Follower.insert(%{userId: uid, followerId: fid})
 
-      assert %{followsYou: true, youAreFollowing: false} =
-        Follower.get_info(uid, fid)
+      assert %{followsYou: true, youAreFollowing: false} = Follower.get_info(uid, fid)
 
       Follower.insert(%{userId: fid, followerId: uid})
 
-      assert %{followsYou: true, youAreFollowing: true} =
-          Follower.get_info(uid, fid)
+      assert %{followsYou: true, youAreFollowing: true} = Follower.get_info(uid, fid)
 
       Follower.delete(uid, fid)
 
-      assert %{followsYou: false, youAreFollowing: true} =
-          Follower.get_info(uid, fid)
+      assert %{followsYou: false, youAreFollowing: true} = Follower.get_info(uid, fid)
     end
+  end
+
+  describe "Kousa.Data.User" do
+    setup do
+      {:ok, user: Factory.create(User)}
+    end
+
+    test "edit_profile", %{user: user} do
+      # TODO: probably you want this to take a user
+      # struct as the first parameter.
+      refute user.bio == "updated bio"
+
+      Kousa.Data.User.edit_profile(user.id, %{
+        bio: "updated bio",
+        username: "dave",
+        displayName: "bar"
+      })
+
+      assert %{
+        bio: "updated bio",
+        username: "dave",
+        displayName: "bar"
+      } = Repo.get!(User, user.id)
+    end
+
+    test "search", %{user: user} do
+      # TODO: make offset default to zero
+      assert {[%User{}], _} =
+        Kousa.Data.User.search(user.username, 0)
+
+      assert {[%User{}], _} =
+        Kousa.Data.User.search(user.displayName, 0)
+
+      assert {[], _} =
+        Kousa.Data.User.search("foobarbaz", 0)
+
+      # TODO: more tests on stuff like how search
+      # interacts with rooms.  This needs to be specced
+      # out by Ben.
+    end
+
+    test "bulk_insert" do
+      Kousa.Data.User.bulk_insert([%{
+        bio: "lorem ipsum",
+        username: "david",
+        displayName: "d0",
+        avatarUrl: "https://foo.bar/d0"
+      }, %{
+        bio: "dolor sunt",
+        username: "karen",
+        displayName: "d1",
+        avatarUrl: "https://foo.bar/d1"
+      }])
+
+      assert [%User{}, %User{}, %User{}] =
+        Repo.all(User)
+    end
+
+    test "find_by_github_ids", %{user: user} do
+      Kousa.Data.User.bulk_insert([%{
+        bio: "lorem ipsum",
+        username: "david",
+        displayName: "d0",
+        avatarUrl: "https://foo.bar/d0",
+        githubId: "abcdef"
+      }, %{
+        bio: "dolor sunt",
+        username: "karen",
+        displayName: "d1",
+        avatarUrl: "https://foo.bar/d1",
+        githubId: "ghijkl"
+      }])
+
+      # note that there is one entry in there already.
+      assert [_, _, _] = Repo.all(User)
+
+      assert [_, _] = Kousa.Data.User.find_by_github_ids(["abcdef", "ghijkl"])
+      assert [user.id] == Kousa.Data.User.find_by_github_ids([user.githubId])
+    end
+
+    test "inc_num_following/2", %{user: user} do
+      assert %{numFollowing: 0} = Repo.get(User, user.id)
+
+      Kousa.Data.User.inc_num_following(user.id, 2)
+
+      assert %{numFollowing: 2} = Repo.get(User, user.id)
+    end
+
+    # LOLZ JK this won't work until we have mocked room pools.
+    @tag :skip
+    test "get_users_in_current_room", %{user: user} do
+      # build a room
+      %{id: rid} = Factory.create(Beef.Room, creatorId: user.id)
+
+      assert {nil, []} =
+        Kousa.Data.User.get_users_in_current_room(user.id)
+
+      # attach the user to the room.
+      Kousa.Data.User.set_current_room(user.id, rid)
+
+      Repo.all(User)
+
+      Kousa.Data.User.get_users_in_current_room(user.id)
+    end
+
+    test "get_by_id", %{user: %{id: id}} do
+      assert %User{id: ^id} = Kousa.Data.User.get_by_id(id)
+    end
+
+    test "get_by_username", %{user: user} do
+      assert user.id == Kousa.Data.User.get_by_username(user.username).id
+    end
+
+    test "set_reason_for_ban", %{user: user} do
+      Kousa.Data.User.set_reason_for_ban(user.id, "bad human")
+
+      assert %User{reasonForBan: "bad human"} = Repo.get(User, user.id)
+    end
+
+    test "get_by_id_with_current_room", %{user: user} do
+      assert %User{currentRoom: nil} =
+        Kousa.Data.User.get_by_id_with_current_room(user.id)
+
+      # build a room
+      %{id: rid} = Factory.create(Beef.Room, creatorId: user.id)
+
+      # attach the user to the room.
+      Kousa.Data.User.set_current_room(user.id, rid)
+
+      assert %User{currentRoom: %Beef.Room{id: ^rid}} =
+        Kousa.Data.User.get_by_id_with_current_room(user.id)
+    end
+
+    test "set_online", %{user: user} do
+      Kousa.Data.User.set_online(user.id)
+
+      assert %User{online: true} = Repo.get(User, user.id)
+    end
+
+    test "set_user_left_current_room", %{user: user} do
+      # build a room
+      %{id: rid} = Factory.create(Beef.Room, creatorId: user.id)
+
+      # attach the user to the room.
+      Kousa.Data.User.set_current_room(user.id, rid)
+
+      assert %User{currentRoomId: ^rid} = Repo.get(User, user.id)
+
+      Kousa.Data.User.set_user_left_current_room(user.id)
+
+      assert %User{currentRoomId: nil} = Repo.get(User, user.id)
+    end
+
+    test "set offline", %{user: user} do
+      Kousa.Data.User.set_online(user.id)
+
+      assert %User{
+        online: true,
+        lastOnline: nil} = Repo.get(User, user.id)
+
+      # NOPE.
+      # timestamp = DateTime.utc_now |> DateTime.to_naive()
+
+      Kousa.Data.User.set_offline(user.id)
+
+      assert %User{online: false, lastOnline: last_online_time} = Repo.get(User, user.id)
+
+      # THIS COMPARISON IS BASICALLY NOT RELIABLY TESTABLE UNLESS WE INSTITUTE
+      # UTC TIMESTAMPS EVERYWHERE
+
+      #assert NaiveDateTime.compare(last_online_time, timestamp) == :gt
+
+      # consolation prize
+      refute is_nil(last_online_time)
+    end
+
+    @tag :skip
+    # doesn't work on account of no mocked room process pool
+    test "get_current_room"
+
+    @tag :skip
+    # see above.
+    test "set_current_room"
+
+    @tag :skip
+    test "twitter_find_or_create"
+
+    @tag :skip
+    test "github_find_or_create"
+
   end
 
   describe "Kousa.TokenUtils" do
