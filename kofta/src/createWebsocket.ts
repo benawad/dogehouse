@@ -9,6 +9,7 @@ import { useMuteStore } from "./webrtc/stores/useMuteStore";
 import { uuidv4 } from "./webrtc/utils/uuidv4";
 import { WsParam } from "./vscode-webview/types";
 import { useCurrentRoomStore } from "./webrtc/stores/useCurrentRoomStore";
+import { toast } from "react-toastify";
 
 let ws: ReconnectingWebSocket | null;
 let authGood = false;
@@ -16,6 +17,7 @@ let lastMsg = "";
 
 window.addEventListener("online", () => {
   if (ws && ws.readyState === ws.CLOSED) {
+    toast("reconnecting...", { type: "info" });
     console.log("online triggered, calling ws.reconnect()");
     ws.reconnect();
   }
