@@ -14,6 +14,13 @@ let ws: ReconnectingWebSocket | null;
 let authGood = false;
 let lastMsg = "";
 
+window.addEventListener("online", () => {
+  if (ws && ws.readyState === ws.CLOSED) {
+    console.log("online triggered, calling ws.reconnect()");
+    ws.reconnect();
+  }
+});
+
 export const closeWebSocket = () => {
   ws?.close();
 };
