@@ -56,7 +56,7 @@ defmodule Kousa.Data.User do
   end
 
   def get_users_in_current_room(user_id) do
-    case tuple_get_current_room_id(user_id) |> IO.inspect(label: "59") do
+    case tuple_get_current_room_id(user_id) do
       {:ok, current_room_id} ->
         {current_room_id,
          from(u in User,

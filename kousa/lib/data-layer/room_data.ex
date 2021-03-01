@@ -4,6 +4,7 @@ defmodule Kousa.Data.Room do
   @fetch_limit 16
 
   alias Beef.UserPreview
+  alias Beef.UserBlock
 
   def get_room_status(user_id) do
     room = Kousa.Data.User.get_current_room(user_id)
