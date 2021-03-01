@@ -1,5 +1,4 @@
 defmodule Kousa.Support.Helpers do
-
   # see https://hexdocs.pm/ecto/testing-with-ecto.html
   def checkout_ecto_sandbox(tags) do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Beef.Repo)

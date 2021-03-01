@@ -1,5 +1,4 @@
 defmodule Kousa.TokenUtils do
-
   alias Beef.User
 
   def create_tokens(user) do
