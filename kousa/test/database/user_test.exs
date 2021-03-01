@@ -50,9 +50,16 @@ defmodule Kousa.Database.UserTest do
   describe "when you edit a user" do
     setup :create_user
 
+    test "it forbids a too short username", %{user: %{id: id}} do
+      assert {:error, _} =
+        Data.User.edit_profile(id,
+          %{username: "tim", displayName: "tim", bio: ""})
+    end
+
     test "with empty bio", %{user: %{id: id}} do
       assert {:ok, user} =
-               Data.User.edit_profile(id, %{username: "tim", displayName: "tim", bio: ""})
+        Data.User.edit_profile(id,
+          %{username: "dave", displayName: "dave", bio: ""})
 
       assert "" = user.bio
     end
