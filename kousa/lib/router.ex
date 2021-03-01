@@ -3,8 +3,8 @@ defmodule Kousa.Router do
 
   use Plug.Router
   use Sentry.PlugCapture
-
   plug(Kousa.Cors)
+  plug(Kousa.Metric.PrometheusExporter)
   plug(:match)
   plug(:dispatch)
 
@@ -15,18 +15,16 @@ defmodule Kousa.Router do
 
   forward("/auth/github", to: Kousa.GitHubAuth)
   forward("/auth/twitter", to: Kousa.TwitterAuth)
-  forward("/me", to: Kousa.Me)
+  # forward("/me", to: Kousa.Me)
   forward("/dev", to: Kousa.Dev)
 
   get _ do
     conn
-    |> put_resp_content_type("application/json")
     |> send_resp(404, "not found")
   end
 
   post _ do
     conn
-    |> put_resp_content_type("application/json")
     |> send_resp(404, "not found")
   end
 end

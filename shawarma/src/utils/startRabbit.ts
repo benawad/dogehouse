@@ -1,30 +1,136 @@
 import amqp from "amqplib";
 import * as Sentry from "@sentry/node";
+import {
+  DtlsParameters,
+  MediaKind,
+  RtpCapabilities,
+  RtpParameters,
+} from "mediasoup/lib/types";
+import { Platform, VoiceSendDirection } from "src/types";
+import { TransportOptions } from "./createTransport";
+import { Consumer } from "./createConsumer";
 
-export type HandlerMap = Record<
-  string,
-  (
-    d: any,
+export interface HandlerDataMap {
+  "remove-speaker": { roomId: string; peerId: string };
+  "destroy-room": { roomId: string };
+  "close-peer": { roomId: string; peerId: string };
+  "@get-recv-tracks": {
+    roomId: string;
+    peerId: string;
+    rtpCapabilities: RtpCapabilities;
+  };
+  "@send-track": {
+    roomId: string;
+    peerId: string;
+    transportId: string;
+    direction: VoiceSendDirection;
+    paused: boolean;
+    kind: MediaKind;
+    rtpParameters: RtpParameters;
+    rtpCapabilities: RtpCapabilities;
+    appData: any;
+  };
+  "@connect-transport": {
+    roomId: string;
+    dtlsParameters: DtlsParameters;
+    peerId: string;
+    direction: VoiceSendDirection;
+  };
+  "create-room": {
+    roomId: string;
+  };
+  "add-speaker": {
+    roomId: string;
+    peerId: string;
+  };
+  "join-as-speaker": {
+    roomId: string;
+    peerId: string;
+  };
+  "join-as-new-peer": {
+    roomId: string;
+    peerId: string;
+  };
+}
+
+export type HandlerMap = {
+  [Key in keyof HandlerDataMap]: (
+    d: HandlerDataMap[Key],
     uid: string,
-    send: (
-      d: {
-        op: string;
-        platform: "web" | "vscode" | "all";
-        d: any;
-      } & (
-        | {
-            uid: string;
-          }
-        | {
-            rid: string;
-          }
-      )
+    send: <Key extends keyof OutgoingMessageDataMap>(
+      obj: OutgoingMessage<Key>
     ) => void,
     errBack: () => void
-  ) => void
->;
+  ) => void;
+};
 
-export let send = (_obj: any) => {};
+type SendTrackDoneOperationName = `@send-track-${VoiceSendDirection}-done`;
+type ConnectTransportDoneOperationName = `@connect-transport-${VoiceSendDirection}-done`;
+
+type OutgoingMessageDataMap = {
+  "you-joined-as-speaker": {
+    roomId: string;
+    peerId: string;
+    routerRtpCapabilities: RtpCapabilities;
+    recvTransportOptions: TransportOptions;
+    sendTransportOptions: TransportOptions;
+  };
+  error: string;
+  "room-created": {
+    roomId: string;
+  };
+  "@get-recv-tracks-done": {
+    consumerParametersArr: Consumer[];
+    roomId: string;
+  };
+  close_consumer: {
+    producerId: string;
+    roomId: string;
+  };
+  "new-peer-speaker": {
+    roomId: string;
+  } & Consumer;
+  you_left_room: {
+    roomId: string;
+  };
+  "you-are-now-a-speaker": {
+    sendTransportOptions: TransportOptions;
+    roomId: string;
+  }
+  "you-joined-as-peer": {
+    roomId: string;
+    peerId: string;
+    routerRtpCapabilities: RtpCapabilities;
+    recvTransportOptions: TransportOptions;
+  }
+} & {
+  [Key in SendTrackDoneOperationName]: {
+    error?: string;
+    id?: string;
+    roomId: string;
+  };
+} &
+  {
+    [Key in ConnectTransportDoneOperationName]: {
+      error?: string;
+      roomId: string;
+    };
+  };
+
+type OutgoingMessage<Key extends keyof OutgoingMessageDataMap> = {
+  op: Key;
+  platform: Platform;
+  d: OutgoingMessageDataMap[Key];
+} & ({ uid: string } | { rid: string });
+interface IncomingChannelMessageData<Key extends keyof HandlerMap> {
+  op: Key;
+  d: HandlerDataMap[Key];
+  uid: string;
+}
+
+export let send = <Key extends keyof OutgoingMessageDataMap>(
+  _obj: OutgoingMessage<Key>
+) => {};
 
 export const startRabbit = async (handler: HandlerMap) => {
   console.log(
@@ -34,44 +140,56 @@ export const startRabbit = async (handler: HandlerMap) => {
   const conn = await amqp.connect(
     process.env.RABBITMQ_URL || "amqp://localhost"
   );
-  console.log("rabbit connected2");
+  const id = process.env.QUEUE_ID || "";
+  console.log("rabbit connected " + id);
   const channel = await conn.createChannel();
-  const sendQueue = "kousa_queue";
-  const onlineQueue = "kousa_online_queue";
-  const receiveQueue = "shawarma_queue";
+  const sendQueue = "kousa_queue" + id;
+  const onlineQueue = "kousa_online_queue" + id;
+  const receiveQueue = "shawarma_queue" + id;
+  console.log(sendQueue, onlineQueue, receiveQueue);
   await Promise.all([
     channel.assertQueue(receiveQueue),
     channel.assertQueue(sendQueue),
     channel.assertQueue(onlineQueue),
   ]);
-  send = (obj: any) =>
+  send = <Key extends keyof OutgoingMessageDataMap>(
+    obj: OutgoingMessage<Key>
+  ) => {
     channel.sendToQueue(sendQueue, Buffer.from(JSON.stringify(obj)));
+  };
   await channel.purgeQueue(receiveQueue);
   await channel.consume(
     receiveQueue,
     async (e) => {
       const m = e?.content.toString();
       if (m) {
-        let data: any = null;
+        let data: IncomingChannelMessageData<any> | undefined;
         try {
           data = JSON.parse(m);
         } catch {}
         // console.log(data.op);
         if (data && data.op && data.op in handler) {
+          const { d: handlerData, op: operation, uid } = data;
           try {
-            await handler[data.op](data.d, data.uid, send, () => {
-              console.log(data.op);
-              send({
-                op: "error",
-                platform: "vscode",
-                d:
-                  "The voice server is probably redeploying, it should reconnect in a few seconds. If not, try refreshing.",
-                uid: data.uid,
-              });
-            });
+            console.log(operation);
+            await handler[operation as keyof HandlerMap](
+              handlerData,
+              uid,
+              send,
+              () => {
+                console.log(operation);
+                send({
+                  op: "error",
+                  platform: "vscode",
+                  d:
+                    "The voice server is probably redeploying, it should reconnect in a few seconds. If not, try refreshing.",
+                  uid: uid,
+                });
+              }
+            );
           } catch (err) {
-            console.log(data.op, err);
-            Sentry.captureException(err, { extra: { op: data.op } });
+            console.log(operation, err);
+            Sentry.captureException(err, { extra: { op: operation } });
           }
         }
       }

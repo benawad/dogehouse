@@ -7,7 +7,8 @@ defmodule Kousa.Dev do
   plug(:dispatch)
 
   get "/test-info" do
-    if Application.fetch_env!(:kousa, :env) != :dev do
+    if Application.fetch_env!(:kousa, :env) != :dev and
+         not Kousa.Caster.bool(Application.get_env(:kousa, :is_staging)) do
       conn
       |> put_resp_content_type("application/json")
       |> send_resp(400, Poison.encode!(%{"error" => "no"}))
@@ -23,7 +24,7 @@ defmodule Kousa.Dev do
             Beef.Repo.insert!(
               %Beef.User{
                 username: username,
-                email: "test@"<>username<>"test.com",
+                email: "test@" <> username <> "test.com",
                 githubAccessToken: "",
                 githubId: "id:" <> username,
                 avatarUrl: "https://placekitten.com/200/200",

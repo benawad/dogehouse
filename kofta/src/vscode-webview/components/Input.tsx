@@ -1,18 +1,17 @@
 import React, { forwardRef } from "react";
-import { tw } from "twind";
 
 export const Input = forwardRef<
   HTMLInputElement,
   React.DetailedHTMLProps<
     React.InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
-  >
->((props, ref) => {
-  return (
-    <input
-      ref={ref}
-      className={tw`py-2 px-3 text-xl text-input bg-input`}
-      {...props}
-    />
+  > & { textarea?: boolean }
+>(({ textarea, ...props }, ref) => {
+  const cn = `w-full py-2 px-3 text-white bg-simple-gray-3c`;
+
+  return textarea ? (
+    <textarea ref={ref as any} className={cn} {...(props as any)} />
+  ) : (
+    <input ref={ref} className={cn} {...props} />
   );
 });

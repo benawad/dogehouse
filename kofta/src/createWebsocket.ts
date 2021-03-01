@@ -6,6 +6,9 @@ import { useSocketStatus } from "./webrtc/stores/useSocketStatus";
 import { useWsHandlerStore } from "./webrtc/stores/useWsHandlerStore";
 import { useVoiceStore } from "./webrtc/stores/useVoiceStore";
 import { useMuteStore } from "./webrtc/stores/useMuteStore";
+import { uuidv4 } from "./webrtc/utils/uuidv4";
+import { WsParam } from "./vscode-webview/types";
+import { useCurrentRoomStore } from "./webrtc/stores/useCurrentRoomStore";
 
 let ws: ReconnectingWebSocket | null;
 let authGood = false;
@@ -73,6 +76,7 @@ export const createWebSocket = () => {
           accessToken,
           refreshToken,
           reconnectToVoice,
+          currentRoomId: useCurrentRoomStore.getState().currentRoom?.id,
           muted: useMuteStore.getState().muted,
           platform: "web",
         },
@@ -111,7 +115,7 @@ export const createWebSocket = () => {
         break;
       }
       default: {
-        const { handlerMap } = useWsHandlerStore.getState();
+        const { handlerMap, fetchResolveMap } = useWsHandlerStore.getState();
         if (json.op === "auth-good") {
           if (lastMsg) {
             ws?.send(lastMsg);
@@ -122,6 +126,12 @@ export const createWebSocket = () => {
         // console.log("ws: ", json.op);
         if (json.op in handlerMap) {
           handlerMap[json.op](json.d);
+        } else if (
+          json.op === "fetch_done" &&
+          json.fetchId &&
+          json.fetchId in fetchResolveMap
+        ) {
+          fetchResolveMap[json.fetchId](json.d);
         }
         break;
       }
@@ -137,3 +147,23 @@ export const wsend = (d: { op: string; d: any }) => {
     ws?.send(JSON.stringify(d));
   }
 };
+
+export const wsFetch = <T>(d: WsParam) => {
+  return new Promise<T>((res, rej) => {
+    if (!authGood || !ws || ws.readyState !== ws.OPEN) {
+      rej(new Error("can't connect to server"));
+    } else {
+      const fetchId = uuidv4();
+      setTimeout(() => {
+        useWsHandlerStore.getState().clearFetchListener(fetchId);
+        rej(new Error("request timed out"));
+      }, 10000); // 10 secs
+      useWsHandlerStore.getState().addFetchListener(fetchId, (d) => {
+        res(d);
+      });
+      ws?.send(JSON.stringify({ ...d, fetchId }));
+    }
+  });
+};
+
+export const wsMutation = (d: WsParam) => wsFetch(d);

@@ -1,4 +1,3 @@
-import { useAtom } from "jotai";
 import React, { useState } from "react";
 import {
   MessageSquare,
@@ -8,14 +7,19 @@ import {
   Settings,
   UserPlus,
 } from "react-feather";
+import { useQueryClient } from "react-query";
 import { useHistory, useLocation } from "react-router-dom";
-import { tw } from "twind";
-import { wsend } from "../../createWebsocket";
+import { wsend, wsFetch } from "../../createWebsocket";
+import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
 import { useMuteStore } from "../../webrtc/stores/useMuteStore";
-import { currentRoomAtom, myCurrentRoomInfoAtom } from "../atoms";
+import { useCurrentRoomInfo } from "../atoms";
 import { RoomChat } from "../modules/room-chat/RoomChat";
+import { useRoomChatMentionStore } from "../modules/room-chat/useRoomChatMentionStore";
 import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
 import { useShouldFullscreenChat } from "../modules/room-chat/useShouldFullscreenChat";
+import { PaginatedBaseUsers } from "../types";
+import { GET_BLOCKED_FROM_ROOM_USERS } from "./BlockedFromRoomUsers";
+import { modalConfirm } from "./ConfirmModal";
 import { Footer } from "./Footer";
 import { RoomSettingsModal } from "./RoomSettingsModal";
 
@@ -23,26 +27,24 @@ interface BottomVoiceControlProps {}
 
 const iconSize = 24;
 const iconColor = "#8C8C8C";
-const buttonStyle = {
-  padding: "10px",
-  color: "#8C8C8C",
-  fontSize: 14,
-  flex: 1,
-};
+const buttonStyle = `px-2.5 text-simple-gray-8c text-sm flex-1`;
 
 export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   children,
 }) => {
+  const queryClient = useQueryClient();
   const location = useLocation();
   const history = useHistory();
-  const [currentRoom] = useAtom(currentRoomAtom);
-  const { muted, set } = useMuteStore();
-  const [{ canSpeak, isCreator }] = useAtom(myCurrentRoomInfoAtom);
+  const { currentRoom } = useCurrentRoomStore();
+  const { muted, setMute } = useMuteStore();
+  const { canSpeak, isCreator } = useCurrentRoomInfo();
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [toggleOpen, newUnreadMessages] = useRoomChatStore((s) => [
     s.toggleOpen,
     s.newUnreadMessages,
   ]);
+
+  const { iAmMentioned } = useRoomChatMentionStore();
 
   const fullscreenChatOpen = useShouldFullscreenChat();
 
@@ -51,50 +53,46 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   if (currentRoom) {
     buttons.push(
       <button
-        style={buttonStyle}
+        className={buttonStyle}
         key="leave-room"
         onClick={() => {
-          const y = window.confirm("Are you sure you want to leave?");
-          if (y) {
+          modalConfirm("Are you sure you want to leave?", () => {
             wsend({ op: "leave_room", d: {} });
             if (location.pathname.startsWith("/room")) {
               history.push("/");
             }
-          }
+          });
         }}
         title="Leave current room"
       >
         <PhoneMissed
-          style={{ margin: "auto", marginBottom: "3px" }}
+          className={`m-auto mb-1`}
           size={iconSize}
           color={iconColor}
         />
         Leave
       </button>,
       <button
-        style={buttonStyle}
+        className={buttonStyle}
         key="chat"
         onClick={() => {
           toggleOpen();
         }}
       >
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <div style={{ position: "relative" }}>
+        <div className={`flex justify-center`}>
+          <div className={`relative`}>
             <MessageSquare
-              style={{ margin: "auto", marginBottom: "3px" }}
+              className={`m-auto mb-1`}
               size={iconSize}
               color={iconColor}
             />
             {newUnreadMessages ? (
               <span
+                className={`absolute rounded-full w-2.5 h-2.5`}
                 style={{
-                  position: "absolute",
-                  backgroundColor: "#FF9900",
-                  borderRadius: "50%",
+                  backgroundColor: iAmMentioned ? "#ff3c00" : "#FF9900",
                   right: -2,
                   top: -1,
-                  width: 10,
-                  height: 10,
                 }}
               />
             ) : null}
@@ -103,7 +101,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
         Chat
       </button>,
       <button
-        style={buttonStyle}
+        className={buttonStyle}
         key="invite"
         onClick={() => {
           wsend({ op: "fetch_invite_list", d: { cursor: 0 } });
@@ -111,40 +109,32 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
         }}
         title="Invite users to room"
       >
-        <UserPlus
-          style={{ margin: "auto", marginBottom: "3px" }}
-          size={iconSize}
-          color={iconColor}
-        />
+        <UserPlus className={`m-auto mb-1`} size={iconSize} color={iconColor} />
         Invite
       </button>
     );
     if (isCreator || canSpeak) {
       buttons.push(
         <button
-          style={buttonStyle}
+          className={buttonStyle}
           key="mute"
           onClick={() => {
             wsend({
               op: "mute",
               d: { value: !muted },
             });
-            set({ muted: !muted });
+            setMute(!muted);
           }}
           title="Toggle mute microphone"
         >
           {muted ? (
             <MicOff
-              style={{ margin: "auto", marginBottom: "3px" }}
+              className={`m-auto mb-1`}
               size={iconSize}
               color={iconColor}
             />
           ) : (
-            <Mic
-              style={{ margin: "auto", marginBottom: "3px" }}
-              size={iconSize}
-              color={iconColor}
-            />
+            <Mic className={`m-auto mb-1`} size={iconSize} color={iconColor} />
           )}
           {muted ? "Unmute" : "Mute"}
         </button>
@@ -154,15 +144,24 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
     if (isCreator) {
       buttons.push(
         <button
-          style={buttonStyle}
+          className={buttonStyle}
           key="to-public-room"
           onClick={() => {
+            queryClient.prefetchQuery(
+              [GET_BLOCKED_FROM_ROOM_USERS, 0],
+              () =>
+                wsFetch<PaginatedBaseUsers>({
+                  op: GET_BLOCKED_FROM_ROOM_USERS,
+                  d: { offset: 0 },
+                }),
+              { staleTime: 0 }
+            );
             setSettingsOpen(true);
           }}
           title="Make room public!"
         >
           <Settings
-            style={{ margin: "auto", marginBottom: "3px" }}
+            className={`m-auto mb-1`}
             size={iconSize}
             color={iconColor}
           />
@@ -179,10 +178,9 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
         onRequestClose={() => setSettingsOpen(false)}
       />
       <div
-        style={{ height: fullscreenChatOpen ? "100%" : undefined }}
-        className={tw`${
+        className={`${
           fullscreenChatOpen
-            ? `fixed top-0 left-0 right-0 flex-col flex`
+            ? `fixed top-0 left-0 right-0 flex-col flex h-full`
             : `sticky`
         } bottom-0 w-full`}
       >
@@ -193,38 +191,25 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
         !location.pathname.startsWith("/room") ? (
           <button
             onClick={() => history.push(`/room/${currentRoom.id}`)}
-            className={tw`bg-tmpBg1 py-5 px-10 w-full flex`}
+            className={`bg-simple-gray-26 py-5 px-10 w-full flex`}
           >
             <span
-              style={{
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-              }}
-              className={tw`text-tmpC1 font-semibold`}
+              className={`text-simple-gray-a6 overflow-hidden overflow-ellipsis font-semibold`}
             >
               {currentRoom.name}{" "}
             </span>
-            <span className={tw`text-tmpC4 ml-2`}>
+            <span className={`text-blue-500 ml-2`}>
               {canSpeak ? "speaker" : "listener"}
             </span>
           </button>
         ) : null}
         <div
-          style={{
-            borderTop: "1px solid #808080",
-            backgroundColor: "#262626",
-            padding: "0 var(--container-paddding)",
-          }}
-          className={tw`w-full mt-auto`}
+          className={`border-simple-gray-80 bg-simple-gray-26 border-t w-full mt-auto p-5`}
         >
           {currentRoom ? (
-            <div className={tw`flex justify-around`}>{buttons}</div>
+            <div className={`flex justify-around`}>{buttons}</div>
           ) : (
-            <div
-              style={{
-                padding: "var(--container-paddding) 0",
-              }}
-            >
+            <div className={`px-5`}>
               <Footer />
             </div>
           )}

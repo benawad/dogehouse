@@ -2,6 +2,30 @@ defmodule Beef.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @type t :: %__MODULE__{
+          id: Ecto.UUID.t(),
+          twitterId: String.t(),
+          githubId: String.t(),
+          username: String.t(),
+          email: String.t(),
+          githubAccessToken: String.t(),
+          displayName: String.t(),
+          avatarUrl: String.t(),
+          bio: String.t(),
+          reasonForBan: String.t(),
+          tokenVersion: integer(),
+          numFollowing: integer(),
+          numFollowers: integer(),
+          hasLoggedIn: boolean(),
+          online: boolean(),
+          lastOnline: NaiveDateTime.t(),
+          youAreFollowing: boolean(),
+          followsYou: boolean(),
+          roomPermissions: nil | Beef.RoomPermission.t(),
+          currentRoomId: Ecto.UUID.t(),
+          currentRoom: Beef.Room.t() | Ecto.Association.NotLoaded.t()
+        }
+
   @derive {Poison.Encoder,
            only: [
              :id,
@@ -11,14 +35,13 @@ defmodule Beef.User do
              :online,
              :lastOnline,
              :currentRoomId,
-             :modForRoomId,
-             :canSpeakForRoomId,
              :displayName,
              :numFollowing,
              :numFollowers,
              :currentRoom,
              :youAreFollowing,
-             :followsYou
+             :followsYou,
+             :roomPermissions
            ]}
   @primary_key {:id, :binary_id, []}
   schema "users" do
@@ -29,7 +52,7 @@ defmodule Beef.User do
     field(:githubAccessToken, :string)
     field(:displayName, :string)
     field(:avatarUrl, :string)
-    field(:bio, :string)
+    field(:bio, :string, default: "")
     field(:reasonForBan, :string)
     field(:tokenVersion, :integer)
     field(:numFollowing, :integer)
@@ -39,17 +62,27 @@ defmodule Beef.User do
     field(:lastOnline, :naive_datetime)
     field(:youAreFollowing, :boolean, virtual: true)
     field(:followsYou, :boolean, virtual: true)
+    field(:roomPermissions, :map, virtual: true, null: true)
 
     belongs_to(:currentRoom, Beef.Room, foreign_key: :currentRoomId, type: :binary_id)
-    belongs_to(:modForRoom, Beef.Room, foreign_key: :modForRoomId, type: :binary_id)
-    belongs_to(:canSpeakForRoom, Beef.Room, foreign_key: :canSpeakForRoomId, type: :binary_id)
 
     timestamps()
   end
 
   @doc false
-  def changeset(user, attrs) do
+  def changeset(user, _attrs) do
     user
     |> validate_required([:username, :githubId, :avatarUrl])
+  end
+
+  def edit_changeset(user, attrs) do
+    user
+    |> cast(attrs, [:id, :username, :bio, :displayName, :avatarUrl])
+    |> validate_required([:username, :displayName, :avatarUrl])
+    |> validate_length(:bio, min: 0, max: 160)
+    |> validate_length(:displayName, min: 2, max: 50)
+    |> validate_format(:username, ~r/^(\w){4,15}$/)
+    |> validate_format(:avatarUrl, ~r/https?:\/\/(www\.|)(pbs.twimg.com\/profile_images\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/)/)
+    |> unique_constraint(:username)
   end
 end

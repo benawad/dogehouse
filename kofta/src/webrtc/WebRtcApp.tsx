@@ -1,10 +1,9 @@
-import { useAtom } from "jotai";
 import React, { useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
-import { setCurrentRoomAtom } from "../vscode-webview/atoms";
 import { useMicIdStore } from "../vscode-webview/shared-stores";
 import { ActiveSpeakerListener } from "./components/ActiveSpeakerListener";
 import { AudioRender } from "./components/AudioRender";
+import { useCurrentRoomStore } from "./stores/useCurrentRoomStore";
 import { useMuteStore } from "./stores/useMuteStore";
 import { useVoiceStore } from "./stores/useVoiceStore";
 import { useWsHandlerStore } from "./stores/useWsHandlerStore";
@@ -36,7 +35,7 @@ export const WebRtcApp: React.FC<App2Props> = () => {
   const { mic } = useVoiceStore();
   const { micId } = useMicIdStore();
   const { muted } = useMuteStore();
-  const [, setCurrentRoom] = useAtom(setCurrentRoomAtom);
+  const { setCurrentRoom } = useCurrentRoomStore();
   const initialLoad = useRef(true);
   const history = useHistory();
 

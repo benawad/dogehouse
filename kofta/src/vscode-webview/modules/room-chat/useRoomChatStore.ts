@@ -1,10 +1,21 @@
 import create from "zustand";
 import { combine } from "zustand/middleware";
+import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 
 interface TextToken {
   t: "text";
   v: string;
 }
+interface MentionToken {
+  t: "mention";
+  v: string;
+}
+interface LinkToken {
+  t: "link";
+  v: string;
+}
+
+export type RoomChatMessageToken = TextToken | MentionToken | LinkToken;
 
 const colors = [
   "#ff2366",
@@ -31,7 +42,11 @@ export interface RoomChatMessage {
   avatarUrl: string;
   color: string;
   displayName: string;
-  tokens: TextToken[];
+  tokens: RoomChatMessageToken[];
+  deleted?: boolean;
+  deleterId?: string;
+  sentAt: string;
+  isWhisper?: boolean;
 }
 
 export const useRoomChatStore = create(
@@ -41,6 +56,7 @@ export const useRoomChatStore = create(
       bannedUserIdMap: {} as Record<string, boolean>,
       messages: [] as RoomChatMessage[],
       newUnreadMessages: false,
+      message: "" as string,
     },
     (set) => ({
       addBannedUser: (userId: string) =>
@@ -58,6 +74,10 @@ export const useRoomChatStore = create(
               : s.messages),
           ],
         })),
+      setMessages: (messages: RoomChatMessage[]) =>
+        set((s) => ({
+          messages,
+        })),
       clearChat: () =>
         set({
           messages: [],
@@ -73,6 +93,8 @@ export const useRoomChatStore = create(
         }),
       toggleOpen: () =>
         set((s) => {
+          // Reset mention state
+          useRoomChatMentionStore.getState().resetIAmMentioned();
           if (s.open) {
             return {
               open: false,
@@ -84,6 +106,10 @@ export const useRoomChatStore = create(
               newUnreadMessages: false,
             };
           }
+        }),
+      setMessage: (message: string) =>
+        set({
+          message,
         }),
     })
   )

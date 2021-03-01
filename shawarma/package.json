@@ -7,7 +7,10 @@
     "watch": "tsc -w",
     "start": "node dist/index.js",
     "build": "tsc",
-    "dev": "DEBUG=shawarma:* nodemon dist/index.js"
+    "dev": "cross-env DEBUG=shawarma:* nodemon dist/index.js",
+    "dev2": "cross-env QUEUE_ID=1 DEBUG=shawarma:* nodemon dist/index.js",
+    "dev:ts": "cross-env DEBUG=shawarma:*  ts-node src",
+    "dev2:ts": "cross-env QUEUE_ID=1  DEBUG=shawarma:*  ts-node src"
   },
   "keywords": [],
   "author": "",
@@ -34,7 +37,9 @@
     "@types/pino": "^6.3.5",
     "@types/protoo-server": "^4.0.1",
     "@types/ws": "^7.4.0",
+    "cross-env": "^7.0.3",
     "nodemon": "^2.0.7",
+    "ts-node": "9.1.1",
     "typescript": "^4.1.3"
   }
 }

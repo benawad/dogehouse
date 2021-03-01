@@ -1,24 +1,25 @@
 import { useAtom } from "jotai";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { currentRoomAtom, publicRoomsAtom } from "../atoms";
-import { RoomCard } from "../components/RoomCard";
-import { Wrapper } from "../components/Wrapper";
-import { BottomVoiceControl } from "../components/BottomVoiceControl";
-import { tw } from "twind";
-import { Button } from "../components/Button";
 import { wsend } from "../../createWebsocket";
-import { Logo } from "../svgs/Logo";
+import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
+import { publicRoomsAtom } from "../atoms";
+import { BodyWrapper } from "../components/BodyWrapper";
+import { BottomVoiceControl } from "../components/BottomVoiceControl";
+import { Button } from "../components/Button";
+import { CircleButton } from "../components/CircleButton";
 import { CreateRoomModal } from "../components/CreateRoomModal";
 import { ProfileButton } from "../components/ProfileButton";
+import { RoomCard } from "../components/RoomCard";
+import { Wrapper } from "../components/Wrapper";
+import { Logo } from "../svgs/Logo";
 import { PeopleIcon } from "../svgs/PeopleIcon";
-import { CircleButton } from "../components/CircleButton";
 
 interface HomeProps {}
 
 export const Home: React.FC<HomeProps> = () => {
   const history = useHistory();
-  const [currentRoom] = useAtom(currentRoomAtom);
+  const { currentRoom } = useCurrentRoomStore();
   const [{ publicRooms: rooms, nextCursor }] = useAtom(publicRoomsAtom);
   const [showCreateRoomModal, setShowCreateRoomModal] = useState(false);
 
@@ -29,96 +30,86 @@ export const Home: React.FC<HomeProps> = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // useEffect(() => {
-  //   if (currentRoom) {
-  //     history.push("/room", { room: currentRoom });
-  //   }
-  // }, [currentRoom]);
-
   return (
-    <>
+    <div className={`flex flex-col flex-1`}>
       <Wrapper>
-        <div className={tw`mb-10 mt-8`}>
-          <Logo />
-        </div>
-        <div className={tw`mb-6 flex justify-center`}>
-          <div
-            style={{
-              marginRight: 18,
-            }}
-          >
-            <CircleButton
-              onClick={() => {
-                wsend({ op: "fetch_following_online", d: { cursor: 0 } });
-                history.push("/following-online");
-              }}
-            >
-              <PeopleIcon width={30} height={30} fill="#fff" />
-            </CircleButton>
+        <BodyWrapper>
+          <div className={`mb-10 mt-8`}>
+            <Logo />
           </div>
-          <div style={{ marginLeft: 9 }}>
-            <ProfileButton circle size={60} />
-          </div>
-        </div>
-        {currentRoom ? (
-          <div className={tw`my-8`}>
-            <RoomCard
-              active
-              onClick={() => history.push("/room/" + currentRoom.id)}
-              room={currentRoom}
-              currentRoomId={currentRoom.id}
-            />
-          </div>
-        ) : null}
-        {rooms.map((r) =>
-          r.id === currentRoom?.id ? null : (
-            <div className={tw(`mt-4`)} key={r.id}>
-              <RoomCard
+          <div className={`mb-6 flex justify-center`}>
+            <div className={`mr-4`}>
+              <CircleButton
                 onClick={() => {
-                  wsend({ op: "join_room", d: { roomId: r.id } });
-                  history.push("/room/" + r.id);
+                  wsend({ op: "fetch_following_online", d: { cursor: 0 } });
+                  history.push("/following-online");
                 }}
-                room={r}
-                currentRoomId={currentRoom?.id}
+              >
+                <PeopleIcon width={30} height={30} fill="#fff" />
+              </CircleButton>
+            </div>
+            <div className={`ml-2`}>
+              <ProfileButton circle size={60} />
+            </div>
+          </div>
+          {currentRoom ? (
+            <div className={`my-8`}>
+              <RoomCard
+                active
+                onClick={() => history.push("/room/" + currentRoom.id)}
+                room={currentRoom}
+                currentRoomId={currentRoom.id}
               />
             </div>
-          )
-        )}
-        {nextCursor ? (
-          <div className={tw`flex justify-center my-10`}>
-            <Button
-              variant="small"
-              onClick={() =>
-                wsend({
-                  op: "get_top_public_rooms",
-                  d: { cursor: nextCursor },
-                })
-              }
-            >
-              load more
-            </Button>
-          </div>
-        ) : null}
+          ) : null}
+          {rooms.map((r) =>
+            r.id === currentRoom?.id ? null : (
+              <div className={`mt-4`} key={r.id}>
+                <RoomCard
+                  onClick={() => {
+                    wsend({ op: "join_room", d: { roomId: r.id } });
+                    history.push("/room/" + r.id);
+                  }}
+                  room={r}
+                  currentRoomId={currentRoom?.id}
+                />
+              </div>
+            )
+          )}
+          {nextCursor ? (
+            <div className={`flex justify-center my-10`}>
+              <Button
+                variant="small"
+                onClick={() =>
+                  wsend({
+                    op: "get_top_public_rooms",
+                    d: { cursor: nextCursor },
+                  })
+                }
+              >
+                load more
+              </Button>
+            </div>
+          ) : null}
+          <div style={{ height: 40 }} />
+        </BodyWrapper>
       </Wrapper>
       <BottomVoiceControl>
-        <div
-          style={{
-            padding: "0 var(--container-paddding)",
-          }}
-          className={tw`mb-8 flex`}
-        >
+        <div className={`mb-8 flex px-5`}>
           <Button
+            variant="slim"
+            dogeProbability={0.01}
             onClick={() => {
               setShowCreateRoomModal(true);
             }}
           >
-            create room
+            <h3 className={`text-2xl`}>Create Room</h3>
           </Button>
         </div>
       </BottomVoiceControl>
       {showCreateRoomModal ? (
         <CreateRoomModal onRequestClose={() => setShowCreateRoomModal(false)} />
       ) : null}
-    </>
+    </div>
   );
 };

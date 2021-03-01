@@ -2,6 +2,11 @@ defmodule Beef.Follow do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @type t :: %__MODULE__{
+          userId: Ecto.UUID.t(),
+          followerId: Ecto.UUID.t()
+        }
+
   @derive {Poison.Encoder, only: [:userId, :followerId]}
   @primary_key false
   schema "followers" do
@@ -18,6 +23,6 @@ defmodule Beef.Follow do
     follow
     |> cast(attrs, [:userId, :followerId])
     |> validate_required([:userId, :followerId])
-    |> unique_constraint([:userId, :followerId])
+    |> unique_constraint(:already_following, name: "followers_pkey")
   end
 end

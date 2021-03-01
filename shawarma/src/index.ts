@@ -1,6 +1,7 @@
 import "dotenv/config";
 import debugModule from "debug";
 import { Router, Worker } from "mediasoup/lib/types";
+import * as Sentry from "@sentry/node";
 import { MyRooms } from "./MyRoomState";
 import { closePeer } from "./utils/closePeer";
 import { createConsumer } from "./utils/createConsumer";
@@ -8,7 +9,6 @@ import { createTransport, transportToOptions } from "./utils/createTransport";
 import { deleteRoom } from "./utils/deleteRoom";
 import { startMediasoup } from "./utils/startMediasoup";
 import { HandlerMap, startRabbit } from "./utils/startRabbit";
-import * as Sentry from "@sentry/node";
 
 const log = debugModule("shawarma:index");
 const errLog = debugModule("shawarma:ERROR");
@@ -16,10 +16,12 @@ const errLog = debugModule("shawarma:ERROR");
 const rooms: MyRooms = {};
 
 async function main() {
-  Sentry.init({
-    dsn: process.env.SENTRY_DNS,
-    enabled: !!process.env.SENTRY_DNS,
-  });
+  if (process.env.SENTRY_DNS) {
+    Sentry.init({
+      dsn: process.env.SENTRY_DNS,
+      enabled: !!process.env.SENTRY_DNS,
+    });
+  }
   // start mediasoup
   console.log("starting mediasoup");
   let workers: {
@@ -180,7 +182,7 @@ async function main() {
           if (theirPeerId === myPeerId) {
             continue;
           }
-          const peerTransport = state[theirPeerId].recvTransport;
+          const peerTransport = state[theirPeerId]?.recvTransport;
           if (!peerTransport) {
             continue;
           }
@@ -204,7 +206,7 @@ async function main() {
           }
         }
         send({
-          op: `@send-track-${direction}-done`,
+          op: `@send-track-${direction}-done` as const,
           platform: "web",
           uid,
           d: {
@@ -214,7 +216,7 @@ async function main() {
         });
       } catch (e) {
         send({
-          op: `@send-track-${direction}-done`,
+          op: `@send-track-${direction}-done` as const,
           platform: "web",
           uid,
           d: {
@@ -259,7 +261,7 @@ async function main() {
       } catch (e) {
         console.log(e);
         send({
-          op: `@connect-transport-${direction}-done`,
+          op: `@connect-transport-${direction}-done` as const,
           platform: "web",
           uid,
           d: { error: e.message, roomId },
@@ -273,7 +275,7 @@ async function main() {
         return;
       }
       send({
-        op: `@connect-transport-${direction}-done`,
+        op: `@connect-transport-${direction}-done` as const,
         platform: "web",
         uid,
         d: { roomId },

@@ -1,6 +1,5 @@
 import { useAtom } from "jotai";
 import React, { useEffect, useRef, useState } from "react";
-import { tw } from "twind";
 import { Button } from "../../vscode-webview/components/Button";
 import { volumeAtom } from "../../vscode-webview/shared-atoms";
 import { useConsumerStore } from "../stores/useConsumerStore";
@@ -40,7 +39,7 @@ const MyAudio = ({
 };
 
 export const AudioRender: React.FC<AudioRenderProps> = () => {
-  const hasShownAutoPlayModalBefore = useRef(false);
+  const notAllowedErrorCountRef = useRef(0);
   const [showAutoPlayModal, setShowAutoPlayModal] = useState(false);
   const [globalVolume] = useAtom(volumeAtom);
   const { consumerMap } = useConsumerStore();
@@ -49,19 +48,12 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
   return (
     <>
       <div
-        className={tw`absolute w-full h-full flex z-50`}
-        style={{
-          backgroundColor: "rgba(0,0,0,.5)",
-          display: showAutoPlayModal ? "" : "none",
-        }}
+        className={`absolute w-full h-full flex z-50 bg-simple-gray-80 ${
+          showAutoPlayModal ? "" : "hidden"
+        }`}
       >
-        <div
-          className={tw`p-8 rounded m-auto`}
-          style={{
-            backgroundColor: "var(--vscode-dropdown-border)",
-          }}
-        >
-          <div className={tw`text-center mb-4`}>
+        <div className={`p-8 rounded m-auto bg-simple-gray-3c`}>
+          <div className={`text-center mb-4`}>
             Browsers require user interaction before they will play audio. Just
             click okay to continue.
           </div>
@@ -81,23 +73,30 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
               return (
                 <MyAudio
                   volume={(userVolume / 200) * (globalVolume / 100)}
-                  autoPlay
+                  // autoPlay
                   playsInline
                   controls={false}
                   key={consumer.id}
                   onRef={(a) => {
+                    console.log(a.duration, a.paused);
                     audioRefs.current.push(a);
                     a.srcObject = new MediaStream([consumer.track]);
-                    a.play().catch((error) => {
-                      if (
-                        error.name === "NotAllowedError" &&
-                        !hasShownAutoPlayModalBefore.current
-                      ) {
-                        hasShownAutoPlayModalBefore.current = true;
-                        setShowAutoPlayModal(true);
-                      }
-                      console.warn("audioElem.play() failed:%o", error);
-                    });
+                    // prevent modal from showing up more than once in a single render cycle
+                    const notAllowedErrorCount =
+                      notAllowedErrorCountRef.current;
+                    a.play()
+                      .then((x) => console.log({ x }))
+                      .catch((error) => {
+                        if (
+                          error.name === "NotAllowedError" &&
+                          notAllowedErrorCountRef.current ===
+                            notAllowedErrorCount
+                        ) {
+                          notAllowedErrorCountRef.current++;
+                          setShowAutoPlayModal(true);
+                        }
+                        console.warn("audioElem.play() failed:%o", error);
+                      });
                   }}
                 />
               );

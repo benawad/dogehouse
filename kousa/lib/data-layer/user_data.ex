@@ -3,6 +3,15 @@ defmodule Kousa.Data.User do
   alias Beef.{Repo, User}
 
   @fetch_limit 16
+  def edit_profile(user_id, data) do
+    %User{id: user_id}
+    |> User.edit_changeset(data)
+    |> Repo.update()
+  end
+
+  def delete(user_id) do
+    %User{id: user_id} |> Repo.delete()
+  end
 
   def search(query, offset) do
     query_with_percent = "%" <> query <> "%"
@@ -49,29 +58,20 @@ defmodule Kousa.Data.User do
     |> Repo.update_all([])
   end
 
-  def change_mod(user_id_to_change, modForRoomId) do
-    from(u in User,
-      where: u.id == ^user_id_to_change,
-      update: [
-        set: [
-          modForRoomId: ^modForRoomId
-        ]
-      ]
-    )
-    |> Repo.update_all([])
-  end
-
   def get_users_in_current_room(user_id) do
-    user = get_by_id(user_id)
+    case tuple_get_current_room_id(user_id) do
+      {:ok, current_room_id} ->
+        {current_room_id,
+         from(u in Beef.User,
+           where: u.currentRoomId == ^current_room_id,
+           left_join: rp in Beef.RoomPermission,
+           on: rp.userId == u.id and rp.roomId == u.currentRoomId,
+           select: %{u | roomPermissions: rp}
+         )
+         |> Beef.Repo.all()}
 
-    if not is_nil(user.currentRoomId) do
-      {user.currentRoomId,
-       from(u in Beef.User,
-         where: u.currentRoomId == ^user.currentRoomId
-       )
-       |> Beef.Repo.all()}
-    else
-      {nil, []}
+      _ ->
+        {nil, []}
     end
   end
 
@@ -124,18 +124,6 @@ defmodule Kousa.Data.User do
     |> Repo.update_all([])
   end
 
-  def set_speaker(user_id, room_id) do
-    from(u in User,
-      where: u.id == ^user_id and u.currentRoomId == ^room_id,
-      update: [
-        set: [
-          canSpeakForRoomId: ^room_id
-        ]
-      ]
-    )
-    |> Repo.update_all([])
-  end
-
   def set_user_left_current_room(user_id) do
     Kousa.RegUtils.lookup_and_cast(Kousa.Gen.UserSession, user_id, {:set_current_room_id, nil})
 
@@ -143,9 +131,7 @@ defmodule Kousa.Data.User do
       where: u.id == ^user_id,
       update: [
         set: [
-          currentRoomId: nil,
-          modForRoomId: nil,
-          canSpeakForRoomId: nil
+          currentRoomId: nil
         ]
       ]
     )
@@ -204,7 +190,17 @@ defmodule Kousa.Data.User do
   end
 
   def set_current_room(user_id, room_id, can_speak \\ false, returning \\ false) do
-    canSpeakForRoomId = if can_speak, do: room_id, else: nil
+    roomPermissions =
+      case can_speak do
+        true ->
+          case Kousa.Data.RoomPermission.set_is_speaker(user_id, room_id, true, true) do
+            {:ok, x} -> x
+            _ -> nil
+          end
+
+        _ ->
+          Kousa.Data.RoomPermission.get(user_id, room_id)
+      end
 
     Kousa.RegUtils.lookup_and_cast(
       Kousa.Gen.UserSession,
@@ -217,22 +213,27 @@ defmodule Kousa.Data.User do
         where: u.id == ^user_id,
         update: [
           set: [
-            currentRoomId: ^room_id,
-            canSpeakForRoomId: ^canSpeakForRoomId
+            currentRoomId: ^room_id
           ]
         ]
       )
 
     q = if returning, do: select(q, [u], u), else: q
 
-    q
-    |> Beef.Repo.update_all([])
+    case q
+         |> Beef.Repo.update_all([]) do
+      {_, [user]} -> %{user | roomPermissions: roomPermissions}
+      _ -> nil
+    end
   end
 
   def twitter_find_or_create(user) do
     db_user =
       from(u in Beef.User,
-        where: u.email == ^user.email or u.twitterId == ^user.twitterId
+        where:
+          (not is_nil(u.email) and u.email == ^user.email and u.email != "") or
+            u.twitterId == ^user.twitterId,
+        limit: 1
       )
       |> Repo.one()
 
@@ -256,13 +257,13 @@ defmodule Kousa.Data.User do
         {:create,
          Repo.insert!(
            %User{
-             username: user.username,
-             email: user.email,
+             username: Kousa.Random.big_ascii_id(),
+             email: if(user.email == "", do: nil, else: user.email),
              twitterId: user.twitterId,
              avatarUrl: user.avatarUrl,
              displayName:
                if(is_nil(user.displayName) or String.trim(user.displayName) == "",
-                 do: user.username,
+                 do: "Novice Doge",
                  else: user.displayName
                ),
              bio: user.bio,
@@ -280,7 +281,8 @@ defmodule Kousa.Data.User do
       from(u in Beef.User,
         where:
           u.githubId == ^githubId or
-            (not is_nil(u.email) and u.email != "" and u.email == ^user["email"])
+            (not is_nil(u.email) and u.email != "" and u.email == ^user["email"]),
+        limit: 1
       )
       |> Repo.one()
 
@@ -291,7 +293,7 @@ defmodule Kousa.Data.User do
             where: u.id == ^db_user.id,
             update: [
               set: [
-                githubId: ^user.githubId,
+                githubId: ^githubId,
                 githubAccessToken: ^github_access_token
               ]
             ]
@@ -305,14 +307,14 @@ defmodule Kousa.Data.User do
         {:create,
          Repo.insert!(
            %User{
-             username: user["login"],
+             username: Kousa.Random.big_ascii_id(),
              githubId: githubId,
-             email: user["email"],
+             email: if(user["email"] == "", do: nil, else: user["email"]),
              githubAccessToken: github_access_token,
              avatarUrl: user["avatar_url"],
              displayName:
                if(is_nil(user["name"]) or String.trim(user["name"]) == "",
-                 do: user["login"],
+                 do: "Novice Doge",
                  else: user["name"]
                ),
              bio: user["bio"],

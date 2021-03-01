@@ -16,8 +16,8 @@ export async function createTransport(
   console.log("transport options", transportOptions);
   let transport =
     direction === "recv"
-      ? await device.createRecvTransport(transportOptions)
-      : await device.createSendTransport(transportOptions);
+      ? await device!.createRecvTransport(transportOptions)
+      : await device!.createSendTransport(transportOptions);
 
   // mediasoup-client will emit a connect event when media needs to
   // start flowing for the first time. send dtlsParameters to the
@@ -82,7 +82,7 @@ export async function createTransport(
             transportId: transportOptions.id,
             kind,
             rtpParameters,
-            rtpCapabilities: device.rtpCapabilities,
+            rtpCapabilities: device!.rtpCapabilities,
             paused,
             appData,
             direction,
@@ -96,25 +96,9 @@ export async function createTransport(
   // failed, or disconnected, leave the room and reset
   //
   transport.on("connectionstatechange", async (state) => {
-    console.log(`transport ${transport.id} connectionstatechange ${state}`);
-    // for this simple sample code, assume that transports being
-    // closed is an error (we never close these transports except when
-    // we leave the room)
-    if (state === "closed" || state === "failed" || state === "disconnected") {
-      console.log("transport closed ... leaving the room and resetting");
-      // const { set, roomId } = useVoiceStore.getState();
-      // if (_roomId === roomId) {
-      //   if (direction === "recv") {
-      //     set({
-      //       recvTransport: null,
-      //     });
-      //   } else {
-      //     set({
-      //       sendTransport: null,
-      //     });
-      //   }
-      // }
-    }
+    console.log(
+      `${direction} transport ${transport.id} connectionstatechange ${state}`
+    );
   });
 
   if (direction === "recv") {

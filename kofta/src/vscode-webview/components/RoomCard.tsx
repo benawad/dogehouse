@@ -4,8 +4,6 @@ import { meAtom } from "../atoms";
 import { Codicon } from "../svgs/Codicon";
 import { CurrentRoom, Room } from "../types";
 
-import "./RoomCard.css";
-
 interface RoomProps {
   active?: boolean;
   onClick: () => void;
@@ -20,6 +18,7 @@ export const RoomCard: React.FC<RoomProps> = ({
   currentRoomId,
 }) => {
   const [me] = useAtom(meAtom);
+
   let n = room.numPeopleInside;
   const previewNodes = [];
   let userList = room.peoplePreviewList;
@@ -36,11 +35,7 @@ export const RoomCard: React.FC<RoomProps> = ({
     previewNodes.push(
       <div
         key={p.id}
-        style={{
-          marginTop: !i ? 6 : 2,
-          color: "#D9D9D9",
-          textAlign: "left",
-        }}
+        className={`text-left text-simple-gray-d9 ${!i ? "mt-1.5" : "mt-0.5"}`}
       >
         {p.displayName?.slice(0, 50)}
       </div>
@@ -54,31 +49,22 @@ export const RoomCard: React.FC<RoomProps> = ({
     <div>
       <button
         onClick={onClick}
-        className={`RoomCard ${active ? "active" : ""}`}
+        className={`w-full ${
+          active ? "bg-simple-gray-4d" : "bg-simple-gray-33"
+        } hover:bg-simple-gray-69 active:bg-simple-gray-23 py-2.5 px-5 rounded-lg`}
       >
-        <div
-          style={{
-            display: "flex",
-            color: "var(--vscode-inputOption-activeForeground)",
-          }}
-        >
+        <div className={`flex text-white`}>
           <div
             style={{
-              textAlign: "left",
-              fontSize: "calc(var(--vscode-font-size)*1.2)",
-              flex: 1,
-              color: "#D9D9D9",
-              display: "-webkit-box",  
+              display: "-webkit-box",
               WebkitBoxOrient: "vertical",
-              overflowWrap: "break-word",
               WebkitLineClamp: 3,
-              overflow: "hidden",
-              textOverflow: "ellipsis"
             }}
+            className={`text-left flex-1 text-xl text-simple-gray-d9 text-ellipsis overflow-hidden break-all`}
           >
             {room.name?.slice(0, 100)}
           </div>
-          <div style={{ display: "flex", alignItems: "center" }}>
+          <div className={`flex items-center`}>
             <Codicon name="person" /> {n}
           </div>
         </div>

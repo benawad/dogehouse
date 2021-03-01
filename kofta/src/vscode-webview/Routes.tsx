@@ -1,12 +1,13 @@
 import { useAtom } from "jotai";
-import React, { useEffect } from "react";
-import { Switch, Route, useHistory, useLocation } from "react-router-dom";
+import React, { useEffect, useRef } from "react";
+import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { closeWebSocket, wsend } from "../createWebsocket";
+import { useMuteStore } from "../webrtc/stores/useMuteStore";
 import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
-import { invitationToRoom } from "../webrtc/utils/invitationToRoom";
+import { mergeRoomPermission } from "../webrtc/utils/mergeRoomPermission";
 import {
-  setCurrentRoomAtom,
+  meAtom,
   setFollowerMapAtom,
   setFollowingMapAtom,
   setFollowingOnlineAtom,
@@ -14,22 +15,29 @@ import {
   setMeAtom,
   setPublicRoomsAtom,
 } from "./atoms";
-import { useRoomChatStore } from "./modules/room-chat/useRoomChatStore";
+import { useRoomChatMentionStore } from "./modules/room-chat/useRoomChatMentionStore";
+import {
+  RoomChatMessageToken,
+  useRoomChatStore,
+} from "./modules/room-chat/useRoomChatStore";
 import { BanUsersPage } from "./pages/BanUsersPage";
+import { SoundEffectSettingsPage } from "./pages/SoundEffectSettingsPage";
 import { FollowingOnlineList } from "./pages/FollowingOnlineList";
 import { FollowListPage } from "./pages/FollowListPage";
 import { Home } from "./pages/Home";
 import { InviteList } from "./pages/InviteList";
 import { MyProfilePage } from "./pages/MyProfilePage";
+import { NotFoundPage } from "./pages/NotFoundPage";
 import { RoomPage } from "./pages/RoomPage";
 import { SearchUsersPage } from "./pages/SearchUsersPage";
 import { ViewUserPage } from "./pages/ViewUserPage";
 import { VoiceSettingsPage } from "./pages/VoiceSettingsPage";
-import { NotFoundPage } from "./pages/NotFoundPage";
 import { isUuid } from "./utils/isUuid";
 import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
 import { showErrorToast } from "./utils/showErrorToast";
 import { useTokenStore } from "./utils/useTokenStore";
+import { invitedToRoomConfirm } from "./components/InvitedToJoinRoomModal";
+import { useCurrentRoomStore } from "../webrtc/stores/useCurrentRoomStore";
 
 interface RoutesProps {}
 
@@ -39,13 +47,18 @@ export const Routes: React.FC<RoutesProps> = () => {
   const addMultipleWsListener = useWsHandlerStore(
     (s) => s.addMultipleWsListener
   );
-  const [, setCurrentRoom] = useAtom(setCurrentRoomAtom);
   const [, setMe] = useAtom(setMeAtom);
   const [, setPublicRooms] = useAtom(setPublicRoomsAtom);
   const [, setFollowerMap] = useAtom(setFollowerMapAtom);
   const [, setFollowingMap] = useAtom(setFollowingMapAtom);
   const [, setFollowingOnline] = useAtom(setFollowingOnlineAtom);
   const [, setInviteList] = useAtom(setInviteListAtom);
+  const setCurrentRoom = useCurrentRoomStore((x) => x.setCurrentRoom);
+
+  const [me] = useAtom(meAtom);
+  const meRef = useRef(me);
+  meRef.current = me;
+
   useEffect(() => {
     addMultipleWsListener({
       new_room_name: ({ name, roomId }) => {
@@ -57,7 +70,28 @@ export const Routes: React.FC<RoutesProps> = () => {
         useRoomChatStore.getState().addBannedUser(userId);
       },
       new_chat_msg: ({ msg }) => {
+        const { open } = useRoomChatStore.getState();
         useRoomChatStore.getState().addMessage(msg);
+        if (
+          (!open || !document.hasFocus()) &&
+          !!msg.tokens.filter(
+            (t: RoomChatMessageToken) =>
+              t.t === "mention" &&
+              t.v?.toLowerCase() === meRef?.current?.username?.toLowerCase()
+          ).length
+        ) {
+          useRoomChatMentionStore.getState().incrementIAmMentioned();
+        }
+      },
+      message_deleted({ messageId, deleterId }) {
+        const { messages, setMessages } = useRoomChatStore.getState();
+        setMessages(
+          messages.map((m) => ({
+            ...m,
+            deleted: m.id === messageId || !!m.deleted,
+            deleterId: m.id === messageId ? deleterId : m.deleterId,
+          }))
+        );
       },
       room_privacy_change: ({ roomId, isPrivate, name }) => {
         setCurrentRoom((cr) =>
@@ -81,8 +115,11 @@ export const Routes: React.FC<RoutesProps> = () => {
           toast("ban failed", { type: "error" });
         }
       },
+      someone_you_follow_created_a_room: (value) => {
+        invitedToRoomConfirm(value, history);
+      },
       invitation_to_room: (value) => {
-        invitationToRoom(value, history);
+        invitedToRoomConfirm(value, history);
       },
       fetch_invite_list_done: ({ users, nextCursor, initial }) => {
         setInviteList((x) => ({
@@ -149,21 +186,38 @@ export const Routes: React.FC<RoutesProps> = () => {
           cr && cr.id === roomId ? { ...cr, creatorId: userId } : cr
         );
       },
-      speaker_removed: ({ userId, roomId, muteMap, raiseHandMap }) => {
+      speaker_removed: ({ userId, roomId, muteMap }) => {
         setCurrentRoom((c) =>
           !c || c.id !== roomId
             ? c
             : {
                 ...c,
                 muteMap,
-                raiseHandMap,
                 users: c.users.map((x) =>
-                  userId === x.id ? { ...x, canSpeakForRoomId: null } : x
+                  userId === x.id
+                    ? {
+                        ...x,
+                        roomPermissions: mergeRoomPermission(
+                          x.roomPermissions,
+                          { isSpeaker: false, askedToSpeak: false }
+                        ),
+                      }
+                    : x
                 ),
               }
         );
       },
       speaker_added: ({ userId, roomId, muteMap }) => {
+        // Mute user upon added as speaker
+        if (meRef.current?.id === userId) {
+          const { setMute } = useMuteStore.getState();
+          wsend({
+            op: "mute",
+            d: { value: true },
+          });
+          setMute(true);
+        }
+
         setCurrentRoom((c) =>
           !c || c.id !== roomId
             ? c
@@ -171,36 +225,57 @@ export const Routes: React.FC<RoutesProps> = () => {
                 ...c,
                 muteMap,
                 users: c.users.map((x) =>
-                  userId === x.id ? { ...x, canSpeakForRoomId: roomId } : x
+                  userId === x.id
+                    ? {
+                        ...x,
+                        roomPermissions: mergeRoomPermission(
+                          x.roomPermissions,
+                          {
+                            isSpeaker: true,
+                          }
+                        ),
+                      }
+                    : x
                 ),
               }
         );
       },
-      mod_changed: ({ modForRoomId, userId, roomId }) => {
+      mod_changed: ({ userId, roomId }) => {
         setCurrentRoom((c) =>
           !c || c.id !== roomId
             ? c
             : {
                 ...c,
                 users: c.users.map((x) =>
-                  userId === x.id ? { ...x, modForRoomId } : x
+                  userId === x.id
+                    ? {
+                        ...x,
+                        roomPermissions: mergeRoomPermission(
+                          x.roomPermissions,
+                          { isMod: true }
+                        ),
+                      }
+                    : x
                 ),
               }
         );
       },
       user_left_room: ({ userId }) => {
-        setCurrentRoom((cr) =>
-          !cr
-            ? null
-            : {
-                ...cr,
-                peoplePreviewList: cr.peoplePreviewList.filter(
-                  (x) => x.id !== userId
-                ),
-                numPeopleInside: cr.numPeopleInside - 1,
-                users: cr.users.filter((x) => x.id !== userId),
-              }
-        );
+        setCurrentRoom((cr) => {
+          if (!cr) {
+            return cr;
+          }
+          const { [userId]: _, ...asm } = cr.activeSpeakerMap;
+          return {
+            ...cr,
+            activeSpeakerMap: asm,
+            peoplePreviewList: cr.peoplePreviewList.filter(
+              (x) => x.id !== userId
+            ),
+            numPeopleInside: cr.numPeopleInside - 1,
+            users: cr.users.filter((x) => x.id !== userId),
+          };
+        });
       },
       new_user_join_room: ({ user, muteMap }) => {
         setCurrentRoom((cr) =>
@@ -221,7 +296,7 @@ export const Routes: React.FC<RoutesProps> = () => {
                       ]
                     : cr.peoplePreviewList,
                 numPeopleInside: cr.numPeopleInside + 1,
-                users: [...cr.users, user],
+                users: [...cr.users.filter((x) => x.id !== user.id), user],
               }
         );
       },
@@ -232,10 +307,16 @@ export const Routes: React.FC<RoutesProps> = () => {
           }
           return {
             ...c,
-            raiseHandMap: {
-              ...c.raiseHandMap,
-              [userId]: -1,
-            },
+            users: c.users.map((u) =>
+              u.id === userId
+                ? {
+                    ...u,
+                    roomPermissions: mergeRoomPermission(u.roomPermissions, {
+                      askedToSpeak: true,
+                    }),
+                  }
+                : u
+            ),
           };
         });
       },
@@ -245,7 +326,10 @@ export const Routes: React.FC<RoutesProps> = () => {
             return c;
           }
           if (value) {
-            return { ...c, muteMap: { ...c.muteMap, [userId]: true } };
+            return {
+              ...c,
+              muteMap: { ...c.muteMap, [userId]: true },
+            };
           } else {
             const { [userId]: _, ...newMm } = c.muteMap;
             return {
@@ -258,8 +342,8 @@ export const Routes: React.FC<RoutesProps> = () => {
       get_current_room_users_done: ({
         users,
         muteMap,
-        raiseHandMap,
         roomId,
+        activeSpeakerMap,
         autoSpeaker,
       }) => {
         setCurrentRoom((c) => {
@@ -268,15 +352,16 @@ export const Routes: React.FC<RoutesProps> = () => {
           }
           return {
             ...c,
+            activeSpeakerMap,
             users,
             muteMap,
-            raiseHandMap,
             autoSpeaker,
           };
         });
       },
       new_current_room: ({ room }) => {
         if (room) {
+          console.log("new room voice server id: " + room.voiceServerId);
           useRoomChatStore.getState().clearChat();
           wsend({ op: "get_current_room_users", d: {} });
           history.push("/room/" + room.id);
@@ -296,7 +381,8 @@ export const Routes: React.FC<RoutesProps> = () => {
             history.push("/");
           }
           showErrorToast(d.error);
-        } else {
+        } else if (d.room) {
+          console.log("join with voice server id: " + d.room.voiceServerId);
           useRoomChatStore.getState().clearChat();
           setCurrentRoom(() => roomToCurrentRoom(d.room));
           wsend({ op: "get_current_room_users", d: {} });
@@ -337,6 +423,11 @@ export const Routes: React.FC<RoutesProps> = () => {
       <Route exact path="/search/users" component={SearchUsersPage} />
       <Route exact path="/ban/users" component={BanUsersPage} />
       <Route exact path="/voice-settings" component={VoiceSettingsPage} />
+      <Route
+        exact
+        path="/sound-effect-settings"
+        component={SoundEffectSettingsPage}
+      />
       <Route exact path="/following-online" component={FollowingOnlineList} />
       <Route
         exact

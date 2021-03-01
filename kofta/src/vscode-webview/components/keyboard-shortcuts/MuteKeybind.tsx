@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { recordKeyCombination } from "react-hotkeys";
-import { tw } from "twind";
 import { useKeyMapStore } from "../../../webrtc/stores/useKeyMapStore";
 import { Button } from "../Button";
 
@@ -27,7 +26,7 @@ export const MuteKeybind: React.FC<MuteKeybindProps> = ({ className }) => {
   }, [count, setMuteKeybind]);
 
   return (
-    <div className={tw`flex items-center ${className}`}>
+    <div className={`flex items-center ${className}`}>
       <Button
         variant="small"
         onClick={() => {
@@ -37,14 +36,9 @@ export const MuteKeybind: React.FC<MuteKeybindProps> = ({ className }) => {
       >
         set keybind
       </Button>
-      <div className={tw`ml-4`}>
+      <div className={`ml-4`}>
         toggle mute keybind:{" "}
-        <span
-          style={{
-            fontSize: "calc(var(--vscode-font-size)*1.1)",
-          }}
-          className={tw`font-bold`}
-        >
+        <span className={`font-bold text-lg`}>
           {active ? "listening" : MUTE}
         </span>
       </div>

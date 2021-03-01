@@ -4,6 +4,7 @@ import ReactModal from "react-modal";
 const customStyles = {
   overlay: {
     backgroundColor: "rgba(0,0,0,.5)",
+    zIndex: 999,
   },
   content: {
     top: "50%",
@@ -14,7 +15,8 @@ const customStyles = {
     transform: "translate(-50%, -50%)",
     backgroundColor: "#262626",
     border: "none",
-    width: "100%",
+    maxHeight: "80vh",
+    width: "90%",
     maxWidth: 500,
   },
 };
@@ -24,7 +26,7 @@ export const Modal: React.FC<ReactModal["props"]> = ({
   ...props
 }) => {
   return (
-    <ReactModal style={customStyles} {...props}>
+    <ReactModal shouldCloseOnEsc style={customStyles} {...props}>
       {children}
     </ReactModal>
   );
