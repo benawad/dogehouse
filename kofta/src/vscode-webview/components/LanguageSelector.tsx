@@ -3,7 +3,6 @@ import Select from "react-dropdown-select";
 import { useTranslation } from "react-i18next";
 
 interface LanguageSelectorProps<T> {
-    values?: T[];
     options?: T[];
 }
 
@@ -15,7 +14,6 @@ const dropDownStyles = {
 const defaultValue = { value: "en", label: "en" };
 
 export const LanguageSelector: React.FC<LanguageSelectorProps<{}>> = ({
-    values = [defaultValue],
     options = [
         { value: "en", label: "en" },
         { value: "de", label: "de" },
@@ -31,8 +29,8 @@ export const LanguageSelector: React.FC<LanguageSelectorProps<{}>> = ({
     return (
         <Select
             options={options}
-            values={values}
-            onChange={values => changeLanguage(values)}
+            values={[defaultValue]}
+            onChange={lng => changeLanguage(lng)}
             style={dropDownStyles}
             dropdownPosition={"top"}
         />
