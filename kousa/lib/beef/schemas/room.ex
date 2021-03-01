@@ -30,6 +30,7 @@ defmodule Beef.Room do
     field(:isPrivate, :boolean)
     field(:voiceServerId, :string)
 
+    # TODO: change this to creator!
     belongs_to(:user, User, foreign_key: :creatorId, type: :binary_id)
     embeds_many(:peoplePreviewList, Beef.UserPreview)
 

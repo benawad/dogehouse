@@ -53,7 +53,7 @@ defmodule KousaTest.AdHocUserTest do
                |> RoomBlock.insert_changeset(%{userId: uid, roomId: rid, modId: mid})
                |> Repo.insert()
 
-      assert [room] = Repo.all(RoomBlock)
+      assert [roomblock] = Repo.all(RoomBlock)
 
       assert %RoomBlock{
                userId: ^uid,
@@ -62,11 +62,47 @@ defmodule KousaTest.AdHocUserTest do
                # TODO: insert room assoc here.
                modId: ^mid,
                mod: %User{id: ^mid}
-             } = Repo.preload(room, [:user, :mod])
+             } = Repo.preload(roomblock, [:user, :mod])
     end
   end
 
   describe "Beef.Room" do
+    alias Beef.Room
+
+    test "you can add a room into the room table" do
+      %{id: cid} = Factory.create(User)
+      vid = UUID.uuid4()
+
+      assert {:ok,
+              %Room{
+                creatorId: ^cid,
+                name: "my room",
+                isPrivate: false,
+                voiceServerId: ^vid
+              }} =
+               %Room{}
+               |> Room.insert_changeset(%{
+                 name: "my room",
+                 numPeopleInside: 0,
+                 isPrivate: false,
+                 creatorId: cid,
+                 voiceServerId: vid
+               })
+               |> Repo.insert()
+
+      assert [room] = Repo.all(Room)
+
+      assert %Room{
+               ####################################
+               # NOTE these two don't match up.
+               creatorId: ^cid,
+               user: %User{id: ^cid},
+               ####################################
+               name: "my room",
+               isPrivate: false,
+               voiceServerId: ^vid
+             } = Repo.preload(room, [:user])
+    end
   end
 
   describe "Beef.UserBlock" do
