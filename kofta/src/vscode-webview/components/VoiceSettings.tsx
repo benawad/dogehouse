@@ -5,6 +5,7 @@ import { useMicIdStore } from "../shared-stores";
 import { Button } from "./Button";
 import { MuteKeybind, PTTKeybind } from "./keyboard-shortcuts";
 import { VolumeSlider } from "./VolumeSlider";
+import { useTranslation } from 'react-i18next';
 
 interface VoiceSettingsProps {}
 
@@ -30,6 +31,8 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = () => {
         );
     });
   }, []);
+  
+  const { t } = useTranslation();
 
   useEffect(() => {
     fetchMics();
@@ -37,7 +40,7 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = () => {
 
   return (
     <>
-      <div className={`mb-2`}>mic: </div>
+      <div className={`mb-2`}>{t("pages.voiceSettings.mic")} </div>
       {devices.length ? (
         <select
           className={`mb-4`}
@@ -52,8 +55,7 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = () => {
         </select>
       ) : (
         <div className={`mb-4`}>
-          no mics found, you either have none plugged in or haven't given this
-          website permission.
+          {t("pages.voiceSettings.permissionError")}
         </div>
       )}
       <div>
@@ -63,10 +65,10 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = () => {
             fetchMics();
           }}
         >
-          refresh mic list
+          {t("pages.voiceSettings.refresh")}
         </Button>
       </div>
-      <div className={`mt-8 mb-2`}>volume: </div>
+      <div className={`mt-8 mb-2`}>{t("pages.voiceSettings.volume")} </div>
       <div className={`mb-8`}>
         <VolumeSlider volume={volume} onVolume={(n) => setVolume(n)} />
       </div>

@@ -14,6 +14,7 @@ import { RoomCard } from "../components/RoomCard";
 import { Wrapper } from "../components/Wrapper";
 import { Logo } from "../svgs/Logo";
 import { PeopleIcon } from "../svgs/PeopleIcon";
+import { useTranslation } from 'react-i18next';
 
 interface HomeProps {}
 
@@ -22,6 +23,7 @@ export const Home: React.FC<HomeProps> = () => {
   const { currentRoom } = useCurrentRoomStore();
   const [{ publicRooms: rooms, nextCursor }] = useAtom(publicRoomsAtom);
   const [showCreateRoomModal, setShowCreateRoomModal] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (rooms.length < 15) {
@@ -87,7 +89,7 @@ export const Home: React.FC<HomeProps> = () => {
                   })
                 }
               >
-                load more
+                {t("pages.home.loadMore")}
               </Button>
             </div>
           ) : null}
@@ -103,7 +105,7 @@ export const Home: React.FC<HomeProps> = () => {
               setShowCreateRoomModal(true);
             }}
           >
-            <h3 className={`text-2xl`}>Create Room</h3>
+            <h3 className={`text-2xl`}>{t("pages.home.createRoom")}</h3>
           </Button>
         </div>
       </BottomVoiceControl>

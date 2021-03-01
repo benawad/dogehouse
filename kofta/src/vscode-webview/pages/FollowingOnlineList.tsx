@@ -9,6 +9,7 @@ import { Backbar } from "../components/Backbar";
 import { BodyWrapper } from "../components/BodyWrapper";
 import { Button } from "../components/Button";
 import { Wrapper } from "../components/Wrapper";
+import { useTranslation } from 'react-i18next';
 
 interface FriendListProps {}
 
@@ -16,15 +17,16 @@ export const FollowingOnlineList: React.FC<FriendListProps> = () => {
   const history = useHistory();
   const [{ users, nextCursor }] = useAtom(followingOnlineAtom);
   const { currentRoom } = useCurrentRoomStore();
+  const { t } = useTranslation();
 
   return (
     <Wrapper>
       <Backbar />
       <BodyWrapper>
         <div className={`mb-4 text-2xl`}>
-          List of users that are not in a private room and you follow.
+          {t("pages.followingOnlineList.listHeader")}
         </div>
-        {users.length === 0 ? <div>no users found</div> : null}
+        {users.length === 0 ? <div>{t("pages.followingOnlineList.noUsersFound")}</div> : null}
         {users.map((u) => (
           <div
             className={`border-b border-solid border-simple-gray-3c flex py-4 px-2 items-center`}
@@ -50,7 +52,7 @@ export const FollowingOnlineList: React.FC<FriendListProps> = () => {
               <div style={{ color: "" }}>
                 {u.currentRoom ? (
                   <span>
-                    currently in: <b>{u.currentRoom.name}</b>
+                    {t("pages.followingOnlineList.currentRoom")} <b>{u.currentRoom.name}</b>
                   </span>
                 ) : null}
               </div>
@@ -70,7 +72,7 @@ export const FollowingOnlineList: React.FC<FriendListProps> = () => {
                   }}
                   variant="small"
                 >
-                  start a private room with them
+                  {t("pages.followingOnlineList.startPrivateRoom")}
                 </Button>
               </div>
             ) : null}
@@ -87,7 +89,7 @@ export const FollowingOnlineList: React.FC<FriendListProps> = () => {
                 })
               }
             >
-              load more
+              {t("pages.followingOnlineList.loadMore")}
             </Button>
           </div>
         ) : null}

@@ -1,7 +1,124 @@
 {
+    "header": {
+        "_comment": "Main Header UI Internationalization Strings",
+        "title": "DogeHouse"
+    },
     "footer": {
+        "_comment": "Main Footer UI Internationalization Strings",
         "link_1": "Origin Story",
         "link_2": "Discord",
         "link_3": "Report a Bug"
+    },
+    "pages": {
+        "_comment": "Respective Page UI Internationalization Strings",
+        "banUser": {
+            "ban": "ban"
+        },
+        "followingOnlineList": {
+            "listHeader": "List of users that are not in a private room and you follow.",
+            "noUsersFound": "no users found",
+            "currentRoom": "currently in:",
+            "startPrivateRoom": "start a private room with them",
+            "loadMore": "load more"
+        },
+        "followList": {
+            "noUsersFound": "no users found",
+            "loadMore": "load more"
+        },
+        "home": {
+            "loadMore": "load more",
+            "createRoom": "Create Room"
+        },
+        "inviteList": {
+            "roomGone": "room gone, go back",
+            "shareRoomLink": "share link to room",
+            "inviteFollowers": "You can invite your followers that are online:",
+            "whenFollowersOnline": "When your followers are online, they will show up here.",
+            "loadMore": "load more"
+        },
+        "login": {
+            "headerText": "Taking voice conversations to the moon 🚀",
+            "featureText_1": "Dark Theme",
+            "featureText_2": "Open Sign-Ups",
+            "featureText_3": "Cross-Platform Support",
+            "featureText_4": "Open Source",
+            "featureText_5": "Text Chat",
+            "featureText_6": "Powered by Doge",
+            "loginGithub": "login with GitHub",
+            "loginTwitter": "login with Twitter",
+            "createTestUser": "create test user"
+        },
+        "myProfile": {
+            "logout": "logout",
+            "probablyLoading": "probably loading...",
+            "voiceSettings": "go to voice settings",
+            "soundSettings": "go to sound settings",
+            "deleteAccount": "delete account"
+        },
+        "notFound": {
+            "whoopsError": "Whoops! This page got lost in conversation.",
+            "goHomeMessage": "Not to worry. You can",
+            "goHomeLinkText": "go home"
+        },
+        "room": {
+            "loading": "loading...",
+            "speakers": "Speakers",
+            "requestingToSpeak": "Requesting to speak",
+            "listeners": "Listeners"
+        },
+        "searchUser": {
+            "search": "search...",
+            "loading": "loading..."
+        },
+        "soundEffectSettings": {
+            "header": "Sounds"
+        },
+        "viewUser": {
+            "editProfile": "edit profile",
+            "followsYou": "follows you",
+            "folowers": "followers",
+            "following": "following"
+        },
+        "voiceSettings": {
+            "header": "",
+            "mic": "mic:",
+            "permissionError": "no mics found, you either have none plugged in or haven't given this website permission.",
+            "refesh": "refresh mic list",
+            "volume": "volume:"
+        }
+    },
+    "components": {
+        "avatar": {},
+        "backBar": {},
+        "blockedFromRoomUsers": {},
+        "bodyWrapper": {},
+        "bottomVoiceControl": {},
+        "button": {},
+        "centerLayout": {},
+        "checkbox": {},
+        "circleButton": {},
+        "input": {},
+        "inputErrorMessage": {},
+        "languageSelector": {},
+        "listItem": {},
+        "loading": {},
+        "micPermissionBanner": {},
+        "modals": {
+            "general": {},
+            "alertModal": {},
+            "confirmModal": {},
+            "createRoomModal": {},
+            "editProfileModal": {},
+            "invitedToJoinRoomModal": {},
+            "profileModal": {},
+            "promptModal": {},
+            "roomSettingsModal": {}
+        },
+        "muteTitleUpdater": {},
+        "profileButton": {},
+        "roomCard": {},
+        "spinner": {},
+        "userVolumeSlider": {},
+        "volumeSlider": {}
     }
 }

@@ -15,10 +15,13 @@ import { BodyWrapper } from "../components/BodyWrapper";
 import { ListItem } from "../components/ListItem";
 import { GitHubIcon } from "../svgs/GitHubIcon";
 import { TwitterIcon } from "../svgs/TwitterIcon";
+import { useTranslation } from 'react-i18next';
 
 interface LoginProps {}
 
 export const Login: React.FC<LoginProps> = () => {
+  const { t } = useTranslation();
+
   useEffect(() => {
     const { error } = qs.parse(window.location.search);
     if (error && typeof error === "string") {
@@ -33,22 +36,22 @@ export const Login: React.FC<LoginProps> = () => {
             <Logo />
           </div>
           <div className={`text-4xl mb-4 tracking-tight font-extrabold`}>
-            Taking voice conversations to the moon 🚀
+            {t("pages.login.headerText")}
           </div>
           <ul className={`my-4 mb-10 text-xl`}>
-            <ListItem>Dark theme</ListItem>
-            <ListItem>Open sign ups</ListItem>
-            <ListItem>Cross platform support</ListItem>
+            <ListItem>{t("pages.login.featureText_1")}</ListItem>
+            <ListItem>{t("pages.login.featureText_2")}</ListItem>
+            <ListItem>{t("pages.login.featureText_3")}</ListItem>
             <ListItem>
               <a
                 href="https://github.com/benawad/dogehouse"
                 className={`p-0 text-blue-400`}
               >
-                Open Source
+                {t("pages.login.featureText_4")}
               </a>
             </ListItem>
-            <ListItem>Text chat</ListItem>
-            <ListItem>Powered by Doge</ListItem>
+            <ListItem>{t("pages.login.featureText_5")}</ListItem>
+            <ListItem>{t("pages.login.featureText_6")}</ListItem>
           </ul>
           <div className={`mb-8`}>
             <Button
@@ -65,7 +68,7 @@ export const Login: React.FC<LoginProps> = () => {
             >
               <span className={`inline-flex items-center`}>
                 <GitHubIcon className={`h-6 w-6`} />
-                <p className={`ml-3`}>login with GitHub</p>
+                <p className={`ml-3`}>{t("pages.login.loginGithub")}</p>
               </span>
             </Button>
           </div>
@@ -84,7 +87,7 @@ export const Login: React.FC<LoginProps> = () => {
             >
               <span className={`inline-flex items-center`}>
                 <TwitterIcon className={`h-6 w-6`} />
-                <p className={`ml-3`}>login with Twitter</p>
+                <p className={`ml-3`}>{t("pages.login.loginTwitter")}</p>
               </span>
             </Button>
           ) : null}
@@ -108,7 +111,7 @@ export const Login: React.FC<LoginProps> = () => {
                 });
               }}
             >
-              create test user
+              {t("pages.login.createTestUser")}
             </Button>
           ) : null}
         </BodyWrapper>

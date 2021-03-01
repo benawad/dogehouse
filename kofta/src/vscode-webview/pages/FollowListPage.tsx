@@ -1,5 +1,6 @@
 import { useAtom } from "jotai";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useHistory, useLocation, useRouteMatch } from "react-router-dom";
 import { wsend } from "../../createWebsocket";
 import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
@@ -23,6 +24,7 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
   const [me, setMe] = useAtom(meAtom);
   const { setCurrentRoom } = useCurrentRoomStore();
   const history = useHistory();
+  const { t } = useTranslation();
 
   const isFollowing = pathname.startsWith("/following");
 
@@ -38,7 +40,7 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
     <Wrapper>
       <Backbar actuallyGoBack />
       <BodyWrapper>
-        {!users.length ? <div>no users found</div> : null}
+        {!users.length ? <div>{t("pages.followList.noUsersFound")}</div> : null}
         {users.map((profile) => (
           <div
             className={`border-b border-solid border-simple-gray-3c flex py-4 px-2 items-center`}
@@ -104,7 +106,7 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
                 })
               }
             >
-              load more
+              {t("pages.followList.loadMore")}
             </Button>
           </div>
         ) : null}
