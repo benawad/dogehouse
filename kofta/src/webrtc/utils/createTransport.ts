@@ -96,25 +96,9 @@ export async function createTransport(
   // failed, or disconnected, leave the room and reset
   //
   transport.on("connectionstatechange", async (state) => {
-    console.log(`transport ${transport.id} connectionstatechange ${state}`);
-    // for this simple sample code, assume that transports being
-    // closed is an error (we never close these transports except when
-    // we leave the room)
-    if (state === "closed" || state === "failed" || state === "disconnected") {
-      console.log("transport closed ... leaving the room and resetting");
-      // const { set, roomId } = useVoiceStore.getState();
-      // if (_roomId === roomId) {
-      //   if (direction === "recv") {
-      //     set({
-      //       recvTransport: null,
-      //     });
-      //   } else {
-      //     set({
-      //       sendTransport: null,
-      //     });
-      //   }
-      // }
-    }
+    console.log(
+      `${direction} transport ${transport.id} connectionstatechange ${state}`
+    );
   });
 
   if (direction === "recv") {
