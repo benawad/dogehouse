@@ -1,5 +1,6 @@
-import { atom, WritableAtom } from "jotai";
-import { CurrentRoom, Room, BaseUser, UserWithFollowInfo } from "./types";
+import { atom, useAtom, WritableAtom } from "jotai";
+import { useCurrentRoomStore } from "../webrtc/stores/useCurrentRoomStore";
+import { Room, BaseUser, UserWithFollowInfo } from "./types";
 
 const createSetter = <T>(a: WritableAtom<T, any>) =>
   atom(null, (get, set, fn: (x: T) => T) => {
@@ -45,16 +46,15 @@ export const followingMapAtom = atom<
 >({});
 export const setFollowingMapAtom = createSetter(followingMapAtom);
 export const setFollowerMapAtom = createSetter(followerMapAtom);
-export const currentRoomAtom = atom<CurrentRoom | null>(null);
-export const setCurrentRoomAtom = createSetter(currentRoomAtom);
 export const publicRoomsAtom = atom<{
   publicRooms: Room[];
   nextCursor: number | null;
 }>({ publicRooms: [], nextCursor: null });
 export const setPublicRoomsAtom = createSetter(publicRoomsAtom);
-export const myCurrentRoomInfoAtom = atom((get) => {
-  const room = get(currentRoomAtom);
-  const me = get(meAtom);
+export const useCurrentRoomInfo = () => {
+  const { currentRoom: room } = useCurrentRoomStore();
+  const [me] = useAtom(meAtom);
+
   if (!room || !me) {
     return {
       isMod: false,
@@ -87,4 +87,4 @@ export const myCurrentRoomInfoAtom = atom((get) => {
     isSpeaker,
     canSpeak: isCreator || isSpeaker,
   };
-});
+};

@@ -8,7 +8,6 @@ import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
 import { mergeRoomPermission } from "../webrtc/utils/mergeRoomPermission";
 import {
   meAtom,
-  setCurrentRoomAtom,
   setFollowerMapAtom,
   setFollowingMapAtom,
   setFollowingOnlineAtom,
@@ -38,6 +37,7 @@ import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
 import { showErrorToast } from "./utils/showErrorToast";
 import { useTokenStore } from "./utils/useTokenStore";
 import { invitedToRoomConfirm } from "./components/InvitedToJoinRoomModal";
+import { useCurrentRoomStore } from "../webrtc/stores/useCurrentRoomStore";
 
 interface RoutesProps {}
 
@@ -47,13 +47,13 @@ export const Routes: React.FC<RoutesProps> = () => {
   const addMultipleWsListener = useWsHandlerStore(
     (s) => s.addMultipleWsListener
   );
-  const [, setCurrentRoom] = useAtom(setCurrentRoomAtom);
   const [, setMe] = useAtom(setMeAtom);
   const [, setPublicRooms] = useAtom(setPublicRoomsAtom);
   const [, setFollowerMap] = useAtom(setFollowerMapAtom);
   const [, setFollowingMap] = useAtom(setFollowingMapAtom);
   const [, setFollowingOnline] = useAtom(setFollowingOnlineAtom);
   const [, setInviteList] = useAtom(setInviteListAtom);
+  const setCurrentRoom = useCurrentRoomStore((x) => x.setCurrentRoom);
 
   const [me] = useAtom(meAtom);
   const meRef = useRef(me);

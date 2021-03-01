@@ -1,23 +1,24 @@
-import React, { useRef } from "react";
 import { useAtom } from "jotai";
+import React, { useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import { wsend } from "../../createWebsocket";
-import { currentRoomAtom, inviteListAtom } from "../atoms";
+import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
+import { inviteListAtom } from "../atoms";
 import { Avatar } from "../components/Avatar";
 import { Backbar } from "../components/Backbar";
+import { BodyWrapper } from "../components/BodyWrapper";
 import { Button } from "../components/Button";
 import { Input } from "../components/Input";
 import { InviteButton } from "../components/InviteButton";
 import { Wrapper } from "../components/Wrapper";
-import { BodyWrapper } from "../components/BodyWrapper";
 
 interface InviteListProps {}
 
 export const InviteList: React.FC<InviteListProps> = () => {
   const history = useHistory();
   const [{ nextCursor, users }] = useAtom(inviteListAtom);
-  const [room] = useAtom(currentRoomAtom);
+  const { currentRoom: room } = useCurrentRoomStore();
   const path = `/room/${room?.id}`;
   const url = window.location.origin + path;
   const inputRef = useRef<HTMLInputElement>(null);
@@ -84,9 +85,7 @@ export const InviteList: React.FC<InviteListProps> = () => {
               }}
               className={`ml-4`}
             >
-              <div className={`text-lg`}>
-                {u.displayName}
-              </div>
+              <div className={`text-lg`}>{u.displayName}</div>
               <div>@{u.username}</div>
             </button>
             <div className={`ml-auto`}>

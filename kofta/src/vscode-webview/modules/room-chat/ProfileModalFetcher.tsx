@@ -1,7 +1,8 @@
 import { useAtom } from "jotai";
 import React, { useLayoutEffect } from "react";
 import { wsend } from "../../../createWebsocket";
-import { currentRoomAtom, meAtom, myCurrentRoomInfoAtom } from "../../atoms";
+import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
+import { meAtom, useCurrentRoomInfo } from "../../atoms";
 import { ProfileModal } from "../../components/ProfileModal";
 import { RoomChatMessage } from "./useRoomChatStore";
 
@@ -16,11 +17,9 @@ export const ProfileModalFetcher: React.FC<ProfileModalFetcherProps> = ({
   onClose,
   messageToBeDeleted,
 }) => {
-  const [room] = useAtom(currentRoomAtom);
+  const { currentRoom: room } = useCurrentRoomStore();
   const [me] = useAtom(meAtom);
-  const [{ isMod: iAmMod, isCreator: iAmCreator }] = useAtom(
-    myCurrentRoomInfoAtom
-  );
+  const { isMod: iAmMod, isCreator: iAmCreator } = useCurrentRoomInfo();
   const profile = room?.users.find((x) => [x.id, x.username].includes(userId));
 
   useLayoutEffect(() => {

@@ -1,15 +1,16 @@
 import { useAtom } from "jotai";
 import React, { useEffect } from "react";
-import { useRoomChatStore } from "./useRoomChatStore";
+import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
+import { meAtom } from "../../atoms";
 import { Avatar } from "../../components/Avatar";
 import { BaseUser } from "../../types";
-import { currentRoomAtom, meAtom } from "../../atoms";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
+import { useRoomChatStore } from "./useRoomChatStore";
 
 interface RoomChatMentionsProps {}
 
 export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
-  const [currentRoom] = useAtom(currentRoomAtom);
+  const { currentRoom } = useCurrentRoomStore();
   const [me] = useAtom(meAtom);
 
   const { message, setMessage } = useRoomChatStore();
