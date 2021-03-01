@@ -24,19 +24,18 @@ defmodule KousaTest.AdHocUserTest do
       %{id: id2} = Factory.create(User)
 
       assert {:ok, %Follow{userId: ^id1, followerId: ^id2}} =
-        Follow.insert_changeset(
-        %Follow{},
-        %{userId: id1, followerId: id2}
-      )
-      |> Repo.insert()
+               %Follow{}
+               |> Follow.insert_changeset(%{userId: id1, followerId: id2})
+               |> Repo.insert()
 
       assert [follow] = Repo.all(Follow)
+
       assert %Follow{
-        userId: ^id1,
-        user: %User{id: ^id1},
-        followerId: ^id2,
-        follower: %User{id: ^id2}
-      } = Repo.preload(follow, [:user, :follower])
+               userId: ^id1,
+               user: %User{id: ^id1},
+               followerId: ^id2,
+               follower: %User{id: ^id2}
+             } = Repo.preload(follow, [:user, :follower])
     end
   end
 
@@ -50,17 +49,20 @@ defmodule KousaTest.AdHocUserTest do
       %{id: mid} = Factory.create(User)
 
       assert {:ok, %RoomBlock{userId: ^uid, roomId: ^rid, modId: ^mid}} =
-        RoomBlock.insert_changeset(%RoomBlock{}, %{userId: uid, roomId: rid, modId: mid})
+               %RoomBlock{}
+               |> RoomBlock.insert_changeset(%{userId: uid, roomId: rid, modId: mid})
+               |> Repo.insert()
 
       assert [room] = Repo.all(RoomBlock)
+
       assert %RoomBlock{
-        userId: ^uid,
-        user: %User{id: ^uid},
-        roomId: ^rid,
-        # TODO: insert room assoc here.
-        modId: ^mid,
-        mod: %User{id: ^mid}
-      } = Repo.preload(room, [:user, :mod])
+               userId: ^uid,
+               user: %User{id: ^uid},
+               roomId: ^rid,
+               # TODO: insert room assoc here.
+               modId: ^mid,
+               mod: %User{id: ^mid}
+             } = Repo.preload(room, [:user, :mod])
     end
   end
 

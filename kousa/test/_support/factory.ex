@@ -1,8 +1,11 @@
 defmodule Kousa.Support.Factory do
   alias Beef.Repo
   alias Beef.User
+  alias Beef.Room
 
-  def create(User, data \\ []) do
+  def create(struct, data \\ [])
+
+  def create(User, data) do
     merged_data =
       Keyword.merge(
         [
@@ -21,6 +24,34 @@ defmodule Kousa.Support.Factory do
       )
 
     User
+    |> struct(merged_data)
+    |> Repo.insert!(returning: true)
+  end
+
+  def create(Room, data) do
+    # build a userId by creating a user id, if it
+    # doesn't exist
+    creator_id =
+      Keyword.get_lazy(
+        data,
+        :creatorId,
+        fn -> create(User).id end
+      )
+
+    merged_data =
+      Keyword.merge(
+        [
+          name: Faker.Company.buzzword(),
+          numPeopleInside: 0,
+          isPrivate: false,
+          voiceServerId: UUID.uuid4(),
+          creatorId: creator_id,
+          peoplePreviewList: []
+        ],
+        data
+      )
+
+    Room
     |> struct(merged_data)
     |> Repo.insert!(returning: true)
   end
