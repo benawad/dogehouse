@@ -34,113 +34,118 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
           messageToBeDeleted={messageToBeDeleted}
           onClose={() => {
             setProfileId("");
+            setMessageToBeDeleted(null);
           }}
         />
       ) : null}
-      {messages.slice().reverse().map((m) => (
-        <div
-          className="flex flex-col flex-shrink-0"
-          key={m.id}
-          data-tip={dateFormat(m.sentAt)}
-        >
-          {/* Whisper label */}
-          {m.isWhisper ? (
-            <p className="mb-0 text-xs text-gray-400 px-2 bg-simple-gray-3a w-16 rounded-t mt-1 text-center">
-              Whisper
-            </p>
-          ) : null}
+      {messages
+        .slice()
+        .reverse()
+        .map((m) => (
           <div
-            className={`flex items-center px-1 ${
-              m.isWhisper
-                ? "bg-simple-gray-3a  py-1 rounded-b-lg rounded-tr-lg mb-1"
-                : ""
-            }`}
+            className="flex flex-col flex-shrink-0"
+            key={m.id}
+            data-tip={dateFormat(m.sentAt)}
           >
+            {/* Whisper label */}
+            {m.isWhisper ? (
+              <p className="mb-0 text-xs text-gray-400 px-2 bg-simple-gray-3a w-16 rounded-t mt-1 text-center">
+                Whisper
+              </p>
+            ) : null}
             <div
-              className={`py-1 block break-words max-w-full items-start flex-1`}
-              key={m.id}
+              className={`flex items-center px-1 ${
+                m.isWhisper
+                  ? "bg-simple-gray-3a  py-1 rounded-b-lg rounded-tr-lg mb-1"
+                  : ""
+              }`}
             >
-              <span className={`pr-2`}>
-                <Avatar size={20} src={m.avatarUrl} className="inline" />
-              </span>
-
-              <button
-                onClick={() => {
-                  setProfileId(m.userId);
-                  setMessageToBeDeleted(
-                    (me?.id === m.userId ||
-                      iAmCreator ||
-                      (iAmMod && room?.creatorId !== m.userId)) &&
-                      !m.deleted
-                      ? m
-                      : null
-                  );
-                }}
-                className={`hover:underline focus:outline-none`}
-                style={{ textDecorationColor: m.color, color: m.color }}
+              <div
+                className={`py-1 block break-words max-w-full items-start flex-1`}
+                key={m.id}
               >
-                {m.displayName}
-              </button>
-
-              <span className={`mr-1`}>: </span>
-
-              {m.deleted ? (
-                <span className="text-gray-500">
-                  [message {m.deleterId === m.userId ? "retracted" : "deleted"}]
+                <span className={`pr-2`}>
+                  <Avatar size={20} src={m.avatarUrl} className="inline" />
                 </span>
-              ) : (
-                m.tokens.map(({ t, v }, i) => {
-                  switch (t) {
-                    case "text":
-                      return (
-                        <span className={`flex-1 m-0`} key={i}>
-                          {v}
-                        </span>
-                      );
 
-                    case "mention":
-                      return (
-                        <button
-                          onClick={() => {
-                            setProfileId(v);
-                          }}
-                          key={i}
-                          className={`hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
-                            v === me?.username
-                              ? "bg-blue-500 text-white px-2 rounded text-md"
-                              : ""
-                          }`}
-                          style={{
-                            textDecorationColor: m.color,
-                            color: v === me?.username ? "" : m.color,
-                          }}
-                        >
-                          @{v}{" "}
-                        </button>
-                      );
-                    case "link":
-                      return (
-                        <a
-                          target="_blank"
-                          rel="noreferrer"
-                          href={v}
-                          className={`flex-1 hover:underline text-blue-500`}
-                          key={i}
-                        >
-                          {normalizeUrl(v, { stripProtocol: true })}{" "}
-                        </a>
-                      );
-                    default:
-                      return null;
-                  }
-                })
-              )}
+                <button
+                  onClick={() => {
+                    setProfileId(m.userId);
+                    setMessageToBeDeleted(
+                      (me?.id === m.userId ||
+                        iAmCreator ||
+                        (iAmMod && room?.creatorId !== m.userId)) &&
+                        !m.deleted
+                        ? m
+                        : null
+                    );
+                  }}
+                  className={`hover:underline focus:outline-none`}
+                  style={{ textDecorationColor: m.color, color: m.color }}
+                >
+                  {m.displayName}
+                </button>
+
+                <span className={`mr-1`}>: </span>
+
+                {m.deleted ? (
+                  <span className="text-gray-500">
+                    [message{" "}
+                    {m.deleterId === m.userId ? "retracted" : "deleted"}]
+                  </span>
+                ) : (
+                  m.tokens.map(({ t, v }, i) => {
+                    switch (t) {
+                      case "text":
+                        return (
+                          <span className={`flex-1 m-0`} key={i}>
+                            {v}
+                          </span>
+                        );
+
+                      case "mention":
+                        return (
+                          <button
+                            onClick={() => {
+                              setProfileId(v);
+                            }}
+                            key={i}
+                            className={`hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
+                              v === me?.username
+                                ? "bg-blue-500 text-white px-2 rounded text-md"
+                                : ""
+                            }`}
+                            style={{
+                              textDecorationColor: m.color,
+                              color: v === me?.username ? "" : m.color,
+                            }}
+                          >
+                            @{v}{" "}
+                          </button>
+                        );
+                      case "link":
+                        return (
+                          <a
+                            target="_blank"
+                            rel="noreferrer"
+                            href={v}
+                            className={`flex-1 hover:underline text-blue-500`}
+                            key={i}
+                          >
+                            {normalizeUrl(v, { stripProtocol: true })}{" "}
+                          </a>
+                        );
+                      default:
+                        return null;
+                    }
+                  })
+                )}
+              </div>
             </div>
-          </div>
 
-          <ReactTooltip />
-        </div>
-      ))}
+            <ReactTooltip />
+          </div>
+        ))}
       {messages.length === 0 ? <div>Welcome to chat!</div> : null}
       <div className={`pb-6`} ref={bottomRef} />
       <style>{`
