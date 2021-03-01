@@ -1,14 +1,13 @@
 import { useAtom } from "jotai";
+import normalizeUrl from "normalize-url";
 import React, { useState } from "react";
-
+import ReactTooltip from "react-tooltip";
+import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
+import { meAtom, useCurrentRoomInfo } from "../../atoms";
 import { Avatar } from "../../components/Avatar";
+import { dateFormat } from "../../utils/dateFormat";
 import { ProfileModalFetcher } from "./ProfileModalFetcher";
 import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
-// @ts-ignore
-import normalizeUrl from "normalize-url";
-import { meAtom, currentRoomAtom, myCurrentRoomInfoAtom } from "../../atoms";
-import { dateFormat } from "../../utils/dateFormat";
-import ReactTooltip from "react-tooltip";
 
 interface ChatListProps {}
 
@@ -16,10 +15,8 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
   const [profileId, setProfileId] = useState("");
   const messages = useRoomChatStore((s) => s.messages);
   const [me] = useAtom(meAtom);
-  const [room] = useAtom(currentRoomAtom);
-  const [{ isMod: iAmMod, isCreator: iAmCreator }] = useAtom(
-    myCurrentRoomInfoAtom
-  );
+  const { currentRoom: room } = useCurrentRoomStore();
+  const { isMod: iAmMod, isCreator: iAmCreator } = useCurrentRoomInfo();
   const [
     messageToBeDeleted,
     setMessageToBeDeleted,
@@ -40,7 +37,11 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
       ) : null}
       <div className={`pb-6`} />
       {messages.map((m) => (
-        <div className="flex flex-col" key={m.id} data-tip={dateFormat(m.sentAt)}>
+        <div
+          className="flex flex-col"
+          key={m.id}
+          data-tip={dateFormat(m.sentAt)}
+        >
           {/* Whisper label */}
           {m.isWhisper ? (
             <p className="mb-0 text-xs text-gray-400 px-2 bg-simple-gray-3a w-16 rounded-t mt-1 text-center">

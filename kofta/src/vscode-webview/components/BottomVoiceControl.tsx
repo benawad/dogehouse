@@ -1,4 +1,3 @@
-import { useAtom } from "jotai";
 import React, { useState } from "react";
 import {
   MessageSquare,
@@ -11,8 +10,9 @@ import {
 import { useQueryClient } from "react-query";
 import { useHistory, useLocation } from "react-router-dom";
 import { wsend, wsFetch } from "../../createWebsocket";
+import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
 import { useMuteStore } from "../../webrtc/stores/useMuteStore";
-import { currentRoomAtom, myCurrentRoomInfoAtom } from "../atoms";
+import { useCurrentRoomInfo } from "../atoms";
 import { RoomChat } from "../modules/room-chat/RoomChat";
 import { useRoomChatMentionStore } from "../modules/room-chat/useRoomChatMentionStore";
 import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
@@ -35,9 +35,9 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   const queryClient = useQueryClient();
   const location = useLocation();
   const history = useHistory();
-  const [currentRoom] = useAtom(currentRoomAtom);
+  const { currentRoom } = useCurrentRoomStore();
   const { muted, setMute } = useMuteStore();
-  const [{ canSpeak, isCreator }] = useAtom(myCurrentRoomInfoAtom);
+  const { canSpeak, isCreator } = useCurrentRoomInfo();
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [toggleOpen, newUnreadMessages] = useRoomChatStore((s) => [
     s.toggleOpen,

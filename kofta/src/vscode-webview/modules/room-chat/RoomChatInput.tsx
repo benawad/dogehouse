@@ -2,7 +2,7 @@ import { useAtom } from "jotai";
 import React, { useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { wsend } from "../../../createWebsocket";
-import { currentRoomAtom, meAtom } from "../../atoms";
+import { meAtom } from "../../atoms";
 import { modalAlert } from "../../components/AlertModal";
 import { useRoomChatStore } from "./useRoomChatStore";
 import { createChatMessage } from "../../utils/createChatMessage";
@@ -12,6 +12,7 @@ import { Picker } from "emoji-mart";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { Button } from "../../components/Button";
 import { Codicon } from "../../svgs/Codicon";
+import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
 
 interface ChatInputProps {}
 
@@ -25,7 +26,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
     activeUsername,
     setActiveUsername,
   } = useRoomChatMentionStore();
-  const [currentRoom] = useAtom(currentRoomAtom);
+  const { currentRoom } = useCurrentRoomStore();
   const [me] = useAtom(meAtom);
   const [isEmoji, setIsEmoji] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement>(null);
