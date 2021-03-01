@@ -3,8 +3,7 @@ defmodule Kousa.Database.UserTest do
   use ExUnit.Case, async: true
 
   alias Kousa.Support.Factory
-  alias Beef.User
-  alias Beef.Repo
+  alias Beef.{Repo, User, Room}
   alias Kousa.{Data}
 
   import Kousa.Support.Helpers, only: [checkout_ecto_sandbox: 1]
@@ -35,6 +34,10 @@ defmodule Kousa.Database.UserTest do
     {:ok, user: Factory.create(User)}
   end
 
+  defp create_two_users(_) do
+    {:ok, user1: Factory.create(User), user2: Factory.create(User)}
+  end
+
   describe "when you query a user" do
     setup :create_user
 
@@ -52,7 +55,13 @@ defmodule Kousa.Database.UserTest do
 
     test "with empty bio", %{user: %{id: id}} do
       assert {:ok, user} =
-               Data.User.edit_profile(id, %{username: "tim", displayName: "tim", bio: ""})
+               Data.User.edit_profile(id, %{
+                 username: "timmy",
+                 displayName: "tim",
+                 bio: "",
+                 avatarUrl:
+                   "https://pbs.twimg.com/profile_images/1152793238761345024/VRBvxeCM_400x400.jpg"
+               })
 
       assert "" = user.bio
     end
@@ -62,7 +71,7 @@ defmodule Kousa.Database.UserTest do
     setup :create_user
 
     # see issue, re: test above.
-    test "you can use set_online/1 and set_offline/1", %{user: user = %{username: username}} do
+    test "you can use set_online/1 and set_offline/1", %{user: user = %{username: _username}} do
       [id] = Data.User.find_by_github_ids([user.githubId])
 
       Data.User.set_online(id)
@@ -72,6 +81,20 @@ defmodule Kousa.Database.UserTest do
       Data.User.set_offline(id)
 
       assert %{online: false} = Data.User.get_by_id(id)
+    end
+  end
+
+  describe "to delete a user" do
+    setup :create_two_users
+
+    test "cascades correctly", %{user1: user1, user2: user2} do
+      Data.Follower.insert(%{userId: user1.id, followerId: user2.id})
+      Factory.create_room(Room, user1.id)
+      room = Factory.create_room(Room, user2.id)
+      Data.RoomBlock.insert(%{roomId: room.id, userId: user1.id, modId: user2.id})
+      Data.UserBlock.insert(%{userIdBlocked: user1.id, userId: user2.id})
+      Data.RoomPermission.ask_to_speak(user1.id, room.id)
+      assert {:ok, _} = Data.User.delete(user1.id)
     end
   end
 end

@@ -1,10 +1,9 @@
-import { useAtom } from "jotai";
 import React from "react";
 import { X } from "react-feather";
 import { wsend } from "../../createWebsocket";
+import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
 import { renameRoomAndMakePrivate } from "../../webrtc/utils/renameRoomAndMakePrivate";
 import { renameRoomAndMakePublic } from "../../webrtc/utils/renameRoomAndMakePublic";
-import { currentRoomAtom } from "../atoms";
 import { BlockedFromRoomUsers } from "./BlockedFromRoomUsers";
 import { Button } from "./Button";
 import { Modal } from "./Modal";
@@ -18,7 +17,7 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
   open,
   onRequestClose,
 }) => {
-  const [currentRoom, setCurrentRoom] = useAtom(currentRoomAtom);
+  const { currentRoom, setCurrentRoom } = useCurrentRoomStore();
   return (
     <Modal isOpen={open} onRequestClose={onRequestClose}>
       <button

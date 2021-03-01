@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { useHistory } from "react-router-dom";
 import { wsend } from "../../createWebsocket";
-import { currentRoomAtom, meAtom } from "../atoms";
+import { meAtom } from "../atoms";
 import { BaseUser, RoomUser } from "../types";
 import { onFollowUpdater } from "../utils/onFollowUpdater";
 import { Avatar } from "./Avatar";
@@ -10,6 +10,7 @@ import { Button } from "./Button";
 import { EditProfileModal } from "./EditProfileModal";
 import { linkRegex } from "../constants";
 import normalizeUrl from "normalize-url";
+import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
 
 interface UserProfileProps {
   profile: RoomUser;
@@ -20,7 +21,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
 }) => {
   const history = useHistory();
   const [me, setMe] = useAtom(meAtom);
-  const [, setRoom] = useAtom(currentRoomAtom);
+  const { setCurrentRoom } = useCurrentRoomStore();
   // if you edit your profile, me will be updated so we want to use that
   const profile: BaseUser | RoomUser =
     me?.id === userProfile.id ? me : userProfile;
@@ -70,7 +71,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
                   },
                 });
                 setYouAreFollowing(!youAreFollowing);
-                onFollowUpdater(setRoom, setMe, me, profile);
+                onFollowUpdater(setCurrentRoom, setMe, me, profile);
               }}
               variant="small"
             >

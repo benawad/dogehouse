@@ -1,6 +1,5 @@
 defmodule Kousa.Support.Factory do
-  alias Beef.Repo
-  alias Beef.User
+  alias Beef.{User, Repo, Room}
 
   def create(User, data \\ []) do
     merged_data =
@@ -21,6 +20,24 @@ defmodule Kousa.Support.Factory do
       )
 
     User
+    |> struct(merged_data)
+    |> Repo.insert!(returning: true)
+  end
+
+  def create_room(Room, creator_id, data \\ []) do
+    merged_data =
+      Keyword.merge(
+        [
+          name: Faker.Beer.brand(),
+          creatorId: creator_id,
+          numPeopleInside: 1,
+          voiceServerId: "",
+          isPrivate: false
+        ],
+        data
+      )
+
+    Room
     |> struct(merged_data)
     |> Repo.insert!(returning: true)
   end

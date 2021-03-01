@@ -1,11 +1,10 @@
-import { useAtom } from "jotai";
 import React, { useEffect } from "react";
-import { currentRoomAtom } from "../../atoms";
+import { useMediaQuery } from "react-responsive";
+import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
 import { RoomChatInput } from "./RoomChatInput";
 import { RoomChatList } from "./RoomChatList";
 import { RoomChatMentions } from "./RoomChatMentions";
 import { useRoomChatStore } from "./useRoomChatStore";
-import { useMediaQuery } from "react-responsive";
 
 interface ChatProps {
   sidebar: boolean;
@@ -14,7 +13,8 @@ export const roomChatMediaQuery = "(min-width: 980px)";
 
 export const RoomChat: React.FC<ChatProps> = ({ sidebar }) => {
   const chatShouldBeSidebar = useMediaQuery({ query: roomChatMediaQuery });
-  const [room] = useAtom(currentRoomAtom);
+  const { currentRoom: room } = useCurrentRoomStore();
+
   const [open, reset, toggleOpen] = useRoomChatStore((s) => [
     s.open,
     s.reset,
@@ -45,7 +45,9 @@ export const RoomChat: React.FC<ChatProps> = ({ sidebar }) => {
           width: sidebar ? 340 : "100%",
           height: sidebar ? "100%" : undefined,
         }}
-        className={`bg-simple-gray-26 flex flex-1 w-full flex-col ${sidebar ? `fixed bottom-0` : ``}`}
+        className={`bg-simple-gray-26 flex flex-1 w-full flex-col ${
+          sidebar ? `fixed bottom-0` : ``
+        }`}
       >
         <button
           onClick={() => toggleOpen()}

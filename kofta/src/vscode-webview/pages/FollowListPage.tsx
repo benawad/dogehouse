@@ -2,12 +2,8 @@ import { useAtom } from "jotai";
 import React from "react";
 import { useHistory, useLocation, useRouteMatch } from "react-router-dom";
 import { wsend } from "../../createWebsocket";
-import {
-  currentRoomAtom,
-  followerMapAtom,
-  followingMapAtom,
-  meAtom,
-} from "../atoms";
+import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
+import { followerMapAtom, followingMapAtom, meAtom } from "../atoms";
 import { Avatar } from "../components/Avatar";
 import { Backbar } from "../components/Backbar";
 import { BodyWrapper } from "../components/BodyWrapper";
@@ -25,7 +21,7 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
   const [followerMap, setFollowerMap] = useAtom(followerMapAtom);
   const [followingMap, setFollowingMap] = useAtom(followingMapAtom);
   const [me, setMe] = useAtom(meAtom);
-  const [, setRoom] = useAtom(currentRoomAtom);
+  const { setCurrentRoom } = useCurrentRoomStore();
   const history = useHistory();
 
   const isFollowing = pathname.startsWith("/following");
@@ -55,9 +51,7 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
               onClick={() => history.push(`/user`, profile)}
               className={`ml-8`}
             >
-              <div className={`text-lg`}>
-                {profile.displayName}
-              </div>
+              <div className={`text-lg`}>{profile.displayName}</div>
               <div style={{ color: "" }}>@{profile.username}</div>
             </button>
             {me?.id === profile.id ||
@@ -73,7 +67,7 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
                         value: !profile.youAreFollowing,
                       },
                     });
-                    onFollowUpdater(setRoom, setMe, me, profile);
+                    onFollowUpdater(setCurrentRoom, setMe, me, profile);
                     const fn = isFollowing ? setFollowingMap : setFollowerMap;
                     fn((m) => ({
                       ...m,

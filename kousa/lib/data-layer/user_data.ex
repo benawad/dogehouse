@@ -9,6 +9,10 @@ defmodule Kousa.Data.User do
     |> Repo.update()
   end
 
+  def delete(user_id) do
+    %User{id: user_id} |> Repo.delete()
+  end
+
   def search(query, offset) do
     query_with_percent = "%" <> query <> "%"
 

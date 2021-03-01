@@ -2,8 +2,9 @@ import { useAtom } from "jotai";
 import React, { useState } from "react";
 import { Redirect, useRouteMatch } from "react-router-dom";
 import { wsend } from "../../createWebsocket";
+import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
 import { useMuteStore } from "../../webrtc/stores/useMuteStore";
-import { currentRoomAtom, meAtom, myCurrentRoomInfoAtom } from "../atoms";
+import { meAtom, useCurrentRoomInfo } from "../atoms";
 import { Backbar } from "../components/Backbar";
 import { BodyWrapper } from "../components/BodyWrapper";
 import { BottomVoiceControl } from "../components/BottomVoiceControl";
@@ -26,12 +27,14 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
     params: { id },
   } = useRouteMatch<{ id: string }>();
   const [userProfileId, setUserProfileId] = useState("");
-  const [room] = useAtom(currentRoomAtom);
+  const { currentRoom: room } = useCurrentRoomStore();
   const { muted } = useMuteStore();
   const [me] = useAtom(meAtom);
-  const [
-    { isMod: iAmMod, isCreator: iAmCreator, canSpeak: iCanSpeak },
-  ] = useAtom(myCurrentRoomInfoAtom);
+  const {
+    isMod: iAmMod,
+    isCreator: iAmCreator,
+    canSpeak: iCanSpeak,
+  } = useCurrentRoomInfo();
   const fullscreenChatOpen = useShouldFullscreenChat();
 
   // useEffect(() => {
@@ -97,9 +100,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
             }}
             className={`font-xl truncate flex-1 text-center flex items-center justify-center text-2xl`}
           >
-            <span className={'px-2 truncate'}>
-              {room.name}
-            </span>
+            <span className={"px-2 truncate"}>{room.name}</span>
           </button>
           <ProfileButton />
         </Backbar>

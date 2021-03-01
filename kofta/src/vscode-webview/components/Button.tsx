@@ -80,7 +80,7 @@ export const Button: React.FC<
             color === "secondary"
               ? "bg-simple-gray-3a hover:bg-simple-gray-45"
               : color === "red"
-              ? "bg-red-400 hover:bg-red-600"
+              ? "bg-red-600 hover:bg-red-400"
               : "bg-blue-500 hover:bg-blue-400"
           }
           ${

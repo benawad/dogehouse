@@ -127,30 +127,41 @@ defmodule Kousa.SocketHandler do
                     GenServer.cast(session, {:new_tokens, tokens})
                   end
 
+                  roomIdFromFrontend = Map.get(json["d"], "currentRoomId", nil)
+
                   currentRoom =
-                    if not is_nil(user.currentRoomId) do
-                      room = Kousa.Data.Room.get_room_by_id(user.currentRoomId)
+                    cond do
+                      not is_nil(user.currentRoomId) ->
+                        # @todo this should probably go inside room business logic
+                        room = Kousa.Data.Room.get_room_by_id(user.currentRoomId)
 
-                      {:ok, room_session} =
-                        GenRegistry.lookup_or_start(Gen.RoomSession, user.currentRoomId, [
-                          %{
-                            room_id: user.currentRoomId,
-                            voice_server_id: room.voiceServerId
-                          }
-                        ])
+                        {:ok, room_session} =
+                          GenRegistry.lookup_or_start(Gen.RoomSession, user.currentRoomId, [
+                            %{
+                              room_id: user.currentRoomId,
+                              voice_server_id: room.voiceServerId
+                            }
+                          ])
 
-                      GenServer.cast(
-                        room_session,
-                        {:join_room, user, muted}
-                      )
+                        GenServer.cast(
+                          room_session,
+                          {:join_room, user, muted}
+                        )
 
-                      if reconnectToVoice == true do
-                        Kousa.BL.Room.join_vc_room(user.id, room)
-                      end
+                        if reconnectToVoice == true do
+                          BL.Room.join_vc_room(user.id, room)
+                        end
 
-                      room
-                    else
-                      nil
+                        room
+
+                      not is_nil(roomIdFromFrontend) ->
+                        case BL.Room.join_room(user.id, roomIdFromFrontend) do
+                          %{room: room} -> room
+                          _ -> nil
+                        end
+
+                      true ->
+                        nil
                     end
 
                   {:reply,
@@ -403,6 +414,11 @@ defmodule Kousa.SocketHandler do
   def handler("send_room_chat_msg", %{"tokens" => tokens, "whisperedTo" => whispered_to}, state) do
     Kousa.BL.RoomChat.send_msg(state.user_id, tokens, whispered_to)
     {:ok, state}
+  end
+  def handler("delete_account", _data, %State{} = state) do
+    BL.User.delete(state.user_id)
+    # this will log the user out
+    {:reply, {:close, 4001, "invalid_authentication"}, state}
   end
 
   def handler(

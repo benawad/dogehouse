@@ -8,6 +8,7 @@ import { useVoiceStore } from "./webrtc/stores/useVoiceStore";
 import { useMuteStore } from "./webrtc/stores/useMuteStore";
 import { uuidv4 } from "./webrtc/utils/uuidv4";
 import { WsParam } from "./vscode-webview/types";
+import { useCurrentRoomStore } from "./webrtc/stores/useCurrentRoomStore";
 
 let ws: ReconnectingWebSocket | null;
 let authGood = false;
@@ -75,6 +76,7 @@ export const createWebSocket = () => {
           accessToken,
           refreshToken,
           reconnectToVoice,
+          currentRoomId: useCurrentRoomStore.getState().currentRoom?.id,
           muted: useMuteStore.getState().muted,
           platform: "web",
         },
