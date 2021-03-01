@@ -19,7 +19,7 @@ defmodule Beef.User do
           numFollowers: integer(),
           hasLoggedIn: boolean(),
           online: boolean(),
-          lastOnline: NaiveDateTime.t(),
+          lastOnline: DateTime.t(),
           youAreFollowing: boolean(),
           followsYou: boolean(),
           roomPermissions: nil | Beef.RoomPermission.t(),
@@ -60,7 +60,7 @@ defmodule Beef.User do
     field(:numFollowers, :integer)
     field(:hasLoggedIn, :boolean)
     field(:online, :boolean)
-    field(:lastOnline, :naive_datetime)
+    field(:lastOnline, :utc_datetime_usec)
     field(:youAreFollowing, :boolean, virtual: true)
     field(:followsYou, :boolean, virtual: true)
     field(:roomPermissions, :map, virtual: true, null: true)
