@@ -127,30 +127,41 @@ defmodule Kousa.SocketHandler do
                     GenServer.cast(session, {:new_tokens, tokens})
                   end
 
+                  roomIdFromFrontend = Map.get(json["d"], "currentRoomId", nil)
+
                   currentRoom =
-                    if not is_nil(user.currentRoomId) do
-                      room = Kousa.Data.Room.get_room_by_id(user.currentRoomId)
+                    cond do
+                      not is_nil(user.currentRoomId) ->
+                        # @todo this should probably go inside room business logic
+                        room = Kousa.Data.Room.get_room_by_id(user.currentRoomId)
 
-                      {:ok, room_session} =
-                        GenRegistry.lookup_or_start(Gen.RoomSession, user.currentRoomId, [
-                          %{
-                            room_id: user.currentRoomId,
-                            voice_server_id: room.voiceServerId
-                          }
-                        ])
+                        {:ok, room_session} =
+                          GenRegistry.lookup_or_start(Gen.RoomSession, user.currentRoomId, [
+                            %{
+                              room_id: user.currentRoomId,
+                              voice_server_id: room.voiceServerId
+                            }
+                          ])
 
-                      GenServer.cast(
-                        room_session,
-                        {:join_room, user, muted}
-                      )
+                        GenServer.cast(
+                          room_session,
+                          {:join_room, user, muted}
+                        )
 
-                      if reconnectToVoice == true do
-                        Kousa.BL.Room.join_vc_room(user.id, room)
-                      end
+                        if reconnectToVoice == true do
+                          BL.Room.join_vc_room(user.id, room)
+                        end
 
-                      room
-                    else
-                      nil
+                        room
+
+                      not is_nil(roomIdFromFrontend) ->
+                        case BL.Room.join_room(user.id, roomIdFromFrontend) do
+                          %{room: room} -> room
+                          _ -> nil
+                        end
+
+                      true ->
+                        nil
                     end
 
                   {:reply,
