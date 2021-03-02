@@ -2,7 +2,7 @@ defmodule Kousa.TwitterAuth do
   import Plug.Conn
   use Plug.Router
 
-  alias Kousa.{Data}
+  alias Kousa.Data
 
   plug(:put_secret_key_base)
 

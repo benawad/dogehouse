@@ -1,5 +1,6 @@
 defmodule Kousa.BL.Follow do
-  alias Kousa.{Data, Gen}
+  alias Kousa.Data
+  alias Kousa.Gen
 
   def get_follow_list(user_id, user_id_to_get_list_for, get_following_list, cursor) do
     if get_following_list do

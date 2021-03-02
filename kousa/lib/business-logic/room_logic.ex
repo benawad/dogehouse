@@ -1,6 +1,11 @@
 defmodule Kousa.BL.Room do
   use Kousa.Dec.Atomic
-  alias Kousa.{BL, Data, RegUtils, Gen, Caster, VoiceServerUtils}
+  alias Kousa.BL
+  alias Kousa.Data
+  alias Kousa.RegUtils
+  alias Kousa.Gen
+  alias Kousa.Caster
+  alias Kousa.VoiceServerUtils
 
   def set_auto_speaker(user_id, value) do
     room = Kousa.Data.Room.get_room_by_creator_id(user_id)

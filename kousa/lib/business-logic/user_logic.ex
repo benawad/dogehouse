@@ -1,5 +1,7 @@
 defmodule Kousa.BL.User do
-  alias Kousa.{Gen, Data, RegUtils}
+  alias Kousa.Gen
+  alias Kousa.Data
+  alias Kousa.RegUtils
 
   def edit_profile(user_id, data) do
     case Data.User.edit_profile(user_id, data) do

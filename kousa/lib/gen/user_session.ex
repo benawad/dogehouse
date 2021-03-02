@@ -1,6 +1,9 @@
 defmodule Kousa.Gen.UserSession do
   use GenServer
-  alias Kousa.{Gen, RegUtils, Data, BL}
+  alias Kousa.Gen
+  alias Kousa.RegUtils
+  alias Kousa.Data
+  alias Kousa.BL
 
   defmodule State do
     @type t :: %__MODULE__{

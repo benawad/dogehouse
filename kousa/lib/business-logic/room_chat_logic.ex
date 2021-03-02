@@ -1,5 +1,7 @@
 defmodule Kousa.BL.RoomChat do
-  alias Kousa.{Data, RegUtils, Gen}
+  alias Kousa.Data
+  alias Kousa.RegUtils
+  alias Kousa.Gen
 
   @message_character_limit 512
 
