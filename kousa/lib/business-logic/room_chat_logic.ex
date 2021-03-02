@@ -9,6 +9,7 @@ defmodule Kousa.BL.RoomChat do
   def send_msg(user_id, tokens) do
     tokens = validate_tokens(tokens)
 
+    # NB: length(list) is O(N) so use a match for stuff like this
     if length(tokens) > 0 do
       case Users.get_current_room_id(user_id) do
         nil ->
