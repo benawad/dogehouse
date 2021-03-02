@@ -29,9 +29,39 @@ export const createWebSocket = () => {
 
   useSocketStatus.getState().setStatus("connecting");
 
-  ws = new ReconnectingWebSocket(apiBaseUrl.replace("http", "ws") + "/socket");
-  const { accessToken, refreshToken } = useTokenStore.getState();
+  /* Available Options for ReconnectingWebSocket 
+    type wsOpts = {
+      WebSocket?: any; // WebSocket constructor, if none provided, defaults to global WebSocket
+      maxReconnectionDelay?: number; // max delay in ms between reconnections
+      minReconnectionDelay?: number; // min delay in ms between reconnections
+      reconnectionDelayGrowFactor?: number; // how fast the reconnection delay grows
+      minUptime?: number; // min time in ms to consider connection as stable
+      connectionTimeout?: number; // retry connect if not connected after this time, in ms
+      maxRetries?: number; // maximum number of retries
+      maxEnqueuedMessages?: number; // maximum number of messages to buffer until reconnection
+      startClosed?: boolean; // start websocket in CLOSED state, call `.reconnect()` to connect
+      debug?: boolean; // enables debug output
+    };
 
+    @defaults
+    WebSocket: undefined,
+    maxReconnectionDelay: 10000,
+    minReconnectionDelay: 1000 + Math.random() * 4000,
+    reconnectionDelayGrowFactor: 1.3,
+    minUptime: 5000,
+    connectionTimeout: 4000,
+    maxRetries: Infinity,
+    maxEnqueuedMessages: Infinity,
+    startClosed: false,
+    debug: false,
+  */
+  const wsOpts = {
+    connectionTimeout: 15000 //15 seconds
+  };
+
+  ws = new ReconnectingWebSocket(apiBaseUrl.replace("http", "ws") + "/socket", [], wsOpts);
+  const { accessToken, refreshToken } = useTokenStore.getState();
+  
   ws.addEventListener("close", ({ code, reason }) => {
     const { setStatus } = useSocketStatus.getState();
     authGood = false;
@@ -157,7 +187,7 @@ export const wsFetch = <T>(d: WsParam) => {
       setTimeout(() => {
         useWsHandlerStore.getState().clearFetchListener(fetchId);
         rej(new Error("request timed out"));
-      }, 30000); // 30 secs
+      }, 10000); // 10 secs
       useWsHandlerStore.getState().addFetchListener(fetchId, (d) => {
         res(d);
       });
