@@ -1,23 +1,25 @@
 defmodule Kousa.BL.Follow do
-  alias Kousa.Data
+  alias Beef.Users
   alias Kousa.Gen
+  alias Kousa.Data.Follower
+  alias Kousa.Data.UserBlock
 
   def get_follow_list(user_id, user_id_to_get_list_for, get_following_list, cursor) do
     if get_following_list do
-      Data.Follower.get_following(user_id, user_id_to_get_list_for, cursor)
+      Follower.get_following(user_id, user_id_to_get_list_for, cursor)
     else
-      Data.Follower.get_followers(user_id, user_id_to_get_list_for, cursor)
+      Follower.get_followers(user_id, user_id_to_get_list_for, cursor)
     end
   end
 
   def follow(user_id, user_you_want_to_follow_id, should_follow) do
     if should_follow do
       if user_id != user_you_want_to_follow_id and
-           not Data.UserBlock.is_blocked(user_you_want_to_follow_id, user_id) do
-        Data.Follower.insert(%{userId: user_you_want_to_follow_id, followerId: user_id})
+           not UserBlock.is_blocked(user_you_want_to_follow_id, user_id) do
+        Follower.insert(%{userId: user_you_want_to_follow_id, followerId: user_id})
       end
     else
-      Data.Follower.delete(
+      Follower.delete(
         user_you_want_to_follow_id,
         user_id
       )
@@ -26,10 +28,10 @@ defmodule Kousa.BL.Follow do
 
   @spec sync_notify_followers_you_created_a_room(String.t(), Beef.Room.t()) :: {:ok}
   def sync_notify_followers_you_created_a_room(user_id, room) do
-    followers_to_notify = Data.Follower.get_followers_online_and_not_in_a_room(user_id)
+    followers_to_notify = Follower.get_followers_online_and_not_in_a_room(user_id)
 
     if length(followers_to_notify) > 0 do
-      user = Data.User.get_by_id(user_id)
+      user = Users.get_by_id(user_id)
 
       Enum.each(followers_to_notify, fn %Beef.Follow{followerId: followerId} ->
         Gen.UserSession.send_cast(
