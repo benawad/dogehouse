@@ -1,8 +1,14 @@
 defmodule Kousa.SocketHandler do
   require Logger
 
-  alias Kousa.{BL, Data, RegUtils, Gen}
+  alias Kousa.BL
+  alias Kousa.Data
+  alias Kousa.RegUtils
+  alias Kousa.Gen
 
+  alias Kousa.Data.User
+
+  # TODO: just collapse this into its parent module.
   defmodule State do
     @type t :: %__MODULE__{
             awaiting_init: boolean(),
