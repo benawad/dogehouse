@@ -3,6 +3,7 @@ import { Modal } from "./Modal";
 import create from "zustand";
 import { combine } from "zustand/middleware";
 import { Button } from "./Button";
+import { useTranslation } from 'react-i18next';
 
 interface Props {}
 
@@ -25,6 +26,7 @@ export const modalAlert = (message: string) => {
 
 export const AlertModal: React.FC<Props> = () => {
   const { isOpen, message, close } = useAlertModalStore();
+  const { t } = useTranslation();
   return (
     <Modal isOpen={isOpen} onRequestClose={() => close()}>
       <div>{message}</div>
@@ -35,7 +37,7 @@ export const AlertModal: React.FC<Props> = () => {
         }}
       >
         <div className={`flex mt-12`}>
-          <Button type="submit">ok</Button>
+          <Button type="submit">{t("common.ok")}</Button>
         </div>
       </form>
     </Modal>

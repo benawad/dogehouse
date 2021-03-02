@@ -26,7 +26,7 @@ export const FollowingOnlineList: React.FC<FriendListProps> = () => {
         <div className={`mb-4 text-2xl`}>
           {t("pages.followingOnlineList.listHeader")}
         </div>
-        {users.length === 0 ? <div>{t("pages.followingOnlineList.noUsersFound")}</div> : null}
+        {users.length === 0 ? <div>{t("common.noUsersFound")}</div> : null}
         {users.map((u) => (
           <div
             className={`border-b border-solid border-simple-gray-3c flex py-4 px-2 items-center`}
@@ -89,7 +89,7 @@ export const FollowingOnlineList: React.FC<FriendListProps> = () => {
                 })
               }
             >
-              {t("pages.followingOnlineList.loadMore")}
+              {t("common.loadMore")}
             </Button>
           </div>
         ) : null}

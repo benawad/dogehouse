@@ -89,7 +89,7 @@ export const Home: React.FC<HomeProps> = () => {
                   })
                 }
               >
-                {t("pages.home.loadMore")}
+                {t("common.loadMore")}
               </Button>
             </div>
           ) : null}

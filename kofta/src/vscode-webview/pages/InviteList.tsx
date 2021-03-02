@@ -115,7 +115,7 @@ export const InviteList: React.FC<InviteListProps> = () => {
                 })
               }
             >
-              {t("pages.inviteList.loadMore")}
+              {t("common.loadMore")}
             </Button>
           </div>
         ) : null}

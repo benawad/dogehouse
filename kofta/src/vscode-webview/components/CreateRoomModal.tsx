@@ -3,6 +3,7 @@ import { wsend } from "../../createWebsocket";
 import { Button } from "./Button";
 import { Input } from "./Input";
 import { Modal } from "./Modal";
+import { useTranslation } from 'react-i18next';
 
 interface CreateRoomModalProps {
   onRequestClose: () => void;
@@ -13,6 +14,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 }) => {
   const [name, setName] = useState("");
   const [privacy, setPrivacy] = useState("public");
+  const { t } = useTranslation();
   return (
     <Modal isOpen onRequestClose={onRequestClose}>
       <form
@@ -41,10 +43,10 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
             onChange={(e) => setPrivacy(e.target.value)}
           >
             <option value="public" className={`bg-simple-gray-3c`}>
-              public
+              {t("components.modals.createRoomModal.public")}
             </option>
             <option value="private" className={`bg-simple-gray-3c`}>
-              private
+              {t("components.modals.createRoomModal.private")}
             </option>
           </select>
         </div>
@@ -55,10 +57,10 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
             className={`mr-1.5`}
             color="secondary"
           >
-            cancel
+            {t("common.cancel")}
           </Button>
           <Button type="submit" className={`ml-1.5`}>
-            ok
+            {t("common.ok")}
           </Button>
         </div>
       </form>

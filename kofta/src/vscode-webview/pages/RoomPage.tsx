@@ -54,7 +54,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
       <Wrapper>
         <Backbar />
         <BodyWrapper>
-          <div>{t("pages.room.loading")}</div>
+          <div>{t("common.loading")}</div>
         </BodyWrapper>
       </Wrapper>
     );

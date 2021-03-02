@@ -36,7 +36,7 @@ export const SearchUsersPage: React.FC<SearchUsersProps> = ({}) => {
             <Codicon name="search" />
           </Button>
         </form>
-        {loading ? <div className={`my-8`}>{t("pages.searchUsers.loading")}</div> : null}
+        {loading ? <div className={`my-8`}>{t("common.loading")}</div> : null}
       </BodyWrapper>
     </Wrapper>
   );

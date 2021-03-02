@@ -40,7 +40,7 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
     <Wrapper>
       <Backbar actuallyGoBack />
       <BodyWrapper>
-        {!users.length ? <div>{t("pages.followList.noUsersFound")}</div> : null}
+        {!users.length ? <div>{t("common.noUsersFound")}</div> : null}
         {users.map((profile) => (
           <div
             className={`border-b border-solid border-simple-gray-3c flex py-4 px-2 items-center`}
@@ -106,7 +106,7 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
                 })
               }
             >
-              {t("pages.followList.loadMore")}
+              {t("common.loadMore")}
             </Button>
           </div>
         ) : null}

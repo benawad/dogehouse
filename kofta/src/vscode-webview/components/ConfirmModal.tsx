@@ -3,6 +3,7 @@ import { Modal } from "./Modal";
 import create from "zustand";
 import { combine } from "zustand/middleware";
 import { Button } from "./Button";
+import { useTranslation } from 'react-i18next';
 
 interface Props {}
 
@@ -27,6 +28,7 @@ export const modalConfirm = (message: string, onConfirm: Fn) => {
 
 export const ConfirmModal: React.FC<Props> = () => {
   const { onConfirm, message, close } = useConfirmModalStore();
+  const { t } = useTranslation();
   return (
     <Modal isOpen={!!onConfirm} onRequestClose={() => close()}>
       <div>{message}</div>
@@ -37,7 +39,7 @@ export const ConfirmModal: React.FC<Props> = () => {
           className={`mr-1.5`}
           color="secondary"
         >
-          cancel
+          {t("common.cancel")}
         </Button>
         <Button
           onClick={() => {
@@ -47,7 +49,7 @@ export const ConfirmModal: React.FC<Props> = () => {
           type="submit"
           className={`ml-1.5`}
         >
-          yes
+          {t("common.yes")}
         </Button>
       </div>
     </Modal>
