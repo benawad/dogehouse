@@ -4,6 +4,7 @@ defmodule Kousa.Data.Follower do
   @fetch_limit 21
 
   alias Beef.Schemas.User
+  alias Beef.Users
 
   @spec get_followers_online_and_not_in_a_room(String.t()) :: [Beef.Follow.t()]
   def get_followers_online_and_not_in_a_room(user_id) do
@@ -65,7 +66,7 @@ defmodule Kousa.Data.Follower do
   end
 
   def fetch_invite_list(user_id, offset \\ 0) do
-    user = Kousa.Data.User.get_by_id(user_id)
+    user = Users.get_by_id(user_id)
 
     items =
       from(
