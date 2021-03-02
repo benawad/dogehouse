@@ -4,8 +4,8 @@ defmodule Kousa.Database.UserTest do
 
   alias Kousa.Support.Factory
   alias Beef.Schemas.User
+  alias Beef.Users
   alias Beef.Repo
-  alias Kousa.Data
 
   import Kousa.Support.Helpers, only: [checkout_ecto_sandbox: 1]
 
@@ -23,7 +23,7 @@ defmodule Kousa.Database.UserTest do
     }
 
     test "with github" do
-      {:create, user} = Data.User.github_find_or_create(@gh_input, "foo-access-token")
+      {:create, user} = Users.github_find_or_create(@gh_input, "foo-access-token")
 
       [
         ^user
@@ -43,7 +43,7 @@ defmodule Kousa.Database.UserTest do
     # NB: this fails because the databases are currently not configured to
     # autogenerate UUIDs.
     test "by user_id", %{user: user = %{id: id}} do
-      assert [^id] = Data.User.find_by_github_ids([user.githubId])
+      assert [^id] = Users.find_by_github_ids([user.githubId])
     end
   end
 
@@ -52,7 +52,7 @@ defmodule Kousa.Database.UserTest do
 
     test "it forbids a too short username", %{user: %{id: id}} do
       assert {:error, _} =
-               Data.User.edit_profile(
+               Users.edit_profile(
                  id,
                  %{username: "tim", displayName: "tim", bio: ""}
                )
@@ -60,7 +60,7 @@ defmodule Kousa.Database.UserTest do
 
     test "with empty bio", %{user: %{id: id}} do
       assert {:ok, user} =
-               Data.User.edit_profile(
+               Users.edit_profile(
                  id,
                  %{username: "dave", displayName: "dave", bio: ""}
                )
@@ -74,15 +74,15 @@ defmodule Kousa.Database.UserTest do
 
     # see issue, re: test above.
     test "you can use set_online/1 and set_offline/1", %{user: user = %{username: username}} do
-      [id] = Data.User.find_by_github_ids([user.githubId])
+      [id] = Users.find_by_github_ids([user.githubId])
 
-      Data.User.set_online(id)
+      Users.set_online(id)
 
-      assert %{online: true} = Data.User.get_by_id(id)
+      assert %{online: true} = Users.get_by_id(id)
 
-      Data.User.set_offline(id)
+      Users.set_offline(id)
 
-      assert %{online: false} = Data.User.get_by_id(id)
+      assert %{online: false} = Users.get_by_id(id)
     end
   end
 end
