@@ -10,6 +10,8 @@ defmodule KousaTest.AdHocUserTest do
   # time.
 
   alias Beef.Schemas.User
+  alias Beef.Users
+
   alias Beef.Repo
   alias Kousa.Support.Factory
 
@@ -161,7 +163,7 @@ defmodule KousaTest.AdHocUserTest do
       assert [] = Follower.get_followers_online_and_not_in_a_room(user.id)
 
       # make user online
-      Kousa.Data.User.set_online(follower.id)
+      Users.set_online(follower.id)
 
       uid = user.id
       fid = follower.id
@@ -230,7 +232,7 @@ defmodule KousaTest.AdHocUserTest do
 
       # but only make follower1 online
 
-      Kousa.Data.User.set_online(fid1)
+      Users.set_online(fid1)
 
       assert {[_], _} = Follower.fetch_following_online(uid)
     end
@@ -248,7 +250,7 @@ defmodule KousaTest.AdHocUserTest do
       assert {[], _} = Follower.fetch_invite_list(uid)
 
       # but only make follower1 online
-      Kousa.Data.User.set_online(fid1)
+      Users.set_online(fid1)
 
       assert {[%User{id: ^fid1}], _} = Follower.fetch_invite_list(uid)
     end
@@ -330,7 +332,7 @@ defmodule KousaTest.AdHocUserTest do
     end
   end
 
-  describe "Kousa.Data.User" do
+  describe "Users" do
     setup do
       {:ok, user: Factory.create(User)}
     end
@@ -340,7 +342,7 @@ defmodule KousaTest.AdHocUserTest do
       # struct as the first parameter.
       refute user.bio == "updated bio"
 
-      Kousa.Data.User.edit_profile(user.id, %{
+      Users.edit_profile(user.id, %{
         bio: "updated bio",
         username: "dave",
         displayName: "bar"
@@ -355,11 +357,11 @@ defmodule KousaTest.AdHocUserTest do
 
     test "search", %{user: user} do
       # TODO: make offset default to zero
-      assert {[%User{}], _} = Kousa.Data.User.search(user.username, 0)
+      assert {[%User{}], _} = Users.search(user.username, 0)
 
-      assert {[%User{}], _} = Kousa.Data.User.search(user.displayName, 0)
+      assert {[%User{}], _} = Users.search(user.displayName, 0)
 
-      assert {[], _} = Kousa.Data.User.search("foobarbaz", 0)
+      assert {[], _} = Users.search("foobarbaz", 0)
 
       # TODO: more tests on stuff like how search
       # interacts with rooms.  This needs to be specced
@@ -367,7 +369,7 @@ defmodule KousaTest.AdHocUserTest do
     end
 
     test "bulk_insert" do
-      Kousa.Data.User.bulk_insert([
+      Users.bulk_insert([
         %{
           bio: "lorem ipsum",
           username: "david",
@@ -386,7 +388,7 @@ defmodule KousaTest.AdHocUserTest do
     end
 
     test "find_by_github_ids", %{user: user} do
-      Kousa.Data.User.bulk_insert([
+      Users.bulk_insert([
         %{
           bio: "lorem ipsum",
           username: "david",
@@ -406,14 +408,14 @@ defmodule KousaTest.AdHocUserTest do
       # note that there is one entry in there already.
       assert [_, _, _] = Repo.all(User)
 
-      assert [_, _] = Kousa.Data.User.find_by_github_ids(["abcdef", "ghijkl"])
-      assert [user.id] == Kousa.Data.User.find_by_github_ids([user.githubId])
+      assert [_, _] = Users.find_by_github_ids(["abcdef", "ghijkl"])
+      assert [user.id] == Users.find_by_github_ids([user.githubId])
     end
 
     test "inc_num_following/2", %{user: user} do
       assert %{numFollowing: 0} = Repo.get(User, user.id)
 
-      Kousa.Data.User.inc_num_following(user.id, 2)
+      Users.inc_num_following(user.id, 2)
 
       assert %{numFollowing: 2} = Repo.get(User, user.id)
     end
@@ -424,45 +426,45 @@ defmodule KousaTest.AdHocUserTest do
       # build a room
       %{id: rid} = Factory.create(Beef.Room, creatorId: user.id)
 
-      assert {nil, []} = Kousa.Data.User.get_users_in_current_room(user.id)
+      assert {nil, []} = Users.get_users_in_current_room(user.id)
 
       # attach the user to the room.
-      Kousa.Data.User.set_current_room(user.id, rid)
+      Users.set_current_room(user.id, rid)
 
       Repo.all(User)
 
-      Kousa.Data.User.get_users_in_current_room(user.id)
+      Users.get_users_in_current_room(user.id)
     end
 
     test "get_by_id", %{user: %{id: id}} do
-      assert %User{id: ^id} = Kousa.Data.User.get_by_id(id)
+      assert %User{id: ^id} = Users.get_by_id(id)
     end
 
     test "get_by_username", %{user: user} do
-      assert user.id == Kousa.Data.User.get_by_username(user.username).id
+      assert user.id == Users.get_by_username(user.username).id
     end
 
     test "set_reason_for_ban", %{user: user} do
-      Kousa.Data.User.set_reason_for_ban(user.id, "bad human")
+      Users.set_reason_for_ban(user.id, "bad human")
 
       assert %User{reasonForBan: "bad human"} = Repo.get(User, user.id)
     end
 
     test "get_by_id_with_current_room", %{user: user} do
-      assert %User{currentRoom: nil} = Kousa.Data.User.get_by_id_with_current_room(user.id)
+      assert %User{currentRoom: nil} = Users.get_by_id_with_current_room(user.id)
 
       # build a room
       %{id: rid} = Factory.create(Beef.Room, creatorId: user.id)
 
       # attach the user to the room.
-      Kousa.Data.User.set_current_room(user.id, rid)
+      Users.set_current_room(user.id, rid)
 
       assert %User{currentRoom: %Beef.Room{id: ^rid}} =
-               Kousa.Data.User.get_by_id_with_current_room(user.id)
+               Users.get_by_id_with_current_room(user.id)
     end
 
     test "set_online", %{user: user} do
-      Kousa.Data.User.set_online(user.id)
+      Users.set_online(user.id)
 
       assert %User{online: true} = Repo.get(User, user.id)
     end
@@ -472,17 +474,17 @@ defmodule KousaTest.AdHocUserTest do
       %{id: rid} = Factory.create(Beef.Room, creatorId: user.id)
 
       # attach the user to the room.
-      Kousa.Data.User.set_current_room(user.id, rid)
+      Users.set_current_room(user.id, rid)
 
       assert %User{currentRoomId: ^rid} = Repo.get(User, user.id)
 
-      Kousa.Data.User.set_user_left_current_room(user.id)
+      Users.set_user_left_current_room(user.id)
 
       assert %User{currentRoomId: nil} = Repo.get(User, user.id)
     end
 
     test "set offline", %{user: user} do
-      Kousa.Data.User.set_online(user.id)
+      Users.set_online(user.id)
 
       assert %User{
                online: true,
@@ -492,7 +494,7 @@ defmodule KousaTest.AdHocUserTest do
       # NOPE.
       # timestamp = DateTime.utc_now |> DateTime.to_naive()
 
-      Kousa.Data.User.set_offline(user.id)
+      Users.set_offline(user.id)
 
       assert %User{online: false, lastOnline: last_online_time} = Repo.get(User, user.id)
 
