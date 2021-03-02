@@ -3,7 +3,7 @@ defmodule Kousa.Database.UserTest do
   use ExUnit.Case, async: true
 
   alias Kousa.Support.Factory
-  alias Beef.User
+  alias Beef.Schemas.User
   alias Beef.Repo
   alias Kousa.Data
 

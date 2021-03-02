@@ -2,7 +2,7 @@ defmodule Beef.RoomPermission do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias Beef.User
+  alias Beef.Schemas.User
 
   @derive {Poison.Encoder, only: [:isSpeaker, :isMod, :askedToSpeak]}
   @primary_key false

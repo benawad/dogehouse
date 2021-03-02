@@ -3,13 +3,13 @@ defmodule KousaTest.AdHocUserTest do
 
   @moduledoc """
   ad-hoc test set to give coverage for all modules
-  that have 'alias Beef.User', prior to refactoring.
+  that have 'alias Beef.Schemas.User', prior to refactoring.
   """
 
   # TODO: recategorize into appropriate test cases over
   # time.
 
-  alias Beef.User
+  alias Beef.Schemas.User
   alias Beef.Repo
   alias Kousa.Support.Factory
 

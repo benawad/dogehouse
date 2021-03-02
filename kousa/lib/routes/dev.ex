@@ -1,7 +1,7 @@
 defmodule Kousa.Dev do
   import Plug.Conn
 
-  alias Beef.User
+  alias Beef.Schemas.User
 
   use Plug.Router
 

@@ -3,7 +3,7 @@ defmodule Kousa.Data.Room do
 
   @fetch_limit 16
 
-  alias Beef.User
+  alias Beef.Schemas.User
   alias Beef.UserPreview
   alias Beef.UserBlock
 

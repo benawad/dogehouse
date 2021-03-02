@@ -2,7 +2,7 @@ defmodule Beef.Room do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias Beef.User
+  alias Beef.Schemas.User
 
   @type t :: %__MODULE__{
           id: Ecto.UUID.t(),

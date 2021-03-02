@@ -1,7 +1,7 @@
 defmodule Beef.RoomBlock do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Beef.User
+  alias Beef.Schemas.User
 
   @derive {Poison.Encoder, only: [:userId, :roomId, :modId]}
   @primary_key false

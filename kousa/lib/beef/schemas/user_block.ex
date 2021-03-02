@@ -2,7 +2,7 @@ defmodule Beef.UserBlock do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias Beef.User
+  alias Beef.Schemas.User
 
   @derive {Poison.Encoder, only: [:userId, :userIdBlocked]}
   @primary_key false
