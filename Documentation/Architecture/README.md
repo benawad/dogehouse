@@ -6,7 +6,7 @@
 
 # How does DogeHouse dish out communcations?
 
-- Voice communications are routed directly to the node [voice server](https://github.com/benawad/dogehouse/tree/staging/shawarma) through the usage of [WebRTC](https://webrtc.org/) once the elixir api gathers credentials for connection to the node voice server through [RabbitMQ](https://www.rabbitmq.com/)!
+Voice communications are routed directly to the node [voice server](https://github.com/benawad/dogehouse/tree/staging/shawarma) through the usage of [WebRTC](https://webrtc.org/) once the elixir api gathers credentials for connection to the node voice server through [RabbitMQ](https://www.rabbitmq.com/)!
 
 # How is data fetched?
 
