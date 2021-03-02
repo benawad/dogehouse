@@ -347,22 +347,19 @@ defmodule KousaTest.AdHocUserTest do
       })
 
       assert %{
-        bio: "updated bio",
-        username: "dave",
-        displayName: "bar"
-      } = Repo.get!(User, user.id)
+               bio: "updated bio",
+               username: "dave",
+               displayName: "bar"
+             } = Repo.get!(User, user.id)
     end
 
     test "search", %{user: user} do
       # TODO: make offset default to zero
-      assert {[%User{}], _} =
-        Kousa.Data.User.search(user.username, 0)
+      assert {[%User{}], _} = Kousa.Data.User.search(user.username, 0)
 
-      assert {[%User{}], _} =
-        Kousa.Data.User.search(user.displayName, 0)
+      assert {[%User{}], _} = Kousa.Data.User.search(user.displayName, 0)
 
-      assert {[], _} =
-        Kousa.Data.User.search("foobarbaz", 0)
+      assert {[], _} = Kousa.Data.User.search("foobarbaz", 0)
 
       # TODO: more tests on stuff like how search
       # interacts with rooms.  This needs to be specced
@@ -370,36 +367,41 @@ defmodule KousaTest.AdHocUserTest do
     end
 
     test "bulk_insert" do
-      Kousa.Data.User.bulk_insert([%{
-        bio: "lorem ipsum",
-        username: "david",
-        displayName: "d0",
-        avatarUrl: "https://foo.bar/d0"
-      }, %{
-        bio: "dolor sunt",
-        username: "karen",
-        displayName: "d1",
-        avatarUrl: "https://foo.bar/d1"
-      }])
+      Kousa.Data.User.bulk_insert([
+        %{
+          bio: "lorem ipsum",
+          username: "david",
+          displayName: "d0",
+          avatarUrl: "https://foo.bar/d0"
+        },
+        %{
+          bio: "dolor sunt",
+          username: "karen",
+          displayName: "d1",
+          avatarUrl: "https://foo.bar/d1"
+        }
+      ])
 
-      assert [%User{}, %User{}, %User{}] =
-        Repo.all(User)
+      assert [%User{}, %User{}, %User{}] = Repo.all(User)
     end
 
     test "find_by_github_ids", %{user: user} do
-      Kousa.Data.User.bulk_insert([%{
-        bio: "lorem ipsum",
-        username: "david",
-        displayName: "d0",
-        avatarUrl: "https://foo.bar/d0",
-        githubId: "abcdef"
-      }, %{
-        bio: "dolor sunt",
-        username: "karen",
-        displayName: "d1",
-        avatarUrl: "https://foo.bar/d1",
-        githubId: "ghijkl"
-      }])
+      Kousa.Data.User.bulk_insert([
+        %{
+          bio: "lorem ipsum",
+          username: "david",
+          displayName: "d0",
+          avatarUrl: "https://foo.bar/d0",
+          githubId: "abcdef"
+        },
+        %{
+          bio: "dolor sunt",
+          username: "karen",
+          displayName: "d1",
+          avatarUrl: "https://foo.bar/d1",
+          githubId: "ghijkl"
+        }
+      ])
 
       # note that there is one entry in there already.
       assert [_, _, _] = Repo.all(User)
@@ -422,8 +424,7 @@ defmodule KousaTest.AdHocUserTest do
       # build a room
       %{id: rid} = Factory.create(Beef.Room, creatorId: user.id)
 
-      assert {nil, []} =
-        Kousa.Data.User.get_users_in_current_room(user.id)
+      assert {nil, []} = Kousa.Data.User.get_users_in_current_room(user.id)
 
       # attach the user to the room.
       Kousa.Data.User.set_current_room(user.id, rid)
@@ -448,8 +449,7 @@ defmodule KousaTest.AdHocUserTest do
     end
 
     test "get_by_id_with_current_room", %{user: user} do
-      assert %User{currentRoom: nil} =
-        Kousa.Data.User.get_by_id_with_current_room(user.id)
+      assert %User{currentRoom: nil} = Kousa.Data.User.get_by_id_with_current_room(user.id)
 
       # build a room
       %{id: rid} = Factory.create(Beef.Room, creatorId: user.id)
@@ -458,7 +458,7 @@ defmodule KousaTest.AdHocUserTest do
       Kousa.Data.User.set_current_room(user.id, rid)
 
       assert %User{currentRoom: %Beef.Room{id: ^rid}} =
-        Kousa.Data.User.get_by_id_with_current_room(user.id)
+               Kousa.Data.User.get_by_id_with_current_room(user.id)
     end
 
     test "set_online", %{user: user} do
@@ -485,8 +485,9 @@ defmodule KousaTest.AdHocUserTest do
       Kousa.Data.User.set_online(user.id)
 
       assert %User{
-        online: true,
-        lastOnline: nil} = Repo.get(User, user.id)
+               online: true,
+               lastOnline: nil
+             } = Repo.get(User, user.id)
 
       # NOPE.
       # timestamp = DateTime.utc_now |> DateTime.to_naive()
@@ -498,7 +499,7 @@ defmodule KousaTest.AdHocUserTest do
       # THIS COMPARISON IS BASICALLY NOT RELIABLY TESTABLE UNLESS WE INSTITUTE
       # UTC TIMESTAMPS EVERYWHERE
 
-      #assert NaiveDateTime.compare(last_online_time, timestamp) == :gt
+      # assert NaiveDateTime.compare(last_online_time, timestamp) == :gt
 
       # consolation prize
       refute is_nil(last_online_time)
@@ -517,7 +518,6 @@ defmodule KousaTest.AdHocUserTest do
 
     @tag :skip
     test "github_find_or_create"
-
   end
 
   describe "Kousa.TokenUtils" do

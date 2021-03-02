@@ -13,16 +13,8 @@ defmodule Beef.Room do
           peoplePreviewList: [UserPreview.t()]
         }
 
-  @derive {Poison.Encoder,
-           only: [
-             :id,
-             :name,
-             :numPeopleInside,
-             :isPrivate,
-             :creatorId,
-             :peoplePreviewList,
-             :voiceServerId
-           ]}
+  @derive {Poison.Encoder, only: ~w(id name numPeopleInside isPrivate
+           creatorId peoplePreviewList voiceServerId)a}
   @primary_key {:id, :binary_id, []}
   schema "rooms" do
     field(:name, :string)

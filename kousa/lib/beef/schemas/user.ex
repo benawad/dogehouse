@@ -2,23 +2,10 @@ defmodule Beef.Schemas.User do
   use Ecto.Schema
   import Ecto.Changeset
 
-  @derive {Poison.Encoder,
-           only: [
-             :id,
-             :username,
-             :avatarUrl,
-             :bio,
-             :online,
-             :lastOnline,
-             :currentRoomId,
-             :displayName,
-             :numFollowing,
-             :numFollowers,
-             :currentRoom,
-             :youAreFollowing,
-             :followsYou,
-             :roomPermissions
-           ]}
+  @derive {Poison.Encoder, only: ~w(id username avatarUrl bio online
+             lastOnline currentRoomId displayName numFollowing numFollowers
+             currentRoom youAreFollowing followsYou roomPermissions)a}
+
   @primary_key {:id, :binary_id, []}
   schema "users" do
     field(:githubId, :string)
