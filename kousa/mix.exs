@@ -52,6 +52,8 @@ defmodule Kousa.MixProject do
       {:ueberauth_twitter, "~> 0.3"},
       {:prometheus_ex, "~> 3.0"},
       {:prometheus_plugs, "~> 1.1.1"},
+      # style ENFORCEMENT
+      {:credo, "~> 1.5.5"},
       # test helpers
       {:faker, "~> 0.16.0", only: :test},
       {:excoveralls, "~> 0.10", only: :test}
