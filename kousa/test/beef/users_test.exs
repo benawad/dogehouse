@@ -20,16 +20,19 @@ defmodule Kousa.Beef.UsersTest do
       # struct as the first parameter.
       refute user.bio == "updated bio"
 
-      Users.edit_profile(user.id, %{
+      {:ok, %User{id: id}} = Users.edit_profile(user.id, %{
         bio: "updated bio",
         username: "dave",
-        displayName: "bar"
+        displayName: "bar",
+        avatarUrl: "https://www.pbs.twimg.com/profile_images/ghi.jpg"
       })
 
       assert %{
+               id: ^id,
                bio: "updated bio",
                username: "dave",
-               displayName: "bar"
+               displayName: "bar",
+               avatarUrl: "https://www.pbs.twimg.com/profile_images/ghi.jpg"
              } = Repo.get!(User, user.id)
     end
 
