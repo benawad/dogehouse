@@ -36,7 +36,7 @@ defmodule Kousa.Data.Follower do
     )
   end
 
-  # fetch the users I follow that are online
+  # fetch all the users
   def fetch_following_online(user_id, offset \\ 0) do
     max_room_size = Application.fetch_env!(:kousa, :max_room_size)
 
