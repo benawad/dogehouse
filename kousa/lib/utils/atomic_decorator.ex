@@ -1,5 +1,4 @@
 defmodule Kousa.Dec.Atomic do
-
   # this should be deprecated over time.  Should not be necessary.
 
   use Decorator.Define, user_atomic: 0

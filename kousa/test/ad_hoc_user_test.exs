@@ -459,8 +459,7 @@ defmodule KousaTest.AdHocUserTest do
       # attach the user to the room.
       Users.set_current_room(user.id, rid)
 
-      assert %User{currentRoom: %Beef.Room{id: ^rid}} =
-               Users.get_by_id_with_current_room(user.id)
+      assert %User{currentRoom: %Beef.Room{id: ^rid}} = Users.get_by_id_with_current_room(user.id)
     end
 
     test "set_online", %{user: user} do

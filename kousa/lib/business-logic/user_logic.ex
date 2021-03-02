@@ -61,10 +61,7 @@ defmodule Kousa.BL.User do
               end)
             )
 
-            ids =
-              Users.find_by_github_ids(
-                Enum.map(nodes, &Integer.to_string(&1["databaseId"]))
-              )
+            ids = Users.find_by_github_ids(Enum.map(nodes, &Integer.to_string(&1["databaseId"])))
 
             {new_followers, _} =
               Kousa.Data.Follower.bulk_insert(Enum.map(ids, &%{userId: &1, followerId: user_id}))
