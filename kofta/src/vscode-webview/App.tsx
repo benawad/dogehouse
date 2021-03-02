@@ -6,7 +6,7 @@ import { createWebSocket, wsend } from "../createWebsocket";
 import { useSocketStatus } from "../webrtc/stores/useSocketStatus";
 import { useVoiceStore } from "../webrtc/stores/useVoiceStore";
 import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
-import { setCurrentRoomAtom, setMeAtom } from "./atoms";
+import { setMeAtom } from "./atoms";
 import { Button } from "./components/Button";
 import { CenterLayout } from "./components/CenterLayout";
 import { KeybindListener } from "./components/KeybindListener";
@@ -18,6 +18,7 @@ import { Router } from "./Router";
 import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
 import { useTokenStore } from "./utils/useTokenStore";
 import { SoundEffectProvider } from "./modules/sound-effects/SoundEffectProvider";
+import { useCurrentRoomStore } from "../webrtc/stores/useCurrentRoomStore";
 
 interface AppProps {}
 
@@ -28,7 +29,7 @@ export const WebviewApp: React.FC<AppProps> = () => {
     (s) => s.status === "closed-by-server"
   );
   const [, setMe] = useAtom(setMeAtom);
-  const [, setCurrentRoom] = useAtom(setCurrentRoomAtom);
+  const setCurrentRoom = useCurrentRoomStore((x) => x.setCurrentRoom);
   useState(() => {
     useWsHandlerStore.getState().addWsListener("auth-good", (d) => {
       setMe(d.user);

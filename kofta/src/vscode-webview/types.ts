@@ -23,6 +23,11 @@ export type BaseUser = {
   currentRoom?: Room;
 };
 
+export type PaginatedBaseUsers = {
+  users: BaseUser[];
+  nextCursor: number | null;
+};
+
 export type RoomPermissions = {
   askedToSpeak: boolean;
   isSpeaker: boolean;

@@ -2,7 +2,8 @@ import { useAtom } from "jotai";
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { wsend } from "../../createWebsocket";
-import { currentRoomAtom, followingOnlineAtom } from "../atoms";
+import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
+import { followingOnlineAtom } from "../atoms";
 import { Avatar } from "../components/Avatar";
 import { Backbar } from "../components/Backbar";
 import { BodyWrapper } from "../components/BodyWrapper";
@@ -14,7 +15,7 @@ interface FriendListProps {}
 export const FollowingOnlineList: React.FC<FriendListProps> = () => {
   const history = useHistory();
   const [{ users, nextCursor }] = useAtom(followingOnlineAtom);
-  const [currentRoom] = useAtom(currentRoomAtom);
+  const { currentRoom } = useCurrentRoomStore();
 
   return (
     <Wrapper>

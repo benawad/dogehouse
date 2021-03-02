@@ -116,8 +116,8 @@ defmodule Kousa.SocketHandler do
               cond do
                 user ->
                   {:ok, session} =
-                    GenRegistry.lookup_or_start(Kousa.Gen.UserSession, user_id, [
-                      %Kousa.Gen.UserSession.State{
+                    GenRegistry.lookup_or_start(Gen.UserSession, user_id, [
+                      %Gen.UserSession.State{
                         user_id: user_id,
                         avatar_url: user.avatarUrl,
                         display_name: user.displayName,
@@ -132,32 +132,41 @@ defmodule Kousa.SocketHandler do
                     GenServer.cast(session, {:new_tokens, tokens})
                   end
 
+                  roomIdFromFrontend = Map.get(json["d"], "currentRoomId", nil)
+
                   currentRoom =
-                    if not is_nil(user.currentRoomId) do
-                      room = Kousa.Data.Room.get_room_by_id(user.currentRoomId)
+                    cond do
+                      not is_nil(user.currentRoomId) ->
+                        # @todo this should probably go inside room business logic
+                        room = Kousa.Data.Room.get_room_by_id(user.currentRoomId)
 
-                      {:ok, room_session} =
-                        GenRegistry.lookup_or_start(Kousa.Gen.RoomSession, user.currentRoomId, [
-                          %{
-                            user_id: user_id,
-                            room_id: user.currentRoomId,
-                            muted: muted,
-                            voice_server_id: room.voiceServerId
-                          }
-                        ])
+                        {:ok, room_session} =
+                          GenRegistry.lookup_or_start(Gen.RoomSession, user.currentRoomId, [
+                            %{
+                              room_id: user.currentRoomId,
+                              voice_server_id: room.voiceServerId
+                            }
+                          ])
 
-                      GenServer.cast(
-                        room_session,
-                        {:join_room, user, muted}
-                      )
+                        GenServer.cast(
+                          room_session,
+                          {:join_room, user, muted}
+                        )
 
-                      if reconnectToVoice == true do
-                        Kousa.BL.Room.join_vc_room(user.id, room)
-                      end
+                        if reconnectToVoice == true do
+                          BL.Room.join_vc_room(user.id, room)
+                        end
 
-                      room
-                    else
-                      nil
+                        room
+
+                      not is_nil(roomIdFromFrontend) ->
+                        case BL.Room.join_room(user.id, roomIdFromFrontend) do
+                          %{room: room} -> room
+                          _ -> nil
+                        end
+
+                      true ->
+                        nil
                     end
 
                   {:reply,
@@ -407,9 +416,20 @@ defmodule Kousa.SocketHandler do
     {:ok, state}
   end
 
-  def handler("send_room_chat_msg", %{"tokens" => tokens}, state) do
-    Kousa.BL.RoomChat.send_msg(state.user_id, tokens)
+  def handler("send_room_chat_msg", %{"tokens" => tokens, "whisperedTo" => whispered_to}, state) do
+    Kousa.BL.RoomChat.send_msg(state.user_id, tokens, whispered_to)
     {:ok, state}
+  end
+
+  def handler("send_room_chat_msg", %{"tokens" => tokens}, state) do
+    Kousa.BL.RoomChat.send_msg(state.user_id, tokens, [])
+    {:ok, state}
+  end
+
+  def handler("delete_account", _data, %State{} = state) do
+    BL.User.delete(state.user_id)
+    # this will log the user out
+    {:reply, {:close, 4001, "invalid_authentication"}, state}
   end
 
   def handler(
@@ -597,7 +617,12 @@ defmodule Kousa.SocketHandler do
     end
   end
 
-  def f_handler("edit_profile", %{"data" => data}, state) do
+  def f_handler("unban_from_room", %{"userId" => user_id}, %State{} = state) do
+    BL.RoomBlock.unban(state.user_id, user_id)
+    %{}
+  end
+
+  def f_handler("edit_profile", %{"data" => data}, %State{} = state) do
     %{
       isUsernameTaken:
         case BL.User.edit_profile(state.user_id, data) do
@@ -605,6 +630,16 @@ defmodule Kousa.SocketHandler do
           _ -> false
         end
     }
+  end
+
+  def f_handler("get_blocked_from_room_users", %{"offset" => offset}, %State{} = state) do
+    case BL.RoomBlock.get_blocked_users(state.user_id, offset) do
+      {users, next_cursor} ->
+        %{users: users, nextCursor: next_cursor}
+
+      _ ->
+        %{users: [], nextCursor: nil}
+    end
   end
 
   defp prepare_socket_msg(data, %State{compression: compression, encoding: encoding}) do

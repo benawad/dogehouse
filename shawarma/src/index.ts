@@ -1,6 +1,7 @@
 import "dotenv/config";
 import debugModule from "debug";
 import { Router, Worker } from "mediasoup/lib/types";
+import * as Sentry from "@sentry/node";
 import { MyRooms } from "./MyRoomState";
 import { closePeer } from "./utils/closePeer";
 import { createConsumer } from "./utils/createConsumer";
@@ -8,7 +9,6 @@ import { createTransport, transportToOptions } from "./utils/createTransport";
 import { deleteRoom } from "./utils/deleteRoom";
 import { startMediasoup } from "./utils/startMediasoup";
 import { HandlerMap, startRabbit } from "./utils/startRabbit";
-import * as Sentry from "@sentry/node";
 
 const log = debugModule("shawarma:index");
 const errLog = debugModule("shawarma:ERROR");

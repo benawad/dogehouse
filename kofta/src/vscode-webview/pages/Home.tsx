@@ -1,24 +1,25 @@
 import { useAtom } from "jotai";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { currentRoomAtom, publicRoomsAtom } from "../atoms";
-import { RoomCard } from "../components/RoomCard";
-import { Wrapper } from "../components/Wrapper";
+import { wsend } from "../../createWebsocket";
+import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
+import { publicRoomsAtom } from "../atoms";
+import { BodyWrapper } from "../components/BodyWrapper";
 import { BottomVoiceControl } from "../components/BottomVoiceControl";
 import { Button } from "../components/Button";
-import { wsend } from "../../createWebsocket";
-import { Logo } from "../svgs/Logo";
+import { CircleButton } from "../components/CircleButton";
 import { CreateRoomModal } from "../components/CreateRoomModal";
 import { ProfileButton } from "../components/ProfileButton";
+import { RoomCard } from "../components/RoomCard";
+import { Wrapper } from "../components/Wrapper";
+import { Logo } from "../svgs/Logo";
 import { PeopleIcon } from "../svgs/PeopleIcon";
-import { CircleButton } from "../components/CircleButton";
-import { BodyWrapper } from "../components/BodyWrapper";
 
 interface HomeProps {}
 
 export const Home: React.FC<HomeProps> = () => {
   const history = useHistory();
-  const [currentRoom] = useAtom(currentRoomAtom);
+  const { currentRoom } = useCurrentRoomStore();
   const [{ publicRooms: rooms, nextCursor }] = useAtom(publicRoomsAtom);
   const [showCreateRoomModal, setShowCreateRoomModal] = useState(false);
 
@@ -90,6 +91,7 @@ export const Home: React.FC<HomeProps> = () => {
               </Button>
             </div>
           ) : null}
+          <div style={{ height: 40 }} />
         </BodyWrapper>
       </Wrapper>
       <BottomVoiceControl>

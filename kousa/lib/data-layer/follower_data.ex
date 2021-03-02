@@ -97,7 +97,8 @@ defmodule Kousa.Data.Follower do
         on: f2.userId == u.id and f2.followerId == ^user_id,
         select: %{u | youAreFollowing: not is_nil(f2.userId)},
         limit: ^@fetch_limit,
-        offset: ^offset
+        offset: ^offset,
+        order_by: [desc: f.inserted_at]
       )
       |> Beef.Repo.all()
 
@@ -116,7 +117,8 @@ defmodule Kousa.Data.Follower do
         on: f2.userId == u.id and f2.followerId == ^user_id,
         select: %{u | youAreFollowing: not is_nil(f2.userId)},
         limit: ^@fetch_limit,
-        offset: ^offset
+        offset: ^offset,
+        order_by: [desc: f.inserted_at]
       )
       |> Beef.Repo.all()
 

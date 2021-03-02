@@ -1,15 +1,14 @@
-import { useAtom } from "jotai";
-import React, { useEffect } from "react";
 import hark from "hark";
+import React, { useEffect } from "react";
 import { wsend } from "../../createWebsocket";
-import { currentRoomAtom } from "../../vscode-webview/atoms";
+import { useCurrentRoomStore } from "../stores/useCurrentRoomStore";
 import { useVoiceStore } from "../stores/useVoiceStore";
 
 interface ActiveSpeakerListenerProps {}
 
 export const ActiveSpeakerListener: React.FC<ActiveSpeakerListenerProps> = ({}) => {
   const { micStream } = useVoiceStore();
-  const [room] = useAtom(currentRoomAtom);
+  const { currentRoom: room } = useCurrentRoomStore();
   const roomId = room?.id;
   useEffect(() => {
     if (!roomId || !micStream) {

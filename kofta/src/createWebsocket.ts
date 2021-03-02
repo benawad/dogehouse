@@ -8,10 +8,20 @@ import { useVoiceStore } from "./webrtc/stores/useVoiceStore";
 import { useMuteStore } from "./webrtc/stores/useMuteStore";
 import { uuidv4 } from "./webrtc/utils/uuidv4";
 import { WsParam } from "./vscode-webview/types";
+import { useCurrentRoomStore } from "./webrtc/stores/useCurrentRoomStore";
+import { toast } from "react-toastify";
 
 let ws: ReconnectingWebSocket | null;
 let authGood = false;
 let lastMsg = "";
+
+window.addEventListener("online", () => {
+  if (ws && ws.readyState === ws.CLOSED) {
+    toast("reconnecting...", { type: "info" });
+    console.log("online triggered, calling ws.reconnect()");
+    ws.reconnect();
+  }
+});
 
 export const closeWebSocket = () => {
   ws?.close();
@@ -75,6 +85,7 @@ export const createWebSocket = () => {
           accessToken,
           refreshToken,
           reconnectToVoice,
+          currentRoomId: useCurrentRoomStore.getState().currentRoom?.id,
           muted: useMuteStore.getState().muted,
           platform: "web",
         },
@@ -146,8 +157,8 @@ export const wsend = (d: { op: string; d: any }) => {
   }
 };
 
-export const wsFetch = (d: WsParam) => {
-  return new Promise((res, rej) => {
+export const wsFetch = <T>(d: WsParam) => {
+  return new Promise<T>((res, rej) => {
     if (!authGood || !ws || ws.readyState !== ws.OPEN) {
       rej(new Error("can't connect to server"));
     } else {
@@ -163,3 +174,5 @@ export const wsFetch = (d: WsParam) => {
     }
   });
 };
+
+export const wsMutation = (d: WsParam) => wsFetch(d);

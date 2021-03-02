@@ -1,5 +1,6 @@
 defmodule Kousa.GitHubAuth do
   import Plug.Conn
+  import Logger
   use Plug.Router
 
   alias Beef.Users
@@ -40,11 +41,13 @@ defmodule Kousa.GitHubAuth do
     |> handle_callback()
   end
 
+  @spec get_base_url(Plug.Conn.t()) :: String.t()
   def get_base_url(conn) do
     with true <- Kousa.Caster.bool(Application.get_env(:kousa, :is_staging)),
          state <- Map.get(conn.query_params, "state", ""),
          {:ok, json} <- Base.decode64(state),
-         {:ok, %{"redirect_base_url" => redirect_base_url}} <- Poison.decode(json) do
+         {:ok, %{"redirect_base_url" => redirect_base_url}} when is_binary(redirect_base_url) <-
+           Poison.decode(json) do
       redirect_base_url
     else
       _ ->

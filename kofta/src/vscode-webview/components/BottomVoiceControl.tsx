@@ -1,4 +1,3 @@
-import { useAtom } from "jotai";
 import React, { useState } from "react";
 import {
   MessageSquare,
@@ -8,14 +7,18 @@ import {
   Settings,
   UserPlus,
 } from "react-feather";
+import { useQueryClient } from "react-query";
 import { useHistory, useLocation } from "react-router-dom";
-import { wsend } from "../../createWebsocket";
+import { wsend, wsFetch } from "../../createWebsocket";
+import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
 import { useMuteStore } from "../../webrtc/stores/useMuteStore";
-import { currentRoomAtom, myCurrentRoomInfoAtom } from "../atoms";
+import { useCurrentRoomInfo } from "../atoms";
 import { RoomChat } from "../modules/room-chat/RoomChat";
 import { useRoomChatMentionStore } from "../modules/room-chat/useRoomChatMentionStore";
 import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
 import { useShouldFullscreenChat } from "../modules/room-chat/useShouldFullscreenChat";
+import { PaginatedBaseUsers } from "../types";
+import { GET_BLOCKED_FROM_ROOM_USERS } from "./BlockedFromRoomUsers";
 import { modalConfirm } from "./ConfirmModal";
 import { Footer } from "./Footer";
 import { RoomSettingsModal } from "./RoomSettingsModal";
@@ -29,11 +32,12 @@ const buttonStyle = `px-2.5 text-simple-gray-8c text-sm flex-1`;
 export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
   children,
 }) => {
+  const queryClient = useQueryClient();
   const location = useLocation();
   const history = useHistory();
-  const [currentRoom] = useAtom(currentRoomAtom);
+  const { currentRoom } = useCurrentRoomStore();
   const { muted, setMute } = useMuteStore();
-  const [{ canSpeak, isCreator }] = useAtom(myCurrentRoomInfoAtom);
+  const { canSpeak, isCreator } = useCurrentRoomInfo();
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [toggleOpen, newUnreadMessages] = useRoomChatStore((s) => [
     s.toggleOpen,
@@ -143,6 +147,15 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           className={buttonStyle}
           key="to-public-room"
           onClick={() => {
+            queryClient.prefetchQuery(
+              [GET_BLOCKED_FROM_ROOM_USERS, 0],
+              () =>
+                wsFetch<PaginatedBaseUsers>({
+                  op: GET_BLOCKED_FROM_ROOM_USERS,
+                  d: { offset: 0 },
+                }),
+              { staleTime: 0 }
+            );
             setSettingsOpen(true);
           }}
           title="Make room public!"
@@ -169,7 +182,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           fullscreenChatOpen
             ? `fixed top-0 left-0 right-0 flex-col flex h-full`
             : `sticky`
-        } bottom-0 w-full phone-round-bottom`}
+        } bottom-0 w-full`}
       >
         {fullscreenChatOpen ? null : children}
         <RoomChat sidebar={false} />
@@ -191,7 +204,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           </button>
         ) : null}
         <div
-          className={`border-simple-gray-80 bg-simple-gray-26 border-t w-full mt-auto p-5 phone-round-bottom`}
+          className={`border-simple-gray-80 bg-simple-gray-26 border-t w-full mt-auto p-5`}
         >
           {currentRoom ? (
             <div className={`flex justify-around`}>{buttons}</div>

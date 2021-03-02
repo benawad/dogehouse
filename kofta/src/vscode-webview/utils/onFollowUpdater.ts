@@ -2,7 +2,7 @@ import { SetStateAction } from "react";
 import { CurrentRoom, BaseUser, UserWithFollowInfo } from "../types";
 
 export const onFollowUpdater = (
-  setRoom: (update: SetStateAction<CurrentRoom | null>) => void,
+  setRoom: (update: (x: CurrentRoom | null) => CurrentRoom | null) => void,
   setMe: (update: SetStateAction<BaseUser | null>) => void,
   me: BaseUser | null,
   profile: UserWithFollowInfo

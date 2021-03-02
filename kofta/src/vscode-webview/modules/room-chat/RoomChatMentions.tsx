@@ -1,15 +1,16 @@
 import { useAtom } from "jotai";
 import React, { useEffect } from "react";
-import { useRoomChatStore } from "./useRoomChatStore";
+import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
+import { meAtom } from "../../atoms";
 import { Avatar } from "../../components/Avatar";
 import { BaseUser } from "../../types";
-import { currentRoomAtom, meAtom } from "../../atoms";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
+import { useRoomChatStore } from "./useRoomChatStore";
 
 interface RoomChatMentionsProps {}
 
 export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
-  const [currentRoom] = useAtom(currentRoomAtom);
+  const { currentRoom } = useCurrentRoomStore();
   const [me] = useAtom(meAtom);
 
   const { message, setMessage } = useRoomChatStore();
@@ -36,11 +37,11 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({}) => {
 
   useEffect(() => {
     // regex to match mention patterns
-    const mentionMatches = message.match(/^(?!.*\bRT\b)(?:.+\s)?@\w+/i);
+    const mentionMatches = message.match(/^(?!.*\bRT\b)(?:.+\s)?#?@\w+/i);
 
     // query usernames for matched patterns
     if (mentionMatches && me && currentRoom) {
-      const mentionsList = mentionMatches[0].replace(/@/g, "").split(" ");
+      const mentionsList = mentionMatches[0].replace(/@|#/g, "").split(" ");
       const useMention = mentionsList[mentionsList.length - 1];
 
       // hide usernames list if user continues typing without selecting

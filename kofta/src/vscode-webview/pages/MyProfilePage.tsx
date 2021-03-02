@@ -1,7 +1,7 @@
 import { useAtom } from "jotai";
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { closeWebSocket } from "../../createWebsocket";
+import { closeWebSocket, wsend } from "../../createWebsocket";
 import { meAtom } from "../atoms";
 import { Backbar } from "../components/Backbar";
 import { BodyWrapper } from "../components/BodyWrapper";
@@ -52,6 +52,22 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
             onClick={() => history.push(`/sound-effect-settings`)}
           >
             go to sound settings
+          </Button>
+        </div>
+        <div className={`pt-6 flex`}>
+          <Button
+            variant="small"
+            color="red"
+            onClick={() => {
+              modalConfirm(
+                "Are you sure you want to permanently delete your account?",
+                () => {
+                  wsend({ op: "delete_account", d: {} });
+                }
+              );
+            }}
+          >
+            delete account
           </Button>
         </div>
       </BodyWrapper>

@@ -15,7 +15,7 @@ defmodule Kousa.BL.Room do
     room = Room.get_room_by_creator_id(user_id)
 
     if not is_nil(room) do
-      Kousa.RegUtils.lookup_and_cast(Kousa.Gen.RoomSession, room.id, {:set_auto_speaker, value})
+      RegUtils.lookup_and_cast(Kousa.Gen.RoomSession, room.id, {:set_auto_speaker, value})
     end
   end
 
@@ -24,7 +24,7 @@ defmodule Kousa.BL.Room do
     # this needs to be refactored if a user can have multiple rooms
     case Room.set_room_privacy_by_creator_id(user_id, false, new_name) do
       {1, [room]} ->
-        Kousa.Gen.RoomSession.send_cast(
+        Gen.RoomSession.send_cast(
           room.id,
           {:send_ws_msg, :vscode,
            %{op: "room_privacy_change", d: %{roomId: room.id, name: room.name, isPrivate: false}}}
@@ -220,17 +220,21 @@ defmodule Kousa.BL.Room do
            isPrivate: is_private
          }) do
       {:ok, room} ->
-        GenRegistry.lookup_or_start(
-          Kousa.Gen.RoomSession,
-          id,
-          [
-            %{
-              room_id: id,
-              user_id: user_id,
-              voice_server_id: room.voiceServerId,
-              muted: Kousa.Gen.UserSession.send_call!(user_id, {:get, :muted})
-            }
-          ]
+        {:ok, session} =
+          GenRegistry.lookup_or_start(
+            Kousa.Gen.RoomSession,
+            id,
+            [
+              %{
+                room_id: id,
+                voice_server_id: room.voiceServerId
+              }
+            ]
+          )
+
+        GenServer.cast(
+          session,
+          {:join_room_no_fan, user_id, Gen.UserSession.send_call!(user_id, {:get, :muted})}
         )
 
         Kousa.Gen.VoiceRabbit.send(room.voiceServerId, %{

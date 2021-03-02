@@ -1,6 +1,15 @@
 defmodule Beef.RoomPermission do
   use Ecto.Schema
   import Ecto.Changeset
+  @timestamps_opts [type: :utc_datetime_usec]
+
+  @type t :: %__MODULE__{
+          roomId: Ecto.UUID.t(),
+          userId: Ecto.UUID.t(),
+          isSpeaker: boolean(),
+          isMod: boolean(),
+          askedToSpeak: boolean()
+        }
 
   alias Beef.Schemas.User
 

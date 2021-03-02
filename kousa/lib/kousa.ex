@@ -31,6 +31,7 @@ defmodule Kousa do
       },
       {Beef.Repo, []},
       Kousa.Gen.StartRabbits,
+      Kousa.Gen.StartRooms,
       Kousa.Gen.Telemetry,
       Plug.Cowboy.child_spec(
         scheme: :http,
