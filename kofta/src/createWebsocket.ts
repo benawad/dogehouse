@@ -157,7 +157,7 @@ export const wsFetch = <T>(d: WsParam) => {
       setTimeout(() => {
         useWsHandlerStore.getState().clearFetchListener(fetchId);
         rej(new Error("request timed out"));
-      }, 10000); // 10 secs
+      }, 30000); // 30 secs
       useWsHandlerStore.getState().addFetchListener(fetchId, (d) => {
         res(d);
       });
