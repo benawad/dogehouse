@@ -33,7 +33,7 @@ defmodule Beef.Schemas.User do
   end
 
   @doc false
-  def changeset(user, attrs) do
+  def changeset(user, _attrs) do
     user
     |> validate_required([:username, :githubId, :avatarUrl])
   end

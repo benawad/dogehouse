@@ -73,7 +73,7 @@ defmodule Kousa.Database.UserTest do
     setup :create_user
 
     # see issue, re: test above.
-    test "you can use set_online/1 and set_offline/1", %{user: user = %{username: username}} do
+    test "you can use set_online/1 and set_offline/1", %{user: user} do
       [id] = Users.find_by_github_ids([user.githubId])
 
       Users.set_online(id)
