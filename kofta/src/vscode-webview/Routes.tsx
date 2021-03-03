@@ -352,7 +352,7 @@ export const Routes: React.FC<RoutesProps> = () => {
           !!users.filter(
             (u: RoomUser) =>
               u.id === meRef.current?.id && u.roomPermissions?.isSpeaker
-          )
+          ).length
         ) {
           const { setMute } = useMuteStore.getState();
           wsend({
