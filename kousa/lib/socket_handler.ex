@@ -308,6 +308,8 @@ defmodule Kousa.SocketHandler do
           Kousa.BL.Room.invite_to_room(state.user_id, data["userIdToInvite"])
         end
 
+        IO.inspect d
+
         {:reply,
          construct_socket_msg(state.encoding, state.compression, %{
            op: "new_current_room",

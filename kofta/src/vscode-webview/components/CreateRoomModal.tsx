@@ -6,14 +6,22 @@ import { Modal } from "./Modal";
 
 interface CreateRoomModalProps {
   onRequestClose: () => void;
+  name?: string;
+  description?: string;
+  isPrivate?: boolean;
+  edit?: boolean;
 }
 
 export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
   onRequestClose,
+  name: currentName,
+  description: currentDescription,
+  isPrivate,
+  edit,
 }) => {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [privacy, setPrivacy] = useState("public");
+  const [name, setName] = useState(currentName || "");
+  const [description, setDescription] = useState(currentDescription || "");
+  const [privacy, setPrivacy] = useState(isPrivate ? "private" : "public");
 
   return (
     <Modal isOpen onRequestClose={onRequestClose}>
@@ -23,7 +31,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
           if (name) {
             onRequestClose();
             wsend({
-              op: "create-room",
+              op: edit ? "edit-room" : "create-room",
               d: { roomName: name, description, value: privacy },
             });
           }

@@ -12,13 +12,13 @@ import { CircleButton } from "../components/CircleButton";
 import { modalConfirm } from "../components/ConfirmModal";
 import { ProfileButton } from "../components/ProfileButton";
 import { ProfileModal } from "../components/ProfileModal";
-import { modalPrompt } from "../components/PromptModal";
 import { RoomUserNode } from "../components/RoomUserNode";
 import { Wrapper } from "../components/Wrapper";
 import { useShouldFullscreenChat } from "../modules/room-chat/useShouldFullscreenChat";
 import { Codicon } from "../svgs/Codicon";
 import { BaseUser } from "../types";
 import { isUuid } from "../utils/isUuid";
+import { CreateRoomModal } from "../components/CreateRoomModal";
 
 interface RoomPageProps {}
 
@@ -36,6 +36,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
     canSpeak: iCanSpeak,
   } = useCurrentRoomInfo();
   const fullscreenChatOpen = useShouldFullscreenChat();
+  const [showCreateRoomModal, setShowCreateRoomModal] = useState(false);
 
   // useEffect(() => {
   //   if (room?.users.length) {
@@ -91,13 +92,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
         <Backbar>
           <button
             disabled={!iAmCreator}
-            onClick={() => {
-              modalPrompt("Edit Room Name", (name) => {
-                if (name) {
-                  wsend({ op: "edit_room_name", d: { name } });
-                }
-              });
-            }}
+            onClick={() => setShowCreateRoomModal(true)}
             className={`font-xl truncate flex-1 text-center flex items-center justify-center text-2xl`}
           >
             <span className={"px-2 truncate"}>{room.name}</span>
@@ -178,6 +173,17 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
         </BodyWrapper>
       </Wrapper>
       <BottomVoiceControl />
+
+      {/* Edit room */}
+      {showCreateRoomModal ? (
+        <CreateRoomModal
+          onRequestClose={() => setShowCreateRoomModal(false)}
+          name={room.name}
+          description={room.description}
+          isPrivate={room.isPrivate}
+          edit={true}
+        />
+      ) : null}
     </>
   );
 };

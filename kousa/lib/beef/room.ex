@@ -6,6 +6,7 @@ defmodule Beef.Room do
   @type t :: %__MODULE__{
           id: Ecto.UUID.t(),
           name: String.t(),
+          description: String.t(),
           numPeopleInside: integer(),
           isPrivate: boolean(),
           user: User.t() | Ecto.Association.NotLoaded.t(),
@@ -16,6 +17,7 @@ defmodule Beef.Room do
            only: [
              :id,
              :name,
+             :description,
              :numPeopleInside,
              :isPrivate,
              :creatorId,
