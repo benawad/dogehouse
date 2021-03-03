@@ -13,10 +13,12 @@ export const RoomDescription: React.FC<RoomDescriptionProps> = () => {
       <p>
         {expanded ? currentRoom.description : truncate(currentRoom.description)}
         <a
-          className="ml-1 text-blue-500 cursor-pointer hover:text-blue-400"
+          className="ml-1 text-blue-400 cursor-pointer hover:text-blue-300"
           onClick={() => setExpanded(!expanded)}
         >
-          read {expanded ? "less" : "more"}
+          {currentRoom.description?.length > 100
+            ? "show " + (expanded ? "less" : "more")
+            : null}
         </a>
       </p>
     </div>
