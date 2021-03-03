@@ -185,8 +185,8 @@ defmodule Kousa.BL.Room do
     cond do
       byte_size(new_name) > 255 ->
         {:error, "name needs to be less than 255 characters"}
-      byte_size(new_description) > 400 ->
-        {:error, "description needs to be less than 400 characters"}
+      byte_size(new_description) > 500 ->
+        {:error, "description needs to be less than 500 characters"}
       !is_boolean(is_private) ->
         {:error, "invalid privacy value"}
       true ->

@@ -46,9 +46,8 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
         />
         <div className="mt-3">
           <Input
-            maxLength={255}
+            maxLength={500}
             placeholder="room description"
-            autoFocus
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             textarea
