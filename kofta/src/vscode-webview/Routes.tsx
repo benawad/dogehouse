@@ -349,10 +349,10 @@ export const Routes: React.FC<RoutesProps> = () => {
       }) => {
         // Mute when rejoin and if speaker
         if (
-          !!users.filter(
+          !!users.find(
             (u: RoomUser) =>
               u.id === meRef.current?.id && u.roomPermissions?.isSpeaker
-          ).length
+          )
         ) {
           const { setMute } = useMuteStore.getState();
           wsend({
