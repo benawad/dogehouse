@@ -5,6 +5,7 @@ defmodule Kousa.Beef.UsersTest do
   use ExUnit.Case, async: true
   use Kousa.Support.EctoSandbox
 
+  alias Beef.Schemas.Room
   alias Beef.Schemas.User
   alias Beef.Users
   alias Kousa.Support.Factory
@@ -105,7 +106,7 @@ defmodule Kousa.Beef.UsersTest do
     @tag :skip
     test "get_users_in_current_room", %{user: user} do
       # build a room
-      %{id: rid} = Factory.create(Beef.Room, creatorId: user.id)
+      %{id: rid} = Factory.create(Room, creatorId: user.id)
 
       assert {nil, []} = Users.get_users_in_current_room(user.id)
 
@@ -135,12 +136,12 @@ defmodule Kousa.Beef.UsersTest do
       assert %User{currentRoom: nil} = Users.get_by_id_with_current_room(user.id)
 
       # build a room
-      %{id: rid} = Factory.create(Beef.Room, creatorId: user.id)
+      %{id: rid} = Factory.create(Room, creatorId: user.id)
 
       # attach the user to the room.
       Users.set_current_room(user.id, rid)
 
-      assert %User{currentRoom: %Beef.Room{id: ^rid}} = Users.get_by_id_with_current_room(user.id)
+      assert %User{currentRoom: %Room{id: ^rid}} = Users.get_by_id_with_current_room(user.id)
     end
 
     test "set_online", %{user: user} do
@@ -151,7 +152,7 @@ defmodule Kousa.Beef.UsersTest do
 
     test "set_user_left_current_room", %{user: user} do
       # build a room
-      %{id: rid} = Factory.create(Beef.Room, creatorId: user.id)
+      %{id: rid} = Factory.create(Room, creatorId: user.id)
 
       # attach the user to the room.
       Users.set_current_room(user.id, rid)

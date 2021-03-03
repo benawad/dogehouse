@@ -4,6 +4,7 @@ defmodule Kousa.Data.Follower do
   @fetch_limit 21
 
   alias Beef.Schemas.User
+  alias Beef.Schemas.Room
   alias Beef.Users
 
   @spec get_followers_online_and_not_in_a_room(String.t()) :: [Beef.Follow.t()]
@@ -48,7 +49,7 @@ defmodule Kousa.Data.Follower do
         on: f.userId == u.id,
         left_join: f2 in Beef.Follow,
         on: f2.userId == ^user_id and f2.followerId == u.id,
-        left_join: cr in Beef.Room,
+        left_join: cr in Room,
         on: u.currentRoomId == cr.id,
         where:
           f.followerId == ^user_id and

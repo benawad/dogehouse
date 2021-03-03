@@ -1,4 +1,4 @@
-defmodule Beef.Room do
+defmodule Beef.Schemas.Room do
   use Ecto.Schema
   import Ecto.Changeset
   @timestamps_opts [type: :utc_datetime_usec]

@@ -5,6 +5,7 @@ defmodule Kousa.Data.Room do
   @fetch_limit 16
 
   alias Beef.Schemas.User
+  alias Beef.Schemas.Room
   alias Beef.UserPreview
   alias Beef.UserBlock
   alias Beef.Users
@@ -30,7 +31,7 @@ defmodule Kousa.Data.Room do
   end
 
   def set_room_privacy_by_creator_id(user_id, isPrivate, new_name) do
-    from(r in Beef.Room,
+    from(r in Room,
       where: r.creatorId == ^user_id,
       update: [
         set: [
@@ -104,7 +105,7 @@ defmodule Kousa.Data.Room do
     max_room_size = Application.fetch_env!(:kousa, :max_room_size)
 
     items =
-      from(r in Beef.Room,
+      from(r in Room,
         left_join: rb in Beef.RoomBlock,
         on: rb.roomId == r.id and rb.userId == ^user_id,
         left_join: ub in UserBlock,
@@ -124,15 +125,15 @@ defmodule Kousa.Data.Room do
 
   @spec get_room_by_id(any) :: any
   def get_room_by_id(room_id) do
-    Beef.Repo.get(Beef.Room, room_id)
+    Beef.Repo.get(Room, room_id)
   end
 
   def delete_room_by_id(room_id) do
-    %Beef.Room{id: room_id} |> Beef.Repo.delete()
+    %Room{id: room_id} |> Beef.Repo.delete()
   end
 
   def increment_room_people_count(room_id) do
-    from(u in Beef.Room,
+    from(u in Room,
       where: u.id == ^room_id,
       update: [
         inc: [
@@ -144,7 +145,7 @@ defmodule Kousa.Data.Room do
   end
 
   def increment_room_people_count(room_id, new_people_list) do
-    from(u in Beef.Room,
+    from(u in Room,
       where: u.id == ^room_id,
       update: [
         inc: [
@@ -159,7 +160,7 @@ defmodule Kousa.Data.Room do
   end
 
   def decrement_room_people_count(room_id, new_people_list) do
-    from(r in Beef.Room,
+    from(r in Room,
       where: r.id == ^room_id,
       update: [
         inc: [
@@ -202,7 +203,7 @@ defmodule Kousa.Data.Room do
   end
 
   def set_room_owner_and_dec(room_id, user_id, new_people_list) do
-    from(u in Beef.Room,
+    from(u in Room,
       where: u.id == ^room_id,
       update: [
         set: [
@@ -218,7 +219,7 @@ defmodule Kousa.Data.Room do
   end
 
   def get_room_by_creator_id(creator_id) do
-    from(u in Beef.Room,
+    from(u in Room,
       where: u.creatorId == ^creator_id,
       limit: 1
     )
@@ -266,13 +267,13 @@ defmodule Kousa.Data.Room do
   end
 
   def raw_insert(data, peoplePreviewList) do
-    %Beef.Room{peoplePreviewList: peoplePreviewList}
-    |> Beef.Room.insert_changeset(data)
+    %Room{peoplePreviewList: peoplePreviewList}
+    |> Room.insert_changeset(data)
     |> Beef.Repo.insert(returning: true)
   end
 
   def update_name(user_id, name) do
-    from(r in Beef.Room,
+    from(r in Room,
       where: r.creatorId == ^user_id,
       update: [
         set: [
@@ -317,7 +318,7 @@ defmodule Kousa.Data.Room do
 
   def is_owner(room_id, user_id) do
     not is_nil(
-      Beef.Repo.one(from(r in Beef.Room, where: r.id == ^room_id and r.creatorId == ^user_id))
+      Beef.Repo.one(from(r in Room, where: r.id == ^room_id and r.creatorId == ^user_id))
     )
   end
 

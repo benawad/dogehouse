@@ -7,6 +7,7 @@ defmodule Beef.Users do
 
   import Ecto.Query, warn: false
   alias Beef.Repo
+  alias Beef.Schemas.Room
   alias Beef.Schemas.User
 
   @fetch_limit 16
@@ -28,7 +29,7 @@ defmodule Beef.Users do
         where:
           ilike(u.username, ^query_with_percent) or
             ilike(u.displayName, ^query_with_percent),
-        left_join: cr in Beef.Room,
+        left_join: cr in Room,
         on: u.currentRoomId == cr.id and cr.isPrivate == false,
         select: %{u | currentRoom: cr},
         limit: @fetch_limit,

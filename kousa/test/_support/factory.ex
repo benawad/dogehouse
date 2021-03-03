@@ -11,7 +11,7 @@ defmodule Kousa.Support.Factory do
 
   alias Beef.Repo
   alias Beef.Schemas.User
-  alias Beef.Room
+  alias Beef.Schemas.Room
 
   def create(struct, data \\ [])
 
