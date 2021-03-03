@@ -10,6 +10,7 @@ export const RoomDescription: React.FC<RoomDescriptionProps> = () => {
 
   return currentRoom?.description ? (
     <div className="p-3 rounded-lg m-3 bg-simple-gray-3a">
+      <p className="text-gray-400 mb-1">room description</p>
       <p>
         {expanded ? currentRoom.description : truncate(currentRoom.description)}
         <button
