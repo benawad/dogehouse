@@ -383,6 +383,8 @@ export const Routes: React.FC<RoutesProps> = () => {
         setPublicRooms(() => ({ publicRooms, nextCursor }));
       },
       join_room_done: (d) => {
+        // Auto open chat for description
+        useRoomChatStore.getState().toggleOpen();
         if (d.error) {
           if (window.location.pathname.startsWith("/room")) {
             history.push("/");
