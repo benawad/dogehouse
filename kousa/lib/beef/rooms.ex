@@ -11,7 +11,6 @@ defmodule Beef.Rooms do
   alias Beef.Schemas.Room
   alias Beef.UserPreview
   alias Beef.UserBlock
-  alias Beef.Rooms
   alias Beef.Users
   alias Beef.Repo
 

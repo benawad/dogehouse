@@ -3,7 +3,6 @@ defmodule Kousa.BL.User do
   alias Kousa.RegUtils
   alias Beef.Users
   alias Kousa.Gen
-  alias Kousa.Data
   alias Kousa.RegUtils
   alias Kousa.BL
 

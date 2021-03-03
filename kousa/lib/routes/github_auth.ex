@@ -1,6 +1,5 @@
 defmodule Kousa.GitHubAuth do
   import Plug.Conn
-  import Logger
   use Plug.Router
 
   alias Beef.Users

@@ -7,6 +7,7 @@ defmodule Beef.Users do
 
   import Ecto.Query, warn: false
   alias Beef.Repo
+  alias Beef.Rooms
   alias Beef.Schemas.Room
   alias Beef.Schemas.User
 
@@ -165,7 +166,7 @@ defmodule Beef.Users do
 
     case room_id do
       nil -> nil
-      id -> Kousa.Data.Room.get_room_by_id(id)
+      id -> Rooms.get_room_by_id(id)
     end
   end
 

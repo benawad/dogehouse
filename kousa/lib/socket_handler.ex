@@ -6,6 +6,7 @@ defmodule Kousa.SocketHandler do
   alias Kousa.Gen
 
   alias Beef.Users
+  alias Beef.Rooms
 
   # TODO: just collapse this into its parent module.
   defmodule State do
@@ -138,7 +139,7 @@ defmodule Kousa.SocketHandler do
                     cond do
                       not is_nil(user.currentRoomId) ->
                         # @todo this should probably go inside room business logic
-                        room = Kousa.Data.Room.get_room_by_id(user.currentRoomId)
+                        room = Rooms.get_room_by_id(user.currentRoomId)
 
                         {:ok, room_session} =
                           GenRegistry.lookup_or_start(Gen.RoomSession, user.currentRoomId, [
@@ -330,7 +331,7 @@ defmodule Kousa.SocketHandler do
 
   def handler("get_top_public_rooms", data, state) do
     {rooms, next_cursor} =
-      Kousa.Data.Room.get_top_public_rooms(
+      Rooms.get_top_public_rooms(
         state.user_id,
         data["cursor"]
       )
@@ -544,7 +545,7 @@ defmodule Kousa.SocketHandler do
 
   def handler("ask_to_speak", _data, state) do
     with {:ok, room_id} <- Users.tuple_get_current_room_id(state.user_id) do
-      case Kousa.Data.RoomPermission.ask_to_speak(state.user_id, room_id) do
+      case RoomsPermission.ask_to_speak(state.user_id, room_id) do
         {:ok, %{isSpeaker: true}} ->
           Kousa.BL.Room.internal_set_speaker(state.user_id, room_id)
 
