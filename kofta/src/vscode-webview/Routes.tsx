@@ -38,6 +38,7 @@ import { showErrorToast } from "./utils/showErrorToast";
 import { useTokenStore } from "./utils/useTokenStore";
 import { invitedToRoomConfirm } from "./components/InvitedToJoinRoomModal";
 import { useCurrentRoomStore } from "../webrtc/stores/useCurrentRoomStore";
+import { useShouldBeSidebar } from "./modules/room-chat/useShouldFullscreenChat";
 
 interface RoutesProps {}
 
@@ -58,6 +59,8 @@ export const Routes: React.FC<RoutesProps> = () => {
   const [me] = useAtom(meAtom);
   const meRef = useRef(me);
   meRef.current = me;
+
+  const shouldUseSidebar = useShouldBeSidebar();
 
   useEffect(() => {
     addMultipleWsListener({
@@ -383,8 +386,9 @@ export const Routes: React.FC<RoutesProps> = () => {
         setPublicRooms(() => ({ publicRooms, nextCursor }));
       },
       join_room_done: (d) => {
-        // Auto open chat for description
-        useRoomChatStore.getState().toggleOpen();
+        // Auto open chat for description if sidebar
+        if (shouldUseSidebar) useRoomChatStore.getState().toggleOpen();
+
         if (d.error) {
           if (window.location.pathname.startsWith("/room")) {
             history.push("/");
