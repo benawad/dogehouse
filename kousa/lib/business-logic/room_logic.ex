@@ -180,15 +180,21 @@ defmodule Kousa.BL.Room do
     })
   end
 
-  def rename_room(_user_id, new_name) when byte_size(new_name) > 255 do
-    {:error, "name needs to be less than 255 characters"}
-  end
+  def edit_room(user_id, new_name, new_description, is_private) do
 
-  def rename_room(user_id, new_name) do
-    with {:ok, room_id} <- Data.User.tuple_get_current_room_id(user_id),
-         {1, _} <- Data.Room.update_name(user_id, new_name) do
-      nil
-      RegUtils.lookup_and_cast(Gen.RoomSession, room_id, {:new_room_name, new_name})
+    cond do
+      byte_size(new_name) > 255 ->
+        {:error, "name needs to be less than 255 characters"}
+      byte_size(new_description) > 400 ->
+        {:error, "description needs to be less than 400 characters"}
+      !is_boolean(is_private) ->
+        {:error, "invalid privacy value"}
+      true ->
+        with {:ok, room_id} <- Data.User.tuple_get_current_room_id(user_id),
+         {1, _} <- Data.Room.update_details(user_id, new_name, new_description, is_private) do
+          nil
+          RegUtils.lookup_and_cast(Gen.RoomSession, room_id, {:new_room_details, new_name, new_description, is_private})
+        end
     end
   end
 

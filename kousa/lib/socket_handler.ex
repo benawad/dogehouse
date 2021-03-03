@@ -308,8 +308,6 @@ defmodule Kousa.SocketHandler do
           Kousa.BL.Room.invite_to_room(state.user_id, data["userIdToInvite"])
         end
 
-        IO.inspect d
-
         {:reply,
          construct_socket_msg(state.encoding, state.compression, %{
            op: "new_current_room",
@@ -353,8 +351,9 @@ defmodule Kousa.SocketHandler do
     {:ok, state}
   end
 
-  def handler("edit_room_name", %{"name" => name}, state) do
-    case BL.Room.rename_room(state.user_id, name) do
+  def handler("edit_room", %{"roomName" => name, "description" => description, "value" => privacy}, state) do
+    IO.inspect "lol"
+    case BL.Room.edit_room(state.user_id, name, description, privacy == "private") do
       {:error, message} ->
         {:reply, prepare_socket_msg(%{op: "error", d: message}, state), state}
 

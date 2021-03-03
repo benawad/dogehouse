@@ -266,12 +266,14 @@ defmodule Kousa.Data.Room do
     |> Beef.Repo.insert(returning: true)
   end
 
-  def update_name(user_id, name) do
+  def update_details(user_id, name, description, is_private) do
     from(r in Beef.Room,
       where: r.creatorId == ^user_id,
       update: [
         set: [
-          name: ^name
+          name: ^name,
+          description: ^description,
+          isPrivate: ^is_private
         ]
       ]
     )

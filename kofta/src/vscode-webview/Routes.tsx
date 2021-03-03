@@ -61,9 +61,16 @@ export const Routes: React.FC<RoutesProps> = () => {
 
   useEffect(() => {
     addMultipleWsListener({
-      new_room_name: ({ name, roomId }) => {
+      new_room_details: ({ name, description, isPrivate, roomId }) => {
         setCurrentRoom((cr) =>
-          !cr || cr.id !== roomId ? cr : { ...cr, name }
+          !cr || cr.id !== roomId
+            ? cr
+            : {
+                ...cr,
+                name,
+                description,
+                isPrivate,
+              }
         );
       },
       chat_user_banned: ({ userId }) => {

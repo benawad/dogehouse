@@ -31,7 +31,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
           if (name) {
             onRequestClose();
             wsend({
-              op: edit ? "edit-room" : "create-room",
+              op: edit ? "edit_room" : "create-room",
               d: { roomName: name, description, value: privacy },
             });
           }
