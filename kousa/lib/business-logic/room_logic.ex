@@ -193,7 +193,7 @@ defmodule Kousa.BL.Room do
   end
 
   # @decorate user_atomic()
-  def create_room(user_id, room_name, is_private) do
+  def create_room(user_id, room_name, room_description, is_private) do
     room_id = Kousa.Data.User.get_current_room_id(user_id)
 
     if not is_nil(room_id) do
@@ -205,6 +205,7 @@ defmodule Kousa.BL.Room do
     case Data.Room.create(%{
            id: id,
            name: room_name,
+           description: room_description,
            creatorId: user_id,
            numPeopleInside: 1,
            voiceServerId: VoiceServerUtils.get_next_voice_server_id(),

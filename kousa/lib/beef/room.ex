@@ -25,6 +25,7 @@ defmodule Beef.Room do
   @primary_key {:id, :binary_id, []}
   schema "rooms" do
     field(:name, :string)
+    field(:description, :string)
     field(:numPeopleInside, :integer)
     field(:isPrivate, :boolean)
     field(:voiceServerId, :string)
@@ -42,7 +43,7 @@ defmodule Beef.Room do
   @doc false
   def insert_changeset(room, attrs) do
     room
-    |> cast(attrs, [:id, :name, :creatorId, :isPrivate, :numPeopleInside, :voiceServerId])
+    |> cast(attrs, [:id, :name, :creatorId, :isPrivate, :numPeopleInside, :voiceServerId, :description])
     |> validate_required([:name, :creatorId])
     |> validate_length(:name, min: 2)
     |> unique_constraint(:creatorId)

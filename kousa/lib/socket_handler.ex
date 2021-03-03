@@ -299,7 +299,7 @@ defmodule Kousa.SocketHandler do
   end
 
   def handler("create-room", data, state) do
-    case Kousa.BL.Room.create_room(state.user_id, data["roomName"], data["value"] == "private") do
+    case Kousa.BL.Room.create_room(state.user_id, data["roomName"], data["description"], data["value"] == "private") do
       nil ->
         nil
 

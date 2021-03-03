@@ -12,7 +12,9 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
   onRequestClose,
 }) => {
   const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
   const [privacy, setPrivacy] = useState("public");
+
   return (
     <Modal isOpen onRequestClose={onRequestClose}>
       <form
@@ -22,7 +24,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
             onRequestClose();
             wsend({
               op: "create-room",
-              d: { roomName: name, value: privacy },
+              d: { roomName: name, description, value: privacy },
             });
           }
         }}
@@ -34,6 +36,16 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
+        <div className="mt-3">
+          <Input
+            maxLength={255}
+            placeholder="room description"
+            autoFocus
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            textarea
+          />
+        </div>
         <div className={`flex mt-8 items-center`}>
           <select
             className={`border border-simple-gray-3c`}
