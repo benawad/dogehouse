@@ -573,6 +573,16 @@ defmodule Kousa.SocketHandler do
     {:ok, state}
   end
 
+  def handler("get_user_profile", %{"userId" => user_id}, state) do
+    case Data.User.get_by_id(user_id) do
+      {:ok, user} ->
+        RegUtils.lookup_and_cast(Gen.UserSession, state.user_id, {:get_user_profile, user})
+      {:error, x} ->
+        IO.inspect x
+        x
+    end
+  end
+
   def handler(op, data, state) do
     with {:ok, room_id} <- Data.User.tuple_get_current_room_id(state.user_id),
          {:ok, voice_server_id} <-
@@ -611,6 +621,7 @@ defmodule Kousa.SocketHandler do
          ), state}
     end
   end
+
 
   def f_handler("unban_from_room", %{"userId" => user_id}, %State{} = state) do
     BL.RoomBlock.unban(state.user_id, user_id)

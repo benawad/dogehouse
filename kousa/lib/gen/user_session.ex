@@ -117,6 +117,11 @@ defmodule Kousa.Gen.UserSession do
     {:noreply, %{state | atomic_op: nil}}
   end
 
+  def handle_cast({:get_user_profile, user}, state) do
+    send(state.pid, {:get_user_profile_done, user})
+    {:noreply, state}
+  end
+
   def handle_cast({:set_current_room_id, current_room_id}, state) do
     {:noreply, %{state | current_room_id: current_room_id}}
   end
