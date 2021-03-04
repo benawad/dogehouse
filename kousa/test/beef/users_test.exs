@@ -21,12 +21,13 @@ defmodule Kousa.Beef.UsersTest do
       # struct as the first parameter.
       refute user.bio == "updated bio"
 
-      {:ok, %User{id: id}} = Users.edit_profile(user.id, %{
-        bio: "updated bio",
-        username: "dave",
-        displayName: "bar",
-        avatarUrl: "https://www.pbs.twimg.com/profile_images/ghi.jpg"
-      })
+      {:ok, %User{id: id}} =
+        Users.edit_profile(user.id, %{
+          bio: "updated bio",
+          username: "dave",
+          displayName: "bar",
+          avatarUrl: "https://www.pbs.twimg.com/profile_images/ghi.jpg"
+        })
 
       assert %{
                id: ^id,
@@ -179,12 +180,11 @@ defmodule Kousa.Beef.UsersTest do
 
       Users.set_offline(user.id)
 
-      assert %User{online: false, lastOnline: last_online_time} =
-        Repo.get(User, user.id)
+      assert %User{online: false, lastOnline: last_online_time} = Repo.get(User, user.id)
 
       IO.warn("check users_test.exs set offline test")
       # is this really what we want?
-      assert (creation_time == last_online_time)
+      assert creation_time == last_online_time
     end
 
     @tag :skip

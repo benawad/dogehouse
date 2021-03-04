@@ -31,7 +31,8 @@ defmodule Kousa.BL.RoomChat do
                  tokens: tokens,
                  sentAt: DateTime.utc_now(),
                  isWhisper: whispered_to != []
-               }, whispered_to})
+               }, whispered_to}
+            )
           end
       end
     end

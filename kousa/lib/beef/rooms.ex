@@ -11,6 +11,7 @@ defmodule Beef.Rooms do
   alias Beef.Schemas.Room
   alias Beef.Schemas.UserBlock
   alias Beef.Users
+  alias Beef.UserBlocks
   alias Beef.Repo
 
   def get_room_status(user_id) do

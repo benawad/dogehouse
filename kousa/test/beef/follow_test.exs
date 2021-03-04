@@ -11,7 +11,6 @@ defmodule KousaTest.FollowTest do
   # time.
 
   alias Beef.Schemas.User
-  alias Beef.Schemas.Room
   alias Beef.Schemas.Follow
   alias Beef.Follows
   alias Beef.Users
@@ -40,15 +39,14 @@ defmodule KousaTest.FollowTest do
     end
   end
 
-  describe "Kousa.Data.Follower" do
-    alias Kousa.Data.Follower
+  describe "Follows" do
 
     test "get_followers_online_and_not_in_a_room/1" do
       user = Factory.create(User)
       follower = Factory.create(User)
 
       # no followers
-      assert [] = Follower.get_followers_online_and_not_in_a_room(user.id)
+      assert [] = Follows.get_followers_online_and_not_in_a_room(user.id)
 
       # make id1 a follower of id2
       %Follow{}
@@ -59,7 +57,7 @@ defmodule KousaTest.FollowTest do
       |> Repo.insert()
 
       # still no followers
-      assert [] = Follower.get_followers_online_and_not_in_a_room(user.id)
+      assert [] = Follows.get_followers_online_and_not_in_a_room(user.id)
 
       # make user online
       Users.set_online(follower.id)
@@ -67,7 +65,7 @@ defmodule KousaTest.FollowTest do
       uid = user.id
       fid = follower.id
 
-      assert [follower] = Follower.get_followers_online_and_not_in_a_room(user.id)
+      assert [follower] = Follows.get_followers_online_and_not_in_a_room(user.id)
 
       assert %Follow{
                userId: ^uid,
@@ -83,7 +81,7 @@ defmodule KousaTest.FollowTest do
       fid2 = Factory.create(User).id
 
       assert {2, _} =
-               Follower.bulk_insert([
+               Follows.bulk_insert([
                  %{userId: uid, followerId: fid1},
                  %{userId: uid, followerId: fid2}
                ])
@@ -107,11 +105,11 @@ defmodule KousaTest.FollowTest do
       uid = Factory.create(User).id
       fid = Factory.create(User).id
 
-      refute Follower.is_following_me(uid, fid)
+      refute Follows.is_following_me(uid, fid)
 
-      Follower.insert(%{userId: uid, followerId: fid})
+      Follows.insert(%{userId: uid, followerId: fid})
 
-      assert Follower.is_following_me(uid, fid)
+      assert Follows.is_following_me(uid, fid)
     end
 
     # TEST IS FAILING: somehow this function is returning
@@ -122,18 +120,18 @@ defmodule KousaTest.FollowTest do
       fid1 = Factory.create(User).id
       fid2 = Factory.create(User).id
 
-      Follower.bulk_insert([
+      Follows.bulk_insert([
         %{userId: fid1, followerId: uid},
         %{userId: fid2, followerId: uid}
       ])
 
-      assert {[], _} = Follower.fetch_following_online(uid)
+      assert {[], _} = Follows.fetch_following_online(uid)
 
       # but only make follower1 online
 
       Users.set_online(fid1)
 
-      assert {[_], _} = Follower.fetch_following_online(uid)
+      assert {[_], _} = Follows.fetch_following_online(uid)
     end
 
     test "fetch_invite_list/2" do
@@ -141,17 +139,17 @@ defmodule KousaTest.FollowTest do
       fid1 = Factory.create(User).id
       fid2 = Factory.create(User).id
 
-      Follower.bulk_insert([
+      Follows.bulk_insert([
         %{userId: uid, followerId: fid1},
         %{userId: uid, followerId: fid2}
       ])
 
-      assert {[], _} = Follower.fetch_invite_list(uid)
+      assert {[], _} = Follows.fetch_invite_list(uid)
 
       # but only make follower1 online
       Users.set_online(fid1)
 
-      assert {[%User{id: ^fid1}], _} = Follower.fetch_invite_list(uid)
+      assert {[%User{id: ^fid1}], _} = Follows.fetch_invite_list(uid)
     end
 
     @tag :skip
@@ -160,13 +158,13 @@ defmodule KousaTest.FollowTest do
       fid1 = Factory.create(User).id
       fid2 = Factory.create(User).id
 
-      Follower.bulk_insert([
+      Follows.bulk_insert([
         %{userId: uid, followerId: fid1},
         %{userId: uid, followerId: fid2}
       ])
 
       # not really sure how the call signature here works.
-      Follower.get_followers(uid, uid)
+      Follows.get_followers(uid, uid)
     end
 
     @tag :skip
@@ -179,7 +177,7 @@ defmodule KousaTest.FollowTest do
       fid1 = Factory.create(User).id
       fid2 = Factory.create(User).id
 
-      Follower.bulk_insert([
+      Follows.bulk_insert([
         %{userId: uid, followerId: fid1},
         %{userId: uid, followerId: fid2}
       ])
@@ -187,7 +185,7 @@ defmodule KousaTest.FollowTest do
       # not really sure how the call signature here works.
       assert [_, _] = Repo.all(Follow)
 
-      Follower.delete(uid, fid2)
+      Follows.delete(uid, fid2)
 
       assert [
                %{
@@ -201,7 +199,7 @@ defmodule KousaTest.FollowTest do
       uid = Factory.create(User).id
       fid = Factory.create(User).id
 
-      Follower.insert(%{userId: uid, followerId: fid})
+      Follows.insert(%{userId: uid, followerId: fid})
 
       assert [
                %Follow{
@@ -215,19 +213,19 @@ defmodule KousaTest.FollowTest do
       uid = Factory.create(User).id
       fid = Factory.create(User).id
 
-      assert %{followsYou: false, youAreFollowing: false} = Follower.get_info(uid, fid)
+      assert %{followsYou: false, youAreFollowing: false} = Follows.get_info(uid, fid)
 
-      Follower.insert(%{userId: uid, followerId: fid})
+      Follows.insert(%{userId: uid, followerId: fid})
 
-      assert %{followsYou: true, youAreFollowing: false} = Follower.get_info(uid, fid)
+      assert %{followsYou: true, youAreFollowing: false} = Follows.get_info(uid, fid)
 
-      Follower.insert(%{userId: fid, followerId: uid})
+      Follows.insert(%{userId: fid, followerId: uid})
 
-      assert %{followsYou: true, youAreFollowing: true} = Follower.get_info(uid, fid)
+      assert %{followsYou: true, youAreFollowing: true} = Follows.get_info(uid, fid)
 
-      Follower.delete(uid, fid)
+      Follows.delete(uid, fid)
 
-      assert %{followsYou: false, youAreFollowing: true} = Follower.get_info(uid, fid)
+      assert %{followsYou: false, youAreFollowing: true} = Follows.get_info(uid, fid)
     end
   end
 end

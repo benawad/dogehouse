@@ -4,6 +4,8 @@ defmodule Kousa.Beef.UserTest do
   use Kousa.Support.EctoSandbox
 
   alias Kousa.Support.Factory
+  
+  alias Beef.Follows
   alias Beef.Schemas.Room
   alias Beef.Schemas.User
   alias Beef.UserBlocks
@@ -97,7 +99,7 @@ defmodule Kousa.Beef.UserTest do
     test "cascades correctly", %{user: user1} do
       user2 = Factory.create(User)
 
-      Kousa.Data.Follower.insert(%{userId: user1.id, followerId: user2.id})
+      Follows.insert(%{userId: user1.id, followerId: user2.id})
       Factory.create(Room, creatorId: user1.id)
       room = Factory.create(Room, creatorId: user2.id)
       Kousa.Data.RoomBlock.insert(%{roomId: room.id, userId: user1.id, modId: user2.id})

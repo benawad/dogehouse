@@ -1,5 +1,4 @@
 defmodule Kousa.Support.Factory do
-
   @moduledoc """
   defines the `create/2` function.
 
@@ -42,9 +41,10 @@ defmodule Kousa.Support.Factory do
   def create(Room, data) do
     # if we don't specify the creatorId, then pre-emptively
     # create a new user to be the creator.
-    creator_id = Keyword.get_lazy(data, :creatorId, fn ->
-      create(User).id
-    end)
+    creator_id =
+      Keyword.get_lazy(data, :creatorId, fn ->
+        create(User).id
+      end)
 
     merged_data =
       Keyword.merge(

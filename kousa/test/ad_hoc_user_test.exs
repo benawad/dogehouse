@@ -12,7 +12,6 @@ defmodule KousaTest.AdHocUserTest do
 
   alias Beef.Schemas.User
   alias Beef.Schemas.Room
-  alias Beef.Users
 
   alias Beef.Repo
   alias Kousa.Support.Factory

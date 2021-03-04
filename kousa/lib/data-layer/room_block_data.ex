@@ -1,7 +1,7 @@
 defmodule Kousa.Data.RoomBlock do
   import Ecto.Query
   alias Kousa.Pagination
-  alias Beef.User
+  alias Beef.Schemas.User
   alias Beef.RoomBlock
   alias Beef.Repo
 

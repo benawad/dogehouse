@@ -6,7 +6,7 @@ defmodule Kousa.BL.Room do
   alias Kousa.Caster
   alias Kousa.VoiceServerUtils
   # note the following three module aliases are on the chopping block!
-  alias Kousa.Data.Follower
+  alias Beef.Follows
   alias Beef.Rooms
   alias Kousa.Data.RoomPermission
   alias Beef.Users
@@ -55,7 +55,7 @@ defmodule Kousa.BL.Room do
     user = Users.get_by_id(user_id)
 
     if not is_nil(user.currentRoomId) and
-         Follower.is_following_me(user_id, user_id_to_invite) do
+         Follows.is_following_me(user_id, user_id_to_invite) do
       # @todo store room name in RoomSession to avoid db lookups
       room = Rooms.get_room_by_id(user.currentRoomId)
 

@@ -4,9 +4,7 @@ defmodule Kousa.Beef.UserBlockTest do
   use Kousa.Support.EctoSandbox
 
   alias Kousa.Support.Factory
-  alias Beef.Schemas.Room
   alias Beef.Schemas.User
-  alias Beef.Users
   alias Beef.Repo
 
   describe "Beef.Schemas.UserBlock" do
