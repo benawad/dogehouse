@@ -38,6 +38,7 @@ import { showErrorToast } from "./utils/showErrorToast";
 import { useTokenStore } from "./utils/useTokenStore";
 import { invitedToRoomConfirm } from "./components/InvitedToJoinRoomModal";
 import { useCurrentRoomStore } from "../webrtc/stores/useCurrentRoomStore";
+import { RoomUser } from "./types";
 
 interface RoutesProps {}
 
@@ -346,6 +347,21 @@ export const Routes: React.FC<RoutesProps> = () => {
         activeSpeakerMap,
         autoSpeaker,
       }) => {
+        // Mute when rejoin and if speaker
+        if (
+          !!users.find(
+            (u: RoomUser) =>
+              u.id === meRef.current?.id && u.roomPermissions?.isSpeaker
+          )
+        ) {
+          const { setMute } = useMuteStore.getState();
+          wsend({
+            op: "mute",
+            d: { value: true },
+          });
+          setMute(true);
+        }
+
         setCurrentRoom((c) => {
           if (!c || c.id !== roomId) {
             return c;
@@ -385,6 +401,7 @@ export const Routes: React.FC<RoutesProps> = () => {
           console.log("join with voice server id: " + d.room.voiceServerId);
           useRoomChatStore.getState().clearChat();
           setCurrentRoom(() => roomToCurrentRoom(d.room));
+
           wsend({ op: "get_current_room_users", d: {} });
         }
       },
