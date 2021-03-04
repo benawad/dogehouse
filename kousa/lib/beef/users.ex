@@ -202,7 +202,7 @@ defmodule Beef.Users do
     roomPermissions =
       case can_speak do
         true ->
-          case Kousa.Data.RoomPermission.set_is_speaker(user_id, room_id, true, true) do
+          case Kousa.Data.RoomPermission.set_speaker?(user_id, room_id, true, true) do
             {:ok, x} -> x
             _ -> nil
           end

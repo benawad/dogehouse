@@ -10,7 +10,7 @@ defmodule Beef.UserBlocks do
 
   alias Beef.Schemas.UserBlock
 
-  def is_blocked(user_id, user_id_blocked) do
+  def blocked?(user_id, user_id_blocked) do
     not is_nil(
       from(ub in UserBlock,
         where: ub.userId == ^user_id and ub.userIdBlocked == ^user_id_blocked,

@@ -17,7 +17,7 @@ defmodule Kousa.BL.Follow do
   def follow(user_id, user_you_want_to_follow_id, should_follow) do
     if should_follow do
       if user_id != user_you_want_to_follow_id and
-           not UserBlocks.is_blocked(user_you_want_to_follow_id, user_id) do
+           not UserBlocks.blocked?(user_you_want_to_follow_id, user_id) do
         Follows.insert(%{userId: user_you_want_to_follow_id, followerId: user_id})
       end
     else

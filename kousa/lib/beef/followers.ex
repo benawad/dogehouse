@@ -36,7 +36,7 @@ defmodule Beef.Follows do
 
   # TODO: change the name of this, is_ by convention means
   # "guard".
-  def is_following_me(user_id, user_id_to_check) do
+  def following_me?(user_id, user_id_to_check) do
     not is_nil(
       from(
         f in Follow,

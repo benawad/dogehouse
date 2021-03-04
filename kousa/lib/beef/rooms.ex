@@ -61,12 +61,12 @@ defmodule Beef.Rooms do
           room.numPeopleInside >= max_room_size ->
             {:error, "room is full"}
 
-          Kousa.Data.RoomBlock.is_blocked(room_id, user_id) ->
+          Kousa.Data.RoomBlock.blocked?(room_id, user_id) ->
             {:error, "you are blocked from the room"}
 
           true ->
             cond do
-              UserBlocks.is_blocked(room.creatorId, user_id) ->
+              UserBlocks.blocked?(room.creatorId, user_id) ->
                 {:error, "the creator of the room blocked you"}
 
               true ->
@@ -320,7 +320,7 @@ defmodule Beef.Rooms do
     resp
   end
 
-  def is_owner(room_id, user_id) do
+  def owner?(room_id, user_id) do
     not is_nil(
       Beef.Repo.one(from(r in Room, where: r.id == ^room_id and r.creatorId == ^user_id))
     )

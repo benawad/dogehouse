@@ -101,15 +101,15 @@ defmodule KousaTest.FollowTest do
                |> Repo.preload([:user, :follower])
     end
 
-    test "is_following_me" do
+    test "following_me?" do
       uid = Factory.create(User).id
       fid = Factory.create(User).id
 
-      refute Follows.is_following_me(uid, fid)
+      refute Follows.following_me?(uid, fid)
 
       Follows.insert(%{userId: uid, followerId: fid})
 
-      assert Follows.is_following_me(uid, fid)
+      assert Follows.following_me?(uid, fid)
     end
 
     # TEST IS FAILING: somehow this function is returning
