@@ -3,6 +3,20 @@ defmodule Beef.Schemas.User do
   import Ecto.Changeset
   alias Beef.Schemas.Room
 
+  defmodule Preview do
+    use Ecto.Schema
+
+    @derive {Poison.Encoder, only: [:id, :displayName, :numFollowers]}
+    @primary_key false
+    embedded_schema do
+      # does User.Preview really need an id?
+      field(:id, :binary_id)
+
+      field(:displayName, :string)
+      field(:numFollowers, :integer)
+    end
+  end
+
   @timestamps_opts [type: :utc_datetime_usec]
 
   @type t :: %__MODULE__{
