@@ -1,5 +1,5 @@
-defmodule Beef.Followers do
+defmodule Beef.Follows do
   @moduledoc """
-  Empty context module for Followers
+  Empty context module for Follows
   """
 end

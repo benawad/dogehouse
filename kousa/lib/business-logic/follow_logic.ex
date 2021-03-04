@@ -3,6 +3,7 @@ defmodule Kousa.BL.Follow do
   alias Kousa.Gen
   alias Kousa.Data.Follower
   alias Beef.UserBlocks
+  alias Beef.Schemas.Follow
   alias Beef.Schemas.Room
 
   def get_follow_list(user_id, user_id_to_get_list_for, get_following_list, cursor) do
@@ -34,7 +35,7 @@ defmodule Kousa.BL.Follow do
     if length(followers_to_notify) > 0 do
       user = Users.get_by_id(user_id)
 
-      Enum.each(followers_to_notify, fn %Beef.Follow{followerId: followerId} ->
+      Enum.each(followers_to_notify, fn %Follow{followerId: followerId} ->
         Gen.UserSession.send_cast(
           followerId,
           {:send_ws_msg, :vscode,
