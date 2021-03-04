@@ -48,10 +48,27 @@ option {
 	background: #232323;
 }
 
-.emoji-mart-anchors {
+/* .emoji-mart-anchors {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	padding: 0 6px;
 	line-height: 0;
+} */
+.emoji-mart-anchor {
+	position: relative;
+	display: flex;
+	flex-grow: 1;
+	justify-content: center;
+	align-items: center;
+	/* flex: 1 1 auto; */
+	color: #858585;
+	text-align: center;
+	padding: 12px 4px;
+	overflow: hidden;
+	transition: color 0.1s ease-out;
+	margin: 0;
+	box-shadow: none;
+	background: none;
+	border: none;
 }
