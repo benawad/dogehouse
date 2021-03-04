@@ -33,6 +33,7 @@ defmodule Kousa.MixProject do
       {:ecto_sql, "~> 3.0"},
       {:jason, "~> 1.2"},
       {:joken, "~> 2.0"},
+      {:elixir_uuid, "~> 1.2"},
       # TODO: switch off of httpoison to, e.g. Mojito or Finch
       {:httpoison, "~> 1.8"},
       {:decorator, "~> 1.2"},
@@ -46,7 +47,8 @@ defmodule Kousa.MixProject do
       {:ueberauth_twitter, "~> 0.3"},
       {:prometheus_ex, "~> 3.0"},
       {:prometheus_plugs, "~> 1.1.1"},
-      {:faker, "~> 0.16.0", only: :test}
+      {:faker, "~> 0.16.0", only: :test},
+      {:timex, "~> 3.6"}
     ]
   end
 

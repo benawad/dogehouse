@@ -89,8 +89,8 @@ defmodule Kousa.Database.UserTest do
 
     test "cascades correctly", %{user1: user1, user2: user2} do
       Data.Follower.insert(%{userId: user1.id, followerId: user2.id})
-      Factory.create_room(Room, user1.id)
-      room = Factory.create_room(Room, user2.id)
+      Factory.create(Room, creatorId: user1.id)
+      room = Factory.create(Room, creatorId: user2.id)
       Data.RoomBlock.insert(%{roomId: room.id, userId: user1.id, modId: user2.id})
       Data.UserBlock.insert(%{userIdBlocked: user1.id, userId: user2.id})
       Data.RoomPermission.ask_to_speak(user1.id, room.id)

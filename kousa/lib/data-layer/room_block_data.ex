@@ -30,7 +30,7 @@ defmodule Kousa.Data.RoomBlock do
       limit: @fetch_limit
     )
     |> Beef.Repo.all()
-    |> Pagination.items_to_cursor_tuple(offset, @fetch_limit)
+    |> Pagination.items_to_offset_tuple(offset, @fetch_limit)
   end
 
   def insert(data) do

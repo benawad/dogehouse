@@ -1,7 +1,9 @@
 import { useAtom } from "jotai";
 import React, { useEffect, useState } from "react";
+import { Calendar } from "react-feather";
+import { useQueryClient } from "react-query";
 import { useHistory } from "react-router-dom";
-import { wsend } from "../../createWebsocket";
+import { wsend, wsFetch } from "../../createWebsocket";
 import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
 import { publicRoomsAtom } from "../atoms";
 import { BodyWrapper } from "../components/BodyWrapper";
@@ -14,6 +16,7 @@ import { RoomCard } from "../components/RoomCard";
 import { Wrapper } from "../components/Wrapper";
 import { Logo } from "../svgs/Logo";
 import { PeopleIcon } from "../svgs/PeopleIcon";
+import { GET_SCHEDULED_ROOMS } from "../modules/scheduled-rooms/ScheduledRoomsPage";
 
 interface HomeProps {}
 
@@ -22,6 +25,7 @@ export const Home: React.FC<HomeProps> = () => {
   const { currentRoom } = useCurrentRoomStore();
   const [{ publicRooms: rooms, nextCursor }] = useAtom(publicRoomsAtom);
   const [showCreateRoomModal, setShowCreateRoomModal] = useState(false);
+  const queryClient = useQueryClient();
 
   useEffect(() => {
     if (rooms.length < 15) {
@@ -46,6 +50,27 @@ export const Home: React.FC<HomeProps> = () => {
                 }}
               >
                 <PeopleIcon width={30} height={30} fill="#fff" />
+              </CircleButton>
+            </div>
+            <div className={`ml-2`}>
+              <CircleButton
+                onClick={() => {
+                  queryClient.prefetchQuery(
+                    [GET_SCHEDULED_ROOMS, "", false],
+                    () =>
+                      wsFetch({
+                        op: GET_SCHEDULED_ROOMS,
+                        d: {
+                          cursor: "",
+                          getOnlyMyScheduledRooms: false,
+                        },
+                      }),
+                    { staleTime: 0 }
+                  );
+                  history.push("/scheduled-rooms");
+                }}
+              >
+                <Calendar width={30} height={30} color="#fff" />
               </CircleButton>
             </div>
             <div className={`ml-2`}>

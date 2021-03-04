@@ -1,7 +1,7 @@
 defmodule Kousa.SocketHandler do
   require Logger
 
-  alias Kousa.{BL, Data, RegUtils, Gen}
+  alias Kousa.{BL, Data, RegUtils, Gen, Caster}
 
   defmodule State do
     @type t :: %__MODULE__{
@@ -66,6 +66,11 @@ defmodule Kousa.SocketHandler do
 
   def websocket_info({:remote_send, message}, state) do
     {:reply, construct_socket_msg(state.encoding, state.compression, message), state}
+  end
+
+  # needed for Task.async not to crash things
+  def websocket_info({:EXIT, _, _}, state) do
+    {:ok, state}
   end
 
   def websocket_info({:send_to_linked_session, message}, state) do
@@ -298,29 +303,34 @@ defmodule Kousa.SocketHandler do
     {:ok, state}
   end
 
+  # @deprecated
   def handler("create-room", data, state) do
-    case Kousa.BL.Room.create_room(state.user_id, data["roomName"], data["value"] == "private") do
-      nil ->
-        nil
+    resp =
+      case Kousa.BL.Room.create_room(
+             state.user_id,
+             data["roomName"],
+             data["value"] == "private",
+             Map.get(data, "userIdToInvite")
+           ) do
+        {:ok, d} ->
+          %{
+            op: "new_current_room",
+            d: d
+          }
 
-      {:ok, d} ->
-        if Map.has_key?(data, "userIdToInvite") do
-          Kousa.BL.Room.invite_to_room(state.user_id, data["userIdToInvite"])
-        end
+        {:error, d} ->
+          %{
+            op: "error",
+            d: d
+          }
+      end
 
-        {:reply,
-         construct_socket_msg(state.encoding, state.compression, %{
-           op: "new_current_room",
-           d: d
-         }), state}
-
-      {:error, d} ->
-        {:reply,
-         construct_socket_msg(state.encoding, state.compression, %{
-           op: "error",
-           d: d
-         }), state}
-    end
+    {:reply,
+     construct_socket_msg(
+       state.encoding,
+       state.compression,
+       resp
+     ), state}
   end
 
   def handler("get_top_public_rooms", data, state) do
@@ -369,9 +379,6 @@ defmodule Kousa.SocketHandler do
 
   def handler("join_room", %{"roomId" => room_id}, state) do
     case Kousa.BL.Room.join_room(state.user_id, room_id) do
-      nil ->
-        nil
-
       d ->
         {:reply,
          construct_socket_msg(state.encoding, state.compression, %{
@@ -622,6 +629,69 @@ defmodule Kousa.SocketHandler do
     end
   end
 
+  def f_handler("get_scheduled_rooms", data, %State{} = state) do
+    {scheduled_rooms, next_cursor} =
+      BL.ScheduledRoom.get_scheduled_rooms(
+        state.user_id,
+        Caster.bool(Map.get(data, "getOnlyMyScheduledRooms", false)),
+        Map.get(data, "cursor")
+      )
+
+    %{
+      scheduledRooms: scheduled_rooms,
+      nextCursor: next_cursor
+    }
+  end
+
+  def f_handler("edit_scheduled_room", %{"id" => id, "data" => data}, %State{} = state) do
+    case Kousa.BL.ScheduledRoom.edit(
+           state.user_id,
+           id,
+           data
+         ) do
+      :ok ->
+        %{}
+
+      {:error, msg} ->
+        %{error: msg}
+    end
+  end
+
+  def f_handler("delete_scheduled_room", %{"id" => id}, %State{} = state) do
+    Kousa.BL.ScheduledRoom.delete(
+      state.user_id,
+      id
+    )
+
+    %{}
+  end
+
+  def f_handler("create_room", data, %State{} = state) do
+    case Kousa.BL.Room.create_room(
+           state.user_id,
+           data["name"],
+           data["privacy"] == "private",
+           Map.get(data, "userIdToInvite")
+         ) do
+      {:ok, d} ->
+        d
+
+      {:error, d} ->
+        %{
+          error: d
+        }
+    end
+  end
+
+  def f_handler("schedule_room", data, %State{} = state) do
+    case BL.ScheduledRoom.schedule(state.user_id, data) do
+      {:ok, scheduledRoom} ->
+        %{scheduledRoom: scheduledRoom}
+
+      {:error, msg} ->
+        %{error: msg}
+    end
+  end
 
   def f_handler("unban_from_room", %{"userId" => user_id}, %State{} = state) do
     BL.RoomBlock.unban(state.user_id, user_id)
