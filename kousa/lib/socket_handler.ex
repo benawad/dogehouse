@@ -352,7 +352,6 @@ defmodule Kousa.SocketHandler do
   end
 
   def handler("edit_room", %{"roomName" => name, "description" => description, "value" => privacy}, state) do
-    IO.inspect "lol"
     case BL.Room.edit_room(state.user_id, name, description, privacy == "private") do
       {:error, message} ->
         {:reply, prepare_socket_msg(%{op: "error", d: message}, state), state}

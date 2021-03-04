@@ -266,18 +266,10 @@ defmodule Kousa.Data.Room do
     |> Beef.Repo.insert(returning: true)
   end
 
-  def update_details(user_id, name, description, is_private) do
-    from(r in Beef.Room,
-      where: r.creatorId == ^user_id,
-      update: [
-        set: [
-          name: ^name,
-          description: ^description,
-          isPrivate: ^is_private
-        ]
-      ]
-    )
-    |> Beef.Repo.update_all([])
+  def update_details(room_id, data) do
+    %Beef.Room{id: room_id}
+    |> Beef.Room.edit_changeset(data)
+    |> Beef.Repo.update()
   end
 
   @spec create(:invalid | %{optional(:__struct__) => none, optional(atom | binary) => any}) :: any

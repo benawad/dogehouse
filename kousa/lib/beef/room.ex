@@ -47,7 +47,20 @@ defmodule Beef.Room do
     room
     |> cast(attrs, [:id, :name, :creatorId, :isPrivate, :numPeopleInside, :voiceServerId, :description])
     |> validate_required([:name, :creatorId])
-    |> validate_length(:name, min: 2)
+    |> validate_length(:name, min: 2, max: 255)
+    |> validate_length(:description, min: 0, max: 500)
     |> unique_constraint(:creatorId)
+  end
+
+  @spec edit_changeset(
+          {map, map} | %{:__struct__ => atom | %{__changeset__: map}, optional(atom) => any},
+          :invalid | %{optional(:__struct__) => none, optional(atom | binary) => any}
+        ) :: Ecto.Changeset.t()
+  def edit_changeset(room, attrs) do
+    room
+    |> cast(attrs, [:id, :name, :isPrivate, :description])
+    |> validate_required([:name])
+    |> validate_length(:name, min: 2, max: 255)
+    |> validate_length(:description, min: 0, max: 500)
   end
 end

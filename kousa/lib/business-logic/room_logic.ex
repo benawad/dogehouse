@@ -182,19 +182,15 @@ defmodule Kousa.BL.Room do
 
   def edit_room(user_id, new_name, new_description, is_private) do
 
-    cond do
-      byte_size(new_name) > 255 ->
-        {:error, "name needs to be less than 255 characters"}
-      byte_size(new_description) > 500 ->
-        {:error, "description needs to be less than 500 characters"}
-      !is_boolean(is_private) ->
-        {:error, "invalid privacy value"}
-      true ->
-        with {:ok, room_id} <- Data.User.tuple_get_current_room_id(user_id),
-         {1, _} <- Data.Room.update_details(user_id, new_name, new_description, is_private) do
-          nil
+    with {:ok, room_id} <- Data.User.tuple_get_current_room_id(user_id) do
+      case Data.Room.update_details(room_id, %{name: new_name, description: new_description, is_private: is_private}) do
+
+        {:ok, _room} ->
           RegUtils.lookup_and_cast(Gen.RoomSession, room_id, {:new_room_details, new_name, new_description, is_private})
-        end
+
+        {:error, x} ->
+          {:error, Kousa.Errors.changeset_to_first_err_message(x)}
+      end
     end
   end
 
