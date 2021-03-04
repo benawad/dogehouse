@@ -573,14 +573,14 @@ defmodule Kousa.SocketHandler do
     {:ok, state}
   end
 
-  def handler("get_user_profile", %{"userId" => user_id}, state) do
-    case Data.User.get_by_id(user_id) do
-      {:ok, user} ->
-        RegUtils.lookup_and_cast(Gen.UserSession, state.user_id, {:get_user_profile, user})
-      {:error, x} ->
-        IO.inspect x
-        x
+  def handler("get_user_profile", %{"userId" => user_id, "userIdType" => user_id_type}, state) do
+    user = if user_id_type == "username", do: Data.User.get_by_username(user_id), else: Data.User.get_by_id(user_id)
+
+    if not is_nil(user) do
+        RegUtils.lookup_and_cast(Gen.UserSession, state.user_id, {:send_ws_msg, :web, %{op: "get_user_profile_done", d: %{user: user}}})
     end
+
+    {:ok, state}
   end
 
   def handler(op, data, state) do
