@@ -1,4 +1,4 @@
-defmodule Beef.UserPreview do
+defmodule Beef.Schemas.User.Preview do
   use Ecto.Schema
 
   @derive {Poison.Encoder, only: [:id, :displayName, :numFollowers]}

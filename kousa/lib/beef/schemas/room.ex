@@ -11,7 +11,7 @@ defmodule Beef.Schemas.Room do
           numPeopleInside: integer(),
           isPrivate: boolean(),
           user: User.t() | Ecto.Association.NotLoaded.t(),
-          peoplePreviewList: [UserPreview.t()]
+          peoplePreviewList: [User.Preview.t()]
         }
 
   @derive {Poison.Encoder, only: ~w(id name numPeopleInside isPrivate
@@ -25,7 +25,7 @@ defmodule Beef.Schemas.Room do
 
     # TODO: change this to creator!
     belongs_to(:user, User, foreign_key: :creatorId, type: :binary_id)
-    embeds_many(:peoplePreviewList, Beef.UserPreview)
+    embeds_many(:peoplePreviewList, User.Preview)
 
     timestamps()
   end

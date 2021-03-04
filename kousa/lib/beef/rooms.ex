@@ -9,7 +9,6 @@ defmodule Beef.Rooms do
 
   alias Beef.Schemas.User
   alias Beef.Schemas.Room
-  alias Beef.UserPreview
   alias Beef.UserBlock
   alias Beef.Users
   alias Beef.Repo
@@ -87,7 +86,7 @@ defmodule Beef.Rooms do
           )) and is_nil(Enum.find(room.peoplePreviewList, &(&1.id === user_id))) do
       list =
         [
-          %UserPreview{
+          %User.Preview{
             id: user.id,
             displayName: user.displayName,
             numFollowers: user.numFollowers
