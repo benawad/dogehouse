@@ -72,7 +72,7 @@ export const BlockedFromRoomUsersPage: React.FC<{
     return <div className={`mt-2`}>no one has been banned yet</div>;
   }
 
-  if (!data || !data.users.length) {
+  if (!data) {
     return null;
   }
 

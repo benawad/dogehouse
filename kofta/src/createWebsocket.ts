@@ -132,6 +132,7 @@ export const createWebSocket = () => {
           }
           authGood = true;
         }
+        useSocketStatus.getState().setStatus("auth-good");
         // console.log("ws: ", json.op);
         if (json.op in handlerMap) {
           handlerMap[json.op](json.d);

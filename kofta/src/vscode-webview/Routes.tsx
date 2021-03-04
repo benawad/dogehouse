@@ -38,6 +38,7 @@ import { showErrorToast } from "./utils/showErrorToast";
 import { useTokenStore } from "./utils/useTokenStore";
 import { invitedToRoomConfirm } from "./components/InvitedToJoinRoomModal";
 import { useCurrentRoomStore } from "../webrtc/stores/useCurrentRoomStore";
+import { ScheduledRoomsPage } from "./modules/scheduled-rooms/ScheduledRoomsPage";
 
 interface RoutesProps {}
 
@@ -416,6 +417,7 @@ export const Routes: React.FC<RoutesProps> = () => {
   return (
     <Switch>
       <Route exact path="/" component={Home} />
+      <Route exact path="/scheduled-rooms" component={ScheduledRoomsPage} />
       <Route exact path="/room/:id" component={RoomPage} />
       <Route exact path="/user" component={ViewUserPage} />
       <Route exact path="/me" component={MyProfilePage} />

@@ -1,7 +1,13 @@
-import React, { useState } from "react";
-import { wsend } from "../../createWebsocket";
+import { Form, Formik } from "formik";
+import React from "react";
+import { useHistory } from "react-router-dom";
+import { wsend, wsFetch } from "../../createWebsocket";
+import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
+import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
+import { roomToCurrentRoom } from "../utils/roomToCurrentRoom";
+import { showErrorToast } from "../utils/showErrorToast";
 import { Button } from "./Button";
-import { Input } from "./Input";
+import { InputField } from "./form-fields/InputField";
 import { Modal } from "./Modal";
 
 interface CreateRoomModalProps {
@@ -11,57 +17,93 @@ interface CreateRoomModalProps {
 export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
   onRequestClose,
 }) => {
-  const [name, setName] = useState("");
-  const [privacy, setPrivacy] = useState("public");
+  const history = useHistory();
   return (
     <Modal isOpen onRequestClose={onRequestClose}>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (name) {
-            onRequestClose();
-            wsend({
-              op: "create-room",
-              d: { roomName: name, value: privacy },
-            });
+      <Formik<{
+        name: string;
+        privacy: string;
+      }>
+        initialValues={{
+          name: "",
+          privacy: "public",
+        }}
+        validateOnChange={false}
+        validateOnBlur={false}
+        validate={({ name }) => {
+          const errors: Record<string, string> = {};
+
+          if (name.length < 2) {
+            return {
+              name: "min length 2",
+            };
           }
+
+          return errors;
+        }}
+        onSubmit={async ({ name, privacy }) => {
+          const resp = await wsFetch<any>({
+            op: "create_room",
+            d: { name, privacy },
+          });
+          if (resp.error) {
+            showErrorToast(resp.d);
+            return;
+          } else if (resp.room) {
+            const { room } = resp;
+            console.log("new room voice server id: " + room.voiceServerId);
+            useRoomChatStore.getState().clearChat();
+            wsend({ op: "get_current_room_users", d: {} });
+            history.push("/room/" + room.id);
+            useCurrentRoomStore
+              .getState()
+              .setCurrentRoom(() => roomToCurrentRoom(room));
+          }
+          onRequestClose();
         }}
       >
-        <Input
-          maxLength={255}
-          placeholder="room name"
-          autoFocus
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <div className={`flex mt-8 items-center`}>
-          <select
-            className={`border border-simple-gray-3c`}
-            value={privacy}
-            onChange={(e) => setPrivacy(e.target.value)}
-          >
-            <option value="public" className={`bg-simple-gray-3c`}>
-              public
-            </option>
-            <option value="private" className={`bg-simple-gray-3c`}>
-              private
-            </option>
-          </select>
-        </div>
-        <div className={`flex mt-12`}>
-          <Button
-            type="button"
-            onClick={onRequestClose}
-            className={`mr-1.5`}
-            color="secondary"
-          >
-            cancel
-          </Button>
-          <Button type="submit" className={`ml-1.5`}>
-            ok
-          </Button>
-        </div>
-      </form>
+        {({ setFieldValue, values, isSubmitting }) => (
+          <Form>
+            <InputField
+              name="name"
+              maxLength={60}
+              placeholder="room name"
+              autoFocus
+            />
+            <div className={`grid mt-8 items-start grid-cols-1`}>
+              <select
+                className={`border border-simple-gray-3c`}
+                value={values.privacy}
+                onChange={(e) => {
+                  const v = e.target.value;
+                  setFieldValue("privacy", v);
+                }}
+              >
+                <option value="public" className={`bg-simple-gray-3c`}>
+                  public
+                </option>
+                <option value="private" className={`bg-simple-gray-3c`}>
+                  private
+                </option>
+              </select>
+            </div>
+
+            <div className={`flex mt-12`}>
+              <Button
+                type="button"
+                onClick={onRequestClose}
+                className={`mr-1.5`}
+                color="secondary"
+              >
+                cancel
+              </Button>
+              <Button loading={isSubmitting} type="submit" className={`ml-1.5`}>
+                ok
+              </Button>
+            </div>
+          </Form>
+        )}
+      </Formik>
     </Modal>
   );
 };

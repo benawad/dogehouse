@@ -54,3 +54,18 @@ export type WsParam = {
   op: string;
   d: any;
 };
+
+export interface ScheduledRoom {
+  description: string;
+  scheduledFor: string;
+  numAttending: number;
+  name: string;
+  id: string;
+  creatorId: string;
+  creator: BaseUser;
+}
+
+export interface ScheduledRoomsInfo {
+  scheduledRooms: ScheduledRoom[];
+  nextCursor?: string | null;
+}
