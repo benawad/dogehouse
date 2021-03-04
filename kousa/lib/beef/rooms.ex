@@ -9,7 +9,7 @@ defmodule Beef.Rooms do
 
   alias Beef.Schemas.User
   alias Beef.Schemas.Room
-  alias Beef.UserBlock
+  alias Beef.Schemas.UserBlock
   alias Beef.Users
   alias Beef.Repo
 
@@ -65,7 +65,7 @@ defmodule Beef.Rooms do
 
           true ->
             cond do
-              Kousa.Data.UserBlock.is_blocked(room.creatorId, user_id) ->
+              UserBlocks.is_blocked(room.creatorId, user_id) ->
                 {:error, "the creator of the room blocked you"}
 
               true ->

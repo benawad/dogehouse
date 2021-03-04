@@ -2,7 +2,7 @@ defmodule Kousa.BL.Follow do
   alias Beef.Users
   alias Kousa.Gen
   alias Kousa.Data.Follower
-  alias Kousa.Data.UserBlock
+  alias Beef.UserBlocks
   alias Beef.Schemas.Room
 
   def get_follow_list(user_id, user_id_to_get_list_for, get_following_list, cursor) do

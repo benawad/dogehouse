@@ -6,6 +6,7 @@ defmodule Kousa.Beef.UserTest do
   alias Kousa.Support.Factory
   alias Beef.Schemas.Room
   alias Beef.Schemas.User
+  alias Beef.UserBlocks
   alias Beef.Users
   alias Beef.Repo
 
@@ -100,7 +101,7 @@ defmodule Kousa.Beef.UserTest do
       Factory.create(Room, creatorId: user1.id)
       room = Factory.create(Room, creatorId: user2.id)
       Kousa.Data.RoomBlock.insert(%{roomId: room.id, userId: user1.id, modId: user2.id})
-      Kousa.Data.UserBlock.insert(%{userIdBlocked: user1.id, userId: user2.id})
+      UserBlocks.insert(%{userIdBlocked: user1.id, userId: user2.id})
       Kousa.Data.RoomPermission.ask_to_speak(user1.id, room.id)
       assert {:ok, _} = Users.delete(user1.id)
 
