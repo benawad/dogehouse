@@ -61,6 +61,8 @@ export const Routes: React.FC<RoutesProps> = () => {
 	const meRef = useRef(me);
 	meRef.current = me;
 
+	const shouldBeSidebar = useShouldBeSidebar();
+
 	useEffect(() => {
 		addMultipleWsListener({
 			new_room_details: ({ name, description, isPrivate, roomId }) => {
@@ -400,6 +402,11 @@ export const Routes: React.FC<RoutesProps> = () => {
 				setPublicRooms(() => ({ publicRooms, nextCursor }));
 			},
 			join_room_done: (d) => {
+				// Auto open chat to show description and if mobile
+				if (shouldBeSidebar) {
+					useRoomChatStore.getState().toggleOpen();
+				}
+
 				if (d.error) {
 					if (window.location.pathname.startsWith("/room")) {
 						history.push("/");
