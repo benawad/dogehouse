@@ -39,6 +39,7 @@
     "zustand": "^3.3.1"
   },
   "scripts": {
+    "storybook": "start-storybook -p 9000 -c .storybook",
     "start": "craco start",
     "start:staging": "cross-env REACT_APP_IS_STAGING=true REACT_APP_API_BASE_URL=https://doge-staging.stripcode.dev craco start",
     "build": "craco build",
@@ -60,6 +61,12 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.13.8",
+    "@storybook/addon-essentials": "^6.1.20",
+    "@storybook/addons": "^6.1.20",
+    "@storybook/preset-create-react-app": "^3.1.6",
+    "@storybook/react": "^6.1.20",
+    "@storybook/theming": "^6.1.20",
     "@tailwindcss/postcss7-compat": "^2.0.3",
     "@types/emoji-mart": "^3.0.4",
     "@types/hark": "^1.2.1",
@@ -67,6 +74,7 @@
     "@types/react-modal": "^3.12.0",
     "@types/react-responsive": "^8.0.2",
     "@types/react-router-dom": "^5.1.7",
+    "@types/storybook__react": "^5.2.1",
     "autoprefixer": "^9.8.6",
     "cross-env": "^7.0.3",
     "css-loader": "^5.0.1",
