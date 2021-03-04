@@ -333,17 +333,12 @@ defmodule Kousa.SocketHandler do
      ), state}
   end
 
+  # @deprecated
   def handler("get_top_public_rooms", data, state) do
-    {rooms, next_cursor} =
-      Kousa.Data.Room.get_top_public_rooms(
-        state.user_id,
-        data["cursor"]
-      )
-
     {:reply,
      construct_socket_msg(state.encoding, state.compression, %{
        op: "get_top_public_rooms_done",
-       d: %{rooms: rooms, nextCursor: next_cursor, initial: data["cursor"] == 0}
+       d: f_handler("get_top_public_rooms", data, state)
      }), state}
   end
 
@@ -617,6 +612,16 @@ defmodule Kousa.SocketHandler do
            state
          ), state}
     end
+  end
+
+  def f_handler("get_top_public_rooms", data, %State{} = state) do
+    {rooms, next_cursor} =
+      Kousa.Data.Room.get_top_public_rooms(
+        state.user_id,
+        data["cursor"]
+      )
+
+    %{rooms: rooms, nextCursor: next_cursor, initial: data["cursor"] == 0}
   end
 
   def f_handler("get_scheduled_rooms", data, %State{} = state) do
