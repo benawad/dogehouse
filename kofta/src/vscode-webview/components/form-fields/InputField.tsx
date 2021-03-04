@@ -14,12 +14,12 @@ export const InputField: React.FC<
     textarea?: boolean;
     altErrorMsg?: string;
   }
-> = ({ label, textarea, errorMsg, ...props }) => {
+> = ({ label, textarea, errorMsg, ref: _, ...props }) => {
   const [field, meta] = useField(props);
   return (
     <div>
       {label ? <div className={`mb-2`}>{label}</div> : null}
-      <Input textarea={textarea} {...field} />
+      <Input textarea={textarea} {...field} {...props} />
       {meta.error && meta.touched ? (
         <div className={`mt-1`}>
           <InputErrorMsg>{errorMsg || meta.error}</InputErrorMsg>

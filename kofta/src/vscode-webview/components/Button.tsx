@@ -93,8 +93,8 @@ export const Button: React.FC<
           ${props.className}
         `}
     >
-      {loading ? <Spinner /> : children}
-      {loading && variant === "small" ? children : null}
+      {loading ? <Spinner /> : null}
+      {children}
       {(dogeProbability ?? 0) > 0 ? (
         <>
           <div

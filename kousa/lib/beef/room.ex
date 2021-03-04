@@ -47,7 +47,7 @@ defmodule Beef.Room do
     room
     |> cast(attrs, [:id, :name, :creatorId, :isPrivate, :numPeopleInside, :voiceServerId, :description])
     |> validate_required([:name, :creatorId])
-    |> validate_length(:name, min: 2, max: 255)
+    |> validate_length(:name, min: 2, max: 60)
     |> validate_length(:description, max: 500)
     |> unique_constraint(:creatorId)
   end

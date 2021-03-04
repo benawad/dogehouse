@@ -39,6 +39,7 @@ import { useTokenStore } from "./utils/useTokenStore";
 import { invitedToRoomConfirm } from "./components/InvitedToJoinRoomModal";
 import { useCurrentRoomStore } from "../webrtc/stores/useCurrentRoomStore";
 import { useShouldBeSidebar } from "./modules/room-chat/useShouldFullscreenChat";
+import { ScheduledRoomsPage } from "./modules/scheduled-rooms/ScheduledRoomsPage";
 import { RoomUser } from "./types";
 interface RoutesProps {}
 
@@ -59,8 +60,6 @@ export const Routes: React.FC<RoutesProps> = () => {
 	const [me] = useAtom(meAtom);
 	const meRef = useRef(me);
 	meRef.current = me;
-
-	const shouldUseSidebar = useShouldBeSidebar();
 
 	useEffect(() => {
 		addMultipleWsListener({
@@ -401,9 +400,6 @@ export const Routes: React.FC<RoutesProps> = () => {
 				setPublicRooms(() => ({ publicRooms, nextCursor }));
 			},
 			join_room_done: (d) => {
-				// Auto open chat for description if sidebar
-				if (shouldUseSidebar) useRoomChatStore.getState().toggleOpen();
-
 				if (d.error) {
 					if (window.location.pathname.startsWith("/room")) {
 						history.push("/");
@@ -445,6 +441,7 @@ export const Routes: React.FC<RoutesProps> = () => {
 	return (
 		<Switch>
 			<Route exact path="/" component={Home} />
+			<Route exact path="/scheduled-rooms" component={ScheduledRoomsPage} />
 			<Route exact path="/room/:id" component={RoomPage} />
 			<Route exact path="/user" component={ViewUserPage} />
 			<Route exact path="/me" component={MyProfilePage} />

@@ -1,6 +1,6 @@
 defmodule Kousa.BL.Room do
   use Kousa.Dec.Atomic
-  alias Kousa.{BL, Data, RegUtils, Gen, Caster, VoiceServerUtils}
+  alias Kousa.{BL, Data, RegUtils, Gen, Caster, VoiceServerUtils, Errors}
 
   def set_auto_speaker(user_id, value) do
     room = Kousa.Data.Room.get_room_by_creator_id(user_id)
@@ -194,8 +194,10 @@ defmodule Kousa.BL.Room do
     end
   end
 
-  # @decorate user_atomic()
-  def create_room(user_id, room_name, room_description, is_private) do
+  @spec create_room(String.t(), String.t(), String.t(), boolean(), String.t() | nil) ::
+          {:error, any}
+          | {:ok, %{room: atom | %{:id => any, :voiceServerId => any, optional(any) => any}}}
+  def create_room(user_id, room_name, room_description, is_private, user_id_to_invite \\ nil) do
     room_id = Kousa.Data.User.get_current_room_id(user_id)
 
     if not is_nil(room_id) do
@@ -241,6 +243,12 @@ defmodule Kousa.BL.Room do
 
         if not is_private do
           BL.Follow.notify_followers_you_created_a_room(user_id, room)
+        end
+
+        if not is_nil(user_id_to_invite) do
+          Task.start(fn ->
+            BL.Room.invite_to_room(user_id, user_id_to_invite)
+          end)
         end
 
         {:ok, %{room: room}}
