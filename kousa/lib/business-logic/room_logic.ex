@@ -183,7 +183,7 @@ defmodule Kousa.BL.Room do
   def edit_room(user_id, new_name, new_description, is_private) do
 
     with {:ok, room_id} <- Data.User.tuple_get_current_room_id(user_id) do
-      case Data.Room.update_details(room_id, %{name: new_name, description: new_description, is_private: is_private}) do
+      case Data.Room.edit(room_id, %{name: new_name, description: new_description, is_private: is_private}) do
 
         {:ok, _room} ->
           RegUtils.lookup_and_cast(Gen.RoomSession, room_id, {:new_room_details, new_name, new_description, is_private})

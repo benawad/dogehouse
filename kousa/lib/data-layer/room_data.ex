@@ -266,7 +266,7 @@ defmodule Kousa.Data.Room do
     |> Beef.Repo.insert(returning: true)
   end
 
-  def update_details(room_id, data) do
+  def edit(room_id, data) do
     %Beef.Room{id: room_id}
     |> Beef.Room.edit_changeset(data)
     |> Beef.Repo.update()
