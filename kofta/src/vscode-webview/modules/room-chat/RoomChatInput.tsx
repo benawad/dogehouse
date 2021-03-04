@@ -141,7 +141,6 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
           style={{
             position: "relative",
             width: "100%",
-            height: "400px",
             overflowY: "hidden",
           }}
           sheetSize={32}
