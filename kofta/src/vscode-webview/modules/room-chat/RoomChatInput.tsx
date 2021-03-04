@@ -130,7 +130,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className={`bg-simple-gray-26 pb-5 px-8 pt-1`}
+      className={`bg-simple-gray-26 pb-5 px-8 pt-1 flex flex-col`}
     >
       {isEmoji ? (
         <Picker
@@ -141,12 +141,16 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
           style={{
             position: "relative",
             width: "100%",
-            height: "400px",
+            minWidth: "278px",
+            right:0,
             overflowY: "hidden",
+            outline: "none",
+            alignSelf: "flex-end",
+            margin:"0 0 8px 0"
           }}
           sheetSize={32}
           theme="dark"
-          emojiTooltip={false}
+          emojiTooltip={true}
           showPreview={false}
           showSkinTones={false}
           i18n={{
