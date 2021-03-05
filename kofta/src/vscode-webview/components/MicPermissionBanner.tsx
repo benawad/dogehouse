@@ -3,24 +3,25 @@ import { useMicPermErrorStore } from "../../webrtc/stores/useMicPermErrorStore";
 import { sendVoice } from "../../webrtc/utils/sendVoice";
 import { isIOS } from "../utils/isIOS";
 import { Button } from "./Button";
+import { useTranslation } from 'react-i18next';
 
 interface MicPermissionBannerProps {}
 
 export const MicPermissionBanner: React.FC<MicPermissionBannerProps> = () => {
   const { error, set } = useMicPermErrorStore();
   const [count, setCount] = useState(0);
+  const { t } = useTranslation();
   if (!error) {
     return null;
   }
   return (
     <div className={`p-4 bg-simple-gray-3c`}>
       <div className={`font-semibold text-xl mb-4 bg-red-400`}>
-        Permission denied trying to access your mic (you may need to go into
-        browser settings and reload the page)
+        {t("components.micPermissionBanner.permissionDenied")}
       </div>
       <div className="flex space-x-2">
         <Button color="secondary" onClick={() => set({ error: false })}>
-          dismiss
+          {t("components.micPermissionBanner.dismiss")}
         </Button>
         <Button
           onClick={() => {
@@ -32,7 +33,7 @@ export const MicPermissionBanner: React.FC<MicPermissionBannerProps> = () => {
             }
           }}
         >
-          try again
+          {t("components.micPermissionBanner.tryAgain")}
         </Button>
       </div>
     </div>
