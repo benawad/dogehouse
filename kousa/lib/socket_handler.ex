@@ -614,6 +614,10 @@ defmodule Kousa.SocketHandler do
     end
   end
 
+  def f_handler("get_my_scheduled_rooms_about_to_start", _data, %State{} = state) do
+    %{scheduledRooms: BL.ScheduledRoom.get_my_scheduled_rooms_about_to_start(state.user_id)}
+  end
+
   def f_handler("get_top_public_rooms", data, %State{} = state) do
     {rooms, next_cursor} =
       Kousa.Data.Room.get_top_public_rooms(
@@ -659,6 +663,31 @@ defmodule Kousa.SocketHandler do
     )
 
     %{}
+  end
+
+  def f_handler(
+        "create_room_from_scheduled_room",
+        %{
+          "id" => scheduled_room_id,
+          "name" => name,
+          # @todo use description when you merge pull request for it on room
+          "description" => _description
+        },
+        %State{} = state
+      ) do
+    case Kousa.BL.ScheduledRoom.create_room_from_scheduled_room(
+           state.user_id,
+           scheduled_room_id,
+           name
+         ) do
+      {:ok, d} ->
+        d
+
+      {:error, d} ->
+        %{
+          error: d
+        }
+    end
   end
 
   def f_handler("create_room", data, %State{} = state) do

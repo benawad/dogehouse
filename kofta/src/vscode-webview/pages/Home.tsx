@@ -14,10 +14,12 @@ import { ProfileButton } from "../components/ProfileButton";
 import { RoomCard } from "../components/RoomCard";
 import { Spinner } from "../components/Spinner";
 import { Wrapper } from "../components/Wrapper";
+import { EditScheduleRoomModalController } from "../modules/scheduled-rooms/EditScheduleRoomModalController";
+import { ScheduledRoomCard } from "../modules/scheduled-rooms/ScheduledRoomCard";
 import { GET_SCHEDULED_ROOMS } from "../modules/scheduled-rooms/ScheduledRoomsPage";
 import { Logo } from "../svgs/Logo";
 import { PeopleIcon } from "../svgs/PeopleIcon";
-import { CurrentRoom, PublicRoomsQuery } from "../types";
+import { CurrentRoom, PublicRoomsQuery, ScheduledRoom } from "../types";
 
 interface HomeProps {}
 
@@ -44,7 +46,11 @@ const Page = ({
 				op: get_top_public_rooms,
 				d: { cursor },
 			}),
-		{ staleTime: Infinity, enabled: status === "auth-good" }
+		{
+			staleTime: Infinity,
+			enabled: status === "auth-good",
+			refetchOnMount: "always",
+		}
 	);
 
 	if (isLoading) {
@@ -94,20 +100,29 @@ const Page = ({
 	);
 };
 
+const get_my_scheduled_rooms_about_to_start =
+	"get_my_scheduled_rooms_about_to_start";
+
+export type GetMyScheduledRoomsAboutToStartQuery = {
+	scheduledRooms: ScheduledRoom[];
+};
+
 export const Home: React.FC<HomeProps> = () => {
 	const history = useHistory();
 	const { currentRoom } = useCurrentRoomStore();
 	const [cursors, setCursors] = useState([0]);
 	const [showCreateRoomModal, setShowCreateRoomModal] = useState(false);
 	const queryClient = useQueryClient();
-
-	useEffect(() => {
-		return () => {
-			queryClient.invalidateQueries(get_top_public_rooms, {
-				refetchActive: false,
-			});
-		};
-	}, [queryClient]);
+	const { status } = useSocketStatus();
+	const { data } = useQuery<GetMyScheduledRoomsAboutToStartQuery>(
+		get_my_scheduled_rooms_about_to_start,
+		() => wsFetch<any>({ op: get_my_scheduled_rooms_about_to_start, d: {} }),
+		{
+			staleTime: Infinity,
+			enabled: status === "auth-good",
+			refetchOnMount: "always",
+		}
+	);
 
 	return (
 		<div className={`flex flex-col flex-1`}>
@@ -152,6 +167,50 @@ export const Home: React.FC<HomeProps> = () => {
 							<ProfileButton circle size={60} />
 						</div>
 					</div>
+
+					<EditScheduleRoomModalController
+						onScheduledRoom={(editInfo, data, _resp) => {
+							queryClient.setQueryData<GetMyScheduledRoomsAboutToStartQuery>(
+								get_my_scheduled_rooms_about_to_start,
+								(d) => {
+									return {
+										scheduledRooms: (d?.scheduledRooms || []).map((x) =>
+											x.id === editInfo.scheduleRoomToEdit.id
+												? {
+														...x,
+														name: data.name,
+														description: data.description,
+														scheduledFor: data.scheduledFor.toISOString(),
+												  }
+												: x
+										),
+									};
+								}
+							);
+						}}
+					>
+						{({ onEdit }) =>
+							data?.scheduledRooms.map((sr) => (
+								<ScheduledRoomCard
+									key={sr.id}
+									info={sr}
+									onEdit={() => onEdit({ scheduleRoomToEdit: sr, cursor: "" })}
+									onDeleteComplete={() => {
+										queryClient.setQueryData<GetMyScheduledRoomsAboutToStartQuery>(
+											get_my_scheduled_rooms_about_to_start,
+											(d) => {
+												return {
+													scheduledRooms: d?.scheduledRooms.filter(
+														(x) => x.id !== sr.id
+													) as ScheduledRoom[],
+												};
+											}
+										);
+									}}
+								/>
+							))
+						}
+					</EditScheduleRoomModalController>
 					{currentRoom ? (
 						<div className={`my-8`}>
 							<RoomCard

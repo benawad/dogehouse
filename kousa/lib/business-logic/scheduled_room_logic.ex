@@ -1,7 +1,16 @@
 defmodule Kousa.BL.ScheduledRoom do
   use Kousa.Dec.Atomic
-  alias Kousa.{BL, Data, RegUtils, Gen, Caster, VoiceServerUtils, Errors}
+  alias Kousa.{BL, Data, Errors}
   alias Beef.{ScheduledRoom}
+
+  def create_room_from_scheduled_room(user_id, scheduled_room_id, name) do
+    with {:ok, response} <- BL.Room.create_room(user_id, name, false) do
+      Data.ScheduledRoom.room_started(user_id, scheduled_room_id, response.room.id)
+      {:ok, response}
+    else
+      error -> error
+    end
+  end
 
   def delete(user_id, id) do
     Data.ScheduledRoom.delete(user_id, id)
@@ -34,6 +43,10 @@ defmodule Kousa.BL.ScheduledRoom do
           {[Beef.ScheduledRoom], nil | number}
   def get_scheduled_rooms(user_id, get_only_my_scheduled_rooms, cursor) do
     Data.ScheduledRoom.get_feed(user_id, get_only_my_scheduled_rooms, cursor)
+  end
+
+  def get_my_scheduled_rooms_about_to_start(user_id) do
+    Data.ScheduledRoom.get_my_scheduled_rooms_about_to_start(user_id)
   end
 
   def get_my_scheduled_room(user_id) do

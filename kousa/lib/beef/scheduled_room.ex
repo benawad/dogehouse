@@ -26,7 +26,8 @@ defmodule Beef.ScheduledRoom do
     field(:name, :string)
     field(:numAttending, :integer)
     field(:scheduledFor, :utc_datetime_usec)
-    field(:description, :string)
+    field(:description, :string, default: "")
+    field(:started, :boolean)
 
     belongs_to(:creator, User, foreign_key: :creatorId, type: :binary_id)
     belongs_to(:room, Room, foreign_key: :roomId, type: :binary_id)

@@ -15,6 +15,19 @@ defmodule Kousa.Data.ScheduledRoom do
     %ScheduledRoom{} |> ScheduledRoom.insert_changeset(data) |> Repo.insert(returning: true)
   end
 
+  def room_started(user_id, id, room_id) do
+    from(sr in ScheduledRoom,
+      where: sr.creatorId == ^user_id and sr.id == ^id,
+      update: [
+        set: [
+          roomId: ^room_id,
+          started: true
+        ]
+      ]
+    )
+    |> Repo.update_all([])
+  end
+
   @spec edit(
           any,
           any,
@@ -59,12 +72,34 @@ defmodule Kousa.Data.ScheduledRoom do
     end
   end
 
+  def get_my_scheduled_rooms_about_to_start(user_id) do
+    from(sr in ScheduledRoom,
+      inner_join: u in assoc(sr, :creator),
+      where:
+        sr.creatorId == ^user_id and is_nil(sr.roomId) and
+          sr.started ==
+            false and
+          fragment(
+            "? - interval '1 hours' < now() and ? + interval '2 hours' > now()",
+            sr.scheduledFor,
+            sr.scheduledFor
+          ),
+      order_by: [asc: sr.scheduledFor],
+      limit: ^@fetch_limit,
+      preload: [
+        creator: u
+      ]
+    )
+    |> Repo.all()
+  end
+
   @spec get_feed(String.t(), boolean(), String.t()) :: {[ScheduledRoom], nil | number}
   def get_feed(user_id, get_only_my_scheduled_rooms, cursor) do
     q =
       from(sr in ScheduledRoom,
         inner_join: u in assoc(sr, :creator),
         order_by: [asc: sr.scheduledFor, asc: sr.id],
+        where: sr.started == false,
         limit: ^@fetch_limit,
         preload: [
           creator: u
