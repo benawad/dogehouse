@@ -103,7 +103,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
 					className={`mr-3`}
 				>
 					<span className={`font-bold`}>{profile.numFollowers}</span>{" "}
-					{t("pages.viewUser.folowers")}
+					{t("pages.viewUser.followers")}
 				</button>
 				<button
 					onClick={() => {
