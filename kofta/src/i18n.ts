@@ -2,7 +2,7 @@ import i18n from "i18next";
 import Backend from "i18next-http-backend";
 //import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from "react-i18next";
-import { __prod__ } from "./vscode-webview/constants";
+import { __prod__ } from "./app/constants";
 
 export const init_i18n = () => {
 	i18n
