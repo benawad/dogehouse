@@ -148,7 +148,7 @@ defmodule Kousa.Gen.UserSession do
     if not is_nil(state.pid) do
       send(state.pid, {:kill})
     else
-      Beef.Mutations.User.set_online(state.user_id)
+      Beef.Users.set_online(state.user_id)
     end
 
     Process.monitor(pid)
@@ -173,7 +173,7 @@ defmodule Kousa.Gen.UserSession do
 
   def handle_info({:DOWN, _ref, :process, pid, _reason}, state) do
     if state.pid === pid do
-      Beef.Mutations.User.set_offline(state.user_id)
+      Beef.Users.set_offline(state.user_id)
 
       if state.current_room_id do
         Kousa.BL.Room.leave_room(state.user_id, state.current_room_id)

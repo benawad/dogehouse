@@ -74,7 +74,7 @@ defmodule Beef.Follows do
   end
 
   def fetch_invite_list(user_id, offset \\ 0) do
-    user = Beef.Access.User.get_by_id(user_id)
+    user = Beef.Users.get_by_id(user_id)
 
     items =
       from(

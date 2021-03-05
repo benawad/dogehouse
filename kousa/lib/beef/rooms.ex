@@ -14,7 +14,7 @@ defmodule Beef.Rooms do
   alias Beef.Repo
 
   def get_room_status(user_id) do
-    room = Beef.Queries.User.get_current_room(user_id)
+    room = Beef.Users.get_current_room(user_id)
 
     cond do
       is_nil(room) ->
@@ -76,7 +76,7 @@ defmodule Beef.Rooms do
   end
 
   def join_room(room, user_id) do
-    user = Beef.Queries.User.set_current_room(user_id, room.id, room.isPrivate, true)
+    user = Beef.Users.set_current_room(user_id, room.id, room.isPrivate, true)
 
     if (length(room.peoplePreviewList) < 10 or
           not is_nil(
@@ -240,7 +240,7 @@ defmodule Beef.Rooms do
         {:bye, room}
       else
         # IO.puts("set_user_left_current_room")
-        Beef.Mutations.User.set_user_left_current_room(user_id)
+        Beef.Users.set_user_left_current_room(user_id)
         new_people_list = Enum.filter(room.peoplePreviewList, fn x -> x.id != user_id end)
 
         if room.creatorId != user_id do
@@ -289,7 +289,7 @@ defmodule Beef.Rooms do
 
   @spec create(:invalid | %{optional(:__struct__) => none, optional(atom | binary) => any}) :: any
   def create(data) do
-    user = Beef.Access.User.get_by_id(data.creatorId)
+    user = Beef.Users.get_by_id(data.creatorId)
 
     peoplePreviewList = [
       %{id: user.id, displayName: user.displayName, numFollowers: user.numFollowers}
@@ -310,7 +310,7 @@ defmodule Beef.Rooms do
 
     case resp do
       {:ok, room} ->
-        Beef.Queries.User.set_current_room(data.creatorId, room.id)
+        Beef.Users.set_current_room(data.creatorId, room.id)
 
       _ ->
         nil
