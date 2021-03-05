@@ -1,11 +1,11 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-interface LanguageSelectorProps<T> {
+interface LanguageSelectorProps {
 	options?: Array<{ value: string; label: string }>;
 }
 
-export const LanguageSelector: React.FC<LanguageSelectorProps<{}>> = ({
+export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
 	options = [
 		{ value: "en", label: "en" },
 		{ value: "de", label: "de" },
