@@ -6,9 +6,9 @@ defmodule Kousa.BL.Room do
   alias Kousa.Caster
   alias Kousa.VoiceServerUtils
   alias Beef.Users
+  alias Beef.Follows
   alias Beef.Rooms
   # note the following 2 module aliases are on the chopping block!
-  alias Kousa.Data.Follower
   alias Kousa.Data.RoomPermission
 
   def set_auto_speaker(user_id, value) do
@@ -55,7 +55,7 @@ defmodule Kousa.BL.Room do
     user = Users.get_by_id(user_id)
 
     if not is_nil(user.currentRoomId) and
-         Follower.is_following_me(user_id, user_id_to_invite) do
+         Follows.following_me?(user_id, user_id_to_invite) do
       # @todo store room name in RoomSession to avoid db lookups
       room = Rooms.get_room_by_id(user.currentRoomId)
 
@@ -126,7 +126,7 @@ defmodule Kousa.BL.Room do
   @spec internal_set_speaker(any, any) :: nil | :ok | {:err, {:error, :not_found}}
   def internal_set_speaker(user_id_to_make_speaker, room_id) do
     with {:ok, _} <-
-           RoomPermission.set_is_speaker(user_id_to_make_speaker, room_id, true) do
+           RoomPermission.set_speaker?(user_id_to_make_speaker, room_id, true) do
       case GenRegistry.lookup(
              Kousa.Gen.RoomSession,
              room_id
@@ -169,16 +169,16 @@ defmodule Kousa.BL.Room do
     end
   end
 
-  def join_vc_room(user_id, room, is_speaker \\ nil) do
-    is_speaker =
-      if is_nil(is_speaker),
+  def join_vc_room(user_id, room, speaker? \\ nil) do
+    speaker? =
+      if is_nil(speaker?),
         do:
           room.creatorId == user_id or
-            RoomPermission.is_speaker(user_id, room.id),
-        else: is_speaker
+            RoomPermission.speaker?(user_id, room.id),
+        else: speaker?
 
     op =
-      if is_speaker,
+      if speaker?,
         do: "join-as-speaker",
         else: "join-as-new-peer"
 

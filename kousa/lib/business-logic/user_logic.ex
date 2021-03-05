@@ -1,6 +1,7 @@
 defmodule Kousa.BL.User do
   alias Kousa.Gen
   alias Kousa.RegUtils
+  alias Beef.Follows
   alias Beef.Users
   alias Kousa.Gen
   alias Kousa.RegUtils
@@ -72,7 +73,7 @@ defmodule Kousa.BL.User do
             ids = Users.find_by_github_ids(Enum.map(nodes, &Integer.to_string(&1["databaseId"])))
 
             {new_followers, _} =
-              Kousa.Data.Follower.bulk_insert(Enum.map(ids, &%{userId: &1, followerId: user_id}))
+              Follows.bulk_insert(Enum.map(ids, &%{userId: &1, followerId: user_id}))
 
             Users.inc_num_following(user_id, new_followers)
 

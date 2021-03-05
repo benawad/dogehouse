@@ -10,7 +10,7 @@ defmodule Kousa.Data.RoomBlock do
     |> Repo.delete_all()
   end
 
-  def is_blocked(room_id, user_id) do
+  def blocked?(room_id, user_id) do
     not is_nil(
       from(rb in Beef.RoomBlock,
         where: rb.userId == ^user_id and rb.roomId == ^room_id,

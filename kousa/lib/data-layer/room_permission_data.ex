@@ -17,7 +17,7 @@ defmodule Kousa.Data.RoomPermission do
     )
   end
 
-  def is_speaker(user_id, room_id) do
+  def speaker?(user_id, room_id) do
     not is_nil(
       Beef.Repo.one(
         from(rp in Beef.RoomPermission,
@@ -39,10 +39,10 @@ defmodule Kousa.Data.RoomPermission do
     upsert(%{roomId: room_id, userId: user_id, askedToSpeak: true}, askedToSpeak: true)
   end
 
-  def set_is_speaker(user_id, room_id, is_speaker, returning \\ false) do
+  def set_speaker?(user_id, room_id, speaker?, returning \\ false) do
     upsert(
-      %{roomId: room_id, userId: user_id, isSpeaker: is_speaker},
-      [isSpeaker: is_speaker],
+      %{roomId: room_id, userId: user_id, isSpeaker: speaker?},
+      [isSpeaker: speaker?],
       returning
     )
   end

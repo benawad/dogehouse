@@ -3,7 +3,7 @@ defmodule Beef.RoomBlock do
   import Ecto.Changeset
   alias Beef.Schemas.User
   alias Beef.Schemas.Room
-  
+
   @timestamps_opts [type: :utc_datetime_usec]
 
   @derive {Poison.Encoder, only: [:userId, :roomId, :modId]}
