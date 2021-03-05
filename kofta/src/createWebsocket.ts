@@ -38,7 +38,11 @@ export const createWebSocket = () => {
 
 	useSocketStatus.getState().setStatus("connecting");
 
-	ws = new ReconnectingWebSocket(apiBaseUrl.replace("http", "ws") + "/socket");
+	ws = new ReconnectingWebSocket(
+		apiBaseUrl.replace("http", "ws") + "/socket",
+		undefined,
+		{ connectionTimeout: 15000 }
+	);
 	const { accessToken, refreshToken } = useTokenStore.getState();
 
 	ws.addEventListener("close", ({ code, reason }) => {
