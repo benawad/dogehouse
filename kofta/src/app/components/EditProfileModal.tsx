@@ -15,7 +15,7 @@ import { Modal } from "./Modal";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 
 const profileStruct = object({
-	displayName: size(string(), 2, 50),
+	displayName: size(pattern(string(), /^[^\s]+(\s+[^\s]+)*$/), 2, 50),
 	username: pattern(string(), /^(\w){4,15}$/),
 	bio: size(string(), 0, 160),
 	avatarUrl: pattern(
