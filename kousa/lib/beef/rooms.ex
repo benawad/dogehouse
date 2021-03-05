@@ -9,9 +9,9 @@ defmodule Beef.Rooms do
 
   alias Beef.Schemas.User
   alias Beef.Schemas.Room
-  alias Beef.UserPreview
-  alias Beef.UserBlock
+  alias Beef.Schemas.UserBlock
   alias Beef.Users
+  alias Beef.UserBlocks
   alias Beef.Repo
 
   def get_room_status(user_id) do
@@ -61,12 +61,12 @@ defmodule Beef.Rooms do
           room.numPeopleInside >= max_room_size ->
             {:error, "room is full"}
 
-          Kousa.Data.RoomBlock.is_blocked(room_id, user_id) ->
+          Kousa.Data.RoomBlock.blocked?(room_id, user_id) ->
             {:error, "you are blocked from the room"}
 
           true ->
             cond do
-              Kousa.Data.UserBlock.is_blocked(room.creatorId, user_id) ->
+              UserBlocks.blocked?(room.creatorId, user_id) ->
                 {:error, "the creator of the room blocked you"}
 
               true ->
@@ -87,7 +87,7 @@ defmodule Beef.Rooms do
           )) and is_nil(Enum.find(room.peoplePreviewList, &(&1.id === user_id))) do
       list =
         [
-          %UserPreview{
+          %User.Preview{
             id: user.id,
             displayName: user.displayName,
             numFollowers: user.numFollowers
@@ -320,7 +320,7 @@ defmodule Beef.Rooms do
     resp
   end
 
-  def is_owner(room_id, user_id) do
+  def owner?(room_id, user_id) do
     not is_nil(
       Beef.Repo.one(from(r in Room, where: r.id == ^room_id and r.creatorId == ^user_id))
     )

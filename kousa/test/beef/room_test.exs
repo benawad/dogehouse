@@ -9,7 +9,6 @@ defmodule Kousa.Beef.RoomTest do
   alias Beef.Repo
 
   describe "Beef.Room" do
-
     test "you can add a room into the room table" do
       %{id: cid} = Factory.create(User)
       vid = UUID.uuid4()

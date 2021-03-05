@@ -7,6 +7,7 @@ defmodule Kousa.SocketHandler do
   alias Kousa.Caster
   alias Beef.Users
   alias Beef.Rooms
+  alias Beef.Follows
 
   # TODO: just collapse this into its parent module.
   defmodule State do
@@ -264,7 +265,7 @@ defmodule Kousa.SocketHandler do
   # end
 
   def handler("fetch_following_online", %{"cursor" => cursor}, state) do
-    {users, next_cursor} = Kousa.Data.Follower.fetch_following_online(state.user_id, cursor)
+    {users, next_cursor} = Follows.fetch_following_online(state.user_id, cursor)
 
     {:reply,
      construct_socket_msg(state.encoding, state.compression, %{
@@ -284,7 +285,7 @@ defmodule Kousa.SocketHandler do
   end
 
   def handler("fetch_invite_list", %{"cursor" => cursor}, state) do
-    {users, next_cursor} = Kousa.Data.Follower.fetch_invite_list(state.user_id, cursor)
+    {users, next_cursor} = Follows.fetch_invite_list(state.user_id, cursor)
 
     {:reply,
      construct_socket_msg(state.encoding, state.compression, %{
@@ -482,7 +483,7 @@ defmodule Kousa.SocketHandler do
        d:
          Map.merge(
            %{userId: other_user_id},
-           Kousa.Data.Follower.get_info(state.user_id, other_user_id)
+           Follows.get_info(state.user_id, other_user_id)
          )
      }), state}
   end
