@@ -203,7 +203,7 @@ defmodule Kousa.BL.Room do
           RegUtils.lookup_and_cast(Gen.RoomSession, room_id, {:new_room_details, new_name, new_description, is_private})
 
         {:error, x} ->
-          {:error, Kousa.Errors.changeset_to_first_err_message(x)}
+          {:error, Kousa.Errors.changeset_to_first_err_message_with_field_name(x)}
       end
     end
   end

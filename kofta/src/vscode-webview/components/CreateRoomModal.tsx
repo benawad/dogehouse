@@ -84,7 +84,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 					<Form>
 						<InputField
 							name="name"
-							maxLength={60}
+							maxLength={600}
 							placeholder="room name"
 							autoFocus
 						/>

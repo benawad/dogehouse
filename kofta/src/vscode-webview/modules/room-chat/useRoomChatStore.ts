@@ -111,7 +111,7 @@ export const useRoomChatStore = create(
 				set({
 					message,
 				}),
-			setOpen: (open) => set((s) => ({ ...s, open })),
+			setOpen: (open: boolean) => set((s) => ({ ...s, open })),
 		})
 	)
 );
