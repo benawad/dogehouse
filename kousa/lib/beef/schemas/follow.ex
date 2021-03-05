@@ -1,4 +1,4 @@
-defmodule Beef.Follow do
+defmodule Beef.Schemas.Follow do
   use Ecto.Schema
   import Ecto.Changeset
   @timestamps_opts [type: :utc_datetime_usec]

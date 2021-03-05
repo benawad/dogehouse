@@ -7,7 +7,7 @@ defmodule Kousa.Beef.UsersTest do
 
   alias Beef.Schemas.Room
   alias Beef.Schemas.User
-  alias Beef.Schemas.Users
+  alias Beef.Users
   alias Kousa.Support.Factory
   alias Beef.Repo
 
