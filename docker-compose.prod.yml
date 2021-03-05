@@ -1,0 +1,44 @@
+version: "3"
+
+# service_name:
+#   build: 
+#     context: .
+#     dockerfile: path/to/Dockerfile
+#
+
+# kofta is not here cause it's manually deployed.
+services:
+  shawarma:
+    image: dogehouse/shawarma
+    environment: 
+      - DATABA
+  kousa:
+    image: dogehouse/kousa
+    environment: 
+      - DATABASE_URL=postgres://${POSTGRES_DB_USER}:${POSTGRES_DB_PASSWORD}@127.0.0.1/${POSTGRES_DB_NAME}    
+      - BEN_GITHUB_ID=${GITHUB_ID}
+      - RABBITMQ_URL=amqp://127.0.0.1:4001
+      - SENTRY_DSN=${SENTRY_DSN}
+      - GITHUB_CLIENT_ID=${GITHUB_CLIENT_ID}
+      - GITHUB_CLIENT_SECRET=${GITHUB_CLIENT_SECRET}
+      - TWITTER_SECRET_KEY=${TWITTER_SECRET_KEY}
+      - TWITTER_API_KEY=${TWITTER_API_KEY}
+      - TWITER_BEARER_TOKEN=${TWITTER_BEARER_TOKEN}
+      - SECRET_KEY_BASE=${SECRET_KEY_BASE}
+      - ACCESS_TOKEN_SECRET=${ACCESS_TOKEN}
+      - REFRESH_TOKEN_SECRET=${REFRESH_TOKEN}
+      - WEB_URL=${WEB_URL}
+      - API_URL=${API_URL}
+  postgres:
+    environment: 
+	    - POSTGRES_USER=${POSTGRES_DB_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_DB_PASSWORD}
+      - POSTGRE_DB=${POSTGRES_DB_NAME}
+  rabbitmq:
+    environment: 
+      RABBITMQ_ERLANG_COOKIE: ${RABBITMQ_ERLANG_COOKIE}
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
+  adminer:
+    ports: 
+      - "${ADMINER_PORT}:${ADMINER_PORT}"

@@ -5,3 +5,5 @@ node_modules
 .netlify
 
 /.idea
+*.env
+.docker/
