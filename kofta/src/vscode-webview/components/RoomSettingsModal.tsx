@@ -7,6 +7,7 @@ import { renameRoomAndMakePublic } from "../../webrtc/utils/renameRoomAndMakePub
 import { BlockedFromRoomUsers } from "./BlockedFromRoomUsers";
 import { Button } from "./Button";
 import { Modal } from "./Modal";
+import { useTranslation } from 'react-i18next';
 
 interface RoomSettingsModalProps {
   open: boolean;
@@ -18,6 +19,7 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
   onRequestClose,
 }) => {
   const { currentRoom, setCurrentRoom } = useCurrentRoomStore();
+  const { t } = useTranslation();
   return (
     <Modal isOpen={open} onRequestClose={onRequestClose}>
       <button
@@ -50,7 +52,7 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
               id="auto-speaker"
               type="checkbox"
             />
-            <span className={`ml-2`}>require permission to speak</span>
+            <span className={`ml-2`}>{t("components.modal.roomSettingsModal.requirePermission")}</span>
           </label>
           {currentRoom.isPrivate ? (
             <Button
@@ -59,7 +61,7 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
                 onRequestClose();
               }}
             >
-              make room public
+              {t("components.modal.roomSettingsModal.makePublic")}
             </Button>
           ) : (
             <Button
@@ -68,7 +70,7 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
                 onRequestClose();
               }}
             >
-              make room private
+              {t("components.modal.roomSettingsModal.makePrivate")}
             </Button>
           )}
           {open ? <BlockedFromRoomUsers /> : null}

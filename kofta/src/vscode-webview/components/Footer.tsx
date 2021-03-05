@@ -1,4 +1,6 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+import { LanguageSelector } from "./LanguageSelector";
 import { RegularAnchor } from "./RegularAnchor";
 
 interface FooterProps {
@@ -6,18 +8,20 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ isLogin }) => {
+  const { t } = useTranslation();
+
   return (
     <div className={`justify-around flex text-center`}>
       {isLogin ? (
         <RegularAnchor href="https://www.youtube.com/watch?v=hy-EhJ_tTQo">
-          Origin Story
+          {t("footer.link_1")}
         </RegularAnchor>
       ) : null}
       <RegularAnchor href="https://discord.gg/wCbKBZF9cV">
-        Discord
+        {t("footer.link_2")}
       </RegularAnchor>
       <RegularAnchor href="https://github.com/benawad/dogehouse/issues">
-        Report a Bug
+        {t("footer.link_3")}
       </RegularAnchor>
       {/* cramps footer on mobile @todo think about how to incorporate this without cramping footer and making the footer really tall */}
       {/* <RegularAnchor
@@ -27,6 +31,7 @@ export const Footer: React.FC<FooterProps> = ({ isLogin }) => {
       >
         What's new?
       </RegularAnchor> */}
+      <LanguageSelector />
     </div>
   );
 };

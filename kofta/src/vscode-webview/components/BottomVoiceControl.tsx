@@ -22,6 +22,7 @@ import { GET_BLOCKED_FROM_ROOM_USERS } from "./BlockedFromRoomUsers";
 import { modalConfirm } from "./ConfirmModal";
 import { Footer } from "./Footer";
 import { RoomSettingsModal } from "./RoomSettingsModal";
+import { useTranslation } from 'react-i18next';
 
 interface BottomVoiceControlProps {}
 
@@ -50,27 +51,29 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
 
   const buttons = [];
 
+  const { t } = useTranslation();
+
   if (currentRoom) {
     buttons.push(
       <button
         className={buttonStyle}
         key="leave-room"
         onClick={() => {
-          modalConfirm("Are you sure you want to leave?", () => {
+          modalConfirm(t("components.bottomVoiceControl.confirmLeaveRoom"), () => {
             wsend({ op: "leave_room", d: {} });
             if (location.pathname.startsWith("/room")) {
               history.push("/");
             }
           });
         }}
-        title="Leave current room"
+        title={t("components.bottomVoiceControl.leaveCurrentRoomBtn")}
       >
         <PhoneMissed
           className={`m-auto mb-1`}
           size={iconSize}
           color={iconColor}
         />
-        Leave
+        {t("components.bottomVoiceControl.leave")}
       </button>,
       <button
         className={buttonStyle}
@@ -107,10 +110,10 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           wsend({ op: "fetch_invite_list", d: { cursor: 0 } });
           history.push("/invite");
         }}
-        title="Invite users to room"
+        title={t("components.bottomVoiceControl.inviteUsersToRoomBtn")}
       >
         <UserPlus className={`m-auto mb-1`} size={iconSize} color={iconColor} />
-        Invite
+        {t("components.bottomVoiceControl.invite")}
       </button>
     );
     if (isCreator || canSpeak) {
@@ -125,7 +128,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             });
             setMute(!muted);
           }}
-          title="Toggle mute microphone"
+          title={t("components.bottomVoiceControl.toggleMuteMicBtn")}
         >
           {muted ? (
             <MicOff
@@ -136,7 +139,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           ) : (
             <Mic className={`m-auto mb-1`} size={iconSize} color={iconColor} />
           )}
-          {muted ? "Unmute" : "Mute"}
+          {muted ? t("components.bottomVoiceControl.unmute") : t("components.bottomVoiceControl.mute")}
         </button>
       );
     }
@@ -158,14 +161,14 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             );
             setSettingsOpen(true);
           }}
-          title="Make room public!"
+          title={t("components.bottomVoiceControl.makeRoomPublicBtn")}
         >
           <Settings
             className={`m-auto mb-1`}
             size={iconSize}
             color={iconColor}
           />
-          Settings
+          {t("components.bottomVoiceControl.settings")}
         </button>
       );
     }
@@ -199,7 +202,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
               {currentRoom.name}{" "}
             </span>
             <span className={`text-blue-500 ml-2`}>
-              {canSpeak ? "speaker" : "listener"}
+              {canSpeak ? t("components.bottomVoiceControl.speaker") : t("components.bottomVoiceControl.listener")}
             </span>
           </button>
         ) : null}

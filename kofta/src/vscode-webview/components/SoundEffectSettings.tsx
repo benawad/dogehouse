@@ -5,6 +5,7 @@ import {
   useSoundEffectStore,
 } from "../modules/sound-effects/useSoundEffectStore";
 import { Checkbox } from "./Checkbox";
+import { useTranslation } from 'react-i18next';
 
 interface ChatSettingsProps {}
 
@@ -19,10 +20,11 @@ export const SoundEffectSettings: React.FC<ChatSettingsProps> = () => {
     setSetting,
     playSoundEffect,
   ] = useSoundEffectStore((x) => [x.settings, x.setSetting, x.playSoundEffect]);
+  const { t } = useTranslation();
 
   return (
     <>
-      <h1 className={`py-8 text-4xl`}>Sounds</h1>
+      <h1 className={`py-8 text-4xl`}>{t("pages.soundEffectSettings.header")}</h1>
 
       {Object.keys(soundEffectSettings).map((k) => {
         return (

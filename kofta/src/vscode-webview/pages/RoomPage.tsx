@@ -19,6 +19,7 @@ import { Codicon } from "../svgs/Codicon";
 import { BaseUser } from "../types";
 import { isUuid } from "../utils/isUuid";
 import { CreateRoomModal } from "../components/CreateRoomModal";
+import { useTranslation } from 'react-i18next';
 
 interface RoomPageProps {}
 
@@ -37,7 +38,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   } = useCurrentRoomInfo();
   const fullscreenChatOpen = useShouldFullscreenChat();
   const [showCreateRoomModal, setShowCreateRoomModal] = useState(false);
-
+  const { t } = useTranslation();
   // useEffect(() => {
   //   if (room?.users.length) {
   //     setUserProfileId(room.users[0].id);
@@ -54,7 +55,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
       <Wrapper>
         <Backbar />
         <BodyWrapper>
-          <div>loading...</div>
+          <div>{t("common.loading")}</div>
         </BodyWrapper>
       </Wrapper>
     );
@@ -109,7 +110,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
             className={`w-full grid gap-5`}
           >
             <div className={`col-span-full text-xl ml-2.5 text-white`}>
-              Speakers ({speakers.length})
+              {t("pages.room.speakers")} ({speakers.length})
             </div>
             {speakers.map((u) => (
               <RoomUserNode
@@ -139,7 +140,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
             ) : null}
             {unansweredHands.length ? (
               <div className={`col-span-full text-xl ml-2.5 text-white`}>
-                Requesting to speak ({unansweredHands.length})
+                {t("pages.room.requestingToSpeak")} ({unansweredHands.length})
               </div>
             ) : null}
             {unansweredHands.map((u) => (
@@ -155,7 +156,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
             ))}
             {listeners.length ? (
               <div className={`col-span-full text-xl mt-2.5 ml-2.5 text-white`}>
-                Listeners ({listeners.length})
+                {t("pages.room.listeners")} ({listeners.length})
               </div>
             ) : null}
             {listeners.map((u) => (

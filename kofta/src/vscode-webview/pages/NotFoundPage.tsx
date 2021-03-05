@@ -3,10 +3,12 @@ import { Wrapper } from "../components/Wrapper";
 import { Logo } from "../svgs/Logo";
 import { Link } from "react-router-dom";
 import { BodyWrapper } from "../components/BodyWrapper";
+import { useTranslation } from 'react-i18next';
 
 interface NotFoundPageProps {}
 
 export const NotFoundPage: React.FC<NotFoundPageProps> = () => {
+  const { t } = useTranslation();
   return (
     <Wrapper>
       <BodyWrapper>
@@ -14,11 +16,11 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = () => {
           <Logo />
         </div>
         <div className={`text-2xl`}>
-          Whoops! This page got lost in conversation.
+          {t("pages.notFound.whoopsError")}
         </div>
-        Not to worry. You can 
+        {t("pages.notFound.goHomeMessage")}
         <Link to="/" className={`text-blue-400`}>
-          go home
+          {t("pages.notFound.goHomeLinkText")}
         </Link>
       </BodyWrapper>
     </Wrapper>

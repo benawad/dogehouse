@@ -12,6 +12,7 @@ import { Button } from "./Button";
 import { FieldSpacer } from "./form-fields/FieldSpacer";
 import { InputField } from "./form-fields/InputField";
 import { Modal } from "./Modal";
+import { useTranslation } from 'react-i18next';
 
 const profileStruct = object({
   displayName: size(string(), 2, 50),
@@ -41,6 +42,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
 }) => {
   const { mutateAsync, isLoading } = useMutation(wsMutation);
   const [, setMe] = useAtom(setMeAtom);
+  const { t } = useTranslation();
   return (
     <Modal isOpen={isOpen} onRequestClose={onRequestClose}>
       {isOpen ? (
@@ -59,7 +61,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
               d: { data },
             })) as unknown) as { isUsernameTaken: boolean };
             if (isUsernameTaken) {
-              showErrorToast("username taken");
+              showErrorToast(t("components.modals.editProfileModal.usernameTaken"));
             } else {
               setMe((me) => (!me ? me : { ...me, ...data }));
               onRequestClose();
@@ -69,26 +71,26 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
           {({ handleSubmit }) => (
             <div>
               <InputField
-                errorMsg="Invalid image"
-                label="Github/Twitter avatar url"
+                errorMsg={t("components.modals.editProfileModal.avatarUrlError")}
+                label={t("components.modals.editProfileModal.avatarUrlLabel")}
                 name="avatarUrl"
               />
               <FieldSpacer />
               <InputField
-                errorMsg="length 2 to 50 characters"
-                label="Display Name"
+                errorMsg={t("components.modals.editProfileModal.displayNameError")}
+                label={t("components.modals.editProfileModal.displayNameLabel")}
                 name="displayName"
               />
               <FieldSpacer />
               <InputField
-                errorMsg="length 4 to 15 characters and only alphanumeric/underscore"
-                label="Username"
+                errorMsg={t("components.modals.editProfileModal.usernameError")}
+                label={t("components.modals.editProfileModal.usernameLabel")}
                 name="username"
               />
               <FieldSpacer />
               <InputField
-                errorMsg="max length of 160 characters"
-                label="Bio"
+                errorMsg={t("components.modals.editProfileModal.bioError")}
+                label={t("components.modals.editProfileModal.bioLabel")}
                 textarea
                 name="bio"
               />
@@ -99,7 +101,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                   className={`mr-2`}
                   color="secondary"
                 >
-                  cancel
+                  {t("common.cancel")}
                 </Button>
                 <Button
                   type="button"
@@ -107,7 +109,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                   onClick={() => handleSubmit()}
                   className={`ml-2`}
                 >
-                  save
+                  {t("common.save")}
                 </Button>
               </div>
             </div>

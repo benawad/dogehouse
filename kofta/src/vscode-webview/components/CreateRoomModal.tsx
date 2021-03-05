@@ -9,6 +9,7 @@ import { showErrorToast } from "../utils/showErrorToast";
 import { Button } from "./Button";
 import { InputField } from "./form-fields/InputField";
 import { Modal } from "./Modal";
+import { useTranslation } from 'react-i18next';
 
 interface CreateRoomModalProps {
 	onRequestClose: () => void;
@@ -26,6 +27,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 	edit,
 }) => {
 	const history = useHistory();
+  const { t } = useTranslation();
 	return (
 		<Modal isOpen onRequestClose={onRequestClose}>
 			<Formik<{
@@ -52,7 +54,6 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 							description: "min length 500",
 						};
 					}
-
 					return errors;
 				}}
 				onSubmit={async ({ name, privacy, description }) => {
@@ -103,10 +104,10 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 								}}
 							>
 								<option value="public" className={`bg-simple-gray-3c`}>
-									public
+									{t("components.modals.createRoomModal.public")}
 								</option>
 								<option value="private" className={`bg-simple-gray-3c`}>
-									private
+									{t("components.modals.createRoomModal.private")}
 								</option>
 							</select>
 						</div>
@@ -118,10 +119,10 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 								className={`mr-1.5`}
 								color="secondary"
 							>
-								cancel
+								{t("common.cancel")}
 							</Button>
 							<Button loading={isSubmitting} type="submit" className={`ml-1.5`}>
-								ok
+								{t("common.ok")}
 							</Button>
 						</div>
 					</Form>

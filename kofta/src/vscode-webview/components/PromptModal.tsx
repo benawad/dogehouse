@@ -4,6 +4,7 @@ import create from "zustand";
 import { combine } from "zustand/middleware";
 import { Button } from "./Button";
 import { Input } from "./Input";
+import { useTranslation } from 'react-i18next';
 
 interface Props {}
 
@@ -35,6 +36,7 @@ export const modalPrompt = (
 
 export const PromptModal: React.FC<Props> = () => {
   const { onConfirm, message, close, value, set } = usePromptModalStore();
+  const { t } = useTranslation();
   return (
     <Modal isOpen={!!onConfirm} onRequestClose={() => close()}>
       <div className={`mb-4`}>{message}</div>
@@ -57,10 +59,10 @@ export const PromptModal: React.FC<Props> = () => {
             className={`mr-3`}
             color="secondary"
           >
-            cancel
+            {t("common.cancel")}
           </Button>
           <Button type="submit" className={`ml-3`}>
-            ok
+            {t("common.ok")}
           </Button>
         </div>
       </form>
