@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useMicIdStore } from "../../vscode-webview/shared-stores";
+import { useMicIdStore } from "../../app/shared-stores";
 
 interface MicPickerProps {}
 
