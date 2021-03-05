@@ -362,6 +362,17 @@ defmodule Kousa.SocketHandler do
     {:ok, state}
   end
 
+  # @deprecated
+  def handler("edit_room_name", %{"name" => name}, state) do
+    case BL.Room.rename_room(state.user_id, name) do
+      {:error, message} ->
+        {:reply, prepare_socket_msg(%{op: "error", d: message}, state), state}
+
+      _ ->
+        {:ok, state}
+    end
+  end
+
   def handler("edit_room", %{"name" => name, "description" => description, "privacy" => privacy}, state) do
     case BL.Room.edit_room(state.user_id, name, description, privacy == "private") do
       {:error, message} ->
