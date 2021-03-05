@@ -3,7 +3,7 @@ defmodule Beef.Repo.Migrations.RoomDescription do
 
   def change do
     alter table(:rooms) do
-      add :description, :text, default: ""
+      add :description, :text, default: "", null: false
     end
   end
 end
