@@ -1,6 +1,10 @@
 defmodule Kousa.Gen.UserSession do
   use GenServer
-  alias Kousa.{Gen, RegUtils, Data, BL}
+  alias Kousa.Gen
+  alias Kousa.RegUtils
+  alias Kousa.Data
+  alias Kousa.BL
+  alias Beef.Schemas.Users
 
   defmodule State do
     @type t :: %__MODULE__{
@@ -145,7 +149,7 @@ defmodule Kousa.Gen.UserSession do
     if not is_nil(state.pid) do
       send(state.pid, {:kill})
     else
-      Kousa.Data.User.set_online(state.user_id)
+      Users.set_online(state.user_id)
     end
 
     Process.monitor(pid)
@@ -170,7 +174,7 @@ defmodule Kousa.Gen.UserSession do
 
   def handle_info({:DOWN, _ref, :process, pid, _reason}, state) do
     if state.pid === pid do
-      Kousa.Data.User.set_offline(state.user_id)
+      Users.set_offline(state.user_id)
 
       if state.current_room_id do
         Kousa.BL.Room.leave_room(state.user_id, state.current_room_id)

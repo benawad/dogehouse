@@ -3,6 +3,8 @@ defmodule Kousa.GitHubAuth do
   import Logger
   use Plug.Router
 
+  alias Beef.Schemas.Users
+
   plug(:match)
   plug(:dispatch)
 
@@ -85,7 +87,7 @@ defmodule Kousa.GitHubAuth do
       ) do
     try do
       {_, db_user} =
-        Kousa.Data.User.github_find_or_create(
+        Users.github_find_or_create(
           %{user | "email" => Kousa.Github.pick_primary_email(user["emails"])},
           access_token
         )

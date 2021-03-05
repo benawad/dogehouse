@@ -1,7 +1,8 @@
-defmodule Beef.AttendingScheduledRoom do
+defmodule Beef.Schemas.AttendingScheduledRoom do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Beef.{User, ScheduledRoom}
+  alias Beef.Schemas.User
+  alias Beef.Schemas.ScheduledRoom
   @timestamps_opts [type: :utc_datetime_usec]
 
   @type t :: %__MODULE__{

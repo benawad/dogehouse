@@ -1,7 +1,7 @@
 defmodule Kousa.BL.ScheduledRoom do
   use Kousa.Dec.Atomic
   alias Kousa.{BL, Data, Errors}
-  alias Beef.{ScheduledRoom}
+  alias Beef.Schemas.ScheduledRoom
 
   def create_room_from_scheduled_room(user_id, scheduled_room_id, name) do
     with {:ok, response} <- BL.Room.create_room(user_id, name, false) do
@@ -40,7 +40,7 @@ defmodule Kousa.BL.ScheduledRoom do
   end
 
   @spec get_scheduled_rooms(binary, boolean, String.t() | nil) ::
-          {[Beef.ScheduledRoom], nil | number}
+          {[ScheduledRoom], nil | number}
   def get_scheduled_rooms(user_id, get_only_my_scheduled_rooms, cursor) do
     Data.ScheduledRoom.get_feed(user_id, get_only_my_scheduled_rooms, cursor)
   end

@@ -1,16 +1,13 @@
-defmodule Kousa.Database.UserTest do
+defmodule Kousa.Beef.UserTest do
   # allow tests to run in parallel
   use ExUnit.Case, async: true
+  use Kousa.Support.EctoSandbox
 
   alias Kousa.Support.Factory
-  alias Beef.{Repo, User, Room}
-  alias Kousa.{Data}
-
-  import Kousa.Support.Helpers, only: [checkout_ecto_sandbox: 1]
-
-  # do this for all async tests.  Eventually move this into a common
-  # Kousa.Case module in `support` that you can use.
-  setup :checkout_ecto_sandbox
+  alias Beef.Schemas.User
+  alias Beef.Schemas.Users
+  alias Beef.Repo
+  alias Beef.Room
 
   describe "you can create a user" do
     @gh_input %{
@@ -22,7 +19,7 @@ defmodule Kousa.Database.UserTest do
     }
 
     test "with github" do
-      {:create, user} = Data.User.github_find_or_create(@gh_input, "foo-access-token")
+      {:create, user} = Users.github_find_or_create(@gh_input, "foo-access-token")
 
       [
         ^user
@@ -34,10 +31,6 @@ defmodule Kousa.Database.UserTest do
     {:ok, user: Factory.create(User)}
   end
 
-  defp create_two_users(_) do
-    {:ok, user1: Factory.create(User), user2: Factory.create(User)}
-  end
-
   describe "when you query a user" do
     setup :create_user
 
@@ -46,16 +39,24 @@ defmodule Kousa.Database.UserTest do
     # NB: this fails because the databases are currently not configured to
     # autogenerate UUIDs.
     test "by user_id", %{user: user = %{id: id}} do
-      assert [^id] = Data.User.find_by_github_ids([user.githubId])
+      assert [^id] = Users.find_by_github_ids([user.githubId])
     end
   end
 
   describe "when you edit a user" do
     setup :create_user
 
+    test "it forbids a too short username", %{user: %{id: id}} do
+      assert {:error, _} =
+               Users.edit_profile(
+                 id,
+                 %{username: "tim", displayName: "tim", bio: ""}
+               )
+    end
+
     test "with empty bio", %{user: %{id: id}} do
       assert {:ok, user} =
-               Data.User.edit_profile(id, %{
+               Users.edit_profile(id, %{
                  username: "timmy",
                  displayName: "tim",
                  bio: "",
@@ -72,29 +73,38 @@ defmodule Kousa.Database.UserTest do
 
     # see issue, re: test above.
     test "you can use set_online/1 and set_offline/1", %{user: user = %{username: _username}} do
-      [id] = Data.User.find_by_github_ids([user.githubId])
+      [id] = Users.find_by_github_ids([user.githubId])
 
-      Data.User.set_online(id)
+      Users.set_online(id)
 
-      assert %{online: true} = Data.User.get_by_id(id)
+      assert %{online: true} = Users.get_by_id(id)
 
-      Data.User.set_offline(id)
+      Users.set_offline(id)
 
-      assert %{online: false} = Data.User.get_by_id(id)
+      assert %{online: false} = Users.get_by_id(id)
     end
   end
 
-  describe "to delete a user" do
-    setup :create_two_users
+  describe "Users.delete/1" do
+    setup :create_user
 
-    test "cascades correctly", %{user1: user1, user2: user2} do
-      Data.Follower.insert(%{userId: user1.id, followerId: user2.id})
+    test "deletes a user", %{user: user} do
+      Users.delete(user.id)
+      assert is_nil(Users.get_by_id(user.id))
+    end
+
+    test "cascades correctly", %{user: user1} do
+      user2 = Factory.create(User)
+
+      Kousa.Data.Follower.insert(%{userId: user1.id, followerId: user2.id})
       Factory.create(Room, creatorId: user1.id)
       room = Factory.create(Room, creatorId: user2.id)
-      Data.RoomBlock.insert(%{roomId: room.id, userId: user1.id, modId: user2.id})
-      Data.UserBlock.insert(%{userIdBlocked: user1.id, userId: user2.id})
-      Data.RoomPermission.ask_to_speak(user1.id, room.id)
-      assert {:ok, _} = Data.User.delete(user1.id)
+      Kousa.Data.RoomBlock.insert(%{roomId: room.id, userId: user1.id, modId: user2.id})
+      Kousa.Data.UserBlock.insert(%{userIdBlocked: user1.id, userId: user2.id})
+      Kousa.Data.RoomPermission.ask_to_speak(user1.id, room.id)
+      assert {:ok, _} = Users.delete(user1.id)
+
+      # probably needs some more tests here.
     end
   end
 end
