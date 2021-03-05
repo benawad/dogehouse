@@ -45,7 +45,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 
 					if (name.length < 2 || name.length > 60) {
 						return {
-							name: "must be between 2 to 60 characters",
+							name: "must be between 2 to 60 characters long",
 						};
 					} else if (description.length > 500) {
 						return {
