@@ -84,7 +84,7 @@
         "voiceSettings": {
             "header": "Definições de voz",
             "mic": "Microfone:",
-            "permissionError": "Não foram encontrados microfones, não foram dadas permissões ou o microfones não estão corretamente ligados.",
+            "permissionError": "Não foram encontrados microfones, por não foram dadas permissões ou por não estarem corretamente ligados.",
             "refresh": "Atualizar lista de microfones",
             "volume": "Volume:"
         }
