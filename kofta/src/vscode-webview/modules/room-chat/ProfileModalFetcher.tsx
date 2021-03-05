@@ -1,41 +1,43 @@
 import { useAtom } from "jotai";
-import React, { useEffect, useLayoutEffect } from "react";
-import { wsend } from "../../../createWebsocket";
+import React, { useLayoutEffect } from "react";
+import { useQuery } from "react-query";
+import { wsend, wsFetch } from "../../../createWebsocket";
 import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
-import { meAtom, useCurrentRoomInfo, userProfileAtom } from "../../atoms";
+import { meAtom, useCurrentRoomInfo } from "../../atoms";
 import { ProfileModal } from "../../components/ProfileModal";
-import { RoomUser } from "../../types";
+import { RoomUser, UserWithFollowInfo } from "../../types";
 import { RoomChatMessage } from "./useRoomChatStore";
 
 interface ProfileModalFetcherProps {
 	userId: string;
-	userIdType?: "uuid" | "username";
 	onClose: () => void;
 	messageToBeDeleted?: RoomChatMessage | null;
 }
 
 export const ProfileModalFetcher: React.FC<ProfileModalFetcherProps> = ({
 	userId,
-	userIdType = "uuid",
 	onClose,
 	messageToBeDeleted,
 }) => {
 	const { currentRoom: room } = useCurrentRoomStore();
 	const [me] = useAtom(meAtom);
-	const [userProfile] = useAtom(userProfileAtom);
 	const { isMod: iAmMod, isCreator: iAmCreator } = useCurrentRoomInfo();
 
 	const profileFromRoom: RoomUser | undefined = room?.users.find((x) =>
 		[x.id, x.username].includes(userId)
 	);
 
-	const profile = profileFromRoom || userProfile;
+	const { data: profileFromDB } = useQuery<UserWithFollowInfo>(
+		["get_user_profile", userId],
+		() =>
+			wsFetch<any>({
+				op: "get_user_profile",
+				d: { userId },
+			}),
+		{ enabled: !profileFromRoom }
+	);
 
-	useEffect(() => {
-		profileFromRoom ||
-			wsend({ op: "get_user_profile", d: { userId, userIdType } });
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [userId]);
+	const profile = profileFromRoom || profileFromDB;
 
 	useLayoutEffect(() => {
 		if (
@@ -48,9 +50,11 @@ export const ProfileModalFetcher: React.FC<ProfileModalFetcherProps> = ({
 			wsend({ op: "follow_info", d: { userId: profile.id } });
 		}
 	}, [me, profile]);
+
 	if (!room) {
 		return null;
 	}
+
 	if (!profile) {
 		return null;
 	}

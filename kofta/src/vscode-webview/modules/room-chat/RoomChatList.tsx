@@ -13,9 +13,6 @@ interface ChatListProps {}
 
 export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 	const [profileId, setProfileId] = useState("");
-	const [profileIdType, setProfileIdType] = useState<"uuid" | "username">(
-		"uuid"
-	);
 	const messages = useRoomChatStore((s) => s.messages);
 	const [me] = useAtom(meAtom);
 	const { currentRoom: room } = useCurrentRoomStore();
@@ -34,7 +31,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 			{profileId ? (
 				<ProfileModalFetcher
 					userId={profileId}
-					userIdType={profileIdType}
 					messageToBeDeleted={messageToBeDeleted}
 					onClose={() => {
 						setProfileId("");
@@ -74,7 +70,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 
 								<button
 									onClick={() => {
-										setProfileIdType("uuid");
 										setProfileId(m.userId);
 										setMessageToBeDeleted(
 											(me?.id === m.userId ||
@@ -113,7 +108,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 													<button
 														onClick={() => {
 															setProfileId(v);
-															setProfileIdType("username");
 														}}
 														key={i}
 														className={`hover:underline flex-1 focus:outline-none ml-1 mr-2 ${

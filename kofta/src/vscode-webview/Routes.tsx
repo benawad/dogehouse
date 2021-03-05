@@ -14,7 +14,6 @@ import {
 	setInviteListAtom,
 	setMeAtom,
 	setPublicRoomsAtom,
-	userProfileAtom,
 } from "./atoms";
 import { useRoomChatMentionStore } from "./modules/room-chat/useRoomChatMentionStore";
 import {
@@ -56,7 +55,6 @@ export const Routes: React.FC<RoutesProps> = () => {
 	const [, setFollowingMap] = useAtom(setFollowingMapAtom);
 	const [, setFollowingOnline] = useAtom(setFollowingOnlineAtom);
 	const [, setInviteList] = useAtom(setInviteListAtom);
-	const [, setUserProfile] = useAtom(userProfileAtom);
 	const setCurrentRoom = useCurrentRoomStore((x) => x.setCurrentRoom);
 
 	const [me] = useAtom(meAtom);
@@ -65,9 +63,6 @@ export const Routes: React.FC<RoutesProps> = () => {
 
 	useEffect(() => {
 		addMultipleWsListener({
-			get_user_profile_done: ({ user }) => {
-				setUserProfile(user);
-			},
 			new_room_name: ({ name, roomId }) => {
 				setCurrentRoom((cr) =>
 					!cr || cr.id !== roomId ? cr : { ...cr, name }

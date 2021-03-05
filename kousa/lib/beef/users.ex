@@ -330,4 +330,21 @@ defmodule Beef.Schemas.Users do
          )}
     end
   end
+
+  def get_profile(user_id) do
+    # Only select safe fields
+    from(u in User,
+      where: u.id == ^user_id or u.username == ^user_id,
+      select: %User{
+        id: u.id,
+        username: u.username,
+        displayName: u.displayName,
+        avatarUrl: u.avatarUrl,
+        bio: u.bio,
+        numFollowers: u.numFollowers,
+        numFollowing: u.numFollowing
+      }
+    )
+    |> Beef.Repo.one()
+  end
 end
