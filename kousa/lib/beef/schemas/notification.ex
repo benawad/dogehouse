@@ -16,7 +16,7 @@ defmodule Beef.Schemas.Notification do
   @derive {Poison.Encoder, only: ~w(id type message user_id notifier_id)a}
 
   @primary_key {:id, :binary_id, []}
-  schema "users" do
+  schema "notifications" do
     field(:type, :string)
     field(:message, :string)
 
@@ -27,8 +27,8 @@ defmodule Beef.Schemas.Notification do
   end
 
   @doc false
-  def changeset(notification, _attrs) do
+  def insert_changeset(notification, attrs) do
     notification
-    |> validate_required([:type, :message, :user_id])
+    |> cast(attrs, [:type, :message, :user_id, :notifier_id])
   end
 end
