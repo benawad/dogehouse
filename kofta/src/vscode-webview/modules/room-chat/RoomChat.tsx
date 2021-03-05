@@ -53,7 +53,7 @@ export const RoomChat: React.FC<ChatProps> = ({ sidebar }) => {
           onClick={() => toggleOpen()}
           className={`bg-simple-gray-26 border-b border-simple-gray-80 text-white py-4 px-8 text-2xl flex items-center h-20`}
         >
-          Chat <span className={`ml-2 text-simple-gray-a6`}>[emotes soon]</span>
+          Chat
         </button>
         <RoomChatList />
         <RoomChatMentions />
