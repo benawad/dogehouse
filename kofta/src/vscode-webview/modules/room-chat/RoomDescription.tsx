@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
 import { truncate } from "../../utils/truncate";
 
+const MAX_COLLAPSED_CHARACTERS = 100;
+
 interface RoomDescriptionProps {}
 
 export const RoomDescription: React.FC<RoomDescriptionProps> = () => {
-	const { currentRoom } = useCurrentRoomStore();
 	const [expanded, setExpanded] = useState(false);
-	const MAX_COLLAPSED_CHARACTERS = 100;
-
+	const { currentRoom } = useCurrentRoomStore();
 	return currentRoom?.description ? (
 		<div className="p-3 rounded-lg m-3 bg-simple-gray-3a">
 			<p className="text-gray-400 mb-1">room description</p>
