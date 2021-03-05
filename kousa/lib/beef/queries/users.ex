@@ -12,7 +12,7 @@ defmodule Beef.Queries.Users do
   end
 
   def filter_by_github_ids(query, github_ids) do
-    where(query, [u], u.github_id in ^[github_ids])
+    where(query, [u], u.githubId in ^github_ids)
   end
 
   def select_id(query) do

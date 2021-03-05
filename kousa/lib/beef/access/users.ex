@@ -4,6 +4,7 @@ defmodule Beef.Access.Users do
   alias Beef.Queries.Users, as: Query
   alias Beef.Repo
   alias Beef.Schemas.User
+  alias Beef.Schemas.Room
 
   def find_by_github_ids(ids) do
     Query.start
@@ -62,6 +63,9 @@ defmodule Beef.Access.Users do
     end
   end
 
+  # NB: Anything that touches Gen will have to be refactored away
+  # out of the database layer, but we are keeping it here for now
+  # to keep the transition smooth.
   def tuple_get_current_room_id(user_id) do
     case Kousa.RegUtils.lookup_and_call(
            Kousa.Gen.UserSession,
