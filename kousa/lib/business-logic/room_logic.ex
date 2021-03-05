@@ -221,7 +221,7 @@ defmodule Kousa.BL.Room do
           {:error, any}
           | {:ok, %{room: atom | %{:id => any, :voiceServerId => any, optional(any) => any}}}
   def create_room(user_id, room_name, room_description, is_private, user_id_to_invite \\ nil) do
-    room_id = Users.get_current_room_id(user_id)(user_id)
+    room_id = Users.get_current_room_id(user_id)
 
     if not is_nil(room_id) do
       leave_room(user_id, room_id)
