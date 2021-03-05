@@ -8,17 +8,17 @@ defmodule Beef.Schemas.Notification do
   @type t :: %__MODULE__{
           id: Ecto.UUID.t(),
           type: String.t(),
-          message: String.t(),
+          is_read: boolean(),
           user_id: Ecto.UUID.t(),
           notifier_id: Ecto.UUID.t(),
         }
 
-  @derive {Poison.Encoder, only: ~w(id type message user_id notifier_id)a}
+  @derive {Poison.Encoder, only: ~w(id type user_id notifier_id)a}
 
   @primary_key {:id, :binary_id, []}
   schema "notifications" do
     field(:type, :string)
-    field(:message, :string)
+    field(:is_read, :boolean)
 
     belongs_to(:user, User, foreign_key: :user_id, type: :binary_id)
     belongs_to(:notifier, User, foreign_key: :notifier_id, type: :binary_id)
@@ -29,6 +29,6 @@ defmodule Beef.Schemas.Notification do
   @doc false
   def insert_changeset(notification, attrs) do
     notification
-    |> cast(attrs, [:type, :message, :user_id, :notifier_id])
+    |> cast(attrs, [:type, :user_id, :notifier_id])
   end
 end

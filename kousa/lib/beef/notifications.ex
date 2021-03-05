@@ -1,5 +1,4 @@
 defmodule Beef.Notifications do
-  import Ecto.Query
   alias Beef.Schemas.Notification
 
   def insert(data) do
