@@ -7,7 +7,7 @@ import { renameRoomAndMakePublic } from "../../webrtc/utils/renameRoomAndMakePub
 import { BlockedFromRoomUsers } from "./BlockedFromRoomUsers";
 import { Button } from "./Button";
 import { Modal } from "./Modal";
-import { useTranslation } from "react-i18next";
+import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 
 interface RoomSettingsModalProps {
 	open: boolean;
@@ -19,7 +19,7 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
 	onRequestClose,
 }) => {
 	const { currentRoom, setCurrentRoom } = useCurrentRoomStore();
-	const { t } = useTranslation();
+	const { t } = useTypeSafeTranslation();
 	return (
 		<Modal isOpen={open} onRequestClose={onRequestClose}>
 			<button

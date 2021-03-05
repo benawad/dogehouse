@@ -12,7 +12,6 @@
 		"@testing-library/react": "^11.1.0",
 		"@testing-library/user-event": "^12.1.10",
 		"@types/jest": "^26.0.15",
-		"@types/node": "^12.0.0",
 		"@types/react-dom": "^16.9.8",
 		"date-fns": "^2.17.0",
 		"emoji-mart": "^3.0.0",
@@ -48,6 +47,7 @@
 		"storybook": "start-storybook -p 9000 -c .storybook",
 		"start": "craco start",
 		"start:staging": "cross-env REACT_APP_IS_STAGING=true REACT_APP_API_BASE_URL=https://doge-staging.stripcode.dev craco start",
+		"gen:i18:keys": "ts-node --project scripts/tsconfig.json scripts/generateTranslationTypes.ts",
 		"build": "craco build",
 		"test": "craco test",
 		"vscode": "webpack --config src/vscode-webview/webpack.config.js --watch --mode development",
@@ -76,6 +76,7 @@
 		"@tailwindcss/postcss7-compat": "^2.0.3",
 		"@types/emoji-mart": "^3.0.4",
 		"@types/hark": "^1.2.1",
+		"@types/node": "^14.14.31",
 		"@types/react": "^17.0.2",
 		"@types/react-modal": "^3.12.0",
 		"@types/react-responsive": "^8.0.2",
@@ -88,6 +89,7 @@
 		"style-loader": "^2.0.0",
 		"tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3",
 		"ts-loader": "^8.0.14",
+		"ts-node": "^9.1.1",
 		"webpack-cli": "^4.4.0"
 	}
 }
