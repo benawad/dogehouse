@@ -31,7 +31,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 			<Formik<{
 				name: string;
 				privacy: string;
-				description?: string;
+				description: string;
 			}>
 				initialValues={{
 					name: currentName || "",
@@ -40,41 +40,38 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 				}}
 				validateOnChange={false}
 				validateOnBlur={false}
-				validate={({ name }) => {
+				validate={({ name, description }) => {
 					const errors: Record<string, string> = {};
 
-					if (name.length < 2) {
+					if (name.length < 2 || name.length > 60) {
 						return {
-							name: "min length 2",
+							name: "must be between 2 to 60 characters",
+						};
+					} else if (description.length > 500) {
+						return {
+							description: "min length 500",
 						};
 					}
 
 					return errors;
 				}}
 				onSubmit={async ({ name, privacy, description }) => {
-					if (edit) {
-						wsend({
-							op: "edit_room",
-							d: { name, description, privacy },
-						});
-					} else {
-						const resp = await wsFetch<any>({
-							op: "create_room",
-							d: { name, privacy, description },
-						});
-						if (resp.error) {
-							showErrorToast(resp.d);
-							return;
-						} else if (resp.room) {
-							const { room } = resp;
-							console.log("new room voice server id: " + room.voiceServerId);
-							useRoomChatStore.getState().clearChat();
-							wsend({ op: "get_current_room_users", d: {} });
-							history.push("/room/" + room.id);
-							useCurrentRoomStore
-								.getState()
-								.setCurrentRoom(() => roomToCurrentRoom(room));
-						}
+					const resp = await wsFetch<any>({
+						op: edit ? "edit_room" : "create_room",
+						d: { name, privacy, description },
+					});
+					if (resp.error) {
+						showErrorToast(resp.error);
+						return;
+					} else if (resp.room) {
+						const { room } = resp;
+						console.log("new room voice server id: " + room.voiceServerId);
+						useRoomChatStore.getState().clearChat();
+						wsend({ op: "get_current_room_users", d: {} });
+						history.push("/room/" + room.id);
+						useCurrentRoomStore
+							.getState()
+							.setCurrentRoom(() => roomToCurrentRoom(room));
 					}
 
 					onRequestClose();
@@ -84,7 +81,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 					<Form>
 						<InputField
 							name="name"
-							maxLength={600}
+							maxLength={60}
 							placeholder="room name"
 							autoFocus
 						/>

@@ -268,7 +268,7 @@ defmodule Kousa.BL.Room do
         {:ok, %{room: room}}
 
       {:error, x} ->
-        {:error, Kousa.Errors.changeset_to_first_err_message(x)}
+        {:error, Kousa.Errors.changeset_to_first_err_message_with_field_name(x)}
     end
   end
 

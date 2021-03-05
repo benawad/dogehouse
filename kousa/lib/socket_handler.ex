@@ -373,13 +373,15 @@ defmodule Kousa.SocketHandler do
     end
   end
 
-  def handler("edit_room", %{"name" => name, "description" => description, "privacy" => privacy}, state) do
+  def f_handler("edit_room", %{"name" => name, "description" => description, "privacy" => privacy}, state) do
     case BL.Room.edit_room(state.user_id, name, description, privacy == "private") do
       {:error, message} ->
-        {:reply, prepare_socket_msg(%{op: "error", d: message}, state), state}
+        %{
+          error: message
+        }
 
       _ ->
-        {:ok, state}
+        true
     end
   end
 
