@@ -7,8 +7,8 @@ import { meAtom, useCurrentRoomInfo } from "../../atoms";
 import { Avatar } from "../../components/Avatar";
 import { dateFormat } from "../../utils/dateFormat";
 import { ProfileModalFetcher } from "./ProfileModalFetcher";
+import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
-
 interface ChatListProps {}
 
 export const RoomChatList: React.FC<ChatListProps> = ({}) => {
@@ -22,11 +22,33 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 		setMessageToBeDeleted,
 	] = useState<RoomChatMessage | null>(null);
 	const bottomRef = useRef<null | HTMLDivElement>(null);
-	useEffect(() => bottomRef.current?.scrollIntoView());
+	const chatListRef = useRef<null | HTMLDivElement>(null);
+	const {
+		isRoomChatScrolledToTop,
+		setIsRoomChatScrolledToTop,
+		setNewUnreadMessages,
+	} = useRoomChatStore();
+
+	// Only scroll into view if not manually scrolled to top
+	useEffect(() => {
+		isRoomChatScrolledToTop || bottomRef.current?.scrollIntoView();
+	});
 
 	return (
 		<div
-			className={`bg-simple-gray-26 px-8 pt-8 flex-1 overflow-y-auto flex-col flex chat-message-container`}
+			className={`bg-simple-gray-26 px-8 pt-8 flex-1 overflow-y-auto flex-col flex chat-message-container relative`}
+			ref={chatListRef}
+			onScroll={() => {
+				if (!chatListRef.current) return;
+				const { scrollTop, offsetHeight, scrollHeight } = chatListRef.current;
+				const isOnBottom = scrollTop + offsetHeight === scrollHeight;
+
+				setIsRoomChatScrolledToTop(!isOnBottom);
+				if (isOnBottom) {
+					useRoomChatMentionStore.getState().resetIAmMentioned();
+					setNewUnreadMessages(false);
+				}
+			}}
 		>
 			{profileId ? (
 				<ProfileModalFetcher

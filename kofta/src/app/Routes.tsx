@@ -73,9 +73,10 @@ export const Routes: React.FC<RoutesProps> = () => {
 			},
 			new_chat_msg: ({ msg }) => {
 				const { open } = useRoomChatStore.getState();
+				const { isRoomChatScrolledToTop } = useRoomChatStore.getState();
 				useRoomChatStore.getState().addMessage(msg);
 				if (
-					(!open || !document.hasFocus()) &&
+					(!open || !document.hasFocus() || isRoomChatScrolledToTop) &&
 					!!msg.tokens.filter(
 						(t: RoomChatMessageToken) =>
 							t.t === "mention" &&
