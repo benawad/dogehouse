@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Calendar } from "react-feather";
 import { useQuery, useQueryClient } from "react-query";
 import { useHistory } from "react-router-dom";
@@ -19,7 +19,7 @@ import { ScheduledRoomCard } from "../modules/scheduled-rooms/ScheduledRoomCard"
 import { GET_SCHEDULED_ROOMS } from "../modules/scheduled-rooms/ScheduledRoomsPage";
 import { Logo } from "../svgs/Logo";
 import { PeopleIcon } from "../svgs/PeopleIcon";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import { CurrentRoom, PublicRoomsQuery, ScheduledRoom } from "../types";
 
 interface HomeProps {}
@@ -38,7 +38,7 @@ const Page = ({
 	isOnlyPage: boolean;
 	onLoadMore: (o: number) => void;
 }) => {
-  const { t } = useTranslation();
+	const { t } = useTranslation();
 	const history = useHistory();
 	const { status } = useSocketStatus();
 	const { isLoading, data } = useQuery<PublicRoomsQuery>(
@@ -110,7 +110,7 @@ export type GetMyScheduledRoomsAboutToStartQuery = {
 };
 
 export const Home: React.FC<HomeProps> = () => {
-  const { t } = useTranslation();
+	const { t } = useTranslation();
 	const history = useHistory();
 	const { currentRoom } = useCurrentRoomStore();
 	const [cursors, setCursors] = useState([0]);
