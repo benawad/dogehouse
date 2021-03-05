@@ -3,7 +3,7 @@ defmodule Kousa.Routes.Me do
 
   use Plug.Router
 
-  alias Beef.Users
+  # alias Beef.Users
 
   plug(Kousa.CheckAuth, %{shouldThrow: false})
   plug(:match)
@@ -13,7 +13,7 @@ defmodule Kousa.Routes.Me do
     user =
       cond do
         conn.assigns[:user] -> conn.assigns[:user]
-        conn.assigns[:user_id] -> Users.get_by_id(conn.assigns[:user_id])
+        conn.assigns[:user_id] -> Beef.Access.User.get_by_id(conn.assigns[:user_id])
         true -> nil
       end
 
