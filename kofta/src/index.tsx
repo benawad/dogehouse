@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import * as Sentry from "@sentry/react";
 import ReactModal from "react-modal";
 import { WebviewWrapper } from "./WebviewWrapper";
-
+import "./i18n";
 import "./index.css";
 
 ReactModal.setAppElement("#root");

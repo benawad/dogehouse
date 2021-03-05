@@ -12,6 +12,7 @@ import { Button } from "../components/Button";
 import { Input } from "../components/Input";
 import { InviteButton } from "../components/InviteButton";
 import { Wrapper } from "../components/Wrapper";
+import { useTranslation } from 'react-i18next';
 
 interface InviteListProps {}
 
@@ -22,13 +23,14 @@ export const InviteList: React.FC<InviteListProps> = () => {
   const path = `/room/${room?.id}`;
   const url = window.location.origin + path;
   const inputRef = useRef<HTMLInputElement>(null);
+  const { t } = useTranslation();
 
   if (!room) {
     return (
       <Wrapper>
         <Backbar />
         <BodyWrapper>
-          <Button onClick={() => history.push("/")}>room gone, go back</Button>
+          <Button onClick={() => history.push("/")}>{t("pages.inviteList.roomGone")}</Button>
         </BodyWrapper>
       </Wrapper>
     );
@@ -41,7 +43,7 @@ export const InviteList: React.FC<InviteListProps> = () => {
         {room.isPrivate ? null : (
           <>
             {!navigator.share ? (
-              <div className={`text-2xl mb-2`}>share link to room</div>
+              <div className={`text-2xl mb-2`}>{t("pages.inviteList.shareRoomLink")}</div>
             ) : null}
             <div className={`mb-8 flex`}>
               <Input readOnly ref={inputRef} value={url} />
@@ -64,11 +66,11 @@ export const InviteList: React.FC<InviteListProps> = () => {
         )}
         {users.length ? (
           <div className={`my-4 text-2xl`}>
-            You can invite your followers that are online:
+            {t("pages.inviteList.inviteFollowers")}
           </div>
         ) : (
           <div className={`my-4 text-2xl`}>
-            When your followers are online, they will show up here.
+            {t("pages.inviteList.whenFollowersOnline")}
           </div>
         )}
         {users.map((u) => (
@@ -113,7 +115,7 @@ export const InviteList: React.FC<InviteListProps> = () => {
                 })
               }
             >
-              load more
+              {t("common.loadMore")}
             </Button>
           </div>
         ) : null}

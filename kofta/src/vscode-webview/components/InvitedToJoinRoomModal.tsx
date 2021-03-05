@@ -7,6 +7,7 @@ import { Button } from "./Button";
 import { Avatar } from "./Avatar";
 import { useSoundEffectStore } from "../modules/sound-effects/useSoundEffectStore";
 import { wsend } from "../../createWebsocket";
+import { useTranslation } from 'react-i18next';
 
 interface Props {}
 
@@ -57,14 +58,15 @@ export const invitedToRoomConfirm = (
 
 export const InvitedToJoinRoomModal: React.FC<Props> = () => {
   const { options, close } = useConfirmModalStore();
+  const { t } = useTranslation();
   return (
     <Modal isOpen={!!options} onRequestClose={() => close()}>
       {options ? (
         <>
           <h1 className={`text-2xl mb-2`}>
             {options.type === "someone_you_follow_created_a_room"
-              ? `New Room Created`
-              : `Room Invite from`}
+              ? t("components.modals.invitedToJoinRoomModal.newRoomCreated")
+              : t("components.modals.invitedToJoinRoomModal.roomInviteFrom")}
           </h1>
           <div className={`flex items-center`}>
             <Avatar src={options.avatarUrl} />
@@ -77,10 +79,9 @@ export const InvitedToJoinRoomModal: React.FC<Props> = () => {
           </div>
           <div className={`mt-4`}>
             {options.type === "someone_you_follow_created_a_room"
-              ? `They just started`
-              : `you've been invited to`}{" "}
-            <span className={`font-semibold`}>{options.roomName}</span>, would
-            you like to join?
+              ? t("components.modals.invitedToJoinRoomModal.justStarted")
+              : t("components.modals.invitedToJoinRoomModal.inviteReceived")}{" "}
+            <span className={`font-semibold`}>{options.roomName}</span>{t("components.modals.invitedToJoinRoomModal.likeToJoin")}
           </div>
         </>
       ) : null}
@@ -91,7 +92,7 @@ export const InvitedToJoinRoomModal: React.FC<Props> = () => {
           className={`mr-1.5`}
           color="secondary"
         >
-          cancel
+          {t("common.cancel")}
         </Button>
         <Button
           onClick={() => {
@@ -101,7 +102,7 @@ export const InvitedToJoinRoomModal: React.FC<Props> = () => {
           type="submit"
           className={`ml-1.5`}
         >
-          yes
+          {t("common.yes")}
         </Button>
       </div>
     </Modal>

@@ -7,6 +7,7 @@ import { Backbar } from "../components/Backbar";
 import { BodyWrapper } from "../components/BodyWrapper";
 import { Button } from "../components/Button";
 import { Wrapper } from "../components/Wrapper";
+import { useTranslation } from 'react-i18next';
 
 interface SearchUsersProps {}
 
@@ -14,6 +15,7 @@ export const BanUsersPage: React.FC<SearchUsersProps> = ({}) => {
   const [me] = useAtom(meAtom);
   const [username, setUsername] = useState("");
   const [reason, setReason] = useState("");
+  const { t } = useTranslation();
 
   if (!me) {
     return null;
@@ -54,7 +56,7 @@ export const BanUsersPage: React.FC<SearchUsersProps> = ({}) => {
             }
           }}
         >
-          ban
+          {t("pages.banUsers.ban")}
         </Button>
       </BodyWrapper>
     </Wrapper>
