@@ -11,7 +11,7 @@ defmodule Kousa.BL.RoomChat do
 
     # NB: length(list) is O(N) so use a match for stuff like this
     if length(tokens) > 0 do
-      case Beef.Queries.User.get_current_room_id(user_id) do
+      case Beef.Users.get_current_room_id(user_id) do
         nil ->
           nil
 

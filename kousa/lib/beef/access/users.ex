@@ -1,4 +1,4 @@
-defmodule Beef.Access.Users do
+defmodule Beef.Userss do
   import Ecto.Query, warn: false
 
   alias Beef.Repo

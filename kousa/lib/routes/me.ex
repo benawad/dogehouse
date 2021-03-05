@@ -13,7 +13,7 @@ defmodule Kousa.Me do
     user =
       cond do
         conn.assigns[:user] -> conn.assigns[:user]
-        conn.assigns[:user_id] -> Beef.Access.User.get_by_id(conn.assigns[:user_id])
+        conn.assigns[:user_id] -> Beef.Users.get_by_id(conn.assigns[:user_id])
         true -> nil
       end
 
