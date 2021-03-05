@@ -11,6 +11,7 @@ import { EditProfileModal } from "./EditProfileModal";
 import { linkRegex } from "../constants";
 import normalizeUrl from "normalize-url";
 import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
+import { useTranslation } from 'react-i18next';
 
 interface UserProfileProps {
   profile: RoomUser;
@@ -36,6 +37,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
     }
   }, [_youAreFollowing]);
   const [editProfileModalOpen, setEditProfileModalOpen] = useState(false);
+  const { t } = useTranslation();
   return (
     <>
       <EditProfileModal
@@ -53,7 +55,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
               }}
               variant="small"
             >
-              edit profile
+              {t("pages.userProfile.editProfile")}
             </Button>
           </div>
         ) : null}
@@ -84,7 +86,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
       <div className={`my-1 flex`}>
         <div>@{profile.username}</div>
         {me?.id !== profile.id && userProfile.followsYou ? (
-          <div className={`ml-2 text-simple-gray-3d`}>follows you</div>
+          <div className={`ml-2 text-simple-gray-3d`}>{t("pages.userProfile.followsYou")}</div>
         ) : null}
       </div>
       <div className={`flex my-4`}>
@@ -98,7 +100,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
           }}
           className={`mr-3`}
         >
-          <span className={`font-bold`}>{profile.numFollowers}</span> followers
+          <span className={`font-bold`}>{profile.numFollowers}</span> {t("pages.userProfile.followers")}
         </button>
         <button
           onClick={() => {
@@ -109,7 +111,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
             history.push(`/following/${profile.id}`);
           }}
         >
-          <span className={`font-bold`}>{profile.numFollowing}</span> following
+          <span className={`font-bold`}>{profile.numFollowing}</span> {t("pages.userProfile.following")}
         </button>
       </div>
       <div className="mb-4">

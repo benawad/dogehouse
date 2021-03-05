@@ -4,6 +4,7 @@ import { wsFetch, wsMutation } from "../../createWebsocket";
 import { PaginatedBaseUsers } from "../types";
 import { Avatar } from "./Avatar";
 import { Button } from "./Button";
+import { useTranslation } from 'react-i18next';
 
 interface BlockedFromRoomUsersProps {}
 
@@ -34,6 +35,7 @@ const UnbanButton = ({
       );
     },
   });
+  const { t } = useTranslation();
 
   return (
     <Button
@@ -43,7 +45,7 @@ const UnbanButton = ({
       }}
       variant={`small`}
     >
-      unban
+      {t("components.blockedFromRoomUsers.unban")}
     </Button>
   );
 };
@@ -63,13 +65,14 @@ export const BlockedFromRoomUsersPage: React.FC<{
       }),
     { enabled: false }
   );
+  const { t } = useTranslation();
 
   if (isLoading) {
-    return <div className={`mt-8`}>loading...</div>;
+    return <div className={`mt-8`}>{t("common.loading")}</div>;
   }
 
   if (isOnlyPage && data?.users.length === 0) {
-    return <div className={`mt-2`}>no one has been banned yet</div>;
+    return <div className={`mt-2`}>{t("components.blockedFromRoomUsers.noBans")}</div>;
   }
 
   if (!data) {
@@ -110,7 +113,7 @@ export const BlockedFromRoomUsersPage: React.FC<{
               onLoadMore(data.nextCursor!);
             }}
           >
-            load more
+            {t("common.loadMore")}
           </Button>
         </div>
       ) : null}
@@ -120,11 +123,12 @@ export const BlockedFromRoomUsersPage: React.FC<{
 
 export const BlockedFromRoomUsers: React.FC<BlockedFromRoomUsersProps> = ({}) => {
   const [offsets, setOffsets] = React.useState([0]);
+  const { t } = useTranslation();
 
   return (
     <>
       <div className={`mt-4`}>
-        <h1 className={`text-xl`}>Banned Users</h1>
+        <h1 className={`text-xl`}>{t("components.blockedFromRoomUsers.header")}</h1>
         <div>
           {offsets.map((offset, i) => (
             <BlockedFromRoomUsersPage

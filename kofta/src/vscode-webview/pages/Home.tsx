@@ -19,6 +19,7 @@ import { ScheduledRoomCard } from "../modules/scheduled-rooms/ScheduledRoomCard"
 import { GET_SCHEDULED_ROOMS } from "../modules/scheduled-rooms/ScheduledRoomsPage";
 import { Logo } from "../svgs/Logo";
 import { PeopleIcon } from "../svgs/PeopleIcon";
+import { useTranslation } from 'react-i18next';
 import { CurrentRoom, PublicRoomsQuery, ScheduledRoom } from "../types";
 
 interface HomeProps {}
@@ -37,6 +38,7 @@ const Page = ({
 	isOnlyPage: boolean;
 	onLoadMore: (o: number) => void;
 }) => {
+  const { t } = useTranslation();
 	const history = useHistory();
 	const { status } = useSocketStatus();
 	const { isLoading, data } = useQuery<PublicRoomsQuery>(
@@ -92,7 +94,7 @@ const Page = ({
 							})
 						}
 					>
-						load more
+						{t("common.loadMore")}
 					</Button>
 				</div>
 			) : null}
@@ -108,6 +110,7 @@ export type GetMyScheduledRoomsAboutToStartQuery = {
 };
 
 export const Home: React.FC<HomeProps> = () => {
+  const { t } = useTranslation();
 	const history = useHistory();
 	const { currentRoom } = useCurrentRoomStore();
 	const [cursors, setCursors] = useState([0]);
@@ -167,7 +170,6 @@ export const Home: React.FC<HomeProps> = () => {
 							<ProfileButton circle size={60} />
 						</div>
 					</div>
-
 					<EditScheduleRoomModalController
 						onScheduledRoom={(editInfo, data, _resp) => {
 							queryClient.setQueryData<GetMyScheduledRoomsAboutToStartQuery>(
@@ -243,7 +245,7 @@ export const Home: React.FC<HomeProps> = () => {
 							setShowCreateRoomModal(true);
 						}}
 					>
-						<h3 className={`text-2xl`}>Create Room</h3>
+						<h3 className={`text-2xl`}>{t("pages.home.createRoom")}</h3>
 					</Button>
 				</div>
 			</BottomVoiceControl>

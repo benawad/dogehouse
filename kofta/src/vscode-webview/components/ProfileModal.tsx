@@ -11,6 +11,7 @@ import { Button } from "./Button";
 import { modalConfirm } from "./ConfirmModal";
 import { UserProfile } from "./UserProfile";
 import { UserVolumeSlider } from "./UserVolumeSlider";
+import { useTranslation } from 'react-i18next';
 
 interface ProfileModalProps {
   onClose: () => void;
@@ -51,6 +52,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
   messageToBeDeleted,
 }) => {
   const bannedUserIdMap = useRoomChatStore((s) => s.bannedUserIdMap);
+  const { t } = useTranslation();
   return (
     <ReactModal
       isOpen={!!profile}
@@ -75,7 +77,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                   variant="small"
                   onClick={() => {
                     modalConfirm(
-                      "Are you sure you want to block this user from joining any room you ever create?",
+                      t("components.modals.profileModal.blockUserConfirm"),
                       () => {
                         onClose();
                         wsend({
@@ -88,7 +90,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                     );
                   }}
                 >
-                  block user
+                  {t("components.modals.profileModal.blockUser")}
                 </Button>
               </div>
             ) : null}
@@ -120,7 +122,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                     });
                   }}
                 >
-                  {profile.roomPermissions?.isMod ? "unmod" : "make mod"}
+                  {profile.roomPermissions?.isMod ? t("components.modals.profileModal.unmod") : t("components.modals.profileModal.makeMod")}
                 </Button>
               </div>
             </>
@@ -143,7 +145,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                       });
                     }}
                   >
-                    add as speaker
+                    {t("components.modals.profileModal.addAsSpeaker")}
                   </Button>
                 </div>
               ) : null}
@@ -162,7 +164,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                       });
                     }}
                   >
-                    move to listener
+                    {t("components.modals.profileModal.moveToListener")}
                   </Button>
                 </div>
               ) : null}
@@ -181,7 +183,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                       });
                     }}
                   >
-                    ban from chat
+                    {t("components.modals.profileModal.banFromChat")}
                   </Button>
                 </div>
               ) : null}
@@ -199,7 +201,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                     });
                   }}
                 >
-                  ban from room
+                  {t("components.modals.profileModal.banFromRoom")}
                 </Button>
               </div>
             </>
@@ -221,7 +223,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                   });
                 }}
               >
-                go back to listener
+                {t("components.modals.profileModal.goBackToListener")}
               </Button>
             </div>
           ) : null}
@@ -242,7 +244,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                 !onClose || onClose();
               }}
             >
-              delete this message
+              {t("components.modals.profileModal.deleteMessage")}
             </Button>
           ) : null}
         </>
