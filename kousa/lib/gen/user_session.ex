@@ -4,7 +4,7 @@ defmodule Kousa.Gen.UserSession do
   alias Kousa.RegUtils
   alias Kousa.Data
   alias Kousa.BL
-  alias Beef.Users
+  alias Beef.Schemas.Users
 
   defmodule State do
     @type t :: %__MODULE__{

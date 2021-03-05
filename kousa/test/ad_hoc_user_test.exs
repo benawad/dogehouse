@@ -11,7 +11,7 @@ defmodule KousaTest.AdHocUserTest do
   # time.
 
   alias Beef.Schemas.User
-  alias Beef.Users
+  alias Beef.Schemas.Users
 
   alias Beef.Repo
   alias Kousa.Support.Factory

@@ -9,7 +9,7 @@ defmodule Kousa.BL.Room do
   alias Kousa.Data.Follower
   alias Kousa.Data.Room
   alias Kousa.Data.RoomPermission
-  alias Beef.Users
+  alias Beef.Schemas.Users
 
   def set_auto_speaker(user_id, value) do
     room = Room.get_room_by_creator_id(user_id)

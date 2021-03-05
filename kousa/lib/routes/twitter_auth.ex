@@ -2,7 +2,7 @@ defmodule Kousa.TwitterAuth do
   import Plug.Conn
   use Plug.Router
 
-  alias Beef.Users
+  alias Beef.Schemas.Users
 
   plug(:put_secret_key_base)
 

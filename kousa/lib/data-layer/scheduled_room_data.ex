@@ -1,8 +1,9 @@
 defmodule Kousa.Data.ScheduledRoom do
   import Ecto.Query
   import Ecto.Changeset
-  alias Kousa.{Pagination}
-  alias Beef.{ScheduledRoom, Repo}
+  alias Kousa.Pagination
+  alias Beef.Schemas.ScheduledRoom
+  alias Beef.Repo
 
   @fetch_limit 16
 

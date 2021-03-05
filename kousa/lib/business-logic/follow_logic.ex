@@ -1,5 +1,5 @@
 defmodule Kousa.BL.Follow do
-  alias Beef.Users
+  alias Beef.Schemas.Users
   alias Kousa.Gen
   alias Kousa.Data.Follower
   alias Kousa.Data.UserBlock

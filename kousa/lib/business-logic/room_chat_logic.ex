@@ -1,7 +1,7 @@
 defmodule Kousa.BL.RoomChat do
   alias Kousa.RegUtils
   alias Kousa.Gen
-  alias Beef.Users
+  alias Beef.Schemas.Users
 
   @message_character_limit 512
 
@@ -30,7 +30,8 @@ defmodule Kousa.BL.RoomChat do
                  tokens: tokens,
                  sentAt: DateTime.utc_now(),
                  isWhisper: whispered_to != []
-               }, whispered_to})
+               }, whispered_to}
+            )
           end
       end
     end

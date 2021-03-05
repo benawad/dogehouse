@@ -3,7 +3,7 @@ defmodule Kousa.Me do
 
   use Plug.Router
 
-  alias Beef.Users
+  alias Beef.Schemas.Users
 
   plug(Kousa.CheckAuth, %{shouldThrow: false})
   plug(:match)

@@ -7,7 +7,7 @@ defmodule Kousa.Data.Room do
   alias Beef.Schemas.User
   alias Beef.UserPreview
   alias Beef.UserBlock
-  alias Beef.Users
+  alias Beef.Schemas.Users
 
   def get_room_status(user_id) do
     room = Users.get_current_room(user_id)

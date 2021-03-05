@@ -1,4 +1,4 @@
-defmodule Beef.Users do
+defmodule Beef.Schemas.Users do
   @moduledoc """
   Context module for Users.
 

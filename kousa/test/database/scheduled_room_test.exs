@@ -3,8 +3,11 @@ defmodule Kousa.Database.ScheduledRoomTest do
   use ExUnit.Case, async: true
 
   alias Kousa.Support.Factory
-  alias Beef.{Repo, User, Room, ScheduledRoom}
-  alias Kousa.{Data}
+  alias Beef.Repo
+  alias Beef.Schemas.User
+  alias Beef.Schemas.ScheduledRoom
+  alias Beef.Room
+  alias Kousa.Data
 
   import Kousa.Support.Helpers, only: [checkout_ecto_sandbox: 1]
 

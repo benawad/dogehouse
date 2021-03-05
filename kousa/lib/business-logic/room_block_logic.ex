@@ -1,5 +1,5 @@
 defmodule Kousa.BL.RoomBlock do
-  alias Beef.Users
+  alias Beef.Schemas.Users
 
   def unban(user_id, user_id_to_unban) do
     with {:ok, id} <- Users.tuple_get_current_room_id(user_id),

@@ -4,7 +4,7 @@ defmodule Kousa.Data.Follower do
   @fetch_limit 21
 
   alias Beef.Schemas.User
-  alias Beef.Users
+  alias Beef.Schemas.Users
 
   @spec get_followers_online_and_not_in_a_room(String.t()) :: [Beef.Follow.t()]
   def get_followers_online_and_not_in_a_room(user_id) do

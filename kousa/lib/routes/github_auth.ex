@@ -3,7 +3,7 @@ defmodule Kousa.GitHubAuth do
   import Logger
   use Plug.Router
 
-  alias Beef.Users
+  alias Beef.Schemas.Users
 
   plug(:match)
   plug(:dispatch)

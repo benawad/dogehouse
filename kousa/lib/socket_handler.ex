@@ -1,9 +1,11 @@
 defmodule Kousa.SocketHandler do
   require Logger
 
-  alias Kousa.{BL, Data, RegUtils, Gen, Caster}
-
-  alias Beef.Users
+  alias Kousa.BL
+  alias Kousa.RegUtils
+  alias Kousa.Gen
+  alias Kousa.Caster
+  alias Beef.Schemas.Users
 
   # TODO: just collapse this into its parent module.
   defmodule State do

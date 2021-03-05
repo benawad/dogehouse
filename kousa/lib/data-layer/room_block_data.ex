@@ -1,7 +1,7 @@
 defmodule Kousa.Data.RoomBlock do
   import Ecto.Query
   alias Kousa.Pagination
-  alias Beef.User
+  alias Beef.Schemas.User
   alias Beef.RoomBlock
   alias Beef.Repo
 
@@ -22,7 +22,7 @@ defmodule Kousa.Data.RoomBlock do
 
   @fetch_limit 31
 
-  @spec get_blocked_users(Ecto.UUID.t(), pos_integer) :: {Beef.User.t(), nil | number}
+  @spec get_blocked_users(Ecto.UUID.t(), pos_integer) :: {User.t(), nil | number}
   def get_blocked_users(room_id, offset) do
     from(u in User,
       inner_join: rb in RoomBlock,
