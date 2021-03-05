@@ -9,7 +9,7 @@ import { showErrorToast } from "../utils/showErrorToast";
 import { Button } from "./Button";
 import { InputField } from "./form-fields/InputField";
 import { Modal } from "./Modal";
-import { useTranslation } from "react-i18next";
+import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 
 interface CreateRoomModalProps {
 	onRequestClose: () => void;
@@ -18,7 +18,7 @@ interface CreateRoomModalProps {
 export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 	onRequestClose,
 }) => {
-	const { t } = useTranslation();
+	const { t } = useTypeSafeTranslation();
 	const history = useHistory();
 	return (
 		<Modal isOpen onRequestClose={onRequestClose}>

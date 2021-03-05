@@ -64,20 +64,24 @@ defmodule Kousa.Gen.RoomChat do
     {_, seconds, _} = :os.timestamp()
 
     if not Map.has_key?(state.ban_map, user_id) and
-      (is_nil(last_timestamp) or seconds - last_timestamp > 0) do
+         (is_nil(last_timestamp) or seconds - last_timestamp > 0) do
+      whispered_to_users_list = [user_id | whispered_to]
 
-        whispered_to_users_list = [user_id | whispered_to]
-        users = if whispered_to != [], do: Enum.filter(state.users, fn uid -> Enum.member?(whispered_to_users_list, uid) end), else: state.users
-        ws_fan(users, :chat, %{
-          op: "new_chat_msg",
-          d: %{
-            userId: user_id,
-            msg: msg
-          }
-        })
+      users =
+        if whispered_to != [],
+          do: Enum.filter(state.users, fn uid -> Enum.member?(whispered_to_users_list, uid) end),
+          else: state.users
 
-        {:noreply,
-        %State{state | last_message_map: Map.put(state.last_message_map, user_id, seconds)}}
+      ws_fan(users, :chat, %{
+        op: "new_chat_msg",
+        d: %{
+          userId: user_id,
+          msg: msg
+        }
+      })
+
+      {:noreply,
+       %State{state | last_message_map: Map.put(state.last_message_map, user_id, seconds)}}
     else
       {:noreply, state}
     end

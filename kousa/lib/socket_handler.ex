@@ -5,7 +5,9 @@ defmodule Kousa.SocketHandler do
   alias Kousa.RegUtils
   alias Kousa.Gen
   alias Kousa.Caster
-  alias Beef.Schemas.Users
+  alias Beef.Users
+  alias Beef.Rooms
+  alias Beef.Follows
 
   # TODO: just collapse this into its parent module.
   defmodule State do
@@ -143,7 +145,7 @@ defmodule Kousa.SocketHandler do
                     cond do
                       not is_nil(user.currentRoomId) ->
                         # @todo this should probably go inside room business logic
-                        room = Kousa.Data.Room.get_room_by_id(user.currentRoomId)
+                        room = Rooms.get_room_by_id(user.currentRoomId)
 
                         {:ok, room_session} =
                           GenRegistry.lookup_or_start(Gen.RoomSession, user.currentRoomId, [
@@ -263,7 +265,7 @@ defmodule Kousa.SocketHandler do
   # end
 
   def handler("fetch_following_online", %{"cursor" => cursor}, state) do
-    {users, next_cursor} = Kousa.Data.Follower.fetch_following_online(state.user_id, cursor)
+    {users, next_cursor} = Follows.fetch_following_online(state.user_id, cursor)
 
     {:reply,
      construct_socket_msg(state.encoding, state.compression, %{
@@ -283,7 +285,7 @@ defmodule Kousa.SocketHandler do
   end
 
   def handler("fetch_invite_list", %{"cursor" => cursor}, state) do
-    {users, next_cursor} = Kousa.Data.Follower.fetch_invite_list(state.user_id, cursor)
+    {users, next_cursor} = Follows.fetch_invite_list(state.user_id, cursor)
 
     {:reply,
      construct_socket_msg(state.encoding, state.compression, %{
@@ -481,7 +483,7 @@ defmodule Kousa.SocketHandler do
        d:
          Map.merge(
            %{userId: other_user_id},
-           Kousa.Data.Follower.get_info(state.user_id, other_user_id)
+           Follows.get_info(state.user_id, other_user_id)
          )
      }), state}
   end
@@ -546,7 +548,7 @@ defmodule Kousa.SocketHandler do
 
   def handler("ask_to_speak", _data, state) do
     with {:ok, room_id} <- Users.tuple_get_current_room_id(state.user_id) do
-      case Kousa.Data.RoomPermission.ask_to_speak(state.user_id, room_id) do
+      case RoomsPermission.ask_to_speak(state.user_id, room_id) do
         {:ok, %{isSpeaker: true}} ->
           Kousa.BL.Room.internal_set_speaker(state.user_id, room_id)
 
@@ -625,7 +627,7 @@ defmodule Kousa.SocketHandler do
 
   def f_handler("get_top_public_rooms", data, %State{} = state) do
     {rooms, next_cursor} =
-      Kousa.Data.Room.get_top_public_rooms(
+      Rooms.get_top_public_rooms(
         state.user_id,
         data["cursor"]
       )

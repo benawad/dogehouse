@@ -1,9 +1,8 @@
 defmodule Kousa.GitHubAuth do
   import Plug.Conn
-  import Logger
   use Plug.Router
 
-  alias Beef.Schemas.Users
+  alias Beef.Users
 
   plug(:match)
   plug(:dispatch)
@@ -11,7 +10,7 @@ defmodule Kousa.GitHubAuth do
   get "/web" do
     state =
       if(
-        Kousa.Caster.bool(Application.get_env(:kousa, :is_staging)),
+        Kousa.Caster.bool(Application.get_env(:kousa, :staging?)),
         do:
           %{
             redirect_base_url: fetch_query_params(conn).query_params["redirect_after_base"]
@@ -43,7 +42,7 @@ defmodule Kousa.GitHubAuth do
 
   @spec get_base_url(Plug.Conn.t()) :: String.t()
   def get_base_url(conn) do
-    with true <- Kousa.Caster.bool(Application.get_env(:kousa, :is_staging)),
+    with true <- Kousa.Caster.bool(Application.get_env(:kousa, :staging?)),
          state <- Map.get(conn.query_params, "state", ""),
          {:ok, json} <- Base.decode64(state),
          {:ok, %{"redirect_base_url" => redirect_base_url}} when is_binary(redirect_base_url) <-

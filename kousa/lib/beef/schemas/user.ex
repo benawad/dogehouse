@@ -1,6 +1,22 @@
 defmodule Beef.Schemas.User do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Beef.Schemas.Room
+
+  defmodule Preview do
+    use Ecto.Schema
+
+    @derive {Poison.Encoder, only: [:id, :displayName, :numFollowers]}
+    @primary_key false
+    embedded_schema do
+      # does User.Preview really need an id?
+      field(:id, :binary_id)
+
+      field(:displayName, :string)
+      field(:numFollowers, :integer)
+    end
+  end
+
   @timestamps_opts [type: :utc_datetime_usec]
 
   @type t :: %__MODULE__{
@@ -24,7 +40,7 @@ defmodule Beef.Schemas.User do
           followsYou: boolean(),
           roomPermissions: nil | Beef.RoomPermission.t(),
           currentRoomId: Ecto.UUID.t(),
-          currentRoom: Beef.Room.t() | Ecto.Association.NotLoaded.t()
+          currentRoom: Room.t() | Ecto.Association.NotLoaded.t()
         }
 
   @derive {Poison.Encoder, only: ~w(id username avatarUrl bio online
@@ -52,7 +68,7 @@ defmodule Beef.Schemas.User do
     field(:followsYou, :boolean, virtual: true)
     field(:roomPermissions, :map, virtual: true, null: true)
 
-    belongs_to(:currentRoom, Beef.Room, foreign_key: :currentRoomId, type: :binary_id)
+    belongs_to(:currentRoom, Room, foreign_key: :currentRoomId, type: :binary_id)
 
     timestamps()
   end

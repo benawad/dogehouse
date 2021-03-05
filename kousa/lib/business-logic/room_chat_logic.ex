@@ -1,7 +1,8 @@
 defmodule Kousa.BL.RoomChat do
   alias Kousa.RegUtils
   alias Kousa.Gen
-  alias Beef.Schemas.Users
+  alias Beef.Users
+  alias Beef.Rooms
 
   @message_character_limit 512
 
@@ -81,7 +82,7 @@ defmodule Kousa.BL.RoomChat do
   defp valid_url?(_), do: false
 
   def ban_user(user_id, user_id_to_ban) do
-    case Kousa.Data.Room.get_room_status(user_id) do
+    case Rooms.get_room_status(user_id) do
       {:creator, room} ->
         if room.creatorId != user_id_to_ban do
           RegUtils.lookup_and_cast(Gen.RoomChat, room.id, {:ban_user, user_id_to_ban})
@@ -101,7 +102,7 @@ defmodule Kousa.BL.RoomChat do
 
   # Delete room chat messages
   def delete_message(deleter_id, message_id, user_id) do
-    case Kousa.Data.Room.get_room_status(deleter_id) do
+    case Rooms.get_room_status(deleter_id) do
       {:creator, room} ->
         RegUtils.lookup_and_cast(
           Gen.RoomChat,

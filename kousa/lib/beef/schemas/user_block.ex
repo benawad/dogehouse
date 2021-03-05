@@ -1,4 +1,4 @@
-defmodule Beef.UserBlock do
+defmodule Beef.Schemas.UserBlock do
   use Ecto.Schema
   import Ecto.Changeset
   @timestamps_opts [type: :utc_datetime_usec]
