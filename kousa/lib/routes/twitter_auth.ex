@@ -2,7 +2,7 @@ defmodule Kousa.TwitterAuth do
   import Plug.Conn
   use Plug.Router
 
-  alias Kousa.{Data}
+  alias Beef.Schemas.Users
 
   plug(:put_secret_key_base)
 
@@ -123,7 +123,7 @@ defmodule Kousa.TwitterAuth do
       ) do
     try do
       {_, db_user} =
-        Data.User.twitter_find_or_create(%{
+        Users.twitter_find_or_create(%{
           bio: bio,
           displayName: displayName,
           twitterId: twitterId,

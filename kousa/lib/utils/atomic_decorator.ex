@@ -1,4 +1,6 @@
 defmodule Kousa.Dec.Atomic do
+  # this should be deprecated over time.  Should not be necessary.
+
   use Decorator.Define, user_atomic: 0
 
   def user_atomic(body, %{args: args, name: fn_name}) do

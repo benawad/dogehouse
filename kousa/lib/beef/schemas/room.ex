@@ -3,6 +3,8 @@ defmodule Beef.Room do
   import Ecto.Changeset
   @timestamps_opts [type: :utc_datetime_usec]
 
+  alias Beef.Schemas.User
+
   @type t :: %__MODULE__{
           id: Ecto.UUID.t(),
           name: String.t(),
@@ -13,17 +15,8 @@ defmodule Beef.Room do
           peoplePreviewList: [UserPreview.t()]
         }
 
-  @derive {Poison.Encoder,
-           only: [
-             :id,
-             :name,
-             :description,
-             :numPeopleInside,
-             :isPrivate,
-             :creatorId,
-             :peoplePreviewList,
-             :voiceServerId
-           ]}
+  @derive {Poison.Encoder, only: ~w(id name description numPeopleInside isPrivate
+           creatorId peoplePreviewList voiceServerId)a}
   @primary_key {:id, :binary_id, []}
   schema "rooms" do
     field(:name, :string)
@@ -32,7 +25,8 @@ defmodule Beef.Room do
     field(:isPrivate, :boolean)
     field(:voiceServerId, :string)
 
-    belongs_to(:user, Beef.User, foreign_key: :creatorId, type: :binary_id)
+    # TODO: change this to creator!
+    belongs_to(:user, User, foreign_key: :creatorId, type: :binary_id)
     embeds_many(:peoplePreviewList, Beef.UserPreview)
 
     timestamps()

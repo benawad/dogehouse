@@ -11,10 +11,12 @@ defmodule Beef.RoomPermission do
           askedToSpeak: boolean()
         }
 
+  alias Beef.Schemas.User
+
   @derive {Poison.Encoder, only: [:isSpeaker, :isMod, :askedToSpeak]}
   @primary_key false
   schema "room_permissions" do
-    belongs_to(:user, Beef.User, foreign_key: :userId, type: :binary_id)
+    belongs_to(:user, User, foreign_key: :userId, type: :binary_id)
     belongs_to(:room, Beef.Room, foreign_key: :roomId, type: :binary_id)
     field(:isSpeaker, :boolean)
     field(:isMod, :boolean)
