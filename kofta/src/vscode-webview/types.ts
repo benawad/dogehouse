@@ -56,16 +56,21 @@ export type WsParam = {
 };
 
 export interface ScheduledRoom {
-  description: string;
-  scheduledFor: string;
-  numAttending: number;
-  name: string;
-  id: string;
-  creatorId: string;
-  creator: BaseUser;
+	description: string;
+	scheduledFor: string;
+	numAttending: number;
+	name: string;
+	id: string;
+	creatorId: string;
+	creator: BaseUser;
 }
 
 export interface ScheduledRoomsInfo {
-  scheduledRooms: ScheduledRoom[];
-  nextCursor?: string | null;
+	scheduledRooms: ScheduledRoom[];
+	nextCursor?: string | null;
+}
+
+export interface PublicRoomsQuery {
+	rooms: Room[];
+	nextCursor: number | null;
 }

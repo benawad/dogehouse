@@ -4,8 +4,13 @@ defmodule Kousa.Data.Room do
 
   @fetch_limit 16
 
+  alias Beef.Schemas.User
+  alias Beef.UserPreview
+  alias Beef.UserBlock
+  alias Beef.Schemas.Users
+
   def get_room_status(user_id) do
-    room = Kousa.Data.User.get_current_room(user_id)
+    room = Users.get_current_room(user_id)
 
     cond do
       is_nil(room) ->
@@ -67,7 +72,7 @@ defmodule Kousa.Data.Room do
   end
 
   def join_room(room, user_id) do
-    user = Kousa.Data.User.set_current_room(user_id, room.id, room.isPrivate, true)
+    user = Users.set_current_room(user_id, room.id, room.isPrivate, true)
 
     if (length(room.peoplePreviewList) < 10 or
           not is_nil(
@@ -77,7 +82,7 @@ defmodule Kousa.Data.Room do
           )) and is_nil(Enum.find(room.peoplePreviewList, &(&1.id === user_id))) do
       list =
         [
-          %Beef.UserPreview{
+          %UserPreview{
             id: user.id,
             displayName: user.displayName,
             numFollowers: user.numFollowers
@@ -102,7 +107,7 @@ defmodule Kousa.Data.Room do
       from(r in Beef.Room,
         left_join: rb in Beef.RoomBlock,
         on: rb.roomId == r.id and rb.userId == ^user_id,
-        left_join: ub in Beef.UserBlock,
+        left_join: ub in UserBlock,
         on: ub.userIdBlocked == ^user_id,
         where:
           is_nil(ub.userIdBlocked) and is_nil(rb.roomId) and r.isPrivate == false and
@@ -176,7 +181,7 @@ defmodule Kousa.Data.Room do
   """
   @spec get_next_creator_for_room(any) :: any
   def get_next_creator_for_room(room_id) do
-    from(u in Beef.User,
+    from(u in User,
       inner_join: rp in Beef.RoomPermission,
       on: rp.roomId == ^room_id and rp.userId == u.id and u.currentRoomId == ^room_id,
       where: rp.isSpeaker == true,
@@ -189,7 +194,7 @@ defmodule Kousa.Data.Room do
   end
 
   def get_a_user_for_room(room_id) do
-    from(u in Beef.User,
+    from(u in User,
       where: u.currentRoomId == ^room_id,
       limit: 1
     )
@@ -231,7 +236,7 @@ defmodule Kousa.Data.Room do
         {:bye, room}
       else
         # IO.puts("set_user_left_current_room")
-        Kousa.Data.User.set_user_left_current_room(user_id)
+        Users.set_user_left_current_room(user_id)
         new_people_list = Enum.filter(room.peoplePreviewList, fn x -> x.id != user_id end)
 
         if room.creatorId != user_id do
@@ -280,7 +285,7 @@ defmodule Kousa.Data.Room do
 
   @spec create(:invalid | %{optional(:__struct__) => none, optional(atom | binary) => any}) :: any
   def create(data) do
-    user = Kousa.Data.User.get_by_id(data.creatorId)
+    user = Users.get_by_id(data.creatorId)
 
     peoplePreviewList = [
       %{id: user.id, displayName: user.displayName, numFollowers: user.numFollowers}
@@ -301,7 +306,7 @@ defmodule Kousa.Data.Room do
 
     case resp do
       {:ok, room} ->
-        Kousa.Data.User.set_current_room(data.creatorId, room.id)
+        Users.set_current_room(data.creatorId, room.id)
 
       _ ->
         nil
