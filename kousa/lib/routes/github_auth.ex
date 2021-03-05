@@ -2,7 +2,7 @@ defmodule Kousa.GitHubAuth do
   import Plug.Conn
   use Plug.Router
 
-  alias Beef.Schemas.Users
+  alias Beef.Users
 
   plug(:match)
   plug(:dispatch)
