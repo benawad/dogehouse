@@ -1,4 +1,4 @@
-defmodule Beef.User do
+defmodule Beef.Schemas.User do
   use Ecto.Schema
   import Ecto.Changeset
   @timestamps_opts [type: :utc_datetime_usec]
@@ -27,23 +27,10 @@ defmodule Beef.User do
           currentRoom: Beef.Room.t() | Ecto.Association.NotLoaded.t()
         }
 
-  @derive {Poison.Encoder,
-           only: [
-             :id,
-             :username,
-             :avatarUrl,
-             :bio,
-             :online,
-             :lastOnline,
-             :currentRoomId,
-             :displayName,
-             :numFollowing,
-             :numFollowers,
-             :currentRoom,
-             :youAreFollowing,
-             :followsYou,
-             :roomPermissions
-           ]}
+  @derive {Poison.Encoder, only: ~w(id username avatarUrl bio online
+             lastOnline currentRoomId displayName numFollowing numFollowers
+             currentRoom youAreFollowing followsYou roomPermissions)a}
+
   @primary_key {:id, :binary_id, []}
   schema "users" do
     field(:githubId, :string)

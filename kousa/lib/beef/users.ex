@@ -1,6 +1,13 @@
-defmodule Kousa.Data.User do
+defmodule Beef.Users do
+  @moduledoc """
+  Context module for Users.
+
+  Contains database access and mutation functions for User.
+  """
+
   import Ecto.Query, warn: false
-  alias Beef.{Repo, User}
+  alias Beef.Repo
+  alias Beef.Schemas.User
 
   @fetch_limit 16
   def edit_profile(user_id, data) do
@@ -17,7 +24,7 @@ defmodule Kousa.Data.User do
     query_with_percent = "%" <> query <> "%"
 
     items =
-      from(u in Beef.User,
+      from(u in User,
         where:
           ilike(u.username, ^query_with_percent) or
             ilike(u.displayName, ^query_with_percent),
@@ -35,14 +42,14 @@ defmodule Kousa.Data.User do
 
   def bulk_insert(users) do
     Beef.Repo.insert_all(
-      Beef.User,
+      User,
       users,
       on_conflict: :nothing
     )
   end
 
   def find_by_github_ids(ids) do
-    from(u in Beef.User, where: u.githubId in ^ids, select: u.id)
+    from(u in User, where: u.githubId in ^ids, select: u.id)
     |> Beef.Repo.all()
   end
 
@@ -62,7 +69,7 @@ defmodule Kousa.Data.User do
     case tuple_get_current_room_id(user_id) do
       {:ok, current_room_id} ->
         {current_room_id,
-         from(u in Beef.User,
+         from(u in User,
            where: u.currentRoomId == ^current_room_id,
            left_join: rp in Beef.RoomPermission,
            on: rp.userId == u.id and rp.roomId == u.currentRoomId,
@@ -76,11 +83,11 @@ defmodule Kousa.Data.User do
   end
 
   def get_by_id(user_id) do
-    Beef.Repo.get(Beef.User, user_id)
+    Beef.Repo.get(User, user_id)
   end
 
   def get_by_username(username) do
-    from(u in Beef.User,
+    from(u in User,
       where: u.username == ^username,
       limit: 1
     )
@@ -101,7 +108,7 @@ defmodule Kousa.Data.User do
 
   @spec get_by_id_with_current_room(any) :: any
   def get_by_id_with_current_room(user_id) do
-    from(u in Beef.User,
+    from(u in User,
       left_join: a0 in assoc(u, :currentRoom),
       where: u.id == ^user_id,
       limit: 1,
@@ -209,7 +216,7 @@ defmodule Kousa.Data.User do
     )
 
     q =
-      from(u in Beef.User,
+      from(u in User,
         where: u.id == ^user_id,
         update: [
           set: [
@@ -220,8 +227,7 @@ defmodule Kousa.Data.User do
 
     q = if returning, do: select(q, [u], u), else: q
 
-    case q
-         |> Beef.Repo.update_all([]) do
+    case Beef.Repo.update_all(q, []) do
       {_, [user]} -> %{user | roomPermissions: roomPermissions}
       _ -> nil
     end
@@ -229,7 +235,7 @@ defmodule Kousa.Data.User do
 
   def twitter_find_or_create(user) do
     db_user =
-      from(u in Beef.User,
+      from(u in User,
         where:
           (not is_nil(u.email) and u.email == ^user.email and u.email != "") or
             u.twitterId == ^user.twitterId,
@@ -240,7 +246,7 @@ defmodule Kousa.Data.User do
     cond do
       db_user ->
         if is_nil(db_user.twitterId) do
-          from(u in Beef.User,
+          from(u in User,
             where: u.id == ^db_user.id,
             update: [
               set: [
@@ -278,7 +284,7 @@ defmodule Kousa.Data.User do
     githubId = Integer.to_string(user["id"])
 
     db_user =
-      from(u in Beef.User,
+      from(u in User,
         where:
           u.githubId == ^githubId or
             (not is_nil(u.email) and u.email != "" and u.email == ^user["email"]),
@@ -289,7 +295,7 @@ defmodule Kousa.Data.User do
     cond do
       db_user ->
         if is_nil(db_user.githubId) do
-          from(u in Beef.User,
+          from(u in User,
             where: u.id == ^db_user.id,
             update: [
               set: [

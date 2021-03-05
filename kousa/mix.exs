@@ -8,6 +8,11 @@ defmodule Kousa.MixProject do
       elixir: "~> 1.9",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.html": :test
+      ],
       elixirc_paths: elixirc_paths(Mix.env()),
       aliases: aliases()
     ]
@@ -47,8 +52,12 @@ defmodule Kousa.MixProject do
       {:ueberauth_twitter, "~> 0.3"},
       {:prometheus_ex, "~> 3.0"},
       {:prometheus_plugs, "~> 1.1.1"},
-      {:faker, "~> 0.16.0", only: :test},
       {:timex, "~> 3.6"}
+      # style ENFORCEMENT
+      {:credo, "~> 1.5.5"},
+      # test helpers
+      {:faker, "~> 0.16.0", only: :test},
+      {:excoveralls, "~> 0.10", only: :test}
     ]
   end
 

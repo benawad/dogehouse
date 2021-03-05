@@ -3,11 +3,14 @@ defmodule Kousa.Data.Follower do
 
   @fetch_limit 21
 
+  alias Beef.Schemas.User
+  alias Beef.Users
+
   @spec get_followers_online_and_not_in_a_room(String.t()) :: [Beef.Follow.t()]
   def get_followers_online_and_not_in_a_room(user_id) do
     from(
       f in Beef.Follow,
-      inner_join: u in Beef.User,
+      inner_join: u in User,
       on: f.followerId == u.id,
       where: f.userId == ^user_id and u.online == true and is_nil(u.currentRoomId)
     )
@@ -22,6 +25,8 @@ defmodule Kousa.Data.Follower do
     )
   end
 
+  # TODO: change the name of this, is_ by convention means
+  # "guard".
   def is_following_me(user_id, user_id_to_check) do
     not is_nil(
       from(
@@ -32,14 +37,14 @@ defmodule Kousa.Data.Follower do
     )
   end
 
-  # fetch the users I follow that are online
+  # fetch all the users
   def fetch_following_online(user_id, offset \\ 0) do
     max_room_size = Application.fetch_env!(:kousa, :max_room_size)
 
     items =
       from(
         f in Beef.Follow,
-        inner_join: u in Beef.User,
+        inner_join: u in User,
         on: f.userId == u.id,
         left_join: f2 in Beef.Follow,
         on: f2.userId == ^user_id and f2.followerId == u.id,
@@ -61,12 +66,12 @@ defmodule Kousa.Data.Follower do
   end
 
   def fetch_invite_list(user_id, offset \\ 0) do
-    user = Kousa.Data.User.get_by_id(user_id)
+    user = Users.get_by_id(user_id)
 
     items =
       from(
         f in Beef.Follow,
-        inner_join: u in Beef.User,
+        inner_join: u in User,
         on: f.followerId == u.id,
         where:
           f.userId == ^user_id and u.online == true and
@@ -86,7 +91,7 @@ defmodule Kousa.Data.Follower do
       from(
         f in Beef.Follow,
         where: f.userId == ^user_id_to_get_followers_for,
-        inner_join: u in Beef.User,
+        inner_join: u in User,
         on: f.followerId == u.id,
         left_join: f2 in Beef.Follow,
         on: f2.userId == u.id and f2.followerId == ^user_id,
@@ -106,7 +111,7 @@ defmodule Kousa.Data.Follower do
       from(
         f in Beef.Follow,
         where: f.followerId == ^user_id_to_get_following_for,
-        inner_join: u in Beef.User,
+        inner_join: u in User,
         on: f.userId == u.id,
         left_join: f2 in Beef.Follow,
         on: f2.userId == u.id and f2.followerId == ^user_id,
@@ -127,7 +132,7 @@ defmodule Kousa.Data.Follower do
       |> Beef.Repo.delete_all()
 
     if rows_affected == 1 do
-      from(u in Beef.User,
+      from(u in User,
         where: u.id == ^user_id,
         update: [
           inc: [
@@ -137,7 +142,7 @@ defmodule Kousa.Data.Follower do
       )
       |> Beef.Repo.update_all([])
 
-      from(u in Beef.User,
+      from(u in User,
         where: u.id == ^follower_id,
         update: [
           inc: [
@@ -158,7 +163,7 @@ defmodule Kousa.Data.Follower do
         # TODO: eliminate N+1 by setting up changesets
         # in an idiomatic fashion.
 
-        from(u in Beef.User,
+        from(u in User,
           where: u.id == ^data.userId,
           update: [
             inc: [
@@ -168,7 +173,7 @@ defmodule Kousa.Data.Follower do
         )
         |> Beef.Repo.update_all([])
 
-        from(u in Beef.User,
+        from(u in User,
           where: u.id == ^data.followerId,
           update: [
             inc: [

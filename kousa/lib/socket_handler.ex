@@ -3,6 +3,9 @@ defmodule Kousa.SocketHandler do
 
   alias Kousa.{BL, Data, RegUtils, Gen, Caster}
 
+  alias Beef.Users
+
+  # TODO: just collapse this into its parent module.
   defmodule State do
     @type t :: %__MODULE__{
             awaiting_init: boolean(),
@@ -109,7 +112,7 @@ defmodule Kousa.SocketHandler do
             x ->
               {user_id, tokens, user} =
                 case x do
-                  {user_id, tokens} -> {user_id, tokens, Data.User.get_by_id(user_id)}
+                  {user_id, tokens} -> {user_id, tokens, Users.get_by_id(user_id)}
                   y -> y
                 end
 
@@ -343,7 +346,7 @@ defmodule Kousa.SocketHandler do
   end
 
   def handler("speaking_change", %{"value" => value}, state) do
-    current_room_id = Kousa.Data.User.get_current_room_id(state.user_id)
+    current_room_id = Users.get_current_room_id(state.user_id)
 
     if not is_nil(current_room_id) do
       Kousa.RegUtils.lookup_and_cast(
@@ -483,7 +486,7 @@ defmodule Kousa.SocketHandler do
 
   def handler("mute", %{"value" => value}, state) do
     Kousa.Gen.UserSession.send_cast(state.user_id, {:set_mute, value})
-    # user = Kousa.Data.User.get_by_id(state.user_id)
+    # user = Users.get_by_id(state.user_id)
 
     # if not is_nil(user.currentRoomId) do
     #   Kousa.RegUtils.lookup_and_cast(
@@ -504,7 +507,7 @@ defmodule Kousa.SocketHandler do
   end
 
   def handler("get_current_room_users", _data, state) do
-    {room_id, users} = Kousa.Data.User.get_users_in_current_room(state.user_id)
+    {room_id, users} = Users.get_users_in_current_room(state.user_id)
 
     {muteMap, autoSpeaker, activeSpeakerMap} =
       cond do
@@ -540,8 +543,8 @@ defmodule Kousa.SocketHandler do
   end
 
   def handler("ask_to_speak", _data, state) do
-    with {:ok, room_id} <- Kousa.Data.User.tuple_get_current_room_id(state.user_id) do
-      case Data.RoomPermission.ask_to_speak(state.user_id, room_id) do
+    with {:ok, room_id} <- Users.tuple_get_current_room_id(state.user_id) do
+      case Kousa.Data.RoomPermission.ask_to_speak(state.user_id, room_id) do
         {:ok, %{isSpeaker: true}} ->
           Kousa.BL.Room.internal_set_speaker(state.user_id, room_id)
 
@@ -576,7 +579,7 @@ defmodule Kousa.SocketHandler do
   end
 
   def handler(op, data, state) do
-    with {:ok, room_id} <- Data.User.tuple_get_current_room_id(state.user_id),
+    with {:ok, room_id} <- Users.tuple_get_current_room_id(state.user_id),
          {:ok, voice_server_id} <-
            RegUtils.lookup_and_call(Gen.RoomSession, room_id, {:get_voice_server_id}) do
       d =

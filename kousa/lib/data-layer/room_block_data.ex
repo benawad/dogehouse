@@ -1,7 +1,9 @@
 defmodule Kousa.Data.RoomBlock do
   import Ecto.Query
-  alias Kousa.{Pagination}
-  alias Beef.{User, RoomBlock, Repo}
+  alias Kousa.Pagination
+  alias Beef.User
+  alias Beef.RoomBlock
+  alias Beef.Repo
 
   def unban(room_id, user_id) do
     from(rb in RoomBlock, where: rb.userId == ^user_id and rb.roomId == ^room_id)

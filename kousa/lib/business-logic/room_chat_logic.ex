@@ -1,13 +1,17 @@
 defmodule Kousa.BL.RoomChat do
-  alias Kousa.{Data, RegUtils, Gen}
+  alias Kousa.RegUtils
+  alias Kousa.Gen
+  alias Beef.Users
 
   @message_character_limit 512
 
   @spec send_msg(String.t(), list(map), list(String.t())) :: any
   def send_msg(user_id, tokens, whispered_to) do
     tokens = validate_tokens(tokens)
+
+    # NB: length(list) is O(N) so use a match for stuff like this
     if length(tokens) > 0 do
-      case Data.User.get_current_room_id(user_id) do
+      case Users.get_current_room_id(user_id) do
         nil ->
           nil
 
@@ -76,7 +80,7 @@ defmodule Kousa.BL.RoomChat do
   defp valid_url?(_), do: false
 
   def ban_user(user_id, user_id_to_ban) do
-    case Data.Room.get_room_status(user_id) do
+    case Kousa.Data.Room.get_room_status(user_id) do
       {:creator, room} ->
         if room.creatorId != user_id_to_ban do
           RegUtils.lookup_and_cast(Gen.RoomChat, room.id, {:ban_user, user_id_to_ban})
