@@ -75,7 +75,7 @@
         "soundEffectSettings": {
             "header": "Sons"
         },
-        "userProfile": {
+        "viewUser": {
             "editProfile": "Editar perfil",
             "followsYou": "Seguem-te",
             "followers": "Seguidores",
