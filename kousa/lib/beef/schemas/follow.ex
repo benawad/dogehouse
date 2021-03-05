@@ -1,6 +1,9 @@
 defmodule Beef.Follow do
   use Ecto.Schema
   import Ecto.Changeset
+  @timestamps_opts [type: :utc_datetime_usec]
+
+  alias Beef.Schemas.User
 
   @type t :: %__MODULE__{
           userId: Ecto.UUID.t(),
@@ -11,9 +14,9 @@ defmodule Beef.Follow do
   @primary_key false
   schema "followers" do
     # person who is being followed
-    belongs_to(:user, Beef.User, foreign_key: :userId, type: :binary_id)
+    belongs_to(:user, User, foreign_key: :userId, type: :binary_id)
     # person who is following
-    belongs_to(:follower, Beef.User, foreign_key: :followerId, type: :binary_id)
+    belongs_to(:follower, User, foreign_key: :followerId, type: :binary_id)
 
     timestamps()
   end

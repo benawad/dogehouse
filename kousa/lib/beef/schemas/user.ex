@@ -1,6 +1,7 @@
-defmodule Beef.User do
+defmodule Beef.Schemas.User do
   use Ecto.Schema
   import Ecto.Changeset
+  @timestamps_opts [type: :utc_datetime_usec]
 
   @type t :: %__MODULE__{
           id: Ecto.UUID.t(),
@@ -18,7 +19,7 @@ defmodule Beef.User do
           numFollowers: integer(),
           hasLoggedIn: boolean(),
           online: boolean(),
-          lastOnline: NaiveDateTime.t(),
+          lastOnline: DateTime.t(),
           youAreFollowing: boolean(),
           followsYou: boolean(),
           roomPermissions: nil | Beef.RoomPermission.t(),
@@ -26,23 +27,10 @@ defmodule Beef.User do
           currentRoom: Beef.Room.t() | Ecto.Association.NotLoaded.t()
         }
 
-  @derive {Poison.Encoder,
-           only: [
-             :id,
-             :username,
-             :avatarUrl,
-             :bio,
-             :online,
-             :lastOnline,
-             :currentRoomId,
-             :displayName,
-             :numFollowing,
-             :numFollowers,
-             :currentRoom,
-             :youAreFollowing,
-             :followsYou,
-             :roomPermissions
-           ]}
+  @derive {Poison.Encoder, only: ~w(id username avatarUrl bio online
+             lastOnline currentRoomId displayName numFollowing numFollowers
+             currentRoom youAreFollowing followsYou roomPermissions)a}
+
   @primary_key {:id, :binary_id, []}
   schema "users" do
     field(:githubId, :string)
@@ -59,7 +47,7 @@ defmodule Beef.User do
     field(:numFollowers, :integer)
     field(:hasLoggedIn, :boolean)
     field(:online, :boolean)
-    field(:lastOnline, :naive_datetime)
+    field(:lastOnline, :utc_datetime_usec)
     field(:youAreFollowing, :boolean, virtual: true)
     field(:followsYou, :boolean, virtual: true)
     field(:roomPermissions, :map, virtual: true, null: true)
@@ -82,7 +70,10 @@ defmodule Beef.User do
     |> validate_length(:bio, min: 0, max: 160)
     |> validate_length(:displayName, min: 2, max: 50)
     |> validate_format(:username, ~r/^(\w){4,15}$/)
-    |> validate_format(:avatarUrl, ~r/https?:\/\/(www\.|)(pbs.twimg.com\/profile_images\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/)/)
+    |> validate_format(
+      :avatarUrl,
+      ~r/https?:\/\/(www\.|)(pbs.twimg.com\/profile_images\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/)/
+    )
     |> unique_constraint(:username)
   end
 end

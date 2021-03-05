@@ -75,7 +75,7 @@ export const BlockedFromRoomUsersPage: React.FC<{
     return <div className={`mt-2`}>{t("components.blockedFromRoomUsers.noBans")}</div>;
   }
 
-  if (!data || !data.users.length) {
+  if (!data) {
     return null;
   }
 

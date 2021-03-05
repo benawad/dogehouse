@@ -1,6 +1,9 @@
 defmodule Beef.Room do
   use Ecto.Schema
   import Ecto.Changeset
+  @timestamps_opts [type: :utc_datetime_usec]
+
+  alias Beef.Schemas.User
 
   @type t :: %__MODULE__{
           id: Ecto.UUID.t(),
@@ -11,16 +14,8 @@ defmodule Beef.Room do
           peoplePreviewList: [UserPreview.t()]
         }
 
-  @derive {Poison.Encoder,
-           only: [
-             :id,
-             :name,
-             :numPeopleInside,
-             :isPrivate,
-             :creatorId,
-             :peoplePreviewList,
-             :voiceServerId
-           ]}
+  @derive {Poison.Encoder, only: ~w(id name numPeopleInside isPrivate
+           creatorId peoplePreviewList voiceServerId)a}
   @primary_key {:id, :binary_id, []}
   schema "rooms" do
     field(:name, :string)
@@ -28,7 +23,8 @@ defmodule Beef.Room do
     field(:isPrivate, :boolean)
     field(:voiceServerId, :string)
 
-    belongs_to(:user, Beef.User, foreign_key: :creatorId, type: :binary_id)
+    # TODO: change this to creator!
+    belongs_to(:user, User, foreign_key: :creatorId, type: :binary_id)
     embeds_many(:peoplePreviewList, Beef.UserPreview)
 
     timestamps()
@@ -43,7 +39,7 @@ defmodule Beef.Room do
     room
     |> cast(attrs, [:id, :name, :creatorId, :isPrivate, :numPeopleInside, :voiceServerId])
     |> validate_required([:name, :creatorId])
-    |> validate_length(:name, min: 2)
+    |> validate_length(:name, min: 2, max: 60)
     |> unique_constraint(:creatorId)
   end
 end

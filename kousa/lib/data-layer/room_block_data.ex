@@ -1,7 +1,9 @@
 defmodule Kousa.Data.RoomBlock do
   import Ecto.Query
-  alias Kousa.{Pagination}
-  alias Beef.{User, RoomBlock, Repo}
+  alias Kousa.Pagination
+  alias Beef.Schemas.User
+  alias Beef.RoomBlock
+  alias Beef.Repo
 
   def unban(room_id, user_id) do
     from(rb in RoomBlock, where: rb.userId == ^user_id and rb.roomId == ^room_id)
@@ -20,7 +22,7 @@ defmodule Kousa.Data.RoomBlock do
 
   @fetch_limit 31
 
-  @spec get_blocked_users(Ecto.UUID.t(), pos_integer) :: {Beef.User.t(), nil | number}
+  @spec get_blocked_users(Ecto.UUID.t(), pos_integer) :: {User.t(), nil | number}
   def get_blocked_users(room_id, offset) do
     from(u in User,
       inner_join: rb in RoomBlock,
@@ -30,7 +32,7 @@ defmodule Kousa.Data.RoomBlock do
       limit: @fetch_limit
     )
     |> Beef.Repo.all()
-    |> Pagination.items_to_cursor_tuple(offset, @fetch_limit)
+    |> Pagination.items_to_offset_tuple(offset, @fetch_limit)
   end
 
   def insert(data) do
