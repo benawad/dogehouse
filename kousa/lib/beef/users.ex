@@ -1,4 +1,4 @@
-defmodule Beef.Schemas.Users do
+defmodule Beef.Users do
   @moduledoc """
   Context module for Users.
 
@@ -7,6 +7,8 @@ defmodule Beef.Schemas.Users do
 
   import Ecto.Query, warn: false
   alias Beef.Repo
+  alias Beef.Rooms
+  alias Beef.Schemas.Room
   alias Beef.Schemas.User
 
   @fetch_limit 16
@@ -28,7 +30,7 @@ defmodule Beef.Schemas.Users do
         where:
           ilike(u.username, ^query_with_percent) or
             ilike(u.displayName, ^query_with_percent),
-        left_join: cr in Beef.Room,
+        left_join: cr in Room,
         on: u.currentRoomId == cr.id and cr.isPrivate == false,
         select: %{u | currentRoom: cr},
         limit: @fetch_limit,
@@ -164,7 +166,7 @@ defmodule Beef.Schemas.Users do
 
     case room_id do
       nil -> nil
-      id -> Kousa.Data.Room.get_room_by_id(id)
+      id -> Rooms.get_room_by_id(id)
     end
   end
 

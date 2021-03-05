@@ -9,7 +9,7 @@ import { showErrorToast } from "../utils/showErrorToast";
 import { Button } from "./Button";
 import { InputField } from "./form-fields/InputField";
 import { Modal } from "./Modal";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 interface CreateRoomModalProps {
 	onRequestClose: () => void;
@@ -27,7 +27,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 	edit,
 }) => {
 	const history = useHistory();
-  const { t } = useTranslation();
+	const { t } = useTranslation();
 	return (
 		<Modal isOpen onRequestClose={onRequestClose}>
 			<Formik<{

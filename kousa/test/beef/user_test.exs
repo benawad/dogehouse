@@ -4,10 +4,10 @@ defmodule Kousa.Beef.UserTest do
   use Kousa.Support.EctoSandbox
 
   alias Kousa.Support.Factory
+  alias Beef.Schemas.Room
   alias Beef.Schemas.User
   alias Beef.Schemas.Users
   alias Beef.Repo
-  alias Beef.Room
 
   describe "you can create a user" do
     @gh_input %{

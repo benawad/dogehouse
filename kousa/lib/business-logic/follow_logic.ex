@@ -3,6 +3,7 @@ defmodule Kousa.BL.Follow do
   alias Kousa.Gen
   alias Kousa.Data.Follower
   alias Kousa.Data.UserBlock
+  alias Beef.Users
 
   def get_follow_list(user_id, user_id_to_get_list_for, get_following_list, cursor) do
     if get_following_list do
@@ -26,7 +27,7 @@ defmodule Kousa.BL.Follow do
     end
   end
 
-  @spec sync_notify_followers_you_created_a_room(String.t(), Beef.Room.t()) :: {:ok}
+  @spec sync_notify_followers_you_created_a_room(String.t(), Room.t()) :: {:ok}
   def sync_notify_followers_you_created_a_room(user_id, room) do
     followers_to_notify = Follower.get_followers_online_and_not_in_a_room(user_id)
 
@@ -55,7 +56,7 @@ defmodule Kousa.BL.Follow do
     {:ok}
   end
 
-  @spec notify_followers_you_created_a_room(String.t(), Beef.Room.t()) :: {:ok, pid()}
+  @spec notify_followers_you_created_a_room(String.t(), Room.t()) :: {:ok, pid()}
   def notify_followers_you_created_a_room(user_id, room) do
     Task.start(fn -> sync_notify_followers_you_created_a_room(user_id, room) end)
   end

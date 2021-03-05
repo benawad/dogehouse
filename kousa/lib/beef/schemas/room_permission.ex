@@ -1,6 +1,8 @@
 defmodule Beef.RoomPermission do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Beef.Schemas.Room
+
   @timestamps_opts [type: :utc_datetime_usec]
 
   @type t :: %__MODULE__{
@@ -17,7 +19,7 @@ defmodule Beef.RoomPermission do
   @primary_key false
   schema "room_permissions" do
     belongs_to(:user, User, foreign_key: :userId, type: :binary_id)
-    belongs_to(:room, Beef.Room, foreign_key: :roomId, type: :binary_id)
+    belongs_to(:room, Room, foreign_key: :roomId, type: :binary_id)
     field(:isSpeaker, :boolean)
     field(:isMod, :boolean)
     field(:askedToSpeak, :boolean)
