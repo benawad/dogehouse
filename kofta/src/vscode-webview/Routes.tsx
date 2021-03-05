@@ -62,6 +62,8 @@ export const Routes: React.FC<RoutesProps> = () => {
 	meRef.current = me;
 
 	const shouldBeSidebar = useShouldBeSidebar();
+	const shouldBeSidebarRef = useRef(shouldBeSidebar);
+	shouldBeSidebarRef.current = shouldBeSidebar;
 
 	useEffect(() => {
 		addMultipleWsListener({
@@ -403,7 +405,7 @@ export const Routes: React.FC<RoutesProps> = () => {
 			},
 			join_room_done: (d) => {
 				// Auto open chat to show description and if mobile
-				if (shouldBeSidebar) {
+				if (shouldBeSidebarRef) {
 					useRoomChatStore.getState().toggleOpen();
 				}
 
