@@ -27,7 +27,7 @@ defmodule Beef.Room do
   @primary_key {:id, :binary_id, []}
   schema "rooms" do
     field(:name, :string)
-    field(:description, :string)
+    field(:description, :string, default: "")
     field(:numPeopleInside, :integer)
     field(:isPrivate, :boolean)
     field(:voiceServerId, :string)
