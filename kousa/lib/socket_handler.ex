@@ -626,7 +626,7 @@ defmodule Kousa.SocketHandler do
 
   def f_handler("get_top_public_rooms", data, %State{} = state) do
     {rooms, next_cursor} =
-      Kousa.Data.Room.get_top_public_rooms(
+      Rooms.get_top_public_rooms(
         state.user_id,
         data["cursor"]
       )

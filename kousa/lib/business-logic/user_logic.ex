@@ -1,7 +1,7 @@
 defmodule Kousa.BL.User do
   alias Kousa.Gen
   alias Kousa.RegUtils
-  alias Beef.Schemas.Users
+  alias Beef.Users
   alias Kousa.Gen
   alias Kousa.RegUtils
   alias Kousa.BL

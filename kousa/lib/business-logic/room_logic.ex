@@ -5,11 +5,11 @@ defmodule Kousa.BL.Room do
   alias Kousa.Gen
   alias Kousa.Caster
   alias Kousa.VoiceServerUtils
-  # note the following three module aliases are on the chopping block!
-  alias Kousa.Data.Follower
+  alias Beef.Users
   alias Beef.Rooms
+  # note the following 2 module aliases are on the chopping block!
+  alias Kousa.Data.Follower
   alias Kousa.Data.RoomPermission
-  alias Beef.Schemas.Users
 
   def set_auto_speaker(user_id, value) do
     room = Rooms.get_room_by_creator_id(user_id)
