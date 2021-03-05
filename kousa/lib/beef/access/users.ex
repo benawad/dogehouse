@@ -1,12 +1,15 @@
 defmodule Beef.Access.Users do
   import Ecto.Query, warn: false
 
+  alias Beef.Queries.Users, as: Query
   alias Beef.Repo
   alias Beef.Schemas.User
 
   def find_by_github_ids(ids) do
-    from(u in User, where: u.githubId in ^ids, select: u.id)
-    |> Repo.all()
+    Query.start
+    |> Query.filter_by_github_ids(ids)
+    |> Query.select_id
+    |> Repo.all
   end
 
   def get_by_id(user_id) do
