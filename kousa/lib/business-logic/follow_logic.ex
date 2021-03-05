@@ -1,5 +1,4 @@
 defmodule Kousa.BL.Follow do
-  alias Beef.Users
   alias Kousa.Gen
   alias Beef.Follows
   alias Beef.UserBlocks
@@ -33,7 +32,7 @@ defmodule Kousa.BL.Follow do
     followers_to_notify = Follows.get_followers_online_and_not_in_a_room(user_id)
 
     if length(followers_to_notify) > 0 do
-      user = Users.get_by_id(user_id)
+      user = Beef.Access.User.get_by_id(user_id)
 
       Enum.each(followers_to_notify, fn %Follow{followerId: followerId} ->
         Gen.UserSession.send_cast(

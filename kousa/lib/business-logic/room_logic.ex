@@ -9,7 +9,6 @@ defmodule Kousa.BL.Room do
   alias Beef.Follows
   alias Beef.Rooms
   alias Kousa.Data.RoomPermission
-  alias Beef.Users
 
   def set_auto_speaker(user_id, value) do
     room = Rooms.get_room_by_creator_id(user_id)
@@ -52,7 +51,7 @@ defmodule Kousa.BL.Room do
   end
 
   def invite_to_room(user_id, user_id_to_invite) do
-    user = Users.get_by_id(user_id)
+    user = Beef.Access.User.get_by_id(user_id)
 
     if not is_nil(user.currentRoomId) and
          Follows.following_me?(user_id, user_id_to_invite) do
@@ -85,7 +84,7 @@ defmodule Kousa.BL.Room do
           roomId: room.id
         })
 
-        user_blocked = Users.get_by_id(user_id_to_block_from_room)
+        user_blocked = Beef.Access.User.get_by_id(user_id_to_block_from_room)
 
         if user_blocked.currentRoomId == room.id do
           leave_room(user_id_to_block_from_room, user_blocked.currentRoomId, true)
@@ -108,7 +107,7 @@ defmodule Kousa.BL.Room do
     if user_id == user_id_to_set_listener do
       internal_set_listener(
         user_id_to_set_listener,
-        Users.get_current_room_id(user_id_to_set_listener)
+        Beef.Queries.User.get_current_room_id(user_id_to_set_listener)
       )
     else
       {status, room} = Rooms.get_room_status(user_id)
@@ -117,7 +116,7 @@ defmodule Kousa.BL.Room do
       if not is_creator and (status == :creator or status == :mod) do
         internal_set_listener(
           user_id_to_set_listener,
-          Users.get_current_room_id(user_id_to_set_listener)
+          Beef.Queries.User.get_current_room_id(user_id_to_set_listener)
         )
       end
     end
@@ -194,7 +193,7 @@ defmodule Kousa.BL.Room do
   end
 
   def rename_room(user_id, new_name) do
-    with {:ok, room_id} <- Users.tuple_get_current_room_id(user_id),
+    with {:ok, room_id} <- Beef.Queries.User.tuple_get_current_room_id(user_id),
          {1, _} <- Rooms.update_name(user_id, new_name) do
       nil
       RegUtils.lookup_and_cast(Gen.RoomSession, room_id, {:new_room_name, new_name})
@@ -203,7 +202,7 @@ defmodule Kousa.BL.Room do
 
   # @decorate user_atomic()
   def create_room(user_id, room_name, is_private) do
-    room_id = Users.get_current_room_id(user_id)
+    room_id = Beef.Queries.User.get_current_room_id(user_id)
 
     if not is_nil(room_id) do
       leave_room(user_id, room_id)
@@ -258,7 +257,7 @@ defmodule Kousa.BL.Room do
 
   # @decorate user_atomic()
   def join_room(user_id, room_id) do
-    currentRoomId = Users.get_current_room_id(user_id)
+    currentRoomId = Beef.Queries.User.get_current_room_id(user_id)
 
     if currentRoomId == room_id do
       %{room: Rooms.get_room_by_id(room_id)}
@@ -318,7 +317,7 @@ defmodule Kousa.BL.Room do
   def leave_room(user_id, current_room_id \\ nil, blocked \\ false) do
     current_room_id =
       if is_nil(current_room_id),
-        do: Users.get_current_room_id(user_id),
+        do: Beef.Queries.User.get_current_room_id(user_id),
         else: current_room_id
 
     if current_room_id do
