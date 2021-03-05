@@ -2,7 +2,6 @@ defmodule Kousa.Gen.UserSession do
   use GenServer
   alias Kousa.Gen
   alias Kousa.RegUtils
-  alias Kousa.Data
   alias Kousa.BL
   alias Beef.Schemas.Users
 
@@ -164,7 +163,7 @@ defmodule Kousa.Gen.UserSession do
                state.current_room_id,
                {:get_voice_server_id}
              ) do
-        room = Data.Room.get_room_by_id(state.current_room_id)
+        room = Rooms.get_room_by_id(state.current_room_id)
         BL.Room.join_vc_room(state.user_id, room)
       end
     end

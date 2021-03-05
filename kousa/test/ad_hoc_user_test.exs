@@ -11,7 +11,8 @@ defmodule KousaTest.AdHocUserTest do
   # time.
 
   alias Beef.Schemas.User
-  alias Beef.Schemas.Users
+  alias Beef.Schemas.Room
+  alias Beef.Users
 
   alias Beef.Repo
   alias Kousa.Support.Factory
@@ -41,7 +42,6 @@ defmodule KousaTest.AdHocUserTest do
 
   describe "Beef.RoomBlock" do
     alias Beef.RoomBlock
-    alias Beef.Room
 
     test "you can add a room blocker into the roomblock table" do
       %{id: uid} = Factory.create(User)
@@ -63,45 +63,6 @@ defmodule KousaTest.AdHocUserTest do
                modId: ^mid,
                mod: %User{id: ^mid}
              } = Repo.preload(roomblock, [:user, :mod])
-    end
-  end
-
-  describe "Beef.Room" do
-    alias Beef.Room
-
-    test "you can add a room into the room table" do
-      %{id: cid} = Factory.create(User)
-      vid = UUID.uuid4()
-
-      assert {:ok,
-              %Room{
-                creatorId: ^cid,
-                name: "my room",
-                isPrivate: false,
-                voiceServerId: ^vid
-              }} =
-               %Room{}
-               |> Room.insert_changeset(%{
-                 name: "my room",
-                 numPeopleInside: 0,
-                 isPrivate: false,
-                 creatorId: cid,
-                 voiceServerId: vid
-               })
-               |> Repo.insert()
-
-      assert [room] = Repo.all(Room)
-
-      assert %Room{
-               ####################################
-               # NOTE these two don't match up.
-               creatorId: ^cid,
-               user: %User{id: ^cid},
-               ####################################
-               name: "my room",
-               isPrivate: false,
-               voiceServerId: ^vid
-             } = Repo.preload(room, [:user])
     end
   end
 
