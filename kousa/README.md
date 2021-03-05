@@ -17,13 +17,13 @@ Pretty information outputted into `cover/excoveralls.html`
 
 ## for Elixir NOOBs:
 
-general elixir conventions:
+General Elixir conventions:
 
-- a function that ends in `!` can crash on documented error conditions.
+- A function that ends in `!` can crash on documented error conditions.
 - `is_...` should only be used for guards; most boolean functions should be
   `...?` functions
-- `fetch...` shuold return `{:ok, value}` or `:error`
-- `fetch...!` shuold return `value` or crash if not present
-- `get...` shuold return `value` or `nil`
+- `fetch...` should return `{:ok, value}` or `:error`
+- `fetch...!` should return `value` or crash if not present
+- `get...` should return `value` or `nil`
 
 `snake_case` not `camelCase` 
