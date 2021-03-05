@@ -7,75 +7,77 @@ import { renameRoomAndMakePublic } from "../../webrtc/utils/renameRoomAndMakePub
 import { BlockedFromRoomUsers } from "./BlockedFromRoomUsers";
 import { Button } from "./Button";
 import { Modal } from "./Modal";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 interface RoomSettingsModalProps {
-  open: boolean;
-  onRequestClose: () => void;
+	open: boolean;
+	onRequestClose: () => void;
 }
 
 export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
-  open,
-  onRequestClose,
+	open,
+	onRequestClose,
 }) => {
-  const { currentRoom, setCurrentRoom } = useCurrentRoomStore();
-  const { t } = useTranslation();
-  return (
-    <Modal isOpen={open} onRequestClose={onRequestClose}>
-      <button
-        onClick={() => {
-          onRequestClose();
-        }}
-        className={`p-2 -ml-3`}
-      >
-        <X />
-      </button>
-      {currentRoom ? (
-        <>
-          <label className={`flex items-center my-8`} htmlFor="auto-speaker">
-            <input
-              checked={!currentRoom.autoSpeaker}
-              onChange={(e) => {
-                setCurrentRoom((cr) =>
-                  !cr
-                    ? cr
-                    : {
-                        ...cr,
-                        autoSpeaker: !e.target.checked,
-                      }
-                );
-                wsend({
-                  op: "set_auto_speaker",
-                  d: { value: !e.target.checked },
-                });
-              }}
-              id="auto-speaker"
-              type="checkbox"
-            />
-            <span className={`ml-2`}>{t("components.modal.roomSettingsModal.requirePermission")}</span>
-          </label>
-          {currentRoom.isPrivate ? (
-            <Button
-              onClick={() => {
-                renameRoomAndMakePublic(currentRoom.name);
-                onRequestClose();
-              }}
-            >
-              {t("components.modal.roomSettingsModal.makePublic")}
-            </Button>
-          ) : (
-            <Button
-              onClick={() => {
-                renameRoomAndMakePrivate(currentRoom.name);
-                onRequestClose();
-              }}
-            >
-              {t("components.modal.roomSettingsModal.makePrivate")}
-            </Button>
-          )}
-          {open ? <BlockedFromRoomUsers /> : null}
-        </>
-      ) : null}
-    </Modal>
-  );
+	const { currentRoom, setCurrentRoom } = useCurrentRoomStore();
+	const { t } = useTranslation();
+	return (
+		<Modal isOpen={open} onRequestClose={onRequestClose}>
+			<button
+				onClick={() => {
+					onRequestClose();
+				}}
+				className={`p-2 -ml-3`}
+			>
+				<X />
+			</button>
+			{currentRoom ? (
+				<>
+					<label className={`flex items-center my-8`} htmlFor="auto-speaker">
+						<input
+							checked={!currentRoom.autoSpeaker}
+							onChange={(e) => {
+								setCurrentRoom((cr) =>
+									!cr
+										? cr
+										: {
+												...cr,
+												autoSpeaker: !e.target.checked,
+										  }
+								);
+								wsend({
+									op: "set_auto_speaker",
+									d: { value: !e.target.checked },
+								});
+							}}
+							id="auto-speaker"
+							type="checkbox"
+						/>
+						<span className={`ml-2`}>
+							{t("components.modals.roomSettingsModal.requirePermission")}
+						</span>
+					</label>
+					{currentRoom.isPrivate ? (
+						<Button
+							onClick={() => {
+								renameRoomAndMakePublic(currentRoom.name);
+								onRequestClose();
+							}}
+						>
+							{t("components.modals.roomSettingsModal.makePublic")}
+						</Button>
+					) : (
+						<Button
+							onClick={() => {
+								renameRoomAndMakePrivate(currentRoom.name);
+								onRequestClose();
+							}}
+						>
+							{t("components.modals.roomSettingsModal.makePrivate")}
+						</Button>
+					)}
+					{open ? <BlockedFromRoomUsers /> : null}
+				</>
+			) : null}
+		</Modal>
+	);
 };
