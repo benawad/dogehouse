@@ -75,17 +75,17 @@
 		"soundEffectSettings": {
 			"header": "Sounds"
 		},
-		"viewUser": {
+		"userProfile": {
 			"editProfile": "edit profile",
 			"followsYou": "follows you",
-			"folowers": "followers",
+			"followers": "followers",
 			"following": "following"
 		},
 		"voiceSettings": {
 			"header": "Voice Settings",
 			"mic": "mic:",
 			"permissionError": "no mics found, you either have none plugged in or haven't given this website permission.",
-			"refesh": "refresh mic list",
+			"refresh": "refresh mic list",
 			"volume": "volume:"
 		}
 	},
