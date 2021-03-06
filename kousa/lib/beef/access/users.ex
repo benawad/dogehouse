@@ -5,6 +5,7 @@ defmodule Beef.Access.Users do
   alias Beef.Repo
   alias Beef.Schemas.User
   alias Beef.Schemas.Room
+  alias Beef.Rooms
 
   def find_by_github_ids(ids) do
     Query.start

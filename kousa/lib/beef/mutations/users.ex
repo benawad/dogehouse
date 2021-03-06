@@ -3,6 +3,8 @@ defmodule Beef.Mutations.Users do
 
   alias Beef.Repo
   alias Beef.Schemas.User
+  alias Beef.Queries.Users, as: Query
+
 
   def edit_profile(user_id, data) do
     %User{id: user_id}
@@ -23,14 +25,9 @@ defmodule Beef.Mutations.Users do
   end
 
   def inc_num_following(user_id, n) do
-    from(u in User,
-      where: u.id == ^user_id,
-      update: [
-        inc: [
-          numFollowing: ^n
-        ]
-      ]
-    )
+    Query.start
+    |> Query.filter_by_id(user_id)
+    |> Query.inc_num_following_by_n(n)
     |> Repo.update_all([])
   end
 
