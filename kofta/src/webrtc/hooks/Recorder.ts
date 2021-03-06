@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useConsumerStore } from "../stores/useConsumerStore";
 import { useVoiceStore } from "../stores/useVoiceStore";
 
-function download(url: string, name = "recording.mp4") {
+function download(url: string, name = "recording.mp3") {
 	const link = document.createElement("a");
 	link.href = url;
 	link.target = "_blank";
