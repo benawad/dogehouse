@@ -39,42 +39,26 @@ defmodule Beef.Mutations.Users do
   end
 
   def set_online(user_id) do
-    from(u in User,
-      where: u.id == ^user_id,
-      update: [
-        set: [
-          online: true
-        ]
-      ]
-    )
+    Query.start
+    |> Query.filter_by_id(user_id)
+    |> Query.update_set_online_true
     |> Repo.update_all([])
   end
 
   def set_user_left_current_room(user_id) do
     Kousa.RegUtils.lookup_and_cast(Kousa.Gen.UserSession, user_id, {:set_current_room_id, nil})
 
-    from(u in User,
-      where: u.id == ^user_id,
-      update: [
-        set: [
-          currentRoomId: nil
-        ]
-      ]
-    )
+    Query.start
+    |> Query.filter_by_id(user_id)
+    |> Query.update_set_current_room_nil
     |> Repo.update_all([])
   end
 
   def set_offline(user_id) do
-    from(u in User,
-      where: u.id == ^user_id,
-      update: [
-        set: [
-          online: false,
-          lastOnline: fragment("now()")
-        ]
-      ]
-      # select: u
-    )
+    Query.start
+    |> Query.filter_by_id(user_id)
+    |> Query.update_set_online_false
+    |> Query.update_set_last_online_to_now
     |> Repo.update_all([])
   end
 
