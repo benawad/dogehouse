@@ -68,6 +68,8 @@ export type TranslationKeys =
 	| "components.bottomVoiceControl.settings"
 	| "components.bottomVoiceControl.speaker"
 	| "components.bottomVoiceControl.listener"
+	| "components.bottomVoiceControl.startRecording"
+	| "components.bottomVoiceControl.stopRecording"
 	| "components.micPermissionBanner.permissionDenied"
 	| "components.micPermissionBanner.dismiss"
 	| "components.micPermissionBanner.tryAgain"

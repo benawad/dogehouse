@@ -91,6 +91,8 @@
 			"noBans": "ninguém foi expulso ainda"
 		},
 		"bottomVoiceControl": {
+			"startRecording": "Start Recording",
+			"stopRecording": "Stop Recording",
 			"leaveCurrentRoomBtn": "Deixar a sala atual",
 			"confirmLeaveRoom": "Você quer mesmo sair?",
 			"leave": "Sair",

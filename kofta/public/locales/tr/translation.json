@@ -93,6 +93,8 @@
 			"noBans": "henüz kimse banlanmadı"
 		},
 		"bottomVoiceControl": {
+			"startRecording": "Start Recording",
+			"stopRecording": "Stop Recording",
 			"leaveCurrentRoomBtn": "Odadan ayrıl",
 			"confirmLeaveRoom": "Ayrılmak istediğine emin misin?",
 			"leave": "Ayrıl",

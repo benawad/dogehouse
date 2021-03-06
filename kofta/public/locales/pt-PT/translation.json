@@ -91,6 +91,8 @@
 			"noBans": "Sem utilizadores banidos"
 		},
 		"bottomVoiceControl": {
+			"startRecording": "Start Recording",
+			"stopRecording": "Stop Recording",
 			"leaveCurrentRoomBtn": "Sair da sala atual",
 			"confirmLeaveRoom": "Pretendes abandonar a sala?",
 			"leave": "Sair",

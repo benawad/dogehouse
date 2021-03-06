@@ -99,6 +99,8 @@
 			"noBans": "no one has been banned yet"
 		},
 		"bottomVoiceControl": {
+			"startRecording": "Start Recording",
+			"stopRecording": "Stop Recording",
 			"leaveCurrentRoomBtn": "Leave current room",
 			"confirmLeaveRoom": "Are you sure you want to leave?",
 			"leave": "Leave",

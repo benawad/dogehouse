@@ -90,6 +90,8 @@
 			"noBans": "nadie ha sido bloqueado todavía"
 		},
 		"bottomVoiceControl": {
+			"startRecording": "Start Recording",
+			"stopRecording": "Stop Recording",
 			"leaveCurrentRoomBtn": "Abandonar sala actual",
 			"confirmLeaveRoom": "¿Estás seguro de que quieres irte?",
 			"leave": "Abandonar",

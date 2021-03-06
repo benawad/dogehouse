@@ -90,6 +90,8 @@
 			"noBans": "senki nem lett bannolva még"
 		},
 		"bottomVoiceControl": {
+			"startRecording": "Start Recording",
+			"stopRecording": "Stop Recording",
 			"leaveCurrentRoomBtn": "Kilépés a szobából",
 			"confirmLeaveRoom": "Biztosan ki szeretne lépni?",
 			"leave": "Kilépés",

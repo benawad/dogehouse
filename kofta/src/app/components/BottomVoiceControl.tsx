@@ -190,7 +190,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           }}
           title="Stop Recording"
         >
-          Stop Recording
+          {t("components.bottomVoiceControl.stopRecording")}
         </button>
       );
     } else {
@@ -203,7 +203,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           }}
           title="Start Recording"
         >
-          Start Recording
+          {t("components.bottomVoiceControl.startRecording")}
         </button>
       );
     }
