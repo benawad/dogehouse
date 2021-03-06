@@ -21,18 +21,14 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "ban"
-		},
+		"banUser": { "ban": "ban" },
 		"followingOnlineList": {
 			"listHeader": "Liste des utilisateurs dans une salle privée que vous suivez",
 			"currentRoom": "actuellement dans :",
 			"startPrivateRoom": "démarrer une salle privée avec eux"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "Créer une salle"
-		},
+		"home": { "createRoom": "Créer une salle" },
 		"inviteList": {
 			"roomGone": "salle indisponible, retour",
 			"shareRoomLink": "partager le lien de la salle",
@@ -68,12 +64,8 @@
 			"requestingToSpeak": "Demande la parole",
 			"listeners": "Auditeurs"
 		},
-		"searchUser": {
-			"search": "recherche..."
-		},
-		"soundEffectSettings": {
-			"header": "Sons"
-		},
+		"searchUser": { "search": "recherche..." },
+		"soundEffectSettings": { "header": "Sons" },
 		"viewUser": {
 			"editProfile": "éditer le profil",
 			"followsYou": "vous suit",
@@ -117,10 +109,7 @@
 			"tryAgain": "réessayer"
 		},
 		"modals": {
-			"createRoomModal": {
-				"public": "publique",
-				"private": "privée"
-			},
+			"createRoomModal": { "public": "publique", "private": "privée" },
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Nouvelle Salle Crée",
 				"roomInviteFrom": "Invitation à la salle de",
