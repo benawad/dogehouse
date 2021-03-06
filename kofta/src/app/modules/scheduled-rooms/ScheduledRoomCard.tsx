@@ -79,7 +79,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
 						<AddToCalendarButton event={{
 							name: name,
 							details: description,
-							location: id,
+							location: window.location.origin + `/scheduled-room/${id}`,
 							startsAt: dt.toISOString(),
 							endsAt: new Date(dt.getTime() + (1*60*60*1000)).toISOString()
 						}} />
