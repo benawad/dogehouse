@@ -8,6 +8,7 @@ import {
 	wsMutationThrowError,
 } from "../../../createWebsocket";
 import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
+import { AddToCalendarButton } from "../../components/add-to-calendar/AddToCalendarButton";
 import { Avatar } from "../../components/Avatar";
 import { Button } from "../../components/Button";
 import { modalConfirm } from "../../components/ConfirmModal";
@@ -75,6 +76,13 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
 								? format(dt, `K:mm a`)
 								: format(dt, `MM/dd/yyyy K:mm a`)}
 						</div>
+						<AddToCalendarButton event={{
+							name: name,
+							details: description,
+							location: window.location.origin + `/scheduled-room/${id}`,
+							startsAt: dt.toISOString(),
+							endsAt: new Date(dt.getTime() + (1*60*60*1000)).toISOString()
+						}} />
 						{me?.id === creator.id ? (
 							<div className={`flex`}>
 								<Button variant="small" onClick={() => onEdit()}>

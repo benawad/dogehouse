@@ -151,7 +151,8 @@
 		},
 		"userVolumeSlider": {
 			"noAudioMessage": "Sem consumidor de áudio devido a um erro desconhecido"
-		}
+		},
+		"addToCalendar": { "add": "Add to Calendar" }
 	},
 	"modules": {
 		"scheduledRooms": {

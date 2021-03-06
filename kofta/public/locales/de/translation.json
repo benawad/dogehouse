@@ -151,7 +151,8 @@
 		},
 		"userVolumeSlider": {
 			"noAudioMessage": "aus unbekannten gründen kein audio consumer"
-		}
+		},
+		"addToCalendar": { "add": "Add to Calendar" }
 	},
 	"modules": {
 		"scheduledRooms": {

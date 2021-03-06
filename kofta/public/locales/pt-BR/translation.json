@@ -149,7 +149,8 @@
 				"makePrivate": "fazer a sala privada"
 			}
 		},
-		"userVolumeSlider": { "noAudioMessage": "não tem audio por algum motivo" }
+		"userVolumeSlider": { "noAudioMessage": "não tem audio por algum motivo" },
+		"addToCalendar": { "add": "Add to Calendar" }
 	},
 	"modules": {
 		"scheduledRooms": {

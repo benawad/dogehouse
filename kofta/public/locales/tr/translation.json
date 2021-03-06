@@ -151,7 +151,8 @@
 				"makePrivate": "odayı gizli yap"
 			}
 		},
-		"userVolumeSlider": { "noAudioMessage": "nedense ses alıcısı yok" }
+		"userVolumeSlider": { "noAudioMessage": "nedense ses alıcısı yok" },
+		"addToCalendar": { "add": "Add to Calendar" }
 	},
 	"modules": {
 		"scheduledRooms": {
