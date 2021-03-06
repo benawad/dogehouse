@@ -11,7 +11,7 @@ export const Footer: React.FC<FooterProps> = ({ isLogin }) => {
 	const { t } = useTypeSafeTranslation();
 
 	return (
-		<div className={`justify-around flex text-center`}>
+		<div className={`justify-between flex text-center`}>
 			{isLogin ? (
 				<RegularAnchor href="https://www.youtube.com/watch?v=hy-EhJ_tTQo">
 					{t("footer.link_1")}
