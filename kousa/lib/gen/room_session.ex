@@ -23,8 +23,6 @@ defmodule Kousa.Gen.RoomSession do
 
   def start_link(%{
         room_id: room_id,
-        user_id: user_id,
-        muted: muted,
         voice_server_id: voice_server_id
       }) do
     GenServer.start_link(
@@ -32,10 +30,10 @@ defmodule Kousa.Gen.RoomSession do
       %State{
         room_id: room_id,
         voice_server_id: voice_server_id,
-        users: [user_id],
+        users: [],
         auto_speaker: false,
         activeSpeakerMap: %{},
-        muteMap: if(muted, do: Map.put(%{}, user_id, true), else: %{}),
+        muteMap: %{},
         inviteMap: %{}
       },
       name: :"#{room_id}:room_session"
@@ -188,6 +186,30 @@ defmodule Kousa.Gen.RoomSession do
     {:noreply, %{state | muteMap: new_mm}}
   end
 
+  def handle_cast({:join_room_no_fan, user_id, mute}, %State{} = state) do
+    Kousa.RegUtils.lookup_and_cast(Kousa.Gen.RoomChat, state.room_id, {:add_user, user_id})
+
+    muteMap =
+      if is_nil(mute),
+        do: state.muteMap,
+        else:
+          if(not Kousa.Caster.bool(mute),
+            do: Map.delete(state.muteMap, user_id),
+            else: Map.put(state.muteMap, user_id, true)
+          )
+
+    {:noreply,
+     %{
+       state
+       | users: [
+           # maybe use a set
+           user_id
+           | Enum.filter(state.users, fn uid -> uid != user_id end)
+         ],
+         muteMap: muteMap
+     }}
+  end
+
   def handle_cast({:join_room, user, mute}, %State{} = state) do
     Kousa.RegUtils.lookup_and_cast(Kousa.Gen.RoomChat, state.room_id, {:add_user, user.id})
 
@@ -214,10 +236,10 @@ defmodule Kousa.Gen.RoomSession do
      }}
   end
 
-  def handle_cast({:new_room_name, new_name}, %State{} = state) do
+  def handle_cast({:new_room_details, new_name, new_description, is_private}, %State{} = state) do
     ws_fan(state.users, :vscode, %{
-      op: "new_room_name",
-      d: %{name: new_name, roomId: state.room_id}
+      op: "new_room_details",
+      d: %{name: new_name, description: new_description, isPrivate: is_private, roomId: state.room_id}
     })
 
     {:noreply, state}

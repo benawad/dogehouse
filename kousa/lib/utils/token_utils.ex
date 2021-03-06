@@ -1,4 +1,6 @@
 defmodule Kousa.TokenUtils do
+  alias Beef.Schemas.User
+
   def create_tokens(user) do
     %{
       accessToken: Kousa.AccessToken.generate_and_sign!(%{"userId" => user.id}),
@@ -21,7 +23,7 @@ defmodule Kousa.TokenUtils do
       _ ->
         case Kousa.RefreshToken.verify_and_validate(refreshToken) do
           {:ok, refreshClaims} ->
-            user = Beef.User |> Beef.Repo.get(refreshClaims["userId"])
+            user = User |> Beef.Repo.get(refreshClaims["userId"])
 
             if is_nil(user) or not is_nil(user.reasonForBan) or
                  user.tokenVersion != refreshClaims["tokenVersion"] do
