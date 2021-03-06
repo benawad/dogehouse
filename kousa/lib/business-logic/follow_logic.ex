@@ -20,7 +20,7 @@ defmodule Kousa.BL.Follow do
       if user_id != user_you_want_to_follow_id and
            not UserBlocks.blocked?(user_you_want_to_follow_id, user_id) do
         Follows.insert(%{userId: user_you_want_to_follow_id, followerId: user_id})
-        Notifications.insert(%{type: "follow", user_id: user_you_want_to_follow_id, notifier_id: user_id})
+        Notifications.followed(user_you_want_to_follow_id, user_id)
       end
     else
       Follows.delete(

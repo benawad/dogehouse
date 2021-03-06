@@ -7,7 +7,8 @@ interface AvatarProps {
   circle?: boolean;
   usernameForErrorImg?: string;
   className?: string;
-  isOnline?: boolean;
+  showDot?: boolean;
+  dotColor?: "green" | "red";
 }
 
 export const Avatar: React.FC<AvatarProps> = ({
@@ -17,7 +18,8 @@ export const Avatar: React.FC<AvatarProps> = ({
   circle,
   usernameForErrorImg,
   className,
-  isOnline,
+  showDot,
+  dotColor = "green"
 }) => {
   const [error, setError] = useState(false);
   return (
@@ -36,8 +38,8 @@ export const Avatar: React.FC<AvatarProps> = ({
         }
       />
 
-      {isOnline ? (
-        <span className="rounded-full w-4 h-4 bg-green-500 absolute right-0 bottom-0"></span>
+      {showDot ? (
+        <span className={`rounded-full w-4 h-4 bg-${dotColor}-500 absolute right-0 bottom-0`}></span>
       ) : null}
     </div>
   );

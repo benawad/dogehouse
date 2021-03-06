@@ -33,7 +33,7 @@ export const FollowingOnlineList: React.FC<FriendListProps> = () => {
 						key={u.id}
 					>
 						<button onClick={() => history.push(`/user`, u)}>
-							<Avatar src={u.avatarUrl} isOnline={u.online} />
+							<Avatar src={u.avatarUrl} showDot={u.online} />
 						</button>
 						<button
 							onClick={() => {
