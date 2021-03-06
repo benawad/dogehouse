@@ -30,4 +30,12 @@ defmodule Beef.Queries.Users do
       ]
     ])
   end
+
+  def update_reason_for_ban(query, reason_for_ban) do
+    update(query, [
+      set: [
+        reasonForBan: ^reason_for_ban
+      ]
+    ])
+  end
 end

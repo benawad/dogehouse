@@ -32,14 +32,9 @@ defmodule Beef.Mutations.Users do
   end
 
   def set_reason_for_ban(user_id, reason_for_ban) do
-    from(u in User,
-      where: u.id == ^user_id,
-      update: [
-        set: [
-          reasonForBan: ^reason_for_ban
-        ]
-      ]
-    )
+    Query.start
+    |> Query.filter_by_id(user_id)
+    |> Query.update_reason_for_ban(reason_for_ban)
     |> Repo.update_all([])
   end
 
