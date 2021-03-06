@@ -1,10 +1,12 @@
 defmodule Kousa.BL.ScheduledRoom do
   use Kousa.Dec.Atomic
-  alias Kousa.{BL, Data, Errors}
+  alias Kousa.BL
+  alias Kousa.Data
+  alias Kousa.Errors
   alias Beef.Schemas.ScheduledRoom
 
-  def create_room_from_scheduled_room(user_id, scheduled_room_id, name) do
-    with {:ok, response} <- BL.Room.create_room(user_id, name, false) do
+  def create_room_from_scheduled_room(user_id, scheduled_room_id, name, description) do
+    with {:ok, response} <- BL.Room.create_room(user_id, name, description, false) do
       Data.ScheduledRoom.room_started(user_id, scheduled_room_id, response.room.id)
       {:ok, response}
     else

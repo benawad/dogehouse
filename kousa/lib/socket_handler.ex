@@ -696,15 +696,15 @@ defmodule Kousa.SocketHandler do
         %{
           "id" => scheduled_room_id,
           "name" => name,
-          # @todo use description when you merge pull request for it on room
-          "description" => _description
+          "description" => description
         },
         %State{} = state
       ) do
     case Kousa.BL.ScheduledRoom.create_room_from_scheduled_room(
            state.user_id,
            scheduled_room_id,
-           name
+           name,
+           description
          ) do
       {:ok, d} ->
         d
