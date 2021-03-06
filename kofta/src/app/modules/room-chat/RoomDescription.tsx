@@ -16,7 +16,7 @@ export const RoomDescription: React.FC<RoomDescriptionProps> = () => {
 			<p className="text-gray-400 mb-1">
 				{t("modules.roomChat.roomDescription")}
 			</p>
-			<p className="break-all">
+			<p className="whitespace-pre-wrap break-all">
 				{expanded
 					? currentRoom.description
 					: truncate(currentRoom.description, MAX_COLLAPSED_CHARACTERS)}

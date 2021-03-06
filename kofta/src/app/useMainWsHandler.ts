@@ -78,7 +78,6 @@ export const useMainWsHandler = () => {
 							t.v?.toLowerCase() === meRef?.current?.username?.toLowerCase()
 					).length
 				) {
-					useRoomChatStore.getState().setNewUnreadMessages(true);
 					useRoomChatMentionStore.getState().incrementIAmMentioned();
 				}
 			},
