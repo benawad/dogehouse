@@ -1,7 +1,7 @@
 import * as React from "react";
 import AddToCalendar from "./AddToCalendar";
-import { useTranslation } from "react-i18next";
 import "../../../css/add-to-calendar-button.css";
+import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
 
 interface ScheduledEvent {
 	event: ScheduledEventProps
@@ -18,7 +18,7 @@ interface ScheduledEventProps {
 export const AddToCalendarButton: React.FC<ScheduledEvent> = ({
   event
 }) => {
-	const { t } = useTranslation();
+	const { t } = useTypeSafeTranslation();
 	return <AddToCalendar
 		children={t("components.addToCalendar.add")}
 		event={event}

@@ -148,7 +148,8 @@
 				"makePrivate": "szoba priváttá állítása"
 			}
 		},
-		"userVolumeSlider": { "noAudioMessage": "valamilyen okból nincs hallgató" }
+		"userVolumeSlider": { "noAudioMessage": "valamilyen okból nincs hallgató" },
+		"addToCalendar": { "add": "Add to Calendar" }
 	},
 	"modules": {
 		"scheduledRooms": {

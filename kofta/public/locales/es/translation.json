@@ -150,7 +150,8 @@
 		},
 		"userVolumeSlider": {
 			"noAudioMessage": "no hay consumidor de audio por alguna razón"
-		}
+		},
+		"addToCalendar": { "add": "Add to Calendar" }
 	},
 	"modules": {
 		"scheduledRooms": {

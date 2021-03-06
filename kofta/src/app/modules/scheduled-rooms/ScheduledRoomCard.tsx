@@ -82,7 +82,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
 							location: id,
 							startsAt: dt.toISOString(),
 							endsAt: dt.toISOString()
-						}}></AddToCalendarButton>
+						}} />
 						{me?.id === creator.id ? (
 							<div className={`flex`}>
 								<Button variant="small" onClick={() => onEdit()}>

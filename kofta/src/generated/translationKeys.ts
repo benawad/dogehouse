@@ -104,6 +104,7 @@ export type TranslationKeys =
 	| "components.modals.roomSettingsModal.makePublic"
 	| "components.modals.roomSettingsModal.makePrivate"
 	| "components.userVolumeSlider.noAudioMessage"
+	| "components.addToCalendar.add"
 	| "modules.scheduledRooms.title"
 	| "modules.scheduledRooms.noneFound"
 	| "modules.scheduledRooms.allRooms"
