@@ -4,7 +4,6 @@ defmodule Kousa.Beef.UserTest do
   use Kousa.Support.EctoSandbox
 
   alias Kousa.Support.Factory
-
   alias Beef.Follows
   alias Beef.Schemas.Room
   alias Beef.Schemas.User

@@ -316,6 +316,7 @@ defmodule Kousa.SocketHandler do
       case Kousa.BL.Room.create_room(
              state.user_id,
              data["roomName"],
+             data["description"],
              data["value"] == "private",
              Map.get(data, "userIdToInvite")
            ) do
@@ -363,6 +364,7 @@ defmodule Kousa.SocketHandler do
     {:ok, state}
   end
 
+  # @deprecated
   def handler("edit_room_name", %{"name" => name}, state) do
     case BL.Room.rename_room(state.user_id, name) do
       {:error, message} ->
@@ -370,6 +372,18 @@ defmodule Kousa.SocketHandler do
 
       _ ->
         {:ok, state}
+    end
+  end
+
+  def f_handler("edit_room", %{"name" => name, "description" => description, "privacy" => privacy}, state) do
+    case BL.Room.edit_room(state.user_id, name, description, privacy == "private") do
+      {:error, message} ->
+        %{
+          error: message
+        }
+
+      _ ->
+        true
     end
   end
 
@@ -701,6 +715,7 @@ defmodule Kousa.SocketHandler do
     case Kousa.BL.Room.create_room(
            state.user_id,
            data["name"],
+           data["description"],
            data["privacy"] == "private",
            Map.get(data, "userIdToInvite")
          ) do

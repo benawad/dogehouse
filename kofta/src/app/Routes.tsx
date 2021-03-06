@@ -38,9 +38,9 @@ import { showErrorToast } from "./utils/showErrorToast";
 import { useTokenStore } from "./utils/useTokenStore";
 import { invitedToRoomConfirm } from "./components/InvitedToJoinRoomModal";
 import { useCurrentRoomStore } from "../webrtc/stores/useCurrentRoomStore";
+import { useShouldBeSidebar } from "./modules/room-chat/useShouldFullscreenChat";
 import { ScheduledRoomsPage } from "./modules/scheduled-rooms/ScheduledRoomsPage";
 import { RoomUser } from "./types";
-
 interface RoutesProps {}
 
 export const Routes: React.FC<RoutesProps> = () => {
@@ -61,11 +61,22 @@ export const Routes: React.FC<RoutesProps> = () => {
 	const meRef = useRef(me);
 	meRef.current = me;
 
+	const shouldBeSidebar = useShouldBeSidebar();
+	const shouldBeSidebarRef = useRef(shouldBeSidebar);
+	shouldBeSidebarRef.current = shouldBeSidebar;
+
 	useEffect(() => {
 		addMultipleWsListener({
-			new_room_name: ({ name, roomId }) => {
+			new_room_details: ({ name, description, isPrivate, roomId }) => {
 				setCurrentRoom((cr) =>
-					!cr || cr.id !== roomId ? cr : { ...cr, name }
+					!cr || cr.id !== roomId
+						? cr
+						: {
+								...cr,
+								name,
+								description,
+								isPrivate,
+						  }
 				);
 			},
 			chat_user_banned: ({ userId }) => {
@@ -393,6 +404,11 @@ export const Routes: React.FC<RoutesProps> = () => {
 				setPublicRooms(() => ({ publicRooms, nextCursor }));
 			},
 			join_room_done: (d) => {
+				// Auto open chat to show description and if mobile
+				if (shouldBeSidebarRef.current) {
+					useRoomChatStore.getState().setOpen(true);
+				}
+
 				if (d.error) {
 					if (window.location.pathname.startsWith("/room")) {
 						history.push("/");

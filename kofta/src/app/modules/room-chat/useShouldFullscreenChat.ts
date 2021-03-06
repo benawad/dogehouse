@@ -8,3 +8,7 @@ export const useShouldFullscreenChat = () => {
 
   return !chatShouldBeSidebar && open;
 };
+
+export const useShouldBeSidebar = () => {
+  return useMediaQuery({ query: roomChatMediaQuery });
+};
