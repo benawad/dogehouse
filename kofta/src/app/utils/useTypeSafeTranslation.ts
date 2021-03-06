@@ -5,6 +5,6 @@ export const useTypeSafeTranslation = () => {
 	const { t } = useTranslation();
 
 	return {
-		t: (s: TranslationKeys) => t(s),
+		t: (s: TranslationKeys, o?: any) => t(s, o),
 	};
 };

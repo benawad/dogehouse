@@ -10,7 +10,7 @@ import { InputField } from "../../components/form-fields/InputField";
 import { InputErrorMsg } from "../../components/InputErrorMsg";
 import { Modal } from "../../components/Modal";
 import { BaseUser } from "../../types";
-import { showErrorToast } from "../../utils/showErrorToast";
+import { showErrorToast } from "../../utils/showToast";
 
 export interface ScheduleRoomFormData {
 	name: string;

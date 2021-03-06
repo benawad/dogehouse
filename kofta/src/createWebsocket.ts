@@ -1,6 +1,6 @@
 import ReconnectingWebSocket from "reconnecting-websocket";
 import { useTokenStore } from "./app/utils/useTokenStore";
-import { showErrorToast } from "./app/utils/showErrorToast";
+import { showErrorToast } from "./app/utils/showToast";
 import { apiBaseUrl } from "./app/constants";
 import { useSocketStatus } from "./webrtc/stores/useSocketStatus";
 import { useWsHandlerStore } from "./webrtc/stores/useWsHandlerStore";

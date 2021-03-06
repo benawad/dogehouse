@@ -1,6 +1,6 @@
 import { QueryClient } from "react-query";
 import { apiBaseUrl } from "./constants";
-import { showErrorToast } from "./utils/showErrorToast";
+import { showErrorToast } from "./utils/showToast";
 import { useTokenStore } from "./utils/useTokenStore";
 
 export const defaultQueryFn = async ({ queryKey }: { queryKey: string }) => {

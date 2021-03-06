@@ -30,5 +30,6 @@ defmodule Beef.Schemas.Notification do
   def insert_changeset(notification, attrs) do
     notification
     |> cast(attrs, [:type, :user_id, :notifier_id])
+    |> cast_assoc(:notifier)
   end
 end

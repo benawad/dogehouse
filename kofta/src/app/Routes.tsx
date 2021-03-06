@@ -34,13 +34,15 @@ import { ViewUserPage } from "./pages/ViewUserPage";
 import { VoiceSettingsPage } from "./pages/VoiceSettingsPage";
 import { isUuid } from "./utils/isUuid";
 import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
-import { showErrorToast } from "./utils/showErrorToast";
+import { showErrorToast, showInfoToast } from "./utils/showToast";
 import { useTokenStore } from "./utils/useTokenStore";
 import { invitedToRoomConfirm } from "./components/InvitedToJoinRoomModal";
 import { useCurrentRoomStore } from "../webrtc/stores/useCurrentRoomStore";
 import { ScheduledRoomsPage } from "./modules/scheduled-rooms/ScheduledRoomsPage";
 import { RoomUser } from "./types";
 import { useNotificationStore, Notification } from "./modules/notifications/useNotificationStore";
+import { useTypeSafeTranslation } from "./utils/useTypeSafeTranslation";
+import { showNotificationToast } from "./utils/notificationMessage";
 
 interface RoutesProps {}
 
@@ -56,6 +58,7 @@ export const Routes: React.FC<RoutesProps> = () => {
 	const [, setFollowingMap] = useAtom(setFollowingMapAtom);
 	const [, setFollowingOnline] = useAtom(setFollowingOnlineAtom);
 	const [, setInviteList] = useAtom(setInviteListAtom);
+	const {t} = useTypeSafeTranslation()
 	const setCurrentRoom = useCurrentRoomStore((x) => x.setCurrentRoom);
 
 	const [me] = useAtom(meAtom);
@@ -66,6 +69,7 @@ export const Routes: React.FC<RoutesProps> = () => {
 		addMultipleWsListener({
 			new_notification(notification: Notification) {
 				useNotificationStore.getState().addNotification(notification)
+				showNotificationToast(notification, t)
 			},
 			new_room_name: ({ name, roomId }) => {
 				setCurrentRoom((cr) =>

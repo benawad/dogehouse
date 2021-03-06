@@ -6,7 +6,7 @@ import { object, pattern, size, string } from "superstruct";
 import { wsMutation } from "../../createWebsocket";
 import { setMeAtom } from "../atoms";
 import { BaseUser } from "../types";
-import { showErrorToast } from "../utils/showErrorToast";
+import { showErrorToast } from "../utils/showToast";
 import { validateStruct } from "../utils/validateStruct";
 import { Button } from "./Button";
 import { FieldSpacer } from "./form-fields/FieldSpacer";

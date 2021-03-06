@@ -100,4 +100,5 @@ export type TranslationKeys =
 	| "components.modals.roomSettingsModal.requirePermission"
 	| "components.modals.roomSettingsModal.makePublic"
 	| "components.modals.roomSettingsModal.makePrivate"
-	| "components.userVolumeSlider.noAudioMessage";
+	| "components.userVolumeSlider.noAudioMessage"
+	| "notifications.messages.follow";

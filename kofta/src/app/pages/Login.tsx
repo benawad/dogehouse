@@ -6,7 +6,7 @@ import { apiBaseUrl, __prod__, __staging__ } from "../constants";
 import { Logo } from "../svgs/Logo";
 import { useTokenStore } from "../utils/useTokenStore";
 import qs from "query-string";
-import { showErrorToast } from "../utils/showErrorToast";
+import { showErrorToast } from "../utils/showToast";
 import { CenterLayout } from "../components/CenterLayout";
 import { modalPrompt, PromptModal } from "../components/PromptModal";
 import { AlertModal } from "../components/AlertModal";

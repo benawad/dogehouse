@@ -161,5 +161,10 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "no audio consumer for some reason"
 		}
+	},
+	"notifications": {
+		"messages": {
+			"follow": "{{notifier}} started following you"
+		}
 	}
 }

@@ -5,7 +5,7 @@ import { wsend, wsFetch } from "../../createWebsocket";
 import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
 import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
 import { roomToCurrentRoom } from "../utils/roomToCurrentRoom";
-import { showErrorToast } from "../utils/showErrorToast";
+import { showErrorToast } from "../utils/showToast";
 import { Button } from "./Button";
 import { InputField } from "./form-fields/InputField";
 import { Modal } from "./Modal";
