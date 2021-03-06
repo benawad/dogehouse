@@ -1,11 +1,12 @@
-import { useAtom } from "jotai";
 import normalizeUrl from "normalize-url";
 import React, { useEffect, useRef, useState } from "react";
 import ReactTooltip from "react-tooltip";
 import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
-import { meAtom, useCurrentRoomInfo } from "../../atoms";
+import { useCurrentRoomInfo } from "../../atoms";
 import { Avatar } from "../../components/Avatar";
 import { dateFormat } from "../../utils/dateFormat";
+import { useMeQuery } from "../../utils/useMeQuery";
+import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
 import { ProfileModalFetcher } from "./ProfileModalFetcher";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
@@ -15,7 +16,7 @@ interface ChatListProps {}
 export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 	const [profileId, setProfileId] = useState("");
 	const messages = useRoomChatStore((s) => s.messages);
-	const [me] = useAtom(meAtom);
+	const { me } = useMeQuery();
 	const { currentRoom: room } = useCurrentRoomStore();
 	const { isMod: iAmMod, isCreator: iAmCreator } = useCurrentRoomInfo();
 	const [
@@ -29,12 +30,12 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 		setIsRoomChatScrolledToTop,
 		setNewUnreadMessages,
 	} = useRoomChatStore();
+	const { t } = useTypeSafeTranslation();
 
 	// Only scroll into view if not manually scrolled to top
 	useEffect(() => {
 		isRoomChatScrolledToTop || bottomRef.current?.scrollIntoView();
 	});
-
 
 	return (
 		<div
@@ -51,7 +52,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 					setNewUnreadMessages(false);
 				}
 			}}
-
 		>
 			{profileId ? (
 				<ProfileModalFetcher
@@ -75,7 +75,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 						{/* Whisper label */}
 						{m.isWhisper ? (
 							<p className="mb-0 text-xs text-gray-400 px-2 bg-simple-gray-3a w-16 rounded-t mt-1 text-center">
-								Whisper
+								{t("modules.roomChat.whisper")}
 							</p>
 						) : null}
 						<div
@@ -171,7 +171,9 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 						<ReactTooltip />
 					</div>
 				))}
-			{messages.length === 0 ? <div>Welcome to chat!</div> : null}
+			{messages.length === 0 ? (
+				<div>{t("modules.roomChat.welcomeMessage")}</div>
+			) : null}
 			<div className={`pb-6`} ref={bottomRef} />
 			<style>{`
         .chat-message-container > :first-child {

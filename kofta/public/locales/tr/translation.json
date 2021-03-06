@@ -7,7 +7,9 @@
 		"yes": "evet",
 		"no": "hayır",
 		"cancel": "iptal",
-		"save": "kaydet"
+		"save": "kaydet",
+		"edit": "edit",
+		"delete": "delete"
 	},
 	"header": {
 		"_comment": "Ana başlık arayüz ulusallaştırma yazıları",
@@ -150,5 +152,33 @@
 			}
 		},
 		"userVolumeSlider": { "noAudioMessage": "nedense ses alıcısı yok" }
+	},
+	"modules": {
+		"scheduledRooms": {
+			"title": "Scheduled Rooms",
+			"noneFound": "none found",
+			"allRooms": "all scheduled rooms",
+			"myRooms": "my scheduled rooms",
+			"scheduleRoomHeader": "Schedule Room",
+			"startRoom": "start room",
+			"modal": {
+				"needsFuture": "needs to be in the future",
+				"roomName": "room name",
+				"minLength": "min length 2"
+			}
+		},
+		"roomChat": {
+			"title": "Chat",
+			"emotesSoon": "[emotes soon]",
+			"bannedAlert": "You got banned from chat",
+			"waitAlert": "You have to wait a second before sending another message",
+			"search": "Search",
+			"searchResults": "Search Results",
+			"recent": "Frequently Used",
+			"sendMessage": "Send a Message",
+			"whisper": "Whisper",
+			"welcomeMessage": "Welcome to chat!",
+			"roomDescription": "room description"
+		}
 	}
 }

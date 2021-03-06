@@ -1,6 +1,7 @@
-import { atom, useAtom, WritableAtom } from "jotai";
+import { atom, WritableAtom } from "jotai";
 import { useCurrentRoomStore } from "../webrtc/stores/useCurrentRoomStore";
 import { Room, BaseUser, UserWithFollowInfo } from "./types";
+import { useMeQuery } from "./utils/useMeQuery";
 
 const createSetter = <T>(a: WritableAtom<T, any>) =>
 	atom(null, (get, set, fn: (x: T) => T) => {
@@ -9,8 +10,6 @@ const createSetter = <T>(a: WritableAtom<T, any>) =>
 
 export const voiceBrowserStatusAtom = atom(-1);
 export const setVoiceBrowserStatusAtom = createSetter(voiceBrowserStatusAtom);
-export const meAtom = atom<BaseUser | null>(null);
-export const setMeAtom = createSetter(meAtom);
 
 export const inviteListAtom = atom<{
 	users: BaseUser[];
@@ -63,7 +62,7 @@ export const setPublicRoomsAtom = createSetter(publicRoomsAtom);
 
 export const useCurrentRoomInfo = () => {
 	const { currentRoom: room } = useCurrentRoomStore();
-	const [me] = useAtom(meAtom);
+	const { me } = useMeQuery();
 
 	if (!room || !me) {
 		return {

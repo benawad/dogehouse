@@ -7,7 +7,9 @@
 		"yes": "ja",
 		"no": "nein",
 		"cancel": "abbrechen",
-		"save": "speichern"
+		"save": "speichern",
+		"edit": "edit",
+		"delete": "delete"
 	},
 	"header": {
 		"_comment": "Main Header UI Internationalization Strings",
@@ -22,18 +24,14 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "bannen"
-		},
+		"banUser": { "ban": "bannen" },
 		"followingOnlineList": {
 			"listHeader": "Benutzer, die nicht in einem Privatraum sind und denen du folgst.",
 			"currentRoom": "Zurzeit in:",
 			"startPrivateRoom": "einen privatraum mit diesem benutzer starten"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "Raum Erstellen"
-		},
+		"home": { "createRoom": "Raum Erstellen" },
 		"inviteList": {
 			"roomGone": "raum ist weg, geh zurück",
 			"shareRoomLink": "link zum raum teilen",
@@ -69,12 +67,8 @@
 			"requestingToSpeak": "Sprachanfragen",
 			"listeners": "Zuhörer"
 		},
-		"searchUser": {
-			"search": "suchen..."
-		},
-		"soundEffectSettings": {
-			"header": "Ton"
-		},
+		"searchUser": { "search": "suchen..." },
+		"soundEffectSettings": { "header": "Ton" },
 		"viewUser": {
 			"editProfile": "profil bearbeiten",
 			"followsYou": "folgt dir",
@@ -118,10 +112,7 @@
 			"tryAgain": "erneut versuchen"
 		},
 		"modals": {
-			"createRoomModal": {
-				"public": "öffentlich",
-				"private": "privat"
-			},
+			"createRoomModal": { "public": "öffentlich", "private": "privat" },
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Neuer Raum erstellt",
 				"roomInviteFrom": "Neue Einladung von",
@@ -160,6 +151,34 @@
 		},
 		"userVolumeSlider": {
 			"noAudioMessage": "aus unbekannten gründen kein audio consumer"
+		}
+	},
+	"modules": {
+		"scheduledRooms": {
+			"title": "Scheduled Rooms",
+			"noneFound": "none found",
+			"allRooms": "all scheduled rooms",
+			"myRooms": "my scheduled rooms",
+			"scheduleRoomHeader": "Schedule Room",
+			"startRoom": "start room",
+			"modal": {
+				"needsFuture": "needs to be in the future",
+				"roomName": "room name",
+				"minLength": "min length 2"
+			}
+		},
+		"roomChat": {
+			"title": "Chat",
+			"emotesSoon": "[emotes soon]",
+			"bannedAlert": "You got banned from chat",
+			"waitAlert": "You have to wait a second before sending another message",
+			"search": "Search",
+			"searchResults": "Search Results",
+			"recent": "Frequently Used",
+			"sendMessage": "Send a Message",
+			"whisper": "Whisper",
+			"welcomeMessage": "Welcome to chat!",
+			"roomDescription": "room description"
 		}
 	}
 }
