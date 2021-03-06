@@ -197,7 +197,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
       buttons.push(
         <button
           className={buttonStyle}
-          key="stop-recording"
+          key="start-recording"
           onClick={() => {
             recorder.toggle();
           }}
