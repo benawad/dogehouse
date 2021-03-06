@@ -128,7 +128,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
 									href={normalizeUrl(chunk)}
 									target="_blank"
 									rel="noreferrer"
-									className="text-blue-500 p-0"
+									className="text-blue-500 p-0 hover:underline"
 								>
 									{chunk}{" "}
 								</a>
