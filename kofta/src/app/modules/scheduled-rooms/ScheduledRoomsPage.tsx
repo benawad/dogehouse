@@ -15,6 +15,7 @@ import { ScheduledRoom, ScheduledRoomsInfo } from "../../types";
 import { EditScheduleRoomModalController } from "./EditScheduleRoomModalController";
 import { ScheduledRoomCard } from "./ScheduledRoomCard";
 import { ScheduleRoomModal } from "./ScheduleRoomModal";
+import { useTranslation } from 'react-i18next';
 
 interface ScheduledRoomsPageProps {}
 
@@ -46,6 +47,7 @@ const Page = ({
 			}),
 		{ staleTime: Infinity, enabled: status === "auth-good" }
 	);
+	const { t } = useTranslation();
 
 	if (isLoading) {
 		return <Spinner />;
@@ -56,7 +58,7 @@ const Page = ({
 	}
 
 	if (isOnlyPage && data.scheduledRooms.length === 0) {
-		return <div className={`mt-8 text-xl ml-4`}>none found</div>;
+		return <div className={`mt-8 text-xl ml-4`}>{t("modules.scheduledRooms.noneFound")}</div>;
 	}
 
 	return (
@@ -85,7 +87,7 @@ const Page = ({
 			{isLastPage && data.nextCursor ? (
 				<div className={`flex justify-center my-10`}>
 					<Button variant="small" onClick={() => onLoadMore(data.nextCursor!)}>
-						load more
+						{t("common.loadMore")}
 					</Button>
 				</div>
 			) : null}
@@ -101,6 +103,7 @@ export const ScheduledRoomsPage: React.FC<ScheduledRoomsPageProps> = ({}) => {
 		getOnlyMyScheduledRooms: boolean;
 	}>({ cursors: [""], getOnlyMyScheduledRooms: false });
 	const [me] = useAtom(meAtom);
+	const { t } = useTranslation();
 
 	return (
 		<div className={`flex flex-col flex-1`}>
@@ -110,7 +113,7 @@ export const ScheduledRoomsPage: React.FC<ScheduledRoomsPageProps> = ({}) => {
 						<h1
 							className={`font-xl flex-1 text-center flex items-center justify-center text-2xl`}
 						>
-							Scheduled Rooms
+						 {t("modules.scheduledRooms.title")}
 						</h1>
 						<ProfileButton />
 					</Backbar>
@@ -139,8 +142,8 @@ export const ScheduledRoomsPage: React.FC<ScheduledRoomsPageProps> = ({}) => {
 						}}
 						value={"" + getOnlyMyScheduledRooms}
 					>
-						<option value="false">all scheduled rooms</option>
-						<option value="true">my scheduled rooms</option>
+						<option value="false">{t("modules.scheduledRooms.allRooms")}</option>
+						<option value="true">{t("modules.scheduledRooms.myRooms")}</option>
 					</select>
 					<EditScheduleRoomModalController
 						onScheduledRoom={(editInfo, data, _resp) => {
@@ -195,7 +198,7 @@ export const ScheduledRoomsPage: React.FC<ScheduledRoomsPageProps> = ({}) => {
 							setShowScheduleRoomModal(true);
 						}}
 					>
-						<h3 className={`text-2xl`}>Schedule Room</h3>
+						<h3 className={`text-2xl`}>{t("modules.scheduledRooms.scheduleRoomHeader")}</h3>
 					</Button>
 				</div>
 			</BottomVoiceControl>

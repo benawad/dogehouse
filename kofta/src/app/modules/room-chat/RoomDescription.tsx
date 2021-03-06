@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
 import { truncate } from "../../utils/truncate";
 
@@ -9,9 +10,10 @@ interface RoomDescriptionProps {}
 export const RoomDescription: React.FC<RoomDescriptionProps> = () => {
 	const [expanded, setExpanded] = useState(false);
 	const { currentRoom } = useCurrentRoomStore();
+	const { t } = useTranslation();
 	return currentRoom?.description ? (
 		<div className="p-3 rounded-lg m-3 bg-simple-gray-3a">
-			<p className="text-gray-400 mb-1">room description</p>
+			<p className="text-gray-400 mb-1">{t("modules.roomChat.roomDescription")}</p>
 			<p className="break-all">
 				{expanded
 					? currentRoom.description

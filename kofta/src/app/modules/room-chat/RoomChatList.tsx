@@ -9,6 +9,7 @@ import { dateFormat } from "../../utils/dateFormat";
 import { ProfileModalFetcher } from "./ProfileModalFetcher";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
+import { useTranslation } from 'react-i18next';
 
 interface ChatListProps {}
 
@@ -29,6 +30,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 		setIsRoomChatScrolledToTop,
 		setNewUnreadMessages,
 	} = useRoomChatStore();
+	const { t } = useTranslation();
 
 	// Only scroll into view if not manually scrolled to top
 	useEffect(() => {
@@ -75,7 +77,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 						{/* Whisper label */}
 						{m.isWhisper ? (
 							<p className="mb-0 text-xs text-gray-400 px-2 bg-simple-gray-3a w-16 rounded-t mt-1 text-center">
-								Whisper
+								{t("modules.roomChat.whipser")}
 							</p>
 						) : null}
 						<div
@@ -171,7 +173,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 						<ReactTooltip />
 					</div>
 				))}
-			{messages.length === 0 ? <div>Welcome to chat!</div> : null}
+			{messages.length === 0 ? <div>{t("modules.roomChat.welcomeMessage")}</div> : null}
 			<div className={`pb-6`} ref={bottomRef} />
 			<style>{`
         .chat-message-container > :first-child {

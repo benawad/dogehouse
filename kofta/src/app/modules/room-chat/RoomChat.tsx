@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { useMediaQuery } from "react-responsive";
 import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
 import { RoomChatInput } from "./RoomChatInput";
@@ -21,6 +22,8 @@ export const RoomChat: React.FC<ChatProps> = ({ sidebar }) => {
     s.reset,
     s.toggleOpen,
   ]);
+
+	const { t } = useTranslation();
 
   useEffect(() => {
     if (!room) {
@@ -54,7 +57,7 @@ export const RoomChat: React.FC<ChatProps> = ({ sidebar }) => {
           onClick={() => toggleOpen()}
           className={`bg-simple-gray-26 border-b border-simple-gray-80 text-white py-4 px-8 text-2xl flex items-center h-20`}
         >
-          Chat <span className={`ml-2 text-simple-gray-a6`}>[emotes soon]</span>
+          {t("modules.roomChat.title")} <span className={`ml-2 text-simple-gray-a6`}>{t("modules.roomChat.emotesSoon")}</span>
         </button>
         <RoomDescription />
         <RoomChatList />
