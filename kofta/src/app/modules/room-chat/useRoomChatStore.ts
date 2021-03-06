@@ -57,6 +57,7 @@ export const useRoomChatStore = create(
 			messages: [] as RoomChatMessage[],
 			newUnreadMessages: false,
 			message: "" as string,
+			isRoomChatScrolledToTop: false,
 		},
 		(set) => ({
 			addBannedUser: (userId: string) =>
@@ -112,6 +113,12 @@ export const useRoomChatStore = create(
 					message,
 				}),
 			setOpen: (open: boolean) => set((s) => ({ ...s, open })),
+			setIsRoomChatScrolledToTop: (isRoomChatScrolledToTop: boolean) =>
+				set({
+					isRoomChatScrolledToTop,
+				}),
+			setNewUnreadMessages: (newUnreadMessages: boolean) =>
+				set({ newUnreadMessages })
 		})
 	)
 );

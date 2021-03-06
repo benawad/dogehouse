@@ -71,14 +71,16 @@ export const useMainWsHandler = () => {
 			new_chat_msg: ({ msg }) => {
 				const { open } = useRoomChatStore.getState();
 				useRoomChatStore.getState().addMessage(msg);
+				const { isRoomChatScrolledToTop } = useRoomChatStore.getState();
 				if (
-					(!open || !document.hasFocus()) &&
+					(!open || !document.hasFocus() || isRoomChatScrolledToTop) &&
 					!!msg.tokens.filter(
 						(t: RoomChatMessageToken) =>
 							t.t === "mention" &&
 							t.v?.toLowerCase() === meRef?.current?.username?.toLowerCase()
 					).length
 				) {
+					useRoomChatStore.getState().setNewUnreadMessages(true);
 					useRoomChatMentionStore.getState().incrementIAmMentioned();
 				}
 			},
