@@ -1,4 +1,4 @@
-defmodule Kousa.TwitterAuth do
+defmodule Kousa.Routes.TwitterAuth do
   import Plug.Conn
   use Plug.Router
 
