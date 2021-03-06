@@ -8,8 +8,8 @@
 		"no": "Não",
 		"cancel": "Cancelar",
 		"save": "Guardar",
-		"edit": "edit",
-		"delete": "delete"
+		"edit": "editar",
+		"delete": "apagar"
 	},
 	"header": {
 		"_comment": "Main Header UI Internationalization Strings",
@@ -155,30 +155,30 @@
 	},
 	"modules": {
 		"scheduledRooms": {
-			"title": "Scheduled Rooms",
-			"noneFound": "none found",
-			"allRooms": "all scheduled rooms",
-			"myRooms": "my scheduled rooms",
-			"scheduleRoomHeader": "Schedule Room",
-			"startRoom": "start room",
+			"title": "Salas agendadas",
+			"noneFound": "nenhuma encontrada",
+			"allRooms": "todas as salas agendadas",
+			"myRooms": "salas agendadas por mim",
+			"scheduleRoomHeader": "Agendar Sala",
+			"startRoom": "iniciar sala",
 			"modal": {
-				"needsFuture": "needs to be in the future",
-				"roomName": "room name",
-				"minLength": "min length 2"
+				"needsFuture": "a data tem de ser posterior",
+				"roomName": "nome da sala",
+				"minLength": "mínimo de 2 caracteres"
 			}
 		},
 		"roomChat": {
 			"title": "Chat",
-			"emotesSoon": "min length 2",
-			"bannedAlert": "You got banned from chat",
-			"waitAlert": "You have to wait a second before sending another message",
-			"search": "Search",
-			"searchResults": "Search Results",
-			"recent": "Frequently Used",
-			"sendMessage": "Send a Message",
+			"emotesSoon": "[emoticons brevemente]",
+			"bannedAlert": "Foste banido do chat",
+			"waitAlert": "Tens de esperar 1 segundo para escrever uma nova mensagem",
+			"search": "Pesquisar",
+			"searchResults": "Resultados da pesquisa",
+			"recent": "Usados Frequentemente",
+			"sendMessage": "Enviar mensagem",
 			"whisper": "Whisper",
-			"welcomeMessage": "Welcome to chat!",
-			"roomDescription": "room description"
+			"welcomeMessage": "Bem-vindo ao chat!",
+			"roomDescription": "descrição da sala"
 		}
 	}
 }

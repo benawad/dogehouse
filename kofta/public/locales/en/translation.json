@@ -182,7 +182,7 @@
 		},
 		"roomChat": {
 			"title": "Chat",
-			"emotesSoon": "min length 2",
+			"emotesSoon": "[emotes soon]",
 			"bannedAlert": "You got banned from chat",
 			"waitAlert": "You have to wait a second before sending another message",
 			"search": "Search",
