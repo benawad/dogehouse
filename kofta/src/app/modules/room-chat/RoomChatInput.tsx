@@ -12,6 +12,7 @@ import { Button } from "../../components/Button";
 import { Codicon } from "../../svgs/Codicon";
 import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
 import { useMeQuery } from "../../utils/useMeQuery";
+import { useTranslation } from "react-i18next";
 
 interface ChatInputProps {}
 
@@ -30,6 +31,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
 	const [isEmoji, setIsEmoji] = useState<boolean>(false);
 	const inputRef = useRef<HTMLInputElement>(null);
 	const [lastMessageTimestamp, setLastMessageTimestamp] = useState<number>(0);
+	const { t } = useTranslation();
 
 	let position: number = 0;
 
@@ -98,13 +100,13 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
 		if (!me) return;
 
 		if (me.id in useRoomChatStore.getState().bannedUserIdMap) {
-			modalAlert("You got banned from chat");
+			modalAlert(t("modules.roomChat.bannedAlert"));
 			return;
 		}
 
 		if (Date.now() - lastMessageTimestamp <= 1000) {
 			if (!toast.isActive("message-timeout")) {
-				toast("You have to wait a second before sending another message", {
+				toast(t("modules.roomChat.waitAlert"), {
 					toastId: "message-timeout",
 					type: "warning",
 					autoClose: 3000,
@@ -153,10 +155,10 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
 					showPreview={false}
 					showSkinTones={false}
 					i18n={{
-						search: "Search",
+						search: t("modules.roomChat.search"),
 						categories: {
-							search: "Search Results",
-							recent: "Frequently Used",
+							search: t("modules.roomChat.searchResults"),
+							recent: t("modules.roomChat.recent"),
 						},
 					}}
 				/>
@@ -165,7 +167,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
 				<div className="flex-1 mr-2 lg:mr-0 items-end">
 					<input
 						maxLength={512}
-						placeholder="Send a message"
+						placeholder={t("modules.roomChat.sendMessage")}
 						value={message}
 						onChange={(e) => setMessage(e.target.value)}
 						ref={inputRef}
