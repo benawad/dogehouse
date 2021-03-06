@@ -1,7 +1,7 @@
 {
 	"common": {
-		"loadMore": "több betöltése",
-		"loading": "betöltés...",
+		"loadMore": "továbbiak betöltése",
+		"loading": "töltés...",
 		"noUsersFound": "nem található felhasználó",
 		"ok": "ok",
 		"yes": "igen",
@@ -51,7 +51,7 @@
 			"logout": "kijelentkezés",
 			"probablyLoading": "valószínüleg tölt...",
 			"voiceSettings": "hangbeállítások",
-			"soundSettings": "hanghatások beállításai",
+			"soundSettings": "hanghatások",
 			"deleteAccount": "fiók törlése"
 		},
 		"notFound": {
@@ -67,9 +67,9 @@
 		"searchUser": { "search": "keresés..." },
 		"soundEffectSettings": { "header": "Hangok" },
 		"viewUser": {
-			"editProfile": "fiók szerkeztése",
+			"editProfile": "fiók szerkesztése",
 			"followsYou": "követ téged",
-			"followers": "követők",
+			"followers": "követő",
 			"following": "követés"
 		},
 		"voiceSettings": {
@@ -120,7 +120,7 @@
 			"editProfileModal": {
 				"usernameTaken": "foglalt felhasználónév",
 				"avatarUrlError": "Helytelen kép",
-				"avatarUrlLabel": "Github/Twitter profilkép url",
+				"avatarUrlLabel": "Github/Twitter profilkép URL-je",
 				"displayNameError": "Minimum 2, maximum 50 karakter",
 				"displayNameLabel": "Megjelenített név",
 				"usernameError": "Minimum 4, maximum 15 karakter, csak alfanumerikus és aláhúzás",
