@@ -39,7 +39,6 @@ export const App: React.FC<AppProps> = () => {
 		});
 	});
 
-	// this is probably not needed but it's a safety net in case createWebSocket was not called before
 	useState(() => (hasTokens ? createWebSocket() : null));
 	useLayoutEffect(() => {
 		if (hasTokens) {
@@ -47,7 +46,6 @@ export const App: React.FC<AppProps> = () => {
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [hasTokens]);
-	// end of safety net
 
 	useSaveTokensFromQueryParams();
 

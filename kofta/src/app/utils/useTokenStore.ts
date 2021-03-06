@@ -1,6 +1,5 @@
 import create from "zustand";
 import { combine } from "zustand/middleware";
-import { createWebSocket } from "../../createWebsocket";
 import { __prod__ } from "../constants";
 
 const accessTokenKey = "@toum/token" + (__prod__ ? "" : "dev");
@@ -8,14 +7,9 @@ const refreshTokenKey = "@toum/refresh-token" + (__prod__ ? "" : "dev");
 
 const getDefaultValues = () => {
 	try {
-		const accessToken = localStorage.getItem(accessTokenKey) || "";
-		const refreshToken = localStorage.getItem(refreshTokenKey) || "";
-		if (accessToken && refreshToken) {
-			createWebSocket();
-		}
 		return {
-			accessToken,
-			refreshToken,
+			accessToken: localStorage.getItem(accessTokenKey) || "",
+			refreshToken: localStorage.getItem(refreshTokenKey) || "",
 		};
 	} catch {
 		return {
