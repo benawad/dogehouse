@@ -1,4 +1,5 @@
 {
+	"_comment": "if you change this file, do: npm run i18",
 	"common": {
 		"loadMore": "load more",
 		"loading": "loading...",
