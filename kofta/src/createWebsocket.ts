@@ -27,13 +27,18 @@ export const closeWebSocket = () => {
 	ws?.close();
 };
 
-export const createWebSocket = () => {
+export const createWebSocket = (force?: boolean) => {
 	console.log("createWebSocket ");
-	if (ws) {
+	if (!force && ws) {
 		console.log("ws already connected");
 		return;
 	} else {
 		console.log("new ws instance incoming");
+	}
+	const { accessToken, refreshToken } = useTokenStore.getState();
+
+	if (!accessToken || !refreshToken) {
+		return;
 	}
 
 	useSocketStatus.getState().setStatus("connecting");
@@ -43,7 +48,6 @@ export const createWebSocket = () => {
 		undefined,
 		{ connectionTimeout: 15000 }
 	);
-	const { accessToken, refreshToken } = useTokenStore.getState();
 
 	ws.addEventListener("close", ({ code, reason }) => {
 		const { setStatus } = useSocketStatus.getState();

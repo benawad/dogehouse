@@ -1,165 +1,154 @@
 {
-    "common": {
-        "loadMore": "Carregar mais",
-        "loading": "A carregar...",
-        "noUsersFound": "Não foram encontrados utilizadores",
-        "ok": "Ok",
-        "yes": "Sim",
-        "no": "Não",
-        "cancel": "Cancelar",
-        "save": "Guardar"
-    },
-    "header": {
-        "_comment": "Main Header UI Internationalization Strings",
-        "title": "DogeHouse",
-        "mutedTitle": "Silenciado | DogeHouse"
-    },
-    "footer": {
-        "_comment": "Main Footer UI Internationalization Strings",
-        "link_1": "História",
-        "link_2": "Discord",
-        "link_3": "Reportar um Erro"
-    },
-    "pages": {
-        "_comment": "Respective Page UI Internationalization Strings",
-        "banUser": {
-            "ban": "Banir"
-        },
-        "followingOnlineList": {
-            "listHeader": "Lista de utilizadores que segues e que não se encontram numa sala privada.",
-            "currentRoom": "Atualmente em:",
-            "startPrivateRoom": "Iniciar uma sala privada com os teus seguidores"
-        },
-        "followList": {},
-        "home": {
-            "createRoom": "Criar Sala"
-        },
-        "inviteList": {
-            "roomGone": "A sala não existe, voltar atrás",
-            "shareRoomLink": "Partilhar link da sala",
-            "inviteFollowers": "Podes convidar os teus seguidores que se encontram online:",
-            "whenFollowersOnline": "Irão aparecer aqui os teus seguidores que se encontram online."
-        },
-        "login": {
-            "headerText": "A levar conversas de voz até á lua 🚀",
-            "featureText_1": "Tema escuro",
-            "featureText_2": "Registo sem restrições",
-            "featureText_3": "Suporte multiplataforma",
-            "featureText_4": "Open Source",
-            "featureText_5": "Mensagens de texto",
-            "featureText_6": "Powered by Doge",
-            "loginGithub": "Entrar com GitHub",
-            "loginTwitter": "Entrar com Twitter",
-            "createTestUser": "Criar utilizador de teste"
-        },
-        "myProfile": {
-            "logout": "Sair",
-            "probablyLoading": "Talvez a carregar...",
-            "voiceSettings": "Definições de voz",
-            "soundSettings": "Definições de som",
-            "deleteAccount": "Apagar conta"
-        },
-        "notFound": {
-            "whoopsError": "Ups! Esta página entusiasmou-se na conversa.",
-            "goHomeMessage": "Não te preocupes, podes",
-            "goHomeLinkText": "Voltar ao início"
-        },
-        "room": {
-            "speakers": "Oradores",
-            "requestingToSpeak": "A pedir para falar",
-            "listeners": "Ouvintes"
-        },
-        "searchUser": {
-            "search": "Procurar..."
-        },
-        "soundEffectSettings": {
-            "header": "Sons"
-        },
-        "viewUser": {
-            "editProfile": "Editar perfil",
-            "followsYou": "Seguem-te",
-            "followers": "Seguidores",
-            "following": "A seguir"
-        },
-        "voiceSettings": {
-            "header": "Definições de voz",
-            "mic": "Microfone:",
-            "permissionError": "Não foram encontrados microfones, não foram dadas permissões ou não estão corretamente ligados.",
-            "refresh": "Atualizar lista de microfones",
-            "volume": "Volume:"
-        }
-    },
-    "components": {
-        "_comment": "Component UI Internationalization Strings",
-        "avatar": {},
-        "backBar": {},
-        "blockedFromRoomUsers": {
-            "header": "Utilizadores banidos",
-            "unban": "Remover banimento",
-            "noBans": "Sem utilizadores banidos"
-        },
-        "bottomVoiceControl": {
-            "leaveCurrentRoomBtn": "Sair da sala atual",
-            "confirmLeaveRoom": "Pretendes abandonar a sala?",
-            "leave": "Sair",
-            "inviteUsersToRoomBtn": "Convidar utilizadores para a sala",
-            "invite": "Convidar",
-            "toggleMuteMicBtn": "Silenciar microfone",
-            "mute": "Silenciar",
-            "unmute": "Unmute",
-            "makeRoomPublicBtn": "Tornar a sala pública!",
-            "settings": "Definições",
-            "speaker": "Orador",
-            "listener": "Ouvintes"
-        },
-        "micPermissionBanner": {
-            "permissionDenied": "Sem permissão para aceder ao microfone (poderás necessitar de ir às configurações do teu navegador e atualizar a página)",
-            "dismiss": "Ignorar",
-            "tryAgain": "Tentar novamente"
-        },
-        "modals": {
-            "createRoomModal": {
-                "public": "Público",
-                "private": "Privado"
-            },
-            "invitedToJoinRoomModal": {
-                "newRoomCreated": "Nova sala criada",
-                "roomInviteFrom": "Convite para a sala de",
-                "justStarted": "They just started",
-                "likeToJoin": ", gostarias de te juntar?",
-                "inviteReceived": "Foste convidado para"
-            },
-            "editProfileModal": {
-                "usernameTaken": "O utilizador já existe",
-                "avatarUrlError": "Imagem inválida",
-                "avatarUrlLabel": "URL da foto de perfil (Github/Twitter)",
-                "displayNameError": "Deverá ter entre 2 e 50 caracteres",
-                "displayNameLabel": "Nome de apresentação",
-                "usernameError": "Deverá ter entre 4 e 15 caracteres alfanuméricos e com letra minúscula",
-                "usernameLabel": "Nome de utilizador",
-                "bioError": "Tamanho máximo de 160 caracteres",
-                "bioLabel": "Biografia"
-            },
-            "profileModal": {
-                "blockUserConfirm": "Pretendes bloquear este utlizador de se juntar às salas que criares?",
-                "blockUser": "Bloquear utilizador",
-                "makeMod": "Tornar moderador",
-                "unmod": "Remover de moderador",
-                "addAsSpeaker": "Adicionar como orador",
-                "moveToListener": "Tornar como ouvinte",
-                "banFromChat": "Banir do chat",
-                "banFromRoom": "Banir da sala",
-                "goBackToListener": "go back to listener",
-                "deleteMessage": "Apagar mensagem"
-            },
-            "roomSettingsModal": {
-                "requirePermission": "Pedir permissão para falar",
-                "makePublic": "Tornar a sala pública",
-                "makePrivate": "Tornar a sala privada"
-            }
-        },
-        "userVolumeSlider": {
-            "noAudioMessage": "Sem consumidor de áudio devido a um erro desconhecido"
-        }
-    }
+	"common": {
+		"loadMore": "Carregar mais",
+		"loading": "A carregar...",
+		"noUsersFound": "Não foram encontrados utilizadores",
+		"ok": "Ok",
+		"yes": "Sim",
+		"no": "Não",
+		"cancel": "Cancelar",
+		"save": "Guardar"
+	},
+	"header": {
+		"_comment": "Main Header UI Internationalization Strings",
+		"title": "DogeHouse",
+		"mutedTitle": "Silenciado | DogeHouse"
+	},
+	"footer": {
+		"_comment": "Main Footer UI Internationalization Strings",
+		"link_1": "História",
+		"link_2": "Discord",
+		"link_3": "Reportar um Erro"
+	},
+	"pages": {
+		"_comment": "Respective Page UI Internationalization Strings",
+		"banUser": { "ban": "Banir" },
+		"followingOnlineList": {
+			"listHeader": "Lista de utilizadores que segues e que não se encontram numa sala privada.",
+			"currentRoom": "Atualmente em:",
+			"startPrivateRoom": "Iniciar uma sala privada com os teus seguidores"
+		},
+		"followList": {},
+		"home": { "createRoom": "Criar Sala" },
+		"inviteList": {
+			"roomGone": "A sala não existe, voltar atrás",
+			"shareRoomLink": "Partilhar link da sala",
+			"inviteFollowers": "Podes convidar os teus seguidores que se encontram online:",
+			"whenFollowersOnline": "Irão aparecer aqui os teus seguidores que se encontram online."
+		},
+		"login": {
+			"headerText": "A levar conversas de voz até á lua 🚀",
+			"featureText_1": "Tema escuro",
+			"featureText_2": "Registo sem restrições",
+			"featureText_3": "Suporte multiplataforma",
+			"featureText_4": "Open Source",
+			"featureText_5": "Mensagens de texto",
+			"featureText_6": "Powered by Doge",
+			"loginGithub": "Entrar com GitHub",
+			"loginTwitter": "Entrar com Twitter",
+			"createTestUser": "Criar utilizador de teste"
+		},
+		"myProfile": {
+			"logout": "Sair",
+			"probablyLoading": "Talvez a carregar...",
+			"voiceSettings": "Definições de voz",
+			"soundSettings": "Definições de som",
+			"deleteAccount": "Apagar conta"
+		},
+		"notFound": {
+			"whoopsError": "Ups! Esta página entusiasmou-se na conversa.",
+			"goHomeMessage": "Não te preocupes, podes",
+			"goHomeLinkText": "Voltar ao início"
+		},
+		"room": {
+			"speakers": "Oradores",
+			"requestingToSpeak": "A pedir para falar",
+			"listeners": "Ouvintes"
+		},
+		"searchUser": { "search": "Procurar..." },
+		"soundEffectSettings": { "header": "Sons" },
+		"viewUser": {
+			"editProfile": "Editar perfil",
+			"followsYou": "Seguem-te",
+			"followers": "Seguidores",
+			"following": "A seguir"
+		},
+		"voiceSettings": {
+			"header": "Definições de voz",
+			"mic": "Microfone:",
+			"permissionError": "Não foram encontrados microfones, não foram dadas permissões ou não estão corretamente ligados.",
+			"refresh": "Atualizar lista de microfones",
+			"volume": "Volume:"
+		}
+	},
+	"components": {
+		"_comment": "Component UI Internationalization Strings",
+		"avatar": {},
+		"backBar": {},
+		"blockedFromRoomUsers": {
+			"header": "Utilizadores banidos",
+			"unban": "Remover banimento",
+			"noBans": "Sem utilizadores banidos"
+		},
+		"bottomVoiceControl": {
+			"leaveCurrentRoomBtn": "Sair da sala atual",
+			"confirmLeaveRoom": "Pretendes abandonar a sala?",
+			"leave": "Sair",
+			"inviteUsersToRoomBtn": "Convidar utilizadores para a sala",
+			"invite": "Convidar",
+			"toggleMuteMicBtn": "Silenciar microfone",
+			"mute": "Silenciar",
+			"unmute": "Unmute",
+			"makeRoomPublicBtn": "Tornar a sala pública!",
+			"settings": "Definições",
+			"speaker": "Orador",
+			"listener": "Ouvintes"
+		},
+		"micPermissionBanner": {
+			"permissionDenied": "Sem permissão para aceder ao microfone (poderás necessitar de ir às configurações do teu navegador e atualizar a página)",
+			"dismiss": "Ignorar",
+			"tryAgain": "Tentar novamente"
+		},
+		"modals": {
+			"createRoomModal": { "public": "Público", "private": "Privado" },
+			"invitedToJoinRoomModal": {
+				"newRoomCreated": "Nova sala criada",
+				"roomInviteFrom": "Convite para a sala de",
+				"justStarted": "They just started",
+				"likeToJoin": ", gostarias de te juntar?",
+				"inviteReceived": "Foste convidado para"
+			},
+			"editProfileModal": {
+				"usernameTaken": "O utilizador já existe",
+				"avatarUrlError": "Imagem inválida",
+				"avatarUrlLabel": "URL da foto de perfil (Github/Twitter)",
+				"displayNameError": "Deverá ter entre 2 e 50 caracteres",
+				"displayNameLabel": "Nome de apresentação",
+				"usernameError": "Deverá ter entre 4 e 15 caracteres alfanuméricos e com letra minúscula",
+				"usernameLabel": "Nome de utilizador",
+				"bioError": "Tamanho máximo de 160 caracteres",
+				"bioLabel": "Biografia"
+			},
+			"profileModal": {
+				"blockUserConfirm": "Pretendes bloquear este utlizador de se juntar às salas que criares?",
+				"blockUser": "Bloquear utilizador",
+				"makeMod": "Tornar moderador",
+				"unmod": "Remover de moderador",
+				"addAsSpeaker": "Adicionar como orador",
+				"moveToListener": "Tornar como ouvinte",
+				"banFromChat": "Banir do chat",
+				"banFromRoom": "Banir da sala",
+				"goBackToListener": "go back to listener",
+				"deleteMessage": "Apagar mensagem"
+			},
+			"roomSettingsModal": {
+				"requirePermission": "Pedir permissão para falar",
+				"makePublic": "Tornar a sala pública",
+				"makePrivate": "Tornar a sala privada"
+			}
+		},
+		"userVolumeSlider": {
+			"noAudioMessage": "Sem consumidor de áudio devido a um erro desconhecido"
+		}
+	}
 }
