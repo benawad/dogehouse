@@ -86,7 +86,7 @@
 			"mic": "Mikro:",
 			"permissionError": "keine mikros gefunden, du hast entweder keine angeschlossen oder die seite hat nicht die richtigen rechte.",
 			"volume": "lautstärke:",
-			"refresh": "mirko liste aktualisieren"
+			"refresh": "mikro liste aktualisieren"
 		}
 	},
 	"components": {
@@ -95,7 +95,7 @@
 		"backBar": {},
 		"blockedFromRoomUsers": {
 			"header": "Gebannte Benuzter",
-			"unban": "ban aufheben",
+			"unban": "bann aufheben",
 			"noBans": "bisher wurde noch niemand gebannt"
 		},
 		"bottomVoiceControl": {
