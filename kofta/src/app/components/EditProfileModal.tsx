@@ -15,7 +15,7 @@ import { Modal } from "./Modal";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 
 const profileStruct = object({
-	displayName: size(pattern(string(), /^[^\s]+(\s+[^\s]+)*$/), 2, 50),
+	displayName: size(string(), 2, 50),
 	username: pattern(string(), /^(\w){4,15}$/),
 	bio: size(string(), 0, 160),
 	avatarUrl: pattern(
@@ -54,7 +54,12 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
 						avatarUrl: user.avatarUrl,
 					}}
 					validateOnChange={false}
-					validate={validateFn}
+					validate={(values) => {
+						return validateFn({
+							...values,
+							displayName: values.displayName.trim(),
+						});
+					}}
 					onSubmit={async (data) => {
 						const { isUsernameTaken } = ((await mutateAsync({
 							op: "edit_profile",
