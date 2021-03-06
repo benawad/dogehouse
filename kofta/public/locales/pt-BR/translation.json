@@ -78,14 +78,14 @@
         "viewUser": {
             "editProfile": "editar perfil",
             "followsYou": "segue você",
-            "folowers": "seguidores",
+            "followers": "seguidores",
             "following": "seguindo"
         },
         "voiceSettings": {
             "header": "Configurações do microfone",
             "mic": "microfone:",
             "permissionError": "não foram encontrados microfones, você não conectou um ou você não deu permissão para este website.",
-            "refesh": "recarregar lista de microfones",
+            "refresh": "recarregar lista de microfones",
             "volume": "volume:"
         }
     },

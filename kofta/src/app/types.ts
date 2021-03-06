@@ -1,6 +1,7 @@
 export type Room = {
 	id: string;
 	name: string;
+	description?: string;
 	isPrivate: boolean;
 	numPeopleInside: number;
 	creatorId: string;
