@@ -40,6 +40,7 @@ import { invitedToRoomConfirm } from "./components/InvitedToJoinRoomModal";
 import { useCurrentRoomStore } from "../webrtc/stores/useCurrentRoomStore";
 import { ScheduledRoomsPage } from "./modules/scheduled-rooms/ScheduledRoomsPage";
 import { RoomUser } from "./types";
+import { useNotificationStore, Notification } from "./modules/notifications/useNotificationStore";
 
 interface RoutesProps {}
 
@@ -63,8 +64,8 @@ export const Routes: React.FC<RoutesProps> = () => {
 
 	useEffect(() => {
 		addMultipleWsListener({
-			new_notification(data) {
-				alert(data)
+			new_notification(notification: Notification) {
+				useNotificationStore.getState().addNotification(notification)
 			},
 			new_room_name: ({ name, roomId }) => {
 				setCurrentRoom((cr) =>
