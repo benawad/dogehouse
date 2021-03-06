@@ -10,6 +10,7 @@ import { BodyWrapper } from "../components/BodyWrapper";
 import { BottomVoiceControl } from "../components/BottomVoiceControl";
 import { CircleButton } from "../components/CircleButton";
 import { modalConfirm } from "../components/ConfirmModal";
+import { CreateRoomModal } from "../components/CreateRoomModal";
 import { ProfileButton } from "../components/ProfileButton";
 import { ProfileModal } from "../components/ProfileModal";
 import { modalPrompt } from "../components/PromptModal";
@@ -37,6 +38,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
 		canSpeak: iCanSpeak,
 	} = useCurrentRoomInfo();
 	const fullscreenChatOpen = useShouldFullscreenChat();
+	const [showCreateRoomModal, setShowCreateRoomModal] = useState(false);
 	const { t } = useTypeSafeTranslation();
 	// useEffect(() => {
 	//   if (room?.users.length) {
@@ -92,13 +94,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
 				<Backbar>
 					<button
 						disabled={!iAmCreator}
-						onClick={() => {
-							modalPrompt("Edit Room Name", (name) => {
-								if (name) {
-									wsend({ op: "edit_room_name", d: { name } });
-								}
-							});
-						}}
+						onClick={() => setShowCreateRoomModal(true)}
 						className={`font-xl truncate flex-1 text-center flex items-center justify-center text-2xl`}
 					>
 						<span className={"px-2 truncate"}>{room.name}</span>
@@ -179,6 +175,17 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
 				</BodyWrapper>
 			</Wrapper>
 			<BottomVoiceControl />
+
+			{/* Edit room */}
+			{showCreateRoomModal ? (
+				<CreateRoomModal
+					onRequestClose={() => setShowCreateRoomModal(false)}
+					name={room.name}
+					description={room.description}
+					isPrivate={room.isPrivate}
+					edit={true}
+				/>
+			) : null}
 		</>
 	);
 };
