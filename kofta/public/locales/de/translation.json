@@ -156,30 +156,30 @@
 	},
 	"modules": {
 		"scheduledRooms": {
-			"title": "Scheduled Rooms",
-			"noneFound": "none found",
-			"allRooms": "all scheduled rooms",
-			"myRooms": "my scheduled rooms",
-			"scheduleRoomHeader": "Schedule Room",
-			"startRoom": "start room",
+			"title": "Geplante Räume",
+			"noneFound": "nicht gefunden",
+			"allRooms": "Alle geplanten Räume",
+			"myRooms": "Meine Geplanten Räume",
+			"scheduleRoomHeader": "Plane einen Raum",
+			"startRoom": "Raum starten",
 			"modal": {
-				"needsFuture": "needs to be in the future",
-				"roomName": "room name",
-				"minLength": "min length 2"
+				"needsFuture": "Es muss in der Zukunft sein",
+				"roomName": "Raum Name",
+				"minLength": "minimale länge 2"
 			}
 		},
 		"roomChat": {
 			"title": "Chat",
-			"emotesSoon": "[emotes soon]",
-			"bannedAlert": "You got banned from chat",
-			"waitAlert": "You have to wait a second before sending another message",
-			"search": "Search",
-			"searchResults": "Search Results",
-			"recent": "Frequently Used",
-			"sendMessage": "Send a Message",
-			"whisper": "Whisper",
-			"welcomeMessage": "Welcome to chat!",
-			"roomDescription": "room description"
+			"emotesSoon": "[emotes bald]",
+			"bannedAlert": "Du wurdest aus dem Chat gebannt",
+			"waitAlert": "Du musst eine Sekunde warten, bevor du noch eine Nachricht schreibst",
+			"search": "Suchen",
+			"searchResults": "Suchergebnisse",
+			"recent": "Häufig verwendet",
+			"sendMessage": "Eine Nachricht schicken",
+			"whisper": "Flüstern",
+			"welcomeMessage": "Willkommen im Chat!",
+			"roomDescription": "Raumbeschreibung"
 		}
 	}
 }

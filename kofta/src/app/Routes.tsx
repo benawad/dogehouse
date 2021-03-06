@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Route, Switch } from "react-router-dom";
 import { ScheduledRoomsPage } from "./modules/scheduled-rooms/ScheduledRoomsPage";
 import { BanUsersPage } from "./pages/BanUsersPage";
@@ -18,6 +19,13 @@ interface RoutesProps {}
 
 export const Routes: React.FC<RoutesProps> = () => {
 	useMainWsHandler();
+
+	const [, , ready] = useTranslation();
+	if (!ready) {
+		// this could become loading indicator
+		return null;
+	}
+
 	return (
 		<Switch>
 			<Route exact path="/" component={Home} />
