@@ -15,6 +15,7 @@ import { WebRtcApp } from "../webrtc/WebRtcApp";
 import { CenterLayout } from "./components/CenterLayout";
 import { DeviceNotSupported } from "./components/DeviceNotSupported";
 import { MicPermissionBanner } from "./components/MicPermissionBanner";
+import { PageWrapper } from "./components/PageWrapper";
 import { WsKilledMessage } from "./components/WsKilledMessage";
 import { RoomChat } from "./modules/room-chat/RoomChat";
 import { Login } from "./pages/Login";
@@ -96,13 +97,13 @@ export const App: React.FC<AppProps> = () => {
 	return (
 		<BrowserRouter>
 			<WebRtcApp />
-			<div className={`mx-auto max-w-5xl w-full h-full flex relative`}>
+			<PageWrapper>
 				<CenterLayout>
 					<Routes />
 					<MicPermissionBanner />
 				</CenterLayout>
 				<RoomChat sidebar />
-			</div>
+			</PageWrapper>
 		</BrowserRouter>
 	);
 };
