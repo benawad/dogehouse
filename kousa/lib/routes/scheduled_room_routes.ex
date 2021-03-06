@@ -2,6 +2,7 @@ defmodule Kousa.Routes.ScheduledRoom do
   import Plug.Conn
 
   alias Kousa.Data.ScheduledRoom
+  alias Ecto.UUID
 
   use Plug.Router
 
@@ -11,7 +12,7 @@ defmodule Kousa.Routes.ScheduledRoom do
   get "/:id" do
     %Plug.Conn{params: %{"id" => id}} = conn
 
-    case Ecto.UUID.cast(id) do
+    case UUID.cast(id) do
       {:ok, uuid} ->
         conn
         |> put_resp_content_type("application/json")
