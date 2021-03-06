@@ -51,7 +51,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 						};
 					} else if (description.length > 500) {
 						return {
-							description: "min length 500",
+							description: "max length 500",
 						};
 					}
 					return errors;

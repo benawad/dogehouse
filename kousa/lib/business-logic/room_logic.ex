@@ -189,20 +189,6 @@ defmodule Kousa.BL.Room do
     })
   end
 
-  # @deprecated
-  def rename_room(_user_id, new_name) when byte_size(new_name) > 255 do
-    {:error, "name needs to be less than 255 characters"}
-  end
-
-  # @deprecated
-  def rename_room(user_id, new_name) do
-    with {:ok, room_id} <- Users.tuple_get_current_room_id(user_id),
-         {1, _} <- Rooms.update_name(user_id, new_name) do
-      nil
-      RegUtils.lookup_and_cast(Gen.RoomSession, room_id, {:new_room_name, new_name})
-    end
-  end
-
   def edit_room(user_id, new_name, new_description, is_private) do
 
     with {:ok, room_id} <- Users.tuple_get_current_room_id(user_id) do
