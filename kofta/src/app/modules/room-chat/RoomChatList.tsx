@@ -39,7 +39,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 		const handleFocus = () => setNewUnreadMessages(false);
 		window.addEventListener("focus", handleFocus, true);
 		return () => window.removeEventListener("focus", handleFocus, true);
-	});
+	}, []);
 
 	return (
 		<div
