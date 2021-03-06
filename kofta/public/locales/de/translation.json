@@ -8,8 +8,8 @@
 		"no": "nein",
 		"cancel": "abbrechen",
 		"save": "speichern",
-		"edit": "edit",
-		"delete": "delete"
+		"edit": "bearbeiten",
+		"delete": "löschen"
 	},
 	"header": {
 		"_comment": "Main Header UI Internationalization Strings",
@@ -152,7 +152,7 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "aus unbekannten gründen kein audio consumer"
 		},
-		"addToCalendar": { "add": "Add to Calendar" }
+		"addToCalendar": { "add": "Zum Kalender hinzufügen" }
 	},
 	"modules": {
 		"scheduledRooms": {
