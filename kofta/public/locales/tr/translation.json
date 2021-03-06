@@ -95,6 +95,8 @@
 		"bottomVoiceControl": {
 			"startRecording": "Start Recording",
 			"stopRecording": "Stop Recording",
+			"startRecordingBtn": "Start Recording",
+			"stopRecordingBtn": "Stop Recording",
 			"leaveCurrentRoomBtn": "Odadan ayrıl",
 			"confirmLeaveRoom": "Ayrılmak istediğine emin misin?",
 			"leave": "Ayrıl",

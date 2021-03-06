@@ -93,6 +93,8 @@
 		"bottomVoiceControl": {
 			"startRecording": "Start Recording",
 			"stopRecording": "Stop Recording",
+			"startRecordingBtn": "Start Recording",
+			"stopRecordingBtn": "Stop Recording",
 			"leaveCurrentRoomBtn": "Sair da sala atual",
 			"confirmLeaveRoom": "Pretendes abandonar a sala?",
 			"leave": "Sair",

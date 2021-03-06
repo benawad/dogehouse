@@ -188,7 +188,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           onClick={() => {
             recorder.toggle();
           }}
-          title="Stop Recording"
+          title={t("components.bottomVoiceControl.stopRecordingBtn")}
         >
           {t("components.bottomVoiceControl.stopRecording")}
         </button>
@@ -201,7 +201,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           onClick={() => {
             recorder.toggle();
           }}
-          title="Start Recording"
+          title={t("components.bottomVoiceControl.startRecordingBtn")}
         >
           {t("components.bottomVoiceControl.startRecording")}
         </button>

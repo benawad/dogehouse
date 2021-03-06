@@ -92,6 +92,8 @@
 		"bottomVoiceControl": {
 			"startRecording": "Start Recording",
 			"stopRecording": "Stop Recording",
+			"startRecordingBtn": "Start Recording",
+			"stopRecordingBtn": "Stop Recording",
 			"leaveCurrentRoomBtn": "Kilépés a szobából",
 			"confirmLeaveRoom": "Biztosan ki szeretne lépni?",
 			"leave": "Kilépés",

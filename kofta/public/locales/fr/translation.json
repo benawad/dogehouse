@@ -93,6 +93,8 @@
 		"bottomVoiceControl": {
 			"startRecording": "Start Recording",
 			"stopRecording": "Stop Recording",
+			"startRecordingBtn": "Start Recording",
+			"stopRecordingBtn": "Stop Recording",
 			"leaveCurrentRoomBtn": "Leave current room",
 			"confirmLeaveRoom": "Are you sure you want to leave?",
 			"leave": "Leave",
