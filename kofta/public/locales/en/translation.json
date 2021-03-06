@@ -1,4 +1,5 @@
 {
+	"_comment": "if you change this file, do: npm run i18",
 	"common": {
 		"loadMore": "load more",
 		"loading": "loading...",
@@ -7,7 +8,9 @@
 		"yes": "yes",
 		"no": "no",
 		"cancel": "cancel",
-		"save": "save"
+		"save": "save",
+		"edit": "edit",
+		"delete": "delete"
 	},
 	"header": {
 		"_comment": "Main Header UI Internationalization Strings",
@@ -160,6 +163,35 @@
 		},
 		"userVolumeSlider": {
 			"noAudioMessage": "no audio consumer for some reason"
+		}
+	},
+	"modules": {
+		"_comment": "Modules UI Internationalization Strings",
+		"scheduledRooms": {
+			"title": "Scheduled Rooms",
+			"noneFound": "none found",
+			"allRooms": "all scheduled rooms",
+			"myRooms": "my scheduled rooms",
+			"scheduleRoomHeader": "Schedule Room",
+			"startRoom": "start room",
+			"modal": {
+				"needsFuture": "needs to be in the future",
+				"roomName": "room name",
+				"minLength": "min length 2"
+			}
+		},
+		"roomChat": {
+			"title": "Chat",
+			"emotesSoon": "min length 2",
+			"bannedAlert": "You got banned from chat",
+			"waitAlert": "You have to wait a second before sending another message",
+			"search": "Search",
+			"searchResults": "Search Results",
+			"recent": "Frequently Used",
+			"sendMessage": "Send a Message",
+			"whisper": "Whisper",
+			"welcomeMessage": "Welcome to chat!",
+			"roomDescription": "room description"
 		}
 	}
 }
