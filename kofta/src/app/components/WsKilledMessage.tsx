@@ -18,7 +18,7 @@ export const WsKilledMessage: React.FC<WsKilledMessageProps> = ({}) => {
 						</div>
 						<Button
 							onClick={() => {
-								createWebSocket();
+								createWebSocket(true);
 							}}
 						>
 							reconnect

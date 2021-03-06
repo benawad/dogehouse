@@ -27,9 +27,9 @@ export const closeWebSocket = () => {
 	ws?.close();
 };
 
-export const createWebSocket = () => {
+export const createWebSocket = (force?: boolean) => {
 	console.log("createWebSocket ");
-	if (ws) {
+	if (!force && ws) {
 		console.log("ws already connected");
 		return;
 	} else {
