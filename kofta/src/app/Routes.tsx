@@ -63,6 +63,9 @@ export const Routes: React.FC<RoutesProps> = () => {
 
 	useEffect(() => {
 		addMultipleWsListener({
+			new_notification(data) {
+				alert(data)
+			},
 			new_room_name: ({ name, roomId }) => {
 				setCurrentRoom((cr) =>
 					!cr || cr.id !== roomId ? cr : { ...cr, name }
