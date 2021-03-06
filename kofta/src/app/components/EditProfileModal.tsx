@@ -70,7 +70,11 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
 								t("components.modals.editProfileModal.usernameTaken")
 							);
 						} else {
-							setMe((me) => (!me ? me : { ...me, ...data }));
+							setMe((me) =>
+								!me
+									? me
+									: { ...me, ...data, displayName: data.displayName.trim() }
+							);
 							onRequestClose();
 						}
 					}}
