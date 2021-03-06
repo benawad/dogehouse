@@ -77,14 +77,14 @@
 		"viewUser": {
 			"editProfile": "fiók szerkeztése",
 			"followsYou": "követ téged",
-			"folowers": "követők",
+			"followers": "követők",
 			"following": "követés"
 		},
 		"voiceSettings": {
 			"header": "Hangbeállítások",
 			"mic": "mikrofon:",
 			"permissionError": "nem található mikrofon. Vagy nincs csatlakoztatva, vagy nem adta meg az engedélyt.",
-			"refesh": "elérhető mikrofonok frissítése",
+			"refresh": "elérhető mikrofonok frissítése",
 			"volume": "hangerő:"
 		}
 	},

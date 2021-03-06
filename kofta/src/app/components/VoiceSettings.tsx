@@ -63,7 +63,7 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = () => {
 						fetchMics();
 					}}
 				>
-					{t("pages.voiceSettings.refesh")}
+					{t("pages.voiceSettings.refresh")}
 				</Button>
 			</div>
 			<div className={`mt-8 mb-2`}>{t("pages.voiceSettings.volume")} </div>
