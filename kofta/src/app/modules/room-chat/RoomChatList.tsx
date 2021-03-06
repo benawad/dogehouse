@@ -34,10 +34,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 	useEffect(() => {
 		isRoomChatScrolledToTop || bottomRef.current?.scrollIntoView();
 
-		window.addEventListener("focus", () => {
-			console.log("focus");
-			setNewUnreadMessages(false);
-		});
+		window.addEventListener("focus", () => setNewUnreadMessages(false));
 	});
 
 	return (
