@@ -4,7 +4,7 @@ import "../../../css/add-to-calendar-button.css";
 import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
 
 interface ScheduledEvent {
-	event: ScheduledEventProps
+	event: ScheduledEventProps;
 }
 
 interface ScheduledEventProps {
@@ -15,13 +15,13 @@ interface ScheduledEventProps {
 	endsAt: string;
 }
 
-export const AddToCalendarButton: React.FC<ScheduledEvent> = ({
-  event
-}) => {
+export const AddToCalendarButton: React.FC<ScheduledEvent> = ({ event }) => {
 	const { t } = useTypeSafeTranslation();
-	return <AddToCalendar
-		children={t("components.addToCalendar.add")}
-		event={event}
-		filename={event.name}
-	/>;
+	return (
+		<AddToCalendar
+			children={t("components.addToCalendar.add")}
+			event={event}
+			filename={event.name}
+		/>
+	);
 };

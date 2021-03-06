@@ -57,6 +57,7 @@ export type WsParam = {
 };
 
 export interface ScheduledRoom {
+	roomId: string | null;
 	description: string;
 	scheduledFor: string;
 	numAttending: number;

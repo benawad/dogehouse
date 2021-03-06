@@ -18,7 +18,6 @@ import { MicPermissionBanner } from "./components/MicPermissionBanner";
 import { PageWrapper } from "./components/PageWrapper";
 import { WsKilledMessage } from "./components/WsKilledMessage";
 import { RoomChat } from "./modules/room-chat/RoomChat";
-import { Login } from "./pages/Login";
 import { Routes } from "./Routes";
 import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
 import { useSaveTokensFromQueryParams } from "./utils/useSaveTokensFromQueryParams";
@@ -80,10 +79,6 @@ export const App: React.FC<AppProps> = () => {
 
 	if (isLoading) {
 		return null;
-	}
-
-	if (!hasTokens) {
-		return <Login />;
 	}
 
 	if (!isDeviceSupported) {

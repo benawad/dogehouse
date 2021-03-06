@@ -9,7 +9,10 @@
 		"cancel": "cancelar",
 		"save": "guardar",
 		"edit": "edit",
-		"delete": "delete"
+		"delete": "delete",
+		"joinRoom": "join room",
+		"copyLink": "copy link",
+		"copied": "copied"
 	},
 	"header": {
 		"_comment": "Main Header UI Internationalization Strings",

@@ -10,7 +10,10 @@
 		"cancel": "cancelar",
 		"save": "salvar",
 		"edit": "edit",
-		"delete": "delete"
+		"delete": "delete",
+		"joinRoom": "join room",
+		"copyLink": "copy link",
+		"copied": "copied"
 	},
 	"header": {
 		"_comment": "Cabeçalho da interface principal para traduções",
