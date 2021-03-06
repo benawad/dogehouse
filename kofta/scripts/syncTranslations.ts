@@ -28,6 +28,10 @@ fs.readdirSync(join(__dirname, "../public/locales")).forEach((locale) => {
 
 	fs.writeFileSync(
 		filename,
-		prettier.format(JSON.stringify(data), { parser: "json", ...config })
+		prettier.format(JSON.stringify(data), {
+			parser: "json",
+			useTabs: true,
+			...config,
+		})
 	);
 });

@@ -1,154 +1,154 @@
 {
-  "common": {
-    "loadMore": "daha fazla yükle",
-    "loading": "yükleniyor...",
-    "noUsersFound": "hiçbir kullanıcı bulunamadı",
-    "ok": "tamam",
-    "yes": "evet",
-    "no": "hayır",
-    "cancel": "iptal",
-    "save": "kaydet"
-  },
-  "header": {
-    "_comment": "Ana başlık arayüz ulusallaştırma yazıları",
-    "title": "DogeHouse",
-    "mutedTitle": "Sessiz | DogeHouse"
-  },
-  "footer": {
-    "_comment": "Ana altbilgi arayüz ulusallaştırma yazıları",
-    "link_1": "Hikaye",
-    "link_2": "Discord",
-    "link_3": "Hata raporla"
-  },
-  "pages": {
-    "_comment": "İlgili sayfa arayüz ulusallaştırma yazıları",
-    "banUser": { "ban": "banla" },
-    "followingOnlineList": {
-      "listHeader": "Senin takip ettiğin ve özel odada olmayan kullanıcıların listesi.",
-      "currentRoom": "şuanki oda:",
-      "startPrivateRoom": "onlarla özel bir oda oluştur"
-    },
-    "followList": {},
-    "home": { "createRoom": "Oda oluştur" },
-    "inviteList": {
-      "roomGone": "oda gitti, geri dön",
-      "shareRoomLink": "odaya bağlantı paylaş",
-      "inviteFollowers": "Çevrimiçi olan takipçilerini davet edebilirsin:",
-      "whenFollowersOnline": "Takipçilerin çevrimiçi olduğunda burada gözükecek."
-    },
-    "login": {
-      "headerText": "Sesli sohbet aya gönderiliyor 🚀",
-      "featureText_1": "Karanlık Tema",
-      "featureText_2": "Açık kayıtlar",
-      "featureText_3": "Cross-Platform desteği",
-      "featureText_4": "Açık kaynak kodlu",
-      "featureText_5": "Yazılı sohbet",
-      "featureText_6": "Doge tarafından desteklenmektedir",
-      "loginGithub": "GitHub ile giriş yap",
-      "loginTwitter": "Twitter ile giriş yap",
-      "createTestUser": "test kullanıcısı oluştur"
-    },
-    "myProfile": {
-      "logout": "çıkış yap",
-      "probablyLoading": "muhtemelen yükleniyor...",
-      "voiceSettings": "ses ayarlarına git",
-      "soundSettings": "müzik ayarlarına git",
-      "deleteAccount": "hesabı sil"
-    },
-    "notFound": {
-      "whoopsError": "Uups! Bu sayfa sohbette kayboldu.",
-      "goHomeMessage": "Endişe etme. Yapabilirsin",
-      "goHomeLinkText": "ana menüye git"
-    },
-    "room": {
-      "speakers": "Konuşmacılar",
-      "requestingToSpeak": "Konuşmak için izin istiyor",
-      "listeners": "Dinleyiciler"
-    },
-    "searchUser": { "search": "ara..." },
-    "soundEffectSettings": { "header": "Sesler" },
-    "viewUser": {
-      "editProfile": "profili düzenle",
-      "followsYou": "seni takip ediyor",
-      "folowers": "takipçiler",
-      "following": "takip ediliyor",
-      "followers": "followers"
-    },
-    "voiceSettings": {
-      "header": "Ses Ayarları",
-      "mic": "mikrofon:",
-      "permissionError": "mikrofon bulunamadı ya takılı değil ya da bu web sitesine izin vermediniz.",
-      "refesh": "mikrofon listesini yenile",
-      "volume": "ses seviyesi:",
-      "refresh": "refresh mic list"
-    }
-  },
-  "components": {
-    "_comment": "Bileşen arayüz ulusallaştırma yazıları",
-    "avatar": {},
-    "backBar": {},
-    "blockedFromRoomUsers": {
-      "header": "Banlanan kullanıcılar",
-      "unban": "banı kaldır",
-      "noBans": "henüz kimse banlanmadı"
-    },
-    "bottomVoiceControl": {
-      "leaveCurrentRoomBtn": "Odadan ayrıl",
-      "confirmLeaveRoom": "Ayrılmak istediğine emin misin?",
-      "leave": "Ayrıl",
-      "inviteUsersToRoomBtn": "Kullanıcıları odaya davet et",
-      "invite": "Davet et",
-      "toggleMuteMicBtn": "Mikrofon sesini aç/kapa",
-      "mute": "Sesi kapa",
-      "unmute": "Sesi aç",
-      "makeRoomPublicBtn": "Odayı herkese açık yap!",
-      "settings": "Ayarlar",
-      "speaker": "Konuşmacı",
-      "listener": "Dinleyici"
-    },
-    "micPermissionBanner": {
-      "permissionDenied": "Mikrofonunuza erişmeye çalışırken izin reddedildi (tarayıcı ayarlarına gitmeniz ve sayfayı yeniden yüklemeniz gerekebilir)",
-      "dismiss": "reddet",
-      "tryAgain": "yeniden dene"
-    },
-    "modals": {
-      "createRoomModal": { "public": "herkese açık", "private": "gizli" },
-      "invitedToJoinRoomModal": {
-        "newRoomCreated": "Yeni oda oluşturuldu",
-        "roomInviteFrom": "Oda daveti, tarafından",
-        "justStarted": "Başladılar",
-        "likeToJoin": ", katılmak ister misin?",
-        "inviteReceived": "davet edildin, şuraya"
-      },
-      "editProfileModal": {
-        "usernameTaken": "kullanıcı adı alınmış",
-        "avatarUrlError": "Geçersiz resim",
-        "avatarUrlLabel": "Github/Twitter avatar linki",
-        "displayNameError": "uzunluk 2-50 karakter arası olmalı",
-        "displayNameLabel": "Görüntülenme adı",
-        "usernameError": "uzunluk 4-15 arası olmalı ve sadece alfanümerik/alt_çizgi karakterlerini içermeli",
-        "usernameLabel": "Kullanıcı adı",
-        "bioError": "Maksimum uzunluk 160 karakter",
-        "bioLabel": "Biyo"
-      },
-      "profileModal": {
-        "blockUserConfirm": "Oluşturduğun tüm odalar için bu kullanıcıyı bloklamak istediğine emin misin?",
-        "blockUser": "kullanıcıyı blokla",
-        "makeMod": "moderatör yap",
-        "unmod": "moderatörlükten çıkar",
-        "addAsSpeaker": "konuşmacı olarak ekle",
-        "moveToListener": "dinleyiciyi yap",
-        "banFromChat": "sohbetten banla",
-        "banFromRoom": "odadan banla",
-        "goBackToListener": "dinlemeye geri dön",
-        "deleteMessage": "mesajı sil"
-      },
-      "roomSettingsModal": {
-        "requirePermission": "konuşmak için izne ihtiyacın var",
-        "makePublic": "odayı herkese açık yap",
-        "makePrivate": "odayı gizli yap"
-      }
-    },
-    "userVolumeSlider": { "noAudioMessage": "nedense ses alıcısı yok" }
-  }
+	"common": {
+		"loadMore": "daha fazla yükle",
+		"loading": "yükleniyor...",
+		"noUsersFound": "hiçbir kullanıcı bulunamadı",
+		"ok": "tamam",
+		"yes": "evet",
+		"no": "hayır",
+		"cancel": "iptal",
+		"save": "kaydet"
+	},
+	"header": {
+		"_comment": "Ana başlık arayüz ulusallaştırma yazıları",
+		"title": "DogeHouse",
+		"mutedTitle": "Sessiz | DogeHouse"
+	},
+	"footer": {
+		"_comment": "Ana altbilgi arayüz ulusallaştırma yazıları",
+		"link_1": "Hikaye",
+		"link_2": "Discord",
+		"link_3": "Hata raporla"
+	},
+	"pages": {
+		"_comment": "İlgili sayfa arayüz ulusallaştırma yazıları",
+		"banUser": { "ban": "banla" },
+		"followingOnlineList": {
+			"listHeader": "Senin takip ettiğin ve özel odada olmayan kullanıcıların listesi.",
+			"currentRoom": "şuanki oda:",
+			"startPrivateRoom": "onlarla özel bir oda oluştur"
+		},
+		"followList": {},
+		"home": { "createRoom": "Oda oluştur" },
+		"inviteList": {
+			"roomGone": "oda gitti, geri dön",
+			"shareRoomLink": "odaya bağlantı paylaş",
+			"inviteFollowers": "Çevrimiçi olan takipçilerini davet edebilirsin:",
+			"whenFollowersOnline": "Takipçilerin çevrimiçi olduğunda burada gözükecek."
+		},
+		"login": {
+			"headerText": "Sesli sohbet aya gönderiliyor 🚀",
+			"featureText_1": "Karanlık Tema",
+			"featureText_2": "Açık kayıtlar",
+			"featureText_3": "Cross-Platform desteği",
+			"featureText_4": "Açık kaynak kodlu",
+			"featureText_5": "Yazılı sohbet",
+			"featureText_6": "Doge tarafından desteklenmektedir",
+			"loginGithub": "GitHub ile giriş yap",
+			"loginTwitter": "Twitter ile giriş yap",
+			"createTestUser": "test kullanıcısı oluştur"
+		},
+		"myProfile": {
+			"logout": "çıkış yap",
+			"probablyLoading": "muhtemelen yükleniyor...",
+			"voiceSettings": "ses ayarlarına git",
+			"soundSettings": "müzik ayarlarına git",
+			"deleteAccount": "hesabı sil"
+		},
+		"notFound": {
+			"whoopsError": "Uups! Bu sayfa sohbette kayboldu.",
+			"goHomeMessage": "Endişe etme. Yapabilirsin",
+			"goHomeLinkText": "ana menüye git"
+		},
+		"room": {
+			"speakers": "Konuşmacılar",
+			"requestingToSpeak": "Konuşmak için izin istiyor",
+			"listeners": "Dinleyiciler"
+		},
+		"searchUser": { "search": "ara..." },
+		"soundEffectSettings": { "header": "Sesler" },
+		"viewUser": {
+			"editProfile": "profili düzenle",
+			"followsYou": "seni takip ediyor",
+			"folowers": "takipçiler",
+			"following": "takip ediliyor",
+			"followers": "followers"
+		},
+		"voiceSettings": {
+			"header": "Ses Ayarları",
+			"mic": "mikrofon:",
+			"permissionError": "mikrofon bulunamadı ya takılı değil ya da bu web sitesine izin vermediniz.",
+			"refesh": "mikrofon listesini yenile",
+			"volume": "ses seviyesi:",
+			"refresh": "refresh mic list"
+		}
+	},
+	"components": {
+		"_comment": "Bileşen arayüz ulusallaştırma yazıları",
+		"avatar": {},
+		"backBar": {},
+		"blockedFromRoomUsers": {
+			"header": "Banlanan kullanıcılar",
+			"unban": "banı kaldır",
+			"noBans": "henüz kimse banlanmadı"
+		},
+		"bottomVoiceControl": {
+			"leaveCurrentRoomBtn": "Odadan ayrıl",
+			"confirmLeaveRoom": "Ayrılmak istediğine emin misin?",
+			"leave": "Ayrıl",
+			"inviteUsersToRoomBtn": "Kullanıcıları odaya davet et",
+			"invite": "Davet et",
+			"toggleMuteMicBtn": "Mikrofon sesini aç/kapa",
+			"mute": "Sesi kapa",
+			"unmute": "Sesi aç",
+			"makeRoomPublicBtn": "Odayı herkese açık yap!",
+			"settings": "Ayarlar",
+			"speaker": "Konuşmacı",
+			"listener": "Dinleyici"
+		},
+		"micPermissionBanner": {
+			"permissionDenied": "Mikrofonunuza erişmeye çalışırken izin reddedildi (tarayıcı ayarlarına gitmeniz ve sayfayı yeniden yüklemeniz gerekebilir)",
+			"dismiss": "reddet",
+			"tryAgain": "yeniden dene"
+		},
+		"modals": {
+			"createRoomModal": { "public": "herkese açık", "private": "gizli" },
+			"invitedToJoinRoomModal": {
+				"newRoomCreated": "Yeni oda oluşturuldu",
+				"roomInviteFrom": "Oda daveti, tarafından",
+				"justStarted": "Başladılar",
+				"likeToJoin": ", katılmak ister misin?",
+				"inviteReceived": "davet edildin, şuraya"
+			},
+			"editProfileModal": {
+				"usernameTaken": "kullanıcı adı alınmış",
+				"avatarUrlError": "Geçersiz resim",
+				"avatarUrlLabel": "Github/Twitter avatar linki",
+				"displayNameError": "uzunluk 2-50 karakter arası olmalı",
+				"displayNameLabel": "Görüntülenme adı",
+				"usernameError": "uzunluk 4-15 arası olmalı ve sadece alfanümerik/alt_çizgi karakterlerini içermeli",
+				"usernameLabel": "Kullanıcı adı",
+				"bioError": "Maksimum uzunluk 160 karakter",
+				"bioLabel": "Biyo"
+			},
+			"profileModal": {
+				"blockUserConfirm": "Oluşturduğun tüm odalar için bu kullanıcıyı bloklamak istediğine emin misin?",
+				"blockUser": "kullanıcıyı blokla",
+				"makeMod": "moderatör yap",
+				"unmod": "moderatörlükten çıkar",
+				"addAsSpeaker": "konuşmacı olarak ekle",
+				"moveToListener": "dinleyiciyi yap",
+				"banFromChat": "sohbetten banla",
+				"banFromRoom": "odadan banla",
+				"goBackToListener": "dinlemeye geri dön",
+				"deleteMessage": "mesajı sil"
+			},
+			"roomSettingsModal": {
+				"requirePermission": "konuşmak için izne ihtiyacın var",
+				"makePublic": "odayı herkese açık yap",
+				"makePrivate": "odayı gizli yap"
+			}
+		},
+		"userVolumeSlider": { "noAudioMessage": "nedense ses alıcısı yok" }
+	}
 }

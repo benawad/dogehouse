@@ -13,5 +13,5 @@ ${traverseTranslations()
 
 fs.writeFileSync(
 	join(__dirname, "../src/generated/translationKeys.ts"),
-	prettier.format(s, { parser: "babel" })
+	prettier.format(s, { parser: "babel", useTabs: true })
 );
