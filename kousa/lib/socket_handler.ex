@@ -366,24 +366,12 @@ defmodule Kousa.SocketHandler do
 
   # @deprecated
   def handler("edit_room_name", %{"name" => name}, state) do
-    case BL.Room.rename_room(state.user_id, name) do
+    case BL.Room.edit_room(state.user_id, name, "", false) do
       {:error, message} ->
         {:reply, prepare_socket_msg(%{op: "error", d: message}, state), state}
 
       _ ->
         {:ok, state}
-    end
-  end
-
-  def f_handler("edit_room", %{"name" => name, "description" => description, "privacy" => privacy}, state) do
-    case BL.Room.edit_room(state.user_id, name, description, privacy == "private") do
-      {:error, message} ->
-        %{
-          error: message
-        }
-
-      _ ->
-        true
     end
   end
 
@@ -647,6 +635,22 @@ defmodule Kousa.SocketHandler do
       )
 
     %{rooms: rooms, nextCursor: next_cursor, initial: data["cursor"] == 0}
+  end
+
+  def f_handler(
+        "edit_room",
+        %{"name" => name, "description" => description, "privacy" => privacy},
+        state
+      ) do
+    case BL.Room.edit_room(state.user_id, name, description, privacy == "private") do
+      {:error, message} ->
+        %{
+          error: message
+        }
+
+      _ ->
+        true
+    end
   end
 
   def f_handler("get_scheduled_rooms", data, %State{} = state) do
