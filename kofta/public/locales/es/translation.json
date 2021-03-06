@@ -76,7 +76,7 @@
 		"voiceSettings": {
 			"header": "Ajustes de voz",
 			"mic": "micrófono:",
-			"permissionError": "no se encontaron micrófonos, puede que no se encuentre conectado o no se ha otorgado permisio al sitio web.",
+			"permissionError": "no se encontraron micrófonos, puede que no se encuentre conectado o no se ha otorgado permisio al sitio web.",
 			"refresh": "recargar lista de micrófonos",
 			"volume": "volumen:"
 		}
