@@ -317,7 +317,7 @@ defmodule Kousa.SocketHandler do
       case Kousa.BL.Room.create_room(
              state.user_id,
              data["roomName"],
-             data["description"],
+             data["description"] || "",
              data["value"] == "private",
              Map.get(data, "userIdToInvite")
            ) do
