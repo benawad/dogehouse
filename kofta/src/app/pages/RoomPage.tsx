@@ -12,7 +12,6 @@ import { modalConfirm } from "../components/ConfirmModal";
 import { CreateRoomModal } from "../components/CreateRoomModal";
 import { ProfileButton } from "../components/ProfileButton";
 import { ProfileModal } from "../components/ProfileModal";
-import { modalPrompt } from "../components/PromptModal";
 import { RoomUserNode } from "../components/RoomUserNode";
 import { Wrapper } from "../components/Wrapper";
 import { useShouldFullscreenChat } from "../modules/room-chat/useShouldFullscreenChat";
