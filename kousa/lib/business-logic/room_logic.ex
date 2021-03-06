@@ -189,20 +189,24 @@ defmodule Kousa.BL.Room do
     })
   end
 
-  def rename_room(_user_id, new_name) when byte_size(new_name) > 255 do
-    {:error, "name needs to be less than 255 characters"}
-  end
+  def edit_room(user_id, new_name, new_description, is_private) do
 
-  def rename_room(user_id, new_name) do
-    with {:ok, room_id} <- Users.tuple_get_current_room_id(user_id),
-         {1, _} <- Rooms.update_name(user_id, new_name) do
-      nil
-      RegUtils.lookup_and_cast(Gen.RoomSession, room_id, {:new_room_name, new_name})
+    with {:ok, room_id} <- Users.tuple_get_current_room_id(user_id) do
+      case Rooms.edit(room_id, %{name: new_name, description: new_description, is_private: is_private}) do
+
+        {:ok, _room} ->
+          RegUtils.lookup_and_cast(Gen.RoomSession, room_id, {:new_room_details, new_name, new_description, is_private})
+
+        {:error, x} ->
+          {:error, Kousa.Errors.changeset_to_first_err_message_with_field_name(x)}
+      end
     end
   end
 
-  # @decorate user_atomic()
-  def create_room(user_id, room_name, is_private, user_id_to_invite \\ nil) do
+  @spec create_room(String.t(), String.t(), String.t(), boolean(), String.t() | nil) ::
+          {:error, any}
+          | {:ok, %{room: atom | %{:id => any, :voiceServerId => any, optional(any) => any}}}
+  def create_room(user_id, room_name, room_description, is_private, user_id_to_invite \\ nil) do
     room_id = Users.get_current_room_id(user_id)
 
     if not is_nil(room_id) do
@@ -214,6 +218,7 @@ defmodule Kousa.BL.Room do
     case Rooms.create(%{
            id: id,
            name: room_name,
+           description: room_description,
            creatorId: user_id,
            numPeopleInside: 1,
            voiceServerId: VoiceServerUtils.get_next_voice_server_id(),
@@ -258,7 +263,7 @@ defmodule Kousa.BL.Room do
         {:ok, %{room: room}}
 
       {:error, x} ->
-        {:error, Kousa.Errors.changeset_to_first_err_message(x)}
+        {:error, Kousa.Errors.changeset_to_first_err_message_with_field_name(x)}
     end
   end
 

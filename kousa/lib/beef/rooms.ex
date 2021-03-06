@@ -326,6 +326,11 @@ defmodule Beef.Rooms do
     )
   end
 
+  def edit(room_id, data) do
+    %Room{id: room_id}
+    |> Room.edit_changeset(data)
+    |> Beef.Repo.update()
+  end
   def all_rooms() do
     Repo.all(Room)
   end

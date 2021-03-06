@@ -4,6 +4,7 @@ import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore"
 import { RoomChatInput } from "./RoomChatInput";
 import { RoomChatList } from "./RoomChatList";
 import { RoomChatMentions } from "./RoomChatMentions";
+import { RoomDescription } from "./RoomDescription";
 import { useRoomChatStore } from "./useRoomChatStore";
 
 interface ChatProps {
@@ -55,6 +56,7 @@ export const RoomChat: React.FC<ChatProps> = ({ sidebar }) => {
         >
           Chat <span className={`ml-2 text-simple-gray-a6`}>[emotes soon]</span>
         </button>
+        <RoomDescription />
         <RoomChatList />
         <RoomChatMentions />
         <RoomChatInput />
