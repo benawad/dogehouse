@@ -57,6 +57,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.3",
+    "@types/dom-mediacapture-record": "^1.0.7",
     "@types/emoji-mart": "^3.0.4",
     "@types/hark": "^1.2.1",
     "@types/react": "^17.0.2",

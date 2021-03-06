@@ -10,6 +10,7 @@ import {
 } from "react-feather";
 import { useHistory, useLocation } from "react-router-dom";
 import { wsend } from "../../createWebsocket";
+import { useRecorder } from "../../webrtc/hooks/Recorder";
 import { useMuteStore } from "../../webrtc/stores/useMuteStore";
 import { currentRoomAtom, myCurrentRoomInfoAtom } from "../atoms";
 import { RoomChat } from "../modules/room-chat/RoomChat";
@@ -39,6 +40,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
     s.toggleOpen,
     s.newUnreadMessages,
   ]);
+  const recorder = useRecorder();
 
   const { iAmMentioned } = useRoomChatMentionStore();
 
@@ -153,6 +155,34 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             color={iconColor}
           />
           Settings
+        </button>
+      );
+    }
+
+    if (recorder.isRecording) {
+      buttons.push(
+        <button
+          className={buttonStyle}
+          key="stop-recording"
+          onClick={() => {
+            recorder.toggle();
+          }}
+          title="Stop Recording"
+        >
+          Stop Recording
+        </button>
+      );
+    } else {
+      buttons.push(
+        <button
+          className={buttonStyle}
+          key="stop-recording"
+          onClick={() => {
+            recorder.toggle();
+          }}
+          title="Start Recording"
+        >
+          Start Recording
         </button>
       );
     }
