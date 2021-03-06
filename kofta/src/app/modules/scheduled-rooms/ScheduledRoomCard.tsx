@@ -14,6 +14,7 @@ import { modalConfirm } from "../../components/ConfirmModal";
 import { ScheduledRoom } from "../../types";
 import { roomToCurrentRoom } from "../../utils/roomToCurrentRoom";
 import { useMeQuery } from "../../utils/useMeQuery";
+import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
 import { useRoomChatStore } from "../room-chat/useRoomChatStore";
 
 interface ScheduledRoomCardProps {
@@ -62,6 +63,8 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
 		};
 	}, [dt]);
 	const { me } = useMeQuery();
+	const { t } = useTypeSafeTranslation();
+
 	return (
 		<div>
 			<div className={`w-full ${"bg-simple-gray-33"} py-2.5 px-5 rounded-lg`}>
@@ -75,7 +78,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
 						{me?.id === creator.id ? (
 							<div className={`flex`}>
 								<Button variant="small" onClick={() => onEdit()}>
-									edit
+									{t("common.edit")}
 								</Button>
 								<div className={`ml-4`}>
 									<Button
@@ -93,7 +96,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
 											)
 										}
 									>
-										delete
+										{t("common.delete")}
 									</Button>
 								</div>
 							</div>
@@ -131,7 +134,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
 									});
 								}}
 							>
-								start room
+								{t("modules.scheduledRooms.startRoom")}
 							</Button>
 						</div>
 					) : null}
