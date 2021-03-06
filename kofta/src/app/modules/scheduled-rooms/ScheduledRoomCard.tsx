@@ -81,7 +81,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
 							details: description,
 							location: id,
 							startsAt: dt.toISOString(),
-							endsAt: dt.toISOString()
+							endsAt: new Date(dt.getTime() + (1*60*60*1000)).toISOString()
 						}} />
 						{me?.id === creator.id ? (
 							<div className={`flex`}>
