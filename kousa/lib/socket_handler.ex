@@ -749,6 +749,18 @@ defmodule Kousa.SocketHandler do
     end
   end
 
+  def f_handler("get_user_profile", %{"userId" => user_id}, %State{} = _state) do
+    user = Users.get_profile(user_id)
+
+    if not is_nil(user) do
+      user
+    else
+      %{
+        error: "User not found"
+      }
+    end
+  end
+
   defp prepare_socket_msg(data, %State{compression: compression, encoding: encoding}) do
     data
     |> encode_data(encoding)
