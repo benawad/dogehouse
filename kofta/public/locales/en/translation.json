@@ -160,6 +160,9 @@
 		},
 		"userVolumeSlider": {
 			"noAudioMessage": "no audio consumer for some reason"
+		},
+		"addToCalendar": {
+			"add": "Add to Calendar"
 		}
 	}
 }
