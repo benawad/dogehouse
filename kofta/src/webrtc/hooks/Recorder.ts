@@ -1,6 +1,4 @@
-import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
-import { currentRoomAtom } from "../../vscode-webview/atoms";
 import { useConsumerStore } from "../stores/useConsumerStore";
 
 function download(url: string, name = "recording.mp4") {
@@ -30,7 +28,6 @@ export const useRecorder = () => {
   const [recorder, setRecorder] = useState<MediaRecorder | undefined>(
     undefined
   );
-  const [currentRoom] = useAtom(currentRoomAtom);
 
   const endRecording = async () => {
     if (recorder) {
@@ -46,7 +43,7 @@ export const useRecorder = () => {
       setRecorder(undefined);
     }
   };
-  
+
   useEffect(() => {
     if (recorder) {
       const tracks = Object.values(consumerMap).map(
