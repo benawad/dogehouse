@@ -1,19 +1,13 @@
 defmodule Kousa.Database.ScheduledRoomTest do
   # allow tests to run in parallel
   use ExUnit.Case, async: true
+  use Kousa.Support.EctoSandbox
 
   alias Kousa.Support.Factory
   alias Beef.Repo
   alias Beef.Schemas.User
   alias Beef.Schemas.ScheduledRoom
-  alias Beef.Room
   alias Kousa.Data
-
-  import Kousa.Support.Helpers, only: [checkout_ecto_sandbox: 1]
-
-  # do this for all async tests.  Eventually move this into a common
-  # Kousa.Case module in `support` that you can use.
-  setup :checkout_ecto_sandbox
 
   defp create_user(_) do
     {:ok, user: Factory.create(User)}

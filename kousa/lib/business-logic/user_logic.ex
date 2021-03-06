@@ -1,7 +1,6 @@
 defmodule Kousa.BL.User do
   alias Kousa.Gen
   alias Kousa.RegUtils
-  alias Beef.Follows
   alias Beef.Users
   alias Kousa.Gen
   alias Kousa.RegUtils
@@ -48,43 +47,6 @@ defmodule Kousa.BL.User do
       end
     else
       false
-    end
-  end
-
-  def load_followers(access_token, user_id, cursor \\ nil, n \\ 0) do
-    if n < 10 do
-      case Kousa.Github.get_followers(access_token, cursor) do
-        {:ok,
-         %{"data" => %{"viewer" => %{"following" => %{"nodes" => nodes, "pageInfo" => pageInfo}}}}} ->
-          if length(nodes) > 0 do
-            Users.bulk_insert(
-              Enum.map(nodes, fn user ->
-                %{
-                  username: Kousa.Random.big_ascii_id(),
-                  githubId: Integer.to_string(user["databaseId"]),
-                  avatarUrl: user["avatarUrl"],
-                  displayName: if(user["name"] == "", do: user["login"], else: user["name"]),
-                  bio: user["bio"],
-                  hasLoggedIn: false
-                }
-              end)
-            )
-
-            ids = Users.find_by_github_ids(Enum.map(nodes, &Integer.to_string(&1["databaseId"])))
-
-            {new_followers, _} =
-              Follows.bulk_insert(Enum.map(ids, &%{userId: &1, followerId: user_id}))
-
-            Users.inc_num_following(user_id, new_followers)
-
-            if pageInfo["hasNextPage"] do
-              load_followers(access_token, user_id, pageInfo["endCursor"], n + 1)
-            end
-          end
-
-        _ ->
-          nil
-      end
     end
   end
 end
