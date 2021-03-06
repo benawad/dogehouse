@@ -38,4 +38,36 @@ defmodule Beef.Queries.Users do
       ]
     ])
   end
+
+  def update_set_online_true(query) do
+    update(query, [
+      set: [
+        online: true
+      ]
+    ])
+  end
+
+  def update_set_online_false(query) do
+    update(query, [
+      set: [
+        online: false
+      ]
+    ])
+  end
+
+  def update_set_last_online_to_now(query) do
+    update(query, [
+      set: [
+        lastOnline: fragment("now()")
+      ]
+    ])
+  end
+
+  def update_set_current_room_nil(query) do
+    update(query, [
+      set: [
+        currentRoomId: nil
+      ]
+    ])
+  end
 end
