@@ -1,120 +1,108 @@
-import { useAtom } from "jotai";
-import queryString from "query-string";
-import React, { useEffect, useLayoutEffect, useState } from "react";
-import { QueryClientProvider } from "react-query";
-import { createWebSocket, wsend } from "../createWebsocket";
+import React, { useLayoutEffect, useState } from "react";
+import { useQuery } from "react-query";
+import { BrowserRouter } from "react-router-dom";
+import {
+	auth_query,
+	createWebSocket,
+	wsAuthFetch,
+	wsend,
+} from "../createWebsocket";
+import { useCurrentRoomStore } from "../webrtc/stores/useCurrentRoomStore";
+import { useMuteStore } from "../webrtc/stores/useMuteStore";
 import { useSocketStatus } from "../webrtc/stores/useSocketStatus";
 import { useVoiceStore } from "../webrtc/stores/useVoiceStore";
-import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
-import { setMeAtom } from "./atoms";
-import { Button } from "./components/Button";
+import { WebRtcApp } from "../webrtc/WebRtcApp";
 import { CenterLayout } from "./components/CenterLayout";
-import { KeybindListener } from "./components/KeybindListener";
-import { RegularAnchor } from "./components/RegularAnchor";
-import { Wrapper } from "./components/Wrapper";
+import { DeviceNotSupported } from "./components/DeviceNotSupported";
+import { MicPermissionBanner } from "./components/MicPermissionBanner";
+import { WsKilledMessage } from "./components/WsKilledMessage";
+import { RoomChat } from "./modules/room-chat/RoomChat";
 import { Login } from "./pages/Login";
-import { queryClient } from "./queryClient";
-import { Router } from "./Router";
+import { Routes } from "./Routes";
 import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
+import { useSaveTokensFromQueryParams } from "./utils/useSaveTokensFromQueryParams";
 import { useTokenStore } from "./utils/useTokenStore";
-import { SoundEffectProvider } from "./modules/sound-effects/SoundEffectProvider";
-import { useCurrentRoomStore } from "../webrtc/stores/useCurrentRoomStore";
 
 interface AppProps {}
 
-export const WebviewApp: React.FC<AppProps> = () => {
-  const isDeviceSupported = useVoiceStore((s) => !!s.device);
-  const hasTokens = useTokenStore((s) => !!s.accessToken && !!s.refreshToken);
-  const wsKilledByServer = useSocketStatus(
-    (s) => s.status === "closed-by-server"
-  );
-  const [, setMe] = useAtom(setMeAtom);
-  const setCurrentRoom = useCurrentRoomStore((x) => x.setCurrentRoom);
-  useState(() => {
-    useWsHandlerStore.getState().addWsListener("auth-good", (d) => {
-      setMe(d.user);
-      if (d.currentRoom) {
-        setCurrentRoom(() => roomToCurrentRoom(d.currentRoom));
-        wsend({ op: "get_current_room_users", d: {} });
-      }
-    });
-  });
-  useState(() => (hasTokens ? createWebSocket() : null));
+export const App: React.FC<AppProps> = () => {
+	const isDeviceSupported = useVoiceStore((s) => !!s.device);
+	const hasTokens = useTokenStore((s) => !!s.accessToken && !!s.refreshToken);
+	const authIsGood = useSocketStatus((s) => s.status === "auth-good");
+	const wsKilledByServer = useSocketStatus(
+		(s) => s.status === "closed-by-server"
+	);
 
-  useLayoutEffect(() => {
-    if (hasTokens) {
-      createWebSocket();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hasTokens]);
+	useState(() => (hasTokens ? createWebSocket() : null));
+	useLayoutEffect(() => {
+		if (hasTokens) {
+			createWebSocket();
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [hasTokens]);
 
-  useEffect(() => {
-    const params = queryString.parse(window.location.search);
-    if (
-      typeof params.accessToken === "string" &&
-      typeof params.refreshToken === "string" &&
-      params.accessToken &&
-      params.refreshToken
-    ) {
-      useTokenStore.getState().setTokens({
-        accessToken: params.accessToken,
-        refreshToken: params.refreshToken,
-      });
-      window.history.replaceState({}, document.title, "/");
-    }
-  }, []);
+	const { isLoading } = useQuery<any>(
+		auth_query,
+		() => {
+			const { accessToken, refreshToken } = useTokenStore.getState();
+			// I think this will probably only run in dev
+			console.log(
+				"AUTH_QUERY RUNNING, I HOPE YOU ARE NOT IN PROD LOL (nothing bad happens if you are, probably)"
+			);
+			return wsAuthFetch({
+				op: auth_query,
+				d: {
+					accessToken,
+					refreshToken,
+					reconnectToVoice: false,
+					currentRoomId: useCurrentRoomStore.getState().currentRoom?.id,
+					muted: useMuteStore.getState().muted,
+					platform: "web",
+				},
+			});
+		},
+		{
+			onSuccess: (d) => {
+				if (d?.currentRoom) {
+					useCurrentRoomStore
+						.getState()
+						.setCurrentRoom(() => roomToCurrentRoom(d.currentRoom));
+					wsend({ op: "get_current_room_users", d: {} });
+				}
+			},
+			enabled: hasTokens && authIsGood,
+			staleTime: Infinity,
+		}
+	);
 
-  if (!hasTokens) {
-    return <Login />;
-  }
+	useSaveTokensFromQueryParams();
 
-  if (!isDeviceSupported) {
-    return (
-      <div className="flex items-center h-full justify-around">
-        <CenterLayout>
-          <Wrapper>
-            <div className={`mb-4 mt-8 text-xl`}>
-              Your device is currently not supported. You can create an{" "}
-              <RegularAnchor href="https://github.com/benawad/dogehouse/issues">
-                issue on GitHub
-              </RegularAnchor>{" "}
-              and I will try adding support for your device.
-            </div>
-          </Wrapper>
-        </CenterLayout>
-      </div>
-    );
-  }
+	if (isLoading) {
+		return null;
+	}
 
-  if (wsKilledByServer) {
-    return (
-      <div className="flex items-center h-full justify-around">
-        <CenterLayout>
-          <Wrapper>
-            <div className={`px-4`}>
-              <div className={`mb-4 mt-8 text-xl`}>
-                Websocket was killed by the server. This usually happens when
-                you open the website in another tab.
-              </div>
-              <Button
-                onClick={() => {
-                  createWebSocket();
-                }}
-              >
-                reconnect
-              </Button>
-            </div>
-          </Wrapper>
-        </CenterLayout>
-      </div>
-    );
-  }
+	if (!hasTokens) {
+		return <Login />;
+	}
 
-  return (
-    <QueryClientProvider client={queryClient}>
-      <SoundEffectProvider />
-      <Router />
-      <KeybindListener />
-    </QueryClientProvider>
-  );
+	if (!isDeviceSupported) {
+		return <DeviceNotSupported />;
+	}
+
+	if (wsKilledByServer) {
+		return <WsKilledMessage />;
+	}
+
+	return (
+		<BrowserRouter>
+			<WebRtcApp />
+			<div className={`mx-auto max-w-5xl w-full h-full flex relative`}>
+				<CenterLayout>
+					<Routes />
+					<MicPermissionBanner />
+				</CenterLayout>
+				<RoomChat sidebar />
+			</div>
+		</BrowserRouter>
+	);
 };

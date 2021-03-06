@@ -1,10 +1,8 @@
 import { Formik } from "formik";
-import { useAtom } from "jotai";
 import React from "react";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { object, pattern, size, string } from "superstruct";
-import { wsMutation } from "../../createWebsocket";
-import { setMeAtom } from "../atoms";
+import { auth_query, wsMutation } from "../../createWebsocket";
 import { BaseUser } from "../types";
 import { showErrorToast } from "../utils/showToast";
 import { validateStruct } from "../utils/validateStruct";
@@ -41,7 +39,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
 	user,
 }) => {
 	const { mutateAsync, isLoading } = useMutation(wsMutation);
-	const [, setMe] = useAtom(setMeAtom);
+	const queryClient = useQueryClient();
 	const { t } = useTypeSafeTranslation();
 	return (
 		<Modal isOpen={isOpen} onRequestClose={onRequestClose}>
@@ -54,7 +52,12 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
 						avatarUrl: user.avatarUrl,
 					}}
 					validateOnChange={false}
-					validate={validateFn}
+					validate={(values) => {
+						return validateFn({
+							...values,
+							displayName: values.displayName.trim(),
+						});
+					}}
 					onSubmit={async (data) => {
 						const { isUsernameTaken } = ((await mutateAsync({
 							op: "edit_profile",
@@ -65,7 +68,20 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
 								t("components.modals.editProfileModal.usernameTaken")
 							);
 						} else {
-							setMe((me) => (!me ? me : { ...me, ...data }));
+							queryClient.setQueryData<{ user: BaseUser } | undefined>(
+								auth_query,
+								(x) =>
+									!x
+										? x
+										: {
+												...x,
+												user: {
+													...x.user,
+													...data,
+													displayName: data.displayName.trim(),
+												},
+										  }
+							);
 							onRequestClose();
 						}
 					}}

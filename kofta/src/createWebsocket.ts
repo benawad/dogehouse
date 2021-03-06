@@ -10,10 +10,13 @@ import { uuidv4 } from "./webrtc/utils/uuidv4";
 import { WsParam } from "./app/types";
 import { useCurrentRoomStore } from "./webrtc/stores/useCurrentRoomStore";
 import { toast } from "react-toastify";
+import { queryClient } from "./app/queryClient";
 
 let ws: ReconnectingWebSocket | null;
 let authGood = false;
 let lastMsg = "";
+
+export const auth_query = "auth";
 
 window.addEventListener("online", () => {
 	if (ws && ws.readyState === ws.CLOSED) {
@@ -27,13 +30,18 @@ export const closeWebSocket = () => {
 	ws?.close();
 };
 
-export const createWebSocket = () => {
+export const createWebSocket = (force?: boolean) => {
 	console.log("createWebSocket ");
-	if (ws) {
+	if (!force && ws) {
 		console.log("ws already connected");
 		return;
 	} else {
 		console.log("new ws instance incoming");
+	}
+	const { accessToken, refreshToken } = useTokenStore.getState();
+
+	if (!accessToken || !refreshToken) {
+		return;
 	}
 
 	useSocketStatus.getState().setStatus("connecting");
@@ -43,13 +51,13 @@ export const createWebSocket = () => {
 		undefined,
 		{ connectionTimeout: 15000 }
 	);
-	const { accessToken, refreshToken } = useTokenStore.getState();
 
 	ws.addEventListener("close", ({ code, reason }) => {
 		const { setStatus } = useSocketStatus.getState();
 		authGood = false;
 		if (code === 4001) {
 			console.log("clearing tokens");
+			useWsHandlerStore.getState().authHandler?.(null);
 			useTokenStore.getState().setTokens({ accessToken: "", refreshToken: "" });
 			ws?.close();
 			ws = null;
@@ -82,18 +90,21 @@ export const createWebSocket = () => {
 			sendState: sendTransport?.connectionState,
 		});
 
-		ws?.send(
-			JSON.stringify({
-				op: "auth",
-				d: {
-					accessToken,
-					refreshToken,
-					reconnectToVoice,
-					currentRoomId: useCurrentRoomStore.getState().currentRoom?.id,
-					muted: useMuteStore.getState().muted,
-					platform: "web",
-				},
-			})
+		queryClient.prefetchQuery(
+			auth_query,
+			() =>
+				wsAuthFetch({
+					op: auth_query,
+					d: {
+						accessToken,
+						refreshToken,
+						reconnectToVoice,
+						currentRoomId: useCurrentRoomStore.getState().currentRoom?.id,
+						muted: useMuteStore.getState().muted,
+						platform: "web",
+					},
+				}),
+			{ staleTime: 0 }
 		);
 		// @todo do more of a status bar thing
 		// toast("connected", { type: "success" });
@@ -128,15 +139,24 @@ export const createWebSocket = () => {
 				break;
 			}
 			default: {
-				const { handlerMap, fetchResolveMap } = useWsHandlerStore.getState();
+				const {
+					handlerMap,
+					fetchResolveMap,
+					authHandler,
+				} = useWsHandlerStore.getState();
 				if (json.op === "auth-good") {
 					if (lastMsg) {
 						ws?.send(lastMsg);
 						lastMsg = "";
 					}
 					authGood = true;
+					useSocketStatus.getState().setStatus("auth-good");
+					if (authHandler) {
+						authHandler(json.d);
+					} else {
+						console.error("something went wrong, authHandler is null");
+					}
 				}
-				useSocketStatus.getState().setStatus("auth-good");
 				// console.log("ws: ", json.op);
 				if (json.op in handlerMap) {
 					handlerMap[json.op](json.d);
@@ -160,6 +180,24 @@ export const wsend = (d: { op: string; d: any }) => {
 	} else {
 		ws?.send(JSON.stringify(d));
 	}
+};
+
+export const wsAuthFetch = <T>(d: WsParam) => {
+	return new Promise<T>((res, rej) => {
+		if (!ws || ws.readyState !== ws.OPEN) {
+			rej(new Error("can't connect to server"));
+		} else {
+			setTimeout(() => {
+				rej(new Error("request timed out"));
+			}, 10000); // 10 secs
+			useWsHandlerStore.getState().addAuthHandler((d) => {
+				if (d) {
+					res(d);
+				}
+			});
+			ws?.send(JSON.stringify(d));
+		}
+	});
 };
 
 export const wsFetch = <T>(d: WsParam) => {

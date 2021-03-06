@@ -13,10 +13,18 @@ import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 
 interface CreateRoomModalProps {
 	onRequestClose: () => void;
+	name?: string;
+	description?: string;
+	isPrivate?: boolean;
+	edit?: boolean;
 }
 
 export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 	onRequestClose,
+	name: currentName,
+	description: currentDescription,
+	isPrivate,
+	edit,
 }) => {
 	const { t } = useTypeSafeTranslation();
 	const history = useHistory();
@@ -25,31 +33,36 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 			<Formik<{
 				name: string;
 				privacy: string;
+				description: string;
 			}>
 				initialValues={{
-					name: "",
-					privacy: "public",
+					name: currentName || "",
+					description: currentDescription || "",
+					privacy: isPrivate ? "private" : "public",
 				}}
 				validateOnChange={false}
 				validateOnBlur={false}
-				validate={({ name }) => {
+				validate={({ name, description }) => {
 					const errors: Record<string, string> = {};
 
-					if (name.length < 2) {
+					if (name.length < 2 || name.length > 60) {
 						return {
-							name: "min length 2",
+							name: "must be between 2 to 60 characters long",
+						};
+					} else if (description.length > 500) {
+						return {
+							description: "max length 500",
 						};
 					}
-
 					return errors;
 				}}
-				onSubmit={async ({ name, privacy }) => {
+				onSubmit={async ({ name, privacy, description }) => {
 					const resp = await wsFetch<any>({
-						op: "create_room",
-						d: { name, privacy },
+						op: edit ? "edit_room" : "create_room",
+						d: { name, privacy, description },
 					});
 					if (resp.error) {
-						showErrorToast(resp.d);
+						showErrorToast(resp.error);
 						return;
 					} else if (resp.room) {
 						const { room } = resp;
@@ -61,6 +74,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 							.getState()
 							.setCurrentRoom(() => roomToCurrentRoom(room));
 					}
+
 					onRequestClose();
 				}}
 			>
@@ -72,6 +86,14 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 							placeholder="room name"
 							autoFocus
 						/>
+						<div className="mt-3">
+							<InputField
+								name="description"
+								maxLength={500}
+								placeholder="room description"
+								textarea
+							/>
+						</div>
 						<div className={`grid mt-8 items-start grid-cols-1`}>
 							<select
 								className={`border border-simple-gray-3c`}

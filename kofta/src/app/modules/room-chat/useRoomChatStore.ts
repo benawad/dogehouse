@@ -67,7 +67,7 @@ export const useRoomChatStore = create(
 				})),
 			addMessage: (m: RoomChatMessage) =>
 				set((s) => ({
-					newUnreadMessages: !s.open || s.isRoomChatScrolledToTop,
+					newUnreadMessages: !s.open,
 					messages: [
 						{ ...m, color: generateColorFromString(m.userId) },
 						...(s.messages.length > 100
@@ -112,6 +112,7 @@ export const useRoomChatStore = create(
 				set({
 					message,
 				}),
+			setOpen: (open: boolean) => set((s) => ({ ...s, open })),
 			setIsRoomChatScrolledToTop: (isRoomChatScrolledToTop: boolean) =>
 				set({
 					isRoomChatScrolledToTop,

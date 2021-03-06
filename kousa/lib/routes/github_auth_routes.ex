@@ -1,4 +1,4 @@
-defmodule Kousa.GitHubAuth do
+defmodule Kousa.Routes.GitHubAuth do
   import Plug.Conn
   use Plug.Router
 

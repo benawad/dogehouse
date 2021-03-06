@@ -1,9 +1,7 @@
-import { useAtom } from "jotai";
 import React, { useState } from "react";
 import { useQuery, useQueryClient } from "react-query";
 import { wsFetch } from "../../../createWebsocket";
 import { useSocketStatus } from "../../../webrtc/stores/useSocketStatus";
-import { meAtom } from "../../atoms";
 import { Backbar } from "../../components/Backbar";
 import { BodyWrapper } from "../../components/BodyWrapper";
 import { BottomVoiceControl } from "../../components/BottomVoiceControl";
@@ -12,6 +10,7 @@ import { ProfileButton } from "../../components/ProfileButton";
 import { Spinner } from "../../components/Spinner";
 import { Wrapper } from "../../components/Wrapper";
 import { ScheduledRoom, ScheduledRoomsInfo } from "../../types";
+import { useMeQuery } from "../../utils/useMeQuery";
 import { EditScheduleRoomModalController } from "./EditScheduleRoomModalController";
 import { ScheduledRoomCard } from "./ScheduledRoomCard";
 import { ScheduleRoomModal } from "./ScheduleRoomModal";
@@ -100,7 +99,7 @@ export const ScheduledRoomsPage: React.FC<ScheduledRoomsPageProps> = ({}) => {
 		cursors: string[];
 		getOnlyMyScheduledRooms: boolean;
 	}>({ cursors: [""], getOnlyMyScheduledRooms: false });
-	const [me] = useAtom(meAtom);
+	const { me } = useMeQuery();
 
 	return (
 		<div className={`flex flex-col flex-1`}>

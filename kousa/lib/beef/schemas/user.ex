@@ -83,6 +83,7 @@ defmodule Beef.Schemas.User do
     user
     |> cast(attrs, [:id, :username, :bio, :displayName, :avatarUrl])
     |> validate_required([:username, :displayName, :avatarUrl])
+    |> update_change(:displayName, &String.trim/1)
     |> validate_length(:bio, min: 0, max: 160)
     |> validate_length(:displayName, min: 2, max: 50)
     |> validate_format(:username, ~r/^(\w){4,15}$/)

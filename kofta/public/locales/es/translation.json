@@ -1,165 +1,153 @@
 {
-    "_TODO": "NEED TRANSLATING",
-    "common": {
-        "loadMore": "load more",
-        "loading": "loading...",
-        "noUsersFound": "no users found",
-        "ok": "ok",
-        "yes": "yes",
-        "no": "no",
-        "cancel": "cancel",
-        "save": "save"
-    },
-    "header": {
-        "_comment": "Main Header UI Internationalization Strings",
-        "title": "DogeHouse",
-        "mutedTitle": "Muted | DogeHouse"
-    },
-    "footer": {
-        "link_1": "Historia de Origen",
-        "link_2": "Discord",
-        "link_3": "Reportar un Error"
-    },
-    "pages": {
-        "_comment": "Respective Page UI Internationalization Strings",
-        "banUser": {
-            "ban": "ban"
-        },
-        "followingOnlineList": {
-            "listHeader": "List of users that are not in a private room and you follow.",
-            "currentRoom": "currently in:",
-            "startPrivateRoom": "start a private room with them"
-        },
-        "followList": {},
-        "home": {
-            "createRoom": "Create Room"
-        },
-        "inviteList": {
-            "roomGone": "room gone, go back",
-            "shareRoomLink": "share link to room",
-            "inviteFollowers": "You can invite your followers that are online:",
-            "whenFollowersOnline": "When your followers are online, they will show up here."
-        },
-        "login": {
-            "headerText": "Taking voice conversations to the moon 🚀",
-            "featureText_1": "Dark Theme",
-            "featureText_2": "Open Sign-Ups",
-            "featureText_3": "Cross-Platform Support",
-            "featureText_4": "Open Source",
-            "featureText_5": "Text Chat",
-            "featureText_6": "Powered by Doge",
-            "loginGithub": "login with GitHub",
-            "loginTwitter": "login with Twitter",
-            "createTestUser": "create test user"
-        },
-        "myProfile": {
-            "logout": "logout",
-            "probablyLoading": "probably loading...",
-            "voiceSettings": "go to voice settings",
-            "soundSettings": "go to sound settings",
-            "deleteAccount": "delete account"
-        },
-        "notFound": {
-            "whoopsError": "Whoops! This page got lost in conversation.",
-            "goHomeMessage": "Not to worry. You can",
-            "goHomeLinkText": "go home"
-        },
-        "room": {
-            "speakers": "Speakers",
-            "requestingToSpeak": "Requesting to speak",
-            "listeners": "Listeners"
-        },
-        "searchUser": {
-            "search": "search..."
-        },
-        "soundEffectSettings": {
-            "header": "Sounds"
-        },
-        "viewUser": {
-            "editProfile": "edit profile",
-            "followsYou": "follows you",
-            "folowers": "followers",
-            "following": "following"
-        },
-        "voiceSettings": {
-            "header": "Voice Settings",
-            "mic": "mic:",
-            "permissionError": "no mics found, you either have none plugged in or haven't given this website permission.",
-            "refesh": "refresh mic list",
-            "volume": "volume:"
-        }
-    },
-    "components": {
-        "_comment": "Component UI Internationalization Strings",
-        "avatar": {},
-        "backBar": {},
-        "blockedFromRoomUsers": {
-            "header": "Banned Users",
-            "unban": "unban",
-            "noBans": "no one has been banned yet"
-        },
-        "bottomVoiceControl": {
-            "leaveCurrentRoomBtn": "Leave current room",
-            "confirmLeaveRoom": "Are you sure you want to leave?",
-            "leave": "Leave",
-            "inviteUsersToRoomBtn": "Invite users to room",
-            "invite": "Invite",
-            "toggleMuteMicBtn": "Toggle mute microphone",
-            "mute": "Mute",
-            "unmute": "Unmute",
-            "makeRoomPublicBtn": "Make room public!",
-            "settings": "Settings",
-            "speaker": "Speaker",
-            "listener": "Listener"
-        },
-        "micPermissionBanner": {
-            "permissionDenied": "Permission denied trying to access your mic (you may need to go into browser settings and reload the page)",
-            "dismiss": "dismiss",
-            "tryAgain": "try again"
-        },
-        "modals": {
-            "createRoomModal": {
-                "public": "public",
-                "private": "private"
-            },
-            "invitedToJoinRoomModal": {
-                "newRoomCreated": "New Room Created",
-                "roomInviteFrom": "Room Invite from",
-                "justStarted": "They just started",
-                "likeToJoin": ", would you like to join?",
-                "inviteReceived": "you've been invited to"
-            },
-            "editProfileModal": {
-                "usernameTaken": "username taken",
-                "avatarUrlError": "Invalid image",
-                "avatarUrlLabel": "Github/Twitter avatar url",
-                "displayNameError": "length 2 to 50 characters",
-                "displayNameLabel": "Display Name",
-                "usernameError": "length 4 to 15 characters and only alphanumeric/underscore",
-                "usernameLabel": "Username",
-                "bioError": "max length of 160 characters",
-                "bioLabel": "Bio"
-            },
-            "profileModal": {
-                "blockUserConfirm": "Are you sure you want to block this user from joining any room you ever create?",
-                "blockUser": "block user",
-                "makeMod": "make mod",
-                "unmod": "unmod",
-                "addAsSpeaker": "add as speaker",
-                "moveToListener": "move to listener",
-                "banFromChat": "ban from chat",
-                "banFromRoom": "ban from room",
-                "goBackToListener": "go back to listener",
-                "deleteMessage": "delete this message"
-            },
-            "roomSettingsModal": {
-                "requirePermission": "require permission to speak",
-                "makePublic": "make room public",
-                "makePrivate": "make room private"
-            }
-        },
-        "userVolumeSlider": {
-            "noAudioMessage": "no audio consumer for some reason"
-        }
-    }
+	"common": {
+		"loadMore": "cargar más",
+		"loading": "cargando...",
+		"noUsersFound": "no se encontraron usuarios",
+		"ok": "ok",
+		"yes": "si",
+		"no": "no",
+		"cancel": "cancelar",
+		"save": "guardar"
+	},
+	"header": {
+		"_comment": "Main Header UI Internationalization Strings",
+		"title": "DogeHouse",
+		"mutedTitle": "Silenciado | DogeHouse"
+	},
+	"footer": {
+		"link_1": "Historia de Origen",
+		"link_2": "Discord",
+		"link_3": "Reportar un Error"
+	},
+	"pages": {
+		"_comment": "Respective Page UI Internationalization Strings",
+		"banUser": { "ban": "bloquear" },
+		"followingOnlineList": {
+			"listHeader": "Lista de usuarios que no se encuentran en una sala privada y los sigues.",
+			"currentRoom": "actualmente en:",
+			"startPrivateRoom": "empieza una sala privada con ellos"
+		},
+		"followList": {},
+		"home": { "createRoom": "Crear Sala" },
+		"inviteList": {
+			"roomGone": "sala no disponible, vuelve",
+			"shareRoomLink": "compartir enlace a la habitación",
+			"inviteFollowers": "Puedes invitar a tus seguidores que están en linea:",
+			"whenFollowersOnline": "Cuando tus seguidores est´n en linea se mostrarán aquí."
+		},
+		"login": {
+			"headerText": "Llevando conversaciones de voz a la luna 🚀",
+			"featureText_1": "Modo oscuro",
+			"featureText_2": "Registro abierto",
+			"featureText_3": "Soporte multiplataforma",
+			"featureText_4": "Open Source",
+			"featureText_5": "Chat de texto",
+			"featureText_6": "Desarrollado por Doge",
+			"loginGithub": "iniciar sesión con GitHub",
+			"loginTwitter": "iniciar sesión con Twitter",
+			"createTestUser": "crear usuario de prueba"
+		},
+		"myProfile": {
+			"logout": "cerrar sesión",
+			"probablyLoading": "probablemente cargando...",
+			"voiceSettings": "ir a ajustes de voz",
+			"soundSettings": "ir a ajustes de sonido",
+			"deleteAccount": "eliminar cuenta"
+		},
+		"notFound": {
+			"whoopsError": "¡Ups! Esta página se perdió en una conversación.",
+			"goHomeMessage": "No es para preocuparse. Usted puede",
+			"goHomeLinkText": "inicio"
+		},
+		"room": {
+			"speakers": "Conferencistas",
+			"requestingToSpeak": "Solicitando hablar",
+			"listeners": "Oyentes"
+		},
+		"searchUser": { "search": "buscar..." },
+		"soundEffectSettings": { "header": "Sonidos" },
+		"viewUser": {
+			"editProfile": "editar perfil",
+			"followsYou": "te sigue",
+			"followers": "seguidores",
+			"following": "siguiendo"
+		},
+		"voiceSettings": {
+			"header": "Ajustes de voz",
+			"mic": "micrófono:",
+			"permissionError": "no se encontraron micrófonos, puede que no se encuentre conectado o no se ha otorgado permisio al sitio web.",
+			"refresh": "recargar lista de micrófonos",
+			"volume": "volumen:"
+		}
+	},
+	"components": {
+		"_comment": "Component UI Internationalization Strings",
+		"avatar": {},
+		"backBar": {},
+		"blockedFromRoomUsers": {
+			"header": "Usuarios Bloqueados",
+			"unban": "Desbloquear",
+			"noBans": "nadie ha sido bloqueado todavía"
+		},
+		"bottomVoiceControl": {
+			"leaveCurrentRoomBtn": "Abandonar sala actual",
+			"confirmLeaveRoom": "¿Estás seguro de que quieres irte?",
+			"leave": "Abandonar",
+			"inviteUsersToRoomBtn": "Invitar usuarios a la sala",
+			"invite": "Invitar",
+			"toggleMuteMicBtn": "Alternar silenciar micrófono",
+			"mute": "Silenciar",
+			"unmute": "Desactivar silencio",
+			"makeRoomPublicBtn": "Crear una sala pública!",
+			"settings": "Ajustes",
+			"speaker": "Conferencista",
+			"listener": "Oyente"
+		},
+		"micPermissionBanner": {
+			"permissionDenied": "Permiso denegado al intentar acceder a su micrófono (es posible que deba acceder a la configuración del navegador y volver a cargar la página)",
+			"dismiss": "descartar",
+			"tryAgain": "Intentar de nuevo"
+		},
+		"modals": {
+			"createRoomModal": { "public": "pública", "private": "privada" },
+			"invitedToJoinRoomModal": {
+				"newRoomCreated": "Nueva Sala Creada",
+				"roomInviteFrom": "Invitación a la habitación de",
+				"justStarted": "Acaban de comenzar",
+				"likeToJoin": ", ¿Te gustaría unirte?",
+				"inviteReceived": "has sido invitado a"
+			},
+			"editProfileModal": {
+				"usernameTaken": "nombre de usuario tomado",
+				"avatarUrlError": "Imagen inválida",
+				"avatarUrlLabel": "Github/Twitter avatar url",
+				"displayNameError": "longitud de 2 a 50 caracteres",
+				"displayNameLabel": "Nombre para mostrar",
+				"usernameError": "longitud de 4 a 15 caracteres y solo alfanuméricos/guión bajo",
+				"usernameLabel": "Nombre de usuario",
+				"bioError": "longitud máxima de 160 caracteres",
+				"bioLabel": "Biografía"
+			},
+			"profileModal": {
+				"blockUserConfirm": "¿Está seguro de que desea bloquear a este usuario para que no se una a cualquier sala que haya creado?",
+				"blockUser": "bloquear usuario",
+				"makeMod": "convertir en moderador",
+				"unmod": "quitar moderador",
+				"addAsSpeaker": "añadir como hablante",
+				"moveToListener": "mover a oyente",
+				"banFromChat": "bloquear del chat",
+				"banFromRoom": "bloquear de la sala",
+				"goBackToListener": "volver a ser oyente",
+				"deleteMessage": "eliminar mensaje"
+			},
+			"roomSettingsModal": {
+				"requirePermission": "requiere permiso para hablar",
+				"makePublic": "hacer sala pública",
+				"makePrivate": "hacer sala privada"
+			}
+		},
+		"userVolumeSlider": {
+			"noAudioMessage": "no hay consumidor de audio por alguna razón"
+		}
+	}
 }

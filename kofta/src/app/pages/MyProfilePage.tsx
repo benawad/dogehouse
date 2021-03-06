@@ -1,21 +1,20 @@
-import { useAtom } from "jotai";
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { closeWebSocket, wsend } from "../../createWebsocket";
-import { meAtom } from "../atoms";
 import { Backbar } from "../components/Backbar";
 import { BodyWrapper } from "../components/BodyWrapper";
 import { Button } from "../components/Button";
 import { modalConfirm } from "../components/ConfirmModal";
 import { UserProfile } from "../components/UserProfile";
 import { Wrapper } from "../components/Wrapper";
+import { useMeQuery } from "../utils/useMeQuery";
 import { useTokenStore } from "../utils/useTokenStore";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 
 interface MyProfilePageProps {}
 
 export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
-	const [me] = useAtom(meAtom);
+	const { me } = useMeQuery();
 	const history = useHistory();
 	const { t } = useTypeSafeTranslation();
 

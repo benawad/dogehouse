@@ -1,17 +1,16 @@
+import normalizeUrl from "normalize-url";
 import React, { useEffect, useState } from "react";
-import { useAtom } from "jotai";
 import { useHistory } from "react-router-dom";
 import { wsend } from "../../createWebsocket";
-import { meAtom } from "../atoms";
+import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
+import { linkRegex } from "../constants";
 import { BaseUser, RoomUser } from "../types";
 import { onFollowUpdater } from "../utils/onFollowUpdater";
+import { useMeQuery } from "../utils/useMeQuery";
+import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 import { Avatar } from "./Avatar";
 import { Button } from "./Button";
 import { EditProfileModal } from "./EditProfileModal";
-import { linkRegex } from "../constants";
-import normalizeUrl from "normalize-url";
-import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
-import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 
 interface UserProfileProps {
 	profile: RoomUser;
@@ -21,7 +20,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
 	profile: userProfile,
 }) => {
 	const history = useHistory();
-	const [me, setMe] = useAtom(meAtom);
+	const { me } = useMeQuery();
 	const { setCurrentRoom } = useCurrentRoomStore();
 	// if you edit your profile, me will be updated so we want to use that
 	const profile: BaseUser | RoomUser =
@@ -73,7 +72,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
 									},
 								});
 								setYouAreFollowing(!youAreFollowing);
-								onFollowUpdater(setCurrentRoom, setMe, me, profile);
+								onFollowUpdater(setCurrentRoom, me, profile);
 							}}
 							variant="small"
 						>
@@ -103,7 +102,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
 					className={`mr-3`}
 				>
 					<span className={`font-bold`}>{profile.numFollowers}</span>{" "}
-					{t("pages.viewUser.folowers")}
+					{t("pages.viewUser.followers")}
 				</button>
 				<button
 					onClick={() => {

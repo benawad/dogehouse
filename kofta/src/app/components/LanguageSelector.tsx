@@ -11,8 +11,9 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
 		{ value: "de", label: "de" },
 		{ value: "es", label: "es" },
 		{ value: "fr", label: "fr" },
-		{ value: "pt", label: "pt" },
 		{ value: "hu", label: "hu" },
+		{ value: "pt-BR", label: "pt-br" },
+		{ value: "pt-PT", label: "pt-pt" },
 		{ value: "tr", label: "tr" },
 	],
 }) => {

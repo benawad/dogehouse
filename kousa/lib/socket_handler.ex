@@ -8,6 +8,7 @@ defmodule Kousa.SocketHandler do
   alias Beef.Users
   alias Beef.Rooms
   alias Beef.Follows
+  alias Kousa.Data.RoomPermission
 
   # TODO: just collapse this into its parent module.
   defmodule State do
@@ -316,6 +317,7 @@ defmodule Kousa.SocketHandler do
       case Kousa.BL.Room.create_room(
              state.user_id,
              data["roomName"],
+             data["description"] || "",
              data["value"] == "private",
              Map.get(data, "userIdToInvite")
            ) do
@@ -363,8 +365,9 @@ defmodule Kousa.SocketHandler do
     {:ok, state}
   end
 
+  # @deprecated
   def handler("edit_room_name", %{"name" => name}, state) do
-    case BL.Room.rename_room(state.user_id, name) do
+    case BL.Room.edit_room(state.user_id, name, "", false) do
       {:error, message} ->
         {:reply, prepare_socket_msg(%{op: "error", d: message}, state), state}
 
@@ -548,7 +551,7 @@ defmodule Kousa.SocketHandler do
 
   def handler("ask_to_speak", _data, state) do
     with {:ok, room_id} <- Users.tuple_get_current_room_id(state.user_id) do
-      case RoomsPermission.ask_to_speak(state.user_id, room_id) do
+      case RoomPermission.ask_to_speak(state.user_id, room_id) do
         {:ok, %{isSpeaker: true}} ->
           Kousa.BL.Room.internal_set_speaker(state.user_id, room_id)
 
@@ -635,6 +638,22 @@ defmodule Kousa.SocketHandler do
     %{rooms: rooms, nextCursor: next_cursor, initial: data["cursor"] == 0}
   end
 
+  def f_handler(
+        "edit_room",
+        %{"name" => name, "description" => description, "privacy" => privacy},
+        state
+      ) do
+    case BL.Room.edit_room(state.user_id, name, description, privacy == "private") do
+      {:error, message} ->
+        %{
+          error: message
+        }
+
+      _ ->
+        true
+    end
+  end
+
   def f_handler("get_scheduled_rooms", data, %State{} = state) do
     {scheduled_rooms, next_cursor} =
       BL.ScheduledRoom.get_scheduled_rooms(
@@ -677,15 +696,15 @@ defmodule Kousa.SocketHandler do
         %{
           "id" => scheduled_room_id,
           "name" => name,
-          # @todo use description when you merge pull request for it on room
-          "description" => _description
+          "description" => description
         },
         %State{} = state
       ) do
     case Kousa.BL.ScheduledRoom.create_room_from_scheduled_room(
            state.user_id,
            scheduled_room_id,
-           name
+           name,
+           description
          ) do
       {:ok, d} ->
         d
@@ -701,6 +720,7 @@ defmodule Kousa.SocketHandler do
     case Kousa.BL.Room.create_room(
            state.user_id,
            data["name"],
+           data["description"],
            data["privacy"] == "private",
            Map.get(data, "userIdToInvite")
          ) do
@@ -746,6 +766,18 @@ defmodule Kousa.SocketHandler do
 
       _ ->
         %{users: [], nextCursor: nil}
+    end
+  end
+
+  def f_handler("get_user_profile", %{"userId" => user_id}, %State{} = _state) do
+    user = Users.get_profile(user_id)
+
+    if not is_nil(user) do
+      user
+    else
+      %{
+        error: "User not found"
+      }
     end
   end
 

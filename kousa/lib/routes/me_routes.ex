@@ -1,4 +1,4 @@
-defmodule Kousa.Me do
+defmodule Kousa.Routes.Me do
   import Plug.Conn
 
   use Plug.Router

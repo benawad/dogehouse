@@ -1,18 +1,17 @@
-import { useAtom } from "jotai";
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { wsend } from "../../createWebsocket";
-import { meAtom } from "../atoms";
 import { Backbar } from "../components/Backbar";
 import { BodyWrapper } from "../components/BodyWrapper";
 import { Button } from "../components/Button";
 import { Wrapper } from "../components/Wrapper";
+import { useMeQuery } from "../utils/useMeQuery";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 
 interface SearchUsersProps {}
 
 export const BanUsersPage: React.FC<SearchUsersProps> = ({}) => {
-	const [me] = useAtom(meAtom);
+	const { me } = useMeQuery();
 	const [username, setUsername] = useState("");
 	const [reason, setReason] = useState("");
 	const { t } = useTypeSafeTranslation();

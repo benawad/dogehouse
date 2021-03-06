@@ -1,6 +1,11 @@
 defmodule Kousa.Router do
   import Plug.Conn
 
+  alias Kousa.Routes.GitHubAuth
+  alias Kousa.Routes.TwitterAuth
+  alias Kousa.Routes.ScheduledRoom
+  alias Kousa.Routes.Dev
+
   use Plug.Router
   use Sentry.PlugCapture
   plug(Kousa.Cors)
@@ -13,10 +18,11 @@ defmodule Kousa.Router do
     |> send_resp(200, "")
   end
 
-  forward("/auth/github", to: Kousa.GitHubAuth)
-  forward("/auth/twitter", to: Kousa.TwitterAuth)
+  forward("/auth/github", to: GitHubAuth)
+  forward("/auth/twitter", to: TwitterAuth)
   # forward("/me", to: Kousa.Me)
-  forward("/dev", to: Kousa.Dev)
+  forward("/dev", to: Dev)
+  forward("/scheduled-room", to: ScheduledRoom)
 
   get _ do
     conn

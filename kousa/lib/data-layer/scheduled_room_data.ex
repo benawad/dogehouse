@@ -7,6 +7,11 @@ defmodule Kousa.Data.ScheduledRoom do
 
   @fetch_limit 16
 
+  def get_by_id(id) do
+    from(sr in ScheduledRoom, where: sr.id == ^id)
+    |> Repo.one()
+  end
+
   def delete(user_id, id) do
     from(sr in ScheduledRoom, where: sr.creatorId == ^user_id and sr.id == ^id)
     |> Repo.delete_all()
