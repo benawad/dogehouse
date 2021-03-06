@@ -1,11 +1,11 @@
-import { useAtom } from "jotai";
 import normalizeUrl from "normalize-url";
 import React, { useEffect, useRef, useState } from "react";
 import ReactTooltip from "react-tooltip";
 import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
-import { meAtom, useCurrentRoomInfo } from "../../atoms";
+import { useCurrentRoomInfo } from "../../atoms";
 import { Avatar } from "../../components/Avatar";
 import { dateFormat } from "../../utils/dateFormat";
+import { useMeQuery } from "../../utils/useMeQuery";
 import { ProfileModalFetcher } from "./ProfileModalFetcher";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
@@ -15,7 +15,7 @@ interface ChatListProps {}
 export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 	const [profileId, setProfileId] = useState("");
 	const messages = useRoomChatStore((s) => s.messages);
-	const [me] = useAtom(meAtom);
+	const { me } = useMeQuery();
 	const { currentRoom: room } = useCurrentRoomStore();
 	const { isMod: iAmMod, isCreator: iAmCreator } = useCurrentRoomInfo();
 	const [
@@ -33,7 +33,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 	// Only scroll into view if not manually scrolled to top
 	useEffect(() => {
 		isRoomChatScrolledToTop || bottomRef.current?.scrollIntoView();
-
 		window.addEventListener("focus", () => setNewUnreadMessages(false));
 	});
 

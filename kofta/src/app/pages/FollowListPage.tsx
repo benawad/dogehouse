@@ -4,13 +4,14 @@ import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 import { useHistory, useLocation, useRouteMatch } from "react-router-dom";
 import { wsend } from "../../createWebsocket";
 import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
-import { followerMapAtom, followingMapAtom, meAtom } from "../atoms";
+import { followerMapAtom, followingMapAtom } from "../atoms";
 import { Avatar } from "../components/Avatar";
 import { Backbar } from "../components/Backbar";
 import { BodyWrapper } from "../components/BodyWrapper";
 import { Button } from "../components/Button";
 import { Wrapper } from "../components/Wrapper";
 import { onFollowUpdater } from "../utils/onFollowUpdater";
+import { useMeQuery } from "../utils/useMeQuery";
 
 interface FollowListPageProps {}
 
@@ -21,7 +22,7 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
 	} = useRouteMatch<{ userId: string }>();
 	const [followerMap, setFollowerMap] = useAtom(followerMapAtom);
 	const [followingMap, setFollowingMap] = useAtom(followingMapAtom);
-	const [me, setMe] = useAtom(meAtom);
+	const { me } = useMeQuery();
 	const { setCurrentRoom } = useCurrentRoomStore();
 	const history = useHistory();
 	const { t } = useTypeSafeTranslation();
@@ -69,7 +70,7 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
 												value: !profile.youAreFollowing,
 											},
 										});
-										onFollowUpdater(setCurrentRoom, setMe, me, profile);
+										onFollowUpdater(setCurrentRoom, me, profile);
 										const fn = isFollowing ? setFollowingMap : setFollowerMap;
 										fn((m) => ({
 											...m,

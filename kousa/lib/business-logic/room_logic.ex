@@ -10,6 +10,7 @@ defmodule Kousa.BL.Room do
   alias Beef.Rooms
   # note the following 2 module aliases are on the chopping block!
   alias Kousa.Data.RoomPermission
+  alias Kousa.Data.RoomBlock
 
   def set_auto_speaker(user_id, value) do
     room = Rooms.get_room_by_creator_id(user_id)
@@ -190,12 +191,18 @@ defmodule Kousa.BL.Room do
   end
 
   def edit_room(user_id, new_name, new_description, is_private) do
-
     with {:ok, room_id} <- Users.tuple_get_current_room_id(user_id) do
-      case Rooms.edit(room_id, %{name: new_name, description: new_description, is_private: is_private}) do
-
+      case Rooms.edit(room_id, %{
+             name: new_name,
+             description: new_description,
+             is_private: is_private
+           }) do
         {:ok, _room} ->
-          RegUtils.lookup_and_cast(Gen.RoomSession, room_id, {:new_room_details, new_name, new_description, is_private})
+          RegUtils.lookup_and_cast(
+            Gen.RoomSession,
+            room_id,
+            {:new_room_details, new_name, new_description, is_private}
+          )
 
         {:error, x} ->
           {:error, Kousa.Errors.changeset_to_first_err_message_with_field_name(x)}

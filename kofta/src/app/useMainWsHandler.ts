@@ -8,13 +8,11 @@ import { useMuteStore } from "../webrtc/stores/useMuteStore";
 import { useWsHandlerStore } from "../webrtc/stores/useWsHandlerStore";
 import { mergeRoomPermission } from "../webrtc/utils/mergeRoomPermission";
 import {
-	setMeAtom,
 	setPublicRoomsAtom,
 	setFollowerMapAtom,
 	setFollowingMapAtom,
 	setFollowingOnlineAtom,
 	setInviteListAtom,
-	meAtom,
 } from "./atoms";
 import { invitedToRoomConfirm } from "./components/InvitedToJoinRoomModal";
 import { useRoomChatMentionStore } from "./modules/room-chat/useRoomChatMentionStore";
@@ -27,6 +25,7 @@ import { RoomUser } from "./types";
 import { isUuid } from "./utils/isUuid";
 import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
 import { showErrorToast } from "./utils/showErrorToast";
+import { useMeQuery } from "./utils/useMeQuery";
 import { useTokenStore } from "./utils/useTokenStore";
 
 export const useMainWsHandler = () => {
@@ -35,7 +34,6 @@ export const useMainWsHandler = () => {
 	const addMultipleWsListener = useWsHandlerStore(
 		(s) => s.addMultipleWsListener
 	);
-	const [, setMe] = useAtom(setMeAtom);
 	const [, setPublicRooms] = useAtom(setPublicRoomsAtom);
 	const [, setFollowerMap] = useAtom(setFollowerMapAtom);
 	const [, setFollowingMap] = useAtom(setFollowingMapAtom);
@@ -43,7 +41,7 @@ export const useMainWsHandler = () => {
 	const [, setInviteList] = useAtom(setInviteListAtom);
 	const setCurrentRoom = useCurrentRoomStore((x) => x.setCurrentRoom);
 
-	const [me] = useAtom(meAtom);
+	const { me } = useMeQuery();
 	const meRef = useRef(me);
 	meRef.current = me;
 
@@ -383,13 +381,6 @@ export const useMainWsHandler = () => {
 					history.push("/room/" + room.id);
 				}
 				setCurrentRoom(() => roomToCurrentRoom(room));
-			},
-			initial_home_load_done: ({ me, publicRooms, nextCursor }) => {
-				setMe(me);
-				if (me.currentRoom) {
-					setCurrentRoom(() => roomToCurrentRoom(me.currentRoom));
-				}
-				setPublicRooms(() => ({ publicRooms, nextCursor }));
 			},
 			join_room_done: (d) => {
 				// Auto open chat to show description and if mobile

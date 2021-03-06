@@ -1,10 +1,9 @@
-import { useAtom } from "jotai";
 import React, { useState } from "react";
 import { Redirect, useRouteMatch } from "react-router-dom";
 import { wsend } from "../../createWebsocket";
 import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
 import { useMuteStore } from "../../webrtc/stores/useMuteStore";
-import { meAtom, useCurrentRoomInfo } from "../atoms";
+import { useCurrentRoomInfo } from "../atoms";
 import { Backbar } from "../components/Backbar";
 import { BodyWrapper } from "../components/BodyWrapper";
 import { BottomVoiceControl } from "../components/BottomVoiceControl";
@@ -20,6 +19,7 @@ import { useShouldFullscreenChat } from "../modules/room-chat/useShouldFullscree
 import { Codicon } from "../svgs/Codicon";
 import { BaseUser } from "../types";
 import { isUuid } from "../utils/isUuid";
+import { useMeQuery } from "../utils/useMeQuery";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 
 interface RoomPageProps {}
@@ -31,7 +31,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
 	const [userProfileId, setUserProfileId] = useState("");
 	const { currentRoom: room } = useCurrentRoomStore();
 	const { muted } = useMuteStore();
-	const [me] = useAtom(meAtom);
+	const { me } = useMeQuery();
 	const {
 		isMod: iAmMod,
 		isCreator: iAmCreator,
