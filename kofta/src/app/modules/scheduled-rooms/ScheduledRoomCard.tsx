@@ -14,8 +14,8 @@ import { modalConfirm } from "../../components/ConfirmModal";
 import { ScheduledRoom } from "../../types";
 import { roomToCurrentRoom } from "../../utils/roomToCurrentRoom";
 import { useMeQuery } from "../../utils/useMeQuery";
+import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
 import { useRoomChatStore } from "../room-chat/useRoomChatStore";
-import { useTranslation } from "react-i18next";
 
 interface ScheduledRoomCardProps {
 	onEdit: () => void;
@@ -63,7 +63,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
 		};
 	}, [dt]);
 	const { me } = useMeQuery();
-	const { t } = useTranslation();
+	const { t } = useTypeSafeTranslation();
 
 	return (
 		<div>

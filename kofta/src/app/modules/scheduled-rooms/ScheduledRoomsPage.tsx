@@ -11,10 +11,10 @@ import { Spinner } from "../../components/Spinner";
 import { Wrapper } from "../../components/Wrapper";
 import { ScheduledRoom, ScheduledRoomsInfo } from "../../types";
 import { useMeQuery } from "../../utils/useMeQuery";
+import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
 import { EditScheduleRoomModalController } from "./EditScheduleRoomModalController";
 import { ScheduledRoomCard } from "./ScheduledRoomCard";
 import { ScheduleRoomModal } from "./ScheduleRoomModal";
-import { useTranslation } from "react-i18next";
 
 interface ScheduledRoomsPageProps {}
 
@@ -46,7 +46,7 @@ const Page = ({
 			}),
 		{ staleTime: Infinity, enabled: status === "auth-good" }
 	);
-	const { t } = useTranslation();
+	const { t } = useTypeSafeTranslation();
 
 	if (isLoading) {
 		return <Spinner />;
@@ -106,7 +106,7 @@ export const ScheduledRoomsPage: React.FC<ScheduledRoomsPageProps> = ({}) => {
 		getOnlyMyScheduledRooms: boolean;
 	}>({ cursors: [""], getOnlyMyScheduledRooms: false });
 	const { me } = useMeQuery();
-	const { t } = useTranslation();
+	const { t } = useTypeSafeTranslation();
 
 	return (
 		<div className={`flex flex-col flex-1`}>

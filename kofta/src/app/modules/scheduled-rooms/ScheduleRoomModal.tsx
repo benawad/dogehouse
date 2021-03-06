@@ -11,7 +11,7 @@ import { InputErrorMsg } from "../../components/InputErrorMsg";
 import { Modal } from "../../components/Modal";
 import { BaseUser } from "../../types";
 import { showErrorToast } from "../../utils/showErrorToast";
-import { useTranslation } from 'react-i18next';
+import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
 
 export interface ScheduleRoomFormData {
 	name: string;
@@ -37,7 +37,7 @@ export const ScheduleRoomModal: React.FC<CreateRoomModalProps> = ({
 	onRequestClose,
 	editInfo,
 }) => {
-	const { t } = useTranslation();
+	const { t } = useTypeSafeTranslation();
 	return (
 		<ThemeProvider theme={theme}>
 			<MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -109,7 +109,7 @@ export const ScheduleRoomModal: React.FC<CreateRoomModalProps> = ({
 								<InputField
 									name="name"
 									maxLength={60}
-									placeholder={t("modules.scheduledRoom.modal.roomName")}
+									placeholder={t("modules.scheduledRooms.modal.roomName")}
 									autoFocus
 								/>
 								<div className={`mt-8`}>

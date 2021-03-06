@@ -1,18 +1,18 @@
+import { Picker } from "emoji-mart";
+import "emoji-mart/css/emoji-mart.css";
 import React, { useRef, useState } from "react";
+import { Smile } from "react-feather";
 import { toast } from "react-toastify";
 import { wsend } from "../../../createWebsocket";
+import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
 import { modalAlert } from "../../components/AlertModal";
-import { useRoomChatStore } from "./useRoomChatStore";
-import { createChatMessage } from "../../utils/createChatMessage";
-import { Smile } from "react-feather";
-import "emoji-mart/css/emoji-mart.css";
-import { Picker } from "emoji-mart";
-import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { Button } from "../../components/Button";
 import { Codicon } from "../../svgs/Codicon";
-import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
+import { createChatMessage } from "../../utils/createChatMessage";
 import { useMeQuery } from "../../utils/useMeQuery";
-import { useTranslation } from "react-i18next";
+import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
+import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
+import { useRoomChatStore } from "./useRoomChatStore";
 
 interface ChatInputProps {}
 
@@ -31,7 +31,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
 	const [isEmoji, setIsEmoji] = useState<boolean>(false);
 	const inputRef = useRef<HTMLInputElement>(null);
 	const [lastMessageTimestamp, setLastMessageTimestamp] = useState<number>(0);
-	const { t } = useTranslation();
+	const { t } = useTypeSafeTranslation();
 
 	let position: number = 0;
 
