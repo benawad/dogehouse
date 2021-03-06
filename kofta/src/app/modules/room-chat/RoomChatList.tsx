@@ -27,19 +27,12 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 	const {
 		isRoomChatScrolledToTop,
 		setIsRoomChatScrolledToTop,
-		setNewUnreadMessages,
 	} = useRoomChatStore();
 
 	// Only scroll into view if not manually scrolled to top
 	useEffect(() => {
 		isRoomChatScrolledToTop || bottomRef.current?.scrollIntoView();
 	});
-
-	useEffect(() => {
-		const handleFocus = () => setNewUnreadMessages(false);
-		window.addEventListener("focus", handleFocus, true);
-		return () => window.removeEventListener("focus", handleFocus, true);
-	}, []);
 
 	return (
 		<div
@@ -53,7 +46,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 				setIsRoomChatScrolledToTop(!isOnBottom);
 				if (isOnBottom) {
 					useRoomChatMentionStore.getState().resetIAmMentioned();
-					setNewUnreadMessages(false);
 				}
 			}}
 		>
