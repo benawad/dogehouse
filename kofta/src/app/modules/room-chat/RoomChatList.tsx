@@ -33,8 +33,12 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 	// Only scroll into view if not manually scrolled to top
 	useEffect(() => {
 		isRoomChatScrolledToTop || bottomRef.current?.scrollIntoView();
-	});
 
+		window.addEventListener("focus", () => {
+			console.log("focus");
+			setNewUnreadMessages(false);
+		});
+	});
 
 	return (
 		<div
@@ -51,7 +55,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 					setNewUnreadMessages(false);
 				}
 			}}
-
 		>
 			{profileId ? (
 				<ProfileModalFetcher
