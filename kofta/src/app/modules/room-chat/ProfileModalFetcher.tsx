@@ -1,11 +1,11 @@
-import { useAtom } from "jotai";
 import React, { useLayoutEffect } from "react";
 import { useQuery } from "react-query";
 import { wsend, wsFetch } from "../../../createWebsocket";
 import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
-import { meAtom, useCurrentRoomInfo } from "../../atoms";
+import { useCurrentRoomInfo } from "../../atoms";
 import { ProfileModal } from "../../components/ProfileModal";
 import { RoomUser, UserWithFollowInfo } from "../../types";
+import { useMeQuery } from "../../utils/useMeQuery";
 import { RoomChatMessage } from "./useRoomChatStore";
 
 interface ProfileModalFetcherProps {
@@ -20,7 +20,7 @@ export const ProfileModalFetcher: React.FC<ProfileModalFetcherProps> = ({
 	messageToBeDeleted,
 }) => {
 	const { currentRoom: room } = useCurrentRoomStore();
-	const [me] = useAtom(meAtom);
+	const { me } = useMeQuery();
 	const { isMod: iAmMod, isCreator: iAmCreator } = useCurrentRoomInfo();
 
 	const profileFromRoom: RoomUser | undefined = room?.users.find((x) =>
