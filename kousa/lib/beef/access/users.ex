@@ -19,10 +19,8 @@ defmodule Beef.Access.Users do
   end
 
   def get_by_username(username) do
-    from(u in User,
-      where: u.username == ^username,
-      limit: 1
-    )
+    Query.start
+    |> Query.filter_by_username(username)
     |> Repo.one()
   end
 
