@@ -1,19 +1,19 @@
 import { toast } from "react-toastify";
 
 export const showErrorToast = (m: string) => {
-  toast(m, {
-    type: "error",
-  });
+	toast(m, {
+		type: "error",
+	});
 };
 
 export const showSuccessToast = (m: string) => {
-  toast(m, {
-    type: "success",
-  });
+	toast(m, {
+		type: "success",
+	});
 };
 
 export const showInfoToast = (m: string) => {
-  toast(m, {
-    type: "info",
-  });
+	toast(m, {
+		type: "info",
+	});
 };
