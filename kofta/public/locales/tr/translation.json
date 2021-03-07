@@ -118,7 +118,14 @@
 			"tryAgain": "Yeniden dene"
 		},
 		"modals": {
-			"createRoomModal": { "public": "herkese açık", "private": "gizli" },
+			"createRoomModal": {
+				"public": "herkese açık",
+				"private": "gizli",
+				"roomName": "room name",
+				"roomDescription": "room description",
+				"descriptionError": "max length 500",
+				"nameError": "must be between 2 to 60 characters long"
+			},
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Yeni oda oluşturuldu",
 				"roomInviteFrom": "Oda daveti, tarafından",
@@ -156,7 +163,23 @@
 			}
 		},
 		"userVolumeSlider": { "noAudioMessage": "nedense ses alıcısı yok" },
-		"addToCalendar": { "add": "Add to Calendar" }
+		"addToCalendar": { "add": "Add to Calendar" },
+		"keyboardShortcuts": {
+			"setKeybind": "set keybind",
+			"listening": "listening",
+			"toggleMuteKeybind": "toggle mute keybind",
+			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
+		},
+		"wsKilled": {
+			"description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
+			"reconnect": "reconnect"
+		},
+		"deviceNotSupported": {
+			"notSupported": "Your device is currently not supported. You can create an",
+			"linkText": "issue on GitHub",
+			"addSupport": "and I will try adding support for your device."
+		},
+		"inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" }
 	},
 	"modules": {
 		"scheduledRooms": {
