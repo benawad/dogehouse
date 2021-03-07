@@ -1,5 +1,5 @@
 #!/bin/sh
-cd kibbeh
 . "$(dirname "$0")/_/husky.sh"
 
+cd kibbeh
 npm run lint
