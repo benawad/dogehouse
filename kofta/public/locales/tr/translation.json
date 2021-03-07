@@ -1,18 +1,18 @@
 {
 	"common": {
-		"loadMore": "daha fazla yükle",
-		"loading": "yükleniyor...",
-		"noUsersFound": "hiçbir kullanıcı bulunamadı",
-		"ok": "tamam",
-		"yes": "evet",
+		"loadMore": "Daha fazla yükle",
+		"loading": "Yükleniyor...",
+		"noUsersFound": "Hiçbir kullanıcı bulunamadı",
+		"ok": "Tamam",
+		"yes": "Evet",
 		"no": "hayır",
-		"cancel": "iptal",
-		"save": "kaydet",
-		"edit": "edit",
+		"cancel": "İptal",
+		"save": "Kaydet",
+		"edit": "Düzenle",
 		"delete": "delete",
-		"joinRoom": "join room",
-		"copyLink": "copy link",
-		"copied": "copied",
+		"joinRoom": "Odaya katıl",
+		"copyLink": "Linki kopyala",
+		"copied": "Kopyalandı!",
 		"formattedIntlDate": "{{date, intlDate}}"
 	},
 	"header": {
@@ -83,10 +83,10 @@
 		"voiceSettings": {
 			"header": "Ses Ayarları",
 			"mic": "mikrofon:",
-			"permissionError": "mikrofon bulunamadı ya takılı değil ya da bu web sitesine izin vermediniz.",
-			"refesh": "mikrofon listesini yenile",
-			"volume": "ses seviyesi:",
-			"refresh": "refresh mic list"
+			"permissionError": "Mikrofon bulunamadı. Ya takılı değil ya da bu web sitesine izin vermediniz.",
+			"refesh": "Mikrofon listesini yenile",
+			"volume": "Ses seviyesi:",
+			"refresh": "Mikrofon listesini yenile"
 		}
 	},
 	"components": {
@@ -94,9 +94,9 @@
 		"avatar": {},
 		"backBar": {},
 		"blockedFromRoomUsers": {
-			"header": "Banlanan kullanıcılar",
-			"unban": "banı kaldır",
-			"noBans": "henüz kimse banlanmadı"
+			"header": "Yasaklanan kullanıcılar",
+			"unban": "Yasağı kaldır",
+			"noBans": "Henüz kimse banlanmadı"
 		},
 		"bottomVoiceControl": {
 			"leaveCurrentRoomBtn": "Odadan ayrıl",
@@ -114,8 +114,8 @@
 		},
 		"micPermissionBanner": {
 			"permissionDenied": "Mikrofonunuza erişmeye çalışırken izin reddedildi (tarayıcı ayarlarına gitmeniz ve sayfayı yeniden yüklemeniz gerekebilir)",
-			"dismiss": "reddet",
-			"tryAgain": "yeniden dene"
+			"dismiss": "Reddet",
+			"tryAgain": "Yeniden dene"
 		},
 		"modals": {
 			"createRoomModal": { "public": "herkese açık", "private": "gizli" },
