@@ -15,9 +15,9 @@ import { WebRtcApp } from "../webrtc/WebRtcApp";
 import { CenterLayout } from "./components/CenterLayout";
 import { DeviceNotSupported } from "./components/DeviceNotSupported";
 import { MicPermissionBanner } from "./components/MicPermissionBanner";
+import { PageWrapper } from "./components/PageWrapper";
 import { WsKilledMessage } from "./components/WsKilledMessage";
 import { RoomChat } from "./modules/room-chat/RoomChat";
-import { Login } from "./pages/Login";
 import { Routes } from "./Routes";
 import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
 import { useSaveTokensFromQueryParams } from "./utils/useSaveTokensFromQueryParams";
@@ -81,10 +81,6 @@ export const App: React.FC<AppProps> = () => {
 		return null;
 	}
 
-	if (!hasTokens) {
-		return <Login />;
-	}
-
 	if (!isDeviceSupported) {
 		return <DeviceNotSupported />;
 	}
@@ -96,13 +92,13 @@ export const App: React.FC<AppProps> = () => {
 	return (
 		<BrowserRouter>
 			<WebRtcApp />
-			<div className={`mx-auto max-w-5xl w-full h-full flex relative`}>
+			<PageWrapper>
 				<CenterLayout>
 					<Routes />
 					<MicPermissionBanner />
 				</CenterLayout>
 				<RoomChat sidebar />
-			</div>
+			</PageWrapper>
 		</BrowserRouter>
 	);
 };

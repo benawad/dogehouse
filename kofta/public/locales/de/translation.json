@@ -7,7 +7,12 @@
 		"yes": "ja",
 		"no": "nein",
 		"cancel": "abbrechen",
-		"save": "speichern"
+		"save": "speichern",
+		"edit": "bearbeiten",
+		"delete": "löschen",
+		"joinRoom": "raum beitreten",
+		"copyLink": "link kopieren",
+		"copied": "kopiert"
 	},
 	"header": {
 		"_comment": "Main Header UI Internationalization Strings",
@@ -65,7 +70,7 @@
 			"requestingToSpeak": "Sprachanfragen",
 			"listeners": "Zuhörer"
 		},
-		"searchUser": { "search": "suchen..." },
+		"searchUser": { "search": "Suchen..." },
 		"soundEffectSettings": { "header": "Ton" },
 		"viewUser": {
 			"editProfile": "profil bearbeiten",
@@ -76,7 +81,7 @@
 		"voiceSettings": {
 			"header": "Spracheinstellungen",
 			"mic": "Mikro:",
-			"permissionError": "keine mikros gefunden, du hast entweder keine angeschlossen oder die seite hat nicht die richtigen rechte.",
+			"permissionError": "Keine Mikros gefunden, du hast entweder keine angeschlossen oder die Seite hat nicht die richtigen Rechte.",
 			"volume": "lautstärke:",
 			"refresh": "mikro liste aktualisieren"
 		}
@@ -119,36 +124,65 @@
 				"inviteReceived": "Du wurdest eingeladen zu"
 			},
 			"editProfileModal": {
-				"usernameTaken": "Benutzername bereits vergeben",
+				"usernameTaken": "Benutzername ist bereits vergeben",
 				"avatarUrlError": "Ungültiges Bild",
 				"avatarUrlLabel": "Github/Twitter Avatar URL",
 				"displayNameError": "länge 2 bis 50 Buchstaben",
 				"displayNameLabel": "Anzeigename",
 				"usernameError": "länge 4 bis 15 alphanumerische Zeichen und Unterstriche",
 				"usernameLabel": "Benutzername",
-				"bioError": "maximal 160 Buchstaben",
+				"bioError": "Maximal 160 Buchstaben",
 				"bioLabel": "Bio"
 			},
 			"profileModal": {
 				"blockUserConfirm": "Bist du sicher, dass du diesen Benutzer aus allen deinen zukünftigen Räumen bannen willst?",
-				"blockUser": "benuzter bannen",
-				"makeMod": "zum moderator befördern",
-				"unmod": "moderatorstatus aufheben",
+				"blockUser": "Benuzter bannen",
+				"makeMod": "Zum Moderator befördern",
+				"unmod": "Moderator Status aufheben",
 				"addAsSpeaker": "zu sprecher befördern",
 				"moveToListener": "zu zuhörer herabstufen",
-				"banFromChat": "aus chat bannen",
-				"banFromRoom": "aus raum bannen",
-				"goBackToListener": "zurück zu zuhörer",
-				"deleteMessage": "nachricht löschen"
+				"banFromChat": "Aus Chat bannen",
+				"banFromRoom": "Aus Raum bannen",
+				"goBackToListener": "Zurück zum Zuhörer",
+				"deleteMessage": "Nachricht löschen"
 			},
 			"roomSettingsModal": {
-				"requirePermission": "berechtigung zum sprechen verlangen",
-				"makePublic": "raum öffentlich machen",
-				"makePrivate": "raum privat machen"
+				"requirePermission": "Berechtigung zum Sprechen verlangen",
+				"makePublic": "Raum öffentlich machen",
+				"makePrivate": "Raum privat machen"
 			}
 		},
 		"userVolumeSlider": {
-			"noAudioMessage": "aus unbekannten gründen kein audio consumer"
+			"noAudioMessage": "Aus unbekannten gründen wurde kein Audio Consumer gefunden"
+		},
+		"addToCalendar": { "add": "Zum Kalender hinzufügen" }
+	},
+	"modules": {
+		"scheduledRooms": {
+			"title": "Geplante Räume",
+			"noneFound": "Nicht gefunden",
+			"allRooms": "Alle geplanten Räume",
+			"myRooms": "Meine Geplanten Räume",
+			"scheduleRoomHeader": "Plane einen Raum",
+			"startRoom": "Raum starten",
+			"modal": {
+				"needsFuture": "Es muss in der Zukunft sein",
+				"roomName": "Raum Name",
+				"minLength": "minimale länge 2"
+			}
+		},
+		"roomChat": {
+			"title": "Chat",
+			"emotesSoon": "[emotes bald]",
+			"bannedAlert": "Du wurdest aus dem Chat gebannt",
+			"waitAlert": "Du musst eine Sekunde warten, bevor du noch eine Nachricht schreibst",
+			"search": "Suchen",
+			"searchResults": "Suchergebnisse",
+			"recent": "Häufig verwendet",
+			"sendMessage": "Eine Nachricht schicken",
+			"whisper": "Flüstern",
+			"welcomeMessage": "Willkommen im Chat!",
+			"roomDescription": "Raumbeschreibung"
 		}
 	}
 }

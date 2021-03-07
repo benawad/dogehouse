@@ -8,24 +8,29 @@ import {
 	wsMutationThrowError,
 } from "../../../createWebsocket";
 import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
+import { AddToCalendarButton } from "../../components/add-to-calendar/AddToCalendarButton";
 import { Avatar } from "../../components/Avatar";
 import { Button } from "../../components/Button";
 import { modalConfirm } from "../../components/ConfirmModal";
 import { ScheduledRoom } from "../../types";
 import { roomToCurrentRoom } from "../../utils/roomToCurrentRoom";
 import { useMeQuery } from "../../utils/useMeQuery";
+import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
 import { useRoomChatStore } from "../room-chat/useRoomChatStore";
+import { CopyScheduleRoomLinkButton } from "./CopyScheduleRoomLinkButton";
 
 interface ScheduledRoomCardProps {
 	onEdit: () => void;
 	onDeleteComplete: () => void;
 	info: ScheduledRoom;
+	noCopyLinkButton?: boolean;
 }
 
 export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
 	onEdit,
 	onDeleteComplete,
-	info: { id, name, scheduledFor, creator, description },
+	noCopyLinkButton,
+	info: { id, name, scheduledFor, creator, description, roomId },
 }) => {
 	const history = useHistory();
 	const {
@@ -62,9 +67,12 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
 		};
 	}, [dt]);
 	const { me } = useMeQuery();
+	const { t } = useTypeSafeTranslation();
+	const isCreator = me?.id === creator.id;
+	const url = window.location.origin + `/scheduled-room/${id}`;
 	return (
 		<div>
-			<div className={`w-full ${"bg-simple-gray-33"} py-2.5 px-5 rounded-lg`}>
+			<div className={`w-full bg-simple-gray-33 py-2.5 px-5 rounded-lg`}>
 				<div className={`text-white`}>
 					<div className={`flex justify-between`}>
 						<div>
@@ -72,10 +80,21 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
 								? format(dt, `K:mm a`)
 								: format(dt, `MM/dd/yyyy K:mm a`)}
 						</div>
-						{me?.id === creator.id ? (
+						<AddToCalendarButton
+							event={{
+								name: name,
+								details: description,
+								location: url,
+								startsAt: dt.toISOString(),
+								endsAt: new Date(
+									dt.getTime() + 1 * 60 * 60 * 1000
+								).toISOString(),
+							}}
+						/>
+						{isCreator ? (
 							<div className={`flex`}>
 								<Button variant="small" onClick={() => onEdit()}>
-									edit
+									{t("common.edit")}
 								</Button>
 								<div className={`ml-4`}>
 									<Button
@@ -93,7 +112,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
 											)
 										}
 									>
-										delete
+										{t("common.delete")}
 									</Button>
 								</div>
 							</div>
@@ -111,6 +130,9 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
 						>
 							{name.slice(0, 100)}
 						</div>
+						{noCopyLinkButton ? null : (
+							<CopyScheduleRoomLinkButton text={url} />
+						)}
 					</div>
 					<div>
 						{creator.displayName}
@@ -118,21 +140,35 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
 					</div>
 					{isPast(dt) ? (
 						<div className={`mt-4`}>
-							<Button
-								loading={isLoadingStartRoom}
-								onClick={() => {
-									mutateAsyncStartRoom({
-										op: "create_room_from_scheduled_room",
-										d: {
-											id,
-											name,
-											description,
-										},
-									});
-								}}
-							>
-								start room
-							</Button>
+							{isCreator ? (
+								<Button
+									loading={isLoadingStartRoom}
+									onClick={() => {
+										mutateAsyncStartRoom({
+											op: "create_room_from_scheduled_room",
+											d: {
+												id,
+												name,
+												description,
+											},
+										});
+									}}
+								>
+									{t("modules.scheduledRooms.startRoom")}
+								</Button>
+							) : (
+								roomId && (
+									<Button
+										loading={isLoadingStartRoom}
+										onClick={() => {
+											wsend({ op: "join_room", d: { roomId } });
+											history.push("/room/" + roomId);
+										}}
+									>
+										{t("common.joinRoom")}
+									</Button>
+								)
+							)}
 						</div>
 					) : null}
 				</div>

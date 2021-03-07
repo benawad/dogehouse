@@ -7,7 +7,12 @@
 		"yes": "si",
 		"no": "no",
 		"cancel": "cancelar",
-		"save": "guardar"
+		"save": "guardar",
+		"edit": "edit",
+		"delete": "delete",
+		"joinRoom": "join room",
+		"copyLink": "copy link",
+		"copied": "copied"
 	},
 	"header": {
 		"_comment": "Main Header UI Internationalization Strings",
@@ -148,6 +153,35 @@
 		},
 		"userVolumeSlider": {
 			"noAudioMessage": "no hay consumidor de audio por alguna razón"
+		},
+		"addToCalendar": { "add": "Add to Calendar" }
+	},
+	"modules": {
+		"scheduledRooms": {
+			"title": "Scheduled Rooms",
+			"noneFound": "none found",
+			"allRooms": "all scheduled rooms",
+			"myRooms": "my scheduled rooms",
+			"scheduleRoomHeader": "Schedule Room",
+			"startRoom": "start room",
+			"modal": {
+				"needsFuture": "needs to be in the future",
+				"roomName": "room name",
+				"minLength": "min length 2"
+			}
+		},
+		"roomChat": {
+			"title": "Chat",
+			"emotesSoon": "[emotes soon]",
+			"bannedAlert": "You got banned from chat",
+			"waitAlert": "You have to wait a second before sending another message",
+			"search": "Search",
+			"searchResults": "Search Results",
+			"recent": "Frequently Used",
+			"sendMessage": "Send a Message",
+			"whisper": "Whisper",
+			"welcomeMessage": "Welcome to chat!",
+			"roomDescription": "room description"
 		}
 	}
 }

@@ -8,7 +8,13 @@ defmodule Kousa.Data.ScheduledRoom do
   @fetch_limit 16
 
   def get_by_id(id) do
-    from(sr in ScheduledRoom, where: sr.id == ^id)
+    from(sr in ScheduledRoom,
+      where: sr.id == ^id,
+      inner_join: u in assoc(sr, :creator),
+      preload: [
+        creator: u
+      ]
+    )
     |> Repo.one()
   end
 
@@ -81,6 +87,9 @@ defmodule Kousa.Data.ScheduledRoom do
   def get_my_scheduled_rooms_about_to_start(user_id) do
     from(sr in ScheduledRoom,
       inner_join: u in assoc(sr, :creator),
+      preload: [
+        creator: u
+      ],
       where:
         sr.creatorId == ^user_id and is_nil(sr.roomId) and
           sr.started ==
@@ -91,10 +100,7 @@ defmodule Kousa.Data.ScheduledRoom do
             sr.scheduledFor
           ),
       order_by: [asc: sr.scheduledFor],
-      limit: ^@fetch_limit,
-      preload: [
-        creator: u
-      ]
+      limit: ^@fetch_limit
     )
     |> Repo.all()
   end

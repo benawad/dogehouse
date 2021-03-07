@@ -11,6 +11,7 @@ import { InputErrorMsg } from "../../components/InputErrorMsg";
 import { Modal } from "../../components/Modal";
 import { BaseUser } from "../../types";
 import { showErrorToast } from "../../utils/showToast";
+import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
 
 export interface ScheduleRoomFormData {
 	name: string;
@@ -36,6 +37,7 @@ export const ScheduleRoomModal: React.FC<CreateRoomModalProps> = ({
 	onRequestClose,
 	editInfo,
 }) => {
+	const { t } = useTypeSafeTranslation();
 	return (
 		<ThemeProvider theme={theme}>
 			<MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -56,13 +58,13 @@ export const ScheduleRoomModal: React.FC<CreateRoomModalProps> = ({
 
 							if (name.length < 2) {
 								return {
-									name: "min length 2",
+									name: t("modules.scheduledRooms.modal.minLength"),
 								};
 							}
 
 							if (scheduledFor.getTime() < new Date().getTime()) {
 								return {
-									scheduledFor: "needs to be in the future",
+									scheduledFor: t("modules.scheduledRooms.modal.needsFuture"),
 								};
 							}
 
@@ -107,7 +109,7 @@ export const ScheduleRoomModal: React.FC<CreateRoomModalProps> = ({
 								<InputField
 									name="name"
 									maxLength={60}
-									placeholder="room name"
+									placeholder={t("modules.scheduledRooms.modal.roomName")}
 									autoFocus
 								/>
 								<div className={`mt-8`}>
@@ -143,14 +145,14 @@ export const ScheduleRoomModal: React.FC<CreateRoomModalProps> = ({
 										className={`mr-1.5`}
 										color="secondary"
 									>
-										cancel
+										{t("common.cancel")}
 									</Button>
 									<Button
 										loading={isSubmitting}
 										type="submit"
 										className={`ml-1.5`}
 									>
-										ok
+										{t("common.ok")}
 									</Button>
 								</div>
 							</Form>

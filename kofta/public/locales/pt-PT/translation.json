@@ -7,7 +7,12 @@
 		"yes": "Sim",
 		"no": "Não",
 		"cancel": "Cancelar",
-		"save": "Guardar"
+		"save": "Guardar",
+		"edit": "editar",
+		"delete": "apagar",
+		"joinRoom": "entrar na sala",
+		"copyLink": "copiar link",
+		"copied": "copiado"
 	},
 	"header": {
 		"_comment": "Main Header UI Internationalization Strings",
@@ -114,7 +119,7 @@
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Nova sala criada",
 				"roomInviteFrom": "Convite para a sala de",
-				"justStarted": "They just started",
+				"justStarted": "Foi iniciado agora",
 				"likeToJoin": ", gostarias de te juntar?",
 				"inviteReceived": "Foste convidado para"
 			},
@@ -138,7 +143,7 @@
 				"moveToListener": "Tornar como ouvinte",
 				"banFromChat": "Banir do chat",
 				"banFromRoom": "Banir da sala",
-				"goBackToListener": "go back to listener",
+				"goBackToListener": "voltar a ouvinte",
 				"deleteMessage": "Apagar mensagem"
 			},
 			"roomSettingsModal": {
@@ -149,6 +154,35 @@
 		},
 		"userVolumeSlider": {
 			"noAudioMessage": "Sem consumidor de áudio devido a um erro desconhecido"
+		},
+		"addToCalendar": { "add": "Adicionar ao calendário" }
+	},
+	"modules": {
+		"scheduledRooms": {
+			"title": "Salas agendadas",
+			"noneFound": "nenhuma encontrada",
+			"allRooms": "todas as salas agendadas",
+			"myRooms": "salas agendadas por mim",
+			"scheduleRoomHeader": "Agendar Sala",
+			"startRoom": "iniciar sala",
+			"modal": {
+				"needsFuture": "a data tem de ser posterior",
+				"roomName": "nome da sala",
+				"minLength": "mínimo de 2 caracteres"
+			}
+		},
+		"roomChat": {
+			"title": "Chat",
+			"emotesSoon": "[emoticons brevemente]",
+			"bannedAlert": "Foste banido do chat",
+			"waitAlert": "Tens de esperar 1 segundo para escrever uma nova mensagem",
+			"search": "Pesquisar",
+			"searchResults": "Resultados da pesquisa",
+			"recent": "Usados Frequentemente",
+			"sendMessage": "Enviar mensagem",
+			"whisper": "Whisper",
+			"welcomeMessage": "Bem-vindo ao chat!",
+			"roomDescription": "descrição da sala"
 		}
 	}
 }

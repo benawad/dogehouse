@@ -17,7 +17,7 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = () => {
 				</div>
 				<div className={`text-2xl`}>{t("pages.notFound.whoopsError")}</div>
 				{t("pages.notFound.goHomeMessage")}
-				<Link to="/" className={`text-blue-400`}>
+				<Link to="/" className={`text-blue-400 ml-2`}>
 					{t("pages.notFound.goHomeLinkText")}
 				</Link>
 			</BodyWrapper>

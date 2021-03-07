@@ -117,8 +117,6 @@ export const useRoomChatStore = create(
 				set({
 					isRoomChatScrolledToTop,
 				}),
-			setNewUnreadMessages: (newUnreadMessages: boolean) =>
-				set({ newUnreadMessages }),
 		})
 	)
 );
