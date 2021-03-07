@@ -68,7 +68,7 @@
 		},
 		"room": {
 			"speakers": "Foredragsholdere",
-			"requestingToSpeak": "Be om å få snakke",
+			"requestingToSpeak": "Forespurt om å få snakke",
 			"listeners": "Lyttere"
 		},
 		"searchUser": { "search": "Søk..." },
@@ -116,7 +116,14 @@
 			"tryAgain": "prøv igjen"
 		},
 		"modals": {
-			"createRoomModal": { "public": "offentlig", "private": "privat" },
+			"createRoomModal": {
+				"public": "offentlig",
+				"private": "privat",
+				"roomName": "rom navn",
+				"roomDescription": "rom beskrivelse",
+				"descriptionError": "maksimal lengde er 500 tegn",
+				"nameError": "må være mellom 2 og 60 tegn lang"
+			},
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Nytt rom opprettet",
 				"roomInviteFrom": "Rom Invitasjon fra",
@@ -156,7 +163,26 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "Ingen lyd forbruker av en eller annen grunn"
 		},
-		"addToCalendar": { "add": "Legg til i kalenderen" }
+		"addToCalendar": { "add": "Legg til i kalenderen" },
+		"keyboardShortcuts": {
+			"setKeybind": "Sett Hurtigtast",
+			"listening": "Registrerer",
+			"toggleMuteKeybind": "Demp mikrofon hurtigtast",
+			"togglePushToTalkKeybind": "Trykk og Snakk hurtigtast"
+		},
+		"wsKilled": {
+			"description": "Tilkoblingen ble drept av serveren. Dette skjer vanligvis når du åpner nettsiden i en annen fane.",
+			"reconnect": "Koble til igjen"
+		},
+		"deviceNotSupported": {
+			"notSupported": "Enheten din støttes ikke. Du kan opprette et",
+			"linkText": "problem på GitHub",
+			"addSupport": "så jeg kan prøve å legge til støtte for enheten din."
+		},
+		"inviteButton": {
+			"invited": "invitert",
+			"inviteToRoom": "inviter til rommet"
+		}
 	},
 	"modules": {
 		"_comment": "Modules UI Internationalization Strings",

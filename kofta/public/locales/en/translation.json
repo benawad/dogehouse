@@ -119,15 +119,44 @@
 			"speaker": "Speaker",
 			"listener": "Listener"
 		},
+		"deviceNotSupported": {
+			"notSupported": "Your device is currently not supported. You can create an",
+			"linkText": "issue on GitHub",
+			"addSupport": "and I will try adding support for your device."
+		},
+		"inviteButton": {
+			"invited": "invited",
+			"inviteToRoom": "invite to room"
+		},
 		"micPermissionBanner": {
 			"permissionDenied": "Permission denied trying to access your mic (you may need to go into browser settings and reload the page)",
 			"dismiss": "dismiss",
 			"tryAgain": "try again"
 		},
+		"keyboardShortcuts": {
+			"setKeybind": "set keybind",
+			"listening": "listening",
+			"toggleMuteKeybind": "toggle mute keybind",
+			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
+		},
+		"userVolumeSlider": {
+			"noAudioMessage": "no audio consumer for some reason"
+		},
+		"addToCalendar": {
+			"add": "Add to Calendar"
+		},
+		"wsKilled": {
+			"description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
+			"reconnect": "reconnect"
+		},
 		"modals": {
 			"createRoomModal": {
 				"public": "public",
-				"private": "private"
+				"private": "private",
+				"roomName": "room name",
+				"roomDescription": "room description",
+				"descriptionError": "max length 500",
+				"nameError": "must be between 2 to 60 characters long"
 			},
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "New Room Created",
@@ -164,12 +193,6 @@
 				"makePublic": "make room public",
 				"makePrivate": "make room private"
 			}
-		},
-		"userVolumeSlider": {
-			"noAudioMessage": "no audio consumer for some reason"
-		},
-		"addToCalendar": {
-			"add": "Add to Calendar"
 		}
 	},
 	"modules": {
