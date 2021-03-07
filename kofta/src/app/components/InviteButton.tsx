@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "./Button";
+import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 
 interface InviteButtonProps {
   onClick: () => void;
@@ -7,6 +8,8 @@ interface InviteButtonProps {
 
 export const InviteButton: React.FC<InviteButtonProps> = ({ onClick }) => {
   const [invited, setInvited] = useState(false);
+  const { t } = useTypeSafeTranslation();
+
   return (
     <Button
       onClick={() => {
@@ -16,7 +19,9 @@ export const InviteButton: React.FC<InviteButtonProps> = ({ onClick }) => {
       disabled={invited}
       variant="small"
     >
-      {invited ? "invited" : "invite to room"}
+      {invited
+        ? t("components.inviteButton.invited")
+        : t("components.inviteButton.inviteToRoom")}
     </Button>
   );
 };

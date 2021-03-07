@@ -2,20 +2,23 @@ import React from "react";
 import { CenterLayout } from "./CenterLayout";
 import { RegularAnchor } from "./RegularAnchor";
 import { Wrapper } from "./Wrapper";
+import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 
 interface DeviceNotSupportedProps {}
 
 export const DeviceNotSupported: React.FC<DeviceNotSupportedProps> = ({}) => {
+	const { t } = useTypeSafeTranslation();
+
 	return (
 		<div className="flex items-center h-full justify-around">
 			<CenterLayout>
 				<Wrapper>
 					<div className={`mb-4 mt-8 text-xl`}>
-						Your device is currently not supported. You can create an{" "}
+						{t("components.deviceNotSupported.notSupported")}{" "}
 						<RegularAnchor href="https://github.com/benawad/dogehouse/issues">
-							issue on GitHub
+							{t("components.deviceNotSupported.linkText")}
 						</RegularAnchor>{" "}
-						and I will try adding support for your device.
+						{t("components.deviceNotSupported.addSupport")}
 					</div>
 				</Wrapper>
 			</CenterLayout>

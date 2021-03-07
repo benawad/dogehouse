@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { recordKeyCombination } from "react-hotkeys";
 import { useKeyMapStore } from "../../../webrtc/stores/useKeyMapStore";
+import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
 import { Button } from "../Button";
 
 interface MuteKeybindProps {
@@ -10,6 +11,7 @@ interface MuteKeybindProps {
 export const MuteKeybind: React.FC<MuteKeybindProps> = ({ className }) => {
   const [count, setCount] = useState(0);
   const [active, setActive] = useState(false);
+  const { t } = useTypeSafeTranslation();
   const {
     keyNames: { MUTE },
     setMuteKeybind,
@@ -34,12 +36,12 @@ export const MuteKeybind: React.FC<MuteKeybindProps> = ({ className }) => {
           setActive(true);
         }}
       >
-        set keybind
+        {t("components.keyboardShortcuts.setKeybind")}
       </Button>
       <div className={`ml-4`}>
-        toggle mute keybind:{" "}
+        {t("components.keyboardShortcuts.toggleMuteKeybind")}:{" "}
         <span className={`font-bold text-lg`}>
-          {active ? "listening" : MUTE}
+          {active ? t("components.keyboardShortcuts.listening") : MUTE}
         </span>
       </div>
     </div>
