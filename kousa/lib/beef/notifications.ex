@@ -4,6 +4,6 @@ defmodule Beef.Notifications do
   def insert(data) do
     %Notification{}
     |> Notification.insert_changeset(data)
-    |> Beef.Repo.insert(on_conflict: :nothing, returning: true)
+    |> Beef.Repo.insert(on_conflict: :nothing, returning: true, preload: :notifier)
   end
 end
