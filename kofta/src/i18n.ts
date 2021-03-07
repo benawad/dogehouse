@@ -21,7 +21,10 @@ export const init_i18n = () => {
 				escapeValue: false,
 				format: (value, format, lng) => {
 					if (format === 'intlDate') {
-						return new Intl.DateTimeFormat(lng).format(value).toString();
+						return new Intl.DateTimeFormat(lng, {
+							year: 'numeric', month: 'numeric', day: 'numeric',
+							hour: 'numeric', minute: 'numeric', second: 'numeric'
+						}).format(value).toString();
 					}
 
 					return value;
