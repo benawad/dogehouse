@@ -12,7 +12,8 @@
 		"delete": "delete",
 		"joinRoom": "Odaya katıl",
 		"copyLink": "Linki kopyala",
-		"copied": "Kopyalandı!"
+		"copied": "Kopyalandı!",
+		"formattedIntlDate": "{{date, intlDate}}"
 	},
 	"header": {
 		"_comment": "Ana başlık arayüz ulusallaştırma yazıları",

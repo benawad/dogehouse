@@ -12,7 +12,8 @@
 		"delete": "delete",
 		"joinRoom": "join room",
 		"copyLink": "copy link",
-		"copied": "copied"
+		"copied": "copied",
+		"formattedIntlDate": "{{date, intlDate}}"
 	},
 	"header": {
 		"_comment": "Main Header UI Internationalization Strings",

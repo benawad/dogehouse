@@ -13,7 +13,8 @@
 		"delete": "delete",
 		"joinRoom": "join room",
 		"copyLink": "copy link",
-		"copied": "copied"
+		"copied": "copied",
+		"formattedIntlDate": "{{date, intlDate}}"
 	},
 	"header": {
 		"_comment": "Cabeçalho da interface principal para traduções",

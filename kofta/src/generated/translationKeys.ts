@@ -13,6 +13,7 @@ export type TranslationKeys =
 	| "common.joinRoom"
 	| "common.copyLink"
 	| "common.copied"
+	| "common.formattedIntlDate"
 	| "header.title"
 	| "header.mutedTitle"
 	| "footer.link_1"
