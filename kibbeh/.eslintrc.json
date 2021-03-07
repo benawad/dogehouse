@@ -18,46 +18,32 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "@typescript-eslint/eslint-plugin",
-    "react-hooks"
-  ],
+  "plugins": ["react", "@typescript-eslint/eslint-plugin", "react-hooks"],
   "settings": {
     "react": {
       "pragma": "React",
       "version": "detect"
     },
     "import/resolver": "parcel2",
-    "html/xml-extensions": [
-      ".html"
-    ],
+    "html/xml-extensions": [".html"],
     "html/indent": "+2"
   },
   "rules": {
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "react/prop-types": "off",
     "accessor-pairs": "error",
     "array-bracket-newline": "error",
     "array-bracket-spacing": "error",
     "array-callback-return": "error",
-    "array-element-newline": [
-      "error",
-      "consistent"
-    ],
-    "arrow-body-style": [
-      "error",
-      "as-needed"
-    ],
-    "arrow-parens": [
-      "error",
-      "as-needed"
-    ],
+    "array-element-newline": ["error", "consistent"],
+    "arrow-body-style": "off",
+    "arrow-parens": ["error", "as-needed"],
     "arrow-spacing": "error",
     "block-scoped-var": "error",
     "block-spacing": "error",
     "brace-style": "error",
     "camelcase": "error",
-    "comma-dangle": "error",
+    "comma-dangle": "off",
     "comma-spacing": "error",
     "comma-style": "error",
     "complexity": "error",
@@ -79,14 +65,8 @@
         "allowArrowFunctions": true
       }
     ],
-    "function-call-argument-newline": [
-      "error",
-      "consistent"
-    ],
-    "function-paren-newline": [
-      "error",
-      "multiline"
-    ],
+    "function-call-argument-newline": ["error", "consistent"],
+    "function-paren-newline": ["error", "multiline"],
     "generator-star-spacing": "error",
     "global-require": "error",
     "grouped-accessor-pairs": "error",
@@ -104,9 +84,7 @@
     ],
     "init-declarations": "error",
     "jsx-quotes": "error",
-    "key-spacing": [
-      "error"
-    ],
+    "key-spacing": ["error"],
     "keyword-spacing": [
       "error",
       {
@@ -147,20 +125,14 @@
     "lines-between-class-members": "error",
     "max-classes-per-file": "error",
     "max-depth": "error",
-    "max-len": [
-      "error",
-      120
-    ],
+    "max-len": ["error", 120],
     "max-lines": "error",
     "max-lines-per-function": "error",
     "max-nested-callbacks": "error",
     "max-statements": "error",
     "max-statements-per-line": "error",
     "multiline-comment-style": "error",
-    "multiline-ternary": [
-      "error",
-      "always-multiline"
-    ],
+    "multiline-ternary": ["error", "always-multiline"],
     "new-cap": "error",
     "new-parens": "error",
     "newline-after-var": "error",
@@ -203,9 +175,7 @@
       {
         "ignoreEnums": true,
         "ignoreNumericLiteralTypes": true,
-        "ignore": [
-          0, 1, 2, 8, 16, 32
-        ]
+        "ignore": [0, 1, 2, 8, 16, 32]
       }
     ],
     "no-mixed-operators": "error",
@@ -278,16 +248,10 @@
       }
     ],
     "object-shorthand": "error",
-    "one-var": [
-      "error",
-      "never"
-    ],
+    "one-var": ["error", "never"],
     "operator-assignment": "error",
     "operator-linebreak": "error",
-    "padded-blocks": [
-      "error",
-      "never"
-    ],
+    "padded-blocks": ["error", "never"],
     "padding-line-between-statements": "error",
     "prefer-arrow-callback": "error",
     "prefer-const": "error",
@@ -302,10 +266,7 @@
     "prefer-rest-params": "error",
     "prefer-spread": "error",
     "prefer-template": "error",
-    "quote-props": [
-      "error",
-      "as-needed"
-    ],
+    "quote-props": ["error", "as-needed"],
     "quotes": "error",
     "radix": "error",
     "require-atomic-updates": "error",
@@ -331,10 +292,7 @@
         "asyncArrow": "always"
       }
     ],
-    "space-in-parens": [
-      "error",
-      "never"
-    ],
+    "space-in-parens": ["error", "never"],
     "space-infix-ops": "error",
     "space-unary-ops": [
       "error",
@@ -356,9 +314,7 @@
     "wrap-regex": "error",
     "yield-star-spacing": "error",
     "yoda": "error",
-    "@typescript-eslint/ban-types": [
-      "warn"
-    ],
+    "@typescript-eslint/ban-types": ["warn"],
     "@typescript-eslint/member-delimiter-style": [
       "error",
       {

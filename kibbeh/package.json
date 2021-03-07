@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint lib/**/*.ts components/**/*.tsx pages/**/*.tsx && stylelint styles/"
+    "lint": "eslint lib/**/*.ts components/**/*.tsx pages/**/*.tsx && stylelint styles/",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "next": "10.0.7",
@@ -15,12 +17,17 @@
     "tslib": "^2.1.0"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^6.1.21",
+    "@storybook/addon-links": "^6.1.21",
+    "@storybook/react": "^6.1.21",
+    "@storybook/theming": "^6.1.21",
     "@tailwindcss/line-clamp": "^0.2.0",
     "@types/node": "^14.14.31",
     "@types/react": "^17.0.2",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",
     "autoprefixer": "latest",
+    "babel-loader": "^8.2.2",
     "eslint": "^7.21.0",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
