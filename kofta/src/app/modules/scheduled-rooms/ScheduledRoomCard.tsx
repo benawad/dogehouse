@@ -74,7 +74,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
 						<div>
 							{isToday(dt)
 								? format(dt, `K:mm a`)
-								: format(dt, `MM/dd/yyyy K:mm a`)}
+								: t("common.formattedIntlDate", format(dt, `MM/dd/yyyy K:mm a`))}
 						</div>
 						<AddToCalendarButton event={{
 							name: name,

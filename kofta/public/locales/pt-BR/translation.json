@@ -10,7 +10,9 @@
 		"cancel": "cancelar",
 		"save": "salvar",
 		"edit": "edit",
-		"delete": "delete"
+		"delete": "delete",
+		"formattedDate": "{{date, intlDate}}",
+		"formattedIntlDate": "{{date, intlDate}}"
 	},
 	"header": {
 		"_comment": "Cabeçalho da interface principal para traduções",

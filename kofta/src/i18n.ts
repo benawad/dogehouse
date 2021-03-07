@@ -18,7 +18,14 @@ export const init_i18n = () => {
 			fallbackLng: "en",
 			debug: __prod__ ? false : true,
 			interpolation: {
-				escapeValue: false, // not needed for react as it escapes by default
+				escapeValue: false,
+				format: (value, format, lng) => {
+					if (format === 'intlDate') {
+						return new Intl.DateTimeFormat(lng).format(value).toString();
+					}
+
+					return value;
+				}
 			},
 			react: {
 				useSuspense: false, // fixes 'no fallback UI was specified' in react i18next when using hooks

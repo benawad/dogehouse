@@ -9,7 +9,9 @@
 		"cancel": "iptal",
 		"save": "kaydet",
 		"edit": "edit",
-		"delete": "delete"
+		"delete": "delete",
+		"formattedDate": "{{date, intlDate}}",
+		"formattedIntlDate": "{{date, intlDate}}"
 	},
 	"header": {
 		"_comment": "Ana başlık arayüz ulusallaştırma yazıları",

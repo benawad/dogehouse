@@ -9,7 +9,9 @@
 		"cancel": "Cancelar",
 		"save": "Guardar",
 		"edit": "editar",
-		"delete": "apagar"
+		"delete": "apagar",
+		"formattedDate": "{{date, intlDate}}",
+		"formattedIntlDate": "{{date, intlDate}}"
 	},
 	"header": {
 		"_comment": "Main Header UI Internationalization Strings",

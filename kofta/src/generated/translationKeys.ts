@@ -10,6 +10,7 @@ export type TranslationKeys =
 	| "common.save"
 	| "common.edit"
 	| "common.delete"
+	| "common.formattedIntlDate"
 	| "header.title"
 	| "header.mutedTitle"
 	| "footer.link_1"
