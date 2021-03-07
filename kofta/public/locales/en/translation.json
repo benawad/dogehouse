@@ -11,6 +11,9 @@
 		"save": "save",
 		"edit": "edit",
 		"delete": "delete",
+		"joinRoom": "join room",
+		"copyLink": "copy link",
+		"copied": "copied",
 		"formattedIntlDate": "{{date, intlDate}}"
 	},
 	"header": {

@@ -28,7 +28,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 	const {
 		isRoomChatScrolledToTop,
 		setIsRoomChatScrolledToTop,
-		setNewUnreadMessages,
 	} = useRoomChatStore();
 	const { t } = useTypeSafeTranslation();
 
@@ -49,7 +48,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 				setIsRoomChatScrolledToTop(!isOnBottom);
 				if (isOnBottom) {
 					useRoomChatMentionStore.getState().resetIAmMentioned();
-					setNewUnreadMessages(false);
 				}
 			}}
 		>

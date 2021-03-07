@@ -10,7 +10,9 @@
 		"save": "Guardar",
 		"edit": "editar",
 		"delete": "apagar",
-		"formattedDate": "{{date, intlDate}}",
+		"joinRoom": "join room",
+		"copyLink": "copy link",
+		"copied": "copied",
 		"formattedIntlDate": "{{date, intlDate}}"
 	},
 	"header": {

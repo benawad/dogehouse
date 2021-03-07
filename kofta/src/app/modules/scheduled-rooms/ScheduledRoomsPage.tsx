@@ -218,6 +218,7 @@ export const ScheduledRoomsPage: React.FC<ScheduledRoomsPageProps> = ({}) => {
 								return {
 									scheduledRooms: [
 										{
+											roomId: null,
 											creator: me!,
 											creatorId: me!.id,
 											description: data.description,

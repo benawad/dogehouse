@@ -19,6 +19,7 @@ defmodule Beef.Schemas.ScheduledRoom do
              :numAttending,
              :scheduledFor,
              :description,
+             :roomId,
              :creator,
              :creatorId
            ]}
