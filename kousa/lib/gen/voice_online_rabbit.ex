@@ -25,21 +25,27 @@ defmodule Kousa.Gen.VoiceOnlineRabbit do
   # @send_exchange "shawarma_exchange"
   @online_exchange "kousa_online_exchange"
   @online_receive_queue "kousa_online_queue"
+  @retry_interval 15_000
 
   def init(opts) do
-    {:ok, conn} =
-      Connection.open(Application.get_env(:kousa, :rabbit_url, "amqp://guest:guest@localhost"))
+    host = Application.get_env(:kousa, :rabbit_url, "amqp://guest:guest@localhost")
+    case Connection.open(host) do
+      {:ok, conn} ->
+        {:ok, chan} = Channel.open(conn)
+        setup_queue(opts.id, chan)
 
-    {:ok, chan} = Channel.open(conn)
-    setup_queue(opts.id, chan)
+        :ok = Basic.qos(chan, prefetch_count: 1)
+        queue_to_consume = @online_receive_queue <> opts.id
+        IO.puts("queue_to_consume_online: " <> queue_to_consume)
+        # Register the GenServer process as a consumer
+        {:ok, _consumer_tag} = Basic.consume(chan, queue_to_consume, nil, no_ack: true)
 
-    :ok = Basic.qos(chan, prefetch_count: 1)
-    queue_to_consume = @online_receive_queue <> opts.id
-    IO.puts("queue_to_consume_online: " <> queue_to_consume)
-    # Register the GenServer process as a consumer
-    {:ok, _consumer_tag} = Basic.consume(chan, queue_to_consume, nil, no_ack: true)
-
-    {:ok, %State{chan: chan, id: opts.id}}
+        {:ok, %State{chan: chan, id: opts.id}}
+      {:error, _} ->
+        IO.puts("[Rabbit] error on connecting to server: #{host}")
+        :timer.sleep(@retry_interval)
+        init(opts)
+      end
   end
 
   def handle_info({:basic_consume_ok, %{consumer_tag: _consumer_tag}}, state) do
