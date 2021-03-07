@@ -68,8 +68,6 @@ font-weight: 400;
 font-weight: 700;
 ```
 
-### Desktop
-
 ![DogeHouse typography](https://i.imgur.com/A1pz7UD.png)
 
 Tag | Font Size | Line Height | Weight
