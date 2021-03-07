@@ -10,9 +10,9 @@
 		"save": "speichern",
 		"edit": "bearbeiten",
 		"delete": "löschen",
-		"joinRoom": "join room",
-		"copyLink": "copy link",
-		"copied": "copied",
+		"joinRoom": "raum beitreten",
+		"copyLink": "link kopieren",
+		"copied": "kopiert",
 		"formattedIntlDate": "{{date, intlDate}}"
 	},
 	"header": {
