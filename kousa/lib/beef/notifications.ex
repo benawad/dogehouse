@@ -5,10 +5,16 @@ defmodule Beef.Notifications do
   def insert(data) do
     %Notification{}
     |> Notification.insert_changeset(data)
-    |> Beef.Repo.insert(on_conflict: :nothing, returning: true, preload: :notifier)
+    |> Beef.Repo.insert(on_conflict: :nothing, returning: true)
   end
 
-  def exists(type, user_id, notifier_id, is_read \\ false) do
+  def update(data) do
+    %Notification{user_id: data.user_id, id: data.id}
+    |> Notification.edit_changeset(data)
+    |> Beef.Repo.update
+  end
+
+  def unread_exists?(type, user_id, notifier_id, is_read \\ false) do
     from(n in Notification,
       where: n.type == ^type and n.user_id == ^user_id and n.notifier_id == ^notifier_id and n.is_read == ^is_read
     )

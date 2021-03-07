@@ -3,6 +3,7 @@ import create from "zustand";
 import { combine } from "zustand/middleware";
 
 export type Notification = {
+	id: string;
 	type: "follow";
 	notifier: BaseUser;
 	inserted_at: string;

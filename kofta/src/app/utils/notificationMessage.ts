@@ -1,14 +1,21 @@
-import { showInfoToast } from './showToast';
-import { Notification } from './../modules/notifications/useNotificationStore';
-
+import { wsend } from "./../../createWebsocket";
+import { toast } from "react-toastify";
+import { Notification } from "./../modules/notifications/useNotificationStore";
 
 export const showNotificationToast = (notification: Notification, t: any) => {
-  console.log(notification.notifier);
-  
-  switch (notification.type) {
-    case "follow":
-      showInfoToast("🔔 " + t("notifications.messages.follow", { notifier: notification.notifier.displayName }))
-      break;
-  }
-  
-}
+	switch (notification.type) {
+		case "follow":
+			toast(
+				"🔔 " +
+					t("notifications.messages.follow", {
+						notifier: notification.notifier.displayName,
+					}),
+				{
+					type: "info",
+					onClose: () =>
+						wsend({ op: "set_notification_read", d: { id: notification.id } }),
+				}
+			);
+			break;
+	}
+};

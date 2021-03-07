@@ -585,6 +585,25 @@ defmodule Kousa.SocketHandler do
     {:ok, state}
   end
 
+  def handler("set_notification_read", %{"id" => notification_id}, state) do
+    case BL.Notification.set_read(state.user_id, notification_id) do
+      {:ok} ->
+        Kousa.RegUtils.lookup_and_cast(
+          Kousa.Gen.UserSession,
+          state.user_id,
+          {:send_ws_msg, :web,
+          %{
+            op: "set_notification_read_done",
+            d: notification_id
+          }}
+        )
+      _ ->
+        nil
+
+    end
+    {:ok, state}
+  end
+
   def handler(op, data, state) do
     with {:ok, room_id} <- Users.tuple_get_current_room_id(state.user_id),
          {:ok, voice_server_id} <-

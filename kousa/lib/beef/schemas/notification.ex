@@ -31,4 +31,11 @@ defmodule Beef.Schemas.Notification do
     notification
     |> cast(attrs, [:type, :user_id, :notifier_id])
   end
+
+  @doc false
+  def edit_changeset(notification, attrs) do
+    notification
+    |> cast(attrs, [:is_read])
+    |> validate_required([:is_read])
+  end
 end
