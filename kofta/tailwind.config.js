@@ -3,38 +3,35 @@ module.exports = {
   purge: ["./src/**/*.tsx", "./public/index.html"],
   theme: {
     fontFamily: {
-      sans: ["Heebo", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
-      mono: ["Menlo", "Monaco", "Courier New", "monospace"],
+      sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica", "Arial", "sans-serif"],
+      // mono: ["Menlo", "Monaco", "Courier New", "monospace"],
     },
-    extend: {
-      colors: {
-        "simple-gray": { // extracted from the old code
-          "1e": "#1e1e1e",
-          "23": "#232323",
-          "26": "#262626",
-          "2b": "#2b2b2b",
-          "33": "#333333",
-          "3a": "#3a3d41", // meh
-          "3c": "#3c3c3c",
-          "3d": "#3d3d3d",
-          "45": "#45494e", // meh
-          "4d": "#4d4d4d",
-          "59": "#595959",
-          "69": "#696969",
-          "80": "#808080",
-          "8c": "#8c8c8c",
-          "9c": "#9ca38f", // meh
-          "a6": "#a6a6a6",
-          "d9": "#d9d9d9",
-          "fe": "#fefefe",
-        },
+    colors: {
+      "gray": {
+        100: "#DEE3EA",
+        200: "#B2BDCD",
+        300: "#5D7290",
+        // 400: "#4F617A",
+        // 500: "#404F64",
+        // 600: "#323D4D",
+        700: "#242C37",
+        800: "#151A21",
+        900: "#0B0E11",
       },
+      "doge-blood": {
+        DEFAULT: "#FD4D4D",
+        hover: "#FD6868"
+      }
     },
-  },
-  variants: {
-    extend: {
-      backgroundColor: ['active'],
-    },
+    spacing: {
+      "1": "5px",
+      "2": "10px",
+      "3": "15px",
+      "4": "20px",
+      "5": "30px",
+      "6": "40px",
+      "7": "60px",
+    }
   },
   plugins: [],
 };
