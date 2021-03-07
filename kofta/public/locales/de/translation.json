@@ -2,7 +2,7 @@
 	"common": {
 		"loadMore": "mehr laden",
 		"loading": "lade...",
-		"noUsersFound": "keine benutzer gefunden",
+		"noUsersFound": "keine Benutzer gefunden",
 		"ok": "ok",
 		"yes": "ja",
 		"no": "nein",
@@ -10,8 +10,8 @@
 		"save": "speichern",
 		"edit": "bearbeiten",
 		"delete": "löschen",
-		"joinRoom": "raum beitreten",
-		"copyLink": "link kopieren",
+		"joinRoom": "Raum beitreten",
+		"copyLink": "Link kopieren",
 		"copied": "kopiert",
 		"formattedIntlDate": "{{date, intlDate}}"
 	},
@@ -30,41 +30,41 @@
 		"_comment": "Respective Page UI Internationalization Strings",
 		"banUser": { "ban": "bannen" },
 		"followingOnlineList": {
-			"listHeader": "Benutzer, die nicht in einem Privatraum sind und denen du folgst.",
+			"listHeader": "Benutzer denen du folgst, die nicht in einem privaten Raum sind.",
 			"currentRoom": "Zurzeit in:",
-			"startPrivateRoom": "einen privatraum mit diesem benutzer starten"
+			"startPrivateRoom": "einen privaten Raum mit diesem benutzer starten"
 		},
 		"followList": {},
 		"home": { "createRoom": "Raum Erstellen" },
 		"inviteList": {
-			"roomGone": "raum ist weg, geh zurück",
-			"shareRoomLink": "link zum raum teilen",
-			"inviteFollowers": "Du kannst deine Abonnenten einladen, die online sind:",
+			"roomGone": "Raum ist weg, gehe zurück",
+			"shareRoomLink": "link zum Raum teilen",
+			"inviteFollowers": "Du kannst deine Abonnenten die online sind einladen:",
 			"whenFollowersOnline": "Wenn deine Abonnenten online sind, werden sie hier angezeigt."
 		},
 		"login": {
 			"headerText": "Wir bringen Gespräche zum Mond 🚀",
 			"featureText_1": "Dunkelmodus",
-			"featureText_2": "Unbeschränkte Sign-Ups",
+			"featureText_2": "Unbeschränkte Registrierung",
 			"featureText_3": "Cross-Plattform-Unterstützung",
 			"featureText_4": "Open-Source",
 			"featureText_5": "Text-Chat",
 			"featureText_6": "Angetrieben durch Doge",
 			"loginGithub": "mit GitHub anmelden",
 			"loginTwitter": "mit Twitter anmelden",
-			"createTestUser": "testnutzer erstellen"
+			"createTestUser": "Testnutzer erstellen"
 		},
 		"myProfile": {
 			"logout": "abmelden",
 			"probablyLoading": "vermutlich am laden...",
-			"voiceSettings": "spracheinstellungen",
-			"soundSettings": "toneinstellungen",
-			"deleteAccount": "account löschen"
+			"voiceSettings": "Spracheinstellungen",
+			"soundSettings": "Toneinstellungen",
+			"deleteAccount": "Konto löschen"
 		},
 		"notFound": {
 			"whoopsError": "Hoppla! Diese Seite ging im Gespräch verloren.",
 			"goHomeMessage": "Keine Sorge. Du kannst",
-			"goHomeLinkText": "nach hause"
+			"goHomeLinkText": "nach Hause"
 		},
 		"room": {
 			"speakers": "Sprecher",
@@ -74,7 +74,7 @@
 		"searchUser": { "search": "Suchen..." },
 		"soundEffectSettings": { "header": "Ton" },
 		"viewUser": {
-			"editProfile": "profil bearbeiten",
+			"editProfile": "Profil bearbeiten",
 			"followsYou": "folgt dir",
 			"following": "abonniert",
 			"followers": "abonnenten"
@@ -82,9 +82,9 @@
 		"voiceSettings": {
 			"header": "Spracheinstellungen",
 			"mic": "Mikro:",
-			"permissionError": "Keine Mikros gefunden, du hast entweder keine angeschlossen oder die Seite hat nicht die richtigen Rechte.",
-			"volume": "lautstärke:",
-			"refresh": "mikro liste aktualisieren"
+			"permissionError": "Keine Mikros gefunden, du hast entweder keine angeschlossen oder die Seite hat nicht die benötigten Berechtigungen.",
+			"volume": "Lautstärke:",
+			"refresh": "Mikroliste aktualisieren"
 		}
 	},
 	"components": {
@@ -92,12 +92,12 @@
 		"avatar": {},
 		"backBar": {},
 		"blockedFromRoomUsers": {
-			"header": "Gebannte Benuzter",
-			"unban": "bann aufheben",
+			"header": "gebannte Benuzter",
+			"unban": "Bann aufheben",
 			"noBans": "bisher wurde noch niemand gebannt"
 		},
 		"bottomVoiceControl": {
-			"leaveCurrentRoomBtn": "Jetzigen Raum verlassen",
+			"leaveCurrentRoomBtn": "aktuellen Raum verlassen",
 			"confirmLeaveRoom": "Bist du sicher, dass du gehen willst?",
 			"leave": "Verlassen",
 			"inviteUsersToRoomBtn": "Benutzer zum Raum einladen",
@@ -118,7 +118,7 @@
 		"modals": {
 			"createRoomModal": { "public": "öffentlich", "private": "privat" },
 			"invitedToJoinRoomModal": {
-				"newRoomCreated": "Neuer Raum erstellt",
+				"newRoomCreated": "Neuen Raum erstellt",
 				"roomInviteFrom": "Neue Einladung von",
 				"justStarted": "Sie starten gerade",
 				"likeToJoin": ", willst du beitreten?",
