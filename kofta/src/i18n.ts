@@ -23,7 +23,7 @@ export const init_i18n = () => {
 					if (format === 'intlDate') {
 						return new Intl.DateTimeFormat(lng, {
 							year: 'numeric', month: 'numeric', day: 'numeric',
-							hour: 'numeric', minute: 'numeric', second: 'numeric'
+							hour: 'numeric', minute: 'numeric'
 						}).format(value).toString();
 					}
 
