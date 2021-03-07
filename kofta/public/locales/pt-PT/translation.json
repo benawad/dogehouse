@@ -10,9 +10,9 @@
 		"save": "Guardar",
 		"edit": "editar",
 		"delete": "apagar",
-		"joinRoom": "join room",
-		"copyLink": "copy link",
-		"copied": "copied",
+		"joinRoom": "entrar na sala",
+		"copyLink": "copiar link",
+		"copied": "copiado",
 		"formattedIntlDate": "{{date, intlDate}}"
 	},
 	"header": {
@@ -120,7 +120,7 @@
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Nova sala criada",
 				"roomInviteFrom": "Convite para a sala de",
-				"justStarted": "They just started",
+				"justStarted": "Foi iniciado agora",
 				"likeToJoin": ", gostarias de te juntar?",
 				"inviteReceived": "Foste convidado para"
 			},
@@ -144,7 +144,7 @@
 				"moveToListener": "Tornar como ouvinte",
 				"banFromChat": "Banir do chat",
 				"banFromRoom": "Banir da sala",
-				"goBackToListener": "go back to listener",
+				"goBackToListener": "voltar a ouvinte",
 				"deleteMessage": "Apagar mensagem"
 			},
 			"roomSettingsModal": {
@@ -156,7 +156,7 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "Sem consumidor de áudio devido a um erro desconhecido"
 		},
-		"addToCalendar": { "add": "Add to Calendar" }
+		"addToCalendar": { "add": "Adicionar ao calendário" }
 	},
 	"modules": {
 		"scheduledRooms": {
