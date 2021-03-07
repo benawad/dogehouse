@@ -7,9 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint src && stylelint src/styles/",
+    "format": "prettier --write src",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "prepare": "cd .. && husky install kibbeh"
+    "prepare": "cd .. && npm i"
   },
   "dependencies": {
     "next": "10.0.7",
@@ -34,6 +35,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "postcss": "latest",
     "postcss-import": "^14.0.0",
+    "prettier": "^2.0.5",
     "stylelint": "^13.11.0",
     "stylelint-config-standard": "^20.0.0",
     "tailwindcss": "latest",

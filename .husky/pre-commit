@@ -3,3 +3,4 @@
 
 cd kibbeh
 npm run lint
+npm run format
