@@ -1,14 +1,1 @@
-.yarn/*
-!.yarn/patches
-!.yarn/releases
-!.yarn/plugins
-!.yarn/sdks
-!.yarn/versions
-.pnp.*
-.next
-*.pem
-yarn-debug.log*
-yarn-error.log*
-.vercel
-.idea
-data
+_

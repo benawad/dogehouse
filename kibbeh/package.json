@@ -6,9 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint lib/**/*.ts components/**/*.tsx pages/**/*.tsx && stylelint styles/",
+    "lint": "eslint src && stylelint src/styles/",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "prepare": "cd .. && husky install kibbeh"
   },
   "dependencies": {
     "next": "10.0.7",
