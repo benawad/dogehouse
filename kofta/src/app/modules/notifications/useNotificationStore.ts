@@ -7,6 +7,7 @@ export type Notification = {
 	type: "follow";
 	notifier: BaseUser;
 	inserted_at: string;
+	is_read: boolean;
 };
 
 export const useNotificationStore = create(
@@ -23,6 +24,14 @@ export const useNotificationStore = create(
 					...s,
 					newNotification: true,
 					notifications: [notification].concat(s.notifications),
+				})),
+			setRead: (id: string) =>
+				set((s) => ({
+					...s,
+					notifications: s.notifications.map((n) => ({
+						...n,
+						is_read: n.id === id ? true : n.is_read,
+					})),
 				})),
 		})
 	)

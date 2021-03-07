@@ -58,6 +58,9 @@ export const useMainWsHandler = () => {
 
 	useEffect(() => {
 		addMultipleWsListener({
+			set_notification_read_done({ id }) {
+				useNotificationStore.getState().setRead(id);
+			},
 			new_notification(notification: Notification) {
 				useNotificationStore.getState().addNotification(notification);
 				showNotificationToast(notification, t);

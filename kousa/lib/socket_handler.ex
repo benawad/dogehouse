@@ -587,14 +587,14 @@ defmodule Kousa.SocketHandler do
 
   def handler("set_notification_read", %{"id" => notification_id}, state) do
     case BL.Notification.set_read(state.user_id, notification_id) do
-      {:ok} ->
+      {:ok, _notification} ->
         Kousa.RegUtils.lookup_and_cast(
           Kousa.Gen.UserSession,
           state.user_id,
           {:send_ws_msg, :web,
           %{
             op: "set_notification_read_done",
-            d: notification_id
+            d: %{id: notification_id}
           }}
         )
       _ ->
