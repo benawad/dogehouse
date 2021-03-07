@@ -17,19 +17,19 @@ This document aims to specify and define the rules and patterns to follow when i
 
 ## Color scheme
 
-- **Accent**: #FD4D4D
-- **Pure White**: #FFFFFF
+- **Accent**: `#FD4D4D`
+- **Pure White**: `#FFFFFF`
 
 #### Gray shades
-- **Gray 100**: #DEE3EA
-- **Gray 200**: #B2BDCD
-- **Gray 300**: #5D7290
-- **~~Gray 400~~**: #4F617A
-- **~~Gray 500~~**: #404F64
-- **~~Gray 600~~**: #323D4D
-- **Gray 700**: #242C37
-- **Gray 800**: #151A21
-- **Gray 900**: #0B0E11
+- **Gray 100**: `#DEE3EA`
+- **Gray 200**: `#B2BDCD`
+- **Gray 300**: `#5D7290`
+- **~~Gray 400~~**: `#4F617A`
+- **~~Gray 500~~**: `#404F64`
+- **~~Gray 600~~**: `#323D4D`
+- **Gray 700**: `#242C37`
+- **Gray 800**: `#151A21`
+- **Gray 900**: `#0B0E11`
 
 ## Typography
 
