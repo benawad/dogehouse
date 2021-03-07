@@ -1,0 +1,27 @@
+{
+  "name": "kibbeh",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "10.0.7",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "tslib": "^2.1.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.2.0",
+    "@types/node": "^14.14.31",
+    "@types/react": "^17.0.2",
+    "autoprefixer": "latest",
+    "postcss": "latest",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-import": "^14.0.0",
+    "tailwindcss": "latest",
+    "typescript": "3.9.5"
+  }
+}
