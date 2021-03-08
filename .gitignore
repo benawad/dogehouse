@@ -8,3 +8,5 @@ node_modules
 .docker
 .env
 _
+.next
+.env.local
