@@ -2,5 +2,5 @@
 . "$(dirname "$0")/_/husky.sh"
 
 cd kibbeh
-npm run lint
 npm run format
+npm run lint
