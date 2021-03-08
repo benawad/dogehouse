@@ -58,3 +58,7 @@ p {
 p.small {
   font-size: 0.85rem;
 }
+
+html *:not(head *):not(script):not(style) {
+  display: flex;
+}
