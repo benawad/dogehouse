@@ -20,6 +20,14 @@ p.bold {
 
 :root {
   font-size: 14px;
+  --color-primary-100: #DEE3EA;
+  --color-primary-200: #B2BDCD;
+  --color-primary-300: #5D7290;
+  --color-primary-700: #242C37;
+  --color-primary-800: #151A21;
+  --color-primary-900: #0B0E11;
+  --color-accent: #FD4D4D;
+  --color-accent-hover: #FD6868;
 }
 
 h1 {
