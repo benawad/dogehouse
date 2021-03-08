@@ -2,8 +2,8 @@ import React, { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 import { Spinner } from "./Spinner";
 
 const sizeClassnames = {
-  big: "py-2 px-6 text-base rounded-lg",
-  small: "px-2 py-1 text-sm rounded-md",
+  big: "py-2 px-6 text-sm rounded-lg",
+  small: "px-2 py-1 text-xs rounded-md",
 };
 
 const colorClassnames = {
@@ -39,7 +39,7 @@ export const Button: React.FC<ButtonProps> = ({
       <span className={loading ? "opacity-0" : ``}>{children}</span>
       {loading ? (
         <span className={`absolute`}>
-          <Spinner />
+          <Spinner classNameForSize={size === "small" ? "h-2 w-2" : ""} />
         </span>
       ) : null}
     </button>
