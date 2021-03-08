@@ -19,7 +19,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         <SmSolidSearch />
       </div>
       <input
-        className={`w-full py-2 bg-transparent text-primary-100 placeholder-primary-300 focus:outline-none ${inputClassName}`}
+        className={`w-full py-2 pr-4 bg-transparent text-primary-100 placeholder-primary-300 focus:outline-none ${inputClassName}`}
         {...props}
       />
     </div>
