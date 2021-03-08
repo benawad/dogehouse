@@ -1,11 +1,17 @@
 import React from "react";
 
-export const Spinner: React.FC<{ classNameForSize?: string }> = ({
-  classNameForSize = "h-4 w-4",
+// I'm not doing string interpolation so tailwind can purge the css
+const sizes = {
+  "2": "h-2 w-2",
+  "4": "h-4 w-4",
+};
+
+export const Spinner: React.FC<{ size?: keyof typeof sizes }> = ({
+  size = "4",
 }) => {
   return (
     <svg
-      className={`animate-spin text-button ${classNameForSize}`}
+      className={`animate-spin text-button ${sizes[size]}`}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
