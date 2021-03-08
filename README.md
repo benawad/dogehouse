@@ -11,7 +11,7 @@
 </p>
 
 <h3 align="center">  
-  <a href="https://github.com/benawad/dogehouse/blob/staging/CODE_OF_CONDUCT.md">Contribute</a>
+  <a href="https://github.com/benawad/dogehouse/blob/staging/CONTRIBUTING.md">Contribute</a>
   <span> · </span>
   <a href="https://discord.gg/82HzQCJCDg">Community</a>
   <span> · </span>
