@@ -56,7 +56,7 @@ const Page = ({
 	);
 
 	if (isLoading) {
-		return <Spinner />;
+		return <Spinner centered={true} />;
 	}
 
 	if (!data) {
