@@ -1,1 +1,13 @@
 import "../src/styles/globals.css";
+
+export const parameters = {
+  backgrounds: {
+    default: "bg-on-figma",
+    values: [
+      {
+        name: "bg-on-figma",
+        value: "#000",
+      },
+    ],
+  },
+};
