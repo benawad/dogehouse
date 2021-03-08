@@ -3,6 +3,7 @@ import create from "zustand";
 import { combine } from "zustand/middleware";
 
 const MUTE_KEY = "@keybind/mute";
+const CHAT_KEY = "@keybind/chat";
 const PTT_KEY = "@keybind/ptt";
 
 function getMuteKeybind() {
@@ -12,6 +13,15 @@ function getMuteKeybind() {
   } catch {}
 
   return v || "Control+m";
+}
+
+function getChatKeybind() {
+  let v = "";
+  try {
+    v = localStorage.getItem(CHAT_KEY) || "";
+  } catch {}
+
+  return v || "c";
 }
 
 function getPTTKeybind() {
@@ -25,6 +35,7 @@ function getPTTKeybind() {
 
 const keyMap: KeyMap = {
   MUTE: getMuteKeybind(),
+  CHAT: getChatKeybind(),
   PTT: [
     { sequence: getPTTKeybind(), action: "keydown" },
     { sequence: getPTTKeybind(), action: "keyup" },
@@ -33,6 +44,7 @@ const keyMap: KeyMap = {
 
 const keyNames: KeyMap = {
   MUTE: getMuteKeybind(),
+  CHAT: getChatKeybind(),
   PTT: getPTTKeybind(),
 };
 
@@ -50,6 +62,15 @@ export const useKeyMapStore = create(
         set(x => ({
           keyMap: { ...x.keyMap, MUTE: id },
           keyNames: { ...x.keyNames, MUTE: id },
+        }));
+      },
+      setChatKeybind: (id: string) => {
+        try {
+          localStorage.setItem(CHAT_KEY, id);
+        } catch {}
+        set(x => ({
+          keyMap: { ...x.keyMap, CHAT: id },
+          keyNames: { ...x.keyNames, CHAT: id },
         }));
       },
       setPTTKeybind: (id: string) => {
