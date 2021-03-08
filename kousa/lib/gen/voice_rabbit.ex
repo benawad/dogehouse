@@ -28,23 +28,14 @@ defmodule Kousa.Gen.VoiceRabbit do
   @retry_interval 5_000
 
   def init(opts) do
-    host = Application.get_env(:kousa, :rabbit_url, "amqp://guest:guest@localhost")
+    {:ok, chan} = AMQP.Application.get_channel(:chan)
+    setup_queue(opts.id, chan)
 
-    case Connection.open(host) do
-      {:ok, conn} ->
-        {:ok, chan} = Channel.open(conn)
-        setup_queue(opts.id, chan)
-
-        queue_to_consume = @receive_queue <> opts.id
-        IO.puts("queue_to_consume: " <> queue_to_consume)
-        # Register the GenServer process as a consumer
-        {:ok, _consumer_tag} = Basic.consume(chan, queue_to_consume, nil, no_ack: true)
-        {:ok, %State{chan: chan, id: opts.id}}
-      {:error, _} ->
-        IO.puts("[Rabbit] error on connecting to server: #{host}")
-        :timer.sleep(@retry_interval)
-        init(opts)
-    end
+    queue_to_consume = @receive_queue <> opts.id
+    IO.puts("queue_to_consume: " <> queue_to_consume)
+    # Register the GenServer process as a consumer
+    {:ok, _consumer_tag} = Basic.consume(chan, queue_to_consume, nil, no_ack: true)
+    {:ok, %State{chan: chan, id: opts.id}}
   end
 
   def send(id, msg) do
