@@ -17,17 +17,6 @@ module.exports = {
     },
     colors: {
       button: "var(--color-button-text)",
-      gray: {
-        100: "#DEE3EA",
-        200: "#B2BDCD",
-        300: "#5D7290",
-        // 400: "#4F617A",
-        // 500: "#404F64",
-        // 600: "#323D4D",
-        700: "#242C37",
-        800: "#151A21",
-        900: "#0B0E11",
-      },
       primary: {
         100: "var(--color-primary-100)",
         200: "var(--color-primary-200)",
