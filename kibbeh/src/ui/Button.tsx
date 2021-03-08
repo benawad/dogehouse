@@ -1,4 +1,8 @@
-import React, { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
+import React, {
+  ButtonHTMLAttributes,
+  DetailedHTMLProps,
+  ReactNode,
+} from "react";
 import { Spinner } from "./Spinner";
 
 const sizeClassnames = {
@@ -20,6 +24,7 @@ export type ButtonProps = DetailedHTMLProps<
   size?: keyof typeof sizeClassnames;
   color?: keyof typeof colorClassnames;
   loading?: boolean;
+  icon?: ReactNode;
 };
 
 export const Button: React.FC<ButtonProps> = ({
@@ -28,6 +33,7 @@ export const Button: React.FC<ButtonProps> = ({
   color = "primary",
   disabled,
   loading,
+  icon,
   ...props
 }) => {
   return (
@@ -36,10 +42,13 @@ export const Button: React.FC<ButtonProps> = ({
       className={`${sizeClassnames[size]} ${colorClassnames[color]} font-bold flex items-center justify-center`}
       {...props}
     >
-      <span className={loading ? "opacity-0" : ``}>{children}</span>
+      <span className={loading ? "opacity-0" : ``}>
+        {icon ? <span className={`mr-2 items-center`}>{icon}</span> : null}
+        {children}
+      </span>
       {loading ? (
         <span className={`absolute`}>
-          <Spinner size="2" />
+          <Spinner size={size === "small" ? "2" : "4"} />
         </span>
       ) : null}
     </button>
