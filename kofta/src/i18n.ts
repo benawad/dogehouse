@@ -3,6 +3,7 @@ import Backend from "i18next-http-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 import { __prod__ } from "./app/constants";
+import { isDate } from "lodash";
 
 export const init_i18n = () => {
 	i18n
@@ -20,14 +21,9 @@ export const init_i18n = () => {
 			interpolation: {
 				escapeValue: false,
 				format: (value, format, lng) => {
-					if (format === 'intlDate') {
-						return new Intl.DateTimeFormat(lng, {
-							year: 'numeric', month: 'numeric', day: 'numeric',
-							hour: 'numeric', minute: 'numeric'
-						}).format(value).toString();
-					}
-
-					return value;
+					return isDate(value) && format ? new Intl.DateTimeFormat(lng,
+						createDateFormatOptions(format)).format(value).toString()
+						: value;
 				}
 			},
 			react: {
@@ -35,3 +31,28 @@ export const init_i18n = () => {
 			},
 		});
 };
+
+function createDateFormatOptions(format: string): Intl.DateTimeFormatOptions {
+	switch (format) {
+		case 'intlDate': {
+			// EN returns 3/16/2021, 5:45 PM
+			return {
+				year: 'numeric', month: 'numeric', day: 'numeric',
+				hour: 'numeric', minute: 'numeric'
+			}
+		}
+		case 'intlTime': {
+			// EN returns 05:45 PM
+			return {
+				hour: 'numeric', minute: 'numeric'
+			}
+		}
+		default: {
+			// EN returns Tuesday, March 16, 2021, 5:45 PM
+			return {
+				weekday: 'long', year: 'numeric', month: 'long',
+				day: 'numeric', hour: 'numeric', minute: 'numeric'
+			}
+		}
+	}
+}

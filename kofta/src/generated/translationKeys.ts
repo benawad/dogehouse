@@ -14,6 +14,7 @@ export type TranslationKeys =
 	| "common.copyLink"
 	| "common.copied"
 	| "common.formattedIntlDate"
+	| "common.formattedIntlTime"
 	| "header.title"
 	| "header.mutedTitle"
 	| "footer.link_1"

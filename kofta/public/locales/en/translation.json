@@ -14,7 +14,8 @@
 		"joinRoom": "join room",
 		"copyLink": "copy link",
 		"copied": "copied",
-		"formattedIntlDate": "{{date, intlDate}}"
+		"formattedIntlDate": "{{date, intlDates}}",
+		"formattedIntlTime": "{{time, intlTime}}"
 	},
 	"header": {
 		"_comment": "Main Header UI Internationalization Strings",
