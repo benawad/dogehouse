@@ -13,7 +13,8 @@
 		"joinRoom": "Odaya katıl",
 		"copyLink": "Linki kopyala",
 		"copied": "Kopyalandı!",
-		"formattedIntlDate": "{{date, intlDate}}"
+		"formattedIntlDate": "{{date, intlDate}}",
+		"formattedIntlTime": "{{time, intlTime}}"
 	},
 	"header": {
 		"_comment": "Ana başlık arayüz ulusallaştırma yazıları",

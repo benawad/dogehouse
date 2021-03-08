@@ -3,11 +3,16 @@ import { GlobalHotKeys } from "react-hotkeys";
 import { wsend } from "../../createWebsocket";
 import { useKeyMapStore } from "../../webrtc/stores/useKeyMapStore";
 import { useMuteStore } from "../../webrtc/stores/useMuteStore";
+import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
 
 interface KeybindListenerProps {}
 
 export const KeybindListener: React.FC<KeybindListenerProps> = ({}) => {
   const { keyMap } = useKeyMapStore();
+	const [toggleOpen, newUnreadMessages] = useRoomChatStore((s) => [
+		s.toggleOpen,
+		s.newUnreadMessages,
+	]);
 
   return (
     <GlobalHotKeys
@@ -34,6 +39,7 @@ export const KeybindListener: React.FC<KeybindListenerProps> = ({}) => {
             });
             setMute(mute);
           },
+          CHAT: toggleOpen,
         }),
         []
       )}

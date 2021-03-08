@@ -23,6 +23,7 @@ import { modalConfirm } from "./ConfirmModal";
 import { Footer } from "./Footer";
 import { RoomSettingsModal } from "./RoomSettingsModal";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
+import { KeybindListener } from './KeybindListener';
 
 interface BottomVoiceControlProps {}
 
@@ -217,7 +218,10 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
 					className={`border-simple-gray-80 bg-simple-gray-26 border-t w-full mt-auto p-5`}
 				>
 					{currentRoom ? (
-						<div className={`flex justify-around`}>{buttons}</div>
+						<>
+							<KeybindListener />
+							<div className={`flex justify-around`}>{buttons}</div>
+						</>
 					) : (
 						<div className={`px-5`}>
 							<Footer />
