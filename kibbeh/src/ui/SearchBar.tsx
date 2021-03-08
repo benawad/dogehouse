@@ -7,19 +7,19 @@ export interface SearchBarProps
 }
 
 export const SearchBar: React.FC<SearchBarProps> = ({
-  className,
-  inputClassName,
+  className = "",
+  inputClassName = "",
   ...props
 }) => {
   return (
     <div
-      className={`relative text-primary-300 focus-within:text-primary-100 w-full ${className}`}
+      className={`w-full bg-primary-700 text-primary-300 focus-within:text-primary-100 rounded-lg ${className}`}
     >
-      <div className="h-full absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+      <div className="h-full mx-4 flex items-center pointer-events-none">
         <SmSolidSearch />
       </div>
       <input
-        className={`w-full pl-7 pr-4 py-2 bg-primary-700 text-primary-100 placeholder-primary-300 rounded-lg focus:outline-none ${inputClassName}`}
+        className={`w-full py-2 bg-transparent text-primary-100 placeholder-primary-300 focus:outline-none ${inputClassName}`}
         {...props}
       />
     </div>
