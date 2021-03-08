@@ -10,7 +10,7 @@
     "format": "prettier --write src",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "convert-icons": "svgr src/icons --typescript --out-dir src/icons",
+    "convert-icons": "svgr src/icons --replace-attr-values '#fff'='currentColor' --typescript --out-dir src/icons",
     "prepare": "cd .. && npm i"
   },
   "dependencies": {

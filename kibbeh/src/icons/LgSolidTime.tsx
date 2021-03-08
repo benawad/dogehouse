@@ -17,7 +17,7 @@ function SvgLgSolidTime(props: React.SVGProps<SVGSVGElement>) {
       </g>
       <defs>
         <clipPath id="lg-solid-time_svg__clip0">
-          <rect width={39} height={39} rx={19.5} fill="#fff" />
+          <rect width={39} height={39} rx={19.5} fill="currentColor" />
         </clipPath>
       </defs>
     </svg>
