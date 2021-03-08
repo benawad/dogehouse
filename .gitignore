@@ -8,3 +8,4 @@ node_modules
 .docker
 .env
 .next
+storybook-static
