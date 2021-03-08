@@ -6,6 +6,10 @@ export const parameters = {
     values: [
       {
         name: "bg-on-figma",
+        value: "#0b0e11",
+      },
+      {
+        name: "black",
         value: "#000",
       },
     ],
