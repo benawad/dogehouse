@@ -14,7 +14,7 @@
 		"joinRoom": "join room",
 		"copyLink": "copy link",
 		"copied": "copied",
-		"formattedIntlDate": "{{date, intlDates}}",
+		"formattedIntlDate": "{{date, intlDate}}",
 		"formattedIntlTime": "{{time, intlTime}}"
 	},
 	"header": {
