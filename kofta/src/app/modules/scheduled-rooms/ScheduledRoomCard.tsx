@@ -1,4 +1,4 @@
-import { differenceInMilliseconds, format, isPast, isToday } from "date-fns";
+import { differenceInMilliseconds, isPast, isToday } from "date-fns";
 import React, { useEffect, useMemo, useState } from "react";
 import { useMutation } from "react-query";
 import { useHistory } from "react-router-dom";
@@ -77,8 +77,9 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
 					<div className={`flex justify-between`}>
 						<div>
 							{isToday(dt)
-								? format(dt, `K:mm a`)
-								: format(dt, `MM/dd/yyyy K:mm a`)}
+								? t("common.formattedIntlTime", { time: dt })
+								: t("common.formattedIntlDate", { date: dt })
+							}
 						</div>
 						<AddToCalendarButton
 							event={{
