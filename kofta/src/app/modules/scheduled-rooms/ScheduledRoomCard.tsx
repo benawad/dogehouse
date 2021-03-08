@@ -135,7 +135,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
 							<CopyScheduleRoomLinkButton text={url} />
 						)}
 					</div>
-					<div>
+					<div className={`break-all`}>
 						{creator.displayName}
 						{description ? ` | ` + description : ``}
 					</div>
