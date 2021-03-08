@@ -6,11 +6,12 @@ interface LandingPageProps {}
 
 export const LandingPage: React.FC<LandingPageProps> = ({}) => {
   useSaveTokensFromQueryParams();
+
   return (
     <div>
       <button
         onClick={() => {
-          window.location.href = apiBaseUrl + "/auth/github/web";
+          window.location.href = `${apiBaseUrl}/auth/github/web`;
         }}
       >
         login with GitHub

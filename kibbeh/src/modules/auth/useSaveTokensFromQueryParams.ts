@@ -4,6 +4,7 @@ import { useTokenStore } from "./useTokenStore";
 
 export const useSaveTokensFromQueryParams = () => {
   const { query: params, push } = useRouter();
+
   useEffect(() => {
     if (
       typeof params.accessToken === "string" &&
@@ -17,5 +18,5 @@ export const useSaveTokensFromQueryParams = () => {
       });
       push("/lounge");
     }
-  }, []);
+  }, [params, push]);
 };

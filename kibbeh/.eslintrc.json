@@ -29,7 +29,11 @@
     "html/indent": "+2"
   },
   "rules": {
+    "@typescript-eslint/no-empty-interface": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/member-delimiter-style": "off",
+    "no-empty": "off",
+    "no-empty-pattern": "off",
     "react/prop-types": "off",
     "accessor-pairs": "error",
     "array-bracket-newline": "error",
@@ -37,7 +41,7 @@
     "array-callback-return": "error",
     "array-element-newline": ["error", "consistent"],
     "arrow-body-style": "off",
-    "arrow-parens": ["error", "as-needed"],
+    "arrow-parens": "off",
     "arrow-spacing": "error",
     "block-scoped-var": "error",
     "block-spacing": "error",
@@ -66,7 +70,7 @@
       }
     ],
     "function-call-argument-newline": ["error", "consistent"],
-    "function-paren-newline": ["error", "multiline"],
+    "function-paren-newline": "off",
     "generator-star-spacing": "error",
     "global-require": "error",
     "grouped-accessor-pairs": "error",
@@ -85,39 +89,7 @@
     "init-declarations": "error",
     "jsx-quotes": "error",
     "key-spacing": ["error"],
-    "keyword-spacing": [
-      "error",
-      {
-        "before": true,
-        "after": true,
-        "overrides": {
-          "catch": {
-            "after": false
-          },
-          "debugger": {
-            "after": false
-          },
-          "for": {
-            "after": false
-          },
-          "if": {
-            "after": false
-          },
-          "super": {
-            "after": false
-          },
-          "switch": {
-            "after": false
-          },
-          "while": {
-            "after": false
-          },
-          "with": {
-            "after": false
-          }
-        }
-      }
-    ],
+    "keyword-spacing": "off",
     "line-comment-position": "error",
     "linebreak-style": "error",
     "lines-around-comment": "error",
@@ -198,7 +170,7 @@
     "no-param-reassign": "error",
     "no-path-concat": "error",
     "no-plusplus": "error",
-    "no-process-env": "error",
+    "no-process-env": "off",
     "no-process-exit": "error",
     "no-promise-executor-return": "error",
     "no-proto": "error",
@@ -315,19 +287,6 @@
     "yield-star-spacing": "error",
     "yoda": "error",
     "@typescript-eslint/ban-types": ["warn"],
-    "@typescript-eslint/member-delimiter-style": [
-      "error",
-      {
-        "multiline": {
-          "delimiter": "semi",
-          "requireLast": true
-        },
-        "singleline": {
-          "delimiter": "comma",
-          "requireLast": false
-        }
-      }
-    ],
     "react/react-in-jsx-scope": "off"
   }
 }
