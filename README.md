@@ -33,6 +33,8 @@
 | baklava  |   Electron Wrapper    |
 | pilaf    |   React Native App    |
 | feta     | Shared utils web/app  |
+| kibbeh   |    Next.js frontend   |
+
 
 ## Contributions
 
