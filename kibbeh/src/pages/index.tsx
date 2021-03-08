@@ -1,5 +1,3 @@
-import { FC } from "react";
+import { LandingPage } from "../modules/landing-page/LandingPage";
 
-const Home: FC = () => <h1>hi</h1>;
-
-export default Home;
+export default LandingPage;
