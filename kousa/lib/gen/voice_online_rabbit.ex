@@ -44,7 +44,7 @@ defmodule Kousa.Gen.VoiceOnlineRabbit do
       {:error, _} ->
         IO.puts("[Rabbit] error on connecting to server: #{host}")
         :timer.sleep(@retry_interval)
-        # init(opts)
+        init(opts)
       end
   end
 
