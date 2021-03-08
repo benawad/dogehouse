@@ -25,7 +25,7 @@ defmodule Kousa.Gen.VoiceRabbit do
   @send_queue "shawarma_queue"
   @receive_exchange "kousa_exchange"
   @receive_queue "kousa_queue"
-  @retry_interval 15_000
+  @retry_interval 5_000
 
   def init(opts) do
     host = Application.get_env(:kousa, :rabbit_url, "amqp://guest:guest@localhost")
@@ -43,7 +43,7 @@ defmodule Kousa.Gen.VoiceRabbit do
       {:error, _} ->
         IO.puts("[Rabbit] error on connecting to server: #{host}")
         :timer.sleep(@retry_interval)
-        init(opts)
+        # init(opts)
     end
   end
 
