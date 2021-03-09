@@ -27,10 +27,7 @@ defmodule Kousa.Gen.VoiceOnlineRabbit do
   @online_receive_queue "kousa_online_queue"
 
   def init(opts) do
-    {:ok, conn} =
-      Connection.open(Application.get_env(:kousa, :rabbit_url, "amqp://guest:guest@localhost"))
-
-    {:ok, chan} = Channel.open(conn)
+    {:ok, chan} = AMQP.Application.get_channel(:chan)
     setup_queue(opts.id, chan)
 
     :ok = Basic.qos(chan, prefetch_count: 1)

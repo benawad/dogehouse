@@ -29,7 +29,7 @@ defmodule Kousa.MixProject do
 
   defp deps do
     [
-      {:amqp, "~> 1.0"},
+      {:amqp, "~> 2.1"},
       # TODO: consider switching to Registry
       {:gen_registry, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
