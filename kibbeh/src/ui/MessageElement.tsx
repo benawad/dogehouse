@@ -21,9 +21,8 @@ interface MessageDateProps {
 
 const MessageDate: React.FC<MessageDateProps> = ({ ts }) => (
   <span
-    className="text-primary-300 font-medium inline-block truncate"
+    className="text-primary-300 text-sm font-medium inline-block truncate"
     style={{
-      fontSize: "12px",
       lineHeight: "22px",
     }}
   >
@@ -36,13 +35,7 @@ export const MessageElement: React.FC<MessageElementProps> = ({
   msg,
 }) => {
   return (
-    <div
-      className="items-center px-4 py-3 bg-primary-800 border-b border-primary-600"
-      style={{
-        maxWidth: "440px",
-        width: "100%",
-      }}
-    >
+    <div className="items-center w-full px-4 py-3 bg-primary-800 border-b border-primary-600 cursor-pointer hover:bg-primary-700">
       <div className="mr-2">
         <SingleUser size="sm" isOnline={user.isOnline} src={user.avatar} />
       </div>
@@ -56,7 +49,6 @@ export const MessageElement: React.FC<MessageElementProps> = ({
           <span
             className="text-button font-medium inline-block truncate mr-1"
             style={{
-              fontSize: "14px",
               lineHeight: "22px",
             }}
           >
@@ -65,11 +57,9 @@ export const MessageElement: React.FC<MessageElementProps> = ({
           <MessageDate ts={msg.ts} />
         </div>
         <div
-          className="block text-primary-300 font-medium truncate"
+          className="block text-sm text-primary-300 font-medium truncate"
           style={{
-            fontSize: "12px",
             lineHeight: "22px",
-            maxWidth: "248px",
           }}
         >
           {msg.text}
