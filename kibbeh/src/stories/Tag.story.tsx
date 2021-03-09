@@ -25,10 +25,10 @@ const Icon = () => {
 const TheTag: Story = ({ tag = 'interview' }) => {
   return (
     <>
-        <Tag>{tag}</Tag>
-        <Tag>
-          <Icon />
-        </Tag>
+      <Tag>{tag}</Tag>
+      <Tag>
+        <Icon />
+      </Tag>
     </>
   );
 };
