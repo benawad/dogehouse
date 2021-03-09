@@ -61,7 +61,7 @@ defmodule Beef.Rooms do
           room.numPeopleInside >= max_room_size ->
             {:error, "room is full"}
 
-          Kousa.Data.RoomBlock.blocked?(room_id, user_id) ->
+          Beef.RoomBlocks.blocked?(room_id, user_id) ->
             {:error, "you are blocked from the room"}
 
           true ->

@@ -10,7 +10,7 @@ defmodule Kousa.BL.Room do
   alias Beef.Rooms
   # note the following 2 module aliases are on the chopping block!
   alias Beef.RoomPermissions
-  alias Kousa.Data.RoomBlock
+  alias Beef.RoomBlocks
 
   def set_auto_speaker(user_id, value) do
     room = Rooms.get_room_by_creator_id(user_id)
@@ -80,7 +80,7 @@ defmodule Kousa.BL.Room do
     with {status, room} when status in [:creator, :mod] <-
            Rooms.get_room_status(user_id) do
       if room.creatorId != user_id_to_block_from_room do
-        RoomBlock.insert(%{
+        RoomBlocks.insert(%{
           modId: user_id,
           userId: user_id_to_block_from_room,
           roomId: room.id
