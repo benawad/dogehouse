@@ -47,11 +47,13 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 
 					if (name.length < 2 || name.length > 60) {
 						return {
-							name: "must be between 2 to 60 characters long",
+							name: t("components.modals.createRoomModal.nameError"),
 						};
 					} else if (description.length > 500) {
 						return {
-							description: "max length 500",
+							description: t(
+								"components.modals.createRoomModal.descriptionError"
+							),
 						};
 					}
 					return errors;
@@ -83,14 +85,16 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 						<InputField
 							name="name"
 							maxLength={60}
-							placeholder="room name"
+							placeholder={t("components.modals.createRoomModal.roomName")}
 							autoFocus
 						/>
 						<div className="mt-3">
 							<InputField
 								name="description"
 								maxLength={500}
-								placeholder="room description"
+								placeholder={t(
+									"components.modals.createRoomModal.roomDescription"
+								)}
 								textarea
 							/>
 						</div>

@@ -1,7 +1,6 @@
 defmodule Kousa.BL.RoomChat do
   alias Kousa.RegUtils
   alias Kousa.Gen
-  alias Beef.Users
   alias Beef.Rooms
 
   @message_character_limit 512
@@ -12,7 +11,7 @@ defmodule Kousa.BL.RoomChat do
 
     # NB: length(list) is O(N) so use a match for stuff like this
     if length(tokens) > 0 do
-      case Users.get_current_room_id(user_id) do
+      case Beef.Users.get_current_room_id(user_id) do
         nil ->
           nil
 

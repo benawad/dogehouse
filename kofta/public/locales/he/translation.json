@@ -1,0 +1,227 @@
+{
+	"_comment": "if you change this file, do: npm run i18",
+	"common": {
+		"loadMore": "טען יותר",
+		"loading": "טוען...",
+		"noUsersFound": "לא נמצאו משתמשים",
+		"ok": "אוקי",
+		"yes": "כן",
+		"no": "לא",
+		"cancel": "בטל",
+		"save": "שמור",
+		"edit": "ערוך",
+		"delete": "מחק",
+		"joinRoom": "הצטרף לחדר",
+		"copyLink": "העתק קישור",
+		"copied": "מוּעֲתָק",
+		"formattedIntlDate": "{{date, intlDate}}"
+	},
+	"header": {
+		"_comment": "Main Header UI Internationalization Strings",
+		"title": "DogeHouse",
+		"mutedTitle": "מושתק | DogeHouse"
+	},
+	"footer": {
+		"_comment": "Main Footer UI Internationalization Strings",
+		"link_1": "סיפור מוצא",
+		"link_2": "Discord",
+		"link_3": "דווח על באג"
+	},
+	"pages": {
+		"_comment": "Respective Page UI Internationalization Strings",
+		"banUser": {
+			"ban": "באן"
+		},
+		"followingOnlineList": {
+			"listHeader": "רשימת משתמשים שאת/ה עוקב אחרייהם שלא בחדר פרטי.",
+			"currentRoom": "ב:",
+			"startPrivateRoom": "צור חדר פרטי איתם"
+		},
+		"followList": {},
+		"home": {
+			"createRoom": "צור חדר"
+		},
+		"inviteList": {
+			"roomGone": "החדר נעלם, חזור",
+			"shareRoomLink": "שתף קישור לחדר שלך",
+			"inviteFollowers": "הזמן עוקבים:",
+			"whenFollowersOnline": " כשהעוקבים שלך יהיו online הם יופעו כאן."
+		},
+		"login": {
+			"headerText": "לוקח שיחות קוליות לירח 🚀",
+			"featureText_1": "מצב חשוך",
+			"featureText_2": "פתח הרשמות",
+			"featureText_3": "תמיכה חוצה פלטפורמות",
+			"featureText_4": "Open Source",
+			"featureText_5": "צ'אט",
+			"featureText_6": "מופעל על ידי דוג'",
+			"loginGithub": "התחבר באמצעות GitHub",
+			"loginTwitter": "התחבר באמצעות Twitter",
+			"createTestUser": "צור משתמש נסיון"
+		},
+		"myProfile": {
+			"logout": "התנתק",
+			"probablyLoading": "כנראה טון...",
+			"voiceSettings": "עבור להגדרות קול",
+			"soundSettings": "עבור להגדרות סאונד",
+			"deleteAccount": "מחק משתמש"
+		},
+		"notFound": {
+			"whoopsError": "אופס! הדף הזה הלך לאיבוד בשיחה.",
+			"goHomeMessage": "אל אל תדאג, אתה יכול.",
+			"goHomeLinkText": "חזור לדף הבית"
+		},
+		"room": {
+			"speakers": "מדברים",
+			"requestingToSpeak": "מבקשים לדבר",
+			"listeners": "מקשיבים"
+		},
+		"searchUser": {
+			"search": "חפש..."
+		},
+		"soundEffectSettings": {
+			"header": "קולות"
+		},
+		"viewUser": {
+			"editProfile": "ערוך פרופיל",
+			"followsYou": "עוקב אחריך",
+			"followers": "עוקבים",
+			"following": "עוקב"
+		},
+		"voiceSettings": {
+			"header": "הגדרות קול",
+			"mic": "מיקרופון:",
+			"permissionError": "לא נמצאו מיקרופונים, אף אחד מהם לא מחובר לחשמל או שלא נתת אישור לאתר זה.",
+			"refresh": "רענן את רשימת המיקרופונים",
+			"volume": "עוצמת קול:"
+		}
+	},
+	"components": {
+		"_comment": "Component UI Internationalization Strings",
+		"avatar": {},
+		"backBar": {},
+		"blockedFromRoomUsers": {
+			"header": "משתמשים שקיבלו באן",
+			"unban": "הורד באן",
+			"noBans": "אף אחד לא קיבל באן"
+		},
+		"bottomVoiceControl": {
+			"leaveCurrentRoomBtn": "עזוב את החדר הנוכחי",
+			"confirmLeaveRoom": "בטוח שאת/ה רוצה לעזוב?",
+			"leave": "עזוב",
+			"inviteUsersToRoomBtn": "הזמן משתמשים לחדר",
+			"invite": "הזמנה",
+			"toggleMuteMicBtn": "השתק",
+			"mute": "השתק",
+			"unmute": "בטל השתקה",
+			"makeRoomPublicBtn": "הפוך את החדר לציבורי!",
+			"settings": "הגדרות",
+			"speaker": "דובר",
+			"listener": "מקשיב"
+		},
+		"deviceNotSupported": {
+			"notSupported": "המכשיר שלך אינו נתמך כרגע. אתה יכול ליצור",
+			"linkText": "issue בGitHub",
+			"addSupport": "ואנסה להוסיף תמיכה למכשיר שלך."
+		},
+		"inviteButton": {
+			"invited": "מוזמן",
+			"inviteToRoom": "הזמן לחדר"
+		},
+		"micPermissionBanner": {
+			"permissionDenied": "ההרשאה נדחתה בניסיון לגשת למיקרופון שלך (יתכן שתצטרך להיכנס להגדרות הדפדפן וטען מחדש את הדף)",
+			"dismiss": "סגור",
+			"tryAgain": "נסה שוב"
+		},
+		"keyboardShortcuts": {
+			"setKeybind": "הגדר מקש",
+			"listening": "מקשיב",
+			"toggleMuteKeybind": "הפעל את מקש ההשתקה",
+			"togglePushToTalkKeybind": "הפעל push-to-talk"
+		},
+		"userVolumeSlider": {
+			"noAudioMessage": "שום צרכן קול משום מה"
+		},
+		"addToCalendar": {
+			"add": "הוסף ליומן"
+		},
+		"wsKilled": {
+			"description": "הWebsocket נהרג על ידי השרת. זה קורה בדרך כלל כשפותחים את האתר בלשונית אחרת.",
+			"reconnect": "התחבר מחדש"
+		},
+		"modals": {
+			"createRoomModal": {
+				"public": "ציבורי",
+				"private": "פרטי",
+				"roomName": "שם החדר",
+				"roomDescription": "תיאור החדר",
+				"descriptionError": "אורך מקסימלי 500",
+				"nameError": "חייב להיות באורך של 2 עד 60 תווים"
+			},
+			"invitedToJoinRoomModal": {
+				"newRoomCreated": "חדר חדש נוצר",
+				"roomInviteFrom": "הזמנת חדר מ",
+				"justStarted": "הם רק התחילו",
+				"likeToJoin": ", תרצה/י להצתרף?",
+				"inviteReceived": "הוזמנת ל"
+			},
+			"editProfileModal": {
+				"usernameTaken": "שם המשתמש תפוס",
+				"avatarUrlError": "תמונה לא תקינה",
+				"avatarUrlLabel": "Github/Twitterשל התמונה מ url",
+				"displayNameError": "אורך 2 עד 50 תווים",
+				"displayNameLabel": "שם מוצג",
+				"usernameError": "אורך 4 עד 15 תווים ורק אלפאנומרי / קו תחתון",
+				"usernameLabel": "שם משתמש",
+				"bioError": "אורך מקסימלי של 160 תווים",
+				"bioLabel": "Bio"
+			},
+			"profileModal": {
+				"blockUserConfirm": "האם אתה בטוח שברצונך לחסום משתמש זה מלהצטרף לכל חדר שתיצור אי פעם?",
+				"blockUser": "חסום משתמש",
+				"makeMod": "הפוך לmod",
+				"unmod": "הסר mod",
+				"addAsSpeaker": "הוסף כ דובר",
+				"moveToListener": "העבר למקשיב",
+				"banFromChat": "באן מהצ'ת",
+				"banFromRoom": "באן מהחד",
+				"goBackToListener": "חזור למקשיב",
+				"deleteMessage": "מחק הודעה זו"
+			},
+			"roomSettingsModal": {
+				"requirePermission": "דרוש אישור לדבר",
+				"makePublic": "הפוך חדר לציבורי",
+				"makePrivate": "הפוך חדר לפרטי"
+			}
+		}
+	},
+	"modules": {
+		"_comment": "Modules UI Internationalization Strings",
+		"scheduledRooms": {
+			"title": "חדרים מתוזמנים",
+			"noneFound": "לא נמצאו",
+			"allRooms": "כל החדרים המתוזמנים",
+			"myRooms": "החדרים המתוזמנים שלי",
+			"scheduleRoomHeader": "צור חדר מתוזמן",
+			"startRoom": "החל חדר",
+			"modal": {
+				"needsFuture": "חייב להיות בעתיד",
+				"roomName": "שם",
+				"minLength": "אורך מינימלי 2"
+			}
+		},
+		"roomChat": {
+			"title": "צ'אט",
+			"emotesSoon": "[emotes soon]",
+			"bannedAlert": "קיבלת באן מהצ'אט",
+			"waitAlert": "חקו שנייה לפני שליחת הודעה",
+			"search": "חפש",
+			"searchResults": "תוצאות חיפוש",
+			"recent": "לעיתים קרובות בשימוש",
+			"sendMessage": "שלח הודעה",
+			"whisper": "לחש",
+			"welcomeMessage": "ברוכים הבאים לצ'אט!",
+			"roomDescription": "תיאור החדר"
+		}
+	}
+}

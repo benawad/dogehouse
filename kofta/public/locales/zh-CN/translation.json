@@ -13,7 +13,8 @@
 		"joinRoom": "加入音频聊天室",
 		"copyLink": "拷贝链接",
 		"copied": "已拷贝",
-		"formattedIntlDate": "{{date, intlDate}}"
+		"formattedIntlDate": "{{date, intlDate}}",
+		"formattedIntlTime": "{{time, intlTime}}"
 	},
 	"header": {
 		"_comment": "Main Header UI Internationalization Strings",
@@ -116,7 +117,14 @@
 			"tryAgain": "重试"
 		},
 		"modals": {
-			"createRoomModal": { "public": "公开", "private": "私人" },
+			"createRoomModal": {
+				"public": "公开",
+				"private": "私人",
+				"roomName": "room name",
+				"roomDescription": "room description",
+				"descriptionError": "max length 500",
+				"nameError": "must be between 2 to 60 characters long"
+			},
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "新聊天室被建",
 				"roomInviteFrom": "邀请者:",
@@ -156,7 +164,23 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "no audio consumer for some reason"
 		},
-		"addToCalendar": { "add": "加到日历" }
+		"addToCalendar": { "add": "加到日历" },
+		"keyboardShortcuts": {
+			"setKeybind": "set keybind",
+			"listening": "listening",
+			"toggleMuteKeybind": "toggle mute keybind",
+			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
+		},
+		"wsKilled": {
+			"description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
+			"reconnect": "reconnect"
+		},
+		"deviceNotSupported": {
+			"notSupported": "Your device is currently not supported. You can create an",
+			"linkText": "issue on GitHub",
+			"addSupport": "and I will try adding support for your device."
+		},
+		"inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" }
 	},
 	"modules": {
 		"_comment": "Modules UI Internationalization Strings",

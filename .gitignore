@@ -9,3 +9,5 @@ node_modules
 .env
 .next
 storybook-static
+_
+.env.local

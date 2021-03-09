@@ -13,7 +13,8 @@
 		"joinRoom": "entrar na sala",
 		"copyLink": "copiar link",
 		"copied": "copiado",
-		"formattedIntlDate": "{{date, intlDate}}"
+		"formattedIntlDate": "{{date, intlDate}}",
+		"formattedIntlTime": "{{time, intlTime}}"
 	},
 	"header": {
 		"_comment": "Main Header UI Internationalization Strings",
@@ -116,7 +117,14 @@
 			"tryAgain": "Tentar novamente"
 		},
 		"modals": {
-			"createRoomModal": { "public": "Público", "private": "Privado" },
+			"createRoomModal": {
+				"public": "Público",
+				"private": "Privado",
+				"roomName": "room name",
+				"roomDescription": "room description",
+				"descriptionError": "max length 500",
+				"nameError": "must be between 2 to 60 characters long"
+			},
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Nova sala criada",
 				"roomInviteFrom": "Convite para a sala de",
@@ -156,7 +164,23 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "Sem consumidor de áudio devido a um erro desconhecido"
 		},
-		"addToCalendar": { "add": "Adicionar ao calendário" }
+		"addToCalendar": { "add": "Adicionar ao calendário" },
+		"keyboardShortcuts": {
+			"setKeybind": "set keybind",
+			"listening": "listening",
+			"toggleMuteKeybind": "toggle mute keybind",
+			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
+		},
+		"wsKilled": {
+			"description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
+			"reconnect": "reconnect"
+		},
+		"deviceNotSupported": {
+			"notSupported": "Your device is currently not supported. You can create an",
+			"linkText": "issue on GitHub",
+			"addSupport": "and I will try adding support for your device."
+		},
+		"inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" }
 	},
 	"modules": {
 		"scheduledRooms": {

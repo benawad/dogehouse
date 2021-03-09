@@ -13,7 +13,6 @@ defmodule Beef.Follows do
   alias Beef.Schemas.Follow
   alias Beef.Schemas.User
   alias Beef.Schemas.Room
-  alias Beef.Users
 
   @spec get_followers_online_and_not_in_a_room(String.t()) :: [Follow.t()]
   def get_followers_online_and_not_in_a_room(user_id) do
@@ -75,7 +74,7 @@ defmodule Beef.Follows do
   end
 
   def fetch_invite_list(user_id, offset \\ 0) do
-    user = Users.get_by_id(user_id)
+    user = Beef.Users.get_by_id(user_id)
 
     items =
       from(

@@ -13,7 +13,8 @@
 		"joinRoom": "join room",
 		"copyLink": "copy link",
 		"copied": "copied",
-		"formattedIntlDate": "{{date, intlDate}}"
+		"formattedIntlDate": "{{date, intlDate}}",
+		"formattedIntlTime": "{{time, intlTime}}"
 	},
 	"header": {
 		"_comment": "Main Header UI Internationalization Strings",
@@ -115,7 +116,14 @@
 			"tryAgain": "réessayer"
 		},
 		"modals": {
-			"createRoomModal": { "public": "publique", "private": "privée" },
+			"createRoomModal": {
+				"public": "publique",
+				"private": "privée",
+				"roomName": "room name",
+				"roomDescription": "room description",
+				"descriptionError": "max length 500",
+				"nameError": "must be between 2 to 60 characters long"
+			},
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Nouvelle Salle Crée",
 				"roomInviteFrom": "Invitation à la salle de",
@@ -155,7 +163,23 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "pas d'audio pour une quelconque raison"
 		},
-		"addToCalendar": { "add": "Add to Calendar" }
+		"addToCalendar": { "add": "Add to Calendar" },
+		"keyboardShortcuts": {
+			"setKeybind": "set keybind",
+			"listening": "listening",
+			"toggleMuteKeybind": "toggle mute keybind",
+			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
+		},
+		"wsKilled": {
+			"description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
+			"reconnect": "reconnect"
+		},
+		"deviceNotSupported": {
+			"notSupported": "Your device is currently not supported. You can create an",
+			"linkText": "issue on GitHub",
+			"addSupport": "and I will try adding support for your device."
+		},
+		"inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" }
 	},
 	"modules": {
 		"scheduledRooms": {
