@@ -1,16 +1,13 @@
-// React
 import React from "react";
-
-type Variants = "primary" | "secondary";
-
-interface UserBadgeProps {
-  variant?: Variants;
-}
 
 const badgeVariants = {
   primary: "bg-primary-600",
   secondary: "bg-accent",
 };
+
+interface UserBadgeProps {
+  variant?: keyof typeof badgeVariants;
+}
 
 export const UserBadge: React.FC<UserBadgeProps> = ({
   children,

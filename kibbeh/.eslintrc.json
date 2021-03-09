@@ -142,14 +142,7 @@
     "no-lonely-if": "error",
     "no-loop-func": "error",
     "no-loss-of-precision": "error",
-    "@typescript-eslint/no-magic-numbers": [
-      "error",
-      {
-        "ignoreEnums": true,
-        "ignoreNumericLiteralTypes": true,
-        "ignore": [0, 1, 2, 8, 16, 32]
-      }
-    ],
+    "@typescript-eslint/no-magic-numbers": "off",
     "no-mixed-operators": "error",
     "no-mixed-requires": "error",
     "no-multi-assign": "error",

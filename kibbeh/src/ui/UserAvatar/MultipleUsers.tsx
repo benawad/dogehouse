@@ -11,9 +11,10 @@ export const MultipleUsers: React.FC<AvatarProps> = ({ srcArray }) => {
     <div className="flex relative">
       {srcArray.slice(0, 3).map((s, i) => (
         <span
+          key={s + i}
           className="absolute box-content bg-gray-800 rounded-full border-gray-800"
           style={{
-            left: i * 7 + "px",
+            left: i * 7,
             zIndex: -i,
             borderWidth: "2px",
             width: "20px",

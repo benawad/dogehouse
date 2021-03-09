@@ -1,14 +1,5 @@
 import React from "react";
 
-type size = "default" | "sm" | "xs";
-
-export interface AvatarProps {
-  src: string;
-  size?: size;
-  className?: string;
-  isOnline?: boolean;
-}
-
 const avatarSizeMap = {
   default: "80px",
   sm: "40px",
@@ -38,6 +29,13 @@ const onlineIndicatorStyleMap = {
     borderWidth: "1px",
   },
 };
+
+export interface AvatarProps {
+  size: keyof typeof onlineIndicatorStyleMap;
+  src: string;
+  className?: string;
+  isOnline?: boolean;
+}
 
 export const SingleUser: React.FC<AvatarProps> = ({
   src,

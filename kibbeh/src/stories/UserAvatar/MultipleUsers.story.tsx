@@ -3,7 +3,7 @@ import { Story } from "@storybook/react";
 
 import { MultipleUsers, AvatarProps } from "../../ui/UserAvatar/MultipleUsers";
 
-const src = require("../../img/avatar.png");
+import src from "../../img/avatar.png";
 
 export default {
   title: "UserAvatar/MultipleUsers",

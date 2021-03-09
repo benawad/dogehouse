@@ -3,7 +3,7 @@ import { Story } from "@storybook/react";
 
 import { SingleUser, AvatarProps } from "../../ui/UserAvatar/SingleUser";
 
-const src = require("../../img/avatar.png");
+import src from "../../img/avatar.png";
 
 export default {
   title: "UserAvatar/SingleUser",
