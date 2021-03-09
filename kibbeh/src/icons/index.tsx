@@ -16,3 +16,4 @@ export { default as SmSolidSettings } from "./SmSolidSettings";
 export { default as SmSolidTime } from "./SmSolidTime";
 export { default as SmSolidUser } from "./SmSolidUser";
 export { default as SmSolidVolume } from "./SmSolidVolume";
+export { default as SmForwardArrow } from "./SmForwardArrow";
