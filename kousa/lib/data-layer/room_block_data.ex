@@ -2,7 +2,7 @@ defmodule Kousa.Data.RoomBlock do
   import Ecto.Query
   alias Kousa.Pagination
   alias Beef.Schemas.User
-  alias Beef.RoomBlock
+  alias Beef.Schema.RoomBlock
   alias Beef.Repo
 
   def unban(room_id, user_id) do
@@ -12,7 +12,7 @@ defmodule Kousa.Data.RoomBlock do
 
   def blocked?(room_id, user_id) do
     not is_nil(
-      from(rb in Beef.RoomBlock,
+      from(rb in RoomBlock,
         where: rb.userId == ^user_id and rb.roomId == ^room_id,
         limit: 1
       )
@@ -36,8 +36,8 @@ defmodule Kousa.Data.RoomBlock do
   end
 
   def insert(data) do
-    %Beef.RoomBlock{}
-    |> Beef.RoomBlock.insert_changeset(data)
+    %RoomBlock{}
+    |> RoomBlock.insert_changeset(data)
     |> Beef.Repo.insert(on_conflict: :nothing)
   end
 end

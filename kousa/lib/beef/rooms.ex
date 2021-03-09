@@ -110,7 +110,7 @@ defmodule Beef.Rooms do
 
     items =
       from(r in Room,
-        left_join: rb in Beef.RoomBlock,
+        left_join: rb in Beef.Schema.RoomBlock,
         on: rb.roomId == r.id and rb.userId == ^user_id,
         left_join: ub in UserBlock,
         on: ub.userIdBlocked == ^user_id,
