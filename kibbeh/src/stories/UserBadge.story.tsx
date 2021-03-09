@@ -29,7 +29,7 @@ const SVG = () => {
   );
 };
 
-const TheScheduledTime: Story = () => {
+const TheUserBadge: Story = () => {
   return (
     <div className="flex flex-row">
       <div className="m-1">
@@ -47,4 +47,4 @@ const TheScheduledTime: Story = () => {
   );
 };
 
-export const Main = TheScheduledTime.bind({});
+export const Main = TheUserBadge.bind({});
