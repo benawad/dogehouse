@@ -1,18 +1,18 @@
 {
 	"common": {
-		"loadMore": "mehr laden",
-		"loading": "lade...",
-		"noUsersFound": "keine Benutzer gefunden",
-		"ok": "ok",
-		"yes": "ja",
-		"no": "nein",
-		"cancel": "abbrechen",
-		"save": "speichern",
-		"edit": "bearbeiten",
-		"delete": "löschen",
+		"loadMore": "Mehr laden",
+		"loading": "Lade...",
+		"noUsersFound": "Keine Benutzer gefunden",
+		"ok": "Ok",
+		"yes": "Ja",
+		"no": "Nein",
+		"cancel": "Abbrechen",
+		"save": "Speichern",
+		"edit": "Bearbeiten",
+		"delete": "Löschen",
 		"joinRoom": "Raum beitreten",
 		"copyLink": "Link kopieren",
-		"copied": "kopiert",
+		"copied": "Kopiert",
 		"formattedIntlDate": "{{date, intlDate}}"
 	},
 	"header": {
@@ -32,24 +32,24 @@
 		"followingOnlineList": {
 			"listHeader": "Benutzer denen du folgst, die nicht in einem privaten Raum sind.",
 			"currentRoom": "Zurzeit in:",
-			"startPrivateRoom": "einen privaten Raum mit diesem benutzer starten"
+			"startPrivateRoom": "einen privaten Raum mit diesem Benutzer starten"
 		},
 		"followList": {},
 		"home": { "createRoom": "Raum Erstellen" },
 		"inviteList": {
-			"roomGone": "Raum ist weg, gehe zurück",
-			"shareRoomLink": "link zum Raum teilen",
-			"inviteFollowers": "Du kannst deine Abonnenten die online sind einladen:",
+			"roomGone": "Der Raum wurde geschlossen, gehe zurück",
+			"shareRoomLink": "Link zum teilen des Raumes",
+			"inviteFollowers": "Du kannst folgende, aktvie Abonnenten einladen:",
 			"whenFollowersOnline": "Wenn deine Abonnenten online sind, werden sie hier angezeigt."
 		},
 		"login": {
 			"headerText": "Wir bringen Gespräche zum Mond 🚀",
-			"featureText_1": "Dunkelmodus",
-			"featureText_2": "Unbeschränkte Registrierung",
-			"featureText_3": "Cross-Plattform-Unterstützung",
+			"featureText_1": "Nachtmodus",
+			"featureText_2": "Unbeschränkte Registrierungen",
+			"featureText_3": "Unterstützung über verschiedene Plattformen",
 			"featureText_4": "Open-Source",
 			"featureText_5": "Text-Chat",
-			"featureText_6": "Angetrieben durch Doge",
+			"featureText_6": "Angetrieben durch Doge (Elon Musk)",
 			"loginGithub": "mit GitHub anmelden",
 			"loginTwitter": "mit Twitter anmelden",
 			"createTestUser": "Testnutzer erstellen"
@@ -75,16 +75,16 @@
 		"soundEffectSettings": { "header": "Ton" },
 		"viewUser": {
 			"editProfile": "Profil bearbeiten",
-			"followsYou": "folgt dir",
-			"following": "abonniert",
-			"followers": "abonnenten"
+			"followsYou": "Folgt dir",
+			"following": "Folgt er",
+			"followers": "Folgen ihm"
 		},
 		"voiceSettings": {
 			"header": "Spracheinstellungen",
-			"mic": "Mikro:",
-			"permissionError": "Keine Mikros gefunden, du hast entweder keine angeschlossen oder die Seite hat nicht die benötigten Berechtigungen.",
+			"mic": "Mikrofon:",
+			"permissionError": "Keine Mikrofone gefunden, du hast entweder keine angeschlossen oder die Seite hat nicht die benötigten Berechtigungen.",
 			"volume": "Lautstärke:",
-			"refresh": "Mikroliste aktualisieren"
+			"refresh": "Liste der Mikrofone aktualisieren"
 		}
 	},
 	"components": {
@@ -92,12 +92,12 @@
 		"avatar": {},
 		"backBar": {},
 		"blockedFromRoomUsers": {
-			"header": "gebannte Benuzter",
+			"header": "Verbannte Benuzter",
 			"unban": "Bann aufheben",
-			"noBans": "bisher wurde noch niemand gebannt"
+			"noBans": "Es wurden noch keine Benutzer verbannt."
 		},
 		"bottomVoiceControl": {
-			"leaveCurrentRoomBtn": "aktuellen Raum verlassen",
+			"leaveCurrentRoomBtn": "Aktuellen Raum verlassen",
 			"confirmLeaveRoom": "Bist du sicher, dass du gehen willst?",
 			"leave": "Verlassen",
 			"inviteUsersToRoomBtn": "Benutzer zum Raum einladen",
@@ -107,43 +107,43 @@
 			"unmute": "Entstummen",
 			"makeRoomPublicBtn": "Raum öffentlich machen!",
 			"settings": "Einstellungen",
-			"speaker": "Sprecher",
+			"speaker": "Redner",
 			"listener": "Zuhörer"
 		},
 		"micPermissionBanner": {
-			"permissionDenied": "Wir haben keinen Zugriff auf dein Mikrofon (geh in deine Browsereinstellungen und lade die Seite neu.)",
-			"dismiss": "verstanden",
-			"tryAgain": "erneut versuchen"
+			"permissionDenied": "Wir haben keinen Zugriff auf dein Mikrofon (Gehe in deine Browsereinstellungen und lade die Seite neu.)",
+			"dismiss": "Verstanden",
+			"tryAgain": "Erneut versuchen"
 		},
 		"modals": {
 			"createRoomModal": { "public": "öffentlich", "private": "privat" },
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Neuen Raum erstellt",
 				"roomInviteFrom": "Neue Einladung von",
-				"justStarted": "Sie starten gerade",
-				"likeToJoin": ", willst du beitreten?",
+				"justStarted": "Es wurde gerade gestartet",
+				"likeToJoin": ", möchtest du beitreten?",
 				"inviteReceived": "Du wurdest eingeladen zu"
 			},
 			"editProfileModal": {
 				"usernameTaken": "Benutzername ist bereits vergeben",
-				"avatarUrlError": "Ungültiges Bild",
-				"avatarUrlLabel": "Github/Twitter Avatar URL",
-				"displayNameError": "länge 2 bis 50 Buchstaben",
+				"avatarUrlError": "Ungültiges Profilbild",
+				"avatarUrlLabel": "Adresse eines Github bzw. Twitter Profilbildes",
+				"displayNameError": "Dein Anzeigename muss zwischen 2 und 50 Zeichen lang sein.",
 				"displayNameLabel": "Anzeigename",
-				"usernameError": "länge 4 bis 15 alphanumerische Zeichen und Unterstriche",
+				"usernameError": "Dein Benutzername muss zwischen 4 und 15 Zeichen lang sein und darf nur aus alphanumerische Zeichen und Unterstrichen bestehen.",
 				"usernameLabel": "Benutzername",
 				"bioError": "Maximal 160 Buchstaben",
 				"bioLabel": "Bio"
 			},
 			"profileModal": {
-				"blockUserConfirm": "Bist du sicher, dass du diesen Benutzer aus allen deinen zukünftigen Räumen bannen willst?",
+				"blockUserConfirm": "Bist du sicher, dass du diesen Benutzer aus allen deinen zukünftigen Räumen bannen möchtest?",
 				"blockUser": "Benuzter bannen",
 				"makeMod": "Zum Moderator befördern",
 				"unmod": "Moderator Status aufheben",
-				"addAsSpeaker": "zu sprecher befördern",
-				"moveToListener": "zu zuhörer herabstufen",
-				"banFromChat": "Aus Chat bannen",
-				"banFromRoom": "Aus Raum bannen",
+				"addAsSpeaker": "Zu Render befördern",
+				"moveToListener": "Zu Zuhörer herabstufen",
+				"banFromChat": "Aus Chat verbannen",
+				"banFromRoom": "Aus Raum verbannen",
 				"goBackToListener": "Zurück zum Zuhörer",
 				"deleteMessage": "Nachricht löschen"
 			},
@@ -154,7 +154,7 @@
 			}
 		},
 		"userVolumeSlider": {
-			"noAudioMessage": "Aus unbekannten gründen wurde kein Audio Consumer gefunden"
+			"noAudioMessage": "Aus unbekannten Gründen wurde kein Audiogerät gefunden"
 		},
 		"addToCalendar": { "add": "Zum Kalender hinzufügen" }
 	},
@@ -163,13 +163,13 @@
 			"title": "Geplante Räume",
 			"noneFound": "Nicht gefunden",
 			"allRooms": "Alle geplanten Räume",
-			"myRooms": "Meine Geplanten Räume",
+			"myRooms": "Meine geplanten Räume",
 			"scheduleRoomHeader": "Plane einen Raum",
 			"startRoom": "Raum starten",
 			"modal": {
 				"needsFuture": "Es muss in der Zukunft sein",
-				"roomName": "Raum Name",
-				"minLength": "minimale länge 2"
+				"roomName": "Name des Raumes",
+				"minLength": "Der Name muss mindestens 2 Zeichen lang sein."
 			}
 		},
 		"roomChat": {
