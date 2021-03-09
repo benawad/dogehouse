@@ -73,7 +73,7 @@ defmodule Beef.Users do
         {current_room_id,
          from(u in User,
            where: u.currentRoomId == ^current_room_id,
-           left_join: rp in Beef.RoomPermission,
+           left_join: rp in Beef.Schemas.RoomPermission,
            on: rp.userId == u.id and rp.roomId == u.currentRoomId,
            select: %{u | roomPermissions: rp}
          )

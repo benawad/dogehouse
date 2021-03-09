@@ -187,7 +187,7 @@ defmodule Beef.Rooms do
   @spec get_next_creator_for_room(any) :: any
   def get_next_creator_for_room(room_id) do
     from(u in User,
-      inner_join: rp in Beef.RoomPermission,
+      inner_join: rp in Beef.Schemas.RoomPermission,
       on: rp.roomId == ^room_id and rp.userId == u.id and u.currentRoomId == ^room_id,
       where: rp.isSpeaker == true,
       limit: 1,

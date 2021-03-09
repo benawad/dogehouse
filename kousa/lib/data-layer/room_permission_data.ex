@@ -2,14 +2,14 @@ defmodule Kousa.Data.RoomPermission do
   import Ecto.Query
 
   def insert(data) do
-    %Beef.RoomPermission{}
-    |> Beef.RoomPermission.insert_changeset(data)
+    %Beef.Schemas.RoomPermission{}
+    |> Beef.Schemas.RoomPermission.insert_changeset(data)
     |> Beef.Repo.insert(on_conflict: :nothing)
   end
 
   def upsert(data, set, returning \\ true) do
-    %Beef.RoomPermission{}
-    |> Beef.RoomPermission.insert_changeset(data)
+    %Beef.Schemas.RoomPermission{}
+    |> Beef.Schemas.RoomPermission.insert_changeset(data)
     |> Beef.Repo.insert(
       on_conflict: [set: set],
       conflict_target: [:userId, :roomId],
@@ -20,7 +20,7 @@ defmodule Kousa.Data.RoomPermission do
   def speaker?(user_id, room_id) do
     not is_nil(
       Beef.Repo.one(
-        from(rp in Beef.RoomPermission,
+        from(rp in Beef.Schemas.RoomPermission,
           where: rp.roomId == ^room_id and rp.userId == ^user_id and rp.isSpeaker == true
         )
       )
@@ -28,7 +28,7 @@ defmodule Kousa.Data.RoomPermission do
   end
 
   def get(user_id, room_id) do
-    from(rp in Beef.RoomPermission,
+    from(rp in Beef.Schemas.RoomPermission,
       where: rp.userId == ^user_id and rp.roomId == ^room_id,
       limit: 1
     )
