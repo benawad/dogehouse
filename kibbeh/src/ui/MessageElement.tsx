@@ -36,7 +36,7 @@ export const MessageElement: React.FC<MessageElementProps> = ({
 }) => {
   return (
     <div className="items-center w-full px-4 py-3 bg-primary-800 border-b border-primary-600 cursor-pointer hover:bg-primary-700">
-      <div className="mr-2">
+      <div className="mr-3">
         <SingleUser size="sm" isOnline={user.isOnline} src={user.avatar} />
       </div>
       <div
@@ -47,7 +47,7 @@ export const MessageElement: React.FC<MessageElementProps> = ({
       >
         <div className="justify-between">
           <span
-            className="text-button font-medium inline-block truncate mr-1"
+            className="text-button font-bold inline-block truncate mr-1"
             style={{
               lineHeight: "22px",
             }}
