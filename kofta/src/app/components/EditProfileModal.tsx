@@ -14,7 +14,7 @@ import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 
 const profileStruct = object({
 	displayName: size(string(), 2, 50),
-	username: pattern(string(), /^(\w){4,15}$/),
+	username: pattern(string(), /^(\w){4,16}$/),
 	bio: size(string(), 0, 160),
 	avatarUrl: pattern(
 		string(),
