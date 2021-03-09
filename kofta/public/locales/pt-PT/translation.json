@@ -127,7 +127,7 @@
 			"editProfileModal": {
 				"usernameTaken": "O utilizador já existe",
 				"avatarUrlError": "Imagem inválida",
-				"avatarUrlLabel": "URL da foto de perfil (Github/Twitter)",
+				"avatarUrlLabel": "URL da foto de perfil (GitHub/Twitter)",
 				"displayNameError": "Deverá ter entre 2 e 50 caracteres",
 				"displayNameLabel": "Nome de apresentação",
 				"usernameError": "Deverá ter entre 4 e 15 caracteres alfanuméricos e com letra minúscula",

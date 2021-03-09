@@ -127,7 +127,7 @@
 			"editProfileModal": {
 				"usernameTaken": "Benutzername ist bereits vergeben",
 				"avatarUrlError": "Ungültiges Bild",
-				"avatarUrlLabel": "Github/Twitter Avatar URL",
+				"avatarUrlLabel": "GitHub/Twitter Avatar URL",
 				"displayNameError": "länge 2 bis 50 Buchstaben",
 				"displayNameLabel": "Anzeigename",
 				"usernameError": "länge 4 bis 15 alphanumerische Zeichen und Unterstriche",

@@ -127,7 +127,7 @@
 			"editProfileModal": {
 				"usernameTaken": "nome de usuário já existente",
 				"avatarUrlError": "Imagem inválida",
-				"avatarUrlLabel": "url da foto do Github/Twitter",
+				"avatarUrlLabel": "url da foto do GitHub/Twitter",
 				"displayNameError": "de 2 até 50 caracteres",
 				"displayNameLabel": "Nome de exibição",
 				"usernameError": "de 4 até 15 caracteres alfanuméricos/sublinhados",

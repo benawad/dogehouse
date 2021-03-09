@@ -126,7 +126,7 @@
 			"editProfileModal": {
 				"usernameTaken": "foglalt felhasználónév",
 				"avatarUrlError": "Helytelen kép",
-				"avatarUrlLabel": "Github/Twitter profilkép URL-je",
+				"avatarUrlLabel": "GitHub/Twitter profilkép URL-je",
 				"displayNameError": "Minimum 2, maximum 50 karakter",
 				"displayNameLabel": "Megjelenített név",
 				"usernameError": "Minimum 4, maximum 15 karakter, csak alfanumerikus és aláhúzás",
