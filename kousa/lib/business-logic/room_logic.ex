@@ -96,7 +96,7 @@ defmodule Kousa.BL.Room do
   end
 
   defp internal_set_listener(user_id_to_make_listener, room_id) do
-    RoomPermission.make_listener(user_id_to_make_listener, room_id)
+    RoomPermissions.make_listener(user_id_to_make_listener, room_id)
 
     Kousa.RegUtils.lookup_and_cast(
       Kousa.Gen.RoomSession,
@@ -127,7 +127,7 @@ defmodule Kousa.BL.Room do
   @spec internal_set_speaker(any, any) :: nil | :ok | {:err, {:error, :not_found}}
   def internal_set_speaker(user_id_to_make_speaker, room_id) do
     with {:ok, _} <-
-           RoomPermission.set_speaker?(user_id_to_make_speaker, room_id, true) do
+           RoomPermissions.set_speaker?(user_id_to_make_speaker, room_id, true) do
       case GenRegistry.lookup(
              Kousa.Gen.RoomSession,
              room_id
@@ -156,7 +156,7 @@ defmodule Kousa.BL.Room do
     room = Rooms.get_room_by_creator_id(user_id)
 
     if room do
-      RoomPermission.set_is_mod(user_id_to_change, room.id, Caster.bool(value))
+      RoomPermissions.set_is_mod(user_id_to_change, room.id, Caster.bool(value))
 
       Kousa.RegUtils.lookup_and_cast(
         Kousa.Gen.RoomSession,
@@ -175,7 +175,7 @@ defmodule Kousa.BL.Room do
       if is_nil(speaker?),
         do:
           room.creatorId == user_id or
-            RoomPermission.speaker?(user_id, room.id),
+            RoomPermissions.speaker?(user_id, room.id),
         else: speaker?
 
     op =
