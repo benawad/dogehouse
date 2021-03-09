@@ -9,10 +9,10 @@ export interface SearchHistoryProps {
 
 const SearchHistory: React.FC<SearchHistoryProps> = ({ onClickToDeleteSearchHistory, searchText }) => {
   return (
-    <div className={"flex flex-row bg-primary-900"}>
-      <div className={"flex flex-1 items-center"}>
-        <SearchIcon className={"mr-2 stroke-current hover:text-primary-100 text-primary-300 cursor-pointer"} />
-        <span className={"text-primary-300 hover:text-primary-100 cursor-pointer"}>{searchText}</span>
+    <div className={"flex flex-row py-2 px-4 bg-primary-800"}>
+      <div className={"flex flex-1 items-center group cursor-pointer"}>
+        <SearchIcon className={"mr-4 stroke-current group-hover:text-primary-100 text-primary-300"} />
+        <span className={"text-primary-300 group-hover:text-primary-100"}>{searchText}</span>
       </div>
       <span onClick={onClickToDeleteSearchHistory} className={"text-accent underline cursor-pointer"}>Delete</span>
     </div>
