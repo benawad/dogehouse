@@ -14,7 +14,7 @@ export const Default: Story<SettingsIconProps> = ({ ...props }) => {
     <SettingsIcon
       {...props}
       icon={props.icon || <SmSolidUser />}
-      text={props.text || "profile"}
+      label={props.label || "profile"}
     />
   );
 };
@@ -24,7 +24,7 @@ export const WithTrailingIcon: Story<SettingsIconProps> = ({ ...props }) => {
     <SettingsIcon
       {...props}
       icon={props.icon || <SmOutlineGlobe />}
-      text={props.text || "Language"}
+      label={props.label || "Language"}
       trailingIcon={props.trailingIcon || <SmForwardArrow />}
     />
   );
