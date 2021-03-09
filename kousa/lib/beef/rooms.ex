@@ -331,6 +331,7 @@ defmodule Beef.Rooms do
     |> Room.edit_changeset(data)
     |> Beef.Repo.update()
   end
+
   def all_rooms() do
     Repo.all(Room)
   end
