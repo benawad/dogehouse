@@ -24,7 +24,7 @@
 		"_comment": "Ana altbilgi arayüz ulusallaştırma yazıları",
 		"link_1": "Hikaye",
 		"link_2": "Discord",
-		"link_3": "Hata raporla"
+		"link_3": "Hata Bildir"
 	},
 	"pages": {
 		"_comment": "İlgili sayfa arayüz ulusallaştırma yazıları",
@@ -57,8 +57,8 @@
 		"myProfile": {
 			"logout": "çıkış yap",
 			"probablyLoading": "muhtemelen yükleniyor...",
-			"voiceSettings": "ses ayarlarına git",
-			"soundSettings": "müzik ayarlarına git",
+			"voiceSettings": "konuşmacı ayarlarına git",
+			"soundSettings": "ses ayarlarına git",
 			"deleteAccount": "hesabı sil"
 		},
 		"notFound": {
@@ -156,34 +156,34 @@
 			}
 		},
 		"userVolumeSlider": { "noAudioMessage": "nedense ses alıcısı yok" },
-		"addToCalendar": { "add": "Add to Calendar" }
+		"addToCalendar": { "add": "Takvime Ekle" }
 	},
 	"modules": {
 		"scheduledRooms": {
-			"title": "Scheduled Rooms",
-			"noneFound": "none found",
-			"allRooms": "all scheduled rooms",
-			"myRooms": "my scheduled rooms",
-			"scheduleRoomHeader": "Schedule Room",
-			"startRoom": "start room",
+			"title": "Planlanmış Odalar",
+			"noneFound": "Oda bulunamadı",
+			"allRooms": "Tüm Planlanmış Odalar",
+			"myRooms": "Benim Planladığım Odalar",
+			"scheduleRoomHeader": "Oda Planla",
+			"startRoom": "Odayı Başlat",
 			"modal": {
-				"needsFuture": "needs to be in the future",
-				"roomName": "room name",
-				"minLength": "min length 2"
+				"needsFuture": "Gelecek bir zamanda olmalı",
+				"roomName": "Oda ismi",
+				"minLength": "Minimum oda ismi uzunluğu 2"
 			}
 		},
 		"roomChat": {
-			"title": "Chat",
-			"emotesSoon": "[emotes soon]",
-			"bannedAlert": "You got banned from chat",
-			"waitAlert": "You have to wait a second before sending another message",
-			"search": "Search",
-			"searchResults": "Search Results",
-			"recent": "Frequently Used",
-			"sendMessage": "Send a Message",
-			"whisper": "Whisper",
-			"welcomeMessage": "Welcome to chat!",
-			"roomDescription": "room description"
+			"title": "Sohbet",
+			"emotesSoon": "[ifadeler yakında gelecek]",
+			"bannedAlert": "Sohbetten yasaklandın",
+			"waitAlert": "Başka bir mesaj göndermek için bir saniye beklemelisin",
+			"search": "Ara",
+			"searchResults": "Arama Sonuçları",
+			"recent": "Sık Kullanılanlar",
+			"sendMessage": "Mesaj Gönder",
+			"whisper": "Fısılda",
+			"welcomeMessage": "Sohbete hoş geldin!",
+			"roomDescription": "Oda açıklaması"
 		}
 	}
 }
