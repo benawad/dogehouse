@@ -103,7 +103,7 @@ defmodule Kousa.Beef.UserTest do
       room = Factory.create(Room, creatorId: user2.id)
       Kousa.Data.RoomBlock.insert(%{roomId: room.id, userId: user1.id, modId: user2.id})
       UserBlocks.insert(%{userIdBlocked: user1.id, userId: user2.id})
-      Kousa.Data.RoomPermission.ask_to_speak(user1.id, room.id)
+      Beef.RoomPermissions.ask_to_speak(user1.id, room.id)
       assert {:ok, _} = Users.delete(user1.id)
 
       # probably needs some more tests here.

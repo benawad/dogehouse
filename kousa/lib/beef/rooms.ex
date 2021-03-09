@@ -25,7 +25,7 @@ defmodule Beef.Rooms do
         {:creator, room}
 
       true ->
-        {case Kousa.Data.RoomPermission.get(user_id, room.id) do
+        {case Beef.RoomPermissions.get(user_id, room.id) do
            %{isMod: true} -> :mod
            %{isSpeaker: true} -> :speaker
            %{askedToSpeak: true} -> :askedToSpeak

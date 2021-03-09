@@ -1,4 +1,4 @@
-defmodule Kousa.Data.RoomPermission do
+defmodule Beef.RoomPermissions do
   import Ecto.Query
 
   def insert(data) do

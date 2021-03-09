@@ -9,7 +9,7 @@ defmodule Kousa.BL.Room do
   alias Beef.Follows
   alias Beef.Rooms
   # note the following 2 module aliases are on the chopping block!
-  alias Kousa.Data.RoomPermission
+  alias Beef.RoomPermissions
   alias Kousa.Data.RoomBlock
 
   def set_auto_speaker(user_id, value) do
