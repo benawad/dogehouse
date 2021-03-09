@@ -12,7 +12,7 @@ export const MultipleUsers: React.FC<AvatarProps> = ({ srcArray }) => {
       {srcArray.slice(0, 3).map((s, i) => (
         <span
           key={s + i}
-          className="absolute box-content bg-gray-800 rounded-full border-gray-800"
+          className="absolute box-content bg-primary-800 rounded-full border-gray-800"
           style={{
             left: i * 7,
             zIndex: -i,
