@@ -174,7 +174,7 @@
 		},
 		"roomChat": {
 			"title": "Chat",
-			"emotesSoon": "[emotes bald]",
+			"emotesSoon": "",
 			"bannedAlert": "Du wurdest aus dem Chat gebannt",
 			"waitAlert": "Du musst eine Sekunde warten, bevor du noch eine Nachricht schreibst",
 			"search": "Suchen",
