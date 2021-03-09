@@ -770,7 +770,7 @@ defmodule Kousa.SocketHandler do
   end
 
   def f_handler("get_user_profile", %{"userId" => user_id}, %State{} = _state) do
-    user = Users.get_profile(user_id)
+    user = Beef.Users.get_by_id(user_id)
 
     if not is_nil(user) do
       user
