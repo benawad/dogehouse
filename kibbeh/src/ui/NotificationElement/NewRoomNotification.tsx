@@ -24,9 +24,9 @@ export const NewRoomNotification: React.FC<NewRoomNotificationProps> = ({
         className="font-bold"
         {...(userProfileLink ? { href: userProfileLink } : {})}
       >
-        {username}&nbsp;
+        {username}
       </a>
-      <span>created a room</span>
+      <span>&nbsp;created a room</span>
     </>
   );
 

@@ -28,9 +28,9 @@ export const FollowNotification: React.FC<FollowNotificationProps> = ({
         className="font-bold"
         {...(userProfileLink ? { href: userProfileLink } : {})}
       >
-        {username}&nbsp;
+        {username}
       </a>
-      <span>followed you</span>
+      <span>&nbsp;followed you</span>
     </>
   );
 

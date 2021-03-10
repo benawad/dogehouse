@@ -24,9 +24,9 @@ export const LiveNotification: React.FC<LiveNotificationProps> = ({
         className="font-bold"
         {...(userProfileLink ? { href: userProfileLink } : {})}
       >
-        {username}&nbsp;
+        {username}
       </a>
-      <span>is now live!</span>
+      <span>&nbsp;is now live!</span>
     </>
   );
 
