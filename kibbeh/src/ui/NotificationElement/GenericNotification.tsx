@@ -16,9 +16,7 @@ export const GenericNotification: React.FC<GenericNotificationProps> = ({
 }) => {
   return (
     <div className="flex items-center" style={{ width: "400px" }}>
-      <div className="mr-3" style={{ height: "39px", width: "39px" }}>
-        {icon ? icon : <LgSolidRocket />}
-      </div>
+      <div className="mr-3 w-6 h-6">{icon ? icon : <LgSolidRocket />}</div>
       <div className="flex flex-col">
         <div className="text-primary-100 flex-wrap">
           {notificationMsg ? notificationMsg : "you have a new notification"}
