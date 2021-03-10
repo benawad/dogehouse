@@ -7,13 +7,13 @@ defmodule Beef.Access.UserBlocks do
 
   alias Beef.Schemas.UserBlock
   alias Beef.Repo
+  alias Beef.Queries.UserBlocks, as: Query
 
   def blocked?(user_id, user_id_blocked) do
+
     not is_nil(
-      from(ub in UserBlock,
-        where: ub.userId == ^user_id and ub.userIdBlocked == ^user_id_blocked,
-        limit: 1
-      )
+      Query.start
+      |> Query.filter_by_id_and_blockedId(user_id, user_id_blocked)
       |> Repo.one()
     )
   end
