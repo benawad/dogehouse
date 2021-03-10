@@ -57,7 +57,7 @@ export const MessageElement: React.FC<MessageElementProps> = ({
           <MessageDate ts={msg.ts} />
         </div>
         <div
-          className="block text-sm text-primary-300 font-medium truncate"
+          className="block text-sm text-primary-300 font-medium truncate w-9/12"
           style={{
             lineHeight: "22px",
           }}
