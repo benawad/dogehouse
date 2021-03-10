@@ -1,5 +1,4 @@
 defmodule Kousa.BL.Room do
-  use Kousa.Dec.Atomic
   alias Kousa.BL
   alias Kousa.RegUtils
   alias Kousa.Gen
@@ -274,7 +273,6 @@ defmodule Kousa.BL.Room do
     end
   end
 
-  # @decorate user_atomic()
   def join_room(user_id, room_id) do
     currentRoomId = Beef.Users.get_current_room_id(user_id)
 
