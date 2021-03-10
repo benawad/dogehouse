@@ -9,7 +9,7 @@ export interface FollowNotificationProps {
   userProfileLink?: string;
   time: string;
   isOnline?: boolean;
-  followed?: boolean;
+  following?: boolean;
 }
 
 export const FollowNotification: React.FC<FollowNotificationProps> = ({
@@ -18,7 +18,7 @@ export const FollowNotification: React.FC<FollowNotificationProps> = ({
   username,
   userProfileLink,
   time,
-  followed = false,
+  following = false,
 }) => {
   const icon = <SingleUser src={userAvatarSrc} size="sm" isOnline={isOnline} />;
 
@@ -37,10 +37,10 @@ export const FollowNotification: React.FC<FollowNotificationProps> = ({
   const followButton = (
     <Button
       size="small"
-      color={followed ? "secondary" : "primary"}
+      color={following ? "secondary" : "primary"}
       style={{ width: "90px" }}
     >
-      {followed ? "Followed" : "Follow back"}
+      {following ? "Following" : "Follow back"}
     </Button>
   );
 
