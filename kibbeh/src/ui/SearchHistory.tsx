@@ -12,7 +12,7 @@ const SearchHistory: React.FC<SearchHistoryProps> = ({
   searchText,
 }) => {
   return (
-    <div className={"flex flex-row py-2 px-4"}>
+    <div className={"flex flex-row py-2 px-4 w-full"}>
       <div className={"flex flex-1 items-center group cursor-pointer"}>
         <SearchIcon
           className={
