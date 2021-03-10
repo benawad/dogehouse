@@ -63,7 +63,7 @@ export const SingleUser: React.FC<AvatarProps> = ({
       {isOnline && (
         <span
           className={
-            "rounded-full absolute box-content bg-accent border-gray-800"
+            "rounded-full absolute box-content bg-accent border-primary-800"
           }
           style={onlineIndicatorStyleMap[size]}
         ></span>
