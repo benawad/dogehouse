@@ -27,7 +27,10 @@ defmodule Kousa.Gen.VoiceRabbit do
   @receive_queue "kousa_queue"
 
   def init(opts) do
-    {:ok, chan} = AMQP.Application.get_channel(:chan)
+    {:ok, conn} =
+      Connection.open(Application.get_env(:kousa, :rabbit_url, "amqp://guest:guest@localhost"))
+
+    {:ok, chan} = Channel.open(conn)
     setup_queue(opts.id, chan)
 
     queue_to_consume = @receive_queue <> opts.id
