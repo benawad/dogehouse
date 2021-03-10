@@ -138,7 +138,7 @@
 			"editProfileModal": {
 				"usernameTaken": "användarenamn taget",
 				"avatarUrlError": "Ogiltig bild",
-				"avatarUrlLabel": "Github/Twitter profilbild länk",
+				"avatarUrlLabel": "GitHub/Twitter profilbild länk",
 				"displayNameError": "längd 2 till 50 karaktärer",
 				"displayNameLabel": "Visningsnamn",
 				"usernameError": "längd 4 till 15 karaktärer och bara alfanumerisk/understrykning",
