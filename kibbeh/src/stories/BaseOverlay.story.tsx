@@ -87,7 +87,7 @@ export const Settings: Story<BaseOverlayProps> = ({
 }) => (
   <div style={{ width: 200 }}>
     <BaseOverlay actionButton={actionLabel}>
-      <div className="py-2 flex flex-col">
+      <div className="flex flex-col">
         <SettingsIcon icon={<SmSolidUser />} label={"profile"} />
         <SettingsIcon
           icon={<SmOutlineGlobe />}
