@@ -37,7 +37,7 @@ export const BaseOverlay: React.FC<BaseOverlayProps> = ({
           }}
         >
           <button
-            className="cursos-pointer font-bold"
+            className="cursos-pointer outline-none font-bold"
             onClick={onActionButtonClicked}
           >
             {actionButton}
