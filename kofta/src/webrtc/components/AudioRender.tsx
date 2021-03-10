@@ -9,6 +9,7 @@ interface AudioRenderProps {}
 const MyAudio = ({
 	volume,
 	onRef,
+	debug,
 	...props
 }: React.DetailedHTMLProps<
 	React.AudioHTMLAttributes<HTMLAudioElement>,
@@ -16,6 +17,7 @@ const MyAudio = ({
 > & {
 	onRef: (a: HTMLAudioElement) => void;
 	volume: number;
+	debug?: boolean;
 }) => {
 	const myRef = useRef<HTMLAudioElement>(null);
 	useEffect(() => {
@@ -27,6 +29,24 @@ const MyAudio = ({
 	return (
 		<audio
 			ref={(r) => {
+				if (debug && r) {
+					console.log("audio-debug", {
+						currentTime: r.currentTime,
+						paused: r.paused,
+						ended: r.ended,
+						readyState: r.readyState,
+						duration: r.duration,
+						volume: r.volume,
+					});
+					if (r.dataset.debugPlay !== "true") {
+						r.dataset.debugPlay = "true";
+						r.play()
+							.then(() => console.log("debug-play-then"))
+							.catch((err) => {
+								console.log("debug-play-catch", err);
+							});
+					}
+				}
 				// @todo
 				if (r && !myRef.current) {
 					(myRef as any).current = r;
@@ -43,7 +63,7 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
 	const [showAutoPlayModal, setShowAutoPlayModal] = useState(false);
 	const [globalVolume] = useAtom(volumeAtom);
 	const { consumerMap } = useConsumerStore();
-	const audioRefs = useRef<HTMLAudioElement[]>([]);
+	const audioRefs = useRef<[string, HTMLAudioElement][]>([]);
 
 	return (
 		<>
@@ -60,7 +80,7 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
 					<Button
 						onClick={() => {
 							setShowAutoPlayModal(false);
-							audioRefs.current.forEach((a) => {
+							audioRefs.current.forEach(([_, a]) => {
 								a.play().catch((err) => {
 									console.warn(err);
 								});
@@ -69,7 +89,7 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
 					>
 						okay
 						{Object.keys(consumerMap).map((k) => {
-							const { consumer, volume: userVolume } = consumerMap[k];
+							const { consumer, volume: userVolume, debug } = consumerMap[k];
 							return (
 								<MyAudio
 									volume={(userVolume / 200) * (globalVolume / 100)}
@@ -77,8 +97,9 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
 									playsInline
 									controls={false}
 									key={consumer.id}
+									debug={debug}
 									onRef={(a) => {
-										audioRefs.current.push(a);
+										audioRefs.current.push([k, a]);
 										a.srcObject = new MediaStream([consumer.track]);
 										// prevent modal from showing up more than once in a single render cycle
 										const notAllowedErrorCount =
