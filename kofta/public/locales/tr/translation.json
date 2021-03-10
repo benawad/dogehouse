@@ -5,11 +5,11 @@
 		"noUsersFound": "Hiçbir kullanıcı bulunamadı",
 		"ok": "Tamam",
 		"yes": "Evet",
-		"no": "hayır",
+		"no": "Hayır",
 		"cancel": "İptal",
 		"save": "Kaydet",
 		"edit": "Düzenle",
-		"delete": "delete",
+		"delete": "Sil",
 		"joinRoom": "Odaya katıl",
 		"copyLink": "Linki kopyala",
 		"copied": "Kopyalandı!",
@@ -25,14 +25,14 @@
 		"_comment": "Ana altbilgi arayüz ulusallaştırma yazıları",
 		"link_1": "Hikaye",
 		"link_2": "Discord",
-		"link_3": "Hata raporla"
+		"link_3": "Hata Bildir"
 	},
 	"pages": {
 		"_comment": "İlgili sayfa arayüz ulusallaştırma yazıları",
-		"banUser": { "ban": "banla" },
+		"banUser": { "ban": "yasakla" },
 		"followingOnlineList": {
 			"listHeader": "Senin takip ettiğin ve özel odada olmayan kullanıcıların listesi.",
-			"currentRoom": "şuanki oda:",
+			"currentRoom": "Şu anki oda:",
 			"startPrivateRoom": "onlarla özel bir oda oluştur"
 		},
 		"followList": {},
@@ -58,8 +58,8 @@
 		"myProfile": {
 			"logout": "çıkış yap",
 			"probablyLoading": "muhtemelen yükleniyor...",
-			"voiceSettings": "ses ayarlarına git",
-			"soundSettings": "müzik ayarlarına git",
+			"voiceSettings": "konuşma ayarlarına git",
+			"soundSettings": "ses ayarlarına git",
 			"deleteAccount": "hesabı sil"
 		},
 		"notFound": {
@@ -97,7 +97,7 @@
 		"blockedFromRoomUsers": {
 			"header": "Yasaklanan kullanıcılar",
 			"unban": "Yasağı kaldır",
-			"noBans": "Henüz kimse banlanmadı"
+			"noBans": "Henüz kimse yasaklanmadı"
 		},
 		"bottomVoiceControl": {
 			"leaveCurrentRoomBtn": "Odadan ayrıl",
@@ -135,9 +135,9 @@
 				"inviteReceived": "davet edildin, şuraya"
 			},
 			"editProfileModal": {
-				"usernameTaken": "kullanıcı adı alınmış",
+				"usernameTaken": "Kullanıcı adı alınmış",
 				"avatarUrlError": "Geçersiz resim",
-				"avatarUrlLabel": "Github/Twitter avatar linki",
+				"avatarUrlLabel": "GitHub/Twitter avatar linki",
 				"displayNameError": "uzunluk 2-50 karakter arası olmalı",
 				"displayNameLabel": "Görüntülenme adı",
 				"usernameError": "uzunluk 4-15 arası olmalı ve sadece alfanümerik/alt_çizgi karakterlerini içermeli",
@@ -147,15 +147,15 @@
 			},
 			"profileModal": {
 				"blockUserConfirm": "Oluşturduğun tüm odalar için bu kullanıcıyı bloklamak istediğine emin misin?",
-				"blockUser": "kullanıcıyı blokla",
-				"makeMod": "moderatör yap",
-				"unmod": "moderatörlükten çıkar",
-				"addAsSpeaker": "konuşmacı olarak ekle",
-				"moveToListener": "dinleyiciyi yap",
-				"banFromChat": "sohbetten banla",
-				"banFromRoom": "odadan banla",
-				"goBackToListener": "dinlemeye geri dön",
-				"deleteMessage": "mesajı sil"
+				"blockUser": "Kullanıcıyı Blokla",
+				"makeMod": "Moderatör Yap",
+				"unmod": "Moderatörlükten Çıkar",
+				"addAsSpeaker": "Konuşmacı Olarak Ekle",
+				"moveToListener": "Dinleyici Yap",
+				"banFromChat": "Sohbetten Yasakla",
+				"banFromRoom": "Odadan Yasakla",
+				"goBackToListener": "Dinlemeye Geri Dön",
+				"deleteMessage": "Mesajı Sil"
 			},
 			"roomSettingsModal": {
 				"requirePermission": "konuşmak için izne ihtiyacın var",
@@ -164,50 +164,50 @@
 			}
 		},
 		"userVolumeSlider": { "noAudioMessage": "nedense ses alıcısı yok" },
-		"addToCalendar": { "add": "Add to Calendar" },
+		"addToCalendar": { "add": "Takvime Ekle" },
 		"keyboardShortcuts": {
-			"setKeybind": "set keybind",
-			"listening": "listening",
-			"toggleMuteKeybind": "toggle mute keybind",
-			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
+			"setKeybind": "Tuş Ata",
+			"listening": "dinleniyor",
+			"toggleMuteKeybind": "susturma aç/kapat tuş ataması",
+			"togglePushToTalkKeybind": "bas-konuş tuş ataması"
 		},
 		"wsKilled": {
-			"description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
-			"reconnect": "reconnect"
+			"description": "WebSocket sunucu tarafından kapatıldı. Bu genellikle websiteyi başka bir sekmede açtığında yaşanır.",
+			"reconnect": "Yeniden Bağlan"
 		},
 		"deviceNotSupported": {
-			"notSupported": "Your device is currently not supported. You can create an",
-			"linkText": "issue on GitHub",
-			"addSupport": "and I will try adding support for your device."
+			"notSupported": "Cihazınız şu anda desteklenmemektedir.",
+			"linkText": "GitHub ile bir issue (sorun)",
+			"addSupport": "oluşturabilirsiniz ve ben de cihazınıza destek eklemeye çalışırım."
 		},
-		"inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" }
+		"inviteButton": { "invited": "Davet Edildi", "inviteToRoom": "Odaya Davet Et" }
 	},
 	"modules": {
 		"scheduledRooms": {
-			"title": "Scheduled Rooms",
-			"noneFound": "none found",
-			"allRooms": "all scheduled rooms",
-			"myRooms": "my scheduled rooms",
-			"scheduleRoomHeader": "Schedule Room",
-			"startRoom": "start room",
+			"title": "Planlanmış Odalar",
+			"noneFound": "Oda bulunamadı",
+			"allRooms": "Tüm Planlanmış Odalar",
+			"myRooms": "Benim Planladığım Odalar",
+			"scheduleRoomHeader": "Oda Planla",
+			"startRoom": "Odayı Başlat",
 			"modal": {
-				"needsFuture": "needs to be in the future",
-				"roomName": "room name",
-				"minLength": "min length 2"
+				"needsFuture": "Tarih gelecek bir zamanda olmalı",
+				"roomName": "Oda ismi",
+				"minLength": "Minimum oda ismi uzunluğu 2"
 			}
 		},
 		"roomChat": {
-			"title": "Chat",
-			"emotesSoon": "[emotes soon]",
-			"bannedAlert": "You got banned from chat",
-			"waitAlert": "You have to wait a second before sending another message",
-			"search": "Search",
-			"searchResults": "Search Results",
-			"recent": "Frequently Used",
-			"sendMessage": "Send a Message",
-			"whisper": "Whisper",
-			"welcomeMessage": "Welcome to chat!",
-			"roomDescription": "room description"
+			"title": "Sohbet",
+			"emotesSoon": "[İfadeler yakında gelecek]",
+			"bannedAlert": "Sohbetten yasaklandın",
+			"waitAlert": "Başka bir mesaj göndermek için bir saniye beklemelisin",
+			"search": "Ara",
+			"searchResults": "Arama Sonuçları",
+			"recent": "Sık Kullanılanlar",
+			"sendMessage": "Mesaj Gönder",
+			"whisper": "Fısılda",
+			"welcomeMessage": "Sohbete hoş geldin!",
+			"roomDescription": "Oda Açıklaması"
 		}
 	}
 }
