@@ -78,25 +78,21 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
 									controls={false}
 									key={consumer.id}
 									onRef={(a) => {
-										console.log(a.duration, a.paused);
 										audioRefs.current.push(a);
 										a.srcObject = new MediaStream([consumer.track]);
 										// prevent modal from showing up more than once in a single render cycle
 										const notAllowedErrorCount =
 											notAllowedErrorCountRef.current;
-										a.play()
-											.then((x) => console.log({ x }))
-											.catch((error) => {
-												if (
-													error.name === "NotAllowedError" &&
-													notAllowedErrorCountRef.current ===
-														notAllowedErrorCount
-												) {
-													notAllowedErrorCountRef.current++;
-													setShowAutoPlayModal(true);
-												}
-												console.warn("audioElem.play() failed:%o", error);
-											});
+										a.play().catch((error) => {
+											if (
+												error.name === "NotAllowedError" &&
+												notAllowedErrorCountRef.current === notAllowedErrorCount
+											) {
+												notAllowedErrorCountRef.current++;
+												setShowAutoPlayModal(true);
+											}
+											console.warn("audioElem.play() failed:%o", error);
+										});
 									}}
 								/>
 							);
