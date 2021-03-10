@@ -135,7 +135,7 @@
 			"editProfileModal": {
 				"usernameTaken": "用户名已被占用username taken",
 				"avatarUrlError": "图片无效",
-				"avatarUrlLabel": "Github/Twitter头像URL",
+				"avatarUrlLabel": "GitHub/Twitter头像URL",
 				"displayNameError": "长度为2到50字符",
 				"displayNameLabel": "所显名称e",
 				"usernameError": "长度要在4到15字符之内，只允许字母或数字或下划线",
@@ -172,7 +172,7 @@
 			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
 		},
 		"wsKilled": {
-			"description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
+			"description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
 			"reconnect": "reconnect"
 		},
 		"deviceNotSupported": {

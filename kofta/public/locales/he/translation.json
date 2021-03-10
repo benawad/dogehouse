@@ -146,7 +146,7 @@
 			"add": "הוסף ליומן"
 		},
 		"wsKilled": {
-			"description": "הWebsocket נהרג על ידי השרת. זה קורה בדרך כלל כשפותחים את האתר בלשונית אחרת.",
+			"description": "הWebSocket נהרג על ידי השרת. זה קורה בדרך כלל כשפותחים את האתר בלשונית אחרת.",
 			"reconnect": "התחבר מחדש"
 		},
 		"modals": {
@@ -168,7 +168,7 @@
 			"editProfileModal": {
 				"usernameTaken": "שם המשתמש תפוס",
 				"avatarUrlError": "תמונה לא תקינה",
-				"avatarUrlLabel": "Github/Twitterשל התמונה מ url",
+				"avatarUrlLabel": "GitHub/Twitterשל התמונה מ url",
 				"displayNameError": "אורך 2 עד 50 תווים",
 				"displayNameLabel": "שם מוצג",
 				"usernameError": "אורך 4 עד 15 תווים ורק אלפאנומרי / קו תחתון",

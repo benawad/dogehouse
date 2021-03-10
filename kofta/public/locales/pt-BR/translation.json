@@ -135,7 +135,7 @@
 			"editProfileModal": {
 				"usernameTaken": "nome de usuário já existente",
 				"avatarUrlError": "Imagem inválida",
-				"avatarUrlLabel": "url da foto do Github/Twitter",
+				"avatarUrlLabel": "url da foto do GitHub/Twitter",
 				"displayNameError": "de 2 até 50 caracteres",
 				"displayNameLabel": "Nome de exibição",
 				"usernameError": "de 4 até 15 caracteres alfanuméricos/sublinhados",
@@ -170,7 +170,7 @@
 			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
 		},
 		"wsKilled": {
-			"description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
+			"description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
 			"reconnect": "reconnect"
 		},
 		"deviceNotSupported": {

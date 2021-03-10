@@ -134,7 +134,7 @@
 			"editProfileModal": {
 				"usernameTaken": "foglalt felhasználónév",
 				"avatarUrlError": "Helytelen kép",
-				"avatarUrlLabel": "Github/Twitter profilkép URL-je",
+				"avatarUrlLabel": "GitHub/Twitter profilkép URL-je",
 				"displayNameError": "Minimum 2, maximum 50 karakter",
 				"displayNameLabel": "Megjelenített név",
 				"usernameError": "Minimum 4, maximum 15 karakter, csak alfanumerikus és aláhúzás",
@@ -169,7 +169,7 @@
 			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
 		},
 		"wsKilled": {
-			"description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
+			"description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
 			"reconnect": "reconnect"
 		},
 		"deviceNotSupported": {
