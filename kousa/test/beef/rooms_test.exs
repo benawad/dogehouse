@@ -118,5 +118,50 @@ defmodule Kousa.Beef.RoomsTest do
 
       assert [%Room{}, %Room{}, %Room{}] = Beef.Rooms.all_rooms()
     end
+
+    # MUTATION tests
+    test "set_room_privacy_by_creator_id" do
+
+    end
+
+    test "join_room" do
+
+    end
+
+    test "increment_room_people_count/1" do
+
+    end
+
+    test "increment_room_people_count/2" do
+
+    end
+
+    test "delete_room_by_id" do
+
+    end
+
+    test "decrement_room_people_count" do
+
+    end
+
+    test "set_room_owner_and_dec" do
+
+    end
+
+    test "leave_room" do
+
+    end
+
+    test "update_name" do
+
+    end
+
+    test "create" do
+
+    end
+
+    test "edit" do
+
+    end
   end
 end
