@@ -66,5 +66,34 @@ defmodule Kousa.Beef.RoomsTest do
       room4 = Factory.create(Room)
       assert Beef.Rooms.can_join_room(room4.id, u.id) == {:ok, room4}
     end
+
+    test "get_top_public_rooms" do
+
+    end
+
+    test "get_room_by_id" do
+
+    end
+
+    test "get_next_creator_for_room" do
+
+    end
+
+    test "get_a_user_for_room" do
+
+    end
+
+    test "get_room_by_creator_id" do
+
+    end
+
+    test "owner?" do
+
+    end
+
+    test "all_rooms" do
+
+
+    end
   end
 end
