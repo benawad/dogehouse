@@ -69,6 +69,7 @@ defmodule Kousa.Beef.RoomsTest do
     end
 
     # still need to get to
+    @tag :skip
     test "get_top_public_rooms" do
 
     end
@@ -81,6 +82,7 @@ defmodule Kousa.Beef.RoomsTest do
     end
 
     # still need to get to
+    @tag :skip
     test "get_next_creator_for_room" do
 
     end
@@ -156,7 +158,11 @@ defmodule Kousa.Beef.RoomsTest do
     end
 
     test "delete_room_by_id" do
+      %Room{ id: id } = Factory.create(Room)
+      assert %Room{} = Repo.get!(Room, id)
 
+      Beef.Rooms.delete_room_by_id(id)
+      assert [] = Beef.Rooms.all_rooms()
     end
 
     test "decrement_room_people_count" do
@@ -176,11 +182,47 @@ defmodule Kousa.Beef.RoomsTest do
     end
 
     test "create" do
+      %User{
+        displayName: displayName,
+        numFollowers: numFollowers,
+        id: id
+      } = Factory.create(User)
+      {:ok, r } =
+        Beef.Rooms.create(%{
+          creatorId: id,
+          name: "dogeruum",
+          description: "a place to doge",
+          isPrivate: false
+          })
 
+      assert %Room{
+        peoplePreviewList: [
+          %User.Preview{
+            displayName: ^displayName,
+            numFollowers: ^numFollowers,
+            id: ^id
+          }
+        ]
+      } = Repo.get!(Room, r.id)
     end
 
     test "edit" do
+      r = Factory.create(Room)
+      refute r.name == "updated name"
 
+      {:ok, %Room{id: id}} =
+        Beef.Rooms.edit(r.id, %{
+          name: "updated name",
+          isPrivate: true,
+          description: "updated description"
+        })
+
+      assert %{
+        id: ^id,
+        name: "updated name",
+        isPrivate: true,
+        description: "updated description"
+      } = Beef.Rooms.get_room_by_id(id)
     end
   end
 end
