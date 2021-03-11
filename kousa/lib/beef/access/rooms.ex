@@ -111,18 +111,17 @@ defmodule Beef.Access.Rooms do
   end
 
   def get_room_by_creator_id(creator_id) do
-    # Query.start
-    # |>
-    from(u in Room,
-      where: u.creatorId == ^creator_id,
-      limit: 1
-    )
+    Query.start
+    |> Query.filter_by_creator_id(creator_id)
+    |> Query.limit_one
     |> Repo.one()
   end
 
   def owner?(room_id, user_id) do
     not is_nil(
-      Repo.one(from(r in Room, where: r.id == ^room_id and r.creatorId == ^user_id))
+      Query.start
+      |> Query.filter_by_room_id_and_creator_id(room_id, user_id)
+      |> Repo.one
     )
   end
 
