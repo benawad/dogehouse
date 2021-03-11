@@ -7,6 +7,7 @@ defmodule Kousa.Beef.RoomsTest do
   alias Beef.Schemas.User
   alias Beef.Schemas.Room
   alias Beef.Rooms
+  alias Beef.Repo
 
   describe "Rooms" do
 
@@ -121,7 +122,17 @@ defmodule Kousa.Beef.RoomsTest do
 
     # MUTATION tests
     test "set_room_privacy_by_creator_id" do
+      %User{ id: id } = Factory.create(User)
+      r = Factory.create(Room, [{ :isPrivate, false }, { :name, "dogeroom" }, { :creatorId, id }])
+      assert !r.isPrivate and r.name == "dogeroom" and r.creatorId == id
 
+      Beef.Rooms.set_room_privacy_by_creator_id(id, true, "newdogeroom")
+
+      assert %{
+        isPrivate: true,
+        creatorId: ^id,
+        name: "newdogeroom"
+      } = Repo.get!(Room, r.id)
     end
 
     test "join_room" do
@@ -129,7 +140,15 @@ defmodule Kousa.Beef.RoomsTest do
     end
 
     test "increment_room_people_count/1" do
+      %Room{
+        id: id,
+        numPeopleInside: numPeopleInside
+        } = Factory.create(Room)
 
+      assert numPeopleInside == 1
+
+      Beef.Rooms.increment_room_people_count(id)
+      assert %Room{ numPeopleInside: 2 } = Repo.get!(Room, id)
     end
 
     test "increment_room_people_count/2" do
