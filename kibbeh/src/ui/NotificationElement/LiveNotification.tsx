@@ -16,7 +16,7 @@ export const LiveNotification: React.FC<LiveNotificationProps> = ({
   time,
   joined = false,
 }) => {
-  const icon = <LgSolidTime />;
+  const icon = <LgSolidTime className="text-primary-300" />;
 
   const notificationMsg = (
     <>

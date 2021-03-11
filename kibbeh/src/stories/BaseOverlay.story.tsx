@@ -11,7 +11,7 @@ import {
   NewRoomNotification,
 } from "../ui/NotificationElement";
 import { SettingsIcon } from "../ui/SettingsIcon";
-import { SmForwardArrow, SmOutlineGlobe, SmSolidUser } from "../icons";
+import { SmSolidCaretRight, SmOutlineGlobe, SmSolidUser } from "../icons";
 
 const user = {
   avatar,
@@ -88,11 +88,14 @@ export const Settings: Story<BaseOverlayProps> = ({
   <div style={{ width: 200 }}>
     <BaseOverlay actionButton={actionLabel}>
       <div className="flex flex-col">
-        <SettingsIcon icon={<SmSolidUser />} label={"profile"} />
+        <SettingsIcon
+          icon={<SmSolidUser className={`text-primary-100`} />}
+          label={"profile"}
+        />
         <SettingsIcon
           icon={<SmOutlineGlobe />}
           label={"Language"}
-          trailingIcon={<SmForwardArrow />}
+          trailingIcon={<SmSolidCaretRight />}
         />
       </div>
     </BaseOverlay>

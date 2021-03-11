@@ -8,7 +8,7 @@ export default {
   component: UserSearchResult,
 };
 
-const avatar = require("../../img/avatar.png");
+import avatar from "../../img/avatar.png";
 
 const user = {
   avatar,

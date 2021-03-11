@@ -24,9 +24,7 @@ export const BaseOverlay: React.FC<BaseOverlayProps> = ({
         </div>
       )}
 
-      <div className="flex flex-col w-full text-primary-100">
-        {children}
-      </div>
+      <div className="flex flex-col w-full text-primary-100">{children}</div>
 
       {actionButton && (
         <div

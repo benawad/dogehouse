@@ -16,7 +16,7 @@ export const NewRoomNotification: React.FC<NewRoomNotificationProps> = ({
   time,
   joined = false,
 }) => {
-  const icon = <LgSolidRocket />;
+  const icon = <LgSolidRocket className="text-primary-300" />;
 
   const notificationMsg = (
     <>

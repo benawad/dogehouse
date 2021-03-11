@@ -42,7 +42,7 @@ export const Button: React.FC<ButtonProps> = ({
       className={`${sizeClassnames[size]} ${colorClassnames[color]} font-bold flex items-center justify-center`}
       {...props}
     >
-      <span className={loading ? "opacity-0" : ``}>
+      <span className={loading ? "opacity-0" : `flex items-center`}>
         {icon ? <span className={`mr-2 items-center`}>{icon}</span> : null}
         {children}
       </span>

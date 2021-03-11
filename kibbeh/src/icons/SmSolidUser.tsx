@@ -3,16 +3,14 @@ import * as React from "react";
 function SvgSmSolidUser(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
-      width={20}
-      height={20}
-      fill="none"
+      width={16}
+      height={16}
+      viewBox="0 0 16 16"
+      fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M10 10a3.76 3.76 0 003.75-3.75A3.76 3.76 0 0010 2.5a3.76 3.76 0 00-3.75 3.75A3.76 3.76 0 0010 10zm0 1.875c-2.484 0-7.5 1.266-7.5 3.75V17.5h15v-1.875c0-2.484-5.016-3.75-7.5-3.75z"
-        fill="#DEE3EA"
-      />
+      <path d="M8 8c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4zm0 2c-2.65 0-8 1.35-8 4v2h16v-2c0-2.65-5.35-4-8-4z" />
     </svg>
   );
 }
