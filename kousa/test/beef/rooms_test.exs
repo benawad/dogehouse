@@ -67,33 +67,56 @@ defmodule Kousa.Beef.RoomsTest do
       assert Beef.Rooms.can_join_room(room4.id, u.id) == {:ok, room4}
     end
 
+    # still need to get to
     test "get_top_public_rooms" do
 
     end
 
     test "get_room_by_id" do
-
+      room = Factory.create(Room)
+      room2 = Factory.create(Room)
+      assert Beef.Rooms.get_room_by_id(room.id) == room
+      assert Beef.Rooms.get_room_by_id(room2.id) == room2
     end
 
+    # still need to get to
     test "get_next_creator_for_room" do
 
     end
 
     test "get_a_user_for_room" do
+      room = Factory.create(Room)
+      userForRoom = Factory.create(User, [{ :currentRoomId, room.id }])
+      notUserForRoom = Factory.create(User)
 
+      assert Beef.Rooms.get_a_user_for_room(room.id) == userForRoom
     end
 
     test "get_room_by_creator_id" do
+      u = Factory.create(User)
+      createdByU = Factory.create(Room, [{ :creatorId, u.id }])
+      notCreatedByU = Factory.create(Room)
 
+      assert Beef.Rooms.get_room_by_creator_id(u.id) == createdByU
+      refute Beef.Rooms.get_room_by_creator_id(u.id) == notCreatedByU
     end
 
     test "owner?" do
+      u = Factory.create(User)
+      r = Factory.create(Room)
 
+      assert !Beef.Rooms.owner?(r.id, u.id)
+
+      r2 = Factory.create(Room, [{ :creatorId, u.id }])
+      assert Beef.Rooms.owner?(r2.id, u.id)
     end
 
     test "all_rooms" do
+      Factory.create(Room)
+      Factory.create(Room)
+      Factory.create(Room)
 
-
+      assert [%Room{}, %Room{}, %Room{}] = Beef.Rooms.all_rooms()
     end
   end
 end
