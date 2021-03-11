@@ -2,6 +2,7 @@ defmodule Beef.Access.Rooms do
   import Ecto.Query
   @fetch_limit 16
 
+  alias Beef.Queries.Rooms, as: Query
   alias Beef.Users
   alias Beef.UserBlocks
   alias Beef.Repo
@@ -103,14 +104,15 @@ defmodule Beef.Access.Rooms do
   end
 
   def get_a_user_for_room(room_id) do
-    from(u in User,
-      where: u.currentRoomId == ^room_id,
-      limit: 1
-    )
+    Query.userStart
+    |> Query.filter_by_current_room_id(room_id)
+    |> Query.limit_one
     |> Repo.one()
   end
 
   def get_room_by_creator_id(creator_id) do
+    # Query.start
+    # |>
     from(u in Room,
       where: u.creatorId == ^creator_id,
       limit: 1
