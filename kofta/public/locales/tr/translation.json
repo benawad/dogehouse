@@ -39,7 +39,7 @@
 		"home": { "createRoom": "Oda oluştur" },
 		"inviteList": {
 			"roomGone": "oda gitti, geri dön",
-			"shareRoomLink": "odaya bağlantı paylaş",
+			"shareRoomLink": "oda bağlantısını paylaş",
 			"inviteFollowers": "Çevrimiçi olan takipçilerini davet edebilirsin:",
 			"whenFollowersOnline": "Takipçilerin çevrimiçi olduğunda burada gözükecek."
 		},
