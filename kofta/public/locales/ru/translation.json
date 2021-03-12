@@ -25,7 +25,7 @@
     "_comment": "Main Footer UI Internationalization Strings",
     "link_1": "История создания",
     "link_2": "Discord",
-    "link_3": "Сообщить о ошибке"
+    "link_3": "Сообщить об ошибке"
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
@@ -73,7 +73,7 @@
     },
     "room": {
       "speakers": "Спикеры",
-      "requestingToSpeak": "Запросы на спикера",
+      "requestingToSpeak": "Запроситься в спикеры",
       "listeners": "Слушатели"
     },
     "searchUser": {
@@ -91,7 +91,7 @@
     "voiceSettings": {
       "header": "Голосовые настройки",
       "mic": "микрофон:",
-      "permissionError": "микрофонов не найдено, вы либо не подключили микрофон, либо не предоставили этому сайту разрешение",
+      "permissionError": "микрофоны не найдены, вы либо не подключили микрофон, либо не предоставили этому сайту разрешение",
       "refresh": "обновить список микрофонов",
       "volume": "громкость:"
     }
@@ -140,13 +140,13 @@
       "togglePushToTalkKeybind": "вкл/выкл push-to-talk"
     },
     "userVolumeSlider": {
-      "noAudioMessage": "нет устройства для воспроизведения аудио по какой-то причине"
+      "noAudioMessage": "по какой-то причине отсуствует устройство для воспроизведения аудио"
     },
     "addToCalendar": {
       "add": "Добавить в календарь"
     },
     "wsKilled": {
-      "description": "Websocket соединение было разорвано сервером. Это обычно происходит, когда вы ещё раз открываете сайт в новой вкладке.",
+      "description": "Сервер разорвал Websocket-соединение. Это обычно происходит, когда вы параллельно открываете сайт в соседней вкладке.",
       "reconnect": "переподключиться"
     },
     "modals": {
@@ -155,8 +155,8 @@
         "private": "приватная",
         "roomName": "название комнаты",
         "roomDescription": "описание комнаты",
-        "descriptionError": "максимальная длина 500",
-        "nameError": "должно быть длиной от 2 до 60 символов"
+        "descriptionError": "максимум 500 символов",
+        "nameError": "должно быть от 2 до 60 символов"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Новая комната создана",
@@ -167,7 +167,7 @@
       },
       "editProfileModal": {
         "usernameTaken": "имя пользователя занято",
-        "avatarUrlError": "Неверное изображение",
+        "avatarUrlError": "Изображение недоступно",
         "avatarUrlLabel": "Ссылка на аватар (Github/Twitter)",
         "displayNameError": "длина от 2 до 50 символов",
         "displayNameLabel": "Отображаемое имя",
@@ -180,7 +180,7 @@
         "blockUserConfirm": "Вы уверены, что хотите заблокировать этого пользователя, для всех комнат, которые вы создаёте?",
         "blockUser": "заблокировать пользователя",
         "makeMod": "сделать модератором",
-        "unmod": "анмоднуть",
+        "unmod": "убрать из модераторов",
         "addAsSpeaker": "добавить как спикера",
         "moveToListener": "переместить в слушатели",
         "banFromChat": "забанить в чате",
@@ -207,12 +207,12 @@
       "modal": {
         "needsFuture": "должна быть в будущем",
         "roomName": "название комнаты",
-        "minLength": "минимальная длина 2"
+        "minLength": "минимум 2 символа"
       }
     },
     "roomChat": {
       "title": "Чат",
-      "emotesSoon": "[смайлы скоро]",
+      "emotesSoon": "[эмоджи скоро]",
       "bannedAlert": "Вы были забанены в чате",
       "waitAlert": "Нужно немного подождать перед отправкой следующего сообщения",
       "search": "Поиск",
