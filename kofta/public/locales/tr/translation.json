@@ -164,50 +164,50 @@
 			}
 		},
 		"userVolumeSlider": { "noAudioMessage": "nedense ses alıcısı yok" },
-		"addToCalendar": { "add": "Add to Calendar" },
+		"addToCalendar": { "add": "Takvime ekle" },
 		"keyboardShortcuts": {
-			"setKeybind": "set keybind",
-			"listening": "listening",
-			"toggleMuteKeybind": "toggle mute keybind",
-			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
+			"setKeybind": "tuş atamasını ayarla",
+			"listening": "dinleniyor",
+			"toggleMuteKeybind": "sessize alma tuşunu değiştir",
+			"togglePushToTalkKeybind": "bas-konuş tuşunu değiştir"
 		},
 		"wsKilled": {
-			"description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
-			"reconnect": "reconnect"
+			"description": "Websocket, sunucu tarafından durduruldu. Bu genellikle web sitesini başka bir sekmede açtığınızda olur.",
+			"reconnect": "yeniden bağlan"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Your device is currently not supported. You can create an",
 			"linkText": "issue on GitHub",
 			"addSupport": "and I will try adding support for your device."
 		},
-		"inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" }
+		"inviteButton": { "invited": "davet edildi", "inviteToRoom": "odaya davet et" }
 	},
 	"modules": {
 		"scheduledRooms": {
-			"title": "Scheduled Rooms",
-			"noneFound": "none found",
-			"allRooms": "all scheduled rooms",
-			"myRooms": "my scheduled rooms",
-			"scheduleRoomHeader": "Schedule Room",
-			"startRoom": "start room",
+			"title": "Planlanmış Odalar",
+			"noneFound": "bulunamadı",
+			"allRooms": "Tüm planlanmış odalar",
+			"myRooms": "Planlanan odalarım",
+			"scheduleRoomHeader": "Oda Planla",
+			"startRoom": "Oda başlat",
 			"modal": {
 				"needsFuture": "needs to be in the future",
-				"roomName": "room name",
-				"minLength": "min length 2"
+				"roomName": "Oda ismi",
+				"minLength": "Minimum uzunluk 2"
 			}
 		},
 		"roomChat": {
-			"title": "Chat",
+			"title": "Sohbet",
 			"emotesSoon": "[emotes soon]",
-			"bannedAlert": "You got banned from chat",
-			"waitAlert": "You have to wait a second before sending another message",
-			"search": "Search",
-			"searchResults": "Search Results",
-			"recent": "Frequently Used",
-			"sendMessage": "Send a Message",
-			"whisper": "Whisper",
-			"welcomeMessage": "Welcome to chat!",
-			"roomDescription": "room description"
+			"bannedAlert": "Sohbetten banlandınız",
+			"waitAlert": "Başka bir mesaj göndermeden önce bir saniye beklemelisiniz",
+			"search": "Ara",
+			"searchResults": "Arama Sonuçları",
+			"recent": "Sıklıkla kullanılan",
+			"sendMessage": "Mesaj Gönder",
+			"whisper": "Fısıltı",
+			"welcomeMessage": "Sohbete hoş geldiniz!",
+			"roomDescription": "Oda hakkında"
 		}
 	}
 }
