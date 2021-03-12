@@ -13,7 +13,7 @@ function formatNumber(num: number): string {
 
 function useScheduleRerender(scheduledFor: Date) {
   // same logic stolen from kofta, rerenders
-  // at the scheduleFor date 
+  // at the scheduleFor date
   const [, rerender] = useState(0);
 
   useEffect(() => {
