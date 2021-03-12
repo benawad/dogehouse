@@ -178,7 +178,7 @@
 		"deviceNotSupported": {
 			"notSupported": "Dein Gerät wird aktuell nicht unterstützt. Du kannst ein",
 			"linkText": "Issue auf GitHub",
-			"addSupport": "öffnen und ich werde veruschen, die Unterstützung für dein Gerät hinzuzufügen."
+			"addSupport": "öffnen und ich werde versuchen, die Unterstützung für dein Gerät hinzuzufügen."
 		},
 		"inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" }
 	},
