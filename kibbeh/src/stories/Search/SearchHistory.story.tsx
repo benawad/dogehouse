@@ -1,10 +1,10 @@
 import React from "react";
 import SearchHistoryComponent, {
   SearchHistoryProps,
-} from "../ui/SearchHistory";
+} from "../../ui/Search/SearchHistory";
 
 export default {
-  title: "SearchHistory",
+  title: "Search/SearchHistory",
   argTypes: {
     onClickToDeleteSearchHistory: { action: "clicked" },
     searchText: { defaultValue: "javascript" },
