@@ -16,23 +16,6 @@ export interface FeedProps {
   emptyPlaceholder: ReactNode;
 }
 
-export interface FeedHeaderProps {
-  title: string;
-  actionTitle: string;
-  onActionClicked: MouseEventHandler<HTMLButtonElement>;
-}
-
-export const FeedHeader: React.FC<FeedHeaderProps> = ({
-  title,
-  actionTitle,
-  onActionClicked,
-}) => (
-  <div className="justify-between items-end mb-5">
-    <h4 className="text-primary-100 ml-4">{title}</h4>
-    <Button onClick={onActionClicked}>{actionTitle}</Button>
-  </div>
-);
-
 export const Feed: React.FC<FeedProps> = ({
   title,
   actionTitle,
