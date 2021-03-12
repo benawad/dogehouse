@@ -14,7 +14,8 @@
 		"joinRoom": "הצטרף לחדר",
 		"copyLink": "העתק קישור",
 		"copied": "מוּעֲתָק",
-		"formattedIntlDate": "{{date, intlDate}}"
+		"formattedIntlDate": "{{date, intlDate}}",
+		"formattedIntlTime": "{{time, intlTime}}"
 	},
 	"header": {
 		"_comment": "Main Header UI Internationalization Strings",
@@ -29,18 +30,14 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "באן"
-		},
+		"banUser": { "ban": "באן" },
 		"followingOnlineList": {
 			"listHeader": "רשימת משתמשים שאת/ה עוקב אחרייהם שלא בחדר פרטי.",
 			"currentRoom": "ב:",
 			"startPrivateRoom": "צור חדר פרטי איתם"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "צור חדר"
-		},
+		"home": { "createRoom": "צור חדר" },
 		"inviteList": {
 			"roomGone": "החדר נעלם, חזור",
 			"shareRoomLink": "שתף קישור לחדר שלך",
@@ -76,12 +73,8 @@
 			"requestingToSpeak": "מבקשים לדבר",
 			"listeners": "מקשיבים"
 		},
-		"searchUser": {
-			"search": "חפש..."
-		},
-		"soundEffectSettings": {
-			"header": "קולות"
-		},
+		"searchUser": { "search": "חפש..." },
+		"soundEffectSettings": { "header": "קולות" },
 		"viewUser": {
 			"editProfile": "ערוך פרופיל",
 			"followsYou": "עוקב אחריך",
@@ -124,10 +117,7 @@
 			"linkText": "issue בGitHub",
 			"addSupport": "ואנסה להוסיף תמיכה למכשיר שלך."
 		},
-		"inviteButton": {
-			"invited": "מוזמן",
-			"inviteToRoom": "הזמן לחדר"
-		},
+		"inviteButton": { "invited": "מוזמן", "inviteToRoom": "הזמן לחדר" },
 		"micPermissionBanner": {
 			"permissionDenied": "ההרשאה נדחתה בניסיון לגשת למיקרופון שלך (יתכן שתצטרך להיכנס להגדרות הדפדפן וטען מחדש את הדף)",
 			"dismiss": "סגור",
@@ -139,12 +129,8 @@
 			"toggleMuteKeybind": "הפעל את מקש ההשתקה",
 			"togglePushToTalkKeybind": "הפעל push-to-talk"
 		},
-		"userVolumeSlider": {
-			"noAudioMessage": "שום צרכן קול משום מה"
-		},
-		"addToCalendar": {
-			"add": "הוסף ליומן"
-		},
+		"userVolumeSlider": { "noAudioMessage": "שום צרכן קול משום מה" },
+		"addToCalendar": { "add": "הוסף ליומן" },
 		"wsKilled": {
 			"description": "הWebsocket נהרג על ידי השרת. זה קורה בדרך כלל כשפותחים את האתר בלשונית אחרת.",
 			"reconnect": "התחבר מחדש"
