@@ -7,9 +7,9 @@ export interface RoomCardHeadingProps {
 
 export const RoomCardHeading: React.FC<RoomCardHeadingProps> = ({ icon, text }) => {
   return (
-    <div className="text-primary-100 font-bold leading-5">
+    <div className="text-primary-100 font-bold leading-5 truncate">
       {icon ? <span className="mr-2 align-middle">{icon}</span> : null }
-      <span>{text}</span>
+      <span className="inline truncate">{text}</span>
     </div>
   );
 };
