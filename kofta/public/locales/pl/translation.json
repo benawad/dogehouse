@@ -1,0 +1,227 @@
+{
+	"common": {
+		"loadMore": "załaduj więcej",
+		"loading": "ładowanie...",
+		"noUsersFound": "nie znaleziono użytkowników",
+		"ok": "ok",
+		"yes": "tak",
+		"no": "nie",
+		"cancel": "anuluj",
+		"save": "zapisz",
+		"edit": "edytuj",
+		"delete": "usuń",
+		"joinRoom": "dołącz do pokoju",
+		"copyLink": "kopiuj link",
+		"copied": "skopiowano",
+		"formattedIntlDate": "{{date, intlDate}}",
+		"formattedIntlTime": "{{time, intlTime}}"
+	},
+	"header": {
+		"_comment": "Main Header UI Internationalization Strings",
+		"title": "DogeHouse",
+		"mutedTitle": "Wyciszony | DogeHouse"
+	},
+	"footer": {
+		"_comment": "Main Footer UI Internationalization Strings",
+		"link_1": "Historia powstania",
+		"link_2": "Discord",
+		"link_3": "Zgłoś problem"
+	},
+	"pages": {
+		"_comment": "Respective Page UI Internationalization Strings",
+		"banUser": {
+			"ban": "zbanuj"
+		},
+		"followingOnlineList": {
+			"listHeader": "Lista użytkowników których obserwujesz i nie są w prywatnym pokoju.",
+			"currentRoom": "Aktualnie w:",
+			"startPrivateRoom": "rozpocznij pokój prywatny z nimi"
+		},
+		"followList": {},
+		"home": {
+			"createRoom": "Stwórz Pokój"
+		},
+		"inviteList": {
+			"roomGone": "pokoju nie ma, wróć",
+			"shareRoomLink": "udostępnij link do pokoju",
+			"inviteFollowers": "Możesz zaprosić osoby które cię obserwują i są online:",
+			"whenFollowersOnline": "Gdy twoji obserwujący są online, pojawią się tutaj."
+		},
+		"login": {
+			"headerText": "Zabieramy rozmowy głosowe na księżyc 🚀",
+			"featureText_1": "Ciemny motyw",
+			"featureText_2": "Otwarte zapisy",
+			"featureText_3": "Wsparcie wieloplatformowe",
+			"featureText_4": "Open Source",
+			"featureText_5": "Czat tekstowy",
+			"featureText_6": "Zasilany przez Doge",
+			"loginGithub": "zaloguj się za pomocą GitHub",
+			"loginTwitter": "zaloguj się za pomocą Twitter",
+			"createTestUser": "stwórz użytkownika testowego"
+		},
+		"myProfile": {
+			"logout": "wyloguj",
+			"probablyLoading": "pewnie się ładuje...",
+			"voiceSettings": "Przejdź do ustawień głosowych",
+			"soundSettings": "Przejdź do ustawień dźwiękowych",
+			"deleteAccount": "usuń konto"
+		},
+		"notFound": {
+			"whoopsError": "Ups! Ta strona zgubiła się w rozmowie.",
+			"goHomeMessage": "Nie martw się. Możesz",
+			"goHomeLinkText": "wrócić na stronę główną"
+		},
+		"room": {
+			"speakers": "Rozmówcy",
+			"requestingToSpeak": "Proszący o pozwolenie na mówienie",
+			"listeners": "Słuchacze"
+		},
+		"searchUser": {
+			"search": "szukaj..."
+		},
+		"soundEffectSettings": {
+			"header": "Dźwięki"
+		},
+		"viewUser": {
+			"editProfile": "edytuj profil",
+			"followsYou": "obserwuje cię",
+			"followers": "obserwujący",
+			"following": "obserwujesz"
+		},
+		"voiceSettings": {
+			"header": "Ustawienia Głosowe",
+			"mic": "mikrofon:",
+			"permissionError": "nie znaleziono mikrofonu, albo go nie masz albo nie dałeś(aś) tej stronie pozwolenia.",
+			"refresh": "odśwież listę mikrofonów",
+			"volume": "głośność:"
+		}
+	},
+	"components": {
+		"_comment": "Component UI Internationalization Strings",
+		"avatar": {},
+		"backBar": {},
+		"blockedFromRoomUsers": {
+			"header": "Zbanowani użytkownicy",
+			"unban": "odbanuj",
+			"noBans": "nikt nie został jeszcze zbanowany"
+		},
+		"bottomVoiceControl": {
+			"leaveCurrentRoomBtn": "Opuść aktualny pokój",
+			"confirmLeaveRoom": "Czy napewno chcesz opuścić ten pokój?",
+			"leave": "Opuść",
+			"inviteUsersToRoomBtn": "Zaproś użytkowników do pokoju",
+			"invite": "Zaproś",
+			"toggleMuteMicBtn": "Włącz / Wyłącz wyciszenie mikrofonu",
+			"mute": "Wycisz",
+			"unmute": "Odcisz",
+			"makeRoomPublicBtn": "Zmień pokój na publiczny!",
+			"settings": "Ustawienia",
+			"speaker": "Rozmówca",
+			"listener": "Słuchacz"
+		},
+		"deviceNotSupported": {
+			"notSupported": "Twoje urządzenia jest aktualnie nie obsługiwane. Możesz zgłosić",
+			"linkText": "problem na GitHub",
+			"addSupport": "a ja spróbuję dodać wsparcie dla twojego urządzenia."
+		},
+		"inviteButton": {
+			"invited": "zaproszony",
+			"inviteToRoom": "zaproś do pokoju"
+		},
+		"micPermissionBanner": {
+			"permissionDenied": "Odmowa dostępu przy próbie skorzystania z twojego mikrofonu (jest szansa że musisz wejśc w ustawienia przeglądarki i przeładować stronę)",
+			"dismiss": "odrzuć",
+			"tryAgain": "spróbuj ponownie"
+		},
+		"keyboardShortcuts": {
+			"setKeybind": "ustaw keybind",
+			"listening": "nasłuchiwanie",
+			"toggleMuteKeybind": "włącz / wyłącz keybind do wyciszania",
+			"togglePushToTalkKeybind": "włącz / wyłącz push-to-talk keybind"
+		},
+		"userVolumeSlider": {
+			"noAudioMessage": "Brak audio consumera z jakiegoś powodu"
+		},
+		"addToCalendar": {
+			"add": "Dodaj do kalendarza"
+		},
+		"wsKilled": {
+			"description": "WebSocket został ubity przez serwer. Zazwyczaj dzieje się tak gdy otworzysz stronę w innej zakładce.",
+			"reconnect": "połącz ponownie"
+		},
+		"modals": {
+			"createRoomModal": {
+				"public": "publiczny",
+				"private": "prywatny",
+				"roomName": "nazwa pokoju",
+				"roomDescription": "opis pokuj",
+				"descriptionError": "maksymalna długość 500",
+				"nameError": "musi mieć od 2 do 60 znaków"
+			},
+			"invitedToJoinRoomModal": {
+				"newRoomCreated": "Storzono nowy pokój",
+				"roomInviteFrom": "Zaproszenie do pokoju od",
+				"justStarted": "Właśnie zaczeli",
+				"likeToJoin": ", czy chciałbyś dołączyć?",
+				"inviteReceived": "Zostałeś zaproszony do"
+			},
+			"editProfileModal": {
+				"usernameTaken": "Nazwa użytkonika zajęta",
+				"avatarUrlError": "Niepoprawne zdjęcie",
+				"avatarUrlLabel": "GitHub/Twitter avatar url",
+				"displayNameError": "długość od 2 do 50 znaków",
+				"displayNameLabel": "Nazwa Wyświtlana",
+				"usernameError": "długość od 4 do 15 znaków i tylko znaki alfanumeryczne/podkreślnik",
+				"usernameLabel": "Nazwa użytkownika",
+				"bioError": "maksymalna długość to 160 znaków",
+				"bioLabel": "Opis"
+			},
+			"profileModal": {
+				"blockUserConfirm": "Czy na pewno chcesz uniemożliwić temu użytkownikowi dołączanie do wszystkich pokojów, które kiedykolwiek stworzysz?",
+				"blockUser": "zablokuj użytkownika",
+				"makeMod": "uczyń modem",
+				"unmod": "oduczyń modem",
+				"addAsSpeaker": "dodaj jako rozmówcę",
+				"moveToListener": "przenieś do słuchaczy",
+				"banFromChat": "zbanuj z czatu",
+				"banFromRoom": "zbanuj z pokoju",
+				"goBackToListener": "powróć do słuchacza",
+				"deleteMessage": "usuń tą wiadomość"
+			},
+			"roomSettingsModal": {
+				"requirePermission": "wymagaj uprawnienia do odzywania się",
+				"makePublic": "uczyń pokój publicznym",
+				"makePrivate": "uczyń pokój prywatnym"
+			}
+		}
+	},
+	"modules": {
+		"_comment": "Modules UI Internationalization Strings",
+		"scheduledRooms": {
+			"title": "Zaplanuj Pokoje",
+			"noneFound": "nie znaleziono",
+			"allRooms": "wszystkie zaplanowane pokoje",
+			"myRooms": "moje zaplanowane pokoje",
+			"scheduleRoomHeader": "Zaplanuj pokój",
+			"startRoom": "rozpocznij pokój",
+			"modal": {
+				"needsFuture": "musi być w przysłości",
+				"roomName": "nazwa pokoju",
+				"minLength": "minimalna długość 2"
+			}
+		},
+		"roomChat": {
+			"title": "Czat",
+			"emotesSoon": "[emotki niedługo]",
+			"bannedAlert": "Zostałeś zbanowany z czatu",
+			"waitAlert": "Musisz zaczekać sekundę, zanim wyślesz następną wiadomość",
+			"search": "Szukaj",
+			"searchResults": "Wyniki wyszukiwania",
+			"recent": "Często używane",
+			"sendMessage": "Wyślij wiadomość",
+			"whisper": "Szeptaj",
+			"welcomeMessage": "Witaj na czacie!",
+			"roomDescription": "opis pokoju"
+		}
+	}
+}
