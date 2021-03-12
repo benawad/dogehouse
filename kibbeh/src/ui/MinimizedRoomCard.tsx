@@ -5,7 +5,7 @@ import { SmSolidFullscreen, SmSolidMicrophone, SmSolidVolume } from "../icons";
 import { useRouter } from "next/router";
 import { Button } from "./Button";
 
-const formatElapsed = (time: Duration) => `${time.hours ? `${time.hours}:` : ""}${time.minutes}:${time.seconds}`;
+const formatElapsed = (time: Duration) => `${time.hours ? `${time.hours}:` : ""}${time.minutes ?? "0"}:${time.seconds}`;
 
 interface MinimizedRoomCardProps {
   room: {
