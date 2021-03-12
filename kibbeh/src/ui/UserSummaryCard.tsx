@@ -33,7 +33,7 @@ interface WebsiteProps {
 
 export const Badges: React.FC<BadgesProps> = ({ badges }) => {
   return (
-    <div className="mt-1">
+    <div className="mt-2">
       {badges.map(({ content, variant, type }, i) => (
         <span className="mr-1" key={i}>
           <UserBadge variant={variant}>
