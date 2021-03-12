@@ -22,7 +22,7 @@ defmodule Kousa.BL.Room do
   @spec make_room_public(any, any) :: nil | :ok
   def make_room_public(user_id, new_name) do
     # this needs to be refactored if a user can have multiple rooms
-    case Rooms.set_room_privacy_by_creator_id(user_id, false, new_name) do
+    case Beef.Rooms.set_room_privacy_by_creator_id(user_id, false, new_name) do
       {1, [room]} ->
         Gen.RoomSession.send_cast(
           room.id,

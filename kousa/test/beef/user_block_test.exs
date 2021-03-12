@@ -10,7 +10,7 @@ defmodule Kousa.Beef.UserBlockTest do
   describe "Beef.Schemas.UserBlock" do
     alias Beef.Schemas.UserBlock
 
-    test "you can add a room into the room table" do
+    test "you can add a user block" do
       %{id: uid} = Factory.create(User)
       %{id: bid} = Factory.create(User)
 
