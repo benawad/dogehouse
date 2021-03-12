@@ -1,0 +1,66 @@
+import React, { MouseEventHandler } from "react";
+import { SingleUser } from "./UserAvatar/SingleUser";
+
+export interface FriendOnlineType {
+  username: string;
+  avatar: string;
+  isOnline: boolean;
+  activeRoom?: {
+    name: string;
+    link?: string;
+  };
+}
+
+export interface FriendsOnlineProps {
+  onlineFriendList: FriendOnlineType[];
+  onlineFriendCount: number;
+  showMoreAction?: MouseEventHandler<HTMLButtonElement>;
+}
+
+const FriendOnline: React.FC<FriendOnlineType> = ({
+  username,
+  avatar,
+  isOnline,
+  activeRoom,
+}) => (
+  <div className="py-3 w-full">
+    <SingleUser size="sm" isOnline={isOnline} src={avatar} />
+    <div className="ml-3 flex flex-col">
+      <h5 className="text-primary-100 font-bold">{username}</h5>
+      <a
+        className={`text-primary-300 ${activeRoom?.link ? "border-b" : ""}`}
+        {...(activeRoom?.link ? { href: activeRoom.link } : {})}
+      >
+        {activeRoom?.name}
+      </a>
+    </div>
+  </div>
+);
+
+export const FriendsOnline: React.FC<FriendsOnlineProps> = ({
+  onlineFriendList = [],
+  onlineFriendCount = 0,
+  showMoreAction,
+}) => {
+  return (
+    <div className="px-5 py-5 w-full border border-primary-600 flex flex-col justify-center">
+      <h4 className="text-primary-100">People</h4>
+      <h6 className="text-primary-300 mt-3 text-sm">
+        ONLINE ({onlineFriendCount})
+      </h6>
+      <div className="flex flex-col mt-3">
+        {onlineFriendList.length > 0 ? (
+          <>
+            {onlineFriendList.map((friend, idx) => (
+              <FriendOnline key={idx} {...friend} />
+            ))}
+          </>
+        ) : (
+          <p className="text-primary-200">
+            You have 0 friends online right now
+          </p>
+        )}
+      </div>
+    </div>
+  );
+};
