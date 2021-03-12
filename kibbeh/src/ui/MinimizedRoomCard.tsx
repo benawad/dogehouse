@@ -38,8 +38,18 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({ room }) =>
       </div>
       <div className="gap-4">
         <div className="gap-2">
-          <BoxedIcon onClick={room.myself.switchMuted}><SmSolidMicrophone/></BoxedIcon>
-          <BoxedIcon onClick={room.myself.switchDeafened}><SmSolidVolume/></BoxedIcon>
+          <BoxedIcon
+            onClick={room.myself.switchMuted}
+            className={room.myself.isMuted ? "bg-accent" : ""}
+          >
+            <SmSolidMicrophone/>
+          </BoxedIcon>
+          <BoxedIcon
+            onClick={room.myself.switchDeafened}
+            className={room.myself.isDeafened ? "bg-accent" : ""}
+          >
+            <SmSolidVolume/>
+          </BoxedIcon>
           <BoxedIcon onClick={() => router.push(room.url)}><SmSolidFullscreen/></BoxedIcon>
         </div>
         <Button className="flex-grow" onClick={room.myself.leave}>Leave</Button>
