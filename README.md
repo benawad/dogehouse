@@ -35,6 +35,12 @@
 | [feta](feta)         | Shared utils web/app  |
 | [kibbeh](kibbeh)     |   Next.js frontend    |
 
+## Branches
+
+- new-design -> pr this branch if you touch `kibbeh`
+- staging -> pr this branch for everything else
+- prod -> don't touch, this is what's running in prod
+
 ## Contributions
 
 DogeHouse is open to contributions, but I recommend creating an issue or replying in a comment to let me know what you are working on first that way we don't overwrite each other.
