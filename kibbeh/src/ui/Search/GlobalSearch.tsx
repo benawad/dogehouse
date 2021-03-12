@@ -89,19 +89,23 @@ export const GlobalSearch: React.FC<GlobalSearchProps> = ({
   const blurHandler = () => setFocused(false);
 
   return (
-    <SearchOverlay>
-      <div className="flex-col w-full">
+    <div className="w-full relative">
+      <div className="relative z-10 w-full p-2">
         <SearchBar
           className="mb-2"
           onFocus={focusHandler}
           onBlur={blurHandler}
           onChange={setSearchTerm}
         />
-        {focused && !term && history && <History history={history} />}
-        {focused && term && searchResult && (
-          <SearchResult result={searchResult} />
-        )}
       </div>
-    </SearchOverlay>
+      {focused && (
+        <SearchOverlay className="absolute z-0">
+          <div className="flex-col w-full">
+            {!term && history && <History history={history} />}
+            {term && searchResult && <SearchResult result={searchResult} />}
+          </div>
+        </SearchOverlay>
+      )}
+    </div>
   );
 };
