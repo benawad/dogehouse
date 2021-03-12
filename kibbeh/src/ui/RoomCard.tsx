@@ -50,7 +50,7 @@ export const RoomCard: React.FC<RoomCardProps> = ({
 
   const scheduledForLabel = isToday(scheduledFor)
     ? format(scheduledFor, `K:mm a`)
-    : format(scheduledFor, `MM/dd/yyyy K:mm a`);
+    : format(scheduledFor, `LLL d`);
 
   const roomLive = isPast(scheduledFor);
 
