@@ -8,7 +8,7 @@ export default {
   title: "Boxed Icon",
 };
 
-const TheScheduledTime: Story = () => {
+const TheBoxedIcon: Story = () => {
   return (
     <div className="flex flex-row">
       <div className="m-1">
@@ -30,4 +30,4 @@ const TheScheduledTime: Story = () => {
   );
 };
 
-export const Main = TheScheduledTime.bind({});
+export const Main = TheBoxedIcon.bind({});
