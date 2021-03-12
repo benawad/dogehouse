@@ -6,7 +6,7 @@ export interface BubbleTextProps {
 }
 
 export const BubbleText: React.FC<BubbleTextProps> = ({
-  live = true,
+  live,
   children,
 }) => {
   return (
