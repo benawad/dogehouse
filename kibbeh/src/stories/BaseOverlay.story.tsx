@@ -4,12 +4,6 @@ import { Story } from "@storybook/react";
 import { BaseOverlay, BaseOverlayProps } from "../ui/BaseOverlay";
 import { MessageElement } from "../ui/MessageElement";
 import avatar from "../img/avatar.png";
-import {
-  FollowNotification,
-  GenericNotification,
-  LiveNotification,
-  NewRoomNotification,
-} from "../ui/NotificationElement";
 import { SettingsIcon } from "../ui/SettingsIcon";
 import { SmSolidCaretRight, SmOutlineGlobe, SmSolidUser } from "../icons";
 
@@ -44,43 +38,6 @@ export const Messages: Story<BaseOverlayProps> = ({
 );
 
 Messages.bind({});
-
-interface IconWrapperProps {
-  children: ReactNode;
-}
-function IconWrapper({ children }: IconWrapperProps) {
-  return <div className="py-3 px-4">{children}</div>;
-}
-
-export const Notifications: Story<BaseOverlayProps> = ({
-  title = "Notifications",
-}) => (
-  <div style={{ width: 444 }}>
-    <BaseOverlay title={title}>
-      <IconWrapper>
-        <GenericNotification
-          notificationMsg="you have a new notification"
-          time="some time ago"
-        />
-      </IconWrapper>
-      <IconWrapper>
-        <LiveNotification username="johndoe" time="some time ago" />
-      </IconWrapper>
-      <IconWrapper>
-        <NewRoomNotification username={"johndoe"} time="some time ago" />
-      </IconWrapper>
-      <IconWrapper>
-        <FollowNotification
-          userAvatarSrc={avatar}
-          username="johndoe"
-          time="some time ago"
-        />
-      </IconWrapper>
-    </BaseOverlay>
-  </div>
-);
-
-Notifications.bind({});
 
 export const Settings: Story<BaseOverlayProps> = ({
   actionButton: actionLabel = "Log out",
