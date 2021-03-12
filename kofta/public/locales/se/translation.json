@@ -41,9 +41,9 @@
 			"createRoom": "Skapa Rum"
 		},
 		"inviteList": {
-			"roomGone": "rummet borta, gå tillbacka",
+			"roomGone": "rummet borta, gå tillbaka",
 			"shareRoomLink": "dela länk till rummet",
-			"inviteFollowers": "Du can bjuda in dina följare som är uppkopplade:",
+			"inviteFollowers": "Du kan bjuda in dina följare som är uppkopplade:",
 			"whenFollowersOnline": "När dina följare är uppkopplade kommer de visa sig här."
 		},
 		"login": {
@@ -56,7 +56,7 @@
 			"featureText_6": "Drivs av Doge",
 			"loginGithub": "logga in med GitHub",
 			"loginTwitter": "logga in Twitter",
-			"createTestUser": "skapa test användare"
+			"createTestUser": "skapa test-användare"
 		},
 		"myProfile": {
 			"logout": "logga ut",
