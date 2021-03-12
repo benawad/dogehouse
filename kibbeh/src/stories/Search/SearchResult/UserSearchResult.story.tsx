@@ -1,14 +1,17 @@
 import React from "react";
 import { Story } from "@storybook/react";
 
-import { UserSearchResult, UserSearchResultProps } from "../../ui/SearchResult";
+import {
+  UserSearchResult,
+  UserSearchResultProps,
+} from "../../../ui/Search/SearchResult";
 
 export default {
-  title: "SearchResult/UserSearchResult",
+  title: "Search/SearchResult/UserSearchResult",
   component: UserSearchResult,
 };
 
-import avatar from "../../img/avatar.png";
+import avatar from "../../../img/avatar.png";
 
 const user = {
   avatar,

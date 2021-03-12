@@ -1,10 +1,10 @@
 import React from "react";
 import { Story } from "@storybook/react";
-import { SearchBar, SearchBarProps } from "../ui/SearchBar";
-import { toStr } from "./utils/toStr";
+import { SearchBar, SearchBarProps } from "../../ui/Search/SearchBar";
+import { toStr } from "../utils/toStr";
 
 export default {
-  title: "SearchBar",
+  title: "Search/SearchBar",
   argTypes: {
     onChange: { action: "changed" },
   },

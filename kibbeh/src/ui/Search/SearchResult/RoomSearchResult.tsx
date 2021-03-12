@@ -4,8 +4,8 @@ export interface RoomSearchResultProps {
   room: {
     id: string;
     displayName: string;
-    joinedUsers: string[];
-    onlineCount: number;
+    hosts: string[];
+    userCount: number;
   };
 }
 
@@ -25,13 +25,11 @@ export const RoomSearchResult: React.FC<RoomSearchResultProps> = ({ room }) => {
               className="rounded-full inline-block bg-accent mr-1"
               style={{ width: "8px", height: "8px" }}
             />
-            <span className="text-primary-200 font-bold">
-              {room.onlineCount}
-            </span>
+            <span className="text-primary-200 font-bold">{room.userCount}</span>
           </span>
         </div>
         <span className="text-primary-300 text-sm">
-          {room.joinedUsers.slice(0, 2).join(", ")}
+          {room.hosts.slice(0, 2).join(", ")}
         </span>
       </div>
     </div>
