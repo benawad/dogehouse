@@ -83,7 +83,7 @@
 		"voiceSettings": {
 			"header": "Spracheinstellungen",
 			"mic": "Mikro:",
-			"permissionError": "Keine Mikros gefunden, du hast entweder keine angeschlossen oder die Seite hat nicht die benötigten Berechtigungen.",
+			"permissionError": "Keine Mikros gefunden, du hast entweder keine angeschlossen oder die Seite hat nicht die benötigt Berechtigungen.",
 			"volume": "Lautstärke:",
 			"refresh": "Mikroliste aktualisieren"
 		}
@@ -99,7 +99,7 @@
 		},
 		"bottomVoiceControl": {
 			"leaveCurrentRoomBtn": "aktuellen Raum verlassen",
-			"confirmLeaveRoom": "Bist du sicher, dass du gehen willst?",
+			"confirmLeaveRoom": "Bist du sicher, dass du gehen möchtest?",
 			"leave": "Verlassen",
 			"inviteUsersToRoomBtn": "Benutzer zum Raum einladen",
 			"invite": "Einladen",
@@ -112,7 +112,7 @@
 			"listener": "Zuhörer"
 		},
 		"micPermissionBanner": {
-			"permissionDenied": "Wir haben keinen Zugriff auf dein Mikrofon (geh in deine Browsereinstellungen und lade die Seite neu.)",
+			"permissionDenied": "Wir haben keinen Zugriff auf dein Mikrofon (gehe in deine Browsereinstellungen und lade die Seite neu)",
 			"dismiss": "verstanden",
 			"tryAgain": "erneut versuchen"
 		},
@@ -120,36 +120,36 @@
 			"createRoomModal": {
 				"public": "öffentlich",
 				"private": "privat",
-				"roomName": "room name",
-				"roomDescription": "room description",
-				"descriptionError": "max length 500",
-				"nameError": "must be between 2 to 60 characters long"
+				"roomName": "Raumname",
+				"roomDescription": "Raumbeschreibung",
+				"descriptionError": "die maximale Länge ist 500",
+				"nameError": "muss zwischen 2 und 60 Zeichen lang sein"
 			},
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Neuen Raum erstellt",
 				"roomInviteFrom": "Neue Einladung von",
 				"justStarted": "Sie starten gerade",
-				"likeToJoin": ", willst du beitreten?",
+				"likeToJoin": ", möchtest du beitreten?",
 				"inviteReceived": "Du wurdest eingeladen zu"
 			},
 			"editProfileModal": {
 				"usernameTaken": "Benutzername ist bereits vergeben",
-				"avatarUrlError": "Ungültiges Bild",
-				"avatarUrlLabel": "Github/Twitter Avatar URL",
-				"displayNameError": "länge 2 bis 50 Buchstaben",
+				"avatarUrlError": "ungültiges Bild",
+				"avatarUrlLabel": "GitHub / Twitter Avatar URL",
+				"displayNameError": "Länge 2 bis 50 Buchstaben",
 				"displayNameLabel": "Anzeigename",
-				"usernameError": "länge 4 bis 15 alphanumerische Zeichen und Unterstriche",
+				"usernameError": "Länge 4 bis 15 alphanumerische Zeichen und Unterstriche",
 				"usernameLabel": "Benutzername",
 				"bioError": "Maximal 160 Buchstaben",
 				"bioLabel": "Bio"
 			},
 			"profileModal": {
-				"blockUserConfirm": "Bist du sicher, dass du diesen Benutzer aus allen deinen zukünftigen Räumen bannen willst?",
+				"blockUserConfirm": "Bist du sicher, dass du diesen Benutzer aus allen deinen zukünftigen Räumen bannen möchtest?",
 				"blockUser": "Benuzter bannen",
 				"makeMod": "Zum Moderator befördern",
 				"unmod": "Moderator Status aufheben",
-				"addAsSpeaker": "zu sprecher befördern",
-				"moveToListener": "zu zuhörer herabstufen",
+				"addAsSpeaker": "zu Sprecher befördern",
+				"moveToListener": "zu Zuhörer herabstufen",
 				"banFromChat": "Aus Chat bannen",
 				"banFromRoom": "Aus Raum bannen",
 				"goBackToListener": "Zurück zum Zuhörer",
@@ -172,13 +172,13 @@
 			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
 		},
 		"wsKilled": {
-			"description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
+			"description": "Die Websocket Verbindung zum Server wurde unterbrochen. Dies passiert oft, wenn du die Website in einem anderen Tab öffnest.",
 			"reconnect": "reconnect"
 		},
 		"deviceNotSupported": {
-			"notSupported": "Your device is currently not supported. You can create an",
-			"linkText": "issue on GitHub",
-			"addSupport": "and I will try adding support for your device."
+			"notSupported": "Dein Gerät wird aktuell nicht unterstützt. Du kannst ein",
+			"linkText": "Issue auf GitHub",
+			"addSupport": "öffnen und ich werde veruschen, die Unterstützung für dein Gerät hinzuzufügen."
 		},
 		"inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" }
 	},
@@ -187,7 +187,7 @@
 			"title": "Geplante Räume",
 			"noneFound": "Nicht gefunden",
 			"allRooms": "Alle geplanten Räume",
-			"myRooms": "Meine Geplanten Räume",
+			"myRooms": "Meine geplanten Räume",
 			"scheduleRoomHeader": "Plane einen Raum",
 			"startRoom": "Raum starten",
 			"modal": {

@@ -1,5 +1,4 @@
 defmodule Kousa.BL.ScheduledRoom do
-  use Kousa.Dec.Atomic
   alias Kousa.BL
   alias Kousa.Data
   alias Kousa.Errors

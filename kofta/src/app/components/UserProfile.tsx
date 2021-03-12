@@ -1,7 +1,9 @@
 import normalizeUrl from "normalize-url";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
 import { wsend } from "../../createWebsocket";
+import { useConsumerStore } from "../../webrtc/stores/useConsumerStore";
 import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
 import { linkRegex } from "../constants";
 import { BaseUser, RoomUser } from "../types";
@@ -37,6 +39,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
 	}, [_youAreFollowing]);
 	const [editProfileModalOpen, setEditProfileModalOpen] = useState(false);
 	const { t } = useTypeSafeTranslation();
+	const [count, setCount] = useState(0);
 	return (
 		<>
 			<EditProfileModal
@@ -45,7 +48,18 @@ export const UserProfile: React.FC<UserProfileProps> = ({
 				onRequestClose={() => setEditProfileModalOpen(false)}
 			/>
 			<div className={`mb-4 flex justify-between align-center`}>
-				<Avatar src={profile.avatarUrl} />
+				<div
+					onClick={() => {
+						if (count >= 4) {
+							toast("debug mode activated for this user", { type: "info" });
+							useConsumerStore.getState().startDebugging(userProfile.id);
+						} else {
+							setCount((c) => c + 1);
+						}
+					}}
+				>
+					<Avatar src={profile.avatarUrl} />
+				</div>
 				{me?.id === profile.id ? (
 					<div>
 						<Button
