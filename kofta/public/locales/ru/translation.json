@@ -2,7 +2,7 @@
   "common": {
     "loadMore": "загрузить ещё",
     "loading": "загрузка...",
-    "noUsersFound": "пользователей не найдено",
+    "noUsersFound": "пользователи не найдены",
     "ok": "ок",
     "yes": "да",
     "no": "нет",
@@ -25,7 +25,7 @@
     "_comment": "Main Footer UI Internationalization Strings",
     "link_1": "История создания",
     "link_2": "Discord",
-    "link_3": "Сообщить о баге"
+    "link_3": "Сообщить о ошибке"
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
@@ -33,7 +33,7 @@
       "ban": "забанить"
     },
     "followingOnlineList": {
-      "listHeader": "Список пользователей, которые не в приватной комнате, но подписаны на вас.",
+      "listHeader": "Список пользователей, которые не в приватной комнате, но на которых вы подписаны.",
       "currentRoom": "сейчас тут:",
       "startPrivateRoom": "создать приватную комнату с ними"
     },
@@ -43,7 +43,7 @@
     },
     "inviteList": {
       "roomGone": "комнаты больше нет, вернитесь назад",
-      "shareRoomLink": "поделитесь ссылкой на комнату",
+      "shareRoomLink": "поделиться ссылкой на комнату",
       "inviteFollowers": "Вы можете пригласить своих подписчиков, которые сейчас онлайн:",
       "whenFollowersOnline": "Когда ваши подписчики будут онлайн, они будут отображаться здесь."
     },
@@ -52,7 +52,7 @@
       "featureText_1": "Тёмная тема",
       "featureText_2": "Открытая регистрация",
       "featureText_3": "Кроссплатформенность",
-      "featureText_4": "Open Source",
+      "featureText_4": "Открытый исходый код",
       "featureText_5": "Текстовый чат",
       "featureText_6": "Powered by Doge",
       "loginGithub": "войти через GitHub",
@@ -69,7 +69,7 @@
     "notFound": {
       "whoopsError": "Упс! Эта страница где-то потерялась.",
       "goHomeMessage": "Не беспокойтесь. Вы можете",
-      "goHomeLinkText": "вернуться домой"
+      "goHomeLinkText": "вернуться на главную"
     },
     "room": {
       "speakers": "Спикеры",
