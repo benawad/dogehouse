@@ -7,6 +7,7 @@ interface LanguageSelectorProps {
 
 export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
 	options = [
+		{ value: "cs", label: "cs" },
 		{ value: "en", label: "en" },
 		{ value: "de", label: "de" },
 		{ value: "es", label: "es" },
