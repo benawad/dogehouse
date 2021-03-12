@@ -9,11 +9,11 @@
 		"no": "não",
 		"cancel": "cancelar",
 		"save": "salvar",
-		"edit": "edit",
-		"delete": "delete",
-		"joinRoom": "join room",
-		"copyLink": "copy link",
-		"copied": "copied",
+		"edit": "editar",
+		"delete": "deletar",
+		"joinRoom": "entrar na sala",
+		"copyLink": "copiar link",
+		"copied": "copiado",
 		"formattedIntlDate": "{{date, intlDate}}",
 		"formattedIntlTime": "{{time, intlTime}}"
 	},
@@ -23,15 +23,15 @@
 		"mutedTitle": "Silenciado | DogeHouse"
 	},
 	"footer": {
-		"link_1": "História de Origem",
+		"link_1": "História da Origem",
 		"link_2": "Discord",
 		"link_3": "Reportar um Erro"
 	},
 	"pages": {
-		"_comment": "Interface respectiva da pagina para tradução",
+		"_comment": "Interface respectiva da página para tradução",
 		"banUser": { "ban": "expulsar" },
 		"followingOnlineList": {
-			"listHeader": "Listas de usuários que você segue que não estão em uma sala privada.",
+			"listHeader": "Lista de usuários que você segue que não estão em uma sala privada.",
 			"currentRoom": "atualmente em:",
 			"startPrivateRoom": "iniciar uma sala privada com ele"
 		},
@@ -44,13 +44,13 @@
 			"whenFollowersOnline": "Quando seus seguidores estiverem disponíveis eles aparecerão aqui."
 		},
 		"login": {
-			"headerText": "Levando as conversas de audio para a lua 🚀",
+			"headerText": "Levando as conversas de áudio para a lua 🚀",
 			"featureText_1": "Tema Escuro",
 			"featureText_2": "Registros abertos",
 			"featureText_3": "Suporte entre plataformas",
 			"featureText_4": "Código Aberto",
 			"featureText_5": "Conversa de Texto",
-			"featureText_6": "Desenvolvido por Doge",
+			"featureText_6": "Distribuído por Doge",
 			"loginGithub": "entrar com GitHub",
 			"loginTwitter": "entrar com Twitter",
 			"createTestUser": "criar usuário teste"
@@ -135,7 +135,7 @@
 			"editProfileModal": {
 				"usernameTaken": "nome de usuário já existente",
 				"avatarUrlError": "Imagem inválida",
-				"avatarUrlLabel": "url da foto do GitHub/Twitter",
+				"avatarUrlLabel": "url da foto do Github/Twitter",
 				"displayNameError": "de 2 até 50 caracteres",
 				"displayNameLabel": "Nome de exibição",
 				"usernameError": "de 4 até 15 caracteres alfanuméricos/sublinhados",
@@ -162,7 +162,7 @@
 			}
 		},
 		"userVolumeSlider": { "noAudioMessage": "não tem audio por algum motivo" },
-		"addToCalendar": { "add": "Add to Calendar" },
+		"addToCalendar": { "add": "Adicionar ao Calendário" },
 		"keyboardShortcuts": {
 			"setKeybind": "set keybind",
 			"listening": "listening",
@@ -170,42 +170,42 @@
 			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
 		},
 		"wsKilled": {
-			"description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
-			"reconnect": "reconnect"
+			"description": "O Websocket foi finalizado pelo servidor. Isso geralmente acontece quando você abre o site em outra guia.",
+			"reconnect": "reconectar"
 		},
 		"deviceNotSupported": {
-			"notSupported": "Your device is currently not supported. You can create an",
-			"linkText": "issue on GitHub",
-			"addSupport": "and I will try adding support for your device."
+			"notSupported": "Seu dispositivo não é compatível no momento. Você pode criar uma",
+			"linkText": "issue no GitHub",
+			"addSupport": "e vou tentar adicionar suporte para o seu dispositivo."
 		},
-		"inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" }
+		"inviteButton": { "invited": "convidado", "inviteToRoom": "convidar para sala" }
 	},
 	"modules": {
 		"scheduledRooms": {
-			"title": "Scheduled Rooms",
-			"noneFound": "none found",
-			"allRooms": "all scheduled rooms",
-			"myRooms": "my scheduled rooms",
-			"scheduleRoomHeader": "Schedule Room",
-			"startRoom": "start room",
+			"title": "Salas agendadas",
+			"noneFound": "nenhuma encontrada",
+			"allRooms": "todas as salas agendadas",
+			"myRooms": "minhas salas agendadas",
+			"scheduleRoomHeader": "Agendar Sala",
+			"startRoom": "iniciar sala",
 			"modal": {
-				"needsFuture": "needs to be in the future",
-				"roomName": "room name",
-				"minLength": "min length 2"
+				"needsFuture": "precisa estar no futuro",
+				"roomName": "nome da sala",
+				"minLength": "tamanhao mínimo: 2"
 			}
 		},
 		"roomChat": {
 			"title": "Chat",
-			"emotesSoon": "[emotes soon]",
-			"bannedAlert": "You got banned from chat",
-			"waitAlert": "You have to wait a second before sending another message",
-			"search": "Search",
-			"searchResults": "Search Results",
-			"recent": "Frequently Used",
-			"sendMessage": "Send a Message",
-			"whisper": "Whisper",
-			"welcomeMessage": "Welcome to chat!",
-			"roomDescription": "room description"
+			"emotesSoon": "[emotes em breve]",
+			"bannedAlert": "Você foi banido do chat",
+			"waitAlert": "Você tem que esperar um segundo antes de enviar outra mensagem",
+			"search": "Procurar",
+			"searchResults": "Procurar Resultados",
+			"recent": "Usado frequentemente",
+			"sendMessage": "Envie uma mensagem",
+			"whisper": "Sussurrar",
+			"welcomeMessage": "Bem vindo ao chat!",
+			"roomDescription": "descrição da sala"
 		}
 	}
 }
