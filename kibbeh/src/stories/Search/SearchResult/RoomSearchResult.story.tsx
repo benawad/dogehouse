@@ -1,10 +1,13 @@
 import React from "react";
 import { Story } from "@storybook/react";
 
-import { RoomSearchResult, RoomSearchResultProps } from "../../ui/SearchResult";
+import {
+  RoomSearchResult,
+  RoomSearchResultProps,
+} from "../../../ui/Search/SearchResult";
 
 export default {
-  title: "SearchResult/RoomSearchResult",
+  title: "Search/SearchResult/RoomSearchResult",
   component: RoomSearchResult,
 };
 
