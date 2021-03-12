@@ -17,7 +17,8 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
 		{ value: "pt-BR", label: "pt-br" },
 		{ value: "pt-PT", label: "pt-pt" },
 		{ value: "tr", label: "tr" },
-		{ value: "zh-CN", label: "zh-cn" }
+		{ value: "zh-CN", label: "zh-cn" },
+		{ value: "ru", label: "ru" },
 	],
 }) => {
 	const { i18n } = useTranslation();
