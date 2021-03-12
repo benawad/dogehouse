@@ -9,7 +9,7 @@
 		"cancel": "İptal",
 		"save": "Kaydet",
 		"edit": "Düzenle",
-		"delete": "delete",
+		"delete": "Sil",
 		"joinRoom": "Odaya katıl",
 		"copyLink": "Linki kopyala",
 		"copied": "Kopyalandı!",
@@ -122,10 +122,10 @@
 			"createRoomModal": {
 				"public": "herkese açık",
 				"private": "gizli",
-				"roomName": "room name",
-				"roomDescription": "room description",
-				"descriptionError": "max length 500",
-				"nameError": "must be between 2 to 60 characters long"
+				"roomName": "oda ismi",
+				"roomDescription": "oda hakkında",
+				"descriptionError": "Maksimum uzunluk 500 karakter",
+				"nameError": "uzunluk 2-60 karakter arası olmalı"
 			},
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Yeni oda oluşturuldu",
