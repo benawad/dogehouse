@@ -1,0 +1,227 @@
+{
+	"common": {
+		"loadMore": "lataa lisää",
+		"loading": "ladataan",
+		"noUsersFound": "käyttäjiä ei löytynyt",
+		"ok": "ok",
+		"yes": "kyllä",
+		"no": "ei",
+		"cancel": "peruuta",
+		"save": "tallenna",
+		"edit": "muokkaa",
+		"delete": "poista",
+		"joinRoom": "liity huoneeseen",
+		"copyLink": "kopioi linkki",
+		"copied": "kopioitu",
+		"formattedIntlDate": "{{date, intlDate}}",
+		"formattedIntlTime": "{{time, intlTime}}"
+	},
+	"header": {
+		"_comment": "Main Header UI Internationalization Strings",
+		"title": "DogeHouse",
+		"mutedTitle": "Mykistetty | DogeHouse"
+	},
+	"footer": {
+		"_comment": "Main Footer UI Internationalization Strings",
+		"link_1": "Alkuperätarina",
+		"link_2": "Discord",
+		"link_3": "Ilmoita virheestä"
+	},
+	"pages": {
+		"_comment": "Respective Page UI Internationalization Strings",
+		"banUser": {
+			"ban": "estä"
+		},
+		"followingOnlineList": {
+			"listHeader": "Lista seuraamistasi käyttäjistä, jotka eivät ole yksityisessä huoneessa.",
+			"currentRoom": "paikalla:",
+			"startPrivateRoom": "aloita yksityinen huone heidän kanssaan"
+		},
+		"followList": {},
+		"home": {
+			"createRoom": "Luo huone"
+		},
+		"inviteList": {
+			"roomGone": "huone poistettu, mene takaisin",
+			"shareRoomLink": "jaa linkki huoneeseen",
+			"inviteFollowers": "Voit kutsua paikallaolevat seuraajasi:",
+			"whenFollowersOnline": "Kun seuraajasi ovat paikalla, löydät heidät täältä."
+		},
+		"login": {
+			"headerText": "Äänikeskustelut kuuhun asti 🚀",
+			"featureText_1": "Tumma teema",
+			"featureText_2": "Avoin kirjautuminen",
+			"featureText_3": "Monialustainen tuki",
+			"featureText_4": "Avoin lähdekoodi",
+			"featureText_5": "Keskustele viesteillä",
+			"featureText_6": "Tehostettu Dogella",
+			"loginGithub": "kirjaudu GitHubilla",
+			"loginTwitter": "kirjaudu Twitterillä",
+			"createTestUser": "luo testikäyttäjä"
+		},
+		"myProfile": {
+			"logout": "kirjaudu ulos",
+			"probablyLoading": "todennäköisesti latautuu...",
+			"voiceSettings": "mene puheasetuksiin",
+			"soundSettings": "mene ääniasetuksiin",
+			"deleteAccount": "poista käyttäjä"
+		},
+		"notFound": {
+			"whoopsError": "Oho! Tämä sivu katosi keskusteluun.",
+			"goHomeMessage": "Älä huoli. Sinä voit",
+			"goHomeLinkText": "mene kotisivulle"
+		},
+		"room": {
+			"speakers": "Kaijuttimet",
+			"requestingToSpeak": "Pyydetään lupaa puhua",
+			"listeners": "Kuuntelijat"
+		},
+		"searchUser": {
+			"search": "haetaan..."
+		},
+		"soundEffectSettings": {
+			"header": "Äänet"
+		},
+		"viewUser": {
+			"editProfile": "muokaa profiilia",
+			"followsYou": "seuraa sinua",
+			"followers": "seuraajat",
+			"following": "seurataan"
+		},
+		"voiceSettings": {
+			"header": "Puheasetukset",
+			"mic": "mikrofoni:",
+			"permissionError": "Yhtään mikrofonia ei löytynyt, joko yhtään ei ole kiinnitetty tai et ole antanut verkkosivulle lupaa käyttää mikrofonia.",
+			"refresh": "päivitä mikrofonilista",
+			"volume": "äänenvoimakkuus:"
+		}
+	},
+	"components": {
+		"_comment": "Component UI Internationalization Strings",
+		"avatar": {},
+		"backBar": {},
+		"blockedFromRoomUsers": {
+			"header": "Estetyt käyttäjät",
+			"unban": "peruuta esto",
+			"noBans": "ketään ei ole vielä estetty"
+		},
+		"bottomVoiceControl": {
+			"leaveCurrentRoomBtn": "Poistu nykyisestä huoneesta",
+			"confirmLeaveRoom": "Oletko varma, että haluat lähteä?",
+			"leave": "Poistu",
+			"inviteUsersToRoomBtn": "Kutsu käyttäjiä huoneeseen",
+			"invite": "Kutsu",
+			"toggleMuteMicBtn": "Mikrofoni pois/päälle",
+			"mute": "Mykistä",
+			"unmute": "Poista mykistys",
+			"makeRoomPublicBtn": "Tee huoneesta julkinen!",
+			"settings": "Asetukset",
+			"speaker": "Puhuja",
+			"listener": "Kuuntelija"
+		},
+		"deviceNotSupported": {
+			"notSupported": "Laitettasi ei tueta. Voit luoda",
+			"linkText": "virheilmoitukset GitHubiin",
+			"addSupport": "ja yritän lisätä tuen laitteellesi."
+		},
+		"inviteButton": {
+			"invited": "kutsuttu",
+			"inviteToRoom": "kutsu huoneeseen"
+		},
+		"micPermissionBanner": {
+			"permissionDenied": "Mikrofonin käyttö estetty (sinun täytyy mahdollisesti muuttaa selaimesi asetuksia ja päivittää sivu)",
+			"dismiss": "hylkää",
+			"tryAgain": "yritä uudelleen"
+		},
+		"keyboardShortcuts": {
+			"setKeybind": "aseta pikanäppäin",
+			"listening": "odotetaan näppäintä",
+			"toggleMuteKeybind": "mykistys päälle/pois -pikanäppäin",
+			"togglePushToTalkKeybind": "paina puhuaksesi päälle/pois -pikanäppäin"
+		},
+		"userVolumeSlider": {
+			"noAudioMessage": "ei äänen vastaanottajaa jostain syystä"
+		},
+		"addToCalendar": {
+			"add": "Lisää kalenteriin"
+		},
+		"wsKilled": {
+			"description": "Palvelin pysäytti Websocketin. Tämä johtuu yleensä tämän sivuston avaamisesta useampaan välilehteen.",
+			"reconnect": "yhdistä uudelleen"
+		},
+		"modals": {
+			"createRoomModal": {
+				"public": "julkinen",
+				"private": "yksityinen",
+				"roomName": "huoneen nimi",
+				"roomDescription": "huoneen kuvaus",
+				"descriptionError": "maksimipituus 500",
+				"nameError": "täytyy olla 2-60 merkkiä pitkä"
+			},
+			"invitedToJoinRoomModal": {
+				"newRoomCreated": "Uusi huone luotu",
+				"roomInviteFrom": "Kutsu huoneeseen käyttäjältä",
+				"justStarted": "Huone aloittettu juuri",
+				"likeToJoin": ", haluaisitko liittyä?",
+				"inviteReceived": "sinut on kutsuttu liittymään"
+			},
+			"editProfileModal": {
+				"usernameTaken": "käyttäjänimi varattu",
+				"avatarUrlError": "Epäkelpo kuva",
+				"avatarUrlLabel": "Github/Twitter profiilikuvan linkki",
+				"displayNameError": "pituus 2-50 merkkiä",
+				"displayNameLabel": "Näytä nimi",
+				"usernameError": "pituus 4-15 merkkiä ja vain aakkosia, numeroita tai alaviivoja",
+				"usernameLabel": "Käyttäjänimi",
+				"bioError": "maksimipituus 160 merkkiä",
+				"bioLabel": "Kuvaus"
+			},
+			"profileModal": {
+				"blockUserConfirm": "Haluatko estää tämän käyttäjän liittymästä yhteenkään huoneeseesi?",
+				"blockUser": "estä käyttäjä",
+				"makeMod": "lisää ylläpitäjäksi",
+				"unmod": "poista ylläpitäjä",
+				"addAsSpeaker": "lisää puhujaksi",
+				"moveToListener": "lisää kuuntelijaksi",
+				"banFromChat": "poista keskustelusta",
+				"banFromRoom": "poista huoneesta",
+				"goBackToListener": "palaa takaisin kuuntelemaan",
+				"deleteMessage": "poista tämä viesti"
+			},
+			"roomSettingsModal": {
+				"requirePermission": "anna lupa puhua",
+				"makePublic": "tee huoneesta julkinen",
+				"makePrivate": "tee huoneesta yksityinen"
+			}
+		}
+	},
+	"modules": {
+		"_comment": "Modules UI Internationalization Strings",
+		"scheduledRooms": {
+			"title": "Ajoitetut huoneet",
+			"noneFound": "yhtään huonetta ei löytynt",
+			"allRooms": "Kaikki ajoitetut huoneet",
+			"myRooms": "Minun ajoittamani huoneet",
+			"scheduleRoomHeader": "Ajoita huone",
+			"startRoom": "aloita huone",
+			"modal": {
+				"needsFuture": "täytyy alkaa tulevaisuudessa",
+				"roomName": "huoneen nimi",
+				"minLength": "minimipituus 2"
+			}
+		},
+		"roomChat": {
+			"title": "Keskustelu",
+			"emotesSoon": "[hymiöt tulevat pian]",
+			"bannedAlert": "Sinut on estetty huoneesta",
+			"waitAlert": "Odota ennen uuden viestin lähettämistä",
+			"search": "Hae",
+			"searchResults": "Hakutulokset",
+			"recent": "Usein käytetyt",
+			"sendMessage": "Lähetä viesti",
+			"whisper": "Kuiskaa",
+			"welcomeMessage": "Tervetuloa keskusteluun!",
+			"roomDescription": "huoneen kuvaus"
+		}
+	}
+}
