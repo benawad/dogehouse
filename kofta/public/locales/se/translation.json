@@ -41,9 +41,9 @@
 			"createRoom": "Skapa Rum"
 		},
 		"inviteList": {
-			"roomGone": "rummet borta, gå tillbacka",
+			"roomGone": "rummet borta, gå tillbaka",
 			"shareRoomLink": "dela länk till rummet",
-			"inviteFollowers": "Du can bjuda in dina följare som är uppkopplade:",
+			"inviteFollowers": "Du kan bjuda in dina följare som är uppkopplade:",
 			"whenFollowersOnline": "När dina följare är uppkopplade kommer de visa sig här."
 		},
 		"login": {
@@ -56,7 +56,7 @@
 			"featureText_6": "Drivs av Doge",
 			"loginGithub": "logga in med GitHub",
 			"loginTwitter": "logga in Twitter",
-			"createTestUser": "skapa test användare"
+			"createTestUser": "skapa testanvändare"
 		},
 		"myProfile": {
 			"logout": "logga ut",
@@ -105,7 +105,7 @@
 			"noBans": "ingen har blivit bannad ännu"
 		},
 		"bottomVoiceControl": {
-			"leaveCurrentRoomBtn": "Lämna nuvarnade rum",
+			"leaveCurrentRoomBtn": "Lämna nuvarande rum",
 			"confirmLeaveRoom": "Är du säker på att du vill lämna?",
 			"leave": "Lämna",
 			"inviteUsersToRoomBtn": "Bjud in användare till rum",
@@ -119,7 +119,7 @@
 			"listener": "Lyssnare"
 		},
 		"micPermissionBanner": {
-			"permissionDenied": "Tillåtelse nekad när vi försökte att ansluta till din mikrofon (du kan behöva gå in till webbläsarsinställningarna och ladda om sidan)",
+			"permissionDenied": "Tillåtelse nekad när vi försökte att ansluta till din mikrofon (du kan behöva gå in till webbläsarinställningarna och ladda om sidan)",
 			"dismiss": "avfärda",
 			"tryAgain": "försök igen"
 		},
@@ -136,7 +136,7 @@
 				"inviteReceived": "du har blivit inbjuden till"
 			},
 			"editProfileModal": {
-				"usernameTaken": "användarenamn taget",
+				"usernameTaken": "användarnamn taget",
 				"avatarUrlError": "Ogiltig bild",
 				"avatarUrlLabel": "Github/Twitter profilbild länk",
 				"displayNameError": "längd 2 till 50 karaktärer",
@@ -176,8 +176,8 @@
 		"scheduledRooms": {
 			"title": "Schemalagda rum",
 			"noneFound": "inga hittades",
-			"allRooms": "alla mina schemalgda rum",
-			"myRooms": "mina schemalgda rum",
+			"allRooms": "alla mina schemalagda rum",
+			"myRooms": "mina schemalagda rum",
 			"scheduleRoomHeader": "Schemalagda Rum",
 			"startRoom": "påbörja rum",
 			"modal": {
@@ -190,7 +190,7 @@
 			"title": "Chatt",
 			"emotesSoon": "[emotes kommer snart]",
 			"bannedAlert": "Du blev bannad från chatten",
-			"waitAlert": "Du behöver vänta en sekund innan du skickar mer meddelanden",
+			"waitAlert": "Du behöver vänta en sekund innan du kan skicka fler meddelanden",
 			"search": "Sök",
 			"searchResults": "Sökresultat",
 			"recent": "Ofta använda",
