@@ -58,7 +58,7 @@
     },
     "myProfile": {
       "logout": "wyloguj się",
-      "probablyLoading": "prawdobodobnie ładuje się...",
+      "probablyLoading": "prawdobodobnie ładowanie...",
       "voiceSettings": "przejdź do ustawień głosu",
       "soundSettings": "przejdź do ustawień dzięku",
       "deleteAccount": "usuń konto"
@@ -113,8 +113,8 @@
       "listener": "Słuchacz"
     },
     "deviceNotSupported": {
-      "notSupported": "Twoje urządzenie nie jest obecnie wspierane. Możesz stworzyć",
-      "linkText": "issue na GitHub",
+      "notSupported": "Twoje urządzenie nie jest obecnie wspierane. Możesz zgłosić to",
+      "linkText": "na GitHub",
       "addSupport": "a ja spróbuję dodać obsługę twojego urządzenia."
     },
     "inviteButton": {
@@ -127,9 +127,9 @@
       "tryAgain": "spróbuj ponownie"
     },
     "keyboardShortcuts": {
-      "setKeybind": "ustaw keybind",
+      "setKeybind": "ustaw skrót klawiszowy",
       "listening": "słuchanie",
-      "toggleMuteKeybind": "przełącz keybind od wyciszania",
+      "toggleMuteKeybind": "przełącz skrót klawiszowy od wyciszania",
       "togglePushToTalkKeybind": "przełącz keybind push-to-talk"
     },
     "userVolumeSlider": {
@@ -146,7 +146,7 @@
         "private": "prywatne",
         "roomName": "nazwa pokoju",
         "roomDescription": "opis pokoju",
-        "descriptionError": "maksymalna długość 500",
+        "descriptionError": "maksymalna długość to 500",
         "nameError": "musi być pomiędzy 2 a 60 znakami"
       },
       "invitedToJoinRoomModal": {
@@ -164,7 +164,7 @@
         "displayNameLabel": "Nazwa Wyświetlana",
         "usernameError": "długość od 4 do 15 znaków oraz jedynie alphanumeryczna oraz podkreślnik",
         "usernameLabel": "Nazwa użytkownika",
-        "bioError": "maksymalna długość 160 znaków",
+        "bioError": "maksymalna długość to 160 znaków",
         "bioLabel": "Bio"
       },
       "profileModal": {
@@ -198,7 +198,7 @@
       "modal": {
         "needsFuture": "musi być w przyszłości",
         "roomName": "nazwa pokoju",
-        "minLength": "minimalna długość 2"
+        "minLength": "minimalna długość to 2"
       }
     },
     "roomChat": {
