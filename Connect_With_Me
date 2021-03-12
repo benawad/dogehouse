@@ -1,0 +1,7 @@
+Hi ben
+I want to talk with you about many more things related to your dogehouse app
+so please connect with me if you're available.
+export const contacts = {
+  FB: https://www.facebook.com/profile.php?id=100005655280203,
+  whatsapp_or_telegram: +201002903748
+}
