@@ -31,7 +31,7 @@ export const Live: Story<RoomCardProps> = ({
 Live.bind({});
 
 export const StartsIn2Secs: Story<RoomCardProps> = ({
-  title = "Live with u/DeepFuckingValue",
+  title = "Live with u/DeepFuckingValueLive with u/DeepFuckingValue Live with u/DeepFuckingValue Live with u/DeepFuckingValue Live with u/DeepFuckingValue",
   subtitle = "Doug Terry, Denae Augustine, DeepFuckingValue",
   listeners = 1300,
   scheduledFor = addSeconds(Date.now(), 2),

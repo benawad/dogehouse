@@ -56,14 +56,16 @@ export const RoomCard: React.FC<RoomCardProps> = ({
 
   return (
     <div className="p-4 w-full bg-primary-800 hover:bg-primary-800 rounded-lg flex flex-col">
-      <div className="w-full flex justify-between">
+      <div className="w-full flex justify-between space-x-4">
         <RoomCardHeading
           icon={roomLive ? undefined : <SmSolidTime />}
           text={title}
         />
-        <BubbleText live={roomLive}>
-          {roomLive ? formatNumber(listeners) : scheduledForLabel}
-        </BubbleText>
+        <div className="flex-shrink-0">
+          <BubbleText live={roomLive}>
+            {roomLive ? formatNumber(listeners) : scheduledForLabel}
+          </BubbleText>
+        </div>
       </div>
       <div className="text-primary-300 mt-2">{subtitle}</div>
       <div className="space-x-2 mt-4">
