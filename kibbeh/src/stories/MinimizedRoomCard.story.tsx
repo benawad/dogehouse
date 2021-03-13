@@ -1,7 +1,7 @@
 import React from "react";
 import { Story } from "@storybook/react";
 import { MinimizedRoomCard } from "../ui/MinimizedRoomCard";
-import { SearchOverlayProps } from "../ui/SearchOverlay";
+import { SearchOverlayProps } from "../ui/Search/SearchOverlay";
 
 export default {
   title: "MinimizedRoomCard",
