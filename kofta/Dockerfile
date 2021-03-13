@@ -6,8 +6,8 @@ COPY package.json package-lock.json ./
 RUN npm i
 COPY . .
 
-RUN npm run build
+# RUN npm run build
 
-ENV NODE_ENV production
+# ENV NODE_ENV production
 CMD [ "npx", "craco", "start" ]
-USER node
+# USER node

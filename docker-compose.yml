@@ -33,7 +33,6 @@ services:
       timeout: 5s
 
   shawarma:
-    network_mode: host
     restart: unless-stopped
     labels:
       tv.dogehouse.description: "Voice Server Service"
@@ -41,7 +40,6 @@ services:
       - kousa
 
   kousa:
-    network_mode: host
     restart: unless-stopped
     labels:
       tv.dogehouse.description: "Backend Service"
@@ -55,18 +53,16 @@ services:
     labels:
       tv.dogehouse.description: "Postgres Database"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - ./.docker/postgres:/var/lib/postgresql/data
     ports:
       - 5432:5432
 
   adminer:
-    network_mode: host
     image: adminer
     restart: unless-stopped
+    ports:
+      - 8080:8080
     labels:
       tv.dogehouse.description: "Adminer Database"
     depends_on: 
       - postgres
-
-volumes:
-  postgres_data:
