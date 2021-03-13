@@ -8,21 +8,29 @@ interface LanguageSelectorProps {
 export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
 	options = [
 		{ value: "en", label: "en" },
+		{ value: "ar", label: "ar" },
 		{ value: "cs", label: "cs" },
 		{ value: "de", label: "de" },
 		{ value: "es", label: "es" },
+		{ value: "fi", label: "fi" },
 		{ value: "fr", label: "fr" },
 		{ value: "he", label: "he" },
 		{ value: "Hi", label: "hi" },
 		{ value: "hu", label: "hu" },
+		{ value: "id", label: "id" },
 		{ value: "it", label: "it" },
+		{ value: "lt", label: "lt" },
 		{ value: "nb", label: "nb" },
+		{ value: "ne", label: "ne" },
+		{ value: "nl", label: "nl" },
 		{ value: "pl", label: "pl" },
+		{ value: "ur", label: "ur" },																															
 		{ value: "pt-BR", label: "pt-br" },
 		{ value: "pt-PT", label: "pt-pt" },
+		{ value: "ru", label: "ru" },
 		{ value: "th", label: "th" },
 		{ value: "tr", label: "tr" },
-		{ value: "zh-CN", label: "zh-cn" }
+		{ value: "zh-CN", label: "zh-cn" },
 	],
 }) => {
 	const { i18n } = useTranslation();
