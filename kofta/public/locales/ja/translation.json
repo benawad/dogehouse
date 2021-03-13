@@ -1,0 +1,228 @@
+{
+  "_comment": "if you change this file, do: npm run i18",
+  "common": {
+    "loadMore": "読み込む",
+    "loading": "読込中...",
+    "noUsersFound": "ユーザーが見つかりませんでした",
+    "ok": "OK",
+    "yes": "はい",
+    "no": "いいえ",
+    "cancel": "キャンセル",
+    "save": "保存",
+    "edit": "編集",
+    "delete": "削除",
+    "joinRoom": "ルームに参加",
+    "copyLink": "リンクをコピー",
+    "copied": "コピーしました",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "ミュート | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "Origin Story",
+    "link_2": "Discord",
+    "link_3": "バグを報告"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": {
+      "ban": "バン"
+    },
+    "followingOnlineList": {
+      "listHeader": "ルームに参加していないフォロー中のユーザー",
+      "currentRoom": "参加中：",
+      "startPrivateRoom": "プライベートルームを開始"
+    },
+    "followList": {},
+    "home": {
+      "createRoom": "ルーム作成"
+    },
+    "inviteList": {
+      "roomGone": "ルームが削除されました、前のページに戻ります",
+      "shareRoomLink": "リンクを共有",
+      "inviteFollowers": "オンラインのユーザーを招待:",
+      "whenFollowersOnline": "フォロワーがオンラインになるとここに表示されます"
+    },
+    "login": {
+      "headerText": "月に向かって会話しよう！ 🚀",
+      "featureText_1": "ダークテーマ",
+      "featureText_2": "参加自由",
+      "featureText_3": "クロスプラットフォーム",
+      "featureText_4": "オープンソース",
+      "featureText_5": "テキストチャット",
+      "featureText_6": "Powered by Doge",
+      "loginGithub": "Login with GitHub",
+      "loginTwitter": "Login with Twitter",
+      "createTestUser": "テストユーザーを作成"
+    },
+    "myProfile": {
+      "logout": "ログアウト",
+      "probablyLoading": "きっと読込中。。。",
+      "voiceSettings": "マイク設定",
+      "soundSettings": "スピーカー設定",
+      "deleteAccount": "アカウント削除"
+    },
+    "notFound": {
+      "whoopsError": "おっと！？このページは会話に紛れてしまいました。",
+      "goHomeMessage": "心配無用。できるはずです",
+      "goHomeLinkText": "ホームに戻る"
+    },
+    "room": {
+      "speakers": "スピーカー",
+      "requestingToSpeak": "発言をリクエスト",
+      "listeners": "リスナー"
+    },
+    "searchUser": {
+      "search": "検索中..."
+    },
+    "soundEffectSettings": {
+      "header": "音声設定"
+    },
+    "viewUser": {
+      "editProfile": "プロフィールを編集",
+      "followsYou": "フォローされています",
+      "followers": "フォロワー",
+      "following": "フォロー"
+    },
+    "voiceSettings": {
+      "header": "マイク設定",
+      "mic": "マイク:",
+      "permissionError": "マイクが見つかりませんでした。 マイクが接続されていることを確認し、アクセスを許可してください。",
+      "refresh": "更新",
+      "volume": "ボリューム:"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "バンされたユーザー",
+      "unban": "バンを撤回",
+      "noBans": "バンされたユーザーはいません"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "ルームから退出する",
+      "confirmLeaveRoom": "ルームから退出しますか？",
+      "leave": "退出",
+      "inviteUsersToRoomBtn": "ユーザーを招待する",
+      "invite": "招待",
+      "toggleMuteMicBtn": "ミュート切り替え",
+      "mute": "ミュート",
+      "unmute": "ミュート解除",
+      "makeRoomPublicBtn": "ルームを公開",
+      "settings": "設定",
+      "speaker": "スピーカー",
+      "listener": "リスナー"
+    },
+    "deviceNotSupported": {
+      "notSupported": "デバイスはサポートされていません。",
+      "linkText": "GitHubでissueを作成",
+      "addSupport": "するとサポートを受けられます。"
+    },
+    "inviteButton": {
+      "invited": "招待",
+      "inviteToRoom": "ルームに招待"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "マイクへのアクセスが許可されていません（ブラウザーの設定を変更して、ページを再読み込みする必要がありかもしれません）",
+      "dismiss": "無視",
+      "tryAgain": "リトライ"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "ショートカットキーを設定",
+      "listening": "聞いています",
+      "toggleMuteKeybind": "ミュート切り替え",
+      "togglePushToTalkKeybind": "プッシュトゥートーク切り替え"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "何らかの原因で音声が出ません"
+    },
+    "addToCalendar": {
+      "add": "カレンダーに追加"
+    },
+    "wsKilled": {
+      "description": "WebSocketがサーバーによって強制終了されました。 これは通常、別のタブで開いたときに発生します。",
+      "reconnect": "再接続"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "公開",
+        "private": "非公開",
+        "roomName": "名前",
+        "roomDescription": "説明",
+        "descriptionError": "500文字以内",
+        "nameError": "2文字から6文字で設定してください"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "ルームが作成されました",
+        "roomInviteFrom": "からルームに招待されました",
+        "justStarted": "始まったばかりです",
+        "likeToJoin": "、参加しますか？",
+        "inviteReceived": "に招待されました"
+      },
+      "editProfileModal": {
+        "usernameTaken": "ユーザーネームトークン",
+        "avatarUrlError": "画像が正しくありません",
+        "avatarUrlLabel": "GitHub/Twitter 画像URL",
+        "displayNameError": "2文字から50文字の名前を設定してください",
+        "displayNameLabel": "表示名",
+        "usernameError": "アルファベット・アンダーバー4文字から15文字で設定してください",
+        "usernameLabel": "ユーザー名",
+        "bioError": "160文字以内にしてください",
+        "bioLabel": "自己紹介"
+      },
+      "profileModal": {
+        "blockUserConfirm": "このユーザーがあなたの作成したすべてのルームへの参加を禁止しても良いですか？",
+        "blockUser": "ブロック",
+        "makeMod": "モデレーターに設定",
+        "unmod": "モデレーターを解除",
+        "addAsSpeaker": "スピーカーとして追加",
+        "moveToListener": "リスナーに変更",
+        "banFromChat": "チャットからバン",
+        "banFromRoom": "ルームからバン",
+        "goBackToListener": "リスナーに戻る",
+        "deleteMessage": "メッセージを削除"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "発言に許可が必要",
+        "makePublic": "ルームを公開に変更",
+        "makePrivate": "ルームを非公開に変更"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "予定されたルーム",
+      "noneFound": "見つかりませんでした",
+      "allRooms": "すべて",
+      "myRooms": "自分",
+      "scheduleRoomHeader": "予定されたルーム",
+      "startRoom": "ルームを開始",
+      "modal": {
+        "needsFuture": "将来的に開催される必要がある",
+        "roomName": "名前",
+        "minLength": "2文字以上の名前を指定してください"
+      }
+    },
+    "roomChat": {
+      "title": "チャット",
+      "emotesSoon": "[絵文字がまもなく設定可能に]",
+      "bannedAlert": "チャットからバンされました",
+      "waitAlert": "メッセージ送信前に1秒待つ必要があります",
+      "search": "検索",
+      "searchResults": "検索結果",
+      "recent": "最近",
+      "sendMessage": "メッセージを送信",
+      "whisper": "ささやく",
+      "welcomeMessage": "チャットへようこそ！",
+      "roomDescription": "ルームの説明"
+    }
+  }
+}
