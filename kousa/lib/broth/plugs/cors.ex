@@ -1,4 +1,4 @@
-defmodule Broth.Cors do
+defmodule Broth.Plugs.Cors do
   import Plug.Conn
 
   def init(_) do

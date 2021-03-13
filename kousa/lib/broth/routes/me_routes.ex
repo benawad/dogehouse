@@ -5,7 +5,7 @@ defmodule Broth.Routes.Me do
 
   # alias Beef.Users
 
-  plug(Broth.CheckAuth, %{shouldThrow: false})
+  plug(Broth.Plugs.CheckAuth, %{shouldThrow: false})
   plug(:match)
   plug(:dispatch)
 

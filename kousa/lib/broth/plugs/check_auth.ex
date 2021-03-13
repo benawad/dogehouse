@@ -1,4 +1,4 @@
-defmodule Broth.CheckAuth do
+defmodule Broth.Plugs.CheckAuth do
   import Plug.Conn
 
   def init(opts) do

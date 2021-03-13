@@ -8,7 +8,7 @@ defmodule Broth do
 
   use Plug.Router
   use Sentry.PlugCapture
-  plug(Broth.Cors)
+  plug(Broth.Plugs.Cors)
   plug(Kousa.Metric.PrometheusExporter)
   plug(:match)
   plug(:dispatch)

@@ -1,4 +1,4 @@
-defmodule Broth.Redirect do
+defmodule Broth.Plugs.Redirect do
   import Plug.Conn
 
   def redirect(conn, url) do
