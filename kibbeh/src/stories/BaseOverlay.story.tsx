@@ -4,14 +4,14 @@ import { Story } from "@storybook/react";
 import { BaseOverlay, BaseOverlayProps } from "../ui/BaseOverlay";
 import { MessageElement } from "../ui/MessageElement";
 import avatar from "../img/avatar.png";
+import { SettingsIcon } from "../ui/SettingsIcon";
+import { SmSolidCaretRight, SmOutlineGlobe, SmSolidUser } from "../icons";
 import {
-  FollowNotification,
   GenericNotification,
+  FollowNotification,
   LiveNotification,
   NewRoomNotification,
 } from "../ui/NotificationElement";
-import { SettingsIcon } from "../ui/SettingsIcon";
-import { SmSolidCaretRight, SmOutlineGlobe, SmSolidUser } from "../icons";
 
 const user = {
   avatar,
@@ -48,6 +48,7 @@ Messages.bind({});
 interface IconWrapperProps {
   children: ReactNode;
 }
+
 function IconWrapper({ children }: IconWrapperProps) {
   return <div className="py-3 px-4">{children}</div>;
 }

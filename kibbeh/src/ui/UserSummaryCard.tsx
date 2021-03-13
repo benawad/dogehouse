@@ -5,9 +5,8 @@ import { UserBadge } from "./UserBadge";
 import { kFormatter } from "../lib/kFormatter";
 
 type badge = {
-  content: any;
+  content: React.ReactNode;
   variant: "primary" | "secondary";
-  type: "text" | "svg";
 };
 
 export interface UserSummaryCardProps {
@@ -34,16 +33,16 @@ interface WebsiteProps {
 export const Badges: React.FC<BadgesProps> = ({ badges }) => {
   return (
     <div className="mt-2">
-      {badges.map(({ content, variant, type }, i) => (
+      {badges.map(({ content, variant }, i) => (
         <span className="mr-1" key={i}>
-          <UserBadge variant={variant}>
-            {type === "svg" ? content() : content}
-          </UserBadge>
+          <UserBadge variant={variant}>{content}</UserBadge>
         </span>
       ))}
     </div>
   );
 };
+
+const regex = /(^\w+:|^)\/\//;
 
 export const Website: React.FC<WebsiteProps> = ({ website }) => {
   return (
@@ -53,13 +52,12 @@ export const Website: React.FC<WebsiteProps> = ({ website }) => {
       target="_blank"
       rel="noreferrer"
     >
-      {website.replace(/(^\w+:|^)\/\//, "")}
+      {website.replace(regex, "")}
     </a>
   );
 };
 
 export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
-  userId,
   displayName,
   username,
   badges,
