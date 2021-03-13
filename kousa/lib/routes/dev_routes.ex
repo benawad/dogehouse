@@ -9,12 +9,10 @@ defmodule Kousa.Routes.Dev do
   plug(:dispatch)
 
   get "/test-info" do
-    if Application.fetch_env!(:kousa, :env) != :dev and
-         not Kousa.Caster.bool(Application.get_env(:kousa, :staging?)) do
-      conn
-      |> put_resp_content_type("application/json")
-      |> send_resp(400, Poison.encode!(%{"error" => "no"}))
-    else
+    env = Application.fetch_env!(:kousa, :env)
+    staging? = Application.get_env(:kousa, :staging?)
+
+    if env == :dev || staging? do
       username = fetch_query_params(conn).query_params["username"]
 
       conn
@@ -39,6 +37,10 @@ defmodule Kousa.Routes.Dev do
           )
         )
       )
+    else
+      conn
+      |> put_resp_content_type("application/json")
+      |> send_resp(400, Poison.encode!(%{"error" => "no"}))
     end
   end
 end

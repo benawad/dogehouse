@@ -37,7 +37,7 @@ defmodule Onion.UserSession do
         pid: nil,
         user_id: user_id,
         current_room_id: current_room_id,
-        muted: Kousa.Caster.bool(muted)
+        muted: muted == true
       },
       name: :"#{user_id}:user_session"
     )
@@ -91,17 +91,15 @@ defmodule Onion.UserSession do
   end
 
   def handle_cast({:set_mute, value}, state) do
-    v = Kousa.Caster.bool(value)
-
     if not is_nil(state.current_room_id) do
       Kousa.RegUtils.lookup_and_cast(
         Onion.RoomSession,
         state.current_room_id,
-        {:mute, state.user_id, v}
+        {:mute, state.user_id, value == true}
       )
     end
 
-    {:noreply, %{state | muted: v}}
+    {:noreply, %{state | muted: value == true}}
   end
 
   def handle_cast({:new_tokens, tokens}, state) do

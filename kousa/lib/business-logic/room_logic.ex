@@ -1,7 +1,6 @@
 defmodule Kousa.BL.Room do
   alias Kousa.BL
   alias Kousa.RegUtils
-  alias Kousa.Caster
   alias Kousa.VoiceServerUtils
   alias Beef.Users
   alias Beef.Follows
@@ -150,11 +149,11 @@ defmodule Kousa.BL.Room do
     end
   end
 
-  def change_mod(user_id, user_id_to_change, value) do
+  def change_mod(user_id, user_id_to_change, value) when is_boolean(value) do
     room = Rooms.get_room_by_creator_id(user_id)
 
     if room do
-      RoomPermissions.set_is_mod(user_id_to_change, room.id, Caster.bool(value))
+      RoomPermissions.set_is_mod(user_id_to_change, room.id, value)
 
       Kousa.RegUtils.lookup_and_cast(
         Onion.RoomSession,
@@ -311,8 +310,7 @@ defmodule Kousa.BL.Room do
 
               Onion.RoomSession.send_cast(
                 room_id,
-                {:join_room, updated_user,
-                 Onion.UserSession.send_call!(user_id, {:get, :muted})}
+                {:join_room, updated_user, Onion.UserSession.send_call!(user_id, {:get, :muted})}
               )
 
               canSpeak =

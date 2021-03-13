@@ -21,16 +21,15 @@ defmodule Kousa.Routes.TwitterAuth do
 
   get "/web" do
     state =
-      if(
-        Kousa.Caster.bool(Application.get_env(:kousa, :staging?)),
-        do:
-          %{
-            redirect_base_url: fetch_query_params(conn).query_params["redirect_after_base"]
-          }
-          |> Poison.encode!()
-          |> Base.encode64(),
-        else: "web"
-      )
+      if Application.get_env(:kousa, :staging?) do
+        %{
+          redirect_base_url: fetch_query_params(conn).query_params["redirect_after_base"]
+        }
+        |> Poison.encode!()
+        |> Base.encode64()
+      else
+        "web"
+      end
 
     %{conn | params: Map.put(conn.params, "state", state)}
     |> Plug.Conn.put_private(:ueberauth_request_options, %{
@@ -71,7 +70,7 @@ defmodule Kousa.Routes.TwitterAuth do
   end
 
   def get_base_url(conn) do
-    with true <- Kousa.Caster.bool(Application.get_env(:kousa, :staging?)),
+    with true <- Application.get_env(:kousa, :staging?),
          state <- Map.get(conn.query_params, "state", ""),
          {:ok, json} <- Base.decode64(state),
          {:ok, %{"redirect_base_url" => redirect_base_url}} <- Poison.decode(json) do

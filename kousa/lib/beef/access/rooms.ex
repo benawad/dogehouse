@@ -8,7 +8,7 @@ defmodule Beef.Access.Rooms do
   alias Beef.Repo
   alias Beef.Schemas.User
   alias Beef.Schemas.Room
-	alias Beef.Schemas.UserBlock
+  alias Beef.Schemas.UserBlock
   alias Beef.RoomPermissions
   alias Beef.RoomBlocks
 
@@ -108,24 +108,24 @@ defmodule Beef.Access.Rooms do
   end
 
   def get_a_user_for_room(room_id) do
-    Query.userStart
+    Query.userStart()
     |> Query.filter_by_current_room_id(room_id)
-    |> Query.limit_one
+    |> Query.limit_one()
     |> Repo.one()
   end
 
   def get_room_by_creator_id(creator_id) do
-    Query.start
+    Query.start()
     |> Query.filter_by_creator_id(creator_id)
-    |> Query.limit_one
+    |> Query.limit_one()
     |> Repo.one()
   end
 
   def owner?(room_id, user_id) do
     not is_nil(
-      Query.start
+      Query.start()
       |> Query.filter_by_room_id_and_creator_id(room_id, user_id)
-      |> Repo.one
+      |> Repo.one()
     )
   end
 

@@ -25,43 +25,42 @@ defmodule Beef.Mutations.Users do
   end
 
   def inc_num_following(user_id, n) do
-    Query.start
+    Query.start()
     |> Query.filter_by_id(user_id)
     |> Query.inc_num_following_by_n(n)
     |> Repo.update_all([])
   end
 
   def set_reason_for_ban(user_id, reason_for_ban) do
-    Query.start
+    Query.start()
     |> Query.filter_by_id(user_id)
     |> Query.update_reason_for_ban(reason_for_ban)
     |> Repo.update_all([])
   end
 
   def set_online(user_id) do
-    Query.start
+    Query.start()
     |> Query.filter_by_id(user_id)
-    |> Query.update_set_online_true
+    |> Query.update_set_online_true()
     |> Repo.update_all([])
   end
 
   def set_user_left_current_room(user_id) do
     Kousa.RegUtils.lookup_and_cast(Onion.UserSession, user_id, {:set_current_room_id, nil})
 
-    Query.start
+    Query.start()
     |> Query.filter_by_id(user_id)
-    |> Query.update_set_current_room_nil
+    |> Query.update_set_current_room_nil()
     |> Repo.update_all([])
   end
 
   def set_offline(user_id) do
-    Query.start
+    Query.start()
     |> Query.filter_by_id(user_id)
-    |> Query.update_set_online_false
-    |> Query.update_set_last_online_to_now
+    |> Query.update_set_online_false()
+    |> Query.update_set_last_online_to_now()
     |> Repo.update_all([])
   end
-
 
   def set_current_room(user_id, room_id, can_speak \\ false, returning \\ false) do
     roomPermissions =

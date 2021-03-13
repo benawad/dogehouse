@@ -3,7 +3,6 @@ defmodule Kousa.SocketHandler do
 
   alias Kousa.BL
   alias Kousa.RegUtils
-  alias Kousa.Caster
   alias Beef.Users
   alias Beef.Rooms
   alias Beef.Follows
@@ -657,7 +656,7 @@ defmodule Kousa.SocketHandler do
     {scheduled_rooms, next_cursor} =
       BL.ScheduledRoom.get_scheduled_rooms(
         state.user_id,
-        Caster.bool(Map.get(data, "getOnlyMyScheduledRooms", false)),
+        Map.get(data, "getOnlyMyScheduledRooms") == true,
         Map.get(data, "cursor")
       )
 

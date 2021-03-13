@@ -92,13 +92,11 @@ defmodule Onion.RoomSession do
     end
   end
 
-  def handle_cast({:speaking_change, user_id, value}, state) do
-    bool = Kousa.Caster.bool(value)
-
-    muteMap = if bool, do: Map.delete(state.muteMap, user_id), else: state.muteMap
+  def handle_cast({:speaking_change, user_id, value}, state) when is_boolean(value) do
+    muteMap = if value, do: Map.delete(state.muteMap, user_id), else: state.muteMap
 
     newActiveSpeakerMap =
-      if bool,
+      if value,
         do: Map.put(state.activeSpeakerMap, user_id, true),
         else: Map.delete(state.activeSpeakerMap, user_id)
 
@@ -189,14 +187,13 @@ defmodule Onion.RoomSession do
   def handle_cast({:join_room_no_fan, user_id, mute}, %State{} = state) do
     Kousa.RegUtils.lookup_and_cast(Onion.RoomChat, state.room_id, {:add_user, user_id})
 
+    # consider using MapSet instead!!
     muteMap =
-      if is_nil(mute),
-        do: state.muteMap,
-        else:
-          if(not Kousa.Caster.bool(mute),
-            do: Map.delete(state.muteMap, user_id),
-            else: Map.put(state.muteMap, user_id, true)
-          )
+      case mute do
+        nil -> state.muteMap
+        true -> Map.put(state.muteMap, user_id, true)
+        false -> Map.delete(state.muteMap, user_id)
+      end
 
     {:noreply,
      %{
@@ -214,13 +211,11 @@ defmodule Onion.RoomSession do
     Kousa.RegUtils.lookup_and_cast(Onion.RoomChat, state.room_id, {:add_user, user.id})
 
     muteMap =
-      if is_nil(mute),
-        do: state.muteMap,
-        else:
-          if(not Kousa.Caster.bool(mute),
-            do: Map.delete(state.muteMap, user.id),
-            else: Map.put(state.muteMap, user.id, true)
-          )
+      case mute do
+        nil -> state.muteMap
+        true -> Map.put(state.muteMap, user.id, true)
+        false -> Map.delete(state.muteMap, user.id)
+      end
 
     ws_fan(state.users, :vscode, %{op: "new_user_join_room", d: %{user: user, muteMap: muteMap}})
 
