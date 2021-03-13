@@ -2,17 +2,17 @@
 	"common": {
 		"loadMore": "charger plus",
 		"loading": "chargement...",
-		"noUsersFound": "pas d'utilisateurs trouvés",
+		"noUsersFound": "aucun utilisateur trouvé",
 		"ok": "ok",
 		"yes": "oui",
 		"no": "non",
 		"cancel": "annuler",
 		"save": "sauvegarder",
-		"edit": "edit",
-		"delete": "delete",
-		"joinRoom": "join room",
-		"copyLink": "copy link",
-		"copied": "copied",
+		"edit": "éditer",
+		"delete": "supprimer",
+		"joinRoom": "rejoindre la salle",
+		"copyLink": "copier le lien",
+		"copied": "copié",
 		"formattedIntlDate": "{{date, intlDate}}",
 		"formattedIntlTime": "{{time, intlTime}}"
 	},
@@ -24,15 +24,15 @@
 	"footer": {
 		"link_1": "Histoire d'origine",
 		"link_2": "Discord",
-		"link_3": "Signaler un Bug"
+		"link_3": "Signaler un bug"
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": { "ban": "ban" },
+		"banUser": { "ban": "bannir" },
 		"followingOnlineList": {
-			"listHeader": "Liste des utilisateurs dans une salle privée que vous suivez",
+			"listHeader": "Liste des utilisateurs qui ne sont pas dans une salle privée et que vous suivez",
 			"currentRoom": "actuellement dans :",
-			"startPrivateRoom": "démarrer une salle privée avec eux"
+			"startPrivateRoom": "lancer une salle privée avec eux"
 		},
 		"followList": {},
 		"home": { "createRoom": "Créer une salle" },
@@ -46,7 +46,7 @@
 			"headerText": "Envoie les conversations vocales sur la lune 🚀",
 			"featureText_1": "Thème sombre",
 			"featureText_2": "Inscriptions ouvertes",
-			"featureText_3": "Multiplateforme",
+			"featureText_3": "Multi-plateforme",
 			"featureText_4": "Open Source",
 			"featureText_5": "Chat textuel",
 			"featureText_6": "Alimenté au Doge",
@@ -64,7 +64,7 @@
 		"notFound": {
 			"whoopsError": "Oups ! Cette page s'est perdue dans la conversation.",
 			"goHomeMessage": "Ne vous inquiétez pas. Vous pouvez",
-			"goHomeLinkText": "retourner à l'acceuil"
+			"goHomeLinkText": "retourner à l'accueil"
 		},
 		"room": {
 			"speakers": "Interlocuteurs",
@@ -80,10 +80,10 @@
 			"following": "suivis"
 		},
 		"voiceSettings": {
-			"header": "Paramètres Vocaux",
+			"header": "Paramètres vocaux",
 			"mic": "micro :",
-			"permissionError": "pas de microphone trouvé, soit vous n'en avez pas de branché soit vous n'avez pas donné la permission au site de l'utiliser.",
-			"refresh": "rafraichir la liste des microphones",
+			"permissionError": "pas de microphone trouvé, soit vous n'en avez pas branché un soit vous n'avez pas donné la permission au site de l'utiliser.",
+			"refresh": "rafraîchir la liste des microphones",
 			"volume": "volume :"
 		}
 	},
@@ -103,12 +103,21 @@
 			"inviteUsersToRoomBtn": "Inviter des utilisateurs dans la salle",
 			"invite": "Inviter",
 			"toggleMuteMicBtn": "Activer / désactiver le microphone",
-			"mute": "Muet",
-			"unmute": "Plus muet",
+			"mute": "Rendre muet",
+			"unmute": "Rétablir la voix",
 			"makeRoomPublicBtn": "Rendre la salle publique !",
 			"settings": "Paramètres",
 			"speaker": "Interlocuteur",
 			"listener": "Auditeur"
+		},
+    "deviceNotSupported": {
+			"notSupported": "Votre système n'est pas encore supporté. Vous pouvez créer un",
+			"linkText": "Issue sur GitHub",
+			"addSupport": "et je vais essayer d'ajouter un support pour votre système."
+		},
+		"inviteButton": {
+			"invited": "invité",
+			"inviteToRoom": "inviter dans la salle"
 		},
 		"micPermissionBanner": {
 			"permissionDenied": "Permission refusée en essayant d'accéder à votre micro (vous devriez peut être vérifier vos paramètres de navigateur et recharger la page)",
@@ -119,13 +128,13 @@
 			"createRoomModal": {
 				"public": "publique",
 				"private": "privée",
-				"roomName": "room name",
-				"roomDescription": "room description",
-				"descriptionError": "max length 500",
-				"nameError": "must be between 2 to 60 characters long"
+				"roomName": "nom de la salle",
+				"roomDescription": "description de la salle",
+				"descriptionError": "capacité maximum de 500",
+				"nameError": "doit être entre 2 et 60 caractères de longueur"
 			},
 			"invitedToJoinRoomModal": {
-				"newRoomCreated": "Nouvelle Salle Crée",
+				"newRoomCreated": "Nouvelle salle créée",
 				"roomInviteFrom": "Invitation à la salle de",
 				"justStarted": "Viennent de commencer",
 				"likeToJoin": ", voulez-vous rejoindre ?",
@@ -134,9 +143,9 @@
 			"editProfileModal": {
 				"usernameTaken": "pseudo déjà pris",
 				"avatarUrlError": "Image invalide",
-				"avatarUrlLabel": "URL d'avatar Github/Twitter",
-				"displayNameError": "taille de 2 à 50 caractères maximum",
-				"displayNameLabel": "Nom d'affichage",
+				"avatarUrlLabel": "URL d'avatar GitHub/Twitter",
+				"displayNameError": "taille de 2 à 50 caractères",
+				"displayNameLabel": "Nom affiché",
 				"usernameError": "taille de 4 à 15 caractères et ne doit contenir que des caractères alphanumériques ou des underscores",
 				"usernameLabel": "Pseudo",
 				"bioError": "Taille maximum de 160 caractères",
@@ -144,7 +153,7 @@
 			},
 			"profileModal": {
 				"blockUserConfirm": "Êtes-vous sûr de vouloir bloquer cet utilisateur de toutes vos salles ?",
-				"blockUser": "bloquer utilisateur",
+				"blockUser": "bloquer l'utilisateur",
 				"makeMod": "rendre modérateur",
 				"unmod": "enlever modérateur",
 				"addAsSpeaker": "ajouter en tant qu'interlocuteur",
@@ -161,52 +170,52 @@
 			}
 		},
 		"userVolumeSlider": {
-			"noAudioMessage": "pas d'audio pour une quelconque raison"
+			"noAudioMessage": "pas d'audio pour une raison inconnue"
 		},
-		"addToCalendar": { "add": "Add to Calendar" },
+		"addToCalendar": { "add": "Ajouter au calendrier" },
 		"keyboardShortcuts": {
-			"setKeybind": "set keybind",
-			"listening": "listening",
-			"toggleMuteKeybind": "toggle mute keybind",
-			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
+			"setKeybind": "Changer les raccourcis clavier",
+			"listening": "écoute",
+			"toggleMuteKeybind": "Activer / désactiver le raccourci clavier pour rendre muet",
+			"togglePushToTalkKeybind": "Activer / désactiver le raccourci clavier appuyer-pour-parler"
 		},
 		"wsKilled": {
-			"description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
-			"reconnect": "reconnect"
+			"description": "Le WebSocket a été fermé par le serveur. Cela arrive souvent quand vous ouvrez le site dans une autre fenêtre.",
+			"reconnect": "se reconnecter"
 		},
 		"deviceNotSupported": {
-			"notSupported": "Your device is currently not supported. You can create an",
-			"linkText": "issue on GitHub",
-			"addSupport": "and I will try adding support for your device."
+			"notSupported": "Votre système n'est pas encore supporté. Vous pouvez créer un",
+			"linkText": "Issue sur GitHub",
+			"addSupport": "et je vais essayer d'ajouter un support pour votre système."
 		},
-		"inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" }
+		"inviteButton": { "invited": "invité", "inviteToRoom": "inviter dans la salle" }
 	},
 	"modules": {
 		"scheduledRooms": {
-			"title": "Scheduled Rooms",
-			"noneFound": "none found",
-			"allRooms": "all scheduled rooms",
-			"myRooms": "my scheduled rooms",
-			"scheduleRoomHeader": "Schedule Room",
-			"startRoom": "start room",
+			"title": "Salle programmée",
+			"noneFound": "Aucune trouvée",
+			"allRooms": "toutes les salles programmées",
+			"myRooms": "mes salles programmées",
+			"scheduleRoomHeader": "Programmer une salle",
+			"startRoom": "lancer la salle",
 			"modal": {
-				"needsFuture": "needs to be in the future",
-				"roomName": "room name",
-				"minLength": "min length 2"
+				"needsFuture": "doit dans être dans le futur",
+				"roomName": "nom de salle",
+				"minLength": "longueur minimum de 2"
 			}
 		},
 		"roomChat": {
 			"title": "Chat",
 			"emotesSoon": "[emotes soon]",
-			"bannedAlert": "You got banned from chat",
-			"waitAlert": "You have to wait a second before sending another message",
-			"search": "Search",
-			"searchResults": "Search Results",
-			"recent": "Frequently Used",
-			"sendMessage": "Send a Message",
-			"whisper": "Whisper",
-			"welcomeMessage": "Welcome to chat!",
-			"roomDescription": "room description"
+			"bannedAlert": "Vous avez été banni du chat",
+			"waitAlert": "Vous devez attendre une seconde avant d'envoyer un nouveau message",
+			"search": "Rechercher",
+			"searchResults": "Résultats de recherche",
+			"recent": "Fréquemment utilisées",
+			"sendMessage": "Envoyer un message",
+			"whisper": "Chuchoter",
+			"welcomeMessage": "Bienvenue dans le chat !",
+			"roomDescription": "Description de la salle"
 		}
 	}
 }

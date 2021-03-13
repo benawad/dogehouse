@@ -1,5 +1,4 @@
 defmodule Kousa.BL.Room do
-  use Kousa.Dec.Atomic
   alias Kousa.BL
   alias Kousa.RegUtils
   alias Kousa.Gen
@@ -9,8 +8,8 @@ defmodule Kousa.BL.Room do
   alias Beef.Follows
   alias Beef.Rooms
   # note the following 2 module aliases are on the chopping block!
-  alias Kousa.Data.RoomPermission
-  alias Kousa.Data.RoomBlock
+  alias Beef.RoomPermissions
+  alias Beef.RoomBlocks
 
   def set_auto_speaker(user_id, value) do
     room = Rooms.get_room_by_creator_id(user_id)
@@ -23,7 +22,7 @@ defmodule Kousa.BL.Room do
   @spec make_room_public(any, any) :: nil | :ok
   def make_room_public(user_id, new_name) do
     # this needs to be refactored if a user can have multiple rooms
-    case Rooms.set_room_privacy_by_creator_id(user_id, false, new_name) do
+    case Beef.Rooms.set_room_privacy_by_creator_id(user_id, false, new_name) do
       {1, [room]} ->
         Gen.RoomSession.send_cast(
           room.id,
@@ -80,7 +79,7 @@ defmodule Kousa.BL.Room do
     with {status, room} when status in [:creator, :mod] <-
            Rooms.get_room_status(user_id) do
       if room.creatorId != user_id_to_block_from_room do
-        RoomBlock.insert(%{
+        RoomBlocks.insert(%{
           modId: user_id,
           userId: user_id_to_block_from_room,
           roomId: room.id
@@ -96,7 +95,7 @@ defmodule Kousa.BL.Room do
   end
 
   defp internal_set_listener(user_id_to_make_listener, room_id) do
-    RoomPermission.make_listener(user_id_to_make_listener, room_id)
+    RoomPermissions.make_listener(user_id_to_make_listener, room_id)
 
     Kousa.RegUtils.lookup_and_cast(
       Kousa.Gen.RoomSession,
@@ -127,7 +126,7 @@ defmodule Kousa.BL.Room do
   @spec internal_set_speaker(any, any) :: nil | :ok | {:err, {:error, :not_found}}
   def internal_set_speaker(user_id_to_make_speaker, room_id) do
     with {:ok, _} <-
-           RoomPermission.set_speaker?(user_id_to_make_speaker, room_id, true) do
+           RoomPermissions.set_speaker?(user_id_to_make_speaker, room_id, true) do
       case GenRegistry.lookup(
              Kousa.Gen.RoomSession,
              room_id
@@ -156,7 +155,7 @@ defmodule Kousa.BL.Room do
     room = Rooms.get_room_by_creator_id(user_id)
 
     if room do
-      RoomPermission.set_is_mod(user_id_to_change, room.id, Caster.bool(value))
+      RoomPermissions.set_is_mod(user_id_to_change, room.id, Caster.bool(value))
 
       Kousa.RegUtils.lookup_and_cast(
         Kousa.Gen.RoomSession,
@@ -175,7 +174,7 @@ defmodule Kousa.BL.Room do
       if is_nil(speaker?),
         do:
           room.creatorId == user_id or
-            RoomPermission.speaker?(user_id, room.id),
+            RoomPermissions.speaker?(user_id, room.id),
         else: speaker?
 
     op =
@@ -274,7 +273,6 @@ defmodule Kousa.BL.Room do
     end
   end
 
-  # @decorate user_atomic()
   def join_room(user_id, room_id) do
     currentRoomId = Beef.Users.get_current_room_id(user_id)
 
