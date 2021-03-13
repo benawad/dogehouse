@@ -11,8 +11,7 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({
 }) => {
   return (
     <div
-      style={{ borderRadius: "8px" }}
-      className={`w-full px-2 pt-7 pb-5 bg-primary-800 border border-primary-700 ${className}`}
+      className={`w-full rounded-8 px-2 pt-7 pb-5 bg-primary-800 border border-primary-700 ${className}`}
     >
       {children}
     </div>
