@@ -30,18 +30,14 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "бан"
-		},
+		"banUser": { "ban": "бан" },
 		"followingOnlineList": {
 			"listHeader": "Список пользователей не в приватной комнате, на которых вы подписаны.",
 			"currentRoom": "сейчас в комнате:",
 			"startPrivateRoom": "создать приватную комнату с ними"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "Создать комнату"
-		},
+		"home": { "createRoom": "Создать комнату" },
 		"inviteList": {
 			"roomGone": "комнаты больше нет, вернуться назад",
 			"shareRoomLink": "поделиться ссылкой на комнату",
@@ -77,12 +73,8 @@
 			"requestingToSpeak": "Запрос права говорить",
 			"listeners": "Слушатели"
 		},
-		"searchUser": {
-			"search": "поиск..."
-		},
-		"soundEffectSettings": {
-			"header": "Звуки"
-		},
+		"searchUser": { "search": "поиск..." },
+		"soundEffectSettings": { "header": "Звуки" },
 		"viewUser": {
 			"editProfile": "редактировать профиль",
 			"followsYou": "подписан на вас",
@@ -143,9 +135,7 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "По какой-то причине отсутствует устройство воспроизведения звука"
 		},
-		"addToCalendar": {
-			"add": "Добавить в календарь"
-		},
+		"addToCalendar": { "add": "Добавить в календарь" },
 		"wsKilled": {
 			"description": "Websocket был отключен сервером. Обычно это происходит, когда вы открываете сайт в другой вкладке.",
 			"reconnect": "переподключиться"
