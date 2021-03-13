@@ -1,7 +1,7 @@
 defmodule Kousa.BL.User do
-  alias Kousa.RegUtils
+  alias Kousa.Utils.RegUtils
   alias Beef.Users
-  alias Kousa.RegUtils
+  alias Kousa.Utils.RegUtils
   alias Kousa.BL
 
   def delete(user_id) do

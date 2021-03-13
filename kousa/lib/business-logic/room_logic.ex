@@ -1,7 +1,7 @@
 defmodule Kousa.BL.Room do
   alias Kousa.BL
-  alias Kousa.RegUtils
-  alias Kousa.VoiceServerUtils
+  alias Kousa.Utils.RegUtils
+  alias Kousa.Utils.VoiceServerUtils
   alias Beef.Users
   alias Beef.Follows
   alias Beef.Rooms
@@ -95,7 +95,7 @@ defmodule Kousa.BL.Room do
   defp internal_set_listener(user_id_to_make_listener, room_id) do
     RoomPermissions.make_listener(user_id_to_make_listener, room_id)
 
-    Kousa.RegUtils.lookup_and_cast(
+    Kousa.Utils.RegUtils.lookup_and_cast(
       Onion.RoomSession,
       room_id,
       {:speaker_removed, user_id_to_make_listener}
@@ -155,7 +155,7 @@ defmodule Kousa.BL.Room do
     if room do
       RoomPermissions.set_is_mod(user_id_to_change, room.id, value)
 
-      Kousa.RegUtils.lookup_and_cast(
+      Kousa.Utils.RegUtils.lookup_and_cast(
         Onion.RoomSession,
         room.id,
         {:send_ws_msg, :vscode,
@@ -202,7 +202,7 @@ defmodule Kousa.BL.Room do
           )
 
         {:error, x} ->
-          {:error, Kousa.Errors.changeset_to_first_err_message_with_field_name(x)}
+          {:error, Kousa.Utils.Errors.changeset_to_first_err_message_with_field_name(x)}
       end
     end
   end
@@ -267,7 +267,7 @@ defmodule Kousa.BL.Room do
         {:ok, %{room: room}}
 
       {:error, x} ->
-        {:error, Kousa.Errors.changeset_to_first_err_message_with_field_name(x)}
+        {:error, Kousa.Utils.Errors.changeset_to_first_err_message_with_field_name(x)}
     end
   end
 
@@ -284,7 +284,7 @@ defmodule Kousa.BL.Room do
         {:ok, room} ->
           private_check =
             if room.isPrivate do
-              case Kousa.RegUtils.lookup_and_call(
+              case Kousa.Utils.RegUtils.lookup_and_call(
                      Onion.RoomSession,
                      room.id,
                      {:redeem_invite, user_id}

@@ -46,7 +46,7 @@ defmodule Beef.Mutations.Users do
   end
 
   def set_user_left_current_room(user_id) do
-    Kousa.RegUtils.lookup_and_cast(Onion.UserSession, user_id, {:set_current_room_id, nil})
+    Kousa.Utils.RegUtils.lookup_and_cast(Onion.UserSession, user_id, {:set_current_room_id, nil})
 
     Query.start()
     |> Query.filter_by_id(user_id)
@@ -75,7 +75,7 @@ defmodule Beef.Mutations.Users do
           RoomPermissions.get(user_id, room_id)
       end
 
-    Kousa.RegUtils.lookup_and_cast(
+    Kousa.Utils.RegUtils.lookup_and_cast(
       Onion.UserSession,
       user_id,
       {:set_current_room_id, room_id}
@@ -129,7 +129,7 @@ defmodule Beef.Mutations.Users do
         {:create,
          Repo.insert!(
            %User{
-             username: Kousa.Random.big_ascii_id(),
+             username: Kousa.Utils.Random.big_ascii_id(),
              email: if(user.email == "", do: nil, else: user.email),
              twitterId: user.twitterId,
              avatarUrl: user.avatarUrl,
@@ -179,7 +179,7 @@ defmodule Beef.Mutations.Users do
         {:create,
          Repo.insert!(
            %User{
-             username: Kousa.Random.big_ascii_id(),
+             username: Kousa.Utils.Random.big_ascii_id(),
              githubId: githubId,
              email: if(user["email"] == "", do: nil, else: user["email"]),
              githubAccessToken: github_access_token,

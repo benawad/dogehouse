@@ -185,7 +185,7 @@ defmodule Onion.RoomSession do
   end
 
   def handle_cast({:join_room_no_fan, user_id, mute}, %State{} = state) do
-    Kousa.RegUtils.lookup_and_cast(Onion.RoomChat, state.room_id, {:add_user, user_id})
+    Kousa.Utils.RegUtils.lookup_and_cast(Onion.RoomChat, state.room_id, {:add_user, user_id})
 
     # consider using MapSet instead!!
     muteMap =
@@ -208,7 +208,7 @@ defmodule Onion.RoomSession do
   end
 
   def handle_cast({:join_room, user, mute}, %State{} = state) do
-    Kousa.RegUtils.lookup_and_cast(Onion.RoomChat, state.room_id, {:add_user, user.id})
+    Kousa.Utils.RegUtils.lookup_and_cast(Onion.RoomChat, state.room_id, {:add_user, user.id})
 
     muteMap =
       case mute do
@@ -283,7 +283,7 @@ defmodule Onion.RoomSession do
 
   def handle_cast({:leave_room, user_id}, %State{} = state) do
     users = Enum.filter(state.users, fn uid -> uid != user_id end)
-    Kousa.RegUtils.lookup_and_cast(Onion.RoomChat, state.room_id, {:remove_user, user_id})
+    Kousa.Utils.RegUtils.lookup_and_cast(Onion.RoomChat, state.room_id, {:remove_user, user_id})
 
     Onion.VoiceRabbit.send(state.voice_server_id, %{
       op: "close-peer",

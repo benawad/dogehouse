@@ -32,7 +32,7 @@ defmodule Broth.Plugs.CheckAuth do
 
     case tokens do
       %{accessToken: accessToken, refreshToken: refreshToken} ->
-        case Kousa.TokenUtils.tokens_to_user_id(accessToken, refreshToken) do
+        case Kousa.Utils.TokenUtils.tokens_to_user_id(accessToken, refreshToken) do
           {nil, nil} ->
             do_error.()
 

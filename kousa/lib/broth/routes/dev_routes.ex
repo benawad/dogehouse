@@ -20,7 +20,7 @@ defmodule Broth.Routes.Dev do
       |> send_resp(
         200,
         Poison.encode!(
-          Kousa.TokenUtils.create_tokens(
+          Kousa.Utils.TokenUtils.create_tokens(
             Beef.Repo.insert!(
               %User{
                 username: username,

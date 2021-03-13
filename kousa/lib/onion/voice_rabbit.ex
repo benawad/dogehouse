@@ -41,7 +41,7 @@ defmodule Onion.VoiceRabbit do
   end
 
   def send(id, msg) do
-    Kousa.RegUtils.lookup_and_cast(__MODULE__, id, {:send, Poison.encode!(msg)})
+    Kousa.Utils.RegUtils.lookup_and_cast(__MODULE__, id, {:send, Poison.encode!(msg)})
   end
 
   def handle_cast({:send, msg}, %State{chan: chan, id: id} = state) do

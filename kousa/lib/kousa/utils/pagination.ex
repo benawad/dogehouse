@@ -1,4 +1,4 @@
-defmodule Kousa.Pagination do
+defmodule Kousa.Utils.Pagination do
   @spec items_to_offset_tuple(list, pos_integer, pos_integer) :: {list, nil | number}
   def items_to_offset_tuple(items, offset, limit) do
     {Enum.slice(items, 0, -1 + limit),

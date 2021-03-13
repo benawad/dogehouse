@@ -67,7 +67,7 @@ defmodule Beef.Access.Users do
   # out of the database layer, but we are keeping it here for now
   # to keep the transition smooth.
   def tuple_get_current_room_id(user_id) do
-    case Kousa.RegUtils.lookup_and_call(
+    case Kousa.Utils.RegUtils.lookup_and_call(
            Onion.UserSession,
            user_id,
            {:get_current_room_id}
@@ -103,7 +103,7 @@ defmodule Beef.Access.Users do
   end
 
   def get_current_room_id(user_id) do
-    case Kousa.RegUtils.lookup_and_call(
+    case Kousa.Utils.RegUtils.lookup_and_call(
            Onion.UserSession,
            user_id,
            {:get_current_room_id}

@@ -1,6 +1,6 @@
 defmodule Onion.UserSession do
   use GenServer
-  alias Kousa.RegUtils
+  alias Kousa.Utils.RegUtils
   alias Kousa.BL
   # alias Beef.Users
 
@@ -92,7 +92,7 @@ defmodule Onion.UserSession do
 
   def handle_cast({:set_mute, value}, state) do
     if not is_nil(state.current_room_id) do
-      Kousa.RegUtils.lookup_and_cast(
+      Kousa.Utils.RegUtils.lookup_and_cast(
         Onion.RoomSession,
         state.current_room_id,
         {:mute, state.user_id, value == true}

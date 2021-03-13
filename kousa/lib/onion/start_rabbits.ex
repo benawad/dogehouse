@@ -1,7 +1,7 @@
 # @todo should probably stop this after initial load
 defmodule Onion.StartRabbits do
   use GenServer
-  alias Kousa.VoiceServerUtils
+  alias Kousa.Utils.VoiceServerUtils
 
   def start_link(_) do
     GenServer.start_link(__MODULE__, [], name: __MODULE__)

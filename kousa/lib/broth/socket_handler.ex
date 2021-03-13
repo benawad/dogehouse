@@ -2,7 +2,7 @@ defmodule Broth.SocketHandler do
   require Logger
 
   alias Kousa.BL
-  alias Kousa.RegUtils
+  alias Kousa.Utils.RegUtils
   alias Beef.Users
   alias Beef.Rooms
   alias Beef.Follows
@@ -109,7 +109,7 @@ defmodule Broth.SocketHandler do
             "muted" => muted
           } = json["d"]
 
-          case Kousa.TokenUtils.tokens_to_user_id(accessToken, refreshToken) do
+          case Kousa.Utils.TokenUtils.tokens_to_user_id(accessToken, refreshToken) do
             {nil, nil} ->
               {:reply, {:close, 4001, "invalid_authentication"}, state}
 
@@ -354,7 +354,7 @@ defmodule Broth.SocketHandler do
     current_room_id = Beef.Users.get_current_room_id(state.user_id)
 
     if not is_nil(current_room_id) do
-      Kousa.RegUtils.lookup_and_cast(
+      Kousa.Utils.RegUtils.lookup_and_cast(
         Onion.RoomSession,
         current_room_id,
         {:speaking_change, state.user_id, value}
@@ -495,14 +495,14 @@ defmodule Broth.SocketHandler do
     # user = Users.get_by_id(state.user_id)
 
     # if not is_nil(user.currentRoomId) do
-    #   Kousa.RegUtils.lookup_and_cast(
+    #   Kousa.Utils.RegUtils.lookup_and_cast(
     #     Onion.RoomSession,
     #     user.currentRoomId,
     #     {:mute, user.id, value}
     #   )
 
     #   # @todo if it came from vscode then send ws message
-    #   # Kousa.RegUtils.lookup_and_cast(
+    #   # Kousa.Utils.RegUtils.lookup_and_cast(
     #   #   Onion.UserSession,
     #   #   user.id,
     #   #   {:send_ws_msg, :web, %{op: "mute_changed", d: %{value: value}}}
@@ -555,7 +555,7 @@ defmodule Broth.SocketHandler do
           Kousa.BL.Room.internal_set_speaker(state.user_id, room_id)
 
         _ ->
-          Kousa.RegUtils.lookup_and_cast(
+          Kousa.Utils.RegUtils.lookup_and_cast(
             Onion.RoomSession,
             room_id,
             {:send_ws_msg, :vscode,
@@ -571,7 +571,7 @@ defmodule Broth.SocketHandler do
   end
 
   def handler("audio_autoplay_error", _data, state) do
-    Kousa.RegUtils.lookup_and_cast(
+    Kousa.Utils.RegUtils.lookup_and_cast(
       Onion.UserSession,
       state.user_id,
       {:send_ws_msg, :vscode,

@@ -1,6 +1,6 @@
 defmodule Kousa.BL.ScheduledRoom do
   alias Kousa.BL
-  alias Kousa.Errors
+  alias Kousa.Utils.Errors
   alias Beef.Schemas.ScheduledRoom
   alias Beef.ScheduledRooms
 

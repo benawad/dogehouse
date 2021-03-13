@@ -1,4 +1,4 @@
-defmodule Kousa.VoiceServerUtils do
+defmodule Kousa.Utils.VoiceServerUtils do
   def idx_to_str_id(n) do
     case n do
       0 -> ""

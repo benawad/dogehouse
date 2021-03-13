@@ -1,4 +1,4 @@
-defmodule Kousa.RegUtils do
+defmodule Kousa.Utils.RegUtils do
   @spec lookup_and_call(atom | :ets.tid(), any, any) :: {:err, {:error, :not_found}} | {:ok, any}
   def lookup_and_call(table, id, params) do
     case GenRegistry.lookup(table, id) do
