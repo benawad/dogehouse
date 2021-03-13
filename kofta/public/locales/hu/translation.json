@@ -8,8 +8,8 @@
 		"no": "nem",
 		"cancel": "mégse",
 		"save": "mentés",
-		"edit": "edit",
-		"delete": "delete",
+		"edit": "szerkesztés",
+		"delete": "törlés",
 		"joinRoom": "join room",
 		"copyLink": "copy link",
 		"copied": "copied",
@@ -113,16 +113,16 @@
 		"micPermissionBanner": {
 			"permissionDenied": "A mikrofonhoz való hozzáférést megtagadták (lehet, hogy be kell lépnie a böngészőbeállításaiba, és újra be kell töltenie az oldalt)",
 			"dismiss": "elutasítás",
-			"tryAgain": "tróbálja újra"
+			"tryAgain": "próbálja újra"
 		},
 		"modals": {
 			"createRoomModal": {
 				"public": "publikus",
 				"private": "privát",
-				"roomName": "room name",
-				"roomDescription": "room description",
-				"descriptionError": "max length 500",
-				"nameError": "must be between 2 to 60 characters long"
+				"roomName": "szoba neve",
+				"roomDescription": "szoba leírása",
+				"descriptionError": "maximum 500 karakter",
+				"nameError": "minimum 2, maximum 60 karakter hosszú lehet"
 			},
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Új szoba létrehozva",
@@ -161,7 +161,7 @@
 			}
 		},
 		"userVolumeSlider": { "noAudioMessage": "valamilyen okból nincs hallgató" },
-		"addToCalendar": { "add": "Add to Calendar" },
+		"addToCalendar": { "add": "Felvétel naptárba" },
 		"keyboardShortcuts": {
 			"setKeybind": "set keybind",
 			"listening": "listening",
@@ -169,42 +169,42 @@
 			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
 		},
 		"wsKilled": {
-			"description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
-			"reconnect": "reconnect"
+			"description": "A Websocket kapcsolatot megszakította a szerver. Ez általában akkor fordul elő, amikor több fülön meg van nyitva a weboldal.",
+			"reconnect": "újracsatlakozás"
 		},
 		"deviceNotSupported": {
-			"notSupported": "Your device is currently not supported. You can create an",
-			"linkText": "issue on GitHub",
-			"addSupport": "and I will try adding support for your device."
+			"notSupported": "Az eszköze jelenleg nem támogatott. Létrehozhat egy",
+			"linkText": "hibajegyet GitHub",
+			"addSupport": "-on és megpróbálom biztosítani eszköze támogatottságát."
 		},
-		"inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" }
+		"inviteButton": { "invited": "meghívott", "inviteToRoom": "meghívás szobába" }
 	},
 	"modules": {
 		"scheduledRooms": {
-			"title": "Scheduled Rooms",
-			"noneFound": "none found",
-			"allRooms": "all scheduled rooms",
-			"myRooms": "my scheduled rooms",
-			"scheduleRoomHeader": "Schedule Room",
-			"startRoom": "start room",
+			"title": "Ütemezett szobák",
+			"noneFound": "nem található szoba",
+			"allRooms": "összes ütemezett szoba",
+			"myRooms": "saját ütemezett szobáim",
+			"scheduleRoomHeader": "Szoba ütemezése",
+			"startRoom": "szoba indítása",
 			"modal": {
-				"needsFuture": "needs to be in the future",
-				"roomName": "room name",
-				"minLength": "min length 2"
+				"needsFuture": "jövőbeli dátum szükséges",
+				"roomName": "szoba neve",
+				"minLength": "legalább 2 karakter hosszú legyen"
 			}
 		},
 		"roomChat": {
 			"title": "Chat",
 			"emotesSoon": "[emotes soon]",
-			"bannedAlert": "You got banned from chat",
-			"waitAlert": "You have to wait a second before sending another message",
-			"search": "Search",
-			"searchResults": "Search Results",
-			"recent": "Frequently Used",
-			"sendMessage": "Send a Message",
+			"bannedAlert": "Kitiltottak a beszélgetésből",
+			"waitAlert": "Várnod kell egy másodpercet a következő üzenet küldése előtt.",
+			"search": "Keresés",
+			"searchResults": "Keresés eredménye",
+			"recent": "Gyakran használt",
+			"sendMessage": "Üzenet küldése",
 			"whisper": "Whisper",
-			"welcomeMessage": "Welcome to chat!",
-			"roomDescription": "room description"
+			"welcomeMessage": "Üdv a beszélgetésben!",
+			"roomDescription": "szoba leírása"
 		}
 	}
 }
