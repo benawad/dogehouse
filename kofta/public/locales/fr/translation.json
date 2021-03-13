@@ -198,15 +198,15 @@
 		"roomChat": {
 			"title": "Chat",
 			"emotesSoon": "[emotes soon]",
-			"bannedAlert": "You got banned from chat",
-			"waitAlert": "You have to wait a second before sending another message",
-			"search": "Search",
-			"searchResults": "Search Results",
-			"recent": "Frequently Used",
-			"sendMessage": "Send a Message",
-			"whisper": "Whisper",
-			"welcomeMessage": "Welcome to chat!",
-			"roomDescription": "room description"
+			"bannedAlert": "Vous vous êtes fait bannir du chat",
+			"waitAlert": "Vous devez attendre une seconde avant d'envoyer un nouveau message",
+			"search": "Recherche",
+			"searchResults": "Résultats de la recherche",
+			"recent": "Utilisés fréquemment",
+			"sendMessage": "Envoyer un message",
+			"whisper": "Chuchoter",
+			"welcomeMessage": "Bienvenue dans le chat!",
+			"roomDescription": "Description de la salle"
 		}
 	}
 }
