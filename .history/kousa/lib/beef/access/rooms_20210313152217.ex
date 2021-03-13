@@ -8,8 +8,7 @@ defmodule Beef.Access.Rooms do
   alias Beef.Repo
   alias Beef.Schemas.User
   alias Beef.Schemas.Room
-	alias Beef.Schemas.UserBlock
-
+	alias Beef.Schemas.User
   def get_room_status(user_id) do
     room = Users.get_current_room(user_id)
 
