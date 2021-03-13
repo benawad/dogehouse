@@ -1,4 +1,4 @@
-defmodule Kousa.SocketHandler do
+defmodule Broth.SocketHandler do
   require Logger
 
   alias Kousa.BL

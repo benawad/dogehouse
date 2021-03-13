@@ -35,7 +35,7 @@ defmodule Kousa do
       Onion.Telemetry,
       Plug.Cowboy.child_spec(
         scheme: :http,
-        plug: Kousa.Router,
+        plug: Broth,
         options: [
           port: String.to_integer(System.get_env("PORT") || "4001"),
           dispatch: dispatch(),
@@ -52,8 +52,8 @@ defmodule Kousa do
     [
       {:_,
        [
-         {"/socket", Kousa.SocketHandler, []},
-         {:_, Plug.Cowboy.Handler, {Kousa.Router, []}}
+         {"/socket", Broth.SocketHandler, []},
+         {:_, Plug.Cowboy.Handler, {Broth, []}}
        ]}
     ]
   end
