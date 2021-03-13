@@ -1,8 +1,8 @@
-import React, { ReactElement } from "react";
+import React, { PropsWithChildren, ReactElement } from "react";
 import { BaseOverlay } from "./BaseOverlay";
 import { FollowNotification, GenericNotification, LiveNotification, NewRoomNotification } from "./NotificationElement";
 
-export interface NotificationsDropdownProps {
+export interface NotificationsDropdownPropsData {
   type: string,
   time: string,
   username?: string,
@@ -10,7 +10,11 @@ export interface NotificationsDropdownProps {
   userAvatarSrc?: string,
 }
 
-const parseNotification = (props: NotificationsDropdownProps) => {
+export interface NotificationsDropdownProps {
+  data: NotificationsDropdownPropsData[]
+}
+
+const parseNotification = (props: NotificationsDropdownPropsData) => {
   switch (props.type.toLowerCase()) {
   case "follow": {
     return <FollowNotification userAvatarSrc={props.userAvatarSrc!} username={props.username!} time={props.time!} />;
@@ -31,14 +35,15 @@ const parseNotification = (props: NotificationsDropdownProps) => {
   }
 };
 
-export const NotificationsDropdown: React.FC<NotificationsDropdownProps[]> = (data) => {
+
+export const NotificationsDropdown: React.FC<NotificationsDropdownProps> = (props) => {
   return (
     <div style={{ width: 444 }}>
       <BaseOverlay title={"Notifications"}>
         {
-          data.map((props) => (
-            <div className={"py-3 px-4"}>
-              {parseNotification(props)}
+          props.data.map((p, i) => (
+            <div className={"py-3 px-4"} key={i}>
+              {parseNotification(p)}
             </div>
           ))
         }
