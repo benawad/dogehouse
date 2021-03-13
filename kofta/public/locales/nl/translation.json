@@ -130,10 +130,10 @@
 			"tryAgain": "probeer het opnieuw"
 		},
 		"keyboardShortcuts": {
-			"setKeybind": "zet toetsbinding",
+			"setKeybind": "zet keybind",
 			"listening": "aan het luisteren",
-			"toggleMuteKeybind": "Microfoon dempen schakelen toetsbinding",
-			"togglePushToTalkKeybind": "druk-om-te-praten toetsbinding"
+			"toggleMuteKeybind": "Microfoon dempen schakelen keybind",
+			"togglePushToTalkKeybind": "druk-om-te-praten keybind"
 		},
 		"userVolumeSlider": {
 			"noAudioMessage": "geen mogelijkheid om geluid te ontvangen door een onbekende reden"
