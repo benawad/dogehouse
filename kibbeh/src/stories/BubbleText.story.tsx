@@ -10,7 +10,7 @@ export default {
 const TheBubbleText: Story<BubbleTextProps> = ({ live = false, children }) => {
   return (
     <BubbleText live={live}>
-      {children || live ? Math.round(Math.random() * 1000) : '12:30 PM'}
+      {children || live ? Math.round(Math.random() * 1000) : "12:30 PM"}
     </BubbleText>
   );
 };

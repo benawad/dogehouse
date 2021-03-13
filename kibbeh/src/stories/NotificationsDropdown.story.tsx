@@ -1,17 +1,8 @@
-import React, { ReactElement, ReactNode } from "react";
-import { BaseOverlay } from "../ui/BaseOverlay";
-import {
-  FollowNotification,
-  GenericNotification,
-  LiveNotification,
-  NewRoomNotification,
-} from "../ui/NotificationElement";
-import avatar from "../img/avatar.png";
 import { Story } from "@storybook/react";
+import React from "react";
 import {
   NotificationsDropdown,
   NotificationsDropdownProps,
-  NotificationsDropdownPropsData,
 } from "../ui/NotificationsDropdown";
 
 export default {
@@ -44,10 +35,8 @@ const Notifications: NotificationsDropdownProps = {
   ],
 };
 
-export const Main: Story<NotificationsDropdownProps> = ({...props}) => {
-  return (
-    <NotificationsDropdown {...props} {...Notifications} />
-  );
+export const Main: Story<NotificationsDropdownProps> = ({ ...props }) => {
+  return <NotificationsDropdown {...props} {...Notifications} />;
 };
 
 Main.bind({});
