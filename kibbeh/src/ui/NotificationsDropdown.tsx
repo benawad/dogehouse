@@ -36,21 +36,9 @@ export const NotificationsDropdown: React.FC<NotificationsDropdownProps[]> = (da
     <div style={{ width: 444 }}>
       <BaseOverlay title={"Notifications"}>
         {
-          data.map(({
-            type,
-            time,
-            username,
-            notificationMsg,
-            userAvatarSrc,
-          }) => (
+          data.map((props) => (
             <div className={"py-3 px-4"}>
-              {parseNotification({
-                type,
-                time,
-                username,
-                notificationMsg,
-                userAvatarSrc,
-              })}
+              {parseNotification(props)}
             </div>
           ))
         }

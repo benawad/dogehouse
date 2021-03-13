@@ -1,24 +1,28 @@
 import React, { ReactElement, ReactNode } from "react";
 import { BaseOverlay } from "../ui/BaseOverlay";
-import { FollowNotification, GenericNotification, LiveNotification, NewRoomNotification } from "../ui/NotificationElement";
+import {
+  FollowNotification,
+  GenericNotification,
+  LiveNotification,
+  NewRoomNotification,
+} from "../ui/NotificationElement";
 import avatar from "../img/avatar.png";
+import { Story } from "@storybook/react";
+import { NotificationsDropdown } from "../ui/NotificationsDropdown";
 
-interface NotificationsDropdownProps {
-  type: string,
-  time: string,
-  username?: string,
-  notificationMsg?: string,
-  userAvatarSrc?: string,
+export default  {
+  title: "NotificationsDropdown"
 }
 
 interface IconWrapperProps {
   children: ReactNode;
 }
+
 function IconWrapper({ children }: IconWrapperProps) {
   return <div className="py-3 px-4">{children}</div>;
 }
 
-export const NotificationsDropdown: React.FC<NotificationsDropdownProps[]> = (data) => {
+const NotificationDropdown: Story = () => {
   return (
     <div style={{ width: 444 }}>
       <BaseOverlay title={"Notifications"}>
@@ -45,3 +49,5 @@ export const NotificationsDropdown: React.FC<NotificationsDropdownProps[]> = (da
     </div>
   );
 };
+
+export const Main = NotificationsDropdown.bind({});
