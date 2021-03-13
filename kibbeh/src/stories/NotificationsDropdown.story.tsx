@@ -44,9 +44,7 @@ const Notifications: NotificationsDropdownProps = {
   ],
 };
 
-export const Main: Story<NotificationsDropdownProps> = ({
-  ...props
-}) => {
+export const Main: Story<NotificationsDropdownProps> = ({...props}) => {
   return (
     <NotificationsDropdown {...props} {...Notifications} />
   );
