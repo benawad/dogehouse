@@ -1,5 +1,6 @@
 export { default as LgSolidRocket } from "./LgSolidRocket";
 export { default as LgSolidTime } from "./LgSolidTime";
+export { default as LgLogo } from "./LgLogo";
 export { default as SmOutlineGlobe } from "./SmOutlineGlobe";
 export { default as SmSolidBug } from "./SmSolidBug";
 export { default as SmSolidCaretRight } from "./SmSolidCaretRight";
