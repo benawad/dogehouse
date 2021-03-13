@@ -45,7 +45,7 @@ export const SingleUser: React.FC<AvatarProps> = ({
 }) => {
   return (
     <div
-      className={`relative inline-block ${className}`}
+      className={`relative inline-block${className ? ` ${className}` : ""}`}
       style={{
         width: avatarSizeMap[size],
         height: avatarSizeMap[size],
@@ -53,12 +53,8 @@ export const SingleUser: React.FC<AvatarProps> = ({
     >
       <img
         alt="avatar"
-        className="rounded-full"
+        className="rounded-full w-full h-full"
         src={src}
-        style={{
-          height: "100%",
-          width: "100%",
-        }}
       />
       {isOnline && (
         <span
