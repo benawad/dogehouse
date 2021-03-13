@@ -33,26 +33,52 @@ function ListenerElectron() {
   ]);
   const history = useHistory();
   useEffect(() => {
-    ipcRenderer.on(REQUEST_TO_SPEAK_KEY, async (event: any, args: any) => {
+    // keybind event functions
+    const REQUEST_TO_SPEAK_KEY_FUNC = async (event: any, args: any) => {
       modalConfirm("Would you like to ask to speak?", () => {
         wsend({ op: "ask_to_speak", d: {} });
       });
-    })
-    ipcRenderer.on(MUTE_KEY, async (event: any, args: any) => {
+    }
+    const MUTE_KEY_FUNC = async (event: any, args: any) => {
       const { muted, setMute } = useMuteStore.getState();
       wsend({
         op: "mute",
         d: { value: !muted },
       });
       setMute(!muted);
-    })
-    ipcRenderer.on(INVITE_KEY, async (event: any, args: any) => {
+    }
+    const INVITE_KEY_FUNC = async (event: any, args: any) => {
       wsend({ op: "fetch_invite_list", d: { cursor: 0 } });
       history.push("/invite");
-    })
-    ipcRenderer.on(CHAT_KEY, async (event: any, args: any) => {
+    }
+    const PTT_STATUS_CHANGE_FUNC = async (event: any, status: boolean) => {
+      const { setMute } = useMuteStore.getState();
+      const mute = status;
+      wsend({
+        op: "mute",
+        d: { value: mute },
+      });
+      setMute(mute);
+    }
+    const CHAT_KEY_FUNC = async (event: any, args: any) => {
       toggleOpen();
-    })
+    }
+
+    //Subscribing to keybind events
+    ipcRenderer.on(REQUEST_TO_SPEAK_KEY, REQUEST_TO_SPEAK_KEY_FUNC)
+    ipcRenderer.on(MUTE_KEY, MUTE_KEY_FUNC);
+    ipcRenderer.on(INVITE_KEY, INVITE_KEY_FUNC)
+    ipcRenderer.on("PTT_STATUS_CHANGE", PTT_STATUS_CHANGE_FUNC)
+    ipcRenderer.on(CHAT_KEY, CHAT_KEY_FUNC)
+
+    return function cleanup() {
+      //Unsubscribing from keybind events
+      ipcRenderer.removeListener(REQUEST_TO_SPEAK_KEY, REQUEST_TO_SPEAK_KEY_FUNC);
+      ipcRenderer.removeListener(MUTE_KEY, MUTE_KEY_FUNC);
+      ipcRenderer.removeListener(INVITE_KEY, INVITE_KEY_FUNC)
+      ipcRenderer.removeListener("PTT_STATUS_CHANGE", PTT_STATUS_CHANGE_FUNC)
+      ipcRenderer.removeListener(CHAT_KEY, CHAT_KEY_FUNC)
+    }
   }, []);
   return (
     <GlobalHotKeys
@@ -62,7 +88,6 @@ function ListenerElectron() {
         () => ({
           PTT: (e) => {
             if (!e) return;
-
             const { setMute } = useMuteStore.getState();
             const mute = e.type === "keyup";
             wsend({
@@ -111,7 +136,6 @@ function ListenerBrowser() {
           },
           PTT: (e) => {
             if (!e) return;
-
             const { setMute } = useMuteStore.getState();
             const mute = e.type === "keyup";
             wsend({

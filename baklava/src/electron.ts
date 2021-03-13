@@ -5,11 +5,8 @@ import {
   ipcMain,
   globalShortcut
 } from "electron";
-import {
-  __prod__,
-  RegisterKeybinds
-} from "./constants";
-
+import { __prod__ } from "./constants";
+import { RegisterKeybinds } from "./util";
 let mainWindow: BrowserWindow;
 
 function createWindow() {
