@@ -10,6 +10,7 @@ import { BottomVoiceControl } from "../components/BottomVoiceControl";
 import { Button } from "../components/Button";
 import { CircleButton } from "../components/CircleButton";
 import { CreateRoomModal } from "../components/CreateRoomModal";
+import { modalConfirm } from "../components/ConfirmModal";
 import { ProfileButton } from "../components/ProfileButton";
 import { RoomCard } from "../components/RoomCard";
 import { Spinner } from "../components/Spinner";
@@ -74,8 +75,16 @@ const Page = ({
           <div className={`mt-4`} key={r.id}>
             <RoomCard
               onClick={() => {
-                wsend({ op: "join_room", d: { roomId: r.id } });
-                history.push("/room/" + r.id);
+                const joinRoom = () => {
+                  wsend({ op: "join_room", d: { roomId: r.id } });
+                  history.push("/room/" + r.id);
+                };
+                currentRoom
+                  ? modalConfirm(
+                      `Leave room '${currentRoom.name}' and join room '${r.name}'?`,
+                      joinRoom
+                    )
+                  : joinRoom();
               }}
               room={r}
               currentRoomId={currentRoom?.id}
