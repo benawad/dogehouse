@@ -1,0 +1,218 @@
+{
+  "_comment": "if you change this file, do: npm run i18",
+  "common": {
+    "loadMore": "vuta zaidi",
+    "loading": "ina vuta...",
+    "noUsersFound": "hakuna mtumiaji amepatikana",
+    "ok": "sawa",
+    "yes": "ndio",
+    "no": "hapana",
+    "cancel": "hairisha",
+    "save": "hifadhi",
+    "edit": "hariri",
+    "delete": "futa",
+    "joinRoom": "jiunge kwenye chumba",
+    "copyLink": "nakili kiungo",
+    "copied": "imenakiliwa",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Kimya | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "Hadithi Asili",
+    "link_2": "Discord",
+    "link_3": "Wasilisha Matatizo"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "zuia" },
+    "followingOnlineList": {
+      "listHeader": "Orodha ya watumia ambao hawapo katika vumba vya faragha lakini una wafuata",
+      "currentRoom": "Kwasasa in:",
+      "startPrivateRoom": "Anzisha chumba cha faragha na wao"
+    },
+    "followList": {},
+    "home": { "createRoom": "Tengeneza Chumba" },
+    "inviteList": {
+      "roomGone": "chumba kimeondoka, rudi nyuma",
+      "shareRoomLink": "shirikisha kiungo kwenye chumba",
+      "inviteFollowers": "Unaweza waalika wafuasi wako waliopo mtandaoni:",
+      "whenFollowersOnline": "Wakati wafuasi wako wakiwa mtandaoni, wataonekana hapa."
+    },
+    "login": {
+      "headerText": "Tunapeleka mawasiliano ya sauti kwenye Mwezi 🚀",
+      "featureText_1": "Manthari Giza",
+      "featureText_2": "Fungua Kujisajiri",
+      "featureText_3": "Jukwaa-Msalaba Msaada",
+      "featureText_4": "Chanzo Wazi",
+      "featureText_5": "Maandishi Soga",
+      "featureText_6": "Imedhaminiwa na Doge",
+      "loginGithub": "ingia na GitHub",
+      "loginTwitter": "ingia na Twitter",
+      "createTestUser": "tengeneza watumiaji wa majaribio"
+    },
+    "myProfile": {
+      "logout": "toka",
+      "probablyLoading": "itakua inavuta...",
+      "voiceSettings": "nenda kwenye mipangilio ya sauti",
+      "soundSettings": "nenda kwenye mipangilio ya miito",
+      "deleteAccount": "futa akaunti"
+    },
+    "notFound": {
+      "whoopsError": "Ohooo! Ukurasa huu umepotea kwenye mawasiliano.",
+      "goHomeMessage": "Usiogope, Unaweza",
+      "goHomeLinkText": "nenda nyumbani"
+    },
+    "room": {
+      "speakers": "Waongeaji",
+      "requestingToSpeak": "Omba kuongea",
+      "listeners": "Wasikilizaji"
+    },
+    "searchUser": { "search": "Tafuta..." },
+    "soundEffectSettings": { "header": "Miito" },
+    "viewUser": {
+      "editProfile": "hariri maelezo mafupi",
+      "followsYou": "wafuasi wanao kufuata",
+      "followers": "wafuasi",
+      "following": "mfuasi"
+    },
+    "voiceSettings": {
+      "header": "Mipangilio ya Sauti",
+      "mic": "maiki:",
+      "permissionError": "hakuna maiki ilio patikana, inaokana hakuna ilio chomekwa au hujatua ruksa kwenye tovuti hii.",
+      "refresh": "safisha orodha ya maiki",
+      "volume": "sauti:"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Watumiaji walio fungiwa",
+      "unban": "hapana fungiwa",
+      "noBans": "hakuna alie fungiwa bado"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Ondoka kwenye chumba cha sasa",
+      "confirmLeaveRoom": "Unauhakika unataka ondoka?",
+      "leave": "Ondoka",
+      "inviteUsersToRoomBtn": "Alika watumiaji kwenye chumba",
+      "invite": "Alika",
+      "toggleMuteMicBtn": "Geuza kimya maiki",
+      "mute": "Kimya",
+      "unmute": "Funga Kimya",
+      "makeRoomPublicBtn": "weka chumba kwaajili ya umma!",
+      "settings": "Mipangilio",
+      "speaker": "Muongeaji",
+      "listener": "Msikilizaji"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Kifaa chako hakina usaidizi. Unaweza tengeneza an",
+      "linkText": "matatizo kwenye GitHub",
+      "addSupport": "na nitajaribu weka usaidizi kwenye kifaa chako."
+    },
+    "inviteButton": {
+      "invited": "umealikwa",
+      "inviteToRoom": "alika kwenye chumba"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "Ruksa imekataliwa najaribu kupata maiki yako (unaweza hitaji kwenda kwenye mipangilio ya kivinjari na usafishe upya)",
+      "dismiss": "achia",
+      "tryAgain": "jaribu tena"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "kuweka keybind",
+      "listening": "nasikiliza",
+      "toggleMuteKeybind": "geuza kimya keybind",
+      "togglePushToTalkKeybind": "toggle push-to-talk keybind"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "hakuna sauti kwa mtumiaji kwa sababu mbalimbali"
+    },
+    "addToCalendar": { "add": "Ongeza kwenye kalenda" },
+    "wsKilled": {
+      "description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
+      "reconnect": "reconnect"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "umma",
+        "private": "falagha",
+        "roomName": "jina la chumba",
+        "roomDescription": "maelezo ya chumba",
+        "descriptionError": "urefu wa upeo 500",
+        "nameError": "lazima iwe na herufi 2 mpaka 60"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "Chumba kipya kimetengenezwa",
+        "roomInviteFrom": "Mualiko wa chumba kutoka kwa",
+        "justStarted": "Ndo kwanza wameanza",
+        "likeToJoin": ", ungependa jiunga?",
+        "inviteReceived": "umealikwa ku"
+      },
+      "editProfileModal": {
+        "usernameTaken": "jina la mtumiaji limechukuliwa",
+        "avatarUrlError": "picha si sahihi",
+        "avatarUrlLabel": "Github/Twitter avatar url",
+        "displayNameError": "herufi kuanzia 2 mpaka 50",
+        "displayNameLabel": "Jina la kuonyesha",
+        "usernameError": "herufi kuanzia 4 mpaka 15 na ni herufi kuu na sisitiza",
+        "usernameLabel": "Jina la mtumiaji",
+        "bioError": "upeo wa mwisho wa herufi ni 160",
+        "bioLabel": "Bio"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Unauhakika unahitaji mzuia mtumiaji huyu kwa kuto jiunga tena kwenye vyumba unavyo tengeneza?",
+        "blockUser": "zuia mtumiaji",
+        "makeMod": "make mod",
+        "unmod": "unmod",
+        "addAsSpeaker": "ongeza muongeaji",
+        "moveToListener": "sogeza kwenye wasikilizaji",
+        "banFromChat": "mfungie kuingia kwenye soga",
+        "banFromRoom": "mfungie kuingia kwneye vyumba",
+        "goBackToListener": "rudi kwa wasikilizaji",
+        "deleteMessage": "futa ujumbe huu"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "unahitaji ruksa ya kuongea",
+        "makePublic": "weka chumba kwaajili ya uma",
+        "makePrivate": "weka chumba kwaajili ya falagha"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "Vyumba vilivyopo kwenye ratiba",
+      "noneFound": "hakuna ilio patikana",
+      "allRooms": "vyumba vyote vilivyopo kwenye ratiba",
+      "myRooms": "vyumba vyangu vilivyopo kwenye ratiba",
+      "scheduleRoomHeader": "Vyumba vilivyopo kwenye ratiba",
+      "startRoom": "anzisha chumba",
+      "modal": {
+        "needsFuture": "inahitajika mbeleni",
+        "roomName": "jina la chumba",
+        "minLength": "kiwango cha chini 2"
+      }
+    },
+    "roomChat": {
+      "title": "Soga",
+      "emotesSoon": "[hisia hivi karibuni]",
+      "bannedAlert": "Umefungiwa kwenye soga",
+      "waitAlert": "Unabidi usubirie kwa sekunde kadhaa kabla hujatuma ujumbe mwingine",
+      "search": "Tafuta",
+      "searchResults": "Majibu ya utafutaji",
+      "recent": "Vilivyo tumiwa mara kwa mara",
+      "sendMessage": "Tuma ujumbe",
+      "whisper": "Nong'oneza",
+      "welcomeMessage": "Karibu katika soga!",
+      "roomDescription": "wasifu wa chumba"
+    }
+  }
+}
