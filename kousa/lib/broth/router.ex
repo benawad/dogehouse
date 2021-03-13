@@ -1,10 +1,10 @@
 defmodule Broth do
   import Plug.Conn
 
-  alias Kousa.Routes.GitHubAuth
-  alias Kousa.Routes.TwitterAuth
-  alias Kousa.Routes.ScheduledRoom
-  alias Kousa.Routes.Dev
+  alias Broth.Routes.GitHubAuth
+  alias Broth.Routes.TwitterAuth
+  alias Broth.Routes.ScheduledRoom
+  alias Broth.Routes.Dev
 
   use Plug.Router
   use Sentry.PlugCapture

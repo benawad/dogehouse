@@ -1,4 +1,4 @@
-defmodule Kousa.Routes.GitHubAuth do
+defmodule Broth.Routes.GitHubAuth do
   import Plug.Conn
   use Plug.Router
 

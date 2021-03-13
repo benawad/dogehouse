@@ -1,4 +1,4 @@
-defmodule Kousa.Routes.Dev do
+defmodule Broth.Routes.Dev do
   import Plug.Conn
 
   alias Beef.Schemas.User

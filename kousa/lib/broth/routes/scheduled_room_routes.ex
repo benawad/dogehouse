@@ -1,4 +1,4 @@
-defmodule Kousa.Routes.ScheduledRoom do
+defmodule Broth.Routes.ScheduledRoom do
   import Plug.Conn
 
   alias Beef.ScheduledRooms
