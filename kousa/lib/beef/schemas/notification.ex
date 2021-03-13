@@ -13,7 +13,7 @@ defmodule Beef.Schemas.Notification do
           notifier_id: Ecto.UUID.t(),
         }
 
-  @derive {Poison.Encoder, only: ~w(id type user_id notifier_id)a}
+  @derive {Poison.Encoder, only: ~w(id type user_id notifier_id notifier is_read inserted_at)a}
 
   @primary_key {:id, :binary_id, []}
   schema "notifications" do

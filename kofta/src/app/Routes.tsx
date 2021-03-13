@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Route, Switch } from "react-router-dom";
+import { NotificationsPage } from "./modules/notifications/NotificationsPage";
 import { ScheduledRoomsPage } from "./modules/scheduled-rooms/ScheduledRoomsPage";
 import { ViewScheduledRoomPage } from "./modules/scheduled-rooms/ViewScheduledRoomPage";
 import { BanUsersPage } from "./pages/BanUsersPage";
@@ -57,6 +58,7 @@ export const Routes: React.FC<RoutesProps> = () => {
 						<Route exact path="/search/users" component={SearchUsersPage} />
 						<Route exact path="/ban/users" component={BanUsersPage} />
 						<Route exact path="/voice-settings" component={VoiceSettingsPage} />
+						<Route exact path="/notifications" component={NotificationsPage} />
 						<Route
 							exact
 							path="/sound-effect-settings"

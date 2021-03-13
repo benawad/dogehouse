@@ -687,6 +687,18 @@ defmodule Kousa.SocketHandler do
     }
   end
 
+  def f_handler("get_notifications", data, %State{} = state) do
+    notifications =
+      BL.Notification.get_notifications(
+        state.user_id,
+        Map.get(data, "cursor")
+      )
+
+    %{
+      notifications: notifications,
+    }
+  end
+
   def f_handler("edit_scheduled_room", %{"id" => id, "data" => data}, %State{} = state) do
     case Kousa.BL.ScheduledRoom.edit(
            state.user_id,

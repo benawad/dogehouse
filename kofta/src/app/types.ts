@@ -1,3 +1,4 @@
+import { Notification } from "./modules/notifications/useNotificationStore";
 export type Room = {
 	id: string;
 	name: string;
@@ -75,4 +76,9 @@ export interface ScheduledRoomsInfo {
 export interface PublicRoomsQuery {
 	rooms: Room[];
 	nextCursor: number | null;
+}
+
+export interface Notifications {
+	notifications: Notification[];
+	nextCuros?: string | null;
 }

@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { Calendar } from "react-feather";
 import { useQuery, useQueryClient } from "react-query";
 import { useHistory } from "react-router-dom";
@@ -14,9 +14,11 @@ import { ProfileButton } from "../components/ProfileButton";
 import { RoomCard } from "../components/RoomCard";
 import { Spinner } from "../components/Spinner";
 import { Wrapper } from "../components/Wrapper";
+import { GET_NOTIFICATIONS } from "../modules/notifications/NotificationsPage";
 import { EditScheduleRoomModalController } from "../modules/scheduled-rooms/EditScheduleRoomModalController";
 import { ScheduledRoomCard } from "../modules/scheduled-rooms/ScheduledRoomCard";
 import { GET_SCHEDULED_ROOMS } from "../modules/scheduled-rooms/ScheduledRoomsPage";
+import { Codicon } from "../svgs/Codicon";
 import { Logo } from "../svgs/Logo";
 import { PeopleIcon } from "../svgs/PeopleIcon";
 import { CurrentRoom, PublicRoomsQuery, ScheduledRoom } from "../types";
@@ -135,6 +137,26 @@ export const Home: React.FC<HomeProps> = () => {
 						<Logo />
 					</div>
 					<div className={`mb-6 flex justify-center`}>
+						<div className={`mr-6`}>
+							<CircleButton
+								onClick={() => {
+									queryClient.prefetchQuery(
+										[GET_NOTIFICATIONS, 0],
+										() =>
+											wsFetch({
+												op: GET_NOTIFICATIONS,
+												d: {
+													cursor: 0,
+												},
+											}),
+										{ staleTime: 0 }
+									);
+									history.push("/notifications");
+								}}
+							>
+								<Codicon name="bell" width={30} height={30} />
+							</CircleButton>
+						</div>
 						<div className={`mr-4`}>
 							<CircleButton
 								onClick={() => {
@@ -198,16 +220,15 @@ export const Home: React.FC<HomeProps> = () => {
 									info={sr}
 									onEdit={() => onEdit({ scheduleRoomToEdit: sr, cursor: "" })}
 									onDeleteComplete={() => {
-										queryClient.setQueryData<GetMyScheduledRoomsAboutToStartQuery>(
-											get_my_scheduled_rooms_about_to_start,
-											(d) => {
-												return {
-													scheduledRooms: d?.scheduledRooms.filter(
-														(x) => x.id !== sr.id
-													) as ScheduledRoom[],
-												};
-											}
-										);
+										queryClient.setQueryData<
+											GetMyScheduledRoomsAboutToStartQuery
+										>(get_my_scheduled_rooms_about_to_start, (d) => {
+											return {
+												scheduledRooms: d?.scheduledRooms.filter(
+													(x) => x.id !== sr.id
+												) as ScheduledRoom[],
+											};
+										});
 									}}
 								/>
 							))

@@ -1,11 +1,13 @@
-import { BaseUser } from "./../../types";
+import { UserWithFollowInfo } from "./../../types";
 import create from "zustand";
 import { combine } from "zustand/middleware";
 
+export type NotificationType = "follow";
+
 export type Notification = {
 	id: string;
-	type: "follow";
-	notifier: BaseUser;
+	type: NotificationType;
+	notifier: UserWithFollowInfo;
 	inserted_at: string;
 	is_read: boolean;
 };
