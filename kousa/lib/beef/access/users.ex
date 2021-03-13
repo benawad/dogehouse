@@ -24,6 +24,7 @@ defmodule Beef.Access.Users do
     |> Repo.one()
   end
 
+
   @fetch_limit 16
   def search(query, offset) do
     query_with_percent = "%" <> query <> "%"
