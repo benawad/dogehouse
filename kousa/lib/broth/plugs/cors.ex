@@ -1,4 +1,4 @@
-defmodule Kousa.Cors do
+defmodule Broth.Cors do
   import Plug.Conn
 
   def init(_) do

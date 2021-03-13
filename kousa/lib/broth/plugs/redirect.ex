@@ -1,4 +1,4 @@
-defmodule Kousa.Redirect do
+defmodule Broth.Redirect do
   import Plug.Conn
 
   def redirect(conn, url) do

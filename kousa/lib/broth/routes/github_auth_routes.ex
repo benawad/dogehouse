@@ -58,7 +58,7 @@ defmodule Broth.Routes.GitHubAuth do
           conn
       ) do
     conn
-    |> Kousa.Redirect.redirect(
+    |> Broth.Redirect.redirect(
       get_base_url(conn) <>
         "/?error=" <>
         URI.encode("try again")
@@ -70,7 +70,7 @@ defmodule Broth.Routes.GitHubAuth do
     IO.inspect(failure)
 
     conn
-    |> Kousa.Redirect.redirect(
+    |> Broth.Redirect.redirect(
       get_base_url(conn) <>
         "/?error=" <>
         URI.encode(
@@ -92,7 +92,7 @@ defmodule Broth.Routes.GitHubAuth do
 
       if not is_nil(db_user.reasonForBan) do
         conn
-        |> Kousa.Redirect.redirect(
+        |> Broth.Redirect.redirect(
           get_base_url(conn) <>
             "/?error=" <>
             URI.encode(
@@ -101,7 +101,7 @@ defmodule Broth.Routes.GitHubAuth do
         )
       else
         conn
-        |> Kousa.Redirect.redirect(
+        |> Broth.Redirect.redirect(
           get_base_url(conn) <>
             "/?accessToken=" <>
             Kousa.AccessToken.generate_and_sign!(%{"userId" => db_user.id}) <>
@@ -115,7 +115,7 @@ defmodule Broth.Routes.GitHubAuth do
     rescue
       e in RuntimeError ->
         conn
-        |> Kousa.Redirect.redirect(
+        |> Broth.Redirect.redirect(
           get_base_url(conn) <>
             "/?error=" <>
             URI.encode(e.message)
@@ -128,7 +128,7 @@ defmodule Broth.Routes.GitHubAuth do
     IO.inspect(conn)
 
     conn
-    |> Kousa.Redirect.redirect(
+    |> Broth.Redirect.redirect(
       get_base_url(conn) <>
         "/?error=" <>
         URI.encode(

@@ -61,7 +61,7 @@ defmodule Broth.Routes.TwitterAuth do
         )
 
         conn_with_stuff
-        |> Kousa.Redirect.redirect(
+        |> Broth.Redirect.redirect(
           get_base_url(conn_with_stuff) <>
             "/?error=" <>
             URI.encode("auth failed, enable cookies and try again or give GitHub a try")
@@ -86,7 +86,7 @@ defmodule Broth.Routes.TwitterAuth do
           conn
       ) do
     conn
-    |> Kousa.Redirect.redirect(
+    |> Broth.Redirect.redirect(
       get_base_url(conn) <>
         "/?error=" <>
         URI.encode("try again")
@@ -98,7 +98,7 @@ defmodule Broth.Routes.TwitterAuth do
     IO.inspect(failure)
 
     conn
-    |> Kousa.Redirect.redirect(
+    |> Broth.Redirect.redirect(
       get_base_url(conn) <>
         "/?error=" <>
         URI.encode(
@@ -132,7 +132,7 @@ defmodule Broth.Routes.TwitterAuth do
 
       if not is_nil(db_user.reasonForBan) do
         conn
-        |> Kousa.Redirect.redirect(
+        |> Broth.Redirect.redirect(
           get_base_url(conn) <>
             "/?error=" <>
             URI.encode(
@@ -141,7 +141,7 @@ defmodule Broth.Routes.TwitterAuth do
         )
       else
         conn
-        |> Kousa.Redirect.redirect(
+        |> Broth.Redirect.redirect(
           get_base_url(conn) <>
             "/?accessToken=" <>
             Kousa.AccessToken.generate_and_sign!(%{"userId" => db_user.id}) <>
@@ -162,7 +162,7 @@ defmodule Broth.Routes.TwitterAuth do
         )
 
         conn
-        |> Kousa.Redirect.redirect(
+        |> Broth.Redirect.redirect(
           get_base_url(conn) <>
             "/?error=" <>
             URI.encode("twitter login callback failed for some reason, tell ben to check logs")
@@ -175,7 +175,7 @@ defmodule Broth.Routes.TwitterAuth do
     IO.inspect(conn)
 
     conn
-    |> Kousa.Redirect.redirect(
+    |> Broth.Redirect.redirect(
       get_base_url(conn) <>
         "/?error=" <>
         URI.encode(

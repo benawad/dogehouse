@@ -1,4 +1,4 @@
-defmodule Kousa.CheckAuth do
+defmodule Broth.CheckAuth do
   import Plug.Conn
 
   def init(opts) do
