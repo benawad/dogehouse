@@ -127,7 +127,7 @@
 			},
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Nytt rom opprettet",
-				"roomInviteFrom": "Rom Invitasjon fra",
+				"roomInviteFrom": "Rom-invitasjon fra",
 				"justStarted": "De har nettopp startet",
 				"likeToJoin": ", vil du bli med?",
 				"inviteReceived": "Du har blitt invitert til"
@@ -204,7 +204,7 @@
 			"title": "Chat",
 			"emotesSoon": "[emotes soon]",
 			"bannedAlert": "Du ble utestengt fra chatten",
-			"waitAlert": "Du må vente et sekund før du man sende en ny melding",
+			"waitAlert": "Du må vente et sekund før du kan sende en ny melding",
 			"search": "Søk",
 			"searchResults": "Søkeresultater",
 			"recent": "Ofte brukt",
