@@ -8,15 +8,15 @@ export const SettingsDropdown: React.FC<{}> = () => (
       <BaseOverlay actionButton={ "Log out" }>
         <div className="flex flex-col">
           <SettingsIcon
-            icon={<SmSolidUser className={`text-primary-100`} />}
+            icon={<SmSolidUser />}
             label={"Profile"}
           />
           <SettingsIcon
-            icon={<SmSolidSettings className={`text-primary-100`} />}
+            icon={<SmSolidSettings />}
             label={"Settings"}
           />
           <SettingsIcon
-            icon={<SmSolidDogenitro className={`text-primary-100`} />}
+            icon={<SmSolidDogenitro />}
             label={"Wallet"}
           />
           <SettingsIcon
@@ -25,7 +25,7 @@ export const SettingsDropdown: React.FC<{}> = () => (
             trailingIcon={<SmSolidCaretRight />}
           />
           <SettingsIcon
-            icon={<SmSolidHelp className={"text-primary-100"}/>}
+            icon={<SmSolidHelp />}
             label={"Help"}
           />
           <SettingsIcon
