@@ -39,7 +39,15 @@ defmodule Beef.Schemas.Room do
   @doc false
   def insert_changeset(room, attrs) do
     room
-    |> cast(attrs, [:id, :name, :creatorId, :isPrivate, :numPeopleInside, :voiceServerId, :description])
+    |> cast(attrs, [
+      :id,
+      :name,
+      :creatorId,
+      :isPrivate,
+      :numPeopleInside,
+      :voiceServerId,
+      :description
+    ])
     |> validate_required([:name, :creatorId])
     |> validate_length(:name, min: 2, max: 60)
     |> validate_length(:description, max: 500)
