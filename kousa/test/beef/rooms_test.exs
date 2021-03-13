@@ -8,6 +8,7 @@ defmodule Kousa.Beef.RoomsTest do
   alias Beef.Schemas.Room
   alias Beef.Rooms
   alias Beef.Repo
+  alias Beef.RoomBlocks
 
   describe "Rooms" do
 
@@ -55,7 +56,7 @@ defmodule Kousa.Beef.RoomsTest do
       assert Beef.Rooms.can_join_room(room.id, u.id) == {:error, "room is full"}
 
       room2 = Factory.create(Room)
-      Kousa.Data.RoomBlock.insert(%{ userId: u.id, roomId: room2.id, modId: u.id })
+      RoomBlocks.insert(%{ userId: u.id, roomId: room2.id, modId: u.id })
       assert Beef.Rooms.can_join_room(room2.id, u.id) == {:error, "you are blocked from the room"}
 
       creator = Factory.create(User)

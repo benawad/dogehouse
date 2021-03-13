@@ -4,7 +4,7 @@ defmodule Beef.Mutations.Users do
   alias Beef.Repo
   alias Beef.Schemas.User
   alias Beef.Queries.Users, as: Query
-
+  alias Beef.RoomPermissions
 
   def edit_profile(user_id, data) do
     %User{id: user_id}
@@ -67,13 +67,13 @@ defmodule Beef.Mutations.Users do
     roomPermissions =
       case can_speak do
         true ->
-          case Kousa.Data.RoomPermission.set_speaker?(user_id, room_id, true, true) do
+          case RoomPermissions.set_speaker?(user_id, room_id, true, true) do
             {:ok, x} -> x
             _ -> nil
           end
 
         _ ->
-          Kousa.Data.RoomPermission.get(user_id, room_id)
+          RoomPermissions.get(user_id, room_id)
       end
 
     Kousa.RegUtils.lookup_and_cast(
