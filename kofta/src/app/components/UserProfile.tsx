@@ -37,6 +37,55 @@ export const UserProfile: React.FC<UserProfileProps> = ({
 	}, [_youAreFollowing]);
 	const [editProfileModalOpen, setEditProfileModalOpen] = useState(false);
 	const { t } = useTypeSafeTranslation();
+	
+	const bioParser = (input: string) => {
+		let chunks: Array<string> = [];
+		let currentChunk: string = '';
+		let multiSpaceFlag: boolean = false;
+
+		// This is gross, but so is this whole parser
+		input += ' ';
+
+		for (const c of input) {
+			let whiteSpace =  /[\s]+/.test(c);
+			
+			if (whiteSpace && !multiSpaceFlag) {
+				chunks.push(currentChunk);
+				
+				currentChunk = '';
+				multiSpaceFlag = true;
+			} else if(!whiteSpace && multiSpaceFlag) {
+				multiSpaceFlag = false;
+			}			
+			
+			currentChunk += c;
+		}
+
+		const result = chunks.map((chunk, i) => {
+			console.log(chunk);
+
+			if (linkRegex.test(chunk)) {
+				try {
+					return (
+						<a
+							key={i}
+							href={normalizeUrl(chunk)}
+							target="_blank"
+							rel="noreferrer"
+							className="text-blue-500 p-0 hover:underline"
+						>
+							{chunk}
+						</a>
+					);
+				} catch {}
+			} 
+			return <span key={i}>{chunk}</span>;
+				
+		});
+
+		return result;
+	};
+
 	return (
 		<>
 			<EditProfileModal
@@ -118,7 +167,8 @@ export const UserProfile: React.FC<UserProfileProps> = ({
 				</button>
 			</div>
 			<div className="mb-4 whitespace-pre-wrap break-all">
-				{profile.bio?.split(" ").map((chunk, i) => {
+				{/* {profile.bio?.split(/[\s]+/).map((chunk, i) => { */}
+				 {/* {profile.bio?.split(" ").map((chunk, i) => {
 					if (linkRegex.test(chunk)) {
 						try {
 							return (
@@ -135,8 +185,11 @@ export const UserProfile: React.FC<UserProfileProps> = ({
 						} catch {}
 					}
 					return <span key={i}>{chunk} </span>;
-				})}
+				})} */}
+				{profile.bio ? bioParser(profile.bio): null}
 			</div>
 		</>
 	);
 };
+
+
