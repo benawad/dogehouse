@@ -1,9 +1,8 @@
-import React, { ChangeEventHandler, useState } from "react";
-
-import { SearchOverlay } from "./SearchOverlay";
+import React, { useState } from "react";
 import { SearchBar } from "./SearchBar";
-import { RoomSearchResult, UserSearchResult } from "./SearchResult";
 import SearchHistory from "./SearchHistory";
+import { SearchOverlay } from "./SearchOverlay";
+import { RoomSearchResult, UserSearchResult } from "./SearchResult";
 
 export type HistoryItem = {
   id: string;

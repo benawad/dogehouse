@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { volumeAtom } from "../shared-atoms";
 import { useMicIdStore } from "../shared-stores";
 import { Button } from "./Button";
-import { MuteKeybind, PTTKeybind, ChatKeybind } from "./keyboard-shortcuts";
+import { MuteKeybind, PTTKeybind, ChatKeybind, InviteKeybind, RequestToSpeakKeybind } from "./keyboard-shortcuts";
 import { VolumeSlider } from "./VolumeSlider";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 
@@ -72,7 +72,9 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = () => {
 			</div>
 			<MuteKeybind className={`mb-4`} />
 			<PTTKeybind className={`mb-4`} />
-			<ChatKeybind />
+			<ChatKeybind className={`mb-4`} />
+			<InviteKeybind className={`mb-4`} />
+			<RequestToSpeakKeybind />
 		</>
 	);
 };

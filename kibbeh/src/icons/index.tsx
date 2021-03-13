@@ -10,7 +10,7 @@ export { default as SmSolidMegaphone } from "./SmSolidMegaphone";
 export { default as SmSolidMessages } from "./SmSolidMessages";
 export { default as SmSolidMicrophone } from "./SmSolidMicrophone";
 export { default as SmSolidNotification } from "./SmSolidNotification";
-export { default as SmSolidPlus } from './SmSolidPlus';
+export { default as SmSolidPlus } from "./SmSolidPlus";
 export { default as SmSolidSearch } from "./SmSolidSearch";
 export { default as SmSolidSettings } from "./SmSolidSettings";
 export { default as SmSolidTime } from "./SmSolidTime";

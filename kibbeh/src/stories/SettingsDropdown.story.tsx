@@ -6,10 +6,8 @@ export default {
   title: "SettingsDropdown",
 };
 
-const TheSettingsDropdown: Story<{}> = () => {
-  return (
-    <SettingsDropdown />
-  );
+const TheSettingsDropdown: Story = () => {
+  return <SettingsDropdown />;
 };
 
 export const Main = TheSettingsDropdown.bind({});

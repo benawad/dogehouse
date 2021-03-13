@@ -11,7 +11,7 @@ export default {
 
 const user = {
   username: "Lauren Miller",
-  avatar: avatar,
+  avatar,
   isOnline: true,
   activeRoom: {
     name: "The Developers hangout",

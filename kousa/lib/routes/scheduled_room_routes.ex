@@ -1,7 +1,7 @@
 defmodule Kousa.Routes.ScheduledRoom do
   import Plug.Conn
 
-  alias Kousa.Data.ScheduledRoom
+  alias Beef.ScheduledRooms
   alias Ecto.UUID
 
   use Plug.Router

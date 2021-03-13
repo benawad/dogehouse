@@ -4,15 +4,15 @@
 		"loading": "cargando...",
 		"noUsersFound": "no se encontraron usuarios",
 		"ok": "ok",
-		"yes": "si",
+		"yes": "sí",
 		"no": "no",
 		"cancel": "cancelar",
 		"save": "guardar",
-		"edit": "edit",
-		"delete": "delete",
-		"joinRoom": "join room",
-		"copyLink": "copy link",
-		"copied": "copied",
+		"edit": "modificar",
+		"delete": "eliminar",
+		"joinRoom": "unirse a la sala",
+		"copyLink": "copiar enlace",
+		"copied": "copiado",
 		"formattedIntlDate": "{{date, intlDate}}",
 		"formattedIntlTime": "{{time, intlTime}}"
 	},
@@ -38,9 +38,9 @@
 		"home": { "createRoom": "Crear Sala" },
 		"inviteList": {
 			"roomGone": "sala no disponible, vuelve",
-			"shareRoomLink": "compartir enlace a la habitación",
+			"shareRoomLink": "compartir enlace a la sala",
 			"inviteFollowers": "Puedes invitar a tus seguidores que están en linea:",
-			"whenFollowersOnline": "Cuando tus seguidores est´n en linea se mostrarán aquí."
+			"whenFollowersOnline": "Cuando tus seguidores estén en linea se mostrarán aquí."
 		},
 		"login": {
 			"headerText": "Llevando conversaciones de voz a la luna 🚀",
@@ -119,14 +119,14 @@
 			"createRoomModal": {
 				"public": "pública",
 				"private": "privada",
-				"roomName": "room name",
-				"roomDescription": "room description",
-				"descriptionError": "max length 500",
-				"nameError": "must be between 2 to 60 characters long"
+				"roomName": "nombre de la sala",
+				"roomDescription": "descripción de la sala",
+				"descriptionError": "longitud máxima de 500 caracteres",
+				"nameError": "debe contener entre 2 y 60 caracteres"
 			},
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Nueva Sala Creada",
-				"roomInviteFrom": "Invitación a la habitación de",
+				"roomInviteFrom": "Invitación a la sala de",
 				"justStarted": "Acaban de comenzar",
 				"likeToJoin": ", ¿Te gustaría unirte?",
 				"inviteReceived": "has sido invitado a"
@@ -134,7 +134,7 @@
 			"editProfileModal": {
 				"usernameTaken": "nombre de usuario tomado",
 				"avatarUrlError": "Imagen inválida",
-				"avatarUrlLabel": "Github/Twitter avatar url",
+				"avatarUrlLabel": "GitHub/Twitter avatar url",
 				"displayNameError": "longitud de 2 a 50 caracteres",
 				"displayNameLabel": "Nombre para mostrar",
 				"usernameError": "longitud de 4 a 15 caracteres y solo alfanuméricos/guión bajo",
@@ -163,50 +163,50 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "no hay consumidor de audio por alguna razón"
 		},
-		"addToCalendar": { "add": "Add to Calendar" },
+		"addToCalendar": { "add": "Agregar al calendario" },
 		"keyboardShortcuts": {
-			"setKeybind": "set keybind",
-			"listening": "listening",
-			"toggleMuteKeybind": "toggle mute keybind",
-			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
+			"setKeybind": "configurar combinación de teclas",
+			"listening": "escuchando",
+			"toggleMuteKeybind": "alternar el silenciado",
+			"togglePushToTalkKeybind": "alternar el pulsar para hablar"
 		},
 		"wsKilled": {
-			"description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
-			"reconnect": "reconnect"
+			"description": "El Websocket fue eliminado por el servidor. Esto suele suceder cuando abre el sitio web en otra pestaña.",
+			"reconnect": "reconectar"
 		},
 		"deviceNotSupported": {
-			"notSupported": "Your device is currently not supported. You can create an",
-			"linkText": "issue on GitHub",
-			"addSupport": "and I will try adding support for your device."
+			"notSupported": "Actualmente, su dispositivo no es compatible. Puede crear un",
+			"linkText": "issue en GitHub",
+			"addSupport": "e intentaré agregar soporte para su dispositivo."
 		},
-		"inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" }
+		"inviteButton": { "invited": "invitado", "inviteToRoom": "invitar a una sala" }
 	},
 	"modules": {
 		"scheduledRooms": {
-			"title": "Scheduled Rooms",
-			"noneFound": "none found",
-			"allRooms": "all scheduled rooms",
-			"myRooms": "my scheduled rooms",
-			"scheduleRoomHeader": "Schedule Room",
-			"startRoom": "start room",
+			"title": "Salas programadas",
+			"noneFound": "ninguna encontrada",
+			"allRooms": "todas las salas programadas",
+			"myRooms": "mis salas programadas",
+			"scheduleRoomHeader": "Programar una sala",
+			"startRoom": "iniciar una sala",
 			"modal": {
-				"needsFuture": "needs to be in the future",
-				"roomName": "room name",
-				"minLength": "min length 2"
+				"needsFuture": "necesita ser en el futuro",
+				"roomName": "nombre de la sala",
+				"minLength": "longitud mínima de 2 caracteres"
 			}
 		},
 		"roomChat": {
 			"title": "Chat",
-			"emotesSoon": "[emotes soon]",
-			"bannedAlert": "You got banned from chat",
-			"waitAlert": "You have to wait a second before sending another message",
-			"search": "Search",
-			"searchResults": "Search Results",
-			"recent": "Frequently Used",
-			"sendMessage": "Send a Message",
-			"whisper": "Whisper",
-			"welcomeMessage": "Welcome to chat!",
-			"roomDescription": "room description"
+			"emotesSoon": "[emoticones pronto]",
+			"bannedAlert": "Fuiste baneado del chat",
+			"waitAlert": "Debes de esperar 1 segundo antes de enviar otro mensaje",
+			"search": "Buscar",
+			"searchResults": "Resultados de la búsqueda",
+			"recent": "Usados Frecuentemente",
+			"sendMessage": "Enviar un Mensaje",
+			"whisper": "Susurrar",
+			"welcomeMessage": "¡Bienvenido al chat!",
+			"roomDescription": "descripción de la sala"
 		}
 	}
 }
