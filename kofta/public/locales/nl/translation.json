@@ -151,7 +151,7 @@
 				"private": "privé",
 				"roomName": "kamer naam",
 				"roomDescription": "kamer beschrijving",
-				"descriptionError": "maximale grote 500",
+				"descriptionError": "maximale lengte 500",
 				"nameError": "moet tussen de 2 en 60 karakters lang zijn"
 			},
 			"invitedToJoinRoomModal": {
