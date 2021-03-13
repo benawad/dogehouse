@@ -73,73 +73,74 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
             CURRENT_PTT_KEY = [keyCode];
             PTT_STATUS = [false];
         }
-        ioHook.on("keydown", event => {
-            if (event.shiftKey) {
-                if (CURRENT_PTT_KEY.includes("Shift")) {
-                    let i = CURRENT_PTT_KEY.indexOf("Shift");
-                    PTT_STATUS[i] = true;
-                }
-            } else if (event.altKey) {
-                if (CURRENT_PTT_KEY.includes("Alt")) {
-                    let i = CURRENT_PTT_KEY.indexOf("Alt");
-                    PTT_STATUS[i] = true;
-                }
-            } else if (event.ctrlKey) {
-                if (CURRENT_PTT_KEY.includes("Control")) {
-                    let i = CURRENT_PTT_KEY.indexOf("Control");
-                    PTT_STATUS[i] = true;
-                }
-            } else if (event.metaKey) {
-                if (CURRENT_PTT_KEY.includes("Meta")) {
-                    let i = CURRENT_PTT_KEY.indexOf("Meta");
-                    PTT_STATUS[i] = true;
-                }
-            } else {
-                if (CURRENT_PTT_KEY.includes(String.fromCharCode(event.rawcode))) {
-                    let i = CURRENT_PTT_KEY.indexOf(String.fromCharCode(event.rawcode));
-                    PTT_STATUS[i] = true;
-                }
-            }
-            let PTT = PTT_STATUS.every((key_status) => key_status === true);
-            if (PTT != PTT_PREV_STATUS) {
-                PTT_PREV_STATUS = PTT;
-                mainWindow.webContents.send("PTT_STATUS_CHANGE", !PTT);
-            }
-        })
-        ioHook.on("keyup", event => {
-            if (event.shiftKey) {
-                if (CURRENT_PTT_KEY.includes("Shift")) {
-                    let i = CURRENT_PTT_KEY.indexOf("Shift");
-                    PTT_STATUS[i] = false;
-                }
-            } else if (event.altKey) {
-                if (CURRENT_PTT_KEY.includes("Alt")) {
-                    let i = CURRENT_PTT_KEY.indexOf("Alt");
-                    PTT_STATUS[i] = false;
-                }
-            } else if (event.ctrlKey) {
-                if (CURRENT_PTT_KEY.includes("Control")) {
-                    let i = CURRENT_PTT_KEY.indexOf("Control");
-                    PTT_STATUS[i] = false;
-                }
-            } else if (event.metaKey) {
-                if (CURRENT_PTT_KEY.includes("Meta")) {
-                    let i = CURRENT_PTT_KEY.indexOf("Meta");
-                    PTT_STATUS[i] = false;
-                }
-            } else {
-                if (CURRENT_PTT_KEY.includes(String.fromCharCode(event.rawcode))) {
-                    let i = CURRENT_PTT_KEY.indexOf(String.fromCharCode(event.rawcode));
-                    PTT_STATUS[i] = false;
-                }
-            }
-            let PTT = PTT_STATUS.every((key_status) => key_status === true);
-            if (PTT != PTT_PREV_STATUS) {
-                PTT_PREV_STATUS = PTT;
-                mainWindow.webContents.send("PTT_STATUS_CHANGE", !PTT);
-            }
-        })
-        ioHook.start();
     });
+
+    ioHook.on("keydown", event => {
+        if (event.shiftKey) {
+            if (CURRENT_PTT_KEY.includes("Shift")) {
+                let i = CURRENT_PTT_KEY.indexOf("Shift");
+                PTT_STATUS[i] = true;
+            }
+        } else if (event.altKey) {
+            if (CURRENT_PTT_KEY.includes("Alt")) {
+                let i = CURRENT_PTT_KEY.indexOf("Alt");
+                PTT_STATUS[i] = true;
+            }
+        } else if (event.ctrlKey) {
+            if (CURRENT_PTT_KEY.includes("Control")) {
+                let i = CURRENT_PTT_KEY.indexOf("Control");
+                PTT_STATUS[i] = true;
+            }
+        } else if (event.metaKey) {
+            if (CURRENT_PTT_KEY.includes("Meta")) {
+                let i = CURRENT_PTT_KEY.indexOf("Meta");
+                PTT_STATUS[i] = true;
+            }
+        } else {
+            if (CURRENT_PTT_KEY.includes(String.fromCharCode(event.rawcode))) {
+                let i = CURRENT_PTT_KEY.indexOf(String.fromCharCode(event.rawcode));
+                PTT_STATUS[i] = true;
+            }
+        }
+        let PTT = PTT_STATUS.every((key_status) => key_status === true);
+        if (PTT != PTT_PREV_STATUS) {
+            PTT_PREV_STATUS = PTT;
+            mainWindow.webContents.send("PTT_STATUS_CHANGE", !PTT);
+        }
+    })
+    ioHook.on("keyup", event => {
+        if (event.shiftKey) {
+            if (CURRENT_PTT_KEY.includes("Shift")) {
+                let i = CURRENT_PTT_KEY.indexOf("Shift");
+                PTT_STATUS[i] = false;
+            }
+        } else if (event.altKey) {
+            if (CURRENT_PTT_KEY.includes("Alt")) {
+                let i = CURRENT_PTT_KEY.indexOf("Alt");
+                PTT_STATUS[i] = false;
+            }
+        } else if (event.ctrlKey) {
+            if (CURRENT_PTT_KEY.includes("Control")) {
+                let i = CURRENT_PTT_KEY.indexOf("Control");
+                PTT_STATUS[i] = false;
+            }
+        } else if (event.metaKey) {
+            if (CURRENT_PTT_KEY.includes("Meta")) {
+                let i = CURRENT_PTT_KEY.indexOf("Meta");
+                PTT_STATUS[i] = false;
+            }
+        } else {
+            if (CURRENT_PTT_KEY.includes(String.fromCharCode(event.rawcode))) {
+                let i = CURRENT_PTT_KEY.indexOf(String.fromCharCode(event.rawcode));
+                PTT_STATUS[i] = false;
+            }
+        }
+        let PTT = PTT_STATUS.every((key_status) => key_status === true);
+        if (PTT != PTT_PREV_STATUS) {
+            PTT_PREV_STATUS = PTT;
+            mainWindow.webContents.send("PTT_STATUS_CHANGE", !PTT);
+        }
+    })
+    ioHook.start();
 
 }
