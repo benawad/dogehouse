@@ -173,7 +173,7 @@
 				"bioLabel": "Bio"
 			},
 			"profileModal": {
-				"blockUserConfirm": "Weet je zeker dat je wilt voorkomen dat deze gebruiker lid wordt van een kamer die je ooit hebt gemaakt?",
+				"blockUserConfirm": "Weet je zeker dat je deze gebruiker wil blokkeren om deel te nemen aan elke kamer die je ooit zal aanmaken?",
 				"blockUser": "block gebruiker",
 				"makeMod": "moderator maken",
 				"unmod": "moderator opheffen",
