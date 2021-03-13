@@ -1,4 +1,4 @@
-defmodule Kousa.Gen.RoomSession do
+defmodule Onion.RoomSession do
   use GenServer
 
   defmodule State do
@@ -41,7 +41,7 @@ defmodule Kousa.Gen.RoomSession do
   end
 
   def init(x) do
-    Kousa.Gen.RoomChat.start(x.room_id, %Kousa.Gen.RoomChat.State{
+    Onion.RoomChat.start(x.room_id, %Onion.RoomChat.State{
       room_id: x.room_id,
       users: x.users,
       ban_map: %{},
@@ -53,7 +53,7 @@ defmodule Kousa.Gen.RoomSession do
 
   @spec send_cast(String.t(), any) :: :ok
   def send_cast(room_id, params) do
-    case GenRegistry.lookup(Kousa.Gen.RoomSession, room_id) do
+    case GenRegistry.lookup(Onion.RoomSession, room_id) do
       {:ok, session} ->
         GenServer.cast(session, params)
 
@@ -64,7 +64,7 @@ defmodule Kousa.Gen.RoomSession do
 
   def ws_fan(users, platform, msg) do
     Enum.each(users, fn uid ->
-      Kousa.Gen.UserSession.send_cast(uid, {:send_ws_msg, platform, msg})
+      Onion.UserSession.send_cast(uid, {:send_ws_msg, platform, msg})
     end)
   end
 
@@ -127,7 +127,7 @@ defmodule Kousa.Gen.RoomSession do
   end
 
   def handle_cast({:create_invite, user_id, user_info}, state) do
-    Kousa.Gen.UserSession.send_cast(
+    Onion.UserSession.send_cast(
       user_id,
       {:send_ws_msg, :vscode,
        %{op: "invitation_to_room", d: Map.merge(%{roomId: state.room_id}, user_info)}}
@@ -143,7 +143,7 @@ defmodule Kousa.Gen.RoomSession do
   def handle_cast({:speaker_removed, user_id}, %State{} = state) do
     new_mm = Map.delete(state.muteMap, user_id)
 
-    Kousa.Gen.VoiceRabbit.send(state.voice_server_id, %{
+    Onion.VoiceRabbit.send(state.voice_server_id, %{
       op: "remove-speaker",
       d: %{roomId: state.room_id, peerId: user_id},
       uid: user_id
@@ -168,7 +168,7 @@ defmodule Kousa.Gen.RoomSession do
         do: Map.put(state.muteMap, user_id, true),
         else: Map.delete(state.muteMap, user_id)
 
-    Kousa.Gen.VoiceRabbit.send(state.voice_server_id, %{
+    Onion.VoiceRabbit.send(state.voice_server_id, %{
       op: "add-speaker",
       d: %{roomId: state.room_id, peerId: user_id},
       uid: user_id
@@ -187,7 +187,7 @@ defmodule Kousa.Gen.RoomSession do
   end
 
   def handle_cast({:join_room_no_fan, user_id, mute}, %State{} = state) do
-    Kousa.RegUtils.lookup_and_cast(Kousa.Gen.RoomChat, state.room_id, {:add_user, user_id})
+    Kousa.RegUtils.lookup_and_cast(Onion.RoomChat, state.room_id, {:add_user, user_id})
 
     muteMap =
       if is_nil(mute),
@@ -211,7 +211,7 @@ defmodule Kousa.Gen.RoomSession do
   end
 
   def handle_cast({:join_room, user, mute}, %State{} = state) do
-    Kousa.RegUtils.lookup_and_cast(Kousa.Gen.RoomChat, state.room_id, {:add_user, user.id})
+    Kousa.RegUtils.lookup_and_cast(Onion.RoomChat, state.room_id, {:add_user, user.id})
 
     muteMap =
       if is_nil(mute),
@@ -276,7 +276,7 @@ defmodule Kousa.Gen.RoomSession do
 
   def handle_cast({:destroy, user_id}, state) do
     users = Enum.filter(state.users, fn uid -> uid != user_id end)
-    Kousa.Gen.RoomChat.kill(state.room_id)
+    Onion.RoomChat.kill(state.room_id)
 
     ws_fan(users, :vscode, %{
       op: "room_destroyed",
@@ -288,9 +288,9 @@ defmodule Kousa.Gen.RoomSession do
 
   def handle_cast({:leave_room, user_id}, %State{} = state) do
     users = Enum.filter(state.users, fn uid -> uid != user_id end)
-    Kousa.RegUtils.lookup_and_cast(Kousa.Gen.RoomChat, state.room_id, {:remove_user, user_id})
+    Kousa.RegUtils.lookup_and_cast(Onion.RoomChat, state.room_id, {:remove_user, user_id})
 
-    Kousa.Gen.VoiceRabbit.send(state.voice_server_id, %{
+    Onion.VoiceRabbit.send(state.voice_server_id, %{
       op: "close-peer",
       uid: user_id,
       d: %{peerId: user_id, roomId: state.room_id}
@@ -308,7 +308,7 @@ defmodule Kousa.Gen.RoomSession do
     }
 
     if length(new_state.users) == 0 do
-      Kousa.Gen.RoomChat.kill(state.room_id)
+      Onion.RoomChat.kill(state.room_id)
       {:stop, :normal, new_state}
     else
       {:noreply, new_state}

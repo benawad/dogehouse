@@ -1,7 +1,6 @@
 # @todo should probably stop this after initial load
-defmodule Kousa.Gen.StartRabbits do
+defmodule Onion.StartRabbits do
   use GenServer
-  alias Kousa.Gen
   alias Kousa.VoiceServerUtils
 
   def start_link(_) do
@@ -14,12 +13,12 @@ defmodule Kousa.Gen.StartRabbits do
     Enum.each(0..n, fn x ->
       str_id = VoiceServerUtils.idx_to_str_id(x)
 
-      GenRegistry.lookup_or_start(Gen.VoiceRabbit, str_id, [
-        %Gen.VoiceRabbit.State{id: str_id, chan: nil}
+      GenRegistry.lookup_or_start(Onion.VoiceRabbit, str_id, [
+        %Onion.VoiceRabbit.State{id: str_id, chan: nil}
       ])
 
-      GenRegistry.lookup_or_start(Gen.VoiceOnlineRabbit, str_id, [
-        %Gen.VoiceOnlineRabbit.State{id: str_id, chan: nil}
+      GenRegistry.lookup_or_start(Onion.VoiceOnlineRabbit, str_id, [
+        %Onion.VoiceOnlineRabbit.State{id: str_id, chan: nil}
       ])
     end)
 

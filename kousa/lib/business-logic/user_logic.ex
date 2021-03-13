@@ -1,8 +1,6 @@
 defmodule Kousa.BL.User do
-  alias Kousa.Gen
   alias Kousa.RegUtils
   alias Beef.Users
-  alias Kousa.Gen
   alias Kousa.RegUtils
   alias Kousa.BL
 
@@ -17,7 +15,7 @@ defmodule Kousa.BL.User do
         :username_taken
 
       {:ok, %{displayName: displayName}} ->
-        RegUtils.lookup_and_cast(Gen.UserSession, user_id, {:set, :display_name, displayName})
+        RegUtils.lookup_and_cast(Onion.UserSession, user_id, {:set, :display_name, displayName})
         :ok
 
       _ ->
@@ -35,7 +33,7 @@ defmodule Kousa.BL.User do
         Kousa.BL.Room.leave_room(user_to_ban.id, user_to_ban.currentRoomId)
         Users.set_reason_for_ban(user_to_ban.id, reason_for_ban)
 
-        Kousa.Gen.UserSession.send_cast(
+        Onion.UserSession.send_cast(
           user_to_ban.id,
           {:send_ws_msg, :web, %{op: "banned", d: %{}}}
         )

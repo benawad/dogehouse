@@ -1,5 +1,4 @@
 defmodule Kousa.BL.Follow do
-  alias Kousa.Gen
   alias Beef.Users
   alias Beef.Follows
   alias Beef.UserBlocks
@@ -36,7 +35,7 @@ defmodule Kousa.BL.Follow do
       user = Beef.Users.get_by_id(user_id)
 
       Enum.each(followers_to_notify, fn %Follow{followerId: followerId} ->
-        Gen.UserSession.send_cast(
+        Onion.UserSession.send_cast(
           followerId,
           {:send_ws_msg, :vscode,
            %{

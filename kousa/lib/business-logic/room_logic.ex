@@ -1,7 +1,6 @@
 defmodule Kousa.BL.Room do
   alias Kousa.BL
   alias Kousa.RegUtils
-  alias Kousa.Gen
   alias Kousa.Caster
   alias Kousa.VoiceServerUtils
   alias Beef.Users
@@ -15,7 +14,7 @@ defmodule Kousa.BL.Room do
     room = Rooms.get_room_by_creator_id(user_id)
 
     if not is_nil(room) do
-      RegUtils.lookup_and_cast(Kousa.Gen.RoomSession, room.id, {:set_auto_speaker, value})
+      RegUtils.lookup_and_cast(Onion.RoomSession, room.id, {:set_auto_speaker, value})
     end
   end
 
@@ -24,7 +23,7 @@ defmodule Kousa.BL.Room do
     # this needs to be refactored if a user can have multiple rooms
     case Beef.Rooms.set_room_privacy_by_creator_id(user_id, false, new_name) do
       {1, [room]} ->
-        Gen.RoomSession.send_cast(
+        Onion.RoomSession.send_cast(
           room.id,
           {:send_ws_msg, :vscode,
            %{op: "room_privacy_change", d: %{roomId: room.id, name: room.name, isPrivate: false}}}
@@ -40,7 +39,7 @@ defmodule Kousa.BL.Room do
     # this needs to be refactored if a user can have multiple rooms
     case Rooms.set_room_privacy_by_creator_id(user_id, true, new_name) do
       {1, [room]} ->
-        Kousa.Gen.RoomSession.send_cast(
+        Onion.RoomSession.send_cast(
           room.id,
           {:send_ws_msg, :vscode,
            %{op: "room_privacy_change", d: %{roomId: room.id, name: room.name, isPrivate: true}}}
@@ -60,7 +59,7 @@ defmodule Kousa.BL.Room do
       room = Rooms.get_room_by_id(user.currentRoomId)
 
       if not is_nil(room) do
-        Gen.RoomSession.send_cast(
+        Onion.RoomSession.send_cast(
           user.currentRoomId,
           {:create_invite, user_id_to_invite,
            %{
@@ -98,7 +97,7 @@ defmodule Kousa.BL.Room do
     RoomPermissions.make_listener(user_id_to_make_listener, room_id)
 
     Kousa.RegUtils.lookup_and_cast(
-      Kousa.Gen.RoomSession,
+      Onion.RoomSession,
       room_id,
       {:speaker_removed, user_id_to_make_listener}
     )
@@ -128,14 +127,14 @@ defmodule Kousa.BL.Room do
     with {:ok, _} <-
            RoomPermissions.set_speaker?(user_id_to_make_speaker, room_id, true) do
       case GenRegistry.lookup(
-             Kousa.Gen.RoomSession,
+             Onion.RoomSession,
              room_id
            ) do
         {:ok, session} ->
           GenServer.cast(
             session,
             {:speaker_added, user_id_to_make_speaker,
-             Kousa.Gen.UserSession.send_call!(user_id_to_make_speaker, {:get, :muted})}
+             Onion.UserSession.send_call!(user_id_to_make_speaker, {:get, :muted})}
           )
 
         err ->
@@ -158,7 +157,7 @@ defmodule Kousa.BL.Room do
       RoomPermissions.set_is_mod(user_id_to_change, room.id, Caster.bool(value))
 
       Kousa.RegUtils.lookup_and_cast(
-        Kousa.Gen.RoomSession,
+        Onion.RoomSession,
         room.id,
         {:send_ws_msg, :vscode,
          %{
@@ -182,7 +181,7 @@ defmodule Kousa.BL.Room do
         do: "join-as-speaker",
         else: "join-as-new-peer"
 
-    Kousa.Gen.VoiceRabbit.send(room.voiceServerId, %{
+    Onion.VoiceRabbit.send(room.voiceServerId, %{
       op: op,
       d: %{roomId: room.id, peerId: user_id},
       uid: user_id
@@ -198,7 +197,7 @@ defmodule Kousa.BL.Room do
            }) do
         {:ok, _room} ->
           RegUtils.lookup_and_cast(
-            Gen.RoomSession,
+            Onion.RoomSession,
             room_id,
             {:new_room_details, new_name, new_description, is_private}
           )
@@ -233,7 +232,7 @@ defmodule Kousa.BL.Room do
       {:ok, room} ->
         {:ok, session} =
           GenRegistry.lookup_or_start(
-            Kousa.Gen.RoomSession,
+            Onion.RoomSession,
             id,
             [
               %{
@@ -245,10 +244,10 @@ defmodule Kousa.BL.Room do
 
         GenServer.cast(
           session,
-          {:join_room_no_fan, user_id, Gen.UserSession.send_call!(user_id, {:get, :muted})}
+          {:join_room_no_fan, user_id, Onion.UserSession.send_call!(user_id, {:get, :muted})}
         )
 
-        Kousa.Gen.VoiceRabbit.send(room.voiceServerId, %{
+        Onion.VoiceRabbit.send(room.voiceServerId, %{
           op: "create-room",
           d: %{roomId: id},
           uid: user_id
@@ -287,7 +286,7 @@ defmodule Kousa.BL.Room do
           private_check =
             if room.isPrivate do
               case Kousa.RegUtils.lookup_and_call(
-                     Kousa.Gen.RoomSession,
+                     Onion.RoomSession,
                      room.id,
                      {:redeem_invite, user_id}
                    ) do
@@ -310,10 +309,10 @@ defmodule Kousa.BL.Room do
 
               updated_user = Rooms.join_room(room, user_id)
 
-              Kousa.Gen.RoomSession.send_cast(
+              Onion.RoomSession.send_cast(
                 room_id,
                 {:join_room, updated_user,
-                 Kousa.Gen.UserSession.send_call!(user_id, {:get, :muted})}
+                 Onion.UserSession.send_call!(user_id, {:get, :muted})}
               )
 
               canSpeak =
@@ -341,9 +340,9 @@ defmodule Kousa.BL.Room do
       case Rooms.leave_room(user_id, current_room_id) do
         # the room should be destroyed
         {:bye, room} ->
-          Kousa.Gen.RoomSession.send_cast(current_room_id, {:destroy, user_id})
+          Onion.RoomSession.send_cast(current_room_id, {:destroy, user_id})
 
-          Kousa.Gen.VoiceRabbit.send(room.voiceServerId, %{
+          Onion.VoiceRabbit.send(room.voiceServerId, %{
             op: "destroy-room",
             uid: user_id,
             d: %{peerId: user_id, roomId: current_room_id}
@@ -353,7 +352,7 @@ defmodule Kousa.BL.Room do
         x ->
           case x do
             {:new_creator_id, creator_id} ->
-              Kousa.Gen.RoomSession.send_cast(
+              Onion.RoomSession.send_cast(
                 current_room_id,
                 {:send_ws_msg, :vscode,
                  %{op: "new_room_creator", d: %{roomId: current_room_id, userId: creator_id}}}
@@ -363,13 +362,13 @@ defmodule Kousa.BL.Room do
               nil
           end
 
-          Kousa.Gen.RoomSession.send_cast(
+          Onion.RoomSession.send_cast(
             current_room_id,
             {:leave_room, user_id}
           )
       end
 
-      Kousa.Gen.UserSession.send_cast(
+      Onion.UserSession.send_cast(
         user_id,
         {:send_ws_msg, :web,
          %{op: "you_left_room", d: %{roomId: current_room_id, blocked: blocked}}}

@@ -67,7 +67,7 @@ defmodule Beef.Access.Users do
   # to keep the transition smooth.
   def tuple_get_current_room_id(user_id) do
     case Kousa.RegUtils.lookup_and_call(
-           Kousa.Gen.UserSession,
+           Onion.UserSession,
            user_id,
            {:get_current_room_id}
          ) do
@@ -103,7 +103,7 @@ defmodule Beef.Access.Users do
 
   def get_current_room_id(user_id) do
     case Kousa.RegUtils.lookup_and_call(
-           Kousa.Gen.UserSession,
+           Onion.UserSession,
            user_id,
            {:get_current_room_id}
          ) do

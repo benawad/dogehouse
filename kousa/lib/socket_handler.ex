@@ -3,7 +3,6 @@ defmodule Kousa.SocketHandler do
 
   alias Kousa.BL
   alias Kousa.RegUtils
-  alias Kousa.Gen
   alias Kousa.Caster
   alias Beef.Users
   alias Beef.Rooms
@@ -124,8 +123,8 @@ defmodule Kousa.SocketHandler do
               cond do
                 user ->
                   {:ok, session} =
-                    GenRegistry.lookup_or_start(Gen.UserSession, user_id, [
-                      %Gen.UserSession.State{
+                    GenRegistry.lookup_or_start(Onion.UserSession, user_id, [
+                      %Onion.UserSession.State{
                         user_id: user_id,
                         avatar_url: user.avatarUrl,
                         display_name: user.displayName,
@@ -149,7 +148,7 @@ defmodule Kousa.SocketHandler do
                         room = Rooms.get_room_by_id(user.currentRoomId)
 
                         {:ok, room_session} =
-                          GenRegistry.lookup_or_start(Gen.RoomSession, user.currentRoomId, [
+                          GenRegistry.lookup_or_start(Onion.RoomSession, user.currentRoomId, [
                             %{
                               room_id: user.currentRoomId,
                               voice_server_id: room.voiceServerId
@@ -356,7 +355,7 @@ defmodule Kousa.SocketHandler do
 
     if not is_nil(current_room_id) do
       Kousa.RegUtils.lookup_and_cast(
-        Kousa.Gen.RoomSession,
+        Onion.RoomSession,
         current_room_id,
         {:speaking_change, state.user_id, value}
       )
@@ -492,19 +491,19 @@ defmodule Kousa.SocketHandler do
   end
 
   def handler("mute", %{"value" => value}, state) do
-    Kousa.Gen.UserSession.send_cast(state.user_id, {:set_mute, value})
+    Onion.UserSession.send_cast(state.user_id, {:set_mute, value})
     # user = Users.get_by_id(state.user_id)
 
     # if not is_nil(user.currentRoomId) do
     #   Kousa.RegUtils.lookup_and_cast(
-    #     Kousa.Gen.RoomSession,
+    #     Onion.RoomSession,
     #     user.currentRoomId,
     #     {:mute, user.id, value}
     #   )
 
     #   # @todo if it came from vscode then send ws message
     #   # Kousa.RegUtils.lookup_and_cast(
-    #   #   Kousa.Gen.UserSession,
+    #   #   Onion.UserSession,
     #   #   user.id,
     #   #   {:send_ws_msg, :web, %{op: "mute_changed", d: %{value: value}}}
     #   # )
@@ -519,7 +518,7 @@ defmodule Kousa.SocketHandler do
     {muteMap, autoSpeaker, activeSpeakerMap} =
       cond do
         not is_nil(room_id) ->
-          case GenRegistry.lookup(Kousa.Gen.RoomSession, room_id) do
+          case GenRegistry.lookup(Onion.RoomSession, room_id) do
             {:ok, session} ->
               GenServer.call(session, {:get_maps})
 
@@ -557,7 +556,7 @@ defmodule Kousa.SocketHandler do
 
         _ ->
           Kousa.RegUtils.lookup_and_cast(
-            Kousa.Gen.RoomSession,
+            Onion.RoomSession,
             room_id,
             {:send_ws_msg, :vscode,
              %{
@@ -573,7 +572,7 @@ defmodule Kousa.SocketHandler do
 
   def handler("audio_autoplay_error", _data, state) do
     Kousa.RegUtils.lookup_and_cast(
-      Kousa.Gen.UserSession,
+      Onion.UserSession,
       state.user_id,
       {:send_ws_msg, :vscode,
        %{
@@ -588,7 +587,7 @@ defmodule Kousa.SocketHandler do
   def handler(op, data, state) do
     with {:ok, room_id} <- Beef.Users.tuple_get_current_room_id(state.user_id),
          {:ok, voice_server_id} <-
-           RegUtils.lookup_and_call(Gen.RoomSession, room_id, {:get_voice_server_id}) do
+           RegUtils.lookup_and_call(Onion.RoomSession, room_id, {:get_voice_server_id}) do
       d =
         cond do
           String.first(op) == "@" ->
@@ -601,7 +600,7 @@ defmodule Kousa.SocketHandler do
             data
         end
 
-      Kousa.Gen.VoiceRabbit.send(voice_server_id, %{
+      Onion.VoiceRabbit.send(voice_server_id, %{
         op: op,
         d: d,
         uid: state.user_id

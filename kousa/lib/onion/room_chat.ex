@@ -1,4 +1,4 @@
-defmodule Kousa.Gen.RoomChat do
+defmodule Onion.RoomChat do
   use GenServer
 
   defmodule State do
@@ -43,7 +43,7 @@ defmodule Kousa.Gen.RoomChat do
 
   def ws_fan(users, platform, msg) do
     Enum.each(users, fn uid ->
-      Kousa.Gen.UserSession.send_cast(uid, {:send_ws_msg, platform, msg})
+      Onion.UserSession.send_cast(uid, {:send_ws_msg, platform, msg})
     end)
   end
 

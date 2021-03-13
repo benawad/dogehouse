@@ -11,28 +11,28 @@ defmodule Kousa do
     children = [
       {
         GenRegistry,
-        worker_module: Kousa.Gen.UserSession
+        worker_module: Onion.UserSession
       },
       {
         GenRegistry,
-        worker_module: Kousa.Gen.RoomSession
+        worker_module: Onion.RoomSession
       },
       {
         GenRegistry,
-        worker_module: Kousa.Gen.RoomChat
+        worker_module: Onion.RoomChat
       },
       {
         GenRegistry,
-        worker_module: Kousa.Gen.VoiceRabbit
+        worker_module: Onion.VoiceRabbit
       },
       {
         GenRegistry,
-        worker_module: Kousa.Gen.VoiceOnlineRabbit
+        worker_module: Onion.VoiceOnlineRabbit
       },
       {Beef.Repo, []},
-      Kousa.Gen.StartRabbits,
-      Kousa.Gen.StartRooms,
-      Kousa.Gen.Telemetry,
+      Onion.StartRabbits,
+      Onion.StartRooms,
+      Onion.Telemetry,
       Plug.Cowboy.child_spec(
         scheme: :http,
         plug: Kousa.Router,

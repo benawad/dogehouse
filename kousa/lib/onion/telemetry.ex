@@ -1,4 +1,4 @@
-defmodule Kousa.Gen.Telemetry do
+defmodule Onion.Telemetry do
   use GenServer
 
   def start_link(_) do
@@ -12,7 +12,7 @@ defmodule Kousa.Gen.Telemetry do
   end
 
   def handle_info({:collect_metrics}, state) do
-    Kousa.Metric.UserSessions.set(GenRegistry.count(Kousa.Gen.UserSession))
+    Kousa.Metric.UserSessions.set(GenRegistry.count(Onion.UserSession))
     Process.send_after(self(), {:collect_metrics}, 10_000)
     {:noreply, state}
   end

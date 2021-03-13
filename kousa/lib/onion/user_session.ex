@@ -1,6 +1,5 @@
-defmodule Kousa.Gen.UserSession do
+defmodule Onion.UserSession do
   use GenServer
-  alias Kousa.Gen
   alias Kousa.RegUtils
   alias Kousa.BL
   # alias Beef.Users
@@ -50,7 +49,7 @@ defmodule Kousa.Gen.UserSession do
 
   @spec send_cast(String.t(), any) :: :ok
   def send_cast(user_id, params) do
-    case GenRegistry.lookup(Kousa.Gen.UserSession, user_id) do
+    case GenRegistry.lookup(Onion.UserSession, user_id) do
       {:ok, session} ->
         GenServer.cast(session, params)
 
@@ -70,7 +69,7 @@ defmodule Kousa.Gen.UserSession do
   end
 
   def send_call(user_id, params) do
-    case GenRegistry.lookup(Kousa.Gen.UserSession, user_id) do
+    case GenRegistry.lookup(Onion.UserSession, user_id) do
       {:ok, session} ->
         {:ok, GenServer.call(session, params)}
 
@@ -96,7 +95,7 @@ defmodule Kousa.Gen.UserSession do
 
     if not is_nil(state.current_room_id) do
       Kousa.RegUtils.lookup_and_cast(
-        Kousa.Gen.RoomSession,
+        Onion.RoomSession,
         state.current_room_id,
         {:mute, state.user_id, v}
       )
@@ -144,7 +143,7 @@ defmodule Kousa.Gen.UserSession do
     if not is_nil(state.pid) and not is_nil(state.current_room_id) do
       with {:ok, ^voice_server_id} <-
              RegUtils.lookup_and_call(
-               Gen.RoomSession,
+               Onion.RoomSession,
                state.current_room_id,
                {:get_voice_server_id}
              ) do

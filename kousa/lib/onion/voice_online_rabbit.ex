@@ -1,5 +1,5 @@
 # used to alert the elixir server when the voice server starts up for the first time
-defmodule Kousa.Gen.VoiceOnlineRabbit do
+defmodule Onion.VoiceOnlineRabbit do
   use GenServer
   use AMQP
 
@@ -64,7 +64,7 @@ defmodule Kousa.Gen.VoiceOnlineRabbit do
 
     case data do
       %{"op" => "online"} ->
-        GenRegistry.reduce(Kousa.Gen.UserSession, {nil, -1}, fn
+        GenRegistry.reduce(Onion.UserSession, {nil, -1}, fn
           {_, pid}, acc ->
             send(pid, {:reconnect_to_voice_server, state.id})
 

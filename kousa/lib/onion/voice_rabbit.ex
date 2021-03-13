@@ -1,4 +1,4 @@
-defmodule Kousa.Gen.VoiceRabbit do
+defmodule Onion.VoiceRabbit do
   use GenServer
   use AMQP
 
@@ -78,7 +78,7 @@ defmodule Kousa.Gen.VoiceRabbit do
             _ -> :all
           end
 
-        Kousa.Gen.UserSession.send_cast(
+        Onion.UserSession.send_cast(
           user_id,
           {:send_ws_msg, platform_atom, Map.delete(data, "uid")}
         )
@@ -93,7 +93,7 @@ defmodule Kousa.Gen.VoiceRabbit do
 
         # IO.puts("RABBIT RESPONDED: " <> data["op"])
 
-        Kousa.Gen.RoomSession.send_cast(
+        Onion.RoomSession.send_cast(
           room_id,
           {:send_ws_msg, platform_atom, Map.delete(data, "rid")}
         )

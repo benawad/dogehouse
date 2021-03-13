@@ -1,7 +1,6 @@
 # @todo should probably stop this after initial load
-defmodule Kousa.Gen.StartRooms do
+defmodule Onion.StartRooms do
   use GenServer
-  alias Kousa.Gen
   alias Beef.Rooms
 
   def start_link(_) do
@@ -10,7 +9,7 @@ defmodule Kousa.Gen.StartRooms do
 
   def init(_opts) do
     Enum.each(Rooms.all_rooms(), fn room ->
-      GenRegistry.lookup_or_start(Gen.RoomSession, room.id, [
+      GenRegistry.lookup_or_start(Onion.RoomSession, room.id, [
         %{
           room_id: room.id,
           voice_server_id: room.voiceServerId

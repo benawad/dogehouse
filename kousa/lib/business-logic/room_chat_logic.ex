@@ -1,6 +1,5 @@
 defmodule Kousa.BL.RoomChat do
   alias Kousa.RegUtils
-  alias Kousa.Gen
   alias Beef.Rooms
 
   @message_character_limit 512
@@ -17,9 +16,9 @@ defmodule Kousa.BL.RoomChat do
 
         current_room_id ->
           with {avatar_url, display_name} <-
-                 Gen.UserSession.send_call!(user_id, {:get_info_for_msg}) do
+                 Onion.UserSession.send_call!(user_id, {:get_info_for_msg}) do
             RegUtils.lookup_and_cast(
-              Gen.RoomChat,
+              Onion.RoomChat,
               current_room_id,
               {:new_msg, user_id,
                %{
@@ -84,12 +83,12 @@ defmodule Kousa.BL.RoomChat do
     case Rooms.get_room_status(user_id) do
       {:creator, room} ->
         if room.creatorId != user_id_to_ban do
-          RegUtils.lookup_and_cast(Gen.RoomChat, room.id, {:ban_user, user_id_to_ban})
+          RegUtils.lookup_and_cast(Onion.RoomChat, room.id, {:ban_user, user_id_to_ban})
         end
 
       {:mod, room} ->
         if room.creatorId != user_id_to_ban do
-          RegUtils.lookup_and_cast(Gen.RoomChat, room.id, {:ban_user, user_id_to_ban})
+          RegUtils.lookup_and_cast(Onion.RoomChat, room.id, {:ban_user, user_id_to_ban})
         end
 
       _ ->
@@ -104,7 +103,7 @@ defmodule Kousa.BL.RoomChat do
     case Rooms.get_room_status(deleter_id) do
       {:creator, room} ->
         RegUtils.lookup_and_cast(
-          Gen.RoomChat,
+          Onion.RoomChat,
           room.id,
           {:message_deleted, deleter_id, message_id}
         )
@@ -113,7 +112,7 @@ defmodule Kousa.BL.RoomChat do
       {:mod, room} ->
         if user_id != room.creatorId do
           RegUtils.lookup_and_cast(
-            Gen.RoomChat,
+            Onion.RoomChat,
             room.id,
             {:message_deleted, deleter_id, message_id}
           )
@@ -122,7 +121,7 @@ defmodule Kousa.BL.RoomChat do
       {:listener, room} ->
         if user_id == deleter_id do
           RegUtils.lookup_and_cast(
-            Gen.RoomChat,
+            Onion.RoomChat,
             room.id,
             {:message_deleted, deleter_id, message_id}
           )
