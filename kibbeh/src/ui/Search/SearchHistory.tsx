@@ -1,6 +1,6 @@
 import React from "react";
 
-import { SmSolidSearch } from "../icons";
+import { SmSolidSearch } from "../../icons";
 
 export interface SearchHistoryProps {
   onClickToDeleteSearchHistory: React.MouseEventHandler<HTMLSpanElement>;

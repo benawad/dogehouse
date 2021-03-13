@@ -1,5 +1,5 @@
 import React from "react";
-import { SmSolidSearch } from "../icons";
+import { SmSolidSearch } from "../../icons";
 
 export interface SearchBarProps
   extends React.ComponentPropsWithoutRef<"input"> {
