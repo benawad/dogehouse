@@ -1,4 +1,5 @@
 {
+	"_comment": "if you change this file, do: npm run i18",
 	"common": {
 		"loadMore": "Mehr laden",
 		"loading": "Lade...",
@@ -29,14 +30,18 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": { "ban": "bannen" },
+		"banUser": {
+			"ban": "bannen"
+		},
 		"followingOnlineList": {
 			"listHeader": "Benutzer denen du folgst, die nicht in einem privaten Raum sind.",
 			"currentRoom": "Zurzeit in:",
 			"startPrivateRoom": "Einen privaten Raum mit diesem Benutzer starten"
 		},
 		"followList": {},
-		"home": { "createRoom": "Raum erstellen" },
+		"home": {
+			"createRoom": "Raum erstellen"
+		},
 		"inviteList": {
 			"roomGone": "Raum ist weg, gehe zurück",
 			"shareRoomLink": "Link zum Raum teilen",
@@ -72,8 +77,12 @@
 			"requestingToSpeak": "Sprachanfragen",
 			"listeners": "Zuhörer"
 		},
-		"searchUser": { "search": "Suchen..." },
-		"soundEffectSettings": { "header": "Ton" },
+		"searchUser": {
+			"search": "Suchen..."
+		},
+		"soundEffectSettings": {
+			"header": "Ton"
+		},
 		"viewUser": {
 			"editProfile": "Profil bearbeiten",
 			"followsYou": "folgt dir",
@@ -90,6 +99,9 @@
 	},
 	"components": {
 		"_comment": "Component UI Internationalization Strings",
+		"addToCalendar": {
+			"add": "Zum Kalender hinzufügen"
+		},
 		"avatar": {},
 		"backBar": {},
 		"blockedFromRoomUsers": {
@@ -164,12 +176,11 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "Aus unbekannten Gründen wurde kein Audio Consumer gefunden"
 		},
-		"addToCalendar": { "add": "Zum Kalender hinzufügen" },
 		"keyboardShortcuts": {
-			"setKeybind": "set keybind",
-			"listening": "listening",
-			"toggleMuteKeybind": "toggle mute keybind",
-			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
+			"setKeybind": "Tastenkürzel setzen",
+			"listening": "Zuhören",
+			"toggleMuteKeybind": "Stummschalttaste umschalten",
+			"togglePushToTalkKeybind": "Push-to-Talk Tastenkürzel umschalten"
 		},
 		"wsKilled": {
 			"description": "Die Websocket Verbindung zum Server wurde unterbrochen. Dies passiert oft, wenn du die Website in einem anderen Tab öffnest.",
@@ -180,9 +191,13 @@
 			"linkText": "Issue auf GitHub",
 			"addSupport": "öffnen und ich werde versuchen, die Unterstützung für dein Gerät hinzuzufügen."
 		},
-		"inviteButton": { "invited": "eingeladen", "inviteToRoom": "zum Raum einladen" }
+		"inviteButton": {
+			"invited": "eingeladen",
+			"inviteToRoom": "zum Raum einladen"
+		}
 	},
 	"modules": {
+		"_comment": "Modules UI Internationalization Strings",
 		"scheduledRooms": {
 			"title": "Geplante Räume",
 			"noneFound": "Nicht gefunden",
