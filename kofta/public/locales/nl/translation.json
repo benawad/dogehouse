@@ -142,7 +142,7 @@
 			"add": "Toevoegen aan kalender"
 		},
 		"wsKilled": {
-			"description": "Webcontact is gestopt door de server. Dit gebeurd meestal als je een andere website bezoekt in een ander venster.",
+			"description": "WebSocket is gestopt door de server. Dit gebeurt meestal wanneer je de website in een ander tabblad opent.",
 			"reconnect": "opnieuw verbinding maken"
 		},
 		"modals": {
