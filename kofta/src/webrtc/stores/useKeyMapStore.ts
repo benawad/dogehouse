@@ -1,12 +1,18 @@
 import { KeyMap } from "react-hotkeys";
 import create from "zustand";
 import { combine } from "zustand/middleware";
+import isElectron from "is-electron";
 
-const REQUEST_TO_SPEAK_KEY = "@keybind/invite";
-const INVITE_KEY = "@keybind/invite";
-const MUTE_KEY = "@keybind/mute";
-const CHAT_KEY = "@keybind/chat";
-const PTT_KEY = "@keybind/ptt";
+let ipcRenderer: any = undefined;
+if (isElectron()) {
+	ipcRenderer = window.require('electron').ipcRenderer
+}
+
+export const REQUEST_TO_SPEAK_KEY = "@keybind/invite";
+export const INVITE_KEY = "@keybind/invite";
+export const MUTE_KEY = "@keybind/mute";
+export const CHAT_KEY = "@keybind/chat";
+export const PTT_KEY = "@keybind/ptt";
 
 function getRequestToSpeakKeybind() {
 	return getKeybind(REQUEST_TO_SPEAK_KEY, "Control+8")
@@ -32,8 +38,10 @@ function getKeybind(actionKey: string, defaultKeybind: string) {
 	let v = ""
 	try {
 		v = localStorage.getItem(actionKey) || "";
-	} catch {}
-
+	} catch { }
+	if (isElectron()) {
+		ipcRenderer.send(actionKey, v || defaultKeybind);
+	}
 	return v || defaultKeybind;
 }
 
@@ -66,7 +74,10 @@ export const useKeyMapStore = create(
 			setRequestToSpeakKeybind: (id: string) => {
 				try {
 					localStorage.setItem(REQUEST_TO_SPEAK_KEY, id);
-				} catch {}
+					if (isElectron()) {
+						ipcRenderer.send(REQUEST_TO_SPEAK_KEY, id)
+					}
+				} catch { }
 				set((x) => ({
 					keyMap: { ...x.keyMap, REQUEST_TO_SPEAK: id },
 					keyNames: { ...x.keyNames, REQUEST_TO_SPEAK: id },
@@ -75,16 +86,23 @@ export const useKeyMapStore = create(
 			setInviteKeybind: (id: string) => {
 				try {
 					localStorage.setItem(INVITE_KEY, id);
-				} catch {}
+					if (isElectron()) {
+						ipcRenderer.send(INVITE_KEY, id)
+					}
+				} catch { }
 				set((x) => ({
 					keyMap: { ...x.keyMap, INVITE: id },
 					keyNames: { ...x.keyNames, INVITE: id },
 				}));
 			},
 			setMuteKeybind: (id: string) => {
+				console.log(id)
 				try {
 					localStorage.setItem(MUTE_KEY, id);
-				} catch {}
+					if (isElectron()) {
+						ipcRenderer.send(MUTE_KEY, id)
+					}
+				} catch { }
 				set((x) => ({
 					keyMap: { ...x.keyMap, MUTE: id },
 					keyNames: { ...x.keyNames, MUTE: id },
@@ -93,7 +111,10 @@ export const useKeyMapStore = create(
 			setChatKeybind: (id: string) => {
 				try {
 					localStorage.setItem(CHAT_KEY, id);
-				} catch {}
+					if (isElectron()) {
+						ipcRenderer.send(CHAT_KEY, id)
+					}
+				} catch { }
 				set((x) => ({
 					keyMap: { ...x.keyMap, CHAT: id },
 					keyNames: { ...x.keyNames, CHAT: id },
@@ -102,7 +123,10 @@ export const useKeyMapStore = create(
 			setPTTKeybind: (id: string) => {
 				try {
 					localStorage.setItem(PTT_KEY, id);
-				} catch {}
+					if (isElectron()) {
+						ipcRenderer.send(PTT_KEY, id)
+					}
+				} catch { }
 				set((x) => ({
 					keyMap: {
 						...x.keyMap,

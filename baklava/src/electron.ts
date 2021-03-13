@@ -1,5 +1,14 @@
-import { BrowserWindow, app, systemPreferences, ipcMain } from "electron";
-import { __prod__ } from "./constants";
+import {
+  BrowserWindow,
+  app,
+  systemPreferences,
+  ipcMain,
+  globalShortcut
+} from "electron";
+import {
+  __prod__,
+  RegisterKeybinds
+} from "./constants";
 
 let mainWindow: BrowserWindow;
 
@@ -27,7 +36,13 @@ function createWindow() {
     );
     event.returnValue = isAllowed;
   });
-  mainWindow.on("closed", () => mainWindow.destroy());
+
+  // registers global keybinds
+  RegisterKeybinds(mainWindow);
+  mainWindow.on("closed", () => {
+    globalShortcut.unregisterAll();
+    mainWindow.destroy()
+  });
 }
 
 app.on("ready", () => {
