@@ -134,8 +134,8 @@ export const UserProfile: React.FC<UserProfileProps> = ({
 			<div className="mb-4 whitespace-pre-wrap break-all">
 			{profile.bio?.split(/\n/gm).map((line, i) => {
           return (
-            <>
-              <span key={i}>
+            <div key={i}>
+              <span>
                 {line.split(" ").map((chunk, j) => {
                   if (linkRegex.test(chunk)) {
                     try {
@@ -156,7 +156,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
                 })}
               </span>
               <br />
-            </>
+            </div>
           );
         })}
 			</div>
