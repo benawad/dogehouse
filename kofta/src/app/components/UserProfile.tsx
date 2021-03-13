@@ -62,8 +62,6 @@ export const UserProfile: React.FC<UserProfileProps> = ({
 		}
 
 		return chunks.map((chunk, i) => {
-			console.log(chunk);
-
 			if (linkRegex.test(chunk)) {
 				try {
 					return (
@@ -165,25 +163,6 @@ export const UserProfile: React.FC<UserProfileProps> = ({
 				</button>
 			</div>
 			<div className="mb-4 whitespace-pre-wrap break-all">
-				{/* {profile.bio?.split(/[\s]+/).map((chunk, i) => { */}
-				 {/* {profile.bio?.split(" ").map((chunk, i) => {
-					if (linkRegex.test(chunk)) {
-						try {
-							return (
-								<a
-									key={i}
-									href={normalizeUrl(chunk)}
-									target="_blank"
-									rel="noreferrer"
-									className="text-blue-500 p-0 hover:underline"
-								>
-									{chunk}{" "}
-								</a>
-							);
-						} catch {}
-					}
-					return <span key={i}>{chunk} </span>;
-				})} */}
 				{profile.bio ? bioParser(profile.bio): null}
 			</div>
 		</>
