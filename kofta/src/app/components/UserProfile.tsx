@@ -61,7 +61,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
 			currentChunk += c;
 		}
 
-		const result = chunks.map((chunk, i) => {
+		return chunks.map((chunk, i) => {
 			console.log(chunk);
 
 			if (linkRegex.test(chunk)) {
@@ -82,8 +82,6 @@ export const UserProfile: React.FC<UserProfileProps> = ({
 			return <span key={i}>{chunk}</span>;
 				
 		});
-
-		return result;
 	};
 
 	return (
