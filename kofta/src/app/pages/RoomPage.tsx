@@ -107,7 +107,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
 						style={{
 							gridTemplateColumns: "repeat(auto-fit, 90px)",
 						}}
-						className={`w-full grid gap-5`}
+						className={`w-full grid gap-5 mb-12`}
 					>
 						<div className={`col-span-full text-xl ml-2.5 text-white`}>
 							{t("pages.room.speakers")} ({speakers.length})
