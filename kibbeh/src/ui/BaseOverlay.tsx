@@ -14,10 +14,7 @@ export const BaseOverlay: React.FC<BaseOverlayProps> = ({
   onActionButtonClicked,
 }) => {
   return (
-    <div
-      style={{ borderRadius: "8px" }}
-      className="flex flex-col w-full bg-primary-800 border border-primary-700"
-    >
+    <div className="flex flex-col w-full rounded-8 bg-primary-800 border border-primary-700">
       {title && (
         <div className="px-4 py-3 border-b border-primary-600 flex items-center">
           <h4 className="text-primary-100">{title}</h4>

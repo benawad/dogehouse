@@ -12,8 +12,7 @@ defmodule Kousa.Gen.UserSession do
             display_name: String.t(),
             current_room_id: String.t(),
             muted: boolean(),
-            pid: pid(),
-            atomic_op: String.t()
+            pid: pid()
           }
 
     defstruct user_id: nil,
@@ -21,8 +20,7 @@ defmodule Kousa.Gen.UserSession do
               muted: false,
               pid: nil,
               display_name: nil,
-              avatar_url: nil,
-              atomic_op: nil
+              avatar_url: nil
   end
 
   def start_link(%State{
@@ -40,8 +38,7 @@ defmodule Kousa.Gen.UserSession do
         pid: nil,
         user_id: user_id,
         current_room_id: current_room_id,
-        muted: Kousa.Caster.bool(muted),
-        atomic_op: nil
+        muted: Kousa.Caster.bool(muted)
       },
       name: :"#{user_id}:user_session"
     )
@@ -116,10 +113,6 @@ defmodule Kousa.Gen.UserSession do
     {:noreply, state}
   end
 
-  def handle_cast({:done_with_atomic_op}, state) do
-    {:noreply, %{state | atomic_op: nil}}
-  end
-
   def handle_cast({:set_current_room_id, current_room_id}, state) do
     {:noreply, %{state | current_room_id: current_room_id}}
   end
@@ -134,14 +127,6 @@ defmodule Kousa.Gen.UserSession do
 
   def handle_call({:get, key}, _, state) do
     {:reply, Map.get(state, key), state}
-  end
-
-  def handle_call({:start_atomic_op, op}, _, state) do
-    if is_nil(state.atomic_op) do
-      {:reply, :ok, %{state | atomic_op: op}}
-    else
-      {:reply, :err, state}
-    end
   end
 
   def handle_call({:set_pid, pid}, _, state) do

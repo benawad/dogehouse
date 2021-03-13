@@ -1,9 +1,8 @@
 defmodule Kousa.BL.ScheduledRoom do
-  use Kousa.Dec.Atomic
   alias Kousa.BL
-  alias Kousa.Data
   alias Kousa.Errors
   alias Beef.Schemas.ScheduledRoom
+  alias Beef.ScheduledRooms
 
   def create_room_from_scheduled_room(user_id, scheduled_room_id, name, description) do
     with {:ok, response} <- BL.Room.create_room(user_id, name, description, false) do
@@ -15,11 +14,11 @@ defmodule Kousa.BL.ScheduledRoom do
   end
 
   def delete(user_id, id) do
-    Data.ScheduledRoom.delete(user_id, id)
+    ScheduledRooms.delete(user_id, id)
   end
 
   def edit(user_id, id, data) do
-    case Data.ScheduledRoom.edit(user_id, id, data) do
+    case ScheduledRooms.edit(user_id, id, data) do
       :ok ->
         :ok
 
@@ -32,7 +31,7 @@ defmodule Kousa.BL.ScheduledRoom do
   def schedule(user_id, data) do
     # @todo add to followers notifications
 
-    case Data.ScheduledRoom.insert(Map.put(data, "creatorId", user_id)) do
+    case ScheduledRooms.insert(Map.put(data, "creatorId", user_id)) do
       {:ok, scheduled_room} ->
         {:ok, scheduled_room}
 
@@ -44,14 +43,14 @@ defmodule Kousa.BL.ScheduledRoom do
   @spec get_scheduled_rooms(binary, boolean, String.t() | nil) ::
           {[ScheduledRoom], nil | number}
   def get_scheduled_rooms(user_id, get_only_my_scheduled_rooms, cursor) do
-    Data.ScheduledRoom.get_feed(user_id, get_only_my_scheduled_rooms, cursor)
+    ScheduledRooms.get_feed(user_id, get_only_my_scheduled_rooms, cursor)
   end
 
   def get_my_scheduled_rooms_about_to_start(user_id) do
-    Data.ScheduledRoom.get_my_scheduled_rooms_about_to_start(user_id)
+    ScheduledRooms.get_my_scheduled_rooms_about_to_start(user_id)
   end
 
   def get_my_scheduled_room(user_id) do
-    Data.ScheduledRoom.get_mine(user_id)
+    ScheduledRooms.get_mine(user_id)
   end
 end
