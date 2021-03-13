@@ -70,8 +70,7 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
 }) => {
   return (
     <div
-      className="flex-col bg-primary-800 p-4 w-full"
-      style={{ borderRadius: "8px" }}
+      className="flex-col rounded-8 bg-primary-800 p-4 w-full"
     >
       <div>
         <SingleUser size="default" isOnline={isOnline} src={avatar} />

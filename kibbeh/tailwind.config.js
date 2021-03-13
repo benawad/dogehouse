@@ -42,6 +42,11 @@ module.exports = {
       6: "40px",
       7: "60px",
     },
+    extend: {
+      borderRadius: {
+        '8': '8px'
+      }
+    },
   },
   variants: {
     backgroundColor: ({ after }) => after(["disabled"]),
