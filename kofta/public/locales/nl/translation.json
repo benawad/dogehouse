@@ -117,7 +117,7 @@
 		},
 		"deviceNotSupported": {
 			"notSupported": "Je toestel is momenteel niet ondersteund. Maak een",
-			"linkText": "kwestie aan op GitHub",
+			"linkText": "issue aan op GitHub",
 			"addSupport": "wij zullen proberen uw toestel te laten ondersteunen."
 		},
 		"inviteButton": {
