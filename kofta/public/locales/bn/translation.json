@@ -3,7 +3,7 @@
 	"common": {
 		"loadMore": "আরো লোড করো",
 		"loading": "লোড হচ্ছে...",
-		"noUsersFound": "no users found",
+		"noUsersFound": "কোনো ইউজার পাওয়া যায়নি",
 		"ok": "ঠিক আছে",
 		"yes": "হ্যাঁ",
 		"no": "না",
