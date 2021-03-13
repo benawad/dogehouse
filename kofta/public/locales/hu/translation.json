@@ -164,9 +164,9 @@
 		"addToCalendar": { "add": "Felvétel naptárba" },
 		"keyboardShortcuts": {
 			"setKeybind": "Gyorsbillentyű beállítása",
-			"listening": "figyelés",
+			"listening": "figyelés...",
 			"toggleMuteKeybind": "Némítás kapcsolása",
-			"togglePushToTalkKeybind": "Push-to-talk"
+			"togglePushToTalkKeybind": "Push-to-talk kapcsolása"
 		},
 		"wsKilled": {
 			"description": "A Websocket kapcsolatot megszakította a szerver. Ez általában akkor fordul elő, amikor több fülön meg van nyitva a weboldal.",
