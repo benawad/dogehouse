@@ -9,7 +9,7 @@
 ## Welcome
 Welcome to the DogeHouse Documentation, the next voice conversation social plartform.
 
-DogeHouse makes it easy to connect with friends and people over voice and chat message...
+DogeHouse makes it easy to connect with friends and people over voice and chat message..
 
 ### Overview
 - Dark theme
