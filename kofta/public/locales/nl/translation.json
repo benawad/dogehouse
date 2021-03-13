@@ -167,7 +167,7 @@
 				"avatarUrlLabel": "Github/Twitter avatar link",
 				"displayNameError": "lengte 2 tot 50 karakters",
 				"displayNameLabel": "Weergavenaam",
-				"usernameError": "lengte 4 tot 15 tekens en alleen alfanumeriek / onderstrepingsteken",
+				"usernameError": "lengte 4 tot 15 tekens en alleen alfanumeriek / underscore",
 				"usernameLabel": "Gebruikersnaam",
 				"bioError": "maximale lengte van 160 tekens",
 				"bioLabel": "Bio"
