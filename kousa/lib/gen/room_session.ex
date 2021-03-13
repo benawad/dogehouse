@@ -239,7 +239,12 @@ defmodule Kousa.Gen.RoomSession do
   def handle_cast({:new_room_details, new_name, new_description, is_private}, %State{} = state) do
     ws_fan(state.users, :vscode, %{
       op: "new_room_details",
-      d: %{name: new_name, description: new_description, isPrivate: is_private, roomId: state.room_id}
+      d: %{
+        name: new_name,
+        description: new_description,
+        isPrivate: is_private,
+        roomId: state.room_id
+      }
     })
 
     {:noreply, state}

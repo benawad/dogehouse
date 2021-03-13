@@ -1,12 +1,12 @@
 defmodule Kousa.BL.RoomBlock do
   alias Beef.Users
   alias Beef.Rooms
-  alias Kousa.Data.RoomBlock
+  alias Beef.RoomBlocks
 
   def unban(user_id, user_id_to_unban) do
     with {:ok, id} <- Users.tuple_get_current_room_id(user_id),
          true <- Rooms.owner?(id, user_id) do
-      RoomBlock.unban(id, user_id_to_unban)
+      RoomBlocks.unban(id, user_id_to_unban)
     end
   end
 
@@ -15,7 +15,7 @@ defmodule Kousa.BL.RoomBlock do
   def get_blocked_users(user_id, offset) do
     with {:ok, id} <- Users.tuple_get_current_room_id(user_id),
          true <- Rooms.owner?(id, user_id) do
-      RoomBlock.get_blocked_users(id, offset)
+      RoomBlocks.get_blocked_users(id, offset)
     end
   end
 end
