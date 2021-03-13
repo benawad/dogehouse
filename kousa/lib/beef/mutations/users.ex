@@ -4,7 +4,7 @@ defmodule Beef.Mutations.Users do
   alias Beef.Repo
   alias Beef.Schemas.User
   alias Beef.Queries.Users, as: Query
-
+  alias Beef.RoomPermissions
 
   def edit_profile(user_id, data) do
     %User{id: user_id}
@@ -25,59 +25,58 @@ defmodule Beef.Mutations.Users do
   end
 
   def inc_num_following(user_id, n) do
-    Query.start
+    Query.start()
     |> Query.filter_by_id(user_id)
     |> Query.inc_num_following_by_n(n)
     |> Repo.update_all([])
   end
 
   def set_reason_for_ban(user_id, reason_for_ban) do
-    Query.start
+    Query.start()
     |> Query.filter_by_id(user_id)
     |> Query.update_reason_for_ban(reason_for_ban)
     |> Repo.update_all([])
   end
 
   def set_online(user_id) do
-    Query.start
+    Query.start()
     |> Query.filter_by_id(user_id)
-    |> Query.update_set_online_true
+    |> Query.update_set_online_true()
     |> Repo.update_all([])
   end
 
   def set_user_left_current_room(user_id) do
-    Kousa.RegUtils.lookup_and_cast(Kousa.Gen.UserSession, user_id, {:set_current_room_id, nil})
+    Kousa.Utils.RegUtils.lookup_and_cast(Onion.UserSession, user_id, {:set_current_room_id, nil})
 
-    Query.start
+    Query.start()
     |> Query.filter_by_id(user_id)
-    |> Query.update_set_current_room_nil
+    |> Query.update_set_current_room_nil()
     |> Repo.update_all([])
   end
 
   def set_offline(user_id) do
-    Query.start
+    Query.start()
     |> Query.filter_by_id(user_id)
-    |> Query.update_set_online_false
-    |> Query.update_set_last_online_to_now
+    |> Query.update_set_online_false()
+    |> Query.update_set_last_online_to_now()
     |> Repo.update_all([])
   end
-
 
   def set_current_room(user_id, room_id, can_speak \\ false, returning \\ false) do
     roomPermissions =
       case can_speak do
         true ->
-          case Kousa.Data.RoomPermission.set_speaker?(user_id, room_id, true, true) do
+          case RoomPermissions.set_speaker?(user_id, room_id, true, true) do
             {:ok, x} -> x
             _ -> nil
           end
 
         _ ->
-          Kousa.Data.RoomPermission.get(user_id, room_id)
+          RoomPermissions.get(user_id, room_id)
       end
 
-    Kousa.RegUtils.lookup_and_cast(
-      Kousa.Gen.UserSession,
+    Kousa.Utils.RegUtils.lookup_and_cast(
+      Onion.UserSession,
       user_id,
       {:set_current_room_id, room_id}
     )
@@ -130,7 +129,7 @@ defmodule Beef.Mutations.Users do
         {:create,
          Repo.insert!(
            %User{
-             username: Kousa.Random.big_ascii_id(),
+             username: Kousa.Utils.Random.big_ascii_id(),
              email: if(user.email == "", do: nil, else: user.email),
              twitterId: user.twitterId,
              avatarUrl: user.avatarUrl,
@@ -180,7 +179,7 @@ defmodule Beef.Mutations.Users do
         {:create,
          Repo.insert!(
            %User{
-             username: Kousa.Random.big_ascii_id(),
+             username: Kousa.Utils.Random.big_ascii_id(),
              githubId: githubId,
              email: if(user["email"] == "", do: nil, else: user["email"]),
              githubAccessToken: github_access_token,
