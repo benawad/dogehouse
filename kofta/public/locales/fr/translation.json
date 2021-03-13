@@ -180,7 +180,7 @@
 			"togglePushToTalkKeybind": "Activer / désactiver le raccourci clavier appuyer-pour-parler"
 		},
 		"wsKilled": {
-			"description": "Le Websocket a été fermé par le serveur. Cela arrive souvent quand vous ouvrez le site dans une autre fenêtre.",
+			"description": "Le WebSocket a été fermé par le serveur. Cela arrive souvent quand vous ouvrez le site dans une autre fenêtre.",
 			"reconnect": "se reconnecter"
 		},
 		"deviceNotSupported": {
