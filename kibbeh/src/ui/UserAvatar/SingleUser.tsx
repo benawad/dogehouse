@@ -40,12 +40,12 @@ export interface AvatarProps {
 export const SingleUser: React.FC<AvatarProps> = ({
   src,
   size = "default",
-  className,
+  className = "",
   isOnline = false,
 }) => {
   return (
     <div
-      className={`relative inline-block${className ? ` ${className}` : ""}`}
+      className={`relative inline-block ${className}`}
       style={{
         width: avatarSizeMap[size],
         height: avatarSizeMap[size],
