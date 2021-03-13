@@ -132,24 +132,33 @@ export const UserProfile: React.FC<UserProfileProps> = ({
 				</button>
 			</div>
 			<div className="mb-4 whitespace-pre-wrap break-all">
-				{profile.bio?.split(" ").map((chunk, i) => {
-					if (linkRegex.test(chunk)) {
-						try {
-							return (
-								<a
-									key={i}
-									href={normalizeUrl(chunk)}
-									target="_blank"
-									rel="noreferrer"
-									className="text-blue-500 p-0 hover:underline"
-								>
-									{chunk}{" "}
-								</a>
-							);
-						} catch {}
-					}
-					return <span key={i}>{chunk} </span>;
-				})}
+			{profile.bio?.split(/\n/gm).map((line, i) => {
+          return (
+            <>
+              <span key={i}>
+                {line.split(" ").map((chunk, j) => {
+                  if (linkRegex.test(chunk)) {
+                    try {
+                      return (
+                        <a
+                          key={`${i}${j}`}
+                          href={normalizeUrl(chunk)}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-blue-500 p-0 hover:underline"
+                        >
+                          {chunk}{" "}
+                        </a>
+                      );
+                    } catch {}
+                  }
+                  return <span key={`${i}${j}`}>{chunk} </span>;
+                })}
+              </span>
+              <br />
+            </>
+          );
+        })}
 			</div>
 		</>
 	);
