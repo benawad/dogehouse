@@ -24,17 +24,22 @@
 
 ## Structure
 
-| Codebase |      Description      |
-| :------- | :-------------------: |
-| kousa    |      Elixir API       |
-| shawarma |     Voice Server      |
-| kofta    |    React frontend     |
-| dinner   | Puppeteer shenanigans |
-| baklava  |   Electron Wrapper    |
-| pilaf    |   React Native App    |
-| feta     | Shared utils web/app  |
-| kibbeh   |    Next.js frontend   |
+| Codebase             |      Description      |
+| :------------------- | :-------------------: |
+| [kousa](kousa)       |      Elixir API       |
+| [shawarma](shawarma) |     Voice Server      |
+| [kofta](kofta)       |    React frontend     |
+| [dinner](dinner)     | Puppeteer shenanigans |
+| [baklava](baklava)   |   Electron Wrapper    |
+| [pilaf](pilaf)       |   React Native App    |
+| [feta](feta)         | Shared utils web/app  |
+| [kibbeh](kibbeh)     |   Next.js frontend    |
 
+## Branches
+
+- new-design -> pr this branch if you touch `kibbeh`
+- staging -> pr this branch for everything else
+- prod -> don't touch, this is what's running in prod
 
 ## Contributions
 

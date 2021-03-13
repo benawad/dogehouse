@@ -5,10 +5,7 @@ export interface BubbleTextProps {
   children: React.ReactNode;
 }
 
-export const BubbleText: React.FC<BubbleTextProps> = ({
-  live,
-  children,
-}) => {
+export const BubbleText: React.FC<BubbleTextProps> = ({ live, children }) => {
   return (
     <div className="text-primary-200 font-bold items-center">
       <div

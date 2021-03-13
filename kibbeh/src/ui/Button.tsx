@@ -34,12 +34,13 @@ export const Button: React.FC<ButtonProps> = ({
   disabled,
   loading,
   icon,
+  className = "",
   ...props
 }) => {
   return (
     <button
       disabled={disabled || loading}
-      className={`${sizeClassnames[size]} ${colorClassnames[color]} font-bold flex items-center justify-center`}
+      className={`${sizeClassnames[size]} ${colorClassnames[color]} font-bold flex items-center justify-center ${className}`}
       {...props}
     >
       <span className={loading ? "opacity-0" : `flex items-center`}>

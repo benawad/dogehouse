@@ -25,7 +25,9 @@ export const WithTrailingIcon: Story<SettingsIconProps> = ({ ...props }) => {
       {...props}
       icon={props.icon || <SmOutlineGlobe className="text-primary-100" />}
       label={props.label || "Language"}
-      trailingIcon={props.trailingIcon || <SmSolidCaretRight className="text-primary-100" />}
+      trailingIcon={
+        props.trailingIcon || <SmSolidCaretRight className="text-primary-100" />
+      }
     />
   );
 };

@@ -18,7 +18,7 @@ const TheUserBadge: Story = () => {
       </div>
       <div className="m-1">
         <UserBadge variant="secondary">
-          <SmSolidDogenitro style={{ color: '#FFF' }} width={12} />
+          <SmSolidDogenitro style={{ color: "#FFF" }} width={12} />
         </UserBadge>
       </div>
     </div>

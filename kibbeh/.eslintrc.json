@@ -222,7 +222,7 @@
     "prefer-const": "error",
     "prefer-destructuring": "error",
     "prefer-exponentiation-operator": "error",
-    "prefer-named-capture-group": "error",
+    "prefer-named-capture-group": "off",
     "prefer-numeric-literals": "error",
     "prefer-object-spread": "error",
     "prefer-promise-reject-errors": "error",
@@ -236,7 +236,7 @@
     "radix": "error",
     "require-atomic-updates": "error",
     "require-await": "error",
-    "require-unicode-regexp": "error",
+    "require-unicode-regexp": "off",
     "rest-spread-spacing": "error",
     "@typescript-eslint/semi": [
       "error",

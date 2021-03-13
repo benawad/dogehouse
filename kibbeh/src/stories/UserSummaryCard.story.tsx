@@ -9,8 +9,6 @@ export default {
   component: UserSummaryCard,
 };
 
-const SVG = (): JSX.Element => <SmSolidDogenitro width={12} style={{ color: '#FFF' }} />;
-
 const userSummary: UserSummaryCardProps = {
   avatar,
   userId: "1",
@@ -23,9 +21,12 @@ const userSummary: UserSummaryCardProps = {
   website: "https://loremipsum.com",
   isOnline: true,
   badges: [
-    { content: "ƉC", variant: "primary", type: "text" },
-    { content: "ƉS", variant: "primary", type: "text" },
-    { content: SVG, variant: "secondary", type: "svg" },
+    { content: "ƉC", variant: "primary" },
+    { content: "ƉS", variant: "primary" },
+    {
+      content: <SmSolidDogenitro width={12} style={{ color: "#fff" }} />,
+      variant: "secondary",
+    },
   ],
 };
 
