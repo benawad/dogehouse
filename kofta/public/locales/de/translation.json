@@ -1,7 +1,7 @@
 {
 	"common": {
 		"loadMore": "mehr laden",
-		"loading": "lade...",
+		"loading": "laden...",
 		"noUsersFound": "keine Benutzer gefunden",
 		"ok": "ok",
 		"yes": "ja",
@@ -10,7 +10,7 @@
 		"save": "speichern",
 		"edit": "bearbeiten",
 		"delete": "löschen",
-		"joinRoom": "Raum beitreten",
+		"joinRoom": "Raum betreten",
 		"copyLink": "Link kopieren",
 		"copied": "kopiert",
 		"formattedIntlDate": "{{date, intlDate}}",
@@ -56,7 +56,7 @@
 			"createTestUser": "Testnutzer erstellen"
 		},
 		"myProfile": {
-			"logout": "abmelden",
+			"logout": "Abmelden",
 			"probablyLoading": "vermutlich am laden...",
 			"voiceSettings": "Spracheinstellungen",
 			"soundSettings": "Toneinstellungen",
@@ -64,8 +64,8 @@
 		},
 		"notFound": {
 			"whoopsError": "Hoppla! Diese Seite ging im Gespräch verloren.",
-			"goHomeMessage": "Keine Sorge. Du kannst",
-			"goHomeLinkText": "nach Hause"
+			"goHomeMessage": "Keine Sorge. Hier kommst du",
+			"goHomeLinkText": "auf die Startseite"
 		},
 		"room": {
 			"speakers": "Sprecher",
@@ -76,16 +76,16 @@
 		"soundEffectSettings": { "header": "Ton" },
 		"viewUser": {
 			"editProfile": "Profil bearbeiten",
-			"followsYou": "folgt dir",
-			"following": "abonniert",
-			"followers": "abonnenten"
+			"followsYou": "Folgt dir",
+			"following": "Abonniert",
+			"followers": "Abonnenten"
 		},
 		"voiceSettings": {
 			"header": "Spracheinstellungen",
-			"mic": "Mikro:",
-			"permissionError": "Keine Mikros gefunden, du hast entweder keine angeschlossen oder die Seite hat nicht die benötigten Berechtigungen.",
+			"mic": "Mikrofon:",
+			"permissionError": "Kein Mikrofone gefunden, du hast entweder keins angeschlossen oder die Seite hat nicht die benötigten Berechtigungen.",
 			"volume": "Lautstärke:",
-			"refresh": "Mikroliste aktualisieren"
+			"refresh": "Mikrofoneliste aktualisieren"
 		}
 	},
 	"components": {
@@ -118,12 +118,12 @@
 		},
 		"modals": {
 			"createRoomModal": {
-				"public": "öffentlich",
-				"private": "privat",
-				"roomName": "room name",
-				"roomDescription": "room description",
-				"descriptionError": "max length 500",
-				"nameError": "must be between 2 to 60 characters long"
+				"public": "Öffentlich",
+				"private": "Privat",
+				"roomName": "Raum Name",
+				"roomDescription": "Raum Beschreibung",
+				"descriptionError": "Maximale Länge: 500 Zeichen",
+				"nameError": "Dein Name muss zwischen 2 und 60 Zeichen lang sein."
 			},
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Neuen Raum erstellt",
@@ -148,10 +148,10 @@
 				"blockUser": "Benuzter bannen",
 				"makeMod": "Zum Moderator befördern",
 				"unmod": "Moderator Status aufheben",
-				"addAsSpeaker": "zu sprecher befördern",
-				"moveToListener": "zu zuhörer herabstufen",
+				"addAsSpeaker": "Zum Sprecher befördern",
+				"moveToListener": "Zum Zuhörer herabstufen",
 				"banFromChat": "Aus Chat bannen",
-				"banFromRoom": "Aus Raum bannen",
+				"banFromRoom": "Aus diesem Raum bannen",
 				"goBackToListener": "Zurück zum Zuhörer",
 				"deleteMessage": "Nachricht löschen"
 			},
@@ -172,13 +172,13 @@
 			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
 		},
 		"wsKilled": {
-			"description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
-			"reconnect": "reconnect"
+			"description": "Websocket wurden vom Server gekillt. Dies kann passieren, wenn du die Webseite in einem neuen Tab erneut öffnest.",
+			"reconnect": "Neu verbinden."
 		},
 		"deviceNotSupported": {
-			"notSupported": "Your device is currently not supported. You can create an",
-			"linkText": "issue on GitHub",
-			"addSupport": "and I will try adding support for your device."
+			"notSupported": "Dein Gerät ist zurzeit leider nicht unterstützt. Du kannst ein",
+			"linkText": "issue auf GitHub öffnen.",
+			"addSupport": "Somit werden wir versuchen dein Gerät kompatibel zu machen."
 		},
 		"inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" }
 	},
@@ -200,11 +200,11 @@
 			"title": "Chat",
 			"emotesSoon": "[emotes bald]",
 			"bannedAlert": "Du wurdest aus dem Chat gebannt",
-			"waitAlert": "Du musst eine Sekunde warten, bevor du noch eine Nachricht schreibst",
+			"waitAlert": "Du musst eine Sekunde warten, bevor du wieder eine Nachricht senden kannst.",
 			"search": "Suchen",
 			"searchResults": "Suchergebnisse",
 			"recent": "Häufig verwendet",
-			"sendMessage": "Eine Nachricht schicken",
+			"sendMessage": "Eine Nachricht senden",
 			"whisper": "Flüstern",
 			"welcomeMessage": "Willkommen im Chat!",
 			"roomDescription": "Raumbeschreibung"
