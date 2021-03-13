@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 interface LanguageSelectorProps {
-	options?: Array<{ value: string; label: string }>;
+  options?: Array<{ value: string; label: string }>;
 }
 
 export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
@@ -15,6 +15,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
 		{ value: "da", label: "da" },
 		{ value: "de", label: "de" },
 		{ value: "es", label: "es" },
+    { value: "ee", label: "ee" },
 		{ value: "fi", label: "fi" },
 		{ value: "fr", label: "fr" },
 		{ value: "he", label: "he" },
@@ -38,20 +39,20 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
 		{ value: "zh-CN", label: "zh-cn" },
 	],
 }) => {
-	const { i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
-	return (
-		<select
-			value={i18n.language}
-			onChange={(e) => {
-				i18n.changeLanguage(e.target.value);
-			}}
-		>
-			{options.map((o) => (
-				<option key={o.value} value={o.value}>
-					{o.label}
-				</option>
-			))}
-		</select>
-	);
+  return (
+    <select
+      value={i18n.language}
+      onChange={(e) => {
+        i18n.changeLanguage(e.target.value);
+      }}
+    >
+      {options.map((o) => (
+        <option key={o.value} value={o.value}>
+          {o.label}
+        </option>
+      ))}
+    </select>
+  );
 };
