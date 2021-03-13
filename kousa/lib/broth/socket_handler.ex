@@ -1,7 +1,6 @@
 defmodule Broth.SocketHandler do
   require Logger
 
-  alias Kousa.BL
   alias Kousa.Utils.RegUtils
   alias Beef.Users
   alias Beef.Rooms
@@ -161,13 +160,13 @@ defmodule Broth.SocketHandler do
                         )
 
                         if reconnectToVoice == true do
-                          BL.Room.join_vc_room(user.id, room)
+                          Kousa.Room.join_vc_room(user.id, room)
                         end
 
                         room
 
                       not is_nil(roomIdFromFrontend) ->
-                        case BL.Room.join_room(user.id, roomIdFromFrontend) do
+                        case Kousa.Room.join_room(user.id, roomIdFromFrontend) do
                           %{room: room} -> room
                           _ -> nil
                         end
@@ -260,7 +259,7 @@ defmodule Broth.SocketHandler do
   end
 
   # def handler("join-as-new-peer", _data, state) do
-  #   Kousa.BL.Room.join_vc_room(state.user_id)
+  #   Kousa.Room.join_vc_room(state.user_id)
   #   {:ok, state}
   # end
 
@@ -275,12 +274,12 @@ defmodule Broth.SocketHandler do
   end
 
   def handler("invite_to_room", %{"userId" => user_id_to_invite}, state) do
-    Kousa.BL.Room.invite_to_room(state.user_id, user_id_to_invite)
+    Kousa.Room.invite_to_room(state.user_id, user_id_to_invite)
     {:ok, state}
   end
 
   def handler("make_room_public", %{"newName" => new_name}, state) do
-    Kousa.BL.Room.make_room_public(state.user_id, new_name)
+    Kousa.Room.make_room_public(state.user_id, new_name)
     {:ok, state}
   end
 
@@ -295,7 +294,7 @@ defmodule Broth.SocketHandler do
   end
 
   def handler("ban", %{"username" => username, "reason" => reason}, state) do
-    worked = Kousa.BL.User.ban(state.user_id, username, reason)
+    worked = Kousa.User.ban(state.user_id, username, reason)
 
     {:reply,
      construct_socket_msg(state.encoding, state.compression, %{
@@ -305,7 +304,7 @@ defmodule Broth.SocketHandler do
   end
 
   def handler("set_auto_speaker", %{"value" => value}, state) do
-    Kousa.BL.Room.set_auto_speaker(state.user_id, value)
+    Kousa.Room.set_auto_speaker(state.user_id, value)
 
     {:ok, state}
   end
@@ -313,7 +312,7 @@ defmodule Broth.SocketHandler do
   # @deprecated
   def handler("create-room", data, state) do
     resp =
-      case Kousa.BL.Room.create_room(
+      case Kousa.Room.create_room(
              state.user_id,
              data["roomName"],
              data["description"] || "",
@@ -366,7 +365,7 @@ defmodule Broth.SocketHandler do
 
   # @deprecated
   def handler("edit_room_name", %{"name" => name}, state) do
-    case BL.Room.edit_room(state.user_id, name, "", false) do
+    case Kousa.Room.edit_room(state.user_id, name, "", false) do
       {:error, message} ->
         {:reply, prepare_socket_msg(%{op: "error", d: message}, state), state}
 
@@ -376,13 +375,13 @@ defmodule Broth.SocketHandler do
   end
 
   def handler("leave_room", _data, state) do
-    Kousa.BL.Room.leave_room(state.user_id)
+    Kousa.Room.leave_room(state.user_id)
 
     {:ok, state}
   end
 
   def handler("join_room", %{"roomId" => room_id}, state) do
-    case Kousa.BL.Room.join_room(state.user_id, room_id) do
+    case Kousa.Room.join_room(state.user_id, room_id) do
       d ->
         {:reply,
          construct_socket_msg(state.encoding, state.compression, %{
@@ -397,43 +396,43 @@ defmodule Broth.SocketHandler do
         %{"userId" => user_id_to_block_from_room},
         state
       ) do
-    Kousa.BL.Room.block_from_room(state.user_id, user_id_to_block_from_room)
+    Kousa.Room.block_from_room(state.user_id, user_id_to_block_from_room)
     {:ok, state}
   end
 
   def handler("add_speaker", %{"userId" => user_id_to_make_speaker}, state) do
-    Kousa.BL.Room.make_speaker(state.user_id, user_id_to_make_speaker)
+    Kousa.Room.make_speaker(state.user_id, user_id_to_make_speaker)
     {:ok, state}
   end
 
   def handler("change_mod_status", %{"userId" => user_id_to_change, "value" => value}, state) do
-    Kousa.BL.Room.change_mod(state.user_id, user_id_to_change, value)
+    Kousa.Room.change_mod(state.user_id, user_id_to_change, value)
     {:ok, state}
   end
 
   def handler("block_user_and_from_room", %{"userId" => user_id_to_block}, state) do
-    Kousa.BL.UserBlock.block(state.user_id, user_id_to_block)
-    Kousa.BL.Room.block_from_room(state.user_id, user_id_to_block)
+    Kousa.UserBlock.block(state.user_id, user_id_to_block)
+    Kousa.Room.block_from_room(state.user_id, user_id_to_block)
     {:ok, state}
   end
 
   def handler("ban_from_room_chat", %{"userId" => user_id_to_ban}, state) do
-    Kousa.BL.RoomChat.ban_user(state.user_id, user_id_to_ban)
+    Kousa.RoomChat.ban_user(state.user_id, user_id_to_ban)
     {:ok, state}
   end
 
   def handler("send_room_chat_msg", %{"tokens" => tokens, "whisperedTo" => whispered_to}, state) do
-    Kousa.BL.RoomChat.send_msg(state.user_id, tokens, whispered_to)
+    Kousa.RoomChat.send_msg(state.user_id, tokens, whispered_to)
     {:ok, state}
   end
 
   def handler("send_room_chat_msg", %{"tokens" => tokens}, state) do
-    Kousa.BL.RoomChat.send_msg(state.user_id, tokens, [])
+    Kousa.RoomChat.send_msg(state.user_id, tokens, [])
     {:ok, state}
   end
 
   def handler("delete_account", _data, %State{} = state) do
-    BL.User.delete(state.user_id)
+    Kousa.User.delete(state.user_id)
     # this will log the user out
     {:reply, {:close, 4001, "invalid_authentication"}, state}
   end
@@ -443,12 +442,12 @@ defmodule Broth.SocketHandler do
         %{"messageId" => message_id, "userId" => user_id},
         state
       ) do
-    Kousa.BL.RoomChat.delete_message(state.user_id, message_id, user_id)
+    Kousa.RoomChat.delete_message(state.user_id, message_id, user_id)
     {:ok, state}
   end
 
   def handler("follow", %{"userId" => userId, "value" => value}, state) do
-    Kousa.BL.Follow.follow(state.user_id, userId, value)
+    Kousa.Follow.follow(state.user_id, userId, value)
     {:ok, state}
   end
 
@@ -458,7 +457,7 @@ defmodule Broth.SocketHandler do
         state
       ) do
     {users, next_cursor} =
-      Kousa.BL.Follow.get_follow_list(state.user_id, user_id, get_following_list, cursor)
+      Kousa.Follow.get_follow_list(state.user_id, user_id, get_following_list, cursor)
 
     {:reply,
      construct_socket_msg(state.encoding, state.compression, %{
@@ -474,7 +473,7 @@ defmodule Broth.SocketHandler do
   end
 
   def handler("set_listener", %{"userId" => user_id_to_make_listener}, state) do
-    Kousa.BL.Room.set_listener(state.user_id, user_id_to_make_listener)
+    Kousa.Room.set_listener(state.user_id, user_id_to_make_listener)
     {:ok, state}
   end
 
@@ -552,7 +551,7 @@ defmodule Broth.SocketHandler do
     with {:ok, room_id} <- Users.tuple_get_current_room_id(state.user_id) do
       case RoomPermissions.ask_to_speak(state.user_id, room_id) do
         {:ok, %{isSpeaker: true}} ->
-          Kousa.BL.Room.internal_set_speaker(state.user_id, room_id)
+          Kousa.Room.internal_set_speaker(state.user_id, room_id)
 
         _ ->
           Kousa.Utils.RegUtils.lookup_and_cast(
@@ -624,7 +623,7 @@ defmodule Broth.SocketHandler do
   end
 
   def f_handler("get_my_scheduled_rooms_about_to_start", _data, %State{} = state) do
-    %{scheduledRooms: BL.ScheduledRoom.get_my_scheduled_rooms_about_to_start(state.user_id)}
+    %{scheduledRooms: Kousa.ScheduledRoom.get_my_scheduled_rooms_about_to_start(state.user_id)}
   end
 
   def f_handler("get_top_public_rooms", data, %State{} = state) do
@@ -642,7 +641,7 @@ defmodule Broth.SocketHandler do
         %{"name" => name, "description" => description, "privacy" => privacy},
         state
       ) do
-    case BL.Room.edit_room(state.user_id, name, description, privacy == "private") do
+    case Kousa.Room.edit_room(state.user_id, name, description, privacy == "private") do
       {:error, message} ->
         %{
           error: message
@@ -655,7 +654,7 @@ defmodule Broth.SocketHandler do
 
   def f_handler("get_scheduled_rooms", data, %State{} = state) do
     {scheduled_rooms, next_cursor} =
-      BL.ScheduledRoom.get_scheduled_rooms(
+      Kousa.ScheduledRoom.get_scheduled_rooms(
         state.user_id,
         Map.get(data, "getOnlyMyScheduledRooms") == true,
         Map.get(data, "cursor")
@@ -668,7 +667,7 @@ defmodule Broth.SocketHandler do
   end
 
   def f_handler("edit_scheduled_room", %{"id" => id, "data" => data}, %State{} = state) do
-    case Kousa.BL.ScheduledRoom.edit(
+    case Kousa.ScheduledRoom.edit(
            state.user_id,
            id,
            data
@@ -682,7 +681,7 @@ defmodule Broth.SocketHandler do
   end
 
   def f_handler("delete_scheduled_room", %{"id" => id}, %State{} = state) do
-    Kousa.BL.ScheduledRoom.delete(
+    Kousa.ScheduledRoom.delete(
       state.user_id,
       id
     )
@@ -699,7 +698,7 @@ defmodule Broth.SocketHandler do
         },
         %State{} = state
       ) do
-    case Kousa.BL.ScheduledRoom.create_room_from_scheduled_room(
+    case Kousa.ScheduledRoom.create_room_from_scheduled_room(
            state.user_id,
            scheduled_room_id,
            name,
@@ -716,7 +715,7 @@ defmodule Broth.SocketHandler do
   end
 
   def f_handler("create_room", data, %State{} = state) do
-    case Kousa.BL.Room.create_room(
+    case Kousa.Room.create_room(
            state.user_id,
            data["name"],
            data["description"],
@@ -734,7 +733,7 @@ defmodule Broth.SocketHandler do
   end
 
   def f_handler("schedule_room", data, %State{} = state) do
-    case BL.ScheduledRoom.schedule(state.user_id, data) do
+    case Kousa.ScheduledRoom.schedule(state.user_id, data) do
       {:ok, scheduledRoom} ->
         %{scheduledRoom: scheduledRoom}
 
@@ -744,14 +743,14 @@ defmodule Broth.SocketHandler do
   end
 
   def f_handler("unban_from_room", %{"userId" => user_id}, %State{} = state) do
-    BL.RoomBlock.unban(state.user_id, user_id)
+    Kousa.RoomBlock.unban(state.user_id, user_id)
     %{}
   end
 
   def f_handler("edit_profile", %{"data" => data}, %State{} = state) do
     %{
       isUsernameTaken:
-        case BL.User.edit_profile(state.user_id, data) do
+        case Kousa.User.edit_profile(state.user_id, data) do
           :username_taken -> true
           _ -> false
         end
@@ -759,7 +758,7 @@ defmodule Broth.SocketHandler do
   end
 
   def f_handler("get_blocked_from_room_users", %{"offset" => offset}, %State{} = state) do
-    case BL.RoomBlock.get_blocked_users(state.user_id, offset) do
+    case Kousa.RoomBlock.get_blocked_users(state.user_id, offset) do
       {users, next_cursor} ->
         %{users: users, nextCursor: next_cursor}
 

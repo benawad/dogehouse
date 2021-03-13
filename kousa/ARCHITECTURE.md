@@ -15,9 +15,8 @@ Elixir contexts
  - `Beef.Schemas` database table schemas
  - `Beef.Lenses` database struct logic
 2. `Onion` - OTP-based transient state for Kousa
-3. `Zuke` - Business logic (functional core) for Kousa
-4. `Broth` - Web interface and contexts
-5. `Kousa` - OTP Application core and common toolsets
+3. `Broth` - Web interface and contexts
+4. `Kousa` - OTP Application, Business Logic, and common toolsets
 
 NB: All of the module contexts will be part of the `:kousa` BEAM VM
 application under the application supervision tree

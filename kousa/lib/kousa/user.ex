@@ -1,11 +1,10 @@
-defmodule Kousa.BL.User do
+defmodule Kousa.User do
   alias Kousa.Utils.RegUtils
   alias Beef.Users
   alias Kousa.Utils.RegUtils
-  alias Kousa.BL
 
   def delete(user_id) do
-    BL.Room.leave_room(user_id)
+    Kousa.Room.leave_room(user_id)
     Users.delete(user_id)
   end
 
@@ -30,7 +29,7 @@ defmodule Kousa.BL.User do
       user_to_ban = Users.get_by_username(username_to_ban)
 
       if not is_nil(user_to_ban) do
-        Kousa.BL.Room.leave_room(user_to_ban.id, user_to_ban.currentRoomId)
+        Kousa.Room.leave_room(user_to_ban.id, user_to_ban.currentRoomId)
         Users.set_reason_for_ban(user_to_ban.id, reason_for_ban)
 
         Onion.UserSession.send_cast(

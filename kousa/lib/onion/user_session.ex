@@ -1,8 +1,6 @@
 defmodule Onion.UserSession do
   use GenServer
   alias Kousa.Utils.RegUtils
-  alias Kousa.BL
-  # alias Beef.Users
 
   defmodule State do
     @type t :: %__MODULE__{
@@ -146,7 +144,7 @@ defmodule Onion.UserSession do
                {:get_voice_server_id}
              ) do
         room = Rooms.get_room_by_id(state.current_room_id)
-        BL.Room.join_vc_room(state.user_id, room)
+        Kousa.Room.join_vc_room(state.user_id, room)
       end
     end
 
@@ -158,7 +156,7 @@ defmodule Onion.UserSession do
       Beef.Users.set_offline(state.user_id)
 
       if state.current_room_id do
-        Kousa.BL.Room.leave_room(state.user_id, state.current_room_id)
+        Kousa.Room.leave_room(state.user_id, state.current_room_id)
       end
 
       {:stop, :normal, state}

@@ -1,11 +1,10 @@
-defmodule Kousa.BL.ScheduledRoom do
-  alias Kousa.BL
+defmodule Kousa.ScheduledRoom do
   alias Kousa.Utils.Errors
   alias Beef.Schemas.ScheduledRoom
   alias Beef.ScheduledRooms
 
   def create_room_from_scheduled_room(user_id, scheduled_room_id, name, description) do
-    with {:ok, response} <- BL.Room.create_room(user_id, name, description, false) do
+    with {:ok, response} <- Kousa.Room.create_room(user_id, name, description, false) do
       Data.ScheduledRoom.room_started(user_id, scheduled_room_id, response.room.id)
       {:ok, response}
     else

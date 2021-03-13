@@ -1,5 +1,4 @@
-defmodule Kousa.BL.Room do
-  alias Kousa.BL
+defmodule Kousa.Room do
   alias Kousa.Utils.RegUtils
   alias Kousa.Utils.VoiceServerUtils
   alias Beef.Users
@@ -255,12 +254,12 @@ defmodule Kousa.BL.Room do
         join_vc_room(user_id, room, true)
 
         if not is_private do
-          BL.Follow.notify_followers_you_created_a_room(user_id, room)
+          Kousa.Follow.notify_followers_you_created_a_room(user_id, room)
         end
 
         if not is_nil(user_id_to_invite) do
           Task.start(fn ->
-            BL.Room.invite_to_room(user_id, user_id_to_invite)
+            Kousa.Room.invite_to_room(user_id, user_id_to_invite)
           end)
         end
 

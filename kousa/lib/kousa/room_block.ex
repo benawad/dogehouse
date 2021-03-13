@@ -1,4 +1,4 @@
-defmodule Kousa.BL.RoomBlock do
+defmodule Kousa.RoomBlock do
   alias Beef.Users
   alias Beef.Rooms
   alias Beef.RoomBlocks

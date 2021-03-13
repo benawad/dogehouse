@@ -1,4 +1,4 @@
-defmodule Kousa.BL.Follow do
+defmodule Kousa.Follow do
   alias Beef.Users
   alias Beef.Follows
   alias Beef.UserBlocks
