@@ -11,10 +11,7 @@ interface KeybindListenerProps {}
 
 export const KeybindListener: React.FC<KeybindListenerProps> = ({}) => {
   const { keyMap } = useKeyMapStore();
-	const [toggleOpen, newUnreadMessages] = useRoomChatStore((s) => [
-		s.toggleOpen,
-		s.newUnreadMessages,
-	]);
+  const [toggleOpen] = useRoomChatStore((s) => [s.toggleOpen]);
   const history = useHistory();
 
   return (
@@ -25,7 +22,7 @@ export const KeybindListener: React.FC<KeybindListenerProps> = ({}) => {
         () => ({
           REQUEST_TO_SPEAK: () => {
             modalConfirm("Would you like to ask to speak?", () => {
-                wsend({ op: "ask_to_speak", d: {} });
+              wsend({ op: "ask_to_speak", d: {} });
             });
           },
           MUTE: () => {
@@ -37,7 +34,7 @@ export const KeybindListener: React.FC<KeybindListenerProps> = ({}) => {
             setMute(!muted);
           },
           INVITE: () => {
-            wsend({ op: "fetch_invite_list", d: { cursor: 0} });
+            wsend({ op: "fetch_invite_list", d: { cursor: 0 } });
             history.push("/invite");
           },
           PTT: (e) => {
@@ -53,6 +50,7 @@ export const KeybindListener: React.FC<KeybindListenerProps> = ({}) => {
           },
           CHAT: toggleOpen,
         }),
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         []
       )}
     />
