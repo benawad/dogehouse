@@ -23,7 +23,7 @@
 	},
 	"footer": {
 		"_comment": "Main Footer UI Internationalization Strings",
-		"link_1": "Opprinnelseshistorien",
+		"link_1": "Opprinnelsen",
 		"link_2": "Discord",
 		"link_3": "Rapporter en feil"
 	},
@@ -36,40 +36,40 @@
 			"startPrivateRoom": "start et privat rom med dem"
 		},
 		"followList": {},
-		"home": { "createRoom": "Lag et Room" },
+		"home": { "createRoom": "Opprett et rom" },
 		"inviteList": {
 			"roomGone": "rommet er borte, gå tilbake",
 			"shareRoomLink": "Del lenken til rommet",
-			"inviteFollowers": "Du kan invitere dine følgere som er online:",
-			"whenFollowersOnline": "Når følgere dine er online, vil de dukke opp her."
+			"inviteFollowers": "Du kan invitere følgerne dine som er pålogget:",
+			"whenFollowersOnline": "Når følgerne dine er pålogget, vil de dukke opp her."
 		},
 		"login": {
 			"headerText": "Tar talesamtaler til månen 🚀",
-			"featureText_1": "Mørkt Tema",
-			"featureText_2": "Åpen Påmeldinger",
-			"featureText_3": "Multiplattform Støtte",
+			"featureText_1": "Mørkt tema",
+			"featureText_2": "Gratis registrering",
+			"featureText_3": "Støtter flere plattformer",
 			"featureText_4": "Åpen kildekode",
-			"featureText_5": "Tekstchat",
-			"featureText_6": "Drevet av Doge.",
-			"loginGithub": "Logg inn med Github.",
+			"featureText_5": "Chatfunksjon",
+			"featureText_6": "Drevet av Doge",
+			"loginGithub": "Logg inn med GitHub",
 			"loginTwitter": "Logg inn med Twitter",
 			"createTestUser": "Opprett testbruker"
 		},
 		"myProfile": {
 			"logout": "Logg ut",
-			"probablyLoading": "lasters sikkert...",
+			"probablyLoading": "laster muligens...",
 			"voiceSettings": "gå til taleinnstillinger",
 			"soundSettings": "gå til lydinnstillinger",
 			"deleteAccount": "slett konto"
 		},
 		"notFound": {
-			"whoopsError": "Whoops! Denne siden ble tapt i samtalen.",
-			"goHomeMessage": "Ikke vær redd. Du kan",
+			"whoopsError": "Whoops! Denne siden ble forsvant i samtalen.",
+			"goHomeMessage": "Frykt ikke! Dette kan du",
 			"goHomeLinkText": "gå hjem"
 		},
 		"room": {
-			"speakers": "Foredragsholdere",
-			"requestingToSpeak": "Forespurt om å få snakke",
+			"speakers": "Talere",
+			"requestingToSpeak": "Spør om å få talerett",
 			"listeners": "Lyttere"
 		},
 		"searchUser": { "search": "Søk..." },
@@ -82,9 +82,9 @@
 		},
 		"voiceSettings": {
 			"header": "Taleinnstillinger",
-			"mic": "Mikrofon:",
-			"permissionError": "Ingen mikrofoner funnet, du har ingen plugget inn, eller har du ikke gitt denne nettsiden tillatelse.",
-			"refresh": "Oppdater mikrofon listen",
+			"mic": "mikrofon:",
+			"permissionError": "ingen mikrofoner funnet: Enten har du ikke plugget inn, eller så har du ikke gitt oss tillatelse til å bruke den.",
+			"refresh": "Oppdater mikrofonlisten",
 			"volume": "Volum:"
 		}
 	},
@@ -93,7 +93,7 @@
 		"avatar": {},
 		"backBar": {},
 		"blockedFromRoomUsers": {
-			"header": "Utestengte Brukere",
+			"header": "Utestengte brukere",
 			"unban": "Opphev utestengelsen",
 			"noBans": "Ingen har blitt utestengt ennå"
 		},
@@ -120,14 +120,14 @@
 			"createRoomModal": {
 				"public": "offentlig",
 				"private": "privat",
-				"roomName": "rom navn",
-				"roomDescription": "rom beskrivelse",
+				"roomName": "romnavn",
+				"roomDescription": "rombeskrivelse",
 				"descriptionError": "maksimal lengde er 500 tegn",
 				"nameError": "må være mellom 2 og 60 tegn lang"
 			},
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Nytt rom opprettet",
-				"roomInviteFrom": "Rom Invitasjon fra",
+				"roomInviteFrom": "Rominvitasjon fra",
 				"justStarted": "De har nettopp startet",
 				"likeToJoin": ", vil du bli med?",
 				"inviteReceived": "Du har blitt invitert til"
@@ -135,7 +135,7 @@
 			"editProfileModal": {
 				"usernameTaken": "Brukernavnet er allerede i bruk",
 				"avatarUrlError": "Ugyldig bilde",
-				"avatarUrlLabel": "Github/Twitter avatar URL.",
+				"avatarUrlLabel": "Github/Twitter avatar-URL.",
 				"displayNameError": "Lengden må være mellom 2 og 50 tegn",
 				"displayNameLabel": "Visningsnavn",
 				"usernameError": "Lengden må være mellom 4 til 15 tegn og inneholde kun alfanumerisk tegn og understrekinger",
