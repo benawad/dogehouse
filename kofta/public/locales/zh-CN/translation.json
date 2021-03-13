@@ -82,9 +82,9 @@
 		},
 		"voiceSettings": {
 			"header": "语音设置",
-			"mic": "米克风:",
+			"mic": "麦克风:",
 			"permissionError": "没有找到麦克风，要不然没有被插入，要不然没有给此网页使用麦克风的权利。",
-			"refresh": "刷新米克风列表",
+			"refresh": "刷新麦克风列表",
 			"volume": "音量:"
 		}
 	},
@@ -104,8 +104,8 @@
 			"inviteUsersToRoomBtn": "邀请用户进入聊天室",
 			"invite": "邀请",
 			"toggleMuteMicBtn": "切换麦克风静音",
-			"mute": "关闭米克风",
-			"unmute": "打开米克风",
+			"mute": "关闭麦克风",
+			"unmute": "打开麦克风",
 			"makeRoomPublicBtn": "把聊天室设为公开!",
 			"settings": "设置",
 			"speaker": "扬声器",
