@@ -9,6 +9,8 @@ defmodule Beef.Access.Rooms do
   alias Beef.Schemas.User
   alias Beef.Schemas.Room
 	alias Beef.Schemas.UserBlock
+  alias Beef.RoomPermissions
+  alias Beef.RoomBlocks
 
   def get_room_status(user_id) do
     room = Users.get_current_room(user_id)
@@ -21,7 +23,7 @@ defmodule Beef.Access.Rooms do
         {:creator, room}
 
       true ->
-        {case Kousa.Data.RoomPermission.get(user_id, room.id) do
+        {case RoomPermissions.get(user_id, room.id) do
            %{isMod: true} -> :mod
            %{isSpeaker: true} -> :speaker
            %{askedToSpeak: true} -> :askedToSpeak
@@ -43,7 +45,7 @@ defmodule Beef.Access.Rooms do
           room.numPeopleInside >= max_room_size ->
             {:error, "room is full"}
 
-          Kousa.Data.RoomBlock.blocked?(room_id, user_id) ->
+          RoomBlocks.blocked?(room_id, user_id) ->
             {:error, "you are blocked from the room"}
 
           true ->
