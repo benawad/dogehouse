@@ -174,7 +174,7 @@
 			},
 			"profileModal": {
 				"blockUserConfirm": "Weet je zeker dat je wilt voorkomen dat deze gebruiker lid wordt van een kamer die je ooit hebt gemaakt?",
-				"blockUser": "block user",
+				"blockUser": "block gebruiker",
 				"makeMod": "moderator maken",
 				"unmod": "moderator opheffen",
 				"addAsSpeaker": "toevoegen als luidspreker",
