@@ -105,7 +105,7 @@
 			"invite": "Convidar",
 			"toggleMuteMicBtn": "Silenciar microfone",
 			"mute": "Silenciar",
-			"unmute": "Unmute",
+			"unmute": "Ativar",
 			"makeRoomPublicBtn": "Tornar a sala pública!",
 			"settings": "Definições",
 			"speaker": "Orador",
@@ -120,10 +120,10 @@
 			"createRoomModal": {
 				"public": "Público",
 				"private": "Privado",
-				"roomName": "room name",
-				"roomDescription": "room description",
-				"descriptionError": "max length 500",
-				"nameError": "must be between 2 to 60 characters long"
+				"roomName": "nome da sala",
+				"roomDescription": "descrição da sala",
+				"descriptionError": "máximo 500 caracteres",
+				"nameError": "deverá ter entre 2 e 60 caracteres"
 			},
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Nova sala criada",
@@ -135,7 +135,7 @@
 			"editProfileModal": {
 				"usernameTaken": "O utilizador já existe",
 				"avatarUrlError": "Imagem inválida",
-				"avatarUrlLabel": "URL da foto de perfil (Github/Twitter)",
+				"avatarUrlLabel": "URL da foto de perfil (GitHub/Twitter)",
 				"displayNameError": "Deverá ter entre 2 e 50 caracteres",
 				"displayNameLabel": "Nome de apresentação",
 				"usernameError": "Deverá ter entre 4 e 15 caracteres alfanuméricos e com letra minúscula",
@@ -166,21 +166,21 @@
 		},
 		"addToCalendar": { "add": "Adicionar ao calendário" },
 		"keyboardShortcuts": {
-			"setKeybind": "set keybind",
-			"listening": "listening",
-			"toggleMuteKeybind": "toggle mute keybind",
-			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
+			"setKeybind": "definir atalho",
+			"listening": "a ouvir",
+			"toggleMuteKeybind": "teclas de atalho para silenciar",
+			"togglePushToTalkKeybind": "teclas de atalho para ativar o premir-para-falar"
 		},
 		"wsKilled": {
-			"description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
-			"reconnect": "reconnect"
+			"description": "O WebSocket foi quebrado pelo servidor. Isto geralmente acontece quando abres o site noutro separador.",
+			"reconnect": "restablecer a ligação"
 		},
 		"deviceNotSupported": {
-			"notSupported": "Your device is currently not supported. You can create an",
-			"linkText": "issue on GitHub",
-			"addSupport": "and I will try adding support for your device."
+			"notSupported": "Neste momento o teu dispositivo não é suportado. Podes criar um",
+			"linkText": "issue no GitHub",
+			"addSupport": "e tentarei adicionar suporte para o mesmo."
 		},
-		"inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" }
+		"inviteButton": { "invited": "convidado", "inviteToRoom": "convidar para a sala" }
 	},
 	"modules": {
 		"scheduledRooms": {
@@ -205,7 +205,7 @@
 			"searchResults": "Resultados da pesquisa",
 			"recent": "Usados Frequentemente",
 			"sendMessage": "Enviar mensagem",
-			"whisper": "Whisper",
+			"whisper": "Sussurro",
 			"welcomeMessage": "Bem-vindo ao chat!",
 			"roomDescription": "descrição da sala"
 		}
