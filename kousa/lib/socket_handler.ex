@@ -9,6 +9,7 @@ defmodule Kousa.SocketHandler do
   alias Beef.Rooms
   alias Beef.Follows
   alias Kousa.Data.RoomPermission
+  alias Ecto.UUID
 
   # TODO: just collapse this into its parent module.
   defmodule State do
@@ -770,14 +771,11 @@ defmodule Kousa.SocketHandler do
   end
 
   def f_handler("get_user_profile", %{"userId" => id_or_username}, %State{} = _state) do
-    user = Beef.Users.get_by_username(id_or_username)
-    user = if is_nil(user), do: Beef.Users.get_by_id(id_or_username), else: user
-    if not is_nil(user) do
-      user
-    else
-      %{
-        error: "User not found"
-      }
+    case UUID.cast(id_or_username) do
+      {:ok, uuid} ->
+        Beef.Users.get_by_id(uuid)
+      _ ->
+        Beef.Users.get_by_username(id_or_username)
     end
   end
 
