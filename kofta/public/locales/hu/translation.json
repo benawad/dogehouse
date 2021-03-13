@@ -10,9 +10,9 @@
 		"save": "mentés",
 		"edit": "szerkesztés",
 		"delete": "törlés",
-		"joinRoom": "join room",
-		"copyLink": "copy link",
-		"copied": "copied",
+		"joinRoom": "csatlakozás",
+		"copyLink": "link másolása",
+		"copied": "másolva",
 		"formattedIntlDate": "{{date, intlDate}}",
 		"formattedIntlTime": "{{time, intlTime}}"
 	},
@@ -81,10 +81,10 @@
 		},
 		"voiceSettings": {
 			"header": "Hangbeállítások",
-			"mic": "mikrofon:",
-			"permissionError": "nem található mikrofon. Vagy nincs csatlakoztatva, vagy nem adta meg az engedélyt.",
+			"mic": "Mikrofon:",
+			"permissionError": "Nem található mikrofon. Vagy nincs csatlakoztatva, vagy nem adta meg az engedélyt.",
 			"refresh": "elérhető mikrofonok frissítése",
-			"volume": "hangerő:"
+			"volume": "Hangerő:"
 		}
 	},
 	"components": {
@@ -92,9 +92,9 @@
 		"avatar": {},
 		"backBar": {},
 		"blockedFromRoomUsers": {
-			"header": "Bannolt felhasználók",
-			"unban": "unban",
-			"noBans": "senki nem lett bannolva még"
+			"header": "Kitiltott felhasználók",
+			"unban": "visszaenged",
+			"noBans": "Senki nem lett még kitiltva"
 		},
 		"bottomVoiceControl": {
 			"leaveCurrentRoomBtn": "Kilépés a szobából",
@@ -111,7 +111,7 @@
 			"listener": "Hallgatók"
 		},
 		"micPermissionBanner": {
-			"permissionDenied": "A mikrofonhoz való hozzáférést megtagadták (lehet, hogy be kell lépnie a böngészőbeállításaiba, és újra be kell töltenie az oldalt)",
+			"permissionDenied": "A mikrofonhoz való hozzáférést megtagadták (lehet, hogy be kell lépnie a böngészőbeállításaiba és újra be kell töltenie az oldalt)",
 			"dismiss": "elutasítás",
 			"tryAgain": "próbálja újra"
 		},
@@ -149,8 +149,8 @@
 				"unmod": "unmod",
 				"addAsSpeaker": "hozzáadás a beszélőkhöz",
 				"moveToListener": "visszalépés hallgatóvá",
-				"banFromChat": "bannolás a chatről",
-				"banFromRoom": "bannolás a szobából",
+				"banFromChat": "kitiltás a chatről",
+				"banFromRoom": "kitiltás a szobából",
 				"goBackToListener": "visszalépés hallgatóvá",
 				"deleteMessage": "üzenet törlése"
 			},
@@ -163,10 +163,10 @@
 		"userVolumeSlider": { "noAudioMessage": "valamilyen okból nincs hallgató" },
 		"addToCalendar": { "add": "Felvétel naptárba" },
 		"keyboardShortcuts": {
-			"setKeybind": "set keybind",
-			"listening": "listening",
-			"toggleMuteKeybind": "toggle mute keybind",
-			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
+			"setKeybind": "Gyorsbillentyű beállítása",
+			"listening": "figyelés",
+			"toggleMuteKeybind": "Némítás kapcsolása",
+			"togglePushToTalkKeybind": "Push-to-talk"
 		},
 		"wsKilled": {
 			"description": "A Websocket kapcsolatot megszakította a szerver. Ez általában akkor fordul elő, amikor több fülön meg van nyitva a weboldal.",
@@ -195,14 +195,14 @@
 		},
 		"roomChat": {
 			"title": "Chat",
-			"emotesSoon": "[emotes soon]",
+			"emotesSoon": "[hangulatjelek hamarosan]",
 			"bannedAlert": "Kitiltottak a beszélgetésből",
 			"waitAlert": "Várnod kell egy másodpercet a következő üzenet küldése előtt.",
 			"search": "Keresés",
 			"searchResults": "Keresés eredménye",
 			"recent": "Gyakran használt",
 			"sendMessage": "Üzenet küldése",
-			"whisper": "Whisper",
+			"whisper": "privát üzenet",
 			"welcomeMessage": "Üdv a beszélgetésben!",
 			"roomDescription": "szoba leírása"
 		}
