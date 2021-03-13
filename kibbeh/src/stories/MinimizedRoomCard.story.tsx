@@ -9,7 +9,8 @@ export default {
 };
 
 const room = {
-  name: "Senior Dev / Manager @ GoDaddy (TS/React/GQL) - Ask me whatever you want",
+  name:
+    "Senior Dev / Manager @ GoDaddy (TS/React/GQL) - Ask me whatever you want",
   speakers: ["Terry Owen", "Grace Abraham"],
   url: "/room/1829324",
   timeElapsed: { minutes: 58, seconds: 39 },
@@ -25,10 +26,10 @@ const room = {
     },
     leave: () => {
       // no-op
-    }
-  }
+    },
+  },
 };
 
 export const Main: Story<SearchOverlayProps> = ({ ...props }) => (
-  <MinimizedRoomCard {...props} room={room}/>
+  <MinimizedRoomCard {...props} room={room} />
 );

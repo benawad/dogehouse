@@ -5,7 +5,8 @@ import { SmSolidFullscreen, SmSolidMicrophone, SmSolidVolume } from "../icons";
 import { useRouter } from "next/router";
 import { Button } from "./Button";
 
-const formatElapsed = (time: Duration) => `${time.hours ? `${time.hours}:` : ""}${time.minutes ?? "0"}:${time.seconds}`;
+const formatElapsed = (time: Duration) =>
+  `${time.hours ? `${time.hours}:` : ""}${time.minutes ?? "0"}:${time.seconds}`;
 
 interface MinimizedRoomCardProps {
   room: {
@@ -24,7 +25,9 @@ interface MinimizedRoomCardProps {
   };
 }
 
-export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({ room }) => {
+export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
+  room,
+}) => {
   const router = useRouter();
 
   return (
@@ -33,7 +36,8 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({ room }) =>
         <h4 className="text-primary-100 ">{room.name}</h4>
         <p className="text-primary-300">{room.speakers.join(", ")}</p>
         <p className="text-accent">
-          {room.myself.isSpeaker ? "Speaker" : "Listener"} · {formatElapsed(room.timeElapsed)}
+          {room.myself.isSpeaker ? "Speaker" : "Listener"} ·{" "}
+          {formatElapsed(room.timeElapsed)}
         </p>
       </div>
       <div className="gap-4">
@@ -42,17 +46,21 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({ room }) =>
             onClick={room.myself.switchMuted}
             className={room.myself.isMuted ? "bg-accent" : ""}
           >
-            <SmSolidMicrophone/>
+            <SmSolidMicrophone />
           </BoxedIcon>
           <BoxedIcon
             onClick={room.myself.switchDeafened}
             className={room.myself.isDeafened ? "bg-accent" : ""}
           >
-            <SmSolidVolume/>
+            <SmSolidVolume />
           </BoxedIcon>
-          <BoxedIcon onClick={() => router.push(room.url)}><SmSolidFullscreen/></BoxedIcon>
+          <BoxedIcon onClick={() => router.push(room.url)}>
+            <SmSolidFullscreen />
+          </BoxedIcon>
         </div>
-        <Button className="flex-grow" onClick={room.myself.leave}>Leave</Button>
+        <Button className="flex-grow" onClick={room.myself.leave}>
+          Leave
+        </Button>
       </div>
     </div>
   );
