@@ -39,7 +39,7 @@ config :ueberauth, Ueberauth.Strategy.Twitter.OAuth,
 
 config :kousa,
   num_voice_servers: 1,
-  is_staging: System.get_env("IS_STAGING") == "true",
+  staging?: System.get_env("IS_STAGING") == "true",
   secret_key_base:
     System.get_env("SECRET_KEY_BASE") ||
       raise("""
@@ -92,5 +92,5 @@ config :joken,
   access_token_key: System.fetch_env!("ACCESS_TOKEN_SECRET"),
   refresh_token_key: System.fetch_env!("REFRESH_TOKEN_SECRET")
 
-IO.puts("is_staging:")
-IO.puts(Application.get_env(:kousa, :is_staging))
+IO.puts("staging?:")
+IO.puts(Application.get_env(:kousa, :staging?))

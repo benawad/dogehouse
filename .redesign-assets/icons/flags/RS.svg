@@ -1,0 +1,18 @@
+<svg width="28" height="20" viewBox="0 0 28 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.25" y="0.25" width="27.5" height="19.5" rx="1.75" fill="white" stroke="#F5F5F5" stroke-width="0.5"/>
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="28" height="20">
+<rect x="0.25" y="0.25" width="27.5" height="19.5" rx="1.75" fill="white" stroke="white" stroke-width="0.5"/>
+</mask>
+<g mask="url(#mask0)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 13.3334H28V6.66669H0V13.3334Z" fill="#17508F"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 6.66667H28V0H0V6.66667Z" fill="#E1444D"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6 10C6 9.35497 6.34366 7.91786 6.5375 7.15859C6.61181 6.86753 6.87495 6.66669 7.17534 6.66669H10.1592C10.459 6.66669 10.7218 6.86673 10.7964 7.15712C10.9903 7.91197 11.3333 9.34022 11.3333 10C11.3333 10.745 10.833 12.7008 10.6992 13.2105C10.6777 13.2924 10.6412 13.3677 10.5872 13.433C10.3317 13.7426 9.49918 14.6667 8.66667 14.6667C7.83364 14.6667 7.00061 13.7414 6.74565 13.4325C6.69202 13.3675 6.65559 13.2927 6.63405 13.2113C6.50018 12.7052 6 10.7635 6 10Z" fill="white"/>
+<mask id="mask1" mask-type="alpha" maskUnits="userSpaceOnUse" x="6" y="6" width="6" height="9">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6 10C6 9.35497 6.34366 7.91786 6.5375 7.15859C6.61181 6.86753 6.87495 6.66669 7.17534 6.66669H10.1592C10.459 6.66669 10.7218 6.86673 10.7964 7.15712C10.9903 7.91197 11.3333 9.34022 11.3333 10C11.3333 10.745 10.833 12.7008 10.6992 13.2105C10.6777 13.2924 10.6412 13.3677 10.5872 13.433C10.3317 13.7426 9.49918 14.6667 8.66667 14.6667C7.83364 14.6667 7.00061 13.7414 6.74565 13.4325C6.69202 13.3675 6.65559 13.2927 6.63405 13.2113C6.50018 12.7052 6 10.7635 6 10Z" fill="white"/>
+</mask>
+<g mask="url(#mask1)">
+<path d="M11.3333 7.33335L6.00001 14" stroke="#E1444D" stroke-width="1.33333" stroke-linecap="square"/>
+<path d="M6 7.33335L11.3333 14" stroke="#E1444D" stroke-width="1.33333" stroke-linecap="square"/>
+</g>
+</g>
+</svg>
