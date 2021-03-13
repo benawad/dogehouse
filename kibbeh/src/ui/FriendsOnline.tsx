@@ -14,7 +14,7 @@ export interface FriendOnlineType {
 export interface FriendsOnlineProps {
   onlineFriendList: FriendOnlineType[];
   onlineFriendCount: number;
-  showMoreAction?: MouseEventHandler<HTMLButtonElement>;
+  showMoreAction?: MouseEventHandler<HTMLDivElement>;
 }
 
 const FriendOnline: React.FC<FriendOnlineType> = ({
@@ -28,7 +28,7 @@ const FriendOnline: React.FC<FriendOnlineType> = ({
     <div className="ml-3 flex flex-col">
       <h5 className="text-primary-100 font-bold">{username}</h5>
       <a
-        className={`text-primary-300 ${activeRoom?.link ? "border-b" : ""}`}
+        className={`text-primary-300 border-b`}
         {...(activeRoom?.link ? { href: activeRoom.link } : {})}
       >
         {activeRoom?.name}
@@ -45,7 +45,7 @@ export const FriendsOnline: React.FC<FriendsOnlineProps> = ({
   return (
     <div className="px-5 py-5 w-full border border-primary-600 flex flex-col justify-center">
       <h4 className="text-primary-100">People</h4>
-      <h6 className="text-primary-300 mt-3 text-sm">
+      <h6 className="text-primary-300 mt-3 text-sm font-bold">
         ONLINE ({onlineFriendCount})
       </h6>
       <div className="flex flex-col mt-3">
@@ -54,6 +54,12 @@ export const FriendsOnline: React.FC<FriendsOnlineProps> = ({
             {onlineFriendList.map((friend, idx) => (
               <FriendOnline key={idx} {...friend} />
             ))}
+            <div
+              className="underline text-primary-300 font-bold mt-4 cursor-pointer"
+              onClick={showMoreAction}
+            >
+              Show more
+            </div>
           </>
         ) : (
           <p className="text-primary-200">
