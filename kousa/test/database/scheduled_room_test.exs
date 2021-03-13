@@ -7,7 +7,6 @@ defmodule Kousa.Database.ScheduledRoomTest do
   alias Beef.Repo
   alias Beef.Schemas.User
   alias Beef.Schemas.ScheduledRoom
-  alias Kousa.Data
 
   defp create_user(_) do
     {:ok, user: Factory.create(User)}
@@ -27,7 +26,7 @@ defmodule Kousa.Database.ScheduledRoomTest do
     }
 
     test "with ISO date", %{user: user} do
-      {:ok, sr} = Data.ScheduledRoom.insert(Map.put(@scheduled_room_input, :creatorId, user.id))
+      {:ok, sr} = ScheduledRooms.insert(Map.put(@scheduled_room_input, :creatorId, user.id))
 
       assert [^sr] = Repo.all(ScheduledRoom)
     end
