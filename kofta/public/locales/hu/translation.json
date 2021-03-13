@@ -37,7 +37,7 @@
 		"followList": {},
 		"home": { "createRoom": "Szoba létrehozása" },
 		"inviteList": {
-			"roomGone": "szoba befelyezve, lépjen vissza",
+			"roomGone": "beszélgetés véget ért, lépjen vissza",
 			"shareRoomLink": "szoba linkjének megosztása",
 			"inviteFollowers": "Meghívhatja online követőit:",
 			"whenFollowersOnline": "Amikor a követőid online vannak, itt jelennek meg."
