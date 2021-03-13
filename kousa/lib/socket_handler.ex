@@ -8,7 +8,7 @@ defmodule Kousa.SocketHandler do
   alias Beef.Users
   alias Beef.Rooms
   alias Beef.Follows
-  alias Kousa.Data.RoomPermission
+  alias Beef.RoomPermissions
 
   # TODO: just collapse this into its parent module.
   defmodule State do
@@ -551,7 +551,7 @@ defmodule Kousa.SocketHandler do
 
   def handler("ask_to_speak", _data, state) do
     with {:ok, room_id} <- Users.tuple_get_current_room_id(state.user_id) do
-      case RoomPermission.ask_to_speak(state.user_id, room_id) do
+      case RoomPermissions.ask_to_speak(state.user_id, room_id) do
         {:ok, %{isSpeaker: true}} ->
           Kousa.BL.Room.internal_set_speaker(state.user_id, room_id)
 

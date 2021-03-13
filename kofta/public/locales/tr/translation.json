@@ -23,7 +23,7 @@
 	},
 	"footer": {
 		"_comment": "Ana altbilgi arayüz ulusallaştırma yazıları",
-		"link_1": "Hikaye",
+		"link_1": "DogeHouse hikayesi",
 		"link_2": "Discord",
 		"link_3": "Hata Bildir"
 	},
@@ -39,7 +39,7 @@
 		"home": { "createRoom": "Oda oluştur" },
 		"inviteList": {
 			"roomGone": "oda gitti, geri dön",
-			"shareRoomLink": "odaya bağlantı paylaş",
+			"shareRoomLink": "oda bağlantısını paylaş",
 			"inviteFollowers": "Çevrimiçi olan takipçilerini davet edebilirsin:",
 			"whenFollowersOnline": "Takipçilerin çevrimiçi olduğunda burada gözükecek."
 		},
@@ -65,7 +65,7 @@
 		"notFound": {
 			"whoopsError": "Uups! Bu sayfa sohbette kayboldu.",
 			"goHomeMessage": "Endişe etme. Yapabilirsin",
-			"goHomeLinkText": "ana menüye git"
+			"goHomeLinkText": "ana sayfaya git"
 		},
 		"room": {
 			"speakers": "Konuşmacılar",
@@ -77,9 +77,8 @@
 		"viewUser": {
 			"editProfile": "profili düzenle",
 			"followsYou": "seni takip ediyor",
-			"folowers": "takipçiler",
+			"followers": "takipçiler",
 			"following": "takip ediliyor",
-			"followers": "followers"
 		},
 		"voiceSettings": {
 			"header": "Ses Ayarları",
@@ -122,10 +121,10 @@
 			"createRoomModal": {
 				"public": "herkese açık",
 				"private": "gizli",
-				"roomName": "room name",
-				"roomDescription": "room description",
-				"descriptionError": "max length 500",
-				"nameError": "must be between 2 to 60 characters long"
+				"roomName": "oda ismi",
+				"roomDescription": "oda açıklaması",
+				"descriptionError": "maksimum uzunluk 500",
+				"nameError": "2 ila 60 karakter uzunluğunda olmalıdır"
 			},
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Yeni oda oluşturuldu",
@@ -139,7 +138,7 @@
 				"avatarUrlError": "Geçersiz resim",
 				"avatarUrlLabel": "GitHub/Twitter avatar linki",
 				"displayNameError": "uzunluk 2-50 karakter arası olmalı",
-				"displayNameLabel": "Görüntülenme adı",
+				"displayNameLabel": "Görünülecek isim",
 				"usernameError": "uzunluk 4-15 arası olmalı ve sadece alfanümerik/alt_çizgi karakterlerini içermeli",
 				"usernameLabel": "Kullanıcı adı",
 				"bioError": "Maksimum uzunluk 160 karakter",
@@ -151,7 +150,7 @@
 				"makeMod": "Moderatör Yap",
 				"unmod": "Moderatörlükten Çıkar",
 				"addAsSpeaker": "Konuşmacı Olarak Ekle",
-				"moveToListener": "Dinleyici Yap",
+				"moveToListener": "Dinleyiciye taşı",
 				"banFromChat": "Sohbetten Yasakla",
 				"banFromRoom": "Odadan Yasakla",
 				"goBackToListener": "Dinlemeye Geri Dön",
@@ -172,7 +171,7 @@
 			"togglePushToTalkKeybind": "bas-konuş tuş ataması"
 		},
 		"wsKilled": {
-			"description": "WebSocket sunucu tarafından kapatıldı. Bu genellikle websiteyi başka bir sekmede açtığında yaşanır.",
+			"description": "WebSocket, sunucu tarafından kapatıldı. Bu genellikle websiteyi başka bir sekmede açtığında yaşanır.",
 			"reconnect": "Yeniden Bağlan"
 		},
 		"deviceNotSupported": {
@@ -200,7 +199,7 @@
 			"title": "Sohbet",
 			"emotesSoon": "[İfadeler yakında gelecek]",
 			"bannedAlert": "Sohbetten yasaklandın",
-			"waitAlert": "Başka bir mesaj göndermek için bir saniye beklemelisin",
+			"waitAlert": "Başka bir mesaj göndermek için biraz beklemelisin",
 			"search": "Ara",
 			"searchResults": "Arama Sonuçları",
 			"recent": "Sık Kullanılanlar",

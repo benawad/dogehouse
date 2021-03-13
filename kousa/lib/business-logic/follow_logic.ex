@@ -3,7 +3,6 @@ defmodule Kousa.BL.Follow do
   alias Beef.Users
   alias Beef.Follows
   alias Beef.UserBlocks
-  alias Beef.Schemas.User
   alias Beef.Schemas.Follow
   alias Beef.Schemas.Room
 

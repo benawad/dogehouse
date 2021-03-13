@@ -1,4 +1,4 @@
-defmodule Beef.ScheduledRoomCohost do
+defmodule Beef.Schemas.ScheduledRoomCohost do
   use Ecto.Schema
   import Ecto.Changeset
   alias Beef.Schemas.User
