@@ -1,5 +1,6 @@
 {
 	"common": {
+    "disableButtonCapitalization": true,
 		"loadMore": "Last flere",
 		"loading": "Laster...",
 		"noUsersFound": "Ingen brukere funnet",

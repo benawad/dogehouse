@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Spinner } from "./Spinner";
 import "../../css/doge-button.css";
+import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 
 export const Button: React.FC<
   React.DetailedHTMLProps<
@@ -21,6 +22,7 @@ export const Button: React.FC<
   dogeProbability,
   ...props
 }) => {
+  const { t } = useTypeSafeTranslation();
   const [hasDoge, setHasDoge] = useState(false);
   const [dogeXAnchor, setDogeXAnchor] = useState(0);
   const [dogeHideTimeout, setDogeHideTimeout] = useState<NodeJS.Timeout | null>(
@@ -75,7 +77,9 @@ export const Button: React.FC<
       onMouseLeave={onMouseLeave}
       disabled={loading || disabled}
       className={`
-          rounded capitalize outline-none w-full flex items-center justify-center text-center text-white button-fix
+          rounded ${
+            t("common.disableButtonCapitalization") ? "" : "capitalize"
+          } outline-none w-full flex items-center justify-center text-center text-white button-fix
           ${
             color === "secondary"
               ? "bg-simple-gray-3a hover:bg-simple-gray-45"
