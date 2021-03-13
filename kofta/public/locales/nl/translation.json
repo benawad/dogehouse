@@ -162,7 +162,7 @@
 				"inviteReceived": "je bent uitgenodigd voor"
 			},
 			"editProfileModal": {
-				"usernameTaken": "gebruikers naam niet beschikbaar",
+				"usernameTaken": "gebruikersnaam niet beschikbaar",
 				"avatarUrlError": "Ongeldige foto",
 				"avatarUrlLabel": "Github/Twitter avatar link",
 				"displayNameError": "lengte 2 tot 50 karakters",
