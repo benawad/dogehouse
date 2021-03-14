@@ -86,8 +86,8 @@
 		"viewUser": {
 			"editProfile": "প্রোফাইল এডিট করুন",
 			"followsYou": "আপনাকে অনুসরণ করে",
-			"followers": "আপনার অনুসরণগণ",
-			"following": "আপনি যাদের অনুসরণ করেন"
+			"followers": "অনুসরণকারী",
+			"following": "অনুসরণ করছে"
 		},
 		"voiceSettings": {
 			"header": "ভয়েস সেটিংস",
@@ -135,10 +135,10 @@
 			"tryAgain": "পুনরায় চেষ্টা করুন"
 		},
 		"keyboardShortcuts": {
-			"setKeybind": "কিবাইন্ড সেট করুন",
+			"setKeybind": "কীবাইন্ড সেট করুন",
 			"listening": "শুনুন",
-			"toggleMuteKeybind": "টগল করুন মাইক কিবাইন্ড",
-			"togglePushToTalkKeybind": "টগল করুন পুশ-টু-টক কিবাইন্ড"
+			"toggleMuteKeybind": "টগল করুন মাইক কীবাইন্ড",
+			"togglePushToTalkKeybind": "টগল করুন পুশ-টু-টক কীবাইন্ড"
 		},
 		"userVolumeSlider": {
 			"noAudioMessage": "কিছু কারনে অডিও কনসিউম করা যাইনি"
