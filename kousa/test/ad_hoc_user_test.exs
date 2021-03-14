@@ -42,6 +42,6 @@ defmodule KousaTest.AdHocUserTest do
     end
   end
 
-  describe "Kousa.TokenUtils" do
+  describe "Kousa.Utils.TokenUtils" do
   end
 end

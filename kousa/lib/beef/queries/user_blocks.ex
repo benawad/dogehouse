@@ -7,7 +7,7 @@ defmodule Beef.Queries.UserBlocks do
   alias Beef.Schemas.UserBlock
 
   def start do
-    from ub in UserBlock
+    from(ub in UserBlock)
   end
 
   def filter_by_id_and_blockedId(query, user_id, user_id_blockedId) do
