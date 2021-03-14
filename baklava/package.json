@@ -25,6 +25,7 @@
     },
     "build": {
         "appId": "com.electron.dogehouse",
+        "productName": "DogeHouse",
         "asar": true,
         "mac": {
             "icon": "icons/icon.png",
