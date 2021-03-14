@@ -4,49 +4,51 @@ import { Room, BaseUser, UserWithFollowInfo } from "./types";
 import { useMeQuery } from "./utils/useMeQuery";
 
 const createSetter = <T>(a: WritableAtom<T, any>) =>
-	atom(null, (get, set, fn: (x: T) => T) => {
-		set(a, typeof fn === "function" ? fn(get(a)) : fn);
-	});
+  atom(null, (get, set, fn: (x: T) => T) => {
+    set(a, typeof fn === "function" ? fn(get(a)) : fn);
+  });
 
 export const voiceBrowserStatusAtom = atom(-1);
 export const setVoiceBrowserStatusAtom = createSetter(voiceBrowserStatusAtom);
 
 export const inviteListAtom = atom<{
-	users: BaseUser[];
-	nextCursor: number | null;
+  users: BaseUser[];
+  nextCursor: number | null;
 }>({ users: [], nextCursor: null });
 
 export const setInviteListAtom = createSetter(inviteListAtom);
 
 export const followingOnlineAtom = atom<{
-	users: UserWithFollowInfo[];
-	nextCursor: number | null;
+  users: UserWithFollowInfo[];
+  nextCursor: number | null;
 }>({ users: [], nextCursor: null });
 
 export const userSearchAtom = atom<{
-	loading: boolean;
-	users: BaseUser[];
-	nextCursor: number | null;
+  loading: boolean;
+  users: BaseUser[];
+  nextCursor: number | null;
 }>({ users: [], loading: false, nextCursor: null });
 
 export const setFollowingOnlineAtom = createSetter(followingOnlineAtom);
 export const followerMapAtom = atom<
-	Record<
-		string,
-		{
-			users: UserWithFollowInfo[];
-			nextCursor: number | null;
-		}
-	>
+  Record<
+    string,
+    {
+      users: UserWithFollowInfo[];
+      nextCursor: number | null;
+      loading: boolean;
+    }
+  >
 >({});
 export const followingMapAtom = atom<
-	Record<
-		string,
-		{
-			users: UserWithFollowInfo[];
-			nextCursor: number | null;
-		}
-	>
+  Record<
+    string,
+    {
+      users: UserWithFollowInfo[];
+      nextCursor: number | null;
+      loading: boolean;
+    }
+  >
 >({});
 
 export const setFollowingMapAtom = createSetter(followingMapAtom);
@@ -54,46 +56,46 @@ export const setFollowingMapAtom = createSetter(followingMapAtom);
 export const setFollowerMapAtom = createSetter(followerMapAtom);
 
 export const publicRoomsAtom = atom<{
-	publicRooms: Room[];
-	nextCursor: number | null;
+  publicRooms: Room[];
+  nextCursor: number | null;
 }>({ publicRooms: [], nextCursor: null });
 
 export const setPublicRoomsAtom = createSetter(publicRoomsAtom);
 
 export const useCurrentRoomInfo = () => {
-	const { currentRoom: room } = useCurrentRoomStore();
-	const { me } = useMeQuery();
+  const { currentRoom: room } = useCurrentRoomStore();
+  const { me } = useMeQuery();
 
-	if (!room || !me) {
-		return {
-			isMod: false,
-			isCreator: false,
-			isSpeaker: false,
-			canSpeak: false,
-		};
-	}
+  if (!room || !me) {
+    return {
+      isMod: false,
+      isCreator: false,
+      isSpeaker: false,
+      canSpeak: false,
+    };
+  }
 
-	let isMod = false;
-	let isSpeaker = false;
+  let isMod = false;
+  let isSpeaker = false;
 
-	for (const u of room.users) {
-		if (u.id === me.id) {
-			if (u.roomPermissions?.isSpeaker) {
-				isSpeaker = true;
-			}
-			if (u.roomPermissions?.isMod) {
-				isMod = true;
-			}
-			break;
-		}
-	}
+  for (const u of room.users) {
+    if (u.id === me.id) {
+      if (u.roomPermissions?.isSpeaker) {
+        isSpeaker = true;
+      }
+      if (u.roomPermissions?.isMod) {
+        isMod = true;
+      }
+      break;
+    }
+  }
 
-	const isCreator = me.id === room.creatorId;
+  const isCreator = me.id === room.creatorId;
 
-	return {
-		isCreator,
-		isMod,
-		isSpeaker,
-		canSpeak: isCreator || isSpeaker,
-	};
+  return {
+    isCreator,
+    isMod,
+    isSpeaker,
+    canSpeak: isCreator || isSpeaker,
+  };
 };
