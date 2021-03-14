@@ -1,6 +1,9 @@
-import { ProfileBlock, ProfileBlockProps } from '../ui/ProfileBlock';
-import { ScheduledRoomSummaryCardProps } from "../ui/UpcomingRoomsCard";
-import { UserSummaryCardProps } from '../ui/UserSummaryCard';
+import { ProfileBlock } from "../ui/ProfileBlock";
+import {
+  ScheduledRoomSummaryCardProps,
+  UpcomingRoomsCard,
+} from "../ui/UpcomingRoomsCard";
+import { UserSummaryCard, UserSummaryCardProps } from "../ui/UserSummaryCard";
 import { Story } from "@storybook/react";
 import avatar from "../img/avatar.png";
 import { addDays } from "date-fns";
@@ -11,6 +14,27 @@ export default {
   title: "ProfileBlock",
   component: ProfileBlock,
 };
+
+interface MinimizedRoomCardProps {
+  name: string;
+  speakers: string[];
+  url: string;
+  timeElapsed: Duration;
+  myself: {
+    isSpeaker: boolean;
+    isMuted: boolean;
+    switchMuted(): void;
+    isDeafened: boolean;
+    switchDeafened(): void;
+    leave(): void;
+  };
+}
+
+interface ProfileBlockProps {
+  userDetails?: UserSummaryCardProps;
+  connectedRoom?: MinimizedRoomCardProps;
+  upcomingRooms?: ScheduledRoomSummaryCardProps[];
+}
 
 const upcoming: ScheduledRoomSummaryCardProps[] = [
   {
@@ -59,11 +83,11 @@ const userDetail: UserSummaryCardProps = {
 
 export const Main: Story<ProfileBlockProps> = ({
   userDetails = userDetail,
-  upcomingRooms = upcoming
+  upcomingRooms = upcoming,
 }) => (
   <ProfileBlock
-    userDetails={userDetails}
-    upcomingRooms={upcomingRooms}
+    top={<UserSummaryCard {...userDetails} />}
+    bottom={<UpcomingRoomsCard rooms={upcomingRooms} />}
   />
 );
 
@@ -91,11 +115,11 @@ export const ConnectedRoom: Story<ProfileBlockProps> = ({
       },
     },
   },
-  upcomingRooms = upcoming
+  upcomingRooms = upcoming,
 }) => (
   <ProfileBlock
-    connectedRoom={connectedRoom}
-    upcomingRooms={upcomingRooms}
+    top={<ConnectedRoom connectedRoom={connectedRoom} />}
+    bottom={<UpcomingRoomsCard rooms={upcomingRooms} />}
   />
 );
 
