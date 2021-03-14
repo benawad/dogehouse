@@ -62,10 +62,3 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     </select>
   );
 };
-
-// Simplified Language Name
-// Total Current Languages: 36 😲
-// All languages label are in alphabetical order
-// All language codes (except some) follow [`ISO 639-1`](http://www.mathguide.de/info/tools/languagecode.html)
-
-// I will keep adding as new languages are added
