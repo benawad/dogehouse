@@ -8,7 +8,10 @@ export interface AvatarProps {
 
 export const MultipleUsers: React.FC<AvatarProps> = ({ srcArray }) => {
   return (
-    <div className="flex relative" style={{ width: `${(srcArray.length*7 + 18)}px` }}>
+    <div
+      className="flex relative"
+      style={{ width: `${srcArray.length * 7 + 18}px` }}
+    >
       {srcArray.slice(0, 3).map((s, i) => (
         <span
           key={s + i}
