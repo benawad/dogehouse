@@ -156,7 +156,7 @@
 				"private": "প্রাইভেট",
 				"roomName": "রুমের নাম",
 				"roomDescription": "রুমের সম্বন্ধে",
-				"descriptionError": "৫০০ শব্দের মধ্যে",
+				"descriptionError": "৫০০ শব্দের মধ্যে হতে হবে",
 				"nameError": "২ থেকে ৬০ অক্ষরের মধ্যে হতে হবে"
 			},
 			"invitedToJoinRoomModal": {
@@ -172,7 +172,7 @@
 				"avatarUrlLabel": "GitHub/Twitter এর avatar url",
 				"displayNameError": "২ থেকে ৬০ অক্ষরের মধ্যে",
 				"displayNameLabel": "ডিসপ্লে নাম",
-				"usernameError": "২ থেকে ৬০ অক্ষরের মধ্যে এবং শুধু বর্ণমালা/আন্ডারস্কোর",
+				"usernameError": "২ থেকে ৬০ অক্ষরের মধ্যে এবং শুধু বর্ণমালা ও সংখ্যা/আন্ডারস্কোর",
 				"usernameLabel": "ইউজার নাম",
 				"bioError": "১৬০ অক্ষরের মধ্যে",
 				"bioLabel": "বর্ণনা"
