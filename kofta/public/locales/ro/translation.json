@@ -1,0 +1,218 @@
+{
+  "_comment": "if you change this file, do: npm run i18",
+  "common": {
+    "loadMore": "mai mult",
+    "loading": "încarcă...",
+    "noUsersFound": "niciun utilizator găsit",
+    "ok": "ok",
+    "yes": "da",
+    "no": "nu",
+    "cancel": "anulare",
+    "save": "salvare",
+    "edit": "editare",
+    "delete": "ștergere",
+    "joinRoom": "alătura-te canalului",
+    "copyLink": "copiază link",
+    "copied": "copiat",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Pe Mut | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "Povestea noastră",
+    "link_2": "Discord",
+    "link_3": "Raportează o problemă"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "blochează" },
+    "followingOnlineList": {
+      "listHeader": "Lista utilizatorilor care nu sunt într-o camera privată și îi urmărești",
+      "currentRoom": "Momentan în:",
+      "startPrivateRoom": "pornește un canal privat cu ei"
+    },
+    "followList": {},
+    "home": { "createRoom": "Crează canal" },
+    "inviteList": {
+      "roomGone": "canal inexistent, înapoi",
+      "shareRoomLink": "Distribuie link-ul canalului",
+      "inviteFollowers": "Poți invita urmăritorii care sunt online:",
+      "whenFollowersOnline": "Când următoritorii tăi sunt online, vor fi afișați aici."
+    },
+    "login": {
+      "headerText": "Lansăm conversațiile vocale pe lună 🚀",
+      "featureText_1": "Temă întunecată",
+      "featureText_2": "Înregistrari gratuite",
+      "featureText_3": "Suport multiplatformă",
+      "featureText_4": "Cu sursa deschisă",
+      "featureText_5": "Chat text",
+      "featureText_6": "Susținut de Doge",
+      "loginGithub": "înregistrare cu GitHub",
+      "loginTwitter": "înregistrare cu Twitter",
+      "createTestUser": "crează utilizator pentru test"
+    },
+    "myProfile": {
+      "logout": "deconectare",
+      "probablyLoading": "probabil se încarcă...",
+      "voiceSettings": "accesați setările vocale",
+      "soundSettings": "accesați setările de sunet",
+      "deleteAccount": "șterge cont"
+    },
+    "notFound": {
+      "whoopsError": "Hopa! Această pagină s-a pierdut în conversație.",
+      "goHomeMessage": "Nu-ți fă griji. Poti!",
+      "goHomeLinkText": "Mergi la pagina inițială"
+    },
+    "room": {
+      "speakers": "Vorbitori",
+      "requestingToSpeak": "Cere permisiunea să vorbești",
+      "listeners": "Ascultători"
+    },
+    "searchUser": { "search": "căutare..." },
+    "soundEffectSettings": { "header": "Sunete" },
+    "viewUser": {
+      "editProfile": "Editare Profil",
+      "followsYou": "urmăritorii tăi",
+      "followers": "urmăritori",
+      "following": "urmăriri"
+    },
+    "voiceSettings": {
+      "header": "Setări voce",
+      "mic": "microfon:",
+      "permissionError": "Niciun microfon gasit, ",
+      "refresh": "reîmprospătează lista microfoanelor",
+      "volume": "volum:"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "User blocați",
+      "unban": "deblochează",
+      "noBans": "nimeni nu a fost încă blocat"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Părăsește canalul",
+      "confirmLeaveRoom": "Ești sigur ca vrei pleci?",
+      "leave": "Părășește",
+      "inviteUsersToRoomBtn": "Invită utilizatorii în canal",
+      "invite": "Invită",
+      "toggleMuteMicBtn": "Comută microhonul pe mut",
+      "mute": "Mut",
+      "unmute": "Activați suntenul",
+      "makeRoomPublicBtn": "Faceți canalul public!",
+      "settings": "Setări",
+      "speaker": "Vorbitor",
+      "listener": "Acultător"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Dispozitivul tău nu este încă suportat, Poți crea o",
+      "linkText": "problemă pe GitHub",
+      "addSupport": ", iar noi vom îmcerca să adăugăm suport pentru el."
+    },
+    "inviteButton": {
+      "invited": "invitat",
+      "inviteToRoom": "invită îm camera"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "Permisiunea refuzată pentru încercarea de a accesa microfonul (poate fi necesar să accesezi setările browserului și să reîncărci pagina)",
+      "dismiss": "renunță",
+      "tryAgain": "încearca din nou"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "setează tastelor rapide",
+      "listening": "ascultare",
+      "toggleMuteKeybind": "comutați tasta pentru mut",
+      "togglePushToTalkKeybind": "comutați tasta pentru push-to-talk"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "niciun consumator audio din anumite motive"
+    },
+    "addToCalendar": { "add": "Adaugă în Calendar" },
+    "wsKilled": {
+      "description": "WebSocket a fost închis de server. Acest lucru se întâmplă de obicei atunci când deschizi site-ul web în alt tab.",
+      "reconnect": "reconecare"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "public",
+        "private": "privat",
+        "roomName": "nume canal",
+        "roomDescription": "descriere canal",
+        "descriptionError": "lungime maxima 500",
+        "nameError": "numele trebuie sa fie intre 2 și 60 de caractere"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "Canal nou creat",
+        "roomInviteFrom": "Invitatie in canal de la",
+        "justStarted": "Tocmai au început",
+        "likeToJoin": ", ai vrea sa te alaturi?",
+        "inviteReceived": "Ai fost invitat la"
+      },
+      "editProfileModal": {
+        "usernameTaken": "Numele este deja luat",
+        "avatarUrlError": "Imagine invalida",
+        "avatarUrlLabel": "GitHub/Twitter avatar url",
+        "displayNameError": "lungime intre 2 și 50 de caractere",
+        "displayNameLabel": "Numele afișat",
+        "usernameError": "lungimea de la 4 la 15 caractere și numai alfanumeric / subliniat",
+        "usernameLabel": "Nume de utilizator",
+        "bioError": "lungimea maximă de 160 de caractere",
+        "bioLabel": "Bio"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Ești sigur că vrei să blochezi acest utiliztor de la toate canalele pe care le creezi?",
+        "blockUser": "blochează utilizator",
+        "makeMod": "promoveaza ca moderator",
+        "unmod": "retrage ca moderator",
+        "addAsSpeaker": "Adaugă ca vorbitor",
+        "moveToListener": "mut ca ascultător",
+        "banFromChat": "blochează din chat",
+        "banFromRoom": "blockează din canal",
+        "goBackToListener": "înapoi ca ascultător",
+        "deleteMessage": "șterge acest mesaj"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "cere permisiunea pentru a vorbi",
+        "makePublic": "setează canalul public",
+        "makePrivate": "setează canalul privat"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "Canale programate",
+      "noneFound": "niciunul nu a fost găsit",
+      "allRooms": "Toate canalele programate",
+      "myRooms": "Canalele mele programate",
+      "scheduleRoomHeader": "Programează canal",
+      "startRoom": "pornește canal",
+      "modal": {
+        "needsFuture": "trebuie să fie în viitor",
+        "roomName": "numele canalui",
+        "minLength": "lungime nimina 2"
+      }
+    },
+    "roomChat": {
+      "title": "Chat",
+      "emotesSoon": "[emoticoane în curănd]",
+      "bannedAlert": "Ai fost interzis să conversezi prin chat",
+      "waitAlert": "Trebuie să aștepți o secundă înainte de a trimite un alt mesaj",
+      "search": "Căutare",
+      "searchResults": "Rezultatele căutarii",
+      "recent": "Folosite frecvent",
+      "sendMessage": "Trimite mesaj",
+      "whisper": "Fluer",
+      "welcomeMessage": "Bine ai venit în chat",
+      "roomDescription": "descrierea canalului"
+    }
+  }
+}
