@@ -36,7 +36,7 @@
 		"followingOnlineList": {
 			"listHeader": "Benutzer denen du folgst, die nicht in einem privaten Raum sind.",
 			"currentRoom": "Zurzeit in:",
-			"startPrivateRoom": "Einen privaten Raum mit diesem Benutzer starten"
+			"startPrivateRoom": "Starten Sie mit ihnen ein privates Raum"
 		},
 		"followList": {},
 		"home": {
