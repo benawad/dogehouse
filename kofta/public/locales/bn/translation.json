@@ -70,7 +70,7 @@
 		"notFound": {
 			"whoopsError": "উপস! এই পেজের বার্তালাপ কেটে গেছে।",
 			"goHomeMessage": "চিন্তা করবেন না। আপনি পারবেন",
-			"goHomeLinkText": "হোমে যান"
+			"goHomeLinkText": "হোমে যেতে"
 		},
 		"room": {
 			"speakers": "স্পিকারস",
@@ -86,8 +86,8 @@
 		"viewUser": {
 			"editProfile": "প্রোফাইল এডিট করুন",
 			"followsYou": "আপনাকে অনুসরণ করে",
-			"followers": "অনুসরণকারী",
-			"following": "অনুসরণ করছে"
+			"followers": "জন অনুসরণকারী",
+			"following": "জনকে অনুসরণ করছে"
 		},
 		"voiceSettings": {
 			"header": "ভয়েস সেটিংস",
