@@ -13,7 +13,7 @@
     "build:linux": "npm run compile && electron-builder --linux"
   },
   "keywords": [],
-  "author": "Ben Awad <benawad@email.com>",
+  "author": "Ben Awad <benawadapps@gmail.com>",
   "homepage": "https://github.com/benawad/dogehouse/",
   "license": "MIT",
   "devDependencies": {
