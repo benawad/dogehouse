@@ -15,6 +15,7 @@ const today = new Date();
 
 const upcomingRooms: ScheduledRoomSummaryCardProps[] = [
   {
+    id: "1",
     scheduledFor: today,
     speakersInfo: {
       avatars: [src],
@@ -23,6 +24,7 @@ const upcomingRooms: ScheduledRoomSummaryCardProps[] = [
     title: "Live with u/DeepFuckingValue",
   },
   {
+    id: "2",
     scheduledFor: addDays(today, 1),
     speakersInfo: {
       avatars: [src, src],
@@ -31,6 +33,7 @@ const upcomingRooms: ScheduledRoomSummaryCardProps[] = [
     title: "Is Apple equipment worth it?",
   },
   {
+    id: "3",
     scheduledFor: addDays(today, 2),
     speakersInfo: {
       avatars: [src, src, src],
@@ -43,7 +46,7 @@ const upcomingRooms: ScheduledRoomSummaryCardProps[] = [
 
 export default {
   title: "UpcomingRoomsCard",
-  component: UpcomingRoomsCard
+  component: UpcomingRoomsCard,
 };
 
 export const ScheduledRoom: Story<ScheduledRoomSummaryCardProps> = ({
