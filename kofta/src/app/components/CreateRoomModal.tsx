@@ -87,6 +87,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 							maxLength={60}
 							placeholder={t("components.modals.createRoomModal.roomName")}
 							autoFocus
+							autoComplete="off"
 						/>
 						<div className="mt-3">
 							<InputField
