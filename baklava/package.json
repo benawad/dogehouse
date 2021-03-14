@@ -7,14 +7,15 @@
         "dev": "electron ./dist/electron.js",
         "compile": "tsc",
         "watch": "tsc -w",
-        "build": "npm run compile && electron-builder -mwl portable",
-        "build:mac": "npm run compile && electron-builder --mac portable",
-        "build:win": "npm run compile && electron-builder --win portable",
-        "build:linux": "npm run compile && electron-builder --linux portable"
+        "build": "npm run compile && electron-builder -mwl --win msi",
+        "build:mac": "npm run compile && electron-builder --mac",
+        "build:win": "npm run compile && electron-builder --win",
+        "build:linux": "npm run compile && electron-builder --linux"
     },
     "keywords": [],
-    "author": "",
-    "license": "ISC",
+    "author": "Ben Awad <benawad@email.com>",
+    "homepage": "https://github.com/benawad/dogehouse/",
+    "license": "MIT",
     "devDependencies": {
         "@types/node": "^14.14.31",
         "electron": "^11.2.3",
@@ -38,7 +39,7 @@
         },
         "win": {
             "icon": "icons/icon.png",
-            "target": "nsis"
+            "target": "msi"
         },
         "linux": {
             "icon": "icons/icon.png",

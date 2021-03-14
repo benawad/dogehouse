@@ -5,6 +5,7 @@ import {
   ipcMain,
   globalShortcut
 } from "electron";
+import iohook from "iohook";
 import { __prod__ } from "./constants";
 import { RegisterKeybinds } from "./util";
 let mainWindow: BrowserWindow;
@@ -36,8 +37,11 @@ function createWindow() {
 
   // registers global keybinds
   RegisterKeybinds(mainWindow);
+
+  // graceful exiting
   mainWindow.on("closed", () => {
     globalShortcut.unregisterAll();
+    iohook.stop();
     mainWindow.destroy()
   });
 }
