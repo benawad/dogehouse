@@ -43,14 +43,14 @@
 			"createRoom": "Raum erstellen"
 		},
 		"inviteList": {
-			"roomGone": "Raum existiert nicht (mehr)! Zurück",
+			"roomGone": "Raum konnte nicht gefunden werden! Zurück",
 			"shareRoomLink": "Link zum Raum teilen",
 			"inviteFollowers": "Du kannst deine Abonnenten, die online sind, einladen:",
 			"whenFollowersOnline": "Wenn deine Abonnenten online sind, werden sie hier angezeigt."
 		},
 		"login": {
-			"headerText": "Wir bringen Sprachchat zum Mond 🚀",
-			"featureText_1": "Dunkles Design",
+			"headerText": "Wir bringen den Sprachchat zum Mond 🚀",
+			"featureText_1": "Dark-Mode",
 			"featureText_2": "Unbeschränkte Registrierung",
 			"featureText_3": "Plattformunabhängig",
 			"featureText_4": "Open-Source",
@@ -92,7 +92,7 @@
 		"voiceSettings": {
 			"header": "Spracheinstellungen",
 			"mic": "Mikrofon:",
-			"permissionError": "Keine Mikrofone gefunden, es ist entweder keines angeschlosen oder die Seite besitzt nicht die benötigten Berechtigungen.",
+			"permissionError": "Keine Mikrofone gefunden, es ist entweder keines angeschlosen oder diese Seite besitzt nicht die benötigten Berechtigungen.",
 			"volume": "Lautstärke:",
 			"refresh": "Mikrofonliste aktualisieren"
 		}
@@ -107,7 +107,7 @@
 		"blockedFromRoomUsers": {
 			"header": "blockierte Benutzer",
 			"unban": "Blockierung aufheben",
-			"noBans": "bisher wurde noch niemand blockiert"
+			"noBans": "du hast aktuell (noch) niemanden blockiert"
 		},
 		"bottomVoiceControl": {
 			"leaveCurrentRoomBtn": "Aktuellen Raum verlassen",
@@ -124,7 +124,7 @@
 			"listener": "Zuhörer"
 		},
 		"micPermissionBanner": {
-			"permissionDenied": "Wir haben keinen Zugriff auf dein Mikrofon (gehe in deine Browsereinstellungen, setze die nötigen Berechtigungen und lade die Seite erneut)",
+			"permissionDenied": "Wir haben keinen Zugriff auf dein Mikrofon. Öffne deine Browsereinstellungen, setze die nötigen Berechtigungen und lade die Seite erneut.",
 			"dismiss": "verstanden",
 			"tryAgain": "erneut versuchen"
 		},
@@ -163,7 +163,7 @@
 				"addAsSpeaker": "zu Sprecher befördern",
 				"moveToListener": "zu Zuhörer herabstufen",
 				"banFromChat": "Im Chat blockieren",
-				"banFromRoom": "Aus Raum verbannen",
+				"banFromRoom": "Aus Raum ausschließen",
 				"goBackToListener": "Zurück zum Zuhörer",
 				"deleteMessage": "Nachricht löschen"
 			},
@@ -206,7 +206,7 @@
 			"scheduleRoomHeader": "Plane einen Raum",
 			"startRoom": "Raum starten",
 			"modal": {
-				"needsFuture": "Zeitpunkt muss in der Zukunft sein",
+				"needsFuture": "Zeitpunkt muss in der Zukunft liegen",
 				"roomName": "Name des Raums",
 				"minLength": "minimale Länge: 2"
 			}
