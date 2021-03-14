@@ -12,7 +12,7 @@
     "edit": "muokkaa",
     "delete": "poista",
     "joinRoom": "liity huoneeseen",
-    "copyLink": "kopio linkki",
+    "copyLink": "kopioi linkki",
     "copied": "kopioitu",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}"
