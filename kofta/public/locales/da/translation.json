@@ -5,7 +5,7 @@
 		"noUsersFound": "ingen brugere fundet",
 		"ok": "ok",
 		"yes": "ja",
-		"no": "bej",
+		"no": "nej",
 		"cancel": "afbryd",
 		"save": "gem",
 		"edit": "rediger",
@@ -72,7 +72,7 @@
 			"goHomeLinkText": "gå hjem"
 		},
 		"room": {
-			"speakers": "Højtalere",
+			"speakers": "Højttalere",
 			"requestingToSpeak": "Anmoder om at tale",
 			"listeners": "Lyttere"
 		},
@@ -89,10 +89,10 @@
 			"following": "følger"
 		},
 		"voiceSettings": {
-			"header": "Lydinstillinger",
+			"header": "Lydindstillinger",
 			"mic": "mikrofon:",
-			"permissionError": "ingen mikrofoner fundet, du har enten ikke komblet nogen til eller ikke givet denne hjemmeside tilladelse.",
-			"refresh": "genfrisk mikrofon liste",
+			"permissionError": "ingen mikrofoner fundet, du har enten ikke koblet nogen til eller ikke givet denne hjemmeside tilladelse.",
+			"refresh": "opdater mikrofonliste",
 			"volume": "lydstyrke:"
 		}
 	},
@@ -129,7 +129,7 @@
 			"inviteToRoom": "inviter til rum"
 		},
 		"micPermissionBanner": {
-			"permissionDenied": "Adgang nægtet ved tilslutning af din mikrofon (du bliver måske ned til at gå ind i dine browser indstillinger og genindlæse siden)",
+			"permissionDenied": "Adgang nægtet ved tilslutning af din mikrofon (du bliver måske nød til at gå ind i dine browserindstillinger og genindlæse siden)",
 			"dismiss": "ignorer",
 			"tryAgain": "prøv igen"
 		},
@@ -179,8 +179,8 @@
 			"profileModal": {
 				"blockUserConfirm": "Er du sikker på at du vil blokere denne bruger fra at tilslutte sig til nogensomhelst rum du nogensinder kommer til at lave?",
 				"blockUser": "bloker bruger",
-				"makeMod": "gør til mod",
-				"unmod": "fjern mod",
+				"makeMod": "gør til moderator",
+				"unmod": "fjern moderator",
 				"addAsSpeaker": "tilføj som taler",
 				"moveToListener": "flyt til lyttere",
 				"banFromChat": "bandlys fra chatten",
@@ -207,7 +207,7 @@
 			"modal": {
 				"needsFuture": "skal være i fremtiden",
 				"roomName": "rum navn",
-				"minLength": "minimum længde på 2"
+				"minLength": "minimum længde på 2 tegn"
 			}
 		},
 		"roomChat": {
