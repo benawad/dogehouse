@@ -16,8 +16,8 @@ defmodule KousaTest.AdHocUserTest do
   alias Beef.Repo
   alias Kousa.Support.Factory
 
-  describe "Beef.RoomBlock" do
-    alias Beef.RoomBlock
+  describe "Beef.Schema.RoomBlock" do
+    alias Beef.Schema.RoomBlock
 
     test "you can add a room blocker into the roomblock table" do
       %{id: uid} = Factory.create(User)
@@ -42,6 +42,6 @@ defmodule KousaTest.AdHocUserTest do
     end
   end
 
-  describe "Kousa.TokenUtils" do
+  describe "Kousa.Utils.TokenUtils" do
   end
 end

@@ -8,10 +8,10 @@ defmodule Beef.Access.Users do
   alias Beef.Rooms
 
   def find_by_github_ids(ids) do
-    Query.start
+    Query.start()
     |> Query.filter_by_github_ids(ids)
-    |> Query.select_id
-    |> Repo.all
+    |> Query.select_id()
+    |> Repo.all()
   end
 
   def get_by_id(user_id) do
@@ -19,10 +19,11 @@ defmodule Beef.Access.Users do
   end
 
   def get_by_username(username) do
-    Query.start
+    Query.start()
     |> Query.filter_by_username(username)
     |> Repo.one()
   end
+
 
   @fetch_limit 16
   def search(query, offset) do
@@ -66,8 +67,8 @@ defmodule Beef.Access.Users do
   # out of the database layer, but we are keeping it here for now
   # to keep the transition smooth.
   def tuple_get_current_room_id(user_id) do
-    case Kousa.RegUtils.lookup_and_call(
-           Kousa.Gen.UserSession,
+    case Kousa.Utils.RegUtils.lookup_and_call(
+           Onion.UserSession,
            user_id,
            {:get_current_room_id}
          ) do
@@ -102,8 +103,8 @@ defmodule Beef.Access.Users do
   end
 
   def get_current_room_id(user_id) do
-    case Kousa.RegUtils.lookup_and_call(
-           Kousa.Gen.UserSession,
+    case Kousa.Utils.RegUtils.lookup_and_call(
+           Onion.UserSession,
            user_id,
            {:get_current_room_id}
          ) do
