@@ -6,16 +6,18 @@ import { Avatar } from "./Avatar";
 interface ProfileButtonProps {
 	size?: number;
 	circle?: boolean;
+	padding?: boolean;
 }
 
 export const ProfileButton: React.FC<ProfileButtonProps> = ({
 	size = 41,
 	circle,
+	padding = true
 }) => {
 	const { me } = useMeQuery();
 	const history = useHistory();
 	return me ? (
-		<button onClick={() => history.push("/me")} className={`px-2.5`}>
+		<button onClick={() => history.push("/me")} className={padding ? `px-2.5` : ``}>
 			<Avatar circle={circle} size={size} src={me.avatarUrl} />
 		</button>
 	) : null;
