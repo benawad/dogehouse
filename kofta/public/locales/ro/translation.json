@@ -205,7 +205,7 @@
       "title": "Chat",
       "emotesSoon": "[emote-uri în curând]",
       "bannedAlert": "Ai fost interzis în chat",
-      "waitAlert": "Trebuie să aștepți până trimiți încă un mesaj.",
+      "waitAlert": "Trebuie să aștepți o secunda până sa trimiți încă un mesaj.",
       "search": "Caută",
       "searchResults": "Caută Rezultate",
       "recent": "Frecvent Utilizat",
