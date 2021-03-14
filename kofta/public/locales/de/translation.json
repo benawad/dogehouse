@@ -107,7 +107,7 @@
 		"blockedFromRoomUsers": {
 			"header": "blockierte Benutzer",
 			"unban": "Blockierung aufheben",
-			"noBans": "du hast aktuell (noch) niemanden blockiert"
+			"noBans": "Du hast aktuell (noch) niemanden blockiert"
 		},
 		"bottomVoiceControl": {
 			"leaveCurrentRoomBtn": "Aktuellen Raum verlassen",
@@ -214,7 +214,7 @@
 		"roomChat": {
 			"title": "Chat",
 			"emotesSoon": "[emotes bald]",
-			"bannedAlert": "Du wurdest aus dem Chat gebannt",
+			"bannedAlert": "Du wurdest aus dem Chat ausgeschlossen",
 			"waitAlert": "Du musst eine Sekunde warten, bevor du eine weitere Nachricht schreiben kannst",
 			"search": "Suchen",
 			"searchResults": "Suchergebnisse",
