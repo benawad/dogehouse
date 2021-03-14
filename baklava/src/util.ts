@@ -8,7 +8,9 @@ import {
     INVITE_KEY,
     MUTE_KEY,
     PTT_KEY,
-    REQUEST_TO_SPEAK_KEY
+    REQUEST_TO_SPEAK_KEY,
+    KEY_TABLE,
+    IOHookEvent
 } from "./constants";
 import ioHook from "iohook";
 
@@ -75,7 +77,7 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
         }
     });
 
-    ioHook.on("keydown", event => {
+    ioHook.on("keydown", (event: IOHookEvent) => {
         if (event.shiftKey) {
             if (CURRENT_PTT_KEY.includes("Shift")) {
                 let i = CURRENT_PTT_KEY.indexOf("Shift");
@@ -97,8 +99,8 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
                 PTT_STATUS[i] = true;
             }
         } else {
-            if (CURRENT_PTT_KEY.includes(String.fromCharCode(event.rawcode))) {
-                let i = CURRENT_PTT_KEY.indexOf(String.fromCharCode(event.rawcode));
+            if (CURRENT_PTT_KEY.includes(KEY_TABLE[event.keycode - 1])) {
+                let i = CURRENT_PTT_KEY.indexOf(KEY_TABLE[event.keycode - 1]);
                 PTT_STATUS[i] = true;
             }
         }
@@ -108,7 +110,8 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
             mainWindow.webContents.send("PTT_STATUS_CHANGE", !PTT);
         }
     })
-    ioHook.on("keyup", event => {
+    
+    ioHook.on("keyup", (event: IOHookEvent) => {
         if (event.shiftKey) {
             if (CURRENT_PTT_KEY.includes("Shift")) {
                 let i = CURRENT_PTT_KEY.indexOf("Shift");
@@ -130,8 +133,8 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
                 PTT_STATUS[i] = false;
             }
         } else {
-            if (CURRENT_PTT_KEY.includes(String.fromCharCode(event.rawcode))) {
-                let i = CURRENT_PTT_KEY.indexOf(String.fromCharCode(event.rawcode));
+            if (CURRENT_PTT_KEY.includes(KEY_TABLE[event.keycode - 1])) {
+                let i = CURRENT_PTT_KEY.indexOf(KEY_TABLE[event.keycode - 1]);
                 PTT_STATUS[i] = false;
             }
         }
@@ -140,7 +143,8 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
             PTT_PREV_STATUS = PTT;
             mainWindow.webContents.send("PTT_STATUS_CHANGE", !PTT);
         }
-    })
+    });
+
     ioHook.start();
 
 }
