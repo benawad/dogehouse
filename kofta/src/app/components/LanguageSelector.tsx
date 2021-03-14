@@ -6,38 +6,44 @@ interface LanguageSelectorProps {
 }
 
 export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
-	options = [
-		{ value: "en", label: "en" },
-		{ value: "af", label: "af" },
-		{ value: "ar", label: "ar" },
-		{ value: "bn", label: "bn" },
-		{ value: "cs", label: "cs" },
-		{ value: "da", label: "da" },
-		{ value: "de", label: "de" },
-		{ value: "es", label: "es" },
-    { value: "ee", label: "ee" },
-		{ value: "fi", label: "fi" },
-		{ value: "fr", label: "fr" },
-		{ value: "he", label: "he" },
-		{ value: "hi", label: "Hi" },
-		{ value: "hu", label: "hu" },
-		{ value: "id", label: "id" },
-		{ value: "it", label: "it" },
-		{ value: "ja", label: "ja" },
-		{ value: "sr", label: "sr" },
-		{ value: "lt", label: "lt" },
-		{ value: "nb", label: "nb" },
-		{ value: "ne", label: "ne" },
-		{ value: "nl", label: "nl" },
-		{ value: "pl", label: "pl" },
-		{ value: "ur", label: "ur" },
-		{ value: "pt-BR", label: "pt-br" },
-		{ value: "pt-PT", label: "pt-pt" },
-		{ value: "ru", label: "ru" },
-		{ value: "th", label: "th" },
-		{ value: "tr", label: "tr" },
-		{ value: "zh-CN", label: "zh-cn" },
-	],
+  options = [
+    { value: "af", label: "Afrikaans" },
+    { value: "ar", label: "Arabic" },
+    { value: "bn", label: "Bengali" },
+    { value: "zh-CN", label: "Chinese (Simplified)" },
+    { value: "zh-TW", label: "Chinese (Taiwan)" },
+    { value: "cs", label: "Czech" },
+    { value: "da", label: "Danish" },
+    { value: "nl", label: "Dutch" },
+    { value: "en", label: "English" },
+    { value: "et", label: "Estonian" },
+    { value: "fi", label: "Finnish" },
+    { value: "fr", label: "French" },
+    { value: "de", label: "German" },
+    { value: "el", label: "Greek" },
+    { value: "he", label: "Hebrew" },
+    { value: "hi", label: "Hindi" },
+    { value: "hu", label: "Hungarian" },
+    { value: "id", label: "Indonesian" },
+    { value: "it", label: "Italian" },
+    { value: "ja", label: "Japanese" },
+    { value: "ko", label: "Korean" },
+    { value: "lt", label: "Lithuanian" },
+    { value: "ne", label: "Nepali" },
+    { value: "no", label: "Norwegian" },
+    { value: "pl", label: "Polish" },
+    { value: "pt-BR", label: "Portuguese (Brazil)" },
+    { value: "pt-PT", label: "Portuguese" },
+    { value: "ro", label: "Romanian" },
+    { value: "ru", label: "Russian" },
+    { value: "sr", label: "Serbian" },
+    { value: "sk", label: "Slovak" },
+    { value: "es", label: "Spanish" },
+    { value: "sv", label: "Swedish" },
+    { value: "th", label: "Thai" },
+    { value: "tr", label: "Turkish" },
+    { value: "ur", label: "Urdu" },
+  ],
 }) => {
   const { i18n } = useTranslation();
 
@@ -56,3 +62,10 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     </select>
   );
 };
+
+// Simplified Language Name
+// Total Current Languages: 36 😲
+// All languages label are in alphabetical order
+// All language codes (except some) follow [`ISO 639-1`](http://www.mathguide.de/info/tools/languagecode.html)
+
+// I will keep adding as new languages are added
