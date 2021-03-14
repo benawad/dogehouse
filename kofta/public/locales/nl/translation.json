@@ -207,10 +207,10 @@
 			"modal": {
 				"needsFuture": "Moet in de toekomst zijn",
 				"roomName": "Kamer naam",
-				"minLength": "Minimale lengte 2"
+				"minLength": "Minimale lengte 2 karakters"
 			}
 		},
-		"roomChat": {
+		"roomChat": {     
 			"title": "Chat",
 			"emotesSoon": "[Emotes binnekort]",
 			"bannedAlert": "Je bent uit deze chat verbannen",
