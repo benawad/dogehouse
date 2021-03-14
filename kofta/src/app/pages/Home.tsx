@@ -143,8 +143,8 @@ export const Home: React.FC<HomeProps> = () => {
           <div className={`mb-10 mt-8`}>
             <Logo />
           </div>
-          <div className={`mb-6 flex justify-center`}>
-            <div className={`mr-4 px-2.5`}>
+          <div className={`mb-6 flex justify-center`} style={{flexWrap: "wrap", gap: "1rem"}}>
+            <div /* className={`mr-4 px-2.5`} */>
               <CircleButton
                 onClick={() => {
                   wsend({ op: "fetch_following_online", d: { cursor: 0 } });
@@ -154,7 +154,7 @@ export const Home: React.FC<HomeProps> = () => {
                 <PeopleIcon width={30} height={30} fill="#fff" />
               </CircleButton>
             </div>
-            <div className={`ml-2 px-2.5`}>
+            <div /* className={`ml-2 px-2.5`} */>
               <CircleButton
                 onClick={() => {
                   queryClient.prefetchQuery(
@@ -175,7 +175,7 @@ export const Home: React.FC<HomeProps> = () => {
                 <Calendar width={30} height={30} color="#fff" />
               </CircleButton>
             </div>
-            <div className={`ml-2 px-2.5`}>
+            <div /* className={`ml-2 px-2.5`} */>
               <ProfileButton circle size={60} />
             </div>
           </div>
