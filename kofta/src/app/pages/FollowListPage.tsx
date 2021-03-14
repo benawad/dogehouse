@@ -39,7 +39,7 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
         loading: true,
       },
     }));
-	}, []);
+	}, [isFollowing, setFollowerMap, setFollowingMap, userId]);
 
 	const users = isFollowing
 		? followingMap[userId]?.users || []
