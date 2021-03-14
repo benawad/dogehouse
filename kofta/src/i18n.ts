@@ -5,6 +5,10 @@ import { initReactI18next } from "react-i18next";
 import { __prod__ } from "./app/constants";
 import { isDate } from "lodash";
 
+const DETECTION_OPTIONS = {
+  order: ['navigator']
+};
+
 export const init_i18n = () => {
 	i18n
 		// import & load translations from -> /public/locales
@@ -16,6 +20,7 @@ export const init_i18n = () => {
 		// init i18next
 		// see opts @ https://www.i18next.com/overview/configuration-options
 		.init({
+			detection: DETECTION_OPTIONS,
 			fallbackLng: "en",
 			debug: __prod__ ? false : true,
 			interpolation: {
