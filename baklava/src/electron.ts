@@ -42,7 +42,8 @@ function createWindow() {
   mainWindow.on("closed", () => {
     globalShortcut.unregisterAll();
     iohook.stop();
-    mainWindow.destroy()
+    iohook.unload();
+    mainWindow.destroy();
   });
 }
 
@@ -51,9 +52,6 @@ app.on("ready", () => {
 });
 app.on("window-all-closed", () => {
   app.quit();
-
-  if (process.platform !== "darwin") {
-  }
 });
 app.on("activate", () => {
   if (mainWindow === null) {
