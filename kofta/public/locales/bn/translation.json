@@ -170,11 +170,11 @@
 				"usernameTaken": "ইউজার নাম নেওয়া হয়ে গিয়েছে",
 				"avatarUrlError": "অবৈধ ছবি",
 				"avatarUrlLabel": "GitHub/Twitter এর avatar url",
-				"displayNameError": "২ থেকে ৬০ অক্ষরের মধ্যে",
+				"displayNameError": "২ থেকে ৬০ অক্ষরের মধ্যে হতে হবে",
 				"displayNameLabel": "ডিসপ্লে নাম",
-				"usernameError": "২ থেকে ৬০ অক্ষরের মধ্যে এবং শুধু বর্ণমালা ও সংখ্যা/আন্ডারস্কোর",
+				"usernameError": "২ থেকে ৬০ অক্ষরের মধ্যে হতে হবে এবং শুধুমাত্র বর্ণমালা ও সংখ্যা/আন্ডারস্কোর",
 				"usernameLabel": "ইউজার নাম",
-				"bioError": "১৬০ অক্ষরের মধ্যে",
+				"bioError": "১৬০ অক্ষরের মধ্যে হতে হবে",
 				"bioLabel": "বর্ণনা"
 			},
 			"profileModal": {
