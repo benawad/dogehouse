@@ -14,9 +14,8 @@ export const Avatar: React.FC<AvatarProps> = ({
   src,
   size = 70,
   active,
-  circle,
   usernameForErrorImg,
-  className,
+  className = "",
   isOnline,
 }) => {
   const [error, setError] = useState(false);
@@ -28,7 +27,7 @@ export const Avatar: React.FC<AvatarProps> = ({
         width={size}
         height={size}
         style={active ? { boxShadow: "0 0 0 3px #60A5FA" } : undefined}
-        className={`${circle ? `rounded-full` : `rounded-3xl`} ${className}`}
+        className={`rounded-full ${className}`}
         src={
           error && usernameForErrorImg
             ? `https://ui-avatars.com/api/?name=${usernameForErrorImg}`

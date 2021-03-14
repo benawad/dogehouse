@@ -58,7 +58,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
 						}
 					}}
 				>
-					<Avatar src={profile.avatarUrl} />
+					<Avatar src={profile.avatarUrl}/>
 				</div>
 				{me?.id === profile.id ? (
 					<div>
