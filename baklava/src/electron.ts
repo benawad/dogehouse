@@ -3,7 +3,7 @@ import {
   app,
   systemPreferences,
   ipcMain,
-  globalShortcut
+  globalShortcut,
 } from "electron";
 import iohook from "iohook";
 import { __prod__ } from "./constants";
