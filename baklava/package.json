@@ -65,5 +65,8 @@
         "arches": [
             "x64"
         ]
+    },
+    "directories": {
+        "output": "./builds"
     }
 }
