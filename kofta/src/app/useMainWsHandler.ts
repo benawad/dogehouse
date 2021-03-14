@@ -150,6 +150,7 @@ export const useMainWsHandler = () => {
           [userId]: {
             users: initial ? users : [...m[userId].users, ...users],
             nextCursor,
+            loading: false,
           },
         }));
       },
