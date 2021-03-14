@@ -152,8 +152,8 @@
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nouă Cameră Creată",
         "roomInviteFrom": "Invitație Cameră de la",
-        "justStarted": "Debia au început",
-        "likeToJoin": ", ai dori săte alături?",
+        "justStarted": "Tocmai au început",
+        "likeToJoin": ", ai dori să te alături?",
         "inviteReceived": "ai fost invitat să"
       },
       "editProfileModal": {
@@ -168,7 +168,7 @@
         "bioLabel": "Bio"
       },
       "profileModal": {
-        "blockUserConfirm": "Ești sigur că vrei să interzici aceast utilizator să intre în orice cameră pe care o creezi?",
+        "blockUserConfirm": "Ești sigur că vrei să interzici acest utilizator să intre în orice cameră pe care o creezi?",
         "blockUser": "interzice utilizator",
         "makeMod": "face mod",
         "unmod": "unmod",
@@ -198,7 +198,7 @@
       "modal": {
         "needsFuture": "trebuie să fie în viitor",
         "roomName": "numele camerei",
-        "minLength": "de minim 2 caratere"
+        "minLength": "de minim 2 caractere"
       }
     },
     "roomChat": {
