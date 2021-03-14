@@ -10,6 +10,7 @@ import { BottomVoiceControl } from "../components/BottomVoiceControl";
 import { Button } from "../components/Button";
 import { CircleButton } from "../components/CircleButton";
 import { CreateRoomModal } from "../components/CreateRoomModal";
+import { modalConfirm } from "../components/ConfirmModal";
 import { ProfileButton } from "../components/ProfileButton";
 import { RoomCard } from "../components/RoomCard";
 import { Spinner } from "../components/Spinner";
@@ -74,8 +75,16 @@ const Page = ({
           <div className={`mt-4`} key={r.id}>
             <RoomCard
               onClick={() => {
-                wsend({ op: "join_room", d: { roomId: r.id } });
-                history.push("/room/" + r.id);
+                const joinRoom = () => {
+                  wsend({ op: "join_room", d: { roomId: r.id } });
+                  history.push("/room/" + r.id);
+                };
+                currentRoom
+                  ? modalConfirm(
+                      `Leave room '${currentRoom.name}' and join room '${r.name}'?`,
+                      joinRoom
+                    )
+                  : joinRoom();
               }}
               room={r}
               currentRoomId={currentRoom?.id}
@@ -135,7 +144,7 @@ export const Home: React.FC<HomeProps> = () => {
             <Logo />
           </div>
           <div className={`mb-6 flex justify-center`}>
-            <div className={`px-2.5`}>
+            <div className={`mr-4 px-2.5`}>
               <CircleButton
                 onClick={() => {
                   wsend({ op: "fetch_following_online", d: { cursor: 0 } });
@@ -145,7 +154,7 @@ export const Home: React.FC<HomeProps> = () => {
                 <PeopleIcon width={30} height={30} fill="#fff" />
               </CircleButton>
             </div>
-            <div className={`px-2.5`}>
+            <div className={`ml-2 px-2.5`}>
               <CircleButton
                 onClick={() => {
                   queryClient.prefetchQuery(
@@ -166,7 +175,7 @@ export const Home: React.FC<HomeProps> = () => {
                 <Calendar width={30} height={30} color="#fff" />
               </CircleButton>
             </div>
-            <div className={`px-2.5`}>
+            <div className={`ml-2 px-2.5`}>
               <ProfileButton circle size={60} />
             </div>
           </div>

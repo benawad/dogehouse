@@ -43,7 +43,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 			onScroll={() => {
 				if (!chatListRef.current) return;
 				const { scrollTop, offsetHeight, scrollHeight } = chatListRef.current;
-				const isOnBottom = scrollTop + offsetHeight === scrollHeight;
+				const isOnBottom = Math.abs((scrollTop + offsetHeight) - scrollHeight) <= 1
 
 				setIsRoomChatScrolledToTop(!isOnBottom);
 				if (isOnBottom) {

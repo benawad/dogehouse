@@ -38,7 +38,7 @@ defmodule Beef.Schemas.User do
           lastOnline: DateTime.t(),
           youAreFollowing: boolean(),
           followsYou: boolean(),
-          roomPermissions: nil | Beef.RoomPermission.t(),
+          roomPermissions: nil | Beef.Schemas.RoomPermission.t(),
           currentRoomId: Ecto.UUID.t(),
           currentRoom: Room.t() | Ecto.Association.NotLoaded.t()
         }

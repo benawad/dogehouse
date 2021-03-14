@@ -1,15 +1,16 @@
 {
+	"_comment": "if you change this file, do: npm run i18",
 	"common": {
-		"loadMore": "mehr laden",
-		"loading": "lade...",
-		"noUsersFound": "keine Benutzer gefunden",
-		"ok": "ok",
-		"yes": "ja",
-		"no": "nein",
-		"cancel": "abbrechen",
-		"save": "speichern",
-		"edit": "bearbeiten",
-		"delete": "löschen",
+		"loadMore": "Mehr laden",
+		"loading": "Lade...",
+		"noUsersFound": "Keine Benutzer gefunden",
+		"ok": "Ok",
+		"yes": "Ja",
+		"no": "Nein",
+		"cancel": "Abbrechen",
+		"save": "Speichern",
+		"edit": "Bearbeiten",
+		"delete": "Löschen",
 		"joinRoom": "Raum beitreten",
 		"copyLink": "Link kopieren",
 		"copied": "kopiert",
@@ -24,22 +25,26 @@
 	"footer": {
 		"_comment": "Main Footer UI Internationalization Strings",
 		"link_1": "Ursprungsgeschichte",
-		"link_2": "Discord",
+		"link_2": "Onenigheid",
 		"link_3": "Problem melden"
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": { "ban": "bannen" },
+		"banUser": {
+			"ban": "bannen"
+		},
 		"followingOnlineList": {
 			"listHeader": "Benutzer denen du folgst, die nicht in einem privaten Raum sind.",
 			"currentRoom": "Zurzeit in:",
-			"startPrivateRoom": "einen privaten Raum mit diesem benutzer starten"
+			"startPrivateRoom": "Einen privaten Raum mit diesem Benutzer starten"
 		},
 		"followList": {},
-		"home": { "createRoom": "Raum Erstellen" },
+		"home": {
+			"createRoom": "Raum erstellen"
+		},
 		"inviteList": {
 			"roomGone": "Raum ist weg, gehe zurück",
-			"shareRoomLink": "link zum Raum teilen",
+			"shareRoomLink": "Link zum Raum teilen",
 			"inviteFollowers": "Du kannst deine Abonnenten die online sind einladen:",
 			"whenFollowersOnline": "Wenn deine Abonnenten online sind, werden sie hier angezeigt."
 		},
@@ -56,8 +61,8 @@
 			"createTestUser": "Testnutzer erstellen"
 		},
 		"myProfile": {
-			"logout": "abmelden",
-			"probablyLoading": "vermutlich am laden...",
+			"logout": "Abmelden",
+			"probablyLoading": "Vermutlich am Laden...",
 			"voiceSettings": "Spracheinstellungen",
 			"soundSettings": "Toneinstellungen",
 			"deleteAccount": "Konto löschen"
@@ -72,24 +77,31 @@
 			"requestingToSpeak": "Sprachanfragen",
 			"listeners": "Zuhörer"
 		},
-		"searchUser": { "search": "Suchen..." },
-		"soundEffectSettings": { "header": "Ton" },
+		"searchUser": {
+			"search": "Suchen..."
+		},
+		"soundEffectSettings": {
+			"header": "Ton"
+		},
 		"viewUser": {
 			"editProfile": "Profil bearbeiten",
 			"followsYou": "folgt dir",
-			"following": "abonniert",
-			"followers": "abonnenten"
+			"following": "Abonniert",
+			"followers": "Abonnenten"
 		},
 		"voiceSettings": {
 			"header": "Spracheinstellungen",
 			"mic": "Mikro:",
-			"permissionError": "Keine Mikros gefunden, du hast entweder keine angeschlossen oder die Seite hat nicht die benötigt Berechtigungen.",
+			"permissionError": "Keine Mikros gefunden, du hast entweder keine angeschlossen oder die Seite hat nicht die benötigten Berechtigungen.",
 			"volume": "Lautstärke:",
 			"refresh": "Mikroliste aktualisieren"
 		}
 	},
 	"components": {
 		"_comment": "Component UI Internationalization Strings",
+		"addToCalendar": {
+			"add": "Zum Kalender hinzufügen"
+		},
 		"avatar": {},
 		"backBar": {},
 		"blockedFromRoomUsers": {
@@ -98,7 +110,7 @@
 			"noBans": "bisher wurde noch niemand gebannt"
 		},
 		"bottomVoiceControl": {
-			"leaveCurrentRoomBtn": "aktuellen Raum verlassen",
+			"leaveCurrentRoomBtn": "Aktuellen Raum verlassen",
 			"confirmLeaveRoom": "Bist du sicher, dass du gehen möchtest?",
 			"leave": "Verlassen",
 			"inviteUsersToRoomBtn": "Benutzer zum Raum einladen",
@@ -118,8 +130,8 @@
 		},
 		"modals": {
 			"createRoomModal": {
-				"public": "öffentlich",
-				"private": "privat",
+				"public": "Öffentlich",
+				"private": "Privat",
 				"roomName": "Raumname",
 				"roomDescription": "Raumbeschreibung",
 				"descriptionError": "die maximale Länge ist 500",
@@ -145,7 +157,7 @@
 			},
 			"profileModal": {
 				"blockUserConfirm": "Bist du sicher, dass du diesen Benutzer aus allen deinen zukünftigen Räumen bannen möchtest?",
-				"blockUser": "Benuzter bannen",
+				"blockUser": "Benutzer bannen",
 				"makeMod": "Zum Moderator befördern",
 				"unmod": "Moderator Status aufheben",
 				"addAsSpeaker": "zu Sprecher befördern",
@@ -162,14 +174,13 @@
 			}
 		},
 		"userVolumeSlider": {
-			"noAudioMessage": "Aus unbekannten gründen wurde kein Audio Consumer gefunden"
+			"noAudioMessage": "Aus unbekannten Gründen wurde kein Audio Consumer gefunden"
 		},
-		"addToCalendar": { "add": "Zum Kalender hinzufügen" },
 		"keyboardShortcuts": {
-			"setKeybind": "set keybind",
-			"listening": "listening",
-			"toggleMuteKeybind": "toggle mute keybind",
-			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
+			"setKeybind": "Tastenkürzel setzen",
+			"listening": "Zuhören",
+			"toggleMuteKeybind": "Stummschalttaste umschalten",
+			"togglePushToTalkKeybind": "Push-to-Talk Tastenkürzel umschalten"
 		},
 		"wsKilled": {
 			"description": "Die Websocket Verbindung zum Server wurde unterbrochen. Dies passiert oft, wenn du die Website in einem anderen Tab öffnest.",
@@ -178,11 +189,15 @@
 		"deviceNotSupported": {
 			"notSupported": "Dein Gerät wird aktuell nicht unterstützt. Du kannst ein",
 			"linkText": "Issue auf GitHub",
-			"addSupport": "öffnen und ich werde veruschen, die Unterstützung für dein Gerät hinzuzufügen."
+			"addSupport": "öffnen und ich werde versuchen, die Unterstützung für dein Gerät hinzuzufügen."
 		},
-		"inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" }
+		"inviteButton": {
+			"invited": "eingeladen",
+			"inviteToRoom": "zum Raum einladen"
+		}
 	},
 	"modules": {
+		"_comment": "Modules UI Internationalization Strings",
 		"scheduledRooms": {
 			"title": "Geplante Räume",
 			"noneFound": "Nicht gefunden",
@@ -193,7 +208,7 @@
 			"modal": {
 				"needsFuture": "Es muss in der Zukunft sein",
 				"roomName": "Raum Name",
-				"minLength": "minimale länge 2"
+				"minLength": "minimale Länge 2"
 			}
 		},
 		"roomChat": {

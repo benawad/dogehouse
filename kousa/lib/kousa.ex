@@ -11,31 +11,31 @@ defmodule Kousa do
     children = [
       {
         GenRegistry,
-        worker_module: Kousa.Gen.UserSession
+        worker_module: Onion.UserSession
       },
       {
         GenRegistry,
-        worker_module: Kousa.Gen.RoomSession
+        worker_module: Onion.RoomSession
       },
       {
         GenRegistry,
-        worker_module: Kousa.Gen.RoomChat
+        worker_module: Onion.RoomChat
       },
       {
         GenRegistry,
-        worker_module: Kousa.Gen.VoiceRabbit
+        worker_module: Onion.VoiceRabbit
       },
       {
         GenRegistry,
-        worker_module: Kousa.Gen.VoiceOnlineRabbit
+        worker_module: Onion.VoiceOnlineRabbit
       },
       {Beef.Repo, []},
-      Kousa.Gen.StartRabbits,
-      Kousa.Gen.StartRooms,
-      Kousa.Gen.Telemetry,
+      Onion.StartRabbits,
+      Onion.StartRooms,
+      Onion.Telemetry,
       Plug.Cowboy.child_spec(
         scheme: :http,
-        plug: Kousa.Router,
+        plug: Broth,
         options: [
           port: String.to_integer(System.get_env("PORT") || "4001"),
           dispatch: dispatch(),
@@ -52,8 +52,8 @@ defmodule Kousa do
     [
       {:_,
        [
-         {"/socket", Kousa.SocketHandler, []},
-         {:_, Plug.Cowboy.Handler, {Kousa.Router, []}}
+         {"/socket", Broth.SocketHandler, []},
+         {:_, Plug.Cowboy.Handler, {Broth, []}}
        ]}
     ]
   end
