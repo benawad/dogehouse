@@ -1,7 +1,13 @@
 import React, { useMemo, useEffect } from "react";
 import { GlobalHotKeys } from "react-hotkeys";
 import { wsend } from "../../createWebsocket";
-import { useKeyMapStore, REQUEST_TO_SPEAK_KEY, MUTE_KEY, CHAT_KEY, INVITE_KEY } from "../../webrtc/stores/useKeyMapStore";
+import {
+  useKeyMapStore,
+  REQUEST_TO_SPEAK_KEY,
+  MUTE_KEY,
+  CHAT_KEY,
+  INVITE_KEY,
+} from "../../webrtc/stores/useKeyMapStore";
 import { useMuteStore } from "../../webrtc/stores/useMuteStore";
 import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
 import { useHistory } from "react-router-dom";
@@ -10,24 +16,18 @@ import isElectron from "is-electron";
 
 let ipcRenderer: any = undefined;
 if (isElectron()) {
-  ipcRenderer = window.require('electron').ipcRenderer
+  ipcRenderer = window.require("electron").ipcRenderer;
 }
 
-interface KeybindListenerProps { }
+interface KeybindListenerProps {}
 
-export const KeybindListener: React.FC<KeybindListenerProps> = ({ }) => {
-
-  return (
-    <>
-      {isElectron() ? <ListenerElectron /> : <ListenerBrowser />}
-    </>
-  )
-
+export const KeybindListener: React.FC<KeybindListenerProps> = ({}) => {
+  return <>{isElectron() ? <ListenerElectron /> : <ListenerBrowser />}</>;
 };
 
 function ListenerElectron() {
   const { keyMap } = useKeyMapStore();
-  const [toggleOpen, newUnreadMessages] = useRoomChatStore((s) => [
+  const [toggleOpen] = useRoomChatStore((s) => [
     s.toggleOpen,
     s.newUnreadMessages,
   ]);
@@ -38,7 +38,7 @@ function ListenerElectron() {
       modalConfirm("Would you like to ask to speak?", () => {
         wsend({ op: "ask_to_speak", d: {} });
       });
-    }
+    };
     const MUTE_KEY_FUNC = async (event: any, args: any) => {
       const { muted, setMute } = useMuteStore.getState();
       wsend({
@@ -46,11 +46,11 @@ function ListenerElectron() {
         d: { value: !muted },
       });
       setMute(!muted);
-    }
+    };
     const INVITE_KEY_FUNC = async (event: any, args: any) => {
       wsend({ op: "fetch_invite_list", d: { cursor: 0 } });
       history.push("/invite");
-    }
+    };
     const PTT_STATUS_CHANGE_FUNC = async (event: any, status: boolean) => {
       const { setMute } = useMuteStore.getState();
       const mute = status;
@@ -59,27 +59,30 @@ function ListenerElectron() {
         d: { value: mute },
       });
       setMute(mute);
-    }
+    };
     const CHAT_KEY_FUNC = async (event: any, args: any) => {
       toggleOpen();
-    }
+    };
 
     //Subscribing to keybind events
-    ipcRenderer.on(REQUEST_TO_SPEAK_KEY, REQUEST_TO_SPEAK_KEY_FUNC)
+    ipcRenderer.on(REQUEST_TO_SPEAK_KEY, REQUEST_TO_SPEAK_KEY_FUNC);
     ipcRenderer.on(MUTE_KEY, MUTE_KEY_FUNC);
-    ipcRenderer.on(INVITE_KEY, INVITE_KEY_FUNC)
-    ipcRenderer.on("PTT_STATUS_CHANGE", PTT_STATUS_CHANGE_FUNC)
-    ipcRenderer.on(CHAT_KEY, CHAT_KEY_FUNC)
+    ipcRenderer.on(INVITE_KEY, INVITE_KEY_FUNC);
+    ipcRenderer.on("PTT_STATUS_CHANGE", PTT_STATUS_CHANGE_FUNC);
+    ipcRenderer.on(CHAT_KEY, CHAT_KEY_FUNC);
 
     return function cleanup() {
       //Unsubscribing from keybind events
-      ipcRenderer.removeListener(REQUEST_TO_SPEAK_KEY, REQUEST_TO_SPEAK_KEY_FUNC);
+      ipcRenderer.removeListener(
+        REQUEST_TO_SPEAK_KEY,
+        REQUEST_TO_SPEAK_KEY_FUNC
+      );
       ipcRenderer.removeListener(MUTE_KEY, MUTE_KEY_FUNC);
-      ipcRenderer.removeListener(INVITE_KEY, INVITE_KEY_FUNC)
-      ipcRenderer.removeListener("PTT_STATUS_CHANGE", PTT_STATUS_CHANGE_FUNC)
-      ipcRenderer.removeListener(CHAT_KEY, CHAT_KEY_FUNC)
-    }
-  }, []);
+      ipcRenderer.removeListener(INVITE_KEY, INVITE_KEY_FUNC);
+      ipcRenderer.removeListener("PTT_STATUS_CHANGE", PTT_STATUS_CHANGE_FUNC);
+      ipcRenderer.removeListener(CHAT_KEY, CHAT_KEY_FUNC);
+    };
+  }, [history, toggleOpen]);
   return (
     <GlobalHotKeys
       allowChanges={true}
@@ -100,16 +103,12 @@ function ListenerElectron() {
         []
       )}
     />
-  )
+  );
 }
-
 
 function ListenerBrowser() {
   const { keyMap } = useKeyMapStore();
-  const [toggleOpen, newUnreadMessages] = useRoomChatStore((s) => [
-    s.toggleOpen,
-    s.newUnreadMessages,
-  ]);
+  const toggleOpen = useRoomChatStore((s) => s.toggleOpen);
   const history = useHistory();
   return (
     <GlobalHotKeys
@@ -146,7 +145,7 @@ function ListenerBrowser() {
           },
           CHAT: toggleOpen,
         }),
-        []
+        [history, toggleOpen]
       )}
     />
   );

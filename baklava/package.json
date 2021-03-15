@@ -4,16 +4,16 @@
     "description": "",
     "main": "./dist/electron.js",
     "scripts": {
-        "dev": "electron ./dist/electron.js",
         "compile": "tsc",
         "watch": "tsc -w",
+        "dev": "npm run compile && electron ./dist/electron.js",
         "build": "npm run compile && electron-builder -mwl --win msi",
         "build:mac": "npm run compile && electron-builder --mac",
         "build:win": "npm run compile && electron-builder --win",
         "build:linux": "npm run compile && electron-builder --linux"
     },
     "keywords": [],
-    "author": "Ben Awad <benawad@email.com>",
+    "author": "Ben Awad <benawadapps@gmail.com>",
     "homepage": "https://github.com/benawad/dogehouse/",
     "license": "MIT",
     "devDependencies": {

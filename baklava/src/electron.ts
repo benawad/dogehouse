@@ -5,13 +5,16 @@ import {
   ipcMain,
   globalShortcut,
   Tray,
-  Menu
+  Menu,
+  shell
 } from "electron";
 import iohook from "iohook";
-import { __prod__ } from "./constants";
 import { RegisterKeybinds } from "./util";
+import { ALLOWED_HOSTS } from "./constants";
 let mainWindow: BrowserWindow;
 let tray: Tray;
+export const __prod__ = app.isPackaged;
+const instanceLock = app.requestSingleInstanceLock();
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -60,11 +63,39 @@ function createWindow() {
     iohook.unload();
     mainWindow.destroy();
   });
+
+  // handling external links
+  const handleLinks = (event: any, url: string) => {
+    let urlObj = new URL(url);
+    let urlHost = urlObj.hostname;
+    if (!ALLOWED_HOSTS.includes(urlHost)) {
+      event.preventDefault();
+      shell.openExternal(url)
+    } else {
+      if (urlHost == ALLOWED_HOSTS[3] && urlObj.pathname !== "/login") {
+        event.preventDefault();
+        shell.openExternal(url)
+      }
+    }
+  }
+  mainWindow.webContents.on('new-window', handleLinks);
+  mainWindow.webContents.on('will-navigate', handleLinks);
 }
 
-app.on("ready", () => {
-  createWindow();
-});
+if (!instanceLock) {
+  app.quit()
+} else {
+  app.on("ready", () => {
+    createWindow();
+  });
+  app.on('second-instance', (event, argv, workingDirectory) => {
+    if (mainWindow) {
+      if (mainWindow.isMinimized()) mainWindow.restore()
+      mainWindow.focus()
+    }
+  })
+}
+
 app.on("window-all-closed", () => {
   app.quit();
 });
