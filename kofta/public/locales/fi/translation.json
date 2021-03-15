@@ -74,7 +74,7 @@
     },
     "room": {
       "speakers": "Puhujat",
-      "requestingToSpeak": "Pyydä puheoikeutta",
+      "requestingToSpeak": "Pyytävät puheoikeutta",
       "listeners": "Kuuntelijat"
     },
     "searchUser": {
