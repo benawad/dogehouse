@@ -4,19 +4,17 @@ import {
   systemPreferences,
   ipcMain,
   globalShortcut,
-  Tray,
-  Menu,
   shell,
 } from "electron";
 import iohook from "iohook";
 import { autoUpdater } from "electron-updater";
-import { RegisterKeybinds } from "./util";
+import { HandleVoiceMenu, RegisterKeybinds } from "./util";
 import { ALLOWED_HOSTS } from "./constants";
 import url from "url";
 import path from "path";
 
 let mainWindow: BrowserWindow;
-let tray: Tray;
+
 export const __prod__ = app.isPackaged;
 const instanceLock = app.requestSingleInstanceLock();
 
@@ -76,21 +74,8 @@ function createWindow() {
   // registers global keybinds
   RegisterKeybinds(mainWindow);
 
-  // create system tray
-  tray = new Tray("./icons/icon.ico");
-  tray.setToolTip("Taking voice conversations to the moon 🚀");
-  tray.on("click", () => {
-    mainWindow.focus();
-  });
-  const contextMenu = Menu.buildFromTemplate([
-    {
-      label: "Quit Dogehouse",
-      click: () => {
-        mainWindow.close();
-      },
-    },
-  ]);
-  tray.setContextMenu(contextMenu);
+  // starting the custom voice menu handler
+  HandleVoiceMenu(mainWindow);
 
   // graceful exiting
   mainWindow.on("closed", () => {
