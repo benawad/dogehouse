@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import "tailwindcss/base";
+@import "tailwindcss/utilities";
+
+h1,
+h2,
+h3,
+h4,
+p {
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+p.bold {
+  font-weight: 700;
+}
+
+:root {
+  font-size: 14px;
+
+  --color-button-text: #fff;
+  --color-primary-100: #dee3ea;
+  --color-primary-200: #b2bdcd;
+  --color-primary-300: #5d7290;
+  --color-primary-600: #323d4d;
+  --color-primary-700: #242c37;
+  --color-primary-800: #151a21;
+  --color-primary-900: #0b0e11;
+  --color-accent: #fd4d4d;
+  --color-accent-hover: #fd6868;
+  --color-accent-disabled: #f5bfbf;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 2.8rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+p.small {
+  font-size: 0.85rem;
+}
+
+html *:not(head *):not(script):not(style) {
+  display: flex;
+}
