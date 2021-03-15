@@ -16,7 +16,7 @@ import path from 'path'
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
-export const __prod__ = true; // app.isPackaged
+export const __prod__ = app.isPackaged; 
 const instanceLock = app.requestSingleInstanceLock();
 
 // create splash screen
@@ -36,7 +36,6 @@ function createWindow() {
 
   // set splash screen
   splash = new BrowserWindow({width: 810, height: 610, frame: false, transparent: true, alwaysOnTop: true});
-  console.log(`${__dirname}../splash-screen.html`)
   splash.loadURL(url.format({
     pathname: path.join(`${__dirname}`, '../splash-screen.html'),
     protocol:"file:",
