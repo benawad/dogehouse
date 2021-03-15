@@ -3,7 +3,7 @@ name: build-and-release-electron
 on:
   push:
     paths:
-      - "baklava/*"
+      - "baklava/**"
     branches:
       - prod
 
