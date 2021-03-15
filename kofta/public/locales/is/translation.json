@@ -40,25 +40,25 @@
 		},
 		"followList": {},
 		"home": {
-			"createRoom": "Stofnaðu Spjallrás"
+			"createRoom": "Stofna Spjallrás"
 		},
 		"inviteList": {
 			"roomGone": "rásin horfið, farðu tíl baka",
-			"shareRoomLink": "deildu hlekkunum í herbergið",
+			"shareRoomLink": "deila hlekknum í herbergið",
 			"inviteFollowers": "Þú getur boðið fylgjendum þínum sem eru á netinu:",
 			"whenFollowersOnline": "Þegar fylgjendur þínir eru tengdir, munu þeir birtast hér."
 		},
 		"login": {
 			"headerText": "Tekur raddsamræður til tunglsins🚀",
-			"featureText_1": "Dökkt Þema",
-			"featureText_2": "Open Sign-Ups",
-			"featureText_3": "Cross-Platform Support",
-			"featureText_4": "Open Source",
+			"featureText_1": "Næturþema",
+			"featureText_2": "Opið fyrir nýja notendur",
+			"featureText_3": "Styður flest tæki",
+			"featureText_4": "Opinn hugbúnaður",
 			"featureText_5": "Textaspjall",
-			"featureText_6": "Powered by Doge",
+			"featureText_6": "Knúið af Doge",
 			"loginGithub": "innskráning með GitHub",
 			"loginTwitter": "innskráning með Twitter",
-			"createTestUser": "búið til prófanotanda"
+			"createTestUser": "búa til prófanotanda"
 		},
 		"myProfile": {
 			"logout": "skrá út",
@@ -90,7 +90,7 @@
 			"following": "eftirfarandi"
 		},
 		"voiceSettings": {
-			"header": "Voice Settings",
+			"header": "Talstillingar",
 			"mic": "mic:",
 			"permissionError": "engir hljóðnemar fundust, kannski hefurðu það ekki tengt eða hefur ekki gefið leyfi til að nota það.",
 			"refresh": "endurnýja hljóðnemalistann",
@@ -112,18 +112,18 @@
 			"leave": "Yfirgefa",
 			"inviteUsersToRoomBtn": "Bjóða notendum í spjallrásina",
 			"invite": "Bjóða",
-			"toggleMuteMicBtn": "Þagga hljóðnemann",
-			"mute": "Þagga",
-			"unmute": "Þagga niður",
-			"makeRoomPublicBtn": "Gerðu rás opinbert!",
+			"toggleMuteMicBtn": "Slökkva á hljóðnema",
+			"mute": "Þagga niður",
+			"unmute": "Afþagga",
+			"makeRoomPublicBtn": "Opinbera rás!",
 			"settings": "Stillingar",
 			"speaker": "Ræðumaður",
 			"listener": "Hlustandi"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Tækið þitt er sem stendur ekki stutt. Þú getur búið til",
-			"linkText": "issue hjá GitHub",
-			"addSupport": "og ég mun reyna að bæta við stuðningi við tækið þitt."
+			"linkText": "beiðni á GitHub",
+			"addSupport": "og þá verður reynt að bæta við stuðningi fyrir tækið þitt."
 		},
 		"inviteButton": {
 			"invited": "boðið",
@@ -160,7 +160,7 @@
 				"nameError": "verður að vera á bilinu 2 til 60 stafir"
 			},
 			"invitedToJoinRoomModal": {
-				"newRoomCreated": "New Room Created",
+				"newRoomCreated": "Nýtt herbergi búið til",
 				"roomInviteFrom": "Room Invite from",
 				"justStarted": "They just started",
 				"likeToJoin": ", would you like to join?",
