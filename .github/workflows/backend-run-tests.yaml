@@ -1,9 +1,13 @@
 name: backend-run-tests
 on:
   push:
+    branches:
+      - staging
     paths:
       - 'kousa/lib/*'
   pull_request:
+    branches:
+      - staging
     paths:
       - 'kousa/lib/*'
 jobs:
