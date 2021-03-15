@@ -15,7 +15,7 @@ import path from "path";
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
-let menu = Menu.buildFromTemplate(MENU_TEMPLATE);
+let menu: Menu;
 
 export const __prod__ = app.isPackaged;
 const instanceLock = app.requestSingleInstanceLock();
@@ -31,6 +31,7 @@ function createWindow() {
   });
 
   // applying custom menu
+  menu = Menu.buildFromTemplate(MENU_TEMPLATE);
   Menu.setApplicationMenu(menu);
 
   // applying custom tray
