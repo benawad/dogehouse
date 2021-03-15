@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const readline = require("readline");
-const { raw: { connect } } = require("@dogehouse/client");
+const { raw: { connect }, wrap } = require("@dogehouse/client");
 
 const logger = (direction, opcode, data, fetchId, raw) => {
   const directionPadded = direction.toUpperCase().padEnd(3, " ");
@@ -17,22 +17,23 @@ const main = async () => {
       {}
     );
 
+    const wrapper = wrap(connection);
+
     const rl = readline.createInterface({
       input: process.stdin,
       output: process.stdout,
       prompt: `${connection.user.displayName} > `
     })
 
-    const { rooms } = await connection.fetch("get_top_public_rooms", { cursor: 0 });
+    const rooms = await wrapper.getTopPublicRooms();
     const theRoom = rooms[0];
 
     console.log(`=> joining room "${theRoom.name}" (${theRoom.numPeopleInside} people)`);
-    await connection.fetch("join_room", { roomId: theRoom.id }, "join_room_done");
+    await wrapper.joinRoom(theRoom.id);
 
     rl.prompt();
     rl.on("line", async input => {
-      const message = { tokens: [{ t: "text", v: input }], whisperTo: [] };
-      await connection.send("send_room_chat_msg", message);
+      await wrapper.sendRoomChatMsg([{ t: "text", v: input }]);
     })
 
     connection.addListener("new_chat_msg", async ({ userId, msg }) => {

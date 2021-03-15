@@ -49,7 +49,7 @@ export type Message = {
   avatarUrl: UUID;
   color: string;
   displayName: string;
-  tokens: MessageToken;
+  tokens: MessageToken[];
   deleted?: boolean;
   deleterId?: UUID;
   sentAt: string;
