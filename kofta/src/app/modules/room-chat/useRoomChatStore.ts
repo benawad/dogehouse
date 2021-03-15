@@ -15,7 +15,12 @@ interface LinkToken {
   v: string;
 }
 
-export type RoomChatMessageToken = TextToken | MentionToken | LinkToken;
+interface BlockToken {
+	t: "block";
+	v: string;
+}
+
+export type RoomChatMessageToken = TextToken | MentionToken | LinkToken | BlockToken;
 
 const colors = [
   "#ff2366",
