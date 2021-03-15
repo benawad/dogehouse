@@ -30,10 +30,7 @@ export const connect = (
   refreshToken: Token,
   {
     logger = () => {},
-    onConnectionTaken = () => {
-      console.error("\nAnother client has taken the connection");
-      process.exit();
-    }
+    onConnectionTaken = () => {}
   }: { logger?: Logger, onConnectionTaken?: () => void }
 ): Promise<Connection> => new Promise((resolve, reject) => {
   const socket = new ReconnectingWebSocket(apiUrl, [], { connectionTimeout, WebSocket });

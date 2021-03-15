@@ -14,7 +14,12 @@ const main = async () => {
     const connection = await connect(
       process.env.DOGEHOUSE_TOKEN,
       process.env.DOGEHOUSE_REFRESH_TOKEN,
-      {}
+      {
+        onConnectionTaken: () => {
+          console.error("\nAnother client has taken the connection");
+          process.exit();
+        }
+      }
     );
 
     const wrapper = wrap(connection);
