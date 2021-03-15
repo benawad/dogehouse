@@ -13,7 +13,9 @@ export const Backbar: React.FC<BackbarProps> = ({
 }) => {
   const history = useHistory();
   return (
-    <div className={`sticky top-0 z-10 flex py-4 mb-12 border-b border-simple-gray-80 bg-simple-gray-26 h-20`}>
+    <div
+      className={`sticky top-0 z-10 flex py-3 mb-12 border-b border-simple-gray-80 bg-simple-gray-26 h-20`}
+    >
       {actuallyGoBack ? (
         <button
           className={`hover:bg-blue-700 px-2`}
