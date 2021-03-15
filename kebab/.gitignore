@@ -1,0 +1,5 @@
+.idea
+examples/*/.env
+examples/*/node_modules
+node_modules
+lib

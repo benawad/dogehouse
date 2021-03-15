@@ -1,0 +1,12 @@
+{
+  "name": "example-chat",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "@dogehouse/client": "file:../.."
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
+  }
+}
