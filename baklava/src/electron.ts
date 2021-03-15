@@ -14,7 +14,6 @@ let mainWindow: BrowserWindow;
 export const __prod__ = app.isPackaged;
 const instanceLock = app.requestSingleInstanceLock();
 
-//
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 560,
