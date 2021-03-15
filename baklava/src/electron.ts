@@ -28,7 +28,7 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
   }
   mainWindow.loadURL(
-    __prod__ ? `https://dogehouse.tv/` : "https://dogehouse.tv/"
+    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/"
   );
 
   ipcMain.on("request-mic", async (event, _serviceName) => {
