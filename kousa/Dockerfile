@@ -1,32 +1,35 @@
-FROM elixir:1.9.0-alpine AS build
+# STEP 1 - DEPS GETTER
+FROM hexpm/elixir:1.11.3-erlang-23.2.7-alpine-3.13.2 AS build
 
-# install build dependencies
-RUN apk add --no-cache build-base nodejs-current nodejs-npm git python
+# Install dependencies
+RUN apk update && \
+    apk upgrade --no-cache && \
+    apk add --no-cache \
+    git \
+    build-base \
+    nodejs-current \
+    nodejs-npm \ 
+    python3 && \ 
+    mix local.rebar --force && \
+    mix local.hex --force
 
-# prepare build dir
-WORKDIR /app
-
-# install hex + rebar
-RUN mix local.hex --force && \
-    mix local.rebar --force
-
-# set build ENV
 ENV MIX_ENV=prod
 
-# install mix dependencies
-COPY mix.exs mix.lock ./
-COPY config config
-RUN mix do deps.get, deps.compile
+WORKDIR /app
 
-# compile and build release
-COPY lib lib
-COPY priv priv
+COPY mix.exs /app/mix.exs
+COPY mix.lock /app/mix.lock
+RUN mix do deps.get --only $MIX_ENV, deps.compile
 
-# COPY rel rel
+# copy config, priv and release and application directories
+COPY config /app/config
+COPY priv /app/priv
+COPY lib /app/lib
+
 RUN mix do compile, release
 
 # prepare release image
-FROM alpine:3.9 AS app
+FROM alpine:3.13.2 as app
 RUN apk add --no-cache openssl ncurses-libs
 
 WORKDIR /app
