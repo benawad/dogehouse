@@ -10,6 +10,7 @@ export type Room = {
 		displayName: string;
 		numFollowers: number;
 	}>;
+	inserted_at: string;
 };
 export type BaseUser = {
 	username: string;
