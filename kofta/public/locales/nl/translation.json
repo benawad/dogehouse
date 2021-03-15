@@ -29,18 +29,14 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "ban"
-		},
+		"banUser": { "ban": "ban" },
 		"followingOnlineList": {
 			"listHeader": "Lijst van gebruikers die je volgt en niet in een privé kamer zijn.",
 			"currentRoom": "momenteel in:",
 			"startPrivateRoom": "start een privé kamer met deze persoon"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "Kamer maken"
-		},
+		"home": { "createRoom": "Kamer maken", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "kamer is weg, ga terug",
 			"shareRoomLink": "link van deze kamer delen",
@@ -76,12 +72,8 @@
 			"requestingToSpeak": "Aanvragen om te spreken",
 			"listeners": "Luisteraars"
 		},
-		"searchUser": {
-			"search": "zoek..."
-		},
-		"soundEffectSettings": {
-			"header": "Geluiden"
-		},
+		"searchUser": { "search": "zoek..." },
+		"soundEffectSettings": { "header": "Geluiden" },
 		"viewUser": {
 			"editProfile": "bewerk profiel",
 			"followsYou": "volgt jou",
@@ -142,9 +134,7 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "geen audioapparaat om een of andere reden"
 		},
-		"addToCalendar": {
-			"add": "Voeg toe aan kalender"
-		},
+		"addToCalendar": { "add": "Voeg toe aan kalender" },
 		"wsKilled": {
 			"description": "Websocket is gestopt door de server. Dit gebeurt meestal als je de site open hebt staan in een ander tabblad.",
 			"reconnect": "opnieuw verbinden"
@@ -222,6 +212,15 @@
 			"whisper": "Fluister",
 			"welcomeMessage": "Welkom in de chat!",
 			"roomDescription": "kamer omschrijving"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

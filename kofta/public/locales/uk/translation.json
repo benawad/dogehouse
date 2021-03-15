@@ -30,18 +30,14 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "заблокувати"
-		},
+		"banUser": { "ban": "заблокувати" },
 		"followingOnlineList": {
 			"listHeader": "Список користувачів, які не перебувають у приватній кімнаті і за якими ви стежите",
 			"currentRoom": "зараз у:",
 			"startPrivateRoom": "почніть з ними приватну кімнату"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "Створити Кімнату"
-		},
+		"home": { "createRoom": "Створити Кімнату", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "кімнати вже немає, повернутися",
 			"shareRoomLink": "поділитися посиланням на кімнату",
@@ -77,12 +73,8 @@
 			"requestingToSpeak": "Запитую дозвіл говорити",
 			"listeners": "Слухачі"
 		},
-		"searchUser": {
-			"search": "шукати..."
-		},
-		"soundEffectSettings": {
-			"header": "Звуки"
-		},
+		"searchUser": { "search": "шукати..." },
+		"soundEffectSettings": { "header": "Звуки" },
 		"viewUser": {
 			"editProfile": "редагувати профіль",
 			"followsYou": "підписані на вас",
@@ -141,11 +133,10 @@
 			"togglePushToTalkKeybind": "Перемикнути режим рації"
 		},
 		"userVolumeSlider": {
-			"noAudioMessзагальнодоступноюage": "з якихось причин немає споживача аудіо"
+			"noAudioMessзагальнодоступноюage": "з якихось причин немає споживача аудіо",
+			"noAudioMessage": "no audio consumer for some reason"
 		},
-		"addToCalendar": {
-			"add": "Додати до календаря"
-		},
+		"addToCalendar": { "add": "Додати до календаря" },
 		"wsKilled": {
 			"description": "Вебсокет був зрушиний сервером. Зазвичай це відбувається, коли ви відкриваєте веб-сайт в іншій вкладці.",
 			"reconnect": "переєднатися"
@@ -223,6 +214,15 @@
 			"whisper": "Шепотіти",
 			"welcomeMessage": "Ласкаво просимо до чату!",
 			"roomDescription": "опис кімнати"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

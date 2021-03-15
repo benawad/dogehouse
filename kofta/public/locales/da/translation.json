@@ -29,18 +29,14 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "bandlys"
-		},
+		"banUser": { "ban": "bandlys" },
 		"followingOnlineList": {
 			"listHeader": "Liste af brugere du følger, som ikke er i et privat rum.",
 			"currentRoom": "tilsluttet til:",
 			"startPrivateRoom": "start et privat rum med dem"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "Start Rum"
-		},
+		"home": { "createRoom": "Start Rum", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "rummet er væk, gå tilbage",
 			"shareRoomLink": "del et link til rummet",
@@ -76,12 +72,8 @@
 			"requestingToSpeak": "Anmoder om at tale",
 			"listeners": "Lyttere"
 		},
-		"searchUser": {
-			"search": "søger..."
-		},
-		"soundEffectSettings": {
-			"header": "Lyde"
-		},
+		"searchUser": { "search": "søger..." },
+		"soundEffectSettings": { "header": "Lyde" },
 		"viewUser": {
 			"editProfile": "rediger profil",
 			"followsYou": "følger dig",
@@ -142,9 +134,7 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "ingen audio consumer af en eller anden grund"
 		},
-		"addToCalendar": {
-			"add": "Tilføj til kalender"
-		},
+		"addToCalendar": { "add": "Tilføj til kalender" },
 		"wsKilled": {
 			"description": "Websocketen blev dræbt af serveren. Dette sker typisk når du har hjemmesiden åben i en anden fane.",
 			"reconnect": "tilslut igen"
@@ -222,6 +212,15 @@
 			"whisper": "Hvisk",
 			"welcomeMessage": "Velkommen til chatten!",
 			"roomDescription": "rum beskrivelse"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }
