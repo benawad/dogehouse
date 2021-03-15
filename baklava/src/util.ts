@@ -13,7 +13,6 @@ import {
     REQUEST_TO_SPEAK_KEY,
     KEY_TABLE,
     IOHookEvent,
-    VOICE_MENU_ID,
     MENU_TEMPLATE,
 } from "./constants";
 import ioHook from "iohook";
@@ -112,7 +111,7 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
         let PTT = PTT_STATUS.every((key_status) => key_status === true);
         if (PTT != PTT_PREV_STATUS) {
             PTT_PREV_STATUS = PTT;
-            mainWindow.webContents.send("PTT_STATUS_CHANGE", !PTT);
+            mainWindow.webContents.send("@voice/ptt_status_change", !PTT);
         }
     })
 
@@ -146,7 +145,7 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
         let PTT = PTT_STATUS.every((key_status) => key_status === true);
         if (PTT != PTT_PREV_STATUS) {
             PTT_PREV_STATUS = PTT;
-            mainWindow.webContents.send("PTT_STATUS_CHANGE", !PTT);
+            mainWindow.webContents.send("@voice/ptt_status_change", !PTT);
         }
     });
 
@@ -157,7 +156,7 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
 export async function HandleVoiceMenu(mainWindow: BrowserWindow, menu: Menu) {
     const VOICE_MENU: MenuItemConstructorOptions = {
         label: 'Voice',
-        enabled: false,
+        enabled: true,
         submenu: [
             {
                 label: 'Toggle Mute',
@@ -170,9 +169,10 @@ export async function HandleVoiceMenu(mainWindow: BrowserWindow, menu: Menu) {
     };
     ipcMain.on("@voice/active", (event, isActive: boolean) => {
         let nMenu = Menu.buildFromTemplate(MENU_TEMPLATE);
-        let vMenu = new MenuItem(VOICE_MENU);
-        vMenu.enabled = isActive;
-        nMenu.append(vMenu);
+        if (isActive) {
+            let vMenu = new MenuItem(VOICE_MENU);
+            nMenu.append(vMenu);
+        }
         Menu.setApplicationMenu(nMenu);
     });
 }
