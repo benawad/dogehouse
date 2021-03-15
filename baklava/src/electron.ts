@@ -6,7 +6,7 @@ import {
   globalShortcut,
   Tray,
   Menu,
-  shell
+  shell,
 } from "electron";
 import iohook from "iohook";
 import { RegisterKeybinds } from "./util";
@@ -16,6 +16,7 @@ let tray: Tray;
 export const __prod__ = app.isPackaged;
 const instanceLock = app.requestSingleInstanceLock();
 
+//
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 560,
@@ -46,13 +47,18 @@ function createWindow() {
   RegisterKeybinds(mainWindow);
 
   // create system tray
-  tray = new Tray('./icons/icon.ico');
-  tray.setToolTip('Taking voice conversations to the moon 🚀');
-  tray.on('click', () => {
+  tray = new Tray("./icons/icon.ico");
+  tray.setToolTip("Taking voice conversations to the moon 🚀");
+  tray.on("click", () => {
     mainWindow.focus();
   });
   const contextMenu = Menu.buildFromTemplate([
-    { label: 'Quit Dogehouse', click: () => {mainWindow.close()} }
+    {
+      label: "Quit Dogehouse",
+      click: () => {
+        mainWindow.close();
+      },
+    },
   ]);
   tray.setContextMenu(contextMenu);
 
@@ -70,30 +76,30 @@ function createWindow() {
     let urlHost = urlObj.hostname;
     if (!ALLOWED_HOSTS.includes(urlHost)) {
       event.preventDefault();
-      shell.openExternal(url)
+      shell.openExternal(url);
     } else {
       if (urlHost == ALLOWED_HOSTS[3] && urlObj.pathname !== "/login") {
         event.preventDefault();
-        shell.openExternal(url)
+        shell.openExternal(url);
       }
     }
-  }
-  mainWindow.webContents.on('new-window', handleLinks);
-  mainWindow.webContents.on('will-navigate', handleLinks);
+  };
+  mainWindow.webContents.on("new-window", handleLinks);
+  mainWindow.webContents.on("will-navigate", handleLinks);
 }
 
 if (!instanceLock) {
-  app.quit()
+  app.quit();
 } else {
   app.on("ready", () => {
     createWindow();
   });
-  app.on('second-instance', (event, argv, workingDirectory) => {
+  app.on("second-instance", (event, argv, workingDirectory) => {
     if (mainWindow) {
-      if (mainWindow.isMinimized()) mainWindow.restore()
-      mainWindow.focus()
+      if (mainWindow.isMinimized()) mainWindow.restore();
+      mainWindow.focus();
     }
-  })
+  });
 }
 
 app.on("window-all-closed", () => {
