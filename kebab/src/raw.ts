@@ -1,13 +1,14 @@
 import WebSocket from "isomorphic-ws";
 import ReconnectingWebSocket from "reconnecting-websocket";
 import { v4 as generateUuid } from "uuid";
+import { User, UUID } from "./entities";
 
 const heartbeatInterval = 8000;
 const apiUrl = "wss://api.dogehouse.tv/socket";
 const connectionTimeout = 15000;
 
 export type Token = string;
-export type FetchID = string;
+export type FetchID = UUID;
 export type Opcode = string;
 export type Logger = (direction: "in" | "out", opcode: Opcode, data?: object, fetchId?: FetchID, raw?: string) => void;
 export type ListenerHandler = (data: object, fetchId?: FetchID) => boolean | undefined;
@@ -18,7 +19,7 @@ export type Listener = {
 
 export type Connection = {
   addListener: (opcode: Opcode, handler: ListenerHandler) => void;
-  user: unknown; // we'll need all entity types
+  user: User;
   send: (opcode: Opcode, data: object, fetchId?: FetchID) => void;
   fetch: (opcode: Opcode, data: object, doneOpcode: Opcode) => Promise<object>;
 };
@@ -46,26 +47,6 @@ export const connect = (
     const remove = listener.handler(data, fetchId);
     if(remove) listeners.splice(listeners.indexOf(listener), 1);
   };
-
-  const connection: Connection = {
-    addListener: (opcode: Opcode, handler: ListenerHandler) => listeners.push({ opcode, handler }),
-    user: null,
-    send: apiSend,
-    fetch: (opcode: Opcode, data: object, doneOpcode: Opcode) => new Promise((resolveFetch, rejectFetch) => {
-      const fetchId: FetchID | false = !doneOpcode && generateUuid();
-      listeners.push({
-        opcode: doneOpcode ?? "fetch_done",
-        handler: (data, arrivedId) => {
-          if(!doneOpcode && arrivedId !== fetchId) return;
-          resolveFetch(data);
-
-          return true;
-        }
-      });
-
-      apiSend(opcode, data, fetchId || undefined);
-    })
-  }
 
   socket.addEventListener("open", () => {
     const heartbeat = setInterval(
@@ -104,7 +85,26 @@ export const connect = (
       logger("in", message.op, message.d, message.fetchId, e.data);
 
       if(message.op === "auth-good") {
-        connection.user = message.d.user;
+        const connection: Connection = {
+          addListener: (opcode: Opcode, handler: ListenerHandler) => listeners.push({ opcode, handler }),
+          user: message.d.user,
+          send: apiSend,
+          fetch: (opcode: Opcode, data: object, doneOpcode?: Opcode) => new Promise((resolveFetch) => {
+            const fetchId: FetchID | false = !doneOpcode && generateUuid();
+            listeners.push({
+              opcode: doneOpcode ?? "fetch_done",
+              handler: (data, arrivedId) => {
+                if(!doneOpcode && arrivedId !== fetchId) return;
+                resolveFetch(data);
+
+                return true;
+              }
+            });
+
+            apiSend(opcode, data, fetchId || undefined);
+          })
+        };
+
         resolve(connection);
       } else {
         listeners
