@@ -7,7 +7,8 @@
     "compile": "tsc",
     "watch": "tsc -w",
     "dev": "npm run compile && electron ./dist/electron.js",
-    "build": "npm run compile && electron-builder -mwl --win msi",
+    "build": "npm run compile && electron-builder",
+    "build:all": "npm run compile && electron-builder -mwl --win msi",
     "build:mac": "npm run compile && electron-builder --mac",
     "build:win": "npm run compile && electron-builder --win",
     "build:linux": "npm run compile && electron-builder --linux"
