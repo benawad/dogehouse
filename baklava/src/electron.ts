@@ -5,11 +5,17 @@ import {
   ipcMain,
   globalShortcut,
   shell,
+  Tray,
+  Menu,
 } from "electron";
 import iohook from "iohook";
 import { HandleVoiceTray, RegisterKeybinds } from "./util";
-import { ALLOWED_HOSTS } from "./constants";
+import { ALLOWED_HOSTS, MENU_TEMPLATE } from "./constants";
+import path from "path";
+
 let mainWindow: BrowserWindow;
+let tray: Tray;
+let menu = Menu.buildFromTemplate(MENU_TEMPLATE);
 
 export const __prod__ = app.isPackaged;
 const instanceLock = app.requestSingleInstanceLock();
@@ -23,7 +29,12 @@ function createWindow() {
       nodeIntegration: true,
     },
   });
-  console.log(systemPreferences.getMediaAccessStatus("microphone"));
+
+  // applying custom menu
+  Menu.setApplicationMenu(menu);
+
+  // applying custom tray
+  tray = new Tray(path.join(__dirname, `../icons/tray.png`));
   // crashes on mac
   // systemPreferences.askForMediaAccess("microphone");
   if (!__prod__) {
@@ -44,7 +55,7 @@ function createWindow() {
   RegisterKeybinds(mainWindow);
 
   // starting the custom voice menu handler
-  HandleVoiceTray(mainWindow);
+  HandleVoiceTray(mainWindow, tray);
 
   // graceful exiting
   mainWindow.on("closed", () => {
