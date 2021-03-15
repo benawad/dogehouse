@@ -94,7 +94,7 @@
     "backBar": {},
     "blockedFromRoomUsers": {
       "header": "Usuários expulsos",
-      "unban": "desexpulsar",
+      "unban": "desbanir",
       "noBans": "ninguém foi expulso ainda"
     },
     "bottomVoiceControl": {
