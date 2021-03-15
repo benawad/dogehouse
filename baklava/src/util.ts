@@ -3,7 +3,6 @@ import {
     globalShortcut,
     BrowserWindow,
     Menu,
-    MenuItem,
     Tray
 } from "electron";
 import {
@@ -17,7 +16,7 @@ import {
     MENU_TEMPLATE,
 } from "./constants";
 import ioHook from "iohook";
-import { MenuItemConstructorOptions } from "electron/main";
+import path from "path";
 
 export let CURRENT_REQUEST_TO_SPEAK_KEY = "Control+8";
 export let CURRENT_INVITE_KEY = "Control+7";
@@ -155,7 +154,10 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
 }
 
 export async function HandleVoiceTray(mainWindow: BrowserWindow) {
-    const tray = new Tray("./icons/tray.png");
+    let menu = Menu.buildFromTemplate(MENU_TEMPLATE);
+    Menu.setApplicationMenu(menu);
+
+    const tray = new Tray(path.join(__dirname, `../icons/tray.png`));
     let TRAY_MENU: any = [
         {
             label: "Quit Dogehouse",

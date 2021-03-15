@@ -62,7 +62,7 @@ function createWindow() {
       event.preventDefault();
       shell.openExternal(url);
     } else {
-      if (urlHost == ALLOWED_HOSTS[3] && urlObj.pathname !== "/login") {
+      if (urlHost == ALLOWED_HOSTS[3] && urlObj.pathname !== "/login" && urlObj.pathname !== "/session") {
         event.preventDefault();
         shell.openExternal(url);
       }
