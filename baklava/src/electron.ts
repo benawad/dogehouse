@@ -55,7 +55,7 @@ if (!instanceLock) {
   app.on("ready", () => {
     createWindow();
   });
-  app.on('second-instance', (event, commandLine, workingDirectory) => {
+  app.on('second-instance', (event, argv, workingDirectory) => {
     if (mainWindow) {
       if (mainWindow.isMinimized()) mainWindow.restore()
       mainWindow.focus()
