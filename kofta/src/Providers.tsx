@@ -13,18 +13,18 @@ import { queryClient } from "./app/queryClient";
 interface ProvidersProps {}
 
 export const Providers: React.FC<ProvidersProps> = ({ children }) => {
-	return (
-		<Provider>
-			<QueryClientProvider client={queryClient}>
-				{children}
-				<SoundEffectPlayer />
-				<ToastContainer />
-				<MuteTitleUpdater />
-				<InvitedToJoinRoomModal />
-				<AlertModal />
-				<PromptModal />
-				<ConfirmModal />
-			</QueryClientProvider>
-		</Provider>
-	);
+  return (
+    <Provider>
+      <QueryClientProvider client={queryClient}>
+        {children}
+        <SoundEffectPlayer />
+        <ToastContainer />
+        <MuteTitleUpdater />
+        <InvitedToJoinRoomModal />
+        <AlertModal />
+        <PromptModal />
+        <ConfirmModal />
+      </QueryClientProvider>
+    </Provider>
+  );
 };

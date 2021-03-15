@@ -48,8 +48,8 @@
       "headerText": "Ducând converații vocale către lună 🚀",
       "featureText_1": "Temă întunecată",
       "featureText_2": "Deschide Sign-Upuri",
-      "featureText_3": "Suport Multiplatformă",
-      "featureText_4": "Sursă deschisă",
+      "featureText_3": "Suport Cross-Platform",
+      "featureText_4": "Open Source",
       "featureText_5": "Chat Text",
       "featureText_6": "Alimentat de Doge",
       "loginGithub": "Logare cu GitHub",
@@ -70,7 +70,7 @@
     },
     "room": {
       "speakers": "Vorbitori",
-      "requestingToSpeak": "Cerând să vorbești",
+      "requestingToSpeak": "Cere sa vorbească",
       "listeners": "Ascultători"
     },
     "searchUser": { "search": "caută..." },
@@ -85,7 +85,7 @@
       "header": "Sunete Voce",
       "mic": "mic:",
       "permissionError": "nu au fost găsite microfoane, ori nu ai unul băgat sau website-ul acesta nu are permisiune.",
-      "refresh": "reînprospătează lista de microfoane",
+      "refresh": "reîmprospătează lista de microfoane",
       "volume": "volum:"
     }
   },
@@ -95,8 +95,8 @@
     "backBar": {},
     "blockedFromRoomUsers": {
       "header": "Utilizatori Interziși",
-      "unban": "unban",
-      "noBans": "nimei nu a fost interzis deocamdată"
+      "unban": "scoate restrictie",
+      "noBans": "nimeni nu a fost interzis deocamdată"
     },
     "bottomVoiceControl": {
       "leaveCurrentRoomBtn": "Părăsește camera curentă",
@@ -109,7 +109,7 @@
       "unmute": "Activare sunet",
       "makeRoomPublicBtn": "Fă camera publică!",
       "settings": "Setări",
-      "speaker": "Boxe",
+      "speaker": "Difuzor",
       "listener": "Ascultător"
     },
     "deviceNotSupported": {
@@ -152,8 +152,8 @@
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nouă Cameră Creată",
         "roomInviteFrom": "Invitație Cameră de la",
-        "justStarted": "Debia au început",
-        "likeToJoin": ", ai dori săte alături?",
+        "justStarted": "Tocmai au început",
+        "likeToJoin": ", ai dori să te alături?",
         "inviteReceived": "ai fost invitat să"
       },
       "editProfileModal": {
@@ -168,10 +168,10 @@
         "bioLabel": "Bio"
       },
       "profileModal": {
-        "blockUserConfirm": "Ești sigur că vrei să interzici aceast utilizator să intre în orice cameră pe care o creezi?",
+        "blockUserConfirm": "Ești sigur că dorești să restrictionezi acest utilizator să intre în orice cameră pe care o creezi?",
         "blockUser": "interzice utilizator",
         "makeMod": "face mod",
-        "unmod": "unmod",
+        "unmod": "scoate mod",
         "addAsSpeaker": "adaugă ca vorbitor",
         "moveToListener": "mută la ascultători",
         "banFromChat": "interzice din chat",
@@ -198,16 +198,16 @@
       "modal": {
         "needsFuture": "trebuie să fie în viitor",
         "roomName": "numele camerei",
-        "minLength": "de minim 2 caratere"
+        "minLength": "de minim 2 caractere"
       }
     },
     "roomChat": {
       "title": "Chat",
       "emotesSoon": "[emote-uri în curând]",
       "bannedAlert": "Ai fost interzis în chat",
-      "waitAlert": "Trebuie să aștepți până trimiți încă un mesaj.",
+      "waitAlert": "Trebuie să aștepți o secunda până sa trimiți încă un mesaj.",
       "search": "Caută",
-      "searchResults": "Caută Rezultate",
+      "searchResults": "Rezultate Căutare",
       "recent": "Frecvent Utilizat",
       "sendMessage": "Trimite un mesaj",
       "whisper": "Șoptește",

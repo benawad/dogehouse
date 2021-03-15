@@ -5,7 +5,7 @@ import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
 import { Button } from "../Button";
 
 interface MuteKeybindProps {
-	className?: string;
+  className?: string;
 }
 
 export const MuteKeybind: React.FC<MuteKeybindProps> = ({ className }) => {
@@ -23,9 +23,9 @@ export const MuteKeybind: React.FC<MuteKeybindProps> = ({ className }) => {
         setMuteKeybind(id as string);
       });
 
-			return () => unsub();
-		}
-	}, [count, setMuteKeybind]);
+      return () => unsub();
+    }
+  }, [count, setMuteKeybind]);
 
   return (
     <div className={`flex items-center ${className}`}>
