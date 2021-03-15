@@ -1,7 +1,7 @@
 {
     "name": "dogehouse",
     "version": "1.0.0",
-    "description": "",
+    "description": "Taking voice conversations to the moon 🚀",
     "main": "./dist/electron.js",
     "scripts": {
         "compile": "tsc",
