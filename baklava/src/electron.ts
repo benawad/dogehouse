@@ -6,9 +6,10 @@ import {
   globalShortcut,
 } from "electron";
 import iohook from "iohook";
-import { __prod__ } from "./constants";
 import { RegisterKeybinds } from "./util";
+
 let mainWindow: BrowserWindow;
+export const __prod__ = app.isPackaged;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
