@@ -224,6 +224,15 @@
 			"whisper": "Whisper",
 			"welcomeMessage": "Welcome to chat!",
 			"roomDescription": "room description"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }
