@@ -16,7 +16,7 @@ let tray: Tray;
 export const __prod__ = app.isPackaged;
 const instanceLock = app.requestSingleInstanceLock();
 
-// maybe this needs to change more?
+//
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 560,
