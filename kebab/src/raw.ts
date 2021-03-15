@@ -11,7 +11,8 @@ export type Token = string;
 export type FetchID = UUID;
 export type Opcode = string;
 export type Logger = (direction: "in" | "out", opcode: Opcode, data?: object, fetchId?: FetchID, raw?: string) => void;
-export type ListenerHandler = (data: object, fetchId?: FetchID) => boolean | undefined;
+export type ListenerHandler = (data: object, fetchId?: FetchID) =>
+  boolean | void | Promise<boolean> | Promise<void>;
 export type Listener = {
   opcode: Opcode;
   handler: ListenerHandler;
