@@ -141,7 +141,8 @@
 				"usernameError": "长度要在4到15字符之内，只允许字母或数字或下划线",
 				"usernameLabel": "用户名",
 				"bioError": "最大长度为160字符",
-				"bioLabel": "个人简介"
+				"bioLabel": "个人简介",
+				"usernameInvalid": "username is invalid"
 			},
 			"profileModal": {
 				"blockUserConfirm": "您确定把此人加入黑名单?（ta不可加入您所建立的任何聊天室）",

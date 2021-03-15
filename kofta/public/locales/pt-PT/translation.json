@@ -141,7 +141,8 @@
 				"usernameError": "Deverá ter entre 4 e 15 caracteres alfanuméricos e com letra minúscula",
 				"usernameLabel": "Nome de utilizador",
 				"bioError": "Tamanho máximo de 160 caracteres",
-				"bioLabel": "Biografia"
+				"bioLabel": "Biografia",
+				"usernameInvalid": "username is invalid"
 			},
 			"profileModal": {
 				"blockUserConfirm": "Pretendes bloquear este utlizador de se juntar às salas que criares?",

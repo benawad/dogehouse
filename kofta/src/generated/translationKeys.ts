@@ -104,6 +104,7 @@ export type TranslationKeys =
 	| "components.modals.invitedToJoinRoomModal.likeToJoin"
 	| "components.modals.invitedToJoinRoomModal.inviteReceived"
 	| "components.modals.editProfileModal.usernameTaken"
+	| "components.modals.editProfileModal.usernameInvalid"
 	| "components.modals.editProfileModal.avatarUrlError"
 	| "components.modals.editProfileModal.avatarUrlLabel"
 	| "components.modals.editProfileModal.displayNameError"

@@ -140,7 +140,8 @@
 				"usernameError": "Minimum 4, maximum 15 karakter, csak alfanumerikus és aláhúzás",
 				"usernameLabel": "Felhasználónév",
 				"bioError": "maximum 160 karakter",
-				"bioLabel": "Bio"
+				"bioLabel": "Bio",
+				"usernameInvalid": "username is invalid"
 			},
 			"profileModal": {
 				"blockUserConfirm": "Biztosan tiltaná a felhasználót a szobához való csatlakozástól?",

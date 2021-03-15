@@ -141,7 +141,8 @@
 				"usernameError": "de 4 até 15 caracteres alfanuméricos/sublinhados",
 				"usernameLabel": "Usuário",
 				"bioError": "máximo de até 160 caractéres",
-				"bioLabel": "Biografia"
+				"bioLabel": "Biografia",
+				"usernameInvalid": "username is invalid"
 			},
 			"profileModal": {
 				"blockUserConfirm": "Você tem certeza que quer bloquear esse usuário de entrar em qualquer sala que você criar?",

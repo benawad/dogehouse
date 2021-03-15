@@ -141,7 +141,8 @@
 				"usernameError": "Lengden må være mellom 4 til 15 tegn og inneholde kun alfanumerisk tegn og understrekinger",
 				"usernameLabel": "Brukernavn",
 				"bioError": "Maksimal lengde er 160 tegn",
-				"bioLabel": "Bio"
+				"bioLabel": "Bio",
+				"usernameInvalid": "username is invalid"
 			},
 			"profileModal": {
 				"blockUserConfirm": "Er du sikker på at du vil utestenge denne brukeren? (De vil ikke ha muligheten til å bli med i nye rom du lager)",

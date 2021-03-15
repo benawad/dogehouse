@@ -141,7 +141,8 @@
 				"usernameError": "länge 4 bis 15 alphanumerische Zeichen und Unterstriche",
 				"usernameLabel": "Benutzername",
 				"bioError": "Maximal 160 Buchstaben",
-				"bioLabel": "Bio"
+				"bioLabel": "Bio",
+				"usernameInvalid": "username is invalid"
 			},
 			"profileModal": {
 				"blockUserConfirm": "Bist du sicher, dass du diesen Benutzer aus allen deinen zukünftigen Räumen bannen willst?",
