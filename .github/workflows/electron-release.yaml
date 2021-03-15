@@ -41,7 +41,7 @@ jobs:
           github_token: ${{ secrets.github_token }}
           release: ${{ startsWith(github.ref, 'refs/tags/v') }}
   win:
-    runs-on: macos-latest
+    runs-on: windows-latest
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v1
