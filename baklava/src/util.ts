@@ -1,7 +1,9 @@
 import {
     ipcMain,
     globalShortcut,
-    BrowserWindow
+    BrowserWindow,
+    Menu,
+    MenuItem
 } from "electron";
 import {
     CHAT_KEY,
@@ -10,9 +12,12 @@ import {
     PTT_KEY,
     REQUEST_TO_SPEAK_KEY,
     KEY_TABLE,
-    IOHookEvent
+    IOHookEvent,
+    VOICE_MENU_ID,
+    MENU_TEMPLATE,
 } from "./constants";
 import ioHook from "iohook";
+import { MenuItemConstructorOptions } from "electron/main";
 
 export let CURRENT_REQUEST_TO_SPEAK_KEY = "Control+8";
 export let CURRENT_INVITE_KEY = "Control+7";
@@ -110,7 +115,7 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
             mainWindow.webContents.send("PTT_STATUS_CHANGE", !PTT);
         }
     })
-    
+
     ioHook.on("keyup", (event: IOHookEvent) => {
         if (event.shiftKey) {
             if (CURRENT_PTT_KEY.includes("Shift")) {
@@ -147,4 +152,27 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
 
     ioHook.start();
 
+}
+
+export async function HandleVoiceMenu(mainWindow: BrowserWindow, menu: Menu) {
+    const VOICE_MENU: MenuItemConstructorOptions = {
+        label: 'Voice',
+        enabled: false,
+        submenu: [
+            {
+                label: 'Toggle Mute',
+                click: async () => {
+                    mainWindow.webContents.send(MUTE_KEY, "Toggled mute from Menu");
+                }
+            }
+        ],
+
+    };
+    ipcMain.on("@voice/active", (event, isActive: boolean) => {
+        let nMenu = Menu.buildFromTemplate(MENU_TEMPLATE);
+        let vMenu = new MenuItem(VOICE_MENU);
+        vMenu.enabled = isActive;
+        nMenu.append(vMenu);
+        Menu.setApplicationMenu(nMenu);
+    });
 }

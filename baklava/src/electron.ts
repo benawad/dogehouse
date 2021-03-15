@@ -4,11 +4,12 @@ import {
   systemPreferences,
   ipcMain,
   globalShortcut,
-  shell
+  shell,
+  Menu,
 } from "electron";
 import iohook from "iohook";
-import { RegisterKeybinds } from "./util";
-import { ALLOWED_HOSTS } from "./constants";
+import { HandleVoiceMenu, RegisterKeybinds } from "./util";
+import { ALLOWED_HOSTS, MENU_TEMPLATE } from "./constants";
 let mainWindow: BrowserWindow;
 export const __prod__ = app.isPackaged;
 const instanceLock = app.requestSingleInstanceLock();
@@ -21,7 +22,10 @@ function createWindow() {
       nodeIntegration: true,
     },
   });
-  console.log(systemPreferences.getMediaAccessStatus("microphone"));
+
+  // set custom menu
+  const menu = Menu.buildFromTemplate(MENU_TEMPLATE)
+  Menu.setApplicationMenu(menu);
   // crashes on mac
   // systemPreferences.askForMediaAccess("microphone");
   if (!__prod__) {
@@ -40,6 +44,9 @@ function createWindow() {
 
   // registers global keybinds
   RegisterKeybinds(mainWindow);
+
+  // starting the custom voice menu handler
+  HandleVoiceMenu(mainWindow, menu);
 
   // graceful exiting
   mainWindow.on("closed", () => {
