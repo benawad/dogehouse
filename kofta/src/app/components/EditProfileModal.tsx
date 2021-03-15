@@ -67,9 +67,9 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
 							showErrorToast(
 								t("components.modals.editProfileModal.usernameTaken")
 							);
-						} else if (data.username) {
+						} else if (myarr.indexOf(data.username) > -1) {
 							showErrorToast(
-								t("components.addToCalendar.add")
+								t("components.modals.editProfileModal.usernameInvalid")
 							);
 						}
 						else {
