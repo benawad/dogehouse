@@ -9,6 +9,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   options = [
     { value: "en", label: "🇬🇧 English" },
     { value: "af", label: "🇿🇦 Afrikaans" },
+    { value: "al", label: "🇦🇱 Albanian" },
     { value: "am", label: "🇪🇹 Amharic" },
     { value: "ar", label: "🇸🇦 Arabic" },
     { value: "bn", label: "🇧🇩 Bangla" },
