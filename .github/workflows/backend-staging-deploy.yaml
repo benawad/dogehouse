@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 name: remote ssh command
+=======
+name: deploy-backend-to-staging
+>>>>>>> e760d119ab1ddf4a7e8d67da96f269e6e792f080
 on:
   push:
     branches:

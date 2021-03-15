@@ -2,38 +2,60 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 interface LanguageSelectorProps {
-	options?: Array<{ value: string; label: string }>;
+  options?: Array<{ value: string; label: string }>;
 }
 
 export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
-	options = [
-		{ value: "en", label: "en" },
-		{ value: "de", label: "de" },
-		{ value: "es", label: "es" },
-		{ value: "fr", label: "fr" },
-		{ value: "he", label: "he" },
-		{ value: "hu", label: "hu" },
-		{ value: "nb", label: "nb" },
-		{ value: "pt-BR", label: "pt-br" },
-		{ value: "pt-PT", label: "pt-pt" },
-		{ value: "tr", label: "tr" },
-		{ value: "zh-CN", label: "zh-cn" }
-	],
+  options = [
+    { value: "en", label: "🇬🇧 English" },
+    { value: "af", label: "🇿🇦 Afrikaans" },
+    { value: "am", label: "🇪🇹 Amharic" },
+    { value: "ar", label: "🇸🇦 Arabic" },
+    { value: "bn", label: "🇧🇩 Bangla" },
+    { value: "zh-CN", label: "🇨🇳 Chinese (Simplified)" },
+    { value: "cs", label: "🇨🇿 Czech" },
+    { value: "da", label: "🇩🇰 Danish" },
+    { value: "nl", label: "🇳🇱 Dutch" },
+    { value: "et", label: "🇪🇪 Estonian" },
+    { value: "fi", label: "🇫🇮 Finnish" },
+    { value: "fr", label: "🇫🇷 French" },
+    { value: "de", label: "🇩🇪 German" },
+    { value: "he", label: "🇮🇱 Hebrew" },
+    { value: "hi", label: "🇮🇳 Hindi" },
+    { value: "hu", label: "🇭🇺 Hungarian" },
+    { value: "id", label: "🇮🇩 Indonesian" },
+    { value: "it", label: "🇮🇹 Italian" },
+    { value: "ja", label: "🇯🇵 Japaneese" },
+    { value: "lt", label: "🇱🇹 Lithuanian" },
+    { value: "np", label: "🇳🇵 Nepali" },
+    { value: "nb", label: "🇳🇴 Norwegian" },
+    { value: "pl", label: "🇵🇱 Polish" },
+    { value: "pt-PT", label: "🇵🇹 Portuguese" },
+    { value: "pt-BR", label: "🇧🇷 Portuguese (Brazil)" },
+    { value: "ru", label: "🇷🇺 Russian" },
+    { value: "sr", label: "🇷🇸 Serbian (Cyrillic)" },
+    { value: "sr-Latin", label: "🇷🇸 Serbian (Latin)" },
+    { value: "es", label: "🇪🇸 Spanish" },
+    { value: "th", label: "🇹🇭 Thai" },
+    { value: "tr", label: "🇹🇷 Turkish" },
+    { value: "uk", label: "🇺🇦 Ukrainian" },
+    { value: "ur", label: "🇵🇰 Urdu" },
+  ],
 }) => {
-	const { i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
-	return (
-		<select
-			value={i18n.language}
-			onChange={(e) => {
-				i18n.changeLanguage(e.target.value);
-			}}
-		>
-			{options.map((o) => (
-				<option key={o.value} value={o.value}>
-					{o.label}
-				</option>
-			))}
-		</select>
-	);
+  return (
+    <select
+      value={i18n.language}
+      onChange={(e) => {
+        i18n.changeLanguage(e.target.value);
+      }}
+    >
+      {options.map((o) => (
+        <option key={o.value} value={o.value}>
+          {o.label}
+        </option>
+      ))}
+    </select>
+  );
 };

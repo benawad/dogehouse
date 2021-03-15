@@ -14,7 +14,7 @@ All changes happen through pull requests. Pull requests are the best way to prop
 
 ## Pull Requests
 1. Fork the repo and create your branch (usually named `patch-%the number of PRs you've already made%`) from `staging`.
-2. If you've added code that should be tested, add some tests' example.
+2. If you've added code that should be tested, add some test examples.
 3. Ensure to describe your pull request.
 
 ## Quickstart Local Frontend Development

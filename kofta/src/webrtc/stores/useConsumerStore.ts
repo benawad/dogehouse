@@ -5,9 +5,30 @@ import { combine } from "zustand/middleware";
 export const useConsumerStore = create(
   combine(
     {
-      consumerMap: {} as Record<string, { consumer: Consumer; volume: number }>,
+      consumerMap: {} as Record<
+        string,
+        { consumer: Consumer; volume: number; debug?: boolean }
+      >,
     },
     (set) => ({
+      startDebugging: (userId: string) => {
+        set((s) => {
+          if (userId in s.consumerMap) {
+            return {
+              consumerMap: {
+                ...s.consumerMap,
+                [userId]: {
+                  ...s.consumerMap[userId],
+                  debug: true,
+                },
+              },
+            };
+          }
+
+          console.log("could not find consumer for ", userId);
+          return s;
+        });
+      },
       setVolume: (userId: string, volume: number) => {
         set((s) =>
           userId in s.consumerMap

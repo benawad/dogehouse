@@ -47,9 +47,9 @@
 			"headerText": "Tar röstsamtal till månen 🚀",
 			"featureText_1": "Mörkt läge",
 			"featureText_2": "Öppna registreringar",
-			"featureText_3": "Kors-plattform stöd",
+			"featureText_3": "Plattformsoberoende",
 			"featureText_4": "Öppen Källkod",
-			"featureText_5": "Text Chatt",
+			"featureText_5": "Textchatt",
 			"featureText_6": "Drivs av Doge",
 			"loginGithub": "logga in med GitHub",
 			"loginTwitter": "logga in Twitter",
@@ -57,7 +57,7 @@
 		},
 		"myProfile": {
 			"logout": "logga ut",
-			"probablyLoading": "antagligen laddar in...",
+			"probablyLoading": "laddar antagligen...",
 			"voiceSettings": "gå till röstinställningar",
 			"soundSettings": "gå till ljudinställningar",
 			"deleteAccount": "radera konto"
@@ -75,7 +75,7 @@
 		"searchUser": { "search": "sök..." },
 		"soundEffectSettings": { "header": "Ljud" },
 		"viewUser": {
-			"editProfile": "ändra profil",
+			"editProfile": "redigera profil",
 			"followsYou": "följer dig",
 			"followers": "följare",
 			"following": "följer"
@@ -93,9 +93,9 @@
 		"avatar": {},
 		"backBar": {},
 		"blockedFromRoomUsers": {
-			"header": "Bannade Användare",
-			"unban": "unbanna",
-			"noBans": "ingen har blivit bannad ännu"
+			"header": "Avstängda Användare",
+			"unban": "Ta bort avstängning",
+			"noBans": "ingen har blivit avstängd ännu"
 		},
 		"bottomVoiceControl": {
 			"leaveCurrentRoomBtn": "Lämna nuvarande rum",
@@ -105,14 +105,18 @@
 			"invite": "Bjud in",
 			"toggleMuteMicBtn": "Växla mikrofon av",
 			"mute": "Tysta",
-			"unmute": "Otysta",
+			"unmute": "Slå på ljud",
 			"makeRoomPublicBtn": "Gör rum offentligt!",
 			"settings": "Inställningar",
 			"speaker": "Talare",
 			"listener": "Lyssnare"
 		},
 		"micPermissionBanner": {
+<<<<<<< HEAD
 			"permissionDenied": "Tillåtelse nekad när vi försökte att ansluta till din mikrofon (du kan behöva gå in till webbläsarinställningarna och ladda om sidan)",
+=======
+			"permissionDenied": "Åtkomst nekad när vi försökte att ansluta till din mikrofon (du kan behöva gå till webbläsarinställningarna och ladda om sidan)",
+>>>>>>> e760d119ab1ddf4a7e8d67da96f269e6e792f080
 			"dismiss": "avfärda",
 			"tryAgain": "försök igen"
 		},

@@ -40,7 +40,8 @@
 		},
 		"followList": {},
 		"home": {
-			"createRoom": "Create Room"
+			"createRoom": "Create Room",
+			"refresh": "Refresh"
 		},
 		"inviteList": {
 			"roomGone": "room gone, go back",
@@ -147,7 +148,7 @@
 			"add": "Add to Calendar"
 		},
 		"wsKilled": {
-			"description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
+			"description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
 			"reconnect": "reconnect"
 		},
 		"modals": {
@@ -170,7 +171,7 @@
 				"usernameTaken": "username taken",
 				"usernameInvalid": "username is invalid",
 				"avatarUrlError": "Invalid image",
-				"avatarUrlLabel": "Github/Twitter avatar url",
+				"avatarUrlLabel": "GitHub/Twitter avatar url",
 				"displayNameError": "length 2 to 50 characters",
 				"displayNameLabel": "Display Name",
 				"usernameError": "length 4 to 15 characters and only alphanumeric/underscore",
