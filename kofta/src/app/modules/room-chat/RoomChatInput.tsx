@@ -117,11 +117,16 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
     }
 
     const tmp = message;
+    
+
+    const messageData = createChatMessage(tmp, mentions, currentRoom?.users)
+    if (!messageData.tokens.length) return
+
     setMessage("");
 
     wsend({
       op: "send_room_chat_msg",
-      d: createChatMessage(tmp, mentions, currentRoom?.users),
+      d: messageData
     });
     setQueriedUsernames([]);
 
