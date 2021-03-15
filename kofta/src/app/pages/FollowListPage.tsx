@@ -38,97 +38,97 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
     ? followingMap[userId]?.nextCursor
     : followerMap[userId]?.nextCursor;
 
-	const loading = isFollowing
-		? followingMap[userId]?.loading
-		: followerMap[userId]?.loading;
+  const loading = isFollowing
+    ? followingMap[userId]?.loading
+    : followerMap[userId]?.loading;
 
-	if (loading) {
-		return (
-			<Wrapper>
-				<Backbar actuallyGoBack />
-				<BodyWrapper>
-					<Spinner centered />
-				</BodyWrapper>
-			</Wrapper>
-		);
-	}
+  if (loading) {
+    return (
+      <Wrapper>
+        <Backbar actuallyGoBack />
+        <BodyWrapper>
+          <Spinner centered />
+        </BodyWrapper>
+      </Wrapper>
+    );
+  }
 
-	return (
-		<Wrapper>
-			<Backbar actuallyGoBack />
-			<BodyWrapper>
-				{!users.length ? <div>{t("common.noUsersFound")}</div> : null}
-				{users.map((profile) => (
-					<div
-						className={`border-b border-solid border-simple-gray-3c flex py-4 px-2 items-center`}
-						key={profile.id}
-					>
-						<button onClick={() => history.push(`/user`, profile)}>
-							<Avatar src={profile.avatarUrl} />
-						</button>
-						<button
-							onClick={() => history.push(`/user`, profile)}
-							className={`ml-8`}
-						>
-							<div className={`text-lg`}>{profile.displayName}</div>
-							<div style={{ color: "" }}>@{profile.username}</div>
-						</button>
-						{me?.id === profile.id ||
-						profile.youAreFollowing === undefined ||
-						profile.youAreFollowing === null ? null : (
-							<div className={`ml-auto`}>
-								<Button
-									onClick={() => {
-										wsend({
-											op: "follow",
-											d: {
-												userId: profile.id,
-												value: !profile.youAreFollowing,
-											},
-										});
-										onFollowUpdater(setCurrentRoom, me, profile);
-										const fn = isFollowing ? setFollowingMap : setFollowerMap;
-										fn((m) => ({
-											...m,
-											[userId]: {
-												users: m[userId].users.map((u) => {
-													if (profile.id === u.id) {
-														return {
-															...u,
-															youAreFollowing: !profile.youAreFollowing,
-														};
-													}
-													return u;
-												}),
-												nextCursor: m[userId].nextCursor,
-												loading: false,
-											},
-										}));
-									}}
-									variant="small"
-								>
-									{profile.youAreFollowing ? "following" : "follow"}
-								</Button>
-							</div>
-						)}
-					</div>
-				))}
-				{nextCursor ? (
-					<div className={`flex justify-center my-10`}>
-						<Button
-							variant="small"
-							onClick={() =>
-								wsend({
-									op: `fetch_follow_list`,
-									d: { isFollowing, userId, cursor: nextCursor },
-								})
-							}
-						>
-							{t("common.loadMore")}
-						</Button>
-					</div>
-				) : null}
-			</BodyWrapper>
-		</Wrapper>
-	);
+  return (
+    <Wrapper>
+      <Backbar actuallyGoBack />
+      <BodyWrapper>
+        {!users.length ? <div>{t("common.noUsersFound")}</div> : null}
+        {users.map((profile) => (
+          <div
+            className={`border-b border-solid border-simple-gray-3c flex py-4 px-2 items-center`}
+            key={profile.id}
+          >
+            <button onClick={() => history.push(`/user`, profile)}>
+              <Avatar src={profile.avatarUrl} />
+            </button>
+            <button
+              onClick={() => history.push(`/user`, profile)}
+              className={`ml-8`}
+            >
+              <div className={`text-lg`}>{profile.displayName}</div>
+              <div style={{ color: "" }}>@{profile.username}</div>
+            </button>
+            {me?.id === profile.id ||
+            profile.youAreFollowing === undefined ||
+            profile.youAreFollowing === null ? null : (
+              <div className={`ml-auto`}>
+                <Button
+                  onClick={() => {
+                    wsend({
+                      op: "follow",
+                      d: {
+                        userId: profile.id,
+                        value: !profile.youAreFollowing,
+                      },
+                    });
+                    onFollowUpdater(setCurrentRoom, me, profile);
+                    const fn = isFollowing ? setFollowingMap : setFollowerMap;
+                    fn((m) => ({
+                      ...m,
+                      [userId]: {
+                        users: m[userId].users.map((u) => {
+                          if (profile.id === u.id) {
+                            return {
+                              ...u,
+                              youAreFollowing: !profile.youAreFollowing,
+                            };
+                          }
+                          return u;
+                        }),
+                        nextCursor: m[userId].nextCursor,
+                        loading: false,
+                      },
+                    }));
+                  }}
+                  variant="small"
+                >
+                  {profile.youAreFollowing ? "following" : "follow"}
+                </Button>
+              </div>
+            )}
+          </div>
+        ))}
+        {nextCursor ? (
+          <div className={`flex justify-center my-10`}>
+            <Button
+              variant="small"
+              onClick={() =>
+                wsend({
+                  op: `fetch_follow_list`,
+                  d: { isFollowing, userId, cursor: nextCursor },
+                })
+              }
+            >
+              {t("common.loadMore")}
+            </Button>
+          </div>
+        ) : null}
+      </BodyWrapper>
+    </Wrapper>
+  );
 };

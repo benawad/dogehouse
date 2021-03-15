@@ -23,120 +23,120 @@ interface UserProfileProps {
 export const UserProfile: React.FC<UserProfileProps> = ({
   profile: userProfile,
 }) => {
-	const history = useHistory();
-	const { me } = useMeQuery();
-	const { setCurrentRoom } = useCurrentRoomStore();
-	// if you edit your profile, me will be updated so we want to use that
-	const profile: BaseUser | RoomUser =
-		me?.id === userProfile.id ? me : userProfile;
-	const [youAreFollowing, setYouAreFollowing] = useState(
-		"youAreFollowing" in profile ? profile.youAreFollowing : false
-	);
-	const _youAreFollowing =
-		"youAreFollowing" in profile && profile.youAreFollowing;
-	useEffect(() => {
-		if (_youAreFollowing) {
-			setYouAreFollowing(_youAreFollowing);
-		}
-	}, [_youAreFollowing]);
-	const [editProfileModalOpen, setEditProfileModalOpen] = useState(false);
-	const { t } = useTypeSafeTranslation();
-	const [count, setCount] = useState(0);
-	const [, setFollowerMap] = useAtom(followerMapAtom);
-	const [, setFollowingMap] = useAtom(followingMapAtom);
+  const history = useHistory();
+  const { me } = useMeQuery();
+  const { setCurrentRoom } = useCurrentRoomStore();
+  // if you edit your profile, me will be updated so we want to use that
+  const profile: BaseUser | RoomUser =
+    me?.id === userProfile.id ? me : userProfile;
+  const [youAreFollowing, setYouAreFollowing] = useState(
+    "youAreFollowing" in profile ? profile.youAreFollowing : false
+  );
+  const _youAreFollowing =
+    "youAreFollowing" in profile && profile.youAreFollowing;
+  useEffect(() => {
+    if (_youAreFollowing) {
+      setYouAreFollowing(_youAreFollowing);
+    }
+  }, [_youAreFollowing]);
+  const [editProfileModalOpen, setEditProfileModalOpen] = useState(false);
+  const { t } = useTypeSafeTranslation();
+  const [count, setCount] = useState(0);
+  const [, setFollowerMap] = useAtom(followerMapAtom);
+  const [, setFollowingMap] = useAtom(followingMapAtom);
 
-	const fetchFollowList = (isFollowing: boolean) => {
-		const fn = isFollowing ? setFollowingMap : setFollowerMap;
-		wsend({
-			op: `fetch_follow_list`,
-			d: { isFollowing, userId: profile.id, cursor: 0 },
-		});
-		fn((m) => ({
-			...m,
-			[profile.id]: {
-				...m[profile.id],
-				loading: true,
-			},
-		}));
-		history.push(`/${isFollowing ? "following" : "followers"}/${profile.id}`);
-	};
-	
-	return (
-		<>
-			<EditProfileModal
-				user={profile}
-				isOpen={editProfileModalOpen}
-				onRequestClose={() => setEditProfileModalOpen(false)}
-			/>
-			<div className={`mb-4 flex justify-between align-center`}>
-				<div
-					onClick={() => {
-						if (count >= 4) {
-							toast("debug mode activated for this user", { type: "info" });
-							useConsumerStore.getState().startDebugging(userProfile.id);
-						} else {
-							setCount((c) => c + 1);
-						}
-					}}
-				>
-					<Avatar src={profile.avatarUrl} />
-				</div>
-				{me?.id === profile.id ? (
-					<div>
-						<Button
-							onClick={() => {
-								setEditProfileModalOpen(true);
-							}}
-							variant="small"
-						>
-							{t("pages.viewUser.editProfile")}
-						</Button>
-					</div>
-				) : null}
-				{me?.id === profile.id ||
-				userProfile.youAreFollowing === null ||
-				userProfile.youAreFollowing === undefined ? null : (
-					<div>
-						<Button
-							onClick={() => {
-								wsend({
-									op: "follow",
-									d: {
-										userId: profile.id,
-										value: !youAreFollowing,
-									},
-								});
-								setYouAreFollowing(!youAreFollowing);
-								onFollowUpdater(setCurrentRoom, me, profile);
-							}}
-							variant="small"
-						>
-							{youAreFollowing ? "following" : "follow"}
-						</Button>
-					</div>
-				)}
-			</div>
-			<div className={`font-semibold`}>{profile.displayName}</div>
-			<div className={`my-1 flex`}>
-				<div>@{profile.username}</div>
-				{me?.id !== profile.id && userProfile.followsYou ? (
-					<div className={`ml-2 text-simple-gray-3d`}>
-						{t("pages.viewUser.followsYou")}
-					</div>
-				) : null}
-			</div>
-			<div className={`flex my-4`}>
-				<button	onClick={() => fetchFollowList(false)} className={`mr-3`}>
-					<span className={`font-bold`}>{profile.numFollowers}</span>{" "}
-					{t("pages.viewUser.followers")}
-				</button>
-				<button onClick={() => fetchFollowList(true)}>
-					<span className={`font-bold`}>{profile.numFollowing}</span>{" "}
-					{t("pages.viewUser.following")}
-				</button>
-			</div>
-			<div className="mb-4 whitespace-pre-wrap break-all">
-			{profile.bio?.split(/\n/gm).map((line, i) => {
+  const fetchFollowList = (isFollowing: boolean) => {
+    const fn = isFollowing ? setFollowingMap : setFollowerMap;
+    wsend({
+      op: `fetch_follow_list`,
+      d: { isFollowing, userId: profile.id, cursor: 0 },
+    });
+    fn((m) => ({
+      ...m,
+      [profile.id]: {
+        ...m[profile.id],
+        loading: true,
+      },
+    }));
+    history.push(`/${isFollowing ? "following" : "followers"}/${profile.id}`);
+  };
+
+  return (
+    <>
+      <EditProfileModal
+        user={profile}
+        isOpen={editProfileModalOpen}
+        onRequestClose={() => setEditProfileModalOpen(false)}
+      />
+      <div className={`mb-4 flex justify-between align-center`}>
+        <div
+          onClick={() => {
+            if (count >= 4) {
+              toast("debug mode activated for this user", { type: "info" });
+              useConsumerStore.getState().startDebugging(userProfile.id);
+            } else {
+              setCount((c) => c + 1);
+            }
+          }}
+        >
+          <Avatar src={profile.avatarUrl} />
+        </div>
+        {me?.id === profile.id ? (
+          <div>
+            <Button
+              onClick={() => {
+                setEditProfileModalOpen(true);
+              }}
+              variant="small"
+            >
+              {t("pages.viewUser.editProfile")}
+            </Button>
+          </div>
+        ) : null}
+        {me?.id === profile.id ||
+        userProfile.youAreFollowing === null ||
+        userProfile.youAreFollowing === undefined ? null : (
+          <div>
+            <Button
+              onClick={() => {
+                wsend({
+                  op: "follow",
+                  d: {
+                    userId: profile.id,
+                    value: !youAreFollowing,
+                  },
+                });
+                setYouAreFollowing(!youAreFollowing);
+                onFollowUpdater(setCurrentRoom, me, profile);
+              }}
+              variant="small"
+            >
+              {youAreFollowing ? "following" : "follow"}
+            </Button>
+          </div>
+        )}
+      </div>
+      <div className={`font-semibold`}>{profile.displayName}</div>
+      <div className={`my-1 flex`}>
+        <div>@{profile.username}</div>
+        {me?.id !== profile.id && userProfile.followsYou ? (
+          <div className={`ml-2 text-simple-gray-3d`}>
+            {t("pages.viewUser.followsYou")}
+          </div>
+        ) : null}
+      </div>
+      <div className={`flex my-4`}>
+        <button onClick={() => fetchFollowList(false)} className={`mr-3`}>
+          <span className={`font-bold`}>{profile.numFollowers}</span>{" "}
+          {t("pages.viewUser.followers")}
+        </button>
+        <button onClick={() => fetchFollowList(true)}>
+          <span className={`font-bold`}>{profile.numFollowing}</span>{" "}
+          {t("pages.viewUser.following")}
+        </button>
+      </div>
+      <div className="mb-4 whitespace-pre-wrap break-all">
+        {profile.bio?.split(/\n/gm).map((line, i) => {
           return (
             <div key={i}>
               <span>

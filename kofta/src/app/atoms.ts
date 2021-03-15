@@ -31,24 +31,24 @@ export const userSearchAtom = atom<{
 
 export const setFollowingOnlineAtom = createSetter(followingOnlineAtom);
 export const followerMapAtom = atom<
-	Record<
-		string,
-		{
-			users: UserWithFollowInfo[];
-			nextCursor: number | null;
-			loading: boolean;
-		}
-	>
+  Record<
+    string,
+    {
+      users: UserWithFollowInfo[];
+      nextCursor: number | null;
+      loading: boolean;
+    }
+  >
 >({});
 export const followingMapAtom = atom<
-	Record<
-		string,
-		{
-			users: UserWithFollowInfo[];
-			nextCursor: number | null;
-			loading: boolean;
-		}
-	>
+  Record<
+    string,
+    {
+      users: UserWithFollowInfo[];
+      nextCursor: number | null;
+      loading: boolean;
+    }
+  >
 >({});
 
 export const setFollowingMapAtom = createSetter(followingMapAtom);
