@@ -6,7 +6,7 @@ import { __prod__ } from "./app/constants";
 import { isDate } from "lodash";
 
 const DETECTION_OPTIONS = {
-  order: ["navigator"],
+  order: ["localStorage", "navigator"],
 };
 
 export const init_i18n = () => {
