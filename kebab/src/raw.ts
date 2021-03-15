@@ -22,7 +22,7 @@ export type Connection = {
   addListener: (opcode: Opcode, handler: ListenerHandler) => void;
   user: User;
   send: (opcode: Opcode, data: object, fetchId?: FetchID) => void;
-  fetch: (opcode: Opcode, data: object, doneOpcode: Opcode) => Promise<object>;
+  fetch: (opcode: Opcode, data: object, doneOpcode?: Opcode) => Promise<object>;
 };
 
 export const connect = (
