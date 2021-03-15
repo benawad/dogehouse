@@ -10,6 +10,7 @@ import { RegisterKeybinds } from "./util";
 
 let mainWindow: BrowserWindow;
 export const __prod__ = app.isPackaged;
+const instanceLock = app.requestSingleInstanceLock();
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -48,9 +49,20 @@ function createWindow() {
   });
 }
 
-app.on("ready", () => {
-  createWindow();
-});
+if (!instanceLock) {
+  app.quit()
+} else {
+  app.on("ready", () => {
+    createWindow();
+  });
+  app.on('second-instance', (event, commandLine, workingDirectory) => {
+    if (mainWindow) {
+      if (mainWindow.isMinimized()) mainWindow.restore()
+      mainWindow.focus()
+    }
+  })
+}
+
 app.on("window-all-closed", () => {
   app.quit();
 });
