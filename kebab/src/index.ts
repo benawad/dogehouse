@@ -1,1 +1,1 @@
-export * from "./raw";
+export * as raw from "./raw";
