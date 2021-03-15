@@ -1,7 +1,10 @@
 import {
     ipcMain,
     globalShortcut,
-    BrowserWindow
+    BrowserWindow,
+    Menu,
+    MenuItem,
+    Tray
 } from "electron";
 import {
     CHAT_KEY,
@@ -10,9 +13,12 @@ import {
     PTT_KEY,
     REQUEST_TO_SPEAK_KEY,
     KEY_TABLE,
-    IOHookEvent
+    IOHookEvent,
+    VOICE_MENU_ID,
+    MENU_TEMPLATE,
 } from "./constants";
 import ioHook from "iohook";
+import { MenuItemConstructorOptions } from "electron/main";
 
 export let CURRENT_REQUEST_TO_SPEAK_KEY = "Control+8";
 export let CURRENT_INVITE_KEY = "Control+7";
@@ -110,7 +116,7 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
             mainWindow.webContents.send("PTT_STATUS_CHANGE", !PTT);
         }
     })
-    
+
     ioHook.on("keyup", (event: IOHookEvent) => {
         if (event.shiftKey) {
             if (CURRENT_PTT_KEY.includes("Shift")) {
@@ -147,4 +153,36 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
 
     ioHook.start();
 
+}
+
+export async function HandleVoiceMenu(mainWindow: BrowserWindow) {
+    const tray = new Tray("./icons/icon.ico");
+    let TRAY_MENU: any = [
+        {
+            label: "Quit Dogehouse",
+            click: () => {
+                mainWindow.close();
+            },
+        },
+    ];
+    let MUTE_TOGGLE = {
+        label: 'Toggle Mute',
+        click: () => {
+            mainWindow.webContents.send(MUTE_KEY, "Toggled mute from Menu");
+        }
+    };
+
+    // create system tray
+    tray.setToolTip("Taking voice conversations to the moon 🚀");
+    tray.on("click", () => {
+        mainWindow.focus();
+    });
+
+    ipcMain.on("@voice/active", (event, isActive: boolean) => {
+        if (isActive) {
+            TRAY_MENU.append(MUTE_TOGGLE);
+        }
+        let contextMenu = Menu.buildFromTemplate(TRAY_MENU);
+        tray.setContextMenu(contextMenu);
+    });
 }
