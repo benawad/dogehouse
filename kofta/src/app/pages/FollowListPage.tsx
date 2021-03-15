@@ -9,6 +9,7 @@ import { Avatar } from "../components/Avatar";
 import { Backbar } from "../components/Backbar";
 import { BodyWrapper } from "../components/BodyWrapper";
 import { Button } from "../components/Button";
+import { Spinner } from "../components/Spinner";
 import { Wrapper } from "../components/Wrapper";
 import { onFollowUpdater } from "../utils/onFollowUpdater";
 import { useMeQuery } from "../utils/useMeQuery";
@@ -36,6 +37,21 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
   const nextCursor = isFollowing
     ? followingMap[userId]?.nextCursor
     : followerMap[userId]?.nextCursor;
+
+  const loading = isFollowing
+    ? followingMap[userId]?.loading
+    : followerMap[userId]?.loading;
+
+  if (loading) {
+    return (
+      <Wrapper>
+        <Backbar actuallyGoBack />
+        <BodyWrapper>
+          <Spinner centered />
+        </BodyWrapper>
+      </Wrapper>
+    );
+  }
 
   return (
     <Wrapper>
@@ -85,6 +101,7 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
                           return u;
                         }),
                         nextCursor: m[userId].nextCursor,
+                        loading: false,
                       },
                     }));
                   }}

@@ -36,6 +36,7 @@ export const followerMapAtom = atom<
     {
       users: UserWithFollowInfo[];
       nextCursor: number | null;
+      loading: boolean;
     }
   >
 >({});
@@ -45,6 +46,7 @@ export const followingMapAtom = atom<
     {
       users: UserWithFollowInfo[];
       nextCursor: number | null;
+      loading: boolean;
     }
   >
 >({});
