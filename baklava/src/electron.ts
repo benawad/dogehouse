@@ -11,12 +11,18 @@ import {
 import iohook from "iohook";
 import { RegisterKeybinds } from "./util";
 import { ALLOWED_HOSTS } from "./constants";
+import url from 'url'
+import path from 'path'
+
 let mainWindow: BrowserWindow;
 let tray: Tray;
-export const __prod__ = app.isPackaged;
+export const __prod__ = true; // app.isPackaged
 const instanceLock = app.requestSingleInstanceLock();
 
-//
+// create splash screen
+let splash
+
+// create window
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 560,
@@ -25,7 +31,18 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
     },
+    show: false
   });
+
+  // set splash screen
+  splash = new BrowserWindow({width: 810, height: 610, frame: false, transparent: true, alwaysOnTop: true});
+  console.log(`${__dirname}../splash-screen.html`)
+  splash.loadURL(url.format({
+    pathname: path.join(`${__dirname}`, '../splash-screen.html'),
+    protocol:"file:",
+    slashes: true
+  }))
+
   console.log(systemPreferences.getMediaAccessStatus("microphone"));
   // crashes on mac
   // systemPreferences.askForMediaAccess("microphone");
@@ -35,6 +52,13 @@ function createWindow() {
   mainWindow.loadURL(
     __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/"
   );
+
+  setTimeout(() => 
+  mainWindow.once('ready-to-show', () => {
+    splash.destroy();
+    mainWindow.show();
+  }), 
+  2000)
 
   ipcMain.on("request-mic", async (event, _serviceName) => {
     const isAllowed: boolean = await systemPreferences.askForMediaAccess(
