@@ -15,6 +15,13 @@
   "keywords": [],
   "author": "Ben Awad <benawadapps@gmail.com>",
   "homepage": "https://github.com/benawad/dogehouse/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benawad/dogehouse"
+  },
+  "bugs": {
+    "url": "https://github.com/benawad/dogehouse/issues"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^14.14.31",
