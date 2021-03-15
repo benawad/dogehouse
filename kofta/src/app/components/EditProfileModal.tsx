@@ -11,6 +11,7 @@ import { FieldSpacer } from "./form-fields/FieldSpacer";
 import { InputField } from "./form-fields/InputField";
 import { Modal } from "./Modal";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
+import { getBadWords } from "../utils/getBadWords";
 
 const profileStruct = object({
 	displayName: size(string(), 2, 50),
@@ -67,7 +68,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
 							showErrorToast(
 								t("components.modals.editProfileModal.usernameTaken")
 							);
-						} else if (myarr.indexOf(data.username) > -1) {
+						} else if (getBadWords().indexOf(data.username) > -1) {
 							showErrorToast(
 								t("components.modals.editProfileModal.usernameInvalid")
 							);
