@@ -44,8 +44,9 @@ export const connect = (
   };
 
   const listeners: Listener[] = [];
-  const runListener = (listener: Listener, data: object, fetchId: FetchID) => {
-    const remove = listener.handler(data, fetchId);
+  const runListener = async (listener: Listener, data: object, fetchId: FetchID) => {
+    const result = listener.handler(data, fetchId);
+    const remove = result instanceof Promise ? !!await result : !!result;
     if(remove) listeners.splice(listeners.indexOf(listener), 1);
   };
 
