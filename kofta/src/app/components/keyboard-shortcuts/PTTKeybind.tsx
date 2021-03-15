@@ -5,7 +5,7 @@ import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
 import { Button } from "../Button";
 
 interface PTTKeybindProps {
-	className?: string;
+  className?: string;
 }
 
 export const PTTKeybind: React.FC<PTTKeybindProps> = ({ className }) => {
@@ -23,9 +23,9 @@ export const PTTKeybind: React.FC<PTTKeybindProps> = ({ className }) => {
         setPTTKeybind(id as string);
       });
 
-			return () => unsub();
-		}
-	}, [count, setPTTKeybind]);
+      return () => unsub();
+    }
+  }, [count, setPTTKeybind]);
 
   return (
     <div className={`flex items-center ${className}`}>

@@ -2,7 +2,7 @@ defmodule Beef.RoomBlocks do
   import Ecto.Query
   alias Kousa.Utils.Pagination
   alias Beef.Schemas.User
-  alias Beef.Schema.RoomBlock
+  alias Beef.Schemas.RoomBlock
   alias Beef.Repo
 
   def unban(room_id, user_id) do

@@ -17,26 +17,26 @@ import { useMeQuery } from "../utils/useMeQuery";
 interface FollowListPageProps {}
 
 export const FollowListPage: React.FC<FollowListPageProps> = () => {
-	const { pathname } = useLocation();
-	const {
-		params: { userId },
-	} = useRouteMatch<{ userId: string }>();
-	const [followerMap, setFollowerMap] = useAtom(followerMapAtom);
-	const [followingMap, setFollowingMap] = useAtom(followingMapAtom);
-	const { me } = useMeQuery();
-	const { setCurrentRoom } = useCurrentRoomStore();
-	const history = useHistory();
-	const { t } = useTypeSafeTranslation();
+  const { pathname } = useLocation();
+  const {
+    params: { userId },
+  } = useRouteMatch<{ userId: string }>();
+  const [followerMap, setFollowerMap] = useAtom(followerMapAtom);
+  const [followingMap, setFollowingMap] = useAtom(followingMapAtom);
+  const { me } = useMeQuery();
+  const { setCurrentRoom } = useCurrentRoomStore();
+  const history = useHistory();
+  const { t } = useTypeSafeTranslation();
 
-	const isFollowing = pathname.startsWith("/following");
+  const isFollowing = pathname.startsWith("/following");
 
-	const users = isFollowing
-		? followingMap[userId]?.users || []
-		: followerMap[userId]?.users || [];
+  const users = isFollowing
+    ? followingMap[userId]?.users || []
+    : followerMap[userId]?.users || [];
 
-	const nextCursor = isFollowing
-		? followingMap[userId]?.nextCursor
-		: followerMap[userId]?.nextCursor;
+  const nextCursor = isFollowing
+    ? followingMap[userId]?.nextCursor
+    : followerMap[userId]?.nextCursor;
 
 	const loading = isFollowing
 		? followingMap[userId]?.loading

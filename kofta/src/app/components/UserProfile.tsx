@@ -17,11 +17,11 @@ import { Button } from "./Button";
 import { EditProfileModal } from "./EditProfileModal";
 
 interface UserProfileProps {
-	profile: RoomUser;
+  profile: RoomUser;
 }
 
 export const UserProfile: React.FC<UserProfileProps> = ({
-	profile: userProfile,
+  profile: userProfile,
 }) => {
 	const history = useHistory();
 	const { me } = useMeQuery();
@@ -163,7 +163,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
             </div>
           );
         })}
-			</div>
-		</>
-	);
+      </div>
+    </>
+  );
 };
