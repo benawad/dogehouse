@@ -16,7 +16,7 @@ import path from "path";
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
-export const __prod__ = true;
+export const __prod__ = app.isPackaged;
 const instanceLock = app.requestSingleInstanceLock();
 
 let splash;
