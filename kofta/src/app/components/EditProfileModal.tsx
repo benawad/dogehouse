@@ -67,7 +67,12 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
 							showErrorToast(
 								t("components.modals.editProfileModal.usernameTaken")
 							);
-						} else {
+						} else if (data.username) {
+							showErrorToast(
+								t("components.addToCalendar.add")
+							);
+						}
+						else {
 							queryClient.setQueryData<{ user: BaseUser } | undefined>(
 								auth_query,
 								(x) =>

@@ -133,6 +133,7 @@
 			},
 			"editProfileModal": {
 				"usernameTaken": "nombre de usuario tomado",
+				"usernameInvalid": "nombre de usario es no valido",
 				"avatarUrlError": "Imagen inválida",
 				"avatarUrlLabel": "Github/Twitter avatar url",
 				"displayNameError": "longitud de 2 a 50 caracteres",
