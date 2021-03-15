@@ -40,7 +40,8 @@
 		},
 		"followList": {},
 		"home": {
-			"createRoom": "Create Room"
+			"createRoom": "Create Room",
+			"refresh": "Refresh"
 		},
 		"inviteList": {
 			"roomGone": "room gone, go back",

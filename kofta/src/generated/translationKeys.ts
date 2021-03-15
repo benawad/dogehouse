@@ -25,6 +25,7 @@ export type TranslationKeys =
   | "pages.followingOnlineList.currentRoom"
   | "pages.followingOnlineList.startPrivateRoom"
   | "pages.home.createRoom"
+  | "pages.home.refresh"
   | "pages.inviteList.roomGone"
   | "pages.inviteList.shareRoomLink"
   | "pages.inviteList.inviteFollowers"
