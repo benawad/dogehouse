@@ -134,3 +134,13 @@ export interface IOHookEvent {
     rawcode: number,
     type: 'keyup' | 'keydown'
 }
+
+export const ALLOWED_HOSTS = [
+    "dogehouse.tv",
+    "api.dogehouse.tv",
+    "dogehouse.tv",
+    "github.com",
+    "localhost",
+    "staging.dogehouse.tv",
+    "doge-staging.stripcode.dev",
+]

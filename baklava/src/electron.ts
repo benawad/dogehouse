@@ -4,10 +4,11 @@ import {
   systemPreferences,
   ipcMain,
   globalShortcut,
+  shell
 } from "electron";
 import iohook from "iohook";
 import { RegisterKeybinds } from "./util";
-
+import { ALLOWED_HOSTS } from "./constants";
 let mainWindow: BrowserWindow;
 export const __prod__ = app.isPackaged;
 const instanceLock = app.requestSingleInstanceLock();
@@ -27,7 +28,7 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
   }
   mainWindow.loadURL(
-    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/"
+    __prod__ ? `https://dogehouse.tv/` : "https://dogehouse.tv/"
   );
 
   ipcMain.on("request-mic", async (event, _serviceName) => {
@@ -47,6 +48,17 @@ function createWindow() {
     iohook.unload();
     mainWindow.destroy();
   });
+
+  // handling external links
+  const handleLinks = (event: any, url: string) => {
+    let urlHost = new URL(url).hostname;
+    if (!ALLOWED_HOSTS.includes(urlHost)) {
+      event.preventDefault()
+      shell.openExternal(url)
+    }
+  }
+  mainWindow.webContents.on('new-window', handleLinks);
+  mainWindow.webContents.on('will-navigate', handleLinks);
 }
 
 if (!instanceLock) {
