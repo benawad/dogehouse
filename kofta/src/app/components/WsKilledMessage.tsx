@@ -8,26 +8,26 @@ import { Wrapper } from "./Wrapper";
 interface WsKilledMessageProps {}
 
 export const WsKilledMessage: React.FC<WsKilledMessageProps> = ({}) => {
-	const { t } = useTypeSafeTranslation();
+  const { t } = useTypeSafeTranslation();
 
-	return (
-		<div className="flex items-center h-full justify-around">
-			<CenterLayout>
-				<Wrapper>
-					<div className={`px-4`}>
-						<div className={`mb-4 mt-8 text-xl`}>
-							{t("components.wsKilled.description")}
-						</div>
-						<Button
-							onClick={() => {
-								createWebSocket(true);
-							}}
-						>
-							{t("components.wsKilled.reconnect")}
-						</Button>
-					</div>
-				</Wrapper>
-			</CenterLayout>
-		</div>
-	);
+  return (
+    <div className="flex items-center h-full justify-around">
+      <CenterLayout>
+        <Wrapper>
+          <div className={`px-4`}>
+            <div className={`mb-4 mt-8 text-xl`}>
+              {t("components.wsKilled.description")}
+            </div>
+            <Button
+              onClick={() => {
+                createWebSocket(true);
+              }}
+            >
+              {t("components.wsKilled.reconnect")}
+            </Button>
+          </div>
+        </Wrapper>
+      </CenterLayout>
+    </div>
+  );
 };

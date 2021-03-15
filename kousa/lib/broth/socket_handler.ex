@@ -431,11 +431,11 @@ defmodule Broth.SocketHandler do
     {:ok, state}
   end
 
-  def handler("delete_account", _data, %State{} = state) do
-    Kousa.User.delete(state.user_id)
-    # this will log the user out
-    {:reply, {:close, 4001, "invalid_authentication"}, state}
-  end
+  # def handler("delete_account", _data, %State{} = state) do
+  #   Kousa.User.delete(state.user_id)
+  #   # this will log the user out
+  #   {:reply, {:close, 4001, "invalid_authentication"}, state}
+  # end
 
   def handler(
         "delete_room_chat_message",
@@ -771,6 +771,7 @@ defmodule Broth.SocketHandler do
     case UUID.cast(id_or_username) do
       {:ok, uuid} ->
         Beef.Users.get_by_id(uuid)
+
       _ ->
         Beef.Users.get_by_username(id_or_username)
     end
