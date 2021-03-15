@@ -1,4 +1,4 @@
-name: remote ssh command
+name: backend-run-tests
 on:
   push:
     paths:
