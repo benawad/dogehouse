@@ -64,7 +64,7 @@ export const createChatMessage = (
       // if is block token
       if (item.endsWith("`")) {
         // check if the block is empty, and remove it
-        if (item.replaceAll("`", "") === "") {
+        if (!item.replaceAll("`", "")) {
           tokens.pop()
         }
         isBlock = false;
