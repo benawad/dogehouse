@@ -1,7 +1,7 @@
-# STEP 1 - DEPS GETTER
+# STEP 1 - BUILD RELEASE 
 FROM hexpm/elixir:1.11.3-erlang-23.2.7-alpine-3.13.2 AS build
 
-# Install dependencies
+# Install build dependencies
 RUN apk update && \
     apk upgrade --no-cache && \
     apk add --no-cache \
@@ -14,9 +14,9 @@ RUN apk update && \
     mix local.hex --force
 
 ENV MIX_ENV=prod
-
 WORKDIR /app
 
+# Install elixir package dependencies
 COPY mix.exs /app/mix.exs
 COPY mix.lock /app/mix.lock
 RUN mix do deps.get --only $MIX_ENV, deps.compile
@@ -26,9 +26,11 @@ COPY config /app/config
 COPY priv /app/priv
 COPY lib /app/lib
 
+# compile app and create release
 RUN mix do compile, release
 
-# prepare release image
+####################################################################################################
+# STEP 2 - FINAL
 FROM alpine:3.13.2 as app
 RUN apk add --no-cache openssl ncurses-libs
 
