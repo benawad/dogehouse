@@ -75,7 +75,7 @@ function createWindow() {
   RegisterKeybinds(mainWindow);
 
   // starting the custom voice menu handler
-  HandleVoiceMenu(mainWindow);
+  HandleVoiceTray(mainWindow);
 
   // graceful exiting
   mainWindow.on("closed", () => {

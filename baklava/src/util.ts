@@ -14,7 +14,6 @@ import {
     REQUEST_TO_SPEAK_KEY,
     KEY_TABLE,
     IOHookEvent,
-    VOICE_MENU_ID,
     MENU_TEMPLATE,
 } from "./constants";
 import ioHook from "iohook";
@@ -113,7 +112,7 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
         let PTT = PTT_STATUS.every((key_status) => key_status === true);
         if (PTT != PTT_PREV_STATUS) {
             PTT_PREV_STATUS = PTT;
-            mainWindow.webContents.send("PTT_STATUS_CHANGE", !PTT);
+            mainWindow.webContents.send("@voice/ptt_status_change", !PTT);
         }
     })
 
@@ -147,7 +146,7 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
         let PTT = PTT_STATUS.every((key_status) => key_status === true);
         if (PTT != PTT_PREV_STATUS) {
             PTT_PREV_STATUS = PTT;
-            mainWindow.webContents.send("PTT_STATUS_CHANGE", !PTT);
+            mainWindow.webContents.send("@voice/ptt_status_change", !PTT);
         }
     });
 
@@ -155,7 +154,7 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
 
 }
 
-export async function HandleVoiceMenu(mainWindow: BrowserWindow) {
+export async function HandleVoiceTray(mainWindow: BrowserWindow) {
     const tray = new Tray("./icons/icon.ico");
     let TRAY_MENU: any = [
         {
