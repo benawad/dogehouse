@@ -31,5 +31,6 @@ jobs:
       with:
         otp-version: '22.2'
         elixir-version: '1.11'
+    - run: cd kousa
     - run: mix deps.get
     - run: mix test
