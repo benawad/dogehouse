@@ -155,7 +155,7 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
 }
 
 export async function HandleVoiceTray(mainWindow: BrowserWindow) {
-    const tray = new Tray("./icons/icon.ico");
+    const tray = new Tray("./icons/tray.png");
     let TRAY_MENU: any = [
         {
             label: "Quit Dogehouse",
@@ -163,13 +163,14 @@ export async function HandleVoiceTray(mainWindow: BrowserWindow) {
                 mainWindow.close();
             },
         },
+        {
+            label: 'Toggle Mute',
+            click: () => {
+                mainWindow.webContents.send(MUTE_KEY, "Toggled mute from Menu");
+            }
+        },
     ];
-    let MUTE_TOGGLE = {
-        label: 'Toggle Mute',
-        click: () => {
-            mainWindow.webContents.send(MUTE_KEY, "Toggled mute from Menu");
-        }
-    };
+
 
     // create system tray
     tray.setToolTip("Taking voice conversations to the moon 🚀");
@@ -177,11 +178,15 @@ export async function HandleVoiceTray(mainWindow: BrowserWindow) {
         mainWindow.focus();
     });
 
+    let contextMenu = Menu.buildFromTemplate([TRAY_MENU[0]]);
+    tray.setContextMenu(contextMenu);
+
     ipcMain.on("@voice/active", (event, isActive: boolean) => {
         if (isActive) {
-            TRAY_MENU.append(MUTE_TOGGLE);
+            contextMenu = Menu.buildFromTemplate([TRAY_MENU[1], TRAY_MENU[0]]);
+        } else {
+            contextMenu = Menu.buildFromTemplate([TRAY_MENU[0]]);
         }
-        let contextMenu = Menu.buildFromTemplate(TRAY_MENU);
         tray.setContextMenu(contextMenu);
     });
 }
