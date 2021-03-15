@@ -1,21 +1,19 @@
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict';
 import differenceInMinutes from 'date-fns/differenceInMinutes';
-import { RefObject, useEffect, useState } from 'react';
-import { Room } from '../types';
+import { useEffect, useState } from 'react';
 
-export const useTimeElapsed = (roomRef: RefObject<Room>) => {
+export const useTimeElapsed = (startDate: Date | null) => {
     const [timeElapsed, setTimeElapsed] = useState("");
     const [rocketIcon, setRocketIcon] = useState("");
     const [rocketStatus, setRocketStatus] = useState("");
 
-    const updateTime = (roomRef: RefObject<Room>) => {
-        if (!roomRef.current) {
+    const updateTime = (startDate: Date | null) => {
+        if (!startDate) {
             return;
         }
-        const roomDate = new Date(roomRef.current.inserted_at);
-        const timeDiff = differenceInMinutes(new Date(), roomDate);
+        const timeDiff = differenceInMinutes(new Date(), startDate);
 
-        setTimeElapsed(formatDistanceToNowStrict(roomDate, 
+        setTimeElapsed(formatDistanceToNowStrict(startDate, 
             { unit: timeDiff > 120 ? undefined : "minute" }
         ));
 
@@ -25,16 +23,16 @@ export const useTimeElapsed = (roomRef: RefObject<Room>) => {
         } else if (timeDiff < 60) {
             setRocketIcon("🚀");
             setRocketStatus("Taking off");
-        } else if (timeDiff < 120) {
+        } else if (timeDiff < 240) {
             setRocketIcon("🚀✨");
             setRocketStatus("In space");
-        } else if (timeDiff < 240) {
+        } else if (timeDiff < 480) {
             setRocketIcon("🚀🌕");
             setRocketStatus("Approaching moon");
-        } else if (timeDiff < 480) {
+        } else if (timeDiff < 1440) {
             setRocketIcon("🌕🐕");
             setRocketStatus("Lunar doge");
-        } else if (timeDiff < 1440) {
+        } else if (timeDiff < 2880) {
             setRocketIcon("🚀☀️");
             setRocketStatus("Approaching sun");
         } else {
@@ -44,10 +42,10 @@ export const useTimeElapsed = (roomRef: RefObject<Room>) => {
     }
 
     useEffect(() => {
-        updateTime(roomRef);
-        const intervalId = setInterval(() => updateTime(roomRef), 10000);
+        updateTime(startDate);
+        const intervalId = setInterval(() => updateTime(startDate), 10000);
         return () => clearInterval(intervalId);
-    }, [roomRef]);
+    }, [startDate]);
 
     return { timeElapsed, rocketIcon, rocketStatus };
 };

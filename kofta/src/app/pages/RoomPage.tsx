@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { Redirect, useRouteMatch } from "react-router-dom";
 import { wsend } from "../../createWebsocket";
 import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
@@ -30,8 +30,8 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
 	} = useRouteMatch<{ id: string }>();
 	const [userProfileId, setUserProfileId] = useState("");
 	const { currentRoom: room } = useCurrentRoomStore();
-	const roomRef = useRef(room);
-	const { timeElapsed, rocketIcon, rocketStatus } = useTimeElapsed(roomRef);
+	const insertedAtDate = useMemo(() => room?.inserted_at ? new Date(room.inserted_at) : null, [room?.inserted_at]);
+	const { timeElapsed, rocketIcon, rocketStatus } = useTimeElapsed(insertedAtDate);
 	const { muted } = useMuteStore();
 	const { me } = useMeQuery();
 	const {
@@ -63,8 +63,6 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
 			</Wrapper>
 		);
 	}
-
-	roomRef.current = room;
 
 	const profile = room.users.find((x) => x.id === userProfileId);
 

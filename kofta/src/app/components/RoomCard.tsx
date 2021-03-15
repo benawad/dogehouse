@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useMemo } from "react";
 import { Codicon } from "../svgs/Codicon";
 import { CurrentRoom, Room } from "../types";
 import { useMeQuery } from "../utils/useMeQuery";
@@ -18,8 +18,8 @@ export const RoomCard: React.FC<RoomProps> = ({
 	currentRoomId,
 }) => {
 	const { me } = useMeQuery();
-	const roomRef = useRef(room);
-	const { rocketIcon } = useTimeElapsed(roomRef);
+	const insertedAtDate = useMemo(() => new Date(room.inserted_at), [room.inserted_at]);
+	const { rocketIcon } = useTimeElapsed(insertedAtDate);
 
 	let n = room.numPeopleInside;
 	const previewNodes = [];
