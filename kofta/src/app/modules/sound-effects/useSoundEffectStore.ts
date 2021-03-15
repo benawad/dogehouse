@@ -2,7 +2,7 @@ import create from "zustand";
 import { combine } from "zustand/middleware";
 
 export const soundEffects = {
-  roomChatMention: "roomChatMention.ogg",
+  roomChatMention: "roomChatMention.wav",
   unmute: "unmute.wav",
   mute: "mute.wav",
   roomInvite: "roomInvite.wav",
