@@ -153,11 +153,7 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
 
 }
 
-export async function HandleVoiceTray(mainWindow: BrowserWindow) {
-    let menu = Menu.buildFromTemplate(MENU_TEMPLATE);
-    Menu.setApplicationMenu(menu);
-
-    const tray = new Tray(path.join(__dirname, `../icons/tray.png`));
+export async function HandleVoiceTray(mainWindow: BrowserWindow, tray: Tray) {
     let TRAY_MENU: any = [
         {
             label: "Quit Dogehouse",
