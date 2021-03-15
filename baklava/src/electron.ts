@@ -3,12 +3,15 @@ import {
   app,
   systemPreferences,
   ipcMain,
-  globalShortcut
+  globalShortcut,
+  Tray,
+  Menu
 } from "electron";
 import iohook from "iohook";
 import { __prod__ } from "./constants";
 import { RegisterKeybinds } from "./util";
 let mainWindow: BrowserWindow;
+let tray: Tray;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -38,6 +41,17 @@ function createWindow() {
 
   // registers global keybinds
   RegisterKeybinds(mainWindow);
+
+  // create system tray
+  tray = new Tray('./icons/icon.ico');
+  tray.setToolTip('Taking voice conversations to the moon 🚀');
+  tray.on('click', () => {
+    mainWindow.focus();
+  });
+  const contextMenu = Menu.buildFromTemplate([
+    { label: 'Quit Dogehouse', click: () => {mainWindow.close()} }
+  ]);
+  tray.setContextMenu(contextMenu);
 
   // graceful exiting
   mainWindow.on("closed", () => {
