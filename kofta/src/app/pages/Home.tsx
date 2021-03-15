@@ -42,7 +42,7 @@ const Page = ({
   const { t } = useTypeSafeTranslation();
   const history = useHistory();
   const { status } = useSocketStatus();
-  const { isLoading, data } = useQuery<PublicRoomsQuery>(
+  const { isLoading, data, refetch } = useQuery<PublicRoomsQuery>(
     [get_top_public_rooms, cursor],
     () =>
       wsFetch<any>({
@@ -53,6 +53,7 @@ const Page = ({
       staleTime: Infinity,
       enabled: status === "auth-good",
       refetchOnMount: "always",
+      refetchInterval: 10000,
     }
   );
 
@@ -65,11 +66,18 @@ const Page = ({
   }
 
   if (isOnlyPage && data.rooms.length === 0) {
-    return null;
+    return (
+      <Button variant="small" onClick={() => refetch()}>
+        {t("pages.home.refresh")}
+      </Button>
+    );
   }
 
   return (
     <>
+      <Button variant="small" onClick={() => refetch()}>
+        {t("pages.home.refresh")}
+      </Button>
       {data.rooms.map((r) =>
         r.id === currentRoom?.id ? null : (
           <div className={`mt-4`} key={r.id}>
