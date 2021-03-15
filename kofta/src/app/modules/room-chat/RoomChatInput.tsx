@@ -117,6 +117,10 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
     }
 
     const tmp = message;
+    const messageData = createChatMessage(tmp, mentions, currentRoom?.users)
+    
+    // dont empty the input, if no tokens
+    if (!messageData.tokens.length) return
     setMessage("");
 
     wsend({

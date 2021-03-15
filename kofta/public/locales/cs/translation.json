@@ -34,7 +34,7 @@
 			"ban": "Zabanovat"
 		},
 		"followingOnlineList": {
-			"listHeader": "Seznam uživatelů které sleduješ a nejsou v soukromé místonosti",
+			"listHeader": "Seznam uživatelů které sleduješ a nejsou v soukromé místnosti",
 			"currentRoom": "Právě v:",
 			"startPrivateRoom": "Otevřít soukromou místnost"
 		},
@@ -130,7 +130,7 @@
 			"inviteToRoom": "pozvat do místnosti"
 		},
 		"micPermissionBanner": {
-			"permissionDenied": "Nemáš povolený mikrofon! Zkus znovu načást stránku.",
+			"permissionDenied": "Nemáš povolený mikrofon! Zkus znovu načíst stránku.",
 			"dismiss": "zavřít",
 			"tryAgain": "zkusit znovu"
 		},
