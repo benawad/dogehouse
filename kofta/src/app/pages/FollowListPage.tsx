@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import React, { useEffect } from "react";
+import React from "react";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 import { useHistory, useLocation, useRouteMatch } from "react-router-dom";
 import { wsend } from "../../createWebsocket";
@@ -29,17 +29,6 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
 	const { t } = useTypeSafeTranslation();
 
 	const isFollowing = pathname.startsWith("/following");
-
-	useEffect(() => {
-    const fn = isFollowing ? setFollowingMap : setFollowerMap;
-    fn((m) => ({
-      ...m,
-      [userId]: {
-        ...m[userId],
-        loading: true,
-      },
-    }));
-	}, [isFollowing, setFollowerMap, setFollowingMap, userId]);
 
 	const users = isFollowing
 		? followingMap[userId]?.users || []
