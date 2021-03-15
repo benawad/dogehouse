@@ -59,8 +59,8 @@
       "logout": "sair",
       "probablyLoading": "possívelmente carregando...",
       "voiceSettings": "ir para configurações de voz",
-      "soundSettings": "ir para configurações de audio",
-      "deleteAccount": "excluír conta"
+      "soundSettings": "ir para configurações de áudio",
+      "deleteAccount": "excluir conta"
     },
     "notFound": {
       "whoopsError": "Ops! Essa página se perdeu na conversa.",
