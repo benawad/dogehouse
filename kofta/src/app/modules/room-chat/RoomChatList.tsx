@@ -150,7 +150,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 												return (
 													<a
 														target="_blank"
-														rel="noreferrer"
+														rel="noreferrer noopener"
 														href={v}
 														className={`flex-1 hover:underline text-blue-500`}
 														key={i}
