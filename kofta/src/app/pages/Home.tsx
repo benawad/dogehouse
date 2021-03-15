@@ -143,7 +143,10 @@ export const Home: React.FC<HomeProps> = () => {
           <div className={`mb-10 mt-8`}>
             <Logo />
           </div>
-          <div className={`mb-6 flex justify-center`} style={{flexWrap: "wrap", gap: "1rem"}}>
+          <div
+            className={`mb-6 flex justify-center`}
+            style={{ flexWrap: "wrap", gap: "1rem" }}
+          >
             <div /* className={`mr-4 px-2.5`} */>
               <CircleButton
                 onClick={() => {
