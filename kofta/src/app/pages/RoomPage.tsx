@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Redirect, useRouteMatch } from "react-router-dom";
 import { wsend } from "../../createWebsocket";
 import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
@@ -18,6 +18,7 @@ import { useShouldFullscreenChat } from "../modules/room-chat/useShouldFullscree
 import { Codicon } from "../svgs/Codicon";
 import { BaseUser } from "../types";
 import { isUuid } from "../utils/isUuid";
+import { useTimeElapsed } from "../utils/timeElapsed";
 import { useMeQuery } from "../utils/useMeQuery";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 
@@ -29,6 +30,8 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
 	} = useRouteMatch<{ id: string }>();
 	const [userProfileId, setUserProfileId] = useState("");
 	const { currentRoom: room } = useCurrentRoomStore();
+	const roomRef = useRef(room);
+	const { timeElapsed, rocketIcon, rocketStatus } = useTimeElapsed(roomRef);
 	const { muted } = useMuteStore();
 	const { me } = useMeQuery();
 	const {
@@ -61,6 +64,8 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
 		);
 	}
 
+	roomRef.current = room;
+
 	const profile = room.users.find((x) => x.id === userProfileId);
 
 	const speakers: BaseUser[] = [];
@@ -91,13 +96,21 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
 			/>
 			{fullscreenChatOpen ? null : (
 				<Backbar>
-					<button
-						disabled={!iAmCreator}
-						onClick={() => setShowCreateRoomModal(true)}
-						className={`font-xl truncate flex-1 text-center flex items-center justify-center text-2xl`}
-					>
-						<span className={"px-2 truncate"}>{room.name}</span>
-					</button>
+					<div className={`flex flex-1 flex-col items-center`}>
+						<button
+							disabled={!iAmCreator}
+							onClick={() => setShowCreateRoomModal(true)}
+							className={`font-xl truncate flex-1 text-center flex items-center justify-center text-2xl`}
+						>
+							<span className={"px-2 truncate"}>{room.name}</span>
+						</button>
+						{rocketStatus && (
+							<div className={`flex items-center text-sm`}>
+								{rocketIcon} {rocketStatus} &nbsp;
+								<span className="opacity-50">({timeElapsed})</span>
+							</div>
+						)}
+					</div>
 					<ProfileButton />
 				</Backbar>
 			)}

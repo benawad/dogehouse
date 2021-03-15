@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Codicon } from "../svgs/Codicon";
 import { CurrentRoom, Room } from "../types";
 import { useMeQuery } from "../utils/useMeQuery";
+import { useTimeElapsed } from "../utils/timeElapsed";
 
 interface RoomProps {
 	active?: boolean;
@@ -17,6 +18,8 @@ export const RoomCard: React.FC<RoomProps> = ({
 	currentRoomId,
 }) => {
 	const { me } = useMeQuery();
+	const roomRef = useRef(room);
+	const { rocketIcon } = useTimeElapsed(roomRef);
 
 	let n = room.numPeopleInside;
 	const previewNodes = [];
@@ -64,6 +67,7 @@ export const RoomCard: React.FC<RoomProps> = ({
 						{room.name?.slice(0, 100)}
 					</div>
 					<div className={`flex items-center`}>
+						{rocketIcon} &nbsp;
 						<Codicon name="person" /> {n}
 					</div>
 				</div>
