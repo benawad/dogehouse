@@ -4,11 +4,11 @@ defmodule Beef.Queries.Rooms do
   alias Beef.Schemas.Room
 
   def start do
-    from r in Room
+    from(r in Room)
   end
 
   def userStart do
-    from u in User
+    from(u in User)
   end
 
   def filter_by_current_room_id(query, room_id) do

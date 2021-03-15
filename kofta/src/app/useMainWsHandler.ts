@@ -250,7 +250,7 @@ export const useMainWsHandler = () => {
                         ...x,
                         roomPermissions: mergeRoomPermission(
                           x.roomPermissions,
-                          { isMod: true }
+                          { isMod: !x.roomPermissions?.isMod }
                         ),
                       }
                     : x

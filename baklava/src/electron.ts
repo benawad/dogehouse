@@ -1,6 +1,13 @@
-import { BrowserWindow, app, systemPreferences, ipcMain } from "electron";
+import {
+  BrowserWindow,
+  app,
+  systemPreferences,
+  ipcMain,
+  globalShortcut,
+} from "electron";
+import iohook from "iohook";
 import { __prod__ } from "./constants";
-
+import { RegisterKeybinds } from "./util";
 let mainWindow: BrowserWindow;
 
 function createWindow() {
@@ -27,7 +34,17 @@ function createWindow() {
     );
     event.returnValue = isAllowed;
   });
-  mainWindow.on("closed", () => mainWindow.destroy());
+
+  // registers global keybinds
+  RegisterKeybinds(mainWindow);
+
+  // graceful exiting
+  mainWindow.on("closed", () => {
+    globalShortcut.unregisterAll();
+    iohook.stop();
+    iohook.unload();
+    mainWindow.destroy();
+  });
 }
 
 app.on("ready", () => {
@@ -35,9 +52,6 @@ app.on("ready", () => {
 });
 app.on("window-all-closed", () => {
   app.quit();
-
-  if (process.platform !== "darwin") {
-  }
 });
 app.on("activate", () => {
   if (mainWindow === null) {
