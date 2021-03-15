@@ -13,7 +13,10 @@
         "build:win": "npm run compile && electron-builder --win",
         "build:linux": "npm run compile && electron-builder --linux"
     },
-    "keywords": [],
+    "keywords": [
+        "DogeHouse",
+        "Electron"
+    ],
     "author": "Ben Awad <benawadapps@gmail.com>",
     "homepage": "https://github.com/benawad/dogehouse/",
     "repository": {
