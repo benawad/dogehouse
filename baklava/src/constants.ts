@@ -143,4 +143,5 @@ export const ALLOWED_HOSTS = [
     "localhost",
     "staging.dogehouse.tv",
     "doge-staging.stripcode.dev",
-]
+    "api.twitter.com",
+];

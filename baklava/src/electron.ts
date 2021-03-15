@@ -51,10 +51,16 @@ function createWindow() {
 
   // handling external links
   const handleLinks = (event: any, url: string) => {
-    let urlHost = new URL(url).hostname;
+    let urlObj = new URL(url);
+    let urlHost = urlObj.hostname;
     if (!ALLOWED_HOSTS.includes(urlHost)) {
-      event.preventDefault()
+      event.preventDefault();
       shell.openExternal(url)
+    } else {
+      if (urlHost == ALLOWED_HOSTS[3] && urlObj.pathname !== "/login") {
+        event.preventDefault();
+        shell.openExternal(url)
+      }
     }
   }
   mainWindow.webContents.on('new-window', handleLinks);
