@@ -59,7 +59,6 @@
     }
   },
   "dependencies": {
-    "@trodi/electron-splashscreen": "^1.0.0",
     "iohook": "^0.7.2"
   },
   "iohook": {
