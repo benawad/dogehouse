@@ -1,68 +1,71 @@
 {
-    "name": "baklava",
-    "version": "1.0.0",
-    "description": "",
-    "main": "./dist/electron.js",
-    "scripts": {
-        "dev": "electron ./dist/electron.js",
-        "compile": "tsc",
-        "watch": "tsc -w",
-        "build": "tsc ./src/electron.ts --outDir ./dist && npx electron-packager . DogeHouse --all --icon=./icons/icon.png --out=./builds/",
-        "build:mac:arm64": "tsc ./src/electron.ts --outDir ./dist && npx electron-packager . DogeHouse --icon=./icons/icon.png --platform=darwin --arch=arm64 --overwrite --out=./builds/",
-        "build:mac:x64": "tsc ./src/electron.ts --outDir ./dist && npx electron-packager . DogeHouse --icon=./icons/icon.png --platform=darwin --arch=x64 --overwrite --out=./builds/",
-        "build:win64": "tsc ./src/electron.ts --outDir ./dist && npx electron-packager . DogeHouse --icon=./icons/icon.png --platform=win32 --arch=x86_64 --overwrite --out=./builds/",
-        "build:linux:x64": "tsc ./src/electron.ts --outDir ./dist && npx electron-packager . DogeHouse --icon=./icons/icon.png --platform=linux --arch=x64 --overwrite --out=./builds/",
-        "build:linux:arm64": "tsc ./src/electron.ts --outDir ./dist && npx electron-packager . DogeHouse --icon=./icons/icon.png --platform=linux --arch=arm64 --overwrite --out=./builds/"
+  "name": "dogehouse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/electron.js",
+  "scripts": {
+    "dev": "electron ./dist/electron.js",
+    "compile": "tsc",
+    "watch": "tsc -w",
+    "build": "npm run compile && electron-builder -mwl --win msi",
+    "build:mac": "npm run compile && electron-builder --mac",
+    "build:win": "npm run compile && electron-builder --win",
+    "build:linux": "npm run compile && electron-builder --linux"
+  },
+  "keywords": [],
+  "author": "Ben Awad <benawadapps@gmail.com>",
+  "homepage": "https://github.com/benawad/dogehouse/",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^14.14.31",
+    "electron": "^11.3.0",
+    "electron-builder": "^22.10.5",
+    "typescript": "^4.2.2"
+  },
+  "build": {
+    "appId": "com.electron.dogehouse",
+    "productName": "DogeHouse",
+    "asar": true,
+    "mac": {
+      "icon": "icons/icon.png",
+      "category": "public.app-category.social-networking",
+      "entitlements": "settings/entitlements.mac.plist",
+      "extendInfo": {
+        "NSMicrophoneUsageDescription": "Mic access for speeach input in voice."
+      },
+      "target": [
+        "dmg"
+      ]
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "@types/node": "^14.14.31",
-        "electron": "^11.2.3",
-        "electron-packager": "^15.2.0",
-        "typescript": "^4.2.2"
+    "win": {
+      "icon": "icons/icon.png",
+      "target": "msi"
     },
-    "build": {
-        "appId": "com.electron.dogehouse",
-        "asar": true,
-        "mac": {
-            "icon": "icons/icon.png",
-            "category": "public.app-category.social-networking",
-            "entitlements": "settings/entitlements.mac.plist",
-            "extendInfo": {
-                "NSMicrophoneUsageDescription": "Mic access for speeach input in voice."
-            },
-            "target": [
-                "dmg"
-            ]
-        },
-        "win": {
-            "icon": "icons/icon.png",
-            "target": "nsis"
-        },
-        "linux": {
-            "icon": "icons/icon.png",
-            "target": [
-                "deb"
-            ]
-        }
+    "linux": {
+      "icon": "icons/icon.png",
+      "target": [
+        "deb"
+      ]
     },
-    "dependencies": {
-        "iohook": "^0.7.2"
-    },
-    "iohook": {
-        "targets": [
-            "node-83",
-            "electron-85"
-        ],
-        "platforms": [
-            "win32",
-            "darwin",
-            "linux"
-        ],
-        "arches": [
-            "x64"
-        ]
+    "directories": {
+      "output": "./builds"
     }
+  },
+  "dependencies": {
+    "iohook": "^0.7.2"
+  },
+  "iohook": {
+    "targets": [
+      "node-83",
+      "electron-85"
+    ],
+    "platforms": [
+      "win32",
+      "darwin",
+      "linux"
+    ],
+    "arches": [
+      "x64"
+    ]
+  }
 }

@@ -4,24 +4,24 @@ import "../../../css/add-to-calendar-button.css";
 import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
 
 interface ScheduledEvent {
-	event: ScheduledEventProps;
+  event: ScheduledEventProps;
 }
 
 interface ScheduledEventProps {
-	name: string;
-	details: string;
-	location: string;
-	startsAt: string;
-	endsAt: string;
+  name: string;
+  details: string;
+  location: string;
+  startsAt: string;
+  endsAt: string;
 }
 
 export const AddToCalendarButton: React.FC<ScheduledEvent> = ({ event }) => {
-	const { t } = useTypeSafeTranslation();
-	return (
-		<AddToCalendar
-			children={t("components.addToCalendar.add")}
-			event={event}
-			filename={event.name}
-		/>
-	);
+  const { t } = useTypeSafeTranslation();
+  return (
+    <AddToCalendar
+      children={t("components.addToCalendar.add")}
+      event={event}
+      filename={event.name}
+    />
+  );
 };

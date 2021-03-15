@@ -16,7 +16,7 @@ defmodule Beef.Schemas.Room do
         }
 
   @derive {Poison.Encoder, only: ~w(id name description numPeopleInside isPrivate
-           creatorId peoplePreviewList voiceServerId)a}
+           creatorId peoplePreviewList voiceServerId inserted_at)a}
   @primary_key {:id, :binary_id, []}
   schema "rooms" do
     field(:name, :string)
