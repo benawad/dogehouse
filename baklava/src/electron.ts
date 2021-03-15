@@ -7,7 +7,7 @@ import {
   shell,
 } from "electron";
 import iohook from "iohook";
-import { HandleVoiceMenu, RegisterKeybinds } from "./util";
+import { HandleVoiceTray, RegisterKeybinds } from "./util";
 import { ALLOWED_HOSTS } from "./constants";
 let mainWindow: BrowserWindow;
 
