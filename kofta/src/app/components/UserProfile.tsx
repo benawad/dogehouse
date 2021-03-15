@@ -1,3 +1,4 @@
+import { useAtom } from "jotai";
 import normalizeUrl from "normalize-url";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
@@ -5,6 +6,7 @@ import { toast } from "react-toastify";
 import { wsend } from "../../createWebsocket";
 import { useConsumerStore } from "../../webrtc/stores/useConsumerStore";
 import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
+import { followerMapAtom, followingMapAtom } from "../atoms";
 import { linkRegex } from "../constants";
 import { BaseUser, RoomUser } from "../types";
 import { onFollowUpdater } from "../utils/onFollowUpdater";
@@ -40,6 +42,25 @@ export const UserProfile: React.FC<UserProfileProps> = ({
 	const [editProfileModalOpen, setEditProfileModalOpen] = useState(false);
 	const { t } = useTypeSafeTranslation();
 	const [count, setCount] = useState(0);
+	const [, setFollowerMap] = useAtom(followerMapAtom);
+	const [, setFollowingMap] = useAtom(followingMapAtom);
+
+	const fetchFollowList = (isFollowing: boolean) => {
+		const fn = isFollowing ? setFollowingMap : setFollowerMap;
+		wsend({
+			op: `fetch_follow_list`,
+			d: { isFollowing, userId: profile.id, cursor: 0 },
+		});
+		fn((m) => ({
+			...m,
+			[profile.id]: {
+				...m[profile.id],
+				loading: true,
+			},
+		}));
+		history.push(`/${isFollowing ? "following" : "followers"}/${profile.id}`);
+	};
+	
 	return (
 		<>
 			<EditProfileModal
@@ -105,28 +126,11 @@ export const UserProfile: React.FC<UserProfileProps> = ({
 				) : null}
 			</div>
 			<div className={`flex my-4`}>
-				<button
-					onClick={() => {
-						wsend({
-							op: `fetch_follow_list`,
-							d: { isFollowing: false, userId: profile.id, cursor: 0 },
-						});
-						history.push(`/followers/${profile.id}`);
-					}}
-					className={`mr-3`}
-				>
+				<button	onClick={() => fetchFollowList(false)} className={`mr-3`}>
 					<span className={`font-bold`}>{profile.numFollowers}</span>{" "}
 					{t("pages.viewUser.followers")}
 				</button>
-				<button
-					onClick={() => {
-						wsend({
-							op: `fetch_follow_list`,
-							d: { isFollowing: true, userId: profile.id, cursor: 0 },
-						});
-						history.push(`/following/${profile.id}`);
-					}}
-				>
+				<button onClick={() => fetchFollowList(true)}>
 					<span className={`font-bold`}>{profile.numFollowing}</span>{" "}
 					{t("pages.viewUser.following")}
 				</button>
