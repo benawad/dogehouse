@@ -109,7 +109,8 @@
       "makeRoomPublicBtn": "채팅방 공개 하기!",
       "settings": "설정",
       "speaker": "스피커",
-      "listener": "청취자"
+      "listener": "청취자",
+      "chat": "Chat"
     },
     "deviceNotSupported": {
       "notSupported": "현재 기기는 지원되지 않습니다, ",
@@ -217,7 +218,10 @@
       "approachingMoon": "Approaching moon",
       "lunarDoge": "Lunar doge",
       "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge"
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
     }
   }
 }

@@ -113,7 +113,8 @@
       "makeRoomPublicBtn": "OWO Make woom pubwic! (❁´◡`❁)",
       "settings": "Settings ^_^",
       "speaker": "Speakew :D",
-      "listener": "OwO Wistenew"
+      "listener": "OwO Wistenew",
+      "chat": "Chat"
     },
     "deviceNotSupported": {
       "notSupported": "HIIII! Youw device is cuwwentwy nut suppowted. You can cweate an",
@@ -221,7 +222,10 @@
       "approachingMoon": "Approaching moon",
       "lunarDoge": "Lunar doge",
       "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge"
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
     }
   }
 }

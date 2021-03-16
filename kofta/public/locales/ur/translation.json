@@ -110,7 +110,8 @@
       "makeRoomPublicBtn": "کمرے کو عوامی بنائیں!",
       "settings": "ترتیبات",
       "speaker": "اسپیکر",
-      "listener": "سننے والا"
+      "listener": "سننے والا",
+      "chat": "Chat"
     },
     "deviceNotSupported": {
       "notSupported": "آپ کا آلہ فی الحال تعاون یافتہ نہیں ہے۔ آپ ایک تشکیل دے سکتے ہیں",
@@ -219,7 +220,10 @@
       "approachingMoon": "Approaching moon",
       "lunarDoge": "Lunar doge",
       "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge"
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
     }
   }
 }

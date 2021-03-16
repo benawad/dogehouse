@@ -110,7 +110,8 @@
       "makeRoomPublicBtn": "Bëje dhomën publike!",
       "settings": "Cilësimet",
       "speaker": "Folësit",
-      "listener": "Dëgjuesit"
+      "listener": "Dëgjuesit",
+      "chat": "Chat"
     },
     "deviceNotSupported": {
       "notSupported": "Paisja juaj nuk është e mbështetur. Ju mund të krijoni një",
@@ -218,7 +219,10 @@
       "approachingMoon": "Approaching moon",
       "lunarDoge": "Lunar doge",
       "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge"
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
     }
   }
 }

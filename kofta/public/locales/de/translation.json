@@ -111,7 +111,8 @@
       "makeRoomPublicBtn": "Raum öffentlich machen!",
       "settings": "Einstellungen",
       "speaker": "Sprecher",
-      "listener": "Zuhörer"
+      "listener": "Zuhörer",
+      "chat": "Chat"
     },
     "micPermissionBanner": {
       "permissionDenied": "Wir haben keinen Zugriff auf dein Mikrofon. Öffne deine Browsereinstellungen, setze die nötigen Berechtigungen und lade die Seite erneut.",
@@ -221,7 +222,10 @@
       "approachingMoon": "Approaching moon",
       "lunarDoge": "Lunar doge",
       "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge"
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
     }
   }
 }

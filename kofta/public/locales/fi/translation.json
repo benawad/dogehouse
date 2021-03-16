@@ -110,7 +110,8 @@
       "makeRoomPublicBtn": "Tee huoneesta julkinen!",
       "settings": "Asetukset",
       "speaker": "Puhuja",
-      "listener": "Kuuntelija"
+      "listener": "Kuuntelija",
+      "chat": "Chat"
     },
     "deviceNotSupported": {
       "notSupported": "Käyttämääsi laitetta ei tueta. Voit luoda",
@@ -219,7 +220,10 @@
       "approachingMoon": "Approaching moon",
       "lunarDoge": "Lunar doge",
       "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge"
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
     }
   }
 }

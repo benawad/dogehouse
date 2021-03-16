@@ -110,7 +110,8 @@
       "makeRoomPublicBtn": "Сделать комнату открытой!",
       "settings": "Настройки",
       "speaker": "Оратор",
-      "listener": "Слушатели"
+      "listener": "Слушатели",
+      "chat": "Chat"
     },
     "deviceNotSupported": {
       "notSupported": "Ваше устройство не поддерживается. Вы можете создать",
@@ -219,7 +220,10 @@
       "approachingMoon": "Приближается к луне",
       "lunarDoge": "Лунный doge",
       "approachingSun": "Приближается к солнцу",
-      "solarDoge": "Сонечный doge"
+      "solarDoge": "Сонечный doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
     }
   }
 }

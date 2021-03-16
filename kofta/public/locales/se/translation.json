@@ -109,7 +109,8 @@
       "makeRoomPublicBtn": "Gör rum offentligt!",
       "settings": "Inställningar",
       "speaker": "Talare",
-      "listener": "Lyssnare"
+      "listener": "Lyssnare",
+      "chat": "Chat"
     },
     "micPermissionBanner": {
       "permissionDenied": "Åtkomst nekad när vi försökte att ansluta till din mikrofon (du kan behöva gå till webbläsarinställningarna och ladda om sidan)",
@@ -220,7 +221,10 @@
       "approachingMoon": "Närmar sig månen",
       "lunarDoge": "Lunar doge",
       "approachingSun": "Närmar sig solen",
-      "solarDoge": "Solar doge"
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
     }
   }
 }

@@ -110,7 +110,8 @@
       "makeRoomPublicBtn": "Opinbera rás!",
       "settings": "Stillingar",
       "speaker": "Ræðumaður",
-      "listener": "Hlustandi"
+      "listener": "Hlustandi",
+      "chat": "Chat"
     },
     "deviceNotSupported": {
       "notSupported": "Tækið þitt er sem stendur ekki stutt. Þú getur búið til",
@@ -218,7 +219,10 @@
       "approachingMoon": "Approaching moon",
       "lunarDoge": "Lunar doge",
       "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge"
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
     }
   }
 }

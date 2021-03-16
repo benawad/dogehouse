@@ -109,7 +109,8 @@
       "makeRoomPublicBtn": "Zverejniť miestnosť!",
       "settings": "Nastavenia",
       "speaker": "Rozprávač",
-      "listener": "Poslúchač"
+      "listener": "Poslúchač",
+      "chat": "Chat"
     },
     "deviceNotSupported": {
       "notSupported": "Tvoje zariadenie nie je podporované. Môžeš vytvoriť:",
@@ -220,7 +221,10 @@
       "approachingMoon": "Blížime sa k mesiacu",
       "lunarDoge": "Lunárny doge",
       "approachingSun": "Blížime sa k slnku",
-      "solarDoge": "Solárny doge"
+      "solarDoge": "Solárny doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
     }
   }
 }

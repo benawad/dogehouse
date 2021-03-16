@@ -110,7 +110,8 @@
       "makeRoomPublicBtn": "Padaryk kambarį viešu!",
       "settings": "Nustatymai",
       "speaker": "Kalbėtojas",
-      "listener": "Klausytojai"
+      "listener": "Klausytojai",
+      "chat": "Chat"
     },
     "deviceNotSupported": {
       "notSupported": "Jūsų įrenginys šiuo metu nepalaikomas.",
@@ -221,7 +222,10 @@
       "approachingMoon": "Approaching moon",
       "lunarDoge": "Lunar doge",
       "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge"
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
     }
   }
 }

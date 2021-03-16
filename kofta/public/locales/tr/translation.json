@@ -38,7 +38,7 @@
     "followList": {},
     "home": { "createRoom": "Oda oluştur", "refresh": "Yenile" },
     "inviteList": {
-      "roomGone": "oda gitti, geri dön",
+      "roomGone": "Oda gitti, geri dön",
       "shareRoomLink": "Oda bağlantısını paylaş",
       "inviteFollowers": "Çevrimiçi olan takipçilerini davet edebilirsin:",
       "whenFollowersOnline": "Takipçilerin çevrimiçi olduğunda burada gözükecek."
@@ -110,7 +110,8 @@
       "makeRoomPublicBtn": "Odayı herkese açık yap!",
       "settings": "Ayarlar",
       "speaker": "Konuşmacı",
-      "listener": "Dinleyici"
+      "listener": "Dinleyici",
+      "chat": "Sohbet"
     },
     "micPermissionBanner": {
       "permissionDenied": "Mikrofonunuza erişmeye çalışırken izin reddedildi (tarayıcı ayarlarına gitmeniz ve sayfayı yeniden yüklemeniz gerekebilir)",
@@ -218,7 +219,10 @@
       "approachingMoon": "Ay yaklaşıyor",
       "lunarDoge": "Ay doge'u",
       "approachingSun": "Güneş yaklaşıyor",
-      "solarDoge": "Güneş doge'u"
+      "solarDoge": "Güneş doge'u",
+      "approachingGalaxy": "Galaksi yaklaşıyor",
+      "galacticDoge": "Galaktik doge'u",
+      "spottedLife": "Yaşam tespit edilen gezegen"
     }
   }
 }

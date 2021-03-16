@@ -77,6 +77,7 @@ export type TranslationKeys =
 	| "components.bottomVoiceControl.settings"
 	| "components.bottomVoiceControl.speaker"
 	| "components.bottomVoiceControl.listener"
+	| "components.bottomVoiceControl.chat"
 	| "components.deviceNotSupported.notSupported"
 	| "components.deviceNotSupported.linkText"
 	| "components.deviceNotSupported.addSupport"
@@ -152,4 +153,7 @@ export type TranslationKeys =
 	| "modules.roomStatus.approachingMoon"
 	| "modules.roomStatus.lunarDoge"
 	| "modules.roomStatus.approachingSun"
-	| "modules.roomStatus.solarDoge";
+	| "modules.roomStatus.solarDoge"
+	| "modules.roomStatus.approachingGalaxy"
+	| "modules.roomStatus.galacticDoge"
+	| "modules.roomStatus.spottedLife";

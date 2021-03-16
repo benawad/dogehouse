@@ -110,7 +110,8 @@
       "makeRoomPublicBtn": "Tee ruum avalikuks!",
       "settings": "Seaded",
       "speaker": "Kõneleja",
-      "listener": "Kuulaja"
+      "listener": "Kuulaja",
+      "chat": "Chat"
     },
     "deviceNotSupported": {
       "notSupported": "Teie seadet ei toetata praegu. Te saate teha",
@@ -218,7 +219,10 @@
       "approachingMoon": "Approaching moon",
       "lunarDoge": "Lunar doge",
       "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge"
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
     }
   }
 }

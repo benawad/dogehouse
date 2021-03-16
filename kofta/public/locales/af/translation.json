@@ -110,7 +110,8 @@
       "makeRoomPublicBtn": "Maak kamer publiek!",
       "settings": "Instellings",
       "speaker": "Sprekers",
-      "listener": "Luisteraar"
+      "listener": "Luisteraar",
+      "chat": "Chat"
     },
     "deviceNotSupported": {
       "notSupported": "Jou toestel word tans nie ondersteun nie. Jy kan 'n",
@@ -218,7 +219,10 @@
       "approachingMoon": "Approaching moon",
       "lunarDoge": "Lunar doge",
       "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge"
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
     }
   }
 }

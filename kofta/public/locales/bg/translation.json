@@ -110,7 +110,8 @@
       "makeRoomPublicBtn": "Направи стаята публична!",
       "settings": "Настройки",
       "speaker": "Говорител",
-      "listener": "Слушател"
+      "listener": "Слушател",
+      "chat": "Chat"
     },
     "deviceNotSupported": {
       "notSupported": "Вашето устройство не е поддържано. Можете да създадете",
@@ -218,7 +219,10 @@
       "approachingMoon": "Approaching moon",
       "lunarDoge": "Lunar doge",
       "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge"
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
     }
   }
 }

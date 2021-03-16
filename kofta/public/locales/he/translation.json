@@ -110,7 +110,8 @@
       "makeRoomPublicBtn": "הפוך את החדר לציבורי!",
       "settings": "הגדרות",
       "speaker": "דובר",
-      "listener": "מקשיב"
+      "listener": "מקשיב",
+      "chat": "Chat"
     },
     "deviceNotSupported": {
       "notSupported": "המכשיר שלך אינו נתמך כרגע. אתה יכול ליצור",
@@ -216,7 +217,10 @@
       "approachingMoon": "Approaching moon",
       "lunarDoge": "Lunar doge",
       "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge"
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
     }
   }
 }

@@ -110,7 +110,8 @@
       "makeRoomPublicBtn": "Make cabin public!",
       "settings": "Settings",
       "speaker": "Speaker",
-      "listener": "Listener"
+      "listener": "Listener",
+      "chat": "Chat"
     },
     "deviceNotSupported": {
       "notSupported": "Yer device be currently nah supported. Ye can create an",
@@ -218,7 +219,10 @@
       "approachingMoon": "Approachin' moon",
       "lunarDoge": "Lunar doge",
       "approachingSun": "Approachin' sun",
-      "solarDoge": "Solar doge"
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approachin' galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet wit' life spotted"
     }
   }
 }

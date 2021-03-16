@@ -105,7 +105,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
             ) : null}
           </div>
         </div>
-        Chat
+        {t("components.bottomVoiceControl.chat")}
       </button>,
       <button
         className={buttonStyle}

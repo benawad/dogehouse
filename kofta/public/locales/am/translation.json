@@ -112,7 +112,8 @@
       "makeRoomPublicBtn": "ክፍሉን ልሁሉም ክፍት አድርግ!",
       "settings": "ቅንብሮች",
       "speaker": "ተናጋሪ",
-      "listener": "አድማጭ"
+      "listener": "አድማጭ",
+      "chat": "Chat"
     },
     "deviceNotSupported": {
       "notSupported": "የእርስዎ መሣሪያ በአሁኑ ጊዜ አይደገፍም፡፡ ቸግሩን",
@@ -218,7 +219,10 @@
       "approachingMoon": "Approaching moon",
       "lunarDoge": "Lunar doge",
       "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge"
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
     }
   }
 }
