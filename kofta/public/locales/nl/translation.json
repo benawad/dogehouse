@@ -101,7 +101,7 @@
 		"blockedFromRoomUsers": {
 			"header": "Verbannen Gebruikers",
 			"unban": "unban",
-			"noBans": "Nog niemand is verbannen"
+			"noBans": "Er is nog niemand verbannen"
 		},
 		"bottomVoiceControl": {
 			"leaveCurrentRoomBtn": "Verlaat huidige kamer",
@@ -175,12 +175,12 @@
 			"profileModal": {
 				"blockUserConfirm": "Weet je zeker dat je deze gebruiker wilt blokkeren van alle kamers die je ooit zult maken?",
 				"blockUser": "Blokkeer gebruiker",
-				"makeMod": "Maak moderator",
-				"unmod": "Verwijder moderator",
+				"makeMod": "Maak beheerder",
+				"unmod": "Verwijder beheerder",
 				"addAsSpeaker": "Voeg toe als spreker",
 				"moveToListener": "Verplaats naar luisteraar",
-				"banFromChat": "Ban uit de chat",
-				"banFromRoom": "Ban uit de room",
+				"banFromChat": "Verban uit de chat",
+				"banFromRoom": "Verban uit de kamer",
 				"goBackToListener": "Ga terug naar luisteraar",
 				"deleteMessage": "Verwijder dit bericht"
 			},
