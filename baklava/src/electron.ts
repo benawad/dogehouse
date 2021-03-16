@@ -9,6 +9,7 @@ import {
   shell,
 } from "electron";
 import iohook from "iohook";
+import { autoUpdater } from "electron-updater";
 import { RegisterKeybinds } from "./util";
 import { ALLOWED_HOSTS } from "./constants";
 import url from "url";
@@ -122,6 +123,7 @@ if (!instanceLock) {
 } else {
   app.on("ready", () => {
     createWindow();
+    autoUpdater.checkForUpdatesAndNotify();
   });
   app.on("second-instance", (event, argv, workingDirectory) => {
     if (mainWindow) {

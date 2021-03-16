@@ -35,12 +35,12 @@
 			"startPrivateRoom": "privát szoba létrehozása velük"
 		},
 		"followList": {},
-		"home": { "createRoom": "Szoba létrehozása" },
+		"home": { "createRoom": "Szoba létrehozása", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "beszélgetés véget ért, lépjen vissza",
 			"shareRoomLink": "szoba linkjének megosztása",
 			"inviteFollowers": "Meghívhatja online követőit:",
-			"whenFollowersOnline": "Amikor a követőid online vannak, itt jelennek meg."
+			"whenFollowersOnline": "Online követőid itt fognak megjelenni."
 		},
 		"login": {
 			"headerText": " Hangbeszélgetéseket a Holdra 🚀",
@@ -93,7 +93,7 @@
 		"backBar": {},
 		"blockedFromRoomUsers": {
 			"header": "Kitiltott felhasználók",
-			"unban": "visszaenged",
+			"unban": "Ban visszavonása",
 			"noBans": "Senki nem lett még kitiltva"
 		},
 		"bottomVoiceControl": {
@@ -122,7 +122,7 @@
 				"roomName": "szoba neve",
 				"roomDescription": "szoba leírása",
 				"descriptionError": "maximum 500 karakter",
-				"nameError": "minimum 2, maximum 60 karakter hosszú lehet"
+				"nameError": "minimum 2, maximum 60 karakter"
 			},
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Új szoba létrehozva",
@@ -160,7 +160,9 @@
 				"makePrivate": "szoba priváttá állítása"
 			}
 		},
-		"userVolumeSlider": { "noAudioMessage": "valamilyen okból nincs hallgató" },
+		"userVolumeSlider": {
+			"noAudioMessage": "valamilyen okból nincs hallgató"
+		},
 		"addToCalendar": { "add": "Felvétel naptárba" },
 		"keyboardShortcuts": {
 			"setKeybind": "Gyorsbillentyű beállítása",
@@ -175,9 +177,12 @@
 		"deviceNotSupported": {
 			"notSupported": "Az eszköze jelenleg nem támogatott. Létrehozhat egy",
 			"linkText": "hibajegyet GitHub",
-			"addSupport": "-on és megpróbálom biztosítani eszköze támogatottságát."
+			"addSupport": "-on és megpróbáljuk biztosítani eszköze támogatottságát."
 		},
-		"inviteButton": { "invited": "meghívott", "inviteToRoom": "meghívás szobába" }
+		"inviteButton": {
+			"invited": "meghívott",
+			"inviteToRoom": "meghívás szobába"
+		}
 	},
 	"modules": {
 		"scheduledRooms": {
@@ -190,12 +195,12 @@
 			"modal": {
 				"needsFuture": "jövőbeli dátum szükséges",
 				"roomName": "szoba neve",
-				"minLength": "legalább 2 karakter hosszú legyen"
+				"minLength": "legalább 2 karakter hosszú"
 			}
 		},
 		"roomChat": {
 			"title": "Chat",
-			"emotesSoon": "[hangulatjelek hamarosan]",
+			"emotesSoon": "[emotikonok hamarosan]",
 			"bannedAlert": "Kitiltottak a beszélgetésből",
 			"waitAlert": "Várnod kell egy másodpercet a következő üzenet küldése előtt.",
 			"search": "Keresés",
@@ -205,6 +210,15 @@
 			"whisper": "privát üzenet",
 			"welcomeMessage": "Üdv a beszélgetésben!",
 			"roomDescription": "szoba leírása"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }
