@@ -7,6 +7,7 @@ import { useCurrentRoomInfo } from "../atoms";
 import { Backbar } from "../components/Backbar";
 import { BodyWrapper } from "../components/BodyWrapper";
 import { BottomVoiceControl } from "../components/BottomVoiceControl";
+import { Button } from "../components/Button";
 import { CircleButton } from "../components/CircleButton";
 import { modalConfirm } from "../components/ConfirmModal";
 import { CreateRoomModal } from "../components/CreateRoomModal";
@@ -46,7 +47,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   } = useCurrentRoomInfo();
   const fullscreenChatOpen = useShouldFullscreenChat();
   const [showCreateRoomModal, setShowCreateRoomModal] = useState(false);
-  const [hideListeners, setHideListeners] = useState(false);
+  const [listenersPage, setListenersPage] = useState(1);
   const { t } = useTypeSafeTranslation();
   // useEffect(() => {
   //   if (room?.users.length) {
@@ -87,6 +88,9 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
       listeners.push(u);
     }
   });
+
+  const pageSize = 25;
+  const listenersShown = listeners.slice(0, listenersPage * pageSize);
 
   return (
     <>
@@ -178,31 +182,29 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
                 className={`flex col-span-full text-xl mt-2.5 ml-2.5 text-white`}
               >
                 {t("pages.room.listeners")} ({listeners.length})
-                {listeners.length > 25 && (
-                  <div className={`flex ml-2.5`}>
-                    <CircleButton
-                      size={28}
-                      onClick={() => setHideListeners((hide) => !hide)}
-                    >
-                      {hideListeners ? "▸" : "▾"}
-                    </CircleButton>
-                  </div>
-                )}
               </div>
             ) : null}
-            {hideListeners
-              ? null
-              : listeners.map((u) => (
-                  <RoomUserNode
-                    key={u.id}
-                    room={room}
-                    u={u}
-                    muted={muted}
-                    setUserProfileId={setUserProfileId}
-                    me={me}
-                    profile={profile}
-                  />
-                ))}
+            {listenersShown.map((u) => (
+              <RoomUserNode
+                key={u.id}
+                room={room}
+                u={u}
+                muted={muted}
+                setUserProfileId={setUserProfileId}
+                me={me}
+                profile={profile}
+              />
+            ))}
+            {listenersShown.length < listeners.length && (
+              <div className={`flex col-span-full`}>
+                <Button
+                  variant="slim"
+                  onClick={() => setListenersPage((page) => page + 1)}
+                >
+                  {t("common.loadMore")}
+                </Button>
+              </div>
+            )}
           </div>
         </BodyWrapper>
       </Wrapper>
