@@ -36,7 +36,7 @@
 			"startPrivateRoom": "start et privat rom med dem"
 		},
 		"followList": {},
-		"home": { "createRoom": "Lag et rom" },
+		"home": { "createRoom": "Lag et rom", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "rommet er borte, gå tilbake",
 			"shareRoomLink": "Del lenken til rommet",
@@ -212,6 +212,15 @@
 			"whisper": "Hviske",
 			"welcomeMessage": "Velkommen til chatten!",
 			"roomDescription": "Rom beskrivelse"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

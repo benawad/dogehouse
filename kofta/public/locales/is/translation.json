@@ -30,9 +30,7 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "ban"
-		},
+		"banUser": { "ban": "ban" },
 		"followingOnlineList": {
 			"listHeader": "Listi yfir notendur sem eru ekki í einkaherbergi og þú fylgir.",
 			"currentRoom": "núna í",
@@ -77,12 +75,8 @@
 			"requestingToSpeak": "Biðja um að tala",
 			"listeners": "Hlustendur"
 		},
-		"searchUser": {
-			"search": "leita..."
-		},
-		"soundEffectSettings": {
-			"header": "Hljóðin"
-		},
+		"searchUser": { "search": "leita..." },
+		"soundEffectSettings": { "header": "Hljóðin" },
 		"viewUser": {
 			"editProfile": "breyta prófíl",
 			"followsYou": "fylgir þér",
@@ -143,9 +137,7 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "enginn hljóðnotandi af einhverjum ástæðum"
 		},
-		"addToCalendar": {
-			"add": "Bæta við dagatal"
-		},
+		"addToCalendar": { "add": "Bæta við dagatal" },
 		"wsKilled": {
 			"description": "WebSocket var drepinn af netþjóninum. Þetta gerist venjulega þegar þú opnar vefsíðuna á öðrum flipa.",
 			"reconnect": "tengjast aftur"
@@ -223,6 +215,15 @@
 			"whisper": "Sussa",
 			"welcomeMessage": "Velkomin í spjallið!",
 			"roomDescription": "rásarlýsing"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

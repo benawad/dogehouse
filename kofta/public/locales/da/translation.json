@@ -38,9 +38,7 @@
 			"startPrivateRoom": "Start et privat rum med dem"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "Start Rum"
-		},
+		"home": { "createRoom": "Start Rum", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "rummet er væk, gå tilbage",
 			"shareRoomLink": "Del et link til rummet",
@@ -142,9 +140,7 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "Ingen audio consumer af en eller anden grund"
 		},
-		"addToCalendar": {
-			"add": "Tilføj til kalender"
-		},
+		"addToCalendar": { "add": "Tilføj til kalender" },
 		"wsKilled": {
 			"description": "Websocketen blev dræbt af serveren. Dette sker typisk når du har hjemmesiden åben i en anden fane.",
 			"reconnect": "Tilslut igen"
@@ -222,6 +218,15 @@
 			"whisper": "Hvisk",
 			"welcomeMessage": "Velkommen til chatten!",
 			"roomDescription": "Rum beskrivelse"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

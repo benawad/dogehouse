@@ -38,9 +38,7 @@
 			"startPrivateRoom": "Start een privé kamer met deze persoon"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "Kamer maken"
-		},
+		"home": { "createRoom": "Kamer maken", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "Kamer is weg, ga terug",
 			"shareRoomLink": "Link van deze kamer delen",
@@ -142,9 +140,7 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "Geen audioapparaat om een of andere reden"
 		},
-		"addToCalendar": {
-			"add": "Voeg toe aan kalender"
-		},
+		"addToCalendar": { "add": "Voeg toe aan kalender" },
 		"wsKilled": {
 			"description": "Websocket is gestopt door de server. Dit gebeurt meestal als je de site open hebt staan in een ander tabblad.",
 			"reconnect": "Opnieuw verbinden"
@@ -222,6 +218,15 @@
 			"whisper": "Fluister",
 			"welcomeMessage": "Welkom in de chat!",
 			"roomDescription": "Kamer omschrijving"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

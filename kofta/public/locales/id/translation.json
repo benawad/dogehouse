@@ -29,18 +29,14 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "ban"
-		},
+		"banUser": { "ban": "ban" },
 		"followingOnlineList": {
 			"listHeader": "Daftar pengguna yang tidak ada di ruangan privat dan kamu ikuti.",
 			"currentRoom": "saat ini di:",
 			"startPrivateRoom": "mulai ruangan privat dengan mereka"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "Buat Ruangan"
-		},
+		"home": { "createRoom": "Buat Ruangan", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "ruangan hilang, kembali",
 			"shareRoomLink": "bagikan tautan ke ruangan",
@@ -76,12 +72,8 @@
 			"requestingToSpeak": "Meminta untuk bicara",
 			"listeners": "Pendengar"
 		},
-		"searchUser": {
-			"search": "cari..."
-		},
-		"soundEffectSettings": {
-			"header": "Bunyi"
-		},
+		"searchUser": { "search": "cari..." },
+		"soundEffectSettings": { "header": "Bunyi" },
 		"viewUser": {
 			"editProfile": "ubah profil",
 			"followsYou": "mengikutimu",
@@ -142,9 +134,7 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "perangkat audio tidak ditemukan"
 		},
-		"addToCalendar": {
-			"add": "Tambahkan ke Kalender"
-		},
+		"addToCalendar": { "add": "Tambahkan ke Kalender" },
 		"wsKilled": {
 			"description": "WebSocket dihentikan oleh server. Biasanya terjadi karena kamu membuka website ini di tab lain.",
 			"reconnect": "sambungkan lagi"
@@ -222,6 +212,15 @@
 			"whisper": "Whisper",
 			"welcomeMessage": "Selamat datang di chat!",
 			"roomDescription": "deskripsi ruangan"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

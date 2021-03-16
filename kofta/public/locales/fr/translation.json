@@ -35,7 +35,7 @@
 			"startPrivateRoom": "lancer une salle privée avec eux"
 		},
 		"followList": {},
-		"home": { "createRoom": "Créer une salle" },
+		"home": { "createRoom": "Créer une salle", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "salle indisponible, retour",
 			"shareRoomLink": "partager le lien de la salle",
@@ -110,7 +110,7 @@
 			"speaker": "Interlocuteur",
 			"listener": "Auditeur"
 		},
-    "deviceNotSupported": {
+		"deviceNotSupported": {
 			"notSupported": "Votre système n'est pas encore supporté. Vous pouvez créer un",
 			"linkText": "Issue sur GitHub",
 			"addSupport": "et je vais essayer d'ajouter un support pour votre système."
@@ -182,13 +182,7 @@
 		"wsKilled": {
 			"description": "Le WebSocket a été fermé par le serveur. Cela arrive souvent quand vous ouvrez le site dans une autre fenêtre.",
 			"reconnect": "se reconnecter"
-		},
-		"deviceNotSupported": {
-			"notSupported": "Votre système n'est pas encore supporté. Vous pouvez créer un",
-			"linkText": "Issue sur GitHub",
-			"addSupport": "et je vais essayer d'ajouter un support pour votre système."
-		},
-		"inviteButton": { "invited": "invité", "inviteToRoom": "inviter dans la salle" }
+		}
 	},
 	"modules": {
 		"scheduledRooms": {
@@ -216,6 +210,15 @@
 			"whisper": "Chuchoter",
 			"welcomeMessage": "Bienvenue dans le chat !",
 			"roomDescription": "Description de la salle"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

@@ -30,18 +30,14 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "blockieren"
-		},
+		"banUser": { "ban": "blockieren" },
 		"followingOnlineList": {
 			"listHeader": "Benutzer, denen du folgst, die nicht in einem privaten Raum sind.",
 			"currentRoom": "Zurzeit in:",
 			"startPrivateRoom": "Einen privaten Raum mit diesem Benutzer starten"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "Raum erstellen"
-		},
+		"home": { "createRoom": "Raum erstellen", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "Raum konnte nicht gefunden werden! Zurück",
 			"shareRoomLink": "Link zum Raum teilen",
@@ -77,12 +73,8 @@
 			"requestingToSpeak": "Sprachanfragen",
 			"listeners": "Zuhörer"
 		},
-		"searchUser": {
-			"search": "Suchen..."
-		},
-		"soundEffectSettings": {
-			"header": "Ton"
-		},
+		"searchUser": { "search": "Suchen..." },
+		"soundEffectSettings": { "header": "Ton" },
 		"viewUser": {
 			"editProfile": "Profil bearbeiten",
 			"followsYou": "folgt dir",
@@ -99,9 +91,7 @@
 	},
 	"components": {
 		"_comment": "Component UI Internationalization Strings",
-		"addToCalendar": {
-			"add": "Zum Kalender hinzufügen"
-		},
+		"addToCalendar": { "add": "Zum Kalender hinzufügen" },
 		"avatar": {},
 		"backBar": {},
 		"blockedFromRoomUsers": {
@@ -223,6 +213,15 @@
 			"whisper": "Flüstern",
 			"welcomeMessage": "Willkommen im Chat!",
 			"roomDescription": "Raumbeschreibung"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

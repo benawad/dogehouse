@@ -30,18 +30,14 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "ban"
-		},
+		"banUser": { "ban": "ban" },
 		"followingOnlineList": {
 			"listHeader": "ان صارفین کی فہرست جو نجی کمرے میں نہیں ہیں اور آپ اس کی پیروی کرتے ہیں۔",
 			"currentRoom": "فی الحال میں:",
 			"startPrivateRoom": "ان کے ساتھ ایک نجی کمرہ شروع کریں"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "کمرہ بنائیں"
-		},
+		"home": { "createRoom": "کمرہ بنائیں", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "کمرے میں چلا گیا ، واپس چلو",
 			"shareRoomLink": "کمرے میں لنک شیئر کریں",
@@ -77,12 +73,8 @@
 			"requestingToSpeak": "بولنے کی درخواست",
 			"listeners": "سننے والے"
 		},
-		"searchUser": {
-			"search": "تلاش کریں ..."
-		},
-		"soundEffectSettings": {
-			"header": "آوازیں"
-		},
+		"searchUser": { "search": "تلاش کریں ..." },
+		"soundEffectSettings": { "header": "آوازیں" },
 		"viewUser": {
 			"editProfile": "پروفائل میں ترمیم کریں",
 			"followsYou": "آپ کے پیچھے",
@@ -143,9 +135,7 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "کسی وجہ سے آڈیو صارف نہیں ہے"
 		},
-		"addToCalendar": {
-			"add": "کیلنڈر میں شامل کریں"
-		},
+		"addToCalendar": { "add": "کیلنڈر میں شامل کریں" },
 		"wsKilled": {
 			"description": "ویبسکیٹ سرور کے ذریعہ ہلاک ہوگئی تھی۔ یہ عام طور پر ہوتا ہے جب آپ کسی دوسرے ٹیب میں ویب سائٹ کھولتے ہیں۔",
 			"reconnect": "دوبارہ جڑنا"
@@ -223,6 +213,15 @@
 			"whisper": "سرگوشی",
 			"welcomeMessage": "چیٹ میں خوش آمدید!",
 			"roomDescription": "کمرے کی تفصیل"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }
