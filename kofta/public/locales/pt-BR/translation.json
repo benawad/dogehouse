@@ -210,14 +210,14 @@
       "welcomeMessage": "Bem vindo ao chat!",
       "roomDescription": "descrição da sala"
     },
-	"roomStatus": {
-		"fuelingRocket": "Fueling rocket",
-		"takingOff": "Taking off",
-		"inSpace": "In space",
-		"approachingMoon": "Approaching moon",
-		"lunarDoge": "Lunar doge",
-		"approachingSun": "Approaching sun",
-		"solarDoge": "Solar doge"
-	}
+    "roomStatus": {
+      "fuelingRocket": "Fueling rocket",
+      "takingOff": "Taking off",
+      "inSpace": "In space",
+      "approachingMoon": "Approaching moon",
+      "lunarDoge": "Lunar doge",
+      "approachingSun": "Approaching sun",
+      "solarDoge": "Solar doge"
+    }
   }
 }
