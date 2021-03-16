@@ -7,7 +7,6 @@ import { useCurrentRoomInfo } from "../atoms";
 import { Backbar } from "../components/Backbar";
 import { BodyWrapper } from "../components/BodyWrapper";
 import { BottomVoiceControl } from "../components/BottomVoiceControl";
-import { Button } from "../components/Button";
 import { CircleButton } from "../components/CircleButton";
 import { modalConfirm } from "../components/ConfirmModal";
 import { CreateRoomModal } from "../components/CreateRoomModal";
@@ -86,6 +85,10 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
     } else {
       canIAskToSpeak = true;
       listeners.push(u);
+
+      for (let i = 0; i < 50; i++) {
+        listeners.push(u);
+      }
     }
   });
 
@@ -181,12 +184,12 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
                 {t("pages.room.listeners")} ({listeners.length})
                 {listeners.length > 50 && (
                   <div className={`flex ml-2.5`}>
-                    <Button
-                      variant="small"
+                    <CircleButton
+                      size={28}
                       onClick={() => setHideListeners((hide) => !hide)}
                     >
                       {hideListeners ? "▸" : "▾"}
-                    </Button>
+                    </CircleButton>
                   </div>
                 )}
               </div>
