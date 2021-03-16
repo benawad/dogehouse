@@ -115,7 +115,7 @@
 		"deviceNotSupported": {
 			"notSupported": "המכשיר שלך אינו נתמך כרגע. אתה יכול ליצור",
 			"linkText": "issue בGitHub",
-			"addSupport": "ואנסה להוסיף תמיכה למכשיר שלך."
+			"addSupport": "וננסה להוסיף תמיכה למכשיר שלך."
 		},
 		"inviteButton": { "invited": "מוזמן", "inviteToRoom": "הזמן לחדר" },
 		"micPermissionBanner": {
@@ -132,7 +132,7 @@
 		"userVolumeSlider": { "noAudioMessage": "שום צרכן קול משום מה" },
 		"addToCalendar": { "add": "הוסף ליומן" },
 		"wsKilled": {
-			"description": "הWebSocket נהרג על ידי השרת. זה קורה בדרך כלל כשפותחים את האתר בלשונית אחרת.",
+			"description": "הWebSocket נסגר על ידי השרת. זה קורה בדרך כלל כשפותחים את האתר בלשונית אחרת.",
 			"reconnect": "התחבר מחדש"
 		},
 		"modals": {
@@ -157,7 +157,7 @@
 				"avatarUrlLabel": "GitHub/Twitterשל התמונה מ url",
 				"displayNameError": "אורך 2 עד 50 תווים",
 				"displayNameLabel": "שם מוצג",
-				"usernameError": "אורך 4 עד 15 תווים ורק אלפאנומרי / קו תחתון",
+				"usernameError": "אורך 4 עד 15 תווים ורק אותיות / מספרים / קו תחתון",
 				"usernameLabel": "שם משתמש",
 				"bioError": "אורך מקסימלי של 160 תווים",
 				"bioLabel": "ביו"
@@ -169,8 +169,8 @@
 				"unmod": "הסר mod",
 				"addAsSpeaker": "הוסף כ דובר",
 				"moveToListener": "העבר למקשיב",
-				"banFromChat": "באן מהצ'אט",
-				"banFromRoom": "באן מהחדר",
+				"banFromChat": "הרחק מהצ'אט",
+				"banFromRoom": "הרחק מהחדר",
 				"goBackToListener": "חזור למקשיב",
 				"deleteMessage": "מחק הודעה זו"
 			},
@@ -189,7 +189,7 @@
 			"allRooms": "כל החדרים המתוזמנים",
 			"myRooms": "החדרים המתוזמנים שלי",
 			"scheduleRoomHeader": "צור חדר מתוזמן",
-			"startRoom": "החל חדר",
+			"startRoom": "התחל חדר",
 			"modal": {
 				"needsFuture": "חייב להיות בעתיד",
 				"roomName": "שם החדר",
@@ -200,7 +200,7 @@
 			"title": "צ'אט",
 			"emotesSoon": "[emotes soon]",
 			"bannedAlert": "קיבלת באן מהצ'אט",
-			"waitAlert": "חקו שנייה לפני שליחת הודעה",
+			"waitAlert": "חקה/י שנייה לפני שליחת הודעה",
 			"search": "חפש",
 			"searchResults": "תוצאות חיפוש",
 			"recent": "לעיתים קרובות בשימוש",
