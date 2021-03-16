@@ -6,8 +6,6 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended"
   ],
   "parser": "@typescript-eslint/parser",
@@ -18,19 +16,8 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint/eslint-plugin", "react-hooks"],
-  "settings": {
-    "react": {
-      "pragma": "React",
-      "version": "detect"
-    },
-    "import/resolver": "parcel2",
-    "html/xml-extensions": [".html"],
-    "html/indent": "+2"
-  },
+  "plugins": ["@typescript-eslint/eslint-plugin"],
   "rules": {
-    "@typescript-eslint/no-var-requires": "off",
-    "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/no-empty-interface": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/member-delimiter-style": "off",
@@ -119,12 +106,11 @@
     "no-buffer-constructor": "error",
     "no-caller": "error",
     "no-catch-shadow": "error",
-    "no-console": "off",
+    "no-console": "error",
     "no-constructor-return": "error",
     "no-continue": "error",
     "no-div-regex": "error",
     "no-duplicate-imports": "error",
-    "@typescript-eslint/no-empty-function": "error",
     "no-eq-null": "error",
     "no-eval": "error",
     "no-extend-native": "error",
@@ -132,7 +118,7 @@
     "no-extra-label": "error",
     "no-extra-parens": "off",
     "no-floating-decimal": "error",
-    "no-implicit-coercion": "off",
+    "no-implicit-coercion": "error",
     "no-implicit-globals": "error",
     "no-implied-eval": "error",
     "no-inline-comments": "error",
@@ -281,7 +267,9 @@
     "wrap-regex": "error",
     "yield-star-spacing": "error",
     "yoda": "error",
-    "@typescript-eslint/ban-types": ["warn"],
-    "react/react-in-jsx-scope": "off"
+    "@typescript-eslint/ban-types": "warn",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/ban-ts-comment": "warn"
   }
 }

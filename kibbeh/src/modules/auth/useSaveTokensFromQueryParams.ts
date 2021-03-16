@@ -16,7 +16,7 @@ export const useSaveTokensFromQueryParams = () => {
         accessToken: params.accessToken,
         refreshToken: params.refreshToken,
       });
-      push("/lounge");
+      push("/dashboard");
     }
   }, [params, push]);
 };

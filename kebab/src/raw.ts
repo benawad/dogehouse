@@ -10,9 +10,17 @@ const connectionTimeout = 15000;
 export type Token = string;
 export type FetchID = UUID;
 export type Opcode = string;
-export type Logger = (direction: "in" | "out", opcode: Opcode, data?: object, fetchId?: FetchID, raw?: string) => void;
-export type ListenerHandler = (data: object, fetchId?: FetchID) =>
-  boolean | void | Promise<boolean> | Promise<void>;
+export type Logger = (
+  direction: "in" | "out",
+  opcode: Opcode,
+  data?: object,
+  fetchId?: FetchID,
+  raw?: string
+) => void;
+export type ListenerHandler = (
+  data: object,
+  fetchId?: FetchID
+) => boolean | void | Promise<boolean> | Promise<void>;
 export type Listener = {
   opcode: Opcode;
   handler: ListenerHandler;
@@ -30,91 +38,99 @@ export const connect = (
   refreshToken: Token,
   {
     logger = () => {},
-    onConnectionTaken = () => {}
-  }: { logger?: Logger, onConnectionTaken?: () => void }
-): Promise<Connection> => new Promise((resolve, reject) => {
-  const socket = new ReconnectingWebSocket(apiUrl, [], { connectionTimeout, WebSocket });
-  const apiSend = (opcode: Opcode, data: object, fetchId?: FetchID) => {
-    const raw = `{"op":"${opcode}","d":${JSON.stringify(data)}${fetchId ? `,"fetchId":"${fetchId}"` : ""}}`;
+    onConnectionTaken = () => {},
+    url = apiUrl,
+  }: { logger?: Logger; onConnectionTaken?: () => void; url?: string }
+): Promise<Connection> =>
+  new Promise((resolve, reject) => {
+    const socket = new ReconnectingWebSocket(url, [], {
+      connectionTimeout,
+      WebSocket,
+    });
+    const apiSend = (opcode: Opcode, data: object, fetchId?: FetchID) => {
+      const raw = `{"op":"${opcode}","d":${JSON.stringify(data)}${
+        fetchId ? `,"fetchId":"${fetchId}"` : ""
+      }}`;
 
-    socket.send(raw);
-    logger("out", opcode, data, fetchId, raw);
-  };
+      socket.send(raw);
+      logger("out", opcode, data, fetchId, raw);
+    };
 
-  const listeners: Listener[] = [];
-  const runListener = async (listener: Listener, data: object, fetchId: FetchID) => {
-    const result = listener.handler(data, fetchId);
-    const remove = result instanceof Promise ? Boolean(await result) : Boolean(result);
+    const listeners: Listener[] = [];
+    const runListener = async (
+      listener: Listener,
+      data: object,
+      fetchId: FetchID
+    ) => {
+      const result = listener.handler(data, fetchId);
+      const remove =
+        result instanceof Promise ? Boolean(await result) : Boolean(result);
 
-    if(remove) listeners.splice(listeners.indexOf(listener), 1);
-  };
+      if (remove) listeners.splice(listeners.indexOf(listener), 1);
+    };
 
-  socket.addEventListener("open", () => {
-    const heartbeat = setInterval(
-      () => {
+    socket.addEventListener("open", () => {
+      const heartbeat = setInterval(() => {
         socket.send("ping");
         logger("out", "ping");
-      },
-      heartbeatInterval
-    );
+      }, heartbeatInterval);
 
-    socket.addEventListener("close", (error) => {
-      clearInterval(heartbeat);
-      if(error.code === 4003) onConnectionTaken();
-      reject(error);
-    });
+      socket.addEventListener("close", (error) => {
+        clearInterval(heartbeat);
+        if (error.code === 4003) onConnectionTaken();
+        reject(error);
+      });
 
-    apiSend(
-      "auth",
-      {
+      apiSend("auth", {
         accessToken: token,
         refreshToken,
         reconnectToVoice: false,
         currentRoomId: null,
         muted: false,
-        platform: "uhhh web sure"
-      }
-    );
+        platform: "uhhh web sure",
+      });
 
-    socket.addEventListener("message", e => {
-      if(e.data === `"pong"`) {
-        logger("in", "pong");
+      socket.addEventListener("message", (e) => {
+        if (e.data === `"pong"`) {
+          logger("in", "pong");
 
-        return;
-      }
+          return;
+        }
 
-      const message = JSON.parse(e.data);
+        const message = JSON.parse(e.data);
 
-      logger("in", message.op, message.d, message.fetchId, e.data);
+        logger("in", message.op, message.d, message.fetchId, e.data);
 
-      if(message.op === "auth-good") {
-        const connection: Connection = {
-          addListener: (opcode: Opcode, handler: ListenerHandler) => listeners.push({ opcode, handler }),
-          user: message.d.user,
-          send: apiSend,
-          fetch: (opcode: Opcode, parameters: object, doneOpcode?: Opcode) => new Promise((resolveFetch) => {
-            const fetchId: FetchID | false = !doneOpcode && generateUuid();
+        if (message.op === "auth-good") {
+          const connection: Connection = {
+            addListener: (opcode: Opcode, handler: ListenerHandler) =>
+              listeners.push({ opcode, handler }),
+            user: message.d.user,
+            send: apiSend,
+            fetch: (opcode: Opcode, parameters: object, doneOpcode?: Opcode) =>
+              new Promise((resolveFetch) => {
+                const fetchId: FetchID | false = !doneOpcode && generateUuid();
 
-            listeners.push({
-              opcode: doneOpcode ?? "fetch_done",
-              handler: (data, arrivedId) => {
-                if(!doneOpcode && arrivedId !== fetchId) return;
-                resolveFetch(data);
+                listeners.push({
+                  opcode: doneOpcode ?? "fetch_done",
+                  handler: (data, arrivedId) => {
+                    if (!doneOpcode && arrivedId !== fetchId) return;
+                    resolveFetch(data);
 
-                return true;
-              }
-            });
+                    return true;
+                  },
+                });
 
-            apiSend(opcode, parameters, fetchId || undefined);
-          })
-        };
+                apiSend(opcode, parameters, fetchId || undefined);
+              }),
+          };
 
-        resolve(connection);
-      } else {
-        listeners
-          .filter(({ opcode }) => opcode === message.op)
-          .forEach(it => runListener(it, message.d, message.fetchId));
-      }
+          resolve(connection);
+        } else {
+          listeners
+            .filter(({ opcode }) => opcode === message.op)
+            .forEach((it) => runListener(it, message.d, message.fetchId));
+        }
+      });
     });
   });
-});

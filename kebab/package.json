@@ -1,5 +1,5 @@
 {
-  "name": "@dogehouse/client",
+  "name": "@dogehouse/kebab",
   "author": "Ilya Maximov <mail@overlisted.net> (https://overlisted.net)",
   "bugs": "https://github.com/benawad/dogehouse/issues",
   "version": "0.1.2",
@@ -9,8 +9,10 @@
   ],
   "description": "Client-side implementation of DogeHouse API.",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "watch": "tsc -w",
     "lint": "eslint src/"
   },
   "dependencies": {

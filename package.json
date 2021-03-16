@@ -1,4 +1,15 @@
 {
+  "name": "dogehouse",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "kebab",
+      "kibbeh"
+    ],
+    "nohoist": [
+      "**"
+    ]
+  },
   "devDependencies": {
     "husky": "^5.1.3"
   }

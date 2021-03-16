@@ -1,5 +1,5 @@
 {
-  "name": "kibbeh",
+  "name": "@dogehouse/kibbeh",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,10 +10,10 @@
     "format": "prettier --write src",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "convert-icons": "svgr src/icons --replace-attr-values '#fff'='currentColor' --typescript --out-dir src/icons",
-    "prepare": "cd .. && npm i"
+    "convert-icons": "svgr src/icons --replace-attr-values '#fff'='currentColor' --typescript --out-dir src/icons"
   },
   "dependencies": {
+    "@dogehouse/kebab": "^0.1.2",
     "@svgr/webpack": "^5.5.0",
     "date-fns": "^2.19.0",
     "next": "10.0.7",
@@ -23,6 +23,7 @@
     "zustand": "^3.3.3"
   },
   "devDependencies": {
+    "@babel/runtime": "^7.13.10",
     "@storybook/addon-essentials": "^6.2.0-beta.10",
     "@storybook/addon-links": "^6.2.0-beta.10",
     "@storybook/react": "^6.2.0-beta.10",
@@ -39,6 +40,7 @@
     "eslint": "^7.21.0",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "next-transpile-modules": "^6.3.0",
     "postcss": "^8.2.7",
     "postcss-import": "^14.0.0",
     "postcss-loader": "^4.2.0",
