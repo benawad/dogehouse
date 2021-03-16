@@ -36,6 +36,7 @@ export const connect = (
   const socket = new ReconnectingWebSocket(apiUrl, [], { connectionTimeout, WebSocket });
   const apiSend = (opcode: Opcode, data: object, fetchId?: FetchID) => {
     const raw = `{"op":"${opcode}","d":${JSON.stringify(data)}${fetchId ? `,"fetchId":"${fetchId}"` : ""}}`;
+
     socket.send(raw);
     logger("out", opcode, data, fetchId, raw);
   };
@@ -43,7 +44,8 @@ export const connect = (
   const listeners: Listener[] = [];
   const runListener = async (listener: Listener, data: object, fetchId: FetchID) => {
     const result = listener.handler(data, fetchId);
-    const remove = result instanceof Promise ? !!await result : !!result;
+    const remove = result instanceof Promise ? Boolean(await result) : Boolean(result);
+
     if(remove) listeners.splice(listeners.indexOf(listener), 1);
   };
 
@@ -66,7 +68,7 @@ export const connect = (
       "auth",
       {
         accessToken: token,
-        refreshToken: refreshToken,
+        refreshToken,
         reconnectToVoice: false,
         currentRoomId: null,
         muted: false,
@@ -77,10 +79,12 @@ export const connect = (
     socket.addEventListener("message", e => {
       if(e.data === `"pong"`) {
         logger("in", "pong");
+
         return;
       }
 
       const message = JSON.parse(e.data);
+
       logger("in", message.op, message.d, message.fetchId, e.data);
 
       if(message.op === "auth-good") {
@@ -88,8 +92,9 @@ export const connect = (
           addListener: (opcode: Opcode, handler: ListenerHandler) => listeners.push({ opcode, handler }),
           user: message.d.user,
           send: apiSend,
-          fetch: (opcode: Opcode, data: object, doneOpcode?: Opcode) => new Promise((resolveFetch) => {
+          fetch: (opcode: Opcode, parameters: object, doneOpcode?: Opcode) => new Promise((resolveFetch) => {
             const fetchId: FetchID | false = !doneOpcode && generateUuid();
+
             listeners.push({
               opcode: doneOpcode ?? "fetch_done",
               handler: (data, arrivedId) => {
@@ -100,7 +105,7 @@ export const connect = (
               }
             });
 
-            apiSend(opcode, data, fetchId || undefined);
+            apiSend(opcode, parameters, fetchId || undefined);
           })
         };
 

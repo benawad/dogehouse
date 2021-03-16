@@ -4,7 +4,7 @@ export type UserPreview = {
   numFollowers: number;
   id: UUID;
   displayName: string;
-}
+};
 
 export type Room = {
   voiceServerId: number | "";
@@ -15,7 +15,7 @@ export type Room = {
   id: UUID;
   description: string;
   creatorId: UUID;
-}
+};
 
 export type User = {
   youAreFollowing?: boolean;
@@ -54,4 +54,4 @@ export type Message = {
   deleterId?: UUID;
   sentAt: string;
   isWhisper?: boolean;
-}
+};
