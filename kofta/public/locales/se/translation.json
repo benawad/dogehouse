@@ -122,8 +122,8 @@
 				"private": "privat",
 				"roomName": "rum namn",
 				"roomDescription": "room description",
-				"descriptionError": "max length 500",
-				"nameError": "must be between 2 to 60 characters long"
+				"descriptionError": "max längd av 500 karaktärer",
+				"nameError": "längd 2 till 60 karaktärer"
 			},
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Nytt Rum Skapat",
