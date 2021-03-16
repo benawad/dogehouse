@@ -85,10 +85,6 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
     } else {
       canIAskToSpeak = true;
       listeners.push(u);
-
-      for (let i = 0; i < 50; i++) {
-        listeners.push(u);
-      }
     }
   });
 
