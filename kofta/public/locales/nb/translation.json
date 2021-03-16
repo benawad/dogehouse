@@ -109,7 +109,8 @@
 			"makeRoomPublicBtn": "Gjør rommet offentlig!",
 			"settings": "Innstillinger",
 			"speaker": "Presentasjonsholder",
-			"listener": "Lytter"
+			"listener": "Lytter",
+			"chat": "Chat"
 		},
 		"micPermissionBanner": {
 			"permissionDenied": "Tillatelse nektet mens vi prøvde å få tilgang til mikrofonen din (du må kanskje gå til nettleserinnstillingene og laste inn siden på nytt)",

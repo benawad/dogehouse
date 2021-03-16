@@ -119,7 +119,8 @@
 			"makeRoomPublicBtn": "Make room public!",
 			"settings": "Settings",
 			"speaker": "Speaker",
-			"listener": "Listener"
+			"listener": "Listener",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Your device is currently not supported. You can create an",

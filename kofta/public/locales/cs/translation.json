@@ -110,7 +110,8 @@
 			"makeRoomPublicBtn": "Otevřít místnost všem",
 			"settings": "Nastavení",
 			"speaker": "Řečník",
-			"listener": "Posluchač"
+			"listener": "Posluchač",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Tvé zařízení není momentálně podporováno. Můžeš o podporu",

@@ -110,7 +110,8 @@
 			"makeRoomPublicBtn": "Upublicznij pokój!",
 			"settings": "Ustawienia",
 			"speaker": "Mówiący",
-			"listener": "Słuchacz"
+			"listener": "Słuchacz",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Twoje urządzenie nie jest obecnie wspierane. Możesz zgłosić to",

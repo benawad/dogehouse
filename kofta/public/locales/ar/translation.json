@@ -110,7 +110,8 @@
 			"makeRoomPublicBtn": "اجعل الغرفة عامة!",
 			"settings": "الإعدادات",
 			"speaker": "متحدث",
-			"listener": "مستمع"
+			"listener": "مستمع",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "جهازك غير مدعوم حاليا. يمكنك إنشاء",

@@ -110,7 +110,8 @@
 			"makeRoomPublicBtn": "Padaryk kambarį viešu!",
 			"settings": "Nustatymai",
 			"speaker": "Kalbėtojas",
-			"listener": "Klausytojai"
+			"listener": "Klausytojai",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Jūsų įrenginys šiuo metu nepalaikomas.",

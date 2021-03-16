@@ -109,7 +109,8 @@
 			"makeRoomPublicBtn": "Buat ruangan publik!",
 			"settings": "Pengaturan",
 			"speaker": "Pembicara",
-			"listener": "Pendengar"
+			"listener": "Pendengar",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Perangkatmu saat ini belum didukung. Kamu bisa membuat",

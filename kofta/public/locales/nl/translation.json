@@ -115,7 +115,8 @@
 			"makeRoomPublicBtn": "Maak kamer openbaar!",
 			"settings": "Instellingen",
 			"speaker": "Spreker",
-			"listener": "Luisteraar"
+			"listener": "Luisteraar",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Je apparaat wordt momenteel niet ondersteund. Je kunt een",

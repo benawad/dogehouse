@@ -112,7 +112,8 @@
 			"makeRoomPublicBtn": "Opinbera rás!",
 			"settings": "Stillingar",
 			"speaker": "Ræðumaður",
-			"listener": "Hlustandi"
+			"listener": "Hlustandi",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Tækið þitt er sem stendur ekki stutt. Þú getur búið til",

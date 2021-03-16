@@ -115,7 +115,8 @@
 			"makeRoomPublicBtn": "Gør rummet offentligt!",
 			"settings": "Indstillinger",
 			"speaker": "Taler",
-			"listener": "Lytter"
+			"listener": "Lytter",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Din enhed understøttes ikke lige nu. Du kan oprette et",

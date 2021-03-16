@@ -110,7 +110,8 @@
 			"makeRoomPublicBtn": "Tee ruum avalikuks!",
 			"settings": "Seaded",
 			"speaker": "Kõneleja",
-			"listener": "Kuulaja"
+			"listener": "Kuulaja",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Teie seadet ei toetata praegu. Te saate teha",

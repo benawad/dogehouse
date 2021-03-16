@@ -110,7 +110,8 @@
 			"makeRoomPublicBtn": "הפוך את החדר לציבורי!",
 			"settings": "הגדרות",
 			"speaker": "דובר",
-			"listener": "מקשיב"
+			"listener": "מקשיב",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "המכשיר שלך אינו נתמך כרגע. אתה יכול ליצור",

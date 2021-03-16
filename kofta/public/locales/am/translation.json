@@ -112,7 +112,8 @@
 			"makeRoomPublicBtn": "ክፍሉን ልሁሉም ክፍት አድርግ!",
 			"settings": "ቅንብሮች",
 			"speaker": "ተናጋሪ",
-			"listener": "አድማጭ"
+			"listener": "አድማጭ",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "የእርስዎ መሣሪያ በአሁኑ ጊዜ አይደገፍም፡፡ ቸግሩን",

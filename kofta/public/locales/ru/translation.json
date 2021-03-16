@@ -110,7 +110,8 @@
 			"makeRoomPublicBtn": "Сделать комнату открытой!",
 			"settings": "Настройки",
 			"speaker": "Оратор",
-			"listener": "Слушатели"
+			"listener": "Слушатели",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Ваше устройство не поддерживается. Вы можете создать",

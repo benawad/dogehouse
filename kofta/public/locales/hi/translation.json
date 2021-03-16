@@ -109,7 +109,8 @@
 			"makeRoomPublicBtn": "रूम को सार्वजनिक करें!",
 			"settings": "सेटिंग्स",
 			"speaker": "बोलनेवाले",
-			"listener": "सुननेवाले"
+			"listener": "सुननेवाले",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "वर्तमान में आपका डिवाइस समर्थित नहीं है। आप एक",

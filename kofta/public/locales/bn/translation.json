@@ -110,7 +110,8 @@
 			"makeRoomPublicBtn": "রুমটাকে পাবলিক করুন!",
 			"settings": "সেটিংস",
 			"speaker": "স্পিকার",
-			"listener": "শ্রোতাগণ"
+			"listener": "শ্রোতাগণ",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "আপনার ডিভাইসটি বর্তমানে সাপোর্টেড নয়। আপনি তৈরি করতে পারেন একটি",

@@ -98,7 +98,7 @@
 			"unban": "Ontban",
 			"noBans": "Niemand is al verban nie"
 		},
-		"bottomVoiceControl": {
+		"": {
 			"leaveCurrentRoomBtn": "Verlaat huidige kamer",
 			"confirmLeaveRoom": "Is jy seker jy wil waai?",
 			"leave": "Verlaat",
@@ -110,7 +110,8 @@
 			"makeRoomPublicBtn": "Maak kamer publiek!",
 			"settings": "Instellings",
 			"speaker": "Sprekers",
-			"listener": "Luisteraar"
+			"listener": "Luisteraar",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Jou toestel word tans nie ondersteun nie. Jy kan 'n",

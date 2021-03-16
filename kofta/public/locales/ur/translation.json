@@ -119,7 +119,8 @@
 			"makeRoomPublicBtn": "کمرے کو عوامی بنائیں!",
 			"settings": "ترتیبات",
 			"speaker": "اسپیکر",
-			"listener": "سننے والا"
+			"listener": "سننے والا",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "آپ کا آلہ فی الحال تعاون یافتہ نہیں ہے۔ آپ ایک تشکیل دے سکتے ہیں",

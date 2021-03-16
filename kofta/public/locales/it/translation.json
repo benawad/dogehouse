@@ -109,7 +109,8 @@
 			"makeRoomPublicBtn": "Fai diventare la stanza pubblica!",
 			"settings": "Impostazioni",
 			"speaker": "Oratore",
-			"listener": "Ascoltatori"
+			"listener": "Ascoltatori",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Il tuo dispositivo non è supportato. Puoi segnalare il problema",

@@ -110,7 +110,8 @@
 			"makeRoomPublicBtn": "ルームを公開",
 			"settings": "設定",
 			"speaker": "スピーカー",
-			"listener": "リスナー"
+			"listener": "リスナー",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "デバイスはサポートされていません。",

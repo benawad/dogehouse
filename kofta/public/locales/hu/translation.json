@@ -108,7 +108,8 @@
 			"makeRoomPublicBtn": "Szoba publikussá állítása!",
 			"settings": "Beállítások",
 			"speaker": "Beszélők",
-			"listener": "Hallgatók"
+			"listener": "Hallgatók",
+			"chat": "Chat"
 		},
 		"micPermissionBanner": {
 			"permissionDenied": "A mikrofonhoz való hozzáférést megtagadták (lehet, hogy be kell lépnie a böngészőbeállításaiba és újra be kell töltenie az oldalt)",
