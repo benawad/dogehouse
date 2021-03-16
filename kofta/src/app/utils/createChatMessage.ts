@@ -1,4 +1,4 @@
-import { linkRegex } from "./../constants";
+import { linkRegex, codeBlockRegex } from "./../constants";
 import { BaseUser } from "../types";
 
 // @ts-ignore
@@ -18,61 +18,65 @@ export const createChatMessage = (
 
   const whisperedToUsernames: string[] = [];
 
-  let isBlock = false;
-  message.split(" ").forEach((item) => {
-    const isLink = linkRegex.test(item);
-    const withoutAt = item.replace(/@|#/g, "");
-    const isMention = mentions.find((m) => withoutAt === m.username);
+  const ia = message.matchAll(new RegExp(codeBlockRegex, "g"));
+  let matchResult = ia.next();
 
-    // whisperedTo users list
-    !isMention ||
-      item.indexOf("#@") !== 0 ||
-      whisperedToUsernames.push(withoutAt);
+  // For message that matches the regex pattern of code blocks.
+  if (!matchResult.done) {
+    const splitMessage = message.split(codeBlockRegex);
 
-    if (isLink || isMention) {
-      tokens.push({
-        t: isLink ? "link" : "mention",
-        v: isMention ? withoutAt : normalizeUrl(item),
-      });
-    } else {
-      const lastToken = tokens[tokens.length - 1];
-      
-      // if is block token
-      if (item.startsWith("`")) (isBlock = true)
-      if (isBlock) {
-        const trimmed = item.replaceAll("`", "")
-        if (lastToken && lastToken.t === "block") {
-          tokens[tokens.length - 1].v = lastToken.v + " " + trimmed
-        } else {
-          tokens.push({
-            t: "block",
-            v: trimmed
-          })
-        }
+    splitMessage.forEach((text, index) => {
+      // First and last index is empty string while split using the code block regex.
+      if (!index && index === splitMessage.length - 1) {
+        return;
       }
 
-      // If is text token
-      if (lastToken && lastToken.t === "text" && !isBlock) {
-        tokens[tokens.length - 1].v = lastToken.v + " " + item;
-      } else if (!isBlock) {
+      const trimmed = text.trim();
+
+      if (!matchResult.done && text === matchResult.value[1]) {
+        trimmed
+          ? tokens.push({
+              t: "block",
+              v: trimmed,
+            })
+          : tokens.push({
+              t: "text",
+              v: matchResult.value[0],
+            });
+        matchResult = ia.next();
+      } else {
+        trimmed &&
+          tokens.push({
+            t: "text",
+            v: text,
+          });
+      }
+    });
+  } else {
+    message.split(" ").forEach((item) => {
+      const isLink = linkRegex.test(item);
+      const withoutAt = item.replace(/@|#/g, "");
+      const isMention = mentions.find((m) => withoutAt === m.username);
+
+      // whisperedTo users list
+      !isMention ||
+        item.indexOf("#@") !== 0 ||
+        whisperedToUsernames.push(withoutAt);
+
+      if (isLink || isMention) {
+        tokens.push({
+          t: isLink ? "link" : "mention",
+          v: isMention ? withoutAt : normalizeUrl(item),
+        });
+      } else {
+        // If is text token
         tokens.push({
           t: "text",
           v: item,
         });
       }
-
-      // if is block token
-      if (item.endsWith("`")) {
-        // check if the block is empty, and remove it
-        if (!item.replaceAll("`", "")) {
-          tokens.pop()
-        }
-        isBlock = false;
-      }
-
-    }
-  });
-
+    });
+  }
   return {
     tokens,
     whisperedTo: roomUsers
