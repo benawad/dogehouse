@@ -98,7 +98,7 @@
 			"unban": "Ontban",
 			"noBans": "Niemand is al verban nie"
 		},
-		"": {
+		"bottomVoiceControl": {
 			"leaveCurrentRoomBtn": "Verlaat huidige kamer",
 			"confirmLeaveRoom": "Is jy seker jy wil waai?",
 			"leave": "Verlaat",
