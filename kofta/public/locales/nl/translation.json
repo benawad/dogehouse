@@ -30,7 +30,7 @@
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
 		"banUser": {
-			"ban": "verban"
+			"ban": "ban"
 		},
 		"followingOnlineList": {
 			"listHeader": "Lijst van gebruikers die je volgt en niet in een privé kamer zijn.",
@@ -91,7 +91,7 @@
 		"voiceSettings": {
 			"header": "Spraakinstellingen",
 			"mic": "microfoon:",
-			"permissionError": "geen microfoon gevonden, Mogelijk is er geen aangesloten, of je hebt geen toestemming gegeven.",
+			"permissionError": "geen microfoon gevonden, je hebt er of geen aangesloten of hebt de website nog geen toestemming gegeven.",
 			"refresh": "ververs microfoonlijst",
 			"volume": "volume:"
 		}
@@ -103,7 +103,7 @@
 		"blockedFromRoomUsers": {
 			"header": "Verbannen Gebruikers",
 			"unban": "unban",
-			"noBans": "Nog niemand is verbannen"
+			"noBans": "nog niemand is verbannen"
 		},
 		"bottomVoiceControl": {
 			"leaveCurrentRoomBtn": "Verlaat huidige kamer",
@@ -114,7 +114,7 @@
 			"toggleMuteMicBtn": "Microfoon aan- of uitzetten",
 			"mute": "Demp",
 			"unmute": "Dempen opheffen",
-			"makeRoomPublicBtn": "Maak kamer publiek!",
+			"makeRoomPublicBtn": "Maak kamer openbaar!",
 			"settings": "Instellingen",
 			"speaker": "Spreker",
 			"listener": "Luisteraar"
@@ -129,7 +129,7 @@
 			"inviteToRoom": "nodig uit voor kamer"
 		},
 		"micPermissionBanner": {
-			"permissionDenied": "geen microfoon gevonden, Mogelijk is er geen aangesloten of je hebt geen toestemming gegeven.",
+			"permissionDenied": "Toestemming om je microfoon te gebruiken is geweigerd (kijk misschien naar de instellingen van je browser en herlaad de pagina)",
 			"dismiss": "negeer",
 			"tryAgain": "probeer opnieuw"
 		},
@@ -155,7 +155,7 @@
 				"private": "privé",
 				"roomName": "kamer naam",
 				"roomDescription": "kamer omschrijving",
-				"descriptionError": "maximale lengte van 500 karakters",
+				"descriptionError": "maximale lengte van 500",
 				"nameError": "moet tussen de 2 en 60 karakters lang zijn"
 			},
 			"invitedToJoinRoomModal": {
@@ -179,12 +179,12 @@
 			"profileModal": {
 				"blockUserConfirm": "Weet je zeker dat je deze gebruiker wilt blokkeren van alle kamers die je ooit zult maken?",
 				"blockUser": "blokkeer gebruiker",
-				"makeMod": "maak beheerder",
-				"unmod": "verwijder beheerder",
+				"makeMod": "maak moderator",
+				"unmod": "verwijder moderator",
 				"addAsSpeaker": "voeg toe als spreker",
 				"moveToListener": "verplaats naar luisteraar",
-				"banFromChat": "Verban uit de chat",
-				"banFromRoom": "Verban uit de room",
+				"banFromChat": "ban uit de chat",
+				"banFromRoom": "ban uit de room",
 				"goBackToListener": "ga terug naar luisteraar",
 				"deleteMessage": "verwijder dit bericht"
 			},
