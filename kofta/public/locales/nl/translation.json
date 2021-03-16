@@ -179,12 +179,12 @@
 			"profileModal": {
 				"blockUserConfirm": "Weet je zeker dat je deze gebruiker wilt blokkeren van alle kamers die je ooit zult maken?",
 				"blockUser": "blokkeer gebruiker",
-				"makeMod": "maak moderator",
-				"unmod": "verwijder moderator",
+				"makeMod": "maak beheerder",
+				"unmod": "verwijder beheerder",
 				"addAsSpeaker": "voeg toe als spreker",
 				"moveToListener": "verplaats naar luisteraar",
-				"banFromChat": "ban uit de chat",
-				"banFromRoom": "ban uit de room",
+				"banFromChat": "Verban uit de chat",
+				"banFromRoom": "Verban uit de room",
 				"goBackToListener": "ga terug naar luisteraar",
 				"deleteMessage": "verwijder dit bericht"
 			},
