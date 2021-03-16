@@ -10,7 +10,7 @@
         "build": "npm run compile && electron-builder",
         "build:all": "npm run compile && electron-builder -mwl --win msi",
         "build:mac": "npm run compile && electron-builder --mac",
-        "build:win": "npm run compile && electron-builder --win",
+        "build:win": "npm run compile && electron-builder --win msi",
         "build:linux": "npm run compile && electron-builder --linux"
     },
     "keywords": [
@@ -48,15 +48,15 @@
                 "dmg"
             ]
         },
-        "keywords": [],
-        "author": "Ben Awad <benawadapps@gmail.com>",
-        "homepage": "https://github.com/benawad/dogehouse/",
-        "repository": {
-            "type": "git",
-            "url": "https://github.com/benawad/dogehouse"
+        "win": {
+            "icon": "icons/icon.png",
+            "target": "msi"
         },
-        "bugs": {
-            "url": "https://github.com/benawad/dogehouse/issues"
+        "linux": {
+            "icon": "icons/icon.png",
+            "target": [
+                "deb"
+            ]
         },
         "directories": {
             "output": "./builds"
