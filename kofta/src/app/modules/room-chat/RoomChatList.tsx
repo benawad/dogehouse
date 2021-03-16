@@ -159,18 +159,18 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                             {normalizeUrl(v, { stripProtocol: true })}{" "}
                           </a>
                         );
-                        case "block":
-                          return (
-                            <span key={i}>
-                              <span
-                                className={
-                                  "bg-simple-gray-33 rounded whitespace-pre-wrap font-mono"
-                                }
-                              >
-                                {v}
-                              </span>{" "}
-                            </span>
-                          );
+                      case "block":
+                        return (
+                          <span key={i}>
+                            <span
+                              className={
+                                "bg-simple-gray-33 rounded whitespace-pre-wrap font-mono"
+                              }
+                            >
+                              {v}
+                            </span>{" "}
+                          </span>
+                        );
                       default:
                         return null;
                     }
