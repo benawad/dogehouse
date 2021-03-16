@@ -38,7 +38,7 @@
 			"startPrivateRoom": "Start et privat rum med dem"
 		},
 		"followList": {},
-		"home": { "createRoom": "Start Rum", "refresh": "Refresh" },
+		"home": { "createRoom": "Start Rum", "refresh": "Opdater" },
 		"inviteList": {
 			"roomGone": "rummet er væk, gå tilbage",
 			"shareRoomLink": "Del et link til rummet",
@@ -220,13 +220,13 @@
 			"roomDescription": "Rum beskrivelse"
 		},
 		"roomStatus": {
-			"fuelingRocket": "Fueling rocket",
-			"takingOff": "Taking off",
-			"inSpace": "In space",
-			"approachingMoon": "Approaching moon",
-			"lunarDoge": "Lunar doge",
-			"approachingSun": "Approaching sun",
-			"solarDoge": "Solar doge"
+			"fuelingRocket": "Tanker raket",
+			"takingOff": "Tager afsted",
+			"inSpace": "I rummet",
+			"approachingMoon": "Nærmes månen",
+			"lunarDoge": "Måne doge",
+			"approachingSun": "Nærmes solen",
+			"solarDoge": "Sol doge"
 		}
 	}
 }
