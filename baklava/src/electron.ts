@@ -52,6 +52,8 @@ function createWindow() {
   // systemPreferences.askForMediaAccess("microphone");
   if (!__prod__) {
     mainWindow.webContents.openDevTools();
+  } else {
+    globalShortcut.register("Control+Shift+I", () => {});
   }
   mainWindow.loadURL(
     __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/"
