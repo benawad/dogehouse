@@ -90,13 +90,6 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
   ) => {
     e.preventDefault();
 
-    if (
-      !message ||
-      !message.trim() ||
-      !message.replace(/[\u200B-\u200D\uFEFF]/g, "")
-    )
-      return;
-
     if (!me) return;
 
     if (me.id in useRoomChatStore.getState().bannedUserIdMap) {
@@ -122,6 +115,13 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
     // dont empty the input, if no tokens
     if (!messageData.tokens.length) return
     setMessage("");
+
+    if (
+      !message ||
+      !message.trim() ||
+      !message.replace(/[\u200B-\u200D\uFEFF]/g, "")
+    )
+      return;
 
     wsend({
       op: "send_room_chat_msg",

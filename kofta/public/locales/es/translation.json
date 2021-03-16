@@ -35,7 +35,7 @@
 			"startPrivateRoom": "empieza una sala privada con ellos"
 		},
 		"followList": {},
-		"home": { "createRoom": "Crear Sala" },
+		"home": { "createRoom": "Crear Sala", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "sala no disponible, vuelve atrás",
 			"shareRoomLink": "compartir enlace de la sala",
@@ -179,7 +179,10 @@
 			"linkText": "issue en GitHub",
 			"addSupport": "e intentaré agregar soporte para su dispositivo."
 		},
-		"inviteButton": { "invited": "invitado", "inviteToRoom": "invitar a la sala" }
+		"inviteButton": {
+			"invited": "invitado",
+			"inviteToRoom": "invitar a la sala"
+		}
 	},
 	"modules": {
 		"scheduledRooms": {
@@ -207,6 +210,15 @@
 			"whisper": "Susurrar",
 			"welcomeMessage": "¡Bienvenido al chat!",
 			"roomDescription": "descripción de la sala"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

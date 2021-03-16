@@ -23,23 +23,23 @@
 	},
 	"footer": {
 		"_comment": "Ana altbilgi arayüz ulusallaştırma yazıları",
-		"link_1": "DogeHouse hikayesi",
+		"link_1": "DogeHouse Hikayesi",
 		"link_2": "Discord",
 		"link_3": "Hata Bildir"
 	},
 	"pages": {
 		"_comment": "İlgili sayfa arayüz ulusallaştırma yazıları",
-		"banUser": { "ban": "yasakla" },
+		"banUser": { "ban": "Yasakla" },
 		"followingOnlineList": {
 			"listHeader": "Senin takip ettiğin ve özel odada olmayan kullanıcıların listesi.",
 			"currentRoom": "Şu anki oda:",
-			"startPrivateRoom": "onlarla özel bir oda oluştur"
+			"startPrivateRoom": "Onlarla özel bir oda oluştur"
 		},
 		"followList": {},
-		"home": { "createRoom": "Oda oluştur" },
+		"home": { "createRoom": "Oda oluştur", "refresh": "Yenile" },
 		"inviteList": {
 			"roomGone": "oda gitti, geri dön",
-			"shareRoomLink": "oda bağlantısını paylaş",
+			"shareRoomLink": "Oda bağlantısını paylaş",
 			"inviteFollowers": "Çevrimiçi olan takipçilerini davet edebilirsin:",
 			"whenFollowersOnline": "Takipçilerin çevrimiçi olduğunda burada gözükecek."
 		},
@@ -53,36 +53,36 @@
 			"featureText_6": "Doge tarafından desteklenmektedir",
 			"loginGithub": "GitHub ile giriş yap",
 			"loginTwitter": "Twitter ile giriş yap",
-			"createTestUser": "test kullanıcısı oluştur"
+			"createTestUser": "Test kullanıcısı oluştur"
 		},
 		"myProfile": {
-			"logout": "çıkış yap",
-			"probablyLoading": "muhtemelen yükleniyor...",
-			"voiceSettings": "konuşma ayarlarına git",
-			"soundSettings": "ses ayarlarına git",
-			"deleteAccount": "hesabı sil"
+			"logout": "Çıkış yap",
+			"probablyLoading": "Muhtemelen yükleniyor...",
+			"voiceSettings": "Konuşma ayarlarına git",
+			"soundSettings": "Ses ayarlarına git",
+			"deleteAccount": "Hesabı sil"
 		},
 		"notFound": {
 			"whoopsError": "Uups! Bu sayfa sohbette kayboldu.",
 			"goHomeMessage": "Endişe etme. Yapabilirsin",
-			"goHomeLinkText": "ana sayfaya git"
+			"goHomeLinkText": "Ana sayfaya git"
 		},
 		"room": {
 			"speakers": "Konuşmacılar",
 			"requestingToSpeak": "Konuşmak için izin istiyor",
 			"listeners": "Dinleyiciler"
 		},
-		"searchUser": { "search": "ara..." },
+		"searchUser": { "search": "Ara..." },
 		"soundEffectSettings": { "header": "Sesler" },
 		"viewUser": {
-			"editProfile": "profili düzenle",
-			"followsYou": "seni takip ediyor",
-			"followers": "takipçiler",
-			"following": "takip ediliyor"
+			"editProfile": "Profili düzenle",
+			"followsYou": "Seni takip ediyor",
+			"followers": "Takipçiler",
+			"following": "Takip ediliyor"
 		},
 		"voiceSettings": {
 			"header": "Ses Ayarları",
-			"mic": "mikrofon:",
+			"mic": "Mikrofon:",
 			"permissionError": "Mikrofon bulunamadı. Ya takılı değil ya da bu web sitesine izin vermediniz.",
 			"refesh": "Mikrofon listesini yenile",
 			"volume": "Ses seviyesi:",
@@ -119,19 +119,19 @@
 		},
 		"modals": {
 			"createRoomModal": {
-				"public": "herkese açık",
-				"private": "gizli",
-				"roomName": "oda ismi",
-				"roomDescription": "oda açıklaması",
-				"descriptionError": "maksimum uzunluk 500",
+				"public": "Herkese açık",
+				"private": "Gizli",
+				"roomName": "Oda ismi",
+				"roomDescription": "Oda açıklaması",
+				"descriptionError": "Maksimum uzunluk 500",
 				"nameError": "2 ila 60 karakter uzunluğunda olmalıdır"
 			},
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Yeni oda oluşturuldu",
 				"roomInviteFrom": "Oda daveti, tarafından",
 				"justStarted": "Başladılar",
-				"likeToJoin": ", katılmak ister misin?",
-				"inviteReceived": "davet edildin, şuraya"
+				"likeToJoin": ", Katılmak ister misin?",
+				"inviteReceived": "Davet edildin, şuraya"
 			},
 			"editProfileModal": {
 				"usernameTaken": "Kullanıcı adı alınmış",
@@ -139,7 +139,7 @@
 				"avatarUrlLabel": "GitHub/Twitter avatar linki",
 				"displayNameError": "uzunluk 2-50 karakter arası olmalı",
 				"displayNameLabel": "Görünülecek isim",
-				"usernameError": "uzunluk 4-15 arası olmalı ve sadece alfanümerik/alt_çizgi karakterlerini içermeli",
+				"usernameError": "Uzunluk 4-15 arası olmalı ve sadece alfanümerik/alt_çizgi karakterlerini içermeli",
 				"usernameLabel": "Kullanıcı adı",
 				"bioError": "Maksimum uzunluk 160 karakter",
 				"bioLabel": "Biyo"
@@ -157,16 +157,16 @@
 				"deleteMessage": "Mesajı Sil"
 			},
 			"roomSettingsModal": {
-				"requirePermission": "konuşmak için izne ihtiyacın var",
-				"makePublic": "odayı herkese açık yap",
-				"makePrivate": "odayı gizli yap"
+				"requirePermission": "Konuşmak için izne ihtiyacın var",
+				"makePublic": "Odayı herkese açık yap",
+				"makePrivate": "Odayı gizli yap"
 			}
 		},
-		"userVolumeSlider": { "noAudioMessage": "nedense ses alıcısı yok" },
+		"userVolumeSlider": { "noAudioMessage": "Nedense ses alıcısı yok" },
 		"addToCalendar": { "add": "Takvime Ekle" },
 		"keyboardShortcuts": {
 			"setKeybind": "Tuş Ata",
-			"listening": "dinleniyor",
+			"listening": "Dinleniyor",
 			"toggleMuteKeybind": "susturma aç/kapat tuş ataması",
 			"togglePushToTalkKeybind": "bas-konuş tuş ataması"
 		},
@@ -179,7 +179,10 @@
 			"linkText": "GitHub ile bir issue (sorun)",
 			"addSupport": "oluşturabilirsiniz ve ben de cihazınıza destek eklemeye çalışırım."
 		},
-		"inviteButton": { "invited": "Davet Edildi", "inviteToRoom": "Odaya Davet Et" }
+		"inviteButton": {
+			"invited": "Davet Edildi",
+			"inviteToRoom": "Odaya Davet Et"
+		}
 	},
 	"modules": {
 		"scheduledRooms": {
@@ -207,6 +210,15 @@
 			"whisper": "Fısılda",
 			"welcomeMessage": "Sohbete hoş geldin!",
 			"roomDescription": "Oda Açıklaması"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Yakıt dolduruluyor",
+			"takingOff": "Kalkış",
+			"inSpace": "Uzayda",
+			"approachingMoon": "Ay yaklaşıyor",
+			"lunarDoge": "Ay doge'u",
+			"approachingSun": "Güneş yaklaşıyor",
+			"solarDoge": "Güneş doge'u"
 		}
 	}
 }

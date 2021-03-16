@@ -20,7 +20,7 @@ NEW_TAG="$VNUM1.$VNUM2.$VNUM3"
 
 echo "Updating $VERSION to $NEW_TAG"
 
-git tag v1.0.0
+git tag v1.0.1
 
 git checkout prod
 git merge staging

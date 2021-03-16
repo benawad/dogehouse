@@ -1,4 +1,4 @@
-import { differenceInMilliseconds, isPast, isToday } from "date-fns";
+import { differenceInMilliseconds, isPast, isToday, sub } from "date-fns";
 import React, { useEffect, useMemo, useState } from "react";
 import { useMutation } from "react-query";
 import { useHistory } from "react-router-dom";
@@ -54,12 +54,13 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
   });
   const [, rerender] = useState(0);
   const dt = useMemo(() => new Date(scheduledFor), [scheduledFor]);
+  const canStartRoom = useMemo(() => isPast(sub(dt, { minutes: 10 })), [dt]);
   useEffect(() => {
     let done = false;
     const id = setTimeout(() => {
       done = true;
       rerender((x) => x + 1);
-    }, differenceInMilliseconds(dt, new Date()) + 1000); // + 1 second to be safe
+    }, Math.min(differenceInMilliseconds(sub(dt, { minutes: 10 }), new Date()) + 1000, 0)); // + 1 second to be safe
     return () => {
       if (!done) {
         clearTimeout(id);
@@ -138,7 +139,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
             {creator.displayName}
             {description ? ` | ` + description : ``}
           </div>
-          {isPast(dt) ? (
+          {canStartRoom ? (
             <div className={`mt-4`}>
               {isCreator ? (
                 <Button

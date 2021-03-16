@@ -39,7 +39,8 @@
 		},
 		"followList": {},
 		"home": {
-      "createRoom": "Lag et rom"
+      "createRoom": "Lag et rom",
+      "refresh": "Last inn på nytt"
     },
 		"inviteList": {
 			"roomGone": "rommet er borte, gå tilbake",

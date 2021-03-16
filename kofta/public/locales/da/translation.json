@@ -1,18 +1,18 @@
 {
 	"common": {
-		"loadMore": "indlæs mere",
-		"loading": "indlæser...",
-		"noUsersFound": "ingen brugere fundet",
-		"ok": "ok",
-		"yes": "ja",
-		"no": "nej",
-		"cancel": "afbryd",
-		"save": "gem",
-		"edit": "rediger",
-		"delete": "slet",
-		"joinRoom": "tilslut rum",
-		"copyLink": "kopier link",
-		"copied": "kopieret",
+		"loadMore": "Indlæs mere",
+		"loading": "Indlæser...",
+		"noUsersFound": "Ingen brugere fundet",
+		"ok": "Ok",
+		"yes": "Ja",
+		"no": "Nej",
+		"cancel": "Afbryd",
+		"save": "Gem",
+		"edit": "Rediger",
+		"delete": "Slet",
+		"joinRoom": "Tilslut rum",
+		"copyLink": "Kopier link",
+		"copied": "Kopieret",
 		"formattedIntlDate": "{{date, intlDate}}",
 		"formattedIntlTime": "{{time, intlTime}}"
 	},
@@ -30,20 +30,18 @@
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
 		"banUser": {
-			"ban": "bandlys"
+			"ban": "Bandlys"
 		},
 		"followingOnlineList": {
 			"listHeader": "Liste af brugere du følger, som ikke er i et privat rum.",
 			"currentRoom": "tilsluttet til:",
-			"startPrivateRoom": "start et privat rum med dem"
+			"startPrivateRoom": "Start et privat rum med dem"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "Start Rum"
-		},
+		"home": { "createRoom": "Start Rum", "refresh": "Opdater" },
 		"inviteList": {
 			"roomGone": "rummet er væk, gå tilbage",
-			"shareRoomLink": "del et link til rummet",
+			"shareRoomLink": "Del et link til rummet",
 			"inviteFollowers": "Du kan invitere dine følgere, der er online:",
 			"whenFollowersOnline": "Når dine følgere er online, vil de være her."
 		},
@@ -55,21 +53,21 @@
 			"featureText_4": "Åben Kildekode",
 			"featureText_5": "Tekst Chat",
 			"featureText_6": "Drevet af Doge",
-			"loginGithub": "log ind med GitHub",
-			"loginTwitter": "log ind med Twitter",
-			"createTestUser": "lav en test bruger"
+			"loginGithub": "Log ind med GitHub",
+			"loginTwitter": "Log ind med Twitter",
+			"createTestUser": "Lav en test bruger"
 		},
 		"myProfile": {
-			"logout": "log ud",
-			"probablyLoading": "indlæser sandsynligvis...",
-			"voiceSettings": "gå til stemmeindstillinger",
-			"soundSettings": "gå til lydindstillinger",
-			"deleteAccount": "slet konto"
+			"logout": "Log ud",
+			"probablyLoading": "Indlæser sandsynligvis...",
+			"voiceSettings": "Gå til stemmeindstillinger",
+			"soundSettings": "Gå til lydindstillinger",
+			"deleteAccount": "Slet konto"
 		},
 		"notFound": {
 			"whoopsError": "Ups! Denne side gik tabt i samtalen.",
 			"goHomeMessage": "Bare rolig. Du kan",
-			"goHomeLinkText": "gå hjem"
+			"goHomeLinkText": "Gå hjem"
 		},
 		"room": {
 			"speakers": "Højttalere",
@@ -77,23 +75,23 @@
 			"listeners": "Lyttere"
 		},
 		"searchUser": {
-			"search": "søger..."
+			"search": "Søger..."
 		},
 		"soundEffectSettings": {
 			"header": "Lyde"
 		},
 		"viewUser": {
-			"editProfile": "rediger profil",
-			"followsYou": "følger dig",
-			"followers": "følgere",
-			"following": "følger"
+			"editProfile": "Rediger profil",
+			"followsYou": "Følger dig",
+			"followers": "Følgere",
+			"following": "Følger"
 		},
 		"voiceSettings": {
 			"header": "Lydindstillinger",
-			"mic": "mikrofon:",
-			"permissionError": "ingen mikrofoner fundet, du har enten ikke koblet nogen til eller ikke givet denne hjemmeside tilladelse.",
-			"refresh": "opdater mikrofonliste",
-			"volume": "lydstyrke:"
+			"mic": "Mikrofon:",
+			"permissionError": "Ingen mikrofoner fundet, du har enten ikke koblet nogen til eller ikke givet denne hjemmeside tilladelse.",
+			"refresh": "Opdater mikrofonliste",
+			"volume": "Lydstyrke:"
 		}
 	},
 	"components": {
@@ -102,8 +100,8 @@
 		"backBar": {},
 		"blockedFromRoomUsers": {
 			"header": "Bandlyste Brugere",
-			"unban": "ophæv bandlysning",
-			"noBans": "ingen er bandlyst endnu"
+			"unban": "Ophæv bandlysning",
+			"noBans": "Ingen er bandlyst endnu"
 		},
 		"bottomVoiceControl": {
 			"leaveCurrentRoomBtn": "Forlad nuværende rum",
@@ -126,72 +124,70 @@
 		},
 		"inviteButton": {
 			"invited": "inviteret",
-			"inviteToRoom": "inviter til rum"
+			"inviteToRoom": "Inviter til rum"
 		},
 		"micPermissionBanner": {
 			"permissionDenied": "Adgang nægtet ved tilslutning af din mikrofon (du bliver måske nød til at gå ind i dine browserindstillinger og genindlæse siden)",
-			"dismiss": "ignorer",
-			"tryAgain": "prøv igen"
+			"dismiss": "Ignorer",
+			"tryAgain": "Prøv igen"
 		},
 		"keyboardShortcuts": {
-			"setKeybind": "indstil genvej",
-			"listening": "lytter",
-			"toggleMuteKeybind": "slå mikrofon til/fra genvej",
-			"togglePushToTalkKeybind": "slå push-to-talk til/fra genvej"
+			"setKeybind": "Indstil genvej",
+			"listening": "Lytter",
+			"toggleMuteKeybind": "Slå mikrofon til/fra genvej",
+			"togglePushToTalkKeybind": "Slå push-to-talk til/fra genvej"
 		},
 		"userVolumeSlider": {
-			"noAudioMessage": "ingen audio consumer af en eller anden grund"
+			"noAudioMessage": "Ingen audio consumer af en eller anden grund"
 		},
-		"addToCalendar": {
-			"add": "Tilføj til kalender"
-		},
+		"addToCalendar": { "add": "Tilføj til kalender" },
 		"wsKilled": {
 			"description": "Websocketen blev dræbt af serveren. Dette sker typisk når du har hjemmesiden åben i en anden fane.",
-			"reconnect": "tilslut igen"
+			"reconnect": "Tilslut igen"
 		},
 		"modals": {
 			"createRoomModal": {
-				"public": "offentlig",
-				"private": "privat",
-				"roomName": "rum navn",
-				"roomDescription": "rum beskrivelse",
-				"descriptionError": "max længde 500",
-				"nameError": "skal være mellem 2 og 60 tegn langt"
+				"public": "Offentlig",
+				"private": "Privat",
+				"roomName": "Rum navn",
+				"roomDescription": "Rum beskrivelse",
+				"descriptionError": "Max længde 500",
+				"nameError": "Skal være mellem 2 og 60 tegn langt"
 			},
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Nyt rum oprettet",
 				"roomInviteFrom": "Rum Invitation fra",
 				"justStarted": "De er lige begyndt",
-				"likeToJoin": ", har du lyst til at deltage?",
-				"inviteReceived": "du er blevet inviteret til"
+				"likeToJoin": ", Har du lyst til at deltage?",
+				"inviteReceived": "Du er blevet inviteret til"
 			},
 			"editProfileModal": {
-				"usernameTaken": "brugernavn optaget",
+				"usernameTaken": "Brugernavn optaget",
 				"avatarUrlError": "Ugyldigt billede",
 				"avatarUrlLabel": "Github/Twitter avatar url",
-				"displayNameError": "længde 2 til 50 tegn",
+				"displayNameError": "Længde 2 til 50 tegn",
 				"displayNameLabel": "Offentligt Navn",
-				"usernameError": "længde 4 til 15 tegn og kun alphanumerisk/underscore",
+				"usernameError": "Længde 4 til 15 tegn og kun alphanumerisk/underscore",
 				"usernameLabel": "Brugernavn",
-				"bioError": "max længde på 160 tegn",
+				"bioError": "Max længde på 160 tegn",
 				"bioLabel": "Bio"
 			},
 			"profileModal": {
-				"blockUserConfirm": "Er du sikker på at du vil blokere denne bruger fra at tilslutte sig til nogensomhelst rum du nogensinder kommer til at lave?",
-				"blockUser": "bloker bruger",
-				"makeMod": "gør til moderator",
-				"unmod": "fjern moderator",
-				"addAsSpeaker": "tilføj som taler",
-				"moveToListener": "flyt til lyttere",
-				"banFromChat": "bandlys fra chatten",
-				"banFromRoom": "bandlys fra rummet",
-				"goBackToListener": "gå tilbage til lytter",
-				"deleteMessage": "slet denne besked"
+				"blockUserConfirm": "Er du sikker på at du vil blokere denne bruger fra at tilslutte sig til alle de rum du nogensinde kommer til at lave?",
+				"blockUser": "Bloker bruger",
+				"makeMod": "Gør til moderator",
+				"unmod": "Fjern moderator",
+				"addAsSpeaker": "Tilføj som taler",
+				"moveToListener": "Flyt til lyttere",
+				"banFromChat": "Bandlys fra chatten",
+				"banFromRoom": "Bandlys fra rummet",
+				"goBackToListener": "Gå tilbage til lytter",
+				"deleteMessage": "Slet denne besked"
 			},
 			"roomSettingsModal": {
 				"requirePermission": "kræv tilladelse for at tale",
-				"makePublic": "gør rum offentligt",
-				"makePrivate": "gør rum privat"
+				"makePublic": "Gør rum offentligt",
+				"makePrivate": "Gør rum privat"
 			}
 		}
 	},
@@ -199,15 +195,15 @@
 		"_comment": "Modules UI Internationalization Strings",
 		"scheduledRooms": {
 			"title": "Planlagte Rum",
-			"noneFound": "ingen fundet",
-			"allRooms": "alle planlagte rum",
-			"myRooms": "mine planlagte rum",
+			"noneFound": "Ingen fundet",
+			"allRooms": "Alle planlagte rum",
+			"myRooms": "Mine planlagte rum",
 			"scheduleRoomHeader": "Planlæg Rum",
-			"startRoom": "start rum",
+			"startRoom": "Start rum",
 			"modal": {
 				"needsFuture": "skal være i fremtiden",
-				"roomName": "rum navn",
-				"minLength": "minimum længde på 2 tegn"
+				"roomName": "Rum navn",
+				"minLength": "Minimum længde på 2 tegn"
 			}
 		},
 		"roomChat": {
@@ -221,7 +217,16 @@
 			"sendMessage": "Send en Besked",
 			"whisper": "Hvisk",
 			"welcomeMessage": "Velkommen til chatten!",
-			"roomDescription": "rum beskrivelse"
+			"roomDescription": "Rum beskrivelse"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Tanker raket",
+			"takingOff": "Tager afsted",
+			"inSpace": "I rummet",
+			"approachingMoon": "Nærmes månen",
+			"lunarDoge": "Måne doge",
+			"approachingSun": "Nærmes solen",
+			"solarDoge": "Sol doge"
 		}
 	}
 }

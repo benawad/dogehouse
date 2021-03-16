@@ -4,45 +4,40 @@
 		"loadMore": "load more",
 		"loading": "loading...",
 		"noUsersFound": "no users found",
-		"ok": "ok",
-		"yes": "yes",
-		"no": "no",
-		"cancel": "cancel",
-		"save": "save",
-		"edit": "edit",
-		"delete": "delete",
-		"joinRoom": "join room",
-		"copyLink": "copy link",
-		"copied": "copied",
+		"ok": "ОК",
+		"yes": "bəli",
+		"no": "yox",
+		"cancel": "ləğv",
+		"save": "yadda saxlamaq",
+		"edit": "dəişməy",
+		"delete": "silmək",
+		"joinRoom": "Otağa qoşulmağ",
+		"copyLink": "Linki kopyalamaq",
+		"copied": "Kopyalandı",
 		"formattedIntlDate": "{{date, intlDate}}",
 		"formattedIntlTime": "{{time, intlTime}}"
 	},
 	"header": {
 		"_comment": "Main Header UI Internationalization Strings",
 		"title": "DogeHouse",
-		"mutedTitle": "Muted | DogeHouse"
+		"mutedTitle": "Səssizdir | DogeHouse"
 	},
 	"footer": {
 		"_comment": "Main Footer UI Internationalization Strings",
-		"link_1": "Origin Story",
+		"link_1": "Tarix",
 		"link_2": "Discord",
-		"link_3": "Report a Bug"
+		"link_3": "Səhv haqqında məlumat vermək"
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "ban"
-		},
+		"banUser": { "ban": "ban" },
 		"followingOnlineList": {
-			"listHeader": "List of users that are not in a private room and you follow.",
-			"currentRoom": "currently in:",
-			"startPrivateRoom": "start a private room with them"
+			"listHeader": "Список пользователей, которые не в закрытой комнате и на которых вы подписаны.",
+			"currentRoom": "сейчас в :",
+			"startPrivateRoom": "создать с ними закрытую комнату"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "Create Room",
-			"refresh": "Refresh"
-		},
+		"home": { "createRoom": "Otaq yaratmağ", "refresh": "Təzələmək" },
 		"inviteList": {
 			"roomGone": "room gone, go back",
 			"shareRoomLink": "share link to room",
@@ -50,49 +45,45 @@
 			"whenFollowersOnline": "When your followers are online, they will show up here."
 		},
 		"login": {
-			"headerText": "Taking voice conversations to the moon 🚀",
-			"featureText_1": "Dark Theme",
-			"featureText_2": "Open Sign-Ups",
+			"headerText": "Səs rabitəsini aya qaldırığ 🚀",
+			"featureText_1": "Gecə modu",
+			"featureText_2": "Açıq qeydiyyat",
 			"featureText_3": "Cross-Platform Support",
-			"featureText_4": "Open Source",
-			"featureText_5": "Text Chat",
-			"featureText_6": "Powered by Doge",
-			"loginGithub": "login with GitHub",
-			"loginTwitter": "login with Twitter",
-			"createTestUser": "create test user"
+			"featureText_4": "Open source",
+			"featureText_5": "Çat",
+			"featureText_6": "Doge sayəsində işləyir",
+			"loginGithub": "GitHub ilə daxil olmaq",
+			"loginTwitter": "Twitter ilə daxil olmaq",
+			"createTestUser": "test istifadəçini yaradmaq"
 		},
 		"myProfile": {
-			"logout": "logout",
-			"probablyLoading": "probably loading...",
-			"voiceSettings": "go to voice settings",
-			"soundSettings": "go to sound settings",
-			"deleteAccount": "delete account"
+			"logout": "çıxmaq",
+			"probablyLoading": "yüklənir deyəsən...",
+			"voiceSettings": "mikrofon parametrlərinə keçmək",
+			"soundSettings": "səs parametrlərinə keçmək",
+			"deleteAccount": "akkauntu ləğv etmək"
 		},
 		"notFound": {
-			"whoopsError": "Whoops! This page got lost in conversation.",
-			"goHomeMessage": "Not to worry. You can",
-			"goHomeLinkText": "go home"
+			"whoopsError": "Ups! Bu səhifə məkan və zaman içində itmişdi.",
+			"goHomeMessage": "Narahat olmayın. Siz uğur qazanacaqsınız",
+			"goHomeLinkText": "Əsas sayfəyə keçid"
 		},
 		"room": {
-			"speakers": "Speakers",
-			"requestingToSpeak": "Requesting to speak",
-			"listeners": "Listeners"
+			"speakers": "Natiqlər",
+			"requestingToSpeak": "Danışmaq istəyənlər",
+			"listeners": "Dinləyicilər"
 		},
-		"searchUser": {
-			"search": "search..."
-		},
-		"soundEffectSettings": {
-			"header": "Sounds"
-		},
+		"searchUser": { "search": "axtarış..." },
+		"soundEffectSettings": { "header": "səslər" },
 		"viewUser": {
-			"editProfile": "edit profile",
-			"followsYou": "follows you",
-			"followers": "followers",
-			"following": "following"
+			"editProfile": "profilə düzəliş et",
+			"followsYou": "sizi izləyənlər",
+			"followers": "abunəçilər",
+			"following": "abunəsiniz"
 		},
 		"voiceSettings": {
-			"header": "Voice Settings",
-			"mic": "mic:",
+			"header": "Səs parametrləri",
+			"mic": "mikrofon:",
 			"permissionError": "no mics found, you either have none plugged in or haven't given this website permission.",
 			"refresh": "refresh mic list",
 			"volume": "volume:"
@@ -108,18 +99,18 @@
 			"noBans": "no one has been banned yet"
 		},
 		"bottomVoiceControl": {
-			"leaveCurrentRoomBtn": "Leave current room",
-			"confirmLeaveRoom": "Are you sure you want to leave?",
+			"leaveCurrentRoomBtn": "Hazırkı otaqdan çıxmağ",
+			"confirmLeaveRoom": "Çıxmağ istədiyinizə əminsiniz?",
 			"leave": "Leave",
-			"inviteUsersToRoomBtn": "Invite users to room",
-			"invite": "Invite",
+			"inviteUsersToRoomBtn": "İstifadəçiləri otağa dəvət etmək",
+			"invite": "Dəvət etmək",
 			"toggleMuteMicBtn": "Toggle mute microphone",
-			"mute": "Mute",
-			"unmute": "Unmute",
+			"mute": "Səssiz etmək",
+			"unmute": "Səsli etmək",
 			"makeRoomPublicBtn": "Make room public!",
-			"settings": "Settings",
-			"speaker": "Speaker",
-			"listener": "Listener"
+			"settings": "Parametlər",
+			"speaker": "Natiqlər",
+			"listener": "Dinləyicilər"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Your device is currently not supported. You can create an",
@@ -127,13 +118,13 @@
 			"addSupport": "and I will try adding support for your device."
 		},
 		"inviteButton": {
-			"invited": "invited",
-			"inviteToRoom": "invite to room"
+			"invited": "dəvət olunub",
+			"inviteToRoom": "otağa dəvət etmək"
 		},
 		"micPermissionBanner": {
 			"permissionDenied": "Permission denied trying to access your mic (you may need to go into browser settings and reload the page)",
-			"dismiss": "dismiss",
-			"tryAgain": "try again"
+			"dismiss": "rədd etmək",
+			"tryAgain": "yenidən cəhd etmək"
 		},
 		"keyboardShortcuts": {
 			"setKeybind": "set keybind",
@@ -213,9 +204,9 @@
 			}
 		},
 		"roomChat": {
-			"title": "Chat",
-			"emotesSoon": "[emotes soon]",
-			"bannedAlert": "You got banned from chat",
+			"title": "Çat",
+			"emotesSoon": "[emodzi tezliklə]",
+			"bannedAlert": "Bu söhbətə blokdasız",
 			"waitAlert": "You have to wait a second before sending another message",
 			"search": "Search",
 			"searchResults": "Search Results",
