@@ -182,7 +182,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
                 className={`flex col-span-full text-xl mt-2.5 ml-2.5 text-white`}
               >
                 {t("pages.room.listeners")} ({listeners.length})
-                {listeners.length > 50 && (
+                {listeners.length > 25 && (
                   <div className={`flex ml-2.5`}>
                     <CircleButton
                       size={28}
