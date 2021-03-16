@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Calendar } from "react-feather";
+import { Calendar, Search } from "react-feather";
 import { useQuery, useQueryClient } from "react-query";
 import { useHistory } from "react-router-dom";
 import { wsend, wsFetch } from "../../createWebsocket";
@@ -184,6 +184,15 @@ export const Home: React.FC<HomeProps> = () => {
                 }}
               >
                 <Calendar width={30} height={30} color="#fff" />
+              </CircleButton>
+            </div>
+						<div /* className={`ml-3`} */>
+              <CircleButton
+                onClick={() => {
+                  history.push("/search/users");
+                }}
+              >
+                <Search width={30} height={30} color="#fff" />
               </CircleButton>
             </div>
             <div /* className={`ml-2 px-2.5`} */>
