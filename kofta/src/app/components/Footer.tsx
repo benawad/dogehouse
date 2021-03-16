@@ -13,14 +13,14 @@ export const Footer: React.FC<FooterProps> = ({ isLogin }) => {
   return (
     <div className={`justify-between flex text-center`}>
       {isLogin ? (
-        <RegularAnchor href="https://www.youtube.com/watch?v=hy-EhJ_tTQo">
+        <RegularAnchor href="https://www.youtube.com/watch?v=hy-EhJ_tTQo" target="_blank" rel="noreferrer">
           {t("footer.link_1")}
         </RegularAnchor>
       ) : null}
-      <RegularAnchor href="https://discord.gg/wCbKBZF9cV">
+      <RegularAnchor href="https://discord.gg/wCbKBZF9cV" target="_blank" rel="noreferrer">
         {t("footer.link_2")}
       </RegularAnchor>
-      <RegularAnchor href="https://github.com/benawad/dogehouse/issues">
+      <RegularAnchor href="https://github.com/benawad/dogehouse/issues" target="_blank" rel="noreferrer">
         {t("footer.link_3")}
       </RegularAnchor>
       {/* cramps footer on mobile @todo think about how to incorporate this without cramping footer and making the footer really tall */}
