@@ -51,3 +51,6 @@ Check <a href="https://github.com/benawad/dogehouse/blob/staging/CONTRIBUTING.md
 ## Why did you make this?
 
 https://www.youtube.com/watch?v=hy-EhJ_tTQo
+
+## Sub to Ben's swag youtube channel for a cookie 
+https://www.youtube.com/user/99baddawg
