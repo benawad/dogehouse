@@ -40,7 +40,7 @@
 			"roomGone": "beszélgetés véget ért, lépjen vissza",
 			"shareRoomLink": "szoba linkjének megosztása",
 			"inviteFollowers": "Meghívhatja online követőit:",
-			"whenFollowersOnline": "Amikor a követőid online vannak, itt jelennek meg."
+			"whenFollowersOnline": "Online követőid itt fognak megjelenni."
 		},
 		"login": {
 			"headerText": " Hangbeszélgetéseket a Holdra 🚀",
@@ -93,7 +93,7 @@
 		"backBar": {},
 		"blockedFromRoomUsers": {
 			"header": "Kitiltott felhasználók",
-			"unban": "visszaenged",
+			"unban": "Ban visszavonása",
 			"noBans": "Senki nem lett még kitiltva"
 		},
 		"bottomVoiceControl": {
@@ -122,7 +122,7 @@
 				"roomName": "szoba neve",
 				"roomDescription": "szoba leírása",
 				"descriptionError": "maximum 500 karakter",
-				"nameError": "minimum 2, maximum 60 karakter hosszú lehet"
+				"nameError": "minimum 2, maximum 60 karakter"
 			},
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Új szoba létrehozva",
@@ -177,7 +177,7 @@
 		"deviceNotSupported": {
 			"notSupported": "Az eszköze jelenleg nem támogatott. Létrehozhat egy",
 			"linkText": "hibajegyet GitHub",
-			"addSupport": "-on és megpróbálom biztosítani eszköze támogatottságát."
+			"addSupport": "-on és megpróbáljuk biztosítani eszköze támogatottságát."
 		},
 		"inviteButton": {
 			"invited": "meghívott",
@@ -195,12 +195,12 @@
 			"modal": {
 				"needsFuture": "jövőbeli dátum szükséges",
 				"roomName": "szoba neve",
-				"minLength": "legalább 2 karakter hosszú legyen"
+				"minLength": "legalább 2 karakter hosszú"
 			}
 		},
 		"roomChat": {
 			"title": "Chat",
-			"emotesSoon": "[hangulatjelek hamarosan]",
+			"emotesSoon": "[emotikonok hamarosan]",
 			"bannedAlert": "Kitiltottak a beszélgetésből",
 			"waitAlert": "Várnod kell egy másodpercet a következő üzenet küldése előtt.",
 			"search": "Keresés",
