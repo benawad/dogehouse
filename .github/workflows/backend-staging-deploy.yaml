@@ -1,6 +1,8 @@
 name: deploy-backend-to-staging
 on:
   push:
+    paths:
+      - "kibbeh/**"
     branches:
       - staging
 jobs:
