@@ -27,7 +27,7 @@ const instanceLock = app.requestSingleInstanceLock();
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 560,
+    width: 570,
     height: 1000,
     autoHideMenuBar: true,
     webPreferences: {
@@ -68,7 +68,7 @@ function createWindow() {
   );
 
 
-  mainWindow.once("ready-to-show", () => {
+  mainWindow.webContents.on('did-finish-load', () => {
     console.log("Ready")
     setTimeout(() => {
       splash.destroy();
