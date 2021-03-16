@@ -30,7 +30,7 @@
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
 		"banUser": {
-			"ban": "ban"
+			"ban": "verban"
 		},
 		"followingOnlineList": {
 			"listHeader": "Lijst van gebruikers die je volgt en niet in een privé kamer zijn.",
@@ -102,7 +102,7 @@
 		"backBar": {},
 		"blockedFromRoomUsers": {
 			"header": "Verbannen Gebruikers",
-			"unban": "verban",
+			"unban": "unban",
 			"noBans": "Nog niemand is verbannen"
 		},
 		"bottomVoiceControl": {
