@@ -3,7 +3,7 @@
 		"loadMore": "Meer laden",
 		"loading": "Aan het laden...",
 		"noUsersFound": "Geen gebruikers gevonden",
-		"ok": "Ok",
+		"ok": "Oké",
 		"yes": "Ja",
 		"no": "Nee",
 		"cancel": "Annuleren",
@@ -110,7 +110,7 @@
 			"inviteUsersToRoomBtn": "Nodig gebruikers uit voor deze kamer",
 			"invite": "Uitnodigen",
 			"toggleMuteMicBtn": "Microfoon aan- of uitzetten",
-			"mute": "Demp",
+			"mute": "Dempen",
 			"unmute": "Dempen opheffen",
 			"makeRoomPublicBtn": "Maak kamer openbaar!",
 			"settings": "Instellingen",
@@ -119,8 +119,8 @@
 		},
 		"deviceNotSupported": {
 			"notSupported": "Je apparaat wordt momenteel niet ondersteund. Je kunt een",
-			"linkText": "Issue op GitHub",
-			"addSupport": "maken en ik zal ondersteuning voor je apparaat toevoegen."
+			"linkText": "issue op GitHub",
+			"addSupport": "maken en ik zal ondersteuning voor je apparaat proberen toe te voegen."
 		},
 		"inviteButton": {
 			"invited": "Uitgenodigd",
@@ -166,7 +166,7 @@
 				"avatarUrlError": "Ongeldige afbeelding",
 				"avatarUrlLabel": "Github/Twitter avatar url",
 				"displayNameError": "2 tot 50 karakters",
-				"displayNameLabel": "Weergavenaam ",
+				"displayNameLabel": "Weergavenaam",
 				"usernameError": "4 tot 15 karakters en alleen letters, cijfers en underscore",
 				"usernameLabel": "Gebruikersnaam",
 				"bioError": "Maximaal 160 karakters",
