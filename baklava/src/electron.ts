@@ -74,11 +74,6 @@ function createWindow() {
       mainWindow.show();
     }, 1000);
   }),
-    // setTimeout(
-    //   () => {
-
-    //   }, 2000
-    // );
 
     ipcMain.on("request-mic", async (event, _serviceName) => {
       const isAllowed: boolean = await systemPreferences.askForMediaAccess(
