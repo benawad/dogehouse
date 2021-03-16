@@ -11,10 +11,12 @@ import { WsParam } from "./app/types";
 import { useCurrentRoomStore } from "./webrtc/stores/useCurrentRoomStore";
 import { toast } from "react-toastify";
 import { queryClient } from "./app/queryClient";
+import isElectron from "is-electron";
 
 let ws: ReconnectingWebSocket | null;
 let authGood = false;
 let lastMsg = "";
+let ipcRenderer: any = undefined;
 
 export const auth_query = "auth";
 
@@ -82,7 +84,7 @@ export const createWebSocket = (force?: boolean) => {
     const reconnectToVoice = !recvTransport
       ? true
       : recvTransport.connectionState !== "connected" &&
-        sendTransport?.connectionState !== "connected";
+      sendTransport?.connectionState !== "connected";
 
     console.log({
       reconnectToVoice,
@@ -178,6 +180,14 @@ export const wsend = (d: { op: string; d: any }) => {
     console.log("ws not ready");
     lastMsg = JSON.stringify(d);
   } else {
+    if (isElectron()) {
+      ipcRenderer = window.require("electron").ipcRenderer;
+      if (d.op === "leave_room") {
+        ipcRenderer.send("@voice/active", false);
+      } else if (d.op === "join_room" || "create_room") {
+        ipcRenderer.send("@voice/active", true);
+      }
+    }
     ws?.send(JSON.stringify(d));
   }
 };

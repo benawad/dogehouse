@@ -4,23 +4,26 @@ import {
   systemPreferences,
   ipcMain,
   globalShortcut,
+  shell,
   Tray,
   Menu,
-  shell,
 } from "electron";
 import iohook from "iohook";
 import { autoUpdater } from "electron-updater";
-import { RegisterKeybinds } from "./util";
-import { ALLOWED_HOSTS } from "./constants";
+import { RegisterKeybinds } from "./utils/keybinds";
+import { HandleVoiceTray } from "./utils/tray";
+import { ALLOWED_HOSTS, MENU_TEMPLATE } from "./constants";
 import url from "url";
 import path from "path";
+import { StartNotificationHandler } from "./utils/notifications";
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
+let menu: Menu;
+let splash;
+
 export const __prod__ = app.isPackaged;
 const instanceLock = app.requestSingleInstanceLock();
-
-let splash;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -48,13 +51,20 @@ function createWindow() {
     })
   );
 
+
+  // applying custom menu
+  menu = Menu.buildFromTemplate(MENU_TEMPLATE);
+  Menu.setApplicationMenu(menu);
+
+  // applying custom tray
+  tray = new Tray(path.join(__dirname, `../icons/tray.png`));
   // crashes on mac
   // systemPreferences.askForMediaAccess("microphone");
   if (!__prod__) {
     mainWindow.webContents.openDevTools();
   }
   mainWindow.loadURL(
-    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/"
+    !__prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/"
   );
 
   setTimeout(
@@ -76,21 +86,11 @@ function createWindow() {
   // registers global keybinds
   RegisterKeybinds(mainWindow);
 
-  // create system tray
-  tray = new Tray("./icons/icon.ico");
-  tray.setToolTip("Taking voice conversations to the moon 🚀");
-  tray.on("click", () => {
-    mainWindow.focus();
-  });
-  const contextMenu = Menu.buildFromTemplate([
-    {
-      label: "Quit Dogehouse",
-      click: () => {
-        mainWindow.close();
-      },
-    },
-  ]);
-  tray.setContextMenu(contextMenu);
+  // starting the custom voice menu handler
+  HandleVoiceTray(mainWindow, tray);
+
+  // starting the noti handler
+  StartNotificationHandler();
 
   // graceful exiting
   mainWindow.on("closed", () => {
@@ -108,7 +108,7 @@ function createWindow() {
       event.preventDefault();
       shell.openExternal(url);
     } else {
-      if (urlHost == ALLOWED_HOSTS[3] && urlObj.pathname !== "/login") {
+      if (urlHost == ALLOWED_HOSTS[3] && urlObj.pathname !== "/login" && urlObj.pathname !== "/session") {
         event.preventDefault();
         shell.openExternal(url);
       }
