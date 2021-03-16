@@ -62,3 +62,14 @@ p.small {
 html *:not(head *):not(script):not(style) {
   display: flex;
 }
+
+#__next {
+  width: 100%;
+}
+
+html,
+body,
+#__next {
+  background-color: var(--color-primary-900);
+  min-height: 100%;
+}

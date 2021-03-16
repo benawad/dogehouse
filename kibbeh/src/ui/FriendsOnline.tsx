@@ -43,7 +43,7 @@ export const FriendsOnline: React.FC<FriendsOnlineProps> = ({
   showMoreAction,
 }) => {
   return (
-    <div className="px-5 py-5 w-full flex flex-col justify-center">
+    <div className="pb-5 w-full flex flex-col">
       <h4 className="text-primary-100">People</h4>
       <h6 className="text-primary-300 mt-3 text-sm font-bold">
         ONLINE ({onlineFriendCount})

@@ -6,67 +6,77 @@ import {
   SmSolidNotification,
   LgLogo,
 } from "../icons";
-import { Button } from "./Button";
 import { SingleUser } from "./UserAvatar";
+import { DashboardInnerGrid } from "./DashboardGrid";
 
 export interface HeaderProps {
   searchPlaceholder: string;
   onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => null;
-  onAnnouncementsClick: (
+  onAnnouncementsClick?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => null;
-  onMessagesClick: (
+  onMessagesClick?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => null;
-  onNotificationsClick: (
+  onNotificationsClick?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => null;
-  actionButtonIcon: React.ReactNode;
-  actionButtonLabel: string;
-  onActionButtonClick: (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => null;
+  actionButton?: React.ReactNode;
   avatarImg: string;
 }
 
-const Header: React.FC<HeaderProps> = (props) => {
+const Header: React.FC<HeaderProps> = ({
+  searchPlaceholder,
+  onSearchChange,
+  avatarImg,
+  onAnnouncementsClick,
+  onMessagesClick,
+  onNotificationsClick,
+  actionButton,
+}) => {
   return (
-    <div className="flex-1 items-center">
+    <DashboardInnerGrid>
       <LgLogo />
-      <div className="flex-1 justify-center mx-3">
+      <div className="flex-1 justify-center">
         <div style={{ width: 640 }}>
           <SearchBar
-            placeholder={props.searchPlaceholder}
-            onChange={props.onSearchChange}
+            placeholder={searchPlaceholder}
+            onChange={onSearchChange}
           />
         </div>
       </div>
       <div className="space-x-4 items-center">
-        <button onClick={props.onAnnouncementsClick}>
-          <SmSolidMegaphone
-            width={23}
-            height={23}
-            className="text-primary-200"
-          />
-        </button>
-        <button onClick={props.onMessagesClick}>
-          <SmSolidMessages
-            width={23}
-            height={23}
-            className="text-primary-200"
-          />
-        </button>
-        <button onClick={props.onNotificationsClick}>
-          <SmSolidNotification
-            width={23}
-            height={23}
-            className="text-primary-200"
-          />
-        </button>
-        <Button icon={props.actionButtonIcon}>{props.actionButtonLabel}</Button>
-        <SingleUser size="sm" src={props.avatarImg} />
+        {onAnnouncementsClick && (
+          <button onClick={onAnnouncementsClick}>
+            <SmSolidMegaphone
+              width={23}
+              height={23}
+              className="text-primary-200"
+            />
+          </button>
+        )}
+        {onMessagesClick && (
+          <button onClick={onMessagesClick}>
+            <SmSolidMessages
+              width={23}
+              height={23}
+              className="text-primary-200"
+            />
+          </button>
+        )}
+        {onNotificationsClick && (
+          <button onClick={onNotificationsClick}>
+            <SmSolidNotification
+              width={23}
+              height={23}
+              className="text-primary-200"
+            />
+          </button>
+        )}
+        {actionButton}
+        <SingleUser size="sm" src={avatarImg} />
       </div>
-    </div>
+    </DashboardInnerGrid>
   );
 };
 

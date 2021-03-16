@@ -20,7 +20,7 @@ export const Feed: React.FC<FeedProps> = ({
   return (
     <div className="flex-1 flex-col">
       <div className="justify-between items-end mb-5">
-        <h4 className="text-primary-100 ml-4">{title}</h4>
+        <h4 className="text-primary-100 mb-auto">{title}</h4>
         <Button onClick={onActionClicked}>{actionTitle}</Button>
       </div>
       <div className="flex-col space-y-4">
