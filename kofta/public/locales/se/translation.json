@@ -120,7 +120,7 @@
 			"createRoomModal": {
 				"public": "offentligt",
 				"private": "privat",
-				"roomName": "room name",
+				"roomName": "rum namn",
 				"roomDescription": "room description",
 				"descriptionError": "max length 500",
 				"nameError": "must be between 2 to 60 characters long"
@@ -166,13 +166,13 @@
 		},
 		"addToCalendar": { "add": "Spara i kalender" },
 		"deviceNotSupported": {
-			"notSupported": "Your device is currently not supported. You can create an",
-			"linkText": "issue on GitHub",
-			"addSupport": "and I will try adding support for your device."
+			"notSupported": "Din enhet stöds inte. Du kan gör en",
+			"linkText": "fråga på GitHub",
+			"addSupport": "och jag ska fösöka för att lägga till stöd för din enhet."
 		},
 		"inviteButton": {
-			"invited": "invited",
-			"inviteToRoom": "invite to room"
+			"invited": "inbjuden",
+			"inviteToRoom": "inbjuda till rum"
 		},
 		"keyboardShortcuts": {
 			"setKeybind": "set keybind",
