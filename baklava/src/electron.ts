@@ -64,7 +64,7 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
   }
   mainWindow.loadURL(
-    !__prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/"
+    __prod__ ? `http://localhost:3000/` : "http://localhost:3000/"
   );
 
   setTimeout(
