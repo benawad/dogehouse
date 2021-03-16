@@ -27,7 +27,7 @@ const instanceLock = app.requestSingleInstanceLock();
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 570,
+    width: 560,
     height: 1000,
     autoHideMenuBar: true,
     webPreferences: {
@@ -64,18 +64,21 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
   }
   mainWindow.loadURL(
-    __prod__ ? `http://localhost:3000/` : "http://localhost:3000/"
+    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/"
   );
 
 
-  mainWindow.webContents.on('did-finish-load', () => {
-    console.log("Ready")
+  mainWindow.once("ready-to-show", () => {
     setTimeout(() => {
       splash.destroy();
       mainWindow.show();
-    }, 1500)
+    }, 1000);
   }),
+    // setTimeout(
+    //   () => {
 
+    //   }, 2000
+    // );
 
     ipcMain.on("request-mic", async (event, _serviceName) => {
       const isAllowed: boolean = await systemPreferences.askForMediaAccess(
