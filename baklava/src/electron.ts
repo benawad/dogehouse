@@ -67,21 +67,22 @@ function createWindow() {
     __prod__ ? `http://localhost:3000/` : "http://localhost:3000/"
   );
 
-  setTimeout(
-    () =>
-      mainWindow.once("ready-to-show", () => {
-        splash.destroy();
-        mainWindow.show();
-      }),
-    2000
-  );
 
-  ipcMain.on("request-mic", async (event, _serviceName) => {
-    const isAllowed: boolean = await systemPreferences.askForMediaAccess(
-      "microphone"
-    );
-    event.returnValue = isAllowed;
-  });
+  mainWindow.once("ready-to-show", () => {
+    console.log("Ready")
+    setTimeout(() => {
+      splash.destroy();
+      mainWindow.show();
+    }, 1500)
+  }),
+
+
+    ipcMain.on("request-mic", async (event, _serviceName) => {
+      const isAllowed: boolean = await systemPreferences.askForMediaAccess(
+        "microphone"
+      );
+      event.returnValue = isAllowed;
+    });
 
   // registers global keybinds
   RegisterKeybinds(mainWindow);
