@@ -29,19 +29,14 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "प्रतिबन्ध"
-    },
-
+    "banUser": { "ban": "प्रतिबन्ध" },
     "followingOnlineList": {
       "listHeader": "प्रयोगकर्ताहरूको सूची जो प्राइवेट रूम छैनन् र तपाइँ फॉलो गर्नुहुन्छा।",
       "currentRoom": "अहिले हुनुहुन्छ:",
       "startPrivateRoom": "यीनीहरू संग एक प्राइवेट रूम शुरू गर्नुहोस्"
     },
     "followList": {},
-    "home": {
-      "createRoom": "रूम बनाउनुहोस"
-    },
+    "home": { "createRoom": "रूम बनाउनुहोस", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "रूम गयो, पछाडि जानुहोस्",
       "shareRoomLink": "रूमको लिंक शेयर गर्नुहोस्",
@@ -77,12 +72,8 @@
       "requestingToSpeak": "बोल्न अनुरोध गर्दै",
       "listeners": "श्रोताहरु"
     },
-    "searchUser": {
-      "search": "खोजी गर्नुहोस्..."
-    },
-    "soundEffectSettings": {
-      "header": "साउंड"
-    },
+    "searchUser": { "search": "खोजी गर्नुहोस्..." },
+    "soundEffectSettings": { "header": "साउंड" },
     "viewUser": {
       "editProfile": "प्रोफाइल सम्पादन गर्नुहोस",
       "followsYou": "follows you",
@@ -144,9 +135,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "कुनै कारणका लागि कुनै अडियो उपभोक्ता छैन"
     },
-    "addToCalendar": {
-      "add": "क्यालेन्डरमा थप्नुहोस"
-    },
+    "addToCalendar": { "add": "क्यालेन्डरमा थप्नुहोस" },
     "wsKilled": {
       "description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
       "reconnect": "पुनः जडान गर्नुहोस्"
@@ -226,13 +215,16 @@
       "roomDescription": "रुमको बारेमा"
     },
     "roomStatus": {
-			"fuelingRocket": "Fueling rocket",
-			"takingOff": "Taking off",
-			"inSpace": "In space",
-			"approachingMoon": "Approaching moon",
-			"lunarDoge": "Lunar doge",
-			"approachingSun": "Approaching sun",
-			"solarDoge": "Solar doge"
-		}
+      "fuelingRocket": "Fueling rocket",
+      "takingOff": "Taking off",
+      "inSpace": "In space",
+      "approachingMoon": "Approaching moon",
+      "lunarDoge": "Lunar doge",
+      "approachingSun": "Approaching sun",
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
+    }
   }
 }
