@@ -91,7 +91,7 @@
 		"voiceSettings": {
 			"header": "Spraakinstellingen",
 			"mic": "microfoon:",
-			"permissionError": "geen microfoon gevonden, je hebt er of geen aangesloten of hebt de website nog geen toestemming gegeven.",
+			"permissionError": "geen microfoon gevonden, Mogelijk is er geen aangesloten, of je hebt geen toestemming gegeven.",
 			"refresh": "ververs microfoonlijst",
 			"volume": "volume:"
 		}
@@ -102,8 +102,8 @@
 		"backBar": {},
 		"blockedFromRoomUsers": {
 			"header": "Verbannen Gebruikers",
-			"unban": "unban",
-			"noBans": "nog niemand is verbannen"
+			"unban": "verban",
+			"noBans": "Nog niemand is verbannen"
 		},
 		"bottomVoiceControl": {
 			"leaveCurrentRoomBtn": "Verlaat huidige kamer",
@@ -114,7 +114,7 @@
 			"toggleMuteMicBtn": "Microfoon aan- of uitzetten",
 			"mute": "Demp",
 			"unmute": "Dempen opheffen",
-			"makeRoomPublicBtn": "Maak kamer openbaar!",
+			"makeRoomPublicBtn": "Maak kamer publiek!",
 			"settings": "Instellingen",
 			"speaker": "Spreker",
 			"listener": "Luisteraar"
@@ -129,7 +129,7 @@
 			"inviteToRoom": "nodig uit voor kamer"
 		},
 		"micPermissionBanner": {
-			"permissionDenied": "Toestemming om je microfoon te gebruiken is geweigerd (kijk misschien naar de instellingen van je browser en herlaad de pagina)",
+			"permissionDenied": "geen microfoon gevonden, Mogelijk is er geen aangesloten of je hebt geen toestemming gegeven.",
 			"dismiss": "negeer",
 			"tryAgain": "probeer opnieuw"
 		},
@@ -155,7 +155,7 @@
 				"private": "privé",
 				"roomName": "kamer naam",
 				"roomDescription": "kamer omschrijving",
-				"descriptionError": "maximale lengte van 500",
+				"descriptionError": "maximale lengte van 500 karakters",
 				"nameError": "moet tussen de 2 en 60 karakters lang zijn"
 			},
 			"invitedToJoinRoomModal": {
