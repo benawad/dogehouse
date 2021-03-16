@@ -43,6 +43,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "tr", label: "🇹🇷 Turkish" },
     { value: "uk", label: "🇺🇦 Ukrainian" },
     { value: "ur", label: "🇵🇰 Urdu" },
+	{ value: "owo" label: "OwO english"},
   ],
 }) => {
   const { i18n } = useTranslation();
