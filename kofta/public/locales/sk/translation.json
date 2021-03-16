@@ -36,7 +36,7 @@
 			"startPrivateRoom": "začať s nimi súkromnú miestnosť"
 		},
 		"followList": {},
-		"home": { "createRoom": "Vytvoriť miestnosť", "refresh": "Refresh" },
+		"home": { "createRoom": "Vytvoriť miestnosť", "refresh": "Obnoviť" },
 		"inviteList": {
 			"roomGone": "miestnosť je fuč, vráť sa",
 			"shareRoomLink": "zdieľať odkaz miestnosti",
@@ -59,7 +59,7 @@
 			"logout": "odhlásiť sa",
 			"probablyLoading": "zrejme načítam...",
 			"voiceSettings": "otvoriť nastavenia hlasu",
-			"soundSettings": "otvoriť do nastavenia zvuku",
+			"soundSettings": "otvoriť nastavenia zvuku",
 			"deleteAccount": "odstrániť účet"
 		},
 		"notFound": {
@@ -215,13 +215,13 @@
 			"roomDescription": "popis miestnosti"
 		},
 		"roomStatus": {
-			"fuelingRocket": "Fueling rocket",
-			"takingOff": "Taking off",
-			"inSpace": "In space",
-			"approachingMoon": "Approaching moon",
-			"lunarDoge": "Lunar doge",
-			"approachingSun": "Approaching sun",
-			"solarDoge": "Solar doge"
+			"fuelingRocket": "Tankujeme raketu",
+			"takingOff": "Vzlietame",
+			"inSpace": "Vo vesmíre",
+			"approachingMoon": "Blížime sa k mesiacu",
+			"lunarDoge": "Lunárny doge",
+			"approachingSun": "Blížime sa k slnku",
+			"solarDoge": "Solárny doge"
 		}
 	}
 }

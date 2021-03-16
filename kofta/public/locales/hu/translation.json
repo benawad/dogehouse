@@ -35,7 +35,7 @@
 			"startPrivateRoom": "privát szoba létrehozása velük"
 		},
 		"followList": {},
-		"home": { "createRoom": "Szoba létrehozása", "refresh": "Refresh" },
+		"home": { "createRoom": "Szoba létrehozása", "refresh": "Frissítés" },
 		"inviteList": {
 			"roomGone": "beszélgetés véget ért, lépjen vissza",
 			"shareRoomLink": "szoba linkjének megosztása",

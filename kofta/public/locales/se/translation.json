@@ -139,7 +139,7 @@
 				"avatarUrlLabel": "Github/Twitter profilbild länk",
 				"displayNameError": "längd 2 till 50 karaktärer",
 				"displayNameLabel": "Visningsnamn",
-				"usernameError": "längd 4 till 15 karaktärer och bara alfanumerisk/understrykning",
+				"usernameError": "längd 4 till 15 karaktärer med bara alfanumerisk/understrykning",
 				"usernameLabel": "Användarnamn",
 				"bioError": "max längd av 160 karaktärer",
 				"bioLabel": "Bio"
@@ -157,13 +157,13 @@
 				"deleteMessage": "ta bort detta meddelande"
 			},
 			"roomSettingsModal": {
-				"requirePermission": "kräv tillåtelse till att prata",
+				"requirePermission": "be om tillåtelse till att prata",
 				"makePublic": "gör rum offentligt",
 				"makePrivate": "gör rum privat"
 			}
 		},
 		"userVolumeSlider": {
-			"noAudioMessage": "ingen ljudanvändare för någon anledning"
+			"noAudioMessage": "ingen ljudanvändare av någon anledning"
 		},
 		"addToCalendar": { "add": "Spara i kalender" },
 		"deviceNotSupported": {
@@ -176,14 +176,14 @@
 			"inviteToRoom": "inbjuda till rum"
 		},
 		"keyboardShortcuts": {
-			"setKeybind": "set keybind",
-			"listening": "listening",
-			"toggleMuteKeybind": "toggle mute keybind",
-			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
+			"setKeybind": "ställ in kortkommando",
+			"listening": "lyssnar",
+			"toggleMuteKeybind": "växla tystad kortkommando",
+			"togglePushToTalkKeybind": "växla tryck-för-tal kortkommando"
 		},
 		"wsKilled": {
 			"description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
-			"reconnect": "reconnect"
+			"reconnect": "återanslut"
 		}
 	},
 	"modules": {
@@ -215,12 +215,12 @@
 			"roomDescription": "rumbeskrivning"
 		},
 		"roomStatus": {
-			"fuelingRocket": "Fueling rocket",
-			"takingOff": "Taking off",
-			"inSpace": "In space",
-			"approachingMoon": "Approaching moon",
+			"fuelingRocket": "Tankar raket",
+			"takingOff": "Lyfter",
+			"inSpace": "I rymden",
+			"approachingMoon": "Närmar sig månen",
 			"lunarDoge": "Lunar doge",
-			"approachingSun": "Approaching sun",
+			"approachingSun": "Närmar sig solen",
 			"solarDoge": "Solar doge"
 		}
 	}
