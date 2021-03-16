@@ -13,7 +13,8 @@
 		"joinRoom": "anslut till rum",
 		"copyLink": "kopiera länk",
 		"copied": "kopierade",
-		"formattedIntlDate": "{{date, intlDate}}"
+		"formattedIntlDate": "{{date, intlDate}}",
+		"formattedIntlTime": "{{time, intlTime}}"
 	},
 	"header": {
 		"_comment": "Main Header UI Internationalization Strings",
@@ -28,18 +29,14 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "banna"
-		},
+		"banUser": { "ban": "banna" },
 		"followingOnlineList": {
 			"listHeader": "Lista av personer som inte är i ett privat rum du följer.",
 			"currentRoom": "ansluten till:",
 			"startPrivateRoom": "skapa ett privat rum med dem"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "Skapa Rum"
-		},
+		"home": { "createRoom": "Skapa Rum", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "rummet borta, gå tillbaka",
 			"shareRoomLink": "dela länk till rummet",
@@ -75,12 +72,8 @@
 			"requestingToSpeak": "Begär att tala",
 			"listeners": "Lyssnare"
 		},
-		"searchUser": {
-			"search": "sök..."
-		},
-		"soundEffectSettings": {
-			"header": "Ljud"
-		},
+		"searchUser": { "search": "sök..." },
+		"soundEffectSettings": { "header": "Ljud" },
 		"viewUser": {
 			"editProfile": "redigera profil",
 			"followsYou": "följer dig",
@@ -126,7 +119,11 @@
 		"modals": {
 			"createRoomModal": {
 				"public": "offentligt",
-				"private": "privat"
+				"private": "privat",
+				"roomName": "rum namn",
+				"roomDescription": "room description",
+				"descriptionError": "max längd av 500 karaktärer",
+				"nameError": "längd 2 till 60 karaktärer"
 			},
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Nytt Rum Skapat",
@@ -167,8 +164,25 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "ingen ljudanvändare för någon anledning"
 		},
-		"addToCalendar": {
-			"add": "Spara i kalender"
+		"addToCalendar": { "add": "Spara i kalender" },
+		"deviceNotSupported": {
+			"notSupported": "Din enhet stöds inte. Du kan gör en",
+			"linkText": "fråga på GitHub",
+			"addSupport": "och jag ska fösöka för att lägga till stöd för din enhet."
+		},
+		"inviteButton": {
+			"invited": "inbjuden",
+			"inviteToRoom": "inbjuda till rum"
+		},
+		"keyboardShortcuts": {
+			"setKeybind": "set keybind",
+			"listening": "listening",
+			"toggleMuteKeybind": "toggle mute keybind",
+			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
+		},
+		"wsKilled": {
+			"description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
+			"reconnect": "reconnect"
 		}
 	},
 	"modules": {
@@ -198,6 +212,15 @@
 			"whisper": "Viska",
 			"welcomeMessage": "Välkommen till chatten!",
 			"roomDescription": "rumbeskrivning"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

@@ -4,19 +4,27 @@ import {
   systemPreferences,
   ipcMain,
   globalShortcut,
+  shell,
   Tray,
   Menu,
-  shell,
 } from "electron";
 import iohook from "iohook";
-import { RegisterKeybinds } from "./util";
-import { ALLOWED_HOSTS } from "./constants";
+import { autoUpdater } from "electron-updater";
+import { RegisterKeybinds } from "./utils/keybinds";
+import { HandleVoiceTray } from "./utils/tray";
+import { ALLOWED_HOSTS, MENU_TEMPLATE } from "./constants";
+import url from "url";
+import path from "path";
+import { StartNotificationHandler } from "./utils/notifications";
+
 let mainWindow: BrowserWindow;
 let tray: Tray;
+let menu: Menu;
+let splash;
+
 export const __prod__ = app.isPackaged;
 const instanceLock = app.requestSingleInstanceLock();
 
-//
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 560,
@@ -25,10 +33,32 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
     },
+    show: false
   });
-  console.log(systemPreferences.getMediaAccessStatus("microphone"));
-  // crashes on mac
-  // systemPreferences.askForMediaAccess("microphone");
+
+  splash = new BrowserWindow({
+    width: 810,
+    height: 610,
+    frame: false,
+    transparent: true,
+    alwaysOnTop: true,
+  });
+  splash.loadURL(
+    url.format({
+      pathname: path.join(`${__dirname}`, "../splash-screen.html"),
+      protocol: "file:",
+      slashes: true,
+    })
+  );
+
+
+  // applying custom menu
+  menu = Menu.buildFromTemplate(MENU_TEMPLATE);
+  Menu.setApplicationMenu(menu);
+
+  // applying custom tray
+  tray = new Tray(path.join(__dirname, `../icons/tray.png`));
+
   if (!__prod__) {
     mainWindow.webContents.openDevTools();
   }
@@ -36,31 +66,31 @@ function createWindow() {
     __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/"
   );
 
-  ipcMain.on("request-mic", async (event, _serviceName) => {
-    const isAllowed: boolean = await systemPreferences.askForMediaAccess(
-      "microphone"
-    );
-    event.returnValue = isAllowed;
-  });
+
+  mainWindow.once("ready-to-show", () => {
+    setTimeout(() => {
+      splash.destroy();
+      mainWindow.show();
+    }, 1000);
+  }),
+
+    // crashes on mac
+    // systemPreferences.askForMediaAccess("microphone");
+    ipcMain.on("request-mic", async (event, _serviceName) => {
+      const isAllowed: boolean = await systemPreferences.askForMediaAccess(
+        "microphone"
+      );
+      event.returnValue = isAllowed;
+    });
 
   // registers global keybinds
   RegisterKeybinds(mainWindow);
 
-  // create system tray
-  tray = new Tray("./icons/icon.ico");
-  tray.setToolTip("Taking voice conversations to the moon 🚀");
-  tray.on("click", () => {
-    mainWindow.focus();
-  });
-  const contextMenu = Menu.buildFromTemplate([
-    {
-      label: "Quit Dogehouse",
-      click: () => {
-        mainWindow.close();
-      },
-    },
-  ]);
-  tray.setContextMenu(contextMenu);
+  // starting the custom voice menu handler
+  HandleVoiceTray(mainWindow, tray);
+
+  // starting the noti handler
+  StartNotificationHandler();
 
   // graceful exiting
   mainWindow.on("closed", () => {
@@ -78,7 +108,7 @@ function createWindow() {
       event.preventDefault();
       shell.openExternal(url);
     } else {
-      if (urlHost == ALLOWED_HOSTS[3] && urlObj.pathname !== "/login") {
+      if (urlHost == ALLOWED_HOSTS[3] && urlObj.pathname !== "/login" && urlObj.pathname !== "/session") {
         event.preventDefault();
         shell.openExternal(url);
       }
@@ -93,6 +123,7 @@ if (!instanceLock) {
 } else {
   app.on("ready", () => {
     createWindow();
+    autoUpdater.checkForUpdatesAndNotify();
   });
   app.on("second-instance", (event, argv, workingDirectory) => {
     if (mainWindow) {

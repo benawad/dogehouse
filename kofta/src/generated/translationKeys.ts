@@ -145,4 +145,11 @@ export type TranslationKeys =
   | "modules.roomChat.sendMessage"
   | "modules.roomChat.whisper"
   | "modules.roomChat.welcomeMessage"
-  | "modules.roomChat.roomDescription";
+  | "modules.roomChat.roomDescription"
+  | "modules.roomStatus.fuelingRocket"
+  | "modules.roomStatus.takingOff"
+  | "modules.roomStatus.inSpace"
+  | "modules.roomStatus.approachingMoon"
+  | "modules.roomStatus.lunarDoge"
+  | "modules.roomStatus.approachingSun"
+  | "modules.roomStatus.solarDoge";

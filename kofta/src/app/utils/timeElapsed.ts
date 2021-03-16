@@ -1,11 +1,14 @@
 import formatDistanceToNowStrict from "date-fns/formatDistanceToNowStrict";
 import differenceInMinutes from "date-fns/differenceInMinutes";
 import { useEffect, useState } from "react";
+import { useTypeSafeTranslation } from "./useTypeSafeTranslation";
 
 export const useTimeElapsed = (startDate: Date | null) => {
   const [timeElapsed, setTimeElapsed] = useState("");
   const [rocketIcon, setRocketIcon] = useState("");
   const [rocketStatus, setRocketStatus] = useState("");
+
+  const { t } = useTypeSafeTranslation();
 
   const updateTime = (startDate: Date | null) => {
     if (!startDate) {
@@ -21,25 +24,25 @@ export const useTimeElapsed = (startDate: Date | null) => {
 
     if (timeDiff < 30) {
       setRocketIcon("⛽️");
-      setRocketStatus("Fueling rocket");
+      setRocketStatus(t("modules.roomStatus.fuelingRocket"));
     } else if (timeDiff < 60) {
       setRocketIcon("🚀");
-      setRocketStatus("Taking off");
+      setRocketStatus(t("modules.roomStatus.takingOff"));
     } else if (timeDiff < 240) {
       setRocketIcon("🚀✨");
-      setRocketStatus("In space");
+      setRocketStatus(t("modules.roomStatus.inSpace"));
     } else if (timeDiff < 480) {
       setRocketIcon("🚀🌕");
-      setRocketStatus("Approaching moon");
+      setRocketStatus(t("modules.roomStatus.approachingMoon"));
     } else if (timeDiff < 1440) {
       setRocketIcon("🌕🐕");
-      setRocketStatus("Lunar doge");
+      setRocketStatus(t("modules.roomStatus.lunarDoge"));
     } else if (timeDiff < 2880) {
       setRocketIcon("🚀☀️");
-      setRocketStatus("Approaching sun");
+      setRocketStatus(t("modules.roomStatus.approachingSun"));
     } else {
       setRocketIcon("☀️🐕");
-      setRocketStatus("Solar doge");
+      setRocketStatus(t("modules.roomStatus.solarDoge"));
     }
   };
 

@@ -59,8 +59,9 @@ defmodule Kousa.RoomChat do
     if acc <= @message_character_limit, do: {:cont, String.length(v) + acc}, else: {:halt, acc}
   end
 
-  defp validate_token(token = %{"t" => type, "v" => _}) when type in ["text", "mention", "block"],
-    do: {:ok, token}
+  defp validate_token(token = %{"t" => type, "v" => _})
+       when type in ["text", "mention", "block", "emote"],
+       do: {:ok, token}
 
   defp validate_token(token = %{"t" => "link", "v" => link}) do
     link

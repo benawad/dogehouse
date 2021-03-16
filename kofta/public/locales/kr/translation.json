@@ -29,18 +29,14 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "유저 차단"
-		},
+		"banUser": { "ban": "유저 차단" },
 		"followingOnlineList": {
 			"listHeader": "비공개 채팅방에 있지 않은 팔로우하는 사람들.",
 			"currentRoom": "채팅방:",
 			"startPrivateRoom": "비공개 채팅방에 입장하기."
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "방 만들기"
-		},
+		"home": { "createRoom": "방 만들기", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "채팅방이 삭제됨. 이전 페이지로 돌아가기.",
 			"shareRoomLink": "채팅방 링크 공유",
@@ -76,12 +72,8 @@
 			"requestingToSpeak": "발언권 요청",
 			"listeners": "청취자"
 		},
-		"searchUser": {
-			"search": "검색..."
-		},
-		"soundEffectSettings": {
-			"header": "소리"
-		},
+		"searchUser": { "search": "검색..." },
+		"soundEffectSettings": { "header": "소리" },
 		"viewUser": {
 			"editProfile": "프로필 변경",
 			"followsYou": "나를 팔로우하는 사람들",
@@ -124,10 +116,7 @@
 			"linkText": "깃허브에 이슈를 넣으시면",
 			"addSupport": "이른 시일 내에 기기를 추가하겠습니다"
 		},
-		"inviteButton": {
-			"invited": "초대됨",
-			"inviteToRoom": "초대하기"
-		},
+		"inviteButton": { "invited": "초대됨", "inviteToRoom": "초대하기" },
 		"micPermissionBanner": {
 			"permissionDenied": "마이크 액세스가 거부되었습니다 (설정을 변경하고 페이지를 새로 고침해야 할 수도 있음)",
 			"dismiss": "무시하기",
@@ -142,9 +131,7 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "오디오 컨수머를 찾을수 없었습니다"
 		},
-		"addToCalendar": {
-			"add": "달력에 추가"
-		},
+		"addToCalendar": { "add": "달력에 추가" },
 		"wsKilled": {
 			"description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
 			"reconnect": "다시 연결"
@@ -222,6 +209,15 @@
 			"whisper": "속삭이기",
 			"welcomeMessage": "챗에 오신걸 환영합니다!",
 			"roomDescription": "방 설명"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

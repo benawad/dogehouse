@@ -30,18 +30,14 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "verbod"
-		},
+		"banUser": { "ban": "verbod" },
 		"followingOnlineList": {
 			"listHeader": "Lys van gebruikers wie nie in private kamers is nie, en vir wie jy volg",
 			"currentRoom": "tans in:",
 			"startPrivateRoom": "Begin 'n private kamer saam met hulle"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "Skep Kamer"
-		},
+		"home": { "createRoom": "Skep Kamer", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "kamer verwyder, gaan terug",
 			"shareRoomLink": "deel skakel na kamer",
@@ -77,12 +73,8 @@
 			"requestingToSpeak": "Versoek om te praat",
 			"listeners": "Luisteraars"
 		},
-		"searchUser": {
-			"search": "soek..."
-		},
-		"soundEffectSettings": {
-			"header": "Klanke"
-		},
+		"searchUser": { "search": "soek..." },
+		"soundEffectSettings": { "header": "Klanke" },
 		"viewUser": {
 			"editProfile": "wysig profiel",
 			"followsYou": "volg jou",
@@ -143,9 +135,7 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "geen klank verbruiker vir een of ander rede"
 		},
-		"addToCalendar": {
-			"add": "Voeg in kalender"
-		},
+		"addToCalendar": { "add": "Voeg in kalender" },
 		"wsKilled": {
 			"description": "WebSocket was vernietig deur die bediener. Dit gebeur gewoonlik as jy die webtuiste oopmaak in 'n ander oortjie.",
 			"reconnect": "verbind weer"
@@ -223,6 +213,15 @@
 			"whisper": "Fluister",
 			"welcomeMessage": "Welkom by die gesprek!",
 			"roomDescription": "Kamerbeskrywing"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }
