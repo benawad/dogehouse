@@ -38,7 +38,7 @@
     "followList": {},
     "home": { "createRoom": "Kamer maken", "refresh": "Verversen" },
     "inviteList": {
-      "roomGone": "Kamer is weg, ga terug",
+      "roomGone": "Kamer bestaat niet, ga terug",
       "shareRoomLink": "Link van deze kamer delen",
       "inviteFollowers": "Je kunt je volgers die online zijn uitnodigen:",
       "whenFollowersOnline": "Als je volgers online zijn zullen ze hier verschijnen."
@@ -63,9 +63,9 @@
       "deleteAccount": "Verwijder account"
     },
     "notFound": {
-      "whoopsError": "Oeps! Deze pagina is verloren gegaan in het gesprek.",
+      "whoopsError": "Oeps! Deze pagina is verloren gegaan tijdens het gesprek.",
       "goHomeMessage": "Maak je geen zorgen. Je kan",
-      "goHomeLinkText": "terug naar home"
+      "goHomeLinkText": "terug naar de homepagina"
     },
     "room": {
       "speakers": "Sprekers",
@@ -94,7 +94,7 @@
     "backBar": {},
     "blockedFromRoomUsers": {
       "header": "Verbannen Gebruikers",
-      "unban": "unban",
+      "unban": "Unban",
       "noBans": "Er is nog niemand verbannen"
     },
     "bottomVoiceControl": {
@@ -135,9 +135,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "Geen audioapparaat om een of andere reden"
     },
-    "addToCalendar": { "add": "Voeg toe aan kalender" },
+    "addToCalendar": { "add": "Voeg toe aan agenda" },
     "wsKilled": {
-      "description": "Websocket is gestopt door de server. Dit gebeurt meestal als je de site open hebt staan in een ander tabblad.",
+      "description": "WebSocket is gestopt door de server. Dit gebeurt meestal als je de site open hebt staan in een ander tabblad.",
       "reconnect": "Opnieuw verbinden"
     },
     "modals": {
@@ -193,7 +193,7 @@
       "noneFound": "Geen gevonden",
       "allRooms": "Alle geplande kamers",
       "myRooms": "Mijn geplande kamers",
-      "scheduleRoomHeader": "Plan kamer",
+      "scheduleRoomHeader": "Kamer inplannen",
       "startRoom": "Kamer starten",
       "modal": {
         "needsFuture": "Moet in de toekomst zijn",
@@ -222,9 +222,9 @@
       "lunarDoge": "Maan-hond",
       "approachingSun": "Zon aan het benaderen",
       "solarDoge": "Zonne-hond",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "approachingGalaxy": "Heelal aan het benaderen",
+      "galacticDoge": "Galactische Doge",
+      "spottedLife": "Planeet met leven gespot"
     }
   }
 }
