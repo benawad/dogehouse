@@ -138,7 +138,7 @@
 				"avatarUrlLabel": "Github/Twitter profilbild länk",
 				"displayNameError": "längd 2 till 50 karaktärer",
 				"displayNameLabel": "Visningsnamn",
-				"usernameError": "längd 4 till 15 karaktärer och bara alfanumerisk/understrykning",
+				"usernameError": "längd 4 till 15 karaktärer med bara alfanumerisk/understrykning",
 				"usernameLabel": "Användarnamn",
 				"bioError": "max längd av 160 karaktärer",
 				"bioLabel": "Bio"
@@ -156,7 +156,7 @@
 				"deleteMessage": "ta bort detta meddelande"
 			},
 			"roomSettingsModal": {
-				"requirePermission": "kräv tillåtelse till att prata",
+				"requirePermission": "be om tillåtelse till att prata",
 				"makePublic": "gör rum offentligt",
 				"makePrivate": "gör rum privat"
 			}
