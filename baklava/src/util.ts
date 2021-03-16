@@ -13,10 +13,8 @@ import {
     REQUEST_TO_SPEAK_KEY,
     KEY_TABLE,
     IOHookEvent,
-    MENU_TEMPLATE,
 } from "./constants";
 import ioHook from "iohook";
-import path from "path";
 
 export let CURRENT_REQUEST_TO_SPEAK_KEY = "Control+8";
 export let CURRENT_INVITE_KEY = "Control+7";

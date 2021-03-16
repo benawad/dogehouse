@@ -9,25 +9,19 @@ import {
   Menu,
 } from "electron";
 import iohook from "iohook";
-<<<<<<< HEAD
 import { autoUpdater } from "electron-updater";
-import { HandleVoiceMenu, RegisterKeybinds } from "./util";
-import { ALLOWED_HOSTS } from "./constants";
-import url from "url";
-=======
 import { HandleVoiceTray, RegisterKeybinds } from "./util";
 import { ALLOWED_HOSTS, MENU_TEMPLATE } from "./constants";
->>>>>>> 3f7d0f6... declaring try and menu in global scope
+import url from "url";
 import path from "path";
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
 let menu: Menu;
+let splash;
 
 export const __prod__ = app.isPackaged;
 const instanceLock = app.requestSingleInstanceLock();
-
-let splash;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -47,7 +41,6 @@ function createWindow() {
     transparent: true,
     alwaysOnTop: true,
   });
-<<<<<<< HEAD
   splash.loadURL(
     url.format({
       pathname: path.join(`${__dirname}`, "../splash-screen.html"),
@@ -56,7 +49,6 @@ function createWindow() {
     })
   );
 
-=======
 
   // applying custom menu
   menu = Menu.buildFromTemplate(MENU_TEMPLATE);
@@ -64,7 +56,6 @@ function createWindow() {
 
   // applying custom tray
   tray = new Tray(path.join(__dirname, `../icons/tray.png`));
->>>>>>> 3f7d0f6... declaring try and menu in global scope
   // crashes on mac
   // systemPreferences.askForMediaAccess("microphone");
   if (!__prod__) {
