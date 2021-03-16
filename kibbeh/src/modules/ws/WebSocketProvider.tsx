@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { raw } from "@dogehouse/kebab";
 import { useTokenStore } from "../auth/useTokenStore";
 import { apiBaseUrl } from "../../lib/constants";
@@ -9,7 +9,9 @@ interface WebSocketProviderProps {
 
 type V = raw.Connection | null;
 
-export const WebSocketContext = React.createContext<V>(null);
+export const WebSocketContext = React.createContext<{ conn: V }>({
+  conn: null,
+});
 
 export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
   shouldConnect,
@@ -32,7 +34,7 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
   }, [conn, shouldConnect, hasTokens]);
 
   return (
-    <WebSocketContext.Provider value={conn}>
+    <WebSocketContext.Provider value={useMemo(() => ({ conn }), [conn])}>
       {children}
     </WebSocketContext.Provider>
   );

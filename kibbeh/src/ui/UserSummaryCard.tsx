@@ -10,13 +10,13 @@ type badge = {
 };
 
 export interface UserSummaryCardProps {
-  userId: string;
+  id: string;
   displayName: string;
   username: string;
-  followers: number;
-  following: number;
+  numFollowers: number;
+  numFollowing: number;
   isOnline: boolean;
-  avatar: string;
+  avatarUrl: string;
   badges: badge[];
   bio?: string;
   website?: string;
@@ -61,17 +61,17 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
   displayName,
   username,
   badges,
-  followers,
-  following,
+  numFollowers,
+  numFollowing,
   bio,
   website,
   isOnline,
-  avatar,
+  avatarUrl,
 }) => {
   return (
     <div className="flex-col rounded-8 bg-primary-800 p-4 w-full">
       <div>
-        <SingleUser size="default" isOnline={isOnline} src={avatar} />
+        <SingleUser size="default" isOnline={isOnline} src={avatarUrl} />
         <div className="flex-col ml-3">
           <span className="text-sm text-primary-100 font-bold">
             {displayName}
@@ -83,13 +83,13 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
       <div className="mt-3">
         <div>
           <span className="text-primary-100 font-bold">
-            {kFormatter(followers)}
+            {kFormatter(numFollowers)}
           </span>{" "}
           <span className="text-primary-300 ml-1">followers</span>
         </div>
         <div className="ml-4">
           <span className="text-primary-100 font-bold">
-            {kFormatter(following)}
+            {kFormatter(numFollowing)}
           </span>
           <span className="text-primary-300 ml-1"> following</span>
         </div>

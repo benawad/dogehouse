@@ -44,8 +44,8 @@ module.exports = {
     },
     extend: {
       borderRadius: {
-        '8': '8px'
-      }
+        8: "8px",
+      },
     },
   },
   variants: {
