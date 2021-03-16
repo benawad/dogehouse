@@ -196,7 +196,8 @@
       "modal": {
         "needsFuture": "ፍላጎቶች ወደፊት መሆን አለባቸው",
         "roomName": "የክፍል ስም",
-        "minLength": "ደቂቃ ርዝመት 2"
+        "minLength": "ደቂቃ ርዝመት 2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

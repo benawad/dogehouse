@@ -196,7 +196,8 @@
       "modal": {
         "needsFuture": "dibutuhkan di masa depan",
         "roomName": "nama ruangan",
-        "minLength": "minimal panjang 2"
+        "minLength": "minimal panjang 2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

@@ -199,7 +199,8 @@
       "modal": {
         "needsFuture": "ভবিষ্যতের জন্য চাই",
         "roomName": "রুমের নাম",
-        "minLength": "মিনিমাম ২ অক্ষরের"
+        "minLength": "মিনিমাম ২ অক্ষরের",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

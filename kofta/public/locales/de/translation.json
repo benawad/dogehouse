@@ -199,7 +199,8 @@
       "modal": {
         "needsFuture": "Zeitpunkt muss in der Zukunft liegen",
         "roomName": "Name des Raums",
-        "minLength": "minimale Länge: 2"
+        "minLength": "minimale Länge: 2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

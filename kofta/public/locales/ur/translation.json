@@ -197,7 +197,8 @@
       "modal": {
         "needsFuture": "مستقبل میں ہونے کی ضرورت ہے",
         "roomName": "کمرے کا نام",
-        "minLength": "منٹ لمبائی 2"
+        "minLength": "منٹ لمبائی 2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

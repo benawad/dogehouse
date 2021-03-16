@@ -210,6 +210,7 @@
       "modal": {
         "needsFuture": "needs to be in the future",
         "roomName": "room name",
+        "roomDescription": "Description",
         "minLength": "min length 2"
       }
     },

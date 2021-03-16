@@ -196,7 +196,8 @@
       "modal": {
         "needsFuture": "Tarih gelecek bir zamanda olmalı",
         "roomName": "Oda ismi",
-        "minLength": "Minimum oda ismi uzunluğu 2"
+        "minLength": "Minimum oda ismi uzunluğu 2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

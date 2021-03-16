@@ -196,7 +196,8 @@
       "modal": {
         "needsFuture": "treba da bude u budućnosti",
         "roomName": "naziv sobe",
-        "minLength": "minimalna dužina 2"
+        "minLength": "minimalna dužina 2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

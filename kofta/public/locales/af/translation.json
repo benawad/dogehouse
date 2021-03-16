@@ -196,7 +196,8 @@
       "modal": {
         "needsFuture": "moet in die toekoms wees",
         "roomName": "kamer naam",
-        "minLength": "min lengte 2"
+        "minLength": "min lengte 2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

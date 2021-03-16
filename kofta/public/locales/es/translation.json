@@ -196,7 +196,8 @@
       "modal": {
         "needsFuture": "necesita ser en el futuro",
         "roomName": "nombre de la sala",
-        "minLength": "longitud mínima de 2 caracteres"
+        "minLength": "longitud mínima de 2 caracteres",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

@@ -196,7 +196,8 @@
       "modal": {
         "needsFuture": "peab olema tulevikus",
         "roomName": "ruumi nimi",
-        "minLength": "min. pikkus 2"
+        "minLength": "min. pikkus 2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

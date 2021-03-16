@@ -198,7 +198,8 @@
       "modal": {
         "needsFuture": "deve essere nel futuro",
         "roomName": "nome della stanza",
-        "minLength": "la lunghezza minima è 2"
+        "minLength": "la lunghezza minima è 2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

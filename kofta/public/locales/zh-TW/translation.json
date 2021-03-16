@@ -193,7 +193,8 @@
       "modal": {
         "needsFuture": "需要一個在未來的時間",
         "roomName": "房間名稱",
-        "minLength": "最短長度為 2"
+        "minLength": "最短長度為 2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

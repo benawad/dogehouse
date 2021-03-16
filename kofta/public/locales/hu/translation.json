@@ -194,7 +194,8 @@
       "modal": {
         "needsFuture": "jövőbeli dátum szükséges",
         "roomName": "szoba neve",
-        "minLength": "legalább 2 karakter hosszú"
+        "minLength": "legalább 2 karakter hosszú",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

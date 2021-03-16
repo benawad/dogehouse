@@ -195,7 +195,8 @@
       "modal": {
         "needsFuture": "시간을 미래로 설정하세요",
         "roomName": "채팅방 이름",
-        "minLength": "최소 2자"
+        "minLength": "최소 2자",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

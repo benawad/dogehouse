@@ -196,7 +196,8 @@
       "modal": {
         "needsFuture": "трябва да е в бъдещето",
         "roomName": "име на стаята",
-        "minLength": "минимално 2 знака"
+        "minLength": "минимално 2 знака",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {
