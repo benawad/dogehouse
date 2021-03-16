@@ -30,15 +30,15 @@
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
 		"banUser": {
-			"ban": "Ban"
+			"ban": "Verban"
 		},
 		"followingOnlineList": {
 			"listHeader": "Lijst van gebruikers die je volgt en niet in een privé kamer zijn.",
-			"currentRoom": "Somenteel in:",
+			"currentRoom": "Momenteel in:",
 			"startPrivateRoom": "Start een privé kamer met deze persoon"
 		},
 		"followList": {},
-		"home": { "createRoom": "Kamer maken", "refresh": "Refresh" },
+		"home": { "createRoom": "Kamer maken", "refresh": "Verversen" },
 		"inviteList": {
 			"roomGone": "Kamer is weg, ga terug",
 			"shareRoomLink": "Link van deze kamer delen",
@@ -46,7 +46,7 @@
 			"whenFollowersOnline": "Als je volgers online zijn zullen ze hier verschijnen."
 		},
 		"login": {
-			"headerText": "Wij brengen gesprekken naar de maan 🚀",
+			"headerText": "Wij brengen gesprekken naar de maan! 🚀",
 			"featureText_1": "Donkere modus",
 			"featureText_2": "Open Registraties",
 			"featureText_3": "Cross-Platform Ondersteuning",
@@ -89,7 +89,7 @@
 		"voiceSettings": {
 			"header": "Spraakinstellingen",
 			"mic": "Microfoon:",
-			"permissionError": "Geen microfoon gevonden, je hebt er of geen aangesloten of hebt de website nog geen toestemming gegeven.",
+			"permissionError": "Geen microfoon gevonden, waarschijnlijk is er geen microfoon aangesloten of heb je geen toestemming gegeven.",
 			"refresh": "Ververs microfoonlijst",
 			"volume": "Volume:"
 		}
@@ -101,7 +101,7 @@
 		"blockedFromRoomUsers": {
 			"header": "Verbannen Gebruikers",
 			"unban": "unban",
-			"noBans": "Nog niemand is verbannen"
+			"noBans": "Er is nog niemand verbannen"
 		},
 		"bottomVoiceControl": {
 			"leaveCurrentRoomBtn": "Verlaat huidige kamer",
@@ -127,7 +127,7 @@
 			"inviteToRoom": "Nodig uit voor kamer"
 		},
 		"micPermissionBanner": {
-			"permissionDenied": "Toestemming om je microfoon te gebruiken is geweigerd (kijk misschien naar de instellingen van je browser en herlaad de pagina)",
+			"permissionDenied": "Geen microfoon gevonden, waarschijnlijk is er geen microfoon aangesloten of heb je geen toestemming gegeven.",
 			"dismiss": "Negeer",
 			"tryAgain": "Probeer opnieuw"
 		},
@@ -173,14 +173,14 @@
 				"bioLabel": "Bio"
 			},
 			"profileModal": {
-				"blockUserConfirm": "Weet je zeker dat je deze gebruiker wilt blokkeren van alle kamers die je ooit zult maken?",
+				"blockUserConfirm": "Weet je zeker dat je deze gebruiker wilt blokkeren van al je toekomstige kamers?",
 				"blockUser": "Blokkeer gebruiker",
-				"makeMod": "Maak moderator",
-				"unmod": "Verwijder moderator",
+				"makeMod": "Maak beheerder",
+				"unmod": "Verwijder beheerder",
 				"addAsSpeaker": "Voeg toe als spreker",
 				"moveToListener": "Verplaats naar luisteraar",
-				"banFromChat": "Ban uit de chat",
-				"banFromRoom": "Ban uit de room",
+				"banFromChat": "Verban uit de chat",
+				"banFromRoom": "Verban uit de kamer",
 				"goBackToListener": "Ga terug naar luisteraar",
 				"deleteMessage": "Verwijder dit bericht"
 			},
@@ -220,13 +220,13 @@
 			"roomDescription": "Kamer omschrijving"
 		},
 		"roomStatus": {
-			"fuelingRocket": "Fueling rocket",
-			"takingOff": "Taking off",
-			"inSpace": "In space",
-			"approachingMoon": "Approaching moon",
-			"lunarDoge": "Lunar doge",
-			"approachingSun": "Approaching sun",
-			"solarDoge": "Solar doge"
+			"fuelingRocket": "Raket aan het tanken",
+			"takingOff": "Aan het opstijgen",
+			"inSpace": "In de ruimte",
+			"approachingMoon": "Maan aan het benaderen",
+			"lunarDoge": "Maan-hond",
+			"approachingSun": "Zon aan het benaderen",
+			"solarDoge": "Zonne-hond"
 		}
 	}
 }

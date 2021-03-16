@@ -3,10 +3,10 @@
 		"loadMore": "और लोड करें",
 		"loading": "लोड हो रहा है...",
 		"noUsersFound": "कोई उपयोग्कर्ता नहीं मिले",
-		"ok": "ok",
+		"ok": "ठीक है",
 		"yes": "सही",
 		"no": "गलत",
-		"cancel": "cancel",
+		"cancel": "रद्द करें",
 		"save": "save",
 		"edit": "edit",
 		"delete": "delete",
@@ -60,7 +60,7 @@
 			"probablyLoading": "शायद लोड हो रहा है...",
 			"voiceSettings": "वॉइस सेटिंग्स में जाएं",
 			"soundSettings": "साउंड सेटिंग में जाएं",
-			"deleteAccount": "delete account"
+			"deleteAccount": "खाता हटाएं"
 		},
 		"notFound": {
 			"whoopsError": "Whoops! This page got lost in conversation.",

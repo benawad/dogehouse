@@ -7,6 +7,7 @@ import { Avatar } from "../../components/Avatar";
 import { dateFormat } from "../../utils/dateFormat";
 import { useMeQuery } from "../../utils/useMeQuery";
 import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
+import { emoteMap } from "./EmoteData";
 import { ProfileModalFetcher } from "./ProfileModalFetcher";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
@@ -126,6 +127,15 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                             {v}{" "}
                           </span>
                         );
+                      case "emote":
+                        return (
+                          <img
+                            key={i}
+                            className="inline"
+                            alt={v}
+                            src={emoteMap[v]}
+                          />
+                        );
 
                       case "mention":
                         return (
@@ -159,18 +169,18 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                             {normalizeUrl(v, { stripProtocol: true })}{" "}
                           </a>
                         );
-                        case "block":
-                          return (
-                            <span key={i}>
-                              <span
-                                className={
-                                  "bg-simple-gray-33 rounded whitespace-pre-wrap font-mono"
-                                }
-                              >
-                                {v}
-                              </span>{" "}
-                            </span>
-                          );
+                      case "block":
+                        return (
+                          <span key={i}>
+                            <span
+                              className={
+                                "bg-simple-gray-33 rounded whitespace-pre-wrap font-mono"
+                              }
+                            >
+                              {v}
+                            </span>{" "}
+                          </span>
+                        );
                       default:
                         return null;
                     }
