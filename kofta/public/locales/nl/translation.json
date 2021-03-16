@@ -30,7 +30,7 @@
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
 		"banUser": {
-			"ban": "Ban"
+			"ban": "Verban"
 		},
 		"followingOnlineList": {
 			"listHeader": "Lijst van gebruikers die je volgt en niet in een privé kamer zijn.",
@@ -89,7 +89,7 @@
 		"voiceSettings": {
 			"header": "Spraakinstellingen",
 			"mic": "Microfoon:",
-			"permissionError": "Geen microfoon gevonden, je hebt er of geen aangesloten of hebt de website nog geen toestemming gegeven.",
+			"permissionError": "geen microfoon gevonden, Mogelijk is er geen aangesloten of je hebt geen toestemming gegeven.",
 			"refresh": "Ververs microfoonlijst",
 			"volume": "Volume:"
 		}
@@ -127,7 +127,7 @@
 			"inviteToRoom": "Nodig uit voor kamer"
 		},
 		"micPermissionBanner": {
-			"permissionDenied": "Toestemming om je microfoon te gebruiken is geweigerd (kijk misschien naar de instellingen van je browser en herlaad de pagina)",
+			"permissionDenied": "geen microfoon gevonden, Mogelijk is er geen aangesloten of je hebt geen toestemming gegeven.",
 			"dismiss": "Negeer",
 			"tryAgain": "Probeer opnieuw"
 		},
@@ -220,13 +220,13 @@
 			"roomDescription": "Kamer omschrijving"
 		},
 		"roomStatus": {
-			"fuelingRocket": "Fueling rocket",
-			"takingOff": "Taking off",
-			"inSpace": "In space",
-			"approachingMoon": "Approaching moon",
-			"lunarDoge": "Lunar doge",
-			"approachingSun": "Approaching sun",
-			"solarDoge": "Solar doge"
+			"fuelingRocket": "Raket tanken",
+			"takingOff": "Aan het opstijgen",
+			"inSpace": "In de ruimte",
+			"approachingMoon": "Maan aan het benaderen",
+			"lunarDoge": "Maan-hond",
+			"approachingSun": "Zon aan het benaderen",
+			"solarDoge": "Zonne-hond"
 		}
 	}
 }
