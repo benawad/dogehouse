@@ -111,7 +111,8 @@
 			"makeRoomPublicBtn": "Raum öffentlich machen!",
 			"settings": "Einstellungen",
 			"speaker": "Sprecher",
-			"listener": "Zuhörer"
+			"listener": "Zuhörer",
+			"chat": "Chat"
 		},
 		"micPermissionBanner": {
 			"permissionDenied": "Wir haben keinen Zugriff auf dein Mikrofon. Öffne deine Browsereinstellungen, setze die nötigen Berechtigungen und lade die Seite erneut.",

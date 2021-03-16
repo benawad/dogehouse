@@ -118,7 +118,8 @@
       "makeRoomPublicBtn": "रूम सार्वजनिक बनाउनुहोस!",
       "settings": "सेटिंग्स",
       "speaker": "स्पिकर",
-      "listener": "श्रोता"
+      "listener": "श्रोता",
+      "chat": "Chat"
     },
     "deviceNotSupported": {
       "notSupported": "तपाईंको उपकरण हाल समर्थित छैन। तपाईं ",

@@ -109,7 +109,8 @@
 			"makeRoomPublicBtn": "把聊天室设为公开!",
 			"settings": "设置",
 			"speaker": "扬声器",
-			"listener": "听者"
+			"listener": "听者",
+			"chat": "Chat"
 		},
 		"micPermissionBanner": {
 			"permissionDenied": "麦克风使用权被拒绝（可能需要更改设置并且刷新页面）",

@@ -110,7 +110,8 @@
 			"makeRoomPublicBtn": "Fă camera publică!",
 			"settings": "Setări",
 			"speaker": "Difuzor",
-			"listener": "Ascultător"
+			"listener": "Ascultător",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Dispozitivul tău momentan nu este suportat. Poți crea un",

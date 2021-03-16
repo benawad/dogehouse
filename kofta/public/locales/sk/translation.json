@@ -109,7 +109,8 @@
 			"makeRoomPublicBtn": "Zverejniť miestnosť!",
 			"settings": "Nastavenia",
 			"speaker": "Rozprávač",
-			"listener": "Poslúchač"
+			"listener": "Poslúchač",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Tvoje zariadenie nie je podporované. Môžeš vytvoriť:",

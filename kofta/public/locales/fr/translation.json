@@ -108,7 +108,8 @@
 			"makeRoomPublicBtn": "Rendre la salle publique !",
 			"settings": "Paramètres",
 			"speaker": "Interlocuteur",
-			"listener": "Auditeur"
+			"listener": "Auditeur",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Votre système n'est pas encore supporté. Vous pouvez créer un",

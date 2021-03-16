@@ -109,7 +109,8 @@
 			"makeRoomPublicBtn": "채팅방 공개 하기!",
 			"settings": "설정",
 			"speaker": "스피커",
-			"listener": "청취자"
+			"listener": "청취자",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "현재 기기는 지원되지 않습니다, ",

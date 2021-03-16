@@ -110,7 +110,8 @@
 			"makeRoomPublicBtn": "Tee huoneesta julkinen!",
 			"settings": "Asetukset",
 			"speaker": "Puhuja",
-			"listener": "Kuuntelija"
+			"listener": "Kuuntelija",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Käyttämääsi laitetta ei tueta. Voit luoda",

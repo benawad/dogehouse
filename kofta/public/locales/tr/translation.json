@@ -110,7 +110,8 @@
 			"makeRoomPublicBtn": "Odayı herkese açık yap!",
 			"settings": "Ayarlar",
 			"speaker": "Konuşmacı",
-			"listener": "Dinleyici"
+			"listener": "Dinleyici",
+			"chat": "Sohbet"
 		},
 		"micPermissionBanner": {
 			"permissionDenied": "Mikrofonunuza erişmeye çalışırken izin reddedildi (tarayıcı ayarlarına gitmeniz ve sayfayı yeniden yüklemeniz gerekebilir)",

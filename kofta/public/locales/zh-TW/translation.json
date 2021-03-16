@@ -109,7 +109,8 @@
 			"makeRoomPublicBtn": "把房間設定為公開",
 			"settings": "設定",
 			"speaker": "講者",
-			"listener": "聽眾"
+			"listener": "聽眾",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "你的裝置目前並不支援，你可以到",

@@ -109,7 +109,8 @@
 			"makeRoomPublicBtn": "ทำให้ห้องเป็นสาธารณะ!",
 			"settings": "การตั้งค่า",
 			"speaker": "ผู้พูด",
-			"listener": "ผู้ฟัง"
+			"listener": "ผู้ฟัง",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "ขณะนี้เรายังไม่รองรับอุปกรณ์ของคุณ คุณสามารถแจ้งปัญหาได้ที่",

@@ -118,7 +118,8 @@
 			"makeRoomPublicBtn": "Bëje dhomën publike!",
 			"settings": "Cilësimet",
 			"speaker": "Folësit",
-			"listener": "Dëgjuesit"
+			"listener": "Dëgjuesit",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Paisja juaj nuk është e mbështetur. Ju mund të krijoni një",

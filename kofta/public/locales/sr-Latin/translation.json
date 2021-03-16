@@ -110,7 +110,8 @@
 			"makeRoomPublicBtn": "Učini sobu javnom!",
 			"settings": "Podešavanja",
 			"speaker": "Govornik",
-			"listener": "Slušalac"
+			"listener": "Slušalac",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Vaš uređaj ternutno nije podržan. Možete stvoriti",

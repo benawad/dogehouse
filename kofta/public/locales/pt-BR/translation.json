@@ -109,7 +109,8 @@
       "makeRoomPublicBtn": "Deixe a sala pública!",
       "settings": "Configurações",
       "speaker": "Apresentador",
-      "listener": "Ouvintes"
+      "listener": "Ouvintes",
+      "chat": "Chat"
     },
     "micPermissionBanner": {
       "permissionDenied": "Permissão negada ao tentar acessar o seu microfone (talvez você tenha que ir nas configurações de seu navegador e recarregar a página)",

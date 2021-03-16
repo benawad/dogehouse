@@ -110,7 +110,8 @@
 			"makeRoomPublicBtn": "Make room public!",
 			"settings": "Parametlər",
 			"speaker": "Natiqlər",
-			"listener": "Dinləyicilər"
+			"listener": "Dinləyicilər",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Your device is currently not supported. You can create an",
