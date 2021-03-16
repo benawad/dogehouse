@@ -16,6 +16,29 @@ export const createChatMessage = (
     }
   ];
 
+  const testAndPushToken = (item: string) => {
+    const isLink = linkRegex.test(item);
+    const withoutAt = item.replace(/@|#/g, "");
+    const isMention = mentions.find((m) => withoutAt === m.username);
+    // whisperedTo users list
+    !isMention ||
+      item.indexOf("#@") !== 0 ||
+      whisperedToUsernames.push(withoutAt);
+
+    if (isLink || isMention) {
+      tokens.push({
+        t: isLink ? "link" : "mention",
+        v: isMention ? withoutAt : normalizeUrl(item),
+      });
+    } else {
+      // If is text token
+      tokens.push({
+        t: "text",
+        v: item,
+      });
+    }
+  };
+
   const whisperedToUsernames: string[] = [];
 
   const match = message.matchAll(new RegExp(codeBlockRegex, "g"));
@@ -45,38 +68,17 @@ export const createChatMessage = (
             });
         matchResult = match.next();
       } else {
-        trimmed &&
-          tokens.push({
-            t: "text",
-            v: text,
-          });
+        text.split(" ").forEach((item) => {
+          testAndPushToken(item);
+        });
       }
     });
   } else {
     message.split(" ").forEach((item) => {
-      const isLink = linkRegex.test(item);
-      const withoutAt = item.replace(/@|#/g, "");
-      const isMention = mentions.find((m) => withoutAt === m.username);
-
-      // whisperedTo users list
-      !isMention ||
-        item.indexOf("#@") !== 0 ||
-        whisperedToUsernames.push(withoutAt);
-
-      if (isLink || isMention) {
-        tokens.push({
-          t: isLink ? "link" : "mention",
-          v: isMention ? withoutAt : normalizeUrl(item),
-        });
-      } else {
-        // If is text token
-        tokens.push({
-          t: "text",
-          v: item,
-        });
-      }
+      testAndPushToken(item);
     });
   }
+
   return {
     tokens,
     whisperedTo: roomUsers
