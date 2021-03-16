@@ -38,7 +38,7 @@
     "followList": {},
     "home": { "createRoom": "Oda oluştur", "refresh": "Yenile" },
     "inviteList": {
-      "roomGone": "oda gitti, geri dön",
+      "roomGone": "Oda gitti, geri dön",
       "shareRoomLink": "Oda bağlantısını paylaş",
       "inviteFollowers": "Çevrimiçi olan takipçilerini davet edebilirsin:",
       "whenFollowersOnline": "Takipçilerin çevrimiçi olduğunda burada gözükecek."
@@ -220,9 +220,9 @@
       "lunarDoge": "Ay doge'u",
       "approachingSun": "Güneş yaklaşıyor",
       "solarDoge": "Güneş doge'u",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "approachingGalaxy": "Galaksi yaklaşıyor",
+      "galacticDoge": "Galaktik doge'u",
+      "spottedLife": "Yaşam tespit edilen gezegen"
     }
   }
 }
