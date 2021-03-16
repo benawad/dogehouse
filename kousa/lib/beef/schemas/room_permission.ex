@@ -1,4 +1,4 @@
-defmodule Beef.RoomPermission do
+defmodule Beef.Schemas.RoomPermission do
   use Ecto.Schema
   import Ecto.Changeset
   alias Beef.Schemas.Room

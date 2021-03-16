@@ -1,4 +1,4 @@
-name: remote ssh command
+name: deploy-backend-to-staging
 on:
   push:
     branches:

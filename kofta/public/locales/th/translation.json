@@ -29,18 +29,14 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "แบน"
-		},
+		"banUser": { "ban": "แบน" },
 		"followingOnlineList": {
 			"listHeader": "ห้องสาธารณะที่ผู้คนที่คุณกำลังติดตามใช้งานอยู่",
 			"currentRoom": "ขณะนี้อยู่ใน:",
 			"startPrivateRoom": "สร้างห้องส่วนตัว"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "สร้างห้อง"
-		},
+		"home": { "createRoom": "สร้างห้อง", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "room gone, go back",
 			"shareRoomLink": "แชร์ลิ้งก์ของห้อง",
@@ -76,12 +72,8 @@
 			"requestingToSpeak": "กำลังขอขึ้นเป็นผู้พูด",
 			"listeners": "ผู้ฟัง"
 		},
-		"searchUser": {
-			"search": "ค้นหา..."
-		},
-		"soundEffectSettings": {
-			"header": "การแจ้งเตือนเสียง"
-		},
+		"searchUser": { "search": "ค้นหา..." },
+		"soundEffectSettings": { "header": "การแจ้งเตือนเสียง" },
 		"viewUser": {
 			"editProfile": "แก้ไขโปรไฟล์",
 			"followsYou": "กำลังติดตามคุณ",
@@ -139,12 +131,8 @@
 			"toggleMuteKeybind": "Keybind เปิด/ปิด ไมโครโฟน",
 			"togglePushToTalkKeybind": "Keybind เปิด/ปิด Push to Talk"
 		},
-		"userVolumeSlider": {
-			"noAudioMessage": "ไม่พบลำโพง"
-		},
-		"addToCalendar": {
-			"add": "เพิ่มไปยังปฏิทิน"
-		},
+		"userVolumeSlider": { "noAudioMessage": "ไม่พบลำโพง" },
+		"addToCalendar": { "add": "เพิ่มไปยังปฏิทิน" },
 		"wsKilled": {
 			"description": "ตัดการเชื่อมต่อโดยเซิฟเวอร์. อาจจะเป็นเพราะการเปิดเว็บไซต์หลายหน้าจอ.",
 			"reconnect": "เชื่อมต่อใหม่อีกครั้ง"
@@ -222,6 +210,15 @@
 			"whisper": "กระซิบ",
 			"welcomeMessage": "ยินดีต้อนรับสู่ห้องแชท!",
 			"roomDescription": "คำอธิบายของช่อง"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

@@ -12,15 +12,15 @@ init_i18n();
 ReactModal.setAppElement("#root");
 
 Sentry.init({
-	dsn: process.env.REACT_APP_SENTRY_DSN,
-	enabled: !!process.env.REACT_APP_SENTRY_DSN,
+  dsn: process.env.REACT_APP_SENTRY_DSN,
+  enabled: !!process.env.REACT_APP_SENTRY_DSN,
 });
 
 ReactDOM.render(
-	<React.StrictMode>
-		<Providers>
-			<App />
-		</Providers>
-	</React.StrictMode>,
-	document.getElementById("root")
+  <React.StrictMode>
+    <Providers>
+      <App />
+    </Providers>
+  </React.StrictMode>,
+  document.getElementById("root")
 );

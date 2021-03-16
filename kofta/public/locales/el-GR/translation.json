@@ -29,30 +29,26 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "αποκλεισμός"
-		},
+		"banUser": { "ban": "αποκλεισμός χρήστη" },
 		"followingOnlineList": {
-			"listHeader": "Χρήστες που δεν βρίσκονται σε κάποιο δωμάτιο και τους οποίους ακολουθείται.",
+			"listHeader": "Χρήστες που ακολουθείται δεν βρίσκονται σε κάποιο δωμάτιο",
 			"currentRoom": "αυτή τη στιγμή σε:",
-			"startPrivateRoom": "δημιουργήστε ένα ιδιωτικό δωμάτιο μαζί τους"
+			"startPrivateRoom": "δημιουργήστε ένα ιδιωτικό δωμάτιο"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "Δημιουργία Δωματίου"
-		},
+		"home": { "createRoom": "Δημιουργία Δωματίου", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "το δωμάτιο διαγράφηκε, πηγαίντε πίσω",
-			"shareRoomLink": "κοινοποιήστε τον σύνδεσμο στο δωμάτιο",
+			"shareRoomLink": "κοινοποιήστε τον σύνδεσμο του δωματίου",
 			"inviteFollowers": "Μπορείτε να προσκαλέσετε τους ακόλουθους σας που είναι ενεργοί:",
-			"whenFollowersOnline": "Όταν οι ακόλουθοι σας είναι ενεργοί, εμφανίζονται εδώ."
+			"whenFollowersOnline": "Όταν οι ακόλουθοι σας είναι ενεργοί, θα εμφανίζονται εδώ."
 		},
 		"login": {
-			"headerText": "Πάμε τις φωνητικές συνομιλίες στο φεγγάρι 🚀",
+			"headerText": "Πάμε τις φωνητικές συνομιλίες στο φεγγάρι 🚀!",
 			"featureText_1": "Σκούρο Θέμα",
 			"featureText_2": "Ανοιχτές Εγγραφές",
 			"featureText_3": "Cross-Platform Υποστήριξη",
-			"featureText_4": "Ανοιχτού Κώδικα",
+			"featureText_4": "Ανοιχτού Πηγαίου Κώδικα",
 			"featureText_5": "Συνομιλία μέσω Τσατ",
 			"featureText_6": "Με την υποστήριξη του Doge",
 			"loginGithub": "σύνδεση μέσω GitHub",
@@ -63,12 +59,12 @@
 			"logout": "αποσύνδεση",
 			"probablyLoading": "λογικά φορτώνει...",
 			"voiceSettings": "πηγαίνετε στις ρυθμίσεις φωνής",
-			"soundSettings": "go πηγαίνετε στις ρυθμίσεις ήχου",
+			"soundSettings": "πηγαίνετε στις ρυθμίσεις ήχου",
 			"deleteAccount": "διαγραφή λογαριασμού"
 		},
 		"notFound": {
-			"whoopsError": "Ουπς! Αυτή η σελίδα χάθηκε στην συζήτηση.",
-			"goHomeMessage": "Μην ανησυχείτε. Μπορείτε να",
+			"whoopsError": "Ουπς! Αυτή η σελίδα δεν βρέθηκε.",
+			"goHomeMessage": "Μην ανησυχείτε. Επιστρέψτε στην αρχική",
 			"goHomeLinkText": "επιστρέψετε στην αρχική"
 		},
 		"room": {
@@ -76,12 +72,8 @@
 			"requestingToSpeak": "Έχουν ζητήσει άδεια για να μιλήσουν",
 			"listeners": "Ακροατές"
 		},
-		"searchUser": {
-			"search": "αναζήτηση..."
-		},
-		"soundEffectSettings": {
-			"header": "Ήχοι"
-		},
+		"searchUser": { "search": "αναζήτηση..." },
+		"soundEffectSettings": { "header": "Ήχοι" },
 		"viewUser": {
 			"editProfile": "επεξεργασία προφίλ",
 			"followsYou": "σας ακολουθεί",
@@ -93,7 +85,7 @@
 			"mic": "μικρόφωνο:",
 			"permissionError": "δεν βρέθηκε μικρόφωνο, είτε δεν έχετε κανένα συνδεδεμένο είτε δεν έχετε δώσει άδεια στην παρούσα ιστοσελίδα.",
 			"refresh": "ανανέωση λίστας μικροφώνων",
-			"volume": "ένταση:"
+			"volume": "ένταση ήχου:"
 		}
 	},
 	"components": {
@@ -106,8 +98,8 @@
 			"noBans": "κανένας δεν έχει αποκλειστεί ακόμα"
 		},
 		"bottomVoiceControl": {
-			"leaveCurrentRoomBtn": "Αποχώρηση από το τωρινό δωμάτιο",
-			"confirmLeaveRoom": "Είστε σίγουροι ότι θέλετε να αποχωρήσετε?",
+			"leaveCurrentRoomBtn": "Αποχώρηση από το παρών δωμάτιο",
+			"confirmLeaveRoom": "Είστε σίγουροι ότι θέλετε να αποχωρήσετε;",
 			"leave": "Αποχώρηση",
 			"inviteUsersToRoomBtn": "Προσκαλέστε χρήστες στο δωμάτιο",
 			"invite": "Πρόσκληση",
@@ -129,22 +121,20 @@
 			"inviteToRoom": "προσκαλέστε στο δωμάτιο"
 		},
 		"micPermissionBanner": {
-			"permissionDenied": "Απορρίφθηκε η άδεια για πρόσβαση στο μικρόφωνο σας (ίσως χρειαστεί να πάτε στις ρυθμίσεις του φυλλομετρητή σας και να κάνετε επαναφόρτωση της σελίδας)",
+			"permissionDenied": "Απορρίφθηκε η άδεια για πρόσβαση στο μικρόφωνο σας (ίσως χρειαστεί να πάτε στις ρυθμίσεις του περιηγητη σας και να κάνετε επαναφόρτωση της σελίδας)",
 			"dismiss": "παράλειψη",
 			"tryAgain": "προσπαθήστε ξανά"
 		},
 		"keyboardShortcuts": {
-			"setKeybind": "ορίστε συντόμευση",
+			"setKeybind": "θέστε μια συντόμευση",
 			"listening": "αναμονή",
 			"toggleMuteKeybind": "αλλαγή συντόμευσης σίγασης",
 			"togglePushToTalkKeybind": "αλλαγή συντόμευσης push-to-talk"
 		},
 		"userVolumeSlider": {
-			"noAudioMessage": "δεν υπάρχει καταναλωτής ήχου για κάποιο λόγο"
+			"noAudioMessage": "δεν υπάρχει εξαγωγή ήχου για κάποιο λόγο"
 		},
-		"addToCalendar": {
-			"add": "Προσθήκη στο Ημερολόγιο"
-		},
+		"addToCalendar": { "add": "Προσθήκη στο Ημερολόγιο" },
 		"wsKilled": {
 			"description": "Το websocket διακόπηκε από τον διακομιστή. Αυτό συμβαίνει συνήθως όταν ανοίγεται την ιστοσελίδα σε άλλη καρτέλα.",
 			"reconnect": "επανασύνδεση"
@@ -222,6 +212,15 @@
 			"whisper": "Ψίθυρος",
 			"welcomeMessage": "Καλωσήρθατε στο τσατ!",
 			"roomDescription": "περιγραφή δωματίου"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

@@ -30,18 +30,14 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "Zabanovat"
-		},
+		"banUser": { "ban": "Zabanovat" },
 		"followingOnlineList": {
-			"listHeader": "Seznam uživatelů které sleduješ a nejsou v soukromé místonosti",
+			"listHeader": "Seznam uživatelů které sleduješ a nejsou v soukromé místnosti",
 			"currentRoom": "Právě v:",
 			"startPrivateRoom": "Otevřít soukromou místnost"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "Vytvořit místnost"
-		},
+		"home": { "createRoom": "Vytvořit místnost", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "Místnost není dostupná, jít zpět",
 			"shareRoomLink": "Sdílet odkaz na místnost",
@@ -77,12 +73,8 @@
 			"requestingToSpeak": "Požaduje oprávnění mluvit",
 			"listeners": "Posluchači"
 		},
-		"searchUser": {
-			"search": "hledat..."
-		},
-		"soundEffectSettings": {
-			"header": "Zvuky"
-		},
+		"searchUser": { "search": "hledat..." },
+		"soundEffectSettings": { "header": "Zvuky" },
 		"viewUser": {
 			"editProfile": "Pozměnit profil",
 			"followsYou": "Sleduje tě.",
@@ -130,7 +122,7 @@
 			"inviteToRoom": "pozvat do místnosti"
 		},
 		"micPermissionBanner": {
-			"permissionDenied": "Nemáš povolený mikrofon! Zkus znovu načást stránku.",
+			"permissionDenied": "Nemáš povolený mikrofon! Zkus znovu načíst stránku.",
 			"dismiss": "zavřít",
 			"tryAgain": "zkusit znovu"
 		},
@@ -143,9 +135,7 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "z nějakého důvodu se nepřehrává zvuk"
 		},
-		"addToCalendar": {
-			"add": "Přidat do kalendáře"
-		},
+		"addToCalendar": { "add": "Přidat do kalendáře" },
 		"wsKilled": {
 			"description": "Server tě odpojil. Neotevřel jsi další okno?",
 			"reconnect": "Připojit se znovu"
@@ -223,6 +213,15 @@
 			"whisper": "Šeptem",
 			"welcomeMessage": "Vítej v chatu!",
 			"roomDescription": "Popis místnosti"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

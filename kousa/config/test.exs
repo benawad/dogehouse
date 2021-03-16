@@ -7,3 +7,9 @@ config :kousa, Beef.Repo,
   pool: Ecto.Adapters.SQL.Sandbox
 
 config :logger, level: :error
+
+if System.get_env("GITHUB_ACTIONS") do
+  config :app, App.Repo,
+    username: "postgres",
+    password: "postgres"
+end

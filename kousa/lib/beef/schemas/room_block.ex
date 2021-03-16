@@ -1,4 +1,4 @@
-defmodule Beef.RoomBlock do
+defmodule Beef.Schemas.RoomBlock do
   use Ecto.Schema
   import Ecto.Changeset
   alias Beef.Schemas.User

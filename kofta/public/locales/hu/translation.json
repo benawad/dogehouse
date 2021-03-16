@@ -8,11 +8,11 @@
 		"no": "nem",
 		"cancel": "mégse",
 		"save": "mentés",
-		"edit": "edit",
-		"delete": "delete",
-		"joinRoom": "join room",
-		"copyLink": "copy link",
-		"copied": "copied",
+		"edit": "szerkesztés",
+		"delete": "törlés",
+		"joinRoom": "csatlakozás",
+		"copyLink": "link másolása",
+		"copied": "másolva",
 		"formattedIntlDate": "{{date, intlDate}}",
 		"formattedIntlTime": "{{time, intlTime}}"
 	},
@@ -35,12 +35,12 @@
 			"startPrivateRoom": "privát szoba létrehozása velük"
 		},
 		"followList": {},
-		"home": { "createRoom": "Szoba létrehozása" },
+		"home": { "createRoom": "Szoba létrehozása", "refresh": "Refresh" },
 		"inviteList": {
-			"roomGone": "szoba befelyezve, lépjen vissza",
+			"roomGone": "beszélgetés véget ért, lépjen vissza",
 			"shareRoomLink": "szoba linkjének megosztása",
 			"inviteFollowers": "Meghívhatja online követőit:",
-			"whenFollowersOnline": "Amikor a követőid online vannak, itt jelennek meg."
+			"whenFollowersOnline": "Online követőid itt fognak megjelenni."
 		},
 		"login": {
 			"headerText": " Hangbeszélgetéseket a Holdra 🚀",
@@ -81,10 +81,10 @@
 		},
 		"voiceSettings": {
 			"header": "Hangbeállítások",
-			"mic": "mikrofon:",
-			"permissionError": "nem található mikrofon. Vagy nincs csatlakoztatva, vagy nem adta meg az engedélyt.",
+			"mic": "Mikrofon:",
+			"permissionError": "Nem található mikrofon. Vagy nincs csatlakoztatva, vagy nem adta meg az engedélyt.",
 			"refresh": "elérhető mikrofonok frissítése",
-			"volume": "hangerő:"
+			"volume": "Hangerő:"
 		}
 	},
 	"components": {
@@ -92,9 +92,9 @@
 		"avatar": {},
 		"backBar": {},
 		"blockedFromRoomUsers": {
-			"header": "Bannolt felhasználók",
-			"unban": "unban",
-			"noBans": "senki nem lett bannolva még"
+			"header": "Kitiltott felhasználók",
+			"unban": "Ban visszavonása",
+			"noBans": "Senki nem lett még kitiltva"
 		},
 		"bottomVoiceControl": {
 			"leaveCurrentRoomBtn": "Kilépés a szobából",
@@ -111,18 +111,18 @@
 			"listener": "Hallgatók"
 		},
 		"micPermissionBanner": {
-			"permissionDenied": "A mikrofonhoz való hozzáférést megtagadták (lehet, hogy be kell lépnie a böngészőbeállításaiba, és újra be kell töltenie az oldalt)",
+			"permissionDenied": "A mikrofonhoz való hozzáférést megtagadták (lehet, hogy be kell lépnie a böngészőbeállításaiba és újra be kell töltenie az oldalt)",
 			"dismiss": "elutasítás",
-			"tryAgain": "tróbálja újra"
+			"tryAgain": "próbálja újra"
 		},
 		"modals": {
 			"createRoomModal": {
 				"public": "publikus",
 				"private": "privát",
-				"roomName": "room name",
-				"roomDescription": "room description",
-				"descriptionError": "max length 500",
-				"nameError": "must be between 2 to 60 characters long"
+				"roomName": "szoba neve",
+				"roomDescription": "szoba leírása",
+				"descriptionError": "maximum 500 karakter",
+				"nameError": "minimum 2, maximum 60 karakter"
 			},
 			"invitedToJoinRoomModal": {
 				"newRoomCreated": "Új szoba létrehozva",
@@ -149,8 +149,8 @@
 				"unmod": "unmod",
 				"addAsSpeaker": "hozzáadás a beszélőkhöz",
 				"moveToListener": "visszalépés hallgatóvá",
-				"banFromChat": "bannolás a chatről",
-				"banFromRoom": "bannolás a szobából",
+				"banFromChat": "kitiltás a chatről",
+				"banFromRoom": "kitiltás a szobából",
 				"goBackToListener": "visszalépés hallgatóvá",
 				"deleteMessage": "üzenet törlése"
 			},
@@ -160,51 +160,65 @@
 				"makePrivate": "szoba priváttá állítása"
 			}
 		},
-		"userVolumeSlider": { "noAudioMessage": "valamilyen okból nincs hallgató" },
-		"addToCalendar": { "add": "Add to Calendar" },
+		"userVolumeSlider": {
+			"noAudioMessage": "valamilyen okból nincs hallgató"
+		},
+		"addToCalendar": { "add": "Felvétel naptárba" },
 		"keyboardShortcuts": {
-			"setKeybind": "set keybind",
-			"listening": "listening",
-			"toggleMuteKeybind": "toggle mute keybind",
-			"togglePushToTalkKeybind": "toggle push-to-talk keybind"
+			"setKeybind": "Gyorsbillentyű beállítása",
+			"listening": "figyelés...",
+			"toggleMuteKeybind": "Némítás kapcsolása",
+			"togglePushToTalkKeybind": "Push-to-talk kapcsolása"
 		},
 		"wsKilled": {
-			"description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
-			"reconnect": "reconnect"
+			"description": "A Websocket kapcsolatot megszakította a szerver. Ez általában akkor fordul elő, amikor több fülön meg van nyitva a weboldal.",
+			"reconnect": "újracsatlakozás"
 		},
 		"deviceNotSupported": {
-			"notSupported": "Your device is currently not supported. You can create an",
-			"linkText": "issue on GitHub",
-			"addSupport": "and I will try adding support for your device."
+			"notSupported": "Az eszköze jelenleg nem támogatott. Létrehozhat egy",
+			"linkText": "hibajegyet GitHub",
+			"addSupport": "-on és megpróbáljuk biztosítani eszköze támogatottságát."
 		},
-		"inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" }
+		"inviteButton": {
+			"invited": "meghívott",
+			"inviteToRoom": "meghívás szobába"
+		}
 	},
 	"modules": {
 		"scheduledRooms": {
-			"title": "Scheduled Rooms",
-			"noneFound": "none found",
-			"allRooms": "all scheduled rooms",
-			"myRooms": "my scheduled rooms",
-			"scheduleRoomHeader": "Schedule Room",
-			"startRoom": "start room",
+			"title": "Ütemezett szobák",
+			"noneFound": "nem található szoba",
+			"allRooms": "összes ütemezett szoba",
+			"myRooms": "saját ütemezett szobáim",
+			"scheduleRoomHeader": "Szoba ütemezése",
+			"startRoom": "szoba indítása",
 			"modal": {
-				"needsFuture": "needs to be in the future",
-				"roomName": "room name",
-				"minLength": "min length 2"
+				"needsFuture": "jövőbeli dátum szükséges",
+				"roomName": "szoba neve",
+				"minLength": "legalább 2 karakter hosszú"
 			}
 		},
 		"roomChat": {
 			"title": "Chat",
-			"emotesSoon": "[emotes soon]",
-			"bannedAlert": "You got banned from chat",
-			"waitAlert": "You have to wait a second before sending another message",
-			"search": "Search",
-			"searchResults": "Search Results",
-			"recent": "Frequently Used",
-			"sendMessage": "Send a Message",
-			"whisper": "Whisper",
-			"welcomeMessage": "Welcome to chat!",
-			"roomDescription": "room description"
+			"emotesSoon": "[emotikonok hamarosan]",
+			"bannedAlert": "Kitiltottak a beszélgetésből",
+			"waitAlert": "Várnod kell egy másodpercet a következő üzenet küldése előtt.",
+			"search": "Keresés",
+			"searchResults": "Keresés eredménye",
+			"recent": "Gyakran használt",
+			"sendMessage": "Üzenet küldése",
+			"whisper": "privát üzenet",
+			"welcomeMessage": "Üdv a beszélgetésben!",
+			"roomDescription": "szoba leírása"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

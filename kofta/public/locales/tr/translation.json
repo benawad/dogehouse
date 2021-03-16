@@ -36,7 +36,7 @@
 			"startPrivateRoom": "onlarla özel bir oda oluştur"
 		},
 		"followList": {},
-		"home": { "createRoom": "Oda oluştur" },
+		"home": { "createRoom": "Oda oluştur", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "oda gitti, geri dön",
 			"shareRoomLink": "oda bağlantısını paylaş",
@@ -78,7 +78,7 @@
 			"editProfile": "profili düzenle",
 			"followsYou": "seni takip ediyor",
 			"followers": "takipçiler",
-			"following": "takip ediliyor",
+			"following": "takip ediliyor"
 		},
 		"voiceSettings": {
 			"header": "Ses Ayarları",
@@ -179,7 +179,10 @@
 			"linkText": "GitHub ile bir issue (sorun)",
 			"addSupport": "oluşturabilirsiniz ve ben de cihazınıza destek eklemeye çalışırım."
 		},
-		"inviteButton": { "invited": "Davet Edildi", "inviteToRoom": "Odaya Davet Et" }
+		"inviteButton": {
+			"invited": "Davet Edildi",
+			"inviteToRoom": "Odaya Davet Et"
+		}
 	},
 	"modules": {
 		"scheduledRooms": {
@@ -207,6 +210,15 @@
 			"whisper": "Fısılda",
 			"welcomeMessage": "Sohbete hoş geldin!",
 			"roomDescription": "Oda Açıklaması"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

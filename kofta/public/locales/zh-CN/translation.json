@@ -36,7 +36,7 @@
 			"startPrivateRoom": "跟ta进入私人聊天室"
 		},
 		"followList": {},
-		"home": { "createRoom": "新建聊天室" },
+		"home": { "createRoom": "新建聊天室", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "聊天室以被删除，请回到前一页",
 			"shareRoomLink": "在聊天室分享链接",
@@ -180,7 +180,10 @@
 			"linkText": "issue on GitHub",
 			"addSupport": "and I will try adding support for your device."
 		},
-		"inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" }
+		"inviteButton": {
+			"invited": "invited",
+			"inviteToRoom": "invite to room"
+		}
 	},
 	"modules": {
 		"_comment": "Modules UI Internationalization Strings",
@@ -209,6 +212,15 @@
 			"whisper": "私信",
 			"welcomeMessage": "欢迎来到文字聊天!",
 			"roomDescription": "聊天室介绍"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

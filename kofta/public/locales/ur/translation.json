@@ -40,7 +40,8 @@
 		},
 		"followList": {},
 		"home": {
-			"createRoom": "روم بنائیں"
+			"createRoom": "روم بنائیں",
+      "refresh": "Refresh" 
 		},
 		"inviteList": {
 			"roomGone": "یہ روم اب موجود نہیں ہے",
@@ -143,9 +144,7 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "کسی وجہ سے آڈیو صارف نہیں ہے"
 		},
-		"addToCalendar": {
-			"add": "کیلنڈر میں شامل کریں"
-		},
+		"addToCalendar": { "add": "کیلنڈر میں شامل کریں" },
 		"wsKilled": {
 			"description": "ویبسکیٹ سرور کے ذریعہ ہلاک ہوگئی تھی۔ یہ عام طور پر ہوتا ہے جب آپ کسی دوسرے ٹیب میں ویب سائٹ کھولتے ہیں۔",
 			"reconnect": "دوبارہ جڑنا"
@@ -223,6 +222,15 @@
 			"whisper": "سرگوشی",
 			"welcomeMessage": "چیٹ میں خوش آمدید!",
 			"roomDescription": "کمرے کی تفصیل"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

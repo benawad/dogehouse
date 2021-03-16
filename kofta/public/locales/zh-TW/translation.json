@@ -29,18 +29,14 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-            "ban": "禁言"
-        },
+		"banUser": { "ban": "禁言" },
 		"followingOnlineList": {
 			"listHeader": "你追蹤的且不在私人房間內的使用者",
 			"currentRoom": "目前的房間:",
 			"startPrivateRoom": "開啟私人房間"
 		},
 		"followList": {},
-		"home": {
-            "createRoom": "新增房間"
-        },
+		"home": { "createRoom": "新增房間", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "房間已被删除，請回到前一頁",
 			"shareRoomLink": "在房間分享連結",
@@ -76,12 +72,8 @@
 			"requestingToSpeak": "要求發言",
 			"listeners": "聽眾"
 		},
-		"searchUser": {
-            "search": "搜尋..."
-        },
-		"soundEffectSettings": {
-            "header": "聲音"
-        },
+		"searchUser": { "search": "搜尋..." },
+		"soundEffectSettings": { "header": "聲音" },
 		"viewUser": {
 			"editProfile": "編輯個人主頁",
 			"followsYou": "正在追蹤你",
@@ -124,10 +116,7 @@
 			"linkText": " GitHub 建立 issue.",
 			"addSupport": " 而我會試著支援你的裝置‧"
 		},
-		"inviteButton": {
-            "invited": "已被邀請",
-            "inviteToRoom": "邀請到房間"
-        },
+		"inviteButton": { "invited": "已被邀請", "inviteToRoom": "邀請到房間" },
 		"micPermissionBanner": {
 			"permissionDenied": "麥克風使用權被拒絕（可能需要更改設定並且重新整理頁面）",
 			"dismiss": "取消",
@@ -139,12 +128,8 @@
 			"toggleMuteKeybind": "觸發靜音的按鍵組合",
 			"togglePushToTalkKeybind": "觸發發言的按鍵組合"
 		},
-		"userVolumeSlider": {
-			"noAudioMessage": "沒有聲音"
-		},
-		"addToCalendar": {
-            "add": "加到行事曆"
-        },
+		"userVolumeSlider": { "noAudioMessage": "沒有聲音" },
+		"addToCalendar": { "add": "加到行事曆" },
 		"wsKilled": {
 			"description": "Websocket 已從 server 斷線，這通常發生在你於另一個分頁開啟本網站‧",
 			"reconnect": "重新連線"
@@ -222,6 +207,15 @@
 			"whisper": "密語",
 			"welcomeMessage": "歡迎來到房間!",
 			"roomDescription": "房間簡介"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

@@ -18,6 +18,7 @@ export const createChatMessage = (
 
   const whisperedToUsernames: string[] = [];
 
+  let isBlock = false;
   message.split(" ").forEach((item) => {
     const isLink = linkRegex.test(item);
     const withoutAt = item.replace(/@|#/g, "");
@@ -35,14 +36,40 @@ export const createChatMessage = (
       });
     } else {
       const lastToken = tokens[tokens.length - 1];
-      if (lastToken && lastToken.t === "text") {
+      
+      // if is block token
+      if (item.startsWith("`")) (isBlock = true)
+      if (isBlock) {
+        const trimmed = item.replaceAll("`", "")
+        if (lastToken && lastToken.t === "block") {
+          tokens[tokens.length - 1].v = lastToken.v + " " + trimmed
+        } else {
+          tokens.push({
+            t: "block",
+            v: trimmed
+          })
+        }
+      }
+
+      // If is text token
+      if (lastToken && lastToken.t === "text" && !isBlock) {
         tokens[tokens.length - 1].v = lastToken.v + " " + item;
-      } else {
+      } else if (!isBlock) {
         tokens.push({
           t: "text",
           v: item,
         });
       }
+
+      // if is block token
+      if (item.endsWith("`")) {
+        // check if the block is empty, and remove it
+        if (!item.replaceAll("`", "")) {
+          tokens.pop()
+        }
+        isBlock = false;
+      }
+
     }
   });
 

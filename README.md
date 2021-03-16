@@ -15,7 +15,7 @@
   <span> · </span>
   <a href="https://discord.gg/82HzQCJCDg">Community</a>
   <span> · </span>
-  <a href="#">Documentation</a>
+  <a href="./docs/README.MD">Documentation</a>
 </h3>
 
 <p align="center"><b>https://dogehouse.tv/</b></p>
