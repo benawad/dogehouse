@@ -1,0 +1,23 @@
+.searchTerm {
+  width: 100%;
+  border: 3px solid rgb(128, 128, 128);
+  border-right: none;
+  padding: 24px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: black;
+  font-size: 20px;
+}
+
+.searchButton {
+  width: 50px;
+  height: 54px;
+  border: 1px solid rgb(128, 128, 128);
+  background: rgb(128, 128, 128);
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
