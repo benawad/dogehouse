@@ -18,8 +18,8 @@ export const createChatMessage = (
 
   const whisperedToUsernames: string[] = [];
 
-  const ia = message.matchAll(new RegExp(codeBlockRegex, "g"));
-  let matchResult = ia.next();
+  const match = message.matchAll(new RegExp(codeBlockRegex, "g"));
+  let matchResult = match.next();
 
   // For message that matches the regex pattern of code blocks.
   if (!matchResult.done) {
@@ -43,7 +43,7 @@ export const createChatMessage = (
               t: "text",
               v: matchResult.value[0],
             });
-        matchResult = ia.next();
+        matchResult = match.next();
       } else {
         trimmed &&
           tokens.push({
