@@ -48,6 +48,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   const fullscreenChatOpen = useShouldFullscreenChat();
   const [showCreateRoomModal, setShowCreateRoomModal] = useState(false);
   const [listenersPage, setListenersPage] = useState(1);
+  const pageSize = 25;
   const { t } = useTypeSafeTranslation();
   // useEffect(() => {
   //   if (room?.users.length) {
@@ -89,9 +90,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
     }
   });
 
-  const pageSize = 25;
   const listenersShown = listeners.slice(0, listenersPage * pageSize);
-
   return (
     <>
       <ProfileModal
