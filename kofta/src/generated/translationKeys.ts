@@ -153,4 +153,7 @@ export type TranslationKeys =
 	| "modules.roomStatus.approachingMoon"
 	| "modules.roomStatus.lunarDoge"
 	| "modules.roomStatus.approachingSun"
-	| "modules.roomStatus.solarDoge";
+	| "modules.roomStatus.solarDoge"
+	| "modules.roomStatus.approachingGalaxy"
+	| "modules.roomStatus.galacticDoge"
+	| "modules.roomStatus.spottedLife";
