@@ -25,34 +25,30 @@
 	"footer": {
 		"_comment": "Main Footer UI Internationalization Strings",
 		"link_1": "Ursprungsgeschichte",
-		"link_2": "Onenigheid",
+		"link_2": "Discord",
 		"link_3": "Problem melden"
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "bannen"
-		},
+		"banUser": { "ban": "blockieren" },
 		"followingOnlineList": {
-			"listHeader": "Benutzer denen du folgst, die nicht in einem privaten Raum sind.",
+			"listHeader": "Benutzer, denen du folgst, die nicht in einem privaten Raum sind.",
 			"currentRoom": "Zurzeit in:",
 			"startPrivateRoom": "Einen privaten Raum mit diesem Benutzer starten"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "Raum erstellen"
-		},
+		"home": { "createRoom": "Raum erstellen", "refresh": "Refresh" },
 		"inviteList": {
-			"roomGone": "Raum ist weg, gehe zurück",
+			"roomGone": "Raum konnte nicht gefunden werden! Zurück",
 			"shareRoomLink": "Link zum Raum teilen",
-			"inviteFollowers": "Du kannst deine Abonnenten die online sind einladen:",
+			"inviteFollowers": "Du kannst deine Abonnenten, die online sind, einladen:",
 			"whenFollowersOnline": "Wenn deine Abonnenten online sind, werden sie hier angezeigt."
 		},
 		"login": {
-			"headerText": "Wir bringen Gespräche zum Mond 🚀",
-			"featureText_1": "Dunkelmodus",
+			"headerText": "Wir bringen den Sprachchat zum Mond 🚀",
+			"featureText_1": "Dark-Mode",
 			"featureText_2": "Unbeschränkte Registrierung",
-			"featureText_3": "Cross-Plattform-Unterstützung",
+			"featureText_3": "Plattformunabhängig",
 			"featureText_4": "Open-Source",
 			"featureText_5": "Text-Chat",
 			"featureText_6": "Angetrieben durch Doge",
@@ -62,7 +58,7 @@
 		},
 		"myProfile": {
 			"logout": "Abmelden",
-			"probablyLoading": "Vermutlich am Laden...",
+			"probablyLoading": "Lädt vermutlich...",
 			"voiceSettings": "Spracheinstellungen",
 			"soundSettings": "Toneinstellungen",
 			"deleteAccount": "Konto löschen"
@@ -77,12 +73,8 @@
 			"requestingToSpeak": "Sprachanfragen",
 			"listeners": "Zuhörer"
 		},
-		"searchUser": {
-			"search": "Suchen..."
-		},
-		"soundEffectSettings": {
-			"header": "Ton"
-		},
+		"searchUser": { "search": "Suchen..." },
+		"soundEffectSettings": { "header": "Ton" },
 		"viewUser": {
 			"editProfile": "Profil bearbeiten",
 			"followsYou": "folgt dir",
@@ -91,23 +83,21 @@
 		},
 		"voiceSettings": {
 			"header": "Spracheinstellungen",
-			"mic": "Mikro:",
-			"permissionError": "Keine Mikros gefunden, du hast entweder keine angeschlossen oder die Seite hat nicht die benötigten Berechtigungen.",
+			"mic": "Mikrofon:",
+			"permissionError": "Keine Mikrofone gefunden, es ist entweder keines angeschlosen oder diese Seite besitzt nicht die benötigten Berechtigungen.",
 			"volume": "Lautstärke:",
-			"refresh": "Mikroliste aktualisieren"
+			"refresh": "Mikrofonliste aktualisieren"
 		}
 	},
 	"components": {
 		"_comment": "Component UI Internationalization Strings",
-		"addToCalendar": {
-			"add": "Zum Kalender hinzufügen"
-		},
+		"addToCalendar": { "add": "Zum Kalender hinzufügen" },
 		"avatar": {},
 		"backBar": {},
 		"blockedFromRoomUsers": {
-			"header": "gebannte Benuzter",
-			"unban": "Bann aufheben",
-			"noBans": "bisher wurde noch niemand gebannt"
+			"header": "blockierte Benutzer",
+			"unban": "Blockierung aufheben",
+			"noBans": "Du hast aktuell (noch) niemanden blockiert"
 		},
 		"bottomVoiceControl": {
 			"leaveCurrentRoomBtn": "Aktuellen Raum verlassen",
@@ -116,15 +106,15 @@
 			"inviteUsersToRoomBtn": "Benutzer zum Raum einladen",
 			"invite": "Einladen",
 			"toggleMuteMicBtn": "Mikrofon ein-/ausschalten",
-			"mute": "Stummen",
-			"unmute": "Entstummen",
+			"mute": "Stumm schalten",
+			"unmute": "Stummschaltung aufheben",
 			"makeRoomPublicBtn": "Raum öffentlich machen!",
 			"settings": "Einstellungen",
 			"speaker": "Sprecher",
 			"listener": "Zuhörer"
 		},
 		"micPermissionBanner": {
-			"permissionDenied": "Wir haben keinen Zugriff auf dein Mikrofon (gehe in deine Browsereinstellungen und lade die Seite neu)",
+			"permissionDenied": "Wir haben keinen Zugriff auf dein Mikrofon. Öffne deine Browsereinstellungen, setze die nötigen Berechtigungen und lade die Seite erneut.",
 			"dismiss": "verstanden",
 			"tryAgain": "erneut versuchen"
 		},
@@ -148,22 +138,22 @@
 				"usernameTaken": "Benutzername ist bereits vergeben",
 				"avatarUrlError": "ungültiges Bild",
 				"avatarUrlLabel": "GitHub / Twitter Avatar URL",
-				"displayNameError": "Länge 2 bis 50 Buchstaben",
+				"displayNameError": "Länge: 2 bis 50 Buchstaben",
 				"displayNameLabel": "Anzeigename",
-				"usernameError": "Länge 4 bis 15 alphanumerische Zeichen und Unterstriche",
+				"usernameError": "Länge: 4 bis 15 alphanumerische Zeichen und Unterstriche",
 				"usernameLabel": "Benutzername",
 				"bioError": "Maximal 160 Buchstaben",
 				"bioLabel": "Bio"
 			},
 			"profileModal": {
-				"blockUserConfirm": "Bist du sicher, dass du diesen Benutzer aus allen deinen zukünftigen Räumen bannen möchtest?",
-				"blockUser": "Benutzer bannen",
+				"blockUserConfirm": "Bist du sicher, dass du diesen Benutzer aus allen deinen zukünftigen Räumen ausschließen möchtest?",
+				"blockUser": "Benutzer blockieren",
 				"makeMod": "Zum Moderator befördern",
 				"unmod": "Moderator Status aufheben",
 				"addAsSpeaker": "zu Sprecher befördern",
 				"moveToListener": "zu Zuhörer herabstufen",
-				"banFromChat": "Aus Chat bannen",
-				"banFromRoom": "Aus Raum bannen",
+				"banFromChat": "Im Chat blockieren",
+				"banFromRoom": "Aus Raum ausschließen",
 				"goBackToListener": "Zurück zum Zuhörer",
 				"deleteMessage": "Nachricht löschen"
 			},
@@ -183,13 +173,13 @@
 			"togglePushToTalkKeybind": "Push-to-Talk Tastenkürzel umschalten"
 		},
 		"wsKilled": {
-			"description": "Die Websocket Verbindung zum Server wurde unterbrochen. Dies passiert oft, wenn du die Website in einem anderen Tab öffnest.",
-			"reconnect": "reconnect"
+			"description": "Die Websocket Verbindung zum Server wurde unterbrochen. Dies geschieht normalerweise, wenn du die Website in einem anderen Tab öffnest.",
+			"reconnect": "Erneut verbinden"
 		},
 		"deviceNotSupported": {
-			"notSupported": "Dein Gerät wird aktuell nicht unterstützt. Du kannst ein",
+			"notSupported": "Dein Gerät wird aktuell nicht unterstützt. Du kannst einen",
 			"linkText": "Issue auf GitHub",
-			"addSupport": "öffnen und ich werde versuchen, die Unterstützung für dein Gerät hinzuzufügen."
+			"addSupport": "erstellen und ich werde versuchen, die Unterstützung für dein Gerät hinzuzufügen."
 		},
 		"inviteButton": {
 			"invited": "eingeladen",
@@ -206,16 +196,16 @@
 			"scheduleRoomHeader": "Plane einen Raum",
 			"startRoom": "Raum starten",
 			"modal": {
-				"needsFuture": "Es muss in der Zukunft sein",
-				"roomName": "Raum Name",
-				"minLength": "minimale Länge 2"
+				"needsFuture": "Zeitpunkt muss in der Zukunft liegen",
+				"roomName": "Name des Raums",
+				"minLength": "minimale Länge: 2"
 			}
 		},
 		"roomChat": {
 			"title": "Chat",
 			"emotesSoon": "[emotes bald]",
-			"bannedAlert": "Du wurdest aus dem Chat gebannt",
-			"waitAlert": "Du musst eine Sekunde warten, bevor du noch eine Nachricht schreibst",
+			"bannedAlert": "Du wurdest aus dem Chat ausgeschlossen",
+			"waitAlert": "Du musst eine Sekunde warten, bevor du eine weitere Nachricht schreiben kannst",
 			"search": "Suchen",
 			"searchResults": "Suchergebnisse",
 			"recent": "Häufig verwendet",
@@ -223,6 +213,15 @@
 			"whisper": "Flüstern",
 			"welcomeMessage": "Willkommen im Chat!",
 			"roomDescription": "Raumbeschreibung"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

@@ -2,7 +2,7 @@
 	"_comment": "if you change this file, do: npm run i18",
 	"common": {
 		"loadMore": "مزید لوڈ کریں",
-		"loading": "لوڈنگ…",
+		"loading": "لوڈ ہو رہا ہے",
 		"noUsersFound": "کوئی صارف نہیں ملا",
 		"ok": "ٹھیک ہے",
 		"yes": "جی ہاں",
@@ -11,9 +11,9 @@
 		"save": "محفوظ کریں",
 		"edit": "ترمیم",
 		"delete": "حذف کریں",
-		"joinRoom": "روم میں شامل ہوئیے",
-		"copyLink": "کاپی لنک",
-		"copied": "کاپی",
+		"joinRoom": "روم میں شامل ہو جائیں ",
+		"copyLink": "لنک کاپی کریں",
+		"copied": "کاپی کریں",
 		"formattedIntlDate": "{{date, intlDate}}",
 		"formattedIntlTime": "{{time, intlTime}}"
 	},
@@ -31,22 +31,23 @@
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
 		"banUser": {
-			"ban": "ban"
+			"ban": "پابندی لگائیں"
 		},
 		"followingOnlineList": {
-			"listHeader": "ان صارفین کی فہرست جو نجی کمرے میں نہیں ہیں اور آپ اس کی پیروی کرتے ہیں۔",
-			"currentRoom": "فی الحال میں:",
-			"startPrivateRoom": "ان کے ساتھ ایک نجی کمرہ شروع کریں"
+			"listHeader": "وہ لوگ جنھیں آپ فالو کرتیں ہیں ور وو اس وقت نجی روم میں نہیں ہیں",
+			"currentRoom": "موجودہ روم:",
+			"startPrivateRoom": "ان کے ساتھ ایک نجی روم شروع کریں"
 		},
 		"followList": {},
 		"home": {
-			"createRoom": "کمرہ بنائیں"
+			"createRoom": "روم بنائیں",
+      "refresh": "Refresh" 
 		},
 		"inviteList": {
-			"roomGone": "کمرے میں چلا گیا ، واپس چلو",
-			"shareRoomLink": "کمرے میں لنک شیئر کریں",
-			"inviteFollowers": "آپ اپنے پیروکاروں کو دعوت دے سکتے ہیں جو آن لائن ہیں:",
-			"whenFollowersOnline": "جب آپ کے پیروکار آن لائن ہوں گے تو وہ یہاں دکھائے جائیں گے۔"
+			"roomGone": "یہ روم اب موجود نہیں ہے",
+			"shareRoomLink": "روم کی لنک شیئر کریں",
+			"inviteFollowers": "آپ اپنے فولّور کو دعوت دے سکتے ہیں جو آن لائن ہیں:",
+			"whenFollowersOnline": "جب آپ کے فولّور آن لائن ہوں گے تو وہ یہاں دکھائے جائیں گے۔"
 		},
 		"login": {
 			"headerText": "Taking voice conversations to the moon 🚀",
@@ -62,26 +63,26 @@
 		},
 		"myProfile": {
 			"logout": "logout",
-			"probablyLoading": "شاید لوڈ ہو رہا ہے ...",
-			"voiceSettings": "صوتی ترتیبات پر جائیں",
-			"soundSettings": "صوتی ترتیبات پر جائیں",
-			"deleteAccount": "کھاتہ مٹا دو"
+			"probablyLoading": "شاید لوڈ ہو رہا ہے",
+			"voiceSettings": "اکاؤنٹ کی ترتیبات پر جائیں",
+			"soundSettings": "آواز کی ترتیبات پر جائیں",
+			"deleteAccount": "اکاؤنٹ ہمیشہ کے لئے ڈیلیٹ کریں"
 		},
 		"notFound": {
-			"whoopsError": "افوہ! یہ صفحہ گفتگو میں کھو گیا۔",
+			"whoopsError": "افوہ! لگتا ہے کچھ پنگا ہوگیا۔",
 			"goHomeMessage": "پریشانی کی بات نہیں. آپ کر سکتے ہیں",
 			"goHomeLinkText": "گھر جاو"
 		},
 		"room": {
-			"speakers": "مقررین",
-			"requestingToSpeak": "بولنے کی درخواست",
-			"listeners": "سننے والے"
+			"speakers": "اسپیکر",
+			"requestingToSpeak": "بولنے کی درخواسات",
+			"listeners": "سامعین"
 		},
 		"searchUser": {
-			"search": "تلاش کریں ..."
+			"search": "تلاش کریں"
 		},
 		"soundEffectSettings": {
-			"header": "آوازیں"
+			"header": "آواز کی ترتیبات"
 		},
 		"viewUser": {
 			"editProfile": "پروفائل میں ترمیم کریں",
@@ -143,9 +144,7 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "کسی وجہ سے آڈیو صارف نہیں ہے"
 		},
-		"addToCalendar": {
-			"add": "کیلنڈر میں شامل کریں"
-		},
+		"addToCalendar": { "add": "کیلنڈر میں شامل کریں" },
 		"wsKilled": {
 			"description": "ویبسکیٹ سرور کے ذریعہ ہلاک ہوگئی تھی۔ یہ عام طور پر ہوتا ہے جب آپ کسی دوسرے ٹیب میں ویب سائٹ کھولتے ہیں۔",
 			"reconnect": "دوبارہ جڑنا"
@@ -223,6 +222,15 @@
 			"whisper": "سرگوشی",
 			"welcomeMessage": "چیٹ میں خوش آمدید!",
 			"roomDescription": "کمرے کی تفصیل"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

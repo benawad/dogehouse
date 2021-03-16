@@ -36,7 +36,7 @@
 			"startPrivateRoom": "start et privat rom med dem"
 		},
 		"followList": {},
-		"home": { "createRoom": "Lag et Room" },
+		"home": { "createRoom": "Lag et rom", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "rommet er borte, gå tilbake",
 			"shareRoomLink": "Del lenken til rommet",
@@ -83,7 +83,7 @@
 		"voiceSettings": {
 			"header": "Taleinnstillinger",
 			"mic": "Mikrofon:",
-			"permissionError": "Ingen mikrofoner funnet, du har ingen plugget inn, eller har du ikke gitt denne nettsiden tillatelse.",
+			"permissionError": "Ingen mikrofoner funnet, du har ingen plugget inn, eller har du ikke gitt denne nettsiden tillatelse til å bruke den.",
 			"refresh": "Oppdater mikrofon listen",
 			"volume": "Volum:"
 		}
@@ -212,6 +212,15 @@
 			"whisper": "Hviske",
 			"welcomeMessage": "Velkommen til chatten!",
 			"roomDescription": "Rom beskrivelse"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

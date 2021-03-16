@@ -1,0 +1,30 @@
+name: build-and-release-electron
+
+on:
+  push:
+    paths:
+      - "baklava/**"
+    branches:
+      - prod
+
+jobs:
+  release:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v1
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Build/release Electron app
+        uses: samuelmeuli/action-electron-builder@v1
+        with:
+          build_script_name: build
+          package_root: baklava
+          github_token: ${{ secrets.github_token }}
+          release: true

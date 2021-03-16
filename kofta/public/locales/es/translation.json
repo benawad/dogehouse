@@ -8,7 +8,7 @@
 		"no": "no",
 		"cancel": "cancelar",
 		"save": "guardar",
-		"edit": "modificar",
+		"edit": "editar",
 		"delete": "eliminar",
 		"joinRoom": "unirse a la sala",
 		"copyLink": "copiar enlace",
@@ -35,10 +35,10 @@
 			"startPrivateRoom": "empieza una sala privada con ellos"
 		},
 		"followList": {},
-		"home": { "createRoom": "Crear Sala" },
+		"home": { "createRoom": "Crear Sala", "refresh": "Refresh" },
 		"inviteList": {
-			"roomGone": "sala no disponible, vuelve",
-			"shareRoomLink": "compartir enlace a la sala",
+			"roomGone": "sala no disponible, vuelve atrás",
+			"shareRoomLink": "compartir enlace de la sala",
 			"inviteFollowers": "Puedes invitar a tus seguidores que están en linea:",
 			"whenFollowersOnline": "Cuando tus seguidores estén en linea se mostrarán aquí."
 		},
@@ -47,7 +47,7 @@
 			"featureText_1": "Modo oscuro",
 			"featureText_2": "Registro abierto",
 			"featureText_3": "Soporte multiplataforma",
-			"featureText_4": "Open Source",
+			"featureText_4": "Código abierto",
 			"featureText_5": "Chat de texto",
 			"featureText_6": "Desarrollado por Doge",
 			"loginGithub": "iniciar sesión con GitHub",
@@ -67,7 +67,7 @@
 			"goHomeLinkText": "inicio"
 		},
 		"room": {
-			"speakers": "Conferencistas",
+			"speakers": "Hablantes",
 			"requestingToSpeak": "Solicitando hablar",
 			"listeners": "Oyentes"
 		},
@@ -82,7 +82,7 @@
 		"voiceSettings": {
 			"header": "Ajustes de voz",
 			"mic": "micrófono:",
-			"permissionError": "no se encontraron micrófonos, puede que no se encuentre conectado o no se ha otorgado permisio al sitio web.",
+			"permissionError": "no se encontraron micrófonos, puede que no se encuentre conectado o no se ha otorgado permiso al sitio web.",
 			"refresh": "recargar lista de micrófonos",
 			"volume": "volumen:"
 		}
@@ -98,16 +98,16 @@
 		},
 		"bottomVoiceControl": {
 			"leaveCurrentRoomBtn": "Abandonar sala actual",
-			"confirmLeaveRoom": "¿Estás seguro de que quieres irte?",
+			"confirmLeaveRoom": "¿Estás seguro que quieres abandonar la sala?",
 			"leave": "Abandonar",
 			"inviteUsersToRoomBtn": "Invitar usuarios a la sala",
 			"invite": "Invitar",
 			"toggleMuteMicBtn": "Alternar silenciar micrófono",
-			"mute": "Silenciar",
-			"unmute": "Desactivar silencio",
+			"mute": "Desactivar micrófono",
+			"unmute": "Activar micrófono",
 			"makeRoomPublicBtn": "Crear una sala pública!",
 			"settings": "Ajustes",
-			"speaker": "Conferencista",
+			"speaker": "Hablante",
 			"listener": "Oyente"
 		},
 		"micPermissionBanner": {
@@ -163,12 +163,12 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "no hay consumidor de audio por alguna razón"
 		},
-		"addToCalendar": { "add": "Agregar al calendario" },
+		"addToCalendar": { "add": "Añadir al calendario" },
 		"keyboardShortcuts": {
 			"setKeybind": "configurar combinación de teclas",
 			"listening": "escuchando",
-			"toggleMuteKeybind": "alternar el silenciado",
-			"togglePushToTalkKeybind": "alternar el pulsar para hablar"
+			"toggleMuteKeybind": "Encender/apagar combinación de teclas para silenciar",
+			"togglePushToTalkKeybind": "Encender/apagar combinación de teclas para tocar-para-hablar"
 		},
 		"wsKilled": {
 			"description": "El Websocket fue eliminado por el servidor. Esto suele suceder cuando abre el sitio web en otra pestaña.",
@@ -179,7 +179,10 @@
 			"linkText": "issue en GitHub",
 			"addSupport": "e intentaré agregar soporte para su dispositivo."
 		},
-		"inviteButton": { "invited": "invitado", "inviteToRoom": "invitar a una sala" }
+		"inviteButton": {
+			"invited": "invitado",
+			"inviteToRoom": "invitar a la sala"
+		}
 	},
 	"modules": {
 		"scheduledRooms": {
@@ -197,9 +200,9 @@
 		},
 		"roomChat": {
 			"title": "Chat",
-			"emotesSoon": "[emoticones pronto]",
+			"emotesSoon": "[emotes pronto]",
 			"bannedAlert": "Fuiste baneado del chat",
-			"waitAlert": "Debes de esperar 1 segundo antes de enviar otro mensaje",
+			"waitAlert": "Tienes que esperar un segundo antes de enviar otro mensaje.",
 			"search": "Buscar",
 			"searchResults": "Resultados de la búsqueda",
 			"recent": "Usados Frecuentemente",
@@ -207,6 +210,15 @@
 			"whisper": "Susurrar",
 			"welcomeMessage": "¡Bienvenido al chat!",
 			"roomDescription": "descripción de la sala"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }
