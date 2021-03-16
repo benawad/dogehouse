@@ -58,8 +58,7 @@ function createWindow() {
 
   // applying custom tray
   tray = new Tray(path.join(__dirname, `../icons/tray.png`));
-  // crashes on mac
-  // systemPreferences.askForMediaAccess("microphone");
+
   if (!__prod__) {
     mainWindow.webContents.openDevTools();
   }
@@ -75,6 +74,8 @@ function createWindow() {
     }, 1000);
   }),
 
+    // crashes on mac
+    // systemPreferences.askForMediaAccess("microphone");
     ipcMain.on("request-mic", async (event, _serviceName) => {
       const isAllowed: boolean = await systemPreferences.askForMediaAccess(
         "microphone"
