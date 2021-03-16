@@ -38,6 +38,7 @@ interface ProfileBlockProps {
 
 const upcoming: ScheduledRoomSummaryCardProps[] = [
   {
+    id: "1",
     scheduledFor: today,
     speakersInfo: {
       avatars: [avatar],
@@ -46,6 +47,7 @@ const upcoming: ScheduledRoomSummaryCardProps[] = [
     title: "Live with u/DeepFuckingValue",
   },
   {
+    id: "2",
     scheduledFor: addDays(today, 1),
     speakersInfo: {
       avatars: [avatar, avatar],
@@ -54,6 +56,7 @@ const upcoming: ScheduledRoomSummaryCardProps[] = [
     title: "Is Apple equipment worth it?",
   },
   {
+    id: "3",
     scheduledFor: addDays(today, 2),
     speakersInfo: {
       avatars: [avatar, avatar, avatar],
