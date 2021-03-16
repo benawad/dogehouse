@@ -17,6 +17,15 @@ export const customEmojis = [
     imageUrl: "/emotes/hypers.png",
     customCategory: "BetterTTV",
   },
+  {
+    name: "pepeD",
+    short_names: ["pepeD"],
+    text: "",
+    emoticons: [],
+    keywords: ["peped", "pepe"],
+    imageUrl: "/emotes/peped.gif",
+    customCategory: "BetterTTV",
+  }
 ];
 
 export const emoteMap: Record<string, string> = {};

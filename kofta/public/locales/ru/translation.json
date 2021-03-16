@@ -78,8 +78,8 @@
 		"viewUser": {
 			"editProfile": "редактировать профиль",
 			"followsYou": "подписаны на вас",
-			"followers": "подписчики",
-			"following": "вы подписаны"
+			"followers": "подписчиков",
+			"following": "подписанных"
 		},
 		"voiceSettings": {
 			"header": "Голосовые настройки",
@@ -215,7 +215,7 @@
 		"roomStatus": {
 			"fuelingRocket": "Заправка ракеты",
 			"takingOff": "Запуск",
-			"inSpace": "В Космосе",
+			"inSpace": "В космосе",
 			"approachingMoon": "Приближается к луне",
 			"lunarDoge": "Лунный doge",
 			"approachingSun": "Приближается к солнцу",
