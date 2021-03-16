@@ -13,8 +13,8 @@ export default {
 
 const room = {
   displayName: "The developer’s hangout",
-  joinedUsers: ["Terry Owen", "Grace Abraham", "Ben Awad"],
-  onlineCount: 355,
+  userCount: 355,
+  hosts: ["Terry Owen", "Grace Abraham"]
 };
 
 export const Main: Story<RoomSearchResultProps> = ({ ...props }) => (
