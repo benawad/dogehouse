@@ -223,6 +223,15 @@
 			"whisper": "Hviske",
 			"welcomeMessage": "Velkommen til chatten!",
 			"roomDescription": "rombeskrivelse"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fyller på rakkett med drivstoff",
+			"takingOff": "Tar av",
+			"inSpace": "I verdensrommet",
+			"approachingMoon": "Nærmer seg månen",
+			"lunarDoge": "Måne-doge",
+			"approachingSun": "Nærmer seg solen",
+			"solarDoge": "Sol-doge"
 		}
 	}
 }
