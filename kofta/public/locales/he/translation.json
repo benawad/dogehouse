@@ -194,7 +194,8 @@
       "modal": {
         "needsFuture": "חייב להיות בעתיד",
         "roomName": "שם החדר",
-        "minLength": "אורך מינימלי 2"
+        "minLength": "אורך מינימלי 2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

@@ -197,7 +197,8 @@
       "modal": {
         "needsFuture": "должно начинаца в будущем",
         "roomName": "название комнаты",
-        "minLength": "минимальная длина 2"
+        "minLength": "минимальная длина 2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

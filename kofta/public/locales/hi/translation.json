@@ -195,7 +195,8 @@
       "modal": {
         "needsFuture": "भविष्य में होना चाहिए",
         "roomName": "रूम का नाम",
-        "minLength": "काम से काम 2"
+        "minLength": "काम से काम 2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

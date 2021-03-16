@@ -198,7 +198,8 @@
       "modal": {
         "needsFuture": "skal være i fremtiden",
         "roomName": "Rum navn",
-        "minLength": "Minimum længde på 2 tegn"
+        "minLength": "Minimum længde på 2 tegn",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

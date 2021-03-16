@@ -198,7 +198,8 @@
       "modal": {
         "needsFuture": "musí byť v budúcnosti",
         "roomName": "názov miestnosti",
-        "minLength": "minimálne 2 znaky"
+        "minLength": "minimálne 2 znaky",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

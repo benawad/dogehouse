@@ -199,7 +199,8 @@
       "modal": {
         "needsFuture": "musi być w przyszłości",
         "roomName": "nazwa pokoju",
-        "minLength": "minimalna długość to 2"
+        "minLength": "minimalna długość to 2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

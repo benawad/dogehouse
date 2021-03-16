@@ -195,7 +195,8 @@
       "modal": {
         "needsFuture": "需要一个在未来的时间",
         "roomName": "聊天室名字",
-        "minLength": "最短长度为2"
+        "minLength": "最短长度为2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

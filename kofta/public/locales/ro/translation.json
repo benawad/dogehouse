@@ -199,7 +199,8 @@
       "modal": {
         "needsFuture": "Trebuie să fie în viitor",
         "roomName": "Numele camerei",
-        "minLength": "De minim 2 caractere"
+        "minLength": "De minim 2 caractere",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

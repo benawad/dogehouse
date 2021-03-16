@@ -200,7 +200,8 @@
       "modal": {
         "needsFuture": "має бути в майбутньому",
         "roomName": "назва кімнати",
-        "minLength": "має містити від 2 символів"
+        "minLength": "має містити від 2 символів",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

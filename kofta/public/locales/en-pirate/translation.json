@@ -196,7 +196,8 @@
       "modal": {
         "needsFuture": "needs t' be in the future",
         "roomName": "cabin name",
-        "minLength": "min length 2"
+        "minLength": "min length 2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

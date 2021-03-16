@@ -198,7 +198,8 @@
       "modal": {
         "needsFuture": "πρέπει να βρίσκεται στο μέλλον",
         "roomName": "όνομα δωματίου",
-        "minLength": "ελάχιστο μήκος 2"
+        "minLength": "ελάχιστο μήκος 2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

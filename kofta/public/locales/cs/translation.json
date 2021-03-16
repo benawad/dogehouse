@@ -199,7 +199,8 @@
       "modal": {
         "needsFuture": "musí být v budoucnosti",
         "roomName": "jméno místnosti",
-        "minLength": "minimálně dva znaky"
+        "minLength": "minimálně dva znaky",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

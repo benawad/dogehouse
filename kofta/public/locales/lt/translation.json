@@ -199,7 +199,8 @@
       "modal": {
         "needsFuture": "Turi būti ateityje",
         "roomName": "Kambario pavadinimas",
-        "minLength": "Mažiausias ilgis 2"
+        "minLength": "Mažiausias ilgis 2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

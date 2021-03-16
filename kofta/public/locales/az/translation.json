@@ -199,7 +199,8 @@
       "modal": {
         "needsFuture": "needs to be in the future",
         "roomName": "room name",
-        "minLength": "min length 2"
+        "minLength": "min length 2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

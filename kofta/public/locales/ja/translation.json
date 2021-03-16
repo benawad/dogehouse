@@ -194,7 +194,8 @@
       "modal": {
         "needsFuture": "将来的に開催される必要がある",
         "roomName": "名前",
-        "minLength": "2文字以上の名前を指定してください"
+        "minLength": "2文字以上の名前を指定してください",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

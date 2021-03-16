@@ -198,7 +198,8 @@
       "modal": {
         "needsFuture": "भविष्यमा हुनुपर्छ",
         "roomName": "रूमको नाम",
-        "minLength": "न्यूनतम लम्बाई २"
+        "minLength": "न्यूनतम लम्बाई २",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

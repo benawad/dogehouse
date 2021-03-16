@@ -196,7 +196,8 @@
       "modal": {
         "needsFuture": "duhet të jetë në të ardhmen",
         "roomName": "emri i dhomës",
-        "minLength": "gjatesia minimale 2"
+        "minLength": "gjatesia minimale 2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

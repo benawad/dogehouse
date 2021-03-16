@@ -196,7 +196,8 @@
       "modal": {
         "needsFuture": "þarf að vera í framtíðinni",
         "roomName": "rásarheiti",
-        "minLength": "lágmarkslengd 2"
+        "minLength": "lágmarkslengd 2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {

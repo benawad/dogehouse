@@ -199,7 +199,8 @@
       "modal": {
         "needsFuture": "needs to be in da futuwe (人◕ω◕)",
         "roomName": "woom name (◠‿◠✿)",
-        "minLength": "<3 min wength 2 ^_^"
+        "minLength": "<3 min wength 2 ^_^",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {
