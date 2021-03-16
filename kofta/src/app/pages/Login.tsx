@@ -46,6 +46,8 @@ export const Login: React.FC<LoginProps> = () => {
               <a
                 href="https://github.com/benawad/dogehouse"
                 className={`p-0 text-blue-400`}
+                target="_blank"
+                rel="noreferrer"
               >
                 {t("pages.login.featureText_4")}
               </a>
