@@ -31,6 +31,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "id", label: "🇮🇩 Indonesian" },
     { value: "it", label: "🇮🇹 Italian" },
     { value: "ja", label: "🇯🇵 Japanese" },
+		{ value: "li", label: "🏴󠁮󠁬󠁬󠁩󠁿 Limburgish" },
     { value: "lt", label: "🇱🇹 Lithuanian" },
     { value: "ne", label: "🇳🇵 Nepali" },
     { value: "nb", label: "🇳🇴 Norwegian" },
