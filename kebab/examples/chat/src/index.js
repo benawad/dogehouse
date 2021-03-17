@@ -41,7 +41,7 @@ const main = async () => {
       await wrapper.sendRoomChatMsg([{ t: "text", v: input }]);
     })
 
-    connection.addListener("new_chat_msg", async ({ userId, msg }) => {
+    const unsubscribe = wrapper.subscribe.newChatMsg(async ({ userId, msg }) => {
       const text = msg.tokens.map(it => it.v).reduce((a, b) => a + b);
       if(userId !== connection.user.id) {
         process.stdout.cursorTo(0);
