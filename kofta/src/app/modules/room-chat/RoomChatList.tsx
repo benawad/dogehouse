@@ -7,6 +7,7 @@ import { Avatar } from "../../components/Avatar";
 import { dateFormat } from "../../utils/dateFormat";
 import { useMeQuery } from "../../utils/useMeQuery";
 import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
+import { emoteMap } from "./EmoteData";
 import { ProfileModalFetcher } from "./ProfileModalFetcher";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
@@ -125,6 +126,17 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                           <span className={`flex-1 m-0`} key={i}>
                             {v}{" "}
                           </span>
+                        );
+                      case "emote":
+                        return emoteMap[v] ? (
+                          <img
+                            key={i}
+                            className="inline"
+                            alt={v}
+                            src={emoteMap[v]}
+                          />
+                        ) : (
+                          ":" + v + ":"
                         );
 
                       case "mention":

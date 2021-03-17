@@ -1,7 +1,5 @@
 import { linkRegex, codeBlockRegex } from "./../constants";
 import { BaseUser } from "../types";
-
-// @ts-ignore
 import normalizeUrl from "normalize-url";
 
 export const createChatMessage = (
@@ -30,8 +28,12 @@ export const createChatMessage = (
         t: isLink ? "link" : "mention",
         v: isMention ? withoutAt : normalizeUrl(item),
       });
+    } else if (item.startsWith(":") && item.endsWith(":") && item.length > 2) {
+      tokens.push({
+        t: "emote",
+        v: item.slice(1, item.length - 1),
+      });
     } else {
-      // If is text token
       tokens.push({
         t: "text",
         v: item,

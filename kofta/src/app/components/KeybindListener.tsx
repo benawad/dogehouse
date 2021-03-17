@@ -68,7 +68,7 @@ function ListenerElectron() {
     ipcRenderer.on(REQUEST_TO_SPEAK_KEY, REQUEST_TO_SPEAK_KEY_FUNC);
     ipcRenderer.on(MUTE_KEY, MUTE_KEY_FUNC);
     ipcRenderer.on(INVITE_KEY, INVITE_KEY_FUNC);
-    ipcRenderer.on("PTT_STATUS_CHANGE", PTT_STATUS_CHANGE_FUNC);
+    ipcRenderer.on("@voice/ptt_status_change", PTT_STATUS_CHANGE_FUNC);
     ipcRenderer.on(CHAT_KEY, CHAT_KEY_FUNC);
 
     return function cleanup() {
@@ -79,7 +79,7 @@ function ListenerElectron() {
       );
       ipcRenderer.removeListener(MUTE_KEY, MUTE_KEY_FUNC);
       ipcRenderer.removeListener(INVITE_KEY, INVITE_KEY_FUNC);
-      ipcRenderer.removeListener("PTT_STATUS_CHANGE", PTT_STATUS_CHANGE_FUNC);
+      ipcRenderer.removeListener("@voice/ptt_status_change", PTT_STATUS_CHANGE_FUNC);
       ipcRenderer.removeListener(CHAT_KEY, CHAT_KEY_FUNC);
     };
   }, [history, toggleOpen]);

@@ -1,8 +1,11 @@
-name: deploy-backend-to-staging
+name: deploy-staging-elixir-api
 on:
   push:
+    paths:
+      - 'kousa/lib/**'
     branches:
       - staging
+
 jobs:
   build:
     name: Build

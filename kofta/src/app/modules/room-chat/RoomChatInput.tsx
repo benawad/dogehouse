@@ -11,6 +11,7 @@ import { Codicon } from "../../svgs/Codicon";
 import { createChatMessage } from "../../utils/createChatMessage";
 import { useMeQuery } from "../../utils/useMeQuery";
 import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
+import { customEmojis, CustomEmote } from "./EmoteData";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { useRoomChatStore } from "./useRoomChatStore";
 
@@ -73,18 +74,6 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
     }
   };
 
-  const addEmoji = (emoji: any) => {
-    position =
-      (position === 0 ? inputRef!.current!.selectionStart : position + 2) || 0;
-
-    const newMsg = [
-      message.slice(0, position),
-      emoji.native,
-      message.slice(position),
-    ].join("");
-    setMessage(newMsg);
-  };
-
   const handleSubmit = (
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>
   ) => {
@@ -110,10 +99,10 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
     }
 
     const tmp = message;
-    const messageData = createChatMessage(tmp, mentions, currentRoom?.users)
-    
+    const messageData = createChatMessage(tmp, mentions, currentRoom?.users);
+
     // dont empty the input, if no tokens
-    if (!messageData.tokens.length) return
+    if (!messageData.tokens.length) return;
     setMessage("");
 
     if (
@@ -140,8 +129,22 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
       {isEmoji ? (
         <Picker
           set="apple"
-          onSelect={(emoji) => {
-            addEmoji(emoji);
+          onSelect={(emoji: CustomEmote) => {
+            position =
+              (position === 0
+                ? inputRef!.current!.selectionStart
+                : position + 2) || 0;
+
+            const newMsg = [
+              message.slice(0, position),
+              "native" in emoji
+                ? emoji.native
+                : (message.endsWith(" ") ? "" : " ") +
+                  (emoji.colons || "") +
+                  " ",
+              message.slice(position),
+            ].join("");
+            setMessage(newMsg);
           }}
           style={{
             position: "relative",
@@ -155,6 +158,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
           }}
           sheetSize={32}
           theme="dark"
+          custom={customEmojis}
           emojiTooltip={true}
           showPreview={false}
           showSkinTones={false}

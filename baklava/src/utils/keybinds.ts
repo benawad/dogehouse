@@ -1,7 +1,7 @@
 import {
     ipcMain,
     globalShortcut,
-    BrowserWindow
+    BrowserWindow,
 } from "electron";
 import {
     CHAT_KEY,
@@ -10,8 +10,8 @@ import {
     PTT_KEY,
     REQUEST_TO_SPEAK_KEY,
     KEY_TABLE,
-    IOHookEvent
-} from "./constants";
+    IOHookEvent,
+} from "../constants";
 import ioHook from "iohook";
 
 export let CURRENT_REQUEST_TO_SPEAK_KEY = "Control+8";
@@ -107,10 +107,10 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
         let PTT = PTT_STATUS.every((key_status) => key_status === true);
         if (PTT != PTT_PREV_STATUS) {
             PTT_PREV_STATUS = PTT;
-            mainWindow.webContents.send("PTT_STATUS_CHANGE", !PTT);
+            mainWindow.webContents.send("@voice/ptt_status_change", !PTT);
         }
     })
-    
+
     ioHook.on("keyup", (event: IOHookEvent) => {
         if (event.shiftKey) {
             if (CURRENT_PTT_KEY.includes("Shift")) {
@@ -141,10 +141,11 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
         let PTT = PTT_STATUS.every((key_status) => key_status === true);
         if (PTT != PTT_PREV_STATUS) {
             PTT_PREV_STATUS = PTT;
-            mainWindow.webContents.send("PTT_STATUS_CHANGE", !PTT);
+            mainWindow.webContents.send("@voice/ptt_status_change", !PTT);
         }
     });
 
     ioHook.start();
 
 }
+

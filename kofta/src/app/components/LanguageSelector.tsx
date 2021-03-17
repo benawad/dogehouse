@@ -40,12 +40,15 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "sk", label: "🇸🇰 Slovak" },
     { value: "sr", label: "🇷🇸 Serbian (Cyrillic)" },
     { value: "sr-Latin", label: "🇷🇸 Serbian (Latin)" },
+		{ value: 'se', label: "🇸🇪 Swedish" },
     { value: "es", label: "🇪🇸 Spanish" },
     { value: "th", label: "🇹🇭 Thai" },
     { value: "tr", label: "🇹🇷 Turkish" },
     { value: "uk", label: "🇺🇦 Ukrainian" },
     { value: "ur", label: "🇵🇰 Urdu" },
+	  { value: "owo", label: "OwO english"},
     { value: "bg", label: "🇧🇬 Bulgarian"},
+		{ value: "en-pirate", label: "🏴‍☠️ Pirate"},
   ],
 }) => {
   const { i18n } = useTranslation();

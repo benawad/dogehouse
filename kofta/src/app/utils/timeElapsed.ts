@@ -21,7 +21,6 @@ export const useTimeElapsed = (startDate: Date | null) => {
         unit: timeDiff > 120 ? undefined : "minute",
       })
     );
-
     if (timeDiff < 30) {
       setRocketIcon("⛽️");
       setRocketStatus(t("modules.roomStatus.fuelingRocket"));
@@ -40,9 +39,18 @@ export const useTimeElapsed = (startDate: Date | null) => {
     } else if (timeDiff < 2880) {
       setRocketIcon("🚀☀️");
       setRocketStatus(t("modules.roomStatus.approachingSun"));
-    } else {
+    } else if (timeDiff < 5760) {
       setRocketIcon("☀️🐕");
       setRocketStatus(t("modules.roomStatus.solarDoge"));
+    } else if (timeDiff < 11520) {
+      setRocketIcon("🚀🌌");
+      setRocketStatus(t("modules.roomStatus.approachingGalaxy"));
+    } else if (timeDiff < 23040) {
+      setRocketIcon("🌌🐕");
+      setRocketStatus(t("modules.roomStatus.galacticDoge"));
+    } else {
+      setRocketIcon("🪐👾");
+      setRocketStatus(t("modules.roomStatus.spottedLife"));
     }
   };
 
