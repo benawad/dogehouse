@@ -25,11 +25,12 @@ export const Modal: React.FC<ReactModal["props"]> = ({
   children,
   ...props
 }) => {
-  const onKeyDown = (event: any) => {
-    if (event.code === "ArrowLeft") {
-      event.target.previousElementSibling?.focus();
-    } else if (event.code === "ArrowRight") {
-      event.target.nextElementSibling?.focus();
+  const onKeyDown = (event: React.KeyboardEvent) => {
+    const currentActive = document.activeElement;
+    if (event.key === "ArrowLeft") {
+      (currentActive?.previousElementSibling as HTMLElement)?.focus();
+    } else if (event.key === "ArrowRight") {
+      (currentActive?.nextElementSibling as HTMLElement)?.focus();
     }
   };
 
