@@ -25,9 +25,27 @@ export const Modal: React.FC<ReactModal["props"]> = ({
   children,
   ...props
 }) => {
+  const onKeyDown = (event: any) => {
+    // left arrow key
+    if (event.which === 37) {
+      console.log(event.target.nextElementSibling);
+      event.target.previousElementSibling?.focus();
+      // right arrow key
+    } else if (event.which === 39) {
+      event.target.nextElementSibling?.focus();
+    }
+  };
+
   return (
-    <ReactModal shouldCloseOnEsc style={customStyles} {...props}>
-      {children}
+    <ReactModal
+      shouldCloseOnEsc
+      shouldFocusAfterRender
+      style={customStyles}
+      {...props}
+    >
+      <div tabIndex={-1} onKeyDown={onKeyDown}>
+        {children}
+      </div>
     </ReactModal>
   );
 };
