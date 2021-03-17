@@ -24,6 +24,7 @@ DogeHouse makes it easy to connect with friends and people over voice and chat m
 - Create rooms and invite friends (Public/private)
   - When you create a room you are automatically a mod and have a doge with glasses.
   - You can also make people in room mod by clicking on their profile
+  - You can edit room name, edit room description and change room visibility by clicking the room name
 - Edit Profile (https://dogehouse.tv/me)
 - Join Room, Leave room, Chat in room(Chat now has emojis😋), Mute/Unmute and Invite
 - Mention someone in the chat with the @ (@username)
