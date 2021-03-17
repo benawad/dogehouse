@@ -51,7 +51,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "zh-CN", label: "🇨🇳 中文 (简体)" }, // Chinese (Simplified)
 
     /* Other languages */
-		{ value: "en-pirate", label: "🏴‍☠️ Pirate"},
+    { value: "en-pirate", label: "🏴‍☠️ Pirate"},
     { value: "owo", label: "OwO english"},
   ],
 }) => {
