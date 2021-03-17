@@ -27,7 +27,7 @@ DogeHouse makes it easy to connect with friends and people over voice and chat m
   - You can edit room name, edit room description and change room visibility by clicking the room name
 - Edit Profile (https://dogehouse.tv/me)
 - Schedule Room to take place at a future date
-  - Add scheduled to calender
+  - Add scheduled rooms to calender
     - Apple calendar
     - Google
     - Outlook
