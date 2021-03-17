@@ -36,11 +36,6 @@ const main = async () => {
     console.log(`=> joining room "${theRoom.name}" (${theRoom.numPeopleInside} people)`);
     await wrapper.joinRoom(theRoom.id);
 
-    rl.prompt();
-    rl.on("line", async input => {
-      await wrapper.sendRoomChatMsg([{ t: "text", v: input }]);
-    })
-
     const unsubscribe = wrapper.subscribe.newChatMsg(async ({ userId, msg }) => {
       const text = msg.tokens.map(it => it.v).reduce((a, b) => a + b);
       if(userId !== connection.user.id) {
@@ -50,8 +45,20 @@ const main = async () => {
 
       rl.prompt();
     });
+
+    rl.prompt();
+    rl.on("line", async input => {
+      if(input === "/leave") {
+        unsubscribe();
+        await wrapper.leaveRoom();
+        console.log("=> left the room");
+      } else {
+        await wrapper.sendRoomChatMsg([{t: "text", v: input}]);
+      }
+    })
   } catch(e) {
     if(e.code === 4001) console.error("invalid token!");
+    console.error(e)
   }
 };
 
