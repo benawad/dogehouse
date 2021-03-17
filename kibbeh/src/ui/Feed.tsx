@@ -40,7 +40,7 @@ export const Feed: React.FC<FeedProps> = ({
                 : ""
             }
             scheduledFor={
-              "scheduledFor" in room ? room.scheduledFor : new Date()
+              "scheduledFor" in room ? new Date(room.scheduledFor) : undefined
             }
             listeners={"numPeopleInside" in room ? room.numPeopleInside : 0}
             tags={[]}
