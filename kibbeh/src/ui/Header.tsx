@@ -45,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({
           />
         </div>
       </div>
-      <div className="space-x-4 items-center">
+      <div className="space-x-4 items-center justify-end">
         {onAnnouncementsClick && (
           <button onClick={onAnnouncementsClick}>
             <SmSolidMegaphone

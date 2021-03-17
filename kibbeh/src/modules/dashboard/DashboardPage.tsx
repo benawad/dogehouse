@@ -30,6 +30,9 @@ export const DashboardPage: PageComponent<LoungePageProps> = ({}) => {
         <Header
           searchPlaceholder={"Search for rooms, users or categories"}
           onSearchChange={() => null}
+          onAnnouncementsClick={() => null}
+          onMessagesClick={() => null}
+          onNotificationsClick={() => null}
           avatarImg={conn.user.avatarUrl}
         />
       </div>
