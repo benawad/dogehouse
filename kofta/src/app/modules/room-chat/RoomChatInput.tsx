@@ -11,7 +11,7 @@ import { Codicon } from "../../svgs/Codicon";
 import { createChatMessage } from "../../utils/createChatMessage";
 import { useMeQuery } from "../../utils/useMeQuery";
 import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
-import { customEmojis } from "./EmoteData";
+import { customEmojis, CustomEmote } from "./EmoteData";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { useRoomChatStore } from "./useRoomChatStore";
 
@@ -129,7 +129,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
       {isEmoji ? (
         <Picker
           set="apple"
-          onSelect={(emoji) => {
+          onSelect={(emoji: CustomEmote) => {
             position =
               (position === 0
                 ? inputRef!.current!.selectionStart
@@ -137,7 +137,11 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
 
             const newMsg = [
               message.slice(0, position),
-              "native" in emoji ? emoji.native : emoji.colons,
+              "native" in emoji
+                ? emoji.native
+                : (message.endsWith(" ") ? "" : " ") +
+                  (emoji.colons || "") +
+                  " ",
               message.slice(position),
             ].join("");
             setMessage(newMsg);
