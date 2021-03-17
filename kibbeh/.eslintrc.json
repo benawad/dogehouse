@@ -82,7 +82,7 @@
     "id-denylist": "error",
     "id-match": "error",
     "indent": [
-      "error",
+      "off",
       2,
       {
         "offsetTernaryExpressions": true
@@ -187,7 +187,7 @@
     "no-trailing-spaces": "error",
     "no-undef-init": "error",
     "no-undefined": "off",
-    "no-underscore-dangle": "error",
+    "no-underscore-dangle": "off",
     "no-unmodified-loop-condition": "error",
     "no-unneeded-ternary": "error",
     "no-unreachable-loop": "error",

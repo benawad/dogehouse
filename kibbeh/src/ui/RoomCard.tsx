@@ -11,12 +11,16 @@ function formatNumber(num: number): string {
     : `${Math.sign(num) * Math.abs(num)}`;
 }
 
-function useScheduleRerender(scheduledFor: Date) {
+function useScheduleRerender(scheduledFor?: Date) {
   // same logic stolen from kofta, rerenders
   // at the scheduleFor date
   const [, rerender] = useState(0);
 
   useEffect(() => {
+    if (!scheduledFor) {
+      return;
+    }
+
     let done = false;
     const id = setTimeout(() => {
       done = true;
@@ -31,13 +35,13 @@ function useScheduleRerender(scheduledFor: Date) {
   }, [scheduledFor]);
 }
 
-export interface RoomCardProps {
+export type RoomCardProps = {
   title: string;
   subtitle: string;
-  scheduledFor: Date;
+  scheduledFor?: Date;
   listeners: number;
   tags: React.ReactNode[];
-}
+};
 
 export const RoomCard: React.FC<RoomCardProps> = ({
   title,
@@ -48,11 +52,17 @@ export const RoomCard: React.FC<RoomCardProps> = ({
 }) => {
   useScheduleRerender(scheduledFor);
 
-  const scheduledForLabel = isToday(scheduledFor)
-    ? format(scheduledFor, `K:mm a`)
-    : format(scheduledFor, `LLL d`);
+  let scheduledForLabel = "";
 
-  const roomLive = isPast(scheduledFor);
+  if (scheduledFor) {
+    if (isToday(scheduledFor)) {
+      scheduledForLabel = format(scheduledFor, `K:mm a`);
+    } else {
+      scheduledForLabel = format(scheduledFor, `LLL d`);
+    }
+  }
+
+  const roomLive = !scheduledFor || isPast(scheduledFor);
 
   return (
     <div className="p-4 w-full bg-primary-800 hover:bg-primary-800 rounded-lg flex flex-col">

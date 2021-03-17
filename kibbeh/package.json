@@ -19,6 +19,8 @@
     "next": "10.0.7",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-query": "^3.12.2",
+    "react-toastify": "^7.0.3",
     "tslib": "^2.1.0",
     "zustand": "^3.3.3"
   },

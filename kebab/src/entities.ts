@@ -17,6 +17,16 @@ export type Room = {
   creatorId: UUID;
 };
 
+export interface ScheduledRoom {
+  roomId: UUID | null;
+  description: string;
+  scheduledFor: string;
+  numAttending: number;
+  name: string;
+  id: UUID;
+  creatorId: UUID;
+}
+
 export type User = {
   youAreFollowing?: boolean;
   username: string;
@@ -54,4 +64,9 @@ export type Message = {
   deleterId?: UUID;
   sentAt: string;
   isWhisper?: boolean;
+};
+
+export type GetTopPublicRoomsResponse = {
+  rooms: Room[];
+  nextCursor: number | null;
 };
