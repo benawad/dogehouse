@@ -82,12 +82,12 @@ export const InviteList: React.FC<InviteListProps> = () => {
             className={`border-b border-solid border-simple-gray-3c flex py-4 px-2 items-center`}
             key={u.id}
           >
-            <button onClick={() => history.push(`/user`, u)}>
+            <button onClick={() => history.push(`/user/${u.username}`, u)}>
               <Avatar src={u.avatarUrl} />
             </button>
             <button
               onClick={() => {
-                history.push(`/user`, u);
+                history.push(`/user/${u.username}`, u);
               }}
               className={`ml-4`}
             >

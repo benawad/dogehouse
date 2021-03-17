@@ -63,11 +63,13 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
             className={`border-b border-solid border-simple-gray-3c flex py-4 px-2 items-center`}
             key={profile.id}
           >
-            <button onClick={() => history.push(`/user`, profile)}>
+            <button
+              onClick={() => history.push(`/user/${profile.username}`, profile)}
+            >
               <Avatar src={profile.avatarUrl} />
             </button>
             <button
-              onClick={() => history.push(`/user`, profile)}
+              onClick={() => history.push(`/user/${profile.username}`, profile)}
               className={`ml-8`}
             >
               <div className={`text-lg`}>{profile.displayName}</div>
