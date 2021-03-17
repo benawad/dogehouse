@@ -15,6 +15,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
 		{ value: "az", label: "🇦🇿 Azerbaijani" },
     { value: "bn", label: "🇧🇩 Bangla" },
     { value: "zh-CN", label: "🇨🇳 Chinese (Simplified)" },
+    { value: "zh-TW", label: "🇹🇼 Chinese (Traditional)"},
     { value: "cs", label: "🇨🇿 Czech" },
     { value: "da", label: "🇩🇰 Danish" },
     { value: "nl", label: "🇳🇱 Dutch" },
