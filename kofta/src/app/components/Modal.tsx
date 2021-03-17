@@ -1,3 +1,4 @@
+import { KeyboardEvent } from "electron";
 import React from "react";
 import ReactModal from "react-modal";
 
@@ -26,11 +27,9 @@ export const Modal: React.FC<ReactModal["props"]> = ({
   ...props
 }) => {
   const onKeyDown = (event: any) => {
-    // left arrow key
-    if (event.which === 37) {
+    if (event.code === "ArrowLeft") {
       event.target.previousElementSibling?.focus();
-      // right arrow key
-    } else if (event.which === 39) {
+    } else if (event.code === "ArrowRight") {
       event.target.nextElementSibling?.focus();
     }
   };
