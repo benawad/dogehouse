@@ -33,6 +33,7 @@
 | baklava  |   Electron Wrapper    |
 | pilaf    |   React Native App    |
 | feta     | Shared utils web/app  |
+| docs     | Project documentation |
 
 ## Contributions
 
