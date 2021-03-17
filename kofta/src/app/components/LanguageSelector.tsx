@@ -16,7 +16,6 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "az", label: "🇦🇿 Azərbaycanca" }, // Azerbaijani
     { value: "bg", label: "🇧🇬 Български"}, // Bulgarian
     { value: "bn", label: "🇧🇩 বাংলা" }, // Bengali
-    { value: 'ch', label: "🇨🇭 Schwiizerdütsch" }, // Swiss German
     { value: "cs", label: "🇨🇿 Čeština" }, // Czech
     { value: "da", label: "🇩🇰 Dansk" }, // Danish
     { value: "de", label: "🇩🇪 Deutsch" }, // German
@@ -53,6 +52,8 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "zh-CN", label: "🇨🇳 中文 (简体)" }, // Chinese (Simplified)
     { value: "zh-TW", label: "🇹🇼 正體中文 (繁體)" }, // Chinese (Traditional)
 
+    /* Languages that are in ISO 639-2 (three-letter codes) */
+    { value: 'gsw', label: "🇨🇭 Schwiizerdütsch" }, // Swiss German
     /* Other languages */
     { value: "en-pirate", label: "🏴‍☠️ Pirate"},
     { value: "owo", label: "OwO english"},
