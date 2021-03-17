@@ -111,7 +111,7 @@
       "settings": "הגדרות",
       "speaker": "דובר",
       "listener": "מקשיב",
-      "chat": "Chat"
+      "chat": "צ'אט"
     },
     "deviceNotSupported": {
       "notSupported": "המכשיר שלך אינו נתמך כרגע. אתה יכול ליצור",
@@ -195,7 +195,7 @@
         "needsFuture": "חייב להיות בעתיד",
         "roomName": "שם החדר",
         "minLength": "אורך מינימלי 2",
-        "roomDescription": "Description"
+        "roomDescription": "תיאור"
       }
     },
     "roomChat": {
