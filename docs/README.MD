@@ -26,6 +26,13 @@ DogeHouse makes it easy to connect with friends and people over voice and chat m
   - You can also make people in room mod by clicking on their profile
   - You can edit room name, edit room description and change room visibility by clicking the room name
 - Edit Profile (https://dogehouse.tv/me)
+- Schedule Room to take place at a future date
+  - Add scheduled to calender
+    - Apple calendar
+    - Google
+    - Outlook
+    - Outlook web app
+    - Yahoo
 - Join Room, Leave room, Chat in room(Chat now has emojis😋), Mute/Unmute and Invite
 - Mention someone in the chat with the @ (@username)
 - Whisper to someone in the room (#@username)
