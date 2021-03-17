@@ -212,16 +212,16 @@
       "roomDescription": "وصف الغرفة"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
+      "fuelingRocket": "عبي الصاروخ بنزين",
+      "takingOff": "تقلع",
+      "inSpace": "بالفضاء",
+      "approachingMoon": "الاقتراب من القمر",
       "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
+      "approachingSun": "الاقتراب من الشمس",
       "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
+      "approachingGalaxy": "الاقتراب من المجره",
       "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "spottedLife": "اكتشاف كوكب فيه حياه"
     }
   }
 }
