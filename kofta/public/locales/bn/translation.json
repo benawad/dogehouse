@@ -30,18 +30,14 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "ব্যান করুন"
-		},
+		"banUser": { "ban": "ব্যান করুন" },
 		"followingOnlineList": {
 			"listHeader": "যেসব ইউজারকে আপনি অনুসরণ করেন কিন্তু এখন তারা কোনো প্রাইভেট রুম এ নেই।",
 			"currentRoom": "ভেতরে আছেন:",
 			"startPrivateRoom": "তাদের সাথে প্রাইভেট রুম শুরু করুন"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "রুম বানান"
-		},
+		"home": { "createRoom": "রুম বানান", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "রুম শেষ, ফিরে আসুন",
 			"shareRoomLink": "রুমের লিংক শেয়ার করুন",
@@ -77,12 +73,8 @@
 			"requestingToSpeak": "কথা বলার জন্য অনুরোধ করুন",
 			"listeners": "শ্রোতাগণ"
 		},
-		"searchUser": {
-			"search": "খুঁজুন..."
-		},
-		"soundEffectSettings": {
-			"header": "সাউন্ডস"
-		},
+		"searchUser": { "search": "খুঁজুন..." },
+		"soundEffectSettings": { "header": "সাউন্ডস" },
 		"viewUser": {
 			"editProfile": "প্রোফাইল এডিট করুন",
 			"followsYou": "আপনাকে অনুসরণ করে",
@@ -118,7 +110,8 @@
 			"makeRoomPublicBtn": "রুমটাকে পাবলিক করুন!",
 			"settings": "সেটিংস",
 			"speaker": "স্পিকার",
-			"listener": "শ্রোতাগণ"
+			"listener": "শ্রোতাগণ",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "আপনার ডিভাইসটি বর্তমানে সাপোর্টেড নয়। আপনি তৈরি করতে পারেন একটি",
@@ -143,9 +136,7 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "কিছু কারনে অডিও কনসিউম করা যাইনি"
 		},
-		"addToCalendar": {
-			"add": "ক্যালেন্ডারে যুক্ত করুন"
-		},
+		"addToCalendar": { "add": "ক্যালেন্ডারে যুক্ত করুন" },
 		"wsKilled": {
 			"description": "সার্ভারের দ্বারা ওয়েবসকেটটি শেষ হয়ে গেছে। এটি সাধারণত হয় যখন আপনি ওয়েবসাইটটি আরেকটি ট্যাব এ ওপেন করেন।",
 			"reconnect": "পুনরায় সংযোগ করুন"
@@ -223,6 +214,15 @@
 			"whisper": "ফিসফিস",
 			"welcomeMessage": "চ্যাট এ স্বাগতম!",
 			"roomDescription": "রুমের বর্ণনা"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

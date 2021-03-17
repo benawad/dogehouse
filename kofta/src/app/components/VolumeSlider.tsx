@@ -14,7 +14,7 @@ export const VolumeSlider: React.FC<VolumeSliderProps> = ({
   onVolume,
 }) => {
   return (
-    <div>
+    <div className={`flex flex-col`}>
       {label ? "volume: " : ""}
       {volume}
       <input

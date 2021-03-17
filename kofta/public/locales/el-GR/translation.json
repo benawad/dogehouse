@@ -29,18 +29,14 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "αποκλεισμός χρήστη"
-		},
+		"banUser": { "ban": "αποκλεισμός χρήστη" },
 		"followingOnlineList": {
 			"listHeader": "Χρήστες που ακολουθείται δεν βρίσκονται σε κάποιο δωμάτιο",
 			"currentRoom": "αυτή τη στιγμή σε:",
 			"startPrivateRoom": "δημιουργήστε ένα ιδιωτικό δωμάτιο"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "Δημιουργία Δωματίου"
-		},
+		"home": { "createRoom": "Δημιουργία Δωματίου", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "το δωμάτιο διαγράφηκε, πηγαίντε πίσω",
 			"shareRoomLink": "κοινοποιήστε τον σύνδεσμο του δωματίου",
@@ -76,12 +72,8 @@
 			"requestingToSpeak": "Έχουν ζητήσει άδεια για να μιλήσουν",
 			"listeners": "Ακροατές"
 		},
-		"searchUser": {
-			"search": "αναζήτηση..."
-		},
-		"soundEffectSettings": {
-			"header": "Ήχοι"
-		},
+		"searchUser": { "search": "αναζήτηση..." },
+		"soundEffectSettings": { "header": "Ήχοι" },
 		"viewUser": {
 			"editProfile": "επεξεργασία προφίλ",
 			"followsYou": "σας ακολουθεί",
@@ -117,7 +109,8 @@
 			"makeRoomPublicBtn": "Κάντε το δωμάτιο δημόσιο!",
 			"settings": "Ρυθμίσεις",
 			"speaker": "Ομιλητής",
-			"listener": "Ακροατής"
+			"listener": "Ακροατής",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Η συσκευή σας δεν υποστηρίζεται. Μπορείτε να δημιουργήσετε ένα",
@@ -142,9 +135,7 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "δεν υπάρχει εξαγωγή ήχου για κάποιο λόγο"
 		},
-		"addToCalendar": {
-			"add": "Προσθήκη στο Ημερολόγιο"
-		},
+		"addToCalendar": { "add": "Προσθήκη στο Ημερολόγιο" },
 		"wsKilled": {
 			"description": "Το websocket διακόπηκε από τον διακομιστή. Αυτό συμβαίνει συνήθως όταν ανοίγεται την ιστοσελίδα σε άλλη καρτέλα.",
 			"reconnect": "επανασύνδεση"
@@ -222,6 +213,15 @@
 			"whisper": "Ψίθυρος",
 			"welcomeMessage": "Καλωσήρθατε στο τσατ!",
 			"roomDescription": "περιγραφή δωματίου"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

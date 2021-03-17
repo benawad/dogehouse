@@ -30,18 +30,14 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "бан"
-		},
+		"banUser": { "ban": "бан" },
 		"followingOnlineList": {
 			"listHeader": "Список пользователей, которые не в закрытой комнате и на которых вы подписаны.",
 			"currentRoom": "сейчас в :",
 			"startPrivateRoom": "создать с ними закрытую комнату"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "Создать комнату"
-		},
+		"home": { "createRoom": "Создать комнату", "refresh": "Обновить" },
 		"inviteList": {
 			"roomGone": "Комната исчезла, вернитесь назад",
 			"shareRoomLink": "Поделиться ссылкой на комнату",
@@ -62,32 +58,28 @@
 		},
 		"myProfile": {
 			"logout": "выйти",
-			"probablyLoading": "вроде загружается...",
+			"probablyLoading": "наверно загружается...",
 			"voiceSettings": "зайти в голосовые настройки",
 			"soundSettings": "зайти в настройки звука",
 			"deleteAccount": "удалить аккаунт"
 		},
 		"notFound": {
-			"whoopsError": "Упс! Эта страница была утеряна в пространстве и времени.",
-			"goHomeMessage": "Не переживайте. У вас все получится",
-			"goHomeLinkText": "Вернуться домой"
+			"whoopsError": "Упс! Эта страница была утеряна в разговоре.",
+			"goHomeMessage": "Не переживайте. Вы можите ",
+			"goHomeLinkText": "вернуться домой"
 		},
 		"room": {
 			"speakers": "Ораторы",
 			"requestingToSpeak": "Желающие говорить",
 			"listeners": "Слушатели"
 		},
-		"searchUser": {
-			"search": "поиск..."
-		},
-		"soundEffectSettings": {
-			"header": "звуки"
-		},
+		"searchUser": { "search": "поиск..." },
+		"soundEffectSettings": { "header": "звуки" },
 		"viewUser": {
 			"editProfile": "редактировать профиль",
 			"followsYou": "подписаны на вас",
-			"followers": "подписчики",
-			"following": "вы подписаны"
+			"followers": "подписчиков",
+			"following": "подписанных"
 		},
 		"voiceSettings": {
 			"header": "Голосовые настройки",
@@ -118,7 +110,8 @@
 			"makeRoomPublicBtn": "Сделать комнату открытой!",
 			"settings": "Настройки",
 			"speaker": "Оратор",
-			"listener": "Слушатели"
+			"listener": "Слушатели",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Ваше устройство не поддерживается. Вы можете создать",
@@ -132,7 +125,7 @@
 		"micPermissionBanner": {
 			"permissionDenied": "Не удается получить доступ к вашему микрофону (возможно, вам следует зайти в настройки браузера или перезагрузить страницу)",
 			"dismiss": "отклонить",
-			"tryAgain": "попробовать еще"
+			"tryAgain": "попробовать опять"
 		},
 		"keyboardShortcuts": {
 			"setKeybind": "назначить клавишу",
@@ -140,20 +133,16 @@
 			"toggleMuteKeybind": "Активация микрофона при нажатии",
 			"togglePushToTalkKeybind": "Включить режим рации"
 		},
-		"userVolumeSlider": {
-			"noAudioMessage": "почему-то нет аудиосвязи"
-		},
-		"addToCalendar": {
-			"add": "Добавить в Календарь"
-		},
+		"userVolumeSlider": { "noAudioMessage": "почему-то нет аудиосвязи" },
+		"addToCalendar": { "add": "Добавить в Календарь" },
 		"wsKilled": {
 			"description": "Вебсокет был уничтожен сервером. Обычно это происходит когда вы открываете сайт в другой вкладке.",
 			"reconnect": "присоединиться заново"
 		},
 		"modals": {
 			"createRoomModal": {
-				"public": "открытая",
-				"private": "закрытая",
+				"public": "публичная",
+				"private": "приватный",
 				"roomName": "название комнаты",
 				"roomDescription": "описание комнаты",
 				"descriptionError": "максимальная длина 500",
@@ -178,21 +167,21 @@
 				"bioLabel": "Обо мне"
 			},
 			"profileModal": {
-				"blockUserConfirm": "Вы уверены, что хотите закрыть этому пользователя доступ для любой вашей комнаты?",
+				"blockUserConfirm": "Вы уверены, что хотите закрыть этому пользователя доступ в любую из ваших комнат?",
 				"blockUser": "заблокировать пользователя",
 				"makeMod": "назначить модератором",
-				"unmod": "разжаловать",
+				"unmod": "забрать модератора",
 				"addAsSpeaker": "добавить оратора",
 				"moveToListener": "переместить в слушатели",
-				"banFromChat": "заблокировать в этом чате",
-				"banFromRoom": "заблокировать в этой комнате",
+				"banFromChat": "забанить из этого чата",
+				"banFromRoom": "забанить из этой комнаты",
 				"goBackToListener": "стать слушателем",
 				"deleteMessage": "удалить это сообщение"
 			},
 			"roomSettingsModal": {
 				"requirePermission": "чтобы разговаривать здесь требуется разрешение",
-				"makePublic": "сделать комнату открытой",
-				"makePrivate": "сделать комнату закрытой"
+				"makePublic": "сделать комнату публичной",
+				"makePrivate": "сделать комнату приватной"
 			}
 		}
 	},
@@ -206,7 +195,7 @@
 			"scheduleRoomHeader": "Запланированные комнаты",
 			"startRoom": "создать комнату",
 			"modal": {
-				"needsFuture": "должно появиться в будущем",
+				"needsFuture": "должно начинаца в будущем",
 				"roomName": "название комнаты",
 				"minLength": "минимальная длина 2"
 			}
@@ -223,6 +212,15 @@
 			"whisper": "Шепнуть на ушко",
 			"welcomeMessage": "Добро пожаловать в чат!",
 			"roomDescription": "описание комнаты"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Заправка ракеты",
+			"takingOff": "Запуск",
+			"inSpace": "В космосе",
+			"approachingMoon": "Приближается к луне",
+			"lunarDoge": "Лунный doge",
+			"approachingSun": "Приближается к солнцу",
+			"solarDoge": "Сонечный doge"
 		}
 	}
 }

@@ -4,12 +4,12 @@ on:
     branches:
       - staging
     paths:
-      - 'kousa/lib/*'
+      - 'kousa/lib/**'
   pull_request:
     branches:
       - staging
     paths:
-      - 'kousa/lib/*'
+      - 'kousa/lib/**'
 jobs:
   test:
     name: Build

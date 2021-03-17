@@ -27,6 +27,12 @@ import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
 import { showErrorToast } from "./utils/showErrorToast";
 import { useMeQuery } from "./utils/useMeQuery";
 import { useTokenStore } from "./utils/useTokenStore";
+import isElectron from "is-electron";
+
+let ipcRenderer: any = undefined;
+if (isElectron()) {
+  ipcRenderer = window.require("electron").ipcRenderer;
+}
 
 export const useMainWsHandler = () => {
   const location = useLocation();
@@ -56,11 +62,11 @@ export const useMainWsHandler = () => {
           !cr || cr.id !== roomId
             ? cr
             : {
-                ...cr,
-                name,
-                description,
-                isPrivate,
-              }
+              ...cr,
+              name,
+              description,
+              isPrivate,
+            }
         );
       },
       chat_user_banned: ({ userId }) => {
@@ -79,6 +85,9 @@ export const useMainWsHandler = () => {
           ).length
         ) {
           useRoomChatMentionStore.getState().incrementIAmMentioned();
+          if (isElectron()) {
+            ipcRenderer.send("@notification/mention", msg);
+          }
         }
       },
       message_deleted({ messageId, deleterId }) {
@@ -115,9 +124,15 @@ export const useMainWsHandler = () => {
       },
       someone_you_follow_created_a_room: (value) => {
         invitedToRoomConfirm(value, history);
+        if (isElectron()) {
+          ipcRenderer.send("@notification/indirect_invitation", value);
+        }
       },
       invitation_to_room: (value) => {
         invitedToRoomConfirm(value, history);
+        if (isElectron()) {
+          ipcRenderer.send("@notification/invitation", value);
+        }
       },
       fetch_invite_list_done: ({ users, nextCursor, initial }) => {
         setInviteList((x) => ({
@@ -159,11 +174,11 @@ export const useMainWsHandler = () => {
           !c
             ? c
             : {
-                ...c,
-                users: c.users.map((x) =>
-                  x.id === userId ? { ...x, followsYou, youAreFollowing } : x
-                ),
-              }
+              ...c,
+              users: c.users.map((x) =>
+                x.id === userId ? { ...x, followsYou, youAreFollowing } : x
+              ),
+            }
         );
       },
       active_speaker_change: ({ roomId, activeSpeakerMap }) => {
@@ -190,20 +205,20 @@ export const useMainWsHandler = () => {
           !c || c.id !== roomId
             ? c
             : {
-                ...c,
-                muteMap,
-                users: c.users.map((x) =>
-                  userId === x.id
-                    ? {
-                        ...x,
-                        roomPermissions: mergeRoomPermission(
-                          x.roomPermissions,
-                          { isSpeaker: false, askedToSpeak: false }
-                        ),
-                      }
-                    : x
-                ),
-              }
+              ...c,
+              muteMap,
+              users: c.users.map((x) =>
+                userId === x.id
+                  ? {
+                    ...x,
+                    roomPermissions: mergeRoomPermission(
+                      x.roomPermissions,
+                      { isSpeaker: false, askedToSpeak: false }
+                    ),
+                  }
+                  : x
+              ),
+            }
         );
       },
       speaker_added: ({ userId, roomId, muteMap }) => {
@@ -221,22 +236,22 @@ export const useMainWsHandler = () => {
           !c || c.id !== roomId
             ? c
             : {
-                ...c,
-                muteMap,
-                users: c.users.map((x) =>
-                  userId === x.id
-                    ? {
-                        ...x,
-                        roomPermissions: mergeRoomPermission(
-                          x.roomPermissions,
-                          {
-                            isSpeaker: true,
-                          }
-                        ),
+              ...c,
+              muteMap,
+              users: c.users.map((x) =>
+                userId === x.id
+                  ? {
+                    ...x,
+                    roomPermissions: mergeRoomPermission(
+                      x.roomPermissions,
+                      {
+                        isSpeaker: true,
                       }
-                    : x
-                ),
-              }
+                    ),
+                  }
+                  : x
+              ),
+            }
         );
       },
       mod_changed: ({ userId, roomId }) => {
@@ -244,20 +259,21 @@ export const useMainWsHandler = () => {
           !c || c.id !== roomId
             ? c
             : {
-                ...c,
-                users: c.users.map((x) =>
-                  userId === x.id
-                    ? {
-                        ...x,
-                        roomPermissions: mergeRoomPermission(
-                          x.roomPermissions,
-                          { isMod: !x.roomPermissions?.isMod }
-                        ),
-                      }
-                    : x
-                ),
-              }
+              ...c,
+              users: c.users.map((x) =>
+                userId === x.id
+                  ? {
+                    ...x,
+                    roomPermissions: mergeRoomPermission(
+                      x.roomPermissions,
+                      { isMod: !x.roomPermissions?.isMod }
+                    ),
+                  }
+                  : x
+              ),
+            }
         );
+        
       },
       user_left_room: ({ userId }) => {
         setCurrentRoom((cr) => {
@@ -281,22 +297,22 @@ export const useMainWsHandler = () => {
           !cr || cr.users.some((u) => u.id === user.id)
             ? cr
             : {
-                ...cr,
-                muteMap,
-                peoplePreviewList:
-                  cr.peoplePreviewList.length < 10
-                    ? [
-                        ...cr.peoplePreviewList,
-                        {
-                          id: user.id,
-                          displayName: user.displayName,
-                          numFollowers: user.numFollowers,
-                        },
-                      ]
-                    : cr.peoplePreviewList,
-                numPeopleInside: cr.numPeopleInside + 1,
-                users: [...cr.users.filter((x) => x.id !== user.id), user],
-              }
+              ...cr,
+              muteMap,
+              peoplePreviewList:
+                cr.peoplePreviewList.length < 10
+                  ? [
+                    ...cr.peoplePreviewList,
+                    {
+                      id: user.id,
+                      displayName: user.displayName,
+                      numFollowers: user.numFollowers,
+                    },
+                  ]
+                  : cr.peoplePreviewList,
+              numPeopleInside: cr.numPeopleInside + 1,
+              users: [...cr.users.filter((x) => x.id !== user.id), user],
+            }
         );
       },
       hand_raised: ({ roomId, userId }) => {
@@ -309,11 +325,11 @@ export const useMainWsHandler = () => {
             users: c.users.map((u) =>
               u.id === userId
                 ? {
-                    ...u,
-                    roomPermissions: mergeRoomPermission(u.roomPermissions, {
-                      askedToSpeak: true,
-                    }),
-                  }
+                  ...u,
+                  roomPermissions: mergeRoomPermission(u.roomPermissions, {
+                    askedToSpeak: true,
+                  }),
+                }
                 : u
             ),
           };

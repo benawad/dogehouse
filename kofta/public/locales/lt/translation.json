@@ -30,18 +30,14 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "Užblokuoti"
-		},
+		"banUser": { "ban": "Užblokuoti" },
 		"followingOnlineList": {
 			"listHeader": "Sąrašas žmonių kurie nėra tavo privačiame kambaryje, tačiau tave seka",
 			"currentRoom": "Šiuo metu yra:",
 			"startPrivateRoom": "Sukurti privatų kambarį su jais"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "Sukurti kambarį"
-		},
+		"home": { "createRoom": "Sukurti kambarį", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "Kambario nebėra, grįžkite atgal",
 			"shareRoomLink": "Pasidalinkite nuoroda į kambarį",
@@ -77,12 +73,8 @@
 			"requestingToSpeak": "Prašo kalbėti",
 			"listeners": "Klausytojai"
 		},
-		"searchUser": {
-			"search": "Ieškoma..."
-		},
-		"soundEffectSettings": {
-			"header": "Garsai"
-		},
+		"searchUser": { "search": "Ieškoma..." },
+		"soundEffectSettings": { "header": "Garsai" },
 		"viewUser": {
 			"editProfile": "Redaguoti profilį",
 			"followsYou": "Seka tave",
@@ -118,7 +110,8 @@
 			"makeRoomPublicBtn": "Padaryk kambarį viešu!",
 			"settings": "Nustatymai",
 			"speaker": "Kalbėtojas",
-			"listener": "Klausytojai"
+			"listener": "Klausytojai",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Jūsų įrenginys šiuo metu nepalaikomas.",
@@ -143,9 +136,7 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "dėl kokių nors priežasčių nėra garso vartotojo"
 		},
-		"addToCalendar": {
-			"add": "Pridėti į kalendorių"
-		},
+		"addToCalendar": { "add": "Pridėti į kalendorių" },
 		"wsKilled": {
 			"description": "„Websocket“ užlaužtas serveris. Paprastai tai atsitinka, kai atidarote svetainę kitame skirtuke.",
 			"reconnect": "Prisijungti iš naujo"
@@ -223,6 +214,15 @@
 			"whisper": "Pašnibšdėti",
 			"welcomeMessage": "Sveikas atvykęs į kambarį",
 			"roomDescription": "Kambario aprašymas"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

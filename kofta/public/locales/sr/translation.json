@@ -29,18 +29,14 @@
 	},
 	"pages": {
 		"_comment": "Respective Page UI Internationalization Strings",
-		"banUser": {
-			"ban": "забраните"
-		},
+		"banUser": { "ban": "забраните" },
 		"followingOnlineList": {
 			"listHeader": "Корисници који нису у приватној соби и које пратите.",
 			"currentRoom": "тренутно у:",
 			"startPrivateRoom": "Започните приватну собу"
 		},
 		"followList": {},
-		"home": {
-			"createRoom": "Направите собу"
-		},
+		"home": { "createRoom": "Направите собу", "refresh": "Refresh" },
 		"inviteList": {
 			"roomGone": "Соба је нестала, вратите се назад",
 			"shareRoomLink": "Поделите везу до собе",
@@ -76,12 +72,8 @@
 			"requestingToSpeak": "Молим за говор",
 			"listeners": "Слушаоци"
 		},
-		"searchUser": {
-			"search": "Претражите..."
-		},
-		"soundEffectSettings": {
-			"header": "Звукови"
-		},
+		"searchUser": { "search": "Претражите..." },
+		"soundEffectSettings": { "header": "Звукови" },
 		"viewUser": {
 			"editProfile": "Уредите профил",
 			"followsYou": "Прати вас",
@@ -117,7 +109,8 @@
 			"makeRoomPublicBtn": "Учините собу јавном!",
 			"settings": "Подешавања",
 			"speaker": "Говорник",
-			"listener": "Слушалац"
+			"listener": "Слушалац",
+			"chat": "Chat"
 		},
 		"deviceNotSupported": {
 			"notSupported": "Ваш уређај тренутно није подржан. Можете направити",
@@ -142,9 +135,7 @@
 		"userVolumeSlider": {
 			"noAudioMessage": "Из неког разлога нема потрошача звука"
 		},
-		"addToCalendar": {
-			"add": "Додајте у календар"
-		},
+		"addToCalendar": { "add": "Додајте у календар" },
 		"wsKilled": {
 			"description": "Websocket је убио сервер. То се обично дешава када отворите веб локацију на другој картици.",
 			"reconnect": "Поново повежите"
@@ -222,6 +213,15 @@
 			"whisper": "Шапћите",
 			"welcomeMessage": "Добро дошли у ћаскање!",
 			"roomDescription": "Опис собе"
+		},
+		"roomStatus": {
+			"fuelingRocket": "Fueling rocket",
+			"takingOff": "Taking off",
+			"inSpace": "In space",
+			"approachingMoon": "Approaching moon",
+			"lunarDoge": "Lunar doge",
+			"approachingSun": "Approaching sun",
+			"solarDoge": "Solar doge"
 		}
 	}
 }

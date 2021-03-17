@@ -5,7 +5,7 @@ defmodule Kousa.ScheduledRoom do
 
   def create_room_from_scheduled_room(user_id, scheduled_room_id, name, description) do
     with {:ok, response} <- Kousa.Room.create_room(user_id, name, description, false) do
-      Data.ScheduledRoom.room_started(user_id, scheduled_room_id, response.room.id)
+      ScheduledRooms.room_started(user_id, scheduled_room_id, response.room.id)
       {:ok, response}
     else
       error -> error
