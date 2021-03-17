@@ -65,8 +65,8 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
 
   return (
     <select
-    value={i18n.language}
-    onChange={(e) => {
+      value={i18n.language}
+      onChange={(e) => {
         i18n.changeLanguage(e.target.value);
       }}
     >
