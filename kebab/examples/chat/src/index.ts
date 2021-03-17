@@ -1,9 +1,9 @@
 require("dotenv").config();
 
-const readline = require("readline");
-const { raw: { connect }, wrap } = require("@dogehouse/client");
+import readline from "readline";
+import { raw, wrap, tokensToString } from "@dogehouse/client";
 
-const logger = (direction, opcode, data, fetchId, raw) => {
+const logger: raw.Logger = (direction, opcode, data, fetchId, raw) => {
   const directionPadded = direction.toUpperCase().padEnd(3, " ");
   const fetchIdInfo = fetchId ? ` (fetch id ${fetchId})` : "";
   console.info(`${directionPadded} "${opcode}"${fetchIdInfo}: ${raw}`);
@@ -11,9 +11,9 @@ const logger = (direction, opcode, data, fetchId, raw) => {
 
 const main = async () => {
   try {
-    const connection = await connect(
-      process.env.DOGEHOUSE_TOKEN,
-      process.env.DOGEHOUSE_REFRESH_TOKEN,
+    const connection = await raw.connect(
+      process.env.DOGEHOUSE_TOKEN!,
+      process.env.DOGEHOUSE_REFRESH_TOKEN!,
       {
         onConnectionTaken: () => {
           console.error("\nAnother client has taken the connection");
@@ -37,7 +37,7 @@ const main = async () => {
     await wrapper.joinRoom(theRoom.id);
 
     const unsubscribe = wrapper.subscribe.newChatMsg(async ({ userId, msg }) => {
-      const text = msg.tokens.map(it => it.v).reduce((a, b) => a + b);
+      const text = tokensToString(msg.tokens);
       if(userId !== connection.user.id) {
         process.stdout.cursorTo(0);
         console.log(`${msg.displayName} > ${text}`);
