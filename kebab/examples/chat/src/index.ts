@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 import readline from "readline";
-import { raw, wrap, tokensToString } from "@dogehouse/client";
+import {raw, wrap, tokensToString, stringToToken} from "@dogehouse/client";
 
 const logger: raw.Logger = (direction, opcode, data, fetchId, raw) => {
   const directionPadded = direction.toUpperCase().padEnd(3, " ");
@@ -53,7 +53,7 @@ const main = async () => {
         await wrapper.leaveRoom();
         console.log("=> left the room");
       } else {
-        await wrapper.sendRoomChatMsg([{t: "text", v: input}]);
+        await wrapper.sendRoomChatMsg(stringToToken(input));
       }
     })
   } catch(e) {
