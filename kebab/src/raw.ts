@@ -20,14 +20,14 @@ export type Logger = (
 export type ListenerHandler = (
   data: object,
   fetchId?: FetchID
-) => boolean | void | Promise<boolean> | Promise<void>;
+) => void;
 export type Listener = {
   opcode: Opcode;
   handler: ListenerHandler;
 };
 
 export type Connection = {
-  addListener: (opcode: Opcode, handler: ListenerHandler) => void;
+  addListener: (opcode: Opcode, handler: ListenerHandler) => () => void;
   user: User;
   send: (opcode: Opcode, data: object, fetchId?: FetchID) => void;
   fetch: (opcode: Opcode, data: object, doneOpcode?: Opcode) => Promise<object>;
@@ -57,17 +57,6 @@ export const connect = (
     };
 
     const listeners: Listener[] = [];
-    const runListener = async (
-      listener: Listener,
-      data: object,
-      fetchId: FetchID
-    ) => {
-      const result = listener.handler(data, fetchId);
-      const remove =
-        result instanceof Promise ? Boolean(await result) : Boolean(result);
-
-      if (remove) listeners.splice(listeners.indexOf(listener), 1);
-    };
 
     socket.addEventListener("open", () => {
       const heartbeat = setInterval(() => {
@@ -103,23 +92,27 @@ export const connect = (
 
         if (message.op === "auth-good") {
           const connection: Connection = {
-            addListener: (opcode: Opcode, handler: ListenerHandler) =>
-              listeners.push({ opcode, handler }),
+            addListener: (opcode: Opcode, handler: ListenerHandler) => {
+              const listener = { opcode, handler };
+
+              listeners.push(listener);
+
+              return () => listeners.splice(listeners.indexOf(listener));
+            },
             user: message.d.user,
             send: apiSend,
             fetch: (opcode: Opcode, parameters: object, doneOpcode?: Opcode) =>
               new Promise((resolveFetch) => {
                 const fetchId: FetchID | false = !doneOpcode && generateUuid();
 
-                listeners.push({
-                  opcode: doneOpcode ?? "fetch_done",
-                  handler: (data, arrivedId) => {
+                const unsubscribe = connection.addListener(
+                  doneOpcode ?? "fetch_done",
+                  (data, arrivedId) => {
                     if (!doneOpcode && arrivedId !== fetchId) return;
                     resolveFetch(data);
-
-                    return true;
-                  },
-                });
+                    unsubscribe();
+                  }
+                );
 
                 apiSend(opcode, parameters, fetchId || undefined);
               }),
@@ -129,7 +122,7 @@ export const connect = (
         } else {
           listeners
             .filter(({ opcode }) => opcode === message.op)
-            .forEach((it) => runListener(it, message.d, message.fetchId));
+            .forEach((it) => it.handler(message.d, message.fetchId));
         }
       });
     });
