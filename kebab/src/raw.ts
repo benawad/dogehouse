@@ -13,12 +13,12 @@ export type Opcode = string;
 export type Logger = (
   direction: "in" | "out",
   opcode: Opcode,
-  data?: object,
+  data?: unknown,
   fetchId?: FetchID,
   raw?: string
 ) => void;
 export type ListenerHandler = (
-  data: object,
+  data: unknown,
   fetchId?: FetchID
 ) => void;
 export type Listener = {
@@ -29,8 +29,8 @@ export type Listener = {
 export type Connection = {
   addListener: (opcode: Opcode, handler: ListenerHandler) => () => void;
   user: User;
-  send: (opcode: Opcode, data: object, fetchId?: FetchID) => void;
-  fetch: (opcode: Opcode, data: object, doneOpcode?: Opcode) => Promise<object>;
+  send: (opcode: Opcode, data: unknown, fetchId?: FetchID) => void;
+  fetch: (opcode: Opcode, data: unknown, doneOpcode?: Opcode) => Promise<unknown>;
 };
 
 export const connect = (
@@ -47,7 +47,7 @@ export const connect = (
       connectionTimeout,
       WebSocket,
     });
-    const apiSend = (opcode: Opcode, data: object, fetchId?: FetchID) => {
+    const apiSend = (opcode: Opcode, data: unknown, fetchId?: FetchID) => {
       const raw = `{"op":"${opcode}","d":${JSON.stringify(data)}${
         fetchId ? `,"fetchId":"${fetchId}"` : ""
       }}`;
@@ -101,7 +101,7 @@ export const connect = (
             },
             user: message.d.user,
             send: apiSend,
-            fetch: (opcode: Opcode, parameters: object, doneOpcode?: Opcode) =>
+            fetch: (opcode: Opcode, parameters: unknown, doneOpcode?: Opcode) =>
               new Promise((resolveFetch) => {
                 const fetchId: FetchID | false = !doneOpcode && generateUuid();
 
