@@ -24,7 +24,15 @@ DogeHouse makes it easy to connect with friends and people over voice and chat m
 - Create rooms and invite friends (Public/private)
   - When you create a room you are automatically a mod and have a doge with glasses.
   - You can also make people in room mod by clicking on their profile
+  - You can edit room name, edit room description and change room visibility by clicking the room name
 - Edit Profile (https://dogehouse.tv/me)
+- Schedule Room to take place at a future date
+  - Add scheduled to calender
+    - Apple calendar
+    - Google
+    - Outlook
+    - Outlook web app
+    - Yahoo
 - Join Room, Leave room, Chat in room(Chat now has emojis😋), Mute/Unmute and Invite
 - Mention someone in the chat with the @ (@username)
 - Whisper to someone in the room (#@username)
@@ -36,5 +44,5 @@ DogeHouse makes it easy to connect with friends and people over voice and chat m
 - Adjust volume of a speaker by clicking on their profile
 - [Add a feature here Please!]
 
-### Why DogHouse?
+### Why DogeHouse?
 For more please watch here: https://www.youtube.com/watch?v=hy-EhJ_tTQo
