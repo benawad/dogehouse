@@ -58,7 +58,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
 
     /* Other languages */
     { value: "en-pirate", label: "🏴‍☠️ Pirate"},
-    { value: "owo", label: "OwO english"},
+    { value: "owo", label: "OwO Engwish"},
   ],
 }) => {
   const { i18n } = useTranslation();
