@@ -128,13 +128,15 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                           </span>
                         );
                       case "emote":
-                        return (
+                        return emoteMap[v] ? (
                           <img
                             key={i}
                             className="inline"
                             alt={v}
                             src={emoteMap[v]}
                           />
+                        ) : (
+                          ":" + v + ":"
                         );
 
                       case "mention":
