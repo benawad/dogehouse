@@ -40,7 +40,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "sq", label: "🇦🇱 Shqip" },
     { value: "sr", label: "🇷🇸 Српски (Cyrillic)" },
     { value: "sr-Latin", label: "🇷🇸 Српски (Latin)" },
-    { value: 'se', label: "🇸🇪 Svenska" },
+    { value: 'sv', label: "🇸🇪 Svenska" },
     { value: "es", label: "🇪🇸 Español" },
     { value: "th", label: "🇹🇭 ไทย" },
     { value: "tr", label: "🇹🇷 Türkçe" },
