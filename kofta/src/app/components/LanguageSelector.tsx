@@ -33,6 +33,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "ja", label: "🇯🇵 日本語" }, // Japanese
     { value: "ko", label: "🇰🇷 한국어" }, // Korean
     { value: "lt", label: "🇱🇹 Lietuvių" }, // Lithuanian
+    { value: "li", label: "🏴󠁮󠁬󠁬󠁩󠁿 Limburgs" }, // Limburgish
     { value: "nb", label: "🇳🇴 Norsk Bokmål" }, // Norwegian Bokmål
     { value: "ne", label: "🇳🇵 नेपाली" }, // Nepali
     { value: "nl", label: "🇳🇱 Nederlands" }, // Dutch
@@ -58,7 +59,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
 
     /* Other languages */
     { value: "en-pirate", label: "🏴‍☠️ Pirate"},
-    { value: "owo", label: "OwO Engwish"},
+    { value: "owo", label: "OwO Engwish"}
   ],
 }) => {
   const { i18n } = useTranslation();
