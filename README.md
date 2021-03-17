@@ -34,6 +34,7 @@
 | [pilaf](pilaf)       |   React Native App    |
 | [feta](feta)         | Shared utils web/app  |
 | [kibbeh](kibbeh)     |   Next.js frontend    |
+| [kebab](kebab)       |      API Client       |
 
 ## Branches
 
