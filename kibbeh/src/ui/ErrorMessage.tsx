@@ -1,15 +1,15 @@
-import * as React from 'react';
-import { SmSolidPlus } from '../icons';
+import * as React from "react";
+import { SmSolidPlus } from "../icons";
 
 export interface ErrorMessageProps {
   message?: string;
   button?: string;
-  autoClose?: boolean,
+  autoClose?: boolean;
 }
 
 export const ErrorMessage: React.FC<ErrorMessageProps> = ({
-  message = 'An error has occurred',
-  button = 'Refresh',
+  message = "An error has occurred",
+  button = "Refresh",
   autoClose = false,
   ...props
 }) => {
@@ -38,10 +38,10 @@ export const ErrorMessage: React.FC<ErrorMessageProps> = ({
       className={`rounded-t-8 w-full fixed items-center justify-center text-button transition-transform duration-300`}
       style={{
         height: 50,
-        backgroundColor: '#5575E7',
+        backgroundColor: "#5575E7",
         bottom: 0,
         left: 0,
-        transform: closed ? 'translateY(100%)' : 'translateY(0%)',
+        transform: closed ? "translateY(100%)" : "translateY(0%)",
       }}
     >
       <div
@@ -54,20 +54,23 @@ export const ErrorMessage: React.FC<ErrorMessageProps> = ({
         }}
         onClick={() => setClosed(true)}
       >
-        <SmSolidPlus style={{ transform: 'rotate(45deg)' }} />
+        <SmSolidPlus style={{ transform: "rotate(45deg)" }} />
       </div>
       <div className={`flex space-x-4 items-center`}>
         <p className={`bold`}>{message}</p>
-        { button
-          ? <button
-              className={`rounded-lg px-3 font-bold text-sm`}
-              style={{ backgroundColor: '#879EED', paddingTop: 3, paddingBottom: 3 }}
-              {...props}
-            >
-              {button}
-            </button>
-          : null
-        }
+        {button ? (
+          <button
+            className={`rounded-lg px-3 font-bold text-sm`}
+            style={{
+              backgroundColor: "#879EED",
+              paddingTop: 3,
+              paddingBottom: 3,
+            }}
+            {...props}
+          >
+            {button}
+          </button>
+        ) : null}
       </div>
     </div>
   );
