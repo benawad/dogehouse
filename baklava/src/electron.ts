@@ -40,8 +40,7 @@ function createWindow() {
     width: 810,
     height: 610,
     frame: false,
-    transparent: true,
-    alwaysOnTop: true,
+    transparent: true
   });
   splash.loadURL(
     url.format({
