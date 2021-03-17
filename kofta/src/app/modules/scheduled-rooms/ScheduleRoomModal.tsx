@@ -131,7 +131,7 @@ export const ScheduleRoomModal: React.FC<CreateRoomModalProps> = ({
                   <div className={`mt-8`}>
                     <InputField
                       textarea
-                      placeholder="description"
+                      placeholder={t("modules.scheduledRooms.modal.roomDescription")}
                       name="description"
                       maxLength={200}
                     />

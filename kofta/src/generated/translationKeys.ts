@@ -135,6 +135,7 @@ export type TranslationKeys =
 	| "modules.scheduledRooms.startRoom"
 	| "modules.scheduledRooms.modal.needsFuture"
 	| "modules.scheduledRooms.modal.roomName"
+	| "modules.scheduledRooms.modal.roomDescription"
 	| "modules.scheduledRooms.modal.minLength"
 	| "modules.roomChat.title"
 	| "modules.roomChat.emotesSoon"
@@ -153,4 +154,7 @@ export type TranslationKeys =
 	| "modules.roomStatus.approachingMoon"
 	| "modules.roomStatus.lunarDoge"
 	| "modules.roomStatus.approachingSun"
-	| "modules.roomStatus.solarDoge";
+	| "modules.roomStatus.solarDoge"
+	| "modules.roomStatus.approachingGalaxy"
+	| "modules.roomStatus.galacticDoge"
+	| "modules.roomStatus.spottedLife";

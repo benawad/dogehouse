@@ -16,9 +16,11 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "az", label: "🇦🇿 Azərbaycanca" }, // Azerbaijani
     { value: "bg", label: "🇧🇬 Български"}, // Bulgarian
     { value: "bn", label: "🇧🇩 বাংলা" }, // Bengali
+    { value: 'ch', label: "🇨🇭 Schwiizerdütsch" }, // Swiss German
     { value: "cs", label: "🇨🇿 Čeština" }, // Czech
     { value: "da", label: "🇩🇰 Dansk" }, // Danish
     { value: "de", label: "🇩🇪 Deutsch" }, // German
+    { value: "el-GR", label: "🇬🇷 ελληνικά" },
     { value: "es", label: "🇪🇸 Español" }, // Estonian
     { value: "et", label: "🇪🇪 Eesti keel" }, // Estonian
     { value: "fi", label: "🇫🇮 suomi" }, // Finnish
@@ -49,6 +51,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "uk", label: "🇺🇦 Українська" }, // Ukrainian
     { value: "ur", label: "🇵🇰 اردو" }, // Urdu
     { value: "zh-CN", label: "🇨🇳 中文 (简体)" }, // Chinese (Simplified)
+    { value: "zh-TW", label: "🇹🇼 正體中文 (繁體)" }, // Chinese (Traditional)
 
     /* Other languages */
     { value: "en-pirate", label: "🏴‍☠️ Pirate"},
@@ -56,7 +59,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   ],
 }) => {
   const { i18n } = useTranslation();
-  
+
   return (
     <select
     value={i18n.language}
