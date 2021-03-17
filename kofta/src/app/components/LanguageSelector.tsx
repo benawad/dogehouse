@@ -14,7 +14,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "az", label: "🇦🇿 Azərbaycanca" },
     { value: "bn", label: "🇧🇩 বাংলা" },
     { value: "zh-CN", label: "🇨🇳 中文 (简体)" },
-    { value: "cs", label: "🇨🇿 Ceština" },
+    { value: "cs", label: "🇨🇿 Čeština" },
     { value: "da", label: "🇩🇰 Dansk" },
     { value: "nl", label: "🇳🇱 Nederlands" },
     { value: "et", label: "🇪🇪 Eesti keel" },
