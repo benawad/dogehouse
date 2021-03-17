@@ -1,5 +1,6 @@
 {
   "name": "example-chat",
+  "private": true,
   "scripts": {
     "start": "node src/index.js"
   },
