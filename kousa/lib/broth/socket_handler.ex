@@ -416,7 +416,7 @@ defmodule Broth.SocketHandler do
     {:ok, state}
   end
 	
-	def handler("change_room_creator", %{"userId" => user_id_to_change}, state) do
+  def handler("change_room_creator", %{"userId" => user_id_to_change}, state) do
     Kousa.Room.change_room_creator(user_id_to_change)
     {:ok, state}
   end
