@@ -14,6 +14,9 @@ jobs:
   test:
     name: Build
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./kousa
     services:
       db:
         image: postgres:11
@@ -31,6 +34,5 @@ jobs:
       with:
         otp-version: '22.2'
         elixir-version: '1.11'
-    - run: cd kousa
     - run: mix deps.get
     - run: mix test
