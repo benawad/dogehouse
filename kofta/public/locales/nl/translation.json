@@ -199,7 +199,7 @@
       "modal": {
         "needsFuture": "Moet in de toekomst zijn",
         "roomName": "Kamer naam",
-        "minLength": "Minimale lengte 2 karakters",
+        "minLength": "Naam moet minimaal 2 karakters zijn",
         "roomDescription": "Beschrijving"
       }
     },
