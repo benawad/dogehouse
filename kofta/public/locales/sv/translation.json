@@ -154,7 +154,8 @@
         "banFromChat": "banna från chatt",
         "banFromRoom": "banna från rum",
         "goBackToListener": "gå tillbaka till lyssnare",
-        "deleteMessage": "ta bort detta meddelande"
+        "deleteMessage": "ta bort detta meddelande",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "be om tillåtelse till att prata",

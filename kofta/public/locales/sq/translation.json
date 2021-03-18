@@ -175,7 +175,8 @@
         "banFromChat": "ndalo prej chatit",
         "banFromRoom": "ndalo prej dhomës",
         "goBackToListener": "kthenu në dëgjues",
-        "deleteMessage": "fshije këtë mesazh"
+        "deleteMessage": "fshije këtë mesazh",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "kërko leje për të folur",

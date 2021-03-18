@@ -37,7 +37,7 @@
       "startPrivateRoom": "צור חדר פרטי איתם"
     },
     "followList": {},
-    "home": { "createRoom": "צור חדר", "refresh": "Refresh" },
+    "home": { "createRoom": "צור חדר", "refresh": "טען מחדש" },
     "inviteList": {
       "roomGone": "החדר נעלם, חזור",
       "shareRoomLink": "שתף קישור לחדר שלך",
@@ -173,7 +173,8 @@
         "banFromChat": "הרחק מהצ'אט",
         "banFromRoom": "הרחק מהחדר",
         "goBackToListener": "חזור למקשיב",
-        "deleteMessage": "מחק הודעה זו"
+        "deleteMessage": "מחק הודעה זו",
+        "makeRoomCreator": "הפוך למנהל חדר"
       },
       "roomSettingsModal": {
         "requirePermission": "דרוש אישור לדבר",
