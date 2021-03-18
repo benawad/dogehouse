@@ -6,6 +6,7 @@ export const INVITE_KEY = "@keybind/invite";
 export const MUTE_KEY = "@keybind/mute";
 export const CHAT_KEY = "@keybind/chat";
 export const PTT_KEY = "@keybind/ptt";
+export const OVERLAY_KEY = "@keybind/overlay";
 
 const REPO_URL = "https://github.com/benawad/dogehouse/";
 const DISCUSSION_URL = "https://github.com/benawad/dogehouse/discussions";
