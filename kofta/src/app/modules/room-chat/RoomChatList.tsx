@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
 import { useCurrentRoomInfo } from "../../atoms";
 import { Avatar } from "../../components/Avatar";
-import { dateFormat } from "../../utils/dateFormat";
 import { useMeQuery } from "../../utils/useMeQuery";
 import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
 import { emoteMap } from "./EmoteData";
