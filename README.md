@@ -38,7 +38,6 @@
 
 ## Branches
 
-- new-design -> pr this branch if you touch `kibbeh`
 - staging -> pr this branch for everything else
 - prod -> don't touch, this is what's running in prod
 
