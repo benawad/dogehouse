@@ -79,7 +79,7 @@ export const customEmojis = [
 		keywords: ["dogehouse", "doge", "neutralhouse"],
 		imageUrl: "/emotes/neutralhouse.png",
 	},
-].map((e) => ({ ...e, customCategory: "BetterTTV", text: "", emoticons: [] }));
+].map((e) => ({ ...e, customCategory: "Custom", text: "", emoticons: [] }));
 
 export const emoteMap: Record<string, string> = {};
 
