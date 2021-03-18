@@ -12,9 +12,15 @@ import { colors } from "../../constants/GlobalStyles";
 interface SingleUserAvatarProps {
   style?: StyleProp<ViewStyle>;
   src: ImageSourcePropType;
-  size: "default" | "sm" | "xs";
-  isOnline: boolean;
+  size?: "default" | "sm" | "xs";
+  isOnline?: boolean;
 }
+
+export const singleUserAvatarSize = {
+  default: 80,
+  sm: 40,
+  xs: 24,
+};
 
 export const SingleUserAvatar: React.FC<SingleUserAvatarProps> = ({
   src,
@@ -23,38 +29,35 @@ export const SingleUserAvatar: React.FC<SingleUserAvatarProps> = ({
   isOnline = false,
 }) => {
   return (
-    <View style={styles[size + "Avatar"]}>
+    <View style={[style, styles[size + "Avatar"]]}>
       <Image source={src} style={styles[size + "Avatar"]} />
-      <View
-        style={[
-          styles[size + "Indicator"],
-          styles.indicator,
-          { backgroundColor: isOnline ? "green" : colors.accent },
-        ]}
-      />
+      {isOnline && (
+        <View style={[styles[size + "Indicator"], styles.indicator]} />
+      )}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   defaultAvatar: {
-    height: 80,
-    width: 80,
-    borderRadius: 40,
+    height: singleUserAvatarSize.default,
+    width: singleUserAvatarSize.default,
+    borderRadius: singleUserAvatarSize.default / 2,
   },
   smAvatar: {
-    height: 40,
-    width: 40,
-    borderRadius: 20,
+    height: singleUserAvatarSize.sm,
+    width: singleUserAvatarSize.sm,
+    borderRadius: singleUserAvatarSize.sm / 2,
   },
   xsAvatar: {
-    height: 20,
-    width: 20,
-    borderRadius: 10,
+    height: singleUserAvatarSize.xs,
+    width: singleUserAvatarSize.xs,
+    borderRadius: singleUserAvatarSize.xs / 2,
   },
   indicator: {
     position: "absolute",
     borderColor: colors.primary900,
+    backgroundColor: colors.accent,
   },
   defaultIndicator: {
     width: 24,
