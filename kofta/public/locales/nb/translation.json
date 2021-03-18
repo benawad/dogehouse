@@ -35,7 +35,7 @@
       "currentRoom": "for tiden i:",
       "startPrivateRoom": "start et privat rom med dem"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Lag et rom", "refresh": "Last inn på nytt" },
     "inviteList": {
       "roomGone": "rommet er borte, gå tilbake",
@@ -78,7 +78,9 @@
       "editProfile": "rediger profil",
       "followsYou": "følger deg",
       "followers": "følgere",
-      "following": "følger"
+      "following": "følger",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Taleinnstillinger",

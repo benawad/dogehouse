@@ -36,7 +36,7 @@
       "currentRoom": "núna í",
       "startPrivateRoom": "stofnaðu einkaspjallrásin með þeim"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Stofna Spjallrás", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "rásin horfið, farðu tíl baka",
@@ -79,7 +79,9 @@
       "editProfile": "breyta prófíl",
       "followsYou": "fylgir þér",
       "followers": "fylgjendur",
-      "following": "eftirfarandi"
+      "following": "eftirfarandi",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Talstillingar",

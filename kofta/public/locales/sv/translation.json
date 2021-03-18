@@ -35,7 +35,7 @@
       "currentRoom": "ansluten till:",
       "startPrivateRoom": "skapa ett privat rum med dem"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Skapa Rum", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "rummet borta, gå tillbaka",
@@ -78,7 +78,9 @@
       "editProfile": "redigera profil",
       "followsYou": "följer dig",
       "followers": "följare",
-      "following": "följer"
+      "following": "följer",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Röstinställningar",

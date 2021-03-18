@@ -36,7 +36,7 @@
       "currentRoom": "praegu sees:",
       "startPrivateRoom": "loo privaatne ruum nendega"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Loo ruum", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "ruum läinud, mine tagasi",
@@ -79,7 +79,9 @@
       "editProfile": "muuda profiili",
       "followsYou": "jälgib sind",
       "followers": "jälgijaid",
-      "following": "jälgib"
+      "following": "jälgib",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Hääleseaded",

@@ -35,7 +35,7 @@
       "currentRoom": "atualmente em:",
       "startPrivateRoom": "iniciar uma sala privada com ele"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Criar Sala", "refresh": "Atualizar" },
     "inviteList": {
       "roomGone": "acabou a sala, volte",
@@ -78,7 +78,9 @@
       "editProfile": "editar perfil",
       "followsYou": "segue você",
       "followers": "seguidores",
-      "following": "seguindo"
+      "following": "seguindo",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Configurações do microfone",

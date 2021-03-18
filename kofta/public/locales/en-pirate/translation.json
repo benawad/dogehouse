@@ -36,7 +36,7 @@
       "currentRoom": "currently in:",
       "startPrivateRoom": "start a private cabin wit' 'em"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Create Cabin", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "cabin gone, go back",
@@ -79,7 +79,9 @@
       "editProfile": "edit profile",
       "followsYou": "follows you",
       "followers": "scallywags",
-      "following": "following"
+      "following": "following",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Voice Settings",

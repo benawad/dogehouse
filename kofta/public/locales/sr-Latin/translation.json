@@ -36,7 +36,7 @@
       "currentRoom": "trenutno u:",
       "startPrivateRoom": "započni privatnu sobu sa njima"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Kreiraj sobu", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "soba je nestala, vrati me nazad",
@@ -79,7 +79,9 @@
       "editProfile": "uredi profil",
       "followsYou": "prati vas",
       "followers": "pratioci",
-      "following": "praćenja"
+      "following": "praćenja",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Podešavanja glasa",

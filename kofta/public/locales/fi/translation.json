@@ -36,7 +36,7 @@
       "currentRoom": "paikalla:",
       "startPrivateRoom": "luo yksityinen huone heidän kanssaan"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Luo huone", "refresh": "Päivitä" },
     "inviteList": {
       "roomGone": "huone poistettu, palaa takaisin",
@@ -79,7 +79,9 @@
       "editProfile": "muokkaa profiilia",
       "followsYou": "seuraa sinua",
       "followers": "seuraajaa",
-      "following": "seurannassa"
+      "following": "seurannassa",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Puheasetukset",
