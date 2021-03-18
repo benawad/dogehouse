@@ -58,6 +58,7 @@ export const useTimeElapsed = (startDate: Date | null) => {
     updateTime(startDate);
     const intervalId = setInterval(() => updateTime(startDate), 10000);
     return () => clearInterval(intervalId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [startDate]);
 
   return { timeElapsed, rocketIcon, rocketStatus };

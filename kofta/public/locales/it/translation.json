@@ -177,7 +177,8 @@
         "banFromChat": "banna dalla chat",
         "banFromRoom": "banna dalla stanza",
         "goBackToListener": "ritorna ad essere un ascoltatore",
-        "deleteMessage": "elimina questo messaggio"
+        "deleteMessage": "elimina questo messaggio",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "richiedi permesso per parlare",

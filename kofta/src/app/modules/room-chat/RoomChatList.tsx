@@ -1,10 +1,8 @@
 import normalizeUrl from "normalize-url";
 import React, { useEffect, useRef, useState } from "react";
-import ReactTooltip from "react-tooltip";
 import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
 import { useCurrentRoomInfo } from "../../atoms";
 import { Avatar } from "../../components/Avatar";
-import { dateFormat } from "../../utils/dateFormat";
 import { useMeQuery } from "../../utils/useMeQuery";
 import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
 import { emoteMap } from "./EmoteData";
@@ -70,7 +68,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
           <div
             className="flex flex-col flex-shrink-0"
             key={m.id}
-            data-tip={dateFormat(m.sentAt)}
           >
             {/* Whisper label */}
             {m.isWhisper ? (
@@ -190,8 +187,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                 )}
               </div>
             </div>
-
-            <ReactTooltip />
           </div>
         ))}
       {messages.length === 0 ? (

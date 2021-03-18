@@ -124,6 +124,7 @@ export type TranslationKeys =
 	| "components.modals.profileModal.banFromRoom"
 	| "components.modals.profileModal.goBackToListener"
 	| "components.modals.profileModal.deleteMessage"
+	| "components.modals.profileModal.makeRoomCreator"
 	| "components.modals.roomSettingsModal.requirePermission"
 	| "components.modals.roomSettingsModal.makePublic"
 	| "components.modals.roomSettingsModal.makePrivate"
