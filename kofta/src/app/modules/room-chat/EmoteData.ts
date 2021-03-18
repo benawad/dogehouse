@@ -19,6 +19,18 @@ export const customEmojis = [
     keywords: ["peped", "pepe"],
     imageUrl: "/emotes/peped.gif",
   },
+	{
+		name: "catJAM",
+		short_names: ["catJAM"],
+		keywords: ["catjam", "vibe"],
+		imageUrl: "/emotes/catjam.gif",
+	},
+	{
+		name: "Thonk",
+		short_names: ["Thonk"],
+		keywords: ["thonk", "think"],
+		imageUrl: "/emotes/thonk.png",
+	},
 ].map((e) => ({ ...e, customCategory: "BetterTTV", text: "", emoticons: [] }));
 
 export const emoteMap: Record<string, string> = {};
