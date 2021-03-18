@@ -6,12 +6,13 @@ export const useShowRoomModal = create(
   combine(
     {
       state: "" as "" | "direct" | "scheduled",
-    }, (set => ({
+    },
+    (set) => ({
       set: (v: "" | "direct" | "scheduled") => {
         set((s) => {
           return { state: v };
         });
-      }
-    }))
-    )
+      },
+    })
+  )
 );
