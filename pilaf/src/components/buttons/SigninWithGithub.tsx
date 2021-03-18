@@ -1,10 +1,15 @@
 import React from "react";
-import { StyleSheet, Alert, Linking } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { InAppBrowser } from "react-native-inappbrowser-reborn";
-import { SigninWithGithubButton } from "../components/buttons/SigninWithGithub";
-import { colors } from "../constants/dogeStyle";
-import { useSaveTokensFromQueryParams } from "../module/auth/useSaveTokensFromQueryParams";
+import {
+  Alert,
+  Linking,
+  StyleProp,
+  Text,
+  ViewStyle,
+  StyleSheet,
+} from "react-native";
+import { TouchableOpacity } from "react-native";
+import InAppBrowser from "react-native-inappbrowser-reborn";
+import { colors, fontFamily } from "../../constants/dogeStyle";
 
 const signinWithGithub = async () => {
   try {
@@ -14,7 +19,7 @@ const signinWithGithub = async () => {
       const result = await InAppBrowser.open(url, {
         // iOS Properties
         dismissButtonStyle: "cancel",
-        preferredBarTintColor: "rgba(30, 30, 30, 1)",
+        preferredBarTintColor: colors.primary900,
         preferredControlTintColor: "white",
         readerMode: false,
         animated: true,
@@ -24,21 +29,16 @@ const signinWithGithub = async () => {
         enableBarCollapsing: false,
         // Android Properties
         showTitle: true,
-        toolbarColor: "rgba(30, 30, 30, 1)",
-        secondaryToolbarColor: "black",
+        toolbarColor: colors.primary900,
+        secondaryToolbarColor: colors.text,
         enableUrlBarHiding: true,
         enableDefaultShare: true,
         forceCloseOnRedirection: false,
-        // Specify full animation resource identifier(package:anim/name)
-        // or only resource name(in case of animation bundled with app).
         animations: {
           startEnter: "slide_in_right",
           startExit: "slide_out_left",
           endEnter: "slide_in_left",
           endExit: "slide_out_right",
-        },
-        headers: {
-          "my-custom-header": "my custom header value",
         },
       });
     } else Linking.openURL(url);
@@ -47,25 +47,33 @@ const signinWithGithub = async () => {
   }
 };
 
-export const LandingPage: React.FC = () => {
-  useSaveTokensFromQueryParams();
+interface SigninWithGithubButtonProps {
+  style: StyleProp<ViewStyle>;
+}
 
+export const SigninWithGithubButton: React.FC<SigninWithGithubButtonProps> = (
+  props
+) => {
   return (
-    <SafeAreaView style={styles.safeAreaView}>
-      <SigninWithGithubButton style={styles.signinButton} />
-    </SafeAreaView>
+    <TouchableOpacity
+      onPress={signinWithGithub}
+      style={[props.style, styles.button]}
+    >
+      <Text style={styles.title}>{"Sign in with github"}</Text>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  safeAreaView: {
-    flex: 1,
+  button: {
+    backgroundColor: colors.black,
     justifyContent: "center",
-    backgroundColor: colors.primary900,
+    alignItems: "center",
+    borderRadius: 8,
+    padding: 16,
   },
-  signinButton: {
-    height: 48,
-    marginHorizontal: 16,
-    alignSelf: "stretch",
+  title: {
+    color: colors.text,
+    fontFamily: fontFamily.semiBold,
   },
 });

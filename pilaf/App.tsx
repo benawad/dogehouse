@@ -11,7 +11,7 @@ import { StatusBar } from "react-native";
 import SplashScreen from "react-native-splash-screen";
 import { useTokenStore } from "./src/module/auth/useTokenStore";
 import { NavigationContainer } from "@react-navigation/native";
-import { RootNavigator } from "./src/navigators/rootNavigator";
+import { RootNavigator } from "./src/navigators/RootNavigator";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 const App: React.FC = () => {
