@@ -6,7 +6,7 @@ import { SchedulePage } from "../pages/SchedulePage";
 import { FollowingPage } from "../pages/FollowingPage";
 import { colors } from "../constants/dogeStyle";
 import Icon from "react-native-vector-icons/Ionicons";
-import { CreateRoomButton } from "../components/bottomBar/CreateRoomButton";
+import { CreateRoomButton } from "../components/bottomBar/_CreateRoomButton";
 const Tab = createBottomTabNavigator();
 
 const EmptyComponent: React.FC = () => {

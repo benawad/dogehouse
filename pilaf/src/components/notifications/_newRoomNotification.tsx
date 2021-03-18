@@ -8,8 +8,8 @@ import {
   ImageSourcePropType,
 } from "react-native";
 import { colors, fontFamily, fontSize } from "../../constants/dogeStyle";
-import { SingleUserAvatar } from "../avatars/SingleUserAvatar";
-import { GenericNotification } from "./GenericNotification";
+import { SingleUserAvatar } from "../avatars/_singleUserAvatar";
+import { GenericNotification } from "./_genericNotification";
 import Icon from "react-native-vector-icons/Ionicons";
 
 interface NewRoomNotificationProps {
