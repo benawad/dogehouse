@@ -1,7 +1,8 @@
 // @ts-nocheck because internet is unpredictable
 
 import { Connection } from "./raw";
-import { Message, MessageToken, UUID } from "./entities";
+import { Message, MessageToken, Room, UUID } from "./entities";
+import { GetTopPublicRoomsResponse } from "./responses";
 
 type Handler<Data> = (data: Data) => void;
 
@@ -10,15 +11,31 @@ export const wrap = (connection: Connection) => ({
     newChatMsg: (handler: Handler<{ userId: UUID; msg: Message }>) =>
       connection.addListener("new_chat_msg", handler),
   },
-  getTopPublicRooms: (cursor = 0): Promise<GetTopPublicRoomsResponse> =>
-    connection.fetch("get_top_public_rooms", { cursor }),
-  joinRoom: (id: UUID): Promise<void> =>
-    connection.fetch("join_room", { roomId: id }, "join_room_done"),
-  sendRoomChatMsg: (
-    ast: MessageToken[],
-    whisperedTo: string[] = []
-  ): Promise<void> =>
-    connection.send("send_room_chat_msg", { tokens: ast, whisperedTo }),
-  leaveRoom: (): Promise<{ roomId: UUID }> =>
-    connection.fetch("leave_room", {}, "you_left_room"),
+  query: {
+    getTopPublicRooms: (cursor = 0): Promise<GetTopPublicRoomsResponse> =>
+      connection.fetch("get_top_public_rooms", { cursor }),
+  },
+  mutation: {
+    joinRoom: (id: UUID): Promise<void> =>
+      connection.fetch("join_room", { roomId: id }, "join_room_done"),
+    sendRoomChatMsg: (
+      ast: MessageToken[],
+      whisperedTo: string[] = []
+    ): Promise<void> =>
+      connection.send("send_room_chat_msg", { tokens: ast, whisperedTo }),
+    leaveRoom: (): Promise<{ roomId: UUID }> =>
+      connection.fetch("leave_room", {}, "you_left_room"),
+    createRoom: (data: {
+      name: string;
+      privacy: string;
+      description: string;
+    }): Promise<{ error: string } | { room: Room }> =>
+      connection.fetch("create_room", data),
+    editRoom: (data: {
+      name: string;
+      privacy: string;
+      description: string;
+    }): Promise<{ error: string } | { room: Room }> =>
+      connection.fetch("edit_room", data),
+  },
 });

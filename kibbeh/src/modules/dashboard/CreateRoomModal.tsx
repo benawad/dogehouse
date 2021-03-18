@@ -1,15 +1,14 @@
 import { Form, Formik } from "formik";
-import React from "react";
-import { useHistory } from "react-router-dom";
-import { wsend, wsFetch } from "../../createWebsocket";
-import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
-import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
-import { roomToCurrentRoom } from "../utils/roomToCurrentRoom";
-import { showErrorToast } from "../utils/showErrorToast";
-import { Button } from "./Button";
-import { InputField } from "./form-fields/InputField";
-import { Modal } from "./Modal";
-import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
+import React, { useContext } from "react";
+import { InputField } from "../../form-fields/InputField";
+import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
+import { roomToCurrentRoom } from "../../lib/roomToCurrentRoom";
+import { showErrorToast } from "../../lib/showErrorToast";
+import { useConn, useWrappedConn } from "../../shared-hooks/useConn";
+import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
+import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
+import { Button } from "../../ui/Button";
+import { Modal } from "../../ui/Modal";
 
 interface CreateRoomModalProps {
   onRequestClose: () => void;
@@ -26,8 +25,9 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
   isPrivate,
   edit,
 }) => {
+  const conn = useWrappedConn();
   const { t } = useTypeSafeTranslation();
-  const history = useHistory();
+
   return (
     <Modal isOpen onRequestClose={onRequestClose}>
       <Formik<{
@@ -56,22 +56,28 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
               ),
             };
           }
+
           return errors;
         }}
         onSubmit={async ({ name, privacy, description }) => {
-          const resp = await wsFetch<any>({
-            op: edit ? "edit_room" : "create_room",
-            d: { name, privacy, description },
-          });
-          if (resp.error) {
+          const d = { name, privacy, description };
+          const resp = edit
+            ? await conn.mutation.createRoom(d)
+            : await conn.mutation.editRoom(d);
+
+          if ("error" in resp) {
             showErrorToast(resp.error);
+
             return;
           } else if (resp.room) {
             const { room } = resp;
+
             console.log("new room voice server id: " + room.voiceServerId);
-            useRoomChatStore.getState().clearChat();
-            wsend({ op: "get_current_room_users", d: {} });
-            history.push("/room/" + room.id);
+            // @todo
+            // useRoomChatStore.getState().clearChat();
+            // @todo
+            // wsend({ op: "get_current_room_users", d: {} });
+            // history.push("/room/" + room.id);
             useCurrentRoomStore
               .getState()
               .setCurrentRoom(() => roomToCurrentRoom(room));
@@ -104,8 +110,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
                 className={`border border-simple-gray-3c`}
                 value={values.privacy}
                 onChange={(e) => {
-                  const v = e.target.value;
-                  setFieldValue("privacy", v);
+                  setFieldValue("privacy", e.target.value);
                 }}
               >
                 <option value="public" className={`bg-simple-gray-3c`}>
