@@ -116,9 +116,7 @@ defmodule Beef.Mutations.Rooms do
 
     # make sure room exists
     if not is_nil(room) do
-      if room.creatorId != user_id do
       set_room_owner_and_dec(room.id, user_id, room.peoplePreviewList)
-      end
     end
   end
 
