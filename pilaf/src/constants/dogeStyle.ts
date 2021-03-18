@@ -10,6 +10,15 @@ export const fontFamily = {
   thin: "Inter-Thin",
 };
 
+export const fontSize = {
+  h1: 56,
+  h2: 40,
+  h3: 28,
+  h4: 20,
+  paragraph: 14,
+  small: 12,
+};
+
 export const colors = {
   text: "#fff",
   primary100: "#dee3ea",
