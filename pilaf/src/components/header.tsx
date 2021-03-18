@@ -2,17 +2,17 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { colors } from "../constants/GlobalStyles";
+import { SingleUserAvatar } from "./avatars/singleUserAvatar";
 import { IconButton } from "./buttons/iconButton";
 
 export const Header: React.FC = () => {
   return (
     <SafeAreaView style={styles.safeAreaView} edges={["top"]}>
       <View style={styles.leftContainer}>
-        <IconButton
-          iconName={"people"}
-          iconSize={24}
-          iconColor={colors.text}
-          onPress={() => console.log("Avatar Pressed")}
+        <SingleUserAvatar
+          src={require("../assets/images/100.png")}
+          size={"sm"}
+          isOnline={true}
         />
       </View>
       <View style={styles.rightContainer}>
