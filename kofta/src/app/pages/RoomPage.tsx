@@ -107,7 +107,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
             <button
               disabled={!iAmCreator}
               onClick={() => setShowCreateRoomModal(true)}
-              className={`text-2xl truncate max-w-lg text-left`}
+              className={`text-2xl truncate max-w-lg text-center px-2`}
             >
               {room.name}
             </button>
