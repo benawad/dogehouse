@@ -31,6 +31,42 @@ export const customEmojis = [
 		keywords: ["thonk", "think"],
 		imageUrl: "/emotes/thonk.png",
 	},
+	{
+		name: "DogeHouse",
+		short_names: ["DogeHouse"],
+		keywords: ["dogehouse", "doge"],
+		imageUrl: "/emotes/dogehouse.png",
+	},
+	{
+		name: "SadHouse",
+		short_names: ["SadHouse"],
+		keywords: ["dogehouse", "doge", "sadhouse"],
+		imageUrl: "/emotes/sadhouse.png",
+	},
+	{
+		name: "CoolHouse",
+		short_names: ["CoolHouse"],
+		keywords: ["dogehouse", "doge", "coolhouse"],
+		imageUrl: "/emotes/coolhouse.png",
+	},
+	{
+		name: "WinkHouse",
+		short_names: ["WinkHouse"],
+		keywords: ["dogehouse", "doge", "winkhouse"],
+		imageUrl: "/emotes/winkhouse.png",
+	},
+	{
+		name: "SupriseHouse",
+		short_names: ["SupriseHouse"],
+		keywords: ["dogehouse", "doge", "suprisehouse", "shock"],
+		imageUrl: "/emotes/suprisehouse.png",
+	},
+	{
+		name: "NeutralHouse",
+		short_names: ["NeutralHouse"],
+		keywords: ["dogehouse", "doge", "neutralhouse"],
+		imageUrl: "/emotes/neutralhouse.png",
+	},
 ].map((e) => ({ ...e, customCategory: "BetterTTV", text: "", emoticons: [] }));
 
 export const emoteMap: Record<string, string> = {};
