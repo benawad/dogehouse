@@ -165,6 +165,30 @@ defmodule Kousa.Room do
       )
     end
   end
+	
+  def change_room_creator(new_creator_id, old_creator_id, current_room_id \\ nil) do
+    # get current room id
+    current_room_id = 
+      if is_nil(current_room_id),
+        do: Beef.Users.get_current_room_id(new_creator_id),
+        else: current_room_id
+
+    # get old creator's room id for validation
+    old_creator_room_id = Beef.Users.get_current_room_id(old_creator_id)
+
+    # validate
+    case { is_nil(current_room_id),  new_creator_id == old_creator_id, current_room_id == old_creator_room_id} do
+      {false, false, true} ->
+        Rooms.change_room_creator(current_room_id, new_creator_id)
+        Onion.RoomSession.send_cast(
+          current_room_id,
+          {:send_ws_msg, :vscode,
+            %{op: "new_room_creator", d: %{roomId: current_room_id, userId: new_creator_id}}}
+        )
+      _ ->
+        nil
+    end
+  end
 
   def join_vc_room(user_id, room, speaker? \\ nil) do
     speaker? =

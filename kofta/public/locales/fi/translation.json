@@ -37,7 +37,7 @@
       "startPrivateRoom": "luo yksityinen huone heidän kanssaan"
     },
     "followList": {},
-    "home": { "createRoom": "Luo huone", "refresh": "Refresh" },
+    "home": { "createRoom": "Luo huone", "refresh": "Päivitä" },
     "inviteList": {
       "roomGone": "huone poistettu, palaa takaisin",
       "shareRoomLink": "jaa linkki huoneeseen",
@@ -111,7 +111,7 @@
       "settings": "Asetukset",
       "speaker": "Puhuja",
       "listener": "Kuuntelija",
-      "chat": "Chat"
+      "chat": "Keskustelu"
     },
     "deviceNotSupported": {
       "notSupported": "Käyttämääsi laitetta ei tueta. Voit luoda",
@@ -176,7 +176,8 @@
         "banFromChat": "estä keskustelusta",
         "banFromRoom": "estä huoneesta",
         "goBackToListener": "palaa kuuntelijaksi",
-        "deleteMessage": "poista viesti"
+        "deleteMessage": "poista viesti",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "puhuminen vaatii oikeuden",
@@ -198,7 +199,7 @@
         "needsFuture": "täytyy olla tulevaisuudessa",
         "roomName": "huoneen nimi",
         "minLength": "minimipituus 2",
-        "roomDescription": "Description"
+        "roomDescription": "huoneen kuvaus"
       }
     },
     "roomChat": {
@@ -215,16 +216,16 @@
       "roomDescription": "huoneen kuvaus"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "fuelingRocket": "Tankkaamassa rakettia",
+      "takingOff": "Nousemassa lentoon",
+      "inSpace": "Avaruudessa",
+      "approachingMoon": "Lähestymässä kuuta",
+      "lunarDoge": "Kuu-doge",
+      "approachingSun": "Lähestymässä aurinkoa",
+      "solarDoge": "Aurinko-doge",
+      "approachingGalaxy": "Lähestymässä galaksia",
+      "galacticDoge": "Galaktinen Doge",
+      "spottedLife": "Havaittiin planeetta, jossa on elämää"
     }
   }
 }

@@ -176,7 +176,8 @@
         "banFromChat": "چیٹ پر پابندی",
         "banFromRoom": "کمرے سے پابندی لگانا",
         "goBackToListener": "سننے والوں کے پاس واپس جائیں",
-        "deleteMessage": "اس پیغام کو حذف کریں"
+        "deleteMessage": "اس پیغام کو حذف کریں",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "بولنے کی اجازت کی ضرورت ہے",

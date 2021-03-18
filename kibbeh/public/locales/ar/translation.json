@@ -1,0 +1,227 @@
+{
+  "_comment": "if you change this file, do: npm run i18",
+  "common": {
+    "loadMore": "حمل المزيد",
+    "loading": "جاري التحميل...",
+    "noUsersFound": "لم يتم العثور على مستخدمين",
+    "ok": "حسنا",
+    "yes": "نعم",
+    "no": "لا",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "joinRoom": "انضم إلى الغرفة",
+    "copyLink": "انسخ الرابط",
+    "copied": "تم النسخ",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "صوت مكتوم | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "قصة النشأة",
+    "link_2": "ديسكورد",
+    "link_3": "أبلغ عن خلل"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "حظر" },
+    "followingOnlineList": {
+      "listHeader": "قائمة المستخدمين غير المتواجدين في غرفة خاصة وأنت تتابعهم.",
+      "currentRoom": "حاليا في:",
+      "startPrivateRoom": "ابدأ غرفة خاصة معهم"
+    },
+    "followList": {},
+    "home": { "createRoom": "ابدأ غرفة", "refresh": "Refresh" },
+    "inviteList": {
+      "roomGone": "انتهت الغرفة، عد إلى الوراء",
+      "shareRoomLink": "شارك رابط الغرفة",
+      "inviteFollowers": "يمكنك أن تدعو متابعيك المتصلين:",
+      "whenFollowersOnline": "سيظهر متابعوك هنا عندما يكونوا متصلين."
+    },
+    "login": {
+      "headerText": "اصطحاب المحادثات الصوتية إلى القمر 🚀",
+      "featureText_1": "المظهر الداكن",
+      "featureText_2": "تسجيل مفتوح للجميع",
+      "featureText_3": "دعم منصات متعددة",
+      "featureText_4": "مفتوح المصدر",
+      "featureText_5": "محادثات نصية",
+      "featureText_6": "مدعوم من Doge",
+      "loginGithub": "التسجيل باستخدام GitHub",
+      "loginTwitter": "التسجيل باستخدام Twitter",
+      "createTestUser": "إنشاء مستخدم تجريبي"
+    },
+    "myProfile": {
+      "logout": "تسجيل خروج",
+      "probablyLoading": "ربما جاري التحميل...",
+      "voiceSettings": "اذهب إلى إعدادات الصوت",
+      "soundSettings": "اذهب إلى إعدادات الصوت",
+      "deleteAccount": "حذف الحساب"
+    },
+    "notFound": {
+      "whoopsError": "عذرا! ضاعت هذه الصفحة بين المحادثات.",
+      "goHomeMessage": "لا داعي للقلق، يمكنك",
+      "goHomeLinkText": "الذهاب إلى الصفحة الرئيسة"
+    },
+    "room": {
+      "speakers": "المتحدثون",
+      "requestingToSpeak": "جاري طلب التحدث",
+      "listeners": "المستمعون"
+    },
+    "searchUser": { "search": "ابحث..." },
+    "soundEffectSettings": { "header": "الأصوات" },
+    "viewUser": {
+      "editProfile": "تعديل الحساب",
+      "followsYou": "يتابعك",
+      "followers": "المتابِعون",
+      "following": "المتابَعون"
+    },
+    "voiceSettings": {
+      "header": "إعدادات الصوت",
+      "mic": "ميكروفون:",
+      "permissionError": "لم يتم العثور على ميكروفونات ، إما أنك لم تقم بتوصيل أي ميكروفون أو لم تمنحنا إذن الوصول.",
+      "refresh": "تحديث قائمة الميكروفونات",
+      "volume": "ارتفاع الصوت:"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "المستخدمون المحظورون",
+      "unban": "فك الحظر",
+      "noBans": "لم يتم حظر أحد"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "مغادرة الغرفة الحالية",
+      "confirmLeaveRoom": "هل أنت متأكد من أنك تريد المغادرة؟",
+      "leave": "غادر",
+      "inviteUsersToRoomBtn": "ادعو مستخدمين إلى الغرفة",
+      "invite": "ادعو",
+      "toggleMuteMicBtn": "كتم الميكروفون و فك الكتم",
+      "mute": "كتم",
+      "unmute": "فك الكتم",
+      "makeRoomPublicBtn": "اجعل الغرفة عامة!",
+      "settings": "الإعدادات",
+      "speaker": "متحدث",
+      "listener": "مستمع",
+      "chat": "Chat"
+    },
+    "deviceNotSupported": {
+      "notSupported": "جهازك غير مدعوم حاليا. يمكنك إنشاء",
+      "linkText": "مشكلة على GitHub",
+      "addSupport": "و سوف أحاول أن أدعم جهازك!"
+    },
+    "inviteButton": { "invited": "مدعو", "inviteToRoom": "ادعو إلى الغرفة" },
+    "micPermissionBanner": {
+      "permissionDenied": "تم رفض الإذن عند محاولة الوصول إلى الميكروفون الخاص بك (قد تحتاج إلى الدخول إلى إعدادات المتصفح وإعادة تحميل الصفحة)",
+      "dismiss": "رفض",
+      "tryAgain": "حاول مجدداً"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "ضبط ربط المفتاح",
+      "listening": "جاري الإستماع",
+      "toggleMuteKeybind": "تبديل رابط مفتاح كتم الصوت",
+      "togglePushToTalkKeybind": "تبديل رابط مفتاح الضغط والتحدث"
+    },
+    "userVolumeSlider": { "noAudioMessage": "لا يوجد مستهلك صوتي لسبب ما" },
+    "addToCalendar": { "add": "أضف إلى الرزنامة" },
+    "wsKilled": {
+      "description": "تم قتل الـWebsocket بواسطة الخادم. يحدث هذا عادةً عند فتح موقع الويب في علامة تبويب أخرى.",
+      "reconnect": "أعد الاتصال"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "عام",
+        "private": "خاص",
+        "roomName": "اسم الغرفة",
+        "roomDescription": "وصف الغرفة",
+        "descriptionError": "أقصى حد 500",
+        "nameError": "يجب أن يكون ما بين حرفين و 60 حرف"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "تم إنشاء غرفة جديدة",
+        "roomInviteFrom": "دعوة غرفة من",
+        "justStarted": "لقد بدؤوا للتو",
+        "likeToJoin": "، هل تريد الإنضمام؟",
+        "inviteReceived": "لقد تم دعوتك"
+      },
+      "editProfileModal": {
+        "usernameTaken": "اسم المستخدم مستخدم",
+        "avatarUrlError": "صورة غير صالحة",
+        "avatarUrlLabel": "رابط صورة العرض لـ GitHubو Twitter",
+        "displayNameError": "الطول من حرفين إلى 50 حرف",
+        "displayNameLabel": "اسم العرض",
+        "usernameError": "بطول من 4 إلى 15 حرفًا وفقط أبجدي رقمي / شرطة سفلية",
+        "usernameLabel": "اسم المستخدم",
+        "bioError": "أقصى طول 160 حرفًا",
+        "bioLabel": "الوصف"
+      },
+      "profileModal": {
+        "blockUserConfirm": "هل أنت متأكد أنك تريد حظر هذا المستخدم من الانضمام إلى أي غرفة تقوم بإنشائها مستقبلاً؟",
+        "blockUser": "حجب المستخدم",
+        "makeMod": "جعل مسؤول",
+        "unmod": "إزالة مسؤول",
+        "addAsSpeaker": "أصف كمتحدث",
+        "moveToListener": "انقل إلى متحدث",
+        "banFromChat": "حظر من الماحدثة",
+        "banFromRoom": "حظر من الغرفة",
+        "goBackToListener": "إرجع إلى مستمع",
+        "deleteMessage": "حذف الرسالة"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "جعل التحدث بطلب فقط",
+        "makePublic": "جعل الغرفة عامة",
+        "makePrivate": "جعل الغرفة خاصة"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "الغرف المجدولة",
+      "noneFound": "لا يوجد",
+      "allRooms": "كل غرفي المجدولة",
+      "myRooms": "غرفي المجدولة",
+      "scheduleRoomHeader": "جدول غرفة",
+      "startRoom": "ابدأ غرفة",
+      "modal": {
+        "needsFuture": "يجب أن تكون في المستقبل",
+        "roomName": "اسم الغرفة",
+        "minLength": "أقل طول 2",
+        "roomDescription": "Description"
+      }
+    },
+    "roomChat": {
+      "title": "محادثة",
+      "emotesSoon": "[emotes soon]",
+      "bannedAlert": "لقد تم حظرك من المحادثة",
+      "waitAlert": "يجب عليك الإنتظار لمدة ثانية قبل إرسال رسالة أخرى",
+      "search": "ابحث",
+      "searchResults": "نتائج البحث",
+      "recent": "مستخدم كثيراً",
+      "sendMessage": "أرسل رسالة",
+      "whisper": "اهمس",
+      "welcomeMessage": "مرحبا بك في المحادثة!",
+      "roomDescription": "وصف الغرفة"
+    },
+    "roomStatus": {
+      "fuelingRocket": "عبي الصاروخ بنزين",
+      "takingOff": "تقلع",
+      "inSpace": "بالفضاء",
+      "approachingMoon": "الاقتراب من القمر",
+      "lunarDoge": "Lunar doge",
+      "approachingSun": "الاقتراب من الشمس",
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "الاقتراب من المجره",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "اكتشاف كوكب فيه حياه"
+    }
+  }
+}
