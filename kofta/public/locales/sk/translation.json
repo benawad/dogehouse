@@ -200,7 +200,7 @@
         "needsFuture": "musí byť v budúcnosti",
         "roomName": "názov miestnosti",
         "minLength": "minimálne 2 znaky",
-        "roomDescription": "Description"
+        "roomDescription": "Popis"
       }
     },
     "roomChat": {
@@ -224,9 +224,9 @@
       "lunarDoge": "Lunárny doge",
       "approachingSun": "Blížime sa k slnku",
       "solarDoge": "Solárny doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "approachingGalaxy": "Blížime sa ku galaxii",
+      "galacticDoge": "Galaktický Doge",
+      "spottedLife": "Zahliadnutá planéta so životom"
     }
   }
 }
