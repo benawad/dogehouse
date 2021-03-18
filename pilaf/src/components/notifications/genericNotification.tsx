@@ -6,7 +6,7 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
-import { colors, fontFamily } from "../../constants/GlobalStyles";
+import { colors, fontFamily, fontSize } from "../../constants/GlobalStyles";
 import Icon from "react-native-vector-icons/Ionicons";
 
 interface GenericNotificationProps {
@@ -56,14 +56,14 @@ const styles = StyleSheet.create({
   textPrimary: {
     color: colors.text,
     fontFamily: fontFamily.medium,
-    fontSize: 14,
+    fontSize: fontSize.paragraph,
     flex: 1,
     flexWrap: "wrap",
   },
   textSecondary: {
     color: colors.primary300,
     fontFamily: fontFamily.regular,
-    fontSize: 12,
+    fontSize: fontSize.small,
   },
   button: {
     height: 32,

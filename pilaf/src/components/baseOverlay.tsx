@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import { colors, fontFamily } from "../constants/GlobalStyles";
+import { colors, fontFamily, fontSize } from "../constants/GlobalStyles";
 
 interface MultipleUserAvatarProps {
   style?: ViewStyle;
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   title: {
     color: colors.text,
     fontFamily: fontFamily.regular,
-    fontSize: 20,
+    fontSize: fontSize.h4,
     fontWeight: "700",
   },
   button: {
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 8,
   },
   buttonTitle: {
-    fontSize: 14,
+    fontSize: fontSize.paragraph,
     fontFamily: fontFamily.bold,
     color: colors.text,
   },

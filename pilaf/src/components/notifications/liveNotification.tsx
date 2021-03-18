@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   ImageSourcePropType,
 } from "react-native";
-import { colors, fontFamily } from "../../constants/GlobalStyles";
+import { colors, fontFamily, fontSize } from "../../constants/GlobalStyles";
 import { SingleUserAvatar } from "../avatars/singleUserAvatar";
 import { GenericNotification } from "./genericNotification";
 import Icon from "react-native-vector-icons/Ionicons";
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   textPrimary: {
     color: colors.text,
     fontFamily: fontFamily.medium,
-    fontSize: 14,
+    fontSize: fontSize.paragraph,
     flex: 1,
     flexWrap: "wrap",
   },
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   buttonTitle: {
-    fontSize: 12,
+    fontSize: fontSize.small,
     fontFamily: fontFamily.semiBold,
     fontWeight: "700",
     color: colors.text,
