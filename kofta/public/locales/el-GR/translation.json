@@ -132,7 +132,9 @@
       "toggleMuteKeybind": "αλλαγή συντόμευσης σίγασης",
       "togglePushToTalkKeybind": "αλλαγή συντόμευσης για push-to-talk"
     },
-    "userVolumeSlider": { "noAudioMessage": "δεν υπάρχει εξαγωγή ήχου" },
+    "userVolumeSlider": {
+      "noAudioMessage": "δεν υπάρχει εξαγωγή ήχου"
+    },
     "addToCalendar": { "add": "Προσθήκη στο Ημερολόγιο" },
     "wsKilled": {
       "description": "Το websocket διακόπηκε από τον διακομιστή. Αυτό συμβαίνει συνήθως όταν ανοίγεται την ιστοσελίδα σε άλλη καρτέλα.",
