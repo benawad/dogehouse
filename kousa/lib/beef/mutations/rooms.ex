@@ -111,6 +111,17 @@ defmodule Beef.Mutations.Rooms do
     |> Repo.update_all([])
   end
 
+  def change_room_creator(room_id, user_id) do
+    room = Beef.Rooms.get_room_by_id(room_id)
+
+    # make sure room exists
+    if not is_nil(room) do
+      if room.creatorId != user_id do
+      set_room_owner_and_dec(room.id, user_id, room.peoplePreviewList)
+      end
+    end
+  end
+
   # trusts that the user is in the room
   def leave_room(user_id, room_id) do
     room = Beef.Rooms.get_room_by_id(room_id)
