@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { useWrappedConn } from "../../shared-hooks/useConn";
 import { PageComponent } from "../../types/PageComponent";
 import { DashboardInnerGrid } from "../../ui/DashboardGrid";
 import { FriendsOnline } from "../../ui/FriendsOnline";

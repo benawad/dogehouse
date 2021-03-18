@@ -14,8 +14,8 @@ export const wrap = (connection: Connection) => ({
   query: {
     getTopPublicRooms: (cursor = 0): Promise<GetTopPublicRoomsResponse> =>
       connection.fetch("get_top_public_rooms", { cursor }),
-    getScheduledRooms: (cursor = "", getOnlyMyScheduledRooms = false): Promise<GetScheduledRoomsResponse> =>
-      connection.fetch("get_scheduled_rooms", { cursor, getOnlyMyScheduledRooms })
+    getScheduledRooms: (cursor: "" | number = "", getOnlyMyScheduledRooms = false): Promise<GetScheduledRoomsResponse> =>
+      connection.fetch("get_scheduled_rooms", { cursor, getOnlyMyScheduledRooms }),
   },
   mutation: {
     joinRoom: (id: UUID): Promise<void> =>
