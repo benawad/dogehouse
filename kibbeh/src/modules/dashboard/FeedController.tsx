@@ -31,7 +31,9 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
         rooms={data.rooms}
         title="Your Feed"
       />
-      {roomModal && <CreateRoomModal onRequestClose={() => setRoomModal(false)} />}
+      {roomModal && (
+        <CreateRoomModal onRequestClose={() => setRoomModal(false)} />
+      )}
     </>
   );
 };
