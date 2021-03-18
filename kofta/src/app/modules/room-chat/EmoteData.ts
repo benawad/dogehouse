@@ -19,7 +19,19 @@ export const customEmojis = [
     keywords: ["peped", "pepe"],
     imageUrl: "/emotes/peped.gif",
   },
+  {
+    name: "Pepega",
+    short_names: ["Pepega"],
+    keywords: ["pepega", "pepe"],
+    imageUrl: "/emotes/pepega.png",
+  },
 	{
+    name: "Sadge",
+    short_names: ["Sadge"],
+    keywords: ["sadge", "pepe"],
+    imageUrl: "/emotes/sadge.png",
+  },
+  {
 		name: "catJAM",
 		short_names: ["catJAM"],
 		keywords: ["catjam", "vibe"],
