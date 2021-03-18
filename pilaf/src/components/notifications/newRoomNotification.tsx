@@ -1,0 +1,78 @@
+import React, { ReactNode } from "react";
+import {
+  StyleSheet,
+  View,
+  ViewStyle,
+  Text,
+  TouchableOpacity,
+  ImageSourcePropType,
+} from "react-native";
+import { colors, fontFamily } from "../../constants/GlobalStyles";
+import { SingleUserAvatar } from "../avatars/singleUserAvatar";
+import { GenericNotification } from "./genericNotification";
+import Icon from "react-native-vector-icons/Ionicons";
+
+interface NewRoomNotificationProps {
+  style?: ViewStyle;
+  username: string;
+  userProfileLink?: string;
+  time: string;
+  joined?: boolean;
+}
+
+export const NewRoomNotification: React.FC<NewRoomNotificationProps> = ({
+  style,
+  username,
+  userProfileLink,
+  time,
+  joined = false,
+}) => {
+  const icon = <Icon name={"rocket"} size={40} color={colors.text} />;
+
+  const notificationMsg = (
+    <View style={{ flexDirection: "row" }}>
+      <Text style={[styles.textPrimary, { fontFamily: fontFamily.bold }]}>
+        {username}
+        <Text style={styles.textPrimary}> created a room</Text>
+      </Text>
+    </View>
+  );
+
+  const joinButton = (
+    <TouchableOpacity style={styles.button}>
+      <Text style={styles.buttonTitle}>{joined ? "Joined" : "Join room"}</Text>
+    </TouchableOpacity>
+  );
+
+  return (
+    <GenericNotification
+      notificationMsg={notificationMsg}
+      time={time}
+      icon={icon}
+      actionButton={joinButton}
+    />
+  );
+};
+
+const styles = StyleSheet.create({
+  textPrimary: {
+    color: colors.text,
+    fontFamily: fontFamily.medium,
+    fontSize: 14,
+    flex: 1,
+    flexWrap: "wrap",
+  },
+  button: {
+    height: 32,
+    backgroundColor: colors.accent,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 8,
+  },
+  buttonTitle: {
+    fontSize: 12,
+    fontFamily: fontFamily.semiBold,
+    fontWeight: "700",
+    color: colors.text,
+  },
+});
