@@ -103,7 +103,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
       />
       {fullscreenChatOpen ? null : (
         <Backbar>
-          <div className={`flex flex-col justify-center"`}>
+          <div className={`flex flex-col justify-center w-full`}>
             <button
               disabled={!iAmCreator}
               onClick={() => setShowCreateRoomModal(true)}
@@ -112,7 +112,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
               {room.name}
             </button>
             {rocketStatus && (
-              <div className={`flex items-center text-sm`}>
+              <div className={`text-center text-sm`}>
                 {rocketIcon} {rocketStatus} &nbsp;
                 <span className="opacity-50">({timeElapsed})</span>
               </div>
