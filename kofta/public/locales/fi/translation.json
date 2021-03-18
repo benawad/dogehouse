@@ -176,7 +176,8 @@
         "banFromChat": "estä keskustelusta",
         "banFromRoom": "estä huoneesta",
         "goBackToListener": "palaa kuuntelijaksi",
-        "deleteMessage": "poista viesti"
+        "deleteMessage": "poista viesti",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "puhuminen vaatii oikeuden",

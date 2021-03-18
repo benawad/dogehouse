@@ -155,7 +155,8 @@
         "banFromChat": "Sohbetten Yasakla",
         "banFromRoom": "Odadan Yasakla",
         "goBackToListener": "Dinlemeye Geri Dön",
-        "deleteMessage": "Mesajı Sil"
+        "deleteMessage": "Mesajı Sil",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "Konuşmak için izne ihtiyacın var",

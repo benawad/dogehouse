@@ -178,7 +178,8 @@
         "banFromChat": "Banne van de chat",
         "banFromRoom": "Banne van de kamer",
         "goBackToListener": "Gank terug noa loestereer",
-        "deleteMessage": "Disè bericht verwijdere"
+        "deleteMessage": "Disè bericht verwijdere",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "Toesjtimming neudig om te sjpreke",

@@ -175,7 +175,8 @@
         "banFromChat": "αποκλείστε από το τσατ",
         "banFromRoom": "αποκλείστε από το δωμάτιο",
         "goBackToListener": "επιστρέψτε σε κατάσταση ακροατή",
-        "deleteMessage": "διαγράψτε αυτό το μήνυμα"
+        "deleteMessage": "διαγράψτε αυτό το μήνυμα",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "ζητήστε άδεια για να μιλήσετε",
