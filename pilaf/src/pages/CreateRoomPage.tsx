@@ -3,7 +3,7 @@ import { StyleSheet, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { colors, fontFamily } from "../constants/GlobalStyles";
 
-export const FollowingPage: React.FC = () => {
+export const CreateRoomPage: React.FC = () => {
   return (
     <SafeAreaView style={styles.safeAreaView}>
       <Text
@@ -13,7 +13,7 @@ export const FollowingPage: React.FC = () => {
           color: colors.text,
         }}
       >
-        Following Page
+        Create Room Page
       </Text>
     </SafeAreaView>
   );
@@ -21,8 +21,11 @@ export const FollowingPage: React.FC = () => {
 
 const styles = StyleSheet.create({
   safeAreaView: {
-    flex: 1,
+    height: 500,
+    padding: 16,
     justifyContent: "center",
-    backgroundColor: colors.primary900,
+    backgroundColor: colors.primary800,
+    borderTopStartRadius: 8,
+    borderTopEndRadius: 8,
   },
 });
