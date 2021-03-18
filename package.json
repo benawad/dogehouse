@@ -1,4 +1,15 @@
 {
+  "name": "dogehouse",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "kebab",
+      "kibbeh"
+    ],
+    "nohoist": [
+      "**"
+    ]
+  },
   "devDependencies": {
     "@commitlint/cli": "^12.0.1",
     "@commitlint/config-conventional": "^12.0.1",
