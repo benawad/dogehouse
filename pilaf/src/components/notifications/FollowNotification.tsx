@@ -8,39 +8,46 @@ import {
   ImageSourcePropType,
 } from "react-native";
 import { colors, fontFamily, fontSize } from "../../constants/dogeStyle";
-import { SingleUserAvatar } from "../avatars/_singleUserAvatar";
+import { SingleUserAvatar } from "../avatars/SingleUserAvatar";
 import { GenericNotification } from "./GenericNotification";
-import Icon from "react-native-vector-icons/Ionicons";
 
-interface LiveNotificationProps {
+interface FollowNotificationProps {
   style?: ViewStyle;
+  userAvatarSrc: ImageSourcePropType;
   username: string;
   userProfileLink?: string;
   time: string;
-  joined?: boolean;
+  isOnline?: boolean;
+  following?: boolean;
 }
 
-export const LiveNotification: React.FC<LiveNotificationProps> = ({
+export const FollowNotification: React.FC<FollowNotificationProps> = ({
   style,
+  userAvatarSrc,
+  isOnline = false,
   username,
   userProfileLink,
   time,
-  joined = false,
+  following = false,
 }) => {
-  const icon = <Icon name={"alarm"} size={40} color={colors.text} />;
+  const icon = (
+    <SingleUserAvatar src={userAvatarSrc} size="sm" isOnline={isOnline} />
+  );
 
   const notificationMsg = (
     <View style={{ flexDirection: "row" }}>
       <Text style={[styles.textPrimary, { fontFamily: fontFamily.bold }]}>
         {username}
-        <Text style={styles.textPrimary}> is now live!</Text>
+        <Text style={styles.textPrimary}> followed you</Text>
       </Text>
     </View>
   );
 
-  const joinButton = (
+  const followButton = (
     <TouchableOpacity style={styles.button}>
-      <Text style={styles.buttonTitle}>{joined ? "Joined" : "Join room"}</Text>
+      <Text style={styles.buttonTitle}>
+        {following ? "Followed" : "Follow back"}
+      </Text>
     </TouchableOpacity>
   );
 
@@ -49,7 +56,7 @@ export const LiveNotification: React.FC<LiveNotificationProps> = ({
       notificationMsg={notificationMsg}
       time={time}
       icon={icon}
-      actionButton={joinButton}
+      actionButton={followButton}
     />
   );
 };

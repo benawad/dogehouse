@@ -8,46 +8,39 @@ import {
   ImageSourcePropType,
 } from "react-native";
 import { colors, fontFamily, fontSize } from "../../constants/dogeStyle";
-import { SingleUserAvatar } from "../avatars/_singleUserAvatar";
-import { GenericNotification } from "./_genericNotification";
+import { SingleUserAvatar } from "../avatars/SingleUserAvatar";
+import { GenericNotification } from "./GenericNotification";
+import Icon from "react-native-vector-icons/Ionicons";
 
-interface FollowNotificationProps {
+interface LiveNotificationProps {
   style?: ViewStyle;
-  userAvatarSrc: ImageSourcePropType;
   username: string;
   userProfileLink?: string;
   time: string;
-  isOnline?: boolean;
-  following?: boolean;
+  joined?: boolean;
 }
 
-export const FollowNotification: React.FC<FollowNotificationProps> = ({
+export const LiveNotification: React.FC<LiveNotificationProps> = ({
   style,
-  userAvatarSrc,
-  isOnline = false,
   username,
   userProfileLink,
   time,
-  following = false,
+  joined = false,
 }) => {
-  const icon = (
-    <SingleUserAvatar src={userAvatarSrc} size="sm" isOnline={isOnline} />
-  );
+  const icon = <Icon name={"alarm"} size={40} color={colors.text} />;
 
   const notificationMsg = (
     <View style={{ flexDirection: "row" }}>
       <Text style={[styles.textPrimary, { fontFamily: fontFamily.bold }]}>
         {username}
-        <Text style={styles.textPrimary}> followed you</Text>
+        <Text style={styles.textPrimary}> is now live!</Text>
       </Text>
     </View>
   );
 
-  const followButton = (
+  const joinButton = (
     <TouchableOpacity style={styles.button}>
-      <Text style={styles.buttonTitle}>
-        {following ? "Followed" : "Follow back"}
-      </Text>
+      <Text style={styles.buttonTitle}>{joined ? "Joined" : "Join room"}</Text>
     </TouchableOpacity>
   );
 
@@ -56,7 +49,7 @@ export const FollowNotification: React.FC<FollowNotificationProps> = ({
       notificationMsg={notificationMsg}
       time={time}
       icon={icon}
-      actionButton={followButton}
+      actionButton={joinButton}
     />
   );
 };
