@@ -177,7 +177,8 @@
         "banFromChat": "Bandlys fra chatten",
         "banFromRoom": "Bandlys fra rummet",
         "goBackToListener": "Gå tilbage til lytter",
-        "deleteMessage": "Slet denne besked"
+        "deleteMessage": "Slet denne besked",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "kræv tilladelse for at tale",

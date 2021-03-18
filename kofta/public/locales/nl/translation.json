@@ -177,7 +177,8 @@
         "banFromChat": "Verban uit de chat",
         "banFromRoom": "Verban uit de kamer",
         "goBackToListener": "Ga terug naar luisteraar",
-        "deleteMessage": "Verwijder dit bericht"
+        "deleteMessage": "Verwijder dit bericht",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "Toestemming nodig om te spreken",

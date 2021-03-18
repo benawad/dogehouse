@@ -175,7 +175,8 @@
         "banFromChat": "ban from chat",
         "banFromRoom": "ban from cabin",
         "goBackToListener": "go back t' listener",
-        "deleteMessage": "scuttle this message"
+        "deleteMessage": "scuttle this message",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "require permission t' speak",

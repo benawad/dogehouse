@@ -154,7 +154,8 @@
         "banFromChat": "Banir do chat",
         "banFromRoom": "Banir da sala",
         "goBackToListener": "voltar a ouvinte",
-        "deleteMessage": "Apagar mensagem"
+        "deleteMessage": "Apagar mensagem",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "Pedir permissão para falar",
@@ -198,7 +199,7 @@
         "needsFuture": "a data tem de ser posterior",
         "roomName": "nome da sala",
         "minLength": "mínimo de 2 caracteres",
-        "roomDescription": "Description"
+        "roomDescription": "descrição da sala"
       }
     },
     "roomChat": {

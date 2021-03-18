@@ -156,7 +156,8 @@
         "banFromChat": "Im Chat blockieren",
         "banFromRoom": "Aus Raum ausschließen",
         "goBackToListener": "Zurück zum Zuhörer",
-        "deleteMessage": "Nachricht löschen"
+        "deleteMessage": "Nachricht löschen",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Sprechen verlangen",

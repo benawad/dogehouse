@@ -175,7 +175,8 @@
         "banFromChat": "แบนจากแชท",
         "banFromRoom": "แบนจากห้อง",
         "goBackToListener": "กลับไปเป็นผู้ฟัง",
-        "deleteMessage": "ลบข้อความ"
+        "deleteMessage": "ลบข้อความ",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "ต้องใช้สิทธิ์ในการพูด",

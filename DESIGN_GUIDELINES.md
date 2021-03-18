@@ -47,13 +47,13 @@ HTML's `link` method
 
 ```html
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
 ```
 
 CSS/SCSS `@import`
 
 ```css
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap');
 ```
 
 CSS Rules
@@ -62,7 +62,7 @@ CSS Rules
 font-family: 'Inter', sans-serif;
 
 // Regular
-font-weight: 400;
+font-weight: 500;
 
 // Bold
 font-weight: 700;

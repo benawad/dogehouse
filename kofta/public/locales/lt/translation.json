@@ -178,7 +178,8 @@
         "banFromChat": "Užblokuoti iš pokalbio",
         "banFromRoom": "Užblokuoti iš kambario",
         "goBackToListener": "Gražinti atgal į klausytojus",
-        "deleteMessage": "Ištrinti šią žinutę"
+        "deleteMessage": "Ištrinti šią žinutę",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "Reikalingas patvirtinimas kalbėti",
