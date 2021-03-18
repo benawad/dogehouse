@@ -175,7 +175,8 @@
         "banFromChat": "ban dari percakapan",
         "banFromRoom": "ban dari ruangan",
         "goBackToListener": "kembali ke pendengar",
-        "deleteMessage": "hapus pesan ini"
+        "deleteMessage": "hapus pesan ini",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "membutuhkan izin untuk berbicara",

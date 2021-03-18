@@ -119,6 +119,9 @@ function createWindow() {
 }
 
 if (!instanceLock) {
+  if (process.env.hotReload) {
+    app.relaunch();
+  }
   app.quit();
 } else {
   app.on("ready", () => {
@@ -127,6 +130,7 @@ if (!instanceLock) {
   });
   app.on("second-instance", (event, argv, workingDirectory) => {
     if (mainWindow) {
+      if (process.env.hotReload) return mainWindow.close();
       if (mainWindow.isMinimized()) mainWindow.restore();
       mainWindow.focus();
     }

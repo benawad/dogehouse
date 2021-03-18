@@ -154,7 +154,8 @@
         "banFromChat": "expulsar do chat",
         "banFromRoom": "expulsar da sala",
         "goBackToListener": "voltar para ouvinte",
-        "deleteMessage": "excluir essa mensagem"
+        "deleteMessage": "excluir essa mensagem",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "precisar de permissão para falar",

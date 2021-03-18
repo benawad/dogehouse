@@ -177,7 +177,8 @@
         "banFromChat": "Verban uit de chat",
         "banFromRoom": "Verban uit de kamer",
         "goBackToListener": "Ga terug naar luisteraar",
-        "deleteMessage": "Verwijder dit bericht"
+        "deleteMessage": "Verwijder dit bericht",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "Toestemming nodig om te spreken",
@@ -198,7 +199,7 @@
       "modal": {
         "needsFuture": "Moet in de toekomst zijn",
         "roomName": "Kamer naam",
-        "minLength": "Minimale lengte 2 karakters",
+        "minLength": "Naam moet minimaal 2 karakters zijn",
         "roomDescription": "Beschrijving"
       }
     },

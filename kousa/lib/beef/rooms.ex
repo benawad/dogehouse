@@ -19,6 +19,7 @@ defmodule Beef.Rooms do
     to: Beef.Mutations.Rooms
 
   defdelegate join_room(room, user_id), to: Beef.Mutations.Rooms
+  defdelegate change_room_creator(room_id, user_id), to: Beef.Mutations.Rooms
   defdelegate increment_room_people_count(room_id), to: Beef.Mutations.Rooms
   defdelegate increment_room_people_count(room_id, new_people_list), to: Beef.Mutations.Rooms
   defdelegate delete_room_by_id(room_id), to: Beef.Mutations.Rooms

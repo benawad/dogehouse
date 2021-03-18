@@ -1,16 +1,9 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
 import React from "react";
 import { StyleSheet, Alert, Linking } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { InAppBrowser } from "react-native-inappbrowser-reborn";
-import { SigninWithGithubButton } from "../components/buttons/signinWithGithub";
-import { colors } from "../constants/GlobalStyles";
+import { SigninWithGithubButton } from "../components/buttons/SigninWithGithub";
+import { colors } from "../constants/dogeStyle";
 import { useSaveTokensFromQueryParams } from "../module/auth/useSaveTokensFromQueryParams";
 
 const signinWithGithub = async () => {
