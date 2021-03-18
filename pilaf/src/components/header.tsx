@@ -1,9 +1,9 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { colors } from "../constants/GlobalStyles";
-import { SingleUserAvatar } from "./avatars/singleUserAvatar";
-import { IconButton } from "./buttons/iconButton";
+import { colors } from "../constants/dogeStyle";
+import { SingleUserAvatar } from "./avatars/SingleUserAvatar";
+import { IconButton } from "./buttons/IconButton";
 
 export const Header: React.FC = () => {
   return (

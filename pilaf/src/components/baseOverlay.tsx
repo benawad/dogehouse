@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import { colors, fontFamily, fontSize } from "../constants/GlobalStyles";
+import { colors, fontFamily, fontSize } from "../constants/dogeStyle";
 
 interface MultipleUserAvatarProps {
   style?: ViewStyle;

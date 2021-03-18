@@ -6,7 +6,7 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
-import { colors, fontFamily, fontSize } from "../../constants/GlobalStyles";
+import { colors, fontFamily, fontSize } from "../../constants/dogeStyle";
 import Icon from "react-native-vector-icons/Ionicons";
 
 interface GenericNotificationProps {

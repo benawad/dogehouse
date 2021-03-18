@@ -7,9 +7,9 @@ import {
   TouchableOpacity,
   ImageSourcePropType,
 } from "react-native";
-import { colors, fontFamily, fontSize } from "../../constants/GlobalStyles";
-import { SingleUserAvatar } from "../avatars/singleUserAvatar";
-import { GenericNotification } from "./genericNotification";
+import { colors, fontFamily, fontSize } from "../../constants/dogeStyle";
+import { SingleUserAvatar } from "../avatars/SingleUserAvatar";
+import { GenericNotification } from "./GenericNotification";
 import Icon from "react-native-vector-icons/Ionicons";
 
 interface NewRoomNotificationProps {

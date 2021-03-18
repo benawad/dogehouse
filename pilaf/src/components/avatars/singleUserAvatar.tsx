@@ -7,7 +7,7 @@ import {
   Image,
   ImageSourcePropType,
 } from "react-native";
-import { colors } from "../../constants/GlobalStyles";
+import { colors } from "../../constants/dogeStyle";
 
 interface SingleUserAvatarProps {
   style?: StyleProp<ViewStyle>;
