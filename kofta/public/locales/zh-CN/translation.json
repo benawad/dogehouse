@@ -154,7 +154,8 @@
         "banFromChat": "禁止此人使用文字聊天",
         "banFromRoom": "踢出聊天室",
         "goBackToListener": "回到听者",
-        "deleteMessage": "删除此信息"
+        "deleteMessage": "删除此信息",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "需要允许才能说话",

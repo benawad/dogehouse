@@ -19,7 +19,7 @@ export const CircleButton: React.FC<CircleButtonProps> = ({
         width: size,
       }}
       title={title}
-      className={`rounded-full border border-simple-gray-80 bg-simple-gray-2b flex items-center justify-center`}
+      className={`rounded-full border border-simple-gray-80 bg-simple-gray-2b flex items-center justify-center hover:bg-simple-gray-69`}
       onClick={onClick}
     >
       {children}
