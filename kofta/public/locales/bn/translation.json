@@ -178,7 +178,8 @@
         "banFromChat": "চ্যাট থেকে ব্যান করুন",
         "banFromRoom": "রুম থেকে ব্যান করুন",
         "goBackToListener": "শ্রোতাতে ফিরে যান",
-        "deleteMessage": "মেসেজটি মুছে ফেলুন"
+        "deleteMessage": "মেসেজটি মুছে ফেলুন",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "কথা বলার জন্য পারমিশন লাগবে",

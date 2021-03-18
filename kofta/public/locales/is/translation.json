@@ -175,7 +175,8 @@
         "banFromChat": "bann við spjalli",
         "banFromRoom": "bann frá rás",
         "goBackToListener": "farðu aftur til hlustandans",
-        "deleteMessage": "eyða þessum skilaboðum"
+        "deleteMessage": "eyða þessum skilaboðum",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "þurfa leyfi til að tala",

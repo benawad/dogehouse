@@ -179,7 +179,8 @@
         "banFromChat": "заблокувати в цьому чаті",
         "banFromRoom": "заблокувати в цій кімнаті",
         "goBackToListener": "повернутися у статус слухача",
-        "deleteMessage": "видалити це повідомлення"
+        "deleteMessage": "видалити це повідомлення",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "запитувати дозвіл говорити",

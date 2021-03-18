@@ -153,7 +153,8 @@
         "banFromChat": "kitiltás a chatről",
         "banFromRoom": "kitiltás a szobából",
         "goBackToListener": "visszalépés hallgatóvá",
-        "deleteMessage": "üzenet törlése"
+        "deleteMessage": "üzenet törlése",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "beszélői engedélyre van szükség ",
