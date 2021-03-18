@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary900,
     flexDirection: "row",
     padding: 16,
-    paddingTop: 0,
+    paddingTop: 16,
   },
   leftContainer: {},
   rightContainer: {
