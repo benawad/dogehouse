@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Feed should match snapshot 1`] = `
+<div
+  class="flex-1 flex-col"
+  data-testid="feed"
+>
+  <div
+    class="justify-between items-end mb-5"
+  >
+    <h4
+      class="text-primary-100 mb-auto"
+    >
+      Your feed
+    </h4>
+    <button
+      class="py-2 px-6 text-sm rounded-lg text-button bg-accent hover:bg-accent-hover disabled:text-accent-disabled disabled:bg-accent-hover font-bold flex items-center justify-center "
+      data-testid="button"
+    >
+      <span
+        class="flex items-center"
+      >
+        New Room
+      </span>
+    </button>
+  </div>
+  <div
+    class="flex-col space-y-4"
+  >
+    <div>
+      Empty
+    </div>
+  </div>
+</div>
+`;
