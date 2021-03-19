@@ -6,7 +6,7 @@ on:
       - main
       - dev
     paths:
-      - "kofta/**"
+      - "kofta/src/**"
     types:
       - closed
 
