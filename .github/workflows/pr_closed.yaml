@@ -1,6 +1,6 @@
 name: Delete Preview Build
 on:
-  pull_request:
+  pull_request_target:
     branches:
       - staging
       - main
@@ -14,9 +14,13 @@ jobs:
   cleanup:
     name: Clean up
     runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'safe to deploy')
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
+        with:
+          ref: ${{github.event.pull_request.head.ref}}
+          repository: ${{github.event.pull_request.head.repo.full_name}}
 
       - name: Delete worker
         run: |

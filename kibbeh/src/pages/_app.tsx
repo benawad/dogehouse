@@ -6,6 +6,12 @@ import { ToastContainer } from "react-toastify";
 import { WebSocketProvider } from "../modules/ws/WebSocketProvider";
 import { PageComponent } from "../types/PageComponent";
 import { queryClient } from "../lib/queryClient";
+import { isServer } from "../lib/isServer";
+import { init_i18n } from "../lib/i18n";
+
+if (!isServer) {
+  init_i18n();
+}
 
 function App({ Component, pageProps }: AppProps) {
   return (

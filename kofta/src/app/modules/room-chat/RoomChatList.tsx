@@ -65,10 +65,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
         .slice()
         .reverse()
         .map((m) => (
-          <div
-            className="flex flex-col flex-shrink-0"
-            key={m.id}
-          >
+          <div className="flex flex-col flex-shrink-0" key={m.id}>
             {/* Whisper label */}
             {m.isWhisper ? (
               <p className="mb-0 text-xs text-gray-400 px-2 bg-simple-gray-3a w-16 rounded-t mt-1 text-center">
@@ -105,7 +102,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                   className={`hover:underline focus:outline-none`}
                   style={{ textDecorationColor: m.color, color: m.color }}
                 >
-                  {m.displayName}
+                  {m.username}
                 </button>
 
                 <span className={`mr-1`}>: </span>

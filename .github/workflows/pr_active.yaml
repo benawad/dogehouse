@@ -1,6 +1,6 @@
 name: Preview Build
 on:
-  pull_request:
+  pull_request_target:
     branches:
       - staging
       - main
@@ -8,22 +8,19 @@ on:
     paths:
       - "kofta/src/**"
     types:
-      - opened
-      - reopened
-      - synchronize
+      - labeled
 
 jobs:
   build:
     name: Build & Deploy
     runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'safe to deploy')
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v2
-
-      - name: Calculate env variables
-        run: |
-          PRNUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
-          echo "PRNUMBER=$PRNUMBER" >> $GITHUB_ENV
+        with:
+          ref: ${{github.event.pull_request.head.ref}}
+          repository: ${{github.event.pull_request.head.repo.full_name}}
 
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v1
@@ -43,17 +40,17 @@ jobs:
         env:
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
           CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
+          PRNUMBER: ${{ github.event.pull_request.number }}
         run: |
           git clone https://github.com/cloudflare/worker-sites-template
           mv worker-sites-template/workers-site .
           cat << EOF > wrangler.toml
-          name = "dogehouse-pr-${{ env.PRNUMBER }}"
+          name = "dogehouse-pr-$PRNUMBER"
           type = "webpack"
           account_id = "$CF_ACCOUNT_ID"
           workers_dev = true
           route = ""
           zone_id = "$CF_ZONE_ID"
-
           [site]
           bucket = "./build"
           EOF
@@ -66,8 +63,8 @@ jobs:
 
       - name: Comment on PR
         uses: unsplash/comment-on-pr@master
-        if: github.event.action == 'opened'
         env:
           GITHUB_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
+          PRNUMBER: ${{ github.event.pull_request.number }}
         with:
-          msg: "Preview version deployed at https://dogehouse-pr-${{ env.PRNUMBER }}.${{ secrets.CF_BASE_URL }}.workers.dev! The preview version will be updated as new commits are added"
+          msg: "Preview version deployed at https://dogehouse-pr-$PRNUMBER.${{ secrets.CF_BASE_URL }}.workers.dev! The preview version will be updated as new commits are added"

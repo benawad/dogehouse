@@ -37,10 +37,7 @@
       "startPrivateRoom": "Einen privaten Raum mit diesem Benutzer starten"
     },
     "followList": {},
-    "home": {
-      "createRoom": "Raum erstellen",
-      "refresh": "Aktualisieren"
-    },
+    "home": { "createRoom": "Raum erstellen", "refresh": "Aktualisieren" },
     "inviteList": {
       "roomGone": "Raum konnte nicht gefunden werden! Zurück",
       "shareRoomLink": "Link zum Raum teilen",
@@ -83,7 +80,9 @@
       "editProfile": "Profil bearbeiten",
       "followsYou": "folgt dir",
       "following": "Abonniert",
-      "followers": "Abonnenten"
+      "followers": "Abonnenten",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Spracheinstellungen",
