@@ -213,16 +213,16 @@
       "roomDescription": "תיאור החדר"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "fuelingRocket": "מטדלק את הרקטה",
+      "takingOff": "ממריא",
+      "inSpace": "בחלל",
+      "approachingMoon": "מתקרב לירח",
+      "lunarDoge": "ירח doge",
+      "approachingSun": "מתקרב לשמש",
+      "solarDoge": "שמש doge",
+      "approachingGalaxy": "מתקרב לגלקסיה",
+      "galacticDoge": "גלקטי Doge",
+      "spottedLife": "כוכב לכת עם חיים נמצא"
     }
   }
 }

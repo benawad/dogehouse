@@ -36,7 +36,10 @@
       "startPrivateRoom": "skapa ett privat rum med dem"
     },
     "followList": {},
-    "home": { "createRoom": "Skapa Rum", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "Skapa Rum",
+      "refresh": "Uppdatera"
+    },
     "inviteList": {
       "roomGone": "rummet försvann under månförmörkelsen, gå tillbaka",
       "shareRoomLink": "dela länk till rummet",
@@ -166,7 +169,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "ingen ljudanvändare av någon anledning"
     },
-    "addToCalendar": { "add": "Spara i kalender" },
+    "addToCalendar": {
+      "add": "Spara i kalender"
+    },
     "deviceNotSupported": {
       "notSupported": "Din enhet stöds inte. Du kan skapa en",
       "linkText": "fråga på GitHub",
