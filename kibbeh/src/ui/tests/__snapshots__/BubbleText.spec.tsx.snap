@@ -11,3 +11,15 @@ exports[`BubbleTest should match snapshot 1`] = `
   Child
 </div>
 `;
+
+exports[`BubbleText should match snapshot 1`] = `
+<div
+  class="text-primary-200 font-bold items-center"
+  data-testid="bubble-text"
+>
+  <div
+    class="inline-block mr-2 w-2 h-2 rounded-full bg-primary-300"
+  />
+  Child
+</div>
+`;

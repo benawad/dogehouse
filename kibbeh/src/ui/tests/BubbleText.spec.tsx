@@ -3,7 +3,7 @@ import React from "react";
 import { render } from "../../../test-utils";
 import { BubbleText } from "../BubbleText";
 
-describe("BubbleTest", () => {
+describe("BubbleText", () => {
   it("should render correctly", () => {
     const { getByTestId, getByText } = render(<BubbleText>Child</BubbleText>);
     const component = getByTestId("bubble-text");
