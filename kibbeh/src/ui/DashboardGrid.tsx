@@ -20,7 +20,10 @@ export const DashboardInnerGrid: React.FC<DashboardGridProps> = ({
 
 export const DashboardGrid: React.FC<DashboardGridProps> = ({ children }) => {
   return (
-    <div className={`flex justify-center w-full min-h-screen bg-primary-900`}>
+    <div
+      className={`flex justify-center w-full min-h-screen bg-primary-900`}
+      data-testid="dashboard-grid"
+    >
       <DashboardInnerGrid>{children}</DashboardInnerGrid>
     </div>
   );
