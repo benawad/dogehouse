@@ -457,6 +457,18 @@ export const customEmojis = [
     keywords: ["meme", "spongebob"],
     imageUrl: "/emotes/sPonGeBoB.png",
   },
+  {
+    name: "peepohappy",
+    short_names: ["peepohappy"],
+    keywords: ["peepohappy", "peepo", "pepe"],
+    imageUrl: "/emotes/peepohappy.png",
+  },
+  {
+    name: "peepohug",
+    short_names: ["peepohug"],
+    keywords: ["peepohug", "peepo", "pepe"],
+    imageUrl: "/emotes/peepohug.png",
+  },
 ].map((e) => ({ ...e, customCategory: "Custom", text: "", emoticons: [] }));
 
 export const emoteMap: Record<string, string> = {};
