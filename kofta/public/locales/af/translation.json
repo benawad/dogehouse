@@ -36,7 +36,7 @@
       "currentRoom": "tans in:",
       "startPrivateRoom": "Begin 'n private kamer saam met hulle"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Skep Kamer", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "kamer verwyder, gaan terug",
@@ -79,7 +79,9 @@
       "editProfile": "wysig profiel",
       "followsYou": "volg jou",
       "followers": "volgelinge",
-      "following": "volg"
+      "following": "volg",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Stem instellings",

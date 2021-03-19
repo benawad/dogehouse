@@ -36,7 +36,7 @@
       "currentRoom": "Deocamdată în:",
       "startPrivateRoom": "Începe o cameră privată cu ei"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Creează cameră", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "Camera a dispărut, du-te înapoi",
@@ -79,7 +79,9 @@
       "editProfile": "Editează profil",
       "followsYou": "Te urmărește",
       "followers": "Urmăritori",
-      "following": "Urmărește"
+      "following": "Urmărește",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Sunete Voce",
