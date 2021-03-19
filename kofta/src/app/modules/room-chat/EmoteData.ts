@@ -85,6 +85,7 @@ export const customEmojis = [
 		keywords: ["dank", "feelsdankman"],
 		imageUrl: "/emotes/waytoodank.gif",
 	},
+  {
 		name: "CryptoBTC",
 		short_names: ["CryptoBTC"],
 		keywords: ["crypto", "btc", "bitcoin"],
