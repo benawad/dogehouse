@@ -89,7 +89,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
         {({ setFieldValue, values, isSubmitting }) => (
           <Form className={`grid grid-cols-3 gap-4 focus:outline-none`}>
             <div className={`col-span-3 block`}>
-              <h3 className={`mb-2 text-3xl text-primary-100`}>Create Room</h3>
+              <h3 className={`mb-2 text-3xl text-primary-100`}>{t("pages.home.createRoom")}</h3>
               <p className={`text-primary-300`}>
                 Fill the following fields to start a new room
               </p>
