@@ -418,14 +418,13 @@ export const useMainWsHandler = () => {
       },
 
       // ! This won't work for some reason.
-      you_joined_waiting_room: () => {
+      you_joined_waiting_room: (d) => {
         toast("You're in the waiting room! The host will let you in soon", {
           type: "info",
         });
       },
 
       someone_joined_waiting_room: (value) => {
-        // ! Make this a modal so that the host can admin the user
         //toast(`${d.displayName} is in the waiting room`, { type: "info" });
         invitedToRoomConfirm(value, history);
       },

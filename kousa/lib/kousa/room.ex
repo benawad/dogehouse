@@ -319,21 +319,24 @@ defmodule Kousa.Room do
             }
           }}
        )
-      Onion.UserSession.send_cast(
-         user.id,
+      
+            Onion.UserSession.send_cast(
+         user_id,
          {:send_ws_msg, :vscode,
           %{
-            op: "you_joined_waiting_room",
+            op: "someone_joined_waiting_room",
             d: %{
               displayName: user.displayName,
-            username: user.username,
-            avatarUrl: user.avatarUrl,
-            userId: user.id,
-            type: "you_joined_waiting_room",
-            roomId: room.id
-          }
+              username: user.username,
+              avatarUrl: user.avatarUrl,
+              userId: user.id,
+              type: "someone_joined_waiting_room",
+              roomId: room.id,
+              roomName: room.name
+            }
           }}
        )
+      {:ok}
   end
 
   def join_room(user_id, room_id) do
