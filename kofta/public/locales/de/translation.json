@@ -79,7 +79,9 @@
       "editProfile": "Profil bearbeiten",
       "followsYou": "folgt dir",
       "following": "Abonniert",
-      "followers": "Abonnenten"
+      "followers": "Abonnenten",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Spracheinstellungen",

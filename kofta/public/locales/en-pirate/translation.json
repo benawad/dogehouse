@@ -10,7 +10,7 @@
     "cancel": "cancel",
     "save": "save",
     "edit": "edit",
-    "delete": "delete",
+    "delete": "Blow The Man Down!",
     "joinRoom": "join cabin",
     "copyLink": "copy link",
     "copied": "copied",
@@ -36,7 +36,7 @@
       "currentRoom": "currently in:",
       "startPrivateRoom": "start a private cabin wit' 'em"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Create Cabin", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "cabin gone, go back",
@@ -45,7 +45,7 @@
       "whenFollowersOnline": "When yer scallywags are online, they will show up here."
     },
     "login": {
-      "headerText": "Takin' voice natters t' the moon 🚀",
+      "headerText": "Takin' voice natters t' the open sea 🌊",
       "featureText_1": "Dark Theme",
       "featureText_2": "Open Sign-Ups",
       "featureText_3": "Cross-Platform Support",
@@ -57,29 +57,31 @@
       "createTestUser": "create test user"
     },
     "myProfile": {
-      "logout": "logout",
+      "logout": "Walk the plank!",
       "probablyLoading": "prolly loadin'...",
       "voiceSettings": "go t' voice settings",
       "soundSettings": "go t' sound settings",
-      "deleteAccount": "scuttle account"
+      "deleteAccount": "Cleave Him to the Brisket!"
     },
     "notFound": {
       "whoopsError": "Blast ye! This page got lost in natter.",
       "goHomeMessage": "Nah t' worry. Ye can",
-      "goHomeLinkText": "go home"
+      "goHomeLinkText": "Davy Jones' Locker"
     },
     "room": {
-      "speakers": "Speakers",
+      "speakers": "Crew",
       "requestingToSpeak": "Requestin' t' speak",
-      "listeners": "Listeners"
+      "listeners": "Shipmates
     },
     "searchUser": { "search": "searchin' fer booty..." },
     "soundEffectSettings": { "header": "Sounds" },
     "viewUser": {
-      "editProfile": "edit profile",
+      "editProfile": "avast ye profile",
       "followsYou": "follows you",
       "followers": "scallywags",
-      "following": "following"
+      "following": "hearties",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Voice Settings",
@@ -96,7 +98,7 @@
     "blockedFromRoomUsers": {
       "header": "Banned Users",
       "unban": "unban",
-      "noBans": "no one has been banned yet"
+      "noBans": "no one has walked the plank yet"
     },
     "bottomVoiceControl": {
       "leaveCurrentRoomBtn": "Leave current cabin",
@@ -170,11 +172,11 @@
         "blockUser": "block user",
         "makeMod": "make mod",
         "unmod": "unmod",
-        "addAsSpeaker": "add as speaker",
-        "moveToListener": "move t' listener",
+        "addAsSpeaker": "add as crew",
+        "moveToListener": "move t' shipmate",
         "banFromChat": "ban from chat",
         "banFromRoom": "ban from cabin",
-        "goBackToListener": "go back t' listener",
+        "goBackToListener": "go back t' shipmate",
         "deleteMessage": "scuttle this message",
         "makeRoomCreator": "make cabin cap'n"
       },

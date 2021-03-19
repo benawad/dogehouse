@@ -35,7 +35,7 @@
       "currentRoom": "目前的房間:",
       "startPrivateRoom": "開啟私人房間"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "新增房間", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "房間已被删除，請回到前一頁",
@@ -78,7 +78,9 @@
       "editProfile": "編輯個人主頁",
       "followsYou": "正在追蹤你",
       "followers": "追蹤者們",
-      "following": "你正在追蹤"
+      "following": "你正在追蹤",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "語音設定",

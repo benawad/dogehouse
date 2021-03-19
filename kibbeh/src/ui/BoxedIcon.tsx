@@ -10,6 +10,7 @@ export const BoxedIcon: React.FC<HTMLAttributes<HTMLElement>> = ({
     <div
       className={`bg-primary-700 hover:bg-primary-600 h-6 w-6 cursor-pointer text-primary-100 justify-center items-center rounded
         ${className}`}
+      data-testid="boxed-icon"
       {...props}
     >
       {children}

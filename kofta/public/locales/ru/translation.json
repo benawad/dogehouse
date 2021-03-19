@@ -36,7 +36,7 @@
       "currentRoom": "сейчас в :",
       "startPrivateRoom": "создать с ними закрытую комнату"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Создать комнату", "refresh": "Обновить" },
     "inviteList": {
       "roomGone": "Комната исчезла, вернитесь назад",
@@ -79,7 +79,9 @@
       "editProfile": "редактировать профиль",
       "followsYou": "подписаны на вас",
       "followers": "подписчиков",
-      "following": "подписан на"
+      "following": "подписан на",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Голосовые настройки",

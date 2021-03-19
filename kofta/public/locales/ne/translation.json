@@ -35,7 +35,7 @@
       "currentRoom": "अहिले हुनुहुन्छ:",
       "startPrivateRoom": "यीनीहरू संग एक प्राइवेट रूम शुरू गर्नुहोस्"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "रूम बनाउनुहोस", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "रूम गयो, पछाडि जानुहोस्",
@@ -78,7 +78,9 @@
       "editProfile": "प्रोफाइल सम्पादन गर्नुहोस",
       "followsYou": "follows you",
       "followers": "फॉलोअर्स",
-      "following": "फॉलोइंग"
+      "following": "फॉलोइंग",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "वॉइस सेटिंग्स",

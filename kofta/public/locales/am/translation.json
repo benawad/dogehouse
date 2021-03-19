@@ -79,7 +79,9 @@
       "editProfile": "መገለጫ ቀይር",
       "followsYou": "እርስዎን ይከተላል",
       "followers": "ተከታዮች",
-      "following": "የሚከተሉት"
+      "following": "የሚከተሉት",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "የድምፅ ቅንብሮች",

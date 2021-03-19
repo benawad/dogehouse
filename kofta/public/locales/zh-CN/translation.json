@@ -35,7 +35,7 @@
       "currentRoom": "所在的聊天室:",
       "startPrivateRoom": "跟ta进入私人聊天室"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "新建聊天室", "refresh": "刷新" },
     "inviteList": {
       "roomGone": "聊天室以被删除，请回到前一页",
@@ -78,7 +78,9 @@
       "editProfile": "编辑个人主页",
       "followsYou": "关注您的人",
       "followers": "关注者",
-      "following": "您关注的人"
+      "following": "您关注的人",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "语音设置",

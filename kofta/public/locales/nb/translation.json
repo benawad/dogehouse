@@ -35,7 +35,7 @@
       "currentRoom": "for tiden i:",
       "startPrivateRoom": "start et privat rom med dem"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Lag et rom", "refresh": "Last inn på nytt" },
     "inviteList": {
       "roomGone": "rommet er borte, gå tilbake",
@@ -78,7 +78,9 @@
       "editProfile": "rediger profil",
       "followsYou": "følger deg",
       "followers": "følgere",
-      "following": "følger"
+      "following": "følger",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Taleinnstillinger",
@@ -224,9 +226,9 @@
       "lunarDoge": "Måne-doge",
       "approachingSun": "Nærmer seg solen",
       "solarDoge": "Sol-doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "approachingGalaxy": "Nærme galaksen",
+      "galacticDoge": "Galaktisk Doge",
+      "spottedLife": "Fikk øye på en planet med liv"
     }
   }
 }

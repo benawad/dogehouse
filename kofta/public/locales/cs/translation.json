@@ -79,7 +79,9 @@
       "editProfile": "Pozměnit profil",
       "followsYou": "Sleduje tě.",
       "followers": "Sledující",
-      "following": "Sleduje"
+      "following": "Sleduje",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Nastavení hlasu",

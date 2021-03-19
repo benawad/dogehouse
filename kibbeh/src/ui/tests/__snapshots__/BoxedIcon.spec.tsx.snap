@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BoxedIcon BoxedIcon should match snapshot 1`] = `
+<div
+  class="bg-primary-700 hover:bg-primary-600 h-6 w-6 cursor-pointer text-primary-100 justify-center items-center rounded
+        "
+  data-testid="boxed-icon"
+/>
+`;
