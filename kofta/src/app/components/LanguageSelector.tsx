@@ -18,6 +18,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "bg", label: "🇧🇬 Български" }, // Bulgarian
     { value: "bn", label: "🇧🇩 বাংলা" }, // Bengali
     { value: "cs", label: "🇨🇿 Čeština" }, // Czech
+    { value: "hr", label: "🇭🇷 Hrvatski"}, // Croatian                                                                                                                                                                                         
     { value: "da", label: "🇩🇰 Dansk" }, // Danish
     { value: "de", label: "🇩🇪 Deutsch" }, // German
     { value: "el-GR", label: "🇬🇷 ελληνικά" },
