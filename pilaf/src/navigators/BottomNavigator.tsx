@@ -4,9 +4,10 @@ import { DashboardPage } from "../pages/DashboardPage";
 import { ProfilePage } from "../pages/ProfilePage";
 import { SchedulePage } from "../pages/SchedulePage";
 import { FollowingPage } from "../pages/FollowingPage";
-import { colors } from "../constants/GlobalStyles";
+import { colors } from "../constants/dogeStyle";
 import Icon from "react-native-vector-icons/Ionicons";
-import { CreateRoomButton } from "../components/bottomBar/createRoomButton";
+import { CreateRoomButton } from "../components/bottomBar/CreateRoomButton";
+import { ExplorePage } from "../pages/ExplorePage";
 const Tab = createBottomTabNavigator();
 
 const EmptyComponent: React.FC = () => {
@@ -26,8 +27,8 @@ export const BottomNavigator: React.FC = () => {
               iconName = "calendar";
             } else if (route.name === "Following") {
               iconName = "people";
-            } else if (route.name === "Profile") {
-              iconName = "settings";
+            } else if (route.name === "Explore") {
+              iconName = "compass";
             }
             return <Icon name={iconName} size={size} color={color} />;
           },
@@ -51,8 +52,8 @@ export const BottomNavigator: React.FC = () => {
           component={EmptyComponent}
           options={{ tabBarButton: (props) => <CreateRoomButton {...props} /> }}
         />
+        <Tab.Screen name="Explore" component={ExplorePage} />
         <Tab.Screen name="Following" component={FollowingPage} />
-        <Tab.Screen name="Profile" component={ProfilePage} />
       </Tab.Navigator>
     </>
   );
