@@ -80,6 +80,11 @@ export const customEmojis = [
 		imageUrl: "/emotes/neutralhouse.png",
 	},
 	{
+		name: "WAYTOODANK",
+		short_names: ["WAYTOODANK"],
+		keywords: ["dank", "feelsdankman"],
+		imageUrl: "/emotes/waytoodank.gif",
+	},
 		name: "CryptoBTC",
 		short_names: ["CryptoBTC"],
 		keywords: ["crypto", "btc", "bitcoin"],
