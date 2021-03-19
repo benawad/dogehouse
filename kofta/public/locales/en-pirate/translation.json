@@ -61,7 +61,8 @@
       "probablyLoading": "prolly loadin'...",
       "voiceSettings": "go t' voice settings",
       "soundSettings": "go t' sound settings",
-      "deleteAccount": "scuttle account"
+      "deleteAccount": "scuttle account",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Blast ye! This page got lost in natter.",
@@ -87,6 +88,10 @@
       "permissionError": "no mics found, ye either 'ave none plugged in or haven't given this website permission.",
       "refresh": "refresh mic list",
       "volume": "volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -128,7 +133,8 @@
       "setKeybind": "set keybind",
       "listening": "listening",
       "toggleMuteKeybind": "toggle mute keybind",
-      "togglePushToTalkKeybind": "toggle push-t'-natter keybind"
+      "togglePushToTalkKeybind": "toggle push-t'-natter keybind",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "no audio consumer fer some reason"

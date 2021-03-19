@@ -59,7 +59,8 @@
       "probablyLoading": "probablemente cargando...",
       "voiceSettings": "ir a ajustes de voz",
       "soundSettings": "ir a ajustes de sonido",
-      "deleteAccount": "eliminar cuenta"
+      "deleteAccount": "eliminar cuenta",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "¡Ups! Esta página se perdió en una conversación.",
@@ -85,6 +86,10 @@
       "permissionError": "no se encontraron micrófonos, puede que no se encuentre conectado o no se ha otorgado permiso al sitio web.",
       "refresh": "recargar lista de micrófonos",
       "volume": "volumen:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -170,7 +175,8 @@
       "setKeybind": "configurar combinación de teclas",
       "listening": "escuchando",
       "toggleMuteKeybind": "Encender/apagar combinación de teclas para silenciar",
-      "togglePushToTalkKeybind": "Encender/apagar combinación de teclas para tocar-para-hablar"
+      "togglePushToTalkKeybind": "Encender/apagar combinación de teclas para tocar-para-hablar",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "wsKilled": {
       "description": "El Websocket fue eliminado por el servidor. Esto suele suceder cuando abre el sitio web en otra pestaña.",

@@ -61,7 +61,8 @@
       "probablyLoading": "hleður...(líklega)",
       "voiceSettings": "farðu í raddstillingar",
       "soundSettings": "farðu í hljóðstillingar",
-      "deleteAccount": "eyða reikningi"
+      "deleteAccount": "eyða reikningi",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Úps! Þessi síða týndist í samtali.",
@@ -87,6 +88,10 @@
       "permissionError": "engir hljóðnemar fundust, kannski hefurðu það ekki tengt eða hefur ekki gefið leyfi til að nota það.",
       "refresh": "endurnýja hljóðnemalistann",
       "volume": "hljóðstyrkur:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -128,7 +133,8 @@
       "setKeybind": "stilltu lyklabindingu",
       "listening": "er að hlusta",
       "toggleMuteKeybind": "slökkva á hljóðþjöppun",
-      "togglePushToTalkKeybind": "slökkva á 'Ýttu til að tala'"
+      "togglePushToTalkKeybind": "slökkva á 'Ýttu til að tala'",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "enginn hljóðnotandi af einhverjum ástæðum"

@@ -16,6 +16,8 @@ import { InviteList } from "./pages/InviteList";
 import { Login } from "./pages/Login";
 import { MyProfilePage } from "./pages/MyProfilePage";
 import { NotFoundPage } from "./pages/NotFoundPage";
+import { OverlayPage } from "./pages/OverlayPage";
+import { OverlaySettingsPage } from "./pages/OverlaySettingsPage";
 import { RoomPage } from "./pages/RoomPage";
 import { SearchUsersPage } from "./pages/SearchUsersPage";
 import { SoundEffectSettingsPage } from "./pages/SoundEffectSettingsPage";
@@ -24,7 +26,7 @@ import { VoiceSettingsPage } from "./pages/VoiceSettingsPage";
 import { useMainWsHandler } from "./useMainWsHandler";
 import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
 import { useTokenStore } from "./utils/useTokenStore";
-interface RoutesProps {}
+interface RoutesProps { }
 
 export const Routes: React.FC<RoutesProps> = () => {
   const authIsGood = useSocketStatus((s) => s.status === "auth-good");
@@ -92,6 +94,7 @@ export const Routes: React.FC<RoutesProps> = () => {
               component={ScheduledRoomsPage}
             />
             <Route exact path="/room/:id" component={RoomPage} />
+            <Route exact path="/overlay/:id" component={OverlayPage} />
             <Route
               exact
               path={["/user", "/user/:username"]}
@@ -102,6 +105,7 @@ export const Routes: React.FC<RoutesProps> = () => {
             <Route exact path="/search/users" component={SearchUsersPage} />
             <Route exact path="/ban/users" component={BanUsersPage} />
             <Route exact path="/voice-settings" component={VoiceSettingsPage} />
+            <Route exact path="/overlay-settings" component={OverlaySettingsPage} />
             <Route
               exact
               path="/sound-effect-settings"

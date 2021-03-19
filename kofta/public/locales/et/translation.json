@@ -61,7 +61,8 @@
       "probablyLoading": "ilmselt laeb...",
       "voiceSettings": "mine hääleseadetesse",
       "soundSettings": "mine heliseadetesse",
-      "deleteAccount": "kustuta konto"
+      "deleteAccount": "kustuta konto",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Oih! See leht läks vestluses kaduma.",
@@ -87,6 +88,10 @@
       "permissionError": "ühtegi mikrofoni ei leitud, sul pole ühtegi mikrofoni ühendatud või pole veebilehele õigust andnud.",
       "refresh": "värskenda mikrofoni loendit",
       "volume": "helitugevus:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -128,7 +133,8 @@
       "setKeybind": "määra klahvistik",
       "listening": "kuulab",
       "toggleMuteKeybind": "vaigistamise klahvistik",
-      "togglePushToTalkKeybind": "push-to-talk klahvistik"
+      "togglePushToTalkKeybind": "push-to-talk klahvistik",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "pole ühtegi audiotarbijat mingil põhjusel"

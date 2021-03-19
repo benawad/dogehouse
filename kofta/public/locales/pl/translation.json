@@ -61,7 +61,8 @@
       "probablyLoading": "prawdobodobnie ładowanie...",
       "voiceSettings": "przejdź do ustawień głosu",
       "soundSettings": "przejdź do ustawień dzięku",
-      "deleteAccount": "usuń konto"
+      "deleteAccount": "usuń konto",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Whoops! Ta strona zagubiła się w konwersacji.",
@@ -87,6 +88,10 @@
       "permissionError": "nie znaleziono mikrofonów, nie masz go podłączonego lub nie dałeś pozwolenia tej stronie.",
       "refresh": "odśwież listę mikrofonów",
       "volume": "głośność:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -131,7 +136,8 @@
       "setKeybind": "ustaw skrót klawiszowy",
       "listening": "słuchanie",
       "toggleMuteKeybind": "przełącz skrót klawiszowy od wyciszania",
-      "togglePushToTalkKeybind": "przełącz keybind push-to-talk"
+      "togglePushToTalkKeybind": "przełącz keybind push-to-talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "brak konsumenta dźwięku z jakiegoś powodu"

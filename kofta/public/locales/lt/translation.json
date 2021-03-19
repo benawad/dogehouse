@@ -61,7 +61,8 @@
       "probablyLoading": "Tikriausiai kraunasi...",
       "voiceSettings": "Eiti į balso nustatymus",
       "soundSettings": "Eiti į garso nustatymus",
-      "deleteAccount": "Ištrinti vartotoją"
+      "deleteAccount": "Ištrinti vartotoją",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Uppss! Šis puslapis buvo prarastas pokalbyje",
@@ -87,6 +88,10 @@
       "permissionError": "nerasta mikrofonų, jūs arba neprijungėte tinklo, arba nedavėte šiai svetainei leidimo.",
       "refresh": "Atnaujinti mikrofonų sąrašą",
       "volume": "Garsas:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -131,7 +136,8 @@
       "setKeybind": "nustatyti klavišą",
       "listening": "Klausomasi",
       "toggleMuteKeybind": "perjungti nutildytą klavišą",
-      "togglePushToTalkKeybind": "perjungti tiesioginio ryšio klavišą"
+      "togglePushToTalkKeybind": "perjungti tiesioginio ryšio klavišą",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "dėl kokių nors priežasčių nėra garso vartotojo"

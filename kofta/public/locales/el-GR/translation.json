@@ -60,7 +60,8 @@
       "probablyLoading": "λογικά φορτώνει...",
       "voiceSettings": "πηγαίνετε στις ρυθμίσεις φωνής",
       "soundSettings": "πηγαίνετε στις ρυθμίσεις ήχου",
-      "deleteAccount": "διαγραφή λογαριασμού"
+      "deleteAccount": "διαγραφή λογαριασμού",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Ουπς! Αυτή η σελίδα δεν βρέθηκε.",
@@ -86,6 +87,10 @@
       "permissionError": "δεν βρέθηκε μικρόφωνο, είτε δεν έχετε κανένα συνδεδεμένο είτε δεν έχετε δώσει άδεια στην παρούσα ιστοσελίδα.",
       "refresh": "ανανέωση λίστας μικροφώνων",
       "volume": "ένταση ήχου:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -130,7 +135,8 @@
       "setKeybind": "θέστε μια συντόμευση",
       "listening": "αναμονή",
       "toggleMuteKeybind": "αλλαγή συντόμευσης σίγασης",
-      "togglePushToTalkKeybind": "αλλαγή συντόμευσης για push-to-talk"
+      "togglePushToTalkKeybind": "αλλαγή συντόμευσης για push-to-talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "δεν υπάρχει εξαγωγή ήχου" },
     "addToCalendar": { "add": "Προσθήκη στο Ημερολόγιο" },

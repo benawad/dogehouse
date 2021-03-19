@@ -50,7 +50,10 @@
         },
         "win": {
             "icon": "icons/icon.png",
-            "target": "msi"
+            "target": "msi",
+            "publish": [
+                "github"
+            ]
         },
         "linux": {
             "icon": "icons/icon.png",

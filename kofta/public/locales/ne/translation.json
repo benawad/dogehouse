@@ -60,7 +60,8 @@
       "probablyLoading": "सायद लोड हुँदैछ ...",
       "voiceSettings": "वॉइस सेटिंग्समा जानुहोस्",
       "soundSettings": "साउंड सेटिंग्समा जानुहोस्",
-      "deleteAccount": "खाता मेटाउनुहोस्"
+      "deleteAccount": "खाता मेटाउनुहोस्",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "ओहो ! यो पृष्ठ त कुराकानीमै हरायो।.",
@@ -86,6 +87,10 @@
       "permissionError": "कुनै माईक फेला परेन, तपाईंले या त यस वेबसाइटलाई अनुमति दिनुभएन वा माइकमा प्लग इन गर्न बिर्सनुभयो।",
       "refresh": "रिफ्रेश माइक लिस्ट",
       "volume": "भोल्युम:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -130,7 +135,8 @@
       "setKeybind": "कीबाइंड सेट गर्नुहोस्",
       "listening": "सुन्दै",
       "toggleMuteKeybind": "टॉगल म्यूट कीबाइंड",
-      "togglePushToTalkKeybind": "टॉगल push-to-talk कीबाइंड"
+      "togglePushToTalkKeybind": "टॉगल push-to-talk कीबाइंड",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "कुनै कारणका लागि कुनै अडियो उपभोक्ता छैन"

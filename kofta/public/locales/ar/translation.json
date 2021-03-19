@@ -61,7 +61,8 @@
       "probablyLoading": "ربما جاري التحميل...",
       "voiceSettings": "اذهب إلى إعدادات الصوت",
       "soundSettings": "اذهب إلى إعدادات الصوت",
-      "deleteAccount": "حذف الحساب"
+      "deleteAccount": "حذف الحساب",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "عذرا! ضاعت هذه الصفحة بين المحادثات.",
@@ -87,6 +88,10 @@
       "permissionError": "لم يتم العثور على ميكروفونات ، إما أنك لم تقم بتوصيل أي ميكروفون أو لم تمنحنا إذن الوصول.",
       "refresh": "تحديث قائمة الميكروفونات",
       "volume": "ارتفاع الصوت:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -128,7 +133,8 @@
       "setKeybind": "ضبط ربط المفتاح",
       "listening": "جاري الإستماع",
       "toggleMuteKeybind": "تبديل رابط مفتاح كتم الصوت",
-      "togglePushToTalkKeybind": "تبديل رابط مفتاح الضغط والتحدث"
+      "togglePushToTalkKeybind": "تبديل رابط مفتاح الضغط والتحدث",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "لا يوجد مستهلك صوتي لسبب ما" },
     "addToCalendar": { "add": "أضف إلى الرزنامة" },

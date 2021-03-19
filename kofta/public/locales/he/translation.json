@@ -61,7 +61,8 @@
       "probablyLoading": "כנראה טוען...",
       "voiceSettings": "עבור להגדרות קול",
       "soundSettings": "עבור להגדרות סאונד",
-      "deleteAccount": "מחק חשבון"
+      "deleteAccount": "מחק חשבון",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "אופס! הדף הזה הלך לאיבוד בשיחה.",
@@ -87,6 +88,10 @@
       "permissionError": "לא נמצאו מיקרופונים, או שאין מיקרופון מחובר או שלא נתת אישור לאתר זה.",
       "refresh": "רענן את רשימת המיקרופונים",
       "volume": "עוצמת קול:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -128,7 +133,8 @@
       "setKeybind": "הגדר מקש",
       "listening": "מקשיב",
       "toggleMuteKeybind": "הפעל את מקש ההשתקה",
-      "togglePushToTalkKeybind": "הפעל push-to-talk"
+      "togglePushToTalkKeybind": "הפעל push-to-talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "שום צרכן קול משום מה" },
     "addToCalendar": { "add": "הוסף ליומן" },

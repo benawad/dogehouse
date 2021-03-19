@@ -61,7 +61,8 @@
       "probablyLoading": "waarskynlik besig om te laai...",
       "voiceSettings": "gaan na stem instellings",
       "soundSettings": "gaan na klank instellings",
-      "deleteAccount": "verwyder rekening"
+      "deleteAccount": "verwyder rekening",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Oeps! Hierdie bladsy het verlore geraak in gesprek.",
@@ -87,6 +88,10 @@
       "permissionError": "Geen mikrofone gevind nie. Jy het óf geen ingeprop nie, of jy het nie vir hierdie webtuiste toestemming gegee nie.",
       "refresh": "herlaai mikrofoon lys",
       "volume": "volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -128,7 +133,8 @@
       "setKeybind": "stel sleutelbind",
       "listening": "luister",
       "toggleMuteKeybind": "wissel demp sleutelbind",
-      "togglePushToTalkKeybind": "wissel push-to-talk sleutelbind"
+      "togglePushToTalkKeybind": "wissel push-to-talk sleutelbind",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "geen klank verbruiker vir een of ander rede"

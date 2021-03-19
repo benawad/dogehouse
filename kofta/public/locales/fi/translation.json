@@ -61,7 +61,8 @@
       "probablyLoading": "ladataan...",
       "voiceSettings": "siirry puheasetuksiin",
       "soundSettings": "siirry toistoasetuksiin",
-      "deleteAccount": "poista käyttäjä"
+      "deleteAccount": "poista käyttäjä",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Hups! Tämä sivu katosi keskusteluun.",
@@ -87,6 +88,10 @@
       "permissionError": "yhtään mikrofonia ei löytynyt. joko yhtään ei ole kytketty tai et ole antanut sivustolle lupaa käyttää mikrofonia.",
       "refresh": "päivitä lista",
       "volume": "äänenvoimakkuus:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -131,7 +136,8 @@
       "setKeybind": "aseta pikanäppäin",
       "listening": "odotetaan näppäintä",
       "toggleMuteKeybind": "mikrofonin mykistys -pikanäppäin",
-      "togglePushToTalkKeybind": "push-to-talk-pikanäppäin"
+      "togglePushToTalkKeybind": "push-to-talk-pikanäppäin",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "ei äänen ulostulolaitteita" },
     "addToCalendar": { "add": "Lisää kalenteriin" },

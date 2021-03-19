@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Redirect, useRouteMatch } from "react-router-dom";
 import { wsend } from "../../createWebsocket";
 import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
@@ -22,8 +22,11 @@ import { isUuid } from "../utils/isUuid";
 import { useTimeElapsed } from "../utils/timeElapsed";
 import { useMeQuery } from "../utils/useMeQuery";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
+import isElectron from "is-electron";
 
-interface RoomPageProps {}
+let ipcRenderer: any = undefined;
+
+interface RoomPageProps { }
 
 export const RoomPage: React.FC<RoomPageProps> = () => {
   const {
@@ -50,6 +53,20 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   const [listenersPage, setListenersPage] = useState(1);
   const pageSize = 25;
   const { t } = useTypeSafeTranslation();
+
+  useEffect(() => {
+    if (isElectron()) {
+      ipcRenderer = window.require("electron").ipcRenderer;
+    }
+  }, [])
+  ipcRenderer.send("@overlay/shouldRunIPC", "");
+  ipcRenderer.on("@overlay/start_ipc", () => {
+    ipcRenderer.send("@overlay/overlayData", {
+      currentRoom: room,
+      muted: muted,
+      me: me,
+    });
+  })
   // useEffect(() => {
   //   if (room?.users.length) {
   //     setUserProfileId(room.users[0].id);
