@@ -492,6 +492,8 @@ export const customEmojis = [
     short_names: ["Coggers"],
     keywords: ["Cog", "Coggers", "pepe"],
     imageUrl: "/emotes/coggers.gif",
+  },
+  {  
     name: "OrangeDogeHouse",
     short_names: ["OrangeDogeHouse"],
     keywords: ["orange", "dogehouse", "doge"],
