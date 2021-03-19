@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# @todo uncomment when new-design hits
+# thats when we will start enforcing commit style
+# npx --no-install commitlint --edit

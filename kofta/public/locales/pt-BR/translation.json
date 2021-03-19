@@ -109,7 +109,8 @@
       "makeRoomPublicBtn": "Deixe a sala pública!",
       "settings": "Configurações",
       "speaker": "Apresentador",
-      "listener": "Ouvintes"
+      "listener": "Ouvintes",
+      "chat": "Chat"
     },
     "micPermissionBanner": {
       "permissionDenied": "Permissão negada ao tentar acessar o seu microfone (talvez você tenha que ir nas configurações de seu navegador e recarregar a página)",
@@ -153,7 +154,8 @@
         "banFromChat": "expulsar do chat",
         "banFromRoom": "expulsar da sala",
         "goBackToListener": "voltar para ouvinte",
-        "deleteMessage": "excluir essa mensagem"
+        "deleteMessage": "excluir essa mensagem",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "precisar de permissão para falar",
@@ -194,7 +196,8 @@
       "modal": {
         "needsFuture": "precisa estar no futuro",
         "roomName": "nome da sala",
-        "minLength": "tamanho mínimo: 2"
+        "minLength": "tamanho mínimo: 2",
+        "roomDescription": "descrição da sala"
       }
     },
     "roomChat": {
@@ -210,14 +213,17 @@
       "welcomeMessage": "Bem vindo ao chat!",
       "roomDescription": "descrição da sala"
     },
-	"roomStatus": {
-		"fuelingRocket": "Fueling rocket",
-		"takingOff": "Taking off",
-		"inSpace": "In space",
-		"approachingMoon": "Approaching moon",
-		"lunarDoge": "Lunar doge",
-		"approachingSun": "Approaching sun",
-		"solarDoge": "Solar doge"
-	}
+    "roomStatus": {
+      "fuelingRocket": "Abastecendo foguete",
+      "takingOff": "Decolando",
+      "inSpace": "No espaço",
+      "approachingMoon": "Chegando na Lua",
+      "lunarDoge": "Doge lunar",
+      "approachingSun": "Chegando no Sol",
+      "solarDoge": "Doge solar",
+      "approachingGalaxy": "Chegando na galáxia",
+      "galacticDoge": "Doge galático",
+      "spottedLife": "Encontrado planeta com vida"
+    }
   }
 }

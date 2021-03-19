@@ -1,5 +1,6 @@
 import React from "react";
 import { SmSolidSearch } from "../../icons";
+import { Input } from "../Input";
 
 export interface SearchBarProps
   extends React.ComponentPropsWithoutRef<"input"> {
@@ -18,10 +19,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
       <div className="h-full mx-4 flex items-center pointer-events-none">
         <SmSolidSearch />
       </div>
-      <input
-        className={`w-full py-2 pr-4 bg-transparent text-primary-100 placeholder-primary-300 focus:outline-none ${inputClassName}`}
-        {...props}
-      />
+      <Input className={inputClassName} {...props} />
     </div>
   );
 };

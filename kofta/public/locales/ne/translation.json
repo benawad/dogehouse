@@ -29,19 +29,14 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "प्रतिबन्ध"
-    },
-
+    "banUser": { "ban": "प्रतिबन्ध" },
     "followingOnlineList": {
       "listHeader": "प्रयोगकर्ताहरूको सूची जो प्राइवेट रूम छैनन् र तपाइँ फॉलो गर्नुहुन्छा।",
       "currentRoom": "अहिले हुनुहुन्छ:",
       "startPrivateRoom": "यीनीहरू संग एक प्राइवेट रूम शुरू गर्नुहोस्"
     },
     "followList": {},
-    "home": {
-      "createRoom": "रूम बनाउनुहोस"
-    },
+    "home": { "createRoom": "रूम बनाउनुहोस", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "रूम गयो, पछाडि जानुहोस्",
       "shareRoomLink": "रूमको लिंक शेयर गर्नुहोस्",
@@ -77,12 +72,8 @@
       "requestingToSpeak": "बोल्न अनुरोध गर्दै",
       "listeners": "श्रोताहरु"
     },
-    "searchUser": {
-      "search": "खोजी गर्नुहोस्..."
-    },
-    "soundEffectSettings": {
-      "header": "साउंड"
-    },
+    "searchUser": { "search": "खोजी गर्नुहोस्..." },
+    "soundEffectSettings": { "header": "साउंड" },
     "viewUser": {
       "editProfile": "प्रोफाइल सम्पादन गर्नुहोस",
       "followsYou": "follows you",
@@ -118,7 +109,8 @@
       "makeRoomPublicBtn": "रूम सार्वजनिक बनाउनुहोस!",
       "settings": "सेटिंग्स",
       "speaker": "स्पिकर",
-      "listener": "श्रोता"
+      "listener": "श्रोता",
+      "chat": "Chat"
     },
     "deviceNotSupported": {
       "notSupported": "तपाईंको उपकरण हाल समर्थित छैन। तपाईं ",
@@ -143,9 +135,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "कुनै कारणका लागि कुनै अडियो उपभोक्ता छैन"
     },
-    "addToCalendar": {
-      "add": "क्यालेन्डरमा थप्नुहोस"
-    },
+    "addToCalendar": { "add": "क्यालेन्डरमा थप्नुहोस" },
     "wsKilled": {
       "description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
       "reconnect": "पुनः जडान गर्नुहोस्"
@@ -187,7 +177,8 @@
         "banFromChat": "ban from chat",
         "banFromRoom": "रूमबाट प्रतिबन्ध",
         "goBackToListener": "श्रोताको लागि पछाडि जानुहोस",
-        "deleteMessage": "यो मेसेज मेटाउनुहोस"
+        "deleteMessage": "यो मेसेज मेटाउनुहोस",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "बोल्नको लागि अनुमति चाहिन्छ",
@@ -208,7 +199,8 @@
       "modal": {
         "needsFuture": "भविष्यमा हुनुपर्छ",
         "roomName": "रूमको नाम",
-        "minLength": "न्यूनतम लम्बाई २"
+        "minLength": "न्यूनतम लम्बाई २",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {
@@ -225,13 +217,16 @@
       "roomDescription": "रुमको बारेमा"
     },
     "roomStatus": {
-			"fuelingRocket": "Fueling rocket",
-			"takingOff": "Taking off",
-			"inSpace": "In space",
-			"approachingMoon": "Approaching moon",
-			"lunarDoge": "Lunar doge",
-			"approachingSun": "Approaching sun",
-			"solarDoge": "Solar doge"
-		}
+      "fuelingRocket": "Fueling rocket",
+      "takingOff": "Taking off",
+      "inSpace": "In space",
+      "approachingMoon": "Approaching moon",
+      "lunarDoge": "Lunar doge",
+      "approachingSun": "Approaching sun",
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
+    }
   }
 }

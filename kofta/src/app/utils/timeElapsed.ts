@@ -21,28 +21,59 @@ export const useTimeElapsed = (startDate: Date | null) => {
         unit: timeDiff > 120 ? undefined : "minute",
       })
     );
+    
+    switch (true) {
 
-    if (timeDiff < 30) {
-      setRocketIcon("⛽️");
-      setRocketStatus(t("modules.roomStatus.fuelingRocket"));
-    } else if (timeDiff < 60) {
-      setRocketIcon("🚀");
-      setRocketStatus(t("modules.roomStatus.takingOff"));
-    } else if (timeDiff < 240) {
-      setRocketIcon("🚀✨");
-      setRocketStatus(t("modules.roomStatus.inSpace"));
-    } else if (timeDiff < 480) {
-      setRocketIcon("🚀🌕");
-      setRocketStatus(t("modules.roomStatus.approachingMoon"));
-    } else if (timeDiff < 1440) {
-      setRocketIcon("🌕🐕");
-      setRocketStatus(t("modules.roomStatus.lunarDoge"));
-    } else if (timeDiff < 2880) {
-      setRocketIcon("🚀☀️");
-      setRocketStatus(t("modules.roomStatus.approachingSun"));
-    } else {
-      setRocketIcon("☀️🐕");
-      setRocketStatus(t("modules.roomStatus.solarDoge"));
+      case (timeDiff < 30): {
+        setRocketIcon("⛽️");
+        setRocketStatus(t("modules.roomStatus.fuelingRocket"));
+        break;
+      }
+      case (timeDiff < 60): {
+        setRocketIcon("🚀");
+        setRocketStatus(t("modules.roomStatus.takingOff"));
+        break;
+      }
+      case (timeDiff < 240): {
+        setRocketIcon("🚀✨");
+        setRocketStatus(t("modules.roomStatus.inSpace"));
+        break;
+      }
+      case (timeDiff < 480): {
+        setRocketIcon("🚀🌕");
+        setRocketStatus(t("modules.roomStatus.approachingMoon"));
+        break;
+      }
+      case (timeDiff < 1440): {
+        setRocketIcon("🌕🐕");
+        setRocketStatus(t("modules.roomStatus.lunarDoge"));
+        break;
+      }
+      case (timeDiff < 2880): {
+        setRocketIcon("🚀☀️");
+        setRocketStatus(t("modules.roomStatus.approachingSun"));
+        break;
+      }
+      case (timeDiff < 5760): {
+        setRocketIcon("☀️🐕");
+        setRocketStatus(t("modules.roomStatus.solarDoge"));
+        break;
+      }
+      case (timeDiff < 11520): {
+        setRocketIcon("🚀🌌");
+        setRocketStatus(t("modules.roomStatus.approachingGalaxy"));
+        break;
+      }
+      case (timeDiff < 23040): {
+        setRocketIcon("🌌🐕");
+        setRocketStatus(t("modules.roomStatus.galacticDoge"));
+        break;
+      }
+      case (timeDiff < 23041): {
+        setRocketIcon("🪐👾");
+        setRocketStatus(t("modules.roomStatus.spottedLife"));
+        break;
+      }  
     }
   };
 
@@ -50,6 +81,7 @@ export const useTimeElapsed = (startDate: Date | null) => {
     updateTime(startDate);
     const intervalId = setInterval(() => updateTime(startDate), 10000);
     return () => clearInterval(intervalId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [startDate]);
 
   return { timeElapsed, rocketIcon, rocketStatus };

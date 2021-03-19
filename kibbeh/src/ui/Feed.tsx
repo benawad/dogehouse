@@ -1,12 +1,13 @@
 import React, { MouseEventHandler, ReactNode } from "react";
-import { RoomCardProps, RoomCard } from "./RoomCard";
+import { RoomCard } from "./RoomCard";
 import { Button } from "./Button";
+import { Room, ScheduledRoom } from "@dogehouse/kebab";
 
 export interface FeedProps {
   title: string;
   actionTitle: string;
   onActionClicked: MouseEventHandler<HTMLButtonElement>;
-  rooms: RoomCardProps[];
+  rooms: Array<Room | ScheduledRoom>;
   emptyPlaceholder: ReactNode;
 }
 
@@ -29,11 +30,20 @@ export const Feed: React.FC<FeedProps> = ({
         {rooms.map((room, index) => (
           <RoomCard
             key={index}
-            title={room.title}
-            subtitle={room.subtitle}
-            scheduledFor={room.scheduledFor}
-            listeners={room.listeners}
-            tags={room.tags}
+            title={room.name}
+            subtitle={
+              "peoplePreviewList" in room
+                ? room.peoplePreviewList
+                    .slice(0, 3)
+                    .map((x) => x.displayName)
+                    .join(", ")
+                : ""
+            }
+            scheduledFor={
+              "scheduledFor" in room ? new Date(room.scheduledFor) : undefined
+            }
+            listeners={"numPeopleInside" in room ? room.numPeopleInside : 0}
+            tags={[]}
           />
         ))}
       </div>

@@ -10,7 +10,7 @@
   </a>
 </p>
 
-<h3 align="center">  
+<h3 align="center">
   <a href="https://github.com/benawad/dogehouse/blob/staging/CONTRIBUTING.md">Contribute</a>
   <span> · </span>
   <a href="https://discord.gg/82HzQCJCDg">Community</a>
@@ -38,7 +38,6 @@
 
 ## Branches
 
-- new-design -> pr this branch if you touch `kibbeh`
 - staging -> pr this branch for everything else
 - prod -> don't touch, this is what's running in prod
 

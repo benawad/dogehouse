@@ -125,6 +125,7 @@ defmodule Broth.SocketHandler do
                     GenRegistry.lookup_or_start(Onion.UserSession, user_id, [
                       %Onion.UserSession.State{
                         user_id: user_id,
+                        username: user.username,
                         avatar_url: user.avatarUrl,
                         display_name: user.displayName,
                         current_room_id: user.currentRoomId,
@@ -413,6 +414,11 @@ defmodule Broth.SocketHandler do
   def handler("block_user_and_from_room", %{"userId" => user_id_to_block}, state) do
     Kousa.UserBlock.block(state.user_id, user_id_to_block)
     Kousa.Room.block_from_room(state.user_id, user_id_to_block)
+    {:ok, state}
+  end
+
+  def handler("change_room_creator", %{"userId" => user_id_to_change}, state) do
+    Kousa.Room.change_room_creator(state.user_id, user_id_to_change)
     {:ok, state}
   end
 

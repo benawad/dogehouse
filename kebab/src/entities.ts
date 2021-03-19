@@ -7,15 +7,30 @@ export type UserPreview = {
 };
 
 export type Room = {
-  voiceServerId: number | "";
-  peoplePreviewList: UserPreview[];
-  numPeopleInside: number;
+  id: string;
   name: string;
+  description?: string;
   isPrivate: boolean;
-  id: UUID;
-  description: string;
-  creatorId: UUID;
+  numPeopleInside: number;
+  voiceServerId: string;
+  creatorId: string;
+  peoplePreviewList: Array<{
+    id: string;
+    displayName: string;
+    numFollowers: number;
+  }>;
+  inserted_at: string;
 };
+
+export interface ScheduledRoom {
+  roomId: UUID | null;
+  description: string;
+  scheduledFor: string;
+  numAttending: number;
+  name: string;
+  id: UUID;
+  creatorId: UUID;
+}
 
 export type User = {
   youAreFollowing?: boolean;
@@ -54,4 +69,44 @@ export type Message = {
   deleterId?: UUID;
   sentAt: string;
   isWhisper?: boolean;
+};
+
+export type BaseUser = {
+  username: string;
+  online: boolean;
+  lastOnline: Date;
+  id: string;
+  bio: string;
+  displayName: string;
+  avatarUrl: string;
+  numFollowing: number;
+  numFollowers: number;
+  currentRoom?: Room;
+};
+
+export type PaginatedBaseUsers = {
+  users: BaseUser[];
+  nextCursor: number | null;
+};
+
+export type RoomPermissions = {
+  askedToSpeak: boolean;
+  isSpeaker: boolean;
+  isMod: boolean;
+};
+
+export type UserWithFollowInfo = BaseUser & {
+  followsYou?: boolean;
+  youAreFollowing?: boolean;
+};
+
+export type RoomUser = {
+  roomPermissions?: RoomPermissions | null;
+} & UserWithFollowInfo;
+
+export type CurrentRoom = Room & {
+  users: RoomUser[];
+  muteMap: Record<string, boolean>;
+  activeSpeakerMap: Record<string, boolean>;
+  autoSpeaker: boolean;
 };

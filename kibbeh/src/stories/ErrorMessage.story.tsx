@@ -1,6 +1,6 @@
 import React from "react";
 import { Story } from "@storybook/react";
-import { ErrorMessage, ErrorMessageProps } from '../ui/ErrorMessage';
+import { ErrorMessage, ErrorMessageProps } from "../ui/ErrorMessage";
 import { toStr } from "./utils/toStr";
 import { toBoolean } from "./utils/toBoolean";
 
@@ -21,8 +21,8 @@ const TheErrorMessage: Story<ErrorMessageProps> = ({
 export const Main = TheErrorMessage.bind({});
 
 Main.args = {
-  message: 'Websocket got disconnected',
-  button: 'Refresh'
+  message: "Websocket got disconnected",
+  button: "Refresh",
 };
 
 Main.argTypes = {

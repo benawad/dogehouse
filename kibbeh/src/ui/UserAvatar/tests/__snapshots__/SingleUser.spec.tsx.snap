@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserAvatar SingleUser should match snapshot 1`] = `
+<div
+  class="relative inline-block "
+  data-testid="single-user-avatar"
+  style="width: 80px; height: 80px;"
+>
+  <img
+    alt="avatar"
+    class="rounded-full w-full h-full"
+    src=""
+  />
+</div>
+`;
