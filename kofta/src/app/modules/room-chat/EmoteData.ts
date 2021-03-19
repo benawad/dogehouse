@@ -128,6 +128,12 @@ export const customEmojis = [
     imageUrl: "/emotes/cryptoSUSHI.png",
   },
   {
+    name: "CryptoTRON",
+    short_names: ["CryptoTRON"],
+    keywords: ["crypto", "tron"],
+    imageUrl: "/emotes/cryptoTron.png",
+  },
+  {
     name: "CryptoZEC",
     short_names: ["CryptoZEC"],
     keywords: ["crypto", "zec", "zcash"],
