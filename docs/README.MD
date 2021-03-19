@@ -7,7 +7,7 @@
 </p>
 
 ## Welcome
-Welcome to the DogeHouse Documentation, the next voice conversation social plartform.
+Welcome to the DogeHouse Documentation, the next voice conversation social platform.
 
 DogeHouse makes it easy to connect with friends and people over voice and chat message..
 
