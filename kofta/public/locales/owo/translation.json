@@ -64,7 +64,8 @@
       "probablyLoading": "pwobabwy woading...",
       "voiceSettings": "<3 go to voice settings ;-;",
       "soundSettings": "go to sound settings x3",
-      "deleteAccount": "dewete account UnU"
+      "deleteAccount": "dewete account UnU",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "OWO Whoops! This page got wost in convewsation. (●´ω｀●)",
@@ -90,6 +91,10 @@
       "permissionError": "nu mics found, uu eithew haz nune pwugged in ow hazn't given this website pewmission. ;_;",
       "refresh": "wefwesh mic wist (｀へ´)",
       "volume": "volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -131,7 +136,8 @@
       "setKeybind": "set keybind",
       "listening": "OWO wistening",
       "toggleMuteKeybind": "0w0 toggwe mute keybind (❁´◡`❁)",
-      "togglePushToTalkKeybind": "toggwe push-to-tawk keybind :D"
+      "togglePushToTalkKeybind": "toggwe push-to-tawk keybind :D",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "nu audio consumew fow some weason D:"

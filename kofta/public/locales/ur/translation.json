@@ -61,7 +61,8 @@
       "probablyLoading": "شاید لوڈ ہو رہا ہے",
       "voiceSettings": "اکاؤنٹ کی ترتیبات پر جائیں",
       "soundSettings": "آواز کی ترتیبات پر جائیں",
-      "deleteAccount": "اکاؤنٹ ہمیشہ کے لئے ڈیلیٹ کریں"
+      "deleteAccount": "اکاؤنٹ ہمیشہ کے لئے ڈیلیٹ کریں",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "افوہ! لگتا ہے کچھ پنگا ہوگیا۔",
@@ -87,6 +88,10 @@
       "permissionError": "کوئی mics نہیں ملا ، آپ نے یا تو کسی نے پلگ ان نہیں لیا ہے یا اس ویب سائٹ کو اجازت نہیں دی ہے۔",
       "refresh": "مائک کی فہرست کو تازہ کریں",
       "volume": "حجم:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -131,7 +136,8 @@
       "setKeybind": "کی بائنڈ سیٹ کریں",
       "listening": "سن رہا ہے",
       "toggleMuteKeybind": "گونگا کی بائنڈ ٹوگل کریں",
-      "togglePushToTalkKeybind": "ٹوگل کریں پش ٹو ٹاک کی بائنڈ"
+      "togglePushToTalkKeybind": "ٹوگل کریں پش ٹو ٹاک کی بائنڈ",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "کسی وجہ سے آڈیو صارف نہیں ہے" },
     "addToCalendar": { "add": "کیلنڈر میں شامل کریں" },

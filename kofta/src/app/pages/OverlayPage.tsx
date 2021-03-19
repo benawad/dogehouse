@@ -1,73 +1,108 @@
-import React, { useState, useEffect } from "react";
-import { Redirect, withRouter, useRouteMatch } from "react-router-dom";
+import React from "react";
+import { Redirect } from "react-router-dom";
 import { CurrentRoom } from "../../app/types";
-import { Backbar } from "../components/Backbar";
-import { BodyWrapper } from "../components/BodyWrapper";
 import { RoomUserNode } from "../components/RoomUserNode";
-import { Wrapper } from "../components/Wrapper";
 import { BaseUser } from "../types";
-import { isUuid } from "../utils/isUuid";
-import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 import isElectron from "is-electron";
-import { render } from "@testing-library/react";
 
 let ipcRenderer: any = undefined;
-
+if (isElectron()) {
+    ipcRenderer = window.require("electron").ipcRenderer;
+}
 interface State {
     room: CurrentRoom,
     muted: boolean,
     me: BaseUser,
     userProfileId: string,
+    roomID: string,
+    loadingTranslation: string,
 }
 
 
 export class OverlayPage extends React.Component<{}, State> {
 
-    componentDidMount() {
-        if (isElectron()) {
-            // history.push('/')
-            ipcRenderer = window.require("electron").ipcRenderer;
+    constructor(props: any) {
+
+        const emptyUsers = [
+            {
+                id: "",
+                displayName: "",
+                numFollowers: 0,
+            }
+        ];
+
+        const emtpyUser = {
+            username: "",
+            online: false,
+            lastOnline: new Date(),
+            id: "",
+            bio: "",
+            displayName: "",
+            avatarUrl: "",
+            numFollowers: 0,
+            numFollowing: 0,
         }
 
-        const {
-            params: { id },
-        } = useRouteMatch<{ id: string }>();
-        const { t } = useTypeSafeTranslation();
-        const history = useHistory();
+        super(props);
+        //let servers: any = [];
+        this.state = {
+            me: emtpyUser,
+            room: {
+                id: "",
+                name: "",
+                isPrivate: false,
+                numPeopleInside: 0,
+                creatorId: "",
+                peoplePreviewList: emptyUsers,
+                users: [emtpyUser],
+                inserted_at: "",
+                muteMap: {},
+                activeSpeakerMap: {},
+                autoSpeaker: false,
+            },
+            loadingTranslation: "",
+            roomID: "",
+            muted: true,
+            userProfileId: "",
+        }
+
+    }
+
+    componentDidMount() {
+
+        if (!isElectron()) {
+            return <Redirect to="/" />
+        }
         ipcRenderer.on("@overlay/shouldRunIPC", async (event: any, data: any) => {
-            ipcRenderer.send("@overlay/start_ipc", id);
+            ipcRenderer.send("@overlay/start_ipc", this.state.roomID);
         });
         ipcRenderer.on("@overlay/overlayData", async (event: any, data: any) => {
             this.setState({
                 room: data.currentRoom,
                 muted: data.muted,
                 me: data.me,
+                loadingTranslation: data.loadingTranslation,
+                roomID: data.roomID,
             })
         })
 
-        if (!isUuid(id)) {
-            return <Redirect to="/" />;
-        }
+    }
 
-        if (!room) {
-            return (
-                <Wrapper>
-                    <Backbar />
-                    <BodyWrapper>
-                        <div>{t("common.loading")}</div>
-                    </BodyWrapper>
-                </Wrapper>
-            );
-        }
-
-
+    render() {
+        const profile = this.state.room.users.find((x) => x.id === this.state.userProfileId);
         const speakers: BaseUser[] = [];
         const unansweredHands: BaseUser[] = [];
         const listeners: BaseUser[] = [];
         let canIAskToSpeak = false;
 
-        room.users.forEach((u) => {
-            if (u.id === room.creatorId || u.roomPermissions?.isSpeaker) {
+        const setUserProfileId = (userProfileId: string) => {
+            this.setState({
+                userProfileId: userProfileId,
+            })
+        }
+
+        this.state.room.users.forEach((u) => {
+            if (u.id === this.state.room.creatorId || u.roomPermissions?.isSpeaker) {
                 speakers.push(u);
             } else if (u.roomPermissions?.askedToSpeak) {
                 unansweredHands.push(u);
@@ -76,20 +111,17 @@ export class OverlayPage extends React.Component<{}, State> {
                 listeners.push(u);
             }
         });
-    }
-
-    render() {
         return (
             <>
-
+                {!isElectron() ? <Redirect to="/" /> : null}
                 {speakers.map((u) => (
                     <RoomUserNode
                         key={u.id}
-                        room={room}
+                        room={this.state.room}
                         u={u}
-                        muted={muted}
+                        muted={this.state.muted}
                         setUserProfileId={setUserProfileId}
-                        me={me}
+                        me={this.state.me}
                         profile={profile}
                     />
                 ))}

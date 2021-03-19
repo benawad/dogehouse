@@ -60,7 +60,8 @@
       "probablyLoading": "可能在讀取中...",
       "voiceSettings": "音量設定",
       "soundSettings": "聲音設定",
-      "deleteAccount": "刪除帳號"
+      "deleteAccount": "刪除帳號",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "噢！這一頁不見了‧",
@@ -86,6 +87,10 @@
       "permissionError": "沒有找到麥克風，請確認有插入或者要允許本網站使用麥克風的權限‧",
       "refresh": "更新麥克風列表",
       "volume": "音量:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -127,7 +132,8 @@
       "setKeybind": "設定按鍵組合",
       "listening": "請輸入按鍵",
       "toggleMuteKeybind": "觸發靜音的按鍵組合",
-      "togglePushToTalkKeybind": "觸發發言的按鍵組合"
+      "togglePushToTalkKeybind": "觸發發言的按鍵組合",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "沒有聲音" },
     "addToCalendar": { "add": "加到行事曆" },

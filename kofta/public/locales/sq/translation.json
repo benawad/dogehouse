@@ -61,7 +61,8 @@
       "probablyLoading": "ndoshta duke u ngarkuar...",
       "voiceSettings": "shko te cilësimet e zërit",
       "soundSettings": "shko te cilësimet e tingullit",
-      "deleteAccount": "fshije llogarinë"
+      "deleteAccount": "fshije llogarinë",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Whoops! Kjo faqja humbi në bisedë.",
@@ -87,6 +88,10 @@
       "permissionError": "nuk u gjend asnjë mikrofon, ju ndoshta nuk e keni lidhur ose nuk i keni dhënë leje kesaj faqeje.",
       "refresh": "rifresko listën e mikrofonëve",
       "volume": "volumi:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -128,7 +133,8 @@
       "setKeybind": "vendos keybind",
       "listening": "duke dëgjuar",
       "toggleMuteKeybind": "Keybind hesht/ç'hesht",
-      "togglePushToTalkKeybind": "Keybind ndiz/fik shtyp-për-të-folur"
+      "togglePushToTalkKeybind": "Keybind ndiz/fik shtyp-për-të-folur",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "për ndonjë arsye nuk ka asnje konsumator audio"

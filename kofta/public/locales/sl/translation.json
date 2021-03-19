@@ -30,19 +30,14 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "Blokiraj"
-    },
+    "banUser": { "ban": "Blokiraj" },
     "followingOnlineList": {
       "listHeader": "Seznam uporabnikov, ki jim slediš in niso v zasebni sobi.",
       "currentRoom": "Trenutno v:",
       "startPrivateRoom": "Začni zasebno sobo s tem uporabnikom"
     },
     "followList": {},
-    "home": {
-      "createRoom": "Ustvari sobo",
-      "refresh": "Osveži"
-    },
+    "home": { "createRoom": "Ustvari sobo", "refresh": "Osveži" },
     "inviteList": {
       "roomGone": "Sobe ni bilo mogoče najti! Nazaj",
       "shareRoomLink": "Deli povezavo do sobe",
@@ -66,7 +61,8 @@
       "probablyLoading": "Verjetno se nalaga...",
       "voiceSettings": "Nastavitve glasu",
       "soundSettings": "Nastavitve zvoka",
-      "deleteAccount": "Izbriši račun"
+      "deleteAccount": "Izbriši račun",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Ups! Ta stran se je v pogovoru izgubila.",
@@ -78,12 +74,8 @@
       "requestingToSpeak": "Zahtevajo dovoljenje za vklop zvoka",
       "listeners": "Poslušalci"
     },
-    "searchUser": {
-      "search": "Iskanje..."
-    },
-    "soundEffectSettings": {
-      "header": "Zvoki"
-    },
+    "searchUser": { "search": "Iskanje..." },
+    "soundEffectSettings": { "header": "Zvoki" },
     "viewUser": {
       "editProfile": "Uredi profil",
       "followsYou": "ti sledi",
@@ -96,6 +88,10 @@
       "permissionError": "Mikrofona ni bilo mogoče najti. Morda ni priključen ali pa stran nima potrebnih pravic.",
       "refresh": "Osveži seznam mikrofonov",
       "volume": "Glasnost:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -127,10 +123,7 @@
       "linkText": "GitHub",
       "addSupport": "in bomo poskusili dodati podporo za tvojo napravo."
     },
-    "inviteButton": {
-      "invited": "povabljen",
-      "inviteToRoom": "povabi v sobo"
-    },
+    "inviteButton": { "invited": "povabljen", "inviteToRoom": "povabi v sobo" },
     "micPermissionBanner": {
       "permissionDenied": "Nimamo pravic za uporabo tvojega mikrofona. Odpri nastavitve brskalnika, dovoli dostop do mikrofona in nato osveži stran.",
       "dismiss": "Opusti",
@@ -140,14 +133,13 @@
       "setKeybind": "Nastavi bljižnico",
       "listening": "Poslušaj",
       "toggleMuteKeybind": "Preklopi bližnjico za vklop/izklop mikrofona",
-      "togglePushToTalkKeybind": "Preklopi bližnjico za push-to-talk"
+      "togglePushToTalkKeybind": "Preklopi bližnjico za push-to-talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Iz nekega razloga ni odjemalca zvoka"
     },
-    "addToCalendar": {
-      "add": "Dodaj na koledar"
-    },
+    "addToCalendar": { "add": "Dodaj na koledar" },
     "wsKilled": {
       "description": "Povezava z spletno vtičnico je bila prekinjena. To se ponavadi zgodi, ko se ta spletna stran odpre v novem zavihku.",
       "reconnect": "Ponovno se poveži"

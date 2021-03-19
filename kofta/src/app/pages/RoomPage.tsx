@@ -25,10 +25,13 @@ import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 import isElectron from "is-electron";
 
 let ipcRenderer: any = undefined;
-
+if (isElectron()) {
+  ipcRenderer = window.require("electron").ipcRenderer;
+}
 interface RoomPageProps { }
 
 export const RoomPage: React.FC<RoomPageProps> = () => {
+
   const {
     params: { id },
   } = useRouteMatch<{ id: string }>();
@@ -54,19 +57,19 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   const pageSize = 25;
   const { t } = useTypeSafeTranslation();
 
-  useEffect(() => {
-    if (isElectron()) {
-      ipcRenderer = window.require("electron").ipcRenderer;
-    }
-  }, [])
-  ipcRenderer.send("@overlay/shouldRunIPC", "");
-  ipcRenderer.on("@overlay/start_ipc", () => {
-    ipcRenderer.send("@overlay/overlayData", {
-      currentRoom: room,
-      muted: muted,
-      me: me,
-    });
-  })
+  if (isElectron()) {
+    ipcRenderer.send("@overlay/shouldRunIPC", "");
+    ipcRenderer.on("@overlay/start_ipc", () => {
+      ipcRenderer.send("@overlay/overlayData", {
+        currentRoom: room,
+        muted: muted,
+        me: me,
+        roomID: id,
+        loadingTranslation: t("common.loading"),
+      });
+    })
+  }
+
   // useEffect(() => {
   //   if (room?.users.length) {
   //     setUserProfileId(room.users[0].id);

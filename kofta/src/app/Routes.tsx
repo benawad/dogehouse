@@ -94,7 +94,7 @@ export const Routes: React.FC<RoutesProps> = () => {
               component={ScheduledRoomsPage}
             />
             <Route exact path="/room/:id" component={RoomPage} />
-            <Route exact path="/overlay/:id" component={OverlayPage} />
+            <Route exact path="/overlay" component={OverlayPage} />
             <Route
               exact
               path={["/user", "/user/:username"]}

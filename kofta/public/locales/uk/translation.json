@@ -61,7 +61,8 @@
       "probablyLoading": "ймовірно завантажується...",
       "voiceSettings": "перейти до голосових налаштувань",
       "soundSettings": "перейти до звукових налаштувань",
-      "deleteAccount": "видалити аккаунт"
+      "deleteAccount": "видалити аккаунт",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Упс! Ця сторінка загубилася в розмові.",
@@ -87,6 +88,10 @@
       "permissionError": "мікрофонів не знайдено, ви або немаєте їх увімкнутими, або не дали дозволу цьому веб-сайту.",
       "refresh": "оновити список мікрофонів",
       "volume": "гучність:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -131,7 +136,8 @@
       "setKeybind": "встановити прив'язку клавіши",
       "listening": "слухає",
       "toggleMuteKeybind": "Перемикнути прив'язку клавіши",
-      "togglePushToTalkKeybind": "Перемикнути режим рації"
+      "togglePushToTalkKeybind": "Перемикнути режим рації",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessзагальнодоступноюage": "з якихось причин немає споживача аудіо",
