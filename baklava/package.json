@@ -9,9 +9,9 @@
     "dev": "npm run compile && node ./dist/dev.js",
     "start": "npm run compile && electron ./dist/electron.js",
     "build": "npm run compile && electron-builder",
-    "build:all": "npm run compile && electron-builder -mwl --win msi",
+    "build:all": "npm run compile && electron-builder -mwl",
     "build:mac": "npm run compile && electron-builder --mac",
-    "build:win": "npm run compile && electron-builder --win msi",
+    "build:win": "npm run compile && electron-builder --win",
     "build:linux": "npm run compile && electron-builder --linux"
   },
   "keywords": [
@@ -54,7 +54,15 @@
     },
     "win": {
       "icon": "icons/icon.png",
-      "target": "msi"
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
     },
     "linux": {
       "icon": "icons/icon.png",
