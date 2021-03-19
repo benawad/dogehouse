@@ -37,7 +37,7 @@
       "currentRoom": "αυτή τη στιγμή βρίσκεστε σε:",
       "startPrivateRoom": "δημιουργήστε ένα ιδιωτικό δωμάτιο μαζί τους"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "Δημιουργία Δωματίου",
       "refresh": "Επαναφόρτωση"
@@ -87,7 +87,9 @@
       "editProfile": "επεξεργασία προφίλ",
       "followsYou": "σας ακολουθεί",
       "followers": "ακόλουθοι",
-      "following": "ακολουθείτε"
+      "following": "ακολουθείτε",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Ρυθμίσεις Φωνής",

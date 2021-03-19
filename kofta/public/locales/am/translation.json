@@ -38,7 +38,7 @@
       "currentRoom": "በአሁኑ ጊዜ ውስጥ:",
       "startPrivateRoom": "ከእነሱ ጋር አንድ የግል ክፍል መጀመር"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { 
       "createRoom": "ክፍል ፍጠር", 
       "refresh": "Refresh" 
@@ -88,7 +88,9 @@
       "editProfile": "መገለጫ ቀይር",
       "followsYou": "እርስዎን ይከተላል",
       "followers": "ተከታዮች",
-      "following": "የሚከተሉት"
+      "following": "የሚከተሉት",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "የድምፅ ቅንብሮች",

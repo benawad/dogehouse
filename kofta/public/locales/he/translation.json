@@ -36,7 +36,7 @@
       "currentRoom": "ב:",
       "startPrivateRoom": "צור חדר פרטי איתם"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "צור חדר", "refresh": "טען מחדש" },
     "inviteList": {
       "roomGone": "החדר נעלם, חזור",
@@ -79,7 +79,9 @@
       "editProfile": "ערוך פרופיל",
       "followsYou": "עוקב אחריך",
       "followers": "עוקבים",
-      "following": "עוקב"
+      "following": "עוקב",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "הגדרות קול",

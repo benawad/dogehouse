@@ -36,7 +36,7 @@
       "currentRoom": "currently in:",
       "startPrivateRoom": "start a private cabin wit' 'em"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Create Cabin", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "cabin gone, go back",
@@ -79,7 +79,9 @@
       "editProfile": "avast ye profile",
       "followsYou": "follows you",
       "followers": "scallywags",
-      "following": "hearties"
+      "following": "hearties",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Voice Settings",
