@@ -11,6 +11,7 @@
         "build:all": "npm run compile && electron-builder -mwl --win msi",
         "build:mac": "npm run compile && electron-builder --mac",
         "build:win": "npm run compile && electron-builder --win msi",
+        "build:exe": "electron-builder -p never --win",
         "build:linux": "npm run compile && electron-builder --linux"
     },
     "keywords": [
@@ -50,7 +51,10 @@
         },
         "win": {
             "icon": "icons/icon.png",
-            "target": "msi"
+            "target": [
+                "nsis",
+                "msi"
+            ]
         },
         "linux": {
             "icon": "icons/icon.png",

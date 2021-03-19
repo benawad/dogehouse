@@ -1,0 +1,2360 @@
+[
+    {
+        "label": "unicode_literals",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "unicode_literals",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "unicode_literals",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "unicode_literals",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "print_function",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "division",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "unicode_literals",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "division",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "unicode_literals",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "print_function",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "unicode_literals",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "unicode_literals",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "Quartz",
+        "description": "Quartz",
+        "isExtraImport": true,
+        "detail": "Quartz",
+        "documentation": {}
+    },
+    {
+        "label": "math",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "math",
+        "description": "math",
+        "detail": "math",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "biplist",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "biplist",
+        "description": "biplist",
+        "detail": "biplist",
+        "documentation": {}
+    },
+    {
+        "label": "mac_alias",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "mac_alias",
+        "description": "mac_alias",
+        "detail": "mac_alias",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "mac_alias",
+        "description": "mac_alias",
+        "isExtraImport": true,
+        "detail": "mac_alias",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "ds_store",
+        "description": "ds_store",
+        "isExtraImport": true,
+        "detail": "ds_store",
+        "documentation": {}
+    },
+    {
+        "label": "parseColor",
+        "importPath": "colors",
+        "description": "colors",
+        "isExtraImport": true,
+        "detail": "colors",
+        "documentation": {}
+    },
+    {
+        "label": "bisect",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "bisect",
+        "description": "bisect",
+        "detail": "bisect",
+        "documentation": {}
+    },
+    {
+        "label": "struct",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "struct",
+        "description": "struct",
+        "detail": "struct",
+        "documentation": {}
+    },
+    {
+        "label": "binascii",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "binascii",
+        "description": "binascii",
+        "detail": "binascii",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "io",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "io",
+        "description": "io",
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "os.path",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os.path",
+        "description": "os.path",
+        "detail": "os.path",
+        "documentation": {}
+    },
+    {
+        "label": "stat",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "stat",
+        "description": "stat",
+        "detail": "stat",
+        "documentation": {}
+    },
+    {
+        "label": "normalize",
+        "importPath": "unicodedata",
+        "description": "unicodedata",
+        "isExtraImport": true,
+        "detail": "unicodedata",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "pprint",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pprint",
+        "description": "pprint",
+        "detail": "pprint",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "ctypes",
+        "description": "ctypes",
+        "isExtraImport": true,
+        "detail": "ctypes",
+        "documentation": {}
+    },
+    {
+        "label": "badge_disk_icon",
+        "kind": 2,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.dmgbuild.badge",
+        "description": "baklava.node_modules.dmg-builder.vendor.dmgbuild.badge",
+        "peekOfCode": "def badge_disk_icon(badge_file, output_file):\n    # Load the Removable disk icon\n    url = CFURLCreateWithFileSystemPath(None, _REMOVABLE_DISK_PATH,\n                                        kCFURLPOSIXPathStyle, False)\n    backdrop = CGImageSourceCreateWithURL(url, None)\n    backdropCount = CGImageSourceGetCount(backdrop)\n    # Load the badge\n    url = CFURLCreateWithFileSystemPath(None, badge_file,\n                                        kCFURLPOSIXPathStyle, False)\n    badge = CGImageSourceCreateWithURL(url, None)",
+        "detail": "baklava.node_modules.dmg-builder.vendor.dmgbuild.badge",
+        "documentation": {}
+    },
+    {
+        "label": "_REMOVABLE_DISK_PATH",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.dmgbuild.badge",
+        "description": "baklava.node_modules.dmg-builder.vendor.dmgbuild.badge",
+        "peekOfCode": "_REMOVABLE_DISK_PATH = '/System/Library/Extensions/IOStorageFamily.kext/Contents/Resources/Removable.icns'\ndef badge_disk_icon(badge_file, output_file):\n    # Load the Removable disk icon\n    url = CFURLCreateWithFileSystemPath(None, _REMOVABLE_DISK_PATH,\n                                        kCFURLPOSIXPathStyle, False)\n    backdrop = CGImageSourceCreateWithURL(url, None)\n    backdropCount = CGImageSourceGetCount(backdrop)\n    # Load the badge\n    url = CFURLCreateWithFileSystemPath(None, badge_file,\n                                        kCFURLPOSIXPathStyle, False)",
+        "detail": "baklava.node_modules.dmg-builder.vendor.dmgbuild.badge",
+        "documentation": {}
+    },
+    {
+        "label": "Colo",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "description": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "peekOfCode": "class Color (object):\n    def to_rgb(self):\n        raise Exception('Must implement to_rgb() in subclasses')\nclass RGB (Color):\n    def __init__(self, r, g, b):\n        self.r = r\n        self.g = g\n        self.b = b\n    def to_rgb(self):\n        return self",
+        "detail": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "documentation": {}
+    },
+    {
+        "label": "RG",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "description": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "peekOfCode": "class RGB (Color):\n    def __init__(self, r, g, b):\n        self.r = r\n        self.g = g\n        self.b = b\n    def to_rgb(self):\n        return self\nclass HSL (Color):\n    def __init__(self, h, s, l):\n        self.h = h",
+        "detail": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "documentation": {}
+    },
+    {
+        "label": "HS",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "description": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "peekOfCode": "class HSL (Color):\n    def __init__(self, h, s, l):\n        self.h = h\n        self.s = s\n        self.l = l\n    @staticmethod\n    def _hue_to_rgb(t1, t2, hue):\n        if hue < 0:\n            hue += 6\n        elif hue >= 6:",
+        "detail": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "documentation": {}
+    },
+    {
+        "label": "HW",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "description": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "peekOfCode": "class HWB (Color):\n    def __init__(self, h, w, b):\n        self.h = h\n        self.w = w\n        self.b = b\n    @staticmethod\n    def _hue_to_rgb(hue):\n        if hue < 0:\n            hue += 6\n        elif hue >= 6:",
+        "detail": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "documentation": {}
+    },
+    {
+        "label": "CMY",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "description": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "peekOfCode": "class CMYK (Color):\n    def __init__(self, c, m, y, k):\n        self.c = c\n        self.m = m\n        self.y = y\n        self.k = k\n    def to_rgb(self):\n        r = 1.0 - min(1.0, self.c + self.k)\n        g = 1.0 - min(1.0, self.m + self.k)\n        b = 1.0 - min(1.0, self.y + self.k)",
+        "detail": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "documentation": {}
+    },
+    {
+        "label": "Gra",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "description": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "peekOfCode": "class Gray (Color):\n    def __init__(self, g):\n        self.g = g\n    def to_rgb(self):\n        return RGB(g, g, g)\n_x11_colors = {\n\t'aliceblue': (240, 248, 255),\n    'antiquewhite': (250, 235, 215),\n    'aqua':\t( 0, 255, 255),\n    'aquamarine': (127, 255, 212),",
+        "detail": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "documentation": {}
+    },
+    {
+        "label": "ColorParse",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "description": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "peekOfCode": "class ColorParser (object):\n    def __init__(self, s):\n        self._string = s\n        self._pos = 0\n    def skipws(self):\n        m = _ws_re.match(self._string, self._pos)\n        if m:\n            self._pos = m.end(0)\n    def expect(self, s, context=''):\n        if len(self._string) - self._pos < len(s) \\",
+        "detail": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "documentation": {}
+    },
+    {
+        "label": "isAColor",
+        "kind": 2,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "description": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "peekOfCode": "def isAColor(s):\n    return _color_re.match(s)\ndef parseColor(s):\n    return ColorParser(s).parseColor()",
+        "detail": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "documentation": {}
+    },
+    {
+        "label": "parseColor",
+        "kind": 2,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "description": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "peekOfCode": "def parseColor(s):\n    return ColorParser(s).parseColor()",
+        "detail": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "documentation": {}
+    },
+    {
+        "label": "_x11_colors",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "description": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "peekOfCode": "_x11_colors = {\n\t'aliceblue': (240, 248, 255),\n    'antiquewhite': (250, 235, 215),\n    'aqua':\t( 0, 255, 255),\n    'aquamarine': (127, 255, 212),\n    'azure': (240, 255, 255),\n    'beige': (245, 245, 220),\n    'bisque': (255, 228, 196),\n    'black': ( 0, 0, 0),\n    'blanchedalmond': (255, 235, 205),",
+        "detail": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "documentation": {}
+    },
+    {
+        "label": "_ws_re",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "description": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "peekOfCode": "_ws_re = re.compile('\\s+')\n_token_re = re.compile('[A-Za-z_][A-Za-z0-9_]*')\n_hex_re = re.compile('#([0-9a-f]{3}(?:[0-9a-f]{3})?)$')\n_number_re = re.compile('[0-9]*(\\.[0-9]*)')\nclass ColorParser (object):\n    def __init__(self, s):\n        self._string = s\n        self._pos = 0\n    def skipws(self):\n        m = _ws_re.match(self._string, self._pos)",
+        "detail": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "documentation": {}
+    },
+    {
+        "label": "_token_re",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "description": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "peekOfCode": "_token_re = re.compile('[A-Za-z_][A-Za-z0-9_]*')\n_hex_re = re.compile('#([0-9a-f]{3}(?:[0-9a-f]{3})?)$')\n_number_re = re.compile('[0-9]*(\\.[0-9]*)')\nclass ColorParser (object):\n    def __init__(self, s):\n        self._string = s\n        self._pos = 0\n    def skipws(self):\n        m = _ws_re.match(self._string, self._pos)\n        if m:",
+        "detail": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "documentation": {}
+    },
+    {
+        "label": "_hex_re",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "description": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "peekOfCode": "_hex_re = re.compile('#([0-9a-f]{3}(?:[0-9a-f]{3})?)$')\n_number_re = re.compile('[0-9]*(\\.[0-9]*)')\nclass ColorParser (object):\n    def __init__(self, s):\n        self._string = s\n        self._pos = 0\n    def skipws(self):\n        m = _ws_re.match(self._string, self._pos)\n        if m:\n            self._pos = m.end(0)",
+        "detail": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "documentation": {}
+    },
+    {
+        "label": "_number_re",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "description": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "peekOfCode": "_number_re = re.compile('[0-9]*(\\.[0-9]*)')\nclass ColorParser (object):\n    def __init__(self, s):\n        self._string = s\n        self._pos = 0\n    def skipws(self):\n        m = _ws_re.match(self._string, self._pos)\n        if m:\n            self._pos = m.end(0)\n    def expect(self, s, context=''):",
+        "detail": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "documentation": {}
+    },
+    {
+        "label": "_color_re",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "description": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "peekOfCode": "_color_re = re.compile('\\s*(#|rgb|hsl|hwb|cmyk|gray|grey|%s)'\n                       % '|'.join(_x11_colors.keys()))\ndef isAColor(s):\n    return _color_re.match(s)\ndef parseColor(s):\n    return ColorParser(s).parseColor()",
+        "detail": "baklava.node_modules.dmg-builder.vendor.dmgbuild.colors",
+        "documentation": {}
+    },
+    {
+        "label": "DMGError",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.dmgbuild.core",
+        "description": "baklava.node_modules.dmg-builder.vendor.dmgbuild.core",
+        "peekOfCode": "class DMGError(Exception):\n  pass\ndef build_dmg():\n  options = {\n    'icon': None,\n    'badge_icon': None,\n    'sidebar_width': 180,\n    'arrange_by': None,\n    'grid_offset': (0, 0),\n    'grid_spacing': 100.0,",
+        "detail": "baklava.node_modules.dmg-builder.vendor.dmgbuild.core",
+        "documentation": {}
+    },
+    {
+        "label": "build_dmg",
+        "kind": 2,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.dmgbuild.core",
+        "description": "baklava.node_modules.dmg-builder.vendor.dmgbuild.core",
+        "peekOfCode": "def build_dmg():\n  options = {\n    'icon': None,\n    'badge_icon': None,\n    'sidebar_width': 180,\n    'arrange_by': None,\n    'grid_offset': (0, 0),\n    'grid_spacing': 100.0,\n    'scroll_position': (0.0, 0.0),\n    'show_icon_preview': False,",
+        "detail": "baklava.node_modules.dmg-builder.vendor.dmgbuild.core",
+        "documentation": {}
+    },
+    {
+        "label": "BuddyError",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.ds_store.buddy",
+        "description": "baklava.node_modules.dmg-builder.vendor.ds_store.buddy",
+        "peekOfCode": "class BuddyError(Exception):\n    pass\nclass Block(object):\n    def __init__(self, allocator, offset, size):\n        self._allocator = allocator\n        self._offset = offset\n        self._size = size\n        self._value = bytearray(allocator.read(offset, size))\n        self._pos = 0\n        self._dirty = False",
+        "detail": "baklava.node_modules.dmg-builder.vendor.ds_store.buddy",
+        "documentation": {}
+    },
+    {
+        "label": "Block",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.ds_store.buddy",
+        "description": "baklava.node_modules.dmg-builder.vendor.ds_store.buddy",
+        "peekOfCode": "class Block(object):\n    def __init__(self, allocator, offset, size):\n        self._allocator = allocator\n        self._offset = offset\n        self._size = size\n        self._value = bytearray(allocator.read(offset, size))\n        self._pos = 0\n        self._dirty = False\n    def __len__(self):\n        return self._size",
+        "detail": "baklava.node_modules.dmg-builder.vendor.ds_store.buddy",
+        "documentation": {}
+    },
+    {
+        "label": "Allocator",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.ds_store.buddy",
+        "description": "baklava.node_modules.dmg-builder.vendor.ds_store.buddy",
+        "peekOfCode": "class Allocator(object):\n    def __init__(self, the_file):\n        self._file = the_file\n        self._dirty = False\n        self._file.seek(0)\n        # Read the header\n        magic1, magic2, offset, size, offset2, self._unknown1 \\\n          = self.read(-4, '>I4sIII16s')\n        if magic2 != b'Bud1' or magic1 != 1:\n            raise BuddyError('Not a buddy file')",
+        "detail": "baklava.node_modules.dmg-builder.vendor.ds_store.buddy",
+        "documentation": {}
+    },
+    {
+        "label": "ILocCodec",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.ds_store.store",
+        "description": "baklava.node_modules.dmg-builder.vendor.ds_store.store",
+        "peekOfCode": "class ILocCodec(object):\n    @staticmethod\n    def encode(point):\n        return struct.pack(b'>IIII', point[0], point[1],\n                           0xffffffff, 0xffff0000)\n    @staticmethod\n    def decode(bytesData):\n        if isinstance(bytesData, bytearray):\n            x, y = struct.unpack_from(b'>II', bytes(bytesData[:8]))\n        else:",
+        "detail": "baklava.node_modules.dmg-builder.vendor.ds_store.store",
+        "documentation": {}
+    },
+    {
+        "label": "PlistCodec",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.ds_store.store",
+        "description": "baklava.node_modules.dmg-builder.vendor.ds_store.store",
+        "peekOfCode": "class PlistCodec(object):\n    @staticmethod\n    def encode(plist):\n        return biplist.writePlistToString(plist)\n    @staticmethod\n    def decode(bytes):\n        return biplist.readPlistFromString(bytes)\nclass BookmarkCodec(object):\n    @staticmethod\n    def encode(bmk):",
+        "detail": "baklava.node_modules.dmg-builder.vendor.ds_store.store",
+        "documentation": {}
+    },
+    {
+        "label": "BookmarkCodec",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.ds_store.store",
+        "description": "baklava.node_modules.dmg-builder.vendor.ds_store.store",
+        "peekOfCode": "class BookmarkCodec(object):\n    @staticmethod\n    def encode(bmk):\n        return bmk.to_bytes()\n    @staticmethod\n    def decode(bytes):\n        return mac_alias.Bookmark.from_bytes(bytes)\n# This list tells the code how to decode particular kinds of entry in the\n# .DS_Store file.  This is really a convenience, and we currently only\n# support a tiny subset of the possible entry types.",
+        "detail": "baklava.node_modules.dmg-builder.vendor.ds_store.store",
+        "documentation": {}
+    },
+    {
+        "label": "DSStoreEntry",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.ds_store.store",
+        "description": "baklava.node_modules.dmg-builder.vendor.ds_store.store",
+        "peekOfCode": "class DSStoreEntry(object):\n    \"\"\"Holds the data from an entry in a ``.DS_Store`` file.  Note that this is\n    not meant to represent the entry itself---i.e. if you change the type\n    or value, your changes will *not* be reflected in the underlying file.\n    If you want to make a change, you should either use the :class:`DSStore`\n    object's :meth:`DSStore.insert` method (which will replace a key if it\n    already exists), or the mapping access mode for :class:`DSStore` (often\n    simpler anyway).\n    \"\"\"\n    def __init__(self, filename, code, typecode, value=None):",
+        "detail": "baklava.node_modules.dmg-builder.vendor.ds_store.store",
+        "documentation": {}
+    },
+    {
+        "label": "DSStore",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.ds_store.store",
+        "description": "baklava.node_modules.dmg-builder.vendor.ds_store.store",
+        "peekOfCode": "class DSStore(object):\n    \"\"\"Python interface to a ``.DS_Store`` file.  Works by manipulating the file\n    on the disk---so this code will work with ``.DS_Store`` files for *very*\n    large directories.\n    A :class:`DSStore` object can be used as if it was a mapping, e.g.::\n      d['foobar.dat']['Iloc']\n    will fetch the \"Iloc\" record for \"foobar.dat\", or raise :class:`KeyError` if\n    there is no such record.  If used in this manner, the :class:`DSStore` object\n    will return (type, value) tuples, unless the type is \"blob\" and the module\n    knows how to decode it.",
+        "detail": "baklava.node_modules.dmg-builder.vendor.ds_store.store",
+        "documentation": {}
+    },
+    {
+        "label": "codecs",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.ds_store.store",
+        "description": "baklava.node_modules.dmg-builder.vendor.ds_store.store",
+        "peekOfCode": "codecs = {\n    b'Iloc': ILocCodec,\n    b'bwsp': PlistCodec,\n    b'lsvp': PlistCodec,\n    b'lsvP': PlistCodec,\n    b'icvp': PlistCodec,\n    b'pBBk': BookmarkCodec\n    }\nclass DSStoreEntry(object):\n    \"\"\"Holds the data from an entry in a ``.DS_Store`` file.  Note that this is",
+        "detail": "baklava.node_modules.dmg-builder.vendor.ds_store.store",
+        "documentation": {}
+    },
+    {
+        "label": "AppleShareInf",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "class AppleShareInfo (object):\n    def __init__(self, zone=None, server=None, user=None):\n        #: The AppleShare zone\n        self.zone = zone\n        #: The AFP server\n        self.server = server\n        #: The username\n        self.user = user\n    def __repr__(self):\n        return 'AppleShareInfo(%r,%r,%r)' % (self.zone, self.server, self.user)",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "VolumeInf",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "class VolumeInfo (object):\n    def __init__(self, name, creation_date, fs_type, disk_type,\n                 attribute_flags, fs_id, appleshare_info=None,\n                 driver_name=None, posix_path=None, disk_image_alias=None,\n                 dialup_info=None, network_mount_info=None):\n        #: The name of the volume on which the target resides\n        self.name = name\n        #: The creation date of the target's volume\n        self.creation_date = creation_date\n        #: The filesystem type",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "TargetInf",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "class TargetInfo (object):\n    def __init__(self, kind, filename, folder_cnid, cnid, creation_date,\n                 creator_code, type_code, levels_from=-1, levels_to=-1,\n                 folder_name=None, cnid_path=None, carbon_path=None,\n                 posix_path=None, user_home_prefix_len=None):\n        #: Either ALIAS_KIND_FILE or ALIAS_KIND_FOLDER\n        self.kind = kind\n        #: The filename of the target\n        self.filename = filename\n        #: The CNID (Catalog Node ID) of the target's containing folder;",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "Alia",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "class Alias (object):\n    def __init__(self, appinfo=b'\\0\\0\\0\\0', version=2, volume=None,\n                       target=None, extra=[]):\n        \"\"\"Construct a new :class:`Alias` object with the specified\n        contents.\"\"\"\n        #: Application specific information (four byte byte-string)\n        self.appinfo = appinfo\n        #: Version (we support versions 2 and 3)\n        self.version = version\n        #: A :class:`VolumeInfo` object describing the target's volume",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "encode_utf8",
+        "kind": 2,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "def encode_utf8(s):\n    if isinstance(s, bytes):\n        return s\n    return s.encode('utf-8')\ndef decode_utf8(s):\n    if isinstance(s, bytes):\n        return s.decode('utf-8')\n    return s\nclass AppleShareInfo (object):\n    def __init__(self, zone=None, server=None, user=None):",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "decode_utf8",
+        "kind": 2,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "def decode_utf8(s):\n    if isinstance(s, bytes):\n        return s.decode('utf-8')\n    return s\nclass AppleShareInfo (object):\n    def __init__(self, zone=None, server=None, user=None):\n        #: The AppleShare zone\n        self.zone = zone\n        #: The AFP server\n        self.server = server",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "ALIAS_KIND_FILE",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "ALIAS_KIND_FILE = 0\nALIAS_KIND_FOLDER = 1\nALIAS_HFS_VOLUME_SIGNATURE = b'H+'\nALIAS_FILESYSTEM_UDF     = 'UDF (CD/DVD)'\nALIAS_FILESYSTEM_FAT32   = 'FAT32'\nALIAS_FILESYSTEM_EXFAT   = 'exFAT'\nALIAS_FILESYSTEM_HFSX    = 'HFSX'\nALIAS_FILESYSTEM_HFSPLUS = 'HFS+'\nALIAS_FILESYSTEM_FTP     = 'FTP'\nALIAS_FILESYSTEM_NTFS    = 'NTFS'",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "ALIAS_KIND_FOLDER",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "ALIAS_KIND_FOLDER = 1\nALIAS_HFS_VOLUME_SIGNATURE = b'H+'\nALIAS_FILESYSTEM_UDF     = 'UDF (CD/DVD)'\nALIAS_FILESYSTEM_FAT32   = 'FAT32'\nALIAS_FILESYSTEM_EXFAT   = 'exFAT'\nALIAS_FILESYSTEM_HFSX    = 'HFSX'\nALIAS_FILESYSTEM_HFSPLUS = 'HFS+'\nALIAS_FILESYSTEM_FTP     = 'FTP'\nALIAS_FILESYSTEM_NTFS    = 'NTFS'\nALIAS_FILESYSTEM_UNKNOWN = 'unknown'",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "ALIAS_HFS_VOLUME_SIGNATURE",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "ALIAS_HFS_VOLUME_SIGNATURE = b'H+'\nALIAS_FILESYSTEM_UDF     = 'UDF (CD/DVD)'\nALIAS_FILESYSTEM_FAT32   = 'FAT32'\nALIAS_FILESYSTEM_EXFAT   = 'exFAT'\nALIAS_FILESYSTEM_HFSX    = 'HFSX'\nALIAS_FILESYSTEM_HFSPLUS = 'HFS+'\nALIAS_FILESYSTEM_FTP     = 'FTP'\nALIAS_FILESYSTEM_NTFS    = 'NTFS'\nALIAS_FILESYSTEM_UNKNOWN = 'unknown'\nALIAS_FIXED_DISK = 0",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "ALIAS_FILESYSTEM_HFSPLUS",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "ALIAS_FILESYSTEM_HFSPLUS = 'HFS+'\nALIAS_FILESYSTEM_FTP     = 'FTP'\nALIAS_FILESYSTEM_NTFS    = 'NTFS'\nALIAS_FILESYSTEM_UNKNOWN = 'unknown'\nALIAS_FIXED_DISK = 0\nALIAS_NETWORK_DISK = 1\nALIAS_400KB_FLOPPY_DISK = 2\nALIAS_800KB_FLOPPY_DISK = 3\nALIAS_1_44MB_FLOPPY_DISK = 4\nALIAS_EJECTABLE_DISK = 5",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "ALIAS_FILESYSTEM_UNKNOWN",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "ALIAS_FILESYSTEM_UNKNOWN = 'unknown'\nALIAS_FIXED_DISK = 0\nALIAS_NETWORK_DISK = 1\nALIAS_400KB_FLOPPY_DISK = 2\nALIAS_800KB_FLOPPY_DISK = 3\nALIAS_1_44MB_FLOPPY_DISK = 4\nALIAS_EJECTABLE_DISK = 5\nALIAS_NO_CNID = 0xffffffff\nALIAS_FSTYPE_MAP = {\n    # Version 2 aliases",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "ALIAS_FIXED_DISK",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "ALIAS_FIXED_DISK = 0\nALIAS_NETWORK_DISK = 1\nALIAS_400KB_FLOPPY_DISK = 2\nALIAS_800KB_FLOPPY_DISK = 3\nALIAS_1_44MB_FLOPPY_DISK = 4\nALIAS_EJECTABLE_DISK = 5\nALIAS_NO_CNID = 0xffffffff\nALIAS_FSTYPE_MAP = {\n    # Version 2 aliases\n    b'HX': ALIAS_FILESYSTEM_HFSX,",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "ALIAS_NETWORK_DISK",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "ALIAS_NETWORK_DISK = 1\nALIAS_400KB_FLOPPY_DISK = 2\nALIAS_800KB_FLOPPY_DISK = 3\nALIAS_1_44MB_FLOPPY_DISK = 4\nALIAS_EJECTABLE_DISK = 5\nALIAS_NO_CNID = 0xffffffff\nALIAS_FSTYPE_MAP = {\n    # Version 2 aliases\n    b'HX': ALIAS_FILESYSTEM_HFSX,\n    b'H+': ALIAS_FILESYSTEM_HFSPLUS,",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "ALIAS_400KB_FLOPPY_DISK",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "ALIAS_400KB_FLOPPY_DISK = 2\nALIAS_800KB_FLOPPY_DISK = 3\nALIAS_1_44MB_FLOPPY_DISK = 4\nALIAS_EJECTABLE_DISK = 5\nALIAS_NO_CNID = 0xffffffff\nALIAS_FSTYPE_MAP = {\n    # Version 2 aliases\n    b'HX': ALIAS_FILESYSTEM_HFSX,\n    b'H+': ALIAS_FILESYSTEM_HFSPLUS,\n    # Version 3 aliases",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "ALIAS_800KB_FLOPPY_DISK",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "ALIAS_800KB_FLOPPY_DISK = 3\nALIAS_1_44MB_FLOPPY_DISK = 4\nALIAS_EJECTABLE_DISK = 5\nALIAS_NO_CNID = 0xffffffff\nALIAS_FSTYPE_MAP = {\n    # Version 2 aliases\n    b'HX': ALIAS_FILESYSTEM_HFSX,\n    b'H+': ALIAS_FILESYSTEM_HFSPLUS,\n    # Version 3 aliases\n    b'BDcu':   ALIAS_FILESYSTEM_UDF,",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "ALIAS_1_44MB_FLOPPY_DISK",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "ALIAS_1_44MB_FLOPPY_DISK = 4\nALIAS_EJECTABLE_DISK = 5\nALIAS_NO_CNID = 0xffffffff\nALIAS_FSTYPE_MAP = {\n    # Version 2 aliases\n    b'HX': ALIAS_FILESYSTEM_HFSX,\n    b'H+': ALIAS_FILESYSTEM_HFSPLUS,\n    # Version 3 aliases\n    b'BDcu':   ALIAS_FILESYSTEM_UDF,\n    b'BDIS':   ALIAS_FILESYSTEM_FAT32,",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "ALIAS_EJECTABLE_DISK",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "ALIAS_EJECTABLE_DISK = 5\nALIAS_NO_CNID = 0xffffffff\nALIAS_FSTYPE_MAP = {\n    # Version 2 aliases\n    b'HX': ALIAS_FILESYSTEM_HFSX,\n    b'H+': ALIAS_FILESYSTEM_HFSPLUS,\n    # Version 3 aliases\n    b'BDcu':   ALIAS_FILESYSTEM_UDF,\n    b'BDIS':   ALIAS_FILESYSTEM_FAT32,\n    b'BDxF':   ALIAS_FILESYSTEM_EXFAT,",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "ALIAS_NO_CNID",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "ALIAS_NO_CNID = 0xffffffff\nALIAS_FSTYPE_MAP = {\n    # Version 2 aliases\n    b'HX': ALIAS_FILESYSTEM_HFSX,\n    b'H+': ALIAS_FILESYSTEM_HFSPLUS,\n    # Version 3 aliases\n    b'BDcu':   ALIAS_FILESYSTEM_UDF,\n    b'BDIS':   ALIAS_FILESYSTEM_FAT32,\n    b'BDxF':   ALIAS_FILESYSTEM_EXFAT,\n    b'HX\\0\\0': ALIAS_FILESYSTEM_HFSX,",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "ALIAS_FSTYPE_MAP",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "ALIAS_FSTYPE_MAP = {\n    # Version 2 aliases\n    b'HX': ALIAS_FILESYSTEM_HFSX,\n    b'H+': ALIAS_FILESYSTEM_HFSPLUS,\n    # Version 3 aliases\n    b'BDcu':   ALIAS_FILESYSTEM_UDF,\n    b'BDIS':   ALIAS_FILESYSTEM_FAT32,\n    b'BDxF':   ALIAS_FILESYSTEM_EXFAT,\n    b'HX\\0\\0': ALIAS_FILESYSTEM_HFSX,\n    b'H+\\0\\0': ALIAS_FILESYSTEM_HFSPLUS,",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "TAG_CARBON_FOLDER_NAME",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "TAG_CARBON_FOLDER_NAME = 0\nTAG_CNID_PATH = 1\nTAG_CARBON_PATH = 2\nTAG_APPLESHARE_ZONE = 3\nTAG_APPLESHARE_SERVER_NAME = 4\nTAG_APPLESHARE_USERNAME = 5\nTAG_DRIVER_NAME = 6\nTAG_NETWORK_MOUNT_INFO = 9\nTAG_DIALUP_INFO = 10\nTAG_UNICODE_FILENAME = 14",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "TAG_CNID_PATH",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "TAG_CNID_PATH = 1\nTAG_CARBON_PATH = 2\nTAG_APPLESHARE_ZONE = 3\nTAG_APPLESHARE_SERVER_NAME = 4\nTAG_APPLESHARE_USERNAME = 5\nTAG_DRIVER_NAME = 6\nTAG_NETWORK_MOUNT_INFO = 9\nTAG_DIALUP_INFO = 10\nTAG_UNICODE_FILENAME = 14\nTAG_UNICODE_VOLUME_NAME = 15",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "TAG_CARBON_PATH",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "TAG_CARBON_PATH = 2\nTAG_APPLESHARE_ZONE = 3\nTAG_APPLESHARE_SERVER_NAME = 4\nTAG_APPLESHARE_USERNAME = 5\nTAG_DRIVER_NAME = 6\nTAG_NETWORK_MOUNT_INFO = 9\nTAG_DIALUP_INFO = 10\nTAG_UNICODE_FILENAME = 14\nTAG_UNICODE_VOLUME_NAME = 15\nTAG_HIGH_RES_VOLUME_CREATION_DATE = 16",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "TAG_APPLESHARE_ZONE",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "TAG_APPLESHARE_ZONE = 3\nTAG_APPLESHARE_SERVER_NAME = 4\nTAG_APPLESHARE_USERNAME = 5\nTAG_DRIVER_NAME = 6\nTAG_NETWORK_MOUNT_INFO = 9\nTAG_DIALUP_INFO = 10\nTAG_UNICODE_FILENAME = 14\nTAG_UNICODE_VOLUME_NAME = 15\nTAG_HIGH_RES_VOLUME_CREATION_DATE = 16\nTAG_HIGH_RES_CREATION_DATE = 17",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "TAG_APPLESHARE_SERVER_NAME",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "TAG_APPLESHARE_SERVER_NAME = 4\nTAG_APPLESHARE_USERNAME = 5\nTAG_DRIVER_NAME = 6\nTAG_NETWORK_MOUNT_INFO = 9\nTAG_DIALUP_INFO = 10\nTAG_UNICODE_FILENAME = 14\nTAG_UNICODE_VOLUME_NAME = 15\nTAG_HIGH_RES_VOLUME_CREATION_DATE = 16\nTAG_HIGH_RES_CREATION_DATE = 17\nTAG_POSIX_PATH = 18",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "TAG_APPLESHARE_USERNAME",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "TAG_APPLESHARE_USERNAME = 5\nTAG_DRIVER_NAME = 6\nTAG_NETWORK_MOUNT_INFO = 9\nTAG_DIALUP_INFO = 10\nTAG_UNICODE_FILENAME = 14\nTAG_UNICODE_VOLUME_NAME = 15\nTAG_HIGH_RES_VOLUME_CREATION_DATE = 16\nTAG_HIGH_RES_CREATION_DATE = 17\nTAG_POSIX_PATH = 18\nTAG_POSIX_PATH_TO_MOUNTPOINT = 19",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "TAG_DRIVER_NAME",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "TAG_DRIVER_NAME = 6\nTAG_NETWORK_MOUNT_INFO = 9\nTAG_DIALUP_INFO = 10\nTAG_UNICODE_FILENAME = 14\nTAG_UNICODE_VOLUME_NAME = 15\nTAG_HIGH_RES_VOLUME_CREATION_DATE = 16\nTAG_HIGH_RES_CREATION_DATE = 17\nTAG_POSIX_PATH = 18\nTAG_POSIX_PATH_TO_MOUNTPOINT = 19\nTAG_RECURSIVE_ALIAS_OF_DISK_IMAGE = 20",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "TAG_NETWORK_MOUNT_INFO",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "TAG_NETWORK_MOUNT_INFO = 9\nTAG_DIALUP_INFO = 10\nTAG_UNICODE_FILENAME = 14\nTAG_UNICODE_VOLUME_NAME = 15\nTAG_HIGH_RES_VOLUME_CREATION_DATE = 16\nTAG_HIGH_RES_CREATION_DATE = 17\nTAG_POSIX_PATH = 18\nTAG_POSIX_PATH_TO_MOUNTPOINT = 19\nTAG_RECURSIVE_ALIAS_OF_DISK_IMAGE = 20\nTAG_USER_HOME_LENGTH_PREFIX = 21",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "TAG_DIALUP_INFO",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "TAG_DIALUP_INFO = 10\nTAG_UNICODE_FILENAME = 14\nTAG_UNICODE_VOLUME_NAME = 15\nTAG_HIGH_RES_VOLUME_CREATION_DATE = 16\nTAG_HIGH_RES_CREATION_DATE = 17\nTAG_POSIX_PATH = 18\nTAG_POSIX_PATH_TO_MOUNTPOINT = 19\nTAG_RECURSIVE_ALIAS_OF_DISK_IMAGE = 20\nTAG_USER_HOME_LENGTH_PREFIX = 21\nclass Alias (object):",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "TAG_UNICODE_FILENAME",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "TAG_UNICODE_FILENAME = 14\nTAG_UNICODE_VOLUME_NAME = 15\nTAG_HIGH_RES_VOLUME_CREATION_DATE = 16\nTAG_HIGH_RES_CREATION_DATE = 17\nTAG_POSIX_PATH = 18\nTAG_POSIX_PATH_TO_MOUNTPOINT = 19\nTAG_RECURSIVE_ALIAS_OF_DISK_IMAGE = 20\nTAG_USER_HOME_LENGTH_PREFIX = 21\nclass Alias (object):\n    def __init__(self, appinfo=b'\\0\\0\\0\\0', version=2, volume=None,",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "TAG_UNICODE_VOLUME_NAME",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "TAG_UNICODE_VOLUME_NAME = 15\nTAG_HIGH_RES_VOLUME_CREATION_DATE = 16\nTAG_HIGH_RES_CREATION_DATE = 17\nTAG_POSIX_PATH = 18\nTAG_POSIX_PATH_TO_MOUNTPOINT = 19\nTAG_RECURSIVE_ALIAS_OF_DISK_IMAGE = 20\nTAG_USER_HOME_LENGTH_PREFIX = 21\nclass Alias (object):\n    def __init__(self, appinfo=b'\\0\\0\\0\\0', version=2, volume=None,\n                       target=None, extra=[]):",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "TAG_HIGH_RES_VOLUME_CREATION_DATE",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "TAG_HIGH_RES_VOLUME_CREATION_DATE = 16\nTAG_HIGH_RES_CREATION_DATE = 17\nTAG_POSIX_PATH = 18\nTAG_POSIX_PATH_TO_MOUNTPOINT = 19\nTAG_RECURSIVE_ALIAS_OF_DISK_IMAGE = 20\nTAG_USER_HOME_LENGTH_PREFIX = 21\nclass Alias (object):\n    def __init__(self, appinfo=b'\\0\\0\\0\\0', version=2, volume=None,\n                       target=None, extra=[]):\n        \"\"\"Construct a new :class:`Alias` object with the specified",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "TAG_HIGH_RES_CREATION_DATE",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "TAG_HIGH_RES_CREATION_DATE = 17\nTAG_POSIX_PATH = 18\nTAG_POSIX_PATH_TO_MOUNTPOINT = 19\nTAG_RECURSIVE_ALIAS_OF_DISK_IMAGE = 20\nTAG_USER_HOME_LENGTH_PREFIX = 21\nclass Alias (object):\n    def __init__(self, appinfo=b'\\0\\0\\0\\0', version=2, volume=None,\n                       target=None, extra=[]):\n        \"\"\"Construct a new :class:`Alias` object with the specified\n        contents.\"\"\"",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "TAG_POSIX_PATH",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "TAG_POSIX_PATH = 18\nTAG_POSIX_PATH_TO_MOUNTPOINT = 19\nTAG_RECURSIVE_ALIAS_OF_DISK_IMAGE = 20\nTAG_USER_HOME_LENGTH_PREFIX = 21\nclass Alias (object):\n    def __init__(self, appinfo=b'\\0\\0\\0\\0', version=2, volume=None,\n                       target=None, extra=[]):\n        \"\"\"Construct a new :class:`Alias` object with the specified\n        contents.\"\"\"\n        #: Application specific information (four byte byte-string)",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "TAG_POSIX_PATH_TO_MOUNTPOINT",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "TAG_POSIX_PATH_TO_MOUNTPOINT = 19\nTAG_RECURSIVE_ALIAS_OF_DISK_IMAGE = 20\nTAG_USER_HOME_LENGTH_PREFIX = 21\nclass Alias (object):\n    def __init__(self, appinfo=b'\\0\\0\\0\\0', version=2, volume=None,\n                       target=None, extra=[]):\n        \"\"\"Construct a new :class:`Alias` object with the specified\n        contents.\"\"\"\n        #: Application specific information (four byte byte-string)\n        self.appinfo = appinfo",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "TAG_RECURSIVE_ALIAS_OF_DISK_IMAGE",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "TAG_RECURSIVE_ALIAS_OF_DISK_IMAGE = 20\nTAG_USER_HOME_LENGTH_PREFIX = 21\nclass Alias (object):\n    def __init__(self, appinfo=b'\\0\\0\\0\\0', version=2, volume=None,\n                       target=None, extra=[]):\n        \"\"\"Construct a new :class:`Alias` object with the specified\n        contents.\"\"\"\n        #: Application specific information (four byte byte-string)\n        self.appinfo = appinfo\n        #: Version (we support versions 2 and 3)",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "TAG_USER_HOME_LENGTH_PREFIX",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "peekOfCode": "TAG_USER_HOME_LENGTH_PREFIX = 21\nclass Alias (object):\n    def __init__(self, appinfo=b'\\0\\0\\0\\0', version=2, volume=None,\n                       target=None, extra=[]):\n        \"\"\"Construct a new :class:`Alias` object with the specified\n        contents.\"\"\"\n        #: Application specific information (four byte byte-string)\n        self.appinfo = appinfo\n        #: Version (we support versions 2 and 3)\n        self.version = version",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.alias",
+        "documentation": {}
+    },
+    {
+        "label": "Dat",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "class Data (object):\n    def __init__(self, bytedata=None):\n        #: The bytes, stored as a byte string\n        self.bytes = bytes(bytedata)\n    def __repr__(self):\n        return 'Data(%r)' % self.bytes\nclass URL (object):\n    def __init__(self, base, rel=None):\n        if rel is not None:\n            #: The base URL, if any (a :class:`URL`)",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "UR",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "class URL (object):\n    def __init__(self, base, rel=None):\n        if rel is not None:\n            #: The base URL, if any (a :class:`URL`)\n            self.base = base\n            #: The rest of the URL (a string)\n            self.relative = rel\n        else:\n            self.base = None\n            self.relative = base",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "Bookmar",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "class Bookmark (object):\n    def __init__(self, tocs=None):\n        if tocs is None:\n            #: The TOCs for this Bookmark\n            self.tocs = []\n        else:\n            self.tocs = tocs\n    @classmethod\n    def _get_item(cls, data, hdrsize, offset):\n        offset += hdrsize",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "iteritems",
+        "kind": 2,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "def iteritems(x):\n    return x.iteritems()\ntry:\n    unicode\nexcept NameError:\n    unicode = str\n    long = int\n    xrange = range\n    def iteritems(x):\n        return x.items()",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "BMK_DATA_SUBTYPE_MASK",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "BMK_DATA_SUBTYPE_MASK = 0x000000ff\nBMK_STRING  = 0x0100\nBMK_DATA    = 0x0200\nBMK_NUMBER  = 0x0300\nBMK_DATE    = 0x0400\nBMK_BOOLEAN = 0x0500\nBMK_ARRAY   = 0x0600\nBMK_DICT    = 0x0700\nBMK_UUID    = 0x0800\nBMK_URL     = 0x0900",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "BMK_BOOLEAN",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "BMK_BOOLEAN = 0x0500\nBMK_ARRAY   = 0x0600\nBMK_DICT    = 0x0700\nBMK_UUID    = 0x0800\nBMK_URL     = 0x0900\nBMK_NULL    = 0x0a00\nBMK_ST_ZERO = 0x0000\nBMK_ST_ONE  = 0x0001\nBMK_BOOLEAN_ST_FALSE = 0x0000\nBMK_BOOLEAN_ST_TRUE  = 0x0001",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "BMK_ST_ZERO",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "BMK_ST_ZERO = 0x0000\nBMK_ST_ONE  = 0x0001\nBMK_BOOLEAN_ST_FALSE = 0x0000\nBMK_BOOLEAN_ST_TRUE  = 0x0001\n# Subtypes for BMK_NUMBER are really CFNumberType values\nkCFNumberSInt8Type = 1\nkCFNumberSInt16Type = 2\nkCFNumberSInt32Type = 3\nkCFNumberSInt64Type = 4\nkCFNumberFloat32Type = 5",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "BMK_BOOLEAN_ST_FALSE",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "BMK_BOOLEAN_ST_FALSE = 0x0000\nBMK_BOOLEAN_ST_TRUE  = 0x0001\n# Subtypes for BMK_NUMBER are really CFNumberType values\nkCFNumberSInt8Type = 1\nkCFNumberSInt16Type = 2\nkCFNumberSInt32Type = 3\nkCFNumberSInt64Type = 4\nkCFNumberFloat32Type = 5\nkCFNumberFloat64Type = 6\nkCFNumberCharType = 7",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "kCFNumberSInt8Type",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "kCFNumberSInt8Type = 1\nkCFNumberSInt16Type = 2\nkCFNumberSInt32Type = 3\nkCFNumberSInt64Type = 4\nkCFNumberFloat32Type = 5\nkCFNumberFloat64Type = 6\nkCFNumberCharType = 7\nkCFNumberShortType = 8\nkCFNumberIntType = 9\nkCFNumberLongType = 10",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "kCFNumberSInt16Type",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "kCFNumberSInt16Type = 2\nkCFNumberSInt32Type = 3\nkCFNumberSInt64Type = 4\nkCFNumberFloat32Type = 5\nkCFNumberFloat64Type = 6\nkCFNumberCharType = 7\nkCFNumberShortType = 8\nkCFNumberIntType = 9\nkCFNumberLongType = 10\nkCFNumberLongLongType = 11",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "kCFNumberSInt32Type",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "kCFNumberSInt32Type = 3\nkCFNumberSInt64Type = 4\nkCFNumberFloat32Type = 5\nkCFNumberFloat64Type = 6\nkCFNumberCharType = 7\nkCFNumberShortType = 8\nkCFNumberIntType = 9\nkCFNumberLongType = 10\nkCFNumberLongLongType = 11\nkCFNumberFloatType = 12",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "kCFNumberSInt64Type",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "kCFNumberSInt64Type = 4\nkCFNumberFloat32Type = 5\nkCFNumberFloat64Type = 6\nkCFNumberCharType = 7\nkCFNumberShortType = 8\nkCFNumberIntType = 9\nkCFNumberLongType = 10\nkCFNumberLongLongType = 11\nkCFNumberFloatType = 12\nkCFNumberDoubleType = 13",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "kCFNumberFloat32Type",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "kCFNumberFloat32Type = 5\nkCFNumberFloat64Type = 6\nkCFNumberCharType = 7\nkCFNumberShortType = 8\nkCFNumberIntType = 9\nkCFNumberLongType = 10\nkCFNumberLongLongType = 11\nkCFNumberFloatType = 12\nkCFNumberDoubleType = 13\nkCFNumberCFIndexType = 14",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "kCFNumberFloat64Type",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "kCFNumberFloat64Type = 6\nkCFNumberCharType = 7\nkCFNumberShortType = 8\nkCFNumberIntType = 9\nkCFNumberLongType = 10\nkCFNumberLongLongType = 11\nkCFNumberFloatType = 12\nkCFNumberDoubleType = 13\nkCFNumberCFIndexType = 14\nkCFNumberNSIntegerType = 15",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "kCFNumberCharType",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "kCFNumberCharType = 7\nkCFNumberShortType = 8\nkCFNumberIntType = 9\nkCFNumberLongType = 10\nkCFNumberLongLongType = 11\nkCFNumberFloatType = 12\nkCFNumberDoubleType = 13\nkCFNumberCFIndexType = 14\nkCFNumberNSIntegerType = 15\nkCFNumberCGFloatType = 16",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "kCFNumberShortType",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "kCFNumberShortType = 8\nkCFNumberIntType = 9\nkCFNumberLongType = 10\nkCFNumberLongLongType = 11\nkCFNumberFloatType = 12\nkCFNumberDoubleType = 13\nkCFNumberCFIndexType = 14\nkCFNumberNSIntegerType = 15\nkCFNumberCGFloatType = 16\n# Resource property flags (from CFURLPriv.h)",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "kCFNumberIntType",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "kCFNumberIntType = 9\nkCFNumberLongType = 10\nkCFNumberLongLongType = 11\nkCFNumberFloatType = 12\nkCFNumberDoubleType = 13\nkCFNumberCFIndexType = 14\nkCFNumberNSIntegerType = 15\nkCFNumberCGFloatType = 16\n# Resource property flags (from CFURLPriv.h)\nkCFURLResourceIsRegularFile      = 0x00000001",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "kCFNumberLongType",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "kCFNumberLongType = 10\nkCFNumberLongLongType = 11\nkCFNumberFloatType = 12\nkCFNumberDoubleType = 13\nkCFNumberCFIndexType = 14\nkCFNumberNSIntegerType = 15\nkCFNumberCGFloatType = 16\n# Resource property flags (from CFURLPriv.h)\nkCFURLResourceIsRegularFile      = 0x00000001\nkCFURLResourceIsDirectory        = 0x00000002",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "kCFNumberLongLongType",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "kCFNumberLongLongType = 11\nkCFNumberFloatType = 12\nkCFNumberDoubleType = 13\nkCFNumberCFIndexType = 14\nkCFNumberNSIntegerType = 15\nkCFNumberCGFloatType = 16\n# Resource property flags (from CFURLPriv.h)\nkCFURLResourceIsRegularFile      = 0x00000001\nkCFURLResourceIsDirectory        = 0x00000002\nkCFURLResourceIsSymbolicLink     = 0x00000004",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "kCFNumberFloatType",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "kCFNumberFloatType = 12\nkCFNumberDoubleType = 13\nkCFNumberCFIndexType = 14\nkCFNumberNSIntegerType = 15\nkCFNumberCGFloatType = 16\n# Resource property flags (from CFURLPriv.h)\nkCFURLResourceIsRegularFile      = 0x00000001\nkCFURLResourceIsDirectory        = 0x00000002\nkCFURLResourceIsSymbolicLink     = 0x00000004\nkCFURLResourceIsVolume           = 0x00000008",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "kCFNumberDoubleType",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "kCFNumberDoubleType = 13\nkCFNumberCFIndexType = 14\nkCFNumberNSIntegerType = 15\nkCFNumberCGFloatType = 16\n# Resource property flags (from CFURLPriv.h)\nkCFURLResourceIsRegularFile      = 0x00000001\nkCFURLResourceIsDirectory        = 0x00000002\nkCFURLResourceIsSymbolicLink     = 0x00000004\nkCFURLResourceIsVolume           = 0x00000008\nkCFURLResourceIsPackage          = 0x00000010",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "kCFNumberCFIndexType",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "kCFNumberCFIndexType = 14\nkCFNumberNSIntegerType = 15\nkCFNumberCGFloatType = 16\n# Resource property flags (from CFURLPriv.h)\nkCFURLResourceIsRegularFile      = 0x00000001\nkCFURLResourceIsDirectory        = 0x00000002\nkCFURLResourceIsSymbolicLink     = 0x00000004\nkCFURLResourceIsVolume           = 0x00000008\nkCFURLResourceIsPackage          = 0x00000010\nkCFURLResourceIsSystemImmutable  = 0x00000020",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "kCFNumberNSIntegerType",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "kCFNumberNSIntegerType = 15\nkCFNumberCGFloatType = 16\n# Resource property flags (from CFURLPriv.h)\nkCFURLResourceIsRegularFile      = 0x00000001\nkCFURLResourceIsDirectory        = 0x00000002\nkCFURLResourceIsSymbolicLink     = 0x00000004\nkCFURLResourceIsVolume           = 0x00000008\nkCFURLResourceIsPackage          = 0x00000010\nkCFURLResourceIsSystemImmutable  = 0x00000020\nkCFURLResourceIsUserImmutable    = 0x00000040",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "kCFNumberCGFloatType",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "kCFNumberCGFloatType = 16\n# Resource property flags (from CFURLPriv.h)\nkCFURLResourceIsRegularFile      = 0x00000001\nkCFURLResourceIsDirectory        = 0x00000002\nkCFURLResourceIsSymbolicLink     = 0x00000004\nkCFURLResourceIsVolume           = 0x00000008\nkCFURLResourceIsPackage          = 0x00000010\nkCFURLResourceIsSystemImmutable  = 0x00000020\nkCFURLResourceIsUserImmutable    = 0x00000040\nkCFURLResourceIsHidden           = 0x00000080",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "kCFURLResourceHasHiddenExtension",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "kCFURLResourceHasHiddenExtension = 0x00000100\nkCFURLResourceIsApplication      = 0x00000200\nkCFURLResourceIsCompressed       = 0x00000400\nkCFURLResourceIsSystemCompressed = 0x00000400\nkCFURLCanSetHiddenExtension      = 0x00000800\nkCFURLResourceIsReadable         = 0x00001000\nkCFURLResourceIsWriteable        = 0x00002000\nkCFURLResourceIsExecutable       = 0x00004000\nkCFURLIsAliasFile                = 0x00008000\nkCFURLIsMountTrigger             = 0x00010000",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "kCFURLResourceIsSystemCompressed",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "kCFURLResourceIsSystemCompressed = 0x00000400\nkCFURLCanSetHiddenExtension      = 0x00000800\nkCFURLResourceIsReadable         = 0x00001000\nkCFURLResourceIsWriteable        = 0x00002000\nkCFURLResourceIsExecutable       = 0x00004000\nkCFURLIsAliasFile                = 0x00008000\nkCFURLIsMountTrigger             = 0x00010000\n# Volume property flags (from CFURLPriv.h)\nkCFURLVolumeIsLocal                         =                0x1 #\nkCFURLVolumeIsAutomount                     =                0x2 #",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "kCFURLVolumeSupportsMandatoryByteRangeLocks",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "kCFURLVolumeSupportsMandatoryByteRangeLocks =    0x4000000000000\nkCFURLVolumeSupportsPathFromID              =    0x8000000000000\n# reserved                                      0x10000000000000\nkCFURLVolumeIsJournaling                    =   0x20000000000000\nkCFURLVolumeSupportsSparseFiles             =   0x40000000000000\nkCFURLVolumeSupportsZeroRuns                =   0x80000000000000\nkCFURLVolumeSupportsVolumeSizes             =  0x100000000000000\nkCFURLVolumeSupportsRemoteEvents            =  0x200000000000000\nkCFURLVolumeSupportsHiddenFiles             =  0x400000000000000\nkCFURLVolumeSupportsDecmpFSCompression      =  0x800000000000000",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "BMK_URL_ST_ABSOLUTE",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "BMK_URL_ST_ABSOLUTE = 0x0001\nBMK_URL_ST_RELATIVE = 0x0002\n# Bookmark keys\nkBookmarkURL                = 0x1003   # A URL\nkBookmarkPath               = 0x1004   # Array of path components\nkBookmarkCNIDPath           = 0x1005   # Array of CNIDs\nkBookmarkFileProperties     = 0x1010   # (CFURL rp flags,\n                                       #  CFURL rp flags asked for,\n                                       #  8 bytes NULL)\nkBookmarkFileName           = 0x1020",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "BMK_URL_ST_RELATIVE",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "BMK_URL_ST_RELATIVE = 0x0002\n# Bookmark keys\nkBookmarkURL                = 0x1003   # A URL\nkBookmarkPath               = 0x1004   # Array of path components\nkBookmarkCNIDPath           = 0x1005   # Array of CNIDs\nkBookmarkFileProperties     = 0x1010   # (CFURL rp flags,\n                                       #  CFURL rp flags asked for,\n                                       #  8 bytes NULL)\nkBookmarkFileName           = 0x1020\nkBookmarkFileID             = 0x1030",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "kBookmarkVolumeCreationDate",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "kBookmarkVolumeCreationDate = 0x2013\nkBookmarkVolumeProperties   = 0x2020   # (CFURL vp flags,\n                                       #  CFURL vp flags asked for,\n                                       #  8 bytes NULL)\nkBookmarkVolumeIsRoot       = 0x2030   # True if volume is FS root\nkBookmarkVolumeBookmark     = 0x2040   # Embedded bookmark for disk image (TOC id)\nkBookmarkVolumeMountPoint   = 0x2050   # A URL\n#                           = 0x2070\nkBookmarkContainingFolder   = 0xc001   # Index of containing folder in path\nkBookmarkUserName           = 0xc011   # User that created bookmark",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "kBookmarkSandboxRwExtension",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "kBookmarkSandboxRwExtension = 0xf080\nkBookmarkSandboxRoExtension = 0xf081\nkBookmarkAliasData          = 0xfe00\n# Alias for backwards compatibility\nkBookmarkSecurityExtension  = kBookmarkSandboxRwExtension\n# kBookmarkURLLengths is an array that is set if the URL encoded by the\n# bookmark had a base URL; in that case, each entry is the length of the\n# base URL in question.  Thus a URL\n#\n#     file:///foo/bar/baz    blam/blat.html",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "kBookmarkSandboxRoExtension",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "peekOfCode": "kBookmarkSandboxRoExtension = 0xf081\nkBookmarkAliasData          = 0xfe00\n# Alias for backwards compatibility\nkBookmarkSecurityExtension  = kBookmarkSandboxRwExtension\n# kBookmarkURLLengths is an array that is set if the URL encoded by the\n# bookmark had a base URL; in that case, each entry is the length of the\n# base URL in question.  Thus a URL\n#\n#     file:///foo/bar/baz    blam/blat.html\n#",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.bookmark",
+        "documentation": {}
+    },
+    {
+        "label": "attrlist",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "class attrlist(Structure):\n    _fields_ = [('bitmapcount', c_ushort),\n                ('reserved', c_ushort),\n                ('commonattr', c_uint),\n                ('volattr', c_uint),\n                ('dirattr', c_uint),\n                ('fileattr', c_uint),\n                ('forkattr', c_uint)]\nclass attribute_set_t(Structure):\n    _fields_ = [('commonattr', c_uint),",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "attribute_set_t",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "class attribute_set_t(Structure):\n    _fields_ = [('commonattr', c_uint),\n                ('volattr', c_uint),\n                ('dirattr', c_uint),\n                ('fileattr', c_uint),\n                ('forkattr', c_uint)]\nclass fsobj_id_t(Structure):\n    _fields_ = [('fid_objno', c_uint),\n                ('fid_generation', c_uint)]\nclass timespec(Structure):",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "fsobj_id_t",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "class fsobj_id_t(Structure):\n    _fields_ = [('fid_objno', c_uint),\n                ('fid_generation', c_uint)]\nclass timespec(Structure):\n    _fields_ = [('tv_sec', c_long),\n                ('tv_nsec', c_long)]\nclass attrreference_t(Structure):\n    _fields_ = [('attr_dataoffset', c_int),\n                ('attr_length', c_uint)]\nclass fsid_t(Structure):",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "timespec",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "class timespec(Structure):\n    _fields_ = [('tv_sec', c_long),\n                ('tv_nsec', c_long)]\nclass attrreference_t(Structure):\n    _fields_ = [('attr_dataoffset', c_int),\n                ('attr_length', c_uint)]\nclass fsid_t(Structure):\n    _fields_ = [('val', c_uint * 2)]\nclass guid_t(Structure):\n    _fields_ = [('g_guid', c_byte*16)]",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "attrreference_t",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "class attrreference_t(Structure):\n    _fields_ = [('attr_dataoffset', c_int),\n                ('attr_length', c_uint)]\nclass fsid_t(Structure):\n    _fields_ = [('val', c_uint * 2)]\nclass guid_t(Structure):\n    _fields_ = [('g_guid', c_byte*16)]\nclass kauth_ace(Structure):\n    _fields_ = [('ace_applicable', guid_t),\n                ('ace_flags', c_uint)]",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "fsid_t",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "class fsid_t(Structure):\n    _fields_ = [('val', c_uint * 2)]\nclass guid_t(Structure):\n    _fields_ = [('g_guid', c_byte*16)]\nclass kauth_ace(Structure):\n    _fields_ = [('ace_applicable', guid_t),\n                ('ace_flags', c_uint)]\nclass kauth_acl(Structure):\n    _fields_ = [('acl_entrycount', c_uint),\n                ('acl_flags', c_uint),",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "guid_t",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "class guid_t(Structure):\n    _fields_ = [('g_guid', c_byte*16)]\nclass kauth_ace(Structure):\n    _fields_ = [('ace_applicable', guid_t),\n                ('ace_flags', c_uint)]\nclass kauth_acl(Structure):\n    _fields_ = [('acl_entrycount', c_uint),\n                ('acl_flags', c_uint),\n                ('acl_ace', kauth_ace * 128)]\nclass kauth_filesec(Structure):",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "kauth_ace",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "class kauth_ace(Structure):\n    _fields_ = [('ace_applicable', guid_t),\n                ('ace_flags', c_uint)]\nclass kauth_acl(Structure):\n    _fields_ = [('acl_entrycount', c_uint),\n                ('acl_flags', c_uint),\n                ('acl_ace', kauth_ace * 128)]\nclass kauth_filesec(Structure):\n    _fields_ = [('fsec_magic', c_uint),\n                ('fsec_owner', guid_t),",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "kauth_acl",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "class kauth_acl(Structure):\n    _fields_ = [('acl_entrycount', c_uint),\n                ('acl_flags', c_uint),\n                ('acl_ace', kauth_ace * 128)]\nclass kauth_filesec(Structure):\n    _fields_ = [('fsec_magic', c_uint),\n                ('fsec_owner', guid_t),\n                ('fsec_group', guid_t),\n                ('fsec_acl', kauth_acl)]\nclass diskextent(Structure):",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "kauth_filesec",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "class kauth_filesec(Structure):\n    _fields_ = [('fsec_magic', c_uint),\n                ('fsec_owner', guid_t),\n                ('fsec_group', guid_t),\n                ('fsec_acl', kauth_acl)]\nclass diskextent(Structure):\n    _fields_ = [('startblock', c_uint),\n                ('blockcount', c_uint)]\nOSType = c_uint\nUInt16 = c_ushort",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "diskextent",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "class diskextent(Structure):\n    _fields_ = [('startblock', c_uint),\n                ('blockcount', c_uint)]\nOSType = c_uint\nUInt16 = c_ushort\nSInt16 = c_short\nSInt32 = c_int\nclass Point(Structure):\n    _fields_ = [('x', SInt16),\n                ('y', SInt16)]",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "Point",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "class Point(Structure):\n    _fields_ = [('x', SInt16),\n                ('y', SInt16)]\nclass Rect(Structure):\n    _fields_ = [('x', SInt16),\n                ('y', SInt16),\n                ('w', SInt16),\n                ('h', SInt16)]\nclass FileInfo(Structure):\n    _fields_ = [('fileType', OSType),",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "Rect",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "class Rect(Structure):\n    _fields_ = [('x', SInt16),\n                ('y', SInt16),\n                ('w', SInt16),\n                ('h', SInt16)]\nclass FileInfo(Structure):\n    _fields_ = [('fileType', OSType),\n                ('fileCreator', OSType),\n                ('finderFlags', UInt16),\n                ('location', Point),",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "FileInfo",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "class FileInfo(Structure):\n    _fields_ = [('fileType', OSType),\n                ('fileCreator', OSType),\n                ('finderFlags', UInt16),\n                ('location', Point),\n                ('reservedField', UInt16),\n                ('reserved1', SInt16 * 4),\n                ('extendedFinderFlags', UInt16),\n                ('reserved2', SInt16),\n                ('putAwayFolderID', SInt32)]",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "FolderInfo",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "class FolderInfo(Structure):\n    _fields_ = [('windowBounds', Rect),\n                ('finderFlags', UInt16),\n                ('location', Point),\n                ('reservedField', UInt16),\n                ('scrollPosition', Point),\n                ('reserved1', SInt32),\n                ('extendedFinderFlags', UInt16),\n                ('reserved2', SInt16),\n                ('putAwayFolderID', SInt32)]",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "FinderInfo",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "class FinderInfo(Union):\n    _fields_ = [('fileInfo', FileInfo),\n                ('folderInfo', FolderInfo)]\nextentrecord = diskextent * 8\nvol_capabilities_set_t = c_uint * 4\nclass vol_capabilities_attr_t(Structure):\n    _fields_ = [('capabilities', vol_capabilities_set_t),\n                ('valid', vol_capabilities_set_t)]\nclass vol_attributes_attr_t(Structure):\n    _fields_ = [('validattr', attribute_set_t),",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "vol_capabilities_attr_t",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "class vol_capabilities_attr_t(Structure):\n    _fields_ = [('capabilities', vol_capabilities_set_t),\n                ('valid', vol_capabilities_set_t)]\nclass vol_attributes_attr_t(Structure):\n    _fields_ = [('validattr', attribute_set_t),\n                ('nativeattr', attribute_set_t)]\ndev_t = c_uint\nfsobj_type_t = c_uint\nVNON = 0\nVREG = 1",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "vol_attributes_attr_t",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "class vol_attributes_attr_t(Structure):\n    _fields_ = [('validattr', attribute_set_t),\n                ('nativeattr', attribute_set_t)]\ndev_t = c_uint\nfsobj_type_t = c_uint\nVNON = 0\nVREG = 1\nVDIR = 2\nVBLK = 3\nVCHR = 4",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "struct_statfs",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "class struct_statfs(Structure):\n    _fields_ = [('f_bsize', uint32_t),\n                ('f_iosize', int32_t),\n                ('f_blocks', uint64_t),\n                ('f_bfree', uint64_t),\n                ('f_bavail', uint64_t),\n                ('f_files', uint64_t),\n                ('f_ffree', uint64_t),\n                ('f_fsid', fsid_t),\n                ('f_owner', uid_t),",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "getattrlist",
+        "kind": 2,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "def getattrlist(path, attrs, options):\n    if not isinstance(path, bytes):\n        path = path.encode('utf-8')\n    attrs = list(attrs)\n    if attrs[1]:\n        attrs[1] |= ATTR_VOL_INFO\n    alist = attrlist(bitmapcount=5,\n                     commonattr=attrs[0],\n                     volattr=attrs[1],\n                     dirattr=attrs[2],",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "fgetattrlist",
+        "kind": 2,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "def fgetattrlist(fd, attrs, options):\n    if hasattr(fd, 'fileno'):\n        fd = fd.fileno()\n    attrs = list(attrs)\n    if attrs[1]:\n        attrs[1] |= ATTR_VOL_INFO\n    alist = attrlist(bitmapcount=5,\n                     commonattr=attrs[0],\n                     volattr=attrs[1],\n                     dirattr=attrs[2],",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "statfs",
+        "kind": 2,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "def statfs(path):\n    if not isinstance(path, bytes):\n        path = path.encode('utf-8')\n    result = struct_statfs()\n    ret = _statfs(path, byref(result))\n    if ret < 0:\n        err = _get_errno()\n        raise OSError(err, os.strerror(err), path)\n    return result\ndef fstatfs(fd):",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "fstatfs",
+        "kind": 2,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "def fstatfs(fd):\n    if hasattr(fd, 'fileno'):\n        fd = fd.fileno()\n    result = struct_statfs()\n    ret = _fstatfs(fd, byref(result))\n    if ret < 0:\n        err = _get_errno()\n        raise OSError(err, os.strerror(err))\n    return result",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "libc",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "libc = cdll.LoadLibrary('/usr/lib/libc.dylib')\n# Constants\nFSOPT_NOFOLLOW          = 0x00000001\nFSOPT_NOINMEMUPDATE     = 0x00000002\nFSOPT_REPORT_FULLSIZE   = 0x00000004\nFSOPT_PACK_INVAL_ATTRS  = 0x00000008\nFSOPT_ATTR_CMN_EXTENDED = 0x00000020\nFSOPT_RETURN_REALDEV    = 0x00000200\nVOL_CAPABILITIES_FORMAT     = 0\nVOL_CAPABILITIES_INTERFACES = 1",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "FSOPT_ATTR_CMN_EXTENDED",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "FSOPT_ATTR_CMN_EXTENDED = 0x00000020\nFSOPT_RETURN_REALDEV    = 0x00000200\nVOL_CAPABILITIES_FORMAT     = 0\nVOL_CAPABILITIES_INTERFACES = 1\nVOL_CAP_FMT_PERSISTENTOBJECTIDS = 0x00000001\nVOL_CAP_FMT_SYMBOLICLINKS       = 0x00000002\nVOL_CAP_FMT_HARDLINKS           = 0x00000004\nVOL_CAP_FMT_JOURNAL             = 0x00000008\nVOL_CAP_FMT_JOURNAL_ACTIVE      = 0x00000010\nVOL_CAP_FMT_NO_ROOT_TIMES       = 0x00000020",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VOL_CAPABILITIES_INTERFACES",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VOL_CAPABILITIES_INTERFACES = 1\nVOL_CAP_FMT_PERSISTENTOBJECTIDS = 0x00000001\nVOL_CAP_FMT_SYMBOLICLINKS       = 0x00000002\nVOL_CAP_FMT_HARDLINKS           = 0x00000004\nVOL_CAP_FMT_JOURNAL             = 0x00000008\nVOL_CAP_FMT_JOURNAL_ACTIVE      = 0x00000010\nVOL_CAP_FMT_NO_ROOT_TIMES       = 0x00000020\nVOL_CAP_FMT_SPARSE_FILES        = 0x00000040\nVOL_CAP_FMT_ZERO_RUNS           = 0x00000080\nVOL_CAP_FMT_CASE_SENSITIVE      = 0x00000100",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VOL_CAP_FMT_PERSISTENTOBJECTIDS",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VOL_CAP_FMT_PERSISTENTOBJECTIDS = 0x00000001\nVOL_CAP_FMT_SYMBOLICLINKS       = 0x00000002\nVOL_CAP_FMT_HARDLINKS           = 0x00000004\nVOL_CAP_FMT_JOURNAL             = 0x00000008\nVOL_CAP_FMT_JOURNAL_ACTIVE      = 0x00000010\nVOL_CAP_FMT_NO_ROOT_TIMES       = 0x00000020\nVOL_CAP_FMT_SPARSE_FILES        = 0x00000040\nVOL_CAP_FMT_ZERO_RUNS           = 0x00000080\nVOL_CAP_FMT_CASE_SENSITIVE      = 0x00000100\nVOL_CAP_FMT_CASE_PRESERVING     = 0x00000200",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VOL_CAP_FMT_DECMPFS_COMPRESSION",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VOL_CAP_FMT_DECMPFS_COMPRESSION = 0x00010000\nVOL_CAP_FMT_64BIT_OBJECT_IDS    = 0x00020000\nVOL_CAP_INT_SEARCHFS          = 0x00000001\nVOL_CAP_INT_ATTRLIST          = 0x00000002\nVOL_CAP_INT_NFSEXPORT         = 0x00000004\nVOL_CAP_INT_READDIRATTR       = 0x00000008\nVOL_CAP_INT_EXCHANGEDATA      = 0x00000010\nVOL_CAP_INT_COPYFILE          = 0x00000020\nVOL_CAP_INT_ALLOCATE          = 0x00000040\nVOL_CAP_INT_VOL_RENAME        = 0x00000080",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VOL_CAP_INT_EXTENDED_SECURITY",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VOL_CAP_INT_EXTENDED_SECURITY = 0x00000400\nVOL_CAP_INT_USERACCESS        = 0x00000800\nVOL_CAP_INT_MANLOCK           = 0x00001000\nVOL_CAP_INT_NAMEDSTREAMS      = 0x00002000\nVOL_CAP_INT_EXTENDED_ATTR     = 0x00004000\nVOL_CAP_INT_CLONE             = 0x00010000\nVOL_CAP_INT_SNAPSHOT          = 0x00020000\nVOL_CAP_INT_RENAME_SWAP       = 0x00040000\nVOL_CAP_INT_RENAME_EXCL       = 0x00080000\nVOL_CAP_INT_RENAME_OPENFAIL   = 0x00100000",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_CMN_DATA_PROTECT_FLAGS",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_CMN_DATA_PROTECT_FLAGS = 0x40000000\nATTR_CMN_RETURNED_ATTRS     = 0x80000000\nATTR_CMN_ALL_ATTRS          = 0xffffffff\nATTR_CMN_VALIDMASK          = 0xffffffff\nATTR_CMN_SETMASK            = 0x51c7ff00\nATTR_CMN_VOLSETMASK         = 0x00006700\nATTR_VOL_FSTYPE\t\t = 0x00000001\nATTR_VOL_SIGNATURE\t = 0x00000002\nATTR_VOL_SIZE\t\t = 0x00000004\nATTR_VOL_SPACEFREE\t = 0x00000008",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_VOL_FSTYPE\t\t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_VOL_FSTYPE\t\t = 0x00000001\nATTR_VOL_SIGNATURE\t = 0x00000002\nATTR_VOL_SIZE\t\t = 0x00000004\nATTR_VOL_SPACEFREE\t = 0x00000008\nATTR_VOL_SPACEAVAIL\t = 0x00000010\nATTR_VOL_MINALLOCATION\t = 0x00000020\nATTR_VOL_ALLOCATIONCLUMP = 0x00000040\nATTR_VOL_IOBLOCKSIZE\t = 0x00000080\nATTR_VOL_OBJCOUNT\t = 0x00000100\nATTR_VOL_FILECOUNT\t = 0x00000200",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_VOL_SIGNATURE\t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_VOL_SIGNATURE\t = 0x00000002\nATTR_VOL_SIZE\t\t = 0x00000004\nATTR_VOL_SPACEFREE\t = 0x00000008\nATTR_VOL_SPACEAVAIL\t = 0x00000010\nATTR_VOL_MINALLOCATION\t = 0x00000020\nATTR_VOL_ALLOCATIONCLUMP = 0x00000040\nATTR_VOL_IOBLOCKSIZE\t = 0x00000080\nATTR_VOL_OBJCOUNT\t = 0x00000100\nATTR_VOL_FILECOUNT\t = 0x00000200\nATTR_VOL_DIRCOUNT\t = 0x00000400",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_VOL_SIZE\t\t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_VOL_SIZE\t\t = 0x00000004\nATTR_VOL_SPACEFREE\t = 0x00000008\nATTR_VOL_SPACEAVAIL\t = 0x00000010\nATTR_VOL_MINALLOCATION\t = 0x00000020\nATTR_VOL_ALLOCATIONCLUMP = 0x00000040\nATTR_VOL_IOBLOCKSIZE\t = 0x00000080\nATTR_VOL_OBJCOUNT\t = 0x00000100\nATTR_VOL_FILECOUNT\t = 0x00000200\nATTR_VOL_DIRCOUNT\t = 0x00000400\nATTR_VOL_MAXOBJCOUNT\t = 0x00000800",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_VOL_SPACEFREE\t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_VOL_SPACEFREE\t = 0x00000008\nATTR_VOL_SPACEAVAIL\t = 0x00000010\nATTR_VOL_MINALLOCATION\t = 0x00000020\nATTR_VOL_ALLOCATIONCLUMP = 0x00000040\nATTR_VOL_IOBLOCKSIZE\t = 0x00000080\nATTR_VOL_OBJCOUNT\t = 0x00000100\nATTR_VOL_FILECOUNT\t = 0x00000200\nATTR_VOL_DIRCOUNT\t = 0x00000400\nATTR_VOL_MAXOBJCOUNT\t = 0x00000800\nATTR_VOL_MOUNTPOINT\t = 0x00001000",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_VOL_SPACEAVAIL\t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_VOL_SPACEAVAIL\t = 0x00000010\nATTR_VOL_MINALLOCATION\t = 0x00000020\nATTR_VOL_ALLOCATIONCLUMP = 0x00000040\nATTR_VOL_IOBLOCKSIZE\t = 0x00000080\nATTR_VOL_OBJCOUNT\t = 0x00000100\nATTR_VOL_FILECOUNT\t = 0x00000200\nATTR_VOL_DIRCOUNT\t = 0x00000400\nATTR_VOL_MAXOBJCOUNT\t = 0x00000800\nATTR_VOL_MOUNTPOINT\t = 0x00001000\nATTR_VOL_NAME\t\t = 0x00002000",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_VOL_MINALLOCATION\t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_VOL_MINALLOCATION\t = 0x00000020\nATTR_VOL_ALLOCATIONCLUMP = 0x00000040\nATTR_VOL_IOBLOCKSIZE\t = 0x00000080\nATTR_VOL_OBJCOUNT\t = 0x00000100\nATTR_VOL_FILECOUNT\t = 0x00000200\nATTR_VOL_DIRCOUNT\t = 0x00000400\nATTR_VOL_MAXOBJCOUNT\t = 0x00000800\nATTR_VOL_MOUNTPOINT\t = 0x00001000\nATTR_VOL_NAME\t\t = 0x00002000\nATTR_VOL_MOUNTFLAGS\t = 0x00004000",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_VOL_ALLOCATIONCLUMP",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_VOL_ALLOCATIONCLUMP = 0x00000040\nATTR_VOL_IOBLOCKSIZE\t = 0x00000080\nATTR_VOL_OBJCOUNT\t = 0x00000100\nATTR_VOL_FILECOUNT\t = 0x00000200\nATTR_VOL_DIRCOUNT\t = 0x00000400\nATTR_VOL_MAXOBJCOUNT\t = 0x00000800\nATTR_VOL_MOUNTPOINT\t = 0x00001000\nATTR_VOL_NAME\t\t = 0x00002000\nATTR_VOL_MOUNTFLAGS\t = 0x00004000\nATTR_VOL_MOUNTEDDEVICE\t = 0x00008000",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_VOL_IOBLOCKSIZE\t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_VOL_IOBLOCKSIZE\t = 0x00000080\nATTR_VOL_OBJCOUNT\t = 0x00000100\nATTR_VOL_FILECOUNT\t = 0x00000200\nATTR_VOL_DIRCOUNT\t = 0x00000400\nATTR_VOL_MAXOBJCOUNT\t = 0x00000800\nATTR_VOL_MOUNTPOINT\t = 0x00001000\nATTR_VOL_NAME\t\t = 0x00002000\nATTR_VOL_MOUNTFLAGS\t = 0x00004000\nATTR_VOL_MOUNTEDDEVICE\t = 0x00008000\nATTR_VOL_ENCODINGSUSED\t = 0x00010000",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_VOL_OBJCOUNT\t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_VOL_OBJCOUNT\t = 0x00000100\nATTR_VOL_FILECOUNT\t = 0x00000200\nATTR_VOL_DIRCOUNT\t = 0x00000400\nATTR_VOL_MAXOBJCOUNT\t = 0x00000800\nATTR_VOL_MOUNTPOINT\t = 0x00001000\nATTR_VOL_NAME\t\t = 0x00002000\nATTR_VOL_MOUNTFLAGS\t = 0x00004000\nATTR_VOL_MOUNTEDDEVICE\t = 0x00008000\nATTR_VOL_ENCODINGSUSED\t = 0x00010000\nATTR_VOL_CAPABILITIES\t = 0x00020000",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_VOL_FILECOUNT\t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_VOL_FILECOUNT\t = 0x00000200\nATTR_VOL_DIRCOUNT\t = 0x00000400\nATTR_VOL_MAXOBJCOUNT\t = 0x00000800\nATTR_VOL_MOUNTPOINT\t = 0x00001000\nATTR_VOL_NAME\t\t = 0x00002000\nATTR_VOL_MOUNTFLAGS\t = 0x00004000\nATTR_VOL_MOUNTEDDEVICE\t = 0x00008000\nATTR_VOL_ENCODINGSUSED\t = 0x00010000\nATTR_VOL_CAPABILITIES\t = 0x00020000\nATTR_VOL_UUID\t\t = 0x00040000",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_VOL_DIRCOUNT\t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_VOL_DIRCOUNT\t = 0x00000400\nATTR_VOL_MAXOBJCOUNT\t = 0x00000800\nATTR_VOL_MOUNTPOINT\t = 0x00001000\nATTR_VOL_NAME\t\t = 0x00002000\nATTR_VOL_MOUNTFLAGS\t = 0x00004000\nATTR_VOL_MOUNTEDDEVICE\t = 0x00008000\nATTR_VOL_ENCODINGSUSED\t = 0x00010000\nATTR_VOL_CAPABILITIES\t = 0x00020000\nATTR_VOL_UUID\t\t = 0x00040000\nATTR_VOL_QUOTA_SIZE      = 0x10000000",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_VOL_MAXOBJCOUNT\t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_VOL_MAXOBJCOUNT\t = 0x00000800\nATTR_VOL_MOUNTPOINT\t = 0x00001000\nATTR_VOL_NAME\t\t = 0x00002000\nATTR_VOL_MOUNTFLAGS\t = 0x00004000\nATTR_VOL_MOUNTEDDEVICE\t = 0x00008000\nATTR_VOL_ENCODINGSUSED\t = 0x00010000\nATTR_VOL_CAPABILITIES\t = 0x00020000\nATTR_VOL_UUID\t\t = 0x00040000\nATTR_VOL_QUOTA_SIZE      = 0x10000000\nATTR_VOL_RESERVED_SIZE   = 0x20000000",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_VOL_MOUNTPOINT\t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_VOL_MOUNTPOINT\t = 0x00001000\nATTR_VOL_NAME\t\t = 0x00002000\nATTR_VOL_MOUNTFLAGS\t = 0x00004000\nATTR_VOL_MOUNTEDDEVICE\t = 0x00008000\nATTR_VOL_ENCODINGSUSED\t = 0x00010000\nATTR_VOL_CAPABILITIES\t = 0x00020000\nATTR_VOL_UUID\t\t = 0x00040000\nATTR_VOL_QUOTA_SIZE      = 0x10000000\nATTR_VOL_RESERVED_SIZE   = 0x20000000\nATTR_VOL_ATTRIBUTES\t = 0x40000000",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_VOL_NAME\t\t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_VOL_NAME\t\t = 0x00002000\nATTR_VOL_MOUNTFLAGS\t = 0x00004000\nATTR_VOL_MOUNTEDDEVICE\t = 0x00008000\nATTR_VOL_ENCODINGSUSED\t = 0x00010000\nATTR_VOL_CAPABILITIES\t = 0x00020000\nATTR_VOL_UUID\t\t = 0x00040000\nATTR_VOL_QUOTA_SIZE      = 0x10000000\nATTR_VOL_RESERVED_SIZE   = 0x20000000\nATTR_VOL_ATTRIBUTES\t = 0x40000000\nATTR_VOL_INFO\t\t = 0x80000000",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_VOL_MOUNTFLAGS\t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_VOL_MOUNTFLAGS\t = 0x00004000\nATTR_VOL_MOUNTEDDEVICE\t = 0x00008000\nATTR_VOL_ENCODINGSUSED\t = 0x00010000\nATTR_VOL_CAPABILITIES\t = 0x00020000\nATTR_VOL_UUID\t\t = 0x00040000\nATTR_VOL_QUOTA_SIZE      = 0x10000000\nATTR_VOL_RESERVED_SIZE   = 0x20000000\nATTR_VOL_ATTRIBUTES\t = 0x40000000\nATTR_VOL_INFO\t\t = 0x80000000\nATTR_VOL_ALL_ATTRS       = 0xf007ffff",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_VOL_MOUNTEDDEVICE\t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_VOL_MOUNTEDDEVICE\t = 0x00008000\nATTR_VOL_ENCODINGSUSED\t = 0x00010000\nATTR_VOL_CAPABILITIES\t = 0x00020000\nATTR_VOL_UUID\t\t = 0x00040000\nATTR_VOL_QUOTA_SIZE      = 0x10000000\nATTR_VOL_RESERVED_SIZE   = 0x20000000\nATTR_VOL_ATTRIBUTES\t = 0x40000000\nATTR_VOL_INFO\t\t = 0x80000000\nATTR_VOL_ALL_ATTRS       = 0xf007ffff\nATTR_DIR_LINKCOUNT     = 0x00000001",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_VOL_ENCODINGSUSED\t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_VOL_ENCODINGSUSED\t = 0x00010000\nATTR_VOL_CAPABILITIES\t = 0x00020000\nATTR_VOL_UUID\t\t = 0x00040000\nATTR_VOL_QUOTA_SIZE      = 0x10000000\nATTR_VOL_RESERVED_SIZE   = 0x20000000\nATTR_VOL_ATTRIBUTES\t = 0x40000000\nATTR_VOL_INFO\t\t = 0x80000000\nATTR_VOL_ALL_ATTRS       = 0xf007ffff\nATTR_DIR_LINKCOUNT     = 0x00000001\nATTR_DIR_ENTRYCOUNT    = 0x00000002",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_VOL_CAPABILITIES\t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_VOL_CAPABILITIES\t = 0x00020000\nATTR_VOL_UUID\t\t = 0x00040000\nATTR_VOL_QUOTA_SIZE      = 0x10000000\nATTR_VOL_RESERVED_SIZE   = 0x20000000\nATTR_VOL_ATTRIBUTES\t = 0x40000000\nATTR_VOL_INFO\t\t = 0x80000000\nATTR_VOL_ALL_ATTRS       = 0xf007ffff\nATTR_DIR_LINKCOUNT     = 0x00000001\nATTR_DIR_ENTRYCOUNT    = 0x00000002\nATTR_DIR_MOUNTSTATUS   = 0x00000004",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_VOL_UUID\t\t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_VOL_UUID\t\t = 0x00040000\nATTR_VOL_QUOTA_SIZE      = 0x10000000\nATTR_VOL_RESERVED_SIZE   = 0x20000000\nATTR_VOL_ATTRIBUTES\t = 0x40000000\nATTR_VOL_INFO\t\t = 0x80000000\nATTR_VOL_ALL_ATTRS       = 0xf007ffff\nATTR_DIR_LINKCOUNT     = 0x00000001\nATTR_DIR_ENTRYCOUNT    = 0x00000002\nATTR_DIR_MOUNTSTATUS   = 0x00000004\nDIR_MNTSTATUS_MNTPOINT   = 0x00000001",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_VOL_ATTRIBUTES\t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_VOL_ATTRIBUTES\t = 0x40000000\nATTR_VOL_INFO\t\t = 0x80000000\nATTR_VOL_ALL_ATTRS       = 0xf007ffff\nATTR_DIR_LINKCOUNT     = 0x00000001\nATTR_DIR_ENTRYCOUNT    = 0x00000002\nATTR_DIR_MOUNTSTATUS   = 0x00000004\nDIR_MNTSTATUS_MNTPOINT   = 0x00000001\nDIR_MNTSTATUS_TRIGGER    = 0x00000002\nATTR_DIR_ALLOCSIZE     = 0x00000008\nATTR_DIR_IOBLOCKSIZE   = 0x00000010",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_VOL_INFO\t\t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_VOL_INFO\t\t = 0x80000000\nATTR_VOL_ALL_ATTRS       = 0xf007ffff\nATTR_DIR_LINKCOUNT     = 0x00000001\nATTR_DIR_ENTRYCOUNT    = 0x00000002\nATTR_DIR_MOUNTSTATUS   = 0x00000004\nDIR_MNTSTATUS_MNTPOINT   = 0x00000001\nDIR_MNTSTATUS_TRIGGER    = 0x00000002\nATTR_DIR_ALLOCSIZE     = 0x00000008\nATTR_DIR_IOBLOCKSIZE   = 0x00000010\nATTR_DIR_DATALENGTH    = 0x00000020",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_FORK_TOTALSIZE",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_FORK_TOTALSIZE = 0x00000001\nATTR_FORK_ALLOCSIZE = 0x00000002\nATTR_FORK_ALL_ATTRS = 0x00000003\n# These go in the fork attribute field\nATTR_CMNEXT_RELPATH            = 0x00000004\nATTR_CMNEXT_PRIVATESIZE        = 0x00000008\nATTR_CMNEXT_LINKID             = 0x0000010\nATTR_CMNEXT_NOFIRMLINKPATH     = 0x00000020\nATTR_CMNEXT_REALDEVID          = 0x00000040\nATTR_CMNEXT_REALFSID           = 0x00000080",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_FORK_ALLOCSIZE",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_FORK_ALLOCSIZE = 0x00000002\nATTR_FORK_ALL_ATTRS = 0x00000003\n# These go in the fork attribute field\nATTR_CMNEXT_RELPATH            = 0x00000004\nATTR_CMNEXT_PRIVATESIZE        = 0x00000008\nATTR_CMNEXT_LINKID             = 0x0000010\nATTR_CMNEXT_NOFIRMLINKPATH     = 0x00000020\nATTR_CMNEXT_REALDEVID          = 0x00000040\nATTR_CMNEXT_REALFSID           = 0x00000080\nATTR_CMNEXT_CLONEID            = 0x00000100",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_FORK_ALL_ATTRS",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_FORK_ALL_ATTRS = 0x00000003\n# These go in the fork attribute field\nATTR_CMNEXT_RELPATH            = 0x00000004\nATTR_CMNEXT_PRIVATESIZE        = 0x00000008\nATTR_CMNEXT_LINKID             = 0x0000010\nATTR_CMNEXT_NOFIRMLINKPATH     = 0x00000020\nATTR_CMNEXT_REALDEVID          = 0x00000040\nATTR_CMNEXT_REALFSID           = 0x00000080\nATTR_CMNEXT_CLONEID            = 0x00000100\nATTR_CMNEXT_EXT_FLAGS          = 0x00000200",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_CMNEXT_RECURSIVE_GENCOUNT",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_CMNEXT_RECURSIVE_GENCOUNT = 0x00000400\nATTR_CMNEXT_ALL_ATTRS          = 0x000007fc\nATTR_CMNEXT_VALIDMASK = 0x000007fc\nATTR_CMNEXT_SETMASK   = 0x00000000\nATTR_FORK_VALIDMASK  = 0x00000003\nATTR_FORK_SETMASK    = 0x00000000\n# These can't be used\nATTR_CMN_NAMEDATTRCOUNT\t= 0x00080000\nATTR_CMN_NAMEDATTRLIST\t= 0x00100000\nATTR_FILE_CLUMPSIZE\t= 0x00000010",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "ATTR_CMNEXT_VALIDMASK",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "ATTR_CMNEXT_VALIDMASK = 0x000007fc\nATTR_CMNEXT_SETMASK   = 0x00000000\nATTR_FORK_VALIDMASK  = 0x00000003\nATTR_FORK_SETMASK    = 0x00000000\n# These can't be used\nATTR_CMN_NAMEDATTRCOUNT\t= 0x00080000\nATTR_CMN_NAMEDATTRLIST\t= 0x00100000\nATTR_FILE_CLUMPSIZE\t= 0x00000010\nATTR_FILE_FILETYPE\t= 0x00000040\nATTR_FILE_DATAEXTENTS\t= 0x00000800",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "OSType",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "OSType = c_uint\nUInt16 = c_ushort\nSInt16 = c_short\nSInt32 = c_int\nclass Point(Structure):\n    _fields_ = [('x', SInt16),\n                ('y', SInt16)]\nclass Rect(Structure):\n    _fields_ = [('x', SInt16),\n                ('y', SInt16),",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "UInt16",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "UInt16 = c_ushort\nSInt16 = c_short\nSInt32 = c_int\nclass Point(Structure):\n    _fields_ = [('x', SInt16),\n                ('y', SInt16)]\nclass Rect(Structure):\n    _fields_ = [('x', SInt16),\n                ('y', SInt16),\n                ('w', SInt16),",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "SInt16",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "SInt16 = c_short\nSInt32 = c_int\nclass Point(Structure):\n    _fields_ = [('x', SInt16),\n                ('y', SInt16)]\nclass Rect(Structure):\n    _fields_ = [('x', SInt16),\n                ('y', SInt16),\n                ('w', SInt16),\n                ('h', SInt16)]",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "SInt32",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "SInt32 = c_int\nclass Point(Structure):\n    _fields_ = [('x', SInt16),\n                ('y', SInt16)]\nclass Rect(Structure):\n    _fields_ = [('x', SInt16),\n                ('y', SInt16),\n                ('w', SInt16),\n                ('h', SInt16)]\nclass FileInfo(Structure):",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "extentrecord",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "extentrecord = diskextent * 8\nvol_capabilities_set_t = c_uint * 4\nclass vol_capabilities_attr_t(Structure):\n    _fields_ = [('capabilities', vol_capabilities_set_t),\n                ('valid', vol_capabilities_set_t)]\nclass vol_attributes_attr_t(Structure):\n    _fields_ = [('validattr', attribute_set_t),\n                ('nativeattr', attribute_set_t)]\ndev_t = c_uint\nfsobj_type_t = c_uint",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "vol_capabilities_set_t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "vol_capabilities_set_t = c_uint * 4\nclass vol_capabilities_attr_t(Structure):\n    _fields_ = [('capabilities', vol_capabilities_set_t),\n                ('valid', vol_capabilities_set_t)]\nclass vol_attributes_attr_t(Structure):\n    _fields_ = [('validattr', attribute_set_t),\n                ('nativeattr', attribute_set_t)]\ndev_t = c_uint\nfsobj_type_t = c_uint\nVNON = 0",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "dev_t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "dev_t = c_uint\nfsobj_type_t = c_uint\nVNON = 0\nVREG = 1\nVDIR = 2\nVBLK = 3\nVCHR = 4\nVLNK = 5\nVSOCK = 6\nVFIFO = 7",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "fsobj_type_t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "fsobj_type_t = c_uint\nVNON = 0\nVREG = 1\nVDIR = 2\nVBLK = 3\nVCHR = 4\nVLNK = 5\nVSOCK = 6\nVFIFO = 7\nVBAD = 8",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VNON",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VNON = 0\nVREG = 1\nVDIR = 2\nVBLK = 3\nVCHR = 4\nVLNK = 5\nVSOCK = 6\nVFIFO = 7\nVBAD = 8\nVSTR = 9",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VREG",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VREG = 1\nVDIR = 2\nVBLK = 3\nVCHR = 4\nVLNK = 5\nVSOCK = 6\nVFIFO = 7\nVBAD = 8\nVSTR = 9\nVCPLX = 10",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VDIR",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VDIR = 2\nVBLK = 3\nVCHR = 4\nVLNK = 5\nVSOCK = 6\nVFIFO = 7\nVBAD = 8\nVSTR = 9\nVCPLX = 10\nfsobj_tag_t = c_uint",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VBLK",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VBLK = 3\nVCHR = 4\nVLNK = 5\nVSOCK = 6\nVFIFO = 7\nVBAD = 8\nVSTR = 9\nVCPLX = 10\nfsobj_tag_t = c_uint\nVT_NON = 0",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VCHR",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VCHR = 4\nVLNK = 5\nVSOCK = 6\nVFIFO = 7\nVBAD = 8\nVSTR = 9\nVCPLX = 10\nfsobj_tag_t = c_uint\nVT_NON = 0\nVT_UFS = 1",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VLNK",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VLNK = 5\nVSOCK = 6\nVFIFO = 7\nVBAD = 8\nVSTR = 9\nVCPLX = 10\nfsobj_tag_t = c_uint\nVT_NON = 0\nVT_UFS = 1\nVT_NFS = 2",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VSOCK",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VSOCK = 6\nVFIFO = 7\nVBAD = 8\nVSTR = 9\nVCPLX = 10\nfsobj_tag_t = c_uint\nVT_NON = 0\nVT_UFS = 1\nVT_NFS = 2\nVT_MFS = 3",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VFIFO",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VFIFO = 7\nVBAD = 8\nVSTR = 9\nVCPLX = 10\nfsobj_tag_t = c_uint\nVT_NON = 0\nVT_UFS = 1\nVT_NFS = 2\nVT_MFS = 3\nVT_MSDOSFS = 4",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VBAD",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VBAD = 8\nVSTR = 9\nVCPLX = 10\nfsobj_tag_t = c_uint\nVT_NON = 0\nVT_UFS = 1\nVT_NFS = 2\nVT_MFS = 3\nVT_MSDOSFS = 4\nVT_LFS = 5",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VSTR",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VSTR = 9\nVCPLX = 10\nfsobj_tag_t = c_uint\nVT_NON = 0\nVT_UFS = 1\nVT_NFS = 2\nVT_MFS = 3\nVT_MSDOSFS = 4\nVT_LFS = 5\nVT_LOFS = 6",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VCPLX",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VCPLX = 10\nfsobj_tag_t = c_uint\nVT_NON = 0\nVT_UFS = 1\nVT_NFS = 2\nVT_MFS = 3\nVT_MSDOSFS = 4\nVT_LFS = 5\nVT_LOFS = 6\nVT_FDESC = 7",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "fsobj_tag_t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "fsobj_tag_t = c_uint\nVT_NON = 0\nVT_UFS = 1\nVT_NFS = 2\nVT_MFS = 3\nVT_MSDOSFS = 4\nVT_LFS = 5\nVT_LOFS = 6\nVT_FDESC = 7\nVT_PORTAL = 8",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_NON",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_NON = 0\nVT_UFS = 1\nVT_NFS = 2\nVT_MFS = 3\nVT_MSDOSFS = 4\nVT_LFS = 5\nVT_LOFS = 6\nVT_FDESC = 7\nVT_PORTAL = 8\nVT_NULL = 9",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_UFS",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_UFS = 1\nVT_NFS = 2\nVT_MFS = 3\nVT_MSDOSFS = 4\nVT_LFS = 5\nVT_LOFS = 6\nVT_FDESC = 7\nVT_PORTAL = 8\nVT_NULL = 9\nVT_UMAP = 10",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_NFS",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_NFS = 2\nVT_MFS = 3\nVT_MSDOSFS = 4\nVT_LFS = 5\nVT_LOFS = 6\nVT_FDESC = 7\nVT_PORTAL = 8\nVT_NULL = 9\nVT_UMAP = 10\nVT_KERNFS = 11",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_MFS",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_MFS = 3\nVT_MSDOSFS = 4\nVT_LFS = 5\nVT_LOFS = 6\nVT_FDESC = 7\nVT_PORTAL = 8\nVT_NULL = 9\nVT_UMAP = 10\nVT_KERNFS = 11\nVT_PROCFS = 12",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_MSDOSFS",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_MSDOSFS = 4\nVT_LFS = 5\nVT_LOFS = 6\nVT_FDESC = 7\nVT_PORTAL = 8\nVT_NULL = 9\nVT_UMAP = 10\nVT_KERNFS = 11\nVT_PROCFS = 12\nVT_AFS = 13",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_LFS",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_LFS = 5\nVT_LOFS = 6\nVT_FDESC = 7\nVT_PORTAL = 8\nVT_NULL = 9\nVT_UMAP = 10\nVT_KERNFS = 11\nVT_PROCFS = 12\nVT_AFS = 13\nVT_ISOFS = 14",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_LOFS",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_LOFS = 6\nVT_FDESC = 7\nVT_PORTAL = 8\nVT_NULL = 9\nVT_UMAP = 10\nVT_KERNFS = 11\nVT_PROCFS = 12\nVT_AFS = 13\nVT_ISOFS = 14\nVT_UNION = 15",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_FDESC",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_FDESC = 7\nVT_PORTAL = 8\nVT_NULL = 9\nVT_UMAP = 10\nVT_KERNFS = 11\nVT_PROCFS = 12\nVT_AFS = 13\nVT_ISOFS = 14\nVT_UNION = 15\nVT_HFS = 16",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_PORTAL",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_PORTAL = 8\nVT_NULL = 9\nVT_UMAP = 10\nVT_KERNFS = 11\nVT_PROCFS = 12\nVT_AFS = 13\nVT_ISOFS = 14\nVT_UNION = 15\nVT_HFS = 16\nVT_ZFS = 17",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_NULL",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_NULL = 9\nVT_UMAP = 10\nVT_KERNFS = 11\nVT_PROCFS = 12\nVT_AFS = 13\nVT_ISOFS = 14\nVT_UNION = 15\nVT_HFS = 16\nVT_ZFS = 17\nVT_DEVFS = 18",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_UMAP",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_UMAP = 10\nVT_KERNFS = 11\nVT_PROCFS = 12\nVT_AFS = 13\nVT_ISOFS = 14\nVT_UNION = 15\nVT_HFS = 16\nVT_ZFS = 17\nVT_DEVFS = 18\nVT_WEBDAV = 19",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_KERNFS",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_KERNFS = 11\nVT_PROCFS = 12\nVT_AFS = 13\nVT_ISOFS = 14\nVT_UNION = 15\nVT_HFS = 16\nVT_ZFS = 17\nVT_DEVFS = 18\nVT_WEBDAV = 19\nVT_UDF = 20",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_PROCFS",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_PROCFS = 12\nVT_AFS = 13\nVT_ISOFS = 14\nVT_UNION = 15\nVT_HFS = 16\nVT_ZFS = 17\nVT_DEVFS = 18\nVT_WEBDAV = 19\nVT_UDF = 20\nVT_AFP = 21",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_AFS",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_AFS = 13\nVT_ISOFS = 14\nVT_UNION = 15\nVT_HFS = 16\nVT_ZFS = 17\nVT_DEVFS = 18\nVT_WEBDAV = 19\nVT_UDF = 20\nVT_AFP = 21\nVT_CDDA = 22",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_ISOFS",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_ISOFS = 14\nVT_UNION = 15\nVT_HFS = 16\nVT_ZFS = 17\nVT_DEVFS = 18\nVT_WEBDAV = 19\nVT_UDF = 20\nVT_AFP = 21\nVT_CDDA = 22\nVT_CIFS = 23",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_UNION",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_UNION = 15\nVT_HFS = 16\nVT_ZFS = 17\nVT_DEVFS = 18\nVT_WEBDAV = 19\nVT_UDF = 20\nVT_AFP = 21\nVT_CDDA = 22\nVT_CIFS = 23\nVT_OTHER = 24",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_HFS",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_HFS = 16\nVT_ZFS = 17\nVT_DEVFS = 18\nVT_WEBDAV = 19\nVT_UDF = 20\nVT_AFP = 21\nVT_CDDA = 22\nVT_CIFS = 23\nVT_OTHER = 24\nfsfile_type_t = c_uint",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_ZFS",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_ZFS = 17\nVT_DEVFS = 18\nVT_WEBDAV = 19\nVT_UDF = 20\nVT_AFP = 21\nVT_CDDA = 22\nVT_CIFS = 23\nVT_OTHER = 24\nfsfile_type_t = c_uint\nfsvolid_t = c_uint",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_DEVFS",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_DEVFS = 18\nVT_WEBDAV = 19\nVT_UDF = 20\nVT_AFP = 21\nVT_CDDA = 22\nVT_CIFS = 23\nVT_OTHER = 24\nfsfile_type_t = c_uint\nfsvolid_t = c_uint\ntext_encoding_t = c_uint",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_WEBDAV",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_WEBDAV = 19\nVT_UDF = 20\nVT_AFP = 21\nVT_CDDA = 22\nVT_CIFS = 23\nVT_OTHER = 24\nfsfile_type_t = c_uint\nfsvolid_t = c_uint\ntext_encoding_t = c_uint\nuid_t = c_uint",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_UDF",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_UDF = 20\nVT_AFP = 21\nVT_CDDA = 22\nVT_CIFS = 23\nVT_OTHER = 24\nfsfile_type_t = c_uint\nfsvolid_t = c_uint\ntext_encoding_t = c_uint\nuid_t = c_uint\ngid_t = c_uint",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_AFP",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_AFP = 21\nVT_CDDA = 22\nVT_CIFS = 23\nVT_OTHER = 24\nfsfile_type_t = c_uint\nfsvolid_t = c_uint\ntext_encoding_t = c_uint\nuid_t = c_uint\ngid_t = c_uint\nint32_t = c_int",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_CDDA",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_CDDA = 22\nVT_CIFS = 23\nVT_OTHER = 24\nfsfile_type_t = c_uint\nfsvolid_t = c_uint\ntext_encoding_t = c_uint\nuid_t = c_uint\ngid_t = c_uint\nint32_t = c_int\nuint32_t = c_uint",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_CIFS",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_CIFS = 23\nVT_OTHER = 24\nfsfile_type_t = c_uint\nfsvolid_t = c_uint\ntext_encoding_t = c_uint\nuid_t = c_uint\ngid_t = c_uint\nint32_t = c_int\nuint32_t = c_uint\nint64_t = c_longlong",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "VT_OTHER",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "VT_OTHER = 24\nfsfile_type_t = c_uint\nfsvolid_t = c_uint\ntext_encoding_t = c_uint\nuid_t = c_uint\ngid_t = c_uint\nint32_t = c_int\nuint32_t = c_uint\nint64_t = c_longlong\nuint64_t = c_ulonglong",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "fsfile_type_t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "fsfile_type_t = c_uint\nfsvolid_t = c_uint\ntext_encoding_t = c_uint\nuid_t = c_uint\ngid_t = c_uint\nint32_t = c_int\nuint32_t = c_uint\nint64_t = c_longlong\nuint64_t = c_ulonglong\noff_t = c_long",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "fsvolid_t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "fsvolid_t = c_uint\ntext_encoding_t = c_uint\nuid_t = c_uint\ngid_t = c_uint\nint32_t = c_int\nuint32_t = c_uint\nint64_t = c_longlong\nuint64_t = c_ulonglong\noff_t = c_long\nsize_t = c_ulong",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "text_encoding_t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "text_encoding_t = c_uint\nuid_t = c_uint\ngid_t = c_uint\nint32_t = c_int\nuint32_t = c_uint\nint64_t = c_longlong\nuint64_t = c_ulonglong\noff_t = c_long\nsize_t = c_ulong\nuuid_t = c_byte*16",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "uid_t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "uid_t = c_uint\ngid_t = c_uint\nint32_t = c_int\nuint32_t = c_uint\nint64_t = c_longlong\nuint64_t = c_ulonglong\noff_t = c_long\nsize_t = c_ulong\nuuid_t = c_byte*16\nNAME_MAX = 255",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "gid_t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "gid_t = c_uint\nint32_t = c_int\nuint32_t = c_uint\nint64_t = c_longlong\nuint64_t = c_ulonglong\noff_t = c_long\nsize_t = c_ulong\nuuid_t = c_byte*16\nNAME_MAX = 255\nPATH_MAX = 1024",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "int32_t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "int32_t = c_int\nuint32_t = c_uint\nint64_t = c_longlong\nuint64_t = c_ulonglong\noff_t = c_long\nsize_t = c_ulong\nuuid_t = c_byte*16\nNAME_MAX = 255\nPATH_MAX = 1024\nFSTYPE_MAX = 16",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "uint32_t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "uint32_t = c_uint\nint64_t = c_longlong\nuint64_t = c_ulonglong\noff_t = c_long\nsize_t = c_ulong\nuuid_t = c_byte*16\nNAME_MAX = 255\nPATH_MAX = 1024\nFSTYPE_MAX = 16\nclass struct_statfs(Structure):",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "int64_t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "int64_t = c_longlong\nuint64_t = c_ulonglong\noff_t = c_long\nsize_t = c_ulong\nuuid_t = c_byte*16\nNAME_MAX = 255\nPATH_MAX = 1024\nFSTYPE_MAX = 16\nclass struct_statfs(Structure):\n    _fields_ = [('f_bsize', uint32_t),",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "uint64_t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "uint64_t = c_ulonglong\noff_t = c_long\nsize_t = c_ulong\nuuid_t = c_byte*16\nNAME_MAX = 255\nPATH_MAX = 1024\nFSTYPE_MAX = 16\nclass struct_statfs(Structure):\n    _fields_ = [('f_bsize', uint32_t),\n                ('f_iosize', int32_t),",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "off_t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "off_t = c_long\nsize_t = c_ulong\nuuid_t = c_byte*16\nNAME_MAX = 255\nPATH_MAX = 1024\nFSTYPE_MAX = 16\nclass struct_statfs(Structure):\n    _fields_ = [('f_bsize', uint32_t),\n                ('f_iosize', int32_t),\n                ('f_blocks', uint64_t),",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "size_t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "size_t = c_ulong\nuuid_t = c_byte*16\nNAME_MAX = 255\nPATH_MAX = 1024\nFSTYPE_MAX = 16\nclass struct_statfs(Structure):\n    _fields_ = [('f_bsize', uint32_t),\n                ('f_iosize', int32_t),\n                ('f_blocks', uint64_t),\n                ('f_bfree', uint64_t),",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "uuid_t",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "uuid_t = c_byte*16\nNAME_MAX = 255\nPATH_MAX = 1024\nFSTYPE_MAX = 16\nclass struct_statfs(Structure):\n    _fields_ = [('f_bsize', uint32_t),\n                ('f_iosize', int32_t),\n                ('f_blocks', uint64_t),\n                ('f_bfree', uint64_t),\n                ('f_bavail', uint64_t),",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "NAME_MAX",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "NAME_MAX = 255\nPATH_MAX = 1024\nFSTYPE_MAX = 16\nclass struct_statfs(Structure):\n    _fields_ = [('f_bsize', uint32_t),\n                ('f_iosize', int32_t),\n                ('f_blocks', uint64_t),\n                ('f_bfree', uint64_t),\n                ('f_bavail', uint64_t),\n                ('f_files', uint64_t),",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "PATH_MAX",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "PATH_MAX = 1024\nFSTYPE_MAX = 16\nclass struct_statfs(Structure):\n    _fields_ = [('f_bsize', uint32_t),\n                ('f_iosize', int32_t),\n                ('f_blocks', uint64_t),\n                ('f_bfree', uint64_t),\n                ('f_bavail', uint64_t),\n                ('f_files', uint64_t),\n                ('f_ffree', uint64_t),",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "FSTYPE_MAX",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "FSTYPE_MAX = 16\nclass struct_statfs(Structure):\n    _fields_ = [('f_bsize', uint32_t),\n                ('f_iosize', int32_t),\n                ('f_blocks', uint64_t),\n                ('f_bfree', uint64_t),\n                ('f_bavail', uint64_t),\n                ('f_files', uint64_t),\n                ('f_ffree', uint64_t),\n                ('f_fsid', fsid_t),",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "_attr_info",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "_attr_info = (\n    # Common attributes\n    (0, ATTR_CMN_RETURNED_ATTRS, sizeof(attribute_set_t)),\n    (0, ATTR_CMN_NAME, sizeof(attrreference_t) + NAME_MAX * 3 + 1),\n    (0, ATTR_CMN_DEVID, sizeof(dev_t)),\n    (0, ATTR_CMN_FSID, sizeof(fsid_t)),\n    (0, ATTR_CMN_OBJTYPE, sizeof(fsobj_type_t)),\n    (0, ATTR_CMN_OBJTAG, sizeof(fsobj_tag_t)),\n    (0, ATTR_CMN_OBJID, sizeof(fsobj_id_t)),\n    (0, ATTR_CMN_OBJPERMANENTID, sizeof(fsobj_id_t)),",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "_getattrlist",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "_getattrlist = libc.getattrlist\n_getattrlist.argtypes = [c_char_p, POINTER(attrlist), c_void_p, c_ulong, c_ulong]\n_getattrlist.restype = c_int\n_fgetattrlist = libc.fgetattrlist\n_fgetattrlist.argtypes = [c_int, POINTER(attrlist), c_void_p, c_ulong, c_ulong]\n_fgetattrlist.restype = c_int\ntry:\n    _statfs = libc['statfs$INODE64']\nexcept (KeyError, AttributeError):\n    _statfs = libc['statfs']",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "_getattrlist.argtypes",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "_getattrlist.argtypes = [c_char_p, POINTER(attrlist), c_void_p, c_ulong, c_ulong]\n_getattrlist.restype = c_int\n_fgetattrlist = libc.fgetattrlist\n_fgetattrlist.argtypes = [c_int, POINTER(attrlist), c_void_p, c_ulong, c_ulong]\n_fgetattrlist.restype = c_int\ntry:\n    _statfs = libc['statfs$INODE64']\nexcept (KeyError, AttributeError):\n    _statfs = libc['statfs']\n_statfs.argtypes = [c_char_p, POINTER(struct_statfs)]",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "_getattrlist.restype",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "_getattrlist.restype = c_int\n_fgetattrlist = libc.fgetattrlist\n_fgetattrlist.argtypes = [c_int, POINTER(attrlist), c_void_p, c_ulong, c_ulong]\n_fgetattrlist.restype = c_int\ntry:\n    _statfs = libc['statfs$INODE64']\nexcept (KeyError, AttributeError):\n    _statfs = libc['statfs']\n_statfs.argtypes = [c_char_p, POINTER(struct_statfs)]\n_statfs.restype = c_int",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "_fgetattrlist",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "_fgetattrlist = libc.fgetattrlist\n_fgetattrlist.argtypes = [c_int, POINTER(attrlist), c_void_p, c_ulong, c_ulong]\n_fgetattrlist.restype = c_int\ntry:\n    _statfs = libc['statfs$INODE64']\nexcept (KeyError, AttributeError):\n    _statfs = libc['statfs']\n_statfs.argtypes = [c_char_p, POINTER(struct_statfs)]\n_statfs.restype = c_int\ntry:",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "_fgetattrlist.argtypes",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "_fgetattrlist.argtypes = [c_int, POINTER(attrlist), c_void_p, c_ulong, c_ulong]\n_fgetattrlist.restype = c_int\ntry:\n    _statfs = libc['statfs$INODE64']\nexcept (KeyError, AttributeError):\n    _statfs = libc['statfs']\n_statfs.argtypes = [c_char_p, POINTER(struct_statfs)]\n_statfs.restype = c_int\ntry:\n    _fstatfs = libc['fstatfs$INODE64']",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "_fgetattrlist.restype",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "_fgetattrlist.restype = c_int\ntry:\n    _statfs = libc['statfs$INODE64']\nexcept (KeyError, AttributeError):\n    _statfs = libc['statfs']\n_statfs.argtypes = [c_char_p, POINTER(struct_statfs)]\n_statfs.restype = c_int\ntry:\n    _fstatfs = libc['fstatfs$INODE64']\nexcept (KeyError, AttributeError):",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "_statfs.argtypes",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "_statfs.argtypes = [c_char_p, POINTER(struct_statfs)]\n_statfs.restype = c_int\ntry:\n    _fstatfs = libc['fstatfs$INODE64']\nexcept (KeyError, AttributeError):\n    _fstatfs = libc['fstatfs']\n_fstatfs.argtypes = [c_int, POINTER(struct_statfs)]\n_fstatfs.restype = c_int\ndef _datetime_from_timespec(ts):\n    td = datetime.timedelta(seconds=ts.tv_sec + 1.0e-9 * ts.tv_nsec)",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "_statfs.restype",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "_statfs.restype = c_int\ntry:\n    _fstatfs = libc['fstatfs$INODE64']\nexcept (KeyError, AttributeError):\n    _fstatfs = libc['fstatfs']\n_fstatfs.argtypes = [c_int, POINTER(struct_statfs)]\n_fstatfs.restype = c_int\ndef _datetime_from_timespec(ts):\n    td = datetime.timedelta(seconds=ts.tv_sec + 1.0e-9 * ts.tv_nsec)\n    return unix_epoch + td",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "_fstatfs.argtypes",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "_fstatfs.argtypes = [c_int, POINTER(struct_statfs)]\n_fstatfs.restype = c_int\ndef _datetime_from_timespec(ts):\n    td = datetime.timedelta(seconds=ts.tv_sec + 1.0e-9 * ts.tv_nsec)\n    return unix_epoch + td\ndef _decode_utf8_nul(sz):\n    nul = sz.find(b'\\0')\n    if nul > -1:\n        sz = sz[:nul]\n    return sz.decode('utf-8')",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "_fstatfs.restype",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "_fstatfs.restype = c_int\ndef _datetime_from_timespec(ts):\n    td = datetime.timedelta(seconds=ts.tv_sec + 1.0e-9 * ts.tv_nsec)\n    return unix_epoch + td\ndef _decode_utf8_nul(sz):\n    nul = sz.find(b'\\0')\n    if nul > -1:\n        sz = sz[:nul]\n    return sz.decode('utf-8')\ndef _decode_attrlist_result(buf, attrs, options):",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "__error",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "__error = libc.__error\n__error.restype = POINTER(c_int)\ndef _get_errno():\n    return __error().contents.value\ndef getattrlist(path, attrs, options):\n    if not isinstance(path, bytes):\n        path = path.encode('utf-8')\n    attrs = list(attrs)\n    if attrs[1]:\n        attrs[1] |= ATTR_VOL_INFO",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "__error.restype",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "peekOfCode": "__error.restype = POINTER(c_int)\ndef _get_errno():\n    return __error().contents.value\ndef getattrlist(path, attrs, options):\n    if not isinstance(path, bytes):\n        path = path.encode('utf-8')\n    attrs = list(attrs)\n    if attrs[1]:\n        attrs[1] |= ATTR_VOL_INFO\n    alist = attrlist(bitmapcount=5,",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.osx",
+        "documentation": {}
+    },
+    {
+        "label": "UT",
+        "kind": 6,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.utils",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.utils",
+        "peekOfCode": "class UTC (datetime.tzinfo):\n    def utcoffset(self, dt):\n        return ZERO\n    def dst(self, dt):\n        return ZERO\n    def tzname(self, dt):\n        return 'UTC'\nutc = UTC()\nmac_epoch = datetime.datetime(1904,1,1,0,0,0,0,utc)\nunix_epoch = datetime.datetime(1970,1,1,0,0,0,0,utc)",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.utils",
+        "documentation": {}
+    },
+    {
+        "label": "ZERO",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.utils",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.utils",
+        "peekOfCode": "ZERO = datetime.timedelta(0)\nclass UTC (datetime.tzinfo):\n    def utcoffset(self, dt):\n        return ZERO\n    def dst(self, dt):\n        return ZERO\n    def tzname(self, dt):\n        return 'UTC'\nutc = UTC()\nmac_epoch = datetime.datetime(1904,1,1,0,0,0,0,utc)",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.utils",
+        "documentation": {}
+    },
+    {
+        "label": "utc",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.utils",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.utils",
+        "peekOfCode": "utc = UTC()\nmac_epoch = datetime.datetime(1904,1,1,0,0,0,0,utc)\nunix_epoch = datetime.datetime(1970,1,1,0,0,0,0,utc)\nosx_epoch = datetime.datetime(2001,1,1,0,0,0,0,utc)",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.utils",
+        "documentation": {}
+    },
+    {
+        "label": "mac_epoch",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.utils",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.utils",
+        "peekOfCode": "mac_epoch = datetime.datetime(1904,1,1,0,0,0,0,utc)\nunix_epoch = datetime.datetime(1970,1,1,0,0,0,0,utc)\nosx_epoch = datetime.datetime(2001,1,1,0,0,0,0,utc)",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.utils",
+        "documentation": {}
+    },
+    {
+        "label": "unix_epoch",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.utils",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.utils",
+        "peekOfCode": "unix_epoch = datetime.datetime(1970,1,1,0,0,0,0,utc)\nosx_epoch = datetime.datetime(2001,1,1,0,0,0,0,utc)",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.utils",
+        "documentation": {}
+    },
+    {
+        "label": "osx_epoch",
+        "kind": 5,
+        "importPath": "baklava.node_modules.dmg-builder.vendor.mac_alias.utils",
+        "description": "baklava.node_modules.dmg-builder.vendor.mac_alias.utils",
+        "peekOfCode": "osx_epoch = datetime.datetime(2001,1,1,0,0,0,0,utc)",
+        "detail": "baklava.node_modules.dmg-builder.vendor.mac_alias.utils",
+        "documentation": {}
+    }
+]
