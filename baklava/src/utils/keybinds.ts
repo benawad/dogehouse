@@ -16,6 +16,7 @@ import {
 import ioHook from "iohook";
 import { overlayWindow } from "electron-overlay-window";
 import { createOverlay } from "./overlay";
+import { startIPCHandler } from "./ipc";
 
 export let CURRENT_REQUEST_TO_SPEAK_KEY = "Control+8";
 export let CURRENT_INVITE_KEY = "Control+7";
@@ -98,6 +99,7 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
                 }
             } else {
                 CURRENT_OVERLAY = createOverlay(CURRENT_APP_TITLE, overlayWindow);
+                startIPCHandler(mainWindow, CURRENT_OVERLAY);
             }
 
         })

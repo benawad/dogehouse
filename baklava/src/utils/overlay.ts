@@ -1,5 +1,5 @@
 import { BrowserWindow } from 'electron';
-import { __prod__ } from 'src/electron';
+import { __prod__ } from '../electron';
 
 export function createOverlay(target: string, OW: any) {
     const overLay = new BrowserWindow({
