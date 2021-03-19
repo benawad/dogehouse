@@ -85,6 +85,18 @@ export const customEmojis = [
 		keywords: ["dogehouse", "doge", "purple"],
 		imageUrl: "/emotes/purpledogehouse.png",
 	},
+	{
+		name: "CyanDogeHouse",
+		short_names: ["CyanDogeHouse"],
+		keywords: ["dogehouse", "doge", "cyan"],
+		imageUrl: "/emotes/cyandogehouse.png",
+	},
+	{
+		name: "OrangeDogeHouse",
+		short_names: ["OrangeDogeHouse"],
+		keywords: ["dogehouse", "doge", "orange"],
+		imageUrl: "/emotes/orangedogehouse.png",
+	},
 ].map((e) => ({ ...e, customCategory: "Custom", text: "", emoticons: [] }));
 
 export const emoteMap: Record<string, string> = {};
