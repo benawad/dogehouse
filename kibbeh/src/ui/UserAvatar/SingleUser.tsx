@@ -50,6 +50,7 @@ export const SingleUser: React.FC<AvatarProps> = ({
         width: avatarSizeMap[size],
         height: avatarSizeMap[size],
       }}
+      data-testid="single-user-avatar"
     >
       <img alt="avatar" className="rounded-full w-full h-full" src={src} />
       {isOnline && (
@@ -58,6 +59,7 @@ export const SingleUser: React.FC<AvatarProps> = ({
             "rounded-full absolute box-content bg-accent border-primary-800"
           }
           style={onlineIndicatorStyleMap[size]}
+          data-testid="online-indictor"
         ></span>
       )}
     </div>
