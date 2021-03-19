@@ -58,14 +58,12 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   const { t } = useTypeSafeTranslation();
 
   if (isElectron()) {
-    ipcRenderer.send("@overlay/shouldRunIPC", "");
     ipcRenderer.on("@overlay/start_ipc", () => {
       ipcRenderer.send("@overlay/overlayData", {
         currentRoom: room,
         muted: muted,
         me: me,
         roomID: id,
-        loadingTranslation: t("common.loading"),
       });
     })
   }

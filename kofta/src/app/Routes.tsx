@@ -16,7 +16,6 @@ import { InviteList } from "./pages/InviteList";
 import { Login } from "./pages/Login";
 import { MyProfilePage } from "./pages/MyProfilePage";
 import { NotFoundPage } from "./pages/NotFoundPage";
-import { OverlayPage } from "./pages/OverlayPage";
 import { OverlaySettingsPage } from "./pages/OverlaySettingsPage";
 import { RoomPage } from "./pages/RoomPage";
 import { SearchUsersPage } from "./pages/SearchUsersPage";
@@ -94,7 +93,6 @@ export const Routes: React.FC<RoutesProps> = () => {
               component={ScheduledRoomsPage}
             />
             <Route exact path="/room/:id" component={RoomPage} />
-            <Route exact path="/overlay" component={OverlayPage} />
             <Route
               exact
               path={["/user", "/user/:username"]}
