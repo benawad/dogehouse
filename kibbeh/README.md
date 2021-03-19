@@ -1,4 +1,3 @@
-
 <p align="center">
     <img height=100 src="https://raw.githubusercontent.com/benawad/dogehouse/staging/.redesign-assets/dogehouse_logo.svg"/>
 </p>
@@ -20,7 +19,7 @@ This folder is called kibbeh ([/ˈkɪbi/](https://en.wikipedia.org/wiki/Kibbeh))
 
 # How can I contribute?
 
-First of all, this project is currently in *very* early stages of development, therefore these instructions may not be up to date.
+First of all, this project is currently in _very_ early stages of development, therefore these instructions may not be up to date.
 
 **We're using [Yarn](https://yarnpkg.com/) for this project, do not use npm for the following commands**
 
@@ -34,15 +33,10 @@ yarn build
 
 After you successfully compiled Kebab, go back to this directory and install all modules (@dogehouse/kebab is a yarn workspace, you do <u>not</u> need to manually copy it to node_modules)
 
-```bash
-cd ../kibbeh
-yarn
-```
-
-At this point, you should set your .ENV file's `NEXT_PUBLIC_API_BASE_URL` to a staging server, as this handles the login function.
-
 You should now be all set to go, go ahead and run the dev server
 
 ```bash
-yarn dev
+cd ../kibbeh
+yarn
+yarn staging
 ```
