@@ -194,6 +194,18 @@ export const customEmojis = [
     imageUrl: "/emotes/dogehouse.png",
   },
   {
+    name: "Doge3D",
+    short_names: ["Doge3D"],
+    keywords: ["doge3d", "doge", "3d"],
+    imageUrl: "/emotes/doge3d.gif",
+  },
+  {
+    name: "DogeCool",
+    short_names: ["DogeCool"],
+    keywords: ["dogecool", "doge", "cool"],
+    imageUrl: "/emotes/dogecool.gif",
+  },
+  {
     name: "SadHouse",
     short_names: ["SadHouse"],
     keywords: ["dogehouse", "doge", "sadhouse"],
