@@ -41,6 +41,7 @@ export const Button: React.FC<ButtonProps> = ({
     <button
       disabled={disabled || loading}
       className={`${sizeClassnames[size]} ${colorClassnames[color]} font-bold flex items-center justify-center ${className}`}
+      data-testid="button"
       {...props}
     >
       <span className={loading ? "opacity-0" : `flex items-center`}>
