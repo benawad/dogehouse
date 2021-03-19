@@ -6,6 +6,8 @@ import { GetTopPublicRoomsResponse, GetScheduledRoomsResponse } from "./response
 
 type Handler<Data> = (data: Data) => void;
 
+export type Wrapper = ReturnType<typeof wrap>;
+
 export const wrap = (connection: Connection) => ({
   subscribe: {
     newChatMsg: (handler: Handler<{ userId: UUID; msg: Message }>) =>
