@@ -127,7 +127,7 @@ export const customEmojis = [
     keywords: ["crypto", "sushi", "swap", "sushiswap"],
     imageUrl: "/emotes/cryptoSUSHI.png",
   },
-  {
+    {
     name: "CryptoTRON",
     short_names: ["CryptoTRON"],
     keywords: ["crypto", "tron"],
