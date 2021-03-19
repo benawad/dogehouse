@@ -36,7 +36,7 @@
       "currentRoom": "Právě v:",
       "startPrivateRoom": "Otevřít soukromou místnost"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {},
     "home": { "createRoom": "Vytvořit místnost", "refresh": "Obnovit" },
     "inviteList": {
       "roomGone": "Místnost není dostupná, jít zpět",

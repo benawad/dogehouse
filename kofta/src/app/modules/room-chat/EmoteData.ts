@@ -492,6 +492,16 @@ export const customEmojis = [
     short_names: ["Coggers"],
     keywords: ["Cog", "Coggers", "pepe"],
     imageUrl: "/emotes/coggers.gif",
+    name: "OrangeDogeHouse",
+    short_names: ["OrangeDogeHouse"],
+    keywords: ["orange", "dogehouse", "doge"],
+    imageUrl: "/emotes/orangedogehouse.png",
+  },
+  {
+    name: "CyaneDogeHouse",
+    short_names: ["CyaneDogeHouse"],
+    keywords: ["cyan", "dogehouse", "doge"],
+    imageUrl: "/emotes/cyandogehouse.png",
   },
 ].map((e) => ({ ...e, customCategory: "Custom", text: "", emoticons: [] }));
 
