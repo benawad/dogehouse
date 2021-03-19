@@ -130,9 +130,7 @@
       "toggleMuteKeybind": "کلید فعال/غیرفعال بی صدا",
       "togglePushToTalkKeybind": "کلید حرف زدن با فشردن دکمه"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "بدون مخاطب به دلایلی"
-    },
+    "userVolumeSlider": { "noAudioMessage": "بدون مخاطب به دلایلی" },
     "addToCalendar": { "add": "اضافه کردن به تقویم" },
     "wsKilled": {
       "description": "اتصال به سرور قطع شد. ممکن است برنامه را در صفحه ای دیگر باز کرده اید",
