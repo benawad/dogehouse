@@ -15,7 +15,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "@dogehouse/kebab": "^0.1.2",
+    "@dogehouse/client": "^0.1.2",
     "@svgr/webpack": "^5.5.0",
     "date-fns": "^2.19.0",
     "formik": "^2.2.6",
