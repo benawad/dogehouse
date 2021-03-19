@@ -32,6 +32,9 @@ commit messages are standardized:
 2. If you've added code that should be tested, add some test examples.
 3. Ensure to describe your pull request.
 
+## Adding Emojis
+Emojis need to be 28x28px. To add an emoji, add the png/gif image to public/emojis and add the emoji to the emoji picker file./
+
 ## Quickstart Local Frontend Development
 Do this if you only want to do React stuff and don't want to touch Elixir:
 
