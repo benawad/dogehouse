@@ -464,18 +464,6 @@ export const customEmojis = [
     imageUrl: "/emotes/purpledogehouse.png",
   },
   {
-    name: "OrangeDogeHouse",
-    short_names: ["OrangeDogeHouse"],
-    keywords: ["orange", "dogehouse", "doge"],
-    imageUrl: "/emotes/orangedogehouse.png",
-  },
-  {
-    name: "CyaneDogeHouse",
-    short_names: ["CyaneDogeHouse"],
-    keywords: ["cyan", "dogehouse", "doge"],
-    imageUrl: "/emotes/cyandogehouse.png",
-  },
-  {
     name: "WidePeepoPussy",
     short_names: ["WidePeepoPussy"],
     keywords: ["WidePeepoPussy", "peepo", "wide"],
