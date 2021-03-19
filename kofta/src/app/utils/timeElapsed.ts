@@ -1,6 +1,6 @@
 import formatDistanceToNowStrict from "date-fns/formatDistanceToNowStrict";
 import differenceInMinutes from "date-fns/differenceInMinutes";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTypeSafeTranslation } from "./useTypeSafeTranslation";
 
 export const useTimeElapsed = (startDate: Date | null) => {
@@ -10,52 +10,49 @@ export const useTimeElapsed = (startDate: Date | null) => {
 
   const { t } = useTypeSafeTranslation();
 
-  const updateTime = useCallback(
-    (startDate: Date | null) => {
-      if (!startDate) {
-        return;
-      }
-      const timeDiff = differenceInMinutes(new Date(), startDate);
+  const updateTime = (startDate: Date | null) => {
+    if (!startDate) {
+      return;
+    }
+    const timeDiff = differenceInMinutes(new Date(), startDate);
 
-      setTimeElapsed(
-        formatDistanceToNowStrict(startDate, {
-          unit: timeDiff > 120 ? undefined : "minute",
-        })
-      );
-      if (timeDiff < 30) {
-        setRocketIcon("⛽️");
-        setRocketStatus(t("modules.roomStatus.fuelingRocket"));
-      } else if (timeDiff < 60) {
-        setRocketIcon("🚀");
-        setRocketStatus(t("modules.roomStatus.takingOff"));
-      } else if (timeDiff < 240) {
-        setRocketIcon("🚀✨");
-        setRocketStatus(t("modules.roomStatus.inSpace"));
-      } else if (timeDiff < 480) {
-        setRocketIcon("🚀🌕");
-        setRocketStatus(t("modules.roomStatus.approachingMoon"));
-      } else if (timeDiff < 1440) {
-        setRocketIcon("🌕🐕");
-        setRocketStatus(t("modules.roomStatus.lunarDoge"));
-      } else if (timeDiff < 2880) {
-        setRocketIcon("🚀☀️");
-        setRocketStatus(t("modules.roomStatus.approachingSun"));
-      } else if (timeDiff < 5760) {
-        setRocketIcon("☀️🐕");
-        setRocketStatus(t("modules.roomStatus.solarDoge"));
-      } else if (timeDiff < 11520) {
-        setRocketIcon("🚀🌌");
-        setRocketStatus(t("modules.roomStatus.approachingGalaxy"));
-      } else if (timeDiff < 23040) {
-        setRocketIcon("🌌🐕");
-        setRocketStatus(t("modules.roomStatus.galacticDoge"));
-      } else {
-        setRocketIcon("🪐👾");
-        setRocketStatus(t("modules.roomStatus.spottedLife"));
-      }
-    },
-    [setRocketIcon, setRocketStatus, t]
-  );
+    setTimeElapsed(
+      formatDistanceToNowStrict(startDate, {
+        unit: timeDiff > 120 ? undefined : "minute",
+      })
+    );
+    if (timeDiff < 30) {
+      setRocketIcon("⛽️");
+      setRocketStatus(t("modules.roomStatus.fuelingRocket"));
+    } else if (timeDiff < 60) {
+      setRocketIcon("🚀");
+      setRocketStatus(t("modules.roomStatus.takingOff"));
+    } else if (timeDiff < 240) {
+      setRocketIcon("🚀✨");
+      setRocketStatus(t("modules.roomStatus.inSpace"));
+    } else if (timeDiff < 480) {
+      setRocketIcon("🚀🌕");
+      setRocketStatus(t("modules.roomStatus.approachingMoon"));
+    } else if (timeDiff < 1440) {
+      setRocketIcon("🌕🐕");
+      setRocketStatus(t("modules.roomStatus.lunarDoge"));
+    } else if (timeDiff < 2880) {
+      setRocketIcon("🚀☀️");
+      setRocketStatus(t("modules.roomStatus.approachingSun"));
+    } else if (timeDiff < 5760) {
+      setRocketIcon("☀️🐕");
+      setRocketStatus(t("modules.roomStatus.solarDoge"));
+    } else if (timeDiff < 11520) {
+      setRocketIcon("🚀🌌");
+      setRocketStatus(t("modules.roomStatus.approachingGalaxy"));
+    } else if (timeDiff < 23040) {
+      setRocketIcon("🌌🐕");
+      setRocketStatus(t("modules.roomStatus.galacticDoge"));
+    } else {
+      setRocketIcon("🪐👾");
+      setRocketStatus(t("modules.roomStatus.spottedLife"));
+    }
+  };
 
   useEffect(() => {
     updateTime(startDate);
