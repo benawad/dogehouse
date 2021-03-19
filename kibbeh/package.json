@@ -11,7 +11,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "convert-icons": "svgr src/icons --replace-attr-values '#fff'='currentColor' --typescript --out-dir src/icons",
-    "test": "jest --watch"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@dogehouse/kebab": "^0.1.2",

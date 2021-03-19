@@ -6,7 +6,7 @@ const Renderer = ({ children }) => {
   return { children };
 };
 
-const customRender = (ui, options) =>
+const customRender = (ui, options = {}) =>
   render(ui, {
     ...options,
   });

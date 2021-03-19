@@ -1,4 +1,4 @@
 node_modules/
 
-*.spec.js
-*.spec.js.snap
+*.spec.tsx
+*.spec.tsx.snap
