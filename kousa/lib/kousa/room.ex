@@ -269,6 +269,41 @@ defmodule Kousa.Room do
         {:error, Kousa.Utils.Errors.changeset_to_first_err_message_with_field_name(x)}
     end
   end
+  
+  def send_waiting_room_casts(user_id, room) do
+      user = Beef.Users.get_by_id(user_id)
+      Onion.UserSession.send_cast(
+         room.creatorId,
+         {:send_ws_msg, :vscode,
+          %{
+            op: "someone_joined_waiting_room",
+            d: %{
+              displayName: user.displayName,
+              username: user.username,
+              avatarUrl: user.avatarUrl,
+              userId: user.id,
+              type: "someone_joined_waiting_room",
+              roomId: room.id,
+              roomName: room.name
+            }
+          }}
+       )
+      Onion.UserSession.send_cast(
+         user.id,
+         {:send_ws_msg, :vscode,
+          %{
+            op: "you_joined_waiting_room",
+            d: %{
+              displayName: user.displayName,
+            username: user.username,
+            avatarUrl: user.avatarUrl,
+            userId: user.id,
+            type: "you_joined_waiting_room",
+            roomId: room.id
+          }
+          }}
+       )
+  end
 
   def join_room(user_id, room_id) do
     currentRoomId = Beef.Users.get_current_room_id(user_id)
@@ -288,7 +323,9 @@ defmodule Kousa.Room do
                      room.id,
                      {:redeem_invite, user_id}
                    ) do
-                {:ok, :error} -> {:err, "the room is private, ask someone inside to invite you"}
+                {:ok, :error} -> 
+                      send_waiting_room_casts(user_id, room)
+                      exit(:shutdown)
                 {:ok, :ok} -> {:ok}
                 _ -> {:err, "room session doesn't exist"}
               end
@@ -325,6 +362,26 @@ defmodule Kousa.Room do
           end
       end
     end
+  end
+  
+  def add_from_waiting(room_id, user_id) do
+    room = Beef.Rooms.get_room_by_id(room_id) 
+    updated_usr = Rooms.join_room(room, user_id)
+
+    Onion.RoomSession.send_cast(
+      room_id,
+      {:join_room, updated_usr, Onion.UserSession.send_call!(user_id, {:get, :muted})}
+    )
+    canSpeak =
+      with %{roomPermissions: %{isSpeaker: true}} <- updated_usr do
+        true
+      else
+        _ ->
+          false
+      end
+
+    join_vc_room(user_id, room, canSpeak || room.isPrivate)
+    %{room: room}
   end
 
   def leave_room(user_id, current_room_id \\ nil, blocked \\ false) do

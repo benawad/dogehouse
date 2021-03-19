@@ -390,6 +390,12 @@ defmodule Broth.SocketHandler do
          }), state}
     end
   end
+  
+  def handler("add_from_waiting", %{"room_id" => room_id, "user_id" => user_id}, state) do
+    Kousa.Room.add_from_waiting(room_id, user_id) 
+
+    {:ok, state}
+  end
 
   def handler(
         "block_from_room",

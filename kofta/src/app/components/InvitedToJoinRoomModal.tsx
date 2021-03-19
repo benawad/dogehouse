@@ -13,12 +13,16 @@ interface Props {}
 
 type Fn = () => void;
 
-export type JoinRoomModalType = "invite" | "someone_you_follow_created_a_room";
+export type JoinRoomModalType =
+  | "invite"
+  | "someone_you_follow_created_a_room"
+  | "someone_joined_waiting_room";
 
 export type UserPreviewInfo = {
   username: string;
   displayName: string;
   avatarUrl: string;
+  userId: string;
 };
 
 type Options = {
@@ -49,8 +53,15 @@ export const invitedToRoomConfirm = (
     options: {
       ...options,
       onConfirm: () => {
-        wsend({ op: "join_room", d: { roomId: options.roomId } });
-        history.push("/room/" + options.roomId);
+        if (options.type === "someone_joined_waiting_room") {
+          wsend({
+            op: "add_from_waiting",
+            d: { room_id: options.roomId, user_id: options.userId },
+          });
+        } else {
+          wsend({ op: "join_room", d: { roomId: options.roomId } });
+          history.push("/room/" + options.roomId);
+        }
       },
     },
   });
@@ -66,6 +77,8 @@ export const InvitedToJoinRoomModal: React.FC<Props> = () => {
           <h1 className={`text-2xl mb-2`}>
             {options.type === "someone_you_follow_created_a_room"
               ? t("components.modals.invitedToJoinRoomModal.newRoomCreated")
+              : options.type === "someone_joined_waiting_room"
+              ? "Someone Joined Waiting Room"
               : t("components.modals.invitedToJoinRoomModal.roomInviteFrom")}
           </h1>
           <div className={`flex items-center`}>
@@ -80,11 +93,13 @@ export const InvitedToJoinRoomModal: React.FC<Props> = () => {
           <div className={`mt-4`}>
             {options.type === "someone_you_follow_created_a_room"
               ? t("components.modals.invitedToJoinRoomModal.justStarted")
+              : options.type === "someone_joined_waiting_room"
+              ? ""
               : t(
                   "components.modals.invitedToJoinRoomModal.inviteReceived"
                 )}{" "}
-            <span className={`font-semibold`}>{options.roomName}</span>
-            {t("components.modals.invitedToJoinRoomModal.likeToJoin")}
+            <span className={`font-semibold`}>{options.displayName} </span>
+            Joined the waiting room! Would you like to add?
           </div>
         </>
       ) : null}
