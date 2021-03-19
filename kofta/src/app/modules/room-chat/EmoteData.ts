@@ -320,6 +320,12 @@ export const customEmojis = [
     imageUrl: "/emotes/dodgyCoin.png",
   },
   {
+    name: "blaze",
+    short_names: ["blaze"],
+    keywords: ["blaze", "yes", "snark"],
+    imageUrl: "/emotes/blaze.png",
+  },
+  {
     name: "blobDance",
     short_names: ["blobDance"],
     keywords: ["blobDance", "vibe"],
