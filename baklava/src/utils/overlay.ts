@@ -1,4 +1,5 @@
 import { BrowserWindow } from 'electron';
+import { __prod__ } from 'src/electron';
 
 export function createOverlay(target: string, OW: any) {
     const overLay = new BrowserWindow({
@@ -8,11 +9,11 @@ export function createOverlay(target: string, OW: any) {
             nodeIntegration: true,
             webSecurity: false,
         },
-        
+
         ...OW.WINDOW_OPTS,
     });
 
-    overLay.loadURL("https://google.com/");
+    overLay.loadURL(__prod__ ? `https://dogehouse.tv/overlay` : "http://localhost:3000/overlay");
     OW.attachTo(overLay, target);
     return overLay;
 }

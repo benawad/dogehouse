@@ -60,7 +60,6 @@ export class OverlayPage extends React.Component<{}, State> {
             );
         }
 
-        const profile = room.users.find((x) => x.id === userProfileId);
 
         const speakers: BaseUser[] = [];
         const unansweredHands: BaseUser[] = [];
