@@ -367,6 +367,96 @@ export const customEmojis = [
     keywords: ["FeelsGoodMan", "pepe"],
     imageUrl: "/emotes/feelsgoodman.png",
   },
+  {
+    name: "GitHub",
+    short_names: ["GitHub"],
+    keywords: ["app", "git", "github"],
+    imageUrl: "/emotes/github.png",
+  },
+  {
+    name: "Elixir",
+    short_names: ["Elixir"],
+    keywords: ["app", "elixir"],
+    imageUrl: "/emotes/elixir.png",
+  },
+  {
+    name: "NextJS",
+    short_names: ["NextJS"],
+    keywords: ["app", "next", "js"],
+    imageUrl: "/emotes/nextjs.png",
+  },
+  {
+    name: "React",
+    short_names: ["React"],
+    keywords: ["app", "react", "js"],
+    imageUrl: "/emotes/react.png",
+  },
+  {
+    name: "Electron",
+    short_names: ["Electron"],
+    keywords: ["app", "electron"],
+    imageUrl: "/emotes/electron.png",
+  },
+  {
+    name: "BeardGuyR",
+    short_names: ["BeardGuyR"],
+    keywords: ["meme", "beard", "guy"],
+    imageUrl: "/emotes/beardguyright.png",
+  },
+  {
+    name: "BeardGuyL",
+    short_names: ["BeardGuyL"],
+    keywords: ["meme", "beard", "guy"],
+    imageUrl: "/emotes/beardguyleft.png",
+  },
+  {
+    name: "MemeMan",
+    short_names: ["MemeMan"],
+    keywords: ["meme", "guy"],
+    imageUrl: "/emotes/mememan.png",
+  },
+  {
+    name: "NPC",
+    short_names: ["NPC"],
+    keywords: ["meme", "npc", "guy"],
+    imageUrl: "/emotes/npc.png",
+  },
+  {
+    name: "SmudgeCat",
+    short_names: ["SMudgeCat"],
+    keywords: ["meme", "cat"],
+    imageUrl: "/emotes/smudgecat.png",
+  },
+  {
+    name: "Stonks",
+    short_names: ["Stonks"],
+    keywords: ["meme", "crypto", "guy"],
+    imageUrl: "/emotes/stonks.png",
+  },
+  {
+    name: "Stinks",
+    short_names: ["Stinks"],
+    keywords: ["meme", "crypto", "guy"],
+    imageUrl: "/emotes/stinks.png",
+  },
+  {
+    name: "IWMD",
+    short_names: ["IWMD"],
+    keywords: ["meme", "dude", "wednesday", "frog"],
+    imageUrl: "/emotes/wednesday.png",
+  },
+  {
+    name: "PreSponge",
+    short_names: ["PreSponge"],
+    keywords: ["meme", "spongebob"],
+    imageUrl: "/emotes/presponge.png",
+  },
+  {
+    name: "sPonGeBoB",
+    short_names: ["sPonGeBoB"],
+    keywords: ["meme", "spongebob"],
+    imageUrl: "/emotes/sPonGeBoB.png",
+  },
 ].map((e) => ({ ...e, customCategory: "Custom", text: "", emoticons: [] }));
 
 export const emoteMap: Record<string, string> = {};
