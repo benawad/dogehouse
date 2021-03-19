@@ -22,7 +22,7 @@ export const useTimeElapsed = (startDate: Date | null) => {
       })
     );
     
-    switch (timeDiff) {
+    switch (true) {
 
       case (timeDiff < 30): {
         setRocketIcon("⛽️");
