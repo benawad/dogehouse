@@ -110,7 +110,7 @@
       "settings": "Подешавања",
       "speaker": "Говорник",
       "listener": "Слушалац",
-      "chat": "Chat"
+      "chat": "Ћаскање"
     },
     "deviceNotSupported": {
       "notSupported": "Ваш уређај тренутно није подржан. Можете направити",
@@ -174,7 +174,8 @@
         "banFromChat": "Забраните приступ ћаскању",
         "banFromRoom": "Забраните приступ соби",
         "goBackToListener": "Вратите се слушаоцу",
-        "deleteMessage": "Обришите ову поруку"
+        "deleteMessage": "Обришите ову поруку",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "Затражи дозволу за причање",

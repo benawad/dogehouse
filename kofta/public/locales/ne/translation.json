@@ -177,7 +177,8 @@
         "banFromChat": "ban from chat",
         "banFromRoom": "रूमबाट प्रतिबन्ध",
         "goBackToListener": "श्रोताको लागि पछाडि जानुहोस",
-        "deleteMessage": "यो मेसेज मेटाउनुहोस"
+        "deleteMessage": "यो मेसेज मेटाउनुहोस",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "बोल्नको लागि अनुमति चाहिन्छ",

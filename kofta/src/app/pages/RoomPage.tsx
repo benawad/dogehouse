@@ -103,22 +103,22 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
       />
       {fullscreenChatOpen ? null : (
         <Backbar>
-          <div className={`flex flex-1 flex-col items-center`}>
+          <div className={`flex flex-col justify-center w-full`}>
             <button
               disabled={!iAmCreator}
               onClick={() => setShowCreateRoomModal(true)}
-              className={`font-xl truncate flex-1 text-center flex items-center justify-center text-2xl`}
+              className={`text-2xl truncate max-w-lg text-center px-2`}
             >
-              <span className={"px-2 truncate"}>{room.name}</span>
+              {room.name}
             </button>
             {rocketStatus && (
-              <div className={`flex items-center text-sm`}>
+              <div className={`text-center text-sm`}>
                 {rocketIcon} {rocketStatus} &nbsp;
                 <span className="opacity-50">({timeElapsed})</span>
               </div>
             )}
           </div>
-          <div className="pr-2">
+          <div className="ml-auto pr-2">
             <ProfileButton />
           </div>
         </Backbar>

@@ -162,7 +162,8 @@
         "banFromChat": "bannir du chat",
         "banFromRoom": "bannir de la salle",
         "goBackToListener": "retourner chez les auditeurs",
-        "deleteMessage": "supprimer ce message"
+        "deleteMessage": "supprimer ce message",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "requiert la permission de parler",

@@ -175,7 +175,8 @@
         "banFromChat": "блокиране от чат",
         "banFromRoom": "блокиране от стая",
         "goBackToListener": "върни се към слушател",
-        "deleteMessage": "изтриване на това съобщение"
+        "deleteMessage": "изтриване на това съобщение",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "изискване на позволение за говорене",

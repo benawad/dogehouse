@@ -177,7 +177,8 @@
         "banFromChat": "utesteng fra chatten",
         "banFromRoom": "utesteng fra rommet",
         "goBackToListener": "gå tilbake til lytter",
-        "deleteMessage": "slett denne meldingen"
+        "deleteMessage": "slett denne meldingen",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "krev tillatelse for å snakke",

@@ -101,7 +101,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
             </div>
             <div className={`grid mt-8 items-start grid-cols-1`}>
               <select
-                className={`border border-simple-gray-3c`}
+                className={`border border-simple-gray-3c focus:bg-simple-gray-69`}
                 value={values.privacy}
                 onChange={(e) => {
                   const v = e.target.value;
