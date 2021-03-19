@@ -169,6 +169,12 @@ export const customEmojis = [
     keywords: ["crypto", "doge", "dodgycoin"],
     imageUrl: "/emotes/dodgyCoin.png",
   },
+  {
+    name: "blaze",
+    short_names: ["blaze"],
+    keywords: ["blaze", "yes", "snark"],
+    imageUrl: "/emotes/blaze.png",
+  },
 ].map((e) => ({ ...e, customCategory: "Custom", text: "", emoticons: [] }));
 
 export const emoteMap: Record<string, string> = {};
