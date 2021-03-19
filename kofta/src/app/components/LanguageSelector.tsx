@@ -26,6 +26,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "fr", label: "🇫🇷 Français" }, // French
     { value: "he", label: "🇮🇱 עברית" }, // Hebrew
     { value: "hi", label: "🇮🇳 हिन्दी" }, // Hindi
+    { value: "hr", label: "🇭🇷 Hrvatski" }, // Croatian
     { value: "hu", label: "🇭🇺 magyar" }, // Hungarian
     { value: "id", label: "🇮🇩 Bahasa Indonesia" }, // Indonesian
     { value: "is", label: "🇮🇸 Íslenska" }, // Icelandic

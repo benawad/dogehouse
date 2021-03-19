@@ -29,19 +29,14 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "αποκλεισμός"
-    },
+    "banUser": { "ban": "αποκλεισμός" },
     "followingOnlineList": {
       "listHeader": "Χρήστες που δεν βρίσκονται σε κάποιο δωμάτιο και ακολουθείτε",
       "currentRoom": "αυτή τη στιγμή βρίσκεστε σε:",
       "startPrivateRoom": "δημιουργήστε ένα ιδιωτικό δωμάτιο μαζί τους"
     },
     "followList": {},
-    "home": {
-      "createRoom": "Δημιουργία Δωματίου",
-      "refresh": "Επαναφόρτωση"
-    },
+    "home": { "createRoom": "Δημιουργία Δωματίου", "refresh": "Επαναφόρτωση" },
     "inviteList": {
       "roomGone": "το δωμάτιο διαγράφηκε, πηγαίνετε πίσω",
       "shareRoomLink": "κοινοποιήστε τον σύνδεσμο του δωματίου",
@@ -77,12 +72,8 @@
       "requestingToSpeak": "Αιτούμενοι να μιλήσουν",
       "listeners": "Ακροατές"
     },
-    "searchUser": {
-      "search": "αναζήτηση..."
-    },
-    "soundEffectSettings": {
-      "header": "Ήχοι"
-    },
+    "searchUser": { "search": "αναζήτηση..." },
+    "soundEffectSettings": { "header": "Ήχοι" },
     "viewUser": {
       "editProfile": "επεξεργασία προφίλ",
       "followsYou": "σας ακολουθεί",
@@ -144,9 +135,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "δεν υπάρχει εξαγωγέας ήχου για κάποιο λόγο"
     },
-    "addToCalendar": {
-      "add": "Προσθήκη στο Ημερολόγιο"
-    },
+    "addToCalendar": { "add": "Προσθήκη στο Ημερολόγιο" },
     "wsKilled": {
       "description": "Η διαδικτυακή σύνδεση διακόπηκε από τον διακομιστή. Αυτό συμβαίνει συνήθως όταν ανοίγετε την ιστοσελίδα σε άλλη καρτέλα.",
       "reconnect": "επανασύνδεση"
