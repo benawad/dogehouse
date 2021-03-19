@@ -79,6 +79,84 @@ export const customEmojis = [
 		keywords: ["dogehouse", "doge", "neutralhouse"],
 		imageUrl: "/emotes/neutralhouse.png",
 	},
+	{
+		name: "CryptoBTC",
+		short_names: ["CryptoBTC"],
+		keywords: ["crypto", "btc", "bitcoin"],
+		imageUrl: "/emotes/cryptoBTC.png",
+	},
+	{
+		name: "CryptoETH",
+		short_names: ["CryptoETH"],
+		keywords: ["crypto", "eth", "ethereum"],
+		imageUrl: "/emotes/cryptoETH.png",
+	},
+	{
+		name: "CryptoBNB",
+		short_names: ["CryptoBNB"],
+		keywords: ["crypto", "bnb", "binance"],
+		imageUrl: "/emotes/cryptoBNB.png",
+	},
+	{
+		name: "CryptoLTC",
+		short_names: ["CryptoLTC"],
+		keywords: ["crypto", "ltc", "litecoin"],
+		imageUrl: "/emotes/cryptoLTC.png",
+	},
+	{
+		name: "CryptoBCH",
+		short_names: ["CryptoBCH"],
+		keywords: ["crypto", "bch", "bitcoin", "bitcoincash"],
+		imageUrl: "/emotes/cryptoBCH.png",
+	},
+	{
+		name: "CryptoDOGE",
+		short_names: ["CryptoDOGE"],
+		keywords: ["crypto", "doge", "dogecoin", "bestcoin"],
+		imageUrl: "/emotes/cryptoDOGE.png",
+	},
+	{
+		name: "CryptoSUSHI",
+		short_names: ["CryptoSUSHI"],
+		keywords: ["crypto", "sushi", "swap", "sushiswap"],
+		imageUrl: "/emotes/cryptoSUSHI.png",
+	},
+	{
+		name: "CryptoZEC",
+		short_names: ["CryptoZEC"],
+		keywords: ["crypto", "zec", "zcash"],
+		imageUrl: "/emotes/cryptoZEC.png",
+	},
+	{
+		name: "CryptoETC",
+		short_names: ["CryptoETC"],
+		keywords: ["crypto", "etc", "ethereum","ethereumclassic"],
+		imageUrl: "/emotes/cryptoETC.png",
+	},
+	{
+		name: "CryptoCAKE",
+		short_names: ["CryptoCAKE"],
+		keywords: ["crypto", "cake", "swap", "pancakeswap"],
+		imageUrl: "/emotes/cryptoCAKE.png",
+	},
+	{
+		name: "CryptoADA",
+		short_names: ["CryptoADA"],
+		keywords: ["crypto", "ada", "cardano"],
+		imageUrl: "/emotes/cryptoADA.png",
+	},
+	{
+		name: "CryptoXRP",
+		short_names: ["CryptoXRP"],
+		keywords: ["crypto", "xrp", "ripple"],
+		imageUrl: "/emotes/cryptoXRP.png",
+	},
+	{
+		name: "CryptoUSDC",
+		short_names: ["CryptoUSDC"],
+		keywords: ["crypto", "usdc", "usdcoin"],
+		imageUrl: "/emotes/cryptoUSDC.png",
+	},
 ].map((e) => ({ ...e, customCategory: "Custom", text: "", emoticons: [] }));
 
 export const emoteMap: Record<string, string> = {};
