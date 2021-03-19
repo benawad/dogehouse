@@ -36,7 +36,7 @@
       "currentRoom": "Op t moment in:",
       "startPrivateRoom": "Sjtart inge perseunlijke kamer mit disè persoon"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Kamer make", "refresh": "Verviesje" },
     "inviteList": {
       "roomGone": "Kamer besjteed niet, gank teruk",
@@ -79,7 +79,9 @@
       "editProfile": "Profiel bewirke",
       "followsYou": "Volgt dich",
       "followers": "Volgers",
-      "following": "Volgend"
+      "following": "Volgend",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Sjpraak",

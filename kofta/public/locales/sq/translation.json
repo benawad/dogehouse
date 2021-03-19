@@ -36,7 +36,7 @@
       "currentRoom": "për momentin në:",
       "startPrivateRoom": "fillo një dhomë private me ta"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Krijo dhomë", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "dhoma u zhduk, kthehu",
@@ -79,7 +79,9 @@
       "editProfile": "redakto profilin",
       "followsYou": "ju ndjek",
       "followers": "ndjekës",
-      "following": "ju ndjekin"
+      "following": "ju ndjekin",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Cilësime e zërit",

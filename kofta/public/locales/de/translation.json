@@ -36,7 +36,7 @@
       "currentRoom": "Zurzeit in:",
       "startPrivateRoom": "Einen privaten Raum mit diesem Benutzer starten"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "Raum erstellen",
       "refresh": "Aktualisieren"
@@ -82,7 +82,9 @@
       "editProfile": "Profil bearbeiten",
       "followsYou": "folgt dir",
       "following": "Abonniert",
-      "followers": "Abonnenten"
+      "followers": "Abonnenten",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Spracheinstellungen",

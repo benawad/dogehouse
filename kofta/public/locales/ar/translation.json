@@ -36,7 +36,7 @@
       "currentRoom": "حاليا في:",
       "startPrivateRoom": "ابدأ غرفة خاصة معهم"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "ابدأ غرفة", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "انتهت الغرفة، عد إلى الوراء",
@@ -79,7 +79,9 @@
       "editProfile": "تعديل الحساب",
       "followsYou": "يتابعك",
       "followers": "المتابِعون",
-      "following": "المتابَعون"
+      "following": "المتابَعون",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "إعدادات الصوت",

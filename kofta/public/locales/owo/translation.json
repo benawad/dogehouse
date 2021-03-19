@@ -36,7 +36,7 @@
       "currentRoom": "UwU cuwwentwy in:",
       "startPrivateRoom": "<3 stawt a pwivate woom with them x3"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "OwO Cweate Woom (ʘᗩʘ')",
       "refresh": " Wefwesh (◠‿◠✿)"
@@ -82,7 +82,9 @@
       "editProfile": "Edit Pwofiwe (⁎˃ᆺ˂)",
       "followsYou": "fowwows uu (๑•́ ₃ •̀๑)",
       "followers": "fowwowews >_>",
-      "following": "fowwowing ( ͡° ᴥ ͡°)"
+      "following": "fowwowing ( ͡° ᴥ ͡°)",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "OWO Voice Settings (✿ ♡‿♡)",
