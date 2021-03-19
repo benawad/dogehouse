@@ -143,7 +143,7 @@
         "public": "عام",
         "private": "خاص",
         "roomName": "اسم الغرفة",
-        "roomDescription": "وصف الغرفة",
+        "roomDescription": "وصف عن الغرفة",
         "descriptionError": "أقصى حد 500",
         "nameError": "يجب أن يكون ما بين حرفين و 60 حرف"
       },
@@ -212,7 +212,7 @@
       "sendMessage": "أرسل رسالة",
       "whisper": "اهمس",
       "welcomeMessage": "مرحبا بك في المحادثة!",
-      "roomDescription": "وصف الغرفة"
+      "roomDescription": "وصف عن الغرفة"
     },
     "roomStatus": {
       "fuelingRocket": "عبي الصاروخ بنزين",

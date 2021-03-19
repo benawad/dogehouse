@@ -14,7 +14,7 @@ export const CreateRoomButton: React.FC = (props) => {
         onBackdropPress={() => setModalVisible(false)}
         style={styles.contentView}
       >
-        <CreateRoomPage />
+        <CreateRoomPage onRequestClose={() => setModalVisible(false)} />
       </Modal>
     </>
   );

@@ -1,4 +1,4 @@
-name: backend-run-tests
+name: test-elixir
 on:
   push:
     branches:
@@ -34,5 +34,8 @@ jobs:
       with:
         otp-version: '22.2'
         elixir-version: '1.11'
-    - run: mix deps.get
+    - name: fetch deps
+      run: mix deps.get
+      env:
+          MIX_ENV: test
     - run: mix test
