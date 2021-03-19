@@ -50,7 +50,11 @@ export const Modal: React.FC<ReactModal["props"]> = ({
             <SmSolidPlus className={`transform rotate-45`} />
           </button>
         </div>
-        <div tabIndex={-1} onKeyDown={onKeyDown}>
+        <div
+          tabIndex={-1}
+          className={`focus:outline-none`}
+          onKeyDown={onKeyDown}
+        >
           {children}
         </div>
       </div>

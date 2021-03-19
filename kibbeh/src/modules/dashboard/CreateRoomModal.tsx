@@ -87,17 +87,46 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
         }}
       >
         {({ setFieldValue, values, isSubmitting }) => (
-          <Form>
-            <InputField
-              name="name"
-              maxLength={60}
-              placeholder={t("components.modals.createRoomModal.roomName")}
-              autoFocus
-              autoComplete="off"
-            />
-            <div className="mt-3">
+          <Form className={`grid grid-cols-3 gap-4 focus:outline-none`}>
+            <div className={`col-span-3 block`}>
+              <h3 className={`mb-2 text-3xl text-primary-100`}>
+                {t("pages.home.createRoom")}
+              </h3>
+              <p className={`text-primary-300`}>
+                Fill the following fields to start a new room
+              </p>
+            </div>
+            <div className={`h-full w-full col-span-2`}>
               <InputField
+                className={`rounded-8 bg-primary-700 pl-2 h-6`}
+                name="name"
+                maxLength={60}
+                placeholder={t("components.modals.createRoomModal.roomName")}
+                autoFocus
+                autoComplete="off"
+              />
+            </div>
+            <div className={`grid mt-8 items-start grid-cols-1 h-6`}>
+              <select
+                className={`h-full bg-primary-700 text-primary-100 placeholder-primary-300 focus:outline-none rounded-8 px-2`}
+                value={values.privacy}
+                onChange={(e) => {
+                  setFieldValue("privacy", e.target.value);
+                }}
+              >
+                <option value="public" className={`hover:bg-primary-900`}>
+                  {t("components.modals.createRoomModal.public")}
+                </option>
+                <option value="private" className={`hover:bg-primary-900`}>
+                  {t("components.modals.createRoomModal.private")}
+                </option>
+              </select>
+            </div>
+            <div className={`col-span-3 bg-primary-700 rounded-8`}>
+              <InputField
+                className={`px-2 h-11 col-span-3 w-full`}
                 name="description"
+                rows={7}
                 maxLength={500}
                 placeholder={t(
                   "components.modals.createRoomModal.roomDescription"
@@ -105,24 +134,11 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
                 textarea
               />
             </div>
-            <div className={`grid mt-8 items-start grid-cols-1`}>
-              <select
-                className={`border border-simple-gray-3c`}
-                value={values.privacy}
-                onChange={(e) => {
-                  setFieldValue("privacy", e.target.value);
-                }}
-              >
-                <option value="public" className={`bg-simple-gray-3c`}>
-                  {t("components.modals.createRoomModal.public")}
-                </option>
-                <option value="private" className={`bg-simple-gray-3c`}>
-                  {t("components.modals.createRoomModal.private")}
-                </option>
-              </select>
-            </div>
 
-            <div className={`flex mt-12`}>
+            <div className={`flex mt-12 space-x-3`}>
+              <Button loading={isSubmitting} type="submit" className={`ml-1.5`}>
+                {t("common.ok")}
+              </Button>
               <Button
                 type="button"
                 onClick={onRequestClose}
@@ -130,9 +146,6 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
                 color="secondary"
               >
                 {t("common.cancel")}
-              </Button>
-              <Button loading={isSubmitting} type="submit" className={`ml-1.5`}>
-                {t("common.ok")}
               </Button>
             </div>
           </Form>
