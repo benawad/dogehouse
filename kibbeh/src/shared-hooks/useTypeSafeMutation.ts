@@ -1,4 +1,4 @@
-import { wrap } from "@dogehouse/kebab";
+import { wrap } from "@dogehouse/client";
 import { useContext } from "react";
 import { useMutation } from "react-query";
 import { WebSocketContext } from "../modules/ws/WebSocketProvider";

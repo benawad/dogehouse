@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { raw } from "@dogehouse/kebab";
+import { raw } from "@dogehouse/client";
 import { useTokenStore } from "../auth/useTokenStore";
 import { apiBaseUrl } from "../../lib/constants";
 

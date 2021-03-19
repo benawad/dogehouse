@@ -1,4 +1,4 @@
-import { wrap, GetTopPublicRoomsResponse } from "@dogehouse/kebab";
+import { wrap, GetTopPublicRoomsResponse } from "@dogehouse/client";
 import React, { useContext, useState } from "react";
 import { useQuery } from "react-query";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";

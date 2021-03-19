@@ -1,4 +1,4 @@
-const withTM = require("next-transpile-modules")(["@dogehouse/kebab"]);
+const withTM = require("next-transpile-modules")(["@dogehouse/client"]);
 
 module.exports = withTM({
   reactStrictMode: true,

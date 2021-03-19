@@ -1,7 +1,7 @@
 import React, { MouseEventHandler, ReactNode } from "react";
 import { RoomCard } from "./RoomCard";
 import { Button } from "./Button";
-import { Room, ScheduledRoom } from "@dogehouse/kebab";
+import { Room, ScheduledRoom } from "@dogehouse/client";
 
 export interface FeedProps {
   title: string;

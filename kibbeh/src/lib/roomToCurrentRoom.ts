@@ -1,4 +1,4 @@
-import { Room, CurrentRoom } from "@dogehouse/kebab";
+import { Room, CurrentRoom } from "@dogehouse/client";
 
 export const roomToCurrentRoom = (r: Room): CurrentRoom =>
   r
