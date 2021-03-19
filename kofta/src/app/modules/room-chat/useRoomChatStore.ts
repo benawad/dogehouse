@@ -56,6 +56,7 @@ export interface RoomChatMessage {
   userId: string;
   avatarUrl: string;
   color: string;
+  username: string;
   displayName: string;
   tokens: RoomChatMessageToken[];
   deleted?: boolean;

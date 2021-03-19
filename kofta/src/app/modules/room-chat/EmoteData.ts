@@ -1,3 +1,4 @@
+
 import { EmojiData } from "emoji-mart";
 
 export const customEmojis = [
