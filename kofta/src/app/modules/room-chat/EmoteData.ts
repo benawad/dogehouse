@@ -90,6 +90,12 @@ export const customEmojis = [
 		keywords: ["crypto", "btc", "bitcoin"],
 		imageUrl: "/emotes/cryptoBTC.png",
 	},
+		{
+		name: "ThugPepe",
+		short_names: ["ThugPepe"],
+		keywords: ["dogehouse", "doge", "thugpepe"],
+		imageUrl: "/emotes/thugpepe.png",
+	},
 	{
 		name: "CryptoETH",
 		short_names: ["CryptoETH"],
