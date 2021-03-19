@@ -37,10 +37,7 @@
       "startPrivateRoom": "Otevřít soukromou místnost"
     },
     "followList": {},
-    "home": {
-      "createRoom": "Vytvořit místnost",
-      "refresh": "Obnovit"
-    },
+    "home": { "createRoom": "Vytvořit místnost", "refresh": "Obnovit" },
     "inviteList": {
       "roomGone": "Místnost není dostupná, jít zpět",
       "shareRoomLink": "Sdílet odkaz na místnost",
