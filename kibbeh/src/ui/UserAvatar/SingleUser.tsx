@@ -20,7 +20,7 @@ const onlineIndicatorStyleMap = {
     height: "6px",
     right: "3px",
     bottom: "0px",
-    borderWidth: "1px"
+    borderWidth: "1px",
   },
   sm: {
     width: "8px",
