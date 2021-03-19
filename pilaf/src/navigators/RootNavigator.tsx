@@ -1,7 +1,7 @@
 import React from "react";
 import { useTokenStore } from "../module/auth/useTokenStore";
 import { LandingPage } from "../pages/LandingPage";
-import { MainPage } from "../pages/MainPage";
+import { MainNavigator } from "./MainNavigator";
 
 export const RootNavigator: React.FC = () => {
   const hasToken = useTokenStore((s) => !!s.accessToken && !!s.refreshToken);
@@ -9,5 +9,6 @@ export const RootNavigator: React.FC = () => {
   if (!hasToken) {
     return <LandingPage />;
   }
-  return <MainPage />;
+
+  return <MainNavigator />;
 };
