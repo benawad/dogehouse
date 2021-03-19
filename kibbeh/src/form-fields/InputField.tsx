@@ -13,14 +13,15 @@ export const InputField: React.FC<
     label?: string;
     textarea?: boolean;
     altErrorMsg?: string;
+    rows?: number;
   }
 > = ({ label, textarea, errorMsg, ref: _, ...props }) => {
   const [field, meta] = useField(props);
 
   return (
-    <div>
+    <div className={`h-full w-full block`}>
       {label ? <div className={`mb-2`}>{label}</div> : null}
-      <Input textarea={textarea} {...field} {...props} />
+      <Input error={meta.error} textarea={textarea} {...field} {...props} />
       {meta.error && meta.touched ? (
         <div className={`mt-1`}>
           <InputErrorMsg>{errorMsg || meta.error}</InputErrorMsg>
