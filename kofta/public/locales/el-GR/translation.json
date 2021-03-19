@@ -133,7 +133,7 @@
       "togglePushToTalkKeybind": "αλλαγή συντόμευσης για push-to-talk"
     },
     "userVolumeSlider": {
-      "noAudioMessage": "δεν υπάρχει εξαγωγέας ήχου για κάποιο λόγο"
+      "noAudioMessage": "δεν υπάρχει δέκτης ήχου για κάποιο λόγο"
     },
     "addToCalendar": { "add": "Προσθήκη στο Ημερολόγιο" },
     "wsKilled": {
