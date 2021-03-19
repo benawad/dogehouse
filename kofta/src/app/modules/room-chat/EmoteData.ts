@@ -319,6 +319,48 @@ export const customEmojis = [
     keywords: ["crypto", "doge", "dodgycoin"],
     imageUrl: "/emotes/dodgyCoin.png",
   },
+  {
+    name: "blobDance",
+    short_names: ["blobDance"],
+    keywords: ["blobDance", "vibe"],
+    imageUrl: "/emotes/blobdance.gif",
+  },
+  {
+    name: "pepeJAM",
+    short_names: ["pepeJAM"],
+    keywords: ["pepeJAM", "pepe"],
+    imageUrl: "/emotes/pepejam.gif",
+  },
+  {
+    name: "PepePls",
+    short_names: ["PepePls"],
+    keywords: ["PepePls", "pepe"],
+    imageUrl: "/emotes/pepepls.gif",
+  },
+  {
+    name: "Clap",
+    short_names: ["Clap"],
+    keywords: ["Clap"],
+    imageUrl: "/emotes/clap.gif",
+  },
+  {
+    name: "EZ",
+    short_names: ["EZ"],
+    keywords: ["EZ", "pepe"],
+    imageUrl: "/emotes/ez.png",
+  },
+  {
+    name: "peepoHey",
+    short_names: ["peepoHey"],
+    keywords: ["peepoHey", "peepo", "pepe"],
+    imageUrl: "/emotes/peepohey.gif",
+  },
+  {
+    name: "FeelsGoodMan",
+    short_names: ["FeelsGoodMan"],
+    keywords: ["FeelsGoodMan", "pepe"],
+    imageUrl: "/emotes/feelsgoodman.png",
+  },
 ].map((e) => ({ ...e, customCategory: "Custom", text: "", emoticons: [] }));
 
 export const emoteMap: Record<string, string> = {};
