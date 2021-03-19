@@ -416,6 +416,11 @@ defmodule Broth.SocketHandler do
     {:ok, state}
   end
 
+  def handler("change_room_creator", %{"userId" => user_id_to_change}, state) do
+    Kousa.Room.change_room_creator(state.user_id, user_id_to_change)
+    {:ok, state}
+  end
+
   def handler("ban_from_room_chat", %{"userId" => user_id_to_ban}, state) do
     Kousa.RoomChat.ban_user(state.user_id, user_id_to_ban)
     {:ok, state}

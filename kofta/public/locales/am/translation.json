@@ -175,7 +175,8 @@
         "banFromChat": "ከ ውይይት አግድ",
         "banFromRoom": "ከ ክፍል ያግዱ",
         "goBackToListener": "አዳማጭ ይመለሱ",
-        "deleteMessage": "ይህን መልዕክት ሰርዝ"
+        "deleteMessage": "ይህን መልዕክት ሰርዝ",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "መናገር ፈቃድ ይጠይቃል",

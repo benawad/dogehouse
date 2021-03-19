@@ -66,25 +66,35 @@
             "output": "./builds"
         }
     },
-    "dependencies": {
-        "electron-updater": "^4.3.8",
-        "iohook": "^0.7.2"
+    "linux": {
+      "icon": "icons/icon.png",
+      "target": [
+        "deb"
+      ]
     },
-    "iohook": {
-        "targets": [
-            "node-83",
-            "electron-85"
-        ],
-        "platforms": [
-            "win32",
-            "darwin",
-            "linux"
-        ],
-        "arches": [
-            "x64"
-        ]
-    },
-    "files": [
-        "./icons/**/*"
+    "directories": {
+      "output": "./builds"
+    }
+  },
+  "dependencies": {
+    "electron-updater": "^4.3.8",
+    "iohook": "^0.7.2"
+  },
+  "iohook": {
+    "targets": [
+      "node-83",
+      "electron-85"
+    ],
+    "platforms": [
+      "win32",
+      "darwin",
+      "linux"
+    ],
+    "arches": [
+      "x64"
     ]
+  },
+  "files": [
+    "./icons/**/*"
+  ]
 }
