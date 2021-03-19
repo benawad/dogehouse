@@ -30,14 +30,19 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "አግድ" },
+    "banUser": { 
+      "ban": "አግድ"
+    },
     "followingOnlineList": {
       "listHeader": "የግል ክፍል ውስጥ ናቸው እና የሚከተሉ ተጠቃሚዎች ዝርዝር፡፡",
       "currentRoom": "በአሁኑ ጊዜ ውስጥ:",
       "startPrivateRoom": "ከእነሱ ጋር አንድ የግል ክፍል መጀመር"
     },
     "followList": {},
-    "home": { "createRoom": "ክፍል ፍጠር", "refresh": "Refresh" },
+    "home": { 
+      "createRoom": "ክፍል ፍጠር", 
+      "refresh": "Refresh" 
+    },
     "inviteList": {
       "roomGone": "ክፍሉ ጠፋ, ተመለስ",
       "shareRoomLink": "የክፍሉን ሊንክ አጋራ",
@@ -73,14 +78,17 @@
       "requestingToSpeak": "ለመናገር ፈቃድ ጠይቅ",
       "listeners": "አድማጮች"
     },
-    "searchUser": { "search": "ፈልግ ..." },
-    "soundEffectSettings": { "header": "ድምፆች" },
+    "searchUser": { 
+      "search": "ፈልግ ..." 
+    },
+    "soundEffectSettings": { 
+      "header": "ድምፆች" 
+    },
     "viewUser": {
       "editProfile": "መገለጫ ቀይር",
       "followsYou": "እርስዎን ይከተላል",
-      "folowers": "ተከታዮች",
-      "following": "የሚከተሉት",
-      "followers": "followers"
+      "followers": "ተከታዮች",
+      "following": "የሚከተሉት"
     },
     "voiceSettings": {
       "header": "የድምፅ ቅንብሮች",
@@ -120,7 +128,10 @@
       "linkText": "በ GitHub ላይ ተናገሩ",
       "addSupport": "እኔም ለመሣሪያዎ ድጋፍ ለማከል አሞክራልሁ፡፡"
     },
-    "inviteButton": { "invited": "ተጋብዘዋል", "inviteToRoom": "ወደ ክፍል ጋብዝ" },
+    "inviteButton": {
+      "invited": "ተጋብዘዋል",
+      "inviteToRoom": "ወደ ክፍል ጋብዝ"
+    },
     "micPermissionBanner": {
       "permissionDenied": "ፈቃድ መተግበሪያው ማይክሮፎኑን ለመድረስ እየሞከረ ካደ (እርስዎ የአሳሽ ቅንብሮች ወደ ሂድ እና ገጹን ዳግም መጫን ሊኖርብዎ ይችላል)",
       "dismiss": "አሰናብት",
@@ -132,8 +143,12 @@
       "toggleMuteKeybind": "ድምጸ ማጥፍያ/ማብርያ ቁልፍ",
       "togglePushToTalkKeybind": "ተጭኖ ማውሪያ ማጥፍያ/ማብርያ ቁልፍ"
     },
-    "userVolumeSlider": { "noAudioMessage": "በሆነ ምክንያት ምንም ድምጽ ተጠቃሚ የለም" },
-    "addToCalendar": { "add": "ወደ ቀን መቁጠሪያ ጨምር" },
+    "userVolumeSlider": { 
+      "noAudioMessage": "በሆነ ምክንያት ምንም ድምጽ ተጠቃሚ የለም" 
+    },
+    "addToCalendar": { 
+      "add": "ወደ ቀን መቁጠሪያ ጨምር" 
+    },
     "wsKilled": {
       "description": "WebSocket በአገልጋዩ ተቋረጠ. ሌላ ትር ውስጥ ያለውን ድረ ገጽ በመክፈት የተከሰተ ይሆናል፡፡",
       "reconnect": "መልሰህ ተገናኝ"
@@ -198,7 +213,7 @@
         "needsFuture": "ፍላጎቶች ወደፊት መሆን አለባቸው",
         "roomName": "የክፍል ስም",
         "minLength": "ደቂቃ ርዝመት 2",
-        "roomDescription": "Description"
+        "roomDescription": "ክፍል መግለጫ"
       }
     },
     "roomChat": {

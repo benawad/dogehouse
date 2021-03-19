@@ -125,6 +125,7 @@ defmodule Broth.SocketHandler do
                     GenRegistry.lookup_or_start(Onion.UserSession, user_id, [
                       %Onion.UserSession.State{
                         user_id: user_id,
+                        username: user.username,
                         avatar_url: user.avatarUrl,
                         display_name: user.displayName,
                         current_room_id: user.currentRoomId,
