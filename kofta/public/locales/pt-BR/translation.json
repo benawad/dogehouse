@@ -214,16 +214,16 @@
       "roomDescription": "descrição da sala"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "fuelingRocket": "Abastecendo foguete",
+      "takingOff": "Decolando",
+      "inSpace": "No espaço",
+      "approachingMoon": "Chegando na Lua",
+      "lunarDoge": "Doge lunar",
+      "approachingSun": "Chegando no Sol",
+      "solarDoge": "Doge solar",
+      "approachingGalaxy": "Chegando na galáxia",
+      "galacticDoge": "Doge galático",
+      "spottedLife": "Encontrado planeta com vida"
     }
   }
 }
