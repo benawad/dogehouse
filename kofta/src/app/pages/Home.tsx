@@ -157,6 +157,7 @@ export const Home: React.FC<HomeProps> = () => {
           >
             <div /* className={`mr-4 px-2.5`} */>
               <CircleButton
+                title={t("pages.viewUser.following")}
                 onClick={() => {
                   wsend({ op: "fetch_following_online", d: { cursor: 0 } });
                   history.push("/following-online");
@@ -167,6 +168,7 @@ export const Home: React.FC<HomeProps> = () => {
             </div>
             <div /* className={`ml-2 px-2.5`} */>
               <CircleButton
+                title={t("modules.scheduledRooms.title")}
                 onClick={() => {
                   queryClient.prefetchQuery(
                     [GET_SCHEDULED_ROOMS, "", false],
