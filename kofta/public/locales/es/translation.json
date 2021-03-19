@@ -35,7 +35,7 @@
       "startPrivateRoom": "empieza una sala privada con ellos"
     },
     "followList": {},
-    "home": { "createRoom": "Crear Sala", "refresh": "Refresh" },
+    "home": { "createRoom": "Crear Sala", "refresh": "Recargar" },
     "inviteList": {
       "roomGone": "sala no disponible, vuelve atrás",
       "shareRoomLink": "compartir enlace de la sala",
@@ -154,7 +154,7 @@
         "banFromRoom": "bloquear de la sala",
         "goBackToListener": "volver a ser oyente",
         "deleteMessage": "eliminar mensaje",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "hacer administrador de la sala"
       },
       "roomSettingsModal": {
         "requirePermission": "requiere permiso para hablar",
@@ -215,16 +215,16 @@
       "roomDescription": "descripción de la sala"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "fuelingRocket": "Llenando de combustible el cohete",
+      "takingOff": "Despegando",
+      "inSpace": "En el espacio",
+      "approachingMoon": "Acercandose a la luna",
+      "lunarDoge": "Doge lunar",
+      "approachingSun": "Acercandose al sol",
+      "solarDoge": "Doge solar",
+      "approachingGalaxy": "Acercandose a la galaxia",
+      "galacticDoge": "Doge galáctico",
+      "spottedLife": "Vida descubierta en el planeta"
     }
   }
 }
