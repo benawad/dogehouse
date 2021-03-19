@@ -45,7 +45,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "pt-PT", label: "🇵🇹 Português (Europeu)" }, // Portuguese (Portugal)
     { value: "ro", label: "🇷🇴 Română" }, // Romanian
     { value: "ru", label: "🇷🇺 Русский" }, // Russian
-    { value: "si", label: "🇱🇰 සිංහල" },
+    { value: "si", label: "🇱🇰 සිංහල" }, //Sinhala
     { value: "sk", label: "🇸🇰 slovenčina" }, // Slovak
     { value: "sl", label: "🇸🇮 Slovenščina" }, // Slovenian
     { value: "sq", label: "🇦🇱 Shqip" }, // Albanian
