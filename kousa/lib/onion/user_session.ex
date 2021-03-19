@@ -6,6 +6,7 @@ defmodule Onion.UserSession do
     @type t :: %__MODULE__{
             user_id: String.t(),
             avatar_url: String.t(),
+            username: String.t(),
             display_name: String.t(),
             current_room_id: String.t(),
             muted: boolean(),
@@ -16,12 +17,14 @@ defmodule Onion.UserSession do
               current_room_id: nil,
               muted: false,
               pid: nil,
+              username: nil,
               display_name: nil,
               avatar_url: nil
   end
 
   def start_link(%State{
         user_id: user_id,
+        username: username,
         display_name: display_name,
         avatar_url: avatar_url,
         current_room_id: current_room_id,
@@ -30,6 +33,7 @@ defmodule Onion.UserSession do
     GenServer.start_link(
       __MODULE__,
       %State{
+        username: username,
         display_name: display_name,
         avatar_url: avatar_url,
         pid: nil,
@@ -108,12 +112,16 @@ defmodule Onion.UserSession do
     {:noreply, state}
   end
 
+  def handle_cast({:set_state, info}, state) do
+    {:noreply, Map.merge(state, info)}
+  end
+
   def handle_cast({:set_current_room_id, current_room_id}, state) do
     {:noreply, %{state | current_room_id: current_room_id}}
   end
 
   def handle_call({:get_info_for_msg}, _, %State{} = state) do
-    {:reply, {state.avatar_url, state.display_name}, state}
+    {:reply, {state.avatar_url, state.display_name, state.username}, state}
   end
 
   def handle_call({:get_current_room_id}, _, state) do
