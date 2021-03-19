@@ -1,6 +1,5 @@
 import create from "zustand";
 import { combine } from "zustand/middleware";
-import { __prod__ } from "../constants";
 import isElectron from "is-electron";
 
 let ipcRenderer: any = undefined;

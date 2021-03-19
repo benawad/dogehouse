@@ -13,7 +13,7 @@ export function createOverlay(target: string, OW: any) {
         ...OW.WINDOW_OPTS,
     });
 
-    overLay.loadURL(__prod__ ? `https://dogehouse.tv/overlay` : "http://localhost:3000/overlay");
+    overLay.loadURL("http://localhost:5000");
     OW.attachTo(overLay, target);
     return overLay;
 }
