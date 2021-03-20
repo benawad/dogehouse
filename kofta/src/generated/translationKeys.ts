@@ -53,6 +53,8 @@ export type TranslationKeys =
 	| "pages.room.speakers"
 	| "pages.room.requestingToSpeak"
 	| "pages.room.listeners"
+	| "pages.room.allowAll"
+	| "pages.room.allowAllConfirm"
 	| "pages.searchUser.search"
 	| "pages.soundEffectSettings.header"
 	| "pages.viewUser.editProfile"
