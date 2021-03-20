@@ -7,8 +7,6 @@ export { default as SmSolidNew } from "./SmSolidNew";
 export { default as SmSolidNotification } from "./SmSolidNotification";
 export { default as SmSolidPlus } from "./SmSolidPlus";
 export { default as SmSolidSearch } from "./SmSolidSearch";
-export { default as LgSolidRocket } from "./LgSolidRocket";
-export { default as LgSolidTime } from "./LgSolidTime";
 export { default as LgLogo } from "./LgLogo";
 export { default as SmOutlineGlobe } from "./SmOutlineGlobe";
 export { default as SmSolidBug } from "./SmSolidBug";
