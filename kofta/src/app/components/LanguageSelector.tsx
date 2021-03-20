@@ -53,6 +53,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "sr", label: "🇷🇸 Српски" }, // Serbian
     { value: "sr-Latin", label: "🇷🇸 Srpski" }, // Serbian (Latin)
     { value: "sv", label: "🇸🇪 Svenska" }, // Swedish
+    { value: "ta", label: "🇮🇳 Tamil" }, // Tamil
     { value: "th", label: "🇹🇭 ไทย" }, // Thai
     { value: "tr", label: "🇹🇷 Türkçe" }, // Turkish
     { value: "uk", label: "🇺🇦 Українська" }, // Ukrainian
