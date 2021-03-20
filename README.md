@@ -53,7 +53,7 @@ Contributors helping to review/merge pull requests:
 
 - @ermalsh
 - @ofsho
-- @HMayotte
+- @HarrisonMayotte
 - @nadirabbas
 
 ## Code of Conduct
