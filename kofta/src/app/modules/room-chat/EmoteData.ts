@@ -2,6 +2,12 @@ import { EmojiData } from "emoji-mart";
 
 export const customEmojis = [
   {
+    name: "brownDogeHouse",
+    short_names: ["brownDogeHouse"],
+    keywords: ["brown", "dogehouse", "doge"],
+    imageUrl: "/emotes/browndogehouse.png",
+  },
+  {
     name: "shut",
     short_names: ["shut"],
     keywords: ["shut"],
@@ -1194,6 +1200,24 @@ export const customEmojis = [
     short_names: ["awyeah"],
     keywords: ["aw", "yeah", "awyeah", "dancing"],
     imageUrl: "/emotes/awyeah.gif",
+  },
+  {
+    name: "ZeroTwoLul",
+    short_names: ["ZTlul"],
+    keywords: ["lul", "lol", "anime", "girl", "zerotwo"],
+    imageUrl: "/emotes/zerotwolul.png",
+  },
+  {
+    name: "ZeroTwoSmug",
+    short_names: ["ZTsmug"],
+    keywords: ["smug", "anime", "girl", "zerotwo"],
+    imageUrl: "/emotes/zerotwosmug.png",
+  },
+  {
+    name: "ZeroTwoThinking",
+    short_names: ["ZTthinking"],
+    keywords: ["thinking", "think", "anime", "girl", "zerotwo"],
+    imageUrl: "/emotes/zerotwothinking.png",
   },
 ].map((e) => ({ ...e, customCategory: "Custom", text: "", emoticons: [] }));
 
