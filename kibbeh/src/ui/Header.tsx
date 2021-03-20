@@ -47,7 +47,7 @@ const Header: React.FC<HeaderProps> = ({
       </div>
       <div className="space-x-4 items-center justify-end">
         {onAnnouncementsClick && (
-          <button onClick={onAnnouncementsClick}>
+          <button onClick={onAnnouncementsClick} className="focus:outline-none">
             <SmSolidMegaphone
               width={23}
               height={23}
@@ -56,7 +56,7 @@ const Header: React.FC<HeaderProps> = ({
           </button>
         )}
         {onMessagesClick && (
-          <button onClick={onMessagesClick}>
+          <button onClick={onMessagesClick} className="focus:outline-none">
             <SmSolidMessages
               width={23}
               height={23}
@@ -65,7 +65,7 @@ const Header: React.FC<HeaderProps> = ({
           </button>
         )}
         {onNotificationsClick && (
-          <button onClick={onNotificationsClick}>
+          <button onClick={onNotificationsClick} className="focus:outline-none">
             <SmSolidNotification
               width={23}
               height={23}
