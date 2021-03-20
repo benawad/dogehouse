@@ -1,0 +1,229 @@
+{
+  "common": {
+    "loadMore": "gehiago kargatu",
+    "loading": "kargatzen",
+    "noUsersFound": "ez dira erabiltzaileak aurkitu",
+    "ok": "ados",
+    "yes": "bai",
+    "no": "ez",
+    "cancel": "deuseztatu",
+    "save": "gorde",
+    "edit": "editatu",
+    "delete": "ezabatu",
+    "joinRoom": "gelara sartu",
+    "copyLink": "esteka kopiatu",
+    "copied": "kopiatuta",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Isilik | DogeHouse"
+  },
+  "footer": {
+    "link_1": "Jatorri historia",
+    "link_2": "Discord",
+    "link_3": "Errore bat jakinarazi"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "blokeatu" },
+    "followingOnlineList": {
+      "listHeader": "List of users that are not in a private room and you follow.",
+      "currentRoom": "orain:",
+      "startPrivateRoom": "hasi saio pribatu bat"
+    },
+    "followList": {},
+    "home": { "createRoom": "Gela Sortu", "refresh": "Refresh" },
+    "inviteList": {
+      "roomGone": "gela ez dago erabilgarri",
+      "shareRoomLink": "gelaren esteka partekatu",
+      "inviteFollowers": "You can invite your followers that are online:",
+      "whenFollowersOnline": "Zure jarraitzaileak linean daudenean hemen agertuko dira."
+    },
+    "login": {
+      "headerText": "Elkarrizketak ilargira eramaten 🚀",
+      "featureText_1": "Modu iluna",
+      "featureText_2": "Erregistro irekia",
+      "featureText_3": "Soporte multiplataforma",
+      "featureText_4": "Kode irekia",
+      "featureText_5": "Testu txat",
+      "featureText_6": "Powered by Doge",
+      "loginGithub": "saioa hasi GitHub-en bidez",
+      "loginTwitter": "saioa hasi Twitter-en bidez",
+      "createTestUser": "froga erabiltzailea sortu"
+    },
+    "myProfile": {
+      "logout": "saioa itxi",
+      "probablyLoading": "Segur aski kargatzen...",
+      "voiceSettings": "ahots aukerak",
+      "soundSettings": "soinu aukerak",
+      "deleteAccount": "kontua ezabatu"
+    },
+    "notFound": {
+      "whoopsError": "Whoops! This page got lost in conversation.",
+      "goHomeMessage": "Not to worry. You can",
+      "goHomeLinkText": "go home"
+    },
+    "room": {
+      "speakers": "mintzatzaileak",
+      "requestingToSpeak": "hitza eskatzen",
+      "listeners": "entzuleak"
+    },
+    "searchUser": { "search": "bilatu" },
+    "soundEffectSettings": { "header": "Soinuak" },
+    "viewUser": {
+      "editProfile": "editatu profila",
+      "followsYou": "jarraitzen zaitu",
+      "followers": "jarraitzaileak",
+      "following": "jarraitzen"
+    },
+    "voiceSettings": {
+      "header": "Ahots aukerak",
+      "mic": "mikrofonoa:",
+      "permissionError": "ez dira mikrofonorik aurkitu, you either have none plugged in or haven't given this website permission.",
+      "refresh": "mikrofono zerrenda berriro kargatu",
+      "volume": "ozentasuna:"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Erabiltzaile blokeatutak",
+      "unban": "Desblokeatu",
+      "noBans": "no one has been banned yet"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Gela utzi",
+      "confirmLeaveRoom": "gela uzten ari zara, zihur zaude?",
+      "leave": "Utzi",
+      "inviteUsersToRoomBtn": "Erabiltzaileak gonbidatu",
+      "invite": "Gonbidatu",
+      "toggleMuteMicBtn": "Aldatu mikrofonoaren isiltasuna",
+      "mute": "Mikrofonoa desaktibatu",
+      "unmute": "Mikrofonoa aktibatu",
+      "makeRoomPublicBtn": "Gela publikoa sortu!",
+      "settings": "Aukerak",
+      "speaker": "Mintzatzaile",
+      "listener": "Entzule",
+      "chat": "Txat"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "Mikrofonoa atzitzeko baimenak ukatutak (you may need to go into browser settings and reload the page)",
+      "dismiss": "baztertu",
+      "tryAgain": "Saiatu berriro"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "publikoa",
+        "private": "pribatua",
+        "roomName": "gelaren izena",
+        "roomDescription": "gelaren deskribapena",
+        "descriptionError": "luzera maximoa: 500 karaktere",
+        "nameError": "2-60 karaktere izan behar ditu"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "Gela berria sortuta",
+        "roomInviteFrom": "Room Invite from",
+        "justStarted": "They just started",
+        "likeToJoin": ", would you like to join?",
+        "inviteReceived": "you've been invited to"
+      },
+      "editProfileModal": {
+        "usernameTaken": "erabiltzaile izena hartuta",
+        "avatarUrlError": "Irudi baliogabea",
+        "avatarUrlLabel": "GitHub/Twitter avatar url",
+        "displayNameError": "luzera: 2-50 karaktere",
+        "displayNameLabel": "Erakusteko izena",
+        "usernameError": "luzera: 4-15 karaktere alfanumerikoak/azpi-gidioa",
+        "usernameLabel": "Erabiltzaile izena",
+        "bioError": "luzera maximoa: 160 karaktere",
+        "bioLabel": "Biografia"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Are you sure you want to block this user from joining any room you ever create?",
+        "blockUser": "erabiltzailea blokeatu",
+        "makeMod": "moderatzaile bihurtu",
+        "unmod": "moderatzailea kendu",
+        "addAsSpeaker": "mintzatzaile bihurtu",
+        "moveToListener": "entzule bihurtu",
+        "banFromChat": "Txata blokeatu",
+        "banFromRoom": "gela blokeatu",
+        "goBackToListener": "bueltatu entzule izatera",
+        "deleteMessage": "mezua ezabatu"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "baimenak behar dituzu hitz egiteko",
+        "makePublic": "gela publikoa bihurtu",
+        "makePrivate": "gela pribatua bihurtu"
+      }
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "no audio consumer for some reason"
+    },
+    "addToCalendar": { "add": "Egutegira gehitu" },
+    "keyboardShortcuts": {
+      "setKeybind": "konfiguratu tekla konbinazioa",
+      "listening": "entzuten",
+      "toggleMuteKeybind": "Piztu/itzali isiltzeko tekla konbinazioa",
+      "togglePushToTalkKeybind": "Piztu/itzali sakatu-hitz-egiteko tekla konbinazioa"
+    },
+    "wsKilled": {
+      "description": "Serbitzariak websocket-a ezabatu du. Hau gertatzen da web-orrialdea beste fitxa batean irekeitzen denean.",
+      "reconnect": "berriro konektatu"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Gaur egun zure gailua ez da bateragarri. Sortu",
+      "linkText": "arazo bat GitHub-en",
+      "addSupport": "eta saiatuko naiz zure gailuari soportea ematen."
+    },
+    "inviteButton": {
+      "invited": "gonbidatuta",
+      "inviteToRoom": "gelara gonbidatu"
+    }
+  },
+  "modules": {
+    "scheduledRooms": {
+      "title": "Gela programatuak",
+      "noneFound": "ez da bakar bat ere aurkitu",
+      "allRooms": "Gela programatu guztiak",
+      "myRooms": "nire gela programatuak",
+      "scheduleRoomHeader": "Gela programatu",
+      "startRoom": "gela hasi",
+      "modal": {
+        "needsFuture": "Etorkizunean izen behar da",
+        "roomName": "gelaren izena",
+        "minLength": "luzera minimoa: 2 karaktere",
+        "roomDescription": "deskribapena"
+      }
+    },
+    "roomChat": {
+      "title": "Txat",
+      "emotesSoon": "[emoteak berehala]",
+      "bannedAlert": "Txatean blokeatuta zaude",
+      "waitAlert": "Segundu bat itxaron behar duzu beste mezu bat bidali baino lehen.",
+      "search": "Bilatu",
+      "searchResults": "Bilaketaren emaitzak",
+      "recent": "Maiz Erabiliak",
+      "sendMessage": "Mezua bidali",
+      "whisper": "Xuxurlatu",
+      "welcomeMessage": "Ongi etorri Txatera!",
+      "roomDescription": "gelaren deskribapena"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Suziria errekargatzen",
+      "takingOff": "Aireratzen",
+      "inSpace": "Espazioan",
+      "approachingMoon": "Ilargira iristen",
+      "lunarDoge": "Ilargi doge",
+      "approachingSun": "Eguzkira iristen",
+      "solarDoge": "Eguzki doge",
+      "approachingGalaxy": "Galaxiara iristen",
+      "galacticDoge": "Doge galaktikoa",
+      "spottedLife": "Planet with life spotted"
+    }
+  }
+}

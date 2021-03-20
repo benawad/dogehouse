@@ -35,8 +35,8 @@
       "currentRoom": "in questo momento è connesso a:",
       "startPrivateRoom": "avvia una stanza privata con lui"
     },
-    "followList": {},
-    "home": { "createRoom": "Crea una Stanza" },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Crea una Stanza", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "stanza inesistente, torna indietro",
       "shareRoomLink": "condividi link della stanza",
@@ -70,7 +70,9 @@
     "room": {
       "speakers": "Oratori",
       "requestingToSpeak": "Vogliono parlare",
-      "listeners": "Ascoltatori"
+      "listeners": "Ascoltatori",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "cerca..." },
     "soundEffectSettings": { "header": "Suoni" },
@@ -78,7 +80,9 @@
       "editProfile": "modifica profilo",
       "followsYou": "ti segue",
       "followers": "followers",
-      "following": "stai seguendo"
+      "following": "stai seguendo",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Impostazioni della voce",
@@ -109,7 +113,8 @@
       "makeRoomPublicBtn": "Fai diventare la stanza pubblica!",
       "settings": "Impostazioni",
       "speaker": "Oratore",
-      "listener": "Ascoltatori"
+      "listener": "Ascoltatori",
+      "chat": "Chat"
     },
     "deviceNotSupported": {
       "notSupported": "Il tuo dispositivo non è supportato. Puoi segnalare il problema",
@@ -176,7 +181,8 @@
         "banFromChat": "banna dalla chat",
         "banFromRoom": "banna dalla stanza",
         "goBackToListener": "ritorna ad essere un ascoltatore",
-        "deleteMessage": "elimina questo messaggio"
+        "deleteMessage": "elimina questo messaggio",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "richiedi permesso per parlare",
@@ -197,7 +203,8 @@
       "modal": {
         "needsFuture": "deve essere nel futuro",
         "roomName": "nome della stanza",
-        "minLength": "la lunghezza minima è 2"
+        "minLength": "la lunghezza minima è 2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {
@@ -212,6 +219,18 @@
       "whisper": "Sussurra",
       "welcomeMessage": "Benvenuto nella chat!",
       "roomDescription": "descrizione della stanza"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fueling rocket",
+      "takingOff": "Taking off",
+      "inSpace": "In space",
+      "approachingMoon": "Approaching moon",
+      "lunarDoge": "Lunar doge",
+      "approachingSun": "Approaching sun",
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
     }
   }
 }
