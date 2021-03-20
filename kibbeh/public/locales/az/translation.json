@@ -36,7 +36,7 @@
       "currentRoom": "сейчас в :",
       "startPrivateRoom": "создать с ними закрытую комнату"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Otaq yaratmağ", "refresh": "Təzələmək" },
     "inviteList": {
       "roomGone": "room gone, go back",
@@ -79,7 +79,9 @@
       "editProfile": "profilə düzəliş et",
       "followsYou": "sizi izləyənlər",
       "followers": "abunəçilər",
-      "following": "abunəsiniz"
+      "following": "abunəsiniz",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Səs parametrləri",
@@ -178,7 +180,8 @@
         "banFromChat": "ban from chat",
         "banFromRoom": "ban from room",
         "goBackToListener": "go back to listener",
-        "deleteMessage": "delete this message"
+        "deleteMessage": "delete this message",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "require permission to speak",
