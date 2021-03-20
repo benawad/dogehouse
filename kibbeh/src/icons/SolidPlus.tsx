@@ -3,24 +3,30 @@ import * as React from "react";
 function SvgSolidMessages(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
-      width={20}
-      height={20}
+      width={16}
+      height={16}
+      viewBox="0 0 16 16"
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <g
-        clipPath="url(#sm-solid-plus_svg__clip0)"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        fill="currentColor"
-      >
-        <path d="M10-10a2.5 2.5 0 012.5 2.5v35a2.5 2.5 0 11-5 0v-35A2.5 2.5 0 0110-10z" />
-        <path d="M-10 10a2.5 2.5 0 012.5-2.5h35a2.5 2.5 0 010 5h-35A2.5 2.5 0 01-10 10z" />
+      <g clipPath="url(#clip12)">
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M8 0C8.55228 0 9 0.447715 9 1V15C9 15.5523 8.55228 16 8 16C7.44772 16 7 15.5523 7 15V1C7 0.447715 7.44772 0 8 0Z"
+          fill="#DEE3EA"
+        />
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M0.000976562 8C0.000976562 7.44772 0.448692 7 1.00098 7H15.001C15.5533 7 16.001 7.44772 16.001 8C16.001 8.55228 15.5533 9 15.001 9H1.00098C0.448692 9 0.000976562 8.55228 0.000976562 8Z"
+          fill="#DEE3EA"
+        />
       </g>
       <defs>
-        <clipPath id="sm-solid-plus_svg__clip0">
-          <rect width={20} height={20} rx={10} fill="currentColor" />
+        <clipPath id="clip12">
+          <rect width="16" height="16" fill="white" />
         </clipPath>
       </defs>
     </svg>
