@@ -770,6 +770,12 @@ export const customEmojis = [
     imageUrl: "/emotes/pepeJAMJAM.gif",
   },
   {
+    name: "pepeJAM",
+    short_names: ["pepeJAM"],
+    keywords: ["pepeJAM", "pepe"],
+    imageUrl: "/emotes/pepejam.gif",
+  },
+  {
     name: "PepeLa",
     short_names: ["PepeLa"],
     keywords: ["pepela", "pepe"],
