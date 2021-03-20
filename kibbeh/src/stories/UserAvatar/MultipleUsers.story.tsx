@@ -11,7 +11,9 @@ export default {
 };
 
 export const Default: Story<AvatarProps> = ({ ...props }) => (
-  <MultipleUsers {...props} srcArray={[src, src, src]} />
+  <div className={`bg-primary-800 p-2 rounded-sm`}>
+    <MultipleUsers {...props} srcArray={[src, src, src]} />
+  </div>
 );
 
 Default.bind({});
