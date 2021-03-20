@@ -2,6 +2,18 @@ import { EmojiData } from "emoji-mart";
 
 export const customEmojis = [
   {
+    name: "redDogeHouse",
+    short_names: ["redDogeHouse"],
+    keywords: ["red", "dogehouse", "doge"],
+    imageUrl: "/emotes/browndogehouse.png",
+  },
+  {
+    name: "this",
+    short_names: ["this"],
+    keywords: ["this"],
+    imageUrl: "/emotes/this.png",
+  },
+  {
     name: "brownDogeHouse",
     short_names: ["brownDogeHouse"],
     keywords: ["brown", "dogehouse", "doge"],
