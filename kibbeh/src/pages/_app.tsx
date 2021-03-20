@@ -8,10 +8,14 @@ import { PageComponent } from "../types/PageComponent";
 import { queryClient } from "../lib/queryClient";
 import { isServer } from "../lib/isServer";
 import { init_i18n } from "../lib/i18n";
+import { SoundEffectPlayer } from "../modules/sound-effects/SoundEffectPlayer";
+import ReactModal from "react-modal";
 
 if (!isServer) {
   init_i18n();
 }
+
+ReactModal.setAppElement("#__next");
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -21,6 +25,7 @@ function App({ Component, pageProps }: AppProps) {
       <QueryClientProvider client={queryClient}>
         <Component {...pageProps} />
         <ToastContainer />
+        <SoundEffectPlayer />
       </QueryClientProvider>
     </WebSocketProvider>
   );

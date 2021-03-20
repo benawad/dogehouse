@@ -36,7 +36,7 @@
       "currentRoom": "Pašlaik istabā:",
       "startPrivateRoom": "Izveidot aizvērtu istabu"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Izveidot istabu", "refresh": "Atjaunot" },
     "inviteList": {
       "roomGone": "Istaba pazuda, atgriezieties atpakaļ",
@@ -79,7 +79,9 @@
       "editProfile": "rediģēt profilu",
       "followsYou": "seko jums",
       "followers": "sekotāji",
-      "following": "seko"
+      "following": "seko",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Mikrofona iestatījumi",
@@ -133,7 +135,9 @@
       "toggleMuteKeybind": "Skaņas izslēgšanas taustiņš",
       "togglePushToTalkKeybind": "Rācijsaziņas taustiņš"
     },
-    "userVolumeSlider": { "noAudioMessage": "nezināmu iemeslu dēļ, nav pieejama audiosaziņa" },
+    "userVolumeSlider": {
+      "noAudioMessage": "nezināmu iemeslu dēļ, nav pieejama audiosaziņa"
+    },
     "addToCalendar": { "add": "Pievienot kalendārā" },
     "wsKilled": {
       "description": "Serveris iznīcināja WebSocket. Parasti tas notiek, kad jūs atverat mājaslapu citā logā.",

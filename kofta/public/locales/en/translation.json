@@ -7,7 +7,7 @@
     "ok": "ok",
     "yes": "yes",
     "no": "no",
-    "cancel": "cancel",
+    "cancel": "Cancel",
     "save": "save",
     "edit": "edit",
     "delete": "delete",
@@ -159,10 +159,10 @@
     },
     "modals": {
       "createRoomModal": {
-        "public": "public",
-        "private": "private",
-        "roomName": "room name",
-        "roomDescription": "room description",
+        "public": "Public",
+        "private": "Private",
+        "roomName": "Room name",
+        "roomDescription": "Room description",
         "descriptionError": "max length 500",
         "nameError": "must be between 2 to 60 characters long"
       },

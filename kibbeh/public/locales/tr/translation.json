@@ -35,7 +35,7 @@
       "currentRoom": "Şu anki oda:",
       "startPrivateRoom": "Onlarla özel bir oda oluştur"
     },
-    "followList": {},
+    "followList": { "followHim": "Takip Et", "followingHim": "Takiptesin" },
     "home": { "createRoom": "Oda oluştur", "refresh": "Yenile" },
     "inviteList": {
       "roomGone": "Oda gitti, geri dön",
@@ -77,8 +77,10 @@
     "viewUser": {
       "editProfile": "Profili düzenle",
       "followsYou": "Seni takip ediyor",
-      "followers": "Takipçiler",
-      "following": "Takip ediliyor"
+      "followers": "Takipçi",
+      "following": "Takip",
+      "followHim": "Takip Et",
+      "followingHim": "Takiptesin"
     },
     "voiceSettings": {
       "header": "Ses Ayarları",
@@ -155,7 +157,8 @@
         "banFromChat": "Sohbetten Yasakla",
         "banFromRoom": "Odadan Yasakla",
         "goBackToListener": "Dinlemeye Geri Dön",
-        "deleteMessage": "Mesajı Sil"
+        "deleteMessage": "Mesajı Sil",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "Konuşmak için izne ihtiyacın var",

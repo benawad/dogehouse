@@ -34,7 +34,7 @@
       "currentRoom": "jelenleg itt:",
       "startPrivateRoom": "privát szoba létrehozása velük"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Szoba létrehozása", "refresh": "Frissítés" },
     "inviteList": {
       "roomGone": "beszélgetés véget ért, lépjen vissza",
@@ -77,7 +77,9 @@
       "editProfile": "fiók szerkesztése",
       "followsYou": "követ téged",
       "followers": "követő",
-      "following": "követés"
+      "following": "követés",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Hangbeállítások",
@@ -153,7 +155,8 @@
         "banFromChat": "kitiltás a chatről",
         "banFromRoom": "kitiltás a szobából",
         "goBackToListener": "visszalépés hallgatóvá",
-        "deleteMessage": "üzenet törlése"
+        "deleteMessage": "üzenet törlése",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "beszélői engedélyre van szükség ",
