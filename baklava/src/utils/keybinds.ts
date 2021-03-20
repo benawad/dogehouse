@@ -12,6 +12,7 @@ import {
     OVERLAY_KEY,
     KEY_TABLE,
     IOHookEvent,
+    isMac,
 } from "../constants";
 import ioHook from "iohook";
 import { overlayWindow } from "electron-overlay-window";
@@ -91,19 +92,20 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
         }
         CURRENT_OVERLAY_KEY = keyCode;
         globalShortcut.register(keyCode, () => {
-            if (CURRENT_OVERLAY) {
-                if (!CURRENT_OVERLAY.isVisible()) {
-                    CURRENT_OVERLAY.show();
-                    mainWindow.webContents.send("@overlay/start_ipc", true);
+            if (!isMac) {
+                if (CURRENT_OVERLAY) {
+                    if (!CURRENT_OVERLAY.isVisible()) {
+                        CURRENT_OVERLAY.show();
+                        mainWindow.webContents.send("@overlay/start_ipc", true);
+                    } else {
+                        CURRENT_OVERLAY.hide();
+                        mainWindow.webContents.send("@overlay/start_ipc", true);
+                    }
                 } else {
-                    CURRENT_OVERLAY.hide();
-                    mainWindow.webContents.send("@overlay/start_ipc", true);
+                    CURRENT_OVERLAY = createOverlay(CURRENT_APP_TITLE, overlayWindow);
+                    startIPCHandler(mainWindow, CURRENT_OVERLAY);
                 }
-            } else {
-                CURRENT_OVERLAY = createOverlay(CURRENT_APP_TITLE, overlayWindow);
-                startIPCHandler(mainWindow, CURRENT_OVERLAY);
             }
-
         })
     });
 
