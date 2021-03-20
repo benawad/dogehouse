@@ -17,6 +17,7 @@ export { default as SolidFullscreen } from "./SolidFullscreen";
 export { default as SolidHelp } from "./SolidHelp";
 export { default as SolidMegaphone } from "./SolidMegaphone";
 export { default as SolidMicrophone } from "./SolidMicrophone";
+export { default as SolidMicrophoneOff } from "./SolidMicrophoneOff";
 export { default as SolidSettings } from "./SolidSettings";
 export { default as SolidTime } from "./SolidTime";
 export { default as SolidUser } from "./SolidUser";
