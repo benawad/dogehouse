@@ -36,7 +36,7 @@
       "currentRoom": "núna í",
       "startPrivateRoom": "stofnaðu einkaspjallrásin með þeim"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Stofna Spjallrás", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "rásin horfið, farðu tíl baka",
@@ -79,7 +79,9 @@
       "editProfile": "breyta prófíl",
       "followsYou": "fylgir þér",
       "followers": "fylgjendur",
-      "following": "eftirfarandi"
+      "following": "eftirfarandi",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Talstillingar",
@@ -175,7 +177,8 @@
         "banFromChat": "bann við spjalli",
         "banFromRoom": "bann frá rás",
         "goBackToListener": "farðu aftur til hlustandans",
-        "deleteMessage": "eyða þessum skilaboðum"
+        "deleteMessage": "eyða þessum skilaboðum",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "þurfa leyfi til að tala",

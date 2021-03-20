@@ -7,7 +7,7 @@
     "ok": "ok",
     "yes": "yes",
     "no": "no",
-    "cancel": "cancel",
+    "cancel": "Cancel",
     "save": "save",
     "edit": "edit",
     "delete": "delete",
@@ -38,7 +38,10 @@
       "currentRoom": "currently in:",
       "startPrivateRoom": "start a private room with them"
     },
-    "followList": {},
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following"
+    },
     "home": {
       "createRoom": "Create Room",
       "refresh": "Refresh"
@@ -88,7 +91,9 @@
       "editProfile": "edit profile",
       "followsYou": "follows you",
       "followers": "followers",
-      "following": "following"
+      "following": "following",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Voice Settings",
@@ -154,10 +159,10 @@
     },
     "modals": {
       "createRoomModal": {
-        "public": "public",
-        "private": "private",
-        "roomName": "room name",
-        "roomDescription": "room description",
+        "public": "Public",
+        "private": "Private",
+        "roomName": "Room name",
+        "roomDescription": "Room description",
         "descriptionError": "max length 500",
         "nameError": "must be between 2 to 60 characters long"
       },
@@ -189,7 +194,8 @@
         "banFromChat": "ban from chat",
         "banFromRoom": "ban from room",
         "goBackToListener": "go back to listener",
-        "deleteMessage": "delete this message"
+        "deleteMessage": "delete this message",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "require permission to speak",
@@ -232,9 +238,9 @@
       "takingOff": "Taking off",
       "inSpace": "In space",
       "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
+      "lunarDoge": "Lunar Doge",
       "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
+      "solarDoge": "Solar Doge",
       "approachingGalaxy": "Approaching galaxy",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"

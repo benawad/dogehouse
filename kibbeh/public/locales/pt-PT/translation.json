@@ -35,7 +35,7 @@
       "currentRoom": "Atualmente em:",
       "startPrivateRoom": "Iniciar uma sala privada com os teus seguidores"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Criar Sala", "refresh": "Atualizar" },
     "inviteList": {
       "roomGone": "A sala não existe, voltar atrás",
@@ -44,7 +44,7 @@
       "whenFollowersOnline": "Irão aparecer aqui os teus seguidores que se encontram online."
     },
     "login": {
-      "headerText": "A levar conversas de voz até á lua 🚀",
+      "headerText": "A levar conversas de voz até à lua 🚀",
       "featureText_1": "Tema escuro",
       "featureText_2": "Registo sem restrições",
       "featureText_3": "Suporte multiplataforma",
@@ -78,7 +78,9 @@
       "editProfile": "Editar perfil",
       "followsYou": "Seguem-te",
       "followers": "Seguidores",
-      "following": "A seguir"
+      "following": "A seguir",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Definições de voz",
@@ -154,7 +156,8 @@
         "banFromChat": "Banir do chat",
         "banFromRoom": "Banir da sala",
         "goBackToListener": "voltar a ouvinte",
-        "deleteMessage": "Apagar mensagem"
+        "deleteMessage": "Apagar mensagem",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "Pedir permissão para falar",
