@@ -17,12 +17,15 @@ const defaultProps: AccountOverlyProps = {
   bounds: { top: -363, bottom: 0 },
   children: <div style={{ color: "white" }}>Use the handle to drag me up!</div>,
   dragHandler: (_e, ui) => console.log(ui.deltaY),
+  closeHandler: () => console.log("closing"),
 };
 
 export const Main: Story<AccountOverlyProps> = (props) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const dragHandler: DraggableEventHandler = (_e, ui) =>
     setPosition({ x: 0, y: ui.y });
+
+  const closeHandler = () => setPosition({ x: 0, y: 0 });
 
   return (
     <div
@@ -41,6 +44,7 @@ export const Main: Story<AccountOverlyProps> = (props) => {
           bounds={props.bounds || defaultProps.bounds}
           position={props.position || position}
           dragHandler={props.dragHandler || dragHandler}
+          closeHandler={props.closeHandler || closeHandler}
         >
           {props.children || defaultProps.children}
         </AccountOverlay>

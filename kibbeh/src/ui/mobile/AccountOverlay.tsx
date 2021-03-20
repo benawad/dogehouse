@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { useRef, ReactNode } from "react";
 import Draggable, {
   DraggableBounds,
   ControlPosition,
@@ -9,6 +9,7 @@ export interface AccountOverlyProps {
   children: ReactNode;
   position: ControlPosition;
   dragHandler: DraggableEventHandler;
+  closeHandler: () => void;
   bounds: DraggableBounds;
   className?: string;
   axis?: "both" | "x" | "y" | "none" | undefined;
@@ -19,12 +20,25 @@ export const AccountOverlay: React.FC<AccountOverlyProps> = ({
   position,
   bounds,
   dragHandler,
+  closeHandler,
   className = "",
   axis = "both",
 }) => {
+  const endPosition = useRef(0);
+
+  const onStop = () => {
+    const { y } = position;
+    const { current } = endPosition;
+
+    if (y > current + 15) closeHandler();
+
+    endPosition.current = y;
+  };
+
   return (
     <Draggable
       onDrag={dragHandler}
+      onStop={onStop}
       axis={axis}
       handle="#handle"
       bounds={bounds}
