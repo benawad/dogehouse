@@ -1,8 +1,8 @@
 import React from "react";
 import {
-  SmSolidMessages,
-  SmSolidNotification,
-  SmSolidSearch,
+  SolidMessages,
+  SolidNotification,
+  SolidSearch,
 } from "../../../icons";
 import { SingleUser } from "../../UserAvatar";
 
@@ -33,7 +33,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
       <div className="flex gap-x-5">
         {onAnnouncementsClick && (
           <button onClick={onAnnouncementsClick}>
-            <SmSolidNotification
+            <SolidNotification
               className="text-primary-100"
               height={20}
               width={20}
@@ -42,7 +42,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
         )}
         {onMessagesClick && (
           <button onClick={onMessagesClick}>
-            <SmSolidMessages
+            <SolidMessages
               className="text-primary-100"
               height={20}
               width={20}
@@ -51,7 +51,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
         )}
         {onSearchClick && (
           <button onClick={onSearchClick}>
-            <SmSolidSearch
+            <SolidSearch
               className="text-primary-100"
               height={20}
               width={20}

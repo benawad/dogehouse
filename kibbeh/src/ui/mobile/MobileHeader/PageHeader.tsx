@@ -1,5 +1,5 @@
 import React from "react";
-import { SmSolidCaretRight } from "../../../icons";
+import { SolidCaretRight } from "../../../icons";
 
 export interface PageHeaderProps {
   title: string;
@@ -16,7 +16,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
     <div className="w-full px-3 py-4 bg-primary-900 text-primary-100">
       {onBackClick && (
         <button className="absolute" onClick={onBackClick}>
-          <SmSolidCaretRight
+          <SolidCaretRight
             className="transform -rotate-180"
             height={20}
             width={20}
