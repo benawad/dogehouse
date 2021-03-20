@@ -98,7 +98,7 @@
     "blockedFromRoomUsers": {
       "header": "Bannaðir Notendur",
       "unban": "unban",
-      "noBans": "enginn hefur verið bannaður ennþá"
+      "noBans": "Enginn hefur verið bannaður ennþá"
     },
     "bottomVoiceControl": {
       "leaveCurrentRoomBtn": "Yfirgefa spjallrásina",
@@ -144,8 +144,8 @@
       "createRoomModal": {
         "public": "almenningi",
         "private": "einkaaðila",
-        "roomName": "rásarheiti",
         "roomDescription": "rásarlýsing",
+        "roomName": "Rásarheiti",
         "descriptionError": "hámarks lengd 500",
         "nameError": "verður að vera á bilinu 2 til 60 stafir"
       },
@@ -214,7 +214,7 @@
       "sendMessage": "Senda skilaboð",
       "whisper": "Hvísla",
       "welcomeMessage": "Velkomin í spjallið!",
-      "roomDescription": "rásarlýsing"
+      "roomDescription": "Rásarlýsing"
     },
     "roomStatus": {
       "fuelingRocket": "Fylli á eldflaugina",
