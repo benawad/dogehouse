@@ -103,7 +103,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
       />
       {fullscreenChatOpen ? null : (
         <Backbar>
-          <div className={`flex flex-col justify-center w-9/12`}>
+          <div className={`flex flex-col justify-center w-9/12 items-center`}>
             <button
               disabled={!iAmCreator}
               onClick={() => setShowCreateRoomModal(true)}
@@ -119,7 +119,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
             )}
           </div>
           <div className="ml-auto pr-2">
-            <ProfileButton />
+            <ProfileButton size={41}/>
           </div>
         </Backbar>
       )}

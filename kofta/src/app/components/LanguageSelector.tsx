@@ -10,18 +10,6 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({}) => {
   let currentLang = Languages.find(lang => lang.value === i18n.language);
   let langEmoji = currentLang?.label.substring(0,4);
   return (
-    // <select
-    //   value={i18n.language}
-    //   onChange={(e) => {
-    //     i18n.changeLanguage(e.target.value);
-    //   }}
-    // >
-    //   {options.map((o) => (
-    //     <option key={o.value} value={o.value}>
-    //       {o.label}
-    //     </option>
-    //   ))}
-    // </select>
     <Twemoji emoji={langEmoji!} />
       );
 };

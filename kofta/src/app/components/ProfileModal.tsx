@@ -17,9 +17,9 @@ interface ProfileModalProps {
   onClose: () => void;
   profile: RoomUser | null | undefined;
   isMe: boolean;
-  iAmCreator: boolean;
-  iAmMod: boolean;
-  room: CurrentRoom;
+  iAmCreator?: boolean;
+  iAmMod?: boolean;
+  room?: CurrentRoom;
   messageToBeDeleted?: RoomChatMessage | null;
 }
 
@@ -46,9 +46,9 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
   profile,
   onClose,
   isMe,
-  iAmCreator,
-  iAmMod,
-  room,
+  iAmCreator = false,
+  iAmMod = false,
+  room = null,
   messageToBeDeleted,
 }) => {
   const bannedUserIdMap = useRoomChatStore((s) => s.bannedUserIdMap);
@@ -149,7 +149,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
           ) : null}
 
           {/* Add speaker button */}
-          {!isMe && (iAmCreator || iAmMod) && profile.id !== room.creatorId ? (
+          {!isMe && (iAmCreator || iAmMod) && profile.id !== room?.creatorId ? (
             <>
               {!profile.roomPermissions?.isSpeaker &&
               profile.roomPermissions?.askedToSpeak ? (

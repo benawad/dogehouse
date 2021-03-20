@@ -29,5 +29,8 @@
   "scripts": {
     "prepare": "husky install",
     "commit": "cz"
+  },
+  "dependencies": {
+    "prettier": "^2.2.1"
   }
 }

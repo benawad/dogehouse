@@ -67,6 +67,7 @@ export const ProfileModalFetcher: React.FC<ProfileModalFetcherProps> = ({
       onClose={onClose}
       profile={profile}
       messageToBeDeleted={messageToBeDeleted}
+      
     />
   );
 };

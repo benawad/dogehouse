@@ -1,21 +1,21 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { useMeQuery } from "../utils/useMeQuery";
 import { Avatar } from "./Avatar";
 
 interface ProfileButtonProps {
   size?: number;
   circle?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export const ProfileButton: React.FC<ProfileButtonProps> = ({
   size = 41,
   circle,
+  onClick
 }) => {
   const { me } = useMeQuery();
-  const history = useHistory();
   return me ? (
-    <button onClick={() => history.push("/me")}>
+    <button onClick={onClick}>
       <Avatar circle={circle} size={size} src={me.avatarUrl} />
     </button>
   ) : null;

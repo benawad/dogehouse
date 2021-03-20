@@ -21,8 +21,11 @@ import { GET_SCHEDULED_ROOMS } from "../modules/scheduled-rooms/ScheduledRoomsPa
 import { Logo } from "../svgs/Logo";
 import { PeopleIcon } from "../svgs/PeopleIcon";
 import { SettingsIcon } from "../svgs/SettingsIcon";
-import { CurrentRoom, PublicRoomsQuery, ScheduledRoom } from "../types";
+import { BaseUser, CurrentRoom, PublicRoomsQuery, ScheduledRoom } from "../types";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
+import { ProfileModal } from "../components/ProfileModal";
+import { useMeQuery } from "../utils/useMeQuery";
+
 
 interface HomeProps { }
 
@@ -133,6 +136,8 @@ export const Home: React.FC<HomeProps> = () => {
   const { currentRoom } = useCurrentRoomStore();
   const [cursors, setCursors] = useState([0]);
   const [showCreateRoomModal, setShowCreateRoomModal] = useState(false);
+  const { me } = useMeQuery();
+  const [userProfile, setUserProfile] = useState<BaseUser | undefined>(undefined);
   const queryClient = useQueryClient();
   const { status } = useSocketStatus();
   const { data } = useQuery<GetMyScheduledRoomsAboutToStartQuery>(
@@ -144,8 +149,13 @@ export const Home: React.FC<HomeProps> = () => {
       refetchOnMount: "always",
     }
   );
-
   return (
+    <>
+      <ProfileModal
+        isMe={true}
+        onClose={() => setUserProfile(undefined)}
+        profile={userProfile}
+      />
     <div className={`flex flex-col flex-1`}>
       <Wrapper>
         <BodyWrapper>
@@ -190,15 +200,16 @@ export const Home: React.FC<HomeProps> = () => {
             <div className={`mr-0.5`}>
               <CircleButton
                 onClick={() => {
-                  wsend({ op: "fetch_following_online", d: { cursor: 0 } });
-                  history.push("/following-online");
+                  setUserProfile(me);
                 }}
               >
                 <SettingsIcon width={30} height={30} fill="#fff" />
               </CircleButton>            
             </div>
             <div className={`mr-0.5`}>
-              <ProfileButton circle size={60} />
+              <ProfileButton circle size={60} onClick={() => {
+                  setUserProfile(me);
+                }} />
             </div>
           </div>
           <EditScheduleRoomModalController
@@ -283,6 +294,7 @@ export const Home: React.FC<HomeProps> = () => {
       {showCreateRoomModal ? (
         <CreateRoomModal onRequestClose={() => setShowCreateRoomModal(false)} />
       ) : null}
-    </div>
+    </div></>
   );
+  
 };

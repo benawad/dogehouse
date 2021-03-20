@@ -61,4 +61,4 @@ export const Languages = [
   /* Other languages */
   { value: "en-pirate", label: "🏴‍☠️ Pirate" },
   { value: "owo", label: "OwO Engwish" },
-],
+]
