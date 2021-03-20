@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SvgSmSolidMegaphone(props: React.SVGProps<SVGSVGElement>) {
+function SvgSolidMegaphone(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width={16}
@@ -16,4 +16,4 @@ function SvgSmSolidMegaphone(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default SvgSmSolidMegaphone;
+export default SvgSolidMegaphone;

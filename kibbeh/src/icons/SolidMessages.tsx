@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SvgSmSolidMessages(props: React.SVGProps<SVGSVGElement>) {
+function SvgSolidMessages(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width={16}
@@ -23,4 +23,4 @@ function SvgSmSolidMessages(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default SvgSmSolidMessages;
+export default SvgSolidMessages;

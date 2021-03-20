@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SvgSmOutlineGlobe(props: React.SVGProps<SVGSVGElement>) {
+function SvgOutlineGlobe(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width={16}
@@ -22,4 +22,4 @@ function SvgSmOutlineGlobe(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default SvgSmOutlineGlobe;
+export default SvgOutlineGlobe;

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SvgSmSolidDogenitro(props: React.SVGProps<SVGSVGElement>) {
+function SvgSolidDogenitro(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width={16}
@@ -16,4 +16,4 @@ function SvgSmSolidDogenitro(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default SvgSmSolidDogenitro;
+export default SvgSolidDogenitro;

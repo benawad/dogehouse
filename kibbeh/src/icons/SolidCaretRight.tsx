@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SvgSmSolidCaretRight(props: React.SVGProps<SVGSVGElement>) {
+function SvgSolidCaretRight(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width={16}
@@ -15,4 +15,4 @@ function SvgSmSolidCaretRight(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default SvgSmSolidCaretRight;
+export default SvgSolidCaretRight;

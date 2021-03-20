@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SvgSmSolidSearch(props: React.SVGProps<SVGSVGElement>) {
+function SvgSolidSearch(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width={16}
@@ -27,4 +27,4 @@ function SvgSmSolidSearch(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default SvgSmSolidSearch;
+export default SvgSolidSearch;

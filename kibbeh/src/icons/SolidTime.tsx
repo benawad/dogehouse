@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SvgSmSolidTime(props: React.SVGProps<SVGSVGElement>) {
+function SvgSolidTime(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width={16}
@@ -15,4 +15,4 @@ function SvgSmSolidTime(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default SvgSmSolidTime;
+export default SvgSolidTime;

@@ -2,7 +2,7 @@ import React from "react";
 import { Story } from "@storybook/react";
 import { BoxedIcon } from "../ui/BoxedIcon";
 // Icons
-import { SmSolidMicrophone, SmSolidVolume, SmSolidFullscreen } from "../icons";
+import { SolidMicrophone, SolidVolume, SolidFullscreen } from "../icons";
 
 export default {
   title: "Boxed Icon",
@@ -13,17 +13,17 @@ const TheBoxedIcon: Story = () => {
     <div className="flex flex-row">
       <div className="m-1">
         <BoxedIcon>
-          <SmSolidMicrophone />
+          <SolidMicrophone />
         </BoxedIcon>
       </div>
       <div className="m-1">
         <BoxedIcon>
-          <SmSolidVolume />
+          <SolidVolume />
         </BoxedIcon>
       </div>
       <div className="m-1">
         <BoxedIcon>
-          <SmSolidFullscreen />
+          <SolidFullscreen />
         </BoxedIcon>
       </div>
     </div>

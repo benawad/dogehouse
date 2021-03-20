@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SvgSmSolidFullscreen(props: React.SVGProps<SVGSVGElement>) {
+function SvgSolidFullscreen(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width={16}
@@ -19,4 +19,4 @@ function SvgSmSolidFullscreen(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default SvgSmSolidFullscreen;
+export default SvgSolidFullscreen;

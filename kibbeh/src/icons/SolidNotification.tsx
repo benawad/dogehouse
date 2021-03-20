@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SvgSmSolidNotification(props: React.SVGProps<SVGSVGElement>) {
+function SvgSolidNotification(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width={16}
@@ -15,4 +15,4 @@ function SvgSmSolidNotification(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default SvgSmSolidNotification;
+export default SvgSolidNotification;

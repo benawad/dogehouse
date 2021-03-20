@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SvgSmSolidRocket(props: React.SVGProps<SVGSVGElement>) {
+function SvgSolidRocket(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width={16}
@@ -26,4 +26,4 @@ function SvgSmSolidRocket(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default SvgSmSolidRocket;
+export default SvgSolidRocket;
