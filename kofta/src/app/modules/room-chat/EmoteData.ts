@@ -1195,6 +1195,24 @@ export const customEmojis = [
     keywords: ["aw", "yeah", "awyeah", "dancing"],
     imageUrl: "/emotes/awyeah.gif",
   },
+  {
+    name: "ZeroTwoLul",
+    short_names: ["ZTlul"],
+    keywords: ["lul", "lol", "anime", "girl", "zerotwo"],
+    imageUrl: "/emotes/zerotwolul.png",
+  },
+  {
+    name: "ZeroTwoSmug",
+    short_names: ["ZTsmug"],
+    keywords: ["smug", "anime", "girl", "zerotwo"],
+    imageUrl: "/emotes/zerotwosmug.png",
+  },
+  {
+    name: "ZeroTwoThinking",
+    short_names: ["ZTthinking"],
+    keywords: ["thinking", "think", "anime", "girl", "zerotwo"],
+    imageUrl: "/emotes/zerotwothinking.png",
+  },
 ].map((e) => ({ ...e, customCategory: "Custom", text: "", emoticons: [] }));
 
 export const emoteMap: Record<string, string> = {};
