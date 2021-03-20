@@ -3,8 +3,8 @@ import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore"
 import { truncate } from "../../utils/truncate";
 import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
 
-const MAX_COLLAPSED_CHARACTERS = 100;
-const MAX_COLLAPSED_LINES = 6;
+const MAX_COLLAPSED_CHARACTERS = 60;
+const MAX_COLLAPSED_LINES = 2;
 
 interface RoomDescriptionProps {}
 
