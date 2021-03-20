@@ -5,7 +5,7 @@ export const customEmojis = [
     name: "redDogeHouse",
     short_names: ["redDogeHouse"],
     keywords: ["red", "dogehouse", "doge"],
-    imageUrl: "/emotes/browndogehouse.png",
+    imageUrl: "/emotes/reddogehouse.png",
   },
   {
     name: "this",
