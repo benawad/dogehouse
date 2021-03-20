@@ -15,7 +15,9 @@ export const SettingsIcon: React.FC<SettingsIconProps> = ({
 }) => {
   return (
     <div
-      className={`w-full items-center px-4 py-2 cursor-pointer hover:bg-primary-700 ${classes}`}
+      className={`
+      w-full items-center px-4 py-2 cursor-pointer hover:bg-primary-700 
+      md:border-b-0 border-b border-primary-700 ${classes}`}
     >
       {icon}
       <span className="ml-2 font-medium text-primary-100 flex-1 capitalize flex-1">
