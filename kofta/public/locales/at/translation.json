@@ -32,7 +32,7 @@
     "_comment": "Respective Page UI Internationalization Strings",
     "banUser": { "ban": "blockian" },
     "followingOnlineList": {
-      "listHeader": "Benutzer, denen du foigst, die oba in an privagten Raum san.",
+      "listHeader": "Benutzer, denen du foigst, die oba in an privaten Raum san.",
       "currentRoom": "Zurzeit in:",
       "startPrivateRoom": "An neichn Raum mit dem Benutzer starten"
     },
