@@ -177,18 +177,11 @@
     },
     "addToCalendar": { "add": "加到日历" },
     "keyboardShortcuts": {
-<<<<<<< HEAD
-      "setKeybind": "set keybind",
-      "listening": "listening",
-      "toggleMuteKeybind": "toggle mute keybind",
-      "togglePushToTalkKeybind": "toggle push-to-talk keybind",
-      "toggleOverlayKeybind": "toggle overlay keybind"
-=======
       "setKeybind": "设置快捷键",
       "listening": "等待输入",
       "toggleMuteKeybind": "切换静音键绑定",
-      "togglePushToTalkKeybind": "toggle push-to-talk keybind"
->>>>>>> a18000250faa3cbd713785ce76c947f1bec47bd9
+      "togglePushToTalkKeybind": "toggle push-to-talk keybind",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "wsKilled": {
       "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
