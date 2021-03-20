@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@dogehouse/client@file:../..":
+"@dogehouse/kebab@file:../..":
   version "0.1.2"
   dependencies:
     isomorphic-ws "^4.0.1"

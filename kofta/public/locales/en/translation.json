@@ -79,7 +79,9 @@
     "room": {
       "speakers": "Speakers",
       "requestingToSpeak": "Requesting to speak",
-      "listeners": "Listeners"
+      "listeners": "Listeners",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": {
       "search": "search..."

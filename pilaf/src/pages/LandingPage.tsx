@@ -5,11 +5,12 @@ import { InAppBrowser } from "react-native-inappbrowser-reborn";
 import { SigninWithGithubButton } from "../components/buttons/SigninWithGithub";
 import { colors } from "../constants/dogeStyle";
 import { useSaveTokensFromQueryParams } from "../module/auth/useSaveTokensFromQueryParams";
+import { apiBaseUrl } from "../constants/env";
 
 const signinWithGithub = async () => {
   try {
     const url =
-      "https://doge-staging.stripcode.dev/auth/github/web?redirect_after_base=dogehouse://home";
+      apiBaseUrl + "/auth/github/web?redirect_after_base=dogehouse://home";
     if (await InAppBrowser.isAvailable()) {
       const result = await InAppBrowser.open(url, {
         // iOS Properties

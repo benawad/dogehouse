@@ -71,7 +71,9 @@
     "room": {
       "speakers": "スピーカー",
       "requestingToSpeak": "発言をリクエスト",
-      "listeners": "リスナー"
+      "listeners": "リスナー",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "検索..." },
     "soundEffectSettings": { "header": "音声設定" },

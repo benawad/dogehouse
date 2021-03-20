@@ -9,7 +9,10 @@ import {
 
 type Handler<Data> = (data: Data) => void;
 
+export type Wrapper = ReturnType<typeof wrap>;
+
 export const wrap = (connection: Connection) => ({
+  connection,
   subscribe: {
     newChatMsg: (handler: Handler<{ userId: UUID; msg: Message }>) =>
       connection.addListener("new_chat_msg", handler),

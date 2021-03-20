@@ -71,7 +71,9 @@
     "room": {
       "speakers": "Natiqlər",
       "requestingToSpeak": "Danışmaq istəyənlər",
-      "listeners": "Dinləyicilər"
+      "listeners": "Dinləyicilər",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "axtarış..." },
     "soundEffectSettings": { "header": "səslər" },

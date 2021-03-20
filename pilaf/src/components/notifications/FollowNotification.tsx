@@ -44,9 +44,14 @@ export const FollowNotification: React.FC<FollowNotificationProps> = ({
   );
 
   const followButton = (
-    <TouchableOpacity style={styles.button}>
+    <TouchableOpacity
+      style={[
+        styles.button,
+        following && { backgroundColor: colors.primary700 },
+      ]}
+    >
       <Text style={styles.buttonTitle}>
-        {following ? "Followed" : "Follow back"}
+        {following ? "Following" : "Follow back"}
       </Text>
     </TouchableOpacity>
   );
@@ -70,11 +75,12 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
   },
   button: {
-    height: 32,
+    height: 22,
+    width: 90,
     backgroundColor: colors.accent,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
     borderRadius: 8,
+    alignItems: "center",
+    justifyContent: "center",
   },
   buttonTitle: {
     fontSize: fontSize.small,

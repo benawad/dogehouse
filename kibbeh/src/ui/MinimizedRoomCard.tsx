@@ -1,7 +1,7 @@
 import React from "react";
 import { Duration } from "date-fns";
 import { BoxedIcon } from "./BoxedIcon";
-import { SmSolidFullscreen, SmSolidMicrophone, SmSolidVolume } from "../icons";
+import { SolidFullscreen, SolidMicrophone, SolidVolume } from "../icons";
 import { useRouter } from "next/router";
 import { Button } from "./Button";
 
@@ -46,16 +46,16 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
             onClick={room.myself.switchMuted}
             className={room.myself.isMuted ? "bg-accent" : ""}
           >
-            <SmSolidMicrophone />
+            <SolidMicrophone />
           </BoxedIcon>
           <BoxedIcon
             onClick={room.myself.switchDeafened}
             className={room.myself.isDeafened ? "bg-accent" : ""}
           >
-            <SmSolidVolume />
+            <SolidVolume />
           </BoxedIcon>
           <BoxedIcon onClick={() => router.push(room.url)}>
-            <SmSolidFullscreen />
+            <SolidFullscreen />
           </BoxedIcon>
         </div>
         <Button className="flex-grow" onClick={room.myself.leave}>

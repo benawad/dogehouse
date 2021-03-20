@@ -71,7 +71,9 @@
     "room": {
       "speakers": "المتحدثون",
       "requestingToSpeak": "جاري طلب التحدث",
-      "listeners": "المستمعون"
+      "listeners": "المستمعون",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "ابحث..." },
     "soundEffectSettings": { "header": "الأصوات" },
