@@ -71,7 +71,9 @@
     "room": {
       "speakers": "Kõnelejad",
       "requestingToSpeak": "Kõnelemise taotlemine",
-      "listeners": "Kuulajad"
+      "listeners": "Kuulajad",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "otsi..." },
     "soundEffectSettings": { "header": "Helid" },
