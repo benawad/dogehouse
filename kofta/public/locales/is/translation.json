@@ -113,7 +113,7 @@
       "settings": "Stillingar",
       "speaker": "Ræðumaður",
       "listener": "Hlustandi",
-      "chat": "Chat"
+      "chat": "Spjall"
     },
     "deviceNotSupported": {
       "notSupported": "Tækið þitt er sem stendur ekki stutt. Þú getur búið til",
@@ -151,10 +151,10 @@
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nýtt herbergi búið til",
-        "roomInviteFrom": "Room Invite from",
-        "justStarted": "They just started",
-        "likeToJoin": ", would you like to join?",
-        "inviteReceived": "you've been invited to"
+        "roomInviteFrom": "Herbergisboð frá",
+        "justStarted": "Byrjað rétt í þessu",
+        "likeToJoin": ", vilt þú bætast í hópinn?",
+        "inviteReceived": "þér hefur verið boðið í"
       },
       "editProfileModal": {
         "usernameTaken": "notendanafn tekið",
