@@ -494,8 +494,8 @@ export const customEmojis = [
     imageUrl: "/emotes/orangedogehouse.png",
   },
   {
-    name: "CyaneDogeHouse",
-    short_names: ["CyaneDogeHouse"],
+    name: "CyanDogeHouse",
+    short_names: ["CyanDogeHouse"],
     keywords: ["cyan", "dogehouse", "doge"],
     imageUrl: "/emotes/cyandogehouse.png",
   },
