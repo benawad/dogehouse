@@ -18,8 +18,8 @@ const onlineIndicatorStyleMap = {
   xxs: {
     width: "6px",
     height: "6px",
-    right: "3px",
-    bottom: "0px",
+    right: "1px",
+    bottom: "-1px",
     borderWidth: "1px",
   },
   sm: {
