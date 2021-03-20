@@ -59,13 +59,15 @@ const styles = StyleSheet.create({
     fontSize: fontSize.paragraph,
     flex: 1,
     flexWrap: "wrap",
+    lineHeight: 18,
   },
   textSecondary: {
     color: colors.primary300,
     fontFamily: fontFamily.regular,
     fontSize: fontSize.small,
+    lineHeight: 18,
   },
   button: {
-    height: 32,
+    height: 22,
   },
 });
