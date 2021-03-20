@@ -3,21 +3,22 @@ import * as React from "react";
 function SvgSmSolidHome(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
-      width={20}
-      height={20}
+      width={16}
+      height={16}
+      viewBox="0 0 16 16"
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <g clipPath="url(#sm-solid-home_svg__clip0)">
         <path
-          d="M19.994 7.6c-.11-.1-.11-.2-.222-.3L11.885.6C11.33.2 10.664 0 9.997 0 9.442 0 8.775.2 8.22.6L.333 7.2c-.11.1-.222.2-.222.3C0 7.7 0 7.8 0 8v10.2C0 19.3 1.11 20 2.555 20H6.33c1.333 0 2.555-.7 2.555-1.9V17c-.11-.5.445-1 1.111-1 .667 0 1.222.5 1.222 1.1v1.1c0 1.2 1.11 1.9 2.555 1.9h3.777c1.332 0 2.554-.7 2.554-1.9V8c0-.1 0-.3-.11-.4z"
+          d="M15.2 6.08c-.08-.08-.08-.16-.16-.24L9.36.48C8.96.16 8.48 0 8 0c-.4 0-.88.16-1.28.48L1.04 5.76c-.08.08-.16.16-.16.24-.08.16-.08.24-.08.4v8.16c0 .88.8 1.44 1.84 1.44h2.72c.96 0 1.84-.56 1.84-1.52v-.88c-.08-.4.32-.8.8-.8.48 0 .88.4.88.88v.88c0 .96.8 1.52 1.84 1.52h2.72c.96 0 1.84-.56 1.84-1.52V6.4c0-.08 0-.24-.08-.32z"
           fill="currentColor"
         />
       </g>
       <defs>
         <clipPath id="sm-solid-home_svg__clip0">
-          <path fill="currentColor" d="M0 0h20v20H0z" />
+          <path fill="currentColor" d="M0 0h16v16H0z" />
         </clipPath>
       </defs>
     </svg>
