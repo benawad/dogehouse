@@ -12,6 +12,7 @@ import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslatio
 import { Button } from "../../ui/Button";
 import { ButtonLink } from "../../ui/ButtonLink";
 import { Modal } from "../../ui/Modal";
+import { NativeSelect } from "../../ui/NativeSelect";
 
 interface CreateRoomModalProps {
   onRequestClose: () => void;
@@ -112,8 +113,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
               />
             </div>
             <div className={`grid mt-8 items-start grid-cols-1 h-6`}>
-              <select
-                className={`h-full bg-primary-700 text-primary-100 placeholder-primary-300 focus:outline-none rounded-8 px-2`}
+              <NativeSelect
                 value={values.privacy}
                 onChange={(e) => {
                   setFieldValue("privacy", e.target.value);
@@ -125,7 +125,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
                 <option value="private" className={`hover:bg-primary-900`}>
                   {t("components.modals.createRoomModal.private")}
                 </option>
-              </select>
+              </NativeSelect>
             </div>
             <div className={`col-span-3 bg-primary-700 rounded-8`}>
               <InputField

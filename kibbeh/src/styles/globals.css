@@ -30,6 +30,7 @@ p.bold {
   --color-primary-800: #151a21;
   --color-primary-900: #0b0e11;
   --color-secondary: #5575e7;
+  --color-accent-glow: rgba(253, 77, 77, 0.3);
   --color-accent: #fd4d4d;
   --color-accent-hover: #fd6868;
   --color-accent-disabled: #f5bfbf;

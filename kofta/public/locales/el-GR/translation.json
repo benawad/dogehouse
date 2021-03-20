@@ -72,7 +72,9 @@
     "room": {
       "speakers": "Ομιλητές",
       "requestingToSpeak": "Αιτούμενοι να μιλήσουν",
-      "listeners": "Ακροατές"
+      "listeners": "Ακροατές",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "αναζήτηση..." },
     "soundEffectSettings": { "header": "Ήχοι" },

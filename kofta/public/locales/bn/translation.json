@@ -75,7 +75,9 @@
     "room": {
       "speakers": "স্পিকারস",
       "requestingToSpeak": "কথা বলার জন্য অনুরোধ করুন",
-      "listeners": "শ্রোতাগণ"
+      "listeners": "শ্রোতাগণ",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "খুঁজুন..." },
     "soundEffectSettings": { "header": "সাউন্ডস" },

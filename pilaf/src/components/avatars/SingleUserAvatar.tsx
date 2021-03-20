@@ -12,14 +12,15 @@ import { colors } from "../../constants/dogeStyle";
 interface SingleUserAvatarProps {
   style?: StyleProp<ViewStyle>;
   src: ImageSourcePropType;
-  size?: "default" | "sm" | "xs";
+  size?: "default" | "sm" | "m" | "xs";
   isOnline?: boolean;
 }
 
 export const singleUserAvatarSize = {
   default: 80,
   sm: 40,
-  xs: 24,
+  m: 30,
+  xs: 20,
 };
 
 export const SingleUserAvatar: React.FC<SingleUserAvatarProps> = ({
@@ -49,6 +50,11 @@ const styles = StyleSheet.create({
     width: singleUserAvatarSize.sm,
     borderRadius: singleUserAvatarSize.sm / 2,
   },
+  mAvatar: {
+    height: singleUserAvatarSize.m,
+    width: singleUserAvatarSize.m,
+    borderRadius: singleUserAvatarSize.m / 2,
+  },
   xsAvatar: {
     height: singleUserAvatarSize.xs,
     width: singleUserAvatarSize.xs,
@@ -67,11 +73,19 @@ const styles = StyleSheet.create({
     borderWidth: 4,
     borderRadius: 12,
   },
+  mIndicator: {
+    width: 8,
+    height: 8,
+    top: 23,
+    left: 20,
+    borderWidth: 1,
+    borderRadius: 4,
+  },
   smIndicator: {
     width: 12,
     height: 12,
-    right: 2,
-    bottom: -2,
+    top: 29,
+    left: 29,
     borderWidth: 2,
     borderRadius: 6,
   },

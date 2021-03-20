@@ -72,7 +72,9 @@
     "room": {
       "speakers": "ተናጋሪዎች",
       "requestingToSpeak": "ለመናገር ፈቃድ ጠይቅ",
-      "listeners": "አድማጮች"
+      "listeners": "አድማጮች",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "ፈልግ ..." },
     "soundEffectSettings": { "header": "ድምፆች" },

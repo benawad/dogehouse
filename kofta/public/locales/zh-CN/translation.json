@@ -71,7 +71,9 @@
     "room": {
       "speakers": "讲话者",
       "requestingToSpeak": "要求讲话",
-      "listeners": "听者"
+      "listeners": "听者",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "搜索..." },
     "soundEffectSettings": { "header": "声音" },
