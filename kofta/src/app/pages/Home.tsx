@@ -20,10 +20,11 @@ import { ScheduledRoomCard } from "../modules/scheduled-rooms/ScheduledRoomCard"
 import { GET_SCHEDULED_ROOMS } from "../modules/scheduled-rooms/ScheduledRoomsPage";
 import { Logo } from "../svgs/Logo";
 import { PeopleIcon } from "../svgs/PeopleIcon";
+import { SettingsIcon } from "../svgs/SettingsIcon";
 import { CurrentRoom, PublicRoomsQuery, ScheduledRoom } from "../types";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 
-interface HomeProps {}
+interface HomeProps { }
 
 const get_top_public_rooms = "get_top_public_rooms";
 
@@ -89,9 +90,9 @@ const Page = ({
                 };
                 currentRoom
                   ? modalConfirm(
-                      `Leave room '${currentRoom.name}' and join room '${r.name}'?`,
-                      joinRoom
-                    )
+                    `Leave room '${currentRoom.name}' and join room '${r.name}'?`,
+                    joinRoom
+                  )
                   : joinRoom();
               }}
               room={r}
@@ -155,7 +156,7 @@ export const Home: React.FC<HomeProps> = () => {
             className={`mb-6 flex justify-center`}
             style={{ flexWrap: "wrap", gap: "1rem" }}
           >
-            <div /* className={`mr-4 px-2.5`} */>
+            <div className={`mr-0.5`}>
               <CircleButton
                 onClick={() => {
                   wsend({ op: "fetch_following_online", d: { cursor: 0 } });
@@ -165,7 +166,7 @@ export const Home: React.FC<HomeProps> = () => {
                 <PeopleIcon width={30} height={30} fill="#fff" />
               </CircleButton>
             </div>
-            <div /* className={`ml-2 px-2.5`} */>
+            <div className={`mr-0.5`}>
               <CircleButton
                 onClick={() => {
                   queryClient.prefetchQuery(
@@ -186,7 +187,17 @@ export const Home: React.FC<HomeProps> = () => {
                 <Calendar width={30} height={30} color="#fff" />
               </CircleButton>
             </div>
-            <div /* className={`ml-2 px-2.5`} */>
+            <div className={`mr-0.5`}>
+              <CircleButton
+                onClick={() => {
+                  wsend({ op: "fetch_following_online", d: { cursor: 0 } });
+                  history.push("/following-online");
+                }}
+              >
+                <SettingsIcon width={30} height={30} fill="#fff" />
+              </CircleButton>            
+            </div>
+            <div className={`mr-0.5`}>
               <ProfileButton circle size={60} />
             </div>
           </div>
@@ -199,11 +210,11 @@ export const Home: React.FC<HomeProps> = () => {
                     scheduledRooms: (d?.scheduledRooms || []).map((x) =>
                       x.id === editInfo.scheduleRoomToEdit.id
                         ? {
-                            ...x,
-                            name: data.name,
-                            description: data.description,
-                            scheduledFor: data.scheduledFor.toISOString(),
-                          }
+                          ...x,
+                          name: data.name,
+                          description: data.description,
+                          scheduledFor: data.scheduledFor.toISOString(),
+                        }
                         : x
                     ),
                   };
@@ -256,8 +267,9 @@ export const Home: React.FC<HomeProps> = () => {
         </BodyWrapper>
       </Wrapper>
       <BottomVoiceControl>
-        <div className={`mb-8 flex px-5`}>
+        <div className={`pb-4 flex px-5 pt-4 bg-simple-gray-23 bg-opacity-70`}>
           <Button
+            className={`shadow-2xl`}
             variant="slim"
             dogeProbability={0.01}
             onClick={() => {

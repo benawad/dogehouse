@@ -11,7 +11,7 @@ export const Footer: React.FC<FooterProps> = ({ isLogin }) => {
   const { t } = useTypeSafeTranslation();
 
   return (
-    <div className={`flex text-center flex-wrap align-center justify-center`}>
+    <div className={`flex text-center flex-wrap align-center justify-center ${isLogin ? `mb-4`: ''}`}>
       <div className={`flex space-x-4 m-auto`}>
         {isLogin ? (
           <RegularAnchor

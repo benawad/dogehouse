@@ -13,6 +13,7 @@
 		"@testing-library/user-event": "^12.1.10",
 		"@types/jest": "^26.0.15",
 		"@types/react-dom": "^16.9.8",
+		"@types/twemoji": "^12.1.1",
 		"date-fns": "^2.17.0",
 		"electron": "^12.0.1",
 		"emoji-mart": "^3.0.0",
@@ -41,6 +42,7 @@
 		"react-tooltip": "^4.2.15",
 		"reconnecting-websocket": "^4.4.0",
 		"superstruct": "^0.14.2",
+		"twemoji": "^13.0.2",
 		"typescript": "^3.2.1npm",
 		"web-vitals": "^0.2.4",
 		"zustand": "^3.3.1"

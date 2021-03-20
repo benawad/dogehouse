@@ -55,7 +55,7 @@ export const Login: React.FC<LoginProps> = () => {
             <ListItem>{t("pages.login.featureText_5")}</ListItem>
             <ListItem>{t("pages.login.featureText_6")}</ListItem>
           </ul>
-          <div className={`mb-8`}>
+          <div className={`mb-4`}>
             <Button
               variant="slim"
               style={{ backgroundColor: "#333" }}
@@ -96,7 +96,7 @@ export const Login: React.FC<LoginProps> = () => {
           {!__prod__ ? (
             <Button
               variant="slim"
-              className={`m-8`}
+              className={`mt-4 m-8`}
               onClick={() => {
                 modalPrompt("username", async (name) => {
                   if (!name) {
