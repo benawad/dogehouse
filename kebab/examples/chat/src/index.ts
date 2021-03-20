@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 import readline from "readline";
-import {raw, wrap, tokensToString, stringToToken} from "@dogehouse/client";
+import { raw, wrap, tokensToString, stringToToken } from "@dogehouse/kebab";
 
 const logger: raw.Logger = (direction, opcode, data, fetchId, raw) => {
   const directionPadded = direction.toUpperCase().padEnd(3, " ");

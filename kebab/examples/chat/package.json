@@ -3,10 +3,10 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "start": "node lib/index.js"
+    "start": "node build/index.js"
   },
   "dependencies": {
-    "@dogehouse/client": "file:../.."
+    "@dogehouse/kebab": "file:../.."
   },
   "devDependencies": {
     "@types/node": "^14.14.35",
