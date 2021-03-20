@@ -35,7 +35,7 @@
       "currentRoom": "ขณะนี้อยู่ใน:",
       "startPrivateRoom": "สร้างห้องส่วนตัว"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "สร้างห้อง", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "room gone, go back",
@@ -78,7 +78,9 @@
       "editProfile": "แก้ไขโปรไฟล์",
       "followsYou": "กำลังติดตามคุณ",
       "followers": "ผู้ติดตาม",
-      "following": "กำลังติดตาม"
+      "following": "กำลังติดตาม",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "การตั้งค่าเสียง",

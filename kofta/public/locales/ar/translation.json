@@ -36,7 +36,7 @@
       "currentRoom": "حاليا في:",
       "startPrivateRoom": "ابدأ غرفة خاصة معهم"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "ابدأ غرفة", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "انتهت الغرفة، عد إلى الوراء",
@@ -79,7 +79,9 @@
       "editProfile": "تعديل الحساب",
       "followsYou": "يتابعك",
       "followers": "المتابِعون",
-      "following": "المتابَعون"
+      "following": "المتابَعون",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "إعدادات الصوت",
@@ -141,7 +143,7 @@
         "public": "عام",
         "private": "خاص",
         "roomName": "اسم الغرفة",
-        "roomDescription": "وصف الغرفة",
+        "roomDescription": "وصف عن الغرفة",
         "descriptionError": "أقصى حد 500",
         "nameError": "يجب أن يكون ما بين حرفين و 60 حرف"
       },
@@ -210,7 +212,7 @@
       "sendMessage": "أرسل رسالة",
       "whisper": "اهمس",
       "welcomeMessage": "مرحبا بك في المحادثة!",
-      "roomDescription": "وصف الغرفة"
+      "roomDescription": "وصف عن الغرفة"
     },
     "roomStatus": {
       "fuelingRocket": "عبي الصاروخ بنزين",

@@ -35,7 +35,7 @@
       "currentRoom": "Momenteel in:",
       "startPrivateRoom": "Start een privé kamer met deze persoon"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Kamer maken", "refresh": "Verversen" },
     "inviteList": {
       "roomGone": "Kamer bestaat niet, ga terug",
@@ -78,7 +78,9 @@
       "editProfile": "Bewerk profiel",
       "followsYou": "Volgt jou",
       "followers": "Volgers",
-      "following": "Volgend"
+      "following": "Volgend",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Spraakinstellingen",

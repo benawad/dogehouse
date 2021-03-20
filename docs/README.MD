@@ -42,6 +42,7 @@ DogeHouse makes it easy to connect with friends and people over voice and chat m
   - You wrote it.
   - You are a mod
 - Adjust volume of a speaker by clicking on their profile
+- 20+ Translations
 - [Add a feature here Please!]
 
 ### Why DogeHouse?

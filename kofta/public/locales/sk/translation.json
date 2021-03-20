@@ -35,7 +35,7 @@
       "currentRoom": "aktuálne v:",
       "startPrivateRoom": "začať s nimi súkromnú miestnosť"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Vytvoriť miestnosť", "refresh": "Obnoviť" },
     "inviteList": {
       "roomGone": "miestnosť je fuč, vráť sa",
@@ -78,7 +78,9 @@
       "editProfile": "upraviť profil",
       "followsYou": "sleduje ťa",
       "followers": "sledovateľov",
-      "following": "sledovaných"
+      "following": "sledovaných",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Nastavenia hlasu",
