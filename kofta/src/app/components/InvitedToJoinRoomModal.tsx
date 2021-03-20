@@ -70,17 +70,32 @@ export const invitedToRoomConfirm = (
 export const InvitedToJoinRoomModal: React.FC<Props> = () => {
   const { options, close } = useConfirmModalStore();
   const { t } = useTypeSafeTranslation();
+  const [header, setHeader] = React.useState<string>("");
+
+  React.useEffect(() => {
+    switch (options?.type) {
+      case "invite": {
+        setHeader(t("components.modals.invitedToJoinRoomModal.roomInviteFrom"));
+        break;
+      }
+
+      case "someone_joined_waiting_room": {
+        setHeader("Someone Joined Waiting Room");
+        break;
+      }
+
+      case "someone_you_follow_created_a_room": {
+        setHeader(t("components.modals.invitedToJoinRoomModal.newRoomCreated"));
+        break;
+      }
+    }
+  }, [options?.type, t]);
+
   return (
     <Modal isOpen={!!options} onRequestClose={() => close()}>
       {options ? (
         <>
-          <h1 className={`text-2xl mb-2`}>
-            {options.type === "someone_you_follow_created_a_room"
-              ? t("components.modals.invitedToJoinRoomModal.newRoomCreated")
-              : options.type === "someone_joined_waiting_room"
-              ? "Someone Joined Waiting Room"
-              : t("components.modals.invitedToJoinRoomModal.roomInviteFrom")}
-          </h1>
+          <h1 className={`text-2xl mb-2`}>{header}</h1>
           <div className={`flex items-center`}>
             <Avatar src={options.avatarUrl} />
             <div className={`ml-2`}>
