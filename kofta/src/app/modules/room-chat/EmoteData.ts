@@ -26,16 +26,16 @@ export const customEmojis = [
     imageUrl: "/emotes/Pepega.png",
   },
   {
-    name: "peepoHappy",
+    name: "peepohappy",
     short_names: ["peepoHappy"],
     keywords: ["peepohappy", "peepo", "pepe"],
     imageUrl: "/emotes/peepoHappy.png",
   },
   {
-    name: "peepoHug",
+    name: "peepohug",
     short_names: ["peepoHug"],
     keywords: ["peepohug", "peepo", "pepe"],
-    imageUrl: "/emotes/peepohug.png",
+    imageUrl: "/emotes/peepoHug.png",
   },
   {
     name: "Sadge",
@@ -228,6 +228,18 @@ export const customEmojis = [
     short_names: ["bidenJAM"],
     keywords: ["bidenjam", "jam", "jamjam", "malarkey", "ridinwithbiden", "icecream", "joe", "biden", "joebiden", "46", "president", "laser", "potus", "democrat", "us", "usa", "america"],
     imageUrl: "/emotes/bidenJAM.gif",
+  },
+  {
+    name: "Himbo",
+    short_names: ["Himbo"],
+    keywords: ["Himbo"],
+    imageUrl: "/emotes/Himbo.png",
+  },
+  {
+    name: "IGetIt",
+    short_names: ["IGetIt"],
+    keywords: ["IGetIt", "Smile", "PepeLa", "Smug"],
+    imageUrl: "/emotes/IGetIt.png",
   },
   {
     name: "BLANKIES",
