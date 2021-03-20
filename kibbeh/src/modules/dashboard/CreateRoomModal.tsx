@@ -1,11 +1,13 @@
 import { Form, Formik } from "formik";
-import React, { useContext } from "react";
+import { useRouter } from "next/router";
+import React from "react";
 import { InputField } from "../../form-fields/InputField";
 import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
+import { useRoomChatStore } from "../../global-stores/useRoomChatStore";
 import { roomToCurrentRoom } from "../../lib/roomToCurrentRoom";
 import { showErrorToast } from "../../lib/showErrorToast";
-import { useConn, useWrappedConn } from "../../shared-hooks/useConn";
-import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
+import { useWrappedConn } from "../../shared-hooks/useConn";
+import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../../ui/Button";
 import { ButtonLink } from "../../ui/ButtonLink";
@@ -28,6 +30,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 }) => {
   const conn = useWrappedConn();
   const { t } = useTypeSafeTranslation();
+  const { push } = useRouter();
 
   return (
     <Modal isOpen onRequestClose={onRequestClose}>
@@ -62,9 +65,10 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
         }}
         onSubmit={async ({ name, privacy, description }) => {
           const d = { name, privacy, description };
+          // @todo pretty sure this logic for editing is broken
           const resp = edit
-            ? await conn.mutation.createRoom(d)
-            : await conn.mutation.editRoom(d);
+            ? await conn.mutation.editRoom(d)
+            : await conn.mutation.createRoom(d);
 
           if ("error" in resp) {
             showErrorToast(resp.error);
@@ -74,14 +78,14 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
             const { room } = resp;
 
             console.log("new room voice server id: " + room.voiceServerId);
-            // @todo
-            // useRoomChatStore.getState().clearChat();
-            // @todo
-            // wsend({ op: "get_current_room_users", d: {} });
-            // history.push("/room/" + room.id);
+            useRoomChatStore.getState().clearChat();
+            // @todo trying something new
+            // not going to put current user in room users list
+            // might come back and change that though
             useCurrentRoomStore
               .getState()
               .setCurrentRoom(() => roomToCurrentRoom(room));
+            push(`/room/${room.id}`);
           }
 
           onRequestClose();
