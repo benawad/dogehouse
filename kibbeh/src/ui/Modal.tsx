@@ -1,6 +1,6 @@
 import React from "react";
 import ReactModal from "react-modal";
-import { SmSolidPlus } from "../icons";
+import { SolidPlus } from "../icons";
 
 const customStyles = {
   overlay: {
@@ -51,7 +51,7 @@ export const Modal: React.FC<ReactModal["props"]> = ({
             className={`-mr-4 -mt-1 p-1`}
             onClick={(e) => props?.onRequestClose?.(e)}
           >
-            <SmSolidPlus className={`transform rotate-45`} />
+            <SolidPlus className={`transform rotate-45`} />
           </button>
         </div>
         <div

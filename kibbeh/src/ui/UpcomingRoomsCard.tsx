@@ -1,6 +1,6 @@
 import { format, isToday, isTomorrow } from "date-fns";
 import React from "react";
-import { SmSolidPlus } from "../icons";
+import { SolidPlus } from "../icons";
 import { BoxedIcon } from "./BoxedIcon";
 import { RoomCardHeading } from "./RoomCardHeading";
 import { MultipleUsers } from "./UserAvatar";
@@ -62,7 +62,7 @@ export const UpcomingRoomsCard: React.FC<UpcomingRoomsCardProps> = ({
       <div className="px-4 py-2 bg-primary-800 border-b border-primary-600 flex justify-between items-center">
         <h4 className="text-primary-100 font-bold">Upcoming rooms</h4>
         <BoxedIcon style={{ height: "30px", width: "30px" }}>
-          <SmSolidPlus />
+          <SolidPlus />
         </BoxedIcon>
       </div>
       {rooms.map((room) => (

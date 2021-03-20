@@ -2,11 +2,11 @@ import * as React from "react";
 import { Story } from "@storybook/react";
 import { MobileNav, MobileNavProps } from "../ui/mobile/MobileNav";
 import {
-  SmSolidHome,
-  SmSolidFriends,
-  SmSolidCompass,
-  SmSolidCalendar,
-  SmSolidPlus,
+  SolidHome,
+  SolidFriends,
+  SolidCompass,
+  SolidCalendar,
+  SolidNew,
 } from "../icons";
 
 export default {
@@ -17,23 +17,23 @@ export default {
 const items = [
   {
     targetPath: "/home",
-    icon: <SmSolidHome />,
+    icon: <SolidHome />,
   },
   {
     targetPath: "/home",
-    icon: <SmSolidCalendar />,
+    icon: <SolidCalendar />,
   },
   {
     targetPath: "/home",
-    icon: <SmSolidPlus />,
+    icon: <SolidNew />,
   },
   {
     targetPath: "/home",
-    icon: <SmSolidCompass />,
+    icon: <SolidCompass />,
   },
   {
     targetPath: "/home",
-    icon: <SmSolidFriends />,
+    icon: <SolidFriends />,
   },
 ];
 

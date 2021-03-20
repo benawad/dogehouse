@@ -36,7 +36,7 @@ export const MobileNavItem: React.FC<MobileNavItemProps> = ({
         {children &&
           React.Children.map(children, (child) => {
             return React.cloneElement(child as React.ReactElement, {
-              className: isActive ? "text-accent" : "text-primary-100",
+              className: isActive ? "text-accent h-4 w-4" : "text-primary-100 h-4 w-4",
             });
           })}
       </div>

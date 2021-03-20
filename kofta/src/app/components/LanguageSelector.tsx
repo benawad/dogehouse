@@ -13,17 +13,19 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "af", label: "🇿🇦 Afrikaans" }, // Afrikaans
     { value: "am", label: "🇪🇹 አማርኛ" }, // Amharic
     { value: "ar", label: "🇸🇦 عربي" }, // Arabic
+    { value: "at", label: "🇦🇹 Österreichisch" }, // Austrian
     { value: "fa", label: "🇮🇷 فارسی" }, // persian
     { value: "az", label: "🇦🇿 Azərbaycanca" }, // Azerbaijani
     { value: "bg", label: "🇧🇬 Български" }, // Bulgarian
     { value: "bn", label: "🇧🇩 বাংলা" }, // Bengali
     { value: "cs", label: "🇨🇿 Čeština" }, // Czech
-    { value: "hr", label: "🇭🇷 Hrvatski"}, // Croatian
+    { value: "hr", label: "🇭🇷 Hrvatski" }, // Croatian
     { value: "da", label: "🇩🇰 Dansk" }, // Danish
     { value: "de", label: "🇩🇪 Deutsch" }, // German
     { value: "el-GR", label: "🇬🇷 ελληνικά" },
     { value: "eo", label: "🟢 Esperanto" },
     { value: "es", label: "🇪🇸 Español" }, // Estonian
+    { value: "eu", label: "🏴󠁥󠁳󠁰󠁶󠁿 Euskera" }, // Euskera
     { value: "et", label: "🇪🇪 Eesti keel" }, // Estonian
     { value: "fi", label: "🇫🇮 suomi" }, // Finnish
     { value: "fr", label: "🇫🇷 Français" }, // French
@@ -53,6 +55,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "sr", label: "🇷🇸 Српски" }, // Serbian
     { value: "sr-Latin", label: "🇷🇸 Srpski" }, // Serbian (Latin)
     { value: "sv", label: "🇸🇪 Svenska" }, // Swedish
+    { value: "ta", label: "🇮🇳 Tamil" }, // Tamil
     { value: "th", label: "🇹🇭 ไทย" }, // Thai
     { value: "tr", label: "🇹🇷 Türkçe" }, // Turkish
     { value: "uk", label: "🇺🇦 Українська" }, // Ukrainian
