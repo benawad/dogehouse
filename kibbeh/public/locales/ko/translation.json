@@ -35,7 +35,7 @@
       "currentRoom": "채팅방:",
       "startPrivateRoom": "비공개 채팅방에 입장하기."
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "방 만들기", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "채팅방이 삭제됨. 이전 페이지로 돌아가기.",
@@ -78,7 +78,9 @@
       "editProfile": "프로필 변경",
       "followsYou": "나를 팔로우하는 사람들",
       "followers": "팔로워들",
-      "following": "팔로우하는 사람들"
+      "following": "팔로우하는 사람들",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "음성 설정",
@@ -174,7 +176,8 @@
         "banFromChat": "채팅 차단",
         "banFromRoom": "채팅방 에서 차단",
         "goBackToListener": "청취자로 돌아가기",
-        "deleteMessage": "이 메세지 삭제"
+        "deleteMessage": "이 메세지 삭제",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "발언권이 필요합니다",

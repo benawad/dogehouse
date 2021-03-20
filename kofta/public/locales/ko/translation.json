@@ -35,7 +35,7 @@
       "currentRoom": "채팅방:",
       "startPrivateRoom": "비공개 채팅방에 입장하기."
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "방 만들기", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "채팅방이 삭제됨. 이전 페이지로 돌아가기.",
@@ -78,7 +78,9 @@
       "editProfile": "프로필 변경",
       "followsYou": "나를 팔로우하는 사람들",
       "followers": "팔로워들",
-      "following": "팔로우하는 사람들"
+      "following": "팔로우하는 사람들",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "음성 설정",

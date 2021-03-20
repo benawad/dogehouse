@@ -36,7 +36,7 @@
       "currentRoom": "зараз у:",
       "startPrivateRoom": "почніть з ними приватну кімнату"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Створити Кімнату", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "кімнати вже немає, повернутися",
@@ -79,7 +79,9 @@
       "editProfile": "редагувати профіль",
       "followsYou": "підписані на вас",
       "followers": "підписники",
-      "following": "ви підписані"
+      "following": "ви підписані",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Голосові налаштування",

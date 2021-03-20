@@ -34,7 +34,7 @@
       "currentRoom": "actuellement dans :",
       "startPrivateRoom": "lancer une salle privée avec eux"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Créer une salle", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "salle indisponible, retour",
@@ -77,11 +77,13 @@
       "editProfile": "éditer le profil",
       "followsYou": "vous suit",
       "followers": "abonnés",
-      "following": "suivis"
+      "following": "suivis",
+      "followHim": "le suivre",
+      "followingHim": "le suis"
     },
     "voiceSettings": {
       "header": "Paramètres vocaux",
-      "mic": "micro :",
+      "mic": "microphone :",
       "permissionError": "pas de microphone trouvé, soit vous n'en avez pas branché un soit vous n'avez pas donné la permission au site de l'utiliser.",
       "refresh": "rafraîchir la liste des microphones",
       "volume": "volume :"
@@ -118,7 +120,7 @@
     },
     "inviteButton": {
       "invited": "invité",
-      "inviteToRoom": "inviter dans la salle"
+      "inviteToRoom": "inviter à la salle"
     },
     "micPermissionBanner": {
       "permissionDenied": "Permission refusée en essayant d'accéder à votre micro (vous devriez peut être vérifier vos paramètres de navigateur et recharger la page)",
@@ -215,16 +217,16 @@
       "roomDescription": "Description de la salle"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "fuelingRocket": "Alimenter la fusée",
+      "takingOff": "Décollage",
+      "inSpace": "Dans l'espace",
+      "approachingMoon": "Approchant la lune",
+      "lunarDoge": "Doge Lunaire",
+      "approachingSun": "Approchant le soleil",
+      "solarDoge": "Doge Solaire",
+      "approachingGalaxy": "Approchant un galaxy",
+      "galacticDoge": "Doge Galactique",
+      "spottedLife": "Planete avec de la vie en vue"
     }
   }
 }

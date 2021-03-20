@@ -30,19 +30,14 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { 
-			"ban": "estä"
-		},
+    "banUser": { "ban": "estä" },
     "followingOnlineList": {
       "listHeader": "Lista seuraamistasi käyttäjistä, jotka eivät ole yksityisessä huoneessa.",
       "currentRoom": "paikalla:",
       "startPrivateRoom": "luo yksityinen huone heidän kanssaan"
     },
-    "followList": {},
-    "home": { 
-			"createRoom": "Luo huone", 
-			"refresh": "Päivitä" 
-		},
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Luo huone", "refresh": "Päivitä" },
     "inviteList": {
       "roomGone": "huone poistettu, palaa takaisin",
       "shareRoomLink": "jaa linkki huoneeseen",
@@ -78,17 +73,15 @@
       "requestingToSpeak": "Pyytävät puheoikeutta",
       "listeners": "Kuuntelijat"
     },
-    "searchUser": { 
-			"search": "hae..." 
-		},
-    "soundEffectSettings": { 
-			"header": "Äänet" 
-		},
+    "searchUser": { "search": "hae..." },
+    "soundEffectSettings": { "header": "Äänet" },
     "viewUser": {
       "editProfile": "muokkaa profiilia",
       "followsYou": "seuraa sinua",
       "followers": "seuraajaa",
-      "following": "seurannassa"
+      "following": "seurannassa",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Puheasetukset",
@@ -142,12 +135,8 @@
       "toggleMuteKeybind": "mikrofonin mykistys -pikanäppäin",
       "togglePushToTalkKeybind": "push-to-talk-pikanäppäin"
     },
-    "userVolumeSlider": { 
-			"noAudioMessage": "ei äänen ulostulolaitteita" 
-		},
-    "addToCalendar": { 
-			"add": "Lisää kalenteriin" 
-		},
+    "userVolumeSlider": { "noAudioMessage": "ei äänen ulostulolaitteita" },
+    "addToCalendar": { "add": "Lisää kalenteriin" },
     "wsKilled": {
       "description": "Palvelin katkaisi yhteyden. Tämä johtuu yleensä sivuston avaamisesta useampaan välilehteen.",
       "reconnect": "yhdistä uudelleen"
@@ -189,7 +178,8 @@
         "banFromChat": "estä keskustelusta",
         "banFromRoom": "estä huoneesta",
         "goBackToListener": "palaa kuuntelijaksi",
-        "deleteMessage": "poista viesti"
+        "deleteMessage": "poista viesti",
+        "makeRoomCreator": "ylennä huoneen ylläpitäjäksi"
       },
       "roomSettingsModal": {
         "requirePermission": "puhuminen vaatii oikeuden",

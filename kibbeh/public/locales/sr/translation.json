@@ -35,7 +35,7 @@
       "currentRoom": "тренутно у:",
       "startPrivateRoom": "Започните приватну собу"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Направите собу", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "Соба је нестала, вратите се назад",
@@ -78,7 +78,9 @@
       "editProfile": "Уредите профил",
       "followsYou": "Прати вас",
       "followers": "Пратиоци",
-      "following": "Праћења"
+      "following": "Праћења",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Подешавања гласа",
@@ -174,7 +176,8 @@
         "banFromChat": "Забраните приступ ћаскању",
         "banFromRoom": "Забраните приступ соби",
         "goBackToListener": "Вратите се слушаоцу",
-        "deleteMessage": "Обришите ову поруку"
+        "deleteMessage": "Обришите ову поруку",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "Затражи дозволу за причање",

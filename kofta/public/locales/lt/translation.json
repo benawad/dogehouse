@@ -36,7 +36,7 @@
       "currentRoom": "Šiuo metu yra:",
       "startPrivateRoom": "Sukurti privatų kambarį su jais"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Sukurti kambarį", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "Kambario nebėra, grįžkite atgal",
@@ -79,7 +79,9 @@
       "editProfile": "Redaguoti profilį",
       "followsYou": "Seka tave",
       "followers": "Sekėjai",
-      "following": "Tu seki"
+      "following": "Tu seki",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Garso nustatymai",

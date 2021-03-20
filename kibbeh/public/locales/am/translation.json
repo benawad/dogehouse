@@ -78,9 +78,10 @@
     "viewUser": {
       "editProfile": "መገለጫ ቀይር",
       "followsYou": "እርስዎን ይከተላል",
-      "folowers": "ተከታዮች",
+      "followers": "ተከታዮች",
       "following": "የሚከተሉት",
-      "followers": "followers"
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "የድምፅ ቅንብሮች",
@@ -175,7 +176,8 @@
         "banFromChat": "ከ ውይይት አግድ",
         "banFromRoom": "ከ ክፍል ያግዱ",
         "goBackToListener": "አዳማጭ ይመለሱ",
-        "deleteMessage": "ይህን መልዕክት ሰርዝ"
+        "deleteMessage": "ይህን መልዕክት ሰርዝ",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "መናገር ፈቃድ ይጠይቃል",
@@ -197,7 +199,7 @@
         "needsFuture": "ፍላጎቶች ወደፊት መሆን አለባቸው",
         "roomName": "የክፍል ስም",
         "minLength": "ደቂቃ ርዝመት 2",
-        "roomDescription": "Description"
+        "roomDescription": "ክፍል መግለጫ"
       }
     },
     "roomChat": {

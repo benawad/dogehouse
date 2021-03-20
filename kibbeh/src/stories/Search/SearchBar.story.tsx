@@ -2,6 +2,7 @@ import React from "react";
 import { Story } from "@storybook/react";
 import { SearchBar, SearchBarProps } from "../../ui/Search/SearchBar";
 import { toStr } from "../utils/toStr";
+import { toBoolean } from "../utils/toBoolean";
 
 export default {
   title: "Search/SearchBar",
@@ -24,4 +25,5 @@ export const Main = TheSearchBar.bind({});
 Main.argTypes = {
   value: toStr(),
   placeholder: toStr(),
+  mobile: toBoolean(),
 };

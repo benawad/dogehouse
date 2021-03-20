@@ -35,7 +35,7 @@
       "currentRoom": "saat ini di:",
       "startPrivateRoom": "mulai ruangan privat dengan mereka"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Buat Ruangan", "refresh": "Muat ulang" },
     "inviteList": {
       "roomGone": "ruangan hilang, kembali",
@@ -78,7 +78,9 @@
       "editProfile": "ubah profil",
       "followsYou": "mengikutimu",
       "followers": "pengikut",
-      "following": "pengikut"
+      "following": "pengikut",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Pengaturan Suara",
@@ -175,7 +177,8 @@
         "banFromChat": "ban dari percakapan",
         "banFromRoom": "ban dari ruangan",
         "goBackToListener": "kembali ke pendengar",
-        "deleteMessage": "hapus pesan ini"
+        "deleteMessage": "hapus pesan ini",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "membutuhkan izin untuk berbicara",

@@ -36,11 +36,8 @@
       "currentRoom": "Právě v:",
       "startPrivateRoom": "Otevřít soukromou místnost"
     },
-    "followList": {},
-    "home": {
-      "createRoom": "Vytvořit místnost",
-      "refresh": "Obnovit"
-    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Vytvořit místnost", "refresh": "Obnovit" },
     "inviteList": {
       "roomGone": "Místnost není dostupná, jít zpět",
       "shareRoomLink": "Sdílet odkaz na místnost",
@@ -82,7 +79,9 @@
       "editProfile": "Pozměnit profil",
       "followsYou": "Sleduje tě.",
       "followers": "Sledující",
-      "following": "Sleduje"
+      "following": "Sleduje",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Nastavení hlasu",

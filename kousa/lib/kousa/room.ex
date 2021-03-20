@@ -182,6 +182,7 @@ defmodule Kousa.Room do
       {false, false, true} ->
         case Rooms.replace_room_owner(old_creator_id, new_creator_id) do
           {1, _} ->
+            internal_set_speaker(old_creator_id, current_room_id)
             Onion.RoomSession.send_cast(
               current_room_id,
               {:send_ws_msg, :vscode,

@@ -35,8 +35,8 @@
       "currentRoom": "ansluten till:",
       "startPrivateRoom": "skapa ett privat rum med dem"
     },
-    "followList": {},
-    "home": { "createRoom": "Skapa Rum", "refresh": "Refresh" },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Skapa Rum", "refresh": "Uppdatera" },
     "inviteList": {
       "roomGone": "rummet försvann under månförmörkelsen, gå tillbaka",
       "shareRoomLink": "dela länk till rummet",
@@ -78,7 +78,9 @@
       "editProfile": "redigera profil",
       "followsYou": "följer dig",
       "followers": "följare",
-      "following": "följer"
+      "following": "följer",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Röstinställningar",
