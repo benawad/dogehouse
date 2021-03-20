@@ -3,7 +3,7 @@ import { Story } from "@storybook/react";
 import { Button, ButtonProps } from "../ui/Button";
 import { toEnum } from "./utils/toEnum";
 import { toBoolean } from "./utils/toBoolean";
-import { SmSolidDogenitro } from "../icons";
+import { SolidDogenitro } from "../icons";
 
 export default {
   title: "Button",
@@ -16,7 +16,7 @@ const TheButton: Story<ButtonProps & { exampleIcon?: boolean }> = ({
   ...props
 }) => {
   return (
-    <Button {...props} icon={exampleIcon ? <SmSolidDogenitro /> : undefined}>
+    <Button {...props} icon={exampleIcon ? <SolidDogenitro /> : undefined}>
       {children || `New room`}
     </Button>
   );

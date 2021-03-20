@@ -1,5 +1,5 @@
 import React from "react";
-import { SmSolidSearch } from "../../icons";
+import { SolidSearch } from "../../icons";
 import { Input } from "../Input";
 
 export interface SearchBarProps
@@ -22,7 +22,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
     >
       {!mobile && (
         <div className="h-full mx-4 flex items-center pointer-events-none">
-          <SmSolidSearch />
+          <SolidSearch />
         </div>
       )}
       <Input className={inputClassName} {...props} />

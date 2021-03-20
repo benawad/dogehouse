@@ -1,6 +1,6 @@
 import { format, isToday, isPast, differenceInMilliseconds } from "date-fns";
 import React, { useEffect, useState } from "react";
-import { SmSolidTime } from "../icons";
+import { SolidTime } from "../icons";
 import { BubbleText } from "./BubbleText";
 import { RoomCardHeading } from "./RoomCardHeading";
 import { Tag } from "./Tag";
@@ -68,7 +68,7 @@ export const RoomCard: React.FC<RoomCardProps> = ({
     <div className="p-4 w-full bg-primary-800 hover:bg-primary-800 rounded-lg flex flex-col">
       <div className="w-full flex justify-between space-x-4">
         <RoomCardHeading
-          icon={roomLive ? undefined : <SmSolidTime />}
+          icon={roomLive ? undefined : <SolidTime />}
           text={title}
         />
         <div className="flex-shrink-0">

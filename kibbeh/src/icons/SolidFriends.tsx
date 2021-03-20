@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SvgSmSolidFriends(props: React.SVGProps<SVGSVGElement>) {
+function SvgSolidFriends(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width={22}
@@ -22,4 +22,4 @@ function SvgSmSolidFriends(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default SvgSmSolidFriends;
+export default SvgSolidFriends;

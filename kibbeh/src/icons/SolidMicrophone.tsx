@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SvgSmSolidMicrophone(props: React.SVGProps<SVGSVGElement>) {
+function SvgSolidMicrophone(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width={16}
@@ -16,4 +16,4 @@ function SvgSmSolidMicrophone(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default SvgSmSolidMicrophone;
+export default SvgSolidMicrophone;

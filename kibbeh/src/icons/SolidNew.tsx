@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SvgSmSolidNew(props: React.SVGProps<SVGSVGElement>) {
+function SvgSolidNew(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width={16}
@@ -28,4 +28,4 @@ function SvgSmSolidNew(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default SvgSmSolidNew;
+export default SvgSolidNew;

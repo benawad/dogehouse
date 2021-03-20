@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function SvgSmSolidCalendar(props: React.SVGProps<SVGSVGElement>) {
+function SvgSolidCalendar(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width={16}
@@ -25,4 +25,4 @@ function SvgSmSolidCalendar(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default SvgSmSolidCalendar;
+export default SvgSolidCalendar;
