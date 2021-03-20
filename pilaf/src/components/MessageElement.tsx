@@ -48,22 +48,14 @@ export const MessageElement: React.FC<MessageElementProps> = ({
           isOnline={user.isOnline}
           src={user.avatar}
         />
-        <View
-          style={{
-            flex: 1,
-            borderBottomWidth: 0.5,
-            borderBottomColor: colors.primary700,
-            paddingVertical: 16,
-            marginLeft: 16,
-          }}
-        >
-          <View style={styles.textContainer}>
-            <Text style={styles.textUserName}>{user.username}</Text>
-            <MessageDate style={styles.textDate} ts={msg.ts} />
-          </View>
-          <Text style={styles.textMessage} numberOfLines={expanded ? 0 : 1}>
+        <View style={styles.middleContainer}>
+          <Text style={styles.textUserName}>{user.username}</Text>
+          <Text style={styles.textMessage} numberOfLines={1}>
             {msg.text}
           </Text>
+        </View>
+        <View style={styles.dateContainer}>
+          <MessageDate style={styles.textDate} ts={msg.ts} />
         </View>
       </View>
     </TouchableOpacity>
@@ -76,9 +68,24 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 16,
   },
-  textContainer: {
-    flexDirection: "row",
+  middleContainer: {
+    flex: 1,
+    borderBottomWidth: 0.5,
+    borderBottomColor: colors.primary700,
+    padding: 16,
+    paddingLeft: 0,
+    marginLeft: 16,
     justifyContent: "space-between",
+    overflow: "hidden",
+  },
+  dateContainer: {
+    height: "100%",
+    flexDirection: "row",
+    alignItems: "flex-start",
+    paddingVertical: 16,
+    justifyContent: "center",
+    borderBottomWidth: 0.5,
+    borderBottomColor: colors.primary700,
   },
   textUserName: {
     fontFamily: fontFamily.regular,
