@@ -71,7 +71,9 @@
     "room": {
       "speakers": "Folësit",
       "requestingToSpeak": "Duke kërkuar leje për të folur",
-      "listeners": "Dëgjuesit"
+      "listeners": "Dëgjuesit",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "kerko..." },
     "soundEffectSettings": { "header": "Tingujt" },

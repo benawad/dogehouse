@@ -70,7 +70,9 @@
     "room": {
       "speakers": "Oradores",
       "requestingToSpeak": "A pedir para falar",
-      "listeners": "Ouvintes"
+      "listeners": "Ouvintes",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Procurar..." },
     "soundEffectSettings": { "header": "Sons" },

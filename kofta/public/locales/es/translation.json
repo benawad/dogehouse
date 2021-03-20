@@ -69,7 +69,9 @@
     "room": {
       "speakers": "Hablantes",
       "requestingToSpeak": "Solicitando hablar",
-      "listeners": "Oyentes"
+      "listeners": "Oyentes",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "buscar..." },
     "soundEffectSettings": { "header": "Sonidos" },
