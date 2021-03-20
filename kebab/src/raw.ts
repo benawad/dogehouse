@@ -17,10 +17,7 @@ export type Logger = (
   fetchId?: FetchID,
   raw?: string
 ) => void;
-export type ListenerHandler = (
-  data: unknown,
-  fetchId?: FetchID
-) => void;
+export type ListenerHandler = (data: unknown, fetchId?: FetchID) => void;
 export type Listener = {
   opcode: Opcode;
   handler: ListenerHandler;
@@ -30,7 +27,11 @@ export type Connection = {
   addListener: (opcode: Opcode, handler: ListenerHandler) => () => void;
   user: User;
   send: (opcode: Opcode, data: unknown, fetchId?: FetchID) => void;
-  fetch: (opcode: Opcode, data: unknown, doneOpcode?: Opcode) => Promise<unknown>;
+  fetch: (
+    opcode: Opcode,
+    data: unknown,
+    doneOpcode?: Opcode
+  ) => Promise<unknown>;
 };
 
 export const connect = (

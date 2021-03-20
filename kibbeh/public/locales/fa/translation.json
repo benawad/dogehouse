@@ -1,0 +1,228 @@
+{
+  "_comment": "if you change this file, do: npm run i18",
+  "common": {
+    "loadMore": "نمایش بیشتر",
+    "loading": "در حال بارگذاری",
+    "noUsersFound": "کاربری پیدا نشد",
+    "ok": "تایید",
+    "yes": "بله",
+    "no": "خیر",
+    "cancel": "لغو",
+    "save": "ذخیره",
+    "edit": "ویرایش",
+    "delete": "حذف",
+    "joinRoom": "ورود به اتاق",
+    "copyLink": "کپی کردن لینک",
+    "copied": "کپی انجام شد",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "بی صدا | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "داستان شروع",
+    "link_2": "دیسکورد",
+    "link_3": "گزارش مشکل"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "مسدود کردن" },
+    "followingOnlineList": {
+      "listHeader": "لیست کاربرانی که در اتاق شخصی نیستند و شما آنها را دنبال میکنید",
+      "currentRoom": "در حال حاظر در:",
+      "startPrivateRoom": "شروع اتاق شخصی"
+    },
+    "followList": {},
+    "home": { "createRoom": "ساختن اتاق", "refresh": "تازه کردن" },
+    "inviteList": {
+      "roomGone": "اتاق گم شد. برگردید",
+      "shareRoomLink": "اشتراک لینک اتاق",
+      "inviteFollowers": "شما میتوانید کسانی که شما را دنبال میکنند را دعوت کنید :",
+      "whenFollowersOnline": "زمانی که دنبال کنندگان آنلاین باشند در اینجا نمایان میشوند"
+    },
+    "login": {
+      "headerText": "بردن تماص های صوتی به ماه🚀",
+      "featureText_1": "حالت تاریک",
+      "featureText_2": "ثبت نام رایگان",
+      "featureText_3": "پشتیبانی از تمام دستگاه ها",
+      "featureText_4": "متن باز",
+      "featureText_5": "پیام",
+      "featureText_6": "قدرت گرفته از Doge",
+      "loginGithub": "ورود با گیتهاب",
+      "loginTwitter": "ورود با توییتر",
+      "createTestUser": "ساختن حساب آزمایشی"
+    },
+    "myProfile": {
+      "logout": "خروج",
+      "probablyLoading": "احتمالا در حال بارگذاری...",
+      "voiceSettings": "رفتن به تنظیمات میکروفون",
+      "soundSettings": "رفتن به تنظیمات صدا",
+      "deleteAccount": "حذف حساب"
+    },
+    "notFound": {
+      "whoopsError": "ای وای ! صفحه مورد نظر پیدا نشد",
+      "goHomeMessage": "نگران نباش تو میتونی",
+      "goHomeLinkText": "بازگشت به صفحه اصلی"
+    },
+    "room": {
+      "speakers": "گویندگان",
+      "requestingToSpeak": "درخواست حرف زدن",
+      "listeners": "شنوندگان"
+    },
+    "searchUser": { "search": "جستجو..." },
+    "soundEffectSettings": { "header": "صدا" },
+    "viewUser": {
+      "editProfile": "ویرایش حساب",
+      "followsYou": "شما را دنبال میکنند",
+      "followers": "دنبال کنندگان",
+      "following": "دنبال شوندگان"
+    },
+    "voiceSettings": {
+      "header": "تنظیمات صدا",
+      "mic": "میکروفون:",
+      "permissionError": "میکروفون پیدا نشد! ممکن است میکروفونی وصل نباشد یا شما به آن دسترسی نداده اید.",
+      "refresh": "بروزرسانی لیست",
+      "volume": "مقدار:"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "کاربران مسدود شده",
+      "unban": "آزاد سازی",
+      "noBans": "هیچ کاربری مسدود نشده"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "خارج شدن از اتاق",
+      "confirmLeaveRoom": "از تصمیم خود اطمینان دارید؟",
+      "leave": "خروج",
+      "inviteUsersToRoomBtn": "دعوت کردن افراد",
+      "invite": "دعوت",
+      "toggleMuteMicBtn": "بی صدا",
+      "mute": "بی صدا",
+      "unmute": "فعالسازی صدا",
+      "makeRoomPublicBtn": "تبدیل کردن اتاق به عمومی!",
+      "settings": "تنظیمات",
+      "speaker": "گویندگان",
+      "listener": "شنوندگان",
+      "chat": "پیام"
+    },
+    "deviceNotSupported": {
+      "notSupported": " دستگاه شما پشتیبانی نمیشود. شما میتوانید یک",
+      "linkText": "مشکل در گیتهاب",
+      "addSupport": "بسازید و من تلاش میکنم تا مشکل را حل کنم"
+    },
+    "inviteButton": { "invited": "دعوت شده", "inviteToRoom": "دعوت به اتاق" },
+    "micPermissionBanner": {
+      "permissionDenied": "دسترسی مسدود شده است تلاش کنید به میکروفون دسترسی بدهید",
+      "dismiss": "نادید گرفتن",
+      "tryAgain": "تلاش دوباره"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "تنظیم کلید",
+      "listening": "در حال گوش دادن",
+      "toggleMuteKeybind": "کلید فعال/غیرفعال بی صدا",
+      "togglePushToTalkKeybind": "کلید حرف زدن با فشردن دکمه"
+    },
+    "userVolumeSlider": { "noAudioMessage": "بدون مخاطب به دلایلی" },
+    "addToCalendar": { "add": "اضافه کردن به تقویم" },
+    "wsKilled": {
+      "description": "اتصال به سرور قطع شد. ممکن است برنامه را در صفحه ای دیگر باز کرده اید",
+      "reconnect": "اتصال دوباره"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "عمومی",
+        "private": "خصوصی",
+        "roomName": "نام اتاق",
+        "roomDescription": "توضیحات اتاق",
+        "descriptionError": "حداکثر طول 500",
+        "nameError": "باید بین 2 تا 60 کاراکتر باشد"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "اتاق جدید ساخته شد",
+        "roomInviteFrom": "دعوت به اتاق از",
+        "justStarted": "الان شروع شده است",
+        "likeToJoin": ", دوست دارید وارد شوید؟",
+        "inviteReceived": "شما دعوت شده اید به"
+      },
+      "editProfileModal": {
+        "usernameTaken": "نام کاربری قبلا ثبت شده",
+        "avatarUrlError": "عکس نامعتبر",
+        "avatarUrlLabel": "ادرس آواتار گیتهاب/توییتر",
+        "displayNameError": "طول بین 2 تا 50 کاراکتر",
+        "displayNameLabel": "نام نمایشی",
+        "usernameError": "طول 4 تا 15 کاراکتر و فقط حروف و عدد",
+        "usernameLabel": "نام کاربری",
+        "bioError": "حداکثر 160 کاراکتر",
+        "bioLabel": "بیو"
+      },
+      "profileModal": {
+        "blockUserConfirm": "مطمئن هستید که میخاهید این کاربر را مسدود کنید؟",
+        "blockUser": "مسدود کردن کاربر",
+        "makeMod": "تبدیل به مدیریت کننده",
+        "unmod": "تبدیل به کاربر عادی",
+        "addAsSpeaker": "اضافه کردن به عنوان گوینده",
+        "moveToListener": "تبدیل به شنونده",
+        "banFromChat": "مسدود سازی از پیام",
+        "banFromRoom": "مسدود سازی از اتاق",
+        "goBackToListener": "بازگشت به شنونده",
+        "deleteMessage": "حذف این پیام",
+        "makeRoomCreator": "تبدیل به مدیر اتاق"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "نیاز به دسترسی برای حرف زدن",
+        "makePublic": "تبدیل به اتاق عمومی",
+        "makePrivate": "تبدیل به اتاق خصوصی"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "اتاق های زمانبندی شده",
+      "noneFound": "چیزی پیدا نشد",
+      "allRooms": "تمام اتاق های زمانبندی شده",
+      "myRooms": "اتاق های زمانبندی شده من",
+      "scheduleRoomHeader": "زمانبندی اتاق",
+      "startRoom": "شروع اتاق",
+      "modal": {
+        "needsFuture": "باید در آینده باشد",
+        "roomName": "نام اتاق",
+        "minLength": "حداقل 2 کاراکتر",
+        "roomDescription": "توضیحات"
+      }
+    },
+    "roomChat": {
+      "title": "پیام",
+      "emotesSoon": "[ایموجی ها بزردی]",
+      "bannedAlert": "شما از پیام ها مسدود شدید",
+      "waitAlert": "قبل از ارسال پیام یک ثانیه صبر کنید",
+      "search": "جستجو",
+      "searchResults": "نتایج جستجو",
+      "recent": "بسیار زیاد استفاده شده",
+      "sendMessage": "ارسال پیام",
+      "whisper": "نجوا",
+      "welcomeMessage": "به چت خوش آمدید",
+      "roomDescription": "توضیحات اتاق"
+    },
+    "roomStatus": {
+      "fuelingRocket": "سوخت گیری راکت",
+      "takingOff": "در حال بلند شده",
+      "inSpace": "در فضا",
+      "approachingMoon": "درحال نزدیک شده به ماه",
+      "lunarDoge": "doge قمری",
+      "approachingSun": "در حال نزدیک شدن به خورشید",
+      "solarDoge": "doge خورشیدی",
+      "approachingGalaxy": "درحال نزدیک شدن به کهکشان",
+      "galacticDoge": "Doge کهکشانی",
+      "spottedLife": "سیاره دارای حیات رویت شد"
+    }
+  }
+}

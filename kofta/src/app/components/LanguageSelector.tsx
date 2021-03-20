@@ -13,10 +13,12 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "af", label: "🇿🇦 Afrikaans" }, // Afrikaans
     { value: "am", label: "🇪🇹 አማርኛ" }, // Amharic
     { value: "ar", label: "🇸🇦 عربي" }, // Arabic
+    { value: "fa", label: "🇮🇷 فارسی" }, // persian
     { value: "az", label: "🇦🇿 Azərbaycanca" }, // Azerbaijani
     { value: "bg", label: "🇧🇬 Български" }, // Bulgarian
     { value: "bn", label: "🇧🇩 বাংলা" }, // Bengali
     { value: "cs", label: "🇨🇿 Čeština" }, // Czech
+    { value: "hr", label: "🇭🇷 Hrvatski"}, // Croatian                                                                                                                                                                                         
     { value: "da", label: "🇩🇰 Dansk" }, // Danish
     { value: "de", label: "🇩🇪 Deutsch" }, // German
     { value: "el-GR", label: "🇬🇷 ελληνικά" },
@@ -33,6 +35,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "ja", label: "🇯🇵 日本語" }, // Japanese
     { value: "ko", label: "🇰🇷 한국어" }, // Korean
     { value: "lt", label: "🇱🇹 Lietuvių" }, // Lithuanian
+    { value: "lv", label: "🇱🇻 Latviešu" }, // Latvian
     { value: "li", label: "🏴󠁮󠁬󠁬󠁩󠁿 Limburgs" }, // Limburgish
     { value: "nb", label: "🇳🇴 Norsk Bokmål" }, // Norwegian Bokmål
     { value: "ne", label: "🇳🇵 नेपाली" }, // Nepali

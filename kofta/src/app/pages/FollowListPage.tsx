@@ -109,7 +109,7 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
                   }}
                   variant="small"
                 >
-                  {profile.youAreFollowing ? "following" : "follow"}
+                  {profile.youAreFollowing ? t("pages.followList.followingHim") : t("pages.followList.followHim")}
                 </Button>
               </div>
             )}

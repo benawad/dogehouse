@@ -35,7 +35,7 @@
       "currentRoom": "tilsluttet til:",
       "startPrivateRoom": "Start et privat rum med dem"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Start Rum", "refresh": "Opdater" },
     "inviteList": {
       "roomGone": "rummet er væk, gå tilbage",
@@ -78,7 +78,9 @@
       "editProfile": "Rediger profil",
       "followsYou": "Følger dig",
       "followers": "Følgere",
-      "following": "Følger"
+      "following": "Følger",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Lydindstillinger",
@@ -177,7 +179,8 @@
         "banFromChat": "Bandlys fra chatten",
         "banFromRoom": "Bandlys fra rummet",
         "goBackToListener": "Gå tilbage til lytter",
-        "deleteMessage": "Slet denne besked"
+        "deleteMessage": "Slet denne besked",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "kræv tilladelse for at tale",

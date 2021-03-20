@@ -35,8 +35,8 @@
       "currentRoom": "所在的聊天室:",
       "startPrivateRoom": "跟ta进入私人聊天室"
     },
-    "followList": {},
-    "home": { "createRoom": "新建聊天室", "refresh": "Refresh" },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "新建聊天室", "refresh": "刷新" },
     "inviteList": {
       "roomGone": "聊天室以被删除，请回到前一页",
       "shareRoomLink": "在聊天室分享链接",
@@ -57,7 +57,7 @@
     },
     "myProfile": {
       "logout": "登出",
-      "probablyLoading": "在加载吧...",
+      "probablyLoading": "加载中...",
       "voiceSettings": "音量设置",
       "soundSettings": "声音设置",
       "deleteAccount": "删除账号"
@@ -78,7 +78,9 @@
       "editProfile": "编辑个人主页",
       "followsYou": "关注您的人",
       "followers": "关注者",
-      "following": "您关注的人"
+      "following": "您关注的人",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "语音设置",
@@ -104,13 +106,13 @@
       "inviteUsersToRoomBtn": "邀请用户进入聊天室",
       "invite": "邀请",
       "toggleMuteMicBtn": "切换麦克风静音",
-      "mute": "关闭米克风",
-      "unmute": "打开米克风",
+      "mute": "关闭麦克风",
+      "unmute": "打开麦克风",
       "makeRoomPublicBtn": "把聊天室设为公开!",
       "settings": "设置",
       "speaker": "扬声器",
       "listener": "听者",
-      "chat": "Chat"
+      "chat": "文字聊天"
     },
     "micPermissionBanner": {
       "permissionDenied": "麦克风使用权被拒绝（可能需要更改设置并且刷新页面）",
@@ -154,7 +156,8 @@
         "banFromChat": "禁止此人使用文字聊天",
         "banFromRoom": "踢出聊天室",
         "goBackToListener": "回到听者",
-        "deleteMessage": "删除此信息"
+        "deleteMessage": "删除此信息",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "需要允许才能说话",
@@ -188,7 +191,7 @@
     "scheduledRooms": {
       "title": "预定的聊天室",
       "noneFound": "没有找到",
-      "allRooms": "所以预定的聊天室",
+      "allRooms": "所有预定的聊天室",
       "myRooms": "我的预定的聊天室",
       "scheduleRoomHeader": "预定聊天室",
       "startRoom": "开始聊天室",
@@ -196,7 +199,7 @@
         "needsFuture": "需要一个在未来的时间",
         "roomName": "聊天室名字",
         "minLength": "最短长度为2",
-        "roomDescription": "Description"
+        "roomDescription": "聊天室描述"
       }
     },
     "roomChat": {

@@ -36,7 +36,7 @@
       "currentRoom": "в момента в:",
       "startPrivateRoom": "start a private room with them"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Създай стая", "refresh": "Опресни" },
     "inviteList": {
       "roomGone": "изтекла стая, върни се назад",
@@ -79,7 +79,9 @@
       "editProfile": "промяна на профил",
       "followsYou": "следват те",
       "followers": "последователи",
-      "following": "последвани"
+      "following": "последвани",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Звукови настройки",
@@ -175,7 +177,8 @@
         "banFromChat": "блокиране от чат",
         "banFromRoom": "блокиране от стая",
         "goBackToListener": "върни се към слушател",
-        "deleteMessage": "изтриване на това съобщение"
+        "deleteMessage": "изтриване на това съобщение",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "изискване на позволение за говорене",

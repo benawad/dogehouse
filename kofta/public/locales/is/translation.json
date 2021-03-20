@@ -36,7 +36,7 @@
       "currentRoom": "núna í",
       "startPrivateRoom": "stofnaðu einkaspjallrásin með þeim"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Stofna Spjallrás", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "rásin horfið, farðu tíl baka",
@@ -79,7 +79,9 @@
       "editProfile": "breyta prófíl",
       "followsYou": "fylgir þér",
       "followers": "fylgjendur",
-      "following": "eftirfarandi"
+      "following": "eftirfarandi",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Talstillingar",
@@ -210,21 +212,21 @@
       "searchResults": "Leitarniðurstöður",
       "recent": "Oft notað",
       "sendMessage": "Senda skilaboð",
-      "whisper": "Sussa",
+      "whisper": "Hvísla",
       "welcomeMessage": "Velkomin í spjallið!",
       "roomDescription": "rásarlýsing"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "fuelingRocket": "Fylli á eldflaugina",
+      "takingOff": "Tek á loft",
+      "inSpace": "Út í geimi",
+      "approachingMoon": "Nálgast tunglið",
+      "lunarDoge": "Tungldoge",
+      "approachingSun": "Nálgast sólina",
+      "solarDoge": "Sóldoge",
+      "approachingGalaxy": "Nálgast vetrarbraut",
+      "galacticDoge": "Vetrarbrautar Doge",
+      "spottedLife": "Pláneta með lífi fundin"
     }
   }
 }
