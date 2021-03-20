@@ -375,10 +375,15 @@ defmodule Broth.SocketHandler do
     end
   end
 
+  # @deprecated in new design
   def handler("leave_room", _data, state) do
-    Kousa.Room.leave_room(state.user_id)
+    case Kousa.Room.leave_room(state.user_id) do
+      {:ok, d} ->
+        {:reply, prepare_socket_msg(%{op: "you_left_room", d: d}, state), state}
 
-    {:ok, state}
+      _ ->
+        {:ok, state}
+    end
   end
 
   def handler("join_room", %{"roomId" => room_id}, state) do
@@ -497,23 +502,6 @@ defmodule Broth.SocketHandler do
 
   def handler("mute", %{"value" => value}, state) do
     Onion.UserSession.send_cast(state.user_id, {:set_mute, value})
-    # user = Users.get_by_id(state.user_id)
-
-    # if not is_nil(user.currentRoomId) do
-    #   Kousa.Utils.RegUtils.lookup_and_cast(
-    #     Onion.RoomSession,
-    #     user.currentRoomId,
-    #     {:mute, user.id, value}
-    #   )
-
-    #   # @todo if it came from vscode then send ws message
-    #   # Kousa.Utils.RegUtils.lookup_and_cast(
-    #   #   Onion.UserSession,
-    #   #   user.id,
-    #   #   {:send_ws_msg, :web, %{op: "mute_changed", d: %{value: value}}}
-    #   # )
-    # end
-
     {:ok, state}
   end
 
@@ -601,6 +589,19 @@ defmodule Broth.SocketHandler do
            },
            state
          ), state}
+    end
+  end
+
+  def f_handler("mute", %{"value" => value}, %State{} = state) do
+    Onion.UserSession.send_cast(state.user_id, {:set_mute, value})
+
+    %{}
+  end
+
+  def f_handler("leave_room", _data, %State{} = state) do
+    case Kousa.Room.leave_room(state.user_id) do
+      {:ok, x} -> x
+      _ -> %{}
     end
   end
 

@@ -1,7 +1,6 @@
 import React from "react";
 import { Story } from "@storybook/react";
 import { BoxedIcon } from "../ui/BoxedIcon";
-// Icons
 import { SolidMicrophone, SolidVolume, SolidFullscreen } from "../icons";
 
 export default {
