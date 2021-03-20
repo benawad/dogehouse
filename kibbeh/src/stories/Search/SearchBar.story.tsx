@@ -2,7 +2,7 @@ import React from "react";
 import { Story } from "@storybook/react";
 import { SearchBar, SearchBarProps } from "../../ui/Search/SearchBar";
 import { toStr } from "../utils/toStr";
-import { toBoolean } from '../utils/toBoolean';
+import { toBoolean } from "../utils/toBoolean";
 
 export default {
   title: "Search/SearchBar",

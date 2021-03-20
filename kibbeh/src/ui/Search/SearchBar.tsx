@@ -16,11 +16,15 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 }) => {
   return (
     <div
-      className={`w-full bg-primary-700 text-primary-300 focus-within:text-primary-100 rounded-lg ${mobile ? 'px-4' : ''} ${className}`}
+      className={`w-full bg-primary-700 text-primary-300 focus-within:text-primary-100 rounded-lg ${
+        mobile ? "px-4" : ""
+      } ${className}`}
     >
-      {!mobile && <div className="h-full mx-4 flex items-center pointer-events-none">
-        <SmSolidSearch />
-      </div>}
+      {!mobile && (
+        <div className="h-full mx-4 flex items-center pointer-events-none">
+          <SmSolidSearch />
+        </div>
+      )}
       <Input className={inputClassName} {...props} />
     </div>
   );
