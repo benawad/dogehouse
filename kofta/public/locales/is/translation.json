@@ -20,7 +20,7 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Þögnuð | DogeHouse"
+    "mutedTitle": "Þaggaður | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
