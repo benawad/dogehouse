@@ -107,7 +107,8 @@ function createWindow() {
       if (
         urlHost == ALLOWED_HOSTS[3] &&
         urlObj.pathname !== "/login" &&
-        urlObj.pathname !== "/session"
+        urlObj.pathname !== "/session" &&
+        urlObj.pathname !== "/sessions/two-factor"
       ) {
         event.preventDefault();
         shell.openExternal(url);
