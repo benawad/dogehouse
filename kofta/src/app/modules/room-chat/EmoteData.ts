@@ -464,15 +464,15 @@ export const customEmojis = [
     imageUrl: "/emotes/purpledogehouse.png",
   },
   {
-    name: "WidePeepoPussy",
-    short_names: ["WidePeepoPussy"],
-    keywords: ["WidePeepoPussy", "peepo", "wide"],
+    name: "widepeepoPussy",
+    short_names: ["widepeepoPussy"],
+    keywords: ["widepeepoPussy", "peepo", "wide"],
     imageUrl: "/emotes/widepeepoPussy.png",
   },
   {
-    name: "OmegaLuL",
-    short_names: ["OmegaLuL"],
-    keywords: ["OmegaLuL", "LuL", "Omega"],
+    name: "OMEGALUL",
+    short_names: ["OMEGALUL"],
+    keywords: ["OMEGALUL", "LUL", "OMEGA"],
     imageUrl: "/emotes/omegaLul.png",
   },
   {
@@ -488,9 +488,9 @@ export const customEmojis = [
     imageUrl: "/emotes/rareParrot.gif",
   },
   {
-    name: "Coggers",
-    short_names: ["Coggers"],
-    keywords: ["Cog", "Coggers", "pepe"],
+    name: "COGGERS",
+    short_names: ["COGGERS"],
+    keywords: ["COG", "COGGERS", "pepe"],
     imageUrl: "/emotes/coggers.gif",
   },
   {  
