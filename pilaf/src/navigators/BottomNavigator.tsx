@@ -25,7 +25,7 @@ export const BottomNavigator: React.FC = () => {
             } else if (route.name === "Schedule") {
               icon = require("../assets/images/bottomBar/ios-calendar.png");
             } else if (route.name === "Following") {
-              icon = require("../assets/images/bottomBar/people.png");
+              icon = require("../assets/images/bottomBar/sm-solid-friends.png");
             } else if (route.name === "Explore") {
               icon = require("../assets/images/bottomBar/ios-compass.png");
             }
