@@ -2,6 +2,12 @@ import { EmojiData } from "emoji-mart";
 
 export const customEmojis = [
   {
+    name: "PogChamp",
+    short_names: ["PogChamp"],
+    keywords: ["pogchamp", "pog"],
+    imageUrl: "/emotes/pogchamp.png",
+  },
+  {
     name: "monkaS",
     short_names: ["monkaS"],
     keywords: ["monkas", "pepe"],
