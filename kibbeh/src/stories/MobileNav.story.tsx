@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Story } from "@storybook/react";
-import { MobileNav, MobileNavProps } from "../ui/MobileNav";
+import { MobileNav, MobileNavProps } from "../ui/mobile/MobileNav";
 import {
   SmSolidHome,
   SmSolidFriends,

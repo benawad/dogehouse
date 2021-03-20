@@ -11,7 +11,6 @@ import { init_i18n } from "../lib/i18n";
 import { SoundEffectPlayer } from "../modules/sound-effects/SoundEffectPlayer";
 import ReactModal from "react-modal";
 
-
 if (!isServer) {
   init_i18n();
 }
