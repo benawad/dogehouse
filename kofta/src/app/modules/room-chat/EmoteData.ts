@@ -538,7 +538,7 @@ export const customEmojis = [
   {
     name: "lulWut",
     short_names: ["lulWut"],
-    keywords: ["lulwut", "lul", "lmao", "lol", "wut", "what", "wat", "wtf". "omegalul", "ha", "haha", "ja", "jaja"],
+    keywords: ["lulwut", "lul", "lmao", "lol", "wut", "what", "wat", "wtf", "omegalul", "ha", "haha", "ja", "jaja"],
     imageUrl: "/emotes/lulWut.png",
   },
   {
