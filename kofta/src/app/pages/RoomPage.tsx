@@ -7,6 +7,7 @@ import { useCurrentRoomInfo } from "../atoms";
 import { Backbar } from "../components/Backbar";
 import { BodyWrapper } from "../components/BodyWrapper";
 import { BottomVoiceControl } from "../components/BottomVoiceControl";
+import { Button } from "../components/Button";
 import { CircleButton } from "../components/CircleButton";
 import { modalConfirm } from "../components/ConfirmModal";
 import { CreateRoomModal } from "../components/CreateRoomModal";
@@ -46,6 +47,8 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   } = useCurrentRoomInfo();
   const fullscreenChatOpen = useShouldFullscreenChat();
   const [showCreateRoomModal, setShowCreateRoomModal] = useState(false);
+  const [listenersPage, setListenersPage] = useState(1);
+  const pageSize = 25;
   const { t } = useTypeSafeTranslation();
   // useEffect(() => {
   //   if (room?.users.length) {
@@ -87,6 +90,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
     }
   });
 
+  const listenersShown = listeners.slice(0, listenersPage * pageSize);
   return (
     <>
       <ProfileModal
@@ -99,22 +103,22 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
       />
       {fullscreenChatOpen ? null : (
         <Backbar>
-          <div className={`flex flex-1 flex-col items-center`}>
+          <div className={`flex flex-col justify-center w-9/12`}>
             <button
               disabled={!iAmCreator}
               onClick={() => setShowCreateRoomModal(true)}
-              className={`font-xl truncate flex-1 text-center flex items-center justify-center text-2xl`}
+              className={`text-2xl truncate max-w-lg text-center px-2`}
             >
-              <span className={"px-2 truncate"}>{room.name}</span>
+              {room.name}
             </button>
             {rocketStatus && (
-              <div className={`flex items-center text-sm`}>
+              <div className={`text-center text-sm`}>
                 {rocketIcon} {rocketStatus} &nbsp;
                 <span className="opacity-50">({timeElapsed})</span>
               </div>
             )}
           </div>
-          <div className="pr-2">
+          <div className="ml-auto pr-2">
             <ProfileButton />
           </div>
         </Backbar>
@@ -173,11 +177,13 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
               />
             ))}
             {listeners.length ? (
-              <div className={`col-span-full text-xl mt-2.5 ml-2.5 text-white`}>
+              <div
+                className={`flex col-span-full text-xl mt-2.5 ml-2.5 text-white`}
+              >
                 {t("pages.room.listeners")} ({listeners.length})
               </div>
             ) : null}
-            {listeners.map((u) => (
+            {listenersShown.map((u) => (
               <RoomUserNode
                 key={u.id}
                 room={room}
@@ -188,6 +194,16 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
                 profile={profile}
               />
             ))}
+            {listenersShown.length < listeners.length && (
+              <div className={`flex col-span-full`}>
+                <Button
+                  variant="slim"
+                  onClick={() => setListenersPage((page) => page + 1)}
+                >
+                  {t("common.loadMore")}
+                </Button>
+              </div>
+            )}
           </div>
         </BodyWrapper>
       </Wrapper>
