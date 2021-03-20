@@ -91,6 +91,18 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   });
 
   const listenersShown = listeners.slice(0, listenersPage * pageSize);
+
+  const allowAllRequestingSpeakers = () => {
+    unansweredHands.forEach((user) => {
+      wsend({
+        op: "add_speaker",
+        d: {
+          userId: user.id,
+        },
+      });
+    });
+  };
+
   return (
     <>
       <ProfileModal
@@ -161,8 +173,24 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
               </div>
             ) : null}
             {unansweredHands.length ? (
-              <div className={`col-span-full text-xl ml-2.5 text-white`}>
-                {t("pages.room.requestingToSpeak")} ({unansweredHands.length})
+              <div className={`flex col-span-full text-xl ml-2.5 text-white`}>
+                <span className={`my-auto`}>
+                  {t("pages.room.requestingToSpeak")} ({unansweredHands.length})
+                </span>
+                {(iAmCreator || iAmMod) && (
+                  <Button
+                    className={`ml-4`}
+                    variant={`small`}
+                    onClick={() => {
+                      modalConfirm(
+                        `Are you sure? This will allow all ${unansweredHands.length} requesting users to speak.`,
+                        allowAllRequestingSpeakers
+                      );
+                    }}
+                  >
+                    Allow all
+                  </Button>
+                )}
               </div>
             ) : null}
             {unansweredHands.map((u) => (
