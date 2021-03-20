@@ -61,7 +61,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ items }) => {
     <MobileNavContainer>
       {items.map((item) => {
         return (
-          <MobileNavItem targetPath={item.targetPath}>
+          <MobileNavItem key={item.targetPath} targetPath={item.targetPath}>
             {item.icon}
           </MobileNavItem>
         );
