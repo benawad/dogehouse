@@ -49,7 +49,7 @@
       "featureText_2": "Ανοιχτές Εγγραφές",
       "featureText_3": "Cross-Platform Υποστήριξη",
       "featureText_4": "Ανοιχτού Πηγαίου Κώδικα",
-      "featureText_5": "Συνομιλία μέσω Τσατ",
+      "featureText_5": "Συνομιλία μέσω Chat",
       "featureText_6": "Με την υποστήριξη του Doge",
       "loginGithub": "σύνδεση μέσω GitHub",
       "loginTwitter": "σύνδεση μέσω Twitter",
@@ -176,7 +176,7 @@
         "banFromRoom": "αποκλείστε από το δωμάτιο",
         "goBackToListener": "επιστρέψτε σε κατάσταση ακροατή",
         "deleteMessage": "διαγράψτε αυτό το μήνυμα",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "Κάντε το δωμάτιο admin"
       },
       "roomSettingsModal": {
         "requirePermission": "ζητήστε άδεια για να μιλήσετε",
@@ -202,7 +202,7 @@
       }
     },
     "roomChat": {
-      "title": "Τσατ",
+      "title": "Chat",
       "emotesSoon": "[ τα emotes έρχονται σύντομα]",
       "bannedAlert": "Αποκλειστήκατε από το τσατ",
       "waitAlert": "Πρέπει να περιμένετε ένα δευτερόλεπτο προτού να στείλετε το επόμενο μήνυμα",
