@@ -6,7 +6,7 @@ import {
   SmSolidFriends,
   SmSolidCompass,
   SmSolidCalendar,
-  SmSolidPlus,
+  SmSolidNew,
 } from "../icons";
 
 export default {
@@ -25,7 +25,7 @@ const items = [
   },
   {
     targetPath: "/home",
-    icon: <SmSolidPlus />,
+    icon: <SmSolidNew />,
   },
   {
     targetPath: "/home",
