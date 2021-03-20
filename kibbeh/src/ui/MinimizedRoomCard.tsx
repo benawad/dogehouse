@@ -4,6 +4,7 @@ import { SolidFullscreen, SolidMicrophone } from "../icons";
 import { useRouter } from "next/router";
 import { Button } from "./Button";
 import { DurationTicker } from "./DurationTicker";
+import SvgSolidMicrophoneOff from "../icons/SolidMicrophoneOff";
 
 interface MinimizedRoomCardProps {
   leaveLoading?: boolean;
@@ -45,7 +46,11 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
             onClick={room.myself.switchMuted}
             className={room.myself.isMuted ? "bg-accent" : ""}
           >
-            <SolidMicrophone />
+            {room.myself.isMuted ? (
+              <SvgSolidMicrophoneOff />
+            ) : (
+              <SolidMicrophone />
+            )}
           </BoxedIcon>
           {/* @todo haven't added deafen yet */}
           {/* <BoxedIcon
