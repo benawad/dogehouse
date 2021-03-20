@@ -26,13 +26,13 @@ export const customEmojis = [
     imageUrl: "/emotes/Pepega.png",
   },
   {
-    name: "peepohappy",
+    name: "peepoHappy",
     short_names: ["peepoHappy"],
     keywords: ["peepohappy", "peepo", "pepe"],
     imageUrl: "/emotes/peepoHappy.png",
   },
   {
-    name: "peepohug",
+    name: "peepoHug",
     short_names: ["peepoHug"],
     keywords: ["peepohug", "peepo", "pepe"],
     imageUrl: "/emotes/peepoHug.png",
