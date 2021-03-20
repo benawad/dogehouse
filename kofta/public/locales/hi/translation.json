@@ -3,10 +3,10 @@
     "loadMore": "और लोड करें",
     "loading": "लोड हो रहा है...",
     "noUsersFound": "कोई उपयोग्कर्ता नहीं मिले",
-    "ok": "ok",
+    "ok": "ठीक है",
     "yes": "सही",
     "no": "गलत",
-    "cancel": "cancel",
+    "cancel": "रद्द करें",
     "save": "save",
     "edit": "edit",
     "delete": "delete",
@@ -29,19 +29,14 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "ban"
-    },
-
+    "banUser": { "ban": "ban" },
     "followingOnlineList": {
       "listHeader": "उन उपयोगकर्ताओं की सूची जो एक प्राइवेट रूम में नहीं हैं और आप उन्हें फॉलो करते हैं।",
       "currentRoom": "वर्तमान में:",
       "startPrivateRoom": "उनके साथ एक प्राइवेट रूम शुरू करें"
     },
-    "followList": {},
-    "home": {
-      "createRoom": "रूम बनाये"
-    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "रूम बनाये", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "रूम गया, वापस जाए",
       "shareRoomLink": "रूम की लिंक शेयर करें",
@@ -65,7 +60,7 @@
       "probablyLoading": "शायद लोड हो रहा है...",
       "voiceSettings": "वॉइस सेटिंग्स में जाएं",
       "soundSettings": "साउंड सेटिंग में जाएं",
-      "deleteAccount": "delete account"
+      "deleteAccount": "खाता हटाएं"
     },
     "notFound": {
       "whoopsError": "Whoops! This page got lost in conversation.",
@@ -77,17 +72,15 @@
       "requestingToSpeak": "बोलने की अनुमति माँग रहे है",
       "listeners": "सुननेवाले"
     },
-    "searchUser": {
-      "search": "खोज करे..."
-    },
-    "soundEffectSettings": {
-      "header": "आवाज़"
-    },
+    "searchUser": { "search": "खोज करे..." },
+    "soundEffectSettings": { "header": "आवाज़" },
     "viewUser": {
       "editProfile": "edit profile",
       "followsYou": "follows you",
       "followers": "फॉलोअर्स",
-      "following": "फॉलोइंग"
+      "following": "फॉलोइंग",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "आवाज़ की सेटिंग्स",
@@ -118,17 +111,15 @@
       "makeRoomPublicBtn": "रूम को सार्वजनिक करें!",
       "settings": "सेटिंग्स",
       "speaker": "बोलनेवाले",
-      "listener": "सुननेवाले"
+      "listener": "सुननेवाले",
+      "chat": "Chat"
     },
     "deviceNotSupported": {
       "notSupported": "वर्तमान में आपका डिवाइस समर्थित नहीं है। आप एक",
       "linkText": "GitHub issue",
       "addSupport": "बना सकते है|  हम आपके डिवाइस के लिए समर्थन जोड़ने का प्रयास करेंगे।"
     },
-    "inviteButton": {
-      "invited": "invited",
-      "inviteToRoom": "invite to room"
-    },
+    "inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" },
     "micPermissionBanner": {
       "permissionDenied": "आपके माइक तक पहुँचने की अनुमति इनकार कर दी है (आपको ब्राउज़र सेटिंग्स में जाने और वेबसाइट को फिर से लोड करने की आवश्यकता हो सकती है)",
       "dismiss": "डिसमिस",
@@ -143,9 +134,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "किसी कारण से कोई ऑडियो उपभोक्ता नहीं है"
     },
-    "addToCalendar": {
-      "add": "कैलेंडर में जोड़ें"
-    },
+    "addToCalendar": { "add": "कैलेंडर में जोड़ें" },
     "wsKilled": {
       "description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
       "reconnect": "फिर कनेक्ट करे"
@@ -187,7 +176,8 @@
         "banFromChat": "ban from chat",
         "banFromRoom": "ban from room",
         "goBackToListener": "go back to listener",
-        "deleteMessage": "इस मैसेज को हटा दें"
+        "deleteMessage": "इस मैसेज को हटा दें",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "बोलने की अनुमति की आवश्यकता है",
@@ -208,7 +198,8 @@
       "modal": {
         "needsFuture": "भविष्य में होना चाहिए",
         "roomName": "रूम का नाम",
-        "minLength": "काम से काम 2"
+        "minLength": "काम से काम 2",
+        "roomDescription": "Description"
       }
     },
     "roomChat": {
@@ -223,6 +214,18 @@
       "whisper": "Whisper",
       "welcomeMessage": "चैट में आपका स्वागत है!",
       "roomDescription": "रूम के बारे में"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fueling rocket",
+      "takingOff": "Taking off",
+      "inSpace": "In space",
+      "approachingMoon": "Approaching moon",
+      "lunarDoge": "Lunar doge",
+      "approachingSun": "Approaching sun",
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
     }
   }
 }

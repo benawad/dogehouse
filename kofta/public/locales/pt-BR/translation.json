@@ -35,8 +35,8 @@
       "currentRoom": "atualmente em:",
       "startPrivateRoom": "iniciar uma sala privada com ele"
     },
-    "followList": {},
-    "home": { "createRoom": "Criar Sala" },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Criar Sala", "refresh": "Atualizar" },
     "inviteList": {
       "roomGone": "acabou a sala, volte",
       "shareRoomLink": "compartilhar link para sala",
@@ -59,8 +59,8 @@
       "logout": "sair",
       "probablyLoading": "possívelmente carregando...",
       "voiceSettings": "ir para configurações de voz",
-      "soundSettings": "ir para configurações de audio",
-      "deleteAccount": "excluír conta"
+      "soundSettings": "ir para configurações de áudio",
+      "deleteAccount": "excluir conta"
     },
     "notFound": {
       "whoopsError": "Ops! Essa página se perdeu na conversa.",
@@ -78,7 +78,9 @@
       "editProfile": "editar perfil",
       "followsYou": "segue você",
       "followers": "seguidores",
-      "following": "seguindo"
+      "following": "seguindo",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Configurações do microfone",
@@ -94,7 +96,7 @@
     "backBar": {},
     "blockedFromRoomUsers": {
       "header": "Usuários expulsos",
-      "unban": "desexpulsar",
+      "unban": "desbanir",
       "noBans": "ninguém foi expulso ainda"
     },
     "bottomVoiceControl": {
@@ -109,7 +111,8 @@
       "makeRoomPublicBtn": "Deixe a sala pública!",
       "settings": "Configurações",
       "speaker": "Apresentador",
-      "listener": "Ouvintes"
+      "listener": "Ouvintes",
+      "chat": "Chat"
     },
     "micPermissionBanner": {
       "permissionDenied": "Permissão negada ao tentar acessar o seu microfone (talvez você tenha que ir nas configurações de seu navegador e recarregar a página)",
@@ -153,7 +156,8 @@
         "banFromChat": "expulsar do chat",
         "banFromRoom": "expulsar da sala",
         "goBackToListener": "voltar para ouvinte",
-        "deleteMessage": "excluir essa mensagem"
+        "deleteMessage": "excluir essa mensagem",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "precisar de permissão para falar",
@@ -161,7 +165,7 @@
         "makePrivate": "fazer a sala privada"
       }
     },
-    "userVolumeSlider": { "noAudioMessage": "não tem audio por algum motivo" },
+    "userVolumeSlider": { "noAudioMessage": "não tem áudio por algum motivo" },
     "addToCalendar": { "add": "Adicionar ao Calendário" },
     "keyboardShortcuts": {
       "setKeybind": "definir atalho no teclado",
@@ -194,7 +198,8 @@
       "modal": {
         "needsFuture": "precisa estar no futuro",
         "roomName": "nome da sala",
-        "minLength": "tamanho mínimo: 2"
+        "minLength": "tamanho mínimo: 2",
+        "roomDescription": "descrição da sala"
       }
     },
     "roomChat": {
@@ -209,6 +214,18 @@
       "whisper": "Sussurrar",
       "welcomeMessage": "Bem vindo ao chat!",
       "roomDescription": "descrição da sala"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Abastecendo foguete",
+      "takingOff": "Decolando",
+      "inSpace": "No espaço",
+      "approachingMoon": "Chegando na Lua",
+      "lunarDoge": "Doge lunar",
+      "approachingSun": "Chegando no Sol",
+      "solarDoge": "Doge solar",
+      "approachingGalaxy": "Chegando na galáxia",
+      "galacticDoge": "Doge galático",
+      "spottedLife": "Encontrado planeta com vida"
     }
   }
 }

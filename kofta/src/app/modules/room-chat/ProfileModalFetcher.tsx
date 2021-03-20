@@ -9,64 +9,64 @@ import { useMeQuery } from "../../utils/useMeQuery";
 import { RoomChatMessage } from "./useRoomChatStore";
 
 interface ProfileModalFetcherProps {
-	userId: string;
-	onClose: () => void;
-	messageToBeDeleted?: RoomChatMessage | null;
+  userId: string;
+  onClose: () => void;
+  messageToBeDeleted?: RoomChatMessage | null;
 }
 
 export const ProfileModalFetcher: React.FC<ProfileModalFetcherProps> = ({
-	userId,
-	onClose,
-	messageToBeDeleted,
+  userId,
+  onClose,
+  messageToBeDeleted,
 }) => {
-	const { currentRoom: room } = useCurrentRoomStore();
-	const { me } = useMeQuery();
-	const { isMod: iAmMod, isCreator: iAmCreator } = useCurrentRoomInfo();
+  const { currentRoom: room } = useCurrentRoomStore();
+  const { me } = useMeQuery();
+  const { isMod: iAmMod, isCreator: iAmCreator } = useCurrentRoomInfo();
 
-	const profileFromRoom: RoomUser | undefined = room?.users.find((x) =>
-		[x.id, x.username].includes(userId)
-	);
+  const profileFromRoom: RoomUser | undefined = room?.users.find((x) =>
+    [x.id, x.username].includes(userId)
+  );
 
-	const { data: profileFromDB } = useQuery<UserWithFollowInfo>(
-		["get_user_profile", userId],
-		() =>
-			wsFetch<any>({
-				op: "get_user_profile",
-				d: { userId },
-			}),
-		{ enabled: !profileFromRoom }
-	);
+  const { data: profileFromDB } = useQuery<UserWithFollowInfo>(
+    ["get_user_profile", userId],
+    () =>
+      wsFetch<any>({
+        op: "get_user_profile",
+        d: { userId },
+      }),
+    { enabled: !profileFromRoom }
+  );
 
-	const profile = profileFromRoom || profileFromDB;
+  const profile = profileFromRoom || profileFromDB;
 
-	useLayoutEffect(() => {
-		if (
-			profile &&
-			me &&
-			profile.id !== me.id &&
-			(profile.youAreFollowing === undefined ||
-				profile.youAreFollowing === null)
-		) {
-			wsend({ op: "follow_info", d: { userId: profile.id } });
-		}
-	}, [me, profile]);
+  useLayoutEffect(() => {
+    if (
+      profile &&
+      me &&
+      profile.id !== me.id &&
+      (profile.youAreFollowing === undefined ||
+        profile.youAreFollowing === null)
+    ) {
+      wsend({ op: "follow_info", d: { userId: profile.id } });
+    }
+  }, [me, profile]);
 
-	if (!room) {
-		return null;
-	}
+  if (!room) {
+    return null;
+  }
 
-	if (!profile) {
-		return null;
-	}
-	return (
-		<ProfileModal
-			iAmCreator={iAmCreator}
-			iAmMod={iAmMod}
-			isMe={profile?.id === me?.id}
-			room={room}
-			onClose={onClose}
-			profile={profile}
-			messageToBeDeleted={messageToBeDeleted}
-		/>
-	);
+  if (!profile) {
+    return null;
+  }
+  return (
+    <ProfileModal
+      iAmCreator={iAmCreator}
+      iAmMod={iAmMod}
+      isMe={profile?.id === me?.id}
+      room={room}
+      onClose={onClose}
+      profile={profile}
+      messageToBeDeleted={messageToBeDeleted}
+    />
+  );
 };
