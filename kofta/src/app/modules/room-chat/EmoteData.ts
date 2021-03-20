@@ -470,6 +470,18 @@ export const customEmojis = [
     imageUrl: "/emotes/sPonGeBoB.png",
   },
   {
+    name: "peepohappy",
+    short_names: ["peepohappy"],
+    keywords: ["peepohappy", "peepo", "pepe"],
+    imageUrl: "/emotes/peepohappy.png",
+  },
+  {
+    name: "peepohug",
+    short_names: ["peepohug"],
+    keywords: ["peepohug", "peepo", "pepe"],
+    imageUrl: "/emotes/peepohug.png",
+  },
+  {
     name: "PurpleDogeHouse",
     short_names: ["PurpleDogeHouse"],
     keywords: ["purple", "dogehouse", "doge"],
