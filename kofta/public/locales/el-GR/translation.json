@@ -138,19 +138,13 @@
     },
     "keyboardShortcuts": {
       "setKeybind": "θέστε μια συντόμευση",
-<<<<<<< HEAD
-      "listening": "αναμονή",
-      "toggleMuteKeybind": "αλλαγή συντόμευσης σίγασης",
-      "togglePushToTalkKeybind": "αλλαγή συντόμευσης για push-to-talk",
-      "toggleOverlayKeybind": "toggle overlay keybind"
-=======
       "listening": "ακροατές",
       "toggleMuteKeybind": "συντόμευση εναλλαγής σίγασης",
-      "togglePushToTalkKeybind": "συντόμευση εναλλαγής push-to-talk"
+      "togglePushToTalkKeybind": "συντόμευση εναλλαγής push-to-talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "δεν υπάρχει δέκτης ήχου για κάποιο λόγο"
->>>>>>> 0bdd296013d79d86599df746ad698bada4f5a6fc
     },
     "addToCalendar": { "add": "Προσθήκη στο Ημερολόγιο" },
     "wsKilled": {
