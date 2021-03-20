@@ -2,6 +2,18 @@ import { EmojiData } from "emoji-mart";
 
 export const customEmojis = [
   {
+    name: "shut",
+    short_names: ["shut"],
+    keywords: ["shut"],
+    imageUrl: "/emotes/shut.png",
+  },
+  {
+    name: "blobWtf",
+    short_names: ["blobWtf"],
+    keywords: ["blob", "wtf"],
+    imageUrl: "/emotes/blobwtf.png",
+  },
+  {
     name: "WhaleThonk",
     short_names: ["WhaleThonk"],
     keywords: ["whale", "thonk", "thinking", "what"],
@@ -526,7 +538,7 @@ export const customEmojis = [
   {
     name: "lulWut",
     short_names: ["lulWut"],
-    keywords: ["lulwut", "lul", "lmao", "lol", "wut", "what", "wat", "wtf". "omegalul", "ha", "haha", "ja", "jaja"],
+    keywords: ["lulwut", "lul", "lmao", "lol", "wut", "what", "wat", "wtf", "omegalul", "ha", "haha", "ja", "jaja"],
     imageUrl: "/emotes/lulWut.png",
   },
   {
