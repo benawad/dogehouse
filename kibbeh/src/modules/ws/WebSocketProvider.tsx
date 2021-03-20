@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { raw } from "@dogehouse/kebab";
 import { useTokenStore } from "../auth/useTokenStore";
 import { apiBaseUrl } from "../../lib/constants";
+import { useRouter } from "next/router";
 
 interface WebSocketProviderProps {
   shouldConnect: boolean;
@@ -19,6 +20,7 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
 }) => {
   const hasTokens = useTokenStore((s) => s.accessToken && s.refreshToken);
   const [conn, setConn] = useState<V>(null);
+  const { replace } = useRouter();
 
   useEffect(() => {
     if (!conn && shouldConnect && hasTokens) {
@@ -29,9 +31,13 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
           url: apiBaseUrl.replace("http", "ws") + "/socket",
         })
         .then((x) => setConn(x))
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          if (err.code === 4001) {
+            replace(`/?next=${window.location.pathname}`);
+          }
+        });
     }
-  }, [conn, shouldConnect, hasTokens]);
+  }, [conn, shouldConnect, hasTokens, replace]);
 
   return (
     <WebSocketContext.Provider value={useMemo(() => ({ conn }), [conn])}>

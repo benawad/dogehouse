@@ -36,7 +36,7 @@
       "currentRoom": "موجودہ روم:",
       "startPrivateRoom": "ان کے ساتھ ایک نجی روم شروع کریں"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "روم بنائیں", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "یہ روم اب موجود نہیں ہے",
@@ -79,7 +79,9 @@
       "editProfile": "پروفائل میں ترمیم کریں",
       "followsYou": "آپ کے پیچھے",
       "followers": "پیروکار",
-      "following": "درج ذیل"
+      "following": "درج ذیل",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "آواز کی ترتیبات",

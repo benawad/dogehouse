@@ -35,7 +35,7 @@
       "currentRoom": "aktuálne v:",
       "startPrivateRoom": "začať s nimi súkromnú miestnosť"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Vytvoriť miestnosť", "refresh": "Obnoviť" },
     "inviteList": {
       "roomGone": "miestnosť je fuč, vráť sa",
@@ -77,13 +77,15 @@
     "viewUser": {
       "editProfile": "upraviť profil",
       "followsYou": "sleduje ťa",
-      "followers": "sleduješ",
-      "following": "sleduje"
+      "followers": "sledovateľov",
+      "following": "sledovaných",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Nastavenia hlasu",
       "mic": "mikrofón:",
-      "permissionError": "žiadne mikrofony nenájdené, buď žiaden nie je zapojený alebo si neudelil stránke oprávnenie.",
+      "permissionError": "žiadne mikrofóny nenájdené, buď žiaden nie je zapojený alebo si neudelil stránke oprávnenie.",
       "refresh": "obnoviť zoznam mikrofónov",
       "volume": "hlasitosť:"
     }
@@ -105,7 +107,7 @@
       "invite": "Pozvať",
       "toggleMuteMicBtn": "Prepnúť stíšenie mikrofónu",
       "mute": "Stíšiť",
-      "unmute": "Zapnúť mikrofón",
+      "unmute": "Hovoriť",
       "makeRoomPublicBtn": "Zverejniť miestnosť!",
       "settings": "Nastavenia",
       "speaker": "Rozprávač",
@@ -146,7 +148,7 @@
         "private": "súkromá",
         "roomName": "názov miestnosti",
         "roomDescription": "popis miestnosti",
-        "descriptionError": "maximálna dĺžka 500",
+        "descriptionError": "maximálna dĺžka je 500 znakov",
         "nameError": "počet znakov musí byť medzi 2-60"
       },
       "invitedToJoinRoomModal": {
@@ -160,9 +162,9 @@
         "usernameTaken": "používatelské meno je obsadené",
         "avatarUrlError": "Nesprávny obrázok",
         "avatarUrlLabel": "odkaz na Github/Twitter obrázok",
-        "displayNameError": "počet znakové musí byť medzi 2-50",
+        "displayNameError": "počet znakov musí byť medzi 2-50",
         "displayNameLabel": "Verejná prezývka",
-        "usernameError": "počet znakové musí byť medzi 4-15, povolené sú len písmená, čísla a podčiarkovník",
+        "usernameError": "počet znakov musí byť medzi 4-15, povolené sú len písmená, čísla a podčiarkovník",
         "usernameLabel": "Používatelské meno",
         "bioError": "maximálna dĺžka je 160 znakov",
         "bioLabel": "O mne"
@@ -177,10 +179,11 @@
         "banFromChat": "zabanovať z chatu",
         "banFromRoom": "zabanovat z miestnosti",
         "goBackToListener": "vrátiť sa k poslucháčovi",
-        "deleteMessage": "zmazať túto správu"
+        "deleteMessage": "zmazať túto správu",
+        "makeRoomCreator": "udeliť správcu miestnosti"
       },
       "roomSettingsModal": {
-        "requirePermission": "chce oprávnenie hovoriť",
+        "requirePermission": "Poslucháči musia požiadať o povolenie rozprávať",
         "makePublic": "zverejniť miestnosť",
         "makePrivate": "zosúkromniť miestnosť"
       }
@@ -199,7 +202,7 @@
         "needsFuture": "musí byť v budúcnosti",
         "roomName": "názov miestnosti",
         "minLength": "minimálne 2 znaky",
-        "roomDescription": "Description"
+        "roomDescription": "Popis"
       }
     },
     "roomChat": {
@@ -223,9 +226,9 @@
       "lunarDoge": "Lunárny doge",
       "approachingSun": "Blížime sa k slnku",
       "solarDoge": "Solárny doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "approachingGalaxy": "Blížime sa ku galaxii",
+      "galacticDoge": "Galaktický Doge",
+      "spottedLife": "Zahliadnutá planéta so životom"
     }
   }
 }

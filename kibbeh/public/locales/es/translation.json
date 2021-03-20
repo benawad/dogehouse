@@ -34,8 +34,8 @@
       "currentRoom": "actualmente en:",
       "startPrivateRoom": "empieza una sala privada con ellos"
     },
-    "followList": {},
-    "home": { "createRoom": "Crear Sala", "refresh": "Refresh" },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Crear Sala", "refresh": "Recargar" },
     "inviteList": {
       "roomGone": "sala no disponible, vuelve atrás",
       "shareRoomLink": "compartir enlace de la sala",
@@ -77,7 +77,9 @@
       "editProfile": "editar perfil",
       "followsYou": "te sigue",
       "followers": "seguidores",
-      "following": "siguiendo"
+      "following": "siguiendo",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Ajustes de voz",
@@ -153,7 +155,8 @@
         "banFromChat": "bloquear del chat",
         "banFromRoom": "bloquear de la sala",
         "goBackToListener": "volver a ser oyente",
-        "deleteMessage": "eliminar mensaje"
+        "deleteMessage": "eliminar mensaje",
+        "makeRoomCreator": "hacer administrador de la sala"
       },
       "roomSettingsModal": {
         "requirePermission": "requiere permiso para hablar",
@@ -214,16 +217,16 @@
       "roomDescription": "descripción de la sala"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "fuelingRocket": "Llenando de combustible el cohete",
+      "takingOff": "Despegando",
+      "inSpace": "En el espacio",
+      "approachingMoon": "Acercandose a la luna",
+      "lunarDoge": "Doge lunar",
+      "approachingSun": "Acercandose al sol",
+      "solarDoge": "Doge solar",
+      "approachingGalaxy": "Acercandose a la galaxia",
+      "galacticDoge": "Doge galáctico",
+      "spottedLife": "Vida descubierta en el planeta"
     }
   }
 }

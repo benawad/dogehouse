@@ -1,9 +1,10 @@
 import React from "react";
 import ReactModal from "react-modal";
+import { SolidPlus } from "../icons";
 
 const customStyles = {
   overlay: {
-    backgroundColor: "rgba(0, 0, 0, .5)",
+    backgroundColor: "rgba(0, 0, 0, 0.8)",
     zIndex: 1000,
   },
   content: {
@@ -12,12 +13,14 @@ const customStyles = {
     right: "auto",
     bottom: "auto",
     marginRight: "-50%",
+    borderRadius: 8,
+    padding: "20px 40px 40px 40px",
     transform: "translate(-50%, -50%)",
-    backgroundColor: "#262626",
+    backgroundColor: "var(--color-primary-800)",
     border: "none",
     maxHeight: "80vh",
     width: "90%",
-    maxWidth: 500,
+    maxWidth: 530,
   },
 };
 
@@ -42,8 +45,22 @@ export const Modal: React.FC<ReactModal["props"]> = ({
       style={customStyles}
       {...props}
     >
-      <div tabIndex={-1} onKeyDown={onKeyDown}>
-        {children}
+      <div className={`flex-col w-full`}>
+        <div className={`justify-end`}>
+          <button
+            className={`-mr-4 -mt-1 p-1`}
+            onClick={(e) => props?.onRequestClose?.(e)}
+          >
+            <SolidPlus className={`transform rotate-45`} />
+          </button>
+        </div>
+        <div
+          tabIndex={-1}
+          className={`focus:outline-none`}
+          onKeyDown={onKeyDown}
+        >
+          {children}
+        </div>
       </div>
     </ReactModal>
   );

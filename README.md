@@ -47,6 +47,15 @@ DogeHouse is open to contributions, but I recommend creating an issue or replyin
 
 Please read [CONTRIBUTING.md](https://github.com/benawad/dogehouse/blob/staging/CONTRIBUTING.md) for details on this project.
 
+## DogeReviewers
+
+Contributors helping to review/merge pull requests:
+
+- @ermalsh
+- @ofsho
+- @HMayotte
+- @nadirabbas
+
 ## Code of Conduct
 
 Please read [CODE_OF_CONDUCT.md](https://github.com/benawad/dogehouse/blob/staging/CODE_OF_CONDUCT.md) for details on our code of conduct.

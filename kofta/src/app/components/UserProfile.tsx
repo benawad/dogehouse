@@ -111,7 +111,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
               }}
               variant="small"
             >
-              {youAreFollowing ? "following" : "follow"}
+              {youAreFollowing ? t("pages.viewUser.followingHim") : t("pages.viewUser.followHim")}
             </Button>
           </div>
         )}

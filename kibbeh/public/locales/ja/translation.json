@@ -36,7 +36,7 @@
       "currentRoom": "参加中:",
       "startPrivateRoom": "非公開ルームを開始"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "ルーム作成", "refresh": "更新" },
     "inviteList": {
       "roomGone": "ルームが削除されました。前のページに戻ります",
@@ -79,7 +79,9 @@
       "editProfile": "プロフィールを編集",
       "followsYou": "フォローされています",
       "followers": "フォロワー",
-      "following": "フォロー"
+      "following": "フォロー",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "マイク設定",
@@ -173,7 +175,8 @@
         "banFromChat": "チャットからBAN",
         "banFromRoom": "ルームからBAN",
         "goBackToListener": "リスナーに戻る",
-        "deleteMessage": "メッセージを削除"
+        "deleteMessage": "メッセージを削除",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "発言を許可制にする",

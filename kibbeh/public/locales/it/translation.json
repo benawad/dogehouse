@@ -35,7 +35,7 @@
       "currentRoom": "in questo momento è connesso a:",
       "startPrivateRoom": "avvia una stanza privata con lui"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Crea una Stanza", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "stanza inesistente, torna indietro",
@@ -78,7 +78,9 @@
       "editProfile": "modifica profilo",
       "followsYou": "ti segue",
       "followers": "followers",
-      "following": "stai seguendo"
+      "following": "stai seguendo",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Impostazioni della voce",
@@ -177,7 +179,8 @@
         "banFromChat": "banna dalla chat",
         "banFromRoom": "banna dalla stanza",
         "goBackToListener": "ritorna ad essere un ascoltatore",
-        "deleteMessage": "elimina questo messaggio"
+        "deleteMessage": "elimina questo messaggio",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "richiedi permesso per parlare",
