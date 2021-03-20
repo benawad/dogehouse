@@ -28,6 +28,9 @@ let ipcRenderer: any = undefined;
 if (isElectron()) {
   ipcRenderer = window.require("electron").ipcRenderer;
 }
+
+const isMac = process.platform === 'darwin';
+
 interface RoomPageProps { }
 
 export const RoomPage: React.FC<RoomPageProps> = () => {
@@ -59,9 +62,10 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   const [ipcStarted, setIpcStarted] = useState(false);
 
   useEffect(() => {
-    if (isElectron()) {
-      ipcRenderer.on("@overlay/start_ipc", () => {
-        setIpcStarted(true);
+    if (isElectron() && !isMac) {
+      ipcRenderer.send("@overlay/start_ipc", true);
+      ipcRenderer.on("@overlay/start_ipc", (event: any, shouldStart: boolean) => {
+        setIpcStarted(shouldStart);
       })
     }
   }, []);
@@ -104,7 +108,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   const unansweredHands: BaseUser[] = [];
   const listeners: BaseUser[] = [];
   let canIAskToSpeak = false;
-  if(iCanSpeak && myProfile) {
+  if (iCanSpeak && myProfile) {
     speakers.push(myProfile);
   } else if (!iCanSpeak && myProfile) {
     listeners.push(myProfile);

@@ -1,4 +1,5 @@
 import { BrowserWindow } from 'electron';
+import * as path from "path";
 import { __prod__ } from '../electron';
 
 export function createOverlay(target: string, OW: any) {
@@ -10,8 +11,8 @@ export function createOverlay(target: string, OW: any) {
         },
         ...OW.WINDOW_OPTS,
     });
-
-    overLay.loadURL("http://localhost:5000");
+    overLay.loadFile(path.join(__dirname, "../../resources/overlay/index.html"));
+    //overLay.loadURL("http://localhost:5000");
     OW.attachTo(overLay, target);
     return overLay;
 }

@@ -34,10 +34,11 @@ If you encounter any other errors make a new issue.
 
 > **NOTE:** I have no idea why iohook requires this but it does. And I only found iohook to be a reliable module to detect the `keyup` and `keydown` events *(when app in background)* for use with PTT.
 
-## Using hot reload
+~~## Using hot reload~~
 
-The electron wrapper has the capability for hot reloads during development.
-You can run the app in hot reload mode using `npm run dev`.
+~~The electron wrapper has the capability for hot reloads during development.
+You can run the app in hot reload mode using `npm run dev`.~~
 
-While in hot reload mode, any time you save changes to a `ts` file, the electron app will recompile and relaunch itself.
-To exit hot reload mode, use `Ctrl+C` in the console. This will however, leave the current app window open, so be sure to close that also, as it will no longer have access to hot reload.
+~~While in hot reload mode, any time you save changes to a `ts` file, the electron app will recompile and relaunch itself.
+To exit hot reload mode, use `Ctrl+C` in the console. This will however, leave the current app window open, so be sure to close that also, as it will no longer have access to hot reload.~~  
+Hot reload functanality is disabled for now

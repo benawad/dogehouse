@@ -1,6 +1,6 @@
 {
     "name": "dogehouse",
-    "version": "1.0.15",
+    "version": "1.0.17",
     "description": "Taking voice conversations to the moon 🚀",
     "main": "./dist/electron.js",
     "scripts": {
@@ -85,6 +85,7 @@
         ]
     },
     "files": [
-        "./icons/**/*"
+        "./icons/**/*",
+        "./resources/**/*"
     ]
 }

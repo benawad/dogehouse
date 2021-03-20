@@ -18,6 +18,8 @@ const overlaySettingsStruct = object({
     appTitle: string(),
 });
 
+const isMac = process.platform === 'darwin';
+
 const validateData = validateStruct(overlaySettingsStruct);
 
 export const OverlaySettings: React.FC<OverlaySettingsProps> = () => {
@@ -25,7 +27,7 @@ export const OverlaySettings: React.FC<OverlaySettingsProps> = () => {
     const history = useHistory();
     const { appTitle } = useOverlayStore.getState();
     useEffect(() => {
-        if (!isElectron()) {
+        if (!isElectron() || isMac) {
             history.push('/me')
         }
     }, []);

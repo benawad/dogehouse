@@ -14,6 +14,8 @@ import isElectron from "is-electron";
 
 interface MyProfilePageProps { }
 
+const isMac = process.platform === 'darwin';
+
 export const MyProfilePage: React.FC<MyProfilePageProps> = ({ }) => {
   const { me } = useMeQuery();
   const history = useHistory();
@@ -55,7 +57,7 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({ }) => {
             {t("pages.myProfile.voiceSettings")}
           </Button>
           {
-            isElectron() ? <Button
+            isElectron() && !isMac ? <Button
               style={{ marginRight: "10px" }}
               variant="small"
               onClick={() => history.push(`/overlay-settings`)}

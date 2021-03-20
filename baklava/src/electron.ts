@@ -12,7 +12,7 @@ import iohook from "iohook";
 import { autoUpdater } from "electron-updater";
 import { RegisterKeybinds } from "./utils/keybinds";
 import { HandleVoiceTray } from "./utils/tray";
-import { ALLOWED_HOSTS, MENU_TEMPLATE } from "./constants";
+import { ALLOWED_HOSTS, isMac, MENU_TEMPLATE } from "./constants";
 import url from "url";
 import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
@@ -44,7 +44,7 @@ function createWindow() {
   });
   splash.loadURL(
     url.format({
-      pathname: path.join(`${__dirname}`, "../splash-screen.html"),
+      pathname: path.join(`${__dirname}`, "../resources/splash/splash-screen.html"),
       protocol: "file:",
       slashes: true,
     })
@@ -78,6 +78,9 @@ function createWindow() {
       );
       event.returnValue = isAllowed;
     });
+  if (!isMac) {
+    mainWindow.webContents.send("@alerts/permissions", true);
+  }
 
   // registers global keybinds
   RegisterKeybinds(mainWindow);
