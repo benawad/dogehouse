@@ -183,12 +183,14 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
                     variant={`small`}
                     onClick={() => {
                       modalConfirm(
-                        `Are you sure? This will allow all ${unansweredHands.length} requesting users to speak.`,
+                        t("pages.room.allowAllConfirm", {
+                          count: unansweredHands.length,
+                        }),
                         allowAllRequestingSpeakers
                       );
                     }}
                   >
-                    Allow all
+                    {t("pages.room.allowAll")}
                   </Button>
                 )}
               </div>
