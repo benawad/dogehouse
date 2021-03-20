@@ -15,7 +15,8 @@
     "copyLink": "copiar link",
     "copied": "copiado",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Cabeçalho da interface principal para traduções",
