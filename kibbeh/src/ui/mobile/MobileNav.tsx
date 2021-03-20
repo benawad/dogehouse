@@ -28,7 +28,7 @@ export const MobileNavItem: React.FC<MobileNavItemProps> = ({
   targetPath,
 }) => {
   const router = useRouter();
-  const isActive = router.pathname.includes(targetPath);
+  const isActive = router ? router.pathname.includes(targetPath) : false;
 
   return (
     <Link href={targetPath}>
