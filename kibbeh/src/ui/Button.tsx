@@ -40,7 +40,7 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <button
       disabled={disabled || loading}
-      className={`${sizeClassnames[size]} ${colorClassnames[color]} font-bold flex items-center justify-center ${className}`}
+      className={`${sizeClassnames[size]} ${colorClassnames[color]} font-bold flex items-center justify-center focus:outline-none ${className}`}
       data-testid="button"
       {...props}
     >
