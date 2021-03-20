@@ -35,7 +35,7 @@
       "currentRoom": "वर्तमान में:",
       "startPrivateRoom": "उनके साथ एक प्राइवेट रूम शुरू करें"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "रूम बनाये", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "रूम गया, वापस जाए",
@@ -78,7 +78,9 @@
       "editProfile": "edit profile",
       "followsYou": "follows you",
       "followers": "फॉलोअर्स",
-      "following": "फॉलोइंग"
+      "following": "फॉलोइंग",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "आवाज़ की सेटिंग्स",
@@ -174,7 +176,8 @@
         "banFromChat": "ban from chat",
         "banFromRoom": "ban from room",
         "goBackToListener": "go back to listener",
-        "deleteMessage": "इस मैसेज को हटा दें"
+        "deleteMessage": "इस मैसेज को हटा दें",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "बोलने की अनुमति की आवश्यकता है",

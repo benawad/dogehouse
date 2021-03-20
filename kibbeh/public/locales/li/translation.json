@@ -30,19 +30,14 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "Banne"
-    },
+    "banUser": { "ban": "Banne" },
     "followingOnlineList": {
       "listHeader": "Liest van gebroekers die dich volgst mèr niet in inge perseunlijke kamer zitten.",
       "currentRoom": "Op t moment in:",
       "startPrivateRoom": "Sjtart inge perseunlijke kamer mit disè persoon"
     },
-    "followList": {},
-    "home": {
-      "createRoom": "Kamer make",
-      "refresh": "Verviesje"
-    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Kamer make", "refresh": "Verviesje" },
     "inviteList": {
       "roomGone": "Kamer besjteed niet, gank teruk",
       "shareRoomLink": "Link van disè kamer deijle",
@@ -78,17 +73,15 @@
       "requestingToSpeak": "Aanvroage om te sjpreke",
       "listeners": "Loestereers"
     },
-    "searchUser": {
-      "search": "Zeucke..."
-    },
-    "soundEffectSettings": {
-      "header": "Geluide"
-    },
+    "searchUser": { "search": "Zeucke..." },
+    "soundEffectSettings": { "header": "Geluide" },
     "viewUser": {
       "editProfile": "Profiel bewirke",
       "followsYou": "Volgt dich",
       "followers": "Volgers",
-      "following": "Volgend"
+      "following": "Volgend",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Sjpraak",
@@ -145,9 +138,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "Ging audioapparaat veur ing of andere reje"
     },
-    "addToCalendar": {
-      "add": "Voeg toe aan agenda"
-    },
+    "addToCalendar": { "add": "Voeg toe aan agenda" },
     "wsKilled": {
       "description": "WebSocket is gejstopt durch de server. Dit gebeurt vaak wannier de site opensjteet in inge andere tabblad.",
       "reconnect": "Opnuj verbinge"
@@ -189,7 +180,8 @@
         "banFromChat": "Banne van de chat",
         "banFromRoom": "Banne van de kamer",
         "goBackToListener": "Gank terug noa loestereer",
-        "deleteMessage": "Disè bericht verwijdere"
+        "deleteMessage": "Disè bericht verwijdere",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "Toesjtimming neudig om te sjpreke",
