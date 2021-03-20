@@ -8,6 +8,7 @@ export { default as SolidNotification } from "./SolidNotification";
 export { default as SolidPlus } from "./SolidPlus";
 export { default as SolidSearch } from "./SolidSearch";
 export { default as LgLogo } from "./LgLogo";
+export { default as LogoIcon } from './LogoIcon';
 export { default as OutlineGlobe } from "./OutlineGlobe";
 export { default as SolidBug } from "./SolidBug";
 export { default as SolidCaretRight } from "./SolidCaretRight";
