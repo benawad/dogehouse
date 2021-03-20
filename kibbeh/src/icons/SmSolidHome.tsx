@@ -17,7 +17,7 @@ function SvgSmSolidHome(props: React.SVGProps<SVGSVGElement>) {
       </g>
       <defs>
         <clipPath id="sm-solid-home_svg__clip0">
-          <path  d="M0 0h20v20H0z" />
+          <path fill="currentColor" d="M0 0h20v20H0z" />
         </clipPath>
       </defs>
     </svg>

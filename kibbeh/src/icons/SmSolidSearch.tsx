@@ -20,7 +20,7 @@ function SvgSmSolidSearch(props: React.SVGProps<SVGSVGElement>) {
       </g>
       <defs>
         <clipPath id="sm-solid-search_svg__clip0">
-          <path d="M0 0h20v20H0z" />
+          <path d="M0 0h16v16H0z" />
         </clipPath>
       </defs>
     </svg>

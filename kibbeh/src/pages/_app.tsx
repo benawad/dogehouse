@@ -11,8 +11,6 @@ import { init_i18n } from "../lib/i18n";
 import { SoundEffectPlayer } from "../modules/sound-effects/SoundEffectPlayer";
 import ReactModal from "react-modal";
 
-import { MobileNav } from "../ui/MobileNav";
-import {SmSolidHome, SmSolidCalendar, SmSolidPlus, SmSolidCompass, SmSolidFriends} from "../icons"
 
 if (!isServer) {
   init_i18n();
@@ -30,29 +28,6 @@ function App({ Component, pageProps }: AppProps) {
         <ToastContainer />
         <SoundEffectPlayer />
       </QueryClientProvider>
-      <MobileNav
-        items={[
-          {
-            targetPath: "/home",
-            icon: <SmSolidHome />,
-          },{
-            targetPath: "/home",
-            icon: <SmSolidCalendar />,
-          },
-          {
-            targetPath: "/home",
-            icon: <SmSolidPlus />,
-          },
-          {
-            targetPath: "/home",
-            icon: <SmSolidCompass />,
-          },
-          {
-            targetPath: "/home",
-            icon: <SmSolidFriends />,
-          },
-        ]}
-      />
     </WebSocketProvider>
   );
 }
