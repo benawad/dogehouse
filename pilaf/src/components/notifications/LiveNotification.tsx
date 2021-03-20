@@ -5,12 +5,10 @@ import {
   ViewStyle,
   Text,
   TouchableOpacity,
-  ImageSourcePropType,
+  Image,
 } from "react-native";
 import { colors, fontFamily, fontSize } from "../../constants/dogeStyle";
-import { SingleUserAvatar } from "../avatars/SingleUserAvatar";
 import { GenericNotification } from "./GenericNotification";
-import Icon from "react-native-vector-icons/Ionicons";
 
 interface LiveNotificationProps {
   style?: ViewStyle;
@@ -27,7 +25,9 @@ export const LiveNotification: React.FC<LiveNotificationProps> = ({
   time,
   joined = false,
 }) => {
-  const icon = <Icon name={"alarm"} size={40} color={colors.text} />;
+  const icon = (
+    <Image source={require("../../assets/images/lg-solid-time.png")} />
+  );
 
   const notificationMsg = (
     <View style={{ flexDirection: "row" }}>
@@ -63,11 +63,12 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
   },
   button: {
-    height: 32,
+    height: 22,
+    width: 90,
     backgroundColor: colors.accent,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
     borderRadius: 8,
+    alignItems: "center",
+    justifyContent: "center",
   },
   buttonTitle: {
     fontSize: fontSize.small,

@@ -40,7 +40,7 @@ export const MultipleUserAvatar: React.FC<MultipleUserAvatarProps> = ({
               styles.singleAvatarContainer,
               {
                 left: (i * singleAvatarSize) / 2,
-                borderRadius: singleAvatarSize / 2,
+                borderRadius: (singleAvatarSize + 4) / 2,
                 zIndex: -i,
               },
             ]}
