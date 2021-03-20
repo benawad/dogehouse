@@ -10,7 +10,7 @@ type PaginatedKey<K extends Keys> = [K, string | number];
 
 export const useTypeSafeQuery = <K extends Keys>(
   key: K | PaginatedKey<K>,
-  opts: UseQueryOptions,
+  opts?: UseQueryOptions,
   params?: Parameters<ReturnType<typeof wrap>["query"][K]>
 ) => {
   const { conn } = useContext(WebSocketContext);
