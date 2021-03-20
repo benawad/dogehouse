@@ -71,7 +71,9 @@
     "room": {
       "speakers": "اسپیکر",
       "requestingToSpeak": "بولنے کی درخواسات",
-      "listeners": "سامعین"
+      "listeners": "سامعین",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "تلاش کریں" },
     "soundEffectSettings": { "header": "آواز کی ترتیبات" },

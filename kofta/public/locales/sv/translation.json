@@ -70,7 +70,9 @@
     "room": {
       "speakers": "Talare",
       "requestingToSpeak": "Begär att tala",
-      "listeners": "Lyssnare"
+      "listeners": "Lyssnare",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "sök..." },
     "soundEffectSettings": { "header": "Ljud" },
