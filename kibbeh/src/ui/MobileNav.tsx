@@ -28,7 +28,6 @@ export const MobileNavItem: React.FC<MobileNavItemProps> = ({
   targetPath,
 }) => {
   const router = useRouter();
-  console.log(router);
   const isActive = router.pathname.includes(targetPath);
 
   return (
@@ -37,9 +36,7 @@ export const MobileNavItem: React.FC<MobileNavItemProps> = ({
         {children &&
           React.Children.map(children, (child) => {
             return React.cloneElement(child as React.ReactElement, {
-              fill: isActive
-                ? "var(--color-accent)"
-                : "var(--color-primary-100)",
+              className: isActive ? "text-accent" : "text-primary-100",
             });
           })}
       </div>

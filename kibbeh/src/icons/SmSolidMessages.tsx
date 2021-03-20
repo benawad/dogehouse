@@ -3,19 +3,20 @@ import * as React from "react";
 function SvgSmSolidMessages(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
-      width={20}
-      height={20}
-      fill="none"
+      width={16}
+      height={16}
+      viewBox="0 0 16 16"
+      fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <g clipPath="url(#sm-solid-messages_svg__clip0)" fill="#fff">
-        <path d="M18.172 5.883H7.514c-1.01 0-1.833.823-1.833 1.833v7.421c0 1.01.823 1.828 1.833 1.828h6.099c.134 0 .269.058.365.154l3.03 2.794c.169.164.448.096.448-.14V17.34c0-.288.182-.38.47-.38h.049c1.01 0 2.025-.813 2.025-1.828V7.716a1.825 1.825 0 00-1.828-1.833z" />
-        <path d="M6.073 4.703h8.533V1.562c0-.866-.702-1.568-1.568-1.568H1.562c-.866 0-1.568.702-1.568 1.568v7.946c0 .865.702 1.568 1.568 1.568H4.5V6.27a1.575 1.575 0 011.572-1.568z" />
+      <g clipPath="url(#sm-solid-messages_svg__clip0)">
+        <path d="M14.538 4.707H6.01c-.808 0-1.466.658-1.466 1.466v5.937c0 .808.658 1.462 1.466 1.462h4.879a.42.42 0 01.292.123l2.425 2.236c.134.13.357.077.357-.112v-1.947c0-.23.147-.304.377-.304h.039c.808 0 1.62-.65 1.62-1.462V6.173a1.46 1.46 0 00-1.462-1.466z" />
+        <path d="M4.859 3.762h6.826V1.25c0-.693-.562-1.255-1.255-1.255H1.25C.557-.005-.005.557-.005 1.25v6.356c0 .693.562 1.255 1.255 1.255H3.6V5.017A1.26 1.26 0 014.86 3.762z" />
       </g>
       <defs>
         <clipPath id="sm-solid-messages_svg__clip0">
-          <path fill="#fff" d="M0 0h20v20H0z" />
+          <path d="M0 0h20v20H0z" />
         </clipPath>
       </defs>
     </svg>
