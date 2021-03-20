@@ -16,7 +16,7 @@ export const MultipleUsers: React.FC<AvatarProps> = ({
       {srcArray.slice(0, 3).map((s, i) => (
         <span
           key={s + i}
-          className=" rounded-full bg-primary-800 border-primary-800"
+          className="rounded-full bg-primary-800 border-primary-800"
           style={{
             zIndex: srcArray.length - i,
             marginLeft: i > 0 ? -5 : 0,
