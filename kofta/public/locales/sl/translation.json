@@ -30,19 +30,14 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "Blokiraj"
-    },
+    "banUser": { "ban": "Blokiraj" },
     "followingOnlineList": {
       "listHeader": "Seznam uporabnikov, ki jim slediš in niso v zasebni sobi.",
       "currentRoom": "Trenutno v:",
       "startPrivateRoom": "Začni zasebno sobo s tem uporabnikom"
     },
-    "followList": {},
-    "home": {
-      "createRoom": "Ustvari sobo",
-      "refresh": "Osveži"
-    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Ustvari sobo", "refresh": "Osveži" },
     "inviteList": {
       "roomGone": "Sobe ni bilo mogoče najti! Nazaj",
       "shareRoomLink": "Deli povezavo do sobe",
@@ -76,19 +71,19 @@
     "room": {
       "speakers": "Govorci",
       "requestingToSpeak": "Zahtevajo dovoljenje za vklop zvoka",
-      "listeners": "Poslušalci"
+      "listeners": "Poslušalci",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "Iskanje..."
-    },
-    "soundEffectSettings": {
-      "header": "Zvoki"
-    },
+    "searchUser": { "search": "Iskanje..." },
+    "soundEffectSettings": { "header": "Zvoki" },
     "viewUser": {
       "editProfile": "Uredi profil",
       "followsYou": "ti sledi",
       "followers": "Sledilci",
-      "following": "Spremljane osebe"
+      "following": "Spremljane osebe",
+      "followHim": "Sledi tej osebi",
+      "followingHim": "Slediš tej osebi"
     },
     "voiceSettings": {
       "header": "Nastavitve zvoka",
@@ -127,10 +122,7 @@
       "linkText": "GitHub",
       "addSupport": "in bomo poskusili dodati podporo za tvojo napravo."
     },
-    "inviteButton": {
-      "invited": "povabljen",
-      "inviteToRoom": "povabi v sobo"
-    },
+    "inviteButton": { "invited": "povabljen", "inviteToRoom": "povabi v sobo" },
     "micPermissionBanner": {
       "permissionDenied": "Nimamo pravic za uporabo tvojega mikrofona. Odpri nastavitve brskalnika, dovoli dostop do mikrofona in nato osveži stran.",
       "dismiss": "Opusti",
@@ -145,9 +137,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "Iz nekega razloga ni odjemalca zvoka"
     },
-    "addToCalendar": {
-      "add": "Dodaj na koledar"
-    },
+    "addToCalendar": { "add": "Dodaj na koledar" },
     "wsKilled": {
       "description": "Povezava z spletno vtičnico je bila prekinjena. To se ponavadi zgodi, ko se ta spletna stran odpre v novem zavihku.",
       "reconnect": "Ponovno se poveži"
@@ -177,7 +167,7 @@
         "usernameError": "Dolžina: 4 do 15 alfanumeričnih znakov ali podčrtaj",
         "usernameLabel": "Uporabniško ime",
         "bioError": "Največ 160 znakov",
-        "bioLabel": "Bio"
+        "bioLabel": "Opis"
       },
       "profileModal": {
         "blockUserConfirm": "Si prepričan, da želiš temu uporabniku onemogočiti dostop do vseh sob, ki jih boš ustvaril?",
@@ -233,11 +223,11 @@
       "takingOff": "Vzlet",
       "inSpace": "V vesolju",
       "approachingMoon": "Bližanje luni",
-      "lunarDoge": "Lunar doge",
+      "lunarDoge": "Lunarni doge",
       "approachingSun": "Bližanje soncu",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
+      "solarDoge": "Solarni doge",
+      "approachingGalaxy": "Bližanje galaksiji",
+      "galacticDoge": "Galaktični Doge",
       "spottedLife": "Najden planet z življenjem"
     }
   }
