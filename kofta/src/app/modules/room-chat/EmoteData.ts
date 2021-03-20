@@ -2,8 +2,8 @@ import { EmojiData } from "emoji-mart";
 
 export const customEmojis = [
   {
-    name: "WhakeThonk",
-    short_names: ["WhakeThonk"],
+    name: "WhaleThonk",
+    short_names: ["WhaleThonk"],
     keywords: ["whale", "thonk", "thinking", "what"],
     imageUrl: "/emotes/whalethonk.png",
   },
