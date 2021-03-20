@@ -10,8 +10,6 @@ import { Config } from "react-native-config";
 import App from "./App";
 import StorybookUI from "./storybook";
 
-console.log(Config);
-
 AppRegistry.registerComponent(appName, () =>
   Config.IS_STORYBOOK === "true" ? StorybookUI : App
 );
