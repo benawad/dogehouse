@@ -93,7 +93,9 @@
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings"
+      "header": "Overlay Settings",
+      "errorMsg": "Please enter valid app title",
+      "label": "Enter app title"
     }
   },
   "components": {

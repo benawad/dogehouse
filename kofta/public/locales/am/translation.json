@@ -36,7 +36,7 @@
       "currentRoom": "በአሁኑ ጊዜ ውስጥ:",
       "startPrivateRoom": "ከእነሱ ጋር አንድ የግል ክፍል መጀመር"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "ክፍል ፍጠር", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "ክፍሉ ጠፋ, ተመለስ",
@@ -94,7 +94,9 @@
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings"
+      "header": "Overlay Settings",
+      "errorMsg": "Please enter valid app title",
+      "label": "Enter app title"
     }
   },
   "components": {
