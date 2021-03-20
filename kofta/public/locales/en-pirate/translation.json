@@ -71,7 +71,7 @@
     "room": {
       "speakers": "Crew",
       "requestingToSpeak": "Requestin' t' speak",
-      "listeners": "Shipmates
+      "listeners": "Shipmates"
     },
     "searchUser": { "search": "searchin' fer booty..." },
     "soundEffectSettings": { "header": "Sounds" },
