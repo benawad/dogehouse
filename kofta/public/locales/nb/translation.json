@@ -35,7 +35,7 @@
       "currentRoom": "for tiden i:",
       "startPrivateRoom": "start et privat rom med dem"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": { "followHim": "følg", "followingHim": "følger" },
     "home": { "createRoom": "Lag et rom", "refresh": "Last inn på nytt" },
     "inviteList": {
       "roomGone": "rommet er borte, gå tilbake",
@@ -79,8 +79,8 @@
       "followsYou": "følger deg",
       "followers": "følgere",
       "following": "følger",
-      "followHim": "follow",
-      "followingHim": "following"
+      "followHim": "følg",
+      "followingHim": "følger"
     },
     "voiceSettings": {
       "header": "Taleinnstillinger",
@@ -180,7 +180,7 @@
         "banFromRoom": "utesteng fra rommet",
         "goBackToListener": "gå tilbake til lytter",
         "deleteMessage": "slett denne meldingen",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "gjør til admin"
       },
       "roomSettingsModal": {
         "requirePermission": "krev tillatelse for å snakke",
@@ -202,7 +202,7 @@
         "needsFuture": "må være i fremtiden",
         "roomName": "romnavn",
         "minLength": "minimun lengde er 2 tegn",
-        "roomDescription": "Description"
+        "roomDescription": "Beskrivelse"
       }
     },
     "roomChat": {
@@ -226,9 +226,9 @@
       "lunarDoge": "Måne-doge",
       "approachingSun": "Nærmer seg solen",
       "solarDoge": "Sol-doge",
-      "approachingGalaxy": "Nærme galaksen",
-      "galacticDoge": "Galaktisk Doge",
-      "spottedLife": "Fikk øye på en planet med liv"
+      "approachingGalaxy": "Nærmer seg galaksen",
+      "galacticDoge": "Galakse-doge",
+      "spottedLife": "Planet med liv oppdaget"
     }
   }
 }
