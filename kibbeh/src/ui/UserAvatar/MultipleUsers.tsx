@@ -8,6 +8,8 @@ export interface AvatarProps {
 }
 
 export const MultipleUsers: React.FC<AvatarProps> = ({ srcArray, size = "xs" }) => {
+  const pixelSize = avatarSizeMap[size]
+
   return (
     <div
       className="flex relative"
@@ -18,11 +20,11 @@ export const MultipleUsers: React.FC<AvatarProps> = ({ srcArray, size = "xs" }) 
           key={s + i}
           className="absolute box-content bg-primary-800 rounded-full border-primary-800 top-1/2 transform -translate-y-1/2"
           style={{
-            left: i * 7,
+            left: i * (parseInt(pixelSize.substring(0, pixelSize.length - 2)) / 3),
             zIndex: -i,
             borderWidth: "2px",
-            width: avatarSizeMap[size],
-            height: avatarSizeMap[size],
+            width: pixelSize,
+            height: pixelSize,
           }}
         >
           <SingleUser src={s} size={size} />
