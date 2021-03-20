@@ -35,7 +35,7 @@
       "currentRoom": "Momenteel in:",
       "startPrivateRoom": "Start een privé kamer met deze persoon"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": { "followHim": "Volg", "followingHim": "Volgend" },
     "home": { "createRoom": "Kamer maken", "refresh": "Verversen" },
     "inviteList": {
       "roomGone": "Kamer bestaat niet, ga terug",
@@ -72,18 +72,18 @@
       "speakers": "Sprekers",
       "requestingToSpeak": "Aanvragen om te spreken",
       "listeners": "Luisteraars",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "Iedereen toestaan",
+      "allowAllConfirm": "Weet je het zeker? Dit geeft toestemming aan alle {{count}} verzoekende gebruikers om te spreken"
     },
     "searchUser": { "search": "Zoek..." },
     "soundEffectSettings": { "header": "Geluiden" },
     "viewUser": {
-      "editProfile": "Bewerk profiel",
+      "editProfile": "Profiel bewerken",
       "followsYou": "Volgt jou",
       "followers": "Volgers",
       "following": "Volgend",
-      "followHim": "follow",
-      "followingHim": "following"
+      "followHim": "Volg",
+      "followingHim": "Volgend"
     },
     "voiceSettings": {
       "header": "Spraakinstellingen",

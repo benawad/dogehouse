@@ -35,10 +35,9 @@ export const ErrorMessage: React.FC<ErrorMessageProps> = ({
 
   return (
     <div
-      className={`rounded-t-8 w-full fixed items-center justify-center text-button transition-transform duration-300`}
+      className={`rounded-t-8 w-full fixed items-center justify-center text-button transition-transform duration-300 bg-secondary`}
       style={{
         height: 50,
-        backgroundColor: "#5575E7",
         bottom: 0,
         left: 0,
         transform: closed ? "translateY(100%)" : "translateY(0%)",
@@ -62,9 +61,8 @@ export const ErrorMessage: React.FC<ErrorMessageProps> = ({
         <p className={`bold`}>{message}</p>
         {button ? (
           <button
-            className={`rounded-lg px-3 font-bold text-sm`}
+            className={`rounded-lg px-3 font-bold text-sm bg-secondary-washed-out`}
             style={{
-              backgroundColor: "#879EED",
               paddingTop: 3,
               paddingBottom: 3,
             }}

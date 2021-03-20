@@ -1,6 +1,6 @@
 {
   "common": {
-    "loadMore": "ladda in mer",
+    "loadMore": "Visa fler",
     "loading": "laddar in...",
     "noUsersFound": "inga användare hittades",
     "ok": "ok",
@@ -11,8 +11,8 @@
     "edit": "ändra",
     "delete": "radera",
     "joinRoom": "anslut till rummet",
-    "copyLink": "kopiera länken",
-    "copied": "kopierade",
+    "copyLink": "Kopiera länken",
+    "copied": "Kopierad",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}"
   },
@@ -35,13 +35,13 @@
       "currentRoom": "ansluten till:",
       "startPrivateRoom": "skapa ett privat rum med dem"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Skapa Rum", "refresh": "Uppdatera" },
+    "followList": {},
+    "home": { "createRoom": "Skapa rum", "refresh": "Uppdatera" },
     "inviteList": {
       "roomGone": "rummet försvann under månförmörkelsen, gå tillbaka",
       "shareRoomLink": "dela länk till rummet",
       "inviteFollowers": "Du kan bjuda in dina följare som är uppkopplade:",
-      "whenFollowersOnline": "När dina följare är uppkopplade kommer de visa sig här."
+      "whenFollowersOnline": "När dina följare är uppkopplade kommer de visas här."
     },
     "login": {
       "headerText": "Tar röstsamtal till månen 🚀",
@@ -202,8 +202,8 @@
     "scheduledRooms": {
       "title": "Schemalagda rum",
       "noneFound": "inga hittades",
-      "allRooms": "alla mina schemalagda rum",
-      "myRooms": "mina schemalagda rum",
+      "allRooms": "Alla schemalagda rum",
+      "myRooms": "Mina schemalagda rum",
       "scheduleRoomHeader": "Schemalagda Rum",
       "startRoom": "påbörja rum",
       "modal": {
@@ -224,7 +224,7 @@
       "sendMessage": "Skicka ett meddelande",
       "whisper": "Viska",
       "welcomeMessage": "Välkommen till chatten!",
-      "roomDescription": "rumbeskrivning"
+      "roomDescription": "Rumbeskrivning"
     },
     "roomStatus": {
       "fuelingRocket": "Tankar raket",

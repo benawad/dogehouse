@@ -44,8 +44,10 @@ export const wrap = (connection: Connection) => ({
       whisperedTo: string[] = []
     ): Promise<void> =>
       connection.send("send_room_chat_msg", { tokens: ast, whisperedTo }),
+    setMute: (isMuted: boolean): Promise<Record<string, never>> =>
+      connection.fetch("mute", { value: isMuted }),
     leaveRoom: (): Promise<{ roomId: UUID }> =>
-      connection.fetch("leave_room", {}, "you_left_room"),
+      connection.fetch("leave_room", {}),
     createRoom: (data: {
       name: string;
       privacy: string;
