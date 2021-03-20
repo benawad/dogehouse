@@ -36,7 +36,7 @@
       "currentRoom": "በአሁኑ ጊዜ ውስጥ:",
       "startPrivateRoom": "ከእነሱ ጋር አንድ የግል ክፍል መጀመር"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "ክፍል ፍጠር", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "ክፍሉ ጠፋ, ተመለስ",
@@ -71,16 +71,19 @@
     "room": {
       "speakers": "ተናጋሪዎች",
       "requestingToSpeak": "ለመናገር ፈቃድ ጠይቅ",
-      "listeners": "አድማጮች"
+      "listeners": "አድማጮች",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "ፈልግ ..." },
     "soundEffectSettings": { "header": "ድምፆች" },
     "viewUser": {
       "editProfile": "መገለጫ ቀይር",
       "followsYou": "እርስዎን ይከተላል",
-      "folowers": "ተከታዮች",
+      "followers": "ተከታዮች",
       "following": "የሚከተሉት",
-      "followers": "followers"
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "የድምፅ ቅንብሮች",
@@ -175,7 +178,8 @@
         "banFromChat": "ከ ውይይት አግድ",
         "banFromRoom": "ከ ክፍል ያግዱ",
         "goBackToListener": "አዳማጭ ይመለሱ",
-        "deleteMessage": "ይህን መልዕክት ሰርዝ"
+        "deleteMessage": "ይህን መልዕክት ሰርዝ",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "መናገር ፈቃድ ይጠይቃል",
@@ -197,7 +201,7 @@
         "needsFuture": "ፍላጎቶች ወደፊት መሆን አለባቸው",
         "roomName": "የክፍል ስም",
         "minLength": "ደቂቃ ርዝመት 2",
-        "roomDescription": "Description"
+        "roomDescription": "ክፍል መግለጫ"
       }
     },
     "roomChat": {

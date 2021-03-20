@@ -1,0 +1,235 @@
+{
+  "_comment": "if you change this file, do: npm run i18",
+  "common": {
+    "loadMore": "ŝarĝi pli",
+    "loading": "ŝarĝante...",
+    "noUsersFound": "neniuj uzantoj trovis",
+    "ok": "bone",
+    "yes": "jes",
+    "no": "ne",
+    "cancel": "nuligi",
+    "save": "savi",
+    "edit": "redakti",
+    "delete": "forigi",
+    "joinRoom": "aliĝi al ĉambro",
+    "copyLink": "kopiu ligon",
+    "copied": "kopiita",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Silentigita | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "Origina Rakonto",
+    "link_2": "Discord",
+    "link_3": "Raporti Cimon"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "malpermeso" },
+    "followingOnlineList": {
+      "listHeader": "Listo de uzantoj, kiuj ne estas en privata ĉambro kaj kiun vi sekvas.",
+      "currentRoom": "nuntempe en:",
+      "startPrivateRoom": "komencu privatan ĉambron kun ili"
+    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Kreu Ĉambron", "refresh": "Refreŝigu" },
+    "inviteList": {
+      "roomGone": "ĉambro for, reiru",
+      "shareRoomLink": "dividi ligon al ĉambro",
+      "inviteFollowers": "Vi povas inviti viajn sekvantojn interrete:",
+      "whenFollowersOnline": "Kiam viaj anoj estos interrete, ili aperos ĉi tie."
+    },
+    "login": {
+      "headerText": "Prenante voĉajn konversaciojn al la luno 🚀",
+      "featureText_1": "Malhela Temo",
+      "featureText_2": "Malfermu Registriĝojn",
+      "featureText_3": "Transsistema Subteno",
+      "featureText_4": "Malferma fonto",
+      "featureText_5": "Teksta Babilejo",
+      "featureText_6": "Funkciigita de Doge",
+      "loginGithub": "ensaluti per GitHub",
+      "loginTwitter": "ensaluti per Twitter",
+      "createTestUser": "krei testuzanton"
+    },
+    "myProfile": {
+      "logout": "elsaluti",
+      "probablyLoading": "probable ŝarĝante ...",
+      "voiceSettings": "iri al voĉaj agordoj",
+      "soundSettings": "iru al sonaj agordoj",
+      "deleteAccount": "forigi konton"
+    },
+    "notFound": {
+      "whoopsError": "Ho ve! Ĉi tiu paĝo perdiĝis en konversacio",
+      "goHomeMessage": "Ne zorgu. Vi povas",
+      "goHomeLinkText": "hejmeniri"
+    },
+    "room": {
+      "speakers": "Parolantoj",
+      "requestingToSpeak": "Petante paroli",
+      "listeners": "Aŭskultantoj",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+    },
+    "searchUser": { "search": "serĉi..." },
+    "soundEffectSettings": { "header": "Sonoj" },
+    "viewUser": {
+      "editProfile": "redakti profilon",
+      "followsYou": "sekvas vin",
+      "followers": "sekvantoj",
+      "following": "sekvante",
+      "followHim": "follow",
+      "followingHim": "following"
+    },
+    "voiceSettings": {
+      "header": "Voĉaj Agordoj",
+      "mic": "mikrofono:",
+      "permissionError": "neniuj mikrofonoj trovitaj, vi aŭ havas neniujn enŝovitajn aŭ ne donis permeson al ĉi tiu retejo.",
+      "refresh": "refreŝigi mikrofonan liston",
+      "volume": "volumo:"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Malpermesitaj Uzantoj",
+      "unban": "malpermesi",
+      "noBans": "neniu estis malpermesita ankoraŭ"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Forlasu nunan ĉambron",
+      "confirmLeaveRoom": "Ĉu vi certas, ke vi volas foriri?",
+      "leave": "Foriru",
+      "inviteUsersToRoomBtn": "Invitu uzantojn al ĉambro",
+      "invite": "Inviti",
+      "toggleMuteMicBtn": "Ŝalti mutan mikrofonon",
+      "mute": "Mutulo",
+      "unmute": "Malmuta",
+      "makeRoomPublicBtn": "Publikigu ĉambron!",
+      "settings": "Agordoj",
+      "speaker": "Parolanto",
+      "listener": "Aŭskultanto",
+      "chat": "Babili"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Via aparato nuntempe ne estas subtenata. Vi povas krei",
+      "linkText": "numero ĉe GitHub",
+      "addSupport": "kaj mi provos aldoni subtenon por via aparato."
+    },
+    "inviteButton": {
+      "invited": "invitita",
+      "inviteToRoom": "inviti al ĉambro"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "Permeso rifuzita provi aliri vian mikrofonon (eble vi bezonos eniri en retumilajn agordojn kaj reŝargi la paĝon)",
+      "dismiss": "eksigi",
+      "tryAgain": "provu denove"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "agordi klavokombinon",
+      "listening": "aŭskultanta",
+      "toggleMuteKeybind": "baskuli mutan klavaron",
+      "togglePushToTalkKeybind": "ŝalti puŝ-al-parolan klavaron"
+    },
+    "userVolumeSlider": { "noAudioMessage": "neniu audio-konsumanto ial" },
+    "addToCalendar": { "add": "Aldoni al Kalendaro" },
+    "wsKilled": {
+      "description": "WebSocket estis mortigita de la servilo. Ĉi tio kutime okazas kiam vi malfermas la retejon en alia langeto.",
+      "reconnect": "rekonekti"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "publika",
+        "private": "privata",
+        "roomName": "ĉambronomo",
+        "roomDescription": "ĉambra priskribo",
+        "descriptionError": "maksimuma longo 500",
+        "nameError": "devas havi inter 2 kaj 60 signojn"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "Nova Ĉambro Kreita",
+        "roomInviteFrom": "Ĉambro Invitu de",
+        "justStarted": "Ili ĵus komencis",
+        "likeToJoin": ", ĉu vi ŝatus aliĝi?",
+        "inviteReceived": "vi estis invitita"
+      },
+      "editProfileModal": {
+        "usernameTaken": "Uzantnomo estis prenita",
+        "avatarUrlError": "Nevalida bildo",
+        "avatarUrlLabel": "URL de GitHub/Twitter avataro",
+        "displayNameError": "longo 2 ĝis 50 signoj",
+        "displayNameLabel": "Vidiga Nomo",
+        "usernameError": "longo 4 ĝis 15 signoj kaj nur alfanombra/substreko",
+        "usernameLabel": "Uzantnomo",
+        "bioError": "maksimuma longo de 160 signoj",
+        "bioLabel": "Biografio"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Ĉu vi certas, ke vi volas malhelpi ĉi tiun uzanton aliĝi al iu ajn ĉambro, kiun vi iam kreis?",
+        "blockUser": "bloki uzanton",
+        "makeMod": "fari moderanton",
+        "unmod": "forigu moderatoron",
+        "addAsSpeaker": "aldonu kiel parolanto",
+        "moveToListener": "transloĝiĝu al aŭskultanto",
+        "banFromChat": "malpermesi babili",
+        "banFromRoom": "malpermeso de ĉambro",
+        "goBackToListener": "reiru al aŭskultanto",
+        "deleteMessage": "forigu ĉi tiun mesaĝon",
+        "makeRoomCreator": "fari ĉambron administranto"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "postulas permeson paroli",
+        "makePublic": "publikigi ĉambron",
+        "makePrivate": "privatigi ĉambron"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "Planitaj Ĉambroj",
+      "noneFound": "neniu trovis",
+      "allRooms": "ĉiuj planitaj ĉambroj",
+      "myRooms": "miaj planitaj ĉambroj",
+      "scheduleRoomHeader": "Planu Ĉambron",
+      "startRoom": "komencu ĉambron",
+      "modal": {
+        "needsFuture": "bezonas esti en la estonteco",
+        "roomName": "ĉambronomo",
+        "roomDescription": "Priskribo",
+        "minLength": "minimuma longo 2"
+      }
+    },
+    "roomChat": {
+      "title": "Babili",
+      "emotesSoon": "[emotes baldaŭ]",
+      "bannedAlert": "Vi malpermesis babili",
+      "waitAlert": "Vi devas atendi sekundon antaŭ sendi alian mesaĝon",
+      "search": "Serĉu",
+      "searchResults": "Serĉrezultoj",
+      "recent": "Ofte Uzata",
+      "sendMessage": "Sendu Mesaĝon",
+      "whisper": "Flustro",
+      "welcomeMessage": "Bonvenon babili!",
+      "roomDescription": "ĉambra priskribo"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Brulaĵo raketo",
+      "takingOff": "Ekflugante",
+      "inSpace": "En la spaco",
+      "approachingMoon": "Alproksimiĝanta luno",
+      "lunarDoge": "Luna doge",
+      "approachingSun": "Alproksimiĝanta suno",
+      "solarDoge": "Suna doge",
+      "approachingGalaxy": "Alproksimiĝanta galaksio",
+      "galacticDoge": "Galaksia Doge",
+      "spottedLife": "Planedo kun vivo ekvidita"
+    }
+  }
+}

@@ -10,7 +10,7 @@
   </a>
 </p>
 
-<h3 align="center">  
+<h3 align="center">
   <a href="https://github.com/benawad/dogehouse/blob/staging/CONTRIBUTING.md">Contribute</a>
   <span> · </span>
   <a href="https://discord.gg/82HzQCJCDg">Community</a>
@@ -24,22 +24,37 @@
 
 ## Structure
 
-| Codebase |      Description      |
-| :------- | :-------------------: |
-| kousa    |      Elixir API       |
-| shawarma |     Voice Server      |
-| kofta    |    React frontend     |
-| dinner   | Puppeteer shenanigans |
-| baklava  |   Electron Wrapper    |
-| pilaf    |   React Native App    |
-| feta     | Shared utils web/app  |
-| docs     | Project documentation |
+| Codebase             |      Description      |
+| :------------------- | :-------------------: |
+| [kousa](kousa)       |      Elixir API       |
+| [shawarma](shawarma) |     Voice Server      |
+| [kofta](kofta)       |    React frontend     |
+| [dinner](dinner)     | Puppeteer shenanigans |
+| [baklava](baklava)   |   Electron Wrapper    |
+| [pilaf](pilaf)       |   React Native App    |
+| [feta](feta)         | Shared utils web/app  |
+| [kibbeh](kibbeh)     |   Next.js frontend    |
+| [kebab](kebab)       |      API Client       |
+
+## Branches
+
+- staging -> pr this branch for everything else
+- prod -> don't touch, this is what's running in prod
 
 ## Contributions
 
 DogeHouse is open to contributions, but I recommend creating an issue or replying in a comment to let me know what you are working on first that way we don't overwrite each other.
 
 Please read [CONTRIBUTING.md](https://github.com/benawad/dogehouse/blob/staging/CONTRIBUTING.md) for details on this project.
+
+## DogeReviewers
+
+Contributors helping to review/merge pull requests:
+
+- @ermalsh
+- @ofsho
+- @HMayotte
+- @nadirabbas
 
 ## Code of Conduct
 

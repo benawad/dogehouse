@@ -36,8 +36,8 @@
       "currentRoom": "Zurzeit in:",
       "startPrivateRoom": "Einen privaten Raum mit diesem Benutzer starten"
     },
-    "followList": {},
-    "home": { "createRoom": "Raum erstellen", "refresh": "Refresh" },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Raum erstellen", "refresh": "Aktualisieren" },
     "inviteList": {
       "roomGone": "Raum konnte nicht gefunden werden! Zurück",
       "shareRoomLink": "Link zum Raum teilen",
@@ -71,7 +71,9 @@
     "room": {
       "speakers": "Sprecher",
       "requestingToSpeak": "Sprachanfragen",
-      "listeners": "Zuhörer"
+      "listeners": "Zuhörer",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Suchen..." },
     "soundEffectSettings": { "header": "Ton" },
@@ -79,7 +81,9 @@
       "editProfile": "Profil bearbeiten",
       "followsYou": "folgt dir",
       "following": "Abonniert",
-      "followers": "Abonnenten"
+      "followers": "Abonnenten",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Spracheinstellungen",
@@ -156,7 +160,8 @@
         "banFromChat": "Im Chat blockieren",
         "banFromRoom": "Aus Raum ausschließen",
         "goBackToListener": "Zurück zum Zuhörer",
-        "deleteMessage": "Nachricht löschen"
+        "deleteMessage": "Nachricht löschen",
+        "makeRoomCreator": "zum Raumadmin befördern"
       },
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Sprechen verlangen",
@@ -200,7 +205,7 @@
         "needsFuture": "Zeitpunkt muss in der Zukunft liegen",
         "roomName": "Name des Raums",
         "minLength": "minimale Länge: 2",
-        "roomDescription": "Description"
+        "roomDescription": "Raumbeschreibung"
       }
     },
     "roomChat": {

@@ -36,8 +36,11 @@
       "currentRoom": "ভেতরে আছেন:",
       "startPrivateRoom": "তাদের সাথে প্রাইভেট রুম শুরু করুন"
     },
-    "followList": {},
-    "home": { "createRoom": "রুম বানান", "refresh": "Refresh" },
+    "followList": {
+      "followHim": "অনুসরণ করুন",
+      "followingHim": "অনুসরণ করছেন"
+    },
+    "home": { "createRoom": "রুম বানান", "refresh": "রিফ্রেশ করুন" },
     "inviteList": {
       "roomGone": "রুম শেষ, ফিরে আসুন",
       "shareRoomLink": "রুমের লিংক শেয়ার করুন",
@@ -71,7 +74,9 @@
     "room": {
       "speakers": "স্পিকারস",
       "requestingToSpeak": "কথা বলার জন্য অনুরোধ করুন",
-      "listeners": "শ্রোতাগণ"
+      "listeners": "শ্রোতাগণ",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "খুঁজুন..." },
     "soundEffectSettings": { "header": "সাউন্ডস" },
@@ -79,7 +84,9 @@
       "editProfile": "প্রোফাইল এডিট করুন",
       "followsYou": "আপনাকে অনুসরণ করে",
       "followers": "জন অনুসরণকারী",
-      "following": "জনকে অনুসরণ করছে"
+      "following": "জনকে অনুসরণ করছে",
+      "followHim": "অনুসরণ করুন",
+      "followingHim": "অনুসরণ করছেন"
     },
     "voiceSettings": {
       "header": "ভয়েস সেটিংস",
@@ -111,7 +118,7 @@
       "settings": "সেটিংস",
       "speaker": "স্পিকার",
       "listener": "শ্রোতাগণ",
-      "chat": "Chat"
+      "chat": "চ্যাট"
     },
     "deviceNotSupported": {
       "notSupported": "আপনার ডিভাইসটি বর্তমানে সাপোর্টেড নয়। আপনি তৈরি করতে পারেন একটি",
@@ -178,7 +185,8 @@
         "banFromChat": "চ্যাট থেকে ব্যান করুন",
         "banFromRoom": "রুম থেকে ব্যান করুন",
         "goBackToListener": "শ্রোতাতে ফিরে যান",
-        "deleteMessage": "মেসেজটি মুছে ফেলুন"
+        "deleteMessage": "মেসেজটি মুছে ফেলুন",
+        "makeRoomCreator": "রুম অ্যাডমিন তৈরি করুন"
       },
       "roomSettingsModal": {
         "requirePermission": "কথা বলার জন্য পারমিশন লাগবে",
@@ -200,7 +208,7 @@
         "needsFuture": "ভবিষ্যতের জন্য চাই",
         "roomName": "রুমের নাম",
         "minLength": "মিনিমাম ২ অক্ষরের",
-        "roomDescription": "Description"
+        "roomDescription": "রুমের বর্ণনা"
       }
     },
     "roomChat": {
@@ -217,16 +225,16 @@
       "roomDescription": "রুমের বর্ণনা"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "fuelingRocket": "রকেটে জ্বালানি দেওয়া হচ্ছে",
+      "takingOff": "রকেট ছাড়ছে",
+      "inSpace": "মহাকাশে আছে",
+      "approachingMoon": "চাঁদের নিকটে",
+      "lunarDoge": "চন্দ্র Doge",
+      "approachingSun": "সূর্যের নিকটে",
+      "solarDoge": "সৌর Doge",
+      "approachingGalaxy": "গ্যালাক্সি এর নিকটে",
+      "galacticDoge": "গ্যালাকটিক Doge",
+      "spottedLife": "গ্রহে জীবনের সন্ধান পাওয়া গেছে"
     }
   }
 }

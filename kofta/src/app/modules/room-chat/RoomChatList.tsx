@@ -1,10 +1,8 @@
 import normalizeUrl from "normalize-url";
 import React, { useEffect, useRef, useState } from "react";
-import ReactTooltip from "react-tooltip";
 import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
 import { useCurrentRoomInfo } from "../../atoms";
 import { Avatar } from "../../components/Avatar";
-import { dateFormat } from "../../utils/dateFormat";
 import { useMeQuery } from "../../utils/useMeQuery";
 import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
 import { emoteMap } from "./EmoteData";
@@ -67,11 +65,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
         .slice()
         .reverse()
         .map((m) => (
-          <div
-            className="flex flex-col flex-shrink-0"
-            key={m.id}
-            data-tip={dateFormat(m.sentAt)}
-          >
+          <div className="flex flex-col flex-shrink-0" key={m.id}>
             {/* Whisper label */}
             {m.isWhisper ? (
               <p className="mb-0 text-xs text-gray-400 px-2 bg-simple-gray-3a w-16 rounded-t mt-1 text-center">
@@ -108,7 +102,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                   className={`hover:underline focus:outline-none`}
                   style={{ textDecorationColor: m.color, color: m.color }}
                 >
-                  {m.displayName}
+                  {m.username}
                 </button>
 
                 <span className={`mr-1`}>: </span>
@@ -190,8 +184,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                 )}
               </div>
             </div>
-
-            <ReactTooltip />
           </div>
         ))}
       {messages.length === 0 ? (

@@ -36,7 +36,7 @@
       "currentRoom": "Deocamdată în:",
       "startPrivateRoom": "Începe o cameră privată cu ei"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Creează cameră", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "Camera a dispărut, du-te înapoi",
@@ -71,7 +71,9 @@
     "room": {
       "speakers": "Vorbitori",
       "requestingToSpeak": "Cere să vorbească",
-      "listeners": "Ascultători"
+      "listeners": "Ascultători",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "caută..." },
     "soundEffectSettings": { "header": "Sunete" },
@@ -79,7 +81,9 @@
       "editProfile": "Editează profil",
       "followsYou": "Te urmărește",
       "followers": "Urmăritori",
-      "following": "Urmărește"
+      "following": "Urmărește",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Sunete Voce",
@@ -178,7 +182,8 @@
         "banFromChat": "Interzice din chat",
         "banFromRoom": "Interzice din cameră",
         "goBackToListener": "Du-te înapoi la ascultător",
-        "deleteMessage": "Şterge acest mesaj"
+        "deleteMessage": "Şterge acest mesaj",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "Necesită permisiunea de a vorbi",

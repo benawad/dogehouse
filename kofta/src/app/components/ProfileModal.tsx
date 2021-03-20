@@ -130,6 +130,24 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
             </>
           ) : null}
 
+          {/* Set new creator */}
+          {!isMe && iAmCreator ? (
+            <div className="mb-4">
+              <Button
+                onClick={() => {
+                  onClose();
+                  wsend({
+                    op: "change_room_creator",
+                    d: {
+                      userId: profile.id,
+                    },
+                  })
+                }}>
+                  {t("components.modals.profileModal.makeRoomCreator")}
+                  </Button>
+              </div>
+          ) : null}
+
           {/* Add speaker button */}
           {!isMe && (iAmCreator || iAmMod) && profile.id !== room.creatorId ? (
             <>

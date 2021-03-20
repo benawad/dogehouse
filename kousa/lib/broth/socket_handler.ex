@@ -125,6 +125,7 @@ defmodule Broth.SocketHandler do
                     GenRegistry.lookup_or_start(Onion.UserSession, user_id, [
                       %Onion.UserSession.State{
                         user_id: user_id,
+                        username: user.username,
                         avatar_url: user.avatarUrl,
                         display_name: user.displayName,
                         current_room_id: user.currentRoomId,
@@ -416,6 +417,11 @@ defmodule Broth.SocketHandler do
     {:ok, state}
   end
 
+  def handler("change_room_creator", %{"userId" => user_id_to_change}, state) do
+    Kousa.Room.change_room_creator(state.user_id, user_id_to_change)
+    {:ok, state}
+  end
+
   def handler("ban_from_room_chat", %{"userId" => user_id_to_ban}, state) do
     Kousa.RoomChat.ban_user(state.user_id, user_id_to_ban)
     {:ok, state}
@@ -511,37 +517,13 @@ defmodule Broth.SocketHandler do
     {:ok, state}
   end
 
-  def handler("get_current_room_users", _data, state) do
-    {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
-
-    {muteMap, autoSpeaker, activeSpeakerMap} =
-      cond do
-        not is_nil(room_id) ->
-          case GenRegistry.lookup(Onion.RoomSession, room_id) do
-            {:ok, session} ->
-              GenServer.call(session, {:get_maps})
-
-            _ ->
-              {%{}, false, %{}}
-          end
-
-        true ->
-          {%{}, false, %{}}
-      end
-
+  # @deprecated in new design
+  def handler("get_current_room_users", data, state) do
     {:reply,
      prepare_socket_msg(
        %{
          op: "get_current_room_users_done",
-         d: %{
-           users: users,
-           muteMap: muteMap,
-           activeSpeakerMap: activeSpeakerMap,
-           # @deprecated
-           raiseHandMap: %{},
-           roomId: room_id,
-           autoSpeaker: autoSpeaker
-         }
+         d: f_handler("get_current_room_users", data, state)
        },
        state
      ), state}
@@ -622,6 +604,34 @@ defmodule Broth.SocketHandler do
     end
   end
 
+  def f_handler("get_current_room_users", _data, %State{} = state) do
+    {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
+
+    {muteMap, autoSpeaker, activeSpeakerMap} =
+      cond do
+        not is_nil(room_id) ->
+          case GenRegistry.lookup(Onion.RoomSession, room_id) do
+            {:ok, session} ->
+              GenServer.call(session, {:get_maps})
+
+            _ ->
+              {%{}, false, %{}}
+          end
+
+        true ->
+          {%{}, false, %{}}
+      end
+
+    %{
+      users: users,
+      muteMap: muteMap,
+      activeSpeakerMap: activeSpeakerMap,
+      roomId: room_id,
+      autoSpeaker: autoSpeaker
+    }
+  end
+
+  @spec f_handler(<<_::64, _::_*8>>, any, atom | map) :: any
   def f_handler("get_my_scheduled_rooms_about_to_start", _data, %State{} = state) do
     %{scheduledRooms: Kousa.ScheduledRoom.get_my_scheduled_rooms_about_to_start(state.user_id)}
   end

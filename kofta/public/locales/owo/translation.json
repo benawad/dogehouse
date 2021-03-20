@@ -36,7 +36,7 @@
       "currentRoom": "UwU cuwwentwy in:",
       "startPrivateRoom": "<3 stawt a pwivate woom with them x3"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "OwO Cweate Woom (ʘᗩʘ')",
       "refresh": " Wefwesh (◠‿◠✿)"
@@ -74,7 +74,9 @@
     "room": {
       "speakers": "<3 Speakews :P",
       "requestingToSpeak": "Wequesting to speak (╯﹏╰）",
-      "listeners": "Wistenews (´・ω・｀)"
+      "listeners": "Wistenews (´・ω・｀)",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "seawch... >_<" },
     "soundEffectSettings": { "header": "OWO Sounds :D" },
@@ -82,7 +84,9 @@
       "editProfile": "Edit Pwofiwe (⁎˃ᆺ˂)",
       "followsYou": "fowwows uu (๑•́ ₃ •̀๑)",
       "followers": "fowwowews >_>",
-      "following": "fowwowing ( ͡° ᴥ ͡°)"
+      "following": "fowwowing ( ͡° ᴥ ͡°)",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "OWO Voice Settings (✿ ♡‿♡)",
@@ -178,7 +182,8 @@
         "banFromChat": "<3 ban fwom chat (இωஇ )",
         "banFromRoom": "ban fwom woom UwU",
         "goBackToListener": "go back to wistenew (╯﹏╰）",
-        "deleteMessage": "dewete this message >_>"
+        "deleteMessage": "dewete this message >_>",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "wequiwe pewmission to speak <{^n^}>",
