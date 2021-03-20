@@ -183,6 +183,7 @@ defmodule Kousa.Room do
         case Rooms.replace_room_owner(old_creator_id, new_creator_id) do
           {1, _} ->
             internal_set_speaker(old_creator_id, current_room_id)
+
             Onion.RoomSession.send_cast(
               current_room_id,
               {:send_ws_msg, :vscode,
@@ -345,11 +346,9 @@ defmodule Kousa.Room do
               )
 
               canSpeak =
-                with %{roomPermissions: %{isSpeaker: true}} <- updated_user do
-                  true
-                else
-                  _ ->
-                    false
+                case updated_user do
+                  %{roomPermissions: %{isSpeaker: true}} -> true
+                  _ -> false
                 end
 
               join_vc_room(user_id, room, canSpeak || room.isPrivate)
