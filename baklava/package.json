@@ -8,9 +8,9 @@
         "watch": "tsc -w",
         "dev": "npm run compile && electron ./dist/electron.js",
         "build": "npm run compile && electron-builder",
-        "build:all": "npm run compile && electron-builder -mwl --win msi",
+        "build:all": "npm run compile && electron-builder -mwl --win nsis",
         "build:mac": "npm run compile && electron-builder --mac",
-        "build:win": "npm run compile && electron-builder --win msi",
+        "build:win": "npm run compile && electron-builder --win nsis",
         "build:linux": "npm run compile && electron-builder --linux"
     },
     "keywords": [
@@ -50,7 +50,7 @@
         },
         "win": {
             "icon": "icons/icon.png",
-            "target": "msi",
+            "target": "nsis",
             "publish": [
                 "github"
             ]
