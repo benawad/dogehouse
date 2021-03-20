@@ -1,12 +1,13 @@
 import React from "react";
 
-import { SingleUser } from "./SingleUser";
+import { avatarSizeMap, onlineIndicatorStyleMap, SingleUser } from "./SingleUser";
 
 export interface AvatarProps {
   srcArray: string[];
+  size?: keyof typeof onlineIndicatorStyleMap;
 }
 
-export const MultipleUsers: React.FC<AvatarProps> = ({ srcArray }) => {
+export const MultipleUsers: React.FC<AvatarProps> = ({ srcArray, size = "xs" }) => {
   return (
     <div
       className="flex relative"
@@ -20,11 +21,11 @@ export const MultipleUsers: React.FC<AvatarProps> = ({ srcArray }) => {
             left: i * 7,
             zIndex: -i,
             borderWidth: "2px",
-            width: "20px",
-            height: "20px",
+            width: avatarSizeMap[size],
+            height: avatarSizeMap[size],
           }}
         >
-          <SingleUser src={s} size="xs" />
+          <SingleUser src={s} size={size} />
         </span>
       ))}
     </div>

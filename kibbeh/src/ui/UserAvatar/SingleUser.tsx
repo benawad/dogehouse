@@ -1,13 +1,13 @@
 import React from "react";
 
-const avatarSizeMap = {
+export const avatarSizeMap = {
   default: "80px",
   sm: "40px",
   xxs: "30px",
   xs: "20px",
 };
 
-const onlineIndicatorStyleMap = {
+export const onlineIndicatorStyleMap = {
   default: {
     width: "15px",
     height: "15px",
