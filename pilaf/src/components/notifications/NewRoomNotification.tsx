@@ -5,10 +5,8 @@ import {
   ViewStyle,
   Text,
   TouchableOpacity,
-  ImageSourcePropType,
 } from "react-native";
 import { colors, fontFamily, fontSize } from "../../constants/dogeStyle";
-import { SingleUserAvatar } from "../avatars/SingleUserAvatar";
 import { GenericNotification } from "./GenericNotification";
 import Icon from "react-native-vector-icons/Ionicons";
 

@@ -36,7 +36,7 @@
       "currentRoom": "Grad in:",
       "startPrivateRoom": "E private Ruum mit däm Benutzer starte"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Ruum erstelle", "refresh": "Aktualisiere" },
     "inviteList": {
       "roomGone": "Ruum isch nid gfunge worde! Zrügg",
@@ -79,7 +79,9 @@
       "editProfile": "Profil bearbeite",
       "followsYou": "fougt dir",
       "following": "Abonniert",
-      "followers": "Abonnente"
+      "followers": "Abonnente",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Sprachistellige",

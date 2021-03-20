@@ -1,0 +1,235 @@
+{
+  "_comment": "if you change this file, do: npm run i18",
+  "common": {
+    "loadMore": "Zag mehr au",
+    "loading": "Lona...",
+    "noUsersFound": "Kane Benutzer gfunden",
+    "ok": "Ok",
+    "yes": "Jo",
+    "no": "Na",
+    "cancel": "Wü I ned",
+    "save": "Speichan",
+    "edit": "Beorbeiten",
+    "delete": "Weghauen",
+    "joinRoom": "Raum einigeh",
+    "copyLink": "Link kopian",
+    "copied": "kopiart",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Stüh | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "Ursprungsgschicht",
+    "link_2": "Discord",
+    "link_3": "Problem möden"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "blockian" },
+    "followingOnlineList": {
+      "listHeader": "Benutzer, denen du foigst, die oba in an privaten Raum san.",
+      "currentRoom": "Zurzeit in:",
+      "startPrivateRoom": "An neichn Raum mit dem Benutzer starten"
+    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Raum erstön", "refresh": "Aktualisiern" },
+    "inviteList": {
+      "roomGone": "Den Raum kau ma ned finden. Zruck",
+      "shareRoomLink": "Link zum Raum teilen",
+      "inviteFollowers": "Du kaust deine Abonnenten, de online san, eilona:",
+      "whenFollowersOnline": "Wenn deine Abonnenten online san, werden de do auzagt."
+    },
+    "login": {
+      "headerText": "Wir bringan den Sprochchat zum Mond 🚀",
+      "featureText_1": "Dark-Mode",
+      "featureText_2": "Unbeschränkte Registrierung",
+      "featureText_3": "Plattformunobhängig",
+      "featureText_4": "Open-Source",
+      "featureText_5": "Text-Chat",
+      "featureText_6": "Autrieben durch Doge",
+      "loginGithub": "mit GitHub aumöden",
+      "loginTwitter": "mit Twitter aumöden",
+      "createTestUser": "Testnutzer erstön"
+    },
+    "myProfile": {
+      "logout": "Omöden",
+      "probablyLoading": "Londt vermutlich...",
+      "voiceSettings": "Sprocheinstöllungen",
+      "soundSettings": "Toneinstöllungen",
+      "deleteAccount": "Konto löschn"
+    },
+    "notFound": {
+      "whoopsError": "Oida! De Seite ist im Gespräch verlurn gaunga.",
+      "goHomeMessage": "Ka Sorg. Du kaunst",
+      "goHomeLinkText": "noch Hause"
+    },
+    "room": {
+      "speakers": "Sprecha",
+      "requestingToSpeak": "Sprochanfrogen",
+      "listeners": "Zuhöra"
+    },
+    "searchUser": { "search": "Suachn..." },
+    "soundEffectSettings": { "header": "Ton" },
+    "viewUser": {
+      "editProfile": "Profü beorbeiten",
+      "followsYou": "foigt da",
+      "following": "Abonniert",
+      "followers": "Abonnenten",
+      "followHim": "follow",
+      "followingHim": "following"
+    },
+    "voiceSettings": {
+      "header": "Sprocheinstöllungen",
+      "mic": "Mikrofon:",
+      "permissionError": "Kane Mikrofone gfunden, es is entweda kans augschlossen oder de Seitn besitzt ned die benötigten Berechtigungen.",
+      "volume": "Lautstärkn:",
+      "refresh": "Mikrofonliste aktualisiern"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "addToCalendar": { "add": "Zum Kalenda hinzufügn" },
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "blockierte Benutzer",
+      "unban": "Blockierung aufhebn",
+      "noBans": "Du host aktuell (nu) nermt blockiert"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Aktuellen Raum verlossen",
+      "confirmLeaveRoom": "Bist da sicher, dass du geh mechst?",
+      "leave": "Verlossen",
+      "inviteUsersToRoomBtn": "Benutzer zum Raum eilona",
+      "invite": "Eilona",
+      "toggleMuteMicBtn": "Mikrofon ein-/ausschoiten",
+      "mute": "Stumm schoiten",
+      "unmute": "Stummschoitung aufhebn",
+      "makeRoomPublicBtn": "Raum öffentlich mochen!",
+      "settings": "Einstöllungen",
+      "speaker": "Sprecha",
+      "listener": "Zuhörer",
+      "chat": "Chat"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "Wir haum kan Zugriff auf dei Mikrofon. Öffne eine Browsereinstöllungen, setz die nötigen Berechtigungen und lod de Seitn neich.",
+      "dismiss": "verstaunden",
+      "tryAgain": "erneut versuachen"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "Öffentlich",
+        "private": "Privat",
+        "roomName": "Raumnaum",
+        "roomDescription": "Raumbeschreibung",
+        "descriptionError": "de maximale Länge is 500",
+        "nameError": "muas zwischen 2 und 60 Zeichn laung sei"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "Neichn Raum erstöt",
+        "roomInviteFrom": "Neiche Einlodung vo",
+        "justStarted": "Sie starten grod",
+        "likeToJoin": ", mechast du beitreten?",
+        "inviteReceived": "Du wurdest einglondt zu"
+      },
+      "editProfileModal": {
+        "usernameTaken": "Benutzernaume is bereits weg",
+        "avatarUrlError": "ungütigs Büd",
+        "avatarUrlLabel": "GitHub / Twitter Avatar URL",
+        "displayNameError": "Läng: 2 bis 50 Buchstauben",
+        "displayNameLabel": "Anzeigenaume",
+        "usernameError": "Läng: 4 bis 15 alphanumerische Zeichn und Unterstriche",
+        "usernameLabel": "Benutzernaume",
+        "bioError": "Maximal 160 Buchstauben",
+        "bioLabel": "Bio"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Bist da sicher, dass du den Benutzer aus ollen deinen zukünftigen Räumen ausschliaßen mechast?",
+        "blockUser": "Benutzer blockian",
+        "makeMod": "Zum Moderator befördern",
+        "unmod": "Moderator Status aufhebn",
+        "addAsSpeaker": "zu Sprecha befördern",
+        "moveToListener": "zu Zuhörer herabstufen",
+        "banFromChat": "Im Chat blockian",
+        "banFromRoom": "Aus Raum ausschliaßen",
+        "goBackToListener": "Zruck zum Zuhörer",
+        "deleteMessage": "Nochricht löschn",
+        "makeRoomCreator": "zum Raumadmin befördern"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "Berechtigung zum Sprechen verlaungen",
+        "makePublic": "Raum öffentlich mochen",
+        "makePrivate": "Raum privat mochen"
+      }
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "Aus irgendan Grund wurde ka Audio Consumer gfunden"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "Tastenkürzel setzen",
+      "listening": "Zuhören",
+      "toggleMuteKeybind": "Stummschoittaste umschoiten",
+      "togglePushToTalkKeybind": "Push-to-Talk Tastenkürzl umschoiten"
+    },
+    "wsKilled": {
+      "description": "De Websocket Verbindung zum Server wurde unterbrochen. Des passiert normalerweise, wenn du de Website in an aunderen Tab öffnest.",
+      "reconnect": "Nur moi verbinden"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Dei Gerät wird aktuell ned unterstützt. Du kaunnst a",
+      "linkText": "Issue auf GitHub",
+      "addSupport": "erstön und I werd versuachen, de Unterstützung für dei Gerät hinzuzufügn."
+    },
+    "inviteButton": {
+      "invited": "einglondt",
+      "inviteToRoom": "zum Raum eilona"
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "Geplante Räume",
+      "noneFound": "Ned gefundn",
+      "allRooms": "Olle geplanten Räume",
+      "myRooms": "Meine geplanten Räume",
+      "scheduleRoomHeader": "Plane an Raum",
+      "startRoom": "Raum starten",
+      "modal": {
+        "needsFuture": "Zeitpunkt muas in da Zukunft liegn",
+        "roomName": "Naum des Raums",
+        "minLength": "minimale Läng: 2",
+        "roomDescription": "Raumbeschreibung"
+      }
+    },
+    "roomChat": {
+      "title": "Chat",
+      "emotesSoon": "[emotes boid]",
+      "bannedAlert": "Du wurdest aus dem Chat ausgeschlossn",
+      "waitAlert": "Du musst a Sekunde worten, bevor du a weitere Nochricht schreiben kaunst",
+      "search": "Suachen",
+      "searchResults": "Suachergebnisse",
+      "recent": "Oft verwendet",
+      "sendMessage": "A Nochricht schickn",
+      "whisper": "Flüstern",
+      "welcomeMessage": "Servus im Chat!",
+      "roomDescription": "Raumbeschreibung"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fueling rocket",
+      "takingOff": "Taking off",
+      "inSpace": "In space",
+      "approachingMoon": "Approaching moon",
+      "lunarDoge": "Lunar doge",
+      "approachingSun": "Approaching sun",
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
+    }
+  }
+}

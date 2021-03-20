@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseOverlay should match snapshot 1`] = `
+<div
+  class="flex flex-col w-full rounded-8 bg-primary-800 border border-primary-700"
+  data-testid="base-overlay"
+>
+  <div
+    class="flex flex-col text-primary-100"
+  >
+    <div>
+      Child
+    </div>
+  </div>
+</div>
+`;

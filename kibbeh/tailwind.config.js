@@ -27,6 +27,9 @@ module.exports = {
         800: "var(--color-primary-800)",
         900: "var(--color-primary-900)",
       },
+      secondary: {
+        DEFAULT: "var(--color-secondary)",
+      },
       accent: {
         DEFAULT: "var(--color-accent)",
         hover: "var(--color-accent-hover)",

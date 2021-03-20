@@ -37,7 +37,7 @@
       "startPrivateRoom": "Otevřít soukromou místnost"
     },
     "followList": {},
-    "home": { "createRoom": "Vytvořit místnost", "refresh": "Refresh" },
+    "home": { "createRoom": "Vytvořit místnost", "refresh": "Obnovit" },
     "inviteList": {
       "roomGone": "Místnost není dostupná, jít zpět",
       "shareRoomLink": "Sdílet odkaz na místnost",
@@ -79,7 +79,9 @@
       "editProfile": "Pozměnit profil",
       "followsYou": "Sleduje tě.",
       "followers": "Sledující",
-      "following": "Sleduje"
+      "following": "Sleduje",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Nastavení hlasu",
@@ -178,7 +180,8 @@
         "banFromChat": "Zabanovat z chatu",
         "banFromRoom": "Zabanovat z místnosti",
         "goBackToListener": "Přestat mluvit",
-        "deleteMessage": "Smazat tuto zprávu"
+        "deleteMessage": "Smazat tuto zprávu",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "Požádat o status mluvčího",
