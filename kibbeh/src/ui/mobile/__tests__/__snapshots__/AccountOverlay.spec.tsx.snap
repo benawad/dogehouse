@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountOverlay should match snapshot 1`] = `
+<div
+  class="w-full rounded-t-8 px-2 pt-7 pb-5 bg-primary-800 relative  "
+  data-testid="account-overlay"
+  style="padding: 43px 25px;"
+>
+  <span
+    class="absolute bg-primary-300 rounded-8 inline-block top-3 left-1 right-1 w-6 h-1 m-auto"
+  />
+  <div>
+    Child
+  </div>
+</div>
+`;
