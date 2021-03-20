@@ -475,6 +475,24 @@ export const customEmojis = [
     keywords: ["cyan", "dogehouse", "doge"],
     imageUrl: "/emotes/cyandogehouse.png",
   },
+  {
+    name: "AngryKermit",
+    short_names: ["AngryKermit"],
+    keywords: ["kermit", "angry", "ak47"],
+    imageUrl: "/emotes/angrykermit.png",
+  },
+  {
+      name: "DarthKermit",
+      short_names: ["DarthKermit"],
+      keywords: ["kermit", "star", "wars", "darth"],
+      imageUrl: "/emotes/darthkermit.png",
+  },
+  {
+      name: "Anime Girl Pepe",
+      short_names: ["AnimePepe"],
+      keywords: ["pepe", "anime", "girl"],
+      imageUrl: "/emotes/pepeanimegirl.png",
+  }
 ].map((e) => ({ ...e, customCategory: "Custom", text: "", emoticons: [] }));
 
 export const emoteMap: Record<string, string> = {};
