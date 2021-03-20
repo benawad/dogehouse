@@ -14,6 +14,7 @@ import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
 import { customEmojis, CustomEmote } from "./EmoteData";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { useRoomChatStore } from "./useRoomChatStore";
+import { useShouldBeSidebar } from "./useShouldFullscreenChat";
 
 interface ChatInputProps {}
 
@@ -33,6 +34,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [lastMessageTimestamp, setLastMessageTimestamp] = useState<number>(0);
   const { t } = useTypeSafeTranslation();
+  const chatIsSidebar = useShouldBeSidebar();
 
   let position: number = 0;
 
@@ -207,14 +209,15 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
         </div>
 
         {/* Send button (mobile only) */}
-        <Button
-          onClick={handleSubmit}
-          variant="small"
-          className="lg:hidden"
-          style={{ padding: "10px 12px" }}
-        >
-          <Codicon name="arrowRight" />
-        </Button>
+        {chatIsSidebar ? null : (
+          <Button
+            onClick={handleSubmit}
+            variant="small"
+            style={{ padding: "10px 12px" }}
+          >
+            <Codicon name="arrowRight" />
+          </Button>
+        )}
       </div>
     </form>
   );
