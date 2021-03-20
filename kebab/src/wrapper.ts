@@ -9,7 +9,10 @@ import {
 
 type Handler<Data> = (data: Data) => void;
 
+export type Wrapper = ReturnType<typeof wrap>;
+
 export const wrap = (connection: Connection) => ({
+  connection,
   subscribe: {
     newChatMsg: (handler: Handler<{ userId: UUID; msg: Message }>) =>
       connection.addListener("new_chat_msg", handler),
@@ -41,8 +44,10 @@ export const wrap = (connection: Connection) => ({
       whisperedTo: string[] = []
     ): Promise<void> =>
       connection.send("send_room_chat_msg", { tokens: ast, whisperedTo }),
+    setMute: (isMuted: boolean): Promise<Record<string, never>> =>
+      connection.fetch("mute", { value: isMuted }),
     leaveRoom: (): Promise<{ roomId: UUID }> =>
-      connection.fetch("leave_room", {}, "you_left_room"),
+      connection.fetch("leave_room", {}),
     createRoom: (data: {
       name: string;
       privacy: string;

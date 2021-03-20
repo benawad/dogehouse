@@ -71,7 +71,9 @@
     "room": {
       "speakers": "Runātāji",
       "requestingToSpeak": "Vēlas runāt",
-      "listeners": "Klausītāji"
+      "listeners": "Klausītāji",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "meklēšana..." },
     "soundEffectSettings": { "header": "skaņas" },

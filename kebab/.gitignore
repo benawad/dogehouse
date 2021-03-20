@@ -1,6 +1,6 @@
 .idea
 examples/*/.env
 examples/*/node_modules
-examples/*/lib
+examples/*/build
 node_modules
 lib

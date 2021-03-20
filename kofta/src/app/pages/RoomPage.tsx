@@ -73,13 +73,19 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   }
 
   const profile = room.users.find((x) => x.id === userProfileId);
-
+  const myProfile = room.users.find(x => x.id === me?.id);
   const speakers: BaseUser[] = [];
   const unansweredHands: BaseUser[] = [];
   const listeners: BaseUser[] = [];
   let canIAskToSpeak = false;
+  if(iCanSpeak && myProfile) {
+    speakers.push(myProfile);
+  } else if (!iCanSpeak && myProfile) {
+    listeners.push(myProfile);
+  }
 
   room.users.forEach((u) => {
+    if (u.id === myProfile?.id) return;
     if (u.id === room.creatorId || u.roomPermissions?.isSpeaker) {
       speakers.push(u);
     } else if (u.roomPermissions?.askedToSpeak) {
@@ -91,6 +97,18 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   });
 
   const listenersShown = listeners.slice(0, listenersPage * pageSize);
+
+  const allowAllRequestingSpeakers = () => {
+    unansweredHands.forEach((user) => {
+      wsend({
+        op: "add_speaker",
+        d: {
+          userId: user.id,
+        },
+      });
+    });
+  };
+
   return (
     <>
       <ProfileModal
@@ -161,8 +179,26 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
               </div>
             ) : null}
             {unansweredHands.length ? (
-              <div className={`col-span-full text-xl ml-2.5 text-white`}>
-                {t("pages.room.requestingToSpeak")} ({unansweredHands.length})
+              <div className={`flex col-span-full text-xl ml-2.5 text-white`}>
+                <span className={`my-auto`}>
+                  {t("pages.room.requestingToSpeak")} ({unansweredHands.length})
+                </span>
+                {(iAmCreator || iAmMod) && (
+                  <Button
+                    className={`ml-4`}
+                    variant={`small`}
+                    onClick={() => {
+                      modalConfirm(
+                        t("pages.room.allowAllConfirm", {
+                          count: unansweredHands.length,
+                        }),
+                        allowAllRequestingSpeakers
+                      );
+                    }}
+                  >
+                    {t("pages.room.allowAll")}
+                  </Button>
+                )}
               </div>
             ) : null}
             {unansweredHands.map((u) => (
