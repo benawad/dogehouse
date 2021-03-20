@@ -4,7 +4,7 @@
     "loadMore": "Ielādēt vairāk",
     "loading": "Ielāde...",
     "noUsersFound": "Lietotāji nav atrasti",
-    "ok": "ok",
+    "ok": "labi",
     "yes": "jā",
     "no": "nē",
     "cancel": "atcelt",
@@ -12,7 +12,7 @@
     "edit": "rediģēt",
     "delete": "dzēst",
     "joinRoom": "Pieslēgties istabai",
-    "copyLink": "Nokopēt saiti",
+    "copyLink": "Kopēt saiti",
     "copied": "Nokopēts",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}"
@@ -26,23 +26,23 @@
     "_comment": "Main Footer UI Internationalization Strings",
     "link_1": "Izstrādes vēsture",
     "link_2": "Discord",
-    "link_3": "Paziņot par kļūdu"
+    "link_3": "Ziņot par kļūdu"
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "banUser": { "ban": "bloķēšana" },
     "followingOnlineList": {
-      "listHeader": "Lietotāju saraksts, kuri nav aizslēgtā istabā un kuriem Jūs sekojat.",
+      "listHeader": "Lietotāju saraksts, kuri ir publiskā istabā un kuriem Jūs sekojat.",
       "currentRoom": "Pašlaik istabā:",
-      "startPrivateRoom": "Izveidot aizvērtu istabu"
+      "startPrivateRoom": "Izveidot privātu istabu ar viņiem"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Izveidot istabu", "refresh": "Atjaunot" },
     "inviteList": {
       "roomGone": "Istaba pazuda, atgriezieties atpakaļ",
-      "shareRoomLink": "Padalīties ar saiti uz istabu",
+      "shareRoomLink": "Dalīties ar saiti uz istabu",
       "inviteFollowers": "Jūs varat uzaicināt savus sekotājus, kuri pašlaik ir tiešsaistē :",
-      "whenFollowersOnline": "Kad jūsu sekotāji ir tiešsaistē, viņi rādas šeit."
+      "whenFollowersOnline": "Kad jūsu sekotāji ir tiešsaistē, viņi tiek parādīti šeit."
     },
     "login": {
       "headerText": "Paceļam balss sarunas līdz mēnesim 🚀",
@@ -51,7 +51,7 @@
       "featureText_3": "Starpplatformu",
       "featureText_4": "Atvērtais pirmkods",
       "featureText_5": "Teksta čats",
-      "featureText_6": "Darbojas pateicoties Doge",
+      "featureText_6": "Darbojas ar Doge",
       "loginGithub": "Ieiet caur GitHub",
       "loginTwitter": "Ieiet caur Twitter",
       "createTestUser": "Izveidot izmēģinājuma lietotāju"
@@ -59,17 +59,17 @@
     "myProfile": {
       "logout": "Iziet",
       "probablyLoading": "visticamāk, notiek ielāde...",
-      "voiceSettings": "Ieiet balss ziņu iestatījumos",
-      "soundSettings": "Ieiet skaņas iestatījumos",
+      "voiceSettings": "salss ziņu iestatījumi",
+      "soundSettings": "skaņas iestatījumi",
       "deleteAccount": "dzēst kontu"
     },
     "notFound": {
       "whoopsError": "Ups! Šī lapa tika pazaudēta sarunā.",
-      "goHomeMessage": "Nepārdzīvojiet. Jūs varat ",
+      "goHomeMessage": "Nepārdzīvojiet. Jūs varat",
       "goHomeLinkText": "doties mājās"
     },
     "room": {
-      "speakers": "oratori",
+      "speakers": "Runātāji",
       "requestingToSpeak": "Vēlas runāt",
       "listeners": "Klausītāji"
     },
@@ -96,13 +96,13 @@
     "avatar": {},
     "backBar": {},
     "blockedFromRoomUsers": {
-      "header": "Nobloķētie lietotāji",
+      "header": "Bloķētie lietotāji",
       "unban": "atbloķēt",
       "noBans": "nav bloķētu lietotāju"
     },
     "bottomVoiceControl": {
       "leaveCurrentRoomBtn": "Pamest istabu",
-      "confirmLeaveRoom": "Vai esat pārliecināti?",
+      "confirmLeaveRoom": "Vai esat pārliecināts?",
       "leave": "Iziet",
       "inviteUsersToRoomBtn": "Uzaicināt lietotājus uz istabu",
       "invite": "Uzaicināt",
@@ -111,7 +111,7 @@
       "unmute": "Ieslēgt skaņu",
       "makeRoomPublicBtn": "Atvērt istabu!",
       "settings": "Iestatījumi",
-      "speaker": "Orators",
+      "speaker": "Runātājs",
       "listener": "Klausītāji",
       "chat": "Čats"
     },
@@ -133,7 +133,7 @@
       "setKeybind": "uzlikt aktivācijas taustiņu",
       "listening": "klausās",
       "toggleMuteKeybind": "Skaņas izslēgšanas taustiņš",
-      "togglePushToTalkKeybind": "Rācijsaziņas taustiņš"
+      "togglePushToTalkKeybind": ":Īslaicīgās mikrofona ieslēgšanas taustiņš"
     },
     "userVolumeSlider": {
       "noAudioMessage": "nezināmu iemeslu dēļ, nav pieejama audiosaziņa"
@@ -162,7 +162,7 @@
       "editProfileModal": {
         "usernameTaken": "lietotājvārds aizņemts",
         "avatarUrlError": "Nederīgs attēls",
-        "avatarUrlLabel": "Bildes URL no GitHub/Twitter",
+        "avatarUrlLabel": "Attēli URL no GitHub/Twitter",
         "displayNameError": "garums no 2 līdz 50 simboliem",
         "displayNameLabel": "Publiskais vārds",
         "usernameError": "garums no 4 līdz 15 simboliem, tikai burtciparu simboli un pasvītra",
@@ -173,15 +173,15 @@
       "profileModal": {
         "blockUserConfirm": "Vai esat pārliecināti, ka vēlaties nobloķēt šo lietotāju no visām jūsu telpām?",
         "blockUser": "nobloķēt lietotāju",
-        "makeMod": "padarīt par moderatoru",
+        "makeMod": "iestatīt par moderatoru",
         "unmod": "noņemt moderātoru",
-        "addAsSpeaker": "pievienot oratoru",
+        "addAsSpeaker": "pievienot runātāju",
         "moveToListener": "pārvietot uz klausītājiem",
-        "banFromChat": "nobloķēt no čata",
-        "banFromRoom": "nobloķēt no šis istabas",
+        "banFromChat": "bloķet no čata",
+        "banFromRoom": "bloķēt no šis istabas",
         "goBackToListener": "kļūt par klausītāju",
         "deleteMessage": "izdzēst šo ziņu",
-        "makeRoomCreator": "padarīt par šis istabas administrātoru"
+        "makeRoomCreator": "iestatīt par šis istabas administrātoru"
       },
       "roomSettingsModal": {
         "requirePermission": "pieprasīt runāšanas atļauju",
@@ -222,7 +222,7 @@
     "roomStatus": {
       "fuelingRocket": "Raķetes uzpilde",
       "takingOff": "Palaišana",
-      "inSpace": "Kosmosā",
+      "inSpace": "Esam gaisā",
       "approachingMoon": "Tuvojas mēnesim",
       "lunarDoge": "Mēness doge",
       "approachingSun": "Tuvojas saulei",
