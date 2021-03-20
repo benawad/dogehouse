@@ -102,7 +102,7 @@
     },
     "bottomVoiceControl": {
       "leaveCurrentRoomBtn": "Yfirgefa spjallrásina",
-      "confirmLeaveRoom": "Ertu viss um að þú viljir fara?",
+      "confirmLeaveRoom": "Ertu viss um að þú viljir yfirgefa rásina?",
       "leave": "Yfirgefa",
       "inviteUsersToRoomBtn": "Bjóða notendum í spjallrásina",
       "invite": "Bjóða",
@@ -129,7 +129,7 @@
     "keyboardShortcuts": {
       "setKeybind": "stilltu lyklabindingu",
       "listening": "er að hlusta",
-      "toggleMuteKeybind": "slökkva á hljóðþjöppun",
+      "toggleMuteKeybind": "afþagga",
       "togglePushToTalkKeybind": "slökkva á 'Ýttu til að tala'"
     },
     "userVolumeSlider": {
@@ -137,15 +137,15 @@
     },
     "addToCalendar": { "add": "Bæta við dagatal" },
     "wsKilled": {
-      "description": "WebSocket var drepinn af netþjóninum. Þetta gerist venjulega þegar þú opnar vefsíðuna á öðrum flipa.",
-      "reconnect": "tengjast aftur"
+      "description": "WebSocket tengingin var drepinn af netþjóninum. Þetta gerist venjulega þegar þú opnar vefsíðuna á öðrum flipa.",
+      "reconnect": "endurræsa tengingu"
     },
     "modals": {
       "createRoomModal": {
-        "public": "almenningi",
-        "private": "einkaaðila",
-        "roomDescription": "rásarlýsing",
+        "public": "Opin rás",
+        "private": "Einkarás",
         "roomName": "Rásarheiti",
+        "roomDescription": "Rásarlýsing",
         "descriptionError": "hámarks lengd 500",
         "nameError": "verður að vera á bilinu 2 til 60 stafir"
       },
@@ -170,20 +170,20 @@
       "profileModal": {
         "blockUserConfirm": "Ertu viss um að þú viljir hindra þennan notanda í að fara í hvaða herbergi sem þú stofnar?",
         "blockUser": "loka á notanda",
-        "makeMod": "gera mod",
-        "unmod": "unmod",
-        "addAsSpeaker": "bæta við sem hátalara",
+        "makeMod": "gera að moderator",
+        "unmod": "taka moderator réttindi",
+        "addAsSpeaker": "gera að mælanda",
         "moveToListener": "færa til hlustenda",
-        "banFromChat": "bann við spjalli",
-        "banFromRoom": "bann frá rás",
-        "goBackToListener": "farðu aftur til hlustandans",
-        "deleteMessage": "eyða þessum skilaboðum",
-        "makeRoomCreator": "make room admin"
+        "banFromChat": "banna frá spjalli",
+        "banFromRoom": "banna frá rásinni",
+        "goBackToListener": "fara aftur til hlustandans",
+        "deleteMessage": "eyða skilaboðum",
+        "makeRoomCreator": "gera að rásarstjórnenda"
       },
       "roomSettingsModal": {
         "requirePermission": "þurfa leyfi til að tala",
-        "makePublic": "gera rás opinbera",
-        "makePrivate": "gera rás einkaaðila"
+        "makePublic": "opinbera rás",
+        "makePrivate": "gera að einkarás"
       }
     }
   },
@@ -195,7 +195,7 @@
       "allRooms": "öll ætlunarásirnar",
       "myRooms": "áætlunarásirnar mínar",
       "scheduleRoomHeader": "Skipuleggðu rásir",
-      "startRoom": "byrja rás",
+      "startRoom": "Stofna rás",
       "modal": {
         "needsFuture": "þarf að vera í framtíðinni",
         "roomName": "rásarheiti",
