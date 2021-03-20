@@ -36,7 +36,7 @@
       "currentRoom": "ভেতরে আছেন:",
       "startPrivateRoom": "তাদের সাথে প্রাইভেট রুম শুরু করুন"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": { "followHim": "অনুসরণ করুন", "followingHim": "অনুসরণ করছেন" },
     "home": { "createRoom": "রুম বানান", "refresh": "রিফ্রেশ করুন" },
     "inviteList": {
       "roomGone": "রুম শেষ, ফিরে আসুন",
@@ -80,8 +80,8 @@
       "followsYou": "আপনাকে অনুসরণ করে",
       "followers": "জন অনুসরণকারী",
       "following": "জনকে অনুসরণ করছে",
-      "followHim": "follow",
-      "followingHim": "following"
+      "followHim": "অনুসরণ করুন",
+      "followingHim": "অনুসরণ করছেন"
     },
     "voiceSettings": {
       "header": "ভয়েস সেটিংস",
@@ -181,7 +181,7 @@
         "banFromRoom": "রুম থেকে ব্যান করুন",
         "goBackToListener": "শ্রোতাতে ফিরে যান",
         "deleteMessage": "মেসেজটি মুছে ফেলুন",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "রুম অ্যাডমিন তৈরি করুন"
       },
       "roomSettingsModal": {
         "requirePermission": "কথা বলার জন্য পারমিশন লাগবে",
