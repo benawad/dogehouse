@@ -3,14 +3,16 @@ import * as React from "react";
 function SvgSmSolidNotification(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
-      width={16}
-      height={16}
-      viewBox="0 0 16 16"
-      fill="currentColor"
+      width={20}
+      height={20}
+      fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path d="M8.16 16c.877 0 1.594-.72 1.594-1.6H6.568c0 .88.717 1.6 1.593 1.6zm5.177-4.8V6.8c0-2.44-1.712-4.52-3.982-5.04V1.2c0-.68-.517-1.2-1.194-1.2-.677 0-1.195.52-1.195 1.2v.56c-2.27.52-3.982 2.6-3.982 5.04v4.4l-1.592 1.6v.8H14.93v-.8l-1.593-1.6z" />
+      <path
+        d="M10.201 20c1.095 0 1.991-.9 1.991-2H8.21c0 1.1.896 2 1.991 2zm6.47-6V8.5c0-3.05-2.14-5.65-4.977-6.3v-.7c0-.85-.647-1.5-1.493-1.5a1.47 1.47 0 00-1.493 1.5v.7C5.87 2.85 3.73 5.45 3.73 8.5V14l-1.99 2v1h16.923v-1l-1.991-2z"
+        fill="#fff"
+      />
     </svg>
   );
 }
