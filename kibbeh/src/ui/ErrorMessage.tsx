@@ -60,7 +60,7 @@ export const ErrorMessage: React.FC<ErrorMessageProps> = ({
         <p className={`bold`}>{message}</p>
         {button ? (
           <button
-            className={`rounded-lg px-3 font-bold text-sm`}
+            className={`rounded-lg px-3 font-bold text-sm focus:outline-none`}
             style={{
               backgroundColor: "#879EED",
               paddingTop: 3,
