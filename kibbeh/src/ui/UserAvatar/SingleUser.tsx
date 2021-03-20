@@ -2,6 +2,7 @@ import React from "react";
 
 export const avatarSizeMap = {
   default: "80px",
+  md: "50px",
   sm: "40px",
   xxs: "30px",
   xs: "20px",
@@ -14,6 +15,13 @@ export const onlineIndicatorStyleMap = {
     right: "2px",
     bottom: "-4px",
     borderWidth: "4px",
+  },
+  md: {
+    width: "10px",
+    height: "10px",
+    right: "2px",
+    bottom: "-3px",
+    borderWidth: "3px"
   },
   xxs: {
     width: "6px",
