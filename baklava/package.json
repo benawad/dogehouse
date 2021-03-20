@@ -67,7 +67,8 @@
     "linux": {
       "icon": "icons/icon.png",
       "target": [
-        "deb"
+        "deb",
+        "AppImage"
       ]
     },
     "directories": {
