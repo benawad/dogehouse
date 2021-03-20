@@ -56,17 +56,25 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   const [listenersPage, setListenersPage] = useState(1);
   const pageSize = 25;
   const { t } = useTypeSafeTranslation();
+  const [ipcStarted, setIpcStarted] = useState(false);
 
-  if (isElectron()) {
-    ipcRenderer.on("@overlay/start_ipc", () => {
+  useEffect(() => {
+    if (isElectron()) {
+      ipcRenderer.on("@overlay/start_ipc", () => {
+        setIpcStarted(true);
+      })
+    }
+  }, []);
+  useEffect(() => {
+    if (isElectron() && ipcStarted) {
       ipcRenderer.send("@overlay/overlayData", {
         currentRoom: room,
         muted: muted,
         me: me,
         roomID: id,
       });
-    })
-  }
+    }
+  });
 
   // useEffect(() => {
   //   if (room?.users.length) {

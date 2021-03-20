@@ -94,8 +94,10 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
             if (CURRENT_OVERLAY) {
                 if (!CURRENT_OVERLAY.isVisible()) {
                     CURRENT_OVERLAY.show();
+                    mainWindow.webContents.send("@overlay/start_ipc", true);
                 } else {
                     CURRENT_OVERLAY.hide();
+                    mainWindow.webContents.send("@overlay/start_ipc", true);
                 }
             } else {
                 CURRENT_OVERLAY = createOverlay(CURRENT_APP_TITLE, overlayWindow);

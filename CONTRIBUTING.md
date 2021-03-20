@@ -33,7 +33,9 @@ commit messages are standardized:
 3. Ensure to describe your pull request.
 
 ## Adding Emojis
-Emojis need to be 28x28px. To add an emoji, add the png/gif image to public/emojis and add the emoji to the emoji picker file./
+Emojis need to be 28x28px. To add an emoji, add the png/gif image to public/emojis and add the emoji to the `kofta/src/app/modules/room-chat/EmoteData.ts`.
+
+To avoid conflicts please add the emojis to the top of the file.
 
 ## Quickstart Local Frontend Development
 Do this if you only want to do React stuff and don't want to touch Elixir:

@@ -30,15 +30,13 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "αποκλεισμός"
-    },
+    "banUser": { "ban": "αποκλεισμός" },
     "followingOnlineList": {
       "listHeader": "Χρήστες που ακολουθείτε και δεν βρίσκονται σε κάποιο δωμάτιο",
       "currentRoom": "αυτή τη στιγμή βρίσκεστε σε:",
       "startPrivateRoom": "δημιουργήστε ένα ιδιωτικό δωμάτιο μαζί τους"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Δημιουργία Δωματίου", "refresh": "Επαναφόρτωση" },
     "inviteList": {
       "roomGone": "το δωμάτιο διαγράφηκε, πηγαίνετε πίσω",
@@ -76,12 +74,8 @@
       "requestingToSpeak": "Αιτούμενοι να μιλήσουν",
       "listeners": "Ακροατές"
     },
-    "searchUser": {
-      "search": "αναζήτηση..."
-    },
-    "soundEffectSettings": {
-      "header": "Ήχοι"
-    },
+    "searchUser": { "search": "αναζήτηση..." },
+    "soundEffectSettings": { "header": "Ήχοι" },
     "viewUser": {
       "editProfile": "επεξεργασία προφίλ",
       "followsYou": "σας ακολουθεί",

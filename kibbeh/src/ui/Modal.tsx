@@ -14,6 +14,7 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     borderRadius: 8,
+    padding: "20px 40px 40px 40px",
     transform: "translate(-50%, -50%)",
     backgroundColor: "var(--color-primary-800)",
     border: "none",
@@ -44,9 +45,12 @@ export const Modal: React.FC<ReactModal["props"]> = ({
       style={customStyles}
       {...props}
     >
-      <div className={`flex-col`}>
-        <div className={`justify-end mb-1`}>
-          <button onClick={(e) => props?.onRequestClose?.(e)}>
+      <div className={`flex-col w-full`}>
+        <div className={`justify-end`}>
+          <button
+            className={`-mr-4 -mt-1 p-1`}
+            onClick={(e) => props?.onRequestClose?.(e)}
+          >
             <SmSolidPlus className={`transform rotate-45`} />
           </button>
         </div>

@@ -7,9 +7,7 @@ export function createOverlay(target: string, OW: any) {
         height: 300,
         webPreferences: {
             nodeIntegration: true,
-            webSecurity: false,
         },
-
         ...OW.WINDOW_OPTS,
     });
 
