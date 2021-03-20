@@ -61,12 +61,8 @@
       "probablyLoading": "prolly loadin'...",
       "voiceSettings": "go t' voice settings",
       "soundSettings": "go t' sound settings",
-<<<<<<< HEAD
-      "deleteAccount": "scuttle account",
+      "deleteAccount": "Cleave Him to the Brisket!",
       "overlaySettings": "go to overlay settings"
-=======
-      "deleteAccount": "Cleave Him to the Brisket!"
->>>>>>> 0bdd296013d79d86599df746ad698bada4f5a6fc
     },
     "notFound": {
       "whoopsError": "Blast ye! This page got lost in natter.",
