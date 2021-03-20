@@ -18,12 +18,13 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "bg", label: "🇧🇬 Български" }, // Bulgarian
     { value: "bn", label: "🇧🇩 বাংলা" }, // Bengali
     { value: "cs", label: "🇨🇿 Čeština" }, // Czech
-    { value: "hr", label: "🇭🇷 Hrvatski"}, // Croatian
+    { value: "hr", label: "🇭🇷 Hrvatski" }, // Croatian
     { value: "da", label: "🇩🇰 Dansk" }, // Danish
     { value: "de", label: "🇩🇪 Deutsch" }, // German
     { value: "el-GR", label: "🇬🇷 ελληνικά" },
     { value: "eo", label: "🟢 Esperanto" },
     { value: "es", label: "🇪🇸 Español" }, // Estonian
+    { value: "eu", label: "🏴󠁥󠁳󠁰󠁶󠁿 Euskera" }, // Euskera
     { value: "et", label: "🇪🇪 Eesti keel" }, // Estonian
     { value: "fi", label: "🇫🇮 suomi" }, // Finnish
     { value: "fr", label: "🇫🇷 Français" }, // French
