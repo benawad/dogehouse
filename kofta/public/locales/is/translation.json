@@ -136,14 +136,9 @@
     "keyboardShortcuts": {
       "setKeybind": "stilltu lyklabindingu",
       "listening": "er að hlusta",
-<<<<<<< HEAD
-      "toggleMuteKeybind": "slökkva á hljóðþjöppun",
+      "toggleMuteKeybind": "afþagga",
       "togglePushToTalkKeybind": "slökkva á 'Ýttu til að tala'",
       "toggleOverlayKeybind": "toggle overlay keybind"
-=======
-      "toggleMuteKeybind": "afþagga",
-      "togglePushToTalkKeybind": "slökkva á 'Ýttu til að tala'"
->>>>>>> a18000250faa3cbd713785ce76c947f1bec47bd9
     },
     "userVolumeSlider": {
       "noAudioMessage": "enginn hljóðnotandi af einhverjum ástæðum"
