@@ -36,7 +36,7 @@
       "currentRoom": "Trenutno v:",
       "startPrivateRoom": "Začni zasebno sobo s tem uporabnikom"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Ustvari sobo", "refresh": "Osveži" },
     "inviteList": {
       "roomGone": "Sobe ni bilo mogoče najti! Nazaj",
@@ -79,7 +79,9 @@
       "editProfile": "Uredi profil",
       "followsYou": "ti sledi",
       "followers": "Sledilci",
-      "following": "Spremljane osebe"
+      "following": "Spremljane osebe",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Nastavitve zvoka",

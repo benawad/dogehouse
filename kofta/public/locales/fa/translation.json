@@ -36,7 +36,7 @@
       "currentRoom": "در حال حاظر در:",
       "startPrivateRoom": "شروع اتاق شخصی"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "ساختن اتاق", "refresh": "تازه کردن" },
     "inviteList": {
       "roomGone": "اتاق گم شد. برگردید",
@@ -79,7 +79,9 @@
       "editProfile": "ویرایش حساب",
       "followsYou": "شما را دنبال میکنند",
       "followers": "دنبال کنندگان",
-      "following": "دنبال شوندگان"
+      "following": "دنبال شوندگان",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "تنظیمات صدا",

@@ -79,13 +79,13 @@
       "followsYou": "关注您的人",
       "followers": "关注者",
       "following": "您关注的人",
-      "followHim": "follow",
-      "followingHim": "following"
+      "followHim": "关注ta",
+      "followingHim": "已经关注"
     },
     "voiceSettings": {
       "header": "语音设置",
       "mic": "麦克风:",
-      "permissionError": "没有找到麦克风，要不然没有被插入，要不然没有给此网页使用麦克风的权利。",
+      "permissionError": "没有找到麦克风，也许没有插入麦克风，也许没有给此网页使用麦克风的权利。",
       "refresh": "刷新麦克风列表",
       "volume": "音量:"
     }
@@ -140,7 +140,7 @@
         "avatarUrlError": "图片无效",
         "avatarUrlLabel": "GitHub/Twitter头像URL",
         "displayNameError": "长度为2到50字符",
-        "displayNameLabel": "所显名称e",
+        "displayNameLabel": "所显名称",
         "usernameError": "长度为4到15字符，只允许字母或数字或下划线",
         "usernameLabel": "用户名",
         "bioError": "最大长度为160字符",
@@ -157,7 +157,7 @@
         "banFromRoom": "踢出聊天室",
         "goBackToListener": "回到听者",
         "deleteMessage": "删除此信息",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "设为聊天室管理员"
       },
       "roomSettingsModal": {
         "requirePermission": "需要允许才能说话",
@@ -170,9 +170,9 @@
     },
     "addToCalendar": { "add": "加到日历" },
     "keyboardShortcuts": {
-      "setKeybind": "set keybind",
-      "listening": "listening",
-      "toggleMuteKeybind": "toggle mute keybind",
+      "setKeybind": "设置快捷键",
+      "listening": "等待输入",
+      "toggleMuteKeybind": "切换静音键绑定",
       "togglePushToTalkKeybind": "toggle push-to-talk keybind"
     },
     "wsKilled": {
@@ -184,7 +184,7 @@
       "linkText": "issue on GitHub",
       "addSupport": "and I will try adding support for your device."
     },
-    "inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" }
+    "inviteButton": { "invited": "被邀请", "inviteToRoom": "邀请进入聊天室" }
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
