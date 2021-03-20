@@ -11,7 +11,7 @@ import { useRoomChatStore } from "./useRoomChatStore";
 interface ChatProps {
   sidebar: boolean;
 }
-export const roomChatMediaQuery = "(min-width: 980px)";
+export const roomChatMediaQuery = "(min-width: 1024px)";
 
 export const RoomChat: React.FC<ChatProps> = ({ sidebar }) => {
   const chatShouldBeSidebar = useMediaQuery({ query: roomChatMediaQuery });
