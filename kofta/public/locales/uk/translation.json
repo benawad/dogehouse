@@ -37,7 +37,7 @@
       "startPrivateRoom": "почніть з ними приватну кімнату"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Створити Кімнату", "refresh": "Refresh" },
+    "home": { "createRoom": "Створити Кімнату", "refresh": "Оновити" },
     "inviteList": {
       "roomGone": "кімнати вже немає, повернутися",
       "shareRoomLink": "поділитися посиланням на кімнату",
@@ -72,7 +72,7 @@
       "speakers": "Доповідачі",
       "requestingToSpeak": "Запитую дозвіл говорити",
       "listeners": "Слухачі",
-      "allowAll": "Allow all",
+      "allowAll": "Дозволити все",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "шукати..." },
@@ -82,7 +82,7 @@
       "followsYou": "підписані на вас",
       "followers": "підписники",
       "following": "ви підписані",
-      "followHim": "follow",
+      "followHim": "підписатися",
       "followingHim": "following"
     },
     "voiceSettings": {
@@ -115,7 +115,7 @@
       "settings": "Налаштування",
       "speaker": "Доповідач",
       "listener": "Слухач",
-      "chat": "Chat"
+      "chat": "Чат"
     },
     "deviceNotSupported": {
       "notSupported": "Ваш пристрій не підтримується. Ви можете створити",
@@ -184,7 +184,7 @@
         "banFromRoom": "заблокувати в цій кімнаті",
         "goBackToListener": "повернутися у статус слухача",
         "deleteMessage": "видалити це повідомлення",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "зробити адміном кімнати"
       },
       "roomSettingsModal": {
         "requirePermission": "запитувати дозвіл говорити",
@@ -206,7 +206,7 @@
         "needsFuture": "має бути в майбутньому",
         "roomName": "назва кімнати",
         "minLength": "має містити від 2 символів",
-        "roomDescription": "Description"
+        "roomDescription": "Опис"
       }
     },
     "roomChat": {
@@ -220,7 +220,7 @@
       "sendMessage": "Надіслати Повідомлення",
       "whisper": "Шепотіти",
       "welcomeMessage": "Ласкаво просимо до чату!",
-      "roomDescription": "опис кімнати"
+      "roomDescription": "Опис кімнати"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",
