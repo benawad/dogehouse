@@ -305,6 +305,20 @@ defmodule Kousa.Room do
   
   def send_waiting_room_casts(user_id, room) do
       user = Beef.Users.get_by_id(user_id)
+        Onion.UserSession.send_cast(
+         user_id,
+         {:send_ws_msg, :vscode,
+          %{
+            op: "you_joined_waiting_room",
+            d: %{
+              userId: user.id,
+              type: "you_joined_waiting_room",
+              roomId: room.id,
+              roomName: room.name
+            }
+         }}
+       )
+
       Onion.UserSession.send_cast(
          room.creatorId,
          {:send_ws_msg, :vscode,
@@ -322,22 +336,7 @@ defmodule Kousa.Room do
           }}
        )
       
-            Onion.UserSession.send_cast(
-         user_id,
-         {:send_ws_msg, :vscode,
-          %{
-            op: "you_joined_waiting_room",
-            d: %{
-              displayName: user.displayName,
-              username: user.username,
-              avatarUrl: user.avatarUrl,
-              userId: user.id,
-              type: "you_joined_waiting_room",
-              roomId: room.id,
-              roomName: room.name
-            }
-          }}
-       )
+
       {:ok}
   end
 
