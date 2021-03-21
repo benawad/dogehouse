@@ -89,7 +89,8 @@
       "permissionError": "Buď nemáš mikrofon, nebo jsi jej nepovolil/a.",
       "refresh": "Znovu načíst mikrofon",
       "volume": "Hlasitost:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

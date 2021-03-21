@@ -88,7 +88,8 @@
       "permissionError": "ingen mikrofon hittades, du har antingen inte någon inkopplad eller så har du inte gett hemsidan tillåtelse.",
       "refresh": "uppdatera mikrofonlistan",
       "volume": "volym:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

@@ -89,7 +89,8 @@
       "permissionError": "マイクが見つかりませんでした。 マイクが接続されていることを確認し、アクセスを許可してください。",
       "refresh": "更新",
       "volume": "ボリューム:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

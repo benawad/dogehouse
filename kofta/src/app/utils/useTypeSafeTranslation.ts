@@ -7,9 +7,9 @@ interface DateTranslationType {
 }
 
 export const useTypeSafeTranslation = () => {
-  const { t } = useTranslation();
+    const { t } = useTranslation();
 
-  return {
-    t: (s: TranslationKeys, f?: DateTranslationType) => t(s, f),
-  };
+    return {
+        t: (s: TranslationKeys, f?: DateTranslationType) => t(s, f),
+    };
 };

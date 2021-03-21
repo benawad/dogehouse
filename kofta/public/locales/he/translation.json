@@ -89,7 +89,8 @@
       "permissionError": "לא נמצאו מיקרופונים, או שאין מיקרופון מחובר או שלא נתת אישור לאתר זה.",
       "refresh": "רענן את רשימת המיקרופונים",
       "volume": "עוצמת קול:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

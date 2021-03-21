@@ -89,7 +89,8 @@
       "permissionError": "микрофон не найден, он не подключен или браузеру не дано соответствующее разрешение.",
       "refresh": "обновить список микрофонов",
       "volume": "громкость:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

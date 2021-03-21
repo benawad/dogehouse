@@ -9,12 +9,12 @@ type State =
   | "closed";
 
 export const useSocketStatus = create(
-  combine(
-    {
-      status: "connecting" as State,
-    },
-    (set) => ({
-      setStatus: (status: State) => set({ status }),
-    })
-  )
+    combine(
+        {
+            status: "connecting" as State,
+        },
+        (set) => ({
+            setStatus: (status: State) => set({ status }),
+        })
+    )
 );

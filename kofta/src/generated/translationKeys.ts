@@ -66,6 +66,7 @@ export type TranslationKeys =
 	| "pages.voiceSettings.permissionError"
 	| "pages.voiceSettings.refresh"
 	| "pages.voiceSettings.volume"
+	| "pages.keybindSettings.header"
 	| "components.blockedFromRoomUsers.header"
 	| "components.blockedFromRoomUsers.unban"
 	| "components.blockedFromRoomUsers.noBans"

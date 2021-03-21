@@ -89,7 +89,8 @@
       "permissionError": "ühtegi mikrofoni ei leitud, sul pole ühtegi mikrofoni ühendatud või pole veebilehele õigust andnud.",
       "refresh": "värskenda mikrofoni loendit",
       "volume": "helitugevus:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

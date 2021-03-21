@@ -9,14 +9,14 @@ interface ProfileButtonProps {
 }
 
 export const ProfileButton: React.FC<ProfileButtonProps> = ({
-  size = 41,
-  circle,
-  onClick
+    size = 41,
+    circle,
+    onClick
 }) => {
-  const { me } = useMeQuery();
-  return me ? (
-    <button onClick={onClick}>
-      <Avatar circle={circle} size={size} src={me.avatarUrl} />
-    </button>
-  ) : null;
+    const { me } = useMeQuery();
+    return me ? (
+        <button onClick={onClick}>
+            <Avatar circle={circle} size={size} src={me.avatarUrl} />
+        </button>
+    ) : null;
 };

@@ -89,7 +89,8 @@
       "refesh": "Mikrofon listesini yenile",
       "volume": "Ses seviyesi:",
       "refresh": "Mikrofon listesini yenile"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Bileşen arayüz ulusallaştırma yazıları",

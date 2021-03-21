@@ -87,7 +87,8 @@
       "permissionError": "no se encontraron micrófonos, puede que no se encuentre conectado o no se ha otorgado permiso al sitio web.",
       "refresh": "recargar lista de micrófonos",
       "volume": "volumen:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

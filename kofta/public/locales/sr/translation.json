@@ -88,7 +88,8 @@
       "permissionError": "Није пронађен ниједан микрофон, или га нисте прикључили, или нисте дали дозволу овој веб локацији.",
       "refresh": "Освежи листу микрофона",
       "volume": "гласноћа:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

@@ -89,7 +89,8 @@
       "permissionError": "Kane Mikrofone gfunden, es is entweda kans augschlossen oder de Seitn besitzt ned die benötigten Berechtigungen.",
       "volume": "Lautstärkn:",
       "refresh": "Mikrofonliste aktualisiern"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

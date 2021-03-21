@@ -87,7 +87,8 @@
       "permissionError": "pas de microphone trouvé, soit vous n'en avez pas branché un soit vous n'avez pas donné la permission au site de l'utiliser.",
       "refresh": "rafraîchir la liste des microphones",
       "volume": "volume :"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

@@ -8,21 +8,21 @@ interface UserVolumeSliderProps {
 }
 
 export const UserVolumeSlider: React.FC<UserVolumeSliderProps> = ({
-  userId,
+    userId,
 }) => {
-  const { consumerMap, setVolume } = useConsumerStore();
-  const consumerInfo = consumerMap[userId];
-  const { t } = useTypeSafeTranslation();
-  if (!consumerInfo) {
-    return <div>{t("components.userVolumeSlider.noAudioMessage")}</div>;
-  }
+    const { consumerMap, setVolume } = useConsumerStore();
+    const consumerInfo = consumerMap[userId];
+    const { t } = useTypeSafeTranslation();
+    if (!consumerInfo) {
+        return <div>{t("components.userVolumeSlider.noAudioMessage")}</div>;
+    }
 
-  return (
-    <VolumeSlider
-      label
-      max="200"
-      volume={consumerInfo.volume}
-      onVolume={(n) => setVolume(userId, n)}
-    />
-  );
+    return (
+        <VolumeSlider
+            label
+            max="200"
+            volume={consumerInfo.volume}
+            onVolume={(n) => setVolume(userId, n)}
+        />
+    );
 };

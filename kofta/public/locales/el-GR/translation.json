@@ -89,7 +89,8 @@
       "permissionError": "δεν βρέθηκε μικρόφωνο, είτε δεν έχετε κανένα συνδεδεμένο είτε δεν έχετε δώσει άδεια σε αυτή την ιστοσελίδα.",
       "refresh": "ανανέωση λίστας μικροφώνων",
       "volume": "ένταση ήχου:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

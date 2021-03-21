@@ -88,7 +88,8 @@
       "permissionError": "Não foram encontrados microfones, não foram dadas permissões ou não estão corretamente ligados.",
       "refresh": "Atualizar lista de microfones",
       "volume": "Volume:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

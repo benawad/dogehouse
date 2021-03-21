@@ -4,9 +4,9 @@ import { Room, BaseUser, UserWithFollowInfo } from "./types";
 import { useMeQuery } from "./utils/useMeQuery";
 
 const createSetter = <T>(a: WritableAtom<T, any>) =>
-  atom(null, (get, set, fn: (x: T) => T) => {
-    set(a, typeof fn === "function" ? fn(get(a)) : fn);
-  });
+    atom(null, (get, set, fn: (x: T) => T) => {
+        set(a, typeof fn === "function" ? fn(get(a)) : fn);
+    });
 
 export const voiceBrowserStatusAtom = atom(-1);
 export const setVoiceBrowserStatusAtom = createSetter(voiceBrowserStatusAtom);
@@ -63,39 +63,39 @@ export const publicRoomsAtom = atom<{
 export const setPublicRoomsAtom = createSetter(publicRoomsAtom);
 
 export const useCurrentRoomInfo = () => {
-  const { currentRoom: room } = useCurrentRoomStore();
-  const { me } = useMeQuery();
+    const { currentRoom: room } = useCurrentRoomStore();
+    const { me } = useMeQuery();
 
-  if (!room || !me) {
-    return {
-      isMod: false,
-      isCreator: false,
-      isSpeaker: false,
-      canSpeak: false,
-    };
-  }
-
-  let isMod = false;
-  let isSpeaker = false;
-
-  for (const u of room.users) {
-    if (u.id === me.id) {
-      if (u.roomPermissions?.isSpeaker) {
-        isSpeaker = true;
-      }
-      if (u.roomPermissions?.isMod) {
-        isMod = true;
-      }
-      break;
+    if (!room || !me) {
+        return {
+            isMod: false,
+            isCreator: false,
+            isSpeaker: false,
+            canSpeak: false,
+        };
     }
-  }
 
-  const isCreator = me.id === room.creatorId;
+    let isMod = false;
+    let isSpeaker = false;
 
-  return {
-    isCreator,
-    isMod,
-    isSpeaker,
-    canSpeak: isCreator || isSpeaker,
-  };
+    for (const u of room.users) {
+        if (u.id === me.id) {
+            if (u.roomPermissions?.isSpeaker) {
+                isSpeaker = true;
+            }
+            if (u.roomPermissions?.isMod) {
+                isMod = true;
+            }
+            break;
+        }
+    }
+
+    const isCreator = me.id === room.creatorId;
+
+    return {
+        isCreator,
+        isMod,
+        isSpeaker,
+        canSpeak: isCreator || isSpeaker,
+    };
 };

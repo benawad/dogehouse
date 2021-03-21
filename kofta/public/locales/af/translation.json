@@ -89,7 +89,8 @@
       "permissionError": "Geen mikrofone gevind nie. Jy het óf geen ingeprop nie, of jy het nie vir hierdie webtuiste toestemming gegee nie.",
       "refresh": "herlaai mikrofoon lys",
       "volume": "volume:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

@@ -7,12 +7,12 @@ import { Wrapper } from "../components/Wrapper";
 interface VoiceSettingsPageProps {}
 
 export const VoiceSettingsPage: React.FC<VoiceSettingsPageProps> = () => {
-  return (
-    <Wrapper>
-      <Backbar actuallyGoBack />
-      <BodyWrapper>
-        <VoiceSettings />
-      </BodyWrapper>
-    </Wrapper>
-  );
+    return (
+        <Wrapper>
+            <Backbar actuallyGoBack />
+            <BodyWrapper>
+                <VoiceSettings />
+            </BodyWrapper>
+        </Wrapper>
+    );
 };

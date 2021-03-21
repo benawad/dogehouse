@@ -89,7 +89,8 @@
       "permissionError": "Keni Mikrofon gfunge, es isch entweder kes agschlosse oder die Site het nid die nötige Berechtigunge.",
       "volume": "Lutsterchi:",
       "refresh": "Mikrofonliste aktualisiere"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

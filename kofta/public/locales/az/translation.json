@@ -89,7 +89,8 @@
       "permissionError": "no mics found, you either have none plugged in or haven't given this website permission.",
       "refresh": "refresh mic list",
       "volume": "volume:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

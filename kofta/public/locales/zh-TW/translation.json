@@ -88,7 +88,8 @@
       "permissionError": "沒有找到麥克風，請確認有插入或者要允許本網站使用麥克風的權限‧",
       "refresh": "更新麥克風列表",
       "volume": "音量:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

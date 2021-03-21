@@ -89,7 +89,8 @@
       "permissionError": "میکروفون پیدا نشد! ممکن است میکروفونی وصل نباشد یا شما به آن دسترسی نداده اید.",
       "refresh": "بروزرسانی لیست",
       "volume": "مقدار:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

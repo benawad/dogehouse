@@ -90,7 +90,8 @@
       "refesh": "አድስ ማይክሮፎኑን ዝርዝር",
       "volume": "ድምጽ:",
       "refresh": "refresh mic list"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

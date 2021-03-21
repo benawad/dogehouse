@@ -89,7 +89,8 @@
       "permissionError": "nije pronađen nijedan mikrofon, ili ga niste priključili ili niste dali dozvolu ovoj web lokaciji.",
       "refresh": "osveži listu mikrofona",
       "volume": "jačina zvuka:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

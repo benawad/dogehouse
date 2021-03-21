@@ -17,29 +17,29 @@ interface EditScheduleRoomModalControllerProps {
 }
 
 export const EditScheduleRoomModalController: React.FC<EditScheduleRoomModalControllerProps> = ({
-  onScheduledRoom,
-  children,
+    onScheduledRoom,
+    children,
 }) => {
-  const [editInfo, setScheduleRoomToEdit] = useState<State | null>(null);
+    const [editInfo, setScheduleRoomToEdit] = useState<State | null>(null);
 
-  return (
-    <>
-      {editInfo ? (
-        <ScheduleRoomModal
-          editInfo={{
-            id: editInfo.scheduleRoomToEdit.id,
-            intialValues: {
-              cohosts: [],
-              description: editInfo.scheduleRoomToEdit.description,
-              name: editInfo.scheduleRoomToEdit.name,
-              scheduledFor: new Date(editInfo.scheduleRoomToEdit.scheduledFor),
-            },
-          }}
-          onScheduledRoom={(...vals) => onScheduledRoom(editInfo, ...vals)}
-          onRequestClose={() => setScheduleRoomToEdit(null)}
-        />
-      ) : null}
-      {children({ onEdit: setScheduleRoomToEdit })}
-    </>
-  );
+    return (
+        <>
+            {editInfo ? (
+                <ScheduleRoomModal
+                    editInfo={{
+                        id: editInfo.scheduleRoomToEdit.id,
+                        intialValues: {
+                            cohosts: [],
+                            description: editInfo.scheduleRoomToEdit.description,
+                            name: editInfo.scheduleRoomToEdit.name,
+                            scheduledFor: new Date(editInfo.scheduleRoomToEdit.scheduledFor),
+                        },
+                    }}
+                    onScheduledRoom={(...vals) => onScheduledRoom(editInfo, ...vals)}
+                    onRequestClose={() => setScheduleRoomToEdit(null)}
+                />
+            ) : null}
+            {children({ onEdit: setScheduleRoomToEdit })}
+        </>
+    );
 };

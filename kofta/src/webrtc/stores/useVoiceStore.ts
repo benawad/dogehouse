@@ -4,40 +4,40 @@ import create from "zustand";
 import { combine } from "zustand/middleware";
 
 export const getDevice = () => {
-  try {
-    let handlerName = detectDevice();
-    if (!handlerName) {
-      console.warn(
-        "mediasoup does not recognize this device, so ben has defaulted it to Chrome74"
-      );
-      handlerName = "Chrome74";
+    try {
+        let handlerName = detectDevice();
+        if (!handlerName) {
+            console.warn(
+                "mediasoup does not recognize this device, so ben has defaulted it to Chrome74"
+            );
+            handlerName = "Chrome74";
+        }
+        return new Device({ handlerName });
+    } catch {
+        return null;
     }
-    return new Device({ handlerName });
-  } catch {
-    return null;
-  }
 };
 
 export const useVoiceStore = create(
-  combine(
-    {
-      roomId: "",
-      micStream: null as MediaStream | null,
-      mic: null as MediaStreamTrack | null,
-      recvTransport: null as Transport | null,
-      sendTransport: null as Transport | null,
-      device: getDevice(),
-    },
-    (set) => ({
-      nullify: () =>
-        set({
-          recvTransport: null,
-          sendTransport: null,
-          roomId: "",
-          mic: null,
-          micStream: null,
-        }),
-      set,
-    })
-  )
+    combine(
+        {
+            roomId: "",
+            micStream: null as MediaStream | null,
+            mic: null as MediaStreamTrack | null,
+            recvTransport: null as Transport | null,
+            sendTransport: null as Transport | null,
+            device: getDevice(),
+        },
+        (set) => ({
+            nullify: () =>
+                set({
+                    recvTransport: null,
+                    sendTransport: null,
+                    roomId: "",
+                    mic: null,
+                    micStream: null,
+                }),
+            set,
+        })
+    )
 );

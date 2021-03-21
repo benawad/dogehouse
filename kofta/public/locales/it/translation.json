@@ -88,7 +88,8 @@
       "permissionError": "nessun microfono trovato, probabilmente non hai dato il permesso a questo sito per poterlo usare o non ne avrai attaccato nessuno.",
       "refresh": "ricarica lista di microfoni",
       "volume": "volume:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

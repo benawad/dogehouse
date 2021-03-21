@@ -85,7 +85,7 @@
       "search": "search..."
     },
     "soundEffectSettings": {
-      "header": "Sounds"
+      "header": "SFX Settings"
     },
     "viewUser": {
       "editProfile": "edit profile",
@@ -97,10 +97,13 @@
     },
     "voiceSettings": {
       "header": "Voice Settings",
-      "mic": "mic:",
+      "mic": "Mic:",
       "permissionError": "no mics found, you either have none plugged in or haven't given this website permission.",
-      "refresh": "refresh mic list",
+      "refresh": "refresh microphone list",
       "volume": "volume:"
+    },
+    "keybindSettings": {
+      "header": "Keybind Settings"
     }
   },
   "components": {

@@ -89,7 +89,8 @@
       "permissionError": "Ging microfoon gevonge, du hubs waarschinlik ging microfoon aangesjloate of ging toesjtimming gegive.",
       "refresh": "Verviesj microfoonliest",
       "volume": "Volume:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

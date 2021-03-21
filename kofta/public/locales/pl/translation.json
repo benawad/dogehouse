@@ -89,7 +89,8 @@
       "permissionError": "nie znaleziono mikrofonów, nie masz go podłączonego lub nie dałeś pozwolenia tej stronie.",
       "refresh": "odśwież listę mikrofonów",
       "volume": "głośność:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

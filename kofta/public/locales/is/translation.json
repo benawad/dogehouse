@@ -89,7 +89,8 @@
       "permissionError": "engir hljóðnemar fundust, kannski hefurðu það ekki tengt eða hefur ekki gefið leyfi til að nota það.",
       "refresh": "endurnýja hljóðnemalistann",
       "volume": "hljóðstyrkur:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

@@ -89,7 +89,8 @@
       "permissionError": "nerasta mikrofonų, jūs arba neprijungėte tinklo, arba nedavėte šiai svetainei leidimo.",
       "refresh": "Atnaujinti mikrofonų sąrašą",
       "volume": "Garsas:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

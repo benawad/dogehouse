@@ -88,7 +88,8 @@
       "permissionError": "ไม่พบไมโครโฟน, คุณอาจจะลืมเสียบไมโครโฟน หรือ ลืมที่จะให้สิทธิ์ไมโครโฟนแก่เว็บไซต์.",
       "refresh": "รีเฟรชไมโครโฟน",
       "volume": "ระดับเสียง:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

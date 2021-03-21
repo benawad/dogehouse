@@ -16,12 +16,12 @@ interface ScheduledEventProps {
 }
 
 export const AddToCalendarButton: React.FC<ScheduledEvent> = ({ event }) => {
-  const { t } = useTypeSafeTranslation();
-  return (
-    <AddToCalendar
-      children={t("components.addToCalendar.add")}
-      event={event}
-      filename={event.name}
-    />
-  );
+    const { t } = useTypeSafeTranslation();
+    return (
+        <AddToCalendar
+            children={t("components.addToCalendar.add")}
+            event={event}
+            filename={event.name}
+        />
+    );
 };

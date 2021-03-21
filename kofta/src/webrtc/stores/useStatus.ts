@@ -12,12 +12,12 @@ type State =
   | "connected-speaker";
 
 export const useStatus = create(
-  combine(
-    {
-      status: "init" as State,
-    },
-    (set) => ({
-      setStatus: (status: State) => set({ status }),
-    })
-  )
+    combine(
+        {
+            status: "init" as State,
+        },
+        (set) => ({
+            setStatus: (status: State) => set({ status }),
+        })
+    )
 );

@@ -8,42 +8,42 @@ interface RequestToSpeakKeybindProps {
 }
 
 export const RequestToSpeakKeybind: React.FC<RequestToSpeakKeybindProps> = ({
-  className,
+    className,
 }) => {
-  const [count, setCount] = useState(0);
-  const [active, setActive] = useState(false);
-  const {
-    keyNames: { REQUEST_TO_SPEAK },
-    setRequestToSpeakKeybind,
-  } = useKeyMapStore();
-  useEffect(() => {
-    if (count > 0) {
-      const unsub = recordKeyCombination(({ id }) => {
-        setActive(false);
-        setRequestToSpeakKeybind(id as string);
-      });
+    const [count, setCount] = useState(0);
+    const [active, setActive] = useState(false);
+    const {
+        keyNames: { REQUEST_TO_SPEAK },
+        setRequestToSpeakKeybind,
+    } = useKeyMapStore();
+    useEffect(() => {
+        if (count > 0) {
+            const unsub = recordKeyCombination(({ id }) => {
+                setActive(false);
+                setRequestToSpeakKeybind(id as string);
+            });
 
-      return () => unsub();
-    }
-  }, [count, setRequestToSpeakKeybind]);
+            return () => unsub();
+        }
+    }, [count, setRequestToSpeakKeybind]);
 
-  return (
-    <div className={`flex items-center ${className}`}>
-      <Button
-        variant="small"
-        onClick={() => {
-          setCount((c) => c + 1);
-          setActive(true);
-        }}
-      >
+    return (
+        <div className={`flex items-center ${className}`}>
+            <Button
+                variant="small"
+                onClick={() => {
+                    setCount((c) => c + 1);
+                    setActive(true);
+                }}
+            >
         set keybind
-      </Button>
-      <div className={`ml-4`}>
+            </Button>
+            <div className={"ml-4"}>
         request to speak keybind:{" "}
-        <span className={`font-bold text-lg`}>
-          {active ? "listening" : REQUEST_TO_SPEAK}
-        </span>
-      </div>
-    </div>
-  );
+                <span className={"font-bold text-lg"}>
+                    {active ? "listening" : REQUEST_TO_SPEAK}
+                </span>
+            </div>
+        </div>
+    );
 };

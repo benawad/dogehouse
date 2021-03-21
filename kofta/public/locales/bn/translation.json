@@ -36,7 +36,10 @@
       "currentRoom": "ভেতরে আছেন:",
       "startPrivateRoom": "তাদের সাথে প্রাইভেট রুম শুরু করুন"
     },
-    "followList": { "followHim": "অনুসরণ করুন", "followingHim": "অনুসরণ করছেন" },
+    "followList": {
+      "followHim": "অনুসরণ করুন",
+      "followingHim": "অনুসরণ করছেন"
+    },
     "home": { "createRoom": "রুম বানান", "refresh": "রিফ্রেশ করুন" },
     "inviteList": {
       "roomGone": "রুম শেষ, ফিরে আসুন",
@@ -89,7 +92,8 @@
       "permissionError": "কোনো মাইক খুঁজে পাওয়া যাইনি, আপনি কোনো মাইক প্লাগ করেননি অথবা এই ওয়েবসাইটকে পারমিশন দেননি।",
       "refresh": "মাইক লিস্ট রিফ্রেশ করুন",
       "volume": "ভলিউম:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

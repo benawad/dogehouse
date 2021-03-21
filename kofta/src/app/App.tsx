@@ -17,40 +17,40 @@ import { useTokenStore } from "./utils/useTokenStore";
 interface AppProps {}
 
 export const App: React.FC<AppProps> = () => {
-  const isDeviceSupported = useVoiceStore((s) => !!s.device);
-  const hasTokens = useTokenStore((s) => !!s.accessToken && !!s.refreshToken);
-  const wsKilledByServer = useSocketStatus(
-    (s) => s.status === "closed-by-server"
-  );
+    const isDeviceSupported = useVoiceStore((s) => !!s.device);
+    const hasTokens = useTokenStore((s) => !!s.accessToken && !!s.refreshToken);
+    const wsKilledByServer = useSocketStatus(
+        (s) => s.status === "closed-by-server"
+    );
 
-  useState(() => (hasTokens ? createWebSocket() : null));
-  useLayoutEffect(() => {
-    if (hasTokens) {
-      createWebSocket();
-    }
+    useState(() => (hasTokens ? createWebSocket() : null));
+    useLayoutEffect(() => {
+        if (hasTokens) {
+            createWebSocket();
+        }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hasTokens]);
+    }, [hasTokens]);
 
-  useSaveTokensFromQueryParams();
+    useSaveTokensFromQueryParams();
 
-  if (!isDeviceSupported) {
-    return <DeviceNotSupported />;
-  }
+    if (!isDeviceSupported) {
+        return <DeviceNotSupported />;
+    }
 
-  if (wsKilledByServer) {
-    return <WsKilledMessage />;
-  }
+    if (wsKilledByServer) {
+        return <WsKilledMessage />;
+    }
 
-  return (
-    <BrowserRouter>
-      <WebRtcApp />
-      <PageWrapper>
-        <CenterLayout>
-          <Routes />
-          <MicPermissionBanner />
-        </CenterLayout>
-        <RoomChat sidebar />
-      </PageWrapper>
-    </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <WebRtcApp />
+            <PageWrapper>
+                <CenterLayout>
+                    <Routes />
+                    <MicPermissionBanner />
+                </CenterLayout>
+                <RoomChat sidebar />
+            </PageWrapper>
+        </BrowserRouter>
+    );
 };

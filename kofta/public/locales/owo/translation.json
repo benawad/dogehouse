@@ -92,7 +92,8 @@
       "permissionError": "nu mics found, uu eithew haz nune pwugged in ow hazn't given this website pewmission. ;_;",
       "refresh": "wefwesh mic wist (｀へ´)",
       "volume": "volume:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",

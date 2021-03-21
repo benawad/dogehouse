@@ -89,7 +89,8 @@
       "permissionError": "мікрофонів не знайдено, ви або немаєте їх увімкнутими, або не дали дозволу цьому веб-сайту.",
       "refresh": "оновити список мікрофонів",
       "volume": "гучність:"
-    }
+    },
+    "keybindSettings": { "header": "Keybind Settings" }
   },
   "components": {
     "_comment": "Component UI Internationalization Strings",
