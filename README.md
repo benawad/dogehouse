@@ -67,6 +67,7 @@ Contributors helping to review/merge pull requests:
 - @nadirabbas
 - @overlisted
 - @goldyydev
+- @jamesql
 
 ## Code of Conduct
 
