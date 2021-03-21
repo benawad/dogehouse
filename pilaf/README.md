@@ -1,62 +1,44 @@
-# :space_invader: React Native Template TypeScript
-
-<p>
-  <a href="https://travis-ci.org/react-native-community/react-native-template-typescript">
-    <img alt="Build Status" src="https://img.shields.io/travis/react-native-community/react-native-template-typescript.svg" target="_blank" />
-  </a>
-  <a href="https://github.com/react-native-community/react-native-template-typescript#readme">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
-  </a>
-  <a href="https://github.com/react-native-community/react-native-template-typescript/graphs/commit-activity">
-    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" target="_blank" />
-  </a>
-  <a href="https://github.com/react-native-community/react-native-template-typescript/blob/master/LICENSE">
-    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" target="_blank" />
-  </a>
+<p align="center">
+    <img height=100 src="https://raw.githubusercontent.com/benawad/dogehouse/staging/.redesign-assets/dogehouse_logo.svg"/>
 </p>
 
-> Clean and minimalist React Native template for a quick start with TypeScript.
+<p align="center">
+    <strong>Taking voice conversations to the moon 🚀</strong>
+</p>
 
-## :star: Features
+<p align="center">
+    <img src="https://img.shields.io/github/contributors/benawad/dogehouse"/>
+    <img src="https://img.shields.io/discord/810571477316403233?label=discord"/>
+    <img src="https://img.shields.io/github/v/release/benawad/dogehouse"/>
+</p>
+<br/>
 
-- Elegant usage directly within the [React Native CLI](https://github.com/react-native-community/cli)
-- Consistent with the default React Native template
-- Minimal additional dependencies
+# What is this folder?
 
-## :arrow_forward: Usage
+This folder is called pilaf it is the ReactNative Application
 
-```sh
-npx react-native init MyApp --template react-native-template-typescript
+# How can I contribute?
+
+First of all, this project is currently in _very_ early stages of development, therefore these instructions may not be up to date.
+
+**We're using [Yarn](https://yarnpkg.com/) for this project, do not use npm for the following commands**
+
+Compile @dogehouse/kebab by executing the following commands:
+
+```bash
+cd ../kebab
+yarn
+yarn build
 ```
 
-### Usage with older versions of React Native
+After you successfully compiled Kebab, go back to this directory and install all modules (@dogehouse/kebab is a yarn workspace, you do <u>not</u> need to manually copy it to node_modules)
 
-#### e.g. `react-native@0.62.x`
+You should now be all set to go, go ahead and run the dev server
 
-```sh
-npx react-native init MyApp --template react-native-template-typescript@6.4.*
+```bash
+cd ../pilaf
+yarn
+yarn start
 ```
 
-See the below table to find out which version of the template to use.
-
-#### React Native <=> Template Version
-
-| React Native  	| Template  	|
-|---	            |---	        |
-| 0.63  	        | 6.5.*       |
-| 0.62  	        | 6.4.*       |
-| 0.61  	        | 6.3.*       |
-| 0.60  	        | 6.2.*       |
-
-### Note on the legacy CLI
-There seems to be quite some confusion about the legacy CLI. This template only works with the new CLI. Make sure you have uninstalled the legacy `react-native-cli` first (`npm uninstall -g react-native-cli`), for the below command to work. If you wish to not use `npx`, you can also install the new CLI globally (`npm i -g @react-native-community/cli` or `yarn global add @react-native-community/cli`).
-
-Further information can be found here: https://github.com/react-native-community/cli#about
-
-## :computer: Contributing
-
-Contributions are very welcome. Please check out the [contributing document](../CONTRIBUTING.md).
-
-## :bookmark: License
-
-This project is [MIT](LICENSE) licensed.
+You now have a metro bundler running, you can start the app on Android or iOS

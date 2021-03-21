@@ -15,7 +15,8 @@
     "copyLink": "Link kopieren",
     "copied": "kopiert",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please give DogeHouse Accessibility permessions"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,11 +37,8 @@
       "currentRoom": "Zurzeit in:",
       "startPrivateRoom": "Einen privaten Raum mit diesem Benutzer starten"
     },
-    "followList": {},
-    "home": {
-      "createRoom": "Raum erstellen",
-      "refresh": "Aktualisieren"
-    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Raum erstellen", "refresh": "Aktualisieren" },
     "inviteList": {
       "roomGone": "Raum konnte nicht gefunden werden! Zurück",
       "shareRoomLink": "Link zum Raum teilen",
@@ -64,7 +62,8 @@
       "probablyLoading": "Lädt vermutlich...",
       "voiceSettings": "Spracheinstellungen",
       "soundSettings": "Toneinstellungen",
-      "deleteAccount": "Konto löschen"
+      "deleteAccount": "Konto löschen",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Hoppla! Diese Seite ging im Gespräch verloren.",
@@ -74,7 +73,9 @@
     "room": {
       "speakers": "Sprecher",
       "requestingToSpeak": "Sprachanfragen",
-      "listeners": "Zuhörer"
+      "listeners": "Zuhörer",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Suchen..." },
     "soundEffectSettings": { "header": "Ton" },
@@ -82,7 +83,11 @@
       "editProfile": "Profil bearbeiten",
       "followsYou": "folgt dir",
       "following": "Abonniert",
-      "followers": "Abonnenten"
+      "followers": "Abonnenten",
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Spracheinstellungen",
@@ -90,6 +95,12 @@
       "permissionError": "Keine Mikrofone gefunden, es ist entweder keines angeschlosen oder diese Seite besitzt nicht die benötigten Berechtigungen.",
       "volume": "Lautstärke:",
       "refresh": "Mikrofonliste aktualisieren"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings",
+      "errorMsg": "Please enter valid app title",
+      "label": "Enter app title"
     }
   },
   "components": {
@@ -175,7 +186,8 @@
       "setKeybind": "Tastenkürzel setzen",
       "listening": "Zuhören",
       "toggleMuteKeybind": "Stummschalttaste umschalten",
-      "togglePushToTalkKeybind": "Push-to-Talk Tastenkürzel umschalten"
+      "togglePushToTalkKeybind": "Push-to-Talk Tastenkürzel umschalten",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "wsKilled": {
       "description": "Die Websocket Verbindung zum Server wurde unterbrochen. Dies geschieht normalerweise, wenn du die Website in einem anderen Tab öffnest.",

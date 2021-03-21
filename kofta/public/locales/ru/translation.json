@@ -15,7 +15,8 @@
     "copyLink": "Скопировать ссылку",
     "copied": "Скопировано",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,7 +37,10 @@
       "currentRoom": "сейчас в :",
       "startPrivateRoom": "создать с ними закрытую комнату"
     },
-    "followList": {},
+    "followList": {
+      "followHim": "подписаться",
+      "followingHim": "Вы подписаны"
+    },
     "home": { "createRoom": "Создать комнату", "refresh": "Обновить" },
     "inviteList": {
       "roomGone": "Комната исчезла, вернитесь назад",
@@ -61,7 +65,8 @@
       "probablyLoading": "наверное загружается...",
       "voiceSettings": "зайти в голосовые настройки",
       "soundSettings": "зайти в настройки звука",
-      "deleteAccount": "удалить аккаунт"
+      "deleteAccount": "удалить аккаунт",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Упс! Эта страница была утеряна в разговоре.",
@@ -71,7 +76,9 @@
     "room": {
       "speakers": "Ораторы",
       "requestingToSpeak": "Желающие говорить",
-      "listeners": "Слушатели"
+      "listeners": "Слушатели",
+      "allowAll": "Разрешить всем",
+      "allowAllConfirm": "Вы уверены? Это позволит всем {{count}} пользователям, запрашивающих разрешение, говорить"
     },
     "searchUser": { "search": "поиск..." },
     "soundEffectSettings": { "header": "звуки" },
@@ -79,7 +86,11 @@
       "editProfile": "редактировать профиль",
       "followsYou": "подписаны на вас",
       "followers": "подписчиков",
-      "following": "подписан на"
+      "following": "подписан на",
+      "followHim": "подписаться",
+      "followingHim": "Вы подписаны",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Голосовые настройки",
@@ -87,6 +98,10 @@
       "permissionError": "микрофон не найден, он не подключен или браузеру не дано соответствующее разрешение.",
       "refresh": "обновить список микрофонов",
       "volume": "громкость:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -131,7 +146,8 @@
       "setKeybind": "назначить клавишу",
       "listening": "слушает",
       "toggleMuteKeybind": "Активация микрофона при нажатии",
-      "togglePushToTalkKeybind": "Включить режим рации"
+      "togglePushToTalkKeybind": "Включить режим рации",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "почему-то нет аудиосвязи" },
     "addToCalendar": { "add": "Добавить в Календарь" },
@@ -196,10 +212,10 @@
       "scheduleRoomHeader": "Запланированные комнаты",
       "startRoom": "создать комнату",
       "modal": {
-        "needsFuture": "должно начинаца в будущем",
+        "needsFuture": "должно появится в будущем",
         "roomName": "название комнаты",
-        "minLength": "минимальная длина 2",
-        "roomDescription": "Описание"
+        "roomDescription": "Описание",
+        "minLength": "минимальная длина 2"
       }
     },
     "roomChat": {
@@ -222,7 +238,7 @@
       "approachingMoon": "Приближается к луне",
       "lunarDoge": "Лунный doge",
       "approachingSun": "Приближается к солнцу",
-      "solarDoge": "Сонечный doge",
+      "solarDoge": "Солнечный doge",
       "approachingGalaxy": "Приближается к галактике",
       "galacticDoge": "Галактический doge",
       "spottedLife": "Замечена планета с жизнью"

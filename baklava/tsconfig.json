@@ -18,5 +18,8 @@
     "jsx": "preserve",
     "noImplicitAny": false
   },
-  "include": ["src/**/*.ts"]
+  "include": [
+    "src/**/*.ts",
+    "src/utils/overlay/*"
+  ]
 }

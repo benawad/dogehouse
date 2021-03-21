@@ -15,7 +15,8 @@
     "copyLink": "העתק קישור",
     "copied": "הועתק",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "בלי ההרשאות יכולה לגרום לבעיות לא רצויות DogeHouse שים לב שהפעלת"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,7 +37,7 @@
       "currentRoom": "ב:",
       "startPrivateRoom": "צור חדר פרטי איתם"
     },
-    "followList": {},
+    "followList": { "followHim": "עקוב", "followingHim": "עוקב" },
     "home": { "createRoom": "צור חדר", "refresh": "טען מחדש" },
     "inviteList": {
       "roomGone": "החדר נעלם, חזור",
@@ -61,7 +62,8 @@
       "probablyLoading": "כנראה טוען...",
       "voiceSettings": "עבור להגדרות קול",
       "soundSettings": "עבור להגדרות סאונד",
-      "deleteAccount": "מחק חשבון"
+      "deleteAccount": "מחק חשבון",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "אופס! הדף הזה הלך לאיבוד בשיחה.",
@@ -71,7 +73,9 @@
     "room": {
       "speakers": "מדברים",
       "requestingToSpeak": "מבקשים לדבר",
-      "listeners": "מקשיבים"
+      "listeners": "מקשיבים",
+      "allowAll": "הרשה לכולם",
+      "allowAllConfirm": "המשתמשים המבקשים רשות יכולת דיבור {{count}} אתה בטוח? זה יאפשר לכל"
     },
     "searchUser": { "search": "חפש..." },
     "soundEffectSettings": { "header": "צלילים" },
@@ -79,7 +83,11 @@
       "editProfile": "ערוך פרופיל",
       "followsYou": "עוקב אחריך",
       "followers": "עוקבים",
-      "following": "עוקב"
+      "following": "עוקב",
+      "followHim": "עקוב",
+      "followingHim": "עוקב",
+      "copyProfileUrl": "העתק קישור פרופיל",
+      "urlCopied": "הקישור הועתק"
     },
     "voiceSettings": {
       "header": "הגדרות קול",
@@ -87,6 +95,10 @@
       "permissionError": "לא נמצאו מיקרופונים, או שאין מיקרופון מחובר או שלא נתת אישור לאתר זה.",
       "refresh": "רענן את רשימת המיקרופונים",
       "volume": "עוצמת קול:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -128,7 +140,8 @@
       "setKeybind": "הגדר מקש",
       "listening": "מקשיב",
       "toggleMuteKeybind": "הפעל את מקש ההשתקה",
-      "togglePushToTalkKeybind": "הפעל push-to-talk"
+      "togglePushToTalkKeybind": "הפעל push-to-talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "שום צרכן קול משום מה" },
     "addToCalendar": { "add": "הוסף ליומן" },

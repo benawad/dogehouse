@@ -1,9 +1,9 @@
 import React from "react";
 import { SearchBar } from "./Search/SearchBar";
 import {
-  SmSolidMegaphone,
-  SmSolidMessages,
-  SmSolidNotification,
+  SolidMegaphone,
+  SolidMessages,
+  SolidNotification,
   LgLogo,
 } from "../icons";
 import { SingleUser } from "./UserAvatar";
@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({
       <div className="space-x-4 items-center justify-end">
         {onAnnouncementsClick && (
           <button onClick={onAnnouncementsClick}>
-            <SmSolidMegaphone
+            <SolidMegaphone
               width={23}
               height={23}
               className="text-primary-200"
@@ -57,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({
         )}
         {onMessagesClick && (
           <button onClick={onMessagesClick}>
-            <SmSolidMessages
+            <SolidMessages
               width={23}
               height={23}
               className="text-primary-200"
@@ -66,7 +66,7 @@ const Header: React.FC<HeaderProps> = ({
         )}
         {onNotificationsClick && (
           <button onClick={onNotificationsClick}>
-            <SmSolidNotification
+            <SolidNotification
               width={23}
               height={23}
               className="text-primary-200"

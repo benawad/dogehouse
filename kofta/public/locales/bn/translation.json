@@ -15,7 +15,8 @@
     "copyLink": "লিংক কপি করুন",
     "copied": "কপি হয়ে গেছে",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please give DogeHouse Accessibility permessions"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,7 +37,10 @@
       "currentRoom": "ভেতরে আছেন:",
       "startPrivateRoom": "তাদের সাথে প্রাইভেট রুম শুরু করুন"
     },
-    "followList": {},
+    "followList": {
+      "followHim": "অনুসরণ করুন",
+      "followingHim": "অনুসরণ করছেন"
+    },
     "home": { "createRoom": "রুম বানান", "refresh": "রিফ্রেশ করুন" },
     "inviteList": {
       "roomGone": "রুম শেষ, ফিরে আসুন",
@@ -61,7 +65,8 @@
       "probablyLoading": "সম্ভবত লোডিং...",
       "voiceSettings": "ভয়েস সেটিংস এ যান",
       "soundSettings": "সাউন্ড সেটিংস এ যান",
-      "deleteAccount": "অ্যাকাউন্ট ডিলিট করুন"
+      "deleteAccount": "অ্যাকাউন্ট ডিলিট করুন",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "উপস! এই পেজের বার্তালাপ কেটে গেছে।",
@@ -71,7 +76,9 @@
     "room": {
       "speakers": "স্পিকারস",
       "requestingToSpeak": "কথা বলার জন্য অনুরোধ করুন",
-      "listeners": "শ্রোতাগণ"
+      "listeners": "শ্রোতাগণ",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "খুঁজুন..." },
     "soundEffectSettings": { "header": "সাউন্ডস" },
@@ -79,7 +86,11 @@
       "editProfile": "প্রোফাইল এডিট করুন",
       "followsYou": "আপনাকে অনুসরণ করে",
       "followers": "জন অনুসরণকারী",
-      "following": "জনকে অনুসরণ করছে"
+      "following": "জনকে অনুসরণ করছে",
+      "followHim": "অনুসরণ করুন",
+      "followingHim": "অনুসরণ করছেন",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "ভয়েস সেটিংস",
@@ -87,6 +98,12 @@
       "permissionError": "কোনো মাইক খুঁজে পাওয়া যাইনি, আপনি কোনো মাইক প্লাগ করেননি অথবা এই ওয়েবসাইটকে পারমিশন দেননি।",
       "refresh": "মাইক লিস্ট রিফ্রেশ করুন",
       "volume": "ভলিউম:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings",
+      "errorMsg": "Please enter valid app title",
+      "label": "Enter app title"
     }
   },
   "components": {
@@ -131,7 +148,8 @@
       "setKeybind": "কীবাইন্ড সেট করুন",
       "listening": "শুনুন",
       "toggleMuteKeybind": "টগল করুন মাইক কীবাইন্ড",
-      "togglePushToTalkKeybind": "টগল করুন পুশ-টু-টক কীবাইন্ড"
+      "togglePushToTalkKeybind": "টগল করুন পুশ-টু-টক কীবাইন্ড",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "কিছু কারনে অডিও কনসিউম করা যাইনি"
@@ -179,7 +197,7 @@
         "banFromRoom": "রুম থেকে ব্যান করুন",
         "goBackToListener": "শ্রোতাতে ফিরে যান",
         "deleteMessage": "মেসেজটি মুছে ফেলুন",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "রুম অ্যাডমিন তৈরি করুন"
       },
       "roomSettingsModal": {
         "requirePermission": "কথা বলার জন্য পারমিশন লাগবে",

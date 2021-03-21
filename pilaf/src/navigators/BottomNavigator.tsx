@@ -1,11 +1,10 @@
 import React from "react";
+import { Image } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { DashboardPage } from "../pages/DashboardPage";
-import { ProfilePage } from "../pages/ProfilePage";
 import { SchedulePage } from "../pages/SchedulePage";
 import { FollowingPage } from "../pages/FollowingPage";
 import { colors } from "../constants/dogeStyle";
-import Icon from "react-native-vector-icons/Ionicons";
 import { CreateRoomButton } from "../components/bottomBar/CreateRoomButton";
 import { ExplorePage } from "../pages/ExplorePage";
 const Tab = createBottomTabNavigator();
@@ -20,17 +19,18 @@ export const BottomNavigator: React.FC = () => {
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
-            let iconName = "add";
+            let icon = require("../assets/images/bottomBar/plus.png");
             if (route.name === "Home") {
-              iconName = "home";
+              icon = require("../assets/images/bottomBar/sm-solid-home.png");
             } else if (route.name === "Schedule") {
-              iconName = "calendar";
+              icon = require("../assets/images/bottomBar/ios-calendar.png");
             } else if (route.name === "Following") {
-              iconName = "people";
+              icon = require("../assets/images/bottomBar/sm-solid-friends.png");
             } else if (route.name === "Explore") {
-              iconName = "compass";
+              icon = require("../assets/images/bottomBar/ios-compass.png");
             }
-            return <Icon name={iconName} size={size} color={color} />;
+            const tintColor = focused ? colors.accent : colors.text;
+            return <Image source={icon} style={{ tintColor: tintColor }} />;
           },
         })}
         tabBarOptions={{

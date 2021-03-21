@@ -15,7 +15,8 @@
     "copyLink": "skopiuj link",
     "copied": "skopiowano",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,7 +37,7 @@
       "currentRoom": "obecnie w:",
       "startPrivateRoom": "załóż z nim prywatny pokój"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Stwórz pokój", "refresh": "Odśwież" },
     "inviteList": {
       "roomGone": "pokój usunięty, wróć",
@@ -61,7 +62,8 @@
       "probablyLoading": "prawdobodobnie ładowanie...",
       "voiceSettings": "przejdź do ustawień głosu",
       "soundSettings": "przejdź do ustawień dzięku",
-      "deleteAccount": "usuń konto"
+      "deleteAccount": "usuń konto",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Whoops! Ta strona zagubiła się w konwersacji.",
@@ -71,7 +73,9 @@
     "room": {
       "speakers": "Mówiący",
       "requestingToSpeak": "Prośba o pozwolenie na mówienie",
-      "listeners": "Słuchacze"
+      "listeners": "Słuchacze",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "szukaj..." },
     "soundEffectSettings": { "header": "Dźwięki" },
@@ -79,7 +83,11 @@
       "editProfile": "edytuj profil",
       "followsYou": "obserwuje cię",
       "followers": "obserwujący",
-      "following": "obserwujesz"
+      "following": "obserwujesz",
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Ustawienia Głosu",
@@ -87,6 +95,10 @@
       "permissionError": "nie znaleziono mikrofonów, nie masz go podłączonego lub nie dałeś pozwolenia tej stronie.",
       "refresh": "odśwież listę mikrofonów",
       "volume": "głośność:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -131,7 +143,8 @@
       "setKeybind": "ustaw skrót klawiszowy",
       "listening": "słuchanie",
       "toggleMuteKeybind": "przełącz skrót klawiszowy od wyciszania",
-      "togglePushToTalkKeybind": "przełącz keybind push-to-talk"
+      "togglePushToTalkKeybind": "przełącz keybind push-to-talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "brak konsumenta dźwięku z jakiegoś powodu"

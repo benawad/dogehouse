@@ -4,7 +4,7 @@ node_modules
 # Local Netlify folder
 .netlify
 
-/.idea
+*/.idea
 .docker
 .env
 .next
@@ -12,3 +12,4 @@ storybook-static
 _
 .env.local
 kebab/lib
+yarn-error.log

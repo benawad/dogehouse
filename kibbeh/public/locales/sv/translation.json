@@ -1,7 +1,7 @@
 {
   "common": {
-    "loadMore": "ladda mer",
-    "loading": "laddar...",
+    "loadMore": "Visa fler",
+    "loading": "laddar in...",
     "noUsersFound": "inga användare hittades",
     "ok": "ok",
     "yes": "ja",
@@ -10,9 +10,9 @@
     "save": "spara",
     "edit": "ändra",
     "delete": "radera",
-    "joinRoom": "anslut till rum",
-    "copyLink": "kopiera länk",
-    "copied": "kopierade",
+    "joinRoom": "anslut till rummet",
+    "copyLink": "Kopiera länken",
+    "copied": "Kopierad",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}"
   },
@@ -23,7 +23,7 @@
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
-    "link_1": "Historia",
+    "link_1": "Bakgrund",
     "link_2": "Discord",
     "link_3": "Rapportera ett fel"
   },
@@ -36,12 +36,12 @@
       "startPrivateRoom": "skapa ett privat rum med dem"
     },
     "followList": {},
-    "home": { "createRoom": "Skapa Rum", "refresh": "Refresh" },
+    "home": { "createRoom": "Skapa rum", "refresh": "Uppdatera" },
     "inviteList": {
-      "roomGone": "rummet borta, gå tillbaka",
+      "roomGone": "rummet försvann under månförmörkelsen, gå tillbaka",
       "shareRoomLink": "dela länk till rummet",
       "inviteFollowers": "Du kan bjuda in dina följare som är uppkopplade:",
-      "whenFollowersOnline": "När dina följare är uppkopplade kommer de visa sig här."
+      "whenFollowersOnline": "När dina följare är uppkopplade kommer de visas här."
     },
     "login": {
       "headerText": "Tar röstsamtal till månen 🚀",
@@ -68,7 +68,7 @@
       "goHomeLinkText": "gå hem"
     },
     "room": {
-      "speakers": "Högtalare",
+      "speakers": "Talare",
       "requestingToSpeak": "Begär att tala",
       "listeners": "Lyssnare"
     },
@@ -78,7 +78,9 @@
       "editProfile": "redigera profil",
       "followsYou": "följer dig",
       "followers": "följare",
-      "following": "följer"
+      "following": "följer",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Röstinställningar",
@@ -110,7 +112,7 @@
       "settings": "Inställningar",
       "speaker": "Talare",
       "listener": "Lyssnare",
-      "chat": "Chat"
+      "chat": "Chatt"
     },
     "micPermissionBanner": {
       "permissionDenied": "Åtkomst nekad när vi försökte att ansluta till din mikrofon (du kan behöva gå till webbläsarinställningarna och ladda om sidan)",
@@ -127,8 +129,8 @@
         "nameError": "längd 2 till 60 karaktärer"
       },
       "invitedToJoinRoomModal": {
-        "newRoomCreated": "Nytt rum skapat",
-        "roomInviteFrom": "Rumsinbjudan från",
+        "newRoomCreated": "Ett nytt rum har skapats",
+        "roomInviteFrom": "Inbjudan från",
         "justStarted": "De har precis börjat",
         "likeToJoin": ", skulle du vilja ansluta?",
         "inviteReceived": "du har blivit inbjuden till"
@@ -154,7 +156,8 @@
         "banFromChat": "bannlys från chatt",
         "banFromRoom": "bannlys från rum",
         "goBackToListener": "gå tillbaka till lyssnare",
-        "deleteMessage": "ta bort meddelande"
+        "deleteMessage": "ta bort meddelande",
+        "makeRoomCreator": "gör rum administratör"
       },
       "roomSettingsModal": {
         "requirePermission": "be om tillåtelse att prata",
@@ -191,8 +194,8 @@
     "scheduledRooms": {
       "title": "Schemalagda rum",
       "noneFound": "inga hittades",
-      "allRooms": "alla mina schemalagda rum",
-      "myRooms": "mina schemalagda rum",
+      "allRooms": "Alla schemalagda rum",
+      "myRooms": "Mina schemalagda rum",
       "scheduleRoomHeader": "Schemalagda Rum",
       "startRoom": "påbörja rum",
       "modal": {
@@ -213,7 +216,7 @@
       "sendMessage": "Skicka ett meddelande",
       "whisper": "Viska",
       "welcomeMessage": "Välkommen till chatten!",
-      "roomDescription": "rumbeskrivning"
+      "roomDescription": "Rumbeskrivning"
     },
     "roomStatus": {
       "fuelingRocket": "Tankar raket",
@@ -223,8 +226,8 @@
       "lunarDoge": "Lunar doge",
       "approachingSun": "Närmar sig solen",
       "solarDoge": "Solar doge",
-      "approachingGalaxy": "Närmar sig galax",
-      "galacticDoge": "Galactic doge",
+      "approachingGalaxy": "Närmar sig en galax",
+      "galacticDoge": "Galactisk doge",
       "spottedLife": "Planet med liv upptäckt"
     }
   }

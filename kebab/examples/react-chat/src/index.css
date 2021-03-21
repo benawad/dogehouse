@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Ubuntu", sans-serif;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, monospace;
+}

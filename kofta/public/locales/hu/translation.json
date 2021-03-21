@@ -14,7 +14,8 @@
     "copyLink": "link másolása",
     "copied": "másolva",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -34,7 +35,7 @@
       "currentRoom": "jelenleg itt:",
       "startPrivateRoom": "privát szoba létrehozása velük"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Szoba létrehozása", "refresh": "Frissítés" },
     "inviteList": {
       "roomGone": "beszélgetés véget ért, lépjen vissza",
@@ -59,7 +60,8 @@
       "probablyLoading": "valószínüleg tölt...",
       "voiceSettings": "hangbeállítások",
       "soundSettings": "hanghatások",
-      "deleteAccount": "fiók törlése"
+      "deleteAccount": "fiók törlése",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Whoops! Ez az oldal elveszett a beszélgetésben.",
@@ -69,7 +71,9 @@
     "room": {
       "speakers": "Beszélők",
       "requestingToSpeak": "Beszélő jog kérése",
-      "listeners": "Hallgatók"
+      "listeners": "Hallgatók",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "keresés..." },
     "soundEffectSettings": { "header": "Hangok" },
@@ -77,7 +81,11 @@
       "editProfile": "fiók szerkesztése",
       "followsYou": "követ téged",
       "followers": "követő",
-      "following": "követés"
+      "following": "követés",
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Hangbeállítások",
@@ -85,6 +93,10 @@
       "permissionError": "Nem található mikrofon. Vagy nincs csatlakoztatva, vagy nem adta meg az engedélyt.",
       "refresh": "elérhető mikrofonok frissítése",
       "volume": "Hangerő:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -168,7 +180,8 @@
       "setKeybind": "Gyorsbillentyű beállítása",
       "listening": "figyelés...",
       "toggleMuteKeybind": "Némítás kapcsolása",
-      "togglePushToTalkKeybind": "Push-to-talk kapcsolása"
+      "togglePushToTalkKeybind": "Push-to-talk kapcsolása",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "wsKilled": {
       "description": "A Websocket kapcsolatot megszakította a szerver. Ez általában akkor fordul elő, amikor több fülön meg van nyitva a weboldal.",

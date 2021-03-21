@@ -1,0 +1,47 @@
+.App {
+  text-align: center;
+  background: rgba(0, 0, 0, 0);
+  /* background: #ffffff; */
+}
+
+img{
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.active-speaker{
+  border: solid #60A5FA 3px;
+  border-radius: 50%;
+  width: 40px;
+  float: left;
+  height: 40px;
+}
+
+.img-div{
+  display:inline;
+}
+
+.name-div{
+  display:inline; 
+  white-space:nowrap;
+}
+
+.active-speaker-cont {
+  background: rgba(255, 255, 255, 0.2);
+  white-space:nowrap;
+  border-radius: 10%;
+  width: max-content;
+  margin: 5px;
+  padding: 2px;
+}
+
+.speaker-muted{
+  position: relative;
+  bottom: 0;
+  right: 0;
+}
+
+.left{
+  float:left;
+}
