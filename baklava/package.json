@@ -30,7 +30,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^14.14.31",
-    "builder-utils": "^1.0.4",
+    "builder-util": "^22.10.5",
     "electron": "^11.3.0",
     "electron-builder": "^22.10.5",
     "electron-builder-notarize": "^1.2.0",
