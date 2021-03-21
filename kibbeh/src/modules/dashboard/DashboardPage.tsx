@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { PageComponent } from "../../types/PageComponent";
-import { DashboardInnerGrid } from "../../ui/DashboardGrid";
+import { MainInnerGrid } from "../../ui/MainGrid";
 import Header from "../../ui/Header";
 import { useVerifyLoggedIn } from "../auth/useVerifyLoggedIn";
 import { WebSocketContext } from "../ws/WebSocketProvider";
@@ -31,11 +31,11 @@ export const DashboardPage: PageComponent<LoungePageProps> = ({}) => {
           avatarImg={conn.user.avatarUrl}
         />
       </div>
-      <DashboardInnerGrid>
+      <MainInnerGrid>
         <FriendsOnlineController />
         <FeedController />
         <ProfileBlockController />
-      </DashboardInnerGrid>
+      </MainInnerGrid>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { DashboardInnerGrid } from "../../ui/DashboardGrid";
+import { MainInnerGrid } from "../../ui/MainGrid";
 import { ErrorToast } from "../../ui/ErrorToast";
 import { useErrorToastStore } from "./useErrorToastStore";
 
@@ -12,7 +12,7 @@ export const ErrorToastController: React.FC<ErrorToastControllerProps> = ({}) =>
       style={{ zIndex: 1001 }}
       className={`w-full fixed bottom-0 justify-center`}
     >
-      <DashboardInnerGrid>
+      <MainInnerGrid>
         <div />
         <div className={`flex-col`}>
           {toasts.map((t) => (
@@ -26,7 +26,7 @@ export const ErrorToastController: React.FC<ErrorToastControllerProps> = ({}) =>
           ))}
         </div>
         <div />
-      </DashboardInnerGrid>
+      </MainInnerGrid>
     </div>
   );
 };
