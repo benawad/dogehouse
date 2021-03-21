@@ -22,7 +22,7 @@ let tray: Tray;
 let menu: Menu;
 let splash;
 
-export const __prod__ = app.isPackaged;
+export const __prod__ = true; // app.isPackaged
 const instanceLock = app.requestSingleInstanceLock();
 
 function createWindow() {
@@ -39,8 +39,7 @@ function createWindow() {
   splash = new BrowserWindow({
     width: 810,
     height: 610,
-    frame: false,
-    transparent: true,
+    frame: false
   });
   splash.loadURL(
     url.format({
@@ -68,7 +67,7 @@ function createWindow() {
     setTimeout(() => {
       splash.destroy();
       mainWindow.show();
-    }, 1000);
+    }, 2000);
   }),
     // crashes on mac
     // systemPreferences.askForMediaAccess("microphone");
