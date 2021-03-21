@@ -7,7 +7,12 @@ import {
   TouchableOpacity,
   ImageSourcePropType,
 } from "react-native";
-import { colors, fontFamily, fontSize } from "../../constants/dogeStyle";
+import {
+  colors,
+  fontFamily,
+  fontSize,
+  paragraph,
+} from "../../constants/dogeStyle";
 import { SingleUserAvatar } from "../avatars/SingleUserAvatar";
 import { GenericNotification } from "./GenericNotification";
 
@@ -36,9 +41,9 @@ export const FollowNotification: React.FC<FollowNotificationProps> = ({
 
   const notificationMsg = (
     <View style={{ flexDirection: "row" }}>
-      <Text style={[styles.textPrimary, { fontFamily: fontFamily.bold }]}>
+      <Text style={[styles.title, { fontWeight: "700" }]}>
         {username}
-        <Text style={styles.textPrimary}> followed you</Text>
+        <Text style={styles.title}> followed you</Text>
       </Text>
     </View>
   );
@@ -67,12 +72,11 @@ export const FollowNotification: React.FC<FollowNotificationProps> = ({
 };
 
 const styles = StyleSheet.create({
-  textPrimary: {
-    color: colors.text,
-    fontFamily: fontFamily.medium,
-    fontSize: fontSize.paragraph,
+  title: {
+    ...paragraph,
     flex: 1,
     flexWrap: "wrap",
+    lineHeight: 18,
   },
   button: {
     height: 22,

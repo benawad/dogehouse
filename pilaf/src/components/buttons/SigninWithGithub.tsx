@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { TouchableOpacity } from "react-native";
 import InAppBrowser from "react-native-inappbrowser-reborn";
-import { colors, fontFamily } from "../../constants/dogeStyle";
+import { colors, fontFamily, radius } from "../../constants/dogeStyle";
 
 const signinWithGithub = async () => {
   try {
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.black,
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 8,
+    borderRadius: radius.m,
     padding: 16,
   },
   title: {

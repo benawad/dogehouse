@@ -14,7 +14,7 @@ export const NotificationsPage: React.FC = () => {
     >
       <ScrollView>
         <NewRoomNotification
-          username={"DrMadTurkey"}
+          username={"DrMadWithAVeryLongLongLongTurkey"}
           time={"now"}
           joined={true}
         />

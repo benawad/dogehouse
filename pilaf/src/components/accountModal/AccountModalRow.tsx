@@ -6,7 +6,12 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
-import { colors, fontFamily, fontSize } from "../../constants/dogeStyle";
+import {
+  colors,
+  fontFamily,
+  fontSize,
+  paragraph,
+} from "../../constants/dogeStyle";
 
 export interface AccountModalRowProps {
   icon: ImageSourcePropType;
@@ -35,9 +40,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   title: {
-    fontSize: fontSize.paragraph,
-    color: colors.text,
-    fontFamily: fontFamily.regular,
+    ...paragraph,
     marginLeft: 16,
   },
 });

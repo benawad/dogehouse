@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { colors } from "../../constants/dogeStyle";
-import { CreateRoomPage } from "../../pages/CreateRoomPage";
+import { colors, radius } from "../../constants/dogeStyle";
 import { AccountModalRow } from "./AccountModalRow";
 
 const separator = (
@@ -56,8 +55,8 @@ export const AccountModalContent: React.FC = (props) => {
 const styles = StyleSheet.create({
   content: {
     backgroundColor: colors.primary800,
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
+    borderTopLeftRadius: radius.m,
+    borderTopRightRadius: radius.m,
   },
   dragIndicator: {
     width: 40,
@@ -65,6 +64,6 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     backgroundColor: colors.primary300,
     alignSelf: "center",
-    marginVertical: 8,
+    marginVertical: 12,
   },
 });

@@ -9,7 +9,13 @@ import {
 } from "react-native";
 import { formatDistance, fromUnixTime } from "date-fns";
 import { SingleUserAvatar } from "./avatars/SingleUserAvatar";
-import { colors, fontFamily, fontSize } from "../constants/dogeStyle";
+import {
+  colors,
+  fontFamily,
+  fontSize,
+  paragraphBold,
+  small,
+} from "../constants/dogeStyle";
 
 interface MessageElementProps {
   user: {
@@ -88,24 +94,14 @@ const styles = StyleSheet.create({
     borderBottomColor: colors.primary700,
   },
   textUserName: {
-    fontFamily: fontFamily.regular,
-    fontWeight: "700",
-    fontSize: fontSize.paragraph,
-    color: colors.text,
-    lineHeight: 22,
+    ...paragraphBold,
   },
   textDate: {
-    fontFamily: fontFamily.regular,
-    fontWeight: "500",
-    fontSize: fontSize.small,
+    ...small,
     color: colors.primary300,
-    lineHeight: 22,
   },
   textMessage: {
-    fontFamily: fontFamily.regular,
-    fontWeight: "500",
-    fontSize: fontSize.small,
+    ...small,
     color: colors.primary300,
-    lineHeight: 22,
   },
 });

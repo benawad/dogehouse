@@ -1,12 +1,12 @@
 import React, { ReactNode } from "react";
+import { StyleSheet, View, ViewStyle, Text } from "react-native";
 import {
-  StyleSheet,
-  View,
-  ViewStyle,
-  Text,
-  TouchableOpacity,
-} from "react-native";
-import { colors, fontFamily, fontSize } from "../../constants/dogeStyle";
+  colors,
+  fontFamily,
+  fontSize,
+  paragraph,
+  small,
+} from "../../constants/dogeStyle";
 import Icon from "react-native-vector-icons/Ionicons";
 
 interface GenericNotificationProps {
@@ -26,7 +26,7 @@ export const GenericNotification: React.FC<GenericNotificationProps> = ({
 }) => {
   const defaultMessage = (
     <View style={{ flexDirection: "row" }}>
-      <Text style={styles.textPrimary}>{"You have a notification"}</Text>
+      <Text style={styles.title}>{"You have a notification"}</Text>
     </View>
   );
   return (
@@ -36,7 +36,7 @@ export const GenericNotification: React.FC<GenericNotificationProps> = ({
       </View>
       <View style={styles.middleView}>
         {notificationMsg ? notificationMsg : defaultMessage}
-        <Text style={styles.textSecondary}>{time}</Text>
+        <Text style={styles.time}>{time}</Text>
       </View>
       {actionButton && <View style={styles.button}>{actionButton}</View>}
     </View>
@@ -53,18 +53,15 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     flexGrow: 1,
   },
-  textPrimary: {
-    color: colors.text,
-    fontFamily: fontFamily.medium,
-    fontSize: fontSize.paragraph,
+  title: {
+    ...paragraph,
+    lineHeight: 18,
     flex: 1,
     flexWrap: "wrap",
-    lineHeight: 18,
   },
-  textSecondary: {
+  time: {
+    ...small,
     color: colors.primary300,
-    fontFamily: fontFamily.regular,
-    fontSize: fontSize.small,
     lineHeight: 18,
   },
   button: {
