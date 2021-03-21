@@ -72,8 +72,8 @@
       "speakers": "Ομιλητές",
       "requestingToSpeak": "Αιτούμενοι να μιλήσουν",
       "listeners": "Ακροατές",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "Επιτρέψτε τα όλα",
+      "allowAllConfirm": "Είστε σίγουρος; Αυτό θα επιτρέψει όλους τους {{count}} χρήστες που έχουν ζητήσει να μιλήσουν"
     },
     "searchUser": { "search": "αναζήτηση..." },
     "soundEffectSettings": { "header": "Ήχοι" },
@@ -82,8 +82,8 @@
       "followsYou": "σας ακολουθεί",
       "followers": "ακόλουθοι",
       "following": "ακολουθείτε",
-      "followHim": "follow",
-      "followingHim": "following",
+      "followHim": "ακολουθήστε",
+      "followingHim": "ακολουθείτε",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard"
     },

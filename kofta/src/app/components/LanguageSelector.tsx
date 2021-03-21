@@ -73,7 +73,6 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   ],
 }) => {
   const { i18n } = useTranslation();
-  console.log(i18n)
 
   return (
     <select
