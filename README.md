@@ -51,7 +51,7 @@ Please read [CONTRIBUTING.md](https://github.com/benawad/dogehouse/blob/staging/
 
 A desktop app built with electron is available for Windows and Mac
 
-Download links are in [the realeases section](https://github.com/benawad/dogehouse/releases/tag/latest)
+Download links are in [the releases section](https://github.com/benawad/dogehouse/releases/tag/latest)
 
 Built with electron.
 
