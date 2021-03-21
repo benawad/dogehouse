@@ -30,22 +30,14 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization String",
-    "banUser": {
-      "ban": "zabrani"
-    },
+    "banUser": { "ban": "zabrani" },
     "followingOnlineList": {
       "listHeader": "Popis korisnika koji nisu u privatnoj sobi, a vi ih pratite.",
       "currentRoom": "trenutno u:",
       "startPrivateRoom": "započnite privatnu sobu s njima"
     },
-    "followList": {
-      "followHim": "zaprati",
-      "followingHim": "pratitelji"
-    },
-    "home": {
-      "createRoom": "Stvori sobu",
-      "refresh": "Osvježi"
-    },
+    "followList": { "followHim": "zaprati", "followingHim": "pratitelji" },
+    "home": { "createRoom": "Stvori sobu", "refresh": "Osvježi" },
     "inviteList": {
       "roomGone": "soba otišla, vrati se",
       "shareRoomLink": "podijeli vezu do sobe",
@@ -81,21 +73,21 @@
       "requestingToSpeak": "Zahtjev za govor",
       "listeners": "Slušatelji",
       "allowAll": "Dopusti sve",
-      "allowAllConfirm": "Jeste li sigurni? Ovo će omogućiti svim {{count}} korisnicima koji zahtijevaju da govore"
+      "allowAllConfirm": "Jeste li sigurni? Ovo će omogućiti svim {{count}} korisnicima koji zahtijevaju da govore",
+      "speakers": "Speakers"
     },
-    "searchUser": {
-      "search": "traži..."
-    },
-    "soundEffectSettings": {
-      "header": "Zvuči"
-    },
+    "searchUser": { "search": "traži..." },
+    "soundEffectSettings": { "header": "Zvuči" },
     "viewUser": {
       "editProfile": "uredi profil",
       "followYou": "prati vas",
       "followers": "sljedbenici",
       "following": "sljedeće",
       "followHim": "slijedi",
-      "followingHim": "slijedi"
+      "followingHim": "slijedi",
+      "followsYou": "follows you",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Postavke glasa",
@@ -134,10 +126,7 @@
       "linkText": "'issue' na GitHubu",
       "addSupport": "i pokušat ću dodati podršku za vaš uređaj."
     },
-    "inviteButton": {
-      "invited": "pozvan",
-      "inviteToRoom": "pozovi u sobu"
-    },
+    "inviteButton": { "invited": "pozvan", "inviteToRoom": "pozovi u sobu" },
     "micPermissionBanner": {
       "permissionDenied": "Dozvola odbijena za pokušaj pristupa vašem mikrofonu (možda ćete trebati ući u postavke preglednika i ponovo učitati stranicu)",
       "dismiss": "zanemari",
@@ -152,9 +141,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "iz nekog razloga nema potrošača zvuka"
     },
-    "addToCalendar": {
-      "add": "Dodaj u kalendar"
-    },
+    "addToCalendar": { "add": "Dodaj u kalendar" },
     "wsKilled": {
       "description": "Poslužitelj je ubio WebSocket. To se obično događa kada web mjesto otvorite na drugoj kartici.",
       "reconnect": "ponovno se povezati"
