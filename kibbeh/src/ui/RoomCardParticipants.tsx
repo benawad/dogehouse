@@ -18,7 +18,10 @@ export const RoomCardParticipants: React.FC<RoomCardParticipantsProps> = ({
     <div className={`space-x-1 ${className ? className : ""}`} {...props}>
       <MultipleUsers srcArray={pics} />
       <div className={`table-cell`}>
-        <p className={`text-primary-300 truncate`} style={{ fontSize: "0.9rem" }}>
+        <p
+          className={`text-primary-300 truncate`}
+          style={{ fontSize: "0.9rem" }}
+        >
           {names}
         </p>
       </div>
