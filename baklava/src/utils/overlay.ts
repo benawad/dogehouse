@@ -11,7 +11,7 @@ export function createOverlay(target: string, OW: any) {
         },
         ...OW.WINDOW_OPTS,
     });
-    overLay.loadFile(path.join(__dirname, "../../resources/overlay/index.html"));
+    overLay.loadFile(path.join(__dirname, "../../resources/overlay/build/index.html"));
     //overLay.loadURL("http://localhost:5000");
     OW.attachTo(overLay, target);
     return overLay;

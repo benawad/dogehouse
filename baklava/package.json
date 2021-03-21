@@ -4,14 +4,15 @@
     "description": "Taking voice conversations to the moon 🚀",
     "main": "./dist/electron.js",
     "scripts": {
-        "compile": "tsc && cd resources/overlay && yarn build",
+        "compile": "tsc",
         "watch": "tsc -w",
         "dev": "npm run compile && electron ./dist/electron.js",
-        "build": "npm run compile && electron-builder",
-        "build:all": "npm run compile && electron-builder -mwl --win nsis",
-        "build:mac": "npm run compile && electron-builder --mac",
-        "build:win": "npm run compile && electron-builder --win nsis",
-        "build:linux": "npm run compile && electron-builder --linux"
+        "build": "npm run compile && npm run build:overlay && electron-builder",
+        "build:all": "npm run compile && npm run build:overlay && electron-builder -mwl --win nsis",
+        "build:mac": "npm run compile && npm run build:overlay && electron-builder --mac",
+        "build:win": "npm run compile && npm run build:overlay && electron-builder --win nsis",
+        "build:linux": "npm run compile && npm run build:overlay && electron-builder --linux",
+        "build:overlay": "cd resources/overlay && yarn build"
     },
     "keywords": [
         "DogeHouse",
