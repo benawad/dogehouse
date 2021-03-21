@@ -27,7 +27,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({}) => {
           window.location.href = `${apiBaseUrl}/auth/github/web`;
         }}
       >
-        Login with GitHub
+        login with GitHub
       </Button>
       {!__prod__ ? (
         <Button
