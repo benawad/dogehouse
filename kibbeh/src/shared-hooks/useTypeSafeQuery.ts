@@ -19,7 +19,7 @@ export const useTypeSafeQuery = <K extends Keys>(
     key,
     () =>
       (wrap(conn!).query[typeof key === "string" ? key : key[0]] as any)(
-        params
+        ...(params || [])
       ),
     {
       enabled: !!conn,

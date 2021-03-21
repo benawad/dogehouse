@@ -605,6 +605,39 @@ defmodule Broth.SocketHandler do
     end
   end
 
+  def f_handler("get_room_users", %{"roomId" => room_id_to_join}, %State{} = state) do
+    with true <- Beef.Users.get_current_room_id(state.user_id) != room_id_to_join,
+         %{error: err} <- Kousa.Room.join_room(state.user_id, room_id_to_join) do
+      %{error: err}
+    else
+      _ ->
+        {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
+
+        {muteMap, autoSpeaker, activeSpeakerMap} =
+          cond do
+            not is_nil(room_id) ->
+              case GenRegistry.lookup(Onion.RoomSession, room_id) do
+                {:ok, session} ->
+                  GenServer.call(session, {:get_maps})
+
+                _ ->
+                  {%{}, false, %{}}
+              end
+
+            true ->
+              {%{}, false, %{}}
+          end
+
+        %{
+          users: users,
+          muteMap: muteMap,
+          activeSpeakerMap: activeSpeakerMap,
+          roomId: room_id,
+          autoSpeaker: autoSpeaker
+        }
+    end
+  end
+
   def f_handler("get_current_room_users", _data, %State{} = state) do
     {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
 
