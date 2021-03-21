@@ -82,7 +82,9 @@
       "followers": "følgere",
       "following": "følger",
       "followHim": "følg",
-      "followingHim": "følger"
+      "followingHim": "følger",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Taleinnstillinger",

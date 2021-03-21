@@ -82,7 +82,9 @@
       "followers": "关注者",
       "following": "您关注的人",
       "followHim": "关注ta",
-      "followingHim": "已经关注"
+      "followingHim": "已经关注",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "语音设置",

@@ -82,7 +82,9 @@
       "followers": "ผู้ติดตาม",
       "following": "กำลังติดตาม",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "การตั้งค่าเสียง",

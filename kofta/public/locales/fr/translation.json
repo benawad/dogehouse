@@ -81,7 +81,9 @@
       "followers": "abonnés",
       "following": "suivis",
       "followHim": "suivre",
-      "followingHim": "abonné"
+      "followingHim": "abonné",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Paramètres vocaux",

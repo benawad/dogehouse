@@ -82,7 +82,9 @@
       "followers": "追蹤者們",
       "following": "你正在追蹤",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "語音設定",
