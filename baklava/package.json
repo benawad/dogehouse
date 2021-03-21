@@ -4,7 +4,7 @@
     "description": "Taking voice conversations to the moon 🚀",
     "main": "./dist/electron.js",
     "scripts": {
-        "compile": "tsc",
+        "compile": "tsc && cd resources/overlay && yarn build",
         "watch": "tsc -w",
         "dev": "npm run compile && electron ./dist/electron.js",
         "build": "npm run compile && electron-builder",
