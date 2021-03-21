@@ -16,7 +16,7 @@ export const SettingsIcon: React.FC<SettingsIconProps> = ({
   return (
     <div
       className={`
-      w-full items-center px-4 py-2 cursor-pointer hover:bg-primary-700 
+      w-full items-center px-4 py-3 md:py-2 cursor-pointer hover:bg-primary-700 
       border-b md:border-none border-primary-700 ${classes}`}
     >
       {icon}
