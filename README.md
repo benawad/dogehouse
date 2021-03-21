@@ -47,6 +47,19 @@ DogeHouse is open to contributions, but I recommend creating an issue or replyin
 
 Please read [CONTRIBUTING.md](https://github.com/benawad/dogehouse/blob/staging/CONTRIBUTING.md) for details on this project.
 
+## Dogehouse Desktop
+
+A desktop app built with electron is available for Windows and Mac.
+
+|      Downloads       |                       |
+| :------------------- | :-------------------: |
+| [Dogehouse-Setup-1.0.16.exe](https://github.com/benawad/dogehouse/releases/download/v1.0.16/DogeHouse-Setup-1.0.16.exe)       |      Windows      |
+| [Dogehouse-1.0.16.dmg](https://github.com/benawad/dogehouse/releases/download/v1.0.16/DogeHouse-1.0.16.dmg) |     MacOS      |
+
+More downloads in [realeases](https://github.com/benawad/dogehouse/releases/tag/v1.0.16)
+
+Built with electron.
+
 ## DogeReviewers
 
 Contributors helping to review/merge pull requests:
