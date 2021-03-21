@@ -84,7 +84,8 @@
       "following": "ඔබ හඹා යන්නන්",
       "followHim": "හඹා යන්න",
       "followingHim": "හඹා යන්නන්",
-      "copyProfileUrl": "copy profile url"
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "හඬ සැකසුම්",

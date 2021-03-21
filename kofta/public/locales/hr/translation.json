@@ -86,7 +86,8 @@
       "followHim": "slijedi",
       "followingHim": "slijedi",
       "followsYou": "follows you",
-      "copyProfileUrl": "copy profile url"
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Postavke glasa",

@@ -87,7 +87,8 @@
       "following": "জনকে অনুসরণ করছে",
       "followHim": "অনুসরণ করুন",
       "followingHim": "অনুসরণ করছেন",
-      "copyProfileUrl": "copy profile url"
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "ভয়েস সেটিংস",

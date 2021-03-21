@@ -84,7 +84,8 @@
       "following": "ju ndjekin",
       "followHim": "follow",
       "followingHim": "following",
-      "copyProfileUrl": "copy profile url"
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Cilësime e zërit",

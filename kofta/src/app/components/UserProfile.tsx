@@ -86,7 +86,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
           <Button
               onClick={() => {
                 if(copyTextToClipboard(profileUrl)){
-                  toast("URL copied to clipboard", { type: "success" });
+                  toast(t("pages.viewUser.urlCopied"), { type: "success" });
                 }
               }}
               variant="small"

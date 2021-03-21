@@ -84,7 +84,8 @@
       "following": "sekvante",
       "followHim": "follow",
       "followingHim": "following",
-      "copyProfileUrl": "copy profile url"
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Voĉaj Agordoj",
