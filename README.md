@@ -65,6 +65,8 @@ Contributors helping to review/merge pull requests:
 - @ofsho
 - @HarrisonMayotte
 - @nadirabbas
+- @overlisted
+- @goldyydev
 
 ## Code of Conduct
 
