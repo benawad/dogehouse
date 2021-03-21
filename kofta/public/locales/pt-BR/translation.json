@@ -82,7 +82,9 @@
       "followers": "seguidores",
       "following": "seguindo",
       "followHim": "seguir",
-      "followingHim": "seguindo"
+      "followingHim": "seguindo",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Configurações do microfone",

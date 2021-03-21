@@ -37,7 +37,7 @@
       "startPrivateRoom": "ان کے ساتھ ایک نجی روم شروع کریں"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "روم بنائیں", "refresh": "Refresh" },
+    "home": { "createRoom": "روم بنائیں", "refresh": "ریفریش" },
     "inviteList": {
       "roomGone": "یہ روم اب موجود نہیں ہے",
       "shareRoomLink": "روم کی لنک شیئر کریں",
@@ -83,7 +83,9 @@
       "followers": "پیروکار",
       "following": "درج ذیل",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "آواز کی ترتیبات",

@@ -83,7 +83,9 @@
       "followers": "jälgijaid",
       "following": "jälgib",
       "followHim": "jälgi",
-      "followingHim": "jälgid"
+      "followingHim": "jälgid",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Häälesätted",

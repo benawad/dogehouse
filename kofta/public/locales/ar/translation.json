@@ -83,7 +83,9 @@
       "followers": "المتابِعون",
       "following": "المتابَعون",
       "followHim": "تابع",
-      "followingHim": "متابَع"
+      "followingHim": "متابَع",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "إعدادات المحادثة الصوتية",
@@ -123,7 +125,6 @@
       "addSupport": "و سوف أحاول أن أدعم جهازك!"
     },
     "inviteButton": { "invited": "مدعو", "inviteToRoom": "إدعو إلى الغرفة" },
-
     "micPermissionBanner": {
       "permissionDenied": "تم رفض الإذن عند محاولة الوصول إلى الميكروفون الخاص بك (قد تحتاج إلى الدخول إلى إعدادات المتصفح وإعادة تحميل الصفحة)",
       "dismiss": "رفض",
