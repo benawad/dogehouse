@@ -21,4 +21,4 @@ const One: Story<FeaturedRoomCardAvatarsProps> = () => {
 }
 
 export const Main = Avatars.bind({});
-export const OneAvatar = One.bind({})
+export const OneAvatar = One.bind({});
