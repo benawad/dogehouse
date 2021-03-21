@@ -6,7 +6,8 @@
     "scripts": {
         "compile": "tsc",
         "watch": "tsc -w",
-        "dev": "npm run compile && electron ./dist/electron.js",
+        "dev": "npm run compile && node ./dist/dev.js",
+        "start": "npm run compile && electron ./dist/electron.js",
         "build": "npm run compile && npm run build:overlay && electron-builder",
         "build:all": "npm run compile && npm run build:overlay && electron-builder -mwl --win nsis",
         "build:mac": "npm run compile && npm run build:overlay && electron-builder --mac",
