@@ -35,7 +35,7 @@
       "currentRoom": "ansluten till:",
       "startPrivateRoom": "skapa ett privat rum med dem"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Skapa rum", "refresh": "Uppdatera" },
     "inviteList": {
       "roomGone": "rummet försvann under månförmörkelsen, gå tillbaka",

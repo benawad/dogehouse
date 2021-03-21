@@ -72,10 +72,11 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   ],
 }) => {
   const { i18n } = useTranslation();
+  console.log(i18n)
 
   return (
     <select
-      value={i18n.language}
+      value={i18n.language.toLowerCase()}
       onChange={(e) => {
         i18n.changeLanguage(e.target.value);
       }}
