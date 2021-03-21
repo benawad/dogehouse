@@ -57,7 +57,7 @@
       "createTestUser": "create test user"
     },
     "myProfile": {
-      "logout": "logout",
+      "logout": "لاگ آوٹ",
       "probablyLoading": "شاید لوڈ ہو رہا ہے",
       "voiceSettings": "اکاؤنٹ کی ترتیبات پر جائیں",
       "soundSettings": "آواز کی ترتیبات پر جائیں",
