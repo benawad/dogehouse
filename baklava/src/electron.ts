@@ -12,7 +12,7 @@ import iohook from "iohook";
 import { autoUpdater } from "electron-updater";
 import { RegisterKeybinds } from "./utils/keybinds";
 import { HandleVoiceTray } from "./utils/tray";
-import { ALLOWED_HOSTS, MENU_TEMPLATE } from "./constants";
+import { ALLOWED_HOSTS, isMac, MENU_TEMPLATE } from "./constants";
 import url from "url";
 import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
@@ -33,23 +33,22 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
     },
-    show: false
+    show: false,
   });
 
   splash = new BrowserWindow({
     width: 810,
     height: 610,
     frame: false,
-    transparent: true
+    transparent: true,
   });
   splash.loadURL(
     url.format({
-      pathname: path.join(`${__dirname}`, "../splash-screen.html"),
+      pathname: path.join(`${__dirname}`, "../resources/splash/splash-screen.html"),
       protocol: "file:",
       slashes: true,
     })
   );
-
 
   // applying custom menu
   menu = Menu.buildFromTemplate(MENU_TEMPLATE);
@@ -65,14 +64,12 @@ function createWindow() {
     __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/"
   );
 
-
   mainWindow.once("ready-to-show", () => {
     setTimeout(() => {
       splash.destroy();
       mainWindow.show();
     }, 1000);
   }),
-
     // crashes on mac
     // systemPreferences.askForMediaAccess("microphone");
     ipcMain.on("request-mic", async (event, _serviceName) => {
@@ -81,6 +78,9 @@ function createWindow() {
       );
       event.returnValue = isAllowed;
     });
+  if (!isMac) {
+    mainWindow.webContents.send("@alerts/permissions", true);
+  }
 
   // registers global keybinds
   RegisterKeybinds(mainWindow);
@@ -107,7 +107,12 @@ function createWindow() {
       event.preventDefault();
       shell.openExternal(url);
     } else {
-      if (urlHost == ALLOWED_HOSTS[3] && urlObj.pathname !== "/login" && urlObj.pathname !== "/session") {
+      if (
+        urlHost == ALLOWED_HOSTS[3] &&
+        urlObj.pathname !== "/login" &&
+        urlObj.pathname !== "/session" &&
+        urlObj.pathname !== "/sessions/two-factor"
+      ) {
         event.preventDefault();
         shell.openExternal(url);
       }
@@ -118,6 +123,9 @@ function createWindow() {
 }
 
 if (!instanceLock) {
+  if (process.env.hotReload) {
+    app.relaunch();
+  }
   app.quit();
 } else {
   app.on("ready", () => {
@@ -126,6 +134,7 @@ if (!instanceLock) {
   });
   app.on("second-instance", (event, argv, workingDirectory) => {
     if (mainWindow) {
+      if (process.env.hotReload) return mainWindow.close();
       if (mainWindow.isMinimized()) mainWindow.restore();
       mainWindow.focus();
     }

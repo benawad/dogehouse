@@ -1,17 +1,19 @@
 {
     "name": "dogehouse",
-    "version": "1.0.0",
+    "version": "1.0.17",
     "description": "Taking voice conversations to the moon 🚀",
     "main": "./dist/electron.js",
     "scripts": {
         "compile": "tsc",
         "watch": "tsc -w",
-        "dev": "npm run compile && electron ./dist/electron.js",
-        "build": "npm run compile && electron-builder",
-        "build:all": "npm run compile && electron-builder -mwl --win msi",
-        "build:mac": "npm run compile && electron-builder --mac",
-        "build:win": "npm run compile && electron-builder --win msi",
-        "build:linux": "npm run compile && electron-builder --linux"
+        "dev": "npm run compile && node ./dist/dev.js",
+        "start": "npm run compile && electron ./dist/electron.js",
+        "build": "npm run compile && npm run build:overlay && electron-builder",
+        "build:all": "npm run compile && npm run build:overlay && electron-builder -mwl",
+        "build:mac": "npm run compile && npm run build:overlay && electron-builder --mac",
+        "build:win": "npm run compile && npm run build:overlay && electron-builder --win",
+        "build:linux": "npm run compile && npm run build:overlay && electron-builder --linux",
+        "build:overlay": "cd resources/overlay && yarn build"
     },
     "keywords": [
         "DogeHouse",
@@ -50,7 +52,10 @@
         },
         "win": {
             "icon": "icons/icon.png",
-            "target": "msi"
+            "target": "nsis",
+            "publish": [
+                "github"
+            ]
         },
         "linux": {
             "icon": "icons/icon.png",
@@ -63,6 +68,7 @@
         }
     },
     "dependencies": {
+        "electron-overlay-window": "^1.0.4",
         "electron-updater": "^4.3.8",
         "iohook": "^0.7.2"
     },
@@ -81,6 +87,7 @@
         ]
     },
     "files": [
-        "./icons/**/*"
+        "./icons/**/*",
+        "./resources/**/*"
     ]
 }

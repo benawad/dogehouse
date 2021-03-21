@@ -23,14 +23,19 @@ commit messages are standardized:
     2. Type the scope. This is either `global` for project-wide changes or one of the packages (kibbeh, shawarma etc.).
     3. Write a short, imperative tense description of the change.
     4. If the above was not sufficient, you may now write a longer description of your change (otherwise press enter to leave blank).
-    5. y or n for wheather there are any breaking changes (e.g. changing the props of a component, changing the JSON structure of an API response).
-    6. y or n for wheather this change affects and open issue, if positive you will be prompted to enter the issue number.
+    5. y or n for whether there are any breaking changes (e.g. changing the props of a component, changing the JSON structure of an API response).
+    6. y or n for whether this change affects an open issue, if positive you will be prompted to enter the issue number.
 5. Your commit message has now been created, you may push to your fork and open a pull request (read below for further instructions).
 
 ## Pull Requests
 1. Fork the repo and create your branch (usually named `patch-%the number of PRs you've already made%`) from `staging`.
 2. If you've added code that should be tested, add some test examples.
 3. Ensure to describe your pull request.
+
+## Adding Emojis
+Emojis need to be 28x28px. To add an emoji, add the png/gif image to public/emojis and add the emoji to the `kofta/src/app/modules/room-chat/EmoteData.ts`.
+
+To avoid conflicts please add the emojis to the top of the file.
 
 ## Quickstart Local Frontend Development
 Do this if you only want to do React stuff and don't want to touch Elixir:

@@ -1,7 +1,7 @@
 import React from "react";
 import { Story } from "@storybook/react";
 import { UserBadge } from "../ui/UserBadge";
-import { SmSolidDogenitro } from "../icons";
+import { SolidDogenitro } from "../icons";
 
 export default {
   title: "UserBadge",
@@ -18,7 +18,7 @@ const TheUserBadge: Story = () => {
       </div>
       <div className="m-1">
         <UserBadge variant="secondary">
-          <SmSolidDogenitro style={{ color: "#FFF" }} width={12} />
+          <SolidDogenitro style={{ color: "#FFF" }} width={12} />
         </UserBadge>
       </div>
     </div>

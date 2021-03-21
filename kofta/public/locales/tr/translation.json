@@ -14,7 +14,8 @@
     "copyLink": "Linki kopyala",
     "copied": "Kopyalandı!",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Ana başlık arayüz ulusallaştırma yazıları",
@@ -35,7 +36,7 @@
       "currentRoom": "Şu anki oda:",
       "startPrivateRoom": "Onlarla özel bir oda oluştur"
     },
-    "followList": {},
+    "followList": { "followHim": "Takip Et", "followingHim": "Takiptesin" },
     "home": { "createRoom": "Oda oluştur", "refresh": "Yenile" },
     "inviteList": {
       "roomGone": "Oda gitti, geri dön",
@@ -60,7 +61,8 @@
       "probablyLoading": "Muhtemelen yükleniyor...",
       "voiceSettings": "Konuşma ayarlarına git",
       "soundSettings": "Ses ayarlarına git",
-      "deleteAccount": "Hesabı sil"
+      "deleteAccount": "Hesabı sil",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Uups! Bu sayfa sohbette kayboldu.",
@@ -70,15 +72,21 @@
     "room": {
       "speakers": "Konuşmacılar",
       "requestingToSpeak": "Konuşmak için izin istiyor",
-      "listeners": "Dinleyiciler"
+      "listeners": "Dinleyiciler",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Ara..." },
     "soundEffectSettings": { "header": "Sesler" },
     "viewUser": {
       "editProfile": "Profili düzenle",
       "followsYou": "Seni takip ediyor",
-      "followers": "Takipçiler",
-      "following": "Takip ediliyor"
+      "followers": "Takipçi",
+      "following": "Takip",
+      "followHim": "Takip Et",
+      "followingHim": "Takiptesin",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Ses Ayarları",
@@ -87,6 +95,10 @@
       "refesh": "Mikrofon listesini yenile",
       "volume": "Ses seviyesi:",
       "refresh": "Mikrofon listesini yenile"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -170,7 +182,8 @@
       "setKeybind": "Tuş Ata",
       "listening": "Dinleniyor",
       "toggleMuteKeybind": "susturma aç/kapat tuş ataması",
-      "togglePushToTalkKeybind": "bas-konuş tuş ataması"
+      "togglePushToTalkKeybind": "bas-konuş tuş ataması",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "wsKilled": {
       "description": "WebSocket, sunucu tarafından kapatıldı. Bu genellikle websiteyi başka bir sekmede açtığında yaşanır.",

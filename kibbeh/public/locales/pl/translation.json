@@ -36,8 +36,8 @@
       "currentRoom": "obecnie w:",
       "startPrivateRoom": "załóż z nim prywatny pokój"
     },
-    "followList": {},
-    "home": { "createRoom": "Stwórz pokój", "refresh": "Refresh" },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Stwórz pokój", "refresh": "Odśwież" },
     "inviteList": {
       "roomGone": "pokój usunięty, wróć",
       "shareRoomLink": "udostępnij link do pokoju",
@@ -79,7 +79,9 @@
       "editProfile": "edytuj profil",
       "followsYou": "obserwuje cię",
       "followers": "obserwujący",
-      "following": "obserwujesz"
+      "following": "obserwujesz",
+      "followHim": "follow",
+      "followingHim": "following"
     },
     "voiceSettings": {
       "header": "Ustawienia Głosu",
@@ -178,7 +180,8 @@
         "banFromChat": "zbanuj z chatu",
         "banFromRoom": "zbanuj z pokoju",
         "goBackToListener": "powróć do słuchacza",
-        "deleteMessage": "usuń tą wiadomość"
+        "deleteMessage": "usuń tą wiadomość",
+        "makeRoomCreator": "zmień na administratora pokoju"
       },
       "roomSettingsModal": {
         "requirePermission": "wymaga pozwolenia na mówienie",
@@ -200,7 +203,7 @@
         "needsFuture": "musi być w przyszłości",
         "roomName": "nazwa pokoju",
         "minLength": "minimalna długość to 2",
-        "roomDescription": "Description"
+        "roomDescription": "Opis"
       }
     },
     "roomChat": {
@@ -217,16 +220,16 @@
       "roomDescription": "opis pokoju"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "fuelingRocket": "Tankowanie rakiety",
+      "takingOff": "Startowanie",
+      "inSpace": "W kosmosie",
+      "approachingMoon": "Zbliża się do Księżyca",
+      "lunarDoge": "Księżycowy Doge",
+      "approachingSun": "Zbliża się do słońca",
+      "solarDoge": "Słoneczny Doge",
+      "approachingGalaxy": "Zbliża się do galaktyki",
+      "galacticDoge": "Galaktyczny Doge",
+      "spottedLife": "Znaleziono planetę z życiem"
     }
   }
 }

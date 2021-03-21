@@ -1,15 +1,8 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
 import React from "react";
 import { StyleSheet, Text } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { colors, fontFamily } from "../constants/GlobalStyles";
+import { colors, fontFamily } from "../constants/dogeStyle";
 import { useTokenStore } from "../module/auth/useTokenStore";
 
 export const ProfilePage: React.FC = () => {

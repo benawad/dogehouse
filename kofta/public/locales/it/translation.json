@@ -14,7 +14,8 @@
     "copyLink": "copia link",
     "copied": "copiato",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -35,7 +36,7 @@
       "currentRoom": "in questo momento è connesso a:",
       "startPrivateRoom": "avvia una stanza privata con lui"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Crea una Stanza", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "stanza inesistente, torna indietro",
@@ -60,7 +61,8 @@
       "probablyLoading": "probabilmente sto caricando...",
       "voiceSettings": "modifica impostazioni della voce",
       "soundSettings": "modifica impostazioni dei suoni",
-      "deleteAccount": "elimina account"
+      "deleteAccount": "elimina account",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Oops! Questa pagina si è persa nella conversazione.",
@@ -70,7 +72,9 @@
     "room": {
       "speakers": "Oratori",
       "requestingToSpeak": "Vogliono parlare",
-      "listeners": "Ascoltatori"
+      "listeners": "Ascoltatori",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "cerca..." },
     "soundEffectSettings": { "header": "Suoni" },
@@ -78,7 +82,11 @@
       "editProfile": "modifica profilo",
       "followsYou": "ti segue",
       "followers": "followers",
-      "following": "stai seguendo"
+      "following": "stai seguendo",
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Impostazioni della voce",
@@ -86,6 +94,10 @@
       "permissionError": "nessun microfono trovato, probabilmente non hai dato il permesso a questo sito per poterlo usare o non ne avrai attaccato nessuno.",
       "refresh": "ricarica lista di microfoni",
       "volume": "volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -130,7 +142,8 @@
       "setKeybind": "imposta scorciatoia",
       "listening": "ascoltatore",
       "toggleMuteKeybind": "scorciatoia per attivare/disattivare il microfono",
-      "togglePushToTalkKeybind": "scorciatoia per il push-to-talk"
+      "togglePushToTalkKeybind": "scorciatoia per il push-to-talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "nessun audio è disponibile per qualche motivo"

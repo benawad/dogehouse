@@ -36,7 +36,7 @@
       "currentRoom": "حاليا في:",
       "startPrivateRoom": "ابدأ غرفة خاصة معهم"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "ابدأ غرفة", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "انتهت الغرفة، عد إلى الوراء",
@@ -79,7 +79,9 @@
       "editProfile": "تعديل الحساب",
       "followsYou": "يتابعك",
       "followers": "المتابِعون",
-      "following": "المتابَعون"
+      "following": "المتابَعون",
+      "followHim": "تابع",
+      "followingHim": "متابَع"
     },
     "voiceSettings": {
       "header": "إعدادات الصوت",
@@ -111,14 +113,14 @@
       "settings": "الإعدادات",
       "speaker": "متحدث",
       "listener": "مستمع",
-      "chat": "Chat"
+      "chat": "المحادثة"
     },
     "deviceNotSupported": {
       "notSupported": "جهازك غير مدعوم حاليا. يمكنك إنشاء",
       "linkText": "مشكلة على GitHub",
       "addSupport": "و سوف أحاول أن أدعم جهازك!"
     },
-    "inviteButton": { "invited": "مدعو", "inviteToRoom": "ادعو إلى الغرفة" },
+    "inviteButton": { "invited": "مدعو", "inviteToRoom": "إدعو إلى الغرفة" },
     "micPermissionBanner": {
       "permissionDenied": "تم رفض الإذن عند محاولة الوصول إلى الميكروفون الخاص بك (قد تحتاج إلى الدخول إلى إعدادات المتصفح وإعادة تحميل الصفحة)",
       "dismiss": "رفض",
@@ -131,9 +133,9 @@
       "togglePushToTalkKeybind": "تبديل رابط مفتاح الضغط والتحدث"
     },
     "userVolumeSlider": { "noAudioMessage": "لا يوجد مستهلك صوتي لسبب ما" },
-    "addToCalendar": { "add": "أضف إلى الرزنامة" },
+    "addToCalendar": { "add": "أضف إلى التقويم" },
     "wsKilled": {
-      "description": "تم قتل الـWebsocket بواسطة الخادم. يحدث هذا عادةً عند فتح موقع الويب في علامة تبويب أخرى.",
+      "description": "تمت مقاطعة الإتصال بواسطة الخادم. يحدث هذا عادةً عند فتح موقع الويب في علامة تبويب أخرى",
       "reconnect": "أعد الاتصال"
     },
     "modals": {
@@ -141,7 +143,7 @@
         "public": "عام",
         "private": "خاص",
         "roomName": "اسم الغرفة",
-        "roomDescription": "وصف الغرفة",
+        "roomDescription": "وصف عن الغرفة",
         "descriptionError": "أقصى حد 500",
         "nameError": "يجب أن يكون ما بين حرفين و 60 حرف"
       },
@@ -173,7 +175,8 @@
         "banFromChat": "حظر من الماحدثة",
         "banFromRoom": "حظر من الغرفة",
         "goBackToListener": "إرجع إلى مستمع",
-        "deleteMessage": "حذف الرسالة"
+        "deleteMessage": "حذف الرسالة",
+        "makeRoomCreator": "اضف كإداري للغرفة"
       },
       "roomSettingsModal": {
         "requirePermission": "جعل التحدث بطلب فقط",
@@ -195,7 +198,7 @@
         "needsFuture": "يجب أن تكون في المستقبل",
         "roomName": "اسم الغرفة",
         "minLength": "أقل طول 2",
-        "roomDescription": "Description"
+        "roomDescription": "الوصف"
       }
     },
     "roomChat": {
@@ -207,9 +210,9 @@
       "searchResults": "نتائج البحث",
       "recent": "مستخدم كثيراً",
       "sendMessage": "أرسل رسالة",
-      "whisper": "اهمس",
+      "whisper": "إرسل رسالة خاصة",
       "welcomeMessage": "مرحبا بك في المحادثة!",
-      "roomDescription": "وصف الغرفة"
+      "roomDescription": "وصف عن الغرفة"
     },
     "roomStatus": {
       "fuelingRocket": "عبي الصاروخ بنزين",

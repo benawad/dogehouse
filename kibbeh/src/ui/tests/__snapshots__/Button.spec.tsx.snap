@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should match snapshot 1`] = `
+<button
+  class="py-2 px-6 text-sm rounded-lg text-button bg-accent hover:bg-accent-hover disabled:text-accent-disabled disabled:bg-accent-hover font-bold flex items-center justify-center "
+  data-testid="button"
+  disabled=""
+>
+  <span
+    class="flex items-center"
+  >
+    Click me
+  </span>
+</button>
+`;

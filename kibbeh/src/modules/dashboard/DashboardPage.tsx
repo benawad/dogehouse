@@ -9,6 +9,7 @@ import { UserSummaryCard } from "../../ui/UserSummaryCard";
 import { useVerifyLoggedIn } from "../auth/useVerifyLoggedIn";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 import { FeedController } from "./FeedController";
+import { ProfileBlockController } from "./ProfileBlockController";
 
 interface LoungePageProps {}
 
@@ -30,27 +31,13 @@ export const DashboardPage: PageComponent<LoungePageProps> = ({}) => {
         <Header
           searchPlaceholder={"Search for rooms, users or categories"}
           onSearchChange={() => null}
-          onAnnouncementsClick={() => null}
-          onMessagesClick={() => null}
-          onNotificationsClick={() => null}
           avatarImg={conn.user.avatarUrl}
         />
       </div>
       <DashboardInnerGrid>
         <FriendsOnline onlineFriendCount={0} onlineFriendList={[]} />
         <FeedController />
-        <ProfileBlock
-          top={
-            <UserSummaryCard
-              badges={[]}
-              website=""
-              isOnline={false}
-              {...conn.user}
-              username={"@" + conn.user.username}
-            />
-          }
-          bottom={<UpcomingRoomsCard rooms={[]} />}
-        />
+        <ProfileBlockController />
       </DashboardInnerGrid>
     </div>
   );

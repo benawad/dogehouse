@@ -14,7 +14,8 @@
     "copyLink": "skopírovať odkaz",
     "copied": "skopírováné",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -35,7 +36,7 @@
       "currentRoom": "aktuálne v:",
       "startPrivateRoom": "začať s nimi súkromnú miestnosť"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "Vytvoriť miestnosť", "refresh": "Obnoviť" },
     "inviteList": {
       "roomGone": "miestnosť je fuč, vráť sa",
@@ -60,7 +61,8 @@
       "probablyLoading": "zrejme načítam...",
       "voiceSettings": "otvoriť nastavenia hlasu",
       "soundSettings": "otvoriť nastavenia zvuku",
-      "deleteAccount": "odstrániť účet"
+      "deleteAccount": "odstrániť účet",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Uups! Táto stránka sa stratila v konverzácii.",
@@ -70,22 +72,32 @@
     "room": {
       "speakers": "Rozprávači",
       "requestingToSpeak": "Chce povolenie rozprávať",
-      "listeners": "Poslucháči"
+      "listeners": "Poslucháči",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "hľadať..." },
     "soundEffectSettings": { "header": "Zvuky" },
     "viewUser": {
       "editProfile": "upraviť profil",
       "followsYou": "sleduje ťa",
-      "followers": "sleduješ",
-      "following": "sleduje"
+      "followers": "sledovateľov",
+      "following": "sledovaných",
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Nastavenia hlasu",
       "mic": "mikrofón:",
-      "permissionError": "žiadne mikrofony nenájdené, buď žiaden nie je zapojený alebo si neudelil stránke oprávnenie.",
+      "permissionError": "žiadne mikrofóny nenájdené, buď žiaden nie je zapojený alebo si neudelil stránke oprávnenie.",
       "refresh": "obnoviť zoznam mikrofónov",
       "volume": "hlasitosť:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -105,7 +117,7 @@
       "invite": "Pozvať",
       "toggleMuteMicBtn": "Prepnúť stíšenie mikrofónu",
       "mute": "Stíšiť",
-      "unmute": "Zapnúť mikrofón",
+      "unmute": "Hovoriť",
       "makeRoomPublicBtn": "Zverejniť miestnosť!",
       "settings": "Nastavenia",
       "speaker": "Rozprávač",
@@ -130,7 +142,8 @@
       "setKeybind": "nastaviť klávesovú skratku",
       "listening": "počúvam",
       "toggleMuteKeybind": "prepínač stíšenia",
-      "togglePushToTalkKeybind": "prepínač push-to-talk"
+      "togglePushToTalkKeybind": "prepínač push-to-talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "z nejakého dôvodu nemáme žiadny zvuk"
@@ -146,7 +159,7 @@
         "private": "súkromá",
         "roomName": "názov miestnosti",
         "roomDescription": "popis miestnosti",
-        "descriptionError": "maximálna dĺžka 500",
+        "descriptionError": "maximálna dĺžka je 500 znakov",
         "nameError": "počet znakov musí byť medzi 2-60"
       },
       "invitedToJoinRoomModal": {
@@ -160,9 +173,9 @@
         "usernameTaken": "používatelské meno je obsadené",
         "avatarUrlError": "Nesprávny obrázok",
         "avatarUrlLabel": "odkaz na Github/Twitter obrázok",
-        "displayNameError": "počet znakové musí byť medzi 2-50",
+        "displayNameError": "počet znakov musí byť medzi 2-50",
         "displayNameLabel": "Verejná prezývka",
-        "usernameError": "počet znakové musí byť medzi 4-15, povolené sú len písmená, čísla a podčiarkovník",
+        "usernameError": "počet znakov musí byť medzi 4-15, povolené sú len písmená, čísla a podčiarkovník",
         "usernameLabel": "Používatelské meno",
         "bioError": "maximálna dĺžka je 160 znakov",
         "bioLabel": "O mne"
@@ -178,10 +191,10 @@
         "banFromRoom": "zabanovat z miestnosti",
         "goBackToListener": "vrátiť sa k poslucháčovi",
         "deleteMessage": "zmazať túto správu",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "udeliť správcu miestnosti"
       },
       "roomSettingsModal": {
-        "requirePermission": "chce oprávnenie hovoriť",
+        "requirePermission": "Poslucháči musia požiadať o povolenie rozprávať",
         "makePublic": "zverejniť miestnosť",
         "makePrivate": "zosúkromniť miestnosť"
       }

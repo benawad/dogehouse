@@ -27,6 +27,10 @@ module.exports = {
         800: "var(--color-primary-800)",
         900: "var(--color-primary-900)",
       },
+      secondary: {
+        DEFAULT: "var(--color-secondary)",
+        "washed-out": "var(--color-secondary-washed-out)",
+      },
       accent: {
         DEFAULT: "var(--color-accent)",
         hover: "var(--color-accent-hover)",
@@ -34,6 +38,7 @@ module.exports = {
       },
     },
     spacing: {
+      0: "0px",
       1: "5px",
       2: "10px",
       3: "15px",
@@ -41,6 +46,7 @@ module.exports = {
       5: "30px",
       6: "40px",
       7: "60px",
+      8: "75px",
     },
     extend: {
       borderRadius: {

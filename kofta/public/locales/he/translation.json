@@ -15,7 +15,8 @@
     "copyLink": "העתק קישור",
     "copied": "הועתק",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,7 +37,7 @@
       "currentRoom": "ב:",
       "startPrivateRoom": "צור חדר פרטי איתם"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "צור חדר", "refresh": "טען מחדש" },
     "inviteList": {
       "roomGone": "החדר נעלם, חזור",
@@ -61,7 +62,8 @@
       "probablyLoading": "כנראה טוען...",
       "voiceSettings": "עבור להגדרות קול",
       "soundSettings": "עבור להגדרות סאונד",
-      "deleteAccount": "מחק חשבון"
+      "deleteAccount": "מחק חשבון",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "אופס! הדף הזה הלך לאיבוד בשיחה.",
@@ -71,7 +73,9 @@
     "room": {
       "speakers": "מדברים",
       "requestingToSpeak": "מבקשים לדבר",
-      "listeners": "מקשיבים"
+      "listeners": "מקשיבים",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "חפש..." },
     "soundEffectSettings": { "header": "צלילים" },
@@ -79,7 +83,11 @@
       "editProfile": "ערוך פרופיל",
       "followsYou": "עוקב אחריך",
       "followers": "עוקבים",
-      "following": "עוקב"
+      "following": "עוקב",
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "הגדרות קול",
@@ -87,6 +95,10 @@
       "permissionError": "לא נמצאו מיקרופונים, או שאין מיקרופון מחובר או שלא נתת אישור לאתר זה.",
       "refresh": "רענן את רשימת המיקרופונים",
       "volume": "עוצמת קול:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -128,7 +140,8 @@
       "setKeybind": "הגדר מקש",
       "listening": "מקשיב",
       "toggleMuteKeybind": "הפעל את מקש ההשתקה",
-      "togglePushToTalkKeybind": "הפעל push-to-talk"
+      "togglePushToTalkKeybind": "הפעל push-to-talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "שום צרכן קול משום מה" },
     "addToCalendar": { "add": "הוסף ליומן" },
@@ -213,16 +226,16 @@
       "roomDescription": "תיאור החדר"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "fuelingRocket": "מטדלק את הרקטה",
+      "takingOff": "ממריא",
+      "inSpace": "בחלל",
+      "approachingMoon": "מתקרב לירח",
+      "lunarDoge": "ירח doge",
+      "approachingSun": "מתקרב לשמש",
+      "solarDoge": "שמש doge",
+      "approachingGalaxy": "מתקרב לגלקסיה",
+      "galacticDoge": "גלקטי Doge",
+      "spottedLife": "כוכב לכת עם חיים נמצא"
     }
   }
 }
