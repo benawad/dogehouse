@@ -22,7 +22,7 @@ export const AccountOverlay: React.FC<AccountOverlyProps> = ({
   dragHandler,
   closeHandler,
   className = "",
-  axis = "both",
+  axis = "y",
 }) => {
   const endPosition = useRef(0);
   const node = useRef();
