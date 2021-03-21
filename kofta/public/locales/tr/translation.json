@@ -14,7 +14,8 @@
     "copyLink": "Linki kopyala",
     "copied": "Kopyalandı!",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Ana başlık arayüz ulusallaştırma yazıları",
@@ -60,7 +61,8 @@
       "probablyLoading": "Muhtemelen yükleniyor...",
       "voiceSettings": "Konuşma ayarlarına git",
       "soundSettings": "Ses ayarlarına git",
-      "deleteAccount": "Hesabı sil"
+      "deleteAccount": "Hesabı sil",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Uups! Bu sayfa sohbette kayboldu.",
@@ -93,6 +95,10 @@
       "refesh": "Mikrofon listesini yenile",
       "volume": "Ses seviyesi:",
       "refresh": "Mikrofon listesini yenile"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -176,7 +182,8 @@
       "setKeybind": "Tuş Ata",
       "listening": "Dinleniyor",
       "toggleMuteKeybind": "susturma aç/kapat tuş ataması",
-      "togglePushToTalkKeybind": "bas-konuş tuş ataması"
+      "togglePushToTalkKeybind": "bas-konuş tuş ataması",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "wsKilled": {
       "description": "WebSocket, sunucu tarafından kapatıldı. Bu genellikle websiteyi başka bir sekmede açtığında yaşanır.",

@@ -14,7 +14,8 @@
     "copyLink": "Kopieer link",
     "copied": "Gekopieerd",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -60,7 +61,8 @@
       "probablyLoading": "Waarschijnlijk aan het laden...",
       "voiceSettings": "Ga naar spraakinstellingen",
       "soundSettings": "Ga naar geluidsinstellingen",
-      "deleteAccount": "Verwijder account"
+      "deleteAccount": "Verwijder account",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Oeps! Deze pagina is verloren gegaan tijdens het gesprek.",
@@ -92,6 +94,10 @@
       "permissionError": "Geen microfoon gevonden, waarschijnlijk is er geen microfoon aangesloten of heb je geen toestemming gegeven.",
       "refresh": "Ververs microfoonlijst",
       "volume": "Volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -136,7 +142,8 @@
       "setKeybind": "Stel sneltoets in",
       "listening": "Aan het luisteren",
       "toggleMuteKeybind": "Schakel demp sneltoets",
-      "togglePushToTalkKeybind": "Schakel push-to-talk sneltoets"
+      "togglePushToTalkKeybind": "Schakel push-to-talk sneltoets",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Geen audioapparaat om een of andere reden"

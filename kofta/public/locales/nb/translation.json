@@ -14,7 +14,8 @@
     "copyLink": "kopier lenke",
     "copied": "kopiert",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -60,7 +61,8 @@
       "probablyLoading": "lastes sikkert inn...",
       "voiceSettings": "gå til taleinnstillinger",
       "soundSettings": "gå til lydinnstillinger",
-      "deleteAccount": "slett konto"
+      "deleteAccount": "slett konto",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Oi sann! Denne siden ble tapt i samtalen.",
@@ -92,6 +94,10 @@
       "permissionError": "ingen mikrofoner er funnet, du har enten ingen enheter tilgjenngelig, eller så har du ikke gitt tillatelse til å bruke den.",
       "refresh": "oppdater mikrofon-listen",
       "volume": "volum:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -136,7 +142,8 @@
       "setKeybind": "angi hurtigtast",
       "listening": "lytter",
       "toggleMuteKeybind": "veksle demping av hurtigtast",
-      "togglePushToTalkKeybind": "veksle trykk for å snakke hurtigtast"
+      "togglePushToTalkKeybind": "veksle trykk for å snakke hurtigtast",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "ingen lydmottaker av en eller annen grunn"

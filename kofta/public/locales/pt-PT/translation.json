@@ -14,7 +14,8 @@
     "copyLink": "copiar link",
     "copied": "copiado",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -60,7 +61,8 @@
       "probablyLoading": "Talvez a carregar...",
       "voiceSettings": "Definições de voz",
       "soundSettings": "Definições de som",
-      "deleteAccount": "Apagar conta"
+      "deleteAccount": "Apagar conta",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Ups! Esta página entusiasmou-se na conversa.",
@@ -92,6 +94,10 @@
       "permissionError": "Não foram encontrados microfones, não foram dadas permissões ou não estão corretamente ligados.",
       "refresh": "Atualizar lista de microfones",
       "volume": "Volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -177,7 +183,8 @@
       "setKeybind": "definir atalho",
       "listening": "a ouvir",
       "toggleMuteKeybind": "teclas de atalho para silenciar",
-      "togglePushToTalkKeybind": "teclas de atalho para ativar o premir-para-falar"
+      "togglePushToTalkKeybind": "teclas de atalho para ativar o premir-para-falar",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "wsKilled": {
       "description": "O WebSocket foi quebrado pelo servidor. Isto geralmente acontece quando abres o site noutro separador.",

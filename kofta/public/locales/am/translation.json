@@ -15,7 +15,8 @@
     "copyLink": "ሊንክ ውሰድ",
     "copied": "ተቀድቷል!",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please give DogeHouse Accessibility permessions"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -61,7 +62,8 @@
       "probablyLoading": "ምናልባት በመጫን ላይ ...",
       "voiceSettings": "የአወራር ድምጽ ቅንብሮች",
       "soundSettings": "የድምጽ ቅንብሮች",
-      "deleteAccount": "መለያህን ደልት"
+      "deleteAccount": "መለያህን ደልት",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "ውይ ውይ! ይህ ገጽ ውይይት ውስጥ ጠፋ፡፡",
@@ -94,6 +96,12 @@
       "refesh": "አድስ ማይክሮፎኑን ዝርዝር",
       "volume": "ድምጽ:",
       "refresh": "refresh mic list"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings",
+      "errorMsg": "Please enter valid app title",
+      "label": "Enter app title"
     }
   },
   "components": {
@@ -135,7 +143,8 @@
       "setKeybind": "ቁልፍ አዘጋጅ",
       "listening": "በማዳመጥ ላይ",
       "toggleMuteKeybind": "ድምጸ ማጥፍያ/ማብርያ ቁልፍ",
-      "togglePushToTalkKeybind": "ተጭኖ ማውሪያ ማጥፍያ/ማብርያ ቁልፍ"
+      "togglePushToTalkKeybind": "ተጭኖ ማውሪያ ማጥፍያ/ማብርያ ቁልፍ",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "በሆነ ምክንያት ምንም ድምጽ ተጠቃሚ የለም" },
     "addToCalendar": { "add": "ወደ ቀን መቁጠሪያ ጨምር" },

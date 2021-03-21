@@ -9,23 +9,28 @@ import qs from "query-string";
 import { showErrorToast } from "../utils/showErrorToast";
 import { CenterLayout } from "../components/CenterLayout";
 import { modalPrompt, PromptModal } from "../components/PromptModal";
-import { AlertModal } from "../components/AlertModal";
+import { AlertModal, modalAlert } from "../components/AlertModal";
 import { ConfirmModal } from "../components/ConfirmModal";
 import { BodyWrapper } from "../components/BodyWrapper";
 import { ListItem } from "../components/ListItem";
 import { GitHubIcon } from "../svgs/GitHubIcon";
 import { TwitterIcon } from "../svgs/TwitterIcon";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
+import isElectron from "is-electron";
 
-interface LoginProps {}
+const isMac = process.platform === 'darwin';
+
+interface LoginProps { }
 
 export const Login: React.FC<LoginProps> = () => {
   const { t } = useTypeSafeTranslation();
-
   useEffect(() => {
     const { error } = qs.parse(window.location.search);
     if (error && typeof error === "string") {
       showErrorToast(error);
+    }
+    if (isElectron() && isMac) {
+      modalAlert(t("common.requestPermissions"));
     }
   }, []);
   return (
@@ -60,12 +65,12 @@ export const Login: React.FC<LoginProps> = () => {
               variant="slim"
               style={{ backgroundColor: "#333" }}
               onClick={() =>
-                (window.location.href =
-                  apiBaseUrl +
-                  "/auth/github/web" +
-                  (__staging__
-                    ? "?redirect_after_base=" + window.location.origin
-                    : ""))
+              (window.location.href =
+                apiBaseUrl +
+                "/auth/github/web" +
+                (__staging__
+                  ? "?redirect_after_base=" + window.location.origin
+                  : ""))
               }
             >
               <span className={`inline-flex items-center`}>
@@ -79,12 +84,12 @@ export const Login: React.FC<LoginProps> = () => {
               variant="slim"
               style={{ backgroundColor: "#0C84CF" }}
               onClick={() =>
-                (window.location.href =
-                  apiBaseUrl +
-                  "/auth/twitter/web" +
-                  (process.env.REACT_APP_IS_STAGING === "true"
-                    ? "?redirect_after_base=" + window.location.origin
-                    : ""))
+              (window.location.href =
+                apiBaseUrl +
+                "/auth/twitter/web" +
+                (process.env.REACT_APP_IS_STAGING === "true"
+                  ? "?redirect_after_base=" + window.location.origin
+                  : ""))
               }
             >
               <span className={`inline-flex items-center`}>
