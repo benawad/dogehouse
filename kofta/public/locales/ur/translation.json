@@ -82,10 +82,10 @@
       "followsYou": "آپ کے پیچھے",
       "followers": "پیروکار",
       "following": "درج ذیل",
-      "followHim": "follow",
-      "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard"
+      "followHim": "فالو کریں",
+      "followingHim": "فالونگ",
+      "copyProfileUrl": "کاپی پروفائل یو آر ایل",
+      "urlCopied": "یو آر ایل کو کلپ بورڈ میں کاپی کیا گیا"
     },
     "voiceSettings": {
       "header": "آواز کی ترتیبات",
@@ -162,15 +162,15 @@
         "inviteReceived": "آپ کو مدعو کیا گیا ہے"
       },
       "editProfileModal": {
-        "usernameTaken": "username taken",
-        "avatarUrlError": "Invalid image",
-        "avatarUrlLabel": "Github/Twitter avatar url",
-        "displayNameError": "length 2 to 50 characters",
-        "displayNameLabel": "Display Name",
-        "usernameError": "length 4 to 15 characters and only alphanumeric/underscore",
-        "usernameLabel": "Username",
-        "bioError": "max length of 160 characters",
-        "bioLabel": "Bio"
+        "usernameTaken": "صارف نام پہلے ہی لیا گیا ہے",
+        "avatarUrlError": "غلط تصویر",
+        "avatarUrlLabel": "اوتار یو آر ایل Github / Twitter",
+        "displayNameError": "لمبائی 2 سے 50 حروف",
+        "displayNameLabel": "ڈسپلے نام",
+        "usernameError": "لمبائی 4 سے 15 حروف اور صرف حرفی / انگارے کی",
+        "usernameLabel": "صارف نام",
+        "bioError": "160 حروف کی زیادہ سے زیادہ لمبائی",
+        "bioLabel": "بایو"
       },
       "profileModal": {
         "blockUserConfirm": "کیا آپ واقعی اس صارف کو اپنے بنائے ہوئے کسی بھی کمرے میں شامل ہونے سے روکنا چاہتے ہیں؟",
@@ -205,7 +205,7 @@
         "needsFuture": "مستقبل میں ہونے کی ضرورت ہے",
         "roomName": "کمرے کا نام",
         "minLength": "منٹ لمبائی 2",
-        "roomDescription": "تفصیل"
+        "roomDescription": "کمرے کی تفصیل"
       }
     },
     "roomChat": {
