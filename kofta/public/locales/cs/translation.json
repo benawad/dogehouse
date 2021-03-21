@@ -71,7 +71,9 @@
     "room": {
       "speakers": "Řečníci",
       "requestingToSpeak": "Požaduje oprávnění mluvit",
-      "listeners": "Posluchači"
+      "listeners": "Posluchači",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "hledat..." },
     "soundEffectSettings": { "header": "Zvuky" },

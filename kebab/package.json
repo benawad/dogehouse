@@ -2,7 +2,7 @@
   "name": "@dogehouse/kebab",
   "author": "Ilya Maximov <mail@overlisted.net> (https://overlisted.net)",
   "bugs": "https://github.com/benawad/dogehouse/issues",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "MIT",
   "keywords": [
     "dogehouse"
@@ -13,7 +13,8 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "lint": "eslint src/"
+    "lint": "eslint src/",
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "isomorphic-ws": "^4.0.1",

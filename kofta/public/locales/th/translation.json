@@ -70,7 +70,9 @@
     "room": {
       "speakers": "ผู้พูด",
       "requestingToSpeak": "กำลังขอขึ้นเป็นผู้พูด",
-      "listeners": "ผู้ฟัง"
+      "listeners": "ผู้ฟัง",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "ค้นหา..." },
     "soundEffectSettings": { "header": "การแจ้งเตือนเสียง" },

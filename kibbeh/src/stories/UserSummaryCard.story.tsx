@@ -2,7 +2,7 @@ import React from "react";
 import { Story } from "@storybook/react";
 import avatar from "../img/avatar.png";
 import { UserSummaryCard, UserSummaryCardProps } from "../ui/UserSummaryCard";
-import { SmSolidDogenitro } from "../icons";
+import { SolidDogenitro } from "../icons";
 
 export default {
   title: "UserSummaryCard",
@@ -24,7 +24,7 @@ const userSummary: UserSummaryCardProps = {
     { content: "ƉC", variant: "primary" },
     { content: "ƉS", variant: "primary" },
     {
-      content: <SmSolidDogenitro width={12} style={{ color: "#fff" }} />,
+      content: <SolidDogenitro width={12} style={{ color: "#fff" }} />,
       variant: "secondary",
     },
   ],

@@ -36,7 +36,10 @@
       "currentRoom": "сейчас в :",
       "startPrivateRoom": "создать с ними закрытую комнату"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "подписаться",
+      "followingHim": "Вы подписаны"
+    },
     "home": { "createRoom": "Создать комнату", "refresh": "Обновить" },
     "inviteList": {
       "roomGone": "Комната исчезла, вернитесь назад",
@@ -71,7 +74,9 @@
     "room": {
       "speakers": "Ораторы",
       "requestingToSpeak": "Желающие говорить",
-      "listeners": "Слушатели"
+      "listeners": "Слушатели",
+      "allowAll": "Разрешить всем",
+      "allowAllConfirm": "Вы уверены? Это позволит всем {{count}} пользователям, запрашивающих разрешение, говорить"
     },
     "searchUser": { "search": "поиск..." },
     "soundEffectSettings": { "header": "звуки" },
@@ -80,8 +85,8 @@
       "followsYou": "подписаны на вас",
       "followers": "подписчиков",
       "following": "подписан на",
-      "followHim": "follow",
-      "followingHim": "following"
+      "followHim": "подписаться",
+      "followingHim": "Вы подписаны"
     },
     "voiceSettings": {
       "header": "Голосовые настройки",
@@ -198,10 +203,10 @@
       "scheduleRoomHeader": "Запланированные комнаты",
       "startRoom": "создать комнату",
       "modal": {
-        "needsFuture": "должно начинаца в будущем",
+        "needsFuture": "должно появится в будущем",
         "roomName": "название комнаты",
-        "minLength": "минимальная длина 2",
-        "roomDescription": "Описание"
+        "roomDescription": "Описание",
+        "minLength": "минимальная длина 2"
       }
     },
     "roomChat": {
@@ -224,7 +229,7 @@
       "approachingMoon": "Приближается к луне",
       "lunarDoge": "Лунный doge",
       "approachingSun": "Приближается к солнцу",
-      "solarDoge": "Сонечный doge",
+      "solarDoge": "Солнечный doge",
       "approachingGalaxy": "Приближается к галактике",
       "galacticDoge": "Галактический doge",
       "spottedLife": "Замечена планета с жизнью"

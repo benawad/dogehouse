@@ -23,8 +23,8 @@ commit messages are standardized:
     2. Type the scope. This is either `global` for project-wide changes or one of the packages (kibbeh, shawarma etc.).
     3. Write a short, imperative tense description of the change.
     4. If the above was not sufficient, you may now write a longer description of your change (otherwise press enter to leave blank).
-    5. y or n for wheather there are any breaking changes (e.g. changing the props of a component, changing the JSON structure of an API response).
-    6. y or n for wheather this change affects and open issue, if positive you will be prompted to enter the issue number.
+    5. y or n for whether there are any breaking changes (e.g. changing the props of a component, changing the JSON structure of an API response).
+    6. y or n for whether this change affects and open issue, if positive you will be prompted to enter the issue number.
 5. Your commit message has now been created, you may push to your fork and open a pull request (read below for further instructions).
 
 ## Pull Requests

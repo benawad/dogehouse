@@ -48,7 +48,15 @@ export const MessageElement: React.FC<MessageElementProps> = ({
           isOnline={user.isOnline}
           src={user.avatar}
         />
-        <View style={{ flex: 1 }}>
+        <View
+          style={{
+            flex: 1,
+            borderBottomWidth: 0.5,
+            borderBottomColor: colors.primary700,
+            paddingVertical: 16,
+            marginLeft: 16,
+          }}
+        >
           <View style={styles.textContainer}>
             <Text style={styles.textUserName}>{user.username}</Text>
             <MessageDate style={styles.textDate} ts={msg.ts} />
@@ -65,31 +73,32 @@ export const MessageElement: React.FC<MessageElementProps> = ({
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    padding: 16,
     alignItems: "center",
+    paddingHorizontal: 16,
   },
   textContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginLeft: 16,
   },
   textUserName: {
     fontFamily: fontFamily.regular,
     fontWeight: "700",
     fontSize: fontSize.paragraph,
     color: colors.text,
+    lineHeight: 22,
   },
   textDate: {
     fontFamily: fontFamily.regular,
     fontWeight: "500",
     fontSize: fontSize.small,
     color: colors.primary300,
+    lineHeight: 22,
   },
   textMessage: {
-    marginLeft: 16,
     fontFamily: fontFamily.regular,
     fontWeight: "500",
     fontSize: fontSize.small,
     color: colors.primary300,
+    lineHeight: 22,
   },
 });

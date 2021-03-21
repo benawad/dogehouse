@@ -1,0 +1,28 @@
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: visible;
+  flex-grow: 1;
+}
+
+.chat-prompt {
+  display: flex;
+  gap: 10px;
+}
+
+.room-chat {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  height: 99%;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
