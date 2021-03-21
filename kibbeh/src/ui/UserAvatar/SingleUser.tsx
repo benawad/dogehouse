@@ -68,7 +68,7 @@ export const SingleUser: React.FC<AvatarProps> = ({
       }}
       data-testid="single-user-avatar"
     >
-      <img alt="avatar" className="rounded-full w-full h-full" src={src} />
+      <img alt="avatar" className="rounded-full w-full h-full object-cover" src={src} />
       {isOnline && (
         <span
           className={

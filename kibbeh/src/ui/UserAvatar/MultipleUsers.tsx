@@ -26,7 +26,7 @@ export const MultipleUsers: React.FC<AvatarProps> = ({
             overflow: "hidden",
           }}
         >
-          <SingleUser src={s} />
+          <SingleUser src={s} size="xs"/>
         </span>
       ))}
     </div>
