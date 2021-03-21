@@ -1,6 +1,12 @@
 import { EmojiData } from "emoji-mart";
 
 export const customEmojis = [
+   {
+    name: "peepoLove",
+    short_names: ["peepoLove"],
+    keywords: ["love", "heart", "peepo"],
+    imageUrl: "/emotes/peepoLove.png",
+  },
   {
     name: "heart",
     short_names: ["heart", "<3"],
