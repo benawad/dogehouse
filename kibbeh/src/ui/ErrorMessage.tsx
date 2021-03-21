@@ -1,5 +1,5 @@
 import * as React from "react";
-import { SmSolidPlus } from "../icons";
+import { SolidPlus } from "../icons";
 
 export interface ErrorMessageProps {
   message?: string;
@@ -35,14 +35,14 @@ export const ErrorMessage: React.FC<ErrorMessageProps> = ({
 
   return (
     <div
-      className={`rounded-t-8 w-full fixed items-center justify-center text-button transition-transform duration-300`}
+      className={`rounded-t-8 w-full fixed items-center justify-center text-button transition-transform duration-300 bg-secondary`}
       style={{
         height: 50,
-        backgroundColor: "#5575E7",
         bottom: 0,
         left: 0,
         transform: closed ? "translateY(100%)" : "translateY(0%)",
       }}
+      data-testid="error-message"
     >
       <div
         className={`absolute cursor-pointer`}
@@ -53,16 +53,16 @@ export const ErrorMessage: React.FC<ErrorMessageProps> = ({
           height: 13,
         }}
         onClick={() => setClosed(true)}
+        data-testid="close-btn"
       >
-        <SmSolidPlus style={{ transform: "rotate(45deg)" }} />
+        <SolidPlus style={{ transform: "rotate(45deg)" }} />
       </div>
       <div className={`flex space-x-4 items-center`}>
         <p className={`bold`}>{message}</p>
         {button ? (
           <button
-            className={`rounded-lg px-3 font-bold text-sm`}
+            className={`rounded-lg px-3 font-bold text-sm bg-secondary-washed-out`}
             style={{
-              backgroundColor: "#879EED",
               paddingTop: 3,
               paddingBottom: 3,
             }}

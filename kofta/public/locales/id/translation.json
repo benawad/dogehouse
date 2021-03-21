@@ -70,7 +70,9 @@
     "room": {
       "speakers": "Pembicara",
       "requestingToSpeak": "Meminta untuk bicara",
-      "listeners": "Pendengar"
+      "listeners": "Pendengar",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "cari..." },
     "soundEffectSettings": { "header": "Bunyi" },

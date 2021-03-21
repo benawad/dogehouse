@@ -71,7 +71,9 @@
     "room": {
       "speakers": "Govornici",
       "requestingToSpeak": "Molim za reč",
-      "listeners": "Slušaoci"
+      "listeners": "Slušaoci",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "pretraži..." },
     "soundEffectSettings": { "header": "Zvukovi" },

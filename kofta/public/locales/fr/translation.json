@@ -34,8 +34,8 @@
       "currentRoom": "actuellement dans :",
       "startPrivateRoom": "lancer une salle privée avec eux"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Créer une salle", "refresh": "Refresh" },
+    "followList": { "followHim": "suivre", "followingHim": "abonné" },
+    "home": { "createRoom": "Créer une salle", "refresh": "Actualiser" },
     "inviteList": {
       "roomGone": "salle indisponible, retour",
       "shareRoomLink": "partager le lien de la salle",
@@ -69,7 +69,9 @@
     "room": {
       "speakers": "Interlocuteurs",
       "requestingToSpeak": "Demande la parole",
-      "listeners": "Auditeurs"
+      "listeners": "Auditeurs",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Êtes-vous sur? Cela autorisera {{count}} utilisateurs en attente à parler"
     },
     "searchUser": { "search": "recherche..." },
     "soundEffectSettings": { "header": "Sons" },
@@ -78,8 +80,8 @@
       "followsYou": "vous suit",
       "followers": "abonnés",
       "following": "suivis",
-      "followHim": "le suivre",
-      "followingHim": "le suis"
+      "followHim": "suivre",
+      "followingHim": "abonné"
     },
     "voiceSettings": {
       "header": "Paramètres vocaux",
@@ -158,14 +160,14 @@
         "blockUserConfirm": "Êtes-vous sûr de vouloir bloquer cet utilisateur de toutes vos salles ?",
         "blockUser": "bloquer l'utilisateur",
         "makeMod": "rendre modérateur",
-        "unmod": "enlever modérateur",
+        "unmod": "enlever des modérateurs",
         "addAsSpeaker": "ajouter en tant qu'interlocuteur",
         "moveToListener": "rendre auditeur",
         "banFromChat": "bannir du chat",
         "banFromRoom": "bannir de la salle",
         "goBackToListener": "retourner chez les auditeurs",
         "deleteMessage": "supprimer ce message",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "transférer la propriété"
       },
       "roomSettingsModal": {
         "requirePermission": "requiert la permission de parler",
@@ -217,16 +219,16 @@
       "roomDescription": "Description de la salle"
     },
     "roomStatus": {
-      "fuelingRocket": "Alimenter la fusée",
+      "fuelingRocket": "Ravitaillement de la fusée",
       "takingOff": "Décollage",
       "inSpace": "Dans l'espace",
       "approachingMoon": "Approchant la lune",
       "lunarDoge": "Doge Lunaire",
       "approachingSun": "Approchant le soleil",
       "solarDoge": "Doge Solaire",
-      "approachingGalaxy": "Approchant un galaxy",
+      "approachingGalaxy": "Approchant une galaxie",
       "galacticDoge": "Doge Galactique",
-      "spottedLife": "Planete avec de la vie en vue"
+      "spottedLife": "Planète avec de la vie en vue"
     }
   }
 }

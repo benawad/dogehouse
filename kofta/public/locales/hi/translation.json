@@ -70,7 +70,9 @@
     "room": {
       "speakers": "बोलनेवाले",
       "requestingToSpeak": "बोलने की अनुमति माँग रहे है",
-      "listeners": "सुननेवाले"
+      "listeners": "सुननेवाले",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "खोज करे..." },
     "soundEffectSettings": { "header": "आवाज़" },
@@ -121,12 +123,12 @@
     },
     "inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" },
     "micPermissionBanner": {
-      "permissionDenied": "आपके माइक तक पहुँचने की अनुमति इनकार कर दी है (आपको ब्राउज़र सेटिंग्स में जाने और वेबसाइट को फिर से लोड करने की आवश्यकता हो सकती है)",
+      "permissionDenied": "आपने माइक को उपयोग करने की अनुमति को इनकार कर दी है (आपको ब्राउज़र सेटिंग्स में जा के सैट करें या वेबसाइट को फिर से लोड करने की आवश्यकता हो सकती है)",
       "dismiss": "डिसमिस",
       "tryAgain": "फिर प्रयास करें"
     },
     "keyboardShortcuts": {
-      "setKeybind": "सेट कीबाइंड",
+      "setKeybind": "शॉर्टकट सैट करें",
       "listening": "सुन रहे है",
       "toggleMuteKeybind": "टॉगल म्यूट कीबाइंड",
       "togglePushToTalkKeybind": "टॉगल push-to-talk कीबाइंड"
@@ -150,7 +152,7 @@
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "नया रूम बन गया है",
-        "roomInviteFrom": "Room Invite from",
+        "roomInviteFrom": "रूम का निमंत्रण द्वारा",
         "justStarted": "उन्होंने अभी शुरुआत की है",
         "likeToJoin": ", क्या आप शामिल होना चाहेंगे?",
         "inviteReceived": "आपको आमंत्रित किया गया है"
@@ -199,7 +201,7 @@
         "needsFuture": "भविष्य में होना चाहिए",
         "roomName": "रूम का नाम",
         "minLength": "काम से काम 2",
-        "roomDescription": "Description"
+        "roomDescription": "रूम के बारे में"
       }
     },
     "roomChat": {
@@ -217,7 +219,7 @@
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
+      "takingOff": "अलविदा",
       "inSpace": "In space",
       "approachingMoon": "Approaching moon",
       "lunarDoge": "Lunar doge",

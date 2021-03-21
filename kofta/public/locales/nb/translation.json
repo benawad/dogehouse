@@ -35,13 +35,13 @@
       "currentRoom": "for tiden i:",
       "startPrivateRoom": "start et privat rom med dem"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": { "followHim": "følg", "followingHim": "følger" },
     "home": { "createRoom": "Lag et rom", "refresh": "Last inn på nytt" },
     "inviteList": {
-      "roomGone": "rommet er borte, gå tilbake",
+      "roomGone": "rommet finnes ikke lengre, gå tilbake",
       "shareRoomLink": "del lenken til rommet",
-      "inviteFollowers": "Du kan invitere følgerne dine som er online:",
-      "whenFollowersOnline": "Når følgerne dine er online, vil de dukke opp her."
+      "inviteFollowers": "Du kan invitere følgerne dine som er pålogget:",
+      "whenFollowersOnline": "Når følgerne dine er pålogget, vil de dukke opp her."
     },
     "login": {
       "headerText": "Tar talesamtaler til månen 🚀",
@@ -70,7 +70,9 @@
     "room": {
       "speakers": "Talere",
       "requestingToSpeak": "Ber om å få snakke",
-      "listeners": "Lyttere"
+      "listeners": "Lyttere",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "søk..." },
     "soundEffectSettings": { "header": "Lyder" },
@@ -79,13 +81,13 @@
       "followsYou": "følger deg",
       "followers": "følgere",
       "following": "følger",
-      "followHim": "follow",
-      "followingHim": "following"
+      "followHim": "følg",
+      "followingHim": "følger"
     },
     "voiceSettings": {
       "header": "Taleinnstillinger",
       "mic": "mikrofon:",
-      "permissionError": "ingen mikrofoner funnet, du har enten ingen plugget inn, eller så har du ikke gitt denne nettsiden tillatelse til å bruke den.",
+      "permissionError": "ingen mikrofoner er funnet, du har enten ingen enheter tilgjenngelig, eller så har du ikke gitt tillatelse til å bruke den.",
       "refresh": "oppdater mikrofon-listen",
       "volume": "volum:"
     }
@@ -139,7 +141,7 @@
     },
     "addToCalendar": { "add": "Legg til i Kalender" },
     "wsKilled": {
-      "description": "WebSocket ble drept av serveren. Dette skjer vanligvis når du åpner nettsiden i en annen fane.",
+      "description": "WebSocket ble avsluttet av serveren. Dette skjer vanligvis når du åpner nettsiden i en annen fane.",
       "reconnect": "koble til igjen"
     },
     "modals": {
@@ -152,7 +154,7 @@
         "nameError": "må være mellom 2 og 60 tegn"
       },
       "invitedToJoinRoomModal": {
-        "newRoomCreated": "Nytt rom opprettet",
+        "newRoomCreated": "Nytt rom er opprettet",
         "roomInviteFrom": "Rominvitasjon fra",
         "justStarted": "De startet nettopp",
         "likeToJoin": ", vil du bli med?",
@@ -170,7 +172,7 @@
         "bioLabel": "Bio"
       },
       "profileModal": {
-        "blockUserConfirm": "Er du sikker på at du vil blokkere denne brukeren fra å bli med i alle nye rom du lager?",
+        "blockUserConfirm": "Er du sikker på at du vil blokkere brukeren fra å bli med i alle nye rom du lager?",
         "blockUser": "blokker bruker",
         "makeMod": "gjør til moderator",
         "unmod": "fjern som moderator",
@@ -180,7 +182,7 @@
         "banFromRoom": "utesteng fra rommet",
         "goBackToListener": "gå tilbake til lytter",
         "deleteMessage": "slett denne meldingen",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "opprett rom-administrator"
       },
       "roomSettingsModal": {
         "requirePermission": "krev tillatelse for å snakke",
@@ -196,13 +198,13 @@
       "noneFound": "ingen funnet",
       "allRooms": "alle planlagte rom",
       "myRooms": "mine planlagte rom",
-      "scheduleRoomHeader": "Planlegg rom",
-      "startRoom": "start rom",
+      "scheduleRoomHeader": "Planlegg et rom",
+      "startRoom": "opprett et rom",
       "modal": {
         "needsFuture": "må være i fremtiden",
         "roomName": "romnavn",
         "minLength": "minimun lengde er 2 tegn",
-        "roomDescription": "Description"
+        "roomDescription": "Beskrivelse"
       }
     },
     "roomChat": {
@@ -226,9 +228,9 @@
       "lunarDoge": "Måne-doge",
       "approachingSun": "Nærmer seg solen",
       "solarDoge": "Sol-doge",
-      "approachingGalaxy": "Nærme galaksen",
-      "galacticDoge": "Galaktisk Doge",
-      "spottedLife": "Fikk øye på en planet med liv"
+      "approachingGalaxy": "Nærmer seg galaksen",
+      "galacticDoge": "Galakse-doge",
+      "spottedLife": "Planet med liv oppdaget"
     }
   }
 }

@@ -31,7 +31,7 @@ export const NotificationsPage: React.FC = () => {
           userAvatarSrc={require("../assets/images/100.png")}
           time={"now"}
           isOnline={true}
-          following={true}
+          following={false}
         />
         <FollowNotification
           username={"DrMadTurkey"}
@@ -55,6 +55,6 @@ export const NotificationsPage: React.FC = () => {
 const styles = StyleSheet.create({
   safeAreaView: {
     flex: 1,
-    backgroundColor: colors.primary800,
+    backgroundColor: colors.primary900,
   },
 });

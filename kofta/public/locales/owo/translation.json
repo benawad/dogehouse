@@ -74,7 +74,9 @@
     "room": {
       "speakers": "<3 Speakews :P",
       "requestingToSpeak": "Wequesting to speak (╯﹏╰）",
-      "listeners": "Wistenews (´・ω・｀)"
+      "listeners": "Wistenews (´・ω・｀)",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "seawch... >_<" },
     "soundEffectSettings": { "header": "OWO Sounds :D" },

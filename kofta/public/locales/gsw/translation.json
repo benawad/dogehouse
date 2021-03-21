@@ -71,7 +71,9 @@
     "room": {
       "speakers": "Sprächer",
       "requestingToSpeak": "Gsprächsafrage",
-      "listeners": "Zuehörer"
+      "listeners": "Zuehörer",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Sueche..." },
     "soundEffectSettings": { "header": "Ton" },

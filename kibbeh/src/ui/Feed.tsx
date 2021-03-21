@@ -2,6 +2,9 @@ import React, { MouseEventHandler, ReactNode } from "react";
 import { RoomCard } from "./RoomCard";
 import { Button } from "./Button";
 import { Room, ScheduledRoom } from "@dogehouse/kebab";
+import { useCurrentRoomStore } from "../global-stores/useCurrentRoomStore";
+import { useRouter } from "next/router";
+import { useTypeSafePrefetch } from "../shared-hooks/useTypeSafePrefetch";
 
 export interface FeedProps {
   title: string;
@@ -9,6 +12,7 @@ export interface FeedProps {
   onActionClicked: MouseEventHandler<HTMLButtonElement>;
   rooms: Array<Room | ScheduledRoom>;
   emptyPlaceholder: ReactNode;
+  onRoomClick?: (room: Room | ScheduledRoom) => void;
 }
 
 export const Feed: React.FC<FeedProps> = ({
@@ -17,9 +21,10 @@ export const Feed: React.FC<FeedProps> = ({
   onActionClicked,
   rooms,
   emptyPlaceholder,
+  onRoomClick,
 }) => {
   return (
-    <div className="flex-1 flex-col">
+    <div className="flex-1 flex-col" data-testid="feed">
       <div className="justify-between items-end mb-5">
         <h4 className="text-primary-100 mb-auto">{title}</h4>
         <Button onClick={onActionClicked}>{actionTitle}</Button>
@@ -29,6 +34,7 @@ export const Feed: React.FC<FeedProps> = ({
         {/* <hr className="border-primary-600" /> */}
         {rooms.map((room, index) => (
           <RoomCard
+            onClick={() => onRoomClick?.(room)}
             key={index}
             title={room.name}
             subtitle={

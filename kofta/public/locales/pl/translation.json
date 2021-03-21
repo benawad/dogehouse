@@ -71,7 +71,9 @@
     "room": {
       "speakers": "Mówiący",
       "requestingToSpeak": "Prośba o pozwolenie na mówienie",
-      "listeners": "Słuchacze"
+      "listeners": "Słuchacze",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "szukaj..." },
     "soundEffectSettings": { "header": "Dźwięki" },
