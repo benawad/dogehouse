@@ -218,7 +218,7 @@
     },
     "roomChat": {
       "title": "Chat",
-      "emotesSoon": "[Emotes binnekort]",
+      "emotesSoon": "[Emotes binnenkort]",
       "bannedAlert": "Je bent uit deze chat verbannen",
       "waitAlert": "Je moet een seconde wachten voordat je weer een bericht kan sturen.",
       "search": "Zoeken",
