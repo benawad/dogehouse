@@ -12,6 +12,7 @@ import {
   fontFamily,
   fontSize,
   paragraph,
+  radius,
 } from "../../constants/dogeStyle";
 import { SingleUserAvatar } from "../avatars/SingleUserAvatar";
 import { GenericNotification } from "./GenericNotification";
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
     height: 22,
     width: 90,
     backgroundColor: colors.accent,
-    borderRadius: 5,
+    borderRadius: radius.s,
     alignItems: "center",
     justifyContent: "center",
   },

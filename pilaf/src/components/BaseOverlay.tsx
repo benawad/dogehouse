@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { colors, fontFamily, fontSize, radius } from "../constants/dogeStyle";
 
-interface MultipleUserAvatarProps {
+interface BaseOverlayProps {
   style?: ViewStyle;
   title?: string;
   actionButton?: string;
@@ -17,7 +17,7 @@ interface MultipleUserAvatarProps {
   children: ReactNode;
 }
 
-export const BaseOverlay: React.FC<MultipleUserAvatarProps> = ({
+export const BaseOverlay: React.FC<BaseOverlayProps> = ({
   children,
   title,
   style,

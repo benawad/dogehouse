@@ -1,28 +1,92 @@
 import React from "react";
-import { StyleSheet, Text } from "react-native";
+import { ScrollView, StyleSheet, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { colors, fontFamily } from "../constants/dogeStyle";
+import { RoomCard } from "../components/RoomCard";
+import { colors, fontFamily, paragraph } from "../constants/dogeStyle";
+import { FeedController } from "../modules/dashboard/FeedController";
 
 export const DashboardPage: React.FC = () => {
   return (
-    <SafeAreaView style={styles.safeAreaView}>
-      <Text
-        style={{
-          alignSelf: "center",
-          fontFamily: fontFamily.extraBold,
-          color: colors.text,
-        }}
-      >
-        Dashboard Page
-      </Text>
-    </SafeAreaView>
+    <ScrollView style={styles.container}>
+      {/* 
+      <RoomCard
+        style={{ marginBottom: 20 }}
+        title="Why CI & CD is important when working with a team and more because I need a long one"
+        subtitle="This is the subtitle This is the subtitle This is the subtitle This is the subtitle This is the subtitle"
+        listeners={400}
+        avatarSrcs={[
+          require("../assets/images/100.png"),
+          require("../assets/images/100.png"),
+          require("../assets/images/100.png"),
+        ]}
+        tags={[
+          <Text style={{ ...paragraph }}>#Business</Text>,
+          <Text style={{ ...paragraph }}>#Business</Text>,
+          <Text style={{ ...paragraph }}>#Business</Text>,
+          <Text style={{ ...paragraph }}>#Business</Text>,
+        ]}
+      />
+      <RoomCard
+        style={{ marginBottom: 20 }}
+        title="Why CI & CD is important when working with a team and more because I need a long one"
+        subtitle="This is the subtitle This is the subtitle This is the subtitle This is the subtitle This is the subtitle"
+        listeners={400}
+        avatarSrcs={[
+          require("../assets/images/100.png"),
+          require("../assets/images/100.png"),
+          require("../assets/images/100.png"),
+        ]}
+        tags={[
+          <Text style={{ ...paragraph }}>#Business</Text>,
+          <Text style={{ ...paragraph }}>#Business</Text>,
+          <Text style={{ ...paragraph }}>#Business</Text>,
+          <Text style={{ ...paragraph }}>#Business</Text>,
+        ]}
+      />
+      <RoomCard
+        style={{ marginBottom: 20 }}
+        title="Why CI & CD is important when working with a team and more because I need a long one"
+        subtitle="This is the subtitle This is the subtitle This is the subtitle This is the subtitle This is the subtitle"
+        listeners={400}
+        avatarSrcs={[
+          require("../assets/images/100.png"),
+          require("../assets/images/100.png"),
+          require("../assets/images/100.png"),
+        ]}
+        tags={[
+          <Text style={{ ...paragraph }}>#Business</Text>,
+          <Text style={{ ...paragraph }}>#Business</Text>,
+          <Text style={{ ...paragraph }}>#Business</Text>,
+          <Text style={{ ...paragraph }}>#Business</Text>,
+        ]}
+      /> */}
+      <FeedController />
+      <RoomCard
+        style={{ marginBottom: 20 }}
+        title="Why CI & CD is important when working with a team and more because I need a long one"
+        subtitle="This is the subtitle This is the subtitle This is the subtitle This is the subtitle This is the subtitle"
+        listeners={400}
+        avatarSrcs={[
+          require("../assets/images/100.png"),
+          require("../assets/images/100.png"),
+          require("../assets/images/100.png"),
+        ]}
+        tags={[
+          <Text style={{ ...paragraph }}>#Business</Text>,
+          <Text style={{ ...paragraph }}>#Business</Text>,
+          <Text style={{ ...paragraph }}>#Business</Text>,
+          <Text style={{ ...paragraph }}>#Business</Text>,
+        ]}
+      />
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  safeAreaView: {
+  container: {
     flex: 1,
-    justifyContent: "center",
     backgroundColor: colors.primary900,
+    paddingHorizontal: 20,
+    paddingTop: 20,
   },
 });

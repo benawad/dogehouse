@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { InAppBrowser } from "react-native-inappbrowser-reborn";
 import { SigninWithGithubButton } from "../components/buttons/SigninWithGithub";
 import { colors } from "../constants/dogeStyle";
-import { useSaveTokensFromQueryParams } from "../module/auth/useSaveTokensFromQueryParams";
+import { useSaveTokensFromQueryParams } from "../modules/auth/useSaveTokensFromQueryParams";
 import { apiBaseUrl } from "../constants/env";
 
 export const LandingPage: React.FC = () => {

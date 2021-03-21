@@ -6,7 +6,7 @@ import { NotificationsPage } from "../pages/NotificationsPage";
 import { SearchPage } from "../pages/SearchPage";
 import { colors } from "../constants/dogeStyle";
 import { ProfilePage } from "../pages/ProfilePage";
-import { WebSocketProvider } from "../module/ws/WebSocketProvider";
+import { WebSocketProvider } from "../modules/ws/WebSocketProvider";
 
 const Stack = createStackNavigator();
 

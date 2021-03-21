@@ -10,11 +10,12 @@ import {
 import { TouchableOpacity } from "react-native";
 import InAppBrowser from "react-native-inappbrowser-reborn";
 import { colors, fontFamily, radius } from "../../constants/dogeStyle";
+import { apiBaseUrl } from "../../constants/env";
 
 const signinWithGithub = async () => {
   try {
     const url =
-      "https://doge-staging.stripcode.dev/auth/github/web?redirect_after_base=dogehouse://home";
+      apiBaseUrl + "/auth/github/web?redirect_after_base=dogehouse://home";
     if (await InAppBrowser.isAvailable()) {
       const result = await InAppBrowser.open(url, {
         // iOS Properties
