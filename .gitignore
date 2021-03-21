@@ -1,11 +1,10 @@
 .DS_Store
 node_modules
-.idea
 
 # Local Netlify folder
 .netlify
 
-/.idea
+*/.idea
 .docker
 .env
 .next
