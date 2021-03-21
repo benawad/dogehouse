@@ -30,18 +30,14 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "バン"
-    },
+    "banUser": { "ban": "バン" },
     "followingOnlineList": {
       "listHeader": "ルームに参加していないフォロー中のユーザー",
       "currentRoom": "参加中：",
       "startPrivateRoom": "プライベートルームを開始"
     },
     "followList": {},
-    "home": {
-      "createRoom": "ルーム作成"
-    },
+    "home": { "createRoom": "ルーム作成" },
     "inviteList": {
       "roomGone": "ルームが削除されました、前のページに戻ります",
       "shareRoomLink": "リンクを共有",
@@ -77,17 +73,14 @@
       "requestingToSpeak": "発言をリクエスト",
       "listeners": "リスナー"
     },
-    "searchUser": {
-      "search": "検索中..."
-    },
-    "soundEffectSettings": {
-      "header": "音声設定"
-    },
+    "searchUser": { "search": "検索中..." },
+    "soundEffectSettings": { "header": "音声設定" },
     "viewUser": {
       "editProfile": "プロフィールを編集",
       "followsYou": "フォローされています",
       "followers": "フォロワー",
-      "following": "フォロー"
+      "following": "フォロー",
+      "copyProfileUrl": "copy profile url"
     },
     "voiceSettings": {
       "header": "マイク設定",
@@ -125,10 +118,7 @@
       "linkText": "GitHubでissueを作成",
       "addSupport": "するとサポートを受けられます。"
     },
-    "inviteButton": {
-      "invited": "招待",
-      "inviteToRoom": "ルームに招待"
-    },
+    "inviteButton": { "invited": "招待", "inviteToRoom": "ルームに招待" },
     "micPermissionBanner": {
       "permissionDenied": "マイクへのアクセスが許可されていません（ブラウザーの設定を変更して、ページを再読み込みする必要がありかもしれません）",
       "dismiss": "無視",
@@ -140,12 +130,8 @@
       "toggleMuteKeybind": "ミュート切り替え",
       "togglePushToTalkKeybind": "プッシュトゥートーク切り替え"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "何らかの原因で音声が出ません"
-    },
-    "addToCalendar": {
-      "add": "カレンダーに追加"
-    },
+    "userVolumeSlider": { "noAudioMessage": "何らかの原因で音声が出ません" },
+    "addToCalendar": { "add": "カレンダーに追加" },
     "wsKilled": {
       "description": "WebSocketがサーバーによって強制終了されました。 これは通常、別のタブで開いたときに発生します。",
       "reconnect": "再接続"

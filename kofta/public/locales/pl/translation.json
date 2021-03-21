@@ -79,7 +79,8 @@
       "editProfile": "edytuj profil",
       "followsYou": "obserwuje cię",
       "followers": "obserwujący",
-      "following": "obserwujesz"
+      "following": "obserwujesz",
+      "copyProfileUrl": "copy profile url"
     },
     "voiceSettings": {
       "header": "Ustawienia Głosu",

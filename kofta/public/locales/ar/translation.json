@@ -79,7 +79,8 @@
       "editProfile": "تعديل الحساب",
       "followsYou": "يتابعك",
       "followers": "المتابِعون",
-      "following": "المتابَعون"
+      "following": "المتابَعون",
+      "copyProfileUrl": "copy profile url"
     },
     "voiceSettings": {
       "header": "إعدادات الصوت",

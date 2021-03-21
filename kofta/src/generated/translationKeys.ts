@@ -53,6 +53,7 @@ export type TranslationKeys =
 	| "pages.searchUser.search"
 	| "pages.soundEffectSettings.header"
 	| "pages.viewUser.editProfile"
+	| "pages.viewUser.copyProfileUrl"
 	| "pages.viewUser.followsYou"
 	| "pages.viewUser.followers"
 	| "pages.viewUser.following"

@@ -29,18 +29,14 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "забанить"
-    },
+    "banUser": { "ban": "забанить" },
     "followingOnlineList": {
       "listHeader": "Список пользователей, которые не в приватной комнате, но на которых вы подписаны.",
       "currentRoom": "сейчас тут:",
       "startPrivateRoom": "создать приватную комнату с ними"
     },
     "followList": {},
-    "home": {
-      "createRoom": "Создать комнату"
-    },
+    "home": { "createRoom": "Создать комнату" },
     "inviteList": {
       "roomGone": "комнаты больше нет, вернитесь назад",
       "shareRoomLink": "поделиться ссылкой на комнату",
@@ -76,17 +72,14 @@
       "requestingToSpeak": "Запроситься в спикеры",
       "listeners": "Слушатели"
     },
-    "searchUser": {
-      "search": "поиск..."
-    },
-    "soundEffectSettings": {
-      "header": "Звуки"
-    },
+    "searchUser": { "search": "поиск..." },
+    "soundEffectSettings": { "header": "Звуки" },
     "viewUser": {
       "editProfile": "редактировать профиль",
       "followsYou": "подписаны на вас",
       "followers": "подписчики",
-      "following": "подписки"
+      "following": "подписки",
+      "copyProfileUrl": "copy profile url"
     },
     "voiceSettings": {
       "header": "Голосовые настройки",
@@ -142,9 +135,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "по какой-то причине отсуствует устройство для воспроизведения аудио"
     },
-    "addToCalendar": {
-      "add": "Добавить в календарь"
-    },
+    "addToCalendar": { "add": "Добавить в календарь" },
     "wsKilled": {
       "description": "Сервер разорвал Websocket-соединение. Это обычно происходит, когда вы параллельно открываете сайт в соседней вкладке.",
       "reconnect": "переподключиться"

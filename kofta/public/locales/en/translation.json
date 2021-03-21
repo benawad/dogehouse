@@ -85,6 +85,7 @@
 		},
 		"viewUser": {
 			"editProfile": "edit profile",
+			"copyProfileUrl": "copy profile url",
 			"followsYou": "follows you",
 			"followers": "followers",
 			"following": "following"

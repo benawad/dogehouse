@@ -78,7 +78,8 @@
       "editProfile": "upraviť profil",
       "followsYou": "sleduje ťa",
       "followers": "sleduješ",
-      "following": "sleduje"
+      "following": "sleduje",
+      "copyProfileUrl": "copy profile url"
     },
     "voiceSettings": {
       "header": "Nastavenia hlasu",

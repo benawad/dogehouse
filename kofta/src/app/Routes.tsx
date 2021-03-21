@@ -93,6 +93,7 @@ export const Routes: React.FC<RoutesProps> = () => {
             />
             <Route exact path="/room/:id" component={RoomPage} />
             <Route exact path="/user" component={ViewUserPage} />
+            <Route exact path="/user/:id" component={ViewUserPage} />
             <Route exact path="/me" component={MyProfilePage} />
             <Route exact path="/invite" component={InviteList} />
             <Route exact path="/search/users" component={SearchUsersPage} />
