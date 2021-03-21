@@ -53,7 +53,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "sl", label: "🇸🇮 Slovenščina" }, // Slovenian
     { value: "sq", label: "🇦🇱 Shqip" }, // Albanian
     { value: "sr", label: "🇷🇸 Српски" }, // Serbian
-    { value: "sr-Latin", label: "🇷🇸 Srpski" }, // Serbian (Latin)
+    { value: "sr-LATIN", label: "🇷🇸 Srpski" }, // Serbian (Latin)
     { value: "sv", label: "🇸🇪 Svenska" }, // Swedish
     { value: "ta", label: "🇮🇳 Tamil" }, // Tamil
     { value: "th", label: "🇹🇭 ไทย" }, // Thai
@@ -67,7 +67,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "gsw", label: "🇨🇭 Schwiizerdütsch" }, // Swiss German
 
     /* Other languages */
-    { value: "en-pirate", label: "🏴‍☠️ Pirate" },
+    { value: "en-PIRATE", label: "🏴‍☠️ Pirate" },
     { value: "owo", label: "OwO Engwish" },
   ],
 }) => {
@@ -76,7 +76,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
 
   return (
     <select
-      value={i18n.language.toLowerCase()}
+      value={i18n.language}
       onChange={(e) => {
         i18n.changeLanguage(e.target.value);
       }}
