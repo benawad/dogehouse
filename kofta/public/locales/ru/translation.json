@@ -30,9 +30,7 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "бан"
-    },
+    "banUser": { "ban": "бан" },
     "followingOnlineList": {
       "listHeader": "Список пользователей, которые не в закрытой комнате и на которых вы подписаны.",
       "currentRoom": "сейчас в :",
@@ -42,10 +40,7 @@
       "followHim": "подписаться",
       "followingHim": "Вы подписаны"
     },
-    "home": {
-      "createRoom": "Создать комнату",
-      "refresh": "Обновить"
-    },
+    "home": { "createRoom": "Создать комнату", "refresh": "Обновить" },
     "inviteList": {
       "roomGone": "Комната исчезла, вернитесь назад",
       "shareRoomLink": "Поделиться ссылкой на комнату",
@@ -83,12 +78,8 @@
       "allowAll": "Разрешить всем",
       "allowAllConfirm": "Вы уверены? Это позволит всем {{count}} пользователям, запрашивающих разрешение, говорить"
     },
-    "searchUser": {
-      "search": "поиск..."
-    },
-    "soundEffectSettings": {
-      "header": "звуки"
-    },
+    "searchUser": { "search": "поиск..." },
+    "soundEffectSettings": { "header": "звуки" },
     "viewUser": {
       "editProfile": "редактировать профиль",
       "followsYou": "подписаны на вас",
@@ -149,12 +140,8 @@
       "toggleMuteKeybind": "Активация микрофона при нажатии",
       "togglePushToTalkKeybind": "Включить режим рации"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "почему-то нет аудиосвязи"
-    },
-    "addToCalendar": {
-      "add": "Добавить в Календарь"
-    },
+    "userVolumeSlider": { "noAudioMessage": "почему-то нет аудиосвязи" },
+    "addToCalendar": { "add": "Добавить в Календарь" },
     "wsKilled": {
       "description": "Вебсокет был уничтожен сервером. Обычно это происходит когда вы открываете сайт в другой вкладке.",
       "reconnect": "присоединиться заново"
