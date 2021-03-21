@@ -21,4 +21,4 @@ const One: Story<FeaturedRoomCardHostsProps> = () => {
 };
 
 export const Main = Hosts.bind({});
-export const OneHost = One.bind({})
+export const OneHost = One.bind({});
