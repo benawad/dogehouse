@@ -57,7 +57,7 @@
       "createTestUser": "create test user"
     },
     "myProfile": {
-      "logout": "logout",
+      "logout": "لاگ آوٹ",
       "probablyLoading": "شاید لوڈ ہو رہا ہے",
       "voiceSettings": "اکاؤنٹ کی ترتیبات پر جائیں",
       "soundSettings": "آواز کی ترتیبات پر جائیں",
@@ -117,7 +117,7 @@
       "settings": "ترتیبات",
       "speaker": "اسپیکر",
       "listener": "سننے والا",
-      "chat": "Chat"
+      "chat": "چیٹ"
     },
     "deviceNotSupported": {
       "notSupported": "آپ کا آلہ فی الحال تعاون یافتہ نہیں ہے۔ آپ ایک تشکیل دے سکتے ہیں",
