@@ -1,7 +1,5 @@
-import { toast } from "react-toastify";
+import { useErrorToastStore } from "../modules/errors/useErrorToastStore";
 
 export const showErrorToast = (m: string) => {
-  toast(m, {
-    type: "error",
-  });
+  useErrorToastStore.getState().showToast({ message: m });
 };
