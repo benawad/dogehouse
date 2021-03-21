@@ -2,6 +2,24 @@ import { EmojiData } from "emoji-mart";
 
 export const customEmojis = [
   {
+    name: "obamium",
+    short_names: ["obama"],
+    keywords: ["obama", "prism", "obamium"],
+    imageUrl: "/emotes/obamium.png",
+  },
+  {
+    name: "IntelxAMD",
+    short_names: ["intel"],
+    keywords: ["intel", "amd", "intelxamd"],
+    imageUrl: "/emotes/IntelxAMD.png",
+  },
+  {
+    name: "linus",
+    short_names: ["linus"],
+    keywords: ["linus", "tech", "linustechtips"],
+    imageUrl: "/emotes/linus.png",
+  },
+  {
     name: "redDogeHouse",
     short_names: ["redDogeHouse"],
     keywords: ["red", "dogehouse", "doge"],
@@ -1543,6 +1561,24 @@ export const customEmojis = [
     short_names: ["ZTthinking"],
     keywords: ["thinking", "think", "anime", "girl", "zerotwo"],
     imageUrl: "/emotes/zerotwothinking.png",
+  },
+  {
+    name: "PartyParrot",
+    short_names: ["PartyParrot"],
+    keywords: ["party", "high", "parrot", "fun"],
+    imageUrl: "/emotes/PartyParrot.gif",
+  },
+  {
+    name: "DogePls",
+    short_names: ["DogePls"],
+    keywords: ["doge", "please", "fun", "dance"],
+    imageUrl: "/emotes/DogePls.gif",
+  },
+  {
+    name: "catDance",
+    short_names: ["catDance"],
+    keywords: ["cat", "dance", "party", "fun"],
+    imageUrl: "/emotes/catDance.gif",
   },
 ].map((e) => ({ ...e, customCategory: "Custom", text: "", emoticons: [] }));
 
