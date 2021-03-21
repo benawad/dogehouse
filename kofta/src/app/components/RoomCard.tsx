@@ -24,7 +24,7 @@ export const RoomCard: React.FC<RoomProps> = ({
   const { rocketIcon } = useTimeElapsed(insertedAtDate);
 
   let n = room.numPeopleInside;
-  const previewNodes: any[] = [];
+  const previewNodes: React.ReactNode[] = [];
   let userList = room.peoplePreviewList;
   if (currentRoomId === room.id && "users" in room) {
     n = room.users.length;

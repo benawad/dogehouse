@@ -1,23 +1,27 @@
 import { Story } from "@storybook/react";
 import React from "react";
 import src from "../../img/avatar.png";
-import { FeaturedRoomCardHosts, FeaturedRoomCardHostsProps } from "../../ui/mobile/FeaturedRoomCardHosts";
+import {
+  FeaturedRoomCardHosts,
+  FeaturedRoomCardHostsProps,
+} from "../../ui/mobile/FeaturedRoomCardHosts";
 
 export default {
-  title: 'FeaturedRoomCardHosts',
-  component: FeaturedRoomCardHosts
+  title: "FeaturedRoomCardHosts",
+  component: FeaturedRoomCardHosts,
 };
 
 const Hosts: Story<FeaturedRoomCardHostsProps> = () => {
   return (
-    <FeaturedRoomCardHosts avatars={[src, src]} names={['Marcus Bloch', 'Don Velez']} />
+    <FeaturedRoomCardHosts
+      avatars={[src, src]}
+      names={["Marcus Bloch", "Don Velez"]}
+    />
   );
 };
 
 const One: Story<FeaturedRoomCardHostsProps> = () => {
-  return (
-    <FeaturedRoomCardHosts avatars={[src]} names={['Marcus Bloch']} />
-  );
+  return <FeaturedRoomCardHosts avatars={[src]} names={["Marcus Bloch"]} />;
 };
 
 export const Main = Hosts.bind({});

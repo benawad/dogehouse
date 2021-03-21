@@ -21,7 +21,7 @@ export const onlineIndicatorStyleMap = {
     height: "10px",
     right: "2px",
     bottom: "-2px",
-    borderWidth: "2px"
+    borderWidth: "2px",
   },
   xxs: {
     width: "6px",
@@ -68,7 +68,11 @@ export const SingleUser: React.FC<AvatarProps> = ({
       }}
       data-testid="single-user-avatar"
     >
-      <img alt="avatar" className="rounded-full w-full h-full object-cover" src={src} />
+      <img
+        alt="avatar"
+        className="rounded-full w-full h-full object-cover"
+        src={src}
+      />
       {isOnline && (
         <span
           className={
