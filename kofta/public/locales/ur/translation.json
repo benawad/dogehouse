@@ -72,7 +72,7 @@
       "speakers": "اسپیکر",
       "requestingToSpeak": "بولنے کی درخواسات",
       "listeners": "سامعین",
-      "allowAll": "Allow all",
+      "allowAll": "سب کو اجازت دیں",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "تلاش کریں" },
@@ -89,7 +89,7 @@
     },
     "voiceSettings": {
       "header": "آواز کی ترتیبات",
-      "mic": "mic:",
+      "mic": "مائک:",
       "permissionError": "کوئی mics نہیں ملا ، آپ نے یا تو کسی نے پلگ ان نہیں لیا ہے یا اس ویب سائٹ کو اجازت نہیں دی ہے۔",
       "refresh": "مائک کی فہرست کو تازہ کریں",
       "volume": "حجم:"
@@ -183,7 +183,7 @@
         "banFromRoom": "کمرے سے پابندی لگانا",
         "goBackToListener": "سننے والوں کے پاس واپس جائیں",
         "deleteMessage": "اس پیغام کو حذف کریں",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "روم ایڈمن بنائیں"
       },
       "roomSettingsModal": {
         "requirePermission": "بولنے کی اجازت کی ضرورت ہے",
@@ -205,7 +205,7 @@
         "needsFuture": "مستقبل میں ہونے کی ضرورت ہے",
         "roomName": "کمرے کا نام",
         "minLength": "منٹ لمبائی 2",
-        "roomDescription": "Description"
+        "roomDescription": "تفصیل"
       }
     },
     "roomChat": {
