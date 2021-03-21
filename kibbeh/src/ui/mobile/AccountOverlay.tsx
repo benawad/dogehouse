@@ -1,4 +1,4 @@
-import React, { useRef, ReactNode } from "react";
+import React, { useEffect, useRef, ReactNode } from "react";
 import Draggable, {
   DraggableBounds,
   ControlPosition,
@@ -25,6 +25,21 @@ export const AccountOverlay: React.FC<AccountOverlyProps> = ({
   axis = "both",
 }) => {
   const endPosition = useRef(0);
+  const node = useRef();
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (!(node!.current! as Node).contains(e.target as Node)) {
+        closeHandler();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
+  }, [closeHandler]);
 
   const onStop = () => {
     const { y } = position;
@@ -45,6 +60,7 @@ export const AccountOverlay: React.FC<AccountOverlyProps> = ({
       position={position}
     >
       <div
+        ref={node}
         style={{ padding: "43px 25px" }}
         className={`w-full rounded-t-8 px-2 pt-7 pb-5 bg-primary-800 relative  ${className}`}
         data-testid="account-overlay"
