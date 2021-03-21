@@ -1,19 +1,27 @@
 import React from "react";
 
-const avatarSizeMap = {
+export const avatarSizeMap = {
   default: "80px",
   sm: "40px",
+  md: "50px",
   xxs: "30px",
   xs: "20px",
 };
 
-const onlineIndicatorStyleMap = {
+export const onlineIndicatorStyleMap = {
   default: {
     width: "15px",
     height: "15px",
     right: "2px",
     bottom: "-4px",
     borderWidth: "4px",
+  },
+  md: {
+    width: "10px",
+    height: "10px",
+    right: "2px",
+    bottom: "-2px",
+    borderWidth: "2px"
   },
   xxs: {
     width: "6px",
@@ -39,8 +47,8 @@ const onlineIndicatorStyleMap = {
 };
 
 export interface AvatarProps {
-  size: keyof typeof onlineIndicatorStyleMap;
   src: string;
+  size?: keyof typeof onlineIndicatorStyleMap;
   className?: string;
   isOnline?: boolean;
 }
@@ -60,7 +68,7 @@ export const SingleUser: React.FC<AvatarProps> = ({
       }}
       data-testid="single-user-avatar"
     >
-      <img alt="avatar" className="rounded-full w-full h-full" src={src} />
+      <img alt="avatar" className="rounded-full w-full h-full object-cover" src={src} />
       {isOnline && (
         <span
           className={
