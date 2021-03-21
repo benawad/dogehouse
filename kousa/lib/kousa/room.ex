@@ -326,13 +326,13 @@ defmodule Kousa.Room do
          user_id,
          {:send_ws_msg, :vscode,
           %{
-            op: "someone_joined_waiting_room",
+            op: "you_joined_waiting_room",
             d: %{
               displayName: user.displayName,
               username: user.username,
               avatarUrl: user.avatarUrl,
               userId: user.id,
-              type: "someone_joined_waiting_room",
+              type: "you_joined_waiting_room",
               roomId: room.id,
               roomName: room.name
             }
