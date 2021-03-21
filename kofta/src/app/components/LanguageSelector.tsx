@@ -70,6 +70,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     /* Other languages */
     { value: "en-PIRATE", label: "🏴‍☠️ Pirate" },
     { value: "owo", label: "OwO Engwish" },
+    { value: "bottom", label: "🥺 bottom"}
   ],
 }) => {
   const { i18n } = useTranslation();
