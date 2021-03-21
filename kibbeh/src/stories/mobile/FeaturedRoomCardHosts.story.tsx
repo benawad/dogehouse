@@ -8,10 +8,17 @@ export default {
   component: FeaturedRoomCardHosts
 };
 
-const Avatars: Story<FeaturedRoomCardHostsProps> = () => {
+const Hosts: Story<FeaturedRoomCardHostsProps> = () => {
   return (
     <FeaturedRoomCardHosts avatars={[src, src]} names={['Marcus Bloch', 'Don Velez']} />
   );
 };
 
-export const Main = Avatars.bind({});
+const One: Story<FeaturedRoomCardHostsProps> = () => {
+  return (
+    <FeaturedRoomCardHosts avatars={[src]} names={['Marcus Bloch']} />
+  );
+};
+
+export const Main = Hosts.bind({});
+export const OneHost = One.bind({})

@@ -10,8 +10,15 @@ export default {
 
 const Avatars: Story<FeaturedRoomCardAvatarsProps> = () => {
   return (
-    <FeaturedRoomCardAvatars avatars={[src, src]}/>
+    <FeaturedRoomCardAvatars avatars={[src, src]} />
   );
 };
 
+const One: Story<FeaturedRoomCardAvatarsProps> = () => {
+  return (
+    <FeaturedRoomCardAvatars avatars={[src]} />
+  );
+}
+
 export const Main = Avatars.bind({});
+export const OneAvatar = One.bind({})
