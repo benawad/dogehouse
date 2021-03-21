@@ -89,7 +89,8 @@
       "followers": "உங்களைப் பின்தொடர்பவர்கள்",
       "following": "நீங்கள் பின்தொடர்பவர்கள் ",
       "followHim": "இவரை பின்தொடர்",
-      "followingHim": "இவரை பிந்தொடர்கிறீர்கள்"
+      "followingHim": "இவரை பிந்தொடர்கிறீர்கள்",
+      "copyProfileUrl": "copy profile url"
     },
     "voiceSettings": {
       "header": "குரல் அமைப்பு",

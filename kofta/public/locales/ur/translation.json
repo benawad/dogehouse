@@ -83,7 +83,8 @@
       "followers": "پیروکار",
       "following": "درج ذیل",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url"
     },
     "voiceSettings": {
       "header": "آواز کی ترتیبات",

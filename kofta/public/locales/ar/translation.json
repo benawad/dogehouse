@@ -83,7 +83,8 @@
       "followers": "المتابِعون",
       "following": "المتابَعون",
       "followHim": "تابع",
-      "followingHim": "متابَع"
+      "followingHim": "متابَع",
+      "copyProfileUrl": "copy profile url"
     },
     "voiceSettings": {
       "header": "إعدادات المحادثة الصوتية",

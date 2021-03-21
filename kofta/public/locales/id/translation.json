@@ -82,7 +82,8 @@
       "followers": "pengikut",
       "following": "pengikut",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url"
     },
     "voiceSettings": {
       "header": "Pengaturan Suara",

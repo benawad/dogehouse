@@ -83,7 +83,8 @@
       "followers": "підписники",
       "following": "ви підписані",
       "followHim": "підписатися",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url"
     },
     "voiceSettings": {
       "header": "Голосові налаштування",

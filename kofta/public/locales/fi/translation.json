@@ -83,7 +83,8 @@
       "followers": "seuraajaa",
       "following": "seurannassa",
       "followHim": "seuraa",
-      "followingHim": "seurannassa"
+      "followingHim": "seurannassa",
+      "copyProfileUrl": "copy profile url"
     },
     "voiceSettings": {
       "header": "Puheasetukset",

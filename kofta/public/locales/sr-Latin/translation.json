@@ -83,7 +83,8 @@
       "followers": "pratioci",
       "following": "praćenja",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url"
     },
     "voiceSettings": {
       "header": "Podešavanja glasa",

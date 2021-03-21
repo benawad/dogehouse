@@ -82,7 +82,8 @@
       "followers": "sledovateľov",
       "following": "sledovaných",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url"
     },
     "voiceSettings": {
       "header": "Nastavenia hlasu",

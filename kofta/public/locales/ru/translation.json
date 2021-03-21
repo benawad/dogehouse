@@ -86,7 +86,8 @@
       "followers": "подписчиков",
       "following": "подписан на",
       "followHim": "подписаться",
-      "followingHim": "Вы подписаны"
+      "followingHim": "Вы подписаны",
+      "copyProfileUrl": "copy profile url"
     },
     "voiceSettings": {
       "header": "Голосовые настройки",

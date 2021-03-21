@@ -83,7 +83,8 @@
       "following": "Abonniert",
       "followers": "Abonnente",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url"
     },
     "voiceSettings": {
       "header": "Sprachistellige",

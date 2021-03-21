@@ -82,7 +82,8 @@
       "followers": "팔로워들",
       "following": "팔로우하는 사람들",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url"
     },
     "voiceSettings": {
       "header": "음성 설정",
