@@ -53,7 +53,8 @@
       "featureText_6": "Drevet av Doge",
       "loginGithub": "logg inn med GitHub",
       "loginTwitter": "logg inn med Twitter",
-      "createTestUser": "opprett en test-bruker"
+      "createTestUser": "opprett en test-bruker",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "logg ut",

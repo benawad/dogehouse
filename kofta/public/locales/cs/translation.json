@@ -54,7 +54,8 @@
       "featureText_6": "Doporučuje 10/10 hafanů",
       "loginGithub": "Přihlásit se přes GitHub",
       "loginTwitter": "Přihlásit se přes Twitter",
-      "createTestUser": "Vytvořit testovacího uživatele"
+      "createTestUser": "Vytvořit testovacího uživatele",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "Odhlásit se",

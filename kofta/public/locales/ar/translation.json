@@ -54,7 +54,8 @@
       "featureText_6": "Doge تم التطوير بواسطة",
       "loginGithub": "GitHub التسجيل باستخدام",
       "loginTwitter": "التسجيل باستخدام حساب تويتر",
-      "createTestUser": "إنشاء حساب تجريبي"
+      "createTestUser": "إنشاء حساب تجريبي",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "تسجيل خروج",
@@ -123,7 +124,6 @@
       "addSupport": "و سوف أحاول أن أدعم جهازك!"
     },
     "inviteButton": { "invited": "مدعو", "inviteToRoom": "إدعو إلى الغرفة" },
-
     "micPermissionBanner": {
       "permissionDenied": "تم رفض الإذن عند محاولة الوصول إلى الميكروفون الخاص بك (قد تحتاج إلى الدخول إلى إعدادات المتصفح وإعادة تحميل الصفحة)",
       "dismiss": "رفض",

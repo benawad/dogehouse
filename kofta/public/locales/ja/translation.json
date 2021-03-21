@@ -54,7 +54,8 @@
       "featureText_6": "提供: Doge",
       "loginGithub": "GitHub でログイン",
       "loginTwitter": "Twitter でログイン",
-      "createTestUser": "テストユーザーを作成"
+      "createTestUser": "テストユーザーを作成",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "ログアウト",

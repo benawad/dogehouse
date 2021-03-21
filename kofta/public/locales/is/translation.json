@@ -54,7 +54,8 @@
       "featureText_6": "Knúið af Doge",
       "loginGithub": "innskráning með GitHub",
       "loginTwitter": "innskráning með Twitter",
-      "createTestUser": "búa til prófanotanda"
+      "createTestUser": "búa til prófanotanda",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "skrá út",

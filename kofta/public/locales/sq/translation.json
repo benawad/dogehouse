@@ -54,7 +54,8 @@
       "featureText_6": "Mundësuar nga Doge",
       "loginGithub": "hyrje me GitHub",
       "loginTwitter": "hyrje me Twitter",
-      "createTestUser": "krijo pëdorues testi"
+      "createTestUser": "krijo pëdorues testi",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "dil",

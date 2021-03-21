@@ -54,7 +54,8 @@
       "featureText_6": "Atribe vo Doge",
       "loginGithub": "mit GitHub amälde",
       "loginTwitter": "mit Twitter amälde",
-      "createTestUser": "Testnutzer erstelle"
+      "createTestUser": "Testnutzer erstelle",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "Abmälde",

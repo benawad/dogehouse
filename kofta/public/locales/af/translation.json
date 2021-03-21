@@ -54,7 +54,8 @@
       "featureText_6": "Aangedryf deur Doge",
       "loginGithub": "Teken aan met GitHub",
       "loginTwitter": "Teken aan met Twitter",
-      "createTestUser": "Maak toets gebruiker"
+      "createTestUser": "Maak toets gebruiker",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "teken uit",

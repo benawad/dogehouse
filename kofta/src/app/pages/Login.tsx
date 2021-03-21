@@ -16,6 +16,7 @@ import { ListItem } from "../components/ListItem";
 import { GitHubIcon } from "../svgs/GitHubIcon";
 import { TwitterIcon } from "../svgs/TwitterIcon";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
+import { DiscordIcon } from "../svgs/DiscordIcon";
 
 interface LoginProps {}
 
@@ -71,6 +72,25 @@ export const Login: React.FC<LoginProps> = () => {
               <span className={`inline-flex items-center`}>
                 <GitHubIcon className={`h-6 w-6`} />
                 <p className={`ml-3`}>{t("pages.login.loginGithub")}</p>
+              </span>
+            </Button>
+          </div>
+          <div className={`mb-8`}>
+            <Button
+              variant="slim"
+              style={{ backgroundColor: "#36393F" }}
+              onClick={() =>
+                (window.location.href =
+                  apiBaseUrl +
+                  "/auth/discord/web" +
+                  (__staging__
+                    ? "?redirect_after_base=" + window.location.origin
+                    : ""))
+              }
+            >
+              <span className={`inline-flex items-center`}>
+                <DiscordIcon className={`h-6 w-6`} />
+                <p className={`ml-3`}>{t("pages.login.loginDiscord")}</p>
               </span>
             </Button>
           </div>

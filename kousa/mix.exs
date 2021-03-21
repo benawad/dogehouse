@@ -56,7 +56,8 @@ defmodule Kousa.MixProject do
       {:credo, "~> 1.5.5"},
       # test helpers
       {:faker, "~> 0.16.0", only: :test},
-      {:excoveralls, "~> 0.10", only: :test}
+      {:excoveralls, "~> 0.10", only: :test},
+      {:ueberauth_discord, "~> 0.5.2"}
     ]
   end
 

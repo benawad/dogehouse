@@ -54,7 +54,8 @@
       "featureText_6": "Alimentat de Doge",
       "loginGithub": "Logare cu GitHub",
       "loginTwitter": "Logare cu Twitter",
-      "createTestUser": "Creare user de test"
+      "createTestUser": "Creare user de test",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "logout",

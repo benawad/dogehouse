@@ -52,7 +52,8 @@
       "featureText_6": "Alimenté au Doge",
       "loginGithub": "se connecter avec GitHub",
       "loginTwitter": "se connecter avec Twitter",
-      "createTestUser": "créer un utilisateur de test"
+      "createTestUser": "créer un utilisateur de test",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "se déconnecter",

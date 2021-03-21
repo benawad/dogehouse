@@ -54,7 +54,8 @@
       "featureText_6": "Pokreće Doge",
       "loginGithub": "prijavi se preko GitHub-a",
       "loginTwitter": "prijavi se preko Twitter-a",
-      "createTestUser": "kreiraj test korisnika"
+      "createTestUser": "kreiraj test korisnika",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "odjavi me",

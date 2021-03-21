@@ -54,7 +54,8 @@
       "featureText_6": "قدرت گرفته از Doge",
       "loginGithub": "ورود با گیتهاب",
       "loginTwitter": "ورود با توییتر",
-      "createTestUser": "ساختن حساب آزمایشی"
+      "createTestUser": "ساختن حساب آزمایشی",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "خروج",

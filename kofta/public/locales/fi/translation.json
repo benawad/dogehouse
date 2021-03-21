@@ -54,7 +54,8 @@
       "featureText_6": "Dogen voimalla",
       "loginGithub": "kirjaudu GitHubilla",
       "loginTwitter": "kirjaudu Twitterillä",
-      "createTestUser": "luo testikäyttäjä"
+      "createTestUser": "luo testikäyttäjä",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "kirjaudu ulos",

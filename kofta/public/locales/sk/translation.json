@@ -53,7 +53,8 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "prihlásiť se cez GitHub",
       "loginTwitter": "prihlásiť se cez Twitter",
-      "createTestUser": "vytvoriť testovacieho používateľa"
+      "createTestUser": "vytvoriť testovacieho používateľa",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "odhlásiť sa",

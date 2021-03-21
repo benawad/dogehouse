@@ -192,4 +192,48 @@ defmodule Beef.Mutations.Users do
        )}
     end
   end
+
+  def discord_find_or_create(user, discord_access_token) do
+    discordId = user["id"]
+
+    db_user =
+      from(u in User,
+        where:
+          u.discordId == ^discordId or
+            (not is_nil(u.email) and u.email != "" and u.email == ^user["email"]),
+        limit: 1
+      )
+      |> Repo.one()
+
+    if db_user do
+      if is_nil(db_user.discordId) do
+        from(u in User,
+          where: u.id == ^db_user.id,
+          update: [
+            set: [
+              discordId: ^discordId,
+              discordAccessToken: ^discord_access_token
+            ]
+          ]
+        )
+        |> Repo.update_all([])
+      end
+
+      {:find, db_user}
+    else
+      {:create,
+       Repo.insert!(
+         %User{
+           username: Kousa.Utils.Random.big_ascii_id(),
+           discordId: discordId,
+           email: if(user["email"] == "", do: nil, else: user["email"]),
+           discordAccessToken: discord_access_token,
+           avatarUrl: Kousa.Discord.get_avatar_url(user),
+           displayName: user["username"],
+           hasLoggedIn: true
+         },
+         returning: true
+       )}
+    end
+  end
 end

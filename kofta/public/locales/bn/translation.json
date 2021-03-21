@@ -57,7 +57,8 @@
       "featureText_6": "সৌজন্যে Doge",
       "loginGithub": "GitHub এর দ্বারা লগইন করুন",
       "loginTwitter": "Twitter এর দ্বারা লগইন করুন",
-      "createTestUser": "টেস্ট ইউজার তৈরি করুন"
+      "createTestUser": "টেস্ট ইউজার তৈরি করুন",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "লগআউট",

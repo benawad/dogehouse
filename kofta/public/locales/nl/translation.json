@@ -53,7 +53,8 @@
       "featureText_6": "Mogelijk gemaakt door Doge",
       "loginGithub": "Log in met GitHub",
       "loginTwitter": "Log in met Twitter",
-      "createTestUser": "Maak een test gebruiker"
+      "createTestUser": "Maak een test gebruiker",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "Afmelden",

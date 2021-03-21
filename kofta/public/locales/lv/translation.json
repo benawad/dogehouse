@@ -54,7 +54,8 @@
       "featureText_6": "Darbojas ar Doge",
       "loginGithub": "Ieiet caur GitHub",
       "loginTwitter": "Ieiet caur Twitter",
-      "createTestUser": "Izveidot izmēģinājuma lietotāju"
+      "createTestUser": "Izveidot izmēģinājuma lietotāju",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "Iziet",

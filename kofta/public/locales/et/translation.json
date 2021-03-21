@@ -54,7 +54,8 @@
       "featureText_6": "Töötab Doge'i jõul",
       "loginGithub": "Logi GitHub'iga",
       "loginTwitter": "Logi Twitter'iga",
-      "createTestUser": "Loo test-kasutaja"
+      "createTestUser": "Loo test-kasutaja",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "logi välja",

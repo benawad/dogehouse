@@ -54,7 +54,8 @@
       "featureText_6": "Doge sayəsində işləyir",
       "loginGithub": "GitHub ilə daxil olmaq",
       "loginTwitter": "Twitter ilə daxil olmaq",
-      "createTestUser": "test istifadəçini yaradmaq"
+      "createTestUser": "test istifadəçini yaradmaq",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "çıxmaq",

@@ -54,7 +54,8 @@
       "featureText_6": "Mögelik gemak durch Doge",
       "loginGithub": "Log in mit GitHub",
       "loginTwitter": "Log in mit Twitter",
-      "createTestUser": "Maak inge test gebroeker"
+      "createTestUser": "Maak inge test gebroeker",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "Oetlogge",
