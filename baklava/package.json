@@ -9,9 +9,9 @@
         "dev": "npm run compile && node ./dist/dev.js",
         "start": "npm run compile && electron ./dist/electron.js",
         "build": "npm run compile && npm run build:overlay && electron-builder",
-        "build:all": "npm run compile && npm run build:overlay && electron-builder -mwl --win nsis",
+        "build:all": "npm run compile && npm run build:overlay && electron-builder -mwl",
         "build:mac": "npm run compile && npm run build:overlay && electron-builder --mac",
-        "build:win": "npm run compile && npm run build:overlay && electron-builder --win nsis",
+        "build:win": "npm run compile && npm run build:overlay && electron-builder --win",
         "build:linux": "npm run compile && npm run build:overlay && electron-builder --linux",
         "build:overlay": "cd resources/overlay && yarn build"
     },
