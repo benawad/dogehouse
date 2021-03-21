@@ -17,7 +17,7 @@ export const FeaturedRoomCardAvatars: React.FC<FeaturedRoomCardAvatarsProps> = (
             className="rounded-full bg-primary-800 border-primary-800"
             style={{
               zIndex: avatars.length - i,
-              marginLeft: i > 0 ? -9 : 0,
+              marginLeft: i > 0 ? -10 : 0,
               borderWidth: 2,
               height: 50,
               width: 50,
