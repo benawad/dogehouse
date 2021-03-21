@@ -2,6 +2,12 @@ import { EmojiData } from "emoji-mart";
 
 export const customEmojis = [
   {
+    name: "linus",
+    short_names: ["linus"],
+    keywords: ["linus", "tech", "linustechtips"],
+    imageUrl: "/emotes/linus.png",
+  },
+  {
     name: "redDogeHouse",
     short_names: ["redDogeHouse"],
     keywords: ["red", "dogehouse", "doge"],
