@@ -2,6 +2,18 @@ import { EmojiData } from "emoji-mart";
 
 export const customEmojis = [
   {
+    name: "obamium",
+    short_names: ["obama"],
+    keywords: ["obama", "prism", "obamium"],
+    imageUrl: "/emotes/obamium.png",
+  },
+  {
+    name: "IntelxAMD",
+    short_names: ["intel"],
+    keywords: ["intel", "amd", "intelxamd"],
+    imageUrl: "/emotes/IntelxAMD.png",
+  },
+  {
     name: "linus",
     short_names: ["linus"],
     keywords: ["linus", "tech", "linustechtips"],
