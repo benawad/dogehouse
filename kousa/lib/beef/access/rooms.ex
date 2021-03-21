@@ -50,12 +50,10 @@ defmodule Beef.Access.Rooms do
             {:error, "you are blocked from the room"}
 
           true ->
-            cond do
-              UserBlocks.blocked?(room.creatorId, user_id) ->
-                {:error, "the creator of the room blocked you"}
-
-              true ->
-                {:ok, room}
+            if UserBlocks.blocked?(room.creatorId, user_id) do
+              {:error, "the creator of the room blocked you"}
+            else
+              {:ok, room}
             end
         end
     end

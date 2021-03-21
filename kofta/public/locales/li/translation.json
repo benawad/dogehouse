@@ -71,7 +71,9 @@
     "room": {
       "speakers": "Sjprekers",
       "requestingToSpeak": "Aanvroage om te sjpreke",
-      "listeners": "Loestereers"
+      "listeners": "Loestereers",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Zeucke..." },
     "soundEffectSettings": { "header": "Geluide" },

@@ -47,8 +47,8 @@ export const onlineIndicatorStyleMap = {
 };
 
 export interface AvatarProps {
-  size: keyof typeof onlineIndicatorStyleMap;
   src: string;
+  size?: keyof typeof onlineIndicatorStyleMap;
   className?: string;
   isOnline?: boolean;
 }

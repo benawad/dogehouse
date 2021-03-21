@@ -13,7 +13,7 @@ const room = {
     "Senior Dev / Manager @ GoDaddy (TS/React/GQL) - Ask me whatever you want",
   speakers: ["Terry Owen", "Grace Abraham"],
   url: "/room/1829324",
-  timeElapsed: { minutes: 58, seconds: 39 },
+  roomStartedAt: new Date(2020, 3, 3),
   myself: {
     isSpeaker: true,
     isMuted: false,

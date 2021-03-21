@@ -30,22 +30,14 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "ඉවත් කරන්න"
-    },
+    "banUser": { "ban": "ඉවත් කරන්න" },
     "followingOnlineList": {
       "listHeader": "පෞද්ගලික සමූහයක නොමැති ඔබ හඹායන පරිශීලකයින්",
       "currentRoom": "දැනට සිටින්නේ:",
       "startPrivateRoom": "ඔවුන් සමග පෞද්ගලික සමූහයක් අරඹන්න"
     },
-    "followList": {
-      "followHim": "හඹා යන්න",
-      "followingHim": "හඹා යන්නන්"
-    },
-    "home": {
-      "createRoom": "සමූහයක් අරඹන්න",
-      "refresh": "Refresh"
-    },
+    "followList": { "followHim": "හඹා යන්න", "followingHim": "හඹා යන්නන්" },
+    "home": { "createRoom": "සමූහයක් අරඹන්න", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "සමූහය නොමැත,ආපසු යන්න",
       "shareRoomLink": "සමූහයේ සබැඳිය බෙදාගන්න",
@@ -79,14 +71,12 @@
     "room": {
       "speakers": "Speakers",
       "requestingToSpeak": "කතා කිරීමට අවසර ලබා ගන්න",
-      "listeners": "Listeners"
+      "listeners": "Listeners",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "සොයන්න..."
-    },
-    "soundEffectSettings": {
-      "header": "ශබ්ද"
-    },
+    "searchUser": { "search": "සොයන්න..." },
+    "soundEffectSettings": { "header": "ශබ්ද" },
     "viewUser": {
       "editProfile": "profile එක සංස්කරණය කරන්න",
       "followsYou": "ඔබව හඹා යයි",
@@ -150,9 +140,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "no audio consumer for some reason"
     },
-    "addToCalendar": {
-      "add": "දින දර්ශනයට එක් කරන්න"
-    },
+    "addToCalendar": { "add": "දින දර්ශනයට එක් කරන්න" },
     "wsKilled": {
       "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
       "reconnect": "නැවත සම්බන්ධ වෙන්න"

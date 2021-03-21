@@ -5,10 +5,10 @@ import {
   ViewStyle,
   Text,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import { colors, fontFamily, fontSize } from "../../constants/dogeStyle";
 import { GenericNotification } from "./GenericNotification";
-import Icon from "react-native-vector-icons/Ionicons";
 
 interface NewRoomNotificationProps {
   style?: ViewStyle;
@@ -25,7 +25,7 @@ export const NewRoomNotification: React.FC<NewRoomNotificationProps> = ({
   time,
   joined = false,
 }) => {
-  const icon = <Icon name={"rocket"} size={40} color={colors.text} />;
+  const icon = <Image source={require("../../assets/images/ios-rocket.png")} />;
 
   const notificationMsg = (
     <View style={{ flexDirection: "row" }}>
@@ -61,11 +61,12 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
   },
   button: {
-    height: 32,
+    height: 22,
+    width: 90,
     backgroundColor: colors.accent,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
     borderRadius: 8,
+    alignItems: "center",
+    justifyContent: "center",
   },
   buttonTitle: {
     fontSize: fontSize.small,

@@ -71,7 +71,9 @@
     "room": {
       "speakers": "Sprekers",
       "requestingToSpeak": "Versoek om te praat",
-      "listeners": "Luisteraars"
+      "listeners": "Luisteraars",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "soek..." },
     "soundEffectSettings": { "header": "Klanke" },

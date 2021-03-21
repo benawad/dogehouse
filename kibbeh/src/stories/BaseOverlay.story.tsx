@@ -5,7 +5,7 @@ import { BaseOverlay, BaseOverlayProps } from "../ui/BaseOverlay";
 import { MessageElement } from "../ui/MessageElement";
 import avatar from "../img/avatar.png";
 import { SettingsIcon } from "../ui/SettingsIcon";
-import { SmSolidCaretRight, SmOutlineGlobe, SmSolidUser } from "../icons";
+import { SolidCaretRight, OutlineGlobe, SolidUser } from "../icons";
 import {
   GenericNotification,
   FollowNotification,
@@ -90,13 +90,13 @@ export const Settings: Story<BaseOverlayProps> = ({
     <BaseOverlay actionButton={actionLabel}>
       <div className="flex flex-col">
         <SettingsIcon
-          icon={<SmSolidUser className={`text-primary-100`} />}
+          icon={<SolidUser className={`text-primary-100`} />}
           label={"profile"}
         />
         <SettingsIcon
-          icon={<SmOutlineGlobe />}
+          icon={<OutlineGlobe />}
           label={"Language"}
-          trailingIcon={<SmSolidCaretRight />}
+          trailingIcon={<SolidCaretRight />}
         />
       </div>
     </BaseOverlay>

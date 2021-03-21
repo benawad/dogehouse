@@ -70,7 +70,9 @@
     "room": {
       "speakers": "स्पिकरहरू",
       "requestingToSpeak": "बोल्न अनुरोध गर्दै",
-      "listeners": "श्रोताहरु"
+      "listeners": "श्रोताहरु",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "खोजी गर्नुहोस्..." },
     "soundEffectSettings": { "header": "साउंड" },

@@ -109,40 +109,38 @@ defmodule Beef.Mutations.Users do
       )
       |> Repo.one()
 
-    cond do
-      db_user ->
-        if is_nil(db_user.twitterId) do
-          from(u in User,
-            where: u.id == ^db_user.id,
-            update: [
-              set: [
-                twitterId: ^user.twitterId
-              ]
+    if db_user do
+      if is_nil(db_user.twitterId) do
+        from(u in User,
+          where: u.id == ^db_user.id,
+          update: [
+            set: [
+              twitterId: ^user.twitterId
             ]
-          )
-          |> Repo.update_all([])
-        end
+          ]
+        )
+        |> Repo.update_all([])
+      end
 
-        {:find, db_user}
-
-      true ->
-        {:create,
-         Repo.insert!(
-           %User{
-             username: Kousa.Utils.Random.big_ascii_id(),
-             email: if(user.email == "", do: nil, else: user.email),
-             twitterId: user.twitterId,
-             avatarUrl: user.avatarUrl,
-             displayName:
-               if(is_nil(user.displayName) or String.trim(user.displayName) == "",
-                 do: "Novice Doge",
-                 else: user.displayName
-               ),
-             bio: user.bio,
-             hasLoggedIn: true
-           },
-           returning: true
-         )}
+      {:find, db_user}
+    else
+      {:create,
+       Repo.insert!(
+         %User{
+           username: Kousa.Utils.Random.big_ascii_id(),
+           email: if(user.email == "", do: nil, else: user.email),
+           twitterId: user.twitterId,
+           avatarUrl: user.avatarUrl,
+           displayName:
+             if(is_nil(user.displayName) or String.trim(user.displayName) == "",
+               do: "Novice Doge",
+               else: user.displayName
+             ),
+           bio: user.bio,
+           hasLoggedIn: true
+         },
+         returning: true
+       )}
     end
   end
 
@@ -158,42 +156,40 @@ defmodule Beef.Mutations.Users do
       )
       |> Repo.one()
 
-    cond do
-      db_user ->
-        if is_nil(db_user.githubId) do
-          from(u in User,
-            where: u.id == ^db_user.id,
-            update: [
-              set: [
-                githubId: ^githubId,
-                githubAccessToken: ^github_access_token
-              ]
+    if db_user do
+      if is_nil(db_user.githubId) do
+        from(u in User,
+          where: u.id == ^db_user.id,
+          update: [
+            set: [
+              githubId: ^githubId,
+              githubAccessToken: ^github_access_token
             ]
-          )
-          |> Repo.update_all([])
-        end
+          ]
+        )
+        |> Repo.update_all([])
+      end
 
-        {:find, db_user}
-
-      true ->
-        {:create,
-         Repo.insert!(
-           %User{
-             username: Kousa.Utils.Random.big_ascii_id(),
-             githubId: githubId,
-             email: if(user["email"] == "", do: nil, else: user["email"]),
-             githubAccessToken: github_access_token,
-             avatarUrl: user["avatar_url"],
-             displayName:
-               if(is_nil(user["name"]) or String.trim(user["name"]) == "",
-                 do: "Novice Doge",
-                 else: user["name"]
-               ),
-             bio: user["bio"],
-             hasLoggedIn: true
-           },
-           returning: true
-         )}
+      {:find, db_user}
+    else
+      {:create,
+       Repo.insert!(
+         %User{
+           username: Kousa.Utils.Random.big_ascii_id(),
+           githubId: githubId,
+           email: if(user["email"] == "", do: nil, else: user["email"]),
+           githubAccessToken: github_access_token,
+           avatarUrl: user["avatar_url"],
+           displayName:
+             if(is_nil(user["name"]) or String.trim(user["name"]) == "",
+               do: "Novice Doge",
+               else: user["name"]
+             ),
+           bio: user["bio"],
+           hasLoggedIn: true
+         },
+         returning: true
+       )}
     end
   end
 end

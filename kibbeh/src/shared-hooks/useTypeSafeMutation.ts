@@ -6,7 +6,7 @@ import { Await } from "../types/util-types";
 
 type Keys = keyof ReturnType<typeof wrap>["mutation"];
 
-export const useTypeSafeMutation = <K extends Keys>(key: Keys) => {
+export const useTypeSafeMutation = <K extends Keys>(key: K) => {
   const { conn } = useContext(WebSocketContext);
 
   return useMutation<

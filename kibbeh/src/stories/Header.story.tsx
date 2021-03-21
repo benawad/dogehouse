@@ -1,6 +1,6 @@
 import Header, { HeaderProps } from "../ui/Header";
 import { Story } from "@storybook/react";
-import { SmSolidDogenitro } from "../icons";
+import { SolidDogenitro } from "../icons";
 
 import avatarPlaceholderImg from "../img/avatar.png";
 
@@ -15,7 +15,7 @@ export const Main: Story<HeaderProps> = ({
   onAnnouncementsClick = () => null,
   onMessagesClick = () => null,
   onNotificationsClick = () => null,
-  actionButtonIcon = <SmSolidDogenitro />,
+  actionButtonIcon = <SolidDogenitro />,
   actionButtonLabel = "Get Coins",
   onActionButtonClick = () => null,
   avatarImg = avatarPlaceholderImg,
