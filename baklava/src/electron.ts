@@ -22,7 +22,7 @@ let tray: Tray;
 let menu: Menu;
 let splash;
 
-export const __prod__ = true; // app.isPackaged
+export const __prod__ = app.isPackaged; 
 const instanceLock = app.requestSingleInstanceLock();
 
 function createWindow() {
