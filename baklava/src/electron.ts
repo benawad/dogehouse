@@ -67,7 +67,7 @@ function createWindow() {
     setTimeout(() => {
       splash.destroy();
       mainWindow.show();
-    }, 2000);
+    }, 2500);
   }),
     // crashes on mac
     // systemPreferences.askForMediaAccess("microphone");
