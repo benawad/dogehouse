@@ -55,6 +55,8 @@ Download links are in [the releases section](https://github.com/benawad/dogehous
 
 Built with electron.
 
+__*Note:*__ If a warning message pops up on Windows, go to 'more info' and select 'Run Anyway'
+
 ## DogeReviewers
 
 Contributors helping to review/merge pull requests:
