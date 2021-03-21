@@ -84,8 +84,8 @@
       "followsYou": "ti sledi",
       "followers": "Sledilci",
       "following": "Spremljane osebe",
-      "followHim": "follow",
-      "followingHim": "following",
+      "followHim": "Sledi tej osebi",
+      "followingHim": "Slediš tej osebi",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard"
     },
@@ -176,7 +176,7 @@
         "usernameError": "Dolžina: 4 do 15 alfanumeričnih znakov ali podčrtaj",
         "usernameLabel": "Uporabniško ime",
         "bioError": "Največ 160 znakov",
-        "bioLabel": "Bio"
+        "bioLabel": "Opis"
       },
       "profileModal": {
         "blockUserConfirm": "Si prepričan, da želiš temu uporabniku onemogočiti dostop do vseh sob, ki jih boš ustvaril?",
@@ -232,11 +232,11 @@
       "takingOff": "Vzlet",
       "inSpace": "V vesolju",
       "approachingMoon": "Bližanje luni",
-      "lunarDoge": "Lunar doge",
+      "lunarDoge": "Lunarni doge",
       "approachingSun": "Bližanje soncu",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
+      "solarDoge": "Solarni doge",
+      "approachingGalaxy": "Bližanje galaksiji",
+      "galacticDoge": "Galaktični Doge",
       "spottedLife": "Najden planet z življenjem"
     }
   }
