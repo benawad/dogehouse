@@ -100,9 +100,9 @@
     "avatar": {},
     "backBar": {},
     "blockedFromRoomUsers": {
-      "header": "Banned Users",
-      "unban": "unban",
-      "noBans": "no one has been banned yet"
+      "header": "ممنوعہ صارفین",
+      "unban": "غیر پابندی",
+      "noBans": "ابھی تک کسی پر پابندی عائد نہیں کی گئی ہے"
     },
     "bottomVoiceControl": {
       "leaveCurrentRoomBtn": "موجودہ کمرہ چھوڑ دو",
