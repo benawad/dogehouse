@@ -71,7 +71,9 @@
     "room": {
       "speakers": "Vorbitori",
       "requestingToSpeak": "Cere să vorbească",
-      "listeners": "Ascultători"
+      "listeners": "Ascultători",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "caută..." },
     "soundEffectSettings": { "header": "Sunete" },

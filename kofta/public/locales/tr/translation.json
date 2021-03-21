@@ -70,7 +70,9 @@
     "room": {
       "speakers": "Konuşmacılar",
       "requestingToSpeak": "Konuşmak için izin istiyor",
-      "listeners": "Dinleyiciler"
+      "listeners": "Dinleyiciler",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Ara..." },
     "soundEffectSettings": { "header": "Sesler" },

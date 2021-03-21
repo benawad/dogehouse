@@ -29,6 +29,7 @@ module.exports = {
       },
       secondary: {
         DEFAULT: "var(--color-secondary)",
+        "washed-out": "var(--color-secondary-washed-out)",
       },
       accent: {
         DEFAULT: "var(--color-accent)",

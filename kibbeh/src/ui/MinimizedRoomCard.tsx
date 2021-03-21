@@ -1,19 +1,18 @@
 import React from "react";
-import { Duration } from "date-fns";
 import { BoxedIcon } from "./BoxedIcon";
-import { SolidFullscreen, SolidMicrophone, SolidVolume } from "../icons";
+import { SolidFullscreen, SolidMicrophone } from "../icons";
 import { useRouter } from "next/router";
 import { Button } from "./Button";
-
-const formatElapsed = (time: Duration) =>
-  `${time.hours ? `${time.hours}:` : ""}${time.minutes ?? "0"}:${time.seconds}`;
+import { DurationTicker } from "./DurationTicker";
+import SvgSolidMicrophoneOff from "../icons/SolidMicrophoneOff";
 
 interface MinimizedRoomCardProps {
+  leaveLoading?: boolean;
   room: {
     name: string;
     speakers: string[];
     url: string;
-    timeElapsed: Duration;
+    roomStartedAt: Date;
     myself: {
       isSpeaker: boolean;
       isMuted: boolean;
@@ -26,6 +25,7 @@ interface MinimizedRoomCardProps {
 }
 
 export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
+  leaveLoading,
   room,
 }) => {
   const router = useRouter();
@@ -37,7 +37,7 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
         <p className="text-primary-300">{room.speakers.join(", ")}</p>
         <p className="text-accent">
           {room.myself.isSpeaker ? "Speaker" : "Listener"} ·{" "}
-          {formatElapsed(room.timeElapsed)}
+          <DurationTicker dt={room.roomStartedAt} />
         </p>
       </div>
       <div className="gap-4">
@@ -46,19 +46,28 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
             onClick={room.myself.switchMuted}
             className={room.myself.isMuted ? "bg-accent" : ""}
           >
-            <SolidMicrophone />
+            {room.myself.isMuted ? (
+              <SvgSolidMicrophoneOff />
+            ) : (
+              <SolidMicrophone />
+            )}
           </BoxedIcon>
-          <BoxedIcon
+          {/* @todo haven't added deafen yet */}
+          {/* <BoxedIcon
             onClick={room.myself.switchDeafened}
             className={room.myself.isDeafened ? "bg-accent" : ""}
           >
             <SolidVolume />
-          </BoxedIcon>
+          </BoxedIcon> */}
           <BoxedIcon onClick={() => router.push(room.url)}>
             <SolidFullscreen />
           </BoxedIcon>
         </div>
-        <Button className="flex-grow" onClick={room.myself.leave}>
+        <Button
+          loading={leaveLoading}
+          className="flex-grow"
+          onClick={room.myself.leave}
+        >
           Leave
         </Button>
       </div>

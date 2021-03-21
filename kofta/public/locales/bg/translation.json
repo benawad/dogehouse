@@ -71,7 +71,9 @@
     "room": {
       "speakers": "Говорители",
       "requestingToSpeak": "Заявка за говорене",
-      "listeners": "Слушатели"
+      "listeners": "Слушатели",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "търсене..." },
     "soundEffectSettings": { "header": "Звук" },

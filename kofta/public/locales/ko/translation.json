@@ -70,7 +70,9 @@
     "room": {
       "speakers": "스피커",
       "requestingToSpeak": "발언권 요청",
-      "listeners": "청취자"
+      "listeners": "청취자",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "검색..." },
     "soundEffectSettings": { "header": "소리" },

@@ -36,7 +36,10 @@
       "currentRoom": "ভেতরে আছেন:",
       "startPrivateRoom": "তাদের সাথে প্রাইভেট রুম শুরু করুন"
     },
-    "followList": { "followHim": "অনুসরণ করুন", "followingHim": "অনুসরণ করছেন" },
+    "followList": {
+      "followHim": "অনুসরণ করুন",
+      "followingHim": "অনুসরণ করছেন"
+    },
     "home": { "createRoom": "রুম বানান", "refresh": "রিফ্রেশ করুন" },
     "inviteList": {
       "roomGone": "রুম শেষ, ফিরে আসুন",
@@ -71,7 +74,9 @@
     "room": {
       "speakers": "স্পিকারস",
       "requestingToSpeak": "কথা বলার জন্য অনুরোধ করুন",
-      "listeners": "শ্রোতাগণ"
+      "listeners": "শ্রোতাগণ",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "খুঁজুন..." },
     "soundEffectSettings": { "header": "সাউন্ডস" },
