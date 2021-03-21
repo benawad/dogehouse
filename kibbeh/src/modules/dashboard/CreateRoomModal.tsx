@@ -81,7 +81,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
             console.log("new room voice server id: " + room.voiceServerId);
             useRoomChatStore.getState().clearChat();
             useCurrentRoomStore.getState().setCurrentRoom(() => room);
-            push(`/room/${room.id}`);
+            push(`/room/[id]`, `/room/${room.id}`);
           }
 
           onRequestClose();

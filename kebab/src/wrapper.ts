@@ -5,6 +5,7 @@ import { Message, MessageToken, Room, RoomUser, UUID } from "./entities";
 import {
   GetTopPublicRoomsResponse,
   GetScheduledRoomsResponse,
+  GetRoomUsersResponse,
 } from "./responses";
 
 type Handler<Data> = (data: Data) => void;
@@ -18,13 +19,12 @@ export const wrap = (connection: Connection) => ({
       connection.addListener("new_chat_msg", handler),
   },
   query: {
-    getCurrentRoomUsers: (): Promise<{
-      users: RoomUser[];
-      muteMap: Record<string, boolean>;
-      roomId: string;
-      activeSpeakerMap: Record<string, boolean>;
-      autoSpeaker: boolean;
-    }> => connection.fetch("get_current_room_users"),
+    getCurrentRoomUsers: (): Promise<GetRoomUsersResponse> =>
+      connection.fetch("get_current_room_users"),
+    getRoomUsers: (
+      roomId: string
+    ): Promise<GetRoomUsersResponse | { error: string }> =>
+      connection.fetch("get_room_users", { roomId }),
     getTopPublicRooms: (cursor = 0): Promise<GetTopPublicRoomsResponse> =>
       connection.fetch("get_top_public_rooms", { cursor }),
     getScheduledRooms: (

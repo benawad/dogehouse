@@ -31,14 +31,22 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "бан" },
+    "banUser": {
+      "ban": "бан"
+    },
     "followingOnlineList": {
       "listHeader": "Список пользователей, которые не в закрытой комнате и на которых вы подписаны.",
       "currentRoom": "сейчас в :",
       "startPrivateRoom": "создать с ними закрытую комнату"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Создать комнату", "refresh": "Обновить" },
+    "followList": {
+      "followHim": "подписаться",
+      "followingHim": "Вы подписаны"
+    },
+    "home": {
+      "createRoom": "Создать комнату",
+      "refresh": "Обновить"
+    },
     "inviteList": {
       "roomGone": "Комната исчезла, вернитесь назад",
       "shareRoomLink": "Поделиться ссылкой на комнату",
@@ -74,18 +82,22 @@
       "speakers": "Ораторы",
       "requestingToSpeak": "Желающие говорить",
       "listeners": "Слушатели",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "Разрешить всем",
+      "allowAllConfirm": "Вы уверены? Это позволит всем {{count}} пользователям, запрашивающих разрешение, говорить"
     },
-    "searchUser": { "search": "поиск..." },
-    "soundEffectSettings": { "header": "звуки" },
+    "searchUser": {
+      "search": "поиск..."
+    },
+    "soundEffectSettings": {
+      "header": "звуки"
+    },
     "viewUser": {
       "editProfile": "редактировать профиль",
       "followsYou": "подписаны на вас",
       "followers": "подписчиков",
       "following": "подписан на",
-      "followHim": "follow",
-      "followingHim": "following"
+      "followHim": "подписаться",
+      "followingHim": "Вы подписаны"
     },
     "voiceSettings": {
       "header": "Голосовые настройки",
@@ -144,8 +156,12 @@
       "togglePushToTalkKeybind": "Включить режим рации",
       "toggleOverlayKeybind": "toggle overlay keybind"
     },
-    "userVolumeSlider": { "noAudioMessage": "почему-то нет аудиосвязи" },
-    "addToCalendar": { "add": "Добавить в Календарь" },
+    "userVolumeSlider": {
+      "noAudioMessage": "почему-то нет аудиосвязи"
+    },
+    "addToCalendar": {
+      "add": "Добавить в Календарь"
+    },
     "wsKilled": {
       "description": "Вебсокет был уничтожен сервером. Обычно это происходит когда вы открываете сайт в другой вкладке.",
       "reconnect": "присоединиться заново"
@@ -207,10 +223,10 @@
       "scheduleRoomHeader": "Запланированные комнаты",
       "startRoom": "создать комнату",
       "modal": {
-        "needsFuture": "должно начинаца в будущем",
+        "needsFuture": "должно появится в будущем",
         "roomName": "название комнаты",
-        "minLength": "минимальная длина 2",
-        "roomDescription": "Описание"
+        "roomDescription": "Описание",
+        "minLength": "минимальная длина 2"
       }
     },
     "roomChat": {
@@ -233,7 +249,7 @@
       "approachingMoon": "Приближается к луне",
       "lunarDoge": "Лунный doge",
       "approachingSun": "Приближается к солнцу",
-      "solarDoge": "Сонечный doge",
+      "solarDoge": "Солнечный doge",
       "approachingGalaxy": "Приближается к галактике",
       "galacticDoge": "Галактический doge",
       "spottedLife": "Замечена планета с жизнью"
