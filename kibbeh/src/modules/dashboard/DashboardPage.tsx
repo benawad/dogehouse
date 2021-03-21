@@ -1,14 +1,11 @@
 import React, { useContext } from "react";
 import { PageComponent } from "../../types/PageComponent";
 import { DashboardInnerGrid } from "../../ui/DashboardGrid";
-import { FriendsOnline } from "../../ui/FriendsOnline";
 import Header from "../../ui/Header";
-import { ProfileBlock } from "../../ui/ProfileBlock";
-import { UpcomingRoomsCard } from "../../ui/UpcomingRoomsCard";
-import { UserSummaryCard } from "../../ui/UserSummaryCard";
 import { useVerifyLoggedIn } from "../auth/useVerifyLoggedIn";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 import { FeedController } from "./FeedController";
+import { FriendsOnlineController } from "./FriendsOnlineController";
 import { ProfileBlockController } from "./ProfileBlockController";
 
 interface LoungePageProps {}
@@ -35,7 +32,7 @@ export const DashboardPage: PageComponent<LoungePageProps> = ({}) => {
         />
       </div>
       <DashboardInnerGrid>
-        <FriendsOnline onlineFriendCount={0} onlineFriendList={[]} />
+        <FriendsOnlineController />
         <FeedController />
         <ProfileBlockController />
       </DashboardInnerGrid>
