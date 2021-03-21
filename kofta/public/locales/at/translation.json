@@ -71,9 +71,7 @@
     "room": {
       "speakers": "Sprecha",
       "requestingToSpeak": "Sprochanfrogen",
-      "listeners": "Zuhöra",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "listeners": "Zuhöra"
     },
     "searchUser": { "search": "Suachn..." },
     "soundEffectSettings": { "header": "Ton" },
