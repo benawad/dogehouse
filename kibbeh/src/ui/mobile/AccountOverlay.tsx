@@ -30,6 +30,7 @@ export const AccountOverlay: React.FC<AccountOverlyProps> = ({
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if (!(node!.current! as Node).contains(e.target as Node)) {
+        endPosition.current = 0;
         closeHandler();
       }
     };
