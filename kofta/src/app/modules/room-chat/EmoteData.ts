@@ -2,6 +2,18 @@ import { EmojiData } from "emoji-mart";
 
 export const customEmojis = [
   {
+    name: "heart",
+    short_names: ["heart", "<3"],
+    keywords: ["heart", "<3"],
+    imageUrl: "/emotes/heart.png",
+  },
+  {
+    name: "brokenHeart",
+    short_names: ["brokenHeart"],
+    keywords: ["broken", "heart", "broken heart", "brokenHeart"],
+    imageUrl: "/emotes/brokenHeart.gif",
+  },
+  {
     name: "obamium",
     short_names: ["obama"],
     keywords: ["obama", "prism", "obamium"],
