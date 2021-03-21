@@ -29,6 +29,7 @@
     "next": "10.0.7",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-draggable": "^4.4.3",
     "react-hotkeys": "^2.0.0",
     "react-i18next": "^11.8.10",
     "react-modal": "^3.12.1",
