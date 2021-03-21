@@ -71,7 +71,9 @@
     "room": {
       "speakers": "Kalbėtojai",
       "requestingToSpeak": "Prašo kalbėti",
-      "listeners": "Klausytojai"
+      "listeners": "Klausytojai",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Ieškoma..." },
     "soundEffectSettings": { "header": "Garsai" },

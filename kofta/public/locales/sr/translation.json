@@ -70,7 +70,9 @@
     "room": {
       "speakers": "Говорници",
       "requestingToSpeak": "Молим за говор",
-      "listeners": "Слушаоци"
+      "listeners": "Слушаоци",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Претражите..." },
     "soundEffectSettings": { "header": "Звукови" },

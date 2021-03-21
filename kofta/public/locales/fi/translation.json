@@ -71,7 +71,9 @@
     "room": {
       "speakers": "Puhujat",
       "requestingToSpeak": "Pyytävät puheoikeutta",
-      "listeners": "Kuuntelijat"
+      "listeners": "Kuuntelijat",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "hae..." },
     "soundEffectSettings": { "header": "Äänet" },
