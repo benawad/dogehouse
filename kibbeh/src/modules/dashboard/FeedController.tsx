@@ -1,9 +1,6 @@
-import { wrap, GetTopPublicRoomsResponse } from "@dogehouse/kebab";
 import { useRouter } from "next/router";
 import React, { useContext, useState } from "react";
-import { useQuery } from "react-query";
 import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
-import { showErrorToast } from "../../lib/showErrorToast";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { Feed } from "../../ui/Feed";
