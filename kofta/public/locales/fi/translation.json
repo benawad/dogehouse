@@ -36,7 +36,7 @@
       "currentRoom": "paikalla:",
       "startPrivateRoom": "luo yksityinen huone heidän kanssaan"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": { "followHim": "seuraa", "followingHim": "seurannassa" },
     "home": { "createRoom": "Luo huone", "refresh": "Päivitä" },
     "inviteList": {
       "roomGone": "huone poistettu, palaa takaisin",
@@ -72,8 +72,8 @@
       "speakers": "Puhujat",
       "requestingToSpeak": "Pyytävät puheoikeutta",
       "listeners": "Kuuntelijat",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "Hyväksy kaikki",
+      "allowAllConfirm": "Oletko varma? Tämä antaa kaikille {{count}} pyytäville käyttäjille puheoikeuden"
     },
     "searchUser": { "search": "hae..." },
     "soundEffectSettings": { "header": "Äänet" },
@@ -82,8 +82,8 @@
       "followsYou": "seuraa sinua",
       "followers": "seuraajaa",
       "following": "seurannassa",
-      "followHim": "follow",
-      "followingHim": "following"
+      "followHim": "seuraa",
+      "followingHim": "seurannassa"
     },
     "voiceSettings": {
       "header": "Puheasetukset",
