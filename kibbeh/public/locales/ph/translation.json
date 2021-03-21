@@ -8,7 +8,7 @@
     "yes": "oo",
     "no": "hindi",
     "cancel": "Kanselahin",
-    "save": "i-save", //
+    "save": "i-save", 
     "edit": "i-edit",
     "delete": "tanggalin",
     "joinRoom": "sumali",
@@ -59,7 +59,7 @@
       "featureText_3": "Suporta sa Cross-Platform",
       "featureText_4": "Open Source",
       "featureText_5": "Text Chat",
-      "featureText_6": "Powered by Doge", //
+      "featureText_6": "Powered by Doge",
       "loginGithub": "Mag login gamit ang github",
       "loginTwitter": "Mag login gamit ang Twitter",
       "createTestUser": "Gumawa nang test user"
