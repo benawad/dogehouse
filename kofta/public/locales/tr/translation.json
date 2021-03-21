@@ -82,7 +82,9 @@
       "followers": "Takipçi",
       "following": "Takip",
       "followHim": "Takip Et",
-      "followingHim": "Takiptesin"
+      "followingHim": "Takiptesin",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Ses Ayarları",

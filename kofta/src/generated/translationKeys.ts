@@ -63,6 +63,8 @@ export type TranslationKeys =
 	| "pages.viewUser.following"
 	| "pages.viewUser.followHim"
 	| "pages.viewUser.followingHim"
+	| "pages.viewUser.copyProfileUrl"
+	| "pages.viewUser.urlCopied"
 	| "pages.voiceSettings.header"
 	| "pages.voiceSettings.mic"
 	| "pages.voiceSettings.permissionError"

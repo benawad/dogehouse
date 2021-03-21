@@ -82,7 +82,9 @@
       "followers": "Volgers",
       "following": "Volgend",
       "followHim": "Volg",
-      "followingHim": "Volgend"
+      "followingHim": "Volgend",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Spraakinstellingen",

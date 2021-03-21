@@ -83,7 +83,9 @@
       "followers": "ακόλουθοι",
       "following": "ακολουθείτε",
       "followHim": "ακολουθήστε",
-      "followingHim": "ακολουθείτε"
+      "followingHim": "ακολουθείτε",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Ρυθμίσεις Φωνής",

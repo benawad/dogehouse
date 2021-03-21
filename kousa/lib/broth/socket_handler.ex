@@ -815,6 +815,13 @@ defmodule Broth.SocketHandler do
     end
   end
 
+  def f_handler("follow_info", %{"userId" => other_user_id}, %State{} = state) do
+    Map.merge(
+      %{userId: other_user_id},
+      Follows.get_info(state.user_id, other_user_id)
+    )
+  end
+
   defp prepare_socket_msg(data, %State{compression: compression, encoding: encoding}) do
     data
     |> encode_data(encoding)
