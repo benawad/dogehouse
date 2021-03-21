@@ -11,7 +11,7 @@ export const FeaturedRoomCardAvatars: React.FC<FeaturedRoomCardAvatarsProps> = (
 
   return (
     <div className="z-0">
-        {avatars.slice(0, 3).map((s, i) => (
+        {avatars.slice(0, 2).map((s, i) => (
           <span
             key={s + i}
             className="rounded-full bg-primary-800 border-primary-800"
