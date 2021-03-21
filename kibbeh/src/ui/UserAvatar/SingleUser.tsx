@@ -23,16 +23,16 @@ const onlineIndicatorStyleMap = {
     bottom: "-1px",
     borderWidth: "1px",
   },
-  sm: {
-    width: "8px",
-    height: "8px",
+  md: {
+    width: "10px",
+    height: "10px",
     right: "2px",
     bottom: "-2px",
     borderWidth: "2px",
   },
-  md: {
-    width: "10px",
-    height: "10px",
+  sm: {
+    width: "8px",
+    height: "8px",
     right: "2px",
     bottom: "-2px",
     borderWidth: "2px",
