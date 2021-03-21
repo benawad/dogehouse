@@ -10,8 +10,8 @@
   </a>
 </p>
 
-<h3 align="center">  
-  <a href="https://github.com/benawad/dogehouse/blob/staging/CODE_OF_CONDUCT.md">Contribute</a>
+<h3 align="center">
+  <a href="https://github.com/benawad/dogehouse/blob/staging/CONTRIBUTING.md">Contribute</a>
   <span> · </span>
   <a href="https://discord.gg/82HzQCJCDg">Community</a>
   <span> · </span>
@@ -24,21 +24,47 @@
 
 ## Structure
 
-| Codebase |      Description      |
-| :------- | :-------------------: |
-| kousa    |      Elixir API       |
-| shawarma |     Voice Server      |
-| kofta    |    React frontend     |
-| dinner   | Puppeteer shenanigans |
-| baklava  |   Electron Wrapper    |
-| pilaf    |   React Native App    |
-| feta     | Shared utils web/app  |
+| Codebase             |      Description      |
+| :------------------- | :-------------------: |
+| [kousa](kousa)       |      Elixir API       |
+| [shawarma](shawarma) |     Voice Server      |
+| [kofta](kofta)       |    React frontend     |
+| [dinner](dinner)     | Puppeteer shenanigans |
+| [baklava](baklava)   |   Electron Wrapper    |
+| [pilaf](pilaf)       |   React Native App    |
+| [feta](feta)         | Shared utils web/app  |
+| [kibbeh](kibbeh)     |   Next.js frontend    |
+| [kebab](kebab)       |      API Client       |
+
+## Branches
+
+- staging -> pr this branch for everything else
+- prod -> don't touch, this is what's running in prod
 
 ## Contributions
 
 DogeHouse is open to contributions, but I recommend creating an issue or replying in a comment to let me know what you are working on first that way we don't overwrite each other.
 
 Please read [CONTRIBUTING.md](https://github.com/benawad/dogehouse/blob/staging/CONTRIBUTING.md) for details on this project.
+
+## Dogehouse Desktop
+
+A desktop app built with electron is available for Windows and Mac
+
+Download links are in [the releases section](https://github.com/benawad/dogehouse/releases/tag/latest)
+
+Built with electron.
+
+__*Note:*__ If a warning message pops up on Windows, go to 'more info' and select 'Run Anyway'
+
+## DogeReviewers
+
+Contributors helping to review/merge pull requests:
+
+- @ermalsh
+- @ofsho
+- @HarrisonMayotte
+- @nadirabbas
 
 ## Code of Conduct
 

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Redirect, useRouteMatch } from "react-router-dom";
 import { wsend } from "../../createWebsocket";
 import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
@@ -7,6 +7,7 @@ import { useCurrentRoomInfo } from "../atoms";
 import { Backbar } from "../components/Backbar";
 import { BodyWrapper } from "../components/BodyWrapper";
 import { BottomVoiceControl } from "../components/BottomVoiceControl";
+import { Button } from "../components/Button";
 import { CircleButton } from "../components/CircleButton";
 import { modalConfirm } from "../components/ConfirmModal";
 import { CreateRoomModal } from "../components/CreateRoomModal";
@@ -21,10 +22,19 @@ import { isUuid } from "../utils/isUuid";
 import { useTimeElapsed } from "../utils/timeElapsed";
 import { useMeQuery } from "../utils/useMeQuery";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
+import isElectron from "is-electron";
 
-interface RoomPageProps {}
+let ipcRenderer: any = undefined;
+if (isElectron()) {
+  ipcRenderer = window.require("electron").ipcRenderer;
+}
+
+const isMac = process.platform === 'darwin';
+
+interface RoomPageProps { }
 
 export const RoomPage: React.FC<RoomPageProps> = () => {
+
   const {
     params: { id },
   } = useRouteMatch<{ id: string }>();
@@ -46,7 +56,30 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   } = useCurrentRoomInfo();
   const fullscreenChatOpen = useShouldFullscreenChat();
   const [showCreateRoomModal, setShowCreateRoomModal] = useState(false);
+  const [listenersPage, setListenersPage] = useState(1);
+  const pageSize = 25;
   const { t } = useTypeSafeTranslation();
+  const [ipcStarted, setIpcStarted] = useState(false);
+
+  useEffect(() => {
+    if (isElectron() && !isMac) {
+      ipcRenderer.send("@overlay/start_ipc", true);
+      ipcRenderer.on("@overlay/start_ipc", (event: any, shouldStart: boolean) => {
+        setIpcStarted(shouldStart);
+      })
+    }
+  }, []);
+  useEffect(() => {
+    if (isElectron() && ipcStarted) {
+      ipcRenderer.send("@overlay/overlayData", {
+        currentRoom: room,
+        muted: muted,
+        me: me,
+        roomID: id,
+      });
+    }
+  });
+
   // useEffect(() => {
   //   if (room?.users.length) {
   //     setUserProfileId(room.users[0].id);
@@ -70,13 +103,19 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   }
 
   const profile = room.users.find((x) => x.id === userProfileId);
-
+  const myProfile = room.users.find(x => x.id === me?.id);
   const speakers: BaseUser[] = [];
   const unansweredHands: BaseUser[] = [];
   const listeners: BaseUser[] = [];
   let canIAskToSpeak = false;
+  if (iCanSpeak && myProfile) {
+    speakers.push(myProfile);
+  } else if (!iCanSpeak && myProfile) {
+    listeners.push(myProfile);
+  }
 
   room.users.forEach((u) => {
+    if (u.id === myProfile?.id) return;
     if (u.id === room.creatorId || u.roomPermissions?.isSpeaker) {
       speakers.push(u);
     } else if (u.roomPermissions?.askedToSpeak) {
@@ -86,6 +125,19 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
       listeners.push(u);
     }
   });
+
+  const listenersShown = listeners.slice(0, listenersPage * pageSize);
+
+  const allowAllRequestingSpeakers = () => {
+    unansweredHands.forEach((user) => {
+      wsend({
+        op: "add_speaker",
+        d: {
+          userId: user.id,
+        },
+      });
+    });
+  };
 
   return (
     <>
@@ -99,22 +151,22 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
       />
       {fullscreenChatOpen ? null : (
         <Backbar>
-          <div className={`flex flex-1 flex-col items-center`}>
+          <div className={`flex flex-col justify-center w-9/12`}>
             <button
               disabled={!iAmCreator}
               onClick={() => setShowCreateRoomModal(true)}
-              className={`font-xl truncate flex-1 text-center flex items-center justify-center text-2xl`}
+              className={`text-2xl truncate max-w-lg text-center px-2`}
             >
-              <span className={"px-2 truncate"}>{room.name}</span>
+              {room.name}
             </button>
             {rocketStatus && (
-              <div className={`flex items-center text-sm`}>
+              <div className={`text-center text-sm`}>
                 {rocketIcon} {rocketStatus} &nbsp;
                 <span className="opacity-50">({timeElapsed})</span>
               </div>
             )}
           </div>
-          <div className="pr-2">
+          <div className="ml-auto pr-2">
             <ProfileButton />
           </div>
         </Backbar>
@@ -157,8 +209,26 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
               </div>
             ) : null}
             {unansweredHands.length ? (
-              <div className={`col-span-full text-xl ml-2.5 text-white`}>
-                {t("pages.room.requestingToSpeak")} ({unansweredHands.length})
+              <div className={`flex col-span-full text-xl ml-2.5 text-white`}>
+                <span className={`my-auto`}>
+                  {t("pages.room.requestingToSpeak")} ({unansweredHands.length})
+                </span>
+                {(iAmCreator || iAmMod) && (
+                  <Button
+                    className={`ml-4`}
+                    variant={`small`}
+                    onClick={() => {
+                      modalConfirm(
+                        t("pages.room.allowAllConfirm", {
+                          count: unansweredHands.length,
+                        }),
+                        allowAllRequestingSpeakers
+                      );
+                    }}
+                  >
+                    {t("pages.room.allowAll")}
+                  </Button>
+                )}
               </div>
             ) : null}
             {unansweredHands.map((u) => (
@@ -173,11 +243,13 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
               />
             ))}
             {listeners.length ? (
-              <div className={`col-span-full text-xl mt-2.5 ml-2.5 text-white`}>
+              <div
+                className={`flex col-span-full text-xl mt-2.5 ml-2.5 text-white`}
+              >
                 {t("pages.room.listeners")} ({listeners.length})
               </div>
             ) : null}
-            {listeners.map((u) => (
+            {listenersShown.map((u) => (
               <RoomUserNode
                 key={u.id}
                 room={room}
@@ -188,6 +260,16 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
                 profile={profile}
               />
             ))}
+            {listenersShown.length < listeners.length && (
+              <div className={`flex col-span-full`}>
+                <Button
+                  variant="slim"
+                  onClick={() => setListenersPage((page) => page + 1)}
+                >
+                  {t("common.loadMore")}
+                </Button>
+              </div>
+            )}
           </div>
         </BodyWrapper>
       </Wrapper>

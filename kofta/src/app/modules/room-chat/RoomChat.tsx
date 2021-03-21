@@ -58,9 +58,6 @@ export const RoomChat: React.FC<ChatProps> = ({ sidebar }) => {
           className={`bg-simple-gray-26 border-b border-simple-gray-80 text-white py-4 px-8 text-2xl flex items-center h-20`}
         >
           {t("modules.roomChat.title")}{" "}
-          <span className={`ml-2 text-simple-gray-a6`}>
-            {t("modules.roomChat.emotesSoon")}
-          </span>
         </button>
         <RoomDescription />
         <RoomChatList />

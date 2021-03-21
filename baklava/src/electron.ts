@@ -4,23 +4,26 @@ import {
   systemPreferences,
   ipcMain,
   globalShortcut,
+  shell,
   Tray,
   Menu,
-  shell,
 } from "electron";
 import iohook from "iohook";
 import { autoUpdater } from "electron-updater";
-import { RegisterKeybinds } from "./util";
-import { ALLOWED_HOSTS } from "./constants";
+import { RegisterKeybinds } from "./utils/keybinds";
+import { HandleVoiceTray } from "./utils/tray";
+import { ALLOWED_HOSTS, isMac, MENU_TEMPLATE } from "./constants";
 import url from "url";
 import path from "path";
+import { StartNotificationHandler } from "./utils/notifications";
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
+let menu: Menu;
+let splash;
+
 export const __prod__ = app.isPackaged;
 const instanceLock = app.requestSingleInstanceLock();
-
-let splash;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -30,7 +33,7 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
     },
-    show: false
+    show: false,
   });
 
   splash = new BrowserWindow({
@@ -38,18 +41,22 @@ function createWindow() {
     height: 610,
     frame: false,
     transparent: true,
-    alwaysOnTop: true,
   });
   splash.loadURL(
     url.format({
-      pathname: path.join(`${__dirname}`, "../splash-screen.html"),
+      pathname: path.join(`${__dirname}`, "../resources/splash/splash-screen.html"),
       protocol: "file:",
       slashes: true,
     })
   );
 
-  // crashes on mac
-  // systemPreferences.askForMediaAccess("microphone");
+  // applying custom menu
+  menu = Menu.buildFromTemplate(MENU_TEMPLATE);
+  Menu.setApplicationMenu(menu);
+
+  // applying custom tray
+  tray = new Tray(path.join(__dirname, `../icons/tray.png`));
+
   if (!__prod__) {
     mainWindow.webContents.openDevTools();
   }
@@ -57,40 +64,32 @@ function createWindow() {
     __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/"
   );
 
-  setTimeout(
-    () =>
-      mainWindow.once("ready-to-show", () => {
-        splash.destroy();
-        mainWindow.show();
-      }),
-    2000
-  );
-
-  ipcMain.on("request-mic", async (event, _serviceName) => {
-    const isAllowed: boolean = await systemPreferences.askForMediaAccess(
-      "microphone"
-    );
-    event.returnValue = isAllowed;
-  });
+  mainWindow.once("ready-to-show", () => {
+    setTimeout(() => {
+      splash.destroy();
+      mainWindow.show();
+    }, 1000);
+  }),
+    // crashes on mac
+    // systemPreferences.askForMediaAccess("microphone");
+    ipcMain.on("request-mic", async (event, _serviceName) => {
+      const isAllowed: boolean = await systemPreferences.askForMediaAccess(
+        "microphone"
+      );
+      event.returnValue = isAllowed;
+    });
+  if (!isMac) {
+    mainWindow.webContents.send("@alerts/permissions", true);
+  }
 
   // registers global keybinds
   RegisterKeybinds(mainWindow);
 
-  // create system tray
-  tray = new Tray("./icons/icon.ico");
-  tray.setToolTip("Taking voice conversations to the moon 🚀");
-  tray.on("click", () => {
-    mainWindow.focus();
-  });
-  const contextMenu = Menu.buildFromTemplate([
-    {
-      label: "Quit Dogehouse",
-      click: () => {
-        mainWindow.close();
-      },
-    },
-  ]);
-  tray.setContextMenu(contextMenu);
+  // starting the custom voice menu handler
+  HandleVoiceTray(mainWindow, tray);
+
+  // starting the noti handler
+  StartNotificationHandler();
 
   // graceful exiting
   mainWindow.on("closed", () => {
@@ -108,7 +107,12 @@ function createWindow() {
       event.preventDefault();
       shell.openExternal(url);
     } else {
-      if (urlHost == ALLOWED_HOSTS[3] && urlObj.pathname !== "/login") {
+      if (
+        urlHost == ALLOWED_HOSTS[3] &&
+        urlObj.pathname !== "/login" &&
+        urlObj.pathname !== "/session" &&
+        urlObj.pathname !== "/sessions/two-factor"
+      ) {
         event.preventDefault();
         shell.openExternal(url);
       }
@@ -119,6 +123,9 @@ function createWindow() {
 }
 
 if (!instanceLock) {
+  if (process.env.hotReload) {
+    app.relaunch();
+  }
   app.quit();
 } else {
   app.on("ready", () => {
@@ -127,6 +134,7 @@ if (!instanceLock) {
   });
   app.on("second-instance", (event, argv, workingDirectory) => {
     if (mainWindow) {
+      if (process.env.hotReload) return mainWindow.close();
       if (mainWindow.isMinimized()) mainWindow.restore();
       mainWindow.focus();
     }
