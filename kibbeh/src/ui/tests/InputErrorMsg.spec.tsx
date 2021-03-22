@@ -4,7 +4,7 @@ import { render } from "../../../test-utils";
 import { InputErrorMsg } from "../InputErrorMsg";
 
 describe("InputErrorMsg", () => {
-  it("should render and input correctly", () => {
+  it("should render correctly", () => {
     const { getByTestId } = render(<InputErrorMsg />);
     const component = getByTestId("input-error-msg");
 
