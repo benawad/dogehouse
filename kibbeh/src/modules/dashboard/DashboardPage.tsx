@@ -7,6 +7,8 @@ import { WebSocketContext } from "../ws/WebSocketProvider";
 import { FeedController } from "./FeedController";
 import { FriendsOnlineController } from "./FriendsOnlineController";
 import { ProfileBlockController } from "./ProfileBlockController";
+import { HeaderController } from "../header/HeaderController";
+import { DesktopLayout } from "../layouts/DesktopLayout";
 
 interface LoungePageProps {}
 
@@ -23,20 +25,11 @@ export const DashboardPage: PageComponent<LoungePageProps> = ({}) => {
   }
 
   return (
-    <div className={`flex-col items-center w-full`}>
-      <div className={`mt-5 mb-7`}>
-        <Header
-          searchPlaceholder={"Search for rooms, users or categories"}
-          onSearchChange={() => null}
-          avatarImg={conn.user.avatarUrl}
-        />
-      </div>
-      <MainInnerGrid>
-        <FriendsOnlineController />
-        <FeedController />
-        <ProfileBlockController />
-      </MainInnerGrid>
-    </div>
+    <DesktopLayout>
+      <FriendsOnlineController />
+      <FeedController />
+      <ProfileBlockController />
+    </DesktopLayout>
   );
 };
 
