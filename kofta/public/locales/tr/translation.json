@@ -14,7 +14,8 @@
     "copyLink": "Linki kopyala",
     "copied": "Kopyalandı!",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "areYouSureJoinRoom": "Are you sure you want to join room"
   },
   "header": {
     "_comment": "Ana başlık arayüz ulusallaştırma yazıları",

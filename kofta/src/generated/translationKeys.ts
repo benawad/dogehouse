@@ -15,6 +15,7 @@ export type TranslationKeys =
 	| "common.copied"
 	| "common.formattedIntlDate"
 	| "common.formattedIntlTime"
+	| "common.areYouSureJoinRoom"
 	| "header.title"
 	| "header.mutedTitle"
 	| "footer.link_1"

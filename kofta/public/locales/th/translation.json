@@ -14,7 +14,8 @@
     "copyLink": "คัดลอกลิ้งก์",
     "copied": "คัดลอกเรียบร้อย",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "areYouSureJoinRoom": "Are you sure you want to join room"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",

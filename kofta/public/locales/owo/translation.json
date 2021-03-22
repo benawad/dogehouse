@@ -15,7 +15,8 @@
     "copyLink": "copy wink ;3",
     "copied": "0w0 copied ^-^",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "areYouSureJoinRoom": "OwO Are you sure you want to join room"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",

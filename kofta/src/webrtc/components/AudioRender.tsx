@@ -73,8 +73,7 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
 
   const { currentRoom: room } = useCurrentRoomStore();
   const { t } = useTypeSafeTranslation();
-  const history = useHistory()
-
+  const history = useHistory();
 
   return (
     <>
@@ -85,7 +84,7 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
       >
         <div className={`p-8 rounded m-auto bg-simple-gray-3c`}>
           <div className={`text-center mb-4`}>
-            Are you sure you want to join {room?.name}?
+            {t("common.areYouSureJoinRoom") + ' '} {room?.name}?
           </div>
           <Button
             onClick={() => {
@@ -97,7 +96,7 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
               });
             }}
           >
-            Yes
+            {t("common.yes")}
             {Object.keys(consumerMap).map((k) => {
               const { consumer, volume: userVolume, debug } = consumerMap[k];
               return (
@@ -129,7 +128,7 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
               );
             })}
           </Button>
-          <Button onClick={() => history.push('/')}>No</Button>
+          <Button onClick={() => history.push("/")}>{t("common.no")}</Button>
         </div>
       </div>
     </>
