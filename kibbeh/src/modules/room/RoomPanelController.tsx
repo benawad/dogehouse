@@ -4,9 +4,9 @@ import React from "react";
 import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
 import { isUuid } from "../../lib/isUuid";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
-import { Button } from "../../ui/Button";
 import { ErrorToast } from "../../ui/ErrorToast";
 import { RoomHeader } from "../../ui/RoomHeader";
+import { RoomUsersPanel } from "./RoomUsersPanel";
 
 interface RoomPanelControllerProps {}
 
@@ -49,12 +49,13 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
   const roomCreator = data?.users.find((x) => x.id === currentRoom.creatorId);
 
   return (
-    <div className={`w-full`}>
+    <div className={`w-full flex-col`}>
       <RoomHeader
         title={currentRoom.name}
         description={currentRoom.description || ""}
         names={roomCreator ? [roomCreator.username] : []}
       />
+      <RoomUsersPanel {...data} />
     </div>
   );
 };
