@@ -13,3 +13,9 @@ if System.get_env("GITHUB_ACTIONS") do
     username: "postgres",
     password: "postgres"
 end
+
+config :kousa,
+  web_url: System.get_env("WEB_URL") || "http://localhost:3000",
+  api_url: System.get_env("API_URL") || "http://localhost:4001"
+
+config :kousa, websocket_auth_timeout: 50

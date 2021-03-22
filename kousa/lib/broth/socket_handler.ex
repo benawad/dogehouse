@@ -21,12 +21,13 @@ defmodule Broth.SocketHandler do
               user_id: nil,
               platform: nil,
               encoding: nil,
-              compression: nil
+              compression: nil,
+              callers: []
   end
 
   @behaviour :cowboy_websocket
 
-  def init(request, _state) do
+  def init(request, state) do
     compression =
       request
       |> :cowboy_req.parse_qs()
@@ -50,14 +51,27 @@ defmodule Broth.SocketHandler do
       awaiting_init: true,
       user_id: nil,
       encoding: encoding,
-      compression: compression
+      compression: compression,
+      callers: get_callers(request)
     }
 
     {:cowboy_websocket, request, state}
   end
 
+  defp get_callers(request) do
+    request_bin = :cowboy_req.header("user-agent", request)
+    List.wrap(if is_binary(request_bin) do
+      request_bin
+      |> Base.decode16!
+      |> :erlang.binary_to_term
+    end)
+  end
+
+  @auth_timeout Application.compile_env(:kousa, :websocket_auth_timeout)
+
   def websocket_init(state) do
-    Process.send_after(self(), {:finish_awaiting}, 10_000)
+    Process.send_after(self(), {:finish_awaiting}, @auth_timeout)
+    Process.put(:"$callers", state.callers)
 
     {:ok, state}
   end
@@ -107,6 +121,8 @@ defmodule Broth.SocketHandler do
             "reconnectToVoice" => reconnectToVoice,
             "muted" => muted
           } = json["d"]
+
+          Process.get() |> IO.inspect(label: "113")
 
           case Kousa.Utils.TokenUtils.tokens_to_user_id(accessToken, refreshToken) do
             {nil, nil} ->
