@@ -3,7 +3,7 @@ import { SingleUser } from "./UserAvatar/SingleUser";
 
 export interface FriendOnlineType {
   username: string;
-  avatar: string;
+  avatarUrl: string;
   isOnline: boolean;
   activeRoom?: {
     name: string;
@@ -13,13 +13,13 @@ export interface FriendOnlineType {
 
 export interface FriendsOnlineProps {
   onlineFriendList: FriendOnlineType[];
-  onlineFriendCount: number;
+  onlineFriendCount?: number;
   showMoreAction?: MouseEventHandler<HTMLDivElement>;
 }
 
 const FriendOnline: React.FC<FriendOnlineType> = ({
   username,
-  avatar,
+  avatarUrl: avatar,
   isOnline,
   activeRoom,
 }) => (
@@ -39,14 +39,15 @@ const FriendOnline: React.FC<FriendOnlineType> = ({
 
 export const FriendsOnline: React.FC<FriendsOnlineProps> = ({
   onlineFriendList = [],
-  onlineFriendCount = 0,
+  onlineFriendCount,
   showMoreAction,
 }) => {
   return (
     <div className="pb-5 w-full flex flex-col" data-testid="friends-online">
       <h4 className="text-primary-100">People</h4>
       <h6 className="text-primary-300 mt-3 text-sm font-bold">
-        ONLINE ({onlineFriendCount})
+        ONLINE{" "}
+        {onlineFriendCount !== undefined ? `(${onlineFriendCount})` : null}
       </h6>
       <div className="flex flex-col mt-3">
         {onlineFriendList.length > 0 ? (

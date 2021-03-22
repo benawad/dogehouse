@@ -22,7 +22,8 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "hr", label: "🇭🇷 Hrvatski" }, // Croatian
     { value: "da", label: "🇩🇰 Dansk" }, // Danish
     { value: "de", label: "🇩🇪 Deutsch" }, // German
-    { value: "el-GR", label: "🇬🇷 ελληνικά" },
+    { value: "el-GR", label: "🇬🇷 Νέα Ελληνικά" }, //Greek
+    { value: "ag-GR", label: "🇬🇷 Ancient Greek(Αρχαία Ελληνικά)" }, //Ancient Greek
     { value: "eo", label: "🟢 Esperanto" },
     { value: "es", label: "🇪🇸 Español" }, // Estonian
     { value: "eu", label: "🏴󠁥󠁳󠁰󠁶󠁿 Euskera" }, // Euskera
@@ -44,6 +45,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "ne", label: "🇳🇵 नेपाली" }, // Nepali
     { value: "nl", label: "🇳🇱 Nederlands" }, // Dutch
     { value: "pl", label: "🇵🇱 Polski" }, // Polish
+    { value: "ph", label: "🇵🇭 Tagalog" }, // Philippines
     { value: "pt-BR", label: "🇧🇷 Português (do Brasil)" }, // Portuguese (Brazil)
     { value: "pt-PT", label: "🇵🇹 Português (Europeu)" }, // Portuguese (Portugal)
     { value: "ro", label: "🇷🇴 Română" }, // Romanian
@@ -53,7 +55,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "sl", label: "🇸🇮 Slovenščina" }, // Slovenian
     { value: "sq", label: "🇦🇱 Shqip" }, // Albanian
     { value: "sr", label: "🇷🇸 Српски" }, // Serbian
-    { value: "sr-Latin", label: "🇷🇸 Srpski" }, // Serbian (Latin)
+    { value: "sr-LATIN", label: "🇷🇸 Srpski" }, // Serbian (Latin)
     { value: "sv", label: "🇸🇪 Svenska" }, // Swedish
     { value: "ta", label: "🇮🇳 Tamil" }, // Tamil
     { value: "th", label: "🇹🇭 ไทย" }, // Thai
@@ -67,8 +69,9 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "gsw", label: "🇨🇭 Schwiizerdütsch" }, // Swiss German
 
     /* Other languages */
-    { value: "en-pirate", label: "🏴‍☠️ Pirate" },
+    { value: "en-PIRATE", label: "🏴‍☠️ Pirate" },
     { value: "owo", label: "OwO Engwish" },
+    { value: "bottom", label: "🥺 bottom"}
   ],
 }) => {
   const { i18n } = useTranslation();

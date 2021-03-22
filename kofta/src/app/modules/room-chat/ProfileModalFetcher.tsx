@@ -1,11 +1,11 @@
 import React, { useLayoutEffect } from "react";
-import { useQuery } from "react-query";
-import { wsend, wsFetch } from "../../../createWebsocket";
+import { wsend } from "../../../createWebsocket";
 import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
 import { useCurrentRoomInfo } from "../../atoms";
 import { ProfileModal } from "../../components/ProfileModal";
-import { RoomUser, UserWithFollowInfo } from "../../types";
+import { RoomUser } from "../../types";
 import { useMeQuery } from "../../utils/useMeQuery";
+import { useUserProfileQuery } from "../../utils/useUserProfileQuery";
 import { RoomChatMessage } from "./useRoomChatStore";
 
 interface ProfileModalFetcherProps {
@@ -27,15 +27,7 @@ export const ProfileModalFetcher: React.FC<ProfileModalFetcherProps> = ({
     [x.id, x.username].includes(userId)
   );
 
-  const { data: profileFromDB } = useQuery<UserWithFollowInfo>(
-    ["get_user_profile", userId],
-    () =>
-      wsFetch<any>({
-        op: "get_user_profile",
-        d: { userId },
-      }),
-    { enabled: !profileFromRoom }
-  );
+  const { data: profileFromDB } = useUserProfileQuery(userId, !profileFromRoom);
 
   const profile = profileFromRoom || profileFromDB;
 

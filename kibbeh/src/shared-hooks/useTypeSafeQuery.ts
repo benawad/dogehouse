@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { useQuery, UseQueryOptions } from "react-query";
 import { WebSocketContext } from "../modules/ws/WebSocketProvider";
 import { Await } from "../types/util-types";
+import { useWrappedConn } from "./useConn";
 
 type Keys = keyof ReturnType<typeof wrap>["query"];
 
@@ -13,14 +14,14 @@ export const useTypeSafeQuery = <K extends Keys>(
   opts?: UseQueryOptions,
   params?: Parameters<ReturnType<typeof wrap>["query"][K]>
 ) => {
-  const { conn } = useContext(WebSocketContext);
+  const conn = useWrappedConn();
 
   return useQuery<Await<ReturnType<ReturnType<typeof wrap>["query"][K]>>>(
     key,
-    () =>
-      (wrap(conn!).query[typeof key === "string" ? key : key[0]] as any)(
-        params
-      ),
+    () => {
+      const fn = conn.query[typeof key === "string" ? key : key[0]] as any;
+      return fn(...(params || []));
+    },
     {
       enabled: !!conn,
       ...opts,

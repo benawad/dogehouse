@@ -13,12 +13,15 @@ export const useTypeSafePrefetch = <K extends Keys>(
   const { conn } = useContext(WebSocketContext);
   const client = useQueryClient();
 
-  return (params?: Parameters<ReturnType<typeof wrap>["query"][K]>) =>
+  return (
+    params?: Parameters<ReturnType<typeof wrap>["query"][K]>,
+    altKey?: K | PaginatedKey<K>
+  ) =>
     client.prefetchQuery(
-      key,
+      altKey || key,
       () =>
         (wrap(conn!).query[typeof key === "string" ? key : key[0]] as any)(
-          params
+          ...(params || [])
         ),
       { staleTime: 0 }
     );

@@ -14,7 +14,8 @@
     "copyLink": "Kopieer link",
     "copied": "Gekopieerd",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Houd er rekening mee dat het uitvoeren van DogeHouse zonder toegankelijkheidsrechten ongewenste fouten kan veroorzaken"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -60,7 +61,8 @@
       "probablyLoading": "Waarschijnlijk aan het laden...",
       "voiceSettings": "Ga naar spraakinstellingen",
       "soundSettings": "Ga naar geluidsinstellingen",
-      "deleteAccount": "Verwijder account"
+      "deleteAccount": "Verwijder account",
+      "overlaySettings": "ga naar overlay-instellingen"
     },
     "notFound": {
       "whoopsError": "Oeps! Deze pagina is verloren gegaan tijdens het gesprek.",
@@ -82,7 +84,9 @@
       "followers": "Volgers",
       "following": "Volgend",
       "followHim": "Volg",
-      "followingHim": "Volgend"
+      "followingHim": "Volgend",
+      "copyProfileUrl": "kopieer profiel url",
+      "urlCopied": "URL gekopieerd naar klembord"
     },
     "voiceSettings": {
       "header": "Spraakinstellingen",
@@ -90,6 +94,10 @@
       "permissionError": "Geen microfoon gevonden, waarschijnlijk is er geen microfoon aangesloten of heb je geen toestemming gegeven.",
       "refresh": "Ververs microfoonlijst",
       "volume": "Volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay-instellingen"
     }
   },
   "components": {
@@ -134,7 +142,8 @@
       "setKeybind": "Stel sneltoets in",
       "listening": "Aan het luisteren",
       "toggleMuteKeybind": "Schakel demp sneltoets",
-      "togglePushToTalkKeybind": "Schakel push-to-talk sneltoets"
+      "togglePushToTalkKeybind": "Schakel push-to-talk sneltoets",
+      "toggleOverlayKeybind": "schakel overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Geen audioapparaat om een of andere reden"
@@ -182,7 +191,7 @@
         "banFromRoom": "Verban uit de kamer",
         "goBackToListener": "Ga terug naar luisteraar",
         "deleteMessage": "Verwijder dit bericht",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "kamerbeheerder maken"
       },
       "roomSettingsModal": {
         "requirePermission": "Toestemming nodig om te spreken",
@@ -209,7 +218,7 @@
     },
     "roomChat": {
       "title": "Chat",
-      "emotesSoon": "[Emotes binnekort]",
+      "emotesSoon": "[Emotes binnenkort]",
       "bannedAlert": "Je bent uit deze chat verbannen",
       "waitAlert": "Je moet een seconde wachten voordat je weer een bericht kan sturen.",
       "search": "Zoeken",
