@@ -31,6 +31,7 @@
     "license": "MIT",
     "devDependencies": {
         "@types/node": "^14.14.31",
+        "builder-util": "^22.10.5",
         "electron": "^11.3.0",
         "electron-builder": "^22.10.5",
         "typescript": "^4.2.2"
@@ -60,7 +61,8 @@
         "linux": {
             "icon": "icons/icon.png",
             "target": [
-                "deb"
+                "deb",
+                "AppImage"
             ]
         },
         "directories": {
