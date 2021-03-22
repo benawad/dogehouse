@@ -237,7 +237,7 @@
     "prefer-template": "off",
     "quote-props": "off",
     "quotes": "off",
-    "radix": "error",
+    "radix": "off",
     "require-atomic-updates": "error",
     "require-await": "error",
     "require-unicode-regexp": "off",
