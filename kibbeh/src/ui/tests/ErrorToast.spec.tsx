@@ -22,17 +22,6 @@ describe("ErrorMessage", () => {
     expect(child).toBeVisible();
   });
 
-  // it("should have translateY(0%) when rendered", () => {
-  //   const message = "some error message";
-  //   const { getByTestId } = render(
-  //     <ErrorToast message={message} onClose={() => {}} />
-  //   );
-
-  //   const component = getByTestId("error-message");
-
-  //   expect(component.style.transform).toContain("translateY(0%)");
-  // });
-
   it("should call onClose after 7000ms", () => {
     const message = "some error message";
     const onClick = jest.fn();
