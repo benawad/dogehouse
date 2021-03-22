@@ -75,16 +75,6 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
   const { t } = useTypeSafeTranslation();
   const history = useHistory()
 
-  // if (!room) {
-  //   return (
-  //     <Wrapper>
-  //       <Backbar />
-  //       <BodyWrapper>
-  //         <div>{t("common.loading")}</div>
-  //       </BodyWrapper>
-  //     </Wrapper>
-  //   );
-  // }
 
   return (
     <>
