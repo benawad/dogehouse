@@ -18,5 +18,9 @@ export const Online: Story<AvatarProps> = ({ ...props }) => (
   <SingleUser {...props} src={src} isOnline />
 );
 
+export const Muted: Story<AvatarProps> = ({ ...props }) => (
+  <SingleUser {...props} src={src} muted />
+);
+
 Default.bind({});
 Online.bind({});

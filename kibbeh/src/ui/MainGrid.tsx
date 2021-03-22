@@ -2,9 +2,7 @@ import React from "react";
 
 interface DashboardGridProps {}
 
-export const DashboardInnerGrid: React.FC<DashboardGridProps> = ({
-  children,
-}) => {
+export const MainInnerGrid: React.FC<DashboardGridProps> = ({ children }) => {
   return (
     <div
       style={{
@@ -18,13 +16,13 @@ export const DashboardInnerGrid: React.FC<DashboardGridProps> = ({
   );
 };
 
-export const DashboardGrid: React.FC<DashboardGridProps> = ({ children }) => {
+export const MainGrid: React.FC<DashboardGridProps> = ({ children }) => {
   return (
     <div
       className={`flex justify-center w-full min-h-screen bg-primary-900`}
       data-testid="dashboard-grid"
     >
-      <DashboardInnerGrid>{children}</DashboardInnerGrid>
+      <MainInnerGrid>{children}</MainInnerGrid>
     </div>
   );
 };

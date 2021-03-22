@@ -1,15 +1,14 @@
 import React, { useContext } from "react";
 import { PageComponent } from "../../types/PageComponent";
-import { DashboardInnerGrid } from "../../ui/DashboardGrid";
-import { FriendsOnline } from "../../ui/FriendsOnline";
+import { MainInnerGrid } from "../../ui/MainGrid";
 import Header from "../../ui/Header";
-import { ProfileBlock } from "../../ui/ProfileBlock";
-import { UpcomingRoomsCard } from "../../ui/UpcomingRoomsCard";
-import { UserSummaryCard } from "../../ui/UserSummaryCard";
 import { useVerifyLoggedIn } from "../auth/useVerifyLoggedIn";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 import { FeedController } from "./FeedController";
+import { FollowingOnlineController } from "./FollowingOnlineController";
 import { ProfileBlockController } from "./ProfileBlockController";
+import { HeaderController } from "../header/HeaderController";
+import { DesktopLayout } from "../layouts/DesktopLayout";
 
 interface LoungePageProps {}
 
@@ -26,20 +25,11 @@ export const DashboardPage: PageComponent<LoungePageProps> = ({}) => {
   }
 
   return (
-    <div className={`flex-col items-center w-full`}>
-      <div className={`mt-5 mb-7`}>
-        <Header
-          searchPlaceholder={"Search for rooms, users or categories"}
-          onSearchChange={() => null}
-          avatarImg={conn.user.avatarUrl}
-        />
-      </div>
-      <DashboardInnerGrid>
-        <FriendsOnline onlineFriendCount={0} onlineFriendList={[]} />
-        <FeedController />
-        <ProfileBlockController />
-      </DashboardInnerGrid>
-    </div>
+    <DesktopLayout>
+      <FollowingOnlineController />
+      <FeedController />
+      <ProfileBlockController />
+    </DesktopLayout>
   );
 };
 

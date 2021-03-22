@@ -15,7 +15,8 @@
     "copyLink": "リンクをコピー",
     "copied": "コピーしました",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -61,7 +62,8 @@
       "probablyLoading": "きっと読込中...",
       "voiceSettings": "マイク設定",
       "soundSettings": "スピーカー設定",
-      "deleteAccount": "アカウント削除"
+      "deleteAccount": "アカウント削除",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "おっと！？ このページは会話に紛れてしまいました。",
@@ -93,6 +95,10 @@
       "permissionError": "マイクが見つかりませんでした。 マイクが接続されていることを確認し、アクセスを許可してください。",
       "refresh": "更新",
       "volume": "ボリューム:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -134,7 +140,8 @@
       "setKeybind": "ショートカットキーを設定",
       "listening": "聞いています",
       "toggleMuteKeybind": "ミュート切り替え",
-      "togglePushToTalkKeybind": "プッシュトゥートーク切り替え"
+      "togglePushToTalkKeybind": "プッシュトゥートーク切り替え",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "何らかの原因で音声が出ません" },
     "addToCalendar": { "add": "カレンダーに追加" },

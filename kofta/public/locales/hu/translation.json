@@ -14,7 +14,8 @@
     "copyLink": "link másolása",
     "copied": "másolva",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -59,7 +60,8 @@
       "probablyLoading": "valószínüleg tölt...",
       "voiceSettings": "hangbeállítások",
       "soundSettings": "hanghatások",
-      "deleteAccount": "fiók törlése"
+      "deleteAccount": "fiók törlése",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Whoops! Ez az oldal elveszett a beszélgetésben.",
@@ -91,6 +93,10 @@
       "permissionError": "Nem található mikrofon. Vagy nincs csatlakoztatva, vagy nem adta meg az engedélyt.",
       "refresh": "elérhető mikrofonok frissítése",
       "volume": "Hangerő:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -174,7 +180,8 @@
       "setKeybind": "Gyorsbillentyű beállítása",
       "listening": "figyelés...",
       "toggleMuteKeybind": "Némítás kapcsolása",
-      "togglePushToTalkKeybind": "Push-to-talk kapcsolása"
+      "togglePushToTalkKeybind": "Push-to-talk kapcsolása",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "wsKilled": {
       "description": "A Websocket kapcsolatot megszakította a szerver. Ez általában akkor fordul elő, amikor több fülön meg van nyitva a weboldal.",

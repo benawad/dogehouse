@@ -19,6 +19,12 @@ export const wrap = (connection: Connection) => ({
       connection.addListener("new_chat_msg", handler),
   },
   query: {
+    getFollowingOnline: (
+      cursor = 0
+    ): Promise<{
+      users: UserWithFollowInfo[];
+      nextCursor: number | null;
+    }> => connection.fetch("fetch_following_online", { cursor }),
     getCurrentRoomUsers: (): Promise<GetRoomUsersResponse> =>
       connection.fetch("get_current_room_users"),
     getRoomUsers: (

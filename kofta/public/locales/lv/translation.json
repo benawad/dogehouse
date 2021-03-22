@@ -15,7 +15,8 @@
     "copyLink": "Kopēt saiti",
     "copied": "Nokopēts",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -61,7 +62,8 @@
       "probablyLoading": "visticamāk, notiek ielāde...",
       "voiceSettings": "salss ziņu iestatījumi",
       "soundSettings": "skaņas iestatījumi",
-      "deleteAccount": "dzēst kontu"
+      "deleteAccount": "dzēst kontu",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Ups! Šī lapa tika pazaudēta sarunā.",
@@ -93,6 +95,13 @@
       "permissionError": "mikrofons nav atrasts, tas nav pieslēgts vai pārlūkam nav atbilstošās atļaujas.",
       "refresh": "atjaunināt mikrofonu sarakstu",
       "volume": "skaļums:"
+    },
+    "overlaySettings": {
+      "header": "Overlay Settings",
+      "input": {
+        "errorMsg": "Please enter valid app title",
+        "label": "Enter app title"
+      }
     }
   },
   "components": {
@@ -137,7 +146,8 @@
       "setKeybind": "uzlikt aktivācijas taustiņu",
       "listening": "klausās",
       "toggleMuteKeybind": "Skaņas izslēgšanas taustiņš",
-      "togglePushToTalkKeybind": ":Īslaicīgās mikrofona ieslēgšanas taustiņš"
+      "togglePushToTalkKeybind": ":Īslaicīgās mikrofona ieslēgšanas taustiņš",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "nezināmu iemeslu dēļ, nav pieejama audiosaziņa"

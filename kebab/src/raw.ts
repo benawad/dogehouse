@@ -98,7 +98,7 @@ export const connect = (
 
               listeners.push(listener);
 
-              return () => listeners.splice(listeners.indexOf(listener));
+              return () => listeners.splice(listeners.indexOf(listener), 1);
             },
             user: message.d.user,
             send: apiSend,
