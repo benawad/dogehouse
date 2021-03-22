@@ -8,45 +8,37 @@ defmodule Broth.SocketHandler do
   alias Ecto.UUID
   alias Beef.RoomPermissions
 
-  # TODO: just collapse this into its parent module.
-  defmodule State do
-    @type t :: %__MODULE__{
-            awaiting_init: boolean(),
-            user_id: String.t(),
-            encoding: atom(),
-            compression: String.t()
-          }
+  @type state :: %__MODULE__{
+          awaiting_init: boolean(),
+          user_id: String.t(),
+          encoding: :etf | :json,
+          compression: nil | :zlib
+        }
 
-    defstruct awaiting_init: true,
-              user_id: nil,
-              platform: nil,
-              encoding: nil,
-              compression: nil
-  end
+  defstruct awaiting_init: true,
+            user_id: nil,
+            platform: nil,
+            encoding: :json,
+            compression: nil
 
   @behaviour :cowboy_websocket
 
   def init(request, _state) do
+    props = :cowboy_req.parse_qs(request)
+
     compression =
-      request
-      |> :cowboy_req.parse_qs()
-      |> Enum.find(fn {name, _value} -> name == "compression" end)
-      |> case do
-        {_name, "zlib_json"} -> :zlib
-        {_name, "zlib"} -> :zlib
-        _ -> :json
+      case :proplists.get_value("compression", props) do
+        p when p in ["zlib_json", "zlib"] -> :zlib
+        _ -> nil
       end
 
     encoding =
-      request
-      |> :cowboy_req.parse_qs()
-      |> Enum.find(fn {name, _value} -> name == "encoding" end)
-      |> case do
-        {_name, "etf"} -> :etf
+      case :proplists.get_value("encoding", props) do
+        "etf" -> :etf
         _ -> :json
       end
 
-    state = %State{
+    state = %__MODULE__{
       awaiting_init: true,
       user_id: nil,
       encoding: encoding,
@@ -82,10 +74,6 @@ defmodule Broth.SocketHandler do
   def websocket_info({:send_to_linked_session, message}, state) do
     send(state.linked_session, message)
     {:ok, state}
-  end
-
-  def websocket_info({:kill}, state) do
-    {:reply, {:close, 4003, "killed_by_server"}, state}
   end
 
   def websocket_handle({:text, "ping"}, state) do
@@ -441,7 +429,7 @@ defmodule Broth.SocketHandler do
     {:ok, state}
   end
 
-  # def handler("delete_account", _data, %State{} = state) do
+  # def handler("delete_account", _data, state) do
   #   Kousa.User.delete(state.user_id)
   #   # this will log the user out
   #   {:reply, {:close, 4001, "invalid_authentication"}, state}
@@ -589,26 +577,26 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  def f_handler("fetch_following_online", %{"cursor" => cursor}, %State{} = state) do
+  def f_handler("fetch_following_online", %{"cursor" => cursor}, state) do
     {users, next_cursor} = Follows.fetch_following_online(state.user_id, cursor)
 
     %{users: users, nextCursor: next_cursor}
   end
 
-  def f_handler("mute", %{"value" => value}, %State{} = state) do
+  def f_handler("mute", %{"value" => value}, state) do
     Onion.UserSession.send_cast(state.user_id, {:set_mute, value})
 
     %{}
   end
 
-  def f_handler("leave_room", _data, %State{} = state) do
+  def f_handler("leave_room", _data, state) do
     case Kousa.Room.leave_room(state.user_id) do
       {:ok, x} -> x
       _ -> %{}
     end
   end
 
-  def f_handler("get_room_users", %{"roomId" => room_id_to_join}, %State{} = state) do
+  def f_handler("get_room_users", %{"roomId" => room_id_to_join}, state) do
     with true <- Beef.Users.get_current_room_id(state.user_id) != room_id_to_join,
          %{error: err} <- Kousa.Room.join_room(state.user_id, room_id_to_join) do
       %{error: err}
@@ -641,7 +629,7 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  def f_handler("get_current_room_users", _data, %State{} = state) do
+  def f_handler("get_current_room_users", _data, state) do
     {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
 
     {muteMap, autoSpeaker, activeSpeakerMap} =
@@ -667,11 +655,11 @@ defmodule Broth.SocketHandler do
   end
 
   @spec f_handler(<<_::64, _::_*8>>, any, atom | map) :: any
-  def f_handler("get_my_scheduled_rooms_about_to_start", _data, %State{} = state) do
+  def f_handler("get_my_scheduled_rooms_about_to_start", _data, state) do
     %{scheduledRooms: Kousa.ScheduledRoom.get_my_scheduled_rooms_about_to_start(state.user_id)}
   end
 
-  def f_handler("get_top_public_rooms", data, %State{} = state) do
+  def f_handler("get_top_public_rooms", data, state) do
     {rooms, next_cursor} =
       Rooms.get_top_public_rooms(
         state.user_id,
@@ -697,7 +685,7 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  def f_handler("get_scheduled_rooms", data, %State{} = state) do
+  def f_handler("get_scheduled_rooms", data, state) do
     {scheduled_rooms, next_cursor} =
       Kousa.ScheduledRoom.get_scheduled_rooms(
         state.user_id,
@@ -711,7 +699,7 @@ defmodule Broth.SocketHandler do
     }
   end
 
-  def f_handler("edit_scheduled_room", %{"id" => id, "data" => data}, %State{} = state) do
+  def f_handler("edit_scheduled_room", %{"id" => id, "data" => data}, state) do
     case Kousa.ScheduledRoom.edit(
            state.user_id,
            id,
@@ -725,7 +713,7 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  def f_handler("delete_scheduled_room", %{"id" => id}, %State{} = state) do
+  def f_handler("delete_scheduled_room", %{"id" => id}, state) do
     Kousa.ScheduledRoom.delete(
       state.user_id,
       id
@@ -741,7 +729,7 @@ defmodule Broth.SocketHandler do
           "name" => name,
           "description" => description
         },
-        %State{} = state
+        state
       ) do
     case Kousa.ScheduledRoom.create_room_from_scheduled_room(
            state.user_id,
@@ -759,7 +747,7 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  def f_handler("create_room", data, %State{} = state) do
+  def f_handler("create_room", data, state) do
     case Kousa.Room.create_room(
            state.user_id,
            data["name"],
@@ -777,7 +765,7 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  def f_handler("schedule_room", data, %State{} = state) do
+  def f_handler("schedule_room", data, state) do
     case Kousa.ScheduledRoom.schedule(state.user_id, data) do
       {:ok, scheduledRoom} ->
         %{scheduledRoom: scheduledRoom}
@@ -787,12 +775,12 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  def f_handler("unban_from_room", %{"userId" => user_id}, %State{} = state) do
+  def f_handler("unban_from_room", %{"userId" => user_id}, state) do
     Kousa.RoomBlock.unban(state.user_id, user_id)
     %{}
   end
 
-  def f_handler("edit_profile", %{"data" => data}, %State{} = state) do
+  def f_handler("edit_profile", %{"data" => data}, state) do
     %{
       isUsernameTaken:
         case Kousa.User.edit_profile(state.user_id, data) do
@@ -802,7 +790,7 @@ defmodule Broth.SocketHandler do
     }
   end
 
-  def f_handler("get_blocked_from_room_users", %{"offset" => offset}, %State{} = state) do
+  def f_handler("get_blocked_from_room_users", %{"offset" => offset}, state) do
     case Kousa.RoomBlock.get_blocked_users(state.user_id, offset) do
       {users, next_cursor} ->
         %{users: users, nextCursor: next_cursor}
@@ -812,7 +800,7 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  def f_handler("get_user_profile", %{"userId" => id_or_username}, %State{} = _state) do
+  def f_handler("get_user_profile", %{"userId" => id_or_username}, _state) do
     case UUID.cast(id_or_username) do
       {:ok, uuid} ->
         Beef.Users.get_by_id(uuid)
@@ -822,14 +810,14 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  def f_handler("follow_info", %{"userId" => other_user_id}, %State{} = state) do
+  def f_handler("follow_info", %{"userId" => other_user_id}, state) do
     Map.merge(
       %{userId: other_user_id},
       Follows.get_info(state.user_id, other_user_id)
     )
   end
 
-  defp prepare_socket_msg(data, %State{compression: compression, encoding: encoding}) do
+  defp prepare_socket_msg(data, %{compression: compression, encoding: encoding}) do
     data
     |> encode_data(encoding)
     |> compress_data(compression)

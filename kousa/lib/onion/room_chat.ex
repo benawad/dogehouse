@@ -37,7 +37,7 @@ defmodule Onion.RoomChat do
   def kill(room_id) do
     case GenRegistry.lookup(__MODULE__, room_id) do
       {:ok, session} ->
-        GenServer.cast(session, {:kill})
+        Process.exit(session, :kill)
     end
   end
 
@@ -108,9 +108,5 @@ defmodule Onion.RoomChat do
     })
 
     {:noreply, %State{state | ban_map: Map.put(state.ban_map, user_id, 1)}}
-  end
-
-  def handle_cast({:kill}, state) do
-    {:stop, :normal, state}
   end
 end

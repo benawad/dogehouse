@@ -133,8 +133,8 @@ defmodule Onion.UserSession do
   end
 
   def handle_call({:set_pid, pid}, _, state) do
-    if not is_nil(state.pid) do
-      send(state.pid, {:kill})
+    if state.pid do
+      Process.exit(state.pid, :kill)
     else
       Beef.Users.set_online(state.user_id)
     end
@@ -160,7 +160,7 @@ defmodule Onion.UserSession do
   end
 
   def handle_info({:DOWN, _ref, :process, pid, _reason}, state) do
-    if state.pid === pid do
+    if state.pid == pid do
       Beef.Users.set_offline(state.user_id)
 
       if state.current_room_id do
