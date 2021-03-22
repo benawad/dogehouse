@@ -43,6 +43,7 @@ function createWindow() {
   splash = new BrowserWindow({
     width: 810,
     height: 610,
+    transparent: true,
     frame: false
   });
   splash.loadURL(
