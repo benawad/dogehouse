@@ -608,12 +608,12 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  def f_handler("get_room_users", %{"roomId" => room_id_to_join}, %State{} = state) do
-    with true <- Beef.Users.get_current_room_id(state.user_id) != room_id_to_join,
-         %{error: err} <- Kousa.Room.join_room(state.user_id, room_id_to_join) do
-      %{error: err}
-    else
-      _ ->
+  def f_handler("join_room_and_get_info", %{"roomId" => room_id_to_join}, %State{} = state) do
+    case Kousa.Room.join_room(state.user_id, room_id_to_join) do
+      %{error: err} ->
+        %{error: err}
+
+      %{room: room} ->
         {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
 
         {muteMap, autoSpeaker, activeSpeakerMap} =
@@ -632,12 +632,16 @@ defmodule Broth.SocketHandler do
           end
 
         %{
+          room: room,
           users: users,
           muteMap: muteMap,
           activeSpeakerMap: activeSpeakerMap,
           roomId: room_id,
           autoSpeaker: autoSpeaker
         }
+
+      _ ->
+        %{error: "you should never see this, tell ben"}
     end
   end
 

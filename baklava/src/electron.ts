@@ -133,9 +133,11 @@ if (!instanceLock) {
     autoUpdater.checkForUpdatesAndNotify();
     mainWindow.on('blur', () => {
       (async () => {
-        console.log(await activeWin());
+        const res = await activeWin();
+        console.log(res?.owner.name);
+        console.log(res)
       })();
-    })
+    });
   });
   app.on("second-instance", (event, argv, workingDirectory) => {
     if (mainWindow) {

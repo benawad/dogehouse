@@ -39,6 +39,22 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
     }
   }, [conn, shouldConnect, hasTokens, replace]);
 
+  useEffect(() => {
+    if (!conn) {
+      return;
+    }
+
+    return conn.addListener<{
+      refreshToken: string;
+      accessToken: string;
+    }>("new-tokens", ({ refreshToken, accessToken }) => {
+      useTokenStore.getState().setTokens({
+        accessToken,
+        refreshToken,
+      });
+    });
+  }, [conn]);
+
   return (
     <WebSocketContext.Provider value={useMemo(() => ({ conn }), [conn])}>
       {children}
