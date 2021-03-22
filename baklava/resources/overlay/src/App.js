@@ -1,5 +1,6 @@
-import "./App.css";
-import { useEffect, useState } from "react";
+import './App.css';
+import { useEffect, useState } from 'react';
+// import { FiMicOff } from "react-icons/fi";
 
 const ipcRenderer = window.require("electron").ipcRenderer;
 

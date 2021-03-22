@@ -5,7 +5,7 @@ on:
     paths:
       - "baklava/**"
     branches:
-      - prod
+      - staging
 
 jobs:
   release:
@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v1
@@ -24,6 +24,9 @@ jobs:
       - name: Install Overlay Deps
         working-directory: baklava/resources/overlay
         run: yarn
+      - name: Build overlay
+        working-directory: baklava/resources/overlay
+        run: yarn build
       - name: Prepare for app notarization
         if: startsWith(matrix.os, 'macos')
         # Import Apple API key for app notarization on macOS
