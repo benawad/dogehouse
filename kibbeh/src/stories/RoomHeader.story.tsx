@@ -7,7 +7,7 @@ export default {
   title: "RoomHeader",
 };
 
-const TheRoomHeading: Story<RoomCardHeadingProps> = () => {
+const TheRoomHeader: Story<RoomCardHeadingProps> = () => {
   return (
     <div className="flex flex-col space-y-5">
       <RoomHeader
@@ -19,4 +19,4 @@ const TheRoomHeading: Story<RoomCardHeadingProps> = () => {
   );
 };
 
-export const Main = TheRoomHeading.bind({});
+export const Main = TheRoomHeader.bind({});

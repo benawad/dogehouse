@@ -15,6 +15,9 @@ module.exports = {
       ],
       // mono: ["Menlo", "Monaco", "Courier New", "monospace"],
     },
+    fontSize: {
+      tiny: "0.625rem",
+    },
     colors: {
       button: "var(--color-button-text)",
       transparent: "transparent",
@@ -50,6 +53,7 @@ module.exports = {
     },
     extend: {
       borderRadius: {
+        5: "5px",
         8: "8px",
       },
     },
