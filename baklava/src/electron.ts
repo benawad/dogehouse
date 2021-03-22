@@ -12,10 +12,11 @@ import iohook from "iohook";
 import { autoUpdater } from "electron-updater";
 import { RegisterKeybinds } from "./utils/keybinds";
 import { HandleVoiceTray } from "./utils/tray";
-import { ALLOWED_HOSTS, isMac, MENU_TEMPLATE } from "./constants";
+import { ALLOWED_HOSTS, isMac, MENU_TEMPLATE, callback } from "./constants";
 import url from "url";
 import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
+import monitor from 'active-window';
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
@@ -130,6 +131,7 @@ if (!instanceLock) {
   app.on("ready", () => {
     createWindow();
     autoUpdater.checkForUpdatesAndNotify();
+
   });
   app.on("second-instance", (event, argv, workingDirectory) => {
     if (mainWindow) {

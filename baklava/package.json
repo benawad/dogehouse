@@ -33,6 +33,7 @@
         "@types/node": "^14.14.31",
         "electron": "^11.3.0",
         "electron-builder": "^22.10.5",
+        "electron-overlay-window": "^1.0.4",
         "typescript": "^4.2.2"
     },
     "build": {
@@ -68,7 +69,7 @@
         }
     },
     "dependencies": {
-        "electron-overlay-window": "^1.0.4",
+        "active-window": "^0.1.0",
         "electron-updater": "^4.3.8",
         "iohook": "^0.7.2"
     },

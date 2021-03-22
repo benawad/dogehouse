@@ -14,7 +14,7 @@ import {
     IOHookEvent,
     isMac,
 } from "../constants";
-import ioHook from "iohook";
+import ioHook from 'iohook';
 import { overlayWindow } from "electron-overlay-window";
 import { createOverlay } from "./overlay";
 import { startIPCHandler } from "./ipc";
@@ -112,76 +112,76 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
     ipcMain.on("@overlay/app_title", (event, appTitle: string) => {
         CURRENT_APP_TITLE = appTitle;
     })
+    if (process.platform !== "linux") {
+        ioHook.on("keydown", (event: IOHookEvent) => {
+            if (event.shiftKey) {
+                if (CURRENT_PTT_KEY.includes("Shift")) {
+                    let i = CURRENT_PTT_KEY.indexOf("Shift");
+                    PTT_STATUS[i] = true;
+                }
+            } else if (event.altKey) {
+                if (CURRENT_PTT_KEY.includes("Alt")) {
+                    let i = CURRENT_PTT_KEY.indexOf("Alt");
+                    PTT_STATUS[i] = true;
+                }
+            } else if (event.ctrlKey) {
+                if (CURRENT_PTT_KEY.includes("Control")) {
+                    let i = CURRENT_PTT_KEY.indexOf("Control");
+                    PTT_STATUS[i] = true;
+                }
+            } else if (event.metaKey) {
+                if (CURRENT_PTT_KEY.includes("Meta")) {
+                    let i = CURRENT_PTT_KEY.indexOf("Meta");
+                    PTT_STATUS[i] = true;
+                }
+            } else {
+                if (CURRENT_PTT_KEY.includes(KEY_TABLE[event.keycode - 1])) {
+                    let i = CURRENT_PTT_KEY.indexOf(KEY_TABLE[event.keycode - 1]);
+                    PTT_STATUS[i] = true;
+                }
+            }
+            let PTT = PTT_STATUS.every((key_status) => key_status === true);
+            if (PTT != PTT_PREV_STATUS) {
+                PTT_PREV_STATUS = PTT;
+                mainWindow.webContents.send("@voice/ptt_status_change", !PTT);
+            }
+        })
 
-    ioHook.on("keydown", (event: IOHookEvent) => {
-        if (event.shiftKey) {
-            if (CURRENT_PTT_KEY.includes("Shift")) {
-                let i = CURRENT_PTT_KEY.indexOf("Shift");
-                PTT_STATUS[i] = true;
+        ioHook.on("keyup", (event: IOHookEvent) => {
+            if (event.shiftKey) {
+                if (CURRENT_PTT_KEY.includes("Shift")) {
+                    let i = CURRENT_PTT_KEY.indexOf("Shift");
+                    PTT_STATUS[i] = false;
+                }
+            } else if (event.altKey) {
+                if (CURRENT_PTT_KEY.includes("Alt")) {
+                    let i = CURRENT_PTT_KEY.indexOf("Alt");
+                    PTT_STATUS[i] = false;
+                }
+            } else if (event.ctrlKey) {
+                if (CURRENT_PTT_KEY.includes("Control")) {
+                    let i = CURRENT_PTT_KEY.indexOf("Control");
+                    PTT_STATUS[i] = false;
+                }
+            } else if (event.metaKey) {
+                if (CURRENT_PTT_KEY.includes("Meta")) {
+                    let i = CURRENT_PTT_KEY.indexOf("Meta");
+                    PTT_STATUS[i] = false;
+                }
+            } else {
+                if (CURRENT_PTT_KEY.includes(KEY_TABLE[event.keycode - 1])) {
+                    let i = CURRENT_PTT_KEY.indexOf(KEY_TABLE[event.keycode - 1]);
+                    PTT_STATUS[i] = false;
+                }
             }
-        } else if (event.altKey) {
-            if (CURRENT_PTT_KEY.includes("Alt")) {
-                let i = CURRENT_PTT_KEY.indexOf("Alt");
-                PTT_STATUS[i] = true;
+            let PTT = PTT_STATUS.every((key_status) => key_status === true);
+            if (PTT != PTT_PREV_STATUS) {
+                PTT_PREV_STATUS = PTT;
+                mainWindow.webContents.send("@voice/ptt_status_change", !PTT);
             }
-        } else if (event.ctrlKey) {
-            if (CURRENT_PTT_KEY.includes("Control")) {
-                let i = CURRENT_PTT_KEY.indexOf("Control");
-                PTT_STATUS[i] = true;
-            }
-        } else if (event.metaKey) {
-            if (CURRENT_PTT_KEY.includes("Meta")) {
-                let i = CURRENT_PTT_KEY.indexOf("Meta");
-                PTT_STATUS[i] = true;
-            }
-        } else {
-            if (CURRENT_PTT_KEY.includes(KEY_TABLE[event.keycode - 1])) {
-                let i = CURRENT_PTT_KEY.indexOf(KEY_TABLE[event.keycode - 1]);
-                PTT_STATUS[i] = true;
-            }
-        }
-        let PTT = PTT_STATUS.every((key_status) => key_status === true);
-        if (PTT != PTT_PREV_STATUS) {
-            PTT_PREV_STATUS = PTT;
-            mainWindow.webContents.send("@voice/ptt_status_change", !PTT);
-        }
-    })
+        });
 
-    ioHook.on("keyup", (event: IOHookEvent) => {
-        if (event.shiftKey) {
-            if (CURRENT_PTT_KEY.includes("Shift")) {
-                let i = CURRENT_PTT_KEY.indexOf("Shift");
-                PTT_STATUS[i] = false;
-            }
-        } else if (event.altKey) {
-            if (CURRENT_PTT_KEY.includes("Alt")) {
-                let i = CURRENT_PTT_KEY.indexOf("Alt");
-                PTT_STATUS[i] = false;
-            }
-        } else if (event.ctrlKey) {
-            if (CURRENT_PTT_KEY.includes("Control")) {
-                let i = CURRENT_PTT_KEY.indexOf("Control");
-                PTT_STATUS[i] = false;
-            }
-        } else if (event.metaKey) {
-            if (CURRENT_PTT_KEY.includes("Meta")) {
-                let i = CURRENT_PTT_KEY.indexOf("Meta");
-                PTT_STATUS[i] = false;
-            }
-        } else {
-            if (CURRENT_PTT_KEY.includes(KEY_TABLE[event.keycode - 1])) {
-                let i = CURRENT_PTT_KEY.indexOf(KEY_TABLE[event.keycode - 1]);
-                PTT_STATUS[i] = false;
-            }
-        }
-        let PTT = PTT_STATUS.every((key_status) => key_status === true);
-        if (PTT != PTT_PREV_STATUS) {
-            PTT_PREV_STATUS = PTT;
-            mainWindow.webContents.send("@voice/ptt_status_change", !PTT);
-        }
-    });
-
-    ioHook.start();
-
+        ioHook.start();
+    }
 }
 
