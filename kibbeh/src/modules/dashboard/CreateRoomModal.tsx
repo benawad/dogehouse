@@ -81,7 +81,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
             console.log("new room voice server id: " + room.voiceServerId);
             useRoomChatStore.getState().clearChat();
             useCurrentRoomStore.getState().setCurrentRoom(() => room);
-            push(`/room/${room.id}`);
+            push(`/room/[id]`, `/room/${room.id}`);
           }
 
           onRequestClose();
@@ -107,7 +107,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
                 autoComplete="off"
               />
             </div>
-            <div className={`grid mt-8 items-start grid-cols-1 h-6`}>
+            <div className={`grid items-start grid-cols-1 h-6`}>
               <NativeSelect
                 value={values.privacy}
                 onChange={(e) => {

@@ -41,6 +41,7 @@ export type RoomCardProps = {
   scheduledFor?: Date;
   listeners: number;
   tags: React.ReactNode[];
+  onClick?: () => void;
 };
 
 export const RoomCard: React.FC<RoomCardProps> = ({
@@ -49,6 +50,7 @@ export const RoomCard: React.FC<RoomCardProps> = ({
   scheduledFor,
   listeners,
   tags,
+  onClick,
 }) => {
   useScheduleRerender(scheduledFor);
 
@@ -65,7 +67,10 @@ export const RoomCard: React.FC<RoomCardProps> = ({
   const roomLive = !scheduledFor || isPast(scheduledFor);
 
   return (
-    <div className="p-4 w-full bg-primary-800 hover:bg-primary-800 rounded-lg flex flex-col">
+    <button
+      onClick={onClick}
+      className="p-4 w-full bg-primary-800 hover:bg-primary-800 rounded-lg flex flex-col"
+    >
       <div className="w-full flex justify-between space-x-4">
         <RoomCardHeading
           icon={roomLive ? undefined : <SolidTime />}
@@ -83,6 +88,6 @@ export const RoomCard: React.FC<RoomCardProps> = ({
           <Tag key={idx}>{tag}</Tag>
         ))}
       </div>
-    </div>
+    </button>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Redirect, useRouteMatch } from "react-router-dom";
 import { wsend } from "../../createWebsocket";
 import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
@@ -22,10 +22,19 @@ import { isUuid } from "../utils/isUuid";
 import { useTimeElapsed } from "../utils/timeElapsed";
 import { useMeQuery } from "../utils/useMeQuery";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
+import isElectron from "is-electron";
 
-interface RoomPageProps {}
+let ipcRenderer: any = undefined;
+if (isElectron()) {
+  ipcRenderer = window.require("electron").ipcRenderer;
+}
+
+const isMac = process.platform === 'darwin';
+
+interface RoomPageProps { }
 
 export const RoomPage: React.FC<RoomPageProps> = () => {
+
   const {
     params: { id },
   } = useRouteMatch<{ id: string }>();
@@ -50,6 +59,27 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   const [listenersPage, setListenersPage] = useState(1);
   const pageSize = 25;
   const { t } = useTypeSafeTranslation();
+  const [ipcStarted, setIpcStarted] = useState(false);
+
+  useEffect(() => {
+    if (isElectron() && !isMac) {
+      ipcRenderer.send("@overlay/start_ipc", true);
+      ipcRenderer.on("@overlay/start_ipc", (event: any, shouldStart: boolean) => {
+        setIpcStarted(shouldStart);
+      })
+    }
+  }, []);
+  useEffect(() => {
+    if (isElectron() && ipcStarted) {
+      ipcRenderer.send("@overlay/overlayData", {
+        currentRoom: room,
+        muted: muted,
+        me: me,
+        roomID: id,
+      });
+    }
+  });
+
   // useEffect(() => {
   //   if (room?.users.length) {
   //     setUserProfileId(room.users[0].id);
@@ -78,7 +108,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   const unansweredHands: BaseUser[] = [];
   const listeners: BaseUser[] = [];
   let canIAskToSpeak = false;
-  if(iCanSpeak && myProfile) {
+  if (iCanSpeak && myProfile) {
     speakers.push(myProfile);
   } else if (!iCanSpeak && myProfile) {
     listeners.push(myProfile);

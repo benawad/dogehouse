@@ -60,7 +60,8 @@
       "probablyLoading": "probablement en train de charger...",
       "voiceSettings": "paramètres vocaux",
       "soundSettings": "paramètres audio",
-      "deleteAccount": "supprimer le compte"
+      "deleteAccount": "supprimer le compte",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Oups ! Cette page s'est perdue dans la conversation.",
@@ -82,7 +83,9 @@
       "followers": "abonnés",
       "following": "suivis",
       "followHim": "suivre",
-      "followingHim": "abonné"
+      "followingHim": "abonné",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Paramètres vocaux",
@@ -90,6 +93,10 @@
       "permissionError": "pas de microphone trouvé, soit vous n'en avez pas branché un soit vous n'avez pas donné la permission au site de l'utiliser.",
       "refresh": "rafraîchir la liste des microphones",
       "volume": "volume :"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -184,7 +191,8 @@
       "setKeybind": "Changer les raccourcis clavier",
       "listening": "écoute",
       "toggleMuteKeybind": "Activer / désactiver le raccourci clavier pour rendre muet",
-      "togglePushToTalkKeybind": "Activer / désactiver le raccourci clavier appuyer-pour-parler"
+      "togglePushToTalkKeybind": "Activer / désactiver le raccourci clavier appuyer-pour-parler",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "wsKilled": {
       "description": "Le WebSocket a été fermé par le serveur. Cela arrive souvent quand vous ouvrez le site dans une autre fenêtre.",

@@ -48,7 +48,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
 
     e.preventDefault();
 
-    let changeToIndex = null;
+    let changeToIndex: number | null = null;
     const activeIndex = queriedUsernames.findIndex(
       (username) => username.id === activeUsername
     );

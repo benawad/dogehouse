@@ -1,6 +1,7 @@
-import { wrap, GetTopPublicRoomsResponse } from "@dogehouse/kebab";
+import { useRouter } from "next/router";
 import React, { useContext, useState } from "react";
-import { useQuery } from "react-query";
+import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
+import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { Feed } from "../../ui/Feed";
 import { WebSocketContext } from "../ws/WebSocketProvider";
@@ -10,6 +11,7 @@ interface FeedControllerProps {}
 
 export const FeedController: React.FC<FeedControllerProps> = ({}) => {
   const { conn } = useContext(WebSocketContext);
+  // @todo pagination
   const { isLoading, data } = useTypeSafeQuery("getTopPublicRooms", {
     staleTime: Infinity,
     enabled: !!conn,
@@ -17,6 +19,9 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
     refetchInterval: 10000,
   });
   const [roomModal, setRoomModal] = useState(false);
+  const { currentRoom } = useCurrentRoomStore();
+  const { push } = useRouter();
+  const prefetch = useTypeSafePrefetch("getRoomUsers");
 
   if (!conn || isLoading || !data) {
     return null;
@@ -25,9 +30,18 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
   return (
     <>
       <Feed
+        onRoomClick={(room) => {
+          if (room.id !== currentRoom?.id) {
+            prefetch([room.id], ["getRoomUsers", room.id]);
+          }
+
+          push(`/room/[id]`, `/room/${room.id}`);
+        }}
         actionTitle="New room"
         emptyPlaceholder={<div>empty</div>}
-        onActionClicked={(t) => setRoomModal(true)}
+        onActionClicked={() => {
+          setRoomModal(true);
+        }}
         rooms={data.rooms}
         title="Your Feed"
       />

@@ -14,7 +14,8 @@
     "copyLink": "copy link",
     "copied": "copied",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -60,7 +61,8 @@
       "probablyLoading": "शायद लोड हो रहा है...",
       "voiceSettings": "वॉइस सेटिंग्स में जाएं",
       "soundSettings": "साउंड सेटिंग में जाएं",
-      "deleteAccount": "खाता हटाएं"
+      "deleteAccount": "खाता हटाएं",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Whoops! This page got lost in conversation.",
@@ -82,7 +84,9 @@
       "followers": "फॉलोअर्स",
       "following": "फॉलोइंग",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "आवाज़ की सेटिंग्स",
@@ -90,6 +94,10 @@
       "permissionError": "कोई माइक नहीं मिला, आपने या तो इस वेबसाइट को अनुमति नहीं दी है या माइक प्लग इन नहीं किया है।",
       "refresh": "रिफ्रेश माइक लिस्ट",
       "volume": "volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -131,7 +139,8 @@
       "setKeybind": "शॉर्टकट सैट करें",
       "listening": "सुन रहे है",
       "toggleMuteKeybind": "टॉगल म्यूट कीबाइंड",
-      "togglePushToTalkKeybind": "टॉगल push-to-talk कीबाइंड"
+      "togglePushToTalkKeybind": "टॉगल push-to-talk कीबाइंड",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "किसी कारण से कोई ऑडियो उपभोक्ता नहीं है"

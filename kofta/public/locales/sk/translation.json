@@ -14,7 +14,8 @@
     "copyLink": "skopírovať odkaz",
     "copied": "skopírováné",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -60,7 +61,8 @@
       "probablyLoading": "zrejme načítam...",
       "voiceSettings": "otvoriť nastavenia hlasu",
       "soundSettings": "otvoriť nastavenia zvuku",
-      "deleteAccount": "odstrániť účet"
+      "deleteAccount": "odstrániť účet",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Uups! Táto stránka sa stratila v konverzácii.",
@@ -82,7 +84,9 @@
       "followers": "sledovateľov",
       "following": "sledovaných",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Nastavenia hlasu",
@@ -90,6 +94,10 @@
       "permissionError": "žiadne mikrofóny nenájdené, buď žiaden nie je zapojený alebo si neudelil stránke oprávnenie.",
       "refresh": "obnoviť zoznam mikrofónov",
       "volume": "hlasitosť:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -134,7 +142,8 @@
       "setKeybind": "nastaviť klávesovú skratku",
       "listening": "počúvam",
       "toggleMuteKeybind": "prepínač stíšenia",
-      "togglePushToTalkKeybind": "prepínač push-to-talk"
+      "togglePushToTalkKeybind": "prepínač push-to-talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "z nejakého dôvodu nemáme žiadny zvuk"
