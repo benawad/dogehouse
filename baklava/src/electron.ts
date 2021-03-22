@@ -16,25 +16,18 @@ import { ALLOWED_HOSTS, isLinux, isMac, MENU_TEMPLATE } from "./constants";
 import url from "url";
 import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
-<<<<<<< HEAD
 import activeWin from 'active-win'
-=======
 import { bWindowsType } from "./types";
->>>>>>> dc95e6113cee905d5ba5268fe049f1db54f334cf
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
 let menu: Menu;
 let splash;
 
-<<<<<<< HEAD
-export const __prod__ = true; // app.isPackaged
-=======
 
 export let bWindows: bWindowsType;
 
 export const __prod__ = app.isPackaged;
->>>>>>> dc95e6113cee905d5ba5268fe049f1db54f334cf
 const instanceLock = app.requestSingleInstanceLock();
 
 function createWindow() {
@@ -73,11 +66,7 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
   }
   mainWindow.loadURL(
-<<<<<<< HEAD
-    __prod__ ? `https://twitter.com/` : "http://localhost:3000/"
-=======
     __prod__ ? `https://dogehouse.tv/` : "https://dogehouse.tv/"
->>>>>>> dc95e6113cee905d5ba5268fe049f1db54f334cf
   );
 
   bWindows = {
