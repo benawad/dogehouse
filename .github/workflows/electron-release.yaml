@@ -5,7 +5,7 @@ on:
     paths:
       - "baklava/**"
     branches:
-      - prod
+      - staging
 
 jobs:
   release:
@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v1
