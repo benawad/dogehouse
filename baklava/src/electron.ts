@@ -39,8 +39,7 @@ function createWindow() {
   splash = new BrowserWindow({
     width: 810,
     height: 610,
-    frame: false,
-    transparent: true,
+    frame: false
   });
   splash.loadURL(
     url.format({
@@ -68,7 +67,7 @@ function createWindow() {
     setTimeout(() => {
       splash.destroy();
       mainWindow.show();
-    }, 1000);
+    }, 2500);
   }),
     // crashes on mac
     // systemPreferences.askForMediaAccess("microphone");
