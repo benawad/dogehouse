@@ -609,8 +609,6 @@ defmodule Broth.SocketHandler do
   end
 
   def f_handler("join_room_and_get_info", %{"roomId" => room_id_to_join}, %State{} = state) do
-    IO.puts("here")
-
     case Kousa.Room.join_room(state.user_id, room_id_to_join) do
       %{error: err} ->
         %{error: err}
