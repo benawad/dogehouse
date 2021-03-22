@@ -25,6 +25,20 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
           tagText={"" + speakers.length}
         />
         {speakers}
+        {askingToSpeak.length ? (
+          <RoomSectionHeader
+            title={t("pages.room.requestingToSpeak")}
+            tagText={"" + askingToSpeak.length}
+          />
+        ) : null}
+        {askingToSpeak}
+        {listeners.length ? (
+          <RoomSectionHeader
+            title={t("pages.room.listeners")}
+            tagText={"" + listeners.length}
+          />
+        ) : null}
+        {listeners}
       </div>
     </div>
   );
