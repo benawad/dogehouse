@@ -6,13 +6,13 @@
     "scripts": {
         "compile": "tsc",
         "watch": "tsc -w",
-        "dev": "npm run compile && node ./dist/dev.js",
-        "start": "npm run compile && electron ./dist/electron.js",
-        "build": "npm run compile && npm run build:overlay && electron-builder",
-        "build:all": "npm run compile && npm run build:overlay && electron-builder -mwl",
-        "build:mac": "npm run compile && npm run build:overlay && electron-builder --mac",
-        "build:win": "npm run compile && npm run build:overlay && electron-builder --win",
-        "build:linux": "npm run compile && npm run build:overlay && electron-builder --linux",
+        "dev": "yarn compile && node ./dist/dev.js",
+        "start": "yarn compile && electron ./dist/electron.js",
+        "build": "yarn compile && yarn build:overlay && electron-builder",
+        "build:all": "yarn compile && yarn build:overlay && electron-builder -mwl",
+        "build:mac": "yarn compile && yarn build:overlay && electron-builder --mac",
+        "build:win": "yarn compile && yarn build:overlay && electron-builder --win",
+        "build:linux": "yarn compile && yarn build:overlay && electron-builder --linux",
         "build:overlay": "cd resources/overlay && yarn build"
     },
     "keywords": [
