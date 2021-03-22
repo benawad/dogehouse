@@ -1,6 +1,7 @@
 import React from "react";
 import { ScrollView, StyleSheet, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { TitledHeader } from "../components/header/TitledHeader";
 import { FollowNotification } from "../components/notifications/FollowNotification";
 import { LiveNotification } from "../components/notifications/LiveNotification";
 import { NewRoomNotification } from "../components/notifications/NewRoomNotification";
@@ -8,11 +9,9 @@ import { colors, fontFamily } from "../constants/dogeStyle";
 
 export const NotificationsPage: React.FC = () => {
   return (
-    <SafeAreaView
-      style={styles.safeAreaView}
-      edges={["bottom", "left", "right"]}
-    >
-      <ScrollView>
+    <>
+      <TitledHeader title={"Notifications"} showBackButton={true} />
+      <ScrollView style={styles.scrollView}>
         <NewRoomNotification
           username={"DrMadWithAVeryLongLongLongTurkey"}
           time={"now"}
@@ -48,13 +47,12 @@ export const NotificationsPage: React.FC = () => {
           following={true}
         />
       </ScrollView>
-    </SafeAreaView>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
-  safeAreaView: {
-    flex: 1,
+  scrollView: {
     backgroundColor: colors.primary900,
   },
 });

@@ -15,6 +15,7 @@ export const MainNavigator = () => {
     <WebSocketProvider shouldConnect={true}>
       <Stack.Navigator
         screenOptions={{
+          headerShown: false,
           headerStyle: {
             backgroundColor: colors.primary900,
             borderBottomColor: colors.primary900,
