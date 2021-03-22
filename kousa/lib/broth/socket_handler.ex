@@ -262,6 +262,7 @@ defmodule Broth.SocketHandler do
   #   {:ok, state}
   # end
 
+  # @deprecated in new design
   def handler("fetch_following_online", %{"cursor" => cursor}, state) do
     {users, next_cursor} = Follows.fetch_following_online(state.user_id, cursor)
 
@@ -588,6 +589,12 @@ defmodule Broth.SocketHandler do
     end
   end
 
+  def f_handler("fetch_following_online", %{"cursor" => cursor}, %State{} = state) do
+    {users, next_cursor} = Follows.fetch_following_online(state.user_id, cursor)
+
+    %{users: users, nextCursor: next_cursor}
+  end
+
   def f_handler("mute", %{"value" => value}, %State{} = state) do
     Onion.UserSession.send_cast(state.user_id, {:set_mute, value})
 
@@ -601,12 +608,12 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  def f_handler("get_room_users", %{"roomId" => room_id_to_join}, %State{} = state) do
-    with true <- Beef.Users.get_current_room_id(state.user_id) != room_id_to_join,
-         %{error: err} <- Kousa.Room.join_room(state.user_id, room_id_to_join) do
-      %{error: err}
-    else
-      _ ->
+  def f_handler("join_room_and_get_info", %{"roomId" => room_id_to_join}, %State{} = state) do
+    case Kousa.Room.join_room(state.user_id, room_id_to_join) do
+      %{error: err} ->
+        %{error: err}
+
+      %{room: room} ->
         {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
 
         {muteMap, autoSpeaker, activeSpeakerMap} =
@@ -625,12 +632,16 @@ defmodule Broth.SocketHandler do
           end
 
         %{
+          room: room,
           users: users,
           muteMap: muteMap,
           activeSpeakerMap: activeSpeakerMap,
           roomId: room_id,
           autoSpeaker: autoSpeaker
         }
+
+      _ ->
+        %{error: "you should never see this, tell ben"}
     end
   end
 
@@ -813,6 +824,13 @@ defmodule Broth.SocketHandler do
       _ ->
         Beef.Users.get_by_username(id_or_username)
     end
+  end
+
+  def f_handler("follow_info", %{"userId" => other_user_id}, %State{} = state) do
+    Map.merge(
+      %{userId: other_user_id},
+      Follows.get_info(state.user_id, other_user_id)
+    )
   end
 
   defp prepare_socket_msg(data, %State{compression: compression, encoding: encoding}) do

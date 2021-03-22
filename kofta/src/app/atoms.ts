@@ -91,7 +91,6 @@ export const useCurrentRoomInfo = () => {
   }
 
   const isCreator = me.id === room.creatorId;
-
   return {
     isCreator,
     isMod,

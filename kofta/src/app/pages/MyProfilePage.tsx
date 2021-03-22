@@ -10,10 +10,13 @@ import { Wrapper } from "../components/Wrapper";
 import { useMeQuery } from "../utils/useMeQuery";
 import { useTokenStore } from "../utils/useTokenStore";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
+import isElectron from "is-electron";
 
-interface MyProfilePageProps {}
+interface MyProfilePageProps { }
 
-export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
+const isMac = process.platform === 'darwin';
+
+export const MyProfilePage: React.FC<MyProfilePageProps> = ({ }) => {
   const { me } = useMeQuery();
   const history = useHistory();
   const { t } = useTypeSafeTranslation();
@@ -53,6 +56,15 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
           >
             {t("pages.myProfile.voiceSettings")}
           </Button>
+          {
+            isElectron() && !isMac ? <Button
+              style={{ marginRight: "10px" }}
+              variant="small"
+              onClick={() => history.push(`/overlay-settings`)}
+            >
+              {t("pages.myProfile.overlaySettings")}
+          </Button> : null
+          }
           <Button
             variant="small"
             onClick={() => history.push(`/sound-effect-settings`)}

@@ -14,7 +14,8 @@
     "copyLink": "คัดลอกลิ้งก์",
     "copied": "คัดลอกเรียบร้อย",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -60,7 +61,8 @@
       "probablyLoading": "กำลังโหลด...",
       "voiceSettings": "การตั้งค่าเสียง",
       "soundSettings": "การตั้งค่าการแจ้งเตือนเสียง",
-      "deleteAccount": "ลบบัญชี"
+      "deleteAccount": "ลบบัญชี",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "โอ๊ะ! ไม่พบหน้าที่คุณค้นหา.",
@@ -82,7 +84,9 @@
       "followers": "ผู้ติดตาม",
       "following": "กำลังติดตาม",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "การตั้งค่าเสียง",
@@ -90,6 +94,10 @@
       "permissionError": "ไม่พบไมโครโฟน, คุณอาจจะลืมเสียบไมโครโฟน หรือ ลืมที่จะให้สิทธิ์ไมโครโฟนแก่เว็บไซต์.",
       "refresh": "รีเฟรชไมโครโฟน",
       "volume": "ระดับเสียง:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -134,7 +142,8 @@
       "setKeybind": "ตั้งค่า Keybind",
       "listening": "กำลังฟัง",
       "toggleMuteKeybind": "Keybind เปิด/ปิด ไมโครโฟน",
-      "togglePushToTalkKeybind": "Keybind เปิด/ปิด Push to Talk"
+      "togglePushToTalkKeybind": "Keybind เปิด/ปิด Push to Talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "ไม่พบลำโพง" },
     "addToCalendar": { "add": "เพิ่มไปยังปฏิทิน" },

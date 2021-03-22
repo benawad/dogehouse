@@ -1,6 +1,6 @@
 import React from "react";
 import { Story } from "@storybook/react";
-import { ErrorMessage, ErrorMessageProps } from "../ui/ErrorMessage";
+import { ErrorToast, ErrorMessageProps } from "../ui/ErrorToast";
 import { toStr } from "./utils/toStr";
 import { toBoolean } from "./utils/toBoolean";
 
@@ -8,14 +8,8 @@ export default {
   title: "ErrorMessage",
 };
 
-const TheErrorMessage: Story<ErrorMessageProps> = ({
-  message,
-  button,
-  autoClose = false,
-}) => {
-  return (
-    <ErrorMessage message={message} button={button} autoClose={autoClose} />
-  );
+const TheErrorMessage: Story<ErrorMessageProps> = ({ message, button }) => {
+  return <ErrorToast message={message} button={button} onClose={() => {}} />;
 };
 
 export const Main = TheErrorMessage.bind({});

@@ -1,7 +1,5 @@
-import { wrap, GetTopPublicRoomsResponse } from "@dogehouse/kebab";
 import { useRouter } from "next/router";
 import React, { useContext, useState } from "react";
-import { useQuery } from "react-query";
 import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
@@ -41,7 +39,9 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
         }}
         actionTitle="New room"
         emptyPlaceholder={<div>empty</div>}
-        onActionClicked={() => setRoomModal(true)}
+        onActionClicked={() => {
+          setRoomModal(true);
+        }}
         rooms={data.rooms}
         title="Your Feed"
       />
