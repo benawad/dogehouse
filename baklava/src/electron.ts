@@ -23,12 +23,12 @@ let tray: Tray;
 let menu: Menu;
 let splash;
 
-
 export let bWindows: bWindowsType;
 
 export const __prod__ = app.isPackaged;
 const instanceLock = app.requestSingleInstanceLock();
 
+//
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 560,
@@ -44,11 +44,14 @@ function createWindow() {
     width: 810,
     height: 610,
     transparent: true,
-    frame: false
+    frame: false,
   });
   splash.loadURL(
     url.format({
-      pathname: path.join(`${__dirname}`, "../resources/splash/splash-screen.html"),
+      pathname: path.join(
+        `${__dirname}`,
+        "../resources/splash/splash-screen.html"
+      ),
       protocol: "file:",
       slashes: true,
     })
@@ -71,7 +74,7 @@ function createWindow() {
   bWindows = {
     main: mainWindow,
     overlay: undefined,
-  }
+  };
 
   mainWindow.once("ready-to-show", () => {
     setTimeout(() => {
