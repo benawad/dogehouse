@@ -35,7 +35,7 @@
       "currentRoom": "所在的聊天室:",
       "startPrivateRoom": "跟ta进入私人聊天室"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": { "followHim": "关注ta", "followingHim": "已关注ta" },
     "home": { "createRoom": "新建聊天室", "refresh": "刷新" },
     "inviteList": {
       "roomGone": "聊天室以被删除，请回到前一页",
@@ -68,8 +68,8 @@
       "goHomeLinkText": "回到主页"
     },
     "room": {
-      "speakers": "讲话者",
-      "requestingToSpeak": "要求讲话",
+      "speakers": "发言者",
+      "requestingToSpeak": "要求发言",
       "listeners": "听者"
     },
     "searchUser": { "search": "搜索..." },
@@ -173,16 +173,16 @@
       "setKeybind": "设置快捷键",
       "listening": "等待输入",
       "toggleMuteKeybind": "切换静音键绑定",
-      "togglePushToTalkKeybind": "toggle push-to-talk keybind"
+      "togglePushToTalkKeybind": "切换按键说话键"
     },
     "wsKilled": {
       "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
-      "reconnect": "reconnect"
+      "reconnect": "重连"
     },
     "deviceNotSupported": {
-      "notSupported": "Your device is currently not supported. You can create an",
-      "linkText": "issue on GitHub",
-      "addSupport": "and I will try adding support for your device."
+      "notSupported": "你的设备目前尚不支持。你可以在",
+      "linkText": "GitHub创建一个issue",
+      "addSupport": "我会尝试加入对你设备的支持。"
     },
     "inviteButton": { "invited": "被邀请", "inviteToRoom": "邀请进入聊天室" }
   },
