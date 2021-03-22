@@ -5,7 +5,7 @@ import Header from "../../ui/Header";
 import { useVerifyLoggedIn } from "../auth/useVerifyLoggedIn";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 import { FeedController } from "./FeedController";
-import { FriendsOnlineController } from "./FriendsOnlineController";
+import { FollowingOnlineController } from "./FollowingOnlineController";
 import { ProfileBlockController } from "./ProfileBlockController";
 import { HeaderController } from "../header/HeaderController";
 import { DesktopLayout } from "../layouts/DesktopLayout";
@@ -26,7 +26,7 @@ export const DashboardPage: PageComponent<LoungePageProps> = ({}) => {
 
   return (
     <DesktopLayout>
-      <FriendsOnlineController />
+      <FollowingOnlineController />
       <FeedController />
       <ProfileBlockController />
     </DesktopLayout>
