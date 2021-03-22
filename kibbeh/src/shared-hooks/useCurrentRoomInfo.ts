@@ -5,10 +5,15 @@ import { useTypeSafeQuery } from "./useTypeSafeQuery";
 
 export const useCurrentRoomInfo = () => {
   const { currentRoom } = useCurrentRoomStore();
-  const { data } = useTypeSafeQuery("getCurrentRoomUsers");
+  const { data } = useTypeSafeQuery(
+    ["joinRoomAndGetInfo", currentRoom?.id || ""],
+    {
+      enabled: !!currentRoom,
+    }
+  );
   const { conn } = useContext(WebSocketContext);
 
-  if (!data || !conn || !currentRoom) {
+  if (!data || !conn || !currentRoom || "error" in data) {
     return {
       isMod: false,
       isCreator: false,
