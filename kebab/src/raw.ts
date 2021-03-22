@@ -21,9 +21,9 @@ export type ListenerHandler<Data = unknown> = (
   data: Data,
   fetchId?: FetchID
 ) => void;
-export type Listener = {
+export type Listener<Data = unknown> = {
   opcode: Opcode;
-  handler: ListenerHandler;
+  handler: ListenerHandler<Data>;
 };
 
 export type Connection = {
@@ -102,8 +102,8 @@ export const connect = (
 
         if (message.op === "auth-good") {
           const connection: Connection = {
-            addListener: (opcode: Opcode, handler: ListenerHandler) => {
-              const listener = { opcode, handler };
+            addListener: (opcode, handler) => {
+              const listener = { opcode, handler } as Listener<unknown>;
 
               listeners.push(listener);
 
