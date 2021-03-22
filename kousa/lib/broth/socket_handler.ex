@@ -816,10 +816,10 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  def f_handler("get_user_profile", %{"userId" => id_or_username}, %State{} = _state) do
+  def f_handler("get_user_profile", %{"userId" => id_or_username}, %State{} = state) do
     case UUID.cast(id_or_username) do
       {:ok, uuid} ->
-        Beef.Users.get_by_id(uuid)
+        Beef.Users.get_by_id_with_follow_info(state.user_id, uuid)
 
       _ ->
         Beef.Users.get_by_username(id_or_username)

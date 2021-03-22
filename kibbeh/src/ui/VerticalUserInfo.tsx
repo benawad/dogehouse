@@ -39,7 +39,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
           </span>
         </div>
       </div>
-      <div className="text-primary-300 mt-2">{user.bio}</div>
+      <div className="text-primary-300 mt-2 text-center">{user.bio}</div>
     </div>
   );
 };

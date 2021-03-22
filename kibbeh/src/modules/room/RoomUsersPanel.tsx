@@ -3,6 +3,7 @@ import React from "react";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { RoomAvatar } from "../../ui/RoomAvatar";
 import { RoomSectionHeader } from "../../ui/RoomSectionHeader";
+import { UserPreviewModalProvider } from "./UserPreviewModalProvider";
 import { useSplitUsersIntoSections } from "./useSplitUsersIntoSections";
 
 interface RoomUsersPanelProps extends JoinRoomAndGetInfoResponse {}
