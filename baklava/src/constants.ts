@@ -1,6 +1,7 @@
 import { app, shell } from 'electron';
 
 export const isMac = process.platform === 'darwin'
+export const isLinux = process.platform !== 'darwin' && process.platform !== 'win32'
 export const REQUEST_TO_SPEAK_KEY = "@keybind/invite";
 export const INVITE_KEY = "@keybind/invite";
 export const MUTE_KEY = "@keybind/mute";

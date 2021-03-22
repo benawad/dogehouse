@@ -12,7 +12,7 @@ import iohook from "iohook";
 import { autoUpdater } from "electron-updater";
 import { RegisterKeybinds } from "./utils/keybinds";
 import { HandleVoiceTray } from "./utils/tray";
-import { ALLOWED_HOSTS, isMac, MENU_TEMPLATE } from "./constants";
+import { ALLOWED_HOSTS, isLinux, isMac, MENU_TEMPLATE } from "./constants";
 import url from "url";
 import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
@@ -94,8 +94,10 @@ function createWindow() {
   // graceful exiting
   mainWindow.on("closed", () => {
     globalShortcut.unregisterAll();
-    iohook.stop();
-    iohook.unload();
+    if (!isLinux) {
+      iohook.stop();
+      iohook.unload();
+    }
     mainWindow.destroy();
   });
 
@@ -129,6 +131,9 @@ if (!instanceLock) {
   app.quit();
 } else {
   app.on("ready", () => {
+    if (isLinux) {
+      iohook.unload();
+    }
     createWindow();
     autoUpdater.checkForUpdatesAndNotify();
   });
