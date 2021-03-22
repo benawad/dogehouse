@@ -1,8 +1,14 @@
 import { useAtom } from "jotai";
 import React, { useEffect, useRef, useState } from "react";
 import { Button } from "../../app/components/Button";
+import { Backbar } from "../../app/components/Backbar";
+import { BodyWrapper } from "../../app/components/BodyWrapper";
+import { Wrapper } from "../../app/components/Wrapper";
 import { volumeAtom } from "../../app/shared-atoms";
 import { useConsumerStore } from "../stores/useConsumerStore";
+import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
+import { useTypeSafeTranslation } from "../../app/utils/useTypeSafeTranslation";
+import { useHistory } from "react-router-dom";
 
 interface AudioRenderProps {}
 
@@ -65,6 +71,21 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
   const { consumerMap } = useConsumerStore();
   const audioRefs = useRef<[string, HTMLAudioElement][]>([]);
 
+  const { currentRoom: room } = useCurrentRoomStore();
+  const { t } = useTypeSafeTranslation();
+  const history = useHistory()
+
+  // if (!room) {
+  //   return (
+  //     <Wrapper>
+  //       <Backbar />
+  //       <BodyWrapper>
+  //         <div>{t("common.loading")}</div>
+  //       </BodyWrapper>
+  //     </Wrapper>
+  //   );
+  // }
+
   return (
     <>
       <div
@@ -74,8 +95,7 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
       >
         <div className={`p-8 rounded m-auto bg-simple-gray-3c`}>
           <div className={`text-center mb-4`}>
-            Browsers require user interaction before they will play audio. Just
-            click okay to continue.
+            Are you sure you want to join {room?.name}?
           </div>
           <Button
             onClick={() => {
@@ -87,7 +107,7 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
               });
             }}
           >
-            okay
+            Yes
             {Object.keys(consumerMap).map((k) => {
               const { consumer, volume: userVolume, debug } = consumerMap[k];
               return (
@@ -119,6 +139,7 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
               );
             })}
           </Button>
+          <Button onClick={() => history.push('/')}>No</Button>
         </div>
       </div>
     </>
