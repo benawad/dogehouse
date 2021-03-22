@@ -21,7 +21,7 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({ }) => {
   const { me } = useMeQuery();
   const history = useHistory();
   const { t } = useTypeSafeTranslation();
-  const setOpenChat = useRoomChatStore((s) => {console.log(s.setOpen); return s.setOpen});
+  const setOpenChat = useRoomChatStore((s) => s.setOpen);
 
   return (
     <Wrapper>
