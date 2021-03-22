@@ -1,12 +1,9 @@
-import { wrap, GetTopPublicRoomsResponse } from "@dogehouse/kebab";
 import React, { useContext, useState } from "react";
 import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 import { RoomCard } from "../../components/RoomCard";
-import { Text } from "react-native";
-import { paragraph } from "../../constants/dogeStyle";
 
 interface FeedControllerProps {}
 
@@ -48,6 +45,11 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
           listeners={"numPeopleInside" in room ? room.numPeopleInside : 0}
           tags={[]}
           avatarSrcs={[]}
+          onPress={() => {
+            if (room.id !== currentRoom?.id) {
+              prefetch([room.id], ["getRoomUsers", room.id]);
+            }
+          }}
         />
       ))}
       {/* <Feed
