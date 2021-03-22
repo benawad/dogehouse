@@ -134,7 +134,7 @@ if (!instanceLock) {
     mainWindow.on('blur', () => {
       (async () => {
         const res = await activeWin();
-        mainWindow.webContents.send('@main/rpc', res?.owner.name)
+        mainWindow.webContents.send('@rpc/appName', res?.owner.name)
       })();
     });
   });
