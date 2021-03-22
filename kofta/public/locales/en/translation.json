@@ -16,7 +16,8 @@
     "copied": "copied",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "areYouSureJoinRoom": "Are you sure you want to join room"
+    "areYouSureJoinRoom": "Are you sure you want to join room",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -69,6 +70,7 @@
       "logout": "logout",
       "probablyLoading": "probably loading...",
       "voiceSettings": "go to voice settings",
+      "overlaySettings": "go to overlay settings",
       "soundSettings": "go to sound settings",
       "deleteAccount": "delete account"
     },
@@ -106,6 +108,13 @@
       "permissionError": "no mics found, you either have none plugged in or haven't given this website permission.",
       "refresh": "refresh mic list",
       "volume": "volume:"
+    },
+    "overlaySettings": {
+      "header": "Overlay Settings",
+      "input": {
+        "errorMsg": "Please enter valid app title",
+        "label": "Enter app title"
+      }
     }
   },
   "components": {
@@ -150,6 +159,7 @@
       "setKeybind": "set keybind",
       "listening": "listening",
       "toggleMuteKeybind": "toggle mute keybind",
+      "toggleOverlayKeybind": "toggle overlay keybind",
       "togglePushToTalkKeybind": "toggle push-to-talk keybind"
     },
     "userVolumeSlider": {

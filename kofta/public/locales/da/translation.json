@@ -15,7 +15,8 @@
     "copied": "Kopieret",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "areYouSureJoinRoom": "Are you sure you want to join room"
+    "areYouSureJoinRoom": "Are you sure you want to join room",
+    "requestPermissions": "Please give DogeHouse Accessibility permessions"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -61,7 +62,8 @@
       "probablyLoading": "Indlæser sandsynligvis...",
       "voiceSettings": "Gå til stemmeindstillinger",
       "soundSettings": "Gå til lydindstillinger",
-      "deleteAccount": "Slet konto"
+      "deleteAccount": "Slet konto",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Ups! Denne side gik tabt i samtalen.",
@@ -93,6 +95,12 @@
       "permissionError": "Ingen mikrofoner fundet, du har enten ikke koblet nogen til eller ikke givet denne hjemmeside tilladelse.",
       "refresh": "Opdater mikrofonliste",
       "volume": "Lydstyrke:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings",
+      "errorMsg": "Please enter valid app title",
+      "label": "Enter app title"
     }
   },
   "components": {
@@ -137,7 +145,8 @@
       "setKeybind": "Indstil genvej",
       "listening": "Lytter",
       "toggleMuteKeybind": "Slå mikrofon til/fra genvej",
-      "togglePushToTalkKeybind": "Slå push-to-talk til/fra genvej"
+      "togglePushToTalkKeybind": "Slå push-to-talk til/fra genvej",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Ingen audio consumer af en eller anden grund"

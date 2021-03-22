@@ -16,7 +16,8 @@
     "copied": "αντιγράφτηκε",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "areYouSureJoinRoom": "Are you sure you want to join room"
+    "areYouSureJoinRoom": "Are you sure you want to join room",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -62,7 +63,8 @@
       "probablyLoading": "μάλλον φορτώνει...",
       "voiceSettings": "πηγαίνετε στις ρυθμίσεις φωνής",
       "soundSettings": "πηγαίνετε στις ρυθμίσεις ήχου",
-      "deleteAccount": "διαγραφή λογαριασμού"
+      "deleteAccount": "διαγραφή λογαριασμού",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Ουπς! Αυτή η σελίδα χάθηκε στη συζήτηση.",
@@ -94,6 +96,10 @@
       "permissionError": "δεν βρέθηκε μικρόφωνο, είτε δεν έχετε κανένα συνδεδεμένο είτε δεν έχετε δώσει άδεια σε αυτή την ιστοσελίδα.",
       "refresh": "ανανέωση λίστας μικροφώνων",
       "volume": "ένταση ήχου:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -138,7 +144,8 @@
       "setKeybind": "θέστε μια συντόμευση",
       "listening": "ακροατές",
       "toggleMuteKeybind": "συντόμευση εναλλαγής σίγασης",
-      "togglePushToTalkKeybind": "συντόμευση εναλλαγής push-to-talk"
+      "togglePushToTalkKeybind": "συντόμευση εναλλαγής push-to-talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "δεν υπάρχει δέκτης ήχου για κάποιο λόγο"

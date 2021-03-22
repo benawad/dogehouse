@@ -16,7 +16,8 @@
     "copied": "copied",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "areYouSureJoinRoom": "Are you sure you want to join room"
+    "areYouSureJoinRoom": "Are you sure you want to join room",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -62,7 +63,8 @@
       "probablyLoading": "prolly loadin'...",
       "voiceSettings": "go t' voice settings",
       "soundSettings": "go t' sound settings",
-      "deleteAccount": "Cleave Him to the Brisket!"
+      "deleteAccount": "Cleave Him to the Brisket!",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Blast ye! This page got lost in natter.",
@@ -94,6 +96,10 @@
       "permissionError": "no mics found, ye either 'ave none plugged in or haven't given this website permission.",
       "refresh": "refresh mic list",
       "volume": "volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -101,22 +107,22 @@
     "avatar": {},
     "backBar": {},
     "blockedFromRoomUsers": {
-      "header": "Banned Users",
-      "unban": "unban",
+      "header": "people who 'ave walked eh plank",
+      "unban": "save 'em from the o'en seas",
       "noBans": "no one has walked the plank yet"
     },
     "bottomVoiceControl": {
-      "leaveCurrentRoomBtn": "Leave current cabin",
+      "leaveCurrentRoomBtn": "Weigh anchor",
       "confirmLeaveRoom": "Are ye sure ye wants t' weigh anchor?",
       "leave": "Weigh anchor",
       "inviteUsersToRoomBtn": "Invite scallywags t' cabin",
-      "invite": "Invite",
+      "invite": "Invite scallywags",
       "toggleMuteMicBtn": "Toggle mute microphone",
-      "mute": "Mute",
+      "mute": "Belay yer mouth!",
       "unmute": "Unmute",
-      "makeRoomPublicBtn": "Make cabin public!",
+      "makeRoomPublicBtn": "Make cabin a'ilable to eh o'en seas!",
       "settings": "Settings",
-      "speaker": "Speaker",
+      "speaker": "Captain",
       "listener": "Listener",
       "chat": "Chat"
     },
@@ -135,7 +141,8 @@
       "setKeybind": "set keybind",
       "listening": "listening",
       "toggleMuteKeybind": "toggle mute keybind",
-      "togglePushToTalkKeybind": "toggle push-t'-natter keybind"
+      "togglePushToTalkKeybind": "toggle push-t'-natter keybind",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "no audio consumer fer some reason"

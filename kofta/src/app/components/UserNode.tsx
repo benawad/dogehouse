@@ -24,7 +24,7 @@ export const UserNode: React.FC<UserNodeProps> = ({
   isCreator,
   isSpeaking,
 }) => {
-  let prefix = null;
+  let prefix: React.ReactNode | null = null;
   if (isCreator) {
     prefix = (
       <img

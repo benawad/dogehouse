@@ -16,7 +16,8 @@
     "copied": "Kopyalandı",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "areYouSureJoinRoom": "Are you sure you want to join room"
+    "areYouSureJoinRoom": "Are you sure you want to join room",
+    "requestPermissions": "Please give DogeHouse Accessibility permessions"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -62,7 +63,8 @@
       "probablyLoading": "yüklənir deyəsən...",
       "voiceSettings": "mikrofon parametrlərinə keçmək",
       "soundSettings": "səs parametrlərinə keçmək",
-      "deleteAccount": "akkauntu ləğv etmək"
+      "deleteAccount": "akkauntu ləğv etmək",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Ups! Bu səhifə məkan və zaman içində itmişdi.",
@@ -94,6 +96,12 @@
       "permissionError": "no mics found, you either have none plugged in or haven't given this website permission.",
       "refresh": "refresh mic list",
       "volume": "volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings",
+      "errorMsg": "Please enter valid app title",
+      "label": "Enter app title"
     }
   },
   "components": {
@@ -138,7 +146,8 @@
       "setKeybind": "set keybind",
       "listening": "listening",
       "toggleMuteKeybind": "toggle mute keybind",
-      "togglePushToTalkKeybind": "toggle push-to-talk keybind"
+      "togglePushToTalkKeybind": "toggle push-to-talk keybind",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "no audio consumer for some reason"

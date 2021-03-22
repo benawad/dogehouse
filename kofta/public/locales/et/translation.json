@@ -16,7 +16,8 @@
     "copied": "kopeeritud",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "areYouSureJoinRoom": "Are you sure you want to join room"
+    "areYouSureJoinRoom": "Are you sure you want to join room",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -61,6 +62,7 @@
       "logout": "logi välja",
       "probablyLoading": "ilmselt laadib...",
       "voiceSettings": "mine häälesätetesse",
+      "overlaySettings": "go to overlay settings",
       "soundSettings": "mine helisätetesse",
       "deleteAccount": "kustuta konto"
     },
@@ -94,6 +96,10 @@
       "permissionError": "ühtegi mikrofoni ei leitud; mikrofone ei ole ühendatud või veebilehel puudub õigus neid kasutada.",
       "refresh": "värskenda mikrofonide loendit",
       "volume": "helitugevus:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -135,7 +141,8 @@
       "setKeybind": "määra klahvistik",
       "listening": "kuulab",
       "toggleMuteKeybind": "vaigistamise klahvistik",
-      "togglePushToTalkKeybind": "push-to-talk klahvistik"
+      "togglePushToTalkKeybind": "push-to-talk klahvistik",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "pole ühtegi audiotarbijat mingil põhjusel"

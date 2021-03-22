@@ -16,7 +16,8 @@
     "copied": "تم النسخ",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "areYouSureJoinRoom": "Are you sure you want to join room"
+    "areYouSureJoinRoom": "Are you sure you want to join room",
+    "requestPermissions": "Please give DogeHouse Accessibility permessions"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -62,7 +63,8 @@
       "probablyLoading": "ربما جاري التحميل...",
       "voiceSettings": "اذهب إلى إعدادات المحادثة الصوتية ",
       "soundSettings": "اذهب إلى إعدادات الصوت",
-      "deleteAccount": "حذف الحساب"
+      "deleteAccount": "حذف الحساب",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "عذرا! ضاعت هذه الصفحة بين المحادثات.",
@@ -94,6 +96,12 @@
       "permissionError": "لم يتم العثور على ميكروفونات ، إما أنك لم تقم بتوصيل أي ميكروفون أو لم تمنحنا إذن الوصول.",
       "refresh": "تحديث قائمة الميكروفونات",
       "volume": "ارتفاع الصوت:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings",
+      "errorMsg": "Please enter valid app title",
+      "label": "Enter app title"
     }
   },
   "components": {
@@ -135,7 +143,8 @@
       "setKeybind": "ضبط ربط المفتاح",
       "listening": "جاري الإستماع",
       "toggleMuteKeybind": "تبديل رابط مفتاح كتم الصوت",
-      "togglePushToTalkKeybind": "تبديل رابط مفتاح الضغط والتحدث"
+      "togglePushToTalkKeybind": "تبديل رابط مفتاح الضغط والتحدث",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "لا يوجد مستهلك صوتي لسبب ما" },
     "addToCalendar": { "add": "أضف إلى التقويم" },

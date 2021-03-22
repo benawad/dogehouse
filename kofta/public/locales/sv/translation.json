@@ -15,7 +15,8 @@
     "copied": "Kopierad",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "areYouSureJoinRoom": "Are you sure you want to join room"
+    "areYouSureJoinRoom": "Are you sure you want to join room",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -61,7 +62,8 @@
       "probablyLoading": "laddar antagligen...",
       "voiceSettings": "gå till röstinställningar",
       "soundSettings": "gå till ljudinställningar",
-      "deleteAccount": "radera konto"
+      "deleteAccount": "radera konto",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Whoops! Denna sida blev förlorad i konversationen.",
@@ -93,6 +95,10 @@
       "permissionError": "ingen mikrofon hittades, du har antingen inte någon inkopplad eller så har du inte gett hemsidan tillåtelse.",
       "refresh": "uppdatera mikrofonlistan",
       "volume": "volym:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -187,7 +193,8 @@
       "setKeybind": "ställ in kortkommando",
       "listening": "lyssnar",
       "toggleMuteKeybind": "växla tystad kortkommando",
-      "togglePushToTalkKeybind": "växla tryck-för-tal kortkommando"
+      "togglePushToTalkKeybind": "växla tryck-för-tal kortkommando",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "wsKilled": {
       "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",

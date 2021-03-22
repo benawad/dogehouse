@@ -16,7 +16,8 @@
     "copied": "kopiita",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "areYouSureJoinRoom": "Are you sure you want to join room"
+    "areYouSureJoinRoom": "Are you sure you want to join room",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -62,7 +63,8 @@
       "probablyLoading": "probable ŝarĝante ...",
       "voiceSettings": "iri al voĉaj agordoj",
       "soundSettings": "iru al sonaj agordoj",
-      "deleteAccount": "forigi konton"
+      "deleteAccount": "forigi konton",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Ho ve! Ĉi tiu paĝo perdiĝis en konversacio",
@@ -94,6 +96,13 @@
       "permissionError": "neniuj mikrofonoj trovitaj, vi aŭ havas neniujn enŝovitajn aŭ ne donis permeson al ĉi tiu retejo.",
       "refresh": "refreŝigi mikrofonan liston",
       "volume": "volumo:"
+    },
+    "overlaySettings": {
+      "header": "Overlay Settings",
+      "input": {
+        "errorMsg": "Please enter valid app title",
+        "label": "Enter app title"
+      }
     }
   },
   "components": {
@@ -138,7 +147,8 @@
       "setKeybind": "agordi klavokombinon",
       "listening": "aŭskultanta",
       "toggleMuteKeybind": "baskuli mutan klavaron",
-      "togglePushToTalkKeybind": "ŝalti puŝ-al-parolan klavaron"
+      "togglePushToTalkKeybind": "ŝalti puŝ-al-parolan klavaron",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "neniu audio-konsumanto ial" },
     "addToCalendar": { "add": "Aldoni al Kalendaro" },

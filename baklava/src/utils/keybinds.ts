@@ -9,16 +9,25 @@ import {
     MUTE_KEY,
     PTT_KEY,
     REQUEST_TO_SPEAK_KEY,
+    OVERLAY_KEY,
     KEY_TABLE,
     IOHookEvent,
+    isMac,
 } from "../constants";
 import ioHook from "iohook";
+import { overlayWindow } from "electron-overlay-window";
+import { createOverlay } from "./overlay";
+import { startIPCHandler } from "./ipc";
 
 export let CURRENT_REQUEST_TO_SPEAK_KEY = "Control+8";
 export let CURRENT_INVITE_KEY = "Control+7";
 export let CURRENT_MUTE_KEY = "Control+m";
 export let CURRENT_CHAT_KEY = "Control+9";
+export let CURRENT_OVERLAY_KEY = "Control+Tab";
 export let CURRENT_PTT_KEY = ["Control", "0"];
+
+export let CURRENT_APP_TITLE = "";
+export let CURRENT_OVERLAY: BrowserWindow;
 
 let PTT_PREV_STATUS = true;
 let PTT_STATUS = [
@@ -76,6 +85,33 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
             PTT_STATUS = [false];
         }
     });
+
+    ipcMain.on(OVERLAY_KEY, (event, keyCode) => {
+        if (globalShortcut.isRegistered(CURRENT_OVERLAY_KEY)) {
+            globalShortcut.unregister(CURRENT_OVERLAY_KEY);
+        }
+        CURRENT_OVERLAY_KEY = keyCode;
+        globalShortcut.register(keyCode, () => {
+            if (!isMac) {
+                if (CURRENT_OVERLAY) {
+                    if (!CURRENT_OVERLAY.isVisible()) {
+                        CURRENT_OVERLAY.show();
+                        mainWindow.webContents.send("@overlay/start_ipc", true);
+                    } else {
+                        CURRENT_OVERLAY.hide();
+                        mainWindow.webContents.send("@overlay/start_ipc", true);
+                    }
+                } else {
+                    CURRENT_OVERLAY = createOverlay(CURRENT_APP_TITLE, overlayWindow);
+                    startIPCHandler(mainWindow, CURRENT_OVERLAY);
+                }
+            }
+        })
+    });
+
+    ipcMain.on("@overlay/app_title", (event, appTitle: string) => {
+        CURRENT_APP_TITLE = appTitle;
+    })
 
     ioHook.on("keydown", (event: IOHookEvent) => {
         if (event.shiftKey) {

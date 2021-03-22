@@ -16,7 +16,8 @@
     "copied": "copiat",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "areYouSureJoinRoom": "Are you sure you want to join room"
+    "areYouSureJoinRoom": "Are you sure you want to join room",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -62,7 +63,8 @@
       "probablyLoading": "Probabil se încarcă...",
       "voiceSettings": "Mergi la setările de voce",
       "soundSettings": "Mergi la setările de sunet",
-      "deleteAccount": "Şterge cont"
+      "deleteAccount": "Şterge cont",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Ups! Această pagină a fost pierdută în conversație.",
@@ -94,6 +96,10 @@
       "permissionError": "Nu au fost găsite microfoane - ori nu ai unul conectat ori pagina aceasta nu are permisiune.",
       "refresh": "Reîmprospătează lista de microfoane",
       "volume": "Volum:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -138,7 +144,8 @@
       "setKeybind": "Setează keybind",
       "listening": "Ascultare",
       "toggleMuteKeybind": "Keybind comută mut",
-      "togglePushToTalkKeybind": "Keybind comută push-to-talk"
+      "togglePushToTalkKeybind": "Keybind comută push-to-talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "niciun consumator audio dintr-un motiv oarecare"

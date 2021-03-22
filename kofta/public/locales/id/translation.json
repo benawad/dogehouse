@@ -15,7 +15,8 @@
     "copied": "disalin",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "areYouSureJoinRoom": "Are you sure you want to join room"
+    "areYouSureJoinRoom": "Are you sure you want to join room",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -61,7 +62,8 @@
       "probablyLoading": "mungkin sedang memuat...",
       "voiceSettings": "pergi ke pengaturan suara",
       "soundSettings": "pergi ke pengaturan bunyi",
-      "deleteAccount": "hapus akun"
+      "deleteAccount": "hapus akun",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Uupsie! Halaman ini hilang dalam percakapan.",
@@ -93,6 +95,10 @@
       "permissionError": "mic tidak ditemukan, mungkin kamu belum memasangnya atau belum memberikan website ini akses.",
       "refresh": "muat ulang daftar mic",
       "volume": "volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -137,7 +143,8 @@
       "setKeybind": "atur tombol",
       "listening": "menunggu tombol",
       "toggleMuteKeybind": "atur tombol untuk membisu",
-      "togglePushToTalkKeybind": "atur tombol push-to-talk"
+      "togglePushToTalkKeybind": "atur tombol push-to-talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "perangkat audio tidak ditemukan" },
     "addToCalendar": { "add": "Tambahkan ke Kalender" },

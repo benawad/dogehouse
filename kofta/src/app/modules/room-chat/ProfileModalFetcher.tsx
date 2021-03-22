@@ -1,13 +1,12 @@
 import React, { useLayoutEffect } from "react";
-import { useQuery } from "react-query";
-import { wsend, wsFetch } from "../../../createWebsocket";
+import { wsend } from "../../../createWebsocket";
 import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore";
 import { useCurrentRoomInfo } from "../../atoms";
 import { ProfileModal } from "../../components/ProfileModal";
-import { RoomUser, UserWithFollowInfo } from "../../types";
+import { RoomUser } from "../../types";
 import { useMeQuery } from "../../utils/useMeQuery";
-import { RoomChatMessage } from "./useRoomChatStore";
 import { useUserProfileQuery } from "../../utils/useUserProfileQuery";
+import { RoomChatMessage } from "./useRoomChatStore";
 
 interface ProfileModalFetcherProps {
   userId: string;

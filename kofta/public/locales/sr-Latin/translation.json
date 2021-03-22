@@ -16,7 +16,8 @@
     "copied": "kopirano",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "areYouSureJoinRoom": "Are you sure you want to join room"
+    "areYouSureJoinRoom": "Are you sure you want to join room",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -62,7 +63,8 @@
       "probablyLoading": "verovatno učitava...",
       "voiceSettings": "idi na podešavanje glasa",
       "soundSettings": "idi na podešavanje zvuka",
-      "deleteAccount": "obriši nalog"
+      "deleteAccount": "obriši nalog",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Ups! Ova stranica se izgubila u razgovoru.",
@@ -94,6 +96,10 @@
       "permissionError": "nije pronađen nijedan mikrofon, ili ga niste priključili ili niste dali dozvolu ovoj web lokaciji.",
       "refresh": "osveži listu mikrofona",
       "volume": "jačina zvuka:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -135,7 +141,8 @@
       "setKeybind": "podesi prečicu na tastaturi",
       "listening": "slušanje",
       "toggleMuteKeybind": "uključi/isključi prečicu na tastaturi za mutiranje",
-      "togglePushToTalkKeybind": "uključi/isključi prečicu na tastaturi za govor na pritisak"
+      "togglePushToTalkKeybind": "uključi/isključi prečicu na tastaturi za govor na pritisak",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "nema audio konzumera iz nekog razloga"
