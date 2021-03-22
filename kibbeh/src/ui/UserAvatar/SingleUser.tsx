@@ -1,4 +1,5 @@
 import React from "react";
+import { SolidMicrophoneOff } from "../../icons";
 
 export const avatarSizeMap = {
   default: "80px",
@@ -51,6 +52,8 @@ export interface AvatarProps {
   size?: keyof typeof onlineIndicatorStyleMap;
   className?: string;
   isOnline?: boolean;
+  muted?: boolean;
+  activeSpeaker?: boolean;
 }
 
 export const SingleUser: React.FC<AvatarProps> = ({
@@ -58,7 +61,10 @@ export const SingleUser: React.FC<AvatarProps> = ({
   size = "default",
   className = "",
   isOnline = false,
+  muted,
+  activeSpeaker,
 }) => {
+  const sizeStyle = onlineIndicatorStyleMap[size];
   return (
     <div
       className={`relative inline-block ${className}`}
@@ -70,6 +76,9 @@ export const SingleUser: React.FC<AvatarProps> = ({
     >
       <img
         alt="avatar"
+        style={{
+          boxShadow: activeSpeaker ? "0 0 0 2px var(--color-accent)" : "",
+        }}
         className="rounded-full w-full h-full object-cover"
         src={src}
       />
@@ -78,9 +87,23 @@ export const SingleUser: React.FC<AvatarProps> = ({
           className={
             "rounded-full absolute box-content bg-accent border-primary-800"
           }
-          style={onlineIndicatorStyleMap[size]}
+          style={sizeStyle}
           data-testid="online-indictor"
         ></span>
+      )}
+      {muted && (
+        <span
+          className={
+            "rounded-full absolute box-content bg-primary-800 border-primary-800 text-accent items-center justify-center"
+          }
+          style={{ ...sizeStyle, padding: 2 }}
+          data-testid="online-indictor"
+        >
+          <SolidMicrophoneOff
+            width={sizeStyle.width}
+            height={sizeStyle.width}
+          />
+        </span>
       )}
     </div>
   );
