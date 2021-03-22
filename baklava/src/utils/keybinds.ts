@@ -13,7 +13,6 @@ import {
     isMac,
     isLinux,
 } from "../constants";
-import ioHook from "iohook";
 import { overlayWindow } from "electron-overlay-window";
 import { createOverlay } from "./overlay";
 import { startIPCHandler } from "./ipc";
@@ -27,6 +26,8 @@ export let CURRENT_OVERLAY_KEY = "Control+Tab";
 export let CURRENT_PTT_KEY = ["Control", "0"];
 
 export let CURRENT_APP_TITLE = "";
+
+var gkm = require('gkm');
 
 let PTT_PREV_STATUS = true;
 let PTT_STATUS = [
@@ -112,7 +113,7 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
         CURRENT_APP_TITLE = appTitle;
     })
     if (!isLinux) {
-        ioHook.on("keydown", (event: IOHookEvent) => {
+        gkm.events.on("keydown", (event: IOHookEvent) => {
             if (event.shiftKey) {
                 if (CURRENT_PTT_KEY.includes("Shift")) {
                     let i = CURRENT_PTT_KEY.indexOf("Shift");
@@ -146,7 +147,7 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
             }
         })
 
-        ioHook.on("keyup", (event: IOHookEvent) => {
+        gkm.events.on("keyup", (event: IOHookEvent) => {
             if (event.shiftKey) {
                 if (CURRENT_PTT_KEY.includes("Shift")) {
                     let i = CURRENT_PTT_KEY.indexOf("Shift");
@@ -179,8 +180,6 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
                 bWindows.main.webContents.send("@voice/ptt_status_change", !PTT);
             }
         });
-
-        ioHook.start();
     }
 }
 
