@@ -4,8 +4,7 @@
   "workspaces": {
     "packages": [
       "kebab",
-      "kibbeh",
-      "pilaf"
+      "kibbeh"
     ],
     "nohoist": [
       "**"

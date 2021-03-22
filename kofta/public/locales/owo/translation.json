@@ -15,7 +15,8 @@
     "copyLink": "copy wink ;3",
     "copied": "0w0 copied ^-^",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -64,7 +65,8 @@
       "probablyLoading": "pwobabwy woading...",
       "voiceSettings": "<3 go to voice settings ;-;",
       "soundSettings": "go to sound settings x3",
-      "deleteAccount": "dewete account UnU"
+      "deleteAccount": "dewete account UnU",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "OWO Whoops! This page got wost in convewsation. (●´ω｀●)",
@@ -86,7 +88,9 @@
       "followers": "fowwowews >_>",
       "following": "fowwowing ( ͡° ᴥ ͡°)",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "OWO Voice Settings (✿ ♡‿♡)",
@@ -94,6 +98,10 @@
       "permissionError": "nu mics found, uu eithew haz nune pwugged in ow hazn't given this website pewmission. ;_;",
       "refresh": "wefwesh mic wist (｀へ´)",
       "volume": "volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -135,7 +143,8 @@
       "setKeybind": "set keybind",
       "listening": "OWO wistening",
       "toggleMuteKeybind": "0w0 toggwe mute keybind (❁´◡`❁)",
-      "togglePushToTalkKeybind": "toggwe push-to-tawk keybind :D"
+      "togglePushToTalkKeybind": "toggwe push-to-tawk keybind :D",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "nu audio consumew fow some weason D:"

@@ -13,6 +13,7 @@ export const INVITE_KEY = "@keybind/invite";
 export const MUTE_KEY = "@keybind/mute";
 export const CHAT_KEY = "@keybind/chat";
 export const PTT_KEY = "@keybind/ptt";
+export const OVERLAY_KEY = "@keybind/overlay";
 
 function getRequestToSpeakKeybind() {
   return getKeybind(REQUEST_TO_SPEAK_KEY, "Control+8");
@@ -34,11 +35,15 @@ function getPTTKeybind() {
   return getKeybind(PTT_KEY, "Control+0");
 }
 
+function getOverlayKeybind() {
+  return getKeybind(OVERLAY_KEY, "Control+Tab");
+}
+
 function getKeybind(actionKey: string, defaultKeybind: string) {
   let v = "";
   try {
     v = localStorage.getItem(actionKey) || "";
-  } catch {}
+  } catch { }
   if (isElectron()) {
     ipcRenderer.send(actionKey, v || defaultKeybind);
   }
@@ -50,6 +55,7 @@ const keyMap: KeyMap = {
   INVITE: getInviteKeybind(),
   MUTE: getMuteKeybind(),
   CHAT: getChatKeybind(),
+  OVERLAY: getOverlayKeybind(),
   PTT: [
     { sequence: getPTTKeybind(), action: "keydown" },
     { sequence: getPTTKeybind(), action: "keyup" },
@@ -62,6 +68,7 @@ const keyNames: KeyMap = {
   MUTE: getMuteKeybind(),
   CHAT: getChatKeybind(),
   PTT: getPTTKeybind(),
+  OVERLAY: getOverlayKeybind(),
 };
 
 export const useKeyMapStore = create(
@@ -77,7 +84,7 @@ export const useKeyMapStore = create(
           if (isElectron()) {
             ipcRenderer.send(REQUEST_TO_SPEAK_KEY, id);
           }
-        } catch {}
+        } catch { }
         set((x) => ({
           keyMap: { ...x.keyMap, REQUEST_TO_SPEAK: id },
           keyNames: { ...x.keyNames, REQUEST_TO_SPEAK: id },
@@ -89,20 +96,19 @@ export const useKeyMapStore = create(
           if (isElectron()) {
             ipcRenderer.send(INVITE_KEY, id);
           }
-        } catch {}
+        } catch { }
         set((x) => ({
           keyMap: { ...x.keyMap, INVITE: id },
           keyNames: { ...x.keyNames, INVITE: id },
         }));
       },
       setMuteKeybind: (id: string) => {
-        console.log(id);
         try {
           localStorage.setItem(MUTE_KEY, id);
           if (isElectron()) {
             ipcRenderer.send(MUTE_KEY, id);
           }
-        } catch {}
+        } catch { }
         set((x) => ({
           keyMap: { ...x.keyMap, MUTE: id },
           keyNames: { ...x.keyNames, MUTE: id },
@@ -114,10 +120,22 @@ export const useKeyMapStore = create(
           if (isElectron()) {
             ipcRenderer.send(CHAT_KEY, id);
           }
-        } catch {}
+        } catch { }
         set((x) => ({
           keyMap: { ...x.keyMap, CHAT: id },
           keyNames: { ...x.keyNames, CHAT: id },
+        }));
+      },
+      setOverlayKeybind: (id: string) => {
+        try {
+          localStorage.setItem(OVERLAY_KEY, id);
+          if (isElectron()) {
+            ipcRenderer.send(OVERLAY_KEY, id);
+          }
+        } catch { }
+        set((x) => ({
+          keyMap: { ...x.keyMap, OVERLAY: id },
+          keyNames: { ...x.keyNames, OVERLAY: id },
         }));
       },
       setPTTKeybind: (id: string) => {
@@ -126,7 +144,7 @@ export const useKeyMapStore = create(
           if (isElectron()) {
             ipcRenderer.send(PTT_KEY, id);
           }
-        } catch {}
+        } catch { }
         set((x) => ({
           keyMap: {
             ...x.keyMap,

@@ -15,7 +15,8 @@
     "copyLink": "লিংক কপি করুন",
     "copied": "কপি হয়ে গেছে",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please give DogeHouse Accessibility permessions"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -64,7 +65,8 @@
       "probablyLoading": "সম্ভবত লোডিং...",
       "voiceSettings": "ভয়েস সেটিংস এ যান",
       "soundSettings": "সাউন্ড সেটিংস এ যান",
-      "deleteAccount": "অ্যাকাউন্ট ডিলিট করুন"
+      "deleteAccount": "অ্যাকাউন্ট ডিলিট করুন",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "উপস! এই পেজের বার্তালাপ কেটে গেছে।",
@@ -86,7 +88,9 @@
       "followers": "জন অনুসরণকারী",
       "following": "জনকে অনুসরণ করছে",
       "followHim": "অনুসরণ করুন",
-      "followingHim": "অনুসরণ করছেন"
+      "followingHim": "অনুসরণ করছেন",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "ভয়েস সেটিংস",
@@ -94,6 +98,12 @@
       "permissionError": "কোনো মাইক খুঁজে পাওয়া যাইনি, আপনি কোনো মাইক প্লাগ করেননি অথবা এই ওয়েবসাইটকে পারমিশন দেননি।",
       "refresh": "মাইক লিস্ট রিফ্রেশ করুন",
       "volume": "ভলিউম:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings",
+      "errorMsg": "Please enter valid app title",
+      "label": "Enter app title"
     }
   },
   "components": {
@@ -138,7 +148,8 @@
       "setKeybind": "কীবাইন্ড সেট করুন",
       "listening": "শুনুন",
       "toggleMuteKeybind": "টগল করুন মাইক কীবাইন্ড",
-      "togglePushToTalkKeybind": "টগল করুন পুশ-টু-টক কীবাইন্ড"
+      "togglePushToTalkKeybind": "টগল করুন পুশ-টু-টক কীবাইন্ড",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "কিছু কারনে অডিও কনসিউম করা যাইনি"

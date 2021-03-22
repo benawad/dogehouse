@@ -425,7 +425,6 @@ export const useMainWsHandler = () => {
       },
 
       someone_joined_waiting_room: (value) => {
-        //toast(`${d.displayName} is in the waiting room`, { type: "info" });
         invitedToRoomConfirm(value, history);
       },
     });

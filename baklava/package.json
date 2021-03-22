@@ -1,98 +1,99 @@
 {
-  "name": "dogehouse",
-  "version": "1.0.16",
-  "description": "Taking voice conversations to the moon 🚀",
-  "main": "./dist/electron.js",
-  "scripts": {
-    "compile": "tsc",
-    "watch": "tsc -w",
-    "dev": "npm run compile && node ./dist/dev.js",
-    "start": "npm run compile && electron ./dist/electron.js",
-    "build": "npm run compile && electron-builder",
-    "build:all": "npm run compile && electron-builder -mwl",
-    "build:mac": "npm run compile && electron-builder --mac",
-    "build:win": "npm run compile && electron-builder --win",
-    "build:linux": "npm run compile && electron-builder --linux"
-  },
-  "keywords": [
-    "DogeHouse",
-    "Electron"
-  ],
-  "author": "Ben Awad <benawadapps@gmail.com>",
-  "homepage": "https://github.com/benawad/dogehouse/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/benawad/dogehouse"
-  },
-  "bugs": {
-    "url": "https://github.com/benawad/dogehouse/issues"
-  },
-  "license": "MIT",
-  "devDependencies": {
-    "@types/node": "^14.14.31",
-    "electron": "^11.3.0",
-    "electron-builder": "^22.10.5",
-    "electron-builder-notarize": "^1.2.0",
-    "typescript": "^4.2.2"
-  },
-  "build": {
-    "afterSign": "electron-builder-notarize",
-    "appId": "com.electron.dogehouse",
-    "productName": "DogeHouse",
-    "asar": true,
-    "mac": {
-      "hardenedRuntime": true,
-      "icon": "icons/icon.png",
-      "category": "public.app-category.social-networking",
-      "entitlements": "settings/entitlements.mac.plist",
-      "extendInfo": {
-        "NSMicrophoneUsageDescription": "Mic access for speeach input in voice."
-      },
-      "target": [
-        "dmg"
-      ]
+    "name": "dogehouse",
+    "version": "1.0.19",
+    "description": "Taking voice conversations to the moon 🚀",
+    "main": "./dist/electron.js",
+    "scripts": {
+        "compile": "tsc",
+        "watch": "tsc -w",
+        "dev": "yarn compile && node ./dist/dev.js",
+        "start": "yarn compile && electron ./dist/electron.js",
+        "build": "yarn compile && electron-builder",
+        "build:all": "yarn compile && yarn build:overlay && electron-builder -mwl",
+        "build:mac": "yarn compile && yarn build:overlay && electron-builder --mac",
+        "build:win": "yarn compile && yarn build:overlay && electron-builder --win",
+        "build:linux": "yarn compile && yarn build:overlay && electron-builder --linux",
+        "build:overlay": "cd resources/overlay && yarn build && cd ../../"
     },
-    "win": {
-      "icon": "icons/icon.png",
-      "target": [
-        {
-          "target": "nsis",
-          "arch": [
-            "x64",
-            "ia32"
-          ]
-        }
-      ]
-    },
-    "linux": {
-      "icon": "icons/icon.png",
-      "target": [
-        "deb"
-      ]
-    },
-    "directories": {
-      "output": "./builds"
-    }
-  },
-  "dependencies": {
-    "electron-updater": "^4.3.8",
-    "iohook": "^0.7.2"
-  },
-  "iohook": {
-    "targets": [
-      "node-83",
-      "electron-85"
+    "keywords": [
+        "DogeHouse",
+        "Electron"
     ],
-    "platforms": [
-      "win32",
-      "darwin",
-      "linux"
-    ],
-    "arches": [
-      "x64"
+    "author": "Ben Awad <benawadapps@gmail.com>",
+    "homepage": "https://github.com/benawad/dogehouse/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/benawad/dogehouse"
+    },
+    "bugs": {
+        "url": "https://github.com/benawad/dogehouse/issues"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "@types/node": "^14.14.31",
+        "builder-util": "^22.10.5",
+        "electron": "^11.3.0",
+        "electron-builder": "^22.10.5",
+        "typescript": "^4.2.2"
+    },
+    "build": {
+        "appId": "com.electron.dogehouse",
+        "productName": "DogeHouse",
+        "asar": true,
+        "mac": {
+            "icon": "icons/icon.png",
+            "category": "public.app-category.social-networking",
+            "entitlements": "settings/entitlements.mac.plist",
+            "extendInfo": {
+                "NSMicrophoneUsageDescription": "Mic access for speeach input in voice."
+            },
+            "target": [
+                "dmg"
+            ]
+        },
+        "win": {
+            "icon": "icons/icon.png",
+            "target": "nsis",
+            "publish": [
+                "github"
+            ]
+        },
+        "linux": {
+            "icon": "icons/icon.png",
+            "target": [
+                "deb",
+                "AppImage"
+            ]
+        },
+        "extraMetadata": {
+            "main": "dist/electron.js"
+        },
+        "directories": {
+            "output": "./builds"
+        },
+        "extends": null
+    },
+    "dependencies": {
+        "electron-overlay-window": "^1.0.4",
+        "electron-updater": "^4.3.8",
+        "iohook": "^0.7.2"
+    },
+    "iohook": {
+        "targets": [
+            "node-83",
+            "electron-85"
+        ],
+        "platforms": [
+            "win32",
+            "darwin",
+            "linux"
+        ],
+        "arches": [
+            "x64"
+        ]
+    },
+    "files": [
+        "./icons/**/*",
+        "./resources/**/*"
     ]
-  },
-  "files": [
-    "./icons/**/*"
-  ]
 }

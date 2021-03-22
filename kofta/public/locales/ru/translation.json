@@ -15,7 +15,8 @@
     "copyLink": "Скопировать ссылку",
     "copied": "Скопировано",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -30,9 +31,7 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "бан"
-    },
+    "banUser": { "ban": "бан" },
     "followingOnlineList": {
       "listHeader": "Список пользователей, которые не в закрытой комнате и на которых вы подписаны.",
       "currentRoom": "сейчас в :",
@@ -42,10 +41,7 @@
       "followHim": "подписаться",
       "followingHim": "Вы подписаны"
     },
-    "home": {
-      "createRoom": "Создать комнату",
-      "refresh": "Обновить"
-    },
+    "home": { "createRoom": "Создать комнату", "refresh": "Обновить" },
     "inviteList": {
       "roomGone": "Комната исчезла, вернитесь назад",
       "shareRoomLink": "Поделиться ссылкой на комнату",
@@ -69,7 +65,8 @@
       "probablyLoading": "наверное загружается...",
       "voiceSettings": "зайти в голосовые настройки",
       "soundSettings": "зайти в настройки звука",
-      "deleteAccount": "удалить аккаунт"
+      "deleteAccount": "удалить аккаунт",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Упс! Эта страница была утеряна в разговоре.",
@@ -83,19 +80,17 @@
       "allowAll": "Разрешить всем",
       "allowAllConfirm": "Вы уверены? Это позволит всем {{count}} пользователям, запрашивающих разрешение, говорить"
     },
-    "searchUser": {
-      "search": "поиск..."
-    },
-    "soundEffectSettings": {
-      "header": "звуки"
-    },
+    "searchUser": { "search": "поиск..." },
+    "soundEffectSettings": { "header": "звуки" },
     "viewUser": {
       "editProfile": "редактировать профиль",
       "followsYou": "подписаны на вас",
       "followers": "подписчиков",
       "following": "подписан на",
       "followHim": "подписаться",
-      "followingHim": "Вы подписаны"
+      "followingHim": "Вы подписаны",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Голосовые настройки",
@@ -103,6 +98,10 @@
       "permissionError": "микрофон не найден, он не подключен или браузеру не дано соответствующее разрешение.",
       "refresh": "обновить список микрофонов",
       "volume": "громкость:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -147,14 +146,11 @@
       "setKeybind": "назначить клавишу",
       "listening": "слушает",
       "toggleMuteKeybind": "Активация микрофона при нажатии",
-      "togglePushToTalkKeybind": "Включить режим рации"
+      "togglePushToTalkKeybind": "Включить режим рации",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "почему-то нет аудиосвязи"
-    },
-    "addToCalendar": {
-      "add": "Добавить в Календарь"
-    },
+    "userVolumeSlider": { "noAudioMessage": "почему-то нет аудиосвязи" },
+    "addToCalendar": { "add": "Добавить в Календарь" },
     "wsKilled": {
       "description": "Вебсокет был уничтожен сервером. Обычно это происходит когда вы открываете сайт в другой вкладке.",
       "reconnect": "присоединиться заново"

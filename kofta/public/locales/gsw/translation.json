@@ -15,7 +15,8 @@
     "copyLink": "Link kopiere",
     "copied": "kopiert",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -61,7 +62,8 @@
       "probablyLoading": "Ladt äuä...",
       "voiceSettings": "Sprachistellige",
       "soundSettings": "Tonistellige",
-      "deleteAccount": "Konto lösche"
+      "deleteAccount": "Konto lösche",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Hoppla! Die Site isch im Gspräch vrlore gange.",
@@ -83,7 +85,9 @@
       "following": "Abonniert",
       "followers": "Abonnente",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Sprachistellige",
@@ -91,6 +95,10 @@
       "permissionError": "Keni Mikrofon gfunge, es isch entweder kes agschlosse oder die Site het nid die nötige Berechtigunge.",
       "volume": "Lutsterchi:",
       "refresh": "Mikrofonliste aktualisiere"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -176,7 +184,8 @@
       "setKeybind": "Tastenkürzu setze",
       "listening": "Zuelose",
       "toggleMuteKeybind": "Stummschalttaste umschalte",
-      "togglePushToTalkKeybind": "Push-to-Talk Tastekürzel umschalte"
+      "togglePushToTalkKeybind": "Push-to-Talk Tastekürzel umschalte",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "wsKilled": {
       "description": "D Websocket Verbindig zum Server isch ungebroche worde. Das gscheht normalerwiis, wenn du d Website imne angere Tab öffnisch.",
