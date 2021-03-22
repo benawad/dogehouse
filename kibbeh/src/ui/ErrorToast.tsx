@@ -7,7 +7,7 @@ export interface ErrorMessageProps {
   message: string;
   button?: React.ReactNode;
   duration?: ToastDurations;
-  onClose: () => void;
+  onClose?: () => void;
 }
 
 export const ErrorToast: React.FC<ErrorMessageProps> = ({
@@ -24,7 +24,7 @@ export const ErrorToast: React.FC<ErrorMessageProps> = ({
     }
 
     const timer = setTimeout(() => {
-      onCloseRef.current();
+      onCloseRef.current?.();
     }, 7000);
 
     return () => {
@@ -37,19 +37,21 @@ export const ErrorToast: React.FC<ErrorMessageProps> = ({
       className={`rounded-8 p-3 relative w-full items-center justify-center text-button transition-transform duration-300 bg-secondary`}
       data-testid="error-message"
     >
-      <div
-        className={`absolute cursor-pointer`}
-        style={{
-          top: 5,
-          right: 7,
-          width: 13,
-          height: 13,
-        }}
-        onClick={onClose}
-        data-testid="close-btn"
-      >
-        <SolidPlus style={{ transform: "rotate(45deg)" }} />
-      </div>
+      {onClose ? (
+        <div
+          className={`absolute cursor-pointer`}
+          style={{
+            top: 5,
+            right: 7,
+            width: 13,
+            height: 13,
+          }}
+          onClick={onClose}
+          data-testid="close-btn"
+        >
+          <SolidPlus style={{ transform: "rotate(45deg)" }} />
+        </div>
+      ) : null}
       <div className={`flex space-x-4 items-center`}>
         <p className={`bold`}>{message}</p>
         {button}

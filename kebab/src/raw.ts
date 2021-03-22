@@ -17,14 +17,20 @@ export type Logger = (
   fetchId?: FetchID,
   raw?: string
 ) => void;
-export type ListenerHandler = (data: unknown, fetchId?: FetchID) => void;
+export type ListenerHandler<Data = unknown> = (
+  data: Data,
+  fetchId?: FetchID
+) => void;
 export type Listener = {
   opcode: Opcode;
   handler: ListenerHandler;
 };
 
 export type Connection = {
-  addListener: (opcode: Opcode, handler: ListenerHandler) => () => void;
+  addListener: <Data = unknown>(
+    opcode: Opcode,
+    handler: ListenerHandler<Data>
+  ) => () => void;
   user: User;
   send: (opcode: Opcode, data: unknown, fetchId?: FetchID) => void;
   fetch: (
@@ -67,7 +73,10 @@ export const connect = (
 
       socket.addEventListener("close", (error) => {
         clearInterval(heartbeat);
-        if (error.code === 4003) onConnectionTaken();
+        if (error.code === 4003) {
+          socket.close();
+          onConnectionTaken();
+        }
         reject(error);
       });
 
