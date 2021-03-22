@@ -15,7 +15,8 @@
     "copyLink": "copiar link",
     "copied": "copiado",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Cabeçalho da interface principal para traduções",
@@ -60,7 +61,8 @@
       "probablyLoading": "possívelmente carregando...",
       "voiceSettings": "ir para configurações de voz",
       "soundSettings": "ir para configurações de áudio",
-      "deleteAccount": "excluir conta"
+      "deleteAccount": "excluir conta",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Ops! Essa página se perdeu na conversa.",
@@ -82,7 +84,9 @@
       "followers": "seguidores",
       "following": "seguindo",
       "followHim": "seguir",
-      "followingHim": "seguindo"
+      "followingHim": "seguindo",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Configurações do microfone",
@@ -90,6 +94,10 @@
       "permissionError": "não foram encontrados microfones, você não conectou um ou você não deu permissão para este website.",
       "refresh": "recarregar lista de microfones",
       "volume": "volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -173,7 +181,8 @@
       "setKeybind": "definir atalho no teclado",
       "listening": "listening",
       "toggleMuteKeybind": "ativar/desativar atalho para mutar",
-      "togglePushToTalkKeybind": "ativar/desativar pressione para falar"
+      "togglePushToTalkKeybind": "ativar/desativar pressione para falar",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "wsKilled": {
       "description": "O Websocket foi finalizado pelo servidor. Isso geralmente acontece quando você abre o site em outra guia.",

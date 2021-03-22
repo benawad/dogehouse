@@ -1,4 +1,4 @@
-import { CurrentRoom } from "@dogehouse/kebab";
+import { Room } from "@dogehouse/kebab";
 import React, { useMemo } from "react";
 import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
 import { useMuteStore } from "../../global-stores/useMuteStore";
@@ -8,7 +8,7 @@ import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { MinimizedRoomCard } from "../../ui/MinimizedRoomCard";
 
 interface MinimizedRoomCardControllerProps {
-  room: CurrentRoom;
+  room: Room;
 }
 
 export const MinimizedRoomCardController: React.FC<MinimizedRoomCardControllerProps> = ({

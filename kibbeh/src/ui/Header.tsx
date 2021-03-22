@@ -7,7 +7,8 @@ import {
   LgLogo,
 } from "../icons";
 import { SingleUser } from "./UserAvatar";
-import { DashboardInnerGrid } from "./DashboardGrid";
+import { MainInnerGrid } from "./MainGrid";
+import Link from "next/link";
 
 export interface HeaderProps {
   searchPlaceholder: string;
@@ -35,8 +36,12 @@ const Header: React.FC<HeaderProps> = ({
   actionButton,
 }) => {
   return (
-    <DashboardInnerGrid>
-      <LgLogo />
+    <MainInnerGrid>
+      <Link href="/dashboard">
+        <a>
+          <LgLogo />
+        </a>
+      </Link>
       <div className="flex-1 justify-center">
         <div style={{ width: 640 }}>
           <SearchBar
@@ -76,7 +81,7 @@ const Header: React.FC<HeaderProps> = ({
         {actionButton}
         <SingleUser size="sm" src={avatarImg} />
       </div>
-    </DashboardInnerGrid>
+    </MainInnerGrid>
   );
 };
 

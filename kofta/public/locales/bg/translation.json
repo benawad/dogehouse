@@ -15,7 +15,8 @@
     "copyLink": "копирай линк",
     "copied": "копирано",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please give DogeHouse Accessibility permessions"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -61,7 +62,8 @@
       "probablyLoading": "зареждане най-вероятно...",
       "voiceSettings": "отиване към гласови настройки",
       "soundSettings": "отиване към звукови настройки",
-      "deleteAccount": "изтриване на акаунт"
+      "deleteAccount": "изтриване на акаунт",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Опаа! Тази страниза бе изгубена.",
@@ -83,7 +85,9 @@
       "followers": "последователи",
       "following": "последвани",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Звукови настройки",
@@ -91,6 +95,12 @@
       "permissionError": "не бяха открити микрофони, най-вероятно няма вързани или нямат разрешение да бъдат ползвани.",
       "refresh": "опресняване на списък с микрофони",
       "volume": "ниво на звук:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings",
+      "errorMsg": "Please enter valid app title",
+      "label": "Enter app title"
     }
   },
   "components": {
@@ -132,7 +142,8 @@
       "setKeybind": "задай клавишна комбинация",
       "listening": "слушане",
       "toggleMuteKeybind": "превключване на клавишна комбинация за заглушаване",
-      "togglePushToTalkKeybind": "превключване на клавишна комбинация за натисни-за-говорене"
+      "togglePushToTalkKeybind": "превключване на клавишна комбинация за натисни-за-говорене",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "по някаква причина няма звуков консуматор"

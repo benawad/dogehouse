@@ -46,23 +46,24 @@ defmodule Beef.ScheduledRooms do
           :invalid | %{optional(:__struct__) => none, optional(atom | binary) => any}
         ) :: :ok | {:error, Ecto.Changeset.t()}
   def edit(user_id, id, data) do
-    with {:ok, cleaned_data} <-
-           ScheduledRoom.edit_changeset(%ScheduledRoom{}, data) |> apply_action(:update) do
-      from(sr in ScheduledRoom,
-        where: sr.creatorId == ^user_id and sr.id == ^id,
-        update: [
-          set: [
-            name: ^cleaned_data.name,
-            description: ^cleaned_data.description,
-            scheduledFor: ^cleaned_data.scheduledFor
+    case ScheduledRoom.edit_changeset(%ScheduledRoom{}, data) |> apply_action(:update) do
+      {:ok, cleaned_data} ->
+        from(sr in ScheduledRoom,
+          where: sr.creatorId == ^user_id and sr.id == ^id,
+          update: [
+            set: [
+              name: ^cleaned_data.name,
+              description: ^cleaned_data.description,
+              scheduledFor: ^cleaned_data.scheduledFor
+            ]
           ]
-        ]
-      )
-      |> Repo.update_all([])
+        )
+        |> Repo.update_all([])
 
-      :ok
-    else
-      error -> error
+        :ok
+
+      error ->
+        error
     end
   end
 

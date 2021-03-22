@@ -15,7 +15,8 @@
     "copyLink": "Link kopian",
     "copied": "kopiart",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -61,7 +62,8 @@
       "probablyLoading": "Londt vermutlich...",
       "voiceSettings": "Sprocheinstöllungen",
       "soundSettings": "Toneinstöllungen",
-      "deleteAccount": "Konto löschn"
+      "deleteAccount": "Konto löschn",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Oida! De Seite ist im Gespräch verlurn gaunga.",
@@ -71,7 +73,9 @@
     "room": {
       "speakers": "Sprecha",
       "requestingToSpeak": "Sprochanfrogen",
-      "listeners": "Zuhöra"
+      "listeners": "Zuhöra",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Suachn..." },
     "soundEffectSettings": { "header": "Ton" },
@@ -81,7 +85,9 @@
       "following": "Abonniert",
       "followers": "Abonnenten",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Sprocheinstöllungen",
@@ -89,6 +95,13 @@
       "permissionError": "Kane Mikrofone gfunden, es is entweda kans augschlossen oder de Seitn besitzt ned die benötigten Berechtigungen.",
       "volume": "Lautstärkn:",
       "refresh": "Mikrofonliste aktualisiern"
+    },
+    "overlaySettings": {
+      "header": "Overlay Settings",
+      "input": {
+        "errorMsg": "Please enter valid app title",
+        "label": "Enter app title"
+      }
     }
   },
   "components": {
@@ -174,7 +187,8 @@
       "setKeybind": "Tastenkürzel setzen",
       "listening": "Zuhören",
       "toggleMuteKeybind": "Stummschoittaste umschoiten",
-      "togglePushToTalkKeybind": "Push-to-Talk Tastenkürzl umschoiten"
+      "togglePushToTalkKeybind": "Push-to-Talk Tastenkürzl umschoiten",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "wsKilled": {
       "description": "De Websocket Verbindung zum Server wurde unterbrochen. Des passiert normalerweise, wenn du de Website in an aunderen Tab öffnest.",
