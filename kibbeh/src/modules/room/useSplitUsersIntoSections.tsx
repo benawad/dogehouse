@@ -28,7 +28,6 @@ export const useSplitUsersIntoSections = ({
     let arr = listeners;
     if (u.id === room.creatorId || u.roomPermissions?.isSpeaker) {
       arr = speakers;
-      speakers.push(u);
     } else if (u.roomPermissions?.askedToSpeak) {
       arr = askingToSpeak;
     } else {
@@ -47,7 +46,7 @@ export const useSplitUsersIntoSections = ({
         <img
           src={isCreator ? `/emotes/coolhouse.png` : `/emotes/dogehouse.png`}
           alt={isCreator ? `admin` : `mod`}
-          style={{ marginLeft: 4, marginTop: 2 }}
+          style={{ marginLeft: 4, marginTop: 4 }}
           className={`w-3 h-3 ml-1`}
         />
       );
