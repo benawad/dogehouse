@@ -135,15 +135,7 @@ export const KEY_TABLE = [
     "Pause"
 ];
 
-export interface IOHookEvent {
-    shiftKey: boolean,
-    altKey: boolean,
-    ctrlKey: boolean,
-    metaKey: boolean,
-    keycode: number,
-    rawcode: number,
-    type: 'keyup' | 'keydown'
-}
+
 
 export const ALLOWED_HOSTS = [
     "dogehouse.tv",

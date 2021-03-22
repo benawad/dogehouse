@@ -58,18 +58,20 @@ function App() {
 
 function SpeakerIcon(props) {
   return (
-    <div className={props.speaker.isSpeaking ? "active-speaker-cont left" : "left"}>
-      <div className="img-div">
-        <img width="50px" height="50px"
-          className={props.speaker.isSpeaking ? "active-speaker" : ""}
-          src={props.speaker.avatarUrl} />
-        {/* {props.speaker.isMuted ?
+    <div>
+      <div className={props.speaker.isSpeaking ? "active-speaker-cont left" : "left"}>
+        <div className="img-div">
+          <img width="50px" height="50px"
+            className={props.speaker.isSpeaking ? "active-speaker" : ""}
+            src={props.speaker.avatarUrl} />
+          {/* {props.speaker.isMuted ?
           <div className="speaker-muted">
             <FiMicOff />
           </div>
           : null} */}
+        </div>
+        {/* {props.speaker.isSpeaking ? <div className="name-div"> <p>{props.speaker.displayName}</p> </div> : null} */}
       </div>
-      {/* {props.speaker.isSpeaking ? <div className="name-div"> <p>{props.speaker.displayName}</p> </div> : null} */}
     </div>
   );
 }
