@@ -12,18 +12,18 @@ import iohook from "iohook";
 import { autoUpdater } from "electron-updater";
 import { RegisterKeybinds } from "./utils/keybinds";
 import { HandleVoiceTray } from "./utils/tray";
-import { ALLOWED_HOSTS, isMac, MENU_TEMPLATE, callback } from "./constants";
+import { ALLOWED_HOSTS, isMac, MENU_TEMPLATE } from "./constants";
 import url from "url";
 import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
-import monitor from 'active-window';
+import activeWin from 'active-win'
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
 let menu: Menu;
 let splash;
 
-export const __prod__ = app.isPackaged;
+export const __prod__ = true; // app.isPackaged
 const instanceLock = app.requestSingleInstanceLock();
 
 function createWindow() {
@@ -61,7 +61,7 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
   }
   mainWindow.loadURL(
-    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/"
+    __prod__ ? `https://twitter.com/` : "http://localhost:3000/"
   );
 
   mainWindow.once("ready-to-show", () => {
@@ -131,7 +131,11 @@ if (!instanceLock) {
   app.on("ready", () => {
     createWindow();
     autoUpdater.checkForUpdatesAndNotify();
-
+    mainWindow.on('blur', () => {
+      (async () => {
+        console.log(await activeWin());
+      })();
+    })
   });
   app.on("second-instance", (event, argv, workingDirectory) => {
     if (mainWindow) {

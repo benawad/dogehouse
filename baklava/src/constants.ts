@@ -259,13 +259,3 @@ export const MENU_TEMPLATE: any = [
         ]
     }
 ];
-
-export const callback = window => {
-    try {
-      console.log("App: " + window.app);
-      console.log("Title: " + window.title);
-    }
-    catch(err) {
-        console.log(err);
-    } 
-}
