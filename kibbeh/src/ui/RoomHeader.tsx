@@ -24,7 +24,10 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
       </div>
       <div className={`text-primary-200 text-xs`}>
         with{" "}
-        <span style={{ marginLeft: 3 }} className={`font-bold`}>
+        <span
+          style={{ marginLeft: 3 }}
+          className={`font-bold text-primary-100`}
+        >
           {names.join(", ")}
         </span>
       </div>
