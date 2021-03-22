@@ -154,17 +154,21 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                           </button>
                         );
                       case "link":
-                        return (
-                          <a
-                            target="_blank"
-                            rel="noreferrer noopener"
-                            href={v}
-                            className={`flex-1 hover:underline text-blue-500`}
-                            key={i}
-                          >
-                            {normalizeUrl(v, { stripProtocol: true })}{" "}
-                          </a>
-                        );
+                        try {
+                          return (
+                            <a
+                              target="_blank"
+                              rel="noreferrer noopener"
+                              href={v}
+                              className={`flex-1 hover:underline text-blue-500`}
+                              key={i}
+                            >
+                              {normalizeUrl(v, { stripProtocol: true })}{" "}
+                            </a>
+                          );
+                        } catch {
+                          return null;
+                        }
                       case "block":
                         return (
                           <span key={i}>
