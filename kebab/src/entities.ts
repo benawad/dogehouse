@@ -1,4 +1,11 @@
+import { ConsumerOptions } from "mediasoup-client/lib/types";
+
 export type UUID = string;
+
+export type RoomPeer = {
+  peerId: UUID;
+  consumerParameters: ConsumerOptions;
+};
 
 export type UserPreview = {
   numFollowers: number;
