@@ -20,7 +20,6 @@ defmodule Broth do
 
   forward("/auth/github", to: GitHubAuth)
   forward("/auth/twitter", to: TwitterAuth)
-  # forward("/me", to: Kousa.Me)
   forward("/dev", to: Dev)
   forward("/scheduled-room", to: ScheduledRoom)
 
