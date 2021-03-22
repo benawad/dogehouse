@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import { FiMicOff } from "react-icons/fi";
+// import { FiMicOff } from "react-icons/fi";
 
 const ipcRenderer = window.require("electron").ipcRenderer;
 
@@ -62,6 +62,7 @@ function SpeakerIcon(props) {
       <div className={props.speaker.isSpeaking ? "active-speaker-cont left" : "left"}>
         <div className="img-div">
           <img width="50px" height="50px"
+            alt="avatar"
             className={props.speaker.isSpeaking ? "active-speaker" : ""}
             src={props.speaker.avatarUrl} />
           {/* {props.speaker.isMuted ?
