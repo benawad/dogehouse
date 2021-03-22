@@ -15,7 +15,7 @@
     "copied": "已拷贝",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "请注意，在没有访问权限的情况下运行DogeHouse可能会导致不必要的错误 "
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,7 +36,7 @@
       "currentRoom": "所在的聊天室:",
       "startPrivateRoom": "跟ta进入私人聊天室"
     },
-    "followList": { "followHim": "关注", "followingHim": "已关注" },
+    "followList": { "followHim": "关注ta", "followingHim": "已关注ta" },
     "home": { "createRoom": "新建聊天室", "refresh": "刷新" },
     "inviteList": {
       "roomGone": "聊天室以被删除，请回到前一页",
@@ -70,11 +70,11 @@
       "goHomeLinkText": "回到主页"
     },
     "room": {
-      "speakers": "讲话者",
-      "requestingToSpeak": "要求讲话",
+      "speakers": "发言者",
+      "requestingToSpeak": "要求发言",
       "listeners": "听者",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "允许全部用户发言",
+      "allowAllConfirm": "你确定吗？ 这会允许所有 {{count}} 位邀请的用户发言"
     },
     "searchUser": { "search": "搜索..." },
     "soundEffectSettings": { "header": "声音" },
@@ -188,12 +188,12 @@
     },
     "wsKilled": {
       "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
-      "reconnect": "reconnect"
+      "reconnect": "重连"
     },
     "deviceNotSupported": {
-      "notSupported": "Your device is currently not supported. You can create an",
-      "linkText": "issue on GitHub",
-      "addSupport": "and I will try adding support for your device."
+      "notSupported": "你的设备目前尚不支持。你可以在",
+      "linkText": "GitHub创建一个issue",
+      "addSupport": "我会尝试加入对你设备的支持。"
     },
     "inviteButton": { "invited": "被邀请", "inviteToRoom": "邀请进入聊天室" }
   },
