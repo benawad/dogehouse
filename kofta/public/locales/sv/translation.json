@@ -1,6 +1,6 @@
 {
   "common": {
-    "loadMore": "ladda in mer",
+    "loadMore": "Visa fler",
     "loading": "laddar in...",
     "noUsersFound": "inga användare hittades",
     "ok": "ok",
@@ -11,10 +11,11 @@
     "edit": "ändra",
     "delete": "radera",
     "joinRoom": "anslut till rummet",
-    "copyLink": "kopiera länken",
-    "copied": "kopierade",
+    "copyLink": "Kopiera länken",
+    "copied": "Kopierad",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,12 +37,12 @@
       "startPrivateRoom": "skapa ett privat rum med dem"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Skapa Rum", "refresh": "Uppdatera" },
+    "home": { "createRoom": "Skapa rum", "refresh": "Uppdatera" },
     "inviteList": {
       "roomGone": "rummet försvann under månförmörkelsen, gå tillbaka",
       "shareRoomLink": "dela länk till rummet",
       "inviteFollowers": "Du kan bjuda in dina följare som är uppkopplade:",
-      "whenFollowersOnline": "När dina följare är uppkopplade kommer de visa sig här."
+      "whenFollowersOnline": "När dina följare är uppkopplade kommer de visas här."
     },
     "login": {
       "headerText": "Tar röstsamtal till månen 🚀",
@@ -60,7 +61,8 @@
       "probablyLoading": "laddar antagligen...",
       "voiceSettings": "gå till röstinställningar",
       "soundSettings": "gå till ljudinställningar",
-      "deleteAccount": "radera konto"
+      "deleteAccount": "radera konto",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Whoops! Denna sida blev förlorad i konversationen.",
@@ -70,7 +72,9 @@
     "room": {
       "speakers": "Talare",
       "requestingToSpeak": "Begär att tala",
-      "listeners": "Lyssnare"
+      "listeners": "Lyssnare",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "sök..." },
     "soundEffectSettings": { "header": "Ljud" },
@@ -80,7 +84,9 @@
       "followers": "följare",
       "following": "följer",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Röstinställningar",
@@ -88,6 +94,10 @@
       "permissionError": "ingen mikrofon hittades, du har antingen inte någon inkopplad eller så har du inte gett hemsidan tillåtelse.",
       "refresh": "uppdatera mikrofonlistan",
       "volume": "volym:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -182,7 +192,8 @@
       "setKeybind": "ställ in kortkommando",
       "listening": "lyssnar",
       "toggleMuteKeybind": "växla tystad kortkommando",
-      "togglePushToTalkKeybind": "växla tryck-för-tal kortkommando"
+      "togglePushToTalkKeybind": "växla tryck-för-tal kortkommando",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "wsKilled": {
       "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
@@ -194,8 +205,8 @@
     "scheduledRooms": {
       "title": "Schemalagda rum",
       "noneFound": "inga hittades",
-      "allRooms": "alla mina schemalagda rum",
-      "myRooms": "mina schemalagda rum",
+      "allRooms": "Alla schemalagda rum",
+      "myRooms": "Mina schemalagda rum",
       "scheduleRoomHeader": "Schemalagda Rum",
       "startRoom": "påbörja rum",
       "modal": {
@@ -216,7 +227,7 @@
       "sendMessage": "Skicka ett meddelande",
       "whisper": "Viska",
       "welcomeMessage": "Välkommen till chatten!",
-      "roomDescription": "rumbeskrivning"
+      "roomDescription": "Rumbeskrivning"
     },
     "roomStatus": {
       "fuelingRocket": "Tankar raket",

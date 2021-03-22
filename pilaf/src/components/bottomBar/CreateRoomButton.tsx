@@ -9,7 +9,7 @@ export const CreateRoomButton: React.FC = (props) => {
     <>
       <TouchableOpacity {...props} onPress={() => setModalVisible(true)} />
       <Modal
-        backdropOpacity={0.3}
+        backdropOpacity={0.8}
         isVisible={modalVisible}
         onBackdropPress={() => setModalVisible(false)}
         style={styles.contentView}

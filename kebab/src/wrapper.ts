@@ -5,23 +5,30 @@ import { Message, MessageToken, Room, RoomUser, UUID } from "./entities";
 import {
   GetTopPublicRoomsResponse,
   GetScheduledRoomsResponse,
+  JoinRoomAndGetInfoResponse,
 } from "./responses";
 
 type Handler<Data> = (data: Data) => void;
 
+export type Wrapper = ReturnType<typeof wrap>;
+
 export const wrap = (connection: Connection) => ({
+  connection,
   subscribe: {
     newChatMsg: (handler: Handler<{ userId: UUID; msg: Message }>) =>
       connection.addListener("new_chat_msg", handler),
   },
   query: {
-    getCurrentRoomUsers: (): Promise<{
-      users: RoomUser[];
-      muteMap: Record<string, boolean>;
-      roomId: string;
-      activeSpeakerMap: Record<string, boolean>;
-      autoSpeaker: boolean;
-    }> => connection.fetch("get_current_room_users"),
+    getFollowingOnline: (
+      cursor = 0
+    ): Promise<{
+      users: UserWithFollowInfo[];
+      nextCursor: number | null;
+    }> => connection.fetch("fetch_following_online", { cursor }),
+    joinRoomAndGetInfo: (
+      roomId: string
+    ): Promise<JoinRoomAndGetInfoResponse | { error: string }> =>
+      connection.fetch("join_room_and_get_info", { roomId }),
     getTopPublicRooms: (cursor = 0): Promise<GetTopPublicRoomsResponse> =>
       connection.fetch("get_top_public_rooms", { cursor }),
     getScheduledRooms: (
@@ -41,8 +48,10 @@ export const wrap = (connection: Connection) => ({
       whisperedTo: string[] = []
     ): Promise<void> =>
       connection.send("send_room_chat_msg", { tokens: ast, whisperedTo }),
+    setMute: (isMuted: boolean): Promise<Record<string, never>> =>
+      connection.fetch("mute", { value: isMuted }),
     leaveRoom: (): Promise<{ roomId: UUID }> =>
-      connection.fetch("leave_room", {}, "you_left_room"),
+      connection.fetch("leave_room", {}),
     createRoom: (data: {
       name: string;
       privacy: string;

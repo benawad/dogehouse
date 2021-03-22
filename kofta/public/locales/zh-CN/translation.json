@@ -14,7 +14,8 @@
     "copyLink": "拷贝链接",
     "copied": "已拷贝",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -60,7 +61,8 @@
       "probablyLoading": "加载中...",
       "voiceSettings": "音量设置",
       "soundSettings": "声音设置",
-      "deleteAccount": "删除账号"
+      "deleteAccount": "删除账号",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "哎呀，这页在聊天中被丢掉了",
@@ -70,7 +72,9 @@
     "room": {
       "speakers": "讲话者",
       "requestingToSpeak": "要求讲话",
-      "listeners": "听者"
+      "listeners": "听者",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "搜索..." },
     "soundEffectSettings": { "header": "声音" },
@@ -80,7 +84,9 @@
       "followers": "关注者",
       "following": "您关注的人",
       "followHim": "关注ta",
-      "followingHim": "已经关注"
+      "followingHim": "已经关注",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "语音设置",
@@ -88,6 +94,10 @@
       "permissionError": "没有找到麦克风，也许没有插入麦克风，也许没有给此网页使用麦克风的权利。",
       "refresh": "刷新麦克风列表",
       "volume": "音量:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -173,7 +183,8 @@
       "setKeybind": "设置快捷键",
       "listening": "等待输入",
       "toggleMuteKeybind": "切换静音键绑定",
-      "togglePushToTalkKeybind": "toggle push-to-talk keybind"
+      "togglePushToTalkKeybind": "toggle push-to-talk keybind",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "wsKilled": {
       "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",

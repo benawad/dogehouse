@@ -15,7 +15,8 @@
     "copyLink": "kopiu ligon",
     "copied": "kopiita",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -30,19 +31,14 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "malpermeso"
-    },
+    "banUser": { "ban": "malpermeso" },
     "followingOnlineList": {
       "listHeader": "Listo de uzantoj, kiuj ne estas en privata ĉambro kaj kiun vi sekvas.",
       "currentRoom": "nuntempe en:",
       "startPrivateRoom": "komencu privatan ĉambron kun ili"
     },
-    "followList": {},
-    "home": {
-      "createRoom": "Kreu Ĉambron",
-      "refresh": "Refreŝigu"
-    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Kreu Ĉambron", "refresh": "Refreŝigu" },
     "inviteList": {
       "roomGone": "ĉambro for, reiru",
       "shareRoomLink": "dividi ligon al ĉambro",
@@ -66,7 +62,8 @@
       "probablyLoading": "probable ŝarĝante ...",
       "voiceSettings": "iri al voĉaj agordoj",
       "soundSettings": "iru al sonaj agordoj",
-      "deleteAccount": "forigi konton"
+      "deleteAccount": "forigi konton",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Ho ve! Ĉi tiu paĝo perdiĝis en konversacio",
@@ -76,19 +73,21 @@
     "room": {
       "speakers": "Parolantoj",
       "requestingToSpeak": "Petante paroli",
-      "listeners": "Aŭskultantoj"
+      "listeners": "Aŭskultantoj",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "serĉi..."
-    },
-    "soundEffectSettings": {
-      "header": "Sonoj"
-    },
+    "searchUser": { "search": "serĉi..." },
+    "soundEffectSettings": { "header": "Sonoj" },
     "viewUser": {
       "editProfile": "redakti profilon",
       "followsYou": "sekvas vin",
       "followers": "sekvantoj",
-      "following": "sekvante"
+      "following": "sekvante",
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Voĉaj Agordoj",
@@ -96,6 +95,13 @@
       "permissionError": "neniuj mikrofonoj trovitaj, vi aŭ havas neniujn enŝovitajn aŭ ne donis permeson al ĉi tiu retejo.",
       "refresh": "refreŝigi mikrofonan liston",
       "volume": "volumo:"
+    },
+    "overlaySettings": {
+      "header": "Overlay Settings",
+      "input": {
+        "errorMsg": "Please enter valid app title",
+        "label": "Enter app title"
+      }
     }
   },
   "components": {
@@ -140,14 +146,11 @@
       "setKeybind": "agordi klavokombinon",
       "listening": "aŭskultanta",
       "toggleMuteKeybind": "baskuli mutan klavaron",
-      "togglePushToTalkKeybind": "ŝalti puŝ-al-parolan klavaron"
+      "togglePushToTalkKeybind": "ŝalti puŝ-al-parolan klavaron",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "neniu audio-konsumanto ial"
-    },
-    "addToCalendar": {
-      "add": "Aldoni al Kalendaro"
-    },
+    "userVolumeSlider": { "noAudioMessage": "neniu audio-konsumanto ial" },
+    "addToCalendar": { "add": "Aldoni al Kalendaro" },
     "wsKilled": {
       "description": "WebSocket estis mortigita de la servilo. Ĉi tio kutime okazas kiam vi malfermas la retejon en alia langeto.",
       "reconnect": "rekonekti"

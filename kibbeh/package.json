@@ -29,12 +29,13 @@
     "next": "10.0.7",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-draggable": "^4.4.3",
     "react-hotkeys": "^2.0.0",
     "react-i18next": "^11.8.10",
     "react-modal": "^3.12.1",
     "react-query": "^3.12.2",
-    "react-toastify": "^7.0.3",
     "tslib": "^2.1.0",
+    "uuid": "^8.3.2",
     "zustand": "^3.3.3"
   },
   "devDependencies": {

@@ -15,7 +15,8 @@
     "copyLink": "afrita hlekk",
     "copied": "afritað",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -61,7 +62,8 @@
       "probablyLoading": "hleður...(líklega)",
       "voiceSettings": "farðu í raddstillingar",
       "soundSettings": "farðu í hljóðstillingar",
-      "deleteAccount": "eyða reikningi"
+      "deleteAccount": "eyða reikningi",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Úps! Þessi síða týndist í samtali.",
@@ -71,7 +73,9 @@
     "room": {
       "speakers": "Hátalarar",
       "requestingToSpeak": "Biðja um að tala",
-      "listeners": "Hlustendur"
+      "listeners": "Hlustendur",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "leita..." },
     "soundEffectSettings": { "header": "Hljóðin" },
@@ -81,7 +85,9 @@
       "followers": "fylgjendur",
       "following": "eftirfarandi",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Talstillingar",
@@ -89,6 +95,10 @@
       "permissionError": "engir hljóðnemar fundust, kannski hefurðu það ekki tengt eða hefur ekki gefið leyfi til að nota það.",
       "refresh": "endurnýja hljóðnemalistann",
       "volume": "hljóðstyrkur:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -130,7 +140,8 @@
       "setKeybind": "stilltu lyklabindingu",
       "listening": "er að hlusta",
       "toggleMuteKeybind": "afþagga",
-      "togglePushToTalkKeybind": "slökkva á 'Ýttu til að tala'"
+      "togglePushToTalkKeybind": "slökkva á 'Ýttu til að tala'",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "enginn hljóðnotandi af einhverjum ástæðum"

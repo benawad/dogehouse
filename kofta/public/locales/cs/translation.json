@@ -15,7 +15,8 @@
     "copyLink": "Kopírovat odkaz",
     "copied": "Zkopírováno",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please give DogeHouse Accessibility permessions"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -61,7 +62,8 @@
       "probablyLoading": "Nejspíš se to načítá...",
       "voiceSettings": "Přejít na nastavení hlasu",
       "soundSettings": "Přejít na nastavení zvuku",
-      "deleteAccount": "Smazat účet"
+      "deleteAccount": "Smazat účet",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Upst! Tahle místnost se ztratila v konverzaci.",
@@ -71,7 +73,9 @@
     "room": {
       "speakers": "Řečníci",
       "requestingToSpeak": "Požaduje oprávnění mluvit",
-      "listeners": "Posluchači"
+      "listeners": "Posluchači",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "hledat..." },
     "soundEffectSettings": { "header": "Zvuky" },
@@ -81,7 +85,9 @@
       "followers": "Sledující",
       "following": "Sleduje",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Nastavení hlasu",
@@ -89,6 +95,12 @@
       "permissionError": "Buď nemáš mikrofon, nebo jsi jej nepovolil/a.",
       "refresh": "Znovu načíst mikrofon",
       "volume": "Hlasitost:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings",
+      "errorMsg": "Please enter valid app title",
+      "label": "Enter app title"
     }
   },
   "components": {
@@ -133,7 +145,8 @@
       "setKeybind": "nastavit klávesovou zkratku",
       "listening": "posluchám",
       "toggleMuteKeybind": "ztlumit mikrofon",
-      "togglePushToTalkKeybind": "Pust-To-Talk"
+      "togglePushToTalkKeybind": "Pust-To-Talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "z nějakého důvodu se nepřehrává zvuk"

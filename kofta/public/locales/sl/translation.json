@@ -15,7 +15,8 @@
     "copyLink": "Kopiraj povezavo",
     "copied": "Kopirano",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -61,7 +62,8 @@
       "probablyLoading": "Verjetno se nalaga...",
       "voiceSettings": "Nastavitve glasu",
       "soundSettings": "Nastavitve zvoka",
-      "deleteAccount": "Izbriši račun"
+      "deleteAccount": "Izbriši račun",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Ups! Ta stran se je v pogovoru izgubila.",
@@ -71,7 +73,9 @@
     "room": {
       "speakers": "Govorci",
       "requestingToSpeak": "Zahtevajo dovoljenje za vklop zvoka",
-      "listeners": "Poslušalci"
+      "listeners": "Poslušalci",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Iskanje..." },
     "soundEffectSettings": { "header": "Zvoki" },
@@ -81,7 +85,9 @@
       "followers": "Sledilci",
       "following": "Spremljane osebe",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Nastavitve zvoka",
@@ -89,6 +95,10 @@
       "permissionError": "Mikrofona ni bilo mogoče najti. Morda ni priključen ali pa stran nima potrebnih pravic.",
       "refresh": "Osveži seznam mikrofonov",
       "volume": "Glasnost:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -130,7 +140,8 @@
       "setKeybind": "Nastavi bljižnico",
       "listening": "Poslušaj",
       "toggleMuteKeybind": "Preklopi bližnjico za vklop/izklop mikrofona",
-      "togglePushToTalkKeybind": "Preklopi bližnjico za push-to-talk"
+      "togglePushToTalkKeybind": "Preklopi bližnjico za push-to-talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Iz nekega razloga ni odjemalca zvoka"

@@ -15,7 +15,8 @@
     "copyLink": "kopjo linkun",
     "copied": "u kopjua",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -61,7 +62,8 @@
       "probablyLoading": "ndoshta duke u ngarkuar...",
       "voiceSettings": "shko te cilësimet e zërit",
       "soundSettings": "shko te cilësimet e tingullit",
-      "deleteAccount": "fshije llogarinë"
+      "deleteAccount": "fshije llogarinë",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Whoops! Kjo faqja humbi në bisedë.",
@@ -71,7 +73,9 @@
     "room": {
       "speakers": "Folësit",
       "requestingToSpeak": "Duke kërkuar leje për të folur",
-      "listeners": "Dëgjuesit"
+      "listeners": "Dëgjuesit",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "kerko..." },
     "soundEffectSettings": { "header": "Tingujt" },
@@ -81,7 +85,9 @@
       "followers": "ndjekës",
       "following": "ju ndjekin",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Cilësime e zërit",
@@ -89,6 +95,10 @@
       "permissionError": "nuk u gjend asnjë mikrofon, ju ndoshta nuk e keni lidhur ose nuk i keni dhënë leje kesaj faqeje.",
       "refresh": "rifresko listën e mikrofonëve",
       "volume": "volumi:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -130,7 +140,8 @@
       "setKeybind": "vendos keybind",
       "listening": "duke dëgjuar",
       "toggleMuteKeybind": "Keybind hesht/ç'hesht",
-      "togglePushToTalkKeybind": "Keybind ndiz/fik shtyp-për-të-folur"
+      "togglePushToTalkKeybind": "Keybind ndiz/fik shtyp-për-të-folur",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "për ndonjë arsye nuk ka asnje konsumator audio"

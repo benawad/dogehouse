@@ -15,7 +15,8 @@
     "copyLink": "αντιγραφή συνδέσμου",
     "copied": "αντιγράφτηκε",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -24,7 +25,7 @@
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
-    "link_1": "Ιστορία Προέλευσης",
+    "link_1": "Ιστορία",
     "link_2": "Discord",
     "link_3": "Αναφορά Προβλήματος"
   },
@@ -32,7 +33,7 @@
     "_comment": "Respective Page UI Internationalization Strings",
     "banUser": { "ban": "αποκλεισμός" },
     "followingOnlineList": {
-      "listHeader": "Χρήστες που ακολουθείτε και δεν βρίσκονται σε κάποιο δωμάτιο",
+      "listHeader": "Οι χρήστες που ακολουθείτε και δεν βρίσκονται σε κάποιο δωμάτιο",
       "currentRoom": "αυτή τη στιγμή βρίσκεστε σε:",
       "startPrivateRoom": "δημιουργήστε ένα ιδιωτικό δωμάτιο μαζί τους"
     },
@@ -48,7 +49,7 @@
       "headerText": "Πάμε τις φωνητικές συνομιλίες στο φεγγάρι 🚀",
       "featureText_1": "Σκούρο Θέμα",
       "featureText_2": "Ανοιχτές Εγγραφές",
-      "featureText_3": "Υποστήριξη Πολλαπλών Πλατφορμών",
+      "featureText_3": "Υποστήριξη Πολλαπλών Συσκευών",
       "featureText_4": "Ανοιχτού Πηγαίου Κώδικα",
       "featureText_5": "Συζήτηση Κειμένου",
       "featureText_6": "Με την υποστήριξη του Doge",
@@ -61,17 +62,20 @@
       "probablyLoading": "μάλλον φορτώνει...",
       "voiceSettings": "πηγαίνετε στις ρυθμίσεις φωνής",
       "soundSettings": "πηγαίνετε στις ρυθμίσεις ήχου",
-      "deleteAccount": "διαγραφή λογαριασμού"
+      "deleteAccount": "διαγραφή λογαριασμού",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Ουπς! Αυτή η σελίδα χάθηκε στη συζήτηση.",
       "goHomeMessage": "Μην ανησυχείτε. Μπορείτε να",
-      "goHomeLinkText": "επιστρέψετε στην αρχική"
+      "goHomeLinkText": "επιστρέψετε στην αρχική σελίδα"
     },
     "room": {
       "speakers": "Ομιλητές",
       "requestingToSpeak": "Αιτούμενοι να μιλήσουν",
-      "listeners": "Ακροατές"
+      "listeners": "Ακροατές",
+      "allowAll": "Επιτρέψτε τα όλα",
+      "allowAllConfirm": "Είστε σίγουρος; Αυτό θα επιτρέψει όλους τους {{count}} χρήστες που έχουν ζητήσει, να μιλήσουν"
     },
     "searchUser": { "search": "αναζήτηση..." },
     "soundEffectSettings": { "header": "Ήχοι" },
@@ -80,8 +84,10 @@
       "followsYou": "σας ακολουθεί",
       "followers": "ακόλουθοι",
       "following": "ακολουθείτε",
-      "followHim": "follow",
-      "followingHim": "following"
+      "followHim": "ακολουθήστε",
+      "followingHim": "ακολουθείτε",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Ρυθμίσεις Φωνής",
@@ -89,6 +95,10 @@
       "permissionError": "δεν βρέθηκε μικρόφωνο, είτε δεν έχετε κανένα συνδεδεμένο είτε δεν έχετε δώσει άδεια σε αυτή την ιστοσελίδα.",
       "refresh": "ανανέωση λίστας μικροφώνων",
       "volume": "ένταση ήχου:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -133,7 +143,8 @@
       "setKeybind": "θέστε μια συντόμευση",
       "listening": "ακροατές",
       "toggleMuteKeybind": "συντόμευση εναλλαγής σίγασης",
-      "togglePushToTalkKeybind": "συντόμευση εναλλαγής push-to-talk"
+      "togglePushToTalkKeybind": "συντόμευση εναλλαγής push-to-talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "δεν υπάρχει δέκτης ήχου για κάποιο λόγο"

@@ -11,10 +11,11 @@ import { PageWrapper } from "./components/PageWrapper";
 import { WsKilledMessage } from "./components/WsKilledMessage";
 import { RoomChat } from "./modules/room-chat/RoomChat";
 import { Routes } from "./Routes";
+import { useOverlayStore } from "./utils/useOverlayStore";
 import { useSaveTokensFromQueryParams } from "./utils/useSaveTokensFromQueryParams";
 import { useTokenStore } from "./utils/useTokenStore";
 
-interface AppProps {}
+interface AppProps { }
 
 export const App: React.FC<AppProps> = () => {
   const isDeviceSupported = useVoiceStore((s) => !!s.device);
@@ -22,11 +23,11 @@ export const App: React.FC<AppProps> = () => {
   const wsKilledByServer = useSocketStatus(
     (s) => s.status === "closed-by-server"
   );
-
   useState(() => (hasTokens ? createWebSocket() : null));
   useLayoutEffect(() => {
     if (hasTokens) {
       createWebSocket();
+      useOverlayStore.getState();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasTokens]);

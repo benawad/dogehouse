@@ -12,6 +12,7 @@ import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslatio
 import { Button } from "../../ui/Button";
 import { ButtonLink } from "../../ui/ButtonLink";
 import { Modal } from "../../ui/Modal";
+import { NativeSelect } from "../../ui/NativeSelect";
 
 interface CreateRoomModalProps {
   onRequestClose: () => void;
@@ -79,13 +80,8 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 
             console.log("new room voice server id: " + room.voiceServerId);
             useRoomChatStore.getState().clearChat();
-            // @todo trying something new
-            // not going to put current user in room users list
-            // might come back and change that though
-            useCurrentRoomStore
-              .getState()
-              .setCurrentRoom(() => roomToCurrentRoom(room));
-            push(`/room/${room.id}`);
+            useCurrentRoomStore.getState().setCurrentRoom(() => room);
+            push(`/room/[id]`, `/room/${room.id}`);
           }
 
           onRequestClose();
@@ -111,9 +107,8 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
                 autoComplete="off"
               />
             </div>
-            <div className={`grid mt-8 items-start grid-cols-1 h-6`}>
-              <select
-                className={`h-full bg-primary-700 text-primary-100 placeholder-primary-300 focus:outline-none rounded-8 px-2`}
+            <div className={`grid items-start grid-cols-1 h-6`}>
+              <NativeSelect
                 value={values.privacy}
                 onChange={(e) => {
                   setFieldValue("privacy", e.target.value);
@@ -125,7 +120,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
                 <option value="private" className={`hover:bg-primary-900`}>
                   {t("components.modals.createRoomModal.private")}
                 </option>
-              </select>
+              </NativeSelect>
             </div>
             <div className={`col-span-3 bg-primary-700 rounded-8`}>
               <InputField

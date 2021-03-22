@@ -74,6 +74,6 @@ const styles = StyleSheet.create({
   safeAreaView: {
     flex: 1,
     justifyContent: "center",
-    backgroundColor: colors.primary800,
+    backgroundColor: colors.primary900,
   },
 });

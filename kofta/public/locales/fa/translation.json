@@ -15,7 +15,8 @@
     "copyLink": "کپی کردن لینک",
     "copied": "کپی انجام شد",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -61,7 +62,8 @@
       "probablyLoading": "احتمالا در حال بارگذاری...",
       "voiceSettings": "رفتن به تنظیمات میکروفون",
       "soundSettings": "رفتن به تنظیمات صدا",
-      "deleteAccount": "حذف حساب"
+      "deleteAccount": "حذف حساب",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "ای وای ! صفحه مورد نظر پیدا نشد",
@@ -71,7 +73,9 @@
     "room": {
       "speakers": "گویندگان",
       "requestingToSpeak": "درخواست حرف زدن",
-      "listeners": "شنوندگان"
+      "listeners": "شنوندگان",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "جستجو..." },
     "soundEffectSettings": { "header": "صدا" },
@@ -81,7 +85,9 @@
       "followers": "دنبال کنندگان",
       "following": "دنبال شوندگان",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "تنظیمات صدا",
@@ -89,6 +95,13 @@
       "permissionError": "میکروفون پیدا نشد! ممکن است میکروفونی وصل نباشد یا شما به آن دسترسی نداده اید.",
       "refresh": "بروزرسانی لیست",
       "volume": "مقدار:"
+    },
+    "overlaySettings": {
+      "header": "Overlay Settings",
+      "input": {
+        "errorMsg": "Please enter valid app title",
+        "label": "Enter app title"
+      }
     }
   },
   "components": {
@@ -130,7 +143,8 @@
       "setKeybind": "تنظیم کلید",
       "listening": "در حال گوش دادن",
       "toggleMuteKeybind": "کلید فعال/غیرفعال بی صدا",
-      "togglePushToTalkKeybind": "کلید حرف زدن با فشردن دکمه"
+      "togglePushToTalkKeybind": "کلید حرف زدن با فشردن دکمه",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "بدون مخاطب به دلایلی" },
     "addToCalendar": { "add": "اضافه کردن به تقویم" },
