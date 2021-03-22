@@ -11,6 +11,7 @@ import { useMeQuery } from "../utils/useMeQuery";
 import { useTokenStore } from "../utils/useTokenStore";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 import isElectron from "is-electron";
+import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
 
 interface MyProfilePageProps { }
 
@@ -20,6 +21,7 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({ }) => {
   const { me } = useMeQuery();
   const history = useHistory();
   const { t } = useTypeSafeTranslation();
+  const setOpenChat = useRoomChatStore((s) => {console.log(s.setOpen); return s.setOpen});
 
   return (
     <Wrapper>
@@ -29,6 +31,7 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({ }) => {
             className={`m-2.5`}
             onClick={() => {
               modalConfirm("Are you sure you want to logout?", () => {
+                setOpenChat(false);
                 history.push("/");
                 closeWebSocket();
                 useTokenStore
