@@ -82,7 +82,8 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
       <button
         className={buttonStyle}
         key="chat"
-        onClick={() => {
+        onClick={(event) => {
+          (event?.target as HTMLElement)?.blur();
           toggleOpen();
         }}
       >
