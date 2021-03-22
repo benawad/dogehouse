@@ -14,7 +14,8 @@
     "copyLink": "копирајте link",
     "copied": "копирано",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -60,7 +61,8 @@
       "probablyLoading": "вјероватно учитава...",
       "voiceSettings": "идите на подешавања гласа",
       "soundSettings": "идите на подешавања звука",
-      "deleteAccount": "Обришите налог"
+      "deleteAccount": "Обришите налог",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Упс! Ова страница се изгубила у разговору.",
@@ -70,7 +72,9 @@
     "room": {
       "speakers": "Говорници",
       "requestingToSpeak": "Молим за говор",
-      "listeners": "Слушаоци"
+      "listeners": "Слушаоци",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Претражите..." },
     "soundEffectSettings": { "header": "Звукови" },
@@ -80,7 +84,9 @@
       "followers": "Пратиоци",
       "following": "Праћења",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Подешавања гласа",
@@ -88,6 +94,10 @@
       "permissionError": "Није пронађен ниједан микрофон, или га нисте прикључили, или нисте дали дозволу овој веб локацији.",
       "refresh": "Освежи листу микрофона",
       "volume": "гласноћа:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -129,7 +139,8 @@
       "setKeybind": "Подесите пречицу на тастатури",
       "listening": "Слушање",
       "toggleMuteKeybind": "Укључите/искључите пречицу на тастатури за мутирање",
-      "togglePushToTalkKeybind": "Укључите/искључите пречицу на тастатури за говор на притисак"
+      "togglePushToTalkKeybind": "Укључите/искључите пречицу на тастатури за говор на притисак",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Из неког разлога нема потрошача звука"

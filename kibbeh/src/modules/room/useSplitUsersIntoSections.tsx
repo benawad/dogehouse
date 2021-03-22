@@ -8,7 +8,7 @@ import React, { useContext } from "react";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useConn } from "../../shared-hooks/useConn";
 import { RoomAvatar } from "../../ui/RoomAvatar";
-import { UserProfileOverlayContext } from "./UserProfileOverlayProvider";
+import { UserPreviewModalContext } from "./UserPreviewModalProvider";
 
 export const useSplitUsersIntoSections = ({
   room,
@@ -18,7 +18,7 @@ export const useSplitUsersIntoSections = ({
 }: JoinRoomAndGetInfoResponse) => {
   const conn = useConn();
   const { muted } = useMuteStore();
-  const { setUserId } = useContext(UserProfileOverlayContext);
+  const { setUserId } = useContext(UserPreviewModalContext);
   const speakers: React.ReactNode[] = [];
   const askingToSpeak: React.ReactNode[] = [];
   const listeners: React.ReactNode[] = [];
@@ -59,7 +59,9 @@ export const useSplitUsersIntoSections = ({
         username={u.username}
         activeSpeaker={canSpeak && !isMuted && u.id in activeSpeakerMap}
         muted={canSpeak && isMuted}
-        onClick={() => setUserId(u.id)}
+        onClick={() => {
+          setUserId(u.id);
+        }}
         flair={flair}
       />
     );

@@ -15,7 +15,8 @@
     "copyLink": "kopioi linkki",
     "copied": "kopioitu",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,7 +37,7 @@
       "currentRoom": "paikalla:",
       "startPrivateRoom": "luo yksityinen huone heidän kanssaan"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": { "followHim": "seuraa", "followingHim": "seurannassa" },
     "home": { "createRoom": "Luo huone", "refresh": "Päivitä" },
     "inviteList": {
       "roomGone": "huone poistettu, palaa takaisin",
@@ -61,7 +62,8 @@
       "probablyLoading": "ladataan...",
       "voiceSettings": "siirry puheasetuksiin",
       "soundSettings": "siirry toistoasetuksiin",
-      "deleteAccount": "poista käyttäjä"
+      "deleteAccount": "poista käyttäjä",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Hups! Tämä sivu katosi keskusteluun.",
@@ -71,7 +73,9 @@
     "room": {
       "speakers": "Puhujat",
       "requestingToSpeak": "Pyytävät puheoikeutta",
-      "listeners": "Kuuntelijat"
+      "listeners": "Kuuntelijat",
+      "allowAll": "Hyväksy kaikki",
+      "allowAllConfirm": "Oletko varma? Tämä antaa kaikille {{count}} pyytäville käyttäjille puheoikeuden"
     },
     "searchUser": { "search": "hae..." },
     "soundEffectSettings": { "header": "Äänet" },
@@ -80,8 +84,10 @@
       "followsYou": "seuraa sinua",
       "followers": "seuraajaa",
       "following": "seurannassa",
-      "followHim": "follow",
-      "followingHim": "following"
+      "followHim": "seuraa",
+      "followingHim": "seurannassa",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Puheasetukset",
@@ -89,6 +95,10 @@
       "permissionError": "yhtään mikrofonia ei löytynyt. joko yhtään ei ole kytketty tai et ole antanut sivustolle lupaa käyttää mikrofonia.",
       "refresh": "päivitä lista",
       "volume": "äänenvoimakkuus:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -133,7 +143,8 @@
       "setKeybind": "aseta pikanäppäin",
       "listening": "odotetaan näppäintä",
       "toggleMuteKeybind": "mikrofonin mykistys -pikanäppäin",
-      "togglePushToTalkKeybind": "push-to-talk-pikanäppäin"
+      "togglePushToTalkKeybind": "push-to-talk-pikanäppäin",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "ei äänen ulostulolaitteita" },
     "addToCalendar": { "add": "Lisää kalenteriin" },

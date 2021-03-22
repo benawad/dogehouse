@@ -7,6 +7,8 @@ import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { ErrorToast } from "../../ui/ErrorToast";
 import { RoomHeader } from "../../ui/RoomHeader";
 import { RoomUsersPanel } from "./RoomUsersPanel";
+import { UserPreviewModal } from "./UserPreviewModal";
+import { UserPreviewModalProvider } from "./UserPreviewModalProvider";
 
 interface RoomPanelControllerProps {}
 
@@ -50,6 +52,7 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
 
   return (
     <div className={`w-full flex-col`}>
+      <UserPreviewModal {...data} />
       <RoomHeader
         title={currentRoom.name}
         description={currentRoom.description || ""}
