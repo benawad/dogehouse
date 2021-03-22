@@ -3,7 +3,7 @@ import { SingleUser } from "./UserAvatar/SingleUser";
 
 export interface FriendOnlineType {
   username: string;
-  avatar: string;
+  avatarUrl: string;
   isOnline: boolean;
   activeRoom?: {
     name: string;
@@ -19,7 +19,7 @@ export interface FriendsOnlineProps {
 
 const FriendOnline: React.FC<FriendOnlineType> = ({
   username,
-  avatar,
+  avatarUrl: avatar,
   isOnline,
   activeRoom,
 }) => (
