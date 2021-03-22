@@ -126,7 +126,8 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
         <button
           className={buttonStyle}
           key="mute"
-          onClick={() => {
+          onClick={(event) => {
+            (event?.target as HTMLElement)?.blur();
             wsend({
               op: "mute",
               d: { value: !muted },
