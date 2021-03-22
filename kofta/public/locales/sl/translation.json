@@ -176,7 +176,7 @@
         "usernameError": "Dolžina: 4 do 15 alfanumeričnih znakov ali podčrtaj",
         "usernameLabel": "Uporabniško ime",
         "bioError": "Največ 160 znakov",
-        "bioLabel": "Opis"
+        "bioLabel": "Bio"
       },
       "profileModal": {
         "blockUserConfirm": "Si prepričan, da želiš temu uporabniku onemogočiti dostop do vseh sob, ki jih boš ustvaril?",
@@ -232,11 +232,11 @@
       "takingOff": "Vzlet",
       "inSpace": "V vesolju",
       "approachingMoon": "Bližanje luni",
-      "lunarDoge": "Lunarni doge",
+      "lunarDoge": "Lunar doge",
       "approachingSun": "Bližanje soncu",
-      "solarDoge": "Solarni doge",
-      "approachingGalaxy": "Bližanje galaksiji",
-      "galacticDoge": "Galaktični Doge",
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
       "spottedLife": "Najden planet z življenjem"
     }
   }

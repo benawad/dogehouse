@@ -1,7 +1,7 @@
 import React from "react";
 
 import { render, act } from "../../../test-utils";
-import { ErrorMessage } from "../ErrorMessage";
+import { ErrorToast } from "../ErrorToast";
 
 jest.useFakeTimers();
 
@@ -13,7 +13,7 @@ describe("ErrorMessage", () => {
   it("should render correctly", () => {
     const message = "some error message";
     const { getByTestId, getByText } = render(
-      <ErrorMessage message={message} />
+      <ErrorToast message={message} onClose={() => {}} />
     );
     const component = getByTestId("error-message");
     const child = getByText(message);
@@ -25,7 +25,7 @@ describe("ErrorMessage", () => {
   it("should have translateY(0%) when rendered", () => {
     const message = "some error message";
     const { getByTestId } = render(
-      <ErrorMessage message={message} autoClose={true} />
+      <ErrorToast message={message} onClose={() => {}} />
     );
 
     const component = getByTestId("error-message");
@@ -36,7 +36,7 @@ describe("ErrorMessage", () => {
   it("should have translateY(100%) after 7000ms if autoClose prop is true", () => {
     const message = "some error message";
     const { getByTestId } = render(
-      <ErrorMessage message={message} autoClose={true} />
+      <ErrorToast message={message} onClose={() => {}} />
     );
 
     const component = getByTestId("error-message");
@@ -50,7 +50,7 @@ describe("ErrorMessage", () => {
   it("should have translateY(0%) after t > 7000ms if autoClose prop is false", () => {
     const message = "some error message";
     const { getByTestId } = render(
-      <ErrorMessage message={message} autoClose={false} />
+      <ErrorToast message={message} onClose={() => {}} />
     );
 
     const component = getByTestId("error-message");
@@ -65,7 +65,7 @@ describe("ErrorMessage", () => {
   it("should have translateY(100%) after if the close button is clicked", () => {
     const message = "some error message";
     const { getByTestId } = render(
-      <ErrorMessage message={message} autoClose={true} />
+      <ErrorToast message={message} onClose={() => {}} />
     );
 
     const component = getByTestId("error-message");
@@ -76,7 +76,9 @@ describe("ErrorMessage", () => {
   });
 
   it("should match snapshot", () => {
-    const { getByTestId } = render(<ErrorMessage />);
+    const { getByTestId } = render(
+      <ErrorToast message="" onClose={() => {}} />
+    );
     const component = getByTestId("error-message");
 
     expect(component).toMatchSnapshot();
