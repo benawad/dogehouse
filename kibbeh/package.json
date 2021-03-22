@@ -7,6 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "compile": "tsc",
     "lint": "eslint src && stylelint src/styles/",
     "format": "prettier --write src",
     "storybook": "start-storybook -p 6006",

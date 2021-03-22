@@ -21,7 +21,7 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
   const [roomModal, setRoomModal] = useState(false);
   const { currentRoom } = useCurrentRoomStore();
   const { push } = useRouter();
-  const prefetch = useTypeSafePrefetch("getRoomUsers");
+  const prefetch = useTypeSafePrefetch("joinRoomAndGetInfo");
 
   if (!conn || isLoading || !data) {
     return null;
@@ -32,7 +32,7 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
       <Feed
         onRoomClick={(room) => {
           if (room.id !== currentRoom?.id) {
-            prefetch([room.id], ["getRoomUsers", room.id]);
+            prefetch([room.id], ["joinRoomAndGetInfo", room.id]);
           }
 
           push(`/room/[id]`, `/room/${room.id}`);

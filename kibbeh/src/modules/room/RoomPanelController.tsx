@@ -49,7 +49,7 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
   const roomCreator = data?.users.find((x) => x.id === currentRoom.creatorId);
 
   return (
-    <div>
+    <div className={`w-full`}>
       <RoomHeader
         title={currentRoom.name}
         description={currentRoom.description || ""}

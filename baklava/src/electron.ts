@@ -12,15 +12,18 @@ import iohook from "iohook";
 import { autoUpdater } from "electron-updater";
 import { RegisterKeybinds } from "./utils/keybinds";
 import { HandleVoiceTray } from "./utils/tray";
-import { ALLOWED_HOSTS, isMac, MENU_TEMPLATE } from "./constants";
+import { ALLOWED_HOSTS, isLinux, isMac, MENU_TEMPLATE } from "./constants";
 import url from "url";
 import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
+import { bWindowsType } from "./types";
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
 let menu: Menu;
 let splash;
+
+export let bWindows: bWindowsType;
 
 export const __prod__ = app.isPackaged;
 const instanceLock = app.requestSingleInstanceLock();
@@ -39,11 +42,15 @@ function createWindow() {
   splash = new BrowserWindow({
     width: 810,
     height: 610,
-    frame: false
+    transparent: true,
+    frame: false,
   });
   splash.loadURL(
     url.format({
-      pathname: path.join(`${__dirname}`, "../resources/splash/splash-screen.html"),
+      pathname: path.join(
+        `${__dirname}`,
+        "../resources/splash/splash-screen.html"
+      ),
       protocol: "file:",
       slashes: true,
     })
@@ -60,8 +67,13 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
   }
   mainWindow.loadURL(
-    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/"
+    __prod__ ? `https://dogehouse.tv/` : "https://dogehouse.tv/"
   );
+
+  bWindows = {
+    main: mainWindow,
+    overlay: undefined,
+  };
 
   mainWindow.once("ready-to-show", () => {
     setTimeout(() => {
@@ -82,7 +94,7 @@ function createWindow() {
   }
 
   // registers global keybinds
-  RegisterKeybinds(mainWindow);
+  RegisterKeybinds(bWindows);
 
   // starting the custom voice menu handler
   HandleVoiceTray(mainWindow, tray);
@@ -93,8 +105,13 @@ function createWindow() {
   // graceful exiting
   mainWindow.on("closed", () => {
     globalShortcut.unregisterAll();
-    iohook.stop();
-    iohook.unload();
+    if (!isLinux) {
+      iohook.stop();
+      iohook.unload();
+    }
+    if (bWindows.overlay) {
+      bWindows.overlay.destroy();
+    }
     mainWindow.destroy();
   });
 
@@ -128,6 +145,9 @@ if (!instanceLock) {
   app.quit();
 } else {
   app.on("ready", () => {
+    if (isLinux) {
+      iohook.unload();
+    }
     createWindow();
     autoUpdater.checkForUpdatesAndNotify();
   });
