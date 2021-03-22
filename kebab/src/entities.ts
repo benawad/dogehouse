@@ -57,6 +57,7 @@ export type MessageToken<T extends string = string, V = unknown> = {
 export type TextToken = MessageToken<"text", string>;
 export type MentionToken = MessageToken<"mention", string>;
 export type LinkToken = MessageToken<"link", string>;
+export type EmoteToken = MessageToken<"emote", string>;
 
 export type Message = {
   id: UUID;
