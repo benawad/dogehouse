@@ -7,15 +7,9 @@ import { useSplitUsersIntoSections } from "./useSplitUsersIntoSections";
 
 interface RoomUsersPanelProps extends JoinRoomAndGetInfoResponse {}
 
-export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = ({
-  room,
-  users,
-  activeSpeakerMap,
-  muteMap,
-}) => {
+export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
   const { askingToSpeak, listeners, speakers } = useSplitUsersIntoSections(
-    room,
-    users
+    props
   );
   const { t } = useTypeSafeTranslation();
   return (
@@ -30,15 +24,21 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = ({
           title={t("pages.room.speakers")}
           tagText={"" + speakers.length}
         />
-        {speakers.map((u) => (
-          <RoomAvatar
-            key={u.id}
-            src={u.avatarUrl}
-            username={u.username}
-            activeSpeaker={activeSpeakerMap[u.id]}
-            muted={muteMap[u.id]}
+        {speakers}
+        {askingToSpeak.length ? (
+          <RoomSectionHeader
+            title={t("pages.room.requestingToSpeak")}
+            tagText={"" + askingToSpeak.length}
           />
-        ))}
+        ) : null}
+        {askingToSpeak}
+        {listeners.length ? (
+          <RoomSectionHeader
+            title={t("pages.room.listeners")}
+            tagText={"" + listeners.length}
+          />
+        ) : null}
+        {listeners}
       </div>
     </div>
   );
