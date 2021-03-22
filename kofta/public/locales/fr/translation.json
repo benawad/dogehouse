@@ -14,7 +14,8 @@
     "copyLink": "copier le lien",
     "copied": "copié",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Veuillez noter que l'exécution de DogeHouse sans autorisations d'accessibilité peut provoquer des erreurs indésirables"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -116,9 +117,9 @@
       "chat": "Chat"
     },
     "deviceNotSupported": {
-      "notSupported": "Votre système n'est pas encore supporté. Vous pouvez créer un",
+      "notSupported": "Votre système n'est pas encore supporté. Vous pouvez créer une",
       "linkText": "Issue sur GitHub",
-      "addSupport": "et je vais essayer d'ajouter un support pour votre système."
+      "addSupport": "et j'essaierai d'ajouter le support de votre système."
     },
     "inviteButton": {
       "invited": "invité",
