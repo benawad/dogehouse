@@ -21,6 +21,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
+      - name: Install Overlay Deps
+        working-directory: baklava/resources/overlay
+        run: yarn
       - name: Prepare for app notarization
         if: startsWith(matrix.os, 'macos')
         # Import Apple API key for app notarization on macOS
