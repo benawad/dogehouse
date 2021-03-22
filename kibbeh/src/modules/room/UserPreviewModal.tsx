@@ -34,7 +34,7 @@ const UserPreview: React.FC<{ id: string }> = ({ id }) => {
       <div className={`bg-primary-900 flex-col`}>
         <VerticalUserInfo user={data} />
         <div className={`mb-2`}>
-          <Button size="small">{t("followHim")}</Button>
+          <Button size="small">{t("pages.viewUser.followHim")}</Button>
         </div>
       </div>
       <div className={`bg-primary-800`}>hey</div>

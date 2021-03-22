@@ -14,7 +14,8 @@
     "copyLink": "링크 복사",
     "copied": "복사됨",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -60,7 +61,8 @@
       "probablyLoading": "아마도 로딩 중...",
       "voiceSettings": "음성 설정 들어가기",
       "soundSettings": "소리 설정 들어가기",
-      "deleteAccount": "계정 삭제"
+      "deleteAccount": "계정 삭제",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "아이고! 페이지가 사라졌습니다",
@@ -70,7 +72,9 @@
     "room": {
       "speakers": "스피커",
       "requestingToSpeak": "발언권 요청",
-      "listeners": "청취자"
+      "listeners": "청취자",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "검색..." },
     "soundEffectSettings": { "header": "소리" },
@@ -80,7 +84,9 @@
       "followers": "팔로워들",
       "following": "팔로우하는 사람들",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "음성 설정",
@@ -88,6 +94,10 @@
       "permissionError": "마이크를 찾을 수 없거나, 연결되지 않았거나, 이 페이지에서 마이크를 사용할 수있는 권한이 없습니다.",
       "refresh": "마이크 목록 새로코침",
       "volume": "음량:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -129,7 +139,8 @@
       "setKeybind": "키바인드 설정",
       "listening": "듣는중",
       "toggleMuteKeybind": "음소거 키 토글",
-      "togglePushToTalkKeybind": "푸시 투 토크 키 토글"
+      "togglePushToTalkKeybind": "푸시 투 토크 키 토글",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "오디오 컨수머를 찾을수 없었습니다"
