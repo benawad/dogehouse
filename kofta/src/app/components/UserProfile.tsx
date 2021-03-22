@@ -16,6 +16,7 @@ import { Avatar } from "./Avatar";
 import { Button } from "./Button";
 import { EditProfileModal } from "./EditProfileModal";
 import { copyTextToClipboard } from "../utils/copyToClipboard";
+import { useRPC } from "../utils/useRPC";
 
 interface UserProfileProps {
   profile: RoomUser;
@@ -175,7 +176,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
             </div>
           );
         })}
-        {}
+        Playing {useRPC()}
       </div>
     </>
   );
