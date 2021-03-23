@@ -27,6 +27,7 @@ export type Listener<Data = unknown> = {
 };
 
 export type Connection = {
+  close: () => void;
   once: <Data = unknown>(
     opcode: Opcode,
     handler: ListenerHandler<Data>
@@ -105,6 +106,7 @@ export const connect = (
 
         if (message.op === "auth-good") {
           const connection: Connection = {
+            close: () => socket.close(),
             once: (opcode, handler) => {
               const listener = { opcode, handler } as Listener<unknown>;
 

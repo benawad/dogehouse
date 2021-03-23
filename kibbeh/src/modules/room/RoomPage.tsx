@@ -4,6 +4,7 @@ import { PageComponent } from "../../types/PageComponent";
 import { WaitForWsAndAuth } from "../auth/WaitForWsAndAuth";
 import { FollowingOnlineController } from "../dashboard/FollowingOnlineController";
 import { DesktopLayout } from "../layouts/DesktopLayout";
+import { LeftPanel, MiddlePanel, RightPanel } from "../layouts/GridPanels";
 import { RoomPanelController } from "./RoomPanelController";
 import { UserPreviewModalProvider } from "./UserPreviewModalProvider";
 
@@ -14,9 +15,13 @@ export const RoomPage: PageComponent<RoomPageProps> = ({}) => {
     <WaitForWsAndAuth>
       <DesktopLayout>
         <UserPreviewModalProvider>
-          <FollowingOnlineController />
+          <LeftPanel>
+            <FollowingOnlineController />
+          </LeftPanel>
           <RoomPanelController />
-          <div />
+          <RightPanel>
+            <div />
+          </RightPanel>
         </UserPreviewModalProvider>
       </DesktopLayout>
     </WaitForWsAndAuth>

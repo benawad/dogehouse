@@ -1,7 +1,7 @@
 import { wrap } from "@dogehouse/kebab";
 import hark from "hark";
 import React, { useContext, useEffect } from "react";
-import { useCurrentRoomStore } from "../../../global-stores/useCurrentRoomStore";
+import { useCurrentRoomIdStore } from "../../../global-stores/useCurrentRoomIdStore";
 import { useConn } from "../../../shared-hooks/useConn";
 import { WebSocketContext } from "../../ws/WebSocketProvider";
 import { useVoiceStore } from "../stores/useVoiceStore";
@@ -11,10 +11,9 @@ interface ActiveSpeakerListenerProps {}
 export const ActiveSpeakerListener: React.FC<ActiveSpeakerListenerProps> = ({}) => {
   const { conn } = useContext(WebSocketContext);
   const { micStream } = useVoiceStore();
-  const { currentRoom: room } = useCurrentRoomStore();
-  const roomId = room?.id;
+  const { currentRoomId } = useCurrentRoomIdStore();
   useEffect(() => {
-    if (!roomId || !micStream || !conn) {
+    if (!currentRoomId || !micStream || !conn) {
       return;
     }
 
@@ -33,7 +32,7 @@ export const ActiveSpeakerListener: React.FC<ActiveSpeakerListenerProps> = ({}) 
     return () => {
       harker.stop();
     };
-  }, [micStream, roomId, conn]);
+  }, [micStream, currentRoomId, conn]);
 
   return null;
 };

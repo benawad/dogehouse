@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useContext, useState } from "react";
-import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
+import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { Feed } from "../../ui/Feed";
@@ -19,9 +19,9 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
     refetchInterval: 10000,
   });
   const [roomModal, setRoomModal] = useState(false);
-  const { currentRoom } = useCurrentRoomStore();
+  const { currentRoomId } = useCurrentRoomIdStore();
   const { push } = useRouter();
-  const prefetch = useTypeSafePrefetch("joinRoomAndGetInfo");
+  const prefetch = useTypeSafePrefetch();
 
   if (!conn || isLoading || !data) {
     return null;
@@ -31,8 +31,8 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
     <>
       <Feed
         onRoomClick={(room) => {
-          if (room.id !== currentRoom?.id) {
-            prefetch([room.id], ["joinRoomAndGetInfo", room.id]);
+          if (room.id !== currentRoomId) {
+            prefetch(["joinRoomAndGetInfo", room.id], [room.id]);
           }
 
           push(`/room/[id]`, `/room/${room.id}`);

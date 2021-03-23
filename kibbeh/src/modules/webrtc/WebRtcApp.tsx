@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useContext, useEffect, useRef } from "react";
-import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
+import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 import { ActiveSpeakerListener } from "./components/ActiveSpeakerListener";
@@ -33,7 +33,7 @@ export const WebRtcApp: React.FC<App2Props> = () => {
   const { mic } = useVoiceStore();
   const { micId } = useMicIdStore();
   const { muted } = useMuteStore();
-  const { setCurrentRoom } = useCurrentRoomStore();
+  const { setCurrentRoomId } = useCurrentRoomIdStore();
   const initialLoad = useRef(true);
   const { replace } = useRouter();
 
@@ -75,12 +75,12 @@ export const WebRtcApp: React.FC<App2Props> = () => {
       // @todo fix
       conn.addListener<any>("you_left_room", (d) => {
         // assumes you don't rejoin the same room really quickly before websocket fires
-        setCurrentRoom((cr) => {
-          if (cr && cr.id === d.roomId) {
+        setCurrentRoomId((id) => {
+          if (id === d.roomId) {
             replace("/");
             return null;
           }
-          return cr;
+          return id;
         });
         closeVoiceConnections(d.roomId);
       }),
