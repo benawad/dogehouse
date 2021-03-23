@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/core";
 import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -8,44 +9,51 @@ const separator = (
   <View style={{ backgroundColor: colors.primary700, height: 1 }} />
 );
 
-export const AccountModalContent: React.FC = (props) => {
+export type AccountModalContentProps = {
+  onPress: (pageName: string) => void;
+};
+
+export const AccountModalContent: React.FC<AccountModalContentProps> = ({
+  onPress,
+}) => {
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.content}>
       <View style={styles.dragIndicator} />
       <AccountModalRow
         icon={require("../../assets/images/account/sm-solid-user.png")}
         title={"Profile"}
-        onPress={() => console.log("Profile press")}
+        onPress={() => onPress("Profile")}
       />
       {separator}
       <AccountModalRow
         icon={require("../../assets/images/account/sm-solid-settings.png")}
         title={"Settings"}
-        onPress={() => console.log("Settings press")}
+        onPress={() => onPress("Settings")}
       />
       {separator}
       <AccountModalRow
         icon={require("../../assets/images/account/wallet.png")}
         title={"Wallet"}
-        onPress={() => console.log("Wallet press")}
+        onPress={() => onPress("Wallet")}
       />
       {separator}
       <AccountModalRow
         icon={require("../../assets/images/account/sm-outline-globe.png")}
         title={"Language"}
-        onPress={() => console.log("Language press")}
+        onPress={() => onPress("Language")}
       />
       {separator}
       <AccountModalRow
         icon={require("../../assets/images/account/sm-solid-help.png")}
         title={"Help"}
-        onPress={() => console.log("Help press")}
+        onPress={() => onPress("Help")}
       />
       {separator}
       <AccountModalRow
         icon={require("../../assets/images/account/sm-solid-bug.png")}
         title={"Report a bug"}
-        onPress={() => console.log("Report bug press")}
+        onPress={() => onPress("ReportBug")}
       />
       <View />
     </SafeAreaView>

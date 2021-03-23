@@ -1,0 +1,88 @@
+import React, { ReactNode, useEffect, useState } from "react";
+import {
+  StyleSheet,
+  View,
+  ViewStyle,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  Image,
+  ImageSourcePropType,
+} from "react-native";
+import {
+  differenceInMilliseconds,
+  format,
+  isPast,
+  isToday,
+  isTomorrow,
+} from "date-fns";
+import {
+  colors,
+  fontFamily,
+  fontSize,
+  paragraph,
+  paragraphBold,
+  radius,
+  small,
+} from "../constants/dogeStyle";
+import { RoomCardHeading } from "./RoomCardHeading";
+import { BubbleText } from "./BubbleText";
+import { Tag } from "./Tag";
+import { MultipleUserAvatar } from "./avatars/MultipleUserAvatar";
+
+const formattedDate = (scheduledFor: Date) => {
+  if (isToday(scheduledFor)) {
+    return "TODAY " + format(scheduledFor, `K:mm a`);
+  } else if (isTomorrow(scheduledFor)) {
+    return "TOMMOROW " + format(scheduledFor, `K:mm a`);
+  } else {
+    return format(scheduledFor, `EEE, do MMM, K:mm a`);
+  }
+};
+
+export interface UserCardProps {
+  avatars: ImageSourcePropType[];
+  speakers: string[];
+}
+
+export interface ScheduledRoomSummaryCardProps {
+  id: string;
+  scheduledFor: Date;
+  speakersInfo: UserCardProps;
+  title: string;
+}
+
+export interface UpcomingRoomsCardProps {
+  room: ScheduledRoomSummaryCardProps;
+}
+
+export const UpcomingRoomCard: React.FC<UpcomingRoomsCardProps> = ({
+  room,
+}) => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.scheduleFor}>{formattedDate(room.scheduledFor)}</Text>
+      <RoomCardHeading text={room.title} />
+      <View style={{ flexDirection: "row", marginTop: 10 }}>
+        <MultipleUserAvatar srcArray={room.speakersInfo.avatars} size={"xs"} />
+        <Text style={{ ...small, color: colors.primary300, marginLeft: 7 }}>
+          {room.speakersInfo.speakers.join(", ")}
+        </Text>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: colors.primary800,
+    borderRadius: radius.m,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    marginBottom: 20,
+  },
+  scheduleFor: {
+    ...small,
+    color: colors.accent,
+  },
+});
