@@ -11,6 +11,7 @@ import { SoundEffectPlayer } from "../modules/sound-effects/SoundEffectPlayer";
 import ReactModal from "react-modal";
 import { ErrorToastController } from "../modules/errors/ErrorToastController";
 import { WebRtcApp } from "../modules/webrtc/WebRtcApp";
+import { useMainWsHandler } from "../shared-hooks/useMainWsHandler";
 
 if (!isServer) {
   init_i18n();
@@ -19,6 +20,7 @@ if (!isServer) {
 ReactModal.setAppElement("#__next");
 
 function App({ Component, pageProps }: AppProps) {
+  useMainWsHandler();
   return (
     <WebSocketProvider
       shouldConnect={!!(Component as PageComponent<unknown>).ws}
