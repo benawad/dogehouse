@@ -122,20 +122,25 @@ defmodule Broth.SocketHandler do
             "muted" => muted
           } = json["d"]
 
-          Process.get() |> IO.inspect(label: "113")
-
           case Kousa.Utils.TokenUtils.tokens_to_user_id(accessToken, refreshToken) do
             {nil, nil} ->
               {:reply, {:close, 4001, "invalid_authentication"}, state}
 
             x ->
+              Process.get() |> IO.inspect(label: "133")
+              self() |> IO.inspect(label: "131")
+
               {user_id, tokens, user} =
                 case x do
                   {user_id, tokens} -> {user_id, tokens, Beef.Users.get_by_id(user_id)}
                   y -> y
                 end
 
+                IO.puts("mama")
+
               if user do
+                IO.puts("hi")
+                
                 {:ok, session} =
                   GenRegistry.lookup_or_start(Onion.UserSession, user_id, [
                     %Onion.UserSession.State{
@@ -147,12 +152,13 @@ defmodule Broth.SocketHandler do
                       muted: muted
                     }
                   ])
+                |> IO.inspect(label: "153")
 
                 GenServer.call(session, {:set_pid, self()})
 
                 if tokens do
                   GenServer.cast(session, {:new_tokens, tokens})
-                end
+                end |> IO.inspect(label: "158")
 
                 roomIdFromFrontend = Map.get(json["d"], "currentRoomId", nil)
 
@@ -189,7 +195,8 @@ defmodule Broth.SocketHandler do
 
                     true ->
                       nil
-                  end
+                  end |> IO.inspect(label: "195")
+
 
                 {:reply,
                  construct_socket_msg(state.encoding, state.compression, %{

@@ -1,10 +1,12 @@
 defmodule KousaTest.Broth.Ws.AuthTest do
   use ExUnit.Case, async: true
+  use Kousa.Support.EctoSandbox
+
+  alias Beef.Schemas.User
+  alias Broth.WsClient
+  alias Kousa.Support.Factory
 
   describe "the websocket auth operation" do
-    alias Beef.Schemas.RoomBlock
-    alias Broth.WsClient
-
     test "is required within the timeout time or else the connection will be closed" do
       # set it to trap exits so we can watch the websocket connection die
       Process.flag(:trap_exit, true)
@@ -17,8 +19,8 @@ defmodule KousaTest.Broth.Ws.AuthTest do
     end
 
     test "can be sent an auth" do
-      # set it to trap exits so we can watch the websocket connection die
-      Process.flag(:trap_exit, true)
+      user = Factory.create(User)
+      tokens = Kousa.Utils.TokenUtils.create_tokens(user)
 
       # start and link the websocket client
       pid = start_supervised!(WsClient)
@@ -27,15 +29,15 @@ defmodule KousaTest.Broth.Ws.AuthTest do
       WsClient.send_msg(pid, %{
         "op" => "auth",
         "d" => %{
-          "accessToken" => "123",
-          "refreshToken" => "abc",
+          "accessToken" => tokens.accessToken,
+          "refreshToken" => tokens.refreshToken,
           "platform" => "foo",
           "reconnectToVoice" => false,
           "muted" => false
         }
       })
 
-      assert_receive {:EXIT, ^pid, :normal}
+      refute_receive {:EXIT, ^pid, :normal}, 200
     end
   end
 end
