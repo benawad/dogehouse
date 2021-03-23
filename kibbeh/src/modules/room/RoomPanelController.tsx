@@ -7,6 +7,7 @@ import { showErrorToast } from "../../lib/showErrorToast";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { RoomHeader } from "../../ui/RoomHeader";
 import { Spinner } from "../../ui/Spinner";
+import { RoomPanelIconBarController } from "./RoomPanelIconBarController";
 import { RoomUsersPanel } from "./RoomUsersPanel";
 import { UserPreviewModal } from "./UserPreviewModal";
 
@@ -35,14 +36,16 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
       return;
     }
     if (!data) {
+      setCurrentRoomId(null);
       push("/dashboard");
       return;
     }
     if ("error" in data) {
+      setCurrentRoomId(null);
       showErrorToast(data.error);
       push("/dashboard");
     }
-  }, [data, isLoading, push]);
+  }, [data, isLoading, push, setCurrentRoomId]);
 
   if (isLoading || !currentRoomId) {
     return <Spinner />;
@@ -63,6 +66,7 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
         names={roomCreator ? [roomCreator.username] : []}
       />
       <RoomUsersPanel {...data} />
+      <RoomPanelIconBarController />
     </div>
   );
 };

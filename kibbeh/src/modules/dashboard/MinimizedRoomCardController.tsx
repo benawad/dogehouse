@@ -5,22 +5,31 @@ import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useCurrentRoomInfo } from "../../shared-hooks/useCurrentRoomInfo";
 import { useSetMute } from "../../shared-hooks/useSetMute";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
+import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { MinimizedRoomCard } from "../../ui/MinimizedRoomCard";
 
 interface MinimizedRoomCardControllerProps {
-  room: Room;
+  roomId: string;
 }
 
 export const MinimizedRoomCardController: React.FC<MinimizedRoomCardControllerProps> = ({
-  room,
+  roomId,
 }) => {
-  const { muted } = useMuteStore();
+  const { data } = useTypeSafeQuery(["joinRoomAndGetInfo", roomId]);
   const { canSpeak } = useCurrentRoomInfo();
-  const dt = useMemo(() => new Date(room.inserted_at), [room.inserted_at]);
   const { mutateAsync: leaveRoom, isLoading } = useTypeSafeMutation(
     "leaveRoom"
   );
+  const { muted } = useMuteStore();
   const setMute = useSetMute();
+
+  if (!data || "error" in data) {
+    return null;
+  }
+
+  const { room } = data;
+  const dt = new Date(room.inserted_at);
+
   return (
     <MinimizedRoomCard
       leaveLoading={isLoading}
@@ -33,14 +42,8 @@ export const MinimizedRoomCardController: React.FC<MinimizedRoomCardControllerPr
           isDeafened: false,
           isSpeaker: canSpeak,
           isMuted: muted,
-          leave: async () => {
-            const resp = await leaveRoom([]);
-            useCurrentRoomIdStore
-              .getState()
-              .setCurrentRoom((cr) =>
-                cr && cr.id === resp.roomId ? null : cr
-              );
-            // @todo leave voice room
+          leave: () => {
+            leaveRoom([]);
           },
           switchDeafened: () => {},
           switchMuted: () => {

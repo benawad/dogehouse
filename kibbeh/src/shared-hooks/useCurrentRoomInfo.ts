@@ -4,17 +4,17 @@ import { WebSocketContext } from "../modules/ws/WebSocketProvider";
 import { useTypeSafeQuery } from "./useTypeSafeQuery";
 
 export const useCurrentRoomInfo = () => {
-  const { currentRoom } = useCurrentRoomIdStore();
+  const { currentRoomId } = useCurrentRoomIdStore();
   const { data } = useTypeSafeQuery(
-    ["joinRoomAndGetInfo", currentRoom?.id || ""],
+    ["joinRoomAndGetInfo", currentRoomId || ""],
     {
-      enabled: !!currentRoom,
+      enabled: !!currentRoomId,
     },
-    [currentRoom?.id || ""]
+    [currentRoomId || ""]
   );
   const { conn } = useContext(WebSocketContext);
 
-  if (!data || !conn || !currentRoom || "error" in data) {
+  if (!data || !conn || !currentRoomId || "error" in data) {
     return {
       isMod: false,
       isCreator: false,
@@ -41,7 +41,7 @@ export const useCurrentRoomInfo = () => {
     }
   }
 
-  const isCreator = me.id === currentRoom.creatorId;
+  const isCreator = me.id === data.room.creatorId;
 
   return {
     isCreator,

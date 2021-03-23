@@ -10,13 +10,13 @@ import { MinimizedRoomCardController } from "./MinimizedRoomCardController";
 interface ProfileBlockControllerProps {}
 
 export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({}) => {
-  const { currentRoom } = useCurrentRoomIdStore();
+  const { currentRoomId } = useCurrentRoomIdStore();
   const conn = useConn();
   return (
     <ProfileBlock
       top={
-        currentRoom ? (
-          <MinimizedRoomCardController room={currentRoom} />
+        currentRoomId ? (
+          <MinimizedRoomCardController roomId={currentRoomId} />
         ) : (
           <UserSummaryCard
             badges={[]}
