@@ -86,7 +86,8 @@
       "followHim": "Volg",
       "followingHim": "Volgend",
       "copyProfileUrl": "kopieer profiel url",
-      "urlCopied": "URL gekopieerd naar klembord"
+      "urlCopied": "URL gekopieerd naar klembord",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Spraakinstellingen",

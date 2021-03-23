@@ -1,5 +1,6 @@
 import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
 import React, { useContext } from "react";
+import { SolidFriends } from "../../icons";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../../ui/Button";
@@ -33,8 +34,13 @@ const UserPreview: React.FC<{ id: string }> = ({ id }) => {
     <div className={`flex-col w-full`}>
       <div className={`bg-primary-900 flex-col`}>
         <VerticalUserInfo user={data} />
-        <div className={`mb-2`}>
-          <Button size="small">{t("pages.viewUser.followHim")}</Button>
+        <div className={`mb-2 items-center w-full justify-center`}>
+          {/* @todo add real icon */}
+          <Button size="small" icon={<SolidFriends />}>
+            {data.youAreFollowing
+              ? t("pages.viewUser.unfollow")
+              : t("pages.viewUser.followHim")}
+          </Button>
         </div>
       </div>
       <div className={`bg-primary-800`}>hey</div>

@@ -64,6 +64,7 @@ export type TranslationKeys =
   | "pages.viewUser.followers"
   | "pages.viewUser.following"
   | "pages.viewUser.followHim"
+  | "pages.viewUser.unfollow"
   | "pages.viewUser.followingHim"
   | "pages.viewUser.copyProfileUrl"
   | "pages.viewUser.urlCopied"
