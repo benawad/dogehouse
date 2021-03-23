@@ -100,6 +100,25 @@ defmodule Kousa.RoomChat do
     :ok
   end
 
+  def unban_user(user_id, user_id_to_unban) do
+    case Rooms.get_room_status(user_id) do
+      {:creator, room} ->
+        if room.creatorId != user_id_to_unban do
+          RegUtils.lookup_and_cast(Onion.RoomChat, room.id, {:unban_user, user_id_to_unban})
+        end
+
+      {:mod, room} ->
+        if room.creatorId != user_id_to_unban do
+          RegUtils.lookup_and_cast(Onion.RoomChat, room.id, {:unban_user, user_id_to_unban})
+        end
+
+      _ ->
+        nil
+    end
+
+    :ok
+  end
+
   # Delete room chat messages
   def delete_message(deleter_id, message_id, user_id) do
     case Rooms.get_room_status(deleter_id) do

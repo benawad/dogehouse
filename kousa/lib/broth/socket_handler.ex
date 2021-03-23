@@ -431,6 +431,11 @@ defmodule Broth.SocketHandler do
     {:ok, state}
   end
 
+  def handler("unban_from_room_chat", %{"userId" => user_id_to_unban}, state) do
+    Kousa.RoomChat.unban_user(state.user_id, user_id_to_unban)
+    {:ok, state}
+  end
+
   def handler("send_room_chat_msg", %{"tokens" => tokens, "whisperedTo" => whispered_to}, state) do
     Kousa.RoomChat.send_msg(state.user_id, tokens, whispered_to)
     {:ok, state}
