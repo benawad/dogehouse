@@ -1,34 +1,40 @@
-import React, { MouseEventHandler, ReactNode } from "react";
+import React, { FC, MouseEventHandler, ReactNode } from "react";
 import { RoomCard } from "./RoomCard";
 import { Button } from "./Button";
 import { Room, ScheduledRoom } from "@dogehouse/kebab";
-import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
-import { useRouter } from "next/router";
-import { useTypeSafePrefetch } from "../shared-hooks/useTypeSafePrefetch";
 
 export interface FeedProps {
-  title: string;
-  actionTitle: string;
-  onActionClicked: MouseEventHandler<HTMLButtonElement>;
   rooms: Array<Room | ScheduledRoom>;
   emptyPlaceholder: ReactNode;
   onRoomClick?: (room: Room | ScheduledRoom) => void;
 }
 
-export const Feed: React.FC<FeedProps> = ({
-  title,
+export interface FeedHeaderProps {
+  title: string;
+  actionTitle: string;
+  onActionClicked: MouseEventHandler<HTMLButtonElement>;
+}
+
+export const FeedHeader: FC<FeedHeaderProps> = ({
   actionTitle,
   onActionClicked,
+  title,
+}) => {
+  return (
+    <div className="justify-between items-end mb-5">
+      <h4 className="text-primary-100 mb-auto">{title}</h4>
+      <Button onClick={onActionClicked}>{actionTitle}</Button>
+    </div>
+  );
+};
+
+export const Feed: React.FC<FeedProps> = ({
   rooms,
   emptyPlaceholder,
   onRoomClick,
 }) => {
   return (
     <div className="flex-1 flex-col" data-testid="feed">
-      <div className="justify-between items-end mb-5">
-        <h4 className="text-primary-100 mb-auto">{title}</h4>
-        <Button onClick={onActionClicked}>{actionTitle}</Button>
-      </div>
       <div className="flex-col space-y-4">
         {rooms.length === 0 && emptyPlaceholder}
         {/* <hr className="border-primary-600" /> */}
