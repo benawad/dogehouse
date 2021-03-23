@@ -141,11 +141,12 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                     d: {
                       userId: profile.id,
                     },
-                  })
-                }}>
-                  {t("components.modals.profileModal.makeRoomCreator")}
-                  </Button>
-              </div>
+                  });
+                }}
+              >
+                {t("components.modals.profileModal.makeRoomCreator")}
+              </Button>
+            </div>
           ) : null}
 
           {/* Add speaker button */}
@@ -205,6 +206,26 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                     }}
                   >
                     {t("components.modals.profileModal.banFromChat")}
+                  </Button>
+                </div>
+              ) : null}
+
+              {/* Unban from chat */}
+              {profile.id in bannedUserIdMap &&
+              (iAmCreator || !profile.roomPermissions?.isMod) ? (
+                <div className={`mb-4`}>
+                  <Button
+                    onClick={() => {
+                      onClose();
+                      wsend({
+                        op: "unban_from_room_chat",
+                        d: {
+                          userId: profile.id,
+                        },
+                      });
+                    }}
+                  >
+                    {t("components.modals.profileModal.unbanFromChat")}
                   </Button>
                 </div>
               ) : null}
