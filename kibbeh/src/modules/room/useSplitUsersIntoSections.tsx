@@ -52,8 +52,10 @@ export const useSplitUsersIntoSections = ({
       );
     }
 
+    // for (let i = 0; i < 50; i++) {
     arr.push(
       <RoomAvatar
+        // key={u.id + i}
         key={u.id}
         src={u.avatarUrl}
         username={u.username}
@@ -65,6 +67,7 @@ export const useSplitUsersIntoSections = ({
         flair={flair}
       />
     );
+    // }
   });
 
   return { speakers, listeners, askingToSpeak, canIAskToSpeak };

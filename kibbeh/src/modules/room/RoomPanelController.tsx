@@ -66,7 +66,9 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
         names={roomCreator ? [roomCreator.username] : []}
       />
       <RoomUsersPanel {...data} />
-      <RoomPanelIconBarController />
+      <div className={`sticky bottom-0 pb-7 bg-primary-900`}>
+        <RoomPanelIconBarController />
+      </div>
     </div>
   );
 };
