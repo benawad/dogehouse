@@ -36,7 +36,7 @@ export async function createTransport(
         callback();
       }
     });
-    conn.fetch(`@connect-transport`, {
+    conn.send(`@connect-transport`, {
       transportId: transportOptions.id,
       dtlsParameters,
       direction,
@@ -74,7 +74,7 @@ export async function createTransport(
           }
         });
 
-        conn.fetch("@send-track", {
+        conn.send("@send-track", {
           transportId: transportOptions.id,
           kind,
           rtpParameters,

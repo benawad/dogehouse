@@ -374,7 +374,6 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  # @deprecated in new design
   def handler("leave_room", _data, state) do
     case Kousa.Room.leave_room(state.user_id) do
       {:ok, d} ->
@@ -385,6 +384,7 @@ defmodule Broth.SocketHandler do
     end
   end
 
+  # @deprecated in new design
   def handler("join_room", %{"roomId" => room_id}, state) do
     case Kousa.Room.join_room(state.user_id, room_id) do
       d ->
@@ -591,7 +591,7 @@ defmodule Broth.SocketHandler do
 
   def f_handler("follow", %{"userId" => userId, "value" => value}, state) do
     Kousa.Follow.follow(state.user_id, userId, value)
-    %{}
+    {"you_left_room", %{}}
   end
 
   def f_handler("fetch_following_online", %{"cursor" => cursor}, %State{} = state) do
@@ -604,13 +604,6 @@ defmodule Broth.SocketHandler do
     Onion.UserSession.send_cast(state.user_id, {:set_mute, value})
 
     %{}
-  end
-
-  def f_handler("leave_room", _data, %State{} = state) do
-    case Kousa.Room.leave_room(state.user_id) do
-      {:ok, x} -> x
-      _ -> %{}
-    end
   end
 
   def f_handler("join_room_and_get_info", %{"roomId" => room_id_to_join}, %State{} = state) do

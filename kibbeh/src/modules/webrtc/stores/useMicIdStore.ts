@@ -3,10 +3,18 @@ import { combine } from "zustand/middleware";
 
 export const MIC_KEY = "micId";
 
+const getInitialState = () => {
+  try {
+    return localStorage.getItem(MIC_KEY) || "";
+  } catch {
+    return "";
+  }
+};
+
 export const useMicIdStore = create(
   combine(
     {
-      micId: localStorage.getItem(MIC_KEY) || "",
+      micId: getInitialState(),
     },
     (set) => ({
       setMicId: (id: string) => {

@@ -16,7 +16,7 @@ export const receiveVoice = (conn: Connection, flushQueue: () => void) => {
       flushQueue();
     }
   });
-  conn.fetch("@get-recv-tracks", {
+  conn.send("@get-recv-tracks", {
     rtpCapabilities: useVoiceStore.getState().device!.rtpCapabilities,
   });
 };

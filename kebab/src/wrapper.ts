@@ -52,7 +52,7 @@ export const wrap = (connection: Connection) => ({
   },
   mutation: {
     speakingChange: (value: boolean) =>
-      connection.fetch(`speaking_change`, { value }),
+      connection.send(`speaking_change`, { value }),
     follow: (userId: string, value: boolean): Promise<void> =>
       connection.fetch("follow", { userId, value }),
     sendRoomChatMsg: (
@@ -63,7 +63,7 @@ export const wrap = (connection: Connection) => ({
     setMute: (isMuted: boolean): Promise<Record<string, never>> =>
       connection.fetch("mute", { value: isMuted }),
     leaveRoom: (): Promise<{ roomId: UUID }> =>
-      connection.fetch("leave_room", {}),
+      connection.fetch("leave_room", {}, "you_left_room"),
     createRoom: (data: {
       name: string;
       privacy: string;
