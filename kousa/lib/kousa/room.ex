@@ -184,6 +184,9 @@ defmodule Kousa.Room do
           {1, _} ->
             internal_set_speaker(old_creator_id, current_room_id)
 
+            # unban new owner from chat
+            RegUtils.lookup_and_cast(Onion.RoomChat, current_room_id, {:unban_user, new_creator_id})
+
             Onion.RoomSession.send_cast(
               current_room_id,
               {:send_ws_msg, :vscode,

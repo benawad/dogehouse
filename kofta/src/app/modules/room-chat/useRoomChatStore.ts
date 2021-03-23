@@ -81,6 +81,13 @@ export const useRoomChatStore = create(
           messages: s.messages.filter((m) => m.userId !== userId),
           bannedUserIdMap: { ...s.bannedUserIdMap, [userId]: true },
         })),
+      removeBannedUser: (userId: string) =>
+        set((s) => {
+          const {[userId]: unbannedUser, ...bannedUserIdMap} = s.bannedUserIdMap;
+          return {
+            bannedUserIdMap
+          };
+        }),
       addMessage: (m: RoomChatMessage) =>
         set((s) => ({
           newUnreadMessages: !s.open,

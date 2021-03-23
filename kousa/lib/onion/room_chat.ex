@@ -110,6 +110,19 @@ defmodule Onion.RoomChat do
     {:noreply, %State{state | ban_map: Map.put(state.ban_map, user_id, 1)}}
   end
 
+  def handle_cast({:unban_user, user_id}, state) do
+    if Map.has_key?(state.ban_map, user_id) do
+      ws_fan(state.users, :chat, %{
+        op: "chat_user_unbanned",
+        d: %{
+          userId: user_id
+        }
+      })
+    end
+
+    {:noreply, %State{state | ban_map: Map.delete(state.ban_map, user_id)}}
+  end
+
   def handle_cast({:kill}, state) do
     {:stop, :normal, state}
   end

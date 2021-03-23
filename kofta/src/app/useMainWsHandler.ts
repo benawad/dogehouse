@@ -72,6 +72,9 @@ export const useMainWsHandler = () => {
       chat_user_banned: ({ userId }) => {
         useRoomChatStore.getState().addBannedUser(userId);
       },
+      chat_user_unbanned: ({userId}) => {
+        useRoomChatStore.getState().removeBannedUser(userId);
+      },
       new_chat_msg: ({ msg }) => {
         const { open } = useRoomChatStore.getState();
         useRoomChatStore.getState().addMessage(msg);
