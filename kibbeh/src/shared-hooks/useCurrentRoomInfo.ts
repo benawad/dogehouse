@@ -9,7 +9,8 @@ export const useCurrentRoomInfo = () => {
     ["joinRoomAndGetInfo", currentRoom?.id || ""],
     {
       enabled: !!currentRoom,
-    }
+    },
+    [currentRoom?.id || ""]
   );
   const { conn } = useContext(WebSocketContext);
 

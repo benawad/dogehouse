@@ -1,10 +1,16 @@
 // @ts-nocheck because internet is unpredictable
 
-import { Connection } from "./raw";
-import { Message, MessageToken, Room, RoomUser, UUID } from "./entities";
 import {
-  GetTopPublicRoomsResponse,
+  Message,
+  MessageToken,
+  Room,
+  UserWithFollowInfo,
+  UUID,
+} from "./entities";
+import { Connection } from "./raw";
+import {
   GetScheduledRoomsResponse,
+  GetTopPublicRoomsResponse,
   JoinRoomAndGetInfoResponse,
 } from "./responses";
 
@@ -31,6 +37,10 @@ export const wrap = (connection: Connection) => ({
       connection.fetch("join_room_and_get_info", { roomId }),
     getTopPublicRooms: (cursor = 0): Promise<GetTopPublicRoomsResponse> =>
       connection.fetch("get_top_public_rooms", { cursor }),
+    getUserProfile: (
+      idOrUsername: string
+    ): Promise<UserWithFollowInfo | null> =>
+      connection.fetch("get_user_profile", { userId: idOrUsername }),
     getScheduledRooms: (
       cursor: "" | number = "",
       getOnlyMyScheduledRooms = false
@@ -41,8 +51,10 @@ export const wrap = (connection: Connection) => ({
       }),
   },
   mutation: {
-    joinRoom: (id: UUID): Promise<void> =>
-      connection.fetch("join_room", { roomId: id }, "join_room_done"),
+    speakingChange: (value: boolean) =>
+      connection.send(`speaking_change`, { value }),
+    follow: (userId: string, value: boolean): Promise<void> =>
+      connection.fetch("follow", { userId, value }),
     sendRoomChatMsg: (
       ast: MessageToken[],
       whisperedTo: string[] = []
@@ -51,7 +63,7 @@ export const wrap = (connection: Connection) => ({
     setMute: (isMuted: boolean): Promise<Record<string, never>> =>
       connection.fetch("mute", { value: isMuted }),
     leaveRoom: (): Promise<{ roomId: UUID }> =>
-      connection.fetch("leave_room", {}),
+      connection.fetch("leave_room", {}, "you_left_room"),
     createRoom: (data: {
       name: string;
       privacy: string;
