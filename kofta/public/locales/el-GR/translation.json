@@ -41,7 +41,7 @@
     "followList": {
       "followHim": "ακολουθήστε",
       "ακολουθήστε": "ακολουθείτε",
-      "followingHim": "following"
+      "followingHim": "ακολουθείτε"
     },
     "home": { "createRoom": "Δημιουργία Δωματίου", "refresh": "Επαναφόρτωση" },
     "inviteList": {
@@ -93,7 +93,7 @@
       "followingHim": "ακολουθείτε",
       "copyProfileUrl": "αντιγράψτε τον σύνδεσμο της εικόνας",
       "urlCopied": "ο συνδεσμος αντιγράφθηκε στο πρόχειρο",
-      "unfollow": "Unfollow"
+      "unfollow": "ξε-ακολουθήστε"
     },
     "voiceSettings": {
       "header": "Ρυθμίσεις Φωνής",
