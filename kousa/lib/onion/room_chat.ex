@@ -118,7 +118,7 @@ defmodule Onion.RoomChat do
       }
     })
 
-    {:noreply, %State{state | ban_map: Map.pop(state.ban_map, user_id)}}
+    {:noreply, %State{state | ban_map: Map.delete(state.ban_map, user_id)}}
   end
 
   def handle_cast({:kill}, state) do
