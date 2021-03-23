@@ -26,8 +26,8 @@ export const connect: ConnectFunction = async (
   const makeTransport = async () => {
     const simplerDirection = direction === "output" ? "recv" : "send";
     const result = direction === "output"
-      ? await device.createRecvTransport(transportOptions)
-      : await device.createSendTransport(transportOptions);
+      ? device.createRecvTransport(transportOptions)
+      : device.createSendTransport(transportOptions);
 
     result.on("connect", async ({ dtlsParameters }, resolve, reject) => {
       const { error } = await connection.fetch(
