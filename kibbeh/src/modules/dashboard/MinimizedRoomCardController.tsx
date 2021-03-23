@@ -1,6 +1,6 @@
 import { Room } from "@dogehouse/kebab";
 import React, { useMemo } from "react";
-import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
+import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useCurrentRoomInfo } from "../../shared-hooks/useCurrentRoomInfo";
 import { useSetMute } from "../../shared-hooks/useSetMute";
@@ -35,7 +35,7 @@ export const MinimizedRoomCardController: React.FC<MinimizedRoomCardControllerPr
           isMuted: muted,
           leave: async () => {
             const resp = await leaveRoom([]);
-            useCurrentRoomStore
+            useCurrentRoomIdStore
               .getState()
               .setCurrentRoom((cr) =>
                 cr && cr.id === resp.roomId ? null : cr

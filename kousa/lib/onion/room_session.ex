@@ -217,7 +217,10 @@ defmodule Onion.RoomSession do
         false -> Map.delete(state.muteMap, user.id)
       end
 
-    ws_fan(state.users, :vscode, %{op: "new_user_join_room", d: %{user: user, muteMap: muteMap}})
+    ws_fan(state.users, :vscode, %{
+      op: "new_user_join_room",
+      d: %{user: user, muteMap: muteMap, roomId: state.room_id}
+    })
 
     {:noreply,
      %{
@@ -293,7 +296,7 @@ defmodule Onion.RoomSession do
 
     ws_fan(users, :vscode, %{
       op: "user_left_room",
-      d: %{userId: user_id}
+      d: %{userId: user_id, roomId: state.room_id}
     })
 
     new_state = %{

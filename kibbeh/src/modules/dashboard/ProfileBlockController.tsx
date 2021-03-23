@@ -1,5 +1,5 @@
 import React from "react";
-import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
+import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useConn } from "../../shared-hooks/useConn";
 import { MinimizedRoomCard } from "../../ui/MinimizedRoomCard";
 import { ProfileBlock } from "../../ui/ProfileBlock";
@@ -10,7 +10,7 @@ import { MinimizedRoomCardController } from "./MinimizedRoomCardController";
 interface ProfileBlockControllerProps {}
 
 export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({}) => {
-  const { currentRoom } = useCurrentRoomStore();
+  const { currentRoom } = useCurrentRoomIdStore();
   const conn = useConn();
   return (
     <ProfileBlock

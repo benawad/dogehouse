@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { useCurrentRoomStore } from "../global-stores/useCurrentRoomStore";
+import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
 import { WebSocketContext } from "../modules/ws/WebSocketProvider";
 import { useTypeSafeQuery } from "./useTypeSafeQuery";
 
 export const useCurrentRoomInfo = () => {
-  const { currentRoom } = useCurrentRoomStore();
+  const { currentRoom } = useCurrentRoomIdStore();
   const { data } = useTypeSafeQuery(
     ["joinRoomAndGetInfo", currentRoom?.id || ""],
     {

@@ -1,30 +1,28 @@
 import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
-import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
+import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { isUuid } from "../../lib/isUuid";
 import { showErrorToast } from "../../lib/showErrorToast";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
-import { ErrorToast } from "../../ui/ErrorToast";
 import { RoomHeader } from "../../ui/RoomHeader";
 import { Spinner } from "../../ui/Spinner";
 import { RoomUsersPanel } from "./RoomUsersPanel";
 import { UserPreviewModal } from "./UserPreviewModal";
-import { UserPreviewModalProvider } from "./UserPreviewModalProvider";
 
 interface RoomPanelControllerProps {}
 
 export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
-  const { currentRoom, setCurrentRoom } = useCurrentRoomStore();
+  const { currentRoomId, setCurrentRoomId } = useCurrentRoomIdStore();
   const { query } = useRouter();
   const roomId = typeof query.id === "string" ? query.id : "";
   const { data, isLoading } = useTypeSafeQuery(
-    ["joinRoomAndGetInfo", currentRoom?.id || ""],
+    ["joinRoomAndGetInfo", currentRoomId || ""],
     {
       enabled: isUuid(roomId),
       onSuccess: ((d: JoinRoomAndGetInfoResponse | { error: string }) => {
         if (!("error" in d)) {
-          setCurrentRoom(() => d.room);
+          setCurrentRoomId(() => d.room.id);
         }
       }) as any,
     },
@@ -46,7 +44,7 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
     }
   }, [data, isLoading, push]);
 
-  if (isLoading || !currentRoom) {
+  if (isLoading || !currentRoomId) {
     return <Spinner />;
   }
 
@@ -54,14 +52,14 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
     return null;
   }
 
-  const roomCreator = data?.users.find((x) => x.id === currentRoom.creatorId);
+  const roomCreator = data.users.find((x) => x.id === data.room.creatorId);
 
   return (
     <div className={`w-full flex-col`}>
       <UserPreviewModal {...data} />
       <RoomHeader
-        title={currentRoom.name}
-        description={currentRoom.description || ""}
+        title={data.room.name}
+        description={data.room.description || ""}
         names={roomCreator ? [roomCreator.username] : []}
       />
       <RoomUsersPanel {...data} />
