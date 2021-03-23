@@ -103,7 +103,6 @@ export const createWebSocket = (force?: boolean) => {
             reconnectToVoice,
             currentRoomId: useCurrentRoomStore.getState().currentRoom?.id,
             muted: useMuteStore.getState().muted,
-            platform: "web",
           },
         }),
       { staleTime: 0 }
