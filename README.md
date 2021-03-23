@@ -53,9 +53,15 @@ A desktop app built with electron is available for Windows and Mac
 
 Download links are in [the releases section](https://github.com/benawad/dogehouse/releases/latest)
 
+Dogehouse is also available in the AUR
+```bash
+yay -S dogehouse
+```
 Built with electron.
 
-__*Note:*__ If a warning message pops up on Windows, go to 'more info' and select 'Run Anyway'
+__*Notes:*__
+- If a warning message pops up on Windows, go to 'more info' and select 'Run Anyway'
+- Currently Linux builds will install but won't run due to a problem with global keyevents.
 
 ## DogeReviewers
 
