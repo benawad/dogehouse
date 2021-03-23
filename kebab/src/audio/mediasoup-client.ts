@@ -1,19 +1,18 @@
-import {
-  Consumer,
-  Transport
-} from "mediasoup-client/lib/types";
-import { ConnectFunction } from "./interface";
+import { Transport } from "mediasoup-client/lib/types";
+import { ConnectFunction, ConsumerPlayer } from "./interface";
 import { RoomPeer } from "..";
 
-export const makeConsumer = (transport: Transport) => async (data: RoomPeer) =>
-  await transport.consume({
+export const makeConsumer = (transport: Transport) => async (data: RoomPeer) => ({
+  user: data.peerId,
+  consumer: await transport.consume({
     ...data.consumerParameters,
     appData: {
       peerId: data.peerId,
       producerId: data.consumerParameters.producerId,
       mediaTag: "cam-audio"
     }
-  });
+  })
+});
 
 export const connect: ConnectFunction = async (
   connection,
@@ -87,7 +86,7 @@ export const connect: ConnectFunction = async (
   if(direction === "output") {
     const recvTransport = await makeTransport();
     const consumerParametersArr = await makeInitialConsumers();
-    const consumers: Consumer[] = await Promise.all(consumerParametersArr.map(makeConsumer(recvTransport)));
+    const consumers = await Promise.all(consumerParametersArr.map(makeConsumer(recvTransport)));
     const unsubNps = connection.addListener("new-peer-speaker", async (data: RoomPeer) => {
       consumers.push(await makeConsumer(recvTransport)(data));
     });
@@ -97,9 +96,9 @@ export const connect: ConnectFunction = async (
       unsubNps();
     });
 
-    const giveTrack = track as (track: MediaStreamTrack) => void;
+    const giveTrack = track as ConsumerPlayer;
 
-    consumers.forEach(it => giveTrack(it.track));
+    consumers.forEach(({ user, consumer }) => giveTrack(consumer.track, user));
   } else {
     const sendTransport = await makeTransport();
 
