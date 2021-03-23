@@ -90,7 +90,8 @@
       "followHim": "follow",
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard"
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "OWO Voice Settings (✿ ♡‿♡)",
@@ -231,16 +232,16 @@
       "roomDescription": " woom descwiption（＾ｖ＾）"
     },
     "roomStatus": {
-      "fuelingRocket": "Fuewing wocket",
+      "fuelingRocket": "Fueling rocket",
       "takingOff": "Taking off",
       "inSpace": "In space",
-      "approachingMoon": "Appwoaching moon",
-      "lunarDoge": "Wunyaw doge",
-      "approachingSun": "Appwoaching sun",
-      "solarDoge": "Sowaw doge",
-      "approachingGalaxy": "Appwoaching gawaxy",
-      "galacticDoge": "Gawactic Doge",
-      "spottedLife": "Pwanyet with life spotted"
+      "approachingMoon": "Approaching moon",
+      "lunarDoge": "Lunar doge",
+      "approachingSun": "Approaching sun",
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
     }
   }
 }
