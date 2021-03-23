@@ -15,7 +15,7 @@
     "copied": "másolva",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Felhívjuk figyelmét, hogy a DogeHouse kisegítő lehetőségek nélküli futtatása nem kívánt hibákat okozhat"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -35,7 +35,7 @@
       "currentRoom": "jelenleg itt:",
       "startPrivateRoom": "privát szoba létrehozása velük"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": { "followHim": "követés", "followingHim": "követve" },
     "home": { "createRoom": "Szoba létrehozása", "refresh": "Frissítés" },
     "inviteList": {
       "roomGone": "beszélgetés véget ért, lépjen vissza",
@@ -72,8 +72,8 @@
       "speakers": "Beszélők",
       "requestingToSpeak": "Beszélő jog kérése",
       "listeners": "Hallgatók",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "Mindegyik engedélyezése",
+      "allowAllConfirm": "Biztos benne? Ezzel engedélyezi mind a {{count}} felhasználónak, hogy beszéljen"
     },
     "searchUser": { "search": "keresés..." },
     "soundEffectSettings": { "header": "Hangok" },
@@ -82,11 +82,11 @@
       "followsYou": "követ téged",
       "followers": "követő",
       "following": "követés",
-      "followHim": "follow",
-      "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "followHim": "követés",
+      "followingHim": "követve",
+      "copyProfileUrl": "fiók URL címének másolása",
+      "urlCopied": "URL cím kimásolva a vágólapra",
+      "unfollow": "Követés megszűntetése"
     },
     "voiceSettings": {
       "header": "Hangbeállítások",
@@ -97,7 +97,7 @@
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings"
+      "header": "Overlay beállítások"
     }
   },
   "components": {
@@ -167,7 +167,7 @@
         "banFromRoom": "kitiltás a szobából",
         "goBackToListener": "visszalépés hallgatóvá",
         "deleteMessage": "üzenet törlése",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "adminná tétel"
       },
       "roomSettingsModal": {
         "requirePermission": "beszélői engedélyre van szükség ",
@@ -191,7 +191,7 @@
     "deviceNotSupported": {
       "notSupported": "Az eszköze jelenleg nem támogatott. Létrehozhat egy",
       "linkText": "hibajegyet GitHub",
-      "addSupport": "-on és megpróbáljuk biztosítani eszköze támogatottságát."
+      "addSupport": "-on, és megpróbáljuk biztosítani eszköze támogatottságát."
     },
     "inviteButton": {
       "invited": "meghívott",
@@ -201,16 +201,16 @@
   "modules": {
     "scheduledRooms": {
       "title": "Ütemezett szobák",
-      "noneFound": "nem található szoba",
+      "noneFound": "szoba nem található",
       "allRooms": "összes ütemezett szoba",
-      "myRooms": "saját ütemezett szobáim",
+      "myRooms": "ütemezett szobáim",
       "scheduleRoomHeader": "Szoba ütemezése",
       "startRoom": "szoba indítása",
       "modal": {
         "needsFuture": "jövőbeli dátum szükséges",
         "roomName": "szoba neve",
         "minLength": "legalább 2 karakter hosszú",
-        "roomDescription": "Description"
+        "roomDescription": "Leírás"
       }
     },
     "roomChat": {
@@ -227,16 +227,16 @@
       "roomDescription": "szoba leírása"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
+      "fuelingRocket": "Rakéta feltöltése",
+      "takingOff": "Kilövés",
+      "inSpace": "Űrben",
+      "approachingMoon": "Hold megközelítése",
       "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
+      "approachingSun": "Nap megközelítése",
       "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "approachingGalaxy": "Galaxis megközelítése",
+      "galacticDoge": "Galaktikus Doge",
+      "spottedLife": "Élhető bolygó felfedezve"
     }
   }
 }

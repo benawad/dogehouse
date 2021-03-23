@@ -2,7 +2,7 @@ import React, { MouseEventHandler, ReactNode } from "react";
 import { RoomCard } from "./RoomCard";
 import { Button } from "./Button";
 import { Room, ScheduledRoom } from "@dogehouse/kebab";
-import { useCurrentRoomStore } from "../global-stores/useCurrentRoomStore";
+import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
 import { useRouter } from "next/router";
 import { useTypeSafePrefetch } from "../shared-hooks/useTypeSafePrefetch";
 

@@ -15,8 +15,9 @@ export const VolumeSlider: React.FC<VolumeSliderProps> = ({
 }) => {
   return (
     <div className={`flex flex-col`}>
-      {label ? "volume: " : ""}
-      {volume}
+      <div className={`text-primary-300`}>
+        {label ? "volume: " : ""} {volume}
+      </div>
       <input
         type="range"
         min="1"

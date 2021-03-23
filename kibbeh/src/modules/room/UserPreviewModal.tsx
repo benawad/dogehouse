@@ -1,4 +1,4 @@
-import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
+import { JoinRoomAndGetInfoResponse, RoomUser } from "@dogehouse/kebab";
 import React, { useContext } from "react";
 import { SolidFriends } from "../../icons";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
@@ -9,9 +9,14 @@ import { Button } from "../../ui/Button";
 import { Modal } from "../../ui/Modal";
 import { Spinner } from "../../ui/Spinner";
 import { VerticalUserInfo } from "../../ui/VerticalUserInfo";
+import { VolumeSlider } from "../../ui/VolumeSlider";
 import { UserPreviewModalContext } from "./UserPreviewModalProvider";
+import { VolumeSliderController } from "./VolumeSliderController";
 
-const UserPreview: React.FC<{ id: string }> = ({ id }) => {
+const UserPreview: React.FC<{
+  id: string;
+  roomPermissions?: RoomUser["roomPermissions"];
+}> = ({ id, roomPermissions }) => {
   const { t } = useTypeSafeTranslation();
   const { data, isLoading } = useTypeSafeQuery(["getUserProfile", id], {}, [
     id,
@@ -51,6 +56,8 @@ const UserPreview: React.FC<{ id: string }> = ({ id }) => {
                   ? u
                   : {
                       ...u,
+                      numFollowers:
+                        u.numFollowers + (data.youAreFollowing ? -1 : 1),
                       youAreFollowing: !data.youAreFollowing,
                     }
               );
@@ -64,7 +71,9 @@ const UserPreview: React.FC<{ id: string }> = ({ id }) => {
           </Button>
         </div>
       </div>
-      <div className={`bg-primary-800`}>hey</div>
+      <div className={`bg-primary-800`}>
+        <VolumeSliderController userId={id} />
+      </div>
     </div>
   );
 };
