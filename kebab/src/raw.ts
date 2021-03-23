@@ -27,6 +27,10 @@ export type Listener<Data = unknown> = {
 };
 
 export type Connection = {
+  once: <Data = unknown>(
+    opcode: Opcode,
+    handler: ListenerHandler<Data>
+  ) => void;
   addListener: <Data = unknown>(
     opcode: Opcode,
     handler: ListenerHandler<Data>
@@ -102,6 +106,16 @@ export const connect = (
 
         if (message.op === "auth-good") {
           const connection: Connection = {
+            once: (opcode, handler) => {
+              const listener = { opcode, handler } as Listener<unknown>;
+
+              listener.handler = (...params) => {
+                handler(...(params as Parameters<typeof handler>));
+                listeners.splice(listeners.indexOf(listener), 1);
+              };
+
+              listeners.push(listener);
+            },
             addListener: (opcode, handler) => {
               const listener = { opcode, handler } as Listener<unknown>;
 

@@ -51,6 +51,8 @@ export const wrap = (connection: Connection) => ({
       }),
   },
   mutation: {
+    speakingChange: (value: boolean) =>
+      connection.fetch(`speaking_change`, { value }),
     follow: (userId: string, value: boolean): Promise<void> =>
       connection.fetch("follow", { userId, value }),
     sendRoomChatMsg: (
