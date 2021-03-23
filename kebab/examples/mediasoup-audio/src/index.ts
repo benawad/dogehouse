@@ -93,7 +93,7 @@ const main = async () => {
     );
   });
 
-  await wrapper.mutation.joinRoom(rooms[0].id);
+  const extraInfo = await wrapper.query.joinRoomAndGetInfo(theRoom.id);
   document.querySelector(".current-room")!.textContent = theRoom.name;
 }
 
