@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "target": "es6",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "noEmitOnError": false,
+    "resolveJsonModule": true,
+    "importHelpers": true,
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "preserveSymlinks": true,
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "downlevelIteration": true
+  }
+}
