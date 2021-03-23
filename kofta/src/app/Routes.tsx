@@ -48,7 +48,6 @@ export const Routes: React.FC<RoutesProps> = () => {
           reconnectToVoice: false,
           currentRoomId: useCurrentRoomStore.getState().currentRoom?.id,
           muted: useMuteStore.getState().muted,
-          platform: "web",
         },
       });
     },

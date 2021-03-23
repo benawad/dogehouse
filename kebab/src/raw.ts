@@ -90,7 +90,6 @@ export const connect = (
         reconnectToVoice: false,
         currentRoomId: null,
         muted: false,
-        platform: "uhhh web sure",
       });
 
       socket.addEventListener("message", (e) => {
