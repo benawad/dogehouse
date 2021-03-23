@@ -2,9 +2,8 @@
 
 exports[`ErrorMessage should match snapshot 1`] = `
 <div
-  class="rounded-t-8 w-full fixed items-center justify-center text-button transition-transform duration-300"
+  class="rounded-8 p-3 relative w-full items-center justify-center text-button transition-transform duration-300 bg-secondary"
   data-testid="error-message"
-  style="height: 50px; background-color: rgb(85, 117, 231); bottom: 0px; left: 0px; transform: translateY(0%);"
 >
   <div
     class="absolute cursor-pointer"
@@ -53,15 +52,7 @@ exports[`ErrorMessage should match snapshot 1`] = `
   >
     <p
       class="bold"
-    >
-      An error has occurred
-    </p>
-    <button
-      class="rounded-lg px-3 font-bold text-sm"
-      style="background-color: rgb(135, 158, 237); padding-top: 3px; padding-bottom: 3px;"
-    >
-      Refresh
-    </button>
+    />
   </div>
 </div>
 `;
