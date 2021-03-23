@@ -3,7 +3,7 @@
 
 
 "@dogehouse/kebab@file:../..":
-  version "0.2.0"
+  version "0.2.1"
   dependencies:
     "@types/uuid" "^8.3.0"
     "@types/ws" "^7.4.0"
