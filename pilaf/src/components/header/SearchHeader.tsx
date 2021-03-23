@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, TextInput } from "react-native";
+import { StyleSheet, TextInput, View } from "react-native";
 import { colors, radius } from "../../constants/dogeStyle";
 import { HeaderBase } from "./HeaderBase";
 

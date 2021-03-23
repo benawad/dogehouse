@@ -1,3 +1,4 @@
+import { formatDistance, fromUnixTime } from "date-fns";
 import React, { useState } from "react";
 import {
   ImageSourcePropType,
@@ -7,15 +8,8 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { formatDistance, fromUnixTime } from "date-fns";
+import { colors, paragraphBold, small } from "../constants/dogeStyle";
 import { SingleUserAvatar } from "./avatars/SingleUserAvatar";
-import {
-  colors,
-  fontFamily,
-  fontSize,
-  paragraphBold,
-  small,
-} from "../constants/dogeStyle";
 
 interface MessageElementProps {
   user: {

@@ -1,12 +1,11 @@
 import { useNavigation } from "@react-navigation/core";
 import React, { useState } from "react";
 import {
+  ImageSourcePropType,
   StyleProp,
   StyleSheet,
   TouchableOpacity,
   ViewStyle,
-  Image,
-  ImageSourcePropType,
 } from "react-native";
 import Modal from "react-native-modal";
 import { colors } from "../../constants/dogeStyle";

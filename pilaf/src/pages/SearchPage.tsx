@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
-import { colors } from "../constants/dogeStyle";
 import { SearchHeader } from "../components/header/SearchHeader";
 import { RoomSearchResult } from "../components/search/RoomSearchResult";
-import { UserSearchResult } from "../components/search/UserSearchResult";
 import { SearchHistoryResult } from "../components/search/SearchHistoryResult";
 import { SearchHistoryResultList } from "../components/search/SearchHistoryResultList";
+import { UserSearchResult } from "../components/search/UserSearchResult";
+import { colors } from "../constants/dogeStyle";
 
 const searchMocks = [
   {

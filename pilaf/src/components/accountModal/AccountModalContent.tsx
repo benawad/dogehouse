@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/core";
-import React, { useState } from "react";
-import { View, StyleSheet } from "react-native";
+import React from "react";
+import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { colors, radius } from "../../constants/dogeStyle";
 import { AccountModalRow } from "./AccountModalRow";

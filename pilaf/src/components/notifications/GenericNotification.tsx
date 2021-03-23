@@ -1,13 +1,7 @@
 import React, { ReactNode } from "react";
-import { StyleSheet, View, ViewStyle, Text } from "react-native";
-import {
-  colors,
-  fontFamily,
-  fontSize,
-  paragraph,
-  small,
-} from "../../constants/dogeStyle";
+import { StyleSheet, Text, View, ViewStyle } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
+import { colors, paragraph, small } from "../../constants/dogeStyle";
 
 interface GenericNotificationProps {
   style?: ViewStyle;

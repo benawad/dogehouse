@@ -1,11 +1,11 @@
 import React, { ReactNode } from "react";
 import {
+  ScrollView,
   StyleSheet,
-  View,
-  ViewStyle,
   Text,
   TouchableOpacity,
-  ScrollView,
+  View,
+  ViewStyle,
 } from "react-native";
 import { colors, fontFamily, fontSize, radius } from "../constants/dogeStyle";
 

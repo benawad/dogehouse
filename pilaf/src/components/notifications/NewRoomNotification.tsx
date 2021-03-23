@@ -1,11 +1,11 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import {
+  Image,
   StyleSheet,
-  View,
-  ViewStyle,
   Text,
   TouchableOpacity,
-  Image,
+  View,
+  ViewStyle,
 } from "react-native";
 import {
   colors,

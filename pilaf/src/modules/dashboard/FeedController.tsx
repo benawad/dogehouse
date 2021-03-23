@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
+import { RoomCard } from "../../components/RoomCard";
 import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { WebSocketContext } from "../ws/WebSocketProvider";
-import { RoomCard } from "../../components/RoomCard";
 
 interface FeedControllerProps {}
 

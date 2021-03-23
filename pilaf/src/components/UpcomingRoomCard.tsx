@@ -1,34 +1,9 @@
-import React, { ReactNode, useEffect, useState } from "react";
-import {
-  StyleSheet,
-  View,
-  ViewStyle,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-  Image,
-  ImageSourcePropType,
-} from "react-native";
-import {
-  differenceInMilliseconds,
-  format,
-  isPast,
-  isToday,
-  isTomorrow,
-} from "date-fns";
-import {
-  colors,
-  fontFamily,
-  fontSize,
-  paragraph,
-  paragraphBold,
-  radius,
-  small,
-} from "../constants/dogeStyle";
-import { RoomCardHeading } from "./RoomCardHeading";
-import { BubbleText } from "./BubbleText";
-import { Tag } from "./Tag";
+import { format, isToday, isTomorrow } from "date-fns";
+import React from "react";
+import { ImageSourcePropType, StyleSheet, Text, View } from "react-native";
+import { colors, radius, small } from "../constants/dogeStyle";
 import { MultipleUserAvatar } from "./avatars/MultipleUserAvatar";
+import { RoomCardHeading } from "./RoomCardHeading";
 
 const formattedDate = (scheduledFor: Date) => {
   if (isToday(scheduledFor)) {

@@ -3,11 +3,11 @@ import {
   Alert,
   Linking,
   StyleProp,
-  Text,
-  ViewStyle,
   StyleSheet,
+  Text,
+  TouchableOpacity,
+  ViewStyle,
 } from "react-native";
-import { TouchableOpacity } from "react-native";
 import InAppBrowser from "react-native-inappbrowser-reborn";
 import { colors, fontFamily, radius } from "../../constants/dogeStyle";
 import { apiBaseUrl } from "../../constants/env";

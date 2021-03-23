@@ -1,9 +1,7 @@
 import React from "react";
-import { StyleSheet, Text } from "react-native";
-import { TouchableOpacity, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { TitledHeader } from "../components/header/TitledHeader";
-import { colors, fontFamily } from "../constants/dogeStyle";
-import { useTokenStore } from "../modules/auth/useTokenStore";
+import { colors } from "../constants/dogeStyle";
 
 export const SettingsPage: React.FC = () => {
   return (

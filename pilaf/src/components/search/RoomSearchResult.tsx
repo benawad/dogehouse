@@ -1,14 +1,14 @@
+import { differenceInMilliseconds, format, isPast, isToday } from "date-fns";
 import React, { useEffect, useState } from "react";
 import {
+  Image,
   StyleSheet,
-  View,
-  ViewStyle,
   Text,
   TouchableOpacity,
-  Image,
+  View,
   ViewProps,
+  ViewStyle,
 } from "react-native";
-import { differenceInMilliseconds, format, isPast, isToday } from "date-fns";
 import {
   colors,
   paragraph,

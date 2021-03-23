@@ -1,24 +1,24 @@
-import React, { ReactNode, useEffect, useState } from "react";
+import { differenceInMilliseconds, format, isPast, isToday } from "date-fns";
+import React, { useEffect, useState } from "react";
 import {
-  StyleSheet,
-  View,
-  ViewStyle,
-  Text,
-  TouchableOpacity,
   Image,
   ImageSourcePropType,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ViewStyle,
 } from "react-native";
-import { differenceInMilliseconds, format, isPast, isToday } from "date-fns";
 import {
   colors,
   paragraph,
   paragraphBold,
   radius,
 } from "../constants/dogeStyle";
-import { RoomCardHeading } from "./RoomCardHeading";
-import { BubbleText } from "./BubbleText";
-import { Tag } from "./Tag";
 import { MultipleUserAvatar } from "./avatars/MultipleUserAvatar";
+import { BubbleText } from "./BubbleText";
+import { RoomCardHeading } from "./RoomCardHeading";
+import { Tag } from "./Tag";
 
 function formatNumber(num: number): string {
   return Math.abs(num) > 999

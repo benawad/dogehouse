@@ -1,17 +1,12 @@
 import React from "react";
 import {
-  StyleSheet,
-  ImageSourcePropType,
   Image,
+  ImageSourcePropType,
+  StyleSheet,
   Text,
   TouchableOpacity,
 } from "react-native";
-import {
-  colors,
-  fontFamily,
-  fontSize,
-  paragraph,
-} from "../../constants/dogeStyle";
+import { paragraph } from "../../constants/dogeStyle";
 
 export interface AccountModalRowProps {
   icon: ImageSourcePropType;

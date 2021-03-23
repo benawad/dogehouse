@@ -1,11 +1,10 @@
 import React from "react";
-import { ScrollView, StyleSheet, Text } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { ScrollView, StyleSheet } from "react-native";
 import { TitledHeader } from "../components/header/TitledHeader";
 import { FollowNotification } from "../components/notifications/FollowNotification";
 import { LiveNotification } from "../components/notifications/LiveNotification";
 import { NewRoomNotification } from "../components/notifications/NewRoomNotification";
-import { colors, fontFamily } from "../constants/dogeStyle";
+import { colors } from "../constants/dogeStyle";
 
 export const NotificationsPage: React.FC = () => {
   return (

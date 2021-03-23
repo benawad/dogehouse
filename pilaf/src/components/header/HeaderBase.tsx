@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/core";
 import React from "react";
-import { StyleSheet, ViewProps, Image, TouchableOpacity } from "react-native";
+import { Image, StyleSheet, TouchableOpacity, ViewProps } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { colors } from "../../constants/dogeStyle";
 

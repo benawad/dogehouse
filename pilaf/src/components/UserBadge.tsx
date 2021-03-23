@@ -4,10 +4,9 @@ import {
   ImageSourcePropType,
   StyleSheet,
   Text,
+  View,
   ViewProps,
 } from "react-native";
-import { View } from "react-native";
-import { TitledHeader } from "../components/header/TitledHeader";
 import { colors, fontSize, radius, smallBold } from "../constants/dogeStyle";
 
 const badgeVariants = {

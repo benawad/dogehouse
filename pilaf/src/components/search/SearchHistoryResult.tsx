@@ -1,11 +1,11 @@
 import React from "react";
 import {
+  Image,
   StyleSheet,
-  View,
   Text,
   TouchableOpacity,
+  View,
   ViewProps,
-  Image,
 } from "react-native";
 import { colors, paragraph, radius } from "../../constants/dogeStyle";
 

@@ -1,8 +1,7 @@
 import React from "react";
 import { ScrollView, StyleSheet, Text } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { RoomCard } from "../components/RoomCard";
-import { colors, fontFamily, h1, h3, paragraph } from "../constants/dogeStyle";
+import { colors, h3, paragraph } from "../constants/dogeStyle";
 import { FeedController } from "../modules/dashboard/FeedController";
 
 export const DashboardPage: React.FC = () => {

@@ -1,11 +1,10 @@
 import React from "react";
 import {
+  ImageSourcePropType,
   StyleProp,
   StyleSheet,
   View,
   ViewStyle,
-  Image,
-  ImageSourcePropType,
 } from "react-native";
 import { colors } from "../../constants/dogeStyle";
 import { SingleUserAvatar, singleUserAvatarSize } from "./SingleUserAvatar";

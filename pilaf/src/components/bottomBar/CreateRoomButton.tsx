@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TouchableOpacity, StyleSheet } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import Modal from "react-native-modal";
 import { CreateRoomPage } from "../../pages/CreateRoomPage";
 

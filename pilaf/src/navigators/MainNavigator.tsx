@@ -1,17 +1,17 @@
-import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
+import React from "react";
+import { colors } from "../constants/dogeStyle";
+import { WebSocketProvider } from "../modules/ws/WebSocketProvider";
+import { HelpPage } from "../pages/HelpPage";
+import { LanguagePage } from "../pages/LanguagePage";
 import { MainPage } from "../pages/MainPage";
 import { MessagesPage } from "../pages/MessagesPage";
 import { NotificationsPage } from "../pages/NotificationsPage";
-import { SearchPage } from "../pages/SearchPage";
-import { colors } from "../constants/dogeStyle";
 import { ProfilePage } from "../pages/ProfilePage";
-import { WebSocketProvider } from "../modules/ws/WebSocketProvider";
+import { ReportBugPage } from "../pages/ReportBugPage";
+import { SearchPage } from "../pages/SearchPage";
 import { SettingsPage } from "../pages/SettingsPage";
 import { WalletPage } from "../pages/WalletPage";
-import { LanguagePage } from "../pages/LanguagePage";
-import { HelpPage } from "../pages/HelpPage";
-import { ReportBugPage } from "../pages/ReportBugPage";
 
 const Stack = createStackNavigator();
 

@@ -1,6 +1,5 @@
 import React from "react";
-import { StyleSheet, Text } from "react-native";
-import { TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { TitledHeader } from "../components/header/TitledHeader";
 import { colors, fontFamily } from "../constants/dogeStyle";
 import { useTokenStore } from "../modules/auth/useTokenStore";
