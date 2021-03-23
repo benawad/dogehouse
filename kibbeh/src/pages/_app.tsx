@@ -10,6 +10,7 @@ import { init_i18n } from "../lib/i18n";
 import { SoundEffectPlayer } from "../modules/sound-effects/SoundEffectPlayer";
 import ReactModal from "react-modal";
 import { ErrorToastController } from "../modules/errors/ErrorToastController";
+import { WebRtcApp } from "../modules/webrtc/WebRtcApp";
 
 if (!isServer) {
   init_i18n();
@@ -26,6 +27,7 @@ function App({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
         <SoundEffectPlayer />
         <ErrorToastController />
+        <WebRtcApp />
       </QueryClientProvider>
     </WebSocketProvider>
   );

@@ -22,3 +22,4 @@ export { default as SolidSettings } from "./SolidSettings";
 export { default as SolidTime } from "./SolidTime";
 export { default as SolidUser } from "./SolidUser";
 export { default as SolidVolume } from "./SolidVolume";
+export { default as SolidRocket } from "./SolidRocket";

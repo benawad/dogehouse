@@ -87,7 +87,8 @@
       "followHim": "seguir",
       "followingHim": "seguindo",
       "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard"
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Configurações do microfone",

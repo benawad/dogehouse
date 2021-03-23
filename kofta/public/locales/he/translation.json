@@ -88,7 +88,8 @@
       "followHim": "עקוב",
       "followingHim": "עוקב",
       "copyProfileUrl": "העתק קישור פרופיל",
-      "urlCopied": "הקישור הועתק"
+      "urlCopied": "הקישור הועתק",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "הגדרות קול",

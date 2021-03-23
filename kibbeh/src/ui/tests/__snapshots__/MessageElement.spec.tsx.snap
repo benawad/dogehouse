@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageElement should match snapshot 1`] = `
+<div
+  class="items-center w-full px-4 md:bg-primary-800 md:border-b md:border-primary-600 cursor-pointer hover:bg-primary-700 bg-primary-900"
+  data-testid="msg-element"
+>
+  <div
+    class="mr-3"
+  >
+    <div
+      class="relative inline-block "
+      data-testid="single-user-avatar"
+      style="width: 40px; height: 40px;"
+    >
+      <img
+        alt="avatar"
+        class="rounded-full w-full h-full object-cover"
+        src=""
+      />
+      <span
+        class="rounded-full absolute box-content bg-accent border-primary-800"
+        data-testid="online-indictor"
+        style="width: 8px; height: 8px; right: 2px; bottom: -2px; border-width: 2px;"
+      />
+    </div>
+  </div>
+  <div
+    class="flex-col py-3 border-b border-primary-600 md:border-none md:py-0"
+    style="width: calc(100% - 50px);"
+  >
+    <div
+      class="justify-between"
+    >
+      <span
+        class="text-button font-bold inline-block truncate mr-1"
+        style="line-height: 22px;"
+      >
+        someUserNAme
+      </span>
+      <span
+        class="text-primary-300 text-sm font-medium inline-block truncate"
+        style="line-height: 22px;"
+      >
+        about 51 years
+         ago
+      </span>
+    </div>
+    <div
+      class="block text-sm text-primary-300 font-medium truncate w-9/12"
+      style="line-height: 22px;"
+    >
+      some text
+    </div>
+  </div>
+</div>
+`;

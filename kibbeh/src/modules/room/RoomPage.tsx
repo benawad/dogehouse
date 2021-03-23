@@ -5,6 +5,7 @@ import { WaitForWsAndAuth } from "../auth/WaitForWsAndAuth";
 import { FollowingOnlineController } from "../dashboard/FollowingOnlineController";
 import { DesktopLayout } from "../layouts/DesktopLayout";
 import { RoomPanelController } from "./RoomPanelController";
+import { UserPreviewModalProvider } from "./UserPreviewModalProvider";
 
 interface RoomPageProps {}
 
@@ -12,9 +13,11 @@ export const RoomPage: PageComponent<RoomPageProps> = ({}) => {
   return (
     <WaitForWsAndAuth>
       <DesktopLayout>
-        <FollowingOnlineController />
-        <RoomPanelController />
-        <div />
+        <UserPreviewModalProvider>
+          <FollowingOnlineController />
+          <RoomPanelController />
+          <div />
+        </UserPreviewModalProvider>
       </DesktopLayout>
     </WaitForWsAndAuth>
   );

@@ -87,7 +87,8 @@
       "followHim": "关注ta",
       "followingHim": "已经关注",
       "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard"
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "语音设置",
