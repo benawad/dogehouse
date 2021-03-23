@@ -25,6 +25,7 @@ export const fontSize = {
   h4: 20,
   paragraph: 14,
   small: 12,
+  xs: 10,
 };
 
 export const colors = {

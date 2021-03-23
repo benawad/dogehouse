@@ -4,10 +4,14 @@ import { colors, radius } from "../../constants/dogeStyle";
 import { HeaderBase } from "./HeaderBase";
 
 type SearchHeaderProps = {
+  text: string;
   onTextChange: (query: string) => void;
 };
 
-export const SearchHeader: React.FC<SearchHeaderProps> = ({ onTextChange }) => {
+export const SearchHeader: React.FC<SearchHeaderProps> = ({
+  text,
+  onTextChange,
+}) => {
   return (
     <HeaderBase>
       <View style={styles.inputContainer}>
@@ -17,6 +21,8 @@ export const SearchHeader: React.FC<SearchHeaderProps> = ({ onTextChange }) => {
           placeholderTextColor={colors.primary300}
           numberOfLines={1}
           onChangeText={onTextChange}
+          value={text}
+          autoFocus={true}
         />
       </View>
     </HeaderBase>

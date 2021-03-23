@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/core";
 import React, { useState } from "react";
 import {
   StyleProp,
@@ -18,6 +19,7 @@ interface ProfileButtonProps {
 }
 
 export const ProfileButton: React.FC<ProfileButtonProps> = (props) => {
+  const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <>
@@ -33,7 +35,12 @@ export const ProfileButton: React.FC<ProfileButtonProps> = (props) => {
         swipeDirection="down"
         swipeThreshold={50}
       >
-        <AccountModalContent />
+        <AccountModalContent
+          onPress={(pageName: string) => {
+            setModalVisible(false);
+            navigation.navigate(pageName);
+          }}
+        />
       </Modal>
     </>
   );

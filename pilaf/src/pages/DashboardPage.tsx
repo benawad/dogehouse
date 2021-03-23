@@ -2,64 +2,13 @@ import React from "react";
 import { ScrollView, StyleSheet, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { RoomCard } from "../components/RoomCard";
-import { colors, fontFamily, paragraph } from "../constants/dogeStyle";
+import { colors, fontFamily, h1, h3, paragraph } from "../constants/dogeStyle";
 import { FeedController } from "../modules/dashboard/FeedController";
 
 export const DashboardPage: React.FC = () => {
   return (
     <ScrollView style={styles.container}>
-      {/* 
-      <RoomCard
-        style={{ marginBottom: 20 }}
-        title="Why CI & CD is important when working with a team and more because I need a long one"
-        subtitle="This is the subtitle This is the subtitle This is the subtitle This is the subtitle This is the subtitle"
-        listeners={400}
-        avatarSrcs={[
-          require("../assets/images/100.png"),
-          require("../assets/images/100.png"),
-          require("../assets/images/100.png"),
-        ]}
-        tags={[
-          <Text style={{ ...paragraph }}>#Business</Text>,
-          <Text style={{ ...paragraph }}>#Business</Text>,
-          <Text style={{ ...paragraph }}>#Business</Text>,
-          <Text style={{ ...paragraph }}>#Business</Text>,
-        ]}
-      />
-      <RoomCard
-        style={{ marginBottom: 20 }}
-        title="Why CI & CD is important when working with a team and more because I need a long one"
-        subtitle="This is the subtitle This is the subtitle This is the subtitle This is the subtitle This is the subtitle"
-        listeners={400}
-        avatarSrcs={[
-          require("../assets/images/100.png"),
-          require("../assets/images/100.png"),
-          require("../assets/images/100.png"),
-        ]}
-        tags={[
-          <Text style={{ ...paragraph }}>#Business</Text>,
-          <Text style={{ ...paragraph }}>#Business</Text>,
-          <Text style={{ ...paragraph }}>#Business</Text>,
-          <Text style={{ ...paragraph }}>#Business</Text>,
-        ]}
-      />
-      <RoomCard
-        style={{ marginBottom: 20 }}
-        title="Why CI & CD is important when working with a team and more because I need a long one"
-        subtitle="This is the subtitle This is the subtitle This is the subtitle This is the subtitle This is the subtitle"
-        listeners={400}
-        avatarSrcs={[
-          require("../assets/images/100.png"),
-          require("../assets/images/100.png"),
-          require("../assets/images/100.png"),
-        ]}
-        tags={[
-          <Text style={{ ...paragraph }}>#Business</Text>,
-          <Text style={{ ...paragraph }}>#Business</Text>,
-          <Text style={{ ...paragraph }}>#Business</Text>,
-          <Text style={{ ...paragraph }}>#Business</Text>,
-        ]}
-      /> */}
+      <Text style={styles.title}>Your feed</Text>
       <FeedController />
       <RoomCard
         style={{ marginBottom: 20 }}
@@ -88,5 +37,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary900,
     paddingHorizontal: 20,
     paddingTop: 20,
+  },
+  title: {
+    ...h3,
+    marginBottom: 20,
   },
 });

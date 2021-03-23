@@ -5,15 +5,12 @@ import {
   ViewStyle,
   Text,
   TouchableOpacity,
-  ScrollView,
   Image,
   ImageSourcePropType,
 } from "react-native";
 import { differenceInMilliseconds, format, isPast, isToday } from "date-fns";
 import {
   colors,
-  fontFamily,
-  fontSize,
   paragraph,
   paragraphBold,
   radius,
@@ -122,14 +119,15 @@ export const RoomCard: React.FC<RoomCardProps> = ({
         </View>
       </View>
       <View></View>
-
-      <View style={styles.tagsContainer}>
-        {tags.map((tag, idx) => (
-          <Tag style={{ marginRight: 10 }} key={idx}>
-            {tag}
-          </Tag>
-        ))}
-      </View>
+      {tags && tags.length > 0 && (
+        <View style={styles.tagsContainer}>
+          {tags.map((tag, idx) => (
+            <Tag style={{ marginRight: 10 }} key={idx}>
+              {tag}
+            </Tag>
+          ))}
+        </View>
+      )}
     </TouchableOpacity>
   );
 };
