@@ -2,20 +2,20 @@ import React, { useMemo, useState } from "react";
 
 interface UserProfileOverlayProviderProps {}
 
-export const UserProfileOverlayContext = React.createContext<{
+export const UserPreviewModalContext = React.createContext<{
   userId?: string | null;
-  setUserId: (u: string) => void;
+  setUserId: (u: string | null) => void;
 }>({ setUserId: () => {} });
 
-export const UserProfileOverlayProvider: React.FC<UserProfileOverlayProviderProps> = ({
+export const UserPreviewModalProvider: React.FC<UserProfileOverlayProviderProps> = ({
   children,
 }) => {
   const [userId, setUserId] = useState<string | null>(null);
   return (
-    <UserProfileOverlayContext.Provider
+    <UserPreviewModalContext.Provider
       value={useMemo(() => ({ userId, setUserId }), [userId, setUserId])}
     >
       {children}
-    </UserProfileOverlayContext.Provider>
+    </UserPreviewModalContext.Provider>
   );
 };

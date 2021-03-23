@@ -14,7 +14,8 @@
     "copyLink": "拷贝链接",
     "copied": "已拷贝",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -60,7 +61,8 @@
       "probablyLoading": "加载中...",
       "voiceSettings": "音量设置",
       "soundSettings": "声音设置",
-      "deleteAccount": "删除账号"
+      "deleteAccount": "删除账号",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "哎呀，这页在聊天中被丢掉了",
@@ -71,6 +73,8 @@
       "speakers": "发言者",
       "requestingToSpeak": "要求发言",
       "listeners": "听者"
+      "allowAll": "允许全部用户发言",
+      "allowAllConfirm": "你确定吗？ 这会允许所有 {{count}} 位邀请的用户发言"
     },
     "searchUser": { "search": "搜索..." },
     "soundEffectSettings": { "header": "声音" },
@@ -80,7 +84,10 @@
       "followers": "关注者",
       "following": "您关注的人",
       "followHim": "关注ta",
-      "followingHim": "已经关注"
+      "followingHim": "已经关注",
+      "copyProfileUrl": "复制主页链接",
+      "urlCopied": "主页链接已复制到剪贴板",
+      "unfollow": "取消关注"
     },
     "voiceSettings": {
       "header": "语音设置",
@@ -88,6 +95,10 @@
       "permissionError": "没有找到麦克风，也许没有插入麦克风，也许没有给此网页使用麦克风的权利。",
       "refresh": "刷新麦克风列表",
       "volume": "音量:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -173,7 +184,8 @@
       "setKeybind": "设置快捷键",
       "listening": "等待输入",
       "toggleMuteKeybind": "切换静音键绑定",
-      "togglePushToTalkKeybind": "切换按键说话键"
+      "togglePushToTalkKeybind": "切换按键说话键",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "wsKilled": {
       "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",

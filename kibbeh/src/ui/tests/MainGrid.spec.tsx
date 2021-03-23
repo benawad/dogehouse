@@ -3,10 +3,10 @@ import React from "react";
 import { render } from "../../../test-utils";
 import { MainGrid } from "../MainGrid";
 
-describe("DashboardGrid", () => {
+describe("MainGrid", () => {
   it("should render correctly", () => {
     const { getByTestId, getByText } = render(<MainGrid>Child</MainGrid>);
-    const component = getByTestId("dashboard-grid");
+    const component = getByTestId("main-grid");
     const child = getByText("Child");
 
     expect(component).toBeVisible();
@@ -15,7 +15,7 @@ describe("DashboardGrid", () => {
 
   it("should match snapshot", () => {
     const { getByTestId } = render(<MainGrid>Child</MainGrid>);
-    const component = getByTestId("dashboard-grid");
+    const component = getByTestId("main-grid");
 
     expect(component).toMatchSnapshot();
   });

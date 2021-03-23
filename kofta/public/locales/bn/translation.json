@@ -90,7 +90,8 @@
       "followHim": "অনুসরণ করুন",
       "followingHim": "অনুসরণ করছেন",
       "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard"
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "ভয়েস সেটিংস",

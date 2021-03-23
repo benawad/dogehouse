@@ -1,4 +1,11 @@
+import { ConsumerOptions } from "mediasoup-client/lib/types";
+
 export type UUID = string;
+
+export type RoomPeer = {
+  peerId: UUID;
+  consumerParameters: ConsumerOptions;
+};
 
 export type UserPreview = {
   numFollowers: number;
@@ -57,6 +64,7 @@ export type MessageToken<T extends string = string, V = unknown> = {
 export type TextToken = MessageToken<"text", string>;
 export type MentionToken = MessageToken<"mention", string>;
 export type LinkToken = MessageToken<"link", string>;
+export type EmoteToken = MessageToken<"emote", string>;
 
 export type Message = {
   id: UUID;

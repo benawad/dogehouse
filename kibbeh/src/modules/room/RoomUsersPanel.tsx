@@ -3,6 +3,7 @@ import React from "react";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { RoomAvatar } from "../../ui/RoomAvatar";
 import { RoomSectionHeader } from "../../ui/RoomSectionHeader";
+import { UserPreviewModalProvider } from "./UserPreviewModalProvider";
 import { useSplitUsersIntoSections } from "./useSplitUsersIntoSections";
 
 interface RoomUsersPanelProps extends JoinRoomAndGetInfoResponse {}
@@ -25,6 +26,20 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
           tagText={"" + speakers.length}
         />
         {speakers}
+        {askingToSpeak.length ? (
+          <RoomSectionHeader
+            title={t("pages.room.requestingToSpeak")}
+            tagText={"" + askingToSpeak.length}
+          />
+        ) : null}
+        {askingToSpeak}
+        {listeners.length ? (
+          <RoomSectionHeader
+            title={t("pages.room.listeners")}
+            tagText={"" + listeners.length}
+          />
+        ) : null}
+        {listeners}
       </div>
     </div>
   );
