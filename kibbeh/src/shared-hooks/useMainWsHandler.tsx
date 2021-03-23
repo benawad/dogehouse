@@ -1,6 +1,6 @@
 import { wrap } from "@dogehouse/kebab";
 import isElectron from "is-electron";
-import { useContext, useEffect } from "react";
+import { FC, useContext, useEffect } from "react";
 import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
 import { showErrorToast } from "../lib/showErrorToast";
 import { useTokenStore } from "../modules/auth/useTokenStore";
@@ -324,4 +324,9 @@ export const useMainWsHandler = () => {
       unsubs.forEach((u) => u());
     };
   }, [conn, updateQuery]);
+};
+
+export const MainWsHandlerProvider: FC = ({ children }) => {
+  useMainWsHandler();
+  return <>{children}</>;
 };
