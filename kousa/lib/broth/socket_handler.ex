@@ -7,6 +7,7 @@ defmodule Broth.SocketHandler do
   alias Beef.Follows
   alias Ecto.UUID
   alias Beef.RoomPermissions
+  alias Onion.UserSession
 
   # TODO: just collapse this into its parent module.
   defmodule State do
@@ -60,11 +61,14 @@ defmodule Broth.SocketHandler do
 
   defp get_callers(request) do
     request_bin = :cowboy_req.header("user-agent", request)
-    List.wrap(if is_binary(request_bin) do
-      request_bin
-      |> Base.decode16!
-      |> :erlang.binary_to_term
-    end)
+
+    List.wrap(
+      if is_binary(request_bin) do
+        request_bin
+        |> Base.decode16!()
+        |> :erlang.binary_to_term()
+      end
+    )
   end
 
   @auth_timeout Application.compile_env(:kousa, :websocket_auth_timeout)
@@ -127,38 +131,30 @@ defmodule Broth.SocketHandler do
               {:reply, {:close, 4001, "invalid_authentication"}, state}
 
             x ->
-              Process.get() |> IO.inspect(label: "133")
-              self() |> IO.inspect(label: "131")
-
               {user_id, tokens, user} =
                 case x do
                   {user_id, tokens} -> {user_id, tokens, Beef.Users.get_by_id(user_id)}
                   y -> y
                 end
 
-                IO.puts("mama")
-
               if user do
-                IO.puts("hi")
-                
-                {:ok, session} =
-                  GenRegistry.lookup_or_start(Onion.UserSession, user_id, [
-                    %Onion.UserSession.State{
-                      user_id: user_id,
-                      username: user.username,
-                      avatar_url: user.avatarUrl,
-                      display_name: user.displayName,
-                      current_room_id: user.currentRoomId,
-                      muted: muted
-                    }
-                  ])
-                |> IO.inspect(label: "153")
 
-                GenServer.call(session, {:set_pid, self()})
+                # note that this will start the session and will be ignored if the
+                # session is already running.
+                UserSession.start_supervised(%UserSession.State{
+                  user_id: user_id,
+                  username: user.username,
+                  avatar_url: user.avatarUrl,
+                  display_name: user.displayName,
+                  current_room_id: user.currentRoomId,
+                  muted: muted
+                }
+
+                UserSession.set_pid(user_id, self())
 
                 if tokens do
-                  GenServer.cast(session, {:new_tokens, tokens})
-                end |> IO.inspect(label: "158")
+                  UserSession.new_tokens(user_id, tokens)
+                end
 
                 roomIdFromFrontend = Map.get(json["d"], "currentRoomId", nil)
 
@@ -195,8 +191,8 @@ defmodule Broth.SocketHandler do
 
                     true ->
                       nil
-                  end |> IO.inspect(label: "195")
-
+                  end
+                  |> IO.inspect(label: "195")
 
                 {:reply,
                  construct_socket_msg(state.encoding, state.compression, %{

@@ -9,6 +9,8 @@ defmodule Kousa do
     Kousa.Metric.UserSessions.setup()
 
     children = [
+      # top-level supervisor for UserSession group
+      Onion.UserSessionSupervisor,
       {
         GenRegistry,
         worker_module: Onion.UserSession
