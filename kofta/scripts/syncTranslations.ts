@@ -1,7 +1,8 @@
 // @ts-ignore
 import config from "../../.prettierrc.js";
 import english from "../public/locales/en/translation.json";
-import fs from "fs";
+import * as fse from "fs-extra";
+import * as fs from "fs";
 import { join } from "path";
 import prettier from "prettier";
 import { traverseTranslations } from "./traverseTranslations";
@@ -40,3 +41,16 @@ fs.readdirSync(join(__dirname, "../public/locales")).forEach((locale) => {
     })
   );
 });
+
+fs.rmdirSync(join(__dirname, "../../kibbeh/public/locales"), {
+  recursive: true,
+});
+fs.unlinkSync(join(__dirname, "../../kibbeh/src/generated/translationKeys.ts"));
+fs.copyFileSync(
+  join(__dirname, "../src/generated/translationKeys.ts"),
+  join(__dirname, "../../kibbeh/src/generated/translationKeys.ts")
+);
+fse.copySync(
+  join(__dirname, "../public/locales"),
+  join(__dirname, "../../kibbeh/public/locales")
+);

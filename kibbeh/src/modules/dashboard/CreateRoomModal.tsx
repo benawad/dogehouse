@@ -32,6 +32,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
   const conn = useWrappedConn();
   const { t } = useTypeSafeTranslation();
   const { push } = useRouter();
+  const prefetch = useTypeSafePrefetch("joinRoomAndGetInfo");
 
   return (
     <Modal isOpen onRequestClose={onRequestClose}>
@@ -78,6 +79,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
           } else if (resp.room) {
             const { room } = resp;
 
+            prefetch([room.id], ["joinRoomAndGetInfo", room.id]);
             console.log("new room voice server id: " + room.voiceServerId);
             useRoomChatStore.getState().clearChat();
             useCurrentRoomStore.getState().setCurrentRoom(() => room);

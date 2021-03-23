@@ -20,7 +20,7 @@ export const MainGrid: React.FC<DashboardGridProps> = ({ children }) => {
   return (
     <div
       className={`flex justify-center w-full min-h-screen bg-primary-900`}
-      data-testid="dashboard-grid"
+      data-testid="main-grid"
     >
       <MainInnerGrid>{children}</MainInnerGrid>
     </div>

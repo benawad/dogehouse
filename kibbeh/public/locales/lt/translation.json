@@ -15,7 +15,8 @@
     "copyLink": "Nukopijuoti nuorodą",
     "copied": "Nukopijuota",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -61,7 +62,8 @@
       "probablyLoading": "Tikriausiai kraunasi...",
       "voiceSettings": "Eiti į balso nustatymus",
       "soundSettings": "Eiti į garso nustatymus",
-      "deleteAccount": "Ištrinti vartotoją"
+      "deleteAccount": "Ištrinti vartotoją",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Uppss! Šis puslapis buvo prarastas pokalbyje",
@@ -71,7 +73,9 @@
     "room": {
       "speakers": "Kalbėtojai",
       "requestingToSpeak": "Prašo kalbėti",
-      "listeners": "Klausytojai"
+      "listeners": "Klausytojai",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Ieškoma..." },
     "soundEffectSettings": { "header": "Garsai" },
@@ -81,7 +85,10 @@
       "followers": "Sekėjai",
       "following": "Tu seki",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Garso nustatymai",
@@ -89,6 +96,10 @@
       "permissionError": "nerasta mikrofonų, jūs arba neprijungėte tinklo, arba nedavėte šiai svetainei leidimo.",
       "refresh": "Atnaujinti mikrofonų sąrašą",
       "volume": "Garsas:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -133,7 +144,8 @@
       "setKeybind": "nustatyti klavišą",
       "listening": "Klausomasi",
       "toggleMuteKeybind": "perjungti nutildytą klavišą",
-      "togglePushToTalkKeybind": "perjungti tiesioginio ryšio klavišą"
+      "togglePushToTalkKeybind": "perjungti tiesioginio ryšio klavišą",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "dėl kokių nors priežasčių nėra garso vartotojo"

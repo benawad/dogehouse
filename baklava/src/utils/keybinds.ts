@@ -1,7 +1,6 @@
 import {
     ipcMain,
     globalShortcut,
-    BrowserWindow,
 } from "electron";
 import {
     CHAT_KEY,
@@ -11,13 +10,14 @@ import {
     REQUEST_TO_SPEAK_KEY,
     OVERLAY_KEY,
     KEY_TABLE,
-    IOHookEvent,
     isMac,
+    isLinux,
 } from "../constants";
 import ioHook from "iohook";
 import { overlayWindow } from "electron-overlay-window";
 import { createOverlay } from "./overlay";
 import { startIPCHandler } from "./ipc";
+import { bWindowsType, IOHookEvent } from "../types";
 
 export let CURRENT_REQUEST_TO_SPEAK_KEY = "Control+8";
 export let CURRENT_INVITE_KEY = "Control+7";
@@ -27,7 +27,6 @@ export let CURRENT_OVERLAY_KEY = "Control+Tab";
 export let CURRENT_PTT_KEY = ["Control", "0"];
 
 export let CURRENT_APP_TITLE = "";
-export let CURRENT_OVERLAY: BrowserWindow;
 
 let PTT_PREV_STATUS = true;
 let PTT_STATUS = [
@@ -35,14 +34,14 @@ let PTT_STATUS = [
     false,
 ]
 
-export function RegisterKeybinds(mainWindow: BrowserWindow) {
+export function RegisterKeybinds(bWindows: bWindowsType) {
     ipcMain.on(REQUEST_TO_SPEAK_KEY, (event, keyCode) => {
         if (globalShortcut.isRegistered(CURRENT_REQUEST_TO_SPEAK_KEY)) {
             globalShortcut.unregister(CURRENT_REQUEST_TO_SPEAK_KEY);
         }
         CURRENT_REQUEST_TO_SPEAK_KEY = keyCode;
         globalShortcut.register(keyCode, () => {
-            mainWindow.webContents.send(REQUEST_TO_SPEAK_KEY, keyCode);
+            bWindows.main.webContents.send(REQUEST_TO_SPEAK_KEY, keyCode);
         })
     });
     ipcMain.on(INVITE_KEY, (event, keyCode) => {
@@ -51,7 +50,7 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
         }
         CURRENT_INVITE_KEY = keyCode;
         globalShortcut.register(keyCode, () => {
-            mainWindow.webContents.send(INVITE_KEY, keyCode);
+            bWindows.main.webContents.send(INVITE_KEY, keyCode);
         })
     });
     ipcMain.on(MUTE_KEY, (event, keyCode) => {
@@ -60,7 +59,7 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
         }
         CURRENT_MUTE_KEY = keyCode
         globalShortcut.register(keyCode, () => {
-            mainWindow.webContents.send(MUTE_KEY, keyCode);
+            bWindows.main.webContents.send(MUTE_KEY, keyCode);
         })
     });
     ipcMain.on(CHAT_KEY, (event, keyCode) => {
@@ -69,7 +68,7 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
         }
         CURRENT_CHAT_KEY = keyCode;
         globalShortcut.register(keyCode, () => {
-            mainWindow.webContents.send(CHAT_KEY, keyCode);
+            bWindows.main.webContents.send(CHAT_KEY, keyCode);
         })
     });
     ipcMain.on(PTT_KEY, (event, keyCode: string) => {
@@ -93,17 +92,17 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
         CURRENT_OVERLAY_KEY = keyCode;
         globalShortcut.register(keyCode, () => {
             if (!isMac) {
-                if (CURRENT_OVERLAY) {
-                    if (!CURRENT_OVERLAY.isVisible()) {
-                        CURRENT_OVERLAY.show();
-                        mainWindow.webContents.send("@overlay/start_ipc", true);
+                if (bWindows.overlay) {
+                    if (!bWindows.overlay.isVisible()) {
+                        bWindows.overlay.show();
+                        bWindows.main.webContents.send("@overlay/start_ipc", true);
                     } else {
-                        CURRENT_OVERLAY.hide();
-                        mainWindow.webContents.send("@overlay/start_ipc", true);
+                        bWindows.overlay.hide();
+                        bWindows.main.webContents.send("@overlay/start_ipc", true);
                     }
                 } else {
-                    CURRENT_OVERLAY = createOverlay(CURRENT_APP_TITLE, overlayWindow);
-                    startIPCHandler(mainWindow, CURRENT_OVERLAY);
+                    bWindows.overlay = createOverlay(CURRENT_APP_TITLE, overlayWindow);
+                    startIPCHandler(bWindows.main, bWindows.overlay);
                 }
             }
         })
@@ -112,76 +111,76 @@ export function RegisterKeybinds(mainWindow: BrowserWindow) {
     ipcMain.on("@overlay/app_title", (event, appTitle: string) => {
         CURRENT_APP_TITLE = appTitle;
     })
+    if (!isLinux) {
+        ioHook.on("keydown", (event: IOHookEvent) => {
+            if (event.shiftKey) {
+                if (CURRENT_PTT_KEY.includes("Shift")) {
+                    let i = CURRENT_PTT_KEY.indexOf("Shift");
+                    PTT_STATUS[i] = true;
+                }
+            } else if (event.altKey) {
+                if (CURRENT_PTT_KEY.includes("Alt")) {
+                    let i = CURRENT_PTT_KEY.indexOf("Alt");
+                    PTT_STATUS[i] = true;
+                }
+            } else if (event.ctrlKey) {
+                if (CURRENT_PTT_KEY.includes("Control")) {
+                    let i = CURRENT_PTT_KEY.indexOf("Control");
+                    PTT_STATUS[i] = true;
+                }
+            } else if (event.metaKey) {
+                if (CURRENT_PTT_KEY.includes("Meta")) {
+                    let i = CURRENT_PTT_KEY.indexOf("Meta");
+                    PTT_STATUS[i] = true;
+                }
+            } else {
+                if (CURRENT_PTT_KEY.includes(KEY_TABLE[event.keycode - 1])) {
+                    let i = CURRENT_PTT_KEY.indexOf(KEY_TABLE[event.keycode - 1]);
+                    PTT_STATUS[i] = true;
+                }
+            }
+            let PTT = PTT_STATUS.every((key_status) => key_status === true);
+            if (PTT != PTT_PREV_STATUS) {
+                PTT_PREV_STATUS = PTT;
+                bWindows.main.webContents.send("@voice/ptt_status_change", !PTT);
+            }
+        })
 
-    ioHook.on("keydown", (event: IOHookEvent) => {
-        if (event.shiftKey) {
-            if (CURRENT_PTT_KEY.includes("Shift")) {
-                let i = CURRENT_PTT_KEY.indexOf("Shift");
-                PTT_STATUS[i] = true;
+        ioHook.on("keyup", (event: IOHookEvent) => {
+            if (event.shiftKey) {
+                if (CURRENT_PTT_KEY.includes("Shift")) {
+                    let i = CURRENT_PTT_KEY.indexOf("Shift");
+                    PTT_STATUS[i] = false;
+                }
+            } else if (event.altKey) {
+                if (CURRENT_PTT_KEY.includes("Alt")) {
+                    let i = CURRENT_PTT_KEY.indexOf("Alt");
+                    PTT_STATUS[i] = false;
+                }
+            } else if (event.ctrlKey) {
+                if (CURRENT_PTT_KEY.includes("Control")) {
+                    let i = CURRENT_PTT_KEY.indexOf("Control");
+                    PTT_STATUS[i] = false;
+                }
+            } else if (event.metaKey) {
+                if (CURRENT_PTT_KEY.includes("Meta")) {
+                    let i = CURRENT_PTT_KEY.indexOf("Meta");
+                    PTT_STATUS[i] = false;
+                }
+            } else {
+                if (CURRENT_PTT_KEY.includes(KEY_TABLE[event.keycode - 1])) {
+                    let i = CURRENT_PTT_KEY.indexOf(KEY_TABLE[event.keycode - 1]);
+                    PTT_STATUS[i] = false;
+                }
             }
-        } else if (event.altKey) {
-            if (CURRENT_PTT_KEY.includes("Alt")) {
-                let i = CURRENT_PTT_KEY.indexOf("Alt");
-                PTT_STATUS[i] = true;
+            let PTT = PTT_STATUS.every((key_status) => key_status === true);
+            if (PTT != PTT_PREV_STATUS) {
+                PTT_PREV_STATUS = PTT;
+                bWindows.main.webContents.send("@voice/ptt_status_change", !PTT);
             }
-        } else if (event.ctrlKey) {
-            if (CURRENT_PTT_KEY.includes("Control")) {
-                let i = CURRENT_PTT_KEY.indexOf("Control");
-                PTT_STATUS[i] = true;
-            }
-        } else if (event.metaKey) {
-            if (CURRENT_PTT_KEY.includes("Meta")) {
-                let i = CURRENT_PTT_KEY.indexOf("Meta");
-                PTT_STATUS[i] = true;
-            }
-        } else {
-            if (CURRENT_PTT_KEY.includes(KEY_TABLE[event.keycode - 1])) {
-                let i = CURRENT_PTT_KEY.indexOf(KEY_TABLE[event.keycode - 1]);
-                PTT_STATUS[i] = true;
-            }
-        }
-        let PTT = PTT_STATUS.every((key_status) => key_status === true);
-        if (PTT != PTT_PREV_STATUS) {
-            PTT_PREV_STATUS = PTT;
-            mainWindow.webContents.send("@voice/ptt_status_change", !PTT);
-        }
-    })
+        });
 
-    ioHook.on("keyup", (event: IOHookEvent) => {
-        if (event.shiftKey) {
-            if (CURRENT_PTT_KEY.includes("Shift")) {
-                let i = CURRENT_PTT_KEY.indexOf("Shift");
-                PTT_STATUS[i] = false;
-            }
-        } else if (event.altKey) {
-            if (CURRENT_PTT_KEY.includes("Alt")) {
-                let i = CURRENT_PTT_KEY.indexOf("Alt");
-                PTT_STATUS[i] = false;
-            }
-        } else if (event.ctrlKey) {
-            if (CURRENT_PTT_KEY.includes("Control")) {
-                let i = CURRENT_PTT_KEY.indexOf("Control");
-                PTT_STATUS[i] = false;
-            }
-        } else if (event.metaKey) {
-            if (CURRENT_PTT_KEY.includes("Meta")) {
-                let i = CURRENT_PTT_KEY.indexOf("Meta");
-                PTT_STATUS[i] = false;
-            }
-        } else {
-            if (CURRENT_PTT_KEY.includes(KEY_TABLE[event.keycode - 1])) {
-                let i = CURRENT_PTT_KEY.indexOf(KEY_TABLE[event.keycode - 1]);
-                PTT_STATUS[i] = false;
-            }
-        }
-        let PTT = PTT_STATUS.every((key_status) => key_status === true);
-        if (PTT != PTT_PREV_STATUS) {
-            PTT_PREV_STATUS = PTT;
-            mainWindow.webContents.send("@voice/ptt_status_change", !PTT);
-        }
-    });
-
-    ioHook.start();
-
+        ioHook.start();
+    }
 }
 

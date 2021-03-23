@@ -130,7 +130,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
       </div>
       <div className={`font-semibold`}>{profile.displayName}</div>
       <div className={`my-1 flex`}>
-        <div>@{profile.username}</div>
+        <div className={`font-mono`}>@{profile.username}</div>
         {me?.id !== profile.id && userProfile.followsYou ? (
           <div className={`ml-2 text-simple-gray-3d`}>
             {t("pages.viewUser.followsYou")}
