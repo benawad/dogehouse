@@ -1,5 +1,5 @@
-import { wrap, raw } from "@dogehouse/kebab";
-import { mediasoup } from "@dogehouse/kebab/lib/audio";
+import { wrap, raw, UUID } from "@dogehouse/kebab";
+import { connect as mediasoupConnect } from "@dogehouse/kebab/lib/audio/mediasoup-client";
 import { Device } from "mediasoup-client";
 
 const main = async () => {
@@ -34,7 +34,7 @@ const main = async () => {
   const unsubYjap = wrapper.connection.addListener("you-joined-as-peer", async (data: any) => {
     unsubYjap();
 
-    await mediasoup.connect(
+    await mediasoupConnect(
       wrapper.connection,
       device,
       data.routerRtpCapabilities,
@@ -53,7 +53,7 @@ const main = async () => {
     const unsubYanas = wrapper.connection.addListener("you-are-now-a-speaker", async (data: any) => {
       unsubYanas();
 
-      await mediasoup.connect(
+      await mediasoupConnect(
         wrapper.connection,
         device,
         data.routerRtpCapabilities,
@@ -74,7 +74,7 @@ const main = async () => {
   const unsubYjas = wrapper.connection.addListener("you-joined-as-speaker", async (data: any) => {
     unsubYjas();
 
-    await mediasoup.connect(
+    await mediasoupConnect(
       wrapper.connection,
       device,
       data.routerRtpCapabilities,
@@ -83,7 +83,7 @@ const main = async () => {
       playOutput
     );
 
-    await mediasoup.connect(
+    await mediasoupConnect(
       wrapper.connection,
       device,
       data.routerRtpCapabilities,
