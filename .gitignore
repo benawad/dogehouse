@@ -4,7 +4,7 @@ node_modules
 # Local Netlify folder
 .netlify
 
-*/.idea
+.idea/
 .docker
 .env
 .next
