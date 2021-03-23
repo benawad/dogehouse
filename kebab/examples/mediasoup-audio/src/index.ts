@@ -1,4 +1,5 @@
-import { wrap, raw, mediasoup } from "@dogehouse/kebab";
+import { wrap, raw } from "@dogehouse/kebab";
+import { mediasoup } from "@dogehouse/kebab/lib/audio";
 import { Device } from "mediasoup-client";
 
 const main = async () => {
