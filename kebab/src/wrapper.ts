@@ -51,8 +51,8 @@ export const wrap = (connection: Connection) => ({
       }),
   },
   mutation: {
-    joinRoom: (id: UUID): Promise<void> =>
-      connection.fetch("join_room", { roomId: id }, "join_room_done"),
+    follow: (userId: string, value: boolean): Promise<void> =>
+      connection.fetch("follow", { userId, value }),
     sendRoomChatMsg: (
       ast: MessageToken[],
       whisperedTo: string[] = []
