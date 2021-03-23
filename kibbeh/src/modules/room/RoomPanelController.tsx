@@ -31,7 +31,6 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
     [roomId]
   );
   const { push } = useRouter();
-  console.log(data, isLoading);
 
   useEffect(() => {
     if (isLoading) {
@@ -46,8 +45,6 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
       push("/dashboard");
     }
   }, [data, isLoading, push]);
-
-  console.log(data);
 
   if (isLoading || !currentRoom) {
     return <Spinner />;
