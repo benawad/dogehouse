@@ -196,7 +196,8 @@
         "banFromRoom": "සමූහයෙන් ඉවත් කරන්න",
         "goBackToListener": "අසන්නෙක් ලෙසට යන්න",
         "deleteMessage": "පිළිතුර ඉවත් කරන්න",
-        "makeRoomCreator": "පරිපාලක කරන්න"
+        "makeRoomCreator": "පරිපාලක කරන්න",
+        "unbanFromChat": "unban from chat"
       },
       "roomSettingsModal": {
         "requirePermission": "කතා කරන්න අවසර ගන්න",

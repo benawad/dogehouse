@@ -176,7 +176,8 @@
         "banFromRoom": "bannir de la salle",
         "goBackToListener": "retourner chez les auditeurs",
         "deleteMessage": "supprimer ce message",
-        "makeRoomCreator": "transférer la propriété"
+        "makeRoomCreator": "transférer la propriété",
+        "unbanFromChat": "unban from chat"
       },
       "roomSettingsModal": {
         "requirePermission": "requiert la permission de parler",

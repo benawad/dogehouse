@@ -97,7 +97,10 @@
       "volume": "Volym:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Ogiltlig fönstertitel", "label": "Skriv in fönstertitel" },
+      "input": {
+        "errorMsg": "Ogiltlig fönstertitel",
+        "label": "Skriv in fönstertitel"
+      },
       "header": "Overlay-inställningar"
     }
   },
@@ -168,7 +171,8 @@
         "banFromRoom": "Bannlys från rum",
         "goBackToListener": "Gå tillbaka till lyssnare",
         "deleteMessage": "Ta bort meddelande",
-        "makeRoomCreator": "Gör rum administratör"
+        "makeRoomCreator": "Gör rum administratör",
+        "unbanFromChat": "unban from chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Be om tillåtelse att prata",

@@ -191,7 +191,8 @@
         "banFromRoom": "مسدود سازی از اتاق",
         "goBackToListener": "بازگشت به شنونده",
         "deleteMessage": "حذف این پیام",
-        "makeRoomCreator": "تبدیل به مدیر اتاق"
+        "makeRoomCreator": "تبدیل به مدیر اتاق",
+        "unbanFromChat": "unban from chat"
       },
       "roomSettingsModal": {
         "requirePermission": "نیاز به دسترسی برای حرف زدن",

@@ -192,7 +192,8 @@
         "banFromRoom": "utesteng fra rommet",
         "goBackToListener": "gå tilbake til lytter",
         "deleteMessage": "slett denne meldingen",
-        "makeRoomCreator": "opprett rom-administrator"
+        "makeRoomCreator": "opprett rom-administrator",
+        "unbanFromChat": "unban from chat"
       },
       "roomSettingsModal": {
         "requirePermission": "krev tillatelse for å snakke",

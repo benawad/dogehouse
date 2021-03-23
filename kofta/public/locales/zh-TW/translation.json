@@ -187,7 +187,8 @@
         "banFromRoom": "踢出房間",
         "goBackToListener": "回到聽眾",
         "deleteMessage": "删除此訊息",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unbanFromChat": "unban from chat"
       },
       "roomSettingsModal": {
         "requirePermission": "需要許可才能發言",

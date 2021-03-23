@@ -191,7 +191,8 @@
         "banFromRoom": "ከ ክፍል ያግዱ",
         "goBackToListener": "አዳማጭ ይመለሱ",
         "deleteMessage": "ይህን መልዕክት ሰርዝ",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unbanFromChat": "unban from chat"
       },
       "roomSettingsModal": {
         "requirePermission": "መናገር ፈቃድ ይጠይቃል",

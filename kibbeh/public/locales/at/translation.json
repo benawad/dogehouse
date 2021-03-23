@@ -173,7 +173,8 @@
         "banFromRoom": "Aus Raum ausschliaßen",
         "goBackToListener": "Zruck zum Zuhörer",
         "deleteMessage": "Nochricht löschn",
-        "makeRoomCreator": "zum Raumadmin befördern"
+        "makeRoomCreator": "zum Raumadmin befördern",
+        "unbanFromChat": "unban from chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Sprechen verlaungen",

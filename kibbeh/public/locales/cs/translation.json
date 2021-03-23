@@ -195,7 +195,8 @@
         "banFromRoom": "Zabanovat z místnosti",
         "goBackToListener": "Přestat mluvit",
         "deleteMessage": "Smazat tuto zprávu",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unbanFromChat": "unban from chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Požádat o status mluvčího",

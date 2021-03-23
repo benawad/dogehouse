@@ -167,7 +167,8 @@
         "banFromRoom": "bloquear de la sala",
         "goBackToListener": "volver a ser oyente",
         "deleteMessage": "eliminar mensaje",
-        "makeRoomCreator": "hacer administrador de la sala"
+        "makeRoomCreator": "hacer administrador de la sala",
+        "unbanFromChat": "unban from chat"
       },
       "roomSettingsModal": {
         "requirePermission": "requiere permiso para hablar",

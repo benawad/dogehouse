@@ -190,7 +190,8 @@
         "banFromRoom": "banna frá rásinni",
         "goBackToListener": "fara aftur til hlustandans",
         "deleteMessage": "eyða skilaboðum",
-        "makeRoomCreator": "gera að rásarstjórnenda"
+        "makeRoomCreator": "gera að rásarstjórnenda",
+        "unbanFromChat": "unban from chat"
       },
       "roomSettingsModal": {
         "requirePermission": "þurfa leyfi til að tala",

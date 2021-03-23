@@ -188,7 +188,8 @@
         "banFromRoom": "הרחק מהחדר",
         "goBackToListener": "חזור למקשיב",
         "deleteMessage": "מחק הודעה זו",
-        "makeRoomCreator": "הפוך למנהל חדר"
+        "makeRoomCreator": "הפוך למנהל חדר",
+        "unbanFromChat": "unban from chat"
       },
       "roomSettingsModal": {
         "requirePermission": "דרוש אישור לדבר",

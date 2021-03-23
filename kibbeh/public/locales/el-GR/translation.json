@@ -40,7 +40,7 @@
     "followList": {
       "followHim": "ακολουθήστε",
       "ακολουθήστε": "ακολουθείτε",
-      "followingHim": "following"
+      "followingHim": "ακολουθείτε"
     },
     "home": { "createRoom": "Δημιουργία Δωματίου", "refresh": "Επαναφόρτωση" },
     "inviteList": {
@@ -92,7 +92,7 @@
       "followingHim": "ακολουθείτε",
       "copyProfileUrl": "αντιγράψτε τον σύνδεσμο της εικόνας",
       "urlCopied": "ο συνδεσμος αντιγράφθηκε στο πρόχειρο",
-      "unfollow": "Unfollow"
+      "unfollow": "ξε-ακολουθήστε"
     },
     "voiceSettings": {
       "header": "Ρυθμίσεις Φωνής",
@@ -200,7 +200,8 @@
         "banFromRoom": "αποκλεισμός από το δωμάτιο",
         "goBackToListener": "επιστροφή σε ακροατή",
         "deleteMessage": "διαγράψτε αυτό το μήνυμα",
-        "makeRoomCreator": "μετατροπή σε διαχειριστή δωματίου"
+        "makeRoomCreator": "μετατροπή σε διαχειριστή δωματίου",
+        "unbanFromChat": "unban from chat"
       },
       "roomSettingsModal": {
         "requirePermission": "απαίτηση άδειας για ομιλία",

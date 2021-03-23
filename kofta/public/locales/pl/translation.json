@@ -196,7 +196,8 @@
         "banFromRoom": "zbanuj z pokoju",
         "goBackToListener": "powróć do słuchacza",
         "deleteMessage": "usuń tą wiadomość",
-        "makeRoomCreator": "zmień na administratora pokoju"
+        "makeRoomCreator": "zmień na administratora pokoju",
+        "unbanFromChat": "unban from chat"
       },
       "roomSettingsModal": {
         "requirePermission": "wymaga pozwolenia na mówienie",

@@ -202,7 +202,8 @@
         "banFromRoom": "அறையில் இருந்து தடைசெய்க",
         "goBackToListener": "கேட்பவராக திரும்பிச் செல்லுங்கள்",
         "deleteMessage": "இந்த செய்தியை நீக்கு",
-        "makeRoomCreator": "அவரை அறையின் நிர்வாகியாக ஆக்கு"
+        "makeRoomCreator": "அவரை அறையின் நிர்வாகியாக ஆக்கு",
+        "unbanFromChat": "unban from chat"
       },
       "roomSettingsModal": {
         "requirePermission": "பேச அனுமதி தேவை",

@@ -190,7 +190,8 @@
         "banFromRoom": "zabrani pristup sobi",
         "goBackToListener": "vrati se slušaocu",
         "deleteMessage": "obriši ovu poruku",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unbanFromChat": "unban from chat"
       },
       "roomSettingsModal": {
         "requirePermission": "zatraži dozvolu za govor",

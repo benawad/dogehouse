@@ -188,7 +188,8 @@
         "banFromRoom": "ルームからBAN",
         "goBackToListener": "リスナーに戻る",
         "deleteMessage": "メッセージを削除",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unbanFromChat": "unban from chat"
       },
       "roomSettingsModal": {
         "requirePermission": "発言を許可制にする",

@@ -190,7 +190,8 @@
         "banFromRoom": "حظر من الغرفة",
         "goBackToListener": "إرجع إلى مستمع",
         "deleteMessage": "حذف الرسالة",
-        "makeRoomCreator": "اضف كإداري للغرفة"
+        "makeRoomCreator": "اضف كإداري للغرفة",
+        "unbanFromChat": "unban from chat"
       },
       "roomSettingsModal": {
         "requirePermission": "جعل التحدث بطلب فقط",

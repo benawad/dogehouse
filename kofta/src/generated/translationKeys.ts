@@ -136,6 +136,7 @@ export type TranslationKeys =
 	| "components.modals.profileModal.addAsSpeaker"
 	| "components.modals.profileModal.moveToListener"
 	| "components.modals.profileModal.banFromChat"
+	| "components.modals.profileModal.unbanFromChat"
 	| "components.modals.profileModal.banFromRoom"
 	| "components.modals.profileModal.goBackToListener"
 	| "components.modals.profileModal.deleteMessage"

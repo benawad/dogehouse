@@ -170,7 +170,8 @@
         "banFromRoom": "Usem Ruum usschliesse",
         "goBackToListener": "Zrügg zum Zuehörer",
         "deleteMessage": "Nachricht lösche",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unbanFromChat": "unban from chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Rede verlange",

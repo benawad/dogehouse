@@ -172,7 +172,8 @@
         "banFromRoom": "Odadan Yasakla",
         "goBackToListener": "Dinlemeye Geri Dön",
         "deleteMessage": "Mesajı Sil",
-        "makeRoomCreator": "Oda Yetkilisi Yap"
+        "makeRoomCreator": "Oda Yetkilisi Yap",
+        "unbanFromChat": "unban from chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Konuşmak için izne ihtiyacın var",

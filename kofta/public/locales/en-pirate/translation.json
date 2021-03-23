@@ -190,7 +190,8 @@
         "banFromRoom": "ban from cabin",
         "goBackToListener": "go back t' shipmate",
         "deleteMessage": "scuttle this message",
-        "makeRoomCreator": "make cabin cap'n"
+        "makeRoomCreator": "make cabin cap'n",
+        "unbanFromChat": "unban from chat"
       },
       "roomSettingsModal": {
         "requirePermission": "require permission t' speak",

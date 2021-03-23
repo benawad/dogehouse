@@ -207,6 +207,7 @@
         "addAsSpeaker": "add as speaker",
         "moveToListener": "move to listener",
         "banFromChat": "ban from chat",
+        "unbanFromChat": "unban from chat",
         "banFromRoom": "ban from room",
         "goBackToListener": "go back to listener",
         "deleteMessage": "delete this message",

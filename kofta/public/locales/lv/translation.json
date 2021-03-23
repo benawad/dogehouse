@@ -196,7 +196,8 @@
         "banFromRoom": "bloķēt no šis istabas",
         "goBackToListener": "kļūt par klausītāju",
         "deleteMessage": "izdzēst šo ziņu",
-        "makeRoomCreator": "iestatīt par šis istabas administrātoru"
+        "makeRoomCreator": "iestatīt par šis istabas administrātoru",
+        "unbanFromChat": "unban from chat"
       },
       "roomSettingsModal": {
         "requirePermission": "pieprasīt runāšanas atļauju",
