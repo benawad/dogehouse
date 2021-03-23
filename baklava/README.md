@@ -41,4 +41,3 @@ You can run the app in hot reload mode using `npm run dev`.
 
 While in hot reload mode, any time you save changes to a `ts` file, the electron app will recompile and relaunch itself.
 To exit hot reload mode, use `Ctrl+C` in the console. This will however, leave the current app window open, so be sure to close that also, as it will no longer have access to hot reload.
-Hot reload functionality is disabled for now
