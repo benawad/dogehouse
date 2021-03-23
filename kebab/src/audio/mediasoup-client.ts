@@ -84,14 +84,19 @@ export const connect: ConnectFunction = async (
 
   if(!device.loaded) await device.load({ routerRtpCapabilities });
 
-  const recvTransport = await makeTransport();
-  const consumerParametersArr = await makeInitialConsumers();
-  const consumers: Consumer[] = await Promise.all(consumerParametersArr.map(makeConsumer(recvTransport)));
-  const unsubNps = connection.addListener("new-peer-speaker", async (data: RoomPeer) => {
-    consumers.push(await makeConsumer(recvTransport)(data));
-  });
-
   if(direction === "output") {
+    const recvTransport = await makeTransport();
+    const consumerParametersArr = await makeInitialConsumers();
+    const consumers: Consumer[] = await Promise.all(consumerParametersArr.map(makeConsumer(recvTransport)));
+    const unsubNps = connection.addListener("new-peer-speaker", async (data: RoomPeer) => {
+      consumers.push(await makeConsumer(recvTransport)(data));
+    });
+
+    const unsubYlr = connection.addListener("you_left_room", () => {
+      unsubYlr();
+      unsubNps();
+    });
+
     const giveTrack = track as (track: MediaStreamTrack) => void;
 
     consumers.forEach(it => giveTrack(it.track));
@@ -103,9 +108,4 @@ export const connect: ConnectFunction = async (
       appData: { mediaTag: "cam-audio" }
     });
   }
-
-  const unsubYlr = connection.addListener("you_left_room", () => {
-    unsubYlr();
-    unsubNps();
-  });
 };
