@@ -1,10 +1,10 @@
-import { useRouter } from "next/router";
 import React from "react";
 import { PageComponent } from "../../types/PageComponent";
 import { WaitForWsAndAuth } from "../auth/WaitForWsAndAuth";
 import { FollowingOnlineController } from "../dashboard/FollowingOnlineController";
 import { DesktopLayout } from "../layouts/DesktopLayout";
-import { LeftPanel, MiddlePanel, RightPanel } from "../layouts/GridPanels";
+import { LeftPanel, RightPanel } from "../layouts/GridPanels";
+import { ChatController } from "./chat/ChatController";
 import { RoomPanelController } from "./RoomPanelController";
 import { UserPreviewModalProvider } from "./UserPreviewModalProvider";
 
@@ -19,9 +19,6 @@ export const RoomPage: PageComponent<RoomPageProps> = ({}) => {
             <FollowingOnlineController />
           </LeftPanel>
           <RoomPanelController />
-          <RightPanel>
-            <div />
-          </RightPanel>
         </UserPreviewModalProvider>
       </DesktopLayout>
     </WaitForWsAndAuth>
