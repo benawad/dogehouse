@@ -1,11 +1,13 @@
 import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect } from "react";
 import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
 import { isUuid } from "../../lib/isUuid";
+import { showErrorToast } from "../../lib/showErrorToast";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { ErrorToast } from "../../ui/ErrorToast";
 import { RoomHeader } from "../../ui/RoomHeader";
+import { Spinner } from "../../ui/Spinner";
 import { RoomUsersPanel } from "./RoomUsersPanel";
 import { UserPreviewModal } from "./UserPreviewModal";
 import { UserPreviewModalProvider } from "./UserPreviewModalProvider";
@@ -16,7 +18,7 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
   const { currentRoom, setCurrentRoom } = useCurrentRoomStore();
   const { query } = useRouter();
   const roomId = typeof query.id === "string" ? query.id : "";
-  const { data } = useTypeSafeQuery(
+  const { data, isLoading } = useTypeSafeQuery(
     ["joinRoomAndGetInfo", currentRoom?.id || ""],
     {
       enabled: isUuid(roomId),
@@ -28,23 +30,30 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
     },
     [roomId]
   );
+  const { push } = useRouter();
+  console.log(data, isLoading);
 
-  if (!data) {
-    // @todo add error handling
-    return null;
+  useEffect(() => {
+    if (isLoading) {
+      return;
+    }
+    if (!data) {
+      push("/dashboard");
+      return;
+    }
+    if ("error" in data) {
+      showErrorToast(data.error);
+      push("/dashboard");
+    }
+  }, [data, isLoading, push]);
+
+  console.log(data);
+
+  if (isLoading || !currentRoom) {
+    return <Spinner />;
   }
 
-  // @todo start using error codes
-  if ("error" in data) {
-    // @todo replace with real design
-    return (
-      <div>
-        <ErrorToast message={data.error} />
-      </div>
-    );
-  }
-
-  if (!currentRoom) {
+  if (!data || "error" in data) {
     return null;
   }
 

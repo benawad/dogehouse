@@ -86,7 +86,8 @@
       "followHim": "sledovať",
       "followingHim": "sledovaný",
       "copyProfileUrl": "skopírovať url profilu",
-      "urlCopied": "URL skopírované do schránky"
+      "urlCopied": "URL skopírované do schránky",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Nastavenia hlasu",
@@ -96,7 +97,10 @@
       "volume": "hlasitosť:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Nesprávny názov aplikácie", "label": "Vlož názov aplikácie" },
+      "input": {
+        "errorMsg": "Nesprávny názov aplikácie",
+        "label": "Vlož názov aplikácie"
+      },
       "header": "Nastavenia Prekresľovania"
     }
   },

@@ -93,10 +93,11 @@
     },
     "viewUser": {
       "editProfile": "edit profile",
-      "followsYou": "follows you",
+      "followsYou": "Follows you",
       "followers": "followers",
       "following": "following",
-      "followHim": "follow",
+      "followHim": "Follow",
+      "unfollow": "Unfollow",
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard"

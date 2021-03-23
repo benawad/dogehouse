@@ -35,7 +35,10 @@ export const MessageElement: React.FC<MessageElementProps> = ({
   msg,
 }) => {
   return (
-    <div className="items-center w-full px-4 md:bg-primary-800 md:border-b md:border-primary-600 cursor-pointer hover:bg-primary-700 bg-primary-900">
+    <div
+      className="items-center w-full px-4 md:bg-primary-800 md:border-b md:border-primary-600 cursor-pointer hover:bg-primary-700 bg-primary-900"
+      data-testid="msg-element"
+    >
       <div className="mr-3">
         <SingleUser size="sm" isOnline={user.isOnline} src={user.avatar} />
       </div>

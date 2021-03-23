@@ -93,7 +93,8 @@
       "followHim": "இவரை பின்தொடர்",
       "followingHim": "இவரை பிந்தொடர்கிறீர்கள்",
       "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard"
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "குரல் அமைப்பு",
