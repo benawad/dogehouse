@@ -1,7 +1,15 @@
 import React from "react";
 
-interface GridPanelProps {}
+interface GridPanelProps {
+  scroll?: boolean;
+}
 
-export const GridPanel: React.FC<GridPanelProps> = ({ children }) => {
-  return <div className={`sticky top-0 flex-col h-7 mt-5`}>{children}</div>;
+export const GridPanel: React.FC<GridPanelProps> = ({ children, scroll }) => {
+  return (
+    <div className={`flex-col`}>
+      <div className={`${scroll ? "" : `pt-5 sticky top-0`} flex-col`}>
+        {children}
+      </div>
+    </div>
+  );
 };

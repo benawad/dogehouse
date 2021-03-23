@@ -18,9 +18,7 @@ export const RoomPage: PageComponent<RoomPageProps> = ({}) => {
           <LeftPanel>
             <FollowingOnlineController />
           </LeftPanel>
-          <MiddlePanel>
-            <RoomPanelController />
-          </MiddlePanel>
+          <RoomPanelController />
           <RightPanel>
             <div />
           </RightPanel>

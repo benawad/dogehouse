@@ -7,6 +7,7 @@ import { showErrorToast } from "../../lib/showErrorToast";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { RoomHeader } from "../../ui/RoomHeader";
 import { Spinner } from "../../ui/Spinner";
+import { MiddlePanel } from "../layouts/GridPanels";
 import { RoomPanelIconBarController } from "./RoomPanelIconBarController";
 import { RoomUsersPanel } from "./RoomUsersPanel";
 import { UserPreviewModal } from "./UserPreviewModal";
@@ -58,17 +59,20 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
   const roomCreator = data.users.find((x) => x.id === data.room.creatorId);
 
   return (
-    <div className={`w-full flex-col`}>
+    <MiddlePanel
+      stickyChildren={
+        <RoomHeader
+          title={data.room.name}
+          description={data.room.description || ""}
+          names={roomCreator ? [roomCreator.username] : []}
+        />
+      }
+    >
       <UserPreviewModal {...data} />
-      <RoomHeader
-        title={data.room.name}
-        description={data.room.description || ""}
-        names={roomCreator ? [roomCreator.username] : []}
-      />
       <RoomUsersPanel {...data} />
       <div className={`sticky bottom-0 pb-7 bg-primary-900`}>
         <RoomPanelIconBarController />
       </div>
-    </div>
+    </MiddlePanel>
   );
 };
