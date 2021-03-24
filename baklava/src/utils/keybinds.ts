@@ -9,14 +9,12 @@ import {
     PTT_KEY,
     REQUEST_TO_SPEAK_KEY,
     OVERLAY_KEY,
-    KEY_TABLE,
     isMac,
-    isLinux,
 } from "../constants";
 import { overlayWindow } from "electron-overlay-window";
 import { createOverlay } from "./overlay";
 import { startIPCHandler } from "./ipc";
-import { bWindowsType, IOHookEvent } from "../types";
+import { bWindowsType } from "../types";
 import hook from 'globkey';
 
 export let CURRENT_REQUEST_TO_SPEAK_KEY = "Control+8";
@@ -29,6 +27,7 @@ export let CURRENT_PTT_KEY_STRING = "0,control"
 
 export let CURRENT_APP_TITLE = "";
 
+let PREV_PTT_STATUS = false;
 
 
 export function RegisterKeybinds(bWindows: bWindowsType) {
@@ -113,8 +112,12 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
             keypair[i] = keypair[i].replace("Key", "");
         });
         keypair = keypair.sort();
-        let ks = keypair.join().toLowerCase()
-        bWindows.main.webContents.send("@voice/ptt_status_change", ks !== CURRENT_PTT_KEY_STRING);
+        let ks = keypair.join().toLowerCase();
+        let PTT = ks !== CURRENT_PTT_KEY_STRING;
+        if (PREV_PTT_STATUS !== PTT) {
+            bWindows.main.webContents.send("@voice/ptt_status_change", PTT);
+            PREV_PTT_STATUS = PTT;
+        }
     })
 }
 
