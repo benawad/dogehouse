@@ -177,7 +177,7 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
             let PTT = PTT_STATUS.every((key_status) => key_status === true);
             if (PTT != PTT_PREV_STATUS) {
                 PTT_PREV_STATUS = PTT;
-                mainWindow.webContents.send("@voice/ptt_status_change", !PTT);
+                bWindows.main.webContents.send("@voice/ptt_status_change", !PTT);
             }
         });
 
