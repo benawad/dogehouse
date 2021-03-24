@@ -9,12 +9,12 @@
         "dev": "yarn compile && node ./dist/dev.js",
         "start": "yarn compile && electron ./dist/electron.js",
         "build": "yarn compile && yarn build:globkey && electron-builder",
-        "build:all": "yarn compile && yarn build:overlay && electron-builder -mwl",
-        "build:mac": "yarn compile && yarn build:overlay && electron-builder --mac",
-        "build:win": "yarn compile && yarn build:overlay && electron-builder --win",
-        "build:linux": "yarn compile && yarn build:overlay && electron-builder --linux",
+        "build:all": "yarn compile && yarn build:overlay && yarn build:globkey && electron-builder -mwl",
+        "build:mac": "yarn compile && yarn build:overlay && yarn build:globkey && electron-builder --mac",
+        "build:win": "yarn compile && yarn build:overlay && yarn build:globkey && electron-builder --win",
+        "build:linux": "yarn compile && yarn build:overlay && yarn build:globkey && electron-builder --linux",
         "build:overlay": "cd resources/overlay && yarn build && cd ../../",
-        "build:globkey": "cd node_modules/globkey && npx electron-build-env nj-cli build --release"
+        "build:globkey": "cd node_modules/globkey && npx electron-build-env nj-cli build --release && cd ../../"
     },
     "keywords": [
         "DogeHouse",
