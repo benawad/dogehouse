@@ -4,7 +4,7 @@
     "module": "commonjs",
     "outDir": "./build",
     "strict": true,
-    "lib": ["ES6"],
+    "lib": ["DOM", "ES6"],
     "esModuleInterop": true
   },
   "include": ["src"],
