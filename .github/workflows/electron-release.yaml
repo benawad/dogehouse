@@ -1,11 +1,6 @@
 name: build-and-release-electron
 
-on:
-  push:
-    paths:
-      - "baklava/**"
-    branches:
-      - prod
+on: workflow_dispatch
 
 jobs:
   release:
@@ -17,6 +12,12 @@ jobs:
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v1
+      - name: Install rust
+        uses: hecrj/setup-rust-action@v1
+        with:
+          rust-version: stable
+      - name: Install nj-cli
+        run: cargo install nj-cli
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v1
         with:
