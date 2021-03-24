@@ -111,11 +111,8 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
     ipcMain.on("@overlay/app_title", (event, appTitle: string) => {
         CURRENT_APP_TITLE = appTitle;
     })
-<<<<<<< HEAD
-    if (process.platform !== "linux") {
-=======
+
     if (!isLinux) {
->>>>>>> dc95e6113cee905d5ba5268fe049f1db54f334cf
         ioHook.on("keydown", (event: IOHookEvent) => {
             if (event.shiftKey) {
                 if (CURRENT_PTT_KEY.includes("Shift")) {
@@ -146,11 +143,7 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
             let PTT = PTT_STATUS.every((key_status) => key_status === true);
             if (PTT != PTT_PREV_STATUS) {
                 PTT_PREV_STATUS = PTT;
-<<<<<<< HEAD
                 mainWindow.webContents.send("@voice/ptt_status_change", !PTT);
-=======
-                bWindows.main.webContents.send("@voice/ptt_status_change", !PTT);
->>>>>>> dc95e6113cee905d5ba5268fe049f1db54f334cf
             }
         })
 
@@ -184,11 +177,7 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
             let PTT = PTT_STATUS.every((key_status) => key_status === true);
             if (PTT != PTT_PREV_STATUS) {
                 PTT_PREV_STATUS = PTT;
-<<<<<<< HEAD
                 mainWindow.webContents.send("@voice/ptt_status_change", !PTT);
-=======
-                bWindows.main.webContents.send("@voice/ptt_status_change", !PTT);
->>>>>>> dc95e6113cee905d5ba5268fe049f1db54f334cf
             }
         });
 

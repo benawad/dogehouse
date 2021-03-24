@@ -34,7 +34,6 @@
         "builder-util": "^22.10.5",
         "electron": "^11.3.0",
         "electron-builder": "^22.10.5",
-        "electron-overlay-window": "^1.0.4",
         "typescript": "^4.2.2"
     },
     "build": {
@@ -76,6 +75,7 @@
     },
     "dependencies": {
         "active-win": "^6.3.0",
+        "electron-overlay-window": "^1.0.4",
         "electron-updater": "^4.3.8",
         "iohook": "^0.7.2"
     },
