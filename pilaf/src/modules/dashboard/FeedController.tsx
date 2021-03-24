@@ -1,8 +1,11 @@
+import { Room, ScheduledRoom } from "@dogehouse/kebab";
+import { useNavigation } from "@react-navigation/core";
 import React, { useContext, useState } from "react";
 import { RoomCard } from "../../components/RoomCard";
 import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
+import { useSoundEffectStore } from "../sound-effect/useSoundEffectStore";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 
 interface FeedControllerProps {}
@@ -16,17 +19,18 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
     refetchOnMount: "always",
     refetchInterval: 10000,
   });
-  const [roomModal, setRoomModal] = useState(false);
   const { currentRoom } = useCurrentRoomStore();
-  const prefetch = useTypeSafePrefetch("getRoomUsers");
+  const prefetch = useTypeSafePrefetch("joinRoomAndGetInfo");
 
+  const navigation = useNavigation();
+  const playSound = useSoundEffectStore((s) => s.playSoundEffect);
   if (!conn || isLoading || !data) {
     return null;
   }
 
   return (
     <>
-      {data.rooms.map((room, index) => (
+      {data.rooms.map((room: Room | ScheduledRoom, index) => (
         <RoomCard
           key={index}
           style={{ marginBottom: 20 }}
@@ -46,9 +50,11 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
           tags={[]}
           avatarSrcs={[]}
           onPress={() => {
+            playSound("room_chat_mention");
             if (room.id !== currentRoom?.id) {
-              prefetch([room.id], ["getRoomUsers", room.id]);
+              prefetch([room.id], ["joinRoomAndGetInfo", room.id]);
             }
+            navigation.navigate("Room", { roomId: room.id });
           }}
         />
       ))}
