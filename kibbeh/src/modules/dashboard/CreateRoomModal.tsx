@@ -2,8 +2,7 @@ import { Form, Formik } from "formik";
 import { useRouter } from "next/router";
 import React from "react";
 import { InputField } from "../../form-fields/InputField";
-import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
-import { useRoomChatStore } from "../../global-stores/useRoomChatStore";
+import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { roomToCurrentRoom } from "../../lib/roomToCurrentRoom";
 import { showErrorToast } from "../../lib/showErrorToast";
 import { useWrappedConn } from "../../shared-hooks/useConn";
@@ -13,6 +12,7 @@ import { Button } from "../../ui/Button";
 import { ButtonLink } from "../../ui/ButtonLink";
 import { Modal } from "../../ui/Modal";
 import { NativeSelect } from "../../ui/NativeSelect";
+import { useRoomChatStore } from "../room/chat/useRoomChatStore";
 
 interface CreateRoomModalProps {
   onRequestClose: () => void;
@@ -32,6 +32,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
   const conn = useWrappedConn();
   const { t } = useTypeSafeTranslation();
   const { push } = useRouter();
+  const prefetch = useTypeSafePrefetch();
 
   return (
     <Modal isOpen onRequestClose={onRequestClose}>
@@ -78,9 +79,10 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
           } else if (resp.room) {
             const { room } = resp;
 
+            prefetch(["joinRoomAndGetInfo", room.id], [room.id]);
             console.log("new room voice server id: " + room.voiceServerId);
             useRoomChatStore.getState().clearChat();
-            useCurrentRoomStore.getState().setCurrentRoom(() => room);
+            useCurrentRoomIdStore.getState().setCurrentRoomId(room.id);
             push(`/room/[id]`, `/room/${room.id}`);
           }
 

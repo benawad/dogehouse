@@ -14,7 +14,7 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
 }) => {
   return (
     <div
-      className={`flex-col p-4 bg-primary-800 rounded-t-8 border-b border-primary-600`}
+      className={`flex-col p-4 bg-primary-800 rounded-t-8 border-b border-primary-600 w-full`}
     >
       <div className={`text-primary-100`}>
         <div className={`text-xl font-bold mb-2 flex-1 truncate`}>{title}</div>

@@ -14,7 +14,8 @@
     "copyLink": "skopírovať odkaz",
     "copied": "skopírováné",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Spúštanie DogeHose-u bez prístupových oprávnení môže spôsobovať nečakané chyby"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -35,7 +36,7 @@
       "currentRoom": "aktuálne v:",
       "startPrivateRoom": "začať s nimi súkromnú miestnosť"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": { "followHim": "Sledovať", "followingHim": "Sledovaný" },
     "home": { "createRoom": "Vytvoriť miestnosť", "refresh": "Obnoviť" },
     "inviteList": {
       "roomGone": "miestnosť je fuč, vráť sa",
@@ -60,7 +61,8 @@
       "probablyLoading": "zrejme načítam...",
       "voiceSettings": "otvoriť nastavenia hlasu",
       "soundSettings": "otvoriť nastavenia zvuku",
-      "deleteAccount": "odstrániť účet"
+      "deleteAccount": "odstrániť účet",
+      "overlaySettings": "otvoriť nastavenia prekresľovania"
     },
     "notFound": {
       "whoopsError": "Uups! Táto stránka sa stratila v konverzácii.",
@@ -70,7 +72,9 @@
     "room": {
       "speakers": "Rozprávači",
       "requestingToSpeak": "Chce povolenie rozprávať",
-      "listeners": "Poslucháči"
+      "listeners": "Poslucháči",
+      "allowAll": "Povoliť rozprávať všetkým",
+      "allowAllConfirm": "Si si istý? Povolíš rozprávať všetkým {{count}} žiadateľom"
     },
     "searchUser": { "search": "hľadať..." },
     "soundEffectSettings": { "header": "Zvuky" },
@@ -79,8 +83,11 @@
       "followsYou": "sleduje ťa",
       "followers": "sledovateľov",
       "following": "sledovaných",
-      "followHim": "follow",
-      "followingHim": "following"
+      "followHim": "sledovať",
+      "followingHim": "sledovaný",
+      "copyProfileUrl": "skopírovať url profilu",
+      "urlCopied": "URL skopírované do schránky",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Nastavenia hlasu",
@@ -88,6 +95,13 @@
       "permissionError": "žiadne mikrofóny nenájdené, buď žiaden nie je zapojený alebo si neudelil stránke oprávnenie.",
       "refresh": "obnoviť zoznam mikrofónov",
       "volume": "hlasitosť:"
+    },
+    "overlaySettings": {
+      "input": {
+        "errorMsg": "Nesprávny názov aplikácie",
+        "label": "Vlož názov aplikácie"
+      },
+      "header": "Nastavenia Prekresľovania"
     }
   },
   "components": {
@@ -132,7 +146,8 @@
       "setKeybind": "nastaviť klávesovú skratku",
       "listening": "počúvam",
       "toggleMuteKeybind": "prepínač stíšenia",
-      "togglePushToTalkKeybind": "prepínač push-to-talk"
+      "togglePushToTalkKeybind": "prepínač push-to-talk",
+      "toggleOverlayKeybind": "prepínač prekreslenia"
     },
     "userVolumeSlider": {
       "noAudioMessage": "z nejakého dôvodu nemáme žiadny zvuk"

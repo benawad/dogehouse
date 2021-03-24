@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck @todo this file needs to be fixed
+
 import { Feed, FeedProps } from "../ui/Feed";
 import { Story } from "@storybook/react";
 import { GbFlagIcon as Icon } from "./utils/GbFlagIcon";

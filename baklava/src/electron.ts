@@ -8,7 +8,6 @@ import {
   Tray,
   Menu,
 } from "electron";
-import iohook from "iohook";
 import { autoUpdater } from "electron-updater";
 import { RegisterKeybinds } from "./utils/keybinds";
 import { HandleVoiceTray } from "./utils/tray";
@@ -67,7 +66,7 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
   }
   mainWindow.loadURL(
-    __prod__ ? `https://dogehouse.tv/` : "https://dogehouse.tv/"
+    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/"
   );
 
   bWindows = {
@@ -105,10 +104,6 @@ function createWindow() {
   // graceful exiting
   mainWindow.on("closed", () => {
     globalShortcut.unregisterAll();
-    if (!isLinux) {
-      iohook.stop();
-      iohook.unload();
-    }
     if (bWindows.overlay) {
       bWindows.overlay.destroy();
     }
@@ -145,9 +140,6 @@ if (!instanceLock) {
   app.quit();
 } else {
   app.on("ready", () => {
-    if (isLinux) {
-      iohook.unload();
-    }
     createWindow();
     autoUpdater.checkForUpdatesAndNotify();
   });

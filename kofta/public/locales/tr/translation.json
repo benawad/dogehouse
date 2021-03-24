@@ -86,7 +86,8 @@
       "followHim": "Takip Et",
       "followingHim": "Takiptesin",
       "copyProfileUrl": "Profil URL'sini kopyala",
-      "urlCopied": "URL kopyalandı"
+      "urlCopied": "URL kopyalandı",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Ses Ayarları",
@@ -97,7 +98,10 @@
       "refresh": "Mikrofon listesini yenile"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Geçersiz uygulama başlığı", "label": "Uygulama Başlığı Girin" },
+      "input": {
+        "errorMsg": "Geçersiz uygulama başlığı",
+        "label": "Uygulama Başlığı Girin"
+      },
       "header": "Kaplama ayarları"
     }
   },

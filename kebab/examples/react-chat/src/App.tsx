@@ -1,5 +1,5 @@
-import React, {createContext, useContext, useEffect, useState} from "react";
-import {Message, raw, Room, stringToToken, tokensToString, wrap, Wrapper} from "@dogehouse/kebab";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { Message, raw, Room, stringToToken, tokensToString, wrap, Wrapper } from "@dogehouse/kebab";
 import "./App.css";
 
 const APIWrapperContext = createContext<Wrapper>({} as Wrapper);
@@ -47,7 +47,7 @@ const RoomChat = (props: { room: Room }) => {
   const [joined, setJoined] = useState(false);
 
   if(!joined) {
-    wrapper.mutation.joinRoom(props.room.id).then(() => setJoined(true));
+    wrapper.query.joinRoomAndGetInfo(props.room.id).then(() => setJoined(true));
 
     return <span>loading 3/3</span>;
   }

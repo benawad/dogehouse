@@ -14,7 +14,8 @@
     "copyLink": "Kopieer link",
     "copied": "Gekopieerd",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Houd er rekening mee dat het uitvoeren van DogeHouse zonder toegankelijkheidsrechten ongewenste fouten kan veroorzaken"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -35,7 +36,7 @@
       "currentRoom": "Momenteel in:",
       "startPrivateRoom": "Start een privé kamer met deze persoon"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": { "followHim": "Volg", "followingHim": "Volgend" },
     "home": { "createRoom": "Kamer maken", "refresh": "Verversen" },
     "inviteList": {
       "roomGone": "Kamer bestaat niet, ga terug",
@@ -60,7 +61,8 @@
       "probablyLoading": "Waarschijnlijk aan het laden...",
       "voiceSettings": "Ga naar spraakinstellingen",
       "soundSettings": "Ga naar geluidsinstellingen",
-      "deleteAccount": "Verwijder account"
+      "deleteAccount": "Verwijder account",
+      "overlaySettings": "ga naar overlay-instellingen"
     },
     "notFound": {
       "whoopsError": "Oeps! Deze pagina is verloren gegaan tijdens het gesprek.",
@@ -70,17 +72,22 @@
     "room": {
       "speakers": "Sprekers",
       "requestingToSpeak": "Aanvragen om te spreken",
-      "listeners": "Luisteraars"
+      "listeners": "Luisteraars",
+      "allowAll": "Iedereen toestaan",
+      "allowAllConfirm": "Weet je het zeker? Dit geeft toestemming aan alle {{count}} verzoekende gebruikers om te spreken"
     },
     "searchUser": { "search": "Zoek..." },
     "soundEffectSettings": { "header": "Geluiden" },
     "viewUser": {
-      "editProfile": "Bewerk profiel",
+      "editProfile": "Profiel bewerken",
       "followsYou": "Volgt jou",
       "followers": "Volgers",
       "following": "Volgend",
-      "followHim": "follow",
-      "followingHim": "following"
+      "followHim": "Volg",
+      "followingHim": "Volgend",
+      "copyProfileUrl": "kopieer profiel url",
+      "urlCopied": "URL gekopieerd naar klembord",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Spraakinstellingen",
@@ -88,6 +95,10 @@
       "permissionError": "Geen microfoon gevonden, waarschijnlijk is er geen microfoon aangesloten of heb je geen toestemming gegeven.",
       "refresh": "Ververs microfoonlijst",
       "volume": "Volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay-instellingen"
     }
   },
   "components": {
@@ -132,7 +143,8 @@
       "setKeybind": "Stel sneltoets in",
       "listening": "Aan het luisteren",
       "toggleMuteKeybind": "Schakel demp sneltoets",
-      "togglePushToTalkKeybind": "Schakel push-to-talk sneltoets"
+      "togglePushToTalkKeybind": "Schakel push-to-talk sneltoets",
+      "toggleOverlayKeybind": "schakel overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Geen audioapparaat om een of andere reden"
@@ -180,7 +192,7 @@
         "banFromRoom": "Verban uit de kamer",
         "goBackToListener": "Ga terug naar luisteraar",
         "deleteMessage": "Verwijder dit bericht",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "kamerbeheerder maken"
       },
       "roomSettingsModal": {
         "requirePermission": "Toestemming nodig om te spreken",
@@ -207,7 +219,7 @@
     },
     "roomChat": {
       "title": "Chat",
-      "emotesSoon": "[Emotes binnekort]",
+      "emotesSoon": "[Emotes binnenkort]",
       "bannedAlert": "Je bent uit deze chat verbannen",
       "waitAlert": "Je moet een seconde wachten voordat je weer een bericht kan sturen.",
       "search": "Zoeken",

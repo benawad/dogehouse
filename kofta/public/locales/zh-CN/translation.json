@@ -15,7 +15,7 @@
     "copied": "已拷贝",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "请注意，在没有辅助功能权限的情况下运行DogeHouse可能会导致错误"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,10 +36,10 @@
       "currentRoom": "所在的聊天室:",
       "startPrivateRoom": "跟ta进入私人聊天室"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": { "followHim": "关注ta", "followingHim": "已经关注" },
     "home": { "createRoom": "新建聊天室", "refresh": "刷新" },
     "inviteList": {
-      "roomGone": "聊天室以被删除，请回到前一页",
+      "roomGone": "聊天室已被删除，请回到前一页",
       "shareRoomLink": "在聊天室分享链接",
       "inviteFollowers": "您可以邀请您在线的关注者:",
       "whenFollowersOnline": "当您的关注者在线的时候，ta们会在这里显示。"
@@ -62,7 +62,7 @@
       "voiceSettings": "音量设置",
       "soundSettings": "声音设置",
       "deleteAccount": "删除账号",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "覆盖层设置"
     },
     "notFound": {
       "whoopsError": "哎呀，这页在聊天中被丢掉了",
@@ -73,8 +73,8 @@
       "speakers": "讲话者",
       "requestingToSpeak": "要求讲话",
       "listeners": "听者",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "允许全体成员讲话",
+      "allowAllConfirm": "确定？这将会允许全部{{}}位成员讲话"
     },
     "searchUser": { "search": "搜索..." },
     "soundEffectSettings": { "header": "声音" },
@@ -82,11 +82,12 @@
       "editProfile": "编辑个人主页",
       "followsYou": "关注您的人",
       "followers": "关注者",
-      "following": "您关注的人",
+      "following": "关注的人",
       "followHim": "关注ta",
       "followingHim": "已经关注",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard"
+      "copyProfileUrl": "复制个人主页链接",
+      "urlCopied": "个人主页链接已复制到剪贴板",
+      "unfollow": "取消关注"
     },
     "voiceSettings": {
       "header": "语音设置",
@@ -97,7 +98,7 @@
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings"
+      "header": "覆盖层设置"
     }
   },
   "components": {
@@ -183,17 +184,17 @@
       "setKeybind": "设置快捷键",
       "listening": "等待输入",
       "toggleMuteKeybind": "切换静音键绑定",
-      "togglePushToTalkKeybind": "toggle push-to-talk keybind",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "togglePushToTalkKeybind": "切换按键说话绑定",
+      "toggleOverlayKeybind": "切换覆盖层绑定"
     },
     "wsKilled": {
       "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
-      "reconnect": "reconnect"
+      "reconnect": "正在重新连接"
     },
     "deviceNotSupported": {
-      "notSupported": "Your device is currently not supported. You can create an",
-      "linkText": "issue on GitHub",
-      "addSupport": "and I will try adding support for your device."
+      "notSupported": "您的设备展示还不被支持，您可以",
+      "linkText": "在GitHub开启一个报告",
+      "addSupport": "我将会尝试支持您的设备"
     },
     "inviteButton": { "invited": "被邀请", "inviteToRoom": "邀请进入聊天室" }
   },
@@ -227,16 +228,16 @@
       "roomDescription": "聊天室介绍"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "fuelingRocket": "火箭在加油",
+      "takingOff": "起飞",
+      "inSpace": "在太空",
+      "approachingMoon": "飞向月球",
+      "lunarDoge": "月球 Doge",
+      "approachingSun": "飞向太阳",
+      "solarDoge": "太阳 Doge",
+      "approachingGalaxy": "飞向宇宙",
+      "galacticDoge": "宇宙 Doge",
+      "spottedLife": "已发现新生命"
     }
   }
 }

@@ -1,19 +1,20 @@
 import { useContext } from "react";
-import { useCurrentRoomStore } from "../global-stores/useCurrentRoomStore";
+import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
 import { WebSocketContext } from "../modules/ws/WebSocketProvider";
 import { useTypeSafeQuery } from "./useTypeSafeQuery";
 
 export const useCurrentRoomInfo = () => {
-  const { currentRoom } = useCurrentRoomStore();
+  const { currentRoomId } = useCurrentRoomIdStore();
   const { data } = useTypeSafeQuery(
-    ["joinRoomAndGetInfo", currentRoom?.id || ""],
+    ["joinRoomAndGetInfo", currentRoomId || ""],
     {
-      enabled: !!currentRoom,
-    }
+      enabled: !!currentRoomId,
+    },
+    [currentRoomId || ""]
   );
   const { conn } = useContext(WebSocketContext);
 
-  if (!data || !conn || !currentRoom || "error" in data) {
+  if (!data || !conn || !currentRoomId || "error" in data) {
     return {
       isMod: false,
       isCreator: false,
@@ -40,7 +41,7 @@ export const useCurrentRoomInfo = () => {
     }
   }
 
-  const isCreator = me.id === currentRoom.creatorId;
+  const isCreator = me.id === data.room.creatorId;
 
   return {
     isCreator,
