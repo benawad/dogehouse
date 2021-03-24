@@ -63,7 +63,15 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
   const globalVolume = 100;
   const { consumerMap } = useConsumerStore();
   const audioRefs = useRef<[string, HTMLAudioElement][]>([]);
-
+  
+  // Check if browser is Firefox (if it is return)
+  // Because firefox currently doesnt work
+  if(typeof InstallTrigger !== 'undefined') {
+    // Return out of audioplayer (Audioplaying the way we do it doesnt work in firefox)
+    return <h1>Unsupported</h1><h5>This browser is currently not supported. We are working on it...</h5>
+  }
+  
+  // Else return the normal AudioRender
   return (
     <>
       <div
