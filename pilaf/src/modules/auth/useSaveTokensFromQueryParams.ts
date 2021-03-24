@@ -1,6 +1,6 @@
 import { Linking } from "react-native";
-import { useTokenStore } from "./useTokenStore";
 import { InAppBrowser } from "react-native-inappbrowser-reborn";
+import { useTokenStore } from "./useTokenStore";
 
 function getUrlParameter(url: string, name: string) {
   name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");

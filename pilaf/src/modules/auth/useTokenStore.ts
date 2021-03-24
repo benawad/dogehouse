@@ -1,7 +1,7 @@
-import create from "zustand";
-import { combine } from "zustand/middleware";
 // TODO Token should not be store in unsecure AsyncStorage
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import create from "zustand";
+import { combine } from "zustand/middleware";
 
 const accessTokenKey = "@toum/token";
 const refreshTokenKey = "@toum/refresh-token";
