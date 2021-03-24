@@ -1,19 +1,20 @@
 {
     "name": "dogehouse",
-    "version": "1.0.19",
+    "version": "1.0.20",
     "description": "Taking voice conversations to the moon 🚀",
     "main": "./dist/electron.js",
     "scripts": {
         "compile": "tsc",
         "watch": "tsc -w",
         "dev": "yarn compile && node ./dist/dev.js",
-        "start": "yarn compile && cd node_modules/globkey && npx electron-build-env nj-cli build --release && cd ../../ && electron ./dist/electron.js",
-        "build": "yarn compile && cd node_modules/globkey && npx electron-build-env nj-cli build --release && cd ../../ && electron-builder",
-        "build:all": "yarn compile && yarn build:overlay && electron-builder -mwl",
-        "build:mac": "yarn compile && yarn build:overlay && electron-builder --mac",
-        "build:win": "yarn compile && yarn build:overlay && electron-builder --win",
-        "build:linux": "yarn compile && yarn build:overlay && electron-builder --linux",
-        "build:overlay": "cd resources/overlay && yarn build && cd ../../"
+        "start": "yarn compile && electron ./dist/electron.js",
+        "build": "yarn compile && yarn build:globkey && electron-builder",
+        "build:all": "yarn compile && yarn build:overlay && yarn build:globkey && electron-builder -mwl",
+        "build:mac": "yarn compile && yarn build:overlay && yarn build:globkey && electron-builder --mac",
+        "build:win": "yarn compile && yarn build:overlay && yarn build:globkey && electron-builder --win",
+        "build:linux": "yarn compile && yarn build:overlay && yarn build:globkey && electron-builder --linux",
+        "build:overlay": "cd resources/overlay && yarn build && cd ../../",
+        "build:globkey": "cd node_modules/globkey && npx electron-build-env nj-cli build --release && cd ../../"
     },
     "keywords": [
         "DogeHouse",
@@ -77,7 +78,7 @@
     "dependencies": {
         "electron-overlay-window": "^1.0.4",
         "electron-updater": "^4.3.8",
-        "globkey": "^1.0.10"
+        "globkey": "^1.0.11"
     },
     "files": [
         "./icons/**/*",

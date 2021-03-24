@@ -9,30 +9,26 @@ import {
     PTT_KEY,
     REQUEST_TO_SPEAK_KEY,
     OVERLAY_KEY,
-    KEY_TABLE,
     isMac,
-    isLinux,
 } from "../constants";
-import globkey from "globkey"
 import { overlayWindow } from "electron-overlay-window";
 import { createOverlay } from "./overlay";
 import { startIPCHandler } from "./ipc";
-import { bWindowsType, IOHookEvent } from "../types";
+import { bWindowsType } from "../types";
+import hook from 'globkey';
 
 export let CURRENT_REQUEST_TO_SPEAK_KEY = "Control+8";
 export let CURRENT_INVITE_KEY = "Control+7";
 export let CURRENT_MUTE_KEY = "Control+m";
 export let CURRENT_CHAT_KEY = "Control+9";
 export let CURRENT_OVERLAY_KEY = "Control+Tab";
-export let CURRENT_PTT_KEY = ['Key0','LControl'];
+export let CURRENT_PTT_KEY = ["0", "Control"];
+export let CURRENT_PTT_KEY_STRING = "0,control"
 
 export let CURRENT_APP_TITLE = "";
 
-let PTT_PREV_STATUS = true;
-let PTT_STATUS = [
-    false,
-    false,
-]
+let PREV_PTT_STATUS = false;
+
 
 let push_to_talk = false
 
@@ -77,14 +73,11 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
         if (keyCode.includes("+")) {
             let keys = keyCode.split("+");
             CURRENT_PTT_KEY = keys;
-            PTT_STATUS.length = 0;
-            keys.forEach(() => {
-                PTT_STATUS.push(false);
-            })
         } else {
             CURRENT_PTT_KEY = [keyCode];
-            PTT_STATUS = [false];
         }
+        CURRENT_PTT_KEY = CURRENT_PTT_KEY.sort();
+        CURRENT_PTT_KEY_STRING = CURRENT_PTT_KEY.join().toLowerCase();
     });
 
     ipcMain.on(OVERLAY_KEY, (event, keyCode) => {
@@ -112,17 +105,21 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
 
     ipcMain.on("@overlay/app_title", (event, appTitle: string) => {
         CURRENT_APP_TITLE = appTitle;
-    });
-    globkey.raw(function(keypair) {
-        if (JSON.stringify(keypair) === JSON.stringify(['Key0','LControl'])) {
-            push_to_talk = true
-            console.log("push on")
-            bWindows.main.webContents.send("@voice/ptt_status_change", false);
-        } else if (push_to_talk) {
-            push_to_talk = false
-            console.log("push off")
-            bWindows.main.webContents.send("@voice/ptt_status_change", true);
+    })
+    hook.raw((keypair: string[]) => {
+        keypair.forEach(key => {
+            let i = keypair.indexOf(key);
+            keypair[i] = keypair[i].replace("L", "");
+            keypair[i] = keypair[i].replace("R", "");
+            keypair[i] = keypair[i].replace("Key", "");
+        });
+        keypair = keypair.sort();
+        let ks = keypair.join().toLowerCase();
+        let PTT = ks !== CURRENT_PTT_KEY_STRING;
+        if (PREV_PTT_STATUS !== PTT) {
+            bWindows.main.webContents.send("@voice/ptt_status_change", PTT);
+            PREV_PTT_STATUS = PTT;
         }
-    });
+    })
 }
 
