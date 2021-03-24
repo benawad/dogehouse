@@ -1,4 +1,4 @@
-import { Transport } from "mediasoup-client/lib/types";
+import { Device, Transport } from "mediasoup-client/lib/types";
 import { ConnectFunction, ConsumerPlayer } from "./interface";
 import { RoomPeer } from "..";
 
@@ -14,14 +14,13 @@ export const makeConsumer = (transport: Transport) => async (data: RoomPeer) => 
   })
 });
 
-export const connect: ConnectFunction = async (
+export const connect: ConnectFunction<(device: Device) => Promise<void>> = (
   connection,
-  device,
   routerRtpCapabilities,
   direction,
   transportOptions,
   track
-) => {
+) => async (device) => {
   const makeTransport = async () => {
     const simplerDirection = direction === "output" ? "recv" : "send";
     const result = direction === "output"
