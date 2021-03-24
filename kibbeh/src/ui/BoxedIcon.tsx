@@ -7,7 +7,6 @@ const colorMap = {
 
 export interface BoxedIconProps
   extends React.ComponentPropsWithoutRef<"button"> {
-  children?: ReactElement;
   circle?: boolean;
   color?: keyof typeof colorMap;
 }

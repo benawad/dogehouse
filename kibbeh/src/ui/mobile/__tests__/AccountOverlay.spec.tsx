@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck @todo this file needs to be fixed
+
 import React from "react";
 
 import { render } from "../../../../test-utils";

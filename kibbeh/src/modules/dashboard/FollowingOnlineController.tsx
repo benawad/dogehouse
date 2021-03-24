@@ -11,7 +11,7 @@ export const FollowingOnlineController: React.FC<FriendsOnlineControllerProps> =
 
   return (
     <div>
-      <FriendsOnline onlineFriendList={data?.users || []} />
+      <FriendsOnline onlineFriendList={(data?.users || []) as any} />
     </div>
   );
 };
