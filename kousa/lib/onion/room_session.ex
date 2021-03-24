@@ -62,9 +62,9 @@ defmodule Onion.RoomSession do
     end
   end
 
-  def ws_fan(users, platform, msg) do
+  def ws_fan(users, msg) do
     Enum.each(users, fn uid ->
-      Onion.UserSession.send_cast(uid, {:send_ws_msg, platform, msg})
+      Onion.UserSession.send_cast(uid, {:send_ws_msg, msg})
     end)
   end
 
@@ -100,7 +100,7 @@ defmodule Onion.RoomSession do
         do: Map.put(state.activeSpeakerMap, user_id, true),
         else: Map.delete(state.activeSpeakerMap, user_id)
 
-    ws_fan(state.users, :vscode, %{
+    ws_fan(state.users, %{
       op: "active_speaker_change",
       d: %{activeSpeakerMap: newActiveSpeakerMap, roomId: state.room_id, muteMap: muteMap}
     })
@@ -118,8 +118,8 @@ defmodule Onion.RoomSession do
     {:noreply, %{state | auto_speaker: bool}}
   end
 
-  def handle_cast({:send_ws_msg, platform, msg}, state) do
-    ws_fan(state.users, platform, msg)
+  def handle_cast({:send_ws_msg, msg}, state) do
+    ws_fan(state.users, msg)
 
     {:noreply, state}
   end
@@ -127,7 +127,7 @@ defmodule Onion.RoomSession do
   def handle_cast({:create_invite, user_id, user_info}, state) do
     Onion.UserSession.send_cast(
       user_id,
-      {:send_ws_msg, :vscode,
+      {:send_ws_msg,
        %{op: "invitation_to_room", d: Map.merge(%{roomId: state.room_id}, user_info)}}
     )
 
@@ -147,7 +147,7 @@ defmodule Onion.RoomSession do
       uid: user_id
     })
 
-    ws_fan(state.users, :vscode, %{
+    ws_fan(state.users, %{
       op: "speaker_removed",
       d: %{
         userId: user_id,
@@ -172,7 +172,7 @@ defmodule Onion.RoomSession do
       uid: user_id
     })
 
-    ws_fan(state.users, :vscode, %{
+    ws_fan(state.users, %{
       op: "speaker_added",
       d: %{
         userId: user_id,
@@ -217,7 +217,7 @@ defmodule Onion.RoomSession do
         false -> Map.delete(state.muteMap, user.id)
       end
 
-    ws_fan(state.users, :vscode, %{
+    ws_fan(state.users, %{
       op: "new_user_join_room",
       d: %{user: user, muteMap: muteMap, roomId: state.room_id}
     })
@@ -235,7 +235,7 @@ defmodule Onion.RoomSession do
   end
 
   def handle_cast({:new_room_details, new_name, new_description, is_private}, %State{} = state) do
-    ws_fan(state.users, :vscode, %{
+    ws_fan(state.users, %{
       op: "new_room_details",
       d: %{
         name: new_name,
@@ -253,7 +253,7 @@ defmodule Onion.RoomSession do
     changed = (not value and is_in_map) or (value and not is_in_map)
 
     if changed do
-      ws_fan(Enum.filter(state.users, &(&1 != user_id)), :vscode, %{
+      ws_fan(Enum.filter(state.users, &(&1 != user_id)), %{
         op: "mute_changed",
         d: %{userId: user_id, value: value, roomId: state.room_id}
       })
@@ -276,7 +276,7 @@ defmodule Onion.RoomSession do
     users = Enum.filter(state.users, fn uid -> uid != user_id end)
     Onion.RoomChat.kill(state.room_id)
 
-    ws_fan(users, :vscode, %{
+    ws_fan(users, %{
       op: "room_destroyed",
       d: %{roomId: state.room_id}
     })
@@ -294,7 +294,7 @@ defmodule Onion.RoomSession do
       d: %{peerId: user_id, roomId: state.room_id}
     })
 
-    ws_fan(users, :vscode, %{
+    ws_fan(users, %{
       op: "user_left_room",
       d: %{userId: user_id, roomId: state.room_id}
     })

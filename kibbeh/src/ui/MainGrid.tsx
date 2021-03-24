@@ -13,7 +13,7 @@ export const MainInnerGrid: React.FC<DashboardGridProps> = ({
       className={className}
       style={{
         display: "grid",
-        gridTemplateColumns: "235px 600px 325px",
+        gridTemplateColumns: "235px 640px 325px",
         columnGap: 60,
       }}
     >
