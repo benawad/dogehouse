@@ -8,7 +8,6 @@ import {
   Tray,
   Menu,
 } from "electron";
-import iohook from "iohook";
 import i18n from "i18next";
 import Backend from "i18next-node-fs-backend";
 import { autoUpdater } from "electron-updater";
@@ -99,7 +98,7 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
   }
   mainWindow.loadURL(
-    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000"
+    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/"
   );
 
   bWindows = {
@@ -141,10 +140,6 @@ function createWindow() {
   // graceful exiting
   mainWindow.on("closed", () => {
     globalShortcut.unregisterAll();
-    if (!isLinux) {
-      iohook.stop();
-      iohook.unload();
-    }
     if (bWindows.overlay) {
       bWindows.overlay.destroy();
     }
@@ -181,9 +176,6 @@ if (!instanceLock) {
   app.quit();
 } else {
   app.on("ready", () => {
-    if (isLinux) {
-      iohook.unload();
-    }
     localize().then(() => {
       createWindow();
       if (__prod__) autoUpdater.checkForUpdates();
