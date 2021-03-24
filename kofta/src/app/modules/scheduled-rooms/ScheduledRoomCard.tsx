@@ -81,17 +81,6 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
                 ? t("common.formattedIntlTime", { time: dt })
                 : t("common.formattedIntlDate", { date: dt })}
             </div>
-            <AddToCalendarButton
-              event={{
-                name: name,
-                details: description,
-                location: url,
-                startsAt: dt.toISOString(),
-                endsAt: new Date(
-                  dt.getTime() + 1 * 60 * 60 * 1000
-                ).toISOString(),
-              }}
-            />
             {isCreator ? (
               <div className={`flex`}>
                 <Button variant="small" onClick={() => onEdit()}>
@@ -119,26 +108,45 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
               </div>
             ) : null}
           </div>
-          <div className={`flex items-center my-4`}>
-            <Avatar size={25} src={creator.avatarUrl} />
-            <div
-              style={{
-                display: "-webkit-box",
-                WebkitBoxOrient: "vertical",
-                WebkitLineClamp: 3,
-              }}
-              className={`ml-2 text-left flex-1 text-xl text-simple-gray-d9 text-ellipsis overflow-hidden break-all`}
-            >
-              {name.slice(0, 100)}
+          <div className={`flex justify-between my-4`}>
+            <div>
+              <div className={`relative inline-flex`} /* this is to aline the avatar and room name */ >
+                <Avatar size={25} src={creator.avatarUrl} />
+                <div 
+                  style={{
+                    display: "-webkit-box",
+                    WebkitBoxOrient: "vertical",
+                    WebkitLineClamp: 3,
+                  }}
+                  className={`ml-2 text-left flex-1 text-xl text-simple-gray-d9 text-ellipsis overflow-hidden break-all`}
+                >
+                  {name.slice(0, 100)}
+                </div>
+              </div>  
+              <div className={`break-all`}>
+                {creator.displayName}
+                {description ? ` | ` + description : ``}                
+              </div>
             </div>
-            {noCopyLinkButton ? null : (
-              <CopyScheduleRoomLinkButton text={url} />
-            )}
+            <div>
+              <AddToCalendarButton
+                event={{
+                  name: name,
+                  details: description,
+                  location: url,
+                  startsAt: dt.toISOString(),
+                  endsAt: new Date(
+                    dt.getTime() + 1 * 60 * 60 * 1000
+                  ).toISOString(),
+                }}
+              />
+              {noCopyLinkButton ? null : (
+                <CopyScheduleRoomLinkButton text={url} />
+              )}
+            </div>
+            
           </div>
-          <div className={`break-all`}>
-            {creator.displayName}
-            {description ? ` | ` + description : ``}
-          </div>
+       
           {canStartRoom ? (
             <div className={`mt-4`}>
               {isCreator ? (
