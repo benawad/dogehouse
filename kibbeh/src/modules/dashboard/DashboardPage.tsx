@@ -16,9 +16,7 @@ export const DashboardPage: PageComponent<LoungePageProps> = ({}) => {
         <LeftPanel>
           <FollowingOnlineController />
         </LeftPanel>
-        <MiddlePanel>
-          <FeedController />
-        </MiddlePanel>
+        <FeedController />
         <RightPanel>
           <ProfileBlockController />
         </RightPanel>

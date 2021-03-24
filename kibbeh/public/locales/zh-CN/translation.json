@@ -36,7 +36,7 @@
       "currentRoom": "所在的聊天室:",
       "startPrivateRoom": "跟ta进入私人聊天室"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": { "followHim": "关注ta", "followingHim": "已经关注" },
     "home": { "createRoom": "新建聊天室", "refresh": "刷新" },
     "inviteList": {
       "roomGone": "聊天室以被删除，请回到前一页",
@@ -73,7 +73,7 @@
       "speakers": "讲话者",
       "requestingToSpeak": "要求讲话",
       "listeners": "听者",
-      "allowAll": "Allow all",
+      "allowAll": "允许全体成员讲话",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "搜索..." },
@@ -85,9 +85,9 @@
       "following": "您关注的人",
       "followHim": "关注ta",
       "followingHim": "已经关注",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "copyProfileUrl": "复制个人主页链接",
+      "urlCopied": "个人主页链接已复制到剪贴板",
+      "unfollow": "取消关注"
     },
     "voiceSettings": {
       "header": "语音设置",
@@ -185,7 +185,7 @@
       "setKeybind": "设置快捷键",
       "listening": "等待输入",
       "toggleMuteKeybind": "切换静音键绑定",
-      "togglePushToTalkKeybind": "toggle push-to-talk keybind",
+      "togglePushToTalkKeybind": "切换按键说话绑定",
       "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "wsKilled": {

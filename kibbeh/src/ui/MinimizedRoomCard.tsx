@@ -31,7 +31,7 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
   const router = useRouter();
 
   return (
-    <div className="bg-primary-800 border border-accent rounded-lg p-4 gap-4 flex-col max-w-md">
+    <div className="bg-primary-800 border border-accent rounded-lg p-4 gap-4 flex-col w-full">
       <div className="gap-2 flex-col">
         <h4 className="text-primary-100 ">{room.name}</h4>
         <p className="text-primary-300">{room.speakers.join(", ")}</p>

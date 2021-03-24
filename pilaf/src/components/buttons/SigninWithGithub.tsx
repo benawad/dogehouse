@@ -3,18 +3,19 @@ import {
   Alert,
   Linking,
   StyleProp,
-  Text,
-  ViewStyle,
   StyleSheet,
+  Text,
+  TouchableOpacity,
+  ViewStyle,
 } from "react-native";
-import { TouchableOpacity } from "react-native";
 import InAppBrowser from "react-native-inappbrowser-reborn";
-import { colors, fontFamily } from "../../constants/dogeStyle";
+import { colors, fontFamily, radius } from "../../constants/dogeStyle";
+import { apiBaseUrl } from "../../constants/env";
 
 const signinWithGithub = async () => {
   try {
     const url =
-      "https://doge-staging.stripcode.dev/auth/github/web?redirect_after_base=dogehouse://home";
+      apiBaseUrl + "/auth/github/web?redirect_after_base=dogehouse://home";
     if (await InAppBrowser.isAvailable()) {
       const result = await InAppBrowser.open(url, {
         // iOS Properties
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.black,
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 8,
+    borderRadius: radius.m,
     padding: 16,
   },
   title: {

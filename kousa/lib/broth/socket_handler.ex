@@ -19,7 +19,6 @@ defmodule Broth.SocketHandler do
 
     defstruct awaiting_init: true,
               user_id: nil,
-              platform: nil,
               encoding: nil,
               compression: nil
   end
@@ -103,7 +102,6 @@ defmodule Broth.SocketHandler do
           %{
             "accessToken" => accessToken,
             "refreshToken" => refreshToken,
-            "platform" => platform,
             "reconnectToVoice" => reconnectToVoice,
             "muted" => muted
           } = json["d"]
@@ -179,7 +177,7 @@ defmodule Broth.SocketHandler do
                  construct_socket_msg(state.encoding, state.compression, %{
                    op: "auth-good",
                    d: %{user: user, currentRoom: currentRoom}
-                 }), %{state | user_id: user_id, awaiting_init: false, platform: platform}}
+                 }), %{state | user_id: user_id, awaiting_init: false}}
               else
                 {:reply, {:close, 4001, "invalid_authentication"}, state}
               end
@@ -531,7 +529,7 @@ defmodule Broth.SocketHandler do
           Kousa.Utils.RegUtils.lookup_and_cast(
             Onion.RoomSession,
             room_id,
-            {:send_ws_msg, :vscode,
+            {:send_ws_msg,
              %{
                op: "hand_raised",
                d: %{userId: state.user_id, roomId: room_id}
@@ -547,7 +545,7 @@ defmodule Broth.SocketHandler do
     Kousa.Utils.RegUtils.lookup_and_cast(
       Onion.UserSession,
       state.user_id,
-      {:send_ws_msg, :vscode,
+      {:send_ws_msg,
        %{
          op: "error",
          d: "browser can't autoplay audio the first time, go press play audio in your browser"

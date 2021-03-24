@@ -16,7 +16,7 @@
     "copied": "kopiert",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please give DogeHouse Accessibility permessions"
+    "requestPermissions": "Bitte erlaube die Accessibility permissions für DogeHouse"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -37,7 +37,7 @@
       "currentRoom": "Zurzeit in:",
       "startPrivateRoom": "Einen privaten Raum mit diesem Benutzer starten"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": { "followHim": "Abbonieren", "followingHim": "Abboniert" },
     "home": { "createRoom": "Raum erstellen", "refresh": "Aktualisieren" },
     "inviteList": {
       "roomGone": "Raum konnte nicht gefunden werden! Zurück",
@@ -63,7 +63,7 @@
       "voiceSettings": "Spracheinstellungen",
       "soundSettings": "Toneinstellungen",
       "deleteAccount": "Konto löschen",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "Overlay Einstellungen"
     },
     "notFound": {
       "whoopsError": "Hoppla! Diese Seite ging im Gespräch verloren.",
@@ -75,7 +75,7 @@
       "requestingToSpeak": "Sprachanfragen",
       "listeners": "Zuhörer",
       "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAllConfirm": "Bist du dir sicher? Hiermit wirst du allen {{count}} Benutzern erlauben zu sprechen."
     },
     "searchUser": { "search": "Suchen..." },
     "soundEffectSettings": { "header": "Ton" },
@@ -84,24 +84,24 @@
       "followsYou": "folgt dir",
       "following": "Abonniert",
       "followers": "Abonnenten",
-      "followHim": "follow",
-      "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
+      "followHim": "folgen",
+      "followingHim": "folge ich",
+      "copyProfileUrl": "Profil URL kopieren",
+      "urlCopied": "URL kopiert",
       "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Spracheinstellungen",
       "mic": "Mikrofon:",
-      "permissionError": "Keine Mikrofone gefunden, es ist entweder keines angeschlosen oder diese Seite besitzt nicht die benötigten Berechtigungen.",
+      "permissionError": "Keine Mikrofone gefunden, es ist entweder keines angeschlossen, oder diese DogeHouse besitzt nicht die benötigten Berechtigungen.",
       "volume": "Lautstärke:",
       "refresh": "Mikrofonliste aktualisieren"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings",
-      "errorMsg": "Please enter valid app title",
-      "label": "Enter app title"
+      "header": "Overlay Einstellungen",
+      "errorMsg": "Bitte gebe einen gültigen App-titel ein",
+      "label": "App Titel"
     }
   },
   "components": {

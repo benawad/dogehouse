@@ -2,8 +2,13 @@ import { wrap } from "@dogehouse/kebab";
 import isElectron from "is-electron";
 import { FC, useContext, useEffect } from "react";
 import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
+import { useRoomChatMentionStore } from "../global-stores/useRoomChatMentionStore";
 import { showErrorToast } from "../lib/showErrorToast";
 import { useTokenStore } from "../modules/auth/useTokenStore";
+import {
+  RoomChatMessageToken,
+  useRoomChatStore,
+} from "../modules/room/chat/useRoomChatStore";
 import { mergeRoomPermission } from "../modules/webrtc/utils/mergeRoomPermission";
 import { WebSocketContext } from "../modules/ws/WebSocketProvider";
 import { setMute } from "./useSetMute";
@@ -42,38 +47,35 @@ export const useMainWsHandler = () => {
         }
       ),
       conn.addListener<any>("chat_user_banned", ({ userId }) => {
-        // @todo
-        // useRoomChatStore.getState().addBannedUser(userId);
+        useRoomChatStore.getState().addBannedUser(userId);
       }),
       conn.addListener<any>("new_chat_msg", ({ msg }) => {
-        // @todo
-        // const { open } = useRoomChatStore.getState();
-        // useRoomChatStore.getState().addMessage(msg);
-        // const { isRoomChatScrolledToTop } = useRoomChatStore.getState();
-        // if (
-        //   (!open || !document.hasFocus() || isRoomChatScrolledToTop) &&
-        //   !!msg.tokens.filter(
-        //     (t: RoomChatMessageToken) =>
-        //       t.t === "mention" &&
-        //       t.v?.toLowerCase() === meRef?.current?.username?.toLowerCase()
-        //   ).length
-        // ) {
-        //   useRoomChatMentionStore.getState().incrementIAmMentioned();
-        //   if (isElectron()) {
-        //     ipcRenderer.send("@notification/mention", msg);
-        //   }
-        // }
+        const { open } = useRoomChatStore.getState();
+        useRoomChatStore.getState().addMessage(msg);
+        const { isRoomChatScrolledToTop } = useRoomChatStore.getState();
+        if (
+          (!open || !document.hasFocus() || isRoomChatScrolledToTop) &&
+          !!msg.tokens.filter(
+            (t: RoomChatMessageToken) =>
+              t.t === "mention" &&
+              t.v?.toLowerCase() === conn.user.username.toLowerCase()
+          ).length
+        ) {
+          useRoomChatMentionStore.getState().incrementIAmMentioned();
+          if (isElectron()) {
+            ipcRenderer.send("@notification/mention", msg);
+          }
+        }
       }),
       conn.addListener<any>("message_deleted", ({ messageId, deleterId }) => {
-        // @todo
-        // const { messages, setMessages } = useRoomChatStore.getState();
-        // setMessages(
-        //   messages.map((m) => ({
-        //     ...m,
-        //     deleted: m.id === messageId || !!m.deleted,
-        //     deleterId: m.id === messageId ? deleterId : m.deleterId,
-        //   }))
-        // );
+        const { messages, setMessages } = useRoomChatStore.getState();
+        setMessages(
+          messages.map((m) => ({
+            ...m,
+            deleted: m.id === messageId || !!m.deleted,
+            deleterId: m.id === messageId ? deleterId : m.deleterId,
+          }))
+        );
       }),
       conn.addListener<any>(
         "room_privacy_change",
