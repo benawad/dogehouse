@@ -1,6 +1,11 @@
 name: build-and-release-electron
 
-on: workflow_dispatch
+on:
+  push:
+    paths:
+      - "baklava/**"
+    branches:
+      - prod
 
 jobs:
   release:
