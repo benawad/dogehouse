@@ -45,18 +45,18 @@ export const UserSearchResult: React.FC<UserSearchResultProps> = ({
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    backgroundColor: colors.primary800,
     borderRadius: radius.m,
-    padding: 20,
+    paddingVertical: 10,
+    alignItems: "center",
   },
   textContainer: { marginLeft: 12 },
   title: {
     ...paragraphBold,
-    lineHeight: 20,
+    //lineHeight: 20,
   },
   subtitle: {
     ...small,
     color: colors.primary300,
-    lineHeight: 20,
+    //lineHeight: 20,
   },
 });

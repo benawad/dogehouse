@@ -14,6 +14,7 @@ import {
   paragraph,
   paragraphBold,
   radius,
+  small,
 } from "../../constants/dogeStyle";
 import { BubbleText } from "../BubbleText";
 import { RoomCardHeading } from "../RoomCardHeading";
@@ -111,9 +112,8 @@ export const RoomSearchResult: React.FC<RoomSearchResultProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.primary800,
     borderRadius: radius.m,
-    padding: 20,
+    paddingVertical: 10,
   },
   topContainer: {
     flexDirection: "row",
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   subtitle: {
-    ...paragraph,
+    ...small,
     color: colors.primary300,
     flex: 1,
   },

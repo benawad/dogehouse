@@ -25,7 +25,7 @@ export const SearchHistoryResult: React.FC<SearchHistoryResultProps> = ({
     <TouchableOpacity style={[styles.container, style]} onPress={onPress}>
       <Image
         source={require("../../assets/images/header/sm-solid-search.png")}
-        style={{ tintColor: colors.primary300 }}
+        style={{ tintColor: colors.primary300, height: 18, width: 18 }}
       />
       <View style={styles.textContainer}>
         <Text style={styles.text} numberOfLines={1}>
@@ -42,9 +42,10 @@ export const SearchHistoryResult: React.FC<SearchHistoryResultProps> = ({
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    backgroundColor: colors.primary800,
+    justifyContent: "center",
+    alignItems: "center",
     borderRadius: radius.m,
-    padding: 20,
+    paddingVertical: 10,
   },
   textContainer: { marginHorizontal: 24, flex: 1 },
   text: {

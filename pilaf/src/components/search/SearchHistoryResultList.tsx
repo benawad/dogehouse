@@ -1,6 +1,6 @@
 import React from "react";
-import { ScrollView, StyleSheet, View, ViewProps } from "react-native";
-import { colors, radius } from "../../constants/dogeStyle";
+import { ScrollView, StyleSheet, View, ViewProps, Text } from "react-native";
+import { colors, h4, radius } from "../../constants/dogeStyle";
 
 export const SearchHistoryResultList: React.FC<ViewProps> = ({
   children,
@@ -8,14 +8,15 @@ export const SearchHistoryResultList: React.FC<ViewProps> = ({
 }) => {
   return (
     <View style={[styles.container, style]}>
-      <ScrollView>{children}</ScrollView>
+      <Text style={{ ...h4 }}>Recent</Text>
+      <ScrollView style={{ marginTop: 10 }}>{children}</ScrollView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.primary800,
+    backgroundColor: colors.primary900,
     borderRadius: radius.m,
   },
 });

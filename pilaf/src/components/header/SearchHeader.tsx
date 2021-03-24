@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, TextInput, View } from "react-native";
-import { colors, radius } from "../../constants/dogeStyle";
+import { colors, paragraph, radius } from "../../constants/dogeStyle";
 import { HeaderBase } from "./HeaderBase";
 
 type SearchHeaderProps = {
@@ -34,11 +34,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   text: {
+    marginLeft: 20,
     marginRight: 25,
     height: 40,
     backgroundColor: colors.primary700,
-    paddingHorizontal: 16,
+    paddingHorizontal: 15,
     borderRadius: radius.m,
-    color: colors.text,
+    ...paragraph,
+    lineHeight: undefined,
   },
 });

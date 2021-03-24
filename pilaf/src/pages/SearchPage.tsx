@@ -14,7 +14,7 @@ const searchMocks = [
       "Why CI & CD is important when working with a team and more because I need a long one",
     subtitle:
       "This is the subtitle This is the subtitle This is the subtitle This is the subtitle This is the subtitle",
-    listeners: 200,
+    listeners: 300,
   },
   {
     id: 1,
@@ -24,8 +24,8 @@ const searchMocks = [
   },
   {
     id: 2,
-    title: "It is a good day to die",
-    subtitle: "Tomorrow too",
+    title: "The developer's hangout",
+    subtitle: "Terry Owen, Grace Abraham",
     listeners: 200,
   },
   {
@@ -54,7 +54,12 @@ export const SearchPage: React.FC = () => {
     <>
       <SearchHeader onTextChange={setQuery} text={query} />
       <View
-        style={{ flex: 1, backgroundColor: colors.primary900, padding: 20 }}
+        style={{
+          flex: 1,
+          backgroundColor: colors.primary900,
+          paddingVertical: 10,
+          paddingHorizontal: 25,
+        }}
       >
         {query.length === 0 && (
           <SearchHistoryResultList>
@@ -75,7 +80,6 @@ export const SearchPage: React.FC = () => {
               .map((m) => (
                 <RoomSearchResult
                   key={m.id}
-                  style={{ marginBottom: 20 }}
                   title={m.title}
                   subtitle={m.subtitle}
                   listeners={m.listeners}
@@ -83,8 +87,8 @@ export const SearchPage: React.FC = () => {
               ))}
             <UserSearchResult
               isOnline={true}
-              userName={"DrMadTurkey"}
-              userLink={"@emerciercontexeo"}
+              userName={"The Real Anthony"}
+              userLink={"@anthonytheone"}
               userAvatarSrc={require("../assets/images/100.png")}
             />
           </ScrollView>
