@@ -23,18 +23,14 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
   useEffect(() => {
     if (!conn && shouldConnect && hasTokens) {
       const { accessToken, refreshToken } = useTokenStore.getState();
-      console.log(accessToken, refreshToken);
       raw
         .connect(accessToken, refreshToken, {
           url: apiBaseUrl.replace("http", "ws") + "/socket",
         })
         .then((x) => {
           setConn(x);
-          console.log("-------");
-          console.log(x);
         })
         .catch((err) => console.log(err));
-      console.log("SHOULD CONNECT");
     }
   }, [conn, shouldConnect, hasTokens]);
 

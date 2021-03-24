@@ -16,9 +16,12 @@ import { NavigationContainer } from "@react-navigation/native";
 import { RootNavigator } from "./src/navigators/RootNavigator";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { queryClient } from "./src/lib/queryClient";
+import Toast from "react-native-toast-message";
+import { useSoundEffectStore } from "./src/modules/sound-effect/useSoundEffectStore";
 
 const App: React.FC = () => {
   const loadTokens = useTokenStore((state) => state.loadTokens);
+  useSoundEffectStore();
   const isTokenStoreReady = useTokenStore(
     (s) => s.accessToken !== undefined && s.refreshToken !== undefined
   );
@@ -38,6 +41,7 @@ const App: React.FC = () => {
         <NavigationContainer>
           <StatusBar barStyle="light-content" />
           <RootNavigator />
+          <Toast ref={(ref) => Toast.setRef(ref)} />
         </NavigationContainer>
       </SafeAreaProvider>
     </QueryClientProvider>
