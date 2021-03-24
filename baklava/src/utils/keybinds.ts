@@ -13,7 +13,7 @@ import {
     isMac,
     isLinux,
 } from "../constants";
-import ioHook from "iohook";
+import globkey from "globkey"
 import { overlayWindow } from "electron-overlay-window";
 import { createOverlay } from "./overlay";
 import { startIPCHandler } from "./ipc";
@@ -24,7 +24,7 @@ export let CURRENT_INVITE_KEY = "Control+7";
 export let CURRENT_MUTE_KEY = "Control+m";
 export let CURRENT_CHAT_KEY = "Control+9";
 export let CURRENT_OVERLAY_KEY = "Control+Tab";
-export let CURRENT_PTT_KEY = ["Control", "0"];
+export let CURRENT_PTT_KEY = ['Key0','LControl'];
 
 export let CURRENT_APP_TITLE = "";
 
@@ -33,6 +33,8 @@ let PTT_STATUS = [
     false,
     false,
 ]
+
+let push_to_talk = false
 
 export function RegisterKeybinds(bWindows: bWindowsType) {
     ipcMain.on(REQUEST_TO_SPEAK_KEY, (event, keyCode) => {
@@ -110,77 +112,17 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
 
     ipcMain.on("@overlay/app_title", (event, appTitle: string) => {
         CURRENT_APP_TITLE = appTitle;
-    })
-    if (!isLinux) {
-        ioHook.on("keydown", (event: IOHookEvent) => {
-            if (event.shiftKey) {
-                if (CURRENT_PTT_KEY.includes("Shift")) {
-                    let i = CURRENT_PTT_KEY.indexOf("Shift");
-                    PTT_STATUS[i] = true;
-                }
-            } else if (event.altKey) {
-                if (CURRENT_PTT_KEY.includes("Alt")) {
-                    let i = CURRENT_PTT_KEY.indexOf("Alt");
-                    PTT_STATUS[i] = true;
-                }
-            } else if (event.ctrlKey) {
-                if (CURRENT_PTT_KEY.includes("Control")) {
-                    let i = CURRENT_PTT_KEY.indexOf("Control");
-                    PTT_STATUS[i] = true;
-                }
-            } else if (event.metaKey) {
-                if (CURRENT_PTT_KEY.includes("Meta")) {
-                    let i = CURRENT_PTT_KEY.indexOf("Meta");
-                    PTT_STATUS[i] = true;
-                }
-            } else {
-                if (CURRENT_PTT_KEY.includes(KEY_TABLE[event.keycode - 1])) {
-                    let i = CURRENT_PTT_KEY.indexOf(KEY_TABLE[event.keycode - 1]);
-                    PTT_STATUS[i] = true;
-                }
-            }
-            let PTT = PTT_STATUS.every((key_status) => key_status === true);
-            if (PTT != PTT_PREV_STATUS) {
-                PTT_PREV_STATUS = PTT;
-                bWindows.main.webContents.send("@voice/ptt_status_change", !PTT);
-            }
-        })
-
-        ioHook.on("keyup", (event: IOHookEvent) => {
-            if (event.shiftKey) {
-                if (CURRENT_PTT_KEY.includes("Shift")) {
-                    let i = CURRENT_PTT_KEY.indexOf("Shift");
-                    PTT_STATUS[i] = false;
-                }
-            } else if (event.altKey) {
-                if (CURRENT_PTT_KEY.includes("Alt")) {
-                    let i = CURRENT_PTT_KEY.indexOf("Alt");
-                    PTT_STATUS[i] = false;
-                }
-            } else if (event.ctrlKey) {
-                if (CURRENT_PTT_KEY.includes("Control")) {
-                    let i = CURRENT_PTT_KEY.indexOf("Control");
-                    PTT_STATUS[i] = false;
-                }
-            } else if (event.metaKey) {
-                if (CURRENT_PTT_KEY.includes("Meta")) {
-                    let i = CURRENT_PTT_KEY.indexOf("Meta");
-                    PTT_STATUS[i] = false;
-                }
-            } else {
-                if (CURRENT_PTT_KEY.includes(KEY_TABLE[event.keycode - 1])) {
-                    let i = CURRENT_PTT_KEY.indexOf(KEY_TABLE[event.keycode - 1]);
-                    PTT_STATUS[i] = false;
-                }
-            }
-            let PTT = PTT_STATUS.every((key_status) => key_status === true);
-            if (PTT != PTT_PREV_STATUS) {
-                PTT_PREV_STATUS = PTT;
-                bWindows.main.webContents.send("@voice/ptt_status_change", !PTT);
-            }
-        });
-
-        ioHook.start();
-    }
+    });
+    globkey.raw(function(keypair) {
+        if (JSON.stringify(keypair) === JSON.stringify(['Key0','LControl'])) {
+            push_to_talk = true
+            console.log("push on")
+            bWindows.main.webContents.send("@voice/ptt_status_change", false);
+        } else if (push_to_talk) {
+            push_to_talk = false
+            console.log("push off")
+            bWindows.main.webContents.send("@voice/ptt_status_change", true);
+        }
+    });
 }
 
