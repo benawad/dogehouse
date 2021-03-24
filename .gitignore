@@ -5,6 +5,7 @@ node_modules
 .netlify
 
 .idea/
+*/.idea/
 .docker
 .env
 .next
