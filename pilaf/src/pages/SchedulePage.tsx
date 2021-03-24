@@ -45,7 +45,7 @@ export const SchedulePage: React.FC = () => {
     <ScrollView style={styles.safeAreaView}>
       <Text style={styles.title}>Schedule</Text>
       {upcomingRoomsMock.map((m) => (
-        <UpcomingRoomCard key={m.id} room={m} />
+        <UpcomingRoomCard key={m.id} room={m} style={{ marginBottom: 20 }} />
       ))}
     </ScrollView>
   );

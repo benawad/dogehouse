@@ -1,6 +1,12 @@
 import { format, isToday, isTomorrow } from "date-fns";
 import React from "react";
-import { ImageSourcePropType, StyleSheet, Text, View } from "react-native";
+import {
+  ImageSourcePropType,
+  StyleSheet,
+  Text,
+  View,
+  ViewProps,
+} from "react-native";
 import { colors, radius, small } from "../constants/dogeStyle";
 import { MultipleUserAvatar } from "./avatars/MultipleUserAvatar";
 import { RoomCardHeading } from "./RoomCardHeading";
@@ -27,15 +33,16 @@ export interface ScheduledRoomSummaryCardProps {
   title: string;
 }
 
-export interface UpcomingRoomsCardProps {
+export type UpcomingRoomsCardProps = ViewProps & {
   room: ScheduledRoomSummaryCardProps;
-}
+};
 
 export const UpcomingRoomCard: React.FC<UpcomingRoomsCardProps> = ({
+  style,
   room,
 }) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <Text style={styles.scheduleFor}>{formattedDate(room.scheduledFor)}</Text>
       <RoomCardHeading text={room.title} />
       <View style={{ flexDirection: "row", marginTop: 10 }}>
@@ -54,7 +61,6 @@ const styles = StyleSheet.create({
     borderRadius: radius.m,
     paddingHorizontal: 20,
     paddingVertical: 10,
-    marginBottom: 20,
   },
   scheduleFor: {
     ...small,

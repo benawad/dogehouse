@@ -7,11 +7,12 @@ import {
   TextStyle,
   TouchableOpacity,
   View,
+  ViewProps,
 } from "react-native";
 import { colors, paragraphBold, small } from "../constants/dogeStyle";
 import { SingleUserAvatar } from "./avatars/SingleUserAvatar";
 
-interface MessageElementProps {
+export type MessageElementProps = ViewProps & {
   user: {
     username: string;
     avatar: ImageSourcePropType;
@@ -21,7 +22,7 @@ interface MessageElementProps {
     ts: number;
     text: string;
   };
-}
+};
 
 interface MessageDateProps {
   ts: number;
@@ -33,6 +34,7 @@ const MessageDate: React.FC<MessageDateProps> = ({ ts, style }) => (
 );
 
 export const MessageElement: React.FC<MessageElementProps> = ({
+  style,
   user,
   msg,
 }) => {
@@ -42,7 +44,7 @@ export const MessageElement: React.FC<MessageElementProps> = ({
       onPress={() => setExpanded(!expanded)}
       activeOpacity={0.8}
     >
-      <View style={styles.container}>
+      <View style={[styles.container, style]}>
         <SingleUserAvatar
           size={"sm"}
           isOnline={user.isOnline}
@@ -67,7 +69,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 20,
   },
   middleContainer: {
     flex: 1,

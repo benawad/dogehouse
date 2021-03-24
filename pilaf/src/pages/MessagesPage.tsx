@@ -47,24 +47,96 @@ export const MessagesPage: React.FC = () => {
     <>
       <TitledHeader title={"Messages"} showBackButton={true} />
       <ScrollView style={styles.scrollView}>
-        <MessageElement user={userMocks} msg={messageMocks[0]} />
-        <MessageElement user={userMocks} msg={messageMocks[1]} />
-        <MessageElement user={userMocks} msg={messageMocks[2]} />
-        <MessageElement user={userMocks} msg={messageMocks[3]} />
-        <MessageElement user={userMocks} msg={messageMocks[4]} />
-        <MessageElement user={userMocks} msg={messageMocks[5]} />
-        <MessageElement user={userMocks} msg={messageMocks[0]} />
-        <MessageElement user={userMocks} msg={messageMocks[1]} />
-        <MessageElement user={userMocks} msg={messageMocks[2]} />
-        <MessageElement user={userMocks} msg={messageMocks[3]} />
-        <MessageElement user={userMocks} msg={messageMocks[4]} />
-        <MessageElement user={userMocks} msg={messageMocks[5]} />
-        <MessageElement user={userMocks} msg={messageMocks[0]} />
-        <MessageElement user={userMocks} msg={messageMocks[1]} />
-        <MessageElement user={userMocks} msg={messageMocks[2]} />
-        <MessageElement user={userMocks} msg={messageMocks[3]} />
-        <MessageElement user={userMocks} msg={messageMocks[4]} />
-        <MessageElement user={userMocks} msg={messageMocks[5]} />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[0]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[1]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[2]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[3]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[4]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[5]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[0]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[1]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[2]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[3]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[4]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[5]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[0]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[1]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[2]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[3]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[4]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[5]}
+          style={{ marginBottom: 20 }}
+        />
       </ScrollView>
     </>
   );
