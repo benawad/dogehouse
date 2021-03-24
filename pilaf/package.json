@@ -10,7 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@dogehouse/kebab": "^0.2.1",
+    "@dogehouse/kebab": "^0.2.0",
     "@react-native-async-storage/async-storage": "^1.14.1",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-native-segmented-control/segmented-control": "^2.3.0",
@@ -32,6 +32,7 @@
     "react-native-splash-screen": "^3.2.0",
     "react-native-toast-message": "^1.4.9",
     "react-native-vector-icons": "^8.1.0",
+    "react-native-webrtc": "^1.89.1",
     "react-query": "^3.13.0",
     "zustand": "^3.3.3"
   },

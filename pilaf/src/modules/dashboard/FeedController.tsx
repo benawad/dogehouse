@@ -1,6 +1,6 @@
 import { Room, ScheduledRoom } from "@dogehouse/kebab";
 import { useNavigation } from "@react-navigation/core";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { RoomCard } from "../../components/RoomCard";
 import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
@@ -58,18 +58,6 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
           }}
         />
       ))}
-      {/* <Feed
-        onRoomClick={(room) => {
-          if (room.id !== currentRoom?.id) {
-            prefetch([room.id], ["getRoomUsers", room.id]);
-          }
-        }}
-        actionTitle="New room"
-        emptyPlaceholder={<div>empty</div>}
-        onActionClicked={() => setRoomModal(true)}
-        rooms={data.rooms}
-        title="Your Feed"
-      /> */}
     </>
   );
 };
