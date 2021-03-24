@@ -13,7 +13,6 @@ import {
     isMac,
     isLinux,
 } from "../constants";
-import ioHook from "iohook";
 import { overlayWindow } from "electron-overlay-window";
 import { createOverlay } from "./overlay";
 import { startIPCHandler } from "./ipc";
