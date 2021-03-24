@@ -73,5 +73,7 @@ export const MessagesPage: React.FC = () => {
 const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: colors.primary900,
+    paddingHorizontal: 25,
+    paddingTop: 10,
   },
 });

@@ -47,6 +47,7 @@ export const MessageElement: React.FC<MessageElementProps> = ({
           size={"sm"}
           isOnline={user.isOnline}
           src={user.avatar}
+          style={{ marginBottom: 20 }}
         />
         <View style={styles.middleContainer}>
           <Text style={styles.textUserName}>{user.username}</Text>
@@ -66,15 +67,15 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 16,
+    marginBottom: 20,
   },
   middleContainer: {
     flex: 1,
-    borderBottomWidth: 0.5,
+    borderBottomWidth: 1,
     borderBottomColor: colors.primary700,
-    padding: 16,
+    paddingBottom: 20,
     paddingLeft: 0,
-    marginLeft: 16,
+    marginLeft: 11,
     justifyContent: "space-between",
     overflow: "hidden",
   },
@@ -82,9 +83,9 @@ const styles = StyleSheet.create({
     height: "100%",
     flexDirection: "row",
     alignItems: "flex-start",
-    paddingVertical: 16,
+
     justifyContent: "center",
-    borderBottomWidth: 0.5,
+    borderBottomWidth: 1,
     borderBottomColor: colors.primary700,
   },
   textUserName: {

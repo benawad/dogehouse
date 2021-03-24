@@ -64,6 +64,7 @@ export const FollowNotification: React.FC<FollowNotificationProps> = ({
 
   return (
     <GenericNotification
+      style={style}
       notificationMsg={notificationMsg}
       time={time}
       icon={icon}

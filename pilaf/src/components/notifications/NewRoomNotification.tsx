@@ -50,6 +50,7 @@ export const NewRoomNotification: React.FC<NewRoomNotificationProps> = ({
 
   return (
     <GenericNotification
+      style={style}
       notificationMsg={notificationMsg}
       time={time}
       icon={icon}

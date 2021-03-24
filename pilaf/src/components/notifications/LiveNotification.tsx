@@ -52,6 +52,7 @@ export const LiveNotification: React.FC<LiveNotificationProps> = ({
 
   return (
     <GenericNotification
+      style={style}
       notificationMsg={notificationMsg}
       time={time}
       icon={icon}

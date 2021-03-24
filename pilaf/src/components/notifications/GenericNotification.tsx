@@ -40,7 +40,6 @@ export const GenericNotification: React.FC<GenericNotificationProps> = ({
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    padding: 16,
     alignItems: "center",
   },
   middleView: {

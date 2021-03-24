@@ -49,7 +49,6 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: colors.primary900,
   },
   contentView: {
     justifyContent: "flex-end",

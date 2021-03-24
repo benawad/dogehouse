@@ -36,5 +36,5 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary900,
     flexDirection: "row",
   },
-  leftContainer: { paddingLeft: 25, paddingVertical: 25 },
+  leftContainer: { paddingLeft: 25, height: 70, justifyContent: "center" },
 });

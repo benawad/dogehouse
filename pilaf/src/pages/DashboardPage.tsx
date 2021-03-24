@@ -7,7 +7,6 @@ import { FeedController } from "../modules/dashboard/FeedController";
 export const DashboardPage: React.FC = () => {
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>Your feed</Text>
       <FeedController />
       <RoomCard
         style={{ marginBottom: 20 }}
@@ -35,7 +34,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.primary900,
     paddingHorizontal: 20,
-    paddingTop: 20,
+    paddingTop: 10,
   },
   title: {
     ...h3,
