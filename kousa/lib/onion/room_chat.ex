@@ -112,7 +112,7 @@ defmodule Onion.RoomChat do
 
   def handle_cast({:unban_user, user_id}, state) do
     if Map.has_key?(state.ban_map, user_id) do
-      ws_fan(state.users, :chat, %{
+      ws_fan(state.users, %{
         op: "chat_user_unbanned",
         d: %{
           userId: user_id
