@@ -8,7 +8,7 @@
         "watch": "tsc -w",
         "dev": "yarn compile && node ./dist/dev.js",
         "start": "yarn compile && cd node_modules/globkey && npx electron-build-env nj-cli build --release && cd ../../ && electron ./dist/electron.js",
-        "build": "yarn compile && electron-builder",
+        "build": "yarn compile && cd node_modules/globkey && npx electron-build-env nj-cli build --release && cd ../../ && electron-builder",
         "build:all": "yarn compile && yarn build:overlay && electron-builder -mwl",
         "build:mac": "yarn compile && yarn build:overlay && electron-builder --mac",
         "build:win": "yarn compile && yarn build:overlay && electron-builder --win",
