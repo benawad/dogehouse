@@ -138,7 +138,7 @@ export const KEY_TABLE = [
 
 
 export const ALLOWED_HOSTS = [
-    "dogehouse.tv",,
+    "dogehouse.tv",
     "next.dogehouse.tv",
     "api.dogehouse.tv",
     "dogehouse.tv",
