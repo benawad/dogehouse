@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import React from "react";
 import { InputField } from "../../form-fields/InputField";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
-import { useRoomChatStore } from "../../global-stores/useRoomChatStore";
 import { roomToCurrentRoom } from "../../lib/roomToCurrentRoom";
 import { showErrorToast } from "../../lib/showErrorToast";
 import { useWrappedConn } from "../../shared-hooks/useConn";
@@ -13,6 +12,7 @@ import { Button } from "../../ui/Button";
 import { ButtonLink } from "../../ui/ButtonLink";
 import { Modal } from "../../ui/Modal";
 import { NativeSelect } from "../../ui/NativeSelect";
+import { useRoomChatStore } from "../room/chat/useRoomChatStore";
 
 interface CreateRoomModalProps {
   onRequestClose: () => void;
