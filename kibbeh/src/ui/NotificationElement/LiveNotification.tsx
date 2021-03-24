@@ -1,7 +1,7 @@
 import React from "react";
 import { GenericNotification } from "./GenericNotification";
 import { Button } from "../Button";
-import { LgSolidTime } from "../../icons";
+import { SolidTime } from "../../icons";
 
 export interface LiveNotificationProps {
   username: string;
@@ -16,7 +16,7 @@ export const LiveNotification: React.FC<LiveNotificationProps> = ({
   time,
   joined = false,
 }) => {
-  const icon = <LgSolidTime className="text-primary-300" />;
+  const icon = <SolidTime className="text-primary-300" />;
 
   const notificationMsg = (
     <>

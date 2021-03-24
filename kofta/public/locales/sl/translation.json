@@ -84,10 +84,11 @@
       "followsYou": "ti sledi",
       "followers": "Sledilci",
       "following": "Spremljane osebe",
-      "followHim": "follow",
-      "followingHim": "following",
+      "followHim": "Sledi tej osebi",
+      "followingHim": "Slediš tej osebi",
       "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard"
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Nastavitve zvoka",

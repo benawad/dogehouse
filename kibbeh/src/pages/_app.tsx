@@ -10,6 +10,11 @@ import { init_i18n } from "../lib/i18n";
 import { SoundEffectPlayer } from "../modules/sound-effects/SoundEffectPlayer";
 import ReactModal from "react-modal";
 import { ErrorToastController } from "../modules/errors/ErrorToastController";
+import { WebRtcApp } from "../modules/webrtc/WebRtcApp";
+import {
+  MainWsHandlerProvider,
+  useMainWsHandler,
+} from "../shared-hooks/useMainWsHandler";
 
 if (!isServer) {
   init_i18n();
@@ -23,9 +28,12 @@ function App({ Component, pageProps }: AppProps) {
       shouldConnect={!!(Component as PageComponent<unknown>).ws}
     >
       <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
-        <SoundEffectPlayer />
-        <ErrorToastController />
+        <MainWsHandlerProvider>
+          <Component {...pageProps} />
+          <SoundEffectPlayer />
+          <ErrorToastController />
+          <WebRtcApp />
+        </MainWsHandlerProvider>
       </QueryClientProvider>
     </WebSocketProvider>
   );

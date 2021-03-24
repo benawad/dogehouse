@@ -1,6 +1,6 @@
 {
     "name": "dogehouse",
-    "version": "1.0.18",
+    "version": "1.0.19",
     "description": "Taking voice conversations to the moon 🚀",
     "main": "./dist/electron.js",
     "scripts": {
@@ -8,12 +8,12 @@
         "watch": "tsc -w",
         "dev": "yarn compile && node ./dist/dev.js",
         "start": "yarn compile && electron ./dist/electron.js",
-        "build": "yarn compile && yarn build:overlay && electron-builder",
+        "build": "yarn compile && electron-builder",
         "build:all": "yarn compile && yarn build:overlay && electron-builder -mwl",
         "build:mac": "yarn compile && yarn build:overlay && electron-builder --mac",
         "build:win": "yarn compile && yarn build:overlay && electron-builder --win",
         "build:linux": "yarn compile && yarn build:overlay && electron-builder --linux",
-        "build:overlay": "cd resources/overlay && yarn build"
+        "build:overlay": "cd resources/overlay && yarn build && cd ../../"
     },
     "keywords": [
         "DogeHouse",
@@ -66,9 +66,13 @@
                 "AppImage"
             ]
         },
+        "extraMetadata": {
+            "main": "dist/electron.js"
+        },
         "directories": {
             "output": "./builds"
-        }
+        },
+        "extends": null
     },
     "dependencies": {
         "active-win": "^6.3.0",

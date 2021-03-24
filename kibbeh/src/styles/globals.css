@@ -76,3 +76,8 @@ body,
   background-color: var(--color-primary-900);
   min-height: 100%;
 }
+
+audio {
+  width: 0;
+  display: none !important;
+}

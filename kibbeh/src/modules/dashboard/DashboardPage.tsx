@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { PageComponent } from "../../types/PageComponent";
-import { useVerifyLoggedIn } from "../auth/useVerifyLoggedIn";
 import { WaitForWsAndAuth } from "../auth/WaitForWsAndAuth";
 import { DesktopLayout } from "../layouts/DesktopLayout";
-import { WebSocketContext } from "../ws/WebSocketProvider";
+import { LeftPanel, MiddlePanel, RightPanel } from "../layouts/GridPanels";
 import { FeedController } from "./FeedController";
 import { FollowingOnlineController } from "./FollowingOnlineController";
 import { ProfileBlockController } from "./ProfileBlockController";
@@ -14,9 +13,13 @@ export const DashboardPage: PageComponent<LoungePageProps> = ({}) => {
   return (
     <WaitForWsAndAuth>
       <DesktopLayout>
-        <FollowingOnlineController />
+        <LeftPanel>
+          <FollowingOnlineController />
+        </LeftPanel>
         <FeedController />
-        <ProfileBlockController />
+        <RightPanel>
+          <ProfileBlockController />
+        </RightPanel>
       </DesktopLayout>
     </WaitForWsAndAuth>
   );

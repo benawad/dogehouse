@@ -22,7 +22,8 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "hr", label: "🇭🇷 Hrvatski" }, // Croatian
     { value: "da", label: "🇩🇰 Dansk" }, // Danish
     { value: "de", label: "🇩🇪 Deutsch" }, // German
-    { value: "el-GR", label: "🇬🇷 ελληνικά" },
+    { value: "el-GR", label: "🇬🇷 Νέα Ελληνικά" }, //Greek
+    { value: "ag-GR", label: "🇬🇷 Ancient Greek(Αρχαία Ελληνικά)" }, //Ancient Greek
     { value: "eo", label: "🟢 Esperanto" },
     { value: "es", label: "🇪🇸 Español" }, // Estonian
     { value: "eu", label: "🏴󠁥󠁳󠁰󠁶󠁿 Euskera" }, // Euskera
