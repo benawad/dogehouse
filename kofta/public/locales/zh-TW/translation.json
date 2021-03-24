@@ -1,0 +1,241 @@
+{
+  "common": {
+    "loadMore": "載入更多",
+    "loading": "載入中...",
+    "noUsersFound": "沒有找到任何用戶",
+    "ok": "好",
+    "yes": "是",
+    "no": "否",
+    "cancel": "取消",
+    "save": "儲存",
+    "edit": "編輯",
+    "delete": "刪除",
+    "joinRoom": "加入房間",
+    "copyLink": "複製連結",
+    "copied": "已複製",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "已靜音 | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "起源故事",
+    "link_2": "Discord",
+    "link_3": "回報Bug"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "禁言" },
+    "followingOnlineList": {
+      "listHeader": "你追蹤的且不在私人房間內的使用者",
+      "currentRoom": "目前的房間:",
+      "startPrivateRoom": "開啟私人房間"
+    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "新增房間", "refresh": "Refresh" },
+    "inviteList": {
+      "roomGone": "房間已被删除，請回到前一頁",
+      "shareRoomLink": "在房間分享連結",
+      "inviteFollowers": "你可以邀請你在線上的追蹤者:",
+      "whenFollowersOnline": "當你的追蹤者在線上，他們會顯示在這裡"
+    },
+    "login": {
+      "headerText": "Taking voice conversations to the moon 🚀",
+      "featureText_1": "暗黑模式",
+      "featureText_2": "開放註冊",
+      "featureText_3": "跨平台支援",
+      "featureText_4": "開源",
+      "featureText_5": "文字聊天",
+      "featureText_6": "Powered by Doge",
+      "loginGithub": "用GitHub登入",
+      "loginTwitter": "用Twitter登入",
+      "createTestUser": "建立測試使用者"
+    },
+    "myProfile": {
+      "logout": "登出",
+      "probablyLoading": "可能在讀取中...",
+      "voiceSettings": "音量設定",
+      "soundSettings": "聲音設定",
+      "deleteAccount": "刪除帳號",
+      "overlaySettings": "go to overlay settings"
+    },
+    "notFound": {
+      "whoopsError": "噢！這一頁不見了‧",
+      "goHomeMessage": "不用擔心，你可以",
+      "goHomeLinkText": "回到主頁面‧"
+    },
+    "room": {
+      "speakers": "講者",
+      "requestingToSpeak": "要求發言",
+      "listeners": "聽眾",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+    },
+    "searchUser": { "search": "搜尋..." },
+    "soundEffectSettings": { "header": "聲音" },
+    "viewUser": {
+      "editProfile": "編輯個人主頁",
+      "followsYou": "正在追蹤你",
+      "followers": "追蹤者們",
+      "following": "你正在追蹤",
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
+    },
+    "voiceSettings": {
+      "header": "語音設定",
+      "mic": "麥克風:",
+      "permissionError": "沒有找到麥克風，請確認有插入或者要允許本網站使用麥克風的權限‧",
+      "refresh": "更新麥克風列表",
+      "volume": "音量:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "被禁言的使用者",
+      "unban": "解禁",
+      "noBans": "沒有人被禁過"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "離開房間",
+      "confirmLeaveRoom": "確定離開嗎?",
+      "leave": "離開",
+      "inviteUsersToRoomBtn": "邀请使用者進入房間",
+      "invite": "邀请",
+      "toggleMuteMicBtn": "切换麥克風静音",
+      "mute": "麥克風靜音",
+      "unmute": "取消麥克風靜音",
+      "makeRoomPublicBtn": "把房間設定為公開",
+      "settings": "設定",
+      "speaker": "講者",
+      "listener": "聽眾",
+      "chat": "Chat"
+    },
+    "deviceNotSupported": {
+      "notSupported": "你的裝置目前並不支援，你可以到",
+      "linkText": " GitHub 建立 issue.",
+      "addSupport": " 而我會試著支援你的裝置‧"
+    },
+    "inviteButton": { "invited": "已被邀請", "inviteToRoom": "邀請到房間" },
+    "micPermissionBanner": {
+      "permissionDenied": "麥克風使用權被拒絕（可能需要更改設定並且重新整理頁面）",
+      "dismiss": "取消",
+      "tryAgain": "再試一次"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "設定按鍵組合",
+      "listening": "請輸入按鍵",
+      "toggleMuteKeybind": "觸發靜音的按鍵組合",
+      "togglePushToTalkKeybind": "觸發發言的按鍵組合",
+      "toggleOverlayKeybind": "toggle overlay keybind"
+    },
+    "userVolumeSlider": { "noAudioMessage": "沒有聲音" },
+    "addToCalendar": { "add": "加到行事曆" },
+    "wsKilled": {
+      "description": "Websocket 已從 server 斷線，這通常發生在你於另一個分頁開啟本網站‧",
+      "reconnect": "重新連線"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "公開",
+        "private": "私人",
+        "roomName": "房間名稱",
+        "roomDescription": "房間敘述",
+        "descriptionError": "最大長度為 500 字元",
+        "nameError": "名稱長度只能在 2 到 60 字元"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "新房間被建立",
+        "roomInviteFrom": "邀请者:",
+        "justStarted": "才剛開始",
+        "likeToJoin": "，你要加入嗎?",
+        "inviteReceived": "你被邀请到"
+      },
+      "editProfileModal": {
+        "usernameTaken": "用户名已被使用",
+        "avatarUrlError": "圖片無效",
+        "avatarUrlLabel": "Github/Twitter 頭像 URL",
+        "displayNameError": "長度為 2 到 50 字元",
+        "displayNameLabel": "顯示名稱",
+        "usernameError": "長度要在 4 到 15 字元之内，只可輸入英文字母、數字與下劃線 _",
+        "usernameLabel": "用户名",
+        "bioError": "最大長度為 160 字元",
+        "bioLabel": "個人簡介"
+      },
+      "profileModal": {
+        "blockUserConfirm": "你確定把此人加入黑名單?（他就無法加入你所建立的任何房間）",
+        "blockUser": "加入黑名單",
+        "makeMod": "設定為管理員",
+        "unmod": "取消管理員權限",
+        "addAsSpeaker": "加到講者",
+        "moveToListener": "移到聽眾",
+        "banFromChat": "禁止此人使用文字聊天",
+        "banFromRoom": "踢出房間",
+        "goBackToListener": "回到聽眾",
+        "deleteMessage": "删除此訊息",
+        "makeRoomCreator": "make room admin"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "需要許可才能發言",
+        "makePublic": "把房間設定為公開",
+        "makePrivate": "把房間設定為私人"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "預排的房間",
+      "noneFound": "沒有找到預排的房間",
+      "allRooms": "所有預排的房間",
+      "myRooms": "我預排的房間",
+      "scheduleRoomHeader": "預排房間",
+      "startRoom": "開始房間",
+      "modal": {
+        "needsFuture": "需要一個在未來的時間",
+        "roomName": "房間名稱",
+        "minLength": "最短長度為 2",
+        "roomDescription": "Description"
+      }
+    },
+    "roomChat": {
+      "title": "房間",
+      "emotesSoon": "[將增加表情符號]",
+      "bannedAlert": "你被禁言了",
+      "waitAlert": "你需要等一秒鐘才能發出下一則訊息",
+      "search": "搜尋",
+      "searchResults": "搜尋结果",
+      "recent": "最近的",
+      "sendMessage": "發送訊息",
+      "whisper": "密語",
+      "welcomeMessage": "歡迎來到房間!",
+      "roomDescription": "房間簡介"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fueling rocket",
+      "takingOff": "Taking off",
+      "inSpace": "In space",
+      "approachingMoon": "Approaching moon",
+      "lunarDoge": "Lunar doge",
+      "approachingSun": "Approaching sun",
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
+    }
+  }
+}

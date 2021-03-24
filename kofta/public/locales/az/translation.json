@@ -1,0 +1,249 @@
+{
+  "_comment": "if you change this file, do: npm run i18",
+  "common": {
+    "loadMore": "load more",
+    "loading": "loading...",
+    "noUsersFound": "no users found",
+    "ok": "ОК",
+    "yes": "bəli",
+    "no": "yox",
+    "cancel": "ləğv",
+    "save": "yadda saxlamaq",
+    "edit": "dəişməy",
+    "delete": "silmək",
+    "joinRoom": "Otağa qoşulmağ",
+    "copyLink": "Linki kopyalamaq",
+    "copied": "Kopyalandı",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please give DogeHouse Accessibility permessions"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Səssizdir | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "Tarix",
+    "link_2": "Discord",
+    "link_3": "Səhv haqqında məlumat vermək"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "ban" },
+    "followingOnlineList": {
+      "listHeader": "Список пользователей, которые не в закрытой комнате и на которых вы подписаны.",
+      "currentRoom": "сейчас в :",
+      "startPrivateRoom": "создать с ними закрытую комнату"
+    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Otaq yaratmağ", "refresh": "Təzələmək" },
+    "inviteList": {
+      "roomGone": "room gone, go back",
+      "shareRoomLink": "share link to room",
+      "inviteFollowers": "You can invite your followers that are online:",
+      "whenFollowersOnline": "When your followers are online, they will show up here."
+    },
+    "login": {
+      "headerText": "Səs rabitəsini aya qaldırığ 🚀",
+      "featureText_1": "Gecə modu",
+      "featureText_2": "Açıq qeydiyyat",
+      "featureText_3": "Cross-Platform Support",
+      "featureText_4": "Open source",
+      "featureText_5": "Çat",
+      "featureText_6": "Doge sayəsində işləyir",
+      "loginGithub": "GitHub ilə daxil olmaq",
+      "loginTwitter": "Twitter ilə daxil olmaq",
+      "createTestUser": "test istifadəçini yaradmaq"
+    },
+    "myProfile": {
+      "logout": "çıxmaq",
+      "probablyLoading": "yüklənir deyəsən...",
+      "voiceSettings": "mikrofon parametrlərinə keçmək",
+      "soundSettings": "səs parametrlərinə keçmək",
+      "deleteAccount": "akkauntu ləğv etmək",
+      "overlaySettings": "go to overlay settings"
+    },
+    "notFound": {
+      "whoopsError": "Ups! Bu səhifə məkan və zaman içində itmişdi.",
+      "goHomeMessage": "Narahat olmayın. Siz uğur qazanacaqsınız",
+      "goHomeLinkText": "Əsas sayfəyə keçid"
+    },
+    "room": {
+      "speakers": "Natiqlər",
+      "requestingToSpeak": "Danışmaq istəyənlər",
+      "listeners": "Dinləyicilər",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+    },
+    "searchUser": { "search": "axtarış..." },
+    "soundEffectSettings": { "header": "səslər" },
+    "viewUser": {
+      "editProfile": "profilə düzəliş et",
+      "followsYou": "sizi izləyənlər",
+      "followers": "abunəçilər",
+      "following": "abunəsiniz",
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
+    },
+    "voiceSettings": {
+      "header": "Səs parametrləri",
+      "mic": "mikrofon:",
+      "permissionError": "no mics found, you either have none plugged in or haven't given this website permission.",
+      "refresh": "refresh mic list",
+      "volume": "volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings",
+      "errorMsg": "Please enter valid app title",
+      "label": "Enter app title"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Banned Users",
+      "unban": "unban",
+      "noBans": "no one has been banned yet"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Hazırkı otaqdan çıxmağ",
+      "confirmLeaveRoom": "Çıxmağ istədiyinizə əminsiniz?",
+      "leave": "Leave",
+      "inviteUsersToRoomBtn": "İstifadəçiləri otağa dəvət etmək",
+      "invite": "Dəvət etmək",
+      "toggleMuteMicBtn": "Toggle mute microphone",
+      "mute": "Səssiz etmək",
+      "unmute": "Səsli etmək",
+      "makeRoomPublicBtn": "Make room public!",
+      "settings": "Parametlər",
+      "speaker": "Natiqlər",
+      "listener": "Dinləyicilər",
+      "chat": "Chat"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Your device is currently not supported. You can create an",
+      "linkText": "issue on GitHub",
+      "addSupport": "and I will try adding support for your device."
+    },
+    "inviteButton": {
+      "invited": "dəvət olunub",
+      "inviteToRoom": "otağa dəvət etmək"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "Permission denied trying to access your mic (you may need to go into browser settings and reload the page)",
+      "dismiss": "rədd etmək",
+      "tryAgain": "yenidən cəhd etmək"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "set keybind",
+      "listening": "listening",
+      "toggleMuteKeybind": "toggle mute keybind",
+      "togglePushToTalkKeybind": "toggle push-to-talk keybind",
+      "toggleOverlayKeybind": "toggle overlay keybind"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "no audio consumer for some reason"
+    },
+    "addToCalendar": { "add": "Add to Calendar" },
+    "wsKilled": {
+      "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
+      "reconnect": "reconnect"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "public",
+        "private": "private",
+        "roomName": "room name",
+        "roomDescription": "room description",
+        "descriptionError": "max length 500",
+        "nameError": "must be between 2 to 60 characters long"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "New Room Created",
+        "roomInviteFrom": "Room Invite from",
+        "justStarted": "They just started",
+        "likeToJoin": ", would you like to join?",
+        "inviteReceived": "you've been invited to"
+      },
+      "editProfileModal": {
+        "usernameTaken": "username taken",
+        "avatarUrlError": "Invalid image",
+        "avatarUrlLabel": "GitHub/Twitter avatar url",
+        "displayNameError": "length 2 to 50 characters",
+        "displayNameLabel": "Display Name",
+        "usernameError": "length 4 to 15 characters and only alphanumeric/underscore",
+        "usernameLabel": "Username",
+        "bioError": "max length of 160 characters",
+        "bioLabel": "Bio"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Are you sure you want to block this user from joining any room you ever create?",
+        "blockUser": "block user",
+        "makeMod": "make mod",
+        "unmod": "unmod",
+        "addAsSpeaker": "add as speaker",
+        "moveToListener": "move to listener",
+        "banFromChat": "ban from chat",
+        "banFromRoom": "ban from room",
+        "goBackToListener": "go back to listener",
+        "deleteMessage": "delete this message",
+        "makeRoomCreator": "make room admin"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "require permission to speak",
+        "makePublic": "make room public",
+        "makePrivate": "make room private"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "Scheduled Rooms",
+      "noneFound": "none found",
+      "allRooms": "all scheduled rooms",
+      "myRooms": "my scheduled rooms",
+      "scheduleRoomHeader": "Schedule Room",
+      "startRoom": "start room",
+      "modal": {
+        "needsFuture": "needs to be in the future",
+        "roomName": "room name",
+        "minLength": "min length 2",
+        "roomDescription": "Description"
+      }
+    },
+    "roomChat": {
+      "title": "Çat",
+      "emotesSoon": "[emodzi tezliklə]",
+      "bannedAlert": "Bu söhbətə blokdasız",
+      "waitAlert": "You have to wait a second before sending another message",
+      "search": "Search",
+      "searchResults": "Search Results",
+      "recent": "Frequently Used",
+      "sendMessage": "Send a Message",
+      "whisper": "Whisper",
+      "welcomeMessage": "Welcome to chat!",
+      "roomDescription": "room description"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fueling rocket",
+      "takingOff": "Taking off",
+      "inSpace": "In space",
+      "approachingMoon": "Approaching moon",
+      "lunarDoge": "Lunar doge",
+      "approachingSun": "Approaching sun",
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
+    }
+  }
+}

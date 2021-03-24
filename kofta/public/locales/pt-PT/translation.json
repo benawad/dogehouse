@@ -1,0 +1,245 @@
+{
+  "common": {
+    "loadMore": "Carregar mais",
+    "loading": "A carregar...",
+    "noUsersFound": "Não foram encontrados utilizadores",
+    "ok": "Ok",
+    "yes": "Sim",
+    "no": "Não",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "edit": "Editar",
+    "delete": "Apagar",
+    "joinRoom": "entrar na sala",
+    "copyLink": "copiar link",
+    "copied": "copiado",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Por favor note que correr DogeHouse sem premissões de acesso pode causar erros indesejados"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Silenciado | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "História",
+    "link_2": "Discord",
+    "link_3": "Reportar um Erro"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "Banir" },
+    "followingOnlineList": {
+      "listHeader": "Lista de utilizadores que segues e que não se encontram numa sala privada.",
+      "currentRoom": "Atualmente em:",
+      "startPrivateRoom": "Iniciar uma sala privada com eles"
+    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Criar Sala", "refresh": "Atualizar" },
+    "inviteList": {
+      "roomGone": "A sala não existe, voltar atrás",
+      "shareRoomLink": "Partilhar link da sala",
+      "inviteFollowers": "Podes convidar os teus seguidores que se encontram online:",
+      "whenFollowersOnline": "Os teus seguidores que se encontram online irão aparecer aqui."
+    },
+    "login": {
+      "headerText": "A levar conversas de voz até à lua 🚀",
+      "featureText_1": "Tema escuro",
+      "featureText_2": "Registo sem restrições",
+      "featureText_3": "Suporte multiplataforma",
+      "featureText_4": "Open Source",
+      "featureText_5": "Mensagens de texto",
+      "featureText_6": "Powered by Doge",
+      "loginGithub": "Entrar com GitHub",
+      "loginTwitter": "Entrar com Twitter",
+      "createTestUser": "Criar utilizador de teste"
+    },
+    "myProfile": {
+      "logout": "Sair",
+      "probablyLoading": "Provavlemente a carregar...",
+      "voiceSettings": "Definições de voz",
+      "soundSettings": "Definições de som",
+      "deleteAccount": "Apagar conta",
+      "overlaySettings": "Ir para definições de Overlay"
+    },
+    "notFound": {
+      "whoopsError": "Ups! Esta página perdeu-se na conversa.",
+      "goHomeMessage": "Não te preocupes, podes",
+      "goHomeLinkText": "Voltar ao início"
+    },
+    "room": {
+      "speakers": "Oradores",
+      "requestingToSpeak": "A pedir para falar",
+      "listeners": "Ouvintes",
+      "allowAll": "Permitir todos",
+      "allowAllconfirm": "De certeza? Isto permitirá todos os {{count}} utilizadores a pedir, falar"
+    },
+    "searchUser": { "search": "Procurar..." },
+    "soundEffectSettings": { "header": "Sons" },
+    "viewUser": {
+      "editProfile": "Editar perfil",
+      "followsYou": "Seguem-te",
+      "followers": "Seguidores",
+      "following": "A seguir",
+      "followHim": "Seguir",
+      "followingHim": "Seguindo",
+      "copyProfileUrl": "copiar URL do perfil",
+      "urlCopied": "URL copiado",
+      "unfollow": "Deixar de Seguir"
+    },
+    "voiceSettings": {
+      "header": "Definições de voz",
+      "mic": "Microfone:",
+      "permissionError": "Não foram encontrados microfones; ou não foram dadas permissões, ou não estão corretamente ligados.",
+      "refresh": "Atualizar lista de microfones",
+      "volume": "Volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Título de aplicação inválido", "label": "Introduza o título da aplicação" },
+      "header": "Definições de Overlay"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Utilizadores banidos",
+      "unban": "Remover ban",
+      "noBans": "Sem utilizadores banidos"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Sair da sala atual",
+      "confirmLeaveRoom": "Pretendes sair da sala?",
+      "leave": "Sair",
+      "inviteUsersToRoomBtn": "Convidar utilizadores para a sala",
+      "invite": "Convidar",
+      "toggleMuteMicBtn": "Silenciar microfone",
+      "mute": "Silenciar",
+      "unmute": "Ativar",
+      "makeRoomPublicBtn": "Tornar a sala pública!",
+      "settings": "Definições",
+      "speaker": "Orador",
+      "listener": "Ouvinte",
+      "chat": "Chat"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "Sem permissão para aceder ao microfone (poderás ter que de ir às configurações do teu navegador e atualizar a página)",
+      "dismiss": "Ignorar",
+      "tryAgain": "Tentar novamente"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "Público",
+        "private": "Privado",
+        "roomName": "nome da sala",
+        "roomDescription": "descrição da sala",
+        "descriptionError": "máximo 500 caracteres",
+        "nameError": "deverá ter entre 2 e 60 caracteres"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "Nova sala criada",
+        "roomInviteFrom": "Convite para a sala de",
+        "justStarted": "Foi iniciado agora",
+        "likeToJoin": ", gostarias de te juntar?",
+        "inviteReceived": "Foste convidado para"
+      },
+      "editProfileModal": {
+        "usernameTaken": "O utilizador já existe",
+        "avatarUrlError": "Imagem inválida",
+        "avatarUrlLabel": "URL da foto de perfil (GitHub/Twitter)",
+        "displayNameError": "Deverá ter entre 2 e 50 caracteres",
+        "displayNameLabel": "Nome de apresentação",
+        "usernameError": "Deverá ter entre 4 e 15 caracteres alfanuméricos e com letra minúscula",
+        "usernameLabel": "Nome de utilizador",
+        "bioError": "Tamanho máximo de 160 caracteres",
+        "bioLabel": "Biografia"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Pretendes bloquear este utlizador de se juntar às salas que criares?",
+        "blockUser": "Bloquear utilizador",
+        "makeMod": "Tornar moderador",
+        "unmod": "Remover de moderador",
+        "addAsSpeaker": "Adicionar como orador",
+        "moveToListener": "Tornar ouvinte",
+        "banFromChat": "Banir do chat",
+        "banFromRoom": "Banir da sala",
+        "goBackToListener": "voltar a ouvinte",
+        "deleteMessage": "Apagar mensagem",
+        "makeRoomCreator": "Tornar administrador da sala"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "Pedir permissão para falar",
+        "makePublic": "Tornar a sala pública",
+        "makePrivate": "Tornar a sala privada"
+      }
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "Sem consumidor de áudio devido a um erro desconhecido"
+    },
+    "addToCalendar": { "add": "Adicionar ao calendário" },
+    "keyboardShortcuts": {
+      "setKeybind": "definir atalho",
+      "listening": "a ouvir",
+      "toggleMuteKeybind": "teclas de atalho para silenciar",
+      "togglePushToTalkKeybind": "teclas de atalho para ativar o premir-para-falar",
+      "toggleOverlayKeybind": "teclas de atalho para mostrar/esconder o Overlay"
+    },
+    "wsKilled": {
+      "description": "O WebSocket foi quebrado pelo servidor. Isto geralmente acontece quando abres o site noutro separador.",
+      "reconnect": "restablecer a ligação"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Neste momento o teu dispositivo não é suportado. Podes criar um",
+      "linkText": "issue no GitHub",
+      "addSupport": "e tentarei adicionar suporte para o mesmo."
+    },
+    "inviteButton": {
+      "invited": "convidado",
+      "inviteToRoom": "convidar para a sala"
+    }
+  },
+  "modules": {
+    "scheduledRooms": {
+      "title": "Salas agendadas",
+      "noneFound": "nenhuma encontrada",
+      "allRooms": "todas as salas agendadas",
+      "myRooms": "salas agendadas por mim",
+      "scheduleRoomHeader": "Agendar Sala",
+      "startRoom": "iniciar sala",
+      "modal": {
+        "needsFuture": "a data tem de ser posterior",
+        "roomName": "nome da sala",
+        "minLength": "mínimo de 2 caracteres",
+        "roomDescription": "descrição da sala"
+      }
+    },
+    "roomChat": {
+      "title": "Chat",
+      "emotesSoon": "[emoticons brevemente]",
+      "bannedAlert": "Foste banido do chat",
+      "waitAlert": "Tens de esperar 1 segundo para escrever uma nova mensagem",
+      "search": "Pesquisar",
+      "searchResults": "Resultados da pesquisa",
+      "recent": "Usados Frequentemente",
+      "sendMessage": "Enviar mensagem",
+      "whisper": "Sussurro",
+      "welcomeMessage": "Bem-vindo ao chat!",
+      "roomDescription": "descrição da sala"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fueling rocket",
+      "takingOff": "Taking off",
+      "inSpace": "In space",
+      "approachingMoon": "Approaching moon",
+      "lunarDoge": "Lunar doge",
+      "approachingSun": "Approaching sun",
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
+    }
+  }
+}

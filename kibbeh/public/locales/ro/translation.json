@@ -1,0 +1,247 @@
+{
+  "_comment": "if you change this file, do: npm run i18",
+  "common": {
+    "loadMore": "Încarcă mai multe",
+    "loading": "Se încarcă...",
+    "noUsersFound": "Nu s-au găsit utilizatori",
+    "ok": "ok",
+    "yes": "da",
+    "no": "nu",
+    "cancel": "anulează",
+    "save": "salvează",
+    "edit": "editează",
+    "delete": "șterge",
+    "joinRoom": "intră în cameră",
+    "copyLink": "copiază link-ul",
+    "copied": "copiat",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Microfon dezactivat | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "Origin Story",
+    "link_2": "Discord",
+    "link_3": "Raportează o eroare"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "blochează" },
+    "followingOnlineList": {
+      "listHeader": "Lista utilizatorilor care nu se află într-o cameră privată și pe care o urmăriți.",
+      "currentRoom": "Deocamdată în:",
+      "startPrivateRoom": "Începe o cameră privată cu ei"
+    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Creează cameră", "refresh": "Refresh" },
+    "inviteList": {
+      "roomGone": "Camera a dispărut, du-te înapoi",
+      "shareRoomLink": "Distribuie link-ul camerei",
+      "inviteFollowers": "Poți invita urmăritorii tăi care sunt online:",
+      "whenFollowersOnline": "Cănd urmăritorii tăi sunt online, o să apară aici."
+    },
+    "login": {
+      "headerText": "Ducând conversații vocale către lună 🚀",
+      "featureText_1": "Temă întunecată",
+      "featureText_2": "Deschide Sign-Upuri",
+      "featureText_3": "Suport Cross-Platform",
+      "featureText_4": "Open Source",
+      "featureText_5": "Chat Text",
+      "featureText_6": "Alimentat de Doge",
+      "loginGithub": "Logare cu GitHub",
+      "loginTwitter": "Logare cu Twitter",
+      "createTestUser": "Creare user de test"
+    },
+    "myProfile": {
+      "logout": "logout",
+      "probablyLoading": "Probabil se încarcă...",
+      "voiceSettings": "Mergi la setările de voce",
+      "soundSettings": "Mergi la setările de sunet",
+      "deleteAccount": "Şterge cont",
+      "overlaySettings": "go to overlay settings"
+    },
+    "notFound": {
+      "whoopsError": "Ups! Această pagină a fost pierdută în conversație.",
+      "goHomeMessage": "Nici o grijă. Poți să",
+      "goHomeLinkText": "te duci acasă"
+    },
+    "room": {
+      "speakers": "Vorbitori",
+      "requestingToSpeak": "Cere să vorbească",
+      "listeners": "Ascultători",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+    },
+    "searchUser": { "search": "caută..." },
+    "soundEffectSettings": { "header": "Sunete" },
+    "viewUser": {
+      "editProfile": "Editează profil",
+      "followsYou": "Te urmărește",
+      "followers": "Urmăritori",
+      "following": "Urmărește",
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
+    },
+    "voiceSettings": {
+      "header": "Sunete Voce",
+      "mic": "mic:",
+      "permissionError": "Nu au fost găsite microfoane - ori nu ai unul conectat ori pagina aceasta nu are permisiune.",
+      "refresh": "Reîmprospătează lista de microfoane",
+      "volume": "Volum:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Utilizatori Blocaţi",
+      "unban": "Elimină restricţie",
+      "noBans": "Nimeni nu a fost blocat deocamdată"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Părăsește camera curentă",
+      "confirmLeaveRoom": "Ești sigur că vrei să ieși?",
+      "leave": "Ieși",
+      "inviteUsersToRoomBtn": "Invită utilizatori în cameră",
+      "invite": "Invită",
+      "toggleMuteMicBtn": "Comutați microfonul",
+      "mute": "Dezactivare sunet",
+      "unmute": "Activare sunet",
+      "makeRoomPublicBtn": "Fă camera publică!",
+      "settings": "Setări",
+      "speaker": "Difuzor",
+      "listener": "Ascultător",
+      "chat": "Chat"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Dispozitivul tău momentan nu este suportat. Poți crea un",
+      "linkText": "tichet pe GitHub",
+      "addSupport": "și am să încerc să adaug suport pentru dispozitivul tău."
+    },
+    "inviteButton": {
+      "invited": "Invitat",
+      "inviteToRoom": "Invită în cameră"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "Permisiunea refuzată pentru încercarea de a vă accesa microfonul (poate fi necesar să accesați setările browserului și să reîncărcați pagina)",
+      "dismiss": "Renunță",
+      "tryAgain": "Încearcă din nou"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "Setează keybind",
+      "listening": "Ascultare",
+      "toggleMuteKeybind": "Keybind comută mut",
+      "togglePushToTalkKeybind": "Keybind comută push-to-talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "niciun consumator audio dintr-un motiv oarecare"
+    },
+    "addToCalendar": { "add": "Adaugă în Calendar" },
+    "wsKilled": {
+      "description": "Websocket a fost omorât de către server. Asta se întamplă de obicei cănd website-ul este deschis în altă filă.",
+      "reconnect": "Reconectează-te"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "Publică",
+        "private": "Privată",
+        "roomName": "Nume Cameră",
+        "roomDescription": "Descriere cameră",
+        "descriptionError": "Lungime maximă de 500",
+        "nameError": "Trebuie să fie între 2 și 60 caractere"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "Nouă Cameră Creată",
+        "roomInviteFrom": "Invitație Cameră de la",
+        "justStarted": "Tocmai au început",
+        "likeToJoin": ", Vrei să te alături?",
+        "inviteReceived": "Ai fost invitat să"
+      },
+      "editProfileModal": {
+        "usernameTaken": "Username deja folosit",
+        "avatarUrlError": "Imagine invalidă",
+        "avatarUrlLabel": "URL avatar Github/Twitter",
+        "displayNameError": "Lungime între 2 și 50 caractere",
+        "displayNameLabel": "Nume de ecran",
+        "usernameError": "Lungime între 4 și 15 caractere și numai alphanumerice/underscore",
+        "usernameLabel": "Username",
+        "bioError": "Lungime maximă de 160 de caractere",
+        "bioLabel": "Bio"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Ești sigur că dorești să restrictionezi acest utilizator să intre în orice cameră pe care o creezi?",
+        "blockUser": "Interzice utilizator",
+        "makeMod": "Fă mod",
+        "unmod": "Scoate mod",
+        "addAsSpeaker": "Adaugă ca vorbitor",
+        "moveToListener": "Mută la ascultători",
+        "banFromChat": "Interzice din chat",
+        "banFromRoom": "Interzice din cameră",
+        "goBackToListener": "Du-te înapoi la ascultător",
+        "deleteMessage": "Şterge acest mesaj",
+        "makeRoomCreator": "make room admin"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "Necesită permisiunea de a vorbi",
+        "makePublic": "Fă camera publică",
+        "makePrivate": "Fă camera privată"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "Camere Programate",
+      "noneFound": "niciunul nu a fost găsit",
+      "allRooms": "toate camerele programate",
+      "myRooms": "camerele mele programate",
+      "scheduleRoomHeader": "Programează Cameră",
+      "startRoom": "Începe o cameră",
+      "modal": {
+        "needsFuture": "Trebuie să fie în viitor",
+        "roomName": "Numele camerei",
+        "minLength": "De minim 2 caractere",
+        "roomDescription": "Description"
+      }
+    },
+    "roomChat": {
+      "title": "Chat",
+      "emotesSoon": "[emote-uri în curând]",
+      "bannedAlert": "Ai fost interzis în chat",
+      "waitAlert": "Trebuie să aștepți o secundă până sa trimiți încă un mesaj.",
+      "search": "Caută",
+      "searchResults": "Rezultate Căutare",
+      "recent": "Frecvent Utilizat",
+      "sendMessage": "Trimite un mesaj",
+      "whisper": "Șoptește",
+      "welcomeMessage": "Bine ai venit în chat!",
+      "roomDescription": "Descriere cameră"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fueling rocket",
+      "takingOff": "Taking off",
+      "inSpace": "In space",
+      "approachingMoon": "Approaching moon",
+      "lunarDoge": "Lunar doge",
+      "approachingSun": "Approaching sun",
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
+    }
+  }
+}

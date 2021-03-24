@@ -1,0 +1,244 @@
+{
+  "common": {
+    "loadMore": "muat lebih banyak",
+    "loading": "memuat...",
+    "noUsersFound": "pengguna tidak ditemukan",
+    "ok": "ok",
+    "yes": "ya",
+    "no": "tidak",
+    "cancel": "batal",
+    "save": "simpan",
+    "edit": "ubah",
+    "delete": "hapus",
+    "joinRoom": "gabung ke ruangan",
+    "copyLink": "salin tautan",
+    "copied": "disalin",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Bisu | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "Sejarah Awal",
+    "link_2": "Discord",
+    "link_3": "Laporkan kesalahan"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "ban" },
+    "followingOnlineList": {
+      "listHeader": "Daftar pengguna yang tidak ada di ruangan privat dan kamu ikuti.",
+      "currentRoom": "saat ini di:",
+      "startPrivateRoom": "mulai ruangan privat dengan mereka"
+    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Buat Ruangan", "refresh": "Muat ulang" },
+    "inviteList": {
+      "roomGone": "ruangan hilang, kembali",
+      "shareRoomLink": "bagikan tautan ke ruangan",
+      "inviteFollowers": "Kamu bisa ajak pengikut kamu yang online:",
+      "whenFollowersOnline": "Saat pengikut Anda online, mereka akan muncul di sini."
+    },
+    "login": {
+      "headerText": "Membawa obrolan suara ke bulan 🚀",
+      "featureText_1": "Mode Gelap",
+      "featureText_2": "Buka Pendaftaran",
+      "featureText_3": "Dukungan Lintas Platform",
+      "featureText_4": "Sumber Terbuka",
+      "featureText_5": "Obrolan Teks",
+      "featureText_6": "Dipersembahkan oleh Doge",
+      "loginGithub": "masuk dengan GitHub",
+      "loginTwitter": "masuk dengan Twitter",
+      "createTestUser": "buat akun uji coba"
+    },
+    "myProfile": {
+      "logout": "keluar",
+      "probablyLoading": "mungkin sedang memuat...",
+      "voiceSettings": "pergi ke pengaturan suara",
+      "soundSettings": "pergi ke pengaturan bunyi",
+      "deleteAccount": "hapus akun",
+      "overlaySettings": "go to overlay settings"
+    },
+    "notFound": {
+      "whoopsError": "Uupsie! Halaman ini hilang dalam percakapan.",
+      "goHomeMessage": "Tak perlu khawatir. Kamu bisa",
+      "goHomeLinkText": "kembali ke awal"
+    },
+    "room": {
+      "speakers": "Pembicara",
+      "requestingToSpeak": "Meminta untuk bicara",
+      "listeners": "Pendengar",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+    },
+    "searchUser": { "search": "cari..." },
+    "soundEffectSettings": { "header": "Bunyi" },
+    "viewUser": {
+      "editProfile": "ubah profil",
+      "followsYou": "mengikutimu",
+      "followers": "pengikut",
+      "following": "pengikut",
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
+    },
+    "voiceSettings": {
+      "header": "Pengaturan Suara",
+      "mic": "mic:",
+      "permissionError": "mic tidak ditemukan, mungkin kamu belum memasangnya atau belum memberikan website ini akses.",
+      "refresh": "muat ulang daftar mic",
+      "volume": "volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Pengguna dibanned",
+      "unban": "unban",
+      "noBans": "tidak ada pengguna yang dibanned"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Keluar ruangan saat ini",
+      "confirmLeaveRoom": "Kamu yakin ingin keluar?",
+      "leave": "Keluar",
+      "inviteUsersToRoomBtn": "Undang pengguna ke ruangan",
+      "invite": "Undang",
+      "toggleMuteMicBtn": "Atur mikrofon untuk membisu",
+      "mute": "Bisu",
+      "unmute": "Suarakan",
+      "makeRoomPublicBtn": "Buat ruangan publik!",
+      "settings": "Pengaturan",
+      "speaker": "Pembicara",
+      "listener": "Pendengar",
+      "chat": "Percakapan"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Perangkatmu saat ini belum didukung. Kamu bisa membuat",
+      "linkText": "issue di GitHub",
+      "addSupport": "dan saya akan coba menambahkan dukungan untuk perangkatmu."
+    },
+    "inviteButton": {
+      "invited": "diundang",
+      "inviteToRoom": "undang ke ruangan"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "Izin ditolak mencoba akses mikrofon (kamu mungkin bisa ke pengaturan browser dan memuat ulang halaman)",
+      "dismiss": "hilangkan",
+      "tryAgain": "coba lagi"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "atur tombol",
+      "listening": "menunggu tombol",
+      "toggleMuteKeybind": "atur tombol untuk membisu",
+      "togglePushToTalkKeybind": "atur tombol push-to-talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
+    },
+    "userVolumeSlider": { "noAudioMessage": "perangkat audio tidak ditemukan" },
+    "addToCalendar": { "add": "Tambahkan ke Kalender" },
+    "wsKilled": {
+      "description": "WebSocket dihentikan oleh server. Biasanya terjadi karena kamu membuka website ini di tab lain.",
+      "reconnect": "menyambungkan kembali"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "publik",
+        "private": "privat",
+        "roomName": "nama ruangan",
+        "roomDescription": "deskripsi ruangan",
+        "descriptionError": "panjang maksimal 500",
+        "nameError": "panjang karakter antara 2 sampai 60"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "Ruangan Baru Dibuat",
+        "roomInviteFrom": "Undangan Ruangan dari",
+        "justStarted": "Mereka baru saja mulai",
+        "likeToJoin": ", maukah kamu bergabung?",
+        "inviteReceived": "kamu telah diundang ke"
+      },
+      "editProfileModal": {
+        "usernameTaken": "username telah dipakai",
+        "avatarUrlError": "Gambar tidak valid",
+        "avatarUrlLabel": "Url avatar GitHub/Twitter",
+        "displayNameError": "panjang karakter 2 sampai 50",
+        "displayNameLabel": "Nama Tampilan",
+        "usernameError": "panjang karakter 4 sampai 15 dan hanya alphanumeric/underscore",
+        "usernameLabel": "Username",
+        "bioError": "maksimal 160 karakter",
+        "bioLabel": "Bio"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Kamu yakin memblokir pengguna ini untuk bergabung ke ruangan yang kamu buat?",
+        "blockUser": "blokir pengguna",
+        "makeMod": "jadikan mod",
+        "unmod": "unmod",
+        "addAsSpeaker": "tambahkan sebagai pembicara",
+        "moveToListener": "pindah ke pendengar",
+        "banFromChat": "ban dari percakapan",
+        "banFromRoom": "ban dari ruangan",
+        "goBackToListener": "kembali ke pendengar",
+        "deleteMessage": "hapus pesan ini",
+        "makeRoomCreator": "make room admin"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "membutuhkan izin untuk berbicara",
+        "makePublic": "buat ruangan jadi publik",
+        "makePrivate": "buat ruangan jadi privat"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "Ruangan Terjadwal",
+      "noneFound": "tidak ditemukan",
+      "allRooms": "seluruh ruangan terjadwal",
+      "myRooms": "ruangan terjadwalku",
+      "scheduleRoomHeader": "Jadwalkan Ruangan",
+      "startRoom": "mulai ruangan",
+      "modal": {
+        "needsFuture": "dibutuhkan di masa depan",
+        "roomName": "nama ruangan",
+        "minLength": "minimal panjang 2",
+        "roomDescription": "Deskripsi"
+      }
+    },
+    "roomChat": {
+      "title": "Percakapan",
+      "emotesSoon": "[emoji segera]",
+      "bannedAlert": "Kamu dibanned dari percakapan",
+      "waitAlert": "Kamu harus menunggu sebentar sebelum mengirim pesan lain",
+      "search": "Cari",
+      "searchResults": "Cari Hasilnya",
+      "recent": "Sering Digunakan",
+      "sendMessage": "Kirim Pesan",
+      "whisper": "Whisper",
+      "welcomeMessage": "Selamat datang di percakapan!",
+      "roomDescription": "deskripsi ruangan"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fueling rocket",
+      "takingOff": "Taking off",
+      "inSpace": "In space",
+      "approachingMoon": "Approaching moon",
+      "lunarDoge": "Lunar doge",
+      "approachingSun": "Approaching sun",
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
+    }
+  }
+}

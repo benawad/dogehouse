@@ -1,0 +1,264 @@
+{
+  "_comment": "if you change this file, do: npm run i18",
+  "common": {
+    "loadMore": "load more",
+    "loading": "loading...",
+    "noUsersFound": "no users found",
+    "ok": "ok",
+    "yes": "yes",
+    "no": "no",
+    "cancel": "Cancel",
+    "save": "save",
+    "edit": "edit",
+    "delete": "delete",
+    "joinRoom": "join room",
+    "copyLink": "copy link",
+    "copied": "copied",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Muted | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "Origin Story",
+    "link_2": "Discord",
+    "link_3": "Report a Bug"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": {
+      "ban": "ban"
+    },
+    "followingOnlineList": {
+      "listHeader": "List of users that are not in a private room and you follow.",
+      "currentRoom": "currently in:",
+      "startPrivateRoom": "start a private room with them"
+    },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following"
+    },
+    "home": {
+      "createRoom": "Create Room",
+      "refresh": "Refresh"
+    },
+    "inviteList": {
+      "roomGone": "room gone, go back",
+      "shareRoomLink": "share link to room",
+      "inviteFollowers": "You can invite your followers that are online:",
+      "whenFollowersOnline": "When your followers are online, they will show up here."
+    },
+    "login": {
+      "headerText": "Taking voice conversations to the moon 🚀",
+      "featureText_1": "Dark Theme",
+      "featureText_2": "Open Sign-Ups",
+      "featureText_3": "Cross-Platform Support",
+      "featureText_4": "Open Source",
+      "featureText_5": "Text Chat",
+      "featureText_6": "Powered by Doge",
+      "loginGithub": "login with GitHub",
+      "loginTwitter": "login with Twitter",
+      "createTestUser": "create test user"
+    },
+    "myProfile": {
+      "logout": "logout",
+      "probablyLoading": "probably loading...",
+      "voiceSettings": "go to voice settings",
+      "overlaySettings": "go to overlay settings",
+      "soundSettings": "go to sound settings",
+      "deleteAccount": "delete account"
+    },
+    "notFound": {
+      "whoopsError": "Whoops! This page got lost in conversation.",
+      "goHomeMessage": "Not to worry. You can",
+      "goHomeLinkText": "go home"
+    },
+    "room": {
+      "speakers": "Speakers",
+      "requestingToSpeak": "Requesting to speak",
+      "listeners": "Listeners",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+    },
+    "searchUser": {
+      "search": "search..."
+    },
+    "soundEffectSettings": {
+      "header": "Sounds"
+    },
+    "viewUser": {
+      "editProfile": "edit profile",
+      "followsYou": "Follows you",
+      "followers": "followers",
+      "following": "following",
+      "followHim": "Follow",
+      "unfollow": "Unfollow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
+    },
+    "voiceSettings": {
+      "header": "Voice Settings",
+      "mic": "mic:",
+      "permissionError": "no mics found, you either have none plugged in or haven't given this website permission.",
+      "refresh": "refresh mic list",
+      "volume": "volume:"
+    },
+    "overlaySettings": {
+      "header": "Overlay Settings",
+      "input": {
+        "errorMsg": "Please enter valid app title",
+        "label": "Enter app title"
+      }
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Banned Users",
+      "unban": "unban",
+      "noBans": "no one has been banned yet"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Leave current room",
+      "confirmLeaveRoom": "Are you sure you want to leave?",
+      "leave": "Leave",
+      "inviteUsersToRoomBtn": "Invite users to room",
+      "invite": "Invite",
+      "toggleMuteMicBtn": "Toggle mute microphone",
+      "mute": "Mute",
+      "unmute": "Unmute",
+      "makeRoomPublicBtn": "Make room public!",
+      "settings": "Settings",
+      "speaker": "Speaker",
+      "listener": "Listener",
+      "chat": "Chat"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Your device is currently not supported. You can create an",
+      "linkText": "issue on GitHub",
+      "addSupport": "and I will try adding support for your device."
+    },
+    "inviteButton": {
+      "invited": "invited",
+      "inviteToRoom": "invite to room"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "Permission denied trying to access your mic (you may need to go into browser settings and reload the page)",
+      "dismiss": "dismiss",
+      "tryAgain": "try again"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "set keybind",
+      "listening": "listening",
+      "toggleMuteKeybind": "toggle mute keybind",
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "togglePushToTalkKeybind": "toggle push-to-talk keybind"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "no audio consumer for some reason"
+    },
+    "addToCalendar": {
+      "add": "Add to Calendar"
+    },
+    "wsKilled": {
+      "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
+      "reconnect": "reconnect"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "Public",
+        "private": "Private",
+        "roomName": "Room name",
+        "roomDescription": "Room description",
+        "descriptionError": "max length 500",
+        "nameError": "must be between 2 to 60 characters long"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "New Room Created",
+        "roomInviteFrom": "Room Invite from",
+        "justStarted": "They just started",
+        "likeToJoin": ", would you like to join?",
+        "inviteReceived": "you've been invited to"
+      },
+      "editProfileModal": {
+        "usernameTaken": "username taken",
+        "avatarUrlError": "Invalid image",
+        "avatarUrlLabel": "GitHub/Twitter avatar url",
+        "displayNameError": "length 2 to 50 characters",
+        "displayNameLabel": "Display Name",
+        "usernameError": "length 4 to 15 characters and only alphanumeric/underscore",
+        "usernameLabel": "Username",
+        "bioError": "max length of 160 characters",
+        "bioLabel": "Bio"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Are you sure you want to block this user from joining any room you ever create?",
+        "blockUser": "block user",
+        "makeMod": "make mod",
+        "unmod": "unmod",
+        "addAsSpeaker": "add as speaker",
+        "moveToListener": "move to listener",
+        "banFromChat": "ban from chat",
+        "banFromRoom": "ban from room",
+        "goBackToListener": "go back to listener",
+        "deleteMessage": "delete this message",
+        "makeRoomCreator": "make room admin"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "require permission to speak",
+        "makePublic": "make room public",
+        "makePrivate": "make room private"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "Scheduled Rooms",
+      "noneFound": "none found",
+      "allRooms": "all scheduled rooms",
+      "myRooms": "my scheduled rooms",
+      "scheduleRoomHeader": "Schedule Room",
+      "startRoom": "start room",
+      "modal": {
+        "needsFuture": "needs to be in the future",
+        "roomName": "room name",
+        "roomDescription": "Description",
+        "minLength": "min length 2"
+      }
+    },
+    "roomChat": {
+      "title": "Chat",
+      "emotesSoon": "[emotes soon]",
+      "bannedAlert": "You got banned from chat",
+      "waitAlert": "You have to wait a second before sending another message",
+      "search": "Search",
+      "searchResults": "Search Results",
+      "recent": "Frequently Used",
+      "sendMessage": "Send a Message",
+      "whisper": "Whisper",
+      "welcomeMessage": "Welcome to chat!",
+      "roomDescription": "room description"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fueling rocket",
+      "takingOff": "Taking off",
+      "inSpace": "In space",
+      "approachingMoon": "Approaching moon",
+      "lunarDoge": "Lunar Doge",
+      "approachingSun": "Approaching sun",
+      "solarDoge": "Solar Doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
+    }
+  }
+}

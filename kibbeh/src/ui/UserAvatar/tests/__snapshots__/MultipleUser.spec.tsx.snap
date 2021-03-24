@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserAvatar MultipleUsers should match snapshot 1`] = `
+Array [
+  <div
+    class="relative inline-block "
+    data-testid="single-user-avatar"
+    style="width: 20px; height: 20px;"
+  >
+    <img
+      alt="avatar"
+      class="rounded-full w-full h-full object-cover"
+      src=""
+    />
+  </div>,
+  <div
+    class="relative inline-block "
+    data-testid="single-user-avatar"
+    style="width: 20px; height: 20px;"
+  >
+    <img
+      alt="avatar"
+      class="rounded-full w-full h-full object-cover"
+      src=""
+    />
+  </div>,
+  <div
+    class="relative inline-block "
+    data-testid="single-user-avatar"
+    style="width: 20px; height: 20px;"
+  >
+    <img
+      alt="avatar"
+      class="rounded-full w-full h-full object-cover"
+      src=""
+    />
+  </div>,
+]
+`;

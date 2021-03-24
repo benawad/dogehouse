@@ -1,0 +1,45 @@
+{
+  "name": "shawarma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "tsc -w",
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "dev": "cross-env DEBUG=shawarma:* nodemon dist/index.js",
+    "dev2": "cross-env QUEUE_ID=1 DEBUG=shawarma:* nodemon dist/index.js",
+    "dev:ts": "cross-env DEBUG=shawarma:*  ts-node src",
+    "dev2:ts": "cross-env QUEUE_ID=1  DEBUG=shawarma:*  ts-node src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sentry/node": "^6.1.0",
+    "amqplib": "^0.6.0",
+    "cors": "^2.8.5",
+    "debug": "^4.3.1",
+    "dotenv": "^8.2.0",
+    "dotenv-safe": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mediasoup": "^3.6.31",
+    "ws": "^7.4.2"
+  },
+  "devDependencies": {
+    "@types/amqplib": "^0.5.17",
+    "@types/cors": "^2.8.9",
+    "@types/debug": "^4.1.5",
+    "@types/express": "^4.17.11",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/node": "^14.14.21",
+    "@types/pino": "^6.3.5",
+    "@types/protoo-server": "^4.0.1",
+    "@types/ws": "^7.4.0",
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.7",
+    "ts-node": "9.1.1",
+    "typescript": "^4.1.3"
+  }
+}

@@ -1,0 +1,8 @@
+.idea
+examples/*/.env
+examples/*/node_modules
+examples/*/build
+examples/*/.parcel-cache
+examples/*/dist
+node_modules
+lib
