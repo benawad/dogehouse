@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.primary900,
     paddingHorizontal: 20,
-    paddingTop: 20,
+    paddingTop: 10,
   },
   title: {
     ...h3,
