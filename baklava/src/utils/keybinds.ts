@@ -114,8 +114,6 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
         CURRENT_APP_TITLE = appTitle;
     });
     globkey.raw(function(keypair) {
-        console.log(keypair)
-        console.log(JSON.stringify(keypair) === JSON.stringify(['Key0','LControl']))
         if (JSON.stringify(keypair) === JSON.stringify(['Key0','LControl'])) {
             push_to_talk = true
             console.log("push on")

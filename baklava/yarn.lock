@@ -942,6 +942,11 @@ globalthis@^1.0.1:
   dependencies:
     define-properties "^1.1.3"
 
+globkey@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/globkey/-/globkey-1.0.10.tgz#ff3f2348d71174266c772a7c4c79ce8dad8e1ea8"
+  integrity sha512-EZxiCEwWwS+sOrYggmb8Svk66LpJz+ZVaMYxyuebreh04gV9Wus+8tM1cnneCxRWEVq0oIeURHrEyehdNmrdaQ==
+
 got@^9.6.0:
   version "9.6.0"
   resolved "https://registry.yarnpkg.com/got/-/got-9.6.0.tgz#edf45e7d67f99545705de1f7bbeeeb121765ed85"
