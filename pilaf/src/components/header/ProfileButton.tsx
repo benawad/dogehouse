@@ -1,11 +1,11 @@
+import { useNavigation } from "@react-navigation/core";
 import React, { useState } from "react";
 import {
+  ImageSourcePropType,
   StyleProp,
   StyleSheet,
   TouchableOpacity,
   ViewStyle,
-  Image,
-  ImageSourcePropType,
 } from "react-native";
 import Modal from "react-native-modal";
 import { colors } from "../../constants/dogeStyle";
@@ -18,6 +18,7 @@ interface ProfileButtonProps {
 }
 
 export const ProfileButton: React.FC<ProfileButtonProps> = (props) => {
+  const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <>
@@ -33,7 +34,12 @@ export const ProfileButton: React.FC<ProfileButtonProps> = (props) => {
         swipeDirection="down"
         swipeThreshold={50}
       >
-        <AccountModalContent />
+        <AccountModalContent
+          onPress={(pageName: string) => {
+            setModalVisible(false);
+            navigation.navigate(pageName);
+          }}
+        />
       </Modal>
     </>
   );
@@ -43,7 +49,6 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: colors.primary900,
   },
   contentView: {
     justifyContent: "flex-end",
