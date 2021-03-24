@@ -7,7 +7,7 @@
         "compile": "tsc",
         "watch": "tsc -w",
         "dev": "yarn compile && node ./dist/dev.js",
-        "start": "yarn compile && electron ./dist/electron.js",
+        "start": "yarn compile && cd node_modules/globkey && npx electron-build-env nj-cli build --release && cd ../../ && electron ./dist/electron.js",
         "build": "yarn compile && electron-builder",
         "build:all": "yarn compile && yarn build:overlay && electron-builder -mwl",
         "build:mac": "yarn compile && yarn build:overlay && electron-builder --mac",
@@ -34,6 +34,7 @@
         "builder-util": "^22.10.5",
         "electron": "^11.3.0",
         "electron-builder": "^22.10.5",
+        "electron-build-env": "^0.2.0",
         "typescript": "^4.2.2"
     },
     "build": {
@@ -75,22 +76,7 @@
     },
     "dependencies": {
         "electron-overlay-window": "^1.0.4",
-        "electron-updater": "^4.3.8",
-        "iohook": "^0.7.2"
-    },
-    "iohook": {
-        "targets": [
-            "node-83",
-            "electron-85"
-        ],
-        "platforms": [
-            "win32",
-            "darwin",
-            "linux"
-        ],
-        "arches": [
-            "x64"
-        ]
+        "electron-updater": "^4.3.8"
     },
     "files": [
         "./icons/**/*",
