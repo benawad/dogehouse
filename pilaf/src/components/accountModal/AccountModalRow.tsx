@@ -1,15 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import {
-  View,
-  StyleSheet,
-  ImageSourcePropType,
   Image,
+  ImageSourcePropType,
+  StyleSheet,
   Text,
   TouchableOpacity,
 } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { colors, fontFamily, fontSize } from "../../constants/dogeStyle";
-import { CreateRoomPage } from "../../pages/CreateRoomPage";
+import { paragraph } from "../../constants/dogeStyle";
 
 export interface AccountModalRowProps {
   icon: ImageSourcePropType;
@@ -38,19 +35,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   title: {
-    fontSize: fontSize.paragraph,
-    color: colors.text,
-    fontFamily: fontFamily.regular,
+    ...paragraph,
     marginLeft: 16,
-  },
-  contentView: {
-    justifyContent: "flex-end",
-    margin: 0,
-  },
-  buttonStyle: {
-    height: 80,
-    width: 80,
-    borderRadius: 100,
-    alignItems: "center",
   },
 });

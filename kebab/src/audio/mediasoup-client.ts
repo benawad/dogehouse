@@ -1,19 +1,18 @@
-import {
-  Consumer,
-  Transport
-} from "mediasoup-client/lib/types";
-import { ConnectFunction } from "./interface";
+import { Transport } from "mediasoup-client/lib/types";
+import { ConnectFunction, ConsumerPlayer } from "./interface";
 import { RoomPeer } from "..";
 
-export const makeConsumer = (transport: Transport) => async (data: RoomPeer) =>
-  await transport.consume({
+export const makeConsumer = (transport: Transport) => async (data: RoomPeer) => ({
+  user: data.peerId,
+  consumer: await transport.consume({
     ...data.consumerParameters,
     appData: {
       peerId: data.peerId,
       producerId: data.consumerParameters.producerId,
       mediaTag: "cam-audio"
     }
-  });
+  })
+});
 
 export const connect: ConnectFunction = async (
   connection,
@@ -26,8 +25,8 @@ export const connect: ConnectFunction = async (
   const makeTransport = async () => {
     const simplerDirection = direction === "output" ? "recv" : "send";
     const result = direction === "output"
-      ? await device.createRecvTransport(transportOptions)
-      : await device.createSendTransport(transportOptions);
+      ? device.createRecvTransport(transportOptions)
+      : device.createSendTransport(transportOptions);
 
     result.on("connect", async ({ dtlsParameters }, resolve, reject) => {
       const { error } = await connection.fetch(
@@ -84,17 +83,22 @@ export const connect: ConnectFunction = async (
 
   if(!device.loaded) await device.load({ routerRtpCapabilities });
 
-  const recvTransport = await makeTransport();
-  const consumerParametersArr = await makeInitialConsumers();
-  const consumers: Consumer[] = await Promise.all(consumerParametersArr.map(makeConsumer(recvTransport)));
-  const unsubNps = connection.addListener("new-peer-speaker", async (data: RoomPeer) => {
-    consumers.push(await makeConsumer(recvTransport)(data));
-  });
-
   if(direction === "output") {
-    const giveTrack = track as (track: MediaStreamTrack) => void;
+    const recvTransport = await makeTransport();
+    const consumerParametersArr = await makeInitialConsumers();
+    const consumers = await Promise.all(consumerParametersArr.map(makeConsumer(recvTransport)));
+    const unsubNps = connection.addListener("new-peer-speaker", async (data: RoomPeer) => {
+      consumers.push(await makeConsumer(recvTransport)(data));
+    });
 
-    consumers.forEach(it => giveTrack(it.track));
+    const unsubYlr = connection.addListener("you_left_room", () => {
+      unsubYlr();
+      unsubNps();
+    });
+
+    const giveTrack = track as ConsumerPlayer;
+
+    consumers.forEach(({ user, consumer }) => giveTrack(consumer.track, user));
   } else {
     const sendTransport = await makeTransport();
 
@@ -103,9 +107,4 @@ export const connect: ConnectFunction = async (
       appData: { mediaTag: "cam-audio" }
     });
   }
-
-  const unsubYlr = connection.addListener("you_left_room", () => {
-    unsubYlr();
-    unsubNps();
-  });
 };

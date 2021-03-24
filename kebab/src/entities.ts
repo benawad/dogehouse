@@ -82,7 +82,7 @@ export type Message = {
 export type BaseUser = {
   username: string;
   online: boolean;
-  lastOnline: Date;
+  lastOnline: string;
   id: string;
   bio: string;
   displayName: string;

@@ -1,6 +1,7 @@
 import { wrap } from "@dogehouse/kebab";
 import { useContext } from "react";
 import { useQuery, UseQueryOptions } from "react-query";
+import { isServer } from "../lib/isServer";
 import { WebSocketContext } from "../modules/ws/WebSocketProvider";
 import { Await } from "../types/util-types";
 import { useWrappedConn } from "./useConn";
@@ -23,7 +24,7 @@ export const useTypeSafeQuery = <K extends Keys>(
       return fn(...(params || []));
     },
     {
-      enabled: !!conn,
+      enabled: !!conn && !isServer,
       ...opts,
     } as any
   );
