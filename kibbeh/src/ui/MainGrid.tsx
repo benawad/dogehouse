@@ -1,13 +1,19 @@
 import React from "react";
 
-interface DashboardGridProps {}
+interface DashboardGridProps {
+  className?: string;
+}
 
-export const MainInnerGrid: React.FC<DashboardGridProps> = ({ children }) => {
+export const MainInnerGrid: React.FC<DashboardGridProps> = ({
+  children,
+  className,
+}) => {
   return (
     <div
+      className={className}
       style={{
         display: "grid",
-        gridTemplateColumns: "235px 600px 325px",
+        gridTemplateColumns: "235px 640px 325px",
         columnGap: 60,
       }}
     >

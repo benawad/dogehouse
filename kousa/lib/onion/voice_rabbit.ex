@@ -70,32 +70,18 @@ defmodule Onion.VoiceRabbit do
     data = Poison.decode!(payload)
 
     case data do
-      %{"platform" => platform, "uid" => user_id} ->
-        platform_atom =
-          case platform do
-            "web" -> :web
-            "vscode" -> :vscode
-            _ -> :all
-          end
-
+      %{"uid" => user_id} ->
         Onion.UserSession.send_cast(
           user_id,
-          {:send_ws_msg, platform_atom, Map.delete(data, "uid")}
+          {:send_ws_msg, Map.delete(data, "uid")}
         )
 
-      %{"platform" => platform, "rid" => room_id} ->
-        platform_atom =
-          case platform do
-            "web" -> :web
-            "vscode" -> :vscode
-            _ -> :all
-          end
-
+      %{"rid" => room_id} ->
         # IO.puts("RABBIT RESPONDED: " <> data["op"])
 
         Onion.RoomSession.send_cast(
           room_id,
-          {:send_ws_msg, platform_atom, Map.delete(data, "rid")}
+          {:send_ws_msg, Map.delete(data, "rid")}
         )
     end
 
