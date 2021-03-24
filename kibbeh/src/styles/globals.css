@@ -79,4 +79,5 @@ body,
 
 audio {
   width: 0;
+  display: none !important;
 }

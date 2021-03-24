@@ -1,4 +1,4 @@
-import { CurrentRoom, Room } from "@dogehouse/kebab";
+import { Room } from "@dogehouse/kebab";
 import create from "zustand";
 import { combine } from "zustand/middleware";
 

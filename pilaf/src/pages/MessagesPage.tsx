@@ -1,6 +1,8 @@
 import React from "react";
-import { StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, ScrollView, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { HeaderBase } from "../components/header/HeaderBase";
+import { TitledHeader } from "../components/header/TitledHeader";
 import { MessageElement } from "../components/MessageElement";
 import { colors, fontFamily } from "../constants/dogeStyle";
 
@@ -42,38 +44,108 @@ const userMocks = {
 
 export const MessagesPage: React.FC = () => {
   return (
-    <SafeAreaView
-      style={styles.safeAreaView}
-      edges={["bottom", "left", "right"]}
-    >
-      <ScrollView>
-        <MessageElement user={userMocks} msg={messageMocks[0]} />
-        <MessageElement user={userMocks} msg={messageMocks[1]} />
-        <MessageElement user={userMocks} msg={messageMocks[2]} />
-        <MessageElement user={userMocks} msg={messageMocks[3]} />
-        <MessageElement user={userMocks} msg={messageMocks[4]} />
-        <MessageElement user={userMocks} msg={messageMocks[5]} />
-        <MessageElement user={userMocks} msg={messageMocks[0]} />
-        <MessageElement user={userMocks} msg={messageMocks[1]} />
-        <MessageElement user={userMocks} msg={messageMocks[2]} />
-        <MessageElement user={userMocks} msg={messageMocks[3]} />
-        <MessageElement user={userMocks} msg={messageMocks[4]} />
-        <MessageElement user={userMocks} msg={messageMocks[5]} />
-        <MessageElement user={userMocks} msg={messageMocks[0]} />
-        <MessageElement user={userMocks} msg={messageMocks[1]} />
-        <MessageElement user={userMocks} msg={messageMocks[2]} />
-        <MessageElement user={userMocks} msg={messageMocks[3]} />
-        <MessageElement user={userMocks} msg={messageMocks[4]} />
-        <MessageElement user={userMocks} msg={messageMocks[5]} />
+    <>
+      <TitledHeader title={"Messages"} showBackButton={true} />
+      <ScrollView style={styles.scrollView}>
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[0]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[1]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[2]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[3]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[4]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[5]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[0]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[1]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[2]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[3]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[4]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[5]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[0]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[1]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[2]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[3]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[4]}
+          style={{ marginBottom: 20 }}
+        />
+        <MessageElement
+          user={userMocks}
+          msg={messageMocks[5]}
+          style={{ marginBottom: 20 }}
+        />
       </ScrollView>
-    </SafeAreaView>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
-  safeAreaView: {
-    flex: 1,
-    justifyContent: "center",
+  scrollView: {
     backgroundColor: colors.primary900,
+    paddingHorizontal: 25,
+    paddingTop: 10,
   },
 });

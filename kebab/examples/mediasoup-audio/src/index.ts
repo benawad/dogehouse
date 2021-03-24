@@ -1,4 +1,5 @@
-import { wrap, raw, mediasoup } from "@dogehouse/kebab";
+import { wrap, raw, UUID } from "@dogehouse/kebab";
+import { connect as mediasoupConnect } from "@dogehouse/kebab/lib/audio/mediasoup-client";
 import { Device } from "mediasoup-client";
 
 const main = async () => {
@@ -21,23 +22,25 @@ const main = async () => {
       cantUseMic.textContent = "- can't use mic";
       currentRole.appendChild(cantUseMic);
     }
-  }
+  };
+
+  const playOutput = (track: MediaStreamTrack) => {
+    const audio = new Audio();
+
+    audio.srcObject = new MediaStream([track]);
+    audio.play();
+  };
 
   const unsubYjap = wrapper.connection.addListener("you-joined-as-peer", async (data: any) => {
     unsubYjap();
 
-    await mediasoup.connect(
+    await mediasoupConnect(
       wrapper.connection,
       device,
       data.routerRtpCapabilities,
       "output",
       data.recvTransportOptions,
-      track => {
-        const audio = new Audio();
-
-        audio.srcObject = new MediaStream([track]);
-        audio.play();
-      }
+      playOutput
     );
     currentRole.textContent = "Listener";
 
@@ -47,10 +50,10 @@ const main = async () => {
     button.addEventListener("click", () => wrapper.connection.send("ask_to_speak", {}));
     currentRole.appendChild(button);
 
-    const unsubYanas = wrapper.connection.addListener("you-are-now-a-speaker", async () => {
+    const unsubYanas = wrapper.connection.addListener("you-are-now-a-speaker", async (data: any) => {
       unsubYanas();
 
-      await mediasoup.connect(
+      await mediasoupConnect(
         wrapper.connection,
         device,
         data.routerRtpCapabilities,
@@ -71,7 +74,16 @@ const main = async () => {
   const unsubYjas = wrapper.connection.addListener("you-joined-as-speaker", async (data: any) => {
     unsubYjas();
 
-    await mediasoup.connect(
+    await mediasoupConnect(
+      wrapper.connection,
+      device,
+      data.routerRtpCapabilities,
+      "output",
+      data.recvTransportOptions,
+      playOutput
+    );
+
+    await mediasoupConnect(
       wrapper.connection,
       device,
       data.routerRtpCapabilities,
@@ -81,7 +93,7 @@ const main = async () => {
     );
   });
 
-  await wrapper.mutation.joinRoom(rooms[0].id);
+  const extraInfo = await wrapper.query.joinRoomAndGetInfo(theRoom.id);
   document.querySelector(".current-room")!.textContent = theRoom.name;
 }
 

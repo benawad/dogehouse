@@ -1,5 +1,5 @@
 import { wrap } from "@dogehouse/kebab";
-import { useContext } from "react";
+import { useCallback, useContext } from "react";
 import { useQuery, useQueryClient, UseQueryOptions } from "react-query";
 import { WebSocketContext } from "../modules/ws/WebSocketProvider";
 import { Await } from "../types/util-types";
@@ -11,15 +11,17 @@ type PaginatedKey<K extends Keys> = [K, string | number];
 
 export const useTypeSafeUpdateQuery = () => {
   const client = useQueryClient();
-  return <K extends Keys>(
-    key: K | PaginatedKey<K>,
-    fn: (
-      x: Await<ReturnType<ReturnType<typeof wrap>["query"][K]>>
-    ) => Await<ReturnType<ReturnType<typeof wrap>["query"][K]>>
-  ) => {
-    client.setQueryData<Await<ReturnType<ReturnType<typeof wrap>["query"][K]>>>(
-      key,
-      fn as any
-    );
-  };
+  return useCallback(
+    <K extends Keys>(
+      key: K | PaginatedKey<K>,
+      fn: (
+        x: Await<ReturnType<ReturnType<typeof wrap>["query"][K]>>
+      ) => Await<ReturnType<ReturnType<typeof wrap>["query"][K]>>
+    ) => {
+      client.setQueryData<
+        Await<ReturnType<ReturnType<typeof wrap>["query"][K]>>
+      >(key, fn as any);
+    },
+    [client]
+  );
 };

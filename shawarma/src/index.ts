@@ -74,7 +74,7 @@ async function main() {
         if (Object.keys(rooms[roomId].state).length === 0) {
           deleteRoom(roomId, rooms);
         }
-        send({ uid, op: "you_left_room", d: { roomId }, platform: "web" });
+        send({ uid, op: "you_left_room", d: { roomId } });
       }
     },
     ["@get-recv-tracks"]: async (
@@ -122,7 +122,6 @@ async function main() {
 
       send({
         op: "@get-recv-tracks-done",
-        platform: "web",
         uid,
         d: { consumerParametersArr, roomId },
       });
@@ -163,7 +162,6 @@ async function main() {
           consumers.forEach((c) => c.close());
           // @todo give some time for frontends to get update, but this can be removed
           send({
-            platform: "web",
             rid: roomId,
             op: "close_consumer",
             d: { producerId: previousProducer.id, roomId },
@@ -196,7 +194,6 @@ async function main() {
               state[theirPeerId]
             );
             send({
-              platform: "web",
               uid: theirPeerId,
               op: "new-peer-speaker",
               d: { ...d, roomId },
@@ -207,7 +204,6 @@ async function main() {
         }
         send({
           op: `@send-track-${direction}-done` as const,
-          platform: "web",
           uid,
           d: {
             id: producer.id,
@@ -217,7 +213,6 @@ async function main() {
       } catch (e) {
         send({
           op: `@send-track-${direction}-done` as const,
-          platform: "web",
           uid,
           d: {
             error: e.message,
@@ -226,7 +221,6 @@ async function main() {
         });
         send({
           op: "error",
-          platform: "vscode",
           d: "error connecting to voice server | " + e.message,
           uid,
         });
@@ -262,13 +256,11 @@ async function main() {
         console.log(e);
         send({
           op: `@connect-transport-${direction}-done` as const,
-          platform: "web",
           uid,
           d: { error: e.message, roomId },
         });
         send({
           op: "error",
-          platform: "vscode",
           d: "error connecting to voice server | " + e.message,
           uid,
         });
@@ -276,7 +268,6 @@ async function main() {
       }
       send({
         op: `@connect-transport-${direction}-done` as const,
-        platform: "web",
         uid,
         d: { roomId },
       });
@@ -285,7 +276,7 @@ async function main() {
       if (!(roomId in rooms)) {
         rooms[roomId] = createRoom();
       }
-      send({ op: "room-created", d: { roomId }, platform: "vscode", uid });
+      send({ op: "room-created", d: { roomId }, uid });
     },
     ["add-speaker"]: async ({ roomId, peerId }, uid, send, errBack) => {
       if (!rooms[roomId]?.state[peerId]) {
@@ -301,7 +292,6 @@ async function main() {
 
       send({
         op: "you-are-now-a-speaker",
-        platform: "web",
         d: {
           sendTransportOptions: transportToOptions(sendTransport),
           roomId,
@@ -332,7 +322,6 @@ async function main() {
 
       send({
         op: "you-joined-as-speaker",
-        platform: "web",
         d: {
           roomId,
           peerId,
@@ -363,7 +352,6 @@ async function main() {
 
       send({
         op: "you-joined-as-peer",
-        platform: "web",
         d: {
           roomId,
           peerId,

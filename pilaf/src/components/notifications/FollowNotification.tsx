@@ -1,13 +1,19 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import {
+  ImageSourcePropType,
   StyleSheet,
-  View,
-  ViewStyle,
   Text,
   TouchableOpacity,
-  ImageSourcePropType,
+  View,
+  ViewStyle,
 } from "react-native";
-import { colors, fontFamily, fontSize } from "../../constants/dogeStyle";
+import {
+  colors,
+  fontFamily,
+  fontSize,
+  paragraph,
+  radius,
+} from "../../constants/dogeStyle";
 import { SingleUserAvatar } from "../avatars/SingleUserAvatar";
 import { GenericNotification } from "./GenericNotification";
 
@@ -36,9 +42,9 @@ export const FollowNotification: React.FC<FollowNotificationProps> = ({
 
   const notificationMsg = (
     <View style={{ flexDirection: "row" }}>
-      <Text style={[styles.textPrimary, { fontFamily: fontFamily.bold }]}>
+      <Text style={[styles.title, { fontWeight: "700" }]}>
         {username}
-        <Text style={styles.textPrimary}> followed you</Text>
+        <Text style={styles.title}> followed you</Text>
       </Text>
     </View>
   );
@@ -58,6 +64,7 @@ export const FollowNotification: React.FC<FollowNotificationProps> = ({
 
   return (
     <GenericNotification
+      style={style}
       notificationMsg={notificationMsg}
       time={time}
       icon={icon}
@@ -67,18 +74,17 @@ export const FollowNotification: React.FC<FollowNotificationProps> = ({
 };
 
 const styles = StyleSheet.create({
-  textPrimary: {
-    color: colors.text,
-    fontFamily: fontFamily.medium,
-    fontSize: fontSize.paragraph,
+  title: {
+    ...paragraph,
     flex: 1,
     flexWrap: "wrap",
+    lineHeight: 18,
   },
   button: {
     height: 22,
     width: 90,
     backgroundColor: colors.accent,
-    borderRadius: 8,
+    borderRadius: radius.s,
     alignItems: "center",
     justifyContent: "center",
   },

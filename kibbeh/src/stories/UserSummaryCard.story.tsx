@@ -10,12 +10,12 @@ export default {
 };
 
 const userSummary: UserSummaryCardProps = {
-  avatar,
-  userId: "1",
+  avatarUrl: avatar,
+  id: "1",
   displayName: "Arnau Jiménez",
   username: "@ajmnz",
-  following: 89,
-  followers: 3400,
+  numFollowing: 89,
+  numFollowers: 3400,
   bio:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis nunc sit pulvinar ut tellus sit tincidunt faucibus sapien. ⚡️",
   website: "https://loremipsum.com",
