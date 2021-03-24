@@ -12,7 +12,9 @@ It uses ElectronJS as a wrapper for [dogehouse.tv](https://dogehouse.tv) and add
 
 ## How to run
 - Run `yarn install`
-- Run `yarn build:globkey` *(you need Rust and `nj-cli` installed)*
+- Ensure [Rust](https://www.rust-lang.org/learn/get-started) is installed
+- Install `nj-cli` by running `cargo install nj-cli`
+- Run `yarn build:globkey`
 - Run `yarn start`
 - *(Optional)* Run `yarn build:%YOUR_PLATFORM_CODE%` and install the app from the build *(located in `/builds`)*
 

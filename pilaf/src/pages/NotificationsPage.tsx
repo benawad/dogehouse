@@ -1,30 +1,36 @@
 import React from "react";
 import { ScrollView, StyleSheet, Text } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { TitledHeader } from "../components/header/TitledHeader";
 import { FollowNotification } from "../components/notifications/FollowNotification";
 import { LiveNotification } from "../components/notifications/LiveNotification";
 import { NewRoomNotification } from "../components/notifications/NewRoomNotification";
-import { colors, fontFamily } from "../constants/dogeStyle";
+import { colors, h4 } from "../constants/dogeStyle";
 
 export const NotificationsPage: React.FC = () => {
   return (
-    <SafeAreaView
-      style={styles.safeAreaView}
-      edges={["bottom", "left", "right"]}
-    >
-      <ScrollView>
+    <>
+      <TitledHeader title={"Notifications"} showBackButton={true} />
+      <ScrollView style={styles.scrollView}>
+        <Text style={{ ...h4, marginTop: 10, marginBottom: 20 }}>Today</Text>
         <NewRoomNotification
+          username={"DrMadWithAVeryLongLongLongTurkey"}
+          time={"now"}
+          joined={true}
+          style={{ marginBottom: 27 }}
+        />
+        <LiveNotification
           username={"DrMadTurkey"}
           time={"now"}
           joined={true}
+          style={{ marginBottom: 27 }}
         />
-        <LiveNotification username={"DrMadTurkey"} time={"now"} joined={true} />
         <FollowNotification
           username={"DrMadTurkey"}
           userAvatarSrc={require("../assets/images/100.png")}
           time={"now"}
           isOnline={true}
           following={true}
+          style={{ marginBottom: 27 }}
         />
         <FollowNotification
           username={"DrMadTurkey"}
@@ -32,6 +38,7 @@ export const NotificationsPage: React.FC = () => {
           time={"now"}
           isOnline={true}
           following={false}
+          style={{ marginBottom: 27 }}
         />
         <FollowNotification
           username={"DrMadTurkey"}
@@ -39,6 +46,7 @@ export const NotificationsPage: React.FC = () => {
           time={"now"}
           isOnline={true}
           following={true}
+          style={{ marginBottom: 27 }}
         />
         <FollowNotification
           username={"DrMadTurkey"}
@@ -46,15 +54,16 @@ export const NotificationsPage: React.FC = () => {
           time={"now"}
           isOnline={true}
           following={true}
+          style={{ marginBottom: 27 }}
         />
       </ScrollView>
-    </SafeAreaView>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
-  safeAreaView: {
-    flex: 1,
+  scrollView: {
     backgroundColor: colors.primary900,
+    paddingHorizontal: 25,
   },
 });
