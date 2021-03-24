@@ -231,7 +231,7 @@
       "roomDescription": "descrizione della stanza"
     },
     "roomStatus": {
-      "fuelingRocket": "Rifornimento razzi",
+      "fuelingRocket": "Rifornimento razzo",
       "takingOff": "Decollo",
       "inSpace": "Nello spazio",
       "approachingMoon": "Avvicinamento alla Luna",
