@@ -577,6 +577,11 @@ commander@2.9.0:
   dependencies:
     graceful-readlink ">= 1.0.0"
 
+commander@^2.9.0:
+  version "2.20.3"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
+  integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
+
 commander@^5.0.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-5.1.0.tgz#46abbd1652f8e059bddaef99bbdcb2ad9cf179ae"
@@ -805,6 +810,14 @@ ejs@^3.1.6:
   integrity sha512-9lt9Zse4hPucPkoP7FHDF0LQAlGyF9JVpnClFLFH3aSSbxmyoqINRpp/9wePWJTUl4KOQwRL72Iw3InHPDkoGw==
   dependencies:
     jake "^10.6.1"
+
+electron-build-env@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/electron-build-env/-/electron-build-env-0.2.0.tgz#5649ee3e5fd006e267086caa945b77a1fa220b92"
+  integrity sha1-VknuPl/QBuJnCGyqlFt3ofoiC5I=
+  dependencies:
+    commander "^2.9.0"
+    mkdirp "^0.5.1"
 
 electron-builder@^22.10.5:
   version "22.10.5"
@@ -1129,10 +1142,10 @@ globalthis@^1.0.1:
   dependencies:
     define-properties "^1.1.3"
 
-globkey@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/globkey/-/globkey-1.0.8.tgz#3d098f52a9cbc29b28f0947391ec1d72b281455f"
-  integrity sha512-8bOcIET0PHnVJRTPmrJv7aQudnG8NqKtk69Vi4GnVI8JedKO95EnkjHfAIV5les3FgwTGMUwO15KDrWIuvj4EA==
+globkey@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/globkey/-/globkey-1.0.10.tgz#ff3f2348d71174266c772a7c4c79ce8dad8e1ea8"
+  integrity sha512-EZxiCEwWwS+sOrYggmb8Svk66LpJz+ZVaMYxyuebreh04gV9Wus+8tM1cnneCxRWEVq0oIeURHrEyehdNmrdaQ==
 
 got@^9.6.0:
   version "9.6.0"

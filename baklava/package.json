@@ -1,6 +1,6 @@
 {
     "name": "dogehouse",
-    "version": "1.0.19",
+    "version": "1.0.20",
     "description": "Taking voice conversations to the moon 🚀",
     "main": "./dist/electron.js",
     "scripts": {
@@ -13,7 +13,8 @@
         "build:mac": "yarn compile && yarn build:overlay && electron-builder --mac",
         "build:win": "yarn compile && yarn build:overlay && electron-builder --win",
         "build:linux": "yarn compile && yarn build:overlay && electron-builder --linux",
-        "build:overlay": "cd resources/overlay && yarn build && cd ../../"
+        "build:overlay": "cd resources/overlay && yarn build && cd ../../",
+        "build:globkey": "cd node_modules/globkey && npx electron-build-env nj-cli build --release"
     },
     "keywords": [
         "DogeHouse",
@@ -34,6 +35,7 @@
         "builder-util": "^22.10.5",
         "electron": "^11.3.0",
         "electron-builder": "^22.10.5",
+        "electron-build-env": "^0.2.0",
         "typescript": "^4.2.2"
     },
     "build": {
@@ -76,7 +78,7 @@
     "dependencies": {
         "electron-overlay-window": "^1.0.4",
         "electron-updater": "^4.3.8",
-        "globkey": "^1.0.8",
+        "globkey": "^1.0.10",
         "iohook": "^0.7.2"
     },
     "iohook": {
