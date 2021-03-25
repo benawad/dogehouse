@@ -47,7 +47,7 @@ DogeHouse is open to contributions, but I recommend creating an issue or replyin
 
 Please read [CONTRIBUTING.md](https://github.com/benawad/dogehouse/blob/staging/CONTRIBUTING.md) for details on this project.
 
-## Dogehouse Desktop
+## DogeHouse Desktop
 
 A desktop app built with electron is available for Windows and Mac
 
