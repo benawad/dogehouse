@@ -27,7 +27,7 @@ If you encounter any errors while building please create a new issue for it or a
 ## Using hot reload
 
 The electron wrapper has the capability for hot reloads during development.
-You can run the app in hot reload mode using `npm run dev`.
+You can run the app in hot reload mode using `yarn dev`.
 
 While in hot reload mode, any time you save changes to a `ts` file, the electron app will recompile and relaunch itself.
 To exit hot reload mode, use `Ctrl+C` in the console. This will however, leave the current app window open, so be sure to close that also, as it will no longer have access to hot reload.
@@ -36,4 +36,6 @@ To exit hot reload mode, use `Ctrl+C` in the console. This will however, leave t
 
 Translations are stored in `baklava/locales` and loaded using the `i18next` library.
 You can add new languages by creating a folder with the correct [language code](https://www.electronjs.org/docs/api/locales) and adding the `translate.json` file.
-All keys are present in `baklava/locales/en/translate.json`, so it's a good idea to use it for reference.
+All keys are present in `baklava/src/generated/translationKeys.ts`, so it's a good idea to use it for reference.
+
+You can sync the files and generate missing keys using `yarn i18`.
