@@ -1,0 +1,249 @@
+{
+  "_comment": "if you change this file, do: npm run i18",
+  "common": {
+    "loadMore": "Načíst více",
+    "loading": "Načítám...",
+    "noUsersFound": "Nikdo tu není",
+    "ok": "ok",
+    "yes": "ano",
+    "no": "ne",
+    "cancel": "Zrušit",
+    "save": "Uložit",
+    "edit": "Pozměnit",
+    "delete": "Smazat",
+    "joinRoom": "Připojit se do místnosti",
+    "copyLink": "Kopírovat odkaz",
+    "copied": "Zkopírováno",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please give DogeHouse Accessibility permessions"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Ztlumen | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "Původ",
+    "link_2": "Discord",
+    "link_3": "Nahlásit chybu"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "Zabanovat" },
+    "followingOnlineList": {
+      "listHeader": "Seznam uživatelů které sleduješ a nejsou v soukromé místnosti",
+      "currentRoom": "Právě v:",
+      "startPrivateRoom": "Otevřít soukromou místnost"
+    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Vytvořit místnost", "refresh": "Obnovit" },
+    "inviteList": {
+      "roomGone": "Místnost není dostupná, jít zpět",
+      "shareRoomLink": "Sdílet odkaz na místnost",
+      "inviteFollowers": "Můžeš pozvat své následovníky, kteří jsou online:",
+      "whenFollowersOnline": "Až budou tví následovníci online, objeví se zde."
+    },
+    "login": {
+      "headerText": "Voicechat, který stoupá ke hvězdám 🚀",
+      "featureText_1": "Dark Theme",
+      "featureText_2": "Otevřené registrace",
+      "featureText_3": "Funguje na všech platformách",
+      "featureText_4": "Open Source",
+      "featureText_5": "Textový Chat",
+      "featureText_6": "Doporučuje 10/10 hafanů",
+      "loginGithub": "Přihlásit se přes GitHub",
+      "loginTwitter": "Přihlásit se přes Twitter",
+      "createTestUser": "Vytvořit testovacího uživatele"
+    },
+    "myProfile": {
+      "logout": "Odhlásit se",
+      "probablyLoading": "Nejspíš se to načítá...",
+      "voiceSettings": "Přejít na nastavení hlasu",
+      "soundSettings": "Přejít na nastavení zvuku",
+      "deleteAccount": "Smazat účet",
+      "overlaySettings": "go to overlay settings"
+    },
+    "notFound": {
+      "whoopsError": "Upst! Tahle místnost se ztratila v konverzaci.",
+      "goHomeMessage": "Netřeba se strachovat. Můžeš",
+      "goHomeLinkText": "přejít na hlavní stránku"
+    },
+    "room": {
+      "speakers": "Řečníci",
+      "requestingToSpeak": "Požaduje oprávnění mluvit",
+      "listeners": "Posluchači",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+    },
+    "searchUser": { "search": "hledat..." },
+    "soundEffectSettings": { "header": "Zvuky" },
+    "viewUser": {
+      "editProfile": "Pozměnit profil",
+      "followsYou": "Sleduje tě.",
+      "followers": "Sledující",
+      "following": "Sleduje",
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
+    },
+    "voiceSettings": {
+      "header": "Nastavení hlasu",
+      "mic": "Mikrofon:",
+      "permissionError": "Buď nemáš mikrofon, nebo jsi jej nepovolil/a.",
+      "refresh": "Znovu načíst mikrofon",
+      "volume": "Hlasitost:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings",
+      "errorMsg": "Please enter valid app title",
+      "label": "Enter app title"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Zabanovaní uživatelé",
+      "unban": "Odbanovat",
+      "noBans": "Nikdo není zabanovaný."
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Opustit místnost",
+      "confirmLeaveRoom": "Určitě opustit místnost?",
+      "leave": "Opustit",
+      "inviteUsersToRoomBtn": "Pozvat někoho",
+      "invite": "Pozvat",
+      "toggleMuteMicBtn": "Zapnout/Vypnout mikrofon",
+      "mute": "Ztlumit mikrofon",
+      "unmute": "Zapnout mikrofon",
+      "makeRoomPublicBtn": "Otevřít místnost všem",
+      "settings": "Nastavení",
+      "speaker": "Řečník",
+      "listener": "Posluchač",
+      "chat": "Chat"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Tvé zařízení není momentálně podporováno. Můžeš o podporu",
+      "linkText": "požádat na GitHubu,",
+      "addSupport": "a pokusíme se podporu přidat."
+    },
+    "inviteButton": {
+      "invited": "pozván",
+      "inviteToRoom": "pozvat do místnosti"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "Nemáš povolený mikrofon! Zkus znovu načíst stránku.",
+      "dismiss": "zavřít",
+      "tryAgain": "zkusit znovu"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "nastavit klávesovou zkratku",
+      "listening": "posluchám",
+      "toggleMuteKeybind": "ztlumit mikrofon",
+      "togglePushToTalkKeybind": "Pust-To-Talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "z nějakého důvodu se nepřehrává zvuk"
+    },
+    "addToCalendar": { "add": "Přidat do kalendáře" },
+    "wsKilled": {
+      "description": "Server tě odpojil. Neotevřel jsi další okno?",
+      "reconnect": "Připojit se znovu"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "Veřejná",
+        "private": "Soukromá",
+        "roomName": "Název místnosti",
+        "roomDescription": "Popis místnosti",
+        "descriptionError": "Maximální délka: 500",
+        "nameError": "Musí být 2 až 60 znaků"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "Nová místnost vytvořena.",
+        "roomInviteFrom": "Pozvánka od",
+        "justStarted": "Právě začali",
+        "likeToJoin": ", chceš se přidat?",
+        "inviteReceived": "Byl jsi pozván do"
+      },
+      "editProfileModal": {
+        "usernameTaken": "Jméno zabráno.",
+        "avatarUrlError": "Neplatný obrázek",
+        "avatarUrlLabel": "Odkaz na avatar z Githubu či Twitteru",
+        "displayNameError": "2-50 znaků!",
+        "displayNameLabel": "Zobrazované jméno",
+        "usernameError": "4-15 znaků bez diakritiky",
+        "usernameLabel": "Uživatelské jméno",
+        "bioError": "Maximálně 160 znaků",
+        "bioLabel": "O mně"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Chceš zablokovat uživatele ze všech místností, co kdy vytvoříš?",
+        "blockUser": "Zablokovat!",
+        "makeMod": "Učinit moderátorem",
+        "unmod": "Odstranit status moderátora",
+        "addAsSpeaker": "Přidat jako mluvícího",
+        "moveToListener": "Umlčet",
+        "banFromChat": "Zabanovat z chatu",
+        "banFromRoom": "Zabanovat z místnosti",
+        "goBackToListener": "Přestat mluvit",
+        "deleteMessage": "Smazat tuto zprávu",
+        "makeRoomCreator": "make room admin"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "Požádat o status mluvčího",
+        "makePublic": "Zveřejnit místnost",
+        "makePrivate": "Udělat místnost soukromou"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "Naplánované místnosti",
+      "noneFound": "žádné nenalezeny",
+      "allRooms": "všechny naplánované místnosti",
+      "myRooms": "tvé naplánované místnosti",
+      "scheduleRoomHeader": "Naplánovat místnost",
+      "startRoom": "Otevřít místnost",
+      "modal": {
+        "needsFuture": "musí být v budoucnosti",
+        "roomName": "jméno místnosti",
+        "minLength": "minimálně dva znaky",
+        "roomDescription": "Description"
+      }
+    },
+    "roomChat": {
+      "title": "Chat",
+      "emotesSoon": "Emotikony \"již brzy\"",
+      "bannedAlert": "Jsi zabanovaný z chatu.",
+      "waitAlert": "Prosím, vyčkej pár sekund, než začneš zase psát!",
+      "search": "Hledat",
+      "searchResults": "Výsledky hledání",
+      "recent": "Často využívané",
+      "sendMessage": "Odeslat zprávu",
+      "whisper": "Šeptem",
+      "welcomeMessage": "Vítej v chatu!",
+      "roomDescription": "Popis místnosti"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fueling rocket",
+      "takingOff": "Taking off",
+      "inSpace": "In space",
+      "approachingMoon": "Approaching moon",
+      "lunarDoge": "Lunar doge",
+      "approachingSun": "Approaching sun",
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
+    }
+  }
+}

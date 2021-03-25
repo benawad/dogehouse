@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FriendsOnline should match snapshot 1`] = `
+<div
+  class="pb-5 w-full flex flex-col"
+  data-testid="friends-online"
+>
+  <h4
+    class="text-primary-100"
+  >
+    People
+  </h4>
+  <h6
+    class="text-primary-300 mt-3 text-sm font-bold"
+  >
+    ONLINE (
+    1
+    )
+  </h6>
+  <div
+    class="flex flex-col mt-3"
+  >
+    <div
+      class="py-3 w-full"
+    >
+      <div
+        class="relative inline-block "
+        data-testid="single-user-avatar"
+        style="width: 40px; height: 40px;"
+      >
+        <img
+          alt="avatar"
+          class="rounded-full w-full h-full"
+          src=""
+        />
+        <span
+          class="rounded-full absolute box-content bg-accent border-primary-800"
+          data-testid="online-indictor"
+          style="width: 8px; height: 8px; right: 2px; bottom: -2px; border-width: 2px;"
+        />
+      </div>
+      <div
+        class="ml-3 flex flex-col"
+      >
+        <h5
+          class="text-primary-100 font-bold"
+        >
+          Some name
+        </h5>
+        <a
+          class="text-primary-300 border-b"
+        >
+          Some room
+        </a>
+      </div>
+    </div>
+    <div
+      class="underline text-primary-300 font-bold mt-4 cursor-pointer"
+      data-testid="show-more-btn"
+    >
+      Show more
+    </div>
+  </div>
+</div>
+`;

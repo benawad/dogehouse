@@ -3,7 +3,7 @@ import { Button } from "./Button";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 
 interface InviteButtonProps {
-	onClick: () => void;
+  onClick: () => void;
 }
 
 export const InviteButton: React.FC<InviteButtonProps> = ({ onClick }) => {

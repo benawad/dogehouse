@@ -1,5 +1,5 @@
-import {UserSearchResultProps} from "./UserSearchResult";
-import {RoomSearchResultProps} from "./RoomSearchResult" ; 
+import { UserSearchResultProps } from "./UserSearchResult";
+import { RoomSearchResultProps } from "./RoomSearchResult";
 
 export { UserSearchResult } from "./UserSearchResult";
 export { RoomSearchResult } from "./RoomSearchResult";

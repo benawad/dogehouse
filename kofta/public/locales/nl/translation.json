@@ -1,0 +1,246 @@
+{
+  "common": {
+    "loadMore": "Meer laden",
+    "loading": "Aan het laden...",
+    "noUsersFound": "Geen gebruikers gevonden",
+    "ok": "Oké",
+    "yes": "Ja",
+    "no": "Nee",
+    "cancel": "Annuleren",
+    "save": "Opslaan",
+    "edit": "Bewerken",
+    "delete": "Verwijderen",
+    "joinRoom": "Kamer betreden",
+    "copyLink": "Kopieer link",
+    "copied": "Gekopieerd",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Houd er rekening mee dat het uitvoeren van DogeHouse zonder toegankelijkheidsrechten ongewenste fouten kan veroorzaken"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Gedempt | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "Ontstaan",
+    "link_2": "Discord",
+    "link_3": "Probleem melden"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "Verban" },
+    "followingOnlineList": {
+      "listHeader": "Lijst van gebruikers die je volgt en niet in een privé kamer zijn.",
+      "currentRoom": "Momenteel in:",
+      "startPrivateRoom": "Start een privé kamer met deze persoon"
+    },
+    "followList": { "followHim": "Volg", "followingHim": "Volgend" },
+    "home": { "createRoom": "Kamer maken", "refresh": "Verversen" },
+    "inviteList": {
+      "roomGone": "Kamer bestaat niet, ga terug",
+      "shareRoomLink": "Link van deze kamer delen",
+      "inviteFollowers": "Je kunt je volgers die online zijn uitnodigen:",
+      "whenFollowersOnline": "Als je volgers online zijn zullen ze hier verschijnen."
+    },
+    "login": {
+      "headerText": "Wij brengen gesprekken naar de maan! 🚀",
+      "featureText_1": "Donkere modus",
+      "featureText_2": "Open Registraties",
+      "featureText_3": "Cross-Platform Ondersteuning",
+      "featureText_4": "Open Source",
+      "featureText_5": "Tekst Chat",
+      "featureText_6": "Mogelijk gemaakt door Doge",
+      "loginGithub": "Log in met GitHub",
+      "loginTwitter": "Log in met Twitter",
+      "createTestUser": "Maak een test gebruiker"
+    },
+    "myProfile": {
+      "logout": "Afmelden",
+      "probablyLoading": "Waarschijnlijk aan het laden...",
+      "voiceSettings": "Ga naar spraakinstellingen",
+      "soundSettings": "Ga naar geluidsinstellingen",
+      "deleteAccount": "Verwijder account",
+      "overlaySettings": "ga naar overlay-instellingen"
+    },
+    "notFound": {
+      "whoopsError": "Oeps! Deze pagina is verloren gegaan tijdens het gesprek.",
+      "goHomeMessage": "Maak je geen zorgen. Je kan",
+      "goHomeLinkText": "terug naar de homepagina"
+    },
+    "room": {
+      "speakers": "Sprekers",
+      "requestingToSpeak": "Aanvragen om te spreken",
+      "listeners": "Luisteraars",
+      "allowAll": "Iedereen toestaan",
+      "allowAllConfirm": "Weet je het zeker? Dit geeft toestemming aan alle {{count}} verzoekende gebruikers om te spreken"
+    },
+    "searchUser": { "search": "Zoek..." },
+    "soundEffectSettings": { "header": "Geluiden" },
+    "viewUser": {
+      "editProfile": "Profiel bewerken",
+      "followsYou": "Volgt jou",
+      "followers": "Volgers",
+      "following": "Volgend",
+      "followHim": "Volg",
+      "followingHim": "Volgend",
+      "copyProfileUrl": "kopieer profiel url",
+      "urlCopied": "URL gekopieerd naar klembord",
+      "unfollow": "Unfollow"
+    },
+    "voiceSettings": {
+      "header": "Spraakinstellingen",
+      "mic": "Microfoon:",
+      "permissionError": "Geen microfoon gevonden, waarschijnlijk is er geen microfoon aangesloten of heb je geen toestemming gegeven.",
+      "refresh": "Ververs microfoonlijst",
+      "volume": "Volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay-instellingen"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Verbannen Gebruikers",
+      "unban": "Unban",
+      "noBans": "Er is nog niemand verbannen"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Verlaat huidige kamer",
+      "confirmLeaveRoom": "Weet je zeker dat je weg wilt gaan?",
+      "leave": "Verlaat",
+      "inviteUsersToRoomBtn": "Nodig gebruikers uit voor deze kamer",
+      "invite": "Uitnodigen",
+      "toggleMuteMicBtn": "Microfoon aan- of uitzetten",
+      "mute": "Dempen",
+      "unmute": "Dempen opheffen",
+      "makeRoomPublicBtn": "Maak kamer openbaar!",
+      "settings": "Instellingen",
+      "speaker": "Spreker",
+      "listener": "Luisteraar",
+      "chat": "Chat"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Je apparaat wordt momenteel niet ondersteund. Je kunt een",
+      "linkText": "issue op GitHub",
+      "addSupport": "maken en ik zal ondersteuning voor je apparaat proberen toe te voegen."
+    },
+    "inviteButton": {
+      "invited": "Uitgenodigd",
+      "inviteToRoom": "Nodig uit voor kamer"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "Geen microfoon gevonden, waarschijnlijk is er geen microfoon aangesloten of heb je geen toestemming gegeven.",
+      "dismiss": "Negeer",
+      "tryAgain": "Probeer opnieuw"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "Stel sneltoets in",
+      "listening": "Aan het luisteren",
+      "toggleMuteKeybind": "Schakel demp sneltoets",
+      "togglePushToTalkKeybind": "Schakel push-to-talk sneltoets",
+      "toggleOverlayKeybind": "schakel overlay keybind"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "Geen audioapparaat om een of andere reden"
+    },
+    "addToCalendar": { "add": "Voeg toe aan agenda" },
+    "wsKilled": {
+      "description": "WebSocket is gestopt door de server. Dit gebeurt meestal als je de site open hebt staan in een ander tabblad.",
+      "reconnect": "Opnieuw verbinden"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "Openbaar",
+        "private": "Privé",
+        "roomName": "Kamer naam",
+        "roomDescription": "Kamer omschrijving",
+        "descriptionError": "Maximale lengte van 500",
+        "nameError": "Moet tussen de 2 en 60 karakters lang zijn"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "Nieuwe Kamer Gemaakt",
+        "roomInviteFrom": "Kamer Uitnodiging van",
+        "justStarted": "Ze zijn zojuist begonnen",
+        "likeToJoin": ", wil je meedoen?",
+        "inviteReceived": "Je bent uitgenodigd voor"
+      },
+      "editProfileModal": {
+        "usernameTaken": "Gebruikersnaam bezet",
+        "avatarUrlError": "Ongeldige afbeelding",
+        "avatarUrlLabel": "Github/Twitter avatar url",
+        "displayNameError": "2 tot 50 karakters",
+        "displayNameLabel": "Weergavenaam",
+        "usernameError": "4 tot 15 karakters en alleen letters, cijfers en underscore",
+        "usernameLabel": "Gebruikersnaam",
+        "bioError": "Maximaal 160 karakters",
+        "bioLabel": "Bio"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Weet je zeker dat je deze gebruiker wilt blokkeren van al je toekomstige kamers?",
+        "blockUser": "Blokkeer gebruiker",
+        "makeMod": "Maak beheerder",
+        "unmod": "Verwijder beheerder",
+        "addAsSpeaker": "Voeg toe als spreker",
+        "moveToListener": "Verplaats naar luisteraar",
+        "banFromChat": "Verban uit de chat",
+        "banFromRoom": "Verban uit de kamer",
+        "goBackToListener": "Ga terug naar luisteraar",
+        "deleteMessage": "Verwijder dit bericht",
+        "makeRoomCreator": "kamerbeheerder maken"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "Toestemming nodig om te spreken",
+        "makePublic": "Maak kamer openbaar",
+        "makePrivate": "Maak kamer privé"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "Geplande kamers",
+      "noneFound": "Geen gevonden",
+      "allRooms": "Alle geplande kamers",
+      "myRooms": "Mijn geplande kamers",
+      "scheduleRoomHeader": "Kamer inplannen",
+      "startRoom": "Kamer starten",
+      "modal": {
+        "needsFuture": "Moet in de toekomst zijn",
+        "roomName": "Kamer naam",
+        "minLength": "Naam moet minimaal 2 karakters zijn",
+        "roomDescription": "Beschrijving"
+      }
+    },
+    "roomChat": {
+      "title": "Chat",
+      "emotesSoon": "[Emotes binnenkort]",
+      "bannedAlert": "Je bent uit deze chat verbannen",
+      "waitAlert": "Je moet een seconde wachten voordat je weer een bericht kan sturen.",
+      "search": "Zoeken",
+      "searchResults": "Zoekresultaten",
+      "recent": "Vaak Gebruikt",
+      "sendMessage": "Stuur een Bericht",
+      "whisper": "Fluister",
+      "welcomeMessage": "Welkom in de chat!",
+      "roomDescription": "Kamer omschrijving"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Raket aan het tanken",
+      "takingOff": "Aan het opstijgen",
+      "inSpace": "In de ruimte",
+      "approachingMoon": "Maan aan het benaderen",
+      "lunarDoge": "Maan-hond",
+      "approachingSun": "Zon aan het benaderen",
+      "solarDoge": "Zonne-hond",
+      "approachingGalaxy": "Heelal aan het benaderen",
+      "galacticDoge": "Galactische Doge",
+      "spottedLife": "Planeet met leven gespot"
+    }
+  }
+}

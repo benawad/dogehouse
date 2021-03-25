@@ -15,6 +15,8 @@ const colorClassnames = {
     "text-button bg-accent hover:bg-accent-hover disabled:text-accent-disabled disabled:bg-accent-hover",
   secondary:
     "text-button bg-primary-700 hover:bg-primary-600 disabled:text-primary-300",
+  "secondary-800":
+    "text-button bg-primary-800 hover:bg-primary-600 disabled:text-primary-300",
 };
 
 export type ButtonProps = DetailedHTMLProps<
@@ -41,6 +43,7 @@ export const Button: React.FC<ButtonProps> = ({
     <button
       disabled={disabled || loading}
       className={`${sizeClassnames[size]} ${colorClassnames[color]} font-bold flex items-center justify-center ${className}`}
+      data-testid="button"
       {...props}
     >
       <span className={loading ? "opacity-0" : `flex items-center`}>

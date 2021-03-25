@@ -1,0 +1,244 @@
+{
+  "_comment": "if you change this file, do: npm run i18",
+  "common": {
+    "loadMore": "učitaj još",
+    "loading": "učitavanje...",
+    "noUsersFound": "nema pronađenih korisnika",
+    "ok": "ok",
+    "yes": "da",
+    "no": "ne",
+    "cancel": "otkaži",
+    "save": "sačuvaj",
+    "edit": "uredi",
+    "delete": "obriši",
+    "joinRoom": "pridruži se sobi",
+    "copyLink": "kopiraj link",
+    "copied": "kopirano",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Prigušen | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "Priča o poreklu",
+    "link_2": "Discord",
+    "link_3": "Prijavi problem"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "zabrani" },
+    "followingOnlineList": {
+      "listHeader": "Spisak korisnika koji nisu u privatnoj sobi i koje pratite.",
+      "currentRoom": "trenutno u:",
+      "startPrivateRoom": "započni privatnu sobu sa njima"
+    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Kreiraj sobu", "refresh": "Refresh" },
+    "inviteList": {
+      "roomGone": "soba je nestala, vrati me nazad",
+      "shareRoomLink": "podeli vezu do sobe",
+      "inviteFollowers": "Možete pozvati svoje pratioce koji su aktivni:",
+      "whenFollowersOnline": "Kada su vaši pratioci aktivni, oni će se pojaviti ovde."
+    },
+    "login": {
+      "headerText": "Dovodimo glasovne konverzacije do Meseca 🚀",
+      "featureText_1": "Tamna tema",
+      "featureText_2": "Otvorene prijave",
+      "featureText_3": "Podrška za više platformi",
+      "featureText_4": "Otvorenog koda",
+      "featureText_5": "Tekstualno ćaskanje",
+      "featureText_6": "Pokreće Doge",
+      "loginGithub": "prijavi se preko GitHub-a",
+      "loginTwitter": "prijavi se preko Twitter-a",
+      "createTestUser": "kreiraj test korisnika"
+    },
+    "myProfile": {
+      "logout": "odjavi me",
+      "probablyLoading": "verovatno učitava...",
+      "voiceSettings": "idi na podešavanje glasa",
+      "soundSettings": "idi na podešavanje zvuka",
+      "deleteAccount": "obriši nalog",
+      "overlaySettings": "go to overlay settings"
+    },
+    "notFound": {
+      "whoopsError": "Ups! Ova stranica se izgubila u razgovoru.",
+      "goHomeMessage": "Bez brige. Možete.",
+      "goHomeLinkText": "idi na početnu"
+    },
+    "room": {
+      "speakers": "Govornici",
+      "requestingToSpeak": "Molim za reč",
+      "listeners": "Slušaoci",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+    },
+    "searchUser": { "search": "pretraži..." },
+    "soundEffectSettings": { "header": "Zvukovi" },
+    "viewUser": {
+      "editProfile": "uredi profil",
+      "followsYou": "prati vas",
+      "followers": "pratioci",
+      "following": "praćenja",
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
+    },
+    "voiceSettings": {
+      "header": "Podešavanja glasa",
+      "mic": "mikrofon:",
+      "permissionError": "nije pronađen nijedan mikrofon, ili ga niste priključili ili niste dali dozvolu ovoj web lokaciji.",
+      "refresh": "osveži listu mikrofona",
+      "volume": "jačina zvuka:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Blokirani korisnici",
+      "unban": "Poništi blokadu",
+      "noBans": "još niko nije blokiran"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Napusti trenutnu sobu",
+      "confirmLeaveRoom": "Da li ste sigurni da želite da napustite sobu?",
+      "leave": "Napusti",
+      "inviteUsersToRoomBtn": "Pozovi korisnike u sobu",
+      "invite": "Pozovi",
+      "toggleMuteMicBtn": "Uključi / isključi mikrofon",
+      "mute": "Isključi zvug",
+      "unmute": "Uključi zvuk",
+      "makeRoomPublicBtn": "Učini sobu javnom!",
+      "settings": "Podešavanja",
+      "speaker": "Govornik",
+      "listener": "Slušalac",
+      "chat": "Ćaskanje"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Vaš uređaj ternutno nije podržan. Možete stvoriti",
+      "linkText": "greška na GitHub-u",
+      "addSupport": "i pokušaću da dodam podršku za Vaš uređaj."
+    },
+    "inviteButton": { "invited": "pozvan", "inviteToRoom": "pozvan u sobu" },
+    "micPermissionBanner": {
+      "permissionDenied": "Dozvola odbijena za pokušaj pristupa mikrofonu (možda ćete morati da uđete u podešavanja pregledača i ponovo učitate stranicu)",
+      "dismiss": "odbaci",
+      "tryAgain": "pokušaj ponovo"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "podesi prečicu na tastaturi",
+      "listening": "slušanje",
+      "toggleMuteKeybind": "uključi/isključi prečicu na tastaturi za mutiranje",
+      "togglePushToTalkKeybind": "uključi/isključi prečicu na tastaturi za govor na pritisak",
+      "toggleOverlayKeybind": "toggle overlay keybind"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "nema audio konzumera iz nekog razloga"
+    },
+    "addToCalendar": { "add": "Dodaj u kalendar" },
+    "wsKilled": {
+      "description": "Websocket je ubio server. To se obično dešava kada otvorite web lokaciju na drugoj kartici.",
+      "reconnect": "ponovo poveži"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "javno",
+        "private": "privatno",
+        "roomName": "naziv sobe",
+        "roomDescription": "opsi sobe",
+        "descriptionError": "maksimalna dužina 500",
+        "nameError": "mora biti od 2 do 60 karaktera dužine"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "Kreirana nova soba",
+        "roomInviteFrom": "Poziv u novu sobu od",
+        "justStarted": "Upravo su počeli",
+        "likeToJoin": ", želite li da se pridružite?",
+        "inviteReceived": "pozvani ste u"
+      },
+      "editProfileModal": {
+        "usernameTaken": "korisničko ime je zauzetno",
+        "avatarUrlError": "Nevažeća slika",
+        "avatarUrlLabel": "Github/Twitter avatar url",
+        "displayNameError": "dužina od 2 do 50 karaktera",
+        "displayNameLabel": "Prikazano ime",
+        "usernameError": "dužina od 4 do 15 karaktera i samo alfanumerički znakovi/donja crta",
+        "usernameLabel": "Korisničko ime",
+        "bioError": "maksimalna dužina 160 karaktera",
+        "bioLabel": "Opis"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Da li ste sigurni da želite da blokirate ovog korisnika da se pridruži bilo kojoj sobi koju ste ikada stvorili?",
+        "blockUser": "blokiraj korisnika",
+        "makeMod": "dodaj moderatora",
+        "unmod": "skloni moderatora",
+        "addAsSpeaker": "dodaj kao govornika",
+        "moveToListener": "pređi na slušaoca",
+        "banFromChat": "zabrani pristup ćaskanju",
+        "banFromRoom": "zabrani pristup sobi",
+        "goBackToListener": "vrati se slušaocu",
+        "deleteMessage": "obriši ovu poruku",
+        "makeRoomCreator": "make room admin"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "zatraži dozvolu za govor",
+        "makePublic": "učini sobu javnom",
+        "makePrivate": "učini sobu privatnom"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "Zakazane sobe",
+      "noneFound": "nijedna nije pronađena",
+      "allRooms": "sve zakazane sobe",
+      "myRooms": "moje zakazane sobe",
+      "scheduleRoomHeader": "Zakaži sobu",
+      "startRoom": "započni sobu",
+      "modal": {
+        "needsFuture": "treba da bude u budućnosti",
+        "roomName": "naziv sobe",
+        "minLength": "minimalna dužina 2",
+        "roomDescription": "Description"
+      }
+    },
+    "roomChat": {
+      "title": "Ćaskanje",
+      "emotesSoon": "[emotikoni uskoro]",
+      "bannedAlert": "Zabranjeno Vam je ćaskanje",
+      "waitAlert": "Pre slanja nove poruke morate da sačekate sekundu",
+      "search": "Pretraži",
+      "searchResults": "Rezultati pretrage",
+      "recent": "Često korišćeno",
+      "sendMessage": "Pošalji poruku",
+      "whisper": "šapći",
+      "welcomeMessage": "Dobrodošli u ćaskanje!",
+      "roomDescription": "opis sobe"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fueling rocket",
+      "takingOff": "Taking off",
+      "inSpace": "In space",
+      "approachingMoon": "Approaching moon",
+      "lunarDoge": "Lunar doge",
+      "approachingSun": "Approaching sun",
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
+    }
+  }
+}

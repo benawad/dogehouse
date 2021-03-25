@@ -1,0 +1,244 @@
+{
+  "_comment": "if you change this file, do: npm run i18",
+  "common": {
+    "loadMore": "hlaða meira",
+    "loading": "hleður...",
+    "noUsersFound": "engir notendur fundust",
+    "ok": "ok",
+    "yes": "já",
+    "no": "nei",
+    "cancel": "hætta við",
+    "save": "vista",
+    "edit": "breyta",
+    "delete": "eyða",
+    "joinRoom": "taktu þátt",
+    "copyLink": "afrita hlekk",
+    "copied": "afritað",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Þaggaður | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "Upprunasaga",
+    "link_2": "Discord",
+    "link_3": "Tilkynna vandamál"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "ban" },
+    "followingOnlineList": {
+      "listHeader": "Listi yfir notendur sem eru ekki í einkaherbergi og þú fylgir.",
+      "currentRoom": "núna í",
+      "startPrivateRoom": "stofnaðu einkaspjallrásin með þeim"
+    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Stofna Spjallrás", "refresh": "Refresh" },
+    "inviteList": {
+      "roomGone": "rásin horfið, farðu tíl baka",
+      "shareRoomLink": "deila hlekknum í herbergið",
+      "inviteFollowers": "Þú getur boðið fylgjendum þínum sem eru á netinu:",
+      "whenFollowersOnline": "Þegar fylgjendur þínir eru tengdir, munu þeir birtast hér."
+    },
+    "login": {
+      "headerText": "Tekur raddsamræður til tunglsins🚀",
+      "featureText_1": "Næturþema",
+      "featureText_2": "Opið fyrir nýja notendur",
+      "featureText_3": "Styður flest tæki",
+      "featureText_4": "Opinn hugbúnaður",
+      "featureText_5": "Textaspjall",
+      "featureText_6": "Knúið af Doge",
+      "loginGithub": "innskráning með GitHub",
+      "loginTwitter": "innskráning með Twitter",
+      "createTestUser": "búa til prófanotanda"
+    },
+    "myProfile": {
+      "logout": "skrá út",
+      "probablyLoading": "hleður...(líklega)",
+      "voiceSettings": "farðu í raddstillingar",
+      "soundSettings": "farðu í hljóðstillingar",
+      "deleteAccount": "eyða reikningi",
+      "overlaySettings": "go to overlay settings"
+    },
+    "notFound": {
+      "whoopsError": "Úps! Þessi síða týndist í samtali.",
+      "goHomeMessage": "Ekki hafa áhyggjur. Þú getur",
+      "goHomeLinkText": "farið heim"
+    },
+    "room": {
+      "speakers": "Hátalarar",
+      "requestingToSpeak": "Biðja um að tala",
+      "listeners": "Hlustendur",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+    },
+    "searchUser": { "search": "leita..." },
+    "soundEffectSettings": { "header": "Hljóðin" },
+    "viewUser": {
+      "editProfile": "breyta prófíl",
+      "followsYou": "fylgir þér",
+      "followers": "fylgjendur",
+      "following": "eftirfarandi",
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
+    },
+    "voiceSettings": {
+      "header": "Talstillingar",
+      "mic": "mic:",
+      "permissionError": "engir hljóðnemar fundust, kannski hefurðu það ekki tengt eða hefur ekki gefið leyfi til að nota það.",
+      "refresh": "endurnýja hljóðnemalistann",
+      "volume": "hljóðstyrkur:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Bannaðir Notendur",
+      "unban": "unban",
+      "noBans": "Enginn hefur verið bannaður ennþá"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Yfirgefa spjallrásina",
+      "confirmLeaveRoom": "Ertu viss um að þú viljir yfirgefa rásina?",
+      "leave": "Yfirgefa",
+      "inviteUsersToRoomBtn": "Bjóða notendum í spjallrásina",
+      "invite": "Bjóða",
+      "toggleMuteMicBtn": "Slökkva á hljóðnema",
+      "mute": "Þagga niður",
+      "unmute": "Afþagga",
+      "makeRoomPublicBtn": "Opinbera rás!",
+      "settings": "Stillingar",
+      "speaker": "Ræðumaður",
+      "listener": "Hlustandi",
+      "chat": "Spjall"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Tækið þitt er sem stendur ekki stutt. Þú getur búið til",
+      "linkText": "beiðni á GitHub",
+      "addSupport": "og þá verður reynt að bæta við stuðningi fyrir tækið þitt."
+    },
+    "inviteButton": { "invited": "boðið", "inviteToRoom": "bjóða í spjallrás" },
+    "micPermissionBanner": {
+      "permissionDenied": "Leyfi hafnað þegar reynt var að fá aðgang að hljóðnemanum þínum (þú gætir þurft að fara í vafrastillingar og endurhlaða síðuna)",
+      "dismiss": "segja upp",
+      "tryAgain": "reyna aftur"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "stilltu lyklabindingu",
+      "listening": "er að hlusta",
+      "toggleMuteKeybind": "afþagga",
+      "togglePushToTalkKeybind": "slökkva á 'Ýttu til að tala'",
+      "toggleOverlayKeybind": "toggle overlay keybind"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "enginn hljóðnotandi af einhverjum ástæðum"
+    },
+    "addToCalendar": { "add": "Bæta við dagatal" },
+    "wsKilled": {
+      "description": "WebSocket tengingin var drepinn af netþjóninum. Þetta gerist venjulega þegar þú opnar vefsíðuna á öðrum flipa.",
+      "reconnect": "endurræsa tengingu"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "Opin rás",
+        "private": "Einkarás",
+        "roomName": "Rásarheiti",
+        "roomDescription": "Rásarlýsing",
+        "descriptionError": "hámarks lengd 500",
+        "nameError": "verður að vera á bilinu 2 til 60 stafir"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "Nýtt herbergi búið til",
+        "roomInviteFrom": "Herbergisboð frá",
+        "justStarted": "Byrjað rétt í þessu",
+        "likeToJoin": ", vilt þú bætast í hópinn?",
+        "inviteReceived": "þér hefur verið boðið í"
+      },
+      "editProfileModal": {
+        "usernameTaken": "notendanafn tekið",
+        "avatarUrlError": "Ógild mynd",
+        "avatarUrlLabel": "GitHub/Twitter avatar slóð",
+        "displayNameError": "lengd 2 til 50 stafir",
+        "displayNameLabel": "Sýna nafn",
+        "usernameError": "lengd 4 til 15 stafir og aðeins tölustafur / undirstrikun",
+        "usernameLabel": "Notendanafn",
+        "bioError": "hámarkslengd 160 stafir",
+        "bioLabel": "Bio"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Ertu viss um að þú viljir hindra þennan notanda í að fara í hvaða herbergi sem þú stofnar?",
+        "blockUser": "loka á notanda",
+        "makeMod": "gera að moderator",
+        "unmod": "taka moderator réttindi",
+        "addAsSpeaker": "gera að mælanda",
+        "moveToListener": "færa til hlustenda",
+        "banFromChat": "banna frá spjalli",
+        "banFromRoom": "banna frá rásinni",
+        "goBackToListener": "fara aftur til hlustandans",
+        "deleteMessage": "eyða skilaboðum",
+        "makeRoomCreator": "gera að rásarstjórnenda"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "þurfa leyfi til að tala",
+        "makePublic": "opinbera rás",
+        "makePrivate": "gera að einkarás"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "Skipulagðar Rásir",
+      "noneFound": "enginn fannst",
+      "allRooms": "öll ætlunarásirnar",
+      "myRooms": "áætlunarásirnar mínar",
+      "scheduleRoomHeader": "Skipuleggðu rásir",
+      "startRoom": "Stofna rás",
+      "modal": {
+        "needsFuture": "þarf að vera í framtíðinni",
+        "roomName": "rásarheiti",
+        "minLength": "lágmarkslengd 2",
+        "roomDescription": "Description"
+      }
+    },
+    "roomChat": {
+      "title": "Spjall",
+      "emotesSoon": "[emojis koma fljótlega]",
+      "bannedAlert": "Þú fékkst bann við spjalli",
+      "waitAlert": "Þú verður að bíða í sekúndu áður en þú sendir önnur skilaboð",
+      "search": "Leita",
+      "searchResults": "Leitarniðurstöður",
+      "recent": "Oft notað",
+      "sendMessage": "Senda skilaboð",
+      "whisper": "Hvísla",
+      "welcomeMessage": "Velkomin í spjallið!",
+      "roomDescription": "Rásarlýsing"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fylli á eldflaugina",
+      "takingOff": "Tek á loft",
+      "inSpace": "Út í geimi",
+      "approachingMoon": "Nálgast tunglið",
+      "lunarDoge": "Tungldoge",
+      "approachingSun": "Nálgast sólina",
+      "solarDoge": "Sóldoge",
+      "approachingGalaxy": "Nálgast vetrarbraut",
+      "galacticDoge": "Vetrarbrautar Doge",
+      "spottedLife": "Pláneta með lífi fundin"
+    }
+  }
+}

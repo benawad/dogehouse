@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div style="background-color: #EFE7DC; border-radius: 5%; height: 400px; width: 300px; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%);">
+    <img style="height:140px; position:fixed; top:40%; left:50%; transform:translate(-50%, -50%);" src="../../icons/icon.png" alt="DogeHouse Logo">
+    <h3 style="font-family: 'Poppins'; position:fixed; top:70%; left:50%; transform:translate(-50%, -50%); width: 100%; text-align: center;"></h3>
+
+    <script>
+        const { ipcRenderer } = require('electron');
+        const header = document.querySelector('h3');
+        let locale;
+        ipcRenderer.on('@locale/text', (ev, text) => {
+            locale = text;
+            document.title = locale.title;
+            header.textContent = locale.check;
+        });
+        ipcRenderer.on('download', () => {
+            header.textContent = locale.download;
+        });
+        ipcRenderer.on('percentage', percent => {
+            header.textContent = `${locale.download} ${percent}%`;
+        });
+        ipcRenderer.on('relaunch', () => {
+            header.textContent = locale.relaunch;
+        });
+        ipcRenderer.on('launch', () => {
+            header.textContent = locale.launch;
+        });
+    </script>
+    </div>
+</body>
+</html>

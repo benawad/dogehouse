@@ -10,12 +10,12 @@
   </a>
 </p>
 
-<h3 align="center">  
+<h3 align="center">
   <a href="https://github.com/benawad/dogehouse/blob/staging/CONTRIBUTING.md">Contribute</a>
   <span> · </span>
   <a href="https://discord.gg/82HzQCJCDg">Community</a>
   <span> · </span>
-  <a href="#">Documentation</a>
+  <a href="./docs/README.MD">Documentation</a>
 </h3>
 
 <p align="center"><b>https://dogehouse.tv/</b></p>
@@ -34,10 +34,10 @@
 | [pilaf](pilaf)       |   React Native App    |
 | [feta](feta)         | Shared utils web/app  |
 | [kibbeh](kibbeh)     |   Next.js frontend    |
+| [kebab](kebab)       |      API Client       |
 
 ## Branches
 
-- new-design -> pr this branch if you touch `kibbeh`
 - staging -> pr this branch for everything else
 - prod -> don't touch, this is what's running in prod
 
@@ -46,6 +46,28 @@
 DogeHouse is open to contributions, but I recommend creating an issue or replying in a comment to let me know what you are working on first that way we don't overwrite each other.
 
 Please read [CONTRIBUTING.md](https://github.com/benawad/dogehouse/blob/staging/CONTRIBUTING.md) for details on this project.
+
+## Dogehouse Desktop
+
+A desktop app built with electron is available for Windows and Mac
+
+Download links are in [the releases section](https://github.com/benawad/dogehouse/releases/latest)
+
+Built with electron.
+
+__*Note:*__ If a warning message pops up on Windows, go to 'more info' and select 'Run Anyway'
+
+## DogeReviewers
+
+Contributors helping to review/merge pull requests:
+
+- @ermalsh
+- @ofsho
+- @HarrisonMayotte
+- @nadirabbas
+- @overlisted
+- @goldyydev
+- @jamesql
 
 ## Code of Conduct
 

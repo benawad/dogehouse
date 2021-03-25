@@ -4,14 +4,14 @@ import { Story } from "@storybook/react";
 import { BaseOverlay, BaseOverlayProps } from "../ui/BaseOverlay";
 import { MessageElement } from "../ui/MessageElement";
 import avatar from "../img/avatar.png";
+import { SettingsIcon } from "../ui/SettingsIcon";
+import { SolidCaretRight, OutlineGlobe, SolidUser } from "../icons";
 import {
-  FollowNotification,
   GenericNotification,
+  FollowNotification,
   LiveNotification,
   NewRoomNotification,
 } from "../ui/NotificationElement";
-import { SettingsIcon } from "../ui/SettingsIcon";
-import { SmSolidCaretRight, SmOutlineGlobe, SmSolidUser } from "../icons";
 
 const user = {
   avatar,
@@ -48,6 +48,7 @@ Messages.bind({});
 interface IconWrapperProps {
   children: ReactNode;
 }
+
 function IconWrapper({ children }: IconWrapperProps) {
   return <div className="py-3 px-4">{children}</div>;
 }
@@ -89,13 +90,13 @@ export const Settings: Story<BaseOverlayProps> = ({
     <BaseOverlay actionButton={actionLabel}>
       <div className="flex flex-col">
         <SettingsIcon
-          icon={<SmSolidUser className={`text-primary-100`} />}
+          icon={<SolidUser className={`text-primary-100`} />}
           label={"profile"}
         />
         <SettingsIcon
-          icon={<SmOutlineGlobe />}
+          icon={<OutlineGlobe />}
           label={"Language"}
-          trailingIcon={<SmSolidCaretRight />}
+          trailingIcon={<SolidCaretRight />}
         />
       </div>
     </BaseOverlay>

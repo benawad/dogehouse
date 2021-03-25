@@ -1,0 +1,243 @@
+{
+  "common": {
+    "loadMore": "加载更多",
+    "loading": "加载中...",
+    "noUsersFound": "没有找到任何用户",
+    "ok": "好",
+    "yes": "是",
+    "no": "否",
+    "cancel": "取消",
+    "save": "保存",
+    "edit": "编辑",
+    "delete": "删除",
+    "joinRoom": "加入音频聊天室",
+    "copyLink": "拷贝链接",
+    "copied": "已拷贝",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "请注意，在没有辅助功能权限的情况下运行DogeHouse可能会导致错误"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "已静音 | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "起源故事",
+    "link_2": "Discord",
+    "link_3": "报告Bug"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "踢出用户" },
+    "followingOnlineList": {
+      "listHeader": "您所关注的不在私人聊天室的人。",
+      "currentRoom": "所在的聊天室:",
+      "startPrivateRoom": "跟ta进入私人聊天室"
+    },
+    "followList": { "followHim": "关注ta", "followingHim": "已经关注" },
+    "home": { "createRoom": "新建聊天室", "refresh": "刷新" },
+    "inviteList": {
+      "roomGone": "聊天室以被删除，请回到前一页",
+      "shareRoomLink": "在聊天室分享链接",
+      "inviteFollowers": "您可以邀请您在线的关注者:",
+      "whenFollowersOnline": "当您的关注者在线的时候，ta们会在这里显示。"
+    },
+    "login": {
+      "headerText": "把语音聊天飞上月球 🚀",
+      "featureText_1": "深色主题",
+      "featureText_2": "开放注册",
+      "featureText_3": "跨平台支持",
+      "featureText_4": "开源",
+      "featureText_5": "文字聊天",
+      "featureText_6": "神烦狗出品",
+      "loginGithub": "用GitHub登录",
+      "loginTwitter": "用Twitter登录",
+      "createTestUser": "创建测试账号"
+    },
+    "myProfile": {
+      "logout": "登出",
+      "probablyLoading": "加载中...",
+      "voiceSettings": "音量设置",
+      "soundSettings": "声音设置",
+      "deleteAccount": "删除账号",
+      "overlaySettings": "覆盖层设置"
+    },
+    "notFound": {
+      "whoopsError": "哎呀，这页在聊天中被丢掉了",
+      "goHomeMessage": "别担心，可以",
+      "goHomeLinkText": "回到主页"
+    },
+    "room": {
+      "speakers": "讲话者",
+      "requestingToSpeak": "要求讲话",
+      "listeners": "听者",
+      "allowAll": "允许全体成员讲话",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+    },
+    "searchUser": { "search": "搜索..." },
+    "soundEffectSettings": { "header": "声音" },
+    "viewUser": {
+      "editProfile": "编辑个人主页",
+      "followsYou": "关注您的人",
+      "followers": "关注者",
+      "following": "您关注的人",
+      "followHim": "关注ta",
+      "followingHim": "已经关注",
+      "copyProfileUrl": "复制个人主页链接",
+      "urlCopied": "个人主页链接已复制到剪贴板",
+      "unfollow": "取消关注"
+    },
+    "voiceSettings": {
+      "header": "语音设置",
+      "mic": "麦克风:",
+      "permissionError": "没有找到麦克风，也许没有插入麦克风，也许没有给此网页使用麦克风的权利。",
+      "refresh": "刷新麦克风列表",
+      "volume": "音量:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "不允许的App标题", "label": "输入App标题" },
+      "header": "覆盖层设置"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "禁止加入的用户",
+      "unban": "解封",
+      "noBans": "没有人被封过"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "离开聊天室",
+      "confirmLeaveRoom": "确定离开吗?",
+      "leave": "离开",
+      "inviteUsersToRoomBtn": "邀请用户进入聊天室",
+      "invite": "邀请",
+      "toggleMuteMicBtn": "切换麦克风静音",
+      "mute": "关闭麦克风",
+      "unmute": "打开麦克风",
+      "makeRoomPublicBtn": "把聊天室设为公开!",
+      "settings": "设置",
+      "speaker": "扬声器",
+      "listener": "听者",
+      "chat": "文字聊天"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "麦克风使用权被拒绝（可能需要更改设置并且刷新页面）",
+      "dismiss": "取消",
+      "tryAgain": "重试"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "公开",
+        "private": "私人",
+        "roomName": "聊天室名字",
+        "roomDescription": "聊天室简介",
+        "descriptionError": "最大长度为500字符",
+        "nameError": "长度为2到60字符"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "新聊天室被建",
+        "roomInviteFrom": "邀请者:",
+        "justStarted": "ta们刚开始",
+        "likeToJoin": "，您要加入吗?",
+        "inviteReceived": "您被邀请到"
+      },
+      "editProfileModal": {
+        "usernameTaken": "用户名已被占用",
+        "avatarUrlError": "图片无效",
+        "avatarUrlLabel": "GitHub/Twitter头像URL",
+        "displayNameError": "长度为2到50字符",
+        "displayNameLabel": "所显名称",
+        "usernameError": "长度为4到15字符，只允许字母或数字或下划线",
+        "usernameLabel": "用户名",
+        "bioError": "最大长度为160字符",
+        "bioLabel": "个人简介"
+      },
+      "profileModal": {
+        "blockUserConfirm": "您确定把此人加入黑名单?（ta不可加入您所建立的任何聊天室）",
+        "blockUser": "加入黑名单",
+        "makeMod": "设为管理员",
+        "unmod": "取消管理员资格",
+        "addAsSpeaker": "加为讲话者",
+        "moveToListener": "移到听者",
+        "banFromChat": "禁止此人使用文字聊天",
+        "banFromRoom": "踢出聊天室",
+        "goBackToListener": "回到听者",
+        "deleteMessage": "删除此信息",
+        "makeRoomCreator": "设为聊天室管理员"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "需要允许才能说话",
+        "makePublic": "把聊天室设为公开",
+        "makePrivate": "把聊天室设为私人"
+      }
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "no audio consumer for some reason"
+    },
+    "addToCalendar": { "add": "加到日历" },
+    "keyboardShortcuts": {
+      "setKeybind": "设置快捷键",
+      "listening": "等待输入",
+      "toggleMuteKeybind": "切换静音键绑定",
+      "togglePushToTalkKeybind": "切换按键说话绑定",
+      "toggleOverlayKeybind": "toggle overlay keybind"
+    },
+    "wsKilled": {
+      "description": "连接被服务器终止。当您在另一个标签中打开此网站时，通常会发生这种情况",
+      "reconnect": "正在重新连接"
+    },
+    "deviceNotSupported": {
+      "notSupported": "您的设备展示还不被支持，您可以",
+      "linkText": "在GitHub开启一个报告",
+      "addSupport": "我将会尝试支持您的设备"
+    },
+    "inviteButton": { "invited": "被邀请", "inviteToRoom": "邀请进入聊天室" }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "预定的聊天室",
+      "noneFound": "没有找到",
+      "allRooms": "所有预定的聊天室",
+      "myRooms": "我的预定的聊天室",
+      "scheduleRoomHeader": "预定聊天室",
+      "startRoom": "开始聊天室",
+      "modal": {
+        "needsFuture": "需要一个在未来的时间",
+        "roomName": "聊天室名字",
+        "minLength": "最短长度为2",
+        "roomDescription": "聊天室描述"
+      }
+    },
+    "roomChat": {
+      "title": "文字聊天",
+      "emotesSoon": "[未来增加表情]",
+      "bannedAlert": "您被禁止使用文字聊天",
+      "waitAlert": "您需要等一秒钟才能发出下一条信息",
+      "search": "搜索",
+      "searchResults": "搜索结果",
+      "recent": "经常使用的",
+      "sendMessage": "发一条信息",
+      "whisper": "私信",
+      "welcomeMessage": "欢迎来到文字聊天!",
+      "roomDescription": "聊天室介绍"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fueling rocket",
+      "takingOff": "Taking off",
+      "inSpace": "In space",
+      "approachingMoon": "Approaching moon",
+      "lunarDoge": "Lunar doge",
+      "approachingSun": "Approaching sun",
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
+    }
+  }
+}

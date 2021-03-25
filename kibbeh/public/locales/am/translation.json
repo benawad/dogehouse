@@ -1,0 +1,245 @@
+{
+  "_comment": "if you change this file, do: npm run i18",
+  "common": {
+    "loadMore": "ተጨማሪ ይጫኑ",
+    "loading": "በመጫን ላይ ...",
+    "noUsersFound": "ምንም ተጠቃሚዎች አልተገኙም",
+    "ok": "እሺ",
+    "yes": "እሺ",
+    "no": "አይ",
+    "cancel": "መተው",
+    "save": "ሰጥ",
+    "edit": "ለወጥ",
+    "delete": "ሰርዝ",
+    "joinRoom": "ክፍል መቀላቀል",
+    "copyLink": "ሊንክ ውሰድ",
+    "copied": "ተቀድቷል!",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please give DogeHouse Accessibility permessions"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "ድምፀ-ከል | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "ምንጭ ታሪክ",
+    "link_2": "Discord",
+    "link_3": "ችግር ሪፖርት"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "አግድ" },
+    "followingOnlineList": {
+      "listHeader": "የግል ክፍል ውስጥ ናቸው እና የሚከተሉ ተጠቃሚዎች ዝርዝር፡፡",
+      "currentRoom": "በአሁኑ ጊዜ ውስጥ:",
+      "startPrivateRoom": "ከእነሱ ጋር አንድ የግል ክፍል መጀመር"
+    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "ክፍል ፍጠር", "refresh": "Refresh" },
+    "inviteList": {
+      "roomGone": "ክፍሉ ጠፋ, ተመለስ",
+      "shareRoomLink": "የክፍሉን ሊንክ አጋራ",
+      "inviteFollowers": "መስመር ላይ ናቸው የእርስዎ ተከታዮች መጋበዝ ይችላሉ:",
+      "whenFollowersOnline": "የእርስዎ ተከታዮች መስመር ላይ ሲሆኑ, እነሱም እዚህ ይታያሉ፡፡"
+    },
+    "login": {
+      "headerText": "ወደ ጨረቃ ድምፅ ውይይቶች መውሰድ 🚀",
+      "featureText_1": "ጨለማ ገጽታ",
+      "featureText_2": "ለሁሉም ክፍት ኣገባብ",
+      "featureText_3": "ብዝሃተ-ስርዓት ድጋፍ",
+      "featureText_4": "ክፍት ምንጭ",
+      "featureText_5": "የፅሁፍ ውይይት",
+      "featureText_6": "በ Doge የተጎላበተ",
+      "loginGithub": "በ GitHub ግባ",
+      "loginTwitter": "በ Twitter ግባ",
+      "createTestUser": "የሙከራ ተጠቃሚ ይፍጠሩ"
+    },
+    "myProfile": {
+      "logout": "ውጣ",
+      "probablyLoading": "ምናልባት በመጫን ላይ ...",
+      "voiceSettings": "የአወራር ድምጽ ቅንብሮች",
+      "soundSettings": "የድምጽ ቅንብሮች",
+      "deleteAccount": "መለያህን ደልት",
+      "overlaySettings": "go to overlay settings"
+    },
+    "notFound": {
+      "whoopsError": "ውይ ውይ! ይህ ገጽ ውይይት ውስጥ ጠፋ፡፡",
+      "goHomeMessage": "መጨነቅ አይደለም፡፡ ትችላለህ",
+      "goHomeLinkText": "ወደቤት ሂድ"
+    },
+    "room": {
+      "speakers": "ተናጋሪዎች",
+      "requestingToSpeak": "ለመናገር ፈቃድ ጠይቅ",
+      "listeners": "አድማጮች",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+    },
+    "searchUser": { "search": "ፈልግ ..." },
+    "soundEffectSettings": { "header": "ድምፆች" },
+    "viewUser": {
+      "editProfile": "መገለጫ ቀይር",
+      "followsYou": "እርስዎን ይከተላል",
+      "followers": "ተከታዮች",
+      "following": "የሚከተሉት",
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
+    },
+    "voiceSettings": {
+      "header": "የድምፅ ቅንብሮች",
+      "mic": "ማይክሮፎን:",
+      "permissionError": "ምንም የስቴሪዮ አገኘ, ወይ አንዳቸውም ሲሰካ ወይም በዚህ ድር ጣቢያ ፍቃድ የተሰጠው አልቻሉም፡፡",
+      "refesh": "አድስ ማይክሮፎኑን ዝርዝር",
+      "volume": "ድምጽ:",
+      "refresh": "refresh mic list"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings",
+      "errorMsg": "Please enter valid app title",
+      "label": "Enter app title"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "የታገዱ ተጠቃሚዎች",
+      "unban": "የታገደውን መልስ",
+      "noBans": "ማንም ገና የታገደ የለም"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "የአሁኑ ክፍል ይውጡ",
+      "confirmLeaveRoom": "አንተ ለመውጣት እንደሚፈልጉ እርግጠኛ ነዎት?",
+      "leave": "ውጣ",
+      "inviteUsersToRoomBtn": "ክፍል ተጠቃሚዎችን ይጋብዙ",
+      "invite": "ጋብዝ",
+      "toggleMuteMicBtn": "ቀያይር ድምጸ ማይክሮፎን",
+      "mute": "ድምጸ አጥፋ",
+      "unmute": "ድምጸ ምልስ",
+      "makeRoomPublicBtn": "ክፍሉን ልሁሉም ክፍት አድርግ!",
+      "settings": "ቅንብሮች",
+      "speaker": "ተናጋሪ",
+      "listener": "አድማጭ",
+      "chat": "Chat"
+    },
+    "deviceNotSupported": {
+      "notSupported": "የእርስዎ መሣሪያ በአሁኑ ጊዜ አይደገፍም፡፡ ቸግሩን",
+      "linkText": "በ GitHub ላይ ተናገሩ",
+      "addSupport": "እኔም ለመሣሪያዎ ድጋፍ ለማከል አሞክራልሁ፡፡"
+    },
+    "inviteButton": { "invited": "ተጋብዘዋል", "inviteToRoom": "ወደ ክፍል ጋብዝ" },
+    "micPermissionBanner": {
+      "permissionDenied": "ፈቃድ መተግበሪያው ማይክሮፎኑን ለመድረስ እየሞከረ ካደ (እርስዎ የአሳሽ ቅንብሮች ወደ ሂድ እና ገጹን ዳግም መጫን ሊኖርብዎ ይችላል)",
+      "dismiss": "አሰናብት",
+      "tryAgain": "እንደገና ሞክር"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "ቁልፍ አዘጋጅ",
+      "listening": "በማዳመጥ ላይ",
+      "toggleMuteKeybind": "ድምጸ ማጥፍያ/ማብርያ ቁልፍ",
+      "togglePushToTalkKeybind": "ተጭኖ ማውሪያ ማጥፍያ/ማብርያ ቁልፍ",
+      "toggleOverlayKeybind": "toggle overlay keybind"
+    },
+    "userVolumeSlider": { "noAudioMessage": "በሆነ ምክንያት ምንም ድምጽ ተጠቃሚ የለም" },
+    "addToCalendar": { "add": "ወደ ቀን መቁጠሪያ ጨምር" },
+    "wsKilled": {
+      "description": "WebSocket በአገልጋዩ ተቋረጠ. ሌላ ትር ውስጥ ያለውን ድረ ገጽ በመክፈት የተከሰተ ይሆናል፡፡",
+      "reconnect": "መልሰህ ተገናኝ"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "ለሁሉም ክፍት",
+        "private": "የግል",
+        "roomName": "የክፍል ስም",
+        "roomDescription": "ክፍል መግለጫ",
+        "descriptionError": "ከፍተኛ ርዝመት 500",
+        "nameError": "ከ 2 እስክ 60 ፊደላአት ረዝመት ምሆን አለበት"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "አዲስ ክፍል ተፈጥሯል",
+        "roomInviteFrom": "ወደ ክፍል ተጋብዘሃል በ ",
+        "justStarted": "ገና አሁን ነው የጀምሩት",
+        "likeToJoin": ", እርሶ ለመቀላቀል ይፈልጋሉ?",
+        "inviteReceived": "እርስዎ ተጋብዘዋል"
+      },
+      "editProfileModal": {
+        "usernameTaken": "የተጠቃሚ ስም ወስዶታል",
+        "avatarUrlError": "ልክ ያልሆነ ምስል",
+        "avatarUrlLabel": "Github / Twitter አምሳያ ሊንክ",
+        "displayNameError": "ርዝምት ክ 2 እስከ 50 ፊደላት",
+        "displayNameLabel": "መጠሪያው ስም",
+        "usernameError": "ርዝምት ክ 4 እስከ 15 ፊደላት",
+        "usernameLabel": "የተጠቃሚ ስም",
+        "bioError": "ከ 160 ፊደል በላይ አይቻልም",
+        "bioLabel": "ስል እርሶ አጭር ገላጭ ጽሁፍ"
+      },
+      "profileModal": {
+        "blockUserConfirm": "እርስዎ መቼም ከሚፈጥሩት ማንኛውም ክፍል ከመቀላቀል ይህን ተጠቃሚ ማገድ ይፈልጋሉ፤ እርግጠኛ ኖት?",
+        "blockUser": "ተጠቃሚን አግድ",
+        "makeMod": "አወያይ ያድርጉ ",
+        "unmod": "አወያይ አስወግድ",
+        "addAsSpeaker": "እንደ ተናጋሪ ጨምር",
+        "moveToListener": "ወደ አድማጭ ቀይር",
+        "banFromChat": "ከ ውይይት አግድ",
+        "banFromRoom": "ከ ክፍል ያግዱ",
+        "goBackToListener": "አዳማጭ ይመለሱ",
+        "deleteMessage": "ይህን መልዕክት ሰርዝ",
+        "makeRoomCreator": "make room admin"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "መናገር ፈቃድ ይጠይቃል",
+        "makePublic": "ክፍሉን ለሁሉም ክፍት ያድርጉ",
+        "makePrivate": "ክፍሉን የግል ያድርጉ"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "የተያዘለት ክፍሎች",
+      "noneFound": "ምንም አልተገኘም",
+      "allRooms": "ሁሉንም መርሐግብር ክፍሎች",
+      "myRooms": "የእኔ መርሐግብር ክፍሎች",
+      "scheduleRoomHeader": "ፕሮግራም ክፍል",
+      "startRoom": "ክፍሉን ጀምር",
+      "modal": {
+        "needsFuture": "ፍላጎቶች ወደፊት መሆን አለባቸው",
+        "roomName": "የክፍል ስም",
+        "minLength": "ደቂቃ ርዝመት 2",
+        "roomDescription": "ክፍል መግለጫ"
+      }
+    },
+    "roomChat": {
+      "title": "ውይይት",
+      "emotesSoon": "[በቅርቡ emotes]",
+      "bannedAlert": "ከ ውይይቱ ታግደሃል",
+      "waitAlert": "ሌላ መልዕክት ከመላክ በፊት ትንሽ ጠብቅ",
+      "search": "ፈልግ",
+      "searchResults": "የፍለጋ ውጤቶች",
+      "recent": "በተደጋጋሚ ጥቅም ላይ የዋለ",
+      "sendMessage": "መልዕክት ይላኩ",
+      "whisper": "ተንሸካሾክ",
+      "welcomeMessage": "ለውይይት እንኳን ደህና መጡ!",
+      "roomDescription": "ክፍል መግለጫ"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fueling rocket",
+      "takingOff": "Taking off",
+      "inSpace": "In space",
+      "approachingMoon": "Approaching moon",
+      "lunarDoge": "Lunar doge",
+      "approachingSun": "Approaching sun",
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
+    }
+  }
+}

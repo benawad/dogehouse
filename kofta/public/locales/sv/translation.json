@@ -1,0 +1,246 @@
+{
+  "common": {
+    "loadMore": "Visa fler",
+    "loading": "Laddar in...",
+    "noUsersFound": "Inga användare hittades",
+    "ok": "Okej",
+    "yes": "Ja",
+    "no": "Nej",
+    "cancel": "Avbryt",
+    "save": "Spara",
+    "edit": "Ändra",
+    "delete": "Radera",
+    "joinRoom": "Anslut till rummet",
+    "copyLink": "Kopiera länken",
+    "copied": "Kopierad",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Notera att använda DogeHouse utan att ha tillåtit webbläsaren att få åtkomst till vissa saker kan leda till oönskade errors."
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Tystad | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "Bakgrund",
+    "link_2": "Discord",
+    "link_3": "Rapportera ett fel"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "bannlys" },
+    "followingOnlineList": {
+      "listHeader": "Lista av personer som inte är i ett privat rum du följer.",
+      "currentRoom": "Ansluten till:",
+      "startPrivateRoom": "Skapa ett privat rum med dem"
+    },
+    "followList": { "followHim": "Följ", "followingHim": "Följer" },
+    "home": { "createRoom": "Skapa rum", "refresh": "Uppdatera" },
+    "inviteList": {
+      "roomGone": "Rummet försvann under månförmörkelsen, gå tillbaka",
+      "shareRoomLink": "Dela länk till rummet",
+      "inviteFollowers": "Du kan bjuda in dina följare som är uppkopplade:",
+      "whenFollowersOnline": "När dina följare är uppkopplade kommer de visas här."
+    },
+    "login": {
+      "headerText": "Tar röstsamtal till månen 🚀",
+      "featureText_1": "Mörkt läge",
+      "featureText_2": "Öppna registreringar",
+      "featureText_3": "Plattformsoberoende",
+      "featureText_4": "Öppen källkod",
+      "featureText_5": "Textchatt",
+      "featureText_6": "Drivs av Doge",
+      "loginGithub": "Logga in med GitHub",
+      "loginTwitter": "Logga in Twitter",
+      "createTestUser": "Skapa testanvändare"
+    },
+    "myProfile": {
+      "logout": "Logga ut",
+      "probablyLoading": "Laddar antagligen...",
+      "voiceSettings": "Gå till röstinställningar",
+      "soundSettings": "Gå till ljudinställningar",
+      "deleteAccount": "Radera konto",
+      "overlaySettings": "Gå till to overlay inställningar"
+    },
+    "notFound": {
+      "whoopsError": "Whoops! Denna sida blev förlorad i konversationen.",
+      "goHomeMessage": "Ingen fara. Du kan",
+      "goHomeLinkText": "gå hem"
+    },
+    "room": {
+      "speakers": "Talare",
+      "requestingToSpeak": "Begär att få tala",
+      "listeners": "Lyssnare",
+      "allowAll": "Tillåt alla",
+      "allowAllConfirm": "Är du säker på detta sarge? Detta kommer tillåta {{count}} användare att få tala. Det kan utplåna månen! 🚀☢️"
+    },
+    "searchUser": { "search": "Sök..." },
+    "soundEffectSettings": { "header": "Ljud" },
+    "viewUser": {
+      "editProfile": "Redigera profil",
+      "followsYou": "Följer dig",
+      "followers": "Följare",
+      "following": "Följer",
+      "followHim": "Följ",
+      "followingHim": "Följer",
+      "copyProfileUrl": "Kopiera profillänk",
+      "urlCopied": "Länken har kopierats",
+      "unfollow": "Sluta följa"
+    },
+    "voiceSettings": {
+      "header": "Röstinställningar",
+      "mic": "Mikrofon:",
+      "permissionError": "Ingen mikrofon hittades, du har antingen inte någon inkopplad eller så har du inte gett hemsidan tillåtelse.",
+      "refresh": "Uppdatera mikrofonlistan",
+      "volume": "Volym:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Ogiltlig fönstertitel", "label": "Skriv in fönstertitel" },
+      "header": "Overlay-inställningar"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Bannlys användare",
+      "unban": "Ta bort bannlysning",
+      "noBans": "Ingen har blivit bannlyst ännu"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Lämna nuvarande rum",
+      "confirmLeaveRoom": "Är du säker på att du vill lämna?",
+      "leave": "Lämna",
+      "inviteUsersToRoomBtn": "Bjud in användare till rum",
+      "invite": "Bjud in",
+      "toggleMuteMicBtn": "Stäng av mikrofon",
+      "mute": "Tysta",
+      "unmute": "Slå på ljud",
+      "makeRoomPublicBtn": "Gör rum offentligt",
+      "settings": "Inställningar",
+      "speaker": "Talare",
+      "listener": "Lyssnare",
+      "chat": "Chatt"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "Åtkomst nekad när vi försökte att ansluta till din mikrofon (du kan behöva gå till webbläsarinställningarna och ladda om sidan)",
+      "dismiss": "Avfärda",
+      "tryAgain": "Försök igen"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "Offentligt",
+        "private": "Privat",
+        "roomName": "Rumsnamn",
+        "roomDescription": "Rumsbeskrivning",
+        "descriptionError": "Max längd av 500 karaktärer",
+        "nameError": "Längd 2 till 60 karaktärer"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "Ett nytt rum har skapats",
+        "roomInviteFrom": "Inbjudan från",
+        "justStarted": "De har precis börjat",
+        "likeToJoin": ", skulle du vilja ansluta?",
+        "inviteReceived": "Du har blivit inbjuden till"
+      },
+      "editProfileModal": {
+        "usernameTaken": "Användarnamn är redan taget",
+        "avatarUrlError": "Ogiltig bild",
+        "avatarUrlLabel": "Github/Twitter profilbild länk",
+        "displayNameError": "Maximum 2 till 50 karaktärer",
+        "displayNameLabel": "Visningsnamn",
+        "usernameError": "Maximum 4 till 15 karaktärer med bara alfanumerisk/understrykning",
+        "usernameLabel": "Användarnamn",
+        "bioError": "Maximum längd av 160 karaktärer",
+        "bioLabel": "Biografi"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Är du säker på att du vill blockera denna användare från att ansluta till dina rum?",
+        "blockUser": "Blockera användare",
+        "makeMod": "Gör moderator",
+        "unmod": "Ogör moderator",
+        "addAsSpeaker": "Lägg till som talare",
+        "moveToListener": "Flytta till lyssnare",
+        "banFromChat": "Bannlys från chatt",
+        "banFromRoom": "Bannlys från rum",
+        "goBackToListener": "Gå tillbaka till lyssnare",
+        "deleteMessage": "Ta bort meddelande",
+        "makeRoomCreator": "Gör rum administratör"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "Be om tillåtelse att prata",
+        "makePublic": "Gör rum offentligt",
+        "makePrivate": "Gör rum privat"
+      }
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "Ingen ljudanvändare av någon anledning"
+    },
+    "addToCalendar": { "add": "Spara i kalender" },
+    "deviceNotSupported": {
+      "notSupported": "Din enhet stöds inte. Du kan skapa en",
+      "linkText": "Fråga på GitHub",
+      "addSupport": "och jag ska försöka lägga till stöd för din enhet."
+    },
+    "inviteButton": {
+      "invited": "Inbjuden",
+      "inviteToRoom": "Bjud in till rum"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "Ställ in kortkommando",
+      "listening": "Lyssnar",
+      "toggleMuteKeybind": "Växla tystad kortkommando",
+      "togglePushToTalkKeybind": "Växla tryck-för-tal kortkommando",
+      "toggleOverlayKeybind": "Växla overlay-keybind"
+    },
+    "wsKilled": {
+      "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
+      "reconnect": "Återanslut"
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "Schemalagda rum",
+      "noneFound": "Inga hittades",
+      "allRooms": "Alla schemalagda rum",
+      "myRooms": "Mina schemalagda rum",
+      "scheduleRoomHeader": "Schemalagda Rum",
+      "startRoom": "Påbörja rum",
+      "modal": {
+        "needsFuture": "Behöver vara i framtiden",
+        "roomName": "Namn",
+        "minLength": "Minimum längd 2",
+        "roomDescription": "Beskrivning"
+      }
+    },
+    "roomChat": {
+      "title": "Chatt",
+      "emotesSoon": "[emotes kommer snart]",
+      "bannedAlert": "Du blev bannlyst från chatten",
+      "waitAlert": "Du behöver vänta en sekund innan du kan skicka fler meddelanden",
+      "search": "Sök",
+      "searchResults": "Sökresultat",
+      "recent": "Ofta använda",
+      "sendMessage": "Skicka ett meddelande",
+      "whisper": "Direktmeddelande",
+      "welcomeMessage": "Välkommen till chatten!",
+      "roomDescription": "Rumbeskrivning"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Tankar raket",
+      "takingOff": "Lyfter",
+      "inSpace": "I rymden",
+      "approachingMoon": "Närmar sig månen",
+      "lunarDoge": "Lunar doge",
+      "approachingSun": "Närmar sig solen",
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Närmar sig en galax",
+      "galacticDoge": "Galactisk doge",
+      "spottedLife": "Planet med liv upptäckt"
+    }
+  }
+}

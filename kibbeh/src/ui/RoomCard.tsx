@@ -1,6 +1,6 @@
 import { format, isToday, isPast, differenceInMilliseconds } from "date-fns";
 import React, { useEffect, useState } from "react";
-import { SmSolidTime } from "../icons";
+import { SolidTime } from "../icons";
 import { BubbleText } from "./BubbleText";
 import { RoomCardHeading } from "./RoomCardHeading";
 import { Tag } from "./Tag";
@@ -11,12 +11,16 @@ function formatNumber(num: number): string {
     : `${Math.sign(num) * Math.abs(num)}`;
 }
 
-function useScheduleRerender(scheduledFor: Date) {
+function useScheduleRerender(scheduledFor?: Date) {
   // same logic stolen from kofta, rerenders
   // at the scheduleFor date
   const [, rerender] = useState(0);
 
   useEffect(() => {
+    if (!scheduledFor) {
+      return;
+    }
+
     let done = false;
     const id = setTimeout(() => {
       done = true;
@@ -31,13 +35,14 @@ function useScheduleRerender(scheduledFor: Date) {
   }, [scheduledFor]);
 }
 
-export interface RoomCardProps {
+export type RoomCardProps = {
   title: string;
   subtitle: string;
-  scheduledFor: Date;
+  scheduledFor?: Date;
   listeners: number;
   tags: React.ReactNode[];
-}
+  onClick?: () => void;
+};
 
 export const RoomCard: React.FC<RoomCardProps> = ({
   title,
@@ -45,20 +50,30 @@ export const RoomCard: React.FC<RoomCardProps> = ({
   scheduledFor,
   listeners,
   tags,
+  onClick,
 }) => {
   useScheduleRerender(scheduledFor);
 
-  const scheduledForLabel = isToday(scheduledFor)
-    ? format(scheduledFor, `K:mm a`)
-    : format(scheduledFor, `LLL d`);
+  let scheduledForLabel = "";
 
-  const roomLive = isPast(scheduledFor);
+  if (scheduledFor) {
+    if (isToday(scheduledFor)) {
+      scheduledForLabel = format(scheduledFor, `K:mm a`);
+    } else {
+      scheduledForLabel = format(scheduledFor, `LLL d`);
+    }
+  }
+
+  const roomLive = !scheduledFor || isPast(scheduledFor);
 
   return (
-    <div className="p-4 w-full bg-primary-800 hover:bg-primary-800 rounded-lg flex flex-col">
+    <button
+      onClick={onClick}
+      className="p-4 w-full bg-primary-800 hover:bg-primary-800 rounded-lg flex flex-col"
+    >
       <div className="w-full flex justify-between space-x-4">
         <RoomCardHeading
-          icon={roomLive ? undefined : <SmSolidTime />}
+          icon={roomLive ? undefined : <SolidTime />}
           text={title}
         />
         <div className="flex-shrink-0">
@@ -67,12 +82,14 @@ export const RoomCard: React.FC<RoomCardProps> = ({
           </BubbleText>
         </div>
       </div>
-      <div className="text-primary-300 mt-2 break-words">{subtitle}</div>
+      <div className="text-primary-300 mt-2 break-words block text-left">
+        {subtitle}
+      </div>
       <div className="space-x-2 mt-4">
         {tags.map((tag, idx) => (
           <Tag key={idx}>{tag}</Tag>
         ))}
       </div>
-    </div>
+    </button>
   );
 };
