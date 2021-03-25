@@ -1,7 +1,5 @@
-import { Room } from "@dogehouse/kebab";
 import { useRouter } from "next/router";
-import React, { useMemo } from "react";
-import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
+import React from "react";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useCurrentRoomInfo } from "../../shared-hooks/useCurrentRoomInfo";
 import { useSetMute } from "../../shared-hooks/useSetMute";
