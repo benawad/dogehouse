@@ -15,7 +15,7 @@
     "copied": "已拷贝",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "请注意，在没有辅助功能权限的情况下运行DogeHouse可能会导致错误"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -62,7 +62,7 @@
       "voiceSettings": "音量设置",
       "soundSettings": "声音设置",
       "deleteAccount": "删除账号",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "覆盖层设置"
     },
     "notFound": {
       "whoopsError": "哎呀，这页在聊天中被丢掉了",
@@ -97,8 +97,8 @@
       "volume": "音量:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings"
+      "input": { "errorMsg": "不允许的App标题", "label": "输入App标题" },
+      "header": "覆盖层设置"
     }
   },
   "components": {
@@ -188,13 +188,13 @@
       "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "wsKilled": {
-      "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
-      "reconnect": "reconnect"
+      "description": "连接被服务器终止。当您在另一个标签中打开此网站时，通常会发生这种情况",
+      "reconnect": "正在重新连接"
     },
     "deviceNotSupported": {
-      "notSupported": "Your device is currently not supported. You can create an",
-      "linkText": "issue on GitHub",
-      "addSupport": "and I will try adding support for your device."
+      "notSupported": "您的设备展示还不被支持，您可以",
+      "linkText": "在GitHub开启一个报告",
+      "addSupport": "我将会尝试支持您的设备"
     },
     "inviteButton": { "invited": "被邀请", "inviteToRoom": "邀请进入聊天室" }
   },
