@@ -11,8 +11,7 @@ import {
 import { autoUpdater } from "electron-updater";
 import { RegisterKeybinds } from "./utils/keybinds";
 import { HandleVoiceTray } from "./utils/tray";
-import { ALLOWED_HOSTS, isLinux, isMac, MENU_TEMPLATE } from "./constants";
-import url from "url";
+import { ALLOWED_HOSTS, isMac, MENU_TEMPLATE } from "./constants";
 import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
@@ -44,16 +43,7 @@ function createWindow() {
     transparent: true,
     frame: false,
   });
-  splash.loadURL(
-    url.format({
-      pathname: path.join(
-        `${__dirname}`,
-        "../resources/splash/splash-screen.html"
-      ),
-      protocol: "file:",
-      slashes: true,
-    })
-  );
+  splash.loadFile(path.join(__dirname, "../resources/splash/splash-screen.html"));
 
   // applying custom menu
   menu = Menu.buildFromTemplate(MENU_TEMPLATE);
