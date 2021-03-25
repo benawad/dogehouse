@@ -16,9 +16,9 @@ All changes happen through pull requests. Pull requests are the best way to prop
 This project is using the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/) standard. Please follow these steps to ensure your
 commit messages are standardized:
 1. Make sure your shell path is in the root of the project (not inside any of the packages).
-2. Run `npm i`.
+2. Run `yarn`.
 3. Stage the files you are commiting with `git add [files]`.
-4. Run `npm run commit`. This will start an interactive prompt that generates your commit message:
+4. Run `yarn commit`. This will start an interactive prompt that generates your commit message:
     1. Select the type of change.
     2. Type the scope. This is either `global` for project-wide changes or one of the packages (kibbeh, shawarma etc.).
     3. Write a short, imperative tense description of the change.
