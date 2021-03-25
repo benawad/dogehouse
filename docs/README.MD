@@ -40,7 +40,7 @@ DogeHouse makes it easy to connect with friends and people over voice and chat m
 - Delete message
   You can only delete messages if:
   - You wrote it.
-  - You are a mod
+  - You are a moderator.
 - Adjust volume of a speaker by clicking on their profile
 - 40+ Translations
 - Desktop App: Global Keybinds
