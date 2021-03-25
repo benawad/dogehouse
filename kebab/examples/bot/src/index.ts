@@ -56,7 +56,7 @@ const main = async () => {
     console.info(`=> starting in room "${theRoom.name}" (${theRoom.numPeopleInside} people)`);
     await wrapper.query.joinRoomAndGetInfo(theRoom.id);
   } catch(e) {
-    if(e.code === 4001) console.error("invalid token!");
+    if (e.code === 4001) console.error("invalid token!");
     console.error(e)
   }
 };
