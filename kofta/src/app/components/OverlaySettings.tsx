@@ -30,7 +30,7 @@ export const OverlaySettings: React.FC<OverlaySettingsProps> = () => {
         if (!isElectron() || isMac) {
             history.push('/me')
         }
-    }, []);
+    }, [history]);
 
     return (
         <>
