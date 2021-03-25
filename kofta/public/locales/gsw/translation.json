@@ -75,7 +75,7 @@
       "requestingToSpeak": "Gsprächsafrage",
       "listeners": "Zuehörer",
       "allowAll": "Alles erlaube",
-      "allowAllConfirm": "Bisch der sicher? Das wird all {{count}} uffordere zum rede"
+      "allowAllConfirm": "Bisch der sicher? Das wird all {{count}} Benutzer wo wennd rede dBerechtigung dazue gäh"
     },
     "searchUser": { "search": "Sueche..." },
     "soundEffectSettings": { "header": "Ton" },
