@@ -7,7 +7,7 @@ interface GridPanelProps {
 export const GridPanel: React.FC<GridPanelProps> = ({ children, scroll }) => {
   return (
     <div className={`flex-col h-full`}>
-      <div className={`${scroll ? "" : `pt-5 sticky top-0`} flex-col`}>
+      <div className={`${scroll ? "" : `pt-5 sticky top-0 h-screen`} flex-col`}>
         {children}
       </div>
     </div>

@@ -7,11 +7,11 @@ import { DurationTicker } from "./DurationTicker";
 import SvgSolidMicrophoneOff from "../icons/SolidMicrophoneOff";
 
 interface MinimizedRoomCardProps {
+  onFullscreenClick?: () => void;
   leaveLoading?: boolean;
   room: {
     name: string;
     speakers: string[];
-    url: string;
     roomStartedAt: Date;
     myself: {
       isSpeaker: boolean;
@@ -25,11 +25,10 @@ interface MinimizedRoomCardProps {
 }
 
 export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
+  onFullscreenClick,
   leaveLoading,
   room,
 }) => {
-  const router = useRouter();
-
   return (
     <div className="bg-primary-800 border border-accent rounded-lg p-4 gap-4 flex-col w-full">
       <div className="gap-2 flex-col">
@@ -59,7 +58,7 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
           >
             <SolidVolume />
           </BoxedIcon> */}
-          <BoxedIcon onClick={() => router.push(room.url)}>
+          <BoxedIcon onClick={onFullscreenClick}>
             <SolidFullscreen />
           </BoxedIcon>
         </div>
