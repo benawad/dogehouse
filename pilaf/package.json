@@ -7,7 +7,9 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "storybook": "start-storybook -p 7007",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@dogehouse/kebab": "^0.2.0",
@@ -21,6 +23,7 @@
     "formik": "^2.2.6",
     "react": "17.0.1",
     "react-native": "0.64.0",
+    "react-native-config": "^1.4.2",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-get-random-values": "^1.6.0",
     "react-native-inappbrowser-reborn": "^3.5.1",
@@ -40,6 +43,13 @@
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@storybook/addon-actions": "^5.3.21",
+    "@storybook/addon-knobs": "^5.3.21",
+    "@storybook/addon-links": "^5.3.21",
+    "@storybook/addon-ondevice-actions": "^5.3.23",
+    "@storybook/addon-ondevice-knobs": "^5.3.25",
+    "@storybook/react-native": "^5.3.25",
+    "@storybook/react-native-server": "^5.3.23",
     "@types/react-native": "^0.64.0",
     "babel-jest": "^26.6.3",
     "eslint": "7.14.0",

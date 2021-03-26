@@ -33,6 +33,15 @@
 		E1558D383F334D53A1C1B602 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 05CC1A400F7046CAA8B36E72 /* Inter-Bold.ttf */; };
 		ED5A821EDE3234E0B39B081D /* libPods-rice-riceTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F1F28BAC60F1EC4BD362B0 /* libPods-rice-riceTests.a */; };
 		FD96BC672F20F3906C1C0DE7 /* libPods-rice-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A0CCA96F738CC53ED0EC918 /* libPods-rice-tvOSTests.a */; };
+		7CAEE8E3CFCF41FF80D7956C /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02B220D13DAA4512B9BF5DCD /* Inter-Black.ttf */; };
+		E1558D383F334D53A1C1B602 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 05CC1A400F7046CAA8B36E72 /* Inter-Bold.ttf */; };
+		BBD680F56BDC49459574630C /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFA5894332D74574BB5F2BAA /* Inter-ExtraBold.ttf */; };
+		D2BD577DE08B470491C0AA5B /* Inter-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27EE141760B24FDBACDFD086 /* Inter-ExtraLight.ttf */; };
+		222FB02B693A4291BD33CEB3 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE9C06D9B0584ADD99AF2F66 /* Inter-Light.ttf */; };
+		93E8635A6864436388858CAA /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B6D95EED2A6A40479598C44B /* Inter-Medium.ttf */; };
+		5CFF110015504A688DCF6DF3 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D45C0D805B24D4F9209A630 /* Inter-Regular.ttf */; };
+		8B31AE93ED6C46768155EEEF /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D6CC72ACF5C426BBD0DFD56 /* Inter-SemiBold.ttf */; };
+		C4543B66EF8F477C9AFBD56F /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 949E1EE0791A415888479591 /* Inter-Thin.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -243,6 +252,23 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		79FD313129D4446E8E5109B6 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				02B220D13DAA4512B9BF5DCD /* Inter-Black.ttf */,
+				05CC1A400F7046CAA8B36E72 /* Inter-Bold.ttf */,
+				EFA5894332D74574BB5F2BAA /* Inter-ExtraBold.ttf */,
+				27EE141760B24FDBACDFD086 /* Inter-ExtraLight.ttf */,
+				DE9C06D9B0584ADD99AF2F66 /* Inter-Light.ttf */,
+				B6D95EED2A6A40479598C44B /* Inter-Medium.ttf */,
+				4D45C0D805B24D4F9209A630 /* Inter-Regular.ttf */,
+				3D6CC72ACF5C426BBD0DFD56 /* Inter-SemiBold.ttf */,
+				949E1EE0791A415888479591 /* Inter-Thin.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
