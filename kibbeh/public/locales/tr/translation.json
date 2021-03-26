@@ -14,7 +14,8 @@
     "copyLink": "Linki kopyala",
     "copied": "Kopyalandı!",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Erişilebilirlik izinleri olmadan DogeHouse'u çalıştırmanın istenmeyen hatalara neden olabileceğini lütfen unutmayın"
   },
   "header": {
     "_comment": "Ana başlık arayüz ulusallaştırma yazıları",
@@ -35,7 +36,7 @@
       "currentRoom": "Şu anki oda:",
       "startPrivateRoom": "Onlarla özel bir oda oluştur"
     },
-    "followList": {},
+    "followList": { "followHim": "Takip Et", "followingHim": "Takiptesin" },
     "home": { "createRoom": "Oda oluştur", "refresh": "Yenile" },
     "inviteList": {
       "roomGone": "Oda gitti, geri dön",
@@ -60,7 +61,8 @@
       "probablyLoading": "Muhtemelen yükleniyor...",
       "voiceSettings": "Konuşma ayarlarına git",
       "soundSettings": "Ses ayarlarına git",
-      "deleteAccount": "Hesabı sil"
+      "deleteAccount": "Hesabı sil",
+      "overlaySettings": "Kaplama ayarlarına git"
     },
     "notFound": {
       "whoopsError": "Uups! Bu sayfa sohbette kayboldu.",
@@ -70,15 +72,22 @@
     "room": {
       "speakers": "Konuşmacılar",
       "requestingToSpeak": "Konuşmak için izin istiyor",
-      "listeners": "Dinleyiciler"
+      "listeners": "Dinleyiciler",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Emin misiniz? Bu, talep eden {{count}} kullanıcının konuşmasına izin verecektir"
     },
     "searchUser": { "search": "Ara..." },
     "soundEffectSettings": { "header": "Sesler" },
     "viewUser": {
       "editProfile": "Profili düzenle",
       "followsYou": "Seni takip ediyor",
-      "followers": "Takipçiler",
-      "following": "Takip ediliyor"
+      "followers": "Takipçi",
+      "following": "Takip",
+      "followHim": "Takip Et",
+      "followingHim": "Takiptesin",
+      "copyProfileUrl": "Profil URL'sini kopyala",
+      "urlCopied": "URL kopyalandı",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Ses Ayarları",
@@ -87,6 +96,13 @@
       "refesh": "Mikrofon listesini yenile",
       "volume": "Ses seviyesi:",
       "refresh": "Mikrofon listesini yenile"
+    },
+    "overlaySettings": {
+      "input": {
+        "errorMsg": "Geçersiz uygulama başlığı",
+        "label": "Uygulama Başlığı Girin"
+      },
+      "header": "Kaplama ayarları"
     }
   },
   "components": {
@@ -155,7 +171,8 @@
         "banFromChat": "Sohbetten Yasakla",
         "banFromRoom": "Odadan Yasakla",
         "goBackToListener": "Dinlemeye Geri Dön",
-        "deleteMessage": "Mesajı Sil"
+        "deleteMessage": "Mesajı Sil",
+        "makeRoomCreator": "Oda Yetkilisi Yap"
       },
       "roomSettingsModal": {
         "requirePermission": "Konuşmak için izne ihtiyacın var",
@@ -169,7 +186,8 @@
       "setKeybind": "Tuş Ata",
       "listening": "Dinleniyor",
       "toggleMuteKeybind": "susturma aç/kapat tuş ataması",
-      "togglePushToTalkKeybind": "bas-konuş tuş ataması"
+      "togglePushToTalkKeybind": "bas-konuş tuş ataması",
+      "toggleOverlayKeybind": "kaplama tuş ataması"
     },
     "wsKilled": {
       "description": "WebSocket, sunucu tarafından kapatıldı. Bu genellikle websiteyi başka bir sekmede açtığında yaşanır.",
@@ -197,7 +215,7 @@
         "needsFuture": "Tarih gelecek bir zamanda olmalı",
         "roomName": "Oda ismi",
         "minLength": "Minimum oda ismi uzunluğu 2",
-        "roomDescription": "Description"
+        "roomDescription": "Açıklama"
       }
     },
     "roomChat": {

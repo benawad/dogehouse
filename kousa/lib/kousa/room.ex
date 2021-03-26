@@ -23,7 +23,7 @@ defmodule Kousa.Room do
       {1, [room]} ->
         Onion.RoomSession.send_cast(
           room.id,
-          {:send_ws_msg, :vscode,
+          {:send_ws_msg,
            %{op: "room_privacy_change", d: %{roomId: room.id, name: room.name, isPrivate: false}}}
         )
 
@@ -39,7 +39,7 @@ defmodule Kousa.Room do
       {1, [room]} ->
         Onion.RoomSession.send_cast(
           room.id,
-          {:send_ws_msg, :vscode,
+          {:send_ws_msg,
            %{op: "room_privacy_change", d: %{roomId: room.id, name: room.name, isPrivate: true}}}
         )
 
@@ -157,7 +157,7 @@ defmodule Kousa.Room do
       Kousa.Utils.RegUtils.lookup_and_cast(
         Onion.RoomSession,
         room.id,
-        {:send_ws_msg, :vscode,
+        {:send_ws_msg,
          %{
            op: "mod_changed",
            d: %{roomId: room.id, userId: user_id_to_change}
@@ -183,9 +183,10 @@ defmodule Kousa.Room do
         case Rooms.replace_room_owner(old_creator_id, new_creator_id) do
           {1, _} ->
             internal_set_speaker(old_creator_id, current_room_id)
+
             Onion.RoomSession.send_cast(
               current_room_id,
-              {:send_ws_msg, :vscode,
+              {:send_ws_msg,
                %{op: "new_room_creator", d: %{roomId: current_room_id, userId: new_creator_id}}}
             )
 
@@ -345,11 +346,9 @@ defmodule Kousa.Room do
               )
 
               canSpeak =
-                with %{roomPermissions: %{isSpeaker: true}} <- updated_user do
-                  true
-                else
-                  _ ->
-                    false
+                case updated_user do
+                  %{roomPermissions: %{isSpeaker: true}} -> true
+                  _ -> false
                 end
 
               join_vc_room(user_id, room, canSpeak || room.isPrivate)
@@ -383,7 +382,7 @@ defmodule Kousa.Room do
             {:new_creator_id, creator_id} ->
               Onion.RoomSession.send_cast(
                 current_room_id,
-                {:send_ws_msg, :vscode,
+                {:send_ws_msg,
                  %{op: "new_room_creator", d: %{roomId: current_room_id, userId: creator_id}}}
               )
 
@@ -397,11 +396,9 @@ defmodule Kousa.Room do
           )
       end
 
-      Onion.UserSession.send_cast(
-        user_id,
-        {:send_ws_msg, :web,
-         %{op: "you_left_room", d: %{roomId: current_room_id, blocked: blocked}}}
-      )
+      {:ok, %{roomId: current_room_id, blocked: blocked}}
+    else
+      {:error, "you are not in a room"}
     end
   end
 end

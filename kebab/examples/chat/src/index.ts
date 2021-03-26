@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 import readline from "readline";
-import {raw, wrap, tokensToString, stringToToken} from "@dogehouse/client";
+import { raw, wrap, tokensToString, stringToToken } from "@dogehouse/kebab";
 
 const logger: raw.Logger = (direction, opcode, data, fetchId, raw) => {
   const directionPadded = direction.toUpperCase().padEnd(3, " ");
@@ -30,11 +30,11 @@ const main = async () => {
       prompt: `${connection.user.displayName} > `
     })
 
-    const rooms = await wrapper.getTopPublicRooms();
+    const { rooms } = await wrapper.query.getTopPublicRooms();
     const theRoom = rooms[0];
 
     console.log(`=> joining room "${theRoom.name}" (${theRoom.numPeopleInside} people)`);
-    await wrapper.joinRoom(theRoom.id);
+    const extraInfo = await wrapper.query.joinRoomAndGetInfo(theRoom.id);
 
     const unsubscribe = wrapper.subscribe.newChatMsg(async ({ userId, msg }) => {
       const text = tokensToString(msg.tokens);
@@ -50,10 +50,10 @@ const main = async () => {
     rl.on("line", async input => {
       if(input === "/leave") {
         unsubscribe();
-        await wrapper.leaveRoom();
+        await wrapper.mutation.leaveRoom();
         console.log("=> left the room");
       } else {
-        await wrapper.sendRoomChatMsg(stringToToken(input));
+        await wrapper.mutation.sendRoomChatMsg(stringToToken(input));
       }
     })
   } catch(e) {

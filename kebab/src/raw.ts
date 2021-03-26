@@ -17,20 +17,32 @@ export type Logger = (
   fetchId?: FetchID,
   raw?: string
 ) => void;
-export type ListenerHandler = (
-  data: unknown,
+export type ListenerHandler<Data = unknown> = (
+  data: Data,
   fetchId?: FetchID
 ) => void;
-export type Listener = {
+export type Listener<Data = unknown> = {
   opcode: Opcode;
-  handler: ListenerHandler;
+  handler: ListenerHandler<Data>;
 };
 
 export type Connection = {
-  addListener: (opcode: Opcode, handler: ListenerHandler) => () => void;
+  close: () => void;
+  once: <Data = unknown>(
+    opcode: Opcode,
+    handler: ListenerHandler<Data>
+  ) => void;
+  addListener: <Data = unknown>(
+    opcode: Opcode,
+    handler: ListenerHandler<Data>
+  ) => () => void;
   user: User;
   send: (opcode: Opcode, data: unknown, fetchId?: FetchID) => void;
-  fetch: (opcode: Opcode, data: unknown, doneOpcode?: Opcode) => Promise<unknown>;
+  fetch: (
+    opcode: Opcode,
+    data: unknown,
+    doneOpcode?: Opcode
+  ) => Promise<unknown>;
 };
 
 export const connect = (
@@ -66,7 +78,10 @@ export const connect = (
 
       socket.addEventListener("close", (error) => {
         clearInterval(heartbeat);
-        if (error.code === 4003) onConnectionTaken();
+        if (error.code === 4003) {
+          socket.close();
+          onConnectionTaken();
+        }
         reject(error);
       });
 
@@ -76,7 +91,6 @@ export const connect = (
         reconnectToVoice: false,
         currentRoomId: null,
         muted: false,
-        platform: "uhhh web sure",
       });
 
       socket.addEventListener("message", (e) => {
@@ -92,12 +106,23 @@ export const connect = (
 
         if (message.op === "auth-good") {
           const connection: Connection = {
-            addListener: (opcode: Opcode, handler: ListenerHandler) => {
-              const listener = { opcode, handler };
+            close: () => socket.close(),
+            once: (opcode, handler) => {
+              const listener = { opcode, handler } as Listener<unknown>;
+
+              listener.handler = (...params) => {
+                handler(...(params as Parameters<typeof handler>));
+                listeners.splice(listeners.indexOf(listener), 1);
+              };
+
+              listeners.push(listener);
+            },
+            addListener: (opcode, handler) => {
+              const listener = { opcode, handler } as Listener<unknown>;
 
               listeners.push(listener);
 
-              return () => listeners.splice(listeners.indexOf(listener));
+              return () => listeners.splice(listeners.indexOf(listener), 1);
             },
             user: message.d.user,
             send: apiSend,

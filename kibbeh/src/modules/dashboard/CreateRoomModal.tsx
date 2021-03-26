@@ -1,14 +1,18 @@
 import { Form, Formik } from "formik";
-import React, { useContext } from "react";
+import { useRouter } from "next/router";
+import React from "react";
 import { InputField } from "../../form-fields/InputField";
-import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
+import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { roomToCurrentRoom } from "../../lib/roomToCurrentRoom";
 import { showErrorToast } from "../../lib/showErrorToast";
-import { useConn, useWrappedConn } from "../../shared-hooks/useConn";
-import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
+import { useWrappedConn } from "../../shared-hooks/useConn";
+import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../../ui/Button";
+import { ButtonLink } from "../../ui/ButtonLink";
 import { Modal } from "../../ui/Modal";
+import { NativeSelect } from "../../ui/NativeSelect";
+import { useRoomChatStore } from "../room/chat/useRoomChatStore";
 
 interface CreateRoomModalProps {
   onRequestClose: () => void;
@@ -27,6 +31,8 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 }) => {
   const conn = useWrappedConn();
   const { t } = useTypeSafeTranslation();
+  const { push } = useRouter();
+  const prefetch = useTypeSafePrefetch();
 
   return (
     <Modal isOpen onRequestClose={onRequestClose}>
@@ -61,9 +67,10 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
         }}
         onSubmit={async ({ name, privacy, description }) => {
           const d = { name, privacy, description };
+          // @todo pretty sure this logic for editing is broken
           const resp = edit
-            ? await conn.mutation.createRoom(d)
-            : await conn.mutation.editRoom(d);
+            ? await conn.mutation.editRoom(d)
+            : await conn.mutation.createRoom(d);
 
           if ("error" in resp) {
             showErrorToast(resp.error);
@@ -72,26 +79,22 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
           } else if (resp.room) {
             const { room } = resp;
 
+            prefetch(["joinRoomAndGetInfo", room.id], [room.id]);
             console.log("new room voice server id: " + room.voiceServerId);
-            // @todo
-            // useRoomChatStore.getState().clearChat();
-            // @todo
-            // wsend({ op: "get_current_room_users", d: {} });
-            // history.push("/room/" + room.id);
-            useCurrentRoomStore
-              .getState()
-              .setCurrentRoom(() => roomToCurrentRoom(room));
+            useRoomChatStore.getState().clearChat();
+            useCurrentRoomIdStore.getState().setCurrentRoomId(room.id);
+            push(`/room/[id]`, `/room/${room.id}`);
           }
 
           onRequestClose();
         }}
       >
         {({ setFieldValue, values, isSubmitting }) => (
-          <Form className={`grid grid-cols-3 gap-4 focus:outline-none`}>
+          <Form className={`grid grid-cols-3 gap-4 focus:outline-none w-full`}>
             <div className={`col-span-3 block`}>
-              <h3 className={`mb-2 text-3xl text-primary-100`}>
+              <h4 className={`mb-2 text-primary-100`}>
                 {t("pages.home.createRoom")}
-              </h3>
+              </h4>
               <p className={`text-primary-300`}>
                 Fill the following fields to start a new room
               </p>
@@ -106,9 +109,8 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
                 autoComplete="off"
               />
             </div>
-            <div className={`grid mt-8 items-start grid-cols-1 h-6`}>
-              <select
-                className={`h-full bg-primary-700 text-primary-100 placeholder-primary-300 focus:outline-none rounded-8 px-2`}
+            <div className={`grid items-start grid-cols-1 h-6`}>
+              <NativeSelect
                 value={values.privacy}
                 onChange={(e) => {
                   setFieldValue("privacy", e.target.value);
@@ -120,13 +122,13 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
                 <option value="private" className={`hover:bg-primary-900`}>
                   {t("components.modals.createRoomModal.private")}
                 </option>
-              </select>
+              </NativeSelect>
             </div>
             <div className={`col-span-3 bg-primary-700 rounded-8`}>
               <InputField
                 className={`px-2 h-11 col-span-3 w-full`}
                 name="description"
-                rows={7}
+                rows={3}
                 maxLength={500}
                 placeholder={t(
                   "components.modals.createRoomModal.roomDescription"
@@ -135,18 +137,13 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
               />
             </div>
 
-            <div className={`flex mt-12 space-x-3`}>
-              <Button loading={isSubmitting} type="submit" className={`ml-1.5`}>
-                {t("common.ok")}
+            <div className={`flex pt-2 space-x-3 col-span-full items-center`}>
+              <Button loading={isSubmitting} type="submit" className={`mr-3`}>
+                {t("pages.home.createRoom")}
               </Button>
-              <Button
-                type="button"
-                onClick={onRequestClose}
-                className={`mr-1.5`}
-                color="secondary"
-              >
+              <ButtonLink type="button" onClick={onRequestClose}>
                 {t("common.cancel")}
-              </Button>
+              </ButtonLink>
             </div>
           </Form>
         )}

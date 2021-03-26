@@ -1,8 +1,10 @@
-import { wrap, GetTopPublicRoomsResponse } from "@dogehouse/kebab";
+import { useRouter } from "next/router";
 import React, { useContext, useState } from "react";
-import { useQuery } from "react-query";
+import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
+import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
-import { Feed } from "../../ui/Feed";
+import { Feed, FeedHeader } from "../../ui/Feed";
+import { MiddlePanel } from "../layouts/GridPanels";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 import { CreateRoomModal } from "./CreateRoomModal";
 
@@ -10,6 +12,7 @@ interface FeedControllerProps {}
 
 export const FeedController: React.FC<FeedControllerProps> = ({}) => {
   const { conn } = useContext(WebSocketContext);
+  // @todo pagination
   const { isLoading, data } = useTypeSafeQuery("getTopPublicRooms", {
     staleTime: Infinity,
     enabled: !!conn,
@@ -17,23 +20,40 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
     refetchInterval: 10000,
   });
   const [roomModal, setRoomModal] = useState(false);
+  const { currentRoomId } = useCurrentRoomIdStore();
+  const { push } = useRouter();
+  const prefetch = useTypeSafePrefetch();
 
   if (!conn || isLoading || !data) {
     return null;
   }
 
   return (
-    <>
+    <MiddlePanel
+      stickyChildren={
+        <FeedHeader
+          actionTitle="New room"
+          onActionClicked={() => {
+            setRoomModal(true);
+          }}
+          title="Your Feed"
+        />
+      }
+    >
       <Feed
-        actionTitle="New room"
+        onRoomClick={(room) => {
+          if (room.id !== currentRoomId) {
+            prefetch(["joinRoomAndGetInfo", room.id], [room.id]);
+          }
+
+          push(`/room/[id]`, `/room/${room.id}`);
+        }}
         emptyPlaceholder={<div>empty</div>}
-        onActionClicked={(t) => setRoomModal(true)}
         rooms={data.rooms}
-        title="Your Feed"
       />
       {roomModal && (
         <CreateRoomModal onRequestClose={() => setRoomModal(false)} />
       )}
-    </>
+    </MiddlePanel>
   );
 };

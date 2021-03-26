@@ -21,7 +21,6 @@ p.bold {
 :root {
   font-size: 14px;
 
-  --color-error: #5575e7;
   --color-button-text: #fff;
   --color-primary-100: #dee3ea;
   --color-primary-200: #b2bdcd;
@@ -30,6 +29,9 @@ p.bold {
   --color-primary-700: #242c37;
   --color-primary-800: #151a21;
   --color-primary-900: #0b0e11;
+  --color-secondary-washed-out: #879eed;
+  --color-secondary: #5575e7;
+  --color-accent-glow: rgba(253, 77, 77, 0.3);
   --color-accent: #fd4d4d;
   --color-accent-hover: #fd6868;
   --color-accent-disabled: #f5bfbf;
@@ -73,4 +75,9 @@ body,
 #__next {
   background-color: var(--color-primary-900);
   min-height: 100%;
+}
+
+audio {
+  width: 0;
+  display: none !important;
 }

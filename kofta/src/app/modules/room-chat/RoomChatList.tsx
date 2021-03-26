@@ -99,7 +99,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                         : null
                     );
                   }}
-                  className={`hover:underline focus:outline-none`}
+                  className={`hover:underline focus:outline-none font-mono`}
                   style={{ textDecorationColor: m.color, color: m.color }}
                 >
                   {m.username}
@@ -126,7 +126,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                           <img
                             key={i}
                             className="inline"
-                            alt={v}
+                            alt={`:${v}:`}
                             src={emoteMap[v]}
                           />
                         ) : (

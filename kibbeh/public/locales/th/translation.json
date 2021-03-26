@@ -14,7 +14,8 @@
     "copyLink": "คัดลอกลิ้งก์",
     "copied": "คัดลอกเรียบร้อย",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -35,7 +36,7 @@
       "currentRoom": "ขณะนี้อยู่ใน:",
       "startPrivateRoom": "สร้างห้องส่วนตัว"
     },
-    "followList": {},
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": { "createRoom": "สร้างห้อง", "refresh": "Refresh" },
     "inviteList": {
       "roomGone": "room gone, go back",
@@ -60,7 +61,8 @@
       "probablyLoading": "กำลังโหลด...",
       "voiceSettings": "การตั้งค่าเสียง",
       "soundSettings": "การตั้งค่าการแจ้งเตือนเสียง",
-      "deleteAccount": "ลบบัญชี"
+      "deleteAccount": "ลบบัญชี",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "โอ๊ะ! ไม่พบหน้าที่คุณค้นหา.",
@@ -70,7 +72,9 @@
     "room": {
       "speakers": "ผู้พูด",
       "requestingToSpeak": "กำลังขอขึ้นเป็นผู้พูด",
-      "listeners": "ผู้ฟัง"
+      "listeners": "ผู้ฟัง",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "ค้นหา..." },
     "soundEffectSettings": { "header": "การแจ้งเตือนเสียง" },
@@ -78,7 +82,12 @@
       "editProfile": "แก้ไขโปรไฟล์",
       "followsYou": "กำลังติดตามคุณ",
       "followers": "ผู้ติดตาม",
-      "following": "กำลังติดตาม"
+      "following": "กำลังติดตาม",
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "การตั้งค่าเสียง",
@@ -86,6 +95,10 @@
       "permissionError": "ไม่พบไมโครโฟน, คุณอาจจะลืมเสียบไมโครโฟน หรือ ลืมที่จะให้สิทธิ์ไมโครโฟนแก่เว็บไซต์.",
       "refresh": "รีเฟรชไมโครโฟน",
       "volume": "ระดับเสียง:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -130,7 +143,8 @@
       "setKeybind": "ตั้งค่า Keybind",
       "listening": "กำลังฟัง",
       "toggleMuteKeybind": "Keybind เปิด/ปิด ไมโครโฟน",
-      "togglePushToTalkKeybind": "Keybind เปิด/ปิด Push to Talk"
+      "togglePushToTalkKeybind": "Keybind เปิด/ปิด Push to Talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "ไม่พบลำโพง" },
     "addToCalendar": { "add": "เพิ่มไปยังปฏิทิน" },
@@ -175,7 +189,8 @@
         "banFromChat": "แบนจากแชท",
         "banFromRoom": "แบนจากห้อง",
         "goBackToListener": "กลับไปเป็นผู้ฟัง",
-        "deleteMessage": "ลบข้อความ"
+        "deleteMessage": "ลบข้อความ",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "ต้องใช้สิทธิ์ในการพูด",

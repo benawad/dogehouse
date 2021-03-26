@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Redirect, useRouteMatch } from "react-router-dom";
 import { wsend } from "../../createWebsocket";
 import { useCurrentRoomStore } from "../../webrtc/stores/useCurrentRoomStore";
@@ -22,6 +22,14 @@ import { isUuid } from "../utils/isUuid";
 import { useTimeElapsed } from "../utils/timeElapsed";
 import { useMeQuery } from "../utils/useMeQuery";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
+import isElectron from "is-electron";
+
+let ipcRenderer: any = undefined;
+if (isElectron()) {
+  ipcRenderer = window.require("electron").ipcRenderer;
+}
+
+const isMac = process.platform === "darwin";
 
 interface RoomPageProps {}
 
@@ -50,6 +58,30 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   const [listenersPage, setListenersPage] = useState(1);
   const pageSize = 25;
   const { t } = useTypeSafeTranslation();
+  const [ipcStarted, setIpcStarted] = useState(false);
+
+  useEffect(() => {
+    if (isElectron() && !isMac) {
+      ipcRenderer.send("@overlay/start_ipc", true);
+      ipcRenderer.on(
+        "@overlay/start_ipc",
+        (event: any, shouldStart: boolean) => {
+          setIpcStarted(shouldStart);
+        }
+      );
+    }
+  }, []);
+  useEffect(() => {
+    if (isElectron() && ipcStarted) {
+      ipcRenderer.send("@overlay/overlayData", {
+        currentRoom: room,
+        muted: muted,
+        me: me,
+        roomID: id,
+      });
+    }
+  });
+
   // useEffect(() => {
   //   if (room?.users.length) {
   //     setUserProfileId(room.users[0].id);
@@ -73,7 +105,6 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   }
 
   const profile = room.users.find((x) => x.id === userProfileId);
-
   const speakers: BaseUser[] = [];
   const unansweredHands: BaseUser[] = [];
   const listeners: BaseUser[] = [];
@@ -91,6 +122,18 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   });
 
   const listenersShown = listeners.slice(0, listenersPage * pageSize);
+
+  const allowAllRequestingSpeakers = () => {
+    unansweredHands.forEach((user) => {
+      wsend({
+        op: "add_speaker",
+        d: {
+          userId: user.id,
+        },
+      });
+    });
+  };
+
   return (
     <>
       <ProfileModal
@@ -161,8 +204,26 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
               </div>
             ) : null}
             {unansweredHands.length ? (
-              <div className={`col-span-full text-xl ml-2.5 text-white`}>
-                {t("pages.room.requestingToSpeak")} ({unansweredHands.length})
+              <div className={`flex col-span-full text-xl ml-2.5 text-white`}>
+                <span className={`my-auto`}>
+                  {t("pages.room.requestingToSpeak")} ({unansweredHands.length})
+                </span>
+                {(iAmCreator || iAmMod) && (
+                  <Button
+                    className={`ml-4`}
+                    variant={`small`}
+                    onClick={() => {
+                      modalConfirm(
+                        t("pages.room.allowAllConfirm", {
+                          count: unansweredHands.length,
+                        }),
+                        allowAllRequestingSpeakers
+                      );
+                    }}
+                  >
+                    {t("pages.room.allowAll")}
+                  </Button>
+                )}
               </div>
             ) : null}
             {unansweredHands.map((u) => (

@@ -1,15 +1,15 @@
 import React, { ReactNode } from "react";
 import {
+  ScrollView,
   StyleSheet,
-  View,
-  ViewStyle,
   Text,
   TouchableOpacity,
-  ScrollView,
+  View,
+  ViewStyle,
 } from "react-native";
-import { colors, fontFamily, fontSize } from "../constants/dogeStyle";
+import { colors, fontFamily, fontSize, radius } from "../constants/dogeStyle";
 
-interface MultipleUserAvatarProps {
+interface BaseOverlayProps {
   style?: ViewStyle;
   title?: string;
   actionButton?: string;
@@ -17,7 +17,7 @@ interface MultipleUserAvatarProps {
   children: ReactNode;
 }
 
-export const BaseOverlay: React.FC<MultipleUserAvatarProps> = ({
+export const BaseOverlay: React.FC<BaseOverlayProps> = ({
   children,
   title,
   style,
@@ -44,7 +44,7 @@ export const BaseOverlay: React.FC<MultipleUserAvatarProps> = ({
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.primary800,
-    borderRadius: 8,
+    borderRadius: radius.m,
   },
   header: {
     borderBottomWidth: 1,
@@ -60,8 +60,8 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: colors.primary700,
     padding: 16,
-    borderBottomLeftRadius: 8,
-    borderBottomRightRadius: 8,
+    borderBottomLeftRadius: radius.m,
+    borderBottomRightRadius: radius.m,
   },
   buttonTitle: {
     fontSize: fontSize.paragraph,

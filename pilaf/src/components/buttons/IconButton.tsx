@@ -1,18 +1,17 @@
 import React from "react";
 import {
+  Image,
+  ImageSourcePropType,
   StyleProp,
   StyleSheet,
   TouchableOpacity,
   ViewStyle,
 } from "react-native";
 import { colors } from "../../constants/dogeStyle";
-import Icon from "react-native-vector-icons/Ionicons";
 
 interface IconButtonProps {
   style?: StyleProp<ViewStyle>;
-  iconName: string;
-  iconSize: number;
-  iconColor: string;
+  icon: ImageSourcePropType;
   onPress: () => void;
 }
 
@@ -22,11 +21,7 @@ export const IconButton: React.FC<IconButtonProps> = (props) => {
       style={[props.style, styles.container]}
       onPress={props.onPress}
     >
-      <Icon
-        name={props.iconName}
-        size={props.iconSize}
-        color={props.iconColor}
-      />
+      <Image source={props.icon} />
     </TouchableOpacity>
   );
 };

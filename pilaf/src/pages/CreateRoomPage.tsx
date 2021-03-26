@@ -11,7 +11,13 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import SegmentedControl from "@react-native-segmented-control/segmented-control";
-import { colors, fontFamily, fontSize } from "../constants/dogeStyle";
+import {
+  colors,
+  fontFamily,
+  fontSize,
+  radius,
+  small,
+} from "../constants/dogeStyle";
 
 interface CreateRoomModalProps {
   onRequestClose: () => void;
@@ -79,22 +85,19 @@ export const CreateRoomPage: React.FC<CreateRoomModalProps> = ({
               <TextInput
                 placeholder={"Room name"}
                 placeholderTextColor={colors.primary300}
-                style={styles.roomNameEditText}
+                style={[
+                  styles.roomNameEditText,
+                  errors.name && {
+                    borderWidth: 1,
+                    borderColor: colors.secondary,
+                  },
+                ]}
                 autoFocus={true}
                 value={values.name}
                 onChangeText={handleChange("name")}
               />
               {errors.name && (
-                <Text
-                  style={{
-                    marginTop: 4,
-                    fontSize: fontSize.small,
-                    fontFamily: fontFamily.regular,
-                    color: colors.accent,
-                  }}
-                >
-                  {errors.name}
-                </Text>
+                <Text style={styles.errorMessage}>{errors.name}</Text>
               )}
               <SegmentedControl
                 style={styles.segment}
@@ -123,10 +126,19 @@ export const CreateRoomPage: React.FC<CreateRoomModalProps> = ({
                 placeholder={"Room description"}
                 placeholderTextColor={colors.primary300}
                 multiline={true}
-                style={styles.roomDescriptionEditText}
+                style={[
+                  styles.roomDescriptionEditText,
+                  errors.description && {
+                    borderWidth: 1,
+                    borderColor: colors.secondary,
+                  },
+                ]}
                 value={values.description}
                 onChangeText={handleChange("description")}
               />
+              {errors.description && (
+                <Text style={styles.errorMessage}>{errors.description}</Text>
+              )}
               <View style={styles.buttonsContainer}>
                 <TouchableOpacity
                   style={styles.createButton}
@@ -154,8 +166,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
     backgroundColor: colors.primary800,
-    borderTopStartRadius: 8,
-    borderTopEndRadius: 8,
   },
   titleText: {
     fontFamily: fontFamily.extraBold,
@@ -172,7 +182,7 @@ const styles = StyleSheet.create({
     height: 40,
     backgroundColor: colors.primary700,
     paddingHorizontal: 16,
-    borderRadius: 8,
+    borderRadius: radius.m,
     marginTop: 16,
     color: colors.text,
   },
@@ -180,7 +190,7 @@ const styles = StyleSheet.create({
     height: 200,
     backgroundColor: colors.primary700,
     padding: 16,
-    borderRadius: 8,
+    borderRadius: radius.m,
     marginTop: 16,
     color: colors.text,
   },
@@ -193,9 +203,10 @@ const styles = StyleSheet.create({
   createButton: {
     flex: 1,
     backgroundColor: colors.accent,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 8,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: radius.m,
+    height: 38,
   },
   createButtonText: {
     color: colors.text,
@@ -206,10 +217,10 @@ const styles = StyleSheet.create({
   },
   cancelButton: {
     flex: 1,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 8,
-    marginLeft: 16,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: radius.m,
+    height: 38,
   },
   cancelButtonText: {
     color: colors.text,
@@ -217,6 +228,7 @@ const styles = StyleSheet.create({
     fontSize: fontSize.paragraph,
     fontWeight: "700",
     alignSelf: "center",
+    textDecorationLine: "underline",
   },
   segment: {
     marginTop: 16,
@@ -231,5 +243,10 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary700,
     borderWidth: 0,
     color: colors.primary300,
+  },
+  errorMessage: {
+    ...small,
+    marginLeft: 16,
+    color: colors.secondary,
   },
 });

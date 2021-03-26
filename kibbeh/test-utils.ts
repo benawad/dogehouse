@@ -2,11 +2,7 @@ import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import "mutationobserver-shim";
 
-const Renderer = ({ children }) => {
-  return { children };
-};
-
-const customRender = (ui, options = {}) =>
+const customRender = (ui: any, options = {}) =>
   render(ui, {
     ...options,
   });

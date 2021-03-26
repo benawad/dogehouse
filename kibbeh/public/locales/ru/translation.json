@@ -15,7 +15,8 @@
     "copyLink": "Скопировать ссылку",
     "copied": "Скопировано",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,7 +37,10 @@
       "currentRoom": "сейчас в :",
       "startPrivateRoom": "создать с ними закрытую комнату"
     },
-    "followList": {},
+    "followList": {
+      "followHim": "подписаться",
+      "followingHim": "Вы подписаны"
+    },
     "home": { "createRoom": "Создать комнату", "refresh": "Обновить" },
     "inviteList": {
       "roomGone": "Комната исчезла, вернитесь назад",
@@ -58,20 +62,23 @@
     },
     "myProfile": {
       "logout": "выйти",
-      "probablyLoading": "наверно загружается...",
+      "probablyLoading": "наверное загружается...",
       "voiceSettings": "зайти в голосовые настройки",
       "soundSettings": "зайти в настройки звука",
-      "deleteAccount": "удалить аккаунт"
+      "deleteAccount": "удалить аккаунт",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Упс! Эта страница была утеряна в разговоре.",
-      "goHomeMessage": "Не переживайте. Вы можите ",
+      "goHomeMessage": "Не переживайте. Вы можете ",
       "goHomeLinkText": "вернуться домой"
     },
     "room": {
       "speakers": "Ораторы",
       "requestingToSpeak": "Желающие говорить",
-      "listeners": "Слушатели"
+      "listeners": "Слушатели",
+      "allowAll": "Разрешить всем",
+      "allowAllConfirm": "Вы уверены? Это позволит всем {{count}} пользователям, запрашивающих разрешение, говорить"
     },
     "searchUser": { "search": "поиск..." },
     "soundEffectSettings": { "header": "звуки" },
@@ -79,7 +86,12 @@
       "editProfile": "редактировать профиль",
       "followsYou": "подписаны на вас",
       "followers": "подписчиков",
-      "following": "подписанных"
+      "following": "подписан на",
+      "followHim": "подписаться",
+      "followingHim": "Вы подписаны",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Голосовые настройки",
@@ -87,6 +99,10 @@
       "permissionError": "микрофон не найден, он не подключен или браузеру не дано соответствующее разрешение.",
       "refresh": "обновить список микрофонов",
       "volume": "громкость:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -111,7 +127,7 @@
       "settings": "Настройки",
       "speaker": "Оратор",
       "listener": "Слушатели",
-      "chat": "Chat"
+      "chat": "Чат"
     },
     "deviceNotSupported": {
       "notSupported": "Ваше устройство не поддерживается. Вы можете создать",
@@ -125,13 +141,14 @@
     "micPermissionBanner": {
       "permissionDenied": "Не удается получить доступ к вашему микрофону (возможно, вам следует зайти в настройки браузера или перезагрузить страницу)",
       "dismiss": "отклонить",
-      "tryAgain": "попробовать опять"
+      "tryAgain": "попробовать еще раз"
     },
     "keyboardShortcuts": {
       "setKeybind": "назначить клавишу",
       "listening": "слушает",
       "toggleMuteKeybind": "Активация микрофона при нажатии",
-      "togglePushToTalkKeybind": "Включить режим рации"
+      "togglePushToTalkKeybind": "Включить режим рации",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "почему-то нет аудиосвязи" },
     "addToCalendar": { "add": "Добавить в Календарь" },
@@ -142,11 +159,11 @@
     "modals": {
       "createRoomModal": {
         "public": "публичная",
-        "private": "приватный",
+        "private": "приватная",
         "roomName": "название комнаты",
         "roomDescription": "описание комнаты",
         "descriptionError": "максимальная длина 500",
-        "nameError": "длина должна быть между 2 и 60 символами"
+        "nameError": "длина должна быть от 2 до 60 символов"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Новая комната создана",
@@ -176,7 +193,8 @@
         "banFromChat": "забанить из этого чата",
         "banFromRoom": "забанить из этой комнаты",
         "goBackToListener": "стать слушателем",
-        "deleteMessage": "удалить это сообщение"
+        "deleteMessage": "удалить это сообщение",
+        "makeRoomCreator": "назначить админом комнаты"
       },
       "roomSettingsModal": {
         "requirePermission": "чтобы разговаривать здесь требуется разрешение",
@@ -195,22 +213,22 @@
       "scheduleRoomHeader": "Запланированные комнаты",
       "startRoom": "создать комнату",
       "modal": {
-        "needsFuture": "должно начинаца в будущем",
+        "needsFuture": "должно появится в будущем",
         "roomName": "название комнаты",
-        "minLength": "минимальная длина 2",
-        "roomDescription": "Description"
+        "roomDescription": "Описание",
+        "minLength": "минимальная длина 2"
       }
     },
     "roomChat": {
       "title": "Чат",
-      "emotesSoon": "[здесь скоро появятся эмодзи]",
+      "emotesSoon": "[эмодзи скоро]",
       "bannedAlert": "Вы были заблокированы в этом чате",
       "waitAlert": "Подождите еще секунду, прежде чем отправить следующее сообщение",
       "search": "Поиск",
       "searchResults": "Результаты поиска",
       "recent": "Часто используемые",
       "sendMessage": "Отправить сообщение",
-      "whisper": "Шепнуть на ушко",
+      "whisper": "Шепнуть",
       "welcomeMessage": "Добро пожаловать в чат!",
       "roomDescription": "описание комнаты"
     },
@@ -221,10 +239,10 @@
       "approachingMoon": "Приближается к луне",
       "lunarDoge": "Лунный doge",
       "approachingSun": "Приближается к солнцу",
-      "solarDoge": "Сонечный doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "solarDoge": "Солнечный doge",
+      "approachingGalaxy": "Приближается к галактике",
+      "galacticDoge": "Галактический doge",
+      "spottedLife": "Замечена планета с жизнью"
     }
   }
 }

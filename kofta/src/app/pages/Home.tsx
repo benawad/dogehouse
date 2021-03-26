@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Calendar } from "react-feather";
 import { useQuery, useQueryClient } from "react-query";
 import { useHistory } from "react-router-dom";
@@ -22,8 +22,12 @@ import { Logo } from "../svgs/Logo";
 import { PeopleIcon } from "../svgs/PeopleIcon";
 import { CurrentRoom, PublicRoomsQuery, ScheduledRoom } from "../types";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
+import isElectron from "is-electron";
+import { modalAlert } from "../components/AlertModal";
 
-interface HomeProps {}
+const isMac = process.platform === 'darwin';
+
+interface HomeProps { }
 
 const get_top_public_rooms = "get_top_public_rooms";
 
@@ -57,6 +61,12 @@ const Page = ({
     }
   );
 
+  useEffect(() => {
+    if (isElectron() && isMac) {
+        modalAlert(t("common.requestPermissions"));
+    }
+  }, [t]);
+
   if (isLoading) {
     return <Spinner centered={true} />;
   }
@@ -72,6 +82,8 @@ const Page = ({
       </Button>
     );
   }
+
+
 
   return (
     <>
@@ -89,9 +101,9 @@ const Page = ({
                 };
                 currentRoom
                   ? modalConfirm(
-                      `Leave room '${currentRoom.name}' and join room '${r.name}'?`,
-                      joinRoom
-                    )
+                    `Leave room '${currentRoom.name}' and join room '${r.name}'?`,
+                    joinRoom
+                  )
                   : joinRoom();
               }}
               room={r}
@@ -157,6 +169,7 @@ export const Home: React.FC<HomeProps> = () => {
           >
             <div /* className={`mr-4 px-2.5`} */>
               <CircleButton
+                title={t("pages.viewUser.following")}
                 onClick={() => {
                   wsend({ op: "fetch_following_online", d: { cursor: 0 } });
                   history.push("/following-online");
@@ -167,6 +180,7 @@ export const Home: React.FC<HomeProps> = () => {
             </div>
             <div /* className={`ml-2 px-2.5`} */>
               <CircleButton
+                title={t("modules.scheduledRooms.title")}
                 onClick={() => {
                   queryClient.prefetchQuery(
                     [GET_SCHEDULED_ROOMS, "", false],
@@ -199,11 +213,11 @@ export const Home: React.FC<HomeProps> = () => {
                     scheduledRooms: (d?.scheduledRooms || []).map((x) =>
                       x.id === editInfo.scheduleRoomToEdit.id
                         ? {
-                            ...x,
-                            name: data.name,
-                            description: data.description,
-                            scheduledFor: data.scheduledFor.toISOString(),
-                          }
+                          ...x,
+                          name: data.name,
+                          description: data.description,
+                          scheduledFor: data.scheduledFor.toISOString(),
+                        }
                         : x
                     ),
                   };

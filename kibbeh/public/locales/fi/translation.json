@@ -15,7 +15,8 @@
     "copyLink": "kopioi linkki",
     "copied": "kopioitu",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -30,19 +31,14 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { 
-			"ban": "estä"
-		},
+    "banUser": { "ban": "estä" },
     "followingOnlineList": {
       "listHeader": "Lista seuraamistasi käyttäjistä, jotka eivät ole yksityisessä huoneessa.",
       "currentRoom": "paikalla:",
       "startPrivateRoom": "luo yksityinen huone heidän kanssaan"
     },
-    "followList": {},
-    "home": { 
-			"createRoom": "Luo huone", 
-			"refresh": "Päivitä" 
-		},
+    "followList": { "followHim": "seuraa", "followingHim": "seurannassa" },
+    "home": { "createRoom": "Luo huone", "refresh": "Päivitä" },
     "inviteList": {
       "roomGone": "huone poistettu, palaa takaisin",
       "shareRoomLink": "jaa linkki huoneeseen",
@@ -66,7 +62,8 @@
       "probablyLoading": "ladataan...",
       "voiceSettings": "siirry puheasetuksiin",
       "soundSettings": "siirry toistoasetuksiin",
-      "deleteAccount": "poista käyttäjä"
+      "deleteAccount": "poista käyttäjä",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Hups! Tämä sivu katosi keskusteluun.",
@@ -76,19 +73,22 @@
     "room": {
       "speakers": "Puhujat",
       "requestingToSpeak": "Pyytävät puheoikeutta",
-      "listeners": "Kuuntelijat"
+      "listeners": "Kuuntelijat",
+      "allowAll": "Hyväksy kaikki",
+      "allowAllConfirm": "Oletko varma? Tämä antaa kaikille {{count}} pyytäville käyttäjille puheoikeuden"
     },
-    "searchUser": { 
-			"search": "hae..." 
-		},
-    "soundEffectSettings": { 
-			"header": "Äänet" 
-		},
+    "searchUser": { "search": "hae..." },
+    "soundEffectSettings": { "header": "Äänet" },
     "viewUser": {
       "editProfile": "muokkaa profiilia",
       "followsYou": "seuraa sinua",
       "followers": "seuraajaa",
-      "following": "seurannassa"
+      "following": "seurannassa",
+      "followHim": "seuraa",
+      "followingHim": "seurannassa",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Puheasetukset",
@@ -96,6 +96,10 @@
       "permissionError": "yhtään mikrofonia ei löytynyt. joko yhtään ei ole kytketty tai et ole antanut sivustolle lupaa käyttää mikrofonia.",
       "refresh": "päivitä lista",
       "volume": "äänenvoimakkuus:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -140,14 +144,11 @@
       "setKeybind": "aseta pikanäppäin",
       "listening": "odotetaan näppäintä",
       "toggleMuteKeybind": "mikrofonin mykistys -pikanäppäin",
-      "togglePushToTalkKeybind": "push-to-talk-pikanäppäin"
+      "togglePushToTalkKeybind": "push-to-talk-pikanäppäin",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
-    "userVolumeSlider": { 
-			"noAudioMessage": "ei äänen ulostulolaitteita" 
-		},
-    "addToCalendar": { 
-			"add": "Lisää kalenteriin" 
-		},
+    "userVolumeSlider": { "noAudioMessage": "ei äänen ulostulolaitteita" },
+    "addToCalendar": { "add": "Lisää kalenteriin" },
     "wsKilled": {
       "description": "Palvelin katkaisi yhteyden. Tämä johtuu yleensä sivuston avaamisesta useampaan välilehteen.",
       "reconnect": "yhdistä uudelleen"
@@ -189,7 +190,8 @@
         "banFromChat": "estä keskustelusta",
         "banFromRoom": "estä huoneesta",
         "goBackToListener": "palaa kuuntelijaksi",
-        "deleteMessage": "poista viesti"
+        "deleteMessage": "poista viesti",
+        "makeRoomCreator": "ylennä huoneen ylläpitäjäksi"
       },
       "roomSettingsModal": {
         "requirePermission": "puhuminen vaatii oikeuden",
