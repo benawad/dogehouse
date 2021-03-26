@@ -13,6 +13,8 @@ defmodule Kousa.Follow do
     end
   end
 
+  # TODO: break this out into assertive "follow" and "unfollow" commands, instead of
+  # ambiguous "should_follow"
   def follow(user_id, user_you_want_to_follow_id, should_follow) do
     if should_follow do
       if user_id != user_you_want_to_follow_id and
