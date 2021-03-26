@@ -3,6 +3,13 @@ defmodule Broth.WsClient do
 
   @api_url Application.compile_env!(:kousa, :api_url)
 
+  def child_spec(info) do
+    # just make the id be a random uuid.
+    info
+    |> super
+    |> Map.put(:id, UUID.uuid4())
+  end
+
   def start_link(opts) do
     ancestors =
       :"$ancestors"
@@ -31,7 +38,10 @@ defmodule Broth.WsClient do
   defmacro assert_frame(op, payload, timeout \\ nil) do
     if timeout do
       quote do
-        ExUnit.Assertions.assert_receive({:text, %{"op" => unquote(op), "d" => unquote(payload)}}, unquote(timeout))
+        ExUnit.Assertions.assert_receive(
+          {:text, %{"op" => unquote(op), "d" => unquote(payload)}},
+          unquote(timeout)
+        )
       end
     else
       quote do

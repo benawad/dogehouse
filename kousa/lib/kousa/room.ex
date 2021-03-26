@@ -51,8 +51,7 @@ defmodule Kousa.Room do
   def invite_to_room(user_id, user_id_to_invite) do
     user = Beef.Users.get_by_id(user_id)
 
-    if not is_nil(user.currentRoomId) and
-         Follows.following_me?(user_id, user_id_to_invite) do
+    if user.currentRoomId && Follows.following_me?(user_id, user_id_to_invite) do
       # @todo store room name in RoomSession to avoid db lookups
       room = Rooms.get_room_by_id(user.currentRoomId)
 
@@ -273,9 +272,11 @@ defmodule Kousa.Room do
             ]
           )
 
+        muted = Onion.UserSession.get(user_id, :muted)
+
         GenServer.cast(
           session,
-          {:join_room_no_fan, user_id, Onion.UserSession.send_call!(user_id, {:get, :muted})}
+          {:join_room_no_fan, user_id, muted}
         )
 
         Onion.VoiceRabbit.send(room.voiceServerId, %{
@@ -340,9 +341,11 @@ defmodule Kousa.Room do
 
               updated_user = Rooms.join_room(room, user_id)
 
+              muted = Onion.UserSession.get(user_id, :muted)
+
               Onion.RoomSession.send_cast(
                 room_id,
-                {:join_room, updated_user, Onion.UserSession.send_call!(user_id, {:get, :muted})}
+                {:join_room, updated_user, muted}
               )
 
               canSpeak =

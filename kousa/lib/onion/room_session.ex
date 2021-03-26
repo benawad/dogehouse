@@ -64,7 +64,7 @@ defmodule Onion.RoomSession do
 
   def ws_fan(users, msg) do
     Enum.each(users, fn uid ->
-      Onion.UserSession.send_cast(uid, {:send_ws_msg, msg})
+      Onion.UserSession.send_ws_msg(uid, nil, msg)
     end)
   end
 
@@ -125,10 +125,10 @@ defmodule Onion.RoomSession do
   end
 
   def handle_cast({:create_invite, user_id, user_info}, state) do
-    Onion.UserSession.send_cast(
+    Onion.UserSession.send_ws_msg(
       user_id,
-      {:send_ws_msg,
-       %{op: "invitation_to_room", d: Map.merge(%{roomId: state.room_id}, user_info)}}
+      nil,
+      %{op: "invitation_to_room", d: Map.merge(%{roomId: state.room_id}, user_info)}
     )
 
     {:noreply,

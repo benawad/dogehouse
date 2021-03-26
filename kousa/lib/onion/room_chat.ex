@@ -43,7 +43,7 @@ defmodule Onion.RoomChat do
 
   def ws_fan(users, msg) do
     Enum.each(users, fn uid ->
-      Onion.UserSession.send_cast(uid, {:send_ws_msg, msg})
+      Onion.UserSession.send_ws_msg(uid, nil, msg)
     end)
   end
 

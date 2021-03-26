@@ -1,8 +1,4 @@
 defmodule KousaTest.Broth.Ws.FetchFollowingOnlineTest do
-
-  # NB: "fetch_following_online" doesn't actually check to see if the
-  # person is online.
-
   use ExUnit.Case, async: true
   use Kousa.Support.EctoSandbox
 
@@ -22,12 +18,12 @@ defmodule KousaTest.Broth.Ws.FetchFollowingOnlineTest do
     WsClient.forward_frames(ws_client)
 
     WsClient.send_msg(ws_client, "auth", %{
-        "accessToken" => tokens.accessToken,
-        "refreshToken" => tokens.refreshToken,
-        "platform" => "foo",
-        "reconnectToVoice" => false,
-        "muted" => false
-      })
+      "accessToken" => tokens.accessToken,
+      "refreshToken" => tokens.refreshToken,
+      "platform" => "foo",
+      "reconnectToVoice" => false,
+      "muted" => false
+    })
 
     WsClient.assert_frame("auth-good", _)
 
@@ -49,9 +45,16 @@ defmodule KousaTest.Broth.Ws.FetchFollowingOnlineTest do
       WsClient.send_msg(t.ws_client, "fetch_following_online", %{"cursor" => 0})
 
       # TODO: change to "fetch_following_online_reply"
-      WsClient.assert_frame("fetch_following_online_done", %{"users" => [%{
-        "id" => ^followed_id
-      }]})
+      WsClient.assert_frame("fetch_following_online_done", %{
+        "users" => [
+          %{
+            "id" => ^followed_id
+          }
+        ]
+      })
     end
+
+    @tag :skip
+    test "test proper pagination of fetch_folllowing_online"
   end
 end

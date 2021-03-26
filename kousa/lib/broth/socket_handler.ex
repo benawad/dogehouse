@@ -284,7 +284,7 @@ defmodule Broth.SocketHandler do
   end
 
   def handler("invite_to_room", %{"userId" => user_id_to_invite}, state) do
-    Kousa.Room.invite_to_room(state.user_id, user_id_to_invite)
+    Kousa.Room.invite_to_room(state.user_id, user_id_to_invite) 
     {:ok, state}
   end
 
