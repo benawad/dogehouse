@@ -61,7 +61,7 @@
       "logout": "wyloguj się",
       "probablyLoading": "prawdobodobnie ładowanie...",
       "voiceSettings": "przejdź do ustawień głosu",
-      "soundSettings": "przejdź do ustawień dzięku",
+      "soundSettings": "przejdź do ustawień dźwięku",
       "deleteAccount": "usuń konto",
       "overlaySettings": "przejdź do ustawień nakładki"
     },
@@ -88,7 +88,7 @@
       "followingHim": "obserwujesz",
       "copyProfileUrl": "skopiuj url profilu",
       "urlCopied": "URL zostało skopiowane do schowka",
-      "unfollow": "Unfollow"
+      "unfollow": "Przestań obserwować"
     },
     "voiceSettings": {
       "header": "Ustawienia Głosu",

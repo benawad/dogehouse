@@ -54,7 +54,9 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
       <Button
         className={`ml-2`}
         color="secondary-800"
-        onClick={() => onLeaveRoom()}
+        onClick={() => {
+          onLeaveRoom();
+        }}
       >
         {t("components.bottomVoiceControl.leave")}
       </Button>

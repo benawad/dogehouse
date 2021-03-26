@@ -2,7 +2,7 @@
   "name": "@dogehouse/kebab",
   "author": "Ilya Maximov <mail@overlisted.net> (https://overlisted.net)",
   "bugs": "https://github.com/benawad/dogehouse/issues",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "license": "MIT",
   "keywords": [
     "dogehouse"

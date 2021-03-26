@@ -45,7 +45,41 @@ Navigate to `/kofta`
 - Run `npm i`
 - Run `npm run start:staging` (this tells React to connect to a hosted version of the backend for development purposes)
 
-## Full Local Development
+## Devcontainer Full Local Development
+For VSCode users, we're able to use devcontainers which allows to create development environments that already have all the tools and services configured and ready to go.
+
+### Usage
+
+_Prerequisite: [Install Docker](https://docs.docker.com/install) on your local environment._
+
+To get started, read and follow the instuctions in [Developing inside a Container](https://code.visualstudio.com/docs/remote/containers). The [.devcontainer/](./.devcontainer) directory contains pre-configured `devcontainer.json`, `docker-compose.yml` and `Dockerfile` files, which you can use to set up remote development within a docker container.
+
+- Install the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension.
+- Open VSCode and bring up the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
+- Type `Remote-Containers: Open Folder in Container`, this will build the container with Elixir and Node installed, this will also start Postgres and RabbitMQ instances.
+
+> If you need to modify environment variables for kousa, you need to modify them inside `/home/doge/.bashrc` and restart your terminal.
+
+### Run
+#### `kousa`
+```shell
+$ mix deps.get
+$ mix ecto.migrate
+$ iex -S mix
+```
+#### `shawarma`
+```shell
+$ npm i
+$ npm run build
+$ npm start
+```
+#### `kofta`
+```shell
+$ npm i
+$ npm start
+```
+
+## Manual Full Local Development
 How to run locally:
 
 ### Backend

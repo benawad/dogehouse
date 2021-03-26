@@ -87,7 +87,7 @@
       "followingHim": "Volgend",
       "copyProfileUrl": "kopieer profiel url",
       "urlCopied": "URL gekopieerd naar klembord",
-      "unfollow": "Unfollow"
+      "unfollow": "Ontvolg"
     },
     "voiceSettings": {
       "header": "Spraakinstellingen",
@@ -97,7 +97,7 @@
       "volume": "Volume:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": { "errorMsg": "Ongeldige app titel", "label": "Voer app titel in" },
       "header": "Overlay-instellingen"
     }
   },
@@ -107,7 +107,7 @@
     "backBar": {},
     "blockedFromRoomUsers": {
       "header": "Verbannen Gebruikers",
-      "unban": "Unban",
+      "unban": "Ontban",
       "noBans": "Er is nog niemand verbannen"
     },
     "bottomVoiceControl": {
