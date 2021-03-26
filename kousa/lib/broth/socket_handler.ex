@@ -17,15 +17,15 @@ defmodule Broth.SocketHandler do
         }
 
   defstruct awaiting_init: true,
-              user_id: nil,
-              encoding: nil,
-              compression: nil,
-              callers: []
-  end
+            user_id: nil,
+            encoding: nil,
+            compression: nil,
+            callers: []
 
   @behaviour :cowboy_websocket
 
-  def init(request, state) do
+  def init(request, _state) do
+    props = :cowboy_req.parse_qs(request)
 
     compression =
       case :proplists.get_value("compression", props) do
@@ -124,7 +124,6 @@ defmodule Broth.SocketHandler do
                 end
 
               if user do
-
                 # note that this will start the session and will be ignored if the
                 # session is already running.
                 UserSession.start_supervised(%UserSession.State{
@@ -134,7 +133,7 @@ defmodule Broth.SocketHandler do
                   display_name: user.displayName,
                   current_room_id: user.currentRoomId,
                   muted: muted
-                }
+                })
 
                 UserSession.set_pid(user_id, self())
 
@@ -599,7 +598,7 @@ defmodule Broth.SocketHandler do
     {"you_left_room", %{}}
   end
 
-  def f_handler("fetch_following_online", %{"cursor" => cursor}, %State{} = state) do
+  def f_handler("fetch_following_online", %{"cursor" => cursor}, state) do
     {users, next_cursor} = Follows.fetch_following_online(state.user_id, cursor)
 
     %{users: users, nextCursor: next_cursor}
@@ -611,7 +610,7 @@ defmodule Broth.SocketHandler do
     %{}
   end
 
-  def f_handler("join_room_and_get_info", %{"roomId" => room_id_to_join}, %State{} = state) do
+  def f_handler("join_room_and_get_info", %{"roomId" => room_id_to_join}, state) do
     case Kousa.Room.join_room(state.user_id, room_id_to_join) do
       %{error: err} ->
         %{error: err}
@@ -819,7 +818,7 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  def f_handler("get_user_profile", %{"userId" => id_or_username}, %State{} = state) do
+  def f_handler("get_user_profile", %{"userId" => id_or_username}, state) do
     case UUID.cast(id_or_username) do
       {:ok, uuid} ->
         Beef.Users.get_by_id_with_follow_info(state.user_id, uuid)
