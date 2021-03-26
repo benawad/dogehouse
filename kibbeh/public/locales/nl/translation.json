@@ -87,7 +87,7 @@
       "followingHim": "Volgend",
       "copyProfileUrl": "kopieer profiel url",
       "urlCopied": "URL gekopieerd naar klembord",
-      "unfollow": "Ontvolg"
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Spraakinstellingen",
@@ -97,7 +97,7 @@
       "volume": "Volume:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Ongeldige app titel", "label": "Voer app titel in" },
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay-instellingen"
     }
   },
@@ -107,7 +107,7 @@
     "backBar": {},
     "blockedFromRoomUsers": {
       "header": "Verbannen Gebruikers",
-      "unban": "Ontban",
+      "unban": "Unban",
       "noBans": "Er is nog niemand verbannen"
     },
     "bottomVoiceControl": {
@@ -197,7 +197,9 @@
       "roomSettingsModal": {
         "requirePermission": "Toestemming nodig om te spreken",
         "makePublic": "Maak kamer openbaar",
-        "makePrivate": "Maak kamer privé"
+        "makePrivate": "Maak kamer privé",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

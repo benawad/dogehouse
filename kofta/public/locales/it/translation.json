@@ -97,7 +97,10 @@
       "volume": "volume:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Titolo app invalido", "label": "Inserisci titolo app" },
+      "input": {
+        "errorMsg": "Titolo app invalido",
+        "label": "Inserisci titolo app"
+      },
       "header": "Overlay Settings"
     }
   },
@@ -197,7 +200,9 @@
       "roomSettingsModal": {
         "requirePermission": "richiedi permesso per parlare",
         "makePublic": "fai diventare la stanza pubblica",
-        "makePrivate": "fai diventare la stanza privata"
+        "makePrivate": "fai diventare la stanza privata",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

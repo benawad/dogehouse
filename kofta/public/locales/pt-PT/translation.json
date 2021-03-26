@@ -74,7 +74,8 @@
       "requestingToSpeak": "A pedir para falar",
       "listeners": "Ouvintes",
       "allowAll": "Permitir todos",
-      "allowAllconfirm": "De certeza? Isto permitirá todos os {{count}} utilizadores a pedir, falar"
+      "allowAllconfirm": "De certeza? Isto permitirá todos os {{count}} utilizadores a pedir, falar",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Procurar..." },
     "soundEffectSettings": { "header": "Sons" },
@@ -97,7 +98,10 @@
       "volume": "Volume:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Título de aplicação inválido", "label": "Introduza o título da aplicação" },
+      "input": {
+        "errorMsg": "Título de aplicação inválido",
+        "label": "Introduza o título da aplicação"
+      },
       "header": "Definições de Overlay"
     }
   },
@@ -173,7 +177,9 @@
       "roomSettingsModal": {
         "requirePermission": "Pedir permissão para falar",
         "makePublic": "Tornar a sala pública",
-        "makePrivate": "Tornar a sala privada"
+        "makePrivate": "Tornar a sala privada",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     },
     "userVolumeSlider": {

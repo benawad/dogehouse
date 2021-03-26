@@ -198,7 +198,9 @@
       "roomSettingsModal": {
         "requirePermission": "Necesită permisiunea de a vorbi",
         "makePublic": "Fă camera publică",
-        "makePrivate": "Fă camera privată"
+        "makePrivate": "Fă camera privată",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

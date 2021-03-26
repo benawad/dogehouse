@@ -195,7 +195,9 @@
       "roomSettingsModal": {
         "requirePermission": "zatraži dozvolu za govor",
         "makePublic": "učini sobu javnom",
-        "makePrivate": "učini sobu privatnom"
+        "makePrivate": "učini sobu privatnom",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

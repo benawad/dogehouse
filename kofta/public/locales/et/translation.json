@@ -195,7 +195,9 @@
       "roomSettingsModal": {
         "requirePermission": "nõua luba rääkimiseks",
         "makePublic": "tee ruum avalikuks",
-        "makePrivate": "tee ruum privaatseks"
+        "makePrivate": "tee ruum privaatseks",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

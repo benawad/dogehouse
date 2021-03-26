@@ -194,7 +194,9 @@
       "roomSettingsModal": {
         "requirePermission": "발언권이 필요합니다",
         "makePublic": "채팅방 공개화",
-        "makePrivate": "채팅방 비공개화"
+        "makePrivate": "채팅방 비공개화",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

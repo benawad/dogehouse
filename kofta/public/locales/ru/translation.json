@@ -199,7 +199,9 @@
       "roomSettingsModal": {
         "requirePermission": "чтобы разговаривать здесь требуется разрешение",
         "makePublic": "сделать комнату публичной",
-        "makePrivate": "сделать комнату приватной"
+        "makePrivate": "сделать комнату приватной",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },
