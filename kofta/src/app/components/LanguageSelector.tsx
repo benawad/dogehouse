@@ -65,7 +65,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "ur", label: "🇵🇰 اردو" }, // Urdu
     { value: "zh-CN", label: "🇨🇳 中文 (简体)" }, // Chinese (Simplified)
     { value: "zh-TW", label: "🇹🇼 正體中文 (繁體)" }, // Chinese (Traditional)
-
+    { value: "vi", label: "🇻🇳 Tiếng Việt" }, // Vietnamese
     /* Languages that are in ISO 639-2 (three-letter codes) */
     { value: "gsw", label: "🇨🇭 Schwiizerdütsch" }, // Swiss German
 
