@@ -284,12 +284,14 @@ defmodule Broth.SocketHandler do
   end
 
   def handler("invite_to_room", %{"userId" => user_id_to_invite}, state) do
-    Kousa.Room.invite_to_room(state.user_id, user_id_to_invite) 
+    Kousa.Room.invite_to_room(state.user_id, user_id_to_invite)
     {:ok, state}
   end
 
   def handler("make_room_public", %{"newName" => new_name}, state) do
+    IO.puts("a")
     Kousa.Room.make_room_public(state.user_id, new_name)
+    IO.puts("b")
     {:ok, state}
   end
 
@@ -510,7 +512,7 @@ defmodule Broth.SocketHandler do
   end
 
   def handler("mute", %{"value" => value}, state) do
-    Onion.UserSession.send_cast(state.user_id, {:set_mute, value})
+    Onion.UserSession.set_mute(state.user_id, value)
     {:ok, state}
   end
 
@@ -611,8 +613,7 @@ defmodule Broth.SocketHandler do
   end
 
   def f_handler("mute", %{"value" => value}, state) do
-    Onion.UserSession.send_cast(state.user_id, {:set_mute, value})
-
+    Onion.UserSession.set_mute(state.user_id, value)
     %{}
   end
 

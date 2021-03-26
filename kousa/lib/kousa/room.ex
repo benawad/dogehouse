@@ -35,7 +35,7 @@ defmodule Kousa.Room do
   @spec make_room_private(any, any) :: nil | :ok
   def make_room_private(user_id, new_name) do
     # this needs to be refactored if a user can have multiple rooms
-    case Rooms.set_room_privacy_by_creator_id(user_id, true, new_name) do
+    case Rooms.set_room_privacy_by_creator_id(user_id, true, new_name)  do
       {1, [room]} ->
         Onion.RoomSession.send_cast(
           room.id,

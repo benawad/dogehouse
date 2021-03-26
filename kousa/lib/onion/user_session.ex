@@ -71,7 +71,7 @@ defmodule Onion.UserSession do
     {:noreply, state}
   end
 
-  def set_mute(user_id, value, state) when is_boolean(value),
+  def set_mute(user_id, value) when is_boolean(value),
     do: cast(user_id, {:set_mute, value})
 
   defp set_mute_impl(value, state = %{current_room_id: current_room_id}) do
