@@ -97,7 +97,10 @@
       "volume": "Volym:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Ogiltlig fönstertitel", "label": "Skriv in fönstertitel" },
+      "input": {
+        "errorMsg": "Ogiltlig fönstertitel",
+        "label": "Skriv in fönstertitel"
+      },
       "header": "Overlay-inställningar"
     }
   },

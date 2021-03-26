@@ -16,7 +16,7 @@
     "copied": "কপি হয়ে গেছে",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please give DogeHouse Accessibility permessions"
+    "requestPermissions": "দয়া করে DogeHouse কে অ্যাক্সেস পারমিশন দিন"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -66,7 +66,7 @@
       "voiceSettings": "ভয়েস সেটিংস এ যান",
       "soundSettings": "সাউন্ড সেটিংস এ যান",
       "deleteAccount": "অ্যাকাউন্ট ডিলিট করুন",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "ওভারলে সেটিংস এ যান"
     },
     "notFound": {
       "whoopsError": "উপস! এই পেজের বার্তালাপ কেটে গেছে।",
@@ -75,23 +75,23 @@
     },
     "room": {
       "speakers": "স্পিকারস",
-      "requestingToSpeak": "কথা বলার জন্য অনুরোধ করুন",
+      "requestingToSpeak": "কথা বলার জন্য অনুরোধ করছেন",
       "listeners": "শ্রোতাগণ",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "সবাইকে অনুমতি দিন",
+      "allowAllConfirm": "আপনি কি নিশ্চিত? এটা অনুমতি দেবে সব {{count}} জন অনুরোধ করা ইউজারদের কথা বলতে"
     },
     "searchUser": { "search": "খুঁজুন..." },
     "soundEffectSettings": { "header": "সাউন্ডস" },
     "viewUser": {
       "editProfile": "প্রোফাইল এডিট করুন",
       "followsYou": "আপনাকে অনুসরণ করে",
-      "followers": "জন অনুসরণকারী",
-      "following": "জনকে অনুসরণ করছে",
+      "followers": "অনুসরণকারীরা",
+      "following": "অনুসরণ করছেন",
       "followHim": "অনুসরণ করুন",
       "followingHim": "অনুসরণ করছেন",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "copyProfileUrl": "প্রোফাইলের URL কপি করুন",
+      "urlCopied": "URL ক্লিপবোর্ডে কপি করা হয়েছে",
+      "unfollow": "অনুসরণ বাতিল করুন"
     },
     "voiceSettings": {
       "header": "ভয়েস সেটিংস",
@@ -101,10 +101,13 @@
       "volume": "ভলিউম:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings",
-      "errorMsg": "Please enter valid app title",
-      "label": "Enter app title"
+      "input": {
+        "errorMsg": "অবৈধ অ্যাপ শিরোনাম",
+        "label": "অ্যাপ শিরোনাম দিন"
+      },
+      "header": "ওভারলে সেটিংস",
+      "errorMsg": "দয়া করে বৈধ অ্যাপ শিরোনাম দিন",
+      "label": "অ্যাপ শিরোনাম দিন"
     }
   },
   "components": {
@@ -150,7 +153,7 @@
       "listening": "শুনুন",
       "toggleMuteKeybind": "টগল করুন মাইক কীবাইন্ড",
       "togglePushToTalkKeybind": "টগল করুন পুশ-টু-টক কীবাইন্ড",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "টগল করুন ওভারলে কীবাইন্ড"
     },
     "userVolumeSlider": {
       "noAudioMessage": "কিছু কারনে অডিও কনসিউম করা যাইনি"
