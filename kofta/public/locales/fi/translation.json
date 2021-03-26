@@ -16,7 +16,7 @@
     "copied": "kopioitu",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Huomaa, että käyttämällä DogeHousea ilman esteettömyyslupia voi aiheuttaa ei-toivottuja virheitä"
+    "requestPermissions": "Huomaa, että käyttämällä DogeHousea ilman joitakin selaimen käyttöoikeuksia voi aiheuttaa ei-toivottuja virheitä"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
