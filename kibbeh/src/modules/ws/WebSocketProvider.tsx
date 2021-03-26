@@ -3,6 +3,7 @@ import { raw } from "@dogehouse/kebab";
 import { useTokenStore } from "../auth/useTokenStore";
 import { apiBaseUrl } from "../../lib/constants";
 import { useRouter } from "next/router";
+import { showErrorToast } from "../../lib/showErrorToast";
 
 interface WebSocketProviderProps {
   shouldConnect: boolean;
@@ -29,6 +30,19 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
       raw
         .connect(accessToken, refreshToken, {
           url: apiBaseUrl.replace("http", "ws") + "/socket",
+          onConnectionTaken: () => {
+            replace("/");
+            // @todo do something better
+            showErrorToast(
+              "You can only have 1 tab of DogeHouse open at a time"
+            );
+          },
+          onClearTokens: () => {
+            replace("/");
+            useTokenStore
+              .getState()
+              .setTokens({ accessToken: "", refreshToken: "" });
+          },
         })
         .then((x) => setConn(x))
         .catch((err) => {

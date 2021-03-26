@@ -9,9 +9,5 @@ export const FollowingOnlineController: React.FC<FriendsOnlineControllerProps> =
     refetchOnMount: "always",
   });
 
-  return (
-    <div>
-      <FriendsOnline onlineFriendList={(data?.users || []) as any} />
-    </div>
-  );
+  return <FriendsOnline onlineFriendList={(data?.users || []) as any} />;
 };

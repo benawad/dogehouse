@@ -73,6 +73,7 @@ export type Message = {
   color: string;
   displayName: string;
   tokens: MessageToken[];
+  username: string;
   deleted?: boolean;
   deleterId?: UUID;
   sentAt: string;

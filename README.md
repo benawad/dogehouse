@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/dogehouse-github.png" alt="DogeHouse logo" />
+    <img height=100 src="https://raw.githubusercontent.com/benawad/dogehouse/staging/.redesign-assets/dogehouse_logo.svg"/>
 </p>
 <p align="center">
   <strong>Taking voice conversations to the moon 🚀</strong>
@@ -47,15 +47,21 @@ DogeHouse is open to contributions, but I recommend creating an issue or replyin
 
 Please read [CONTRIBUTING.md](https://github.com/benawad/dogehouse/blob/staging/CONTRIBUTING.md) for details on this project.
 
-## Dogehouse Desktop
+## DogeHouse Desktop
 
 A desktop app built with electron is available for Windows and Mac
 
 Download links are in [the releases section](https://github.com/benawad/dogehouse/releases/latest)
 
+Dogehouse is also available in the AUR
+```bash
+yay -S dogehouse
+```
 Built with electron.
 
-__*Note:*__ If a warning message pops up on Windows, go to 'more info' and select 'Run Anyway'
+__*Notes:*__
+- If a warning message pops up on Windows, go to 'more info' and select 'Run Anyway'
+- Currently Linux builds will install but won't run due to a problem with global keyevents.
 
 ## DogeReviewers
 
@@ -68,6 +74,7 @@ Contributors helping to review/merge pull requests:
 - @overlisted
 - @goldyydev
 - @jamesql
+- @amitojsingh366
 
 ## Code of Conduct
 
