@@ -10,6 +10,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "en", label: "🇬🇧 English" }, // English
 
     /* Languages that are in ISO 639-1, sorted by language code (A-Z) */
+    { value: "so", label: "so Somali" }, // Somali
     { value: "af", label: "🇿🇦 Afrikaans" }, // Afrikaans
     { value: "am", label: "🇪🇹 አማርኛ" }, // Amharic
     { value: "ar", label: "🇸🇦 عربي" }, // Arabic
