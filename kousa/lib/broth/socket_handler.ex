@@ -50,7 +50,7 @@ defmodule Broth.SocketHandler do
     {:cowboy_websocket, request, state}
   end
 
-  if Mix.env == :test do
+  if Mix.env() == :test do
     defp get_callers(request) do
       request_bin = :cowboy_req.header("user-agent", request)
 
@@ -130,15 +130,17 @@ defmodule Broth.SocketHandler do
               if user do
                 # note that this will start the session and will be ignored if the
                 # session is already running.
-                UserSession.start_supervised(%UserSession.State{
-                  user_id: user_id,
-                  username: user.username,
-                  avatar_url: user.avatarUrl,
-                  display_name: user.displayName,
-                  current_room_id: user.currentRoomId,
-                  muted: muted
-                },
-                callers: Process.get(:"$callers"))
+                UserSession.start_supervised(
+                  %UserSession.State{
+                    user_id: user_id,
+                    username: user.username,
+                    avatar_url: user.avatarUrl,
+                    display_name: user.displayName,
+                    current_room_id: user.currentRoomId,
+                    muted: muted
+                  },
+                  callers: Process.get(:"$callers")
+                )
 
                 UserSession.set_pid(user_id, self())
 

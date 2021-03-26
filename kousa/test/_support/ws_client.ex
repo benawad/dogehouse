@@ -39,6 +39,15 @@ defmodule Broth.WsClient do
     end
   end
 
+  defmacro assert_dies(ws_client, fun, reason, timeout \\ 100) do
+    quote bind_quoted: [ws_client: ws_client, fun: fun, reason: reason, timeout: timeout] do
+      Process.flag(:trap_exit, true)
+      Process.link(ws_client)
+      fun.()
+      ExUnit.Assertions.assert_receive({:EXIT, ^ws_client, ^reason}, timeout)
+    end
+  end
+
   ###########################################################################
   # ROUTER
 
