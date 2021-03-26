@@ -29,21 +29,15 @@ defmodule KousaTest.Broth.Ws.AuthTest do
       Process.link(pid)
       WsClient.forward_frames(pid)
 
-      WsClient.send_msg(pid, %{
-        "op" => "auth",
-        "d" => %{
-          "accessToken" => tokens.accessToken,
-          "refreshToken" => tokens.refreshToken,
-          "platform" => "foo",
-          "reconnectToVoice" => false,
-          "muted" => false
-        }
+      WsClient.send_msg(pid, "auth", %{
+        "accessToken" => tokens.accessToken,
+        "refreshToken" => tokens.refreshToken,
+        "platform" => "foo",
+        "reconnectToVoice" => false,
+        "muted" => false
       })
 
-      WsClient.assert_frame(:text, %{
-        "op" => "auth-good",
-        "d" => %{"user" => %{"id" => ^user_id}}
-      })
+      WsClient.assert_frame("auth-good", %{"user" => %{"id" => ^user_id}})
     end
 
     test "fails auth if the accessToken is borked" do
@@ -57,15 +51,12 @@ defmodule KousaTest.Broth.Ws.AuthTest do
       WsClient.assert_dies(
         pid,
         fn ->
-          WsClient.send_msg(pid, %{
-            "op" => "auth",
-            "d" => %{
-              "accessToken" => "foo",
-              "refreshToken" => "bar",
-              "platform" => "foo",
-              "reconnectToVoice" => false,
-              "muted" => false
-            }
+          WsClient.send_msg(pid, "auth", %{
+            "accessToken" => "foo",
+            "refreshToken" => "bar",
+            "platform" => "foo",
+            "reconnectToVoice" => false,
+            "muted" => false
           })
         end,
         {:remote, 4001, "invalid_authentication"}

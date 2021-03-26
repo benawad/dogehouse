@@ -18,7 +18,8 @@ defmodule Broth.WsClient do
   ###########################################################################
   # API
 
-  def send_msg(ws_client, map), do: WebSockex.cast(ws_client, {:send, map})
+  def send_msg(ws_client, op, payload),
+    do: WebSockex.cast(ws_client, {:send, %{"op" => op, "d" => payload}})
 
   defp send_msg_impl(map, test_pid) do
     {:reply, {:text, Jason.encode!(map)}, test_pid}
@@ -27,14 +28,14 @@ defmodule Broth.WsClient do
   def forward_frames(ws_client), do: WebSockex.cast(ws_client, {:forward_frames, self()})
   defp forward_frames_impl(test_pid, _state), do: {:ok, test_pid}
 
-  defmacro assert_frame(type, contents, opts \\ nil) do
-    if opts do
+  defmacro assert_frame(op, payload, timeout \\ nil) do
+    if timeout do
       quote do
-        ExUnit.Assertions.assert_receive({unquote(type), unquote(contents)}, unquote(opts))
+        ExUnit.Assertions.assert_receive({:text, %{"op" => unquote(op), "d" => unquote(payload)}}, unquote(timeout))
       end
     else
       quote do
-        ExUnit.Assertions.assert_receive({unquote(type), unquote(contents)})
+        ExUnit.Assertions.assert_receive({:text, %{"op" => unquote(op), "d" => unquote(payload)}})
       end
     end
   end
