@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/dogehouse-github.png" alt="DogeHouse logo" />
+    <img height=100 src="https://raw.githubusercontent.com/benawad/dogehouse/staging/.redesign-assets/dogehouse_logo.svg"/>
 </p>
 <p align="center">
   <strong>Taking voice conversations to the moon 🚀</strong>
@@ -74,6 +74,7 @@ Contributors helping to review/merge pull requests:
 - @overlisted
 - @goldyydev
 - @jamesql
+- @amitojsingh366
 
 ## Code of Conduct
 
