@@ -1,12 +1,3 @@
-# dogehouse-client
-Client-side implementation of DogeHouse API.
-
-## Usage
-- **In web =>** see `examples/mediasoup-audio/` and `examples/react-chat`
-- **In Node =>** see `examples/chat/` and `examples/bot/` (note that you need to have DOM in tsc's libs)
-
-### An example bot
-```typescript
 require("dotenv").config();
 
 import { raw, wrap, tokensToString, stringToToken } from "@dogehouse/kebab";
@@ -65,10 +56,9 @@ const main = async () => {
     console.info(`=> starting in room "${theRoom.name}" (${theRoom.numPeopleInside} people)`);
     await wrapper.query.joinRoomAndGetInfo(theRoom.id);
   } catch(e) {
-    if(e.code === 4001) console.error("invalid token!");
+    if (e.code === 4001) console.error("invalid token!");
     console.error(e)
   }
 };
 
 main();
-```
