@@ -8,7 +8,7 @@
 import React from "react";
 import { View, StyleSheet, Text, SafeAreaView } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
-import { fontFamily } from "../constants/GlobalStyles";
+import { fontFamily } from "../constants/dogeStyle";
 
 export const HomePage: React.FC = () => {
   return (

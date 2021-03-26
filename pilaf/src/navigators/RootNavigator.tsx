@@ -7,7 +7,7 @@ export const RootNavigator: React.FC = () => {
   const hasToken = useTokenStore((s) => !!s.accessToken && !!s.refreshToken);
 
   if (hasToken) {
-    return <LandingPage></LandingPage>;
+    return <LandingPage />;
   }
   return <BottomNavigator />;
 };

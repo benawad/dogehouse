@@ -208,7 +208,6 @@
 				949E1EE0791A415888479591 /* Inter-Thin.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -834,6 +833,7 @@
 				PRODUCT_NAME = rice;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -855,6 +855,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.dogehouse;
 				PRODUCT_NAME = rice;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
