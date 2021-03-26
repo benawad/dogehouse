@@ -60,6 +60,25 @@ To get started, read and follow the instuctions in [Developing inside a Containe
 
 > If you need to modify environment variables for kousa, you need to modify them inside `/home/doge/.bashrc` and restart your terminal.
 
+### Run
+#### `kousa`
+```shell
+$ mix deps.get
+$ mix ecto.migrate
+$ iex -S mix
+```
+#### `shawarma`
+```shell
+$ npm i
+$ npm run build
+$ npm start
+```
+#### `kofta`
+```shell
+$ npm i
+$ npm start
+```
+
 ## Manual Full Local Development
 How to run locally:
 
