@@ -61,7 +61,6 @@ Built with electron.
 
 __*Notes:*__
 - If a warning message pops up on Windows, go to 'more info' and select 'Run Anyway'
-- Currently Linux builds will install but won't run due to a problem with global keyevents.
 
 ## DogeReviewers
 
