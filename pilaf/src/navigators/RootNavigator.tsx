@@ -1,5 +1,5 @@
 import React from "react";
-import { useTokenStore } from "../module/auth/useTokenStore";
+import { useTokenStore } from "../modules/auth/useTokenStore";
 import { LandingPage } from "../pages/LandingPage";
 import { BottomNavigator } from "./BottomNavigator";
 

@@ -1,12 +1,9 @@
-import React from "react";
-import { View } from "react-native";
-import { useTokenStore } from "../module/auth/useTokenStore";
-import { LandingPage } from "../pages/LandingPage";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import React from "react";
+import { FollowingPage } from "../pages/FollowingPage";
 import { HomePage } from "../pages/HomePage";
 import { ProfilePage } from "../pages/ProfilePage";
 import { SchedulePage } from "../pages/SchedulePage";
-import { FollowingPage } from "../pages/FollowingPage";
 
 const Tab = createBottomTabNavigator();
 
