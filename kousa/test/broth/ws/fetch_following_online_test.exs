@@ -4,28 +4,14 @@ defmodule KousaTest.Broth.Ws.FetchFollowingOnlineTest do
 
   alias Beef.Schemas.User
   alias Broth.WsClient
+  alias Broth.WsClientFactory
   alias Kousa.Support.Factory
 
   require WsClient
 
   setup do
     user = Factory.create(User)
-    tokens = Kousa.Utils.TokenUtils.create_tokens(user)
-
-    # start and link the websocket client
-    ws_client = start_supervised!(WsClient)
-    Process.link(ws_client)
-    WsClient.forward_frames(ws_client)
-
-    WsClient.send_msg(ws_client, "auth", %{
-      "accessToken" => tokens.accessToken,
-      "refreshToken" => tokens.refreshToken,
-      "platform" => "foo",
-      "reconnectToVoice" => false,
-      "muted" => false
-    })
-
-    WsClient.assert_frame("auth-good", _)
+    ws_client = WsClientFactory.create_client_for(user)
 
     {:ok, user: user, ws_client: ws_client}
   end

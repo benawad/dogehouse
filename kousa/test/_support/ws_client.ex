@@ -72,3 +72,32 @@ defmodule Broth.WsClient do
   def handle_cast({:send, map}, test_pid), do: send_msg_impl(map, test_pid)
   def handle_cast({:forward_frames, test_pid}, state), do: forward_frames_impl(test_pid, state)
 end
+
+defmodule Broth.WsClientFactory do
+  alias Beef.Schemas.User
+  alias Broth.WsClient
+  require WsClient
+
+  import ExUnit.Assertions
+
+  def create_client_for(user = %User{}) do
+    tokens = Kousa.Utils.TokenUtils.create_tokens(user)
+
+    # start and link the websocket client
+    ws_client = ExUnit.Callbacks.start_supervised!(WsClient)
+    Process.link(ws_client)
+    WsClient.forward_frames(ws_client)
+
+    WsClient.send_msg(ws_client, "auth", %{
+      "accessToken" => tokens.accessToken,
+      "refreshToken" => tokens.refreshToken,
+      "platform" => "foo",
+      "reconnectToVoice" => false,
+      "muted" => false
+    })
+
+    WsClient.assert_frame("auth-good", _)
+
+    ws_client
+  end
+end

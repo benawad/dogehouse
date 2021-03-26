@@ -289,9 +289,7 @@ defmodule Broth.SocketHandler do
   end
 
   def handler("make_room_public", %{"newName" => new_name}, state) do
-    IO.puts("a")
     Kousa.Room.make_room_public(state.user_id, new_name)
-    IO.puts("b")
     {:ok, state}
   end
 
