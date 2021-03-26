@@ -24,7 +24,7 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
     {
       enabled: isUuid(roomId),
       onSuccess: ((d: JoinRoomAndGetInfoResponse | { error: string }) => {
-        if (!("error" in d)) {
+        if (!("error" in d) && d.room) {
           setCurrentRoomId(() => d.room.id);
         }
       }) as any,

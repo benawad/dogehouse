@@ -52,7 +52,7 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
               <SolidMicrophone />
             )}
           </BoxedIcon>
-          <BoxedIcon
+          {/* <BoxedIcon
             onClick={room.myself.switchDeafened}
             className={room.myself.isDeafened ? "bg-accent" : ""}
           >
