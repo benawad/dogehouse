@@ -49,7 +49,7 @@ Please read [CONTRIBUTING.md](https://github.com/benawad/dogehouse/blob/staging/
 
 ## DogeHouse Desktop
 
-A desktop app built with electron is available for Windows, Mac, and Linux
+A desktop app built with [electron](https://www.electronjs.org/) is available for Windows, Mac, and Linux
 
 Download links are in [the releases section](https://github.com/benawad/dogehouse/releases/latest)
 
@@ -57,7 +57,6 @@ Dogehouse is also available in the AUR
 ```bash
 yay -S dogehouse
 ```
-Built with electron.
 
 __*Notes:*__
 - If a warning message pops up on Windows, go to 'more info' and select 'Run Anyway'
