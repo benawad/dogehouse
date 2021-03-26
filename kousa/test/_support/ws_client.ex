@@ -3,7 +3,7 @@ defmodule Broth.WsClient do
 
   @api_url Application.compile_env!(:kousa, :api_url)
 
-  def start_link(_) do
+  def start_link(opts) do
     ancestors =
       :"$ancestors"
       |> Process.get()
@@ -20,19 +20,35 @@ defmodule Broth.WsClient do
 
   def send_msg(ws_client, map), do: WebSockex.cast(ws_client, {:send, map})
 
-  def send_msg_impl(map, state) do
-    {:reply, {:text, Jason.encode!(map)}, state}
+  defp send_msg_impl(map, test_pid) do
+    {:reply, {:text, Jason.encode!(map)}, test_pid}
+  end
+
+  def forward_frames(ws_client), do: WebSockex.cast(ws_client, {:forward_frames, self()})
+  defp forward_frames_impl(test_pid, _state), do: {:ok, test_pid}
+
+  defmacro assert_frame(type, contents, opts \\ nil) do
+    if opts do
+      quote do
+        ExUnit.Assertions.assert_receive({unquote(type), unquote(contents)}, unquote(opts))
+      end
+    else
+      quote do
+        ExUnit.Assertions.assert_receive({unquote(type), unquote(contents)})
+      end
+    end
   end
 
   ###########################################################################
   # ROUTER
 
   @impl true
-  def handle_frame({type, msg}, state) do
-    IO.puts("Received Message - Type: #{inspect(type)} -- Message: #{inspect(msg)}")
-    {:ok, state}
+  def handle_frame({type, data}, test_pid) do
+    send(test_pid, {type, Jason.decode!(data)})
+    {:ok, test_pid}
   end
 
   @impl true
-  def handle_cast({:send, map}, state), do: send_msg_impl(map, state)
+  def handle_cast({:send, map}, test_pid), do: send_msg_impl(map, test_pid)
+  def handle_cast({:forward_frames, test_pid}, state), do: forward_frames_impl(test_pid, state)
 end

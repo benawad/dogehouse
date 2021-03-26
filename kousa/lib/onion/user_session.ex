@@ -31,24 +31,26 @@ defmodule Onion.UserSession do
   defp cast(user_id, params), do: GenServer.cast(via(user_id), params)
   defp call(user_id, params), do: GenServer.call(via(user_id), params)
 
-  def start_supervised(%State{} = state) do
+  def start_supervised(%State{} = state, options) do
     DynamicSupervisor.start_child(
       Onion.UserSessionDynamicSupervisor,
-      {__MODULE__, state}
+      {__MODULE__, [state, options]}
     )
   end
 
-  def child_spec(state), do: %{super(state) | id: state.user_id}
+  def child_spec(init = [state, _opts]), do: %{super(init) | id: state.user_id}
 
   ###############################################################################
   ## INITIALIZATION BOILERPLATE
 
-  def start_link(%State{} = state) do
-    GenServer.start_link(__MODULE__, state, name: via(state.user_id))
+  def start_link([state, _opts] = init) do
+    GenServer.start_link(__MODULE__, init, name: via(state.user_id))
   end
 
-  def init(x) do
-    {:ok, x}
+  def init([state, opts]) do
+    # transfer callers into the running process.
+    Process.put(:"$callers", Keyword.get(opts, :callers, []))
+    {:ok, state}
   end
 
   ##############################################################################

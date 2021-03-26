@@ -6,6 +6,8 @@ defmodule KousaTest.Broth.Ws.AuthTest do
   alias Broth.WsClient
   alias Kousa.Support.Factory
 
+  require WsClient
+
   describe "the websocket auth operation" do
     test "is required within the timeout time or else the connection will be closed" do
       # set it to trap exits so we can watch the websocket connection die
@@ -19,12 +21,13 @@ defmodule KousaTest.Broth.Ws.AuthTest do
     end
 
     test "can be sent an auth" do
-      user = Factory.create(User)
+      user = %{id: user_id} = Factory.create(User)
       tokens = Kousa.Utils.TokenUtils.create_tokens(user)
 
       # start and link the websocket client
       pid = start_supervised!(WsClient)
       Process.link(pid)
+      WsClient.forward_frames(pid)
 
       WsClient.send_msg(pid, %{
         "op" => "auth",
@@ -37,7 +40,10 @@ defmodule KousaTest.Broth.Ws.AuthTest do
         }
       })
 
-      refute_receive {:EXIT, ^pid, :normal}, 200
+      WsClient.assert_frame :text, %{
+        "op" => "auth-good",
+        "d" => %{"user" => %{"id" => ^user_id}}
+      }
     end
   end
 end

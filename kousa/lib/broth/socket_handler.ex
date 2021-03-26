@@ -50,16 +50,20 @@ defmodule Broth.SocketHandler do
     {:cowboy_websocket, request, state}
   end
 
-  defp get_callers(request) do
-    request_bin = :cowboy_req.header("user-agent", request)
+  if Mix.env == :test do
+    defp get_callers(request) do
+      request_bin = :cowboy_req.header("user-agent", request)
 
-    List.wrap(
-      if is_binary(request_bin) do
-        request_bin
-        |> Base.decode16!()
-        |> :erlang.binary_to_term()
-      end
-    )
+      List.wrap(
+        if is_binary(request_bin) do
+          request_bin
+          |> Base.decode16!()
+          |> :erlang.binary_to_term()
+        end
+      )
+    end
+  else
+    defp get_callers(_), do: []
   end
 
   @auth_timeout Application.compile_env(:kousa, :websocket_auth_timeout)
@@ -133,7 +137,8 @@ defmodule Broth.SocketHandler do
                   display_name: user.displayName,
                   current_room_id: user.currentRoomId,
                   muted: muted
-                })
+                },
+                callers: Process.get(:"$callers"))
 
                 UserSession.set_pid(user_id, self())
 
@@ -177,7 +182,6 @@ defmodule Broth.SocketHandler do
                     true ->
                       nil
                   end
-                  |> IO.inspect(label: "195")
 
                 {:reply,
                  construct_socket_msg(state.encoding, state.compression, %{
