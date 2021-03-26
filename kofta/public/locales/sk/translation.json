@@ -15,7 +15,7 @@
     "copied": "skopírováné",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Spúštanie DogeHose-u bez prístupových oprávnení môže spôsobovať nečakané chyby"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,7 +36,7 @@
       "currentRoom": "aktuálne v:",
       "startPrivateRoom": "začať s nimi súkromnú miestnosť"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": { "followHim": "Sledovať", "followingHim": "Sledovaný" },
     "home": { "createRoom": "Vytvoriť miestnosť", "refresh": "Obnoviť" },
     "inviteList": {
       "roomGone": "miestnosť je fuč, vráť sa",
@@ -62,7 +62,7 @@
       "voiceSettings": "otvoriť nastavenia hlasu",
       "soundSettings": "otvoriť nastavenia zvuku",
       "deleteAccount": "odstrániť účet",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "otvoriť nastavenia prekresľovania"
     },
     "notFound": {
       "whoopsError": "Uups! Táto stránka sa stratila v konverzácii.",
@@ -73,8 +73,8 @@
       "speakers": "Rozprávači",
       "requestingToSpeak": "Chce povolenie rozprávať",
       "listeners": "Poslucháči",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "Povoliť rozprávať všetkým",
+      "allowAllConfirm": "Si si istý? Povolíš rozprávať všetkým {{count}} žiadateľom"
     },
     "searchUser": { "search": "hľadať..." },
     "soundEffectSettings": { "header": "Zvuky" },
@@ -83,10 +83,11 @@
       "followsYou": "sleduje ťa",
       "followers": "sledovateľov",
       "following": "sledovaných",
-      "followHim": "follow",
-      "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard"
+      "followHim": "sledovať",
+      "followingHim": "sledovaný",
+      "copyProfileUrl": "skopírovať url profilu",
+      "urlCopied": "URL skopírované do schránky",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Nastavenia hlasu",
@@ -96,8 +97,11 @@
       "volume": "hlasitosť:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings"
+      "input": {
+        "errorMsg": "Nesprávny názov aplikácie",
+        "label": "Vlož názov aplikácie"
+      },
+      "header": "Nastavenia Prekresľovania"
     }
   },
   "components": {
@@ -143,7 +147,7 @@
       "listening": "počúvam",
       "toggleMuteKeybind": "prepínač stíšenia",
       "togglePushToTalkKeybind": "prepínač push-to-talk",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "prepínač prekreslenia"
     },
     "userVolumeSlider": {
       "noAudioMessage": "z nejakého dôvodu nemáme žiadny zvuk"

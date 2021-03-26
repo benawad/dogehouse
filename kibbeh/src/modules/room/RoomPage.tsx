@@ -1,21 +1,27 @@
-import { useRouter } from "next/router";
 import React from "react";
-import { Button } from "../../ui/Button";
-import { FriendsOnline } from "../../ui/FriendsOnline";
-import { MainGrid } from "../../ui/MainGrid";
+import { PageComponent } from "../../types/PageComponent";
+import { WaitForWsAndAuth } from "../auth/WaitForWsAndAuth";
 import { FollowingOnlineController } from "../dashboard/FollowingOnlineController";
-import { HeaderController } from "../header/HeaderController";
 import { DesktopLayout } from "../layouts/DesktopLayout";
+import { LeftPanel } from "../layouts/GridPanels";
+import { RoomPanelController } from "./RoomPanelController";
+import { UserPreviewModalProvider } from "./UserPreviewModalProvider";
 
 interface RoomPageProps {}
 
-export const RoomPage: React.FC<RoomPageProps> = ({}) => {
-  const { push } = useRouter();
+export const RoomPage: PageComponent<RoomPageProps> = ({}) => {
   return (
-    <DesktopLayout>
-      <FollowingOnlineController />
-      <div>hi</div>
-      <div />
-    </DesktopLayout>
+    <WaitForWsAndAuth>
+      <DesktopLayout>
+        <UserPreviewModalProvider>
+          <LeftPanel>
+            <FollowingOnlineController />
+          </LeftPanel>
+          <RoomPanelController />
+        </UserPreviewModalProvider>
+      </DesktopLayout>
+    </WaitForWsAndAuth>
   );
 };
+
+RoomPage.ws = true;

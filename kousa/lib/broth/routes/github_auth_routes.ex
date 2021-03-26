@@ -8,16 +8,23 @@ defmodule Broth.Routes.GitHubAuth do
   plug(:dispatch)
 
   get "/web" do
+    redirect_to_next =
+      Enum.any?(conn.req_headers, fn {k, v} ->
+        k == "referer" and
+          (v == "https://next.dogehouse.tv" or v == "https://next.dogehouse.tv/")
+      end)
+
     state =
-      if Application.get_env(:kousa, :staging?) do
-        %{
-          redirect_base_url: fetch_query_params(conn).query_params["redirect_after_base"]
-        }
-        |> Poison.encode!()
-        |> Base.encode64()
-      else
-        "web"
-      end
+      %{
+        redirect_base_url:
+          if(Application.get_env(:kousa, :staging?),
+            do: fetch_query_params(conn).query_params["redirect_after_base"],
+            else: "web"
+          ),
+        redirect_to_next: redirect_to_next
+      }
+      |> Poison.encode!()
+      |> Base.encode64()
 
     %{conn | params: Map.put(conn.params, "state", state)}
     |> Plug.Conn.put_private(:ueberauth_request_options, %{
@@ -41,12 +48,22 @@ defmodule Broth.Routes.GitHubAuth do
 
   @spec get_base_url(Plug.Conn.t()) :: String.t()
   def get_base_url(conn) do
-    with true <- Application.get_env(:kousa, :staging?),
-         state <- Map.get(conn.query_params, "state", ""),
+    with state <- Map.get(conn.query_params, "state", ""),
          {:ok, json} <- Base.decode64(state),
-         {:ok, %{"redirect_base_url" => redirect_base_url}} when is_binary(redirect_base_url) <-
+         {:ok,
+          %{"redirect_base_url" => redirect_base_url, "redirect_to_next" => redirect_to_next}}
+         when is_binary(redirect_base_url) <-
            Poison.decode(json) do
-      redirect_base_url
+      cond do
+        redirect_to_next ->
+          "https://next.dogehouse.tv"
+
+        Application.get_env(:kousa, :staging?) ->
+          redirect_base_url
+
+        true ->
+          Application.fetch_env!(:kousa, :web_url)
+      end
     else
       _ ->
         Application.fetch_env!(:kousa, :web_url)

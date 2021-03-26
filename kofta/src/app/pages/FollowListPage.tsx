@@ -73,7 +73,7 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
               className={`ml-8`}
             >
               <div className={`text-lg`}>{profile.displayName}</div>
-              <div style={{ color: "" }}>@{profile.username}</div>
+              <div style={{ color: "" }} className={`font-mono`}>@{profile.username}</div>
             </button>
             {me?.id === profile.id ||
             profile.youAreFollowing === undefined ||

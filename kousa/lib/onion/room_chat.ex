@@ -37,13 +37,13 @@ defmodule Onion.RoomChat do
   def kill(room_id) do
     case GenRegistry.lookup(__MODULE__, room_id) do
       {:ok, session} ->
-        GenServer.cast(session, {:kill})
+        Process.exit(session, :kill)
     end
   end
 
-  def ws_fan(users, platform, msg) do
+  def ws_fan(users, msg) do
     Enum.each(users, fn uid ->
-      Onion.UserSession.send_cast(uid, {:send_ws_msg, platform, msg})
+      Onion.UserSession.send_cast(uid, {:send_ws_msg, msg})
     end)
   end
 
@@ -72,7 +72,7 @@ defmodule Onion.RoomChat do
           do: Enum.filter(state.users, fn uid -> Enum.member?(whispered_to_users_list, uid) end),
           else: state.users
 
-      ws_fan(users, :chat, %{
+      ws_fan(users, %{
         op: "new_chat_msg",
         d: %{
           userId: user_id,
@@ -88,7 +88,7 @@ defmodule Onion.RoomChat do
   end
 
   def handle_cast({:message_deleted, user_id, message_id}, %State{} = state) do
-    ws_fan(state.users, :chat, %{
+    ws_fan(state.users, %{
       op: "message_deleted",
       d: %{
         messageId: message_id,
@@ -100,7 +100,7 @@ defmodule Onion.RoomChat do
   end
 
   def handle_cast({:ban_user, user_id}, state) do
-    ws_fan(state.users, :chat, %{
+    ws_fan(state.users, %{
       op: "chat_user_banned",
       d: %{
         userId: user_id
@@ -108,9 +108,5 @@ defmodule Onion.RoomChat do
     })
 
     {:noreply, %State{state | ban_map: Map.put(state.ban_map, user_id, 1)}}
-  end
-
-  def handle_cast({:kill}, state) do
-    {:stop, :normal, state}
   end
 end

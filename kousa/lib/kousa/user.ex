@@ -39,7 +39,7 @@ defmodule Kousa.User do
 
         Onion.UserSession.send_cast(
           user_to_ban.id,
-          {:send_ws_msg, :web, %{op: "banned", d: %{}}}
+          {:send_ws_msg, %{op: "banned", d: %{}}}
         )
 
         true

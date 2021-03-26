@@ -32,8 +32,6 @@ defmodule Kousa do
         worker_module: Onion.VoiceOnlineRabbit
       },
       {Beef.Repo, []},
-      Onion.StartRabbits,
-      Onion.StartRooms,
       Onion.Telemetry,
       Plug.Cowboy.child_spec(
         scheme: :http,
@@ -47,7 +45,16 @@ defmodule Kousa do
     ]
 
     opts = [strategy: :one_for_one, name: Kousa.Supervisor]
-    Supervisor.start_link(children, opts)
+
+    case Supervisor.start_link(children, opts) do
+      {:ok, pid} ->
+        start_rabbits()
+        start_rooms()
+        {:ok, pid}
+
+      error ->
+        error
+    end
   end
 
   defp dispatch do
@@ -58,5 +65,32 @@ defmodule Kousa do
          {:_, Plug.Cowboy.Handler, {Broth, []}}
        ]}
     ]
+  end
+
+  defp start_rooms() do
+    Enum.each(Beef.Rooms.all_rooms(), fn room ->
+      GenRegistry.lookup_or_start(Onion.RoomSession, room.id, [
+        %{
+          room_id: room.id,
+          voice_server_id: room.voiceServerId
+        }
+      ])
+    end)
+  end
+
+  defp start_rabbits() do
+    n = Application.get_env(:kousa, :num_voice_servers, 1) - 1
+
+    Enum.each(0..n, fn x ->
+      str_id = Kousa.Utils.VoiceServerUtils.idx_to_str_id(x)
+
+      GenRegistry.lookup_or_start(Onion.VoiceRabbit, str_id, [
+        %Onion.VoiceRabbit.State{id: str_id, chan: nil}
+      ])
+
+      GenRegistry.lookup_or_start(Onion.VoiceOnlineRabbit, str_id, [
+        %Onion.VoiceOnlineRabbit.State{id: str_id, chan: nil}
+      ])
+    end)
   end
 end

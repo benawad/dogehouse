@@ -15,7 +15,8 @@
     "copyLink": "Link kopieren",
     "copied": "kopiert",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Bitte erlaube die Accessibility permissions für DogeHouse"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,7 +37,7 @@
       "currentRoom": "Zurzeit in:",
       "startPrivateRoom": "Einen privaten Raum mit diesem Benutzer starten"
     },
-    "followList": {},
+    "followList": { "followHim": "Abbonieren", "followingHim": "Abboniert" },
     "home": { "createRoom": "Raum erstellen", "refresh": "Aktualisieren" },
     "inviteList": {
       "roomGone": "Raum konnte nicht gefunden werden! Zurück",
@@ -61,7 +62,8 @@
       "probablyLoading": "Lädt vermutlich...",
       "voiceSettings": "Spracheinstellungen",
       "soundSettings": "Toneinstellungen",
-      "deleteAccount": "Konto löschen"
+      "deleteAccount": "Konto löschen",
+      "overlaySettings": "Overlay Einstellungen"
     },
     "notFound": {
       "whoopsError": "Hoppla! Diese Seite ging im Gespräch verloren.",
@@ -71,7 +73,9 @@
     "room": {
       "speakers": "Sprecher",
       "requestingToSpeak": "Sprachanfragen",
-      "listeners": "Zuhörer"
+      "listeners": "Zuhörer",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Bist du dir sicher? Hiermit wirst du allen {{count}} Benutzern erlauben zu sprechen."
     },
     "searchUser": { "search": "Suchen..." },
     "soundEffectSettings": { "header": "Ton" },
@@ -80,15 +84,24 @@
       "followsYou": "folgt dir",
       "following": "Abonniert",
       "followers": "Abonnenten",
-      "followHim": "follow",
-      "followingHim": "following"
+      "followHim": "folgen",
+      "followingHim": "folge ich",
+      "copyProfileUrl": "Profil URL kopieren",
+      "urlCopied": "URL kopiert",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Spracheinstellungen",
       "mic": "Mikrofon:",
-      "permissionError": "Keine Mikrofone gefunden, es ist entweder keines angeschlosen oder diese Seite besitzt nicht die benötigten Berechtigungen.",
+      "permissionError": "Keine Mikrofone gefunden, es ist entweder keines angeschlossen, oder diese DogeHouse besitzt nicht die benötigten Berechtigungen.",
       "volume": "Lautstärke:",
       "refresh": "Mikrofonliste aktualisieren"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Einstellungen",
+      "errorMsg": "Bitte gebe einen gültigen App-titel ein",
+      "label": "App Titel"
     }
   },
   "components": {
@@ -174,7 +187,8 @@
       "setKeybind": "Tastenkürzel setzen",
       "listening": "Zuhören",
       "toggleMuteKeybind": "Stummschalttaste umschalten",
-      "togglePushToTalkKeybind": "Push-to-Talk Tastenkürzel umschalten"
+      "togglePushToTalkKeybind": "Push-to-Talk Tastenkürzel umschalten",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "wsKilled": {
       "description": "Die Websocket Verbindung zum Server wurde unterbrochen. Dies geschieht normalerweise, wenn du die Website in einem anderen Tab öffnest.",
