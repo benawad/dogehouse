@@ -65,7 +65,7 @@ const Page = ({
     if (isElectron() && isMac) {
         modalAlert(t("common.requestPermissions"));
     }
-  }, []);
+  }, [t]);
 
   if (isLoading) {
     return <Spinner centered={true} />;

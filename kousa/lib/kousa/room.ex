@@ -23,7 +23,7 @@ defmodule Kousa.Room do
       {1, [room]} ->
         Onion.RoomSession.send_cast(
           room.id,
-          {:send_ws_msg, :vscode,
+          {:send_ws_msg,
            %{op: "room_privacy_change", d: %{roomId: room.id, name: room.name, isPrivate: false}}}
         )
 
@@ -39,7 +39,7 @@ defmodule Kousa.Room do
       {1, [room]} ->
         Onion.RoomSession.send_cast(
           room.id,
-          {:send_ws_msg, :vscode,
+          {:send_ws_msg,
            %{op: "room_privacy_change", d: %{roomId: room.id, name: room.name, isPrivate: true}}}
         )
 
@@ -157,7 +157,7 @@ defmodule Kousa.Room do
       Kousa.Utils.RegUtils.lookup_and_cast(
         Onion.RoomSession,
         room.id,
-        {:send_ws_msg, :vscode,
+        {:send_ws_msg,
          %{
            op: "mod_changed",
            d: %{roomId: room.id, userId: user_id_to_change}
@@ -186,7 +186,7 @@ defmodule Kousa.Room do
 
             Onion.RoomSession.send_cast(
               current_room_id,
-              {:send_ws_msg, :vscode,
+              {:send_ws_msg,
                %{op: "new_room_creator", d: %{roomId: current_room_id, userId: new_creator_id}}}
             )
 
@@ -382,7 +382,7 @@ defmodule Kousa.Room do
             {:new_creator_id, creator_id} ->
               Onion.RoomSession.send_cast(
                 current_room_id,
-                {:send_ws_msg, :vscode,
+                {:send_ws_msg,
                  %{op: "new_room_creator", d: %{roomId: current_room_id, userId: creator_id}}}
               )
 

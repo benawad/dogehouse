@@ -1,12 +1,12 @@
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { Image } from "react-native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { DashboardPage } from "../pages/DashboardPage";
-import { SchedulePage } from "../pages/SchedulePage";
-import { FollowingPage } from "../pages/FollowingPage";
-import { colors } from "../constants/dogeStyle";
 import { CreateRoomButton } from "../components/bottomBar/CreateRoomButton";
+import { colors } from "../constants/dogeStyle";
+import { DashboardPage } from "../pages/DashboardPage";
 import { ExplorePage } from "../pages/ExplorePage";
+import { FollowingPage } from "../pages/FollowingPage";
+import { SchedulePage } from "../pages/SchedulePage";
 const Tab = createBottomTabNavigator();
 
 const EmptyComponent: React.FC = () => {

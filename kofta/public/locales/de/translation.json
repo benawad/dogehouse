@@ -2,7 +2,7 @@
   "_comment": "if you change this file, do: npm run i18",
   "common": {
     "loadMore": "Mehr laden",
-    "loading": "Lade...",
+    "loading": "Lädt...",
     "noUsersFound": "Keine Benutzer gefunden",
     "ok": "Ok",
     "yes": "Ja",
@@ -16,7 +16,7 @@
     "copied": "kopiert",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please give DogeHouse Accessibility permessions"
+    "requestPermissions": "Bitte erteile DogeHouse Browserpermissions."
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -35,9 +35,9 @@
     "followingOnlineList": {
       "listHeader": "Benutzer, denen du folgst, die nicht in einem privaten Raum sind.",
       "currentRoom": "Zurzeit in:",
-      "startPrivateRoom": "Einen privaten Raum mit diesem Benutzer starten"
+      "startPrivateRoom": "Einen privaten Raum mit diesem Benutzer eröffnen"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": { "followHim": "Folgen", "followingHim": "Entfolgen" },
     "home": { "createRoom": "Raum erstellen", "refresh": "Aktualisieren" },
     "inviteList": {
       "roomGone": "Raum konnte nicht gefunden werden! Zurück",
@@ -61,9 +61,9 @@
       "logout": "Abmelden",
       "probablyLoading": "Lädt vermutlich...",
       "voiceSettings": "Spracheinstellungen",
-      "soundSettings": "Toneinstellungen",
+      "soundSettings": "Soundeinstellungen",
       "deleteAccount": "Konto löschen",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "Overlay-Einstellungen löschen"
     },
     "notFound": {
       "whoopsError": "Hoppla! Diese Seite ging im Gespräch verloren.",
@@ -74,8 +74,8 @@
       "speakers": "Sprecher",
       "requestingToSpeak": "Sprachanfragen",
       "listeners": "Zuhörer",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "Alle zulassen",
+      "allowAllConfirm": "Bist du sicher? Damit erteilst du {{count}} Benutzern Redeberechtigungen."
     },
     "searchUser": { "search": "Suchen..." },
     "soundEffectSettings": { "header": "Ton" },
@@ -84,11 +84,11 @@
       "followsYou": "folgt dir",
       "following": "Abonniert",
       "followers": "Abonnenten",
-      "followHim": "follow",
-      "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
+      "followHim": "Folgen",
+      "followingHim": "Folgt bereits",
+      "copyProfileUrl": "Benutzer-Url kopieren",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Entfolgen"
     },
     "voiceSettings": {
       "header": "Spracheinstellungen",
@@ -99,9 +99,9 @@
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings",
-      "errorMsg": "Please enter valid app title",
-      "label": "Enter app title"
+      "header": "Overlay Einstellungen",
+      "errorMsg": "Bitte gib einen gültigen App Titel ein",
+      "label": "App Titel eingeben"
     }
   },
   "components": {
@@ -234,14 +234,14 @@
       "roomDescription": "Raumbeschreibung"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
+      "fuelingRocket": "Rakete wird getankt",
+      "takingOff": "Am Abheben",
+      "inSpace": "Im Weltall",
+      "approachingMoon": "Nähert sich dem Mond",
       "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
+      "approachingSun": "Nähert sich der Sonne",
       "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
+      "approachingGalaxy": "Nähert sich einer Galaxie",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
     }

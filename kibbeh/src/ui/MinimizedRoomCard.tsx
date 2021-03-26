@@ -7,11 +7,11 @@ import { DurationTicker } from "./DurationTicker";
 import SvgSolidMicrophoneOff from "../icons/SolidMicrophoneOff";
 
 interface MinimizedRoomCardProps {
+  onFullscreenClick?: () => void;
   leaveLoading?: boolean;
   room: {
     name: string;
     speakers: string[];
-    url: string;
     roomStartedAt: Date;
     myself: {
       isSpeaker: boolean;
@@ -25,10 +25,10 @@ interface MinimizedRoomCardProps {
 }
 
 export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
+  onFullscreenClick,
   leaveLoading,
   room,
 }) => {
-  const router = useRouter();
   // gap-n only works with grid
   return (
     <div className="bg-primary-800 border border-accent rounded-lg p-4 gap-4 grid max-w-md">
@@ -57,8 +57,8 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
             className={room.myself.isDeafened ? "bg-accent" : ""}
           >
             <SolidVolume />
-          </BoxedIcon>
-          <BoxedIcon onClick={() => router.push(room.url)}>
+          </BoxedIcon> */}
+          <BoxedIcon onClick={onFullscreenClick}>
             <SolidFullscreen />
           </BoxedIcon>
         </div>

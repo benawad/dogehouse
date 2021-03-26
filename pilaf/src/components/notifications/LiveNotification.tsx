@@ -1,13 +1,19 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import {
+  Image,
   StyleSheet,
-  View,
-  ViewStyle,
   Text,
   TouchableOpacity,
-  Image,
+  View,
+  ViewStyle,
 } from "react-native";
-import { colors, fontFamily, fontSize } from "../../constants/dogeStyle";
+import {
+  colors,
+  fontFamily,
+  fontSize,
+  paragraph,
+  radius,
+} from "../../constants/dogeStyle";
 import { GenericNotification } from "./GenericNotification";
 
 interface LiveNotificationProps {
@@ -31,9 +37,9 @@ export const LiveNotification: React.FC<LiveNotificationProps> = ({
 
   const notificationMsg = (
     <View style={{ flexDirection: "row" }}>
-      <Text style={[styles.textPrimary, { fontFamily: fontFamily.bold }]}>
+      <Text style={[styles.title, { fontWeight: "700" }]}>
         {username}
-        <Text style={styles.textPrimary}> is now live!</Text>
+        <Text style={styles.title}> is now live!</Text>
       </Text>
     </View>
   );
@@ -46,6 +52,7 @@ export const LiveNotification: React.FC<LiveNotificationProps> = ({
 
   return (
     <GenericNotification
+      style={style}
       notificationMsg={notificationMsg}
       time={time}
       icon={icon}
@@ -55,10 +62,9 @@ export const LiveNotification: React.FC<LiveNotificationProps> = ({
 };
 
 const styles = StyleSheet.create({
-  textPrimary: {
-    color: colors.text,
-    fontFamily: fontFamily.medium,
-    fontSize: fontSize.paragraph,
+  title: {
+    ...paragraph,
+    lineHeight: 18,
     flex: 1,
     flexWrap: "wrap",
   },
@@ -66,7 +72,7 @@ const styles = StyleSheet.create({
     height: 22,
     width: 90,
     backgroundColor: colors.accent,
-    borderRadius: 8,
+    borderRadius: radius.s,
     alignItems: "center",
     justifyContent: "center",
   },

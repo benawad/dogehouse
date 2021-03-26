@@ -73,6 +73,7 @@ export type Message = {
   color: string;
   displayName: string;
   tokens: MessageToken[];
+  username: string;
   deleted?: boolean;
   deleterId?: UUID;
   sentAt: string;
@@ -82,7 +83,7 @@ export type Message = {
 export type BaseUser = {
   username: string;
   online: boolean;
-  lastOnline: Date;
+  lastOnline: string;
   id: string;
   bio: string;
   displayName: string;
