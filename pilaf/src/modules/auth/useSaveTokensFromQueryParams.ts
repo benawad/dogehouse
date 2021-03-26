@@ -3,6 +3,7 @@ import { InAppBrowser } from "react-native-inappbrowser-reborn";
 import { useTokenStore } from "./useTokenStore";
 
 function getUrlParameter(url: string, name: string) {
+  console.log("get url");
   name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
   var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
   var results = regex.exec(url);
