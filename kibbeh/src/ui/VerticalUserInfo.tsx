@@ -3,6 +3,8 @@ import React from "react";
 import { kFormatter } from "../lib/kFormatter";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { SingleUser } from "./UserAvatar";
+import { linkRegex } from "../../src/lib/constants";
+import normalizeUrl from "normalize-url";
 
 interface VerticalUserInfoProps {
   user: BaseUser;
@@ -39,7 +41,35 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
           </span>
         </div>
       </div>
-      <div className="text-primary-300 mt-2 text-center">{user.bio}</div>
+      <div className="text-primary-300 mt-2 w-full whitespace-pre-wrap break-all flex flex-col">
+        {user.bio?.split(/\n/gm).map((line, i) => {
+          return (
+            <div key={i}>
+              <span>
+                {line.split(" ").map((chunk, j) => {
+                  if (linkRegex.test(chunk)) {
+                    try {
+                      return (
+                        <a
+                          key={`${i}${j}`}
+                          href={normalizeUrl(chunk)}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-accent p-0 hover:underline"
+                        >
+                          {chunk}{" "}
+                        </a>
+                      );
+                    } catch {}
+                  }
+                  return <span key={`${i}${j}`}>{chunk} </span>;
+                })}
+              </span>
+              <br />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
