@@ -15,7 +15,7 @@
     "copied": "copiato",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Si prega di notare che utilizzando Dogehouse senza permessi di accesso può causare degli errori"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,10 +36,10 @@
       "currentRoom": "in questo momento è connesso a:",
       "startPrivateRoom": "avvia una stanza privata con lui"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Crea una Stanza", "refresh": "Refresh" },
+    "followList": { "followHim": "segui", "followingHim": "segui già" },
+    "home": { "createRoom": "Crea una Stanza", "refresh": "Ricarica" },
     "inviteList": {
-      "roomGone": "stanza inesistente, torna indietro",
+      "roomGone": "la stanza non esiste, torna indietro",
       "shareRoomLink": "condividi link della stanza",
       "inviteFollowers": "Puoi invitare i tuoi follower che sono online:",
       "whenFollowersOnline": "Quando i tuoi follower saranno online spunteranno qui."
@@ -73,8 +73,8 @@
       "speakers": "Oratori",
       "requestingToSpeak": "Vogliono parlare",
       "listeners": "Ascoltatori",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "Permetti a tutti",
+      "allowAllConfirm": "Sei sicuro? Questo permetterà a {{count}} che vogliono parlare di prendere la parola"
     },
     "searchUser": { "search": "cerca..." },
     "soundEffectSettings": { "header": "Suoni" },
@@ -82,22 +82,25 @@
       "editProfile": "modifica profilo",
       "followsYou": "ti segue",
       "followers": "followers",
-      "following": "stai seguendo",
-      "followHim": "follow",
-      "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "following": "seguiti",
+      "followHim": "segui",
+      "followingHim": "segui già",
+      "copyProfileUrl": "copia URL del profilo",
+      "urlCopied": "URL copiato negli appunti",
+      "unfollow": "Smetti di seguire"
     },
     "voiceSettings": {
       "header": "Impostazioni della voce",
       "mic": "microfono:",
       "permissionError": "nessun microfono trovato, probabilmente non hai dato il permesso a questo sito per poterlo usare o non ne avrai attaccato nessuno.",
-      "refresh": "ricarica lista di microfoni",
+      "refresh": "ricarica la lista dei microfoni",
       "volume": "volume:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": {
+        "errorMsg": "Titolo app invalido",
+        "label": "Inserisci titolo app"
+      },
       "header": "Overlay Settings"
     }
   },
@@ -179,7 +182,7 @@
         "usernameError": "deve essere lungo dai 4 ai 15 caratteri e può solo contenere caratteri alfanumerici e trattini bassi",
         "usernameLabel": "Username",
         "bioError": "la lunghezza massima è di 160 caratteri",
-        "bioLabel": "Bio"
+        "bioLabel": "Biografia"
       },
       "profileModal": {
         "blockUserConfirm": "Sei sicuro di bloccare questo utente? Non potrà più entrare nelle stanze che crei.",
@@ -192,7 +195,7 @@
         "banFromRoom": "banna dalla stanza",
         "goBackToListener": "ritorna ad essere un ascoltatore",
         "deleteMessage": "elimina questo messaggio",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "fai amministratore della stanza"
       },
       "roomSettingsModal": {
         "requirePermission": "richiedi permesso per parlare",
@@ -214,7 +217,7 @@
         "needsFuture": "deve essere nel futuro",
         "roomName": "nome della stanza",
         "minLength": "la lunghezza minima è 2",
-        "roomDescription": "Description"
+        "roomDescription": "Descrizione"
       }
     },
     "roomChat": {
@@ -231,16 +234,16 @@
       "roomDescription": "descrizione della stanza"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "fuelingRocket": "Rifornimento razzo",
+      "takingOff": "Decollo",
+      "inSpace": "Nello spazio",
+      "approachingMoon": "Avvicinamento alla Luna",
+      "lunarDoge": "Doge lunare",
+      "approachingSun": "Avvicinamento al Sole",
+      "solarDoge": "Doge solare",
+      "approachingGalaxy": "Avvicinamento alla galassia",
+      "galacticDoge": "Doge galattico",
+      "spottedLife": "Avvistato pianeta con forme di vita"
     }
   }
 }

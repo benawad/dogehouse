@@ -41,12 +41,12 @@
     "home": { "createRoom": "Stvori sobu", "refresh": "Osvježi" },
     "inviteList": {
       "roomGone": "soba otišla, vrati se",
-      "shareRoomLink": "podijeli poveznicu do sobe",
-      "inviteFollowers": "Možete pozvati svoje pratitelje koji su na mreži:",
-      "whenFollowersOnline": "Kad su vaši pratitelji na mreži, oni će se pojaviti ovdje."
+      "shareRoomLink": "podijeli vezu do sobe",
+      "inviteFollowers": "Možete pozvati svoje sljedbenike koji su na mreži:",
+      "whenFollowersOnline": "Kad su vaši sljedbenici na mreži, oni će se pojaviti ovdje."
     },
     "login": {
-      "headerText": "Dovodimo glasovne razgovore na mjesec 🚀",
+      "headerText": "Vođenje glasovnih razgovora na mjesec 🚀",
       "featureText_1": "Tamna tema",
       "featureText_2": "Otvorene prijave",
       "featureText_3": "Podrška za više platformi",
@@ -55,7 +55,7 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "prijava s GitHubom",
       "loginTwitter": "prijava putem Twittera",
-      "createTestUser": "izradi testnog korisnika"
+      "createTestUser": "izradi test korisnika"
     },
     "myProfile": {
       "logout": "odjava",
@@ -63,7 +63,7 @@
       "voiceSettings": "idite na glasovne postavke",
       "soundSettings": "idite na postavke zvuka",
       "deleteAccount": "izbriši račun",
-      "overlaySettings": "odi na postavke overlay-a"
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Ups! Ova se stranica izgubila u razgovoru.",
@@ -71,38 +71,39 @@
       "goHomeLinkText": "idi kući"
     },
     "room": {
-      "speaker": "Govornik",
+      "speaker": "Govornici",
       "requestingToSpeak": "Zahtjev za govor",
       "listeners": "Slušatelji",
       "allowAll": "Dopusti sve",
       "allowAllConfirm": "Jeste li sigurni? Ovo će omogućiti svim {{count}} korisnicima koji zahtijevaju da govore",
-      "speakers": "Govornici"
+      "speakers": "Speakers"
     },
     "searchUser": { "search": "traži..." },
     "soundEffectSettings": { "header": "Zvuči" },
     "viewUser": {
       "editProfile": "uredi profil",
-      "followsYou": "Vas prati",
-      "followers": "pratitelja",
-      "following": "prati",
-      "followHim": "Zaprati",
-      "unfollow": "Prestani Pratiti",
-      "followingHim": "pratite",
-      "copyProfileUrl": "kopiraj url profila",
-      "urlCopied": "URL kopiran u međuspremnik"
+      "followYou": "prati vas",
+      "followers": "sljedbenici",
+      "following": "sljedeće",
+      "followHim": "slijedi",
+      "followingHim": "slijedi",
+      "followsYou": "follows you",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Postavke glasa",
       "mic": "mikrofon:",
-      "permissionError": "nisu pronađeni mikrofoni, ili nijedan nije priključen ili niste dali dopuštenje ovom web mjestu.",
+      "permissionError": "nisu pronađeni mikrofoni, ili ih nitko nije priključio ili niste dali dopuštenje ovom web mjestu.",
       "refresh": "osvježi popis mikrofona",
-      "volume": "glasnoća zvuka:"
+      "volume": "jačina zvuka:"
     },
     "overlaySettings": {
-      "header": "Postavke Overlay-a",
+      "header": "Overlay Settings",
       "input": {
-        "errorMsg": "Molimo vas da upišete važeći naslov aplikacije",
-        "label": "Upišite naslov aplikacije"
+        "errorMsg": "Please enter valid app title",
+        "label": "Enter app title"
       }
     }
   },
@@ -131,7 +132,7 @@
       "chat": "Chat"
     },
     "deviceNotSupported": {
-      "notSupported": "Vaš uređaj trenutno nije podržan. Možete stvoriti",
+      "notSupported": "Vaš uređaj trenutno nije podržan. Možete dodati",
       "linkText": "'issue' na GitHubu",
       "addSupport": "i pokušat ću dodati podršku za vaš uređaj."
     },
@@ -146,7 +147,7 @@
       "listening": "Slušanje",
       "toggleMuteKeybind": "uključivanje/isključivanje isključivanja tipkovničkih prečaca",
       "togglePushToTalkKeybind": "uključivanje/isključivanje push-to-talk",
-      "toggleOverlayKeybind": "prećac za uključivanje/isključivanje overlay-a"
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "iz nekog razloga nema potrošača zvuka"
@@ -154,7 +155,7 @@
     "addToCalendar": { "add": "Dodaj u kalendar" },
     "wsKilled": {
       "description": "Poslužitelj je ubio WebSocket. To se obično događa kada web mjesto otvorite na drugoj kartici.",
-      "reconnect": "ponovno se poveži"
+      "reconnect": "ponovno se povezati"
     },
     "modals": {
       "createRoomModal": {
@@ -221,7 +222,7 @@
     },
     "roomChat": {
       "title": "Chat",
-      "emotesSoon": "[emotikoni dolaze uskoro]",
+      "emotesSoon": "[osjećajnici uskoro]",
       "bannedAlert": "Dobili ste zabranu chatanja",
       "waitAlert": "Prije slanja nove poruke morate pričekati sekundu",
       "search": "Traži",
@@ -233,10 +234,10 @@
       "roomDescription": "opis sobe"
     },
     "roomStatus": {
-      "fuelingRocket": "Punimo raketu gorivom",
+      "fuelingRocket": "Raketa za punjenje gorivom",
       "takingOff": "Polijetanje",
       "inSpace": "U svemiru",
-      "approachingMoon": "Približavanje Mjesecu",
+      "approachingMoon": "Približavanje Mjeseca",
       "lunarDoge": "Lunarni doge",
       "approachingSun": "Približavanje suncu",
       "solarDoge": "Solarni doge",
