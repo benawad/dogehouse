@@ -1,7 +1,7 @@
 import React, { FC, useContext } from "react";
 import { GridPanel } from "../../ui/GridPanel";
-import { LeftHeader } from "../../ui/header/LeftHeader";
-import { RightHeader } from "../../ui/header/RightHeader";
+import LeftHeader from "../../ui/header/LeftHeader";
+import RightHeader from "../../ui/header/RightHeader";
 import { MiddleHeaderController } from "../search/MiddleHeaderController";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 
