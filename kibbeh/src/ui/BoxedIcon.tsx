@@ -1,37 +1,35 @@
 import React, { ReactElement } from "react";
 
-export interface BoxedIconProps {
-  className?: string;
-  children?: ReactElement;
-  iscircular?: boolean;
-  onClick?: () => void;
+const colorMap = {
+  "700": "bg-primary-700",
+  "800": "bg-primary-800",
+};
+
+export interface BoxedIconProps
+  extends React.ComponentPropsWithoutRef<"button"> {
+  circle?: boolean;
+  color?: keyof typeof colorMap;
 }
 
 export const BoxedIcon: React.FC<BoxedIconProps> = ({
+  color = "700",
   children,
-  onClick,
   className = "",
-  iscircular = false,
+  circle = false,
+  ...props
 }) => {
   return (
-    <button onClick={onClick}>
-      {iscircular ? (
-        <div
-          className={`bg-primary-700 hover:bg-primary-600 h-6 w-6 cursor-pointer text-primary-100 justify-center items-center rounded-full
+    <button
+      className={`${
+        colorMap[color]
+      } hover:bg-primary-600 h-6 w-6 cursor-pointer text-primary-100 justify-center items-center ${
+        circle ? `rounded-full` : `rounded`
+      }
         ${className}`}
-          data-testid="boxed-icon"
-        >
-          {children}
-        </div>
-      ) : (
-        <div
-          className={`bg-primary-700 hover:bg-primary-600 h-6 w-6 cursor-pointer text-primary-100 justify-center items-center rounded
-        ${className}`}
-          data-testid="boxed-icon"
-        >
-          {children}
-        </div>
-      )}
+      data-testid="boxed-icon"
+      {...props}
+    >
+      {children}
     </button>
   );
 };

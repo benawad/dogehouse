@@ -1,7 +1,7 @@
 import React from "react";
 import { GenericNotification } from "./GenericNotification";
 import { Button } from "../Button";
-import { LgSolidRocket } from "../../icons";
+import { SolidRocket } from "../../icons";
 
 export interface NewRoomNotificationProps {
   username: string;
@@ -16,7 +16,7 @@ export const NewRoomNotification: React.FC<NewRoomNotificationProps> = ({
   time,
   joined = false,
 }) => {
-  const icon = <LgSolidRocket className="text-primary-300" />;
+  const icon = <SolidRocket className="text-primary-300" />;
 
   const notificationMsg = (
     <>

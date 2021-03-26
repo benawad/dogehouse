@@ -10,7 +10,8 @@ export type GetScheduledRoomsResponse = {
   scheduledRooms: ScheduledRoom[];
 };
 
-export type GetRoomUsersResponse = {
+export type JoinRoomAndGetInfoResponse = {
+  room: Room;
   users: RoomUser[];
   muteMap: Record<string, boolean>;
   roomId: string;

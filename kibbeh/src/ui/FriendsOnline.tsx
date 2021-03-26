@@ -43,31 +43,45 @@ export const FriendsOnline: React.FC<FriendsOnlineProps> = ({
   showMoreAction,
 }) => {
   return (
-    <div className="pb-5 w-full flex flex-col" data-testid="friends-online">
+    <div
+      className="pb-5 w-full flex flex-col flex-1 overflow-y-auto"
+      data-testid="friends-online"
+    >
       <h4 className="text-primary-100">People</h4>
       <h6 className="text-primary-300 mt-3 text-sm font-bold">
         ONLINE{" "}
         {onlineFriendCount !== undefined ? `(${onlineFriendCount})` : null}
       </h6>
-      <div className="flex flex-col mt-3">
+      <div className="flex flex-col mt-3 overflow-y-auto">
         {onlineFriendList.length > 0 ? (
           <>
-            {onlineFriendList.map((friend, idx) => (
+            {[
+              ...onlineFriendList,
+              ...onlineFriendList,
+              ...onlineFriendList,
+              ...onlineFriendList,
+              ...onlineFriendList,
+              ...onlineFriendList,
+              ...onlineFriendList,
+              ...onlineFriendList,
+              ...onlineFriendList,
+              ...onlineFriendList,
+            ].map((friend, idx) => (
               <FriendOnline key={idx} {...friend} />
             ))}
-            <div
-              className="underline text-primary-300 font-bold mt-4 cursor-pointer"
-              onClick={showMoreAction}
-              data-testid="show-more-btn"
-            >
-              Show more
-            </div>
           </>
         ) : (
           <p className="text-primary-200" data-testid="placeholder">
             You have 0 friends online right now
           </p>
         )}
+      </div>
+      <div
+        className="underline text-primary-300 font-bold mt-4 cursor-pointer"
+        onClick={showMoreAction}
+        data-testid="show-more-btn"
+      >
+        Show more
       </div>
     </div>
   );

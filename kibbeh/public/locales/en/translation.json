@@ -15,7 +15,8 @@
     "copyLink": "copy link",
     "copied": "copied",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -68,6 +69,7 @@
       "logout": "logout",
       "probablyLoading": "probably loading...",
       "voiceSettings": "go to voice settings",
+      "overlaySettings": "go to overlay settings",
       "soundSettings": "go to sound settings",
       "deleteAccount": "delete account"
     },
@@ -79,7 +81,9 @@
     "room": {
       "speakers": "Speakers",
       "requestingToSpeak": "Requesting to speak",
-      "listeners": "Listeners"
+      "listeners": "Listeners",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": {
       "search": "search..."
@@ -89,11 +93,14 @@
     },
     "viewUser": {
       "editProfile": "edit profile",
-      "followsYou": "follows you",
+      "followsYou": "Follows you",
       "followers": "followers",
       "following": "following",
-      "followHim": "follow",
-      "followingHim": "following"
+      "followHim": "Follow",
+      "unfollow": "Unfollow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Voice Settings",
@@ -101,6 +108,13 @@
       "permissionError": "no mics found, you either have none plugged in or haven't given this website permission.",
       "refresh": "refresh mic list",
       "volume": "volume:"
+    },
+    "overlaySettings": {
+      "header": "Overlay Settings",
+      "input": {
+        "errorMsg": "Please enter valid app title",
+        "label": "Enter app title"
+      }
     }
   },
   "components": {
@@ -145,6 +159,7 @@
       "setKeybind": "set keybind",
       "listening": "listening",
       "toggleMuteKeybind": "toggle mute keybind",
+      "toggleOverlayKeybind": "toggle overlay keybind",
       "togglePushToTalkKeybind": "toggle push-to-talk keybind"
     },
     "userVolumeSlider": {

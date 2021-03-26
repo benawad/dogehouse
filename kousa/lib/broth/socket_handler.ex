@@ -16,10 +16,10 @@ defmodule Broth.SocketHandler do
         }
 
   defstruct awaiting_init: true,
-            user_id: nil,
-            platform: nil,
-            encoding: :json,
-            compression: nil
+              user_id: nil,
+              encoding: nil,
+              compression: nil
+  end
 
   @behaviour :cowboy_websocket
 
@@ -91,7 +91,6 @@ defmodule Broth.SocketHandler do
           %{
             "accessToken" => accessToken,
             "refreshToken" => refreshToken,
-            "platform" => platform,
             "reconnectToVoice" => reconnectToVoice,
             "muted" => muted
           } = json["d"]
@@ -167,7 +166,7 @@ defmodule Broth.SocketHandler do
                  construct_socket_msg(state.encoding, state.compression, %{
                    op: "auth-good",
                    d: %{user: user, currentRoom: currentRoom}
-                 }), %{state | user_id: user_id, awaiting_init: false, platform: platform}}
+                 }), %{state | user_id: user_id, awaiting_init: false}}
               else
                 {:reply, {:close, 4001, "invalid_authentication"}, state}
               end
@@ -362,7 +361,6 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  # @deprecated in new design
   def handler("leave_room", _data, state) do
     case Kousa.Room.leave_room(state.user_id) do
       {:ok, d} ->
@@ -373,6 +371,7 @@ defmodule Broth.SocketHandler do
     end
   end
 
+  # @deprecated in new design
   def handler("join_room", %{"roomId" => room_id}, state) do
     case Kousa.Room.join_room(state.user_id, room_id) do
       d ->
@@ -514,7 +513,7 @@ defmodule Broth.SocketHandler do
           Kousa.Utils.RegUtils.lookup_and_cast(
             Onion.RoomSession,
             room_id,
-            {:send_ws_msg, :vscode,
+            {:send_ws_msg,
              %{
                op: "hand_raised",
                d: %{userId: state.user_id, roomId: room_id}
@@ -530,7 +529,7 @@ defmodule Broth.SocketHandler do
     Kousa.Utils.RegUtils.lookup_and_cast(
       Onion.UserSession,
       state.user_id,
-      {:send_ws_msg, :vscode,
+      {:send_ws_msg,
        %{
          op: "error",
          d: "browser can't autoplay audio the first time, go press play audio in your browser"
@@ -577,7 +576,12 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  def f_handler("fetch_following_online", %{"cursor" => cursor}, state) do
+  def f_handler("follow", %{"userId" => userId, "value" => value}, state) do
+    Kousa.Follow.follow(state.user_id, userId, value)
+    {"you_left_room", %{}}
+  end
+
+  def f_handler("fetch_following_online", %{"cursor" => cursor}, %State{} = state) do
     {users, next_cursor} = Follows.fetch_following_online(state.user_id, cursor)
 
     %{users: users, nextCursor: next_cursor}
@@ -589,19 +593,12 @@ defmodule Broth.SocketHandler do
     %{}
   end
 
-  def f_handler("leave_room", _data, state) do
-    case Kousa.Room.leave_room(state.user_id) do
-      {:ok, x} -> x
-      _ -> %{}
-    end
-  end
+  def f_handler("join_room_and_get_info", %{"roomId" => room_id_to_join}, %State{} = state) do
+    case Kousa.Room.join_room(state.user_id, room_id_to_join) do
+      %{error: err} ->
+        %{error: err}
 
-  def f_handler("get_room_users", %{"roomId" => room_id_to_join}, state) do
-    with true <- Beef.Users.get_current_room_id(state.user_id) != room_id_to_join,
-         %{error: err} <- Kousa.Room.join_room(state.user_id, room_id_to_join) do
-      %{error: err}
-    else
-      _ ->
+      %{room: room} ->
         {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
 
         {muteMap, autoSpeaker, activeSpeakerMap} =
@@ -620,12 +617,16 @@ defmodule Broth.SocketHandler do
           end
 
         %{
+          room: room,
           users: users,
           muteMap: muteMap,
           activeSpeakerMap: activeSpeakerMap,
           roomId: room_id,
           autoSpeaker: autoSpeaker
         }
+
+      _ ->
+        %{error: "you should never see this, tell ben"}
     end
   end
 
@@ -800,10 +801,10 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  def f_handler("get_user_profile", %{"userId" => id_or_username}, _state) do
+  def f_handler("get_user_profile", %{"userId" => id_or_username}, %State{} = state) do
     case UUID.cast(id_or_username) do
       {:ok, uuid} ->
-        Beef.Users.get_by_id(uuid)
+        Beef.Users.get_by_id_with_follow_info(state.user_id, uuid)
 
       _ ->
         Beef.Users.get_by_username(id_or_username)

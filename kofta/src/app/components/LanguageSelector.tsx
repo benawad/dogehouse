@@ -22,7 +22,8 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "hr", label: "🇭🇷 Hrvatski" }, // Croatian
     { value: "da", label: "🇩🇰 Dansk" }, // Danish
     { value: "de", label: "🇩🇪 Deutsch" }, // German
-    { value: "el-GR", label: "🇬🇷 ελληνικά" },
+    { value: "el-GR", label: "🇬🇷 Νέα Ελληνικά" }, //Greek
+    { value: "ag-GR", label: "🇬🇷 Ancient Greek(Αρχαία Ελληνικά)" }, //Ancient Greek
     { value: "eo", label: "🟢 Esperanto" },
     { value: "es", label: "🇪🇸 Español" }, // Estonian
     { value: "eu", label: "🏴󠁥󠁳󠁰󠁶󠁿 Euskera" }, // Euskera
@@ -37,6 +38,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "it", label: "🇮🇹 Italiano" }, // Italian
     { value: "ja", label: "🇯🇵 日本語" }, // Japanese
     { value: "ko", label: "🇰🇷 한국어" }, // Korean
+    { value: "kz", label: "🇰🇿 Қазақша" }, // Kazakh
     { value: "lt", label: "🇱🇹 Lietuvių" }, // Lithuanian
     { value: "lv", label: "🇱🇻 Latviešu" }, // Latvian
     { value: "li", label: "🏴󠁮󠁬󠁬󠁩󠁿 Limburgs" }, // Limburgish
@@ -69,6 +71,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
 
     /* Other languages */
     { value: "en-PIRATE", label: "🏴‍☠️ Pirate" },
+    { value: "en-AU", label: "🇦🇺 uɐᴉꞁɐɹʇsnⱯ" }, // Australian
     { value: "owo", label: "OwO Engwish" },
     { value: "bottom", label: "🥺 bottom"}
   ],

@@ -84,7 +84,7 @@ defmodule Onion.UserSession do
     {:noreply, Map.put(state, key, value)}
   end
 
-  def handle_cast({:send_ws_msg, _platform, msg}, state) do
+  def handle_cast({:send_ws_msg, msg}, state) do
     if not is_nil(state.pid) do
       send(state.pid, {:remote_send, msg})
     end

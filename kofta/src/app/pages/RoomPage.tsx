@@ -29,12 +29,11 @@ if (isElectron()) {
   ipcRenderer = window.require("electron").ipcRenderer;
 }
 
-const isMac = process.platform === 'darwin';
+const isMac = process.platform === "darwin";
 
-interface RoomPageProps { }
+interface RoomPageProps {}
 
 export const RoomPage: React.FC<RoomPageProps> = () => {
-
   const {
     params: { id },
   } = useRouteMatch<{ id: string }>();
@@ -64,9 +63,12 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   useEffect(() => {
     if (isElectron() && !isMac) {
       ipcRenderer.send("@overlay/start_ipc", true);
-      ipcRenderer.on("@overlay/start_ipc", (event: any, shouldStart: boolean) => {
-        setIpcStarted(shouldStart);
-      })
+      ipcRenderer.on(
+        "@overlay/start_ipc",
+        (event: any, shouldStart: boolean) => {
+          setIpcStarted(shouldStart);
+        }
+      );
     }
   }, []);
   useEffect(() => {
@@ -103,19 +105,12 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   }
 
   const profile = room.users.find((x) => x.id === userProfileId);
-  const myProfile = room.users.find(x => x.id === me?.id);
   const speakers: BaseUser[] = [];
   const unansweredHands: BaseUser[] = [];
   const listeners: BaseUser[] = [];
   let canIAskToSpeak = false;
-  if (iCanSpeak && myProfile) {
-    speakers.push(myProfile);
-  } else if (!iCanSpeak && myProfile) {
-    listeners.push(myProfile);
-  }
 
   room.users.forEach((u) => {
-    if (u.id === myProfile?.id) return;
     if (u.id === room.creatorId || u.roomPermissions?.isSpeaker) {
       speakers.push(u);
     } else if (u.roomPermissions?.askedToSpeak) {

@@ -1,11 +1,11 @@
 import React from "react";
 import {
+  Image,
+  ImageSourcePropType,
   StyleProp,
   StyleSheet,
   TouchableOpacity,
   ViewStyle,
-  Image,
-  ImageSourcePropType,
 } from "react-native";
 import { colors } from "../../constants/dogeStyle";
 
