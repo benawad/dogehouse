@@ -1,14 +1,13 @@
 import React from "react";
-import { useTokenStore } from "../modules/auth/useTokenStore";
+import { useTokenStore } from "../module/auth/useTokenStore";
 import { LandingPage } from "../pages/LandingPage";
-import { MainNavigator } from "./MainNavigator";
+import { BottomNavigator } from "./BottomNavigator";
 
 export const RootNavigator: React.FC = () => {
   const hasToken = useTokenStore((s) => !!s.accessToken && !!s.refreshToken);
 
-  if (!hasToken) {
-    return <LandingPage />;
+  if (hasToken) {
+    return <LandingPage></LandingPage>;
   }
-
-  return <MainNavigator />;
+  return <BottomNavigator />;
 };
