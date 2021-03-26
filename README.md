@@ -49,7 +49,7 @@ Please read [CONTRIBUTING.md](https://github.com/benawad/dogehouse/blob/staging/
 
 ## DogeHouse Desktop
 
-A desktop app built with electron is available for Windows and Mac
+A desktop app built with electron is available for Windows, Mac, and Linux
 
 Download links are in [the releases section](https://github.com/benawad/dogehouse/releases/latest)
 
