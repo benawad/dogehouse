@@ -1,4 +1,5 @@
 import React from "react";
+
 import { ScrollView, StyleSheet, Text } from "react-native";
 import { RoomCard } from "../components/RoomCard";
 import { colors, h3, paragraph } from "../constants/dogeStyle";

@@ -11,7 +11,7 @@
     "save": "שמור",
     "edit": "ערוך",
     "delete": "מחק",
-    "joinRoom": "הצטרף/י לחדר",
+    "joinRoom": "הצטרף לחדר",
     "copyLink": "העתק קישור",
     "copied": "הועתק",
     "formattedIntlDate": "{{date, intlDate}}",
@@ -88,7 +88,7 @@
       "followingHim": "עוקב",
       "copyProfileUrl": "העתק קישור פרופיל",
       "urlCopied": "הקישור הועתק",
-      "unfollow": "Unfollow"
+      "unfollow": "הפסק מעקב"
     },
     "voiceSettings": {
       "header": "הגדרות קול",
@@ -113,7 +113,7 @@
     },
     "bottomVoiceControl": {
       "leaveCurrentRoomBtn": "עזוב את החדר הנוכחי",
-      "confirmLeaveRoom": "בטוח שאת/ה רוצה לעזוב?",
+      "confirmLeaveRoom": "בטוח שאתה רוצה לעזוב?",
       "leave": "עזוב",
       "inviteUsersToRoomBtn": "הזמן משתמשים לחדר",
       "invite": "הזמנה",
@@ -163,7 +163,7 @@
         "newRoomCreated": "חדר חדש נוצר",
         "roomInviteFrom": "הזמנת חדר מ",
         "justStarted": "הם רק התחילו",
-        "likeToJoin": ", תרצה/י להצתרף?",
+        "likeToJoin": ", תרצה להצטרף?",
         "inviteReceived": "הוזמנת ל"
       },
       "editProfileModal": {
@@ -217,7 +217,7 @@
       "title": "צ'אט",
       "emotesSoon": "[emotes soon]",
       "bannedAlert": "קיבלת באן מהצ'אט",
-      "waitAlert": "חקה/י שנייה לפני שליחת הודעה",
+      "waitAlert": "חכה שנייה לפני שליחת הודעה",
       "search": "חפש",
       "searchResults": "תוצאות חיפוש",
       "recent": "לעיתים קרובות בשימוש",

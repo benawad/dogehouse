@@ -8,7 +8,7 @@ import { BodyWrapper } from "../components/BodyWrapper";
 import { Spinner } from "../components/Spinner";
 import { UserProfile } from "../components/UserProfile";
 import { Wrapper } from "../components/Wrapper";
-import { RoomUser, UserWithFollowInfo } from "../types";
+import { RoomUser } from "../types";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 import { useUserProfileQuery } from "../utils/useUserProfileQuery";
 
