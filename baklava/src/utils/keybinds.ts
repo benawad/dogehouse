@@ -15,7 +15,7 @@ import { overlayWindow } from "electron-overlay-window";
 import { createOverlay } from "./overlay";
 import { startIPCHandler } from "./ipc";
 import { bWindowsType } from "../types";
-// import hook from 'globkey';
+import hook from 'globkey';
 
 export let CURRENT_REQUEST_TO_SPEAK_KEY = "Control+8";
 export let CURRENT_INVITE_KEY = "Control+7";
@@ -103,20 +103,20 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
     ipcMain.on("@overlay/app_title", (event, appTitle: string) => {
         CURRENT_APP_TITLE = appTitle;
     })
-    // hook.raw((keypair: string[]) => {
-    //     keypair.forEach(key => {
-    //         let i = keypair.indexOf(key);
-    //         keypair[i] = keypair[i].replace("L", "");
-    //         keypair[i] = keypair[i].replace("R", "");
-    //         keypair[i] = keypair[i].replace("Key", "");
-    //     });
-    //     keypair = keypair.sort();
-    //     let ks = keypair.join().toLowerCase();
-    //     let PTT = ks !== CURRENT_PTT_KEY_STRING;
-    //     if (PREV_PTT_STATUS !== PTT) {
-    //         bWindows.main.webContents.send("@voice/ptt_status_change", PTT);
-    //         PREV_PTT_STATUS = PTT;
-    //     }
-    // })
+    hook.raw((keypair: string[]) => {
+        keypair.forEach(key => {
+            let i = keypair.indexOf(key);
+            keypair[i] = keypair[i].replace("L", "");
+            keypair[i] = keypair[i].replace("R", "");
+            keypair[i] = keypair[i].replace("Key", "");
+        });
+        keypair = keypair.sort();
+        let ks = keypair.join().toLowerCase();
+        let PTT = ks !== CURRENT_PTT_KEY_STRING;
+        if (PREV_PTT_STATUS !== PTT) {
+            bWindows.main.webContents.send("@voice/ptt_status_change", PTT);
+            PREV_PTT_STATUS = PTT;
+        }
+    })
 }
 

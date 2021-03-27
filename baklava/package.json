@@ -88,6 +88,7 @@
     "dependencies": {
         "electron-overlay-window": "^1.0.4",
         "electron-updater": "^4.3.8",
+        "globkey": "^1.0.12",
         "i18next": "^20.0.0",
         "i18next-node-fs-backend": "^2.1.3"
     },
