@@ -16,7 +16,7 @@
     "copied": "kopioitu",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Huomaa, että käyttämällä DogeHousea ilman joitakin selaimen käyttöoikeuksia voi aiheuttaa ei-toivottuja virheitä"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -63,7 +63,7 @@
       "voiceSettings": "siirry puheasetuksiin",
       "soundSettings": "siirry toistoasetuksiin",
       "deleteAccount": "poista käyttäjä",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "siirry overlay-asetuksiin"
     },
     "notFound": {
       "whoopsError": "Hups! Tämä sivu katosi keskusteluun.",
@@ -86,9 +86,9 @@
       "following": "seurannassa",
       "followHim": "seuraa",
       "followingHim": "seurannassa",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "copyProfileUrl": "kopioi profiili-URL",
+      "urlCopied": "URL kopioitu leikepöydälle",
+      "unfollow": "Lopeta seuraaminen"
     },
     "voiceSettings": {
       "header": "Puheasetukset",
@@ -98,8 +98,11 @@
       "volume": "äänenvoimakkuus:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings"
+      "input": {
+        "errorMsg": "Epäkelpo sovelluksen otsikko",
+        "label": "Syötä sovelluksen otsikko"
+      },
+      "header": "Overlay-asetukset"
     }
   },
   "components": {
@@ -145,7 +148,7 @@
       "listening": "odotetaan näppäintä",
       "toggleMuteKeybind": "mikrofonin mykistys -pikanäppäin",
       "togglePushToTalkKeybind": "push-to-talk-pikanäppäin",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "overlay-pikanäppäin"
     },
     "userVolumeSlider": { "noAudioMessage": "ei äänen ulostulolaitteita" },
     "addToCalendar": { "add": "Lisää kalenteriin" },

@@ -81,14 +81,14 @@
     "soundEffectSettings": { "header": "آواز کی ترتیبات" },
     "viewUser": {
       "editProfile": "پروفائل میں ترمیم کریں",
-      "followsYou": "آپ کے پیچھے",
-      "followers": "پیروکار",
-      "following": "درج ذیل",
+      "followsYou": "آپ کو فالو کیا ہوا ہے",
+      "followers": "فالور",
+      "following": "فالونگ",
       "followHim": "فالو کریں",
       "followingHim": "فالونگ",
       "copyProfileUrl": "کاپی پروفائل یو آر ایل",
       "urlCopied": "یو آر ایل کو کلپ بورڈ میں کاپی کیا گیا",
-      "unfollow": "Unfollow"
+      "unfollow": "ان فالو کریں"
     },
     "voiceSettings": {
       "header": "آواز کی ترتیبات",
