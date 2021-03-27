@@ -25,6 +25,17 @@ defmodule Broth.WsClient do
   ###########################################################################
   # API
 
+  # an elaboration on the send_msg that represents the equivalent of
+  # "fetching" / "calling" operations from the user.
+  def send_call(ws_client, op, payload) do
+    call_ref = UUID.uuid4()
+    WebSockex.cast(ws_client,
+      {:send, %{"op" => op,
+                "d" => payload,
+                "fetchId" => call_ref}})
+    call_ref
+  end
+
   def send_msg(ws_client, op, payload),
     do: WebSockex.cast(ws_client, {:send, %{"op" => op, "d" => payload}})
 
@@ -35,18 +46,19 @@ defmodule Broth.WsClient do
   def forward_frames(ws_client), do: WebSockex.cast(ws_client, {:forward_frames, self()})
   defp forward_frames_impl(test_pid, _state), do: {:ok, test_pid}
 
-  defmacro assert_frame(op, payload, timeout \\ nil) do
-    if timeout do
-      quote do
-        ExUnit.Assertions.assert_receive(
-          {:text, %{"op" => unquote(op), "d" => unquote(payload)}},
-          unquote(timeout)
-        )
-      end
-    else
-      quote do
-        ExUnit.Assertions.assert_receive({:text, %{"op" => unquote(op), "d" => unquote(payload)}})
-      end
+  defmacro assert_frame(op, payload) do
+    quote do
+      ExUnit.Assertions.assert_receive(
+        {:text, %{"op" => unquote(op), "d" => unquote(payload)}}
+      )
+    end
+  end
+
+  defmacro assert_reply(ref, payload) do
+    quote do
+      ExUnit.Assertions.assert_receive(
+        {:text, %{"op" => "fetch_done", "d" => unquote(payload), "fetchId" => unquote(ref)}}
+      )
     end
   end
 

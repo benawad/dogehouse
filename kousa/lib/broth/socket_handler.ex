@@ -267,22 +267,6 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  # def handler("join-as-new-peer", _data, state) do
-  #   Kousa.Room.join_vc_room(state.user_id)
-  #   {:ok, state}
-  # end
-
-  # @deprecated in new design
-  def handler("fetch_following_online", %{"cursor" => cursor}, state) do
-    {users, next_cursor} = Follows.fetch_following_online(state.user_id, cursor)
-
-    {:reply,
-     construct_socket_msg(state.encoding, state.compression, %{
-       op: "fetch_following_online_done",
-       d: %{users: users, nextCursor: next_cursor, initial: cursor == 0}
-     }), state}
-  end
-
   def handler("invite_to_room", %{"userId" => user_id_to_invite}, state) do
     Kousa.Room.invite_to_room(state.user_id, user_id_to_invite)
     {:ok, state}
@@ -315,48 +299,7 @@ defmodule Broth.SocketHandler do
 
   def handler("set_auto_speaker", %{"value" => value}, state) do
     Kousa.Room.set_auto_speaker(state.user_id, value)
-
     {:ok, state}
-  end
-
-  # @deprecated
-  def handler("create-room", data, state) do
-    resp =
-      case Kousa.Room.create_room(
-             state.user_id,
-             data["roomName"],
-             data["description"] || "",
-             data["value"] == "private",
-             Map.get(data, "userIdToInvite")
-           ) do
-        {:ok, d} ->
-          %{
-            op: "new_current_room",
-            d: d
-          }
-
-        {:error, d} ->
-          %{
-            op: "error",
-            d: d
-          }
-      end
-
-    {:reply,
-     construct_socket_msg(
-       state.encoding,
-       state.compression,
-       resp
-     ), state}
-  end
-
-  # @deprecated
-  def handler("get_top_public_rooms", data, state) do
-    {:reply,
-     construct_socket_msg(state.encoding, state.compression, %{
-       op: "get_top_public_rooms_done",
-       d: f_handler("get_top_public_rooms", data, state)
-     }), state}
   end
 
   def handler("speaking_change", %{"value" => value}, state) do
@@ -599,6 +542,7 @@ defmodule Broth.SocketHandler do
     end
   end
 
+  # TODO: rename this "call" handler
   def f_handler("follow", %{"userId" => userId, "value" => value}, state) do
     Kousa.Follow.follow(state.user_id, userId, value)
     {"you_left_room", %{}}
