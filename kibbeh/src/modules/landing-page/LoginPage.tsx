@@ -80,8 +80,7 @@ export const LoginPage: React.FC = () => {
             <SvgSolidGitHub width={20} height={20}/>
             Login with GitHub
           </LoginButton>
-          {/* eslint-disable-next-line no-alert */}
-          <LoginButton onClick={() => alert("unimplemented lol")}>
+          <LoginButton oauthUrl={`${apiBaseUrl}/auth/twitter/web`}>
             <SvgSolidTwitter width={20} height={20}/>
             Login with Twitter
           </LoginButton>
