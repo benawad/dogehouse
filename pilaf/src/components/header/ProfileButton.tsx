@@ -23,7 +23,7 @@ export const ProfileButton: React.FC<ProfileButtonProps> = (props) => {
   return (
     <>
       <TouchableOpacity onPress={() => setModalVisible(true)}>
-        <SingleUserAvatar src={props.icon} size={"m"} isOnline={true} />
+        <SingleUserAvatar src={props.icon} size={"xxs"} isOnline={true} />
       </TouchableOpacity>
       <Modal
         backdropOpacity={0.8}
