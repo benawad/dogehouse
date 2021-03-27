@@ -17,8 +17,8 @@ defmodule KousaTest.Broth.Ws.ChangeModStatusTest do
     {:ok, user: user, ws_client: ws_client}
   end
 
-  describe "the websocket change_mod_status operation" do
-    test "makes the person a mod", t do
+  describe "the websocket change_room_creator operation" do
+    test "makes the person a room_creator", t do
       # first, create a room owned by the primary user.
       {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)
       # make sure the user is in there.
@@ -58,13 +58,24 @@ defmodule KousaTest.Broth.Ws.ChangeModStatusTest do
         "mod_changed",
         %{"userId" => ^speaker_id, "roomId" => ^room_id})
 
-      assert Beef.RoomPermissions.get(speaker_id, room_id).isMod
+      # make the person a room creator.
+
+      WsClient.send_msg(t.ws_client,
+        "change_room_creator", %{
+          "userId" => speaker_id
+        })
+
+      # NB: we get an extraneous speaker_added message here.
+      WsClient.assert_frame(
+        "new_room_creator",
+        %{"userId" => ^speaker_id, "roomId" => ^room_id}
+      )
     end
 
     @tag :skip
-    test "you can't make someone a mod when they aren't a speaker first"
+    test "you can't make someone a room creator when they aren't a mod first"
 
     @tag :skip
-    test "you can't make someone a mod when they aren't the owner of the room"
+    test "a non-owner can't make someone a room creator"
   end
 end
