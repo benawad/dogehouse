@@ -6,6 +6,7 @@ import {
   Room,
   UserWithFollowInfo,
   UUID,
+  UserList,
 } from "./entities";
 import { Connection } from "./raw";
 import {
@@ -25,6 +26,12 @@ export const wrap = (connection: Connection) => ({
       connection.addListener("new_chat_msg", handler),
   },
   query: {
+    getFollowingOnline: (
+      cursor = 0
+    ): Promise<{
+      users: UserWithFollowInfo[];
+      nextCursor: number | null;
+    }> => connection.fetch("fetch_following_online", { cursor }),
     getTopPublicRooms: (cursor = 0): Promise<GetTopPublicRoomsResponse> =>
       connection.fetch("get_top_public_rooms", { cursor }),
     getUserProfile: (
@@ -40,7 +47,7 @@ export const wrap = (connection: Connection) => ({
         getOnlyMyScheduledRooms,
       }),
     getRoomUsers: async (): Promise<UserList> =>
-      connection.fetch(
+      await connection.fetch(
         "get_current_room_users",
         {},
         "get_current_room_users_done"
