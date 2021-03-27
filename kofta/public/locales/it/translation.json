@@ -1,18 +1,18 @@
 {
   "common": {
-    "loadMore": "carica altro",
-    "loading": "caricamento...",
-    "noUsersFound": "nessun utente trovato",
-    "ok": "ok",
-    "yes": "si",
-    "no": "no",
-    "cancel": "cancella",
-    "save": "salva",
-    "edit": "modifica",
-    "delete": "elimina",
-    "joinRoom": "partecipa alla stanza",
-    "copyLink": "copia link",
-    "copied": "copiato",
+    "loadMore": "Carica altro",
+    "loading": "Caricamento...",
+    "noUsersFound": "Nessun utente trovato",
+    "ok": "Ok",
+    "yes": "Si",
+    "no": "No",
+    "cancel": "Cancella",
+    "save": "Salva",
+    "edit": "Modifica",
+    "delete": "Elimina",
+    "joinRoom": "Partecipa alla stanza",
+    "copyLink": "Copia link",
+    "copied": "Copiato",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
     "requestPermissions": "Si prega di notare che utilizzando Dogehouse senza permessi di accesso può causare degli errori"
@@ -33,14 +33,14 @@
     "banUser": { "ban": "banna" },
     "followingOnlineList": {
       "listHeader": "Lista di utenti che segui e che non sono in una stanza privata.",
-      "currentRoom": "in questo momento è connesso a:",
-      "startPrivateRoom": "avvia una stanza privata con lui"
+      "currentRoom": "In questo momento è connesso a:",
+      "startPrivateRoom": "Avvia una stanza privata con lui"
     },
     "followList": { "followHim": "segui", "followingHim": "segui già" },
     "home": { "createRoom": "Crea una Stanza", "refresh": "Ricarica" },
     "inviteList": {
-      "roomGone": "la stanza non esiste, torna indietro",
-      "shareRoomLink": "condividi link della stanza",
+      "roomGone": "La stanza non esiste, torna indietro",
+      "shareRoomLink": "Condividi link della stanza",
       "inviteFollowers": "Puoi invitare i tuoi follower che sono online:",
       "whenFollowersOnline": "Quando i tuoi follower saranno online spunteranno qui."
     },
@@ -52,17 +52,17 @@
       "featureText_4": "Open Source",
       "featureText_5": "Chat di Testo",
       "featureText_6": "Offerto da Doge",
-      "loginGithub": "accedi con GitHub",
-      "loginTwitter": "accedi con Twitter",
-      "createTestUser": "crea utente per test"
+      "loginGithub": "Accedi con GitHub",
+      "loginTwitter": "Accedi con Twitter",
+      "createTestUser": "Area utente per test"
     },
     "myProfile": {
-      "logout": "disconnettiti",
-      "probablyLoading": "probabilmente sto caricando...",
-      "voiceSettings": "modifica impostazioni della voce",
-      "soundSettings": "modifica impostazioni dei suoni",
-      "deleteAccount": "elimina account",
-      "overlaySettings": "go to overlay settings"
+      "logout": "Disconnettiti",
+      "probablyLoading": "Probabilmente sto caricando...",
+      "voiceSettings": "Modifica impostazioni della voce",
+      "soundSettings": "Modifica impostazioni dei suoni",
+      "deleteAccount": "Elimina account",
+      "overlaySettings": "Go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Oops! Questa pagina si è persa nella conversazione.",
@@ -79,25 +79,28 @@
     "searchUser": { "search": "cerca..." },
     "soundEffectSettings": { "header": "Suoni" },
     "viewUser": {
-      "editProfile": "modifica profilo",
-      "followsYou": "ti segue",
-      "followers": "followers",
-      "following": "seguiti",
-      "followHim": "segui",
-      "followingHim": "segui già",
-      "copyProfileUrl": "copia URL del profilo",
+      "editProfile": "Modifica profilo",
+      "followsYou": "Ti segue",
+      "followers": "Followers",
+      "following": "Seguiti",
+      "followHim": "Segui",
+      "followingHim": "Segui già",
+      "copyProfileUrl": "Copia URL del profilo",
       "urlCopied": "URL copiato negli appunti",
       "unfollow": "Smetti di seguire"
     },
     "voiceSettings": {
       "header": "Impostazioni della voce",
-      "mic": "microfono:",
-      "permissionError": "nessun microfono trovato, probabilmente non hai dato il permesso a questo sito per poterlo usare o non ne avrai attaccato nessuno.",
-      "refresh": "ricarica la lista dei microfoni",
-      "volume": "volume:"
+      "mic": "Microfono:",
+      "permissionError": "Nessun microfono trovato, probabilmente non hai dato il permesso a questo sito per poterlo usare o non ne avrai attaccato nessuno.",
+      "refresh": "Ricarica la lista dei microfoni",
+      "volume": "Volume:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Titolo app invalido", "label": "Inserisci titolo app" },
+      "input": {
+        "errorMsg": "Titolo app invalido",
+        "label": "Inserisci titolo app"
+      },
       "header": "Overlay Settings"
     }
   },
@@ -107,8 +110,8 @@
     "backBar": {},
     "blockedFromRoomUsers": {
       "header": "Utenti bannati",
-      "unban": "riammetti",
-      "noBans": "nessuno è stato ancora bannato"
+      "unban": "Riammetti",
+      "noBans": "Nessuno è stato ancora bannato"
     },
     "bottomVoiceControl": {
       "leaveCurrentRoomBtn": "Lascia questa stanza",
@@ -131,50 +134,50 @@
       "addSupport": "e io proverò ad aggiungere il supporto per il tuo dispositivo."
     },
     "inviteButton": {
-      "invited": "invitato",
-      "inviteToRoom": "invita alla stanza"
+      "invited": "Invitato",
+      "inviteToRoom": "Invita alla stanza"
     },
     "micPermissionBanner": {
       "permissionDenied": "Impossibile accedere al microfono: permesso negato (potresti aver bisogno di modificare le impostazioni dal browser e di riavviare la pagina)",
-      "dismiss": "ignora",
-      "tryAgain": "riprova di nuovo"
+      "dismiss": "Ignora",
+      "tryAgain": "Riprova di nuovo"
     },
     "keyboardShortcuts": {
-      "setKeybind": "imposta scorciatoia",
-      "listening": "ascoltatore",
-      "toggleMuteKeybind": "scorciatoia per attivare/disattivare il microfono",
-      "togglePushToTalkKeybind": "scorciatoia per il push-to-talk",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "setKeybind": "Imposta scorciatoia",
+      "listening": "Ascoltatore",
+      "toggleMuteKeybind": "Scorciatoia per attivare/disattivare il microfono",
+      "togglePushToTalkKeybind": "Scorciatoia per il push-to-talk",
+      "toggleOverlayKeybind": "Attiva / Disattiva la schermata delle scorciatoie"
     },
     "userVolumeSlider": {
-      "noAudioMessage": "nessun audio è disponibile per qualche motivo"
+      "noAudioMessage": "Nessun audio è disponibile per qualche motivo"
     },
     "addToCalendar": { "add": "Aggiungi al Calendario" },
     "wsKilled": {
       "description": "Il Websocket è stato messo fuori uso dal server. Questo accade solitamente quando riapri il sito in un'altra scheda.",
-      "reconnect": "riconnettiti"
+      "reconnect": "Riconnettiti"
     },
     "modals": {
       "createRoomModal": {
-        "public": "pubblica",
-        "private": "privata",
-        "roomName": "nome della stanza",
-        "roomDescription": "descrizione della stanza",
-        "descriptionError": "la lunghezza massima è 500",
+        "public": "Pubblica",
+        "private": "Privata",
+        "roomName": "Nome della stanza",
+        "roomDescription": "Descrizione della stanza",
+        "descriptionError": "La lunghezza massima è 500",
         "nameError": "Deve essere lungo dai 2 ai 60 caratteri"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nuova Stanza Creata",
         "roomInviteFrom": "Hai ricevuto un invito da",
-        "justStarted": "Hanno appena incominciato",
+        "justStarted": "Hanno appena iniziato",
         "likeToJoin": ", ti piacerebbe entrare?",
-        "inviteReceived": "sei stato invitato a"
+        "inviteReceived": "Sei stato invitato/a"
       },
       "editProfileModal": {
-        "usernameTaken": "username già preso",
+        "usernameTaken": "Username già preso",
         "avatarUrlError": "Immagine invalida",
         "avatarUrlLabel": "Url dell'avatar di Github/Twitter",
-        "displayNameError": "deve essere lungo dai 2 ai 50 caratteri",
+        "displayNameError": "Deve essere lungo dai 2 ai 50 caratteri",
         "displayNameLabel": "Nome da mostrare agli altri utenti",
         "usernameError": "deve essere lungo dai 4 ai 15 caratteri e può solo contenere caratteri alfanumerici e trattini bassi",
         "usernameLabel": "Username",
@@ -183,21 +186,21 @@
       },
       "profileModal": {
         "blockUserConfirm": "Sei sicuro di bloccare questo utente? Non potrà più entrare nelle stanze che crei.",
-        "blockUser": "blocca utente",
+        "blockUser": "Blocca utente",
         "makeMod": "Attribuisci permessi di amministratore",
         "unmod": "Rimuovi permessi di amministratore",
-        "addAsSpeaker": "aggiungi come oratore",
-        "moveToListener": "fai diventare un ascoltatore",
-        "banFromChat": "banna dalla chat",
-        "banFromRoom": "banna dalla stanza",
-        "goBackToListener": "ritorna ad essere un ascoltatore",
-        "deleteMessage": "elimina questo messaggio",
-        "makeRoomCreator": "fai amministratore della stanza"
+        "addAsSpeaker": "Aggiungi come oratore",
+        "moveToListener": "Rendi un ascoltatore",
+        "banFromChat": "Banna dalla chat",
+        "banFromRoom": "Banna dalla stanza",
+        "goBackToListener": "Torna ad essere un ascoltatore",
+        "deleteMessage": "Elimina questo messaggio",
+        "makeRoomCreator": "Rendi amministratore della stanza"
       },
       "roomSettingsModal": {
-        "requirePermission": "richiedi permesso per parlare",
-        "makePublic": "fai diventare la stanza pubblica",
-        "makePrivate": "fai diventare la stanza privata"
+        "requirePermission": "Richiedi permesso per parlare",
+        "makePublic": "Rendi la stanza pubblica",
+        "makePrivate": "Rendi la stanza privata"
       }
     }
   },
@@ -205,15 +208,15 @@
     "_comment": "Modules UI Internationalization Strings",
     "scheduledRooms": {
       "title": "Stanze pianificate",
-      "noneFound": "nessuna stanza è stata trovata",
-      "allRooms": "tutte le stanze pianificate",
-      "myRooms": "le mie stanze pianificate",
+      "noneFound": "Nessuna stanza è stata trovata",
+      "allRooms": "Tutte le stanze pianificate",
+      "myRooms": "Le mie stanze pianificate",
       "scheduleRoomHeader": "Pianifica una Stanza",
-      "startRoom": "avvia stanza",
+      "startRoom": "Avvia stanza",
       "modal": {
-        "needsFuture": "deve essere nel futuro",
-        "roomName": "nome della stanza",
-        "minLength": "la lunghezza minima è 2",
+        "needsFuture": "Deve essere nel futuro",
+        "roomName": "Nome della stanza",
+        "minLength": "La lunghezza minima è 2",
         "roomDescription": "Descrizione"
       }
     },

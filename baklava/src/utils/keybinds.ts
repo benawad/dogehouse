@@ -29,9 +29,6 @@ export let CURRENT_APP_TITLE = "";
 
 let PREV_PTT_STATUS = false;
 
-
-let push_to_talk = false
-
 export function RegisterKeybinds(bWindows: bWindowsType) {
     ipcMain.on(REQUEST_TO_SPEAK_KEY, (event, keyCode) => {
         if (globalShortcut.isRegistered(CURRENT_REQUEST_TO_SPEAK_KEY)) {

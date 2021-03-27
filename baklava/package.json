@@ -1,6 +1,6 @@
 {
     "name": "dogehouse",
-    "version": "1.0.22",
+    "version": "1.0.24",
     "description": "Taking voice conversations to the moon 🚀",
     "main": "./dist/electron.js",
     "scripts": {
@@ -19,21 +19,57 @@
         "build:overlay": "cd resources/overlay && yarn build && cd ../../",
         "build:globkey": "yarn add globkey && cd node_modules/globkey && npx electron-build-env nj-cli build --release && del-cli target src && cd ../../"
     },
-    "win": {
-      "icon": "icons/icon.png",
-      "target": "nsis",
-      "publish": [
-        "github"
-      ]
+    "keywords": [
+        "DogeHouse",
+        "Electron"
+    ],
+    "author": "Ben Awad <benawadapps@gmail.com>",
+    "homepage": "https://github.com/benawad/dogehouse/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/benawad/dogehouse"
     },
-    "linux": {
-      "icon": "icons/icon.png",
-      "target": [
-        "deb",
-        "AppImage"
-      ]
+    "bugs": {
+        "url": "https://github.com/benawad/dogehouse/issues"
     },
     "license": "MIT",
+    "build": {
+        "appId": "com.electron.dogehouse",
+        "productName": "DogeHouse",
+        "asar": true,
+        "mac": {
+            "icon": "icons/icon.png",
+            "category": "public.app-category.social-networking",
+            "entitlements": "settings/entitlements.mac.plist",
+            "extendInfo": {
+                "NSMicrophoneUsageDescription": "Mic access for speeach input in voice."
+            },
+            "target": [
+                "dmg"
+            ]
+        },
+        "win": {
+            "icon": "icons/icon.png",
+            "target": "nsis",
+            "publish": [
+                "github"
+            ]
+        },
+        "linux": {
+            "icon": "icons/icon.png",
+            "target": [
+                "deb",
+                "AppImage"
+            ]
+        },
+        "extraMetadata": {
+            "main": "dist/electron.js"
+        },
+        "directories": {
+            "output": "./builds"
+        },
+        "extends": null
+    },
     "devDependencies": {
         "@types/lodash": "^4.14.168",
         "@types/node": "^14.14.31",
@@ -48,9 +84,6 @@
         "pretty-quick": "^3.1.0",
         "ts-node": "^9.1.1",
         "typescript": "^4.2.2"
-    },
-    "directories": {
-      "output": "./builds"
     },
     "dependencies": {
         "electron-overlay-window": "^1.0.4",
