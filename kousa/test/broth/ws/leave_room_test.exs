@@ -50,7 +50,7 @@ defmodule KousaTest.Broth.Ws.LeaveRoomTest do
         )
 
       other = %{id: other_id} = Factory.create(User)
-      ws_other = WsClientFactory.create_client_for(other)
+      other_ws = WsClientFactory.create_client_for(other)
 
       assert %{peoplePreviewList: [_]} = Rooms.get_room_by_id(room.id)
 
@@ -58,9 +58,9 @@ defmodule KousaTest.Broth.Ws.LeaveRoomTest do
 
       assert %{peoplePreviewList: [_, _]} = Rooms.get_room_by_id(room.id)
 
-      WsClient.send_msg(ws_other, "leave_room", %{})
+      WsClient.send_msg(other_ws, "leave_room", %{})
 
-      WsClient.assert_frame("you_left_room", _, ws_other)
+      WsClient.assert_frame("you_left_room", _, other_ws)
 
       assert %{
                peoplePreviewList: [

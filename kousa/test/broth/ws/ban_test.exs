@@ -38,7 +38,7 @@ defmodule KousaTest.Broth.Ws.BanTest do
       |> Beef.Repo.update!()
 
       banned = Factory.create(User)
-      ws_banned = WsClientFactory.create_client_for(banned)
+      banned_ws = WsClientFactory.create_client_for(banned)
 
       WsClient.send_msg(t.client_ws, "ban", %{
         "username" => banned.username,
@@ -48,7 +48,7 @@ defmodule KousaTest.Broth.Ws.BanTest do
       WsClient.assert_frame("ban_done", %{"worked" => true})
 
       # this frame is targetted to the banned user
-      WsClient.assert_frame("banned", _, ws_banned)
+      WsClient.assert_frame("banned", _, banned_ws)
 
       # check that the user has been updated.
       assert %{reasonForBan: "you're a douche"} = Users.get_by_id(banned.id)
@@ -60,7 +60,7 @@ defmodule KousaTest.Broth.Ws.BanTest do
       |> Beef.Repo.update!()
 
       banned = %{id: banned_id} = Factory.create(User)
-      ws_banned = WsClientFactory.create_client_for(banned)
+      banned_ws = WsClientFactory.create_client_for(banned)
 
       {:ok, %{room: room}} =
         Kousa.Room.create_room(
@@ -77,7 +77,7 @@ defmodule KousaTest.Broth.Ws.BanTest do
         "reason" => "you're a douche"
       })
 
-      WsClient.assert_frame("banned", _, ws_banned)
+      WsClient.assert_frame("banned", _, banned_ws)
 
       # check that the room is gone.
       refute Beef.Rooms.get_room_by_id(room.id)
@@ -89,7 +89,7 @@ defmodule KousaTest.Broth.Ws.BanTest do
       |> Beef.Repo.update!()
 
       banned = %{id: banned_id} = Factory.create(User)
-      ws_banned = WsClientFactory.create_client_for(banned)
+      banned_ws = WsClientFactory.create_client_for(banned)
 
       safe = %{id: safe_id} = Factory.create(User)
       WsClientFactory.create_client_for(safe)
@@ -112,7 +112,7 @@ defmodule KousaTest.Broth.Ws.BanTest do
         "reason" => "you're a douche"
       })
 
-      WsClient.assert_frame("banned", _, ws_banned)
+      WsClient.assert_frame("banned", _, banned_ws)
 
       # check that the room is still there
       assert %{
