@@ -90,7 +90,7 @@ defmodule Kousa.Beef.RoomsTest do
     test "get_a_user_for_room" do
       room = Factory.create(Room)
       userForRoom = Factory.create(User, [{:currentRoomId, room.id}])
-      notUserForRoom = Factory.create(User)
+      _notUserForRoom = Factory.create(User)
 
       assert Beef.Rooms.get_a_user_for_room(room.id) == userForRoom
     end

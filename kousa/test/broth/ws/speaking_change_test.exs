@@ -3,8 +3,6 @@ defmodule KousaTest.Broth.Ws.SpeakingChangeTest do
   use Kousa.Support.EctoSandbox
 
   alias Beef.Schemas.User
-  alias Beef.Users
-  alias Beef.Rooms
   alias Broth.WsClient
   alias Broth.WsClientFactory
   alias Kousa.Support.Factory
