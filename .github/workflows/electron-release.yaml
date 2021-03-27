@@ -5,7 +5,7 @@ on:
     paths:
       - "baklava/**"
     branches:
-      - prod
+      - staging
 
 jobs:
   release:
