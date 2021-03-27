@@ -12,9 +12,9 @@ defmodule KousaTest.Broth.Ws.BanFromRoomChatTest do
 
   setup do
     user = Factory.create(User)
-    ws_client = WsClientFactory.create_client_for(user)
+    client_ws = WsClientFactory.create_client_for(user)
 
-    {:ok, user: user, ws_client: ws_client}
+    {:ok, user: user, client_ws: client_ws}
   end
 
   describe "the websocket chat_user_banned operation" do
@@ -32,8 +32,8 @@ defmodule KousaTest.Broth.Ws.BanFromRoomChatTest do
       Kousa.Room.join_room(banned_id, room_id)
       WsClient.assert_frame("new_user_join_room", _)
 
-      WsClient.send_msg(t.ws_client, "ban_from_room_chat", %{userId: banned_id})
-      WsClient.assert_frame("chat_user_banned", %{"userId" => ^banned_id}, t.ws_client)
+      WsClient.send_msg(t.client_ws, "ban_from_room_chat", %{userId: banned_id})
+      WsClient.assert_frame("chat_user_banned", %{"userId" => ^banned_id}, t.client_ws)
       WsClient.assert_frame("chat_user_banned", %{"userId" => ^banned_id}, ws_banned)
 
       assert Onion.RoomChat.banned?(room_id, banned_id)

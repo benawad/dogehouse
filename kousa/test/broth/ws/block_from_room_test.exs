@@ -12,9 +12,9 @@ defmodule KousaTest.Broth.Ws.BlockFromRoomTest do
 
   setup do
     user = Factory.create(User)
-    ws_client = WsClientFactory.create_client_for(user)
+    client_ws = WsClientFactory.create_client_for(user)
 
-    {:ok, user: user, ws_client: ws_client}
+    {:ok, user: user, client_ws: client_ws}
   end
 
   describe "the websocket block_from_room operation" do
@@ -33,12 +33,12 @@ defmodule KousaTest.Broth.Ws.BlockFromRoomTest do
       WsClient.assert_frame("new_user_join_room", _)
 
       # block the person.
-      WsClient.send_msg(t.ws_client, "block_from_room", %{"userId" => blocked_id})
+      WsClient.send_msg(t.client_ws, "block_from_room", %{"userId" => blocked_id})
 
       WsClient.assert_frame(
         "user_left_room",
         %{"roomId" => ^room_id, "userId" => ^blocked_id},
-        t.ws_client
+        t.client_ws
       )
 
       assert Beef.RoomBlocks.blocked?(room_id, blocked_id)
@@ -61,12 +61,12 @@ defmodule KousaTest.Broth.Ws.BlockFromRoomTest do
       WsClient.assert_frame("new_user_join_room", _)
 
       # block the person.
-      WsClient.send_msg(t.ws_client, "block_user_and_from_room", %{"userId" => blocked_id})
+      WsClient.send_msg(t.client_ws, "block_user_and_from_room", %{"userId" => blocked_id})
 
       WsClient.assert_frame(
         "user_left_room",
         %{"roomId" => ^room_id, "userId" => ^blocked_id},
-        t.ws_client
+        t.client_ws
       )
 
       assert Beef.RoomBlocks.blocked?(room_id, blocked_id)

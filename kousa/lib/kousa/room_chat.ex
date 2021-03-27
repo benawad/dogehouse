@@ -15,8 +15,7 @@ defmodule Kousa.RoomChat do
           nil
 
         current_room_id ->
-          with {avatar_url, display_name, username} <-
-                 Onion.UserSession.send_call!(user_id, {:get_info_for_msg}) do
+          with {avatar_url, display_name, username} <- Onion.UserSession.get_info_for_msg(user_id) do
             RegUtils.lookup_and_cast(
               Onion.RoomChat,
               current_room_id,

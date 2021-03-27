@@ -13,9 +13,9 @@ defmodule KousaTest.Broth.Ws.MakeRoomPublicTest do
 
   setup do
     user = Factory.create(User)
-    ws_client = WsClientFactory.create_client_for(user)
+    client_ws = WsClientFactory.create_client_for(user)
 
-    {:ok, user: user, ws_client: ws_client}
+    {:ok, user: user, client_ws: client_ws}
   end
 
   describe "the websocket make_room_public operation" do
@@ -28,7 +28,7 @@ defmodule KousaTest.Broth.Ws.MakeRoomPublicTest do
 
       assert Rooms.get_room_by_id(room_id).isPrivate
 
-      WsClient.send_msg(t.ws_client, "make_room_public", %{"newName" => "quux room"})
+      WsClient.send_msg(t.client_ws, "make_room_public", %{"newName" => "quux room"})
 
       WsClient.assert_frame("room_privacy_change", %{"name" => "quux room", "isPrivate" => false})
 

@@ -12,9 +12,9 @@ defmodule KousaTest.Broth.Ws.BanTest do
 
   setup do
     user = Factory.create(User)
-    ws_client = WsClientFactory.create_client_for(user)
+    client_ws = WsClientFactory.create_client_for(user)
 
-    {:ok, user: user, ws_client: ws_client}
+    {:ok, user: user, client_ws: client_ws}
   end
 
   describe "the websocket ban operation" do
@@ -22,7 +22,7 @@ defmodule KousaTest.Broth.Ws.BanTest do
       banned = Factory.create(User)
       WsClientFactory.create_client_for(banned)
 
-      WsClient.send_msg(t.ws_client, "ban", %{
+      WsClient.send_msg(t.client_ws, "ban", %{
         "username" => banned.username,
         "reason" => "you're a douche"
       })
@@ -40,7 +40,7 @@ defmodule KousaTest.Broth.Ws.BanTest do
       banned = Factory.create(User)
       ws_banned = WsClientFactory.create_client_for(banned)
 
-      WsClient.send_msg(t.ws_client, "ban", %{
+      WsClient.send_msg(t.client_ws, "ban", %{
         "username" => banned.username,
         "reason" => "you're a douche"
       })
@@ -72,7 +72,7 @@ defmodule KousaTest.Broth.Ws.BanTest do
 
       assert %{peoplePreviewList: [%{id: ^banned_id}]} = room
 
-      WsClient.send_msg(t.ws_client, "ban", %{
+      WsClient.send_msg(t.client_ws, "ban", %{
         "username" => banned.username,
         "reason" => "you're a douche"
       })
@@ -107,7 +107,7 @@ defmodule KousaTest.Broth.Ws.BanTest do
 
       assert %{peoplePreviewList: [_, _]} = Beef.Rooms.get_room_by_id(room.id)
 
-      WsClient.send_msg(t.ws_client, "ban", %{
+      WsClient.send_msg(t.client_ws, "ban", %{
         "username" => banned.username,
         "reason" => "you're a douche"
       })

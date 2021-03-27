@@ -12,9 +12,9 @@ defmodule KousaTest.Broth.Ws.ChangeModStatusTest do
 
   setup do
     user = Factory.create(User)
-    ws_client = WsClientFactory.create_client_for(user)
+    client_ws = WsClientFactory.create_client_for(user)
 
-    {:ok, user: user, ws_client: ws_client}
+    {:ok, user: user, client_ws: client_ws}
   end
 
   describe "the websocket change_mod_status operation" do
@@ -34,13 +34,13 @@ defmodule KousaTest.Broth.Ws.ChangeModStatusTest do
       WsClient.assert_frame("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
 
       # add the person as a speaker.
-      WsClient.send_msg(t.ws_client, "add_speaker", %{"userId" => speaker_id})
+      WsClient.send_msg(t.client_ws, "add_speaker", %{"userId" => speaker_id})
 
       # both clients get notified
       WsClient.assert_frame(
         "speaker_added",
         %{"userId" => ^speaker_id, "roomId" => ^room_id},
-        t.ws_client
+        t.client_ws
       )
 
       WsClient.assert_frame(
@@ -50,7 +50,7 @@ defmodule KousaTest.Broth.Ws.ChangeModStatusTest do
       )
 
       # make the person a mod
-      WsClient.send_msg(t.ws_client, "change_mod_status", %{
+      WsClient.send_msg(t.client_ws, "change_mod_status", %{
         "userId" => speaker_id,
         "value" => true
       })
@@ -59,7 +59,7 @@ defmodule KousaTest.Broth.Ws.ChangeModStatusTest do
       WsClient.assert_frame(
         "mod_changed",
         %{"userId" => ^speaker_id, "roomId" => ^room_id},
-        t.ws_client
+        t.client_ws
       )
 
       WsClient.assert_frame(

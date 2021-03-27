@@ -27,25 +27,25 @@ defmodule Broth.WsClient do
 
   # an elaboration on the send_msg that represents the equivalent of
   # "fetching" / "calling" operations from the user.
-  def send_call(ws_client, op, payload) do
+  def send_call(client_ws, op, payload) do
     call_ref = UUID.uuid4()
 
     WebSockex.cast(
-      ws_client,
+      client_ws,
       {:send, %{"op" => op, "d" => payload, "fetchId" => call_ref}}
     )
 
     call_ref
   end
 
-  def send_msg(ws_client, op, payload),
-    do: WebSockex.cast(ws_client, {:send, %{"op" => op, "d" => payload}})
+  def send_msg(client_ws, op, payload),
+    do: WebSockex.cast(client_ws, {:send, %{"op" => op, "d" => payload}})
 
   defp send_msg_impl(map, test_pid) do
     {:reply, {:text, Jason.encode!(map)}, test_pid}
   end
 
-  def forward_frames(ws_client), do: WebSockex.cast(ws_client, {:forward_frames, self()})
+  def forward_frames(client_ws), do: WebSockex.cast(client_ws, {:forward_frames, self()})
   defp forward_frames_impl(test_pid, _state), do: {:ok, test_pid}
 
   defmacro assert_frame(op, payload, from \\ nil) do
@@ -86,12 +86,19 @@ defmodule Broth.WsClient do
   end
 
   # TODO: change off of Process.link and switch to Proce
-  defmacro assert_dies(ws_client, fun, reason, timeout \\ 100) do
-    quote bind_quoted: [ws_client: ws_client, fun: fun, reason: reason, timeout: timeout] do
+  defmacro assert_dies(client_ws, fun, reason, timeout \\ 100) do
+    quote bind_quoted: [client_ws: client_ws, fun: fun, reason: reason, timeout: timeout] do
       Process.flag(:trap_exit, true)
-      Process.link(ws_client)
+      Process.link(client_ws)
       fun.()
-      ExUnit.Assertions.assert_receive({:EXIT, ^ws_client, ^reason}, timeout)
+      ExUnit.Assertions.assert_receive({:EXIT, ^client_ws, ^reason}, timeout)
+    end
+  end
+
+  defmacro refute_frame(op, from) do
+    quote do
+      from = unquote(from)
+      ExUnit.Assertions.refute_receive({:text, %{"op" => unquote(op)}, ^from})
     end
   end
 
@@ -122,10 +129,10 @@ defmodule Broth.WsClientFactory do
     tokens = Kousa.Utils.TokenUtils.create_tokens(user)
 
     # start and link the websocket client
-    ws_client = ExUnit.Callbacks.start_supervised!(WsClient)
-    WsClient.forward_frames(ws_client)
+    client_ws = ExUnit.Callbacks.start_supervised!(WsClient)
+    WsClient.forward_frames(client_ws)
 
-    WsClient.send_msg(ws_client, "auth", %{
+    WsClient.send_msg(client_ws, "auth", %{
       "accessToken" => tokens.accessToken,
       "refreshToken" => tokens.refreshToken,
       "platform" => "foo",
@@ -139,6 +146,6 @@ defmodule Broth.WsClientFactory do
     [{usersession_pid, _}] = Registry.lookup(Onion.UserSessionRegistry, user.id)
     Process.link(usersession_pid)
 
-    ws_client
+    client_ws
   end
 end

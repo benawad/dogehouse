@@ -13,9 +13,9 @@ defmodule KousaTest.Broth.Ws.LeaveRoomTest do
 
   setup do
     user = Factory.create(User)
-    ws_client = WsClientFactory.create_client_for(user)
+    client_ws = WsClientFactory.create_client_for(user)
 
-    {:ok, user: user, ws_client: ws_client}
+    {:ok, user: user, client_ws: client_ws}
   end
 
   describe "the websocket leave_room operation" do
@@ -30,7 +30,7 @@ defmodule KousaTest.Broth.Ws.LeaveRoomTest do
 
       assert Users.get_by_id(t.user.id).currentRoomId == room.id
 
-      WsClient.send_msg(t.ws_client, "leave_room", %{})
+      WsClient.send_msg(t.client_ws, "leave_room", %{})
 
       WsClient.assert_frame("you_left_room", _)
 

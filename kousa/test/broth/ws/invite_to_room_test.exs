@@ -12,9 +12,9 @@ defmodule KousaTest.Broth.Ws.InviteToRoomTest do
 
   setup do
     user = Factory.create(User)
-    ws_client = WsClientFactory.create_client_for(user)
+    client_ws = WsClientFactory.create_client_for(user)
 
-    {:ok, user: user, ws_client: ws_client}
+    {:ok, user: user, client_ws: client_ws}
   end
 
   describe "the websocket invite_to_room operation" do
@@ -29,7 +29,7 @@ defmodule KousaTest.Broth.Ws.InviteToRoomTest do
       ws_follower = WsClientFactory.create_client_for(follower)
       Kousa.Follow.follow(follower_id, t.user.id, true)
 
-      WsClient.send_msg(t.ws_client, "invite_to_room", %{"userId" => follower_id})
+      WsClient.send_msg(t.client_ws, "invite_to_room", %{"userId" => follower_id})
 
       # note this comes from the follower's client
       WsClient.assert_frame("invitation_to_room", %{"roomId" => ^room_id}, ws_follower)

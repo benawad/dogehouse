@@ -11,14 +11,14 @@ defmodule KousaTest.Broth.Ws.FetchFollowingOnlineTest do
 
   setup do
     user = Factory.create(User)
-    ws_client = WsClientFactory.create_client_for(user)
+    client_ws = WsClientFactory.create_client_for(user)
 
-    {:ok, user: user, ws_client: ws_client}
+    {:ok, user: user, client_ws: client_ws}
   end
 
   describe "the websocket fetch_following_online operation" do
     test "returns an empty list if you aren't following anyone", t do
-      ref = WsClient.send_call(t.ws_client, "fetch_following_online", %{"cursor" => 0})
+      ref = WsClient.send_call(t.client_ws, "fetch_following_online", %{"cursor" => 0})
 
       WsClient.assert_reply(^ref, %{"users" => []})
     end
@@ -27,7 +27,7 @@ defmodule KousaTest.Broth.Ws.FetchFollowingOnlineTest do
       %{id: followed_id} = Factory.create(User)
       Kousa.Follow.follow(t.user.id, followed_id, true)
 
-      ref = WsClient.send_call(t.ws_client, "fetch_following_online", %{"cursor" => 0})
+      ref = WsClient.send_call(t.client_ws, "fetch_following_online", %{"cursor" => 0})
 
       WsClient.assert_reply(^ref, %{
         "users" => [
