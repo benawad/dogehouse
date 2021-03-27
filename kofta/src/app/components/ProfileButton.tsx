@@ -16,7 +16,7 @@ export const ProfileButton: React.FC<ProfileButtonProps> = ({
 	const history = useHistory();
 	return me ? (
 		<button onClick={() => history.push("/me")} className={`px-2.5`}>
-			<Avatar circle={circle} size={size} src={me.avatarUrl} />
+			<Avatar circle={circle} size={size} src={me.avatarUrl} usernameForErrorImg={me.username} />
 		</button>
 	) : null;
 };
