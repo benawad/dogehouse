@@ -1,4 +1,4 @@
-defmodule KousaTest.Broth.Ws.AddSpeakerTest do
+defmodule KousaTest.Broth.Ws.ChangeModStatusTest do
   use ExUnit.Case, async: true
   use Kousa.Support.EctoSandbox
 
@@ -17,8 +17,8 @@ defmodule KousaTest.Broth.Ws.AddSpeakerTest do
     {:ok, user: user, ws_client: ws_client}
   end
 
-  describe "the websocket add_speaker operation" do
-    test "makes the person a speaker", t do
+  describe "the websocket change_mod_status operation" do
+    test "makes the person a mod", t do
       # first, create a room owned by the primary user.
       {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)
       # make sure the user is in there.
@@ -45,10 +45,28 @@ defmodule KousaTest.Broth.Ws.AddSpeakerTest do
         "speaker_added",
         %{"userId" => ^speaker_id, "roomId" => ^room_id})
 
-      assert Beef.RoomPermissions.speaker?(speaker_id, room_id)
+      # make the person a mod
+      WsClient.send_msg(t.ws_client,
+        "change_mod_status", %{"userId" => speaker_id, "value" => true})
+
+      #receive do any -> any end |> IO.inspect(label: "51")
+
+      # both clients get notified
+      WsClient.assert_frame(
+        "mod_changed",
+        %{"userId" => ^speaker_id, "roomId" => ^room_id})
+
+      WsClient.assert_frame(
+        "mod_changed",
+        %{"userId" => ^speaker_id, "roomId" => ^room_id})
+
+      assert Beef.RoomPermissions.get(speaker_id, room_id).isMod
     end
 
     @tag :skip
-    test "you can't make a person a speaker if you aren't a mod"
+    test "you can't make someone a mod when they aren't a speaker first"
+
+    @tag :skip
+    test "you can't make someone a mod when they aren't the owner of the room"
   end
 end
