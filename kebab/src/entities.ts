@@ -1,4 +1,9 @@
 import { ConsumerOptions } from "mediasoup-client/lib/types";
+import {
+  GetScheduledRoomsResponse,
+  GetTopPublicRoomsResponse,
+  JoinRoomAndGetInfoResponse,
+} from "./responses";
 
 export type UUID = string;
 
@@ -118,4 +123,92 @@ export type CurrentRoom = Room & {
   muteMap: Record<string, boolean>;
   activeSpeakerMap: Record<string, boolean>;
   autoSpeaker: boolean;
+};
+
+// wrote this a long time ago, don't know if it's accurate
+export type UserList = {
+  users: {
+    youAreFollowing: null | true;
+    username: string;
+    roomPermissions: { [key: string]: RoomPermissions };
+    online: true;
+    numFollowing: number;
+    numFollowers: number;
+    lastOnline: string;
+    id: string;
+    followsYou: null | true;
+    displayName: string;
+    currentRoomId: string;
+    currentRoom: Room;
+    bio: string;
+    avatarUrl: string;
+  }[];
+  roomId: string;
+  raiseHandMap: { [key: string]: boolean };
+  muteMap: { [key: string]: boolean };
+  autoSpeaker: false;
+  activeSpeakerMap: { [key: string]: boolean };
+};
+
+export type Wrapper = {
+  subscribe: {
+    newChatMsg: (
+      handler: ({ userId, msg }: { userId: UUID; msg: Message }) => void
+    ) => void;
+  };
+  query: {
+    getTopPublicRooms: (cursor?: number) => Promise<GetTopPublicRoomsResponse>;
+    getUserProfile: (
+      idOrUsername: string
+    ) => Promise<UserWithFollowInfo | null>;
+    getScheduledRooms: (
+      cursor?: "" | number,
+      getOnlyMyScheduledRooms?: boolean
+    ) => Promise<GetScheduledRoomsResponse>;
+    getRoomUsers: () => Promise<UserList>;
+  };
+  mutation: {
+    joinRoomAndGetInfo: (
+      roomId: string
+    ) => Promise<
+      | JoinRoomAndGetInfoResponse
+      | {
+          error: string;
+        }
+    >;
+    speakingChange: (value: boolean) => void;
+    follow: (userId: string, value: boolean) => Promise<void>;
+    sendRoomChatMsg: (
+      ast: MessageToken[],
+      whisperedTo?: string[]
+    ) => Promise<void>;
+    setMute: (isMuted: boolean) => Promise<Record<string, never>>;
+    leaveRoom: () => Promise<{
+      roomId: UUID;
+    }>;
+    createRoom: (data: {
+      name: string;
+      privacy: string;
+      description: string;
+    }) => Promise<
+      | {
+          error: string;
+        }
+      | {
+          room: Room;
+        }
+    >;
+    editRoom: (data: {
+      name: string;
+      privacy: string;
+      description: string;
+    }) => Promise<
+      | {
+          error: string;
+        }
+      | {
+          room: Room;
+        }
+    >;
+  };
 };
