@@ -48,28 +48,40 @@ defmodule Broth.WsClient do
   def forward_frames(ws_client), do: WebSockex.cast(ws_client, {:forward_frames, self()})
   defp forward_frames_impl(test_pid, _state), do: {:ok, test_pid}
 
-  @underscore {:_, [], Elixir}
-
   defmacro assert_frame(op, payload, from \\ nil) do
-    quote do
-      ExUnit.Assertions.assert_receive(
-        {:text,
-          %{"op" => unquote(op),
-            "d" => unquote(payload)}, src}
-      )
-      unquote(from) && ExUnit.Assertions.assert(src == unquote(from))
+    if from do
+      quote do
+        from = unquote(from)
+
+        ExUnit.Assertions.assert_receive(
+          {:text, %{"op" => unquote(op), "d" => unquote(payload)}, ^from}
+        )
+      end
+    else
+      quote do
+        ExUnit.Assertions.assert_receive(
+          {:text, %{"op" => unquote(op), "d" => unquote(payload)}, _}
+        )
+      end
     end
   end
 
   defmacro assert_reply(ref, payload, from \\ nil) do
-    quote do
-      ExUnit.Assertions.assert_receive(
-        {:text,
-          %{"op" => "fetch_done",
-            "d" => unquote(payload),
-            "fetchId" => unquote(ref)},
-        src})
-      unquote(from) && ExUnit.Assertions.assert(src == unquote(from))
+    if from do
+      quote do
+        from = unquote(from)
+
+        ExUnit.Assertions.assert_receive(
+          {:text, %{"op" => "fetch_done", "d" => unquote(payload), "fetchId" => unquote(ref)},
+           ^from}
+        )
+      end
+    else
+      quote do
+        ExUnit.Assertions.assert_receive(
+          {:text, %{"op" => "fetch_done", "d" => unquote(payload), "fetchId" => unquote(ref)}, _}
+        )
+      end
     end
   end
 

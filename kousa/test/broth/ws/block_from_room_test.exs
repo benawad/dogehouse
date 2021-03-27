@@ -19,7 +19,7 @@ defmodule KousaTest.Broth.Ws.BlockFromRoomTest do
 
   describe "the websocket block_from_room operation" do
     test "blocks that person from a room", t do
-      # first, create a room owned by the primary user.
+      # first, create a room owned by the test user.
       {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
@@ -30,23 +30,24 @@ defmodule KousaTest.Broth.Ws.BlockFromRoomTest do
 
       # join the blocked user into the room
       Kousa.Room.join_room(blocked_id, room_id)
+      WsClient.assert_frame("new_user_join_room", _)
 
       # block the person.
       WsClient.send_msg(t.ws_client, "block_from_room", %{"userId" => blocked_id})
 
       WsClient.assert_frame(
         "user_left_room",
-        %{"roomId" => ^room_id, "userId" => ^blocked_id}
+        %{"roomId" => ^room_id, "userId" => ^blocked_id},
+        t.ws_client
       )
 
-      # note this comes from the follower's client
       assert Beef.RoomBlocks.blocked?(room_id, blocked_id)
     end
   end
 
   describe "the websocket block_user_and_from_room operation" do
     test "blocks that person from a room", t do
-      # first, create a room owned by the primary user.
+      # first, create a room owned by the test user.
       {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
@@ -57,16 +58,17 @@ defmodule KousaTest.Broth.Ws.BlockFromRoomTest do
 
       # join the blocked user into the room
       Kousa.Room.join_room(blocked_id, room_id)
+      WsClient.assert_frame("new_user_join_room", _)
 
       # block the person.
       WsClient.send_msg(t.ws_client, "block_user_and_from_room", %{"userId" => blocked_id})
 
       WsClient.assert_frame(
         "user_left_room",
-        %{"roomId" => ^room_id, "userId" => ^blocked_id}
+        %{"roomId" => ^room_id, "userId" => ^blocked_id},
+        t.ws_client
       )
 
-      # note this comes from the follower's client
       assert Beef.RoomBlocks.blocked?(room_id, blocked_id)
       assert Beef.UserBlocks.blocked?(t.user.id, blocked_id)
     end

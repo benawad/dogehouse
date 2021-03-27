@@ -32,7 +32,7 @@ defmodule KousaTest.Broth.Ws.FetchInviteListTest do
       WsClient.send_msg(t.ws_client, "invite_to_room", %{"userId" => follower_id})
 
       WsClient.send_msg(t.ws_client, "fetch_invite_list", %{"cursor" => 0})
-      WsClient.assert_frame("fetch_invite_list_done", %{"users" => [%{"id" => ^follower_id}]})
+      WsClient.assert_frame("fetch_invite_list_done", %{"users" => [%{"id" => ^follower_id}]}, t.ws_client)
     end
   end
 end
