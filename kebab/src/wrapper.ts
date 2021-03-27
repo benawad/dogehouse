@@ -6,13 +6,13 @@ import {
   Room,
   UserWithFollowInfo,
   UUID,
-  UserList,
 } from "./entities";
 import { Connection } from "./raw";
 import {
   GetScheduledRoomsResponse,
   GetTopPublicRoomsResponse,
   JoinRoomAndGetInfoResponse,
+  GetRoomUsersResponse,
 } from "./responses";
 
 type Handler<Data> = (data: Data) => void;
@@ -46,7 +46,7 @@ export const wrap = (connection: Connection) => ({
         cursor,
         getOnlyMyScheduledRooms,
       }),
-    getRoomUsers: async (): Promise<UserList> =>
+    getRoomUsers: async (): Promise<GetRoomUsersResponse> =>
       await connection.fetch(
         "get_current_room_users",
         {},

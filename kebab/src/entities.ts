@@ -119,12 +119,3 @@ export type CurrentRoom = Room & {
   activeSpeakerMap: Record<string, boolean>;
   autoSpeaker: boolean;
 };
-
-export type UserList = {
-  users: User[];
-  roomId: UUID;
-  raiseHandMap: Record<string, boolean>;
-  muteMap: Record<string, boolean>;
-  autoSpeaker: false;
-  activeSpeakerMap: Record<string, boolean>;
-};
