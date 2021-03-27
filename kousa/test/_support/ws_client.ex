@@ -62,6 +62,7 @@ defmodule Broth.WsClient do
     end
   end
 
+  # TODO: change off of Process.link and switch to Proce
   defmacro assert_dies(ws_client, fun, reason, timeout \\ 100) do
     quote bind_quoted: [ws_client: ws_client, fun: fun, reason: reason, timeout: timeout] do
       Process.flag(:trap_exit, true)
@@ -99,7 +100,6 @@ defmodule Broth.WsClientFactory do
 
     # start and link the websocket client
     ws_client = ExUnit.Callbacks.start_supervised!(WsClient)
-    Process.link(ws_client)
     WsClient.forward_frames(ws_client)
 
     WsClient.send_msg(ws_client, "auth", %{
@@ -111,6 +111,10 @@ defmodule Broth.WsClientFactory do
     })
 
     WsClient.assert_frame("auth-good", _)
+
+    # link the UserProcess to prevent dangling DB sandbox lookups
+    [{usersession_pid, _}] = Registry.lookup(Onion.UserSessionRegistry, user.id)
+    Process.link(usersession_pid)
 
     ws_client
   end
