@@ -23,7 +23,12 @@ type LoginButtonProps = {
   dev?: true;
 } & ({ onClick: () => void } | { oauthUrl: string });
 
-const LoginButton: React.FC<LoginButtonProps> = ({ children, onClick, oauthUrl, dev }) => {
+const LoginButton: React.FC<LoginButtonProps> = ({
+  children,
+  onClick,
+  oauthUrl,
+  dev,
+}) => {
   const { query } = useRouter();
   const clickHandler = useCallback(() => {
     if (typeof query.next === "string" && query.next) {
@@ -49,7 +54,7 @@ const LoginButton: React.FC<LoginButtonProps> = ({ children, onClick, oauthUrl, 
       >
         {children[0]}
         {children[1]}
-        <div/>
+        <div />
       </div>
     </Button>
   );
@@ -70,18 +75,28 @@ export const LoginPage: React.FC = () => {
           <span className="text-3xl text-primary-100">Welcome</span>
           <p className="text-primary-100 flex-wrap">
             By logging in you accept our&nbsp;
-            <a href="https://youtu.be/dQw4w9WgXcQ" className="text-accent hover:text-accent-hover">Privacy Policy</a>
+            <a
+              href="https://youtu.be/dQw4w9WgXcQ"
+              className="text-accent hover:text-accent-hover"
+            >
+              Privacy Policy
+            </a>
             &nbsp;and&nbsp;
-            <a href="https://youtu.be/dQw4w9WgXcQ" className="text-accent hover:text-accent-hover">Terms of Service</a>
+            <a
+              href="https://youtu.be/dQw4w9WgXcQ"
+              className="text-accent hover:text-accent-hover"
+            >
+              Terms of Service
+            </a>
           </p>
         </div>
         <div className="flex-col gap-4">
           <LoginButton oauthUrl={`${apiBaseUrl}/auth/github/web`}>
-            <SvgSolidGitHub width={20} height={20}/>
+            <SvgSolidGitHub width={20} height={20} />
             Login with GitHub
           </LoginButton>
           <LoginButton oauthUrl={`${apiBaseUrl}/auth/twitter/web`}>
-            <SvgSolidTwitter width={20} height={20}/>
+            <SvgSolidTwitter width={20} height={20} />
             Login with Twitter
           </LoginButton>
           {!__prod__ ? (
@@ -104,7 +119,7 @@ export const LoginPage: React.FC = () => {
                 push("/dashboard");
               }}
             >
-              <SvgSolidBug width={20} height={20}/>
+              <SvgSolidBug width={20} height={20} />
               Create a test user
             </LoginButton>
           ) : null}
@@ -115,16 +130,34 @@ export const LoginPage: React.FC = () => {
         </div>
       </div>
       <div className="absolute bottom-0 w-full justify-between px-7 py-5 mt-auto">
-        <LgLogo/>
+        <LgLogo />
         <div className="gap-6 text-primary-300">
-          <a href="https://youtu.be/dQw4w9WgXcQ" className="hover:text-primary-200">Privacy policy</a>
-          <a href="https://github.com/benawad/dogehouse/issues" className="hover:text-primary-200">Report a bug</a>
+          <a
+            href="https://youtu.be/dQw4w9WgXcQ"
+            className="hover:text-primary-200"
+          >
+            Privacy policy
+          </a>
+          <a
+            href="https://github.com/benawad/dogehouse/issues"
+            className="hover:text-primary-200"
+          >
+            Report a bug
+          </a>
           <div className="gap-4">
             <a href="https://github.com/benawad/dogehouse">
-              <SvgSolidGitHub width={20} height={20} className="cursor-pointer hover:text-primary-200"/>
+              <SvgSolidGitHub
+                width={20}
+                height={20}
+                className="cursor-pointer hover:text-primary-200"
+              />
             </a>
             <a href="https://discord.gg/wCbKBZF9cV">
-              <SvgSolidDiscord width={20} height={20} className="hover:text-primary-200"/>
+              <SvgSolidDiscord
+                width={20}
+                height={20}
+                className="hover:text-primary-200"
+              />
             </a>
           </div>
         </div>
