@@ -41,7 +41,7 @@ defmodule KousaTest.Broth.Ws.AuthTest do
     end
 
     test "fails auth if the accessToken is borked" do
-      %{id: user_id} = Factory.create(User)
+      user = Factory.create(User)
       Kousa.Utils.TokenUtils.create_tokens(user)
 
       # start and link the websocket client
