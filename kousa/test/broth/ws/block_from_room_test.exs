@@ -35,7 +35,9 @@ defmodule KousaTest.Broth.Ws.BlockFromRoomTest do
       WsClient.send_msg(t.ws_client, "block_from_room", %{"userId" => blocked_id})
 
       WsClient.assert_frame(
-        "user_left_room", %{"roomId" => ^room_id, "userId" => ^blocked_id})
+        "user_left_room",
+        %{"roomId" => ^room_id, "userId" => ^blocked_id}
+      )
 
       # note this comes from the follower's client
       assert Beef.RoomBlocks.blocked?(room_id, blocked_id)
@@ -60,7 +62,9 @@ defmodule KousaTest.Broth.Ws.BlockFromRoomTest do
       WsClient.send_msg(t.ws_client, "block_user_and_from_room", %{"userId" => blocked_id})
 
       WsClient.assert_frame(
-        "user_left_room", %{"roomId" => ^room_id, "userId" => ^blocked_id})
+        "user_left_room",
+        %{"roomId" => ^room_id, "userId" => ^blocked_id}
+      )
 
       # note this comes from the follower's client
       assert Beef.RoomBlocks.blocked?(room_id, blocked_id)

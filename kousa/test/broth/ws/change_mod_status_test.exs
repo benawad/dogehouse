@@ -39,24 +39,30 @@ defmodule KousaTest.Broth.Ws.ChangeModStatusTest do
       # both clients get notified
       WsClient.assert_frame(
         "speaker_added",
-        %{"userId" => ^speaker_id, "roomId" => ^room_id})
+        %{"userId" => ^speaker_id, "roomId" => ^room_id}
+      )
 
       WsClient.assert_frame(
         "speaker_added",
-        %{"userId" => ^speaker_id, "roomId" => ^room_id})
+        %{"userId" => ^speaker_id, "roomId" => ^room_id}
+      )
 
       # make the person a mod
-      WsClient.send_msg(t.ws_client,
-        "change_mod_status", %{"userId" => speaker_id, "value" => true})
+      WsClient.send_msg(t.ws_client, "change_mod_status", %{
+        "userId" => speaker_id,
+        "value" => true
+      })
 
       # both clients get notified
       WsClient.assert_frame(
         "mod_changed",
-        %{"userId" => ^speaker_id, "roomId" => ^room_id})
+        %{"userId" => ^speaker_id, "roomId" => ^room_id}
+      )
 
       WsClient.assert_frame(
         "mod_changed",
-        %{"userId" => ^speaker_id, "roomId" => ^room_id})
+        %{"userId" => ^speaker_id, "roomId" => ^room_id}
+      )
 
       assert Beef.RoomPermissions.get(speaker_id, room_id).isMod
     end

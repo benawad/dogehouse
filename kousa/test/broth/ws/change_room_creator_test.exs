@@ -1,4 +1,4 @@
-#defmodule KousaTest.Broth.Ws.ChangeModStatusTest do
+# defmodule KousaTest.Broth.Ws.ChangeModStatusTest do
 #  use ExUnit.Case, async: true
 #  use Kousa.Support.EctoSandbox
 #
@@ -78,4 +78,4 @@
 #    @tag :skip
 #    test "a non-owner can't make someone a room creator"
 #  end
-#end
+# end

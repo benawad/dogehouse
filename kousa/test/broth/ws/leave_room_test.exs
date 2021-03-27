@@ -62,9 +62,11 @@ defmodule KousaTest.Broth.Ws.LeaveRoomTest do
 
       WsClient.assert_frame("you_left_room", _)
 
-      assert %{peoplePreviewList: [
-        %{id: ^user_id}
-      ]} = Rooms.get_room_by_id(room.id) 
+      assert %{
+               peoplePreviewList: [
+                 %{id: ^user_id}
+               ]
+             } = Rooms.get_room_by_id(room.id)
     end
 
     @tag :skip

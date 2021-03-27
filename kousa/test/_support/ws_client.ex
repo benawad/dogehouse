@@ -10,7 +10,7 @@ defmodule Broth.WsClient do
     |> Map.put(:id, UUID.uuid4())
   end
 
-  def start_link(opts) do
+  def start_link(_opts) do
     ancestors =
       :"$ancestors"
       |> Process.get()
@@ -48,17 +48,28 @@ defmodule Broth.WsClient do
   def forward_frames(ws_client), do: WebSockex.cast(ws_client, {:forward_frames, self()})
   defp forward_frames_impl(test_pid, _state), do: {:ok, test_pid}
 
-  defmacro assert_frame(op, payload) do
+  @underscore {:_, [], Elixir}
+
+  defmacro assert_frame(op, payload, from \\ nil) do
     quote do
-      ExUnit.Assertions.assert_receive({:text, %{"op" => unquote(op), "d" => unquote(payload)}})
+      ExUnit.Assertions.assert_receive(
+        {:text,
+          %{"op" => unquote(op),
+            "d" => unquote(payload)}, src}
+      )
+      unquote(from) && ExUnit.Assertions.assert(src == unquote(from))
     end
   end
 
-  defmacro assert_reply(ref, payload) do
+  defmacro assert_reply(ref, payload, from \\ nil) do
     quote do
       ExUnit.Assertions.assert_receive(
-        {:text, %{"op" => "fetch_done", "d" => unquote(payload), "fetchId" => unquote(ref)}}
-      )
+        {:text,
+          %{"op" => "fetch_done",
+            "d" => unquote(payload),
+            "fetchId" => unquote(ref)},
+        src})
+      unquote(from) && ExUnit.Assertions.assert(src == unquote(from))
     end
   end
 
@@ -77,7 +88,7 @@ defmodule Broth.WsClient do
 
   @impl true
   def handle_frame({type, data}, test_pid) do
-    send(test_pid, {type, Jason.decode!(data)})
+    send(test_pid, {type, Jason.decode!(data), self()})
     {:ok, test_pid}
   end
 
