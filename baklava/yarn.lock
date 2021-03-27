@@ -1212,11 +1212,6 @@ globby@^10.0.1:
     merge2 "^1.2.3"
     slash "^3.0.0"
 
-globkey@^1.0.12:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/globkey/-/globkey-1.0.12.tgz#bef93ca4bdf0c3df721cac1362f001daf6cc9fb7"
-  integrity sha512-fM0EZpczo4ToeDRtgOsVQtD1NusVI3+h5q23xtFuTfTwYL39jQpxf4Lt6IKUSEI8NWjRBajo40czoGWy6ZpGjg==
-
 got@^9.6.0:
   version "9.6.0"
   resolved "https://registry.yarnpkg.com/got/-/got-9.6.0.tgz#edf45e7d67f99545705de1f7bbeeeb121765ed85"
