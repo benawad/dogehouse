@@ -97,7 +97,10 @@
       "volume": "Volume:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Titolo app invalido", "label": "Inserisci titolo app" },
+      "input": {
+        "errorMsg": "Titolo app invalido",
+        "label": "Inserisci titolo app"
+      },
       "header": "Overlay Settings"
     }
   },

@@ -98,7 +98,10 @@
       "volume": "äänenvoimakkuus:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Epäkelpo sovelluksen otsikko", "label": "Syötä sovelluksen otsikko" },
+      "input": {
+        "errorMsg": "Epäkelpo sovelluksen otsikko",
+        "label": "Syötä sovelluksen otsikko"
+      },
       "header": "Overlay-asetukset"
     }
   },
