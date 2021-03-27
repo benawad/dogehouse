@@ -1,64 +1,84 @@
 import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
 import { useRouter } from "next/router";
-import React from "react";
-import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
+import React, { useEffect } from "react";
+import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { isUuid } from "../../lib/isUuid";
+import { showErrorToast } from "../../lib/showErrorToast";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
-import { ErrorToast } from "../../ui/ErrorToast";
 import { RoomHeader } from "../../ui/RoomHeader";
+import { Spinner } from "../../ui/Spinner";
+import { MiddlePanel, RightPanel } from "../layouts/GridPanels";
+import { RoomChat } from "./chat/RoomChat";
+import { RoomPanelIconBarController } from "./RoomPanelIconBarController";
 import { RoomUsersPanel } from "./RoomUsersPanel";
 import { UserPreviewModal } from "./UserPreviewModal";
-import { UserPreviewModalProvider } from "./UserPreviewModalProvider";
 
 interface RoomPanelControllerProps {}
 
 export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
-  const { currentRoom, setCurrentRoom } = useCurrentRoomStore();
+  const { currentRoomId, setCurrentRoomId } = useCurrentRoomIdStore();
   const { query } = useRouter();
   const roomId = typeof query.id === "string" ? query.id : "";
-  const { data } = useTypeSafeQuery(
-    ["joinRoomAndGetInfo", currentRoom?.id || ""],
+  const { data, isLoading } = useTypeSafeQuery(
+    ["joinRoomAndGetInfo", currentRoomId || ""],
     {
       enabled: isUuid(roomId),
       onSuccess: ((d: JoinRoomAndGetInfoResponse | { error: string }) => {
-        if (!("error" in d)) {
-          setCurrentRoom(() => d.room);
+        if (!("error" in d) && d.room) {
+          setCurrentRoomId(() => d.room.id);
         }
       }) as any,
     },
     [roomId]
   );
+  const { push } = useRouter();
 
-  if (!data) {
-    // @todo add error handling
+  useEffect(() => {
+    if (isLoading) {
+      return;
+    }
+    if (!data) {
+      setCurrentRoomId(null);
+      push("/dashboard");
+      return;
+    }
+    if ("error" in data) {
+      setCurrentRoomId(null);
+      showErrorToast(data.error);
+      push("/dashboard");
+    }
+  }, [data, isLoading, push, setCurrentRoomId]);
+
+  if (isLoading || !currentRoomId) {
+    return <Spinner />;
+  }
+
+  if (!data || "error" in data) {
     return null;
   }
 
-  // @todo start using error codes
-  if ("error" in data) {
-    // @todo replace with real design
-    return (
-      <div>
-        <ErrorToast message={data.error} />
-      </div>
-    );
-  }
-
-  if (!currentRoom) {
-    return null;
-  }
-
-  const roomCreator = data?.users.find((x) => x.id === currentRoom.creatorId);
+  const roomCreator = data.users.find((x) => x.id === data.room.creatorId);
 
   return (
-    <div className={`w-full flex-col`}>
-      <UserPreviewModal {...data} />
-      <RoomHeader
-        title={currentRoom.name}
-        description={currentRoom.description || ""}
-        names={roomCreator ? [roomCreator.username] : []}
-      />
-      <RoomUsersPanel {...data} />
-    </div>
+    <>
+      <MiddlePanel
+        stickyChildren={
+          <RoomHeader
+            title={data.room.name}
+            description={data.room.description || ""}
+            names={roomCreator ? [roomCreator.username] : []}
+          />
+        }
+      >
+        <UserPreviewModal {...data} />
+        <RoomUsersPanel {...data} />
+        <div className={`sticky bottom-0 pb-7 bg-primary-900`}>
+          <RoomPanelIconBarController />
+        </div>
+      </MiddlePanel>
+      <RightPanel>
+        <RoomChat room={data.room} users={data.users} />
+      </RightPanel>
+    </>
   );
 };

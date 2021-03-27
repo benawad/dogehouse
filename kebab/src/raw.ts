@@ -27,6 +27,11 @@ export type Listener<Data = unknown> = {
 };
 
 export type Connection = {
+  close: () => void;
+  once: <Data = unknown>(
+    opcode: Opcode,
+    handler: ListenerHandler<Data>
+  ) => void;
   addListener: <Data = unknown>(
     opcode: Opcode,
     handler: ListenerHandler<Data>
@@ -46,8 +51,14 @@ export const connect = (
   {
     logger = () => {},
     onConnectionTaken = () => {},
+    onClearTokens = () => {},
     url = apiUrl,
-  }: { logger?: Logger; onConnectionTaken?: () => void; url?: string }
+  }: {
+    logger?: Logger;
+    onConnectionTaken?: () => void;
+    onClearTokens?: () => void;
+    url?: string;
+  }
 ): Promise<Connection> =>
   new Promise((resolve, reject) => {
     const socket = new ReconnectingWebSocket(url, [], {
@@ -73,9 +84,14 @@ export const connect = (
 
       socket.addEventListener("close", (error) => {
         clearInterval(heartbeat);
-        if (error.code === 4003) {
+        if (error.code === 4001) {
+          socket.close();
+          onClearTokens();
+        } else if (error.code === 4003) {
           socket.close();
           onConnectionTaken();
+        } else if (error.code === 4004) {
+          socket.close();
         }
         reject(error);
       });
@@ -86,7 +102,6 @@ export const connect = (
         reconnectToVoice: false,
         currentRoomId: null,
         muted: false,
-        platform: "uhhh web sure",
       });
 
       socket.addEventListener("message", (e) => {
@@ -102,6 +117,17 @@ export const connect = (
 
         if (message.op === "auth-good") {
           const connection: Connection = {
+            close: () => socket.close(),
+            once: (opcode, handler) => {
+              const listener = { opcode, handler } as Listener<unknown>;
+
+              listener.handler = (...params) => {
+                handler(...(params as Parameters<typeof handler>));
+                listeners.splice(listeners.indexOf(listener), 1);
+              };
+
+              listeners.push(listener);
+            },
             addListener: (opcode, handler) => {
               const listener = { opcode, handler } as Listener<unknown>;
 

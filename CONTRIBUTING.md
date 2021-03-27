@@ -16,9 +16,9 @@ All changes happen through pull requests. Pull requests are the best way to prop
 This project is using the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/) standard. Please follow these steps to ensure your
 commit messages are standardized:
 1. Make sure your shell path is in the root of the project (not inside any of the packages).
-2. Run `npm i`.
+2. Run `yarn`.
 3. Stage the files you are commiting with `git add [files]`.
-4. Run `npm run commit`. This will start an interactive prompt that generates your commit message:
+4. Run `yarn commit`. This will start an interactive prompt that generates your commit message:
     1. Select the type of change.
     2. Type the scope. This is either `global` for project-wide changes or one of the packages (kibbeh, shawarma etc.).
     3. Write a short, imperative tense description of the change.
@@ -45,7 +45,41 @@ Navigate to `/kofta`
 - Run `npm i`
 - Run `npm run start:staging` (this tells React to connect to a hosted version of the backend for development purposes)
 
-## Full Local Development
+## Devcontainer Full Local Development
+For VSCode users, we're able to use devcontainers which allows to create development environments that already have all the tools and services configured and ready to go.
+
+### Usage
+
+_Prerequisite: [Install Docker](https://docs.docker.com/install) on your local environment._
+
+To get started, read and follow the instuctions in [Developing inside a Container](https://code.visualstudio.com/docs/remote/containers). The [.devcontainer/](./.devcontainer) directory contains pre-configured `devcontainer.json`, `docker-compose.yml` and `Dockerfile` files, which you can use to set up remote development within a docker container.
+
+- Install the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension.
+- Open VSCode and bring up the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
+- Type `Remote-Containers: Open Folder in Container`, this will build the container with Elixir and Node installed, this will also start Postgres and RabbitMQ instances.
+
+> If you need to modify environment variables for kousa, you need to modify them inside `/home/doge/.bashrc` and restart your terminal.
+
+### Run
+#### `kousa`
+```shell
+$ mix deps.get
+$ mix ecto.migrate
+$ iex -S mix
+```
+#### `shawarma`
+```shell
+$ npm i
+$ npm run build
+$ npm start
+```
+#### `kofta`
+```shell
+$ npm i
+$ npm start
+```
+
+## Manual Full Local Development
 How to run locally:
 
 ### Backend

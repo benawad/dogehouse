@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+}
+
+.current-role {
+  display: flex;
+  gap: 10px;
+}
+
+.cant-use-mic {
+  color: red;
+}

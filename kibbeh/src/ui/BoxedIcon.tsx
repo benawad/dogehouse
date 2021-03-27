@@ -1,12 +1,18 @@
 import React, { ReactElement } from "react";
 
+const colorMap = {
+  "700": "bg-primary-700",
+  "800": "bg-primary-800",
+};
+
 export interface BoxedIconProps
   extends React.ComponentPropsWithoutRef<"button"> {
-  children?: ReactElement;
   circle?: boolean;
+  color?: keyof typeof colorMap;
 }
 
 export const BoxedIcon: React.FC<BoxedIconProps> = ({
+  color = "700",
   children,
   className = "",
   circle = false,
@@ -14,7 +20,9 @@ export const BoxedIcon: React.FC<BoxedIconProps> = ({
 }) => {
   return (
     <button
-      className={`bg-primary-700 hover:bg-primary-600 h-6 w-6 cursor-pointer text-primary-100 justify-center items-center ${
+      className={`${
+        colorMap[color]
+      } hover:bg-primary-600 h-6 w-6 cursor-pointer text-primary-100 justify-center items-center ${
         circle ? `rounded-full` : `rounded`
       }
         ${className}`}

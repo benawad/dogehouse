@@ -1,9 +1,10 @@
 import { useRouter } from "next/router";
 import React, { useContext, useState } from "react";
-import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
+import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
-import { Feed } from "../../ui/Feed";
+import { Feed, FeedHeader } from "../../ui/Feed";
+import { MiddlePanel } from "../layouts/GridPanels";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 import { CreateRoomModal } from "./CreateRoomModal";
 
@@ -19,35 +20,40 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
     refetchInterval: 10000,
   });
   const [roomModal, setRoomModal] = useState(false);
-  const { currentRoom } = useCurrentRoomStore();
+  const { currentRoomId } = useCurrentRoomIdStore();
   const { push } = useRouter();
-  const prefetch = useTypeSafePrefetch("joinRoomAndGetInfo");
+  const prefetch = useTypeSafePrefetch();
 
   if (!conn || isLoading || !data) {
     return null;
   }
 
   return (
-    <>
+    <MiddlePanel
+      stickyChildren={
+        <FeedHeader
+          actionTitle="New room"
+          onActionClicked={() => {
+            setRoomModal(true);
+          }}
+          title="Your Feed"
+        />
+      }
+    >
       <Feed
         onRoomClick={(room) => {
-          if (room.id !== currentRoom?.id) {
-            prefetch([room.id], ["joinRoomAndGetInfo", room.id]);
+          if (room.id !== currentRoomId) {
+            prefetch(["joinRoomAndGetInfo", room.id], [room.id]);
           }
 
           push(`/room/[id]`, `/room/${room.id}`);
         }}
-        actionTitle="New room"
         emptyPlaceholder={<div>empty</div>}
-        onActionClicked={() => {
-          setRoomModal(true);
-        }}
         rooms={data.rooms}
-        title="Your Feed"
       />
       {roomModal && (
         <CreateRoomModal onRequestClose={() => setRoomModal(false)} />
       )}
-    </>
+    </MiddlePanel>
   );
 };

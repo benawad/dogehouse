@@ -12,6 +12,7 @@ import {
   GetScheduledRoomsResponse,
   GetTopPublicRoomsResponse,
   JoinRoomAndGetInfoResponse,
+  GetRoomUsersResponse,
 } from "./responses";
 
 type Handler<Data> = (data: Data) => void;
@@ -31,10 +32,6 @@ export const wrap = (connection: Connection) => ({
       users: UserWithFollowInfo[];
       nextCursor: number | null;
     }> => connection.fetch("fetch_following_online", { cursor }),
-    joinRoomAndGetInfo: (
-      roomId: string
-    ): Promise<JoinRoomAndGetInfoResponse | { error: string }> =>
-      connection.fetch("join_room_and_get_info", { roomId }),
     getTopPublicRooms: (cursor = 0): Promise<GetTopPublicRoomsResponse> =>
       connection.fetch("get_top_public_rooms", { cursor }),
     getUserProfile: (
@@ -49,10 +46,22 @@ export const wrap = (connection: Connection) => ({
         cursor,
         getOnlyMyScheduledRooms,
       }),
+    getRoomUsers: async (): Promise<GetRoomUsersResponse> =>
+      await connection.fetch(
+        "get_current_room_users",
+        {},
+        "get_current_room_users_done"
+      ),
   },
   mutation: {
-    joinRoom: (id: UUID): Promise<void> =>
-      connection.fetch("join_room", { roomId: id }, "join_room_done"),
+    joinRoomAndGetInfo: (
+      roomId: string
+    ): Promise<JoinRoomAndGetInfoResponse | { error: string }> =>
+      connection.fetch("join_room_and_get_info", { roomId }),
+    speakingChange: (value: boolean) =>
+      connection.send(`speaking_change`, { value }),
+    follow: (userId: string, value: boolean): Promise<void> =>
+      connection.fetch("follow", { userId, value }),
     sendRoomChatMsg: (
       ast: MessageToken[],
       whisperedTo: string[] = []
@@ -61,7 +70,7 @@ export const wrap = (connection: Connection) => ({
     setMute: (isMuted: boolean): Promise<Record<string, never>> =>
       connection.fetch("mute", { value: isMuted }),
     leaveRoom: (): Promise<{ roomId: UUID }> =>
-      connection.fetch("leave_room", {}),
+      connection.fetch("leave_room", {}, "you_left_room"),
     createRoom: (data: {
       name: string;
       privacy: string;

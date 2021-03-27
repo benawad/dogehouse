@@ -22,57 +22,41 @@ describe("ErrorMessage", () => {
     expect(child).toBeVisible();
   });
 
-  it("should have translateY(0%) when rendered", () => {
+  it("should call onClose after 7000ms", () => {
     const message = "some error message";
-    const { getByTestId } = render(
-      <ErrorToast message={message} onClose={() => {}} />
-    );
-
-    const component = getByTestId("error-message");
-
-    expect(component.style.transform).toContain("translateY(0%)");
-  });
-
-  it("should have translateY(100%) after 7000ms if autoClose prop is true", () => {
-    const message = "some error message";
-    const { getByTestId } = render(
-      <ErrorToast message={message} onClose={() => {}} />
-    );
-
-    const component = getByTestId("error-message");
-
+    const onClick = jest.fn();
+    render(<ErrorToast message={message} onClose={onClick} />);
     act(() => {
       jest.runAllTimers();
     });
-    expect(component.style.transform).toContain("translateY(100%)");
+
+    expect(onClick).toHaveBeenCalled();
   });
 
-  it("should have translateY(0%) after t > 7000ms if autoClose prop is false", () => {
+  it("shouldn't call onClose after 7000ms if duration props is sticky", () => {
     const message = "some error message";
-    const { getByTestId } = render(
-      <ErrorToast message={message} onClose={() => {}} />
+    const onClick = jest.fn();
+    render(
+      <ErrorToast message={message} onClose={onClick} duration="sticky" />
     );
-
-    const component = getByTestId("error-message");
-
     act(() => {
-      jest.advanceTimersByTime(8000);
+      jest.runAllTimers();
     });
 
-    expect(component.style.transform).toContain("translateY(0%)");
+    expect(onClick).not.toHaveBeenCalled();
   });
 
-  it("should have translateY(100%) after if the close button is clicked", () => {
+  it("should call onClose the close button is clicked", () => {
     const message = "some error message";
+    const onClick = jest.fn();
+
     const { getByTestId } = render(
-      <ErrorToast message={message} onClose={() => {}} />
+      <ErrorToast message={message} onClose={onClick} />
     );
 
-    const component = getByTestId("error-message");
     const closeBtn = getByTestId("close-btn");
     closeBtn.click();
-
-    expect(component.style.transform).toContain("translateY(100%)");
+    expect(onClick).toHaveBeenCalled();
   });
 
   it("should match snapshot", () => {

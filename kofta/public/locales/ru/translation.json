@@ -34,8 +34,8 @@
     "banUser": { "ban": "бан" },
     "followingOnlineList": {
       "listHeader": "Список пользователей, которые не в закрытой комнате и на которых вы подписаны.",
-      "currentRoom": "сейчас в :",
-      "startPrivateRoom": "создать с ними закрытую комнату"
+      "currentRoom": "текущая комната",
+      "startPrivateRoom": "создать приватную комнату"
     },
     "followList": {
       "followHim": "подписаться",
@@ -62,14 +62,14 @@
     },
     "myProfile": {
       "logout": "выйти",
-      "probablyLoading": "наверное загружается...",
-      "voiceSettings": "зайти в голосовые настройки",
-      "soundSettings": "зайти в настройки звука",
+      "probablyLoading": "вероятно загружается...",
+      "voiceSettings": "голосовые настройки",
+      "soundSettings": "настройки звука",
       "deleteAccount": "удалить аккаунт",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "настройки оверлея"
     },
     "notFound": {
-      "whoopsError": "Упс! Эта страница была утеряна в разговоре.",
+      "whoopsError": "Упс! Эта страница была потеряна.",
       "goHomeMessage": "Не переживайте. Вы можете ",
       "goHomeLinkText": "вернуться домой"
     },
@@ -90,7 +90,8 @@
       "followHim": "подписаться",
       "followingHim": "Вы подписаны",
       "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard"
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Голосовые настройки",
@@ -123,15 +124,15 @@
       "mute": "Выключить звук",
       "unmute": "Включить звук",
       "makeRoomPublicBtn": "Сделать комнату открытой!",
-      "settings": "Настройки",
-      "speaker": "Оратор",
-      "listener": "Слушатели",
+      "settings": "настройки",
+      "speaker": "оратор",
+      "listener": "слушатель",
       "chat": "Чат"
     },
     "deviceNotSupported": {
       "notSupported": "Ваше устройство не поддерживается. Вы можете создать",
       "linkText": "запрос через GitHub",
-      "addSupport": "и я попробую добавить поддержку для вашего устройства."
+      "addSupport": "и мы попробуем добавить поддержку для вашего устройства."
     },
     "inviteButton": {
       "invited": "приглашен",
@@ -152,7 +153,7 @@
     "userVolumeSlider": { "noAudioMessage": "почему-то нет аудиосвязи" },
     "addToCalendar": { "add": "Добавить в Календарь" },
     "wsKilled": {
-      "description": "Вебсокет был уничтожен сервером. Обычно это происходит когда вы открываете сайт в другой вкладке.",
+      "description": "Вебсокет был удален сервером. Обычно это происходит когда вы открываете сайт в другой вкладке.",
       "reconnect": "присоединиться заново"
     },
     "modals": {
@@ -232,16 +233,16 @@
       "roomDescription": "описание комнаты"
     },
     "roomStatus": {
-      "fuelingRocket": "Заправка ракеты",
-      "takingOff": "Запуск",
+      "fuelingRocket": "заправляем ракету",
+      "takingOff": "старт двигатерей",
       "inSpace": "В космосе",
-      "approachingMoon": "Приближается к луне",
-      "lunarDoge": "Лунный doge",
-      "approachingSun": "Приближается к солнцу",
-      "solarDoge": "Солнечный doge",
-      "approachingGalaxy": "Приближается к галактике",
-      "galacticDoge": "Галактический doge",
-      "spottedLife": "Замечена планета с жизнью"
+      "approachingMoon": "приближаемся к луне",
+      "lunarDoge": "лунный Doge",
+      "approachingSun": "приближаемся к солнцу",
+      "solarDoge": "солнечный Doge",
+      "approachingGalaxy": "приближаемся к галактике",
+      "galacticDoge": "галактический Doge",
+      "spottedLife": "замечена планета с жизнью"
     }
   }
 }

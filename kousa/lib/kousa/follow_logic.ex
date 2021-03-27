@@ -37,7 +37,7 @@ defmodule Kousa.Follow do
       Enum.each(followers_to_notify, fn %Follow{followerId: followerId} ->
         Onion.UserSession.send_cast(
           followerId,
-          {:send_ws_msg, :vscode,
+          {:send_ws_msg,
            %{
              op: "someone_you_follow_created_a_room",
              d: %{

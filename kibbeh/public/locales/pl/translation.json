@@ -61,7 +61,7 @@
       "logout": "wyloguj się",
       "probablyLoading": "prawdobodobnie ładowanie...",
       "voiceSettings": "przejdź do ustawień głosu",
-      "soundSettings": "przejdź do ustawień dzięku",
+      "soundSettings": "przejdź do ustawień dźwięku",
       "deleteAccount": "usuń konto",
       "overlaySettings": "przejdź do ustawień nakładki"
     },
@@ -87,7 +87,8 @@
       "followHim": "obserwuj",
       "followingHim": "obserwujesz",
       "copyProfileUrl": "skopiuj url profilu",
-      "urlCopied": "URL zostało skopiowane do schowka"
+      "urlCopied": "URL zostało skopiowane do schowka",
+      "unfollow": "Przestań obserwować"
     },
     "voiceSettings": {
       "header": "Ustawienia Głosu",
@@ -97,7 +98,10 @@
       "volume": "głośność:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Błędna nazwa aplikacji", "label": "Wpisz nazwę aplikacji" },
+      "input": {
+        "errorMsg": "Błędna nazwa aplikacji",
+        "label": "Wpisz nazwę aplikacji"
+      },
       "header": "Ustawienia Nakładki"
     }
   },
