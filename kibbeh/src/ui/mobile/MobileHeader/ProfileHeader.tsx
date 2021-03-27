@@ -26,10 +26,8 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   onSearchClick,
 }) => {
   return (
-    <div className="w-full py-4 px-3 flex justify-between bg-primary-900">
-      <div>
-        <SingleUser size="xs" src={avatar} isOnline={true} />
-      </div>
+    <div className="w-full p-3 flex justify-between items-center bg-primary-900">
+      <SingleUser size="xxs" src={avatar} isOnline={true} />
       <div className="flex gap-x-5">
         {onAnnouncementsClick && (
           <button onClick={onAnnouncementsClick}>
