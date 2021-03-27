@@ -18,10 +18,12 @@ i know this code is kinda garbage but that's because the mockup is garbage and d
 
  */
 
-type LoginButtonProps = {
+interface LoginButtonProps {
   children: [React.ReactNode, React.ReactNode];
   dev?: true;
-} & ({ onClick: () => void } | { oauthUrl: string });
+  onClick?: () => void;
+  oauthUrl?: string; // React.FC didn't like & ({ onClick: () => void } | { oauthUrl: string }) so yeah
+}
 
 const LoginButton: React.FC<LoginButtonProps> = ({
   children,
@@ -37,14 +39,14 @@ const LoginButton: React.FC<LoginButtonProps> = ({
       } catch {}
     }
 
-    window.location.href = oauthUrl;
+    window.location.href = oauthUrl as string;
   }, [query, oauthUrl]);
 
   return (
     <Button
       className="justify-center"
       color={dev ? "primary" : "secondary"}
-      onClick={onClick ?? clickHandler}
+      onClick={oauthUrl ? clickHandler : onClick}
     >
       <div
         className="grid gap-4"
