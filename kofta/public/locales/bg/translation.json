@@ -1,0 +1,246 @@
+{
+  "_comment": "if you change this file, do: npm run i18",
+  "common": {
+    "loadMore": "зареди още",
+    "loading": "зареждане...",
+    "noUsersFound": "не са намерени потребители",
+    "ok": "ок",
+    "yes": "да",
+    "no": "не",
+    "cancel": "прекрати",
+    "save": "запази",
+    "edit": "промени",
+    "delete": "изтрий",
+    "joinRoom": "влез в стая",
+    "copyLink": "копирай линк",
+    "copied": "копирано",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please give DogeHouse Accessibility permessions"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Muted | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "История",
+    "link_2": "Дискорд",
+    "link_3": "Докладвай за неизправност"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "бан" },
+    "followingOnlineList": {
+      "listHeader": "Списък от потребители, които не са в ",
+      "currentRoom": "в момента в:",
+      "startPrivateRoom": "start a private room with them"
+    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Създай стая", "refresh": "Опресни" },
+    "inviteList": {
+      "roomGone": "изтекла стая, върни се назад",
+      "shareRoomLink": "сподели линк към стая",
+      "inviteFollowers": "Можеш да поканиш последователи, които са на линия:",
+      "whenFollowersOnline": "Когато последователите ти са на линия, че се появят тук."
+    },
+    "login": {
+      "headerText": "Taking voice conversations to the moon 🚀",
+      "featureText_1": "Тъмна тема",
+      "featureText_2": "Отвори влизания",
+      "featureText_3": "Mеждуплатформена Pоддръжка",
+      "featureText_4": "Отворен Код",
+      "featureText_5": "Текстов Чат",
+      "featureText_6": "Powered by Doge",
+      "loginGithub": "влизане с GitHub",
+      "loginTwitter": "влизане с Twitter",
+      "createTestUser": "създаване на тестови потребител"
+    },
+    "myProfile": {
+      "logout": "излизане",
+      "probablyLoading": "зареждане най-вероятно...",
+      "voiceSettings": "отиване към гласови настройки",
+      "soundSettings": "отиване към звукови настройки",
+      "deleteAccount": "изтриване на акаунт",
+      "overlaySettings": "go to overlay settings"
+    },
+    "notFound": {
+      "whoopsError": "Опаа! Тази страниза бе изгубена.",
+      "goHomeMessage": "Не се тревожи. Можеш",
+      "goHomeLinkText": "Към начален екран"
+    },
+    "room": {
+      "speakers": "Говорители",
+      "requestingToSpeak": "Заявка за говорене",
+      "listeners": "Слушатели",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+    },
+    "searchUser": { "search": "търсене..." },
+    "soundEffectSettings": { "header": "Звук" },
+    "viewUser": {
+      "editProfile": "промяна на профил",
+      "followsYou": "следват те",
+      "followers": "последователи",
+      "following": "последвани",
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
+    },
+    "voiceSettings": {
+      "header": "Звукови настройки",
+      "mic": "микрофон:",
+      "permissionError": "не бяха открити микрофони, най-вероятно няма вързани или нямат разрешение да бъдат ползвани.",
+      "refresh": "опресняване на списък с микрофони",
+      "volume": "ниво на звук:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings",
+      "errorMsg": "Please enter valid app title",
+      "label": "Enter app title"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Баннати потребители",
+      "unban": "премахване на бан",
+      "noBans": "все още никой не е баннат"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Излизане от сегашната стая",
+      "confirmLeaveRoom": "Сигурни ли сте, че искате да излезете?",
+      "leave": "Излизане",
+      "inviteUsersToRoomBtn": "Канене на потребители в стаята",
+      "invite": "Покани",
+      "toggleMuteMicBtn": "Превключване на заглушаване",
+      "mute": "Заглушаване",
+      "unmute": "Отзаглушаване",
+      "makeRoomPublicBtn": "Направи стаята публична!",
+      "settings": "Настройки",
+      "speaker": "Говорител",
+      "listener": "Слушател",
+      "chat": "Chat"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Вашето устройство не е поддържано. Можете да създадете",
+      "linkText": "issue в GitHub",
+      "addSupport": "и аз ще пробвам да добавя поддръжка за вашето устройство."
+    },
+    "inviteButton": { "invited": "поканен", "inviteToRoom": "канене в стаята" },
+    "micPermissionBanner": {
+      "permissionDenied": "Проблем с позволенията в браузъра (може да се наложи да отидете в настройките на браузъра и да презаредите страницата)",
+      "dismiss": "отхвърляне",
+      "tryAgain": "повторен опит"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "задай клавишна комбинация",
+      "listening": "слушане",
+      "toggleMuteKeybind": "превключване на клавишна комбинация за заглушаване",
+      "togglePushToTalkKeybind": "превключване на клавишна комбинация за натисни-за-говорене",
+      "toggleOverlayKeybind": "toggle overlay keybind"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "по някаква причина няма звуков консуматор"
+    },
+    "addToCalendar": { "add": "Добави към календар" },
+    "wsKilled": {
+      "description": "WebSocket-а беше спрян от сървъра. Това обикновенно се случва, когато сайта е отворен в друг прозорец.",
+      "reconnect": "повторно свързване"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "публична",
+        "private": "частна",
+        "roomName": "има на стая",
+        "roomDescription": "описание на стаята",
+        "descriptionError": "максимална дължина 500",
+        "nameError": "името трябва да е между 2 и 60 знака"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "Нова стая беше създадена",
+        "roomInviteFrom": "Покана от стая",
+        "justStarted": "Туко-що започнаха",
+        "likeToJoin": ", ще се присъедините ли?",
+        "inviteReceived": "бяхте поканени в"
+      },
+      "editProfileModal": {
+        "usernameTaken": "потребителското име е взето",
+        "avatarUrlError": "Невалидна картинка",
+        "avatarUrlLabel": "линк към GitHub/Twitter аватар",
+        "displayNameError": "дължина между 2 и 60 знака",
+        "displayNameLabel": "Показващо се име",
+        "usernameError": "дължина между 4 и 15, само букви, цифри и долна черта",
+        "usernameLabel": "Потребителско име",
+        "bioError": "максимална дължина 160 знака",
+        "bioLabel": "Описание"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Сигурни ли сте, че искате да блокирате този потребител да влиза във всяка стая, която създавате?",
+        "blockUser": "блокиране на потребител",
+        "makeMod": "направи модератор",
+        "unmod": "премахни модератор",
+        "addAsSpeaker": "добави като говорител",
+        "moveToListener": "премести като слушател",
+        "banFromChat": "блокиране от чат",
+        "banFromRoom": "блокиране от стая",
+        "goBackToListener": "върни се към слушател",
+        "deleteMessage": "изтриване на това съобщение",
+        "makeRoomCreator": "make room admin"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "изискване на позволение за говорене",
+        "makePublic": "направи стаята публична",
+        "makePrivate": "направи стаята частна"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "Планирани стаи",
+      "noneFound": "няма открити",
+      "allRooms": "всички планирани стаи",
+      "myRooms": "моите планирани стаи",
+      "scheduleRoomHeader": "Планирай стая",
+      "startRoom": "започни стая",
+      "modal": {
+        "needsFuture": "трябва да е в бъдещето",
+        "roomName": "име на стаята",
+        "minLength": "минимално 2 знака",
+        "roomDescription": "Description"
+      }
+    },
+    "roomChat": {
+      "title": "Чат",
+      "emotesSoon": "[emotes скоро]",
+      "bannedAlert": "Бяхте блокирани от чата",
+      "waitAlert": "Трябва да изчакате секунда преди да изпратите съобщение",
+      "search": "Търси",
+      "searchResults": "Резултати от търсенето",
+      "recent": "Често използвани",
+      "sendMessage": "Изпрати съобщение",
+      "whisper": "Прошепни",
+      "welcomeMessage": "Добре дошъл в чата!",
+      "roomDescription": "описание на стаята"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fueling rocket",
+      "takingOff": "Taking off",
+      "inSpace": "In space",
+      "approachingMoon": "Approaching moon",
+      "lunarDoge": "Lunar doge",
+      "approachingSun": "Approaching sun",
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
+    }
+  }
+}

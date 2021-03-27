@@ -1,0 +1,244 @@
+{
+  "_comment": "if you change this file, do: npm run i18",
+  "common": {
+    "loadMore": "Meh lade",
+    "loading": "Am lade...",
+    "noUsersFound": "Keni Benutzer gfunge",
+    "ok": "Ok",
+    "yes": "Ja",
+    "no": "Nei",
+    "cancel": "Abbreche",
+    "save": "Spichere",
+    "edit": "Bearbeite",
+    "delete": "Lösche",
+    "joinRoom": "Ruum bitrete",
+    "copyLink": "Link kopiere",
+    "copied": "kopiert",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Wenn du DogeHouse ohni Berechtigunge laufe lahsch chönnti es ungwollti Fehler gäh"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Stumm | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "Ursprungsgschicht",
+    "link_2": "Discord",
+    "link_3": "Es Problem mälde"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "blockiere" },
+    "followingOnlineList": {
+      "listHeader": "Benutzer, wo du fougsch, aber nid imne private Ruum si.",
+      "currentRoom": "Grad in:",
+      "startPrivateRoom": "En private Ruum mit däm Benutzer starte"
+    },
+    "followList": { "followHim": "Folge", "followingHim": "Am folge" },
+    "home": { "createRoom": "Ruum erstelle", "refresh": "Aktualisiere" },
+    "inviteList": {
+      "roomGone": "Ruum isch nid gfunge worde! Zrugg",
+      "shareRoomLink": "Link zum Ruum teile",
+      "inviteFollowers": "Du chasch dini Abonnente, wo online si, ilade:",
+      "whenFollowersOnline": "Wenn dini Abonnente online si, werde sie da azeigt."
+    },
+    "login": {
+      "headerText": "Mir bringe de Sprachchat zum Mond 🚀",
+      "featureText_1": "Dark-Mode",
+      "featureText_2": "Unbeschränkti Registrierig",
+      "featureText_3": "Plattformunabhängig",
+      "featureText_4": "Open-Source",
+      "featureText_5": "Text-Chat",
+      "featureText_6": "Atribe vo Doge",
+      "loginGithub": "mit GitHub amälde",
+      "loginTwitter": "mit Twitter amälde",
+      "createTestUser": "Testnutzer erstelle"
+    },
+    "myProfile": {
+      "logout": "Abmälde",
+      "probablyLoading": "Ladt äuä...",
+      "voiceSettings": "Sprachistellige",
+      "soundSettings": "Tonistellige",
+      "deleteAccount": "Konto lösche",
+      "overlaySettings": "Gang zu de Overlay Istellige"
+    },
+    "notFound": {
+      "whoopsError": "Hoppla! Die Site isch im Gspräch verlore gange.",
+      "goHomeMessage": "Mach dir kei Sorge. Du chasch",
+      "goHomeLinkText": "Hei gah"
+    },
+    "room": {
+      "speakers": "Sprächer",
+      "requestingToSpeak": "Gsprächsafrage",
+      "listeners": "Zuehörer",
+      "allowAll": "Alles erlaube",
+      "allowAllConfirm": "Bisch der sicher? Das wird all {{count}} Benutzer wo wennd rede dBerechtigung dazue gäh"
+    },
+    "searchUser": { "search": "Sueche..." },
+    "soundEffectSettings": { "header": "Ton" },
+    "viewUser": {
+      "editProfile": "Profil bearbeite",
+      "followsYou": "folgt dir",
+      "following": "Abonniert",
+      "followers": "Abonnente",
+      "followHim": "Folge",
+      "followingHim": "Am Folge",
+      "copyProfileUrl": "Profil URL kopiere",
+      "urlCopied": "URL id Zwüscheablag kopiert",
+      "unfollow": "Entfolge"
+    },
+    "voiceSettings": {
+      "header": "Sprachistellige",
+      "mic": "Mikrofon:",
+      "permissionError": "Keis Mikrofon gfunge, es isch entweder keis agschlosse oder die Site het nid die nötige Berechtigunge.",
+      "volume": "Luutsterchi:",
+      "refresh": "Mikrofonliste aktualisiere"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Istellige"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "addToCalendar": { "add": "Zum Kalender hinzuefüege" },
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "blockierti Benutzer",
+      "unban": "Blockierig ufhebe",
+      "noBans": "Du hesch aktuell niemer blockiert"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Aktuelle Ruum verlah",
+      "confirmLeaveRoom": "Bisch der sicher, dass du gah wettsch?",
+      "leave": "Verlah",
+      "inviteUsersToRoomBtn": "Benutzer zum Ruum ilade",
+      "invite": "Ilade",
+      "toggleMuteMicBtn": "Mikrofon ih-/usschalte",
+      "mute": "Stumm schalte",
+      "unmute": "Stummschaltig ufhebe",
+      "makeRoomPublicBtn": "Ruum öffentlech mache!",
+      "settings": "Istellige",
+      "speaker": "Sprächer",
+      "listener": "Zuehörer",
+      "chat": "Chat"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "Mir hei ke Zuegriff uf dis Mikrofon. Mach dini Browseristellige uf, setz die nötige Berechtigunge und lad d Site neu.",
+      "dismiss": "verstange",
+      "tryAgain": "nomal versueche"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "Öffentlech",
+        "private": "Privat",
+        "roomName": "Ruumname",
+        "roomDescription": "Ruumbeschribig",
+        "descriptionError": "die maximali Längi isch 500",
+        "nameError": "mues zwüsche 2 und 60 Zeiche lang sii"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "Neue Ruum erstellt",
+        "roomInviteFrom": "Neui Iladig vo",
+        "justStarted": "Sie hend grad gstartet",
+        "likeToJoin": ", wettsch biträte?",
+        "inviteReceived": "Du bisch iglade worde zu"
+      },
+      "editProfileModal": {
+        "usernameTaken": "Benutzername isch scho vergäh",
+        "avatarUrlError": "ungültigs Bild",
+        "avatarUrlLabel": "GitHub / Twitter Avatar URL",
+        "displayNameError": "Längi: 2 bis 50 Buechstabe",
+        "displayNameLabel": "Azeigename",
+        "usernameError": "Längi: 4 bis 15 alphanumerischi Zeiche und Ungerstriche",
+        "usernameLabel": "Benutzername",
+        "bioError": "Maximal 160 Buechstabe",
+        "bioLabel": "Bio"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Bisch der sicher, dass du dä Benutzer us aune dine zuekünftige Rüüm usschliesse wettsch?",
+        "blockUser": "Benutzer blockiere",
+        "makeMod": "Zum Moderator befördere",
+        "unmod": "Moderator Status ufhebe",
+        "addAsSpeaker": "zum Sprächer befördere",
+        "moveToListener": "zum Zuehörer abestufe",
+        "banFromChat": "Im Chat blockiere",
+        "banFromRoom": "Usem Ruum usschliesse",
+        "goBackToListener": "Zrügg zum Zuehörer",
+        "deleteMessage": "Nachricht lösche",
+        "makeRoomCreator": "make room admin"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "Berechtigung zum Rede verlange",
+        "makePublic": "Ruum öffentlech mache",
+        "makePrivate": "Ruum privat mache"
+      }
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "Us unbekannte Gründ isch ke Audio Consumer gfunge worde"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "Tastenkürzu setze",
+      "listening": "Zuelose",
+      "toggleMuteKeybind": "Stummschalttaste umschalte",
+      "togglePushToTalkKeybind": "Push-to-Talk Tastekürzel umschalte",
+      "toggleOverlayKeybind": "toggle overlay keybind"
+    },
+    "wsKilled": {
+      "description": "D Websocket Verbindig zum Server isch ungebroche worde. Das gscheht normalerwiis, wenn du d Website imne angere Tab öffnisch.",
+      "reconnect": "Nomau verbinge"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Dis Grät wird aktuell nid ungerstützt. Du chasch es",
+      "linkText": "Issue uf GitHub",
+      "addSupport": "erstelle und ich werde versueche, d Ungerstützig für dis Grät hinzuefüege."
+    },
+    "inviteButton": { "invited": "iglade", "inviteToRoom": "zum Ruum ilade" }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "Planti Rüüm",
+      "noneFound": "Keni gfunge",
+      "allRooms": "Alli plante Rüüm",
+      "myRooms": "Mini plante Rüüm",
+      "scheduleRoomHeader": "E Ruum plane",
+      "startRoom": "Ruum starte",
+      "modal": {
+        "needsFuture": "Dr Zitpunkt mues ide Zuekunft lige",
+        "roomName": "Name vom Ruum",
+        "minLength": "minimali Längi: 2",
+        "roomDescription": "Beschribig"
+      }
+    },
+    "roomChat": {
+      "title": "Chat",
+      "emotesSoon": "[gli gits emotes]",
+      "bannedAlert": "Du bisch vom Chat usgschlosse",
+      "waitAlert": "Du muesch e Sekunde warte, bevor e witeri Nachricht schribe chasch",
+      "search": "Sueche",
+      "searchResults": "Suechergäbnis",
+      "recent": "Z'letscht gsuecht",
+      "sendMessage": "E Nachricht schicke",
+      "whisper": "Flüstere",
+      "welcomeMessage": "Willkomme im Chat!",
+      "roomDescription": "Ruumbeschribig"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Ragete wird tankt",
+      "takingOff": "D Ragete startet",
+      "inSpace": "Im Wäutruum",
+      "approachingMoon": "Geit ufe Mond zue",
+      "lunarDoge": "Mond-Doge",
+      "approachingSun": "Geit uf d Sunne zue",
+      "solarDoge": "Sunne-Doge",
+      "approachingGalaxy": "Geit uf d Galaxie zue",
+      "galacticDoge": "Galaxie-Doge",
+      "spottedLife": "Planet mit lebe gfunge"
+    }
+  }
+}

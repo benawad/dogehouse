@@ -7,7 +7,9 @@ interface RequestToSpeakKeybindProps {
   className?: string;
 }
 
-export const RequestToSpeakKeybind: React.FC<RequestToSpeakKeybindProps> = ({ className }) => {
+export const RequestToSpeakKeybind: React.FC<RequestToSpeakKeybindProps> = ({
+  className,
+}) => {
   const [count, setCount] = useState(0);
   const [active, setActive] = useState(false);
   const {

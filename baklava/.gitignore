@@ -4,13 +4,15 @@
 /node_modules
 /.pnp
 .pnp.js
+/resources/overlay/node_modules
 
 # testing
 /coverage
 
 # production
-/build
+/builds
 /dist
+/resources/overlay/build
 
 #Builds
 DogeHouse*

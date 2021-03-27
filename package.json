@@ -1,0 +1,32 @@
+{
+  "name": "dogehouse",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "kebab",
+      "kibbeh"
+    ],
+    "nohoist": [
+      "**"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.0.1",
+    "@commitlint/config-conventional": "^12.0.1",
+    "@types/jest": "^26.0.21",
+    "commitizen": "^4.2.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^5.1.3",
+    "ts-jest": "^26.5.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog",
+      "defaultScope": "global"
+    }
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "commit": "cz"
+  }
+}

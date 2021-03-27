@@ -1,4 +1,4 @@
-defmodule KousaTest.FollowTest do
+defmodule Kousa.Beef.FollowTest do
   use ExUnit.Case, async: true
   use Kousa.Support.EctoSandbox
 
@@ -40,7 +40,6 @@ defmodule KousaTest.FollowTest do
   end
 
   describe "Follows" do
-
     test "get_followers_online_and_not_in_a_room/1" do
       user = Factory.create(User)
       follower = Factory.create(User)

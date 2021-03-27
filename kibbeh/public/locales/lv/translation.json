@@ -1,0 +1,250 @@
+{
+  "_comment": "if you change this file, do: npm run i18",
+  "common": {
+    "loadMore": "Ielādēt vairāk",
+    "loading": "Ielāde...",
+    "noUsersFound": "Lietotāji nav atrasti",
+    "ok": "labi",
+    "yes": "jā",
+    "no": "nē",
+    "cancel": "atcelt",
+    "save": "saglabāt",
+    "edit": "rediģēt",
+    "delete": "dzēst",
+    "joinRoom": "Pieslēgties istabai",
+    "copyLink": "Kopēt saiti",
+    "copied": "Nokopēts",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Skaņa izslēgta | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "Izstrādes vēsture",
+    "link_2": "Discord",
+    "link_3": "Ziņot par kļūdu"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "bloķēšana" },
+    "followingOnlineList": {
+      "listHeader": "Lietotāju saraksts, kuri ir publiskā istabā un kuriem Jūs sekojat.",
+      "currentRoom": "Pašlaik istabā:",
+      "startPrivateRoom": "Izveidot privātu istabu ar viņiem"
+    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Izveidot istabu", "refresh": "Atjaunot" },
+    "inviteList": {
+      "roomGone": "Istaba pazuda, atgriezieties atpakaļ",
+      "shareRoomLink": "Dalīties ar saiti uz istabu",
+      "inviteFollowers": "Jūs varat uzaicināt savus sekotājus, kuri pašlaik ir tiešsaistē :",
+      "whenFollowersOnline": "Kad jūsu sekotāji ir tiešsaistē, viņi tiek parādīti šeit."
+    },
+    "login": {
+      "headerText": "Paceļam balss sarunas līdz mēnesim 🚀",
+      "featureText_1": "Tumšais motīvs",
+      "featureText_2": "Atvērtā reģistrācija",
+      "featureText_3": "Starpplatformu",
+      "featureText_4": "Atvērtais pirmkods",
+      "featureText_5": "Teksta čats",
+      "featureText_6": "Darbojas ar Doge",
+      "loginGithub": "Ieiet caur GitHub",
+      "loginTwitter": "Ieiet caur Twitter",
+      "createTestUser": "Izveidot izmēģinājuma lietotāju"
+    },
+    "myProfile": {
+      "logout": "Iziet",
+      "probablyLoading": "visticamāk, notiek ielāde...",
+      "voiceSettings": "salss ziņu iestatījumi",
+      "soundSettings": "skaņas iestatījumi",
+      "deleteAccount": "dzēst kontu",
+      "overlaySettings": "go to overlay settings"
+    },
+    "notFound": {
+      "whoopsError": "Ups! Šī lapa tika pazaudēta sarunā.",
+      "goHomeMessage": "Nepārdzīvojiet. Jūs varat",
+      "goHomeLinkText": "doties mājās"
+    },
+    "room": {
+      "speakers": "Runātāji",
+      "requestingToSpeak": "Vēlas runāt",
+      "listeners": "Klausītāji",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+    },
+    "searchUser": { "search": "meklēšana..." },
+    "soundEffectSettings": { "header": "skaņas" },
+    "viewUser": {
+      "editProfile": "rediģēt profilu",
+      "followsYou": "seko jums",
+      "followers": "sekotāji",
+      "following": "seko",
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
+    },
+    "voiceSettings": {
+      "header": "Mikrofona iestatījumi",
+      "mic": "mikrofons:",
+      "permissionError": "mikrofons nav atrasts, tas nav pieslēgts vai pārlūkam nav atbilstošās atļaujas.",
+      "refresh": "atjaunināt mikrofonu sarakstu",
+      "volume": "skaļums:"
+    },
+    "overlaySettings": {
+      "header": "Overlay Settings",
+      "input": {
+        "errorMsg": "Please enter valid app title",
+        "label": "Enter app title"
+      }
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Bloķētie lietotāji",
+      "unban": "atbloķēt",
+      "noBans": "nav bloķētu lietotāju"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Pamest istabu",
+      "confirmLeaveRoom": "Vai esat pārliecināts?",
+      "leave": "Iziet",
+      "inviteUsersToRoomBtn": "Uzaicināt lietotājus uz istabu",
+      "invite": "Uzaicināt",
+      "toggleMuteMicBtn": "Ieslēgt/izslēgt mikrofonu",
+      "mute": "Izslēgt skaņu",
+      "unmute": "Ieslēgt skaņu",
+      "makeRoomPublicBtn": "Atvērt istabu!",
+      "settings": "Iestatījumi",
+      "speaker": "Runātājs",
+      "listener": "Klausītāji",
+      "chat": "Čats"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Jūsu ierīce nav atbalstīta. Jūs varat izveidot",
+      "linkText": "pieprasījumu caur GitHub",
+      "addSupport": "un es centīšos pievienot atbalstu jūsu ierīcei."
+    },
+    "inviteButton": {
+      "invited": "uzaicināts",
+      "inviteToRoom": "uzaicināt uz istabu"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "Nevar piekļūt jūsu mikrofonam (iespējams, jums vajag pārbaudīt pārluka iestatījumus, vai atsvaidzināt lapu)",
+      "dismiss": "noraidīt",
+      "tryAgain": "mēģināt vēlreiz"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "uzlikt aktivācijas taustiņu",
+      "listening": "klausās",
+      "toggleMuteKeybind": "Skaņas izslēgšanas taustiņš",
+      "togglePushToTalkKeybind": ":Īslaicīgās mikrofona ieslēgšanas taustiņš",
+      "toggleOverlayKeybind": "toggle overlay keybind"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "nezināmu iemeslu dēļ, nav pieejama audiosaziņa"
+    },
+    "addToCalendar": { "add": "Pievienot kalendārā" },
+    "wsKilled": {
+      "description": "Serveris iznīcināja WebSocket. Parasti tas notiek, kad jūs atverat mājaslapu citā logā.",
+      "reconnect": "atkārtoti pievienoties"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "publiska",
+        "private": "privāta",
+        "roomName": "istabas nosaukums",
+        "roomDescription": "istabas apraksts",
+        "descriptionError": "maksimālais garums 500",
+        "nameError": "garumam jābūt no 2 līdz 60 simboliem"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "Izveidota jauna istaba",
+        "roomInviteFrom": "Uzaicinājums uz istabu no",
+        "justStarted": "Viņi tikko sāka",
+        "likeToJoin": ", vēlaties pievienoties?",
+        "inviteReceived": "jūs tikāt uzaicināti uz"
+      },
+      "editProfileModal": {
+        "usernameTaken": "lietotājvārds aizņemts",
+        "avatarUrlError": "Nederīgs attēls",
+        "avatarUrlLabel": "Attēli URL no GitHub/Twitter",
+        "displayNameError": "garums no 2 līdz 50 simboliem",
+        "displayNameLabel": "Publiskais vārds",
+        "usernameError": "garums no 4 līdz 15 simboliem, tikai burtciparu simboli un pasvītra",
+        "usernameLabel": "Lietotājvārds",
+        "bioError": "maksimālais garums 160 simboli",
+        "bioLabel": "Par mani"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Vai esat pārliecināti, ka vēlaties nobloķēt šo lietotāju no visām jūsu telpām?",
+        "blockUser": "nobloķēt lietotāju",
+        "makeMod": "iestatīt par moderatoru",
+        "unmod": "noņemt moderātoru",
+        "addAsSpeaker": "pievienot runātāju",
+        "moveToListener": "pārvietot uz klausītājiem",
+        "banFromChat": "bloķet no čata",
+        "banFromRoom": "bloķēt no šis istabas",
+        "goBackToListener": "kļūt par klausītāju",
+        "deleteMessage": "izdzēst šo ziņu",
+        "makeRoomCreator": "iestatīt par šis istabas administrātoru"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "pieprasīt runāšanas atļauju",
+        "makePublic": "padarīt istabu publisku",
+        "makePrivate": "padarīt istabu privātu"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "Ieplānotās istabas",
+      "noneFound": "nav atrastas",
+      "allRooms": "visas ieplānotās istabas",
+      "myRooms": "manas ieplānotās istabas",
+      "scheduleRoomHeader": "Ieplānot istabu",
+      "startRoom": "izveidot istabu",
+      "modal": {
+        "needsFuture": "vajag būt nākotnē",
+        "roomName": "istabas nosaukums",
+        "minLength": "minimālais garums 2",
+        "roomDescription": "apraksts"
+      }
+    },
+    "roomChat": {
+      "title": "čats",
+      "emotesSoon": "[emocijas drīz]",
+      "bannedAlert": "Jūs tikāt nobloķēti čatā",
+      "waitAlert": "Ir jauzgaida sekunde, pirms nosūtīt nākamo ziņu",
+      "search": "Meklēšana",
+      "searchResults": "Meklēšanas rezultāti",
+      "recent": "Bieži izmantotie ",
+      "sendMessage": "Nosūtīt ziņu",
+      "whisper": "Čukstēt",
+      "welcomeMessage": "Laipni lūgti čatā!",
+      "roomDescription": "istabas apraksts"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Raķetes uzpilde",
+      "takingOff": "Palaišana",
+      "inSpace": "Esam gaisā",
+      "approachingMoon": "Tuvojas mēnesim",
+      "lunarDoge": "Mēness doge",
+      "approachingSun": "Tuvojas saulei",
+      "solarDoge": "Saulainais doge",
+      "approachingGalaxy": "Tuvojas galaktikai",
+      "galacticDoge": "Galaktiskais doge",
+      "spottedLife": "Pamanīta planēta ar dzīvību radību"
+    }
+  }
+}
