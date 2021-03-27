@@ -55,9 +55,9 @@ export const LoginPage: React.FC = () => {
           <span className="text-3xl text-primary-100">Welcome</span>
           <p className="text-primary-100 flex-wrap">
             By logging in you accept our&nbsp;
-            <a href="https://youtu.be/dQw4w9WgXcQ" className="text-accent">Privacy Policy</a>
+            <a href="https://youtu.be/dQw4w9WgXcQ" className="text-accent hover:text-accent-hover">Privacy Policy</a>
             &nbsp;and&nbsp;
-            <a href="https://youtu.be/dQw4w9WgXcQ" className="text-accent">Terms of Service</a>
+            <a href="https://youtu.be/dQw4w9WgXcQ" className="text-accent hover:text-accent-hover">Terms of Service</a>
           </p>
         </div>
         <div className="flex-col gap-4">
