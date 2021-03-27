@@ -120,27 +120,11 @@ export type CurrentRoom = Room & {
   autoSpeaker: boolean;
 };
 
-// wrote this a long time ago, don't know if it's accurate
 export type UserList = {
-  users: {
-    youAreFollowing: null | true;
-    username: string;
-    roomPermissions: { [key: string]: RoomPermissions };
-    online: true;
-    numFollowing: number;
-    numFollowers: number;
-    lastOnline: string;
-    id: string;
-    followsYou: null | true;
-    displayName: string;
-    currentRoomId: string;
-    currentRoom: Room;
-    bio: string;
-    avatarUrl: string;
-  }[];
-  roomId: string;
-  raiseHandMap: { [key: string]: boolean };
-  muteMap: { [key: string]: boolean };
+  users: User[];
+  roomId: UUID;
+  raiseHandMap: Record<string, boolean>;
+  muteMap: Record<string, boolean>;
   autoSpeaker: false;
-  activeSpeakerMap: { [key: string]: boolean };
+  activeSpeakerMap: Record<string, boolean>;
 };
