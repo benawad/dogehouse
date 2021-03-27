@@ -1,0 +1,244 @@
+{
+  "_comment": "if you change this file, do: npm run i18",
+  "common": {
+    "loadMore": "get some more",
+    "loading": "loadin'",
+    "noUsersFound": "no ones 'ere",
+    "ok": "ok",
+    "yes": "aye",
+    "no": "nay",
+    "cancel": "cancel",
+    "save": "save",
+    "edit": "edit",
+    "delete": "Blow The Man Down!",
+    "joinRoom": "join cabin",
+    "copyLink": "copy link",
+    "copied": "copied",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Muted | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "Origin Tale",
+    "link_2": "Discord",
+    "link_3": "Report a Bug"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "ban" },
+    "followingOnlineList": {
+      "listHeader": "List o' users that are nah in a private cabin 'n ye follow.",
+      "currentRoom": "currently in:",
+      "startPrivateRoom": "start a private cabin wit' 'em"
+    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": { "createRoom": "Create Cabin", "refresh": "Refresh" },
+    "inviteList": {
+      "roomGone": "cabin gone, go back",
+      "shareRoomLink": "share link t' cabin",
+      "inviteFollowers": "Ye can invite yer mateys that are online:",
+      "whenFollowersOnline": "When yer scallywags are online, they will show up here."
+    },
+    "login": {
+      "headerText": "Takin' voice natters t' the open sea 🌊",
+      "featureText_1": "Dark Theme",
+      "featureText_2": "Open Sign-Ups",
+      "featureText_3": "Cross-Platform Support",
+      "featureText_4": "Open Source",
+      "featureText_5": "Text Chat",
+      "featureText_6": "Powered by Doge",
+      "loginGithub": "login with GitHub",
+      "loginTwitter": "login with Twitter",
+      "createTestUser": "create test user"
+    },
+    "myProfile": {
+      "logout": "Walk the plank!",
+      "probablyLoading": "prolly loadin'...",
+      "voiceSettings": "go t' voice settings",
+      "soundSettings": "go t' sound settings",
+      "deleteAccount": "Cleave Him to the Brisket!",
+      "overlaySettings": "go to overlay settings"
+    },
+    "notFound": {
+      "whoopsError": "Blast ye! This page got lost in natter.",
+      "goHomeMessage": "Nah t' worry. Ye can",
+      "goHomeLinkText": "Davy Jones' Locker"
+    },
+    "room": {
+      "speakers": "Crew",
+      "requestingToSpeak": "Requestin' t' speak",
+      "listeners": "Shipmates",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+    },
+    "searchUser": { "search": "searchin' fer booty..." },
+    "soundEffectSettings": { "header": "Sounds" },
+    "viewUser": {
+      "editProfile": "avast ye profile",
+      "followsYou": "follows you",
+      "followers": "scallywags",
+      "following": "hearties",
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
+    },
+    "voiceSettings": {
+      "header": "Voice Settings",
+      "mic": "mic:",
+      "permissionError": "no mics found, ye either 'ave none plugged in or haven't given this website permission.",
+      "refresh": "refresh mic list",
+      "volume": "volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "people who 'ave walked eh plank",
+      "unban": "save 'em from the o'en seas",
+      "noBans": "no one has walked the plank yet"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Weigh anchor",
+      "confirmLeaveRoom": "Are ye sure ye wants t' weigh anchor?",
+      "leave": "Weigh anchor",
+      "inviteUsersToRoomBtn": "Invite scallywags t' cabin",
+      "invite": "Invite scallywags",
+      "toggleMuteMicBtn": "Toggle mute microphone",
+      "mute": "Belay yer mouth!",
+      "unmute": "Unmute",
+      "makeRoomPublicBtn": "Make cabin a'ilable to eh o'en seas!",
+      "settings": "Settings",
+      "speaker": "Captain",
+      "listener": "Listener",
+      "chat": "Chat"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Yer device be currently nah supported. Ye can create an",
+      "linkText": "issue on GitHub",
+      "addSupport": "'n I will try addin' support fer yer device."
+    },
+    "inviteButton": { "invited": "invited", "inviteToRoom": "invite t' cabin" },
+    "micPermissionBanner": {
+      "permissionDenied": "Permission denied trying t' access yer mic (ye may needs t' go into browser settings 'n reload the page)",
+      "dismiss": "dismiss",
+      "tryAgain": "try again"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "set keybind",
+      "listening": "listening",
+      "toggleMuteKeybind": "toggle mute keybind",
+      "togglePushToTalkKeybind": "toggle push-t'-natter keybind",
+      "toggleOverlayKeybind": "toggle overlay keybind"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "no audio consumer fer some reason"
+    },
+    "addToCalendar": { "add": "Add t' Calendar" },
+    "wsKilled": {
+      "description": "WebSocket was scuttled by the server. This usually happens when ye open the website in another tab.",
+      "reconnect": "reconnect"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "public",
+        "private": "private",
+        "roomName": "cabin name",
+        "roomDescription": "cabin description",
+        "descriptionError": "max length 500",
+        "nameError": "must be between 2 t' 60 characters long"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "New Cabin Created",
+        "roomInviteFrom": "Cabin Invite from",
+        "justStarted": "They jus' started",
+        "likeToJoin": ", would ye like t' join?",
+        "inviteReceived": "ye've been invited t'"
+      },
+      "editProfileModal": {
+        "usernameTaken": "username taken",
+        "avatarUrlError": "Invalid image",
+        "avatarUrlLabel": "GitHub/Twitter avatar url",
+        "displayNameError": "length 2 t' 50 characters",
+        "displayNameLabel": "Display Name",
+        "usernameError": "length 4 t' 15 characters 'n only alphanumeric/underscore",
+        "usernameLabel": "Username",
+        "bioError": "max length o' 160 characters",
+        "bioLabel": "Bio"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Are ye sure ye wants t' block this user from joinin' any cabin ye ever create?",
+        "blockUser": "block user",
+        "makeMod": "make mod",
+        "unmod": "unmod",
+        "addAsSpeaker": "add as crew",
+        "moveToListener": "move t' shipmate",
+        "banFromChat": "ban from chat",
+        "banFromRoom": "ban from cabin",
+        "goBackToListener": "go back t' shipmate",
+        "deleteMessage": "scuttle this message",
+        "makeRoomCreator": "make cabin cap'n"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "require permission t' speak",
+        "makePublic": "make cabin public",
+        "makePrivate": "make cabin private"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "Scheduled Cabins",
+      "noneFound": "none found",
+      "allRooms": "all scheduled cabins",
+      "myRooms": "me scheduled cabins",
+      "scheduleRoomHeader": "Schedule Cabin",
+      "startRoom": "start cabin",
+      "modal": {
+        "needsFuture": "needs t' be in the future",
+        "roomName": "cabin name",
+        "minLength": "min length 2",
+        "roomDescription": "Description"
+      }
+    },
+    "roomChat": {
+      "title": "Chat",
+      "emotesSoon": "[emotes soon]",
+      "bannedAlert": "Ye got banned from chat, walk the plank!",
+      "waitAlert": "Ye 'ave t' wait a second afore sendin' another message",
+      "search": "Search",
+      "searchResults": "Search Results",
+      "recent": "Frequently Used",
+      "sendMessage": "Send a Message in a bottle",
+      "whisper": "Whisper",
+      "welcomeMessage": "Ahoy t' chat!",
+      "roomDescription": "cabin description"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fuelin' rocket",
+      "takingOff": "Takin' off",
+      "inSpace": "In space",
+      "approachingMoon": "Approachin' moon",
+      "lunarDoge": "Lunar doge",
+      "approachingSun": "Approachin' sun",
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "Approachin' galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet wit' life spotted"
+    }
+  }
+}
