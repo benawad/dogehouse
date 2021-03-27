@@ -80,6 +80,8 @@ defmodule Broth.WsClientFactory do
 
   import ExUnit.Assertions
 
+  # note that this function ALSO causes the calling process to be subscribed
+  # to forwarded messages from the websocket client.
   def create_client_for(user = %User{}) do
     tokens = Kousa.Utils.TokenUtils.create_tokens(user)
 

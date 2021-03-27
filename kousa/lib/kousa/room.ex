@@ -304,6 +304,11 @@ defmodule Kousa.Room do
     end
   end
 
+  # NB this function does not correctly return an updated room struct if the
+  # action is valid.
+
+  # NB2, this function has an non-idiomatic parameter order.  room_id should
+  # come first.
   def join_room(user_id, room_id) do
     currentRoomId = Beef.Users.get_current_room_id(user_id)
 
