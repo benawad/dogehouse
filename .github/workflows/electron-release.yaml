@@ -33,12 +33,12 @@ jobs:
       - name: Build overlay
         working-directory: baklava/resources/overlay
         run: yarn build
-      - name: Prepare for app notarization
-        if: startsWith(matrix.os, 'macos')
-        # Import Apple API key for app notarization on macOS
-        run: |
-          mkdir -p ~/private_keys/
-          echo '${{ secrets.api_key }}' > ~/private_keys/AuthKey_${{ secrets.api_key_id }}.p8
+      # - name: Prepare for app notarization
+      #   if: startsWith(matrix.os, 'macos')
+      #   # Import Apple API key for app notarization on macOS
+      #   run: |
+      #     mkdir -p ~/private_keys/
+      #     echo '${{ secrets.api_key }}' > ~/private_keys/AuthKey_${{ secrets.api_key_id }}.p8
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
         with:
@@ -48,7 +48,7 @@ jobs:
           package_root: baklava
           github_token: ${{ secrets.github_token }}
           release: true
-        env:
-          # macOS notarization API key
-          API_KEY_ID: ${{ secrets.api_key_id }}
-          API_KEY_ISSUER_ID: ${{ secrets.api_key_issuer_id }}
+        # env:
+        #   # macOS notarization API key
+        #   API_KEY_ID: ${{ secrets.api_key_id }}
+        #   API_KEY_ISSUER_ID: ${{ secrets.api_key_issuer_id }}

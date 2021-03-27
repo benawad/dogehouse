@@ -13,8 +13,7 @@ import Backend from "i18next-node-fs-backend";
 import { autoUpdater } from "electron-updater";
 import { RegisterKeybinds } from "./utils/keybinds";
 import { HandleVoiceTray } from "./utils/tray";
-import { ALLOWED_HOSTS, isLinux, isMac, MENU_TEMPLATE } from "./constants";
-import url from "url";
+import { ALLOWED_HOSTS, isMac, MENU_TEMPLATE } from "./constants";
 import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
@@ -67,16 +66,8 @@ function createWindow() {
       nodeIntegration: true
     }
   });
-  splash.loadURL(
-    url.format({
-      pathname: path.join(
-        `${__dirname}`,
-        "../resources/splash/splash-screen.html"
-      ),
-      protocol: "file:",
-      slashes: true,
-    })
-  );
+  splash.loadFile(path.join(__dirname, "../resources/splash/splash-screen.html"));
+  
   splash.webContents.on('did-finish-load', () => {
     splash.webContents.send('@locale/text', {
       title: i18n.t('common.title'),
