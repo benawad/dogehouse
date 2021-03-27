@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useCallback } from "react";
 import { apiBaseUrl, loginNextPathKey, __prod__ } from "../../lib/constants";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../../ui/Button";
@@ -18,29 +18,44 @@ i know this code is kinda garbage but that's because the mockup is garbage and d
 
  */
 
-interface LoginButtonProps {
+type LoginButtonProps = {
   children: [React.ReactNode, React.ReactNode];
-  onClick: () => void;
   dev?: true;
-}
+} & ({ onClick: () => void } | { oauthUrl: string });
 
-const LoginButton: React.FC<LoginButtonProps> = ({ children, onClick, dev }) => (
-  <Button className="justify-center" size="big" color={dev ? "primary" : "secondary"} onClick={onClick}>
-    <div
-      className="grid gap-4"
-      style={{
-        gridTemplateColumns: "1fr auto 1fr",
-      }}
+const LoginButton: React.FC<LoginButtonProps> = ({ children, onClick, oauthUrl, dev }) => {
+  const { query } = useRouter();
+  const clickHandler = useCallback(() => {
+    if (typeof query.next === "string" && query.next) {
+      try {
+        localStorage.setItem(loginNextPathKey, query.next);
+      } catch {}
+    }
+
+    window.location.href = oauthUrl;
+  }, [query, oauthUrl]);
+
+  return (
+    <Button
+      className="justify-center"
+      color={dev ? "primary" : "secondary"}
+      onClick={onClick ?? clickHandler}
     >
-      {children[0]}
-      {children[1]}
-      <div/>
-    </div>
-  </Button>
-);
+      <div
+        className="grid gap-4"
+        style={{
+          gridTemplateColumns: "1fr auto 1fr",
+        }}
+      >
+        {children[0]}
+        {children[1]}
+        <div/>
+      </div>
+    </Button>
+  );
+};
 
 export const LoginPage: React.FC = () => {
-  const { query } = useRouter();
   useSaveTokensFromQueryParams();
   const { t } = useTypeSafeTranslation();
   const { push } = useRouter();
@@ -61,17 +76,7 @@ export const LoginPage: React.FC = () => {
           </p>
         </div>
         <div className="flex-col gap-4">
-          <LoginButton
-            onClick={() => {
-              if (typeof query.next === "string" && query.next) {
-                try {
-                  localStorage.setItem(loginNextPathKey, query.next);
-                } catch {}
-              }
-
-              window.location.href = `${apiBaseUrl}/auth/github/web`;
-            }}
-          >
+          <LoginButton oauthUrl={`${apiBaseUrl}/auth/github/web`}>
             <SvgSolidGitHub width={20} height={20}/>
             Login with GitHub
           </LoginButton>
