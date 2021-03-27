@@ -13,10 +13,6 @@ defmodule Kousa do
       Onion.UserSessionSupervisor,
       {
         GenRegistry,
-        worker_module: Onion.UserSession
-      },
-      {
-        GenRegistry,
         worker_module: Onion.RoomSession
       },
       {

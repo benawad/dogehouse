@@ -46,7 +46,7 @@ defmodule Beef.Mutations.Users do
   end
 
   def set_user_left_current_room(user_id) do
-    Kousa.Utils.RegUtils.lookup_and_cast(Onion.UserSession, user_id, {:set_current_room_id, nil})
+    Onion.UserSession.set_current_room_id(user_id, nil)
 
     Query.start()
     |> Query.filter_by_id(user_id)
@@ -75,11 +75,7 @@ defmodule Beef.Mutations.Users do
           RoomPermissions.get(user_id, room_id)
       end
 
-    Kousa.Utils.RegUtils.lookup_and_cast(
-      Onion.UserSession,
-      user_id,
-      {:set_current_room_id, room_id}
-    )
+    Onion.UserSession.set_current_room_id(user_id, room_id)
 
     q =
       from(u in User,

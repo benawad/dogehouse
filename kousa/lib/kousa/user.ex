@@ -14,10 +14,9 @@ defmodule Kousa.User do
         :username_taken
 
       {:ok, %{displayName: displayName, username: username, avatarUrl: avatarUrl}} ->
-        RegUtils.lookup_and_cast(
-          Onion.UserSession,
+        Onion.UserSession.set_state(
           user_id,
-          {:set_state, %{display_name: displayName, username: username, avatar_url: avatarUrl}}
+          %{display_name: displayName, username: username, avatar_url: avatarUrl}
         )
 
         :ok

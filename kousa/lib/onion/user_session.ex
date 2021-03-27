@@ -40,6 +40,8 @@ defmodule Onion.UserSession do
 
   def child_spec(init = [state, _opts]), do: %{super(init) | id: state.user_id}
 
+  def count, do: Registry.count(Onion.UserSessionRegistry)
+
   ###############################################################################
   ## INITIALIZATION BOILERPLATE
 
@@ -176,6 +178,7 @@ defmodule Onion.UserSession do
 
   def handle_cast({:set_mute, value}, state), do: set_mute_impl(value, state)
   def handle_cast({:new_tokens, tokens}, state), do: new_tokens_impl(tokens, state)
+  def handle_cast({:set_state, info}, state), do: set_state_impl(info, state)
 
   def handle_call(:get_info_for_msg, reply, state), do: get_info_for_msg_impl(reply, state)
   def handle_call({:get, key}, reply, state), do: get_impl(key, reply, state)

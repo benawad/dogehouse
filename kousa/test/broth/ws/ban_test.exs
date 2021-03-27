@@ -22,8 +22,10 @@ defmodule KousaTest.Broth.Ws.BanTest do
       banned = Factory.create(User)
       WsClientFactory.create_client_for(banned)
 
-      WsClient.send_msg(t.ws_client, "ban",
-        %{"username" => banned.username, "reason" => "you're a douche"})
+      WsClient.send_msg(t.ws_client, "ban", %{
+        "username" => banned.username,
+        "reason" => "you're a douche"
+      })
 
       WsClient.assert_frame("ban_done", %{"worked" => false})
     end
@@ -33,13 +35,15 @@ defmodule KousaTest.Broth.Ws.BanTest do
     test "works for not-ben awad", t do
       t.user
       |> User.changeset(%{githubId: @ben_github_id})
-      |> Beef.Repo.update!
+      |> Beef.Repo.update!()
 
       banned = Factory.create(User)
       WsClientFactory.create_client_for(banned)
 
-      WsClient.send_msg(t.ws_client, "ban",
-        %{"username" => banned.username, "reason" => "you're a douche"})
+      WsClient.send_msg(t.ws_client, "ban", %{
+        "username" => banned.username,
+        "reason" => "you're a douche"
+      })
 
       WsClient.assert_frame("ban_done", %{"worked" => true})
 
@@ -53,21 +57,25 @@ defmodule KousaTest.Broth.Ws.BanTest do
     test "will destroy a room if they are alone", t do
       t.user
       |> User.changeset(%{githubId: @ben_github_id})
-      |> Beef.Repo.update!
+      |> Beef.Repo.update!()
 
       banned = %{id: banned_id} = Factory.create(User)
       WsClientFactory.create_client_for(banned)
 
-      {:ok, %{room: room}} = Kousa.Room.create_room(
-        banned_id,
-        "my private room",
-        "stay out",
-        true)
+      {:ok, %{room: room}} =
+        Kousa.Room.create_room(
+          banned_id,
+          "my public room",
+          "come in",
+          true
+        )
 
       assert %{peoplePreviewList: [%{id: ^banned_id}]} = room
 
-      WsClient.send_msg(t.ws_client, "ban",
-      %{"username" => banned.username, "reason" => "you're a douche"})
+      WsClient.send_msg(t.ws_client, "ban", %{
+        "username" => banned.username,
+        "reason" => "you're a douche"
+      })
 
       WsClient.assert_frame("banned", _)
 
@@ -78,7 +86,7 @@ defmodule KousaTest.Broth.Ws.BanTest do
     test "will eject a user from a room if they aren't alone", t do
       t.user
       |> User.changeset(%{githubId: @ben_github_id})
-      |> Beef.Repo.update!
+      |> Beef.Repo.update!()
 
       banned = %{id: banned_id} = Factory.create(User)
       WsClientFactory.create_client_for(banned)
@@ -86,26 +94,30 @@ defmodule KousaTest.Broth.Ws.BanTest do
       safe = %{id: safe_id} = Factory.create(User)
       WsClientFactory.create_client_for(safe)
 
-      {:ok, %{room: room}} = Kousa.Room.create_room(
-        safe_id,
-        "my private room",
-        "stay out",
-        false)
+      {:ok, %{room: room}} =
+        Kousa.Room.create_room(
+          safe_id,
+          "my private room",
+          "stay out",
+          false
+        )
 
       # join the safe user to the room
       Kousa.Room.join_room(banned_id, room.id)
 
       assert %{peoplePreviewList: [_, _]} = Beef.Rooms.get_room_by_id(room.id)
 
-      WsClient.send_msg(t.ws_client, "ban",
-      %{"username" => banned.username, "reason" => "you're a douche"})
+      WsClient.send_msg(t.ws_client, "ban", %{
+        "username" => banned.username,
+        "reason" => "you're a douche"
+      })
 
       WsClient.assert_frame("banned", _)
 
       # check that the room is still there
       assert %{
-        peoplePreviewList: [%{id: ^safe_id}]
-      } = Beef.Rooms.get_room_by_id(room.id) 
+               peoplePreviewList: [%{id: ^safe_id}]
+             } = Beef.Rooms.get_room_by_id(room.id)
     end
   end
 end

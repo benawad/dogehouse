@@ -299,7 +299,48 @@ defmodule Broth.SocketHandler do
 
   def handler("set_auto_speaker", %{"value" => value}, state) do
     Kousa.Room.set_auto_speaker(state.user_id, value)
+
     {:ok, state}
+  end
+
+  # @deprecated
+  def handler("create-room", data, state) do
+    resp =
+      case Kousa.Room.create_room(
+             state.user_id,
+             data["roomName"],
+             data["description"] || "",
+             data["value"] == "private",
+             Map.get(data, "userIdToInvite")
+           ) do
+        {:ok, d} ->
+          %{
+            op: "new_current_room",
+            d: d
+          }
+
+        {:error, d} ->
+          %{
+            op: "error",
+            d: d
+          }
+      end
+
+    {:reply,
+     construct_socket_msg(
+       state.encoding,
+       state.compression,
+       resp
+     ), state}
+  end
+
+  # @deprecated
+  def handler("get_top_public_rooms", data, state) do
+    {:reply,
+     construct_socket_msg(state.encoding, state.compression, %{
+       op: "get_top_public_rooms_done",
+       d: f_handler("get_top_public_rooms", data, state)
+     }), state}
   end
 
   def handler("speaking_change", %{"value" => value}, state) do
@@ -492,14 +533,13 @@ defmodule Broth.SocketHandler do
   end
 
   def handler("audio_autoplay_error", _data, state) do
-    Kousa.Utils.RegUtils.lookup_and_cast(
-      Onion.UserSession,
+    Onion.UserSession.send_ws_msg(
       state.user_id,
-      {:send_ws_msg,
-       %{
-         op: "error",
-         d: "browser can't autoplay audio the first time, go press play audio in your browser"
-       }}
+      nil,
+      %{
+        op: "error",
+        d: "browser can't autoplay audio the first time, go press play audio in your browser"
+      }
     )
 
     {:ok, state}
@@ -542,7 +582,8 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  # TODO: rename this "call" handler
+  # TODO: rename this "call_handler"
+
   def f_handler("follow", %{"userId" => userId, "value" => value}, state) do
     Kousa.Follow.follow(state.user_id, userId, value)
     {"you_left_room", %{}}

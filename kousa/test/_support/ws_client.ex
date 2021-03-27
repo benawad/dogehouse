@@ -29,10 +29,12 @@ defmodule Broth.WsClient do
   # "fetching" / "calling" operations from the user.
   def send_call(ws_client, op, payload) do
     call_ref = UUID.uuid4()
-    WebSockex.cast(ws_client,
-      {:send, %{"op" => op,
-                "d" => payload,
-                "fetchId" => call_ref}})
+
+    WebSockex.cast(
+      ws_client,
+      {:send, %{"op" => op, "d" => payload, "fetchId" => call_ref}}
+    )
+
     call_ref
   end
 
@@ -48,9 +50,7 @@ defmodule Broth.WsClient do
 
   defmacro assert_frame(op, payload) do
     quote do
-      ExUnit.Assertions.assert_receive(
-        {:text, %{"op" => unquote(op), "d" => unquote(payload)}}
-      )
+      ExUnit.Assertions.assert_receive({:text, %{"op" => unquote(op), "d" => unquote(payload)}})
     end
   end
 

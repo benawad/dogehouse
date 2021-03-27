@@ -34,9 +34,9 @@ defmodule KousaTest.Broth.Ws.MakeRoomPublicTest do
 
       # make sure the room is actually private
       assert %{
-        isPrivate: false,
-        name: "quux room"
-      } = Rooms.get_room_by_id(room_id)
+               isPrivate: false,
+               name: "quux room"
+             } = Rooms.get_room_by_id(room_id)
     end
   end
 end
