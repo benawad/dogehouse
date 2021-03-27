@@ -30,22 +30,14 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { 
-      "ban": "blokir" 
-    },
+    "banUser": { "ban": "blokir" },
     "followingOnlineList": {
       "listHeader": "Daftar pengguna yang tidak ada di ruangan privat dan kamu ikuti.",
       "currentRoom": "saat ini di:",
       "startPrivateRoom": "mulai ruangan privat dengan mereka"
     },
-    "followList": { 
-      "followHim": "ikuti", 
-      "followingHim": "mengikuti" 
-    },
-    "home": { 
-      "createRoom": "Buat Ruangan", 
-      "refresh": "Segarkan" 
-    },
+    "followList": { "followHim": "ikuti", "followingHim": "mengikuti" },
+    "home": { "createRoom": "Buat Ruangan", "refresh": "Segarkan" },
     "inviteList": {
       "roomGone": "ruangan hilang, kembali",
       "shareRoomLink": "bagikan tautan ke ruangan",
@@ -84,12 +76,8 @@
       "allowAll": "Izinkan semua",
       "allowAllConfirm": "Apakah anda yakin? Ini akan mengizinkan semua {{count}} permintaan pengguna untuk bicara"
     },
-    "searchUser": { 
-      "search": "cari..." 
-    },
-    "soundEffectSettings": { 
-      "header": "Bunyi" 
-    },
+    "searchUser": { "search": "cari..." },
+    "soundEffectSettings": { "header": "Bunyi" },
     "viewUser": {
       "editProfile": "ubah profil",
       "followsYou": "Mengikutimu",

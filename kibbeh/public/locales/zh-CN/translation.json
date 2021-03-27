@@ -39,7 +39,7 @@
     "followList": { "followHim": "关注ta", "followingHim": "已经关注" },
     "home": { "createRoom": "新建聊天室", "refresh": "刷新" },
     "inviteList": {
-      "roomGone": "聊天室以被删除，请回到前一页",
+      "roomGone": "聊天室已被删除，请回到前一页",
       "shareRoomLink": "在聊天室分享链接",
       "inviteFollowers": "您可以邀请您在线的关注者:",
       "whenFollowersOnline": "当您的关注者在线的时候，ta们会在这里显示。"
@@ -74,7 +74,7 @@
       "requestingToSpeak": "要求讲话",
       "listeners": "听者",
       "allowAll": "允许全体成员讲话",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAllConfirm": "确定？这将会允许全部{{}}位成员讲话"
     },
     "searchUser": { "search": "搜索..." },
     "soundEffectSettings": { "header": "声音" },
@@ -82,7 +82,7 @@
       "editProfile": "编辑个人主页",
       "followsYou": "关注您的人",
       "followers": "关注者",
-      "following": "您关注的人",
+      "following": "关注的人",
       "followHim": "关注ta",
       "followingHim": "已经关注",
       "copyProfileUrl": "复制个人主页链接",
@@ -185,10 +185,10 @@
       "listening": "等待输入",
       "toggleMuteKeybind": "切换静音键绑定",
       "togglePushToTalkKeybind": "切换按键说话绑定",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "切换覆盖层绑定"
     },
     "wsKilled": {
-      "description": "连接被服务器终止。当您在另一个标签中打开此网站时，通常会发生这种情况",
+      "description": "连接被服务器终止。当您在另一个标签中打开此网站时，通常会发生这种情况 ",
       "reconnect": "正在重新连接"
     },
     "deviceNotSupported": {
@@ -228,16 +228,16 @@
       "roomDescription": "聊天室介绍"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "fuelingRocket": "火箭在加油",
+      "takingOff": "起飞",
+      "inSpace": "在太空",
+      "approachingMoon": "飞向月球",
+      "lunarDoge": "月球 Doge",
+      "approachingSun": "飞向太阳",
+      "solarDoge": "太阳 Doge",
+      "approachingGalaxy": "飞向宇宙",
+      "galacticDoge": "宇宙 Doge",
+      "spottedLife": "已发现新生命"
     }
   }
 }
