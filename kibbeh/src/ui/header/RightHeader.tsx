@@ -1,8 +1,10 @@
+import Link from "next/link";
 import React from "react";
 import { SolidMegaphone, SolidMessages, SolidNotification } from "../../icons";
 import { SingleUser } from "../UserAvatar";
 
 export interface RightHeaderProps {
+  username: string;
   onAnnouncementsClick?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => null;
@@ -17,6 +19,7 @@ export interface RightHeaderProps {
 }
 
 const RightHeader: React.FC<RightHeaderProps> = ({
+  username,
   avatarImg,
   actionButton,
   onAnnouncementsClick,
@@ -45,7 +48,11 @@ const RightHeader: React.FC<RightHeaderProps> = ({
         </button>
       )}
       {actionButton}
-      <SingleUser size="sm" src={avatarImg} />
+      <Link href="/user/[username]" as={`/user/${username}`}>
+        <a>
+          <SingleUser size="sm" src={avatarImg} />
+        </a>
+      </Link>
     </div>
   );
 };
