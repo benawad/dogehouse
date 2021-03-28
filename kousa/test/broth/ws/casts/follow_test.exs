@@ -53,5 +53,8 @@ defmodule KousaTest.Broth.Ws.FollowTest do
 
       refute Beef.Follows.following_me?(followed.id, t.user.id)
     end
+
+    @tag :skip
+    test "you can't follow yourself?"
   end
 end
