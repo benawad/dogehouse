@@ -27,7 +27,7 @@ defmodule KousaTest.Broth.Ws.AudioAutoplayErrorTest do
       # make the ask_to_speak request
       WsClient.send_msg(t.client_ws, "audio_autoplay_error", %{})
 
-      WsClient.assert_frame("error",_)
+      WsClient.assert_frame("error", _)
     end
   end
 end
