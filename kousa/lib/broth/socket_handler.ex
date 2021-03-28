@@ -262,7 +262,7 @@ defmodule Broth.SocketHandler do
 
   # @deprecated in new design
   def handler("fetch_following_online", %{"cursor" => cursor}, state) do
-    {users, next_cursor} = Follows.fetch_following_online(state.user_id, cursor)
+    {users, next_cursor} = Follows.get_my_following(state.user_id, cursor)
 
     {:reply,
      construct_socket_msg(state.encoding, state.compression, %{
@@ -592,8 +592,8 @@ defmodule Broth.SocketHandler do
     %{}
   end
 
-  def f_handler("fetch_following_online", %{"cursor" => cursor}, %State{} = state) do
-    {users, next_cursor} = Follows.fetch_following_online(state.user_id, cursor)
+  def f_handler("get_my_following", %{"cursor" => cursor}, %State{} = state) do
+    {users, next_cursor} = Follows.get_my_following(state.user_id, cursor)
 
     %{users: users, nextCursor: next_cursor}
   end
