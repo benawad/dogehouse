@@ -201,7 +201,9 @@
       "roomSettingsModal": {
         "requirePermission": "pieprasīt runāšanas atļauju",
         "makePublic": "padarīt istabu publisku",
-        "makePrivate": "padarīt istabu privātu"
+        "makePrivate": "padarīt istabu privātu",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

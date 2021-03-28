@@ -200,7 +200,9 @@
       "roomSettingsModal": {
         "requirePermission": "Poslucháči musia požiadať o povolenie rozprávať",
         "makePublic": "zverejniť miestnosť",
-        "makePrivate": "zosúkromniť miestnosť"
+        "makePrivate": "zosúkromniť miestnosť",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

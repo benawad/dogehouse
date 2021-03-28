@@ -199,7 +199,9 @@
       "roomSettingsModal": {
         "requirePermission": "postulas permeson paroli",
         "makePublic": "publikigi ĉambron",
-        "makePrivate": "privatigi ĉambron"
+        "makePrivate": "privatigi ĉambron",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

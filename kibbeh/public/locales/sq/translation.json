@@ -195,7 +195,9 @@
       "roomSettingsModal": {
         "requirePermission": "kërko leje për të folur",
         "makePublic": "bëje dhomën publike",
-        "makePrivate": "bëje dhomën private"
+        "makePrivate": "bëje dhomën private",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

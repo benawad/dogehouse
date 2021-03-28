@@ -16,7 +16,7 @@ export interface RightHeaderProps {
   avatarImg: string;
 }
 
-export const RightHeader: React.FC<RightHeaderProps> = ({
+const RightHeader: React.FC<RightHeaderProps> = ({
   avatarImg,
   actionButton,
   onAnnouncementsClick,
@@ -49,3 +49,5 @@ export const RightHeader: React.FC<RightHeaderProps> = ({
     </div>
   );
 };
+
+export default RightHeader;

@@ -193,7 +193,9 @@
       "roomSettingsModal": {
         "requirePermission": "発言を許可制にする",
         "makePublic": "ルームを公開に変更",
-        "makePrivate": "ルームを非公開に変更"
+        "makePrivate": "ルームを非公開に変更",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

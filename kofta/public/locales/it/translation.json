@@ -198,9 +198,11 @@
         "makeRoomCreator": "Rendi amministratore della stanza"
       },
       "roomSettingsModal": {
-        "requirePermission": "Richiedi permesso per parlare",
+        "requirePermission": "richiedi permesso per parlare",
         "makePublic": "Rendi la stanza pubblica",
         "makePrivate": "Rendi la stanza privata"
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

@@ -5,10 +5,10 @@ import React from "react";
 
 import { render } from "../../../test-utils";
 import {
-  FriendsOnline,
+  FollowersOnline,
   FriendsOnlineProps,
   FriendOnlineType,
-} from "../FriendsOnline";
+} from "../FollowersOnline";
 
 jest.useFakeTimers();
 
@@ -43,7 +43,7 @@ describe("FriendsOnline", () => {
 
   it("should render correctly", () => {
     const { getByTestId, getByText } = render(
-      <FriendsOnline {...defaultProps} />
+      <FollowersOnline {...defaultProps} />
     );
     const component = getByTestId("friends-online");
 
@@ -55,14 +55,14 @@ describe("FriendsOnline", () => {
       ...defaultProps,
       onlineFriendList: [],
     };
-    const { getByTestId } = render(<FriendsOnline {...props} />);
+    const { getByTestId } = render(<FollowersOnline {...props} />);
     const placeholder = getByTestId("placeholder");
 
     expect(placeholder).toBeVisible();
   });
 
   it("should call showMoreAction if Show more button clicked", () => {
-    const { getByTestId } = render(<FriendsOnline {...defaultProps} />);
+    const { getByTestId } = render(<FollowersOnline {...defaultProps} />);
     const showMoreBtn = getByTestId("show-more-btn");
     showMoreBtn.click();
 
@@ -70,7 +70,7 @@ describe("FriendsOnline", () => {
   });
 
   it("should match snapshot", () => {
-    const { getByTestId } = render(<FriendsOnline {...defaultProps} />);
+    const { getByTestId } = render(<FollowersOnline {...defaultProps} />);
     const component = getByTestId("friends-online");
 
     expect(component).toMatchSnapshot();

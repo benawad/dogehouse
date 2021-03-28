@@ -197,7 +197,9 @@
       "roomSettingsModal": {
         "requirePermission": "Toestemming nodig om te spreken",
         "makePublic": "Maak kamer openbaar",
-        "makePrivate": "Maak kamer privé"
+        "makePrivate": "Maak kamer privé",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },
