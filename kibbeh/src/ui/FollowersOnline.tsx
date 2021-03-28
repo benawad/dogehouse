@@ -26,9 +26,17 @@ const FriendOnline: React.FC<UserWithFollowInfo> = ({
   currentRoom,
 }) => (
   <div className="py-3 w-full">
-    <SingleUser size="sm" isOnline={online} src={avatar} />
+    <Link href={`/user/[username]`} as={`/user/${username}`}>
+      <a>
+        <SingleUser size="sm" isOnline={online} src={avatar} />
+      </a>
+    </Link>
     <div className="ml-3 flex flex-col">
-      <h5 className="text-primary-100 font-bold">{username}</h5>
+      <Link href={`/user/[username]`} as={`/user/${username}`}>
+        <a>
+          <h5 className="text-primary-100 font-bold">{username}</h5>
+        </a>
+      </Link>
       <Link
         href={`/room/[id]`}
         as={currentRoom ? `/room/${currentRoom.id}` : undefined}

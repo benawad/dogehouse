@@ -818,7 +818,7 @@ defmodule Broth.SocketHandler do
         Beef.Users.get_by_id_with_follow_info(state.user_id, uuid)
 
       _ ->
-        Beef.Users.get_by_username(id_or_username)
+        Beef.Users.get_by_username_with_follow_info(state.user_id, id_or_username)
     end
   end
 
