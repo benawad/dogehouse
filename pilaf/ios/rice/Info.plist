@@ -9,6 +9,8 @@
 			<string></string>
 		</dict>
 	</array>
+  <key>NSMicrophoneUsageDescription</key>
+  <string>I want you to speak with me</string>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 	<key>CFBundleDevelopmentRegion</key>
