@@ -38,6 +38,7 @@
         "productName": "DogeHouse",
         "asar": true,
         "mac": {
+            "hardenedRuntime": true,
             "icon": "icons/icon.png",
             "category": "public.app-category.social-networking",
             "entitlements": "settings/entitlements.mac.plist",
