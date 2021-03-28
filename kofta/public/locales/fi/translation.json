@@ -199,7 +199,9 @@
       "roomSettingsModal": {
         "requirePermission": "puhuminen vaatii oikeuden",
         "makePublic": "tee huoneesta julkinen",
-        "makePrivate": "tee huoneesta yksityinen"
+        "makePrivate": "tee huoneesta yksityinen",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

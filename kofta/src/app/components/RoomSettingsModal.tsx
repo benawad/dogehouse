@@ -59,7 +59,7 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
           {currentRoom.isPrivate ? (
             <Button
               onClick={() => {
-                renameRoomAndMakePublic(currentRoom.name);
+                renameRoomAndMakePublic(currentRoom.name, t);
                 onRequestClose();
               }}
             >
@@ -68,7 +68,7 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
           ) : (
             <Button
               onClick={() => {
-                renameRoomAndMakePrivate(currentRoom.name);
+                renameRoomAndMakePrivate(currentRoom.name, t);
                 onRequestClose();
               }}
             >

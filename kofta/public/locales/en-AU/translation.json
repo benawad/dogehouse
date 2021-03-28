@@ -198,7 +198,9 @@
       "roomSettingsModal": {
         "requirePermission": "ʞɐǝds oʇ uoᴉssᴉɯɹǝd ǝɹᴉnbǝɹ",
         "makePublic": "ɔᴉꞁqnd ɯooɹ ǝʞɐɯ",
-        "makePrivate": "ǝʇɐʌᴉɹd ɯooɹ ǝʞɐɯ"
+        "makePrivate": "ǝʇɐʌᴉɹd ɯooɹ ǝʞɐɯ",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },
