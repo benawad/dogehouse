@@ -16,6 +16,7 @@ defmodule Beef.Users do
   defdelegate get_by_id(user_id), to: Beef.Access.Users
   defdelegate get_by_id_with_follow_info(me_id, them_id), to: Beef.Access.Users
   defdelegate get_by_username(username), to: Beef.Access.Users
+  defdelegate get_by_username_with_follow_info(user_id, username), to: Beef.Access.Users
 
   defdelegate search(query, offset), to: Beef.Access.Users
   defdelegate get_users_in_current_room(user_id), to: Beef.Access.Users

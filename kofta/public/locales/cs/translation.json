@@ -200,7 +200,9 @@
       "roomSettingsModal": {
         "requirePermission": "Požádat o status mluvčího",
         "makePublic": "Zveřejnit místnost",
-        "makePrivate": "Udělat místnost soukromou"
+        "makePrivate": "Udělat místnost soukromou",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

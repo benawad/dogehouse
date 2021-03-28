@@ -198,7 +198,9 @@
       "roomSettingsModal": {
         "requirePermission": "wequiwe pewmission to speak <{^n^}>",
         "makePublic": "UwU make woom pubwic (⁎˃ᆺ˂)",
-        "makePrivate": "make woom pwivate xD"
+        "makePrivate": "make woom pwivate xD",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

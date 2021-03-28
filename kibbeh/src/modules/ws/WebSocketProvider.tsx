@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { raw } from "@dogehouse/kebab";
 import { useTokenStore } from "../auth/useTokenStore";
 import { apiBaseUrl } from "../../lib/constants";
@@ -22,11 +22,12 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
   const hasTokens = useTokenStore((s) => s.accessToken && s.refreshToken);
   const [conn, setConn] = useState<V>(null);
   const { replace } = useRouter();
+  const isConnecting = useRef(false);
 
   useEffect(() => {
-    if (!conn && shouldConnect && hasTokens) {
+    if (!conn && shouldConnect && hasTokens && !isConnecting.current) {
       const { accessToken, refreshToken } = useTokenStore.getState();
-
+      isConnecting.current = true;
       raw
         .connect(accessToken, refreshToken, {
           url: apiBaseUrl.replace("http", "ws") + "/socket",
@@ -49,6 +50,9 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
           if (err.code === 4001) {
             replace(`/?next=${window.location.pathname}`);
           }
+        })
+        .finally(() => {
+          isConnecting.current = false;
         });
     }
   }, [conn, shouldConnect, hasTokens, replace]);

@@ -176,7 +176,9 @@
       "roomSettingsModal": {
         "requirePermission": "Pedir permissão para falar",
         "makePublic": "Tornar a sala pública",
-        "makePrivate": "Tornar a sala privada"
+        "makePrivate": "Tornar a sala privada",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     },
     "userVolumeSlider": {

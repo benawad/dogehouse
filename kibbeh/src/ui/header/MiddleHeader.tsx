@@ -1,12 +1,12 @@
 import React from "react";
 import { SearchBar } from "../Search/SearchBar";
 
-interface MiddleHeaderProps {
+export interface MiddleHeaderProps {
   searchPlaceholder: string;
   onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const MiddleHeader: React.FC<MiddleHeaderProps> = ({
+const MiddleHeader: React.FC<MiddleHeaderProps> = ({
   searchPlaceholder,
   onSearchChange,
 }) => {
@@ -16,3 +16,5 @@ export const MiddleHeader: React.FC<MiddleHeaderProps> = ({
     </div>
   );
 };
+
+export default MiddleHeader;

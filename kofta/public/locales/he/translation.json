@@ -193,7 +193,9 @@
       "roomSettingsModal": {
         "requirePermission": "דרוש אישור לדבר",
         "makePublic": "הפוך חדר לציבורי",
-        "makePrivate": "הפוך חדר לפרטי"
+        "makePrivate": "הפוך חדר לפרטי",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

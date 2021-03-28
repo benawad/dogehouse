@@ -26,12 +26,17 @@ export const wrap = (connection: Connection) => ({
       connection.addListener("new_chat_msg", handler),
   },
   query: {
-    getFollowingOnline: (
+    // this is supposed to be in query
+    joinRoomAndGetInfo: (
+      roomId: string
+    ): Promise<JoinRoomAndGetInfoResponse | { error: string }> =>
+      connection.fetch("join_room_and_get_info", { roomId }),
+    getMyFollowing: (
       cursor = 0
     ): Promise<{
       users: UserWithFollowInfo[];
       nextCursor: number | null;
-    }> => connection.fetch("fetch_following_online", { cursor }),
+    }> => connection.fetch("get_my_following", { cursor }),
     getTopPublicRooms: (cursor = 0): Promise<GetTopPublicRoomsResponse> =>
       connection.fetch("get_top_public_rooms", { cursor }),
     getUserProfile: (
@@ -54,10 +59,6 @@ export const wrap = (connection: Connection) => ({
       ),
   },
   mutation: {
-    joinRoomAndGetInfo: (
-      roomId: string
-    ): Promise<JoinRoomAndGetInfoResponse | { error: string }> =>
-      connection.fetch("join_room_and_get_info", { roomId }),
     speakingChange: (value: boolean) =>
       connection.send(`speaking_change`, { value }),
     follow: (userId: string, value: boolean): Promise<void> =>
