@@ -101,7 +101,10 @@
       "volume": "ভলিউম:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "অবৈধ অ্যাপ শিরোনাম", "label": "অ্যাপ শিরোনাম দিন" },
+      "input": {
+        "errorMsg": "অবৈধ অ্যাপ শিরোনাম",
+        "label": "অ্যাপ শিরোনাম দিন"
+      },
       "header": "ওভারলে সেটিংস",
       "errorMsg": "দয়া করে বৈধ অ্যাপ শিরোনাম দিন",
       "label": "অ্যাপ শিরোনাম দিন"
@@ -203,7 +206,9 @@
       "roomSettingsModal": {
         "requirePermission": "কথা বলার জন্য পারমিশন লাগবে",
         "makePublic": "রুমটাকে পাবলিক করুন",
-        "makePrivate": "রুমটাকে প্রাইভেট করুন"
+        "makePrivate": "রুমটাকে প্রাইভেট করুন",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

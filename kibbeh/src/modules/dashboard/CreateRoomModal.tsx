@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import React from "react";
 import { InputField } from "../../form-fields/InputField";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
-import { roomToCurrentRoom } from "../../lib/roomToCurrentRoom";
 import { showErrorToast } from "../../lib/showErrorToast";
 import { useWrappedConn } from "../../shared-hooks/useConn";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";

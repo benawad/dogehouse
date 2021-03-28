@@ -267,6 +267,17 @@ defmodule Broth.SocketHandler do
     end
   end
 
+  # @deprecated in new design
+  def handler("fetch_following_online", %{"cursor" => cursor}, state) do
+    {users, next_cursor} = Follows.get_my_following(state.user_id, cursor)
+
+    {:reply,
+     construct_socket_msg(state.encoding, state.compression, %{
+       op: "fetch_following_online_done",
+       d: %{users: users, nextCursor: next_cursor, initial: cursor == 0}
+     }), state}
+  end
+
   def handler("invite_to_room", %{"userId" => user_id_to_invite}, state) do
     Kousa.Room.invite_to_room(state.user_id, user_id_to_invite)
     {:ok, state}
@@ -583,9 +594,14 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  # TODO: rename this "call_handler"
-  def f_handler("fetch_following_online", %{"cursor" => cursor}, state) do
-    {users, next_cursor} = Follows.fetch_following_online(state.user_id, cursor)
+
+  def f_handler("follow", %{"userId" => userId, "value" => value}, state) do
+    Kousa.Follow.follow(state.user_id, userId, value)
+    %{}
+  end
+
+  def f_handler("get_my_following", %{"cursor" => cursor}, state) do
+    {users, next_cursor} = Follows.get_my_following(state.user_id, cursor)
 
     %{users: users, nextCursor: next_cursor}
   end
@@ -809,7 +825,7 @@ defmodule Broth.SocketHandler do
         Beef.Users.get_by_id_with_follow_info(state.user_id, uuid)
 
       _ ->
-        Beef.Users.get_by_username(id_or_username)
+        Beef.Users.get_by_username_with_follow_info(state.user_id, id_or_username)
     end
   end
 

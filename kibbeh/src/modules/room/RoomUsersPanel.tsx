@@ -14,7 +14,7 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
   );
   const { t } = useTypeSafeTranslation();
   return (
-    <div className={`p-4 bg-primary-800`}>
+    <div className={`p-4 flex-1 bg-primary-800`}>
       <div
         style={{
           gridTemplateColumns: "repeat(auto-fit, 90px)",

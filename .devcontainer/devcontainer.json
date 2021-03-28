@@ -1,0 +1,23 @@
+{
+    "name": "Dogehouse",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "workspace",
+    "workspaceFolder": "/workspace",
+    "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "jakebecker.elixir-ls",
+        "bradlc.vscode-tailwindcss"
+    ],
+    "forwardPorts": [
+        80,
+        3000,
+        4001,
+        8080,
+        5432,
+        5672,
+        15672 // rabbit.mq management interface 
+    ],
+    "postCreateCommand": ["bash", ".devcontainer/scripts/environment.sh"],
+    "remoteUser": "doge"
+}

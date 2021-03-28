@@ -9,7 +9,7 @@ defmodule Kousa.RoomChat do
     tokens = validate_tokens(tokens)
 
     # NB: length(list) is O(N) so use a match for stuff like this
-    if length(tokens) > 0 do
+    if length(tokens) > 0 and is_list(whispered_to) and Enum.all?(whispered_to, &is_bitstring(&1)) do
       case Beef.Users.get_current_room_id(user_id) do
         nil ->
           nil

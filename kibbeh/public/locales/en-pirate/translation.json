@@ -195,7 +195,9 @@
       "roomSettingsModal": {
         "requirePermission": "require permission t' speak",
         "makePublic": "make cabin public",
-        "makePrivate": "make cabin private"
+        "makePrivate": "make cabin private",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

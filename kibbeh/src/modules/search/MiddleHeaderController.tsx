@@ -1,5 +1,5 @@
 import React from "react";
-import { MiddleHeader } from "../../ui/header/MiddleHeader";
+import MiddleHeader from "../../ui/header/MiddleHeader";
 
 interface SearchBarControllerProps {}
 
