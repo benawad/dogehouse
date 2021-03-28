@@ -126,10 +126,10 @@ export const LoginPage: React.FC = () => {
             </LoginButton>
           ) : null}
         </div>
-        <div className="flex-col gap-3 items-center">
+        {/* <div className="flex-col gap-3 items-center">
           <span className="text-primary-100">Download the app</span>
           <span className="text-primary-300">unavailable lol</span>
-        </div>
+        </div> */}
       </div>
       <div className="absolute bottom-0 w-full justify-between px-7 py-5 mt-auto">
         <LgLogo />
