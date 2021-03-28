@@ -1,3 +1,5 @@
+import { UserWithFollowInfo } from "@dogehouse/kebab";
+import Link from "next/link";
 import React, { MouseEventHandler } from "react";
 import { SingleUser } from "./UserAvatar/SingleUser";
 
@@ -12,32 +14,40 @@ export interface FriendOnlineType {
 }
 
 export interface FriendsOnlineProps {
-  onlineFriendList: FriendOnlineType[];
+  onlineFriendList: UserWithFollowInfo[];
   onlineFriendCount?: number;
   showMoreAction?: MouseEventHandler<HTMLDivElement>;
 }
 
-const FriendOnline: React.FC<FriendOnlineType> = ({
+const FriendOnline: React.FC<UserWithFollowInfo> = ({
   username,
   avatarUrl: avatar,
-  isOnline,
-  activeRoom,
+  online,
+  currentRoom,
 }) => (
   <div className="py-3 w-full">
-    <SingleUser size="sm" isOnline={isOnline} src={avatar} />
-    <div className="ml-3 flex flex-col">
-      <h5 className="text-primary-100 font-bold">{username}</h5>
-      <a
-        className={`text-primary-300 border-b`}
-        {...(activeRoom?.link ? { href: activeRoom.link } : {})}
-      >
-        {activeRoom?.name}
+    <Link href={`/user/[username]`} as={`/user/${username}`}>
+      <a>
+        <SingleUser size="sm" isOnline={online} src={avatar} />
       </a>
+    </Link>
+    <div className="ml-3 flex flex-col">
+      <Link href={`/user/[username]`} as={`/user/${username}`}>
+        <a>
+          <h5 className="text-primary-100 font-bold">{username}</h5>
+        </a>
+      </Link>
+      <Link
+        href={`/room/[id]`}
+        as={currentRoom ? `/room/${currentRoom.id}` : undefined}
+      >
+        <a className={`text-primary-300 border-b`}>{currentRoom?.name}</a>
+      </Link>
     </div>
   </div>
 );
 
-export const FriendsOnline: React.FC<FriendsOnlineProps> = ({
+export const FollowersOnline: React.FC<FriendsOnlineProps> = ({
   onlineFriendList = [],
   onlineFriendCount,
   showMoreAction,
@@ -55,18 +65,7 @@ export const FriendsOnline: React.FC<FriendsOnlineProps> = ({
       <div className="flex flex-col mt-3 overflow-y-auto">
         {onlineFriendList.length > 0 ? (
           <>
-            {[
-              ...onlineFriendList,
-              ...onlineFriendList,
-              ...onlineFriendList,
-              ...onlineFriendList,
-              ...onlineFriendList,
-              ...onlineFriendList,
-              ...onlineFriendList,
-              ...onlineFriendList,
-              ...onlineFriendList,
-              ...onlineFriendList,
-            ].map((friend, idx) => (
+            {onlineFriendList.map((friend, idx) => (
               <FriendOnline key={idx} {...friend} />
             ))}
           </>

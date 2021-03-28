@@ -18,6 +18,10 @@ import {
   radius,
   small,
 } from "../constants/dogeStyle";
+import { useWrappedConn } from "../shared-hooks/useConn";
+import { useTypeSafePrefetch } from "../shared-hooks/useTypeSafePrefetch";
+import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
+import { useNavigation } from "@react-navigation/core";
 
 interface CreateRoomModalProps {
   onRequestClose: () => void;
@@ -35,6 +39,9 @@ export const CreateRoomPage: React.FC<CreateRoomModalProps> = ({
   edit,
 }) => {
   const [segmentIndex, setSegmentIndex] = useState(0);
+  const conn = useWrappedConn();
+  const prefetch = useTypeSafePrefetch();
+  const navigation = useNavigation();
   return (
     <KeyboardAvoidingView style={{ flex: 1 }} behavior={"padding"}>
       <SafeAreaView style={styles.safeAreaView}>
@@ -66,7 +73,24 @@ export const CreateRoomPage: React.FC<CreateRoomModalProps> = ({
             return errors;
           }}
           onSubmit={async ({ name, privacy, description }) => {
-            console.log(name, privacy, description);
+            const d = { name, privacy, description };
+            const resp = edit
+              ? await conn.mutation.editRoom(d)
+              : await conn.mutation.createRoom(d);
+
+            if ("error" in resp) {
+              //showErrorToast(resp.error);
+
+              return;
+            } else if (resp.room) {
+              const { room } = resp;
+
+              prefetch(["joinRoomAndGetInfo", room.id], [room.id]);
+              console.log("new room voice server id: " + room.voiceServerId);
+              useCurrentRoomIdStore.getState().setCurrentRoomId(room.id);
+              navigation.navigate("Room", { roomId: room.id });
+              onRequestClose();
+            }
           }}
         >
           {({

@@ -173,7 +173,9 @@
       "roomSettingsModal": {
         "requirePermission": "precisar de permissão para falar",
         "makePublic": "fazer a sala pública",
-        "makePrivate": "fazer a sala privada"
+        "makePrivate": "fazer a sala privada",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     },
     "userVolumeSlider": { "noAudioMessage": "não tem áudio por algum motivo" },

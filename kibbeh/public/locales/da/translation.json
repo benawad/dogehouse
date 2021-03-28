@@ -199,7 +199,9 @@
       "roomSettingsModal": {
         "requirePermission": "kræv tilladelse for at tale",
         "makePublic": "Gør rum offentligt",
-        "makePrivate": "Gør rum privat"
+        "makePrivate": "Gør rum privat",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

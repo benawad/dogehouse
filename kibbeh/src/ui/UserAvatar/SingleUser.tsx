@@ -17,13 +17,6 @@ export const onlineIndicatorStyleMap = {
     bottom: "-4px",
     borderWidth: "4px",
   },
-  md: {
-    width: "10px",
-    height: "10px",
-    right: "2px",
-    bottom: "-2px",
-    borderWidth: "2px",
-  },
   xxs: {
     width: "6px",
     height: "6px",

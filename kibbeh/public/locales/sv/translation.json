@@ -176,7 +176,9 @@
       "roomSettingsModal": {
         "requirePermission": "Be om tillåtelse att prata",
         "makePublic": "Gör rum offentligt",
-        "makePrivate": "Gör rum privat"
+        "makePrivate": "Gör rum privat",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     },
     "userVolumeSlider": {

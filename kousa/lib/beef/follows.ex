@@ -46,7 +46,7 @@ defmodule Beef.Follows do
   end
 
   # fetch all the users
-  def fetch_following_online(user_id, offset \\ 0) do
+  def get_my_following(user_id, offset \\ 0) do
     items =
       from(
         f in Follow,

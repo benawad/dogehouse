@@ -160,9 +160,9 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
             </div>
           </div>
         ))}
-      {messages.length === 0 ? (
+      {/* {messages.length === 0 ? (
         <div>{t("modules.roomChat.welcomeMessage")}</div>
-      ) : null}
+      ) : null} */}
       {/* <div className={`pb-6`} ref={bottomRef} /> */}
       <style>{`
         .chat-message-container > :first-child {

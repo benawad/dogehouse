@@ -143,6 +143,8 @@ export type TranslationKeys =
 	| "components.modals.roomSettingsModal.requirePermission"
 	| "components.modals.roomSettingsModal.makePublic"
 	| "components.modals.roomSettingsModal.makePrivate"
+	| "components.modals.roomSettingsModal.renamePublic"
+	| "components.modals.roomSettingsModal.renamePrivate"
 	| "modules.scheduledRooms.title"
 	| "modules.scheduledRooms.noneFound"
 	| "modules.scheduledRooms.allRooms"

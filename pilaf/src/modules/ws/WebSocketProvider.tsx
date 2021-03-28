@@ -25,7 +25,8 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
       const { accessToken, refreshToken } = useTokenStore.getState();
       raw
         .connect(accessToken, refreshToken, {
-          url: apiBaseUrl.replace("http", "ws") + "/socket",
+          url: "wss://api.dogehouse.tv/socket",
+          // url: apiBaseUrl.replace("http", "ws") + "/socket",
         })
         .then((x) => {
           setConn(x);

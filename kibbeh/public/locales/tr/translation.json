@@ -177,7 +177,9 @@
       "roomSettingsModal": {
         "requirePermission": "Konuşmak için izne ihtiyacın var",
         "makePublic": "Odayı herkese açık yap",
-        "makePrivate": "Odayı gizli yap"
+        "makePrivate": "Odayı gizli yap",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     },
     "userVolumeSlider": { "noAudioMessage": "Nedense ses alıcısı yok" },

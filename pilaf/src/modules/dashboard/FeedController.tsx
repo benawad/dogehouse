@@ -2,7 +2,7 @@ import { Room, ScheduledRoom } from "@dogehouse/kebab";
 import { useNavigation } from "@react-navigation/core";
 import React, { useContext } from "react";
 import { RoomCard } from "../../components/RoomCard";
-import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
+import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { useSoundEffectStore } from "../sound-effect/useSoundEffectStore";
@@ -19,8 +19,8 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
     refetchOnMount: "always",
     refetchInterval: 10000,
   });
-  const { currentRoom } = useCurrentRoomStore();
-  const prefetch = useTypeSafePrefetch("joinRoomAndGetInfo");
+  const { currentRoomId } = useCurrentRoomIdStore();
+  const prefetch = useTypeSafePrefetch();
 
   const navigation = useNavigation();
   const playSound = useSoundEffectStore((s) => s.playSoundEffect);
@@ -51,8 +51,8 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
           avatarSrcs={[]}
           onPress={() => {
             playSound("room_chat_mention");
-            if (room.id !== currentRoom?.id) {
-              prefetch([room.id], ["joinRoomAndGetInfo", room.id]);
+            if (room.id !== currentRoomId) {
+              prefetch(["joinRoomAndGetInfo", room.id], [room.id]);
             }
             navigation.navigate("Room", { roomId: room.id });
           }}
