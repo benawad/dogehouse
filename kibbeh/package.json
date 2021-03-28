@@ -31,6 +31,7 @@
     "mediasoup-client": "^3.6.29",
     "next": "10.0.7",
     "normalize-url": "^4.5.0",
+    "rc-slider": "^9.7.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-draggable": "^4.4.3",
