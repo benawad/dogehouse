@@ -19,7 +19,7 @@ export const VolumeSlider: React.FC<VolumeSliderProps> = ({
       {volume}
       <input
         type="range"
-        min="1"
+        min="0"
         max={max}
         value={volume}
         onChange={(e) => {
