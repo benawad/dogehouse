@@ -19,7 +19,7 @@ export interface FriendsOnlineProps {
   showMoreAction?: MouseEventHandler<HTMLDivElement>;
 }
 
-const FriendOnline: React.FC<UserWithFollowInfo> = ({
+export const FollowerOnline: React.FC<UserWithFollowInfo> = ({
   username,
   avatarUrl: avatar,
   online,
@@ -47,11 +47,9 @@ const FriendOnline: React.FC<UserWithFollowInfo> = ({
   </div>
 );
 
-export const FollowersOnline: React.FC<FriendsOnlineProps> = ({
-  onlineFriendList = [],
-  onlineFriendCount,
-  showMoreAction,
-}) => {
+export const FollowersOnlineWrapper: React.FC<{
+  onlineFriendCount?: number;
+}> = ({ onlineFriendCount, children }) => {
   return (
     <div
       className="pb-5 w-full flex flex-col flex-1 overflow-y-auto"
@@ -62,26 +60,21 @@ export const FollowersOnline: React.FC<FriendsOnlineProps> = ({
         ONLINE{" "}
         {onlineFriendCount !== undefined ? `(${onlineFriendCount})` : null}
       </h6>
-      <div className="flex flex-col mt-3 overflow-y-auto">
-        {onlineFriendList.length > 0 ? (
-          <>
-            {onlineFriendList.map((friend, idx) => (
-              <FriendOnline key={idx} {...friend} />
-            ))}
-          </>
-        ) : (
-          <p className="text-primary-200" data-testid="placeholder">
-            You have 0 friends online right now
-          </p>
-        )}
-      </div>
-      <div
-        className="underline text-primary-300 font-bold mt-4 cursor-pointer"
-        onClick={showMoreAction}
-        data-testid="show-more-btn"
-      >
-        Show more
-      </div>
+      <div className="flex flex-col mt-3 overflow-y-auto">{children}</div>
     </div>
+  );
+};
+
+export const FollowersOnlineShowMore: React.FC<{ onClick?: () => void }> = ({
+  onClick,
+}) => {
+  return (
+    <button
+      className="underline text-primary-300 font-bold mt-4 cursor-pointer"
+      onClick={onClick}
+      data-testid="show-more-btn"
+    >
+      Show more
+    </button>
   );
 };

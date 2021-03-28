@@ -43,7 +43,12 @@ export const RightPanel: React.FC<LeftPanelProps> = ({ children }) => {
   return (
     <GridPanel>
       <HeaderWrapper>
-        {conn ? <RightHeader avatarImg={conn.user.avatarUrl} /> : null}
+        {conn ? (
+          <RightHeader
+            username={conn.user.username}
+            avatarImg={conn.user.avatarUrl}
+          />
+        ) : null}
       </HeaderWrapper>
       {children}
     </GridPanel>
