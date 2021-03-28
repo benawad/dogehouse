@@ -1,3 +1,5 @@
+import { UserWithFollowInfo } from "@dogehouse/kebab";
+import Link from "next/link";
 import React, { MouseEventHandler } from "react";
 import { SingleUser } from "./UserAvatar/SingleUser";
 
@@ -12,27 +14,27 @@ export interface FriendOnlineType {
 }
 
 export interface FriendsOnlineProps {
-  onlineFriendList: FriendOnlineType[];
+  onlineFriendList: UserWithFollowInfo[];
   onlineFriendCount?: number;
   showMoreAction?: MouseEventHandler<HTMLDivElement>;
 }
 
-const FriendOnline: React.FC<FriendOnlineType> = ({
+const FriendOnline: React.FC<UserWithFollowInfo> = ({
   username,
   avatarUrl: avatar,
-  isOnline,
-  activeRoom,
+  online,
+  currentRoom,
 }) => (
   <div className="py-3 w-full">
-    <SingleUser size="sm" isOnline={isOnline} src={avatar} />
+    <SingleUser size="sm" isOnline={online} src={avatar} />
     <div className="ml-3 flex flex-col">
       <h5 className="text-primary-100 font-bold">{username}</h5>
-      <a
-        className={`text-primary-300 border-b`}
-        {...(activeRoom?.link ? { href: activeRoom.link } : {})}
+      <Link
+        href={`/room/[id]`}
+        as={currentRoom ? `/room/${currentRoom.id}` : undefined}
       >
-        {activeRoom?.name}
-      </a>
+        <a className={`text-primary-300 border-b`}>{currentRoom?.name}</a>
+      </Link>
     </div>
   </div>
 );

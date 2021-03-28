@@ -589,7 +589,7 @@ defmodule Broth.SocketHandler do
 
   def f_handler("follow", %{"userId" => userId, "value" => value}, state) do
     Kousa.Follow.follow(state.user_id, userId, value)
-    {"you_left_room", %{}}
+    %{}
   end
 
   def f_handler("fetch_following_online", %{"cursor" => cursor}, %State{} = state) do

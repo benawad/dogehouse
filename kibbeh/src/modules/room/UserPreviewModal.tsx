@@ -1,6 +1,7 @@
 import { JoinRoomAndGetInfoResponse, RoomUser } from "@dogehouse/kebab";
 import React, { useContext } from "react";
 import { SolidFriends } from "../../icons";
+import { useConn } from "../../shared-hooks/useConn";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
@@ -25,6 +26,7 @@ const UserPreview: React.FC<{
   const { mutateAsync, isLoading: followLoading } = useTypeSafeMutation(
     "follow"
   );
+  const conn = useConn();
 
   if (isLoading) {
     return (
@@ -47,28 +49,30 @@ const UserPreview: React.FC<{
         <VerticalUserInfo user={data} />
         <div className={`mb-2 items-center w-full justify-center`}>
           {/* @todo add real icon */}
-          <Button
-            loading={followLoading}
-            onClick={async () => {
-              await mutateAsync([id, !data.youAreFollowing]);
-              updater(["getUserProfile", id], (u) =>
-                !u
-                  ? u
-                  : {
-                      ...u,
-                      numFollowers:
-                        u.numFollowers + (data.youAreFollowing ? -1 : 1),
-                      youAreFollowing: !data.youAreFollowing,
-                    }
-              );
-            }}
-            size="small"
-            icon={<SolidFriends />}
-          >
-            {data.youAreFollowing
-              ? t("pages.viewUser.unfollow")
-              : t("pages.viewUser.followHim")}
-          </Button>
+          {data.id !== conn.user.id ? (
+            <Button
+              loading={followLoading}
+              onClick={async () => {
+                await mutateAsync([id, !data.youAreFollowing]);
+                updater(["getUserProfile", id], (u) =>
+                  !u
+                    ? u
+                    : {
+                        ...u,
+                        numFollowers:
+                          u.numFollowers + (data.youAreFollowing ? -1 : 1),
+                        youAreFollowing: !data.youAreFollowing,
+                      }
+                );
+              }}
+              size="small"
+              icon={<SolidFriends />}
+            >
+              {data.youAreFollowing
+                ? t("pages.viewUser.unfollow")
+                : t("pages.viewUser.followHim")}
+            </Button>
+          ) : null}
         </div>
       </div>
       <div className={`bg-primary-800`}>
