@@ -84,7 +84,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
                 key={m.id}
               >
                 <span className={`pr-2`}>
-                  <Avatar size={20} src={m.avatarUrl} className="inline" />
+                  <Avatar size={20} src={m.avatarUrl} usernameForErrorImg={m.username} className="inline" />
                 </span>
 
                 <button

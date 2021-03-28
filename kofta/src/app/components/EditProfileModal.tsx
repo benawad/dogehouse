@@ -78,6 +78,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                         user: {
                           ...x.user,
                           ...data,
+                          bio: data.bio.trim(),
                           displayName: data.displayName.trim(),
                         },
                       }

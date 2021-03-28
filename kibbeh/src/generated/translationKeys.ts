@@ -176,3 +176,4 @@ export type TranslationKeys =
       | "modules.roomStatus.approachingGalaxy"
       | "modules.roomStatus.galacticDoge"
       | "modules.roomStatus.spottedLife";
+
