@@ -73,13 +73,13 @@ defmodule Broth.WsClient do
         ref = unquote(ref)
 
         ExUnit.Assertions.assert_receive(
-          {:text, %{"op" => "fetch_done", "d" => unquote(payload), "fetchId" => ^ref},
-           ^from}
+          {:text, %{"op" => "fetch_done", "d" => unquote(payload), "fetchId" => ^ref}, ^from}
         )
       end
     else
       quote do
         ref = unquote(ref)
+
         ExUnit.Assertions.assert_receive(
           {:text, %{"op" => "fetch_done", "d" => unquote(payload), "fetchId" => ^ref}, _}
         )
