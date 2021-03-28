@@ -37,7 +37,7 @@ const FriendOnline: React.FC<FriendOnlineType> = ({
   </div>
 );
 
-export const FriendsOnline: React.FC<FriendsOnlineProps> = ({
+export const FollowersOnline: React.FC<FriendsOnlineProps> = ({
   onlineFriendList = [],
   onlineFriendCount,
   showMoreAction,

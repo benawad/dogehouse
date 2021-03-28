@@ -1,6 +1,6 @@
 import React from "react";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
-import { FriendsOnline } from "../../ui/FriendsOnline";
+import { FollowersOnline } from "../../ui/FollowersOnline";
 
 interface FriendsOnlineControllerProps {}
 
@@ -9,5 +9,5 @@ export const FollowingOnlineController: React.FC<FriendsOnlineControllerProps> =
     refetchOnMount: "always",
   });
 
-  return <FriendsOnline onlineFriendList={(data?.users || []) as any} />;
+  return <FollowersOnline onlineFriendList={(data?.users || []) as any} />;
 };
