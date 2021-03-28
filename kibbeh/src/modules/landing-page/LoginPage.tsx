@@ -97,10 +97,11 @@ export const LoginPage: React.FC = () => {
             <SvgSolidGitHub width={20} height={20} />
             Login with GitHub
           </LoginButton>
-          <LoginButton oauthUrl={`${apiBaseUrl}/auth/twitter/web`}>
+          {/* @todo backend needs to be fixed for twitter to work */}
+          {/* <LoginButton oauthUrl={`${apiBaseUrl}/auth/twitter/web`}>
             <SvgSolidTwitter width={20} height={20} />
             Login with Twitter
-          </LoginButton>
+          </LoginButton> */}
           {!__prod__ ? (
             <LoginButton
               dev
