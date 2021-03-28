@@ -45,8 +45,7 @@ defmodule KousaTest.Broth.Ws.CreateRoomTest do
         }
       )
 
-      assert %{currentRoomId: ^room_id} =
-        Users.get_by_id(user_id)
+      assert %{currentRoomId: ^room_id} = Users.get_by_id(user_id)
     end
   end
 end

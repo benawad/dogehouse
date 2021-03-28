@@ -7,7 +7,9 @@ defmodule Beef.Mutations.Users do
   alias Beef.RoomPermissions
 
   def edit_profile(user_id, data) do
-    %User{id: user_id}
+    # TODO: make this not perform a db query
+    user_id
+    |> Beef.Users.get_by_id()
     |> User.edit_changeset(data)
     |> Repo.update()
   end
