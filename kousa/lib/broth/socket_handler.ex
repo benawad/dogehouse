@@ -584,7 +584,6 @@ defmodule Broth.SocketHandler do
   end
 
   # TODO: rename this "call_handler"
-
   def f_handler("fetch_following_online", %{"cursor" => cursor}, state) do
     {users, next_cursor} = Follows.fetch_following_online(state.user_id, cursor)
 

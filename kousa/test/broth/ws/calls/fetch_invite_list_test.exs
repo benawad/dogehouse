@@ -22,7 +22,7 @@ defmodule KousaTest.Broth.Ws.FetchInviteListTest do
       WsClient.assert_frame("fetch_invite_list_done", %{"users" => []})
     end
 
-    test "returns one user whe you have invited them", t do
+    test "returns one user when you have invited them", t do
       # create a follower user that is logged in.
       follower = %{id: follower_id} = Factory.create(User)
       WsClientFactory.create_client_for(follower)
