@@ -78,14 +78,14 @@ export const LoginPage: React.FC = () => {
           <p className="text-primary-100 flex-wrap">
             By logging in you accept our&nbsp;
             <a
-              href="https://youtu.be/dQw4w9WgXcQ"
+              href="/privacy-policy"
               className="text-accent hover:text-accent-hover"
             >
               Privacy Policy
             </a>
             &nbsp;and&nbsp;
             <a
-              href="https://youtu.be/dQw4w9WgXcQ"
+              href="/tos"
               className="text-accent hover:text-accent-hover"
             >
               Terms of Service
@@ -136,7 +136,7 @@ export const LoginPage: React.FC = () => {
         <LgLogo />
         <div className="gap-6 text-primary-300">
           <a
-            href="https://youtu.be/dQw4w9WgXcQ"
+            href="/privacy-policy"
             className="hover:text-primary-200"
           >
             Privacy policy
