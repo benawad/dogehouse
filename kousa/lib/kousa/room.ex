@@ -220,8 +220,10 @@ defmodule Kousa.Room do
   end
 
   def edit_room(user_id, new_name, new_description, is_private) do
-    with {:ok, room_id} <- Users.tuple_get_current_room_id(user_id) do
-      case Rooms.edit(room_id, %{
+    room = Rooms.get_room_by_creator_id(user_id)
+
+    if not is_nil(room) do
+      case Rooms.edit(room.id, %{
              name: new_name,
              description: new_description,
              is_private: is_private
@@ -229,7 +231,7 @@ defmodule Kousa.Room do
         {:ok, _room} ->
           RegUtils.lookup_and_cast(
             Onion.RoomSession,
-            room_id,
+            room.id,
             {:new_room_details, new_name, new_description, is_private}
           )
 

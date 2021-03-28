@@ -200,7 +200,9 @@
       "roomSettingsModal": {
         "requirePermission": "require permission to speak",
         "makePublic": "make room public",
-        "makePrivate": "make room private"
+        "makePrivate": "make room private",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

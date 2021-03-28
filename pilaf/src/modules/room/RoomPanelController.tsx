@@ -1,14 +1,22 @@
 import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
 import React, { useEffect } from "react";
-import { ActivityIndicator, Text, View } from "react-native";
-// import { ErrorToast } from "../../ui/ErrorToast";
-import Toast from "react-native-toast-message";
+import {
+  ActivityIndicator,
+  Button,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { TitledHeader } from "../../components/header/TitledHeader";
 import { colors, h4, paragraph } from "../../constants/dogeStyle";
-import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
+import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { isUuid } from "../../lib/isUuid";
+import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
-
+import { useNavigation } from "@react-navigation/core";
+import { useMuteStore } from "../../global-stores/useMuteStore";
+import { RoomUsersPanel } from "./RoomUsersPanel";
 interface RoomPanelControllerProps {
   roomId?: string | undefined;
 }
@@ -28,56 +36,81 @@ const placeHolder = (
 export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({
   roomId,
 }) => {
-  const { currentRoom, setCurrentRoom } = useCurrentRoomStore();
-  const { data } = useTypeSafeQuery(
-    ["joinRoomAndGetInfo", currentRoom?.id || ""],
+  const { mutateAsync: leaveRoom } = useTypeSafeMutation("leaveRoom");
+  const navigation = useNavigation();
+  const { currentRoomId, setCurrentRoomId } = useCurrentRoomIdStore();
+  const { data, isLoading } = useTypeSafeQuery(
+    ["joinRoomAndGetInfo", roomId || ""],
     {
-      refetchOnMount: "always",
       enabled: isUuid(roomId),
       onSuccess: ((d: JoinRoomAndGetInfoResponse | { error: string }) => {
         if (!("error" in d)) {
-          setCurrentRoom(() => d.room);
+          setCurrentRoomId(() => d.room.id);
         }
       }) as any,
     },
     [roomId]
   );
-  if (!data) {
-    // @todo add error handling
-    console.log("return firsst");
+
+  useEffect(() => {
+    if (isLoading) {
+      return;
+    }
+    if (!data) {
+      setCurrentRoomId(null);
+      navigation.navigate("Home");
+      return;
+    }
+    if ("error" in data) {
+      setCurrentRoomId(null);
+      //showErrorToast(data.error);
+      navigation.navigate("Home");
+    }
+  }, [data, isLoading, navigation.navigate, setCurrentRoomId]);
+
+  if (isLoading || !currentRoomId) {
     return placeHolder;
   }
 
-  // @todo start using error codes
-  if ("error" in data) {
-    // @todo replace with real design
-    useEffect(() => {
-      Toast.show({
-        type: "error",
-        text1: "Something went wrong",
-      });
-    }, []);
-    return <View />;
+  if (!data || "error" in data) {
+    return null;
   }
 
-  if (!currentRoom) {
-    // return null;
-    return placeHolder;
-  }
+  const roomCreator = data.users.find((x) => x.id === data.room.creatorId);
 
-  if (currentRoom.id !== roomId) {
-    return placeHolder;
-  }
-
-  const roomCreator = data?.users.find((x) => x.id === currentRoom.creatorId);
-  //return placeHolder;
   return (
     <View style={{ flex: 1, backgroundColor: colors.primary900 }}>
-      <TitledHeader title={currentRoom.name} showBackButton={true} />
-      <Text style={{ ...paragraph }}>{currentRoom.description}</Text>
-      <Text style={{ ...paragraph }}>{roomCreator.username}</Text>
-      <Text style={{ ...paragraph }}>Waiting for design information</Text>
-      <Text style={{ ...paragraph }}>{roomId}</Text>
+      <TitledHeader title={data.room.name} showBackButton={true} />
+      <ScrollView
+        style={styles.scrollView}
+        contentContainerStyle={styles.avatarsContainer}
+      >
+        <RoomUsersPanel {...data} style={styles.avatar} />
+      </ScrollView>
+
+      <Button
+        title={"leave the room"}
+        onPress={() => {
+          leaveRoom([]);
+          navigation.navigate("Home");
+        }}
+      />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  scrollView: {
+    padding: 20,
+    flex: 1,
+  },
+  avatarsContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+  },
+  avatar: {
+    marginRight: 10,
+    marginBottom: 10,
+  },
+});

@@ -51,8 +51,14 @@ export const connect = (
   {
     logger = () => {},
     onConnectionTaken = () => {},
+    onClearTokens = () => {},
     url = apiUrl,
-  }: { logger?: Logger; onConnectionTaken?: () => void; url?: string }
+  }: {
+    logger?: Logger;
+    onConnectionTaken?: () => void;
+    onClearTokens?: () => void;
+    url?: string;
+  }
 ): Promise<Connection> =>
   new Promise((resolve, reject) => {
     const socket = new ReconnectingWebSocket(url, [], {
@@ -78,9 +84,14 @@ export const connect = (
 
       socket.addEventListener("close", (error) => {
         clearInterval(heartbeat);
-        if (error.code === 4003) {
+        if (error.code === 4001) {
+          socket.close();
+          onClearTokens();
+        } else if (error.code === 4003) {
           socket.close();
           onConnectionTaken();
+        } else if (error.code === 4004) {
+          socket.close();
         }
         reject(error);
       });

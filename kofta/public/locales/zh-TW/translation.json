@@ -192,7 +192,9 @@
       "roomSettingsModal": {
         "requirePermission": "需要許可才能發言",
         "makePublic": "把房間設定為公開",
-        "makePrivate": "把房間設定為私人"
+        "makePrivate": "把房間設定為私人",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

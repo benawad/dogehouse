@@ -77,7 +77,6 @@ export const WebRtcApp: React.FC<App2Props> = () => {
         // assumes you don't rejoin the same room really quickly before websocket fires
         setCurrentRoomId((id) => {
           if (id === d.roomId) {
-            replace("/");
             return null;
           }
           return id;

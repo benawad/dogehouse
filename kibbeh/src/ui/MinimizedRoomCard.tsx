@@ -6,7 +6,7 @@ import { Button } from "./Button";
 import { DurationTicker } from "./DurationTicker";
 import SvgSolidMicrophoneOff from "../icons/SolidMicrophoneOff";
 
-interface MinimizedRoomCardProps {
+export interface MinimizedRoomCardProps {
   onFullscreenClick?: () => void;
   leaveLoading?: boolean;
   room: {
@@ -31,7 +31,10 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
 }) => {
   // gap-n only works with grid
   return (
-    <div className="bg-primary-800 border border-accent rounded-lg p-4 gap-4 grid max-w-md">
+    <div
+      className="bg-primary-800 border border-accent rounded-lg p-4 gap-4 grid max-w-md"
+      data-testid="minimized-room-card"
+    >
       <div className="gap-1 grid">
         <h4 className="text-primary-100">{room.name}</h4>
         <p className="text-primary-300">{room.speakers.join(", ")}</p>
@@ -47,12 +50,12 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
             className={room.myself.isMuted ? "bg-accent" : ""}
           >
             {room.myself.isMuted ? (
-              <SvgSolidMicrophoneOff />
+              <SvgSolidMicrophoneOff data-testid="mic-off-icon" />
             ) : (
-              <SolidMicrophone />
+              <SolidMicrophone data-testid="mic-icon" />
             )}
           </BoxedIcon>
-          <BoxedIcon
+          {/* <BoxedIcon
             onClick={room.myself.switchDeafened}
             className={room.myself.isDeafened ? "bg-accent" : ""}
           >

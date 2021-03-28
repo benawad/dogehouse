@@ -5,7 +5,6 @@ defmodule Beef.Access.Users do
   alias Beef.Repo
   alias Beef.Schemas.User
   alias Beef.Schemas.Room
-  alias Beef.Schemas.Follow
   alias Beef.Rooms
 
   def find_by_github_ids(ids) do
@@ -17,20 +16,11 @@ defmodule Beef.Access.Users do
 
   @spec get_by_id_with_follow_info(any, any) :: any
   def get_by_id_with_follow_info(me_id, them_id) do
-    from(u in User,
-      left_join: f_i_follow_them in Follow,
-      on: f_i_follow_them.userId == ^them_id and f_i_follow_them.followerId == ^me_id,
-      left_join: f_they_follow_me in Follow,
-      on: f_they_follow_me.userId == ^me_id and f_they_follow_me.followerId == ^them_id,
-      where: u.id == ^them_id,
-      select: %{
-        u
-        | followsYou: not is_nil(f_they_follow_me.userId),
-          youAreFollowing: not is_nil(f_i_follow_them.userId)
-      },
-      limit: 1
-    )
-    |> Beef.Repo.one()
+    Query.start()
+    |> Query.filter_by_id(them_id)
+    |> Query.follow_info(me_id)
+    |> Query.limit_one()
+    |> Repo.one()
   end
 
   def get_by_id(user_id) do
@@ -40,6 +30,14 @@ defmodule Beef.Access.Users do
   def get_by_username(username) do
     Query.start()
     |> Query.filter_by_username(username)
+    |> Repo.one()
+  end
+
+  def get_by_username_with_follow_info(user_id, username) do
+    Query.start()
+    |> Query.filter_by_username(username)
+    |> Query.follow_info(user_id)
+    |> Query.limit_one()
     |> Repo.one()
   end
 

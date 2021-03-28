@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+  workspace:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspace:cached
+
+  db:
+    image: postgres:latest
+    restart: unless-stopped
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: kousa_repo2 # Initial schema name
+    network_mode: service:workspace
+
+  rabbitmq:
+    image: rabbitmq:management
+    restart: unless-stopped
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq/data
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    network_mode: service:workspace
+
+volumes:
+  postgres-data:
+  rabbitmq-data:
