@@ -86,11 +86,12 @@ defmodule KousaTest.Broth.Ws.GetCurrentRoomUsersTest do
       other = %{id: other_id} = Factory.create(User)
       other_ws = WsClientFactory.create_client_for(other)
 
-      ref = WsClient.send_call(
-        other_ws,
-        "get_current_room_users",
-        %{"roomId" => room_id}
-      )
+      ref =
+        WsClient.send_call(
+          other_ws,
+          "get_current_room_users",
+          %{"roomId" => room_id}
+        )
 
       WsClient.assert_reply(ref, _, other_ws)
     end
