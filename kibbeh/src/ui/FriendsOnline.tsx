@@ -55,18 +55,7 @@ export const FriendsOnline: React.FC<FriendsOnlineProps> = ({
       <div className="flex flex-col mt-3 overflow-y-auto">
         {onlineFriendList.length > 0 ? (
           <>
-            {[
-              ...onlineFriendList,
-              ...onlineFriendList,
-              ...onlineFriendList,
-              ...onlineFriendList,
-              ...onlineFriendList,
-              ...onlineFriendList,
-              ...onlineFriendList,
-              ...onlineFriendList,
-              ...onlineFriendList,
-              ...onlineFriendList,
-            ].map((friend, idx) => (
+            {onlineFriendList.map((friend, idx) => (
               <FriendOnline key={idx} {...friend} />
             ))}
           </>
