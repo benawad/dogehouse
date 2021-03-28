@@ -42,4 +42,4 @@ defmodule KousaTest.Broth.Ws.BanFromRoomChatTest do
     @tag :skip
     test "a non-mod can't ban someone from room chat"
   end
- end
+end

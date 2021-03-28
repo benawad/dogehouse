@@ -481,6 +481,7 @@ defmodule Broth.SocketHandler do
     {:ok, state}
   end
 
+  # deprecated??
   def handler("follow_info", %{"userId" => other_user_id}, state) do
     {:reply,
      construct_socket_msg(state.encoding, state.compression, %{
@@ -583,11 +584,6 @@ defmodule Broth.SocketHandler do
   end
 
   # TODO: rename this "call_handler"
-
-  def f_handler("follow", %{"userId" => userId, "value" => value}, state) do
-    Kousa.Follow.follow(state.user_id, userId, value)
-    {"you_left_room", %{}}
-  end
 
   def f_handler("fetch_following_online", %{"cursor" => cursor}, state) do
     {users, next_cursor} = Follows.fetch_following_online(state.user_id, cursor)

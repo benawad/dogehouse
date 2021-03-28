@@ -51,11 +51,13 @@ defmodule Onion.RoomChat do
   def banned?(room, who) do
     GenServer.call(:"#{room}:room_chat", {:banned?, who})
   end
+
   defp banned_impl(who, _reply, state) do
     {:reply, who in Map.keys(state.ban_map), state}
   end
 
   def handle_call({:banned?, who}, reply, state), do: banned_impl(who, reply, state)
+
   def handle_cast({:remove_user, user_id}, %State{} = state) do
     {:noreply, %State{state | users: Enum.filter(state.users, &(&1 != user_id))}}
   end

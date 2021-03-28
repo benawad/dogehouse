@@ -66,7 +66,7 @@ defmodule Beef.Mutations.Users do
     roomPermissions =
       case can_speak do
         true ->
-          case RoomPermissions.set_speaker?(user_id, room_id, true, true) do
+          case RoomPermissions.set_speaker(user_id, room_id, true, true) do
             {:ok, x} -> x
             _ -> nil
           end

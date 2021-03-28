@@ -1,4 +1,4 @@
- defmodule KousaTest.Broth.Ws.ChangeRoomCreatorTest do
+defmodule KousaTest.Broth.Ws.ChangeRoomCreatorTest do
   use ExUnit.Case, async: true
   use Kousa.Support.EctoSandbox
 
@@ -39,30 +39,39 @@
       # both clients get notified
       WsClient.assert_frame(
         "speaker_added",
-        %{"userId" => ^speaker_id, "roomId" => ^room_id}, t.client_ws)
+        %{"userId" => ^speaker_id, "roomId" => ^room_id},
+        t.client_ws
+      )
 
       WsClient.assert_frame(
         "speaker_added",
-        %{"userId" => ^speaker_id, "roomId" => ^room_id}, ws_speaker)
+        %{"userId" => ^speaker_id, "roomId" => ^room_id},
+        ws_speaker
+      )
 
       # make the person a mod
-      WsClient.send_msg(t.client_ws,
-        "change_mod_status", %{"userId" => speaker_id, "value" => true})
+      WsClient.send_msg(t.client_ws, "change_mod_status", %{
+        "userId" => speaker_id,
+        "value" => true
+      })
 
       # both clients get notified
       WsClient.assert_frame(
         "mod_changed",
-        %{"userId" => ^speaker_id, "roomId" => ^room_id}, t.client_ws)
+        %{"userId" => ^speaker_id, "roomId" => ^room_id},
+        t.client_ws
+      )
 
       WsClient.assert_frame(
         "mod_changed",
-        %{"userId" => ^speaker_id, "roomId" => ^room_id}, ws_speaker)
+        %{"userId" => ^speaker_id, "roomId" => ^room_id},
+        ws_speaker
+      )
 
       # make the person a room creator.
-      WsClient.send_msg(t.client_ws,
-        "change_room_creator", %{
-          "userId" => speaker_id
-        })
+      WsClient.send_msg(t.client_ws, "change_room_creator", %{
+        "userId" => speaker_id
+      })
 
       # NB: we get an extraneous speaker_added message here.
       WsClient.assert_frame(
@@ -79,4 +88,4 @@
     @tag :skip
     test "a non-owner can't make someone a room creator"
   end
- end
+end

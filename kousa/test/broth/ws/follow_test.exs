@@ -37,7 +37,8 @@ defmodule KousaTest.Broth.Ws.BanTest do
       followed = Factory.create(User)
 
       Beef.Follows.insert(%{
-        userId: followed.id, followerId: t.user.id
+        userId: followed.id,
+        followerId: t.user.id
       })
 
       assert Beef.Follows.following_me?(followed.id, t.user.id)

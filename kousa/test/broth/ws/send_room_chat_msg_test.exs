@@ -18,7 +18,6 @@ defmodule KousaTest.Broth.Ws.SendRoomChatMsgTest do
   end
 
   describe "the websocket send_room_chat operation" do
-
     @text_token [%{"t" => "text", "v" => "foobar"}]
 
     test "sends a message to the room", t do
@@ -35,18 +34,19 @@ defmodule KousaTest.Broth.Ws.SendRoomChatMsgTest do
       Kousa.Room.join_room(listener_id, room_id)
       WsClient.assert_frame("new_user_join_room", _)
 
-      WsClient.send_msg(t.client_ws, "send_room_chat_msg", %{"tokens" =>
-        @text_token})
+      WsClient.send_msg(t.client_ws, "send_room_chat_msg", %{"tokens" => @text_token})
 
       WsClient.assert_frame(
         "new_chat_msg",
         %{"msg" => %{"tokens" => @text_token}},
-        t.client_ws)
+        t.client_ws
+      )
 
       WsClient.assert_frame(
         "new_chat_msg",
         %{"msg" => %{"tokens" => @text_token}},
-        listener_ws)
+        listener_ws
+      )
     end
 
     @tag :skip
@@ -72,22 +72,27 @@ defmodule KousaTest.Broth.Ws.SendRoomChatMsgTest do
       WsClient.assert_frame("new_user_join_room", _)
       WsClient.assert_frame("new_user_join_room", _)
 
-      WsClient.send_msg(t.client_ws, "send_room_chat_msg", %{"tokens" =>
-        @text_token, "whisperedTo" => [whispener_id]})
+      WsClient.send_msg(t.client_ws, "send_room_chat_msg", %{
+        "tokens" => @text_token,
+        "whisperedTo" => [whispener_id]
+      })
 
       WsClient.assert_frame(
         "new_chat_msg",
         %{"msg" => %{"tokens" => @text_token}},
-        t.client_ws)
+        t.client_ws
+      )
 
       WsClient.assert_frame(
         "new_chat_msg",
         %{"msg" => %{"tokens" => @text_token}},
-        whispener_ws)
+        whispener_ws
+      )
 
       WsClient.refute_frame(
         "new_chat_msg",
-        listener_ws)
+        listener_ws
+      )
     end
   end
- end
+end

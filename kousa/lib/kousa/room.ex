@@ -122,7 +122,7 @@ defmodule Kousa.Room do
   @spec internal_set_speaker(any, any) :: nil | :ok | {:err, {:error, :not_found}}
   def internal_set_speaker(user_id_to_make_speaker, room_id) do
     with {:ok, _} <-
-           RoomPermissions.set_speaker?(user_id_to_make_speaker, room_id, true) do
+           RoomPermissions.set_speaker(user_id_to_make_speaker, room_id, true) do
       case GenRegistry.lookup(
              Onion.RoomSession,
              room_id

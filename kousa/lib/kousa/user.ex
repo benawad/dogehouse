@@ -1,7 +1,7 @@
 defmodule Kousa.User do
   alias Kousa.Utils.RegUtils
   alias Beef.Users
-  
+
   def delete(user_id) do
     Kousa.Room.leave_room(user_id)
     Users.delete(user_id)
