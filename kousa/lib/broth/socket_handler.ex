@@ -636,9 +636,7 @@ defmodule Broth.SocketHandler do
     {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
 
     {muteMap, autoSpeaker, activeSpeakerMap} =
-      if is_nil(room_id) do
-        {%{}, false, %{}}
-      else
+      if room_id do
         case GenRegistry.lookup(Onion.RoomSession, room_id) do
           {:ok, session} ->
             GenServer.call(session, {:get_maps})
@@ -646,6 +644,8 @@ defmodule Broth.SocketHandler do
           _ ->
             {%{}, false, %{}}
         end
+      else
+        {%{}, false, %{}}
       end
 
     %{

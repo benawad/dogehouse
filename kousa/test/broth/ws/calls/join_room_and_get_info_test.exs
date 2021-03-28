@@ -36,11 +36,15 @@ defmodule KousaTest.Broth.Ws.JoinRoomAndGetInfoTest do
           %{"roomId" => room_id}
         )
 
-      WsClient.assert_reply(ref, %{
-        "roomId" => ^room_id,
-        "room" => %{"id" => ^room_id},
-        "users" => users = [_, _]
-      }, joiner_ws)
+      WsClient.assert_reply(
+        ref,
+        %{
+          "roomId" => ^room_id,
+          "room" => %{"id" => ^room_id},
+          "users" => users = [_, _]
+        },
+        joiner_ws
+      )
 
       assert Enum.any?(users, &match?(%{"id" => ^user_id}, &1))
       assert Enum.any?(users, &match?(%{"id" => ^joiner_id}, &1))
@@ -48,7 +52,8 @@ defmodule KousaTest.Broth.Ws.JoinRoomAndGetInfoTest do
       WsClient.assert_frame(
         "new_user_join_room",
         %{"roomId" => ^room_id, "user" => %{"id" => ^joiner_id}},
-        t.client_ws)
+        t.client_ws
+      )
 
       # TODO: do a test to check to make sure the muted state is correct
     end
