@@ -20,13 +20,10 @@ export const useMainWsHandler = () => {
   const updateQuery = useTypeSafeUpdateQuery();
 
   useEffect(() => {
-    console.log("USE EFFECT");
     if (!conn) {
-      console.log("RETURN");
       return;
     }
 
-    console.log("ADD LISTENERS");
     const unsubs = [
       conn.addListener<any>(
         "new_room_details",
@@ -231,7 +228,6 @@ export const useMainWsHandler = () => {
         );
       }),
       conn.addListener<any>("user_left_room", ({ userId, roomId }) => {
-        console.log("user left the room");
         updateQuery(["joinRoomAndGetInfo", roomId], (data) => {
           if ("error" in data) {
             return data;
@@ -255,7 +251,6 @@ export const useMainWsHandler = () => {
       conn.addListener<any>(
         "new_user_join_room",
         ({ user, muteMap, roomId }) => {
-          console.log("user join the room");
           updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
             "error" in data
               ? data
