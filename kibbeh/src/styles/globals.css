@@ -78,3 +78,11 @@ audio {
   width: 0;
   display: none !important;
 }
+
+html {
+  position: fixed;
+}
+
+#__next {
+  overflow: auto;
+}

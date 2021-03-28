@@ -27,6 +27,8 @@ export let bWindows: bWindowsType;
 
 export const __prod__ = app.isPackaged;
 const instanceLock = app.requestSingleInstanceLock();
+let shouldShowWindow = false;
+let windowShowInterval: NodeJS.Timeout;
 
 i18n.use(Backend);
 
@@ -34,7 +36,7 @@ async function localize() {
   await i18n.init({
     lng: app.getLocale(),
     debug: !__prod__,
-    backend:{
+    backend: {
       // path where resources get loaded from
       loadPath: path.join(__dirname, '../locales/{{lng}}/translate.json'),
     },
@@ -67,7 +69,7 @@ function createWindow() {
     }
   });
   splash.loadFile(path.join(__dirname, "../resources/splash/splash-screen.html"));
-  
+
   splash.webContents.on('did-finish-load', () => {
     splash.webContents.send('@locale/text', {
       title: i18n.t('common.title'),
@@ -104,6 +106,10 @@ function createWindow() {
         splash.destroy();
         mainWindow.show();
       }, 2500);
+    });
+  } else {
+    mainWindow.once("ready-to-show", () => {
+      shouldShowWindow = true;
     });
   }
 
@@ -186,7 +192,7 @@ autoUpdater.on('update-available', info => {
 });
 autoUpdater.on('download-progress', progress => {
   splash.webContents.send('percentage', progress.percent);
-  splash.setProgressBar(progress.percent/100);
+  splash.setProgressBar(progress.percent / 100);
 });
 autoUpdater.on('update-downloaded', () => {
   splash.webContents.send('relaunch');
@@ -196,12 +202,11 @@ autoUpdater.on('update-downloaded', () => {
 });
 autoUpdater.on('update-not-available', () => {
   splash.webContents.send('launch');
-  mainWindow.once("ready-to-show", () => {
-    setTimeout(() => {
-      splash.destroy();
-      mainWindow.show();
-    }, 500);
-  });
+  windowShowInterval = setInterval(() => {
+    splash.destroy();
+    mainWindow.show();
+    clearInterval(windowShowInterval);
+  }, 500);
 });
 
 app.on("window-all-closed", () => {

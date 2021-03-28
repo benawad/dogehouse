@@ -20,15 +20,21 @@ export const createChatMessage = (
     const isLink = linkRegex.test(item);
     const withoutAt = item.replace(/@|#/g, "");
     const isMention = mentions.find((m) => withoutAt === m.username);
+
     // whisperedTo users list
-    if (!isMention || item.indexOf("#@") !== 0) {
+    if (isMention && item.startsWith("#@")) {
       whisperedToUsernames.push(withoutAt);
     }
 
-    if (isLink || isMention) {
+    if (isLink) {
       tokens.push({
-        t: isLink ? "link" : "mention",
-        v: isMention ? withoutAt : normalizeUrl(item),
+        t: "link",
+        v: normalizeUrl(item),
+      });
+    } else if (isMention) {
+      tokens.push({
+        t: "mention",
+        v: withoutAt,
       });
     } else if (item.startsWith(":") && item.endsWith(":") && item.length > 2) {
       tokens.push({

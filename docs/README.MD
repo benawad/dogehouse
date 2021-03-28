@@ -9,7 +9,7 @@
 ## Welcome
 Welcome to the DogeHouse Documentation, the next voice conversation social platform.
 
-DogeHouse makes it easy to connect with friends and people over voice and chat message..
+DogeHouse makes it easy to connect with friends and people over voice and chat message.
 
 ### Overview
 - Dark theme
@@ -39,7 +39,7 @@ DogeHouse makes it easy to connect with friends and people over voice and chat m
 - Write codeblocks using \`yourCodeHere\`
 - Delete message
   You can only delete messages if:
-  - You wrote it.
+  - You wrote it
   - You are a mod
 - Adjust volume of a speaker by clicking on their profile
 - 40+ Translations

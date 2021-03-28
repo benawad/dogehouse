@@ -44,7 +44,7 @@ const LoginButton: React.FC<LoginButtonProps> = ({
 
   return (
     <Button
-      className="justify-center"
+      className="justify-center text-base py-3"
       color={dev ? "primary" : "secondary"}
       onClick={oauthUrl ? clickHandler : onClick}
     >
@@ -73,23 +73,24 @@ export const LoginPage: React.FC = () => {
         className="m-auto flex-col p-6 gap-5 bg-primary-800 rounded-8 z-10"
         style={{ width: "400px" }}
       >
-        <div className="gap-1 flex-col">
-          <span className="text-3xl text-primary-100">Welcome</span>
+        <div className="gap-2 flex-col">
+          <span className="text-3xl text-primary-100 font-bold">Welcome</span>
           <p className="text-primary-100 flex-wrap">
             By logging in you accept our&nbsp;
             <a
               href="https://youtu.be/dQw4w9WgXcQ"
-              className="text-accent hover:text-accent-hover"
+              className="text-accent hover:underline"
             >
               Privacy Policy
             </a>
             &nbsp;and&nbsp;
             <a
               href="https://youtu.be/dQw4w9WgXcQ"
-              className="text-accent hover:text-accent-hover"
+              className="text-accent hover:underline"
             >
               Terms of Service
             </a>
+            .
           </p>
         </div>
         <div className="flex-col gap-4">
@@ -132,7 +133,7 @@ export const LoginPage: React.FC = () => {
           <span className="text-primary-300">unavailable lol</span>
         </div> */}
       </div>
-      <div className="absolute bottom-0 w-full justify-between px-7 py-5 mt-auto">
+      <div className="absolute bottom-0 w-full justify-between px-7 py-5 mt-auto items-center">
         <LgLogo />
         <div className="gap-6 text-primary-300">
           <a

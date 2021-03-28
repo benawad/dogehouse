@@ -8,7 +8,7 @@
     "yes": "yes",
     "no": "no",
     "cancel": "Cancel",
-    "save": "save",
+    "save": "Save",
     "edit": "edit",
     "delete": "delete",
     "joinRoom": "join room",
@@ -92,7 +92,7 @@
       "header": "Sounds"
     },
     "viewUser": {
-      "editProfile": "edit profile",
+      "editProfile": "Edit profile",
       "followsYou": "Follows you",
       "followers": "followers",
       "following": "following",

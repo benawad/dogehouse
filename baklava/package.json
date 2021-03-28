@@ -1,6 +1,6 @@
 {
     "name": "dogehouse",
-    "version": "1.0.24",
+    "version": "1.0.25",
     "description": "Taking voice conversations to the moon 🚀",
     "main": "./dist/electron.js",
     "scripts": {
@@ -37,7 +37,9 @@
         "appId": "com.electron.dogehouse",
         "productName": "DogeHouse",
         "asar": true,
+        "afterSign": "electron-builder-notarize",
         "mac": {
+            "hardenedRuntime": true,
             "icon": "icons/icon.png",
             "category": "public.app-category.social-networking",
             "entitlements": "settings/entitlements.mac.plist",
@@ -79,6 +81,7 @@
         "electron": "^11.3.0",
         "electron-build-env": "^0.2.0",
         "electron-builder": "^22.10.5",
+        "electron-builder-notarize": "^1.2.0",
         "lodash": "^4.17.21",
         "prettier": "^2.2.1",
         "pretty-quick": "^3.1.0",

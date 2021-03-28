@@ -33,7 +33,7 @@ export const RoomChat: React.FC<ChatProps> = ({ users, room }) => {
   }
   return (
     <div
-      className={`flex flex-1 w-full overflow-y-auto bg-primary-800 h-full rounded-8`}
+      className={`flex flex-1 w-full mb-7 overflow-y-auto bg-primary-800 h-full rounded-8`}
     >
       <div className={`flex flex-1 w-full flex-col`}>
         <RoomChatList room={room} />

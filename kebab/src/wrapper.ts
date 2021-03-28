@@ -78,6 +78,13 @@ export const wrap = (connection: Connection) => ({
       description: string;
     }): Promise<{ error: string } | { room: Room }> =>
       connection.fetch("create_room", data),
+    editProfile: (data: {
+      displayName: string;
+      username: string;
+      bio: string;
+      avatarUrl: string;
+    }): Promise<{ isUsernameTaken: boolean }> =>
+      connection.fetch("edit_profile", { data }),
     editRoom: (data: {
       name: string;
       privacy: string;
