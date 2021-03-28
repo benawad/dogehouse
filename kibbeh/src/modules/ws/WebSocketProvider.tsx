@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { raw } from "@dogehouse/kebab";
+import { BaseUser, raw, User } from "@dogehouse/kebab";
 import { useTokenStore } from "../auth/useTokenStore";
 import { apiBaseUrl } from "../../lib/constants";
 import { useRouter } from "next/router";
@@ -11,8 +11,12 @@ interface WebSocketProviderProps {
 
 type V = raw.Connection | null;
 
-export const WebSocketContext = React.createContext<{ conn: V }>({
+export const WebSocketContext = React.createContext<{
+  conn: V;
+  setUser: (u: User) => void;
+}>({
   conn: null,
+  setUser: () => {},
 });
 
 export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
@@ -74,7 +78,22 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
   }, [conn]);
 
   return (
-    <WebSocketContext.Provider value={useMemo(() => ({ conn }), [conn])}>
+    <WebSocketContext.Provider
+      value={useMemo(
+        () => ({
+          conn,
+          setUser: (u: User) => {
+            if (conn) {
+              setConn({
+                ...conn,
+                user: u,
+              });
+            }
+          },
+        }),
+        [conn]
+      )}
+    >
       {children}
     </WebSocketContext.Provider>
   );
