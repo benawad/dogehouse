@@ -90,7 +90,7 @@ defmodule Beef.Access.Users do
         {nil, nil}
 
       x ->
-        x
+        {:ok, x}
     end
   end
 
