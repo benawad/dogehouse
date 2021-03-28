@@ -181,7 +181,7 @@
       "editProfileModal": {
         "usernameTaken": "όνομα χρήστη μη διαθέσιμο",
         "avatarUrlError": "Άκυρη φωτογραφία",
-        "avatarUrlLabel": "Διεύθυνση URL άβαταρ Github/Twitter",
+        "avatarUrlLabel": "Διεύθυνση URL άβαταρ απο Github/Twitter",
         "displayNameError": "μήκος από 2 έως 50 χαρακτήρες",
         "displayNameLabel": "Εμφανιζόμενο Όνομα",
         "usernameError": "μήκος από 4 έως 15 χαρακτήρες και μόνο αλφαριθμητικά/κάτω παύλα",
@@ -206,8 +206,8 @@
         "requirePermission": "απαίτηση άδειας για ομιλία",
         "makePublic": "κάντε το δωμάτιο δημόσιο",
         "makePrivate": "κάντε το δωμάτιο ιδιωτικό",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "ορίστε ένα όνομα για το δημόσιο δωμάτιο",
+        "renamePrivate": "ορίστε ένα όνομα για το ιδιωτικό δωμάτιο"
       }
     }
   },
