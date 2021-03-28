@@ -17,16 +17,22 @@ jobs:
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v1
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
       - name: Install rust
         uses: hecrj/setup-rust-action@v1
         with:
           rust-version: stable
       - name: Install nj-cli
         run: cargo install nj-cli
-      - name: Install Node.js, NPM and Yarn
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14
+      - name: Install deps
+        working-directory: baklava
+        run: yarn
+      - name: Build globkey
+        working-directory: baklava/node_modules/globkey
+        run: yarn build
       - name: Install Overlay Deps
         working-directory: baklava/resources/overlay
         run: yarn
