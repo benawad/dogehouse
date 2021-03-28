@@ -26,6 +26,11 @@ export const wrap = (connection: Connection) => ({
       connection.addListener("new_chat_msg", handler),
   },
   query: {
+    // this is supposed to be in query
+    joinRoomAndGetInfo: (
+      roomId: string
+    ): Promise<JoinRoomAndGetInfoResponse | { error: string }> =>
+      connection.fetch("join_room_and_get_info", { roomId }),
     getFollowingOnline: (
       cursor = 0
     ): Promise<{
@@ -54,10 +59,6 @@ export const wrap = (connection: Connection) => ({
       ),
   },
   mutation: {
-    joinRoomAndGetInfo: (
-      roomId: string
-    ): Promise<JoinRoomAndGetInfoResponse | { error: string }> =>
-      connection.fetch("join_room_and_get_info", { roomId }),
     speakingChange: (value: boolean) =>
       connection.send(`speaking_change`, { value }),
     follow: (userId: string, value: boolean): Promise<void> =>
