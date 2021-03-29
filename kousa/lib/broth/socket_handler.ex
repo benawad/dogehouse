@@ -1,7 +1,6 @@
 defmodule Broth.SocketHandler do
   require Logger
 
-  alias Kousa.Utils.RegUtils
   alias Beef.Users
   alias Beef.Rooms
   alias Beef.Follows
