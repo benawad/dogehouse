@@ -1,27 +1,27 @@
 {
   "_comment": "if you change this file, do: npm run i18",
   "common": {
-    "loadMore": "загрузить еще",
-    "loading": "загрузка...",
-    "noUsersFound": "пользователи не найдены",
+    "loadMore": "Загрузить еще",
+    "loading": "Загрузка...",
+    "noUsersFound": "Пользователи не найдены",
     "ok": "ОК",
-    "yes": "да",
-    "no": "нет",
-    "cancel": "отмена",
-    "save": "сохранить",
-    "edit": "редактировать",
-    "delete": "удалить",
+    "yes": "Да",
+    "no": "Нет",
+    "cancel": "Отмена",
+    "save": "Сохранить",
+    "edit": "Редактировать",
+    "delete": "Удалить",
     "joinRoom": "Присоединиться к комнате",
     "copyLink": "Скопировать ссылку",
     "copied": "Скопировано",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Работа в DogeHouse без разрешений доступа может привести к непредвиденным ошибкам"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Заглушено | DogeHouse"
+    "mutedTitle": "Приглушено | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -34,11 +34,11 @@
     "banUser": { "ban": "бан" },
     "followingOnlineList": {
       "listHeader": "Список пользователей, которые не в закрытой комнате и на которых вы подписаны.",
-      "currentRoom": "текущая комната",
-      "startPrivateRoom": "создать приватную комнату"
+      "currentRoom": "Текущая комната",
+      "startPrivateRoom": "Создать приватную комнату"
     },
     "followList": {
-      "followHim": "подписаться",
+      "followHim": "Подписаться",
       "followingHim": "Вы подписаны"
     },
     "home": { "createRoom": "Создать комнату", "refresh": "Обновить" },
@@ -56,17 +56,17 @@
       "featureText_4": "Открытый исходный код",
       "featureText_5": "Текстовый чат",
       "featureText_6": "Работает благодаря Doge",
-      "loginGithub": "войти через GitHub",
-      "loginTwitter": "войти через Twitter",
-      "createTestUser": "создать тестового пользователя"
+      "loginGithub": "Войти через GitHub",
+      "loginTwitter": "Войти через Twitter",
+      "createTestUser": "Создать тестового пользователя"
     },
     "myProfile": {
-      "logout": "выйти",
-      "probablyLoading": "вероятно загружается...",
-      "voiceSettings": "голосовые настройки",
-      "soundSettings": "настройки звука",
-      "deleteAccount": "удалить аккаунт",
-      "overlaySettings": "настройки оверлея"
+      "logout": "Выйти",
+      "probablyLoading": "Вероятно загружается...",
+      "voiceSettings": "Голосовые настройки",
+      "soundSettings": "Настройки звука",
+      "deleteAccount": "Удалить аккаунт",
+      "overlaySettings": "Настройки оверлея"
     },
     "notFound": {
       "whoopsError": "Упс! Эта страница была потеряна.",
@@ -80,8 +80,8 @@
       "allowAll": "Разрешить всем",
       "allowAllConfirm": "Вы уверены? Это позволит всем {{count}} пользователям, запрашивающих разрешение, говорить"
     },
-    "searchUser": { "search": "поиск..." },
-    "soundEffectSettings": { "header": "звуки" },
+    "searchUser": { "search": "Поиск..." },
+    "soundEffectSettings": { "header": "Звуки" },
     "viewUser": {
       "editProfile": "редактировать профиль",
       "followsYou": "подписаны на вас",
@@ -89,9 +89,9 @@
       "following": "подписан на",
       "followHim": "подписаться",
       "followingHim": "Вы подписаны",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "copyProfileUrl": "скопировать URL профиля",
+      "urlCopied": "URL профиля скопирован",
+      "unfollow": "Отписаться"
     },
     "voiceSettings": {
       "header": "Голосовые настройки",
@@ -101,8 +101,11 @@
       "volume": "громкость:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings"
+      "input": {
+        "errorMsg": "Неправильное название приложения",
+        "label": "Введите название приложения"
+      },
+      "header": "Настройки оверлея"
     }
   },
   "components": {
@@ -148,9 +151,9 @@
       "listening": "слушает",
       "toggleMuteKeybind": "Активация микрофона при нажатии",
       "togglePushToTalkKeybind": "Включить режим рации",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "переключить привязку клавиши оверлея"
     },
-    "userVolumeSlider": { "noAudioMessage": "почему-то нет аудиосвязи" },
+    "userVolumeSlider": { "noAudioMessage": "нет аудиосвязи" },
     "addToCalendar": { "add": "Добавить в Календарь" },
     "wsKilled": {
       "description": "Вебсокет был удален сервером. Обычно это происходит когда вы открываете сайт в другой вкладке.",
@@ -200,8 +203,8 @@
         "requirePermission": "чтобы разговаривать здесь требуется разрешение",
         "makePublic": "сделать комнату публичной",
         "makePrivate": "сделать комнату приватной",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "Установить название общей комнаты",
+        "renamePrivate": "Установить название приватной комнаты"
       }
     }
   },
