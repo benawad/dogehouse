@@ -65,14 +65,14 @@ __*Notes:*__
 
 Contributors helping to review/merge pull requests:
 
-- @ermalsh
-- @ofsho
-- @HarrisonMayotte
-- @nadirabbas
-- @overlisted
-- @goldyydev
-- @jamesql
-- @amitojsingh366
+- [@ermalsh](https://github.com/ermalsh)
+- [@ofsho](https://github.com/ofsho)
+- [@HarrisonMayotte](https://github.com/HarrisonMayotte)
+- [@nadirabbas](https://github.com/nadirabbas)
+- [@overlisted](https://github.com/overlisted)
+- [@goldyydev](https://github.com/goldyydev)
+- [@jamesql](https://github.com/jamesql)
+- [@amitojsingh366](https://github.com/amitojsingh366)
 
 ## Code of Conduct
 
