@@ -85,7 +85,7 @@ export const LoginPage: React.FC = () => {
             </a>
             &nbsp;and&nbsp;
             <a
-              href="https://youtu.be/dQw4w9WgXcQ"
+              href="https://youtu.be/5T5BY1j2MkE"
               className="text-accent hover:underline"
             >
               Terms of Service
