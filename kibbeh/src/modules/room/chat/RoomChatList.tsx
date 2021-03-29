@@ -1,6 +1,6 @@
 import { Room } from "@dogehouse/kebab";
 import normalizeUrl from "normalize-url";
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useConn } from "../../../shared-hooks/useConn";
 import { useCurrentRoomInfo } from "../../../shared-hooks/useCurrentRoomInfo";
 import { useTypeSafeTranslation } from "../../../shared-hooks/useTypeSafeTranslation";
@@ -14,15 +14,11 @@ interface ChatListProps {
 }
 
 export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
-  const { setUserId } = useContext(UserPreviewModalContext);
+  const { setData } = useContext(UserPreviewModalContext);
   const messages = useRoomChatStore((s) => s.messages);
   const me = useConn().user;
   const { isMod: iAmMod, isCreator: iAmCreator } = useCurrentRoomInfo();
-  const [
-    messageToBeDeleted,
-    setMessageToBeDeleted,
-  ] = useState<RoomChatMessage | null>(null);
-  // const bottomRef = useRef<null | HTMLDivElement>(null);
+  const bottomRef = useRef<null | HTMLDivElement>(null);
   const chatListRef = useRef<null | HTMLDivElement>(null);
   const {
     isRoomChatScrolledToTop,
@@ -31,9 +27,11 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
   const { t } = useTypeSafeTranslation();
 
   // Only scroll into view if not manually scrolled to top
-  // useEffect(() => {
-  //   isRoomChatScrolledToTop || bottomRef.current?.scrollIntoView();
-  // });
+  useEffect(() => {
+    if (!isRoomChatScrolledToTop) {
+      bottomRef.current?.scrollIntoView();
+    }
+  });
 
   return (
     <div
@@ -54,8 +52,20 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
       {messages
         .slice()
         .reverse()
-        .map((m) => (
-          <div className="flex flex-col flex-shrink-0" key={m.id}>
+        .map((m, idx) => (
+          <div
+            style={{ marginTop: idx === 0 ? "auto" : undefined }}
+            className={`flex flex-col flex-shrink-0 ${
+              m.isWhisper ? "bg-primary-700 rounded" : ""
+            }`}
+            key={m.id}
+          >
+            {/* Whisper label */}
+            {m.isWhisper ? (
+              <p className="mb-0 text-xs text-primary-300 px-1 w-16 mt-1 text-center">
+                {t("modules.roomChat.whisper")}
+              </p>
+            ) : null}
             <div className={`flex items-center px-1`}>
               <div
                 className={`py-1 block break-words max-w-full items-start flex-1 text-sm text-primary-100`}
@@ -63,15 +73,16 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
               >
                 <button
                   onClick={() => {
-                    setUserId(m.userId);
-                    setMessageToBeDeleted(
-                      (me?.id === m.userId ||
-                        iAmCreator ||
-                        (iAmMod && room.creatorId !== m.userId)) &&
+                    setData({
+                      userId: m.userId,
+                      message:
+                        (me?.id === m.userId ||
+                          iAmCreator ||
+                          (iAmMod && room.creatorId !== m.userId)) &&
                         !m.deleted
-                        ? m
-                        : null
-                    );
+                          ? m
+                          : undefined,
+                    });
                   }}
                   className={`inline hover:underline font-bold focus:outline-none font-mono`}
                   style={{ textDecorationColor: m.color, color: m.color }}
@@ -111,7 +122,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                         return (
                           <button
                             onClick={() => {
-                              setUserId(v);
+                              setData({ userId: v });
                             }}
                             key={i}
                             className={`inline hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
@@ -160,15 +171,10 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
             </div>
           </div>
         ))}
-      {messages.length === 0 ? (
+      {/* {messages.length === 0 ? (
         <div>{t("modules.roomChat.welcomeMessage")}</div>
-      ) : null}
-      {/* <div className={`pb-6`} ref={bottomRef} /> */}
-      <style>{`
-        .chat-message-container > :first-child {
-          margin-top: auto;
-        }
-      `}</style>
+      ) : null} */}
+      <div ref={bottomRef} />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
+import { isServer } from "../lib/isServer";
 import { WebSocketContext } from "../modules/ws/WebSocketProvider";
 import { useTypeSafeQuery } from "./useTypeSafeQuery";
 
@@ -8,7 +9,7 @@ export const useCurrentRoomInfo = () => {
   const { data } = useTypeSafeQuery(
     ["joinRoomAndGetInfo", currentRoomId || ""],
     {
-      enabled: !!currentRoomId,
+      enabled: !!currentRoomId && !isServer,
     },
     [currentRoomId || ""]
   );

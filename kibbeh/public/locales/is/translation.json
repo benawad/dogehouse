@@ -195,7 +195,9 @@
       "roomSettingsModal": {
         "requirePermission": "þurfa leyfi til að tala",
         "makePublic": "opinbera rás",
-        "makePrivate": "gera að einkarás"
+        "makePrivate": "gera að einkarás",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

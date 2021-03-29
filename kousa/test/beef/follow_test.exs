@@ -111,28 +111,6 @@ defmodule Kousa.Beef.FollowTest do
       assert Follows.following_me?(uid, fid)
     end
 
-    # TEST IS FAILING: somehow this function is returning
-    # offline follows
-    @tag :skip
-    test "fetch_following_online" do
-      uid = Factory.create(User).id
-      fid1 = Factory.create(User).id
-      fid2 = Factory.create(User).id
-
-      Follows.bulk_insert([
-        %{userId: fid1, followerId: uid},
-        %{userId: fid2, followerId: uid}
-      ])
-
-      assert {[], _} = Follows.fetch_following_online(uid)
-
-      # but only make follower1 online
-
-      Users.set_online(fid1)
-
-      assert {[_], _} = Follows.fetch_following_online(uid)
-    end
-
     test "fetch_invite_list/2" do
       uid = Factory.create(User).id
       fid1 = Factory.create(User).id

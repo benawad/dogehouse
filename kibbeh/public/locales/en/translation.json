@@ -8,7 +8,7 @@
     "yes": "yes",
     "no": "no",
     "cancel": "Cancel",
-    "save": "save",
+    "save": "Save",
     "edit": "edit",
     "delete": "delete",
     "joinRoom": "join room",
@@ -92,7 +92,7 @@
       "header": "Sounds"
     },
     "viewUser": {
-      "editProfile": "edit profile",
+      "editProfile": "Edit profile",
       "followsYou": "Follows you",
       "followers": "followers",
       "following": "following",
@@ -215,7 +215,9 @@
       "roomSettingsModal": {
         "requirePermission": "require permission to speak",
         "makePublic": "make room public",
-        "makePrivate": "make room private"
+        "makePrivate": "make room private",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

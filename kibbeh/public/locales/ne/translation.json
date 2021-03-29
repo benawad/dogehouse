@@ -197,7 +197,9 @@
       "roomSettingsModal": {
         "requirePermission": "बोल्नको लागि अनुमति चाहिन्छ",
         "makePublic": "रूम सार्वजनिक बनाउनुहोस",
-        "makePrivate": "रूम प्राइवेट बनाउनुहोस"
+        "makePrivate": "रूम प्राइवेट बनाउनुहोस",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },
