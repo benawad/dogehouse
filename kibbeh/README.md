@@ -17,6 +17,8 @@
 
 This folder is called kibbeh ([/ˈkɪbi/](https://en.wikipedia.org/wiki/Kibbeh)), it is currently used for our Next.js frontend rewrite and new design.
 
+It's live on 👉 [next.dogehouse.tv](https://next.dogehouse.tv)
+
 # How can I contribute?
 
 First of all, this project is currently in _very_ early stages of development, therefore these instructions may not be up to date.

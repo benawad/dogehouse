@@ -101,11 +101,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                     m.tokens.map(({ t: token, v }, i) => {
                       switch (token) {
                         case "text":
-                          return (
-                              <>
-                              {`${v} `}
-                              </>
-                          );
+                          return <>{`${v} `}</>;
                         case "emote":
                           return emoteMap[v] ? (
                             <img
