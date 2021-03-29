@@ -1,6 +1,5 @@
 defmodule Onion.UserSession do
   use GenServer, restart: :temporary
-  alias Kousa.Utils.RegUtils
   alias Beef.Rooms
 
   # TODO: change this
@@ -32,28 +31,30 @@ defmodule Onion.UserSession do
   defp cast(user_id, params), do: GenServer.cast(via(user_id), params)
   defp call(user_id, params), do: GenServer.call(via(user_id), params)
 
-  def start_supervised(%State{} = state, options) do
+  def start_supervised(initial_values) do
+    callers = [self() | Process.get(:"$callers", [])]
+
     DynamicSupervisor.start_child(
       Onion.UserSessionDynamicSupervisor,
-      {__MODULE__, [state, options]}
+      {__MODULE__, Keyword.merge(initial_values, callers: callers)}
     )
   end
 
-  def child_spec(init = [state, _opts]), do: %{super(init) | id: state.user_id}
+  def child_spec(init), do: %{super(init) | id: Keyword.get(init, :user_id)}
 
   def count, do: Registry.count(Onion.UserSessionRegistry)
 
   ###############################################################################
   ## INITIALIZATION BOILERPLATE
 
-  def start_link([state, _opts] = init) do
-    GenServer.start_link(__MODULE__, init, name: via(state.user_id))
+  def start_link(init) do
+    GenServer.start_link(__MODULE__, init, name: via(init[:user_id]))
   end
 
-  def init([state, opts]) do
+  def init(init) do
     # transfer callers into the running process.
-    Process.put(:"$callers", Keyword.get(opts, :callers, []))
-    {:ok, state}
+    Process.put(:"$callers", Keyword.get(init, :callers))
+    {:ok, struct(State, init)}
   end
 
   ##############################################################################
