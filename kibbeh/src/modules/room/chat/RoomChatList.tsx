@@ -91,82 +91,83 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                 </button>
 
                 <span className={`inline mr-1`}>: </span>
+                <div className={`inline mr-1 sx-4`}>
+                  {m.deleted ? (
+                    <span className="inline">
+                      [message{" "}
+                      {m.deleterId === m.userId ? "retracted" : "deleted"}]
+                    </span>
+                  ) : (
+                    m.tokens.map(({ t: token, v }, i) => {
+                      switch (token) {
+                        case "text":
+                          return (
+                            <span className={`flex-1 m-0 inline`} key={i}>
+                              {v}{" "}
+                            </span>
+                          );
+                        case "emote":
+                          return emoteMap[v] ? (
+                            <img
+                              key={i}
+                              className="inline"
+                              alt={`:${v}:`}
+                              src={emoteMap[v]}
+                            />
+                          ) : (
+                            ":" + v + ":"
+                          );
 
-                {m.deleted ? (
-                  <span className="inline">
-                    [message{" "}
-                    {m.deleterId === m.userId ? "retracted" : "deleted"}]
-                  </span>
-                ) : (
-                  m.tokens.map(({ t: token, v }, i) => {
-                    switch (token) {
-                      case "text":
-                        return (
-                          <span className={`flex-1 m-0 inline`} key={i}>
-                            {v}{" "}
-                          </span>
-                        );
-                      case "emote":
-                        return emoteMap[v] ? (
-                          <img
-                            key={i}
-                            className="inline"
-                            alt={`:${v}:`}
-                            src={emoteMap[v]}
-                          />
-                        ) : (
-                          ":" + v + ":"
-                        );
-
-                      case "mention":
-                        return (
-                          <button
-                            onClick={() => {
-                              setData({ userId: v });
-                            }}
-                            key={i}
-                            className={`inline hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
-                              v === me?.username
-                                ? "bg-blue-500 text-white px-2 rounded text-md"
-                                : ""
-                            }`}
-                            style={{
-                              textDecorationColor: m.color,
-                              color: v === me?.username ? "" : m.color,
-                            }}
-                          >
-                            @{v}{" "}
-                          </button>
-                        );
-                      case "link":
-                        return (
-                          <a
-                            target="_blank"
-                            rel="noreferrer noopener"
-                            href={v}
-                            className={`inline flex-1 hover:underline text-blue-500`}
-                            key={i}
-                          >
-                            {normalizeUrl(v, { stripProtocol: true })}{" "}
-                          </a>
-                        );
-                      case "block":
-                        return (
-                          <span key={i}>
-                            <span
-                              className={
-                                "inline bg-simple-gray-33 rounded whitespace-pre-wrap font-mono"
-                              }
+                        case "mention":
+                          return (
+                            <button
+                              onClick={() => {
+                                setData({ userId: v });
+                              }}
+                              key={i}
+                              className={`inline hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
+                                v === me?.username
+                                  ? "bg-blue-500 text-white px-2 rounded text-md"
+                                  : ""
+                              }`}
+                              style={{
+                                textDecorationColor: m.color,
+                                color: v === me?.username ? "" : m.color,
+                              }}
                             >
-                              {v}
-                            </span>{" "}
-                          </span>
-                        );
-                      default:
-                        return null;
-                    }
-                  })
-                )}
+                              @{v}{" "}
+                            </button>
+                          );
+                        case "link":
+                          return (
+                            <a
+                              target="_blank"
+                              rel="noreferrer noopener"
+                              href={v}
+                              className={`inline flex-1 hover:underline text-blue-500`}
+                              key={i}
+                            >
+                              {normalizeUrl(v, { stripProtocol: true })}{" "}
+                            </a>
+                          );
+                        case "block":
+                          return (
+                            <span key={i}>
+                              <span
+                                className={
+                                  "inline bg-simple-gray-33 rounded whitespace-pre-wrap font-mono"
+                                }
+                              >
+                                {v}
+                              </span>{" "}
+                            </span>
+                          );
+                        default:
+                          return null;
+                      }
+                    })
+                  )}
+                </div>
               </div>
             </div>
           </div>
