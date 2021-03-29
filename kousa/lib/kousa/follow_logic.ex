@@ -36,7 +36,7 @@ defmodule Kousa.Follow do
       user = Beef.Users.get_by_id(user_id)
 
       Enum.each(followers_to_notify, fn %Follow{followerId: followerId} ->
-        Onion.UserSession.send_ws_msg(followerId, nil, %{
+        Onion.UserSession.send_ws(followerId, nil, %{
           op: "someone_you_follow_created_a_room",
           d: %{
             roomId: room.id,
