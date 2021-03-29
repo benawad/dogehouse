@@ -34,7 +34,7 @@ defmodule Kousa.User do
         Kousa.Room.leave_room(user_to_ban.id, user_to_ban.currentRoomId)
         Users.set_reason_for_ban(user_to_ban.id, reason_for_ban)
 
-        Onion.UserSession.send_ws_msg(user_to_ban.id, nil, %{op: "banned", d: %{}})
+        Onion.UserSession.send_ws(user_to_ban.id, nil, %{op: "banned", d: %{}})
 
         true
       else

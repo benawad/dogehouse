@@ -1,6 +1,6 @@
 defmodule Onion.UserSession do
   use GenServer, restart: :temporary
-  alias Kousa.Utils.RegUtils
+  alias Beef.Rooms
 
   # TODO: change this
   defmodule State do
@@ -31,28 +31,30 @@ defmodule Onion.UserSession do
   defp cast(user_id, params), do: GenServer.cast(via(user_id), params)
   defp call(user_id, params), do: GenServer.call(via(user_id), params)
 
-  def start_supervised(%State{} = state, options) do
+  def start_supervised(initial_values) do
+    callers = [self() | Process.get(:"$callers", [])]
+
     DynamicSupervisor.start_child(
       Onion.UserSessionDynamicSupervisor,
-      {__MODULE__, [state, options]}
+      {__MODULE__, Keyword.merge(initial_values, callers: callers)}
     )
   end
 
-  def child_spec(init = [state, _opts]), do: %{super(init) | id: state.user_id}
+  def child_spec(init), do: %{super(init) | id: Keyword.get(init, :user_id)}
 
   def count, do: Registry.count(Onion.UserSessionRegistry)
 
   ###############################################################################
   ## INITIALIZATION BOILERPLATE
 
-  def start_link([state, _opts] = init) do
-    GenServer.start_link(__MODULE__, init, name: via(state.user_id))
+  def start_link(init) do
+    GenServer.start_link(__MODULE__, init, name: via(init[:user_id]))
   end
 
-  def init([state, opts]) do
+  def init(init) do
     # transfer callers into the running process.
-    Process.put(:"$callers", Keyword.get(opts, :callers, []))
-    {:ok, state}
+    Process.put(:"$callers", Keyword.get(init, :callers))
+    {:ok, struct(State, init)}
   end
 
   ##############################################################################
@@ -65,9 +67,9 @@ defmodule Onion.UserSession do
     {:noreply, Map.put(state, key, value)}
   end
 
-  def send_ws_msg(user_id, platform, msg), do: cast(user_id, {:send_ws_msg, platform, msg})
+  def send_ws(user_id, platform, msg), do: cast(user_id, {:send_ws, platform, msg})
 
-  defp send_ws_msg_impl(_platform, msg, state = %{pid: pid}) do
+  defp send_ws_impl(_platform, msg, state = %{pid: pid}) do
     # TODO: refactor this to not use ws-datastructures
     if pid, do: send(pid, {:remote_send, msg})
     {:noreply, state}
@@ -78,11 +80,7 @@ defmodule Onion.UserSession do
 
   defp set_mute_impl(value, state = %{current_room_id: current_room_id}) do
     if current_room_id do
-      Kousa.Utils.RegUtils.lookup_and_cast(
-        Onion.RoomSession,
-        current_room_id,
-        {:mute, state.user_id, value}
-      )
+      Onion.RoomSession.mute(current_room_id, state.user_id, value)
     end
 
     {:noreply, %{state | muted: value}}
@@ -142,14 +140,13 @@ defmodule Onion.UserSession do
 
   defp reconnect_to_voice_server_impl(voice_server_id, state) do
     if state.pid || state.current_room_id do
-      with {:ok, ^voice_server_id} <-
-             RegUtils.lookup_and_call(
-               Onion.RoomSession,
-               state.current_room_id,
-               {:get_voice_server_id}
-             ) do
-        room = Rooms.get_room_by_id(state.current_room_id)
-        Kousa.Room.join_vc_room(state.user_id, room)
+      case Onion.RoomSession.get(state.current_room_id, :voice_server_id) do
+        ^voice_server_id ->
+          room = Rooms.get_room_by_id(state.current_room_id)
+          Kousa.Room.join_vc_room(state.user_id, room)
+
+        _ ->
+          :ignore
       end
     end
 
@@ -173,8 +170,8 @@ defmodule Onion.UserSession do
 
   def handle_cast({:set, key, value}, state), do: set_impl(key, value, state)
 
-  def handle_cast({:send_ws_msg, platform, msg}, state),
-    do: send_ws_msg_impl(platform, msg, state)
+  def handle_cast({:send_ws, platform, msg}, state),
+    do: send_ws_impl(platform, msg, state)
 
   def handle_cast({:set_mute, value}, state), do: set_mute_impl(value, state)
   def handle_cast({:new_tokens, tokens}, state), do: new_tokens_impl(tokens, state)

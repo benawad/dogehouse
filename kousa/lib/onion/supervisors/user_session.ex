@@ -1,4 +1,4 @@
-defmodule Onion.UserSessionSupervisor do
+defmodule Onion.Supervisors.UserSession do
   use Supervisor
 
   def start_link(init_arg) do
