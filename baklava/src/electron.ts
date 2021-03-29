@@ -21,7 +21,7 @@ import { bWindowsType } from "./types";
 let mainWindow: BrowserWindow;
 let tray: Tray;
 let menu: Menu;
-let splash;
+let splash: BrowserWindow;
 
 export let bWindows: bWindowsType;
 
@@ -60,8 +60,8 @@ function createWindow() {
   });
 
   splash = new BrowserWindow({
-    width: 810,
-    height: 610,
+    width: 400,
+    height: 500,
     transparent: true,
     frame: false,
     webPreferences: {
@@ -164,6 +164,10 @@ function createWindow() {
   };
   mainWindow.webContents.on("new-window", handleLinks);
   mainWindow.webContents.on("will-navigate", handleLinks);
+
+  ipcMain.on('@app/version', (event, args) => {
+    event.sender.send('@app/version', app.getVersion());
+  });
 }
 
 if (!instanceLock) {
@@ -190,9 +194,9 @@ if (!instanceLock) {
 autoUpdater.on('update-available', info => {
   splash.webContents.send('download', info);
 });
-autoUpdater.on('download-progress', progress => {
+autoUpdater.on('download-progress', (progress) => {
   splash.webContents.send('percentage', progress.percent);
-  splash.setProgressBar(progress.percent / 100);
+  splash.setProgressBar(progress.percent);
 });
 autoUpdater.on('update-downloaded', () => {
   splash.webContents.send('relaunch');
@@ -203,9 +207,11 @@ autoUpdater.on('update-downloaded', () => {
 autoUpdater.on('update-not-available', () => {
   splash.webContents.send('launch');
   windowShowInterval = setInterval(() => {
-    splash.destroy();
-    mainWindow.show();
-    clearInterval(windowShowInterval);
+    if (shouldShowWindow) {
+      splash.destroy();
+      mainWindow.show();
+      clearInterval(windowShowInterval);
+    }
   }, 500);
 });
 
