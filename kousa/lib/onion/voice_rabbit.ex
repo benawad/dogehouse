@@ -71,10 +71,7 @@ defmodule Onion.VoiceRabbit do
 
     case data do
       %{"uid" => user_id} ->
-        Onion.UserSession.send_cast(
-          user_id,
-          {:send_ws_msg, Map.delete(data, "uid")}
-        )
+        Onion.UserSession.send_ws_msg(user_id, nil, Map.delete(data, "uid"))
 
       %{"rid" => room_id} ->
         # IO.puts("RABBIT RESPONDED: " <> data["op"])

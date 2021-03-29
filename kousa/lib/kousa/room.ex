@@ -51,8 +51,7 @@ defmodule Kousa.Room do
   def invite_to_room(user_id, user_id_to_invite) do
     user = Beef.Users.get_by_id(user_id)
 
-    if not is_nil(user.currentRoomId) and
-         Follows.following_me?(user_id, user_id_to_invite) do
+    if user.currentRoomId && Follows.following_me?(user_id, user_id_to_invite) do
       # @todo store room name in RoomSession to avoid db lookups
       room = Rooms.get_room_by_id(user.currentRoomId)
 
@@ -123,7 +122,7 @@ defmodule Kousa.Room do
   @spec internal_set_speaker(any, any) :: nil | :ok | {:err, {:error, :not_found}}
   def internal_set_speaker(user_id_to_make_speaker, room_id) do
     with {:ok, _} <-
-           RoomPermissions.set_speaker?(user_id_to_make_speaker, room_id, true) do
+           RoomPermissions.set_speaker(user_id_to_make_speaker, room_id, true) do
       case GenRegistry.lookup(
              Onion.RoomSession,
              room_id
@@ -132,7 +131,7 @@ defmodule Kousa.Room do
           GenServer.cast(
             session,
             {:speaker_added, user_id_to_make_speaker,
-             Onion.UserSession.send_call!(user_id_to_make_speaker, {:get, :muted})}
+             Onion.UserSession.get(user_id_to_make_speaker, :muted)}
           )
 
         err ->
@@ -275,9 +274,11 @@ defmodule Kousa.Room do
             ]
           )
 
+        muted = Onion.UserSession.get(user_id, :muted)
+
         GenServer.cast(
           session,
-          {:join_room_no_fan, user_id, Onion.UserSession.send_call!(user_id, {:get, :muted})}
+          {:join_room_no_fan, user_id, muted}
         )
 
         Onion.VoiceRabbit.send(room.voiceServerId, %{
@@ -305,6 +306,11 @@ defmodule Kousa.Room do
     end
   end
 
+  # NB this function does not correctly return an updated room struct if the
+  # action is valid.
+
+  # NB2, this function has an non-idiomatic parameter order.  room_id should
+  # come first.
   def join_room(user_id, room_id) do
     currentRoomId = Beef.Users.get_current_room_id(user_id)
 
@@ -342,9 +348,11 @@ defmodule Kousa.Room do
 
               updated_user = Rooms.join_room(room, user_id)
 
+              muted = Onion.UserSession.get(user_id, :muted)
+
               Onion.RoomSession.send_cast(
                 room_id,
-                {:join_room, updated_user, Onion.UserSession.send_call!(user_id, {:get, :muted})}
+                {:join_room, updated_user, muted}
               )
 
               canSpeak =
