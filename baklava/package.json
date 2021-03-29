@@ -1,6 +1,6 @@
 {
     "name": "dogehouse",
-    "version": "1.0.25",
+    "version": "1.0.24",
     "description": "Taking voice conversations to the moon 🚀",
     "main": "./dist/electron.js",
     "scripts": {
@@ -12,10 +12,10 @@
         "sync:i18": "ts-node --project scripts/tsconfig.json scripts/syncTranslations.ts",
         "i18": "npm run gen:i18:keys && npm run sync:i18",
         "build": "yarn compile && electron-builder",
-        "build:all": "yarn compile && yarn build:overlay && yarn build:globkey && electron-builder -mwl",
-        "build:mac": "yarn compile && yarn build:overlay && yarn build:globkey && electron-builder --mac",
-        "build:win": "yarn compile && yarn build:overlay && yarn build:globkey && electron-builder --win",
-        "build:linux": "yarn compile && yarn build:overlay && yarn build:globkey && electron-builder --linux",
+        "build:all": "yarn compile && electron-builder -mwl",
+        "build:mac": "yarn compile && electron-builder --mac",
+        "build:win": "yarn compile && electron-builder --win",
+        "build:linux": "yarn compile && electron-builder --linux",
         "build:overlay": "cd resources/overlay && yarn build && cd ../../",
         "build:globkey": "yarn add globkey && cd node_modules/globkey && npx electron-build-env nj-cli build --release && del-cli target src && cd ../../"
     },

@@ -26,7 +26,11 @@ jobs:
         with:
           rust-version: stable
       - name: Install nj-cli
-        run: cargo install nj-cli  
+        run: cargo install nj-cli
+      - name: Install deps
+        run: yarn
+      - name: Build Globkey
+        run: yarn build:globkey
       - name: Install Overlay Deps
         working-directory: baklava/resources/overlay
         run: yarn

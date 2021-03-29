@@ -58,11 +58,9 @@
             });
             ipcRenderer.on('relaunch', () => {
                 header.textContent = locale.relaunch;
-                document.getElementById('progress').style.display = 'none';
             });
             ipcRenderer.on('launch', () => {
                 header.textContent = locale.launch;
-                document.getElementById('progress').style.display = 'none';
             });
         </script>
     </div>
