@@ -118,5 +118,7 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
             PREV_PTT_STATUS = PTT;
         }
     })
+
+    console.log("Not blocking");
 }
 
