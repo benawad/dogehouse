@@ -14,14 +14,10 @@ interface ChatListProps {
 }
 
 export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
-  const { setUserId } = useContext(UserPreviewModalContext);
+  const { setData } = useContext(UserPreviewModalContext);
   const messages = useRoomChatStore((s) => s.messages);
   const me = useConn().user;
   const { isMod: iAmMod, isCreator: iAmCreator } = useCurrentRoomInfo();
-  const [
-    messageToBeDeleted,
-    setMessageToBeDeleted,
-  ] = useState<RoomChatMessage | null>(null);
   const bottomRef = useRef<null | HTMLDivElement>(null);
   const chatListRef = useRef<null | HTMLDivElement>(null);
   const {
@@ -77,15 +73,16 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
               >
                 <button
                   onClick={() => {
-                    setUserId(m.userId);
-                    setMessageToBeDeleted(
-                      (me?.id === m.userId ||
-                        iAmCreator ||
-                        (iAmMod && room.creatorId !== m.userId)) &&
+                    setData({
+                      userId: m.userId,
+                      message:
+                        (me?.id === m.userId ||
+                          iAmCreator ||
+                          (iAmMod && room.creatorId !== m.userId)) &&
                         !m.deleted
-                        ? m
-                        : null
-                    );
+                          ? m
+                          : undefined,
+                    });
                   }}
                   className={`inline hover:underline font-bold focus:outline-none font-mono`}
                   style={{ textDecorationColor: m.color, color: m.color }}
@@ -125,7 +122,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                         return (
                           <button
                             onClick={() => {
-                              setUserId(v);
+                              setData({ userId: v });
                             }}
                             key={i}
                             className={`inline hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
