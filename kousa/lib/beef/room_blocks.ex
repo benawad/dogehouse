@@ -22,7 +22,6 @@ defmodule Beef.RoomBlocks do
 
   @fetch_limit 31
 
-  @spec get_blocked_users(Ecto.UUID.t(), pos_integer) :: {User.t(), nil | number}
   def get_blocked_users(room_id, offset) do
     from(u in User,
       inner_join: rb in RoomBlock,
