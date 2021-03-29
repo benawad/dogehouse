@@ -91,7 +91,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                 </button>
 
                 <span className={`inline mr-1`}>: </span>
-                <div className={`inline mr-1 sx-4`}>
+                <div className={`inline mr-1 space-x-1`}>
                   {m.deleted ? (
                     <span className="inline">
                       [message{" "}
@@ -125,7 +125,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                                 setData({ userId: v });
                               }}
                               key={i}
-                              className={`inline hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
+                              className={`inline hover:underline flex-1 focus:outline-none ${
                                 v === me?.username
                                   ? "bg-blue-500 text-white px-2 rounded text-md"
                                   : ""
