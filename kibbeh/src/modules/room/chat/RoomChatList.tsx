@@ -35,7 +35,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
 
   return (
     <div
-      className={`px-5 pt-3 flex-1 overflow-y-auto flex-col flex chat-message-container`}
+      className={`px-5 flex-1 overflow-y-auto flex-col flex chat-message-container scrollbar-thin scrollbar-thumb-primary-700`}
       ref={chatListRef}
       onScroll={() => {
         if (!chatListRef.current) return;
