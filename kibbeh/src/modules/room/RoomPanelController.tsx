@@ -53,7 +53,14 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
   }, [data, isLoading, push, setCurrentRoomId]);
 
   if (isLoading || !currentRoomId) {
-    return <CenterLoader />;
+    return (
+      <>
+        <MiddlePanel>
+          <CenterLoader />
+        </MiddlePanel>
+        <RightPanel />
+      </>
+    );
   }
 
   if (!data || "error" in data) {
