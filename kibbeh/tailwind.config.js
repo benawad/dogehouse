@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 module.exports = {
   darkMode: "media",
   purge: ["./src/**/*.tsx", "./public/index.html"],
@@ -75,6 +76,9 @@ module.exports = {
   variants: {
     backgroundColor: ({ after }) => after(["disabled"]),
     textColor: ({ after }) => after(["disabled"]),
+    scrollbar: ['rounded', 'dark'],
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
 };

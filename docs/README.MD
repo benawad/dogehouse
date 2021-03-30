@@ -1,6 +1,6 @@
 ## Home
 <p align="center">
-<img src="https://raw.githubusercontent.com/benawad/dogehouse/staging/dogehouse-github.png"/>
+<img height=100 src="https://raw.githubusercontent.com/benawad/dogehouse/staging/.redesign-assets/dogehouse_logo.svg"/>
 </p>
 <p align="center">
  Taking voice conversations to the moon 🚀
