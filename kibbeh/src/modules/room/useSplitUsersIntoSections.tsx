@@ -1,9 +1,4 @@
-import {
-  BaseUser,
-  JoinRoomAndGetInfoResponse,
-  Room,
-  RoomUser,
-} from "@dogehouse/kebab";
+import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
 import React, { useContext } from "react";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useConn } from "../../shared-hooks/useConn";

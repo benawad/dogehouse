@@ -1,5 +1,4 @@
 defmodule Kousa.Room do
-  alias Kousa.Utils.RegUtils
   alias Kousa.Utils.VoiceServerUtils
   alias Beef.Users
   alias Beef.Follows
@@ -9,10 +8,8 @@ defmodule Kousa.Room do
   alias Beef.RoomBlocks
 
   def set_auto_speaker(user_id, value) do
-    room = Rooms.get_room_by_creator_id(user_id)
-
-    if not is_nil(room) do
-      RegUtils.lookup_and_cast(Onion.RoomSession, room.id, {:set_auto_speaker, value})
+    if room = Rooms.get_room_by_creator_id(user_id) do
+      Onion.RoomSession.set_auto_speaker(room.id, value)
     end
   end
 
@@ -21,10 +18,9 @@ defmodule Kousa.Room do
     # this needs to be refactored if a user can have multiple rooms
     case Beef.Rooms.set_room_privacy_by_creator_id(user_id, false, new_name) do
       {1, [room]} ->
-        Onion.RoomSession.send_cast(
+        Onion.RoomSession.broadcast_ws(
           room.id,
-          {:send_ws_msg,
-           %{op: "room_privacy_change", d: %{roomId: room.id, name: room.name, isPrivate: false}}}
+          %{op: "room_privacy_change", d: %{roomId: room.id, name: room.name, isPrivate: false}}
         )
 
       _ ->
@@ -37,10 +33,9 @@ defmodule Kousa.Room do
     # this needs to be refactored if a user can have multiple rooms
     case Rooms.set_room_privacy_by_creator_id(user_id, true, new_name) do
       {1, [room]} ->
-        Onion.RoomSession.send_cast(
+        Onion.RoomSession.broadcast_ws(
           room.id,
-          {:send_ws_msg,
-           %{op: "room_privacy_change", d: %{roomId: room.id, name: room.name, isPrivate: true}}}
+          %{op: "room_privacy_change", d: %{roomId: room.id, name: room.name, isPrivate: true}}
         )
 
       _ ->
@@ -56,18 +51,27 @@ defmodule Kousa.Room do
       room = Rooms.get_room_by_id(user.currentRoomId)
 
       if not is_nil(room) do
-        Onion.RoomSession.send_cast(
+        Onion.RoomSession.create_invite(
           user.currentRoomId,
-          {:create_invite, user_id_to_invite,
-           %{
-             roomName: room.name,
-             displayName: user.displayName,
-             username: user.username,
-             avatarUrl: user.avatarUrl,
-             type: "invite"
-           }}
+          user_id_to_invite,
+          %{
+            roomName: room.name,
+            displayName: user.displayName,
+            username: user.username,
+            avatarUrl: user.avatarUrl,
+            type: "invite"
+          }
         )
       end
+    end
+  end
+
+  defp internal_kick_from_room(user_id_to_kick, room_id) do
+    current_room_id = Beef.Users.get_current_room_id(user_id_to_kick)
+
+    if current_room_id == room_id do
+      Rooms.kick_from_room(user_id_to_kick, current_room_id)
+      Onion.RoomSession.kick_from_room(current_room_id, user_id_to_kick)
     end
   end
 
@@ -81,23 +85,14 @@ defmodule Kousa.Room do
           roomId: room.id
         })
 
-        user_blocked = Beef.Users.get_by_id(user_id_to_block_from_room)
-
-        if user_blocked.currentRoomId == room.id do
-          leave_room(user_id_to_block_from_room, user_blocked.currentRoomId, true)
-        end
+        internal_kick_from_room(user_id_to_block_from_room, room.id)
       end
     end
   end
 
   defp internal_set_listener(user_id_to_make_listener, room_id) do
     RoomPermissions.make_listener(user_id_to_make_listener, room_id)
-
-    Kousa.Utils.RegUtils.lookup_and_cast(
-      Onion.RoomSession,
-      room_id,
-      {:speaker_removed, user_id_to_make_listener}
-    )
+    Onion.RoomSession.remove_speaker(room_id, user_id_to_make_listener)
   end
 
   def set_listener(user_id, user_id_to_set_listener) do
@@ -121,23 +116,22 @@ defmodule Kousa.Room do
 
   @spec internal_set_speaker(any, any) :: nil | :ok | {:err, {:error, :not_found}}
   def internal_set_speaker(user_id_to_make_speaker, room_id) do
-    with {:ok, _} <-
-           RoomPermissions.set_speaker(user_id_to_make_speaker, room_id, true) do
-      case GenRegistry.lookup(
-             Onion.RoomSession,
-             room_id
-           ) do
-        {:ok, session} ->
-          GenServer.cast(
-            session,
-            {:speaker_added, user_id_to_make_speaker,
-             Onion.UserSession.get(user_id_to_make_speaker, :muted)}
-          )
+    case RoomPermissions.set_speaker(user_id_to_make_speaker, room_id, true) do
+      {:ok, _} ->
+        # kind of horrible to have to make a double genserver call
+        # here, we'll have to think about how this works (who owns muting)
+        Onion.RoomSession.add_speaker(
+          room_id,
+          user_id_to_make_speaker,
+          Onion.UserSession.get(user_id_to_make_speaker, :muted)
+        )
 
-        err ->
-          {:err, err}
-      end
+      err ->
+        {:err, err}
     end
+  catch
+    _, _ ->
+      {:error, "room not found"}
   end
 
   def make_speaker(user_id, user_id_to_make_speaker) do
@@ -148,19 +142,15 @@ defmodule Kousa.Room do
   end
 
   def change_mod(user_id, user_id_to_change, value) when is_boolean(value) do
-    room = Rooms.get_room_by_creator_id(user_id)
-
-    if room do
+    if room = Rooms.get_room_by_creator_id(user_id) do
       RoomPermissions.set_is_mod(user_id_to_change, room.id, value)
 
-      Kousa.Utils.RegUtils.lookup_and_cast(
-        Onion.RoomSession,
+      Onion.RoomSession.broadcast_ws(
         room.id,
-        {:send_ws_msg,
-         %{
-           op: "mod_changed",
-           d: %{roomId: room.id, userId: user_id_to_change}
-         }}
+        %{
+          op: "mod_changed",
+          d: %{roomId: room.id, userId: user_id_to_change}
+        }
       )
     end
   end
@@ -183,10 +173,9 @@ defmodule Kousa.Room do
           {1, _} ->
             internal_set_speaker(old_creator_id, current_room_id)
 
-            Onion.RoomSession.send_cast(
+            Onion.RoomSession.broadcast_ws(
               current_room_id,
-              {:send_ws_msg,
-               %{op: "new_room_creator", d: %{roomId: current_room_id, userId: new_creator_id}}}
+              %{op: "new_room_creator", d: %{roomId: current_room_id, userId: new_creator_id}}
             )
 
           _ ->
@@ -219,20 +208,22 @@ defmodule Kousa.Room do
   end
 
   def edit_room(user_id, new_name, new_description, is_private) do
-    room = Rooms.get_room_by_creator_id(user_id)
-
-    if not is_nil(room) do
+    if room = Rooms.get_room_by_creator_id(user_id) do
       case Rooms.edit(room.id, %{
              name: new_name,
              description: new_description,
              is_private: is_private
            }) do
         {:ok, _room} ->
-          RegUtils.lookup_and_cast(
-            Onion.RoomSession,
-            room.id,
-            {:new_room_details, new_name, new_description, is_private}
-          )
+          Onion.RoomSession.broadcast_ws(room.id, %{
+            op: "new_room_details",
+            d: %{
+              name: new_name,
+              description: new_description,
+              isPrivate: is_private,
+              roomId: room.id
+            }
+          })
 
         {:error, x} ->
           {:error, Kousa.Utils.Errors.changeset_to_first_err_message_with_field_name(x)}
@@ -262,24 +253,14 @@ defmodule Kousa.Room do
            isPrivate: is_private
          }) do
       {:ok, room} ->
-        {:ok, session} =
-          GenRegistry.lookup_or_start(
-            Onion.RoomSession,
-            id,
-            [
-              %{
-                room_id: id,
-                voice_server_id: room.voiceServerId
-              }
-            ]
-          )
-
-        muted = Onion.UserSession.get(user_id, :muted)
-
-        GenServer.cast(
-          session,
-          {:join_room_no_fan, user_id, muted}
+        Onion.RoomSession.start_supervised(
+          room_id: room.id,
+          voice_server_id: room.voiceServerId
         )
+
+        muted? = Onion.UserSession.get(user_id, :muted)
+
+        Onion.RoomSession.join_room(room.id, user_id, muted?, no_fan: true)
 
         Onion.VoiceRabbit.send(room.voiceServerId, %{
           op: "create-room",
@@ -294,6 +275,7 @@ defmodule Kousa.Room do
         end
 
         if not is_nil(user_id_to_invite) do
+          # TODO: change this to Task.Supervised
           Task.start(fn ->
             Kousa.Room.invite_to_room(user_id, user_id_to_invite)
           end)
@@ -324,24 +306,22 @@ defmodule Kousa.Room do
         {:ok, room} ->
           private_check =
             if room.isPrivate do
-              case Kousa.Utils.RegUtils.lookup_and_call(
-                     Onion.RoomSession,
-                     room.id,
-                     {:redeem_invite, user_id}
-                   ) do
-                {:ok, :error} -> {:err, "the room is private, ask someone inside to invite you"}
-                {:ok, :ok} -> {:ok}
-                _ -> {:err, "room session doesn't exist"}
+              case Onion.RoomSession.redeem_invite(room.id, user_id) do
+                :error ->
+                  {:error, "the room is private, ask someone inside to invite you"}
+
+                :ok ->
+                  :ok
               end
             else
-              {:ok}
+              :ok
             end
 
           case private_check do
-            {:err, m} ->
+            {:error, m} ->
               %{error: m}
 
-            _ ->
+            :ok ->
               if currentRoomId do
                 leave_room(user_id, currentRoomId)
               end
@@ -350,10 +330,7 @@ defmodule Kousa.Room do
 
               muted = Onion.UserSession.get(user_id, :muted)
 
-              Onion.RoomSession.send_cast(
-                room_id,
-                {:join_room, updated_user, muted}
-              )
+              Onion.RoomSession.join_room(room_id, user_id, muted)
 
               canSpeak =
                 case updated_user do
@@ -366,9 +343,11 @@ defmodule Kousa.Room do
           end
       end
     end
+  catch
+    _, _ -> {:error, "that room doesn't exist"}
   end
 
-  def leave_room(user_id, current_room_id \\ nil, blocked \\ false) do
+  def leave_room(user_id, current_room_id \\ nil) do
     current_room_id =
       if is_nil(current_room_id),
         do: Beef.Users.get_current_room_id(user_id),
@@ -378,7 +357,7 @@ defmodule Kousa.Room do
       case Rooms.leave_room(user_id, current_room_id) do
         # the room should be destroyed
         {:bye, room} ->
-          Onion.RoomSession.send_cast(current_room_id, {:destroy, user_id})
+          Onion.RoomSession.destroy(current_room_id, user_id)
 
           Onion.VoiceRabbit.send(room.voiceServerId, %{
             op: "destroy-room",
@@ -390,23 +369,19 @@ defmodule Kousa.Room do
         x ->
           case x do
             {:new_creator_id, creator_id} ->
-              Onion.RoomSession.send_cast(
+              Onion.RoomSession.broadcast_ws(
                 current_room_id,
-                {:send_ws_msg,
-                 %{op: "new_room_creator", d: %{roomId: current_room_id, userId: creator_id}}}
+                %{op: "new_room_creator", d: %{roomId: current_room_id, userId: creator_id}}
               )
 
             _ ->
               nil
           end
 
-          Onion.RoomSession.send_cast(
-            current_room_id,
-            {:leave_room, user_id}
-          )
+          Onion.RoomSession.leave_room(current_room_id, user_id)
       end
 
-      {:ok, %{roomId: current_room_id, blocked: blocked}}
+      {:ok, %{roomId: current_room_id}}
     else
       {:error, "you are not in a room"}
     end

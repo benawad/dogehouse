@@ -5,13 +5,15 @@ interface GridPanelProps {
   sticky?: boolean;
 }
 
-export const GridPanel: React.FC<GridPanelProps> = ({ children, scroll, sticky }) => {
+export const GridPanel: React.FC<GridPanelProps> = ({
+  children,
+  scroll,
+  sticky,
+}) => {
   return (
     <div className={`flex-col ${sticky ? " sticky top-0 h-0" : ""}`}>
       <div
-        className={`${
-          scroll ? "" : `pt-5 h-screen`
-        } flex-col flex-1 h-screen`}
+        className={`${scroll ? "" : `pt-5 h-screen`} flex-col flex-1 h-screen`}
       >
         {children}
       </div>

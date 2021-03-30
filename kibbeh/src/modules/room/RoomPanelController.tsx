@@ -37,6 +37,12 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
   const { push } = useRouter();
 
   useEffect(() => {
+    if (roomId) {
+      setCurrentRoomId(roomId);
+    }
+  }, [roomId, setCurrentRoomId]);
+
+  useEffect(() => {
     if (isLoading) {
       return;
     }
@@ -53,7 +59,14 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
   }, [data, isLoading, push, setCurrentRoomId]);
 
   if (isLoading || !currentRoomId) {
-    return <CenterLoader />;
+    return (
+      <>
+        <MiddlePanel>
+          <CenterLoader />
+        </MiddlePanel>
+        <RightPanel />
+      </>
+    );
   }
 
   if (!data || "error" in data) {
