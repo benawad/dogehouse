@@ -200,7 +200,7 @@
       "roomSettingsModal": {
         "requirePermission": "richiedi permesso per parlare",
         "makePublic": "Rendi la stanza pubblica",
-        "makePrivate": "Rendi la stanza privata"
+        "makePrivate": "Rendi la stanza privata",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
       }

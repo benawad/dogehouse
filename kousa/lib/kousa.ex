@@ -9,14 +9,9 @@ defmodule Kousa do
     Kousa.Metric.UserSessions.setup()
 
     children = [
-      {
-        GenRegistry,
-        worker_module: Onion.UserSession
-      },
-      {
-        GenRegistry,
-        worker_module: Onion.RoomSession
-      },
+      # top-level supervisor for UserSession group
+      Onion.Supervisors.UserSession,
+      Onion.Supervisors.RoomSession,
       {
         GenRegistry,
         worker_module: Onion.RoomChat
@@ -67,12 +62,10 @@ defmodule Kousa do
 
   defp start_rooms() do
     Enum.each(Beef.Rooms.all_rooms(), fn room ->
-      GenRegistry.lookup_or_start(Onion.RoomSession, room.id, [
-        %{
-          room_id: room.id,
-          voice_server_id: room.voiceServerId
-        }
-      ])
+      Onion.RoomSession.start_supervised(
+        room_id: room.id,
+        voice_server_id: room.voiceServerId
+      )
     end)
   end
 

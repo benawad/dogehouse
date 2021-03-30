@@ -10,6 +10,7 @@ type badge = {
 };
 
 export interface UserSummaryCardProps {
+  onClick: () => void;
   id: string;
   displayName: string;
   username: string;
@@ -58,6 +59,7 @@ export const Website: React.FC<WebsiteProps> = ({ website }) => {
 };
 
 export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
+  onClick,
   displayName,
   username,
   badges,
@@ -70,7 +72,7 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
 }) => {
   return (
     <div className="flex-col rounded-8 bg-primary-800 p-4 w-full">
-      <div>
+      <button onClick={onClick}>
         <SingleUser size="default" isOnline={isOnline} src={avatarUrl} />
         <div className="flex-col ml-3">
           <span className="text-sm text-primary-100 font-bold">
@@ -79,7 +81,7 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
           <span className="text-sm text-primary-300">{username}</span>
           <Badges badges={badges} />
         </div>
-      </div>
+      </button>
       <div className="mt-3">
         <div>
           <span className="text-primary-100 font-bold">

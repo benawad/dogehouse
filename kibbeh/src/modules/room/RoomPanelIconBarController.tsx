@@ -2,8 +2,8 @@ import { useRouter } from "next/router";
 import React from "react";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useCurrentRoomInfo } from "../../shared-hooks/useCurrentRoomInfo";
+import { useLeaveRoom } from "../../shared-hooks/useLeaveRoom";
 import { useSetMute } from "../../shared-hooks/useSetMute";
-import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { RoomPanelIconBar } from "../../ui/RoomPanelIconBar";
 
 interface RoomPanelIconBarControllerProps {}
@@ -12,7 +12,7 @@ export const RoomPanelIconBarController: React.FC<RoomPanelIconBarControllerProp
   const { muted } = useMuteStore();
   const setMute = useSetMute();
   const { canSpeak } = useCurrentRoomInfo();
-  const { mutateAsync: leaveRoom } = useTypeSafeMutation("leaveRoom");
+  const { leaveRoom } = useLeaveRoom();
   const { push } = useRouter();
 
   return (
@@ -22,7 +22,7 @@ export const RoomPanelIconBarController: React.FC<RoomPanelIconBarControllerProp
       }
       onLeaveRoom={() => {
         push("/dashboard");
-        leaveRoom([]);
+        leaveRoom();
       }}
     />
   );
