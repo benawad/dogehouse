@@ -150,8 +150,8 @@ export const connect = (
 
                     if(timeoutId) clearTimeout(timeoutId);
 
-                    resolveFetch(data);
                     unsubscribe();
+                    resolveFetch(data);
                   }
                 );
 
