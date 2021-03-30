@@ -17,6 +17,7 @@ import { ALLOWED_HOSTS, isMac, MENU_TEMPLATE } from "./constants";
 import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
+import electronLogger from 'electron-log';
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
@@ -31,6 +32,9 @@ let shouldShowWindow = false;
 let windowShowInterval: NodeJS.Timeout;
 
 i18n.use(Backend);
+
+electronLogger.transports.file.level = "debug"
+autoUpdater.logger = electronLogger;
 
 async function localize() {
   await i18n.init({
