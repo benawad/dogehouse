@@ -26,7 +26,6 @@ export const wrap = (connection: Connection) => ({
       connection.addListener("new_chat_msg", handler),
   },
   query: {
-    // this is supposed to be in query
     joinRoomAndGetInfo: (
       roomId: string
     ): Promise<JoinRoomAndGetInfoResponse | { error: string }> =>
@@ -60,8 +59,8 @@ export const wrap = (connection: Connection) => ({
         cursor,
         getOnlyMyScheduledRooms,
       }),
-    getRoomUsers: async (): Promise<GetRoomUsersResponse> =>
-      await connection.fetch(
+    getRoomUsers: (): Promise<GetRoomUsersResponse> =>
+      connection.fetch(
         "get_current_room_users",
         {},
         "get_current_room_users_done"
