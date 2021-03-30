@@ -195,8 +195,9 @@ autoUpdater.on('update-available', info => {
   splash.webContents.send('download', info);
 });
 autoUpdater.on('download-progress', (progress) => {
-  splash.webContents.send('percentage', progress.percent);
-  splash.setProgressBar(progress.percent);
+  let prog = Math.floor(progress.percent)
+  splash.webContents.send('percentage', prog);
+  splash.setProgressBar(prog);
 });
 autoUpdater.on('update-downloaded', () => {
   splash.webContents.send('relaunch');
