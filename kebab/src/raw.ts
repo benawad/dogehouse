@@ -59,7 +59,7 @@ export const connect = (
     onConnectionTaken?: () => void;
     onClearTokens?: () => void;
     url?: string;
-    fetchTimeout?: number; // in milliseconds
+    fetchTimeout?: number;
   }
 ): Promise<Connection> =>
   new Promise((resolve, reject) => {
@@ -142,11 +142,7 @@ export const connect = (
             fetch: (opcode: Opcode, parameters: unknown, doneOpcode?: Opcode) =>
               new Promise((resolveFetch, rejectFetch) => {
                 const fetchId: FetchID | false = !doneOpcode && generateUuid();
-                const timeoutId = fetchTimeout ? setTimeout(() => {
-                  unsubscribe();
-                  rejectFetch("timed out");
-                }, fetchTimeout) : null;
-
+                let timeoutId: NodeJS.Timeout | null = null;
                 const unsubscribe = connection.addListener(
                   doneOpcode ?? "fetch_done",
                   (data, arrivedId) => {
@@ -158,6 +154,11 @@ export const connect = (
                     unsubscribe();
                   }
                 );
+
+                if(fetchTimeout) timeoutId = setTimeout(() => {
+                  unsubscribe();
+                  rejectFetch(new Error("timed out"));
+                }, fetchTimeout);
 
                 apiSend(opcode, parameters, fetchId || undefined);
               }),
