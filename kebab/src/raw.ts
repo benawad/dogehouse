@@ -92,6 +92,7 @@ export const connect = (
           onConnectionTaken();
         } else if (error.code === 4004) {
           socket.close();
+          onClearTokens();
         }
         reject(error);
       });
