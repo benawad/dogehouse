@@ -67,12 +67,12 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
   return (
     <>
       <div
-        className={`absolute w-full h-full flex z-50 bg-simple-gray-80 ${
+        className={`absolute w-full h-full flex z-50 bg-primary-900 ${
           showAutoPlayModal ? "" : "hidden"
         }`}
       >
-        <div className={`p-8 rounded m-auto bg-simple-gray-3c`}>
-          <div className={`text-center mb-4`}>
+        <div className={`p-8 rounded m-auto bg-primary-700 flex-col`}>
+          <div className={`text-center mb-4 text-primary-100`}>
             Browsers require user interaction before they will play audio. Just
             click okay to continue.
           </div>

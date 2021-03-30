@@ -25,6 +25,7 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
     ["joinRoomAndGetInfo", currentRoomId || ""],
     {
       enabled: isUuid(roomId) && !isServer,
+      refetchOnMount: "always",
       onSuccess: ((d: JoinRoomAndGetInfoResponse | { error: string }) => {
         if (!("error" in d) && d.room) {
           setCurrentRoomId(() => d.room.id);
@@ -34,6 +35,12 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
     [roomId]
   );
   const { push } = useRouter();
+
+  useEffect(() => {
+    if (roomId) {
+      setCurrentRoomId(roomId);
+    }
+  }, [roomId, setCurrentRoomId]);
 
   useEffect(() => {
     if (isLoading) {
@@ -52,7 +59,14 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
   }, [data, isLoading, push, setCurrentRoomId]);
 
   if (isLoading || !currentRoomId) {
-    return <CenterLoader />;
+    return (
+      <>
+        <MiddlePanel>
+          <CenterLoader />
+        </MiddlePanel>
+        <RightPanel />
+      </>
+    );
   }
 
   if (!data || "error" in data) {

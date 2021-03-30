@@ -197,23 +197,26 @@ export const UserPreviewModal: React.FC<JoinRoomAndGetInfoResponse> = ({
   users,
 }) => {
   const { isCreator: iAmCreator, isMod } = useCurrentRoomInfo();
-  const { setUserId, userId } = useContext(UserPreviewModalContext);
+  const { data, setData } = useContext(UserPreviewModalContext);
   const conn = useConn();
   return (
     <Modal
       variant="userPreview"
-      onRequestClose={() => setUserId(null)}
-      isOpen={!!userId}
+      onRequestClose={() => setData(null)}
+      isOpen={!!data}
     >
-      {!userId ? null : (
+      {!data ? null : (
         <UserPreview
-          id={userId}
-          isCreator={room.creatorId === userId}
-          roomPermissions={users.find((u) => u.id === userId)?.roomPermissions}
+          id={data.userId}
+          isCreator={room.creatorId === data.userId}
+          roomPermissions={
+            users.find((u) => u.id === data.userId)?.roomPermissions
+          }
           iAmCreator={iAmCreator}
-          isMe={conn.user.id === userId}
+          isMe={conn.user.id === data.userId}
           iAmMod={isMod}
-          onClose={() => setUserId(null)}
+          message={data.message}
+          onClose={() => setData(null)}
         />
       )}
     </Modal>

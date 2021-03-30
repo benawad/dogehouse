@@ -174,8 +174,8 @@
         "requirePermission": "需要允许才能说话",
         "makePublic": "把聊天室设为公开",
         "makePrivate": "把聊天室设为私人",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "设置公开聊天室名称",
+        "renamePrivate": "设置私人聊天室名称"
       }
     },
     "userVolumeSlider": {
