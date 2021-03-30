@@ -33,12 +33,11 @@ DogeHouse makes it easy to connect with friends and people over voice and chat m
     - Outlook
     - Outlook web app
     - Yahoo
-- Join Room, Leave room, Chat in room(Chat now has emojis😋), Mute/Unmute and Invite
-- Mention someone in the chat with the @ (@username)
+- Join room, Leave room, Chat in room (Chat now has emojis😋), Mute/Unmute and Invite
+- Mention someone in the chat with an @ (@username)
 - Whisper to someone in the room (#@username)
 - Write codeblocks using \`yourCodeHere\`
-- Delete message
-  You can only delete messages if:
+- Delete message. You can only delete messages if:
   - You wrote it
   - You are a mod
 - Adjust volume of a speaker by clicking on their profile
