@@ -35,7 +35,7 @@ export const WebRtcApp: React.FC<App2Props> = () => {
   const { muted } = useMuteStore();
   const { setCurrentRoomId } = useCurrentRoomIdStore();
   const initialLoad = useRef(true);
-  const { replace } = useRouter();
+  const { push } = useRouter();
 
   useEffect(() => {
     if (micId && !initialLoad.current) {
@@ -72,17 +72,16 @@ export const WebRtcApp: React.FC<App2Props> = () => {
     }
 
     const unsubs = [
-      // @todo fix
       conn.addListener<any>("you_left_room", (d) => {
         if (d.kicked) {
-          // assumes you don't rejoin the same room really quickly before websocket fires
-          setCurrentRoomId((id) => {
-            if (id === d.roomId) {
-              return null;
-            }
-            return id;
-          });
+          const { currentRoomId } = useCurrentRoomIdStore.getState();
+          if (currentRoomId !== d.roomId) {
+            return;
+          }
+
+          setCurrentRoomId(null);
           closeVoiceConnections(d.roomId);
+          push("/dashboard");
         }
       }),
       conn.addListener<any>("new-peer-speaker", async (d) => {
@@ -164,9 +163,7 @@ export const WebRtcApp: React.FC<App2Props> = () => {
     return () => {
       unsubs.forEach((x) => x());
     };
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [conn]);
+  }, [conn, push, setCurrentRoomId]);
 
   return (
     <>
