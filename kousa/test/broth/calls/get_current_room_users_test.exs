@@ -35,7 +35,7 @@ defmodule KousaTest.Broth.GetCurrentRoomUsersTest do
       WsClient.assert_reply(
         ref,
         %{
-          "users" => users = [%{"id" => ^user_id}]
+          "users" => [%{"id" => ^user_id}]
         },
         t.client_ws
       )
@@ -50,7 +50,7 @@ defmodule KousaTest.Broth.GetCurrentRoomUsersTest do
 
       # create a user that is logged in.
       other = %{id: other_id} = Factory.create(User)
-      other_ws = WsClientFactory.create_client_for(other)
+      _other_ws = WsClientFactory.create_client_for(other)
 
       Kousa.Room.join_room(other_id, room_id)
 
@@ -83,7 +83,7 @@ defmodule KousaTest.Broth.GetCurrentRoomUsersTest do
       {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(user_id, "foo room", "foo", false)
 
       # create a user that is logged in.
-      other = %{id: other_id} = Factory.create(User)
+      other = Factory.create(User)
       other_ws = WsClientFactory.create_client_for(other)
 
       ref =
