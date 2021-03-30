@@ -183,7 +183,13 @@ if (!instanceLock) {
   app.on("ready", () => {
     localize().then(() => {
       createWindow();
-      if (__prod__) autoUpdater.checkForUpdates();
+      if (__prod__) {
+        try {
+          autoUpdater.checkForUpdates();
+        } catch (e) {
+          console.error(e);
+        }
+      }
     })
   });
   app.on("second-instance", (event, argv, workingDirectory) => {
