@@ -79,7 +79,7 @@ defmodule Kousa.Room do
         user_blocked = Beef.Users.get_by_id(user_id_to_block_from_room)
 
         if user_blocked.currentRoomId == room.id do
-          leave_room(user_id_to_block_from_room, user_blocked.currentRoomId, true)
+          leave_room(user_id_to_block_from_room, user_blocked.currentRoomId)
         end
       end
     end
@@ -342,7 +342,7 @@ defmodule Kousa.Room do
     _, _ -> {:error, "that room doesn't exist"}
   end
 
-  def leave_room(user_id, current_room_id \\ nil, blocked \\ false) do
+  def leave_room(user_id, current_room_id \\ nil) do
     current_room_id =
       if is_nil(current_room_id),
         do: Beef.Users.get_current_room_id(user_id),
@@ -376,7 +376,7 @@ defmodule Kousa.Room do
           Onion.RoomSession.leave_room(current_room_id, user_id)
       end
 
-      {:ok, %{roomId: current_room_id, blocked: blocked}}
+      {:ok, %{roomId: current_room_id}}
     else
       {:error, "you are not in a room"}
     end
