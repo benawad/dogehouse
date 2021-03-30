@@ -59,14 +59,13 @@ jobs:
           # macOS notarization API key
           API_KEY_ID: ${{ secrets.api_key_id }}
           API_KEY_ISSUER_ID: ${{ secrets.api_key_issuer_id }}
-
       - name: Get app version
         id: app-version
         uses: martinbeentjes/npm-get-version-action@master
         with:
           path: baklava/package.json
-
       - name: Publish snap
+        if: startsWith(matrix.os, 'ubuntu')
         uses: snapcore/action-publish@v1
         with:
           store_login: ${{ secrets.STORE_LOGIN }}
