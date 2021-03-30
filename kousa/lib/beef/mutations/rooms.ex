@@ -124,6 +124,18 @@ defmodule Beef.Mutations.Rooms do
   end
 
   # trusts that the user is in the room
+  def kick_from_room(user_id, room_id) do
+    room = Beef.Rooms.get_room_by_id(room_id)
+    Beef.Users.set_user_left_current_room(user_id)
+    new_people_list = Enum.filter(room.peoplePreviewList, fn x -> x.id != user_id end)
+
+    decrement_room_people_count(
+      room.id,
+      new_people_list
+    )
+  end
+
+  # trusts that the user is in the room
   def leave_room(user_id, room_id) do
     room = Beef.Rooms.get_room_by_id(room_id)
 
@@ -136,7 +148,6 @@ defmodule Beef.Mutations.Rooms do
         new_people_list = Enum.filter(room.peoplePreviewList, fn x -> x.id != user_id end)
 
         if room.creatorId != user_id do
-
           decrement_room_people_count(
             room.id,
             new_people_list

@@ -66,6 +66,15 @@ defmodule Kousa.Room do
     end
   end
 
+  defp internal_kick_from_room(user_id_to_kick, room_id) do
+    current_room_id = Beef.Users.get_current_room_id(user_id_to_kick)
+
+    if current_room_id == room_id do
+      Rooms.kick_from_room(user_id_to_kick, current_room_id)
+      Onion.RoomSession.kick_from_room(current_room_id, user_id_to_kick)
+    end
+  end
+
   def block_from_room(user_id, user_id_to_block_from_room) do
     with {status, room} when status in [:creator, :mod] <-
            Rooms.get_room_status(user_id) do
@@ -76,11 +85,7 @@ defmodule Kousa.Room do
           roomId: room.id
         })
 
-        user_blocked = Beef.Users.get_by_id(user_id_to_block_from_room)
-
-        if user_blocked.currentRoomId == room.id do
-          leave_room(user_id_to_block_from_room, user_blocked.currentRoomId)
-        end
+        internal_kick_from_room(user_id_to_block_from_room, room.id)
       end
     end
   end

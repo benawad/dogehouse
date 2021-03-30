@@ -280,6 +280,31 @@ defmodule Onion.RoomSession do
     {:stop, :normal, state}
   end
 
+  def kick_from_room(room_id, user_id), do: cast(room_id, {:kick_from_room, user_id})
+
+  defp kick_from_room_impl(user_id, state) do
+    users = Enum.filter(state.users, fn uid -> uid != user_id end)
+    Kousa.Utils.RegUtils.lookup_and_cast(Onion.RoomChat, state.room_id, {:remove_user, user_id})
+
+    Onion.VoiceRabbit.send(state.voice_server_id, %{
+      op: "close-peer",
+      uid: user_id,
+      d: %{peerId: user_id, roomId: state.room_id, kicked: true}
+    })
+
+    ws_fan(users, %{
+      op: "user_left_room",
+      d: %{userId: user_id, roomId: state.room_id, kicked: true}
+    })
+
+    {:noreply,
+     %{
+       state
+       | users: users,
+         muteMap: Map.delete(state.muteMap, user_id)
+     }}
+  end
+
   def leave_room(room_id, user_id), do: cast(room_id, {:leave_room, user_id})
 
   defp leave_room_impl(user_id, state) do
@@ -320,6 +345,10 @@ defmodule Onion.RoomSession do
 
   def handle_call({:redeem_invite, user_id}, reply, state) do
     redeem_invite_impl(user_id, reply, state)
+  end
+
+  def handle_cast({:kick_from_room, user_id}, state) do
+    kick_from_room_impl(user_id, state)
   end
 
   def handle_cast({:speaking_change, user_id, value}, state) do
