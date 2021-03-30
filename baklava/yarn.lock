@@ -130,6 +130,13 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/i18next-node-fs-backend@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@types/i18next-node-fs-backend/-/i18next-node-fs-backend-2.1.0.tgz#83616bc8589f155438f150b83ec59b92e5347668"
+  integrity sha512-bOOeT89UO/bYLJoQHdN5S3pggj7mMmFfQMBpDdUQOQIQkENGpnTwhNsIM/kjl1NE2HEihjlRZUNVV60Ze86UZA==
+  dependencies:
+    i18next ">=17.0.11"
+
 "@types/lodash@^4.14.168":
   version "4.14.168"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.168.tgz#fe24632e79b7ade3f132891afff86caa5e5ce008"
@@ -1234,10 +1241,10 @@ globby@^10.0.1:
     merge2 "^1.2.3"
     slash "^3.0.0"
 
-globkey@^1.0.12:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/globkey/-/globkey-1.0.12.tgz#bef93ca4bdf0c3df721cac1362f001daf6cc9fb7"
-  integrity sha512-fM0EZpczo4ToeDRtgOsVQtD1NusVI3+h5q23xtFuTfTwYL39jQpxf4Lt6IKUSEI8NWjRBajo40czoGWy6ZpGjg==
+globkey@^1.0.13:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/globkey/-/globkey-1.0.13.tgz#d6b7a289b59fdf589fe780ffafaaf54aef8626a4"
+  integrity sha512-Ceyjbprf7wEBV4K6RQLxk9twCwc/YxS3XdmyhTUhuA0XGnjRmQjrohNf8KkZ5A7XsQYyvbjlm15gqL2PlFFFPw==
 
 got@^9.6.0:
   version "9.6.0"
@@ -1329,6 +1336,13 @@ i18next-node-fs-backend@^2.1.3:
   dependencies:
     js-yaml "3.13.1"
     json5 "2.0.0"
+
+i18next@>=17.0.11:
+  version "20.1.0"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-20.1.0.tgz#397dce9ad230ea822f487dc62d6128df5b678456"
+  integrity sha512-sV+ZwTM4Ik4d6wKdwNS/ocKmvXi6DFA/YHMgdQX3i4L5993jnbo1/j1pK/c4+zBOjexer4dt+c5JHsFj4CUoXQ==
+  dependencies:
+    "@babel/runtime" "^7.12.0"
 
 i18next@^20.0.0:
   version "20.0.0"
