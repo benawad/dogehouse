@@ -53,11 +53,13 @@ export const connect = (
     onConnectionTaken = () => {},
     onClearTokens = () => {},
     url = apiUrl,
+    fetchTimeout,
   }: {
     logger?: Logger;
     onConnectionTaken?: () => void;
     onClearTokens?: () => void;
     url?: string;
+    fetchTimeout?: number; // in milliseconds
   }
 ): Promise<Connection> =>
   new Promise((resolve, reject) => {
@@ -138,13 +140,20 @@ export const connect = (
             user: message.d.user,
             send: apiSend,
             fetch: (opcode: Opcode, parameters: unknown, doneOpcode?: Opcode) =>
-              new Promise((resolveFetch) => {
+              new Promise((resolveFetch, rejectFetch) => {
                 const fetchId: FetchID | false = !doneOpcode && generateUuid();
+                const timeoutId = fetchTimeout ? setTimeout(() => {
+                  unsubscribe();
+                  rejectFetch("timed out");
+                }, fetchTimeout) : null;
 
                 const unsubscribe = connection.addListener(
                   doneOpcode ?? "fetch_done",
                   (data, arrivedId) => {
                     if (!doneOpcode && arrivedId !== fetchId) return;
+
+                    if(timeoutId) clearTimeout(timeoutId);
+
                     resolveFetch(data);
                     unsubscribe();
                   }
