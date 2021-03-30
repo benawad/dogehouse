@@ -31,6 +31,15 @@ export const wrap = (connection: Connection) => ({
       roomId: string
     ): Promise<JoinRoomAndGetInfoResponse | { error: string }> =>
       connection.fetch("join_room_and_get_info", { roomId }),
+    getFollowList: (
+      username: string,
+      isFollowing: boolean,
+      cursor = 0
+    ): Promise<{
+      users: UserWithFollowInfo[];
+      nextCursor: number | null;
+    }> =>
+      connection.fetch("get_follow_list", { username, isFollowing, cursor }),
     getMyFollowing: (
       cursor = 0
     ): Promise<{

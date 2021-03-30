@@ -577,6 +577,25 @@ defmodule Broth.SocketHandler do
     end
   end
 
+  def f_handler(
+        "get_follow_list",
+        %{"username" => username, "isFollowing" => get_following_list, "cursor" => cursor},
+        state
+      ) do
+    {users, next_cursor} =
+      Kousa.Follow.get_follow_list_by_username(
+        state.user_id,
+        username,
+        get_following_list,
+        cursor
+      )
+
+    %{
+      users: users,
+      nextCursor: next_cursor
+    }
+  end
+
   def f_handler("follow", %{"userId" => userId, "value" => value}, state) do
     Kousa.Follow.follow(state.user_id, userId, value)
     %{}
