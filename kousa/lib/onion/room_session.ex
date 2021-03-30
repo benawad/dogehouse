@@ -33,10 +33,13 @@ defmodule Onion.RoomSession do
   def start_supervised(initial_values) do
     callers = [self() | Process.get(:"$callers", [])]
 
-    DynamicSupervisor.start_child(
-      Onion.RoomSessionDynamicSupervisor,
-      {__MODULE__, Keyword.merge(initial_values, callers: callers)}
-    )
+    case DynamicSupervisor.start_child(
+           Onion.RoomSessionDynamicSupervisor,
+           {__MODULE__, Keyword.merge(initial_values, callers: callers)}
+         ) do
+      {:error, {:already_started, pid}} -> {:ok, pid}
+      x -> x
+    end
   end
 
   def child_spec(init), do: %{super(init) | id: Keyword.get(init, :room_id)}
