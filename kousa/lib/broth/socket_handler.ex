@@ -152,13 +152,12 @@ defmodule Broth.SocketHandler do
                       # @todo this should probably go inside room business logic
                       room = Rooms.get_room_by_id(user.currentRoomId)
 
-                      {:ok, room_session} =
-                        Onion.RoomSession.start_supervised(
-                          room_id: user.currentRoomId,
-                          voice_server_id: room.voiceServerId
-                        )
+                      Onion.RoomSession.start_supervised(
+                        room_id: user.currentRoomId,
+                        voice_server_id: room.voiceServerId
+                      )
 
-                      Onion.RoomSession.join_room(room_session, user, muted)
+                      Onion.RoomSession.join_room(room.id, user, muted)
 
                       if reconnectToVoice == true do
                         Kousa.Room.join_vc_room(user.id, room)

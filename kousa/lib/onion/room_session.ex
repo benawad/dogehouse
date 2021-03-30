@@ -1,5 +1,5 @@
 defmodule Onion.RoomSession do
-  use GenServer
+  use GenServer, restart: :temporary
 
   # TODO: change this.  Actually, make it an ecto thing.
   defmodule State do
@@ -37,8 +37,8 @@ defmodule Onion.RoomSession do
            Onion.RoomSessionDynamicSupervisor,
            {__MODULE__, Keyword.merge(initial_values, callers: callers)}
          ) do
-      {:error, {:already_started, pid}} -> {:ok, pid}
-      x -> x
+      {:error, {:already_started, pid}} -> {:ignored, pid}
+      error -> error
     end
   end
 
@@ -57,24 +57,19 @@ defmodule Onion.RoomSession do
     # adopt callers from the call point.
     Process.put(:"$callers", init[:callers])
 
-    Onion.RoomChat.start(init[:room_id], %Onion.RoomChat.State{
-      room_id: init[:room_id],
-      users: [],
-      ban_map: %{},
-      last_message_map: %{}
-    })
-
+    # also launch a linked, supervised room.
+    Onion.RoomChat.start_link_supervised(init[:room_id])
     {:ok, struct(State, init)}
   end
+
+  ########################################################################
+  ## API
 
   def ws_fan(users, msg) do
     Enum.each(users, fn uid ->
       Onion.UserSession.send_ws(uid, nil, msg)
     end)
   end
-
-  ########################################################################
-  ## API
 
   def get(room_id, key), do: call(room_id, {:get, key})
 
@@ -214,7 +209,7 @@ defmodule Onion.RoomSession do
   end
 
   defp join_room_impl(user_id, mute, opts, state) do
-    Kousa.Utils.RegUtils.lookup_and_cast(Onion.RoomChat, state.room_id, {:add_user, user_id})
+    Onion.RoomChat.add_user(state.room_id, user_id)
 
     # consider using MapSet instead!!
     muteMap =
@@ -272,8 +267,6 @@ defmodule Onion.RoomSession do
 
   defp destroy_impl(user_id, state) do
     users = Enum.filter(state.users, fn uid -> uid != user_id end)
-    # TODO: eliminate this by linking the roomchat process instead
-    Onion.RoomChat.kill(state.room_id)
 
     ws_fan(users, %{
       op: "room_destroyed",
@@ -287,7 +280,8 @@ defmodule Onion.RoomSession do
 
   defp kick_from_room_impl(user_id, state) do
     users = Enum.filter(state.users, fn uid -> uid != user_id end)
-    Kousa.Utils.RegUtils.lookup_and_cast(Onion.RoomChat, state.room_id, {:remove_user, user_id})
+
+    Onion.RoomChat.remove_user(state.room_id, user_id)
 
     Onion.VoiceRabbit.send(state.voice_server_id, %{
       op: "close-peer",
@@ -311,8 +305,9 @@ defmodule Onion.RoomSession do
   def leave_room(room_id, user_id), do: cast(room_id, {:leave_room, user_id})
 
   defp leave_room_impl(user_id, state) do
-    users = Enum.filter(state.users, fn uid -> uid != user_id end)
-    Kousa.Utils.RegUtils.lookup_and_cast(Onion.RoomChat, state.room_id, {:remove_user, user_id})
+    users = Enum.reject(state.users, &(&1 == user_id))
+
+    Onion.RoomChat.remove_user(state.room_id, user_id)
 
     Onion.VoiceRabbit.send(state.voice_server_id, %{
       op: "close-peer",
@@ -331,11 +326,13 @@ defmodule Onion.RoomSession do
         muteMap: Map.delete(state.muteMap, user_id)
     }
 
-    if length(new_state.users) == 0 do
-      Onion.RoomChat.kill(state.room_id)
-      {:stop, :normal, new_state}
-    else
-      {:noreply, new_state}
+    # terminate room if it's empty
+    case new_state.users do
+      [] ->
+        {:stop, :normal, new_state}
+
+      _ ->
+        {:noreply, new_state}
     end
   end
 
