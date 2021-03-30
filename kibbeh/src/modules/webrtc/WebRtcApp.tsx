@@ -15,7 +15,7 @@ import { sendVoice } from "./utils/sendVoice";
 
 interface App2Props {}
 
-function closeVoiceConnections(_roomId: string | null) {
+export function closeVoiceConnections(_roomId: string | null) {
   const { roomId, mic, nullify } = useVoiceStore.getState();
   if (_roomId === null || _roomId === roomId) {
     if (mic) {
@@ -74,14 +74,16 @@ export const WebRtcApp: React.FC<App2Props> = () => {
     const unsubs = [
       // @todo fix
       conn.addListener<any>("you_left_room", (d) => {
-        // assumes you don't rejoin the same room really quickly before websocket fires
-        setCurrentRoomId((id) => {
-          if (id === d.roomId) {
-            return null;
-          }
-          return id;
-        });
-        closeVoiceConnections(d.roomId);
+        if (d.kicked) {
+          // assumes you don't rejoin the same room really quickly before websocket fires
+          setCurrentRoomId((id) => {
+            if (id === d.roomId) {
+              return null;
+            }
+            return id;
+          });
+          closeVoiceConnections(d.roomId);
+        }
       }),
       conn.addListener<any>("new-peer-speaker", async (d) => {
         const { roomId, recvTransport } = useVoiceStore.getState();
