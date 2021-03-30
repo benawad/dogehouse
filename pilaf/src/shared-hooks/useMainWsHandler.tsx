@@ -6,6 +6,10 @@ import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
 import { useRoomChatMentionStore } from "../global-stores/useRoomChatMentionStore";
 // import { showErrorToast } from "../lib/showErrorToast";
 import { useTokenStore } from "../modules/auth/useTokenStore";
+import {
+  RoomChatMessageToken,
+  useRoomChatStore,
+} from "../modules/room/chat/useRoomChatStore";
 // import {
 //   RoomChatMessageToken,
 //   useRoomChatStore,
@@ -44,35 +48,32 @@ export const useMainWsHandler = () => {
         }
       ),
       conn.addListener<any>("chat_user_banned", ({ userId }) => {
-        // useRoomChatStore.getState().addBannedUser(userId);
+        useRoomChatStore.getState().addBannedUser(userId);
       }),
       conn.addListener<any>("new_chat_msg", ({ msg }) => {
-        // const { open } = useRoomChatStore.getState();
-        // useRoomChatStore.getState().addMessage(msg);
-        // const { isRoomChatScrolledToTop } = useRoomChatStore.getState();
-        // if (
-        //   (!open || !document.hasFocus() || isRoomChatScrolledToTop) &&
-        //   !!msg.tokens.filter(
-        //     (t: RoomChatMessageToken) =>
-        //       t.t === "mention" &&
-        //       t.v?.toLowerCase() === conn.user.username.toLowerCase()
-        //   ).length
-        // ) {
-        //   useRoomChatMentionStore.getState().incrementIAmMentioned();
-        //   if (isElectron()) {
-        //     ipcRenderer.send("@notification/mention", msg);
-        //   }
-        // }
+        const { open } = useRoomChatStore.getState();
+        useRoomChatStore.getState().addMessage(msg);
+        const { isRoomChatScrolledToTop } = useRoomChatStore.getState();
+        if (
+          !open &&
+          !!msg.tokens.filter(
+            (t: RoomChatMessageToken) =>
+              t.t === "mention" &&
+              t.v?.toLowerCase() === conn.user.username.toLowerCase()
+          ).length
+        ) {
+          useRoomChatMentionStore.getState().incrementIAmMentioned();
+        }
       }),
       conn.addListener<any>("message_deleted", ({ messageId, deleterId }) => {
-        // const { messages, setMessages } = useRoomChatStore.getState();
-        // setMessages(
-        //   messages.map((m) => ({
-        //     ...m,
-        //     deleted: m.id === messageId || !!m.deleted,
-        //     deleterId: m.id === messageId ? deleterId : m.deleterId,
-        //   }))
-        // );
+        const { messages, setMessages } = useRoomChatStore.getState();
+        setMessages(
+          messages.map((m) => ({
+            ...m,
+            deleted: m.id === messageId || !!m.deleted,
+            deleterId: m.id === messageId ? deleterId : m.deleterId,
+          }))
+        );
       }),
       conn.addListener<any>(
         "room_privacy_change",

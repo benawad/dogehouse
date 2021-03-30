@@ -1,7 +1,13 @@
 import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
 import { useNavigation } from "@react-navigation/core";
 import React, { useEffect } from "react";
-import { Button, ScrollView, StyleSheet, View } from "react-native";
+import {
+  Button,
+  KeyboardAvoidingView,
+  ScrollView,
+  StyleSheet,
+  View,
+} from "react-native";
 import { TitledHeader } from "../../components/header/TitledHeader";
 import { colors } from "../../constants/dogeStyle";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
@@ -14,6 +20,7 @@ import { Spinner } from "../../components/Spinner";
 import { RoomHeader } from "../../components/header/RoomHeader";
 import { setMute, useSetMute } from "../../shared-hooks/useSetMute";
 import { useMuteStore } from "../../global-stores/useMuteStore";
+import { RoomChat } from "./chat/RoomChat";
 interface RoomPanelControllerProps {
   roomId?: string | undefined;
 }
@@ -93,12 +100,15 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({
         muted={muted}
         canAskToSpeak={true}
       />
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={styles.avatarsContainer}
-      >
-        <RoomUsersPanel {...data} />
-      </ScrollView>
+      <KeyboardAvoidingView behavior={"padding"} style={{ flex: 1 }}>
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={[styles.avatarsContainer]}
+        >
+          <RoomUsersPanel {...data} />
+        </ScrollView>
+        <RoomChat {...data} style={{ flex: 1 }} />
+      </KeyboardAvoidingView>
     </View>
   );
 };

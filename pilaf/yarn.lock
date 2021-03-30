@@ -1103,10 +1103,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@dogehouse/kebab@^0.2.0":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@dogehouse/kebab/-/kebab-0.2.2.tgz#371d1077767f82db5e7c1e93b540d562c3a21738"
-  integrity sha512-Wm5OCUdmDWlBri1DPi/bFysWi6mFJQPniKgEGUjIlYsCS3PETskO+Ynvzuh8Ha7c7LchDysL6y9i1LwY5aMn0Q==
+"@dogehouse/kebab@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@dogehouse/kebab/-/kebab-0.2.3.tgz#596715188adda7608886b7f5988f25b066a85485"
+  integrity sha512-q+ZPSPBr9TbKjWKU59AL3A1IL1MRoqW6Is0rj9UKdQq9840zAs/a/Ni21o82x90dAvVTOAHgXZB0iHxsTXx47g==
   dependencies:
     "@types/uuid" "^8.3.0"
     "@types/ws" "^7.4.0"
@@ -5884,6 +5884,14 @@ emittery@^0.7.1:
   resolved "https://registry.yarnpkg.com/emittery/-/emittery-0.7.2.tgz#25595908e13af0f5674ab419396e2fb394cdfa82"
   integrity sha512-A8OG5SR/ij3SsJdWDJdkkSYUjQdCUx6APQXem0SaEePBSRg4eymGYwBkKo1Y6DU+af/Jn2dBQqDBvjnr9Vi8nQ==
 
+emoji-mart@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/emoji-mart/-/emoji-mart-3.0.1.tgz#9ce86706e02aea0506345f98464814a662ca54c6"
+  integrity sha512-sxpmMKxqLvcscu6mFn9ITHeZNkGzIvD0BSNFE/LJESPbCA8s1jM6bCDPjWbV31xHq7JXaxgpHxLB54RCbBZSlg==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    prop-types "^15.6.0"
+
 "emoji-regex@>=6.0.0 <=6.1.1":
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-6.1.1.tgz#c6cd0ec1b0642e2a3c67a1137efc5e796da4f88e"
@@ -9986,6 +9994,11 @@ normalize-range@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/normalize-range/-/normalize-range-0.1.2.tgz#2d10c06bdfd312ea9777695a4d28439456b75942"
   integrity sha1-LRDAa9/TEuqXd2laTShDlFa3WUI=
+
+normalize-url@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-5.3.0.tgz#8959b3cdaa295b61592c1f245dded34b117618dd"
+  integrity sha512-9/nOVLYYe/dO/eJeQUNaGUF4m4Z5E7cb9oNTKabH+bNf19mqj60txTcveQxL0GlcWLXCxkOu2/LwL8oW0idIDA==
 
 npm-run-path@^2.0.0:
   version "2.0.2"
