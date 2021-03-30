@@ -8,6 +8,9 @@
   <a href="https://discord.gg/wCbKBZF9cV">
     <img src="https://img.shields.io/discord/810571477316403233?style=for-the-badge" alt="discord - users online" />
   </a>
+  <a href="https://dogehouse.tv">
+    <img src="https://img.shields.io/badge/dynamic/json?color=blue&label=Dogehouse&query=%24.totalOnline&suffix=%20online&url=https%3A%2F%2Fapi.dogehouse.xyz%2Fv1%2Fstatistics&style=for-the-badge&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAZwAAAGcB1SjUJgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFcSURBVCiRnZBPSwJhEId/s2zsKljuprYahogeQqQM6lAQfZiIQPwyZnXqo3QKig7RLSzNFMv/uSK1WsJOh9xtIY1wTgPvPO/vmQFmLLKabr2QJtABgPDkQW6aQE4Nxo9tUG8UM2Bk/5VEvO/V4mcCAMBExnowTXP4F8hMaQAQxh4KALRanfvV1I7M4JHjo7d3w6g62OUfcKzs86va7dV5mUBz1tTF5XUvltgK9/t9CxYAQBwLEEAYfY4+ZFledKptbqyL5fxNXZIk62jkSCR+fqndaZFEIBRNeozBsGaBbrdLkyQp6NiSHIlgbSmgpdaSvb3d7arbJSemn4fYjtXrxSYA/2tXL6iKN0xErukgOkow5reO0wZAC/Me31OlWtH1Xu2xVH4wjEHnF8bQbVUGnxIoJ4qiGo2sqACgKN7JeQKObFVmJr1ROiRwGkBoimKbwVlFi50Qfe85U30Bu1l23sapumgAAAAASUVORK5CYII=" alt="dogehouse - users online" />
+  </a>
 </p>
 
 <h3 align="center">
