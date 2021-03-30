@@ -1761,6 +1761,7 @@ __metadata:
     "@types/hark": ^1.2.1
     "@types/lodash": ^4.14.168
     "@types/node": ^14.14.37
+    "@types/nprogress": ^0.2.0
     "@types/react": ^17.0.3
     "@types/react-i18next": ^8.1.0
     "@types/react-modal": ^3.12.0
@@ -1790,6 +1791,7 @@ __metadata:
     next: 10.0.7
     next-transpile-modules: ^6.3.0
     normalize-url: ^4.5.0
+    nprogress: ^0.2.0
     postcss: ^8.2.8
     postcss-import: ^14.0.0
     postcss-loader: ^4.2.0
@@ -3877,6 +3879,13 @@ __metadata:
   version: 4.1.2
   resolution: "@types/npmlog@npm:4.1.2"
   checksum: 87d4ffa194c38e96b5f7a354ec28b1f628199326a01d8e9c78b975b44a66a1fb93ac423d3258c9ef7247408e6ebd4064c889cd420d17a4a019adcff366c46e45
+  languageName: node
+  linkType: hard
+
+"@types/nprogress@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@types/nprogress@npm:0.2.0"
+  checksum: f5831461b6984302ae8f4f7efaf963f9faaf8be1879db96bd2d4d48b32e4701141275fe5908b7b4c65fa817d92a09f3f95dbceed7146c1227017dac8915a6e90
   languageName: node
   linkType: hard
 
@@ -12958,6 +12967,13 @@ fsevents@^1.2.7:
     gauge: ~2.7.3
     set-blocking: ~2.0.0
   checksum: 0cd63f127c1bbda403a112e83b11804aaee2b58b0bc581c3bde9b82e4d957c7ed0ad3bee499af706cdd3599bb93669d7cbbf29fb500407d35fe75687ac96e2c0
+  languageName: node
+  linkType: hard
+
+"nprogress@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "nprogress@npm:0.2.0"
+  checksum: 652dfcfea776f9d9a2c3ad1f79b4cbd3056a03e7c6884966eab70fb184e8e70bfca9e0343ba89d11aa1ed95370d648fb638fab91b5dc027bdad54c8d37c96478
   languageName: node
   linkType: hard
 

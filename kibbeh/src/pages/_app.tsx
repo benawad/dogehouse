@@ -11,14 +11,20 @@ import { SoundEffectPlayer } from "../modules/sound-effects/SoundEffectPlayer";
 import ReactModal from "react-modal";
 import { ErrorToastController } from "../modules/errors/ErrorToastController";
 import { WebRtcApp } from "../modules/webrtc/WebRtcApp";
-import {
-  MainWsHandlerProvider,
-  useMainWsHandler,
-} from "../shared-hooks/useMainWsHandler";
+import { MainWsHandlerProvider } from "../shared-hooks/useMainWsHandler";
+import NProgress from "nprogress";
+import Router from "next/router";
+import "nprogress/nprogress.css";
 
 if (!isServer) {
   init_i18n();
 }
+
+Router.events.on("routeChangeStart", () => {
+  NProgress.start();
+});
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
 
 ReactModal.setAppElement("#__next");
 
