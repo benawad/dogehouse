@@ -13,7 +13,7 @@ import Backend from "i18next-node-fs-backend";
 import { autoUpdater } from "electron-updater";
 import { RegisterKeybinds } from "./utils/keybinds";
 import { HandleVoiceTray } from "./utils/tray";
-import { ALLOWED_HOSTS, isMac, MENU_TEMPLATE } from "./constants";
+import { ALLOWED_HOSTS, isLinux, isMac, MENU_TEMPLATE } from "./constants";
 import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
@@ -172,6 +172,16 @@ function createWindow() {
   ipcMain.on('@app/version', (event, args) => {
     event.sender.send('@app/version', app.getVersion());
   });
+  if (isLinux) {
+    splash.webContents.send('skipCheck');
+    windowShowInterval = setInterval(() => {
+      if (shouldShowWindow) {
+        splash.destroy();
+        mainWindow.show();
+        clearInterval(windowShowInterval);
+      }
+    }, 500);
+  }
 }
 
 if (!instanceLock) {
