@@ -7,7 +7,7 @@ export type Gist = {
   git_pull_url: string;
   git_push_url: string;
   html_url: string;
-  files: { [key: string]: File };
+  files: Record<string, File>;
   public: true;
   created_at: string;
   updated_at: string;
