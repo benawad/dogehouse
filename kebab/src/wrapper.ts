@@ -74,6 +74,7 @@ export const wrap = (connection: Connection) => ({
       ),
   },
   mutation: {
+    askToSpeak: () => connection.send(`ask_to_speak`, {}),
     setAutoSpeaker: (value: boolean) =>
       connection.send(`set_auto_speaker`, { value }),
     speakingChange: (value: boolean) =>

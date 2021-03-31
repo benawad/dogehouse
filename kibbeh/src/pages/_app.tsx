@@ -15,6 +15,7 @@ import { MainWsHandlerProvider } from "../shared-hooks/useMainWsHandler";
 import NProgress from "nprogress";
 import Router from "next/router";
 import "nprogress/nprogress.css";
+import { KeybindListener } from "../modules/keyboard-shortcuts/KeybindListener";
 
 if (!isServer) {
   init_i18n();
@@ -43,6 +44,7 @@ function App({ Component, pageProps }: AppProps) {
           <SoundEffectPlayer />
           <ErrorToastController />
           <WebRtcApp />
+          <KeybindListener />
         </MainWsHandlerProvider>
       </QueryClientProvider>
     </WebSocketProvider>
