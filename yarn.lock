@@ -1791,10 +1791,7 @@ __metadata:
     next: 10.0.7
     next-transpile-modules: ^6.3.0
     normalize-url: ^4.5.0
-<<<<<<< HEAD
     nprogress: ^0.2.0
-=======
->>>>>>> c73b8f37372ffcb09bd9a0984a71386e260a6a2b
     postcss: ^8.2.8
     postcss-import: ^14.0.0
     postcss-loader: ^4.2.0
@@ -3885,7 +3882,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@types/nprogress@npm:^0.2.0":
   version: 0.2.0
   resolution: "@types/nprogress@npm:0.2.0"
@@ -3893,8 +3889,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-=======
->>>>>>> c73b8f37372ffcb09bd9a0984a71386e260a6a2b
 "@types/overlayscrollbars@npm:^1.12.0":
   version: 1.12.0
   resolution: "@types/overlayscrollbars@npm:1.12.0"
