@@ -30,6 +30,7 @@ export const __prod__ = app.isPackaged;
 const instanceLock = app.requestSingleInstanceLock();
 let shouldShowWindow = false;
 let windowShowInterval: NodeJS.Timeout;
+let skipUpdateTimeout: NodeJS.Timeout;
 
 i18n.use(Backend);
 
@@ -173,17 +174,7 @@ function createWindow() {
     event.sender.send('@app/version', app.getVersion());
   });
   if (isLinux) {
-    splash.webContents.send('skipCheck');
-    windowShowInterval = setInterval(() => {
-      if (shouldShowWindow) {
-        splash.webContents.send('launch');
-        clearInterval(windowShowInterval);
-        setTimeout(() => {
-          splash.destroy();
-          mainWindow.show();
-        }, 800);
-      }
-    }, 500);
+    skipUpdateCheck(splash);
   }
 }
 
@@ -210,14 +201,26 @@ if (!instanceLock) {
 
 autoUpdater.on('update-available', info => {
   splash.webContents.send('download', info);
+  // skip the update if it takes more than 1 minute
+  skipUpdateTimeout = setTimeout(() => {
+    skipUpdateCheck(splash);
+  }, 60000);
 });
 autoUpdater.on('download-progress', (progress) => {
   let prog = Math.floor(progress.percent)
   splash.webContents.send('percentage', prog);
   splash.setProgressBar(prog);
+  // stop timeout that skips the update
+  if (skipUpdateTimeout) {
+    clearTimeout(skipUpdateTimeout);
+  }
 });
 autoUpdater.on('update-downloaded', () => {
   splash.webContents.send('relaunch');
+  // stop timeout that skips the update
+  if (skipUpdateTimeout) {
+    clearTimeout(skipUpdateTimeout);
+  }
   setTimeout(() => {
     autoUpdater.quitAndInstall();
   }, 1000);
@@ -243,3 +246,21 @@ app.on("activate", () => {
     })
   }
 });
+
+function skipUpdateCheck(splash: BrowserWindow) {
+  splash.webContents.send('skipCheck');
+  windowShowInterval = setInterval(() => {
+    // stop timeout that skips the update
+    if (skipUpdateTimeout) {
+      clearTimeout(skipUpdateTimeout);
+    }
+    if (shouldShowWindow) {
+      splash.webContents.send('launch');
+      clearInterval(windowShowInterval);
+      setTimeout(() => {
+        splash.destroy();
+        mainWindow.show();
+      }, 800);
+    }
+  }, 500);
+}
