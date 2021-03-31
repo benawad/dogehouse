@@ -23,7 +23,7 @@ export const GistPopup: React.FC<GistPopupProps> = ({ id }) => {
   }
 
   return (
-    <div className="w-full bg-primary-800 flex flex-col text-primary-100 max-w-2xl rounded-8 max-h-24">
+    <div className="w-full bg-primary-800 flex-col text-primary-100 max-w-2xl rounded-8 max-h-24">
       <div className="p-4 pb-2">
         <div className="w-full overflow-x-auto">
           {files.map((file) => (
