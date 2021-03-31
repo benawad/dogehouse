@@ -1,16 +1,16 @@
 {
   "_comment": "if you change this file, do: npm run i18",
   "common": {
-    "loadMore": "load more",
-    "loading": "loading...",
-    "noUsersFound": "no users found",
+    "loadMore": "Load More",
+    "loading": "Loading...",
+    "noUsersFound": "No users found!",
     "ok": "ok",
     "yes": "yes",
     "no": "no",
-    "cancel": "cancel",
-    "save": "save",
-    "edit": "edit",
-    "delete": "delete",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
     "joinRoom": "Join Room",
     "copyLink": "Copy Link",
     "copied": "Copied!",
@@ -209,7 +209,7 @@
         "banFromChat": "Ban from Chat",
         "banFromRoom": "Ban from Room",
         "goBackToListener": "Go Back to Listener",
-        "deleteMessage": "",
+        "deleteMessage": "Delete this Message",
         "makeRoomCreator": "Promote to Admin"
       },
       "roomSettingsModal": {
