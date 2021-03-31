@@ -1491,28 +1491,10 @@ export const customEmojis = [
     imageUrl: "/emotes/widepeepoPussy.png",
   },
   {
-    name: "OMEGALUL",
-    short_names: ["OMEGALUL"],
-    keywords: ["OMEGALUL", "LUL", "OMEGA"],
-    imageUrl: "/emotes/omegaLul.png",
-  },
-  {
-    name: "CrabPls",
-    short_names: ["CrabPls"],
-    keywords: ["Crab", "Pls"],
-    imageUrl: "/emotes/crabPls.gif",
-  },
-  {
     name: "RareParrot",
     short_names: ["RareParrot"],
     keywords: ["Rare", "Parrot", "party"],
     imageUrl: "/emotes/rareParrot.gif",
-  },
-  {
-    name: "COGGERS",
-    short_names: ["COGGERS"],
-    keywords: ["COG", "COGGERS", "pepe"],
-    imageUrl: "/emotes/coggers.gif",
   },
   {
     name: "OrangeDogeHouse",

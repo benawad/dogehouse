@@ -86,3 +86,24 @@ html {
 #__next {
   overflow: auto;
 }
+
+/* Fixes for Emoji-Mart */
+
+.emoji-mart * {
+  display: inline-block;
+}
+
+.emoji-mart-no-results-img,
+.emoji-mart-anchor,
+.emoji-mart-search input,
+.emoji-mart-category-label span {
+  display: block;
+}
+
+.emoji-mart-anchors {
+  display: flex;
+}
+
+.emoji-mart-category-label {
+  width: 100%;
+}
