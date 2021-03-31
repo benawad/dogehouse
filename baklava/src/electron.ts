@@ -39,7 +39,7 @@ autoUpdater.logger = electronLogger;
 async function localize() {
   await i18n.init({
     lng: app.getLocale(),
-    debug: !__prod__,
+    debug: false,
     backend: {
       // path where resources get loaded from
       loadPath: path.join(__dirname, '../locales/{{lng}}/translate.json'),
@@ -95,7 +95,7 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
   }
   mainWindow.loadURL(
-    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/"
+    !__prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/"
   );
 
   bWindows = {
@@ -156,7 +156,7 @@ function createWindow() {
       shell.openExternal(url);
     } else {
       if (
-        urlHost == ALLOWED_HOSTS[3] &&
+        urlHost == ALLOWED_HOSTS[4] &&
         urlObj.pathname !== "/login" &&
         urlObj.pathname !== "/session" &&
         urlObj.pathname !== "/sessions/two-factor"
