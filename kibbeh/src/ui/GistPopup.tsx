@@ -41,11 +41,12 @@ export const GistPopup: React.FC<GistPopupProps> = ({ id }) => {
               key={file.filename}
               onClick={() => setSelectedFile(file)}
               className="mb-2"
-              color={
+              style={
                 file.filename === selectedFile.filename
-                  ? "primary"
-                  : "secondary"
+                  ? { backgroundColor: "var(--color-primary-600)" }
+                  : {}
               }
+              color="secondary"
             >
               {file.filename}
             </Button>
