@@ -64,6 +64,7 @@ defmodule Beef.Access.Users do
 
   def get_users_in_current_room(user_id) do
     case tuple_get_current_room_id(user_id) do
+      {:ok, nil} -> {nil, []}
       {:ok, current_room_id} ->
         {current_room_id,
          from(u in User,
