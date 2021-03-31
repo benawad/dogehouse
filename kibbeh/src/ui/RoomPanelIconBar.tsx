@@ -44,7 +44,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
             <SolidFriends />
           </BoxedIcon>
         ) : null}
-        {onInvitePeopleToRoom ? (
+        {onRoomSettings ? (
           <BoxedIcon className="mr-2" color="800" onClick={onRoomSettings}>
             <SolidSettings />
           </BoxedIcon>
