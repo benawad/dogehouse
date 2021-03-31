@@ -152,13 +152,12 @@ defmodule Broth.SocketHandler do
                       # @todo this should probably go inside room business logic
                       room = Rooms.get_room_by_id(user.currentRoomId)
 
-                      {:ok, room_session} =
-                        Onion.RoomSession.start_supervised(
-                          room_id: user.currentRoomId,
-                          voice_server_id: room.voiceServerId
-                        )
+                      Onion.RoomSession.start_supervised(
+                        room_id: user.currentRoomId,
+                        voice_server_id: room.voiceServerId
+                      )
 
-                      Onion.RoomSession.join_room(room_session, user, muted)
+                      Onion.RoomSession.join_room(room.id, user, muted)
 
                       if reconnectToVoice == true do
                         Kousa.Room.join_vc_room(user.id, room)
@@ -575,6 +574,25 @@ defmodule Broth.SocketHandler do
            state
          ), state}
     end
+  end
+
+  def f_handler(
+        "get_follow_list",
+        %{"username" => username, "isFollowing" => get_following_list, "cursor" => cursor},
+        state
+      ) do
+    {users, next_cursor} =
+      Kousa.Follow.get_follow_list_by_username(
+        state.user_id,
+        username,
+        get_following_list,
+        cursor
+      )
+
+    %{
+      users: users,
+      nextCursor: next_cursor
+    }
   end
 
   def f_handler("follow", %{"userId" => userId, "value" => value}, state) do

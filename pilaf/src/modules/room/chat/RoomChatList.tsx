@@ -76,7 +76,17 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
           .slice()
           .reverse()
           .map((m) => (
-            <View key={m.id}>
+            <View
+              key={m.id}
+              style={
+                m.isWhisper
+                  ? {
+                      backgroundColor: colors.primary700,
+                      borderRadius: radius.s,
+                    }
+                  : {}
+              }
+            >
               <Text style={{ ...smallBold, color: m.color }}>
                 {m.username}:{" "}
                 <Text style={{ ...small }}>
@@ -98,16 +108,16 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                           );
 
                         case "mention":
-                          return <Text>@{v} </Text>;
+                          return <Text key={i}>@{v} </Text>;
                         case "link":
                           return (
-                            <Text>
+                            <Text key={i}>
                               {v}
                               {/* {normalizeUrl(v, { stripProtocol: true })}{" "} */}
                             </Text>
                           );
                         case "block":
-                          return <Text>{v}</Text>;
+                          return <Text key={i}>{v}</Text>;
                         default:
                           return null;
                       }

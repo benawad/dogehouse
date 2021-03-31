@@ -3,6 +3,7 @@ import React from "react";
 import { SingleUser } from "./UserAvatar";
 import { UserBadge } from "./UserBadge";
 import { kFormatter } from "../lib/kFormatter";
+import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
 
 type badge = {
   content: React.ReactNode;
@@ -78,22 +79,26 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
           <span className="text-sm text-primary-100 font-bold">
             {displayName}
           </span>
-          <span className="text-sm text-primary-300">{username}</span>
+          <span className="text-sm text-primary-300">@{username}</span>
           <Badges badges={badges} />
         </div>
       </button>
       <div className="mt-3">
         <div>
-          <span className="text-primary-100 font-bold">
-            {kFormatter(numFollowers)}
-          </span>{" "}
-          <span className="text-primary-300 ml-1">followers</span>
+          <ApiPreloadLink route="followers" data={{ username }}>
+            <span className="text-primary-100 font-bold">
+              {kFormatter(numFollowers)}
+            </span>{" "}
+            <span className="text-primary-300 ml-1">followers</span>
+          </ApiPreloadLink>
         </div>
         <div className="ml-4">
-          <span className="text-primary-100 font-bold">
-            {kFormatter(numFollowing)}
-          </span>
-          <span className="text-primary-300 ml-1"> following</span>
+          <ApiPreloadLink route="following" data={{ username }}>
+            <span className="text-primary-100 font-bold">
+              {kFormatter(numFollowing)}
+            </span>
+            <span className="text-primary-300 ml-1"> following</span>
+          </ApiPreloadLink>
         </div>
       </div>
       <div className="text-primary-300 mt-3">{bio}</div>

@@ -53,11 +53,13 @@ export const connect = (
     onConnectionTaken = () => {},
     onClearTokens = () => {},
     url = apiUrl,
+    fetchTimeout,
   }: {
     logger?: Logger;
     onConnectionTaken?: () => void;
     onClearTokens?: () => void;
     url?: string;
+    fetchTimeout?: number;
   }
 ): Promise<Connection> =>
   new Promise((resolve, reject) => {
@@ -92,6 +94,7 @@ export const connect = (
           onConnectionTaken();
         } else if (error.code === 4004) {
           socket.close();
+          onClearTokens();
         }
         reject(error);
       });
@@ -138,17 +141,25 @@ export const connect = (
             user: message.d.user,
             send: apiSend,
             fetch: (opcode: Opcode, parameters: unknown, doneOpcode?: Opcode) =>
-              new Promise((resolveFetch) => {
+              new Promise((resolveFetch, rejectFetch) => {
                 const fetchId: FetchID | false = !doneOpcode && generateUuid();
-
+                let timeoutId: NodeJS.Timeout | null = null;
                 const unsubscribe = connection.addListener(
                   doneOpcode ?? "fetch_done",
                   (data, arrivedId) => {
                     if (!doneOpcode && arrivedId !== fetchId) return;
-                    resolveFetch(data);
+
+                    if(timeoutId) clearTimeout(timeoutId);
+
                     unsubscribe();
+                    resolveFetch(data);
                   }
                 );
+
+                if(fetchTimeout) timeoutId = setTimeout(() => {
+                  unsubscribe();
+                  rejectFetch(new Error("timed out"));
+                }, fetchTimeout);
 
                 apiSend(opcode, parameters, fetchId || undefined);
               }),

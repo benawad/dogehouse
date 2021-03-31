@@ -72,7 +72,6 @@ defmodule KousaTest.Broth.SendRoomChatMsgTest do
       WsClient.assert_frame("new_user_join_room", _)
       WsClient.assert_frame("new_user_join_room", _)
 
-
       WsClient.send_msg(t.client_ws, "send_room_chat_msg", %{
         "tokens" => @text_token,
         "whisperedTo" => [whispener_id]

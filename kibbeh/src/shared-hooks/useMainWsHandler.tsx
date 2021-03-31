@@ -46,6 +46,9 @@ export const useMainWsHandler = () => {
           );
         }
       ),
+      conn.addListener<any>("error", (message) => {
+        showErrorToast(message);
+      }),
       conn.addListener<any>("chat_user_banned", ({ userId }) => {
         useRoomChatStore.getState().addBannedUser(userId);
       }),

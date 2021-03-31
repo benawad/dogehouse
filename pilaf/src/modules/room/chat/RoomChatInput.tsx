@@ -74,28 +74,22 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
   };
 
   const handleSubmit = () => {
-    console.log("coucou 3");
     if (!me) return;
-    console.log("coucou 4");
     if (me.id in useRoomChatStore.getState().bannedUserIdMap) {
       // showErrorToast(t("modules.roomChat.bannedAlert"));
       return;
     }
 
-    console.log("coucou 5");
     if (Date.now() - lastMessageTimestamp <= 1000) {
       // showErrorToast(t("modules.roomChat.waitAlert"));
 
       return;
     }
-    console.log("coucou 6", message, "Coucou fin");
     const tmp = message;
     const messageData = createChatMessage(tmp, mentions, users);
-    console.log("coucou 7");
     // dont empty the input, if no tokens
     if (!messageData.tokens.length) return;
     setMessage("");
-    console.log("coucou 7", message);
     if (
       !message ||
       !message.trim() ||
@@ -104,7 +98,6 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
       return;
     }
 
-    console.log("coucou 8");
     conn.send("send_room_chat_msg", messageData);
     setQueriedUsernames([]);
 

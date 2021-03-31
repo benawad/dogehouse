@@ -12,10 +12,7 @@ defmodule Kousa do
       # top-level supervisor for UserSession group
       Onion.Supervisors.UserSession,
       Onion.Supervisors.RoomSession,
-      {
-        GenRegistry,
-        worker_module: Onion.RoomChat
-      },
+      Onion.Supervisors.RoomChat,
       {
         GenRegistry,
         worker_module: Onion.VoiceRabbit
