@@ -24,7 +24,7 @@ defmodule Broth.Contract do
   }
 
   @operators %{
-    "test_contract" => KousaTest.Broth.ContractTest.TestContract
+    "test_operator" => BrothTest.ContractTest.TestOperator
   }
 
   defp find(changeset, field) when is_atom(field) do
@@ -32,7 +32,7 @@ defmodule Broth.Contract do
   end
 
   defp find(changeset = %{params: params}, field, [form | _])
-      when is_map_key(params, form) do
+       when is_map_key(params, form) do
     %{changeset | params: Map.put(changeset.params, "#{field}", params[form])}
   end
 
@@ -42,10 +42,19 @@ defmodule Broth.Contract do
     add_error(changeset, field, "no #{field} present")
   end
 
+  defp cast_operator(changeset = %{valid?: false}), do: changeset
+
   defp cast_operator(changeset) do
-    operator = @operators[changeset.params["operator"]]
-    cast(changeset, %{operator: operator}, [:operator])
+    operator_text = changeset.params["operator"]
+
+    if operator = @operators[operator_text] do
+      cast(changeset, %{operator: operator}, [:operator])
+    else
+      add_error(changeset, :operator, "invalid operator", failed: operator_text)
+    end
   end
+
+  defp cast_payload(changeset = %{valid?: false}), do: changeset
 
   defp cast_payload(changeset) do
     operator = get_field(changeset, :operator)
@@ -55,7 +64,9 @@ defmodule Broth.Contract do
     |> operator.changeset(changeset.params["payload"])
     |> apply_action(:validate)
     |> case do
-      {:ok, contract} -> put_change(changeset, :payload, contract)
+      {:ok, contract} ->
+        put_change(changeset, :payload, contract)
+
       {:error, inner_changeset} ->
         %{changeset | errors: inner_changeset.errors, valid?: false}
     end
