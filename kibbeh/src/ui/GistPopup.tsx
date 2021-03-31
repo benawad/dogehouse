@@ -38,7 +38,7 @@ export const GistPopup: React.FC<GistPopupProps> = ({ id }) => {
             </button>
           ))}
         </div>
-        <button className="flex font-mono p-2 ml-2 text-2xl">×</button>
+        <button className="font-mono p-2 ml-2 text-2xl">×</button>
       </div>
       <div className="p-4 pt-2 rounded-t-none">
         <pre>{selectedFile.content}</pre>
