@@ -54,7 +54,7 @@
     "comma-dangle": "off",
     "comma-spacing": "error",
     "comma-style": "error",
-    "complexity": "error",
+    "complexity": "off",
     "computed-property-spacing": "error",
     "consistent-this": "error",
     "default-case-last": "error",

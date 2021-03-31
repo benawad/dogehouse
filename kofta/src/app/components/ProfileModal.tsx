@@ -141,11 +141,12 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                     d: {
                       userId: profile.id,
                     },
-                  })
-                }}>
-                  {t("components.modals.profileModal.makeRoomCreator")}
-                  </Button>
-              </div>
+                  });
+                }}
+              >
+                {t("components.modals.profileModal.makeRoomCreator")}
+              </Button>
+            </div>
           ) : null}
 
           {/* Add speaker button */}

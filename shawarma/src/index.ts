@@ -65,7 +65,7 @@ async function main() {
         deleteRoom(roomId, rooms);
       }
     },
-    ["close-peer"]: async ({ roomId, peerId }, uid, send) => {
+    ["close-peer"]: async ({ roomId, peerId, kicked }, uid, send) => {
       if (roomId in rooms) {
         if (peerId in rooms[roomId].state) {
           closePeer(rooms[roomId].state[peerId]);
@@ -74,7 +74,7 @@ async function main() {
         if (Object.keys(rooms[roomId].state).length === 0) {
           deleteRoom(roomId, rooms);
         }
-        send({ uid, op: "you_left_room", d: { roomId } });
+        send({ uid, op: "you_left_room", d: { roomId, kicked: !!kicked } });
       }
     },
     ["@get-recv-tracks"]: async (

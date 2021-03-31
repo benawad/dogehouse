@@ -64,6 +64,7 @@ defmodule Beef.Access.Users do
 
   def get_users_in_current_room(user_id) do
     case tuple_get_current_room_id(user_id) do
+      {:ok, nil} -> {nil, []}
       {:ok, current_room_id} ->
         {current_room_id,
          from(u in User,
@@ -83,16 +84,12 @@ defmodule Beef.Access.Users do
   # out of the database layer, but we are keeping it here for now
   # to keep the transition smooth.
   def tuple_get_current_room_id(user_id) do
-    case Kousa.Utils.RegUtils.lookup_and_call(
-           Onion.UserSession,
-           user_id,
-           {:get_current_room_id}
-         ) do
+    case Onion.UserSession.get_current_room_id(user_id) do
       {:ok, nil} ->
         {nil, nil}
 
       x ->
-        x
+        {:ok, x}
     end
   end
 
@@ -118,17 +115,5 @@ defmodule Beef.Access.Users do
     end
   end
 
-  def get_current_room_id(user_id) do
-    case Kousa.Utils.RegUtils.lookup_and_call(
-           Onion.UserSession,
-           user_id,
-           {:get_current_room_id}
-         ) do
-      {:ok, id} ->
-        id
-
-      _ ->
-        nil
-    end
-  end
+  defdelegate get_current_room_id(user_id), to: Onion.UserSession
 end

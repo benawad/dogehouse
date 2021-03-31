@@ -1,5 +1,7 @@
 defmodule Onion.RoomChat do
-  use GenServer
+  use GenServer, restart: :temporary
+
+  require Logger
 
   defmodule State do
     @type t :: %__MODULE__{
@@ -12,55 +14,98 @@ defmodule Onion.RoomChat do
     defstruct room_id: "", users: [], ban_map: %{}, last_message_map: %{}
   end
 
-  def start_link(state) do
-    GenServer.start_link(
-      __MODULE__,
-      state,
-      name: :"#{state.room_id}:room_chat"
-    )
+  #################################################################################
+  # REGISTRY AND SUPERVISION BOILERPLATE
+
+  defp via(user_id), do: {:via, Registry, {Onion.RoomChatRegistry, user_id}}
+
+  defp cast(user_id, params), do: GenServer.cast(via(user_id), params)
+  defp call(user_id, params), do: GenServer.call(via(user_id), params)
+
+  def start_link_supervised(room_id) do
+    callers = [self() | Process.get(:"$callers", [])]
+
+    case DynamicSupervisor.start_child(
+           Onion.RoomChatDynamicSupervisor,
+           {__MODULE__, room_id: room_id, callers: callers}
+         ) do
+      {:ok, pid} ->
+        # ensures that the chat dies alongside the room
+        Process.link(pid)
+        {:ok, pid}
+      {:error, {:already_started, pid}} ->
+        Logger.warn("unexpectedly tried to restart already started Room chat #{room_id}")
+        Process.link(pid)
+        {:ignored, pid}
+      error -> error
+    end
   end
 
-  def init(x) do
-    {:ok, x}
+  def child_spec(init), do: %{super(init) | id: Keyword.get(init, :room_id)}
+
+  def count, do: Registry.count(Onion.RoomChatRegistry)
+
+  ###############################################################################
+  ## INITIALIZATION BOILERPLATE
+
+  def start_link(init) do
+    GenServer.start_link(__MODULE__, init, name: via(init[:room_id]))
   end
 
-  @spec start(String.t(), State.t()) :: :ok
-  def start(room_id, state) do
-    {:ok, session} =
-      GenRegistry.lookup_or_start(__MODULE__, room_id, [
-        state
-      ])
-
-    GenServer.cast(session, {:new, state})
+  def init(init) do
+    # adopt callers from the call point.
+    Process.put(:"$callers", init[:callers])
+    {:ok, struct(State, init)}
   end
 
   def kill(room_id) do
-    case GenRegistry.lookup(__MODULE__, room_id) do
-      {:ok, session} ->
-        GenServer.cast(session, {:kill})
-    end
+    Onion.RoomChatRegistry
+    |> Registry.lookup(room_id)
+    |> Enum.each(fn {room_pid, _} ->
+      Process.exit(room_pid, :kill)
+    end)
   end
 
   def ws_fan(users, msg) do
     Enum.each(users, fn uid ->
-      Onion.UserSession.send_cast(uid, {:send_ws_msg, msg})
+      Onion.UserSession.send_ws(uid, nil, msg)
     end)
   end
 
-  def handle_cast({:remove_user, user_id}, %State{} = state) do
-    {:noreply, %State{state | users: Enum.filter(state.users, &(&1 != user_id))}}
+  ######################################################################
+  ## API
+
+  def banned?(room_id, who), do: call(room_id, {:banned?, who})
+
+  defp banned_impl(who, _reply, state) do
+    {:reply, who in Map.keys(state.ban_map), state}
   end
 
-  def handle_cast({:add_user, user_id}, %State{} = state) do
-    {:noreply, %State{state | users: [user_id | Enum.filter(state.users, &(&1 != user_id))]}}
+  def remove_user(room_id, user_id), do: cast(room_id, {:remove_user, user_id})
+
+  defp remove_user_impl(user_id, state) do
+    {:noreply, %{state | users: Enum.reject(state.users, &(&1 == user_id))}}
   end
 
-  def handle_cast({:new, state}, _state) do
-    {:noreply, state}
+  def add_user(room_id, user_id), do: cast(room_id, {:add_user, user_id})
+
+  defp add_user_impl(user_id, state) do
+    if user_id in state.users do
+      {:noreply, state}
+    else
+      {:noreply, %{state | users: [user_id | state.users]}}
+    end
   end
 
-  def handle_cast({:new_msg, user_id, msg, whispered_to}, %State{} = state) do
+  def new_msg(room_id, user_id, msg, whispered_to) do
+    cast(room_id, {:new_msg, user_id, msg, whispered_to})
+  end
+
+  defp new_msg_impl(user_id, msg, whispered_to, state) do
     last_timestamp = Map.get(state.last_message_map, user_id)
+
+    # TODO: check to make sure this will be consistent when we move to a distributed
+    # erlang cluster.
     {_, seconds, _} = :os.timestamp()
 
     if not Map.has_key?(state.ban_map, user_id) and
@@ -87,7 +132,11 @@ defmodule Onion.RoomChat do
     end
   end
 
-  def handle_cast({:message_deleted, user_id, message_id}, %State{} = state) do
+  def message_deleted(room_id, user_id, message_id) do
+    cast(room_id, {:message_deleted, user_id, message_id})
+  end
+
+  defp message_deleted_impl(user_id, message_id, state) do
     ws_fan(state.users, %{
       op: "message_deleted",
       d: %{
@@ -99,7 +148,9 @@ defmodule Onion.RoomChat do
     {:noreply, state}
   end
 
-  def handle_cast({:ban_user, user_id}, state) do
+  def ban_user(room_id, user_id), do: cast(room_id, {:ban_user, user_id})
+
+  defp ban_user_impl(user_id, state) do
     ws_fan(state.users, %{
       op: "chat_user_banned",
       d: %{
@@ -110,7 +161,22 @@ defmodule Onion.RoomChat do
     {:noreply, %State{state | ban_map: Map.put(state.ban_map, user_id, 1)}}
   end
 
-  def handle_cast({:kill}, state) do
-    {:stop, :normal, state}
+  ################################################################################ 3
+  ## ROUTER
+
+  def handle_call({:banned?, who}, reply, state), do: banned_impl(who, reply, state)
+
+  def handle_cast({:remove_user, user_id}, state), do: remove_user_impl(user_id, state)
+
+  def handle_cast({:add_user, user_id}, state), do: add_user_impl(user_id, state)
+
+  def handle_cast({:new_msg, user_id, msg, whispered_to}, state) do
+    new_msg_impl(user_id, msg, whispered_to, state)
   end
+
+  def handle_cast({:message_deleted, user_id, message_id}, state) do
+    message_deleted_impl(user_id, message_id, state)
+  end
+
+  def handle_cast({:ban_user, user_id}, state), do: ban_user_impl(user_id, state)
 end

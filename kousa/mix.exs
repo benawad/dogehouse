@@ -19,19 +19,19 @@ defmodule Kousa.MixProject do
   end
 
   def application do
-    dev_only_apps = if Mix.env() == :dev, do: [:remix], else: []
+    dev_only_apps = List.wrap(if Mix.env() == :dev, do: :remix)
+    test_only_apps = List.wrap(if Mix.env() == :test, do: :websockex)
 
     [
       mod: {Kousa, []},
-      extra_applications: [:logger, :amqp, :ueberauth_github, :prometheus_ex] ++ dev_only_apps
+      extra_applications:
+        [:logger, :amqp, :ueberauth_github, :prometheus_ex] ++ dev_only_apps ++ test_only_apps
     ]
   end
 
   defp deps do
     [
       {:amqp, "~> 1.0"},
-      # TODO: consider switching to Registry
-      {:gen_registry, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       # TODO: switch from poison to jason everywhere
       {:poison, "~> 3.1"},
@@ -56,7 +56,8 @@ defmodule Kousa.MixProject do
       {:credo, "~> 1.5.5"},
       # test helpers
       {:faker, "~> 0.16.0", only: :test},
-      {:excoveralls, "~> 0.10", only: :test}
+      {:excoveralls, "~> 0.10", only: :test},
+      {:websockex, "~> 0.4.3", only: :test}
     ]
   end
 

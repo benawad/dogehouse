@@ -6,14 +6,12 @@ defmodule Onion.Telemetry do
   end
 
   def init(_opts) do
-    Process.send_after(self(), {:collect_metrics}, 10_000)
-
+    :timer.send_interval(10_000, self(), :collect_metrics)
     {:ok, %{}}
   end
 
-  def handle_info({:collect_metrics}, state) do
-    Kousa.Metric.UserSessions.set(GenRegistry.count(Onion.UserSession))
-    Process.send_after(self(), {:collect_metrics}, 10_000)
+  def handle_info(:collect_metrics, state) do
+    Kousa.Metric.UserSessions.set(Onion.UserSession.count())
     {:noreply, state}
   end
 end

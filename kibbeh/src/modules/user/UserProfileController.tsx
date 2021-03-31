@@ -3,7 +3,6 @@ import React from "react";
 import { isServer } from "../../lib/isServer";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { CenterLoader } from "../../ui/CenterLoader";
-import { VerticalUserInfo } from "../../ui/VerticalUserInfo";
 import { VerticalUserInfoWithFollowButton } from "./VerticalUserInfoWithFollowButton";
 
 interface UserProfileControllerProps {}

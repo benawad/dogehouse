@@ -1,22 +1,26 @@
 import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
+import { useNavigation } from "@react-navigation/core";
 import React, { useEffect } from "react";
 import {
-  ActivityIndicator,
   Button,
+  KeyboardAvoidingView,
   ScrollView,
   StyleSheet,
-  Text,
   View,
 } from "react-native";
 import { TitledHeader } from "../../components/header/TitledHeader";
-import { colors, h4, paragraph } from "../../constants/dogeStyle";
+import { colors } from "../../constants/dogeStyle";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { isUuid } from "../../lib/isUuid";
+import { useWrappedConn } from "../../shared-hooks/useConn";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
-import { useNavigation } from "@react-navigation/core";
-import { useMuteStore } from "../../global-stores/useMuteStore";
 import { RoomUsersPanel } from "./RoomUsersPanel";
+import { Spinner } from "../../components/Spinner";
+import { RoomHeader } from "../../components/header/RoomHeader";
+import { setMute, useSetMute } from "../../shared-hooks/useSetMute";
+import { useMuteStore } from "../../global-stores/useMuteStore";
+import { RoomChat } from "./chat/RoomChat";
 interface RoomPanelControllerProps {
   roomId?: string | undefined;
 }
@@ -29,16 +33,19 @@ const placeHolder = (
     }}
   >
     <TitledHeader title={""} showBackButton={true} />
-    <ActivityIndicator color={colors.text} />
+    <Spinner size={"m"} />
   </View>
 );
 
 export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({
   roomId,
 }) => {
+  const conn = useWrappedConn();
   const { mutateAsync: leaveRoom } = useTypeSafeMutation("leaveRoom");
   const navigation = useNavigation();
   const { currentRoomId, setCurrentRoomId } = useCurrentRoomIdStore();
+  const setInternalMute = useSetMute();
+  const muted = useMuteStore((s) => s.muted);
   const { data, isLoading } = useTypeSafeQuery(
     ["joinRoomAndGetInfo", roomId || ""],
     {
@@ -80,21 +87,28 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({
 
   return (
     <View style={{ flex: 1, backgroundColor: colors.primary900 }}>
-      <TitledHeader title={data.room.name} showBackButton={true} />
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={styles.avatarsContainer}
-      >
-        <RoomUsersPanel {...data} style={styles.avatar} />
-      </ScrollView>
-
-      <Button
-        title={"leave the room"}
-        onPress={() => {
+      <RoomHeader
+        showBackButton={true}
+        onLeavePress={() => {
           leaveRoom([]);
           navigation.navigate("Home");
         }}
+        onMutePress={() => {
+          setInternalMute(!muted);
+        }}
+        onSpeakPress={() => conn.connection.send("ask_to_speak", {})}
+        muted={muted}
+        canAskToSpeak={true}
       />
+      <KeyboardAvoidingView behavior={"padding"} style={{ flex: 1 }}>
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={[styles.avatarsContainer]}
+        >
+          <RoomUsersPanel {...data} />
+        </ScrollView>
+        <RoomChat {...data} style={{ flex: 1 }} />
+      </KeyboardAvoidingView>
     </View>
   );
 };
@@ -107,7 +121,6 @@ const styles = StyleSheet.create({
   avatarsContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "space-around",
   },
   avatar: {
     marginRight: 10,

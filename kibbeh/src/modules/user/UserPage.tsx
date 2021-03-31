@@ -1,8 +1,7 @@
-import { useRouter } from "next/router";
 import React from "react";
+import { isServer } from "../../lib/isServer";
 import { PageComponent } from "../../types/PageComponent";
 import { WaitForWsAndAuth } from "../auth/WaitForWsAndAuth";
-import { FeedController } from "../dashboard/FeedController";
 import { FollowingOnlineController } from "../dashboard/FollowingOnlineController";
 import { ProfileBlockController } from "../dashboard/ProfileBlockController";
 import { DesktopLayout } from "../layouts/DesktopLayout";

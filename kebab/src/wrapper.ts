@@ -26,11 +26,19 @@ export const wrap = (connection: Connection) => ({
       connection.addListener("new_chat_msg", handler),
   },
   query: {
-    // this is supposed to be in query
     joinRoomAndGetInfo: (
       roomId: string
     ): Promise<JoinRoomAndGetInfoResponse | { error: string }> =>
       connection.fetch("join_room_and_get_info", { roomId }),
+    getFollowList: (
+      username: string,
+      isFollowing: boolean,
+      cursor = 0
+    ): Promise<{
+      users: UserWithFollowInfo[];
+      nextCursor: number | null;
+    }> =>
+      connection.fetch("get_follow_list", { username, isFollowing, cursor }),
     getMyFollowing: (
       cursor = 0
     ): Promise<{
@@ -51,8 +59,8 @@ export const wrap = (connection: Connection) => ({
         cursor,
         getOnlyMyScheduledRooms,
       }),
-    getRoomUsers: async (): Promise<GetRoomUsersResponse> =>
-      await connection.fetch(
+    getRoomUsers: (): Promise<GetRoomUsersResponse> =>
+      connection.fetch(
         "get_current_room_users",
         {},
         "get_current_room_users_done"
@@ -68,6 +76,20 @@ export const wrap = (connection: Connection) => ({
       whisperedTo: string[] = []
     ): Promise<void> =>
       connection.send("send_room_chat_msg", { tokens: ast, whisperedTo }),
+    changeModStatus: (userId: string, value: boolean): Promise<void> =>
+      connection.send("change_mod_status", { userId, value }),
+    changeRoomCreator: (userId: string): Promise<void> =>
+      connection.send("change_room_creator", { userId }),
+    addSpeaker: (userId: string): Promise<void> =>
+      connection.send("add_speaker", { userId }),
+    deleteRoomChatMessage: (userId: string, messageId: string): Promise<void> =>
+      connection.send("delete_room_chat_message", { userId, messageId }),
+    blockFromRoom: (userId: string): Promise<void> =>
+      connection.send("block_from_room", { userId }),
+    banFromRoomChat: (userId: string): Promise<void> =>
+      connection.send("ban_from_room_chat", { userId }),
+    setListener: (userId: string): Promise<void> =>
+      connection.send("set_listener", { userId }),
     setMute: (isMuted: boolean): Promise<Record<string, never>> =>
       connection.fetch("mute", { value: isMuted }),
     leaveRoom: (): Promise<{ roomId: UUID }> =>
@@ -78,6 +100,13 @@ export const wrap = (connection: Connection) => ({
       description: string;
     }): Promise<{ error: string } | { room: Room }> =>
       connection.fetch("create_room", data),
+    editProfile: (data: {
+      displayName: string;
+      username: string;
+      bio: string;
+      avatarUrl: string;
+    }): Promise<{ isUsernameTaken: boolean }> =>
+      connection.fetch("edit_profile", { data }),
     editRoom: (data: {
       name: string;
       privacy: string;

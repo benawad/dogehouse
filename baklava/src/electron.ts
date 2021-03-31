@@ -17,24 +17,30 @@ import { ALLOWED_HOSTS, isMac, MENU_TEMPLATE } from "./constants";
 import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
+import electronLogger from 'electron-log';
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
 let menu: Menu;
-let splash;
+let splash: BrowserWindow;
 
 export let bWindows: bWindowsType;
 
 export const __prod__ = app.isPackaged;
 const instanceLock = app.requestSingleInstanceLock();
+let shouldShowWindow = false;
+let windowShowInterval: NodeJS.Timeout;
 
 i18n.use(Backend);
+
+electronLogger.transports.file.level = "debug"
+autoUpdater.logger = electronLogger;
 
 async function localize() {
   await i18n.init({
     lng: app.getLocale(),
     debug: !__prod__,
-    backend:{
+    backend: {
       // path where resources get loaded from
       loadPath: path.join(__dirname, '../locales/{{lng}}/translate.json'),
     },
@@ -58,8 +64,8 @@ function createWindow() {
   });
 
   splash = new BrowserWindow({
-    width: 810,
-    height: 610,
+    width: 400,
+    height: 500,
     transparent: true,
     frame: false,
     webPreferences: {
@@ -67,7 +73,7 @@ function createWindow() {
     }
   });
   splash.loadFile(path.join(__dirname, "../resources/splash/splash-screen.html"));
-  
+
   splash.webContents.on('did-finish-load', () => {
     splash.webContents.send('@locale/text', {
       title: i18n.t('common.title'),
@@ -104,6 +110,10 @@ function createWindow() {
         splash.destroy();
         mainWindow.show();
       }, 2500);
+    });
+  } else {
+    mainWindow.once("ready-to-show", () => {
+      shouldShowWindow = true;
     });
   }
 
@@ -158,6 +168,10 @@ function createWindow() {
   };
   mainWindow.webContents.on("new-window", handleLinks);
   mainWindow.webContents.on("will-navigate", handleLinks);
+
+  ipcMain.on('@app/version', (event, args) => {
+    event.sender.send('@app/version', app.getVersion());
+  });
 }
 
 if (!instanceLock) {
@@ -184,9 +198,10 @@ if (!instanceLock) {
 autoUpdater.on('update-available', info => {
   splash.webContents.send('download', info);
 });
-autoUpdater.on('download-progress', progress => {
-  splash.webContents.send('percentage', progress.percent);
-  splash.setProgressBar(progress.percent/100);
+autoUpdater.on('download-progress', (progress) => {
+  let prog = Math.floor(progress.percent)
+  splash.webContents.send('percentage', prog);
+  splash.setProgressBar(prog);
 });
 autoUpdater.on('update-downloaded', () => {
   splash.webContents.send('relaunch');
@@ -196,12 +211,13 @@ autoUpdater.on('update-downloaded', () => {
 });
 autoUpdater.on('update-not-available', () => {
   splash.webContents.send('launch');
-  mainWindow.once("ready-to-show", () => {
-    setTimeout(() => {
+  windowShowInterval = setInterval(() => {
+    if (shouldShowWindow) {
       splash.destroy();
       mainWindow.show();
-    }, 500);
-  });
+      clearInterval(windowShowInterval);
+    }
+  }, 500);
 });
 
 app.on("window-all-closed", () => {
