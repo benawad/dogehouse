@@ -19,7 +19,7 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
       <div className={`text-primary-100`}>
         <div className={`text-xl font-bold mb-2 flex-1 truncate`}>{title}</div>
         {/* @todo show description */}
-        <SolidCaretRight className={`ml-2 transform rotate-90`} width={20} height={20} />
+        <SolidCaretRight className={`ml-2 transform rotate-90 cursor-pointer`} width={20} height={20} />
       </div>
       <div className={`text-primary-200 text-xs`}>
         with{" "}
