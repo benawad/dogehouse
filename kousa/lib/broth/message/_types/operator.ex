@@ -4,6 +4,6 @@ defenum(
   Broth.Message.Types.Operator,
   [
     {BrothTest.MessageTest.TestOperator, 255},
-    {Broth.Message.Users.GetFollowingOnline, 1}
+    {Broth.Message.User.GetFollowing, 1}
   ]
 )

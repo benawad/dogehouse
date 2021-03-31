@@ -4,10 +4,11 @@ defmodule Broth.Message do
   alias Ecto.Changeset
   import Changeset
 
+  @primary_key false
   embedded_schema do
     field(:operator, Broth.Message.Types.Operator, null: false)
     field(:payload, :map)
-    field(:reference, :id)
+    field(:reference, :binary_id)
   end
 
   def changeset(source, data) do
@@ -34,6 +35,7 @@ defmodule Broth.Message do
   }
 
   @operators %{
+    "user:get_following" => Broth.Message.User.GetFollowing,
     "test_operator" => BrothTest.MessageTest.TestOperator
   }
 
@@ -41,7 +43,7 @@ defmodule Broth.Message do
     find(changeset, field, @valid_forms[field], optional)
   end
 
-  @spec find(Changeset.t, message_field, [String.t], :optional | false) :: Changeset.t
+  @spec find(Changeset.t(), message_field, [String.t()], :optional | false) :: Changeset.t()
 
   defp find(changeset = %{params: params}, field, [form | _], _)
        when is_map_key(params, form) do
@@ -95,6 +97,7 @@ defmodule Broth.Message do
   end
 
   defp validate_calls_have_references(changeset = %{valid?: false}), do: changeset
+
   defp validate_calls_have_references(changeset) do
     operator = get_field(changeset, :operator)
 
@@ -104,7 +107,7 @@ defmodule Broth.Message do
     |> Module.concat(Reply)
     |> function_exported?(:__info__, 1)
     |> if do
-      validate_required(changeset, [:reference])
+      validate_required(changeset, [:reference], message: "is required for #{inspect operator}")
     else
       changeset
     end

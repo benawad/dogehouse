@@ -1,5 +1,4 @@
 defmodule BrothTest.MessageTest do
-
   @moduledoc "generic tests on the broth message systems"
 
   use ExUnit.Case, async: true
