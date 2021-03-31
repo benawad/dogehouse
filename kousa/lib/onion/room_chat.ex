@@ -59,10 +59,11 @@ defmodule Onion.RoomChat do
   end
 
   def kill(room_id) do
-    case GenRegistry.lookup(__MODULE__, room_id) do
-      {:ok, session} ->
-        Process.exit(session, :kill)
-    end
+    room_id
+    |> Registry.lookup()
+    |> Enum.each(fn {room_pid, _} ->
+      Process.exit(room_pid, :kill)
+    end)
   end
 
   def ws_fan(users, msg) do
