@@ -1,7 +1,10 @@
-defmodule BrothTest.ContractTest do
+defmodule BrothTest.MessageTest do
+
+  @moduledoc "generic tests on the broth message systems"
+
   use ExUnit.Case, async: true
 
-  alias Broth.Contract
+  alias Broth.Message
 
   defmodule TestOperator do
     use Ecto.Schema
@@ -30,12 +33,12 @@ defmodule BrothTest.ContractTest do
   describe "for a generic contract" do
     test "the contract system allows conversion" do
       assert {:ok,
-              %Contract{
+              %Message{
                 operator: TestOperator,
                 payload: %TestOperator{
                   foo: 47
                 }
-              }} = Contract.validate(@passing_contract)
+              }} = Message.validate(@passing_contract)
     end
 
     @bad_data put_in(@passing_contract, ["p", "foo"], 42)
@@ -44,18 +47,18 @@ defmodule BrothTest.ContractTest do
       assert {:error,
               %{
                 errors: [foo: {"bad number", _}]
-              }} = Contract.validate(@bad_data)
+              }} = Message.validate(@bad_data)
     end
 
     @missing_data put_in(@passing_contract, ["p"], %{})
 
     test "the contract system fails when payload data are omitted" do
-      assert {:error, %{errors: [foo: {"can't be blank", _}]}} = Contract.validate(@missing_data)
+      assert {:error, %{errors: [foo: {"can't be blank", _}]}} = Message.validate(@missing_data)
     end
 
     @invalid_data put_in(@passing_contract, ["p", "foo"], "bar")
     test "invalid datatypes are not accepted" do
-      assert {:error, %{errors: [foo: {"is invalid", _}]}} = Contract.validate(@invalid_data)
+      assert {:error, %{errors: [foo: {"is invalid", _}]}} = Message.validate(@invalid_data)
     end
   end
 
@@ -64,14 +67,14 @@ defmodule BrothTest.ContractTest do
 
     test "because it's missing fails" do
       assert {:error, %{errors: [operator: {"no operator present", _}]}} =
-               Contract.validate(@operatorless)
+               Message.validate(@operatorless)
     end
 
     @invalid_operator Map.put(@passing_contract, "op", "foobarbaz")
 
-    test "because it's invalid fails" do
-      assert {:error, %{errors: [operator: {"invalid operator", _}]}} =
-               Contract.validate(@invalid_operator)
+    test "because it's not implemented fails" do
+      assert {:error, %{errors: [operator: {"is invalid", _}]}} =
+               Message.validate(@invalid_operator)
     end
   end
 end
