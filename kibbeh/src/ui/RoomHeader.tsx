@@ -21,7 +21,7 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
         {/* @todo show description */}
         <SolidCaretRight className={`ml-2 transform rotate-90 cursor-pointer`} width={20} height={20} />
       </div>
-      <div className={`text-primary-200 text-xs`}>
+      <div className={`text-primary-200 text-sm`}>
         with{" "}
         <span
           style={{ marginLeft: 3 }}
