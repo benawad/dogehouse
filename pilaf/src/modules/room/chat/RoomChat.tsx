@@ -6,6 +6,8 @@ import { RoomChatList } from "./RoomChatList";
 import { RoomChatMentions } from "./RoomChatMentions";
 import { useRoomChatStore } from "./useRoomChatStore";
 import { View, ViewStyle } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { colors } from "../../../constants/dogeStyle";
 
 interface ChatProps {
   room: Room;
@@ -31,10 +33,19 @@ export const RoomChat: React.FC<ChatProps> = ({ users, room, style }) => {
     return null;
   }
   return (
-    <View style={style}>
+    <SafeAreaView
+      style={[
+        style,
+        {
+          backgroundColor: colors.primary800,
+          padding: 10,
+          justifyContent: "flex-end",
+        },
+      ]}
+      edges={["bottom"]}
+    >
       <RoomChatList room={room} />
-      {/* <RoomChatMentions users={users} />
-      <RoomChatInput users={users} /> */}
-    </View>
+      <RoomChatInput users={users} />
+    </SafeAreaView>
   );
 };

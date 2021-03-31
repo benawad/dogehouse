@@ -8,6 +8,7 @@ import { useConn } from "../../../shared-hooks/useConn";
 // import { useTypeSafeTranslation } from "../../../shared-hooks/useTypeSafeTranslation";
 // import { Input } from "../../../ui/Input";
 import { customEmojis, CustomEmote } from "./EmoteData";
+import { RoomChatMentions } from "./RoomChatMentions";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { useRoomChatStore } from "./useRoomChatStore";
 
@@ -114,6 +115,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
 
   return (
     <KeyboardAvoidingView behavior={"padding"}>
+      <RoomChatMentions users={users} />
       <TextInput
         placeholder={"Send a message"}
         placeholderTextColor={colors.primary300}

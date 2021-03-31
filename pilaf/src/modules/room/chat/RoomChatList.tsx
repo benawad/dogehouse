@@ -46,13 +46,12 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
   // });
 
   return (
-    <SafeAreaView
+    <View
       style={{
-        backgroundColor: colors.primary800,
+        // backgroundColor: colors.primary800,
         padding: 10,
         flex: 1,
       }}
-      edges={["bottom"]}
     >
       <ScrollView
         style={{ flex: 1, marginBottom: 10 }}
@@ -119,8 +118,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
             </View>
           ))}
       </ScrollView>
-
-      <RoomChatInput users={[]} />
-    </SafeAreaView>
+    </View>
   );
 };

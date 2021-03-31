@@ -4,6 +4,8 @@ import { useConn } from "../../../shared-hooks/useConn";
 import { SingleUserAvatar } from "../../../components/avatars/SingleUserAvatar";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { useRoomChatStore } from "./useRoomChatStore";
+import { View, Text } from "react-native";
+import { colors, h4, paragraph, radius } from "../../../constants/dogeStyle";
 
 interface RoomChatMentionsProps {
   users: RoomUser[];
@@ -12,7 +14,7 @@ interface RoomChatMentionsProps {
 export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({
   users,
 }) => {
-  /*const me = useConn().user;
+  const me = useConn().user;
 
   const { message, setMessage } = useRoomChatStore();
 
@@ -74,30 +76,58 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [message]);
-
   if (queriedUsernames.length) {
     return (
-      <div className={`flex flex-col pb-1 bg-simple-gray-26`}>
+      <View
+        style={{
+          position: "absolute",
+          backgroundColor: colors.primary700,
+          width: "100%",
+          alignSelf: "center",
+          bottom: 34,
+          paddingBottom: 5,
+          borderTopLeftRadius: radius.m,
+          borderTopRightRadius: radius.m,
+        }}
+      >
         {queriedUsernames.map((m) => (
-          <button
-            className={`flex py-3 items-center px-8 focus:outline-none ${
-              activeUsername === m.id ? "bg-blue-800" : ""
-            }`}
+          <View
             key={m.id}
-            onClick={() => addMention(m)}
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              paddingHorizontal: 15,
+              paddingVertical: 15,
+            }}
           >
-            <span className={`pr-3 inline`}>
-              <SingleUserAvatar size="xs" src={{ uri: m.avatarUrl }} />
-            </span>
-            <p className={`m-0 mt-1`}>
+            <SingleUserAvatar src={{ uri: m.avatarUrl }} size={"xxs"} />
+            <Text style={{ ...paragraph, marginLeft: 10 }}>
               {m.displayName}
-              {m.displayName !== m.username ? `(${m.username})` : null}
-            </p>
-          </button>
+              {m.displayName !== m.username ? ` (${m.username})` : ""}
+            </Text>
+          </View>
         ))}
-      </div>
+      </View>
+      // <div className={`flex flex-col pb-1 bg-simple-gray-26`}>
+      //   {queriedUsernames.map((m) => (
+      //     <button
+      //       className={`flex py-3 items-center px-8 focus:outline-none ${
+      //         activeUsername === m.id ? "bg-blue-800" : ""
+      //       }`}
+      //       key={m.id}
+      //       onClick={() => addMention(m)}
+      //     >
+      //       <span className={`pr-3 inline`}>
+      //         <SingleUserAvatar size="xs" src={{ uri: m.avatarUrl }} />
+      //       </span>
+      //       <p className={`m-0 mt-1`}>
+      //         {m.displayName}
+      //         {m.displayName !== m.username ? `(${m.username})` : null}
+      //       </p>
+      //     </button>
+      //   ))}
+      // </div>
     );
   }
-*/
   return <></>;
 };
