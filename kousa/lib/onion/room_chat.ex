@@ -59,8 +59,8 @@ defmodule Onion.RoomChat do
   end
 
   def kill(room_id) do
-    room_id
-    |> Registry.lookup()
+    Onion.RoomChatRegistry
+    |> Registry.lookup(room_id)
     |> Enum.each(fn {room_pid, _} ->
       Process.exit(room_pid, :kill)
     end)
