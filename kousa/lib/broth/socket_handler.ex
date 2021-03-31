@@ -623,7 +623,7 @@ defmodule Broth.SocketHandler do
   end
 
   def f_handler("get_current_room_users", _data, state) do
-    {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
+    {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id) |> IO.inspect(label: "627")
 
     {muteMap, autoSpeaker, activeSpeakerMap} =
       if room_id do
