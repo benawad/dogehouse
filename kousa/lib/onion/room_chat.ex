@@ -33,11 +33,14 @@ defmodule Onion.RoomChat do
         # ensures that the chat dies alongside the room
         Process.link(pid)
         {:ok, pid}
+
       {:error, {:already_started, pid}} ->
         Logger.warn("unexpectedly tried to restart already started Room chat #{room_id}")
         Process.link(pid)
         {:ignored, pid}
-      error -> error
+
+      error ->
+        error
     end
   end
 

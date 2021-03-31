@@ -35,9 +35,9 @@ defmodule Onion.UserSession do
     callers = [self() | Process.get(:"$callers", [])]
 
     case DynamicSupervisor.start_child(
-      Onion.UserSessionDynamicSupervisor,
-      {__MODULE__, Keyword.merge(initial_values, callers: callers)}
-    ) do
+           Onion.UserSessionDynamicSupervisor,
+           {__MODULE__, Keyword.merge(initial_values, callers: callers)}
+         ) do
       {:error, {:already_started, pid}} -> {:ignored, pid}
       error -> error
     end
@@ -145,6 +145,7 @@ defmodule Onion.UserSession do
   end
 
   def reconnect(user_pid, rabbit_id), do: GenServer.cast(user_pid, {:reconnect, rabbit_id})
+
   defp reconnect_impl(voice_server_id, state) do
     if state.pid || state.current_room_id do
       case Onion.RoomSession.get(state.current_room_id, :voice_server_id) do

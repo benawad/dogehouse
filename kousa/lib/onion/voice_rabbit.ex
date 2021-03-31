@@ -28,7 +28,6 @@ defmodule Onion.VoiceRabbit do
 
   defp via(voice_id), do: {:via, Registry, {Onion.VoiceRabbitRegistry, voice_id}}
 
-
   # @send_exchange "shawarma_exchange"
   @send_queue "shawarma_queue"
   @receive_exchange "kousa_exchange"
