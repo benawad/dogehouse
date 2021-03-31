@@ -40,7 +40,7 @@ export const GistPopup: React.FC<GistPopupProps> = ({ id }) => {
         </div>
         <button className="font-mono p-2 ml-2 text-2xl">×</button>
       </div>
-      <div className="p-4 pt-2 rounded-t-none">
+      <div className="p-4 pt-2 whitespace-pre">
         <code>{selectedFile.content}</code>
       </div>
     </div>
