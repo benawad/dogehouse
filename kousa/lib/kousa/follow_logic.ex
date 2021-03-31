@@ -1,5 +1,6 @@
 defmodule Kousa.Follow do
   alias Beef.Follows
+  alias Beef.Users
   alias Beef.UserBlocks
   alias Beef.Schemas.Follow
   alias Beef.Schemas.Room
@@ -9,6 +10,23 @@ defmodule Kousa.Follow do
       Follows.get_following(user_id, user_id_to_get_list_for, cursor)
     else
       Follows.get_followers(user_id, user_id_to_get_list_for, cursor)
+    end
+  end
+
+  # probably can be refactored into a single db query
+  def get_follow_list_by_username(user_id, username, get_following_list, cursor) do
+    user = Users.get_by_username(username)
+
+    case user do
+      %{id: id} ->
+        if get_following_list do
+          Follows.get_following(user_id, id, cursor)
+        else
+          Follows.get_followers(user_id, id, cursor)
+        end
+
+      _ ->
+        %{users: [], next_cursor: nil}
     end
   end
 

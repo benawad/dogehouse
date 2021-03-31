@@ -43,8 +43,6 @@ defmodule KousaTest.Broth.AddSpeakerTest do
         t.client_ws
       )
 
-      IO.puts("hi mom")
-
       WsClient.assert_frame(
         "speaker_added",
         %{"userId" => ^speaker_id, "roomId" => ^room_id},

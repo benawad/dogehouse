@@ -7,7 +7,7 @@ import { useWrappedConn } from "./useConn";
 
 type Keys = keyof ReturnType<typeof wrap>["query"];
 
-type PaginatedKey<K extends Keys> = [K, string | number];
+type PaginatedKey<K extends Keys> = [K, ...(string | number | boolean)[]];
 
 export const useTypeSafeUpdateQuery = () => {
   const client = useQueryClient();
