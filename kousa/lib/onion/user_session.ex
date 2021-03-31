@@ -34,10 +34,13 @@ defmodule Onion.UserSession do
   def start_supervised(initial_values) do
     callers = [self() | Process.get(:"$callers", [])]
 
-    DynamicSupervisor.start_child(
+    case DynamicSupervisor.start_child(
       Onion.UserSessionDynamicSupervisor,
       {__MODULE__, Keyword.merge(initial_values, callers: callers)}
-    )
+    ) do
+      {:error, {:already_started, pid}} -> {:ignored, pid}
+      error -> error
+    end
   end
 
   def child_spec(init), do: %{super(init) | id: Keyword.get(init, :user_id)}

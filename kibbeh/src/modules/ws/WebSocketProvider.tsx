@@ -41,12 +41,14 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
             showErrorToast(
               "You can only have 1 tab of DogeHouse open at a time"
             );
+            setConn(null);
           },
           onClearTokens: () => {
             replace("/");
             useTokenStore
               .getState()
               .setTokens({ accessToken: "", refreshToken: "" });
+            setConn(null);
           },
         })
         .then((x) => setConn(x))

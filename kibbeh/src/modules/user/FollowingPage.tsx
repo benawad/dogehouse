@@ -1,25 +1,23 @@
 import React from "react";
-import { isServer } from "../../lib/isServer";
 import { PageComponent } from "../../types/PageComponent";
 import { WaitForWsAndAuth } from "../auth/WaitForWsAndAuth";
 import { FollowingOnlineController } from "../dashboard/FollowingOnlineController";
 import { ProfileBlockController } from "../dashboard/ProfileBlockController";
 import { DesktopLayout } from "../layouts/DesktopLayout";
 import { LeftPanel, MiddlePanel, RightPanel } from "../layouts/GridPanels";
+import { FollowingController } from "./FollowingController";
 import { UserProfileController } from "./UserProfileController";
 
 interface UserPageProps {}
 
-export const UserPage: PageComponent<UserPageProps> = ({}) => {
+export const FollowingPage: PageComponent<UserPageProps> = ({}) => {
   return (
     <WaitForWsAndAuth>
       <DesktopLayout>
         <LeftPanel>
           <FollowingOnlineController />
         </LeftPanel>
-        <MiddlePanel>
-          <UserProfileController />
-        </MiddlePanel>
+        <FollowingController />
         <RightPanel>
           <ProfileBlockController />
         </RightPanel>
@@ -28,4 +26,4 @@ export const UserPage: PageComponent<UserPageProps> = ({}) => {
   );
 };
 
-UserPage.ws = true;
+FollowingPage.ws = true;

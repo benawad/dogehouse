@@ -29,7 +29,7 @@ export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({}
               website=""
               isOnline={false}
               {...conn.user}
-              username={"@" + conn.user.username}
+              username={conn.user.username}
             />
           )
         }
