@@ -2,6 +2,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import { RoomController } from "../components/roomController/RoomController";
 import { colors, radius } from "../constants/dogeStyle";
+import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
 import { WaitForWsAndAuth } from "../modules/auth/WaitForWsAndAuth";
 import { WebSocketProvider } from "../modules/ws/WebSocketProvider";
 import { HelpPage } from "../pages/HelpPage";

@@ -2,8 +2,6 @@ import React, { useContext, useEffect, useRef } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { WebSocketContext } from "../ws/WebSocketProvider";
-import { ActiveSpeakerListener } from "./components/ActiveSpeakerListener";
-import { AudioRender } from "./components/AudioRender";
 import { useMicIdStore } from "./stores/useMicIdStore";
 import { useVoiceStore } from "./stores/useVoiceStore";
 import { consumeAudio } from "./utils/consumeAudio";
@@ -170,6 +168,5 @@ export const WebRtcApp: React.FC<App2Props> = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [conn]);
 
-  return <>{/* <AudioRender />
-      <ActiveSpeakerListener /> */}</>;
+  return <></>;
 };
