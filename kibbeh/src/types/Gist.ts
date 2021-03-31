@@ -15,13 +15,13 @@ export type Gist = {
   comments: number;
   user: null;
   comments_url: string;
-  owner: User;
+  owner: GitHubUser;
   forks: [];
   history: History[];
   truncated: boolean;
 };
 
-export type User = {
+export type GitHubUser = {
   login: string;
   id: number;
   node_id: string;
@@ -43,7 +43,7 @@ export type User = {
 };
 
 export type History = {
-  user: User;
+  user: GitHubUser;
   version: string;
   committed_at: string;
   change_status: {
