@@ -137,11 +137,15 @@ defmodule Onion.UserSession do
     {:reply, :ok, %{state | pid: pid}}
   end
 
-  ##############################################################################
-  ## MESSAGING API.
-  ## TODO: change the first one to a call
+  @all [{{:_, :"$1", :_}, [], [:"$1"]}]
+  def force_reconnects(rabbit_id) do
+    Onion.UserSessionRegistry
+    |> Registry.select(@all)
+    |> Enum.each(&reconnect(&1, rabbit_id))
+  end
 
-  defp reconnect_to_voice_server_impl(voice_server_id, state) do
+  def reconnect(user_pid, rabbit_id), do: GenServer.cast(user_pid, {:reconnect, rabbit_id})
+  defp reconnect_impl(voice_server_id, state) do
     if state.pid || state.current_room_id do
       case Onion.RoomSession.get(state.current_room_id, :voice_server_id) do
         ^voice_server_id ->
@@ -155,6 +159,10 @@ defmodule Onion.UserSession do
 
     {:noreply, state}
   end
+
+  ##############################################################################
+  ## MESSAGING API.
+  ## TODO: change the first one to a call
 
   defp handle_disconnect(pid, state = %{pid: pid}) do
     Beef.Users.set_offline(state.user_id)
@@ -184,8 +192,8 @@ defmodule Onion.UserSession do
   def handle_call({:get, key}, reply, state), do: get_impl(key, reply, state)
   def handle_call({:set_pid, pid}, reply, state), do: set_pid(pid, reply, state)
 
-  def handle_info({:reconnect_to_voice_server, voice_server_id}, state),
-    do: reconnect_to_voice_server_impl(voice_server_id, state)
+  def handle_info({:reconnect, voice_server_id}, state),
+    do: reconnect_impl(voice_server_id, state)
 
   def handle_info({:DOWN, _ref, :process, pid, _reason}, state), do: handle_disconnect(pid, state)
 end
