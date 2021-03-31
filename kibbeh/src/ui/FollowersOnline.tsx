@@ -60,7 +60,9 @@ export const FollowersOnlineWrapper: React.FC<{
         ONLINE{" "}
         {onlineFriendCount !== undefined ? `(${onlineFriendCount})` : null}
       </h6>
-      <div className="flex flex-col mt-3 overflow-y-auto">{children}</div>
+      <div className="flex flex-col mt-3 overflow-y-auto scrollbar-thin scrollbar-thumb-primary-700">
+        {children}
+      </div>
     </div>
   );
 };
