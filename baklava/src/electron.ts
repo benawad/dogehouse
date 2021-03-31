@@ -176,9 +176,12 @@ function createWindow() {
     splash.webContents.send('skipCheck');
     windowShowInterval = setInterval(() => {
       if (shouldShowWindow) {
-        splash.destroy();
-        mainWindow.show();
+        splash.webContents.send('launch');
         clearInterval(windowShowInterval);
+        setTimeout(() => {
+          splash.destroy();
+          mainWindow.show();
+        }, 800);
       }
     }, 500);
   }
