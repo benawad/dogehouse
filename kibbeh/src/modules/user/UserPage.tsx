@@ -11,10 +11,6 @@ import { UserProfileController } from "./UserProfileController";
 interface UserPageProps {}
 
 export const UserPage: PageComponent<UserPageProps> = ({}) => {
-  if (isServer) {
-    return null;
-  }
-
   return (
     <WaitForWsAndAuth>
       <DesktopLayout>

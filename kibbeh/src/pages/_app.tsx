@@ -29,6 +29,10 @@ Router.events.on("routeChangeError", () => NProgress.done());
 ReactModal.setAppElement("#__next");
 
 function App({ Component, pageProps }: AppProps) {
+  if (isServer && (Component as PageComponent<unknown>).ws) {
+    return null;
+  }
+
   return (
     <WebSocketProvider
       shouldConnect={!!(Component as PageComponent<unknown>).ws}
