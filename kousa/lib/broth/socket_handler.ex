@@ -157,7 +157,7 @@ defmodule Broth.SocketHandler do
                         voice_server_id: room.voiceServerId
                       )
 
-                      Onion.RoomSession.join_room(room.id, user, muted)
+                      Onion.RoomSession.join_room(room.id, user.id, muted)
 
                       if reconnectToVoice == true do
                         Kousa.Room.join_vc_room(user.id, room)
