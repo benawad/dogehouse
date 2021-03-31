@@ -1,4 +1,5 @@
 import React from "react";
+import { isServer } from "../../lib/isServer";
 import { PageComponent } from "../../types/PageComponent";
 import { WaitForWsAndAuth } from "../auth/WaitForWsAndAuth";
 import { FollowingOnlineController } from "../dashboard/FollowingOnlineController";
@@ -10,6 +11,10 @@ import { UserProfileController } from "./UserProfileController";
 interface UserPageProps {}
 
 export const UserPage: PageComponent<UserPageProps> = ({}) => {
+  if (isServer) {
+    return null;
+  }
+
   return (
     <WaitForWsAndAuth>
       <DesktopLayout>

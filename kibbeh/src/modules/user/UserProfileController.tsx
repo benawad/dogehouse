@@ -6,7 +6,7 @@ import { CenterLoader } from "../../ui/CenterLoader";
 import { VerticalUserInfoWithFollowButton } from "./VerticalUserInfoWithFollowButton";
 
 interface UserProfileControllerProps {}
-//
+
 export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) => {
   const { query } = useRouter();
   const { data, isLoading } = useTypeSafeQuery(
