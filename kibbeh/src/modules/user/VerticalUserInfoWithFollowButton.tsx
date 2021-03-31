@@ -46,7 +46,8 @@ export const VerticalUserInfoWithFollowButton: React.FC<VerticalUserInfoControll
               );
             }}
             size="small"
-            icon={<SolidFriends />}
+            color={user.youAreFollowing ? "secondary" : "primary"}
+            icon={user.youAreFollowing ? null : <SolidFriends />}
           >
             {user.youAreFollowing
               ? t("pages.viewUser.unfollow")
