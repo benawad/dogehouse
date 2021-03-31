@@ -203,7 +203,19 @@ defmodule Onion.RoomSession do
     {:noreply, %{state | muteMap: new_mm}}
   end
 
+
   def join_room(room_id, user_id, mute, opts \\ [])
+
+  # temporary hack, let's find out where this is coming from.
+  require Logger
+  def join_room(room_id, %{id: id}, mute, opts) do
+    raise "ugh"
+  rescue
+    _ -> Logger.error("monitoring this call: #{inspect __STACKTRACE__}")
+      cast(room_id, {:join_room, id, mute, opts})
+  end
+
+  def join_room(room_id, user_id, mute, opts)
       when is_boolean(mute) do
     cast(room_id, {:join_room, user_id, mute, opts})
   end
