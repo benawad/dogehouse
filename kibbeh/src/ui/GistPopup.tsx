@@ -34,8 +34,8 @@ export const GistPopup: React.FC<GistPopupProps> = ({ id }) => {
         </a>
         <button className="font-mono pr-4 pt-2 text-2xl ml-auto">×</button>
       </div>
-      <div className="px-4 pb-2 pt-0">
-        <div className="w-full overflow-x-auto gap-2">
+      <div className="px-4 pt-0">
+        <div className="w-full overflow-x-auto gap-2 scrollbar-thin scrollbar-thumb-primary-700 pb-2">
           {files.map((file) => (
             <Button
               key={file.filename}
