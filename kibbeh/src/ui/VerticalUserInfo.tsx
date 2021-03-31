@@ -1,6 +1,7 @@
 import { BaseUser } from "@dogehouse/kebab";
 import React from "react";
 import { kFormatter } from "../lib/kFormatter";
+import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { SingleUser } from "./UserAvatar";
 
@@ -22,21 +23,25 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
       </div>
       <div className="mt-2">
         <div>
-          <span className="text-primary-100 font-bold">
-            {kFormatter(user.numFollowers)}
-          </span>{" "}
-          <span className="text-primary-300 ml-1">
-            {t("pages.viewUser.followers")}
-          </span>
+          <ApiPreloadLink route="following" data={{ username: user.username }}>
+            <span className="text-primary-100 font-bold">
+              {kFormatter(user.numFollowers)}
+            </span>{" "}
+            <span className="text-primary-300 ml-1">
+              {t("pages.viewUser.followers")}
+            </span>
+          </ApiPreloadLink>
         </div>
         <div className="ml-4">
-          <span className="text-primary-100 font-bold">
-            {kFormatter(user.numFollowing)}
-          </span>
-          <span className="text-primary-300 ml-1">
-            {" "}
-            {t("pages.viewUser.following")}
-          </span>
+          <ApiPreloadLink route="followers" data={{ username: user.username }}>
+            <span className="text-primary-100 font-bold">
+              {kFormatter(user.numFollowing)}
+            </span>
+            <span className="text-primary-300 ml-1">
+              {" "}
+              {t("pages.viewUser.following")}
+            </span>
+          </ApiPreloadLink>
         </div>
       </div>
       <div className="text-primary-300 mt-2 text-center">{user.bio}</div>

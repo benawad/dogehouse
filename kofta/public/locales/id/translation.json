@@ -195,7 +195,9 @@
       "roomSettingsModal": {
         "requirePermission": "membutuhkan izin untuk berbicara",
         "makePublic": "buat ruangan jadi publik",
-        "makePrivate": "buat ruangan jadi privat"
+        "makePrivate": "buat ruangan jadi privat",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

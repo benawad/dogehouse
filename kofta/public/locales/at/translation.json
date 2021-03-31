@@ -178,7 +178,9 @@
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Sprechen verlaungen",
         "makePublic": "Raum öffentlich mochen",
-        "makePrivate": "Raum privat mochen"
+        "makePrivate": "Raum privat mochen",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     },
     "userVolumeSlider": {

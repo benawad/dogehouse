@@ -2,9 +2,11 @@ import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
+import { isServer } from "../../lib/isServer";
 import { isUuid } from "../../lib/isUuid";
 import { showErrorToast } from "../../lib/showErrorToast";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
+import { CenterLoader } from "../../ui/CenterLoader";
 import { RoomHeader } from "../../ui/RoomHeader";
 import { Spinner } from "../../ui/Spinner";
 import { MiddlePanel, RightPanel } from "../layouts/GridPanels";
@@ -22,7 +24,8 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
   const { data, isLoading } = useTypeSafeQuery(
     ["joinRoomAndGetInfo", currentRoomId || ""],
     {
-      enabled: isUuid(roomId),
+      enabled: isUuid(roomId) && !isServer,
+      refetchOnMount: "always",
       onSuccess: ((d: JoinRoomAndGetInfoResponse | { error: string }) => {
         if (!("error" in d) && d.room) {
           setCurrentRoomId(() => d.room.id);
@@ -32,6 +35,12 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
     [roomId]
   );
   const { push } = useRouter();
+
+  useEffect(() => {
+    if (roomId) {
+      setCurrentRoomId(roomId);
+    }
+  }, [roomId, setCurrentRoomId]);
 
   useEffect(() => {
     if (isLoading) {
@@ -50,7 +59,14 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
   }, [data, isLoading, push, setCurrentRoomId]);
 
   if (isLoading || !currentRoomId) {
-    return <Spinner />;
+    return (
+      <>
+        <MiddlePanel>
+          <CenterLoader />
+        </MiddlePanel>
+        <RightPanel />
+      </>
+    );
   }
 
   if (!data || "error" in data) {

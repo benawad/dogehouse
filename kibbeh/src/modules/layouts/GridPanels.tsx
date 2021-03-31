@@ -1,7 +1,7 @@
 import React, { FC, useContext } from "react";
 import { GridPanel } from "../../ui/GridPanel";
-import { LeftHeader } from "../../ui/header/LeftHeader";
-import { RightHeader } from "../../ui/header/RightHeader";
+import LeftHeader from "../../ui/header/LeftHeader";
+import RightHeader from "../../ui/header/RightHeader";
 import { MiddleHeaderController } from "../search/MiddleHeaderController";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 
@@ -13,7 +13,7 @@ const HeaderWrapper: FC = ({ children }) => (
 
 export const LeftPanel: React.FC<LeftPanelProps> = ({ children }) => {
   return (
-    <GridPanel>
+    <GridPanel sticky={true}>
       <HeaderWrapper>
         <LeftHeader />
       </HeaderWrapper>
@@ -41,9 +41,14 @@ export const MiddlePanel: React.FC<
 export const RightPanel: React.FC<LeftPanelProps> = ({ children }) => {
   const { conn } = useContext(WebSocketContext);
   return (
-    <GridPanel>
+    <GridPanel sticky={true}>
       <HeaderWrapper>
-        {conn ? <RightHeader avatarImg={conn.user.avatarUrl} /> : null}
+        {conn ? (
+          <RightHeader
+            username={conn.user.username}
+            avatarImg={conn.user.avatarUrl}
+          />
+        ) : null}
       </HeaderWrapper>
       {children}
     </GridPanel>

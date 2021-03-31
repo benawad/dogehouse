@@ -7,8 +7,8 @@
     "ok": "ok",
     "yes": "yes",
     "no": "no",
-    "cancel": "cancel",
-    "save": "save",
+    "cancel": "Cancel",
+    "save": "Save",
     "edit": "edit",
     "delete": "delete",
     "joinRoom": "Join Room",
@@ -215,7 +215,9 @@
       "roomSettingsModal": {
         "requirePermission": "require permission to speak",
         "makePublic": "make room public",
-        "makePrivate": "make room private"
+        "makePrivate": "make room private",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

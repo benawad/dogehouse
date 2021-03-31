@@ -199,7 +199,9 @@
       "roomSettingsModal": {
         "requirePermission": "Мұнда сөйлеу үшін рұқсат алу қажет",
         "makePublic": "бөлмені жариялы ету",
-        "makePrivate": "бөлмені жеке қылдыру"
+        "makePrivate": "бөлмені жеке қылдыру",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

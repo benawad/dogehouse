@@ -8,6 +8,9 @@
   <a href="https://discord.gg/wCbKBZF9cV">
     <img src="https://img.shields.io/discord/810571477316403233?style=for-the-badge" alt="discord - users online" />
   </a>
+  <a href="https://dogehouse.tv">
+    <img src="https://img.shields.io/endpoint?color=FD4D4D&style=for-the-badge&url=https%3A%2F%2Fapi.dogehouse.xyz%2Fv1%2Fshields" alt="dogehouse - users online" />
+  </a>
 </p>
 
 <h3 align="center">
@@ -65,14 +68,14 @@ __*Notes:*__
 
 Contributors helping to review/merge pull requests:
 
-- @ermalsh
-- @ofsho
-- @HarrisonMayotte
-- @nadirabbas
-- @overlisted
-- @goldyydev
-- @jamesql
-- @amitojsingh366
+- [@ermalsh](https://github.com/ermalsh)
+- [@ofsho](https://github.com/ofsho)
+- [@HarrisonMayotte](https://github.com/HarrisonMayotte)
+- [@nadirabbas](https://github.com/nadirabbas)
+- [@overlisted](https://github.com/overlisted)
+- [@goldyydev](https://github.com/goldyydev)
+- [@jamesql](https://github.com/jamesql)
+- [@amitojsingh366](https://github.com/amitojsingh366)
 
 ## Code of Conduct
 

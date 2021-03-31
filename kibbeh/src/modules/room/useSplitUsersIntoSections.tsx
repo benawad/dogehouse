@@ -1,9 +1,4 @@
-import {
-  BaseUser,
-  JoinRoomAndGetInfoResponse,
-  Room,
-  RoomUser,
-} from "@dogehouse/kebab";
+import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
 import React, { useContext } from "react";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useConn } from "../../shared-hooks/useConn";
@@ -18,7 +13,7 @@ export const useSplitUsersIntoSections = ({
 }: JoinRoomAndGetInfoResponse) => {
   const conn = useConn();
   const { muted } = useMuteStore();
-  const { setUserId } = useContext(UserPreviewModalContext);
+  const { setData } = useContext(UserPreviewModalContext);
   const speakers: React.ReactNode[] = [];
   const askingToSpeak: React.ReactNode[] = [];
   const listeners: React.ReactNode[] = [];
@@ -62,7 +57,7 @@ export const useSplitUsersIntoSections = ({
         activeSpeaker={canSpeak && !isMuted && u.id in activeSpeakerMap}
         muted={canSpeak && isMuted}
         onClick={() => {
-          setUserId(u.id);
+          setData({ userId: u.id });
         }}
         flair={flair}
       />

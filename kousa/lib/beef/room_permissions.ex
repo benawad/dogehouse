@@ -39,7 +39,7 @@ defmodule Beef.RoomPermissions do
     upsert(%{roomId: room_id, userId: user_id, askedToSpeak: true}, askedToSpeak: true)
   end
 
-  def set_speaker?(user_id, room_id, speaker?, returning \\ false) do
+  def set_speaker(user_id, room_id, speaker?, returning \\ false) do
     upsert(
       %{roomId: room_id, userId: user_id, isSpeaker: speaker?},
       [isSpeaker: speaker?],

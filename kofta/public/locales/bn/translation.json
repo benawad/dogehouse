@@ -206,7 +206,9 @@
       "roomSettingsModal": {
         "requirePermission": "কথা বলার জন্য পারমিশন লাগবে",
         "makePublic": "রুমটাকে পাবলিক করুন",
-        "makePrivate": "রুমটাকে প্রাইভেট করুন"
+        "makePrivate": "রুমটাকে প্রাইভেট করুন",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },
