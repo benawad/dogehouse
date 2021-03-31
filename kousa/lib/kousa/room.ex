@@ -136,7 +136,8 @@ defmodule Kousa.Room do
 
   def make_speaker(user_id, user_id_to_make_speaker) do
     with {status, room} when status in [:creator, :mod] <-
-           Rooms.get_room_status(user_id) do
+           Rooms.get_room_status(user_id),
+         true <- RoomPermissions.asked_to_speak?(user_id_to_make_speaker, room.id) do
       internal_set_speaker(user_id_to_make_speaker, room.id)
     end
   end
