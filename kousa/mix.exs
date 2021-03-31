@@ -36,6 +36,7 @@ defmodule Kousa.MixProject do
       # TODO: switch from poison to jason everywhere
       {:poison, "~> 3.1"},
       {:ecto_sql, "~> 3.0"},
+      {:ecto_enum, "~> 1.4"},
       {:jason, "~> 1.2"},
       {:joken, "~> 2.0"},
       {:elixir_uuid, "~> 1.2"},
