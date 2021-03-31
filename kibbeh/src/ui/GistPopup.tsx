@@ -43,6 +43,7 @@ export const GistPopup: React.FC<GistPopupProps> = ({ id }) => {
       <div className="p-4 pt-2 rounded-t-none">
         <pre>{selectedFile.content}</pre>
       </div>
+      . {/* this is so I can screenshot */}
     </div>
   );
 };
