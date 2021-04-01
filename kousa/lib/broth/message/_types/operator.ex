@@ -10,6 +10,9 @@ defenum(
     # room commands and casts: 64..127
     {Broth.Message.Room.Invite, 65},
     {Broth.Message.Room.Update, 66},
-    {Broth.Message.Room.GetInviteList, 67}
+    {Broth.Message.Room.GetInviteList, 67},
+    {Broth.Message.Room.UpdateSpeaking, 68},
+    {Broth.Message.Room.Leave, 69},
+    {Broth.Message.Room.Block, 70}
   ]
 )
