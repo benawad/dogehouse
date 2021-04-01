@@ -1,5 +1,5 @@
 import React from "react";
-import { SolidNotification } from "../icons";
+import { SolidCaretRight, SolidNotification } from "../icons";
 
 interface RoomHeaderProps {
   title: string;
@@ -19,10 +19,13 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
       <div className={`text-primary-100`}>
         <div className={`text-xl font-bold mb-2 flex-1 truncate`}>{title}</div>
         {/* @todo show description */}
-        {/* swap in real icon */}
-        <SolidNotification className={`ml-2`} width={16} height={16} />
+        <SolidCaretRight
+          className={`ml-2 transform rotate-90 cursor-pointer`}
+          width={20}
+          height={20}
+        />
       </div>
-      <div className={`text-primary-200 text-xs`}>
+      <div className={`text-primary-200 text-sm`}>
         with{" "}
         <span
           style={{ marginLeft: 3 }}

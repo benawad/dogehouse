@@ -13,6 +13,7 @@ export const INVITE_KEY = "@keybind/invite";
 export const MUTE_KEY = "@keybind/mute";
 export const CHAT_KEY = "@keybind/chat";
 export const PTT_KEY = "@keybind/ptt";
+export const OVERLAY_KEY = "@keybind/overlay";
 
 function getKeybind(actionKey: string, defaultKeybind: string) {
   let v = "";
@@ -45,11 +46,16 @@ function getPTTKeybind() {
   return getKeybind(PTT_KEY, "Control+0");
 }
 
+function getOverlayKeybind() {
+  return getKeybind(OVERLAY_KEY, "Control+Tab");
+}
+
 const keyMap: KeyMap = {
   REQUEST_TO_SPEAK: getRequestToSpeakKeybind(),
   INVITE: getInviteKeybind(),
   MUTE: getMuteKeybind(),
   CHAT: getChatKeybind(),
+  OVERLAY: getOverlayKeybind(),
   PTT: [
     { sequence: getPTTKeybind(), action: "keydown" },
     { sequence: getPTTKeybind(), action: "keyup" },
@@ -62,6 +68,7 @@ const keyNames: KeyMap = {
   MUTE: getMuteKeybind(),
   CHAT: getChatKeybind(),
   PTT: getPTTKeybind(),
+  OVERLAY: getOverlayKeybind(),
 };
 
 export const useKeyMapStore = create(
@@ -96,7 +103,6 @@ export const useKeyMapStore = create(
         }));
       },
       setMuteKeybind: (id: string) => {
-        console.log(id);
         try {
           localStorage.setItem(MUTE_KEY, id);
           if (isElectron()) {
@@ -118,6 +124,18 @@ export const useKeyMapStore = create(
         set((x) => ({
           keyMap: { ...x.keyMap, CHAT: id },
           keyNames: { ...x.keyNames, CHAT: id },
+        }));
+      },
+      setOverlayKeybind: (id: string) => {
+        try {
+          localStorage.setItem(OVERLAY_KEY, id);
+          if (isElectron()) {
+            ipcRenderer.send(OVERLAY_KEY, id);
+          }
+        } catch {}
+        set((x) => ({
+          keyMap: { ...x.keyMap, OVERLAY: id },
+          keyNames: { ...x.keyNames, OVERLAY: id },
         }));
       },
       setPTTKeybind: (id: string) => {
