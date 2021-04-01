@@ -113,10 +113,27 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={`pb-3 px-4 pt-5 flex flex-col`}>
+    <form onSubmit={handleSubmit} className={`pb-3 px-4 pt-2 flex flex-col`}>
       {isEmoji ? (
         <div className={`mb-1`}>
-          <EmojiPicker emojiSet={customEmojis} />
+          <EmojiPicker
+            emojiSet={customEmojis}
+            onEmojiSelect={(emoji) => {
+              position =
+                (position === 0
+                  ? inputRef!.current!.selectionStart
+                  : position + 2) || 0;
+
+              const newMsg = [
+                message.slice(0, position),
+                (message.endsWith(" ") ? "" : " ") +
+                  (`:${emoji.short_names[0]}:` || "") +
+                  " ",
+                message.slice(position),
+              ].join("");
+              setMessage(newMsg);
+            }}
+          />
         </div>
       ) : null}
       <div className="flex items-stretch">

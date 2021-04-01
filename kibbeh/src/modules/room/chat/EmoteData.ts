@@ -1,4 +1,4 @@
-import { EmojiData } from "emoji-mart";
+import { BaseEmoji, EmojiData } from "emoji-mart";
 
 export const customEmojis = [
   {
@@ -685,24 +685,6 @@ export const customEmojis = [
     short_names: ["Jammies"],
     keywords: ["jammies", "jam", "jamjam", "dance", "vibe"],
     imageUrl: "/emotes/Jammies.gif",
-  },
-  {
-    name: "KEKebab",
-    short_names: ["KEKebab"],
-    keywords: [
-      "kekebab",
-      "kek",
-      "kebab",
-      "omegalul",
-      "lol",
-      "lmao",
-      "haha",
-      "ha",
-      "ja",
-      "jaja",
-      "kekw",
-    ],
-    imageUrl: "/emotes/KEKebab.png",
   },
   {
     name: "KEKW",
@@ -1579,10 +1561,10 @@ export const customEmojis = [
 export const emoteMap: Record<string, string> = {};
 
 export type CustomEmote = {
-  name: string,
-  short_names: Array<string>,
-  keywords: Array<string>,
-  imageUrl: string
+  name: string;
+  short_names: Array<string>;
+  keywords: Array<string>;
+  imageUrl: string;
 };
 
 customEmojis.forEach((e) => {
