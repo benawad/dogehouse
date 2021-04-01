@@ -4,6 +4,7 @@ import {
   Message,
   MessageToken,
   Room,
+  User,
   UserWithFollowInfo,
   UUID,
 } from "./entities";
@@ -26,11 +27,25 @@ export const wrap = (connection: Connection) => ({
       connection.addListener("new_chat_msg", handler),
   },
   query: {
-    // this is supposed to be in query
     joinRoomAndGetInfo: (
       roomId: string
     ): Promise<JoinRoomAndGetInfoResponse | { error: string }> =>
       connection.fetch("join_room_and_get_info", { roomId }),
+    getFollowList: (
+      username: string,
+      isFollowing: boolean,
+      cursor = 0
+    ): Promise<{
+      users: UserWithFollowInfo[];
+      nextCursor: number | null;
+    }> =>
+      connection.fetch("get_follow_list", { username, isFollowing, cursor }),
+    getBlockedFromRoomUsers: (
+      cursor = 0
+    ): Promise<{
+      users: User[];
+      nextCursor: number | null;
+    }> => connection.fetch("get_blocked_from_room_users", { offset: cursor }),
     getMyFollowing: (
       cursor = 0
     ): Promise<{
@@ -51,16 +66,21 @@ export const wrap = (connection: Connection) => ({
         cursor,
         getOnlyMyScheduledRooms,
       }),
-    getRoomUsers: async (): Promise<GetRoomUsersResponse> =>
-      await connection.fetch(
+    getRoomUsers: (): Promise<GetRoomUsersResponse> =>
+      connection.fetch(
         "get_current_room_users",
         {},
         "get_current_room_users_done"
       ),
   },
   mutation: {
+    askToSpeak: () => connection.send(`ask_to_speak`, {}),
+    setAutoSpeaker: (value: boolean) =>
+      connection.send(`set_auto_speaker`, { value }),
     speakingChange: (value: boolean) =>
       connection.send(`speaking_change`, { value }),
+    unbanFromRoom: (userId: string): Promise<void> =>
+      connection.fetch("unban_from_room", { userId }),
     follow: (userId: string, value: boolean): Promise<void> =>
       connection.fetch("follow", { userId, value }),
     sendRoomChatMsg: (

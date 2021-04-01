@@ -32,8 +32,6 @@ defmodule Kousa.MixProject do
   defp deps do
     [
       {:amqp, "~> 1.0"},
-      # TODO: consider switching to Registry
-      {:gen_registry, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       # TODO: switch from poison to jason everywhere
       {:poison, "~> 3.1"},

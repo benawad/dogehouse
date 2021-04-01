@@ -1,10 +1,8 @@
-
 defmodule KousaTest.Broth.UnbanFromRoomTest do
   use ExUnit.Case, async: true
   use Kousa.Support.EctoSandbox
 
   alias Beef.Schemas.User
-  alias Beef.Users
   alias Broth.WsClient
   alias Broth.WsClientFactory
   alias Kousa.Support.Factory

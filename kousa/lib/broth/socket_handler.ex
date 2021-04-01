@@ -1,7 +1,6 @@
 defmodule Broth.SocketHandler do
   require Logger
 
-  alias Kousa.Utils.RegUtils
   alias Beef.Users
   alias Beef.Rooms
   alias Beef.Follows
@@ -87,6 +86,11 @@ defmodule Broth.SocketHandler do
     {:reply, construct_socket_msg(state.encoding, state.compression, message), state}
   end
 
+  # @todo when we swap this to new design change this to 1000
+  def websocket_info({:kill}, state) do
+    {:reply, {:close, 4003, "killed_by_server"}, state}
+  end
+
   # needed for Task.async not to crash things
   def websocket_info({:EXIT, _, _}, state) do
     {:ok, state}
@@ -131,15 +135,12 @@ defmodule Broth.SocketHandler do
                 # note that this will start the session and will be ignored if the
                 # session is already running.
                 UserSession.start_supervised(
-                  %UserSession.State{
-                    user_id: user_id,
-                    username: user.username,
-                    avatar_url: user.avatarUrl,
-                    display_name: user.displayName,
-                    current_room_id: user.currentRoomId,
-                    muted: muted
-                  },
-                  callers: Process.get(:"$callers")
+                  user_id: user_id,
+                  username: user.username,
+                  avatar_url: user.avatarUrl,
+                  display_name: user.displayName,
+                  current_room_id: user.currentRoomId,
+                  muted: muted
                 )
 
                 UserSession.set_pid(user_id, self())
@@ -156,18 +157,12 @@ defmodule Broth.SocketHandler do
                       # @todo this should probably go inside room business logic
                       room = Rooms.get_room_by_id(user.currentRoomId)
 
-                      {:ok, room_session} =
-                        GenRegistry.lookup_or_start(Onion.RoomSession, user.currentRoomId, [
-                          %{
-                            room_id: user.currentRoomId,
-                            voice_server_id: room.voiceServerId
-                          }
-                        ])
-
-                      GenServer.cast(
-                        room_session,
-                        {:join_room, user, muted}
+                      Onion.RoomSession.start_supervised(
+                        room_id: user.currentRoomId,
+                        voice_server_id: room.voiceServerId
                       )
+
+                      Onion.RoomSession.join_room(room.id, user.id, muted)
 
                       if reconnectToVoice == true do
                         Kousa.Room.join_vc_room(user.id, room)
@@ -355,14 +350,8 @@ defmodule Broth.SocketHandler do
   end
 
   def handler("speaking_change", %{"value" => value}, state) do
-    current_room_id = Beef.Users.get_current_room_id(state.user_id)
-
-    if not is_nil(current_room_id) do
-      Kousa.Utils.RegUtils.lookup_and_cast(
-        Onion.RoomSession,
-        current_room_id,
-        {:speaking_change, state.user_id, value}
-      )
+    if current_room_id = Beef.Users.get_current_room_id(state.user_id) do
+      Onion.RoomSession.speaking_change(current_room_id, state.user_id, value)
     end
 
     {:ok, state}
@@ -529,14 +518,12 @@ defmodule Broth.SocketHandler do
           Kousa.Room.internal_set_speaker(state.user_id, room_id)
 
         _ ->
-          Kousa.Utils.RegUtils.lookup_and_cast(
-            Onion.RoomSession,
+          Onion.RoomSession.broadcast_ws(
             room_id,
-            {:send_ws_msg,
-             %{
-               op: "hand_raised",
-               d: %{userId: state.user_id, roomId: room_id}
-             }}
+            %{
+              op: "hand_raised",
+              d: %{userId: state.user_id, roomId: room_id}
+            }
           )
       end
     end
@@ -545,7 +532,7 @@ defmodule Broth.SocketHandler do
   end
 
   def handler("audio_autoplay_error", _data, state) do
-    Onion.UserSession.send_ws_msg(
+    Onion.UserSession.send_ws(
       state.user_id,
       nil,
       %{
@@ -558,9 +545,9 @@ defmodule Broth.SocketHandler do
   end
 
   def handler(op, data, state) do
-    with {:ok, room_id} <- Beef.Users.tuple_get_current_room_id(state.user_id),
-         {:ok, voice_server_id} <-
-           RegUtils.lookup_and_call(Onion.RoomSession, room_id, {:get_voice_server_id}) do
+    with {:ok, room_id} <- Beef.Users.tuple_get_current_room_id(state.user_id) do
+      voice_server_id = Onion.RoomSession.get(room_id, :voice_server_id)
+
       d =
         if String.first(op) == "@" do
           Map.merge(data, %{
@@ -594,6 +581,24 @@ defmodule Broth.SocketHandler do
     end
   end
 
+  def f_handler(
+        "get_follow_list",
+        %{"username" => username, "isFollowing" => get_following_list, "cursor" => cursor},
+        state
+      ) do
+    {users, next_cursor} =
+      Kousa.Follow.get_follow_list_by_username(
+        state.user_id,
+        username,
+        get_following_list,
+        cursor
+      )
+
+    %{
+      users: users,
+      nextCursor: next_cursor
+    }
+  end
 
   def f_handler("follow", %{"userId" => userId, "value" => value}, state) do
     Kousa.Follow.follow(state.user_id, userId, value)
@@ -620,18 +625,10 @@ defmodule Broth.SocketHandler do
         {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
 
         {muteMap, autoSpeaker, activeSpeakerMap} =
-          cond do
-            not is_nil(room_id) ->
-              case GenRegistry.lookup(Onion.RoomSession, room_id) do
-                {:ok, session} ->
-                  GenServer.call(session, {:get_maps})
-
-                _ ->
-                  {%{}, false, %{}}
-              end
-
-            true ->
-              {%{}, false, %{}}
+          if room_id do
+            Onion.RoomSession.get_maps(room_id)
+          else
+            {%{}, false, %{}}
           end
 
         %{
@@ -653,13 +650,7 @@ defmodule Broth.SocketHandler do
 
     {muteMap, autoSpeaker, activeSpeakerMap} =
       if room_id do
-        case GenRegistry.lookup(Onion.RoomSession, room_id) do
-          {:ok, session} ->
-            GenServer.call(session, {:get_maps})
-
-          _ ->
-            {%{}, false, %{}}
-        end
+        Onion.RoomSession.get_maps(room_id)
       else
         {%{}, false, %{}}
       end

@@ -17,6 +17,7 @@ interface RoomAvatarProps {
   username: string;
   flair?: React.ReactNode;
   muted?: boolean;
+  activeSpeaker?: boolean;
   onPress?: () => void;
 }
 
@@ -26,6 +27,7 @@ export const RoomAvatar: React.FC<RoomAvatarProps> = ({
   style,
   flair,
   muted,
+  activeSpeaker,
   onPress,
 }) => {
   return (
@@ -33,7 +35,12 @@ export const RoomAvatar: React.FC<RoomAvatarProps> = ({
       style={[style, { alignItems: "center" }]}
       onPress={onPress}
     >
-      <SingleUserAvatar src={src} size={"md"} muted={muted} />
+      <SingleUserAvatar
+        src={src}
+        size={"md"}
+        muted={muted}
+        activeSpeaker={activeSpeaker}
+      />
       <Text
         style={{ ...small, width: 80, textAlign: "center" }}
         numberOfLines={1}

@@ -124,38 +124,42 @@ defmodule Beef.Mutations.Rooms do
   end
 
   # trusts that the user is in the room
+  def kick_from_room(user_id, room_id) do
+    room = Beef.Rooms.get_room_by_id(room_id)
+    Beef.Users.set_user_left_current_room(user_id)
+    new_people_list = Enum.filter(room.peoplePreviewList, fn x -> x.id != user_id end)
+
+    decrement_room_people_count(
+      room.id,
+      new_people_list
+    )
+  end
+
+  # trusts that the user is in the room
   def leave_room(user_id, room_id) do
     room = Beef.Rooms.get_room_by_id(room_id)
 
     if not is_nil(room) do
       if room.numPeopleInside <= 1 do
-        # IO.puts("delete_room_by_id")
         delete_room_by_id(room.id)
         {:bye, room}
       else
-        # IO.puts("set_user_left_current_room")
         Beef.Users.set_user_left_current_room(user_id)
         new_people_list = Enum.filter(room.peoplePreviewList, fn x -> x.id != user_id end)
 
         if room.creatorId != user_id do
-          # IO.puts("increment_room_people_count")
-
           decrement_room_people_count(
             room.id,
             new_people_list
           )
         else
-          # IO.puts("get_next_creator_for_room")
           newCreator = Beef.Rooms.get_next_creator_for_room(room.id)
 
           if newCreator do
-            # IO.puts("set_room_owner")
             set_room_owner_and_dec(room.id, newCreator.id, new_people_list)
             {:new_creator_id, newCreator.id}
           else
-            # IO.puts("delete_room_by_id")
             delete_room_by_id(room.id)
-            # IO.puts("end_fn")
             {:bye, room}
           end
         end

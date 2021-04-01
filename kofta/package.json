@@ -47,8 +47,8 @@
   },
   "scripts": {
     "storybook": "start-storybook -p 9000 -c .storybook",
-    "start": "craco start",
-    "start:staging": "cross-env REACT_APP_IS_STAGING=true REACT_APP_API_BASE_URL=https://doge-staging.stripcode.dev craco start",
+    "start": "cross-env SKIP_PREFLIGHT_CHECK=true craco start",
+    "start:staging": "cross-env SKIP_PREFLIGHT_CHECK=true REACT_APP_IS_STAGING=true REACT_APP_API_BASE_URL=https://doge-staging.stripcode.dev craco start",
     "gen:i18:keys": "ts-node --project scripts/tsconfig.json scripts/generateTranslationTypes.ts",
     "sync:i18": "ts-node --project scripts/tsconfig.json scripts/syncTranslations.ts",
     "i18": "npm run gen:i18:keys && npm run sync:i18",

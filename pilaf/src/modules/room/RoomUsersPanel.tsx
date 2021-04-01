@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   avatarsContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "space-around",
+    justifyContent: "flex-start",
   },
   avatar: {
     marginRight: 10,

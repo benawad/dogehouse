@@ -6,7 +6,7 @@ export interface LeftHeaderProps {}
 
 const LeftHeader: React.FC<LeftHeaderProps> = ({}) => {
   return (
-    <Link href="/dashboard">
+    <Link href="/dash">
       <a>
         <LgLogo />
       </a>

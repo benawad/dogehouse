@@ -102,9 +102,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                       switch (token) {
                         case "text":
                           return (
-                            <span className={`flex-1 m-0 inline`} key={i}>
-                              {v}{" "}
-                            </span>
+                            <React.Fragment key={i}>{`${v} `}</React.Fragment>
                           );
                         case "emote":
                           return emoteMap[v] ? (
