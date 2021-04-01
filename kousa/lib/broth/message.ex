@@ -35,8 +35,10 @@ defmodule Broth.Message do
   }
 
   @operators %{
+    "test:operator" => BrothTest.MessageTest.TestOperator,
     "user:get_following" => Broth.Message.User.GetFollowing,
-    "test_operator" => BrothTest.MessageTest.TestOperator
+    "room:invite" => Broth.Message.Room.Invite,
+    "room:update" => Broth.Message.Room.Update
   }
 
   defp find(changeset, field, optional \\ false) when is_atom(field) do
@@ -107,7 +109,7 @@ defmodule Broth.Message do
     |> Module.concat(Reply)
     |> function_exported?(:__info__, 1)
     |> if do
-      validate_required(changeset, [:reference], message: "is required for #{inspect operator}")
+      validate_required(changeset, [:reference], message: "is required for #{inspect(operator)}")
     else
       changeset
     end

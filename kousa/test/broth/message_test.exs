@@ -25,7 +25,7 @@ defmodule BrothTest.MessageTest do
   end
 
   @passing_contract %{
-    "op" => "test_operator",
+    "op" => "test:operator",
     "p" => %{"foo" => 47}
   }
 
