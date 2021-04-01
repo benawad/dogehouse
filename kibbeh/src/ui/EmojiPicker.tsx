@@ -14,7 +14,7 @@ export const EmojiPicker: React.FC<EmojiPickerProps> = ({ emojiSet, onEmojiSelec
       <div
         className={`grid grid-cols-7 pr-3 gap-2 max-h-16 overflow-y-scroll scrollbar-thin scrollbar-thumb-rounded-xl scrollbar-thumb-primary-800`}
       >
-        {emojiSet.map((emoji) => (
+        {emojiSet.map(emoji => (
           <img
             key={emoji.name}
             src={emoji.imageUrl}
