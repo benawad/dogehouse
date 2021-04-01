@@ -37,8 +37,10 @@ defmodule Broth.Message do
   @operators %{
     "test:operator" => BrothTest.MessageTest.TestOperator,
     "user:get_following" => Broth.Message.User.GetFollowing,
+    "user:ban" => Broth.Message.User.Ban,
     "room:invite" => Broth.Message.Room.Invite,
-    "room:update" => Broth.Message.Room.Update
+    "room:update" => Broth.Message.Room.Update,
+    "room:get_invite_list" => Broth.Message.Room.GetInviteList
   }
 
   defp find(changeset, field, optional \\ false) when is_atom(field) do
