@@ -137,7 +137,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
         </div>
       ) : null}
       <div className="flex items-stretch">
-        <div className="flex-1 mr-2 lg:mr-0 items-center bg-primary-700 rounded-8 flex-row">
+        <div className="flex-1 mr-2 lg:mr-0 items-center bg-primary-700 rounded-8">
           <Input
             maxLength={512}
             placeholder={t("modules.roomChat.sendMessage")}
