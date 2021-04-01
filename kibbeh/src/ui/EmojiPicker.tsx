@@ -2,7 +2,7 @@ import React from "react";
 import { CustomEmote } from "../modules/room/chat/EmoteData";
 
 interface EmojiPickerProps {
-  emojiSet: Array<CustomEmote>;
+  emojiSet: CustomEmote[];
   onEmojiSelect: (emoji: CustomEmote) => void
 }
 
