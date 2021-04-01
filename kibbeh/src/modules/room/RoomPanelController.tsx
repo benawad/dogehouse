@@ -1,6 +1,6 @@
 import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { isServer } from "../../lib/isServer";
 import { isUuid } from "../../lib/isUuid";
