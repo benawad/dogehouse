@@ -62,7 +62,7 @@ yay -S dogehouse
 ```
 And in an Ubuntu ppa
 ```bash
-echo "deb [trusted=yes] https://ppa.palomagit.ml/ ./" | sudo tee -a /etc/apt/sources.list > /dev/null
+echo "deb https://ppa.palomagit.ml/ ./" | sudo tee -a /etc/apt/sources.list > /dev/null
 wget -q -O - https://ppa.palomagit.ml/KEY.gpg | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install dogehouse
