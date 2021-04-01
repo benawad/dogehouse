@@ -1562,8 +1562,8 @@ export const emoteMap: Record<string, string> = {};
 
 export type CustomEmote = {
   name: string;
-  short_names: Array<string>;
-  keywords: Array<string>;
+  short_names: string[];
+  keywords: string[];
   imageUrl: string;
 };
 
