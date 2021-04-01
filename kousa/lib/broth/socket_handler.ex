@@ -624,21 +624,25 @@ defmodule Broth.SocketHandler do
       %{room: room} ->
         {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
 
-        {muteMap, autoSpeaker, activeSpeakerMap} =
-          if room_id do
-            Onion.RoomSession.get_maps(room_id)
-          else
-            {%{}, false, %{}}
-          end
+        try do
+          {muteMap, autoSpeaker, activeSpeakerMap} =
+            if room_id do
+              Onion.RoomSession.get_maps(room_id)
+            else
+              {%{}, false, %{}}
+            end
 
-        %{
-          room: room,
-          users: users,
-          muteMap: muteMap,
-          activeSpeakerMap: activeSpeakerMap,
-          roomId: room_id,
-          autoSpeaker: autoSpeaker
-        }
+          %{
+            room: room,
+            users: users,
+            muteMap: muteMap,
+            activeSpeakerMap: activeSpeakerMap,
+            roomId: room_id,
+            autoSpeaker: autoSpeaker
+          }
+        rescue
+          RuntimeError -> %{error: "room does not exist"}
+        end
 
       _ ->
         %{error: "you should never see this, tell ben"}

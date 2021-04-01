@@ -1,5 +1,5 @@
 import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { isServer } from "../../lib/isServer";
@@ -42,21 +42,25 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
     }
   }, [roomId, setCurrentRoomId]);
 
+  const errMsg = data && "error" in data ? data.error : "";
+  const noData = !data;
+
   useEffect(() => {
     if (isLoading) {
       return;
     }
-    if (!data) {
+    if (noData) {
       setCurrentRoomId(null);
       push("/dash");
       return;
     }
-    if ("error" in data) {
+    if (errMsg) {
       setCurrentRoomId(null);
-      showErrorToast(data.error);
+      console.log(errMsg, isLoading);
+      showErrorToast(errMsg);
       push("/dash");
     }
-  }, [data, isLoading, push, setCurrentRoomId]);
+  }, [noData, errMsg, isLoading, push, setCurrentRoomId]);
 
   if (isLoading || !currentRoomId) {
     return (
