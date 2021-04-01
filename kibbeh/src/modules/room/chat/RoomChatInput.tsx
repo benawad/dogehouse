@@ -1,6 +1,4 @@
 import { RoomUser } from "@dogehouse/kebab";
-import { Picker } from "emoji-mart";
-import "emoji-mart/css/emoji-mart.css";
 import React, { useRef, useState } from "react";
 import { Smiley } from "../../../icons";
 import { createChatMessage } from "../../../lib/createChatMessage";
@@ -11,6 +9,7 @@ import { Input } from "../../../ui/Input";
 import { customEmojis, CustomEmote } from "./EmoteData";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { useRoomChatStore } from "./useRoomChatStore";
+import { EmojiPicker } from "../../../ui/EmojiPicker";
 
 interface ChatInputProps {
   users: RoomUser[];
@@ -116,52 +115,12 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
   return (
     <form onSubmit={handleSubmit} className={`pb-3 px-4 pt-5 flex flex-col`}>
       {isEmoji ? (
-        <Picker
-          set="apple"
-          onSelect={(emoji: CustomEmote) => {
-            position =
-              (position === 0
-                ? inputRef!.current!.selectionStart
-                : position + 2) || 0;
-
-            const newMsg = [
-              message.slice(0, position),
-              "native" in emoji
-                ? emoji.native
-                : (message.endsWith(" ") ? "" : " ") +
-                  (emoji.colons || "") +
-                  " ",
-              message.slice(position),
-            ].join("");
-            setMessage(newMsg);
-          }}
-          style={{
-            position: "relative",
-            width: "100%",
-            minWidth: "278px",
-            right: 0,
-            outline: "none",
-            alignSelf: "flex-end",
-            margin: "0 0 8px 0",
-            display: "inline-block",
-          }}
-          sheetSize={32}
-          theme="dark"
-          custom={customEmojis}
-          emojiTooltip={true}
-          showPreview={false}
-          showSkinTones={false}
-          i18n={{
-            search: t("modules.roomChat.search"),
-            categories: {
-              search: t("modules.roomChat.searchResults"),
-              recent: t("modules.roomChat.recent"),
-            },
-          }}
-        />
+        <div className={`mb-1`}>
+          <EmojiPicker emojiSet={customEmojis} />
+        </div>
       ) : null}
       <div className="flex items-stretch">
-        <div className="flex-1 mr-2 lg:mr-0 items-end bg-primary-700 rounded-8 flex-row items-center">
+        <div className="flex-1 mr-2 lg:mr-0 items-center bg-primary-700 rounded-8 flex-row">
           <Input
             maxLength={512}
             placeholder={t("modules.roomChat.sendMessage")}
