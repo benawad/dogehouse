@@ -43,7 +43,9 @@ defmodule Broth.Message do
     "room:get_invite_list" => Broth.Message.Room.GetInviteList,
     "room:update_speaking" => Broth.Message.Room.UpdateSpeaking,
     "room:leave" => Broth.Message.Room.Leave,
-    "room:block" => Broth.Message.Room.Block
+    "room:block" => Broth.Message.Room.Block,
+    "room:set_role" => Broth.Message.Room.SetRole,
+    "room:set_mod" => Broth.Message.Room.SetMod
   }
 
   defp find(changeset, field, optional \\ false) when is_atom(field) do

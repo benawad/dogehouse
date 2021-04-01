@@ -13,6 +13,8 @@ defenum(
     {Broth.Message.Room.GetInviteList, 67},
     {Broth.Message.Room.UpdateSpeaking, 68},
     {Broth.Message.Room.Leave, 69},
-    {Broth.Message.Room.Block, 70}
+    {Broth.Message.Room.Block, 70},
+    {Broth.Message.Room.SetRole, 71},
+    {Broth.Message.Room.SetMod, 72}
   ]
 )
