@@ -62,7 +62,7 @@ yay -S dogehouse
 ```
 And in an Ubuntu ppa
 ```bash
-curl -s https://packagecloud.io/install/repositories/stratusfearme21/dogehouse/script.deb.sh | sudo bash
+echo "deb [trusted=yes] https://ppa.palomagit.ml/ ./" | sudo tee -a /etc/apt/sources.list > /dev/null
 sudo apt-get install dogehouse
 ```
 
