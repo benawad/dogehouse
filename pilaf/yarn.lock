@@ -14188,7 +14188,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.0.0, prop-types@npm:^15.5.10, prop-types@npm:^15.5.8, prop-types@npm:^15.6.0, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
+"prop-types@npm:^15.0.0, prop-types@npm:^15.5.10, prop-types@npm:^15.5.6, prop-types@npm:^15.5.8, prop-types@npm:^15.6.0, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
   version: 15.7.2
   resolution: "prop-types@npm:15.7.2"
   dependencies:
@@ -14860,6 +14860,15 @@ fsevents@^1.2.7:
     react: "*"
     react-native: "*"
   checksum: 6e76180a852d943bcfb81c5598e1cd330d0689725604204ec74fc4427a0f1bd68b2edf8cd1f9286dfa95fb28d381abbea625ac10119f39ba7e77d960383d00e2
+  languageName: node
+  linkType: hard
+
+"react-native-slider@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "react-native-slider@npm:0.11.0"
+  dependencies:
+    prop-types: ^15.5.6
+  checksum: 376337bf4ecdbbca7318ec5574712be73f614212b32b68cf45fcde20a74799e5f32268c7705d9ad9c96a0ec62bb693ee5436260f08e61c5d97cdadae4fb7dd21
   languageName: node
   linkType: hard
 
@@ -15794,6 +15803,7 @@ resolve@^2.0.0-next.3:
     react-native-reanimated: ^2.0.0
     react-native-safe-area-context: ^3.2.0
     react-native-screens: ^2.18.1
+    react-native-slider: ^0.11.0
     react-native-sound: ^0.11.0
     react-native-splash-screen: ^3.2.0
     react-native-toast-message: ^1.4.9

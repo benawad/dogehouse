@@ -65,9 +65,9 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <TouchableOpacity
       style={[
-        props.style,
         disabled ? colorStyle.disabled : colorStyle.default,
         styleSize,
+        props.style,
       ]}
       onPress={props.onPress}
       disabled={disabled || loading}
@@ -76,7 +76,7 @@ export const Button: React.FC<ButtonProps> = ({
         <Image
           source={iconSrc}
           style={[
-            { tintColor: colors.text, marginRight: 10 },
+            { tintColor: colors.text, marginRight: 10, width: 20 },
             loading && { opacity: 0 },
           ]}
         />
@@ -146,4 +146,5 @@ const bigStyle: ViewStyle = {
   borderRadius: radius.m,
   paddingHorizontal: 38,
   paddingVertical: 8,
+  height: 38,
 };
