@@ -60,6 +60,10 @@ Dogehouse is also available in the AUR
 ```bash
 yay -S dogehouse
 ```
+And as an Ubuntu ppa
+```bash
+curl -s https://packagecloud.io/install/repositories/stratusfearme21/dogehouse/script.deb.sh | sudo bash
+```
 
 __*Notes:*__
 - If a warning message pops up on Windows, go to 'more info' and select 'Run Anyway'
