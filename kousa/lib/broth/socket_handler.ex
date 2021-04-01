@@ -86,6 +86,11 @@ defmodule Broth.SocketHandler do
     {:reply, construct_socket_msg(state.encoding, state.compression, message), state}
   end
 
+  # @todo when we swap this to new design change this to 1000
+  def websocket_info({:kill}, state) do
+    {:reply, {:close, 4003, "killed_by_server"}, state}
+  end
+
   # needed for Task.async not to crash things
   def websocket_info({:EXIT, _, _}, state) do
     {:ok, state}
