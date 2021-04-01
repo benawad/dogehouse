@@ -77,7 +77,16 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
             setConn(null);
           },
         })
-        .then((x) => setConn(x))
+        .then((x) => {
+          setConn(x);
+          if (x.initialCurrentRoomId) {
+            useCurrentRoomIdStore
+              .getState()
+              // if an id exists already, that means they are trying to join another room
+              // just let them join the other room rather than overwriting it
+              .setCurrentRoomId((id) => id || x.initialCurrentRoomId!);
+          }
+        })
         .catch((err) => {
           if (err.code === 4001) {
             replace(`/?next=${window.location.pathname}`);

@@ -14,7 +14,9 @@ interface MinimizedRoomCardControllerProps {
 export const MinimizedRoomCardController: React.FC<MinimizedRoomCardControllerProps> = ({
   roomId,
 }) => {
-  const { data } = useTypeSafeQuery(["joinRoomAndGetInfo", roomId]);
+  const { data } = useTypeSafeQuery(["joinRoomAndGetInfo", roomId], {}, [
+    roomId,
+  ]);
   const { canSpeak } = useCurrentRoomInfo();
   const { leaveRoom, isLoading } = useLeaveRoom();
   const { muted } = useMuteStore();

@@ -22,7 +22,7 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
   const { query } = useRouter();
   const roomId = typeof query.id === "string" ? query.id : "";
   const { data, isLoading } = useTypeSafeQuery(
-    ["joinRoomAndGetInfo", currentRoomId || ""],
+    ["joinRoomAndGetInfo", roomId || ""],
     {
       enabled: isUuid(roomId) && !isServer,
       refetchOnMount: "always",

@@ -37,6 +37,7 @@ export type Connection = {
     handler: ListenerHandler<Data>
   ) => () => void;
   user: User;
+  initialCurrentRoomId?: string;
   send: (opcode: Opcode, data: unknown, fetchId?: FetchID) => void;
   fetch: (
     opcode: Opcode,
@@ -137,6 +138,7 @@ export const connect = (
             return () => listeners.splice(listeners.indexOf(listener), 1);
           },
           user: message.d.user,
+          initialCurrentRoomId: message.d.currentRoom?.id,
           send: apiSend,
           fetch: (opcode: Opcode, parameters: unknown, doneOpcode?: Opcode) =>
             new Promise((resolveFetch, rejectFetch) => {
