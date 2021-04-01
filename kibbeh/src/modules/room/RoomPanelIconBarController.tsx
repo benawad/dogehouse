@@ -31,7 +31,7 @@ export const RoomPanelIconBarController: React.FC<RoomPanelIconBarControllerProp
             : undefined
         }
         onLeaveRoom={() => {
-          push("/dashboard");
+          push("/dash");
           leaveRoom();
         }}
         onRoomSettings={
