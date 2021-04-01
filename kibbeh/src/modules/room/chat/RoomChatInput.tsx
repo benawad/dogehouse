@@ -118,7 +118,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
         <div className={`mb-1`}>
           <EmojiPicker
             emojiSet={customEmojis}
-            onEmojiSelect={(emoji) => {
+            onEmojiSelect={emoji => {
               position =
                 (position === 0
                   ? inputRef!.current!.selectionStart
