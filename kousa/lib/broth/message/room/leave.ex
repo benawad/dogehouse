@@ -11,7 +11,8 @@ defmodule Broth.Message.Room.Leave do
   use Ecto.Schema
 
   @primary_key false
-  embedded_schema do end
+  embedded_schema do
+  end
 
   import Ecto.Changeset
 

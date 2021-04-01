@@ -45,7 +45,9 @@ defmodule Broth.Message do
     "room:leave" => Broth.Message.Room.Leave,
     "room:block" => Broth.Message.Room.Block,
     "room:set_role" => Broth.Message.Room.SetRole,
-    "room:set_mod" => Broth.Message.Room.SetMod
+    "room:set_mod" => Broth.Message.Room.SetMod,
+    "chat:block" => Broth.Message.Chat.Block,
+    "chat:send_msg" => Broth.Message.Chat.SendMsg
   }
 
   defp find(changeset, field, optional \\ false) when is_atom(field) do

@@ -12,7 +12,7 @@ defmodule Broth.Message.Room.UpdateSpeaking do
 
   @primary_key false
   embedded_schema do
-    field :isSpeaking, :boolean
+    field(:isSpeaking, :boolean)
   end
 
   import Ecto.Changeset

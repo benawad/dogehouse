@@ -47,10 +47,10 @@ defmodule BrothTest.Message.Room.SetMod do
 
     test "isMod must be a bool", %{uuid: uuid} do
       assert {:error, %{errors: [isMod: {"is invalid", _}]}} =
-        Broth.Message.validate(%{
-          "operator" => "room:set_mod",
-          "payload" => %{"userId" => uuid, "isMod" => "yes"}
-        })
+               Broth.Message.validate(%{
+                 "operator" => "room:set_mod",
+                 "payload" => %{"userId" => uuid, "isMod" => "yes"}
+               })
     end
   end
 end
