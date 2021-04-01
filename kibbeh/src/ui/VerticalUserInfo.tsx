@@ -15,9 +15,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
     <div className="flex-col rounded-8 pt-5 px-6 pb-4 w-full items-center">
       <SingleUser size="default" src={user.avatarUrl} />
       <div className="mt-2">
-        <span className="text-primary-100 font-bold">
-          {user.displayName}
-        </span>
+        <span className="text-primary-100 font-bold">{user.displayName}</span>
         <span className="text-primary-300 ml-1">@{user.username}</span>
         {/* <Badges badges={badges} /> */}
       </div>
