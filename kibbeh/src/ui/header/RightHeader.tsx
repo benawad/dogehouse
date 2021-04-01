@@ -49,9 +49,7 @@ const RightHeader: React.FC<RightHeaderProps> = ({
       )}
       {actionButton}
       <ApiPreloadLink route="profile" data={{ username }}>
-        <a>
-          <SingleUser size="sm" src={avatarImg} />
-        </a>
+        <SingleUser size="sm" src={avatarImg} />
       </ApiPreloadLink>
     </div>
   );

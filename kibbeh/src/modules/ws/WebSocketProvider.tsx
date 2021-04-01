@@ -4,6 +4,9 @@ import { useTokenStore } from "../auth/useTokenStore";
 import { apiBaseUrl } from "../../lib/constants";
 import { useRouter } from "next/router";
 import { showErrorToast } from "../../lib/showErrorToast";
+import { useMuteStore } from "../../global-stores/useMuteStore";
+import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
+import { useVoiceStore } from "../webrtc/stores/useVoiceStore";
 
 interface WebSocketProviderProps {
   shouldConnect: boolean;
@@ -30,11 +33,33 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
 
   useEffect(() => {
     if (!conn && shouldConnect && hasTokens && !isConnecting.current) {
-      const { accessToken, refreshToken } = useTokenStore.getState();
-      isConnecting.current = true;
       raw
-        .connect(accessToken, refreshToken, {
+        .connect("", "", {
           url: apiBaseUrl.replace("http", "ws") + "/socket",
+          getAuthOptions: () => {
+            const { accessToken, refreshToken } = useTokenStore.getState();
+            isConnecting.current = true;
+            const { recvTransport, sendTransport } = useVoiceStore.getState();
+
+            const reconnectToVoice = !recvTransport
+              ? true
+              : recvTransport.connectionState !== "connected" &&
+                sendTransport?.connectionState !== "connected";
+
+            console.log({
+              reconnectToVoice,
+              recvState: recvTransport?.connectionState,
+              sendState: sendTransport?.connectionState,
+            });
+
+            return {
+              accessToken,
+              refreshToken,
+              reconnectToVoice,
+              currentRoomId: useCurrentRoomIdStore.getState().currentRoomId,
+              muted: useMuteStore.getState().muted,
+            };
+          },
           onConnectionTaken: () => {
             replace("/");
             // @todo do something better
@@ -44,6 +69,7 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
             setConn(null);
           },
           onClearTokens: () => {
+            console.log("clearing tokens...");
             replace("/");
             useTokenStore
               .getState()
