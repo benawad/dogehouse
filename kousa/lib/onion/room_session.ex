@@ -223,7 +223,11 @@ defmodule Onion.RoomSession do
     unless opts[:no_fan] do
       ws_fan(state.users, %{
         op: "new_user_join_room",
-        d: %{user: Beef.Users.get_by_id(user_id), muteMap: muteMap, roomId: state.room_id}
+        d: %{
+          user: Beef.Users.get_by_id_with_room_permissions(user_id),
+          muteMap: muteMap,
+          roomId: state.room_id
+        }
       })
     end
 
