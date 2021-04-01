@@ -63,6 +63,7 @@ yay -S dogehouse
 And as an Ubuntu ppa
 ```bash
 curl -s https://packagecloud.io/install/repositories/stratusfearme21/dogehouse/script.deb.sh | sudo bash
+sudo apt-get install dogehouse
 ```
 
 __*Notes:*__
