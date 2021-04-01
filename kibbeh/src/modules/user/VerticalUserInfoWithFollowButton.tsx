@@ -27,7 +27,7 @@ export const VerticalUserInfoWithFollowButton: React.FC<VerticalUserInfoControll
   return (
     <>
       <VerticalUserInfo user={user} />
-      <div className={`mb-2 items-center w-full justify-center`}>
+      <div className={`mb-5 items-center w-full justify-center`}>
         {/* @todo add real icon */}
         {user.id !== conn.user.id ? (
           <Button
@@ -46,7 +46,8 @@ export const VerticalUserInfoWithFollowButton: React.FC<VerticalUserInfoControll
               );
             }}
             size="small"
-            icon={<SolidFriends />}
+            color={user.youAreFollowing ? "secondary" : "primary"}
+            icon={user.youAreFollowing ? null : <SolidFriends />}
           >
             {user.youAreFollowing
               ? t("pages.viewUser.unfollow")
