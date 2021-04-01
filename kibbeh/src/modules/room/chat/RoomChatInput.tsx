@@ -144,7 +144,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             id="room-chat-input"
-            transparent={true}
+            transparent
             ref={inputRef}
             autoComplete="off"
             onKeyDown={navigateThroughQueriedUsers}
