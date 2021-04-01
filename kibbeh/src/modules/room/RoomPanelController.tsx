@@ -48,13 +48,13 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
     }
     if (!data) {
       setCurrentRoomId(null);
-      push("/dashboard");
+      push("/dash");
       return;
     }
     if ("error" in data) {
       setCurrentRoomId(null);
       showErrorToast(data.error);
-      push("/dashboard");
+      push("/dash");
     }
   }, [data, isLoading, push, setCurrentRoomId]);
 

@@ -17,7 +17,7 @@ export const useSaveTokensFromQueryParams = () => {
         accessToken: params.accessToken,
         refreshToken: params.refreshToken,
       });
-      let nextPath = "/dashboard";
+      let nextPath = "/dash";
       try {
         const possibleNextPath = localStorage.getItem(loginNextPathKey);
         if (possibleNextPath && possibleNextPath.startsWith("/")) {

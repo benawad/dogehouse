@@ -1,6 +1,7 @@
 import { UserWithFollowInfo } from "@dogehouse/kebab";
 import Link from "next/link";
 import React, { MouseEventHandler } from "react";
+import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
 import { SingleUser } from "./UserAvatar/SingleUser";
 
 export interface FriendOnlineType {
@@ -26,17 +27,17 @@ export const FollowerOnline: React.FC<UserWithFollowInfo> = ({
   currentRoom,
 }) => (
   <div className="py-3 w-full">
-    <Link href={`/user/[username]`} as={`/user/${username}`}>
+    <ApiPreloadLink route="profile" data={{ username }}>
       <a>
         <SingleUser size="sm" isOnline={online} src={avatar} />
       </a>
-    </Link>
+    </ApiPreloadLink>
     <div className="ml-3 flex flex-col">
-      <Link href={`/user/[username]`} as={`/user/${username}`}>
+      <ApiPreloadLink route="profile" data={{ username }}>
         <a>
           <h5 className="text-primary-100 font-bold">{username}</h5>
         </a>
-      </Link>
+      </ApiPreloadLink>
       <Link
         href={`/room/[id]`}
         as={currentRoom ? `/room/${currentRoom.id}` : undefined}

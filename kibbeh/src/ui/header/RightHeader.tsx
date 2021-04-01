@@ -1,6 +1,6 @@
-import Link from "next/link";
 import React from "react";
 import { SolidMegaphone, SolidMessages, SolidNotification } from "../../icons";
+import { ApiPreloadLink } from "../../shared-components/ApiPreloadLink";
 import { SingleUser } from "../UserAvatar";
 
 export interface RightHeaderProps {
@@ -48,11 +48,11 @@ const RightHeader: React.FC<RightHeaderProps> = ({
         </button>
       )}
       {actionButton}
-      <Link href="/user/[username]" as={`/user/${username}`}>
+      <ApiPreloadLink route="profile" data={{ username }}>
         <a>
           <SingleUser size="sm" src={avatarImg} />
         </a>
-      </Link>
+      </ApiPreloadLink>
     </div>
   );
 };
