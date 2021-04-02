@@ -17,9 +17,9 @@
         "build:linux": "yarn compile && electron-builder --linux",
         "build:overlay": "cd resources/overlay && yarn build && cd ../../",
         "build:globkey": "yarn remove globkey && yarn add globkey && cd node_modules/globkey && npx electron-build-env nj-cli build --release",
+        "delete:artifacts": "yarn delete:globkey_artifacts && yarn delete:overlay_yarn_cache",
         "delete:globkey_artifacts": "cd node_modules/globkey && del-cli target src && cd ../../",
-        "delete:overlay_yarn_cache": "cd resources/overlay && del-cli .yarn && cd ../../",
-        "delete:artifacts": "delete:globkey_artifacts && delete:overlay_yarn_cache"
+        "delete:overlay_yarn_cache": "cd resources/overlay && del-cli .yarn && cd ../../"
     },
     "keywords": [
         "DogeHouse",
