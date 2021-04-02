@@ -54,6 +54,9 @@ jobs:
       #   with:
       #     # Log in to Snap Store
       #     snapcraft_token: ${{ secrets.snapcraft_token }}
+      - name: Compile Typescript
+        working-directory: baklava
+        run: yarn compile
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
         with:
