@@ -25,10 +25,10 @@ jobs:
         uses: actions/cache@v1
         id: yarn-cache
         with:
-        path: baklava/.yarn/cache
-        key: ${{ runner.os }}-yarn-${{ hashFiles('baklava/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-yarn-
+          path: baklava/.yarn/cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('baklava/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
       - name: Install deps
         working-directory: baklava
         run: yarn
