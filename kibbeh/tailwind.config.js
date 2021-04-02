@@ -64,6 +64,10 @@ module.exports = {
       8: "75px",
       24: "24rem",
     },
+    maxHeight: {
+      24: "24rem",
+      36: "36rem",
+    },
     borderWidth: {
       DEFAULT: "1px",
     },
