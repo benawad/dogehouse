@@ -73,7 +73,7 @@ jobs:
           mac_certs: ${{ secrets.mac_certs }}
           mac_certs_password: ${{ secrets.mac_certs_password }}
           # this is executed before the default `electron-builder` script
-          build_script_name: delete:globkey_artifacts
+          build_script_name: delete:artifacts
           package_root: baklava
           github_token: ${{ secrets.github_token }}
           release: true
