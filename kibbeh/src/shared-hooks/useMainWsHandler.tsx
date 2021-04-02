@@ -32,7 +32,7 @@ export const useMainWsHandler = () => {
         "new_room_details",
         ({ name, description, isPrivate, roomId }) => {
           updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
-            "error" in data
+            !data || "error" in data
               ? data
               : {
                   ...data,
@@ -84,7 +84,7 @@ export const useMainWsHandler = () => {
         "room_privacy_change",
         ({ roomId, isPrivate, name }) => {
           updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
-            "error" in data
+            !data || "error" in data
               ? data
               : {
                   ...data,
@@ -129,7 +129,7 @@ export const useMainWsHandler = () => {
         "active_speaker_change",
         ({ roomId, activeSpeakerMap }) => {
           updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
-            "error" in data
+            !data || "error" in data
               ? data
               : {
                   ...data,
@@ -150,7 +150,7 @@ export const useMainWsHandler = () => {
       }),
       conn.addListener<any>("new_room_creator", ({ userId, roomId }) => {
         updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
-          "error" in data
+          !data || "error" in data
             ? data
             : {
                 ...data,
@@ -165,7 +165,7 @@ export const useMainWsHandler = () => {
         "speaker_removed",
         ({ userId, roomId, muteMap }) => {
           updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
-            "error" in data
+            !data || "error" in data
               ? data
               : {
                   ...data,
@@ -192,7 +192,7 @@ export const useMainWsHandler = () => {
         }
 
         updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
-          "error" in data
+          !data || "error" in data
             ? data
             : {
                 ...data,
@@ -215,7 +215,7 @@ export const useMainWsHandler = () => {
       }),
       conn.addListener<any>("mod_changed", ({ userId, roomId }) => {
         updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
-          "error" in data
+          !data || "error" in data
             ? data
             : {
                 ...data,
@@ -235,7 +235,7 @@ export const useMainWsHandler = () => {
       }),
       conn.addListener<any>("user_left_room", ({ userId, roomId }) => {
         updateQuery(["joinRoomAndGetInfo", roomId], (data) => {
-          if ("error" in data) {
+          if (data && "error" in data) {
             return data;
           }
 
@@ -258,7 +258,7 @@ export const useMainWsHandler = () => {
         "new_user_join_room",
         ({ user, muteMap, roomId }) => {
           updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
-            "error" in data
+            !data || "error" in data
               ? data
               : {
                   ...data,
@@ -285,7 +285,7 @@ export const useMainWsHandler = () => {
       ),
       conn.addListener<any>("hand_raised", ({ roomId, userId }) => {
         updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
-          "error" in data
+          !data || "error" in data
             ? data
             : {
                 ...data,
@@ -307,7 +307,7 @@ export const useMainWsHandler = () => {
       }),
       conn.addListener<any>("mute_changed", ({ userId, value, roomId }) => {
         updateQuery(["joinRoomAndGetInfo", roomId], (data) => {
-          if ("error" in data) {
+          if (data && "error" in data) {
             return data;
           }
           let muteMap = data.muteMap;

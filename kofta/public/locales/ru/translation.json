@@ -41,7 +41,11 @@
       "followHim": "Подписаться",
       "followingHim": "Вы подписаны"
     },
-    "home": { "createRoom": "Создать комнату", "refresh": "Обновить" },
+    "home": {
+      "createRoom": "Создать комнату",
+      "refresh": "Обновить",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Комната исчезла, вернитесь назад",
       "shareRoomLink": "Поделиться ссылкой на комнату",

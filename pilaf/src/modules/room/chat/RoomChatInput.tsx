@@ -1,22 +1,30 @@
 import { RoomUser } from "@dogehouse/kebab";
 import React, { useRef, useState } from "react";
-import { KeyboardAvoidingView, TextInput } from "react-native";
+import {
+  KeyboardAvoidingView,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  View,
+} from "react-native";
 import { colors, radius } from "../../../constants/dogeStyle";
 import { createChatMessage } from "../../../lib/createChatMessage";
-// import { showErrorToast } from "../../../lib/showErrorToast";
 import { useConn } from "../../../shared-hooks/useConn";
-// import { useTypeSafeTranslation } from "../../../shared-hooks/useTypeSafeTranslation";
-// import { Input } from "../../../ui/Input";
-import { customEmojis, CustomEmote } from "./EmoteData";
+import { EmotePicker } from "./EmotePicker";
+
 import { RoomChatMentions } from "./RoomChatMentions";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { useRoomChatStore } from "./useRoomChatStore";
 
 interface ChatInputProps {
   users: RoomUser[];
+  onEmotePress: () => void;
 }
 
-export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
+export const RoomChatInput: React.FC<ChatInputProps> = ({
+  users,
+  onEmotePress,
+}) => {
   const { message, setMessage } = useRoomChatStore();
   const {
     setQueriedUsernames,
@@ -109,21 +117,35 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
   return (
     <KeyboardAvoidingView behavior={"padding"}>
       <RoomChatMentions users={users} />
-      <TextInput
-        placeholder={"Send a message"}
-        placeholderTextColor={colors.primary300}
-        autoCorrect={false}
+      <View
         style={{
+          flexDirection: "row",
           height: 40,
           backgroundColor: colors.primary700,
           paddingHorizontal: 16,
           borderRadius: radius.m,
-          color: colors.text,
         }}
-        value={message}
-        onSubmitEditing={handleSubmit}
-        onChangeText={(value) => setMessage(value)}
-      />
+      >
+        <TextInput
+          placeholder={"Send a message"}
+          placeholderTextColor={colors.primary300}
+          autoCorrect={false}
+          style={{
+            flexGrow: 1,
+            height: 40,
+            color: colors.text,
+          }}
+          value={message}
+          onSubmitEditing={handleSubmit}
+          onChangeText={(value) => setMessage(value)}
+        ></TextInput>
+        <TouchableOpacity
+          style={{ alignSelf: "center" }}
+          onPress={onEmotePress}
+        >
+          <Image source={require("../../../assets/images/emoji-icon.png")} />
+        </TouchableOpacity>
+      </View>
     </KeyboardAvoidingView>
   );
 };

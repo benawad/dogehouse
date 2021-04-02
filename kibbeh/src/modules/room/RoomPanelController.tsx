@@ -1,6 +1,6 @@
 import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
-import { useRouter } from "next/router";
-import React, { useEffect } from "react";
+import Router, { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { isServer } from "../../lib/isServer";
 import { isUuid } from "../../lib/isUuid";
@@ -9,6 +9,7 @@ import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { CenterLoader } from "../../ui/CenterLoader";
 import { RoomHeader } from "../../ui/RoomHeader";
 import { Spinner } from "../../ui/Spinner";
+import { CreateRoomModal } from "../dashboard/CreateRoomModal";
 import { MiddlePanel, RightPanel } from "../layouts/GridPanels";
 import { RoomChat } from "./chat/RoomChat";
 import { RoomPanelIconBarController } from "./RoomPanelIconBarController";
@@ -20,9 +21,10 @@ interface RoomPanelControllerProps {}
 export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
   const { currentRoomId, setCurrentRoomId } = useCurrentRoomIdStore();
   const { query } = useRouter();
+  const [showEditModal, setShowEditModal] = useState(false);
   const roomId = typeof query.id === "string" ? query.id : "";
   const { data, isLoading } = useTypeSafeQuery(
-    ["joinRoomAndGetInfo", currentRoomId || ""],
+    ["joinRoomAndGetInfo", roomId || ""],
     {
       enabled: isUuid(roomId) && !isServer,
       refetchOnMount: "always",
@@ -42,21 +44,25 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
     }
   }, [roomId, setCurrentRoomId]);
 
+  const errMsg = data && "error" in data ? data.error : "";
+  const noData = !data;
+
   useEffect(() => {
     if (isLoading) {
       return;
     }
-    if (!data) {
+    if (noData) {
       setCurrentRoomId(null);
-      push("/dashboard");
+      push("/dash");
       return;
     }
-    if ("error" in data) {
+    if (errMsg) {
       setCurrentRoomId(null);
-      showErrorToast(data.error);
-      push("/dashboard");
+      console.log(errMsg, isLoading);
+      showErrorToast(errMsg);
+      push("/dash");
     }
-  }, [data, isLoading, push, setCurrentRoomId]);
+  }, [noData, errMsg, isLoading, push, setCurrentRoomId]);
 
   if (isLoading || !currentRoomId) {
     return (
@@ -77,9 +83,21 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
 
   return (
     <>
+      {showEditModal ? (
+        <CreateRoomModal
+          onRequestClose={() => setShowEditModal(false)}
+          edit
+          data={{
+            name: data.room.name,
+            description: data.room.description || "",
+            privacy: data.room.isPrivate ? "private" : "public",
+          }}
+        />
+      ) : null}
       <MiddlePanel
         stickyChildren={
           <RoomHeader
+            onTitleClick={() => setShowEditModal(true)}
             title={data.room.name}
             description={data.room.description || ""}
             names={roomCreator ? [roomCreator.username] : []}

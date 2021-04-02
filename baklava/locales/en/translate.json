@@ -6,6 +6,7 @@
     "check": "Checking for updates...",
     "download": "Downloading Updates...",
     "relaunch": "Relaunching...",
-    "launch": "Launching..."
+    "launch": "Launching...",
+    "skipCheck": "Skipping update checks..."
   }
 }

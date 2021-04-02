@@ -15,17 +15,17 @@ import { useRoomChatStore } from "../room/chat/useRoomChatStore";
 
 interface CreateRoomModalProps {
   onRequestClose: () => void;
-  name?: string;
-  description?: string;
-  isPrivate?: boolean;
+  data?: {
+    name: string;
+    description: string;
+    privacy: string;
+  };
   edit?: boolean;
 }
 
 export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
   onRequestClose,
-  name: currentName,
-  description: currentDescription,
-  isPrivate,
+  data,
   edit,
 }) => {
   const conn = useWrappedConn();
@@ -40,11 +40,15 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
         privacy: string;
         description: string;
       }>
-        initialValues={{
-          name: currentName || "",
-          description: currentDescription || "",
-          privacy: isPrivate ? "private" : "public",
-        }}
+        initialValues={
+          data
+            ? data
+            : {
+                name: "",
+                description: "",
+                privacy: "public",
+              }
+        }
         validateOnChange={false}
         validateOnBlur={false}
         validate={({ name, description }) => {
@@ -66,12 +70,11 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
         }}
         onSubmit={async ({ name, privacy, description }) => {
           const d = { name, privacy, description };
-          // @todo pretty sure this logic for editing is broken
           const resp = edit
             ? await conn.mutation.editRoom(d)
             : await conn.mutation.createRoom(d);
 
-          if ("error" in resp) {
+          if (typeof resp === "object" && "error" in resp) {
             showErrorToast(resp.error);
 
             return;
@@ -92,7 +95,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
           <Form className={`grid grid-cols-3 gap-4 focus:outline-none w-full`}>
             <div className={`col-span-3 block`}>
               <h4 className={`mb-2 text-primary-100`}>
-                {t("pages.home.createRoom")}
+                {edit ? t("pages.home.editRoom") : t("pages.home.createRoom")}
               </h4>
               <p className={`text-primary-300`}>
                 Fill the following fields to start a new room
@@ -138,7 +141,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 
             <div className={`flex pt-2 space-x-3 col-span-full items-center`}>
               <Button loading={isSubmitting} type="submit" className={`mr-3`}>
-                {t("pages.home.createRoom")}
+                {edit ? t("common.save") : t("pages.home.createRoom")}
               </Button>
               <ButtonLink type="button" onClick={onRequestClose}>
                 {t("common.cancel")}

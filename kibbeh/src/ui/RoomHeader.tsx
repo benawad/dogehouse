@@ -1,13 +1,15 @@
 import React from "react";
-import { SolidNotification } from "../icons";
+import { SolidCaretRight, SolidNotification } from "../icons";
 
 interface RoomHeaderProps {
+  onTitleClick: () => void;
   title: string;
   names: string[];
   description: string;
 }
 
 export const RoomHeader: React.FC<RoomHeaderProps> = ({
+  onTitleClick,
   title,
   names,
   description,
@@ -17,12 +19,20 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
       className={`flex-col p-4 bg-primary-800 rounded-t-8 border-b border-primary-600 w-full`}
     >
       <div className={`text-primary-100`}>
-        <div className={`text-xl font-bold mb-2 flex-1 truncate`}>{title}</div>
+        <button
+          onClick={onTitleClick}
+          className={`text-xl font-bold mb-2 flex-1 truncate`}
+        >
+          {title}
+        </button>
         {/* @todo show description */}
-        {/* swap in real icon */}
-        <SolidNotification className={`ml-2`} width={16} height={16} />
+        <SolidCaretRight
+          className={`ml-2 transform rotate-90 cursor-pointer`}
+          width={20}
+          height={20}
+        />
       </div>
-      <div className={`text-primary-200 text-xs`}>
+      <div className={`text-primary-200 text-sm`}>
         with{" "}
         <span
           style={{ marginLeft: 3 }}

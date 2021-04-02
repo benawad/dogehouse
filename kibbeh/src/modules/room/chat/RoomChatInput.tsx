@@ -1,7 +1,6 @@
 import { RoomUser } from "@dogehouse/kebab";
-import { Picker } from "emoji-mart";
-import "emoji-mart/css/emoji-mart.css";
 import React, { useRef, useState } from "react";
+import { Smiley } from "../../../icons";
 import { createChatMessage } from "../../../lib/createChatMessage";
 import { showErrorToast } from "../../../lib/showErrorToast";
 import { useConn } from "../../../shared-hooks/useConn";
@@ -10,6 +9,7 @@ import { Input } from "../../../ui/Input";
 import { customEmojis, CustomEmote } from "./EmoteData";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { useRoomChatStore } from "./useRoomChatStore";
+import { EmojiPicker } from "../../../ui/EmojiPicker";
 
 interface ChatInputProps {
   users: RoomUser[];
@@ -113,60 +113,38 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={`pb-3 px-4 pt-5 flex flex-col`}>
+    <form onSubmit={handleSubmit} className={`pb-3 px-4 pt-2 flex flex-col`}>
       {isEmoji ? (
-        <Picker
-          set="apple"
-          onSelect={(emoji: CustomEmote) => {
-            position =
-              (position === 0
-                ? inputRef!.current!.selectionStart
-                : position + 2) || 0;
+        <div className={`mb-1`}>
+          <EmojiPicker
+            emojiSet={customEmojis}
+            onEmojiSelect={(emoji) => {
+              position =
+                (position === 0
+                  ? inputRef!.current!.selectionStart
+                  : position + 2) || 0;
 
-            const newMsg = [
-              message.slice(0, position),
-              "native" in emoji
-                ? emoji.native
-                : (message.endsWith(" ") ? "" : " ") +
-                  (emoji.colons || "") +
+              const newMsg = [
+                message.slice(0, position),
+                (message.endsWith(" ") ? "" : " ") +
+                  (`:${emoji.short_names[0]}:` || "") +
                   " ",
-              message.slice(position),
-            ].join("");
-            setMessage(newMsg);
-          }}
-          style={{
-            position: "relative",
-            width: "100%",
-            minWidth: "278px",
-            right: 0,
-            overflowY: "hidden",
-            outline: "none",
-            alignSelf: "flex-end",
-            margin: "0 0 8px 0",
-          }}
-          sheetSize={32}
-          theme="dark"
-          custom={customEmojis}
-          emojiTooltip={true}
-          showPreview={false}
-          showSkinTones={false}
-          i18n={{
-            search: t("modules.roomChat.search"),
-            categories: {
-              search: t("modules.roomChat.searchResults"),
-              recent: t("modules.roomChat.recent"),
-            },
-          }}
-        />
+                message.slice(position),
+              ].join("");
+              setMessage(newMsg);
+            }}
+          />
+        </div>
       ) : null}
       <div className="flex items-stretch">
-        <div className="flex-1 mr-2 lg:mr-0 items-end">
+        <div className="flex-1 mr-2 lg:mr-0 items-center bg-primary-700 rounded-8">
           <Input
             maxLength={512}
             placeholder={t("modules.roomChat.sendMessage")}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className={`bg-primary-700`}
+            id="room-chat-input"
+            transparent
             ref={inputRef}
             autoComplete="off"
             onKeyDown={navigateThroughQueriedUsers}
@@ -174,25 +152,16 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
               setIsEmoji(false);
               position = 0;
             }}
-            id="room-chat-input"
           />
-          {/* <div
-            style={{
-              color: "rgb(167, 167, 167)",
-              display: "flex",
-              marginRight: 13,
-              marginTop: -35,
-              flexDirection: "row-reverse",
-            }}
-            className={`mt-3 right-12 cursor-pointer`}
+          <div
+            className={`right-12 cursor-pointer flex flex-row-reverse fill-current text-primary-200 mr-3`}
             onClick={() => {
               setIsEmoji(!isEmoji);
               position = 0;
             }}
           >
-            {/* @todo set correct icon
-            <SolidCompass style={{ inlineSize: "23px" }}></SolidCompass>
-          </div> */}
+            <Smiley style={{ inlineSize: "23px" }}></Smiley>
+          </div>
         </div>
 
         {/* Send button (mobile only) */}

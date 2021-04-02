@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useGlobalVolumeStore } from "../../../global-stores/useGlobalVolumeStore";
 import { Button } from "../../../ui/Button";
 import { useConsumerStore } from "../stores/useConsumerStore";
 
@@ -59,8 +60,7 @@ const MyAudio = ({
 export const AudioRender: React.FC<AudioRenderProps> = () => {
   const notAllowedErrorCountRef = useRef(0);
   const [showAutoPlayModal, setShowAutoPlayModal] = useState(false);
-  // const [globalVolume] = useAtom(volumeAtom);
-  const globalVolume = 100;
+  const { volume: globalVolume } = useGlobalVolumeStore();
   const { consumerMap } = useConsumerStore();
   const audioRefs = useRef<[string, HTMLAudioElement][]>([]);
 
