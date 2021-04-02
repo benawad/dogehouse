@@ -36,12 +36,12 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
 
   useEffect(() => {
     if (!conn && shouldConnect && hasTokens && !isConnecting.current) {
+      isConnecting.current = true;
       raw
         .connect("", "", {
           url: apiBaseUrl.replace("http", "ws") + "/socket",
           getAuthOptions: () => {
             const { accessToken, refreshToken } = useTokenStore.getState();
-            isConnecting.current = true;
             const { recvTransport, sendTransport } = useVoiceStore.getState();
 
             const reconnectToVoice = !recvTransport
