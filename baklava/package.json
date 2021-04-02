@@ -1,6 +1,6 @@
 {
     "name": "dogehouse",
-    "version": "1.0.31",
+    "version": "1.0.32",
     "description": "Taking voice conversations to the moon 🚀",
     "main": "./dist/electron.js",
     "scripts": {
@@ -46,7 +46,8 @@
                 "NSMicrophoneUsageDescription": "Mic access for speeach input in voice."
             },
             "target": [
-                "dmg"
+                "dmg",
+                "zip"
             ]
         },
         "win": {
