@@ -60,8 +60,7 @@
             "icon": "icons/icon.png",
             "target": [
                 "deb",
-                "AppImage",
-                "snap"
+                "AppImage"
             ]
         },
         "extraMetadata": {
