@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "next/head";
 import { NextPage } from "next";
-import { baseUrl } from '../../lib/constants';
+import { baseUrl } from "../../lib/constants";
 export interface HeaderControllerProps {
   title?: string;
   embed?: { hexColor?: string; image?: string };
@@ -29,15 +29,15 @@ export const HeaderController: NextPage<HeaderControllerProps> = ({
       <meta name="theme-color" content={embed?.hexColor || "#EFE7DD"} />
       {embed ? (
         <>
-          <meta name="og:title" content={title || 'DogeHouse'} />
+          <meta name="og:title" content={title || "DogeHouse"} />
           <meta
             name="og:type"
             content={owner ? "music.radio_station" : "website"}
           />
           {owner ? <meta name="music:creator" content={owner} /> : ""}
-          <meta name="og:description" content={description}/>
-          <meta name="og:site_name" content="DogeHouse"/>
-          <meta name="og:image" content={`${baseUrl}/img/doge.png`}/>
+          <meta name="og:description" content={description} />
+          <meta name="og:site_name" content="DogeHouse" />
+          <meta name="og:image" content={`${baseUrl}/img/doge.png`} />
         </>
       ) : (
         ""
