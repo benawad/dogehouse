@@ -18,6 +18,7 @@ import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
 import electronLogger from 'electron-log';
+import globkey from 'globkey';
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
@@ -182,6 +183,7 @@ if (!instanceLock) {
   if (process.env.hotReload) {
     app.relaunch();
   }
+  globkey.unload();
   app.quit();
 } else {
   app.on("ready", () => {
@@ -237,6 +239,7 @@ autoUpdater.on('update-not-available', () => {
 });
 
 app.on("window-all-closed", () => {
+  globkey.unload();
   app.quit();
 });
 app.on("activate", () => {

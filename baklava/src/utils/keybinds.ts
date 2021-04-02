@@ -15,7 +15,7 @@ import { overlayWindow } from "electron-overlay-window";
 import { createOverlay } from "./overlay";
 import { startIPCHandler } from "./ipc";
 import { bWindowsType } from "../types";
-import hook from 'globkey';
+import globkey from 'globkey';
 
 export let CURRENT_REQUEST_TO_SPEAK_KEY = "Control+8";
 export let CURRENT_INVITE_KEY = "Control+7";
@@ -103,7 +103,8 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
     ipcMain.on("@overlay/app_title", (event, appTitle: string) => {
         CURRENT_APP_TITLE = appTitle;
     })
-    hook.raw((keypair: string[]) => {
+
+    globkey.raw((keypair: string[]) => {
         keypair.forEach(key => {
             let i = keypair.indexOf(key);
             keypair[i] = keypair[i].replace("L", "");
@@ -119,4 +120,3 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
         }
     })
 }
-
