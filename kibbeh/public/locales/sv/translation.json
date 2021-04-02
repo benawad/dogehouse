@@ -11,11 +11,11 @@
     "edit": "Ändra",
     "delete": "Radera",
     "joinRoom": "Anslut till rummet",
-    "copyLink": "Kopiera länken",
+    "copyLink": "Kopiera länk",
     "copied": "Kopierad",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Notera att använda DogeHouse utan att ha tillåtit webbläsaren att få åtkomst till vissa saker kan leda till oönskade errors."
+    "requestPermissions": "Att använda DogeHouse utan att ha tillåtit webbläsaren att få åtkomst till vissa behörigheter kan orsaka oönskade fel."
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -38,15 +38,15 @@
     },
     "followList": { "followHim": "Följ", "followingHim": "Följer" },
     "home": {
-      "createRoom": "Skapa rum",
+      "createRoom": "Skapa ett rum",
       "refresh": "Uppdatera",
-      "editRoom": "Edit Room"
+      "editRoom": "Redigera rummet"
     },
     "inviteList": {
       "roomGone": "Rummet försvann under månförmörkelsen, gå tillbaka",
       "shareRoomLink": "Dela länk till rummet",
       "inviteFollowers": "Du kan bjuda in dina följare som är uppkopplade:",
-      "whenFollowersOnline": "När dina följare är uppkopplade kommer de visas här."
+      "whenFollowersOnline": "När dina följare är uppkopplade kommer de att visas här."
     },
     "login": {
       "headerText": "Tar röstsamtal till månen 🚀",
@@ -78,7 +78,7 @@
       "requestingToSpeak": "Begär att få tala",
       "listeners": "Lyssnare",
       "allowAll": "Tillåt alla",
-      "allowAllConfirm": "Är du säker på detta sarge? Detta kommer tillåta {{count}} användare att få tala. Det kan utplåna månen! 🚀☢️"
+      "allowAllConfirm": "Är du säker på detta sergeant? Detta kommer tillåta {{count}} användare att få tala. Det kan utplåna månen! 🚀☢️"
     },
     "searchUser": { "search": "Sök..." },
     "soundEffectSettings": { "header": "Ljud" },
@@ -101,11 +101,11 @@
       "volume": "Volym:"
     },
     "overlaySettings": {
+      "header": "Overlay-inställningar",
       "input": {
         "errorMsg": "Ogiltlig fönstertitel",
         "label": "Skriv in fönstertitel"
-      },
-      "header": "Overlay-inställningar"
+      }
     }
   },
   "components": {
@@ -133,7 +133,7 @@
       "chat": "Chatt"
     },
     "micPermissionBanner": {
-      "permissionDenied": "Åtkomst nekad när vi försökte att ansluta till din mikrofon (du kan behöva gå till webbläsarinställningarna och ladda om sidan)",
+      "permissionDenied": "Åtkomst nekad när vi försökte att ansluta till din mikrofon (du kan behöva gå till webbläsarinställningarna, tillåta att webläsaren tillåter din mikrofon och sedan ladda om sidan)",
       "dismiss": "Avfärda",
       "tryAgain": "Försök igen"
     },
@@ -143,8 +143,8 @@
         "private": "Privat",
         "roomName": "Rumsnamn",
         "roomDescription": "Rumsbeskrivning",
-        "descriptionError": "Max längd av 500 karaktärer",
-        "nameError": "Längd 2 till 60 karaktärer"
+        "descriptionError": "Max längden är 500 karaktärer",
+        "nameError": "Längden måste vara mellan 2 och 60 karaktärer"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Ett nytt rum har skapats",
@@ -159,7 +159,7 @@
         "avatarUrlLabel": "Github/Twitter profilbild länk",
         "displayNameError": "Maximum 2 till 50 karaktärer",
         "displayNameLabel": "Visningsnamn",
-        "usernameError": "Maximum 4 till 15 karaktärer med bara alfanumerisk/understrykning",
+        "usernameError": "Maximum 4 till 15 karaktärer med bara alfanumerisk/understräck",
         "usernameLabel": "Användarnamn",
         "bioError": "Maximum längd av 160 karaktärer",
         "bioLabel": "Biografi"
@@ -175,14 +175,14 @@
         "banFromRoom": "Bannlys från rum",
         "goBackToListener": "Gå tillbaka till lyssnare",
         "deleteMessage": "Ta bort meddelande",
-        "makeRoomCreator": "Gör rum administratör"
+        "makeRoomCreator": "Gör till rum administratör"
       },
       "roomSettingsModal": {
         "requirePermission": "Be om tillåtelse att prata",
         "makePublic": "Gör rum offentligt",
         "makePrivate": "Gör rum privat",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "Sätt ett ofentligt rumsnamn",
+        "renamePrivate": "Sätt ett privat rumsnamn"
       }
     },
     "userVolumeSlider": {
@@ -191,8 +191,8 @@
     "addToCalendar": { "add": "Spara i kalender" },
     "deviceNotSupported": {
       "notSupported": "Din enhet stöds inte. Du kan skapa en",
-      "linkText": "Fråga på GitHub",
-      "addSupport": "och jag ska försöka lägga till stöd för din enhet."
+      "linkText": "issue på GitHub",
+      "addSupport": ", så kommer jag försöka lägga till stöd för din enhet."
     },
     "inviteButton": {
       "invited": "Inbjuden",
@@ -206,7 +206,7 @@
       "toggleOverlayKeybind": "Växla overlay-keybind"
     },
     "wsKilled": {
-      "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
+      "description": "WebSocket blev nerstängd av servern. Detta händer oftast när du öppnar hemsidan i en annan flik.",
       "reconnect": "Återanslut"
     }
   },
@@ -222,8 +222,8 @@
       "modal": {
         "needsFuture": "Behöver vara i framtiden",
         "roomName": "Namn",
-        "minLength": "Minimum längd 2",
-        "roomDescription": "Beskrivning"
+        "roomDescription": "Beskrivning",
+        "minLength": "Minimum längd: 2"
       }
     },
     "roomChat": {
@@ -244,11 +244,11 @@
       "takingOff": "Lyfter",
       "inSpace": "I rymden",
       "approachingMoon": "Närmar sig månen",
-      "lunarDoge": "Lunar doge",
+      "lunarDoge": "Måndoge",
       "approachingSun": "Närmar sig solen",
-      "solarDoge": "Solar doge",
+      "solarDoge": "Soldoge",
       "approachingGalaxy": "Närmar sig en galax",
-      "galacticDoge": "Galactisk doge",
+      "galacticDoge": "Galaktiskdoge",
       "spottedLife": "Planet med liv upptäckt"
     }
   }
