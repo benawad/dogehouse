@@ -9,7 +9,6 @@ import { colors, h4, paragraph, radius } from "../../../constants/dogeStyle";
 
 interface RoomChatMentionsProps {
   users: RoomUser[];
-  onUserSelected: (user: RoomUser) => void;
 }
 
 export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({

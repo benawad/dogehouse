@@ -21,6 +21,7 @@ import { RoomHeader } from "../../components/header/RoomHeader";
 import { setMute, useSetMute } from "../../shared-hooks/useSetMute";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { RoomChat } from "./chat/RoomChat";
+import { useRoomChatStore } from "./chat/useRoomChatStore";
 interface RoomPanelControllerProps {
   roomId?: string | undefined;
 }
@@ -44,6 +45,7 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({
   const { mutateAsync: leaveRoom } = useTypeSafeMutation("leaveRoom");
   const navigation = useNavigation();
   const { currentRoomId, setCurrentRoomId } = useCurrentRoomIdStore();
+  const isANewRoom = currentRoomId !== roomId;
   const setInternalMute = useSetMute();
   const muted = useMuteStore((s) => s.muted);
   const { data, isLoading } = useTypeSafeQuery(
@@ -58,8 +60,12 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({
     },
     [roomId]
   );
+  const [clearChat] = useRoomChatStore((s) => [s.clearChat]);
 
   useEffect(() => {
+    if (isANewRoom) {
+      clearChat();
+    }
     if (isLoading) {
       return;
     }

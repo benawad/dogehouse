@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary600,
     borderRadius: radius.s,
     paddingHorizontal: 10,
-    height: 18,
+    height: 22,
   },
   glow: {
     borderWidth: 1,
