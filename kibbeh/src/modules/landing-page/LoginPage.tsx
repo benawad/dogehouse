@@ -76,10 +76,10 @@ export const LoginPage: React.FC = () => {
 
   return (
     <div className="w-full h-full">
-      <div
-        className="m-auto flex-col p-6 gap-5 bg-primary-800 rounded-8 z-10"
-        style={{ width: "400px" }}
-      >
+      <div className="absolute top-6 h-8 w-full items-center justify-center sm:hidden">
+        <LgLogo />
+      </div>
+      <div className="m-auto flex-col p-6 gap-5 bg-primary-800 sm:rounded-8 z-10 sm:w-400 w-full">
         <div className="gap-2 flex-col">
           <span className="text-3xl text-primary-100 font-bold">Welcome</span>
           <p className="text-primary-100 flex-wrap">
@@ -140,8 +140,10 @@ export const LoginPage: React.FC = () => {
           <span className="text-primary-300">unavailable lol</span>
         </div> */}
       </div>
-      <div className="absolute bottom-0 w-full justify-between px-7 py-5 mt-auto items-center">
-        <LgLogo />
+      <div className="absolute bottom-0 w-full justify-between px-5 py-5 mt-auto items-center sm:px-7">
+        <div className="hidden sm:block">
+          <LgLogo />
+        </div>
         <div className="gap-6 text-primary-300">
           <a
             href="https://youtu.be/dQw4w9WgXcQ"
@@ -155,7 +157,7 @@ export const LoginPage: React.FC = () => {
           >
             Report a bug
           </a>
-          <div className="gap-4">
+          <div className="gap-6 sm:gap-4">
             <a href="https://github.com/benawad/dogehouse">
               <SvgSolidGitHub
                 width={20}
