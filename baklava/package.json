@@ -1,6 +1,6 @@
 {
     "name": "dogehouse",
-    "version": "1.0.31",
+    "version": "1.0.33",
     "description": "Taking voice conversations to the moon 🚀",
     "main": "./dist/electron.js",
     "scripts": {
@@ -16,7 +16,10 @@
         "build:win": "yarn compile && electron-builder --win",
         "build:linux": "yarn compile && electron-builder --linux",
         "build:overlay": "cd resources/overlay && yarn build && cd ../../",
-        "build:globkey": "yarn add globkey && cd node_modules/globkey && npx electron-build-env nj-cli build --release && del-cli target src && cd ../../"
+        "build:globkey": "yarn remove globkey && yarn add globkey && cd node_modules/globkey && npx electron-build-env nj-cli build --release",
+        "delete:artifacts": "yarn delete:globkey_artifacts && yarn delete:overlay_yarn_cache",
+        "delete:globkey_artifacts": "cd node_modules/globkey && del-cli target src && cd ../../",
+        "delete:overlay_yarn_cache": "cd resources/overlay && del-cli .yarn && cd ../../"
     },
     "keywords": [
         "DogeHouse",
@@ -46,7 +49,8 @@
                 "NSMicrophoneUsageDescription": "Mic access for speeach input in voice."
             },
             "target": [
-                "dmg"
+                "dmg",
+                "zip"
             ]
         },
         "win": {

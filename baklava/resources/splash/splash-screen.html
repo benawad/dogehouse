@@ -7,35 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DogeHouse</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <style>
+        body {
+            background-color: rgba(0, 0, 0, 0);
+        }
+
         #progress {
             width: 75%;
             height: 10px;
-            background-color: #BCB5AD;
+            background-color: #242C37;
             border-radius: 10px;
         }
 
         #bar {
             height: 10px;
-            width: 1%;
-            background-color: #89837E;
+            width: 40%;
+            background-color: #FD4D4D;
             border-radius: 10px;
             transition: width 2s;
         }
     </style>
     <div
-        style="background-color: #EFE7DC; border-radius: 5%; height: 400px; width: 300px; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%);">
-        <img style="height:140px; position:fixed; top:40%; left:50%; transform:translate(-50%, -50%);"
+        style=" background-color: #0B0E11; border-radius: 5%; height: 400px; width: 300px; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%);">
+        <img style="height:120px; position:fixed; top:35%; left:50%; transform:translate(-50%, -50%);"
             src="../../icons/icon.png" alt="DogeHouse Logo">
         <h4
-            style="color: #3f3d3a; font-family: 'Poppins'; position:fixed; top:68%; left:50%; transform:translate(-50%, -50%); width: 100%; text-align: center;">
+            style="color: #B2BDCD; font-family: 'Inter'; position:fixed; top:68%; left:50%; transform:translate(-50%, -50%); width: 100%; text-align: center;">
         </h4>
 
-        <div id="progress" style="position:fixed; top:80%; left:50%; transform:translate(-50%, -50%); display: none;">
+        <div id="progress" style="position:fixed; top:83%; left:50%; transform:translate(-50%, -50%); display: none;">
             <div id="bar"></div>
         </div>
 
