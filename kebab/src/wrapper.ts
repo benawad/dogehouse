@@ -31,6 +31,12 @@ export const wrap = (connection: Connection) => ({
       roomId: string
     ): Promise<JoinRoomAndGetInfoResponse | { error: string }> =>
       connection.fetch("join_room_and_get_info", { roomId }),
+    getInviteList: (
+      cursor = 0
+    ): Promise<{
+      users: User[];
+      nextCursor: number | null;
+    }> => connection.fetch("get_invite_list", { cursor }),
     getFollowList: (
       username: string,
       isFollowing: boolean,
@@ -75,6 +81,8 @@ export const wrap = (connection: Connection) => ({
   },
   mutation: {
     askToSpeak: () => connection.send(`ask_to_speak`, {}),
+    inviteToRoom: (userId: string) =>
+      connection.send(`invite_to_room`, { userId }),
     setAutoSpeaker: (value: boolean) =>
       connection.send(`set_auto_speaker`, { value }),
     speakingChange: (value: boolean) =>
