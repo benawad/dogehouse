@@ -37,7 +37,11 @@
       "startPrivateRoom": "उनके साथ एक प्राइवेट रूम शुरू करें"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "रूम बनाये", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "रूम बनाये",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "रूम गया, वापस जाए",
       "shareRoomLink": "रूम की लिंक शेयर करें",

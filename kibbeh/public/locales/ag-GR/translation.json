@@ -38,7 +38,11 @@
       "startPrivateRoom": "δημιουργήστε ένα ιδιωτικό δωμάτιο μαζί τους"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Δημιουργία Δωματίου", "refresh": "Επαναφόρτωση" },
+    "home": {
+      "createRoom": "Δημιουργία Δωματίου",
+      "refresh": "Επαναφόρτωση",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "το δωμάτιο διαγράφηκε, πηγαίνετε πίσω",
       "shareRoomLink": "κοινοποιήστε τον σύνδεσμο του δωματίου",

@@ -21,15 +21,23 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
+      - name: Yarn cache
+        uses: actions/cache@v1
+        id: yarn-cache
+        with:
+          path: baklava/.yarn/cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('baklava/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install deps
+        working-directory: baklava
+        run: yarn
       - name: Install rust
         uses: hecrj/setup-rust-action@v1
         with:
           rust-version: stable
       - name: Install nj-cli
         run: cargo install nj-cli
-      - name: Install deps
-        working-directory: baklava
-        run: yarn
       - name: Build Globkey
         working-directory: baklava
         run: yarn build:globkey
@@ -46,12 +54,22 @@ jobs:
         run: |
           mkdir -p ~/private_keys/
           echo '${{ secrets.api_key }}' > ~/private_keys/AuthKey_${{ secrets.api_key_id }}.p8
+      # Uncomment the step below after getting the snapcraft package name for dogehouse and add 'snap' target to baklava/package.json
+      # - name: Install Snapcraft
+      #   uses: samuelmeuli/action-snapcraft@v1
+      #   # Only install Snapcraft on Ubuntu
+      #   if: startsWith(matrix.os, 'ubuntu')
+      #   with:
+      #     # Log in to Snap Store
+      #     snapcraft_token: ${{ secrets.snapcraft_token }}
+      - name: Compile Typescript
+        working-directory: baklava
+        run: yarn compile
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
         with:
           mac_certs: ${{ secrets.mac_certs }}
           mac_certs_password: ${{ secrets.mac_certs_password }}
-          build_script_name: build
           package_root: baklava
           github_token: ${{ secrets.github_token }}
           release: true

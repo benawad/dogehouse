@@ -185,6 +185,9 @@ defmodule Onion.UserSession do
   def handle_cast({:send_ws, platform, msg}, state),
     do: send_ws_impl(platform, msg, state)
 
+  def handle_cast({:reconnect, voice_server_id}, state),
+    do: reconnect_impl(voice_server_id, state)
+
   def handle_cast({:set_mute, value}, state), do: set_mute_impl(value, state)
   def handle_cast({:new_tokens, tokens}, state), do: new_tokens_impl(tokens, state)
   def handle_cast({:set_state, info}, state), do: set_state_impl(info, state)
@@ -192,9 +195,6 @@ defmodule Onion.UserSession do
   def handle_call(:get_info_for_msg, reply, state), do: get_info_for_msg_impl(reply, state)
   def handle_call({:get, key}, reply, state), do: get_impl(key, reply, state)
   def handle_call({:set_pid, pid}, reply, state), do: set_pid(pid, reply, state)
-
-  def handle_info({:reconnect, voice_server_id}, state),
-    do: reconnect_impl(voice_server_id, state)
 
   def handle_info({:DOWN, _ref, :process, pid, _reason}, state), do: handle_disconnect(pid, state)
 end

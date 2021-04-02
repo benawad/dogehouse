@@ -120,7 +120,7 @@ export const LoginPage: React.FC = () => {
                   accessToken: d.accessToken,
                   refreshToken: d.refreshToken,
                 });
-                push("/dashboard");
+                push("/dash");
               }}
             >
               <SvgSolidBug width={20} height={20} />

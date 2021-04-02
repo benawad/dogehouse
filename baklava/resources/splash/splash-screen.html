@@ -62,6 +62,9 @@
             ipcRenderer.on('launch', () => {
                 header.textContent = locale.launch;
             });
+            ipcRenderer.on('skipCheck', () => {
+                header.textContent = locale.skipCheck;
+            });
         </script>
     </div>
 </body>
