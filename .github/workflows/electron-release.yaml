@@ -23,8 +23,8 @@ jobs:
           node-version: 14
       - uses: actions/cache@v2
         with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          path: baklava/node_modules
+          key: ${{ runner.os }}-modules-${{ hashFiles('baklava/yarn.lock') }}
       - name: Install deps
         working-directory: baklava
         run: yarn
