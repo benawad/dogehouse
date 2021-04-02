@@ -36,7 +36,11 @@
       "startPrivateRoom": "empieza una sala privada con ellos"
     },
     "followList": { "followHim": "seguir", "followingHim": "siguiendo" },
-    "home": { "createRoom": "Crear Sala", "refresh": "Recargar" },
+    "home": {
+      "createRoom": "Crear Sala",
+      "refresh": "Recargar",
+      "editRoom": "Editar la sala"
+    },
     "inviteList": {
       "roomGone": "sala no disponible, volver atrás",
       "shareRoomLink": "compartir enlace de la sala",
@@ -96,7 +100,10 @@
       "volume": "volumen:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Ese nombre de aplicación no es valido", "label": "Introduce el nombre de la aplicación" },
+      "input": {
+        "errorMsg": "Ese nombre de aplicación no es valido",
+        "label": "Introduce el nombre de la aplicación"
+      },
       "header": "Opciones del Overlay"
     }
   },
