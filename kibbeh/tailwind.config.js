@@ -14,7 +14,7 @@ module.exports = {
         "Arial",
         "sans-serif",
       ],
-      // mono: ["Menlo", "Monaco", "Courier New", "monospace"],
+      mono: ["Menlo", "Monaco", "Courier New", "monospace"],
     },
     fontSize: {
       tiny: "0.625rem",
@@ -64,6 +64,10 @@ module.exports = {
       8: "75px",
       24: "24rem",
       400: "400px",
+    },
+    maxHeight: {
+      24: "24rem",
+      36: "36rem",
     },
     borderWidth: {
       DEFAULT: "1px",
