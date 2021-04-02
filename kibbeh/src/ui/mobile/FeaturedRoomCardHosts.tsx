@@ -11,7 +11,7 @@ export const FeaturedRoomCardHosts: React.FC<FeaturedRoomCardHostsProps> = ({
   names,
 }) => {
   return (
-    <div className="flex-row px-6 py-6 align-middle">
+    <div className="flex-row align-middle">
       <FeaturedRoomCardAvatars avatars={avatars} />
       <div className="flex-col pl-4 justify-center">
         <p className="text-primary-300">Hosted by</p>
