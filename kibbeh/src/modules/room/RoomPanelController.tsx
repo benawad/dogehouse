@@ -1,17 +1,9 @@
-import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
-import Router, { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
-import { isServer } from "../../lib/isServer";
-import { isUuid } from "../../lib/isUuid";
-import { showErrorToast } from "../../lib/showErrorToast";
-import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { CenterLoader } from "../../ui/CenterLoader";
 import { RoomHeader } from "../../ui/RoomHeader";
-import { Spinner } from "../../ui/Spinner";
 import { CreateRoomModal } from "../dashboard/CreateRoomModal";
-import { MiddlePanel, RightPanel } from "../layouts/GridPanels";
-import { RoomChat } from "./chat/RoomChat";
+import { MiddlePanel } from "../layouts/GridPanels";
 import { RoomPanelIconBarController } from "./RoomPanelIconBarController";
 import { RoomUsersPanel } from "./RoomUsersPanel";
 import { useGetRoomByQueryParam } from "./useGetRoomByQueryParam";
@@ -30,7 +22,6 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
         <MiddlePanel>
           <CenterLoader />
         </MiddlePanel>
-        <RightPanel />
       </>
     );
   }
@@ -70,9 +61,6 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
           <RoomPanelIconBarController />
         </div>
       </MiddlePanel>
-      <RightPanel>
-        <RoomChat room={data.room} users={data.users} />
-      </RightPanel>
     </>
   );
 };
