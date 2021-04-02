@@ -126,21 +126,23 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({
           borderRadius: radius.m,
         }}
       >
-        <TextInput
-          placeholder={"Send a message"}
-          placeholderTextColor={colors.primary300}
-          autoCorrect={false}
-          style={{
-            flexGrow: 1,
-            height: 40,
-            color: colors.text,
-          }}
-          value={message}
-          onSubmitEditing={handleSubmit}
-          onChangeText={(value) => setMessage(value)}
-        ></TextInput>
+        <View style={{ flex: 1 }}>
+          <TextInput
+            placeholder={"Send a message"}
+            placeholderTextColor={colors.primary300}
+            autoCorrect={false}
+            style={{
+              height: 40,
+              color: colors.text,
+            }}
+            value={message}
+            onSubmitEditing={handleSubmit}
+            onChangeText={(value) => setMessage(value)}
+          />
+        </View>
+
         <TouchableOpacity
-          style={{ alignSelf: "center" }}
+          style={{ alignSelf: "center", flexShrink: 0, marginLeft: 10 }}
           onPress={onEmotePress}
         >
           <Image source={require("../../../assets/images/emoji-icon.png")} />
