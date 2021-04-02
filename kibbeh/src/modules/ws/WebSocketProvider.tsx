@@ -64,13 +64,13 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
             };
           },
           onConnectionTaken: () => {
+            // the index page nulls the conn
+            // if you switch this, make sure to null the conn at the new location
             replace("/");
             // @todo do something better
-            // whatever you do make sure to null out the conn there
             showErrorToast(
               "You can only have 1 tab of DogeHouse open at a time"
             );
-            // setConn(null);
           },
           onClearTokens: () => {
             console.log("clearing tokens...");
