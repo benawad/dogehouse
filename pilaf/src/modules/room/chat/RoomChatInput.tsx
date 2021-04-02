@@ -1,4 +1,4 @@
-import { RoomUser } from "@dogehouse/kebab";
+import { Room, RoomUser } from "@dogehouse/kebab";
 import React, { useRef, useState } from "react";
 import {
   KeyboardAvoidingView,
