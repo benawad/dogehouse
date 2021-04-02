@@ -16,17 +16,10 @@ export const DesktopLayout: React.FC<MainLayoutProps> = ({
     <div
       className={`flex-col items-center w-full scrollbar-thin scrollbar-thumb-primary-700`}
     >
-      <div className="fixed top-0 z-0">
-        <MainInnerGrid>
-          <LeftPanel>{leftPanel}</LeftPanel>
-          <div />
-          <RightPanel>{rightPanel}</RightPanel>
-        </MainInnerGrid>
-      </div>
       <MainInnerGrid>
-        <div />
+        <LeftPanel>{leftPanel}</LeftPanel>
         {children}
-        <div />
+        <RightPanel>{rightPanel}</RightPanel>
       </MainInnerGrid>
     </div>
   );
