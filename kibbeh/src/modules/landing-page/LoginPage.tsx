@@ -12,6 +12,7 @@ import SvgSolidTwitter from "../../icons/SolidTwitter";
 import { LgLogo } from "../../icons";
 import SvgSolidDiscord from "../../icons/SolidDiscord";
 import { WebSocketContext } from "../ws/WebSocketProvider";
+import { HeaderController } from "../display/HeaderController";
 
 /*
 
@@ -76,6 +77,7 @@ export const LoginPage: React.FC = () => {
 
   return (
     <div className="w-full h-full">
+      <HeaderController embed={{}} />
       <div className="absolute top-6 h-8 w-full items-center justify-center sm:hidden">
         <LgLogo />
       </div>
