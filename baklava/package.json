@@ -1,6 +1,6 @@
 {
     "name": "dogehouse",
-    "version": "1.0.33",
+    "version": "1.0.34",
     "description": "Taking voice conversations to the moon 🚀",
     "main": "./dist/electron.js",
     "scripts": {
@@ -64,7 +64,8 @@
             "icon": "icons/icon.png",
             "target": [
                 "deb",
-                "AppImage"
+                "AppImage",
+                "snap"
             ]
         },
         "extraMetadata": {

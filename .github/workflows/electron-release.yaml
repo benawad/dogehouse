@@ -59,14 +59,13 @@ jobs:
         run: |
           mkdir -p ~/private_keys/
           echo '${{ secrets.api_key }}' > ~/private_keys/AuthKey_${{ secrets.api_key_id }}.p8
-      # Uncomment the step below after getting the snapcraft package name for dogehouse and add 'snap' target to baklava/package.json
-      # - name: Install Snapcraft
-      #   uses: samuelmeuli/action-snapcraft@v1
-      #   # Only install Snapcraft on Ubuntu
-      #   if: startsWith(matrix.os, 'ubuntu')
-      #   with:
-      #     # Log in to Snap Store
-      #     snapcraft_token: ${{ secrets.snapcraft_token }}
+      - name: Install Snapcraft
+        uses: samuelmeuli/action-snapcraft@v1
+        # Only install Snapcraft on Ubuntu
+        if: startsWith(matrix.os, 'ubuntu')
+        with:
+          # Log in to Snap Store
+          snapcraft_token: ${{ secrets.snapcraft_token }}
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
         with:
