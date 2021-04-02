@@ -38,7 +38,11 @@
       "startPrivateRoom": "Begin 'n private kamer saam met hulle"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Skep Kamer", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "Skep Kamer",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "kamer verwyder, gaan terug",
       "shareRoomLink": "deel skakel na kamer",

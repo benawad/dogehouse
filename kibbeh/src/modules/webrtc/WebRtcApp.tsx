@@ -81,7 +81,7 @@ export const WebRtcApp: React.FC<App2Props> = () => {
 
           setCurrentRoomId(null);
           closeVoiceConnections(d.roomId);
-          push("/dashboard");
+          push("/dash");
         }
       }),
       conn.addListener<any>("new-peer-speaker", async (d) => {

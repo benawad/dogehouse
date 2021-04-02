@@ -62,6 +62,7 @@ module.exports = {
       6: "40px",
       7: "60px",
       8: "75px",
+      24: "24rem",
     },
     borderWidth: {
       DEFAULT: "1px",
@@ -76,9 +77,7 @@ module.exports = {
   variants: {
     backgroundColor: ({ after }) => after(["disabled"]),
     textColor: ({ after }) => after(["disabled"]),
-    scrollbar: ['rounded', 'dark'],
+    scrollbar: ["rounded", "dark"],
   },
-  plugins: [
-    require('tailwind-scrollbar'),
-  ],
+  plugins: [require("tailwind-scrollbar")],
 };

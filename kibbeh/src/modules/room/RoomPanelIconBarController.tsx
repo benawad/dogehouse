@@ -31,8 +31,11 @@ export const RoomPanelIconBarController: React.FC<RoomPanelIconBarControllerProp
             : undefined
         }
         onLeaveRoom={() => {
-          push("/dashboard");
+          push("/dash");
           leaveRoom();
+        }}
+        onInvitePeopleToRoom={() => {
+          push(`/room/[id]/invite`, `/room/${currentRoomId}/invite`);
         }}
         onRoomSettings={
           isCreator

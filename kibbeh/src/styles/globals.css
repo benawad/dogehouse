@@ -86,3 +86,7 @@ html {
 #__next {
   overflow: auto;
 }
+
+textarea {
+  resize: none;
+}
