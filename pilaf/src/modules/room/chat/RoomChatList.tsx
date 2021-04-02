@@ -78,14 +78,15 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
           .map((m) => (
             <View
               key={m.id}
-              style={
+              style={[
+                { marginTop: 8 },
                 m.isWhisper
                   ? {
                       backgroundColor: colors.primary700,
                       borderRadius: radius.s,
                     }
-                  : {}
-              }
+                  : {},
+              ]}
             >
               <Text style={{ ...smallBold, color: m.color }}>
                 {m.username}:{" "}
@@ -102,7 +103,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                           return <Text key={i}>{v} </Text>;
                         case "emote":
                           return emoteMap[v] ? (
-                            <Image key={i} source={{ uri: emoteMap[v] }} />
+                            <Image key={i} source={emoteMap[v]} />
                           ) : (
                             ":" + v + ":"
                           );
