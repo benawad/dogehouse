@@ -36,7 +36,11 @@
       "startPrivateRoom": "empieza una sala privada con ellos"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Crear Sala", "refresh": "Recargar" },
+    "home": {
+      "createRoom": "Crear Sala",
+      "refresh": "Recargar",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "sala no disponible, vuelve atrás",
       "shareRoomLink": "compartir enlace de la sala",

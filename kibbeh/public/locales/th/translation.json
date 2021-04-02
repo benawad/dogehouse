@@ -37,7 +37,11 @@
       "startPrivateRoom": "สร้างห้องส่วนตัว"
     },
     "followList": { "followHim": "ติดตาม", "followingHim": "กำลังติดตาม" },
-    "home": { "createRoom": "สร้างห้อง", "refresh": "รีเฟรช" },
+    "home": {
+      "createRoom": "สร้างห้อง",
+      "refresh": "รีเฟรช",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "ไม่พบห้อง, กรุณากลับไปที่หน้าหลัก",
       "shareRoomLink": "แชร์ลิ้งก์ของห้อง",

@@ -40,7 +40,8 @@
     "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "OwO Cweate Woom (ʘᗩʘ')",
-      "refresh": " Wefwesh (◠‿◠✿)"
+      "refresh": " Wefwesh (◠‿◠✿)",
+      "editRoom": "Edit Room"
     },
     "inviteList": {
       "roomGone": "woom gone, go back <{^v^}>",

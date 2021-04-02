@@ -28,6 +28,7 @@ export type TranslationKeys =
 	| "pages.followList.followHim"
 	| "pages.followList.followingHim"
 	| "pages.home.createRoom"
+	| "pages.home.editRoom"
 	| "pages.home.refresh"
 	| "pages.inviteList.roomGone"
 	| "pages.inviteList.shareRoomLink"

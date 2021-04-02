@@ -36,7 +36,11 @@
       "startPrivateRoom": "privát szoba létrehozása velük"
     },
     "followList": { "followHim": "követés", "followingHim": "követve" },
-    "home": { "createRoom": "Szoba létrehozása", "refresh": "Frissítés" },
+    "home": {
+      "createRoom": "Szoba létrehozása",
+      "refresh": "Frissítés",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "beszélgetés véget ért, lépjen vissza",
       "shareRoomLink": "szoba linkjének megosztása",

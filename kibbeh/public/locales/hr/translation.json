@@ -38,7 +38,11 @@
       "startPrivateRoom": "započnite privatnu sobu s njima"
     },
     "followList": { "followHim": "zaprati", "followingHim": "pratitelji" },
-    "home": { "createRoom": "Stvori sobu", "refresh": "Osvježi" },
+    "home": {
+      "createRoom": "Stvori sobu",
+      "refresh": "Osvježi",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "soba otišla, vrati se",
       "shareRoomLink": "podijeli vezu do sobe",
