@@ -21,10 +21,14 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
-      - uses: actions/cache@v2
+      - name: Yarn cache
+        uses: actions/cache@v1
+        id: yarn-cache
         with:
-          path: baklava/node_modules
-          key: ${{ runner.os }}-modules-${{ hashFiles('baklava/yarn.lock') }}
+        path: baklava/.yarn/cache
+        key: ${{ runner.os }}-yarn-${{ hashFiles('baklava/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
       - name: Install deps
         working-directory: baklava
         run: yarn
