@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useCallback } from "react";
+import React, { useCallback, useContext, useEffect } from "react";
 import { apiBaseUrl, loginNextPathKey, __prod__ } from "../../lib/constants";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../../ui/Button";
@@ -11,6 +11,7 @@ import SvgSolidBug from "../../icons/SolidBug";
 import SvgSolidTwitter from "../../icons/SolidTwitter";
 import { LgLogo } from "../../icons";
 import SvgSolidDiscord from "../../icons/SolidDiscord";
+import { WebSocketContext } from "../ws/WebSocketProvider";
 
 /*
 
@@ -64,8 +65,14 @@ const LoginButton: React.FC<LoginButtonProps> = ({
 
 export const LoginPage: React.FC = () => {
   useSaveTokensFromQueryParams();
-  const { t } = useTypeSafeTranslation();
+  const { setConn } = useContext(WebSocketContext);
   const { push } = useRouter();
+
+  useEffect(() => {
+    // only want this on mount
+    setConn(null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="w-full h-full">
