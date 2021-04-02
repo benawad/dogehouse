@@ -118,7 +118,7 @@ function createWindow() {
     });
   }
 
-  // crashes on mac only in dev
+  // crashes on mac only in dev 
   // systemPreferences.askForMediaAccess("microphone");
   ipcMain.on("request-mic", async (event, _serviceName) => {
     const isAllowed: boolean = await systemPreferences.askForMediaAccess(
