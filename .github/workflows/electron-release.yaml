@@ -21,15 +21,19 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+      - name: Install deps
+        working-directory: baklava
+        run: yarn
       - name: Install rust
         uses: hecrj/setup-rust-action@v1
         with:
           rust-version: stable
       - name: Install nj-cli
         run: cargo install nj-cli
-      - name: Install deps
-        working-directory: baklava
-        run: yarn
       - name: Build Globkey
         working-directory: baklava
         run: yarn build:globkey
