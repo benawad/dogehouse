@@ -102,7 +102,7 @@ export const LoginPage: React.FC = () => {
           {/* <LoginButton oauthUrl={`${apiBaseUrl}/auth/twitter/web`}>
             <SvgSolidTwitter width={20} height={20} />
             Log in with Twitter
-          </Log inButton> */}
+          </LoginButton> */}
           {!__prod__ ? (
             <LoginButton
               dev
