@@ -38,7 +38,11 @@
       "startPrivateRoom": "ඔවුන් සමග පෞද්ගලික සමූහයක් අරඹන්න"
     },
     "followList": { "followHim": "හඹා යන්න", "followingHim": "හඹා යන්නන්" },
-    "home": { "createRoom": "සමූහයක් අරඹන්න", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "සමූහයක් අරඹන්න",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "සමූහය නොමැත,ආපසු යන්න",
       "shareRoomLink": "සමූහයේ සබැඳිය බෙදාගන්න",

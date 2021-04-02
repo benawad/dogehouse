@@ -9,6 +9,7 @@ import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { CenterLoader } from "../../ui/CenterLoader";
 import { RoomHeader } from "../../ui/RoomHeader";
 import { Spinner } from "../../ui/Spinner";
+import { CreateRoomModal } from "../dashboard/CreateRoomModal";
 import { MiddlePanel, RightPanel } from "../layouts/GridPanels";
 import { RoomChat } from "./chat/RoomChat";
 import { RoomPanelIconBarController } from "./RoomPanelIconBarController";
@@ -20,6 +21,7 @@ interface RoomPanelControllerProps {}
 export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
   const { currentRoomId, setCurrentRoomId } = useCurrentRoomIdStore();
   const { query } = useRouter();
+  const [showEditModal, setShowEditModal] = useState(false);
   const roomId = typeof query.id === "string" ? query.id : "";
   const { data, isLoading } = useTypeSafeQuery(
     ["joinRoomAndGetInfo", roomId || ""],
@@ -81,9 +83,21 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
 
   return (
     <>
+      {showEditModal ? (
+        <CreateRoomModal
+          onRequestClose={() => setShowEditModal(false)}
+          edit
+          data={{
+            name: data.room.name,
+            description: data.room.description || "",
+            privacy: data.room.isPrivate ? "private" : "public",
+          }}
+        />
+      ) : null}
       <MiddlePanel
         stickyChildren={
           <RoomHeader
+            onTitleClick={() => setShowEditModal(true)}
             title={data.room.name}
             description={data.room.description || ""}
             names={roomCreator ? [roomCreator.username] : []}

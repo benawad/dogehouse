@@ -8,7 +8,7 @@
     "yes": "yes",
     "no": "no",
     "cancel": "Cancel",
-    "save": "Save",
+    "save": "save",
     "edit": "edit",
     "delete": "delete",
     "joinRoom": "join room",
@@ -45,6 +45,7 @@
     },
     "home": {
       "createRoom": "Create Room",
+      "editRoom": "Edit Room",
       "refresh": "Refresh"
     },
     "inviteList": {
@@ -92,7 +93,7 @@
       "header": "Sounds"
     },
     "viewUser": {
-      "editProfile": "Edit profile",
+      "editProfile": "edit profile",
       "followsYou": "Follows you",
       "followers": "followers",
       "following": "following",
