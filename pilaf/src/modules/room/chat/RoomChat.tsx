@@ -20,24 +20,10 @@ interface ChatProps {
 }
 
 export const RoomChat: React.FC<ChatProps> = ({ users, room, style }) => {
-  const { currentRoomId } = useCurrentRoomIdStore();
   const safeAreaInset = useSafeAreaInsets();
   const [emoteOpen, setEmoteOpen] = useState(false);
-  const [open, reset, toggleOpen] = useRoomChatStore((s) => [
-    s.open,
-    s.reset,
-    s.toggleOpen,
-  ]);
   const { message, setMessage } = useRoomChatStore();
 
-  useEffect(() => {
-    if (!currentRoomId) {
-      reset();
-    }
-  }, [reset, currentRoomId]);
-  if (!open) {
-    return null;
-  }
   return (
     <SafeAreaView
       style={[

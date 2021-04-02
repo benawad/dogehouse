@@ -20,7 +20,7 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
         }}
       >
         <Text style={{ ...h4 }}>Speakers</Text>
-        <Tag style={{ marginLeft: 10, alignSelf: "center" }}>
+        <Tag style={{ marginLeft: 10, alignSelf: "center", height: 18 }}>
           <Text style={{ ...smallBold, lineHeight: 18 }}>
             {speakers.length}
           </Text>
@@ -35,7 +35,7 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
           }}
         >
           <Text style={{ ...h4 }}>Asking to speak</Text>
-          <Tag style={{ marginLeft: 10, alignSelf: "center" }}>
+          <Tag style={{ marginLeft: 10, alignSelf: "center", height: 18 }}>
             <Text style={{ ...smallBold, lineHeight: 18 }}>
               {askingToSpeak.length}
             </Text>
@@ -51,7 +51,7 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
           }}
         >
           <Text style={{ ...h4 }}>Listeners</Text>
-          <Tag style={{ marginLeft: 10, alignSelf: "center" }}>
+          <Tag style={{ marginLeft: 10, alignSelf: "center", height: 18 }}>
             <Text style={{ ...smallBold, lineHeight: 18 }}>
               {listeners.length}
             </Text>
