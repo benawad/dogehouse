@@ -96,12 +96,12 @@ export const LoginPage: React.FC = () => {
         <div className="flex-col gap-4">
           <LoginButton oauthUrl={`${apiBaseUrl}/auth/github/web`}>
             <SvgSolidGitHub width={20} height={20} />
-            Login with GitHub
+            Log in with GitHub
           </LoginButton>
           {/* @todo backend needs to be fixed for twitter to work */}
           {/* <LoginButton oauthUrl={`${apiBaseUrl}/auth/twitter/web`}>
             <SvgSolidTwitter width={20} height={20} />
-            Login with Twitter
+            Log in with Twitter
           </LoginButton> */}
           {!__prod__ ? (
             <LoginButton
