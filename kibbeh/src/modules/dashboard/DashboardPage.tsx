@@ -15,14 +15,11 @@ export const DashboardPage: PageComponent<LoungePageProps> = ({}) => {
   return (
     <WaitForWsAndAuth>
       <HeaderController embed={{}} />
-      <DesktopLayout>
-        <LeftPanel>
-          <FollowingOnlineController />
-        </LeftPanel>
+      <DesktopLayout
+        leftPanel={<FollowingOnlineController />}
+        rightPanel={<ProfileBlockController />}
+      >
         <FeedController />
-        <RightPanel>
-          <ProfileBlockController />
-        </RightPanel>
       </DesktopLayout>
     </WaitForWsAndAuth>
   );

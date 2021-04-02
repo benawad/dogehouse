@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "next/head";
-
+import { NextPage } from "next";
+import { baseUrl } from "../../lib/constants";
 export interface HeaderControllerProps {
   title?: string;
   embed?: { hexColor?: string; image?: string };
@@ -9,11 +10,11 @@ export interface HeaderControllerProps {
   description?: string;
 }
 
-export const HeaderController: React.FC<HeaderControllerProps> = ({
-  title = "",
+export const HeaderController: NextPage<HeaderControllerProps> = ({
+  title,
   description = "Dogehouse is taking voice conversations to the moon 🚀",
   owner,
-  additionalKeywords,
+  additionalKeywords = [],
   embed,
 }) => {
   return (
@@ -28,12 +29,18 @@ export const HeaderController: React.FC<HeaderControllerProps> = ({
       <meta name="theme-color" content={embed?.hexColor || "#EFE7DD"} />
       {embed ? (
         <>
-          <meta name="og:title" content={description} />
+          <meta name="og:title" content={title || "DogeHouse"} />
           <meta
             name="og:type"
             content={owner ? "music.radio_station" : "website"}
           />
           {owner ? <meta name="music:creator" content={owner} /> : ""}
+          <meta name="og:description" content={description} />
+          <meta name="og:site_name" content="DogeHouse" />
+          <meta
+            name="og:image"
+            content={`${baseUrl || "https://next.dogehouse.tv"}/img/doge.png`}
+          />
         </>
       ) : (
         ""
