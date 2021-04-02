@@ -20,7 +20,7 @@ export const createChatMessage = (
     const withoutAt = item.replace(/@|#/g, "");
     const isMention = mentions.find((m) => withoutAt === m.username);
     // whisperedTo users list
-    if (!isMention || item.indexOf("#@") !== 0) {
+    if (isMention && item.startsWith("#@")) {
       whisperedToUsernames.push(withoutAt);
     }
 
