@@ -30,7 +30,7 @@ export const EmojiPicker: React.FC<EmojiPickerProps> = ({
     if (colonSyntaxMatches) {
       const emojiQueries = colonSyntaxMatches[0].split(" ");
       const query = emojiQueries[emojiQueries.length - 1].toLowerCase();
-      const queryMatches = emojiSet
+      const queryMatchesE = emojiSet
         .filter(
           (e) =>
             e.keywords
@@ -39,11 +39,11 @@ export const EmojiPicker: React.FC<EmojiPickerProps> = ({
         )
         .slice(0, 7);
 
-      setQueryMatches(queryMatches);
+      setQueryMatches(queryMatchesE);
       setKeyboardHoveredEmoji(
-        queryMatches.length ? queryMatches[0].name : null
+        queryMatchesE.length ? queryMatchesE[0].name : null
       );
-      setOpen(!!queryMatches.length);
+      setOpen(!!queryMatchesE.length);
       setQuery(query);
     } else {
       // Close picker if no matches
