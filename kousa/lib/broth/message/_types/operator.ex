@@ -11,6 +11,8 @@ defenum(
     # user commands and casts: 0..63
     {User.GetFollowing, 1},
     {User.Ban, 2},
+    {User.Follow, 3},
+    {User.Update, 4},
     # room commands and casts: 64..127
     {Room.Invite, 65},
     {Room.Update, 66},

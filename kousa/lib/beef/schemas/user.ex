@@ -69,6 +69,7 @@ defmodule Beef.Schemas.User do
     field(:youAreFollowing, :boolean, virtual: true)
     field(:followsYou, :boolean, virtual: true)
     field(:roomPermissions, :map, virtual: true, null: true)
+    field(:muted, :boolean, virtual: true)
 
     belongs_to(:currentRoom, Room, foreign_key: :currentRoomId, type: :binary_id)
 
