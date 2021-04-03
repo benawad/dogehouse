@@ -1,4 +1,6 @@
 import { Formik } from "formik";
+import isElectron from "is-electron";
+import { useRouter } from "next/router";
 import React, { useCallback, useEffect, useState } from "react";
 import { object, string } from "superstruct";
 import { InputField } from "../../form-fields/InputField";
@@ -27,13 +29,17 @@ const overlaySettingsStruct = object({
   appTitle: string(),
 });
 const validateData = validateStruct(overlaySettingsStruct);
+const isMac = process.platform === "darwin";
 export const OverlaySettingsPage: PageComponent<OverlaySettingsProps> = () => {
 
-
   const { appTitle } = useOverlayStore.getState();
-
+  const { push } = useRouter();
   const { t } = useTypeSafeTranslation();
-
+  useEffect(() => {
+    if (!isElectron() || isMac) {
+      push('/dash')
+    }
+  }, [history]);
 
   return (
     <DefaultDesktopLayout>
