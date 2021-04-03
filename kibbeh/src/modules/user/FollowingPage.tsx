@@ -9,18 +9,15 @@ import { FollowingController } from "./FollowingController";
 import { UserProfileController } from "./UserProfileController";
 
 interface UserPageProps {}
-
+//
 export const FollowingPage: PageComponent<UserPageProps> = ({}) => {
   return (
     <WaitForWsAndAuth>
-      <DesktopLayout>
-        <LeftPanel>
-          <FollowingOnlineController />
-        </LeftPanel>
+      <DesktopLayout
+        leftPanel={<FollowingOnlineController />}
+        rightPanel={<ProfileBlockController />}
+      >
         <FollowingController />
-        <RightPanel>
-          <ProfileBlockController />
-        </RightPanel>
       </DesktopLayout>
     </WaitForWsAndAuth>
   );

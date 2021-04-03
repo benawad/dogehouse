@@ -29,7 +29,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
   // Only scroll into view if not manually scrolled to top
   useEffect(() => {
     if (!isRoomChatScrolledToTop) {
-      bottomRef.current?.scrollIntoView();
+      chatListRef.current?.scrollTo(0, chatListRef.current.scrollHeight);
     }
   });
 
