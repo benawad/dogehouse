@@ -45,7 +45,6 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
         </div>
       </div>
       <div className="text-primary-300 mt-2 text-center inline">
-        {/* eslint-disable-next-line array-callback-return */}
         {user.bio.split(" ").map((chunk, i) => {
           try {
             return linkRegex.test(chunk) ? (
