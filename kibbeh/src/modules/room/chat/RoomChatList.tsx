@@ -56,7 +56,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
           <div
             style={{ marginTop: idx === 0 ? "auto" : undefined }}
             className={`flex flex-col flex-shrink-0 ${
-              m.isWhisper ? "bg-primary-700 rounded" : ""
+              m.isWhisper ? "bg-primary-700 rounded my-1" : ""
             }`}
             key={m.id}
           >
@@ -126,7 +126,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                                 key={i}
                                 className={`inline hover:underline flex-1 focus:outline-none ${
                                   v === me?.username
-                                    ? "bg-accent text-white px-2 rounded text-md"
+                                    ? "bg-accent text-white px-1 rounded text-md"
                                     : ""
                                 }`}
                                 style={{
