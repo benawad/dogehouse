@@ -39,7 +39,7 @@ defmodule BrothTest.Message.Room.JoinTest do
                })
     end
 
-    test "omitting the roomId is not allowed", %{uuid: uuid} do
+    test "omitting the roomId is not allowed" do
       assert {:error, %{errors: [roomId: {"can't be blank", _}]}} =
                Broth.Message.validate(%{
                  "operator" => "room:join",
@@ -48,7 +48,7 @@ defmodule BrothTest.Message.Room.JoinTest do
                })
     end
 
-    test "roomId must be a UUID", %{uuid: uuid} do
+    test "roomId must be a UUID" do
       assert {:error, %{errors: [roomId: {"is invalid", _}]}} =
                Broth.Message.validate(%{
                  "operator" => "room:join",
