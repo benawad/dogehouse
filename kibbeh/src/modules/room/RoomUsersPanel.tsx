@@ -15,13 +15,13 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
   const { t } = useTypeSafeTranslation();
   return (
     <div
-      className={`p-4 flex-1 bg-primary-800 scrollbar-thin scrollbar-thumb-primary-700`}
+      className={`pt-4 px-4 flex-1 bg-primary-800 scrollbar-thin scrollbar-thumb-primary-700`}
     >
       <div
         style={{
           gridTemplateColumns: "repeat(auto-fit, 90px)",
         }}
-        className={`w-full grid gap-5 mb-24`}
+        className={`w-full grid gap-5`}
       >
         <RoomSectionHeader
           title={t("pages.room.speakers")}
