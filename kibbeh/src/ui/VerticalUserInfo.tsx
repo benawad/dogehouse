@@ -44,20 +44,21 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
           </ApiPreloadLink>
         </div>
       </div>
-      <div className="text-primary-300 mt-2 text-center">
+      <div className="text-primary-300 mt-2 text-center inline">
         {user.bio.split(" ").map((chunk, i) => {
           try {
             return linkRegex.test(chunk) ? (
               <a
                 href={normalizeUrl(chunk)}
                 rel="noreferrer"
-                className="text-accent hover:underline"
+                className="text-accent hover:underline inline"
                 key={i}
+                target="_blank"
               >
                 {chunk}&nbsp;
               </a>
             ) : (
-              <span key={i}>{chunk}&nbsp;</span>
+              chunk
             );
           } catch (err) {}
         })}
