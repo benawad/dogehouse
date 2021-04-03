@@ -28,7 +28,7 @@ export const useSplitUsersIntoSections = ({
       arr = speakers;
     } else if (u.roomPermissions?.askedToSpeak) {
       arr = askingToSpeak;
-    } else {
+    } else if (u.id === conn.user.id) {
       canIAskToSpeak = true;
     }
 
@@ -72,6 +72,7 @@ export const useSplitUsersIntoSections = ({
     speakers.push(
       // match avatar size
       <BoxedIcon
+        key="megaphone"
         onClick={() => {
           modalConfirm("Would you like to ask to speak?", () => {
             wrap(conn).mutation.askToSpeak();
