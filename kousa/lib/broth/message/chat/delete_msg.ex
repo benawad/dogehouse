@@ -1,10 +1,10 @@
-defmodule Broth.Message.Room.SetMod do
+defmodule Broth.Message.Chat.DeleteMsg do
   use Ecto.Schema
 
   @primary_key false
   embedded_schema do
+    field(:messageId, :binary_id)
     field(:userId, :binary_id)
-    field(:isMod, :boolean)
   end
 
   import Ecto.Changeset
@@ -13,8 +13,9 @@ defmodule Broth.Message.Room.SetMod do
 
   def changeset(changeset, data) do
     changeset
-    |> cast(data, [:userId, :isMod])
-    |> validate_required([:userId, :isMod])
+    |> cast(data, [:messageId, :userId])
+    |> validate_required([:messageId, :userId])
+    |> UUID.normalize(:messageId)
     |> UUID.normalize(:userId)
   end
 end

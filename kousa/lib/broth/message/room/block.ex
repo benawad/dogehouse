@@ -7,10 +7,12 @@ defmodule Broth.Message.Room.Block do
   end
 
   import Ecto.Changeset
+  alias Kousa.Utils.UUID
 
   def changeset(changeset, data) do
     changeset
     |> cast(data, [:userId])
     |> validate_required([:userId])
+    |> UUID.normalize(:userId)
   end
 end

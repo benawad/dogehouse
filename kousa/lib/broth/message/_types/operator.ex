@@ -22,6 +22,7 @@ defenum(
     {Room.SetMod, 72},
     # chat commands and casts: 128..191
     {Chat.Block, 129},
-    {Chat.SendMsg, 130}
+    {Chat.SendMsg, 130},
+    {Chat.DeleteMsg, 131}
   ]
 )
