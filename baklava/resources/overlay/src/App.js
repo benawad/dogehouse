@@ -9,14 +9,13 @@ function App() {
   useEffect(() => {
     ipcRenderer.send("@overlay/start_ipc", true);
     ipcRenderer.on("@overlay/overlayData", (event, data) => {
-      console.log(data.currentRoom);
       if (data.currentRoom) {
         let s = [];
         data.currentRoom.users.forEach((u) => {
           if (u.roomPermissions) {
             if (
               u.roomPermissions.isSpeaker ||
-              data.currentRoom.creatorId === u.id
+              data.currentRoom.room.creatorId === u.id
             ) {
               u.isSpeaking = false;
               u.isMuted = false;
@@ -29,7 +28,7 @@ function App() {
               s.push(u);
             }
           } else {
-            if (data.currentRoom.creatorId === u.id) {
+            if (data.currentRoom.room.creatorId === u.id) {
               u.isSpeaking = false;
               u.isMuted = false;
               if (data.currentRoom.activeSpeakerMap[u.id]) {
