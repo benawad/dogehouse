@@ -62,13 +62,13 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
           >
             {/* Whisper label */}
             {m.isWhisper ? (
-              <p className="mb-0 text-xs text-primary-300 px-1 w-16 mt-1 text-center">
+              <p className="mb-0 text-sm text-primary-300 px-1 w-16 mt-1 text-center">
                 {t("modules.roomChat.whisper")}
               </p>
             ) : null}
             <div className={`flex items-center px-1`}>
               <div
-                className={`py-1 block break-words max-w-full items-start flex-1 text-sm text-primary-100`}
+                className={`py-1 block break-words max-w-full items-start flex-1 text-primary-100`}
                 key={m.id}
               >
                 <button
