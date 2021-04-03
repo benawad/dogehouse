@@ -41,6 +41,7 @@ defmodule Broth.Message do
     "user:get_following" => Broth.Message.User.GetFollowing,
     "user:get_follows" => Broth.Message.User.GetFollows,
     "user:update" => Broth.Message.User.Update,
+    "user:get_rooms_about_to_start" => Broth.Message.User.GetRoomsAboutToStart,
     "room:invite" => Broth.Message.Room.Invite,
     "room:update" => Broth.Message.Room.Update,
     "room:get_invite_list" => Broth.Message.Room.GetInviteList,
@@ -53,7 +54,7 @@ defmodule Broth.Message do
     "room:get_users" => Broth.Message.Room.GetUsers,
     "chat:block" => Broth.Message.Chat.Block,
     "chat:send_msg" => Broth.Message.Chat.SendMsg,
-    "chat:delete_msg" => Broth.Message.Chat.DeleteMsg
+    "chat:delete_msg" => Broth.Message.Chat.DeleteMsg,
   }
 
   defp find(changeset, field, optional \\ false) when is_atom(field) do

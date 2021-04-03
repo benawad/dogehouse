@@ -14,6 +14,7 @@ defenum(
     {User.Follow, 3},
     {User.Ban, 4},
     {User.Update, 5},
+    {User.GetRoomsAboutToStart, 6},
     # room commands and casts: 64..127
     {Room.Invite, 65},
     {Room.Update, 66},
@@ -28,6 +29,6 @@ defenum(
     # chat commands and casts: 128..191
     {Chat.Block, 129},
     {Chat.SendMsg, 130},
-    {Chat.DeleteMsg, 131}
+    {Chat.DeleteMsg, 131},
   ]
 )
