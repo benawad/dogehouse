@@ -84,7 +84,13 @@ export const SingleUser: React.FC<AvatarProps> = ({
         }}
         className="rounded-full w-full h-full object-cover"
         onError={() => setError(true)}
-        src={isError ? `https://ui-avatars.com/api/${username ? `&name=${username}` : "&name"}&rounded=true&background=B23439&bold=true&color=FFFFFF` : src}
+        src={
+          isError
+            ? `https://ui-avatars.com/api/${
+                username ? `&name=${username}` : "&name"
+              }&rounded=true&background=B23439&bold=true&color=FFFFFF`
+            : src
+        }
       />
       {isOnline && (
         <span

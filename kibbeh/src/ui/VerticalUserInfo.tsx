@@ -15,7 +15,11 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
   const { t } = useTypeSafeTranslation();
   return (
     <div className="flex-col rounded-8 pt-5 px-6 pb-4 w-full items-center">
-      <SingleUser size="default" src={user.avatarUrl} username={user.username} />
+      <SingleUser
+        size="default"
+        src={user.avatarUrl}
+        username={user.username}
+      />
       <div className="mt-2">
         <span className="text-primary-100 font-bold h-full break-all line-clamp-1">
           {user.displayName}
