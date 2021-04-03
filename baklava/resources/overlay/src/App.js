@@ -9,6 +9,7 @@ function App() {
   useEffect(() => {
     ipcRenderer.send("@overlay/start_ipc", true);
     ipcRenderer.on("@overlay/overlayData", (event, data) => {
+      console.log(data.currentRoom);
       if (data.currentRoom) {
         let s = [];
         data.currentRoom.users.forEach((u) => {
