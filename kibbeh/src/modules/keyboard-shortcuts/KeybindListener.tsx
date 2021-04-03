@@ -35,7 +35,7 @@ function ListenerElectron() {
     if (!conn) {
       return {} as any;
     }
-    const wrapper = wrap(conn);
+    const wrapper: Wrapper = wrap(conn);
     // keybind event functions
     const REQUEST_TO_SPEAK_KEY_FUNC = async (event: any, args: any) => {
       modalConfirm("Would you like to ask to speak?", () => {
