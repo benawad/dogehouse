@@ -50,7 +50,14 @@ export const EmojiPicker: React.FC<EmojiPickerProps> = ({
       setQueryMatches([]);
       setOpen(false);
     }
-  }, [emojiSet, message, setKeyboardHoveredEmoji, setOpen, setQuery, setQueryMatches]);
+  }, [
+    emojiSet,
+    message,
+    setKeyboardHoveredEmoji,
+    setOpen,
+    setQuery,
+    setQueryMatches,
+  ]);
 
   if (!open) return null;
 
