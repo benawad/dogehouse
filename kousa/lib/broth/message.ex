@@ -36,9 +36,10 @@ defmodule Broth.Message do
 
   @operators %{
     "test:operator" => BrothTest.MessageTest.TestOperator,
-    "user:get_following" => Broth.Message.User.GetFollowing,
     "user:ban" => Broth.Message.User.Ban,
     "user:follow" => Broth.Message.User.Follow,
+    "user:get_following" => Broth.Message.User.GetFollowing,
+    "user:get_follows" => Broth.Message.User.GetFollows,
     "user:update" => Broth.Message.User.Update,
     "room:invite" => Broth.Message.Room.Invite,
     "room:update" => Broth.Message.Room.Update,

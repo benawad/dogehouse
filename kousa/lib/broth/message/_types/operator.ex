@@ -10,9 +10,10 @@ defenum(
     {BrothTest.MessageTest.TestOperator, 255},
     # user commands and casts: 0..63
     {User.GetFollowing, 1},
-    {User.Ban, 2},
+    {User.GetFollows, 2},
     {User.Follow, 3},
-    {User.Update, 4},
+    {User.Ban, 4},
+    {User.Update, 5},
     # room commands and casts: 64..127
     {Room.Invite, 65},
     {Room.Update, 66},
