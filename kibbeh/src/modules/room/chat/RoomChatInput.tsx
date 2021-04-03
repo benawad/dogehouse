@@ -10,6 +10,9 @@ import { customEmojis, CustomEmote } from "./EmoteData";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { useRoomChatStore } from "./useRoomChatStore";
 import { EmojiPicker } from "../../../ui/EmojiPicker";
+import { useEmojiPickerStore } from "../../../global-stores/useEmojiPickerStore";
+import { navigateThroughQueriedUsers } from "./navigateThroughQueriedUsers";
+import { navigateThroughQueriedEmojis } from "./navigateThroughQueriedEmojis";
 
 interface ChatInputProps {
   users: RoomUser[];
@@ -25,53 +28,21 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
     activeUsername,
     setActiveUsername,
   } = useRoomChatMentionStore();
+  const {
+    setOpen,
+    open,
+    queryMatches,
+    setQueryMatches,
+    keyboardHoveredEmoji,
+    setKeyboardHoveredEmoji,
+  } = useEmojiPickerStore();
   const conn = useConn();
   const me = conn.user;
-  const [isEmoji, setIsEmoji] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const [lastMessageTimestamp, setLastMessageTimestamp] = useState<number>(0);
   const { t } = useTypeSafeTranslation();
 
   let position = 0;
-
-  const navigateThroughQueriedUsers = (e: any) => {
-    // Use dom method, GlobalHotkeys apparently don't catch arrow-key events on inputs
-    if (
-      !["ArrowUp", "ArrowDown", "Enter"].includes(e.code) ||
-      !queriedUsernames.length
-    ) {
-      return;
-    }
-
-    e.preventDefault();
-
-    let changeToIndex: number | null = null;
-    const activeIndex = queriedUsernames.findIndex(
-      (username) => username.id === activeUsername
-    );
-
-    if (e.code === "ArrowUp") {
-      changeToIndex =
-        activeIndex === 0 ? queriedUsernames.length - 1 : activeIndex - 1;
-    } else if (e.code === "ArrowDown") {
-      changeToIndex =
-        activeIndex === queriedUsernames.length - 1 ? 0 : activeIndex + 1;
-    } else if (e.code === "Enter") {
-      const selected = queriedUsernames[activeIndex];
-      setMentions([...mentions, selected]);
-      setMessage(
-        `${message.substring(0, message.lastIndexOf("@") + 1)}${
-          selected.username
-        } `
-      );
-      setQueriedUsernames([]);
-    }
-
-    // navigate to next/prev mention suggestion item
-    if (changeToIndex !== null) {
-      setActiveUsername(queriedUsernames[changeToIndex]?.id);
-    }
-  };
 
   const handleSubmit = (
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>
@@ -114,28 +85,26 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
 
   return (
     <form onSubmit={handleSubmit} className={`pb-3 px-4 pt-2 flex flex-col`}>
-      {isEmoji ? (
-        <div className={`mb-1`}>
-          <EmojiPicker
-            emojiSet={customEmojis}
-            onEmojiSelect={(emoji) => {
-              position =
-                (position === 0
-                  ? inputRef!.current!.selectionStart
-                  : position + 2) || 0;
+      <div className={`mb-1`}>
+        <EmojiPicker
+          emojiSet={customEmojis}
+          onEmojiSelect={(emoji) => {
+            position =
+              (position === 0
+                ? inputRef!.current!.selectionStart
+                : position + 2) || 0;
 
-              const newMsg = [
-                message.slice(0, position),
-                (message.endsWith(" ") ? "" : " ") +
-                  (`:${emoji.short_names[0]}:` || "") +
-                  " ",
-                message.slice(position),
-              ].join("");
-              setMessage(newMsg);
-            }}
-          />
-        </div>
-      ) : null}
+            const newMsg = [
+              message.slice(0, position),
+              (message.endsWith(" ") ? "" : " ") +
+                (`:${emoji.short_names[0]}:` || "") +
+                " ",
+              message.slice(position),
+            ].join("");
+            setMessage(newMsg);
+          }}
+        />
+      </div>
       <div className="flex items-stretch">
         <div className="flex-1 mr-2 lg:mr-0 items-center bg-primary-700 rounded-8">
           <Input
@@ -147,16 +116,20 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
             transparent
             ref={inputRef}
             autoComplete="off"
-            onKeyDown={navigateThroughQueriedUsers}
+            onKeyDown={
+              queryMatches.length
+                ? navigateThroughQueriedEmojis
+                : navigateThroughQueriedUsers
+            }
             onFocus={() => {
-              setIsEmoji(false);
+              setOpen(false);
               position = 0;
             }}
           />
           <div
             className={`right-12 cursor-pointer flex flex-row-reverse fill-current text-primary-200 mr-3`}
             onClick={() => {
-              setIsEmoji(!isEmoji);
+              setOpen(!open);
               position = 0;
             }}
           >
