@@ -12,7 +12,7 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
     props
   );
   return (
-    <View>
+    <View style={{ paddingBottom: 20 }}>
       <View
         style={{
           flexDirection: "row",

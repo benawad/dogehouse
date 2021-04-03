@@ -4,10 +4,11 @@ import {
   Room,
   RoomUser,
 } from "@dogehouse/kebab";
-import React from "react";
+import React, { useContext } from "react";
 import { RoomAvatar } from "../../components/avatars/RoomAvatar";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useConn } from "../../shared-hooks/useConn";
+import { UserPreviewModalContext } from "./UserPreviewModalProvider";
 
 export const useSplitUsersIntoSections = ({
   room,
@@ -17,6 +18,7 @@ export const useSplitUsersIntoSections = ({
 }: JoinRoomAndGetInfoResponse) => {
   const conn = useConn();
   const { muted } = useMuteStore();
+  const { setData } = useContext(UserPreviewModalContext);
   const speakers: React.ReactNode[] = [];
   const askingToSpeak: React.ReactNode[] = [];
   const listeners: React.ReactNode[] = [];
@@ -45,8 +47,9 @@ export const useSplitUsersIntoSections = ({
         src={{ uri: u.avatarUrl }}
         muted={canSpeak && isMuted}
         username={u.displayName}
-        style={{ marginRight: 10, marginBottom: 10 }}
+        style={{ marginRight: 5, marginBottom: 10 }}
         activeSpeaker={canSpeak && !isMuted && u.id in activeSpeakerMap}
+        onPress={() => setData({ userId: u.id })}
       />
     );
     // }
