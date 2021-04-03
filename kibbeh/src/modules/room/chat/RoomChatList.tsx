@@ -126,7 +126,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                                 key={i}
                                 className={`inline hover:underline flex-1 focus:outline-none ${
                                   v === me?.username
-                                    ? "bg-blue-500 text-white px-2 rounded text-md"
+                                    ? "bg-accent text-white px-2 rounded text-md"
                                     : ""
                                 }`}
                                 style={{
