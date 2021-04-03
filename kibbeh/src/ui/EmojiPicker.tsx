@@ -21,7 +21,7 @@ export const EmojiPicker: React.FC<EmojiPickerProps> = ({
           <img
             key={emoji.name}
             src={emoji.imageUrl}
-            className={`w-5 max-w-5`}
+            className={`w-5 max-w-5 cursor-pointer`}
             onClick={() => onEmojiSelect(emoji)}
           ></img>
         ))}

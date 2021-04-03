@@ -1,5 +1,7 @@
 import { BaseUser } from "@dogehouse/kebab";
+import normalizeUrl from "normalize-url";
 import React from "react";
+import { linkRegex } from "../lib/constants";
 import { kFormatter } from "../lib/kFormatter";
 import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
@@ -42,7 +44,25 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
           </ApiPreloadLink>
         </div>
       </div>
-      <div className="text-primary-300 mt-2 text-center">{user.bio}</div>
+      <div className="text-primary-300 mt-2 text-center inline">
+        {user.bio.split(" ").map((chunk, i) => {
+          try {
+            return linkRegex.test(chunk) ? (
+              <a
+                href={normalizeUrl(chunk)}
+                rel="noreferrer"
+                className="text-accent hover:underline inline"
+                key={i}
+                target="_blank"
+              >
+                {chunk}&nbsp;
+              </a>
+            ) : (
+              chunk
+            );
+          } catch (err) {}
+        })}
+      </div>
     </div>
   );
 };
