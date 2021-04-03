@@ -15,6 +15,7 @@ import {
   GetTopPublicRoomsResponse,
   JoinRoomAndGetInfoResponse,
   GetRoomUsersResponse,
+  NewRoomDetailsResponse,
 } from "./responses";
 
 type Handler<Data> = (data: Data) => void;
