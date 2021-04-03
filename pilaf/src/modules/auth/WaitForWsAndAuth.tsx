@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import { ActivityIndicator, Text } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { ActivityIndicator, Text, View } from "react-native";
 import { colors, h4 } from "../../constants/dogeStyle";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 import { useVerifyLoggedIn } from "./useVerifyLoggedIn";
@@ -20,7 +19,7 @@ export const WaitForWsAndAuth: React.FC<WaitForWsAndAuthProps> = ({
   if (!conn) {
     // @todo make this better
     return (
-      <SafeAreaView
+      <View
         style={{
           flex: 1,
           justifyContent: "center",
@@ -30,7 +29,7 @@ export const WaitForWsAndAuth: React.FC<WaitForWsAndAuthProps> = ({
       >
         <ActivityIndicator />
         <Text style={{ marginTop: 20, ...h4 }}>Going to the moon...</Text>
-      </SafeAreaView>
+      </View>
     );
   }
 

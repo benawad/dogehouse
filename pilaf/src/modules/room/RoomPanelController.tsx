@@ -22,6 +22,7 @@ import { setMute, useSetMute } from "../../shared-hooks/useSetMute";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { RoomChat } from "./chat/RoomChat";
 import { useRoomChatStore } from "./chat/useRoomChatStore";
+import { UserPreviewModal } from "../../components/UserPreview";
 interface RoomPanelControllerProps {
   roomId?: string | undefined;
 }
@@ -60,12 +61,8 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({
     },
     [roomId]
   );
-  const [clearChat] = useRoomChatStore((s) => [s.clearChat]);
 
   useEffect(() => {
-    if (isANewRoom) {
-      clearChat();
-    }
     if (isLoading) {
       return;
     }
@@ -92,30 +89,34 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({
   const roomCreator = data.users.find((x) => x.id === data.room.creatorId);
 
   return (
-    <View style={{ flex: 1, backgroundColor: colors.primary900 }}>
-      <RoomHeader
-        showBackButton={true}
-        onLeavePress={() => {
-          leaveRoom([]);
-          navigation.navigate("Home");
-        }}
-        onMutePress={() => {
-          setInternalMute(!muted);
-        }}
-        onSpeakPress={() => conn.connection.send("ask_to_speak", {})}
-        muted={muted}
-        canAskToSpeak={true}
-      />
-      <KeyboardAvoidingView behavior={"padding"} style={{ flex: 1 }}>
-        <ScrollView
-          style={styles.scrollView}
-          contentContainerStyle={[styles.avatarsContainer]}
-        >
-          <RoomUsersPanel {...data} />
-        </ScrollView>
-        <RoomChat {...data} style={{ flex: 1 }} />
-      </KeyboardAvoidingView>
-    </View>
+    <>
+      <View style={{ flex: 1, backgroundColor: colors.primary900 }}>
+        <RoomHeader
+          showBackButton={true}
+          onLeavePress={() => {
+            leaveRoom([]);
+            setCurrentRoomId(null);
+            navigation.navigate("Home");
+          }}
+          onMutePress={() => {
+            setInternalMute(!muted);
+          }}
+          onSpeakPress={() => conn.connection.send("ask_to_speak", {})}
+          muted={muted}
+          canAskToSpeak={true}
+        />
+        <KeyboardAvoidingView behavior={"padding"} style={{ flex: 1 }}>
+          <ScrollView
+            style={styles.scrollView}
+            contentContainerStyle={[styles.avatarsContainer]}
+          >
+            <RoomUsersPanel {...data} />
+          </ScrollView>
+          <RoomChat {...data} style={{ flex: 1 }} />
+        </KeyboardAvoidingView>
+      </View>
+      <UserPreviewModal {...data} />
+    </>
   );
 };
 
