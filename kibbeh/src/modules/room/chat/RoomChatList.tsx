@@ -118,23 +118,25 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
 
                         case "mention":
                           return (
-                            <button
-                              onClick={() => {
-                                setData({ userId: v });
-                              }}
-                              key={i}
-                              className={`inline hover:underline flex-1 focus:outline-none ${
-                                v === me?.username
-                                  ? "bg-blue-500 text-white px-2 rounded text-md"
-                                  : ""
-                              }`}
-                              style={{
-                                textDecorationColor: m.color,
-                                color: v === me?.username ? "" : m.color,
-                              }}
-                            >
-                              @{v}{" "}
-                            </button>
+                            <>
+                              <button
+                                onClick={() => {
+                                  setData({ userId: v });
+                                }}
+                                key={i}
+                                className={`inline hover:underline flex-1 focus:outline-none ${
+                                  v === me?.username
+                                    ? "bg-blue-500 text-white px-2 rounded text-md"
+                                    : ""
+                                }`}
+                                style={{
+                                  textDecorationColor: m.color,
+                                  color: v === me?.username ? "" : m.color,
+                                }}
+                              >
+                                @{v}
+                              </button>{" "}
+                            </>
                           );
                         case "link":
                           return (
@@ -142,7 +144,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                               target="_blank"
                               rel="noreferrer noopener"
                               href={v}
-                              className={`inline flex-1 hover:underline text-blue-500`}
+                              className={`inline flex-1 hover:underline text-accent`}
                               key={i}
                             >
                               {normalizeUrl(v, { stripProtocol: true })}{" "}
