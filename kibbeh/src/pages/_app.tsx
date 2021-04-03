@@ -38,7 +38,7 @@ function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     if (isElectron()) {
       const ipcRenderer = window.require("electron").ipcRenderer;
-      ipcRenderer.send("@dogehouse/loaded", "next");
+      ipcRenderer.send("@dogehouse/loaded", "kibbeh");
     }
   }, []);
 

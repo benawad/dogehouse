@@ -175,7 +175,7 @@ function createWindow() {
     event.sender.send('@app/version', app.getVersion());
   });
   ipcMain.on('@dogehouse/loaded', (event, doge) => {
-    if (doge === "next") {
+    if (doge === "kibbeh") {
       mainWindow.setSize(1500, 800);
     } else {
       mainWindow.setSize(560, 1000);
