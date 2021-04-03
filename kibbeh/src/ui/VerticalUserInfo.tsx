@@ -15,7 +15,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
   const { t } = useTypeSafeTranslation();
   return (
     <div className="flex-col rounded-8 pt-5 px-6 pb-4 w-full items-center">
-      <SingleUser size="default" src={user.avatarUrl} />
+      <SingleUser size="default" src={user.avatarUrl} username={user.username} />
       <div className="mt-2">
         <span className="text-primary-100 font-bold h-full break-all line-clamp-1">
           {user.displayName}
@@ -46,8 +46,8 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
           </ApiPreloadLink>
         </div>
       </div>
-      <div className="h-5l w-full overflow-y-scroll mt-2 scrollbar-thin scrollbar-thumb-primary-700">
-        <p className="text-primary-300 mt-2 text-center table w-full truncate whitespace-pre break-words">
+      <div className="h-5l w-full mt-2 scrollbar-thin scrollbar-thumb-primary-700">
+        <p className="text-primary-300 mt-2 text-center w-full truncate whitespace-pre-wrap break-words line-clamp-6">
           {user.bio.split(" ").map((chunk, i) => {
             try {
               return linkRegex.test(chunk) ? (

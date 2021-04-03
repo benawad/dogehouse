@@ -1759,6 +1759,7 @@ __metadata:
     "@testing-library/react": ^11.2.5
     "@types/emoji-mart": ^3.0.4
     "@types/hark": ^1.2.1
+    "@types/jest": ^26.0.22
     "@types/lodash": ^4.14.168
     "@types/node": ^14.14.37
     "@types/nprogress": ^0.2.0
