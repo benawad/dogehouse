@@ -174,6 +174,13 @@ function createWindow() {
   ipcMain.on('@app/version', (event, args) => {
     event.sender.send('@app/version', app.getVersion());
   });
+  ipcMain.on('@dogehouse/loaded', (event, doge) => {
+    if (doge === "next") {
+      mainWindow.setSize(1000, 1500);
+    } else {
+      mainWindow.setSize(560, 1000);
+    }
+  });
   if (isLinux) {
     skipUpdateCheck(splash);
   }
