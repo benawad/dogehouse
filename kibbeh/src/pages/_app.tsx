@@ -11,18 +11,31 @@ import { SoundEffectPlayer } from "../modules/sound-effects/SoundEffectPlayer";
 import ReactModal from "react-modal";
 import { ErrorToastController } from "../modules/errors/ErrorToastController";
 import { WebRtcApp } from "../modules/webrtc/WebRtcApp";
-import {
-  MainWsHandlerProvider,
-  useMainWsHandler,
-} from "../shared-hooks/useMainWsHandler";
+import { MainWsHandlerProvider } from "../shared-hooks/useMainWsHandler";
+import NProgress from "nprogress";
+import Router from "next/router";
+import "nprogress/nprogress.css";
+import { KeybindListener } from "../modules/keyboard-shortcuts/KeybindListener";
+import { InvitedToJoinRoomModal } from "../shared-components/InvitedToJoinRoomModal";
+import { ConfirmModal } from "../shared-components/ConfirmModal";
 
 if (!isServer) {
   init_i18n();
 }
 
+Router.events.on("routeChangeStart", () => {
+  NProgress.start();
+});
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
+
 ReactModal.setAppElement("#__next");
 
 function App({ Component, pageProps }: AppProps) {
+  if (isServer && (Component as PageComponent<unknown>).ws) {
+    return null;
+  }
+
   return (
     <WebSocketProvider
       shouldConnect={!!(Component as PageComponent<unknown>).ws}
@@ -33,6 +46,9 @@ function App({ Component, pageProps }: AppProps) {
           <SoundEffectPlayer />
           <ErrorToastController />
           <WebRtcApp />
+          <KeybindListener />
+          <InvitedToJoinRoomModal />
+          <ConfirmModal />
         </MainWsHandlerProvider>
       </QueryClientProvider>
     </WebSocketProvider>

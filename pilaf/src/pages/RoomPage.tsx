@@ -1,10 +1,11 @@
-import { RouteProp } from "@react-navigation/native";
-import React from "react";
+import { RouteProp, useFocusEffect } from "@react-navigation/native";
+import React, { useCallback } from "react";
 import { StyleSheet, View } from "react-native";
 import { TitledHeader } from "../components/header/TitledHeader";
 import { colors } from "../constants/dogeStyle";
 import { WaitForWsAndAuth } from "../modules/auth/WaitForWsAndAuth";
 import { RoomPanelController } from "../modules/room/RoomPanelController";
+import { useOnRoomPage } from "../modules/room/useOnRoomPage";
 import { RootStackParamList } from "../navigators/MainNavigator";
 
 type RoomPageRouteProp = RouteProp<RootStackParamList, "Room">;
@@ -14,6 +15,15 @@ type RoomPageProps = {
 };
 
 export const RoomPage: React.FC<RoomPageProps> = ({ route }) => {
+  const { setOnRoomPage } = useOnRoomPage();
+  useFocusEffect(
+    useCallback(() => {
+      setOnRoomPage(true);
+      return () => {
+        setOnRoomPage(false);
+      };
+    }, [])
+  );
   return (
     <WaitForWsAndAuth>
       <RoomPanelController roomId={route.params.roomId} />

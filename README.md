@@ -9,7 +9,7 @@
     <img src="https://img.shields.io/discord/810571477316403233?style=for-the-badge" alt="discord - users online" />
   </a>
   <a href="https://dogehouse.tv">
-    <img src="https://img.shields.io/badge/dynamic/json?color=blue&label=Dogehouse&query=%24.totalOnline&suffix=%20online&url=https%3A%2F%2Fapi.dogehouse.xyz%2Fv1%2Fstatistics&style=for-the-badge&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAZwAAAGcB1SjUJgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFcSURBVCiRnZBPSwJhEId/s2zsKljuprYahogeQqQM6lAQfZiIQPwyZnXqo3QKig7RLSzNFMv/uSK1WsJOh9xtIY1wTgPvPO/vmQFmLLKabr2QJtABgPDkQW6aQE4Nxo9tUG8UM2Bk/5VEvO/V4mcCAMBExnowTXP4F8hMaQAQxh4KALRanfvV1I7M4JHjo7d3w6g62OUfcKzs86va7dV5mUBz1tTF5XUvltgK9/t9CxYAQBwLEEAYfY4+ZFledKptbqyL5fxNXZIk62jkSCR+fqndaZFEIBRNeozBsGaBbrdLkyQp6NiSHIlgbSmgpdaSvb3d7arbJSemn4fYjtXrxSYA/2tXL6iKN0xErukgOkow5reO0wZAC/Me31OlWtH1Xu2xVH4wjEHnF8bQbVUGnxIoJ4qiGo2sqACgKN7JeQKObFVmJr1ROiRwGkBoimKbwVlFi50Qfe85U30Bu1l23sapumgAAAAASUVORK5CYII=" alt="dogehouse - users online" />
+    <img src="https://img.shields.io/endpoint?color=FD4D4D&style=for-the-badge&url=https%3A%2F%2Fapi.dogehouse.xyz%2Fv1%2Fshields" alt="dogehouse - users online" />
   </a>
 </p>
 
@@ -57,11 +57,22 @@ A desktop app built with [electron](https://www.electronjs.org/) is available fo
 Download links are in [the releases section](https://github.com/benawad/dogehouse/releases/latest)
 
 Dogehouse is also available in the AUR
+
 ```bash
 yay -S dogehouse
 ```
 
-__*Notes:*__
+And in an Ubuntu ppa
+
+```bash
+echo "deb http://ppa.dogehouse.tv/ ./" | sudo tee -a /etc/apt/sources.list > /dev/null
+wget -q -O - http://ppa.dogehouse.tv/KEY.gpg | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install dogehouse
+```
+
+**_Notes:_**
+
 - If a warning message pops up on Windows, go to 'more info' and select 'Run Anyway'
 
 ## DogeReviewers

@@ -37,7 +37,11 @@
       "startPrivateRoom": "비공개 채팅방에 입장하기."
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "방 만들기", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "방 만들기",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "채팅방이 삭제됨. 이전 페이지로 돌아가기.",
       "shareRoomLink": "채팅방 링크 공유",

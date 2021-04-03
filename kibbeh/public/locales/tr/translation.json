@@ -37,7 +37,11 @@
       "startPrivateRoom": "Onlarla özel bir oda oluştur"
     },
     "followList": { "followHim": "Takip Et", "followingHim": "Takiptesin" },
-    "home": { "createRoom": "Oda oluştur", "refresh": "Yenile" },
+    "home": {
+      "createRoom": "Oda oluştur",
+      "refresh": "Yenile",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Oda gitti, geri dön",
       "shareRoomLink": "Oda bağlantısını paylaş",

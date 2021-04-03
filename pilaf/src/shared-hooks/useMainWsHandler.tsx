@@ -6,10 +6,10 @@ import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
 import { useRoomChatMentionStore } from "../global-stores/useRoomChatMentionStore";
 // import { showErrorToast } from "../lib/showErrorToast";
 import { useTokenStore } from "../modules/auth/useTokenStore";
-// import {
-//   RoomChatMessageToken,
-//   useRoomChatStore,
-// } from "../modules/room/chat/useRoomChatStore";
+import {
+  RoomChatMessageToken,
+  useRoomChatStore,
+} from "../modules/room/chat/useRoomChatStore";
 import { mergeRoomPermission } from "../modules/webrtc/utils/mergeRoomPermission";
 import { WebSocketContext } from "../modules/ws/WebSocketProvider";
 import { setMute } from "./useSetMute";
@@ -20,13 +20,10 @@ export const useMainWsHandler = () => {
   const updateQuery = useTypeSafeUpdateQuery();
 
   useEffect(() => {
-    console.log("USE EFFECT");
     if (!conn) {
-      console.log("RETURN");
       return;
     }
 
-    console.log("ADD LISTENERS");
     const unsubs = [
       conn.addListener<any>(
         "new_room_details",
@@ -47,35 +44,32 @@ export const useMainWsHandler = () => {
         }
       ),
       conn.addListener<any>("chat_user_banned", ({ userId }) => {
-        // useRoomChatStore.getState().addBannedUser(userId);
+        useRoomChatStore.getState().addBannedUser(userId);
       }),
       conn.addListener<any>("new_chat_msg", ({ msg }) => {
-        // const { open } = useRoomChatStore.getState();
-        // useRoomChatStore.getState().addMessage(msg);
-        // const { isRoomChatScrolledToTop } = useRoomChatStore.getState();
-        // if (
-        //   (!open || !document.hasFocus() || isRoomChatScrolledToTop) &&
-        //   !!msg.tokens.filter(
-        //     (t: RoomChatMessageToken) =>
-        //       t.t === "mention" &&
-        //       t.v?.toLowerCase() === conn.user.username.toLowerCase()
-        //   ).length
-        // ) {
-        //   useRoomChatMentionStore.getState().incrementIAmMentioned();
-        //   if (isElectron()) {
-        //     ipcRenderer.send("@notification/mention", msg);
-        //   }
-        // }
+        const { open } = useRoomChatStore.getState();
+        useRoomChatStore.getState().addMessage(msg);
+        const { isRoomChatScrolledToTop } = useRoomChatStore.getState();
+        if (
+          (!open || isRoomChatScrolledToTop) &&
+          !!msg.tokens.filter(
+            (t: RoomChatMessageToken) =>
+              t.t === "mention" &&
+              t.v?.toLowerCase() === conn.user.username.toLowerCase()
+          ).length
+        ) {
+          useRoomChatMentionStore.getState().incrementIAmMentioned();
+        }
       }),
       conn.addListener<any>("message_deleted", ({ messageId, deleterId }) => {
-        // const { messages, setMessages } = useRoomChatStore.getState();
-        // setMessages(
-        //   messages.map((m) => ({
-        //     ...m,
-        //     deleted: m.id === messageId || !!m.deleted,
-        //     deleterId: m.id === messageId ? deleterId : m.deleterId,
-        //   }))
-        // );
+        const { messages, setMessages } = useRoomChatStore.getState();
+        setMessages(
+          messages.map((m) => ({
+            ...m,
+            deleted: m.id === messageId || !!m.deleted,
+            deleterId: m.id === messageId ? deleterId : m.deleterId,
+          }))
+        );
       }),
       conn.addListener<any>(
         "room_privacy_change",
@@ -231,7 +225,6 @@ export const useMainWsHandler = () => {
         );
       }),
       conn.addListener<any>("user_left_room", ({ userId, roomId }) => {
-        console.log("user left the room");
         updateQuery(["joinRoomAndGetInfo", roomId], (data) => {
           if ("error" in data) {
             return data;
@@ -255,7 +248,6 @@ export const useMainWsHandler = () => {
       conn.addListener<any>(
         "new_user_join_room",
         ({ user, muteMap, roomId }) => {
-          console.log("user join the room");
           updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
             "error" in data
               ? data

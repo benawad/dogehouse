@@ -38,7 +38,11 @@
       "startPrivateRoom": "luo yksityinen huone heidän kanssaan"
     },
     "followList": { "followHim": "seuraa", "followingHim": "seurannassa" },
-    "home": { "createRoom": "Luo huone", "refresh": "Päivitä" },
+    "home": {
+      "createRoom": "Luo huone",
+      "refresh": "Päivitä",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "huone poistettu, palaa takaisin",
       "shareRoomLink": "jaa linkki huoneeseen",

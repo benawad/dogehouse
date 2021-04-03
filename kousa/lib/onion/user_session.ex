@@ -34,10 +34,13 @@ defmodule Onion.UserSession do
   def start_supervised(initial_values) do
     callers = [self() | Process.get(:"$callers", [])]
 
-    DynamicSupervisor.start_child(
-      Onion.UserSessionDynamicSupervisor,
-      {__MODULE__, Keyword.merge(initial_values, callers: callers)}
-    )
+    case DynamicSupervisor.start_child(
+           Onion.UserSessionDynamicSupervisor,
+           {__MODULE__, Keyword.merge(initial_values, callers: callers)}
+         ) do
+      {:error, {:already_started, pid}} -> {:ignored, pid}
+      error -> error
+    end
   end
 
   def child_spec(init), do: %{super(init) | id: Keyword.get(init, :user_id)}
@@ -124,7 +127,7 @@ defmodule Onion.UserSession do
 
   defp set_pid(pid, _reply, state) do
     if state.pid do
-      Process.exit(state.pid, :kill)
+      send(state.pid, {:kill})
     else
       Beef.Users.set_online(state.user_id)
     end
@@ -134,11 +137,16 @@ defmodule Onion.UserSession do
     {:reply, :ok, %{state | pid: pid}}
   end
 
-  ##############################################################################
-  ## MESSAGING API.
-  ## TODO: change the first one to a call
+  @all [{{:_, :"$1", :_}, [], [:"$1"]}]
+  def force_reconnects(rabbit_id) do
+    Onion.UserSessionRegistry
+    |> Registry.select(@all)
+    |> Enum.each(&reconnect(&1, rabbit_id))
+  end
 
-  defp reconnect_to_voice_server_impl(voice_server_id, state) do
+  def reconnect(user_pid, rabbit_id), do: GenServer.cast(user_pid, {:reconnect, rabbit_id})
+
+  defp reconnect_impl(voice_server_id, state) do
     if state.pid || state.current_room_id do
       case Onion.RoomSession.get(state.current_room_id, :voice_server_id) do
         ^voice_server_id ->
@@ -152,6 +160,10 @@ defmodule Onion.UserSession do
 
     {:noreply, state}
   end
+
+  ##############################################################################
+  ## MESSAGING API.
+  ## TODO: change the first one to a call
 
   defp handle_disconnect(pid, state = %{pid: pid}) do
     Beef.Users.set_offline(state.user_id)
@@ -173,6 +185,9 @@ defmodule Onion.UserSession do
   def handle_cast({:send_ws, platform, msg}, state),
     do: send_ws_impl(platform, msg, state)
 
+  def handle_cast({:reconnect, voice_server_id}, state),
+    do: reconnect_impl(voice_server_id, state)
+
   def handle_cast({:set_mute, value}, state), do: set_mute_impl(value, state)
   def handle_cast({:new_tokens, tokens}, state), do: new_tokens_impl(tokens, state)
   def handle_cast({:set_state, info}, state), do: set_state_impl(info, state)
@@ -180,9 +195,6 @@ defmodule Onion.UserSession do
   def handle_call(:get_info_for_msg, reply, state), do: get_info_for_msg_impl(reply, state)
   def handle_call({:get, key}, reply, state), do: get_impl(key, reply, state)
   def handle_call({:set_pid, pid}, reply, state), do: set_pid(pid, reply, state)
-
-  def handle_info({:reconnect_to_voice_server, voice_server_id}, state),
-    do: reconnect_to_voice_server_impl(voice_server_id, state)
 
   def handle_info({:DOWN, _ref, :process, pid, _reason}, state), do: handle_disconnect(pid, state)
 end
