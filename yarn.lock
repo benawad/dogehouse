@@ -1813,6 +1813,7 @@ __metadata:
     tslib: ^2.1.0
     typescript: 3.9.5
     uuid: ^8.3.2
+    wakelock-lazy-polyfill: ^1.0.0
     zustand: ^3.3.3
   languageName: unknown
   linkType: soft
@@ -17976,6 +17977,13 @@ typescript@^4.2.3:
   dependencies:
     xml-name-validator: ^3.0.0
   checksum: 2327c8a6c7302ed4b685125c193f4b4b859ee12cd6e1938407a02dda9cfcfff7f0c103de387b268444c4b61d7892d5260b5c684eb7519886fb3a07798bd565ba
+  languageName: node
+  linkType: hard
+
+"wakelock-lazy-polyfill@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "wakelock-lazy-polyfill@npm:1.0.0"
+  checksum: 70e4b23b1bd73ce46edd2a745bd354ff80a87a6d07a055d704a5406350142aaa94a643d0860b56d574ba04cd202f0d42b1c2e1d4650ba281571a09e5a67b56fb
   languageName: node
   linkType: hard
 
