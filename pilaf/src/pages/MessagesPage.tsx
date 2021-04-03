@@ -1,10 +1,8 @@
 import React from "react";
-import { StyleSheet, ScrollView, Text } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { HeaderBase } from "../components/header/HeaderBase";
+import { ScrollView, StyleSheet } from "react-native";
 import { TitledHeader } from "../components/header/TitledHeader";
 import { MessageElement } from "../components/MessageElement";
-import { colors, fontFamily } from "../constants/dogeStyle";
+import { colors } from "../constants/dogeStyle";
 
 const messageMocks = [
   {

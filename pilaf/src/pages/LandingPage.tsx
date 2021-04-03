@@ -1,20 +1,31 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { SignInButton } from "../components/buttons/SignInButton";
-import { SigninWithGithubButton } from "../components/buttons/SigninWithGithub";
-import { colors, h1, h3, small } from "../constants/dogeStyle";
+import { colors, h3, small } from "../constants/dogeStyle";
 import { useSaveTokensFromQueryParams } from "../modules/auth/useSaveTokensFromQueryParams";
 
 export const LandingPage: React.FC = () => {
   useSaveTokensFromQueryParams();
-
+  const inset = useSafeAreaInsets();
   return (
-    <SafeAreaView style={styles.safeAreaView}>
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Image source={require("../assets/images/Logo.png")} />
+    <View
+      style={[
+        styles.container,
+        { paddingTop: inset.top, paddingBottom: inset.bottom },
+      ]}
+    >
+      <View
+        style={{ flex: 1, alignItems: "flex-start", justifyContent: "center" }}
+      >
+        <Image
+          source={require("../assets/images/Logo.png")}
+          style={{ width: "80%", aspectRatio: 168 / 40, height: undefined }}
+        />
       </View>
-      <View style={{ flex: 1 }}>
+      <View
+        style={{ flexGrow: 1, alignItems: "center", justifyContent: "center" }}
+      >
         <Text style={styles.title}>Welcome</Text>
         <View
           style={{
@@ -65,7 +76,7 @@ export const LandingPage: React.FC = () => {
           />
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -81,7 +92,7 @@ const styles = StyleSheet.create({
     color: colors.accent,
     textAlignVertical: "center",
   },
-  safeAreaView: {
+  container: {
     flex: 1,
     backgroundColor: colors.primary800,
     paddingHorizontal: 40,

@@ -97,10 +97,3 @@ export const SearchPage: React.FC = () => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  safeAreaView: {
-    flex: 1,
-    backgroundColor: colors.primary900,
-  },
-});
