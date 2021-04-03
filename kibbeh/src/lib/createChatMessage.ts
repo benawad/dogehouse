@@ -85,9 +85,7 @@ export const createChatMessage = (
       }
     });
   } else {
-    message.split(" ").forEach((item) => {
-      testAndPushToken(item);
-    });
+    message.split(" ").forEach((item) => testAndPushToken(item));
   }
 
   return {

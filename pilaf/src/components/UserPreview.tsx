@@ -1,5 +1,5 @@
-import React, { ReactNode } from "react";
-import { User } from "@dogehouse/kebab";
+import React, { ReactNode, useContext, useState } from "react";
+import { JoinRoomAndGetInfoResponse, RoomUser, User } from "@dogehouse/kebab";
 import { SingleUserAvatar } from "./avatars/SingleUserAvatar";
 import { Tag } from "./Tag";
 import { Button } from "./buttons/Buttons";
@@ -24,49 +24,94 @@ import {
   small,
   smallBold,
 } from "../constants/dogeStyle";
+import { Spinner } from "./Spinner";
+import Modal from "react-native-modal";
+import { useTypeSafeMutation } from "../shared-hooks/useTypeSafeMutation";
+import { useTypeSafeQuery } from "../shared-hooks/useTypeSafeQuery";
+import {
+  RoomChatMessage,
+  useRoomChatStore,
+} from "../modules/room/chat/useRoomChatStore";
+import { useCurrentRoomInfo } from "../shared-hooks/useCurrentRoomInfo";
+import { useConn } from "../shared-hooks/useConn";
+import { UserPreviewModalContext } from "../modules/room/UserPreviewModalProvider";
 
 export type UserPreviewProps = ViewProps & {
-  user: User;
-  volume: number;
-  isAdmin: boolean;
-  onFollowPress?: () => void;
-  onSendDMPress?: () => void;
+  message?: RoomChatMessage;
+  id: string;
+  isMe: boolean;
+  iAmCreator: boolean;
+  iAmMod: boolean;
+  isCreator: boolean;
+  roomPermissions?: RoomUser["roomPermissions"];
+  onClosePress: () => void;
   onVolumeChange?: (volume: number) => void;
-  onMoveToListenerPress?: () => void;
-  onKickFromRoomPress?: () => void;
-  onBanFromChatPress?: () => void;
-  onBanFromRoomPress?: () => void;
 };
 
 export const UserPreview: React.FC<UserPreviewProps> = ({
   style,
-  user,
-  volume,
-  isAdmin,
-  onFollowPress,
-  onSendDMPress,
+  id,
+  isMe,
+  iAmCreator,
+  iAmMod,
+  isCreator,
+  message,
+  roomPermissions,
+  onClosePress,
   onVolumeChange,
-  onMoveToListenerPress,
-  onKickFromRoomPress,
-  onBanFromChatPress,
-  onBanFromRoomPress,
 }) => {
+  const { mutateAsync: setListener } = useTypeSafeMutation("setListener");
+  const { mutateAsync: changeModStatus } = useTypeSafeMutation(
+    "changeModStatus"
+  );
+  const { mutateAsync: changeRoomCreator } = useTypeSafeMutation(
+    "changeRoomCreator"
+  );
+  const { mutateAsync: addSpeaker } = useTypeSafeMutation("addSpeaker");
+  const { mutateAsync: deleteRoomChatMessage } = useTypeSafeMutation(
+    "deleteRoomChatMessage"
+  );
+  const { mutateAsync: blockFromRoom } = useTypeSafeMutation("blockFromRoom");
+  const { mutateAsync: banFromRoomChat } = useTypeSafeMutation(
+    "banFromRoomChat"
+  );
+  const { data, isLoading } = useTypeSafeQuery(["getUserProfile", id], {}, [
+    id,
+  ]);
+  const bannedUserIdMap = useRoomChatStore((s) => s.bannedUserIdMap);
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  if (!data) {
+    return <Text>This user is gone.</Text>;
+  }
+
+  const canDoModStuffOnThisUser = !isMe && (iAmCreator || iAmMod) && !isCreator;
+
   return (
     <View style={[style, styles.container]}>
+      <TouchableOpacity
+        style={{ position: "absolute", top: 20, right: 20 }}
+        onPress={onClosePress}
+      >
+        <Image source={require("../assets/images/plus.png")} />
+      </TouchableOpacity>
       <SingleUserAvatar
-        src={{ uri: user.avatarUrl }}
-        isOnline={user.online}
+        src={{ uri: data.avatarUrl }}
+        isOnline={data.online}
         style={styles.avatar}
       />
       <Text style={styles.displayName}>
-        {user.displayName}
+        {data.displayName}
         <Text style={styles.username}>
-          {"  "}@{user.username}
+          {"  "}@{data.username}
         </Text>
       </Text>
       <View style={styles.tagsContainer}>
         {["DC", "DS"].map((tag) => (
-          <Tag style={{ marginRight: 5 }}>
+          <Tag style={{ marginRight: 5, height: 16 }}>
             <Text
               style={{ ...smallBold, fontSize: fontSize.xs, lineHeight: 16 }}
             >
@@ -74,8 +119,8 @@ export const UserPreview: React.FC<UserPreviewProps> = ({
             </Text>
           </Tag>
         ))}
-        {!user.followsYou && (
-          <Tag style={{ marginLeft: 5 }}>
+        {!data.followsYou && (
+          <Tag style={{ marginLeft: 5, height: 16 }}>
             <Text
               style={{
                 ...smallBold,
@@ -90,12 +135,12 @@ export const UserPreview: React.FC<UserPreviewProps> = ({
         )}
       </View>
       <View style={styles.tagsContainer}>
-        <Text style={{ ...paragraphBold }}>{user.numFollowers}</Text>
+        <Text style={{ ...paragraphBold }}>{data.numFollowers}</Text>
         <Text style={{ ...paragraph, color: colors.primary300, marginLeft: 7 }}>
           {"followers"}
         </Text>
         <Text style={{ ...paragraphBold, marginLeft: 20 }}>
-          {user.numFollowing}
+          {data.numFollowing}
         </Text>
         <Text style={{ ...paragraph, color: colors.primary300, marginLeft: 7 }}>
           {"following"}
@@ -146,7 +191,7 @@ export const UserPreview: React.FC<UserPreviewProps> = ({
             thumbStyle={{ backgroundColor: colors.primary100 }}
             trackStyle={{ backgroundColor: colors.primary300 }}
             onValueChange={onVolumeChange}
-            value={volume}
+            value={100}
             minimumValue={0}
             maximumValue={200}
             minimumTrackTintColor={colors.primary300}
@@ -157,7 +202,7 @@ export const UserPreview: React.FC<UserPreviewProps> = ({
             style={{ marginLeft: 15 }}
           />
         </View>
-        {isAdmin && (
+        {canDoModStuffOnThisUser && (
           <>
             <Text
               style={{
@@ -169,63 +214,158 @@ export const UserPreview: React.FC<UserPreviewProps> = ({
             >
               Manage
             </Text>
-            <View
-              style={{
-                marginTop: 15,
-                flexDirection: "row",
-              }}
-            >
-              <Button
-                title={"Move to listener"}
+            {!isMe && iAmCreator && (
+              <View
                 style={{
-                  marginHorizontal: 40,
-                  padding: null,
-                  flexGrow: 1,
+                  marginTop: 15,
+                  flexDirection: "row",
                 }}
-                color="secondary"
-              />
-            </View>
-            <View
-              style={{
-                marginTop: 10,
-                flexDirection: "row",
-              }}
-            >
-              <Button
-                title={"Kick from room"}
+              >
+                <Button
+                  title={
+                    roomPermissions?.isMod
+                      ? "Remove moderator"
+                      : "Make moderator"
+                  }
+                  style={{
+                    marginHorizontal: 40,
+                    padding: null,
+                    flexGrow: 1,
+                  }}
+                  color="secondary"
+                  onPress={() => {
+                    changeModStatus([id, !roomPermissions?.isMod]);
+                    onClosePress();
+                  }}
+                />
+              </View>
+            )}
+            {canDoModStuffOnThisUser &&
+              !roomPermissions?.isSpeaker &&
+              roomPermissions?.askedToSpeak && (
+                <View
+                  style={{
+                    marginTop: 10,
+                    flexDirection: "row",
+                  }}
+                >
+                  <Button
+                    title={"Add as speaker"}
+                    style={{
+                      marginHorizontal: 40,
+                      padding: null,
+                      flexGrow: 1,
+                    }}
+                    color="secondary"
+                    onPress={() => {
+                      addSpeaker([id]);
+                      onClosePress();
+                    }}
+                  />
+                </View>
+              )}
+            {canDoModStuffOnThisUser && roomPermissions?.isSpeaker && (
+              <View
                 style={{
-                  marginHorizontal: 40,
-                  padding: null,
-                  flexGrow: 1,
+                  marginTop: 10,
+                  flexDirection: "row",
                 }}
-                color="secondary"
-              />
-            </View>
-            <View
-              style={{
-                marginTop: 10,
-                paddingHorizontal: 40,
-                flexDirection: "row",
-              }}
-            >
-              <Button
-                title={"Ban from chat"}
+              >
+                <Button
+                  title={"Move to listener"}
+                  style={{
+                    marginHorizontal: 40,
+                    padding: null,
+                    flexGrow: 1,
+                  }}
+                  color="secondary"
+                  onPress={() => {
+                    setListener([id]);
+                    onClosePress();
+                  }}
+                />
+              </View>
+            )}
+            {!!message && (
+              <View
                 style={{
-                  paddingHorizontal: null,
-                  flexGrow: 1,
+                  marginTop: 10,
+                  flexDirection: "row",
                 }}
-                color="secondary"
-              />
-              <Button
-                title={"Ban from room"}
-                style={{
-                  paddingHorizontal: null,
-                  flexGrow: 1,
-                  marginLeft: 10,
-                }}
-                color="secondary"
-              />
-            </View>
+              >
+                <Button
+                  title={"Delete message"}
+                  style={{
+                    marginHorizontal: 40,
+                    padding: null,
+                    flexGrow: 1,
+                  }}
+                  color="secondary"
+                  onPress={() => {
+                    deleteRoomChatMessage([message.userId, message.id]);
+                    onClosePress();
+                  }}
+                />
+              </View>
+            )}
+            {canDoModStuffOnThisUser &&
+              !(id in bannedUserIdMap) &&
+              (iAmCreator || !roomPermissions?.isMod) && (
+                <View
+                  style={{
+                    marginTop: 10,
+                    flexDirection: "row",
+                  }}
+                >
+                  <Button
+                    title={"Kick from room"}
+                    style={{
+                      marginHorizontal: 40,
+                      padding: null,
+                      flexGrow: 1,
+                    }}
+                    color="secondary"
+                    onPress={() => {}}
+                  />
+                </View>
+              )}
+            {canDoModStuffOnThisUser &&
+              !(id in bannedUserIdMap) &&
+              (iAmCreator || !roomPermissions?.isMod) && (
+                <View
+                  style={{
+                    marginTop: 10,
+                    paddingHorizontal: 40,
+                    flexDirection: "row",
+                  }}
+                >
+                  <Button
+                    title={"Ban from chat"}
+                    style={{
+                      paddingHorizontal: null,
+                      flexGrow: 1,
+                    }}
+                    color="secondary"
+                    onPress={() => {
+                      banFromRoomChat([id]);
+                      onClosePress();
+                    }}
+                  />
+                  <Button
+                    title={"Ban from room"}
+                    style={{
+                      paddingHorizontal: null,
+                      flexGrow: 1,
+                      marginLeft: 10,
+                    }}
+                    color="secondary"
+                    onPress={() => {
+                      blockFromRoom([id]);
+                      onClosePress();
+                    }}
+                  />
+                </View>
+              )}
           </>
         )}
       </View>
@@ -233,13 +373,53 @@ export const UserPreview: React.FC<UserPreviewProps> = ({
   );
 };
 
+export const UserPreviewModal: React.FC<JoinRoomAndGetInfoResponse> = ({
+  room,
+  users,
+}) => {
+  const { isCreator: iAmCreator, isMod } = useCurrentRoomInfo();
+  const { data, setData } = useContext(UserPreviewModalContext);
+  const conn = useConn();
+  return (
+    <>
+      <Modal
+        backdropOpacity={0.8}
+        isVisible={!!data}
+        onBackdropPress={() => setData(null)}
+        propagateSwipe={true}
+      >
+        {data ? (
+          <ScrollView
+            contentContainerStyle={{ flexGrow: 1, justifyContent: "center" }}
+          >
+            <UserPreview
+              id={data.userId}
+              isCreator={room.creatorId === data.userId}
+              roomPermissions={
+                users.find((u) => u.id === data.userId)?.roomPermissions
+              }
+              iAmCreator={iAmCreator}
+              isMe={conn.user.id === data.userId}
+              iAmMod={isMod}
+              message={data.message}
+              onClosePress={() => setData(null)}
+            />
+          </ScrollView>
+        ) : (
+          <View></View>
+        )}
+      </Modal>
+    </>
+  );
+};
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.primary900,
     alignItems: "center",
-    flex: 1,
+    borderRadius: radius.l,
   },
-  avatar: { marginBottom: 10 },
+  avatar: { marginBottom: 10, marginTop: 20 },
   displayName: { ...paragraphBold },
   username: { ...paragraph, color: colors.primary300, marginLeft: 5 },
   tagsContainer: { flexDirection: "row", marginTop: 10 },
@@ -252,9 +432,11 @@ const styles = StyleSheet.create({
   controlsContainer: {
     marginTop: 30,
     // width: "100%",
-    flex: 1,
     backgroundColor: colors.primary800,
     alignItems: "flex-start",
+    paddingBottom: 20,
+    borderBottomRightRadius: radius.l,
+    borderBottomLeftRadius: radius.l,
   },
   sliderContainer: {
     marginTop: 10,

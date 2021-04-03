@@ -283,13 +283,12 @@ defmodule Broth.SocketHandler do
     {:ok, state}
   end
 
-  def handler("fetch_invite_list", %{"cursor" => cursor}, state) do
-    {users, next_cursor} = Follows.fetch_invite_list(state.user_id, cursor)
-
+  # @deprecated in new design
+  def handler("fetch_invite_list", data, state) do
     {:reply,
      construct_socket_msg(state.encoding, state.compression, %{
        op: "fetch_invite_list_done",
-       d: %{users: users, nextCursor: next_cursor, initial: cursor == 0}
+       d: f_handler("get_invite_list", data, state)
      }), state}
   end
 
@@ -598,6 +597,12 @@ defmodule Broth.SocketHandler do
       users: users,
       nextCursor: next_cursor
     }
+  end
+
+  def f_handler("get_invite_list", %{"cursor" => cursor}, state) do
+    {users, next_cursor} = Follows.fetch_invite_list(state.user_id, cursor)
+
+    %{users: users, nextCursor: next_cursor}
   end
 
   def f_handler("follow", %{"userId" => userId, "value" => value}, state) do

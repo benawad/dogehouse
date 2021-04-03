@@ -62,7 +62,9 @@ module.exports = {
       6: "40px",
       7: "60px",
       8: "75px",
+      "5l": "10rem",
       24: "24rem",
+      400: "400px",
     },
     borderWidth: {
       DEFAULT: "1px",
@@ -79,5 +81,5 @@ module.exports = {
     textColor: ({ after }) => after(["disabled"]),
     scrollbar: ["rounded", "dark"],
   },
-  plugins: [require("tailwind-scrollbar")],
+  plugins: [require("tailwind-scrollbar"), require('@tailwindcss/line-clamp')],
 };

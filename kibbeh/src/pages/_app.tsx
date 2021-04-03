@@ -16,6 +16,8 @@ import NProgress from "nprogress";
 import Router from "next/router";
 import "nprogress/nprogress.css";
 import { KeybindListener } from "../modules/keyboard-shortcuts/KeybindListener";
+import { InvitedToJoinRoomModal } from "../shared-components/InvitedToJoinRoomModal";
+import { ConfirmModal } from "../shared-components/ConfirmModal";
 
 if (!isServer) {
   init_i18n();
@@ -45,6 +47,8 @@ function App({ Component, pageProps }: AppProps) {
           <ErrorToastController />
           <WebRtcApp />
           <KeybindListener />
+          <InvitedToJoinRoomModal />
+          <ConfirmModal />
         </MainWsHandlerProvider>
       </QueryClientProvider>
     </WebSocketProvider>

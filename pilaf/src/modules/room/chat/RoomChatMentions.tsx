@@ -4,7 +4,7 @@ import { useConn } from "../../../shared-hooks/useConn";
 import { SingleUserAvatar } from "../../../components/avatars/SingleUserAvatar";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { useRoomChatStore } from "./useRoomChatStore";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { colors, h4, paragraph, radius } from "../../../constants/dogeStyle";
 
 interface RoomChatMentionsProps {
@@ -33,9 +33,6 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({
       message.substring(0, message.lastIndexOf("@") + 1) + m.username + " "
     );
     setQueriedUsernames([]);
-
-    // Re-focus input after mention was clicked
-    document.getElementById("room-chat-input")?.focus();
   }
 
   useEffect(() => {
@@ -91,7 +88,7 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({
         }}
       >
         {queriedUsernames.map((m) => (
-          <View
+          <TouchableOpacity
             key={m.id}
             style={{
               flexDirection: "row",
@@ -99,34 +96,16 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({
               paddingHorizontal: 15,
               paddingVertical: 15,
             }}
+            onPress={() => addMention(m)}
           >
             <SingleUserAvatar src={{ uri: m.avatarUrl }} size={"xxs"} />
             <Text style={{ ...paragraph, marginLeft: 10 }}>
               {m.displayName}
               {m.displayName !== m.username ? ` (${m.username})` : ""}
             </Text>
-          </View>
+          </TouchableOpacity>
         ))}
       </View>
-      // <div className={`flex flex-col pb-1 bg-simple-gray-26`}>
-      //   {queriedUsernames.map((m) => (
-      //     <button
-      //       className={`flex py-3 items-center px-8 focus:outline-none ${
-      //         activeUsername === m.id ? "bg-blue-800" : ""
-      //       }`}
-      //       key={m.id}
-      //       onClick={() => addMention(m)}
-      //     >
-      //       <span className={`pr-3 inline`}>
-      //         <SingleUserAvatar size="xs" src={{ uri: m.avatarUrl }} />
-      //       </span>
-      //       <p className={`m-0 mt-1`}>
-      //         {m.displayName}
-      //         {m.displayName !== m.username ? `(${m.username})` : null}
-      //       </p>
-      //     </button>
-      //   ))}
-      // </div>
     );
   }
   return <></>;

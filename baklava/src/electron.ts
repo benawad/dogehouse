@@ -18,6 +18,7 @@ import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
 import electronLogger from 'electron-log';
+import globkey from 'globkey';
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
@@ -65,8 +66,8 @@ function createWindow() {
   });
 
   splash = new BrowserWindow({
-    width: 400,
-    height: 500,
+    width: 300,
+    height: 410,
     transparent: true,
     frame: false,
     webPreferences: {
@@ -182,6 +183,7 @@ if (!instanceLock) {
   if (process.env.hotReload) {
     app.relaunch();
   }
+  globkey.unload();
   app.quit();
 } else {
   app.on("ready", () => {
@@ -237,6 +239,7 @@ autoUpdater.on('update-not-available', () => {
 });
 
 app.on("window-all-closed", () => {
+  globkey.unload();
   app.quit();
 });
 app.on("activate", () => {

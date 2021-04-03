@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { BaseUser, raw, User } from "@dogehouse/kebab";
+import { raw, User } from "@dogehouse/kebab";
 import { useTokenStore } from "../auth/useTokenStore";
 import { apiBaseUrl } from "../../lib/constants";
 import { useRouter } from "next/router";
@@ -7,6 +7,7 @@ import { showErrorToast } from "../../lib/showErrorToast";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useVoiceStore } from "../webrtc/stores/useVoiceStore";
+import { Connection } from "@dogehouse/kebab/lib/raw";
 
 interface WebSocketProviderProps {
   shouldConnect: boolean;
@@ -17,9 +18,11 @@ type V = raw.Connection | null;
 export const WebSocketContext = React.createContext<{
   conn: V;
   setUser: (u: User) => void;
+  setConn: (u: Connection | null) => void;
 }>({
   conn: null,
   setUser: () => {},
+  setConn: () => {},
 });
 
 export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
@@ -33,12 +36,12 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
 
   useEffect(() => {
     if (!conn && shouldConnect && hasTokens && !isConnecting.current) {
+      isConnecting.current = true;
       raw
         .connect("", "", {
           url: apiBaseUrl.replace("http", "ws") + "/socket",
           getAuthOptions: () => {
             const { accessToken, refreshToken } = useTokenStore.getState();
-            isConnecting.current = true;
             const { recvTransport, sendTransport } = useVoiceStore.getState();
 
             const reconnectToVoice = !recvTransport
@@ -61,12 +64,13 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
             };
           },
           onConnectionTaken: () => {
+            // the index page nulls the conn
+            // if you switch this, make sure to null the conn at the new location
             replace("/");
             // @todo do something better
             showErrorToast(
               "You can only have 1 tab of DogeHouse open at a time"
             );
-            setConn(null);
           },
           onClearTokens: () => {
             console.log("clearing tokens...");
@@ -119,6 +123,7 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
       value={useMemo(
         () => ({
           conn,
+          setConn,
           setUser: (u: User) => {
             if (conn) {
               setConn({
