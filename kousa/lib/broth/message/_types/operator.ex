@@ -23,6 +23,7 @@ defenum(
     {Room.Block, 70},
     {Room.SetRole, 71},
     {Room.SetMod, 72},
+    {Room.Join, 73},
     # chat commands and casts: 128..191
     {Chat.Block, 129},
     {Chat.SendMsg, 130},

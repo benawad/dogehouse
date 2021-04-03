@@ -49,6 +49,7 @@ defmodule Broth.Message do
     "room:block" => Broth.Message.Room.Block,
     "room:set_role" => Broth.Message.Room.SetRole,
     "room:set_mod" => Broth.Message.Room.SetMod,
+    "room:join" => Broth.Message.Room.Join,
     "chat:block" => Broth.Message.Chat.Block,
     "chat:send_msg" => Broth.Message.Chat.SendMsg,
     "chat:delete_msg" => Broth.Message.Chat.DeleteMsg
