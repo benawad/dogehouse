@@ -9,7 +9,7 @@ import { FollowingController } from "./FollowingController";
 import { UserProfileController } from "./UserProfileController";
 
 interface UserPageProps {}
-//
+
 export const FollowingPage: PageComponent<UserPageProps> = ({}) => {
   return (
     <WaitForWsAndAuth>

@@ -1,7 +1,10 @@
-import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
+import { JoinRoomAndGetInfoResponse, wrap } from "@dogehouse/kebab";
 import React, { useContext } from "react";
 import { useMuteStore } from "../../global-stores/useMuteStore";
+import { SolidMegaphone } from "../../icons";
+import { modalConfirm } from "../../shared-components/ConfirmModal";
 import { useConn } from "../../shared-hooks/useConn";
+import { BoxedIcon } from "../../ui/BoxedIcon";
 import { RoomAvatar } from "../../ui/RoomAvatar";
 import { UserPreviewModalContext } from "./UserPreviewModalProvider";
 
@@ -64,6 +67,24 @@ export const useSplitUsersIntoSections = ({
     );
     // }
   });
+
+  if (canIAskToSpeak) {
+    speakers.push(
+      // match avatar size
+      <BoxedIcon
+        onClick={() => {
+          modalConfirm("Would you like to ask to speak?", () => {
+            wrap(conn).mutation.askToSpeak();
+          });
+        }}
+        style={{ width: 50, height: 50 }}
+        circle
+      >
+        {/* @todo add right icon */}
+        <SolidMegaphone />
+      </BoxedIcon>
+    );
+  }
 
   return { speakers, listeners, askingToSpeak, canIAskToSpeak };
 };
