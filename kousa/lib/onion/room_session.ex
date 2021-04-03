@@ -45,6 +45,7 @@ defmodule Onion.RoomSession do
   def child_spec(init), do: %{super(init) | id: Keyword.get(init, :room_id)}
 
   def count, do: Registry.count(Onion.RoomSessionRegistry)
+  def lookup(room_id), do: Registry.lookup(Onion.RoomSessionRegistry, room_id)
 
   ###############################################################################
   ## INITIALIZATION BOILERPLATE
