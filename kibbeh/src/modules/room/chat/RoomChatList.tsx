@@ -62,13 +62,13 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
           >
             {/* Whisper label */}
             {m.isWhisper ? (
-              <p className="mb-0 text-xs text-primary-300 px-1 w-16 mt-1 text-center">
+              <p className="mb-0 text-sm text-primary-300 px-1 w-16 mt-1 text-center">
                 {t("modules.roomChat.whisper")}
               </p>
             ) : null}
             <div className={`flex items-center px-1`}>
               <div
-                className={`py-1 block break-words max-w-full items-start flex-1 text-sm text-primary-100`}
+                className={`py-1 block break-words max-w-full items-start flex-1 text-primary-100`}
                 key={m.id}
               >
                 <button
@@ -118,12 +118,11 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
 
                         case "mention":
                           return (
-                            <>
+                            <React.Fragment key={i}>
                               <button
                                 onClick={() => {
                                   setData({ userId: v });
                                 }}
-                                key={i}
                                 className={`inline hover:underline flex-1 focus:outline-none ${
                                   v === me?.username
                                     ? "bg-accent text-white px-1 rounded text-md"
@@ -136,7 +135,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                               >
                                 @{v}
                               </button>{" "}
-                            </>
+                            </React.Fragment>
                           );
                         case "link":
                           return (

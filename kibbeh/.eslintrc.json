@@ -42,7 +42,7 @@
     "accessor-pairs": "error",
     "array-bracket-newline": "off",
     "array-bracket-spacing": "error",
-    "array-callback-return": "error",
+    "array-callback-return": "off",
     "array-element-newline": ["error", "consistent"],
     "arrow-body-style": "off",
     "arrow-parens": "off",

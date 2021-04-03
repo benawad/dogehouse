@@ -11,6 +11,7 @@ import { CenterLoader } from "../../ui/CenterLoader";
 import { Feed, FeedHeader } from "../../ui/Feed";
 import { RoomCard } from "../../ui/RoomCard";
 import { MiddlePanel } from "../layouts/GridPanels";
+import { useRoomChatStore } from "../room/chat/useRoomChatStore";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 import { CreateRoomModal } from "./CreateRoomModal";
 
@@ -63,6 +64,7 @@ const Page = ({
         <RoomCard
           onClick={() => {
             if (room.id !== currentRoomId) {
+              useRoomChatStore.getState().reset();
               prefetch(["joinRoomAndGetInfo", room.id], [room.id]);
             }
 
