@@ -4,9 +4,7 @@
   "workspaces": {
     "packages": [
       "kebab",
-      "kibbeh",
-      "baklava",
-      "baklava/resources/overlay"
+      "kibbeh"
     ],
     "nohoist": [
       "**"

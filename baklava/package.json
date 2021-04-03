@@ -1,5 +1,5 @@
 {
-    "name": "dogehouse",
+    "name": "baklava",
     "version": "1.0.34",
     "description": "Taking voice conversations to the moon 🚀",
     "main": "./dist/electron.js",
