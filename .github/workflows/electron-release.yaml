@@ -61,7 +61,6 @@ jobs:
           echo '${{ secrets.api_key }}' > ~/private_keys/AuthKey_${{ secrets.api_key_id }}.p8
       - name: Install Snapcraft
         uses: samuelmeuli/action-snapcraft@v1
-        # Only install Snapcraft on Ubuntu
         if: startsWith(matrix.os, 'ubuntu')
         with:
           # Log in to Snap Store
