@@ -1,6 +1,6 @@
 {
-    "name": "baklava",
-    "version": "1.0.34",
+    "name": "dogehouse",
+    "version": "1.0.35",
     "description": "Taking voice conversations to the moon 🚀",
     "main": "./dist/electron.js",
     "scripts": {
