@@ -118,12 +118,11 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
 
                         case "mention":
                           return (
-                            <>
+                            <React.Fragment key={i}>
                               <button
                                 onClick={() => {
                                   setData({ userId: v });
                                 }}
-                                key={i}
                                 className={`inline hover:underline flex-1 focus:outline-none ${
                                   v === me?.username
                                     ? "bg-accent text-white px-1 rounded text-md"
@@ -136,7 +135,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                               >
                                 @{v}
                               </button>{" "}
-                            </>
+                            </React.Fragment>
                           );
                         case "link":
                           return (
