@@ -44,6 +44,7 @@
     "superstruct": "^0.15.1",
     "tslib": "^2.1.0",
     "uuid": "^8.3.2",
+    "wakelock-lazy-polyfill": "^1.0.0",
     "zustand": "^3.3.3"
   },
   "devDependencies": {
