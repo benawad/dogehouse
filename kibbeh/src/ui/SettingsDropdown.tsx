@@ -55,7 +55,6 @@ export const SettingsDropdown: React.FC<{
         </a>
         <a
           href="https://dogehouse.tv"
-          target="_blank"
           rel="noreferrer"
         >
           <SettingsIcon
