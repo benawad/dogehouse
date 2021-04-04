@@ -5,7 +5,8 @@ import { linkRegex } from "../lib/constants";
 import { kFormatter } from "../lib/kFormatter";
 import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
-import { SingleUser } from "./UserAvatar";
+import { SingleUser } from "./UserAvatar"; 
+import { HeaderController } from "../modules/display/HeaderController";
 
 interface VerticalUserInfoProps {
   user: BaseUser;
@@ -14,8 +15,10 @@ interface VerticalUserInfoProps {
 export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
   const { t } = useTypeSafeTranslation();
   return (
-    <div className="flex-col rounded-8 pt-5 px-6 pb-4 w-full items-center">
-      <SingleUser
+    <>
+      <HeaderController embed={{}} title={`${user.displayName} (@${user.username})`} />
+      <div className="flex-col rounded-8 pt-5 px-6 pb-4 w-full items-center">
+        <SingleUser
         size="default"
         src={user.avatarUrl}
         username={user.username}
@@ -29,7 +32,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
       </div>
       <div className="mt-2">
         <div>
-          <ApiPreloadLink route="following" data={{ username: user.username }}>
+          <ApiPreloadLink route="followers" data={{ username: user.username }}>
             <span className="text-primary-100 font-bold">
               {kFormatter(user.numFollowers)}
             </span>{" "}
@@ -39,7 +42,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
           </ApiPreloadLink>
         </div>
         <div className="ml-4">
-          <ApiPreloadLink route="followers" data={{ username: user.username }}>
+          <ApiPreloadLink route="following" data={{ username: user.username }}>
             <span className="text-primary-100 font-bold">
               {kFormatter(user.numFollowing)}
             </span>
@@ -76,5 +79,6 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
         </p>
       </div>
     </div>
+    </>
   );
 };
