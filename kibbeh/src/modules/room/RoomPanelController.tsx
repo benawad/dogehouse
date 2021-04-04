@@ -9,9 +9,9 @@ import { RoomUsersPanel } from "./RoomUsersPanel";
 import { useGetRoomByQueryParam } from "./useGetRoomByQueryParam";
 import { UserPreviewModal } from "./UserPreviewModal";
 
-interface RoomPanelControllerProps {}
+interface RoomPanelControllerProps { }
 
-export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
+export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({ }) => {
   const { currentRoomId } = useCurrentRoomIdStore();
   const [showEditModal, setShowEditModal] = useState(false);
   const { data, isLoading } = useGetRoomByQueryParam();
