@@ -33,15 +33,15 @@ import { register, addAsarToLookupPaths } from 'asar-node';
 export let CURRENT_APP_TITLE = "";
 
 let PREV_PTT_STATUS = false;
-export let worker: Worker;
+export const worker = new Worker(path.join(__dirname, './worker.js'));
 
-if (app.isPackaged) {
-    register()
-    addAsarToLookupPaths()
-    worker = new Worker(path.join(process.resourcesPath, 'app.asar.unpacked/dist/keybinds/worker.js'));
-} else {
-    worker = new Worker(path.join(__dirname, './worker.js'));
-}
+// if (app.isPackaged) {
+//     register()
+//     addAsarToLookupPaths()
+//     worker = new Worker(path.join(process.resourcesPath, 'app.asar.unpacked/dist/keybinds/worker.js'));
+// } else {
+//     worker = new Worker(path.join(__dirname, './worker.js'));
+// }
 
 electronLogger.info(`WORKER PATH: ${path.join(__dirname, './worker.js')}`)
 electronLogger.info(`TEST WORKER PATH: ${path.join(process.resourcesPath, 'app.asar.unpacked/dist/keybinds/worker.js')}`);

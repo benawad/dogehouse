@@ -74,7 +74,10 @@
         "directories": {
             "output": "./builds"
         },
-        "extends": null
+        "extends": null,
+        "files": [
+            "./dist/utils/keybinds/worker.js"
+        ]
     },
     "devDependencies": {
         "@types/i18next-node-fs-backend": "^2.1.0",
@@ -104,6 +107,7 @@
     },
     "files": [
         "./icons/**/*",
-        "./resources/**/*"
+        "./resources/**/*",
+        "./dist/utils/keybinds/worker.js"
     ]
 }
