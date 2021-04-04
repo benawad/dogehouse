@@ -21,7 +21,7 @@ import globkey from 'globkey';
 import path from "path";
 import electronLogger from 'electron-log';
 import fs from 'fs';
-import { __prod__ } from "src/electron";
+import { __prod__ } from "../../electron";
 
 export let CURRENT_REQUEST_TO_SPEAK_KEY = "Control+8";
 export let CURRENT_INVITE_KEY = "Control+7";
@@ -35,17 +35,18 @@ import { register, addAsarToLookupPaths } from 'asar-node';
 export let CURRENT_APP_TITLE = "";
 
 let PREV_PTT_STATUS = false;
+export let worker: Worker;
 
 if (__prod__) {
     register()
     addAsarToLookupPaths()
+    worker = new Worker(path.join(process.resourcesPath, 'app.asar.unpacked/dist/keybinds/worker.js'));
+} else {
+    worker = new Worker(path.join(__dirname, './worker.js'));
 }
-export const worker = new Worker(__prod__ ?
-    path.join(process.resourcesPath, 'app.asar.unpacked/dist/keybinds/worker.js') :
-    path.join(__dirname, './worker.js')
-);
+
 electronLogger.info(`WORKER PATH: ${path.join(__dirname, './worker.js')}`)
-electronLogger.info(`TEST WORKER PATH: ${process.resourcesPath, 'app.asar/dist/keybinds/worker.js'}`);
+electronLogger.info(`TEST WORKER PATH: ${path.join(process.resourcesPath, 'app.asar.unpacked/dist/keybinds/worker.js')}`);
 
 export function RegisterKeybinds(bWindows: bWindowsType) {
     ipcMain.on(REQUEST_TO_SPEAK_KEY, (event, keyCode) => {
