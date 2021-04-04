@@ -74,10 +74,10 @@
         "directories": {
             "output": "./builds"
         },
-        "extends": null,
-        "files": [
+        "asarUnpack": [
             "./dist/utils/keybinds/worker.js"
-        ]
+        ],
+        "extends": null
     },
     "devDependencies": {
         "@types/i18next-node-fs-backend": "^2.1.0",
@@ -107,7 +107,6 @@
     },
     "files": [
         "./icons/**/*",
-        "./resources/**/*",
-        "./dist/utils/keybinds/worker.js"
+        "./resources/**/*"
     ]
 }
