@@ -21,3 +21,7 @@ Once the core product is solid, I will be doing events with the community and ot
 ## Are you working on this full-time?
 
 yes
+
+## Discord Stages?
+
+https://www.youtube.com/watch?v=FmAL5qvJkaI
