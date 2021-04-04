@@ -131,7 +131,7 @@ const Page = ({
 
 export const FollowingController: React.FC<FollowingControllerProps> = ({}) => {
   const { pathname, query } = useRouter();
-  const isFollowing = pathname.startsWith("/following");
+  const isFollowing = pathname.includes("/following");
   const username = typeof query.username === "string" ? query.username : "";
   const [cursors, setCursors] = useState([0]);
 

@@ -1,45 +1,33 @@
 import { Formik } from "formik";
 import isElectron from "is-electron";
 import { useRouter } from "next/router";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { object, string } from "superstruct";
 import { InputField } from "../../form-fields/InputField";
-import { useGlobalVolumeStore } from "../../global-stores/useGlobalVolumeStore";
 import { useOverlayStore } from "../../global-stores/useOverlayStore";
 import { validateStruct } from "../../lib/validateStruct";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { PageComponent } from "../../types/PageComponent";
 import { Button } from "../../ui/Button";
-import { NativeSelect } from "../../ui/NativeSelect";
-import { VolumeSlider } from "../../ui/VolumeSlider";
-import {
-  MuteKeybind,
-  PTTKeybind,
-  ChatKeybind,
-  InviteKeybind,
-  RequestToSpeakKeybind,
-  OverlayKeybind,
-} from "../keyboard-shortcuts";
+import { OverlayKeybind } from "../keyboard-shortcuts";
 import { DefaultDesktopLayout } from "../layouts/DefaultDesktopLayout";
 import { MiddlePanel } from "../layouts/GridPanels";
-import { useMicIdStore } from "../webrtc/stores/useMicIdStore";
 
-interface OverlaySettingsProps { }
+interface OverlaySettingsProps {}
 const overlaySettingsStruct = object({
   appTitle: string(),
 });
 const validateData = validateStruct(overlaySettingsStruct);
 const isMac = process.platform === "darwin";
 export const OverlaySettingsPage: PageComponent<OverlaySettingsProps> = () => {
-
   const { appTitle } = useOverlayStore.getState();
   const { push } = useRouter();
   const { t } = useTypeSafeTranslation();
   useEffect(() => {
     if (!isElectron() || isMac) {
-      push('/dash')
+      push("/dash");
     }
-  }, [history]);
+  }, [push]);
 
   return (
     <DefaultDesktopLayout>
@@ -48,7 +36,7 @@ export const OverlaySettingsPage: PageComponent<OverlaySettingsProps> = () => {
           <OverlayKeybind className={`mb-4`} />
           <Formik
             initialValues={{
-              appTitle: appTitle,
+              appTitle,
             }}
             validateOnChange={false}
             validate={(values) => {
@@ -57,12 +45,11 @@ export const OverlaySettingsPage: PageComponent<OverlaySettingsProps> = () => {
                 appTitle: values.appTitle.trim(),
               });
             }}
-            onSubmit={async (data) => {
+            onSubmit={(data) => {
               useOverlayStore.getState().setData(data);
             }}
           >
             {({ handleSubmit }) => (
-
               <div>
                 <InputField
                   errorMsg={t("pages.overlaySettings.input.errorMsg")}
@@ -81,7 +68,6 @@ export const OverlaySettingsPage: PageComponent<OverlaySettingsProps> = () => {
               </div>
             )}
           </Formik>
-
         </div>
       </MiddlePanel>
     </DefaultDesktopLayout>

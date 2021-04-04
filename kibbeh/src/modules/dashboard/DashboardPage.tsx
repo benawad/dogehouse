@@ -14,7 +14,7 @@ interface LoungePageProps {}
 export const DashboardPage: PageComponent<LoungePageProps> = ({}) => {
   return (
     <WaitForWsAndAuth>
-      <HeaderController embed={{}} />
+      <HeaderController embed={{}} title="Dashboard" />
       <DesktopLayout
         leftPanel={<FollowingOnlineController />}
         rightPanel={<ProfileBlockController />}
