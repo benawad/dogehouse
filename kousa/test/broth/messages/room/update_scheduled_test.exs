@@ -1,8 +1,8 @@
-defmodule BrothTest.Message.Room.UpdateTest do
+defmodule BrothTest.Message.Room.UpdateScheduledTest do
   use ExUnit.Case, async: true
 
-  alias Beef.Schemas.Room
-  alias Broth.Message.Room.Update
+  alias Beef.Schemas.ScheduledRoom
+  alias Broth.Message.Room.UpdateScheduled
 
   setup do
     {:ok, uuid: UUID.uuid4()}
@@ -12,10 +12,10 @@ defmodule BrothTest.Message.Room.UpdateTest do
     test "it populates update fields", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %Update{room: %Room{name: "foobar"}}
+                payload: %UpdateScheduled{room: %ScheduledRoom{name: "foobar"}}
               }} =
                Broth.Message.validate(%{
-                 "operator" => "room:update",
+                 "operator" => "room:update_scheduled",
                  "payload" => %{"name" => "foobar"},
                  "reference" => uuid
                })
@@ -23,19 +23,20 @@ defmodule BrothTest.Message.Room.UpdateTest do
       # short form also allowed
       assert {:ok,
               %{
-                payload: %Update{room: %Room{name: "foobar"}}
+                payload: %UpdateScheduled{room: %ScheduledRoom{name: "foobar"}}
               }} =
                Broth.Message.validate(%{
-                 "op" => "room:update",
+                 "op" => "room:update_scheduled",
                  "p" => %{"name" => "foobar"},
                  "ref" => uuid
                })
     end
 
     test "omitting the reference is not allowed" do
-      assert {:error, %{errors: [reference: {"is required for Broth.Message.Room.Update", _}]}} =
+      assert {:error,
+              %{errors: [reference: {"is required for Broth.Message.Room.UpdateScheduled", _}]}} =
                Broth.Message.validate(%{
-                 "operator" => "room:update",
+                 "operator" => "room:update_scheduled",
                  "payload" => %{"name" => "foobar"}
                })
     end
@@ -43,7 +44,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
     test "providing the wrong datatype for name is disallowed", %{uuid: uuid} do
       assert {:error, %{errors: [name: {"is invalid", _}]}} =
                Broth.Message.validate(%{
-                 "operator" => "room:update",
+                 "operator" => "room:update_scheduled",
                  "payload" => %{"name" => ["foobar", "barbaz"]},
                  "reference" => uuid
                })
@@ -54,39 +55,36 @@ defmodule BrothTest.Message.Room.UpdateTest do
     test "it validates", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %Update{room: %Room{description: "foobar"}}
+                payload: %UpdateScheduled{room: %ScheduledRoom{description: "foobar"}}
               }} =
                Broth.Message.validate(%{
-                 "operator" => "room:update",
+                 "operator" => "room:update_scheduled",
                  "payload" => %{"description" => "foobar"},
                  "reference" => uuid
                })
     end
   end
 
-  describe "when you send an update message to change privacy" do
+  describe "when you send an update message to change scheduled time" do
     test "it validates", %{uuid: uuid} do
+      time = DateTime.utc_now()
+
       assert {:ok,
               %{
-                payload: %Update{room: %Room{isPrivate: true}}
+                payload: %UpdateScheduled{room: %ScheduledRoom{scheduledFor: ^time}}
               }} =
                Broth.Message.validate(%{
-                 "operator" => "room:update",
-                 "payload" => %{"isPrivate" => true},
+                 "operator" => "room:update_scheduled",
+                 "payload" => %{"scheduledFor" => to_string(time)},
                  "reference" => uuid
                })
     end
-  end
 
-  describe "when you send an update message to change autoSpeaker" do
-    test "it validates", %{uuid: uuid} do
-      assert {:ok,
-              %{
-                payload: %Update{room: %Room{autoSpeaker: true}}
-              }} =
+    test "it fails if it's not a proper time", %{uuid: uuid} do
+      assert {:error, %{errors: [scheduledFor: {"is invalid", _}]}} =
                Broth.Message.validate(%{
-                 "operator" => "room:update",
-                 "payload" => %{"autoSpeaker" => true},
+                 "operator" => "room:update_scheduled",
+                 "payload" => %{"scheduledFor" => "aaa"},
                  "reference" => uuid
                })
     end

@@ -1,4 +1,4 @@
-defmodule Broth.Message.Room.Join do
+defmodule Broth.Message.Room.DeleteScheduled do
   use Ecto.Schema
 
   @primary_key false
@@ -22,7 +22,7 @@ defmodule Broth.Message.Room.Join do
 
     @primary_key false
     embedded_schema do
-      embeds_one(:room, Beef.Schemas.Room)
+      field(:error, :map)
     end
   end
 end

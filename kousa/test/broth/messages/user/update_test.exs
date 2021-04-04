@@ -42,11 +42,11 @@ defmodule BrothTest.Message.User.UpdateTest do
 
     test "providing the wrong datatype for muted state is disallowed", %{uuid: uuid} do
       assert {:error, %{errors: [muted: {"is invalid", _}]}} =
-        Broth.Message.validate(%{
-          "operator" => "user:update",
-          "payload" => %{"muted" => "foobar"},
-          "reference" => uuid
-        })
+               Broth.Message.validate(%{
+                 "operator" => "user:update",
+                 "payload" => %{"muted" => "foobar"},
+                 "reference" => uuid
+               })
 
       assert {:error, %{errors: [muted: {"is invalid", _}]}} =
                Broth.Message.validate(%{

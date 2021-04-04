@@ -83,8 +83,7 @@ defmodule BrothTest.Message.Room.GetUsersTest do
     end
 
     test "you must specify reference" do
-      assert {:error,
-              %{errors: [reference: {"is required for Broth.Message.Room.GetUsers", _}]}} =
+      assert {:error, %{errors: [reference: {"is required for Broth.Message.Room.GetUsers", _}]}} =
                Broth.Message.validate(%{
                  "operator" => "room:get_users",
                  "payload" => %{}

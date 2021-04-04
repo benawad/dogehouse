@@ -1,4 +1,4 @@
-defmodule Broth.Message.User.GetRoomsAboutToStart do
+defmodule Broth.Message.User.GetScheduledRooms do
   # TODO: consider deprecating this API endpoint.
 
   use Ecto.Schema
