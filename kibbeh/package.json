@@ -40,6 +40,7 @@
     "react-hotkeys": "^2.0.0",
     "react-i18next": "^11.8.12",
     "react-modal": "^3.12.1",
+    "react-popper": "^2.2.5",
     "react-query": "^3.12.2",
     "superstruct": "^0.15.1",
     "tslib": "^2.1.0",
