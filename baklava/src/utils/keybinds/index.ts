@@ -19,6 +19,9 @@ import { bWindowsType } from "../../types";
 import { Worker } from 'worker_threads';
 import globkey from 'globkey';
 import path from "path";
+import electronLogger from 'electron-log';
+import fs from 'fs';
+import { __prod__ } from "src/electron";
 
 export let CURRENT_REQUEST_TO_SPEAK_KEY = "Control+8";
 export let CURRENT_INVITE_KEY = "Control+7";
@@ -27,11 +30,22 @@ export let CURRENT_CHAT_KEY = "Control+9";
 export let CURRENT_OVERLAY_KEY = "Control+Tab";
 export let CURRENT_PTT_KEY = ["0", "Control"];
 export let CURRENT_PTT_KEY_STRING = "0,control"
+import { register, addAsarToLookupPaths } from 'asar-node';
 
 export let CURRENT_APP_TITLE = "";
 
 let PREV_PTT_STATUS = false;
-export const worker = new Worker(path.join(__dirname, './worker.js'));
+
+if (__prod__) {
+    register()
+    addAsarToLookupPaths()
+}
+export const worker = new Worker(__prod__ ?
+    path.join(process.resourcesPath, 'app.asar.unpacked/dist/keybinds/worker.js') :
+    path.join(__dirname, './worker.js')
+);
+electronLogger.info(`WORKER PATH: ${path.join(__dirname, './worker.js')}`)
+electronLogger.info(`TEST WORKER PATH: ${process.resourcesPath, 'app.asar/dist/keybinds/worker.js'}`);
 
 export function RegisterKeybinds(bWindows: bWindowsType) {
     ipcMain.on(REQUEST_TO_SPEAK_KEY, (event, keyCode) => {
@@ -133,5 +147,6 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
 export async function exitApp() {
     worker.removeAllListeners();
     await worker.terminate();
+    globkey.unload();
     app.quit();
 }
