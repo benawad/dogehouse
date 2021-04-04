@@ -25,3 +25,7 @@ yes
 ## Discord Stages?
 
 https://www.youtube.com/watch?v=FmAL5qvJkaI
+
+## Are you ever doing video?
+
+Not for a long time, maybe never.
