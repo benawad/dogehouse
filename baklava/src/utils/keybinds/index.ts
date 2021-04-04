@@ -131,12 +131,7 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
 
 }
 export async function exitApp() {
-    worker.on('message', async (msg) => {
-        if (msg.type === 'exit') {
-            await worker.terminate();
-            globkey.unload();
-            app.quit();
-        }
-    });
-    worker.postMessage({ type: 'exit' });
+    worker.removeAllListeners();
+    await worker.terminate();
+    app.quit();
 }
