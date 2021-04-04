@@ -48,7 +48,7 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
           }}
         />
       ) : null}
-       <HeaderController embed={{}} title={data.room.name} />
+      <HeaderController embed={{}} title={data.room.name} />
       <MiddlePanel
         stickyChildren={
           <RoomHeader

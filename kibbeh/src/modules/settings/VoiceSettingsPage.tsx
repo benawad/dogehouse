@@ -15,7 +15,7 @@ import {
 import { DefaultDesktopLayout } from "../layouts/DefaultDesktopLayout";
 import { MiddlePanel } from "../layouts/GridPanels";
 import { useMicIdStore } from "../webrtc/stores/useMicIdStore";
-import { HeaderController } from "../../modules/display/HeaderController"
+import { HeaderController } from "../../modules/display/HeaderController";
 
 interface VoiceSettingsProps {}
 
