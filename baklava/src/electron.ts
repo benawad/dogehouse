@@ -97,7 +97,7 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
   }
   mainWindow.loadURL(
-    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/"
+    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/dash"
   );
 
   bWindows = {
@@ -173,6 +173,14 @@ function createWindow() {
 
   ipcMain.on('@app/version', (event, args) => {
     event.sender.send('@app/version', app.getVersion());
+  });
+  ipcMain.on('@dogehouse/loaded', (event, doge) => {
+    if (doge === "kibbeh") {
+      mainWindow.setSize(1500, 800);
+    } else {
+      mainWindow.setSize(560, 1000);
+    }
+    mainWindow.center();
   });
   if (isLinux) {
     skipUpdateCheck(splash);

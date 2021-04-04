@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { SolidMicrophoneOff } from "../../icons";
 
 export const avatarSizeMap = {
@@ -54,6 +54,7 @@ export interface AvatarProps {
   isOnline?: boolean;
   muted?: boolean;
   activeSpeaker?: boolean;
+  username?: string;
 }
 
 export const SingleUser: React.FC<AvatarProps> = ({
@@ -63,7 +64,9 @@ export const SingleUser: React.FC<AvatarProps> = ({
   isOnline = false,
   muted,
   activeSpeaker,
+  username,
 }) => {
+  const [isError, setError] = useState(false);
   const sizeStyle = onlineIndicatorStyleMap[size];
   return (
     <div
@@ -80,7 +83,14 @@ export const SingleUser: React.FC<AvatarProps> = ({
           boxShadow: activeSpeaker ? "0 0 0 2px var(--color-accent)" : "",
         }}
         className="rounded-full w-full h-full object-cover"
-        src={src}
+        onError={() => setError(true)}
+        src={
+          isError
+            ? `https://ui-avatars.com/api/${
+                username ? `&name=${username}` : "&name"
+              }&rounded=true&background=B23439&bold=true&color=FFFFFF`
+            : src
+        }
       />
       {isOnline && (
         <span
