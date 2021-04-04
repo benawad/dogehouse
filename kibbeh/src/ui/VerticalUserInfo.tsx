@@ -50,8 +50,8 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
           </ApiPreloadLink>
         </div>
       </div>
-      <div className="h-5l w-full mt-2 scrollbar-thin scrollbar-thumb-primary-700">
-        <p className="text-primary-300 mt-2 text-center w-full truncate whitespace-pre-wrap break-words line-clamp-6">
+      <div className="w-full mt-2">
+        <p className="text-primary-300 mt-2 text-center w-full whitespace-pre-wrap break-words inline">
           {user.bio.split(/\n/).map((line, i) => (
             <span key={i} className="flex justify-center">
               {line.split(" ").map((chunk, j) => {
