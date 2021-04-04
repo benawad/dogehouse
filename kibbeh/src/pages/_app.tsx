@@ -33,7 +33,7 @@ Router.events.on("routeChangeError", () => NProgress.done());
 ReactModal.setAppElement("#__next");
 
 function App({ Component, pageProps }: AppProps) {
-  // keep this here as long as this version is still in dev. 
+  // keep this here as long as this version is still in dev.
   // baklava listens to this event to re-size it's window
   useEffect(() => {
     if (isElectron()) {
