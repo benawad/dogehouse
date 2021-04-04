@@ -90,3 +90,7 @@ html {
 textarea {
   resize: none;
 }
+#nprogress {
+  position: relative;
+  z-index: 9999999;
+}
