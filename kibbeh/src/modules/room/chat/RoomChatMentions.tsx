@@ -87,7 +87,7 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({
             onClick={() => addMention(m)}
           >
             <SingleUser size="xs" src={m.avatarUrl} />
-            <p className={`pl-3 m-0 text-primary-200`}>
+            <p className={`pl-3 m-0 text-primary-200 truncate`}>
               {m.displayName}
               {m.displayName !== m.username ? ` (${m.username})` : null}
             </p>
