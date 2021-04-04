@@ -11,7 +11,7 @@ import {
 import i18n from "i18next";
 import Backend from "i18next-node-fs-backend";
 import { autoUpdater } from "electron-updater";
-import { RegisterKeybinds } from "./utils/keybinds";
+import { RegisterKeybinds, exitApp } from "./utils/keybinds";
 import { HandleVoiceTray } from "./utils/tray";
 import { ALLOWED_HOSTS, isLinux, isMac, MENU_TEMPLATE } from "./constants";
 import path from "path";
@@ -191,8 +191,7 @@ if (!instanceLock) {
   if (process.env.hotReload) {
     app.relaunch();
   }
-  globkey.unload();
-  app.quit();
+  exitApp();
 } else {
   app.on("ready", () => {
     localize().then(() => {
@@ -246,9 +245,8 @@ autoUpdater.on('update-not-available', () => {
   }, 500);
 });
 
-app.on("window-all-closed", () => {
-  globkey.unload();
-  app.quit();
+app.on("window-all-closed", async () => {
+  await exitApp();
 });
 app.on("activate", () => {
   if (mainWindow === null) {
@@ -275,3 +273,4 @@ function skipUpdateCheck(splash: BrowserWindow) {
     }
   }, 500);
 }
+
