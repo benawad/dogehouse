@@ -9,6 +9,7 @@ import {
   OutlineGlobe,
   SolidCaretRight,
   SolidBug,
+  SolidTime,
 } from "../icons";
 import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
 import { User } from "@dogehouse/kebab";
@@ -50,6 +51,17 @@ export const SettingsDropdown: React.FC<{
             onClick={onCloseDropdown}
             icon={<SolidBug />}
             label={"Report a bug"}
+          />
+        </a>
+        <a
+          href="https://dogehouse.tv"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <SettingsIcon
+            onClick={onCloseDropdown}
+            icon={<SolidTime />}
+            label={"Use old version"}
           />
         </a>
         <a
