@@ -9,6 +9,7 @@ import { RoomPanelIconBarController } from "./RoomPanelIconBarController";
 import { RoomUsersPanel } from "./RoomUsersPanel";
 import { useGetRoomByQueryParam } from "./useGetRoomByQueryParam";
 import { UserPreviewModal } from "./UserPreviewModal";
+import { HeaderController } from "../display/HeaderController";
 
 interface RoomPanelControllerProps {}
 
@@ -47,6 +48,7 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
           }}
         />
       ) : null}
+       <HeaderController embed={{}} title={data.room.name} />
       <MiddlePanel
         stickyChildren={
           <RoomHeader
