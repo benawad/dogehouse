@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "../styles/globals.css";
+import "../styles/add-to-calendar-button.css";
 import { AppProps } from "next/app";
 import { QueryClientProvider } from "react-query";
 import { WebSocketProvider } from "../modules/ws/WebSocketProvider";
