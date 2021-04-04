@@ -28,6 +28,7 @@ defenum(
     {Room.Join, 73},
     {Room.GetUsers, 74},
     {Room.UpdateScheduled, 75},
+    {Room.DeleteScheduled, 76},
     # chat commands and casts: 128..191
     {Chat.Block, 129},
     {Chat.SendMsg, 130},
