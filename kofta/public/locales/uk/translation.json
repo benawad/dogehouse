@@ -15,7 +15,8 @@
     "copyLink": "Копіювати посилання",
     "copied": "Скопійовано",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -37,7 +38,11 @@
       "startPrivateRoom": "почніть з ними приватну кімнату"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Створити Кімнату", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "Створити Кімнату",
+      "refresh": "Оновити",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "кімнати вже немає, повернутися",
       "shareRoomLink": "поділитися посиланням на кімнату",
@@ -61,7 +66,8 @@
       "probablyLoading": "ймовірно завантажується...",
       "voiceSettings": "перейти до голосових налаштувань",
       "soundSettings": "перейти до звукових налаштувань",
-      "deleteAccount": "видалити аккаунт"
+      "deleteAccount": "видалити аккаунт",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Упс! Ця сторінка загубилася в розмові.",
@@ -71,7 +77,9 @@
     "room": {
       "speakers": "Доповідачі",
       "requestingToSpeak": "Запитую дозвіл говорити",
-      "listeners": "Слухачі"
+      "listeners": "Слухачі",
+      "allowAll": "Дозволити все",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "шукати..." },
     "soundEffectSettings": { "header": "Звуки" },
@@ -80,8 +88,11 @@
       "followsYou": "підписані на вас",
       "followers": "підписники",
       "following": "ви підписані",
-      "followHim": "follow",
-      "followingHim": "following"
+      "followHim": "підписатися",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Голосові налаштування",
@@ -89,6 +100,10 @@
       "permissionError": "мікрофонів не знайдено, ви або немаєте їх увімкнутими, або не дали дозволу цьому веб-сайту.",
       "refresh": "оновити список мікрофонів",
       "volume": "гучність:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -113,7 +128,7 @@
       "settings": "Налаштування",
       "speaker": "Доповідач",
       "listener": "Слухач",
-      "chat": "Chat"
+      "chat": "Чат"
     },
     "deviceNotSupported": {
       "notSupported": "Ваш пристрій не підтримується. Ви можете створити",
@@ -133,7 +148,8 @@
       "setKeybind": "встановити прив'язку клавіши",
       "listening": "слухає",
       "toggleMuteKeybind": "Перемикнути прив'язку клавіши",
-      "togglePushToTalkKeybind": "Перемикнути режим рації"
+      "togglePushToTalkKeybind": "Перемикнути режим рації",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessзагальнодоступноюage": "з якихось причин немає споживача аудіо",
@@ -182,12 +198,14 @@
         "banFromRoom": "заблокувати в цій кімнаті",
         "goBackToListener": "повернутися у статус слухача",
         "deleteMessage": "видалити це повідомлення",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "зробити адміном кімнати"
       },
       "roomSettingsModal": {
         "requirePermission": "запитувати дозвіл говорити",
         "makePublic": "зробити кімнату загальнодоступною",
-        "makePrivate": "зробити кімнату приватною"
+        "makePrivate": "зробити кімнату приватною",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },
@@ -204,7 +222,7 @@
         "needsFuture": "має бути в майбутньому",
         "roomName": "назва кімнати",
         "minLength": "має містити від 2 символів",
-        "roomDescription": "Description"
+        "roomDescription": "Опис"
       }
     },
     "roomChat": {
@@ -218,7 +236,7 @@
       "sendMessage": "Надіслати Повідомлення",
       "whisper": "Шепотіти",
       "welcomeMessage": "Ласкаво просимо до чату!",
-      "roomDescription": "опис кімнати"
+      "roomDescription": "Опис кімнати"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

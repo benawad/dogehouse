@@ -8,8 +8,9 @@ import { BodyWrapper } from "../components/BodyWrapper";
 import { Spinner } from "../components/Spinner";
 import { UserProfile } from "../components/UserProfile";
 import { Wrapper } from "../components/Wrapper";
-import { RoomUser, UserWithFollowInfo } from "../types";
+import { RoomUser } from "../types";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
+import { useUserProfileQuery } from "../utils/useUserProfileQuery";
 
 export const ViewUserPage = () => {
   const { t } = useTypeSafeTranslation();
@@ -19,22 +20,29 @@ export const ViewUserPage = () => {
     params: { username },
   } = useRouteMatch<{ username: string }>();
 
-  const { data: profileFromDB, isLoading } = useQuery<UserWithFollowInfo>(
-    ["get_user_profile", username],
-    () => {
-      return wsFetch<any>({
-        op: "get_user_profile",
-        d: { userId: username },
-      });
-    },
-    { enabled: !profileFromState && status === "auth-good" && !!username }
+  const isDirectFromUrl = !profileFromState && !!username;
+
+  const { isLoading, data: profileFromDB } = useUserProfileQuery(username , isDirectFromUrl && status === "auth-good" );
+  
+  const {data: followData} = useQuery<any>(
+    ["follow_info", profileFromDB?.id],
+    () =>
+        wsFetch<any>({
+            op: "follow_info",
+            d: { userId: profileFromDB?.id},
+        }),
+    { enabled: isDirectFromUrl && status === "auth-good" && !!profileFromDB }
   );
+
+  if(profileFromDB){
+    profileFromDB.youAreFollowing = followData?.youAreFollowing;
+  }
 
   const profile = profileFromState || profileFromDB;
 
   return (
     <Wrapper>
-      <Backbar actuallyGoBack />
+      <Backbar actuallyGoBack={!isDirectFromUrl} />
       <BodyWrapper>
         {isLoading ? (
           <Spinner />

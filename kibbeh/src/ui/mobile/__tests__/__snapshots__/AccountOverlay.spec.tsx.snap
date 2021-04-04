@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountOverlay should match snapshot 1`] = `
+<div
+  class="w-full rounded-t-8 px-2 pt-7 pb-5 bg-primary-800 relative   react-draggable"
+  data-testid="account-overlay"
+  style="padding: 43px 25px; transform: translate(0px,0px);"
+>
+  <span
+    class="absolute bg-primary-300 rounded-8 inline-block top-3 left-1 right-1 w-6 h-1 m-auto"
+    id="handle"
+    style="cursor: grab;"
+  />
+  <div>
+    Child
+  </div>
+</div>
+`;

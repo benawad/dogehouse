@@ -1,0 +1,252 @@
+{
+  "common": {
+    "loadMore": "మరింత లోడ్ చేయండి",
+    "loading": "లోడ్ అవుతోంది...",
+    "noUsersFound": "వినియోగదారులు లేరు",
+    "ok": "సరే",
+    "yes": "అవును",
+    "no": "లేదు",
+    "cancel": "రద్దు చేయండి",
+    "save": "save",
+    "edit": "edit",
+    "delete": "delete",
+    "joinRoom": "join room",
+    "copyLink": "copy link",
+    "copied": "copied",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Muted | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "మూలం కథ",
+    "link_2": "Discord",
+    "link_3": "Report a Bug"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "ban" },
+    "followingOnlineList": {
+      "listHeader": "ప్రైవేట్ గదిలో లేని మరియు మీరు అనుసరించే వినియోగదారుల జాబితా.",
+      "currentRoom": "ప్రస్తుతం:",
+      "startPrivateRoom": "వారితో ఒక ప్రైవేట్ గదిని ప్రారంభించండి"
+    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": {
+      "createRoom": "గదిని సృష్టించండి",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
+    "inviteList": {
+      "roomGone": "గది పోయింది, తిరిగి వెళ్ళు",
+      "shareRoomLink": "గదికి లింక్‌ను భాగస్వామ్యం చేయండి",
+      "inviteFollowers": "ఆన్‌లైన్‌లో ఉన్న మీ అనుచరులను మీరు ఆహ్వానించవచ్చు:",
+      "whenFollowersOnline": "మీ అనుచరులు ఆన్‌లైన్‌లో ఉన్నప్పుడు, వారు ఇక్కడ కనిపిస్తారు."
+    },
+    "login": {
+      "headerText": "వాయిస్ సంభాషణలను చంద్రుడికి తీసుకువెళుతున్నాము 🚀",
+      "featureText_1": "Dark Theme",
+      "featureText_2": "Open Sign-Ups",
+      "featureText_3": "Cross-Platform Support",
+      "featureText_4": "Open Source",
+      "featureText_5": "Text Chat",
+      "featureText_6": "Powered by Doge",
+      "loginGithub": "GitHub తో లాగిన్ అవ్వండి",
+      "loginTwitter": "Twitter తో లాగిన్ అవ్వండి",
+      "createTestUser": "create test user"
+    },
+    "myProfile": {
+      "logout": "logout",
+      "probablyLoading": "బహుశా లోడ్ అవుతోంది...",
+      "voiceSettings": "వాయిస్ సెట్టింగ్‌లకు వెళ్లండి",
+      "overlaySettings": "go to overlay settings",
+      "soundSettings": "సౌండ్  సెట్టింగ్‌లకు వెళ్లండి",
+      "deleteAccount": "delete account"
+    },
+    "notFound": {
+      "whoopsError": "Whoops! This page got lost in conversation.",
+      "goHomeMessage": "చింతించకండి. నువ్వు చేయగలవు",
+      "goHomeLinkText": "go home"
+    },
+    "room": {
+      "speakers": "స్పీకర్లు",
+      "requestingToSpeak": "మాట్లాడటానికి అభ్యర్థిస్తోంది",
+      "listeners": "Listeners",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+    },
+    "searchUser": { "search": "అన్వేషించు..." },
+    "soundEffectSettings": { "header": "సౌండ్స్" },
+    "viewUser": {
+      "editProfile": "edit profile",
+      "followsYou": "Follows you",
+      "followers": "అనుచరులు",
+      "following": "మీ క్రింది వ్యక్తులు",
+      "followHim": "వ్యక్తిని అనుసరించండి",
+      "unfollow": "వ్యక్తిని అనుసరించవద్దు",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard"
+    },
+    "voiceSettings": {
+      "header": "వాయిస్ సెట్టింగ్‌లు",
+      "mic": "మైక్:",
+      "permissionError": "మైక్స్ కనుగొనబడలేదు, మీరు ఏదీ ప్లగ్ ఇన్ చేయలేదు లేదా ఈ వెబ్‌సైట్ అనుమతి ఇవ్వలేదు.",
+      "refresh": "మైక్ లిస్ట్  రిఫ్రెష్ చేయండి",
+      "volume": "volume:"
+    },
+    "overlaySettings": {
+      "header": "Overlay Settings",
+      "input": {
+        "errorMsg": "Please enter valid app title",
+        "label": "Enter app title"
+      }
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Banned Users",
+      "unban": "unban",
+      "noBans": "no one has been banned yet"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Leave current room",
+      "confirmLeaveRoom": "మీరు ఖచ్చితంగా నిష్క్రమించాలనుకుంటున్నారా?",
+      "leave": "Leave",
+      "inviteUsersToRoomBtn": "గదికి వినియోగదారులను ఆహ్వానించండి",
+      "invite": "ఆహ్వానించండి",
+      "toggleMuteMicBtn": "మ్యూట్ మైక్రోఫోన్‌ను టోగుల్ చేయండి",
+      "mute": "Mute",
+      "unmute": "Unmute",
+      "makeRoomPublicBtn": "గదిని పబ్లిక్‌గా చేయండి!",
+      "settings": "సెట్టింగులు",
+      "speaker": "స్పీకర్",
+      "listener": "వినేవారు",
+      "chat": "Chat"
+    },
+    "deviceNotSupported": {
+      "notSupported": "మీ పరికరానికి ప్రస్తుతం మద్దతు లేదు. మీరు ",
+      "linkText": "ఫిర్యాదు సృష్టించవచ్చు",
+      "addSupport": "మరియు నేను మీ పరికరానికి మద్దతును జోడించడానికి ప్రయత్నిస్తాను."
+    },
+    "inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" },
+    "micPermissionBanner": {
+      "permissionDenied": "మీ మైక్‌ను యాక్సెస్ చేయడానికి అనుమతి నిరాకరించబడింది (మీరు బ్రౌజర్ సెట్టింగ్‌ల్లోకి వెళ్లి పేజీని మళ్లీ లోడ్ చేయాల్సి ఉంటుంది)",
+      "dismiss": "దీన్ని కొట్టివేయాలా",
+      "tryAgain": "మళ్ళీ ప్రయత్నించండి"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "కీబైండ్ సెట్ చేయండి",
+      "listening": "నేను వింటున్నాను",
+      "toggleMuteKeybind": "మ్యూట్ కీబైండ్‌ను టోగుల్ చేయండి",
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "togglePushToTalkKeybind": "టోగుల్  push-to-talk కీబైండ్"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "కొన్ని కారణాల వల్ల ఆడియో వినియోగదారుడు లేరు"
+    },
+    "addToCalendar": { "add": "క్యాలెండర్‌కు జోడించండి" },
+    "wsKilled": {
+      "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
+      "reconnect": "తిరిగి కనెక్ట్ చేయండి"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "పబ్లిక్ ",
+        "private": "ప్రైవేట్ ",
+        "roomName": "గది పేరు",
+        "roomDescription": "గది వివరణ",
+        "descriptionError": "గరిష్ట పొడవు 500",
+        "nameError": "2 నుండి 60 అక్షరాల పొడవు ఉండాలి"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "కొత్త గది సృష్టించబడింది",
+        "roomInviteFrom": "గది నుండి ఆహ్వానించండి",
+        "justStarted": "వారు ఇప్పుడే ప్రారంభించారు",
+        "likeToJoin": ", మీరు చేరాలనుకుంటున్నారా?",
+        "inviteReceived": "మీరు ఆహ్వానించబడ్డారు"
+      },
+      "editProfileModal": {
+        "usernameTaken": "username taken",
+        "avatarUrlError": "Invalid image",
+        "avatarUrlLabel": "GitHub/Twitter avatar url",
+        "displayNameError": "length 2 to 50 characters",
+        "displayNameLabel": "Display Name",
+        "usernameError": "length 4 to 15 characters and only alphanumeric/underscore",
+        "usernameLabel": "Username",
+        "bioError": "max length of 160 characters",
+        "bioLabel": "Bio"
+      },
+      "profileModal": {
+        "blockUserConfirm": "మీరు ఎప్పుడైనా సృష్టించిన ఏ గదిలోనైనా ఈ వినియోగదారుని నిరోధించాలనుకుంటున్నారా?",
+        "blockUser": "block user",
+        "makeMod": "make mod",
+        "unmod": "unmod",
+        "addAsSpeaker": "స్పీకర్‌గా జోడించండి",
+        "moveToListener": "move to listener",
+        "banFromChat": "ban from chat",
+        "banFromRoom": "ban from room",
+        "goBackToListener": "go back to listener",
+        "deleteMessage": "ఈ సందేశాన్ని తొలగించండి",
+        "makeRoomCreator": "make room admin"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "నాకు మాట్లాడటానికి అనుమతి కావాలి",
+        "makePublic": "గదిని బహిరంగపరచండి",
+        "makePrivate": "గదిని ప్రైవేట్‌గా చేయండి",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "షెడ్యూల్డ్ రూములు",
+      "noneFound": "ఏదీ కనుగొనబడలేదు",
+      "allRooms": "అన్ని షెడ్యూల్ గదులు",
+      "myRooms": "నా షెడ్యూల్ గదులు",
+      "scheduleRoomHeader": "షెడ్యూల్ గది",
+      "startRoom": "కొత్త గది",
+      "modal": {
+        "needsFuture": "భవిష్యత్తులో ఉండాలి",
+        "roomName": "గది పేరు",
+        "roomDescription": "వివరణ",
+        "minLength": "కనిష్ట పొడవు 2"
+      }
+    },
+    "roomChat": {
+      "title": "Chat",
+      "emotesSoon": "[emotes soon]",
+      "bannedAlert": "మీరు చాట్ నుండి నిషేధించబడ్డారు",
+      "waitAlert": "మరొక సందేశం పంపే ముందు మీరు ఒక్క క్షణం వేచి ఉండాలి",
+      "search": "వెతకండి",
+      "searchResults": "సెర్చ్ రిజల్ట్స్ ",
+      "recent": "తరచుగా ఉపయోగించే అంశాలు",
+      "sendMessage": "సందేశం పంపండి",
+      "whisper": "Whisper",
+      "welcomeMessage": "చాట్‌కు స్వాగతం!",
+      "roomDescription": "గది వివరణ"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fueling rocket",
+      "takingOff": "టేకాఫ్",
+      "inSpace": "In space",
+      "approachingMoon": "Approaching moon",
+      "lunarDoge": "Lunar Doge",
+      "approachingSun": "Approaching sun",
+      "solarDoge": "Solar Doge",
+      "approachingGalaxy": "Approaching galaxy",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Planet with life spotted"
+    }
+  }
+}

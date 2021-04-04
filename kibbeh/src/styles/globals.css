@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.18.0/inter.css");
 @import "tailwindcss/base";
 @import "tailwindcss/utilities";
 
@@ -29,6 +29,9 @@ p.bold {
   --color-primary-700: #242c37;
   --color-primary-800: #151a21;
   --color-primary-900: #0b0e11;
+  --color-secondary-washed-out: #879eed;
+  --color-secondary: #5575e7;
+  --color-accent-glow: rgba(253, 77, 77, 0.3);
   --color-accent: #fd4d4d;
   --color-accent-hover: #fd6868;
   --color-accent-disabled: #f5bfbf;
@@ -63,13 +66,27 @@ html *:not(head *):not(script):not(style) {
   display: flex;
 }
 
-#__next {
-  width: 100%;
-}
-
 html,
 body,
 #__next {
   background-color: var(--color-primary-900);
-  min-height: 100%;
+  height: 100%;
+  width: 100%;
+}
+
+audio {
+  width: 0;
+  display: none !important;
+}
+
+html {
+  position: fixed;
+}
+
+#__next {
+  overflow: auto;
+}
+
+textarea {
+  resize: none;
 }

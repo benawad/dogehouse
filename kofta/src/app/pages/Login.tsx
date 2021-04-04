@@ -1,33 +1,38 @@
+import isElectron from "is-electron";
+import qs from "query-string";
 import React, { useEffect } from "react";
+import { AlertModal, modalAlert } from "../components/AlertModal";
+import { BodyWrapper } from "../components/BodyWrapper";
 import { Button } from "../components/Button";
+import { CenterLayout } from "../components/CenterLayout";
+import { ConfirmModal } from "../components/ConfirmModal";
 import { Footer } from "../components/Footer";
+import { ListItem } from "../components/ListItem";
+import { modalPrompt, PromptModal } from "../components/PromptModal";
 import { Wrapper } from "../components/Wrapper";
 import { apiBaseUrl, __prod__, __staging__ } from "../constants";
-import { Logo } from "../svgs/Logo";
-import { useTokenStore } from "../utils/useTokenStore";
-import qs from "query-string";
-import { showErrorToast } from "../utils/showErrorToast";
-import { CenterLayout } from "../components/CenterLayout";
-import { modalPrompt, PromptModal } from "../components/PromptModal";
-import { AlertModal } from "../components/AlertModal";
-import { ConfirmModal } from "../components/ConfirmModal";
-import { BodyWrapper } from "../components/BodyWrapper";
-import { ListItem } from "../components/ListItem";
 import { GitHubIcon } from "../svgs/GitHubIcon";
+import { Logo } from "../svgs/Logo";
 import { TwitterIcon } from "../svgs/TwitterIcon";
+import { showErrorToast } from "../utils/showErrorToast";
+import { useTokenStore } from "../utils/useTokenStore";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
+
+const isMac = process.platform === "darwin";
 
 interface LoginProps {}
 
 export const Login: React.FC<LoginProps> = () => {
   const { t } = useTypeSafeTranslation();
-
   useEffect(() => {
     const { error } = qs.parse(window.location.search);
     if (error && typeof error === "string") {
       showErrorToast(error);
     }
-  }, []);
+    if (isElectron() && isMac) {
+      modalAlert(t("common.requestPermissions"));
+    }
+  }, [t]);
   return (
     <CenterLayout>
       <Wrapper>

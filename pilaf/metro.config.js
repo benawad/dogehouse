@@ -4,14 +4,21 @@
  *
  * @format
  */
+const path = require("path");
+
+const watchFolders = [
+  path.resolve(__dirname, "..", "node_modules"),
+  path.resolve(__dirname + "/../kebab/"),
+];
 
 module.exports = {
-	transformer: {
-		getTransformOptions: async () => ({
-			transform: {
-				experimentalImportSupport: false,
-				inlineRequires: false,
-			},
-		}),
-	},
+  transformer: {
+    getTransformOptions: async () => ({
+      transform: {
+        experimentalImportSupport: false,
+        inlineRequires: false,
+      },
+    }),
+  },
+  watchFolders,
 };

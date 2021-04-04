@@ -14,7 +14,8 @@
     "copyLink": "링크 복사",
     "copied": "복사됨",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "적절한 권한이 부여되지 않은 채로 Dogehouse를 실행하면 오류가 발생할 수 있습니다."
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -35,8 +36,12 @@
       "currentRoom": "채팅방:",
       "startPrivateRoom": "비공개 채팅방에 입장하기."
     },
-    "followList": {},
-    "home": { "createRoom": "방 만들기", "refresh": "Refresh" },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": {
+      "createRoom": "방 만들기",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "채팅방이 삭제됨. 이전 페이지로 돌아가기.",
       "shareRoomLink": "채팅방 링크 공유",
@@ -60,7 +65,8 @@
       "probablyLoading": "아마도 로딩 중...",
       "voiceSettings": "음성 설정 들어가기",
       "soundSettings": "소리 설정 들어가기",
-      "deleteAccount": "계정 삭제"
+      "deleteAccount": "계정 삭제",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "아이고! 페이지가 사라졌습니다",
@@ -70,7 +76,9 @@
     "room": {
       "speakers": "스피커",
       "requestingToSpeak": "발언권 요청",
-      "listeners": "청취자"
+      "listeners": "청취자",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "검색..." },
     "soundEffectSettings": { "header": "소리" },
@@ -78,7 +86,12 @@
       "editProfile": "프로필 변경",
       "followsYou": "나를 팔로우하는 사람들",
       "followers": "팔로워들",
-      "following": "팔로우하는 사람들"
+      "following": "팔로우하는 사람들",
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "프로필 URL 복사",
+      "urlCopied": "URL이 클립보드에 복사 되었습니다.",
+      "unfollow": "팔로우 취소"
     },
     "voiceSettings": {
       "header": "음성 설정",
@@ -86,6 +99,10 @@
       "permissionError": "마이크를 찾을 수 없거나, 연결되지 않았거나, 이 페이지에서 마이크를 사용할 수있는 권한이 없습니다.",
       "refresh": "마이크 목록 새로코침",
       "volume": "음량:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -114,8 +131,8 @@
     },
     "deviceNotSupported": {
       "notSupported": "현재 기기는 지원되지 않습니다, ",
-      "linkText": "깃허브에 이슈를 넣으시면",
-      "addSupport": "이른 시일 내에 기기를 추가하겠습니다"
+      "linkText": "깃허브에 이슈를 생성하시면",
+      "addSupport": "빠른 시일 내에 기기에 대한 지원을 추가하겠습니다"
     },
     "inviteButton": { "invited": "초대됨", "inviteToRoom": "초대하기" },
     "micPermissionBanner": {
@@ -127,14 +144,15 @@
       "setKeybind": "키바인드 설정",
       "listening": "듣는중",
       "toggleMuteKeybind": "음소거 키 토글",
-      "togglePushToTalkKeybind": "푸시 투 토크 키 토글"
+      "togglePushToTalkKeybind": "푸시 투 토크 키 토글",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "오디오 컨수머를 찾을수 없었습니다"
     },
     "addToCalendar": { "add": "달력에 추가" },
     "wsKilled": {
-      "description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
+      "description": "웹 소켓 연결이 해제되었습니다. 주로 다른 탭에서 웹사이트를 여는 경우에 발생하는 오류 입니다.",
       "reconnect": "다시 연결"
     },
     "modals": {
@@ -174,12 +192,15 @@
         "banFromChat": "채팅 차단",
         "banFromRoom": "채팅방 에서 차단",
         "goBackToListener": "청취자로 돌아가기",
-        "deleteMessage": "이 메세지 삭제"
+        "deleteMessage": "이 메세지 삭제",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "발언권이 필요합니다",
         "makePublic": "채팅방 공개화",
-        "makePrivate": "채팅방 비공개화"
+        "makePrivate": "채팅방 비공개화",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },
@@ -213,16 +234,16 @@
       "roomDescription": "방 설명"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
+      "fuelingRocket": "로켓 연료 주입중..",
+      "takingOff": "이륙!",
+      "inSpace": "우주 속..",
+      "approachingMoon": "달에 근접하는 중..",
       "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
+      "approachingSun": "태양에 근접하는 중..",
       "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
+      "approachingGalaxy": "은하계에 근접하는 중..",
       "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "spottedLife": "생명체가 있는 새로운 행성에 도착"
     }
   }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 module.exports = {
   darkMode: "media",
   purge: ["./src/**/*.tsx", "./public/index.html"],
@@ -15,6 +16,20 @@ module.exports = {
       ],
       // mono: ["Menlo", "Monaco", "Courier New", "monospace"],
     },
+    fontSize: {
+      tiny: "0.625rem",
+      xs: ".75rem",
+      sm: ".875rem",
+      base: "1rem",
+      lg: "1.125rem",
+      xl: "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem",
+      "5xl": "3rem",
+      "6xl": "4rem",
+      "7xl": "5rem",
+    },
     colors: {
       button: "var(--color-button-text)",
       transparent: "transparent",
@@ -27,6 +42,10 @@ module.exports = {
         800: "var(--color-primary-800)",
         900: "var(--color-primary-900)",
       },
+      secondary: {
+        DEFAULT: "var(--color-secondary)",
+        "washed-out": "var(--color-secondary-washed-out)",
+      },
       accent: {
         DEFAULT: "var(--color-accent)",
         hover: "var(--color-accent-hover)",
@@ -34,6 +53,7 @@ module.exports = {
       },
     },
     spacing: {
+      0: "0px",
       1: "5px",
       2: "10px",
       3: "15px",
@@ -41,9 +61,17 @@ module.exports = {
       5: "30px",
       6: "40px",
       7: "60px",
+      8: "75px",
+      "5l": "10rem",
+      24: "24rem",
+      400: "400px",
+    },
+    borderWidth: {
+      DEFAULT: "1px",
     },
     extend: {
       borderRadius: {
+        5: "5px",
         8: "8px",
       },
     },
@@ -51,6 +79,7 @@ module.exports = {
   variants: {
     backgroundColor: ({ after }) => after(["disabled"]),
     textColor: ({ after }) => after(["disabled"]),
+    scrollbar: ["rounded", "dark"],
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar"), require('@tailwindcss/line-clamp')],
 };

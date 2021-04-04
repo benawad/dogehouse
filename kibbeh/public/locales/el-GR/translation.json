@@ -1,7 +1,7 @@
 {
   "_comment": "if you change this file, do: npm run i18",
   "common": {
-    "loadMore": "φόρτωση περισσότερων",
+    "loadMore": "φόρτωση περισσοτέρων",
     "loading": "φόρτωση...",
     "noUsersFound": "δεν βρέθηκαν χρήστες",
     "ok": "οκ",
@@ -11,11 +11,12 @@
     "save": "αποθήκευση",
     "edit": "επεξεργασία",
     "delete": "διαγραφή",
-    "joinRoom": "συμμετοχή στο δωμάτιο",
+    "joinRoom": "είσοδος στο δωμάτιο",
     "copyLink": "αντιγραφή συνδέσμου",
-    "copied": "αντιγράφηκε",
+    "copied": "αντιγράφτηκε",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Λάβετε υπόψη ότι το να τρέχετε το DogeHouse χωρίς δικαιώματα προσβασιμότητας μπορεί να προκαλέσει ανεπιθύμητα σφάλματα "
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -30,14 +31,22 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "αποκλεισμός χρήστη" },
+    "banUser": { "ban": "αποκλεισμός" },
     "followingOnlineList": {
-      "listHeader": "Χρήστες που ακολουθείτε και δεν βρίσκονται σε κάποιο δωμάτιο",
+      "listHeader": "Οι χρήστες που ακολουθείτε και δεν βρίσκονται σε κάποιο δωμάτιο",
       "currentRoom": "αυτή τη στιγμή βρίσκεστε σε:",
       "startPrivateRoom": "δημιουργήστε ένα ιδιωτικό δωμάτιο μαζί τους"
     },
-    "followList": {},
-    "home": { "createRoom": "Δημιουργία Δωματίου", "refresh": "Επαναφώρτωση" },
+    "followList": {
+      "followHim": "ακολουθήστε",
+      "ακολουθήστε": "ακολουθείτε",
+      "followingHim": "ακολουθείτε"
+    },
+    "home": {
+      "createRoom": "Δημιουργία Δωματίου",
+      "refresh": "Επαναφόρτωση",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "το δωμάτιο διαγράφηκε, πηγαίνετε πίσω",
       "shareRoomLink": "κοινοποιήστε τον σύνδεσμο του δωματίου",
@@ -45,12 +54,12 @@
       "whenFollowersOnline": "Όταν οι ακόλουθοι σας είναι ενεργοί, θα εμφανίζονται εδώ."
     },
     "login": {
-      "headerText": "Πάμε τις φωνητικές συνομιλίες στο φεγγάρι 🚀!",
+      "headerText": "Πάμε τις φωνητικές συνομιλίες στο φεγγάρι 🚀",
       "featureText_1": "Σκούρο Θέμα",
       "featureText_2": "Ανοιχτές Εγγραφές",
-      "featureText_3": "Cross-Platform Υποστήριξη",
+      "featureText_3": "Υποστήριξη Πολλαπλών Συσκευών",
       "featureText_4": "Ανοιχτού Πηγαίου Κώδικα",
-      "featureText_5": "Τσατ Κειμένου",
+      "featureText_5": "Συζήτηση Κειμένου",
       "featureText_6": "Με την υποστήριξη του Doge",
       "loginGithub": "σύνδεση μέσω GitHub",
       "loginTwitter": "σύνδεση μέσω Twitter",
@@ -61,17 +70,20 @@
       "probablyLoading": "μάλλον φορτώνει...",
       "voiceSettings": "πηγαίνετε στις ρυθμίσεις φωνής",
       "soundSettings": "πηγαίνετε στις ρυθμίσεις ήχου",
-      "deleteAccount": "διαγραφή λογαριασμού"
+      "deleteAccount": "διαγραφή λογαριασμού",
+      "overlaySettings": "πηγαιντε στις ρυθμίσεις του overlay"
     },
     "notFound": {
-      "whoopsError": "Ουπς! Αυτή η σελίδα δεν βρέθηκε.",
+      "whoopsError": "Ουπς! Αυτή η σελίδα χάθηκε στη συζήτηση.",
       "goHomeMessage": "Μην ανησυχείτε. Μπορείτε να",
-      "goHomeLinkText": "επιστρέψετε στην αρχική"
+      "goHomeLinkText": "επιστρέψετε στην αρχική σελίδα"
     },
     "room": {
       "speakers": "Ομιλητές",
-      "requestingToSpeak": "Έχουν ζητήσει άδεια για να μιλήσουν",
-      "listeners": "Ακροατές"
+      "requestingToSpeak": "Αιτούμενοι να μιλήσουν",
+      "listeners": "Ακροατές",
+      "allowAll": "Επιτρέψτε τα όλα",
+      "allowAllConfirm": "Είστε σίγουρος; Αυτό θα επιτρέψει όλους τους {{count}} χρήστες που έχουν ζητήσει, να μιλήσουν"
     },
     "searchUser": { "search": "αναζήτηση..." },
     "soundEffectSettings": { "header": "Ήχοι" },
@@ -79,14 +91,26 @@
       "editProfile": "επεξεργασία προφίλ",
       "followsYou": "σας ακολουθεί",
       "followers": "ακόλουθοι",
-      "following": "ακολουθείτε"
+      "following": "ακολουθείτε",
+      "followHim": "ακολουθήστε",
+      "followingHim": "ακολουθείτε",
+      "copyProfileUrl": "αντιγράψτε τον σύνδεσμο της εικόνας",
+      "urlCopied": "ο συνδεσμος αντιγράφθηκε στο πρόχειρο",
+      "unfollow": "ξε-ακολουθήστε"
     },
     "voiceSettings": {
       "header": "Ρυθμίσεις Φωνής",
       "mic": "μικρόφωνο:",
-      "permissionError": "δεν βρέθηκε μικρόφωνο, είτε δεν έχετε κανένα συνδεδεμένο είτε δεν έχετε δώσει άδεια στην παρούσα ιστοσελίδα.",
+      "permissionError": "δεν βρέθηκε μικρόφωνο, είτε δεν έχετε κανένα συνδεδεμένο είτε δεν έχετε δώσει άδεια σε αυτή την ιστοσελίδα.",
       "refresh": "ανανέωση λίστας μικροφώνων",
       "volume": "ένταση ήχου:"
+    },
+    "overlaySettings": {
+      "input": {
+        "errorMsg": "Μη έγκυρος τίτλος εφαρμογής",
+        "label": "Εισάγετε τον τίτλο της εφαρμογής"
+      },
+      "header": "Ρυθμίσεις overlay"
     }
   },
   "components": {
@@ -105,13 +129,13 @@
       "inviteUsersToRoomBtn": "Προσκαλέστε χρήστες στο δωμάτιο",
       "invite": "Πρόσκληση",
       "toggleMuteMicBtn": "Εναλλαγή κατάστασης μικροφώνου",
-      "mute": "Σίγαη",
+      "mute": "Σίγαση",
       "unmute": "Ξε-σίγαση",
       "makeRoomPublicBtn": "Κάντε το δωμάτιο δημόσιο!",
       "settings": "Ρυθμίσεις",
       "speaker": "Ομιλητής",
       "listener": "Ακροατής",
-      "chat": "Τσατ"
+      "chat": "Συζήτηση"
     },
     "deviceNotSupported": {
       "notSupported": "Η συσκευή σας δεν υποστηρίζεται αυτή τη στιγμή. Μπορείτε να δημιουργήσετε ένα",
@@ -131,7 +155,8 @@
       "setKeybind": "θέστε μια συντόμευση",
       "listening": "ακροατές",
       "toggleMuteKeybind": "συντόμευση εναλλαγής σίγασης",
-      "togglePushToTalkKeybind": "συντόμευση εναλλαγής push-to-talk"
+      "togglePushToTalkKeybind": "συντόμευση εναλλαγής push-to-talk",
+      "toggleOverlayKeybind": "θέστε μια συντόμευση για το overlay"
     },
     "userVolumeSlider": {
       "noAudioMessage": "δεν υπάρχει δέκτης ήχου για κάποιο λόγο"
@@ -158,11 +183,11 @@
         "inviteReceived": "έχετε προσκληθεί στο"
       },
       "editProfileModal": {
-        "usernameTaken": "το όνομα χρήστη χρησιμοποιείται ήδη",
-        "avatarUrlError": "Μη αποδεκτή φωτογραφία",
-        "avatarUrlLabel": "Διεύθυνση URL άβαταρ Github/Twitter",
+        "usernameTaken": "όνομα χρήστη μη διαθέσιμο",
+        "avatarUrlError": "Άκυρη φωτογραφία",
+        "avatarUrlLabel": "Διεύθυνση URL άβαταρ απο Github/Twitter",
         "displayNameError": "μήκος από 2 έως 50 χαρακτήρες",
-        "displayNameLabel": "Όνομα Εμφάνισης",
+        "displayNameLabel": "Εμφανιζόμενο Όνομα",
         "usernameError": "μήκος από 4 έως 15 χαρακτήρες και μόνο αλφαριθμητικά/κάτω παύλα",
         "usernameLabel": "Όνομα Χρήστη",
         "bioError": "μέγιστο μήκος 160 χαρακτήρες",
@@ -175,15 +200,18 @@
         "unmod": "αφαίρεση από συντονιστή",
         "addAsSpeaker": "προσθήκη ως ομιλητή",
         "moveToListener": "μετακίνηση σε ακροατή",
-        "banFromChat": "αποκλεισμός από το τσατ",
+        "banFromChat": "αποκλεισμός από τη συζήτηση",
         "banFromRoom": "αποκλεισμός από το δωμάτιο",
-        "goBackToListener": "επιστροφή σε κατάσταση ακροατή",
-        "deleteMessage": "διαγράψτε αυτό το μήνυμα"
+        "goBackToListener": "επιστροφή σε ακροατή",
+        "deleteMessage": "διαγράψτε αυτό το μήνυμα",
+        "makeRoomCreator": "μετατροπή σε διαχειριστή δωματίου"
       },
       "roomSettingsModal": {
         "requirePermission": "απαίτηση άδειας για ομιλία",
         "makePublic": "κάντε το δωμάτιο δημόσιο",
-        "makePrivate": "κάντε το δωμάτιο ιδιωτικό"
+        "makePrivate": "κάντε το δωμάτιο ιδιωτικό",
+        "renamePublic": "ορίστε ένα όνομα για το δημόσιο δωμάτιο",
+        "renamePrivate": "ορίστε ένα όνομα για το ιδιωτικό δωμάτιο"
       }
     }
   },
@@ -193,36 +221,36 @@
       "title": "Προγραμματισμένα Δωμάτια",
       "noneFound": "δεν βρέθηκε κανένα",
       "allRooms": "όλα τα προγραμματισμένα δωμάτια",
-      "myRooms": "τα προγραμματισμένα μου δωμάτια",
+      "myRooms": "τα προγραμματισμένα δωμάτια μου",
       "scheduleRoomHeader": "Προγραμματισμός Δωματίου",
-      "startRoom": "δημιουργία δωματίου",
+      "startRoom": "έναρξη δωματίου",
       "modal": {
-        "needsFuture": "πρέπει να βρίσκεται στο μέλλον",
+        "needsFuture": "πρέπει να είναι στο μέλλον",
         "roomName": "όνομα δωματίου",
         "roomDescription": "Περιγραφή Δωματίου",
         "minLength": "ελάχιστο μήκος 2"
       }
     },
     "roomChat": {
-      "title": "Τσατ",
+      "title": "Συζήτηση",
       "emotesSoon": "[τα emotes έρχονται σύντομα]",
-      "bannedAlert": "Αποκλειστήκατε από το τσατ",
-      "waitAlert": "Πρέπει να περιμένετε ένα δευτερόλεπτο προτού να στείλετε άλλο μήνυμα",
+      "bannedAlert": "Αποκλειστήκατε από τη συζήτηση",
+      "waitAlert": "Πρέπει να περιμένετε ένα δευτερόλεπτο προτού στείλετε και άλλο μήνυμα",
       "search": "Αναζήτηση",
-      "searchResults": "Αποτελέσματα Αναζήτησς",
-      "recent": "Συχνά Χρησιμοποιούμενα",
+      "searchResults": "Αποτελέσματα Αναζήτησης",
+      "recent": "Χρησιμοποιούμενα Συχνά",
       "sendMessage": "Στείλτε ένα Μήνυμα",
-      "whisper": "Ψίθυρος",
-      "welcomeMessage": "Καλωσήρθατε στο τσατ!",
-      "roomDescription": "Περιγραφή δωματίου"
+      "whisper": "Ψιθυρίστε",
+      "welcomeMessage": "Καλως ήλθατε στη συζήτηση!",
+      "roomDescription": "Περιγραφή Δωματίου"
     },
     "roomStatus": {
-      "fuelingRocket": "Ανεφοδιάζουμε τον πύραυλο",
+      "fuelingRocket": "Ανεφοδιασμός πυραύλου",
       "takingOff": "Απογείωση",
       "inSpace": "Στο διάστημα",
-      "approachingMoon": "Πλησιάζουμε το Φεγγάρι",
+      "approachingMoon": "Πλησιάζοντας το φεγγάρι",
       "lunarDoge": "Σεληνιακό Doge",
-      "approachingSun": "Πλησιάζουμε τον Ήλιο",
+      "approachingSun": "Πλησιάζοντας τον ήλιο",
       "solarDoge": "Ηλιακό Doge",
       "approachingGalaxy": "Πλησιάζουμε τον Γαλαξία",
       "galacticDoge": "Γαλαξιακό Doge",

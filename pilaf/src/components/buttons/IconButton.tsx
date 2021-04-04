@@ -1,32 +1,30 @@
 import React from "react";
 import {
+  Image,
+  ImageSourcePropType,
   StyleProp,
   StyleSheet,
   TouchableOpacity,
   ViewStyle,
 } from "react-native";
 import { colors } from "../../constants/dogeStyle";
-import Icon from "react-native-vector-icons/Ionicons";
 
 interface IconButtonProps {
   style?: StyleProp<ViewStyle>;
-  iconName: string;
-  iconSize: number;
-  iconColor: string;
+  icon: ImageSourcePropType;
+  iconColor?: string;
   onPress: () => void;
 }
 
-export const IconButton: React.FC<IconButtonProps> = (props) => {
+export const IconButton: React.FC<IconButtonProps> = ({
+  style,
+  onPress,
+  icon,
+  iconColor = colors.text,
+}) => {
   return (
-    <TouchableOpacity
-      style={[props.style, styles.container]}
-      onPress={props.onPress}
-    >
-      <Icon
-        name={props.iconName}
-        size={props.iconSize}
-        color={props.iconColor}
-      />
+    <TouchableOpacity style={[style, styles.container]} onPress={onPress}>
+      <Image source={icon} style={{ tintColor: iconColor }} />
     </TouchableOpacity>
   );
 };

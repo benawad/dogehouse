@@ -3,8 +3,8 @@ import { useCurrentRoomStore } from "../../../webrtc/stores/useCurrentRoomStore"
 import { truncate } from "../../utils/truncate";
 import { useTypeSafeTranslation } from "../../utils/useTypeSafeTranslation";
 
-const MAX_COLLAPSED_CHARACTERS = 100;
-const MAX_COLLAPSED_LINES = 6;
+const MAX_COLLAPSED_CHARACTERS = 60;
+const MAX_COLLAPSED_LINES = 2;
 
 interface RoomDescriptionProps {}
 
@@ -23,7 +23,7 @@ export const RoomDescription: React.FC<RoomDescriptionProps> = () => {
 			<p className="text-gray-400 mb-1">
 				{t("modules.roomChat.roomDescription")}
 			</p>
-			<p className="whitespace-pre-wrap break-all">
+			<p className="whitespace-pre-wrap break-all overflow-y-auto max-h-24">
 				{expanded
 					? currentRoom.description
 					: truncatedString}

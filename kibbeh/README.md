@@ -17,6 +17,8 @@
 
 This folder is called kibbeh ([/ˈkɪbi/](https://en.wikipedia.org/wiki/Kibbeh)), it is currently used for our Next.js frontend rewrite and new design.
 
+It's live on 👉 [next.dogehouse.tv](https://next.dogehouse.tv)
+
 # How can I contribute?
 
 First of all, this project is currently in _very_ early stages of development, therefore these instructions may not be up to date.
@@ -40,3 +42,5 @@ cd ../kibbeh
 yarn
 yarn staging
 ```
+
+> If for some reason the above commands dont work and leave you with a `@dogehouse/kebab` module not found error, just copy the entire `dogehouse/kebab` directory over to `dogehouse/node_modules/@dogehouse/kebab`

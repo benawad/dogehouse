@@ -15,7 +15,8 @@
     "copyLink": "ሊንክ ውሰድ",
     "copied": "ተቀድቷል!",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please give DogeHouse Accessibility permessions"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,8 +37,12 @@
       "currentRoom": "በአሁኑ ጊዜ ውስጥ:",
       "startPrivateRoom": "ከእነሱ ጋር አንድ የግል ክፍል መጀመር"
     },
-    "followList": {},
-    "home": { "createRoom": "ክፍል ፍጠር", "refresh": "Refresh" },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": {
+      "createRoom": "ክፍል ፍጠር",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "ክፍሉ ጠፋ, ተመለስ",
       "shareRoomLink": "የክፍሉን ሊንክ አጋራ",
@@ -61,7 +66,8 @@
       "probablyLoading": "ምናልባት በመጫን ላይ ...",
       "voiceSettings": "የአወራር ድምጽ ቅንብሮች",
       "soundSettings": "የድምጽ ቅንብሮች",
-      "deleteAccount": "መለያህን ደልት"
+      "deleteAccount": "መለያህን ደልት",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "ውይ ውይ! ይህ ገጽ ውይይት ውስጥ ጠፋ፡፡",
@@ -71,16 +77,22 @@
     "room": {
       "speakers": "ተናጋሪዎች",
       "requestingToSpeak": "ለመናገር ፈቃድ ጠይቅ",
-      "listeners": "አድማጮች"
+      "listeners": "አድማጮች",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "ፈልግ ..." },
     "soundEffectSettings": { "header": "ድምፆች" },
     "viewUser": {
       "editProfile": "መገለጫ ቀይር",
       "followsYou": "እርስዎን ይከተላል",
-      "folowers": "ተከታዮች",
+      "followers": "ተከታዮች",
       "following": "የሚከተሉት",
-      "followers": "followers"
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "የድምፅ ቅንብሮች",
@@ -89,6 +101,12 @@
       "refesh": "አድስ ማይክሮፎኑን ዝርዝር",
       "volume": "ድምጽ:",
       "refresh": "refresh mic list"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings",
+      "errorMsg": "Please enter valid app title",
+      "label": "Enter app title"
     }
   },
   "components": {
@@ -130,7 +148,8 @@
       "setKeybind": "ቁልፍ አዘጋጅ",
       "listening": "በማዳመጥ ላይ",
       "toggleMuteKeybind": "ድምጸ ማጥፍያ/ማብርያ ቁልፍ",
-      "togglePushToTalkKeybind": "ተጭኖ ማውሪያ ማጥፍያ/ማብርያ ቁልፍ"
+      "togglePushToTalkKeybind": "ተጭኖ ማውሪያ ማጥፍያ/ማብርያ ቁልፍ",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "በሆነ ምክንያት ምንም ድምጽ ተጠቃሚ የለም" },
     "addToCalendar": { "add": "ወደ ቀን መቁጠሪያ ጨምር" },
@@ -175,12 +194,15 @@
         "banFromChat": "ከ ውይይት አግድ",
         "banFromRoom": "ከ ክፍል ያግዱ",
         "goBackToListener": "አዳማጭ ይመለሱ",
-        "deleteMessage": "ይህን መልዕክት ሰርዝ"
+        "deleteMessage": "ይህን መልዕክት ሰርዝ",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "መናገር ፈቃድ ይጠይቃል",
         "makePublic": "ክፍሉን ለሁሉም ክፍት ያድርጉ",
-        "makePrivate": "ክፍሉን የግል ያድርጉ"
+        "makePrivate": "ክፍሉን የግል ያድርጉ",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },
@@ -197,7 +219,7 @@
         "needsFuture": "ፍላጎቶች ወደፊት መሆን አለባቸው",
         "roomName": "የክፍል ስም",
         "minLength": "ደቂቃ ርዝመት 2",
-        "roomDescription": "Description"
+        "roomDescription": "ክፍል መግለጫ"
       }
     },
     "roomChat": {

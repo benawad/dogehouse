@@ -1,71 +1,105 @@
 import React from "react";
-import { StyleSheet, Alert, Linking } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { InAppBrowser } from "react-native-inappbrowser-reborn";
-import { SigninWithGithubButton } from "../components/buttons/SigninWithGithub";
-import { colors } from "../constants/dogeStyle";
-import { useSaveTokensFromQueryParams } from "../module/auth/useSaveTokensFromQueryParams";
-
-const signinWithGithub = async () => {
-  try {
-    const url =
-      "https://doge-staging.stripcode.dev/auth/github/web?redirect_after_base=dogehouse://home";
-    if (await InAppBrowser.isAvailable()) {
-      const result = await InAppBrowser.open(url, {
-        // iOS Properties
-        dismissButtonStyle: "cancel",
-        preferredBarTintColor: "rgba(30, 30, 30, 1)",
-        preferredControlTintColor: "white",
-        readerMode: false,
-        animated: true,
-        modalPresentationStyle: "fullScreen",
-        modalTransitionStyle: "coverVertical",
-        modalEnabled: true,
-        enableBarCollapsing: false,
-        // Android Properties
-        showTitle: true,
-        toolbarColor: "rgba(30, 30, 30, 1)",
-        secondaryToolbarColor: "black",
-        enableUrlBarHiding: true,
-        enableDefaultShare: true,
-        forceCloseOnRedirection: false,
-        // Specify full animation resource identifier(package:anim/name)
-        // or only resource name(in case of animation bundled with app).
-        animations: {
-          startEnter: "slide_in_right",
-          startExit: "slide_out_left",
-          endEnter: "slide_in_left",
-          endExit: "slide_out_right",
-        },
-        headers: {
-          "my-custom-header": "my custom header value",
-        },
-      });
-    } else Linking.openURL(url);
-  } catch (error) {
-    Alert.alert(error.message);
-  }
-};
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { SignInButton } from "../components/buttons/SignInButton";
+import { colors, h3, small } from "../constants/dogeStyle";
+import { useSaveTokensFromQueryParams } from "../modules/auth/useSaveTokensFromQueryParams";
 
 export const LandingPage: React.FC = () => {
   useSaveTokensFromQueryParams();
-
+  const inset = useSafeAreaInsets();
   return (
-    <SafeAreaView style={styles.safeAreaView}>
-      <SigninWithGithubButton style={styles.signinButton} />
-    </SafeAreaView>
+    <View
+      style={[
+        styles.container,
+        { paddingTop: inset.top, paddingBottom: inset.bottom },
+      ]}
+    >
+      <View
+        style={{ flex: 1, alignItems: "flex-start", justifyContent: "center" }}
+      >
+        <Image
+          source={require("../assets/images/Logo.png")}
+          style={{ width: "80%", aspectRatio: 168 / 40, height: undefined }}
+        />
+      </View>
+      <View
+        style={{ flexGrow: 1, alignItems: "center", justifyContent: "center" }}
+      >
+        <Text style={styles.title}>Welcome</Text>
+        <View
+          style={{
+            flexDirection: "row",
+            flexWrap: "wrap",
+            marginTop: 6,
+            marginBottom: 30,
+          }}
+        >
+          <Text style={styles.text}>By signing in you accept our </Text>
+          <TouchableOpacity>
+            <Text style={styles.link}>Privacy Policy</Text>
+          </TouchableOpacity>
+          <Text style={styles.text}> and </Text>
+          <TouchableOpacity style={{ padding: 0 }}>
+            <Text style={styles.link}>Terms of Service</Text>
+          </TouchableOpacity>
+        </View>
+        <SignInButton style={styles.signinButton} provider={"github"} />
+        <SignInButton style={styles.signinButton} provider={"twitter"} />
+        <SignInButton style={styles.signinButton} provider={"google"} />
+      </View>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: "row",
+          alignItems: "flex-end",
+          justifyContent: "space-evenly",
+          paddingBottom: 20,
+        }}
+      >
+        <TouchableOpacity>
+          <Image
+            source={require("../assets/images/github.png")}
+            style={{ tintColor: colors.text }}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Image
+            source={require("../assets/images/twitter.png")}
+            style={{ tintColor: colors.text }}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Image
+            source={require("../assets/images/discord.png")}
+            style={{ tintColor: colors.text }}
+          />
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  safeAreaView: {
+  title: {
+    ...h3,
+  },
+  text: {
+    ...small,
+  },
+  link: {
+    ...small,
+    color: colors.accent,
+    textAlignVertical: "center",
+  },
+  container: {
     flex: 1,
-    justifyContent: "center",
-    backgroundColor: colors.primary900,
+    backgroundColor: colors.primary800,
+    paddingHorizontal: 40,
   },
   signinButton: {
-    height: 48,
-    marginHorizontal: 16,
+    height: 50,
     alignSelf: "stretch",
+    marginBottom: 20,
   },
 });

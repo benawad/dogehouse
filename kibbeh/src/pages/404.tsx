@@ -1,5 +1,10 @@
-import { FC } from "react";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
-const NotFoundPage: FC = () => <h1>404 - Not found</h1>;
-
-export default NotFoundPage;
+export default function Custom404() {
+  const router = useRouter();
+  useEffect(() => {
+    router.replace("/dash");
+  });
+  return null;
+}

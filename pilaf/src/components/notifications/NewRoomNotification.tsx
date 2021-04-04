@@ -1,14 +1,20 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import {
+  Image,
   StyleSheet,
-  View,
-  ViewStyle,
   Text,
   TouchableOpacity,
+  View,
+  ViewStyle,
 } from "react-native";
-import { colors, fontFamily, fontSize } from "../../constants/dogeStyle";
+import {
+  colors,
+  fontFamily,
+  fontSize,
+  paragraph,
+  radius,
+} from "../../constants/dogeStyle";
 import { GenericNotification } from "./GenericNotification";
-import Icon from "react-native-vector-icons/Ionicons";
 
 interface NewRoomNotificationProps {
   style?: ViewStyle;
@@ -25,13 +31,13 @@ export const NewRoomNotification: React.FC<NewRoomNotificationProps> = ({
   time,
   joined = false,
 }) => {
-  const icon = <Icon name={"rocket"} size={40} color={colors.text} />;
+  const icon = <Image source={require("../../assets/images/ios-rocket.png")} />;
 
   const notificationMsg = (
     <View style={{ flexDirection: "row" }}>
-      <Text style={[styles.textPrimary, { fontFamily: fontFamily.bold }]}>
+      <Text style={[styles.title, { fontWeight: "700" }]}>
         {username}
-        <Text style={styles.textPrimary}> created a room</Text>
+        <Text style={styles.title}> created a room</Text>
       </Text>
     </View>
   );
@@ -44,6 +50,7 @@ export const NewRoomNotification: React.FC<NewRoomNotificationProps> = ({
 
   return (
     <GenericNotification
+      style={style}
       notificationMsg={notificationMsg}
       time={time}
       icon={icon}
@@ -53,19 +60,19 @@ export const NewRoomNotification: React.FC<NewRoomNotificationProps> = ({
 };
 
 const styles = StyleSheet.create({
-  textPrimary: {
-    color: colors.text,
-    fontFamily: fontFamily.medium,
-    fontSize: fontSize.paragraph,
+  title: {
+    ...paragraph,
+    lineHeight: 18,
     flex: 1,
     flexWrap: "wrap",
   },
   button: {
-    height: 32,
+    height: 22,
+    width: 90,
     backgroundColor: colors.accent,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 8,
+    borderRadius: radius.s,
+    alignItems: "center",
+    justifyContent: "center",
   },
   buttonTitle: {
     fontSize: fontSize.small,

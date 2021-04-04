@@ -9,35 +9,33 @@ It uses ElectronJS as a wrapper for [dogehouse.tv](https://dogehouse.tv) and add
 - System tray
 - Global keybinds
 - Splash screen
+- Localization
 
 ## How to run
 
-On the latest additions that allow the use of global keybinds a few things have to be noted:
+> NOTE: Windows users may have to install Visual Studio 2019 and the workload `Desktop Development with C++`.
 
-- Specify your Nodejs ABI number in `package.json` under `iohook/targets`
-   - Run `node -v` and note down your nodejs version
-   - Note down the `NODE_MODULE_VERSION` from [here](https://nodejs.org/en/download/releases/) by referring your previouly noted down nodejs version
-   - In `package.json` add `node-%NODE_MODULE_VERSION%` to `iohook/targets`
+- Run `yarn install`
+- Ensure [Rust](https://www.rust-lang.org/learn/get-started) is installed
+- Install `nj-cli` by running `cargo install nj-cli`
+- Run `yarn build:globkey`
+- Run `yarn start`
+- *(Optional)* Run `yarn build:%YOUR_PLATFORM_CODE%` and install the app from the build *(located in `/builds`)*
 
-- Specify your electron ABI in `package.json` under `iohook/targets`
-   - Run an electron app using `npm run start` without importing `iohook` *(i.e. remove/comment all imports of `iohook` from `src/electron.ts` and `src/util.ts`)*
-   - Open the dev console and type `process.versions.modules`
-   - In `package.json` add `electron-%process.versions.modules%` to `iohook/targets`
-   - Now uncomment/add the previously removed `iohook` imports
-
-- Run `npm i iohook`
-- Run `npm run start` and you global keybinds *(including PTT)* should start working
-- *(Optional)* Run `npm run build:%YOUR_PLATFORM_CODE%` and install the app from the build *(located in `/builds`)*
-
-If you encounter any errors while building please mention it in issue [#1002](https://github.com/benawad/dogehouse/issues/1002) or ask for help on the [Discord](https://discord.gg/wCbKBZF9cV0).
-If you encounter any other errors make a new issue.
-
-> **NOTE:** I have no idea why iohook requires this but it does. And I only found iohook to be a reliable module to detect the `keyup` and `keydown` events *(when app in background)* for use with PTT.
+If you encounter any errors while building please create a new issue for it or ask for help on the [Discord](https://discord.gg/wCbKBZF9cV0).
 
 ## Using hot reload
 
 The electron wrapper has the capability for hot reloads during development.
-You can run the app in hot reload mode using `npm run dev`.
+You can run the app in hot reload mode using `yarn dev`.
 
 While in hot reload mode, any time you save changes to a `ts` file, the electron app will recompile and relaunch itself.
 To exit hot reload mode, use `Ctrl+C` in the console. This will however, leave the current app window open, so be sure to close that also, as it will no longer have access to hot reload.
+
+## Translations
+
+Translations are stored in `baklava/locales` and loaded using the `i18next` library.
+You can add new languages by creating a folder with the correct [language code](https://www.electronjs.org/docs/api/locales) and adding the `translate.json` file.
+All keys are present in `baklava/src/generated/translationKeys.ts`, so it's a good idea to use it for reference.
+
+You can sync the files and generate missing keys using `yarn i18`.

@@ -4,5 +4,9 @@ interface InputErrorMsgProps {}
 
 // @todo verify with designer what color this should be
 export const InputErrorMsg: React.FC<InputErrorMsgProps> = ({ children }) => {
-  return <div className={`text-red-600`}>{children}</div>;
+  return (
+    <div className={`text-secondary`} data-testid="input-error-msg">
+      {children}
+    </div>
+  );
 };

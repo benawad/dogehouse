@@ -24,7 +24,7 @@ export const UserNode: React.FC<UserNodeProps> = ({
   isCreator,
   isSpeaking,
 }) => {
-  let prefix = null;
+  let prefix: React.ReactNode | null = null;
   if (isCreator) {
     prefix = (
       <img
@@ -67,7 +67,7 @@ export const UserNode: React.FC<UserNodeProps> = ({
         ) : null}
       </div>
       <div className={`mt-2 flex w-full justify-center items-center truncate`}>
-        <span className={`text-sm truncate`}>
+        <span className={`text-sm truncate font-mono`}>
           {u.username.trim().split(" ")[0]}
         </span>
         {prefix}

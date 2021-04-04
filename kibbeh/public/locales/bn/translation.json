@@ -15,7 +15,8 @@
     "copyLink": "লিংক কপি করুন",
     "copied": "কপি হয়ে গেছে",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "দয়া করে DogeHouse কে অ্যাক্সেস পারমিশন দিন"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,8 +37,15 @@
       "currentRoom": "ভেতরে আছেন:",
       "startPrivateRoom": "তাদের সাথে প্রাইভেট রুম শুরু করুন"
     },
-    "followList": {},
-    "home": { "createRoom": "রুম বানান", "refresh": "রিফ্রেশ করুন" },
+    "followList": {
+      "followHim": "অনুসরণ করুন",
+      "followingHim": "অনুসরণ করছেন"
+    },
+    "home": {
+      "createRoom": "রুম বানান",
+      "refresh": "রিফ্রেশ করুন",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "রুম শেষ, ফিরে আসুন",
       "shareRoomLink": "রুমের লিংক শেয়ার করুন",
@@ -61,7 +69,8 @@
       "probablyLoading": "সম্ভবত লোডিং...",
       "voiceSettings": "ভয়েস সেটিংস এ যান",
       "soundSettings": "সাউন্ড সেটিংস এ যান",
-      "deleteAccount": "অ্যাকাউন্ট ডিলিট করুন"
+      "deleteAccount": "অ্যাকাউন্ট ডিলিট করুন",
+      "overlaySettings": "ওভারলে সেটিংস এ যান"
     },
     "notFound": {
       "whoopsError": "উপস! এই পেজের বার্তালাপ কেটে গেছে।",
@@ -70,16 +79,23 @@
     },
     "room": {
       "speakers": "স্পিকারস",
-      "requestingToSpeak": "কথা বলার জন্য অনুরোধ করুন",
-      "listeners": "শ্রোতাগণ"
+      "requestingToSpeak": "কথা বলার জন্য অনুরোধ করছেন",
+      "listeners": "শ্রোতাগণ",
+      "allowAll": "সবাইকে অনুমতি দিন",
+      "allowAllConfirm": "আপনি কি নিশ্চিত? এটা অনুমতি দেবে সব {{count}} জন অনুরোধ করা ইউজারদের কথা বলতে"
     },
     "searchUser": { "search": "খুঁজুন..." },
     "soundEffectSettings": { "header": "সাউন্ডস" },
     "viewUser": {
       "editProfile": "প্রোফাইল এডিট করুন",
       "followsYou": "আপনাকে অনুসরণ করে",
-      "followers": "জন অনুসরণকারী",
-      "following": "জনকে অনুসরণ করছে"
+      "followers": "অনুসরণকারীরা",
+      "following": "অনুসরণ করছেন",
+      "followHim": "অনুসরণ করুন",
+      "followingHim": "অনুসরণ করছেন",
+      "copyProfileUrl": "প্রোফাইলের URL কপি করুন",
+      "urlCopied": "URL ক্লিপবোর্ডে কপি করা হয়েছে",
+      "unfollow": "অনুসরণ বাতিল করুন"
     },
     "voiceSettings": {
       "header": "ভয়েস সেটিংস",
@@ -87,6 +103,15 @@
       "permissionError": "কোনো মাইক খুঁজে পাওয়া যাইনি, আপনি কোনো মাইক প্লাগ করেননি অথবা এই ওয়েবসাইটকে পারমিশন দেননি।",
       "refresh": "মাইক লিস্ট রিফ্রেশ করুন",
       "volume": "ভলিউম:"
+    },
+    "overlaySettings": {
+      "input": {
+        "errorMsg": "অবৈধ অ্যাপ শিরোনাম",
+        "label": "অ্যাপ শিরোনাম দিন"
+      },
+      "header": "ওভারলে সেটিংস",
+      "errorMsg": "দয়া করে বৈধ অ্যাপ শিরোনাম দিন",
+      "label": "অ্যাপ শিরোনাম দিন"
     }
   },
   "components": {
@@ -111,7 +136,7 @@
       "settings": "সেটিংস",
       "speaker": "স্পিকার",
       "listener": "শ্রোতাগণ",
-      "chat": "Chat"
+      "chat": "চ্যাট"
     },
     "deviceNotSupported": {
       "notSupported": "আপনার ডিভাইসটি বর্তমানে সাপোর্টেড নয়। আপনি তৈরি করতে পারেন একটি",
@@ -131,7 +156,8 @@
       "setKeybind": "কীবাইন্ড সেট করুন",
       "listening": "শুনুন",
       "toggleMuteKeybind": "টগল করুন মাইক কীবাইন্ড",
-      "togglePushToTalkKeybind": "টগল করুন পুশ-টু-টক কীবাইন্ড"
+      "togglePushToTalkKeybind": "টগল করুন পুশ-টু-টক কীবাইন্ড",
+      "toggleOverlayKeybind": "টগল করুন ওভারলে কীবাইন্ড"
     },
     "userVolumeSlider": {
       "noAudioMessage": "কিছু কারনে অডিও কনসিউম করা যাইনি"
@@ -178,12 +204,15 @@
         "banFromChat": "চ্যাট থেকে ব্যান করুন",
         "banFromRoom": "রুম থেকে ব্যান করুন",
         "goBackToListener": "শ্রোতাতে ফিরে যান",
-        "deleteMessage": "মেসেজটি মুছে ফেলুন"
+        "deleteMessage": "মেসেজটি মুছে ফেলুন",
+        "makeRoomCreator": "রুম অ্যাডমিন তৈরি করুন"
       },
       "roomSettingsModal": {
         "requirePermission": "কথা বলার জন্য পারমিশন লাগবে",
         "makePublic": "রুমটাকে পাবলিক করুন",
-        "makePrivate": "রুমটাকে প্রাইভেট করুন"
+        "makePrivate": "রুমটাকে প্রাইভেট করুন",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

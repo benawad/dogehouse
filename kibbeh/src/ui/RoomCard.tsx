@@ -1,6 +1,6 @@
 import { format, isToday, isPast, differenceInMilliseconds } from "date-fns";
 import React, { useEffect, useState } from "react";
-import { SmSolidTime } from "../icons";
+import { SolidTime } from "../icons";
 import { BubbleText } from "./BubbleText";
 import { RoomCardHeading } from "./RoomCardHeading";
 import { Tag } from "./Tag";
@@ -41,6 +41,7 @@ export type RoomCardProps = {
   scheduledFor?: Date;
   listeners: number;
   tags: React.ReactNode[];
+  onClick?: () => void;
 };
 
 export const RoomCard: React.FC<RoomCardProps> = ({
@@ -49,6 +50,7 @@ export const RoomCard: React.FC<RoomCardProps> = ({
   scheduledFor,
   listeners,
   tags,
+  onClick,
 }) => {
   useScheduleRerender(scheduledFor);
 
@@ -65,10 +67,13 @@ export const RoomCard: React.FC<RoomCardProps> = ({
   const roomLive = !scheduledFor || isPast(scheduledFor);
 
   return (
-    <div className="p-4 w-full bg-primary-800 hover:bg-primary-800 rounded-lg flex flex-col">
+    <button
+      onClick={onClick}
+      className="p-4 w-full bg-primary-800 hover:bg-primary-800 rounded-lg flex flex-col"
+    >
       <div className="w-full flex justify-between space-x-4">
         <RoomCardHeading
-          icon={roomLive ? undefined : <SmSolidTime />}
+          icon={roomLive ? undefined : <SolidTime />}
           text={title}
         />
         <div className="flex-shrink-0">
@@ -77,12 +82,14 @@ export const RoomCard: React.FC<RoomCardProps> = ({
           </BubbleText>
         </div>
       </div>
-      <div className="text-primary-300 mt-2 break-words block">{subtitle}</div>
+      <div className="text-primary-300 mt-2 break-words block text-left">
+        {subtitle}
+      </div>
       <div className="space-x-2 mt-4">
         {tags.map((tag, idx) => (
           <Tag key={idx}>{tag}</Tag>
         ))}
       </div>
-    </div>
+    </button>
   );
 };

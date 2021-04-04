@@ -15,7 +15,8 @@
     "copyLink": "Nukopijuoti nuorodą",
     "copied": "Nukopijuota",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,8 +37,12 @@
       "currentRoom": "Šiuo metu yra:",
       "startPrivateRoom": "Sukurti privatų kambarį su jais"
     },
-    "followList": {},
-    "home": { "createRoom": "Sukurti kambarį", "refresh": "Refresh" },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": {
+      "createRoom": "Sukurti kambarį",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Kambario nebėra, grįžkite atgal",
       "shareRoomLink": "Pasidalinkite nuoroda į kambarį",
@@ -61,7 +66,8 @@
       "probablyLoading": "Tikriausiai kraunasi...",
       "voiceSettings": "Eiti į balso nustatymus",
       "soundSettings": "Eiti į garso nustatymus",
-      "deleteAccount": "Ištrinti vartotoją"
+      "deleteAccount": "Ištrinti vartotoją",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Uppss! Šis puslapis buvo prarastas pokalbyje",
@@ -71,7 +77,9 @@
     "room": {
       "speakers": "Kalbėtojai",
       "requestingToSpeak": "Prašo kalbėti",
-      "listeners": "Klausytojai"
+      "listeners": "Klausytojai",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Ieškoma..." },
     "soundEffectSettings": { "header": "Garsai" },
@@ -79,7 +87,12 @@
       "editProfile": "Redaguoti profilį",
       "followsYou": "Seka tave",
       "followers": "Sekėjai",
-      "following": "Tu seki"
+      "following": "Tu seki",
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Garso nustatymai",
@@ -87,6 +100,10 @@
       "permissionError": "nerasta mikrofonų, jūs arba neprijungėte tinklo, arba nedavėte šiai svetainei leidimo.",
       "refresh": "Atnaujinti mikrofonų sąrašą",
       "volume": "Garsas:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -131,7 +148,8 @@
       "setKeybind": "nustatyti klavišą",
       "listening": "Klausomasi",
       "toggleMuteKeybind": "perjungti nutildytą klavišą",
-      "togglePushToTalkKeybind": "perjungti tiesioginio ryšio klavišą"
+      "togglePushToTalkKeybind": "perjungti tiesioginio ryšio klavišą",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "dėl kokių nors priežasčių nėra garso vartotojo"
@@ -178,12 +196,15 @@
         "banFromChat": "Užblokuoti iš pokalbio",
         "banFromRoom": "Užblokuoti iš kambario",
         "goBackToListener": "Gražinti atgal į klausytojus",
-        "deleteMessage": "Ištrinti šią žinutę"
+        "deleteMessage": "Ištrinti šią žinutę",
+        "makeRoomCreator": "make room admin"
       },
       "roomSettingsModal": {
         "requirePermission": "Reikalingas patvirtinimas kalbėti",
         "makePublic": "Padaryti kambarį viešą",
-        "makePrivate": "Padaryti kambarį privatų"
+        "makePrivate": "Padaryti kambarį privatų",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

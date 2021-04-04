@@ -1,3 +1,4 @@
+import { formatDistance, fromUnixTime } from "date-fns";
 import React, { useState } from "react";
 import {
   ImageSourcePropType,
@@ -6,12 +7,12 @@ import {
   TextStyle,
   TouchableOpacity,
   View,
+  ViewProps,
 } from "react-native";
-import { formatDistance, fromUnixTime } from "date-fns";
+import { colors, paragraphBold, small } from "../constants/dogeStyle";
 import { SingleUserAvatar } from "./avatars/SingleUserAvatar";
-import { colors, fontFamily, fontSize } from "../constants/dogeStyle";
 
-interface MessageElementProps {
+export type MessageElementProps = ViewProps & {
   user: {
     username: string;
     avatar: ImageSourcePropType;
@@ -21,7 +22,7 @@ interface MessageElementProps {
     ts: number;
     text: string;
   };
-}
+};
 
 interface MessageDateProps {
   ts: number;
@@ -33,6 +34,7 @@ const MessageDate: React.FC<MessageDateProps> = ({ ts, style }) => (
 );
 
 export const MessageElement: React.FC<MessageElementProps> = ({
+  style,
   user,
   msg,
 }) => {
@@ -42,20 +44,21 @@ export const MessageElement: React.FC<MessageElementProps> = ({
       onPress={() => setExpanded(!expanded)}
       activeOpacity={0.8}
     >
-      <View style={styles.container}>
+      <View style={[styles.container, style]}>
         <SingleUserAvatar
           size={"sm"}
           isOnline={user.isOnline}
           src={user.avatar}
+          style={{ marginBottom: 20 }}
         />
-        <View style={{ flex: 1 }}>
-          <View style={styles.textContainer}>
-            <Text style={styles.textUserName}>{user.username}</Text>
-            <MessageDate style={styles.textDate} ts={msg.ts} />
-          </View>
-          <Text style={styles.textMessage} numberOfLines={expanded ? 0 : 1}>
+        <View style={styles.middleContainer}>
+          <Text style={styles.textUserName}>{user.username}</Text>
+          <Text style={styles.textMessage} numberOfLines={1}>
             {msg.text}
           </Text>
+        </View>
+        <View style={styles.dateContainer}>
+          <MessageDate style={styles.textDate} ts={msg.ts} />
         </View>
       </View>
     </TouchableOpacity>
@@ -65,31 +68,36 @@ export const MessageElement: React.FC<MessageElementProps> = ({
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    padding: 16,
     alignItems: "center",
   },
-  textContainer: {
-    flexDirection: "row",
+  middleContainer: {
+    flex: 1,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.primary700,
+    paddingBottom: 20,
+    paddingLeft: 0,
+    marginLeft: 11,
     justifyContent: "space-between",
-    marginLeft: 16,
+    overflow: "hidden",
+  },
+  dateContainer: {
+    height: "100%",
+    flexDirection: "row",
+    alignItems: "flex-start",
+
+    justifyContent: "center",
+    borderBottomWidth: 1,
+    borderBottomColor: colors.primary700,
   },
   textUserName: {
-    fontFamily: fontFamily.regular,
-    fontWeight: "700",
-    fontSize: fontSize.paragraph,
-    color: colors.text,
+    ...paragraphBold,
   },
   textDate: {
-    fontFamily: fontFamily.regular,
-    fontWeight: "500",
-    fontSize: fontSize.small,
+    ...small,
     color: colors.primary300,
   },
   textMessage: {
-    marginLeft: 16,
-    fontFamily: fontFamily.regular,
-    fontWeight: "500",
-    fontSize: fontSize.small,
+    ...small,
     color: colors.primary300,
   },
 });
