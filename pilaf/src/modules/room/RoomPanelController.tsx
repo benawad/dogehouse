@@ -98,12 +98,11 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({
             setCurrentRoomId(null);
             navigation.navigate("Home");
           }}
-          onMutePress={() => {
-            setInternalMute(!muted);
-          }}
-          onSpeakPress={() => conn.connection.send("ask_to_speak", {})}
-          muted={muted}
-          canAskToSpeak={true}
+          roomTitle={data.room.name}
+          roomSubtitle={data.room.peoplePreviewList
+            .filter((u) => u.id === data.room.creatorId)
+            .map((u) => u.displayName)
+            .join(", ")}
         />
         <KeyboardAvoidingView behavior={"padding"} style={{ flex: 1 }}>
           <ScrollView
