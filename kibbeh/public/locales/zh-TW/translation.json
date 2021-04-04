@@ -37,7 +37,11 @@
       "startPrivateRoom": "開啟私人房間"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "新增房間", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "新增房間",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "房間已被删除，請回到前一頁",
       "shareRoomLink": "在房間分享連結",
@@ -192,7 +196,9 @@
       "roomSettingsModal": {
         "requirePermission": "需要許可才能發言",
         "makePublic": "把房間設定為公開",
-        "makePrivate": "把房間設定為私人"
+        "makePrivate": "把房間設定為私人",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

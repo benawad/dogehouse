@@ -38,7 +38,11 @@
       "startPrivateRoom": "ɯǝɥʇ ɥʇᴉʍ ɯooɹ ǝʇɐʌᴉɹd ɐ ʇɹɐʇs"
     },
     "followList": { "followHim": "ʍoꞁꞁoɟ", "followingHim": "ƃuᴉʍoꞁꞁoɟ" },
-    "home": { "createRoom": "ɯooᴚ ǝʇɐǝɹƆ", "refresh": "ɥsǝɹɟǝᴚ" },
+    "home": {
+      "createRoom": "ɯooᴚ ǝʇɐǝɹƆ",
+      "refresh": "ɥsǝɹɟǝᴚ",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "ʞɔɐq oƃ 'ǝuoƃ ɯooɹ",
       "shareRoomLink": "ɯooɹ oʇ ʞuᴉꞁ ǝɹɐɥs",
@@ -198,7 +202,9 @@
       "roomSettingsModal": {
         "requirePermission": "ʞɐǝds oʇ uoᴉssᴉɯɹǝd ǝɹᴉnbǝɹ",
         "makePublic": "ɔᴉꞁqnd ɯooɹ ǝʞɐɯ",
-        "makePrivate": "ǝʇɐʌᴉɹd ɯooɹ ǝʞɐɯ"
+        "makePrivate": "ǝʇɐʌᴉɹd ɯooɹ ǝʞɐɯ",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

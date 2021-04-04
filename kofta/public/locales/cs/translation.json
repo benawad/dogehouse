@@ -38,7 +38,11 @@
       "startPrivateRoom": "Otevřít soukromou místnost"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Vytvořit místnost", "refresh": "Obnovit" },
+    "home": {
+      "createRoom": "Vytvořit místnost",
+      "refresh": "Obnovit",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Místnost není dostupná, jít zpět",
       "shareRoomLink": "Sdílet odkaz na místnost",
@@ -200,7 +204,9 @@
       "roomSettingsModal": {
         "requirePermission": "Požádat o status mluvčího",
         "makePublic": "Zveřejnit místnost",
-        "makePrivate": "Udělat místnost soukromou"
+        "makePrivate": "Udělat místnost soukromou",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

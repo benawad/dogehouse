@@ -16,7 +16,7 @@
     "copied": "kopeeritud",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Pange tähele, et DogeHouse'i käitamine ilma juurdepääsulubadeta võib põhjustada soovimatuid vigu"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -38,7 +38,11 @@
       "startPrivateRoom": "loo nendega privaatne ruum"
     },
     "followList": { "followHim": "jälgi", "followingHim": "jälgid" },
-    "home": { "createRoom": "Loo ruum", "refresh": "Värskenda" },
+    "home": {
+      "createRoom": "Loo ruum",
+      "refresh": "Värskenda",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "ruum läinud, mine tagasi",
       "shareRoomLink": "jaga link ruumi",
@@ -99,7 +103,7 @@
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings"
+      "header": "Ülekatte Sätted"
     }
   },
   "components": {
@@ -195,7 +199,9 @@
       "roomSettingsModal": {
         "requirePermission": "nõua luba rääkimiseks",
         "makePublic": "tee ruum avalikuks",
-        "makePrivate": "tee ruum privaatseks"
+        "makePrivate": "tee ruum privaatseks",
+        "renamePublic": "Säti avaliku ruumi nimi",
+        "renamePrivate": "Säti privaatse ruumi nimi"
       }
     }
   },
@@ -233,7 +239,7 @@
       "takingOff": "Startimas",
       "inSpace": "Kosmoses",
       "approachingMoon": "Lähenemas Kuule",
-      "lunarDoge": "Lunar doge",
+      "lunarDoge": "Kuu-doge",
       "approachingSun": "Lähenemas Päikesele",
       "solarDoge": "Päikese-Doge",
       "approachingGalaxy": "Lähenemas galaktikale",

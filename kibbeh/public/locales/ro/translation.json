@@ -38,7 +38,11 @@
       "startPrivateRoom": "Începe o cameră privată cu ei"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Creează cameră", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "Creează cameră",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Camera a dispărut, du-te înapoi",
       "shareRoomLink": "Distribuie link-ul camerei",
@@ -198,7 +202,9 @@
       "roomSettingsModal": {
         "requirePermission": "Necesită permisiunea de a vorbi",
         "makePublic": "Fă camera publică",
-        "makePrivate": "Fă camera privată"
+        "makePrivate": "Fă camera privată",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

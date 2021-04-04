@@ -37,7 +37,11 @@
       "startPrivateRoom": "iniciar uma sala privada com ele"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Criar Sala", "refresh": "Atualizar" },
+    "home": {
+      "createRoom": "Criar Sala",
+      "refresh": "Atualizar",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "acabou a sala, volte",
       "shareRoomLink": "compartilhar link para sala",
@@ -62,7 +66,7 @@
       "voiceSettings": "ir para configurações de voz",
       "soundSettings": "ir para configurações de áudio",
       "deleteAccount": "excluir conta",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "vá para as configurações de sobreposição"
     },
     "notFound": {
       "whoopsError": "Ops! Essa página se perdeu na conversa.",
@@ -84,10 +88,10 @@
       "followers": "seguidores",
       "following": "seguindo",
       "followHim": "seguir",
+      "unfollow": "deixar de seguir",
       "followingHim": "seguindo",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "copyProfileUrl": "copiar url do perfil",
+      "urlCopied": "URL copiado para a área de transferência"
     },
     "voiceSettings": {
       "header": "Configurações do microfone",
@@ -97,8 +101,11 @@
       "volume": "volume:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings"
+      "input": {
+        "errorMsg": "Título de aplicativo inválido",
+        "label": "Insira o título do aplicativo"
+      },
+      "header": "Configurações de sobreposição"
     }
   },
   "components": {
@@ -173,17 +180,19 @@
       "roomSettingsModal": {
         "requirePermission": "precisar de permissão para falar",
         "makePublic": "fazer a sala pública",
-        "makePrivate": "fazer a sala privada"
+        "makePrivate": "fazer a sala privada",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     },
     "userVolumeSlider": { "noAudioMessage": "não tem áudio por algum motivo" },
     "addToCalendar": { "add": "Adicionar ao Calendário" },
     "keyboardShortcuts": {
       "setKeybind": "definir atalho no teclado",
-      "listening": "listening",
+      "listening": "ouvindo",
       "toggleMuteKeybind": "ativar/desativar atalho para mutar",
       "togglePushToTalkKeybind": "ativar/desativar pressione para falar",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "alternar o atalho de teclado de sobreposição"
     },
     "wsKilled": {
       "description": "O Websocket foi finalizado pelo servidor. Isso geralmente acontece quando você abre o site em outra guia.",

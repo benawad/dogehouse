@@ -7,7 +7,7 @@
     "ok": "ok",
     "yes": "aye",
     "no": "nay",
-    "cancel": "cancel",
+    "cancel": "Abandon ship!",
     "save": "save",
     "edit": "edit",
     "delete": "Blow The Man Down!",
@@ -38,7 +38,11 @@
       "startPrivateRoom": "start a private cabin wit' 'em"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Create Cabin", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "Create Cabin",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "cabin gone, go back",
       "shareRoomLink": "share link t' cabin",
@@ -53,8 +57,8 @@
       "featureText_4": "Open Source",
       "featureText_5": "Text Chat",
       "featureText_6": "Powered by Doge",
-      "loginGithub": "login with GitHub",
-      "loginTwitter": "login with Twitter",
+      "loginGithub": "log in with GitHub",
+      "loginTwitter": "log in with Twitter",
       "createTestUser": "create test user"
     },
     "myProfile": {
@@ -75,7 +79,7 @@
       "requestingToSpeak": "Requestin' t' speak",
       "listeners": "Shipmates",
       "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAllConfirm": "Ye sure? Ye will allow all {{count}} skallywags to speak!"
     },
     "searchUser": { "search": "searchin' fer booty..." },
     "soundEffectSettings": { "header": "Sounds" },
@@ -195,7 +199,9 @@
       "roomSettingsModal": {
         "requirePermission": "require permission t' speak",
         "makePublic": "make cabin public",
-        "makePrivate": "make cabin private"
+        "makePrivate": "make cabin private",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },
@@ -237,7 +243,7 @@
       "approachingSun": "Approachin' sun",
       "solarDoge": "Solar doge",
       "approachingGalaxy": "Approachin' galaxy",
-      "galacticDoge": "Galactic Doge",
+      "galacticDoge": "Galactic doge been spotted",
       "spottedLife": "Planet wit' life spotted"
     }
   }

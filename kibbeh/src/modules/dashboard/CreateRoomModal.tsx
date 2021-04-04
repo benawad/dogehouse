@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import React from "react";
 import { InputField } from "../../form-fields/InputField";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
-import { roomToCurrentRoom } from "../../lib/roomToCurrentRoom";
 import { showErrorToast } from "../../lib/showErrorToast";
 import { useWrappedConn } from "../../shared-hooks/useConn";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
@@ -16,17 +15,17 @@ import { useRoomChatStore } from "../room/chat/useRoomChatStore";
 
 interface CreateRoomModalProps {
   onRequestClose: () => void;
-  name?: string;
-  description?: string;
-  isPrivate?: boolean;
+  data?: {
+    name: string;
+    description: string;
+    privacy: string;
+  };
   edit?: boolean;
 }
 
 export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
   onRequestClose,
-  name: currentName,
-  description: currentDescription,
-  isPrivate,
+  data,
   edit,
 }) => {
   const conn = useWrappedConn();
@@ -41,11 +40,15 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
         privacy: string;
         description: string;
       }>
-        initialValues={{
-          name: currentName || "",
-          description: currentDescription || "",
-          privacy: isPrivate ? "private" : "public",
-        }}
+        initialValues={
+          data
+            ? data
+            : {
+                name: "",
+                description: "",
+                privacy: "public",
+              }
+        }
         validateOnChange={false}
         validateOnBlur={false}
         validate={({ name, description }) => {
@@ -67,12 +70,11 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
         }}
         onSubmit={async ({ name, privacy, description }) => {
           const d = { name, privacy, description };
-          // @todo pretty sure this logic for editing is broken
           const resp = edit
             ? await conn.mutation.editRoom(d)
             : await conn.mutation.createRoom(d);
 
-          if ("error" in resp) {
+          if (typeof resp === "object" && "error" in resp) {
             showErrorToast(resp.error);
 
             return;
@@ -93,7 +95,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
           <Form className={`grid grid-cols-3 gap-4 focus:outline-none w-full`}>
             <div className={`col-span-3 block`}>
               <h4 className={`mb-2 text-primary-100`}>
-                {t("pages.home.createRoom")}
+                {edit ? t("pages.home.editRoom") : t("pages.home.createRoom")}
               </h4>
               <p className={`text-primary-300`}>
                 Fill the following fields to start a new room
@@ -101,7 +103,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
             </div>
             <div className={`h-full w-full col-span-2`}>
               <InputField
-                className={`rounded-8 bg-primary-700 pl-2 h-6`}
+                className={`rounded-8 bg-primary-700 px-3 h-6`}
                 name="name"
                 maxLength={60}
                 placeholder={t("components.modals.createRoomModal.roomName")}
@@ -126,7 +128,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
             </div>
             <div className={`col-span-3 bg-primary-700 rounded-8`}>
               <InputField
-                className={`px-2 h-11 col-span-3 w-full`}
+                className={`px-3 h-11 col-span-3 w-full`}
                 name="description"
                 rows={3}
                 maxLength={500}
@@ -139,7 +141,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
 
             <div className={`flex pt-2 space-x-3 col-span-full items-center`}>
               <Button loading={isSubmitting} type="submit" className={`mr-3`}>
-                {t("pages.home.createRoom")}
+                {edit ? t("common.save") : t("pages.home.createRoom")}
               </Button>
               <ButtonLink type="button" onClick={onRequestClose}>
                 {t("common.cancel")}

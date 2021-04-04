@@ -3,6 +3,7 @@ defmodule Broth.Routes.TwitterAuth do
   use Plug.Router
 
   alias Beef.Users
+  alias Kousa.Utils.Urls
 
   plug(:put_secret_key_base)
 
@@ -20,23 +21,18 @@ defmodule Broth.Routes.TwitterAuth do
   end
 
   get "/web" do
-    state =
-      if Application.get_env(:kousa, :staging?) do
-        %{
-          redirect_base_url: fetch_query_params(conn).query_params["redirect_after_base"]
-        }
-        |> Poison.encode!()
-        |> Base.encode64()
-      else
-        "web"
-      end
-
-    %{conn | params: Map.put(conn.params, "state", state)}
+    %{conn | params: Map.put(conn.params, "state", "web")}
     |> Plug.Conn.put_private(:ueberauth_request_options, %{
       callback_url: Application.get_env(:kousa, :api_url) <> "/auth/twitter/callback",
       options: []
     })
     |> fetch_session()
+    |> put_session(
+      :redirect_to_next,
+      Enum.any?(conn.req_headers, fn {k, v} ->
+        k == "referer" and Urls.next_site_url?(v)
+      end)
+    )
     |> Ueberauth.Strategy.Twitter.handle_request!()
   end
 
@@ -70,12 +66,10 @@ defmodule Broth.Routes.TwitterAuth do
   end
 
   def get_base_url(conn) do
-    with true <- Application.get_env(:kousa, :staging?),
-         state <- Map.get(conn.query_params, "state", ""),
-         {:ok, json} <- Base.decode64(state),
-         {:ok, %{"redirect_base_url" => redirect_base_url}} <- Poison.decode(json) do
-      redirect_base_url
-    else
+    case conn |> get_session(:redirect_to_next) do
+      true ->
+        "https://next.dogehouse.tv"
+
       _ ->
         Application.fetch_env!(:kousa, :web_url)
     end

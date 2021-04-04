@@ -1,6 +1,6 @@
 import { Room } from "@dogehouse/kebab";
 import normalizeUrl from "normalize-url";
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useConn } from "../../../shared-hooks/useConn";
 import { useCurrentRoomInfo } from "../../../shared-hooks/useCurrentRoomInfo";
 import { useTypeSafeTranslation } from "../../../shared-hooks/useTypeSafeTranslation";
@@ -14,15 +14,11 @@ interface ChatListProps {
 }
 
 export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
-  const { setUserId } = useContext(UserPreviewModalContext);
+  const { setData } = useContext(UserPreviewModalContext);
   const messages = useRoomChatStore((s) => s.messages);
   const me = useConn().user;
   const { isMod: iAmMod, isCreator: iAmCreator } = useCurrentRoomInfo();
-  const [
-    messageToBeDeleted,
-    setMessageToBeDeleted,
-  ] = useState<RoomChatMessage | null>(null);
-  // const bottomRef = useRef<null | HTMLDivElement>(null);
+  const bottomRef = useRef<null | HTMLDivElement>(null);
   const chatListRef = useRef<null | HTMLDivElement>(null);
   const {
     isRoomChatScrolledToTop,
@@ -31,13 +27,15 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
   const { t } = useTypeSafeTranslation();
 
   // Only scroll into view if not manually scrolled to top
-  // useEffect(() => {
-  //   isRoomChatScrolledToTop || bottomRef.current?.scrollIntoView();
-  // });
+  useEffect(() => {
+    if (!isRoomChatScrolledToTop) {
+      chatListRef.current?.scrollTo(0, chatListRef.current.scrollHeight);
+    }
+  });
 
   return (
     <div
-      className={`px-5 pt-3 flex-1 overflow-y-auto flex-col flex chat-message-container`}
+      className={`px-5 flex-1 overflow-y-auto flex-col flex chat-message-container scrollbar-thin scrollbar-thumb-primary-700`}
       ref={chatListRef}
       onScroll={() => {
         if (!chatListRef.current) return;
@@ -54,24 +52,37 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
       {messages
         .slice()
         .reverse()
-        .map((m) => (
-          <div className="flex flex-col flex-shrink-0" key={m.id}>
+        .map((m, idx) => (
+          <div
+            style={{ marginTop: idx === 0 ? "auto" : undefined }}
+            className={`flex flex-col flex-shrink-0 ${
+              m.isWhisper ? "bg-primary-700 rounded my-1" : ""
+            }`}
+            key={m.id}
+          >
+            {/* Whisper label */}
+            {m.isWhisper ? (
+              <p className="mb-0 text-sm text-primary-300 px-1 w-16 mt-1 text-center">
+                {t("modules.roomChat.whisper")}
+              </p>
+            ) : null}
             <div className={`flex items-center px-1`}>
               <div
-                className={`py-1 block break-words max-w-full items-start flex-1 text-sm text-primary-100`}
+                className={`py-1 block break-words max-w-full items-start flex-1 text-primary-100`}
                 key={m.id}
               >
                 <button
                   onClick={() => {
-                    setUserId(m.userId);
-                    setMessageToBeDeleted(
-                      (me?.id === m.userId ||
-                        iAmCreator ||
-                        (iAmMod && room.creatorId !== m.userId)) &&
+                    setData({
+                      userId: m.userId,
+                      message:
+                        (me?.id === m.userId ||
+                          iAmCreator ||
+                          (iAmMod && room.creatorId !== m.userId)) &&
                         !m.deleted
-                        ? m
-                        : null
-                    );
+                          ? m
+                          : undefined,
+                    });
                   }}
                   className={`inline hover:underline font-bold focus:outline-none font-mono`}
                   style={{ textDecorationColor: m.color, color: m.color }}
@@ -80,95 +91,90 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                 </button>
 
                 <span className={`inline mr-1`}>: </span>
+                <div className={`inline mr-1 space-x-1`}>
+                  {m.deleted ? (
+                    <span className="inline text-primary-300">
+                      [message{" "}
+                      {m.deleterId === m.userId ? "retracted" : "deleted"}]
+                    </span>
+                  ) : (
+                    m.tokens.map(({ t: token, v }, i) => {
+                      switch (token) {
+                        case "text":
+                          return (
+                            <React.Fragment key={i}>{`${v} `}</React.Fragment>
+                          );
+                        case "emote":
+                          return emoteMap[v] ? (
+                            <img
+                              key={i}
+                              className="inline"
+                              alt={`:${v}:`}
+                              src={emoteMap[v]}
+                            />
+                          ) : (
+                            ":" + v + ":"
+                          );
 
-                {m.deleted ? (
-                  <span className="inline">
-                    [message{" "}
-                    {m.deleterId === m.userId ? "retracted" : "deleted"}]
-                  </span>
-                ) : (
-                  m.tokens.map(({ t: token, v }, i) => {
-                    switch (token) {
-                      case "text":
-                        return (
-                          <span className={`flex-1 m-0 inline`} key={i}>
-                            {v}{" "}
-                          </span>
-                        );
-                      case "emote":
-                        return emoteMap[v] ? (
-                          <img
-                            key={i}
-                            className="inline"
-                            alt={`:${v}:`}
-                            src={emoteMap[v]}
-                          />
-                        ) : (
-                          ":" + v + ":"
-                        );
-
-                      case "mention":
-                        return (
-                          <button
-                            onClick={() => {
-                              setUserId(v);
-                            }}
-                            key={i}
-                            className={`inline hover:underline flex-1 focus:outline-none ml-1 mr-2 ${
-                              v === me?.username
-                                ? "bg-blue-500 text-white px-2 rounded text-md"
-                                : ""
-                            }`}
-                            style={{
-                              textDecorationColor: m.color,
-                              color: v === me?.username ? "" : m.color,
-                            }}
-                          >
-                            @{v}{" "}
-                          </button>
-                        );
-                      case "link":
-                        return (
-                          <a
-                            target="_blank"
-                            rel="noreferrer noopener"
-                            href={v}
-                            className={`inline flex-1 hover:underline text-blue-500`}
-                            key={i}
-                          >
-                            {normalizeUrl(v, { stripProtocol: true })}{" "}
-                          </a>
-                        );
-                      case "block":
-                        return (
-                          <span key={i}>
-                            <span
-                              className={
-                                "inline bg-simple-gray-33 rounded whitespace-pre-wrap font-mono"
-                              }
+                        case "mention":
+                          return (
+                            <React.Fragment key={i}>
+                              <button
+                                onClick={() => {
+                                  setData({ userId: v });
+                                }}
+                                className={`inline hover:underline flex-1 focus:outline-none ${
+                                  v === me?.username
+                                    ? "bg-accent text-white px-1 rounded text-md"
+                                    : ""
+                                }`}
+                                style={{
+                                  textDecorationColor: m.color,
+                                  color: v === me?.username ? "" : m.color,
+                                }}
+                              >
+                                @{v}
+                              </button>{" "}
+                            </React.Fragment>
+                          );
+                        case "link":
+                          return (
+                            <a
+                              target="_blank"
+                              rel="noreferrer noopener"
+                              href={v}
+                              className={`inline flex-1 hover:underline text-accent`}
+                              key={i}
                             >
-                              {v}
-                            </span>{" "}
-                          </span>
-                        );
-                      default:
-                        return null;
-                    }
-                  })
-                )}
+                              {normalizeUrl(v, { stripProtocol: true })}{" "}
+                            </a>
+                          );
+                        case "block":
+                          return (
+                            <span key={i}>
+                              <span
+                                className={
+                                  "inline bg-simple-gray-33 rounded whitespace-pre-wrap font-mono"
+                                }
+                              >
+                                {v}
+                              </span>{" "}
+                            </span>
+                          );
+                        default:
+                          return null;
+                      }
+                    })
+                  )}
+                </div>
               </div>
             </div>
           </div>
         ))}
-      {messages.length === 0 ? (
+      {/* {messages.length === 0 ? (
         <div>{t("modules.roomChat.welcomeMessage")}</div>
-      ) : null}
-      {/* <div className={`pb-6`} ref={bottomRef} /> */}
-      <style>{`
-        .chat-message-container > :first-child {
-          margin-top: auto;
-        }
-      `}</style>
+      ) : null} */}
+      <div ref={bottomRef} />
     </div>
   );
 };

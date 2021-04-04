@@ -38,7 +38,11 @@
       "startPrivateRoom": "Sukurti privatų kambarį su jais"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Sukurti kambarį", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "Sukurti kambarį",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Kambario nebėra, grįžkite atgal",
       "shareRoomLink": "Pasidalinkite nuoroda į kambarį",
@@ -198,7 +202,9 @@
       "roomSettingsModal": {
         "requirePermission": "Reikalingas patvirtinimas kalbėti",
         "makePublic": "Padaryti kambarį viešą",
-        "makePrivate": "Padaryti kambarį privatų"
+        "makePrivate": "Padaryti kambarį privatų",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

@@ -38,7 +38,11 @@
       "startPrivateRoom": "شروع اتاق شخصی"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "ساختن اتاق", "refresh": "تازه کردن" },
+    "home": {
+      "createRoom": "ساختن اتاق",
+      "refresh": "تازه کردن",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "اتاق گم شد. برگردید",
       "shareRoomLink": "اشتراک لینک اتاق",
@@ -196,7 +200,9 @@
       "roomSettingsModal": {
         "requirePermission": "نیاز به دسترسی برای حرف زدن",
         "makePublic": "تبدیل به اتاق عمومی",
-        "makePrivate": "تبدیل به اتاق خصوصی"
+        "makePrivate": "تبدیل به اتاق خصوصی",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

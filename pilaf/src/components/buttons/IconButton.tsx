@@ -12,16 +12,19 @@ import { colors } from "../../constants/dogeStyle";
 interface IconButtonProps {
   style?: StyleProp<ViewStyle>;
   icon: ImageSourcePropType;
+  iconColor?: string;
   onPress: () => void;
 }
 
-export const IconButton: React.FC<IconButtonProps> = (props) => {
+export const IconButton: React.FC<IconButtonProps> = ({
+  style,
+  onPress,
+  icon,
+  iconColor = colors.text,
+}) => {
   return (
-    <TouchableOpacity
-      style={[props.style, styles.container]}
-      onPress={props.onPress}
-    >
-      <Image source={props.icon} />
+    <TouchableOpacity style={[style, styles.container]} onPress={onPress}>
+      <Image source={icon} style={{ tintColor: iconColor }} />
     </TouchableOpacity>
   );
 };

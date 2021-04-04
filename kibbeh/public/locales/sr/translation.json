@@ -37,7 +37,11 @@
       "startPrivateRoom": "Започните приватну собу"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Направите собу", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "Направите собу",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Соба је нестала, вратите се назад",
       "shareRoomLink": "Поделите везу до собе",
@@ -194,7 +198,9 @@
       "roomSettingsModal": {
         "requirePermission": "Затражи дозволу за причање",
         "makePublic": "Учините собу јавном",
-        "makePrivate": "Учините собу приватном"
+        "makePrivate": "Учините собу приватном",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

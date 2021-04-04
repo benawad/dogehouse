@@ -15,7 +15,7 @@ function App() {
           if (u.roomPermissions) {
             if (
               u.roomPermissions.isSpeaker ||
-              data.currentRoom.creatorId === u.id
+              data.currentRoom.room.creatorId === u.id
             ) {
               u.isSpeaking = false;
               u.isMuted = false;
@@ -28,7 +28,7 @@ function App() {
               s.push(u);
             }
           } else {
-            if (data.currentRoom.creatorId === u.id) {
+            if (data.currentRoom.room.creatorId === u.id) {
               u.isSpeaking = false;
               u.isMuted = false;
               if (data.currentRoom.activeSpeakerMap[u.id]) {

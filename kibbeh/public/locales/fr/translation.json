@@ -36,7 +36,11 @@
       "startPrivateRoom": "lancer une salle privée avec eux"
     },
     "followList": { "followHim": "suivre", "followingHim": "abonné" },
-    "home": { "createRoom": "Créer une salle", "refresh": "Actualiser" },
+    "home": {
+      "createRoom": "Créer une salle",
+      "refresh": "Actualiser",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "salle indisponible, retour",
       "shareRoomLink": "partager le lien de la salle",
@@ -181,7 +185,9 @@
       "roomSettingsModal": {
         "requirePermission": "requiert la permission de parler",
         "makePublic": "rendre la salle publique",
-        "makePrivate": "rendre la salle publique"
+        "makePrivate": "rendre la salle publique",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     },
     "userVolumeSlider": {

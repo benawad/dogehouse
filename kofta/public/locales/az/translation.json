@@ -38,7 +38,11 @@
       "startPrivateRoom": "создать с ними закрытую комнату"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Otaq yaratmağ", "refresh": "Təzələmək" },
+    "home": {
+      "createRoom": "Otaq yaratmağ",
+      "refresh": "Təzələmək",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "room gone, go back",
       "shareRoomLink": "share link to room",
@@ -200,7 +204,9 @@
       "roomSettingsModal": {
         "requirePermission": "require permission to speak",
         "makePublic": "make room public",
-        "makePrivate": "make room private"
+        "makePrivate": "make room private",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

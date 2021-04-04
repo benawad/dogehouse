@@ -37,7 +37,11 @@
       "startPrivateRoom": "mulai ruangan privat dengan mereka"
     },
     "followList": { "followHim": "ikuti", "followingHim": "mengikuti" },
-    "home": { "createRoom": "Buat Ruangan", "refresh": "Segarkan" },
+    "home": {
+      "createRoom": "Buat Ruangan",
+      "refresh": "Segarkan",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "ruangan hilang, kembali",
       "shareRoomLink": "bagikan tautan ke ruangan",
@@ -195,7 +199,9 @@
       "roomSettingsModal": {
         "requirePermission": "membutuhkan izin untuk berbicara",
         "makePublic": "buat ruangan jadi publik",
-        "makePrivate": "buat ruangan jadi privat"
+        "makePrivate": "buat ruangan jadi privat",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

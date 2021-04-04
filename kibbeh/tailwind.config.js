@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 module.exports = {
   darkMode: "media",
   purge: ["./src/**/*.tsx", "./public/index.html"],
@@ -61,6 +62,9 @@ module.exports = {
       6: "40px",
       7: "60px",
       8: "75px",
+      "5l": "10rem",
+      24: "24rem",
+      400: "400px",
     },
     borderWidth: {
       DEFAULT: "1px",
@@ -75,6 +79,7 @@ module.exports = {
   variants: {
     backgroundColor: ({ after }) => after(["disabled"]),
     textColor: ({ after }) => after(["disabled"]),
+    scrollbar: ["rounded", "dark"],
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar"), require('@tailwindcss/line-clamp')],
 };

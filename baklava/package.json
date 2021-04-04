@@ -1,6 +1,6 @@
 {
     "name": "dogehouse",
-    "version": "1.0.24",
+    "version": "1.0.35",
     "description": "Taking voice conversations to the moon 🚀",
     "main": "./dist/electron.js",
     "scripts": {
@@ -11,13 +11,15 @@
         "gen:i18:keys": "ts-node --project scripts/tsconfig.json scripts/generateTranslationTypes.ts",
         "sync:i18": "ts-node --project scripts/tsconfig.json scripts/syncTranslations.ts",
         "i18": "npm run gen:i18:keys && npm run sync:i18",
-        "build": "yarn compile && yarn build:globkey && electron-builder",
-        "build:all": "yarn compile && yarn build:overlay && yarn build:globkey && electron-builder -mwl",
-        "build:mac": "yarn compile && yarn build:overlay && yarn build:globkey && electron-builder --mac",
-        "build:win": "yarn compile && yarn build:overlay && yarn build:globkey && electron-builder --win",
-        "build:linux": "yarn compile && yarn build:overlay && yarn build:globkey && electron-builder --linux",
+        "build:all": "yarn compile && electron-builder -mwl",
+        "build:mac": "yarn compile && electron-builder --mac",
+        "build:win": "yarn compile && electron-builder --win",
+        "build:linux": "yarn compile && electron-builder --linux",
         "build:overlay": "cd resources/overlay && yarn build && cd ../../",
-        "build:globkey": "yarn add globkey && cd node_modules/globkey && npx electron-build-env nj-cli build --release && del-cli target src && cd ../../"
+        "build:globkey": "yarn remove globkey && yarn add globkey && cd node_modules/globkey && npx electron-build-env nj-cli build --release",
+        "delete:artifacts": "yarn delete:globkey_artifacts && yarn delete:overlay_yarn_cache",
+        "delete:globkey_artifacts": "cd node_modules/globkey && del-cli target src && cd ../../",
+        "delete:overlay_yarn_cache": "cd resources/overlay && del-cli .yarn && cd ../../"
     },
     "keywords": [
         "DogeHouse",
@@ -37,7 +39,9 @@
         "appId": "com.electron.dogehouse",
         "productName": "DogeHouse",
         "asar": true,
+        "afterSign": "electron-builder-notarize",
         "mac": {
+            "hardenedRuntime": true,
             "icon": "icons/icon.png",
             "category": "public.app-category.social-networking",
             "entitlements": "settings/entitlements.mac.plist",
@@ -45,7 +49,8 @@
                 "NSMicrophoneUsageDescription": "Mic access for speeach input in voice."
             },
             "target": [
-                "dmg"
+                "dmg",
+                "zip"
             ]
         },
         "win": {
@@ -59,7 +64,8 @@
             "icon": "icons/icon.png",
             "target": [
                 "deb",
-                "AppImage"
+                "AppImage",
+                "snap"
             ]
         },
         "extraMetadata": {
@@ -71,6 +77,7 @@
         "extends": null
     },
     "devDependencies": {
+        "@types/i18next-node-fs-backend": "^2.1.0",
         "@types/lodash": "^4.14.168",
         "@types/node": "^14.14.31",
         "@types/prettier": "^2.2.3",
@@ -79,6 +86,7 @@
         "electron": "^11.3.0",
         "electron-build-env": "^0.2.0",
         "electron-builder": "^22.10.5",
+        "electron-builder-notarize": "^1.2.0",
         "lodash": "^4.17.21",
         "prettier": "^2.2.1",
         "pretty-quick": "^3.1.0",
@@ -86,9 +94,10 @@
         "typescript": "^4.2.2"
     },
     "dependencies": {
+        "electron-log": "^4.3.2",
         "electron-overlay-window": "^1.0.4",
         "electron-updater": "^4.3.8",
-        "globkey": "^1.0.12",
+        "globkey": "^1.0.19",
         "i18next": "^20.0.0",
         "i18next-node-fs-backend": "^2.1.3"
     },

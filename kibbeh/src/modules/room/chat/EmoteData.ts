@@ -1,4 +1,4 @@
-import { EmojiData } from "emoji-mart";
+import { BaseEmoji, EmojiData } from "emoji-mart";
 
 export const customEmojis = [
   {
@@ -77,139 +77,139 @@ export const customEmojis = [
     name: "monkaS",
     short_names: ["monkaS"],
     keywords: ["monkas", "pepe"],
-    imageUrl: "/emotes/monkaS.png",
+    imageUrl: "/emotes/monkas.png",
   },
   {
     name: "HYPERS",
     short_names: ["HYPERS"],
     keywords: ["hypers", "pepe"],
-    imageUrl: "/emotes/HYPERS.png",
+    imageUrl: "/emotes/hypers.png",
   },
   {
     name: "pepeD",
     short_names: ["pepeD"],
     keywords: ["peped", "pepe"],
-    imageUrl: "/emotes/pepeD.gif",
+    imageUrl: "/emotes/peped.gif",
   },
   {
     name: "Pepega",
     short_names: ["Pepega"],
     keywords: ["pepega", "pepe"],
-    imageUrl: "/emotes/Pepega.png",
+    imageUrl: "/emotes/pepega.png",
   },
   {
     name: "peepoHappy",
     short_names: ["peepoHappy"],
     keywords: ["peepohappy", "peepo", "pepe"],
-    imageUrl: "/emotes/peepoHappy.png",
+    imageUrl: "/emotes/peepohappy.png",
   },
   {
     name: "peepoHug",
     short_names: ["peepoHug"],
     keywords: ["peepohug", "peepo", "pepe"],
-    imageUrl: "/emotes/peepoHug.png",
+    imageUrl: "/emotes/peepohug.png",
   },
   {
     name: "Sadge",
     short_names: ["Sadge"],
     keywords: ["sadge", "pepe"],
-    imageUrl: "/emotes/Sadge.png",
+    imageUrl: "/emotes/sadge.png",
   },
   {
     name: "catJAM",
     short_names: ["catJAM"],
     keywords: ["catjam", "vibe"],
-    imageUrl: "/emotes/catJAM.gif",
+    imageUrl: "/emotes/catjam.gif",
   },
   {
     name: "Thonk",
     short_names: ["Thonk"],
     keywords: ["thonk", "think"],
-    imageUrl: "/emotes/Thonk.png",
+    imageUrl: "/emotes/thonk.png",
   },
   {
     name: "DogeHouse",
     short_names: ["DogeHouse"],
     keywords: ["dogehouse", "doge"],
-    imageUrl: "/emotes/DogeHouse.png",
+    imageUrl: "/emotes/dogehouse.png",
   },
   {
     name: "SadHouse",
     short_names: ["SadHouse"],
     keywords: ["dogehouse", "doge", "sadhouse"],
-    imageUrl: "/emotes/SadHouse.png",
+    imageUrl: "/emotes/sadhouse.png",
   },
   {
     name: "CoolHouse",
     short_names: ["CoolHouse"],
     keywords: ["dogehouse", "doge", "coolhouse"],
-    imageUrl: "/emotes/CoolHouse.png",
+    imageUrl: "/emotes/coolhouse.png",
   },
   {
     name: "WinkHouse",
     short_names: ["WinkHouse"],
     keywords: ["dogehouse", "doge", "winkhouse"],
-    imageUrl: "/emotes/WinkHouse.png",
+    imageUrl: "/emotes/winkhouse.png",
   },
   {
     name: "SupriseHouse",
     short_names: ["SupriseHouse"],
     keywords: ["dogehouse", "doge", "suprisehouse", "shock"],
-    imageUrl: "/emotes/SupriseHouse.png",
+    imageUrl: "/emotes/suprisehouse.png",
   },
   {
     name: "NeutralHouse",
     short_names: ["NeutralHouse"],
     keywords: ["dogehouse", "doge", "neutralhouse"],
-    imageUrl: "/emotes/NeutralHouse.png",
+    imageUrl: "/emotes/neutralhouse.png",
   },
   {
     name: "WAYTOODANK",
     short_names: ["WAYTOODANK"],
     keywords: ["dank", "feelsdankman"],
-    imageUrl: "/emotes/WAYTOODANK.gif",
+    imageUrl: "/emotes/waytoodank.gif",
   },
   {
     name: "CryptoBTC",
     short_names: ["CryptoBTC"],
     keywords: ["crypto", "btc", "bitcoin"],
-    imageUrl: "/emotes/CryptoBTC.png",
+    imageUrl: "/emotes/cryptoBTC.png",
   },
   {
     name: "CryptoETH",
     short_names: ["CryptoETH"],
     keywords: ["crypto", "eth", "ethereum"],
-    imageUrl: "/emotes/CryptoETH.png",
+    imageUrl: "/emotes/cryptoETH.png",
   },
   {
     name: "CryptoBNB",
     short_names: ["CryptoBNB"],
     keywords: ["crypto", "bnb", "binance"],
-    imageUrl: "/emotes/CryptoBNB.png",
+    imageUrl: "/emotes/cryptoBNB.png",
   },
   {
     name: "CryptoLTC",
     short_names: ["CryptoLTC"],
     keywords: ["crypto", "ltc", "litecoin"],
-    imageUrl: "/emotes/CryptoLTC.png",
+    imageUrl: "/emotes/cryptoLTC.png",
   },
   {
     name: "CryptoBCH",
     short_names: ["CryptoBCH"],
     keywords: ["crypto", "bch", "bitcoin", "bitcoincash"],
-    imageUrl: "/emotes/CryptoBCH.png",
+    imageUrl: "/emotes/cryptoBCH.png",
   },
   {
     name: "CryptoDOGE",
     short_names: ["CryptoDOGE"],
     keywords: ["crypto", "doge", "dogecoin", "bestcoin"],
-    imageUrl: "/emotes/CryptoDOGE.png",
+    imageUrl: "/emotes/cryptoDOGE.png",
   },
   {
     name: "CryptoSUSHI",
     short_names: ["CryptoSUSHI"],
     keywords: ["crypto", "sushi", "swap", "sushiswap"],
-    imageUrl: "/emotes/CryptoSUSHI.png",
+    imageUrl: "/emotes/cryptoSUSHI.png",
   },
   {
     name: "CryptoTRON",
@@ -221,43 +221,43 @@ export const customEmojis = [
     name: "CryptoZEC",
     short_names: ["CryptoZEC"],
     keywords: ["crypto", "zec", "zcash"],
-    imageUrl: "/emotes/CryptoZEC.png",
+    imageUrl: "/emotes/cryptoZEC.png",
   },
   {
     name: "CryptoETC",
     short_names: ["CryptoETC"],
     keywords: ["crypto", "etc", "ethereum", "ethereumclassic"],
-    imageUrl: "/emotes/CryptoETC.png",
+    imageUrl: "/emotes/cryptoETC.png",
   },
   {
     name: "CryptoCAKE",
     short_names: ["CryptoCAKE"],
     keywords: ["crypto", "cake", "swap", "pancakeswap"],
-    imageUrl: "/emotes/CryptoCAKE.png",
+    imageUrl: "/emotes/cryptoCAKE.png",
   },
   {
     name: "CryptoADA",
     short_names: ["CryptoADA"],
     keywords: ["crypto", "ada", "cardano"],
-    imageUrl: "/emotes/CryptoADA.png",
+    imageUrl: "/emotes/cryptoADA.png",
   },
   {
     name: "CryptoXRP",
     short_names: ["CryptoXRP"],
     keywords: ["crypto", "xrp", "ripple"],
-    imageUrl: "/emotes/CryptoXRP.png",
+    imageUrl: "/emotes/cryptoXRP.png",
   },
   {
     name: "CryptoUSDC",
     short_names: ["CryptoUSDC"],
     keywords: ["crypto", "usdc", "usdcoin"],
-    imageUrl: "/emotes/CryptoUSDC.png",
+    imageUrl: "/emotes/cryptoUSDC.png",
   },
   {
     name: "DodgyCoin",
     short_names: ["DodgyCoin"],
     keywords: ["crypto", "doge", "dodgycoin"],
-    imageUrl: "/emotes/DodgyCoin.png",
+    imageUrl: "/emotes/dodgyCoin.png",
   },
   {
     name: "pepeBCKL",
@@ -685,24 +685,6 @@ export const customEmojis = [
     short_names: ["Jammies"],
     keywords: ["jammies", "jam", "jamjam", "dance", "vibe"],
     imageUrl: "/emotes/Jammies.gif",
-  },
-  {
-    name: "KEKebab",
-    short_names: ["KEKebab"],
-    keywords: [
-      "kekebab",
-      "kek",
-      "kebab",
-      "omegalul",
-      "lol",
-      "lmao",
-      "haha",
-      "ha",
-      "ja",
-      "jaja",
-      "kekw",
-    ],
-    imageUrl: "/emotes/KEKebab.png",
   },
   {
     name: "KEKW",
@@ -1491,28 +1473,10 @@ export const customEmojis = [
     imageUrl: "/emotes/widepeepoPussy.png",
   },
   {
-    name: "OMEGALUL",
-    short_names: ["OMEGALUL"],
-    keywords: ["OMEGALUL", "LUL", "OMEGA"],
-    imageUrl: "/emotes/omegaLul.png",
-  },
-  {
-    name: "CrabPls",
-    short_names: ["CrabPls"],
-    keywords: ["Crab", "Pls"],
-    imageUrl: "/emotes/crabPls.gif",
-  },
-  {
     name: "RareParrot",
     short_names: ["RareParrot"],
     keywords: ["Rare", "Parrot", "party"],
     imageUrl: "/emotes/rareParrot.gif",
-  },
-  {
-    name: "COGGERS",
-    short_names: ["COGGERS"],
-    keywords: ["COG", "COGGERS", "pepe"],
-    imageUrl: "/emotes/coggers.gif",
   },
   {
     name: "OrangeDogeHouse",
@@ -1539,7 +1503,7 @@ export const customEmojis = [
     imageUrl: "/emotes/darthkermit.png",
   },
   {
-    name: "Anime Girl Pepe",
+    name: "AnimeGirlPepe",
     short_names: ["AnimePepe"],
     keywords: ["pepe", "anime", "girl"],
     imageUrl: "/emotes/pepeanimegirl.png",
@@ -1592,12 +1556,15 @@ export const customEmojis = [
     keywords: ["cat", "dance", "party", "fun"],
     imageUrl: "/emotes/catDance.gif",
   },
-].map((e) => ({ ...e, customCategory: "Custom", text: "", emoticons: [] }));
+];
 
 export const emoteMap: Record<string, string> = {};
 
-export type CustomEmote = EmojiData & {
-  customCategory: string;
+export type CustomEmote = {
+  name: string;
+  short_names: string[];
+  keywords: string[];
+  imageUrl: string;
 };
 
 customEmojis.forEach((e) => {

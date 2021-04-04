@@ -13,6 +13,7 @@ defmodule Beef.Follows do
   alias Beef.Schemas.Follow
   alias Beef.Schemas.User
   alias Beef.Schemas.Room
+  alias Kousa.Utils.Pagination
 
   @spec get_followers_online_and_not_in_a_room(String.t()) :: [Follow.t()]
   def get_followers_online_and_not_in_a_room(user_id) do
@@ -46,7 +47,7 @@ defmodule Beef.Follows do
   end
 
   # fetch all the users
-  def fetch_following_online(user_id, offset \\ 0) do
+  def get_my_following(user_id, offset \\ 0) do
     items =
       from(
         f in Follow,
