@@ -52,23 +52,27 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
       </div>
       <div className="h-5l w-full mt-2 scrollbar-thin scrollbar-thumb-primary-700">
         <p className="text-primary-300 mt-2 text-center w-full truncate whitespace-pre-wrap break-words line-clamp-6">
-          {user.bio.split(" ").map((chunk, i) => {
-            try {
-              return linkRegex.test(chunk) ? (
-                <a
-                  href={normalizeUrl(chunk)}
-                  rel="noreferrer"
-                  className="text-accent hover:underline inline"
-                  key={i}
-                  target="_blank"
-                >
-                  {chunk}&nbsp;
-                </a>
-              ) : (
-                `${chunk} `
-              );
-            } catch (err) {}
-          })}
+          {user.bio.split(/\n/).map((line, i) => (
+            <span key={i} className="flex justify-center">
+              {line.split(" ").map((chunk, j) => {
+                try {
+                  return linkRegex.test(chunk) ? (
+                    <a
+                      href={normalizeUrl(chunk)}
+                      rel="noreferrer"
+                      className="text-accent text-center hover:underline inline"
+                      key={`${i}${j}`}
+                      target="_blank"
+                    >
+                      {chunk}&nbsp;
+                    </a>
+                  ) : (
+                    `${chunk} `
+                  );
+                } catch (err) {}
+              })}
+            </span>
+          ))}
         </p>
       </div>
     </div>
