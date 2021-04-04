@@ -82,7 +82,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
                     ) : (
                       `${chunk} `
                     );
-                  } catch (err) { }
+                  } catch (err) {}
                 })}
               </>
             ))}
