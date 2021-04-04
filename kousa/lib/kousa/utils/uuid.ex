@@ -25,7 +25,7 @@ defmodule Kousa.Utils.UUID do
        lower(a28), lower(a29), lower(a30), lower(a31)>>}
   end
 
-  def normalize(nil), do: nil
+  def normalize(nil), do: {:ok, nil}
 
   def normalize(_), do: :invalid
 
