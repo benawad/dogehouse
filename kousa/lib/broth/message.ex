@@ -57,6 +57,7 @@ defmodule Broth.Message do
     "room:delete_scheduled" => Broth.Message.Room.DeleteScheduled,
     "room:create" => Broth.Message.Room.Create,
     "room:create_scheduled" => Broth.Message.Room.CreateScheduled,
+    "room:unban" => Broth.Message.Room.Unban,
     "chat:block" => Broth.Message.Chat.Block,
     "chat:send_msg" => Broth.Message.Chat.SendMsg,
     "chat:delete_msg" => Broth.Message.Chat.DeleteMsg
