@@ -77,7 +77,7 @@ export const LoginPage: React.FC = () => {
 
   return (
     <div className="w-full h-full">
-      <HeaderController embed={{}} />
+      <HeaderController embed={{}} title="Login" />
       <div className="absolute top-6 h-8 w-full items-center justify-center sm:hidden">
         <LgLogo />
       </div>

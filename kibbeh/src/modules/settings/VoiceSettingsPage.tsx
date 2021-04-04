@@ -15,6 +15,7 @@ import {
 import { DefaultDesktopLayout } from "../layouts/DefaultDesktopLayout";
 import { MiddlePanel } from "../layouts/GridPanels";
 import { useMicIdStore } from "../webrtc/stores/useMicIdStore";
+import { HeaderController } from "../../modules/display/HeaderController";
 
 interface VoiceSettingsProps {}
 
@@ -49,6 +50,7 @@ export const VoiceSettingsPage: PageComponent<VoiceSettingsProps> = () => {
 
   return (
     <DefaultDesktopLayout>
+      <HeaderController embed={{}} title="Voice Settings" />
       <MiddlePanel>
         <div className="flex-col text-primary-100">
           <div className={`mb-2`}>{t("pages.voiceSettings.mic")} </div>

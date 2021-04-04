@@ -8,6 +8,7 @@ import {
   useSoundEffectStore,
   PossibleSoundEffect,
 } from "../sound-effects/useSoundEffectStore";
+import { HeaderController } from "../../modules/display/HeaderController";
 
 interface ChatSettingsProps {}
 
@@ -26,6 +27,7 @@ export const SoundEffectSettings: React.FC<ChatSettingsProps> = () => {
 
   return (
     <DefaultDesktopLayout>
+      <HeaderController embed={{}} title="Sound Settings" />
       <MiddlePanel>
         <h1 className={`pb-4 text-4xl text-primary-100`}>
           {t("pages.soundEffectSettings.header")}
