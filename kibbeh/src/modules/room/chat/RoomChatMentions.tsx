@@ -80,7 +80,7 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({
       <div className={`flex flex-col pb-1 bg-primary-800`}>
         {queriedUsernames.map((m) => (
           <button
-            className={`flex py-3 items-center px-6 justify-start focus:outline-none ${
+            className={`flex py-3 items-center px-6 justify-start focus:outline-none truncate ${
               activeUsername === m.id ? "bg-primary-700" : ""
             }`}
             key={m.id}

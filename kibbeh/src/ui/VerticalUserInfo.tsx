@@ -5,7 +5,7 @@ import { linkRegex } from "../lib/constants";
 import { kFormatter } from "../lib/kFormatter";
 import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
-import { SingleUser } from "./UserAvatar"; 
+import { SingleUser } from "./UserAvatar";
 import { HeaderController } from "../modules/display/HeaderController";
 
 interface VerticalUserInfoProps {
