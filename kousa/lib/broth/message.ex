@@ -50,7 +50,7 @@ defmodule Broth.Message do
     "room:get_invite_list" => Broth.Message.Room.GetInviteList,
     "room:update_speaking" => Broth.Message.Room.UpdateSpeaking,
     "room:leave" => Broth.Message.Room.Leave,
-    "room:block" => Broth.Message.Room.Block,
+    "room:ban" => Broth.Message.Room.Ban,
     "room:set_role" => Broth.Message.Room.SetRole,
     "room:set_mod" => Broth.Message.Room.SetMod,
     "room:join" => Broth.Message.Room.Join,
@@ -61,7 +61,7 @@ defmodule Broth.Message do
     "room:create_scheduled" => Broth.Message.Room.CreateScheduled,
     "room:unban" => Broth.Message.Room.Unban,
     "room:get_info" => Broth.Message.Room.GetInfo,
-    "chat:block" => Broth.Message.Chat.Block,
+    "chat:ban" => Broth.Message.Chat.Ban,
     "chat:send_msg" => Broth.Message.Chat.SendMsg,
     "chat:delete_msg" => Broth.Message.Chat.DeleteMsg
   }

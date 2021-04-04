@@ -24,7 +24,7 @@ defenum(
     {Room.GetInviteList, 67},
     {Room.UpdateSpeaking, 68},
     {Room.Leave, 69},
-    {Room.Block, 70},
+    {Room.Ban, 70},
     {Room.SetRole, 71},
     {Room.SetMod, 72},
     {Room.Join, 73},
@@ -36,7 +36,7 @@ defenum(
     {Room.Unban, 79},
     {Room.GetInfo, 80},
     # chat commands and casts: 128..191
-    {Chat.Block, 129},
+    {Chat.Ban, 129},
     {Chat.SendMsg, 130},
     {Chat.DeleteMsg, 131}
   ]

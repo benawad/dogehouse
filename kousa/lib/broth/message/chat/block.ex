@@ -1,4 +1,4 @@
-defmodule Broth.Message.Chat.Block do
+defmodule Broth.Message.Chat.Ban do
   use Ecto.Schema
 
   @primary_key false

@@ -1,7 +1,7 @@
-defmodule BrothTest.Message.Chat.BlockTest do
+defmodule BrothTest.Message.Chat.BanTest do
   use ExUnit.Case, async: true
 
-  alias Broth.Message.Chat.Block
+  alias Broth.Message.Chat.Ban
 
   setup do
     {:ok, uuid: UUID.uuid4()}
@@ -11,20 +11,20 @@ defmodule BrothTest.Message.Chat.BlockTest do
     test "it populates userId", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %Block{userId: ^uuid}
+                payload: %Ban{userId: ^uuid}
               }} =
                Broth.Message.validate(%{
-                 "operator" => "chat:block",
+                 "operator" => "chat:ban",
                  "payload" => %{"userId" => uuid}
                })
 
       # short form also allowed
       assert {:ok,
               %{
-                payload: %Block{userId: ^uuid}
+                payload: %Ban{userId: ^uuid}
               }} =
                Broth.Message.validate(%{
-                 "op" => "chat:block",
+                 "op" => "chat:ban",
                  "p" => %{"userId" => uuid}
                })
     end
@@ -32,7 +32,7 @@ defmodule BrothTest.Message.Chat.BlockTest do
     test "omitting the userId is not allowed" do
       assert {:error, %{errors: [userId: {"can't be blank", _}]}} =
                Broth.Message.validate(%{
-                 "operator" => "chat:block",
+                 "operator" => "chat:ban",
                  "payload" => %{}
                })
     end
