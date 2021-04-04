@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 
-export interface VolumeSliderProps {
+export interface VolumeSliderProps extends React.HTMLAttributes<HTMLDivElement> {
   label?: boolean;
   max?: number;
   volume: number;
@@ -14,6 +14,7 @@ export const VolumeSlider: React.FC<VolumeSliderProps> = ({
   max = 100,
   volume,
   onVolume,
+  
 }) => {
   return (
     <div className={`flex flex-col w-full`}>
