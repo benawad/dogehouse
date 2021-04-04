@@ -44,6 +44,7 @@ defmodule Broth.Message do
     "user:get_rooms_about_to_start" => Broth.Message.User.GetRoomsAboutToStart,
     "user:get_scheduled_rooms" => Broth.Message.User.GetScheduledRooms,
     "user:get_info" => Broth.Message.User.GetInfo,
+    "user:get_relationship" => Broth.Message.User.GetRelationship,
     "room:invite" => Broth.Message.Room.Invite,
     "room:update" => Broth.Message.Room.Update,
     "room:get_invite_list" => Broth.Message.Room.GetInviteList,

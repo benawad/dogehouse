@@ -17,6 +17,7 @@ defenum(
     {User.GetRoomsAboutToStart, 6},
     {User.GetScheduledRooms, 7},
     {User.GetInfo, 8},
+    {User.GetRelationship, 9},
     # room commands and casts: 64..127
     {Room.Invite, 65},
     {Room.Update, 66},

@@ -1,20 +1,20 @@
-defmodule BrothTest.Message.User.GetInfoTest do
+defmodule BrothTest.Message.User.GetRelationshipTest do
   use ExUnit.Case, async: true
 
-  alias Broth.Message.User.GetInfo
+  alias Broth.Message.User.GetRelationship
 
   setup do
     {:ok, uuid: UUID.uuid4()}
   end
 
-  describe "when you send an get_info message" do
+  describe "when you send an get_relationship message" do
     test "an empty payload is ok.", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %GetInfo{userId: ^uuid}
+                payload: %GetRelationship{userId: ^uuid}
               }} =
                Broth.Message.validate(%{
-                 "operator" => "user:get_info",
+                 "operator" => "user:get_relationship",
                  "payload" => %{"userId" => uuid},
                  "reference" => UUID.uuid4()
                })
@@ -22,10 +22,10 @@ defmodule BrothTest.Message.User.GetInfoTest do
       # short form also allowed
       assert {:ok,
               %{
-                payload: %GetInfo{userId: ^uuid}
+                payload: %GetRelationship{userId: ^uuid}
               }} =
                Broth.Message.validate(%{
-                 "op" => "user:get_info",
+                 "op" => "user:get_relationship",
                  "p" => %{"userId" => uuid},
                  "ref" => UUID.uuid4()
                })
@@ -34,7 +34,7 @@ defmodule BrothTest.Message.User.GetInfoTest do
     test "userId parameter is required" do
       assert {:error, %{errors: [userId: {"can't be blank", _}]}} =
         Broth.Message.validate(%{
-          "operator" => "user:get_info",
+          "operator" => "user:get_relationship",
           "payload" => %{},
           "reference" => UUID.uuid4()
         })
