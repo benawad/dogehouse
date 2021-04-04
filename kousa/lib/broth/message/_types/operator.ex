@@ -16,6 +16,7 @@ defenum(
     {User.Update, 5},
     {User.GetRoomsAboutToStart, 6},
     {User.GetScheduledRooms, 7},
+    {User.GetInfo, 8},
     # room commands and casts: 64..127
     {Room.Invite, 65},
     {Room.Update, 66},
@@ -32,6 +33,7 @@ defenum(
     {Room.Create, 77},
     {Room.CreateScheduled, 78},
     {Room.Unban, 79},
+    {Room.GetInfo, 80},
     # chat commands and casts: 128..191
     {Chat.Block, 129},
     {Chat.SendMsg, 130},

@@ -43,6 +43,7 @@ defmodule Broth.Message do
     "user:update" => Broth.Message.User.Update,
     "user:get_rooms_about_to_start" => Broth.Message.User.GetRoomsAboutToStart,
     "user:get_scheduled_rooms" => Broth.Message.User.GetScheduledRooms,
+    "user:get_info" => Broth.Message.User.GetInfo,
     "room:invite" => Broth.Message.Room.Invite,
     "room:update" => Broth.Message.Room.Update,
     "room:get_invite_list" => Broth.Message.Room.GetInviteList,
@@ -58,6 +59,7 @@ defmodule Broth.Message do
     "room:create" => Broth.Message.Room.Create,
     "room:create_scheduled" => Broth.Message.Room.CreateScheduled,
     "room:unban" => Broth.Message.Room.Unban,
+    "room:get_info" => Broth.Message.Room.GetInfo,
     "chat:block" => Broth.Message.Chat.Block,
     "chat:send_msg" => Broth.Message.Chat.SendMsg,
     "chat:delete_msg" => Broth.Message.Chat.DeleteMsg
