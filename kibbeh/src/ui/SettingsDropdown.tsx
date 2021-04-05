@@ -53,10 +53,7 @@ export const SettingsDropdown: React.FC<{
             label={"Report a bug"}
           />
         </a>
-        <a
-          href="https://dogehouse.tv"
-          rel="noreferrer"
-        >
+        <a href="https://dogehouse.tv" rel="noreferrer">
           <SettingsIcon
             onClick={onCloseDropdown}
             icon={<SolidTime />}
