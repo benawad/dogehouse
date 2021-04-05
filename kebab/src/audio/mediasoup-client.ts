@@ -45,7 +45,7 @@ export const connect: ConnectFunction<(device: Device) => Promise<void>> = (
 
   if(direction === "input") {
     transport.on("produce", async ({ kind, rtpParameters, appData }, resolve, reject) => {
-      const { error } = await connection.fetch(
+      const result = await connection.fetch(
         "@send-track",
         {
           transportId: transportOptions.id,
@@ -57,13 +57,13 @@ export const connect: ConnectFunction<(device: Device) => Promise<void>> = (
           direction: simplerDirection
         },
         "@send-track-send-done"
-      ) as { error?: string };
+      ) as { id: string } | { error: string };
 
-      if(error) {
-        console.error(error);
+      if("error" in result) {
+        console.error(result.error);
         reject();
       } else {
-        resolve();
+        resolve(result);
       }
     });
 
