@@ -7,7 +7,7 @@ interface DashboardGridProps {
 
 export const MainInnerGrid: React.FC<DashboardGridProps> = ({
   children,
-  className,
+  className = "",
 }) => {
   const screenType = useScreenType();
 
@@ -25,7 +25,7 @@ export const MainInnerGrid: React.FC<DashboardGridProps> = ({
 
   return (
     <div
-      className={`min-h-full ${myClassName} ${className}`}
+      className={`${myClassName} ${className}`}
       style={{
         display: "grid",
         gridTemplateColumns,

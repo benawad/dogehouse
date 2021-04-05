@@ -27,7 +27,7 @@ export const MiddlePanel: React.FC<
 > = ({ stickyChildren, children }) => {
   return (
     <GridPanel>
-      <div className="sticky top-0 w-full flex-col z-0 bg-primary-900 pt-5">
+      <div className="sticky top-0 w-full flex-col z-10 bg-primary-900 pt-5">
         <HeaderWrapper>
           <MiddleHeaderController />
         </HeaderWrapper>

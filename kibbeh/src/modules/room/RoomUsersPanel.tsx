@@ -1,11 +1,8 @@
-import { JoinRoomAndGetInfoResponse, Room } from "@dogehouse/kebab";
+import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
 import isElectron from "is-electron";
 import React, { useEffect, useState } from "react";
-import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
-import { RoomAvatar } from "../../ui/RoomAvatar";
 import { RoomSectionHeader } from "../../ui/RoomSectionHeader";
-import { UserPreviewModalProvider } from "./UserPreviewModalProvider";
 import { useSplitUsersIntoSections } from "./useSplitUsersIntoSections";
 
 interface RoomUsersPanelProps extends JoinRoomAndGetInfoResponse {}
@@ -49,9 +46,7 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
   });
 
   return (
-    <div
-      className={`pt-4 px-4 flex-1 bg-primary-800 scrollbar-thin scrollbar-thumb-primary-700`}
-    >
+    <div className={`pt-4 px-4 flex-1 bg-primary-800`}>
       <div className="w-full block">
         <div
           style={{
