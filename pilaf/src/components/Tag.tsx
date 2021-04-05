@@ -23,9 +23,13 @@ const styles = StyleSheet.create({
     borderRadius: radius.s,
     paddingHorizontal: 10,
     height: 22,
+    alignItems: 'center'
   },
   glow: {
-    borderWidth: 1,
+    borderWidth: 0.5,
     borderColor: colors.accent,
+    shadowColor: colors.accent,
+    shadowOpacity: 0.3,
+    shadowRadius: 7,
   },
 });
