@@ -1,6 +1,7 @@
 import React from "react";
 
 import { ScrollView, StyleSheet, Text } from "react-native";
+import { FeaturedRoomCard } from "../components/FeaturedRoomCard";
 import { RoomCard } from "../components/RoomCard";
 import { colors, h3, paragraph } from "../constants/dogeStyle";
 import { FeedController } from "../modules/dashboard/FeedController";
@@ -8,6 +9,23 @@ import { FeedController } from "../modules/dashboard/FeedController";
 export const DashboardPage: React.FC = () => {
   return (
     <ScrollView style={styles.container}>
+      <FeaturedRoomCard
+        style={{ marginBottom: 20 }}
+        title="Starting your dream business in times of Covid"
+        subtitle="Marcus Bloch, Don Velez"
+        listeners={400}
+        avatarSrcs={[
+          require("../assets/images/100.png"),
+          require("../assets/images/100.png"),
+          require("../assets/images/100.png"),
+        ]}
+        tags={[
+          <Text style={{ ...paragraph }}>#Business</Text>,
+          <Text style={{ ...paragraph }}>#Business</Text>,
+          <Text style={{ ...paragraph }}>#Business</Text>,
+          <Text style={{ ...paragraph }}>#Business</Text>,
+        ]}
+      />
       <FeedController />
       <RoomCard
         style={{ marginBottom: 20 }}
