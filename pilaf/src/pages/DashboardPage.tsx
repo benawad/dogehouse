@@ -4,7 +4,7 @@ import { ScrollView, StyleSheet, Text } from "react-native";
 import { FeaturedRoomCard } from "../components/FeaturedRoomCard";
 import { RoomCard } from "../components/RoomCard";
 import { Tag } from "../components/Tag";
-import { colors, h3, paragraph } from "../constants/dogeStyle";
+import { colors, h3, smallBold } from "../constants/dogeStyle";
 import { FeedController } from "../modules/dashboard/FeedController";
 
 export const DashboardPage: React.FC = () => {
@@ -22,16 +22,16 @@ export const DashboardPage: React.FC = () => {
         ]}
         tags={[
           <Tag style={{ marginRight: 10 }} key={"trending"} glow>
-            <Text style={{ ...paragraph }}>🔥 Trending</Text>
+            <Text style={{ ...smallBold }}>🔥 Trending</Text>
           </Tag>,
           <Tag style={{ marginRight: 10 }} key={"business-1"}>
-            <Text style={{ ...paragraph }}>#Business</Text>
+            <Text style={{ ...smallBold }}>#Business</Text>
           </Tag>,
           <Tag style={{ marginRight: 10 }} key={"business-2"}>
-            <Text style={{ ...paragraph }}>#Business</Text>
+            <Text style={{ ...smallBold }}>#Business</Text>
           </Tag>,
           <Tag style={{ marginRight: 10 }} key={"business-3"}>
-            <Text style={{ ...paragraph }}>#Business</Text>
+            <Text style={{ ...smallBold }}>#Business</Text>
           </Tag>,
         ]}
       />
@@ -48,16 +48,16 @@ export const DashboardPage: React.FC = () => {
         ]}
         tags={[
           <Tag style={{ marginRight: 10 }} key={"business"}>
-            <Text style={{ ...paragraph }}>#Business</Text>
+            <Text style={{ ...smallBold }}>#Business</Text>
           </Tag>,
           <Tag style={{ marginRight: 10 }} key={"business-2"}>
-            <Text style={{ ...paragraph }}>#Business</Text>
+            <Text style={{ ...smallBold }}>#Business</Text>
           </Tag>,
           <Tag style={{ marginRight: 10 }} key={"business-3"}>
-            <Text style={{ ...paragraph }}>#Business</Text>
+            <Text style={{ ...smallBold }}>#Business</Text>
           </Tag>,
           <Tag style={{ marginRight: 10 }} key={"business-4"}>
-            <Text style={{ ...paragraph }}>#Business</Text>
+            <Text style={{ ...smallBold }}>#Business</Text>
           </Tag>,
         ]}
       />
