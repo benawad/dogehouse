@@ -4,6 +4,7 @@ import { wsend } from "../../createWebsocket";
 import { Backbar } from "../components/Backbar";
 import { BodyWrapper } from "../components/BodyWrapper";
 import { Button } from "../components/Button";
+import { Input } from "../components/Input";
 import { Wrapper } from "../components/Wrapper";
 import { useMeQuery } from "../utils/useMeQuery";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
@@ -28,14 +29,14 @@ export const BanUsersPage: React.FC<SearchUsersProps> = ({}) => {
     <Wrapper>
       <Backbar />
       <BodyWrapper>
-        <input
+        <Input
           className={`mb-8`}
           autoFocus
           placeholder="username to ban..."
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <input
+        <Input
           className={`mb-16`}
           autoFocus
           placeholder="reason"
