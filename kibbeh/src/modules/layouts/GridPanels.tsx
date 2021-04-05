@@ -42,14 +42,7 @@ export const RightPanel: React.FC<LeftPanelProps> = ({ children }) => {
   const { conn } = useContext(WebSocketContext);
   return (
     <FixedGridPanel>
-      <HeaderWrapper>
-        {conn ? (
-          <RightHeader
-            username={conn.user.username}
-            avatarImg={conn.user.avatarUrl}
-          />
-        ) : null}
-      </HeaderWrapper>
+      <HeaderWrapper>{conn ? <RightHeader /> : null}</HeaderWrapper>
       {children}
     </FixedGridPanel>
   );

@@ -156,20 +156,18 @@ defmodule Kousa.Room do
     end
   end
 
-  def change_room_creator(old_creator_id, new_creator_id, current_room_id \\ nil) do
+  def change_room_creator(old_creator_id, new_creator_id) do
     # get current room id
-    current_room_id =
-      if is_nil(current_room_id),
-        do: Beef.Users.get_current_room_id(new_creator_id),
-        else: current_room_id
+    current_room_id = Beef.Users.get_current_room_id(new_creator_id)
+    is_speaker = Beef.RoomPermissions.speaker?(new_creator_id, current_room_id)
 
     # get old creator's room id for validation
     old_creator_room_id = Beef.Users.get_current_room_id(old_creator_id)
 
     # validate
-    case {is_nil(current_room_id), new_creator_id == old_creator_id,
+    case {is_speaker, is_nil(current_room_id), new_creator_id == old_creator_id,
           current_room_id == old_creator_room_id} do
-      {false, false, true} ->
+      {true, false, false, true} ->
         case Rooms.replace_room_owner(old_creator_id, new_creator_id) do
           {1, _} ->
             internal_set_speaker(old_creator_id, current_room_id)

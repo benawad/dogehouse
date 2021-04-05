@@ -52,7 +52,7 @@
     "gen:i18:keys": "ts-node --project scripts/tsconfig.json scripts/generateTranslationTypes.ts",
     "sync:i18": "ts-node --project scripts/tsconfig.json scripts/syncTranslations.ts",
     "i18": "npm run gen:i18:keys && npm run sync:i18",
-    "build": "craco build",
+    "build": "cross-env SKIP_PREFLIGHT_CHECK=true craco build",
     "test": "craco test",
     "vscode": "webpack --config src/app/webpack.config.js --watch --mode development",
     "vscode:prod": "webpack --config src/app/webpack.config.js --mode production",

@@ -56,6 +56,17 @@ defmodule Kousa.Beef.UserTest do
                )
     end
 
+    test "with avatar_url that is not from twitter/github", %{user: %{id: id}} do
+      assert {:error, _} =
+               Users.edit_profile(id, %{
+                 username: "timmy",
+                 displayName: "tim",
+                 bio: "",
+                 avatarUrl:
+                   "https://bit.ly/3dzG9DB#https://avatars.githubusercontent.com/u/44095206?v=4"
+               })
+    end
+
     test "with empty bio", %{user: %{id: id}} do
       assert {:ok, user} =
                Users.edit_profile(id, %{

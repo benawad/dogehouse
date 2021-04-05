@@ -77,7 +77,7 @@ export const LoginPage: React.FC = () => {
 
   return (
     <div className="w-full h-full">
-      <HeaderController embed={{}} />
+      <HeaderController embed={{}} title="Login" />
       <div className="absolute top-6 h-8 w-full items-center justify-center sm:hidden">
         <LgLogo />
       </div>
@@ -107,11 +107,10 @@ export const LoginPage: React.FC = () => {
             <SvgSolidGitHub width={20} height={20} />
             Log in with GitHub
           </LoginButton>
-          {/* @todo backend needs to be fixed for twitter to work */}
-          {/* <LoginButton oauthUrl={`${apiBaseUrl}/auth/twitter/web`}>
+          <LoginButton oauthUrl={`${apiBaseUrl}/auth/twitter/web`}>
             <SvgSolidTwitter width={20} height={20} />
             Log in with Twitter
-          </LoginButton> */}
+          </LoginButton>
           {!__prod__ ? (
             <LoginButton
               dev
@@ -160,14 +159,14 @@ export const LoginPage: React.FC = () => {
             Report a bug
           </a>
           <div className="gap-6 sm:gap-4">
-            <a href="https://github.com/benawad/dogehouse">
+            <a href="https://github.com/benawad/dogehouse" target="_blank">
               <SvgSolidGitHub
                 width={20}
                 height={20}
                 className="cursor-pointer hover:text-primary-200"
               />
             </a>
-            <a href="https://discord.gg/wCbKBZF9cV">
+            <a href="https://discord.gg/wCbKBZF9cV" target="_blank">
               <SvgSolidDiscord
                 width={20}
                 height={20}

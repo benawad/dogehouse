@@ -228,6 +228,25 @@ defmodule Broth.SocketHandler do
                    op: "error",
                    d: err_msg
                  }), state}
+            catch
+              _, e ->
+                err_msg = Kernel.inspect(e)
+                IO.puts(err_msg)
+                Logger.error(Exception.format_stacktrace())
+
+                op = Map.get(json, "op", "")
+                IO.puts("error for op: " <> op)
+
+                Sentry.capture_message(err_msg,
+                  stacktrace: __STACKTRACE__,
+                  extra: %{op: op}
+                )
+
+                {:reply,
+                 construct_socket_msg(state.encoding, state.compression, %{
+                   op: "error",
+                   d: err_msg
+                 }), state}
             end
           else
             {:reply, {:close, 4004, "not_authenticated"}, state}
@@ -629,24 +648,26 @@ defmodule Broth.SocketHandler do
       %{room: room} ->
         {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
 
-        try do
-          {muteMap, autoSpeaker, activeSpeakerMap} =
-            if room_id do
-              Onion.RoomSession.get_maps(room_id)
-            else
-              {%{}, false, %{}}
-            end
+        case Onion.RoomSession.lookup(room_id) do
+          [] ->
+            %{error: "Room no longer exists."}
 
-          %{
-            room: room,
-            users: users,
-            muteMap: muteMap,
-            activeSpeakerMap: activeSpeakerMap,
-            roomId: room_id,
-            autoSpeaker: autoSpeaker
-          }
-        rescue
-          RuntimeError -> %{error: "room does not exist"}
+          _ ->
+            {muteMap, autoSpeaker, activeSpeakerMap} =
+              if room_id do
+                Onion.RoomSession.get_maps(room_id)
+              else
+                {%{}, false, %{}}
+              end
+
+            %{
+              room: room,
+              users: users,
+              muteMap: muteMap,
+              activeSpeakerMap: activeSpeakerMap,
+              roomId: room_id,
+              autoSpeaker: autoSpeaker
+            }
         end
 
       _ ->

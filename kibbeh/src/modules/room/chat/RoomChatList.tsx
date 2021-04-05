@@ -93,7 +93,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                 <span className={`inline mr-1`}>: </span>
                 <div className={`inline mr-1 space-x-1`}>
                   {m.deleted ? (
-                    <span className="inline">
+                    <span className="inline text-primary-300">
                       [message{" "}
                       {m.deleterId === m.userId ? "retracted" : "deleted"}]
                     </span>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
+import { useConn } from "../../shared-hooks/useConn";
 import { CenterLoader } from "../../ui/CenterLoader";
 import { RoomHeader } from "../../ui/RoomHeader";
 import { CreateRoomModal } from "../dashboard/CreateRoomModal";
@@ -8,10 +9,12 @@ import { RoomPanelIconBarController } from "./RoomPanelIconBarController";
 import { RoomUsersPanel } from "./RoomUsersPanel";
 import { useGetRoomByQueryParam } from "./useGetRoomByQueryParam";
 import { UserPreviewModal } from "./UserPreviewModal";
+import { HeaderController } from "../display/HeaderController";
 
 interface RoomPanelControllerProps {}
 
 export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
+  const conn = useConn();
   const { currentRoomId } = useCurrentRoomIdStore();
   const [showEditModal, setShowEditModal] = useState(false);
   const { data, isLoading } = useGetRoomByQueryParam();
@@ -45,10 +48,15 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
           }}
         />
       ) : null}
+      <HeaderController embed={{}} title={data.room.name} />
       <MiddlePanel
         stickyChildren={
           <RoomHeader
-            onTitleClick={() => setShowEditModal(true)}
+            onTitleClick={
+              data.room.creatorId === conn.user.id
+                ? () => setShowEditModal(true)
+                : undefined
+            }
             title={data.room.name}
             description={data.room.description || ""}
             names={roomCreator ? [roomCreator.username] : []}

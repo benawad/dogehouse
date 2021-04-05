@@ -11,14 +11,13 @@ import {
 import i18n from "i18next";
 import Backend from "i18next-node-fs-backend";
 import { autoUpdater } from "electron-updater";
-import { RegisterKeybinds } from "./utils/keybinds";
+import { RegisterKeybinds, stopWorkersAndExitApp } from "./utils/keybinds";
 import { HandleVoiceTray } from "./utils/tray";
 import { ALLOWED_HOSTS, isLinux, isMac, MENU_TEMPLATE } from "./constants";
 import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
 import electronLogger from 'electron-log';
-import globkey from 'globkey';
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
@@ -37,6 +36,7 @@ i18n.use(Backend);
 
 electronLogger.transports.file.level = "debug"
 autoUpdater.logger = electronLogger;
+autoUpdater.allowDowngrade = true;
 
 async function localize() {
   await i18n.init({
@@ -75,7 +75,7 @@ function createWindow() {
     }
   });
   splash.loadFile(path.join(__dirname, "../resources/splash/splash-screen.html"));
-
+  electronLogger.info(`SPLASH PATH: ${path.join(__dirname, "../resources/splash/splash-screen.html")}`)
   splash.webContents.on('did-finish-load', () => {
     splash.webContents.send('@locale/text', {
       title: i18n.t('common.title'),
@@ -97,7 +97,7 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
   }
   mainWindow.loadURL(
-    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/"
+    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/dash"
   );
 
   bWindows = {
@@ -174,6 +174,14 @@ function createWindow() {
   ipcMain.on('@app/version', (event, args) => {
     event.sender.send('@app/version', app.getVersion());
   });
+  ipcMain.on('@dogehouse/loaded', (event, doge) => {
+    if (doge === "kibbeh") {
+      mainWindow.setSize(1500, 800);
+    } else {
+      mainWindow.setSize(560, 1000);
+    }
+    mainWindow.center();
+  });
   if (isLinux) {
     skipUpdateCheck(splash);
   }
@@ -183,8 +191,7 @@ if (!instanceLock) {
   if (process.env.hotReload) {
     app.relaunch();
   }
-  globkey.unload();
-  app.quit();
+  stopWorkersAndExitApp();
 } else {
   app.on("ready", () => {
     localize().then(() => {
@@ -238,9 +245,8 @@ autoUpdater.on('update-not-available', () => {
   }, 500);
 });
 
-app.on("window-all-closed", () => {
-  globkey.unload();
-  app.quit();
+app.on("window-all-closed", async () => {
+  await stopWorkersAndExitApp();
 });
 app.on("activate", () => {
   if (mainWindow === null) {
@@ -267,3 +273,4 @@ function skipUpdateCheck(splash: BrowserWindow) {
     }
   }, 500);
 }
+
