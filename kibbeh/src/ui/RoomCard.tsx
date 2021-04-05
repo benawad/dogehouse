@@ -82,7 +82,7 @@ export const RoomCard: React.FC<RoomCardProps> = ({
           </BubbleText>
         </div>
       </div>
-      <p className="block break-words line-clamp-2 mt-2 text-left text-primary-300 truncate w-full whitespace-pre-wrap">
+      <p className="block break-all line-clamp-2 mt-2 text-left text-primary-300 truncate w-full whitespace-pre-wrap">
         {subtitle}
       </p>
       <div className="space-x-2 mt-4">
