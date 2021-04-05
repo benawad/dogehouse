@@ -26,8 +26,8 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
           src={user.avatarUrl}
           username={user.username}
         />
-        <div className="mt-2">
-          <span className="text-primary-100 font-bold h-full break-all line-clamp-1">
+        <div className="mt-2 max-w-full">
+          <span className="text-primary-100 font-bold h-full break-all line-clamp-1 truncate">
             {user.displayName}
           </span>
           <span className="text-primary-300 ml-1">@{user.username}</span>
@@ -63,9 +63,10 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
           </div>
         </div>
         <div className="w-full mt-2">
-          <p className="text-primary-300 mt-2 text-center w-full whitespace-pre-wrap break-words inline">
+          <p className="text-primary-300 mt-2 text-center w-full whitespace-pre-wrap break-words inline line-clamp-6">
             {user.bio.split(/\n/).map((line, i) => (
-              <span key={i} className="flex justify-center">
+              <>
+                {i > 0 ? <br /> : null}
                 {line.split(" ").map((chunk, j) => {
                   try {
                     return linkRegex.test(chunk) ? (
@@ -83,7 +84,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
                     );
                   } catch (err) {}
                 })}
-              </span>
+              </>
             ))}
           </p>
         </div>

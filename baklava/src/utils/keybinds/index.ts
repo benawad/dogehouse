@@ -136,10 +136,6 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
             }
         }
     });
-
-
-    // globkey.raw((keypair: string[]) => {
-
 }
 export async function exitApp() {
     worker.removeAllListeners();
