@@ -28,5 +28,8 @@ const styles = StyleSheet.create({
   glow: {
     borderWidth: 0.5,
     borderColor: colors.accent,
+    shadowColor: colors.accent,
+    shadowOpacity: 0.3,
+    shadowRadius: 7,
   },
 });
