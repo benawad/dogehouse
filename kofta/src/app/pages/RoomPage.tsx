@@ -18,7 +18,7 @@ import { Wrapper } from "../components/Wrapper";
 import { useShouldFullscreenChat } from "../modules/room-chat/useShouldFullscreenChat";
 import { Codicon } from "../svgs/Codicon";
 import { BaseUser } from "../types";
-import { isUuid } from "../utils/isUuid";
+import { validate as uuidValidate } from 'uuid';
 import { useTimeElapsed } from "../utils/timeElapsed";
 import { useMeQuery } from "../utils/useMeQuery";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
@@ -89,7 +89,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   //   }
   // }, []);
 
-  if (!isUuid(id)) {
+  if (!uuidValidate(id)) {
     return <Redirect to="/" />;
   }
 

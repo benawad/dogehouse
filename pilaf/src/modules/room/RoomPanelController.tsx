@@ -11,7 +11,7 @@ import {
 import { TitledHeader } from "../../components/header/TitledHeader";
 import { colors } from "../../constants/dogeStyle";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
-import { isUuid } from "../../lib/isUuid";
+import { validate as uuidValidate } from 'uuid';
 import { useWrappedConn } from "../../shared-hooks/useConn";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
@@ -52,7 +52,7 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({
   const { data, isLoading } = useTypeSafeQuery(
     ["joinRoomAndGetInfo", roomId || ""],
     {
-      enabled: isUuid(roomId),
+      enabled: uuidValidate(roomId),
       onSuccess: ((d: JoinRoomAndGetInfoResponse | { error: string }) => {
         if (!("error" in d)) {
           setCurrentRoomId(() => d.room.id);
