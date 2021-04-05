@@ -74,9 +74,15 @@ export const LoginPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full h-full">
+    <div
+      className="grid w-full h-full"
+      style={{
+        gridTemplateRows: "1fr auto 1fr",
+      }}
+    >
       <HeaderController embed={{}} title="Login" />
-      <div className="absolute top-6 h-8 w-full items-center justify-center sm:hidden">
+      <div className="hidden sm:flex" />
+      <div className="justify-self-center self-center sm:hidden">
         <LgLogo />
       </div>
       <div className="m-auto flex-col p-6 gap-5 bg-primary-800 sm:rounded-8 z-10 sm:w-400 w-full">
@@ -140,7 +146,7 @@ export const LoginPage: React.FC = () => {
         </div> */}
       </div>
       <div className="absolute bottom-0 w-full justify-between px-5 py-5 mt-auto items-center sm:px-7">
-        <div className="hidden sm:block">
+        <div className="hidden sm:flex">
           <LgLogo />
         </div>
         <div className="gap-6 text-primary-300">

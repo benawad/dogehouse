@@ -2321,6 +2321,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-community/hooks@npm:^2.6.0":
+  version: 2.6.0
+  resolution: "@react-native-community/hooks@npm:2.6.0"
+  peerDependencies:
+    react: ">=16.8.0"
+    react-native: ">=0.59"
+  checksum: ea5e2575859a6a1f7b195bd527e9da440c09b4af60981b3fd2b6c94dbee0bb276e2d3b6d218ed35aa9aa63b3116f6bfcfa76ee90c2d7b7381eff6c063d0426a2
+  languageName: node
+  linkType: hard
+
 "@react-native-community/masked-view@npm:^0.1.10":
   version: 0.1.10
   resolution: "@react-native-community/masked-view@npm:0.1.10"
@@ -15295,6 +15305,18 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"reanimated-bottom-sheet@npm:^1.0.0-alpha.22":
+  version: 1.0.0-alpha.22
+  resolution: "reanimated-bottom-sheet@npm:1.0.0-alpha.22"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+    react-native-gesture-handler: "*"
+    react-native-reanimated: "*"
+  checksum: 0e8263131da86112d392872edfbb456dbc782f096de3a00a47517022bd7266ece5a4ec2b4f15edbd34b5a04ca99d2adfafccd72f20f9bc64df9e5a2de2686006
+  languageName: node
+  linkType: hard
+
 "recast@npm:^0.20.3":
   version: 0.20.4
   resolution: "recast@npm:0.20.4"
@@ -15765,6 +15787,7 @@ resolve@^2.0.0-next.3:
     "@babel/runtime": ^7.12.5
     "@react-native-async-storage/async-storage": ^1.14.1
     "@react-native-community/eslint-config": ^2.0.0
+    "@react-native-community/hooks": ^2.6.0
     "@react-native-community/masked-view": ^0.1.10
     "@react-native-segmented-control/segmented-control": ^2.3.0
     "@react-navigation/bottom-tabs": ^5.11.8
@@ -15811,6 +15834,7 @@ resolve@^2.0.0-next.3:
     react-native-webrtc: ^1.89.1
     react-query: ^3.13.0
     react-test-renderer: 17.0.1
+    reanimated-bottom-sheet: ^1.0.0-alpha.22
     typescript: ^4.2.3
     zustand: ^3.3.3
   languageName: unknown
