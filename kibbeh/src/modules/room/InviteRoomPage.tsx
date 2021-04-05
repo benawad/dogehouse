@@ -17,7 +17,9 @@ import { RoomCard } from "../../ui/RoomCard";
 import { SingleUser } from "../../ui/UserAvatar";
 import { DefaultDesktopLayout } from "../layouts/DefaultDesktopLayout";
 import { MiddlePanel } from "../layouts/GridPanels";
-import { useGetRoomByQueryParam } from "./useGetRoomByQueryParam";
+import { useGetRoomByQueryParam } from "./useGetRoomByQueryParam"; 
+import { HeaderController } from "../display/HeaderController";
+import { FeedHeader } from "../../ui/Feed";
 
 interface InviteRoomPageProps {}
 
@@ -75,6 +77,7 @@ const Page = ({
 
   return (
     <>
+      <HeaderController embed={{}} title="Invite" /> 
       {data.users.map((user) => (
         <div key={user.id} className="items-center mb-6">
           <div>
@@ -149,12 +152,12 @@ export const InviteRoomPage: PageComponent<InviteRoomPageProps> = ({}) => {
         {room.isPrivate ? null : (
           <>
             {!navigator.share ? (
-              <div className={`text-2xl mb-2`}>
+              <div className={`text-primary-100 font-bold text-2xl mb-2`}>
                 {t("pages.inviteList.shareRoomLink")}
               </div>
             ) : null}
             <div className={`mb-8 flex`}>
-              <Input readOnly ref={inputRef} value={url} />
+              <Input readOnly ref={inputRef} value={url} className="mr-2" />
               <Button
                 size="small"
                 onClick={() => {

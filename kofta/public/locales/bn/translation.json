@@ -44,7 +44,7 @@
     "home": {
       "createRoom": "রুম বানান",
       "refresh": "রিফ্রেশ করুন",
-      "editRoom": "Edit Room"
+      "editRoom": "রুম এডিট করুন"
     },
     "inviteList": {
       "roomGone": "রুম শেষ, ফিরে আসুন",
@@ -211,8 +211,8 @@
         "requirePermission": "কথা বলার জন্য পারমিশন লাগবে",
         "makePublic": "রুমটাকে পাবলিক করুন",
         "makePrivate": "রুমটাকে প্রাইভেট করুন",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "পাবলিক রুমের নাম সেট করুন",
+        "renamePrivate": "প্রাইভেট রুমের নাম সেট করুন"
       }
     }
   },

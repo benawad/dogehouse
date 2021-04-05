@@ -12,7 +12,7 @@ import { SingleUserAvatar, singleUserAvatarSize } from "./SingleUserAvatar";
 interface MultipleUserAvatarProps {
   style?: StyleProp<ViewStyle>;
   srcArray: ImageSourcePropType[];
-  size?: "default" | "sm" | "xs";
+  size?: "default" | "md" | "sm" | "xs";
   translationRatio?: number;
 }
 
