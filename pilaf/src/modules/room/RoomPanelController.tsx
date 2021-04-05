@@ -56,6 +56,9 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({
       onSuccess: ((d: JoinRoomAndGetInfoResponse | { error: string }) => {
         if (!("error" in d)) {
           setCurrentRoomId(() => d.room.id);
+          if (currentRoomId !== d.room.id) {
+            useRoomChatStore.getState().reset();
+          }
         }
       }) as any,
     },
