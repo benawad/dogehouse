@@ -64,7 +64,7 @@ p.small {
 
 html
   *:not(head *, script, style, .MuiDialog-root, .MuiDialog-root
-    *, .block, .inline-block, .inline, .inline-flex, .table, .table-caption, .table-cell, .table-column, .table-column-group, .table-footer-group, .table-header-group, .table-row-group, .table-row, .flow-root, .grid, .inline-grid, .contents, .hidden) {
+    *, .block, .inline-block, .inline, .inline-flex, .table, .table-caption, .table-cell, .table-column, .table-column-group, .table-footer-group, .table-header-group, .table-row-group, .table-row, .flow-root, .grid, .inline-grid, .contents, .hidden, .sm\:hidden, .sm\:flex) {
   display: flex;
 }
 

@@ -52,34 +52,36 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
     <div
       className={`pt-4 px-4 flex-1 bg-primary-800 scrollbar-thin scrollbar-thumb-primary-700`}
     >
-      <div
-        style={{
-          gridTemplateColumns: "repeat(auto-fit, 90px)",
-        }}
-        className={`w-full grid gap-5`}
-      >
-        <RoomSectionHeader
-          title={t("pages.room.speakers")}
-          tagText={
-            "" + (canIAskToSpeak ? speakers.length - 1 : speakers.length)
-          }
-        />
-        {speakers}
-        {askingToSpeak.length ? (
+      <div className="w-full block">
+        <div
+          style={{
+            gridTemplateColumns: "repeat(auto-fit, 90px)",
+          }}
+          className={`w-full grid gap-5`}
+        >
           <RoomSectionHeader
-            title={t("pages.room.requestingToSpeak")}
-            tagText={"" + askingToSpeak.length}
+            title={t("pages.room.speakers")}
+            tagText={
+              "" + (canIAskToSpeak ? speakers.length - 1 : speakers.length)
+            }
           />
-        ) : null}
-        {askingToSpeak}
-        {listeners.length ? (
-          <RoomSectionHeader
-            title={t("pages.room.listeners")}
-            tagText={"" + listeners.length}
-          />
-        ) : null}
-        {listeners}
-        <div className={`h-3 w-full col-span-5`}></div>
+          {speakers}
+          {askingToSpeak.length ? (
+            <RoomSectionHeader
+              title={t("pages.room.requestingToSpeak")}
+              tagText={"" + askingToSpeak.length}
+            />
+          ) : null}
+          {askingToSpeak}
+          {listeners.length ? (
+            <RoomSectionHeader
+              title={t("pages.room.listeners")}
+              tagText={"" + listeners.length}
+            />
+          ) : null}
+          {listeners}
+          <div className={`h-3 w-full col-span-full`}></div>
+        </div>
       </div>
     </div>
   );

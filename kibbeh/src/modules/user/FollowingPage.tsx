@@ -14,7 +14,7 @@ interface UserPageProps {}
 export const FollowingPage: PageComponent<UserPageProps> = ({}) => {
   return (
     <WaitForWsAndAuth>
-      <HeaderController embed={{}} title="Following" />
+      <HeaderController embed={{}} title="People" />
       <DesktopLayout
         leftPanel={<FollowingOnlineController />}
         rightPanel={<ProfileBlockController />}

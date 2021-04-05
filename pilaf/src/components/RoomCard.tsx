@@ -18,7 +18,6 @@ import {
 import { MultipleUserAvatar } from "./avatars/MultipleUserAvatar";
 import { BubbleText } from "./BubbleText";
 import { RoomCardHeading } from "./RoomCardHeading";
-import { Tag } from "./Tag";
 
 function formatNumber(num: number): string {
   return Math.abs(num) > 999
@@ -120,13 +119,7 @@ export const RoomCard: React.FC<RoomCardProps> = ({
       </View>
       <View></View>
       {tags && tags.length > 0 && (
-        <View style={styles.tagsContainer}>
-          {tags.map((tag, idx) => (
-            <Tag style={{ marginRight: 10 }} key={idx}>
-              {tag}
-            </Tag>
-          ))}
-        </View>
+        <View style={styles.tagsContainer}>{tags.map((tag) => tag)}</View>
       )}
     </TouchableOpacity>
   );

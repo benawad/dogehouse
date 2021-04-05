@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 module.exports = {
-  darkMode: "media",
+  darkMode: "class",
   purge: ["./src/**/*.tsx", "./public/index.html"],
   theme: {
     fontFamily: {

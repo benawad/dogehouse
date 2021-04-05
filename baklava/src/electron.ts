@@ -11,7 +11,7 @@ import {
 import i18n from "i18next";
 import Backend from "i18next-node-fs-backend";
 import { autoUpdater } from "electron-updater";
-import { RegisterKeybinds, stopWorkersAndExitApp } from "./utils/keybinds";
+import { RegisterKeybinds, exitApp } from "./utils/keybinds";
 import { HandleVoiceTray } from "./utils/tray";
 import { ALLOWED_HOSTS, isLinux, isMac, MENU_TEMPLATE } from "./constants";
 import path from "path";
@@ -191,7 +191,7 @@ if (!instanceLock) {
   if (process.env.hotReload) {
     app.relaunch();
   }
-  stopWorkersAndExitApp();
+  exitApp();
 } else {
   app.on("ready", () => {
     localize().then(() => {
@@ -246,7 +246,7 @@ autoUpdater.on('update-not-available', () => {
 });
 
 app.on("window-all-closed", async () => {
-  await stopWorkersAndExitApp();
+  await exitApp();
 });
 app.on("activate", () => {
   if (mainWindow === null) {

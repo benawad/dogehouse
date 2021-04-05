@@ -137,7 +137,7 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
         }
     });
 }
-export async function stopWorkersAndExitApp() {
+export async function exitApp() {
     worker.removeAllListeners();
     await worker.terminate();
     globkey.unload();

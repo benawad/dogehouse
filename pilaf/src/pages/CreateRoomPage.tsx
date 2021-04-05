@@ -20,6 +20,7 @@ import {
   small,
 } from "../constants/dogeStyle";
 import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
+import { useRoomChatStore } from "../modules/room/chat/useRoomChatStore";
 import { useWrappedConn } from "../shared-hooks/useConn";
 import { useTypeSafePrefetch } from "../shared-hooks/useTypeSafePrefetch";
 
@@ -43,6 +44,7 @@ export const CreateRoomPage: React.FC<CreateRoomModalProps> = ({
   const prefetch = useTypeSafePrefetch();
   const navigation = useNavigation();
   const inset = useSafeAreaInsets();
+  const [clearChat] = useRoomChatStore((s) => [s.clearChat]);
   return (
     <KeyboardAvoidingView style={{ flex: 1 }} behavior={"padding"}>
       <View
@@ -90,6 +92,7 @@ export const CreateRoomPage: React.FC<CreateRoomModalProps> = ({
               return;
             } else if (resp.room) {
               const { room } = resp;
+              clearChat();
               prefetch(["joinRoomAndGetInfo", room.id], [room.id]);
               useCurrentRoomIdStore.getState().setCurrentRoomId(room.id);
               navigation.navigate("Room", { roomId: room.id });

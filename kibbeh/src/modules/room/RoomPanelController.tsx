@@ -10,6 +10,8 @@ import { RoomUsersPanel } from "./RoomUsersPanel";
 import { useGetRoomByQueryParam } from "./useGetRoomByQueryParam";
 import { UserPreviewModal } from "./UserPreviewModal";
 import { HeaderController } from "../display/HeaderController";
+import { useRoomChatStore } from "./chat/useRoomChatStore";
+import { useScreenType } from "../../shared-hooks/useScreenType";
 
 interface RoomPanelControllerProps {}
 
@@ -18,6 +20,8 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
   const { currentRoomId } = useCurrentRoomIdStore();
   const [showEditModal, setShowEditModal] = useState(false);
   const { data, isLoading } = useGetRoomByQueryParam();
+  const open = useRoomChatStore((s) => s.open);
+  const screenType = useScreenType();
 
   if (isLoading || !currentRoomId) {
     return (
@@ -64,9 +68,17 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
         }
       >
         <UserPreviewModal {...data} />
-        <RoomUsersPanel {...data} />
-        <div className={`sticky bottom-0 pb-7 bg-primary-900`}>
-          <RoomPanelIconBarController />
+        {screenType === "fullscreen" && open ? null : (
+          <RoomUsersPanel {...data} />
+        )}
+        <div
+          className={`sticky bottom-0 pb-7 bg-primary-900 ${
+            (screenType === "fullscreen" || screenType === "1-cols") && open
+              ? "flex-1"
+              : ""
+          }`}
+        >
+          <RoomPanelIconBarController {...data} />
         </div>
       </MiddlePanel>
     </>

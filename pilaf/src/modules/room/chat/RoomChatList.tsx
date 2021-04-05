@@ -1,6 +1,6 @@
 import { Room } from "@dogehouse/kebab";
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, Text, View } from "react-native";
 import {
   colors,
   fontSize,
@@ -57,7 +57,8 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
     <View
       style={{
         padding: 5,
-        flex: 1,
+        paddingHorizontal: 25,
+        flexGrow: 1,
       }}
     >
       <ScrollView
@@ -111,8 +112,13 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                   Whisper
                 </Text>
               )}
-              <View style={{ flexDirection: "row" }}>
-                <TouchableOpacity
+              <Text>
+                <Text
+                  style={{
+                    ...smallBold,
+                    color: m.color,
+                    marginHorizontal: 5,
+                  }}
                   onPress={() =>
                     setData({
                       userId: m.userId,
@@ -126,16 +132,8 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                     })
                   }
                 >
-                  <Text
-                    style={{
-                      ...smallBold,
-                      color: m.color,
-                      marginHorizontal: 5,
-                    }}
-                  >
-                    {m.username}:{" "}
-                  </Text>
-                </TouchableOpacity>
+                  {m.username}:{" "}
+                </Text>
 
                 <Text style={{ ...small }}>
                   {m.deleted ? (
@@ -150,7 +148,20 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                           return <Text key={i}>{v} </Text>;
                         case "emote":
                           return emoteMap[v] ? (
-                            <Image key={i} source={emoteMap[v]} />
+                            m.tokens.find((t) => t.t === "text") !==
+                            undefined ? (
+                              <Image
+                                key={i}
+                                source={emoteMap[v]}
+                                style={{ height: 20, width: 20 }}
+                              />
+                            ) : (
+                              <Image
+                                key={i}
+                                source={emoteMap[v]}
+                                // style={{ height: 15, width: 15 }}
+                              />
+                            )
                           ) : (
                             ":" + v + ":"
                           );
@@ -186,7 +197,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                     })
                   )}
                 </Text>
-              </View>
+              </Text>
             </View>
           ))}
       </ScrollView>

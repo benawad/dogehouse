@@ -1253,7 +1253,7 @@ __metadata:
     electron-log: ^4.3.2
     electron-overlay-window: ^1.0.4
     electron-updater: ^4.3.8
-    globkey: ^1.0.21
+    globkey: ^1.0.23
     i18next: ^20.0.0
     i18next-node-fs-backend: ^2.1.3
     lodash: ^4.17.21
@@ -1836,10 +1836,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globkey@npm:^1.0.21":
-  version: 1.0.21
-  resolution: "globkey@npm:1.0.21"
-  checksum: 98186ae3e195c4d86a63f5f44e92e39bc03c2cdd24937034d12b12e36f8630351e878b44eba1a3736a671808b8fe0a2a32ed1e9eb5ac44a1bdf59b062ebadd8c
+"globkey@npm:^1.0.23":
+  version: 1.0.23
+  resolution: "globkey@npm:1.0.23"
+  checksum: bf6d23352142c037cbd17957ad379ca91a81ef14f7be5743400163a849a0498a785307289ee36abef672732fe7240ca58691e667c26bfb7a4b417b543de1a7fa
   languageName: node
   linkType: hard
 
