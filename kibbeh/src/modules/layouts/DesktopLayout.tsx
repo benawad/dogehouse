@@ -4,6 +4,7 @@ import { MainInnerGrid } from "../../ui/MainGrid";
 import { LeftPanel, RightPanel } from "./GridPanels";
 
 interface MainLayoutProps {
+  floatingRoomInfo: React.ReactNode;
   tabletSidebar: React.ReactNode;
   leftPanel: React.ReactNode;
   rightPanel: React.ReactNode;
@@ -14,6 +15,7 @@ export const DesktopLayout: React.FC<MainLayoutProps> = ({
   leftPanel,
   rightPanel,
   tabletSidebar,
+  floatingRoomInfo,
 }) => {
   const screenType = useScreenType();
 
@@ -43,7 +45,12 @@ export const DesktopLayout: React.FC<MainLayoutProps> = ({
       </>
     );
   } else if (screenType === "fullscreen") {
-    middle = <>{children}</>;
+    middle = (
+      <>
+        {children}
+        {floatingRoomInfo}
+      </>
+    );
   }
 
   return (

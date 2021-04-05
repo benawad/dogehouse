@@ -16,6 +16,7 @@ export const RoomPage: PageComponent<RoomPageProps> = ({}) => {
     <WaitForWsAndAuth>
       <UserPreviewModalProvider>
         <DesktopLayout
+          floatingRoomInfo={null}
           tabletSidebar={<TabletSidebar />}
           leftPanel={<FollowingOnlineController />}
           rightPanel={<RoomChatController />}
