@@ -33,11 +33,11 @@ defmodule BrothTest.Message.User.GetInfoTest do
 
     test "userId parameter is required" do
       assert {:error, %{errors: [userId: {"can't be blank", _}]}} =
-        Broth.Message.validate(%{
-          "operator" => "user:get_info",
-          "payload" => %{},
-          "reference" => UUID.uuid4()
-        })
+               Broth.Message.validate(%{
+                 "operator" => "user:get_info",
+                 "payload" => %{},
+                 "reference" => UUID.uuid4()
+               })
     end
   end
 end

@@ -3,7 +3,8 @@ defmodule Broth.Message.User.GetInfo do
 
   @primary_key false
   embedded_schema do
-    field :userId, :binary_id #required.
+    # required.
+    field(:userId, :binary_id)
   end
 
   import Ecto.Changeset

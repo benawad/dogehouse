@@ -33,11 +33,11 @@ defmodule BrothTest.Message.Room.GetInfoTest do
 
     test "roomId parameter is required" do
       assert {:error, %{errors: [roomId: {"can't be blank", _}]}} =
-        Broth.Message.validate(%{
-          "operator" => "room:get_info",
-          "payload" => %{},
-          "reference" => UUID.uuid4()
-        })
+               Broth.Message.validate(%{
+                 "operator" => "room:get_info",
+                 "payload" => %{},
+                 "reference" => UUID.uuid4()
+               })
     end
   end
 end

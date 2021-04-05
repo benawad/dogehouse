@@ -3,11 +3,11 @@ import EctoEnum
 alias Broth.Message.User
 alias Broth.Message.Room
 alias Broth.Message.Chat
+alias Broth.Message.Auth
 
 defenum(
   Broth.Message.Types.Operator,
   [
-    {BrothTest.MessageTest.TestOperator, 255},
     # user commands and casts: 0..63
     {User.GetFollowing, 1},
     {User.GetFollows, 2},
@@ -38,6 +38,10 @@ defenum(
     # chat commands and casts: 128..191
     {Chat.Ban, 129},
     {Chat.SendMsg, 130},
-    {Chat.DeleteMsg, 131}
+    {Chat.DeleteMsg, 131},
+    # auth commands 192..254
+    {Auth.Request, 193},
+    # etc 222 - 255
+    {BrothTest.MessageTest.TestOperator, 255}
   ]
 )

@@ -3,11 +3,13 @@ defmodule Broth.Message.Room.GetInfo do
 
   @primary_key false
   embedded_schema do
-    field :roomId, :binary_id # required.
+    # required.
+    field(:roomId, :binary_id)
   end
 
   import Ecto.Changeset
   alias Kousa.Utils.UUID
+
   def changeset(changeset, data) do
     changeset
     |> cast(data, [:roomId])

@@ -6,7 +6,6 @@ defmodule Broth.SocketHandler do
   alias Beef.Follows
   alias Ecto.UUID
   alias Beef.RoomPermissions
-  alias Onion.UserSession
 
   @type state :: %__MODULE__{
           awaiting_init: boolean(),
@@ -68,13 +67,13 @@ defmodule Broth.SocketHandler do
   @auth_timeout Application.compile_env(:kousa, :websocket_auth_timeout)
 
   def websocket_init(state) do
-    Process.send_after(self(), {:finish_awaiting}, @auth_timeout)
+    Process.send_after(self(), :auth_timeout, @auth_timeout)
     Process.put(:"$callers", state.callers)
 
     {:ok, state}
   end
 
-  def websocket_info({:finish_awaiting}, state) do
+  def websocket_info(:auth_timeout, state) do
     if state.awaiting_init do
       {:stop, state}
     else
@@ -83,7 +82,7 @@ defmodule Broth.SocketHandler do
   end
 
   def websocket_info({:remote_send, message}, state) do
-    {:reply, construct_socket_msg(state.encoding, state.compression, message), state}
+    {:reply, prepare_socket_msg(message, state), state}
   end
 
   # needed for Task.async not to crash things
@@ -97,164 +96,61 @@ defmodule Broth.SocketHandler do
   end
 
   def websocket_handle({:text, "ping"}, state) do
-    {:reply, construct_socket_msg(state.encoding, state.compression, "pong"), state}
+    {:reply, prepare_socket_msg("pong", state), state}
   end
 
   def websocket_handle({:ping, _}, state) do
-    {:reply, construct_socket_msg(state.encoding, state.compression, "pong"), state}
+    {:reply, prepare_socket_msg("pong", state), state}
   end
 
-  def websocket_handle({:text, json}, state) do
-    with {:ok, json} <- Poison.decode(json) do
-      case json["op"] do
-        "auth" ->
-          %{
-            "accessToken" => accessToken,
-            "refreshToken" => refreshToken,
-            "reconnectToVoice" => reconnectToVoice,
-            "muted" => muted
-          } = json["d"]
+  def websocket_handle({:text, command_json}, state) do
+    with {:ok, command_map!} <- Jason.decode(command_json),
+         # temporary translation from legacy maps to new maps
+         command_map! = Broth.Translator.convert_legacy(command_map!),
+         {:ok, command} <- Broth.Message.validate(command_map!),
+         {:reply, reply, state} <- Broth.Executor.execute(command.payload, state) do
 
-          case Kousa.Utils.TokenUtils.tokens_to_user_id(accessToken, refreshToken) do
-            {nil, nil} ->
-              {:reply, {:close, 4001, "invalid_authentication"}, state}
+      reply_msg = reply
+      |> prepare_reply(command.reference)
+      |> prepare_socket_msg(state)
 
-            x ->
-              {user_id, tokens, user} =
-                case x do
-                  {user_id, tokens} -> {user_id, tokens, Beef.Users.get_by_id(user_id)}
-                  y -> y
-                end
+      {:reply, reply_msg, state}
+    else
+      {:ok, state} ->
+        {:noreply, state}
 
-              if user do
-                # note that this will start the session and will be ignored if the
-                # session is already running.
-                UserSession.start_supervised(
-                  user_id: user_id,
-                  username: user.username,
-                  avatar_url: user.avatarUrl,
-                  display_name: user.displayName,
-                  current_room_id: user.currentRoomId,
-                  muted: muted
-                )
+      {:error, %Ecto.Changeset{}} ->
+        {:reply, {:close, 4001, "invalid command"}, state}
 
-                UserSession.set_pid(user_id, self())
+      {:error, %Jason.DecodeError{}} ->
+        {:reply, {:close, 4001, "invalid input"}, state}
 
-                if tokens do
-                  UserSession.new_tokens(user_id, tokens)
-                end
-
-                roomIdFromFrontend = Map.get(json["d"], "currentRoomId", nil)
-
-                currentRoom =
-                  cond do
-                    not is_nil(user.currentRoomId) ->
-                      # @todo this should probably go inside room business logic
-                      room = Rooms.get_room_by_id(user.currentRoomId)
-
-                      Onion.RoomSession.start_supervised(
-                        room_id: user.currentRoomId,
-                        voice_server_id: room.voiceServerId
-                      )
-
-                      Onion.RoomSession.join_room(room.id, user, muted)
-
-                      if reconnectToVoice == true do
-                        Kousa.Room.join_vc_room(user.id, room)
-                      end
-
-                      room
-
-                    not is_nil(roomIdFromFrontend) ->
-                      case Kousa.Room.join_room(user.id, roomIdFromFrontend) do
-                        %{room: room} -> room
-                        _ -> nil
-                      end
-
-                    true ->
-                      nil
-                  end
-
-                {:reply,
-                 construct_socket_msg(state.encoding, state.compression, %{
-                   op: "auth-good",
-                   d: %{user: user, currentRoom: currentRoom}
-                 }), %{state | user_id: user_id, awaiting_init: false}}
-              else
-                {:reply, {:close, 4001, "invalid_authentication"}, state}
-              end
-          end
-
-        _ ->
-          if not is_nil(state.user_id) do
-            try do
-              case json do
-                %{"op" => op, "d" => d, "fetchId" => fetch_id} ->
-                  {:reply,
-                   prepare_socket_msg(
-                     %{
-                       op: "fetch_done",
-                       d: f_handler(op, d, state),
-                       fetchId: fetch_id
-                     },
-                     state
-                   ), state}
-
-                %{"op" => op, "d" => d} ->
-                  handler(op, d, state)
-              end
-            rescue
-              e ->
-                err_msg = Exception.message(e)
-
-                IO.inspect(e)
-                Logger.error(err_msg)
-                Logger.error(Exception.format_stacktrace())
-                op = Map.get(json, "op", "")
-                IO.puts("error for op: " <> op)
-
-                Sentry.capture_exception(e,
-                  stacktrace: __STACKTRACE__,
-                  extra: %{op: op}
-                )
-
-                {:reply,
-                 construct_socket_msg(state.encoding, state.compression, %{
-                   op: "error",
-                   d: err_msg
-                 }), state}
-            end
-          else
-            {:reply, {:close, 4004, "not_authenticated"}, state}
-          end
-      end
+      close = {:close, _error_code, _error_string} ->
+        {:reply, close, state}
     end
   end
 
-  defp construct_socket_msg(encoding, compression, data) do
-    data =
-      case encoding do
-        :etf ->
-          data
+  if Mix.env() in [:test, :dev] do
+    defdelegate validate_reply(payload), to: Broth.Utils
+  else
+    def validate_reply(_), do: :noop
+  end
 
-        _ ->
-          data |> Poison.encode!()
-      end
+  def prepare_reply(payload = %reply_module{}, reference) do
+    validate_reply(payload)
 
-    case compression do
-      :zlib ->
-        z = :zlib.open()
-        :zlib.deflateInit(z)
-
-        data = :zlib.deflate(z, data, :finish)
-
-        :zlib.deflateEnd(z)
-
-        {:binary, data}
-
-      _ ->
-        {:text, data}
-    end
+    %{
+      # TODO: deprecate "fetch_done" as the generic reply
+      "op" =>
+        :attributes
+        |> reply_module.__info__()
+        |> Keyword.get(:reply_operation, "fetch_done")
+        |> Enum.at(0),
+      # TODO: replace "d" with "p" as the reply payload parameter.
+      "d" => payload,
+      # TODO: replace "fetchId" with "ref"
+      "fetchId" => reference
+    }
   end
 
   # @deprecated in new design
@@ -262,10 +158,10 @@ defmodule Broth.SocketHandler do
     {users, next_cursor} = Follows.get_my_following(state.user_id, cursor)
 
     {:reply,
-     construct_socket_msg(state.encoding, state.compression, %{
+     prepare_socket_msg(%{
        op: "fetch_following_online_done",
        d: %{users: users, nextCursor: next_cursor, initial: cursor == 0}
-     }), state}
+     }, state), state}
   end
 
   def handler("invite_to_room", %{"userId" => user_id_to_invite}, state) do
@@ -282,20 +178,20 @@ defmodule Broth.SocketHandler do
     {users, next_cursor} = Follows.fetch_invite_list(state.user_id, cursor)
 
     {:reply,
-     construct_socket_msg(state.encoding, state.compression, %{
+     prepare_socket_msg(%{
        op: "fetch_invite_list_done",
        d: %{users: users, nextCursor: next_cursor, initial: cursor == 0}
-     }), state}
+     }, state), state}
   end
 
   def handler("ban", %{"username" => username, "reason" => reason}, state) do
     worked = Kousa.User.ban(state.user_id, username, reason)
 
     {:reply,
-     construct_socket_msg(state.encoding, state.compression, %{
+     prepare_socket_msg(%{
        op: "ban_done",
        d: %{worked: worked}
-     }), state}
+     }, state), state}
   end
 
   def handler("set_auto_speaker", %{"value" => value}, state) do
@@ -327,21 +223,16 @@ defmodule Broth.SocketHandler do
           }
       end
 
-    {:reply,
-     construct_socket_msg(
-       state.encoding,
-       state.compression,
-       resp
-     ), state}
+    {:reply, prepare_socket_msg(resp, state), state}
   end
 
   # @deprecated
   def handler("get_top_public_rooms", data, state) do
     {:reply,
-     construct_socket_msg(state.encoding, state.compression, %{
+     prepare_socket_msg(%{
        op: "get_top_public_rooms_done",
        d: f_handler("get_top_public_rooms", data, state)
-     }), state}
+     }, state), state}
   end
 
   def handler("speaking_change", %{"value" => value}, state) do
@@ -378,10 +269,10 @@ defmodule Broth.SocketHandler do
     case Kousa.Room.join_room(state.user_id, room_id) do
       d ->
         {:reply,
-         construct_socket_msg(state.encoding, state.compression, %{
+         prepare_socket_msg(%{
            op: "join_room_done",
            d: d
-         }), state}
+         }, state), state}
     end
   end
 
@@ -459,7 +350,7 @@ defmodule Broth.SocketHandler do
       Kousa.Follow.get_follow_list(state.user_id, user_id, get_following_list, cursor)
 
     {:reply,
-     construct_socket_msg(state.encoding, state.compression, %{
+     prepare_socket_msg(%{
        op: "fetch_follow_list_done",
        d: %{
          isFollowing: get_following_list,
@@ -468,7 +359,7 @@ defmodule Broth.SocketHandler do
          nextCursor: next_cursor,
          initial: cursor == 0
        }
-     }), state}
+     }, state), state}
   end
 
   def handler("set_listener", %{"userId" => user_id_to_make_listener}, state) do
@@ -479,14 +370,14 @@ defmodule Broth.SocketHandler do
   # deprecated??
   def handler("follow_info", %{"userId" => other_user_id}, state) do
     {:reply,
-     construct_socket_msg(state.encoding, state.compression, %{
+     prepare_socket_msg(%{
        op: "follow_info_done",
        d:
          Map.merge(
            %{userId: other_user_id},
            Follows.get_info(state.user_id, other_user_id)
          )
-     }), state}
+     }, state), state}
   end
 
   def handler("mute", %{"value" => value}, state) do
@@ -822,21 +713,23 @@ defmodule Broth.SocketHandler do
     )
   end
 
-  defp prepare_socket_msg(data, %{compression: compression, encoding: encoding}) do
+  defp prepare_socket_msg(data, state) do
     data
-    |> encode_data(encoding)
-    |> compress_data(compression)
+    |> encode_data(state)
+    |> prepare_data(state)
   end
 
-  defp encode_data(data, :etf) do
+  defp encode_data(data, %{encoding: :etf}) do
     data
+    |> Map.from_struct
+    |> :erlang.term_to_binary
   end
 
-  defp encode_data(data, _encoding) do
-    data |> Poison.encode!()
+  defp encode_data(data, %{encoding: :json}) do
+    data |> Jason.encode!()
   end
 
-  defp compress_data(data, :zlib) do
+  defp prepare_data(data, %{compression: :zlib}) do
     z = :zlib.open()
 
     :zlib.deflateInit(z)
@@ -846,7 +739,11 @@ defmodule Broth.SocketHandler do
     {:binary, data}
   end
 
-  defp compress_data(data, _compression) do
+  defp prepare_data(data, %{encoding: :etf}) do
+    {:binary, data}
+  end
+
+  defp prepare_data(data, %{encoding: :json}) do
     {:text, data}
   end
 end

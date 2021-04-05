@@ -70,7 +70,8 @@ defmodule BrothTest.Message.Room.CreateTest do
                  "payload" => %{
                    "isPrivate" => true,
                    "name" => "foobar",
-                   "description" => "a room"},
+                   "description" => "a room"
+                 },
                  "reference" => uuid
                })
     end
@@ -85,7 +86,8 @@ defmodule BrothTest.Message.Room.CreateTest do
                  "payload" => %{
                    "isPrivate" => "barbaz",
                    "name" => "foobar",
-                   "description" => "a room"},
+                   "description" => "a room"
+                 },
                  "reference" => uuid
                })
     end
@@ -102,7 +104,8 @@ defmodule BrothTest.Message.Room.CreateTest do
                  "payload" => %{
                    "autoSpeaker" => "barbaz",
                    "name" => "foobar",
-                   "description" => "a room"},
+                   "description" => "a room"
+                 },
                  "reference" => uuid
                })
     end

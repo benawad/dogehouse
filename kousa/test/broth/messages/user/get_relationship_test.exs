@@ -33,11 +33,11 @@ defmodule BrothTest.Message.User.GetRelationshipTest do
 
     test "userId parameter is required" do
       assert {:error, %{errors: [userId: {"can't be blank", _}]}} =
-        Broth.Message.validate(%{
-          "operator" => "user:get_relationship",
-          "payload" => %{},
-          "reference" => UUID.uuid4()
-        })
+               Broth.Message.validate(%{
+                 "operator" => "user:get_relationship",
+                 "payload" => %{},
+                 "reference" => UUID.uuid4()
+               })
     end
   end
 end

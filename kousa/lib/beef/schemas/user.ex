@@ -49,6 +49,10 @@ defmodule Beef.Schemas.User do
              lastOnline currentRoomId displayName numFollowing numFollowers
              currentRoom youAreFollowing followsYou roomPermissions)a}
 
+  @derive {Jason.Encoder, only: ~w(id username avatarUrl bio online
+    lastOnline currentRoomId displayName numFollowing numFollowers
+    youAreFollowing followsYou roomPermissions)a}
+
   @primary_key {:id, :binary_id, []}
   schema "users" do
     field(:githubId, :string)

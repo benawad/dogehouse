@@ -33,7 +33,8 @@ defmodule BrothTest.Message.Room.CreateScheduledTest do
     end
 
     test "omitting the reference is not allowed" do
-      assert {:error, %{errors: [reference: {"is required for Broth.Message.Room.CreateScheduled", _}]}} =
+      assert {:error,
+              %{errors: [reference: {"is required for Broth.Message.Room.CreateScheduled", _}]}} =
                Broth.Message.validate(%{
                  "operator" => "room:create_scheduled",
                  "payload" => %{"name" => "foobar", "description" => "a room"}
