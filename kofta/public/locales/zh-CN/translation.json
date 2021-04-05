@@ -37,7 +37,11 @@
       "startPrivateRoom": "跟ta进入私人聊天室"
     },
     "followList": { "followHim": "关注ta", "followingHim": "已经关注" },
-    "home": { "createRoom": "新建聊天室", "refresh": "刷新" },
+    "home": {
+      "createRoom": "新建聊天室",
+      "refresh": "刷新",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "聊天室已被删除，请回到前一页",
       "shareRoomLink": "在聊天室分享链接",
@@ -97,7 +101,7 @@
       "volume": "音量:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": { "errorMsg": "不允许的App标题", "label": "输入App标题" },
       "header": "覆盖层设置"
     }
   },
@@ -173,7 +177,9 @@
       "roomSettingsModal": {
         "requirePermission": "需要允许才能说话",
         "makePublic": "把聊天室设为公开",
-        "makePrivate": "把聊天室设为私人"
+        "makePrivate": "把聊天室设为私人",
+        "renamePublic": "设置公开聊天室名称",
+        "renamePrivate": "设置私人聊天室名称"
       }
     },
     "userVolumeSlider": {
@@ -188,7 +194,7 @@
       "toggleOverlayKeybind": "切换覆盖层绑定"
     },
     "wsKilled": {
-      "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
+      "description": "连接被服务器终止。当您在另一个标签中打开此网站时，通常会发生这种情况 ",
       "reconnect": "正在重新连接"
     },
     "deviceNotSupported": {

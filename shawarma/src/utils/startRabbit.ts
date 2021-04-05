@@ -14,7 +14,7 @@ const retryInterval = 5000;
 export interface HandlerDataMap {
   "remove-speaker": { roomId: string; peerId: string };
   "destroy-room": { roomId: string };
-  "close-peer": { roomId: string; peerId: string };
+  "close-peer": { roomId: string; peerId: string; kicked?: boolean };
   "@get-recv-tracks": {
     roomId: string;
     peerId: string;
@@ -93,6 +93,7 @@ type OutgoingMessageDataMap = {
   } & Consumer;
   you_left_room: {
     roomId: string;
+    kicked: boolean;
   };
   "you-are-now-a-speaker": {
     sendTransportOptions: TransportOptions;

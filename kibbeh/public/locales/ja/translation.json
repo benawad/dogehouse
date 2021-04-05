@@ -38,7 +38,11 @@
       "startPrivateRoom": "非公開ルームを開始"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "ルーム作成", "refresh": "更新" },
+    "home": {
+      "createRoom": "ルーム作成",
+      "refresh": "更新",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "ルームが削除されました。前のページに戻ります",
       "shareRoomLink": "リンクを共有",
@@ -193,7 +197,9 @@
       "roomSettingsModal": {
         "requirePermission": "発言を許可制にする",
         "makePublic": "ルームを公開に変更",
-        "makePrivate": "ルームを非公開に変更"
+        "makePrivate": "ルームを非公開に変更",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

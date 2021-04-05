@@ -16,7 +16,7 @@
     "copied": "0w0 copied ^-^",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "<3 Pwease note ruwwing DogeHouse without accessabiwity pewmissiowns may cause ewwows ＞﹏＜"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -40,7 +40,8 @@
     "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "OwO Cweate Woom (ʘᗩʘ')",
-      "refresh": " Wefwesh (◠‿◠✿)"
+      "refresh": " Wefwesh (◠‿◠✿)",
+      "editRoom": "Edit Room"
     },
     "inviteList": {
       "roomGone": "woom gone, go back <{^v^}>",
@@ -56,8 +57,8 @@
       "featureText_4": "0w0 Open Souwce ÙωÙ",
       "featureText_5": "Text Chat <{^v^}>",
       "featureText_6": "Powewed by Doge",
-      "loginGithub": "login with GitHub",
-      "loginTwitter": "login with Twittew",
+      "loginGithub": "log in with GitHub",
+      "loginTwitter": "log in with Twittew",
       "createTestUser": "cweate test usew UwU"
     },
     "myProfile": {
@@ -66,12 +67,12 @@
       "voiceSettings": "<3 go to voice settings ;-;",
       "soundSettings": "go to sound settings x3",
       "deleteAccount": "dewete account UnU",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "gow to owerlay settings ( ^_^ )"
     },
     "notFound": {
       "whoopsError": "OWO Whoops! This page got wost in convewsation. (●´ω｀●)",
       "goHomeMessage": "Not to wowwy. You can",
-      "goHomeLinkText": "go home"
+      "goHomeLinkText": "go home xD"
     },
     "room": {
       "speakers": "<3 Speakews :P",
@@ -87,11 +88,11 @@
       "followsYou": "fowwows uu (๑•́ ₃ •̀๑)",
       "followers": "fowwowews >_>",
       "following": "fowwowing ( ͡° ᴥ ͡°)",
-      "followHim": "follow",
-      "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "followHim": "fowwow uwu",
+      "followingHim": "fowwowing <3",
+      "copyProfileUrl": "copy pwofile url",
+      "urlCopied": "URL cwopied to cwipboard (❤´艸｀❤)",
+      "unfollow": "Unfowwow"
     },
     "voiceSettings": {
       "header": "OWO Voice Settings (✿ ♡‿♡)",
@@ -145,7 +146,7 @@
       "listening": "OWO wistening",
       "toggleMuteKeybind": "0w0 toggwe mute keybind (❁´◡`❁)",
       "togglePushToTalkKeybind": "toggwe push-to-tawk keybind :D",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggwe owerlay keybind :3"
     },
     "userVolumeSlider": {
       "noAudioMessage": "nu audio consumew fow some weason D:"
@@ -193,12 +194,14 @@
         "banFromRoom": "ban fwom woom UwU",
         "goBackToListener": "go back to wistenew (╯﹏╰）",
         "deleteMessage": "dewete this message >_>",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make woom admin"
       },
       "roomSettingsModal": {
         "requirePermission": "wequiwe pewmission to speak <{^n^}>",
         "makePublic": "UwU make woom pubwic (⁎˃ᆺ˂)",
-        "makePrivate": "make woom pwivate xD"
+        "makePrivate": "make woom pwivate xD",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },
@@ -215,7 +218,7 @@
         "needsFuture": "needs to be in da futuwe (人◕ω◕)",
         "roomName": "woom name (◠‿◠✿)",
         "minLength": "<3 min wength 2 ^_^",
-        "roomDescription": "Description"
+        "roomDescription": "Descwiptiow"
       }
     },
     "roomChat": {
@@ -232,16 +235,16 @@
       "roomDescription": " woom descwiption（＾ｖ＾）"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
+      "fuelingRocket": "Fuewing rocket uwu",
+      "takingOff": "Tawking off xD",
+      "inSpace": "In space ʕʘ‿ʘʔ",
+      "approachingMoon": "Appwoaching moon  (❁´◡`❁)",
+      "lunarDoge": "Lunar doge (；ω；)",
+      "approachingSun": "Appwoaching sun >_<",
+      "solarDoge": "Solar doge :3",
+      "approachingGalaxy": "Appwoaching galaxy (◠‿◠✿)",
       "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "spottedLife": "Pwanet with uwu life spotted (• o •)"
     }
   }
 }

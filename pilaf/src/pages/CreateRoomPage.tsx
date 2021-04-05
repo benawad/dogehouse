@@ -1,5 +1,7 @@
+import SegmentedControl from "@react-native-segmented-control/segmented-control";
+import { useNavigation } from "@react-navigation/core";
+import { Formik } from "formik";
 import React, { useState } from "react";
-import { Form, Formik } from "formik";
 import {
   KeyboardAvoidingView,
   ScrollView,
@@ -9,8 +11,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import SegmentedControl from "@react-native-segmented-control/segmented-control";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import {
   colors,
   fontFamily,
@@ -18,6 +19,9 @@ import {
   radius,
   small,
 } from "../constants/dogeStyle";
+import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
+import { useWrappedConn } from "../shared-hooks/useConn";
+import { useTypeSafePrefetch } from "../shared-hooks/useTypeSafePrefetch";
 
 interface CreateRoomModalProps {
   onRequestClose: () => void;
@@ -35,9 +39,18 @@ export const CreateRoomPage: React.FC<CreateRoomModalProps> = ({
   edit,
 }) => {
   const [segmentIndex, setSegmentIndex] = useState(0);
+  const conn = useWrappedConn();
+  const prefetch = useTypeSafePrefetch();
+  const navigation = useNavigation();
+  const inset = useSafeAreaInsets();
   return (
     <KeyboardAvoidingView style={{ flex: 1 }} behavior={"padding"}>
-      <SafeAreaView style={styles.safeAreaView}>
+      <View
+        style={[
+          styles.container,
+          { paddingBottom: 20 + inset.bottom, paddingTop: 20 + inset.top },
+        ]}
+      >
         <Formik<{
           name: string;
           privacy: string;
@@ -66,7 +79,22 @@ export const CreateRoomPage: React.FC<CreateRoomModalProps> = ({
             return errors;
           }}
           onSubmit={async ({ name, privacy, description }) => {
-            console.log(name, privacy, description);
+            const d = { name, privacy, description };
+            const resp = edit
+              ? await conn.mutation.editRoom(d)
+              : await conn.mutation.createRoom(d);
+
+            if ("error" in resp) {
+              //showErrorToast(resp.error);
+
+              return;
+            } else if (resp.room) {
+              const { room } = resp;
+              prefetch(["joinRoomAndGetInfo", room.id], [room.id]);
+              useCurrentRoomIdStore.getState().setCurrentRoomId(room.id);
+              navigation.navigate("Room", { roomId: room.id });
+              onRequestClose();
+            }
           }}
         >
           {({
@@ -156,15 +184,15 @@ export const CreateRoomPage: React.FC<CreateRoomModalProps> = ({
             </ScrollView>
           )}
         </Formik>
-      </SafeAreaView>
+      </View>
     </KeyboardAvoidingView>
   );
 };
 
 const styles = StyleSheet.create({
-  safeAreaView: {
+  container: {
     flex: 1,
-    padding: 16,
+    padding: 20,
     backgroundColor: colors.primary800,
   },
   titleText: {

@@ -41,7 +41,11 @@
       "followHim": "অনুসরণ করুন",
       "followingHim": "অনুসরণ করছেন"
     },
-    "home": { "createRoom": "রুম বানান", "refresh": "রিফ্রেশ করুন" },
+    "home": {
+      "createRoom": "রুম বানান",
+      "refresh": "রিফ্রেশ করুন",
+      "editRoom": "রুম এডিট করুন"
+    },
     "inviteList": {
       "roomGone": "রুম শেষ, ফিরে আসুন",
       "shareRoomLink": "রুমের লিংক শেয়ার করুন",
@@ -101,7 +105,10 @@
       "volume": "ভলিউম:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "অবৈধ অ্যাপ শিরোনাম", "label": "অ্যাপ শিরোনাম দিন" },
+      "input": {
+        "errorMsg": "অবৈধ অ্যাপ শিরোনাম",
+        "label": "অ্যাপ শিরোনাম দিন"
+      },
       "header": "ওভারলে সেটিংস",
       "errorMsg": "দয়া করে বৈধ অ্যাপ শিরোনাম দিন",
       "label": "অ্যাপ শিরোনাম দিন"
@@ -203,7 +210,9 @@
       "roomSettingsModal": {
         "requirePermission": "কথা বলার জন্য পারমিশন লাগবে",
         "makePublic": "রুমটাকে পাবলিক করুন",
-        "makePrivate": "রুমটাকে প্রাইভেট করুন"
+        "makePrivate": "রুমটাকে প্রাইভেট করুন",
+        "renamePublic": "পাবলিক রুমের নাম সেট করুন",
+        "renamePrivate": "প্রাইভেট রুমের নাম সেট করুন"
       }
     }
   },

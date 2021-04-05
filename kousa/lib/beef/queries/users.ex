@@ -6,9 +6,29 @@ defmodule Beef.Queries.Users do
 
   import Ecto.Query, warn: false
   alias Beef.Schemas.User
+  alias Beef.Schemas.Follow
 
   def start do
     from(u in User)
+  end
+
+  def limit_one(query) do
+    limit(query, [], 1)
+  end
+
+  def follow_info(query, me_id) do
+    query
+    |> join(:left, [u], f_i_follow_them in Follow,
+      on: f_i_follow_them.userId == u.id and f_i_follow_them.followerId == ^me_id
+    )
+    |> join(:left, [u], f_they_follow_me in Follow,
+      on: f_they_follow_me.userId == ^me_id and f_they_follow_me.followerId == u.id
+    )
+    |> select([u, f_i_follow_them, f_they_follow_me], %{
+      u
+      | followsYou: not is_nil(f_they_follow_me.userId),
+        youAreFollowing: not is_nil(f_i_follow_them.userId)
+    })
   end
 
   def filter_by_github_ids(query, github_ids) do

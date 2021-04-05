@@ -30,21 +30,17 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { 
-      "ban": "blokir" 
-    },
+    "banUser": { "ban": "blokir" },
     "followingOnlineList": {
       "listHeader": "Daftar pengguna yang tidak ada di ruangan privat dan kamu ikuti.",
       "currentRoom": "saat ini di:",
       "startPrivateRoom": "mulai ruangan privat dengan mereka"
     },
-    "followList": { 
-      "followHim": "ikuti", 
-      "followingHim": "mengikuti" 
-    },
-    "home": { 
-      "createRoom": "Buat Ruangan", 
-      "refresh": "Segarkan" 
+    "followList": { "followHim": "ikuti", "followingHim": "mengikuti" },
+    "home": {
+      "createRoom": "Buat Ruangan",
+      "refresh": "Segarkan",
+      "editRoom": "Edit Room"
     },
     "inviteList": {
       "roomGone": "ruangan hilang, kembali",
@@ -84,12 +80,8 @@
       "allowAll": "Izinkan semua",
       "allowAllConfirm": "Apakah anda yakin? Ini akan mengizinkan semua {{count}} permintaan pengguna untuk bicara"
     },
-    "searchUser": { 
-      "search": "cari..." 
-    },
-    "soundEffectSettings": { 
-      "header": "Bunyi" 
-    },
+    "searchUser": { "search": "cari..." },
+    "soundEffectSettings": { "header": "Bunyi" },
     "viewUser": {
       "editProfile": "ubah profil",
       "followsYou": "Mengikutimu",
@@ -207,7 +199,9 @@
       "roomSettingsModal": {
         "requirePermission": "membutuhkan izin untuk berbicara",
         "makePublic": "buat ruangan jadi publik",
-        "makePrivate": "buat ruangan jadi privat"
+        "makePrivate": "buat ruangan jadi privat",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

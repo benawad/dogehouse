@@ -37,7 +37,11 @@
       "startPrivateRoom": "Start een privé kamer met deze persoon"
     },
     "followList": { "followHim": "Volg", "followingHim": "Volgend" },
-    "home": { "createRoom": "Kamer maken", "refresh": "Verversen" },
+    "home": {
+      "createRoom": "Kamer maken",
+      "refresh": "Verversen",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Kamer bestaat niet, ga terug",
       "shareRoomLink": "Link van deze kamer delen",
@@ -197,7 +201,9 @@
       "roomSettingsModal": {
         "requirePermission": "Toestemming nodig om te spreken",
         "makePublic": "Maak kamer openbaar",
-        "makePrivate": "Maak kamer privé"
+        "makePrivate": "Maak kamer privé",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

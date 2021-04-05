@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/core";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { TitledHeader } from "../components/header/TitledHeader";
@@ -6,12 +7,16 @@ import { useTokenStore } from "../modules/auth/useTokenStore";
 
 export const ProfilePage: React.FC = () => {
   const setTokens = useTokenStore((s) => s.setTokens);
+  const navigation = useNavigation();
   return (
     <>
       <TitledHeader title={"Profile"} showBackButton={true} />
       <View style={styles.container}>
         <TouchableOpacity
-          onPress={() => setTokens({ accessToken: "", refreshToken: "" })}
+          onPress={() => {
+            setTokens({ accessToken: "", refreshToken: "" });
+            navigation.navigate("Home");
+          }}
         >
           <Text
             style={{

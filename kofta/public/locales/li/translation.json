@@ -38,7 +38,11 @@
       "startPrivateRoom": "Sjtart inge perseunlijke kamer mit disè persoon"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Kamer make", "refresh": "Verviesje" },
+    "home": {
+      "createRoom": "Kamer make",
+      "refresh": "Verviesje",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Kamer besjteed niet, gank teruk",
       "shareRoomLink": "Link van disè kamer deijle",
@@ -198,7 +202,9 @@
       "roomSettingsModal": {
         "requirePermission": "Toesjtimming neudig om te sjpreke",
         "makePublic": "Maak kamer veur ideringe",
-        "makePrivate": "Maak kamer perseunlijke"
+        "makePrivate": "Maak kamer perseunlijke",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

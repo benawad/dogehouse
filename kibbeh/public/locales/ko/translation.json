@@ -15,7 +15,7 @@
     "copied": "복사됨",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "적절한 권한이 부여되지 않은 채로 Dogehouse를 실행하면 오류가 발생할 수 있습니다."
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -37,7 +37,11 @@
       "startPrivateRoom": "비공개 채팅방에 입장하기."
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "방 만들기", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "방 만들기",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "채팅방이 삭제됨. 이전 페이지로 돌아가기.",
       "shareRoomLink": "채팅방 링크 공유",
@@ -85,9 +89,9 @@
       "following": "팔로우하는 사람들",
       "followHim": "follow",
       "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "copyProfileUrl": "프로필 URL 복사",
+      "urlCopied": "URL이 클립보드에 복사 되었습니다.",
+      "unfollow": "팔로우 취소"
     },
     "voiceSettings": {
       "header": "음성 설정",
@@ -127,8 +131,8 @@
     },
     "deviceNotSupported": {
       "notSupported": "현재 기기는 지원되지 않습니다, ",
-      "linkText": "깃허브에 이슈를 넣으시면",
-      "addSupport": "이른 시일 내에 기기를 추가하겠습니다"
+      "linkText": "깃허브에 이슈를 생성하시면",
+      "addSupport": "빠른 시일 내에 기기에 대한 지원을 추가하겠습니다"
     },
     "inviteButton": { "invited": "초대됨", "inviteToRoom": "초대하기" },
     "micPermissionBanner": {
@@ -148,7 +152,7 @@
     },
     "addToCalendar": { "add": "달력에 추가" },
     "wsKilled": {
-      "description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
+      "description": "웹 소켓 연결이 해제되었습니다. 주로 다른 탭에서 웹사이트를 여는 경우에 발생하는 오류 입니다.",
       "reconnect": "다시 연결"
     },
     "modals": {
@@ -194,7 +198,9 @@
       "roomSettingsModal": {
         "requirePermission": "발언권이 필요합니다",
         "makePublic": "채팅방 공개화",
-        "makePrivate": "채팅방 비공개화"
+        "makePrivate": "채팅방 비공개화",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },
@@ -228,16 +234,16 @@
       "roomDescription": "방 설명"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
+      "fuelingRocket": "로켓 연료 주입중..",
+      "takingOff": "이륙!",
+      "inSpace": "우주 속..",
+      "approachingMoon": "달에 근접하는 중..",
       "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
+      "approachingSun": "태양에 근접하는 중..",
       "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
+      "approachingGalaxy": "은하계에 근접하는 중..",
       "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "spottedLife": "생명체가 있는 새로운 행성에 도착"
     }
   }
 }

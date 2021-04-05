@@ -1,14 +1,28 @@
 import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
+import { useNavigation } from "@react-navigation/core";
 import React, { useEffect } from "react";
-import { ActivityIndicator, Text, View } from "react-native";
-// import { ErrorToast } from "../../ui/ErrorToast";
-import Toast from "react-native-toast-message";
+import {
+  Button,
+  KeyboardAvoidingView,
+  ScrollView,
+  StyleSheet,
+  View,
+} from "react-native";
 import { TitledHeader } from "../../components/header/TitledHeader";
-import { colors, h4, paragraph } from "../../constants/dogeStyle";
-import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
+import { colors } from "../../constants/dogeStyle";
+import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { isUuid } from "../../lib/isUuid";
+import { useWrappedConn } from "../../shared-hooks/useConn";
+import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
-
+import { RoomUsersPanel } from "./RoomUsersPanel";
+import { Spinner } from "../../components/Spinner";
+import { RoomHeader } from "../../components/header/RoomHeader";
+import { setMute, useSetMute } from "../../shared-hooks/useSetMute";
+import { useMuteStore } from "../../global-stores/useMuteStore";
+import { RoomChat } from "./chat/RoomChat";
+import { useRoomChatStore } from "./chat/useRoomChatStore";
+import { UserPreviewModal } from "../../components/UserPreview";
 interface RoomPanelControllerProps {
   roomId?: string | undefined;
 }
@@ -21,63 +35,102 @@ const placeHolder = (
     }}
   >
     <TitledHeader title={""} showBackButton={true} />
-    <ActivityIndicator color={colors.text} />
+    <Spinner size={"m"} />
   </View>
 );
 
 export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({
   roomId,
 }) => {
-  const { currentRoom, setCurrentRoom } = useCurrentRoomStore();
-  const { data } = useTypeSafeQuery(
-    ["joinRoomAndGetInfo", currentRoom?.id || ""],
+  const conn = useWrappedConn();
+  const { mutateAsync: leaveRoom } = useTypeSafeMutation("leaveRoom");
+  const navigation = useNavigation();
+  const { currentRoomId, setCurrentRoomId } = useCurrentRoomIdStore();
+  const isANewRoom = currentRoomId !== roomId;
+  const setInternalMute = useSetMute();
+  const muted = useMuteStore((s) => s.muted);
+  const { data, isLoading } = useTypeSafeQuery(
+    ["joinRoomAndGetInfo", roomId || ""],
     {
-      refetchOnMount: "always",
       enabled: isUuid(roomId),
       onSuccess: ((d: JoinRoomAndGetInfoResponse | { error: string }) => {
         if (!("error" in d)) {
-          setCurrentRoom(() => d.room);
+          setCurrentRoomId(() => d.room.id);
         }
       }) as any,
     },
     [roomId]
   );
-  if (!data) {
-    // @todo add error handling
-    console.log("return firsst");
+
+  useEffect(() => {
+    if (isLoading) {
+      return;
+    }
+    if (!data) {
+      setCurrentRoomId(null);
+      navigation.navigate("Home");
+      return;
+    }
+    if ("error" in data) {
+      setCurrentRoomId(null);
+      //showErrorToast(data.error);
+      navigation.navigate("Home");
+    }
+  }, [data, isLoading, navigation.navigate, setCurrentRoomId]);
+
+  if (isLoading || !currentRoomId) {
     return placeHolder;
   }
 
-  // @todo start using error codes
-  if ("error" in data) {
-    // @todo replace with real design
-    useEffect(() => {
-      Toast.show({
-        type: "error",
-        text1: "Something went wrong",
-      });
-    }, []);
-    return <View />;
+  if (!data || "error" in data) {
+    return null;
   }
 
-  if (!currentRoom) {
-    // return null;
-    return placeHolder;
-  }
+  const roomCreator = data.users.find((x) => x.id === data.room.creatorId);
 
-  if (currentRoom.id !== roomId) {
-    return placeHolder;
-  }
-
-  const roomCreator = data?.users.find((x) => x.id === currentRoom.creatorId);
-  //return placeHolder;
   return (
-    <View style={{ flex: 1, backgroundColor: colors.primary900 }}>
-      <TitledHeader title={currentRoom.name} showBackButton={true} />
-      <Text style={{ ...paragraph }}>{currentRoom.description}</Text>
-      <Text style={{ ...paragraph }}>{roomCreator.username}</Text>
-      <Text style={{ ...paragraph }}>Waiting for design information</Text>
-      <Text style={{ ...paragraph }}>{roomId}</Text>
-    </View>
+    <>
+      <View style={{ flex: 1, backgroundColor: colors.primary900 }}>
+        <RoomHeader
+          showBackButton={true}
+          onLeavePress={() => {
+            leaveRoom([]);
+            setCurrentRoomId(null);
+            navigation.navigate("Home");
+          }}
+          onMutePress={() => {
+            setInternalMute(!muted);
+          }}
+          onSpeakPress={() => conn.connection.send("ask_to_speak", {})}
+          muted={muted}
+          canAskToSpeak={true}
+        />
+        <KeyboardAvoidingView behavior={"padding"} style={{ flex: 1 }}>
+          <ScrollView
+            style={styles.scrollView}
+            contentContainerStyle={[styles.avatarsContainer]}
+          >
+            <RoomUsersPanel {...data} />
+          </ScrollView>
+          <RoomChat {...data} style={{ flex: 1 }} />
+        </KeyboardAvoidingView>
+      </View>
+      <UserPreviewModal {...data} />
+    </>
   );
 };
+
+const styles = StyleSheet.create({
+  scrollView: {
+    padding: 20,
+    flex: 1,
+  },
+  avatarsContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
+  avatar: {
+    marginRight: 10,
+    marginBottom: 10,
+  },
+});

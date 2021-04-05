@@ -37,7 +37,11 @@
       "startPrivateRoom": "Skapa ett privat rum med dem"
     },
     "followList": { "followHim": "Följ", "followingHim": "Följer" },
-    "home": { "createRoom": "Skapa rum", "refresh": "Uppdatera" },
+    "home": {
+      "createRoom": "Skapa rum",
+      "refresh": "Uppdatera",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Rummet försvann under månförmörkelsen, gå tillbaka",
       "shareRoomLink": "Dela länk till rummet",
@@ -97,7 +101,10 @@
       "volume": "Volym:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Ogiltlig fönstertitel", "label": "Skriv in fönstertitel" },
+      "input": {
+        "errorMsg": "Ogiltlig fönstertitel",
+        "label": "Skriv in fönstertitel"
+      },
       "header": "Overlay-inställningar"
     }
   },
@@ -173,7 +180,9 @@
       "roomSettingsModal": {
         "requirePermission": "Be om tillåtelse att prata",
         "makePublic": "Gör rum offentligt",
-        "makePrivate": "Gör rum privat"
+        "makePrivate": "Gör rum privat",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     },
     "userVolumeSlider": {

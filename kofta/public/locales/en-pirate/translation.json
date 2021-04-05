@@ -38,7 +38,11 @@
       "startPrivateRoom": "start a private cabin wit' 'em"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Create Cabin", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "Create Cabin",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "cabin gone, go back",
       "shareRoomLink": "share link t' cabin",
@@ -53,8 +57,8 @@
       "featureText_4": "Open Source",
       "featureText_5": "Text Chat",
       "featureText_6": "Powered by Doge",
-      "loginGithub": "login with GitHub",
-      "loginTwitter": "login with Twitter",
+      "loginGithub": "log in with GitHub",
+      "loginTwitter": "log in with Twitter",
       "createTestUser": "create test user"
     },
     "myProfile": {
@@ -195,7 +199,9 @@
       "roomSettingsModal": {
         "requirePermission": "require permission t' speak",
         "makePublic": "make cabin public",
-        "makePrivate": "make cabin private"
+        "makePrivate": "make cabin private",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

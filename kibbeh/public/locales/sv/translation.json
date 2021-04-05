@@ -1,21 +1,21 @@
 {
   "common": {
     "loadMore": "Visa fler",
-    "loading": "laddar in...",
-    "noUsersFound": "inga användare hittades",
-    "ok": "ok",
-    "yes": "ja",
-    "no": "nej",
-    "cancel": "avbryt",
-    "save": "spara",
-    "edit": "ändra",
-    "delete": "radera",
-    "joinRoom": "anslut till rummet",
-    "copyLink": "Kopiera länken",
+    "loading": "Laddar in...",
+    "noUsersFound": "Inga användare hittades",
+    "ok": "Okej",
+    "yes": "Ja",
+    "no": "Nej",
+    "cancel": "Avbryt",
+    "save": "Spara",
+    "edit": "Ändra",
+    "delete": "Radera",
+    "joinRoom": "Anslut till rummet",
+    "copyLink": "Kopiera länk",
     "copied": "Kopierad",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Att använda DogeHouse utan att ha tillåtit webbläsaren att få åtkomst till vissa behörigheter kan orsaka oönskade fel."
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -33,36 +33,40 @@
     "banUser": { "ban": "bannlys" },
     "followingOnlineList": {
       "listHeader": "Lista av personer som inte är i ett privat rum du följer.",
-      "currentRoom": "ansluten till:",
-      "startPrivateRoom": "skapa ett privat rum med dem"
+      "currentRoom": "Ansluten till:",
+      "startPrivateRoom": "Skapa ett privat rum med dem"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Skapa rum", "refresh": "Uppdatera" },
+    "followList": { "followHim": "Följ", "followingHim": "Följer" },
+    "home": {
+      "createRoom": "Skapa ett rum",
+      "refresh": "Uppdatera",
+      "editRoom": "Redigera rummet"
+    },
     "inviteList": {
-      "roomGone": "rummet försvann under månförmörkelsen, gå tillbaka",
-      "shareRoomLink": "dela länk till rummet",
+      "roomGone": "Rummet försvann under månförmörkelsen, gå tillbaka",
+      "shareRoomLink": "Dela länk till rummet",
       "inviteFollowers": "Du kan bjuda in dina följare som är uppkopplade:",
-      "whenFollowersOnline": "När dina följare är uppkopplade kommer de visas här."
+      "whenFollowersOnline": "När dina följare är uppkopplade kommer de att visas här."
     },
     "login": {
       "headerText": "Tar röstsamtal till månen 🚀",
       "featureText_1": "Mörkt läge",
       "featureText_2": "Öppna registreringar",
       "featureText_3": "Plattformsoberoende",
-      "featureText_4": "Öppen Källkod",
+      "featureText_4": "Öppen källkod",
       "featureText_5": "Textchatt",
       "featureText_6": "Drivs av Doge",
-      "loginGithub": "logga in med GitHub",
-      "loginTwitter": "logga in Twitter",
-      "createTestUser": "skapa testanvändare"
+      "loginGithub": "Logga in med GitHub",
+      "loginTwitter": "Logga in Twitter",
+      "createTestUser": "Skapa testanvändare"
     },
     "myProfile": {
-      "logout": "logga ut",
-      "probablyLoading": "laddar antagligen...",
-      "voiceSettings": "gå till röstinställningar",
-      "soundSettings": "gå till ljudinställningar",
-      "deleteAccount": "radera konto",
-      "overlaySettings": "go to overlay settings"
+      "logout": "Logga ut",
+      "probablyLoading": "Laddar antagligen...",
+      "voiceSettings": "Gå till röstinställningar",
+      "soundSettings": "Gå till ljudinställningar",
+      "deleteAccount": "Radera konto",
+      "overlaySettings": "Gå till to overlay inställningar"
     },
     "notFound": {
       "whoopsError": "Whoops! Denna sida blev förlorad i konversationen.",
@@ -71,34 +75,37 @@
     },
     "room": {
       "speakers": "Talare",
-      "requestingToSpeak": "Begär att tala",
+      "requestingToSpeak": "Begär att få tala",
       "listeners": "Lyssnare",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "Tillåt alla",
+      "allowAllConfirm": "Är du säker på detta sergeant? Detta kommer tillåta {{count}} användare att få tala. Det kan utplåna månen! 🚀☢️"
     },
-    "searchUser": { "search": "sök..." },
+    "searchUser": { "search": "Sök..." },
     "soundEffectSettings": { "header": "Ljud" },
     "viewUser": {
-      "editProfile": "redigera profil",
-      "followsYou": "följer dig",
-      "followers": "följare",
-      "following": "följer",
-      "followHim": "follow",
-      "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "editProfile": "Redigera profil",
+      "followsYou": "Följer dig",
+      "followers": "Följare",
+      "following": "Följer",
+      "followHim": "Följ",
+      "followingHim": "Följer",
+      "copyProfileUrl": "Kopiera profillänk",
+      "urlCopied": "Länken har kopierats",
+      "unfollow": "Sluta följa"
     },
     "voiceSettings": {
       "header": "Röstinställningar",
-      "mic": "mikrofon:",
-      "permissionError": "ingen mikrofon hittades, du har antingen inte någon inkopplad eller så har du inte gett hemsidan tillåtelse.",
-      "refresh": "uppdatera mikrofonlistan",
-      "volume": "volym:"
+      "mic": "Mikrofon:",
+      "permissionError": "Ingen mikrofon hittades, du har antingen inte någon inkopplad eller så har du inte gett hemsidan tillåtelse.",
+      "refresh": "Uppdatera mikrofonlistan",
+      "volume": "Volym:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings"
+      "header": "Overlay-inställningar",
+      "input": {
+        "errorMsg": "Ogiltlig fönstertitel",
+        "label": "Skriv in fönstertitel"
+      }
     }
   },
   "components": {
@@ -106,9 +113,9 @@
     "avatar": {},
     "backBar": {},
     "blockedFromRoomUsers": {
-      "header": "Avstängda användare",
-      "unban": "Ta bort avstängning",
-      "noBans": "ingen har blivit avstängd ännu"
+      "header": "Bannlys användare",
+      "unban": "Ta bort bannlysning",
+      "noBans": "Ingen har blivit bannlyst ännu"
     },
     "bottomVoiceControl": {
       "leaveCurrentRoomBtn": "Lämna nuvarande rum",
@@ -119,114 +126,116 @@
       "toggleMuteMicBtn": "Stäng av mikrofon",
       "mute": "Tysta",
       "unmute": "Slå på ljud",
-      "makeRoomPublicBtn": "Gör rum offentligt!",
+      "makeRoomPublicBtn": "Gör rum offentligt",
       "settings": "Inställningar",
       "speaker": "Talare",
       "listener": "Lyssnare",
       "chat": "Chatt"
     },
     "micPermissionBanner": {
-      "permissionDenied": "Åtkomst nekad när vi försökte att ansluta till din mikrofon (du kan behöva gå till webbläsarinställningarna och ladda om sidan)",
-      "dismiss": "avfärda",
-      "tryAgain": "försök igen"
+      "permissionDenied": "Åtkomst nekad när vi försökte att ansluta till din mikrofon (du kan behöva gå till webbläsarinställningarna, tillåta att webläsaren tillåter din mikrofon och sedan ladda om sidan)",
+      "dismiss": "Avfärda",
+      "tryAgain": "Försök igen"
     },
     "modals": {
       "createRoomModal": {
-        "public": "offentligt",
-        "private": "privat",
-        "roomName": "rumsnamn",
-        "roomDescription": "rumsbeskrivning",
-        "descriptionError": "max längd av 500 karaktärer",
-        "nameError": "längd 2 till 60 karaktärer"
+        "public": "Offentligt",
+        "private": "Privat",
+        "roomName": "Rumsnamn",
+        "roomDescription": "Rumsbeskrivning",
+        "descriptionError": "Max längden är 500 karaktärer",
+        "nameError": "Längden måste vara mellan 2 och 60 karaktärer"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Ett nytt rum har skapats",
         "roomInviteFrom": "Inbjudan från",
         "justStarted": "De har precis börjat",
         "likeToJoin": ", skulle du vilja ansluta?",
-        "inviteReceived": "du har blivit inbjuden till"
+        "inviteReceived": "Du har blivit inbjuden till"
       },
       "editProfileModal": {
-        "usernameTaken": "användarnamn taget",
+        "usernameTaken": "Användarnamn är redan taget",
         "avatarUrlError": "Ogiltig bild",
         "avatarUrlLabel": "Github/Twitter profilbild länk",
-        "displayNameError": "längd 2 till 50 karaktärer",
+        "displayNameError": "Maximum 2 till 50 karaktärer",
         "displayNameLabel": "Visningsnamn",
-        "usernameError": "längd 4 till 15 karaktärer med bara alfanumerisk/understrykning",
+        "usernameError": "Maximum 4 till 15 karaktärer med bara alfanumerisk/understräck",
         "usernameLabel": "Användarnamn",
-        "bioError": "max längd av 160 karaktärer",
+        "bioError": "Maximum längd av 160 karaktärer",
         "bioLabel": "Biografi"
       },
       "profileModal": {
         "blockUserConfirm": "Är du säker på att du vill blockera denna användare från att ansluta till dina rum?",
-        "blockUser": "blocka användare",
-        "makeMod": "gör moderator",
-        "unmod": "ogör moderator",
-        "addAsSpeaker": "lägg till som talande",
-        "moveToListener": "flytta till lyssnare",
-        "banFromChat": "bannlys från chatt",
-        "banFromRoom": "bannlys från rum",
-        "goBackToListener": "gå tillbaka till lyssnare",
-        "deleteMessage": "ta bort meddelande",
-        "makeRoomCreator": "gör rum administratör"
+        "blockUser": "Blockera användare",
+        "makeMod": "Gör moderator",
+        "unmod": "Ogör moderator",
+        "addAsSpeaker": "Lägg till som talare",
+        "moveToListener": "Flytta till lyssnare",
+        "banFromChat": "Bannlys från chatt",
+        "banFromRoom": "Bannlys från rum",
+        "goBackToListener": "Gå tillbaka till lyssnare",
+        "deleteMessage": "Ta bort meddelande",
+        "makeRoomCreator": "Gör till rum administratör"
       },
       "roomSettingsModal": {
-        "requirePermission": "be om tillåtelse att prata",
-        "makePublic": "gör rum offentligt",
-        "makePrivate": "gör rum privat"
+        "requirePermission": "Be om tillåtelse att prata",
+        "makePublic": "Gör rum offentligt",
+        "makePrivate": "Gör rum privat",
+        "renamePublic": "Sätt ett ofentligt rumsnamn",
+        "renamePrivate": "Sätt ett privat rumsnamn"
       }
     },
     "userVolumeSlider": {
-      "noAudioMessage": "ingen ljudanvändare av någon anledning"
+      "noAudioMessage": "Ingen ljudanvändare av någon anledning"
     },
     "addToCalendar": { "add": "Spara i kalender" },
     "deviceNotSupported": {
       "notSupported": "Din enhet stöds inte. Du kan skapa en",
-      "linkText": "fråga på GitHub",
-      "addSupport": "och jag ska försöka lägga till stöd för din enhet."
+      "linkText": "issue på GitHub",
+      "addSupport": ", så kommer jag försöka lägga till stöd för din enhet."
     },
     "inviteButton": {
-      "invited": "inbjuden",
-      "inviteToRoom": "bjud in till rum"
+      "invited": "Inbjuden",
+      "inviteToRoom": "Bjud in till rum"
     },
     "keyboardShortcuts": {
-      "setKeybind": "ställ in kortkommando",
-      "listening": "lyssnar",
-      "toggleMuteKeybind": "växla tystad kortkommando",
-      "togglePushToTalkKeybind": "växla tryck-för-tal kortkommando",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "setKeybind": "Ställ in kortkommando",
+      "listening": "Lyssnar",
+      "toggleMuteKeybind": "Växla tystad kortkommando",
+      "togglePushToTalkKeybind": "Växla tryck-för-tal kortkommando",
+      "toggleOverlayKeybind": "Växla overlay-keybind"
     },
     "wsKilled": {
-      "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
-      "reconnect": "återanslut"
+      "description": "WebSocket blev nerstängd av servern. Detta händer oftast när du öppnar hemsidan i en annan flik.",
+      "reconnect": "Återanslut"
     }
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
     "scheduledRooms": {
       "title": "Schemalagda rum",
-      "noneFound": "inga hittades",
+      "noneFound": "Inga hittades",
       "allRooms": "Alla schemalagda rum",
       "myRooms": "Mina schemalagda rum",
       "scheduleRoomHeader": "Schemalagda Rum",
-      "startRoom": "påbörja rum",
+      "startRoom": "Påbörja rum",
       "modal": {
-        "needsFuture": "behöver vara i framtiden",
-        "roomName": "namne",
-        "minLength": "minimum längd 2",
-        "roomDescription": "Beskrivning"
+        "needsFuture": "Behöver vara i framtiden",
+        "roomName": "Namn",
+        "roomDescription": "Beskrivning",
+        "minLength": "Minimum längd: 2"
       }
     },
     "roomChat": {
       "title": "Chatt",
       "emotesSoon": "[emotes kommer snart]",
-      "bannedAlert": "Du blev bannad från chatten",
+      "bannedAlert": "Du blev bannlyst från chatten",
       "waitAlert": "Du behöver vänta en sekund innan du kan skicka fler meddelanden",
       "search": "Sök",
       "searchResults": "Sökresultat",
       "recent": "Ofta använda",
       "sendMessage": "Skicka ett meddelande",
-      "whisper": "Viska",
+      "whisper": "Direktmeddelande",
       "welcomeMessage": "Välkommen till chatten!",
       "roomDescription": "Rumbeskrivning"
     },
@@ -235,11 +244,11 @@
       "takingOff": "Lyfter",
       "inSpace": "I rymden",
       "approachingMoon": "Närmar sig månen",
-      "lunarDoge": "Lunar doge",
+      "lunarDoge": "Måndoge",
       "approachingSun": "Närmar sig solen",
-      "solarDoge": "Solar doge",
+      "solarDoge": "Soldoge",
       "approachingGalaxy": "Närmar sig en galax",
-      "galacticDoge": "Galactisk doge",
+      "galacticDoge": "Galaktiskdoge",
       "spottedLife": "Planet med liv upptäckt"
     }
   }

@@ -38,7 +38,11 @@
       "startPrivateRoom": "почніть з ними приватну кімнату"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Створити Кімнату", "refresh": "Оновити" },
+    "home": {
+      "createRoom": "Створити Кімнату",
+      "refresh": "Оновити",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "кімнати вже немає, повернутися",
       "shareRoomLink": "поділитися посиланням на кімнату",
@@ -199,7 +203,9 @@
       "roomSettingsModal": {
         "requirePermission": "запитувати дозвіл говорити",
         "makePublic": "зробити кімнату загальнодоступною",
-        "makePrivate": "зробити кімнату приватною"
+        "makePrivate": "зробити кімнату приватною",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

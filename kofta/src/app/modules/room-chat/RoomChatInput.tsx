@@ -41,7 +41,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
   const navigateThroughQueriedUsers = (e: any) => {
     // Use dom method, GlobalHotkeys apparently don't catch arrow-key events on inputs
     if (
-      !["ArrowUp", "ArrowDown", "Enter"].includes(e.code) ||
+      !["ArrowUp", "ArrowDown", "Enter", "Tab"].includes(e.code) ||
       !queriedUsernames.length
     )
       return;
@@ -59,7 +59,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = () => {
     } else if (e.code === "ArrowDown") {
       changeToIndex =
         activeIndex === queriedUsernames.length - 1 ? 0 : activeIndex + 1;
-    } else if (e.code === "Enter") {
+    } else if (e.code === "Enter" || e.code === "Tab") {
       const selected = queriedUsernames[activeIndex];
       setMentions([...mentions, selected]);
       setMessage(

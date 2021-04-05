@@ -38,7 +38,11 @@
       "startPrivateRoom": "δημιουργήστε ένα ιδιωτικό δωμάτιο μαζί τους"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Δημιουργία Δωματίου", "refresh": "Επαναφόρτωση" },
+    "home": {
+      "createRoom": "Δημιουργία Δωματίου",
+      "refresh": "Επαναφόρτωση",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "το δωμάτιο διαγράφηκε, πηγαίνετε πίσω",
       "shareRoomLink": "κοινοποιήστε τον σύνδεσμο του δωματίου",
@@ -201,7 +205,9 @@
       "roomSettingsModal": {
         "requirePermission": "απαίτηση άδειας για ομιλία",
         "makePublic": "κάντε το δωμάτιο δημόσιο",
-        "makePrivate": "κάντε το δωμάτιο ιδιωτικό"
+        "makePrivate": "κάντε το δωμάτιο ιδιωτικό",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

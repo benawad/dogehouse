@@ -16,7 +16,7 @@
     "copied": "kopiert",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Wenn du DogeHouse ohni Berechtigunge laufe lahsch chönnti es ungwollti Fehler gäh"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -35,18 +35,22 @@
     "followingOnlineList": {
       "listHeader": "Benutzer, wo du fougsch, aber nid imne private Ruum si.",
       "currentRoom": "Grad in:",
-      "startPrivateRoom": "E private Ruum mit däm Benutzer starte"
+      "startPrivateRoom": "En private Ruum mit däm Benutzer starte"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Ruum erstelle", "refresh": "Aktualisiere" },
+    "followList": { "followHim": "Folge", "followingHim": "Am folge" },
+    "home": {
+      "createRoom": "Ruum erstelle",
+      "refresh": "Aktualisiere",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
-      "roomGone": "Ruum isch nid gfunge worde! Zrügg",
+      "roomGone": "Ruum isch nid gfunge worde! Zrugg",
       "shareRoomLink": "Link zum Ruum teile",
       "inviteFollowers": "Du chasch dini Abonnente, wo online si, ilade:",
-      "whenFollowersOnline": "Wenn dini Abonnente online si, werde si hie azeigt."
+      "whenFollowersOnline": "Wenn dini Abonnente online si, werde sie da azeigt."
     },
     "login": {
-      "headerText": "Mir bringe dr Sprachchat zum Mond 🚀",
+      "headerText": "Mir bringe de Sprachchat zum Mond 🚀",
       "featureText_1": "Dark-Mode",
       "featureText_2": "Unbeschränkti Registrierig",
       "featureText_3": "Plattformunabhängig",
@@ -63,43 +67,43 @@
       "voiceSettings": "Sprachistellige",
       "soundSettings": "Tonistellige",
       "deleteAccount": "Konto lösche",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "Gang zu de Overlay Istellige"
     },
     "notFound": {
-      "whoopsError": "Hoppla! Die Site isch im Gspräch vrlore gange.",
-      "goHomeMessage": "Mach dr ke Sorge. Du chasch",
-      "goHomeLinkText": "hei gah"
+      "whoopsError": "Hoppla! Die Site isch im Gspräch verlore gange.",
+      "goHomeMessage": "Mach dir kei Sorge. Du chasch",
+      "goHomeLinkText": "Hei gah"
     },
     "room": {
       "speakers": "Sprächer",
       "requestingToSpeak": "Gsprächsafrage",
       "listeners": "Zuehörer",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "Alles erlaube",
+      "allowAllConfirm": "Bisch der sicher? Das wird all {{count}} Benutzer wo wennd rede dBerechtigung dazue gäh"
     },
     "searchUser": { "search": "Sueche..." },
     "soundEffectSettings": { "header": "Ton" },
     "viewUser": {
       "editProfile": "Profil bearbeite",
-      "followsYou": "fougt dir",
+      "followsYou": "folgt dir",
       "following": "Abonniert",
       "followers": "Abonnente",
-      "followHim": "follow",
-      "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "followHim": "Folge",
+      "followingHim": "Am Folge",
+      "copyProfileUrl": "Profil URL kopiere",
+      "urlCopied": "URL id Zwüscheablag kopiert",
+      "unfollow": "Entfolge"
     },
     "voiceSettings": {
       "header": "Sprachistellige",
       "mic": "Mikrofon:",
-      "permissionError": "Keni Mikrofon gfunge, es isch entweder kes agschlosse oder die Site het nid die nötige Berechtigunge.",
-      "volume": "Lutsterchi:",
+      "permissionError": "Keis Mikrofon gfunge, es isch entweder keis agschlosse oder die Site het nid die nötige Berechtigunge.",
+      "volume": "Luutsterchi:",
       "refresh": "Mikrofonliste aktualisiere"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings"
+      "header": "Overlay Istellige"
     }
   },
   "components": {
@@ -109,12 +113,12 @@
     "backBar": {},
     "blockedFromRoomUsers": {
       "header": "blockierti Benutzer",
-      "unban": "Blockierig aufheben",
+      "unban": "Blockierig ufhebe",
       "noBans": "Du hesch aktuell niemer blockiert"
     },
     "bottomVoiceControl": {
       "leaveCurrentRoomBtn": "Aktuelle Ruum verlah",
-      "confirmLeaveRoom": "Bisch dr sicher, dass du gah wettsch?",
+      "confirmLeaveRoom": "Bisch der sicher, dass du gah wettsch?",
       "leave": "Verlah",
       "inviteUsersToRoomBtn": "Benutzer zum Ruum ilade",
       "invite": "Ilade",
@@ -128,9 +132,9 @@
       "chat": "Chat"
     },
     "micPermissionBanner": {
-      "permissionDenied": "Mir hei ke Zuegriff uf dis Mikrofon. Mach dini Browseristellige uf, setz die nötige Berechtigunge und lad d Site nöi.",
+      "permissionDenied": "Mir hei ke Zuegriff uf dis Mikrofon. Mach dini Browseristellige uf, setz die nötige Berechtigunge und lad d Site neu.",
       "dismiss": "verstange",
-      "tryAgain": "nomau versueche"
+      "tryAgain": "nomal versueche"
     },
     "modals": {
       "createRoomModal": {
@@ -139,12 +143,12 @@
         "roomName": "Ruumname",
         "roomDescription": "Ruumbeschribig",
         "descriptionError": "die maximali Längi isch 500",
-        "nameError": "mues zwüsche 2 und 60 Zeiche läng si"
+        "nameError": "mues zwüsche 2 und 60 Zeiche lang sii"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Neue Ruum erstellt",
         "roomInviteFrom": "Neui Iladig vo",
-        "justStarted": "Sie hei grad gstartet",
+        "justStarted": "Sie hend grad gstartet",
         "likeToJoin": ", wettsch biträte?",
         "inviteReceived": "Du bisch iglade worde zu"
       },
@@ -160,7 +164,7 @@
         "bioLabel": "Bio"
       },
       "profileModal": {
-        "blockUserConfirm": "Bisch dr sicher, dass du dä Benutzer us aune dine zuekünftige Rüüm usschliesse wettsch?",
+        "blockUserConfirm": "Bisch der sicher, dass du dä Benutzer us aune dine zuekünftige Rüüm usschliesse wettsch?",
         "blockUser": "Benutzer blockiere",
         "makeMod": "Zum Moderator befördere",
         "unmod": "Moderator Status ufhebe",
@@ -175,7 +179,9 @@
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Rede verlange",
         "makePublic": "Ruum öffentlech mache",
-        "makePrivate": "Ruum privat mache"
+        "makePrivate": "Ruum privat mache",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     },
     "userVolumeSlider": {
@@ -195,7 +201,7 @@
     "deviceNotSupported": {
       "notSupported": "Dis Grät wird aktuell nid ungerstützt. Du chasch es",
       "linkText": "Issue uf GitHub",
-      "addSupport": "erstelle und ig wirde versueche, d Ungerstützig für dis Grät hinzuefüege."
+      "addSupport": "erstelle und ich werde versueche, d Ungerstützig für dis Grät hinzuefüege."
     },
     "inviteButton": { "invited": "iglade", "inviteToRoom": "zum Ruum ilade" }
   },
@@ -209,7 +215,7 @@
       "scheduleRoomHeader": "E Ruum plane",
       "startRoom": "Ruum starte",
       "modal": {
-        "needsFuture": "Dr Zitpunkt mues ir Zuekunft lige",
+        "needsFuture": "Dr Zitpunkt mues ide Zuekunft lige",
         "roomName": "Name vom Ruum",
         "minLength": "minimali Längi: 2",
         "roomDescription": "Beschribig"
@@ -224,7 +230,7 @@
       "searchResults": "Suechergäbnis",
       "recent": "Z'letscht gsuecht",
       "sendMessage": "E Nachricht schicke",
-      "whisper": "Chüschele",
+      "whisper": "Flüstere",
       "welcomeMessage": "Willkomme im Chat!",
       "roomDescription": "Ruumbeschribig"
     },

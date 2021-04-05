@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useGlobalVolumeStore } from "../../../global-stores/useGlobalVolumeStore";
 import { Button } from "../../../ui/Button";
 import { useConsumerStore } from "../stores/useConsumerStore";
 
@@ -59,20 +60,19 @@ const MyAudio = ({
 export const AudioRender: React.FC<AudioRenderProps> = () => {
   const notAllowedErrorCountRef = useRef(0);
   const [showAutoPlayModal, setShowAutoPlayModal] = useState(false);
-  // const [globalVolume] = useAtom(volumeAtom);
-  const globalVolume = 100;
+  const { volume: globalVolume } = useGlobalVolumeStore();
   const { consumerMap } = useConsumerStore();
   const audioRefs = useRef<[string, HTMLAudioElement][]>([]);
 
   return (
     <>
       <div
-        className={`absolute w-full h-full flex z-50 bg-simple-gray-80 ${
+        className={`absolute w-full h-full flex z-50 bg-primary-900 ${
           showAutoPlayModal ? "" : "hidden"
         }`}
       >
-        <div className={`p-8 rounded m-auto bg-simple-gray-3c`}>
-          <div className={`text-center mb-4`}>
+        <div className={`p-8 rounded m-auto bg-primary-700 flex-col`}>
+          <div className={`text-center mb-4 text-primary-100`}>
             Browsers require user interaction before they will play audio. Just
             click okay to continue.
           </div>

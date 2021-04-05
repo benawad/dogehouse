@@ -37,7 +37,11 @@
       "startPrivateRoom": "उनके साथ एक प्राइवेट रूम शुरू करें"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "रूम बनाये", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "रूम बनाये",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "रूम गया, वापस जाए",
       "shareRoomLink": "रूम की लिंक शेयर करें",
@@ -52,8 +56,8 @@
       "featureText_4": "Open Source",
       "featureText_5": "Text Chat",
       "featureText_6": "Powered by Doge",
-      "loginGithub": "login with GitHub",
-      "loginTwitter": "login with Twitter",
+      "loginGithub": "log in with GitHub",
+      "loginTwitter": "log in with Twitter",
       "createTestUser": "create test user"
     },
     "myProfile": {
@@ -194,7 +198,9 @@
       "roomSettingsModal": {
         "requirePermission": "बोलने की अनुमति की आवश्यकता है",
         "makePublic": "रूम को सार्वजनिक करें",
-        "makePrivate": "रूम को प्राइवेट करें!"
+        "makePrivate": "रूम को प्राइवेट करें!",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

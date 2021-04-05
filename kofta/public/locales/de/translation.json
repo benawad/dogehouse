@@ -38,7 +38,11 @@
       "startPrivateRoom": "Einen privaten Raum mit diesem Benutzer eröffnen"
     },
     "followList": { "followHim": "Folgen", "followingHim": "Entfolgen" },
-    "home": { "createRoom": "Raum erstellen", "refresh": "Aktualisieren" },
+    "home": {
+      "createRoom": "Raum erstellen",
+      "refresh": "Aktualisieren",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Raum konnte nicht gefunden werden! Zurück",
       "shareRoomLink": "Link zum Raum teilen",
@@ -84,11 +88,11 @@
       "followsYou": "folgt dir",
       "following": "Abonniert",
       "followers": "Abonnenten",
-      "followHim": "follow",
-      "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
+      "followHim": "Folgen",
+      "followingHim": "Folgt bereits",
+      "copyProfileUrl": "Benutzer-Url kopieren",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Entfolgen"
     },
     "voiceSettings": {
       "header": "Spracheinstellungen",
@@ -99,9 +103,9 @@
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings",
-      "errorMsg": "Please enter valid app title",
-      "label": "Enter app title"
+      "header": "Overlay Einstellungen",
+      "errorMsg": "Bitte gib einen gültigen App Titel ein",
+      "label": "App Titel eingeben"
     }
   },
   "components": {
@@ -177,7 +181,9 @@
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Sprechen verlangen",
         "makePublic": "Raum öffentlich machen",
-        "makePrivate": "Raum privat machen"
+        "makePrivate": "Raum privat machen",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     },
     "userVolumeSlider": {
@@ -234,14 +240,14 @@
       "roomDescription": "Raumbeschreibung"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
+      "fuelingRocket": "Rakete wird getankt",
+      "takingOff": "Am Abheben",
+      "inSpace": "Im Weltall",
+      "approachingMoon": "Nähert sich dem Mond",
       "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
+      "approachingSun": "Nähert sich der Sonne",
       "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
+      "approachingGalaxy": "Nähert sich einer Galaxie",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
     }

@@ -4,7 +4,8 @@ node_modules
 # Local Netlify folder
 .netlify
 
-*/.idea
+.idea/
+*/.idea/
 .docker
 .env
 .next
@@ -13,3 +14,10 @@ _
 .env.local
 kebab/lib
 yarn-error.log
+
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*

@@ -15,6 +15,7 @@ export const consumeAudio = async (consumerParameters: any, peerId: string) => {
       mediaTag: "cam-audio",
     },
   });
+
   useConsumerStore.getState().add(consumer, peerId);
 
   return true;

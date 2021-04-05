@@ -15,7 +15,7 @@ import { sendVoice } from "./utils/sendVoice";
 
 interface App2Props {}
 
-function closeVoiceConnections(_roomId: string | null) {
+export function closeVoiceConnections(_roomId: string | null) {
   const { roomId, mic, nullify } = useVoiceStore.getState();
   if (_roomId === null || _roomId === roomId) {
     if (mic) {
@@ -35,7 +35,7 @@ export const WebRtcApp: React.FC<App2Props> = () => {
   const { muted } = useMuteStore();
   const { setCurrentRoomId } = useCurrentRoomIdStore();
   const initialLoad = useRef(true);
-  const { replace } = useRouter();
+  const { push } = useRouter();
 
   useEffect(() => {
     if (micId && !initialLoad.current) {
@@ -72,17 +72,17 @@ export const WebRtcApp: React.FC<App2Props> = () => {
     }
 
     const unsubs = [
-      // @todo fix
       conn.addListener<any>("you_left_room", (d) => {
-        // assumes you don't rejoin the same room really quickly before websocket fires
-        setCurrentRoomId((id) => {
-          if (id === d.roomId) {
-            replace("/");
-            return null;
+        if (d.kicked) {
+          const { currentRoomId } = useCurrentRoomIdStore.getState();
+          if (currentRoomId !== d.roomId) {
+            return;
           }
-          return id;
-        });
-        closeVoiceConnections(d.roomId);
+
+          setCurrentRoomId(null);
+          closeVoiceConnections(d.roomId);
+          push("/dash");
+        }
       }),
       conn.addListener<any>("new-peer-speaker", async (d) => {
         const { roomId, recvTransport } = useVoiceStore.getState();
@@ -163,9 +163,7 @@ export const WebRtcApp: React.FC<App2Props> = () => {
     return () => {
       unsubs.forEach((x) => x());
     };
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [conn]);
+  }, [conn, push, setCurrentRoomId]);
 
   return (
     <>

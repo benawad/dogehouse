@@ -44,7 +44,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
             <SolidFriends />
           </BoxedIcon>
         ) : null}
-        {onInvitePeopleToRoom ? (
+        {onRoomSettings ? (
           <BoxedIcon className="mr-2" color="800" onClick={onRoomSettings}>
             <SolidSettings />
           </BoxedIcon>
@@ -54,7 +54,9 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
       <Button
         className={`ml-2`}
         color="secondary-800"
-        onClick={() => onLeaveRoom()}
+        onClick={() => {
+          onLeaveRoom();
+        }}
       >
         {t("components.bottomVoiceControl.leave")}
       </Button>

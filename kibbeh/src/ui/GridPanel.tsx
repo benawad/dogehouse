@@ -1,15 +1,13 @@
 import React from "react";
 
-interface GridPanelProps {
-  scroll?: boolean;
-}
+export const GridPanel: React.FC = ({ children }) => {
+  return <div className={`flex-col flex-1 mb-7`}>{children}</div>;
+};
 
-export const GridPanel: React.FC<GridPanelProps> = ({ children, scroll }) => {
+export const FixedGridPanel: React.FC = ({ children }) => {
   return (
-    <div className={`flex-col h-full`}>
-      <div className={`${scroll ? "" : `pt-5 sticky top-0`} flex-col`}>
-        {children}
-      </div>
+    <div className={`pt-5 flex-col flex-1 sticky top-0 h-screen`}>
+      {children}
     </div>
   );
 };

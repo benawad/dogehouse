@@ -38,7 +38,11 @@
       "startPrivateRoom": "komencu privatan ĉambron kun ili"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Kreu Ĉambron", "refresh": "Refreŝigu" },
+    "home": {
+      "createRoom": "Kreu Ĉambron",
+      "refresh": "Refreŝigu",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "ĉambro for, reiru",
       "shareRoomLink": "dividi ligon al ĉambro",
@@ -199,7 +203,9 @@
       "roomSettingsModal": {
         "requirePermission": "postulas permeson paroli",
         "makePublic": "publikigi ĉambron",
-        "makePrivate": "privatigi ĉambron"
+        "makePrivate": "privatigi ĉambron",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

@@ -38,7 +38,11 @@
       "startPrivateRoom": "fillo një dhomë private me ta"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Krijo dhomë", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "Krijo dhomë",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "dhoma u zhduk, kthehu",
       "shareRoomLink": "nda një link për te dhoma",
@@ -195,7 +199,9 @@
       "roomSettingsModal": {
         "requirePermission": "kërko leje për të folur",
         "makePublic": "bëje dhomën publike",
-        "makePrivate": "bëje dhomën private"
+        "makePrivate": "bëje dhomën private",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

@@ -15,7 +15,7 @@
     "copied": "copiado",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Por favor note que correr DogeHouse sem premissões de acesso pode causar erros indesejados"
+    "requestPermissions": "Por favor, nota que correr o DogeHouse sem permissões de acesso pode causar erros indesejados"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,8 +36,12 @@
       "currentRoom": "Atualmente em:",
       "startPrivateRoom": "Iniciar uma sala privada com eles"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Criar Sala", "refresh": "Atualizar" },
+    "followList": { "followHim": "seguir", "followingHim": "a seguir" },
+    "home": {
+      "createRoom": "Criar Sala",
+      "refresh": "Atualizar",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "A sala não existe, voltar atrás",
       "shareRoomLink": "Partilhar link da sala",
@@ -74,7 +78,7 @@
       "requestingToSpeak": "A pedir para falar",
       "listeners": "Ouvintes",
       "allowAll": "Permitir todos",
-      "allowAllconfirm": "De certeza? Isto permitirá todos os {{count}} utilizadores a pedir, falar"
+      "allowAllConfirm": "De certeza? Isto permitirá todos os {{count}} utilizadores a pedir, falar"
     },
     "searchUser": { "search": "Procurar..." },
     "soundEffectSettings": { "header": "Sons" },
@@ -97,7 +101,10 @@
       "volume": "Volume:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Título de aplicação inválido", "label": "Introduza o título da aplicação" },
+      "input": {
+        "errorMsg": "Título de aplicação inválido",
+        "label": "Introduza o título da aplicação"
+      },
       "header": "Definições de Overlay"
     }
   },
@@ -173,7 +180,9 @@
       "roomSettingsModal": {
         "requirePermission": "Pedir permissão para falar",
         "makePublic": "Tornar a sala pública",
-        "makePrivate": "Tornar a sala privada"
+        "makePrivate": "Tornar a sala privada",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     },
     "userVolumeSlider": {
@@ -230,16 +239,16 @@
       "roomDescription": "descrição da sala"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "fuelingRocket": "A abastecer o foguetão",
+      "takingOff": "A descolar",
+      "inSpace": "No espaço",
+      "approachingMoon": "A aproximar-se da lua",
+      "lunarDoge": "Doge lunar",
+      "approachingSun": "A aproximar-se do sol",
+      "solarDoge": "Doge solar",
+      "approachingGalaxy": "A aproximar-se da galáxia",
+      "galacticDoge": "Doge galático",
+      "spottedLife": "Encontrado planeta com vida"
     }
   }
 }

@@ -37,7 +37,11 @@
       "startPrivateRoom": "Start et privat rom med dem"
     },
     "followList": { "followHim": "følg", "followingHim": "følger" },
-    "home": { "createRoom": "Lag et rom", "refresh": "Last inn på nytt" },
+    "home": {
+      "createRoom": "Lag et rom",
+      "refresh": "Last inn på nytt",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Rommet finnes ikke lengre, gå tilbake",
       "shareRoomLink": "Del lenken til rommet",
@@ -197,7 +201,9 @@
       "roomSettingsModal": {
         "requirePermission": "Krev tillatelse for å snakke",
         "makePublic": "Gjør rommet offentlig",
-        "makePrivate": "Gjør rommet privat"
+        "makePrivate": "Gjør rommet privat",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },
