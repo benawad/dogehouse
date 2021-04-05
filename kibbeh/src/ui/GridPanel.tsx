@@ -1,7 +1,7 @@
 import React from "react";
 
 export const GridPanel: React.FC = ({ children }) => {
-  return <div className={`flex-col flex-1`}>{children}</div>;
+  return <div className={`flex-col flex-1 mb-7`}>{children}</div>;
 };
 
 export const FixedGridPanel: React.FC = ({ children }) => {
