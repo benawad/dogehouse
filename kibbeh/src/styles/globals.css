@@ -75,6 +75,9 @@ body,
   height: 100%;
   width: 100%;
 }
+::selection { 
+  background: var(--color-accent-glow); 
+}
 
 audio {
   width: 0;
@@ -97,3 +100,4 @@ textarea {
   position: relative;
   z-index: 9999999;
 }
+
