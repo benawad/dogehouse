@@ -2,6 +2,7 @@ import { differenceInMilliseconds, format, isPast, isToday } from "date-fns";
 import React, { useEffect, useState } from "react";
 import {
   Image,
+  ImageBackground,
   ImageSourcePropType,
   StyleSheet,
   Text,
@@ -11,13 +12,13 @@ import {
 } from "react-native";
 import {
   colors,
+  h4,
   paragraph,
   paragraphBold,
   radius,
 } from "../constants/dogeStyle";
 import { MultipleUserAvatar } from "./avatars/MultipleUserAvatar";
 import { BubbleText } from "./BubbleText";
-import { RoomCardHeading } from "./RoomCardHeading";
 
 function formatNumber(num: number): string {
   return Math.abs(num) > 999
@@ -49,7 +50,7 @@ function useScheduleRerender(scheduledFor?: Date) {
   }, [scheduledFor]);
 }
 
-export type RoomCardProps = {
+export type FeaturedRoomCardProps = {
   style?: ViewStyle;
   title: string;
   avatarSrcs: ImageSourcePropType[];
@@ -60,7 +61,7 @@ export type RoomCardProps = {
   onPress?: () => void;
 };
 
-export const RoomCard: React.FC<RoomCardProps> = ({
+export const FeaturedRoomCard: React.FC<FeaturedRoomCardProps> = ({
   style,
   title,
   avatarSrcs,
@@ -86,41 +87,41 @@ export const RoomCard: React.FC<RoomCardProps> = ({
 
   return (
     <TouchableOpacity style={[styles.container, style]} onPress={onPress}>
-      <View style={styles.topContainer}>
-        <View style={styles.topLeftContainer}>
-          <RoomCardHeading
-            icon={
-              roomLive ? undefined : (
-                <Image source={require("../assets/images/lg-solid-time.png")} />
-              )
-            }
-            text={title}
-          />
-          <View style={styles.subtitleContainer}>
-            {avatarSrcs.length > 0 && (
-              <MultipleUserAvatar
-                srcArray={avatarSrcs}
-                size={"xs"}
-                translationRatio={1.5}
-              />
-            )}
-            <Text style={styles.subtitle} numberOfLines={1}>
-              {subtitle}
+      <ImageBackground
+        style={styles.backgroundImage}
+        source={require("../assets/images/featured-card-bg.png")}
+      >
+        <View style={styles.topContainer}>
+          <View style={styles.topLeftContainer}>
+            <Text style={{ ...h4 }} numberOfLines={2}>
+              {title}
             </Text>
+            <View style={styles.subtitleContainer}>
+              {avatarSrcs.length > 0 && (
+                <MultipleUserAvatar
+                  srcArray={avatarSrcs}
+                  size={"md"}
+                  translationRatio={1.5}
+                />
+              )}
+              <View>
+                <Text style={styles.subtitleLabel}>Hosted by</Text>
+                <Text style={styles.subtitle}>{subtitle}</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.topRightContainer}>
+            <BubbleText style={{ alignSelf: "flex-start" }} live={roomLive}>
+              <Text style={styles.bubbleLabel}>
+                {roomLive ? formatNumber(listeners) : scheduledForLabel}
+              </Text>
+            </BubbleText>
           </View>
         </View>
-        <View style={styles.topRightContainer}>
-          <BubbleText style={{ alignSelf: "flex-start" }} live={roomLive}>
-            <Text style={styles.bubbleLabel}>
-              {roomLive ? formatNumber(listeners) : scheduledForLabel}
-            </Text>
-          </BubbleText>
-        </View>
-      </View>
-      <View></View>
-      {tags && tags.length > 0 && (
-        <View style={styles.tagsContainer}>{tags.map((tag) => tag)}</View>
-      )}
+        {tags && tags.length > 0 && (
+          <View style={styles.tagsContainer}>{tags.map((tag) => tag)}</View>
+        )}
+      </ImageBackground>
     </TouchableOpacity>
   );
 };
@@ -128,8 +129,20 @@ export const RoomCard: React.FC<RoomCardProps> = ({
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.primary800,
+    borderColor: colors.primary300,
     borderRadius: radius.m,
-    padding: 20,
+    borderWidth: 1,
+    overflow: "hidden", // prevents image from cutting off bottom border
+    shadowColor: colors.primary100,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.1,
+    shadowRadius: 20,
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center",
+    padding: 15,
   },
   topContainer: {
     flexDirection: "row",
@@ -145,14 +158,19 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginTop: 20,
   },
-  subtitle: {
+  subtitleLabel: {
     ...paragraph,
     color: colors.primary300,
     flex: 1,
   },
+  subtitle: {
+    ...paragraph,
+    color: colors.primary100,
+    flex: 1,
+  },
   tagsContainer: {
     flexDirection: "row",
-    marginTop: 32,
+    marginTop: 40,
     borderRadius: radius.s,
     overflow: "hidden",
   },
