@@ -22,7 +22,7 @@ defmodule KousaTest.Broth.CreateRoomTest do
       user_id = t.user.id
 
       ref =
-        WsClient.send_call(
+        WsClient.send_call_legacy(
           t.client_ws,
           "create_room",
           %{
@@ -32,7 +32,7 @@ defmodule KousaTest.Broth.CreateRoomTest do
           }
         )
 
-      WsClient.assert_reply(
+      WsClient.assert_reply_legacy(
         ref,
         %{
           "room" => %{

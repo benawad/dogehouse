@@ -26,13 +26,13 @@ defmodule KousaTest.Broth.EditRoomTest do
       assert %{currentRoomId: ^room_id} = Users.get_by_id(user_id)
 
       ref =
-        WsClient.send_call(
+        WsClient.send_call_legacy(
           t.client_ws,
           "edit_room",
           %{"name" => "bar room", "description" => "baz quux", "privacy" => "private"}
         )
 
-      WsClient.assert_reply(
+      WsClient.assert_reply_legacy(
         ref,
         true,
         t.client_ws
@@ -59,13 +59,13 @@ defmodule KousaTest.Broth.EditRoomTest do
     @tag :skip
     test "when you're not in a room", t do
       ref =
-        WsClient.send_call(
+        WsClient.send_call_legacy(
           t.client_ws,
           "edit_room",
           %{}
         )
 
-      WsClient.assert_reply(
+      WsClient.assert_reply_legacy(
         ref,
         _,
         t.client_ws

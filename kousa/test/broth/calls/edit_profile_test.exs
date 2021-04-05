@@ -22,7 +22,7 @@ defmodule KousaTest.Broth.EditProfileTest do
       user_id = t.user.id
 
       ref =
-        WsClient.send_call(
+        WsClient.send_call_legacy(
           t.client_ws,
           "edit_profile",
           %{
@@ -32,7 +32,7 @@ defmodule KousaTest.Broth.EditProfileTest do
           }
         )
 
-      WsClient.assert_reply(
+      WsClient.assert_reply_legacy(
         ref,
         %{"isUsernameTaken" => false}
       )

@@ -30,13 +30,13 @@ defmodule KousaTest.Broth.JoinRoomAndGetInfoTest do
       joiner_ws = WsClientFactory.create_client_for(joiner)
 
       ref =
-        WsClient.send_call(
+        WsClient.send_call_legacy(
           joiner_ws,
           "join_room_and_get_info",
           %{"roomId" => room_id}
         )
 
-      WsClient.assert_reply(
+      WsClient.assert_reply_legacy(
         ref,
         %{
           "roomId" => ^room_id,

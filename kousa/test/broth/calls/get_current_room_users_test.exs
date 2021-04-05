@@ -26,13 +26,13 @@ defmodule KousaTest.Broth.GetCurrentRoomUsersTest do
       assert %{currentRoomId: ^room_id} = Users.get_by_id(user_id)
 
       ref =
-        WsClient.send_call(
+        WsClient.send_call_legacy(
           t.client_ws,
           "get_current_room_users",
           %{"roomId" => room_id}
         )
 
-      WsClient.assert_reply(
+      WsClient.assert_reply_legacy(
         ref,
         %{
           "users" => [%{"id" => ^user_id}]
@@ -55,13 +55,13 @@ defmodule KousaTest.Broth.GetCurrentRoomUsersTest do
       Kousa.Room.join_room(other_id, room_id)
 
       ref =
-        WsClient.send_call(
+        WsClient.send_call_legacy(
           t.client_ws,
           "get_current_room_users",
           %{"roomId" => room_id}
         )
 
-      WsClient.assert_reply(
+      WsClient.assert_reply_legacy(
         ref,
         %{
           "users" => users = [_, _]
@@ -87,13 +87,13 @@ defmodule KousaTest.Broth.GetCurrentRoomUsersTest do
       other_ws = WsClientFactory.create_client_for(other)
 
       ref =
-        WsClient.send_call(
+        WsClient.send_call_legacy(
           other_ws,
           "get_current_room_users",
           %{"roomId" => room_id}
         )
 
-      WsClient.assert_reply(ref, _, other_ws)
+      WsClient.assert_reply_legacy(ref, _, other_ws)
     end
   end
 end

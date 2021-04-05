@@ -26,13 +26,13 @@ defmodule KousaTest.Broth.GetTopPublicRoomsTest do
       assert %{currentRoomId: ^room_id} = Users.get_by_id(user_id)
 
       ref =
-        WsClient.send_call(
+        WsClient.send_call_legacy(
           t.client_ws,
           "get_top_public_rooms",
           %{}
         )
 
-      WsClient.assert_reply(
+      WsClient.assert_reply_legacy(
         ref,
         %{"rooms" => [%{"id" => ^room_id}]},
         t.client_ws
@@ -47,13 +47,13 @@ defmodule KousaTest.Broth.GetTopPublicRoomsTest do
       assert %{currentRoomId: ^room_id} = Users.get_by_id(user_id)
 
       ref =
-        WsClient.send_call(
+        WsClient.send_call_legacy(
           t.client_ws,
           "get_top_public_rooms",
           %{}
         )
 
-      WsClient.assert_reply(
+      WsClient.assert_reply_legacy(
         ref,
         %{"rooms" => []},
         t.client_ws

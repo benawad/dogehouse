@@ -32,6 +32,17 @@ defmodule Broth.WsClient do
 
     WebSockex.cast(
       client_ws,
+      {:send, %{"op" => op, "d" => payload, "ref" => call_ref}}
+    )
+
+    call_ref
+  end
+
+  def send_call_legacy(client_ws, op, payload) do
+    call_ref = UUID.uuid4()
+
+    WebSockex.cast(
+      client_ws,
       {:send, %{"op" => op, "d" => payload, "fetchId" => call_ref}}
     )
 
@@ -66,7 +77,30 @@ defmodule Broth.WsClient do
     end
   end
 
-  defmacro assert_reply(ref, payload, from \\ nil) do
+  defmacro assert_reply(op, ref, payload, from \\ nil) do
+    if from do
+      quote do
+        op = unquote(op)
+        from = unquote(from)
+        ref = unquote(ref)
+
+        ExUnit.Assertions.assert_receive(
+          {:text, %{"op" => ^op, "d" => unquote(payload), "fetchId" => ^ref}, ^from}
+        )
+      end
+    else
+      quote do
+        op = unquote(op)
+        ref = unquote(ref)
+
+        ExUnit.Assertions.assert_receive(
+          {:text, %{"op" => ^op, "d" => unquote(payload), "fetchId" => ^ref}, _}
+        )
+      end
+    end
+  end
+
+  defmacro assert_reply_legacy(ref, payload, from \\ nil) do
     if from do
       quote do
         from = unquote(from)

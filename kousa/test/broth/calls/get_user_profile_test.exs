@@ -21,13 +21,13 @@ defmodule KousaTest.Broth.GetUserProfileTest do
       user_id = t.user.id
 
       ref =
-        WsClient.send_call(
+        WsClient.send_call_legacy(
           t.client_ws,
           "get_user_profile",
           %{"userId" => t.user.id}
         )
 
-      WsClient.assert_reply(
+      WsClient.assert_reply_legacy(
         ref,
         %{
           "id" => ^user_id

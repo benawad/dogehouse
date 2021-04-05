@@ -26,13 +26,13 @@ defmodule KousaTest.Broth.FollowInfoTest do
       Kousa.Follow.follow(t.user.id, followed_id, true)
 
       ref =
-        WsClient.send_call(
+        WsClient.send_call_legacy(
           t.client_ws,
           "follow_info",
           %{"userId" => followed_id}
         )
 
-      WsClient.assert_reply(
+      WsClient.assert_reply_legacy(
         ref,
         %{
           "followsYou" => false,
@@ -42,13 +42,13 @@ defmodule KousaTest.Broth.FollowInfoTest do
       )
 
       ref =
-        WsClient.send_call(
+        WsClient.send_call_legacy(
           followed_ws,
           "follow_info",
           %{"userId" => user_id}
         )
 
-      WsClient.assert_reply(
+      WsClient.assert_reply_legacy(
         ref,
         %{
           "followsYou" => true,

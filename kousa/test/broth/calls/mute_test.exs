@@ -24,9 +24,9 @@ defmodule KousaTest.Broth.MuteTest do
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
-      ref = WsClient.send_call(t.client_ws, "mute", %{"value" => true})
+      ref = WsClient.send_call_legacy(t.client_ws, "mute", %{"value" => true})
 
-      WsClient.assert_reply(ref, _)
+      WsClient.assert_reply_legacy(ref, _)
 
       # TODO: do a test to check to make sure the muted state is correct
     end
@@ -37,9 +37,9 @@ defmodule KousaTest.Broth.MuteTest do
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
-      ref = WsClient.send_call(t.client_ws, "mute", %{"value" => false})
+      ref = WsClient.send_call_legacy(t.client_ws, "mute", %{"value" => false})
 
-      WsClient.assert_reply(ref, _)
+      WsClient.assert_reply_legacy(ref, _)
 
       # TODO: do a test to check to make sure the muted state is correct
     end
