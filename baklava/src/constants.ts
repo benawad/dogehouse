@@ -1,4 +1,5 @@
 import { app, shell } from 'electron';
+import { autoUpdater } from 'electron-updater';
 
 export const isMac = process.platform === 'darwin'
 export const isLinux = process.platform !== 'darwin' && process.platform !== 'win32'
@@ -124,6 +125,12 @@ export const MENU_TEMPLATE: any = [
                 label: 'Search Issues',
                 click: async () => {
                     await shell.openExternal(ISSUES_URL)
+                }
+            },
+            {
+                label: 'Check For Updates',
+                click: async () => {
+                    autoUpdater.checkForUpdatesAndNotify();
                 }
             }
         ]

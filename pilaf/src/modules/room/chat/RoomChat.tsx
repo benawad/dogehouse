@@ -1,13 +1,12 @@
 import { Room, RoomUser } from "@dogehouse/kebab";
-import React, { useEffect } from "react";
-import { useCurrentRoomIdStore } from "../../../global-stores/useCurrentRoomIdStore";
+import React, { useState } from "react";
+import { View, ViewStyle } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { colors } from "../../../constants/dogeStyle";
+import { EmotePicker } from "./EmotePicker";
 import { RoomChatInput } from "./RoomChatInput";
 import { RoomChatList } from "./RoomChatList";
-import { RoomChatMentions } from "./RoomChatMentions";
 import { useRoomChatStore } from "./useRoomChatStore";
-import { View, ViewStyle } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { colors } from "../../../constants/dogeStyle";
 
 interface ChatProps {
   room: Room;
@@ -16,36 +15,43 @@ interface ChatProps {
 }
 
 export const RoomChat: React.FC<ChatProps> = ({ users, room, style }) => {
-  const { currentRoomId } = useCurrentRoomIdStore();
+  const inset = useSafeAreaInsets();
+  const [emoteOpen, setEmoteOpen] = useState(false);
+  const { message, setMessage } = useRoomChatStore();
 
-  const [open, reset, toggleOpen] = useRoomChatStore((s) => [
-    s.open,
-    s.reset,
-    s.toggleOpen,
-  ]);
-
-  useEffect(() => {
-    if (!currentRoomId) {
-      reset();
-    }
-  }, [reset, currentRoomId]);
-  if (!open) {
-    return null;
-  }
   return (
-    <SafeAreaView
+    <View
       style={[
         style,
         {
           backgroundColor: colors.primary800,
           padding: 10,
           justifyContent: "flex-end",
+          paddingBottom: 10 + inset.bottom,
         },
       ]}
-      edges={["bottom"]}
     >
       <RoomChatList room={room} />
-      <RoomChatInput users={users} />
-    </SafeAreaView>
+      <EmotePicker
+        style={{
+          position: "absolute",
+          display: emoteOpen ? "flex" : "none",
+          bottom: inset.bottom + 60,
+          top: 10,
+          left: 10,
+          right: 10,
+        }}
+        isNitro={false}
+        onEmoteSelected={(emote) => {
+          console.log(emote.name);
+          setMessage(message + ":" + emote.name + ":");
+          setEmoteOpen(false);
+        }}
+      />
+      <RoomChatInput
+        users={users}
+        onEmotePress={() => setEmoteOpen(!emoteOpen)}
+      />
+    </View>
   );
 };

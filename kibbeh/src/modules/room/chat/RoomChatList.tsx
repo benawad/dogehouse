@@ -29,7 +29,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
   // Only scroll into view if not manually scrolled to top
   useEffect(() => {
     if (!isRoomChatScrolledToTop) {
-      bottomRef.current?.scrollIntoView();
+      chatListRef.current?.scrollTo(0, chatListRef.current.scrollHeight);
     }
   });
 
@@ -56,19 +56,19 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
           <div
             style={{ marginTop: idx === 0 ? "auto" : undefined }}
             className={`flex flex-col flex-shrink-0 ${
-              m.isWhisper ? "bg-primary-700 rounded" : ""
+              m.isWhisper ? "bg-primary-700 rounded my-1" : ""
             }`}
             key={m.id}
           >
             {/* Whisper label */}
             {m.isWhisper ? (
-              <p className="mb-0 text-xs text-primary-300 px-1 w-16 mt-1 text-center">
+              <p className="mb-0 text-sm text-primary-300 px-1 w-16 mt-1 text-center">
                 {t("modules.roomChat.whisper")}
               </p>
             ) : null}
             <div className={`flex items-center px-1`}>
               <div
-                className={`py-1 block break-words max-w-full items-start flex-1 text-sm text-primary-100`}
+                className={`py-1 block break-words max-w-full items-start flex-1 text-primary-100`}
                 key={m.id}
               >
                 <button
@@ -93,7 +93,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                 <span className={`inline mr-1`}>: </span>
                 <div className={`inline mr-1 space-x-1`}>
                   {m.deleted ? (
-                    <span className="inline">
+                    <span className="inline text-primary-300">
                       [message{" "}
                       {m.deleterId === m.userId ? "retracted" : "deleted"}]
                     </span>
@@ -118,23 +118,24 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
 
                         case "mention":
                           return (
-                            <button
-                              onClick={() => {
-                                setData({ userId: v });
-                              }}
-                              key={i}
-                              className={`inline hover:underline flex-1 focus:outline-none ${
-                                v === me?.username
-                                  ? "bg-blue-500 text-white px-2 rounded text-md"
-                                  : ""
-                              }`}
-                              style={{
-                                textDecorationColor: m.color,
-                                color: v === me?.username ? "" : m.color,
-                              }}
-                            >
-                              @{v}{" "}
-                            </button>
+                            <React.Fragment key={i}>
+                              <button
+                                onClick={() => {
+                                  setData({ userId: v });
+                                }}
+                                className={`inline hover:underline flex-1 focus:outline-none ${
+                                  v === me?.username
+                                    ? "bg-accent text-white px-1 rounded text-md"
+                                    : ""
+                                }`}
+                                style={{
+                                  textDecorationColor: m.color,
+                                  color: v === me?.username ? "" : m.color,
+                                }}
+                              >
+                                @{v}
+                              </button>{" "}
+                            </React.Fragment>
                           );
                         case "link":
                           return (
@@ -142,7 +143,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                               target="_blank"
                               rel="noreferrer noopener"
                               href={v}
-                              className={`inline flex-1 hover:underline text-blue-500`}
+                              className={`inline flex-1 hover:underline text-accent`}
                               key={i}
                             >
                               {normalizeUrl(v, { stripProtocol: true })}{" "}

@@ -38,7 +38,11 @@
       "startPrivateRoom": "En private Ruum mit däm Benutzer starte"
     },
     "followList": { "followHim": "Folge", "followingHim": "Am folge" },
-    "home": { "createRoom": "Ruum erstelle", "refresh": "Aktualisiere" },
+    "home": {
+      "createRoom": "Ruum erstelle",
+      "refresh": "Aktualisiere",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Ruum isch nid gfunge worde! Zrugg",
       "shareRoomLink": "Link zum Ruum teile",

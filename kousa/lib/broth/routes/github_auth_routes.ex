@@ -3,6 +3,7 @@ defmodule Broth.Routes.GitHubAuth do
   use Plug.Router
 
   alias Beef.Users
+  alias Kousa.Utils.Urls
 
   plug(:match)
   plug(:dispatch)
@@ -10,8 +11,7 @@ defmodule Broth.Routes.GitHubAuth do
   get "/web" do
     redirect_to_next =
       Enum.any?(conn.req_headers, fn {k, v} ->
-        k == "referer" and
-          (v == "https://next.dogehouse.tv" or v == "https://next.dogehouse.tv/")
+        k == "referer" and Urls.next_site_url?(v)
       end)
 
     state =

@@ -37,6 +37,7 @@ export type Connection = {
     handler: ListenerHandler<Data>
   ) => () => void;
   user: User;
+  initialCurrentRoomId?: string;
   send: (opcode: Opcode, data: unknown, fetchId?: FetchID) => void;
   fetch: (
     opcode: Opcode,
@@ -45,6 +46,9 @@ export type Connection = {
   ) => Promise<unknown>;
 };
 
+// probably want to remove token/refreshToken
+// better to use getAuthOptions
+// when ws tries to reconnect it should use current tokens not the ones it initializes with
 export const connect = (
   token: Token,
   refreshToken: Token,
@@ -54,12 +58,20 @@ export const connect = (
     onClearTokens = () => {},
     url = apiUrl,
     fetchTimeout,
+    getAuthOptions,
   }: {
     logger?: Logger;
     onConnectionTaken?: () => void;
     onClearTokens?: () => void;
     url?: string;
     fetchTimeout?: number;
+    getAuthOptions?: () => Partial<{
+      reconnectToVoice: boolean;
+      currentRoomId: string | null;
+      muted: boolean;
+      token: Token;
+      refreshToken: Token;
+    }>;
   }
 ): Promise<Connection> =>
   new Promise((resolve, reject) => {
@@ -126,6 +138,7 @@ export const connect = (
             return () => listeners.splice(listeners.indexOf(listener), 1);
           },
           user: message.d.user,
+          initialCurrentRoomId: message.d.currentRoom?.id,
           send: apiSend,
           fetch: (opcode: Opcode, parameters: unknown, doneOpcode?: Opcode) =>
             new Promise((resolveFetch, rejectFetch) => {
@@ -178,6 +191,7 @@ export const connect = (
         reconnectToVoice: false,
         currentRoomId: null,
         muted: false,
+        ...getAuthOptions?.(),
       });
     });
   });

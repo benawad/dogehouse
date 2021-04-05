@@ -17,7 +17,7 @@ Refreshing tokens:
     - it is malformed
     - it has expired
     - the token version in the payload is different then what's in the db for that user
-- If the refresh token is invalid, they are not authenticated and will need to login again
+- If the refresh token is invalid, they are not authenticated and will need to log in again
 - If the refresh token is valid they are considered authenticated and a new refresh & access token is created/sent back to the client with the `new_tokens` event
     
     

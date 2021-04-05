@@ -1,9 +1,11 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck because internet is unpredictable
 
 import {
   Message,
   MessageToken,
   Room,
+  ScheduledRoom,
   User,
   UserWithFollowInfo,
   UUID,
@@ -14,6 +16,7 @@ import {
   GetTopPublicRoomsResponse,
   JoinRoomAndGetInfoResponse,
   GetRoomUsersResponse,
+  NewRoomDetailsResponse,
 } from "./responses";
 
 type Handler<Data> = (data: Data) => void;
@@ -25,12 +28,28 @@ export const wrap = (connection: Connection) => ({
   subscribe: {
     newChatMsg: (handler: Handler<{ userId: UUID; msg: Message }>) =>
       connection.addListener("new_chat_msg", handler),
+    newRoomDetails: (handler: Handler<NewRoomDetailsResponse>) =>
+      connection.addListener("new_room_details", handler),
+    userJoinRoom: (handler: Handler<{ user: User }>) =>
+      connection.addListener("new_user_join_room", handler),
+    userLeaveRoom: (handler: Handler<{ userId: UUID; roomId: UUID }>) =>
+      connection.addListener("user_left_room", handler),
   },
   query: {
+    getMyScheduledRoomsAboutToStart: (
+      roomId: string
+    ): Promise<{ scheduledRooms: ScheduledRoom[] }> =>
+      connection.fetch("get_my_scheduled_rooms_about_to_start", { roomId }),
     joinRoomAndGetInfo: (
       roomId: string
     ): Promise<JoinRoomAndGetInfoResponse | { error: string }> =>
       connection.fetch("join_room_and_get_info", { roomId }),
+    getInviteList: (
+      cursor = 0
+    ): Promise<{
+      users: User[];
+      nextCursor: number | null;
+    }> => connection.fetch("get_invite_list", { cursor }),
     getFollowList: (
       username: string,
       isFollowing: boolean,
@@ -74,7 +93,32 @@ export const wrap = (connection: Connection) => ({
       ),
   },
   mutation: {
+    deleteScheduledRoom: (id: string): Promise =>
+      connection.fetch(`delete_scheduled_room`, { id }),
+    createRoomFromScheduledRoom: (data: {
+      id: string;
+      name: string;
+      description: string;
+    }): Promise<{ room: Room }> =>
+      connection.fetch(`create_room_from_scheduled_room`, data),
+    createScheduledRoom: (data: {
+      name: string;
+      description: string;
+      scheduledFor: string;
+    }): Promise<{ error: string } | ScheduledRoom> =>
+      connection.fetch(`schedule_room`, data),
+    editScheduledRoom: (
+      id: string,
+      data: {
+        name: string;
+        description: string;
+        scheduledFor: string;
+      }
+    ): Promise<{ error: string } | ScheduledRoom> =>
+      connection.fetch(`edit_scheduled_room`, { id, data }),
     askToSpeak: () => connection.send(`ask_to_speak`, {}),
+    inviteToRoom: (userId: string) =>
+      connection.send(`invite_to_room`, { userId }),
     setAutoSpeaker: (value: boolean) =>
       connection.send(`set_auto_speaker`, { value }),
     speakingChange: (value: boolean) =>

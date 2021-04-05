@@ -72,8 +72,10 @@ const Page = ({
           </div>
           <div className="px-4 flex-1">
             <ApiPreloadLink route="profile" data={{ username: user.username }}>
-              <div className="flex-col">
-                <div className="text-primary-100">{user.displayName}</div>
+              <div className="flex-col w-full">
+                <p className="block max-w-md text-primary-100 truncate w-full">
+                  {user.displayName}
+                </p>
                 <div className="text-primary-200">@{user.username}</div>
               </div>
             </ApiPreloadLink>
@@ -131,7 +133,7 @@ const Page = ({
 
 export const FollowingController: React.FC<FollowingControllerProps> = ({}) => {
   const { pathname, query } = useRouter();
-  const isFollowing = pathname.startsWith("/following");
+  const isFollowing = pathname.includes("/following");
   const username = typeof query.username === "string" ? query.username : "";
   const [cursors, setCursors] = useState([0]);
 

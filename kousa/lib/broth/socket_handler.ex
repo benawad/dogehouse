@@ -228,6 +228,25 @@ defmodule Broth.SocketHandler do
                    op: "error",
                    d: err_msg
                  }), state}
+            catch
+              _, e ->
+                err_msg = Kernel.inspect(e)
+                IO.puts(err_msg)
+                Logger.error(Exception.format_stacktrace())
+
+                op = Map.get(json, "op", "")
+                IO.puts("error for op: " <> op)
+
+                Sentry.capture_message(err_msg,
+                  stacktrace: __STACKTRACE__,
+                  extra: %{op: op}
+                )
+
+                {:reply,
+                 construct_socket_msg(state.encoding, state.compression, %{
+                   op: "error",
+                   d: err_msg
+                 }), state}
             end
           else
             {:reply, {:close, 4004, "not_authenticated"}, state}
@@ -283,13 +302,12 @@ defmodule Broth.SocketHandler do
     {:ok, state}
   end
 
-  def handler("fetch_invite_list", %{"cursor" => cursor}, state) do
-    {users, next_cursor} = Follows.fetch_invite_list(state.user_id, cursor)
-
+  # @deprecated in new design
+  def handler("fetch_invite_list", data, state) do
     {:reply,
      construct_socket_msg(state.encoding, state.compression, %{
        op: "fetch_invite_list_done",
-       d: %{users: users, nextCursor: next_cursor, initial: cursor == 0}
+       d: f_handler("get_invite_list", data, state)
      }), state}
   end
 
@@ -600,6 +618,12 @@ defmodule Broth.SocketHandler do
     }
   end
 
+  def f_handler("get_invite_list", %{"cursor" => cursor}, state) do
+    {users, next_cursor} = Follows.fetch_invite_list(state.user_id, cursor)
+
+    %{users: users, nextCursor: next_cursor}
+  end
+
   def f_handler("follow", %{"userId" => userId, "value" => value}, state) do
     Kousa.Follow.follow(state.user_id, userId, value)
     %{}
@@ -624,21 +648,27 @@ defmodule Broth.SocketHandler do
       %{room: room} ->
         {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
 
-        {muteMap, autoSpeaker, activeSpeakerMap} =
-          if room_id do
-            Onion.RoomSession.get_maps(room_id)
-          else
-            {%{}, false, %{}}
-          end
+        case Onion.RoomSession.lookup(room_id) do
+          [] ->
+            %{error: "Room no longer exists."}
 
-        %{
-          room: room,
-          users: users,
-          muteMap: muteMap,
-          activeSpeakerMap: activeSpeakerMap,
-          roomId: room_id,
-          autoSpeaker: autoSpeaker
-        }
+          _ ->
+            {muteMap, autoSpeaker, activeSpeakerMap} =
+              if room_id do
+                Onion.RoomSession.get_maps(room_id)
+              else
+                {%{}, false, %{}}
+              end
+
+            %{
+              room: room,
+              users: users,
+              muteMap: muteMap,
+              activeSpeakerMap: activeSpeakerMap,
+              roomId: room_id,
+              autoSpeaker: autoSpeaker
+            }
+        end
 
       _ ->
         %{error: "you should never see this, tell ben"}

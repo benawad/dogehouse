@@ -10,10 +10,6 @@ import {
   RoomChatMessageToken,
   useRoomChatStore,
 } from "../modules/room/chat/useRoomChatStore";
-// import {
-//   RoomChatMessageToken,
-//   useRoomChatStore,
-// } from "../modules/room/chat/useRoomChatStore";
 import { mergeRoomPermission } from "../modules/webrtc/utils/mergeRoomPermission";
 import { WebSocketContext } from "../modules/ws/WebSocketProvider";
 import { setMute } from "./useSetMute";
@@ -55,7 +51,7 @@ export const useMainWsHandler = () => {
         useRoomChatStore.getState().addMessage(msg);
         const { isRoomChatScrolledToTop } = useRoomChatStore.getState();
         if (
-          !open &&
+          (!open || isRoomChatScrolledToTop) &&
           !!msg.tokens.filter(
             (t: RoomChatMessageToken) =>
               t.t === "mention" &&
