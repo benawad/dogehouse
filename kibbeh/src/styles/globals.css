@@ -62,7 +62,9 @@ p.small {
   font-size: 0.85rem;
 }
 
-html *:not(head *):not(script):not(style) {
+html
+  *:not(head *, script, style, .MuiDialog-root, .MuiDialog-root
+    *, .block, .inline-block, .inline, .inline-flex, .table, .table-caption, .table-cell, .table-column, .table-column-group, .table-footer-group, .table-header-group, .table-row-group, .table-row, .flow-root, .grid, .inline-grid, .contents, .hidden) {
   display: flex;
 }
 
@@ -89,4 +91,9 @@ html {
 
 textarea {
   resize: none;
+}
+
+#nprogress {
+  position: relative;
+  z-index: 9999999;
 }

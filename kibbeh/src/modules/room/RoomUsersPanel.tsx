@@ -8,7 +8,7 @@ import { RoomSectionHeader } from "../../ui/RoomSectionHeader";
 import { UserPreviewModalProvider } from "./UserPreviewModalProvider";
 import { useSplitUsersIntoSections } from "./useSplitUsersIntoSections";
 
-interface RoomUsersPanelProps extends JoinRoomAndGetInfoResponse { }
+interface RoomUsersPanelProps extends JoinRoomAndGetInfoResponse {}
 
 let ipcRenderer: any = undefined;
 if (isElectron()) {
@@ -18,9 +18,12 @@ if (isElectron()) {
 const isMac = process.platform === "darwin";
 
 export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
-  const { askingToSpeak, listeners, speakers } = useSplitUsersIntoSections(
-    props
-  );
+  const {
+    askingToSpeak,
+    listeners,
+    speakers,
+    canIAskToSpeak,
+  } = useSplitUsersIntoSections(props);
   const { t } = useTypeSafeTranslation();
 
   const [ipcStarted, setIpcStarted] = useState(false);
@@ -57,7 +60,9 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
       >
         <RoomSectionHeader
           title={t("pages.room.speakers")}
-          tagText={"" + speakers.length}
+          tagText={
+            "" + (canIAskToSpeak ? speakers.length - 1 : speakers.length)
+          }
         />
         {speakers}
         {askingToSpeak.length ? (

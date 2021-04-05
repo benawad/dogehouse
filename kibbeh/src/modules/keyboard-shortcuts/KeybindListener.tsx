@@ -1,30 +1,27 @@
-import React, { useMemo, useEffect, useContext } from "react";
-import { GlobalHotKeys } from "react-hotkeys";
+import { wrap, Wrapper } from "@dogehouse/kebab";
 import isElectron from "is-electron";
+import { useRouter } from "next/router";
+import React, { useContext, useEffect, useMemo } from "react";
+import { GlobalHotKeys } from "react-hotkeys";
 import {
-  useKeyMapStore,
-  REQUEST_TO_SPEAK_KEY,
-  MUTE_KEY,
-  INVITE_KEY,
   CHAT_KEY,
+  INVITE_KEY,
+  MUTE_KEY,
+  REQUEST_TO_SPEAK_KEY,
+  useKeyMapStore,
 } from "../../global-stores/useKeyMapStore";
 import { useMuteStore } from "../../global-stores/useMuteStore";
-import { useRoomChatStore } from "../room/chat/useRoomChatStore";
-import { useRouter } from "next/router";
-import { useWrappedConn } from "../../shared-hooks/useConn";
-import { WebSocketContext } from "../ws/WebSocketProvider";
-import { wrap, Wrapper } from "@dogehouse/kebab";
 import { modalConfirm } from "../../shared-components/ConfirmModal";
-import { setMute, useSetMute } from "../../shared-hooks/useSetMute";
+import { setMute } from "../../shared-hooks/useSetMute";
+import { useRoomChatStore } from "../room/chat/useRoomChatStore";
+import { WebSocketContext } from "../ws/WebSocketProvider";
 
 let ipcRenderer: any = undefined;
 if (isElectron()) {
   ipcRenderer = window.require("electron").ipcRenderer;
 }
 
-
-
-interface KeybindListenerProps { }
+interface KeybindListenerProps {}
 
 function ListenerElectron() {
   const { push } = useRouter();
@@ -37,28 +34,28 @@ function ListenerElectron() {
     }
     const wrapper: Wrapper = wrap(conn);
     // keybind event functions
-    const REQUEST_TO_SPEAK_KEY_FUNC = async (event: any, args: any) => {
+    const REQUEST_TO_SPEAK_KEY_FUNC = (event: any, args: any) => {
       modalConfirm("Would you like to ask to speak?", () => {
         wrapper.mutation.askToSpeak();
       });
     };
-    const MUTE_KEY_FUNC = async (event: any, args: any) => {
+    const MUTE_KEY_FUNC = (event: any, args: any) => {
       const { muted } = useMuteStore.getState();
       setMute(wrapper, !muted);
     };
-    const INVITE_KEY_FUNC = async (event: any, args: any) => {
+    const INVITE_KEY_FUNC = (event: any, args: any) => {
       push("/invite");
     };
-    const PTT_STATUS_CHANGE_FUNC = async (event: any, status: boolean) => {
+    const PTT_STATUS_CHANGE_FUNC = (event: any, status: boolean) => {
       if (!event) return;
       const mute = status;
       setMute(wrapper, mute);
     };
-    const CHAT_KEY_FUNC = async (event: any, args: any) => {
+    const CHAT_KEY_FUNC = (event: any, args: any) => {
       toggleOpen();
     };
 
-    //Subscribing to keybind events
+    // Subscribing to keybind events
     ipcRenderer.on(REQUEST_TO_SPEAK_KEY, REQUEST_TO_SPEAK_KEY_FUNC);
     ipcRenderer.on(MUTE_KEY, MUTE_KEY_FUNC);
     ipcRenderer.on(INVITE_KEY, INVITE_KEY_FUNC);
@@ -66,7 +63,7 @@ function ListenerElectron() {
     ipcRenderer.on(CHAT_KEY, CHAT_KEY_FUNC);
 
     return function cleanup() {
-      //Unsubscribing from keybind events
+      // bUnsubscribing from keybind events
       ipcRenderer.removeListener(
         REQUEST_TO_SPEAK_KEY,
         REQUEST_TO_SPEAK_KEY_FUNC
@@ -79,11 +76,9 @@ function ListenerElectron() {
       );
       ipcRenderer.removeListener(CHAT_KEY, CHAT_KEY_FUNC);
     };
-  }, [conn]);
-
+  }, [conn, push, toggleOpen]);
 
   return null;
-
 }
 
 function ListenerBrowser() {
@@ -127,7 +122,6 @@ function ListenerBrowser() {
   );
 }
 
-export const KeybindListener: React.FC<KeybindListenerProps> = ({ }) => {
+export const KeybindListener: React.FC<KeybindListenerProps> = ({}) => {
   return <>{isElectron() ? <ListenerElectron /> : <ListenerBrowser />}</>;
-  //return <ListenerBrowser />;
 };

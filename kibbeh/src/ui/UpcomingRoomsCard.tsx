@@ -28,6 +28,7 @@ export interface ScheduledRoomSummaryCardProps {
 }
 
 export interface UpcomingRoomsCardProps {
+  onCreateScheduledRoom: () => void;
   rooms: ScheduledRoomSummaryCardProps[];
 }
 
@@ -55,13 +56,17 @@ export const ScheduledRoomSummaryCard: React.FC<ScheduledRoomSummaryCardProps> =
 };
 
 export const UpcomingRoomsCard: React.FC<UpcomingRoomsCardProps> = ({
+  onCreateScheduledRoom,
   rooms,
 }) => {
   return (
     <div className="w-full rounded-lg overflow-hidden flex flex-col">
       <div className="px-4 py-2 bg-primary-800 border-b border-primary-600 flex justify-between items-center">
         <h4 className="text-primary-100 font-bold">Upcoming rooms</h4>
-        <BoxedIcon style={{ height: "30px", width: "30px" }}>
+        <BoxedIcon
+          onClick={onCreateScheduledRoom}
+          style={{ height: "30px", width: "30px" }}
+        >
           <SolidPlus />
         </BoxedIcon>
       </div>

@@ -18,7 +18,6 @@ import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
 import electronLogger from 'electron-log';
-import globkey from 'globkey';
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
@@ -37,6 +36,7 @@ i18n.use(Backend);
 
 electronLogger.transports.file.level = "debug"
 autoUpdater.logger = electronLogger;
+autoUpdater.allowDowngrade = true;
 
 async function localize() {
   await i18n.init({
@@ -75,7 +75,7 @@ function createWindow() {
     }
   });
   splash.loadFile(path.join(__dirname, "../resources/splash/splash-screen.html"));
-
+  electronLogger.info(`SPLASH PATH: ${path.join(__dirname, "../resources/splash/splash-screen.html")}`)
   splash.webContents.on('did-finish-load', () => {
     splash.webContents.send('@locale/text', {
       title: i18n.t('common.title'),
@@ -97,7 +97,7 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
   }
   mainWindow.loadURL(
-    !__prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/dash"
+    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/dash"
   );
 
   bWindows = {
