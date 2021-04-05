@@ -13,7 +13,7 @@ export const DropdownController: React.FC<{
     referenceRef.current,
     popperRef.current,
     {
-      placement: "bottom",
+      placement: "left",
     }
   );
 
