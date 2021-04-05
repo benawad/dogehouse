@@ -152,7 +152,7 @@ export const InviteRoomPage: PageComponent<InviteRoomPageProps> = ({}) => {
         {room.isPrivate ? null : (
           <>
             {!navigator.share ? (
-              <div className={`text-primary-100 font-bold text-2xl mb-2 `}>
+              <div className={`text-primary-100 font-bold text-2xl mb-2`}>
                 {t("pages.inviteList.shareRoomLink")}
               </div>
             ) : null}
