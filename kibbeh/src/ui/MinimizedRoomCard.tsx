@@ -36,8 +36,10 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
       data-testid="minimized-room-card"
     >
       <div className="gap-1 grid">
-        <h4 className="text-primary-100 break-all">{room.name}</h4> 
-        <p className="text-primary-300 overflow-ellipsis overflow-hidden w-auto">{room.speakers.join(", ")}</p>
+        <h4 className="text-primary-100 break-all">{room.name}</h4>
+        <p className="text-primary-300 overflow-ellipsis overflow-hidden w-auto">
+          {room.speakers.join(", ")}
+        </p>
         <p className="text-accent">
           {room.myself.isSpeaker ? "Speaker" : "Listener"} ·{" "}
           <DurationTicker dt={room.roomStartedAt} />

@@ -159,14 +159,22 @@ export const LoginPage: React.FC = () => {
             Report a bug
           </a>
           <div className="gap-6 sm:gap-4">
-            <a href="https://github.com/benawad/dogehouse" target="_blank">
+            <a
+              href="https://github.com/benawad/dogehouse"
+              target="_blank"
+              rel="noreferrer"
+            >
               <SvgSolidGitHub
                 width={20}
                 height={20}
                 className="cursor-pointer hover:text-primary-200"
               />
             </a>
-            <a href="https://discord.gg/wCbKBZF9cV" target="_blank">
+            <a
+              href="https://discord.gg/wCbKBZF9cV"
+              target="_blank"
+              rel="noreferrer"
+            >
               <SvgSolidDiscord
                 width={20}
                 height={20}
