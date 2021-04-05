@@ -97,3 +97,7 @@ textarea {
   position: relative;
   z-index: 9999999;
 }
+
+*, *:hover, *:focus {
+  outline: none;
+}
