@@ -19,7 +19,6 @@ import {
 } from "../constants/dogeStyle";
 import { MultipleUserAvatar } from "./avatars/MultipleUserAvatar";
 import { BubbleText } from "./BubbleText";
-import { Tag } from "./Tag";
 
 function formatNumber(num: number): string {
   return Math.abs(num) > 999
