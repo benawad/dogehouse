@@ -120,13 +120,7 @@ export const FeaturedRoomCard: React.FC<FeaturedRoomCardProps> = ({
           </View>
         </View>
         {tags && tags.length > 0 && (
-          <View style={styles.tagsContainer}>
-            {tags.map((tag, idx) => (
-              <Tag style={{ marginRight: 10 }} key={idx}>
-                {tag}
-              </Tag>
-            ))}
-          </View>
+          <View style={styles.tagsContainer}>{tags.map((tag) => tag)}</View>
         )}
       </ImageBackground>
     </TouchableOpacity>
