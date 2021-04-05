@@ -57,7 +57,8 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
     <View
       style={{
         padding: 5,
-        flex: 1,
+        paddingHorizontal: 25,
+        flexGrow: 1,
       }}
     >
       <ScrollView
@@ -152,7 +153,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                               <Image
                                 key={i}
                                 source={emoteMap[v]}
-                                style={{ height: 15, width: 15 }}
+                                style={{ height: 20, width: 20 }}
                               />
                             ) : (
                               <Image

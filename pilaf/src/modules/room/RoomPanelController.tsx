@@ -1,6 +1,6 @@
 import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
 import { useNavigation } from "@react-navigation/core";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import {
   Button,
   KeyboardAvoidingView,
@@ -21,8 +21,9 @@ import { RoomHeader } from "../../components/header/RoomHeader";
 import { setMute, useSetMute } from "../../shared-hooks/useSetMute";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { RoomChat } from "./chat/RoomChat";
-import { useRoomChatStore } from "./chat/useRoomChatStore";
 import { UserPreviewModal } from "../../components/UserPreview";
+import BottomSheet from "reanimated-bottom-sheet";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 interface RoomPanelControllerProps {
   roomId?: string | undefined;
 }
@@ -49,6 +50,8 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({
   const isANewRoom = currentRoomId !== roomId;
   const setInternalMute = useSetMute();
   const muted = useMuteStore((s) => s.muted);
+  const sheetRef = useRef(null);
+  const inset = useSafeAreaInsets();
   const { data, isLoading } = useTypeSafeQuery(
     ["joinRoomAndGetInfo", roomId || ""],
     {
@@ -88,6 +91,11 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({
 
   const roomCreator = data.users.find((x) => x.id === data.room.creatorId);
 
+  const renderChat = () => <RoomChat {...data} style={{ height: "100%" }} />;
+  // const renderChat = () => (
+  //   <View style={{ backgroundColor: "green", height: "100%" }} />
+  // );
+
   return (
     <>
       <View style={{ flex: 1, backgroundColor: colors.primary900 }}>
@@ -104,17 +112,20 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({
             .map((u) => u.displayName)
             .join(", ")}
         />
-        <KeyboardAvoidingView behavior={"padding"} style={{ flex: 1 }}>
-          <ScrollView
-            style={styles.scrollView}
-            contentContainerStyle={[styles.avatarsContainer]}
-          >
-            <RoomUsersPanel {...data} />
-          </ScrollView>
-          <RoomChat {...data} style={{ flex: 1 }} />
-        </KeyboardAvoidingView>
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={[styles.avatarsContainer]}
+        >
+          <RoomUsersPanel {...data} />
+        </ScrollView>
       </View>
       <UserPreviewModal {...data} />
+      <BottomSheet
+        ref={sheetRef}
+        snapPoints={["95%", 70 + inset.bottom]}
+        borderRadius={20}
+        renderContent={renderChat}
+      />
     </>
   );
 };
