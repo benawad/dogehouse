@@ -29,14 +29,18 @@ export const BanUsersPage: React.FC<SearchUsersProps> = ({}) => {
     <Wrapper>
       <Backbar />
       <BodyWrapper>
+        <div>
+          <Input
+            style={{ backgroundColor: "#3c3c3c" }}
+            className={`mb-8`}
+            autoFocus
+            placeholder="username to ban..."
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
         <Input
-          className={`mb-8`}
-          autoFocus
-          placeholder="username to ban..."
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <Input
+          style={{ backgroundColor: "#3c3c3c" }}
           className={`mb-16`}
           autoFocus
           placeholder="reason"
