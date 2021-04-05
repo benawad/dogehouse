@@ -40,7 +40,7 @@ export const DropdownController: React.FC<{
         {children}
       </button>
       <div
-        className="z-10"
+        className="z-20"
         ref={popperRef}
         style={styles.popper}
         {...attributes.popper}

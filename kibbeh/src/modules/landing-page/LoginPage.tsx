@@ -1,18 +1,16 @@
 import { useRouter } from "next/router";
 import React, { useCallback, useContext, useEffect } from "react";
+import { LgLogo } from "../../icons";
+import SvgSolidBug from "../../icons/SolidBug";
+import SvgSolidDiscord from "../../icons/SolidDiscord";
+import SvgSolidGitHub from "../../icons/SolidGitHub";
+import SvgSolidTwitter from "../../icons/SolidTwitter";
 import { apiBaseUrl, loginNextPathKey, __prod__ } from "../../lib/constants";
-import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../../ui/Button";
 import { useSaveTokensFromQueryParams } from "../auth/useSaveTokensFromQueryParams";
 import { useTokenStore } from "../auth/useTokenStore";
-import SvgSolidGitHub from "../../icons/SolidGitHub";
-import SvgSolidNew from "../../icons/SolidNew";
-import SvgSolidBug from "../../icons/SolidBug";
-import SvgSolidTwitter from "../../icons/SolidTwitter";
-import { LgLogo } from "../../icons";
-import SvgSolidDiscord from "../../icons/SolidDiscord";
-import { WebSocketContext } from "../ws/WebSocketProvider";
 import { HeaderController } from "../display/HeaderController";
+import { WebSocketContext } from "../ws/WebSocketProvider";
 
 /*
 
