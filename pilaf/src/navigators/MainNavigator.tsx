@@ -40,8 +40,6 @@ export const MainNavigator = () => {
       <RoomController
         style={{
           position: "absolute",
-          backgroundColor: colors.primary200,
-          borderRadius: radius.m,
           bottom: 90,
           right: 20,
           zIndex: 10,

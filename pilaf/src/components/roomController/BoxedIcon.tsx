@@ -10,19 +10,20 @@ import {
 import { colors, radius } from "../../constants/dogeStyle";
 
 interface BoxedIconProps {
-  // style?: StyleProp<ViewStyle>;
+  style?: StyleProp<ViewStyle>;
   image: ImageSourcePropType;
   imageColor?: string;
   onPress: () => void;
 }
 
 export const BoxedIcon: React.FC<BoxedIconProps> = ({
+  style,
   image,
   imageColor = colors.text,
   onPress,
 }) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <TouchableOpacity style={[styles.container, style]} onPress={onPress}>
       <Image source={image} style={{ tintColor: imageColor }} />
     </TouchableOpacity>
   );
