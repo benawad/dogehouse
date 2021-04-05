@@ -9,7 +9,7 @@ import SvgSolidGitHub from "../../icons/SolidGitHub";
 import SvgSolidNew from "../../icons/SolidNew";
 import SvgSolidBug from "../../icons/SolidBug";
 import SvgSolidTwitter from "../../icons/SolidTwitter";
-import { LgLogo } from "../../icons";
+import LgLogo from "../../icons/LgLogo";
 import SvgSolidDiscord from "../../icons/SolidDiscord";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 import { HeaderController } from "../display/HeaderController";
