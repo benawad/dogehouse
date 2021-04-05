@@ -152,12 +152,12 @@ export const InviteRoomPage: PageComponent<InviteRoomPageProps> = ({}) => {
         {room.isPrivate ? null : (
           <>
             {!navigator.share ? (
-              <div className={`text-2xl mb-2`}>
+              <div className={`text-primary-100 font-bold text-2xl mb-2 `}>
                 {t("pages.inviteList.shareRoomLink")}
               </div>
             ) : null}
             <div className={`mb-8 flex`}>
-              <Input readOnly ref={inputRef} value={url} />
+              <Input readOnly ref={inputRef} value={url} className="mr-2" />
               <Button
                 size="small"
                 onClick={() => {
