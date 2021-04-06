@@ -16,7 +16,7 @@
     "copied": "Zkopírováno",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Prosím dej DogeHousu práva na \"Dostupnost\"."
+    "requestPermissions": "Prosím, dej DogeHousu práva na \"Dostupnost\"."
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -199,12 +199,12 @@
         "banFromRoom": "Zabanovat z místnosti",
         "goBackToListener": "Přesunout se do posluchačů",
         "deleteMessage": "Smazat tuto zprávu",
-        "makeRoomCreator": "Předat vlastníka místnosti"
+        "makeRoomCreator": "Předat místnost"
       },
       "roomSettingsModal": {
         "requirePermission": "Požádat o přesunutí do mluvících",
-        "makePublic": "Udělat veřejnou místnost",
-        "makePrivate": "Udělat soukromou místnost",
+        "makePublic": "Udělat místnost veřejnou",
+        "makePrivate": "Udělat místnost soukromou",
         "renamePublic": "Nastavit jméno veřejné místnosti",
         "renamePrivate": "Nastavit jméno soukromé místnosti"
       }
