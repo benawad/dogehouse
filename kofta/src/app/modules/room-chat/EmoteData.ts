@@ -2,6 +2,30 @@ import { EmojiData } from "emoji-mart";
 
 export const customEmojis = [
   {
+    name: "PartyKirby",
+    short_names: ["PartyK"],
+    keywords: ["Kirby", "Dance", "Dancing", "Party"],
+    imageUrl: "/emotes/PartyKirby.gif",
+  },
+  {
+    name: "catPOP",
+    short_names: ["PopCat"],
+    keywords: ["Cat", "PopCat", "catPOP"],
+    imageUrl: "/emotes/catPOP.gif",
+  },
+  {
+    name: "BoneDance",
+    short_names: ["BoneDance"],
+    keywords: ["Skeleton", "Dance", "Dancing"],
+    imageUrl: "/emotes/BoneDance.gif",
+  },
+  {
+    name: "RainbowPls",
+    short_names: ["RainbowDance"],
+    keywords: ["Rainbow", "Anime", "Dance", "Dancing", "AYAYA"],
+    imageUrl: "/emotes/RainbowPls.gif",
+  },
+  {
     name: "SadgeJam",
     short_names: ["SadJam"],
     keywords: ["Pepe", "peepo", "Sad", "Dance", "Dancing"],
