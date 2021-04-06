@@ -19,7 +19,6 @@ import { bWindowsType } from "../../types";
 import { Worker } from 'worker_threads';
 import globkey from 'globkey';
 import path from "path";
-import electronLogger from 'electron-log';
 
 export let CURRENT_REQUEST_TO_SPEAK_KEY = "Control+8";
 export let CURRENT_INVITE_KEY = "Control+7";
@@ -37,8 +36,6 @@ let PREV_PTT_STATUS = false;
 export let worker: Worker;
 
 if (app.isPackaged) {
-    register()
-    addAsarToLookupPaths()
     worker = new Worker(path.join(process.resourcesPath, 'app.asar.unpacked/dist/utils/keybinds/worker.js'));
 } else {
     worker = new Worker(path.join(__dirname, './worker.js'));
