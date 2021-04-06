@@ -139,9 +139,10 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
 }
 export async function exitApp(quit = true) {
     worker.removeAllListeners();
-    await worker.terminate();
+    worker.terminate();
     globkey.unload();
     if (quit) {
         app.quit();
+        process.kill(process.pid)
     }
 }

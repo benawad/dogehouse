@@ -37,7 +37,7 @@ i18n.use(Backend);
 electronLogger.transports.file.level = "debug"
 autoUpdater.logger = electronLogger;
 // just in case we have to revert to a build
-autoUpdater.allowDowngrade = true;
+//autoUpdater.allowDowngrade = true;
 
 async function localize() {
   await i18n.init({
