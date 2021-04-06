@@ -1,3 +1,4 @@
+import { NONAME } from "node:dns";
 import React, {
   ButtonHTMLAttributes,
   DetailedHTMLProps,
@@ -10,13 +11,27 @@ const sizeClassnames = {
   small: "px-2 py-1 text-xs rounded-md",
 };
 
+/* below, the "color classnames" are defined; they are parsed 
+
+for example:
+
+hover:#fafafa
+
+is parsed to (effectively)
+
+button:hover {
+  color: #fafafa
+}
+
+the color classnames will also be made the title of the button in the html */
+
 const colorClassnames = {
   primary:
-    "text-button bg-accent hover:bg-accent-hover disabled:text-accent-disabled disabled:bg-accent-hover",
+    "text-button bg-accent hover:bg-accent-hover focus:bg-accent-hover disabled:text-accent-disabled disabled:bg-accent-hover",
   secondary:
-    "text-button bg-primary-700 hover:bg-primary-600 disabled:text-primary-300",
+    "text-button bg-primary-700 hover:bg-primary-600 focus:bg-primary-600 disabled:text-primary-300",
   "secondary-800":
-    "text-button bg-primary-800 hover:bg-primary-600 disabled:text-primary-300",
+    "text-button bg-primary-800 hover:bg-primary-600 focus:bg-primary-600 disabled:text-primary-300",
 };
 
 export type ButtonProps = DetailedHTMLProps<

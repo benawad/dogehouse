@@ -35,6 +35,7 @@ p.bold {
   --color-accent: #fd4d4d;
   --color-accent-hover: #fd6868;
   --color-accent-disabled: #f5bfbf;
+  --outline-accent-disabled: none;
 }
 
 h1 {
@@ -96,4 +97,15 @@ textarea {
 #nprogress {
   position: relative;
   z-index: 9999999;
+}
+/* this applies to all buttons; the buttons not generated without button.tsx will still have no outline, so DO NOT NOT USE BUTTON.TSX */
+
+button:focus-visible {
+  outline:none;
+  /* removes outline when user is not tabbing through */
+}
+
+button:focus {
+  outline:none
+  /* removes outline when user is tabbing through; instead it changes to secondary color in button.tsx */
 }
