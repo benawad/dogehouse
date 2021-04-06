@@ -1,5 +1,12 @@
 import React from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { SignInButton } from "../components/buttons/SignInButton";
 import { colors, h3, small } from "../constants/dogeStyle";
@@ -47,6 +54,9 @@ export const LandingPage: React.FC = () => {
         <SignInButton style={styles.signinButton} provider={"github"} />
         <SignInButton style={styles.signinButton} provider={"twitter"} />
         <SignInButton style={styles.signinButton} provider={"google"} />
+        {Platform.OS === "ios" && (
+          <SignInButton style={styles.signinButton} provider={"apple"} />
+        )}
       </View>
       <View
         style={{

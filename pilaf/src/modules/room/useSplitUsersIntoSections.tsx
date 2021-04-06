@@ -4,6 +4,7 @@ import {
   Room,
   RoomUser,
 } from "@dogehouse/kebab";
+import { useNavigation } from "@react-navigation/core";
 import React, { useContext } from "react";
 import { RoomAvatar } from "../../components/avatars/RoomAvatar";
 import { useMuteStore } from "../../global-stores/useMuteStore";
@@ -19,6 +20,7 @@ export const useSplitUsersIntoSections = ({
   const conn = useConn();
   const { muted } = useMuteStore();
   const { setData } = useContext(UserPreviewModalContext);
+  const navigation = useNavigation();
   const speakers: React.ReactNode[] = [];
   const askingToSpeak: React.ReactNode[] = [];
   const listeners: React.ReactNode[] = [];
@@ -49,7 +51,10 @@ export const useSplitUsersIntoSections = ({
         username={u.displayName}
         style={{ marginRight: 5, marginBottom: 10 }}
         activeSpeaker={canSpeak && !isMuted && u.id in activeSpeakerMap}
-        onPress={() => setData({ userId: u.id })}
+        onPress={() => {
+          setData({ userId: u.id });
+          navigation.navigate("RoomUserPreview", { userId: u.id });
+        }}
       />
     );
     // }

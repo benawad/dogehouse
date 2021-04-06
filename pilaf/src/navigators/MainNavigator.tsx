@@ -4,6 +4,7 @@ import { RoomController } from "../components/roomController/RoomController";
 import { colors, radius } from "../constants/dogeStyle";
 import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
 import { WaitForWsAndAuth } from "../modules/auth/WaitForWsAndAuth";
+import { RoomSearchPage } from "../modules/room/RoomSearchPage";
 import { WebSocketProvider } from "../modules/ws/WebSocketProvider";
 import { HelpPage } from "../pages/HelpPage";
 import { LanguagePage } from "../pages/LanguagePage";

@@ -14,15 +14,15 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/core";
 
 type RoomHeaderProps = {
-  showBackButton: boolean;
   onLeavePress: () => void;
+  onTitlePress: () => void;
   roomTitle: string;
   roomSubtitle: string;
 };
 
 export const RoomHeader: React.FC<RoomHeaderProps> = ({
-  showBackButton = true,
   onLeavePress,
+  onTitlePress,
   roomTitle,
   roomSubtitle,
 }) => {
@@ -39,7 +39,7 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
           source={require("../../assets/images/header/sm-solid-caret-right.png")}
         />
       </TouchableOpacity>
-      <View style={styles.middleContainer}>
+      <TouchableOpacity style={styles.middleContainer} onPress={onTitlePress}>
         <View style={{ flexDirection: "row" }}>
           <Text
             style={{ ...h4, flex: 1, textAlign: "center" }}
@@ -56,7 +56,7 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
             with <Text style={{ ...smallBold }}>{roomSubtitle}</Text>
           </Text>
         </View>
-      </View>
+      </TouchableOpacity>
       <Text style={styles.rightContainer} onPress={onLeavePress}>
         Leave
       </Text>

@@ -21,7 +21,6 @@ export const RoomChat: React.FC<ChatProps> = ({ users, room, style }) => {
   const [emoteOpen, setEmoteOpen] = useState(false);
   const { message, setMessage } = useRoomChatStore();
   const keyboard = useKeyboard();
-  console.log(keyboard);
   useEffect(() => {
     Keyboard.addListener("keyboardWillShow", _keyboardDidShow);
     Keyboard.addListener("keyboardWillHide", _keyboardDidHide);
@@ -69,7 +68,6 @@ export const RoomChat: React.FC<ChatProps> = ({ users, room, style }) => {
         }}
         isNitro={false}
         onEmoteSelected={(emote) => {
-          console.log(emote.name);
           setMessage(message + ":" + emote.name + ":");
           setEmoteOpen(false);
         }}

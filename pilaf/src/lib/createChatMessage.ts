@@ -44,7 +44,7 @@ export const createChatMessage = (
 
   const match = message.matchAll(new RegExp(codeBlockRegex, "g"));
   let matchResult = match.next();
-  console.log(matchResult);
+
   // For message that matches the regex pattern of code blocks.
   if (!matchResult.done) {
     const splitMessage = message.split(codeBlockRegex);
@@ -83,16 +83,6 @@ export const createChatMessage = (
     });
   }
 
-  console.log("RETURN ", {
-    tokens,
-    whisperedTo: roomUsers
-      .filter((u) =>
-        whisperedToUsernames
-          .map((x) => x?.toLowerCase())
-          .includes(u.username?.toLowerCase())
-      )
-      .map((u) => u.id),
-  });
   return {
     tokens,
     whisperedTo: roomUsers

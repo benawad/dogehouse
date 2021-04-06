@@ -25,10 +25,6 @@ export const RoomController: React.FC<RoomControllerProps> = ({ style }) => {
           imageColor={muted ? colors.text : colors.accent}
           onPress={() => setInternalMute(!muted)}
         />
-        {/* <BoxedIcon
-          image={require("../../assets/images/ios-volume-low.png")}
-          onPress={() => console.log("volume")}
-        /> */}
         <BoxedIcon
           image={require("../../assets/images/bxs-maximize.png")}
           onPress={() =>
