@@ -1498,12 +1498,6 @@ export const customEmojis = [
     imageUrl: "/emotes/darthkermit.png",
   },
   {
-    name: "animegirlpepe",
-    short_names: ["AnimePepe"],
-    keywords: ["pepe", "anime", "girl"],
-    imageUrl: "/emotes/pepeanimegirl.png",
-  },
-  {
     name: "takemymoney",
     short_names: ["TakeMyMoney"],
     keywords: ["take", "my", "money", "shut", "up"],
@@ -1550,6 +1544,12 @@ export const customEmojis = [
     short_names: ["catDance"],
     keywords: ["cat", "dance", "party", "fun"],
     imageUrl: "/emotes/catDance.gif",
+  },
+  {
+    name: "doughdoge",
+    short_names: ["doughdoge"],
+    keywords: ["dough", "doge", "pizza"],
+    imageUrl: "/emotes/doughdoge.png",
   },
 ].map((item) => ({ ...item, name: item.name.toLowerCase() }));
 
