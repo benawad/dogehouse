@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { isServer } from "../../lib/isServer";
-import { isUuid } from "../../lib/isUuid";
+import { validate as uuidValidate } from 'uuid';
 import { showErrorToast } from "../../lib/showErrorToast";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import isElectron from "is-electron";
@@ -19,7 +19,7 @@ export const useGetRoomByQueryParam = () => {
   const { data, isLoading } = useTypeSafeQuery(
     ["joinRoomAndGetInfo", roomId || ""],
     {
-      enabled: isUuid(roomId) && !isServer,
+      enabled: uuidValidate(roomId) && !isServer,
       refetchOnMount: "always",
       onSuccess: ((d: JoinRoomAndGetInfoResponse | { error: string }) => {
         if (d && !("error" in d) && d.room) {
