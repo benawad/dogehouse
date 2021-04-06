@@ -3,12 +3,6 @@ import { SolidPlus } from "../../icons";
 import { ApiPreloadLink } from "../../shared-components/ApiPreloadLink";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { BoxedIcon } from "../../ui/BoxedIcon";
-import {
-  FollowerOnline,
-  FollowersOnlineShowMore,
-  FollowersOnlineWrapper,
-} from "../../ui/FollowersOnline";
-import { InfoText } from "../../ui/InfoText";
 import { SingleUser } from "../../ui/UserAvatar";
 
 interface FriendsOnlineControllerProps {}
@@ -28,7 +22,7 @@ const Page: React.FC<{
   );
 
   if (isOnlyPage && !isLoading && !data?.users.length) {
-    return <InfoText>You have 0 friends online right now</InfoText>;
+    return null;
   }
 
   return (
