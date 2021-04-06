@@ -190,18 +190,22 @@ export const UserPreviewInternal: React.FC<UserPreviewProps> = ({
             </Text>
           </View>
         </View>
-        <Text
-          style={{
-            ...paragraph,
-            color: colors.primary300,
-            paddingHorizontal: 40,
-            marginTop: 10,
-            textAlign: "center",
-          }}
-          numberOfLines={3}
-        >
-          {data.bio}
-        </Text>
+        {data.bio ? (
+          <Text
+            style={{
+              ...paragraph,
+              color: colors.primary300,
+              paddingHorizontal: 40,
+              marginTop: 10,
+              textAlign: "center",
+            }}
+            numberOfLines={3}
+          >
+            {data.bio}
+          </Text>
+        ) : (
+          <></>
+        )}
         {/* TODO: Should be data.link or something */}
         <Text style={{ ...paragraphBold, color: colors.accent, marginTop: 10 }}>
           https://mapwize.io
