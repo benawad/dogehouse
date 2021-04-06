@@ -2,6 +2,18 @@ import { EmojiData } from "emoji-mart";
 
 export const customEmojis = [
   {
+    name: "MrCool",
+    short_names: ["Cool"],
+    keywords: ["Cool", "Glass"],
+    imageUrl: "/emotes/MrCool.png",
+  },
+  {
+    name: "MrUncool",
+    short_names: ["Uncool"],
+    keywords: ["Uncool", "Glass", "Cool"],
+    imageUrl: "/emotes/MrUncool.png",
+  },
+  {
     name: "PepeClown",
     short_names: ["Clown"],
     keywords: ["Clown", "Pepe", "Peepo"],
