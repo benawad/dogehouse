@@ -23,7 +23,9 @@
     },
     "keywords": [
         "DogeHouse",
-        "Electron"
+        "Electron",
+        "voice-chat",
+        "Doge"
     ],
     "author": "Ben Awad <benawadapps@gmail.com>",
     "homepage": "https://github.com/benawad/dogehouse/",
