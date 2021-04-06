@@ -7,7 +7,7 @@ import { HeaderController } from "../display/HeaderController";
 
 export const TermsOfService = ({}) => {
   return (
-    <div className="w-full">
+    <div className="w-full scrollbar-thin scrollbar-thumb-primary-700">
       <HeaderController embed={{}} title="Terms of Service" />
       <div className="md:ml-5l mt-7 mr-8 lg:mr-24 ml-6 mb-7 inline-block">
         <div className="text-primary-100 mb-7">
