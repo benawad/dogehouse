@@ -180,10 +180,10 @@ function createWindow() {
       if (isMac) {
         mainWindow.maximize();
       } else {
-        mainWindow.setSize(1500, 800);
+        mainWindow.setSize(1500, 800, true);
       }
     } else {
-      mainWindow.setSize(560, 1000);
+      mainWindow.setSize(560, 1000, true);
     }
     mainWindow.center();
   });
