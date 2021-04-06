@@ -14,6 +14,7 @@ export const DropdownController: React.FC<{
     referenceRef.current,
     popperRef.current,
     {
+      modifiers: [{ name: "eventListeners", enabled: visible }],
       placement: "left",
     }
   );
