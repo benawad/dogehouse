@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     alignItems: "center",
     flexDirection: "row",
-    marginRight: 76,
+    marginRight: 66,
     marginLeft: 25,
     ...h4,
   },

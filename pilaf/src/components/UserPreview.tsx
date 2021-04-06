@@ -12,6 +12,7 @@ import {
   ViewProps,
   ViewStyle,
   Image,
+  Dimensions,
 } from "react-native";
 import Slider from "react-native-slider";
 import {
@@ -116,22 +117,20 @@ export const UserPreviewInternal: React.FC<UserPreviewProps> = ({
 
   return (
     <View style={[style, styles.container]}>
-      <TitledHeader showBackButton={true} title={data.username} />
+      <TitledHeader showBackButton={true} title={data.displayName} />
       <ScrollView contentContainerStyle={{ flex: 1, alignItems: "center" }}>
         <SingleUserAvatar
           src={{ uri: data.avatarUrl }}
           isOnline={data.online}
           style={styles.avatar}
         />
-        <Text style={styles.displayName}>
-          {data.displayName}
-          <Text style={styles.username}>
-            {"  "}@{data.username}
-          </Text>
-        </Text>
+        <Text style={styles.displayName}>{data.username}</Text>
         <View style={styles.tagsContainer}>
           {["DC", "DS"].map((tag) => (
-            <Tag key={tag} style={{ marginRight: 5, height: 16 }}>
+            <Tag
+              key={tag}
+              style={{ marginLeft: 2.5, marginRight: 2.5, height: 16 }}
+            >
               <Text
                 style={{ ...smallBold, fontSize: fontSize.xs, lineHeight: 16 }}
               >
@@ -154,21 +153,42 @@ export const UserPreviewInternal: React.FC<UserPreviewProps> = ({
             </Tag>
           )}
         </View>
-        <View style={styles.tagsContainer}>
-          <Text style={{ ...paragraphBold }}>{data.numFollowers}</Text>
-          <Text
-            style={{ ...paragraph, color: colors.primary300, marginLeft: 7 }}
+        <View style={styles.followInfoContainer}>
+          <View
+            style={{
+              flexDirection: "row",
+              flex: 1,
+              justifyContent: "flex-end",
+              marginRight: 10,
+            }}
           >
-            {"followers"}
-          </Text>
-          <Text style={{ ...paragraphBold, marginLeft: 20 }}>
-            {data.numFollowing}
-          </Text>
-          <Text
-            style={{ ...paragraph, color: colors.primary300, marginLeft: 7 }}
+            <Text style={{ ...paragraphBold }}>{data.numFollowers}</Text>
+            <Text
+              style={{ ...paragraph, color: colors.primary300, marginLeft: 6 }}
+            >
+              {"followers"}
+            </Text>
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              flex: 1,
+              marginLeft: 10,
+            }}
           >
-            {"following"}
-          </Text>
+            <Text
+              style={{
+                ...paragraphBold,
+              }}
+            >
+              {data.numFollowing}
+            </Text>
+            <Text
+              style={{ ...paragraph, color: colors.primary300, marginLeft: 6 }}
+            >
+              {"following"}
+            </Text>
+          </View>
         </View>
         <Text
           style={{
@@ -182,20 +202,26 @@ export const UserPreviewInternal: React.FC<UserPreviewProps> = ({
         >
           {data.bio}
         </Text>
+        {/* TODO: Should be data.link or something */}
+        <Text style={{ ...paragraphBold, color: colors.accent, marginTop: 10 }}>
+          https://mapwize.io
+        </Text>
         <View style={styles.followDMContainer}>
           <Button
             iconSrc={require("../assets/images/md-person-add.png")}
             title={"Follow"}
-            style={{ alignSelf: "center", paddingHorizontal: 10 }}
+            style={{ flex: 1, alignSelf: "center" }}
           />
           <Button
             title={"Send DM"}
             iconSrc={require("../assets/images/header/sm-solid-messages.png")}
             style={{
               marginLeft: 10,
+              flex: 1,
               alignSelf: "center",
-              paddingHorizontal: 10,
+              // paddingHorizontal: 10,
             }}
+            color={"secondary"}
           />
         </View>
         <View style={styles.controlsContainer}>
@@ -446,13 +472,18 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.primary900,
   },
-  avatar: { marginBottom: 10, marginTop: 20 },
+  avatar: { marginBottom: 7, marginTop: 13 },
   displayName: { ...paragraphBold },
   username: { ...paragraph, color: colors.primary300, marginLeft: 5 },
-  tagsContainer: { flexDirection: "row", marginTop: 10 },
+  tagsContainer: { flexDirection: "row", marginTop: 7 },
+  followInfoContainer: {
+    flexDirection: "row",
+    marginTop: 17,
+  },
   followDMContainer: {
     flexDirection: "row",
     marginTop: 23,
+    paddingHorizontal: 25,
     alignItems: "center",
     justifyContent: "center",
   },
