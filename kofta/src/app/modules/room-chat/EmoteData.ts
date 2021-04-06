@@ -2,6 +2,12 @@ import { EmojiData } from "emoji-mart";
 
 export const customEmojis = [
   {
+    name: "Dcolon",
+    short_names: ["Surprised"],
+    keywords: ["D-colon", "Dcolon", "D:", "Surprised"],
+    imageUrl: "/emotes/Dcolon.png",
+  },
+  {
     name: "PartyKirby",
     short_names: ["PartyK"],
     keywords: ["Kirby", "Dance", "Dancing", "Party"],
