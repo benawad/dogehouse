@@ -36,6 +36,7 @@ i18n.use(Backend);
 
 electronLogger.transports.file.level = "debug"
 autoUpdater.logger = electronLogger;
+// just in case we have to revert to a build
 autoUpdater.allowDowngrade = true;
 
 async function localize() {
@@ -176,7 +177,7 @@ function createWindow() {
   });
   ipcMain.on('@dogehouse/loaded', (event, doge) => {
     if (doge === "kibbeh") {
-      mainWindow.setSize(1500, 800);
+      mainWindow.maximize();
     } else {
       mainWindow.setSize(560, 1000);
     }
