@@ -4,7 +4,7 @@ import {
   useNavigation,
 } from "@react-navigation/native";
 import React, { useCallback, useEffect, useRef } from "react";
-import { StyleSheet, View } from "react-native";
+import { Platform, StyleSheet, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { TitledHeader } from "../components/header/TitledHeader";
 import { colors } from "../constants/dogeStyle";
@@ -98,10 +98,18 @@ export const RoomPage: React.FC<RoomPageProps> = ({ route }) => {
   return (
     <WaitForWsAndAuth>
       <UserPreviewModalProvider>
-        <RoomNavigator data={data} />
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: colors.primary900,
+            paddingBottom: 79 + inset.bottom,
+          }}
+        >
+          <RoomNavigator data={data} />
+        </View>
         <BottomSheet
           ref={sheetRef}
-          snapPoints={["95%", 70 + inset.bottom]}
+          snapPoints={["95%", 79 + inset.bottom + 20]}
           initialSnap={1}
           borderRadius={20}
           renderContent={renderChat}

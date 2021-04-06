@@ -38,6 +38,7 @@ import { UserPreviewModalContext } from "../modules/room/UserPreviewModalProvide
 import { RoomStackParamList } from "../navigators/RoomNavigator";
 import { RouteProp, useNavigation } from "@react-navigation/native";
 import { TitledHeader } from "./header/TitledHeader";
+import { useConsumerStore } from "../modules/webrtc/stores/useConsumerStore";
 
 export type UserPreviewProps = ViewProps & {
   message?: RoomChatMessage;
@@ -85,12 +86,30 @@ export const UserPreviewInternal: React.FC<UserPreviewProps> = ({
 
   const bannedUserIdMap = useRoomChatStore((s) => s.bannedUserIdMap);
 
+  const { consumerMap, setVolume } = useConsumerStore();
+  const consumerInfo = consumerMap[id];
+
   if (isLoading) {
-    return <Spinner />;
+    return (
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: colors.primary900,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Spinner />
+      </View>
+    );
   }
 
   if (!data) {
-    return <Text>This user is gone.</Text>;
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Spinner />
+      </View>
+    );
   }
 
   const canDoModStuffOnThisUser = !isMe && (iAmCreator || iAmMod) && !isCreator;
@@ -112,7 +131,7 @@ export const UserPreviewInternal: React.FC<UserPreviewProps> = ({
         </Text>
         <View style={styles.tagsContainer}>
           {["DC", "DS"].map((tag) => (
-            <Tag style={{ marginRight: 5, height: 16 }}>
+            <Tag key={tag} style={{ marginRight: 5, height: 16 }}>
               <Text
                 style={{ ...smallBold, fontSize: fontSize.xs, lineHeight: 16 }}
               >
@@ -180,7 +199,7 @@ export const UserPreviewInternal: React.FC<UserPreviewProps> = ({
           />
         </View>
         <View style={styles.controlsContainer}>
-          <Text
+          {/* <Text
             style={{
               ...paragraph,
               color: colors.primary300,
@@ -199,7 +218,7 @@ export const UserPreviewInternal: React.FC<UserPreviewProps> = ({
               style={{ flex: 1 }}
               thumbStyle={{ backgroundColor: colors.primary100 }}
               trackStyle={{ backgroundColor: colors.primary300 }}
-              onValueChange={onVolumeChange}
+              onValueChange={(value) => setVolume(id, value)}
               value={100}
               minimumValue={0}
               maximumValue={200}
@@ -210,7 +229,7 @@ export const UserPreviewInternal: React.FC<UserPreviewProps> = ({
               source={require("../assets/images/ios-volume-high.png")}
               style={{ marginLeft: 15 }}
             />
-          </View>
+          </View> */}
           {canDoModStuffOnThisUser && (
             <>
               <Text
@@ -403,6 +422,7 @@ export const UserPreview: React.FC<UserPreviewRouteProp> = ({
   const navigation = useNavigation();
   const { isCreator: iAmCreator, isMod } = useCurrentRoomInfo();
   const conn = useConn();
+
   return (
     <>
       <View style={{ flexGrow: 1 }}>

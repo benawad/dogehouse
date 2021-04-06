@@ -1,6 +1,6 @@
 import { Room } from "@dogehouse/kebab";
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { Image, ScrollView, Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
 import {
   colors,
   fontSize,
@@ -14,7 +14,7 @@ import { UserPreviewModalContext } from "../UserPreviewModalProvider";
 import { emoteMap } from "./EmoteData";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
-
+import { ScrollView } from "react-native-gesture-handler";
 interface ChatListProps {
   room: Room;
 }

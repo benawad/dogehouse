@@ -22,6 +22,7 @@ import { SearchPage } from "../pages/SearchPage";
 import { SettingsPage } from "../pages/SettingsPage";
 import { WalletPage } from "../pages/WalletPage";
 import { MainWsHandlerProvider } from "../shared-hooks/useMainWsHandler";
+import { Platform } from "react-native";
 
 export type RootStackParamList = {
   Main: undefined;
@@ -45,18 +46,20 @@ export const MainNavigator = () => {
       <MinimizedRoomCardController />
 
       <Stack.Navigator
+        mode="card"
         screenOptions={{
           headerShown: false,
-          headerStyle: {
-            backgroundColor: colors.primary900,
-            borderBottomColor: colors.primary900,
-            shadowColor: colors.primary900,
-          },
-          headerTitleStyle: {
-            color: colors.text,
-          },
-          headerTintColor: colors.text,
-          headerBackTitleVisible: false,
+          animationEnabled: Platform.OS === "ios",
+          // headerStyle: {
+          //   backgroundColor: colors.primary900,
+          //   borderBottomColor: colors.primary900,
+          //   shadowColor: colors.primary900,
+          // },
+          // headerTitleStyle: {
+          //   color: colors.text,
+          // },
+          // headerTintColor: colors.text,
+          // headerBackTitleVisible: false,
         }}
       >
         <Stack.Screen

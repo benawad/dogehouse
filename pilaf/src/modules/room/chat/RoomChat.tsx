@@ -54,24 +54,26 @@ export const RoomChat: React.FC<ChatProps> = ({ users, room, style }) => {
     >
       <RoomChatControls />
       <RoomChatList room={room} />
-      <EmotePicker
-        style={{
-          position: "absolute",
-          display: emoteOpen ? "flex" : "none",
-          bottom: inset.bottom + 60,
-          height: keyboardStatus ? "25%" : "50%",
-          left: 25,
-          right: 25,
-          marginBottom: keyboardStatus
-            ? keyboard.keyboardHeight - inset.bottom
-            : 0,
-        }}
-        isNitro={false}
-        onEmoteSelected={(emote) => {
-          setMessage(message + ":" + emote.name + ":");
-          setEmoteOpen(false);
-        }}
-      />
+      {emoteOpen && (
+        <EmotePicker
+          style={{
+            position: "absolute",
+            // display: emoteOpen ? "flex" : "none",
+            bottom: inset.bottom + 60,
+            height: keyboardStatus ? "25%" : "50%",
+            left: 25,
+            right: 25,
+            marginBottom: keyboardStatus
+              ? keyboard.keyboardHeight - inset.bottom
+              : 0,
+          }}
+          isNitro={false}
+          onEmoteSelected={(emote) => {
+            setMessage(message + ":" + emote.name + ":");
+            setEmoteOpen(false);
+          }}
+        />
+      )}
       <RoomChatInput
         users={users}
         onEmotePress={() => setEmoteOpen(!emoteOpen)}

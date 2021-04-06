@@ -1,5 +1,6 @@
 import React from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { colors, radius } from "../../../constants/dogeStyle";
 import { useMuteStore } from "../../../global-stores/useMuteStore";
 import { useSetMute } from "../../../shared-hooks/useSetMute";
@@ -9,11 +10,16 @@ interface RoomChatControlsProps {}
 export const RoomChatControls: React.FC<RoomChatControlsProps> = ({}) => {
   const { muted } = useMuteStore();
   const setMute = useSetMute();
-
+  const inset = useSafeAreaInsets();
   return (
-    <View style={{ backgroundColor: colors.primary800, paddingBottom: 25 }}>
+    <View
+      style={{
+        backgroundColor: colors.primary800,
+        paddingBottom: inset.bottom + 20,
+      }}
+    >
       <View style={styles.toggle} />
-      <View style={styles.controlsContainer}>
+      <View style={[styles.controlsContainer]}>
         <TouchableOpacity
           style={styles.micControl}
           onPress={() => setMute(!muted)}
@@ -28,11 +34,11 @@ export const RoomChatControls: React.FC<RoomChatControlsProps> = ({}) => {
           />
         </TouchableOpacity>
         <View style={{ flexGrow: 1 }} />
-        <TouchableOpacity style={styles.soundControl}>
+        {/* <TouchableOpacity style={styles.soundControl}>
           <Image
             source={require("../../../assets/images/ios-volume-low.png")}
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         <TouchableOpacity style={styles.inviteControl}>
           <Image source={require("../../../assets/images/md-person-add.png")} />
         </TouchableOpacity>

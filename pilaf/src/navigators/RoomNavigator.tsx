@@ -1,6 +1,7 @@
 import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
+import { Platform } from "react-native";
 import { UserPreview } from "../components/UserPreview";
 import { WaitForWsAndAuth } from "../modules/auth/WaitForWsAndAuth";
 import { RoomChatMessage } from "../modules/room/chat/useRoomChatStore";
@@ -29,7 +30,7 @@ export const RoomNavigator: React.FC<RoomNavigatorProps> = ({ data }) => {
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
-          animationEnabled: false,
+          animationEnabled: Platform.OS === "ios",
         }}
       >
         <Stack.Screen

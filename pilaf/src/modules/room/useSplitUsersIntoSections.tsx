@@ -49,7 +49,7 @@ export const useSplitUsersIntoSections = ({
         src={{ uri: u.avatarUrl }}
         muted={canSpeak && isMuted}
         username={u.displayName}
-        style={{ marginRight: 5, marginBottom: 10 }}
+        style={{ marginRight: 5, marginBottom: 10, flexBasis: "23%" }}
         activeSpeaker={canSpeak && !isMuted && u.id in activeSpeakerMap}
         onPress={() => {
           setData({ userId: u.id });

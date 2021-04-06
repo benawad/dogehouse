@@ -9,7 +9,7 @@ import "react-native-gesture-handler";
 import "react-native-get-random-values";
 import { QueryClientProvider } from "react-query";
 import React, { useEffect } from "react";
-import { StatusBar } from "react-native";
+import { StatusBar, View } from "react-native";
 import SplashScreen from "react-native-splash-screen";
 import { useTokenStore } from "./src/modules/auth/useTokenStore";
 import { NavigationContainer } from "@react-navigation/native";
@@ -24,6 +24,7 @@ import { useVoiceStore } from "./src/modules/webrtc/stores/useVoiceStore";
 import { navigationRef } from "./src/navigators/RootNavigation";
 import { MainWsHandlerProvider } from "./src/shared-hooks/useMainWsHandler";
 import { WebSocketProvider } from "./src/modules/ws/WebSocketProvider";
+import { colors } from "./src/constants/dogeStyle";
 
 const App: React.FC = () => {
   registerGlobals();
@@ -68,7 +69,10 @@ const App: React.FC = () => {
         <MainWsHandlerProvider />
         <SafeAreaProvider>
           <NavigationContainer ref={navigationRef}>
-            <StatusBar barStyle="light-content" />
+            <StatusBar
+              barStyle="light-content"
+              backgroundColor={colors.primary900}
+            />
             <RootNavigator />
             <Toast ref={(ref) => Toast.setRef(ref)} />
           </NavigationContainer>

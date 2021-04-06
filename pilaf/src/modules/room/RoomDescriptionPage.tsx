@@ -111,42 +111,47 @@ export const RoomDescriptionPage: React.FC<RoomDescriptionPageProps> = ({
             marginVertical: 20,
           }}
         />
-        {query.length === 0 && (
-          <View style={{ paddingHorizontal: 20 }}>
-            <Text style={{ ...paragraphBold, marginBottom: 10 }}>Speakers</Text>
-            {data.users
-              .filter(
-                (u) =>
-                  u.id === data.room.creatorId || u.roomPermissions?.isSpeaker
-              )
-              .map((u) => (
-                <UserSearchResult
-                  key={u.id}
-                  userAvatarSrc={{ uri: u.avatarUrl }}
-                  userName={u.username}
-                  isOnline={true}
-                  userLink={u.username}
-                />
-              ))}
-            <Text style={{ ...paragraphBold, marginVertical: 10 }}>
-              Listeners
-            </Text>
-            {data.users
-              .filter(
-                (u) =>
-                  u.id !== data.room.creatorId && !u.roomPermissions?.isSpeaker
-              )
-              .map((u) => (
-                <UserSearchResult
-                  key={u.id}
-                  userAvatarSrc={{ uri: u.avatarUrl }}
-                  userName={u.username}
-                  isOnline={true}
-                  userLink={u.username}
-                />
-              ))}
-          </View>
-        )}
+        <ScrollView>
+          {query.length === 0 && (
+            <View style={{ paddingHorizontal: 20 }}>
+              <Text style={{ ...paragraphBold, marginBottom: 10 }}>
+                Speakers
+              </Text>
+              {data.users
+                .filter(
+                  (u) =>
+                    u.id === data.room.creatorId || u.roomPermissions?.isSpeaker
+                )
+                .map((u) => (
+                  <UserSearchResult
+                    key={u.id}
+                    userAvatarSrc={{ uri: u.avatarUrl }}
+                    userName={u.username}
+                    isOnline={true}
+                    userLink={u.username}
+                  />
+                ))}
+              <Text style={{ ...paragraphBold, marginVertical: 10 }}>
+                Listeners
+              </Text>
+              {data.users
+                .filter(
+                  (u) =>
+                    u.id !== data.room.creatorId &&
+                    !u.roomPermissions?.isSpeaker
+                )
+                .map((u) => (
+                  <UserSearchResult
+                    key={u.id}
+                    userAvatarSrc={{ uri: u.avatarUrl }}
+                    userName={u.username}
+                    isOnline={true}
+                    userLink={u.username}
+                  />
+                ))}
+            </View>
+          )}
+        </ScrollView>
       </View>
     </>
   );
