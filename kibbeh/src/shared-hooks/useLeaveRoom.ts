@@ -1,3 +1,4 @@
+import isElectron from "is-electron";
 import { useCallback } from "react";
 import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
 import { useRoomChatStore } from "../modules/room/chat/useRoomChatStore";
@@ -9,6 +10,10 @@ export const useLeaveRoom = () => {
 
   return {
     leaveRoom: useCallback(() => {
+      if (isElectron()) {
+        let ipcRenderer = window.require("electron").ipcRenderer;
+        ipcRenderer.send("@voice/active", false);
+      }
       mutateAsync([]);
       useCurrentRoomIdStore.getState().setCurrentRoomId(null);
       useRoomChatStore.getState().reset();
