@@ -91,14 +91,14 @@ export const LoginPage: React.FC = () => {
           <p className="text-primary-100 flex-wrap">
             By logging in you accept our&nbsp;
             <a
-              href="https://youtu.be/dQw4w9WgXcQ"
+              href="/privacy"
               className="text-accent hover:underline"
             >
               Privacy Policy
             </a>
             &nbsp;and&nbsp;
             <a
-              href="https://youtu.be/dQw4w9WgXcQ"
+              href="/terms"
               className="text-accent hover:underline"
             >
               Terms of Service
@@ -151,7 +151,7 @@ export const LoginPage: React.FC = () => {
         </div>
         <div className="gap-6 text-primary-300">
           <a
-            href="https://youtu.be/dQw4w9WgXcQ"
+            href="/privacy"
             className="hover:text-primary-200"
           >
             Privacy policy
