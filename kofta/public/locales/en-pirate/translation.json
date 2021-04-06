@@ -38,7 +38,11 @@
       "startPrivateRoom": "start a private cabin wit' 'em"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Create Cabin", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "Create Cabin",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "cabin gone, go back",
       "shareRoomLink": "share link t' cabin",

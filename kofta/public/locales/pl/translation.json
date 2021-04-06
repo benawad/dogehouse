@@ -38,7 +38,11 @@
       "startPrivateRoom": "załóż z nim prywatny pokój"
     },
     "followList": { "followHim": "obserwuj", "followingHim": "obserwujesz" },
-    "home": { "createRoom": "Stwórz pokój", "refresh": "Odśwież" },
+    "home": {
+      "createRoom": "Stwórz pokój",
+      "refresh": "Odśwież",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "pokój usunięty, wróć",
       "shareRoomLink": "udostępnij link do pokoju",

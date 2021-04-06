@@ -1,4 +1,5 @@
 import "./Button.stories";
+import "./FeaturedRoomCard.stories";
 import "./Message.stories";
 import "./SingleUserAvatar.stories";
 import "./MultipleUserAvatar.stories";

@@ -68,7 +68,7 @@ export interface RoomChatMessage {
 export const useRoomChatStore = create(
   combine(
     {
-      open: true,
+      open: false,
       bannedUserIdMap: {} as Record<string, boolean>,
       messages: [] as RoomChatMessage[],
       newUnreadMessages: false,
@@ -105,7 +105,6 @@ export const useRoomChatStore = create(
         set({
           messages: [],
           newUnreadMessages: false,
-          open: false,
           bannedUserIdMap: {},
         }),
       toggleOpen: () =>

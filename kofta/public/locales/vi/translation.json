@@ -38,7 +38,11 @@
       "startPrivateRoom": "tạo phòng riêng tư với họ"
     },
     "followList": { "followHim": "theo dõi", "followingHim": "đang theo dõi" },
-    "home": { "createRoom": "Tạo phòng", "refresh": "Làm mới" },
+    "home": {
+      "createRoom": "Tạo phòng",
+      "refresh": "Làm mới",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "phòng đã kết thúc, quay lại đi",
       "shareRoomLink": "Chia sẻ liên kết phòng",

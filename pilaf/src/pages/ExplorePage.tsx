@@ -1,26 +1,15 @@
 import React from "react";
 import { StyleSheet, Text } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { colors, fontFamily } from "../constants/dogeStyle";
+import { colors } from "../constants/dogeStyle";
+import { useConn } from "../shared-hooks/useConn";
 
 export const ExplorePage: React.FC = () => {
-  return (
-    <SafeAreaView style={styles.safeAreaView}>
-      <Text
-        style={{
-          alignSelf: "center",
-          fontFamily: fontFamily.extraBold,
-          color: colors.text,
-        }}
-      >
-        Explore Page
-      </Text>
-    </SafeAreaView>
-  );
+  const conn = useConn();
+  return <Text>Explore page</Text>;
 };
 
 const styles = StyleSheet.create({
-  safeAreaView: {
+  container: {
     flex: 1,
     justifyContent: "center",
     backgroundColor: colors.primary900,

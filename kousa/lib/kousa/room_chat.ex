@@ -1,5 +1,4 @@
 defmodule Kousa.RoomChat do
-  alias Kousa.Utils.RegUtils
   alias Beef.Rooms
 
   @message_character_limit 512

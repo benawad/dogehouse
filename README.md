@@ -1,6 +1,7 @@
-<p align="center">
-    <img height=100 src="https://raw.githubusercontent.com/benawad/dogehouse/staging/.redesign-assets/dogehouse_logo.svg"/>
-</p>
+<a href="https://dogehouse.tv"><p align="center">
+<img height=100 src="https://raw.githubusercontent.com/benawad/dogehouse/staging/.redesign-assets/dogehouse_logo.svg"/>
+
+</p></a>
 <p align="center">
   <strong>Taking voice conversations to the moon 🚀</strong>
 </p>
@@ -57,11 +58,22 @@ A desktop app built with [electron](https://www.electronjs.org/) is available fo
 Download links are in [the releases section](https://github.com/benawad/dogehouse/releases/latest)
 
 Dogehouse is also available in the AUR
+
 ```bash
 yay -S dogehouse
 ```
 
-__*Notes:*__
+And in an Ubuntu ppa
+
+```bash
+echo "deb http://ppa.dogehouse.tv/ ./" | sudo tee -a /etc/apt/sources.list > /dev/null
+wget -q -O - http://ppa.dogehouse.tv/KEY.gpg | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install dogehouse
+```
+
+**_Notes:_**
+
 - If a warning message pops up on Windows, go to 'more info' and select 'Run Anyway'
 
 ## DogeReviewers

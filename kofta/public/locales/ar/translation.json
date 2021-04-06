@@ -38,7 +38,11 @@
       "startPrivateRoom": "ابدأ غرفة خاصة معهم"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "ابدأ غرفة", "refresh": "تحديث" },
+    "home": {
+      "createRoom": "ابدأ غرفة",
+      "refresh": "تحديث",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "انتهت الغرفة، عد إلى الوراء",
       "shareRoomLink": "شارك رابط الغرفة",

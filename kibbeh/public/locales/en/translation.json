@@ -45,6 +45,7 @@
     },
     "home": {
       "createRoom": "Create Room",
+      "editRoom": "Edit Room",
       "refresh": "Refresh"
     },
     "inviteList": {

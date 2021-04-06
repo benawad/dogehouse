@@ -38,7 +38,11 @@
       "startPrivateRoom": "qol gaar ah la bilow"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Abuur qol ", "refresh": "Cusbooneysii" },
+    "home": {
+      "createRoom": "Abuur qol ",
+      "refresh": "Cusbooneysii",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Qolka wuu dhamaday, dib u noqo",
       "shareRoomLink": "Lawadaag xiriiriyaha qolkan",

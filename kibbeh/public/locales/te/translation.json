@@ -37,7 +37,11 @@
       "startPrivateRoom": "వారితో ఒక ప్రైవేట్ గదిని ప్రారంభించండి"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "గదిని సృష్టించండి", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "గదిని సృష్టించండి",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "గది పోయింది, తిరిగి వెళ్ళు",
       "shareRoomLink": "గదికి లింక్‌ను భాగస్వామ్యం చేయండి",

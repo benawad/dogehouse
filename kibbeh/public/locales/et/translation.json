@@ -38,7 +38,11 @@
       "startPrivateRoom": "loo nendega privaatne ruum"
     },
     "followList": { "followHim": "jälgi", "followingHim": "jälgid" },
-    "home": { "createRoom": "Loo ruum", "refresh": "Värskenda" },
+    "home": {
+      "createRoom": "Loo ruum",
+      "refresh": "Värskenda",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "ruum läinud, mine tagasi",
       "shareRoomLink": "jaga link ruumi",

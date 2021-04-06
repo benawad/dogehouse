@@ -2,8 +2,6 @@ import React, { useContext, useEffect, useRef } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { WebSocketContext } from "../ws/WebSocketProvider";
-import { ActiveSpeakerListener } from "./components/ActiveSpeakerListener";
-import { AudioRender } from "./components/AudioRender";
 import { useMicIdStore } from "./stores/useMicIdStore";
 import { useVoiceStore } from "./stores/useVoiceStore";
 import { consumeAudio } from "./utils/consumeAudio";
@@ -12,6 +10,7 @@ import { joinRoom } from "./utils/joinRoom";
 import { receiveVoice } from "./utils/receiveVoice";
 import { sendVoice } from "./utils/sendVoice";
 import InCallManager from "react-native-incall-manager";
+import * as RootNavigation from "../../navigators/RootNavigation";
 
 interface App2Props {}
 
@@ -70,17 +69,20 @@ export const WebRtcApp: React.FC<App2Props> = () => {
       return;
     }
 
+    console.log("ADD LISTENER");
     const unsubs = [
       // @todo fix
       conn.addListener<any>("you_left_room", (d) => {
-        // assumes you don't rejoin the same room really quickly before websocket fires
-        setCurrentRoomId((id) => {
-          if (id === d.roomId) {
-            return null;
+        if (d.kicked) {
+          const { currentRoomId } = useCurrentRoomIdStore.getState();
+          if (currentRoomId !== d.roomId) {
+            return;
           }
-          return id;
-        });
-        closeVoiceConnections(d.roomId);
+
+          setCurrentRoomId(null);
+          closeVoiceConnections(d.roomId);
+          RootNavigation.navigate("Home");
+        }
         InCallManager.stop();
       }),
       conn.addListener<any>("new-peer-speaker", async (d) => {
@@ -96,7 +98,6 @@ export const WebRtcApp: React.FC<App2Props> = () => {
         if (d.roomId !== useVoiceStore.getState().roomId) {
           return;
         }
-        // setStatus("connected-speaker");
         try {
           await createTransport(conn, d.roomId, "send", d.sendTransportOptions);
         } catch (err) {
@@ -104,7 +105,6 @@ export const WebRtcApp: React.FC<App2Props> = () => {
           return;
         }
         InCallManager.start({ media: "audio" });
-        console.log("sending voice");
         try {
           await sendVoice();
         } catch (err) {
@@ -164,12 +164,12 @@ export const WebRtcApp: React.FC<App2Props> = () => {
     ];
 
     return () => {
+      console.log("CLEAN UP LISTENER");
       unsubs.forEach((x) => x());
     };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [conn]);
 
-  return <>{/* <AudioRender />
-      <ActiveSpeakerListener /> */}</>;
+  return <></>;
 };

@@ -37,7 +37,11 @@
       "startPrivateRoom": "Start een privé kamer met deze persoon"
     },
     "followList": { "followHim": "Volg", "followingHim": "Volgend" },
-    "home": { "createRoom": "Kamer maken", "refresh": "Verversen" },
+    "home": {
+      "createRoom": "Kamer maken",
+      "refresh": "Verversen",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Kamer bestaat niet, ga terug",
       "shareRoomLink": "Link van deze kamer delen",

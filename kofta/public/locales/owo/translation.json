@@ -40,7 +40,8 @@
     "followList": { "followHim": "Follow", "followingHim": "Following" },
     "home": {
       "createRoom": "OwO Cweate Woom (ʘᗩʘ')",
-      "refresh": "Wefwesh (◠‿◠✿)"
+      "refresh": " Wefwesh (◠‿◠✿)",
+      "editRoom": "Edit Room"
     },
     "inviteList": {
       "roomGone": "Woom gone, go back <{^v^}>",
@@ -56,9 +57,9 @@
       "featureText_4": "0w0 Open Souwce ÙωÙ",
       "featureText_5": "Text Chat <{^v^}>",
       "featureText_6": "Powewed by Doge",
-      "loginGithub": "Login with GitHub",
-      "loginTwitter": "Login with Twittew",
-      "createTestUser": "Cweate test usew UwU"
+      "loginGithub": "Log in with GitHub",
+      "loginTwitter": "Log in with Twittew",
+      "createTestUser": "Cweate Test Usew UwU"
     },
     "myProfile": {
       "logout": "Logout",

@@ -37,7 +37,11 @@
       "startPrivateRoom": "Avvia una stanza privata con lui"
     },
     "followList": { "followHim": "Segui", "followingHim": "Segui già" },
-    "home": { "createRoom": "Crea una stanza", "refresh": "Ricarica" },
+    "home": {
+      "createRoom": "Crea una stanza",
+      "refresh": "Ricarica",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "La stanza non esiste, torna indietro",
       "shareRoomLink": "Condividi link della stanza",

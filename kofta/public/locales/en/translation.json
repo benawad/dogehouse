@@ -45,6 +45,7 @@
     },
     "home": {
       "createRoom": "Create Room",
+      "editRoom": "Edit Room",
       "refresh": "Refresh"
     },
     "inviteList": {
@@ -61,13 +62,13 @@
       "featureText_4": "Open Source",
       "featureText_5": "Text Chat",
       "featureText_6": "Powered by Doge",
-      "loginGithub": "Login with GitHub",
-      "loginTwitter": "Login with Twitter",
-      "createTestUser": "Create Test User"
+      "loginGithub": "Log in with GitHub",
+      "loginTwitter": "Log in with Twitter",
+      "createTestUser": "create Test User"
     },
     "myProfile": {
       "logout": "Logout",
-      "probablyLoading": "probably loading...",
+      "probablyLoading": "Probably loading...",
       "voiceSettings": "Voice Settings",
       "overlaySettings": "Overlay Settings",
       "soundSettings": "Sound Settings",
@@ -86,7 +87,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": {
-      "search": "search..."
+      "search": "Search..."
     },
     "soundEffectSettings": {
       "header": "Sounds"

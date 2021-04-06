@@ -6,9 +6,9 @@ import {
 } from "@dogehouse/kebab";
 import React, { useContext } from "react";
 import { RoomAvatar } from "../../components/avatars/RoomAvatar";
-import { SingleUserAvatar } from "../../components/avatars/SingleUserAvatar";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useConn } from "../../shared-hooks/useConn";
+import { UserPreviewModalContext } from "./UserPreviewModalProvider";
 
 export const useSplitUsersIntoSections = ({
   room,
@@ -18,6 +18,7 @@ export const useSplitUsersIntoSections = ({
 }: JoinRoomAndGetInfoResponse) => {
   const conn = useConn();
   const { muted } = useMuteStore();
+  const { setData } = useContext(UserPreviewModalContext);
   const speakers: React.ReactNode[] = [];
   const askingToSpeak: React.ReactNode[] = [];
   const listeners: React.ReactNode[] = [];
@@ -40,14 +41,15 @@ export const useSplitUsersIntoSections = ({
     const canSpeak = isCreator || isSpeaker;
     const isMuted = conn.user.id === u.id ? muted : muteMap[u.id];
 
-    // for (let i = 0; i < 50; i++) {
     arr.push(
       <RoomAvatar
         key={u.id}
         src={{ uri: u.avatarUrl }}
-        muted={isMuted}
+        muted={canSpeak && isMuted}
         username={u.displayName}
-        style={{ marginRight: 10, marginBottom: 10 }}
+        style={{ marginRight: 5, marginBottom: 10 }}
+        activeSpeaker={canSpeak && !isMuted && u.id in activeSpeakerMap}
+        onPress={() => setData({ userId: u.id })}
       />
     );
     // }

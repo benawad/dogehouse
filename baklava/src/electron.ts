@@ -11,9 +11,9 @@ import {
 import i18n from "i18next";
 import Backend from "i18next-node-fs-backend";
 import { autoUpdater } from "electron-updater";
-import { RegisterKeybinds } from "./utils/keybinds";
+import { RegisterKeybinds, exitApp } from "./utils/keybinds";
 import { HandleVoiceTray } from "./utils/tray";
-import { ALLOWED_HOSTS, isMac, MENU_TEMPLATE } from "./constants";
+import { ALLOWED_HOSTS, isLinux, isMac, MENU_TEMPLATE } from "./constants";
 import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
@@ -30,16 +30,19 @@ export const __prod__ = app.isPackaged;
 const instanceLock = app.requestSingleInstanceLock();
 let shouldShowWindow = false;
 let windowShowInterval: NodeJS.Timeout;
+let skipUpdateTimeout: NodeJS.Timeout;
 
 i18n.use(Backend);
 
 electronLogger.transports.file.level = "debug"
 autoUpdater.logger = electronLogger;
+// just in case we have to revert to a build
+autoUpdater.allowDowngrade = true;
 
 async function localize() {
   await i18n.init({
     lng: app.getLocale(),
-    debug: !__prod__,
+    debug: false,
     backend: {
       // path where resources get loaded from
       loadPath: path.join(__dirname, '../locales/{{lng}}/translate.json'),
@@ -64,8 +67,8 @@ function createWindow() {
   });
 
   splash = new BrowserWindow({
-    width: 400,
-    height: 500,
+    width: 300,
+    height: 410,
     transparent: true,
     frame: false,
     webPreferences: {
@@ -73,7 +76,7 @@ function createWindow() {
     }
   });
   splash.loadFile(path.join(__dirname, "../resources/splash/splash-screen.html"));
-
+  electronLogger.info(`SPLASH PATH: ${path.join(__dirname, "../resources/splash/splash-screen.html")}`)
   splash.webContents.on('did-finish-load', () => {
     splash.webContents.send('@locale/text', {
       title: i18n.t('common.title'),
@@ -95,7 +98,7 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
   }
   mainWindow.loadURL(
-    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/"
+    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/dash"
   );
 
   bWindows = {
@@ -117,7 +120,7 @@ function createWindow() {
     });
   }
 
-  // crashes on mac
+  // crashes on mac only in dev
   // systemPreferences.askForMediaAccess("microphone");
   ipcMain.on("request-mic", async (event, _serviceName) => {
     const isAllowed: boolean = await systemPreferences.askForMediaAccess(
@@ -156,7 +159,7 @@ function createWindow() {
       shell.openExternal(url);
     } else {
       if (
-        urlHost == ALLOWED_HOSTS[3] &&
+        urlHost == ALLOWED_HOSTS[4] &&
         urlObj.pathname !== "/login" &&
         urlObj.pathname !== "/session" &&
         urlObj.pathname !== "/sessions/two-factor"
@@ -172,13 +175,28 @@ function createWindow() {
   ipcMain.on('@app/version', (event, args) => {
     event.sender.send('@app/version', app.getVersion());
   });
+  ipcMain.on('@dogehouse/loaded', (event, doge) => {
+    if (doge === "kibbeh") {
+      if (isMac) {
+        mainWindow.maximize();
+      } else {
+        mainWindow.setSize(1500, 800, true);
+      }
+    } else {
+      mainWindow.setSize(560, 1000, true);
+    }
+    mainWindow.center();
+  });
+  if (isLinux) {
+    skipUpdateCheck(splash);
+  }
 }
 
 if (!instanceLock) {
   if (process.env.hotReload) {
     app.relaunch();
   }
-  app.quit();
+  exitApp();
 } else {
   app.on("ready", () => {
     localize().then(() => {
@@ -197,15 +215,28 @@ if (!instanceLock) {
 
 autoUpdater.on('update-available', info => {
   splash.webContents.send('download', info);
+  // skip the update if it takes more than 1 minute
+  skipUpdateTimeout = setTimeout(() => {
+    skipUpdateCheck(splash);
+  }, 60000);
 });
 autoUpdater.on('download-progress', (progress) => {
   let prog = Math.floor(progress.percent)
   splash.webContents.send('percentage', prog);
   splash.setProgressBar(prog);
+  // stop timeout that skips the update
+  if (skipUpdateTimeout) {
+    clearTimeout(skipUpdateTimeout);
+  }
 });
 autoUpdater.on('update-downloaded', () => {
   splash.webContents.send('relaunch');
-  setTimeout(() => {
+  // stop timeout that skips the update
+  if (skipUpdateTimeout) {
+    clearTimeout(skipUpdateTimeout);
+  }
+  setTimeout(async () => {
+    await exitApp(false);
     autoUpdater.quitAndInstall();
   }, 1000);
 });
@@ -220,8 +251,8 @@ autoUpdater.on('update-not-available', () => {
   }, 500);
 });
 
-app.on("window-all-closed", () => {
-  app.quit();
+app.on("window-all-closed", async () => {
+  await exitApp();
 });
 app.on("activate", () => {
   if (mainWindow === null) {
@@ -230,3 +261,22 @@ app.on("activate", () => {
     })
   }
 });
+
+function skipUpdateCheck(splash: BrowserWindow) {
+  splash.webContents.send('skipCheck');
+  windowShowInterval = setInterval(() => {
+    // stop timeout that skips the update
+    if (skipUpdateTimeout) {
+      clearTimeout(skipUpdateTimeout);
+    }
+    if (shouldShowWindow) {
+      splash.webContents.send('launch');
+      clearInterval(windowShowInterval);
+      setTimeout(() => {
+        splash.destroy();
+        mainWindow.show();
+      }, 800);
+    }
+  }, 500);
+}
+

@@ -2321,6 +2321,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-community/hooks@npm:^2.6.0":
+  version: 2.6.0
+  resolution: "@react-native-community/hooks@npm:2.6.0"
+  peerDependencies:
+    react: ">=16.8.0"
+    react-native: ">=0.59"
+  checksum: ea5e2575859a6a1f7b195bd527e9da440c09b4af60981b3fd2b6c94dbee0bb276e2d3b6d218ed35aa9aa63b3116f6bfcfa76ee90c2d7b7381eff6c063d0426a2
+  languageName: node
+  linkType: hard
+
 "@react-native-community/masked-view@npm:^0.1.10":
   version: 0.1.10
   resolution: "@react-native-community/masked-view@npm:0.1.10"
@@ -7705,6 +7715,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"emoji-mart@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "emoji-mart@npm:3.0.1"
+  dependencies:
+    "@babel/runtime": ^7.0.0
+    prop-types: ^15.6.0
+  peerDependencies:
+    react: ^0.14.0 || ^15.0.0-0 || ^16.0.0 || ^17.0.0
+  checksum: 82239f4f25ec728bc6cb3f32949fdde6b6c6364ff5bd2b04785afa81a5c8b8c624ba2b37ed6d0ee31215db231e60cc86adf19f6441f38db98d538b50cca1976b
+  languageName: node
+  linkType: hard
+
 "emoji-regex@npm:>=6.0.0 <=6.1.1":
   version: 6.1.1
   resolution: "emoji-regex@npm:6.1.1"
@@ -13044,6 +13066,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"normalize-url@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "normalize-url@npm:5.3.0"
+  checksum: 126bcee51735bd975a3df3df008595fa4b6770f511494a05472519ca9e8e8caea62761f66d81c7cab28e758b201cdc656c1bc8a2c2c9d091bef661f32a182d6d
+  languageName: node
+  linkType: hard
+
 "npm-run-path@npm:^2.0.0":
   version: 2.0.2
   resolution: "npm-run-path@npm:2.0.2"
@@ -14169,7 +14198,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.0.0, prop-types@npm:^15.5.10, prop-types@npm:^15.5.8, prop-types@npm:^15.6.0, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
+"prop-types@npm:^15.0.0, prop-types@npm:^15.5.10, prop-types@npm:^15.5.6, prop-types@npm:^15.5.8, prop-types@npm:^15.6.0, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
   version: 15.7.2
   resolution: "prop-types@npm:15.7.2"
   dependencies:
@@ -14844,6 +14873,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-native-slider@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "react-native-slider@npm:0.11.0"
+  dependencies:
+    prop-types: ^15.5.6
+  checksum: 376337bf4ecdbbca7318ec5574712be73f614212b32b68cf45fcde20a74799e5f32268c7705d9ad9c96a0ec62bb693ee5436260f08e61c5d97cdadae4fb7dd21
+  languageName: node
+  linkType: hard
+
 "react-native-sound@npm:^0.11.0":
   version: 0.11.0
   resolution: "react-native-sound@npm:0.11.0"
@@ -15264,6 +15302,18 @@ fsevents@^1.2.7:
   dependencies:
     picomatch: ^2.2.1
   checksum: a64fe5606937d9655252230003362d95da05dbfd3baecedb4bb8c1bc0df497d051a192f9b75345c944e58a0b362c68349be602d6dbf05d03770e510b35a9f80f
+  languageName: node
+  linkType: hard
+
+"reanimated-bottom-sheet@npm:^1.0.0-alpha.22":
+  version: 1.0.0-alpha.22
+  resolution: "reanimated-bottom-sheet@npm:1.0.0-alpha.22"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+    react-native-gesture-handler: "*"
+    react-native-reanimated: "*"
+  checksum: 0e8263131da86112d392872edfbb456dbc782f096de3a00a47517022bd7266ece5a4ec2b4f15edbd34b5a04ca99d2adfafccd72f20f9bc64df9e5a2de2686006
   languageName: node
   linkType: hard
 
@@ -15737,6 +15787,7 @@ resolve@^2.0.0-next.3:
     "@babel/runtime": ^7.12.5
     "@react-native-async-storage/async-storage": ^1.14.1
     "@react-native-community/eslint-config": ^2.0.0
+    "@react-native-community/hooks": ^2.6.0
     "@react-native-community/masked-view": ^0.1.10
     "@react-native-segmented-control/segmented-control": ^2.3.0
     "@react-navigation/bottom-tabs": ^5.11.8
@@ -15756,11 +15807,13 @@ resolve@^2.0.0-next.3:
     babel-jest: ^26.6.3
     babel-loader: ^8.2.2
     date-fns: ^2.19.0
+    emoji-mart: ^3.0.1
     eslint: 7.14.0
     formik: ^2.2.6
     hark: ^1.2.3
     jest: ^26.6.3
     metro-react-native-babel-preset: ^0.64.0
+    normalize-url: ^5.3.0
     react: 17.0.1
     react-dom: 17.0.1
     react-native: 0.64.0
@@ -15773,6 +15826,7 @@ resolve@^2.0.0-next.3:
     react-native-reanimated: ^2.0.0
     react-native-safe-area-context: ^3.2.0
     react-native-screens: ^2.18.1
+    react-native-slider: ^0.11.0
     react-native-sound: ^0.11.0
     react-native-splash-screen: ^3.2.0
     react-native-toast-message: ^1.4.9
@@ -15780,6 +15834,7 @@ resolve@^2.0.0-next.3:
     react-native-webrtc: ^1.89.1
     react-query: ^3.13.0
     react-test-renderer: 17.0.1
+    reanimated-bottom-sheet: ^1.0.0-alpha.22
     typescript: ^4.2.3
     zustand: ^3.3.3
   languageName: unknown
