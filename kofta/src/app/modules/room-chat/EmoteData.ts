@@ -2,6 +2,12 @@ import { EmojiData } from "emoji-mart";
 
 export const customEmojis = [
   {
+    name: "1Head",
+    short_names: ["1Head"],
+    keywords: ["Dumb", "Head", "1Head"],
+    imageUrl: "/emotes/1Head.png",
+  },
+  {
     name: "Dcolon",
     short_names: ["Surprised"],
     keywords: ["D-colon", "Dcolon", "D:", "Surprised"],
