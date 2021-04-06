@@ -22,6 +22,11 @@ const handlers = {
     as: `/u/${username}`,
     onClick: (prefetch: Prefetch) => prefetch("getUserProfile", [username]),
   }),
+  room: ({ id }: { id: string }) => ({
+    href: "/room/[id]",
+    as: `/room/${id}`,
+    onClick: (prefetch: Prefetch) => prefetch("joinRoomAndGetInfo", [id]),
+  }),
 };
 
 type Handler = typeof handlers;

@@ -1,10 +1,14 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
-import { RoomController } from "../components/roomController/RoomController";
+import { MinimizedRoomCard } from "../components/minimizedRoomCard/MinimizedRoomCard";
 import { colors, radius } from "../constants/dogeStyle";
 import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
 import { WaitForWsAndAuth } from "../modules/auth/WaitForWsAndAuth";
+
 import { RoomSearchPage } from "../modules/room/RoomSearchPage";
+
+import MinimizedRoomCardController from "../modules/dashboard/MinimizedRoomCardController";
+
 import { WebSocketProvider } from "../modules/ws/WebSocketProvider";
 import { HelpPage } from "../pages/HelpPage";
 import { LanguagePage } from "../pages/LanguagePage";
@@ -38,16 +42,8 @@ const Stack = createStackNavigator<RootStackParamList>();
 export const MainNavigator = () => {
   return (
     <WaitForWsAndAuth>
-      <RoomController
-        style={{
-          position: "absolute",
-          backgroundColor: colors.primary200,
-          borderRadius: radius.m,
-          bottom: 90,
-          right: 20,
-          zIndex: 10,
-        }}
-      />
+      <MinimizedRoomCardController />
+
       <Stack.Navigator
         screenOptions={{
           headerShown: false,

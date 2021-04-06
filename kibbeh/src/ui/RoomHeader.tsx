@@ -1,5 +1,5 @@
 import React from "react";
-import { SolidCaretRight, SolidNotification } from "../icons";
+import { SolidCaretRight } from "../icons";
 
 interface RoomHeaderProps {
   onTitleClick?: () => void;

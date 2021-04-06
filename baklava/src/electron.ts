@@ -11,7 +11,7 @@ import {
 import i18n from "i18next";
 import Backend from "i18next-node-fs-backend";
 import { autoUpdater } from "electron-updater";
-import { RegisterKeybinds, stopWorkersAndExitApp } from "./utils/keybinds";
+import { RegisterKeybinds, exitApp } from "./utils/keybinds";
 import { HandleVoiceTray } from "./utils/tray";
 import { ALLOWED_HOSTS, isLinux, isMac, MENU_TEMPLATE } from "./constants";
 import path from "path";
@@ -36,6 +36,7 @@ i18n.use(Backend);
 
 electronLogger.transports.file.level = "debug"
 autoUpdater.logger = electronLogger;
+// just in case we have to revert to a build
 autoUpdater.allowDowngrade = true;
 
 async function localize() {
@@ -176,9 +177,13 @@ function createWindow() {
   });
   ipcMain.on('@dogehouse/loaded', (event, doge) => {
     if (doge === "kibbeh") {
-      mainWindow.setSize(1500, 800);
+      if (isMac) {
+        mainWindow.maximize();
+      } else {
+        mainWindow.setSize(1500, 800, true);
+      }
     } else {
-      mainWindow.setSize(560, 1000);
+      mainWindow.setSize(560, 1000, true);
     }
     mainWindow.center();
   });
@@ -191,7 +196,7 @@ if (!instanceLock) {
   if (process.env.hotReload) {
     app.relaunch();
   }
-  stopWorkersAndExitApp();
+  exitApp();
 } else {
   app.on("ready", () => {
     localize().then(() => {
@@ -230,7 +235,8 @@ autoUpdater.on('update-downloaded', () => {
   if (skipUpdateTimeout) {
     clearTimeout(skipUpdateTimeout);
   }
-  setTimeout(() => {
+  setTimeout(async () => {
+    await exitApp(false);
     autoUpdater.quitAndInstall();
   }, 1000);
 });
@@ -246,7 +252,7 @@ autoUpdater.on('update-not-available', () => {
 });
 
 app.on("window-all-closed", async () => {
-  await stopWorkersAndExitApp();
+  await exitApp();
 });
 app.on("activate", () => {
   if (mainWindow === null) {
