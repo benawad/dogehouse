@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
 
 export const DropdownController: React.FC<{
@@ -39,16 +40,19 @@ export const DropdownController: React.FC<{
       <button ref={referenceRef} onClick={() => setVisibility(!visible)}>
         {children}
       </button>
-      <div
-        className="z-20"
-        ref={popperRef}
-        style={styles.popper}
-        {...attributes.popper}
-      >
-        <div style={styles.offset} className={`${visible ? "" : "hidden"}`}>
-          {overlay(() => setVisibility(false))}
-        </div>
-      </div>
+      {createPortal(
+        <div
+          className="z-20"
+          ref={popperRef}
+          style={styles.popper}
+          {...attributes.popper}
+        >
+          <div style={styles.offset} className={`${visible ? "" : "hidden"}`}>
+            {overlay(() => setVisibility(false))}
+          </div>
+        </div>,
+        document.querySelector("#__next")
+      )}
     </React.Fragment>
   );
 };
