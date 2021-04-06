@@ -27,7 +27,7 @@ export const MainInnerGrid: React.FC<DashboardGridProps> = ({
     <div
       className={`${myClassName} ${className}`}
       style={{
-        display: "grid",
+        display: screenType === "fullscreen" ? "flex" : "grid",
         gridTemplateColumns,
         columnGap: 60,
       }}
