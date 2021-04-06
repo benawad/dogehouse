@@ -51,7 +51,7 @@ export const DropdownController: React.FC<{
             {overlay(() => setVisibility(false))}
           </div>
         </div>,
-        document.querySelector("#__next")
+        document.querySelector("#__next")!
       )}
     </React.Fragment>
   );
