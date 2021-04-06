@@ -177,7 +177,11 @@ function createWindow() {
   });
   ipcMain.on('@dogehouse/loaded', (event, doge) => {
     if (doge === "kibbeh") {
-      mainWindow.maximize();
+      if (isMac) {
+        mainWindow.maximize();
+      } else {
+        mainWindow.setSize(1500, 800);
+      }
     } else {
       mainWindow.setSize(560, 1000);
     }
@@ -231,7 +235,8 @@ autoUpdater.on('update-downloaded', () => {
   if (skipUpdateTimeout) {
     clearTimeout(skipUpdateTimeout);
   }
-  setTimeout(() => {
+  setTimeout(async () => {
+    await exitApp(false);
     autoUpdater.quitAndInstall();
   }, 1000);
 });
