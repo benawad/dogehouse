@@ -42,7 +42,7 @@
 
 ## Branches
 
-- staging -> pr this branch for everything else
+- staging -> pr this branch for everything
 - prod -> don't touch, this is what's running in prod
 
 ## Contributions
