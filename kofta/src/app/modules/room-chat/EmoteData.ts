@@ -2,6 +2,12 @@ import { EmojiData } from "emoji-mart";
 
 export const customEmojis = [
   {
+    name: "SadgeJam",
+    short_names: ["SadJam"],
+    keywords: ["Pepe", "peepo", "Sad", "Dance", "Dancing"],
+    imageUrl: "/emotes/SadgeJam.png",
+  },
+  {
     name: "MrCool",
     short_names: ["Cool"],
     keywords: ["Cool", "Glass"],
