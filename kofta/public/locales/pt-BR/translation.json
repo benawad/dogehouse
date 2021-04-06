@@ -97,7 +97,10 @@
       "volume": "volume:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Título de aplicativo inválido", "label": "Insira o título do aplicativo" },
+      "input": {
+        "errorMsg": "Título de aplicativo inválido",
+        "label": "Insira o título do aplicativo"
+      },
       "header": "Configurações de sobreposição"
     }
   },

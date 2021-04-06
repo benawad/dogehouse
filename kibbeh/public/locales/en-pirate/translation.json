@@ -193,11 +193,11 @@
         "makeRoomCreator": "Make cabin cap'n"
       },
       "roomSettingsModal": {
-        "requirePermission": "require permission t' speak",
-        "makePublic": "make cabin public",
-        "makePrivate": "make cabin private",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "requirePermission": "Require permission t' speak",
+        "makePublic": "Make Cabin Public",
+        "makePrivate": "Make Cabin Private",
+        "renamePublic": "Set Public Cabin Name",
+        "renamePrivate": "Set Private Cabin Name"
       }
     }
   },
