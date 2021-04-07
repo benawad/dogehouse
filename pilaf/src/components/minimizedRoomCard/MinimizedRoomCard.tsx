@@ -65,7 +65,7 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
         image={require("../../assets/images/bxs-microphone.png")}
         imageColor={room.myself.isMuted ? colors.text : colors.accent}
         onPress={() => room.myself.switchMuted()}
-        style={{ width: 60 }}
+        style={{ width: 60, margin: 10 }}
       />
     </View>
   );
@@ -80,7 +80,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    padding: 10,
     shadowColor: colors.accent,
     shadowOpacity: 0.15,
     shadowRadius: 20,
@@ -89,5 +88,6 @@ const styles = StyleSheet.create({
   roomInfo: {
     flexDirection: "row",
     alignItems: "center",
+    padding: 10,
   },
 });

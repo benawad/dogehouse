@@ -43,7 +43,7 @@ export const MultipleUserAvatar: React.FC<MultipleUserAvatarProps> = ({
               {
                 left: (i * singleAvatarSize) / translationRatio,
                 borderRadius: (singleAvatarSize + 4) / 2,
-                zIndex: -i,
+                zIndex: 100 - i,
               },
             ]}
           >

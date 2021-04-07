@@ -1,6 +1,6 @@
 import { Room } from "@dogehouse/kebab";
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { Image, ScrollView, Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
 import {
   colors,
   fontSize,
@@ -14,7 +14,7 @@ import { UserPreviewModalContext } from "../UserPreviewModalProvider";
 import { emoteMap } from "./EmoteData";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
-
+import { ScrollView } from "react-native-gesture-handler";
 interface ChatListProps {
   room: Room;
 }
@@ -62,7 +62,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
       }}
     >
       <ScrollView
-        style={{ flex: 1, marginBottom: 10 }}
+        style={{ flex: 1, marginBottom: 10, paddingBottom: 10 }}
         contentContainerStyle={{
           flexGrow: 1,
           justifyContent: "flex-end",
@@ -96,6 +96,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                   ? {
                       backgroundColor: colors.primary700,
                       borderRadius: radius.s,
+                      paddingHorizontal: 5,
                     }
                   : {},
               ]}
@@ -106,7 +107,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                     ...small,
                     fontSize: fontSize.xs,
                     color: colors.primary300,
-                    marginHorizontal: 5,
                   }}
                 >
                   Whisper
@@ -118,6 +118,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                     ...smallBold,
                     color: m.color,
                     marginHorizontal: 5,
+                    textAlignVertical: "center",
                   }}
                   onPress={() =>
                     setData({
@@ -135,7 +136,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                   {m.username}:{" "}
                 </Text>
 
-                <Text style={{ ...small }}>
+                <Text style={{ ...small, lineHeight: undefined }}>
                   {m.deleted ? (
                     <Text>
                       [message{" "}
@@ -153,14 +154,13 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                               <Image
                                 key={i}
                                 source={emoteMap[v]}
-                                style={{ height: 20, width: 20 }}
+                                style={{
+                                  height: 20,
+                                  width: 20,
+                                }}
                               />
                             ) : (
-                              <Image
-                                key={i}
-                                source={emoteMap[v]}
-                                // style={{ height: 15, width: 15 }}
-                              />
+                              <Image key={i} source={emoteMap[v]} />
                             )
                           ) : (
                             ":" + v + ":"

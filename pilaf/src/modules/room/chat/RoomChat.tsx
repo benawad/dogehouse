@@ -21,7 +21,6 @@ export const RoomChat: React.FC<ChatProps> = ({ users, room, style }) => {
   const [emoteOpen, setEmoteOpen] = useState(false);
   const { message, setMessage } = useRoomChatStore();
   const keyboard = useKeyboard();
-  console.log(keyboard);
   useEffect(() => {
     Keyboard.addListener("keyboardWillShow", _keyboardDidShow);
     Keyboard.addListener("keyboardWillHide", _keyboardDidHide);
@@ -53,27 +52,28 @@ export const RoomChat: React.FC<ChatProps> = ({ users, room, style }) => {
         },
       ]}
     >
-      <RoomChatControls />
+      <RoomChatControls room={room} />
       <RoomChatList room={room} />
-      <EmotePicker
-        style={{
-          position: "absolute",
-          display: emoteOpen ? "flex" : "none",
-          bottom: inset.bottom + 60,
-          height: keyboardStatus ? "25%" : "50%",
-          left: 25,
-          right: 25,
-          marginBottom: keyboardStatus
-            ? keyboard.keyboardHeight - inset.bottom
-            : 0,
-        }}
-        isNitro={false}
-        onEmoteSelected={(emote) => {
-          console.log(emote.name);
-          setMessage(message + ":" + emote.name + ":");
-          setEmoteOpen(false);
-        }}
-      />
+      {emoteOpen && (
+        <EmotePicker
+          style={{
+            position: "absolute",
+            // display: emoteOpen ? "flex" : "none",
+            bottom: inset.bottom + 60,
+            height: keyboardStatus ? "25%" : "50%",
+            left: 25,
+            right: 25,
+            marginBottom: keyboardStatus
+              ? keyboard.keyboardHeight - inset.bottom
+              : 0,
+          }}
+          isNitro={false}
+          onEmoteSelected={(emote) => {
+            setMessage(message + ":" + emote.name + ":");
+            setEmoteOpen(false);
+          }}
+        />
+      )}
       <RoomChatInput
         users={users}
         onEmotePress={() => setEmoteOpen(!emoteOpen)}

@@ -20,7 +20,7 @@ import {
 } from "../../constants/dogeStyle";
 import { apiBaseUrl } from "../../constants/env";
 
-type Provider = "google" | "twitter" | "github";
+type Provider = "google" | "twitter" | "github" | "apple";
 
 const onPress = async (provider: Provider) => {
   try {
@@ -69,12 +69,14 @@ const imageSrcs = {
   github: require("../../assets/images/github.png"),
   google: require("../../assets/images/google.png"),
   twitter: require("../../assets/images/twitter.png"),
+  apple: require("../../assets/images/apple.png"),
 };
 
 const title = {
   github: "Sign in with Github",
   google: "Sign in with Google",
   twitter: "Sign in with Twitter",
+  apple: "Sign in with Apple",
 };
 
 export const SignInButton: React.FC<SignInButtonProps> = ({
@@ -86,7 +88,7 @@ export const SignInButton: React.FC<SignInButtonProps> = ({
       onPress={() => onPress(provider)}
       style={[style, styles.button]}
     >
-      <Image source={imageSrcs[provider]} />
+      <Image source={imageSrcs[provider]} style={{ tintColor: colors.text }} />
       <Text style={styles.title}>{title[provider]}</Text>
     </TouchableOpacity>
   );

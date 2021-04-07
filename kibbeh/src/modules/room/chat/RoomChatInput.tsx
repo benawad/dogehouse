@@ -13,6 +13,7 @@ import { EmojiPicker } from "../../../ui/EmojiPicker";
 import { useEmojiPickerStore } from "../../../global-stores/useEmojiPickerStore";
 import { navigateThroughQueriedUsers } from "./navigateThroughQueriedUsers";
 import { navigateThroughQueriedEmojis } from "./navigateThroughQueriedEmojis";
+import { motion, useAnimation } from "framer-motion";
 
 interface ChatInputProps {
   users: RoomUser[];
@@ -42,6 +43,8 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
   const [lastMessageTimestamp, setLastMessageTimestamp] = useState<number>(0);
   const { t } = useTypeSafeTranslation();
 
+  const slowModeAnimationController = useAnimation();
+
   let position = 0;
 
   const handleSubmit = (
@@ -57,7 +60,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
     }
 
     if (Date.now() - lastMessageTimestamp <= 1000) {
-      showErrorToast(t("modules.roomChat.waitAlert"));
+      // showErrorToast(t("modules.roomChat.waitAlert"));
 
       return;
     }
@@ -81,6 +84,10 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
     setQueriedUsernames([]);
 
     setLastMessageTimestamp(Date.now());
+    slowModeAnimationController.start({
+      left: ["-0%", "-0%", "-100%"],
+      opacity: [1, 1, 1],
+    });
   };
 
   return (
@@ -106,14 +113,15 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
         />
       </div>
       <div className="flex items-stretch">
-        <div className="flex-1 mr-2 lg:mr-0 items-center bg-primary-700 rounded-8">
+        <div className="flex-1 mr-2 lg:mr-0 items-center bg-primary-700 rounded-8 relative overflow-hidden">
           <Input
+            className="z-20"
             maxLength={512}
             placeholder={t("modules.roomChat.sendMessage")}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             id="room-chat-input"
-            transparent
+            transparent={true}
             ref={inputRef}
             autoComplete="off"
             onKeyDown={
@@ -127,7 +135,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
             }}
           />
           <div
-            className={`right-12 cursor-pointer flex flex-row-reverse fill-current text-primary-200 mr-3`}
+            className={`right-12 cursor-pointer flex flex-row-reverse fill-current text-primary-200 mr-3 z-20`}
             onClick={() => {
               setOpen(!open);
               position = 0;
@@ -135,6 +143,17 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
           >
             <Smiley style={{ inlineSize: "23px" }}></Smiley>
           </div>
+          <motion.div
+            className="absolute h-full w-full bg-primary-600"
+            animate={slowModeAnimationController}
+            initial={{ opacity: 0 }}
+            transition={{
+              duration: 1,
+              type: "tween",
+              ease: "linear",
+              times: [0, 0.1, 1],
+            }}
+          />
         </div>
 
         {/* Send button (mobile only) */}
