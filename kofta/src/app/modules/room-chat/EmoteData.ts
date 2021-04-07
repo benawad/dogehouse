@@ -2,6 +2,12 @@ import { EmojiData } from "emoji-mart";
 
 export const customEmojis = [
   {
+    name: "KomodoHype",
+    short_names: ["KomodoPog"],
+    keywords: ["Komodo", "Pog", "Surprised"],
+    imageUrl: "/emotes/KomodoHype.png",
+  },
+  {
     name: "1Head",
     short_names: ["1Head"],
     keywords: ["Dumb", "Head", "1Head"],
