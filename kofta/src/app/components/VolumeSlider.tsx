@@ -14,12 +14,12 @@ export const VolumeSlider: React.FC<VolumeSliderProps> = ({
   onVolume,
 }) => {
   return (
-    <div>
+    <div className={`flex flex-col`}>
       {label ? "volume: " : ""}
       {volume}
       <input
         type="range"
-        min="1"
+        min="0"
         max={max}
         value={volume}
         onChange={(e) => {

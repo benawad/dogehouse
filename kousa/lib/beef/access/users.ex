@@ -8,22 +8,49 @@ defmodule Beef.Access.Users do
   alias Beef.Rooms
 
   def find_by_github_ids(ids) do
-    Query.start
+    Query.start()
     |> Query.filter_by_github_ids(ids)
-    |> Query.select_id
-    |> Repo.all
+    |> Query.select_id()
+    |> Repo.all()
+  end
+
+  @spec get_by_id_with_follow_info(any, any) :: any
+  def get_by_id_with_follow_info(me_id, them_id) do
+    Query.start()
+    |> Query.filter_by_id(them_id)
+    |> Query.follow_info(me_id)
+    |> Query.limit_one()
+    |> Repo.one()
   end
 
   def get_by_id(user_id) do
     Repo.get(User, user_id)
   end
 
+  def get_by_id_with_room_permissions(user_id) do
+    from(u in User,
+      where: u.id == ^user_id,
+      left_join: rp in Beef.Schemas.RoomPermission,
+      on: rp.userId == u.id and rp.roomId == u.currentRoomId,
+      select: %{u | roomPermissions: rp},
+      limit: 1
+    )
+    |> Repo.one()
+  end
+
   def get_by_username(username) do
-    Query.start
+    Query.start()
     |> Query.filter_by_username(username)
     |> Repo.one()
   end
 
+  def get_by_username_with_follow_info(user_id, username) do
+    Query.start()
+    |> Query.filter_by_username(username)
+    |> Query.follow_info(user_id)
+    |> Query.limit_one()
+    |> Repo.one()
+  end
 
   @fetch_limit 16
   def search(query, offset) do
@@ -48,11 +75,14 @@ defmodule Beef.Access.Users do
 
   def get_users_in_current_room(user_id) do
     case tuple_get_current_room_id(user_id) do
+      {:ok, nil} ->
+        {nil, []}
+
       {:ok, current_room_id} ->
         {current_room_id,
          from(u in User,
            where: u.currentRoomId == ^current_room_id,
-           left_join: rp in Beef.RoomPermission,
+           left_join: rp in Beef.Schemas.RoomPermission,
            on: rp.userId == u.id and rp.roomId == u.currentRoomId,
            select: %{u | roomPermissions: rp}
          )
@@ -67,16 +97,12 @@ defmodule Beef.Access.Users do
   # out of the database layer, but we are keeping it here for now
   # to keep the transition smooth.
   def tuple_get_current_room_id(user_id) do
-    case Kousa.RegUtils.lookup_and_call(
-           Kousa.Gen.UserSession,
-           user_id,
-           {:get_current_room_id}
-         ) do
+    case Onion.UserSession.get_current_room_id(user_id) do
       {:ok, nil} ->
         {nil, nil}
 
       x ->
-        x
+        {:ok, x}
     end
   end
 
@@ -102,17 +128,5 @@ defmodule Beef.Access.Users do
     end
   end
 
-  def get_current_room_id(user_id) do
-    case Kousa.RegUtils.lookup_and_call(
-           Kousa.Gen.UserSession,
-           user_id,
-           {:get_current_room_id}
-         ) do
-      {:ok, id} ->
-        id
-
-      _ ->
-        nil
-    end
-  end
+  defdelegate get_current_room_id(user_id), to: Onion.UserSession
 end

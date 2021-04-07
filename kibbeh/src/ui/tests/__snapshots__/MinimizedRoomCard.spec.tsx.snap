@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MinimizedRoomCard should match snapshot 1`] = `
+<div
+  class="bg-primary-800 border border-accent rounded-lg p-4 gap-4 grid max-w-md"
+  data-testid="minimized-room-card"
+>
+  <div
+    class="gap-1 grid"
+  >
+    <h4
+      class="text-primary-100"
+    />
+    <p
+      class="text-primary-300"
+    >
+      user1, user2, user3
+    </p>
+    <p
+      class="text-accent"
+    >
+      Speaker
+       ·
+       
+      00:00
+    </p>
+  </div>
+  <div
+    class="flex flex-row"
+  >
+    <div
+      class="grid grid-cols-3 gap-2"
+    >
+      <button
+        class="bg-primary-700 hover:bg-primary-600 h-6 w-6 cursor-pointer text-primary-100 justify-center items-center rounded
+        "
+        data-testid="boxed-icon"
+      >
+        <svg
+          data-testid="mic-icon"
+          fill="currentColor"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 11.205a3.2 3.2 0 003.196-3.197V3.213C11.196 1.442 9.77 0 8.016 0a.746.746 0 00-.167.02 3.201 3.201 0 00-3.046 3.193v4.795a3.2 3.2 0 003.196 3.197z"
+          />
+          <path
+            d="M7.2 14.346V16H8.8v-1.654c3.148-.395 5.594-3.083 5.594-6.338h-1.598A4.8 4.8 0 018 12.803a4.8 4.8 0 01-4.795-4.795H1.606c0 3.255 2.447 5.943 5.595 6.338z"
+          />
+        </svg>
+      </button>
+      <button
+        class="bg-primary-700 hover:bg-primary-600 h-6 w-6 cursor-pointer text-primary-100 justify-center items-center rounded
+        "
+        data-testid="boxed-icon"
+      >
+        <svg
+          fill="currentColor"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M2.797 1.559h.934a.78.78 0 000-1.559H.747A.764.764 0 000 .78v3.118a.747.747 0 101.492 0v-1.5l3.144 3.328a.755.755 0 101.066-1.069L2.797 1.56zm10.38.01h-.945a.785.785 0 010-1.569h3.014a.768.768 0 01.753.785v3.143a.755.755 0 11-1.507 0v-1.51l-3.177 3.353a.762.762 0 11-1.078-1.079l2.94-3.123zM2.796 14.441h.934a.78.78 0 010 1.559H.747A.764.764 0 010 15.22v-3.118a.747.747 0 111.492 0v1.5l3.144-3.328a.755.755 0 111.066 1.069L2.797 14.44zm10.38-.01h-.945a.785.785 0 000 1.569h3.014a.767.767 0 00.753-.784v-3.143a.755.755 0 10-1.507 0v1.508l-3.177-3.352a.762.762 0 10-1.078 1.079l2.94 3.123z"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </button>
+    </div>
+    <button
+      class="py-2 px-6 text-sm rounded-lg text-button bg-accent hover:bg-accent-hover disabled:text-accent-disabled disabled:bg-accent-hover font-bold flex items-center justify-center flex-grow ml-4"
+      data-testid="button"
+    >
+      <span
+        class="flex items-center"
+      >
+        Leave
+      </span>
+    </button>
+  </div>
+</div>
+`;

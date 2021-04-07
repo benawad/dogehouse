@@ -9,7 +9,7 @@
 /coverage
 
 # production
-/build
+/builds
 /dist
 
 #Builds
@@ -28,3 +28,10 @@ yarn-debug.log*
 yarn-error.log*
 .eslintcache
 .netlify
+
+# yarn v2
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions

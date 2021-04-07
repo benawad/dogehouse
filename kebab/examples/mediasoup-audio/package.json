@@ -1,0 +1,21 @@
+{
+  "name": "mediasoup-audio",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@dogehouse/kebab": "../..",
+    "mediasoup-client": "^3.6.29"
+  },
+  "browserslist": [
+    "> 0.2%",
+    "not dead"
+  ],
+  "scripts": {
+    "start": "parcel serve ./src/index.html -p 3000",
+    "build": "parcel build ./src/index.html"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.2",
+    "typescript": "^4.2.3"
+  }
+}

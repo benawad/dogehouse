@@ -90,7 +90,7 @@ export const Button: React.FC<
               ? "max-w-md ml-auto mr-auto py-2.5 px-12"
               : "py-2.5 px-1"
           }
-          ${props.className}
+          ${props.className ? props.className : ''}
         `}
     >
       {loading ? <Spinner /> : null}

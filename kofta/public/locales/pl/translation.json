@@ -15,7 +15,8 @@
     "copyLink": "skopiuj link",
     "copied": "skopiowano",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Korzystanie z DogeHouse bez uprawnień dostępu może powodować niechciane błędy."
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -30,14 +31,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "ban" },
+    "banUser": { "ban": "zbanuj" },
     "followingOnlineList": {
       "listHeader": "Lista użytkowników którzy nie są w prywatnym pokoju i których obserwujesz.",
       "currentRoom": "obecnie w:",
       "startPrivateRoom": "załóż z nim prywatny pokój"
     },
-    "followList": {},
-    "home": { "createRoom": "Stwórz pokój" },
+    "followList": { "followHim": "obserwuj", "followingHim": "obserwujesz" },
+    "home": {
+      "createRoom": "Stwórz pokój",
+      "refresh": "Odśwież",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "pokój usunięty, wróć",
       "shareRoomLink": "udostępnij link do pokoju",
@@ -50,9 +55,9 @@
       "featureText_2": "Otwarte Zapisy",
       "featureText_3": "Wsparcie międzyplatformowe",
       "featureText_4": "Open Source",
-      "featureText_5": "Chat tekstowy",
+      "featureText_5": "Czat tekstowy",
       "featureText_6": "Zasilany przez Doge",
-      "loginGithub": "zaloguj się przy użycius GitHub",
+      "loginGithub": "zaloguj się przy użyciu GitHub",
       "loginTwitter": "zaloguj się przy użyciu Twitter",
       "createTestUser": "stwórz testowe konto"
     },
@@ -60,18 +65,21 @@
       "logout": "wyloguj się",
       "probablyLoading": "prawdobodobnie ładowanie...",
       "voiceSettings": "przejdź do ustawień głosu",
-      "soundSettings": "przejdź do ustawień dzięku",
-      "deleteAccount": "usuń konto"
+      "soundSettings": "przejdź do ustawień dźwięku",
+      "deleteAccount": "usuń konto",
+      "overlaySettings": "przejdź do ustawień nakładki"
     },
     "notFound": {
-      "whoopsError": "Whoops! Ta strona zagubiła się w konwersacji.",
+      "whoopsError": "Ups! Ta strona zagubiła się w konwersacji.",
       "goHomeMessage": "Nie martw się. Możesz",
       "goHomeLinkText": "przejść na stronę domową"
     },
     "room": {
       "speakers": "Mówiący",
       "requestingToSpeak": "Prośba o pozwolenie na mówienie",
-      "listeners": "Słuchacze"
+      "listeners": "Słuchacze",
+      "allowAll": "Dopuść wszystkich",
+      "allowAllConfirm": "Czy napewno? To dopuści {{count}} użytkowników do mówienia"
     },
     "searchUser": { "search": "szukaj..." },
     "soundEffectSettings": { "header": "Dźwięki" },
@@ -79,7 +87,12 @@
       "editProfile": "edytuj profil",
       "followsYou": "obserwuje cię",
       "followers": "obserwujący",
-      "following": "obserwujesz"
+      "following": "obserwujesz",
+      "followHim": "obserwuj",
+      "followingHim": "obserwujesz",
+      "copyProfileUrl": "skopiuj url profilu",
+      "urlCopied": "URL zostało skopiowane do schowka",
+      "unfollow": "Przestań obserwować"
     },
     "voiceSettings": {
       "header": "Ustawienia Głosu",
@@ -87,6 +100,13 @@
       "permissionError": "nie znaleziono mikrofonów, nie masz go podłączonego lub nie dałeś pozwolenia tej stronie.",
       "refresh": "odśwież listę mikrofonów",
       "volume": "głośność:"
+    },
+    "overlaySettings": {
+      "input": {
+        "errorMsg": "Błędna nazwa aplikacji",
+        "label": "Wpisz nazwę aplikacji"
+      },
+      "header": "Ustawienia Nakładki"
     }
   },
   "components": {
@@ -110,7 +130,8 @@
       "makeRoomPublicBtn": "Upublicznij pokój!",
       "settings": "Ustawienia",
       "speaker": "Mówiący",
-      "listener": "Słuchacz"
+      "listener": "Słuchacz",
+      "chat": "Czat"
     },
     "deviceNotSupported": {
       "notSupported": "Twoje urządzenie nie jest obecnie wspierane. Możesz zgłosić to",
@@ -130,7 +151,8 @@
       "setKeybind": "ustaw skrót klawiszowy",
       "listening": "słuchanie",
       "toggleMuteKeybind": "przełącz skrót klawiszowy od wyciszania",
-      "togglePushToTalkKeybind": "przełącz keybind push-to-talk"
+      "togglePushToTalkKeybind": "przełącz keybind push-to-talk",
+      "toggleOverlayKeybind": "przełącz keybind nakładki"
     },
     "userVolumeSlider": {
       "noAudioMessage": "brak konsumenta dźwięku z jakiegoś powodu"
@@ -174,15 +196,18 @@
         "unmod": "usuń moderatora",
         "addAsSpeaker": "dodaj jako mówiący",
         "moveToListener": "zmień na słuchacza",
-        "banFromChat": "zbanuj z chatu",
+        "banFromChat": "zbanuj z czatu",
         "banFromRoom": "zbanuj z pokoju",
         "goBackToListener": "powróć do słuchacza",
-        "deleteMessage": "usuń tą wiadomość"
+        "deleteMessage": "usuń tą wiadomość",
+        "makeRoomCreator": "zmień na administratora pokoju"
       },
       "roomSettingsModal": {
         "requirePermission": "wymaga pozwolenia na mówienie",
         "makePublic": "upublicznij pokój",
-        "makePrivate": "uprywatnij pokój"
+        "makePrivate": "uprywatnij pokój",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },
@@ -198,13 +223,14 @@
       "modal": {
         "needsFuture": "musi być w przyszłości",
         "roomName": "nazwa pokoju",
-        "minLength": "minimalna długość to 2"
+        "minLength": "minimalna długość to 2",
+        "roomDescription": "Opis"
       }
     },
     "roomChat": {
-      "title": "Chat",
+      "title": "Czat",
       "emotesSoon": "[emotikony wkrótce]",
-      "bannedAlert": "Zostałeś zbanowany z chatu",
+      "bannedAlert": "Zostałeś zbanowany z czatu",
       "waitAlert": "Musisz poczekać sekundę przed wysłaniem kolejnej wiadomości",
       "search": "Szukaj",
       "searchResults": "Wyniki wyszukiwania",
@@ -213,6 +239,18 @@
       "whisper": "Szeptaj",
       "welcomeMessage": "Witaj w chacie!",
       "roomDescription": "opis pokoju"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Tankowanie rakiety",
+      "takingOff": "Startowanie",
+      "inSpace": "W kosmosie",
+      "approachingMoon": "Zbliża się do Księżyca",
+      "lunarDoge": "Księżycowy Doge",
+      "approachingSun": "Zbliża się do słońca",
+      "solarDoge": "Słoneczny Doge",
+      "approachingGalaxy": "Zbliża się do galaktyki",
+      "galacticDoge": "Galaktyczny Doge",
+      "spottedLife": "Znaleziono planetę z życiem"
     }
   }
 }

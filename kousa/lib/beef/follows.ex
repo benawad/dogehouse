@@ -46,9 +46,7 @@ defmodule Beef.Follows do
   end
 
   # fetch all the users
-  def fetch_following_online(user_id, offset \\ 0) do
-    max_room_size = Application.fetch_env!(:kousa, :max_room_size)
-
+  def get_my_following(user_id, offset \\ 0) do
     items =
       from(
         f in Follow,
@@ -61,7 +59,7 @@ defmodule Beef.Follows do
         where:
           f.followerId == ^user_id and
             (is_nil(cr.isPrivate) or
-               (cr.isPrivate == false and cr.numPeopleInside < ^max_room_size)),
+               cr.isPrivate == false),
         select: %{u | currentRoom: cr, followsYou: not is_nil(f2.userId)},
         limit: ^@fetch_limit,
         offset: ^offset,
