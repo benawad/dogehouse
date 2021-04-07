@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useCallback, useContext, useEffect } from "react";
+import React, { useState, useCallback, useContext, useEffect } from "react";
 import { LgLogo } from "../../icons";
 import SvgSolidBug from "../../icons/SolidBug";
 import SvgSolidDiscord from "../../icons/SolidDiscord";
@@ -66,12 +66,24 @@ export const LoginPage: React.FC = () => {
   useSaveTokensFromQueryParams();
   const { setConn } = useContext(WebSocketContext);
   const { push } = useRouter();
+  const { accessToken } = useTokenStore();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // only want this on mount
     setConn(null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (accessToken) {
+      push("/dash");
+    } else {
+      setLoading(false);
+    }
+  }, [accessToken, push]);
+
+  if (loading) return null;
 
   return (
     <div
