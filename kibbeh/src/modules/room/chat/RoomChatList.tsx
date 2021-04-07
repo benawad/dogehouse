@@ -110,7 +110,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                               key={i}
                               className="inline"
                               alt={`:${v}:`}
-                              src={emoteMap[v]}
+                              src={emoteMap[v.toLowerCase()]}
                             />
                           ) : (
                             ":" + v + ":"

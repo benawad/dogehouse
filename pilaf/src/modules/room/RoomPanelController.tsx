@@ -8,8 +8,8 @@ import { TitledHeader } from "../../components/header/TitledHeader";
 import { Spinner } from "../../components/Spinner";
 import { colors } from "../../constants/dogeStyle";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
-import { isUuid } from "../../lib/isUuid";
-import { RoomStackParamList } from "../../navigators/RoomNavigator";
+import { validate as uuidValidate } from "uuid";
+import { useWrappedConn } from "../../shared-hooks/useConn";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { RoomUsersPanel } from "./RoomUsersPanel";
@@ -39,7 +39,7 @@ export const RoomPanelController: React.FC<RoomPageProps> = ({ route }) => {
   const { data, isLoading } = useTypeSafeQuery(
     ["joinRoomAndGetInfo", route.params.data.room.id || ""],
     {
-      enabled: isUuid(route.params.data.room.id),
+      enabled: uuidValidate(roomId),
       onSuccess: ((d: JoinRoomAndGetInfoResponse | { error: string }) => {
         if (!("error" in d)) {
           setCurrentRoomId(() => d.room.id);

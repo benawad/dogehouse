@@ -3,10 +3,15 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { isServer } from "../../lib/isServer";
-import { isUuid } from "../../lib/isUuid";
+import { validate as uuidValidate } from 'uuid';
 import { showErrorToast } from "../../lib/showErrorToast";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
+import isElectron from "is-electron";
 
+let ipcRenderer: any;
+if (isElectron()) {
+  ipcRenderer = window.require("electron").ipcRenderer;
+}
 export const useGetRoomByQueryParam = () => {
   const { setCurrentRoomId } = useCurrentRoomIdStore();
   const { query } = useRouter();
@@ -14,10 +19,13 @@ export const useGetRoomByQueryParam = () => {
   const { data, isLoading } = useTypeSafeQuery(
     ["joinRoomAndGetInfo", roomId || ""],
     {
-      enabled: isUuid(roomId) && !isServer,
+      enabled: uuidValidate(roomId) && !isServer,
       refetchOnMount: "always",
       onSuccess: ((d: JoinRoomAndGetInfoResponse | { error: string }) => {
         if (d && !("error" in d) && d.room) {
+          if (isElectron()) {
+            ipcRenderer.send("@voice/active", true);
+          }
           setCurrentRoomId(() => d.room.id);
         }
       }) as any,
@@ -29,6 +37,9 @@ export const useGetRoomByQueryParam = () => {
   useEffect(() => {
     if (roomId) {
       setCurrentRoomId(roomId);
+      if (isElectron()) {
+        ipcRenderer.send("@voice/active", true);
+      }
     }
   }, [roomId, setCurrentRoomId]);
 
@@ -41,11 +52,17 @@ export const useGetRoomByQueryParam = () => {
     }
     if (noData) {
       setCurrentRoomId(null);
+      if (isElectron()) {
+        ipcRenderer.send("@voice/active", false);
+      }
       push("/dash");
       return;
     }
     if (errMsg) {
       setCurrentRoomId(null);
+      if (isElectron()) {
+        ipcRenderer.send("@voice/active", false);
+      }
       console.log(errMsg, isLoading);
       showErrorToast(errMsg);
       push("/dash");

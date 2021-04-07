@@ -205,9 +205,9 @@
       "roomSettingsModal": {
         "requirePermission": "wymaga pozwolenia na mówienie",
         "makePublic": "upublicznij pokój",
-        "makePrivate": "uprywatnij pokój",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "makePrivate": "uczyń pokój prywatnym",
+        "renamePublic": "Ustaw publiczną nazwę pokoju",
+        "renamePrivate": "Ustaw prywatną nazwę pokoju"
       }
     }
   },
@@ -236,7 +236,7 @@
       "searchResults": "Wyniki wyszukiwania",
       "recent": "Często używane",
       "sendMessage": "Wyślij wiadomość",
-      "whisper": "Szeptaj",
+      "whisper": "Napisane szpetem",
       "welcomeMessage": "Witaj w chacie!",
       "roomDescription": "opis pokoju"
     },

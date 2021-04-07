@@ -55,7 +55,7 @@ async function localize() {
   });
 }
 
-function createWindow() {
+function createMainWindow() {
   mainWindow = new BrowserWindow({
     width: 560,
     height: 1000,
@@ -64,27 +64,6 @@ function createWindow() {
       nodeIntegration: true,
     },
     show: false,
-  });
-
-  splash = new BrowserWindow({
-    width: 300,
-    height: 410,
-    transparent: true,
-    frame: false,
-    webPreferences: {
-      nodeIntegration: true
-    }
-  });
-  splash.loadFile(path.join(__dirname, "../resources/splash/splash-screen.html"));
-  electronLogger.info(`SPLASH PATH: ${path.join(__dirname, "../resources/splash/splash-screen.html")}`)
-  splash.webContents.on('did-finish-load', () => {
-    splash.webContents.send('@locale/text', {
-      title: i18n.t('common.title'),
-      check: i18n.t('splash.check'),
-      download: i18n.t('splash.download'),
-      relaunch: i18n.t('splash.relaunch'),
-      launch: i18n.t('splash.launch')
-    });
   });
 
   // applying custom menu
@@ -128,7 +107,7 @@ function createWindow() {
     );
     event.returnValue = isAllowed;
   });
-  if (!isMac) {
+  if (isMac) {
     mainWindow.webContents.send("@alerts/permissions", true);
   }
 
@@ -187,9 +166,30 @@ function createWindow() {
     }
     mainWindow.center();
   });
-  if (isLinux) {
-    skipUpdateCheck(splash);
-  }
+}
+
+function createSpalshWindow() {
+  splash = new BrowserWindow({
+    width: 300,
+    height: 410,
+    transparent: true,
+    frame: false,
+    resizable: false,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  });
+  splash.loadFile(path.join(__dirname, "../resources/splash/splash-screen.html"));
+  electronLogger.info(`SPLASH PATH: ${path.join(__dirname, "../resources/splash/splash-screen.html")}`)
+  splash.webContents.on('did-finish-load', () => {
+    splash.webContents.send('@locale/text', {
+      title: i18n.t('common.title'),
+      check: i18n.t('splash.check'),
+      download: i18n.t('splash.download'),
+      relaunch: i18n.t('splash.relaunch'),
+      launch: i18n.t('splash.launch')
+    });
+  });
 }
 
 if (!instanceLock) {
@@ -199,9 +199,13 @@ if (!instanceLock) {
   exitApp();
 } else {
   app.on("ready", () => {
-    localize().then(() => {
-      createWindow();
-      if (__prod__) autoUpdater.checkForUpdates();
+    localize().then(async () => {
+      createSpalshWindow();
+      if (!__prod__) createMainWindow();
+      if (__prod__) await autoUpdater.checkForUpdates();
+      if (isLinux) {
+        skipUpdateCheck(splash);
+      }
     })
   });
   app.on("second-instance", (event, argv, workingDirectory) => {
@@ -236,11 +240,11 @@ autoUpdater.on('update-downloaded', () => {
     clearTimeout(skipUpdateTimeout);
   }
   setTimeout(async () => {
-    await exitApp(false);
     autoUpdater.quitAndInstall();
   }, 1000);
 });
 autoUpdater.on('update-not-available', () => {
+  createMainWindow();
   splash.webContents.send('launch');
   windowShowInterval = setInterval(() => {
     if (shouldShowWindow) {
@@ -250,14 +254,13 @@ autoUpdater.on('update-not-available', () => {
     }
   }, 500);
 });
-
 app.on("window-all-closed", async () => {
   await exitApp();
 });
 app.on("activate", () => {
   if (mainWindow === null) {
     localize().then(() => {
-      createWindow();
+      createMainWindow();
     })
   }
 });

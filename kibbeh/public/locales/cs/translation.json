@@ -4,9 +4,9 @@
     "loadMore": "Načíst více",
     "loading": "Načítám...",
     "noUsersFound": "Nikdo tu není",
-    "ok": "ok",
-    "yes": "ano",
-    "no": "ne",
+    "ok": "Ok",
+    "yes": "Ano",
+    "no": "Ne",
     "cancel": "Zrušit",
     "save": "Uložit",
     "edit": "Pozměnit",
@@ -16,7 +16,7 @@
     "copied": "Zkopírováno",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please give DogeHouse Accessibility permessions"
+    "requestPermissions": "Prosím, dej DogeHousu práva na \"Dostupnost\"."
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -41,7 +41,7 @@
     "home": {
       "createRoom": "Vytvořit místnost",
       "refresh": "Obnovit",
-      "editRoom": "Edit Room"
+      "editRoom": "Upravit místnost"
     },
     "inviteList": {
       "roomGone": "Místnost není dostupná, jít zpět",
@@ -67,7 +67,7 @@
       "voiceSettings": "Přejít na nastavení hlasu",
       "soundSettings": "Přejít na nastavení zvuku",
       "deleteAccount": "Smazat účet",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "Přejít na nastavení overlaye"
     },
     "notFound": {
       "whoopsError": "Upst! Tahle místnost se ztratila v konverzaci.",
@@ -75,24 +75,24 @@
       "goHomeLinkText": "přejít na hlavní stránku"
     },
     "room": {
-      "speakers": "Řečníci",
+      "speakers": "Mluvící",
       "requestingToSpeak": "Požaduje oprávnění mluvit",
       "listeners": "Posluchači",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "Povolit všem",
+      "allowAllConfirm": "Jsi si jistý? Tohle povolí všem {{count}} žádajícím uživatelům mluvit"
     },
-    "searchUser": { "search": "hledat..." },
+    "searchUser": { "search": "Hledat..." },
     "soundEffectSettings": { "header": "Zvuky" },
     "viewUser": {
       "editProfile": "Pozměnit profil",
       "followsYou": "Sleduje tě.",
       "followers": "Sledující",
       "following": "Sleduje",
-      "followHim": "follow",
-      "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "followHim": "Sledovat",
+      "followingHim": "Sleduješ",
+      "copyProfileUrl": "Zkopírovat URL profilu",
+      "urlCopied": "URL zkopírováno do schránky",
+      "unfollow": "Nesledovat"
     },
     "voiceSettings": {
       "header": "Nastavení hlasu",
@@ -126,9 +126,9 @@
       "toggleMuteMicBtn": "Zapnout/Vypnout mikrofon",
       "mute": "Ztlumit mikrofon",
       "unmute": "Zapnout mikrofon",
-      "makeRoomPublicBtn": "Otevřít místnost všem",
+      "makeRoomPublicBtn": "Udělat místnost veřejnou",
       "settings": "Nastavení",
-      "speaker": "Řečník",
+      "speaker": "Mluvící",
       "listener": "Posluchač",
       "chat": "Chat"
     },
@@ -138,23 +138,23 @@
       "addSupport": "a pokusíme se podporu přidat."
     },
     "inviteButton": {
-      "invited": "pozván",
-      "inviteToRoom": "pozvat do místnosti"
+      "invited": "Pozván",
+      "inviteToRoom": "Pozvat do místnosti"
     },
     "micPermissionBanner": {
       "permissionDenied": "Nemáš povolený mikrofon! Zkus znovu načíst stránku.",
-      "dismiss": "zavřít",
-      "tryAgain": "zkusit znovu"
+      "dismiss": "Zavřít",
+      "tryAgain": "Zkusit znovu"
     },
     "keyboardShortcuts": {
-      "setKeybind": "nastavit klávesovou zkratku",
-      "listening": "posluchám",
-      "toggleMuteKeybind": "ztlumit mikrofon",
-      "togglePushToTalkKeybind": "Pust-To-Talk",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "setKeybind": "Nastavit klávesovou zkratku",
+      "listening": "Poslouchám",
+      "toggleMuteKeybind": "Ztlumit mikrofon",
+      "togglePushToTalkKeybind": "Push-To-Talk (mluvit jen po zmáčknutí tlačítka)",
+      "toggleOverlayKeybind": "Nastavit klávesovou zkratku pro overlay"
     },
     "userVolumeSlider": {
-      "noAudioMessage": "z nějakého důvodu se nepřehrává zvuk"
+      "noAudioMessage": "Z nějakého důvodu se nepřehrává zvuk..."
     },
     "addToCalendar": { "add": "Přidat do kalendáře" },
     "wsKilled": {
@@ -190,23 +190,23 @@
       },
       "profileModal": {
         "blockUserConfirm": "Chceš zablokovat uživatele ze všech místností, co kdy vytvoříš?",
-        "blockUser": "Zablokovat!",
-        "makeMod": "Učinit moderátorem",
-        "unmod": "Odstranit status moderátora",
+        "blockUser": "Zablokovat",
+        "makeMod": "Přidat práva moderátora",
+        "unmod": "Odstranit práva moderátora",
         "addAsSpeaker": "Přidat jako mluvícího",
         "moveToListener": "Umlčet",
         "banFromChat": "Zabanovat z chatu",
         "banFromRoom": "Zabanovat z místnosti",
-        "goBackToListener": "Přestat mluvit",
+        "goBackToListener": "Přesunout se do posluchačů",
         "deleteMessage": "Smazat tuto zprávu",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "Předat místnost"
       },
       "roomSettingsModal": {
-        "requirePermission": "Požádat o status mluvčího",
-        "makePublic": "Zveřejnit místnost",
+        "requirePermission": "Požádat o přesunutí do mluvících",
+        "makePublic": "Udělat místnost veřejnou",
         "makePrivate": "Udělat místnost soukromou",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "Nastavit jméno veřejné místnosti",
+        "renamePrivate": "Nastavit jméno soukromé místnosti"
       }
     }
   },
@@ -214,16 +214,16 @@
     "_comment": "Modules UI Internationalization Strings",
     "scheduledRooms": {
       "title": "Naplánované místnosti",
-      "noneFound": "žádné nenalezeny",
-      "allRooms": "všechny naplánované místnosti",
-      "myRooms": "tvé naplánované místnosti",
+      "noneFound": "Žádné nenalezeny",
+      "allRooms": "Všechny naplánované místnosti",
+      "myRooms": "Tvé naplánované místnosti",
       "scheduleRoomHeader": "Naplánovat místnost",
       "startRoom": "Otevřít místnost",
       "modal": {
-        "needsFuture": "musí být v budoucnosti",
-        "roomName": "jméno místnosti",
-        "minLength": "minimálně dva znaky",
-        "roomDescription": "Description"
+        "needsFuture": "Musí být v budoucnosti",
+        "roomName": "Jméno místnosti",
+        "minLength": "Minimálně dva znaky",
+        "roomDescription": "Popis místnosti"
       }
     },
     "roomChat": {
@@ -240,16 +240,16 @@
       "roomDescription": "Popis místnosti"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "fuelingRocket": "Doplňování rakety",
+      "takingOff": "Vzlétá",
+      "inSpace": "Ve vesmíru",
+      "approachingMoon": "Přibližování k Měsíci",
+      "lunarDoge": "Měsíční Doge",
+      "approachingSun": "Přibližování ke Slunci",
+      "solarDoge": "Sluneční Doge",
+      "approachingGalaxy": "Přibližování ke Galaxii",
+      "galacticDoge": "Galaktický Doge",
+      "spottedLife": "Planeta se životem objevena"
     }
   }
 }
