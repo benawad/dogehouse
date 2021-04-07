@@ -204,6 +204,7 @@ if (!instanceLock) {
       if (!__prod__) createMainWindow();
       if (__prod__) await autoUpdater.checkForUpdates();
       if (isLinux) {
+        createMainWindow();
         skipUpdateCheck(splash);
       }
     })
