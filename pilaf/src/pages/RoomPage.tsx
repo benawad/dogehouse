@@ -18,7 +18,7 @@ import BottomSheet from "reanimated-bottom-sheet";
 import { RoomChat } from "../modules/room/chat/RoomChat";
 import { useTypeSafeQuery } from "../shared-hooks/useTypeSafeQuery";
 import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
-import { isUuid } from "../lib/isUuid";
+import { validate as uuidValidate } from "uuid";
 import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
 import { Spinner } from "../components/Spinner";
 import { useWrappedConn } from "../shared-hooks/useConn";
@@ -60,7 +60,7 @@ export const RoomPage: React.FC<RoomPageProps> = ({ route }) => {
   const { data, isLoading } = useTypeSafeQuery(
     ["joinRoomAndGetInfo", roomId || ""],
     {
-      enabled: isUuid(roomId),
+      enabled: uuidValidate(roomId),
       onSuccess: ((d: JoinRoomAndGetInfoResponse | { error: string }) => {
         if (!("error" in d)) {
           setCurrentRoomId(() => d.room.id);

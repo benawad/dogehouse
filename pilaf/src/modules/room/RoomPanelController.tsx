@@ -13,6 +13,7 @@ import { useWrappedConn } from "../../shared-hooks/useConn";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { RoomUsersPanel } from "./RoomUsersPanel";
+import { RoomStackParamList } from "../../navigators/RoomNavigator";
 
 type RoomPageRouteProp = RouteProp<RoomStackParamList, "RoomMain">;
 
@@ -39,7 +40,7 @@ export const RoomPanelController: React.FC<RoomPageProps> = ({ route }) => {
   const { data, isLoading } = useTypeSafeQuery(
     ["joinRoomAndGetInfo", route.params.data.room.id || ""],
     {
-      enabled: uuidValidate(roomId),
+      enabled: uuidValidate(route.params.data.room.id),
       onSuccess: ((d: JoinRoomAndGetInfoResponse | { error: string }) => {
         if (!("error" in d)) {
           setCurrentRoomId(() => d.room.id);
