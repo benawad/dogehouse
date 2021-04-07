@@ -11,7 +11,8 @@ services:
   shawarma:
     image: dogehouse/shawarma
     environment: 
-      - DATABA
+      - WEBRTC_LISTEN_IP=${WEBRTC_LISTEN_IP}
+      - RABBITMQ_URL=${RABBITMQ_URL}
   kousa:
     image: dogehouse/kousa
     environment: 
