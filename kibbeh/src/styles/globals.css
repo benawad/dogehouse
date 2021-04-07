@@ -104,8 +104,3 @@ button:focus-visible {
   outline:none;
   /* removes outline when user is not tabbing through */
 }
-
-button:focus {
-  outline:none
-  /* removes outline when user is tabbing through; instead it changes to secondary color in button.tsx */
-}
