@@ -12,6 +12,7 @@ import { UserPreviewModal } from "./UserPreviewModal";
 import { HeaderController } from "../display/HeaderController";
 import { useRoomChatStore } from "./chat/useRoomChatStore";
 import { useScreenType } from "../../shared-hooks/useScreenType";
+import { useBreadcrumb } from "../../global-stores/useBreadcrumb";
 
 interface RoomPanelControllerProps {}
 
@@ -22,6 +23,7 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
   const { data, isLoading } = useGetRoomByQueryParam();
   const open = useRoomChatStore((s) => s.open);
   const screenType = useScreenType();
+  const setCurrentRoom = useBreadcrumb((state) => state.setCurrentRoom);
 
   if (isLoading || !currentRoomId) {
     return (
@@ -38,6 +40,8 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
   }
 
   const roomCreator = data.users.find((x) => x.id === data.room.creatorId);
+
+  setCurrentRoom(data.room);
 
   return (
     <>

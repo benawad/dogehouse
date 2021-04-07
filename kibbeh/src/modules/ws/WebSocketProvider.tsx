@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { showErrorToast } from "../../lib/showErrorToast";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
+import { useBreadcrumb } from "../../global-stores/useBreadcrumb";
 import { useVoiceStore } from "../webrtc/stores/useVoiceStore";
 import { Connection } from "@dogehouse/kebab/lib/raw";
 
@@ -83,6 +84,11 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
         })
         .then((x) => {
           setConn(x);
+
+          if (x.user.id) {
+            useBreadcrumb.getState().setCurrentUser(x.user);
+          }
+
           if (x.initialCurrentRoomId) {
             useCurrentRoomIdStore
               .getState()

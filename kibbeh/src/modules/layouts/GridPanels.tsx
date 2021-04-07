@@ -4,6 +4,7 @@ import LeftHeader from "../../ui/header/LeftHeader";
 import RightHeader from "../../ui/header/RightHeader";
 import { MiddleHeaderController } from "../search/MiddleHeaderController";
 import { WebSocketContext } from "../ws/WebSocketProvider";
+import Breadcrumbs from "../../ui/Breadcrumbs";
 
 interface LeftPanelProps {}
 
@@ -31,6 +32,7 @@ export const MiddlePanel: React.FC<
         <HeaderWrapper>
           <MiddleHeaderController />
         </HeaderWrapper>
+        <Breadcrumbs />
         {stickyChildren}
       </div>
       {children}
