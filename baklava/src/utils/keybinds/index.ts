@@ -34,15 +34,8 @@ let PREV_PTT_STATUS = false;
 
 export let worker: Worker;
 
-globkey.start();
-
-if (app.isPackaged) {
-    worker = new Worker(path.join(process.resourcesPath, 'app.asar.unpacked/dist/utils/keybinds/worker.js'));
-} else {
-    worker = new Worker(path.join(__dirname, './worker.js'));
-}
-
-export function RegisterKeybinds(bWindows: bWindowsType) {
+export async function RegisterKeybinds(bWindows: bWindowsType) {
+    await SpawnWorker();
     ipcMain.on(REQUEST_TO_SPEAK_KEY, (event, keyCode) => {
         if (globalShortcut.isRegistered(CURRENT_REQUEST_TO_SPEAK_KEY)) {
             globalShortcut.unregister(CURRENT_REQUEST_TO_SPEAK_KEY);
@@ -136,10 +129,22 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
         }
     });
 }
+
+export async function SpawnWorker() {
+    globkey.start();
+    if (app.isPackaged) {
+        worker = new Worker(path.join(process.resourcesPath, 'app.asar.unpacked/dist/utils/keybinds/worker.js'));
+    } else {
+        worker = new Worker(path.join(__dirname, './worker.js'));
+    }
+}
+
 export async function exitApp(quit = true) {
     if (quit) {
         globkey.stop()
     }
-    globkey.unload();
-    await worker.terminate();
+    if (worker) {
+        globkey.unload();
+        await worker.terminate();
+    }
 }
