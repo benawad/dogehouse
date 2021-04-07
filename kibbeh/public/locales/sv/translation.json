@@ -118,12 +118,12 @@
       "noBans": "Ingen har blivit bannlyst ännu"
     },
     "bottomVoiceControl": {
-      "leaveCurrentRoomBtn": "Lämna nuvarande rum",
+      "leaveCurrentRoomBtn": "Lämna rummet",
       "confirmLeaveRoom": "Är du säker på att du vill lämna?",
       "leave": "Lämna",
-      "inviteUsersToRoomBtn": "Bjud in användare till rum",
+      "inviteUsersToRoomBtn": "Bjud in användare till rummet",
       "invite": "Bjud in",
-      "toggleMuteMicBtn": "Stäng av mikrofon",
+      "toggleMuteMicBtn": "Stäng av mikrofonen",
       "mute": "Tysta",
       "unmute": "Slå på ljud",
       "makeRoomPublicBtn": "Gör rum offentligt",
@@ -144,7 +144,7 @@
         "roomName": "Rumsnamn",
         "roomDescription": "Rumsbeskrivning",
         "descriptionError": "Max längden är 500 karaktärer",
-        "nameError": "Längden måste vara mellan 2 och 60 karaktärer"
+        "nameError": "Längden på namnet måste vara mellan 2 och 60 karaktärer"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Ett nytt rum har skapats",
@@ -161,7 +161,7 @@
         "displayNameLabel": "Visningsnamn",
         "usernameError": "Maximum 4 till 15 karaktärer med bara alfanumerisk/understräck",
         "usernameLabel": "Användarnamn",
-        "bioError": "Maximum längd av 160 karaktärer",
+        "bioError": "Maximum längd på 160 karaktärer",
         "bioLabel": "Biografi"
       },
       "profileModal": {
@@ -181,8 +181,8 @@
         "requirePermission": "Be om tillåtelse att prata",
         "makePublic": "Gör rum offentligt",
         "makePrivate": "Gör rum privat",
-        "renamePublic": "Sätt ett offentligt rumsnamn",
-        "renamePrivate": "Sätt ett privat rumsnamn"
+        "renamePublic": "Ange ett offentligt rumsnamn",
+        "renamePrivate": "Ange ett privat rumsnamn"
       }
     },
     "userVolumeSlider": {
@@ -206,7 +206,7 @@
       "toggleOverlayKeybind": "Växla overlay-keybind"
     },
     "wsKilled": {
-      "description": "WebSocket blev nerstängd av servern. Detta händer oftast när du öppnar hemsidan i en annan flik.",
+      "description": "WebSocket anslutningen blev nerstängd av servern. Detta händer oftast när du öppnar hemsidan i en annan flik.",
       "reconnect": "Återanslut"
     }
   },
@@ -223,7 +223,7 @@
         "needsFuture": "Behöver vara i framtiden",
         "roomName": "Namn",
         "roomDescription": "Beskrivning",
-        "minLength": "Minimum längd: 2"
+        "minLength": "Lägsta längden: 2"
       }
     },
     "roomChat": {
