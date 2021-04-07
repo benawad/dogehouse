@@ -15,7 +15,8 @@
     "copyLink": "copiază link-ul",
     "copied": "copiat",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -37,7 +38,11 @@
       "startPrivateRoom": "Începe o cameră privată cu ei"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Creează cameră", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "Creează cameră",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Camera a dispărut, du-te înapoi",
       "shareRoomLink": "Distribuie link-ul camerei",
@@ -61,7 +66,8 @@
       "probablyLoading": "Probabil se încarcă...",
       "voiceSettings": "Mergi la setările de voce",
       "soundSettings": "Mergi la setările de sunet",
-      "deleteAccount": "Şterge cont"
+      "deleteAccount": "Şterge cont",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Ups! Această pagină a fost pierdută în conversație.",
@@ -71,7 +77,9 @@
     "room": {
       "speakers": "Vorbitori",
       "requestingToSpeak": "Cere să vorbească",
-      "listeners": "Ascultători"
+      "listeners": "Ascultători",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "caută..." },
     "soundEffectSettings": { "header": "Sunete" },
@@ -81,7 +89,10 @@
       "followers": "Urmăritori",
       "following": "Urmărește",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Sunete Voce",
@@ -89,6 +100,10 @@
       "permissionError": "Nu au fost găsite microfoane - ori nu ai unul conectat ori pagina aceasta nu are permisiune.",
       "refresh": "Reîmprospătează lista de microfoane",
       "volume": "Volum:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -133,7 +148,8 @@
       "setKeybind": "Setează keybind",
       "listening": "Ascultare",
       "toggleMuteKeybind": "Keybind comută mut",
-      "togglePushToTalkKeybind": "Keybind comută push-to-talk"
+      "togglePushToTalkKeybind": "Keybind comută push-to-talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "niciun consumator audio dintr-un motiv oarecare"
@@ -186,7 +202,9 @@
       "roomSettingsModal": {
         "requirePermission": "Necesită permisiunea de a vorbi",
         "makePublic": "Fă camera publică",
-        "makePrivate": "Fă camera privată"
+        "makePrivate": "Fă camera privată",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

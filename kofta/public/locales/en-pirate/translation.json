@@ -15,7 +15,8 @@
     "copyLink": "copy link",
     "copied": "copied",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -37,7 +38,11 @@
       "startPrivateRoom": "start a private cabin wit' 'em"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Create Cabin", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "Create Cabin",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "cabin gone, go back",
       "shareRoomLink": "share link t' cabin",
@@ -52,17 +57,18 @@
       "featureText_4": "Open Source",
       "featureText_5": "Text Chat",
       "featureText_6": "Powered by Doge",
-      "loginGithub": "login with GitHub",
-      "loginTwitter": "login with Twitter",
+      "loginGithub": "log in with GitHub",
+      "loginTwitter": "log in with Twitter",
       "createTestUser": "create test user",
-      "loginDiscord": "login with Discord"
+      "loginDiscord": "log in with Discord"
     },
     "myProfile": {
       "logout": "Walk the plank!",
       "probablyLoading": "prolly loadin'...",
       "voiceSettings": "go t' voice settings",
       "soundSettings": "go t' sound settings",
-      "deleteAccount": "Cleave Him to the Brisket!"
+      "deleteAccount": "Cleave Him to the Brisket!",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Blast ye! This page got lost in natter.",
@@ -84,7 +90,10 @@
       "followers": "scallywags",
       "following": "hearties",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Voice Settings",
@@ -92,6 +101,10 @@
       "permissionError": "no mics found, ye either 'ave none plugged in or haven't given this website permission.",
       "refresh": "refresh mic list",
       "volume": "volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -99,22 +112,22 @@
     "avatar": {},
     "backBar": {},
     "blockedFromRoomUsers": {
-      "header": "Banned Users",
-      "unban": "unban",
+      "header": "people who 'ave walked eh plank",
+      "unban": "save 'em from the o'en seas",
       "noBans": "no one has walked the plank yet"
     },
     "bottomVoiceControl": {
-      "leaveCurrentRoomBtn": "Leave current cabin",
+      "leaveCurrentRoomBtn": "Weigh anchor",
       "confirmLeaveRoom": "Are ye sure ye wants t' weigh anchor?",
       "leave": "Weigh anchor",
       "inviteUsersToRoomBtn": "Invite scallywags t' cabin",
-      "invite": "Invite",
+      "invite": "Invite scallywags",
       "toggleMuteMicBtn": "Toggle mute microphone",
-      "mute": "Mute",
+      "mute": "Belay yer mouth!",
       "unmute": "Unmute",
-      "makeRoomPublicBtn": "Make cabin public!",
+      "makeRoomPublicBtn": "Make cabin a'ilable to eh o'en seas!",
       "settings": "Settings",
-      "speaker": "Speaker",
+      "speaker": "Captain",
       "listener": "Listener",
       "chat": "Chat"
     },
@@ -133,7 +146,8 @@
       "setKeybind": "set keybind",
       "listening": "listening",
       "toggleMuteKeybind": "toggle mute keybind",
-      "togglePushToTalkKeybind": "toggle push-t'-natter keybind"
+      "togglePushToTalkKeybind": "toggle push-t'-natter keybind",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "no audio consumer fer some reason"
@@ -186,7 +200,9 @@
       "roomSettingsModal": {
         "requirePermission": "require permission t' speak",
         "makePublic": "make cabin public",
-        "makePrivate": "make cabin private"
+        "makePrivate": "make cabin private",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

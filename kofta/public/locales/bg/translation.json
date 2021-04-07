@@ -15,7 +15,8 @@
     "copyLink": "копирай линк",
     "copied": "копирано",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please give DogeHouse Accessibility permessions"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -37,7 +38,11 @@
       "startPrivateRoom": "start a private room with them"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Създай стая", "refresh": "Опресни" },
+    "home": {
+      "createRoom": "Създай стая",
+      "refresh": "Опресни",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "изтекла стая, върни се назад",
       "shareRoomLink": "сподели линк към стая",
@@ -62,7 +67,8 @@
       "probablyLoading": "зареждане най-вероятно...",
       "voiceSettings": "отиване към гласови настройки",
       "soundSettings": "отиване към звукови настройки",
-      "deleteAccount": "изтриване на акаунт"
+      "deleteAccount": "изтриване на акаунт",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Опаа! Тази страниза бе изгубена.",
@@ -84,7 +90,10 @@
       "followers": "последователи",
       "following": "последвани",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Звукови настройки",
@@ -92,6 +101,12 @@
       "permissionError": "не бяха открити микрофони, най-вероятно няма вързани или нямат разрешение да бъдат ползвани.",
       "refresh": "опресняване на списък с микрофони",
       "volume": "ниво на звук:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings",
+      "errorMsg": "Please enter valid app title",
+      "label": "Enter app title"
     }
   },
   "components": {
@@ -133,7 +148,8 @@
       "setKeybind": "задай клавишна комбинация",
       "listening": "слушане",
       "toggleMuteKeybind": "превключване на клавишна комбинация за заглушаване",
-      "togglePushToTalkKeybind": "превключване на клавишна комбинация за натисни-за-говорене"
+      "togglePushToTalkKeybind": "превключване на клавишна комбинация за натисни-за-говорене",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "по някаква причина няма звуков консуматор"
@@ -186,7 +202,9 @@
       "roomSettingsModal": {
         "requirePermission": "изискване на позволение за говорене",
         "makePublic": "направи стаята публична",
-        "makePrivate": "направи стаята частна"
+        "makePrivate": "направи стаята частна",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

@@ -15,7 +15,8 @@
     "copyLink": "இணைப்பை நகலெடு",
     "copied": "நகலெடுக்கப்பட்டது",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -42,7 +43,8 @@
     },
     "home": {
       "createRoom": "அறையை உருவாக்குங்கள்",
-      "refresh": "புதுப்பிக்கவும்"
+      "refresh": "புதுப்பிக்கவும்",
+      "editRoom": "Edit Room"
     },
     "inviteList": {
       "roomGone": "அறை இல்லை, திரும்பிச் செல்லுங்கள்",
@@ -68,7 +70,8 @@
       "probablyLoading": "பதிவேறுகிறது என்று நினைக்கிறன்...",
       "voiceSettings": "குரல் அமைப்பிற்குச் செல்லவும்",
       "soundSettings": "ஒலி அமைப்பிற்குச் செல்லவும்",
-      "deleteAccount": "கணக்கை நீக்கு"
+      "deleteAccount": "கணக்கை நீக்கு",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "அய்யகோ! இந்த பக்கத்தை காணவில்லை",
@@ -90,7 +93,10 @@
       "followers": "உங்களைப் பின்தொடர்பவர்கள்",
       "following": "நீங்கள் பின்தொடர்பவர்கள் ",
       "followHim": "இவரை பின்தொடர்",
-      "followingHim": "இவரை பிந்தொடர்கிறீர்கள்"
+      "followingHim": "இவரை பிந்தொடர்கிறீர்கள்",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "குரல் அமைப்பு",
@@ -98,6 +104,13 @@
       "permissionError": "ஒலிவாங்கிகள் எதுவும் கிடைக்கவில்லை, நீங்கள் எதுவும் செருகவில்லை அல்லது இந்த வலைத்தளத்திற்கு அனுமதி வழங்கவில்லை.",
       "refresh": "ஒலிவாங்கி பட்டியலைப் புதுப்பிக்கவும்",
       "volume": "ஒலி அளவு:"
+    },
+    "overlaySettings": {
+      "header": "Overlay Settings",
+      "input": {
+        "errorMsg": "Please enter valid app title",
+        "label": "Enter app title"
+      }
     }
   },
   "components": {
@@ -142,7 +155,8 @@
       "setKeybind": "விசைப்பலகையை அமைக்கவும்",
       "listening": "கேட்கிறேன்",
       "toggleMuteKeybind": "toggle mute keybind",
-      "togglePushToTalkKeybind": "toggle push-to-talk keybind"
+      "togglePushToTalkKeybind": "toggle push-to-talk keybind",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "சில காரணங்களால் ஆடியோ நுகர்வோர் இல்லை"
@@ -195,7 +209,9 @@
       "roomSettingsModal": {
         "requirePermission": "பேச அனுமதி தேவை",
         "makePublic": "அறையை பொதுவாக்குங்கள்",
-        "makePrivate": "அறையை தனிப்பட்டதாக்குங்கள்"
+        "makePrivate": "அறையை தனிப்பட்டதாக்குங்கள்",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

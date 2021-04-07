@@ -15,7 +15,8 @@
     "copyLink": "Kopiraj povezavo",
     "copied": "Kopirano",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -37,7 +38,11 @@
       "startPrivateRoom": "Začni zasebno sobo s tem uporabnikom"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Ustvari sobo", "refresh": "Osveži" },
+    "home": {
+      "createRoom": "Ustvari sobo",
+      "refresh": "Osveži",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Sobe ni bilo mogoče najti! Nazaj",
       "shareRoomLink": "Deli povezavo do sobe",
@@ -62,7 +67,8 @@
       "probablyLoading": "Verjetno se nalaga...",
       "voiceSettings": "Nastavitve glasu",
       "soundSettings": "Nastavitve zvoka",
-      "deleteAccount": "Izbriši račun"
+      "deleteAccount": "Izbriši račun",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Ups! Ta stran se je v pogovoru izgubila.",
@@ -83,8 +89,11 @@
       "followsYou": "ti sledi",
       "followers": "Sledilci",
       "following": "Spremljane osebe",
-      "followHim": "follow",
-      "followingHim": "following"
+      "followHim": "Sledi tej osebi",
+      "followingHim": "Slediš tej osebi",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Nastavitve zvoka",
@@ -92,6 +101,10 @@
       "permissionError": "Mikrofona ni bilo mogoče najti. Morda ni priključen ali pa stran nima potrebnih pravic.",
       "refresh": "Osveži seznam mikrofonov",
       "volume": "Glasnost:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -133,7 +146,8 @@
       "setKeybind": "Nastavi bljižnico",
       "listening": "Poslušaj",
       "toggleMuteKeybind": "Preklopi bližnjico za vklop/izklop mikrofona",
-      "togglePushToTalkKeybind": "Preklopi bližnjico za push-to-talk"
+      "togglePushToTalkKeybind": "Preklopi bližnjico za push-to-talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Iz nekega razloga ni odjemalca zvoka"
@@ -186,7 +200,9 @@
       "roomSettingsModal": {
         "requirePermission": "Potrebno dovoljenje za govor",
         "makePublic": "Naredi sobo javno",
-        "makePrivate": "Naredi sobo zasebno"
+        "makePrivate": "Naredi sobo zasebno",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

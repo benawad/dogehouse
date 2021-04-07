@@ -15,8 +15,7 @@ defmodule Broth do
   plug(:dispatch)
 
   options _ do
-    conn
-    |> send_resp(200, "")
+    send_resp(conn, 200, "")
   end
 
   forward("/auth/github", to: GitHubAuth)
@@ -27,12 +26,10 @@ defmodule Broth do
   forward("/scheduled-room", to: ScheduledRoom)
 
   get _ do
-    conn
-    |> send_resp(404, "not found")
+    send_resp(conn, 404, "not found")
   end
 
   post _ do
-    conn
-    |> send_resp(404, "not found")
+    send_resp(conn, 404, "not found")
   end
 end

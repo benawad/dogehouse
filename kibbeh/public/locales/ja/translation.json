@@ -15,7 +15,8 @@
     "copyLink": "リンクをコピー",
     "copied": "コピーしました",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -37,7 +38,11 @@
       "startPrivateRoom": "非公開ルームを開始"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "ルーム作成", "refresh": "更新" },
+    "home": {
+      "createRoom": "ルーム作成",
+      "refresh": "更新",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "ルームが削除されました。前のページに戻ります",
       "shareRoomLink": "リンクを共有",
@@ -61,7 +66,8 @@
       "probablyLoading": "きっと読込中...",
       "voiceSettings": "マイク設定",
       "soundSettings": "スピーカー設定",
-      "deleteAccount": "アカウント削除"
+      "deleteAccount": "アカウント削除",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "おっと！？ このページは会話に紛れてしまいました。",
@@ -71,7 +77,9 @@
     "room": {
       "speakers": "スピーカー",
       "requestingToSpeak": "発言をリクエスト",
-      "listeners": "リスナー"
+      "listeners": "リスナー",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "検索..." },
     "soundEffectSettings": { "header": "音声設定" },
@@ -81,7 +89,10 @@
       "followers": "フォロワー",
       "following": "フォロー",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "マイク設定",
@@ -89,6 +100,10 @@
       "permissionError": "マイクが見つかりませんでした。 マイクが接続されていることを確認し、アクセスを許可してください。",
       "refresh": "更新",
       "volume": "ボリューム:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -130,7 +145,8 @@
       "setKeybind": "ショートカットキーを設定",
       "listening": "聞いています",
       "toggleMuteKeybind": "ミュート切り替え",
-      "togglePushToTalkKeybind": "プッシュトゥートーク切り替え"
+      "togglePushToTalkKeybind": "プッシュトゥートーク切り替え",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "何らかの原因で音声が出ません" },
     "addToCalendar": { "add": "カレンダーに追加" },
@@ -181,7 +197,9 @@
       "roomSettingsModal": {
         "requirePermission": "発言を許可制にする",
         "makePublic": "ルームを公開に変更",
-        "makePrivate": "ルームを非公開に変更"
+        "makePrivate": "ルームを非公開に変更",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

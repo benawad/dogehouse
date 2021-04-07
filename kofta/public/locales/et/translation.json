@@ -15,7 +15,8 @@
     "copyLink": "kopeeri link",
     "copied": "kopeeritud",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Pange tähele, et DogeHouse'i käitamine ilma juurdepääsulubadeta võib põhjustada soovimatuid vigu"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -37,7 +38,11 @@
       "startPrivateRoom": "loo nendega privaatne ruum"
     },
     "followList": { "followHim": "jälgi", "followingHim": "jälgid" },
-    "home": { "createRoom": "Loo ruum", "refresh": "Värskenda" },
+    "home": {
+      "createRoom": "Loo ruum",
+      "refresh": "Värskenda",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "ruum läinud, mine tagasi",
       "shareRoomLink": "jaga link ruumi",
@@ -61,6 +66,7 @@
       "logout": "logi välja",
       "probablyLoading": "ilmselt laadib...",
       "voiceSettings": "mine häälesätetesse",
+      "overlaySettings": "go to overlay settings",
       "soundSettings": "mine helisätetesse",
       "deleteAccount": "kustuta konto"
     },
@@ -84,7 +90,10 @@
       "followers": "jälgijaid",
       "following": "jälgib",
       "followHim": "jälgi",
-      "followingHim": "jälgid"
+      "followingHim": "jälgid",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Häälesätted",
@@ -92,6 +101,10 @@
       "permissionError": "ühtegi mikrofoni ei leitud; mikrofone ei ole ühendatud või veebilehel puudub õigus neid kasutada.",
       "refresh": "värskenda mikrofonide loendit",
       "volume": "helitugevus:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Ülekatte Sätted"
     }
   },
   "components": {
@@ -133,7 +146,8 @@
       "setKeybind": "määra klahvistik",
       "listening": "kuulab",
       "toggleMuteKeybind": "vaigistamise klahvistik",
-      "togglePushToTalkKeybind": "push-to-talk klahvistik"
+      "togglePushToTalkKeybind": "push-to-talk klahvistik",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "pole ühtegi audiotarbijat mingil põhjusel"
@@ -186,7 +200,9 @@
       "roomSettingsModal": {
         "requirePermission": "nõua luba rääkimiseks",
         "makePublic": "tee ruum avalikuks",
-        "makePrivate": "tee ruum privaatseks"
+        "makePrivate": "tee ruum privaatseks",
+        "renamePublic": "Säti avaliku ruumi nimi",
+        "renamePrivate": "Säti privaatse ruumi nimi"
       }
     }
   },
@@ -224,7 +240,7 @@
       "takingOff": "Startimas",
       "inSpace": "Kosmoses",
       "approachingMoon": "Lähenemas Kuule",
-      "lunarDoge": "Lunar doge",
+      "lunarDoge": "Kuu-doge",
       "approachingSun": "Lähenemas Päikesele",
       "solarDoge": "Päikese-Doge",
       "approachingGalaxy": "Lähenemas galaktikale",

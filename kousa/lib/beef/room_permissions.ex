@@ -27,6 +27,16 @@ defmodule Beef.RoomPermissions do
     )
   end
 
+  def asked_to_speak?(user_id, room_id) do
+    not is_nil(
+      Beef.Repo.one(
+        from(rp in Beef.Schemas.RoomPermission,
+          where: rp.roomId == ^room_id and rp.userId == ^user_id and rp.askedToSpeak == true
+        )
+      )
+    )
+  end
+
   def get(user_id, room_id) do
     from(rp in Beef.Schemas.RoomPermission,
       where: rp.userId == ^user_id and rp.roomId == ^room_id,
@@ -39,7 +49,7 @@ defmodule Beef.RoomPermissions do
     upsert(%{roomId: room_id, userId: user_id, askedToSpeak: true}, askedToSpeak: true)
   end
 
-  def set_speaker?(user_id, room_id, speaker?, returning \\ false) do
+  def set_speaker(user_id, room_id, speaker?, returning \\ false) do
     upsert(
       %{roomId: room_id, userId: user_id, isSpeaker: speaker?},
       [isSpeaker: speaker?],

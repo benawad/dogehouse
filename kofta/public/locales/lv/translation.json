@@ -15,7 +15,8 @@
     "copyLink": "Kopēt saiti",
     "copied": "Nokopēts",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -37,7 +38,11 @@
       "startPrivateRoom": "Izveidot privātu istabu ar viņiem"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Izveidot istabu", "refresh": "Atjaunot" },
+    "home": {
+      "createRoom": "Izveidot istabu",
+      "refresh": "Atjaunot",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Istaba pazuda, atgriezieties atpakaļ",
       "shareRoomLink": "Dalīties ar saiti uz istabu",
@@ -62,7 +67,8 @@
       "probablyLoading": "visticamāk, notiek ielāde...",
       "voiceSettings": "salss ziņu iestatījumi",
       "soundSettings": "skaņas iestatījumi",
-      "deleteAccount": "dzēst kontu"
+      "deleteAccount": "dzēst kontu",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Ups! Šī lapa tika pazaudēta sarunā.",
@@ -84,7 +90,10 @@
       "followers": "sekotāji",
       "following": "seko",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Mikrofona iestatījumi",
@@ -92,6 +101,13 @@
       "permissionError": "mikrofons nav atrasts, tas nav pieslēgts vai pārlūkam nav atbilstošās atļaujas.",
       "refresh": "atjaunināt mikrofonu sarakstu",
       "volume": "skaļums:"
+    },
+    "overlaySettings": {
+      "header": "Overlay Settings",
+      "input": {
+        "errorMsg": "Please enter valid app title",
+        "label": "Enter app title"
+      }
     }
   },
   "components": {
@@ -136,7 +152,8 @@
       "setKeybind": "uzlikt aktivācijas taustiņu",
       "listening": "klausās",
       "toggleMuteKeybind": "Skaņas izslēgšanas taustiņš",
-      "togglePushToTalkKeybind": ":Īslaicīgās mikrofona ieslēgšanas taustiņš"
+      "togglePushToTalkKeybind": ":Īslaicīgās mikrofona ieslēgšanas taustiņš",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "nezināmu iemeslu dēļ, nav pieejama audiosaziņa"
@@ -189,7 +206,9 @@
       "roomSettingsModal": {
         "requirePermission": "pieprasīt runāšanas atļauju",
         "makePublic": "padarīt istabu publisku",
-        "makePrivate": "padarīt istabu privātu"
+        "makePrivate": "padarīt istabu privātu",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

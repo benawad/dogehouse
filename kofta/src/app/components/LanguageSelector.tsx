@@ -10,6 +10,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "en", label: "🇬🇧 English" }, // English
 
     /* Languages that are in ISO 639-1, sorted by language code (A-Z) */
+    { value: "so", label: "so Somali" }, // Somali
     { value: "af", label: "🇿🇦 Afrikaans" }, // Afrikaans
     { value: "am", label: "🇪🇹 አማርኛ" }, // Amharic
     { value: "ar", label: "🇸🇦 عربي" }, // Arabic
@@ -22,7 +23,8 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "hr", label: "🇭🇷 Hrvatski" }, // Croatian
     { value: "da", label: "🇩🇰 Dansk" }, // Danish
     { value: "de", label: "🇩🇪 Deutsch" }, // German
-    { value: "el-GR", label: "🇬🇷 ελληνικά" },
+    { value: "el-GR", label: "🇬🇷 Νέα Ελληνικά" }, //Greek
+    { value: "ag-GR", label: "🇬🇷 Ancient Greek(Αρχαία Ελληνικά)" }, //Ancient Greek
     { value: "eo", label: "🟢 Esperanto" },
     { value: "es", label: "🇪🇸 Español" }, // Estonian
     { value: "eu", label: "🏴󠁥󠁳󠁰󠁶󠁿 Euskera" }, // Euskera
@@ -37,6 +39,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "it", label: "🇮🇹 Italiano" }, // Italian
     { value: "ja", label: "🇯🇵 日本語" }, // Japanese
     { value: "ko", label: "🇰🇷 한국어" }, // Korean
+    { value: "kz", label: "🇰🇿 Қазақша" }, // Kazakh
     { value: "lt", label: "🇱🇹 Lietuvių" }, // Lithuanian
     { value: "lv", label: "🇱🇻 Latviešu" }, // Latvian
     { value: "li", label: "🏴󠁮󠁬󠁬󠁩󠁿 Limburgs" }, // Limburgish
@@ -54,22 +57,25 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "sl", label: "🇸🇮 Slovenščina" }, // Slovenian
     { value: "sq", label: "🇦🇱 Shqip" }, // Albanian
     { value: "sr", label: "🇷🇸 Српски" }, // Serbian
-    { value: "sr-Latin", label: "🇷🇸 Srpski" }, // Serbian (Latin)
+    { value: "sr-LATIN", label: "🇷🇸 Srpski" }, // Serbian (Latin)
     { value: "sv", label: "🇸🇪 Svenska" }, // Swedish
     { value: "ta", label: "🇮🇳 Tamil" }, // Tamil
+    { value: "te", label: "🇮🇳 తెలుగు"}, // Telugu
     { value: "th", label: "🇹🇭 ไทย" }, // Thai
     { value: "tr", label: "🇹🇷 Türkçe" }, // Turkish
     { value: "uk", label: "🇺🇦 Українська" }, // Ukrainian
     { value: "ur", label: "🇵🇰 اردو" }, // Urdu
+    { value: "vi", label: "🇻🇳 Tiếng Việt" }, // Vietnamese
     { value: "zh-CN", label: "🇨🇳 中文 (简体)" }, // Chinese (Simplified)
     { value: "zh-TW", label: "🇹🇼 正體中文 (繁體)" }, // Chinese (Traditional)
-
     /* Languages that are in ISO 639-2 (three-letter codes) */
     { value: "gsw", label: "🇨🇭 Schwiizerdütsch" }, // Swiss German
 
     /* Other languages */
-    { value: "en-pirate", label: "🏴‍☠️ Pirate" },
+    { value: "en-PIRATE", label: "🏴‍☠️ Pirate" },
+    { value: "en-AU", label: "🇦🇺 uɐᴉꞁɐɹʇsnⱯ" }, // Australian
     { value: "owo", label: "OwO Engwish" },
+    { value: "bottom", label: "🥺 bottom"}
   ],
 }) => {
   const { i18n } = useTranslation();

@@ -10,13 +10,18 @@ import { Wrapper } from "../components/Wrapper";
 import { useMeQuery } from "../utils/useMeQuery";
 import { useTokenStore } from "../utils/useTokenStore";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
+import isElectron from "is-electron";
+import { useRoomChatStore } from "../modules/room-chat/useRoomChatStore";
 
-interface MyProfilePageProps {}
+interface MyProfilePageProps { }
 
-export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
+const isMac = process.platform === 'darwin';
+
+export const MyProfilePage: React.FC<MyProfilePageProps> = ({ }) => {
   const { me } = useMeQuery();
   const history = useHistory();
   const { t } = useTypeSafeTranslation();
+  const setOpenChat = useRoomChatStore((s) => s.setOpen);
 
   return (
     <Wrapper>
@@ -26,6 +31,7 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
             className={`m-2.5`}
             onClick={() => {
               modalConfirm("Are you sure you want to logout?", () => {
+                setOpenChat(false);
                 history.push("/");
                 closeWebSocket();
                 useTokenStore
@@ -53,6 +59,15 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = ({}) => {
           >
             {t("pages.myProfile.voiceSettings")}
           </Button>
+          {
+            isElectron() && !isMac ? <Button
+              style={{ marginRight: "10px" }}
+              variant="small"
+              onClick={() => history.push(`/overlay-settings`)}
+            >
+              {t("pages.myProfile.overlaySettings")}
+          </Button> : null
+          }
           <Button
             variant="small"
             onClick={() => history.push(`/sound-effect-settings`)}

@@ -15,7 +15,8 @@
     "copyLink": "Link kopian",
     "copied": "kopiart",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -37,7 +38,11 @@
       "startPrivateRoom": "An neichn Raum mit dem Benutzer starten"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Raum erstön", "refresh": "Aktualisiern" },
+    "home": {
+      "createRoom": "Raum erstön",
+      "refresh": "Aktualisiern",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Den Raum kau ma ned finden. Zruck",
       "shareRoomLink": "Link zum Raum teilen",
@@ -62,7 +67,8 @@
       "probablyLoading": "Londt vermutlich...",
       "voiceSettings": "Sprocheinstöllungen",
       "soundSettings": "Toneinstöllungen",
-      "deleteAccount": "Konto löschn"
+      "deleteAccount": "Konto löschn",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Oida! De Seite ist im Gespräch verlurn gaunga.",
@@ -84,7 +90,10 @@
       "following": "Abonniert",
       "followers": "Abonnenten",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Sprocheinstöllungen",
@@ -92,6 +101,13 @@
       "permissionError": "Kane Mikrofone gfunden, es is entweda kans augschlossen oder de Seitn besitzt ned die benötigten Berechtigungen.",
       "volume": "Lautstärkn:",
       "refresh": "Mikrofonliste aktualisiern"
+    },
+    "overlaySettings": {
+      "header": "Overlay Settings",
+      "input": {
+        "errorMsg": "Please enter valid app title",
+        "label": "Enter app title"
+      }
     }
   },
   "components": {
@@ -167,7 +183,9 @@
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Sprechen verlaungen",
         "makePublic": "Raum öffentlich mochen",
-        "makePrivate": "Raum privat mochen"
+        "makePrivate": "Raum privat mochen",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     },
     "userVolumeSlider": {
@@ -177,7 +195,8 @@
       "setKeybind": "Tastenkürzel setzen",
       "listening": "Zuhören",
       "toggleMuteKeybind": "Stummschoittaste umschoiten",
-      "togglePushToTalkKeybind": "Push-to-Talk Tastenkürzl umschoiten"
+      "togglePushToTalkKeybind": "Push-to-Talk Tastenkürzl umschoiten",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "wsKilled": {
       "description": "De Websocket Verbindung zum Server wurde unterbrochen. Des passiert normalerweise, wenn du de Website in an aunderen Tab öffnest.",

@@ -7,7 +7,9 @@ defmodule Beef.Mutations.Users do
   alias Beef.RoomPermissions
 
   def edit_profile(user_id, data) do
-    %User{id: user_id}
+    # TODO: make this not perform a db query
+    user_id
+    |> Beef.Users.get_by_id()
     |> User.edit_changeset(data)
     |> Repo.update()
   end
@@ -46,7 +48,7 @@ defmodule Beef.Mutations.Users do
   end
 
   def set_user_left_current_room(user_id) do
-    Kousa.Utils.RegUtils.lookup_and_cast(Onion.UserSession, user_id, {:set_current_room_id, nil})
+    Onion.UserSession.set_current_room_id(user_id, nil)
 
     Query.start()
     |> Query.filter_by_id(user_id)
@@ -66,7 +68,7 @@ defmodule Beef.Mutations.Users do
     roomPermissions =
       case can_speak do
         true ->
-          case RoomPermissions.set_speaker?(user_id, room_id, true, true) do
+          case RoomPermissions.set_speaker(user_id, room_id, true, true) do
             {:ok, x} -> x
             _ -> nil
           end
@@ -75,11 +77,7 @@ defmodule Beef.Mutations.Users do
           RoomPermissions.get(user_id, room_id)
       end
 
-    Kousa.Utils.RegUtils.lookup_and_cast(
-      Onion.UserSession,
-      user_id,
-      {:set_current_room_id, room_id}
-    )
+    Onion.UserSession.set_current_room_id(user_id, room_id)
 
     q =
       from(u in User,

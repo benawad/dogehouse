@@ -1,45 +1,25 @@
-import React, { useContext } from "react";
+import React from "react";
+import Header from "next/head";
 import { PageComponent } from "../../types/PageComponent";
-import { DashboardInnerGrid } from "../../ui/DashboardGrid";
-import { FriendsOnline } from "../../ui/FriendsOnline";
-import Header from "../../ui/Header";
-import { ProfileBlock } from "../../ui/ProfileBlock";
-import { UpcomingRoomsCard } from "../../ui/UpcomingRoomsCard";
-import { UserSummaryCard } from "../../ui/UserSummaryCard";
-import { useVerifyLoggedIn } from "../auth/useVerifyLoggedIn";
-import { WebSocketContext } from "../ws/WebSocketProvider";
+import { WaitForWsAndAuth } from "../auth/WaitForWsAndAuth";
+import { DesktopLayout } from "../layouts/DesktopLayout";
+import { LeftPanel, MiddlePanel, RightPanel } from "../layouts/GridPanels";
 import { FeedController } from "./FeedController";
+import { FollowingOnlineController } from "./FollowingOnlineController";
 import { ProfileBlockController } from "./ProfileBlockController";
+import { HeaderController } from "../display/HeaderController";
+import { DefaultDesktopLayout } from "../layouts/DefaultDesktopLayout";
 
 interface LoungePageProps {}
 
 export const DashboardPage: PageComponent<LoungePageProps> = ({}) => {
-  const { conn } = useContext(WebSocketContext);
-
-  if (!useVerifyLoggedIn()) {
-    return null;
-  }
-
-  if (!conn) {
-    // @todo make this better
-    return <div>loading...</div>;
-  }
-
   return (
-    <div className={`flex-col items-center w-full`}>
-      <div className={`mt-5 mb-7`}>
-        <Header
-          searchPlaceholder={"Search for rooms, users or categories"}
-          onSearchChange={() => null}
-          avatarImg={conn.user.avatarUrl}
-        />
-      </div>
-      <DashboardInnerGrid>
-        <FriendsOnline onlineFriendCount={0} onlineFriendList={[]} />
+    <WaitForWsAndAuth>
+      <HeaderController embed={{}} title="Dashboard" />
+      <DefaultDesktopLayout>
         <FeedController />
-        <ProfileBlockController />
-      </DashboardInnerGrid>
-    </div>
+      </DefaultDesktopLayout>
+    </WaitForWsAndAuth>
   );
 };
 

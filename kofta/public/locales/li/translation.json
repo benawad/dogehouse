@@ -15,7 +15,8 @@
     "copyLink": "Link kopieeren",
     "copied": "Gekopieerd",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -37,7 +38,11 @@
       "startPrivateRoom": "Sjtart inge perseunlijke kamer mit disè persoon"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Kamer make", "refresh": "Verviesje" },
+    "home": {
+      "createRoom": "Kamer make",
+      "refresh": "Verviesje",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Kamer besjteed niet, gank teruk",
       "shareRoomLink": "Link van disè kamer deijle",
@@ -62,7 +67,8 @@
       "probablyLoading": "Waarschinlik aan t laaje...",
       "voiceSettings": "Gank noa spraakinsjtellinge",
       "soundSettings": "Gank noa geluidsinstjtellinge",
-      "deleteAccount": "Account verwijdere"
+      "deleteAccount": "Account verwijdere",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Och nhee! Disè pagina is verlore gegange in t gesjprek.",
@@ -84,7 +90,10 @@
       "followers": "Volgers",
       "following": "Volgend",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Sjpraak",
@@ -92,6 +101,10 @@
       "permissionError": "Ging microfoon gevonge, du hubs waarschinlik ging microfoon aangesjloate of ging toesjtimming gegive.",
       "refresh": "Verviesj microfoonliest",
       "volume": "Volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -136,7 +149,8 @@
       "setKeybind": "Sjneltoets insjtelle",
       "listening": "Aan t loestere",
       "toggleMuteKeybind": "Sjakel mute sjneltoets",
-      "togglePushToTalkKeybind": "Sjakel push-to-talk sjneltoets"
+      "togglePushToTalkKeybind": "Sjakel push-to-talk sjneltoets",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Ging audioapparaat veur ing of andere reje"
@@ -189,7 +203,9 @@
       "roomSettingsModal": {
         "requirePermission": "Toesjtimming neudig om te sjpreke",
         "makePublic": "Maak kamer veur ideringe",
-        "makePrivate": "Maak kamer perseunlijke"
+        "makePrivate": "Maak kamer perseunlijke",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

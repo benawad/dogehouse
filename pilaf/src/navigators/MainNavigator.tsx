@@ -1,20 +1,48 @@
-import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
+import React from "react";
+import { MinimizedRoomCard } from "../components/minimizedRoomCard/MinimizedRoomCard";
+import { colors, radius } from "../constants/dogeStyle";
+import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
+import { WaitForWsAndAuth } from "../modules/auth/WaitForWsAndAuth";
+import MinimizedRoomCardController from "../modules/dashboard/MinimizedRoomCardController";
+import { WebSocketProvider } from "../modules/ws/WebSocketProvider";
+import { HelpPage } from "../pages/HelpPage";
+import { LanguagePage } from "../pages/LanguagePage";
 import { MainPage } from "../pages/MainPage";
 import { MessagesPage } from "../pages/MessagesPage";
 import { NotificationsPage } from "../pages/NotificationsPage";
-import { SearchPage } from "../pages/SearchPage";
-import { colors } from "../constants/dogeStyle";
 import { ProfilePage } from "../pages/ProfilePage";
-import { WebSocketProvider } from "../module/ws/WebSocketProvider";
+import { ReportBugPage } from "../pages/ReportBugPage";
+import { RoomPage } from "../pages/RoomPage";
+import { SearchPage } from "../pages/SearchPage";
+import { SettingsPage } from "../pages/SettingsPage";
+import { WalletPage } from "../pages/WalletPage";
+import { MainWsHandlerProvider } from "../shared-hooks/useMainWsHandler";
 
-const Stack = createStackNavigator();
+export type RootStackParamList = {
+  Main: undefined;
+  Notifications: undefined;
+  Search: undefined;
+  Messages: undefined;
+  Profile: undefined;
+  Settings: undefined;
+  Wallet: undefined;
+  Language: undefined;
+  Help: undefined;
+  ReportBug: undefined;
+  Room: { roomId: string };
+};
+
+const Stack = createStackNavigator<RootStackParamList>();
 
 export const MainNavigator = () => {
   return (
-    <WebSocketProvider shouldConnect={true}>
+    <WaitForWsAndAuth>
+      <MinimizedRoomCardController />
+
       <Stack.Navigator
         screenOptions={{
+          headerShown: false,
           headerStyle: {
             backgroundColor: colors.primary900,
             borderBottomColor: colors.primary900,
@@ -36,7 +64,13 @@ export const MainNavigator = () => {
         <Stack.Screen name="Search" component={SearchPage} />
         <Stack.Screen name="Messages" component={MessagesPage} />
         <Stack.Screen name="Profile" component={ProfilePage} />
+        <Stack.Screen name="Settings" component={SettingsPage} />
+        <Stack.Screen name="Wallet" component={WalletPage} />
+        <Stack.Screen name="Language" component={LanguagePage} />
+        <Stack.Screen name="Help" component={HelpPage} />
+        <Stack.Screen name="ReportBug" component={ReportBugPage} />
+        <Stack.Screen name="Room" component={RoomPage} />
       </Stack.Navigator>
-    </WebSocketProvider>
+    </WaitForWsAndAuth>
   );
 };

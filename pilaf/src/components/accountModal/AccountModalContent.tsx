@@ -1,63 +1,71 @@
-import React, { useState } from "react";
-import { View, StyleSheet } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { colors } from "../../constants/dogeStyle";
-import { CreateRoomPage } from "../../pages/CreateRoomPage";
+import { useNavigation } from "@react-navigation/core";
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { colors, radius } from "../../constants/dogeStyle";
 import { AccountModalRow } from "./AccountModalRow";
 
 const separator = (
   <View style={{ backgroundColor: colors.primary700, height: 1 }} />
 );
 
-export const AccountModalContent: React.FC = (props) => {
+export type AccountModalContentProps = {
+  onPress: (pageName: string) => void;
+};
+
+export const AccountModalContent: React.FC<AccountModalContentProps> = ({
+  onPress,
+}) => {
+  const navigation = useNavigation();
+  const inset = useSafeAreaInsets();
   return (
-    <SafeAreaView style={styles.content}>
+    <View style={[styles.content, { paddingBottom: inset.bottom }]}>
       <View style={styles.dragIndicator} />
       <AccountModalRow
         icon={require("../../assets/images/account/sm-solid-user.png")}
         title={"Profile"}
-        onPress={() => console.log("Profile press")}
+        onPress={() => onPress("Profile")}
       />
       {separator}
       <AccountModalRow
         icon={require("../../assets/images/account/sm-solid-settings.png")}
         title={"Settings"}
-        onPress={() => console.log("Settings press")}
+        onPress={() => onPress("Settings")}
       />
       {separator}
       <AccountModalRow
         icon={require("../../assets/images/account/wallet.png")}
         title={"Wallet"}
-        onPress={() => console.log("Wallet press")}
+        onPress={() => onPress("Wallet")}
       />
       {separator}
       <AccountModalRow
         icon={require("../../assets/images/account/sm-outline-globe.png")}
         title={"Language"}
-        onPress={() => console.log("Language press")}
+        onPress={() => onPress("Language")}
       />
       {separator}
       <AccountModalRow
         icon={require("../../assets/images/account/sm-solid-help.png")}
         title={"Help"}
-        onPress={() => console.log("Help press")}
+        onPress={() => onPress("Help")}
       />
       {separator}
       <AccountModalRow
         icon={require("../../assets/images/account/sm-solid-bug.png")}
         title={"Report a bug"}
-        onPress={() => console.log("Report bug press")}
+        onPress={() => onPress("ReportBug")}
       />
       <View />
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   content: {
     backgroundColor: colors.primary800,
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
+    borderTopLeftRadius: radius.m,
+    borderTopRightRadius: radius.m,
   },
   dragIndicator: {
     width: 40,
@@ -65,6 +73,6 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     backgroundColor: colors.primary300,
     alignSelf: "center",
-    marginVertical: 8,
+    marginVertical: 12,
   },
 });

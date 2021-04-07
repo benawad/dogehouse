@@ -15,7 +15,8 @@
     "copyLink": "සබැඳිය පිටපත් කරන්න",
     "copied": "පිටපත් කරගත්තා",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -37,7 +38,11 @@
       "startPrivateRoom": "ඔවුන් සමග පෞද්ගලික සමූහයක් අරඹන්න"
     },
     "followList": { "followHim": "හඹා යන්න", "followingHim": "හඹා යන්නන්" },
-    "home": { "createRoom": "සමූහයක් අරඹන්න", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "සමූහයක් අරඹන්න",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "සමූහය නොමැත,ආපසු යන්න",
       "shareRoomLink": "සමූහයේ සබැඳිය බෙදාගන්න",
@@ -62,7 +67,8 @@
       "probablyLoading": "බොහෝවිට ලබා ගනිමින් පවතී...",
       "voiceSettings": "හඬ සැකසුම් වලට යන්න",
       "soundSettings": "ශබ්ද සැකසුම් වලට යන්න",
-      "deleteAccount": "ගිණුම ඉවත් කරන්න"
+      "deleteAccount": "ගිණුම ඉවත් කරන්න",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Whoops! සංවාදයේදී මෙම පිටුව මඟහැරී ඇත.",
@@ -84,7 +90,10 @@
       "followers": "ඔබව හඹා යන්නන්",
       "following": "ඔබ හඹා යන්නන්",
       "followHim": "හඹා යන්න",
-      "followingHim": "හඹා යන්නන්"
+      "followingHim": "හඹා යන්නන්",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "හඬ සැකසුම්",
@@ -92,6 +101,13 @@
       "permissionError": "mics එකක් හමුවූයේ නැත.ඔබ එකක් සම්බන්ධ නොමැත හෝ මෙම වෙබ් අඩවියට අවසර දී නොමැත",
       "refresh": "mic ලැයිස්තුව refresh කරන්න",
       "volume": "පරිමාව:"
+    },
+    "overlaySettings": {
+      "header": "Overlay Settings",
+      "input": {
+        "errorMsg": "Please enter valid app title",
+        "label": "Enter app title"
+      }
     }
   },
   "components": {
@@ -136,7 +152,8 @@
       "setKeybind": "set keybind",
       "listening": "listening",
       "toggleMuteKeybind": "keybind වල තත්වය වෙනස් කරන්න",
-      "togglePushToTalkKeybind": "push-to-talk keybind වල තත්වය වෙනස් කරන්න"
+      "togglePushToTalkKeybind": "push-to-talk keybind වල තත්වය වෙනස් කරන්න",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "no audio consumer for some reason"
@@ -189,7 +206,9 @@
       "roomSettingsModal": {
         "requirePermission": "කතා කරන්න අවසර ගන්න",
         "makePublic": "සමූහය පොදු කරන්න",
-        "makePrivate": "සමූහය පෞද්ගලික කරන්න"
+        "makePrivate": "සමූහය පෞද්ගලික කරන්න",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

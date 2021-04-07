@@ -1,150 +1,22 @@
 import { app, shell } from 'electron';
+import { autoUpdater } from 'electron-updater';
 
-const isMac = process.platform === 'darwin'
+export const isMac = process.platform === 'darwin'
+export const isLinux = process.platform !== 'darwin' && process.platform !== 'win32'
 export const REQUEST_TO_SPEAK_KEY = "@keybind/invite";
 export const INVITE_KEY = "@keybind/invite";
 export const MUTE_KEY = "@keybind/mute";
 export const CHAT_KEY = "@keybind/chat";
 export const PTT_KEY = "@keybind/ptt";
+export const OVERLAY_KEY = "@keybind/overlay";
 
 const REPO_URL = "https://github.com/benawad/dogehouse/";
 const DISCUSSION_URL = "https://github.com/benawad/dogehouse/discussions";
 const ISSUES_URL = "https://github.com/benawad/dogehouse/issues";
 
-export const KEY_TABLE = [
-    "Escape",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "0",
-    "-",
-    "=",
-    "Backspace",
-    "Tab",
-    "Q",
-    "W",
-    "E",
-    "R",
-    "T",
-    "Y",
-    "U",
-    "I",
-    "O",
-    "P",
-    "[",
-    "]",
-    "Enter",
-    "Control",
-    "A",
-    "S",
-    "D",
-    "F",
-    "G",
-    "H",
-    "J",
-    "K",
-    "L",
-    ";",
-    "'",
-    "`",
-    "Shift",
-    "\\",
-    "Z",
-    "X",
-    "C",
-    "V",
-    "B",
-    "N",
-    "M",
-    ",",
-    ".",
-    "/",
-    "Shift",
-    "*",
-    "Alt",
-    "Space",
-    "Caps Lock",
-    "F1",
-    "F2",
-    "F3",
-    "F4",
-    "F5",
-    "F6",
-    "F7",
-    "F8",
-    "F9",
-    "F10",
-    "Num Lock",
-    "Scroll Lock",
-    "Home 7",
-    "Up 8",
-    "Pgup 9",
-    "-",
-    "Left 4",
-    "5",
-    "ArrowRight",
-    "+",
-    "End 1",
-    "ArrowDown",
-    "Pgdn 3",
-    "Ins",
-    "Del",
-    "",
-    "",
-    "",
-    "F11",
-    "F12",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "Enter",
-    "Control",
-    "/",
-    "Prt Scr",
-    "Alt",
-    "",
-    "Home",
-    "ArrpwUp",
-    "PgUp",
-    "ArrowLeft",
-    "ArrowRight",
-    "End",
-    "ArrowDown",
-    "PgDn",
-    "Insert",
-    "Del",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "Pause"
-];
-
-export interface IOHookEvent {
-    shiftKey: boolean,
-    altKey: boolean,
-    ctrlKey: boolean,
-    metaKey: boolean,
-    keycode: number,
-    rawcode: number,
-    type: 'keyup' | 'keydown'
-}
-
 export const ALLOWED_HOSTS = [
     "dogehouse.tv",
+    "next.dogehouse.tv",
     "api.dogehouse.tv",
     "dogehouse.tv",
     "github.com",
@@ -253,6 +125,12 @@ export const MENU_TEMPLATE: any = [
                 label: 'Search Issues',
                 click: async () => {
                     await shell.openExternal(ISSUES_URL)
+                }
+            },
+            {
+                label: 'Check For Updates',
+                click: async () => {
+                    autoUpdater.checkForUpdatesAndNotify();
                 }
             }
         ]
