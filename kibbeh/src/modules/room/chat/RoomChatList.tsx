@@ -35,7 +35,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
   });
 
   const rowVirtualizer = useVirtual({
-    overscan: 0,
+    overscan: 10,
     size: messages.length,
     parentRef: chatListRef,
     estimateSize: React.useCallback(() => 20, []),
