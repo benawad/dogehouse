@@ -3920,6 +3920,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-native-push-notification@npm:^7.2.0":
+  version: 7.2.0
+  resolution: "@types/react-native-push-notification@npm:7.2.0"
+  checksum: 2dae81345589dabd969fadea665b421bd8c2b551c5c355af65883df4f10f04da34d537705c26fd300d98b2695dcbb208ba84845b025bff1ebe758ac1ff7cc7be
+  languageName: node
+  linkType: hard
+
 "@types/react-native@npm:^0.63.52":
   version: 0.63.52
   resolution: "@types/react-native@npm:0.63.52"
@@ -15827,6 +15834,7 @@ resolve@^2.0.0-next.3:
     "@storybook/react-native-server": ^5.3.23
     "@storybook/theming": ^6.1.21
     "@types/react-native": ^0.63.52
+    "@types/react-native-push-notification": ^7.2.0
     babel-jest: ^26.6.3
     babel-loader: ^8.2.2
     date-fns: ^2.19.0

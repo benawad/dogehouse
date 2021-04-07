@@ -1,3 +1,5 @@
+import { Room } from "@dogehouse/kebab";
+import { useNavigation } from "@react-navigation/core";
 import React from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -5,12 +7,15 @@ import { colors, radius } from "../../../constants/dogeStyle";
 import { useMuteStore } from "../../../global-stores/useMuteStore";
 import { useSetMute } from "../../../shared-hooks/useSetMute";
 
-interface RoomChatControlsProps {}
+interface RoomChatControlsProps {
+  room: Room;
+}
 
-export const RoomChatControls: React.FC<RoomChatControlsProps> = ({}) => {
+export const RoomChatControls: React.FC<RoomChatControlsProps> = ({ room }) => {
   const { muted } = useMuteStore();
   const setMute = useSetMute();
   const inset = useSafeAreaInsets();
+  const navigation = useNavigation();
   return (
     <View
       style={{
@@ -39,7 +44,10 @@ export const RoomChatControls: React.FC<RoomChatControlsProps> = ({}) => {
             source={require("../../../assets/images/ios-volume-low.png")}
           />
         </TouchableOpacity> */}
-        <TouchableOpacity style={styles.inviteControl}>
+        <TouchableOpacity
+          style={styles.inviteControl}
+          onPress={() => navigation.navigate("RoomInvitation", { room: room })}
+        >
           <Image source={require("../../../assets/images/md-person-add.png")} />
         </TouchableOpacity>
       </View>

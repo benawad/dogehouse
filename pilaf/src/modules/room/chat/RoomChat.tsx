@@ -52,7 +52,7 @@ export const RoomChat: React.FC<ChatProps> = ({ users, room, style }) => {
         },
       ]}
     >
-      <RoomChatControls />
+      <RoomChatControls room={room} />
       <RoomChatList room={room} />
       {emoteOpen && (
         <EmotePicker
