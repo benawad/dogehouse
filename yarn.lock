@@ -1763,6 +1763,8 @@ __metadata:
     "@types/react-modal": ^3.12.0
     "@types/react-responsive": ^8.0.2
     "@types/superstruct": ^0.8.2
+    "@types/twemoji": ^12.1.1
+    "@types/twemoji-parser": ^12.1.0
     "@typescript-eslint/eslint-plugin": ^4.16.1
     "@typescript-eslint/parser": ^4.16.1
     autoprefixer: ^10.2.5
@@ -1772,11 +1774,13 @@ __metadata:
     css-loader: ^5.2.0
     date-fns: ^2.19.0
     emoji-mart: ^3.0.1
+    emoji-regex: ^9.2.2
     eslint: ^7.23.0
     eslint-plugin-react: ^7.23.1
     eslint-plugin-react-hooks: ^4.2.0
     formik: ^2.2.6
     framer-motion: ^4.1.2
+    grapheme-splitter: ^1.0.4
     hark: ^1.2.3
     i18next: ^19.9.2
     i18next-browser-languagedetector: ^6.0.1
@@ -1811,6 +1815,7 @@ __metadata:
     tailwind-scrollbar: ^1.2.4
     tailwindcss: ^2.0.3
     tslib: ^2.1.0
+    twemoji-parser: ^13.0.0
     typescript: 3.9.5
     uuid: ^8.3.2
     zustand: ^3.3.3
@@ -4201,6 +4206,20 @@ __metadata:
   dependencies:
     "@types/jest": "*"
   checksum: 32aa324a83e67fd81eb7f0ba3e4c86406db86c1e5361b6e8091d224a1fefbfcb4e493039db3ce3faf8afa133a4f68cc7c42bcdbcae1dd91b13d741a040791038
+  languageName: node
+  linkType: hard
+
+"@types/twemoji-parser@npm:^12.1.0":
+  version: 12.1.0
+  resolution: "@types/twemoji-parser@npm:12.1.0"
+  checksum: 5773f3e0ba011fb60065e61c490b93d89511e39c951dd938d21e218349dbef5b7027a66d3380b7b1348023c7300c29180fe000400e9c12b79f5b56aff3e53182
+  languageName: node
+  linkType: hard
+
+"@types/twemoji@npm:^12.1.1":
+  version: 12.1.1
+  resolution: "@types/twemoji@npm:12.1.1"
+  checksum: 15f3c2147dbcffa8be0a34e5085bb282be2031f1d8aeccaf01673af6a5d0d0a897bc09383a881305db7778e11e3aa40b6607ba2208e17b1b7d66dc2e65e885e3
   languageName: node
   linkType: hard
 
@@ -7888,6 +7907,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"emoji-regex@npm:^9.2.2":
+  version: 9.2.2
+  resolution: "emoji-regex@npm:9.2.2"
+  checksum: f3029ec432745ecb7cf5dcea1bc9ad3d70714ef20fcae1dc87a422d3be68913c42ed3adbb86765e7aa6c723c3bcd5833b5f4e22ed06d5e5cb74e0f628d4fc95b
+  languageName: node
+  linkType: hard
+
 "emojis-list@npm:^2.0.0":
   version: 2.1.0
   resolution: "emojis-list@npm:2.1.0"
@@ -9574,6 +9600,13 @@ fsevents@^1.2.7:
   version: 4.2.6
   resolution: "graceful-fs@npm:4.2.6"
   checksum: 84d39c7756892553da990a9db7e45f844b3309b37b5a00174cbb4748476f2250c54f24594d4d252f64f085c65c2fdac7c809419bf6d55f0e6e42eb07ac0f5bf2
+  languageName: node
+  linkType: hard
+
+"grapheme-splitter@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "grapheme-splitter@npm:1.0.4"
+  checksum: 6875e94add80360364a609e1fd0fe325e3b82326db2278dd36c1011a6bfc0e098811e791dedf9a88d4ae3f9d17a5c6a8d684948dd7b097f1f8d5ff905676e2b2
   languageName: node
   linkType: hard
 
@@ -17827,6 +17860,13 @@ resolve@^2.0.0-next.3:
   version: 0.14.5
   resolution: "tweetnacl@npm:0.14.5"
   checksum: e1c9d52e2e9f582fd0df9ea26ba5a9ab88b9a38b69625d8e55c5e8870a4832ac8c32f8854b41fce7b59f97258bb103535363f9eda7050aa70e75824b972c7dde
+  languageName: node
+  linkType: hard
+
+"twemoji-parser@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "twemoji-parser@npm:13.0.0"
+  checksum: 05a4d6a8579a7a6614a081b6f1339846ae19e28efe9e304b1d094b925a3b857a6738a3be8a427ac4a95add0b6486c92f63417c670c219a80b74a81f8389c2feb
   languageName: node
   linkType: hard
 

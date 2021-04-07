@@ -38,7 +38,7 @@ export const DropdownController: React.FC<{
 
   return (
     <React.Fragment>
-      <button ref={referenceRef} onClick={() => setVisibility(!visible)}>
+      <button className="focus:outline-no-chrome" ref={referenceRef} onClick={() => setVisibility(!visible)}>
         {children}
       </button>
       {createPortal(
