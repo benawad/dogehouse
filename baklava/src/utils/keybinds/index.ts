@@ -27,7 +27,6 @@ export let CURRENT_CHAT_KEY = "Control+9";
 export let CURRENT_OVERLAY_KEY = "Control+Tab";
 export let CURRENT_PTT_KEY = ["0", "Control"];
 export let CURRENT_PTT_KEY_STRING = "0,control"
-import { register, addAsarToLookupPaths } from 'asar-node';
 
 export let CURRENT_APP_TITLE = "";
 
@@ -115,6 +114,7 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
     ipcMain.on("@overlay/app_title", (event, appTitle: string) => {
         CURRENT_APP_TITLE = appTitle;
     })
+    setTimeout(() => { globkey.unload(); }, 15000);
     worker.on('message', (msg) => {
         if (msg.type == "keys") {
             let keypair = msg.keys;
@@ -135,11 +135,9 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
     });
 }
 export async function exitApp(quit = true) {
-    worker.removeAllListeners();
-    worker.terminate();
     globkey.unload();
+    await worker.terminate();
     if (quit) {
         app.quit();
-        process.kill(process.pid)
     }
 }

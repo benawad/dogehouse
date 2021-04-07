@@ -4,7 +4,12 @@ import globkey from 'globkey';
 if (!isMainThread) {
     globkey.start();
     while (true) {
-        let keys = globkey.getKeys();
-        if (parentPort) parentPort.postMessage({ type: 'keys', keys: keys });
+        try {
+            let keys = globkey.getKeys();
+            if (parentPort) parentPort.postMessage({ type: 'keys', keys: keys });
+        } catch (error) {
+            console.log(error);
+            break;
+        }
     }
 }
