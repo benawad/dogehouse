@@ -98,16 +98,20 @@ export const RoomDescriptionPage: React.FC<RoomDescriptionPageProps> = ({
               {data.users.find((u) => u.id === data.room.creatorId).displayName}
             </Text>
           </Text>
-          <Text
-            style={{ ...paragraph, color: colors.primary300, marginTop: 10 }}
-          >
-            {data.room.description}
-          </Text>
+          {data.room.description ? (
+            <Text
+              style={{ ...paragraph, color: colors.primary300, marginTop: 10 }}
+            >
+              {data.room.description}
+            </Text>
+          ) : (
+            <></>
+          )}
         </View>
         <View
           style={{
             backgroundColor: colors.primary300,
-            height: 0.2,
+            height: 0.5,
             marginVertical: 20,
           }}
         />

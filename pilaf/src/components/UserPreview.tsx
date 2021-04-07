@@ -40,6 +40,8 @@ import { RoomStackParamList } from "../navigators/RoomNavigator";
 import { RouteProp, useNavigation } from "@react-navigation/native";
 import { TitledHeader } from "./header/TitledHeader";
 import { useConsumerStore } from "../modules/webrtc/stores/useConsumerStore";
+import { useTypeSafeUpdateQuery } from "../shared-hooks/useTypeSafeUpdateQuery";
+import { useQueryClient } from "react-query";
 
 export type UserPreviewProps = ViewProps & {
   message?: RoomChatMessage;
@@ -65,6 +67,11 @@ export const UserPreviewInternal: React.FC<UserPreviewProps> = ({
   onClosePress,
   onVolumeChange,
 }) => {
+  const updater = useTypeSafeUpdateQuery();
+  const {
+    mutateAsync: setFollow,
+    isLoading: followLoading,
+  } = useTypeSafeMutation("follow");
   const { mutateAsync: setListener } = useTypeSafeMutation("setListener");
   const { mutateAsync: changeModStatus } = useTypeSafeMutation(
     "changeModStatus"
@@ -89,6 +96,7 @@ export const UserPreviewInternal: React.FC<UserPreviewProps> = ({
 
   const { consumerMap, setVolume } = useConsumerStore();
   const consumerInfo = consumerMap[id];
+  const queryClient = useQueryClient();
 
   if (isLoading) {
     return (
@@ -213,8 +221,27 @@ export const UserPreviewInternal: React.FC<UserPreviewProps> = ({
         <View style={styles.followDMContainer}>
           <Button
             iconSrc={require("../assets/images/md-person-add.png")}
-            title={"Follow"}
-            style={{ flex: 1, alignSelf: "center" }}
+            title={data.youAreFollowing ? "Unfollow" : "Follow"}
+            style={{
+              flex: 1,
+              alignSelf: "center",
+              paddingHorizontal: undefined,
+            }}
+            color={data.youAreFollowing ? "secondary" : "primary"}
+            onPress={async () => {
+              await setFollow([data.id, !data.youAreFollowing]);
+              queryClient.invalidateQueries("getMyFollowing");
+              updater(["getUserProfile", data.id], (u) =>
+                !u
+                  ? u
+                  : {
+                      ...u,
+                      numFollowers:
+                        u.numFollowers + (data.youAreFollowing ? -1 : 1),
+                      youAreFollowing: !data.youAreFollowing,
+                    }
+              );
+            }}
           />
           <Button
             title={"Send DM"}
@@ -223,7 +250,7 @@ export const UserPreviewInternal: React.FC<UserPreviewProps> = ({
               marginLeft: 10,
               flex: 1,
               alignSelf: "center",
-              // paddingHorizontal: 10,
+              paddingHorizontal: undefined,
             }}
             color={"secondary"}
           />
