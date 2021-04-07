@@ -7,7 +7,6 @@ interface LanguageSelectorProps {
   onClose(): void;
 }
 
-// @todo verify with designer what color this should be
 export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   children,
   onClose,
