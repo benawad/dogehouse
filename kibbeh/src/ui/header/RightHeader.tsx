@@ -73,7 +73,11 @@ const RightHeader: React.FC<RightHeaderProps> = ({
           />
         )}
       >
-        <SingleUser className={"focus:outline-no-chrome"} size="sm" src={user.avatarUrl} />
+        <SingleUser
+          className={"focus:outline-no-chrome"}
+          size="sm"
+          src={user.avatarUrl}
+        />
       </DropdownController>
     </div>
   );

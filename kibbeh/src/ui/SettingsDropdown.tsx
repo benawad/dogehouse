@@ -45,7 +45,11 @@ export const SettingsDropdown: React.FC<{
             icon={<OutlineGlobe />}
             label={"Language"}
             trailingIcon={<SolidCaretRight />}
-            onClick={() => setCurrentOverlay(<LanguageSelector onClose={() => setCurrentOverlay(null)}/>)}
+            onClick={() =>
+              setCurrentOverlay(
+                <LanguageSelector onClose={() => setCurrentOverlay(null)} />
+              )
+            }
           />
           {/* <SettingsIcon icon={<SolidHelp />} label={"Help"} /> */}
           <a

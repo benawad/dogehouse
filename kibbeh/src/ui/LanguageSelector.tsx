@@ -1,14 +1,17 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Twemoji } from './Twemoji';
-import backIcon from '../icons/SolidCaretRight';
+import { Twemoji } from "./Twemoji";
+import backIcon from "../icons/SolidCaretRight";
 
 interface LanguageSelectorProps {
   onClose(): void;
 }
 
 // @todo verify with designer what color this should be
-export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ children, onClose }) => {
+export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
+  children,
+  onClose,
+}) => {
   const options = [
     { value: "en", label: "🇬🇧 English" }, // English
 
@@ -79,7 +82,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ children, on
     { value: "en-AU", label: "🇦🇺 uɐᴉꞁɐɹʇsnⱯ" }, // Australian
     { value: "owo", label: "OwO Engwish" },
     { value: "bottom", label: "🥺 bottom" },
-    { value: "tp", label: "💛 Toki Pona" }
+    { value: "tp", label: "💛 Toki Pona" },
   ];
 
   const { i18n } = useTranslation();
@@ -88,22 +91,35 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ children, on
   const parsedOptions = options.map((e, i) => (
     <button
       key={i}
-      className={`items-center flex text-primary-100 w-full mb-2 py-1 px-2 rounded-5 focus:outline-no-chrome${i18n.language === e.value || e.value === "en" && i18n.language === "en-US" ? " bg-primary-700" : ""}`}
+      className={`items-center flex text-primary-100 w-full mb-2 py-1 px-2 rounded-5 focus:outline-no-chrome${
+        i18n.language === e.value ||
+        (e.value === "en" && i18n.language === "en-US")
+          ? " bg-primary-700"
+          : ""
+      }`}
       onClick={() => i18n.changeLanguage(e.value)}
-    ><Twemoji text={e.label} /></button>
+    >
+      <Twemoji text={e.label} />
+    </button>
   ));
 
   return (
     <div className="absolute h-full w-full z-20 bg-primary-800">
       <div className="block h-full w-full">
         <div className="block h-6 w-full border-b border-primary-700 sticky top-0 bg-primary-800">
-          <button onClick={onClose} className="absolute left-3 text-primary-100 top-1/2 transform translate-y-n1/2 py-1 focus:outline-no-chrome hover:bg-primary-700 z-30 rounded-5" style={{ paddingLeft: "10px", paddingRight: "-6px" }}>{backIcon({ transform: "rotate(-180)" })}</button>
-          <p className="block relative text-center top-1/2 transform translate-y-n1/2 w-full font-semibold text-primary-100">Language</p>
+          <button
+            onClick={onClose}
+            className="absolute left-3 text-primary-100 top-1/2 transform translate-y-n1/2 py-1 focus:outline-no-chrome hover:bg-primary-700 z-30 rounded-5"
+            style={{ paddingLeft: "10px", paddingRight: "-6px" }}
+          >
+            {backIcon({ transform: "rotate(-180)" })}
+          </button>
+          <p className="block relative text-center top-1/2 transform translate-y-n1/2 w-full font-semibold text-primary-100">
+            Language
+          </p>
         </div>
         <div className="pr-1 block h-full overflow-y-auto scrollbar-thin scrollbar-thumb-primary-700">
-          <div className="m-2 block">
-            {parsedOptions}
-          </div>
+          <div className="m-2 block">{parsedOptions}</div>
         </div>
       </div>
     </div>
