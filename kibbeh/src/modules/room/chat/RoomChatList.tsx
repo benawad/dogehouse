@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { useConn } from "../../../shared-hooks/useConn";
 import { useCurrentRoomInfo } from "../../../shared-hooks/useCurrentRoomInfo";
 import { useTypeSafeTranslation } from "../../../shared-hooks/useTypeSafeTranslation";
+import { Twemoji } from "../../../ui/Twemoji";
 import { UserPreviewModalContext } from "../UserPreviewModalProvider";
 import { emoteMap } from "./EmoteData";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
@@ -102,7 +103,12 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                       switch (token) {
                         case "text":
                           return (
-                            <React.Fragment key={i}>{`${v} `}</React.Fragment>
+                            <React.Fragment key={i}>
+                              <Twemoji
+                                text={`${v} `}
+                                style={{ height: "2.5ch", width: "2.5ch" }}
+                              />
+                            </React.Fragment>
                           );
                         case "emote":
                           return emoteMap[v] ? (
@@ -151,7 +157,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                           );
                         case "block":
                           return (
-                            <span key={i}>
+                            <span className="inline" key={i}>
                               <span
                                 className={
                                   "inline bg-simple-gray-33 rounded whitespace-pre-wrap font-mono"
