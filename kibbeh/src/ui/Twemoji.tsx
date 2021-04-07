@@ -6,7 +6,6 @@ interface TwemojiProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   text: string;
 }
 
-const regex = /\p{Emoji_Presentation}/gu;
 const splitter = new Grapheme();
 
 export const Twemoji: React.FC<TwemojiProps> = ({
@@ -16,8 +15,9 @@ export const Twemoji: React.FC<TwemojiProps> = ({
 }) => {
   const chars = splitter.splitGraphemes(text);
 
-  const parsedChars = chars.map((e) =>
-    regex.test(e) ? (
+  const parsedChars = chars.map((e) => {
+    const regex = /\p{Emoji_Presentation}/gu;
+    return regex.test(e) ? (
       <img
         {...props}
         className={`emoji inline ${className || ""}`}
@@ -26,7 +26,7 @@ export const Twemoji: React.FC<TwemojiProps> = ({
       />
     ) : (
       e
-    )
-  );
+    );
+  });
   return <>{parsedChars}</>;
 };
