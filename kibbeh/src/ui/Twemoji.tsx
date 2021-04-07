@@ -18,7 +18,7 @@ export const Twemoji: React.FC<TwemojiProps> = ({
 
   const parsedChars = chars.map((e) =>
     regex.test(e) ? (
-      <img {...props} className="emoji inline" alt={e} src={parse(e)[0].url} />
+      <img {...props} className={`emoji inline ${className || ""}`} alt={e} src={parse(e)[0].url} />
     ) : (
       e
     )

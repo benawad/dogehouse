@@ -98,7 +98,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
       }`}
       onClick={() => i18n.changeLanguage(e.value)}
     >
-      <Twemoji text={e.label} />
+      <Twemoji style={{marginRight: "1ch"}} text={e.label} />
     </button>
   ));
 
