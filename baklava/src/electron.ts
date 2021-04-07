@@ -166,9 +166,6 @@ function createMainWindow() {
     }
     mainWindow.center();
   });
-  if (isLinux) {
-    skipUpdateCheck(splash);
-  }
 }
 
 function createSpalshWindow() {
@@ -206,6 +203,9 @@ if (!instanceLock) {
       createSpalshWindow();
       if (!__prod__) createMainWindow();
       if (__prod__) await autoUpdater.checkForUpdates();
+      if (isLinux) {
+        skipUpdateCheck(splash);
+      }
     })
   });
   app.on("second-instance", (event, argv, workingDirectory) => {
