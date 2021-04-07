@@ -72,10 +72,11 @@ export const EmojiPicker: React.FC<EmojiPickerProps> = ({
           <img
             key={emoji.name}
             src={emoji.imageUrl}
-            className={`w-5 max-w-5 cursor-pointer ${keyboardHoveredEmoji === emoji.name
+            className={`w-5 max-w-5 cursor-pointer ${
+              keyboardHoveredEmoji === emoji.name
                 ? "bg-primary-300 rounded p-1"
                 : ""
-              }`}
+            }`}
             onClick={() => onEmojiSelect(emoji)}
           />
         ))}

@@ -84,7 +84,10 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
     setQueriedUsernames([]);
 
     setLastMessageTimestamp(Date.now());
-    slowModeAnimationController.start({ left: ["-0%", "-0%", "-100%"], opacity: [1, 1, 1] });
+    slowModeAnimationController.start({
+      left: ["-0%", "-0%", "-100%"],
+      opacity: [1, 1, 1],
+    });
   };
 
   return (
@@ -141,11 +144,16 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
             <Smiley style={{ inlineSize: "23px" }}></Smiley>
           </div>
           <motion.div
-             className="absolute h-full w-full bg-primary-600"
-             animate={slowModeAnimationController}
-             initial={{ opacity: 0 }}
-             transition={{ duration: 1, type: "tween", ease: "linear", times: [0, 0.1, 1] }}
-             />
+            className="absolute h-full w-full bg-primary-600"
+            animate={slowModeAnimationController}
+            initial={{ opacity: 0 }}
+            transition={{
+              duration: 1,
+              type: "tween",
+              ease: "linear",
+              times: [0, 0.1, 1],
+            }}
+          />
         </div>
 
         {/* Send button (mobile only) */}

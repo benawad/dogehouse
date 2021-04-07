@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  SolidMessages,
-  SolidNotification,
-  SolidSearch,
-} from "../../../icons";
+import { SolidMessages, SolidNotification, SolidSearch } from "../../../icons";
 import { SingleUser } from "../../UserAvatar";
 
 export interface ProfileHeaderProps {
@@ -49,11 +45,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
         )}
         {onSearchClick && (
           <button onClick={onSearchClick}>
-            <SolidSearch
-              className="text-primary-100"
-              height={20}
-              width={20}
-            />
+            <SolidSearch className="text-primary-100" height={20} width={20} />
           </button>
         )}
       </div>
