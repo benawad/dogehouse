@@ -14,6 +14,7 @@ import { mergeRoomPermission } from "../modules/webrtc/utils/mergeRoomPermission
 import { WebSocketContext } from "../modules/ws/WebSocketProvider";
 import { setMute } from "./useSetMute";
 import { useTypeSafeUpdateQuery } from "./useTypeSafeUpdateQuery";
+import PushNotification from "react-native-push-notification";
 
 export const useMainWsHandler = () => {
   const { conn } = useContext(WebSocketContext);
@@ -103,11 +104,15 @@ export const useMainWsHandler = () => {
         // }
       }),
       conn.addListener<any>("someone_you_follow_created_a_room", (value) => {
-        // @todo
-        // invitedToRoomConfirm(value, history);
-        // if (isElectron()) {
-        //   ipcRenderer.send("@notification/indirect_invitation", value);
-        // }
+        PushNotification.localNotification({
+          id: 0,
+          title: value.username + " created a room",
+          message: value.roomName,
+          userInfo: { roomId: value.roomId, locale: true },
+          playSound: false,
+          soundName: "default",
+          category: "room_created",
+        });
       }),
       conn.addListener<any>("invitation_to_room", (value) => {
         // @todo

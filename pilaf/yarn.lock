@@ -2341,6 +2341,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-community/push-notification-ios@npm:^1.8.0":
+  version: 1.8.0
+  resolution: "@react-native-community/push-notification-ios@npm:1.8.0"
+  dependencies:
+    invariant: ^2.2.4
+  peerDependencies:
+    react: ">=16.6.3"
+    react-native: ">=0.58.4"
+  checksum: 689457b4d2c2f995adc5d49b8f09b7eaba42b72b049fb265ab4b5bfb4628d1fe6e647cc82425ce04a450382d4ee1e8264132ed56585c860ee7d6a2b2af826e55
+  languageName: node
+  linkType: hard
+
 "@react-native-segmented-control/segmented-control@npm:^2.3.0":
   version: 2.3.0
   resolution: "@react-native-segmented-control/segmented-control@npm:2.3.0"
@@ -14837,6 +14849,16 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-native-push-notification@npm:^7.2.3":
+  version: 7.2.3
+  resolution: "react-native-push-notification@npm:7.2.3"
+  peerDependencies:
+    "@react-native-community/push-notification-ios": ^1.8.0
+    react-native: ">=0.33"
+  checksum: fca5266d03245fa452d3b4bb98ba54d2e83e906eeb41ef97c46bdc7caf776aac32c13831aa483cf428bf8c6b9d03f58de9acf16b1bc89c0f8bdbc4245a0311ee
+  languageName: node
+  linkType: hard
+
 "react-native-reanimated@npm:^2.0.0":
   version: 2.0.1
   resolution: "react-native-reanimated@npm:2.0.1"
@@ -15789,6 +15811,7 @@ resolve@^2.0.0-next.3:
     "@react-native-community/eslint-config": ^2.0.0
     "@react-native-community/hooks": ^2.6.0
     "@react-native-community/masked-view": ^0.1.10
+    "@react-native-community/push-notification-ios": ^1.8.0
     "@react-native-segmented-control/segmented-control": ^2.3.0
     "@react-navigation/bottom-tabs": ^5.11.8
     "@react-navigation/native": ^5.9.3
@@ -15823,6 +15846,7 @@ resolve@^2.0.0-next.3:
     react-native-inappbrowser-reborn: ^3.5.1
     react-native-incall-manager: ^3.3.0
     react-native-modal: ^11.7.0
+    react-native-push-notification: ^7.2.3
     react-native-reanimated: ^2.0.0
     react-native-safe-area-context: ^3.2.0
     react-native-screens: ^2.18.1

@@ -12,7 +12,7 @@ import React, { useEffect } from "react";
 import { StatusBar, View } from "react-native";
 import SplashScreen from "react-native-splash-screen";
 import { useTokenStore } from "./src/modules/auth/useTokenStore";
-import { NavigationContainer } from "@react-navigation/native";
+import { LinkingOptions, NavigationContainer } from "@react-navigation/native";
 import { RootNavigator } from "./src/navigators/RootNavigator";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { queryClient } from "./src/lib/queryClient";
@@ -63,12 +63,23 @@ const App: React.FC = () => {
     prepare();
   }
 
+  const deepLinksConf = {
+    screens: {
+      Room: "room/:roomId",
+    },
+  };
+
+  const linking: LinkingOptions = {
+    prefixes: ["dogehouse://", "https://next.dogehouse.tv"],
+    config: deepLinksConf,
+  };
+
   return (
     <WebSocketProvider shouldConnect={true}>
       <QueryClientProvider client={queryClient}>
         <MainWsHandlerProvider />
         <SafeAreaProvider>
-          <NavigationContainer ref={navigationRef}>
+          <NavigationContainer ref={navigationRef} linking={linking}>
             <StatusBar
               barStyle="light-content"
               backgroundColor={colors.primary900}
