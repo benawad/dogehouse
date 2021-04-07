@@ -34,6 +34,8 @@ let PREV_PTT_STATUS = false;
 
 export let worker: Worker;
 
+globkey.start();
+
 if (app.isPackaged) {
     worker = new Worker(path.join(process.resourcesPath, 'app.asar.unpacked/dist/utils/keybinds/worker.js'));
 } else {
@@ -114,7 +116,7 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
     ipcMain.on("@overlay/app_title", (event, appTitle: string) => {
         CURRENT_APP_TITLE = appTitle;
     })
-    setTimeout(() => { globkey.unload(); }, 15000);
+    //setTimeout(() => { globkey.unload(); }, 15000);
     worker.on('message', (msg) => {
         if (msg.type == "keys") {
             let keypair = msg.keys;
@@ -135,9 +137,9 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
     });
 }
 export async function exitApp(quit = true) {
+    if (quit) {
+        globkey.stop()
+    }
     globkey.unload();
     await worker.terminate();
-    if (quit) {
-        app.quit();
-    }
 }

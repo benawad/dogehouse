@@ -1990,11 +1990,11 @@ __metadata:
   linkType: hard
 
 "i18next@npm:>=17.0.11, i18next@npm:^20.0.0":
-  version: 20.2.0
-  resolution: "i18next@npm:20.2.0"
+  version: 20.2.1
+  resolution: "i18next@npm:20.2.1"
   dependencies:
     "@babel/runtime": ^7.12.0
-  checksum: 21b0bdc691936de79ad9630770e471b19f6807d8ed9d240cd7a188d636f2c7394390009589641e471bcd670a17452b39ca9992fac9e99a1a4d91b1ea8ff48e7e
+  checksum: b73d828f43a8df4edfcc85f23721c1f2bc797367ac9864e75f6312a5f7e9a3729917f4ea0e6149eb78f87b3acdf9dfee72b37c2b2f00e5f5ed31ccb1de75c33c
   languageName: node
   linkType: hard
 
@@ -2531,9 +2531,9 @@ __metadata:
   linkType: hard
 
 "map-obj@npm:^4.0.0":
-  version: 4.2.0
-  resolution: "map-obj@npm:4.2.0"
-  checksum: 0ee5029e6d4482f378292565e3da1b70364f360e141295c6b3bd9164c916d31dcd43be126085dddd2f10d70846660728657d4ea5fa96baa5b40b03b135068600
+  version: 4.2.1
+  resolution: "map-obj@npm:4.2.1"
+  checksum: 59c2f09ffccf8878cdb67dc46d0dd73a55bcfb27c20afc2fb87250ac95f2b19e3187c8de887c40f41b96b0200aac3dfdbc31759615cb666b35864a307885c896
   languageName: node
   linkType: hard
 
@@ -4125,9 +4125,9 @@ typescript@^4.2.2:
   linkType: hard
 
 "y18n@npm:^5.0.5":
-  version: 5.0.6
-  resolution: "y18n@npm:5.0.6"
-  checksum: 7411f9091e7774f8da5d986003206844c78bb3dd614f617baf6665ba5fa8ee3d841c44beb091dd638304831ed00929705fd97a3fd21aaf6d485e8359ccd48508
+  version: 5.0.7
+  resolution: "y18n@npm:5.0.7"
+  checksum: d1e08cd58e59690e5f691a0dcf35d7fc8d38a08bb733d1687f03bd44b89fdb8fc8ff1f9040b8681dc2a996bc24e0b587062e0b3260f1c744b2dcc920e4efda61
   languageName: node
   linkType: hard
 
