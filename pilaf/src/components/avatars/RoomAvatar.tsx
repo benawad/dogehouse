@@ -42,7 +42,7 @@ export const RoomAvatar: React.FC<RoomAvatarProps> = ({
         activeSpeaker={activeSpeaker}
       />
       <Text
-        style={{ ...small, width: 80, textAlign: "center" }}
+        style={{ ...small, maxWidth: 80, textAlign: "center" }}
         numberOfLines={1}
       >
         {username}

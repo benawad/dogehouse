@@ -69,7 +69,6 @@ export const WebRtcApp: React.FC<App2Props> = () => {
       return;
     }
 
-    console.log("ADD LISTENER");
     const unsubs = [
       // @todo fix
       conn.addListener<any>("you_left_room", (d) => {
@@ -164,7 +163,6 @@ export const WebRtcApp: React.FC<App2Props> = () => {
     ];
 
     return () => {
-      console.log("CLEAN UP LISTENER");
       unsubs.forEach((x) => x());
     };
 

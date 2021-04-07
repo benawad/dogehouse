@@ -10,57 +10,7 @@ import { FeedController } from "../modules/dashboard/FeedController";
 export const DashboardPage: React.FC = () => {
   return (
     <ScrollView style={styles.container}>
-      <FeaturedRoomCard
-        style={{ marginBottom: 20 }}
-        title="Starting your dream business in times of Covid"
-        subtitle="Marcus Bloch, Don Velez"
-        listeners={400}
-        avatarSrcs={[
-          require("../assets/images/100.png"),
-          require("../assets/images/100.png"),
-          require("../assets/images/100.png"),
-        ]}
-        tags={[
-          <Tag style={{ marginRight: 10 }} key={"trending"} glow>
-            <Text style={{ ...smallBold }}>🔥 Trending</Text>
-          </Tag>,
-          <Tag style={{ marginRight: 10 }} key={"business-1"}>
-            <Text style={{ ...smallBold }}>#Business</Text>
-          </Tag>,
-          <Tag style={{ marginRight: 10 }} key={"business-2"}>
-            <Text style={{ ...smallBold }}>#Business</Text>
-          </Tag>,
-          <Tag style={{ marginRight: 10 }} key={"business-3"}>
-            <Text style={{ ...smallBold }}>#Business</Text>
-          </Tag>,
-        ]}
-      />
       <FeedController />
-      <RoomCard
-        style={{ marginBottom: 20 }}
-        title="Why CI & CD is important when working with a team and more because I need a long one"
-        subtitle="This is the subtitle This is the subtitle This is the subtitle This is the subtitle This is the subtitle"
-        listeners={400}
-        avatarSrcs={[
-          require("../assets/images/100.png"),
-          require("../assets/images/100.png"),
-          require("../assets/images/100.png"),
-        ]}
-        tags={[
-          <Tag style={{ marginRight: 10 }} key={"business"}>
-            <Text style={{ ...smallBold }}>#Business</Text>
-          </Tag>,
-          <Tag style={{ marginRight: 10 }} key={"business-2"}>
-            <Text style={{ ...smallBold }}>#Business</Text>
-          </Tag>,
-          <Tag style={{ marginRight: 10 }} key={"business-3"}>
-            <Text style={{ ...smallBold }}>#Business</Text>
-          </Tag>,
-          <Tag style={{ marginRight: 10 }} key={"business-4"}>
-            <Text style={{ ...smallBold }}>#Business</Text>
-          </Tag>,
-        ]}
-      />
     </ScrollView>
   );
 };
