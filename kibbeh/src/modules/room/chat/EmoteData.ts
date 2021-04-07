@@ -14,7 +14,7 @@ export const customEmojis = [
     imageUrl: "/emotes/brokenHeart.gif",
   },
   {
-    name: "obamium",
+    name: "obama",
     short_names: ["obama"],
     keywords: ["obama", "prism", "obamium"],
     imageUrl: "/emotes/obamium.png",
