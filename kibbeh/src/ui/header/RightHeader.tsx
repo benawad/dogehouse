@@ -65,7 +65,7 @@ const RightHeader: React.FC<RightHeaderProps> = ({
                 useTokenStore
                   .getState()
                   .setTokens({ accessToken: "", refreshToken: "" });
-                push("/");
+                push("/logout");
               });
             }}
             onCloseDropdown={close}
