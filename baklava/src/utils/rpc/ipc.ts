@@ -70,7 +70,7 @@ const PAGE_UPDATE_FUNC = (event, pageData) => {
                 setPresence({ details: 'User Settings', state: 'Editing Sound Effect Settings' });
                 break;
             case "profile":
-                setPresence({ details: `Viewing ${pageData.data}'s profile` });
+                setPresence({ details: 'User Profile', state: `Viewing @${pageData.data}` });
                 break;
             case "edit-profile":
                 setPresence({ details: 'User Settings', state: 'Editing Profile' });
