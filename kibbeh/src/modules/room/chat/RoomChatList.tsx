@@ -8,7 +8,7 @@ import { useTypeSafeTranslation } from "../../../shared-hooks/useTypeSafeTransla
 import { UserPreviewModalContext } from "../UserPreviewModalProvider";
 import { emoteMap } from "./EmoteData";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
-import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
+import { useRoomChatStore } from "./useRoomChatStore";
 
 interface ChatListProps {
   room: Room;

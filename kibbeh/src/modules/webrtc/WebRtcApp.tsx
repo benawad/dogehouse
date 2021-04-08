@@ -13,7 +13,7 @@ import { joinRoom } from "./utils/joinRoom";
 import { receiveVoice } from "./utils/receiveVoice";
 import { sendVoice } from "./utils/sendVoice";
 
-interface App2Props { }
+interface App2Props {}
 
 export function closeVoiceConnections(_roomId: string | null) {
   const { roomId, mic, nullify } = useVoiceStore.getState();
