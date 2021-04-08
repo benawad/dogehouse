@@ -58,7 +58,6 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   const [listenersPage, setListenersPage] = useState(1);
   const pageSize = 25;
   const { t } = useTypeSafeTranslation();
-  const [ipcStarted, setIpcStarted] = useState(false);
 
   useEffect(() => {
     if (isElectron()) {

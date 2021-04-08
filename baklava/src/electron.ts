@@ -78,7 +78,7 @@ function createMainWindow() {
     mainWindow.webContents.openDevTools();
   }
   mainWindow.loadURL(
-    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/dash"
+    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000"
   );
 
   bWindows = {

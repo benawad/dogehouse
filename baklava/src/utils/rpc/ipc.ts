@@ -9,36 +9,42 @@ const ROOM_DATA_UPDATE_FUNC = (event, data) => {
         let muted = 'Muted';
         let isMuted = true;
         let isSpeaker = false;
-        let meInRoom = data.currentRoom.users.find((u) => u.id == data.me.id);
-        if (meInRoom) {
-            if (meInRoom.roomPermissions) {
-                isSpeaker = meInRoom.roomPermissions.isSpeaker
-            } else if (data.currentRoom.room.creatorId === data.me.id) {
-                isSpeaker = true;
+        if (data.currentRoom) {
+            // kofta dosent send currentRoom.room
+            if (!data.currentRoom.room) {
+                data.currentRoom.room = data.currentRoom;
             }
-        }
-        if (isSpeaker) {
-            if (data.currentRoom.muteMap[data.me.id]) {
-                isMuted = data.currentRoom.muteMap[data.me.id];
-            } else {
-                isMuted = false;
+            let meInRoom = data.currentRoom.users.find((u) => u.id == data.me.id);
+            if (meInRoom) {
+                if (meInRoom.roomPermissions) {
+                    isSpeaker = meInRoom.roomPermissions.isSpeaker
+                } else if (data.currentRoom.room.creatorId === data.me.id) {
+                    isSpeaker = true;
+                }
             }
-            muted = isMuted ? 'Muted' : 'Unmuted';
+            if (isSpeaker) {
+                if (data.currentRoom.muteMap[data.me.id]) {
+                    isMuted = data.currentRoom.muteMap[data.me.id];
+                } else {
+                    isMuted = false;
+                }
+                muted = isMuted ? 'Muted' : 'Unmuted';
+            }
+            let pdata = {
+                details: `In ${data.currentRoom.room.name}`,
+                state: isSpeaker ? 'Speaker' : 'Listener',
+                partyId: data.currentRoom.room.id,
+                partySize: data.currentRoom.users.length,
+                partyMax: data.currentRoom.users.length,
+                startTimestamp: Date.parse(data.currentRoom.room.inserted_at),
+                smallImageKey: isSpeaker && !isMuted ? 'mic_on' : 'mic_off',
+                smallImageText: isSpeaker ? `Speaker - ${muted}` : `Listener`,
+                buttons: [
+                    { label: 'Join Room', url: `https://dogehouse.tv/room/${data.currentRoom.room.id}` }
+                ]
+            }
+            setPresence(pdata);
         }
-        let pdata = {
-            details: `In ${data.currentRoom.room.name}`,
-            state: isSpeaker ? 'Speaker' : 'Listener',
-            partyId: data.currentRoom.room.id,
-            partySize: data.currentRoom.users.length,
-            partyMax: data.currentRoom.users.length,
-            startTimestamp: Date.parse(data.currentRoom.room.inserted_at),
-            smallImageKey: isSpeaker && !isMuted ? 'mic_on' : 'mic_off',
-            smallImageText: isSpeaker ? `Speaker - ${muted}` : `Listener`,
-            buttons: [
-                { label: 'Join Room', url: `https://dogehouse.tv/room/${data.currentRoom.room.id}` }
-            ]
-        }
-        setPresence(pdata);
     }
 }
 const ROOM_JOINED_FUNC = (event, newinRoom) => {
