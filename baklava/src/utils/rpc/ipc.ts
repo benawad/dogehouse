@@ -45,7 +45,6 @@ export async function startRPCIPCHandler() {
                 }
             }
             if (isSpeaker) {
-                console.log(data.currentRoom.muteMap);
                 if (data.currentRoom.muteMap[data.me.id]) {
                     isMuted = data.currentRoom.muteMap[data.me.id];
                 } else {
@@ -61,6 +60,9 @@ export async function startRPCIPCHandler() {
                 startTimestamp: Date.parse(data.currentRoom.room.inserted_at),
                 smallImageKey: isSpeaker && !isMuted ? 'mic_on' : 'mic_off',
                 smallImageText: isSpeaker ? `Speaker - ${muted}` : `Listener`,
+                buttons: [
+                    { label: 'Join Room', url: `https://dogehouse.tv/room/${data.currentRoom.room.id}` }
+                ]
             }
             setPresence(pdata);
         }
