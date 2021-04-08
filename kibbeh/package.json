@@ -26,7 +26,6 @@
     "date-fns": "^2.19.0",
     "emoji-mart": "^3.0.1",
     "formik": "^2.2.6",
-    "framer-motion": "^4.1.2",
     "hark": "^1.2.3",
     "i18next": "^19.9.2",
     "i18next-browser-languagedetector": "^6.0.1",
