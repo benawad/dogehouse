@@ -1,7 +1,7 @@
 
 import { Client, Presence } from 'discord-rpc';
 import logger from 'electron-log';
-import { startRPCIPCHandler } from './ipc';
+import { startRPCIPCHandler, stopRPCIPCHandler } from './ipc';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -28,4 +28,10 @@ export async function startRPC() {
 
 export async function setPresence(data: Presence) {
     client.setActivity(Object.assign(data, defaultData));
+}
+
+// added this for when there will be a electron settings page
+export async function stopRPC() {
+    stopRPCIPCHandler();
+    client.destroy();
 }
