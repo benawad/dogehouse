@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
-import { Image } from "react-native";
+import { Image, Platform } from "react-native";
 import { CreateRoomButton } from "../components/bottomBar/CreateRoomButton";
 import { colors } from "../constants/dogeStyle";
 import { DashboardPage } from "../pages/DashboardPage";

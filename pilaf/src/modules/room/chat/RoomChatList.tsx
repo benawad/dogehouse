@@ -1,31 +1,39 @@
 import { Room } from "@dogehouse/kebab";
-import React, { useEffect, useRef, useState } from "react";
-import { ScrollView, View, Text, Image, TextInput } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { Image, Text, View } from "react-native";
 import {
   colors,
-  paragraph,
+  fontSize,
   radius,
   small,
   smallBold,
 } from "../../../constants/dogeStyle";
 import { useConn } from "../../../shared-hooks/useConn";
 import { useCurrentRoomInfo } from "../../../shared-hooks/useCurrentRoomInfo";
+import { UserPreviewModalContext } from "../UserPreviewModalProvider";
 import { emoteMap } from "./EmoteData";
-import { RoomChatInput } from "./RoomChatInput";
+import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
-
+import { ScrollView } from "react-native-gesture-handler";
 interface ChatListProps {
   room: Room;
 }
 
+const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
+  const paddingToBottom = 10;
+  return (
+    layoutMeasurement.height + contentOffset.y >=
+    contentSize.height - paddingToBottom
+  );
+};
+
+const onUserPress = (userId: string, message?: RoomChatMessage) => {};
+
 export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
+  const { setData } = useContext(UserPreviewModalContext);
   const scrollView = useRef<ScrollView>(null);
   const [scrollViewHeight, setScrollViewHeight] = useState(0);
   const [listHeight, setListHeight] = useState(0);
-  useEffect(() => {
-    scrollView.current.scrollTo({ y: listHeight - scrollViewHeight });
-  }, [scrollViewHeight, listHeight]);
   const messages = useRoomChatStore((s) => s.messages);
 
   const me = useConn().user;
@@ -34,43 +42,47 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
     messageToBeDeleted,
     setMessageToBeDeleted,
   ] = useState<RoomChatMessage | null>(null);
-  // const bottomRef = useRef<null | HTMLDivElement>(null);
   const {
     isRoomChatScrolledToTop,
     setIsRoomChatScrolledToTop,
   } = useRoomChatStore();
 
-  // Only scroll into view if not manually scrolled to top
-  // useEffect(() => {
-  //   isRoomChatScrolledToTop || bottomRef.current?.scrollIntoView();
-  // });
+  useEffect(() => {
+    if (!isRoomChatScrolledToTop) {
+      scrollView.current.scrollTo({ y: listHeight - scrollViewHeight });
+    }
+  }, [scrollViewHeight, listHeight]);
 
   return (
     <View
       style={{
-        // backgroundColor: colors.primary800,
-        padding: 10,
-        flex: 1,
+        padding: 5,
+        paddingHorizontal: 25,
+        flexGrow: 1,
       }}
     >
       <ScrollView
-        style={{ flex: 1, marginBottom: 10 }}
+        style={{ flex: 1, marginBottom: 10, paddingBottom: 10 }}
         contentContainerStyle={{
           flexGrow: 1,
           justifyContent: "flex-end",
         }}
         ref={scrollView}
         onLayout={(e) => {
-          // get the component measurements from the callbacks event
           const height = e.nativeEvent.layout.height;
-
-          // save the height of the scrollView component to the state
-          // this.setState({ scrollViewHeight: height });
           setScrollViewHeight(height);
         }}
         onContentSizeChange={(contentWidth, contentHeight) => {
           setListHeight(contentHeight);
         }}
+        onScroll={({ nativeEvent }) => {
+          const closeToBottom = isCloseToBottom(nativeEvent);
+          setIsRoomChatScrolledToTop(!closeToBottom);
+          if (closeToBottom) {
+            useRoomChatMentionStore.getState().resetIAmMentioned();
+          }
+        }}
+        scrollEventThrottle={100}
       >
         {messages
           .slice()
@@ -78,18 +90,53 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
           .map((m) => (
             <View
               key={m.id}
-              style={
+              style={[
+                { marginTop: 8 },
                 m.isWhisper
                   ? {
                       backgroundColor: colors.primary700,
                       borderRadius: radius.s,
+                      paddingHorizontal: 5,
                     }
-                  : {}
-              }
+                  : {},
+              ]}
             >
-              <Text style={{ ...smallBold, color: m.color }}>
-                {m.username}:{" "}
-                <Text style={{ ...small }}>
+              {m.isWhisper && (
+                <Text
+                  style={{
+                    ...small,
+                    fontSize: fontSize.xs,
+                    color: colors.primary300,
+                  }}
+                >
+                  Whisper
+                </Text>
+              )}
+              <Text>
+                <Text
+                  style={{
+                    ...smallBold,
+                    color: m.color,
+                    marginHorizontal: 5,
+                    textAlignVertical: "center",
+                  }}
+                  onPress={() =>
+                    setData({
+                      userId: m.userId,
+                      message:
+                        (me?.id === m.userId ||
+                          iAmCreator ||
+                          (iAmMod && room.creatorId !== m.userId)) &&
+                        !m.deleted
+                          ? m
+                          : undefined,
+                    })
+                  }
+                >
+                  {m.username}:{" "}
+                </Text>
+
+                <Text style={{ ...small, lineHeight: undefined }}>
                   {m.deleted ? (
                     <Text>
                       [message{" "}
@@ -102,13 +149,39 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                           return <Text key={i}>{v} </Text>;
                         case "emote":
                           return emoteMap[v] ? (
-                            <Image key={i} source={{ uri: emoteMap[v] }} />
+                            m.tokens.find((t) => t.t === "text") !==
+                            undefined ? (
+                              <Image
+                                key={i}
+                                source={emoteMap[v]}
+                                style={{
+                                  height: 20,
+                                  width: 20,
+                                }}
+                              />
+                            ) : (
+                              <Image key={i} source={emoteMap[v]} />
+                            )
                           ) : (
                             ":" + v + ":"
                           );
 
-                        case "mention":
-                          return <Text key={i}>@{v} </Text>;
+                        case "mention": {
+                          if (!m.isWhisper) {
+                            return (
+                              <Text
+                                key={i}
+                                style={{
+                                  color: colors.primary300,
+                                }}
+                              >
+                                @{v}{" "}
+                              </Text>
+                            );
+                          }
+                          return null;
+                        }
+
                         case "link":
                           return (
                             <Text key={i}>

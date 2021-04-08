@@ -10,6 +10,7 @@ import { joinRoom } from "./utils/joinRoom";
 import { receiveVoice } from "./utils/receiveVoice";
 import { sendVoice } from "./utils/sendVoice";
 import InCallManager from "react-native-incall-manager";
+import * as RootNavigation from "../../navigators/RootNavigation";
 
 interface App2Props {}
 
@@ -71,14 +72,16 @@ export const WebRtcApp: React.FC<App2Props> = () => {
     const unsubs = [
       // @todo fix
       conn.addListener<any>("you_left_room", (d) => {
-        // assumes you don't rejoin the same room really quickly before websocket fires
-        setCurrentRoomId((id) => {
-          if (id === d.roomId) {
-            return null;
+        if (d.kicked) {
+          const { currentRoomId } = useCurrentRoomIdStore.getState();
+          if (currentRoomId !== d.roomId) {
+            return;
           }
-          return id;
-        });
-        closeVoiceConnections(d.roomId);
+
+          setCurrentRoomId(null);
+          closeVoiceConnections(d.roomId);
+          RootNavigation.navigate("Home");
+        }
         InCallManager.stop();
       }),
       conn.addListener<any>("new-peer-speaker", async (d) => {
@@ -94,7 +97,6 @@ export const WebRtcApp: React.FC<App2Props> = () => {
         if (d.roomId !== useVoiceStore.getState().roomId) {
           return;
         }
-        // setStatus("connected-speaker");
         try {
           await createTransport(conn, d.roomId, "send", d.sendTransportOptions);
         } catch (err) {
@@ -102,7 +104,6 @@ export const WebRtcApp: React.FC<App2Props> = () => {
           return;
         }
         InCallManager.start({ media: "audio" });
-        console.log("sending voice");
         try {
           await sendVoice();
         } catch (err) {

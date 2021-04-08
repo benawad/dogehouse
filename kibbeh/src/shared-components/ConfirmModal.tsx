@@ -3,6 +3,7 @@ import create from "zustand";
 import { combine } from "zustand/middleware";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../ui/Button";
+import { ButtonLink } from "../ui/ButtonLink";
 import { Modal } from "../ui/Modal";
 
 interface Props {}
@@ -31,26 +32,27 @@ export const ConfirmModal: React.FC<Props> = () => {
   const { t } = useTypeSafeTranslation();
   return (
     <Modal isOpen={!!onConfirm} onRequestClose={() => close()}>
-      <div className={`text-primary-100`}>{message}</div>
-      <div className={`flex mt-12`}>
-        <Button
-          type="button"
-          onClick={close}
-          className={`mr-1.5`}
-          color="secondary"
-        >
-          {t("common.cancel")}
-        </Button>
-        <Button
-          onClick={() => {
-            close();
-            onConfirm?.();
-          }}
-          type="submit"
-          className={`ml-1.5`}
-        >
-          {t("common.yes")}
-        </Button>
+      <div className="flex-col">
+        <div className={`text-primary-100`}>{message}</div>
+        <div className={`flex mt-6 items-center`}>
+          <Button
+            onClick={() => {
+              close();
+              onConfirm?.();
+            }}
+            type="submit"
+          >
+            {t("common.yes")}
+          </Button>
+          <ButtonLink
+            type="button"
+            onClick={close}
+            className={`ml-4`}
+            color="secondary"
+          >
+            {t("common.cancel")}
+          </ButtonLink>
+        </div>
       </div>
     </Modal>
   );

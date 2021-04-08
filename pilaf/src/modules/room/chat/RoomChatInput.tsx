@@ -1,22 +1,33 @@
-import { RoomUser } from "@dogehouse/kebab";
+import { Room, RoomUser } from "@dogehouse/kebab";
 import React, { useRef, useState } from "react";
-import { KeyboardAvoidingView, TextInput } from "react-native";
+import {
+  KeyboardAvoidingView,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  View,
+  ViewStyle,
+} from "react-native";
 import { colors, radius } from "../../../constants/dogeStyle";
 import { createChatMessage } from "../../../lib/createChatMessage";
-// import { showErrorToast } from "../../../lib/showErrorToast";
 import { useConn } from "../../../shared-hooks/useConn";
-// import { useTypeSafeTranslation } from "../../../shared-hooks/useTypeSafeTranslation";
-// import { Input } from "../../../ui/Input";
-import { customEmojis, CustomEmote } from "./EmoteData";
+import { EmotePicker } from "./EmotePicker";
+
 import { RoomChatMentions } from "./RoomChatMentions";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { useRoomChatStore } from "./useRoomChatStore";
 
 interface ChatInputProps {
+  style: ViewStyle;
   users: RoomUser[];
+  onEmotePress: () => void;
 }
 
-export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
+export const RoomChatInput: React.FC<ChatInputProps> = ({
+  users,
+  onEmotePress,
+  style,
+}) => {
   const { message, setMessage } = useRoomChatStore();
   const {
     setQueriedUsernames,
@@ -33,45 +44,6 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
   const [lastMessageTimestamp, setLastMessageTimestamp] = useState<number>(0);
 
   let position = 0;
-
-  const navigateThroughQueriedUsers = (e: any) => {
-    // Use dom method, GlobalHotkeys apparently don't catch arrow-key events on inputs
-    if (
-      !["ArrowUp", "ArrowDown", "Enter"].includes(e.code) ||
-      !queriedUsernames.length
-    ) {
-      return;
-    }
-
-    e.preventDefault();
-
-    let changeToIndex: number | null = null;
-    const activeIndex = queriedUsernames.findIndex(
-      (username) => username.id === activeUsername
-    );
-
-    if (e.code === "ArrowUp") {
-      changeToIndex =
-        activeIndex === 0 ? queriedUsernames.length - 1 : activeIndex - 1;
-    } else if (e.code === "ArrowDown") {
-      changeToIndex =
-        activeIndex === queriedUsernames.length - 1 ? 0 : activeIndex + 1;
-    } else if (e.code === "Enter") {
-      const selected = queriedUsernames[activeIndex];
-      setMentions([...mentions, selected]);
-      setMessage(
-        `${message.substring(0, message.lastIndexOf("@") + 1)}${
-          selected.username
-        } `
-      );
-      setQueriedUsernames([]);
-    }
-
-    // navigate to next/prev mention suggestion item
-    if (changeToIndex !== null) {
-      setActiveUsername(queriedUsernames[changeToIndex]?.id);
-    }
-  };
 
   const handleSubmit = () => {
     if (!me) return;
@@ -107,23 +79,39 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
   };
 
   return (
-    <KeyboardAvoidingView behavior={"padding"}>
+    <View style={style}>
       <RoomChatMentions users={users} />
-      <TextInput
-        placeholder={"Send a message"}
-        placeholderTextColor={colors.primary300}
-        autoCorrect={false}
+      <View
         style={{
+          flexDirection: "row",
           height: 40,
           backgroundColor: colors.primary700,
           paddingHorizontal: 16,
           borderRadius: radius.m,
-          color: colors.text,
         }}
-        value={message}
-        onSubmitEditing={handleSubmit}
-        onChangeText={(value) => setMessage(value)}
-      />
-    </KeyboardAvoidingView>
+      >
+        <View style={{ flex: 1 }}>
+          <TextInput
+            placeholder={"Send a message"}
+            placeholderTextColor={colors.primary300}
+            autoCorrect={false}
+            style={{
+              height: 40,
+              color: colors.text,
+            }}
+            value={message}
+            onSubmitEditing={handleSubmit}
+            onChangeText={(value) => setMessage(value)}
+          />
+        </View>
+
+        <TouchableOpacity
+          style={{ alignSelf: "center", flexShrink: 0, marginLeft: 10 }}
+          onPress={onEmotePress}
+        >
+          <Image source={require("../../../assets/images/emoji-icon.png")} />
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 };

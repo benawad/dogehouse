@@ -82,6 +82,7 @@
 		8F077410260B5B5B0039B724 /* unmute.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = unmute.wav; path = rice/unmute.wav; sourceTree = "<group>"; };
 		8F077411260B5B5B0039B724 /* room_chat_mention.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = room_chat_mention.wav; path = rice/room_chat_mention.wav; sourceTree = "<group>"; };
 		8F077412260B5B5B0039B724 /* room_invite.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = room_invite.wav; path = rice/room_invite.wav; sourceTree = "<group>"; };
+		8F077A3B261DA7040039B724 /* rice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = rice.entitlements; path = rice/rice.entitlements; sourceTree = "<group>"; };
 		949E1EE0791A415888479591 /* Inter-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Thin.ttf"; path = "../src/assets/fonts/Inter-Thin.ttf"; sourceTree = "<group>"; };
 		A38C5207B0F5B4C8C6299FBE /* Pods-rice-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rice-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-rice-tvOSTests/Pods-rice-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B6D95EED2A6A40479598C44B /* Inter-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Medium.ttf"; path = "../src/assets/fonts/Inter-Medium.ttf"; sourceTree = "<group>"; };
@@ -151,6 +152,7 @@
 		13B07FAE1A68108700A75B9A /* rice */ = {
 			isa = PBXGroup;
 			children = (
+				8F077A3B261DA7040039B724 /* rice.entitlements */,
 				8F07740F260B5B5B0039B724 /* mute.wav */,
 				8F077411260B5B5B0039B724 /* room_chat_mention.wav */,
 				8F077412260B5B5B0039B724 /* room_invite.wav */,
@@ -820,6 +822,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = rice/rice.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = rice/Info.plist;
@@ -844,6 +847,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = rice/rice.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = rice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -78,10 +78,9 @@ export const WebRtcApp: React.FC<App2Props> = () => {
           if (currentRoomId !== d.roomId) {
             return;
           }
-
           setCurrentRoomId(null);
           closeVoiceConnections(d.roomId);
-          push("/dashboard");
+          push("/dash");
         }
       }),
       conn.addListener<any>("new-peer-speaker", async (d) => {

@@ -37,7 +37,11 @@
       "startPrivateRoom": "開啟私人房間"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "新增房間", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "新增房間",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "房間已被删除，請回到前一頁",
       "shareRoomLink": "在房間分享連結",

@@ -5,7 +5,7 @@ import * as React from "react";
 
 export const navigationRef = React.createRef<NavigationContainerRef>();
 
-export function navigate(name, params) {
+export function navigate(name, params = {}) {
   navigationRef.current?.dispatch(StackActions.popToTop());
   navigationRef.current?.navigate(name, params);
 }

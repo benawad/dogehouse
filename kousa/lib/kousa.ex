@@ -68,11 +68,15 @@ defmodule Kousa do
   defp start_rabbits() do
     n = Application.get_env(:kousa, :num_voice_servers, 1) - 1
 
+    IO.puts("about to start_rabbits")
+
     0..n
     |> Enum.map(&Kousa.Utils.VoiceServerUtils.idx_to_str_id/1)
     |> Enum.each(fn id ->
       Onion.VoiceRabbit.start_supervised(id)
       Onion.VoiceOnlineRabbit.start_supervised(id)
     end)
+
+    IO.puts("finished rabbits")
   end
 end

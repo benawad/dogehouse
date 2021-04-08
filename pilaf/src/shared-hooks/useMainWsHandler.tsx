@@ -10,14 +10,12 @@ import {
   RoomChatMessageToken,
   useRoomChatStore,
 } from "../modules/room/chat/useRoomChatStore";
-// import {
-//   RoomChatMessageToken,
-//   useRoomChatStore,
-// } from "../modules/room/chat/useRoomChatStore";
 import { mergeRoomPermission } from "../modules/webrtc/utils/mergeRoomPermission";
 import { WebSocketContext } from "../modules/ws/WebSocketProvider";
 import { setMute } from "./useSetMute";
 import { useTypeSafeUpdateQuery } from "./useTypeSafeUpdateQuery";
+import PushNotification from "react-native-push-notification";
+import { pushRoomCreateNotification } from "../lib/notificationCenter";
 
 export const useMainWsHandler = () => {
   const { conn } = useContext(WebSocketContext);
@@ -55,7 +53,7 @@ export const useMainWsHandler = () => {
         useRoomChatStore.getState().addMessage(msg);
         const { isRoomChatScrolledToTop } = useRoomChatStore.getState();
         if (
-          !open &&
+          (!open || isRoomChatScrolledToTop) &&
           !!msg.tokens.filter(
             (t: RoomChatMessageToken) =>
               t.t === "mention" &&
@@ -107,18 +105,18 @@ export const useMainWsHandler = () => {
         // }
       }),
       conn.addListener<any>("someone_you_follow_created_a_room", (value) => {
-        // @todo
-        // invitedToRoomConfirm(value, history);
-        // if (isElectron()) {
-        //   ipcRenderer.send("@notification/indirect_invitation", value);
-        // }
+        pushRoomCreateNotification(
+          value.username,
+          value.roomName,
+          value.roomId
+        );
       }),
       conn.addListener<any>("invitation_to_room", (value) => {
-        // @todo
-        // invitedToRoomConfirm(value, history);
-        // if (isElectron()) {
-        //   ipcRenderer.send("@notification/invitation", value);
-        // }
+        pushRoomCreateNotification(
+          value.username,
+          value.roomName,
+          value.roomId
+        );
       }),
       conn.addListener<any>(
         "active_speaker_change",

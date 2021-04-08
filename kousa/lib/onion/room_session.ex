@@ -45,11 +45,13 @@ defmodule Onion.RoomSession do
   def child_spec(init), do: %{super(init) | id: Keyword.get(init, :room_id)}
 
   def count, do: Registry.count(Onion.RoomSessionRegistry)
+  def lookup(room_id), do: Registry.lookup(Onion.RoomSessionRegistry, room_id)
 
   ###############################################################################
   ## INITIALIZATION BOILERPLATE
 
   def start_link(init) do
+    IO.puts("room session starting: " <> init[:room_id])
     GenServer.start_link(__MODULE__, init, name: via(init[:room_id]))
   end
 
@@ -222,7 +224,11 @@ defmodule Onion.RoomSession do
     unless opts[:no_fan] do
       ws_fan(state.users, %{
         op: "new_user_join_room",
-        d: %{user: Beef.Users.get_by_id(user_id), muteMap: muteMap, roomId: state.room_id}
+        d: %{
+          user: Beef.Users.get_by_id_with_room_permissions(user_id),
+          muteMap: muteMap,
+          roomId: state.room_id
+        }
       })
     end
 

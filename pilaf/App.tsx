@@ -9,10 +9,10 @@ import "react-native-gesture-handler";
 import "react-native-get-random-values";
 import { QueryClientProvider } from "react-query";
 import React, { useEffect } from "react";
-import { StatusBar } from "react-native";
+import { StatusBar, View } from "react-native";
 import SplashScreen from "react-native-splash-screen";
 import { useTokenStore } from "./src/modules/auth/useTokenStore";
-import { NavigationContainer } from "@react-navigation/native";
+import { LinkingOptions, NavigationContainer } from "@react-navigation/native";
 import { RootNavigator } from "./src/navigators/RootNavigator";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { queryClient } from "./src/lib/queryClient";
@@ -24,6 +24,7 @@ import { useVoiceStore } from "./src/modules/webrtc/stores/useVoiceStore";
 import { navigationRef } from "./src/navigators/RootNavigation";
 import { MainWsHandlerProvider } from "./src/shared-hooks/useMainWsHandler";
 import { WebSocketProvider } from "./src/modules/ws/WebSocketProvider";
+import { colors } from "./src/constants/dogeStyle";
 
 const App: React.FC = () => {
   registerGlobals();
@@ -62,13 +63,27 @@ const App: React.FC = () => {
     prepare();
   }
 
+  const deepLinksConf = {
+    screens: {
+      Room: "room/:roomId",
+    },
+  };
+
+  const linking: LinkingOptions = {
+    prefixes: ["dogehouse://", "https://next.dogehouse.tv"],
+    config: deepLinksConf,
+  };
+
   return (
     <WebSocketProvider shouldConnect={true}>
       <QueryClientProvider client={queryClient}>
         <MainWsHandlerProvider />
         <SafeAreaProvider>
-          <NavigationContainer ref={navigationRef}>
-            <StatusBar barStyle="light-content" />
+          <NavigationContainer ref={navigationRef} linking={linking}>
+            <StatusBar
+              barStyle="light-content"
+              backgroundColor={colors.primary900}
+            />
             <RootNavigator />
             <Toast ref={(ref) => Toast.setRef(ref)} />
           </NavigationContainer>

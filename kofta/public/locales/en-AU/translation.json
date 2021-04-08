@@ -38,7 +38,11 @@
       "startPrivateRoom": "ɯǝɥʇ ɥʇᴉʍ ɯooɹ ǝʇɐʌᴉɹd ɐ ʇɹɐʇs"
     },
     "followList": { "followHim": "ʍoꞁꞁoɟ", "followingHim": "ƃuᴉʍoꞁꞁoɟ" },
-    "home": { "createRoom": "ɯooᴚ ǝʇɐǝɹƆ", "refresh": "ɥsǝɹɟǝᴚ" },
+    "home": {
+      "createRoom": "ɯooᴚ ǝʇɐǝɹƆ",
+      "refresh": "ɥsǝɹɟǝᴚ",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "ʞɔɐq oƃ 'ǝuoƃ ɯooɹ",
       "shareRoomLink": "ɯooɹ oʇ ʞuᴉꞁ ǝɹɐɥs",
@@ -53,8 +57,8 @@
       "featureText_4": "ǝɔɹnoS uǝdO",
       "featureText_5": "ʇɐɥƆ ʇxǝ⊥",
       "featureText_6": "ǝƃoᗡ ʎq pǝɹǝʍoԀ",
-      "loginGithub": "qnHʇᴉ⅁ ɥʇᴉʍ uᴉƃoꞁ",
-      "loginTwitter": "ɹǝʇʇᴉʍ⊥ ɥʇᴉʍ uᴉƃoꞁ",
+      "loginGithub": "qnHʇᴉ⅁ ɥʇᴉʍ uᴉ ƃoꞁ",
+      "loginTwitter": "ɹǝʇʇᴉʍ⊥ ɥʇᴉʍ uᴉ ƃoꞁ",
       "createTestUser": "ɹǝsn ʇsǝʇ ǝʇɐǝɹɔ"
     },
     "myProfile": {

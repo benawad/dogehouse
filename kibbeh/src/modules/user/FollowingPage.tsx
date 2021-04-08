@@ -7,20 +7,19 @@ import { DesktopLayout } from "../layouts/DesktopLayout";
 import { LeftPanel, MiddlePanel, RightPanel } from "../layouts/GridPanels";
 import { FollowingController } from "./FollowingController";
 import { UserProfileController } from "./UserProfileController";
+import { HeaderController } from "../../modules/display/HeaderController";
 
 interface UserPageProps {}
 
 export const FollowingPage: PageComponent<UserPageProps> = ({}) => {
   return (
     <WaitForWsAndAuth>
-      <DesktopLayout>
-        <LeftPanel>
-          <FollowingOnlineController />
-        </LeftPanel>
+      <HeaderController embed={{}} title="People" />
+      <DesktopLayout
+        leftPanel={<FollowingOnlineController />}
+        rightPanel={<ProfileBlockController />}
+      >
         <FollowingController />
-        <RightPanel>
-          <ProfileBlockController />
-        </RightPanel>
       </DesktopLayout>
     </WaitForWsAndAuth>
   );

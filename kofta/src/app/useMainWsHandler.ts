@@ -22,7 +22,7 @@ import {
 } from "./modules/room-chat/useRoomChatStore";
 import { useShouldBeSidebar } from "./modules/room-chat/useShouldFullscreenChat";
 import { RoomUser } from "./types";
-import { isUuid } from "./utils/isUuid";
+import { validate as uuidValidate } from 'uuid';
 import { roomToCurrentRoom } from "./utils/roomToCurrentRoom";
 import { showErrorToast } from "./utils/showErrorToast";
 import { useMeQuery } from "./utils/useMeQuery";
@@ -436,7 +436,7 @@ export const useMainWsHandler = () => {
         return false;
       });
 
-      if (id && isUuid(id)) {
+      if (id && uuidValidate(id)) {
         console.log("join the room boyz");
         wsend({ op: "join_room", d: { roomId: id } });
       }

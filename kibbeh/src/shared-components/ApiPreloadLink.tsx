@@ -6,21 +6,26 @@ type Prefetch = ReturnType<typeof useTypeSafePrefetch>;
 
 const handlers = {
   following: ({ username }: { username: string }) => ({
-    href: "/following/[username]",
-    as: `/following/${username}`,
+    href: "/u/[username]/following",
+    as: `/u/${username}/following`,
     onClick: (prefetch: Prefetch) =>
       prefetch("getFollowList", [username, true, 0]),
   }),
   followers: ({ username }: { username: string }) => ({
-    href: "/followers/[username]",
-    as: `/followers/${username}`,
+    href: "/u/[username]/followers",
+    as: `/u/${username}/followers`,
     onClick: (prefetch: Prefetch) =>
       prefetch("getFollowList", [username, false, 0]),
   }),
   profile: ({ username }: { username: string }) => ({
-    href: "/user/[username]",
-    as: `/user/${username}`,
+    href: "/u/[username]",
+    as: `/u/${username}`,
     onClick: (prefetch: Prefetch) => prefetch("getUserProfile", [username]),
+  }),
+  room: ({ id }: { id: string }) => ({
+    href: "/room/[id]",
+    as: `/room/${id}`,
+    onClick: (prefetch: Prefetch) => prefetch("joinRoomAndGetInfo", [id]),
   }),
 };
 

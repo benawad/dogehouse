@@ -1,29 +1,25 @@
 import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
 import { useNavigation } from "@react-navigation/core";
-import React, { useEffect } from "react";
-import {
-  Button,
-  KeyboardAvoidingView,
-  ScrollView,
-  StyleSheet,
-  View,
-} from "react-native";
+import { RouteProp } from "@react-navigation/native";
+import React from "react";
+import { ScrollView, StyleSheet, View } from "react-native";
+import { RoomHeader } from "../../components/header/RoomHeader";
 import { TitledHeader } from "../../components/header/TitledHeader";
+import { Spinner } from "../../components/Spinner";
 import { colors } from "../../constants/dogeStyle";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
-import { isUuid } from "../../lib/isUuid";
+import { validate as uuidValidate } from "uuid";
 import { useWrappedConn } from "../../shared-hooks/useConn";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { RoomUsersPanel } from "./RoomUsersPanel";
-import { Spinner } from "../../components/Spinner";
-import { RoomHeader } from "../../components/header/RoomHeader";
-import { setMute, useSetMute } from "../../shared-hooks/useSetMute";
-import { useMuteStore } from "../../global-stores/useMuteStore";
-import { RoomChat } from "./chat/RoomChat";
-interface RoomPanelControllerProps {
-  roomId?: string | undefined;
-}
+import { RoomStackParamList } from "../../navigators/RoomNavigator";
+
+type RoomPageRouteProp = RouteProp<RoomStackParamList, "RoomMain">;
+
+type RoomPageProps = {
+  route: RoomPageRouteProp;
+};
 
 const placeHolder = (
   <View
@@ -37,79 +33,57 @@ const placeHolder = (
   </View>
 );
 
-export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({
-  roomId,
-}) => {
-  const conn = useWrappedConn();
+export const RoomPanelController: React.FC<RoomPageProps> = ({ route }) => {
   const { mutateAsync: leaveRoom } = useTypeSafeMutation("leaveRoom");
   const navigation = useNavigation();
-  const { currentRoomId, setCurrentRoomId } = useCurrentRoomIdStore();
-  const setInternalMute = useSetMute();
-  const muted = useMuteStore((s) => s.muted);
+  const { setCurrentRoomId } = useCurrentRoomIdStore();
   const { data, isLoading } = useTypeSafeQuery(
-    ["joinRoomAndGetInfo", roomId || ""],
+    ["joinRoomAndGetInfo", route.params.data.room.id || ""],
     {
-      enabled: isUuid(roomId),
+      enabled: uuidValidate(route.params.data.room.id),
       onSuccess: ((d: JoinRoomAndGetInfoResponse | { error: string }) => {
         if (!("error" in d)) {
           setCurrentRoomId(() => d.room.id);
+          // if (currentRoomId !== d.room.id) {
+          //   useRoomChatStore.getState().reset();
+          // }
         }
       }) as any,
     },
-    [roomId]
+    [route.params.data.room.id]
   );
-
-  useEffect(() => {
-    if (isLoading) {
-      return;
-    }
-    if (!data) {
-      setCurrentRoomId(null);
-      navigation.navigate("Home");
-      return;
-    }
-    if ("error" in data) {
-      setCurrentRoomId(null);
-      //showErrorToast(data.error);
-      navigation.navigate("Home");
-    }
-  }, [data, isLoading, navigation.navigate, setCurrentRoomId]);
-
-  if (isLoading || !currentRoomId) {
-    return placeHolder;
-  }
 
   if (!data || "error" in data) {
     return null;
   }
 
-  const roomCreator = data.users.find((x) => x.id === data.room.creatorId);
-
   return (
-    <View style={{ flex: 1, backgroundColor: colors.primary900 }}>
-      <RoomHeader
-        showBackButton={true}
-        onLeavePress={() => {
-          leaveRoom([]);
-          navigation.navigate("Home");
-        }}
-        onMutePress={() => {
-          setInternalMute(!muted);
-        }}
-        onSpeakPress={() => conn.connection.send("ask_to_speak", {})}
-        muted={muted}
-        canAskToSpeak={true}
-      />
-      <KeyboardAvoidingView behavior={"padding"} style={{ flex: 1 }}>
+    <>
+      <View style={{ flex: 1, backgroundColor: colors.primary900 }}>
+        <RoomHeader
+          onLeavePress={() => {
+            leaveRoom([]);
+            setCurrentRoomId(null);
+            navigation.navigate("Home");
+          }}
+          onTitlePress={() => {
+            navigation.navigate("RoomDescription", { data: data });
+          }}
+          roomTitle={data.room.name}
+          roomSubtitle={data.room.peoplePreviewList
+            .filter((u) => u.id === data.room.creatorId)
+            .map((u) => u.displayName)
+            .join(", ")}
+        />
         <ScrollView
           style={styles.scrollView}
           contentContainerStyle={[styles.avatarsContainer]}
         >
           <RoomUsersPanel {...data} />
         </ScrollView>
-        <RoomChat {...data} style={{ flex: 1 }} />
-      </KeyboardAvoidingView>
-    </View>
+      </View>
+      {/* <UserPreviewModal {...route.params} /> */}
+    </>
   );
 };
 

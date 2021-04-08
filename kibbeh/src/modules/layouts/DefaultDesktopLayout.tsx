@@ -3,7 +3,8 @@ import { WaitForWsAndAuth } from "../auth/WaitForWsAndAuth";
 import { FollowingOnlineController } from "../dashboard/FollowingOnlineController";
 import { ProfileBlockController } from "../dashboard/ProfileBlockController";
 import { DesktopLayout } from "./DesktopLayout";
-import { LeftPanel, RightPanel } from "./GridPanels";
+import { FloatingRoomInfo } from "./FloatingRoomInfo";
+import { TabletSidebar } from "./TabletSidebar";
 
 interface DefaultDesktopLayoutProps {}
 
@@ -12,14 +13,13 @@ export const DefaultDesktopLayout: React.FC<DefaultDesktopLayoutProps> = ({
 }) => {
   return (
     <WaitForWsAndAuth>
-      <DesktopLayout>
-        <LeftPanel>
-          <FollowingOnlineController />
-        </LeftPanel>
+      <DesktopLayout
+        floatingRoomInfo={<FloatingRoomInfo />}
+        tabletSidebar={<TabletSidebar />}
+        leftPanel={<FollowingOnlineController />}
+        rightPanel={<ProfileBlockController />}
+      >
         {children}
-        <RightPanel>
-          <ProfileBlockController />
-        </RightPanel>
       </DesktopLayout>
     </WaitForWsAndAuth>
   );

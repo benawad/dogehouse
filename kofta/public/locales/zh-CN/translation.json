@@ -37,7 +37,11 @@
       "startPrivateRoom": "跟ta进入私人聊天室"
     },
     "followList": { "followHim": "关注ta", "followingHim": "已经关注" },
-    "home": { "createRoom": "新建聊天室", "refresh": "刷新" },
+    "home": {
+      "createRoom": "新建聊天室",
+      "refresh": "刷新",
+      "editRoom": "修改聊天室"
+    },
     "inviteList": {
       "roomGone": "聊天室已被删除，请回到前一页",
       "shareRoomLink": "在聊天室分享链接",

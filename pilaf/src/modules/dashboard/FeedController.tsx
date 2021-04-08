@@ -5,6 +5,7 @@ import { RoomCard } from "../../components/RoomCard";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
+import { useRoomChatStore } from "../room/chat/useRoomChatStore";
 import { useSoundEffectStore } from "../sound-effect/useSoundEffectStore";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 
@@ -23,7 +24,7 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
   const prefetch = useTypeSafePrefetch();
 
   const navigation = useNavigation();
-  const playSound = useSoundEffectStore((s) => s.playSoundEffect);
+  const [clearChat] = useRoomChatStore((s) => [s.clearChat]);
   if (!conn || isLoading || !data) {
     return null;
   }
@@ -50,8 +51,8 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
           tags={[]}
           avatarSrcs={[]}
           onPress={() => {
-            playSound("room_chat_mention");
             if (room.id !== currentRoomId) {
+              clearChat();
               prefetch(["joinRoomAndGetInfo", room.id], [room.id]);
             }
             navigation.navigate("Room", { roomId: room.id });

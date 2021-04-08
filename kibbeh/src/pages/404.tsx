@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 export default function Custom404() {
   const router = useRouter();
   useEffect(() => {
-    router.replace("/dashboard");
+    router.replace("/dash");
   });
   return null;
 }
