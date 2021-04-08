@@ -5,7 +5,7 @@ import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useSetMute, setMute } from "../../shared-hooks/useSetMute";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
-import { useOnRoomPage } from "../room/useOnRoomPage";
+import { useOnRoomPage } from "./useOnRoomPage";
 
 interface MinimizedRoomCardControllerProps {}
 

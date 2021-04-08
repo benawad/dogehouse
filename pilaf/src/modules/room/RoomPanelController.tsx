@@ -9,7 +9,6 @@ import { Spinner } from "../../components/Spinner";
 import { colors } from "../../constants/dogeStyle";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { validate as uuidValidate } from "uuid";
-import { useWrappedConn } from "../../shared-hooks/useConn";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { RoomUsersPanel } from "./RoomUsersPanel";

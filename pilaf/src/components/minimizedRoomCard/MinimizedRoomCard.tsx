@@ -54,8 +54,12 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
         </Text>
       </TouchableOpacity>
       <BoxedIcon
-        image={require("../../assets/images/bxs-microphone.png")}
-        imageColor={room.myself.isMuted ? colors.text : colors.accent}
+        image={
+          room.myself.isMuted
+            ? require("../../assets/images/SolidMicrophoneOff.png")
+            : require("../../assets/images/bxs-microphone.png")
+        }
+        imageColor={colors.text}
         onPress={() => room.myself.switchMuted()}
         style={{ width: 60, margin: 10 }}
       />

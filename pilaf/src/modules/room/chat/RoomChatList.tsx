@@ -1,5 +1,5 @@
 import { Room } from "@dogehouse/kebab";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Image, Text, View } from "react-native";
 import {
   colors,
@@ -10,11 +10,12 @@ import {
 } from "../../../constants/dogeStyle";
 import { useConn } from "../../../shared-hooks/useConn";
 import { useCurrentRoomInfo } from "../../../shared-hooks/useCurrentRoomInfo";
-import { UserPreviewModalContext } from "../UserPreviewModalProvider";
 import { emoteMap } from "./EmoteData";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
 import { ScrollView } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/core";
+
 interface ChatListProps {
   room: Room;
 }
@@ -27,15 +28,12 @@ const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
   );
 };
 
-const onUserPress = (userId: string, message?: RoomChatMessage) => {};
-
 export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
-  const { setData } = useContext(UserPreviewModalContext);
   const scrollView = useRef<ScrollView>(null);
   const [scrollViewHeight, setScrollViewHeight] = useState(0);
   const [listHeight, setListHeight] = useState(0);
   const messages = useRoomChatStore((s) => s.messages);
-
+  const navigation = useNavigation();
   const me = useConn().user;
   const { isMod: iAmMod, isCreator: iAmCreator } = useCurrentRoomInfo();
   const [
@@ -120,8 +118,8 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                     marginHorizontal: 5,
                     textAlignVertical: "center",
                   }}
-                  onPress={() =>
-                    setData({
+                  onPress={() => {
+                    navigation.navigate("RoomUserPreview", {
                       userId: m.userId,
                       message:
                         (me?.id === m.userId ||
@@ -130,8 +128,8 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                         !m.deleted
                           ? m
                           : undefined,
-                    })
-                  }
+                    });
+                  }}
                 >
                   {m.username}:{" "}
                 </Text>

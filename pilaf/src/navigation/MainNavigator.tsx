@@ -2,7 +2,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import { Platform } from "react-native";
 import { WaitForWsAndAuth } from "../modules/auth/WaitForWsAndAuth";
-import MinimizedRoomCardController from "../modules/feed/MinimizedRoomCardController";
+import MinimizedRoomCardController from "../modules/room/MinimizedRoomCardController";
 import { HelpPage } from "./mainNavigator/HelpPage";
 import { LanguagesPage } from "./mainNavigator/LanguagesPage";
 import { MainPage } from "./mainNavigator/MainPage";

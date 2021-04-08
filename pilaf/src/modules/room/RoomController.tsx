@@ -14,7 +14,6 @@ import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { WaitForWsAndAuth } from "../auth/WaitForWsAndAuth";
 import { RoomChat } from "./chat/RoomChat";
 import { useOnRoomPage } from "./useOnRoomPage";
-import { UserPreviewModalProvider } from "./UserPreviewModalProvider";
 
 const placeHolder = (
   <View
@@ -87,24 +86,22 @@ export const RoomController: React.FC<RoomControllerProps> = ({ roomId }) => {
   const renderChat = () => <RoomChat {...data} style={{ height: "100%" }} />;
   return (
     <WaitForWsAndAuth>
-      <UserPreviewModalProvider>
-        <View
-          style={{
-            flex: 1,
-            backgroundColor: colors.primary900,
-            paddingBottom: 79 + inset.bottom,
-          }}
-        >
-          <RoomNavigator data={data} />
-        </View>
-        <BottomSheet
-          ref={sheetRef}
-          snapPoints={["95%", 79 + inset.bottom + 20]}
-          initialSnap={1}
-          borderRadius={20}
-          renderContent={renderChat}
-        />
-      </UserPreviewModalProvider>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: colors.primary900,
+          paddingBottom: 79 + inset.bottom,
+        }}
+      >
+        <RoomNavigator data={data} />
+      </View>
+      <BottomSheet
+        ref={sheetRef}
+        snapPoints={["95%", 79 + inset.bottom + 20]}
+        initialSnap={1}
+        borderRadius={20}
+        renderContent={renderChat}
+      />
     </WaitForWsAndAuth>
   );
 };
