@@ -72,6 +72,9 @@ const PAGE_UPDATE_FUNC = (event, pageData) => {
             case "profile":
                 setPresence({ details: `Viewing ${pageData.data}'s profile` });
                 break;
+            case "edit-profile":
+                setPresence({ details: 'User Settings', state: 'Editing Profile' });
+                break;
             default:
                 setPresence({ details: 'Taking DogeHouse to the moon' });
                 break;
