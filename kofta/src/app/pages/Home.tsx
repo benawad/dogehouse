@@ -156,7 +156,12 @@ export const Home: React.FC<HomeProps> = () => {
       refetchOnMount: "always",
     }
   );
-
+  useEffect(() => {
+    if (isElectron()) {
+      let ipcRenderer = window.require("electron").ipcRenderer;
+      ipcRenderer.send("@rpc/page", { page: "home", data: '' })
+    }
+  }, [])
   return (
     <div className={`flex flex-col flex-1`}>
       <Wrapper>

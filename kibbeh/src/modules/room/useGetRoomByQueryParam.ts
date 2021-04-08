@@ -25,7 +25,6 @@ export const useGetRoomByQueryParam = () => {
         if (d && !("error" in d) && d.room) {
           if (isElectron()) {
             ipcRenderer.send("@room/joined", true);
-            ipcRenderer.send("@voice/active", true);
           }
           setCurrentRoomId(() => d.room.id);
         }
@@ -40,7 +39,6 @@ export const useGetRoomByQueryParam = () => {
       setCurrentRoomId(roomId);
       if (isElectron()) {
         ipcRenderer.send("@room/joined", true);
-        ipcRenderer.send("@voice/active", true);
       }
     }
   }, [roomId, setCurrentRoomId]);
@@ -56,7 +54,6 @@ export const useGetRoomByQueryParam = () => {
       setCurrentRoomId(null);
       if (isElectron()) {
         ipcRenderer.send("@room/joined", false);
-        ipcRenderer.send("@voice/active", false);
       }
       push("/dash");
       return;
@@ -65,7 +62,6 @@ export const useGetRoomByQueryParam = () => {
       setCurrentRoomId(null);
       if (isElectron()) {
         ipcRenderer.send("@room/joined", false);
-        ipcRenderer.send("@voice/active", false);
       }
       console.log(errMsg, isLoading);
       showErrorToast(errMsg);

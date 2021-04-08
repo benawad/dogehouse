@@ -40,7 +40,7 @@ export async function HandleVoiceTray(mainWindow: BrowserWindow, tray: Tray) {
     let contextMenu = Menu.buildFromTemplate([TRAY_MENU[2], seperator, TRAY_MENU[0]]);
     tray.setContextMenu(contextMenu);
 
-    ipcMain.on("@voice/active", (event, isActive: boolean) => {
+    ipcMain.on("@room/joined", (event, isActive: boolean) => {
         if (isActive) {
             contextMenu = Menu.buildFromTemplate([TRAY_MENU[1], TRAY_MENU[2], seperator, TRAY_MENU[0]]);
         } else {

@@ -31,7 +31,7 @@ if (isElectron()) {
 
 const isMac = process.platform === "darwin";
 
-interface RoomPageProps {}
+interface RoomPageProps { }
 
 export const RoomPage: React.FC<RoomPageProps> = () => {
   const {
@@ -61,23 +61,10 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   const [ipcStarted, setIpcStarted] = useState(false);
 
   useEffect(() => {
-    if (isElectron() && !isMac) {
-      ipcRenderer.send("@overlay/start_ipc", true);
-      ipcRenderer.on(
-        "@overlay/start_ipc",
-        (event: any, shouldStart: boolean) => {
-          setIpcStarted(shouldStart);
-        }
-      );
-    }
-  }, []);
-  useEffect(() => {
-    if (isElectron() && ipcStarted) {
-      ipcRenderer.send("@overlay/overlayData", {
+    if (isElectron()) {
+      ipcRenderer.send("@room/data", {
         currentRoom: room,
-        muted: muted,
-        me: me,
-        roomID: id,
+        me: me
       });
     }
   });

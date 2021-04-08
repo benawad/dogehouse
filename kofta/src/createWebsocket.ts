@@ -182,9 +182,9 @@ export const wsend = (d: { op: string; d: any }) => {
     if (isElectron()) {
       ipcRenderer = window.require("electron").ipcRenderer;
       if (d.op === "leave_room") {
-        ipcRenderer.send("@voice/active", false);
+        ipcRenderer.send("@room/joined", false);
       } else if (d.op === "join_room" || "create_room") {
-        ipcRenderer.send("@voice/active", true);
+        ipcRenderer.send("@room/joined", true);
       }
     }
     ws?.send(JSON.stringify(d));
