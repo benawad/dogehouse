@@ -1,6 +1,7 @@
 import { Room } from "@dogehouse/kebab";
 import React, { useEffect, useRef, useState } from "react";
 import { Image, Text, View } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import {
   colors,
   fontSize,
@@ -13,11 +14,10 @@ import { useCurrentRoomInfo } from "../../../shared-hooks/useCurrentRoomInfo";
 import { emoteMap } from "./EmoteData";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
-import { ScrollView } from "react-native-gesture-handler";
-import { useNavigation } from "@react-navigation/core";
 
 interface ChatListProps {
   room: Room;
+  onUsernamePress: (userId: string, message?: RoomChatMessage) => void;
 }
 
 const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
@@ -28,18 +28,17 @@ const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
   );
 };
 
-export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
+export const RoomChatList: React.FC<ChatListProps> = ({
+  room,
+  onUsernamePress,
+}) => {
   const scrollView = useRef<ScrollView>(null);
   const [scrollViewHeight, setScrollViewHeight] = useState(0);
   const [listHeight, setListHeight] = useState(0);
   const messages = useRoomChatStore((s) => s.messages);
-  const navigation = useNavigation();
+
   const me = useConn().user;
   const { isMod: iAmMod, isCreator: iAmCreator } = useCurrentRoomInfo();
-  const [
-    messageToBeDeleted,
-    setMessageToBeDeleted,
-  ] = useState<RoomChatMessage | null>(null);
   const {
     isRoomChatScrolledToTop,
     setIsRoomChatScrolledToTop,
@@ -119,16 +118,15 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                     textAlignVertical: "center",
                   }}
                   onPress={() => {
-                    navigation.navigate("RoomUserPreview", {
-                      userId: m.userId,
-                      message:
-                        (me?.id === m.userId ||
-                          iAmCreator ||
-                          (iAmMod && room.creatorId !== m.userId)) &&
+                    onUsernamePress(
+                      m.userId,
+                      (me?.id === m.userId ||
+                        iAmCreator ||
+                        (iAmMod && room.creatorId !== m.userId)) &&
                         !m.deleted
-                          ? m
-                          : undefined,
-                    });
+                        ? m
+                        : undefined
+                    );
                   }}
                 >
                   {m.username}:{" "}

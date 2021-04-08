@@ -83,7 +83,9 @@ export const RoomController: React.FC<RoomControllerProps> = ({ roomId }) => {
     return null;
   }
 
-  const renderChat = () => <RoomChat {...data} style={{ height: "100%" }} />;
+  const renderChat = () => (
+    <RoomChat {...data} wrapperRef={sheetRef} style={{ height: "100%" }} />
+  );
   return (
     <WaitForWsAndAuth>
       <View
