@@ -12,10 +12,13 @@ export async function startRPCIPCHandler() {
                     break;
                 case "voice-settings":
                     setPresence({ state: 'Customising voice settings' });
+                    break;
                 case "overlay-settings":
                     setPresence({ state: 'Customising overlay settings' });
+                    break;
                 case "sound-effect-settings":
                     setPresence({ state: 'Customising sound effect settings' });
+                    break;
                 default:
                     setPresence({ state: 'Exploring the home page' });
                     break;
