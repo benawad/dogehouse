@@ -14,7 +14,7 @@ export const customEmojis = [
     imageUrl: "/emotes/brokenHeart.gif",
   },
   {
-    name: "obamium",
+    name: "obama",
     short_names: ["obama"],
     keywords: ["obama", "prism", "obamium"],
     imageUrl: "/emotes/obamium.png",
@@ -1551,7 +1551,7 @@ export const customEmojis = [
     keywords: ["dough", "doge", "pizza"],
     imageUrl: "/emotes/doughdoge.png",
   },
-].map((item) => ({ ...item, name: item.name.toLowerCase() }));
+];
 
 export const emoteMap: Record<string, string> = {};
 
