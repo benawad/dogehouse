@@ -75,7 +75,9 @@ export const LoginPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    push("/dash");
+    if (hasTokens) {
+      push("/dash");
+    }
   }, [hasTokens, push]);
 
   return (
