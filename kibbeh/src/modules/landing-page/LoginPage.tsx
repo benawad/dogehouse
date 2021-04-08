@@ -64,6 +64,7 @@ const LoginButton: React.FC<LoginButtonProps> = ({
 
 export const LoginPage: React.FC = () => {
   useSaveTokensFromQueryParams();
+  const hasTokens = useTokenStore((s) => !!(s.accessToken && s.refreshToken));
   const { setConn } = useContext(WebSocketContext);
   const { push } = useRouter();
 
@@ -72,6 +73,12 @@ export const LoginPage: React.FC = () => {
     setConn(null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (hasTokens) {
+      push("/dash");
+    }
+  }, [hasTokens, push]);
 
   return (
     <div

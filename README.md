@@ -100,3 +100,7 @@ Check <a href="https://github.com/benawad/dogehouse/blob/staging/CONTRIBUTING.md
 ## Why did you make this?
 
 https://www.youtube.com/watch?v=hy-EhJ_tTQo
+
+## Attribution
+
+We use https://twemoji.twitter.com/

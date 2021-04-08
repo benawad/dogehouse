@@ -8,8 +8,7 @@ import { showErrorToast } from "../../lib/showErrorToast";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import isElectron from "is-electron";
 
-// eslint-disable-next-line init-declarations
-let ipcRenderer: any;
+let ipcRenderer: any = null;
 if (isElectron()) {
   ipcRenderer = window.require("electron").ipcRenderer;
 }

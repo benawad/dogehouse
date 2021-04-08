@@ -1781,6 +1781,7 @@ __metadata:
     formik: ^2.2.6
     framer-motion: ^4.1.2
     grapheme-splitter: ^1.0.4
+
     hark: ^1.2.3
     i18next: ^19.9.2
     i18next-browser-languagedetector: ^6.0.1
@@ -1808,6 +1809,7 @@ __metadata:
     react-popper: ^2.2.5
     react-query: ^3.12.2
     react-responsive: ^8.2.0
+    react-virtual: ^2.6.1
     style-loader: ^1.3.0
     stylelint: ^13.11.0
     stylelint-config-standard: ^20.0.0
@@ -1868,7 +1870,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/is-prop-valid@npm:0.8.8, @emotion/is-prop-valid@npm:^0.8.2, @emotion/is-prop-valid@npm:^0.8.6":
+"@emotion/is-prop-valid@npm:0.8.8, @emotion/is-prop-valid@npm:^0.8.6":
   version: 0.8.8
   resolution: "@emotion/is-prop-valid@npm:0.8.8"
   dependencies:
@@ -2563,6 +2565,13 @@ __metadata:
   version: 2.9.2
   resolution: "@popperjs/core@npm:2.9.2"
   checksum: cc4de8b46fc190805619224f1c683bee6a162276430af3728d35087099ad83a80da3c11c4eac7cb2b5aa2fa59d4c7c689e211a3e955136588ed6dedb5bff32c5
+  languageName: node
+  linkType: hard
+
+"@reach/observe-rect@npm:^1.1.0":
+  version: 1.2.0
+  resolution: "@reach/observe-rect@npm:1.2.0"
+  checksum: 4aa32fa1ab410527cecf62e3143664e4b7823212bb7b79b5fd84d0d390fa086fcdba27fceebc0e24e2958f2a0649d5b88ec8b0ed907c72730964ac33eb3089af
   languageName: node
   linkType: hard
 
@@ -9015,35 +9024,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^4.1.2":
-  version: 4.1.2
-  resolution: "framer-motion@npm:4.1.2"
-  dependencies:
-    "@emotion/is-prop-valid": ^0.8.2
-    framesync: 5.3.0
-    hey-listen: ^1.0.8
-    popmotion: 9.3.5
-    style-value-types: 4.1.4
-    tslib: ^2.1.0
-  peerDependencies:
-    react: ">=16.8 || ^17.0.0"
-    react-dom: ">=16.8 || ^17.0.0"
-  dependenciesMeta:
-    "@emotion/is-prop-valid":
-      optional: true
-  checksum: 7eb54e3ebcdf66ed47bdeb2f2e1d8b2509e29c3ad70426853b5e941c356e014cc1df62971d7b79e232c3e43a4436c244d4ff9a1423263233e12dd204114cb947
-  languageName: node
-  linkType: hard
-
-"framesync@npm:5.3.0":
-  version: 5.3.0
-  resolution: "framesync@npm:5.3.0"
-  dependencies:
-    tslib: ^2.1.0
-  checksum: 14a6ed7d2a3c3af8f5b8f5aac6117f8e6b20990002e10e9b41c663997390a107ea8d904e4700041103fee551141b3cbac9e1d314b0cd0a16129e27ededa09bf4
-  languageName: node
-  linkType: hard
-
 "fresh@npm:0.5.2":
   version: 0.5.2
   resolution: "fresh@npm:0.5.2"
@@ -9875,13 +9855,6 @@ fsevents@^1.2.7:
   bin:
     he: bin/he
   checksum: 212122003c20c8c17ac0c83a419b4c8e835411ff6ab9195d053ea6e4a0597cc005b5b8eabcbd57b0b0c0fe676f0049e09315845fff4e051198845491cbba260e
-  languageName: node
-  linkType: hard
-
-"hey-listen@npm:^1.0.8":
-  version: 1.0.8
-  resolution: "hey-listen@npm:1.0.8"
-  checksum: b9a3ed8d4851735d221a8c2ecf06fba598b0240d18e7ad46780e00af1d62471a40c65d5c6ec48b004fc86d96056cf7e3599d3ef8ee77a31df3cb9f4ce69721ce
   languageName: node
   linkType: hard
 
@@ -14129,18 +14102,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"popmotion@npm:9.3.5":
-  version: 9.3.5
-  resolution: "popmotion@npm:9.3.5"
-  dependencies:
-    framesync: 5.3.0
-    hey-listen: ^1.0.8
-    style-value-types: 4.1.4
-    tslib: ^2.1.0
-  checksum: b78d79a8eaf8614d3fe07544f400932447fc68c84c6fa91e67c1dd2d40dbf91b45034b4c067ead52b25eea5de4493dae3532e01dfc78fcb785f826cd8c8a6705
-  languageName: node
-  linkType: hard
-
 "popper.js@npm:1.16.1-lts":
   version: 1.16.1-lts
   resolution: "popper.js@npm:1.16.1-lts"
@@ -15338,6 +15299,18 @@ fsevents@^1.2.7:
     react: ">=16.6.0"
     react-dom: ">=16.6.0"
   checksum: e14446123f820e804335c64be5270333c29e8cfaa43dfc33387e132c5d521cf4a0a7c2408058a147b254ae82a6569f373394d83e977ef340d6937bc2f4ff7d6c
+  languageName: node
+  linkType: hard
+
+"react-virtual@npm:^2.6.1":
+  version: 2.6.1
+  resolution: "react-virtual@npm:2.6.1"
+  dependencies:
+    "@reach/observe-rect": ^1.1.0
+    ts-toolbelt: ^6.4.2
+  peerDependencies:
+    react: ^16.6.3 || ^17.0.0
+  checksum: 40c281021906f5af0ff9547aafb56f555e17ef4b8584ca3beffb45e0dea7e17e491d173fb23b791a96a4de57af733939e485d8832596dc050a4f4b67cb1657a5
   languageName: node
   linkType: hard
 
@@ -17080,16 +17053,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"style-value-types@npm:4.1.4":
-  version: 4.1.4
-  resolution: "style-value-types@npm:4.1.4"
-  dependencies:
-    hey-listen: ^1.0.8
-    tslib: ^2.1.0
-  checksum: aca49c70e6dc3e222c1db50b58fb4f339373d6b2583fcffed414888bdfc7bbb77dbcdc7530c730f5286282583ee891d97a84fd76f6273d1c7c2338b19ab740a9
-  languageName: node
-  linkType: hard
-
 "styled-jsx@npm:3.3.2":
   version: 3.3.2
   resolution: "styled-jsx@npm:3.3.2"
@@ -17812,6 +17775,13 @@ resolve@^2.0.0-next.3:
     typescript:
       optional: true
   checksum: 78341a27939de565e2754ff65ebb689743c16e3295528089d143c08d91842cf9029c3d6b3c95a9a20854a114a7904329d02c710d63f7ce4dbf671b8a3e560ac1
+  languageName: node
+  linkType: hard
+
+"ts-toolbelt@npm:^6.4.2":
+  version: 6.15.5
+  resolution: "ts-toolbelt@npm:6.15.5"
+  checksum: d2f585ee3439ae7a72dd7c00630491195b2a4f34107c595d567242482b9fa911b5a9b5921fb4984506c2f7d8efce61351c7f48519438df67b6c0a8dcd40c862c
   languageName: node
   linkType: hard
 

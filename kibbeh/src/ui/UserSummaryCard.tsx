@@ -107,7 +107,7 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
           </ApiPreloadLink>
         </div>
       </div>
-      <div className="text-primary-300 mt-3 break-all text-left">{bio}</div>
+      <div className="text-primary-300 mt-3 break-words text-left">{bio}</div>
       {website && <Website website={website} />}
     </div>
   );
