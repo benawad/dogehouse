@@ -55,7 +55,7 @@ const PAGE_UPDATE_FUNC = (event, pageData) => {
     if (!inRoom) {
         switch (pageData.page) {
             case "home":
-                setPresence({ details: 'Browsing Rooms' });
+                setPresence({ details: 'Browsing Rooms', state: `${pageData.data} public rooms` });
                 break;
             case "voice-settings":
                 setPresence({ details: 'Customising voice settings' });

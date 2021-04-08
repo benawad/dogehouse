@@ -69,7 +69,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
       let ipcRenderer = window.require("electron").ipcRenderer;
       ipcRenderer.send("@rpc/page", { page: 'profile', data: profile.username })
     }
-  }, [])
+  }, [profile])
   return (
     <>
       <EditProfileModal
