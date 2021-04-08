@@ -66,6 +66,7 @@ export const UpcomingRoomsCard: React.FC<UpcomingRoomsCardProps> = ({
         <BoxedIcon
           onClick={onCreateScheduledRoom}
           style={{ height: "30px", width: "30px" }}
+          transition
         >
           <SolidPlus />
         </BoxedIcon>
