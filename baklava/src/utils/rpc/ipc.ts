@@ -62,13 +62,13 @@ const PAGE_UPDATE_FUNC = (event, pageData) => {
                 setPresence({ details: 'Browsing Rooms', state: `${pageData.data} public rooms` });
                 break;
             case "voice-settings":
-                setPresence({ details: 'User Settings', state: 'Voice Settings' });
+                setPresence({ details: 'User Settings', state: 'Editing Voice Settings' });
                 break;
             case "overlay-settings":
-                setPresence({ details: 'User Settings', state: 'Overlay Settings' });
+                setPresence({ details: 'User Settings', state: 'Editing Overlay Settings' });
                 break;
             case "sound-effect-settings":
-                setPresence({ details: 'User Settings', state: 'Sound Effect Settings' });
+                setPresence({ details: 'User Settings', state: 'Editing Sound Effect Settings' });
                 break;
             case "profile":
                 setPresence({ details: `Viewing ${pageData.data}'s profile` });
