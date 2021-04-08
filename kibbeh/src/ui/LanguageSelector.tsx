@@ -90,15 +90,14 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   const parsedOptions = options.map((e, i) => (
     <button
       key={i}
-      className={`items-center flex text-primary-100 w-full mb-2 py-1 px-2 rounded-5 focus:outline-no-chrome${
-        i18n.language === e.value ||
-        (e.value === "en" && i18n.language === "en-US")
+      className={`items-center flex text-primary-100 w-full mb-2 py-1 px-2 rounded-5 focus:outline-no-chrome${i18n.language === e.value ||
+          (e.value === "en" && i18n.language === "en-US")
           ? " bg-primary-700"
           : ""
-      }`}
+        }`}
       onClick={() => i18n.changeLanguage(e.value)}
     >
-      <Twemoji text={e.label} />
+      <Twemoji style={{ marginRight: "1ch" }} text={e.label} />
     </button>
   ));
 
