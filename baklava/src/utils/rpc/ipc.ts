@@ -6,8 +6,19 @@ let inRoom = false;
 export async function startRPCIPCHandler() {
     ipcMain.on("@rpc/page", (event, page) => {
         if (!inRoom) {
-            if (page === "home") {
-                setPresence({ state: 'Exploring the home page' });
+            switch (page) {
+                case "home":
+                    setPresence({ state: 'Exploring the home page' });
+                    break;
+                case "voice-settings":
+                    setPresence({ state: 'Customising voice settings' });
+                case "overlay-settings":
+                    setPresence({ state: 'Customising overlay settings' });
+                case "sound-effect-settings":
+                    setPresence({ state: 'Customising sound effect settings' });
+                default:
+                    setPresence({ state: 'Exploring the home page' });
+                    break;
             }
         }
     })
