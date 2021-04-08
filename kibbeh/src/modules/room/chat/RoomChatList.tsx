@@ -1,6 +1,6 @@
 import { Room } from "@dogehouse/kebab";
 import normalizeUrl from "normalize-url";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { useVirtual, VirtualItem } from "react-virtual";
 import { useRouter } from "next/router";
 import { useConn } from "../../../shared-hooks/useConn";
@@ -44,7 +44,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
     return () => {
       router.events.off("routeChangeStart", handleRouteChange);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const rowVirtualizer = useVirtual({
@@ -79,7 +79,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
         }}
       >
         {rowVirtualizer.virtualItems.map(
-          ({ index: idx, start, measureRef, size }: VirtualItem) => {
+          ({ index: idx, start, measureRef }: VirtualItem) => {
             const index = messages.length - idx - 1;
             return (
               <div
@@ -89,9 +89,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                   top: 0,
                   left: 0,
                   width: "100%",
-                  transform: `translateY(${
-                    messages[index].isWhisper ? start : start
-                  }px)`,
+                  transform: `translateY(${start}px)`,
                 }}
                 key={messages[index].id}
                 className="py-1"
