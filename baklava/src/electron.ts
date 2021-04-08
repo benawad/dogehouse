@@ -18,6 +18,7 @@ import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
 import electronLogger from 'electron-log';
+import DiscordPresence from "./utils/discord-rich-presence";
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
@@ -32,9 +33,11 @@ let shouldShowWindow = false;
 let windowShowInterval: NodeJS.Timeout;
 let skipUpdateTimeout: NodeJS.Timeout;
 
+let discordPresence: DiscordPresence;
+
 i18n.use(Backend);
 
-electronLogger.transports.file.level = "debug"
+electronLogger.transports.file.level = "debug";
 autoUpdater.logger = electronLogger;
 // just in case we have to revert to a build
 autoUpdater.allowDowngrade = true;
@@ -128,6 +131,9 @@ function createMainWindow() {
     }
     mainWindow.destroy();
   });
+
+  // create discord rich presence
+  createDiscordPresence()
 
   // handling external links
   const handleLinks = (event: any, url: string) => {
@@ -283,3 +289,13 @@ function skipUpdateCheck(splash: BrowserWindow) {
   }, 500);
 }
 
+function createDiscordPresence() {
+  discordPresence = new DiscordPresence();
+  discordPresence.login();
+  setInterval(() => discordPresence.check(mainWindow.webContents.getURL()), 15e3);
+  discordPresence.client.on('ready', () => {
+    mainWindow.addListener('closed', () => {
+      discordPresence.shutDown();
+    });
+  });
+}
