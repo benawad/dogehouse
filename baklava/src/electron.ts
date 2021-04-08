@@ -18,6 +18,7 @@ import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
 import electronLogger from 'electron-log';
+import { startRPC } from "./utils/rpc";
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
@@ -119,6 +120,9 @@ function createMainWindow() {
 
   // starting the noti handler
   StartNotificationHandler();
+
+  // start rpc
+  startRPC();
 
   // graceful exiting
   mainWindow.on("closed", () => {
