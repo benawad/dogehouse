@@ -121,7 +121,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   };
 
   return (
-    <>
+    <div id={room.isPrivate ? "private-room" : "public-room"}>
       <ProfileModal
         iAmCreator={iAmCreator}
         iAmMod={iAmMod}
@@ -266,6 +266,6 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
           edit={true}
         />
       ) : null}
-    </>
+    </div>
   );
 };
