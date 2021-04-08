@@ -1,3 +1,4 @@
+import { Presence } from "discord-rpc";
 import {
     ipcMain,
 } from "electron";
@@ -14,6 +15,7 @@ const ROOM_DATA_UPDATE_FUNC = (event, data) => {
             if (!data.currentRoom.room) {
                 data.currentRoom.room = data.currentRoom;
             }
+            let isPrivate = data.currentRoom.room.isPrivate;
             let meInRoom = data.currentRoom.users.find((u) => u.id == data.me.id);
             if (meInRoom) {
                 if (meInRoom.roomPermissions) {
@@ -30,18 +32,20 @@ const ROOM_DATA_UPDATE_FUNC = (event, data) => {
                 }
                 muted = isMuted ? 'Muted' : 'Unmuted';
             }
-            let pdata = {
-                details: `In ${data.currentRoom.room.name}`,
-                state: isSpeaker ? 'Speaker' : 'Listener',
+            let pdata: Presence = {
+                details: isSpeaker ? 'Speaking' : 'Listening',
+                state: isPrivate ? 'In a private room' : data.currentRoom.room.name,
                 partyId: data.currentRoom.room.id,
-                partySize: data.currentRoom.users.length,
-                partyMax: data.currentRoom.users.length,
                 startTimestamp: Date.parse(data.currentRoom.room.inserted_at),
                 smallImageKey: isSpeaker && !isMuted ? 'mic_on' : 'mic_off',
                 smallImageText: isSpeaker ? `Speaker - ${muted}` : `Listener`,
                 buttons: [
                     { label: 'Join Room', url: `https://dogehouse.tv/room/${data.currentRoom.room.id}` }
                 ]
+            }
+            if (!isPrivate) {
+                pdata.partySize = data.currentRoom.users.length;
+                pdata.partyMax = data.currentRoom.users.length;
             }
             setPresence(pdata);
         }
