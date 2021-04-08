@@ -14,7 +14,7 @@ module.exports = {
         "Arial",
         "sans-serif",
       ],
-      // mono: ["Menlo", "Monaco", "Courier New", "monospace"],
+      mono: ["Menlo", "Monaco", "Courier New", "monospace"],
     },
     fontSize: {
       tiny: "0.625rem",

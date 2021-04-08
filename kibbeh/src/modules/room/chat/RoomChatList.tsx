@@ -194,15 +194,15 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                                 );
                               case "block":
                                 return (
-                                  <span key={i}>
+                                  <React.Fragment key={i}>
                                     <span
                                       className={
-                                        "inline bg-simple-gray-33 rounded whitespace-pre-wrap font-mono"
+                                        "inline bg-primary-600 px-1 rounded whitespace-pre-wrap font-mono"
                                       }
                                     >
                                       {v}
                                     </span>{" "}
-                                  </span>
+                                  </React.Fragment>
                                 );
                               default:
                                 return null;
