@@ -23,7 +23,7 @@ export async function startRPCIPCHandler() {
                     setPresence({ state: `Viewing ${pageData.data}'s profile` });
                     break;
                 default:
-                    setPresence({ state: 'Exploring the home page' });
+                    setPresence({ state: 'Taking DogeHouse to the moone' });
                     break;
             }
         }
@@ -44,6 +44,12 @@ export async function startRPCIPCHandler() {
                     isSpeaker = true;
                 }
             }
+            if (isSpeaker) {
+                if (data.currentRoom.muteMap[data.me.id]) {
+                    isMuted = data.currentRoom.muteMap[data.me.id];
+                    muted = isMuted ? 'Muted' : 'Unmuted';
+                }
+            }
             let pdata = {
                 state: `In ${data.currentRoom.room.name}`,
                 partyId: data.currentRoom.room.id,
@@ -51,7 +57,7 @@ export async function startRPCIPCHandler() {
                 partyMax: data.currentRoom.users.length,
                 startTimestamp: Date.parse(data.currentRoom.room.inserted_at),
                 smallImageKey: isSpeaker && !isMuted ? 'mic_on' : 'mic_off',
-                smallImageText: isSpeaker ? `Speaker - ${muted}` : `Listener - ${muted}`,
+                smallImageText: isSpeaker ? `Speaker - ${muted}` : `Listener`,
             }
             setPresence(pdata);
         }
