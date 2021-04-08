@@ -33,17 +33,17 @@ const ROOM_DATA_UPDATE_FUNC = (event, data) => {
                 muted = isMuted ? 'Muted' : 'Unmuted';
             }
             let pdata: Presence = {
-                details: isSpeaker ? 'Speaking' : 'Listening',
                 state: isPrivate ? 'In a private room' : data.currentRoom.room.name,
-                partyId: data.currentRoom.room.id,
-                startTimestamp: Date.parse(data.currentRoom.room.inserted_at),
-                smallImageKey: isSpeaker && !isMuted ? 'mic_on' : 'mic_off',
-                smallImageText: isSpeaker ? `Speaker - ${muted}` : `Listener`,
-                buttons: [
-                    { label: 'Join Room', url: `https://dogehouse.tv/room/${data.currentRoom.room.id}` }
-                ]
             }
             if (!isPrivate) {
+                pdata.details = isSpeaker ? 'Speaking' : 'Listening'
+                pdata.partyId = data.currentRoom.room.id
+                pdata.startTimestamp = Date.parse(data.currentRoom.room.inserted_at)
+                pdata.smallImageKey = isSpeaker && !isMuted ? 'mic_on' : 'mic_off'
+                pdata.smallImageText = isSpeaker ? `Speaker - ${muted}` : `Listener`
+                pdata.buttons = [
+                    { label: 'Join Room', url: `https://dogehouse.tv/room/${data.currentRoom.room.id}` }
+                ]
                 pdata.partySize = data.currentRoom.users.length;
                 pdata.partyMax = data.currentRoom.users.length;
             }
