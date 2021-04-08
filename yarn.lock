@@ -1724,7 +1724,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dogehouse/kebab@^0.2.4, @dogehouse/kebab@workspace:kebab":
+"@dogehouse/kebab@^0.2.5, @dogehouse/kebab@workspace:kebab":
   version: 0.0.0-use.local
   resolution: "@dogehouse/kebab@workspace:kebab"
   dependencies:
@@ -1750,7 +1750,7 @@ __metadata:
   resolution: "@dogehouse/kibbeh@workspace:kibbeh"
   dependencies:
     "@babel/runtime": ^7.13.10
-    "@dogehouse/kebab": ^0.2.4
+    "@dogehouse/kebab": ^0.2.5
     "@storybook/addon-essentials": ^6.2.0-rc.10
     "@storybook/addon-links": ^6.2.0-rc.10
     "@storybook/react": ^6.2.0-rc.10

@@ -17,7 +17,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "@dogehouse/kebab": "^0.2.4",
+    "@dogehouse/kebab": "^0.2.5",
     "@svgr/webpack": "^5.5.0",
     "date-fns": "^2.19.0",
     "emoji-mart": "^3.0.1",
