@@ -45,10 +45,13 @@ export async function startRPCIPCHandler() {
                 }
             }
             if (isSpeaker) {
+                console.log(data.currentRoom.muteMap);
                 if (data.currentRoom.muteMap[data.me.id]) {
                     isMuted = data.currentRoom.muteMap[data.me.id];
-                    muted = isMuted ? 'Muted' : 'Unmuted';
+                } else {
+                    isMuted = false;
                 }
+                muted = isMuted ? 'Muted' : 'Unmuted';
             }
             let pdata = {
                 state: `In ${data.currentRoom.room.name}`,

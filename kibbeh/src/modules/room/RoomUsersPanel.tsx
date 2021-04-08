@@ -29,7 +29,7 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
         me: me
       });
     }
-  }, [props]);
+  });
 
   return (
     <div className={`pt-4 px-4 flex-1 bg-primary-800`}>
