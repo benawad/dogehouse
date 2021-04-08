@@ -65,6 +65,8 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
             };
           },
           onConnectionTaken: () => {
+            closeVoiceConnections(null);
+            useCurrentRoomIdStore.getState().setCurrentRoomId(null);
             replace("/connection-taken");
           },
           onClearTokens: () => {
