@@ -8,22 +8,22 @@ export async function startRPCIPCHandler() {
         if (!inRoom) {
             switch (pageData.page) {
                 case "home":
-                    setPresence({ state: 'Browsing Rooms' });
+                    setPresence({ details: 'Browsing Rooms' });
                     break;
                 case "voice-settings":
-                    setPresence({ state: 'Customising voice settings' });
+                    setPresence({ details: 'Customising voice settings' });
                     break;
                 case "overlay-settings":
-                    setPresence({ state: 'Customising overlay settings' });
+                    setPresence({ details: 'Customising overlay settings' });
                     break;
                 case "sound-effect-settings":
-                    setPresence({ state: 'Customising sound effect settings' });
+                    setPresence({ details: 'Customising sound effect settings' });
                     break;
                 case "profile":
-                    setPresence({ state: `Viewing ${pageData.data}'s profile` });
+                    setPresence({ details: `Viewing ${pageData.data}'s profile` });
                     break;
                 default:
-                    setPresence({ state: 'Taking DogeHouse to the moone' });
+                    setPresence({ details: 'Taking DogeHouse to the moon' });
                     break;
             }
         }

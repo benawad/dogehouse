@@ -22,7 +22,7 @@ export async function startRPC() {
 
     client.on('ready', () => {
         startRPCIPCHandler();
-        setPresence({ state: 'Exploring the home page' });
+        setPresence({ details: 'Exploring the home page' });
     })
 }
 
