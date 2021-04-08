@@ -1,6 +1,6 @@
 import isElectron from "is-electron";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect } from "react";
 import { isServer } from "../../lib/isServer";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
@@ -9,11 +9,11 @@ import { CenterLoader } from "../../ui/CenterLoader";
 import { InfoText } from "../../ui/InfoText";
 import { VerticalUserInfoWithFollowButton } from "./VerticalUserInfoWithFollowButton";
 
-interface UserProfileControllerProps {}
+interface UserProfileControllerProps { }
 
 const isMac = process.platform === "darwin";
 
-export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) => {
+export const UserProfileController: React.FC<UserProfileControllerProps> = ({ }) => {
   const { t } = useTypeSafeTranslation();
   const { push } = useRouter();
   const { query } = useRouter();
@@ -26,6 +26,13 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
     },
     [query.username as string]
   );
+
+  useEffect(() => {
+    if (isElectron()) {
+      let ipcRenderer = window.require("electron").ipcRenderer;
+      ipcRenderer.send("@rpc/page", { page: 'profile', data: query.username })
+    }
+  }, [])
 
   if (isLoading) {
     return <CenterLoader />;

@@ -28,7 +28,7 @@ export const SoundEffectSettings: React.FC<ChatSettingsProps> = () => {
   useEffect(() => {
     if (isElectron()) {
       let ipcRenderer = window.require("electron").ipcRenderer;
-      ipcRenderer.send("@rpc/page", "sound-effect-settings")
+      ipcRenderer.send("@rpc/page", { page: "sound-effect-settings", data: '' })
     }
   }, [])
   return (

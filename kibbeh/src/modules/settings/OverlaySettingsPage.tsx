@@ -32,7 +32,7 @@ export const OverlaySettingsPage: PageComponent<OverlaySettingsProps> = () => {
   useEffect(() => {
     if (isElectron()) {
       let ipcRenderer = window.require("electron").ipcRenderer;
-      ipcRenderer.send("@rpc/page", "overlay-settings")
+      ipcRenderer.send("@rpc/page", { page: "overlay-settings", data: '' })
     }
   }, [])
 

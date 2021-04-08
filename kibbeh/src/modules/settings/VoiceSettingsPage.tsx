@@ -29,7 +29,7 @@ export const VoiceSettingsPage: PageComponent<VoiceSettingsProps> = () => {
   useEffect(() => {
     if (isElectron()) {
       let ipcRenderer = window.require("electron").ipcRenderer;
-      ipcRenderer.send("@rpc/page", "voice-settings")
+      ipcRenderer.send("@rpc/page", { page: "voice-settings", data: '' })
     }
   }, [])
   const fetchMics = useCallback(() => {

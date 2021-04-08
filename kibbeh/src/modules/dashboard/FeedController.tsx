@@ -124,7 +124,7 @@ export const FeedController: React.FC<FeedControllerProps> = ({ }) => {
   useEffect(() => {
     if (isElectron()) {
       let ipcRenderer = window.require("electron").ipcRenderer;
-      ipcRenderer.send("@rpc/page", "home")
+      ipcRenderer.send("@rpc/page", { page: "home", data: '' })
     }
   }, [])
 

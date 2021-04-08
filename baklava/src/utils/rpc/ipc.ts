@@ -4,11 +4,11 @@ import {
 import { setPresence } from "./index";
 let inRoom = false;
 export async function startRPCIPCHandler() {
-    ipcMain.on("@rpc/page", (event, page) => {
+    ipcMain.on("@rpc/page", (event, pageData) => {
         if (!inRoom) {
-            switch (page) {
+            switch (pageData.page) {
                 case "home":
-                    setPresence({ state: 'Exploring the home page' });
+                    setPresence({ state: 'Taking DogeHouse to the moon' });
                     break;
                 case "voice-settings":
                     setPresence({ state: 'Customising voice settings' });
@@ -18,6 +18,9 @@ export async function startRPCIPCHandler() {
                     break;
                 case "sound-effect-settings":
                     setPresence({ state: 'Customising sound effect settings' });
+                    break;
+                case "profile":
+                    setPresence({ state: `Viewing ${pageData.data}'s profile` });
                     break;
                 default:
                     setPresence({ state: 'Exploring the home page' });
@@ -30,12 +33,11 @@ export async function startRPCIPCHandler() {
     })
     ipcMain.on("@room/data", (event, data) => {
         if (inRoom) {
+            let muted = 'Muted';
+            let isMuted = true;
             let isSpeaker = false;
-            console.log(data.currentRoom.users)
             let meInRoom = data.currentRoom.users.find((u) => u.id == data.me.id);
             if (meInRoom) {
-                console.log(meInRoom);
-                console.log(`myid: ${data.me.id}`)
                 if (meInRoom.roomPermissions) {
                     isSpeaker = meInRoom.roomPermissions.isSpeaker
                 } else if (data.currentRoom.room.creatorId === data.me.id) {
@@ -48,8 +50,8 @@ export async function startRPCIPCHandler() {
                 partySize: data.currentRoom.users.length,
                 partyMax: data.currentRoom.users.length,
                 startTimestamp: Date.parse(data.currentRoom.room.inserted_at),
-                smallImageKey: isSpeaker ? 'mic_on' : 'mic_off',
-                smallImageText: isSpeaker ? 'Speaker' : 'Listener',
+                smallImageKey: isSpeaker && !isMuted ? 'mic_on' : 'mic_off',
+                smallImageText: isSpeaker ? `Speaker - ${muted}` : `Listener - ${muted}`,
             }
             setPresence(pdata);
         }
