@@ -2,10 +2,14 @@ import {
     ipcMain,
     BrowserWindow,
     Menu,
-    Tray
+    Tray,
+    app
 } from "electron";
 import { autoUpdater } from "electron-updater";
 import { MUTE_KEY } from "../constants";
+import { RPC_RUNNING, startRPC, stopRPC } from "./rpc";
+
+let voiceActive = false;
 
 export async function HandleVoiceTray(mainWindow: BrowserWindow, tray: Tray) {
     let TRAY_MENU: any = [
@@ -27,6 +31,26 @@ export async function HandleVoiceTray(mainWindow: BrowserWindow, tray: Tray) {
                 autoUpdater.checkForUpdatesAndNotify();
             },
         },
+        {
+            label: "Toggle Discord RPC",
+            click: () => {
+                if (RPC_RUNNING) {
+                    stopRPC();
+                } else {
+                    startRPC()
+                }
+                TRAY_MENU[3].checked = RPC_RUNNING;
+                let contextMenu = Menu.buildFromTemplate([TRAY_MENU[3], TRAY_MENU[2], seperator, TRAY_MENU[0]]);
+                if (voiceActive) {
+                    contextMenu = Menu.buildFromTemplate([TRAY_MENU[1], TRAY_MENU[3], TRAY_MENU[2], seperator, TRAY_MENU[0]]);
+                } else {
+                    contextMenu = Menu.buildFromTemplate([TRAY_MENU[3], TRAY_MENU[2], seperator, TRAY_MENU[0]]);
+                }
+                tray.setContextMenu(contextMenu);
+                tray.setContextMenu(contextMenu)
+            },
+            checked: RPC_RUNNING
+        },
     ];
 
     let seperator = { type: 'separator' };
@@ -37,14 +61,15 @@ export async function HandleVoiceTray(mainWindow: BrowserWindow, tray: Tray) {
         mainWindow.focus();
     });
 
-    let contextMenu = Menu.buildFromTemplate([TRAY_MENU[2], seperator, TRAY_MENU[0]]);
+    let contextMenu = Menu.buildFromTemplate([TRAY_MENU[3], TRAY_MENU[2], seperator, TRAY_MENU[0]]);
     tray.setContextMenu(contextMenu);
 
     ipcMain.on("@room/joined", (event, isActive: boolean) => {
-        if (isActive) {
-            contextMenu = Menu.buildFromTemplate([TRAY_MENU[1], TRAY_MENU[2], seperator, TRAY_MENU[0]]);
+        voiceActive = isActive
+        if (voiceActive) {
+            contextMenu = Menu.buildFromTemplate([TRAY_MENU[1], TRAY_MENU[3], TRAY_MENU[2], seperator, TRAY_MENU[0]]);
         } else {
-            contextMenu = Menu.buildFromTemplate([TRAY_MENU[2], seperator, TRAY_MENU[0]]);
+            contextMenu = Menu.buildFromTemplate([TRAY_MENU[3], TRAY_MENU[2], seperator, TRAY_MENU[0]]);
         }
         tray.setContextMenu(contextMenu);
     });

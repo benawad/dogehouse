@@ -112,6 +112,9 @@ function createMainWindow() {
     mainWindow.webContents.send("@alerts/permissions", true);
   }
 
+  // start rpc
+  startRPC();
+
   // registers global keybinds
   RegisterKeybinds(bWindows);
 
@@ -120,9 +123,6 @@ function createMainWindow() {
 
   // starting the noti handler
   StartNotificationHandler();
-
-  // start rpc
-  startRPC();
 
   // graceful exiting
   mainWindow.on("closed", () => {

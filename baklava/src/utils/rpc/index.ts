@@ -6,21 +6,25 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const client = new Client({ transport: 'ipc' });
 const clientId = process.env.DISCORD_CLIENT_ID || '';
+let client: Client;
 
-export const defaultData: Presence = {
+export let RPC_RUNNING = false;
+
+const defaultData: Presence = {
     largeImageKey: 'logo',
     largeImageText: 'DogeHouse',
     instance: true
 }
 
 export async function startRPC() {
+    client = new Client({ transport: 'ipc' });
     client.login({ clientId }).catch((e) => {
         logger.error(e)
     });
 
     client.on('ready', () => {
+        RPC_RUNNING = true;
         startRPCIPCHandler();
         setPresence({ details: 'Exploring the home page' });
     })
@@ -34,4 +38,5 @@ export async function setPresence(data: Presence) {
 export async function stopRPC() {
     stopRPCIPCHandler();
     client.destroy();
+    RPC_RUNNING = false;
 }
