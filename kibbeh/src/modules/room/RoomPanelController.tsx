@@ -37,7 +37,7 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
     return null;
   }
 
-  const roomCreator = data.users.find((x) => x.id === data.room.creatorId);
+  const roomCreator = data.users.find((x: any) => x.id === data.room.creatorId);
 
   return (
     <>

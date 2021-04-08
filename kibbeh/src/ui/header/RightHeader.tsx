@@ -33,7 +33,7 @@ const RightHeader: React.FC<RightHeaderProps> = ({
   const { close: closeWs, user } = useConn();
   const { push } = useRouter();
   return (
-    <div className="space-x-4 items-center justify-end">
+    <div className="space-x-4 items-center justify-end focus:outline-no-chrome">
       {onAnnouncementsClick && (
         <button onClick={onAnnouncementsClick}>
           <SolidMegaphone width={23} height={23} className="text-primary-200" />
@@ -73,7 +73,11 @@ const RightHeader: React.FC<RightHeaderProps> = ({
           />
         )}
       >
-        <SingleUser size="sm" src={user.avatarUrl} />
+        <SingleUser
+          className={"focus:outline-no-chrome"}
+          size="sm"
+          src={user.avatarUrl}
+        />
       </DropdownController>
     </div>
   );
