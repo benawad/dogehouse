@@ -8,7 +8,7 @@ export async function startRPCIPCHandler() {
         if (!inRoom) {
             switch (pageData.page) {
                 case "home":
-                    setPresence({ state: 'Taking DogeHouse to the moon' });
+                    setPresence({ state: 'Browsing Rooms' });
                     break;
                 case "voice-settings":
                     setPresence({ state: 'Customising voice settings' });
@@ -53,7 +53,8 @@ export async function startRPCIPCHandler() {
                 muted = isMuted ? 'Muted' : 'Unmuted';
             }
             let pdata = {
-                state: `In ${data.currentRoom.room.name}`,
+                details: `In ${data.currentRoom.room.name}`,
+                state: isSpeaker ? 'Speaker' : 'Listener',
                 partyId: data.currentRoom.room.id,
                 partySize: data.currentRoom.users.length,
                 partyMax: data.currentRoom.users.length,
