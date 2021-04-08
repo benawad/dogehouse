@@ -10,7 +10,7 @@ import { joinRoom } from "./utils/joinRoom";
 import { receiveVoice } from "./utils/receiveVoice";
 import { sendVoice } from "./utils/sendVoice";
 import InCallManager from "react-native-incall-manager";
-import * as RootNavigation from "../../navigators/RootNavigation";
+import * as RootNavigation from "../../navigation/RootNavigation";
 
 interface App2Props {}
 

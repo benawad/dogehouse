@@ -1,24 +1,16 @@
 import React from "react";
 import {
+  ImageSourcePropType,
   StyleProp,
   StyleSheet,
-  ViewStyle,
   Text,
   View,
-  ImageSourcePropType,
+  ViewStyle,
 } from "react-native";
-import { colors, paragraph, radius } from "../../constants/dogeStyle";
-import { useMuteStore } from "../../global-stores/useMuteStore";
-import { BoxedIcon } from "./BoxedIcon";
-import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
-import * as RootNavigation from "../../navigators/RootNavigation";
-import { useSetMute } from "../../shared-hooks/useSetMute";
-import { useOnRoomPage } from "../../modules/room/useOnRoomPage";
-import { MultipleUserAvatar } from "../avatars/MultipleUserAvatar";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { useCurrentRoomInfo } from "../../shared-hooks/useCurrentRoomInfo";
-import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
-import { Room, RoomUser } from "@dogehouse/kebab";
+import { colors, paragraph, radius } from "../../constants/dogeStyle";
+import { MultipleUserAvatar } from "../avatars/MultipleUserAvatar";
+import { BoxedIcon } from "./BoxedIcon";
 
 interface MinimizedRoomCardProps {
   style?: StyleProp<ViewStyle>;

@@ -1,6 +1,6 @@
 import PushNotificationIOS from "@react-native-community/push-notification-ios";
 import PushNotification from "react-native-push-notification";
-import * as RootNavigation from "../navigators/RootNavigation";
+import * as RootNavigation from "../navigation/RootNavigation";
 
 export const configureNotificationCenter = () => {
   // Must be outside of any component LifeCycle (such as `componentDidMount`).

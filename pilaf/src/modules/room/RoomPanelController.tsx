@@ -13,7 +13,7 @@ import { useWrappedConn } from "../../shared-hooks/useConn";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { RoomUsersPanel } from "./RoomUsersPanel";
-import { RoomStackParamList } from "../../navigators/RoomNavigator";
+import { RoomStackParamList } from "../../navigation/mainNavigator/RoomNavigator";
 
 type RoomPageRouteProp = RouteProp<RoomStackParamList, "RoomMain">;
 

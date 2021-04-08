@@ -36,7 +36,7 @@ import {
 import { useCurrentRoomInfo } from "../shared-hooks/useCurrentRoomInfo";
 import { useConn } from "../shared-hooks/useConn";
 import { UserPreviewModalContext } from "../modules/room/UserPreviewModalProvider";
-import { RoomStackParamList } from "../navigators/RoomNavigator";
+import { RoomStackParamList } from "../navigation/RoomNavigator";
 import { RouteProp, useNavigation } from "@react-navigation/native";
 import { TitledHeader } from "./header/TitledHeader";
 import { useConsumerStore } from "../modules/webrtc/stores/useConsumerStore";
