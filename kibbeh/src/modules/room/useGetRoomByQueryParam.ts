@@ -3,12 +3,11 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { isServer } from "../../lib/isServer";
-import { validate as uuidValidate } from "uuid";
+import { validate as uuidValidate } from 'uuid';
 import { showErrorToast } from "../../lib/showErrorToast";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import isElectron from "is-electron";
 
-// eslint-disable-next-line init-declarations
 let ipcRenderer: any;
 if (isElectron()) {
   ipcRenderer = window.require("electron").ipcRenderer;
