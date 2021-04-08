@@ -1803,6 +1803,7 @@ __metadata:
     react-popper: ^2.2.5
     react-query: ^3.12.2
     react-responsive: ^8.2.0
+    react-virtual: ^2.6.1
     style-loader: ^1.3.0
     stylelint: ^13.11.0
     stylelint-config-standard: ^20.0.0
@@ -2557,6 +2558,13 @@ __metadata:
   version: 2.9.2
   resolution: "@popperjs/core@npm:2.9.2"
   checksum: cc4de8b46fc190805619224f1c683bee6a162276430af3728d35087099ad83a80da3c11c4eac7cb2b5aa2fa59d4c7c689e211a3e955136588ed6dedb5bff32c5
+  languageName: node
+  linkType: hard
+
+"@reach/observe-rect@npm:^1.1.0":
+  version: 1.2.0
+  resolution: "@reach/observe-rect@npm:1.2.0"
+  checksum: 4aa32fa1ab410527cecf62e3143664e4b7823212bb7b79b5fd84d0d390fa086fcdba27fceebc0e24e2958f2a0649d5b88ec8b0ed907c72730964ac33eb3089af
   languageName: node
   linkType: hard
 
@@ -15259,6 +15267,18 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-virtual@npm:^2.6.1":
+  version: 2.6.1
+  resolution: "react-virtual@npm:2.6.1"
+  dependencies:
+    "@reach/observe-rect": ^1.1.0
+    ts-toolbelt: ^6.4.2
+  peerDependencies:
+    react: ^16.6.3 || ^17.0.0
+  checksum: 40c281021906f5af0ff9547aafb56f555e17ef4b8584ca3beffb45e0dea7e17e491d173fb23b791a96a4de57af733939e485d8832596dc050a4f4b67cb1657a5
+  languageName: node
+  linkType: hard
+
 "react@npm:17.0.1":
   version: 17.0.1
   resolution: "react@npm:17.0.1"
@@ -17720,6 +17740,13 @@ resolve@^2.0.0-next.3:
     typescript:
       optional: true
   checksum: 78341a27939de565e2754ff65ebb689743c16e3295528089d143c08d91842cf9029c3d6b3c95a9a20854a114a7904329d02c710d63f7ce4dbf671b8a3e560ac1
+  languageName: node
+  linkType: hard
+
+"ts-toolbelt@npm:^6.4.2":
+  version: 6.15.5
+  resolution: "ts-toolbelt@npm:6.15.5"
+  checksum: d2f585ee3439ae7a72dd7c00630491195b2a4f34107c595d567242482b9fa911b5a9b5921fb4984506c2f7d8efce61351c7f48519438df67b6c0a8dcd40c862c
   languageName: node
   linkType: hard
 

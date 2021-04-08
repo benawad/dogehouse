@@ -46,6 +46,7 @@
     "react-popper": "^2.2.5",
     "react-query": "^3.12.2",
     "react-responsive": "^8.2.0",
+    "react-virtual": "^2.6.1",
     "superstruct": "^0.15.1",
     "tslib": "^2.1.0",
     "uuid": "^8.3.2",
