@@ -32,7 +32,7 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({ })
       let ipcRenderer = window.require("electron").ipcRenderer;
       ipcRenderer.send("@rpc/page", { page: 'profile', data: query.username })
     }
-  }, [])
+  }, [query])
 
   if (isLoading) {
     return <CenterLoader />;

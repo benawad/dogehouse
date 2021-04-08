@@ -44,7 +44,12 @@ const Page = ({
     },
     [cursor]
   );
-
+  useEffect(() => {
+    if (isElectron()) {
+      let ipcRenderer = window.require("electron").ipcRenderer;
+      ipcRenderer.send("@rpc/page", { page: "home", data: data?.rooms.length })
+    }
+  }, [data]);
   if (isLoading) {
     return <CenterLoader />;
   }
@@ -120,13 +125,6 @@ export const FeedController: React.FC<FeedControllerProps> = ({ }) => {
   //     modalAlert(t("common.requestPermissions"));
   //   }
   // }, [t]);
-
-  useEffect(() => {
-    if (isElectron()) {
-      let ipcRenderer = window.require("electron").ipcRenderer;
-      ipcRenderer.send("@rpc/page", { page: "home", data: '' })
-    }
-  }, [])
 
   if (!conn) {
     return null;
