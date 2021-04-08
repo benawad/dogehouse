@@ -44,19 +44,6 @@ const App: React.FC = () => {
     }
   }, [isTokenStoreReady]);
 
-  if (InCallManager.recordPermission !== "granted") {
-    InCallManager.requestRecordPermission()
-      .then((requestedRecordPermissionResult) => {
-        console.log(
-          "InCallManager.requestRecordPermission() requestedRecordPermissionResult: ",
-          requestedRecordPermissionResult
-        );
-      })
-      .catch((err) => {
-        console.log("InCallManager.requestRecordPermission() catch: ", err);
-      });
-  }
-
   const isVoicePrepared = useVoiceStore((s) => s.device !== undefined);
   const prepare = useVoiceStore((state) => state.prepare);
   if (!isVoicePrepared) {

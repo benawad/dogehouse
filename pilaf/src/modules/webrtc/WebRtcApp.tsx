@@ -11,6 +11,7 @@ import { receiveVoice } from "./utils/receiveVoice";
 import { sendVoice } from "./utils/sendVoice";
 import InCallManager from "react-native-incall-manager";
 import * as RootNavigation from "../../navigation/RootNavigation";
+import { InCallManagerStart } from "../../lib/inCallManagerCenter";
 
 interface App2Props {}
 
@@ -91,7 +92,7 @@ export const WebRtcApp: React.FC<App2Props> = () => {
         } else {
           consumerQueue.current = [...consumerQueue.current, { roomId, d }];
         }
-        InCallManager.start({ media: "audio" });
+        InCallManagerStart();
       }),
       conn.addListener<any>("you-are-now-a-speaker", async (d) => {
         if (d.roomId !== useVoiceStore.getState().roomId) {
@@ -103,7 +104,7 @@ export const WebRtcApp: React.FC<App2Props> = () => {
           console.log(err);
           return;
         }
-        InCallManager.start({ media: "audio" });
+        InCallManagerStart();
         try {
           await sendVoice();
         } catch (err) {
@@ -128,7 +129,7 @@ export const WebRtcApp: React.FC<App2Props> = () => {
           console.log("error creating recv transport | ", err);
           return;
         }
-        InCallManager.start({ media: "audio" });
+        InCallManagerStart();
         receiveVoice(conn, () => flushConsumerQueue(d.roomId));
       }),
       conn.addListener<any>("you-joined-as-speaker", async (d) => {
@@ -157,7 +158,7 @@ export const WebRtcApp: React.FC<App2Props> = () => {
           return;
         }
         await createTransport(conn, d.roomId, "recv", d.recvTransportOptions);
-        InCallManager.start({ media: "audio" });
+        InCallManagerStart();
         receiveVoice(conn, () => flushConsumerQueue(d.roomId));
       }),
     ];
