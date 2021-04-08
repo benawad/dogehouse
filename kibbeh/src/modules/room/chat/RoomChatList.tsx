@@ -2,6 +2,7 @@ import { Room } from "@dogehouse/kebab";
 import normalizeUrl from "normalize-url";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useVirtual, VirtualItem } from "react-virtual";
+import { useRouter } from "next/router";
 import { useConn } from "../../../shared-hooks/useConn";
 import { useCurrentRoomInfo } from "../../../shared-hooks/useCurrentRoomInfo";
 import { useTypeSafeTranslation } from "../../../shared-hooks/useTypeSafeTranslation";
@@ -16,7 +17,8 @@ interface ChatListProps {
 
 export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
   const { setData } = useContext(UserPreviewModalContext);
-  const messages = useRoomChatStore((s) => s.messages);
+  const { messages, reset } = useRoomChatStore();
+  const router = useRouter();
   const me = useConn().user;
   const { isMod: iAmMod, isCreator: iAmCreator } = useCurrentRoomInfo();
   const bottomRef = useRef<null | HTMLDivElement>(null);
@@ -33,6 +35,17 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
       chatListRef.current?.scrollTo(0, chatListRef.current.scrollHeight);
     }
   });
+
+  useEffect(() => {
+    const handleRouteChange = reset;
+
+    router.events.on("routeChangeStart", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChange);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const rowVirtualizer = useVirtual({
     overscan: 10,
