@@ -33,6 +33,7 @@ export const SettingsDropdown: React.FC<{
               onClick={onCloseDropdown}
               icon={<SolidUser />}
               label={"Profile"}
+              transition
             />
           </ApiPreloadLink>
           {/* <SettingsIcon icon={<SolidSettings />} label={"Settings"} />
@@ -41,6 +42,7 @@ export const SettingsDropdown: React.FC<{
             icon={<OutlineGlobe />}
             label={"Language"}
             trailingIcon={<SolidCaretRight />}
+            transition
             onClick={() =>
               setCurrentOverlay(
                 <LanguageSelector onClose={() => setCurrentOverlay(null)} />
@@ -57,6 +59,7 @@ export const SettingsDropdown: React.FC<{
               onClick={onCloseDropdown}
               icon={<SolidBug />}
               label={"Report a bug"}
+              transition
             />
           </a>
           <a href="https://dogehouse.tv" rel="noreferrer">
@@ -64,6 +67,7 @@ export const SettingsDropdown: React.FC<{
               onClick={onCloseDropdown}
               icon={<SolidTime />}
               label={"Use old version"}
+              transition
             />
           </a>
           <a
@@ -75,6 +79,7 @@ export const SettingsDropdown: React.FC<{
               onClick={onCloseDropdown}
               icon={<SvgSolidDiscord />}
               label={"Discord"}
+              transition
             />
           </a>
         </div>
