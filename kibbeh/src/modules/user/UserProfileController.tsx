@@ -43,7 +43,7 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
   }
 
   if (!data) {
-    return <InfoText>could not find user</InfoText>;
+    return <InfoText>Sorry, we could not find that user</InfoText>;
   }
 
   return (
