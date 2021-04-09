@@ -1,0 +1,43 @@
+"modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "Planlagde rom",
+      "noneFound": "Ingen funnet",
+      "allRooms": "Alle planlagde rom",
+      "myRooms": "Dei planlagde romma mine",
+      "scheduleRoomHeader": "Planlegg eit rom",
+      "startRoom": "Opprett eit rom",
+      "modal": {
+        "needsFuture": "Må vera i framtida",
+        "roomName": "Romnavn",
+        "minLength": "Minimum lengde er 2 teikn",
+        "roomDescription": "Skildring"
+      }
+    },
+    "roomChat": {
+      "title": "Chat",
+      "emotesSoon": "[emotes snart]",
+      "bannedAlert": "Du vart utestengd frå chatten",
+      "waitAlert": "Du må venta eitt sekund før du kan senda ei ny melding",
+      "search": "Søk",
+      "searchResults": "Søkeresultater",
+      "recent": "Ofte brukt",
+      "sendMessage": "Send ei melding",
+      "whisper": "Kviskra",
+      "welcomeMessage": "Velkommen til chatten!",
+      "roomDescription": "Rombeskrivelse"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fyller på rakkett med drivstoff",
+      "takingOff": "Tar av",
+      "inSpace": "I verdensrommet",
+      "approachingMoon": "Nærmar seg månen",
+      "lunarDoge": "Måne-doge",
+      "approachingSun": "Nærmar seg sola",
+      "solarDoge": "Sol-doge",
+      "approachingGalaxy": "Nærmar seg galaksen",
+      "galacticDoge": "Galakse-doge",
+      "spottedLife": "Planet med liv oppdaga"
+    }
+  }
+}
