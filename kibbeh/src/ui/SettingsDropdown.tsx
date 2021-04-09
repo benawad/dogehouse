@@ -21,7 +21,7 @@ export const SettingsDropdown: React.FC<{
   const [currentOverlay, setCurrentOverlay] = useState<ReactNode>(null);
 
   return (
-    <div style={{ width: 200 }}>
+    <div style={{ width: 200 }} className="mt-5 mr-2">
       <BaseOverlay
         onActionButtonClicked={onActionButtonClicked}
         actionButton={"Log out"}
