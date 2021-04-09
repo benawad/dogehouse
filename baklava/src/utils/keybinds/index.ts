@@ -14,7 +14,7 @@ import {
 } from "../../constants";
 import { overlayWindow } from "electron-overlay-window";
 import { createOverlay } from "../overlay";
-import { startIPCHandler } from "../ipc";
+import { startOverlayIPCHandler } from "../overlay/ipc";
 import { bWindowsType } from "../../types";
 import { Worker } from 'worker_threads';
 import globkey from 'globkey';
@@ -100,7 +100,7 @@ export async function RegisterKeybinds(bWindows: bWindowsType) {
                     }
                 } else {
                     bWindows.overlay = createOverlay(CURRENT_APP_TITLE, overlayWindow);
-                    startIPCHandler(bWindows.main, bWindows.overlay);
+                    startOverlayIPCHandler(bWindows.main, bWindows.overlay);
                 }
             }
         })

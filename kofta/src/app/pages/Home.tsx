@@ -60,7 +60,12 @@ const Page = ({
       refetchInterval: 10000,
     }
   );
-
+  useEffect(() => {
+    if (isElectron()) {
+      let ipcRenderer = window.require("electron").ipcRenderer;
+      ipcRenderer.send("@rpc/page", { page: "home", data: data?.rooms.length })
+    }
+  }, [data])
   useEffect(() => {
     if (isElectron() && isMac) {
       modalAlert(t("common.requestPermissions"));
