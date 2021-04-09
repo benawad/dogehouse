@@ -18,6 +18,7 @@ import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
 import electronLogger from 'electron-log';
+import { startRPC } from "./utils/rpc";
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
@@ -77,7 +78,7 @@ function createMainWindow() {
     mainWindow.webContents.openDevTools();
   }
   mainWindow.loadURL(
-    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/dash"
+    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000"
   );
 
   bWindows = {
@@ -85,20 +86,10 @@ function createMainWindow() {
     overlay: undefined,
   };
 
-  // we skip checking for updates in dev, so we need to show the screen ourselves
-  if (!__prod__) {
-    mainWindow.once("ready-to-show", () => {
-      setTimeout(() => {
-        splash.destroy();
-        mainWindow.show();
-      }, 2500);
-    });
-  } else {
-    mainWindow.once("ready-to-show", () => {
-      shouldShowWindow = true;
-    });
-  }
 
+  mainWindow.once("ready-to-show", () => {
+    shouldShowWindow = true;
+  });
   // crashes on mac only in dev
   // systemPreferences.askForMediaAccess("microphone");
   ipcMain.on("request-mic", async (event, _serviceName) => {
@@ -110,6 +101,9 @@ function createMainWindow() {
   if (isMac) {
     mainWindow.webContents.send("@alerts/permissions", true);
   }
+
+  // start rpc
+  startRPC();
 
   // registers global keybinds
   RegisterKeybinds(bWindows);
@@ -201,9 +195,9 @@ if (!instanceLock) {
   app.on("ready", () => {
     localize().then(async () => {
       createSpalshWindow();
-      if (!__prod__) createMainWindow();
-      if (__prod__) await autoUpdater.checkForUpdates();
-      if (isLinux) {
+      if (!__prod__) createMainWindow(); skipUpdateCheck(splash);
+      if (__prod__ && !isLinux) await autoUpdater.checkForUpdates();
+      if (isLinux && __prod__) {
         createMainWindow();
         skipUpdateCheck(splash);
       }
@@ -267,17 +261,23 @@ app.on("activate", () => {
 });
 
 function skipUpdateCheck(splash: BrowserWindow) {
-  splash.webContents.send('skipCheck');
+  if (!splash.isDestroyed()) {
+    splash.webContents.send('skipCheck');
+  }
   windowShowInterval = setInterval(() => {
     // stop timeout that skips the update
     if (skipUpdateTimeout) {
       clearTimeout(skipUpdateTimeout);
     }
     if (shouldShowWindow) {
-      splash.webContents.send('launch');
+      if (!splash.isDestroyed()) {
+        splash.webContents.send('launch');
+      }
       clearInterval(windowShowInterval);
       setTimeout(() => {
-        splash.destroy();
+        if (!splash.isDestroyed()) {
+          splash.destroy();
+        }
         mainWindow.show();
       }, 800);
     }

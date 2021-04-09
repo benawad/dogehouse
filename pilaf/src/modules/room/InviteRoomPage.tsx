@@ -25,7 +25,7 @@ import { SingleUserAvatar } from "../../components/avatars/SingleUserAvatar";
 import { ApiPreloadLink } from "../../shared-components/ApiPreloadLink";
 import { Room } from "@dogehouse/kebab";
 import { RouteProp } from "@react-navigation/native";
-import { RoomStackParamList } from "../../navigators/RoomNavigator";
+import { RoomStackParamList } from "../../navigation/RoomNavigator";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { TitledHeader } from "../../components/header/TitledHeader";
 

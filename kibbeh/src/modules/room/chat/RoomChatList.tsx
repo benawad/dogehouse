@@ -181,17 +181,21 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                                   </React.Fragment>
                                 );
                               case "link":
-                                return (
-                                  <a
-                                    target="_blank"
-                                    rel="noreferrer noopener"
-                                    href={v}
-                                    className={`inline flex-1 hover:underline text-accent`}
-                                    key={i}
-                                  >
-                                    {normalizeUrl(v, { stripProtocol: true })}{" "}
-                                  </a>
-                                );
+                                try {
+                                  return (
+                                    <a
+                                      target="_blank"
+                                      rel="noreferrer noopener"
+                                      href={v}
+                                      className={`inline flex-1 hover:underline text-accent`}
+                                      key={i}
+                                    >
+                                      {normalizeUrl(v, { stripProtocol: true })}{" "}
+                                    </a>
+                                  );
+                                } catch {
+                                  return null;
+                                }
                               case "block":
                                 return (
                                   <React.Fragment key={i}>

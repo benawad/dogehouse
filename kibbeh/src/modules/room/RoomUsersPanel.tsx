@@ -1,18 +1,17 @@
 import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
 import isElectron from "is-electron";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { RoomSectionHeader } from "../../ui/RoomSectionHeader";
 import { useSplitUsersIntoSections } from "./useSplitUsersIntoSections";
+import { WebSocketContext } from "../../modules/ws/WebSocketProvider";
 
-interface RoomUsersPanelProps extends JoinRoomAndGetInfoResponse {}
+interface RoomUsersPanelProps extends JoinRoomAndGetInfoResponse { }
 
 let ipcRenderer: any = undefined;
 if (isElectron()) {
   ipcRenderer = window.require("electron").ipcRenderer;
 }
-
-const isMac = process.platform === "darwin";
 
 export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
   const {
@@ -22,31 +21,18 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
     canIAskToSpeak,
   } = useSplitUsersIntoSections(props);
   const { t } = useTypeSafeTranslation();
-
-  const [ipcStarted, setIpcStarted] = useState(false);
+  const me = useContext(WebSocketContext).conn?.user || {};
   useEffect(() => {
-    if (isElectron() && !isMac) {
-      ipcRenderer.send("@overlay/start_ipc", true);
-      ipcRenderer.on(
-        "@overlay/start_ipc",
-        (event: any, shouldStart: boolean) => {
-          setIpcStarted(shouldStart);
-        }
-      );
-    }
-  }, []);
-
-  useEffect(() => {
-    if (isElectron() && ipcStarted) {
-      ipcRenderer.send("@overlay/overlayData", {
+    if (isElectron()) {
+      ipcRenderer.send("@room/data", {
         currentRoom: props,
-        roomID: props.roomId,
+        me: me
       });
     }
   });
 
   return (
-    <div className={`pt-4 px-4 flex-1 bg-primary-800`}>
+    <div className={`pt-4 px-4 flex-1 bg-primary-800`} id={props.room.isPrivate ? "private-room" : "public-room"} >
       <div className="w-full block">
         <div
           style={{

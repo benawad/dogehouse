@@ -35,8 +35,7 @@ import {
 } from "../modules/room/chat/useRoomChatStore";
 import { useCurrentRoomInfo } from "../shared-hooks/useCurrentRoomInfo";
 import { useConn } from "../shared-hooks/useConn";
-import { UserPreviewModalContext } from "../modules/room/UserPreviewModalProvider";
-import { RoomStackParamList } from "../navigators/RoomNavigator";
+import { RoomStackParamList } from "../navigation/mainNavigator/RoomNavigator";
 import { RouteProp, useNavigation } from "@react-navigation/native";
 import { TitledHeader } from "./header/TitledHeader";
 import { useConsumerStore } from "../modules/webrtc/stores/useConsumerStore";
@@ -469,17 +468,14 @@ type UserPreviewRouteProp = {
   message?: RoomChatMessage;
 };
 
-export const UserPreview: React.FC<UserPreviewRouteProp> = ({
-  route,
-  message,
-}) => {
+export const UserPreview: React.FC<UserPreviewRouteProp> = ({ route }) => {
   const room = route.params.data.room;
   const users = route.params.data.users;
   const userId = route.params.userId;
+  const message = route.params.message;
   const navigation = useNavigation();
   const { isCreator: iAmCreator, isMod } = useCurrentRoomInfo();
   const conn = useConn();
-
   return (
     <>
       <View style={{ flexGrow: 1 }}>

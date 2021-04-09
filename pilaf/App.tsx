@@ -13,7 +13,7 @@ import { StatusBar, View } from "react-native";
 import SplashScreen from "react-native-splash-screen";
 import { useTokenStore } from "./src/modules/auth/useTokenStore";
 import { LinkingOptions, NavigationContainer } from "@react-navigation/native";
-import { RootNavigator } from "./src/navigators/RootNavigator";
+import { AuthenticationSwitch } from "./src/navigation/AuthenticationSwitch";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { queryClient } from "./src/lib/queryClient";
 import Toast from "react-native-toast-message";
@@ -21,7 +21,7 @@ import { useSoundEffectStore } from "./src/modules/sound-effect/useSoundEffectSt
 import { registerGlobals } from "react-native-webrtc";
 import InCallManager from "react-native-incall-manager";
 import { useVoiceStore } from "./src/modules/webrtc/stores/useVoiceStore";
-import { navigationRef } from "./src/navigators/RootNavigation";
+import { navigationRef } from "./src/navigation/RootNavigation";
 import { MainWsHandlerProvider } from "./src/shared-hooks/useMainWsHandler";
 import { WebSocketProvider } from "./src/modules/ws/WebSocketProvider";
 import { colors } from "./src/constants/dogeStyle";
@@ -43,19 +43,6 @@ const App: React.FC = () => {
       SplashScreen.hide();
     }
   }, [isTokenStoreReady]);
-
-  if (InCallManager.recordPermission !== "granted") {
-    InCallManager.requestRecordPermission()
-      .then((requestedRecordPermissionResult) => {
-        console.log(
-          "InCallManager.requestRecordPermission() requestedRecordPermissionResult: ",
-          requestedRecordPermissionResult
-        );
-      })
-      .catch((err) => {
-        console.log("InCallManager.requestRecordPermission() catch: ", err);
-      });
-  }
 
   const isVoicePrepared = useVoiceStore((s) => s.device !== undefined);
   const prepare = useVoiceStore((state) => state.prepare);
@@ -84,7 +71,7 @@ const App: React.FC = () => {
               barStyle="light-content"
               backgroundColor={colors.primary900}
             />
-            <RootNavigator />
+            <AuthenticationSwitch />
             <Toast ref={(ref) => Toast.setRef(ref)} />
           </NavigationContainer>
         </SafeAreaProvider>

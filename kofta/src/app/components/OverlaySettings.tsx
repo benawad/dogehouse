@@ -31,7 +31,12 @@ export const OverlaySettings: React.FC<OverlaySettingsProps> = () => {
             history.push('/me')
         }
     }, [history]);
-
+    useEffect(() => {
+        if (isElectron()) {
+            let ipcRenderer = window.require("electron").ipcRenderer;
+            ipcRenderer.send("@rpc/page", { page: "overlay-settings", data: '' })
+        }
+    }, [])
     return (
         <>
             <OverlayKeybind className={`mb-4`} />

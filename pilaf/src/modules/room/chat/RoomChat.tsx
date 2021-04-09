@@ -1,5 +1,5 @@
 import { Room, RoomUser } from "@dogehouse/kebab";
-import React, { useEffect, useState } from "react";
+import React, { MutableRefObject, Ref, useEffect, useState } from "react";
 import { KeyboardAvoidingView, View, ViewStyle, Keyboard } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { colors } from "../../../constants/dogeStyle";
@@ -7,20 +7,29 @@ import { EmotePicker } from "./EmotePicker";
 import { RoomChatControls } from "./RoomChatControls";
 import { RoomChatInput } from "./RoomChatInput";
 import { RoomChatList } from "./RoomChatList";
-import { useRoomChatStore } from "./useRoomChatStore";
+import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
 import { useKeyboard } from "@react-native-community/hooks";
+import BottomSheet from "reanimated-bottom-sheet";
+import { useNavigation } from "@react-navigation/core";
 
 interface ChatProps {
   room: Room;
   users: RoomUser[];
   style: ViewStyle;
+  wrapperRef: MutableRefObject<BottomSheet>;
 }
 
-export const RoomChat: React.FC<ChatProps> = ({ users, room, style }) => {
+export const RoomChat: React.FC<ChatProps> = ({
+  users,
+  room,
+  style,
+  wrapperRef,
+}) => {
   const inset = useSafeAreaInsets();
   const [emoteOpen, setEmoteOpen] = useState(false);
   const { message, setMessage } = useRoomChatStore();
   const keyboard = useKeyboard();
+  const navigation = useNavigation();
   useEffect(() => {
     Keyboard.addListener("keyboardWillShow", _keyboardDidShow);
     Keyboard.addListener("keyboardWillHide", _keyboardDidHide);
@@ -53,7 +62,13 @@ export const RoomChat: React.FC<ChatProps> = ({ users, room, style }) => {
       ]}
     >
       <RoomChatControls room={room} />
-      <RoomChatList room={room} />
+      <RoomChatList
+        room={room}
+        onUsernamePress={(userId: string, message?: RoomChatMessage) => {
+          navigation.navigate("RoomUserPreview", { userId, message });
+          wrapperRef.current.snapTo(1);
+        }}
+      />
       {emoteOpen && (
         <EmotePicker
           style={{

@@ -15,7 +15,7 @@ import {
   small,
   smallBold,
 } from "../../constants/dogeStyle";
-import { RoomStackParamList } from "../../navigators/RoomNavigator";
+import { RoomStackParamList } from "../../navigation/RoomNavigator";
 
 const searchMocks = [
   {
