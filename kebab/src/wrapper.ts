@@ -40,9 +40,9 @@ export const wrap = (connection: Connection) => ({
       connection.addListener("invitation_to_room", handler),
     handRaised: (handler: Handler<{ userId: UUID }>) =>
       connection.addListener("hand_raised", handler),
-    speakerAdded: (handler: Handler<{ userId: UUID, muteMap: MuteMap }>) =>
+    speakerAdded: (handler: Handler<{ userId: UUID; muteMap: MuteMap }>) =>
       connection.addListener("speaker_added", handler),
-    speakerRemoved: (handler: Handler<{ userId: UUID, muteMap: MuteMap }>) =>
+    speakerRemoved: (handler: Handler<{ userId: UUID; muteMap: MuteMap }>) =>
       connection.addListener("speaker_removed", handler),
   },
   query: {
@@ -103,6 +103,8 @@ export const wrap = (connection: Connection) => ({
       ),
   },
   mutation: {
+    ban: (username: string, reason: string) =>
+      connection.send(`ban`, { username, reason }),
     deleteScheduledRoom: (id: string): Promise =>
       connection.fetch(`delete_scheduled_room`, { id }),
     createRoomFromScheduledRoom: (data: {
