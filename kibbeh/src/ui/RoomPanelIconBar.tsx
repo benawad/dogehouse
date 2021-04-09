@@ -35,7 +35,12 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
     <div className="justify-between bg-primary-700 rounded-b-8 py-3 px-4 w-full">
       <div>
         {mute ? (
-          <BoxedIcon transition className="mr-2" color="800" onClick={() => mute.onMute()}>
+          <BoxedIcon
+            transition
+            className="mr-2"
+            color="800"
+            onClick={() => mute.onMute()}
+          >
             {mute.isMuted ? <SolidMicrophoneOff /> : <SolidMicrophone />}
           </BoxedIcon>
         ) : null}
@@ -52,12 +57,22 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
         ) : null}
         {screenType === "1-cols" || screenType === "fullscreen" ? (
           // @todo put chat icon
-          <BoxedIcon transition className="mr-2" color="800" onClick={onToggleChat}>
+          <BoxedIcon
+            transition
+            className="mr-2"
+            color="800"
+            onClick={onToggleChat}
+          >
             <SolidCompass />
           </BoxedIcon>
         ) : null}
         {onRoomSettings ? (
-          <BoxedIcon transition className="mr-2" color="800" onClick={onRoomSettings}>
+          <BoxedIcon
+            transition
+            className="mr-2"
+            color="800"
+            onClick={onRoomSettings}
+          >
             <SolidSettings />
           </BoxedIcon>
         ) : null}
