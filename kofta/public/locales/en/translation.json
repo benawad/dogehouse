@@ -1,19 +1,19 @@
 {
   "_comment": "if you change this file, do: npm run i18",
   "common": {
-    "loadMore": "load more",
-    "loading": "loading...",
-    "noUsersFound": "no users found",
+    "loadMore": "Load More",
+    "loading": "Loading...",
+    "noUsersFound": "No users found!",
     "ok": "ok",
     "yes": "yes",
     "no": "no",
     "cancel": "Cancel",
-    "save": "save",
-    "edit": "edit",
-    "delete": "delete",
-    "joinRoom": "join room",
-    "copyLink": "copy link",
-    "copied": "copied",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "joinRoom": "Join Room",
+    "copyLink": "Copy Link",
+    "copied": "Copied!",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
     "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
@@ -32,16 +32,16 @@
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "banUser": {
-      "ban": "ban"
+      "ban": "Ban"
     },
     "followingOnlineList": {
       "listHeader": "List of users that are not in a private room and you follow.",
-      "currentRoom": "currently in:",
-      "startPrivateRoom": "start a private room with them"
+      "currentRoom": "Currently in:",
+      "startPrivateRoom": "Start a private room with them"
     },
     "followList": {
-      "followHim": "follow",
-      "followingHim": "following"
+      "followHim": "Follow",
+      "followingHim": "Following"
     },
     "home": {
       "createRoom": "Create Room",
@@ -49,8 +49,8 @@
       "refresh": "Refresh"
     },
     "inviteList": {
-      "roomGone": "room gone, go back",
-      "shareRoomLink": "share link to room",
+      "roomGone": "Room gone; go back",
+      "shareRoomLink": "Share Room Link",
       "inviteFollowers": "You can invite your followers that are online:",
       "whenFollowersOnline": "When your followers are online, they will show up here."
     },
@@ -62,17 +62,17 @@
       "featureText_4": "Open Source",
       "featureText_5": "Text Chat",
       "featureText_6": "Powered by Doge",
-      "loginGithub": "log in with GitHub",
-      "loginTwitter": "log in with Twitter",
-      "createTestUser": "create test user"
+      "loginGithub": "Log in with GitHub",
+      "loginTwitter": "Log in with Twitter",
+      "createTestUser": "create Test User"
     },
     "myProfile": {
-      "logout": "logout",
-      "probablyLoading": "probably loading...",
-      "voiceSettings": "go to voice settings",
-      "overlaySettings": "go to overlay settings",
-      "soundSettings": "go to sound settings",
-      "deleteAccount": "delete account"
+      "logout": "Logout",
+      "probablyLoading": "Probably loading...",
+      "voiceSettings": "Voice Settings",
+      "overlaySettings": "Overlay Settings",
+      "soundSettings": "Sound Settings",
+      "deleteAccount": "Delete Account"
     },
     "notFound": {
       "whoopsError": "Whoops! This page got lost in conversation.",
@@ -81,40 +81,40 @@
     },
     "room": {
       "speakers": "Speakers",
-      "requestingToSpeak": "Requesting to speak",
+      "requestingToSpeak": "Requesting to Speak",
       "listeners": "Listeners",
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": {
-      "search": "search..."
+      "search": "Search..."
     },
     "soundEffectSettings": {
       "header": "Sounds"
     },
     "viewUser": {
-      "editProfile": "edit profile",
+      "editProfile": "Edit Profile",
       "followsYou": "Follows you",
       "followers": "followers",
       "following": "following",
       "followHim": "Follow",
       "unfollow": "Unfollow",
-      "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
+      "followingHim": "Following",
+      "copyProfileUrl": "Copy Profile URL",
       "urlCopied": "URL copied to clipboard"
     },
     "voiceSettings": {
       "header": "Voice Settings",
-      "mic": "mic:",
-      "permissionError": "no mics found, you either have none plugged in or haven't given this website permission.",
-      "refresh": "refresh mic list",
-      "volume": "volume:"
+      "mic": "Mic:",
+      "permissionError": "No mics found, you either have none plugged in or haven't given this website permission.",
+      "refresh": "Refresh Mic List",
+      "volume": "Volume:"
     },
     "overlaySettings": {
       "header": "Overlay Settings",
       "input": {
-        "errorMsg": "Please enter valid app title",
-        "label": "Enter app title"
+        "errorMsg": "Please enter a valid app title",
+        "label": "App title"
       }
     }
   },
@@ -124,19 +124,19 @@
     "backBar": {},
     "blockedFromRoomUsers": {
       "header": "Banned Users",
-      "unban": "unban",
-      "noBans": "no one has been banned yet"
+      "unban": "Unban",
+      "noBans": "No one has been banned yet"
     },
     "bottomVoiceControl": {
-      "leaveCurrentRoomBtn": "Leave current room",
+      "leaveCurrentRoomBtn": "Leave Current Room",
       "confirmLeaveRoom": "Are you sure you want to leave?",
       "leave": "Leave",
-      "inviteUsersToRoomBtn": "Invite users to room",
+      "inviteUsersToRoomBtn": "Invite Users to Room",
       "invite": "Invite",
-      "toggleMuteMicBtn": "Toggle mute microphone",
+      "toggleMuteMicBtn": "Toggle Mute",
       "mute": "Mute",
       "unmute": "Unmute",
-      "makeRoomPublicBtn": "Make room public!",
+      "makeRoomPublicBtn": "Make Room Public!",
       "settings": "Settings",
       "speaker": "Speaker",
       "listener": "Listener",
@@ -148,30 +148,30 @@
       "addSupport": "and I will try adding support for your device."
     },
     "inviteButton": {
-      "invited": "invited",
-      "inviteToRoom": "invite to room"
+      "invited": "Invited!",
+      "inviteToRoom": "Invite to room"
     },
     "micPermissionBanner": {
       "permissionDenied": "Permission denied trying to access your mic (you may need to go into browser settings and reload the page)",
-      "dismiss": "dismiss",
-      "tryAgain": "try again"
+      "dismiss": "Dismiss",
+      "tryAgain": "Try Again"
     },
     "keyboardShortcuts": {
-      "setKeybind": "set keybind",
-      "listening": "listening",
-      "toggleMuteKeybind": "toggle mute keybind",
-      "toggleOverlayKeybind": "toggle overlay keybind",
-      "togglePushToTalkKeybind": "toggle push-to-talk keybind"
+      "setKeybind": "Det Keybind",
+      "listening": "Listening...",
+      "toggleMuteKeybind": "Toggle mute keybind",
+      "toggleOverlayKeybind": "Toggle overlay keybind",
+      "togglePushToTalkKeybind": "Toggle push-to-talk keybind"
     },
     "userVolumeSlider": {
-      "noAudioMessage": "no audio consumer for some reason"
+      "noAudioMessage": "No audio consumer for some reason"
     },
     "addToCalendar": {
       "add": "Add to Calendar"
     },
     "wsKilled": {
       "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
-      "reconnect": "reconnect"
+      "reconnect": "Reconnect"
     },
     "modals": {
       "createRoomModal": {
@@ -179,8 +179,8 @@
         "private": "Private",
         "roomName": "Room name",
         "roomDescription": "Room description",
-        "descriptionError": "max length 500",
-        "nameError": "must be between 2 to 60 characters long"
+        "descriptionError": "Max length 500",
+        "nameError": "Must be between 2 to 60 characters long"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "New Room Created",
@@ -190,28 +190,28 @@
         "inviteReceived": "you've been invited to"
       },
       "editProfileModal": {
-        "usernameTaken": "username taken",
+        "usernameTaken": "Username taken",
         "avatarUrlError": "Invalid image",
-        "avatarUrlLabel": "GitHub/Twitter avatar url",
-        "displayNameError": "length 2 to 50 characters",
+        "avatarUrlLabel": "GitHub/Twitter avatar URL",
+        "displayNameError": "Length 2 to 50 characters",
         "displayNameLabel": "Display Name",
-        "usernameError": "length 4 to 15 characters and only alphanumeric/underscore",
+        "usernameError": "Length 4 to 15 characters and only alphanumeric/underscore",
         "usernameLabel": "Username",
-        "bioError": "max length of 160 characters",
+        "bioError": "Max length of 160 characters",
         "bioLabel": "Bio"
       },
       "profileModal": {
         "blockUserConfirm": "Are you sure you want to block this user from joining any room you ever create?",
-        "blockUser": "block user",
-        "makeMod": "make mod",
-        "unmod": "unmod",
-        "addAsSpeaker": "add as speaker",
-        "moveToListener": "move to listener",
-        "banFromChat": "ban from chat",
-        "banFromRoom": "ban from room",
-        "goBackToListener": "go back to listener",
-        "deleteMessage": "delete this message",
-        "makeRoomCreator": "make room admin"
+        "blockUser": "Block user",
+        "makeMod": "Promote to Mod",
+        "unmod": "Demote from Mod",
+        "addAsSpeaker": "Add as Speaker",
+        "moveToListener": "Move to Listener",
+        "banFromChat": "Ban from Chat",
+        "banFromRoom": "Ban from Room",
+        "goBackToListener": "Go Back to Listener",
+        "deleteMessage": "Delete this Message",
+        "makeRoomCreator": "Promote to Admin"
       },
       "roomSettingsModal": {
         "requirePermission": "require permission to speak",
@@ -241,7 +241,7 @@
     "roomChat": {
       "title": "Chat",
       "emotesSoon": "[emotes soon]",
-      "bannedAlert": "You got banned from chat",
+      "bannedAlert": "You have been banned from chat",
       "waitAlert": "You have to wait a second before sending another message",
       "search": "Search",
       "searchResults": "Search Results",
@@ -249,7 +249,7 @@
       "sendMessage": "Send a Message",
       "whisper": "Whisper",
       "welcomeMessage": "Welcome to chat!",
-      "roomDescription": "room description"
+      "roomDescription": "Room description"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

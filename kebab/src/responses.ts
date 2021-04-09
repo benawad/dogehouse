@@ -34,3 +34,12 @@ export type NewRoomDetailsResponse = {
   isPrivate: boolean;
   description: string;
 };
+
+export type InvitationToRoomResponse = {
+  type: "invite",
+  username: string,
+  displayName: string,
+  avatarUrl: string,
+  roomName: string,
+  roomId: UUID
+};
