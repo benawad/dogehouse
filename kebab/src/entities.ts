@@ -37,6 +37,7 @@ export interface ScheduledRoom {
   name: string;
   id: UUID;
   creatorId: UUID;
+  creator: User;
 }
 
 export type User = {
@@ -120,3 +121,5 @@ export type CurrentRoom = Room & {
   activeSpeakerMap: Record<string, boolean>;
   autoSpeaker: boolean;
 };
+
+export type MuteMap = Record<UUID, boolean>;

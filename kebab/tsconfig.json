@@ -3,11 +3,12 @@
     "target": "es5",
     "module": "commonjs",
     "declaration": true,
+    "skipLibCheck": true,
     "outDir": "./lib",
     "strict": true,
     "lib": ["dom", "ES6"],
     "esModuleInterop": true
   },
   "include": ["src"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "src/*.test.ts"]
 }

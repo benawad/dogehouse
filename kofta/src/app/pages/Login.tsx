@@ -103,7 +103,7 @@ export const Login: React.FC<LoginProps> = () => {
               variant="slim"
               className={`m-8`}
               onClick={() => {
-                modalPrompt("username", async (name) => {
+                modalPrompt("Username", async (name) => {
                   if (!name) {
                     return;
                   }

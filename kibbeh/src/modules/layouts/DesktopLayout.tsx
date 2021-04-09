@@ -1,21 +1,23 @@
 import React from "react";
 import { useScreenType } from "../../shared-hooks/useScreenType";
 import { MainInnerGrid } from "../../ui/MainGrid";
+import { FloatingRoomInfo } from "./FloatingRoomInfo";
 import { LeftPanel, RightPanel } from "./GridPanels";
+import { TabletSidebar } from "./TabletSidebar";
 
 interface MainLayoutProps {
-  floatingRoomInfo: React.ReactNode;
-  tabletSidebar: React.ReactNode;
-  leftPanel: React.ReactNode;
-  rightPanel: React.ReactNode;
+  floatingRoomInfo?: React.ReactNode;
+  tabletSidebar?: React.ReactNode;
+  leftPanel?: React.ReactNode;
+  rightPanel?: React.ReactNode;
 }
 
 export const DesktopLayout: React.FC<MainLayoutProps> = ({
   children,
-  leftPanel,
-  rightPanel,
-  tabletSidebar,
-  floatingRoomInfo,
+  leftPanel = <div />,
+  rightPanel = <div />,
+  tabletSidebar = <TabletSidebar />,
+  floatingRoomInfo = <FloatingRoomInfo />,
 }) => {
   const screenType = useScreenType();
 

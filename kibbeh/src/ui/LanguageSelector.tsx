@@ -117,7 +117,10 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
             Language
           </p>
         </div>
-        <div className="pr-1 block h-full overflow-y-auto scrollbar-thin scrollbar-thumb-primary-700">
+        <div
+          className="pr-1 block h-full overflow-y-auto scrollbar-thin scrollbar-thumb-primary-700"
+          style={{ height: "calc(100% - 40px)" }}
+        >
           <div className="m-2 block">{parsedOptions}</div>
         </div>
       </div>
