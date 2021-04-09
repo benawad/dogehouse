@@ -44,6 +44,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "lv", label: "🇱🇻 Latviešu" }, // Latvian
     { value: "li", label: "🏴󠁮󠁬󠁬󠁩󠁿 Limburgs" }, // Limburgish
     { value: "nb", label: "🇳🇴 Norsk Bokmål" }, // Norwegian Bokmål
+    { value: "nn", label: "🇳🇳 Norsk Nynorsk" }, // Norwegian Nynorsk
     { value: "ne", label: "🇳🇵 नेपाली" }, // Nepali
     { value: "nl", label: "🇳🇱 Nederlands" }, // Dutch
     { value: "pl", label: "🇵🇱 Polski" }, // Polish
