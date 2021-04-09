@@ -13,7 +13,7 @@ import { OverlayKeybind } from "../keyboard-shortcuts";
 import { DefaultDesktopLayout } from "../layouts/DefaultDesktopLayout";
 import { MiddlePanel } from "../layouts/GridPanels";
 
-interface OverlaySettingsProps {}
+interface OverlaySettingsProps { }
 const overlaySettingsStruct = object({
   appTitle: string(),
 });
@@ -28,6 +28,13 @@ export const OverlaySettingsPage: PageComponent<OverlaySettingsProps> = () => {
       push("/dash");
     }
   }, [push]);
+
+  useEffect(() => {
+    if (isElectron()) {
+      let ipcRenderer = window.require("electron").ipcRenderer;
+      ipcRenderer.send("@rpc/page", { page: "overlay-settings", data: '' })
+    }
+  }, [])
 
   return (
     <DefaultDesktopLayout>
