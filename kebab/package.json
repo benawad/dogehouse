@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@types/uuid": "^8.3.0",
-    "@types/ws": "^7.4.0",
+    "@types/ws": "^7.4.1",
     "isomorphic-ws": "^4.0.1",
     "mediasoup-client": "^3.6.29",
     "reconnecting-websocket": "^4.4.0",
@@ -29,9 +29,9 @@
     "ws": "^7.4.4"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.19.0",
-    "@typescript-eslint/parser": "^4.19.0",
+    "@typescript-eslint/eslint-plugin": "^4.21.0",
+    "@typescript-eslint/parser": "^4.21.0",
     "eslint": "^7.23.0",
-    "typescript": "^4.2.3"
+    "typescript": "^4.2.4"
   }
 }

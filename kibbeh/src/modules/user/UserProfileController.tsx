@@ -31,7 +31,7 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
 
   useEffect(() => {
     if (isElectron()) {
-      let ipcRenderer = window.require("electron").ipcRenderer;
+      const ipcRenderer = window.require("electron").ipcRenderer;
       ipcRenderer.send("@rpc/page", { page: "profile", data: query.username });
     }
   }, [query]);
