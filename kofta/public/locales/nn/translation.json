@@ -1,0 +1,252 @@
+{
+  "common": {
+    "loadMore": "Last inn fleire",
+    "loading": "Laster inn...",
+    "noUsersFound": "Ingen brukarar funne",
+    "ok": "Ok",
+    "yes": "Ja",
+    "no": "Nei",
+    "cancel": "Avbryt",
+    "save": "Lagre",
+    "edit": "Rediger",
+    "delete": "Slett",
+    "joinRoom": "Bli med i rommet",
+    "copyLink": "Kopiér lenke",
+    "copied": "Kopiert",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Vêr oppmerksam på at bruk av DogeHouse utan å gi nettlesaren nødvendige løyve kan føra til uønskte feil"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Dempa | DogeHouse"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": "Opphav",
+    "link_2": "Discord",
+    "link_3": "Rapporter ein feil"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "utesteng" },
+    "followingOnlineList": {
+      "listHeader": "Liste over brukarar som ikkje er i eit privat rom, og som du følgjer.",
+      "currentRoom": "For tida i:",
+      "startPrivateRoom": "Start eit privat rom med dei"
+    },
+    "followList": { "followHim": "følg", "followingHim": "følger" },
+    "home": {
+      "createRoom": "Lag eit rom",
+      "refresh": "Last inn på nytt",
+      "editRoom": "rediger rom"
+    },
+    "inviteList": {
+      "roomGone": "Rommet finst ikkje lengre, gå tilbake",
+      "shareRoomLink": "Del lenka til rommet",
+      "inviteFollowers": "Du kan invitera følgjarane dine som er pålogga:",
+      "whenFollowersOnline": "Når følgjarane dine er pålogga, vil dei dukka opp her."
+    },
+    "login": {
+      "headerText": "Tar talesamtalar til månen 🚀",
+      "featureText_1": "Mørkt tema",
+      "featureText_2": "Opne registreringar",
+      "featureText_3": "Støtta på tvers av plattformer",
+      "featureText_4": "Opne kjeldekode",
+      "featureText_5": "Tekstchat",
+      "featureText_6": "Drevet av Doge",
+      "loginGithub": "Logg inn med GitHub",
+      "loginTwitter": "Logg inn med Twitter",
+      "createTestUser": "Opprett ein test-brukar"
+    },
+    "myProfile": {
+      "logout": "Logg ut",
+      "probablyLoading": "Blir sikkert lasta inn..",
+      "voiceSettings": "Gå til taleinnstillingar",
+      "soundSettings": "Gå til lydinnstillingar",
+      "deleteAccount": "Slett konto",
+      "overlaySettings": "Gå til overleggsinnstillingar"
+    },
+    "notFound": {
+      "whoopsError": "Oi sann! Denne sida vart tapt i samtalen.",
+      "goHomeMessage": "Ikkje ver redd. Du kan",
+      "goHomeLinkText": "gå heim"
+    },
+    "room": {
+      "speakers": "Talarar",
+      "requestingToSpeak": "Ber om å få snakka",
+      "listeners": "Lyttarar",
+      "allowAll": "Tillat alle",
+      "allowAllConfirm": "Er du sikker? Dette vil tillata alle {{count}} spørrande brukarar til å snakka"
+    },
+    "searchUser": { "search": "søk..." },
+    "soundEffectSettings": { "header": "Lydar" },
+    "viewUser": {
+      "editProfile": "Rediger profil",
+      "followsYou": "Følgjer deg",
+      "followers": "følgjarar",
+      "following": "følgjer",
+      "followHim": "Følg",
+      "followingHim": "Følgjer",
+      "copyProfileUrl": "Kopiér profil URL",
+      "urlCopied": "URL kopiert til utklippstavla",
+      "unfollow": "Slutt å følgja"
+    },
+    "voiceSettings": {
+      "header": "Taleinnstillingar",
+      "mic": "Mikrofon:",
+      "permissionError": "Ingen mikrofonar er funne, du har enten ingen einingar tilgjenngelig, eller så har du ikkje gitt løyve til å bruka ho.",
+      "refresh": "Oppdater mikrofon-lista",
+      "volume": "Volum:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Ugyldig tittel", "label": "Angi tittel" },
+      "header": "Innstillingar for overlegg"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Utestengde brukarar",
+      "unban": "Opphev utestenginga",
+      "noBans": "Ingen har vorte utestengd enno"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Forlat dette rommet",
+      "confirmLeaveRoom": "Er du sikker på at du vil forlata rommet?",
+      "leave": "Forlat",
+      "inviteUsersToRoomBtn": "Inviter brukarar til rommet",
+      "invite": "Inviter",
+      "toggleMuteMicBtn": "Veksle demping av mikrofon",
+      "mute": "Demp",
+      "unmute": "Opphev demping",
+      "makeRoomPublicBtn": "Gjør rommet offentleg!",
+      "settings": "Innstillingar",
+      "speaker": "Talar",
+      "listener": "Lyttar",
+      "chat": "Chat"
+    },
+    "deviceNotSupported": {
+      "notSupported": "Eininga di blir førebels ikkje støtta. Du kan oppretta eitt",
+      "linkText": "problem på GitHub",
+      "addSupport": "så skal eg prøva å legga til trygd for eininga di."
+    },
+    "inviteButton": {
+      "invited": "Invitert",
+      "inviteToRoom": "Inviter til rom"
+    },
+    "micPermissionBanner": {
+      "permissionDenied": "Løyve nekta når vi prøvde å få tilgang til mikrofonen din (du må kanskje gå til nettlesarinnstillingane og lasta inn sidan på nytt)",
+      "dismiss": "Avvis",
+      "tryAgain": "Prøv igjen"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "Angi hurtigtast",
+      "listening": "Lyttar",
+      "toggleMuteKeybind": "Veksla demping av hurtigtast",
+      "togglePushToTalkKeybind": "Veksla trykk for å snakka hurtigtast",
+      "toggleOverlayKeybind": "Overlegg hurtigtast"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "Ingen lydmottaker av ein eller annan grunn"
+    },
+    "addToCalendar": { "add": "Legg til i Kalender" },
+    "wsKilled": {
+      "description": "Tilkoplinga di vart avslutta av serveren. Dette skjer vanlegvis når du opnar nettsida i ei anna fane.",
+      "reconnect": "Kopl til igjen"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "Offentleg",
+        "private": "Privat",
+        "roomName": "Romnavn",
+        "roomDescription": "Rombeskrivelse",
+        "descriptionError": "Maksimal lengde er 500 teikn",
+        "nameError": "Må vera mellom 2 og 60 teikn"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "Nytt rom er oppretta",
+        "roomInviteFrom": "Rominvitasjon frå",
+        "justStarted": "Dei starta nettopp",
+        "likeToJoin": ", vil du bli med?",
+        "inviteReceived": "du har vorte invitert til"
+      },
+      "editProfileModal": {
+        "usernameTaken": "Brukarnamnet er allereie i bruk",
+        "avatarUrlError": "Ugyldig bilde",
+        "avatarUrlLabel": "GitHub/Twitter profilbilde URL",
+        "displayNameError": "Lengda må vera mellom 2 og 50 teikn",
+        "displayNameLabel": "Visningsnamn",
+        "usernameError": "Lengda må vera mellom 4 og 15 teikn og kan berre innehalda alfanumerisk/understrek",
+        "usernameLabel": "Brukarnamn",
+        "bioError": "Maksimal lengde er 160 teikn",
+        "bioLabel": "Bio"
+      },
+      "profileModal": {
+        "blockUserConfirm": "Er du sikker på at du vil blokkera brukaren frå å bli med i alle nye rom du lagar?",
+        "blockUser": "Blokkér bruker",
+        "makeMod": "Gjer til moderator",
+        "unmod": "Fjern som moderator",
+        "addAsSpeaker": "Legg til som taler",
+        "moveToListener": "Flytt til lyttar",
+        "banFromChat": "Utesteng frå chatten",
+        "banFromRoom": "Utesteng frå romma",
+        "goBackToListener": "Gå tilbake til lyttar",
+        "deleteMessage": "Slett denne meldinga",
+        "makeRoomCreator": "Opprett rom-administrator"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "Krev løyve for å snakka",
+        "makePublic": "Gjer rommet offentleg",
+        "makePrivate": "Gjer rommet privat",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
+      }
+    }
+  },
+  "modules": {
+      "_comment": "Modules UI Internationalization Strings",
+      "scheduledRooms": {
+        "title": "Planlagde rom",
+        "noneFound": "Ingen funnet",
+        "allRooms": "Alle planlagde rom",
+        "myRooms": "Dei planlagde romma mine",
+        "scheduleRoomHeader": "Planlegg eit rom",
+        "startRoom": "Opprett eit rom",
+        "modal": {
+        "needsFuture": "Må vera i framtida",
+        "roomName": "Romnavn",
+        "minLength": "Minimum lengde er 2 teikn",
+        "roomDescription": "Skildring"
+        }
+      },
+      "roomChat": {
+        "title": "Chat",
+        "emotesSoon": "[emotes snart]",
+        "bannedAlert": "Du vart utestengd frå chatten",
+        "waitAlert": "Du må venta eitt sekund før du kan senda ei ny melding",
+        "search": "Søk",
+        "searchResults": "Søkeresultater",
+        "recent": "Ofte brukt",
+        "sendMessage": "Send ei melding",
+        "whisper": "Kviskra",
+        "welcomeMessage": "Velkommen til chatten!",
+        "roomDescription": "Rombeskrivelse"
+      },
+      "roomStatus": {
+        "fuelingRocket": "Fyller på rakkett med drivstoff",
+        "takingOff": "Tar av",
+        "inSpace": "I verdensrommet",
+        "approachingMoon": "Nærmar seg månen",
+        "lunarDoge": "Måne-doge",
+        "approachingSun": "Nærmar seg sola",
+        "solarDoge": "Sol-doge",
+        "approachingGalaxy": "Nærmar seg galaksen",
+        "galacticDoge": "Galakse-doge",
+        "spottedLife": "Planet med liv oppdaga"
+      }
+    }
+  }
