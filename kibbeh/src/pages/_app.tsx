@@ -20,6 +20,7 @@ import { KeybindListener } from "../modules/keyboard-shortcuts/KeybindListener";
 import { InvitedToJoinRoomModal } from "../shared-components/InvitedToJoinRoomModal";
 import { ConfirmModal } from "../shared-components/ConfirmModal";
 import isElectron from "is-electron";
+import Head from "next/head";
 
 if (!isServer) {
   init_i18n();
@@ -53,6 +54,12 @@ function App({ Component, pageProps }: AppProps) {
     >
       <QueryClientProvider client={queryClient}>
         <MainWsHandlerProvider>
+          <Head>
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1, user-scalable=no, user-scalable=0"
+            />
+          </Head>
           <Component {...pageProps} />
           <SoundEffectPlayer />
           <ErrorToastController />

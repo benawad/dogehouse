@@ -64,7 +64,7 @@ p.small {
 
 html
   *:not(head *, script, style, .MuiDialog-root, .MuiDialog-root
-    *, .block, .inline-block, .inline, .inline-flex, .table, .table-caption, .table-cell, .table-column, .table-column-group, .table-footer-group, .table-header-group, .table-row-group, .table-row, .flow-root, .grid, .inline-grid, .contents, .hidden) {
+    *, .block, .inline-block, .inline, .inline-flex, .table, .table-caption, .table-cell, .table-column, .table-column-group, .table-footer-group, .table-header-group, .table-row-group, .table-row, .flow-root, .grid, .inline-grid, .contents, .hidden, .sm\:hidden, .sm\:flex) {
   display: flex;
 }
 
@@ -96,4 +96,11 @@ textarea {
 #nprogress {
   position: relative;
   z-index: 9999999;
+}
+
+img.emoji {
+  height: 1em;
+  width: 1em;
+  margin: 0 0.05em 0 0.1em;
+  vertical-align: -0.1em;
 }

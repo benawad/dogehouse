@@ -22,10 +22,13 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary600,
     borderRadius: radius.s,
     paddingHorizontal: 10,
-    height: 22,
+    // height: 21,
+    borderWidth: 0.5,
+    borderColor: colors.primary600,
+    alignItems: "center",
   },
   glow: {
-    borderWidth: 1,
+    borderWidth: 0.5,
     borderColor: colors.accent,
   },
 });

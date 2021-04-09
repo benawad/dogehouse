@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Image,
   View,
+  ViewStyle,
 } from "react-native";
 import { colors, radius } from "../../../constants/dogeStyle";
 import { createChatMessage } from "../../../lib/createChatMessage";
@@ -17,6 +18,7 @@ import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { useRoomChatStore } from "./useRoomChatStore";
 
 interface ChatInputProps {
+  style: ViewStyle;
   users: RoomUser[];
   onEmotePress: () => void;
 }
@@ -24,6 +26,7 @@ interface ChatInputProps {
 export const RoomChatInput: React.FC<ChatInputProps> = ({
   users,
   onEmotePress,
+  style,
 }) => {
   const { message, setMessage } = useRoomChatStore();
   const {
@@ -41,45 +44,6 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({
   const [lastMessageTimestamp, setLastMessageTimestamp] = useState<number>(0);
 
   let position = 0;
-
-  const navigateThroughQueriedUsers = (e: any) => {
-    // Use dom method, GlobalHotkeys apparently don't catch arrow-key events on inputs
-    if (
-      !["ArrowUp", "ArrowDown", "Enter"].includes(e.code) ||
-      !queriedUsernames.length
-    ) {
-      return;
-    }
-
-    e.preventDefault();
-
-    let changeToIndex: number | null = null;
-    const activeIndex = queriedUsernames.findIndex(
-      (username) => username.id === activeUsername
-    );
-
-    if (e.code === "ArrowUp") {
-      changeToIndex =
-        activeIndex === 0 ? queriedUsernames.length - 1 : activeIndex - 1;
-    } else if (e.code === "ArrowDown") {
-      changeToIndex =
-        activeIndex === queriedUsernames.length - 1 ? 0 : activeIndex + 1;
-    } else if (e.code === "Enter") {
-      const selected = queriedUsernames[activeIndex];
-      setMentions([...mentions, selected]);
-      setMessage(
-        `${message.substring(0, message.lastIndexOf("@") + 1)}${
-          selected.username
-        } `
-      );
-      setQueriedUsernames([]);
-    }
-
-    // navigate to next/prev mention suggestion item
-    if (changeToIndex !== null) {
-      setActiveUsername(queriedUsernames[changeToIndex]?.id);
-    }
-  };
 
   const handleSubmit = () => {
     if (!me) return;
@@ -115,7 +79,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({
   };
 
   return (
-    <KeyboardAvoidingView behavior={"padding"}>
+    <View style={style}>
       <RoomChatMentions users={users} />
       <View
         style={{
@@ -148,6 +112,6 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({
           <Image source={require("../../../assets/images/emoji-icon.png")} />
         </TouchableOpacity>
       </View>
-    </KeyboardAvoidingView>
+    </View>
   );
 };

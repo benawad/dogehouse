@@ -1,5 +1,5 @@
 import { RoomUser } from "@dogehouse/kebab";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Smiley } from "../../../icons";
 import { createChatMessage } from "../../../lib/createChatMessage";
 import { showErrorToast } from "../../../lib/showErrorToast";
@@ -43,6 +43,10 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
   const { t } = useTypeSafeTranslation();
 
   let position = 0;
+
+  useEffect(() => {
+    if (!open) inputRef.current?.focus();
+  }, [open]);
 
   const handleSubmit = (
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>

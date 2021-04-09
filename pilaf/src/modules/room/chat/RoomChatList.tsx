@@ -1,6 +1,7 @@
 import { Room } from "@dogehouse/kebab";
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import React, { useEffect, useRef, useState } from "react";
+import { Image, Text, View } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import {
   colors,
   fontSize,
@@ -10,13 +11,13 @@ import {
 } from "../../../constants/dogeStyle";
 import { useConn } from "../../../shared-hooks/useConn";
 import { useCurrentRoomInfo } from "../../../shared-hooks/useCurrentRoomInfo";
-import { UserPreviewModalContext } from "../UserPreviewModalProvider";
 import { emoteMap } from "./EmoteData";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
 
 interface ChatListProps {
   room: Room;
+  onUsernamePress: (userId: string, message?: RoomChatMessage) => void;
 }
 
 const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
@@ -27,10 +28,10 @@ const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
   );
 };
 
-const onUserPress = (userId: string, message?: RoomChatMessage) => {};
-
-export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
-  const { setData } = useContext(UserPreviewModalContext);
+export const RoomChatList: React.FC<ChatListProps> = ({
+  room,
+  onUsernamePress,
+}) => {
   const scrollView = useRef<ScrollView>(null);
   const [scrollViewHeight, setScrollViewHeight] = useState(0);
   const [listHeight, setListHeight] = useState(0);
@@ -38,10 +39,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
 
   const me = useConn().user;
   const { isMod: iAmMod, isCreator: iAmCreator } = useCurrentRoomInfo();
-  const [
-    messageToBeDeleted,
-    setMessageToBeDeleted,
-  ] = useState<RoomChatMessage | null>(null);
   const {
     isRoomChatScrolledToTop,
     setIsRoomChatScrolledToTop,
@@ -57,11 +54,12 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
     <View
       style={{
         padding: 5,
-        flex: 1,
+        paddingHorizontal: 25,
+        flexGrow: 1,
       }}
     >
       <ScrollView
-        style={{ flex: 1, marginBottom: 10 }}
+        style={{ flex: 1, marginBottom: 10, paddingBottom: 10 }}
         contentContainerStyle={{
           flexGrow: 1,
           justifyContent: "flex-end",
@@ -95,6 +93,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                   ? {
                       backgroundColor: colors.primary700,
                       borderRadius: radius.s,
+                      paddingHorizontal: 5,
                     }
                   : {},
               ]}
@@ -105,39 +104,35 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                     ...small,
                     fontSize: fontSize.xs,
                     color: colors.primary300,
-                    marginHorizontal: 5,
                   }}
                 >
                   Whisper
                 </Text>
               )}
-              <View style={{ flexDirection: "row" }}>
-                <TouchableOpacity
-                  onPress={() =>
-                    setData({
-                      userId: m.userId,
-                      message:
-                        (me?.id === m.userId ||
-                          iAmCreator ||
-                          (iAmMod && room.creatorId !== m.userId)) &&
+              <Text>
+                <Text
+                  style={{
+                    ...smallBold,
+                    color: m.color,
+                    marginHorizontal: 5,
+                    textAlignVertical: "center",
+                  }}
+                  onPress={() => {
+                    onUsernamePress(
+                      m.userId,
+                      (me?.id === m.userId ||
+                        iAmCreator ||
+                        (iAmMod && room.creatorId !== m.userId)) &&
                         !m.deleted
-                          ? m
-                          : undefined,
-                    })
-                  }
+                        ? m
+                        : undefined
+                    );
+                  }}
                 >
-                  <Text
-                    style={{
-                      ...smallBold,
-                      color: m.color,
-                      marginHorizontal: 5,
-                    }}
-                  >
-                    {m.username}:{" "}
-                  </Text>
-                </TouchableOpacity>
+                  {m.username}:{" "}
+                </Text>
 
-                <Text style={{ ...small }}>
+                <Text style={{ ...small, lineHeight: undefined }}>
                   {m.deleted ? (
                     <Text>
                       [message{" "}
@@ -150,7 +145,19 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                           return <Text key={i}>{v} </Text>;
                         case "emote":
                           return emoteMap[v] ? (
-                            <Image key={i} source={emoteMap[v]} />
+                            m.tokens.find((t) => t.t === "text") !==
+                            undefined ? (
+                              <Image
+                                key={i}
+                                source={emoteMap[v]}
+                                style={{
+                                  height: 20,
+                                  width: 20,
+                                }}
+                              />
+                            ) : (
+                              <Image key={i} source={emoteMap[v]} />
+                            )
                           ) : (
                             ":" + v + ":"
                           );
@@ -186,7 +193,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                     })
                   )}
                 </Text>
-              </View>
+              </Text>
             </View>
           ))}
       </ScrollView>

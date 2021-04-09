@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { SolidFriends } from "../../icons";
 import { isServer } from "../../lib/isServer";
 import { ApiPreloadLink } from "../../shared-components/ApiPreloadLink";
+import { useConn } from "../../shared-hooks/useConn";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
@@ -28,6 +29,8 @@ const Page = ({
   isOnlyPage: boolean;
   onLoadMore: (o: number) => void;
 }) => {
+  const conn = useConn();
+
   const {
     mutateAsync,
     isLoading: followLoading,
@@ -81,37 +84,39 @@ const Page = ({
             </ApiPreloadLink>
           </div>
           <div className="block">
-            <Button
-              loading={followLoading && variables?.[0] === user.id}
-              onClick={async () => {
-                await mutateAsync([user.id, !user.youAreFollowing]);
-                updater(["getFollowList", ...vars], (x) =>
-                  !x
-                    ? x
-                    : {
-                        ...x,
-                        users: x.users.map((u) =>
-                          u.id === user.id
-                            ? {
-                                ...u,
-                                numFollowers:
-                                  u.numFollowers +
-                                  (user.youAreFollowing ? -1 : 1),
-                                youAreFollowing: !user.youAreFollowing,
-                              }
-                            : u
-                        ),
-                      }
-                );
-              }}
-              size="small"
-              color={user.youAreFollowing ? "secondary" : "primary"}
-              icon={user.youAreFollowing ? null : <SolidFriends />}
-            >
-              {user.youAreFollowing
-                ? t("pages.viewUser.unfollow")
-                : t("pages.viewUser.followHim")}
-            </Button>
+            {conn.user.username !== user.username && (
+              <Button
+                loading={followLoading && variables?.[0] === user.id}
+                onClick={async () => {
+                  await mutateAsync([user.id, !user.youAreFollowing]);
+                  updater(["getFollowList", ...vars], (x) =>
+                    !x
+                      ? x
+                      : {
+                          ...x,
+                          users: x.users.map((u) =>
+                            u.id === user.id
+                              ? {
+                                  ...u,
+                                  numFollowers:
+                                    u.numFollowers +
+                                    (user.youAreFollowing ? -1 : 1),
+                                  youAreFollowing: !user.youAreFollowing,
+                                }
+                              : u
+                          ),
+                        }
+                  );
+                }}
+                size="small"
+                color={user.youAreFollowing ? "secondary" : "primary"}
+                icon={user.youAreFollowing ? null : <SolidFriends />}
+              >
+                {user.youAreFollowing
+                  ? t("pages.viewUser.unfollow")
+                  : t("pages.viewUser.followHim")}
+              </Button>
+            )}
           </div>
         </div>
       ))}

@@ -14,12 +14,11 @@ import {
 } from "../../constants";
 import { overlayWindow } from "electron-overlay-window";
 import { createOverlay } from "../overlay";
-import { startIPCHandler } from "../ipc";
+import { startOverlayIPCHandler } from "../overlay/ipc";
 import { bWindowsType } from "../../types";
 import { Worker } from 'worker_threads';
 import globkey from 'globkey';
 import path from "path";
-import electronLogger from 'electron-log';
 
 export let CURRENT_REQUEST_TO_SPEAK_KEY = "Control+8";
 export let CURRENT_INVITE_KEY = "Control+7";
@@ -28,7 +27,6 @@ export let CURRENT_CHAT_KEY = "Control+9";
 export let CURRENT_OVERLAY_KEY = "Control+Tab";
 export let CURRENT_PTT_KEY = ["0", "Control"];
 export let CURRENT_PTT_KEY_STRING = "0,control"
-import { register, addAsarToLookupPaths } from 'asar-node';
 
 export let CURRENT_APP_TITLE = "";
 
@@ -36,15 +34,8 @@ let PREV_PTT_STATUS = false;
 
 export let worker: Worker;
 
-if (app.isPackaged) {
-    register()
-    addAsarToLookupPaths()
-    worker = new Worker(path.join(process.resourcesPath, 'app.asar.unpacked/dist/utils/keybinds/worker.js'));
-} else {
-    worker = new Worker(path.join(__dirname, './worker.js'));
-}
-
-export function RegisterKeybinds(bWindows: bWindowsType) {
+export async function RegisterKeybinds(bWindows: bWindowsType) {
+    await SpawnWorker();
     ipcMain.on(REQUEST_TO_SPEAK_KEY, (event, keyCode) => {
         if (globalShortcut.isRegistered(CURRENT_REQUEST_TO_SPEAK_KEY)) {
             globalShortcut.unregister(CURRENT_REQUEST_TO_SPEAK_KEY);
@@ -109,7 +100,7 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
                     }
                 } else {
                     bWindows.overlay = createOverlay(CURRENT_APP_TITLE, overlayWindow);
-                    startIPCHandler(bWindows.main, bWindows.overlay);
+                    startOverlayIPCHandler(bWindows.main, bWindows.overlay);
                 }
             }
         })
@@ -118,6 +109,7 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
     ipcMain.on("@overlay/app_title", (event, appTitle: string) => {
         CURRENT_APP_TITLE = appTitle;
     })
+    //setTimeout(() => { globkey.unload(); }, 15000);
     worker.on('message', (msg) => {
         if (msg.type == "keys") {
             let keypair = msg.keys;
@@ -137,9 +129,22 @@ export function RegisterKeybinds(bWindows: bWindowsType) {
         }
     });
 }
-export async function stopWorkersAndExitApp() {
-    worker.removeAllListeners();
-    await worker.terminate();
-    globkey.unload();
-    app.quit();
+
+export async function SpawnWorker() {
+    globkey.start();
+    if (app.isPackaged) {
+        worker = new Worker(path.join(process.resourcesPath, 'app.asar.unpacked/dist/utils/keybinds/worker.js'));
+    } else {
+        worker = new Worker(path.join(__dirname, './worker.js'));
+    }
+}
+
+export async function exitApp(quit = true) {
+    if (quit) {
+        globkey.stop()
+    }
+    if (worker) {
+        globkey.unload();
+        await worker.terminate();
+    }
 }

@@ -2,7 +2,6 @@ import React from "react";
 import {
   Image,
   ImageSourcePropType,
-  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -11,6 +10,7 @@ import {
 } from "react-native";
 import { colors, paragraph, radius } from "../../../constants/dogeStyle";
 import { customEmojis, emoteMap } from "./EmoteData";
+import { ScrollView } from "react-native-gesture-handler";
 
 export type EmotePickerProps = ViewProps & {
   isNitro?: boolean;

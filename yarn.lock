@@ -1758,9 +1758,13 @@ __metadata:
     "@types/node": ^14.14.37
     "@types/nprogress": ^0.2.0
     "@types/react": ^17.0.3
+    "@types/react-dom": ^17.0.3
     "@types/react-i18next": ^8.1.0
     "@types/react-modal": ^3.12.0
+    "@types/react-responsive": ^8.0.2
     "@types/superstruct": ^0.8.2
+    "@types/twemoji": ^12.1.1
+    "@types/twemoji-parser": ^12.1.0
     "@typescript-eslint/eslint-plugin": ^4.16.1
     "@typescript-eslint/parser": ^4.16.1
     autoprefixer: ^10.2.5
@@ -1769,11 +1773,12 @@ __metadata:
     cross-env: ^7.0.3
     css-loader: ^5.2.0
     date-fns: ^2.19.0
-    emoji-mart: ^3.0.1
+    emoji-regex: ^9.2.2
     eslint: ^7.23.0
     eslint-plugin-react: ^7.23.1
     eslint-plugin-react-hooks: ^4.2.0
     formik: ^2.2.6
+    grapheme-splitter: ^1.0.4
     hark: ^1.2.3
     i18next: ^19.9.2
     i18next-browser-languagedetector: ^6.0.1
@@ -1793,13 +1798,15 @@ __metadata:
     prettier: ^2.0.5
     rc-slider: ^9.7.2
     react: 17.0.1
-    react-dom: 17.0.1
+    react-dom: ^17.0.2
     react-draggable: ^4.4.3
     react-hotkeys: ^2.0.0
     react-i18next: ^11.8.12
     react-modal: ^3.12.1
     react-popper: ^2.2.5
     react-query: ^3.12.2
+    react-responsive: ^8.2.0
+    react-virtual: ^2.6.1
     style-loader: ^1.3.0
     stylelint: ^13.11.0
     stylelint-config-standard: ^20.0.0
@@ -1807,6 +1814,7 @@ __metadata:
     tailwind-scrollbar: ^1.2.4
     tailwindcss: ^2.0.3
     tslib: ^2.1.0
+    twemoji-parser: ^13.0.0
     typescript: 3.9.5
     uuid: ^8.3.2
     zustand: ^3.3.3
@@ -2554,6 +2562,13 @@ __metadata:
   version: 2.9.2
   resolution: "@popperjs/core@npm:2.9.2"
   checksum: cc4de8b46fc190805619224f1c683bee6a162276430af3728d35087099ad83a80da3c11c4eac7cb2b5aa2fa59d4c7c689e211a3e955136588ed6dedb5bff32c5
+  languageName: node
+  linkType: hard
+
+"@reach/observe-rect@npm:^1.1.0":
+  version: 1.2.0
+  resolution: "@reach/observe-rect@npm:1.2.0"
+  checksum: 4aa32fa1ab410527cecf62e3143664e4b7823212bb7b79b5fd84d0d390fa086fcdba27fceebc0e24e2958f2a0649d5b88ec8b0ed907c72730964ac33eb3089af
   languageName: node
   linkType: hard
 
@@ -4080,6 +4095,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-dom@npm:^17.0.3":
+  version: 17.0.3
+  resolution: "@types/react-dom@npm:17.0.3"
+  dependencies:
+    "@types/react": "*"
+  checksum: 9314c91a985f153591e1e74aef3d63d8b22e098069773f32745bf0733740a49802731761a46da8788a7d3dd2c21346036f12c2c24627630e5a6210b120a650e6
+  languageName: node
+  linkType: hard
+
 "@types/react-i18next@npm:^8.1.0":
   version: 8.1.0
   resolution: "@types/react-i18next@npm:8.1.0"
@@ -4095,6 +4119,15 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: a4af510d433d04e4007acf70f281bd4b9dd54a82c2718c9ea926a08e5840cbd7fc1159ff85609d10b0ec3b853c60666d184531ec3764c565600c2d7aeaf71092
+  languageName: node
+  linkType: hard
+
+"@types/react-responsive@npm:^8.0.2":
+  version: 8.0.2
+  resolution: "@types/react-responsive@npm:8.0.2"
+  dependencies:
+    "@types/react": "*"
+  checksum: 48bc498859226af961233c1bf4764b5f0af132a81e3dcb7089c40ce14bf4e94eec40bb960a85621dd8bf798f40e2caaf0addc649d3ddb9ec6bda7f9bac5d30ac
   languageName: node
   linkType: hard
 
@@ -4179,6 +4212,20 @@ __metadata:
   dependencies:
     "@types/jest": "*"
   checksum: 32aa324a83e67fd81eb7f0ba3e4c86406db86c1e5361b6e8091d224a1fefbfcb4e493039db3ce3faf8afa133a4f68cc7c42bcdbcae1dd91b13d741a040791038
+  languageName: node
+  linkType: hard
+
+"@types/twemoji-parser@npm:^12.1.0":
+  version: 12.1.0
+  resolution: "@types/twemoji-parser@npm:12.1.0"
+  checksum: 5773f3e0ba011fb60065e61c490b93d89511e39c951dd938d21e218349dbef5b7027a66d3380b7b1348023c7300c29180fe000400e9c12b79f5b56aff3e53182
+  languageName: node
+  linkType: hard
+
+"@types/twemoji@npm:^12.1.1":
+  version: 12.1.1
+  resolution: "@types/twemoji@npm:12.1.1"
+  checksum: 15f3c2147dbcffa8be0a34e5085bb282be2031f1d8aeccaf01673af6a5d0d0a897bc09383a881305db7778e11e3aa40b6607ba2208e17b1b7d66dc2e65e885e3
   languageName: node
   linkType: hard
 
@@ -6962,6 +7009,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"css-mediaquery@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "css-mediaquery@npm:0.1.2"
+  checksum: 571ab2efdba0dead1315eb82b1e53917b4aeb45f07cc2ff97bfe3c6443cd036843d944044661561b5585d1f64ecbcad112052b40846ae4d85ef7d5e978e996e4
+  languageName: node
+  linkType: hard
+
 "css-select-base-adapter@npm:^0.1.1":
   version: 0.1.1
   resolution: "css-select-base-adapter@npm:0.1.1"
@@ -7826,18 +7880,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"emoji-mart@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "emoji-mart@npm:3.0.1"
-  dependencies:
-    "@babel/runtime": ^7.0.0
-    prop-types: ^15.6.0
-  peerDependencies:
-    react: ^0.14.0 || ^15.0.0-0 || ^16.0.0 || ^17.0.0
-  checksum: 82239f4f25ec728bc6cb3f32949fdde6b6c6364ff5bd2b04785afa81a5c8b8c624ba2b37ed6d0ee31215db231e60cc86adf19f6441f38db98d538b50cca1976b
-  languageName: node
-  linkType: hard
-
 "emoji-regex@npm:>=6.0.0 <=6.1.1":
   version: 6.1.1
   resolution: "emoji-regex@npm:6.1.1"
@@ -7856,6 +7898,13 @@ __metadata:
   version: 8.0.0
   resolution: "emoji-regex@npm:8.0.0"
   checksum: 87cf3f89efb8ba028075b3dc1713e2c5609af94cbc129b1f00c3113d01dbe4bf85c9d971e75a98bf8a8508131727682ce929e4bd70e9022af4fd47d75e9507de
+  languageName: node
+  linkType: hard
+
+"emoji-regex@npm:^9.2.2":
+  version: 9.2.2
+  resolution: "emoji-regex@npm:9.2.2"
+  checksum: f3029ec432745ecb7cf5dcea1bc9ad3d70714ef20fcae1dc87a422d3be68913c42ed3adbb86765e7aa6c723c3bcd5833b5f4e22ed06d5e5cb74e0f628d4fc95b
   languageName: node
   linkType: hard
 
@@ -9519,6 +9568,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"grapheme-splitter@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "grapheme-splitter@npm:1.0.4"
+  checksum: 6875e94add80360364a609e1fd0fe325e3b82326db2278dd36c1011a6bfc0e098811e791dedf9a88d4ae3f9d17a5c6a8d684948dd7b097f1f8d5ff905676e2b2
+  languageName: node
+  linkType: hard
+
 "growly@npm:^1.3.0":
   version: 1.3.0
   resolution: "growly@npm:1.3.0"
@@ -10032,7 +10088,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"hyphenate-style-name@npm:^1.0.3":
+"hyphenate-style-name@npm:^1.0.0, hyphenate-style-name@npm:^1.0.3":
   version: 1.0.4
   resolution: "hyphenate-style-name@npm:1.0.4"
   checksum: 4cfeb47e98eab9c25e6dece20da772cc914a9f8e5ee794cf8db105b0649dd64a61d8ee8ff32acf23ae0ac181db8fcbe4a6abb2f7de48ae52b42a85bbf1aacb86
@@ -12252,6 +12308,15 @@ fsevents@^1.2.7:
     "@babel/runtime": ^7.12.5
     remove-accents: 0.4.2
   checksum: ca6374d80266756e1fccae74da7b76cbb4f5b938e294ef875a6e176bd185f5d7a9f8e06e1bd105682a2da3e80aae3a63c3d7ea5aa53070c02cc447a5a59543bf
+  languageName: node
+  linkType: hard
+
+"matchmediaquery@npm:^0.3.0":
+  version: 0.3.1
+  resolution: "matchmediaquery@npm:0.3.1"
+  dependencies:
+    css-mediaquery: ^0.1.2
+  checksum: face426fe3fd743d08d70c2e92c103c14419268f7ba0069bacd04c91e819a7ca270d195e2e6793169a6fcacc22b225965d685ec3fc144babee84f46659645757
   languageName: node
   linkType: hard
 
@@ -14952,16 +15017,16 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-dom@npm:17.0.1":
-  version: 17.0.1
-  resolution: "react-dom@npm:17.0.1"
+"react-dom@npm:^17.0.2":
+  version: 17.0.2
+  resolution: "react-dom@npm:17.0.2"
   dependencies:
     loose-envify: ^1.1.0
     object-assign: ^4.1.1
-    scheduler: ^0.20.1
+    scheduler: ^0.20.2
   peerDependencies:
-    react: 17.0.1
-  checksum: 6a70028fbe3c95e0056c5e8ce065b4a9b8d4ff3bffde9b016454072bde5e4b012af7668ca45b7235ace428267d5be5237b68ea87ce8c296e54e81a8d678a4355
+    react: 17.0.2
+  checksum: 960a74ff6670766846a73097a599115963df1574833c59ca0c2fd909758ebe7a6214cd14f5e6aa63ce846d8f39fde7f3b80474ccfcfadc45dd7f3246364718c6
   languageName: node
   linkType: hard
 
@@ -15150,6 +15215,20 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-responsive@npm:^8.2.0":
+  version: 8.2.0
+  resolution: "react-responsive@npm:8.2.0"
+  dependencies:
+    hyphenate-style-name: ^1.0.0
+    matchmediaquery: ^0.3.0
+    prop-types: ^15.6.1
+    shallow-equal: ^1.1.0
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 3209a32c74d6749e306b7fd521e2156c04d21e40af2d9a4493d22f22d13deb64d6ca1439526a56342779a1a8819be7354ff111d877a3cf3964ee50e9a84e77d9
+  languageName: node
+  linkType: hard
+
 "react-sizeme@npm:^3.0.1":
   version: 3.0.1
   resolution: "react-sizeme@npm:3.0.1"
@@ -15205,6 +15284,18 @@ fsevents@^1.2.7:
     react: ">=16.6.0"
     react-dom: ">=16.6.0"
   checksum: e14446123f820e804335c64be5270333c29e8cfaa43dfc33387e132c5d521cf4a0a7c2408058a147b254ae82a6569f373394d83e977ef340d6937bc2f4ff7d6c
+  languageName: node
+  linkType: hard
+
+"react-virtual@npm:^2.6.1":
+  version: 2.6.1
+  resolution: "react-virtual@npm:2.6.1"
+  dependencies:
+    "@reach/observe-rect": ^1.1.0
+    ts-toolbelt: ^6.4.2
+  peerDependencies:
+    react: ^16.6.3 || ^17.0.0
+  checksum: 40c281021906f5af0ff9547aafb56f555e17ef4b8584ca3beffb45e0dea7e17e491d173fb23b791a96a4de57af733939e485d8832596dc050a4f4b67cb1657a5
   languageName: node
   linkType: hard
 
@@ -15947,7 +16038,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"scheduler@npm:^0.20.1":
+"scheduler@npm:^0.20.2":
   version: 0.20.2
   resolution: "scheduler@npm:0.20.2"
   dependencies:
@@ -16152,6 +16243,13 @@ resolve@^2.0.0-next.3:
   bin:
     sha.js: ./bin.js
   checksum: 7554240ab76e683f7115123eb4815aae16b5fc6f2cdff97009831ad5b17b107ffcef022526211f7306957bce7a67fa4d0ccad79a3040c5073414365595e90516
+  languageName: node
+  linkType: hard
+
+"shallow-equal@npm:^1.1.0":
+  version: 1.2.1
+  resolution: "shallow-equal@npm:1.2.1"
+  checksum: 5002ac4a3639e35782d3cb21073d48e1e4f85321cc54608f48b2331f6db6d54e4f4b44ed81ec4d75385ebe893e8286752b1e29595381e6adad72dd836f001b7f
   languageName: node
   linkType: hard
 
@@ -17665,6 +17763,13 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"ts-toolbelt@npm:^6.4.2":
+  version: 6.15.5
+  resolution: "ts-toolbelt@npm:6.15.5"
+  checksum: d2f585ee3439ae7a72dd7c00630491195b2a4f34107c595d567242482b9fa911b5a9b5921fb4984506c2f7d8efce61351c7f48519438df67b6c0a8dcd40c862c
+  languageName: node
+  linkType: hard
+
 "tslib@npm:^1.10.0, tslib@npm:^1.8.1, tslib@npm:^1.9.0":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
@@ -17710,6 +17815,13 @@ resolve@^2.0.0-next.3:
   version: 0.14.5
   resolution: "tweetnacl@npm:0.14.5"
   checksum: e1c9d52e2e9f582fd0df9ea26ba5a9ab88b9a38b69625d8e55c5e8870a4832ac8c32f8854b41fce7b59f97258bb103535363f9eda7050aa70e75824b972c7dde
+  languageName: node
+  linkType: hard
+
+"twemoji-parser@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "twemoji-parser@npm:13.0.0"
+  checksum: 05a4d6a8579a7a6614a081b6f1339846ae19e28efe9e304b1d094b925a3b857a6738a3be8a427ac4a95add0b6486c92f63417c670c219a80b74a81f8389c2feb
   languageName: node
   linkType: hard
 

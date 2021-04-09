@@ -42,6 +42,7 @@
     "reconnecting-websocket": "^4.4.0",
     "superstruct": "^0.14.2",
     "typescript": "^3.2.1npm",
+    "uuid": "^8.3.2",
     "web-vitals": "^0.2.4",
     "zustand": "^3.3.1"
   },

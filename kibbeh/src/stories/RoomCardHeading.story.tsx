@@ -7,17 +7,20 @@ export default {
   title: "RoomCardHeading",
 };
 
-const TheRoomCardHeading: Story<RoomCardHeadingProps> = ({ icon, text }) => {
+const LiveHeading: Story<RoomCardHeadingProps> = ({ icon, text }) => {
   return (
-    <div className="flex flex-col space-y-5">
+      <RoomCardHeading text={text || "The developers hangout"} />
+  );
+};
+
+const ScheduledHeading: Story<RoomCardHeadingProps> = ({ icon, text }) => {
+  return (
       <RoomCardHeading
         icon={icon || <SolidTime />}
         text={text || "Live with u/DeepFuckingValue"}
       />
-
-      <RoomCardHeading text={text || "The developers hangout"} />
-    </div>
   );
 };
 
-export const Main = TheRoomCardHeading.bind({});
+export const Current = LiveHeading.bind({})
+export const Scheduled = ScheduledHeading.bind({});

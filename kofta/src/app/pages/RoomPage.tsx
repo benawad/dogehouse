@@ -18,7 +18,7 @@ import { Wrapper } from "../components/Wrapper";
 import { useShouldFullscreenChat } from "../modules/room-chat/useShouldFullscreenChat";
 import { Codicon } from "../svgs/Codicon";
 import { BaseUser } from "../types";
-import { isUuid } from "../utils/isUuid";
+import { validate as uuidValidate } from 'uuid';
 import { useTimeElapsed } from "../utils/timeElapsed";
 import { useMeQuery } from "../utils/useMeQuery";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
@@ -31,7 +31,7 @@ if (isElectron()) {
 
 const isMac = process.platform === "darwin";
 
-interface RoomPageProps {}
+interface RoomPageProps { }
 
 export const RoomPage: React.FC<RoomPageProps> = () => {
   const {
@@ -58,26 +58,12 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   const [listenersPage, setListenersPage] = useState(1);
   const pageSize = 25;
   const { t } = useTypeSafeTranslation();
-  const [ipcStarted, setIpcStarted] = useState(false);
 
   useEffect(() => {
-    if (isElectron() && !isMac) {
-      ipcRenderer.send("@overlay/start_ipc", true);
-      ipcRenderer.on(
-        "@overlay/start_ipc",
-        (event: any, shouldStart: boolean) => {
-          setIpcStarted(shouldStart);
-        }
-      );
-    }
-  }, []);
-  useEffect(() => {
-    if (isElectron() && ipcStarted) {
-      ipcRenderer.send("@overlay/overlayData", {
+    if (isElectron()) {
+      ipcRenderer.send("@room/data", {
         currentRoom: room,
-        muted: muted,
-        me: me,
-        roomID: id,
+        me: me
       });
     }
   });
@@ -89,7 +75,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   //   }
   // }, []);
 
-  if (!isUuid(id)) {
+  if (!uuidValidate(id)) {
     return <Redirect to="/" />;
   }
 
@@ -135,7 +121,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
   };
 
   return (
-    <>
+    <div id={room.isPrivate ? "private-room" : "public-room"}>
       <ProfileModal
         iAmCreator={iAmCreator}
         iAmMod={iAmMod}
@@ -280,6 +266,6 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
           edit={true}
         />
       ) : null}
-    </>
+    </div>
   );
 };

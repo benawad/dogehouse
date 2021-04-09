@@ -39,7 +39,7 @@ export const createChatMessage = (
     } else if (item.startsWith(":") && item.endsWith(":") && item.length > 2) {
       tokens.push({
         t: "emote",
-        v: item.slice(1, item.length - 1),
+        v: item.slice(1, item.length - 1).toLowerCase(),
       });
     } else {
       tokens.push({

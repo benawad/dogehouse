@@ -1,18 +1,16 @@
 import { useRouter } from "next/router";
 import React, { useCallback, useContext, useEffect } from "react";
+import { LgLogo } from "../../icons";
+import SvgSolidBug from "../../icons/SolidBug";
+import SvgSolidDiscord from "../../icons/SolidDiscord";
+import SvgSolidGitHub from "../../icons/SolidGitHub";
+import SvgSolidTwitter from "../../icons/SolidTwitter";
 import { apiBaseUrl, loginNextPathKey, __prod__ } from "../../lib/constants";
-import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../../ui/Button";
 import { useSaveTokensFromQueryParams } from "../auth/useSaveTokensFromQueryParams";
 import { useTokenStore } from "../auth/useTokenStore";
-import SvgSolidGitHub from "../../icons/SolidGitHub";
-import SvgSolidNew from "../../icons/SolidNew";
-import SvgSolidBug from "../../icons/SolidBug";
-import SvgSolidTwitter from "../../icons/SolidTwitter";
-import { LgLogo } from "../../icons";
-import SvgSolidDiscord from "../../icons/SolidDiscord";
-import { WebSocketContext } from "../ws/WebSocketProvider";
 import { HeaderController } from "../display/HeaderController";
+import { WebSocketContext } from "../ws/WebSocketProvider";
 
 /*
 
@@ -66,6 +64,7 @@ const LoginButton: React.FC<LoginButtonProps> = ({
 
 export const LoginPage: React.FC = () => {
   useSaveTokensFromQueryParams();
+  const hasTokens = useTokenStore((s) => !!(s.accessToken && s.refreshToken));
   const { setConn } = useContext(WebSocketContext);
   const { push } = useRouter();
 
@@ -75,10 +74,22 @@ export const LoginPage: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    if (hasTokens) {
+      push("/dash");
+    }
+  }, [hasTokens, push]);
+
   return (
-    <div className="w-full h-full">
+    <div
+      className="grid w-full h-full"
+      style={{
+        gridTemplateRows: "1fr auto 1fr",
+      }}
+    >
       <HeaderController embed={{}} title="Login" />
-      <div className="absolute top-6 h-8 w-full items-center justify-center sm:hidden">
+      <div className="hidden sm:flex" />
+      <div className="justify-self-center self-center sm:hidden">
         <LgLogo />
       </div>
       <div className="m-auto flex-col p-6 gap-5 bg-primary-800 sm:rounded-8 z-10 sm:w-400 w-full">
@@ -142,7 +153,7 @@ export const LoginPage: React.FC = () => {
         </div> */}
       </div>
       <div className="absolute bottom-0 w-full justify-between px-5 py-5 mt-auto items-center sm:px-7">
-        <div className="hidden sm:block">
+        <div className="hidden sm:flex">
           <LgLogo />
         </div>
         <div className="gap-6 text-primary-300">

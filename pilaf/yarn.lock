@@ -2321,6 +2321,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-community/hooks@npm:^2.6.0":
+  version: 2.6.0
+  resolution: "@react-native-community/hooks@npm:2.6.0"
+  peerDependencies:
+    react: ">=16.8.0"
+    react-native: ">=0.59"
+  checksum: ea5e2575859a6a1f7b195bd527e9da440c09b4af60981b3fd2b6c94dbee0bb276e2d3b6d218ed35aa9aa63b3116f6bfcfa76ee90c2d7b7381eff6c063d0426a2
+  languageName: node
+  linkType: hard
+
 "@react-native-community/masked-view@npm:^0.1.10":
   version: 0.1.10
   resolution: "@react-native-community/masked-view@npm:0.1.10"
@@ -2328,6 +2338,18 @@ __metadata:
     react: ^16.0
     react-native: ">=0.57"
   checksum: fa87cd4cd99b3f2320ccfb7401466a0cbe13dcb8aa3bedce7333fe81a3c763fa8835f798675f286cca93602248749cc153f46bbe5b87a653bf8e5cfc600845de
+  languageName: node
+  linkType: hard
+
+"@react-native-community/push-notification-ios@npm:^1.8.0":
+  version: 1.8.0
+  resolution: "@react-native-community/push-notification-ios@npm:1.8.0"
+  dependencies:
+    invariant: ^2.2.4
+  peerDependencies:
+    react: ">=16.6.3"
+    react-native: ">=0.58.4"
+  checksum: 689457b4d2c2f995adc5d49b8f09b7eaba42b72b049fb265ab4b5bfb4628d1fe6e647cc82425ce04a450382d4ee1e8264132ed56585c860ee7d6a2b2af826e55
   languageName: node
   linkType: hard
 
@@ -3895,6 +3917,13 @@ __metadata:
     "@types/react": "*"
     "@types/reactcss": "*"
   checksum: da1f0589e147aab9dca94e7157f00bf13d34f03b070016b2fc62c946e5d642f507742d40ffadc8222f09907d1d602e786dd32a104ff628ed94db9636ede3090f
+  languageName: node
+  linkType: hard
+
+"@types/react-native-push-notification@npm:^7.2.0":
+  version: 7.2.0
+  resolution: "@types/react-native-push-notification@npm:7.2.0"
+  checksum: 2dae81345589dabd969fadea665b421bd8c2b551c5c355af65883df4f10f04da34d537705c26fd300d98b2695dcbb208ba84845b025bff1ebe758ac1ff7cc7be
   languageName: node
   linkType: hard
 
@@ -14827,6 +14856,16 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-native-push-notification@npm:^7.2.3":
+  version: 7.2.3
+  resolution: "react-native-push-notification@npm:7.2.3"
+  peerDependencies:
+    "@react-native-community/push-notification-ios": ^1.8.0
+    react-native: ">=0.33"
+  checksum: fca5266d03245fa452d3b4bb98ba54d2e83e906eeb41ef97c46bdc7caf776aac32c13831aa483cf428bf8c6b9d03f58de9acf16b1bc89c0f8bdbc4245a0311ee
+  languageName: node
+  linkType: hard
+
 "react-native-reanimated@npm:^2.0.0":
   version: 2.0.1
   resolution: "react-native-reanimated@npm:2.0.1"
@@ -15292,6 +15331,18 @@ fsevents@^1.2.7:
   dependencies:
     picomatch: ^2.2.1
   checksum: a64fe5606937d9655252230003362d95da05dbfd3baecedb4bb8c1bc0df497d051a192f9b75345c944e58a0b362c68349be602d6dbf05d03770e510b35a9f80f
+  languageName: node
+  linkType: hard
+
+"reanimated-bottom-sheet@npm:^1.0.0-alpha.22":
+  version: 1.0.0-alpha.22
+  resolution: "reanimated-bottom-sheet@npm:1.0.0-alpha.22"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+    react-native-gesture-handler: "*"
+    react-native-reanimated: "*"
+  checksum: 0e8263131da86112d392872edfbb456dbc782f096de3a00a47517022bd7266ece5a4ec2b4f15edbd34b5a04ca99d2adfafccd72f20f9bc64df9e5a2de2686006
   languageName: node
   linkType: hard
 
@@ -15765,7 +15816,9 @@ resolve@^2.0.0-next.3:
     "@babel/runtime": ^7.12.5
     "@react-native-async-storage/async-storage": ^1.14.1
     "@react-native-community/eslint-config": ^2.0.0
+    "@react-native-community/hooks": ^2.6.0
     "@react-native-community/masked-view": ^0.1.10
+    "@react-native-community/push-notification-ios": ^1.8.0
     "@react-native-segmented-control/segmented-control": ^2.3.0
     "@react-navigation/bottom-tabs": ^5.11.8
     "@react-navigation/native": ^5.9.3
@@ -15781,6 +15834,7 @@ resolve@^2.0.0-next.3:
     "@storybook/react-native-server": ^5.3.23
     "@storybook/theming": ^6.1.21
     "@types/react-native": ^0.63.52
+    "@types/react-native-push-notification": ^7.2.0
     babel-jest: ^26.6.3
     babel-loader: ^8.2.2
     date-fns: ^2.19.0
@@ -15800,6 +15854,7 @@ resolve@^2.0.0-next.3:
     react-native-inappbrowser-reborn: ^3.5.1
     react-native-incall-manager: ^3.3.0
     react-native-modal: ^11.7.0
+    react-native-push-notification: ^7.2.3
     react-native-reanimated: ^2.0.0
     react-native-safe-area-context: ^3.2.0
     react-native-screens: ^2.18.1
@@ -15811,7 +15866,9 @@ resolve@^2.0.0-next.3:
     react-native-webrtc: ^1.89.1
     react-query: ^3.13.0
     react-test-renderer: 17.0.1
+    reanimated-bottom-sheet: ^1.0.0-alpha.22
     typescript: ^4.2.3
+    uuid: ^8.3.2
     zustand: ^3.3.3
   languageName: unknown
   linkType: soft
@@ -18056,7 +18113,7 @@ typescript@^4.2.3:
   languageName: node
   linkType: hard
 
-"uuid@npm:^8.0.0, uuid@npm:^8.3.0":
+"uuid@npm:^8.0.0, uuid@npm:^8.3.0, uuid@npm:^8.3.2":
   version: 8.3.2
   resolution: "uuid@npm:8.3.2"
   bin:

@@ -12,8 +12,9 @@ import {
 } from "./keyboard-shortcuts";
 import { VolumeSlider } from "./VolumeSlider";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
+import isElectron from "is-electron";
 
-interface VoiceSettingsProps {}
+interface VoiceSettingsProps { }
 
 export const VoiceSettings: React.FC<VoiceSettingsProps> = () => {
   const { micId, setMicId } = useMicIdStore();
@@ -43,7 +44,12 @@ export const VoiceSettings: React.FC<VoiceSettingsProps> = () => {
   useEffect(() => {
     fetchMics();
   }, [fetchMics]);
-
+  useEffect(() => {
+    if (isElectron()) {
+      let ipcRenderer = window.require("electron").ipcRenderer;
+      ipcRenderer.send("@rpc/page", { page: "voice-settings", data: '' })
+    }
+  }, [])
   return (
     <>
       <div className={`mb-2`}>{t("pages.voiceSettings.mic")} </div>

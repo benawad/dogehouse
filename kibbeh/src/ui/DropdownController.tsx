@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
 
 export const DropdownController: React.FC<{
@@ -13,7 +14,8 @@ export const DropdownController: React.FC<{
     referenceRef.current,
     popperRef.current,
     {
-      placement: "bottom",
+      modifiers: [{ name: "eventListeners", enabled: visible }],
+      placement: "left",
     }
   );
 
@@ -36,19 +38,26 @@ export const DropdownController: React.FC<{
 
   return (
     <React.Fragment>
-      <button ref={referenceRef} onClick={() => setVisibility(!visible)}>
+      <button
+        className="focus:outline-no-chrome"
+        ref={referenceRef}
+        onClick={() => setVisibility(!visible)}
+      >
         {children}
       </button>
-      <div
-        className="z-10"
-        ref={popperRef}
-        style={styles.popper}
-        {...attributes.popper}
-      >
-        <div style={styles.offset} className={`${visible ? "" : "hidden"}`}>
-          {overlay(() => setVisibility(false))}
-        </div>
-      </div>
+      {createPortal(
+        <div
+          className="z-20"
+          ref={popperRef}
+          style={styles.popper}
+          {...attributes.popper}
+        >
+          <div style={styles.offset} className={`${visible ? "" : "hidden"}`}>
+            {visible ? overlay(() => setVisibility(false)) : null}
+          </div>
+        </div>,
+        document.querySelector("#__next")!
+      )}
     </React.Fragment>
   );
 };

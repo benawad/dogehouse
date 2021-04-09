@@ -44,3 +44,12 @@ yarn staging
 ```
 
 > If for some reason the above commands dont work and leave you with a `@dogehouse/kebab` module not found error, just copy the entire `dogehouse/kebab` directory over to `dogehouse/node_modules/@dogehouse/kebab`
+
+
+> **NOTE:** OAuth login is kinda broken as of right now *(if running using `yarn staging`)* so to get around it follow the steps below:
+> - Enter your credentials in OAuth
+> - You should now reach a page saying `not found`. Copy the url of the page
+> - Edit the previously copied URL and change the protocol from `https` to `http` and the hostname from `doge-staging.stripcode.dev` to `localhost:3000`. For example: `https://doge-staging.stripcode.dev/?accessToken=YOUR_TOKEN_HERE` would be changed to  `http://localhost:3000/?accessToken=YOUR_TOKEN_HERE`
+> - You should now be logged in.  
+
+> Also to prevent repeating the steps mentioned above, instead of logging in just directly go to `http://localhost:3000/dash` and it should read your tokens from localstorage and log you in

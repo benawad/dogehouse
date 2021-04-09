@@ -13,7 +13,9 @@
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.14.1",
+    "@react-native-community/hooks": "^2.6.0",
     "@react-native-community/masked-view": "^0.1.10",
+    "@react-native-community/push-notification-ios": "^1.8.0",
     "@react-native-segmented-control/segmented-control": "^2.3.0",
     "@react-navigation/bottom-tabs": "^5.11.8",
     "@react-navigation/native": "^5.9.3",
@@ -31,6 +33,7 @@
     "react-native-inappbrowser-reborn": "^3.5.1",
     "react-native-incall-manager": "^3.3.0",
     "react-native-modal": "^11.7.0",
+    "react-native-push-notification": "^7.2.3",
     "react-native-reanimated": "^2.0.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^2.18.1",
@@ -41,6 +44,8 @@
     "react-native-vector-icons": "^8.1.0",
     "react-native-webrtc": "^1.89.1",
     "react-query": "^3.13.0",
+    "reanimated-bottom-sheet": "^1.0.0-alpha.22",
+    "uuid": "^8.3.2",
     "zustand": "^3.3.3"
   },
   "devDependencies": {
@@ -58,6 +63,7 @@
     "@storybook/react-native-server": "^5.3.23",
     "@storybook/theming": "^6.1.21",
     "@types/react-native": "^0.63.52",
+    "@types/react-native-push-notification": "^7.2.0",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
     "eslint": "7.14.0",
