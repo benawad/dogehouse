@@ -120,3 +120,5 @@ export type CurrentRoom = Room & {
   activeSpeakerMap: Record<string, boolean>;
   autoSpeaker: boolean;
 };
+
+export type MuteMap = Record<UUID, boolean>;
