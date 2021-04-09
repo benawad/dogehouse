@@ -43,7 +43,8 @@
     },
     "home": {
       "createRoom": "அறையை உருவாக்குங்கள்",
-      "refresh": "புதுப்பிக்கவும்"
+      "refresh": "புதுப்பிக்கவும்",
+      "editRoom": "Edit Room"
     },
     "inviteList": {
       "roomGone": "அறை இல்லை, திரும்பிச் செல்லுங்கள்",
@@ -207,7 +208,9 @@
       "roomSettingsModal": {
         "requirePermission": "பேச அனுமதி தேவை",
         "makePublic": "அறையை பொதுவாக்குங்கள்",
-        "makePrivate": "அறையை தனிப்பட்டதாக்குங்கள்"
+        "makePrivate": "அறையை தனிப்பட்டதாக்குங்கள்",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

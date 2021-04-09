@@ -38,7 +38,11 @@
       "startPrivateRoom": "załóż z nim prywatny pokój"
     },
     "followList": { "followHim": "obserwuj", "followingHim": "obserwujesz" },
-    "home": { "createRoom": "Stwórz pokój", "refresh": "Odśwież" },
+    "home": {
+      "createRoom": "Stwórz pokój",
+      "refresh": "Odśwież",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "pokój usunięty, wróć",
       "shareRoomLink": "udostępnij link do pokoju",
@@ -61,7 +65,7 @@
       "logout": "wyloguj się",
       "probablyLoading": "prawdobodobnie ładowanie...",
       "voiceSettings": "przejdź do ustawień głosu",
-      "soundSettings": "przejdź do ustawień dzięku",
+      "soundSettings": "przejdź do ustawień dźwięku",
       "deleteAccount": "usuń konto",
       "overlaySettings": "przejdź do ustawień nakładki"
     },
@@ -88,7 +92,7 @@
       "followingHim": "obserwujesz",
       "copyProfileUrl": "skopiuj url profilu",
       "urlCopied": "URL zostało skopiowane do schowka",
-      "unfollow": "Unfollow"
+      "unfollow": "Przestań obserwować"
     },
     "voiceSettings": {
       "header": "Ustawienia Głosu",
@@ -201,7 +205,9 @@
       "roomSettingsModal": {
         "requirePermission": "wymaga pozwolenia na mówienie",
         "makePublic": "upublicznij pokój",
-        "makePrivate": "uprywatnij pokój"
+        "makePrivate": "uprywatnij pokój",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

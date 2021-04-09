@@ -25,7 +25,8 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
       const { accessToken, refreshToken } = useTokenStore.getState();
       raw
         .connect(accessToken, refreshToken, {
-          url: apiBaseUrl.replace("http", "ws") + "/socket",
+          url: "wss://api.dogehouse.tv/socket",
+          // url: apiBaseUrl.replace("http", "ws") + "/socket",
         })
         .then((x) => {
           setConn(x);
@@ -33,6 +34,22 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
         .catch((err) => console.log(err));
     }
   }, [conn, shouldConnect, hasTokens]);
+
+  useEffect(() => {
+    if (!conn) {
+      return;
+    }
+
+    return conn.addListener<{
+      refreshToken: string;
+      accessToken: string;
+    }>("new-tokens", ({ refreshToken, accessToken }) => {
+      useTokenStore.getState().setTokens({
+        accessToken,
+        refreshToken,
+      });
+    });
+  }, [conn]);
 
   return (
     <WebSocketContext.Provider value={useMemo(() => ({ conn }), [conn])}>

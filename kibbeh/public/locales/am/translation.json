@@ -38,7 +38,11 @@
       "startPrivateRoom": "ከእነሱ ጋር አንድ የግል ክፍል መጀመር"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "ክፍል ፍጠር", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "ክፍል ፍጠር",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "ክፍሉ ጠፋ, ተመለስ",
       "shareRoomLink": "የክፍሉን ሊንክ አጋራ",
@@ -196,7 +200,9 @@
       "roomSettingsModal": {
         "requirePermission": "መናገር ፈቃድ ይጠይቃል",
         "makePublic": "ክፍሉን ለሁሉም ክፍት ያድርጉ",
-        "makePrivate": "ክፍሉን የግል ያድርጉ"
+        "makePrivate": "ክፍሉን የግል ያድርጉ",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

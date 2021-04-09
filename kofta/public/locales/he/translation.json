@@ -38,7 +38,11 @@
       "startPrivateRoom": "צור חדר פרטי איתם"
     },
     "followList": { "followHim": "עקוב", "followingHim": "עוקב" },
-    "home": { "createRoom": "צור חדר", "refresh": "טען מחדש" },
+    "home": {
+      "createRoom": "צור חדר",
+      "refresh": "טען מחדש",
+      "editRoom": "ערוך חדר"
+    },
     "inviteList": {
       "roomGone": "החדר נעלם, חזור",
       "shareRoomLink": "שתף קישור לחדר שלך",
@@ -193,7 +197,9 @@
       "roomSettingsModal": {
         "requirePermission": "דרוש אישור לדבר",
         "makePublic": "הפוך חדר לציבורי",
-        "makePrivate": "הפוך חדר לפרטי"
+        "makePrivate": "הפוך חדר לפרטי",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

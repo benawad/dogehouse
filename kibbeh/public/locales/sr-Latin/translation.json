@@ -38,7 +38,11 @@
       "startPrivateRoom": "započni privatnu sobu sa njima"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Kreiraj sobu", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "Kreiraj sobu",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "soba je nestala, vrati me nazad",
       "shareRoomLink": "podeli vezu do sobe",
@@ -195,7 +199,9 @@
       "roomSettingsModal": {
         "requirePermission": "zatraži dozvolu za govor",
         "makePublic": "učini sobu javnom",
-        "makePrivate": "učini sobu privatnom"
+        "makePrivate": "učini sobu privatnom",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

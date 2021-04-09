@@ -2,7 +2,7 @@
   "_comment": "if you change this file, do: npm run i18",
   "common": {
     "loadMore": "Mehr laden",
-    "loading": "Lade...",
+    "loading": "Lädt...",
     "noUsersFound": "Keine Benutzer gefunden",
     "ok": "Ok",
     "yes": "Ja",
@@ -16,7 +16,7 @@
     "copied": "kopiert",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Bitte erlaube die Accessibility permissions für DogeHouse"
+    "requestPermissions": "Bitte erteile DogeHouse Browserpermissions."
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -35,10 +35,14 @@
     "followingOnlineList": {
       "listHeader": "Benutzer, denen du folgst, die nicht in einem privaten Raum sind.",
       "currentRoom": "Zurzeit in:",
-      "startPrivateRoom": "Einen privaten Raum mit diesem Benutzer starten"
+      "startPrivateRoom": "Einen privaten Raum mit diesem Benutzer eröffnen"
     },
-    "followList": { "followHim": "Abbonieren", "followingHim": "Abboniert" },
-    "home": { "createRoom": "Raum erstellen", "refresh": "Aktualisieren" },
+    "followList": { "followHim": "Folgen", "followingHim": "Entfolgen" },
+    "home": {
+      "createRoom": "Raum erstellen",
+      "refresh": "Aktualisieren",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Raum konnte nicht gefunden werden! Zurück",
       "shareRoomLink": "Link zum Raum teilen",
@@ -61,9 +65,9 @@
       "logout": "Abmelden",
       "probablyLoading": "Lädt vermutlich...",
       "voiceSettings": "Spracheinstellungen",
-      "soundSettings": "Toneinstellungen",
+      "soundSettings": "Soundeinstellungen",
       "deleteAccount": "Konto löschen",
-      "overlaySettings": "Overlay Einstellungen"
+      "overlaySettings": "Overlay-Einstellungen löschen"
     },
     "notFound": {
       "whoopsError": "Hoppla! Diese Seite ging im Gespräch verloren.",
@@ -74,8 +78,8 @@
       "speakers": "Sprecher",
       "requestingToSpeak": "Sprachanfragen",
       "listeners": "Zuhörer",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Bist du dir sicher? Hiermit wirst du allen {{count}} Benutzern erlauben zu sprechen."
+      "allowAll": "Alle zulassen",
+      "allowAllConfirm": "Bist du sicher? Damit erteilst du {{count}} Benutzern Redeberechtigungen."
     },
     "searchUser": { "search": "Suchen..." },
     "soundEffectSettings": { "header": "Ton" },
@@ -84,24 +88,24 @@
       "followsYou": "folgt dir",
       "following": "Abonniert",
       "followers": "Abonnenten",
-      "followHim": "folgen",
-      "followingHim": "folge ich",
-      "copyProfileUrl": "Profil URL kopieren",
-      "urlCopied": "URL kopiert",
-      "unfollow": "Unfollow"
+      "followHim": "Folgen",
+      "followingHim": "Folgt bereits",
+      "copyProfileUrl": "Benutzer-Url kopieren",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Entfolgen"
     },
     "voiceSettings": {
       "header": "Spracheinstellungen",
       "mic": "Mikrofon:",
-      "permissionError": "Keine Mikrofone gefunden, es ist entweder keines angeschlossen, oder diese DogeHouse besitzt nicht die benötigten Berechtigungen.",
+      "permissionError": "Keine Mikrofone gefunden, es ist entweder keines angeschlosen oder diese Seite besitzt nicht die benötigten Berechtigungen.",
       "volume": "Lautstärke:",
       "refresh": "Mikrofonliste aktualisieren"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Einstellungen",
-      "errorMsg": "Bitte gebe einen gültigen App-titel ein",
-      "label": "App Titel"
+      "errorMsg": "Bitte gib einen gültigen App Titel ein",
+      "label": "App Titel eingeben"
     }
   },
   "components": {
@@ -177,7 +181,9 @@
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Sprechen verlangen",
         "makePublic": "Raum öffentlich machen",
-        "makePrivate": "Raum privat machen"
+        "makePrivate": "Raum privat machen",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     },
     "userVolumeSlider": {
@@ -234,14 +240,14 @@
       "roomDescription": "Raumbeschreibung"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
+      "fuelingRocket": "Rakete wird getankt",
+      "takingOff": "Am Abheben",
+      "inSpace": "Im Weltall",
+      "approachingMoon": "Nähert sich dem Mond",
       "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
+      "approachingSun": "Nähert sich der Sonne",
       "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
+      "approachingGalaxy": "Nähert sich einer Galaxie",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
     }

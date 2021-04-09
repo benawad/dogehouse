@@ -16,7 +16,7 @@ defmodule Kousa.Beef.UserBlocksTest do
       %{id: uid} = Factory.create(User)
       %{id: bid} = Factory.create(User)
 
-      assert {:ok, %UserBlock{} = ub} = UserBlocks.insert(%{userId: uid, userIdBlocked: bid})
+      assert {:ok, ub = %UserBlock{}} = UserBlocks.insert(%{userId: uid, userIdBlocked: bid})
       assert ub.userId == uid
       assert ub.userIdBlocked == bid
     end
@@ -25,7 +25,7 @@ defmodule Kousa.Beef.UserBlocksTest do
       %{id: uid} = Factory.create(User)
       %{id: bid} = Factory.create(User)
 
-      {:ok, %UserBlock{} = ub} = UserBlocks.insert(%{userId: uid, userIdBlocked: bid})
+      {:ok, %UserBlock{}} = UserBlocks.insert(%{userId: uid, userIdBlocked: bid})
 
       assert UserBlocks.blocked?(uid, bid)
       assert !UserBlocks.blocked?(bid, uid)

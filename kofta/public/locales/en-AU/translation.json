@@ -31,21 +31,17 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "uɐq"
-    },
+    "banUser": { "ban": "uɐq" },
     "followingOnlineList": {
       "listHeader": "˙ʍoꞁꞁoɟ noʎ puɐ ɯooɹ ǝʇɐʌᴉɹd ɐ uᴉ ʇou ǝɹɐ ʇɐɥʇ sɹǝsn ɟo ʇsᴉꞀ",
       "currentRoom": ":uᴉ ʎꞁʇuǝɹɹnɔ",
       "startPrivateRoom": "ɯǝɥʇ ɥʇᴉʍ ɯooɹ ǝʇɐʌᴉɹd ɐ ʇɹɐʇs"
     },
-    "followList": {
-      "followHim": "ʍoꞁꞁoɟ",
-      "followingHim": "ƃuᴉʍoꞁꞁoɟ"
-    },
+    "followList": { "followHim": "ʍoꞁꞁoɟ", "followingHim": "ƃuᴉʍoꞁꞁoɟ" },
     "home": {
       "createRoom": "ɯooᴚ ǝʇɐǝɹƆ",
-      "refresh": "ɥsǝɹɟǝᴚ"
+      "refresh": "ɥsǝɹɟǝᴚ",
+      "editRoom": "Edit Room"
     },
     "inviteList": {
       "roomGone": "ʞɔɐq oƃ 'ǝuoƃ ɯooɹ",
@@ -61,8 +57,8 @@
       "featureText_4": "ǝɔɹnoS uǝdO",
       "featureText_5": "ʇɐɥƆ ʇxǝ⊥",
       "featureText_6": "ǝƃoᗡ ʎq pǝɹǝʍoԀ",
-      "loginGithub": "qnHʇᴉ⅁ ɥʇᴉʍ uᴉƃoꞁ",
-      "loginTwitter": "ɹǝʇʇᴉʍ⊥ ɥʇᴉʍ uᴉƃoꞁ",
+      "loginGithub": "qnHʇᴉ⅁ ɥʇᴉʍ uᴉ ƃoꞁ",
+      "loginTwitter": "ɹǝʇʇᴉʍ⊥ ɥʇᴉʍ uᴉ ƃoꞁ",
       "createTestUser": "ɹǝsn ʇsǝʇ ǝʇɐǝɹɔ"
     },
     "myProfile": {
@@ -85,12 +81,8 @@
       "allowAll": "ꞁꞁɐ ʍoꞁꞁⱯ",
       "allowAllConfirm": "ʞɐǝds oʇ sɹǝsn ƃuᴉʇsǝnbǝɹ {{count}} ꞁꞁɐ ʍoꞁꞁɐ ꞁꞁᴉʍ sᴉɥ⊥ ¿ǝɹns noʎ ǝɹⱯ"
     },
-    "searchUser": {
-      "search": "˙˙˙ɥɔɹɐǝs"
-    },
-    "soundEffectSettings": {
-      "header": "spunoS"
-    },
+    "searchUser": { "search": "˙˙˙ɥɔɹɐǝs" },
+    "soundEffectSettings": { "header": "spunoS" },
     "viewUser": {
       "editProfile": "ǝꞁᴉɟoɹd ʇᴉpǝ",
       "followsYou": "noʎ sʍoꞁꞁoɟ",
@@ -99,7 +91,8 @@
       "followHim": "ʍoꞁꞁoɟ",
       "followingHim": "ƃuᴉʍoꞁꞁoɟ",
       "copyProfileUrl": "ꞁɹn ǝꞁᴉɟoɹd ʎdoɔ",
-      "urlCopied": "pɹɐoqdᴉꞁɔ oʇ pǝᴉdoɔ Ꞁᴚ∩"
+      "urlCopied": "pɹɐoqdᴉꞁɔ oʇ pǝᴉdoɔ Ꞁᴚ∩",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "sƃuᴉʇʇǝS ǝɔᴉoɅ",
@@ -145,10 +138,7 @@
       "linkText": "qnHʇᴉ⅁ uo ǝnssᴉ",
       "addSupport": "˙ǝɔᴉʌǝp ɹnoʎ ɹoɟ ʇɹoddns ƃuᴉppɐ ʎɹʇ ꞁꞁᴉʍ I puɐ"
     },
-    "inviteButton": {
-      "invited": "pǝʇᴉʌuᴉ",
-      "inviteToRoom": "ɯooɹ oʇ ǝʇᴉʌuᴉ"
-    },
+    "inviteButton": { "invited": "pǝʇᴉʌuᴉ", "inviteToRoom": "ɯooɹ oʇ ǝʇᴉʌuᴉ" },
     "micPermissionBanner": {
       "permissionDenied": "(ǝƃɐd ǝɥʇ pɐoꞁǝɹ puɐ sƃuᴉʇʇǝs ɹǝsʍoɹq oʇuᴉ oƃ oʇ pǝǝu ʎɐɯ noʎ) ɔᴉɯ ɹnoʎ ssǝɔɔɐ oʇ ƃuᴉʎɹʇ pǝᴉuǝp uoᴉssᴉɯɹǝԀ",
       "dismiss": "ssᴉɯsᴉp",
@@ -164,9 +154,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "uosɐǝɹ ǝɯos ɹoɟ ɹǝɯnsuoɔ oᴉpnɐ ou"
     },
-    "addToCalendar": {
-      "add": "ɹɐpuǝꞁɐƆ oʇ ppⱯ"
-    },
+    "addToCalendar": { "add": "ɹɐpuǝꞁɐƆ oʇ ppⱯ" },
     "wsKilled": {
       "description": "˙qɐʇ ɹǝɥʇouɐ uᴉ ǝʇᴉsqǝʍ ǝɥʇ uǝdo noʎ uǝɥʍ suǝddɐɥ ʎꞁꞁɐnsn sᴉɥ⊥ ˙ɹǝʌɹǝs ǝɥʇ ʎq pǝꞁꞁᴉʞ sɐʍ ʇǝʞɔoSqǝM",
       "reconnect": "ʇɔǝuuoɔǝɹ"
@@ -214,7 +202,9 @@
       "roomSettingsModal": {
         "requirePermission": "ʞɐǝds oʇ uoᴉssᴉɯɹǝd ǝɹᴉnbǝɹ",
         "makePublic": "ɔᴉꞁqnd ɯooɹ ǝʞɐɯ",
-        "makePrivate": "ǝʇɐʌᴉɹd ɯooɹ ǝʞɐɯ"
+        "makePrivate": "ǝʇɐʌᴉɹd ɯooɹ ǝʞɐɯ",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

@@ -1,4 +1,4 @@
-import { wrap, raw, UUID } from "@dogehouse/kebab";
+import { wrap, raw } from "@dogehouse/kebab";
 import { connect as mediasoupConnect } from "@dogehouse/kebab/lib/audio/mediasoup-client";
 import { Device } from "mediasoup-client";
 
@@ -36,12 +36,11 @@ const main = async () => {
 
     await mediasoupConnect(
       wrapper.connection,
-      device,
       data.routerRtpCapabilities,
       "output",
       data.recvTransportOptions,
       playOutput
-    );
+    )(device);
     currentRole.textContent = "Listener";
 
     const button = document.createElement("button");
@@ -55,12 +54,11 @@ const main = async () => {
 
       await mediasoupConnect(
         wrapper.connection,
-        device,
         data.routerRtpCapabilities,
         "input",
         data.sendTransportOptions,
         await makeMicTrack()
-      );
+      )(device);
 
       currentRole.removeChild(button);
     });
@@ -76,21 +74,19 @@ const main = async () => {
 
     await mediasoupConnect(
       wrapper.connection,
-      device,
       data.routerRtpCapabilities,
       "output",
       data.recvTransportOptions,
       playOutput
-    );
+    )(device);
 
     await mediasoupConnect(
       wrapper.connection,
-      device,
       data.routerRtpCapabilities,
       "input",
       data.sendTransportOptions,
       await makeMicTrack()
-    );
+    )(device);
   });
 
   const extraInfo = await wrapper.query.joinRoomAndGetInfo(theRoom.id);

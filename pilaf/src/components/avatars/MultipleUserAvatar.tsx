@@ -12,7 +12,7 @@ import { SingleUserAvatar, singleUserAvatarSize } from "./SingleUserAvatar";
 interface MultipleUserAvatarProps {
   style?: StyleProp<ViewStyle>;
   srcArray: ImageSourcePropType[];
-  size?: "default" | "sm" | "xs";
+  size?: "default" | "md" | "sm" | "xs";
   translationRatio?: number;
 }
 
@@ -43,7 +43,7 @@ export const MultipleUserAvatar: React.FC<MultipleUserAvatarProps> = ({
               {
                 left: (i * singleAvatarSize) / translationRatio,
                 borderRadius: (singleAvatarSize + 4) / 2,
-                zIndex: -i,
+                zIndex: 100 - i,
               },
             ]}
           >

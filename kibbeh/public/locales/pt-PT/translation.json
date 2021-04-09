@@ -8,14 +8,14 @@
     "no": "Não",
     "cancel": "Cancelar",
     "save": "Guardar",
-    "edit": "editar",
-    "delete": "apagar",
+    "edit": "Editar",
+    "delete": "Apagar",
     "joinRoom": "entrar na sala",
     "copyLink": "copiar link",
     "copied": "copiado",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Por favor, nota que correr o DogeHouse sem permissões de acesso pode causar erros indesejados"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -34,15 +34,19 @@
     "followingOnlineList": {
       "listHeader": "Lista de utilizadores que segues e que não se encontram numa sala privada.",
       "currentRoom": "Atualmente em:",
-      "startPrivateRoom": "Iniciar uma sala privada com os teus seguidores"
+      "startPrivateRoom": "Iniciar uma sala privada com eles"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Criar Sala", "refresh": "Atualizar" },
+    "followList": { "followHim": "seguir", "followingHim": "a seguir" },
+    "home": {
+      "createRoom": "Criar Sala",
+      "refresh": "Atualizar",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "A sala não existe, voltar atrás",
       "shareRoomLink": "Partilhar link da sala",
       "inviteFollowers": "Podes convidar os teus seguidores que se encontram online:",
-      "whenFollowersOnline": "Irão aparecer aqui os teus seguidores que se encontram online."
+      "whenFollowersOnline": "Os teus seguidores que se encontram online irão aparecer aqui."
     },
     "login": {
       "headerText": "A levar conversas de voz até à lua 🚀",
@@ -58,14 +62,14 @@
     },
     "myProfile": {
       "logout": "Sair",
-      "probablyLoading": "Talvez a carregar...",
+      "probablyLoading": "Provavlemente a carregar...",
       "voiceSettings": "Definições de voz",
       "soundSettings": "Definições de som",
       "deleteAccount": "Apagar conta",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "Ir para definições de Overlay"
     },
     "notFound": {
-      "whoopsError": "Ups! Esta página entusiasmou-se na conversa.",
+      "whoopsError": "Ups! Esta página perdeu-se na conversa.",
       "goHomeMessage": "Não te preocupes, podes",
       "goHomeLinkText": "Voltar ao início"
     },
@@ -73,8 +77,8 @@
       "speakers": "Oradores",
       "requestingToSpeak": "A pedir para falar",
       "listeners": "Ouvintes",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "Permitir todos",
+      "allowAllConfirm": "De certeza? Isto permitirá todos os {{count}} utilizadores a pedir, falar"
     },
     "searchUser": { "search": "Procurar..." },
     "soundEffectSettings": { "header": "Sons" },
@@ -83,22 +87,25 @@
       "followsYou": "Seguem-te",
       "followers": "Seguidores",
       "following": "A seguir",
-      "followHim": "follow",
-      "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "followHim": "Seguir",
+      "followingHim": "Seguindo",
+      "copyProfileUrl": "copiar URL do perfil",
+      "urlCopied": "URL copiado",
+      "unfollow": "Deixar de Seguir"
     },
     "voiceSettings": {
       "header": "Definições de voz",
       "mic": "Microfone:",
-      "permissionError": "Não foram encontrados microfones, não foram dadas permissões ou não estão corretamente ligados.",
+      "permissionError": "Não foram encontrados microfones; ou não foram dadas permissões, ou não estão corretamente ligados.",
       "refresh": "Atualizar lista de microfones",
       "volume": "Volume:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings"
+      "input": {
+        "errorMsg": "Título de aplicação inválido",
+        "label": "Introduza o título da aplicação"
+      },
+      "header": "Definições de Overlay"
     }
   },
   "components": {
@@ -107,12 +114,12 @@
     "backBar": {},
     "blockedFromRoomUsers": {
       "header": "Utilizadores banidos",
-      "unban": "Remover banimento",
+      "unban": "Remover ban",
       "noBans": "Sem utilizadores banidos"
     },
     "bottomVoiceControl": {
       "leaveCurrentRoomBtn": "Sair da sala atual",
-      "confirmLeaveRoom": "Pretendes abandonar a sala?",
+      "confirmLeaveRoom": "Pretendes sair da sala?",
       "leave": "Sair",
       "inviteUsersToRoomBtn": "Convidar utilizadores para a sala",
       "invite": "Convidar",
@@ -122,11 +129,11 @@
       "makeRoomPublicBtn": "Tornar a sala pública!",
       "settings": "Definições",
       "speaker": "Orador",
-      "listener": "Ouvintes",
+      "listener": "Ouvinte",
       "chat": "Chat"
     },
     "micPermissionBanner": {
-      "permissionDenied": "Sem permissão para aceder ao microfone (poderás necessitar de ir às configurações do teu navegador e atualizar a página)",
+      "permissionDenied": "Sem permissão para aceder ao microfone (poderás ter que de ir às configurações do teu navegador e atualizar a página)",
       "dismiss": "Ignorar",
       "tryAgain": "Tentar novamente"
     },
@@ -163,17 +170,19 @@
         "makeMod": "Tornar moderador",
         "unmod": "Remover de moderador",
         "addAsSpeaker": "Adicionar como orador",
-        "moveToListener": "Tornar como ouvinte",
+        "moveToListener": "Tornar ouvinte",
         "banFromChat": "Banir do chat",
         "banFromRoom": "Banir da sala",
         "goBackToListener": "voltar a ouvinte",
         "deleteMessage": "Apagar mensagem",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "Tornar administrador da sala"
       },
       "roomSettingsModal": {
         "requirePermission": "Pedir permissão para falar",
         "makePublic": "Tornar a sala pública",
-        "makePrivate": "Tornar a sala privada"
+        "makePrivate": "Tornar a sala privada",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     },
     "userVolumeSlider": {
@@ -185,7 +194,7 @@
       "listening": "a ouvir",
       "toggleMuteKeybind": "teclas de atalho para silenciar",
       "togglePushToTalkKeybind": "teclas de atalho para ativar o premir-para-falar",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "teclas de atalho para mostrar/esconder o Overlay"
     },
     "wsKilled": {
       "description": "O WebSocket foi quebrado pelo servidor. Isto geralmente acontece quando abres o site noutro separador.",
@@ -230,16 +239,16 @@
       "roomDescription": "descrição da sala"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "fuelingRocket": "A abastecer o foguetão",
+      "takingOff": "A descolar",
+      "inSpace": "No espaço",
+      "approachingMoon": "A aproximar-se da lua",
+      "lunarDoge": "Doge lunar",
+      "approachingSun": "A aproximar-se do sol",
+      "solarDoge": "Doge solar",
+      "approachingGalaxy": "A aproximar-se da galáxia",
+      "galacticDoge": "Doge galático",
+      "spottedLife": "Encontrado planeta com vida"
     }
   }
 }

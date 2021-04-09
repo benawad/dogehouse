@@ -1,10 +1,12 @@
 import React from "react";
 import {
+  SolidCompass,
   SolidFriends,
   SolidMicrophone,
   SolidMicrophoneOff,
   SolidSettings,
 } from "../icons";
+import { useScreenType } from "../shared-hooks/useScreenType";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { BoxedIcon } from "./BoxedIcon";
 import { Button } from "./Button";
@@ -17,6 +19,7 @@ interface RoomPanelIconBarProps {
   onInvitePeopleToRoom?: () => void;
   onRoomSettings?: () => void;
   onLeaveRoom(): void;
+  onToggleChat(): void;
 }
 
 export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
@@ -24,8 +27,10 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
   onInvitePeopleToRoom,
   onRoomSettings,
   onLeaveRoom,
+  onToggleChat,
 }) => {
   const { t } = useTypeSafeTranslation();
+  const screenType = useScreenType();
   return (
     <div className="justify-between bg-primary-700 rounded-b-8 py-3 px-4 w-full">
       <div>
@@ -44,7 +49,13 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
             <SolidFriends />
           </BoxedIcon>
         ) : null}
-        {onInvitePeopleToRoom ? (
+        {screenType === "1-cols" || screenType === "fullscreen" ? (
+          // @todo put chat icon
+          <BoxedIcon className="mr-2" color="800" onClick={onToggleChat}>
+            <SolidCompass />
+          </BoxedIcon>
+        ) : null}
+        {onRoomSettings ? (
           <BoxedIcon className="mr-2" color="800" onClick={onRoomSettings}>
             <SolidSettings />
           </BoxedIcon>
@@ -54,7 +65,9 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
       <Button
         className={`ml-2`}
         color="secondary-800"
-        onClick={() => onLeaveRoom()}
+        onClick={() => {
+          onLeaveRoom();
+        }}
       >
         {t("components.bottomVoiceControl.leave")}
       </Button>

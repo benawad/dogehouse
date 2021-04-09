@@ -42,7 +42,11 @@
       "ακολουθήστε": "ακολουθείτε",
       "followingHim": "ακολουθείτε"
     },
-    "home": { "createRoom": "Δημιουργία Δωματίου", "refresh": "Επαναφόρτωση" },
+    "home": {
+      "createRoom": "Δημιουργία Δωματίου",
+      "refresh": "Επαναφόρτωση",
+      "editRoom": "Επεξεργαστείτε το δωμάτιο"
+    },
     "inviteList": {
       "roomGone": "το δωμάτιο διαγράφηκε, πηγαίνετε πίσω",
       "shareRoomLink": "κοινοποιήστε τον σύνδεσμο του δωματίου",
@@ -181,7 +185,7 @@
       "editProfileModal": {
         "usernameTaken": "όνομα χρήστη μη διαθέσιμο",
         "avatarUrlError": "Άκυρη φωτογραφία",
-        "avatarUrlLabel": "Διεύθυνση URL άβαταρ Github/Twitter",
+        "avatarUrlLabel": "Διεύθυνση URL άβαταρ απο Github/Twitter",
         "displayNameError": "μήκος από 2 έως 50 χαρακτήρες",
         "displayNameLabel": "Εμφανιζόμενο Όνομα",
         "usernameError": "μήκος από 4 έως 15 χαρακτήρες και μόνο αλφαριθμητικά/κάτω παύλα",
@@ -205,7 +209,9 @@
       "roomSettingsModal": {
         "requirePermission": "απαίτηση άδειας για ομιλία",
         "makePublic": "κάντε το δωμάτιο δημόσιο",
-        "makePrivate": "κάντε το δωμάτιο ιδιωτικό"
+        "makePrivate": "κάντε το δωμάτιο ιδιωτικό",
+        "renamePublic": "ορίστε ένα όνομα για το δημόσιο δωμάτιο",
+        "renamePrivate": "ορίστε ένα όνομα για το ιδιωτικό δωμάτιο"
       }
     }
   },

@@ -1,26 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loading DogeHouse</title>
+    <title>DogeHouse</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.18.0/inter.css" rel="stylesheet">
 </head>
-<body>
-    <div style="background-color: #EFE7DC; border-radius: 5%; height: 400px; width: 300px; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%);">
-    <img style="height:140px; position:fixed; top:40%; left:50%; transform:translate(-50%, -50%);" src="../../icons/icon.png" alt="DogeHouse Logo">
-    <h3 style="font-family: 'Poppins'; position:fixed; top:70%; left:50%; transform:translate(-50%, -50%); width: 100%; text-align: center;">Fuelling rocket...</h3>
 
-    <script>
-        setTimeout(() => {
-            document.querySelector('h3').textContent = "Reaching space..."
-        }, 1000);
-        setTimeout(() => {
-            document.querySelector('h3').textContent = "Parking on the moon..."
-        }, 2000);
-    </script>
+<body>
+    <style>
+        body {
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        #progress {
+            width: 75%;
+            height: 10px;
+            background-color: #242C37;
+            border-radius: 10px;
+        }
+
+        #bar {
+            height: 10px;
+            width: 40%;
+            background-color: #FD4D4D;
+            border-radius: 10px;
+            transition: width 2s;
+        }
+    </style>
+    <div
+        style=" background-color: #0B0E11; border-radius: 5%; height: 400px; width: 300px; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%);">
+        <img style="height:120px; position:fixed; top:35%; left:50%; transform:translate(-50%, -50%);"
+            src="../../icons/icon.png" alt="DogeHouse Logo">
+        <h4
+            style="color: #B2BDCD; font-family: 'Inter'; position:fixed; top:68%; left:50%; transform:translate(-50%, -50%); width: 100%; text-align: center;">
+        </h4>
+
+        <div id="progress" style="position:fixed; top:83%; left:50%; transform:translate(-50%, -50%); display: none;">
+            <div id="bar"></div>
+        </div>
+
+        <script>
+            const { ipcRenderer } = require('electron');
+            const header = document.querySelector('h4');
+            let locale;
+            ipcRenderer.on('@locale/text', (ev, text) => {
+                locale = text;
+                document.title = locale.title;
+                header.textContent = locale.check;
+            });
+            ipcRenderer.on('download', () => {
+                header.textContent = locale.download;
+            });
+            ipcRenderer.on('percentage', (event, percent) => {
+                header.textContent = `${locale.download} ${JSON.stringify(percent)}%`;
+                document.getElementById('progress').style.display = 'inherit';
+                document.getElementById('bar').style.width = `${JSON.stringify(percent)}%`;
+            });
+            ipcRenderer.on('relaunch', () => {
+                header.textContent = locale.relaunch;
+            });
+            ipcRenderer.on('launch', () => {
+                header.textContent = locale.launch;
+            });
+            ipcRenderer.on('skipCheck', () => {
+                header.textContent = locale.skipCheck;
+            });
+        </script>
     </div>
 </body>
+
 </html>

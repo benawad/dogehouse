@@ -2,7 +2,7 @@
   "common": {
     "loadMore": "cargar más",
     "loading": "cargando...",
-    "noUsersFound": "no se encontraron usuarios",
+    "noUsersFound": "no se han encontrado usuarios",
     "ok": "ok",
     "yes": "sí",
     "no": "no",
@@ -15,7 +15,7 @@
     "copied": "copiado",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Porfavor ten en cuenta que ejecutar DogeHouse sin permisos de accesibilidad podría causar errores no deseados"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -31,14 +31,18 @@
     "_comment": "Respective Page UI Internationalization Strings",
     "banUser": { "ban": "bloquear" },
     "followingOnlineList": {
-      "listHeader": "Lista de usuarios que no se encuentran en una sala privada y los sigues.",
+      "listHeader": "Lista de usuarios que sigues y no se encuentran en una sala privada.",
       "currentRoom": "actualmente en:",
       "startPrivateRoom": "empieza una sala privada con ellos"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Crear Sala", "refresh": "Recargar" },
+    "followList": { "followHim": "seguir", "followingHim": "siguiendo" },
+    "home": {
+      "createRoom": "Crear Sala",
+      "refresh": "Recargar",
+      "editRoom": "Editar la sala"
+    },
     "inviteList": {
-      "roomGone": "sala no disponible, vuelve atrás",
+      "roomGone": "sala no disponible, volver atrás",
       "shareRoomLink": "compartir enlace de la sala",
       "inviteFollowers": "Puedes invitar a tus seguidores que están en linea:",
       "whenFollowersOnline": "Cuando tus seguidores estén en linea se mostrarán aquí."
@@ -61,19 +65,19 @@
       "voiceSettings": "ir a ajustes de voz",
       "soundSettings": "ir a ajustes de sonido",
       "deleteAccount": "eliminar cuenta",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "ir a ajustes del overlay"
     },
     "notFound": {
       "whoopsError": "¡Ups! Esta página se perdió en una conversación.",
-      "goHomeMessage": "No es para preocuparse. Usted puede",
+      "goHomeMessage": "No te preocupes. Puedes ir al",
       "goHomeLinkText": "inicio"
     },
     "room": {
       "speakers": "Hablantes",
-      "requestingToSpeak": "Solicitando hablar",
+      "requestingToSpeak": "Queriendo hablar",
       "listeners": "Oyentes",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "Permitir todos",
+      "allowAllConfirm": "¿Estás seguro? Esto dejara hablar a los {{count}} usuarios que quieren hablar"
     },
     "searchUser": { "search": "buscar..." },
     "soundEffectSettings": { "header": "Sonidos" },
@@ -82,22 +86,25 @@
       "followsYou": "te sigue",
       "followers": "seguidores",
       "following": "siguiendo",
-      "followHim": "follow",
-      "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "followHim": "seguir",
+      "followingHim": "siguiendo",
+      "copyProfileUrl": "copiar url del perfil",
+      "urlCopied": "URL copiado en el portapapeles",
+      "unfollow": "dejar de seguir"
     },
     "voiceSettings": {
       "header": "Ajustes de voz",
       "mic": "micrófono:",
-      "permissionError": "no se encontraron micrófonos, puede que no se encuentre conectado o no se ha otorgado permiso al sitio web.",
-      "refresh": "recargar lista de micrófonos",
+      "permissionError": "no se encontraron micrófonos, puede que no este conectado o no se ha otorgado permiso al sitio web.",
+      "refresh": "recargar la lista de micrófonos",
       "volume": "volumen:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings"
+      "input": {
+        "errorMsg": "Ese nombre de aplicación no es valido",
+        "label": "Introduce el nombre de la aplicación"
+      },
+      "header": "Opciones del Overlay"
     }
   },
   "components": {
@@ -105,12 +112,12 @@
     "avatar": {},
     "backBar": {},
     "blockedFromRoomUsers": {
-      "header": "Usuarios Bloqueados",
-      "unban": "Desbloquear",
-      "noBans": "nadie ha sido bloqueado todavía"
+      "header": "Usuarios Baneados",
+      "unban": "Desbanear",
+      "noBans": "nadie ha sido baneado todavía"
     },
     "bottomVoiceControl": {
-      "leaveCurrentRoomBtn": "Abandonar sala actual",
+      "leaveCurrentRoomBtn": "Abandonar la sala actual",
       "confirmLeaveRoom": "¿Estás seguro que quieres abandonar la sala?",
       "leave": "Abandonar",
       "inviteUsersToRoomBtn": "Invitar usuarios a la sala",
@@ -125,7 +132,7 @@
       "chat": "Chat"
     },
     "micPermissionBanner": {
-      "permissionDenied": "Permiso denegado al intentar acceder a su micrófono (es posible que deba acceder a la configuración del navegador y volver a cargar la página)",
+      "permissionDenied": "Permiso denegado al intentar acceder a su micrófono (es posible que tengas que acceder a la configuración del navegador y recargar la página)",
       "dismiss": "descartar",
       "tryAgain": "Intentar de nuevo"
     },
@@ -148,7 +155,7 @@
       "editProfileModal": {
         "usernameTaken": "nombre de usuario tomado",
         "avatarUrlError": "Imagen inválida",
-        "avatarUrlLabel": "GitHub/Twitter avatar url",
+        "avatarUrlLabel": "url de avatar de GitHub/Twitter",
         "displayNameError": "longitud de 2 a 50 caracteres",
         "displayNameLabel": "Nombre para mostrar",
         "usernameError": "longitud de 4 a 15 caracteres y solo alfanuméricos/guión bajo",
@@ -157,22 +164,24 @@
         "bioLabel": "Biografía"
       },
       "profileModal": {
-        "blockUserConfirm": "¿Está seguro de que desea bloquear a este usuario para que no se una a cualquier sala que haya creado?",
+        "blockUserConfirm": "¿Está seguro de que desea bloquear a este usuario para que no se pueda unir a cualquier sala que crees?",
         "blockUser": "bloquear usuario",
         "makeMod": "convertir en moderador",
         "unmod": "quitar moderador",
         "addAsSpeaker": "añadir como hablante",
         "moveToListener": "mover a oyente",
-        "banFromChat": "bloquear del chat",
-        "banFromRoom": "bloquear de la sala",
+        "banFromChat": "banear del chat",
+        "banFromRoom": "banear de la sala",
         "goBackToListener": "volver a ser oyente",
         "deleteMessage": "eliminar mensaje",
         "makeRoomCreator": "hacer administrador de la sala"
       },
       "roomSettingsModal": {
-        "requirePermission": "requiere permiso para hablar",
-        "makePublic": "hacer sala pública",
-        "makePrivate": "hacer sala privada"
+        "requirePermission": "solicitar permiso para hablar",
+        "makePublic": "hacer la sala pública",
+        "makePrivate": "hacer la sala privada",
+        "renamePublic": "Configurar el nombre de la sala pública",
+        "renamePrivate": "Configurar el nombre de la sala privada"
       }
     },
     "userVolumeSlider": {
@@ -182,9 +191,9 @@
     "keyboardShortcuts": {
       "setKeybind": "configurar combinación de teclas",
       "listening": "escuchando",
-      "toggleMuteKeybind": "Encender/apagar combinación de teclas para silenciar",
-      "togglePushToTalkKeybind": "Encender/apagar combinación de teclas para tocar-para-hablar",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleMuteKeybind": "Combinación de teclas para apagar/encender tu micrófono",
+      "togglePushToTalkKeybind": "Combinación de teclas para activar/desactivar tocar-para-hablar",
+      "toggleOverlayKeybind": "Combinación de teclas para alternar el overlay"
     },
     "wsKilled": {
       "description": "El Websocket fue eliminado por el servidor. Esto suele suceder cuando abre el sitio web en otra pestaña.",
@@ -211,8 +220,8 @@
       "modal": {
         "needsFuture": "necesita ser en el futuro",
         "roomName": "nombre de la sala",
-        "minLength": "longitud mínima de 2 caracteres",
-        "roomDescription": "Description"
+        "minLength": "la longitud mínima es de 2 caracteres",
+        "roomDescription": "Descripción"
       }
     },
     "roomChat": {

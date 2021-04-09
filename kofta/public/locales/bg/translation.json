@@ -38,7 +38,11 @@
       "startPrivateRoom": "start a private room with them"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Създай стая", "refresh": "Опресни" },
+    "home": {
+      "createRoom": "Създай стая",
+      "refresh": "Опресни",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "изтекла стая, върни се назад",
       "shareRoomLink": "сподели линк към стая",
@@ -197,7 +201,9 @@
       "roomSettingsModal": {
         "requirePermission": "изискване на позволение за говорене",
         "makePublic": "направи стаята публична",
-        "makePrivate": "направи стаята частна"
+        "makePrivate": "направи стаята частна",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

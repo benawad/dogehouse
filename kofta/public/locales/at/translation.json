@@ -38,7 +38,11 @@
       "startPrivateRoom": "An neichn Raum mit dem Benutzer starten"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Raum erstön", "refresh": "Aktualisiern" },
+    "home": {
+      "createRoom": "Raum erstön",
+      "refresh": "Aktualisiern",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Den Raum kau ma ned finden. Zruck",
       "shareRoomLink": "Link zum Raum teilen",
@@ -178,7 +182,9 @@
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Sprechen verlaungen",
         "makePublic": "Raum öffentlich mochen",
-        "makePrivate": "Raum privat mochen"
+        "makePrivate": "Raum privat mochen",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     },
     "userVolumeSlider": {
