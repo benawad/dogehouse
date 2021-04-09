@@ -25,6 +25,12 @@
 <p align="center">Current: <b>https://dogehouse.tv/</b></p>
 <p align="center">Beta: <b>https://next.dogehouse.tv/</b></p>
 
+<h4 align="center">
+  <a href="https://dogehouse.tv">DogeHouse</a>
+  <span> · </span>
+  <a href="https://next.dogehouse.tv">Beta</a>
+</h4>
+
 ---
 
 ## Structure
