@@ -4,6 +4,7 @@
 import {
   Message,
   MessageToken,
+  MuteMap,
   Room,
   ScheduledRoom,
   User,
@@ -17,6 +18,7 @@ import {
   JoinRoomAndGetInfoResponse,
   GetRoomUsersResponse,
   NewRoomDetailsResponse,
+  InvitationToRoomResponse,
 } from "./responses";
 
 type Handler<Data> = (data: Data) => void;
@@ -34,6 +36,14 @@ export const wrap = (connection: Connection) => ({
       connection.addListener("new_user_join_room", handler),
     userLeaveRoom: (handler: Handler<{ userId: UUID; roomId: UUID }>) =>
       connection.addListener("user_left_room", handler),
+    invitationToRoom: (handler: Handler<InvitationToRoomResponse>) =>
+      connection.addListener("invitation_to_room", handler),
+    handRaised: (handler: Handler<{ userId: UUID }>) =>
+      connection.addListener("hand_raised", handler),
+    speakerAdded: (handler: Handler<{ userId: UUID, muteMap: MuteMap }>) =>
+      connection.addListener("speaker_added", handler),
+    speakerRemoved: (handler: Handler<{ userId: UUID, muteMap: MuteMap }>) =>
+      connection.addListener("speaker_removed", handler),
   },
   query: {
     getMyScheduledRoomsAboutToStart: (
