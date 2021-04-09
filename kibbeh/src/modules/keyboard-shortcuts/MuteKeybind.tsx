@@ -3,6 +3,7 @@ import { recordKeyCombination } from "react-hotkeys";
 import { useKeyMapStore } from "../../global-stores/useKeyMapStore";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../../ui/Button";
+import { VisualKeybind } from "./VisualKeybind";
 
 interface MuteKeybindProps {
   className?: string;
@@ -41,7 +42,7 @@ export const MuteKeybind: React.FC<MuteKeybindProps> = ({ className }) => {
       <div className={`ml-4`}>
         {t("components.keyboardShortcuts.toggleMuteKeybind")}:{" "}
         <span className={`font-bold text-lg`}>
-          {active ? t("components.keyboardShortcuts.listening") : MUTE}
+          {active ? t("components.keyboardShortcuts.listening") : <VisualKeybind keybind={MUTE.toString()} />}
         </span>
       </div>
     </div>

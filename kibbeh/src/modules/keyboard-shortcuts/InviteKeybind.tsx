@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { recordKeyCombination } from "react-hotkeys";
 import { useKeyMapStore } from "../../global-stores/useKeyMapStore";
 import { Button } from "../../ui/Button";
+import {VisualKeybind} from "./VisualKeybind";
 
 interface InviteKeybindProps {
   className?: string;
@@ -39,7 +40,7 @@ export const InviteKeybind: React.FC<InviteKeybindProps> = ({ className }) => {
       <div className={`ml-4`}>
         invite keybind:{" "}
         <span className={`font-bold text-lg`}>
-          {active ? "listening" : INVITE}
+          {active ? "listening" : <VisualKeybind keybind={INVITE.toString()} />}
         </span>
       </div>
     </div>

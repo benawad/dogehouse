@@ -3,6 +3,7 @@ import { recordKeyCombination } from "react-hotkeys";
 import { useKeyMapStore } from "../../global-stores/useKeyMapStore";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../../ui/Button";
+import {VisualKeybind} from "./VisualKeybind";
 
 interface OverlayKeybindProps {
   className?: string;
@@ -43,7 +44,7 @@ export const OverlayKeybind: React.FC<OverlayKeybindProps> = ({
       <div className={`ml-4`}>
         {t("components.keyboardShortcuts.toggleOverlayKeybind")}:{" "}
         <span className={`font-bold text-lg`}>
-          {active ? t("components.keyboardShortcuts.listening") : OVERLAY}
+          {active ? t("components.keyboardShortcuts.listening") : <VisualKeybind keybind={OVERLAY.toString()} />}
         </span>
       </div>
     </div>

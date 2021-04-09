@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { recordKeyCombination } from "react-hotkeys";
 import { useKeyMapStore } from "../../global-stores/useKeyMapStore";
 import { Button } from "../../ui/Button";
+import {VisualKeybind} from "./VisualKeybind";
 
 interface ChatKeybindProps {
   className?: string;
@@ -39,7 +40,7 @@ export const ChatKeybind: React.FC<ChatKeybindProps> = ({ className }) => {
       <div className={`ml-4`}>
         toggle chat keybind:{" "}
         <span className={`font-bold text-lg`}>
-          {active ? "listening" : CHAT}
+          {active ? "listening" : <VisualKeybind keybind={CHAT.toString()} />}
         </span>
       </div>
     </div>

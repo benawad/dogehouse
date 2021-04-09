@@ -3,6 +3,7 @@ import { recordKeyCombination } from "react-hotkeys";
 import { useKeyMapStore } from "../../global-stores/useKeyMapStore";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../../ui/Button";
+import {VisualKeybind} from "./VisualKeybind";
 
 interface PTTKeybindProps {
   className?: string;
@@ -41,7 +42,7 @@ export const PTTKeybind: React.FC<PTTKeybindProps> = ({ className }) => {
       <div className={`ml-4`}>
         {t("components.keyboardShortcuts.togglePushToTalkKeybind")}:{" "}
         <span className={`font-bold text-lg`}>
-          {active ? t("components.keyboardShortcuts.listening") : PTT}
+          {active ? t("components.keyboardShortcuts.listening") : <VisualKeybind keybind={PTT.toString()} />}
         </span>
       </div>
     </div>
