@@ -1,5 +1,3 @@
-import { BaseEmoji, EmojiData } from "emoji-mart";
-
 export const customEmojis = [
   {
     name: "heart",

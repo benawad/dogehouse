@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../../ui/Button";
 import { InfoText } from "../../ui/InfoText";
@@ -9,8 +9,9 @@ import {
   PossibleSoundEffect,
 } from "../sound-effects/useSoundEffectStore";
 import { HeaderController } from "../../modules/display/HeaderController";
+import isElectron from "is-electron";
 
-interface ChatSettingsProps {}
+interface ChatSettingsProps { }
 
 const capitalize = (s: string) =>
   s.length ? s[0].toUpperCase() + s.slice(1) : s;
@@ -24,7 +25,12 @@ export const SoundEffectSettings: React.FC<ChatSettingsProps> = () => {
     playSoundEffect,
   ] = useSoundEffectStore((x) => [x.settings, x.setSetting, x.playSoundEffect]);
   const { t } = useTypeSafeTranslation();
-
+  useEffect(() => {
+    if (isElectron()) {
+      let ipcRenderer = window.require("electron").ipcRenderer;
+      ipcRenderer.send("@rpc/page", { page: "sound-effect-settings", data: '' })
+    }
+  }, [])
   return (
     <DefaultDesktopLayout>
       <HeaderController embed={{}} title="Sound Settings" />
