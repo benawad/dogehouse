@@ -1697,35 +1697,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@date-io/core@npm:1.x":
+"@date-io/core@npm:1.x, @date-io/core@npm:^1.3.13":
   version: 1.3.13
   resolution: "@date-io/core@npm:1.3.13"
   checksum: a9bd45041e9a52037121bc90889e93dfd351c25f31f8f547785dff2ddad14baba28b44d3838521db4cfca33b2c4be9651dc6d4c0d472c1860308346fd32f603f
   languageName: node
   linkType: hard
 
-"@date-io/core@npm:^2.10.7":
-  version: 2.10.7
-  resolution: "@date-io/core@npm:2.10.7"
-  checksum: 2e616bc3b01df12a240c24725f3d9b8a8471997a55c2ceb807fdad99084b6b200d46f31b9eb6f4761436861cbea9b45dbbc08edddf47220e77a5b8561f03e0da
-  languageName: node
-  linkType: hard
-
-"@date-io/date-fns@npm:^2.10.8":
-  version: 2.10.8
-  resolution: "@date-io/date-fns@npm:2.10.8"
+"@date-io/date-fns@npm:^1.3.13":
+  version: 1.3.13
+  resolution: "@date-io/date-fns@npm:1.3.13"
   dependencies:
-    "@date-io/core": ^2.10.7
+    "@date-io/core": ^1.3.13
   peerDependencies:
     date-fns: ^2.0.0
-  peerDependenciesMeta:
-    date-fns:
-      optional: true
-  checksum: 32296fdcb270045388b71ea49c3041770718d739d23b846b7e710167097f0d3c4d5560c88087eb28af84d63d93d2481dbef824134769b0a739eb455f127e9c19
+  checksum: 0c61c3dea9a4659b48a6cf5f4de3e49cafdccdd0382ff4bf89fbe2191ea7fe066726aeca0eebf166185e0e34f4f290429836f29a8c98e8219e3823b84d74f66a
   languageName: node
   linkType: hard
 
-"@dogehouse/kebab@^0.2.5, @dogehouse/kebab@workspace:kebab":
+"@dogehouse/kebab@^0.2.6, @dogehouse/kebab@workspace:kebab":
   version: 0.0.0-use.local
   resolution: "@dogehouse/kebab@workspace:kebab"
   dependencies:
@@ -1739,8 +1729,8 @@ __metadata:
     jest: ^26.6.3
     mediasoup-client: ^3.6.29
     reconnecting-websocket: ^4.4.0
-    typescript: ^4.2.4
     ts-jest: ^26.5.4
+    typescript: ^4.2.4
     uuid: ^8.3.2
     ws: ^7.4.4
   languageName: unknown
@@ -1752,7 +1742,7 @@ __metadata:
   dependencies:
     "@babel/runtime": ^7.13.10
     "@date-io/date-fns": ^1.3.13
-    "@dogehouse/kebab": ^0.2.5
+    "@dogehouse/kebab": ^0.2.6
     "@material-ui/core": ^4.11.3
     "@material-ui/pickers": ^3.3.10
     "@storybook/addon-essentials": ^6.2.7
