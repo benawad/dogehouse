@@ -1,6 +1,6 @@
 ## Home
 <p align="center">
-<img src="https://raw.githubusercontent.com/benawad/dogehouse/staging/dogehouse-github.png"/>
+<img height=100 src="https://raw.githubusercontent.com/benawad/dogehouse/staging/.redesign-assets/dogehouse_logo.svg"/>
 </p>
 <p align="center">
  Taking voice conversations to the moon 🚀
@@ -9,7 +9,7 @@
 ## Welcome
 Welcome to the DogeHouse Documentation, the next voice conversation social platform.
 
-DogeHouse makes it easy to connect with friends and people over voice and chat message..
+DogeHouse makes it easy to connect with friends and people over voice and chat message.
 
 ### Overview
 - Dark theme
@@ -33,13 +33,12 @@ DogeHouse makes it easy to connect with friends and people over voice and chat m
     - Outlook
     - Outlook web app
     - Yahoo
-- Join Room, Leave room, Chat in room(Chat now has emojis😋), Mute/Unmute and Invite
-- Mention someone in the chat with the @ (@username)
+- Join room, leave room, chat in room (chat now has emojis😋), mute/unmute and invite
+- Mention someone in the chat with an @ (`@username`)
 - Whisper to someone in the room (#@username)
 - Write codeblocks using \`yourCodeHere\`
-- Delete message
-  You can only delete messages if:
-  - You wrote it.
+- Delete message. You can only delete messages if:
+  - You wrote it
   - You are a mod
 - Adjust volume of a speaker by clicking on their profile
 - 40+ Translations

@@ -6,16 +6,31 @@
  * @flow strict-local
  */
 import "react-native-gesture-handler";
+import "react-native-get-random-values";
+import { QueryClientProvider } from "react-query";
 import React, { useEffect } from "react";
-import { StatusBar } from "react-native";
+import { StatusBar, View } from "react-native";
 import SplashScreen from "react-native-splash-screen";
-import { useTokenStore } from "./src/module/auth/useTokenStore";
-import { NavigationContainer } from "@react-navigation/native";
-import { RootNavigator } from "./src/navigators/RootNavigator";
+import { useTokenStore } from "./src/modules/auth/useTokenStore";
+import { LinkingOptions, NavigationContainer } from "@react-navigation/native";
+import { AuthenticationSwitch } from "./src/navigation/AuthenticationSwitch";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { queryClient } from "./src/lib/queryClient";
+import Toast from "react-native-toast-message";
+import { useSoundEffectStore } from "./src/modules/sound-effect/useSoundEffectStore";
+import { registerGlobals } from "react-native-webrtc";
+import InCallManager from "react-native-incall-manager";
+import { useVoiceStore } from "./src/modules/webrtc/stores/useVoiceStore";
+import { navigationRef } from "./src/navigation/RootNavigation";
+import { MainWsHandlerProvider } from "./src/shared-hooks/useMainWsHandler";
+import { WebSocketProvider } from "./src/modules/ws/WebSocketProvider";
+import { colors } from "./src/constants/dogeStyle";
 
 const App: React.FC = () => {
+  registerGlobals();
+
   const loadTokens = useTokenStore((state) => state.loadTokens);
+  useSoundEffectStore();
   const isTokenStoreReady = useTokenStore(
     (s) => s.accessToken !== undefined && s.refreshToken !== undefined
   );
@@ -29,13 +44,39 @@ const App: React.FC = () => {
     }
   }, [isTokenStoreReady]);
 
+  const isVoicePrepared = useVoiceStore((s) => s.device !== undefined);
+  const prepare = useVoiceStore((state) => state.prepare);
+  if (!isVoicePrepared) {
+    prepare();
+  }
+
+  const deepLinksConf = {
+    screens: {
+      Room: "room/:roomId",
+    },
+  };
+
+  const linking: LinkingOptions = {
+    prefixes: ["dogehouse://", "https://next.dogehouse.tv"],
+    config: deepLinksConf,
+  };
+
   return (
-    <SafeAreaProvider>
-      <NavigationContainer>
-        <StatusBar barStyle="light-content" />
-        <RootNavigator />
-      </NavigationContainer>
-    </SafeAreaProvider>
+    <WebSocketProvider shouldConnect={true}>
+      <QueryClientProvider client={queryClient}>
+        <MainWsHandlerProvider />
+        <SafeAreaProvider>
+          <NavigationContainer ref={navigationRef} linking={linking}>
+            <StatusBar
+              barStyle="light-content"
+              backgroundColor={colors.primary900}
+            />
+            <AuthenticationSwitch />
+            <Toast ref={(ref) => Toast.setRef(ref)} />
+          </NavigationContainer>
+        </SafeAreaProvider>
+      </QueryClientProvider>
+    </WebSocketProvider>
   );
 };
 

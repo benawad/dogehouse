@@ -131,7 +131,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
           ) : null}
 
           {/* Set new creator */}
-          {!isMe && iAmCreator ? (
+          {!isMe && iAmCreator && profile.roomPermissions?.isSpeaker ? (
             <div className="mb-4">
               <Button
                 onClick={() => {
@@ -141,11 +141,12 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                     d: {
                       userId: profile.id,
                     },
-                  })
-                }}>
-                  {t("components.modals.profileModal.makeRoomCreator")}
-                  </Button>
-              </div>
+                  });
+                }}
+              >
+                {t("components.modals.profileModal.makeRoomCreator")}
+              </Button>
+            </div>
           ) : null}
 
           {/* Add speaker button */}

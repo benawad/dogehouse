@@ -1,60 +1,86 @@
-import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
-import { useRouter } from "next/router";
-import React from "react";
-import { useCurrentRoomStore } from "../../global-stores/useCurrentRoomStore";
-import { isUuid } from "../../lib/isUuid";
-import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
-import { Button } from "../../ui/Button";
-import { ErrorToast } from "../../ui/ErrorToast";
+import React, { useState } from "react";
+import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
+import { useConn } from "../../shared-hooks/useConn";
+import { CenterLoader } from "../../ui/CenterLoader";
 import { RoomHeader } from "../../ui/RoomHeader";
+import { CreateRoomModal } from "../dashboard/CreateRoomModal";
+import { MiddlePanel } from "../layouts/GridPanels";
+import { RoomPanelIconBarController } from "./RoomPanelIconBarController";
+import { RoomUsersPanel } from "./RoomUsersPanel";
+import { useGetRoomByQueryParam } from "./useGetRoomByQueryParam";
+import { UserPreviewModal } from "./UserPreviewModal";
+import { HeaderController } from "../display/HeaderController";
+import { useRoomChatStore } from "./chat/useRoomChatStore";
+import { useScreenType } from "../../shared-hooks/useScreenType";
 
 interface RoomPanelControllerProps {}
 
 export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
-  const { currentRoom, setCurrentRoom } = useCurrentRoomStore();
-  const { query } = useRouter();
-  const roomId = typeof query.id === "string" ? query.id : "";
-  const { data } = useTypeSafeQuery(
-    ["joinRoomAndGetInfo", currentRoom?.id || ""],
-    {
-      enabled: isUuid(roomId),
-      onSuccess: ((d: JoinRoomAndGetInfoResponse | { error: string }) => {
-        if (!("error" in d)) {
-          setCurrentRoom(() => d.room);
-        }
-      }) as any,
-    },
-    [roomId]
-  );
+  const conn = useConn();
+  const { currentRoomId } = useCurrentRoomIdStore();
+  const [showEditModal, setShowEditModal] = useState(false);
+  const { data, isLoading } = useGetRoomByQueryParam();
+  const open = useRoomChatStore((s) => s.open);
+  const screenType = useScreenType();
 
-  if (!data) {
-    // @todo add error handling
-    return null;
-  }
-
-  // @todo start using error codes
-  if ("error" in data) {
-    // @todo replace with real design
+  if (isLoading || !currentRoomId) {
     return (
-      <div>
-        <ErrorToast message={data.error} />
-      </div>
+      <>
+        <MiddlePanel>
+          <CenterLoader />
+        </MiddlePanel>
+      </>
     );
   }
 
-  if (!currentRoom) {
+  if (!data || "error" in data) {
     return null;
   }
 
-  const roomCreator = data?.users.find((x) => x.id === currentRoom.creatorId);
+  const roomCreator = data.users.find((x: any) => x.id === data.room.creatorId);
 
   return (
-    <div>
-      <RoomHeader
-        title={currentRoom.name}
-        description={currentRoom.description || ""}
-        names={roomCreator ? [roomCreator.username] : []}
-      />
-    </div>
+    <>
+      {showEditModal ? (
+        <CreateRoomModal
+          onRequestClose={() => setShowEditModal(false)}
+          edit
+          data={{
+            name: data.room.name,
+            description: data.room.description || "",
+            privacy: data.room.isPrivate ? "private" : "public",
+          }}
+        />
+      ) : null}
+      <HeaderController embed={{}} title={data.room.name} />
+      <MiddlePanel
+        stickyChildren={
+          <RoomHeader
+            onTitleClick={
+              data.room.creatorId === conn.user.id
+                ? () => setShowEditModal(true)
+                : undefined
+            }
+            title={data.room.name}
+            description={data.room.description || ""}
+            names={roomCreator ? [roomCreator.username] : []}
+          />
+        }
+      >
+        <UserPreviewModal {...data} />
+        {screenType === "fullscreen" && open ? null : (
+          <RoomUsersPanel {...data} />
+        )}
+        <div
+          className={`sticky bottom-0 pb-7 bg-primary-900 ${
+            (screenType === "fullscreen" || screenType === "1-cols") && open
+              ? "flex-1"
+              : ""
+          }`}
+        >
+          <RoomPanelIconBarController {...data} />
+        </div>
+      </MiddlePanel>
+    </>
   );
 };

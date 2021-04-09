@@ -69,9 +69,9 @@ export const RoomCard: React.FC<RoomCardProps> = ({
   return (
     <button
       onClick={onClick}
-      className="p-4 w-full bg-primary-800 hover:bg-primary-800 rounded-lg flex flex-col"
+      className="flex flex-col w-full p-4 rounded-lg transition duration-500 ease-in-out bg-primary-800 hover:bg-primary-700"
     >
-      <div className="w-full flex justify-between space-x-4">
+      <div className="flex justify-between w-full space-x-4">
         <RoomCardHeading
           icon={roomLive ? undefined : <SolidTime />}
           text={title}
@@ -82,8 +82,10 @@ export const RoomCard: React.FC<RoomCardProps> = ({
           </BubbleText>
         </div>
       </div>
-      <div className="text-primary-300 mt-2 break-words block">{subtitle}</div>
-      <div className="space-x-2 mt-4">
+      <p className="block w-full mt-2 text-left break-all truncate whitespace-pre-wrap line-clamp-2 text-primary-300">
+        {subtitle}
+      </p>
+      <div className="mt-4 space-x-2">
         {tags.map((tag, idx) => (
           <Tag key={idx}>{tag}</Tag>
         ))}

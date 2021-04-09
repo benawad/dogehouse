@@ -14,7 +14,8 @@
     "copyLink": "Kopier link",
     "copied": "Kopieret",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please give DogeHouse Accessibility permessions"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,7 +37,11 @@
       "startPrivateRoom": "Start et privat rum med dem"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Start Rum", "refresh": "Opdater" },
+    "home": {
+      "createRoom": "Start Rum",
+      "refresh": "Opdater",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "rummet er væk, gå tilbage",
       "shareRoomLink": "Del et link til rummet",
@@ -60,7 +65,8 @@
       "probablyLoading": "Indlæser sandsynligvis...",
       "voiceSettings": "Gå til stemmeindstillinger",
       "soundSettings": "Gå til lydindstillinger",
-      "deleteAccount": "Slet konto"
+      "deleteAccount": "Slet konto",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Ups! Denne side gik tabt i samtalen.",
@@ -70,7 +76,9 @@
     "room": {
       "speakers": "Højttalere",
       "requestingToSpeak": "Anmoder om at tale",
-      "listeners": "Lyttere"
+      "listeners": "Lyttere",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Søger..." },
     "soundEffectSettings": { "header": "Lyde" },
@@ -80,7 +88,10 @@
       "followers": "Følgere",
       "following": "Følger",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Lydindstillinger",
@@ -88,6 +99,12 @@
       "permissionError": "Ingen mikrofoner fundet, du har enten ikke koblet nogen til eller ikke givet denne hjemmeside tilladelse.",
       "refresh": "Opdater mikrofonliste",
       "volume": "Lydstyrke:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings",
+      "errorMsg": "Please enter valid app title",
+      "label": "Enter app title"
     }
   },
   "components": {
@@ -132,7 +149,8 @@
       "setKeybind": "Indstil genvej",
       "listening": "Lytter",
       "toggleMuteKeybind": "Slå mikrofon til/fra genvej",
-      "togglePushToTalkKeybind": "Slå push-to-talk til/fra genvej"
+      "togglePushToTalkKeybind": "Slå push-to-talk til/fra genvej",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Ingen audio consumer af en eller anden grund"
@@ -185,7 +203,9 @@
       "roomSettingsModal": {
         "requirePermission": "kræv tilladelse for at tale",
         "makePublic": "Gør rum offentligt",
-        "makePrivate": "Gør rum privat"
+        "makePrivate": "Gør rum privat",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

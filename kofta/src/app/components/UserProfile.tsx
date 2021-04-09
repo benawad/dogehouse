@@ -16,6 +16,7 @@ import { Avatar } from "./Avatar";
 import { Button } from "./Button";
 import { EditProfileModal } from "./EditProfileModal";
 import { copyTextToClipboard } from "../utils/copyToClipboard";
+import isElectron from "is-electron";
 
 interface UserProfileProps {
   profile: RoomUser;
@@ -62,6 +63,13 @@ export const UserProfile: React.FC<UserProfileProps> = ({
     history.push(`/${isFollowing ? "following" : "followers"}/${profile.id}`);
   };
   const profileUrl = `${window.location.origin}/user/${userProfile.username}`;
+
+  useEffect(() => {
+    if (isElectron()) {
+      let ipcRenderer = window.require("electron").ipcRenderer;
+      ipcRenderer.send("@rpc/page", { page: 'profile', data: profile.username })
+    }
+  }, [profile])
   return (
     <>
       <EditProfileModal
@@ -84,53 +92,53 @@ export const UserProfile: React.FC<UserProfileProps> = ({
         </div>
         <div className="flex items-center">
           <Button
+            onClick={() => {
+              if (copyTextToClipboard(profileUrl)) {
+                toast(t("pages.viewUser.urlCopied"), { type: "success" });
+              }
+            }}
+            variant="small"
+          >
+            {t("pages.viewUser.copyProfileUrl")}
+          </Button>
+          {me?.id === profile.id ? (
+            <Button
+              className="ml-3"
               onClick={() => {
-                if(copyTextToClipboard(profileUrl)){
-                  toast(t("pages.viewUser.urlCopied"), { type: "success" });
-                }
+                setEditProfileModalOpen(true);
               }}
               variant="small"
             >
-              {t("pages.viewUser.copyProfileUrl")}
-          </Button>
-          {me?.id === profile.id ? (
-              <Button
-                className="ml-3"
-                onClick={() => {
-                  setEditProfileModalOpen(true);
-                }}
-                variant="small"
-              >
-                {t("pages.viewUser.editProfile")}
-              </Button>
-          ) : 
-          userProfile.youAreFollowing === null ||
-          userProfile.youAreFollowing === undefined ? null : (
-            <div>
-              <Button
-                className="ml-3"
-                onClick={() => {
-                  wsend({
-                    op: "follow",
-                    d: {
-                      userId: profile.id,
-                      value: !youAreFollowing,
-                    },
-                  });
-                  setYouAreFollowing(!youAreFollowing);
-                  onFollowUpdater(setCurrentRoom, me, profile);
-                }}
-                variant="small"
-              >
-                {youAreFollowing ? t("pages.viewUser.followingHim") : t("pages.viewUser.followHim")}
-              </Button>
-            </div>
-          )}
+              {t("pages.viewUser.editProfile")}
+            </Button>
+          ) :
+            userProfile.youAreFollowing === null ||
+              userProfile.youAreFollowing === undefined ? null : (
+              <div>
+                <Button
+                  className="ml-3"
+                  onClick={() => {
+                    wsend({
+                      op: "follow",
+                      d: {
+                        userId: profile.id,
+                        value: !youAreFollowing,
+                      },
+                    });
+                    setYouAreFollowing(!youAreFollowing);
+                    onFollowUpdater(setCurrentRoom, me, profile);
+                  }}
+                  variant="small"
+                >
+                  {youAreFollowing ? t("pages.viewUser.followingHim") : t("pages.viewUser.followHim")}
+                </Button>
+              </div>
+            )}
         </div>
       </div>
       <div className={`font-semibold`}>{profile.displayName}</div>
       <div className={`my-1 flex`}>
-        <div>@{profile.username}</div>
+        <div className={`font-mono`}>@{profile.username}</div>
         {me?.id !== profile.id && userProfile.followsYou ? (
           <div className={`ml-2 text-simple-gray-3d`}>
             {t("pages.viewUser.followsYou")}
@@ -166,7 +174,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
                           {chunk}{" "}
                         </a>
                       );
-                    } catch {}
+                    } catch { }
                   }
                   return <span key={`${i}${j}`}>{chunk} </span>;
                 })}
