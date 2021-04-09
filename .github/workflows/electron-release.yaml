@@ -36,7 +36,7 @@ jobs:
         run: yarn
       - name: Save env vars
         working-directory: baklava/src
-        run: echo "const DISCORD_CLIENT_ID = ${{ secrets.DISCORD_CLIENT_ID }}" >> constants.ts
+        run: echo "const DISCORD_CLIENT_ID = '${{ secrets.DISCORD_CLIENT_ID }}'" >> constants.ts
       - name: Compile Typescript
         working-directory: baklava
         run: yarn compile
