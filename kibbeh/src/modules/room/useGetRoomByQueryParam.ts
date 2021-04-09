@@ -7,15 +7,17 @@ import { validate as uuidValidate } from "uuid";
 import { showErrorToast } from "../../lib/showErrorToast";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import isElectron from "is-electron";
+import { useRoomChatStore } from "./chat/useRoomChatStore";
 
 let ipcRenderer: any = null;
 if (isElectron()) {
   ipcRenderer = window.require("electron").ipcRenderer;
 }
 export const useGetRoomByQueryParam = () => {
-  const { setCurrentRoomId } = useCurrentRoomIdStore();
+  const { currentRoomId, setCurrentRoomId } = useCurrentRoomIdStore();
   const { query } = useRouter();
   const roomId = typeof query.id === "string" ? query.id : "";
+  const reset = useRoomChatStore((s) => s.reset);
   const { data, isLoading } = useTypeSafeQuery(
     ["joinRoomAndGetInfo", roomId || ""],
     {
@@ -25,6 +27,9 @@ export const useGetRoomByQueryParam = () => {
         if (d && !("error" in d) && d.room) {
           if (isElectron()) {
             ipcRenderer.send("@room/joined", true);
+          }
+          if (currentRoomId !== d.room.id) {
+            reset();
           }
           setCurrentRoomId(() => d.room.id);
         }

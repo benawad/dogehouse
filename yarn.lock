@@ -1773,15 +1773,12 @@ __metadata:
     cross-env: ^7.0.3
     css-loader: ^5.2.0
     date-fns: ^2.19.0
-    emoji-mart: ^3.0.1
     emoji-regex: ^9.2.2
     eslint: ^7.23.0
     eslint-plugin-react: ^7.23.1
     eslint-plugin-react-hooks: ^4.2.0
     formik: ^2.2.6
-    framer-motion: ^4.1.2
     grapheme-splitter: ^1.0.4
-
     hark: ^1.2.3
     i18next: ^19.9.2
     i18next-browser-languagedetector: ^6.0.1
@@ -7880,18 +7877,6 @@ __metadata:
   version: 0.7.2
   resolution: "emittery@npm:0.7.2"
   checksum: 34acfef51922a1b73d75cb658bf43ecb279633b263ffa831fb87697abbbd3aa4241ef15d204eeaa6a3c62656bd7563de7145c416a2bb18c4805e54ce6d7cdac6
-  languageName: node
-  linkType: hard
-
-"emoji-mart@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "emoji-mart@npm:3.0.1"
-  dependencies:
-    "@babel/runtime": ^7.0.0
-    prop-types: ^15.6.0
-  peerDependencies:
-    react: ^0.14.0 || ^15.0.0-0 || ^16.0.0 || ^17.0.0
-  checksum: 82239f4f25ec728bc6cb3f32949fdde6b6c6364ff5bd2b04785afa81a5c8b8c624ba2b37ed6d0ee31215db231e60cc86adf19f6441f38db98d538b50cca1976b
   languageName: node
   linkType: hard
 
