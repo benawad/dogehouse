@@ -22,9 +22,6 @@
   <a href="./docs/README.MD">Documentation</a>
 </h3>
 
-<p align="center">Current: <b>https://dogehouse.tv/</b></p>
-<p align="center">Beta: <b>https://next.dogehouse.tv/</b></p>
-
 <h4 align="center">
   <a href="https://dogehouse.tv">DogeHouse</a>
   <span> · </span>
