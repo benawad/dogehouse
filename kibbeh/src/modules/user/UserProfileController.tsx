@@ -30,7 +30,7 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
     },
     [query.username as string]
   );
-  
+
   useEffect(() => {
     if (isElectron()) {
       const ipcRenderer = window.require("electron").ipcRenderer;
@@ -52,7 +52,6 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
         idOrUsernameUsedForQuery={data.username}
         user={data}
       />
-      
       {data.id === conn.user.id &&
         <div className={`pt-6 flex`}>
           <EditProfileModal isOpen={open} onRequestClose={() => setOpen(false)} />
