@@ -1,19 +1,21 @@
 import isElectron from "is-electron";
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { isServer } from "../../lib/isServer";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../../ui/Button";
 import { CenterLoader } from "../../ui/CenterLoader";
 import { InfoText } from "../../ui/InfoText";
+import { EditProfileModal } from "./EditProfileModal";
 import { VerticalUserInfoWithFollowButton } from "./VerticalUserInfoWithFollowButton";
 
-interface UserProfileControllerProps { }
+interface UserProfileControllerProps {}
 
 const isMac = process.platform === "darwin";
 
-export const UserProfileController: React.FC<UserProfileControllerProps> = ({ }) => {
+export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) => {
+  const [open, setOpen] = useState(false);
   const { t } = useTypeSafeTranslation();
   const { push } = useRouter();
   const { query } = useRouter();
@@ -30,9 +32,9 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({ })
   useEffect(() => {
     if (isElectron()) {
       let ipcRenderer = window.require("electron").ipcRenderer;
-      ipcRenderer.send("@rpc/page", { page: 'profile', data: query.username })
+      ipcRenderer.send("@rpc/page", { page: "profile", data: query.username });
     }
-  }, [query])
+  }, [query]);
 
   if (isLoading) {
     return <CenterLoader />;
@@ -49,6 +51,14 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({ })
         user={data}
       />
       <div className={`pt-6 flex`}>
+        <EditProfileModal isOpen={open} onRequestClose={() => setOpen(false)} />
+        <Button
+          style={{ marginRight: "10px" }}
+          size="small"
+          onClick={() => setOpen(true)}
+        >
+          {t("pages.viewUser.editProfile")}
+        </Button>
         <Button
           style={{ marginRight: "10px" }}
           size="small"

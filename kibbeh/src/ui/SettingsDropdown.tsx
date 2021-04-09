@@ -1,20 +1,16 @@
+import { User } from "@dogehouse/kebab";
 import React, { ReactNode, useState } from "react";
+import {
+  OutlineGlobe,
+  SolidBug,
+  SolidCaretRight,
+  SolidTime,
+  SolidUser,
+} from "../icons";
+import SvgSolidDiscord from "../icons/SolidDiscord";
+import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
 import { BaseOverlay } from "../ui/BaseOverlay";
 import { SettingsIcon } from "../ui/SettingsIcon";
-import {
-  SolidUser,
-  SolidSettings,
-  SolidDogenitro,
-  SolidHelp,
-  OutlineGlobe,
-  SolidCaretRight,
-  SolidBug,
-  SolidTime,
-} from "../icons";
-import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
-import { User } from "@dogehouse/kebab";
-import SvgSolidDiscord from "../icons/SolidDiscord";
-import { NativeSelect } from "./NativeSelect";
 import { LanguageSelector } from "./LanguageSelector";
 
 export const SettingsDropdown: React.FC<{
