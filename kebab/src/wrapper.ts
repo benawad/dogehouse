@@ -88,7 +88,7 @@ export const wrap = (connection: Connection) => ({
     ): Promise<UserWithFollowInfo | null> =>
       connection.fetch("get_user_profile", { userId: idOrUsername }),
     getScheduledRooms: (
-      cursor: "" | number = "",
+      cursor = "",
       getOnlyMyScheduledRooms = false
     ): Promise<GetScheduledRoomsResponse> =>
       connection.fetch("get_scheduled_rooms", {

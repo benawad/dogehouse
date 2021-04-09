@@ -37,6 +37,7 @@ export interface ScheduledRoom {
   name: string;
   id: UUID;
   creatorId: UUID;
+  creator: User;
 }
 
 export type User = {

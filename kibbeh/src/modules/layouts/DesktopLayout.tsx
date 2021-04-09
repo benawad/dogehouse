@@ -8,14 +8,14 @@ import { TabletSidebar } from "./TabletSidebar";
 interface MainLayoutProps {
   floatingRoomInfo?: React.ReactNode;
   tabletSidebar?: React.ReactNode;
-  leftPanel: React.ReactNode;
-  rightPanel: React.ReactNode;
+  leftPanel?: React.ReactNode;
+  rightPanel?: React.ReactNode;
 }
 
 export const DesktopLayout: React.FC<MainLayoutProps> = ({
   children,
-  leftPanel,
-  rightPanel,
+  leftPanel = <div />,
+  rightPanel = <div />,
   tabletSidebar = <TabletSidebar />,
   floatingRoomInfo = <FloatingRoomInfo />,
 }) => {
