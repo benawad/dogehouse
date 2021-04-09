@@ -18,7 +18,7 @@ import { useMicIdStore } from "../webrtc/stores/useMicIdStore";
 import { HeaderController } from "../../modules/display/HeaderController";
 import isElectron from "is-electron";
 
-interface VoiceSettingsProps { }
+interface VoiceSettingsProps {}
 
 export const VoiceSettingsPage: PageComponent<VoiceSettingsProps> = () => {
   const { micId, setMicId } = useMicIdStore();
@@ -28,10 +28,10 @@ export const VoiceSettingsPage: PageComponent<VoiceSettingsProps> = () => {
   );
   useEffect(() => {
     if (isElectron()) {
-      let ipcRenderer = window.require("electron").ipcRenderer;
-      ipcRenderer.send("@rpc/page", { page: "voice-settings", data: '' })
+      const ipcRenderer = window.require("electron").ipcRenderer;
+      ipcRenderer.send("@rpc/page", { page: "voice-settings", data: "" });
     }
-  }, [])
+  }, []);
   const fetchMics = useCallback(() => {
     navigator.mediaDevices.getUserMedia({ audio: true }).then(() => {
       navigator.mediaDevices
