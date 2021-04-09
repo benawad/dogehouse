@@ -22,37 +22,44 @@ export const DesktopLayout: React.FC<MainLayoutProps> = ({
   const screenType = useScreenType();
 
   let middle = null;
-
-  if (screenType === "3-cols") {
-    middle = (
+  
+  switch(screenType) {
+		case "3-cols":
+			middle = (
       <>
         <LeftPanel>{leftPanel}</LeftPanel>
         {children}
         <RightPanel>{rightPanel}</RightPanel>
       </>
-    );
-  } else if (screenType === "2-cols") {
-    middle = (
+    	);
+			break;
+		case "2-cols":
+			middle = (
       <>
         <LeftPanel>{tabletSidebar}</LeftPanel>
         {children}
         <RightPanel>{rightPanel}</RightPanel>
       </>
-    );
-  } else if (screenType === "1-cols") {
-    middle = (
+    	);
+			break;
+		case "1-cols":
+			middle = (
       <>
         <LeftPanel>{tabletSidebar}</LeftPanel>
         {children}
       </>
-    );
-  } else if (screenType === "fullscreen") {
-    middle = (
+    	);
+			break;
+		case "fullscreen":
+			middle = (
       <>
         {children}
         {floatingRoomInfo}
       </>
-    );
+    	);
+			break;
+		default:
+			break;
   }
 
   return (
