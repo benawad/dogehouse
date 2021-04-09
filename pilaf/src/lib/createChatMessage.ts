@@ -1,5 +1,5 @@
 import { BaseUser } from "@dogehouse/kebab";
-import { linkRegex, codeBlockRegex } from "../constants/env";
+import { linkRegex, codeBlockRegex } from "../constants/regex";
 
 export const createChatMessage = (
   message: string,

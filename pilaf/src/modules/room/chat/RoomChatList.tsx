@@ -1,6 +1,7 @@
 import { Room } from "@dogehouse/kebab";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Image, Text, View } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import {
   colors,
   fontSize,
@@ -10,13 +11,13 @@ import {
 } from "../../../constants/dogeStyle";
 import { useConn } from "../../../shared-hooks/useConn";
 import { useCurrentRoomInfo } from "../../../shared-hooks/useCurrentRoomInfo";
-import { UserPreviewModalContext } from "../UserPreviewModalProvider";
 import { emoteMap } from "./EmoteData";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
-import { ScrollView } from "react-native-gesture-handler";
+
 interface ChatListProps {
   room: Room;
+  onUsernamePress: (userId: string, message?: RoomChatMessage) => void;
 }
 
 const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
@@ -27,10 +28,10 @@ const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
   );
 };
 
-const onUserPress = (userId: string, message?: RoomChatMessage) => {};
-
-export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
-  const { setData } = useContext(UserPreviewModalContext);
+export const RoomChatList: React.FC<ChatListProps> = ({
+  room,
+  onUsernamePress,
+}) => {
   const scrollView = useRef<ScrollView>(null);
   const [scrollViewHeight, setScrollViewHeight] = useState(0);
   const [listHeight, setListHeight] = useState(0);
@@ -38,10 +39,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
 
   const me = useConn().user;
   const { isMod: iAmMod, isCreator: iAmCreator } = useCurrentRoomInfo();
-  const [
-    messageToBeDeleted,
-    setMessageToBeDeleted,
-  ] = useState<RoomChatMessage | null>(null);
   const {
     isRoomChatScrolledToTop,
     setIsRoomChatScrolledToTop,
@@ -120,18 +117,17 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                     marginHorizontal: 5,
                     textAlignVertical: "center",
                   }}
-                  onPress={() =>
-                    setData({
-                      userId: m.userId,
-                      message:
-                        (me?.id === m.userId ||
-                          iAmCreator ||
-                          (iAmMod && room.creatorId !== m.userId)) &&
+                  onPress={() => {
+                    onUsernamePress(
+                      m.userId,
+                      (me?.id === m.userId ||
+                        iAmCreator ||
+                        (iAmMod && room.creatorId !== m.userId)) &&
                         !m.deleted
-                          ? m
-                          : undefined,
-                    })
-                  }
+                        ? m
+                        : undefined
+                    );
+                  }}
                 >
                   {m.username}:{" "}
                 </Text>
