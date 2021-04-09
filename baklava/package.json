@@ -1,6 +1,6 @@
 {
     "name": "dogehouse",
-    "version": "1.0.47",
+    "version": "1.0.48",
     "description": "Taking voice conversations to the moon 🚀",
     "main": "./dist/electron.js",
     "scripts": {
@@ -103,7 +103,7 @@
         "electron-log": "^4.3.2",
         "electron-overlay-window": "^1.0.4",
         "electron-updater": "^4.3.8",
-        "globkey": "^1.0.35",
+        "globkey": "^1.0.36",
         "i18next": "^20.0.0",
         "i18next-node-fs-backend": "^2.1.3"
     },
