@@ -18,6 +18,7 @@ import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
 import electronLogger from 'electron-log';
+import { startRPC } from "./utils/rpc";
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
@@ -77,7 +78,7 @@ function createMainWindow() {
     mainWindow.webContents.openDevTools();
   }
   mainWindow.loadURL(
-    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000/dash"
+    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000"
   );
 
   bWindows = {
@@ -110,6 +111,9 @@ function createMainWindow() {
   if (isMac) {
     mainWindow.webContents.send("@alerts/permissions", true);
   }
+
+  // start rpc
+  startRPC();
 
   // registers global keybinds
   RegisterKeybinds(bWindows);

@@ -24,7 +24,7 @@ export const useGetRoomByQueryParam = () => {
       onSuccess: ((d: JoinRoomAndGetInfoResponse | { error: string }) => {
         if (d && !("error" in d) && d.room) {
           if (isElectron()) {
-            ipcRenderer.send("@voice/active", true);
+            ipcRenderer.send("@room/joined", true);
           }
           setCurrentRoomId(() => d.room.id);
         }
@@ -38,7 +38,7 @@ export const useGetRoomByQueryParam = () => {
     if (roomId) {
       setCurrentRoomId(roomId);
       if (isElectron()) {
-        ipcRenderer.send("@voice/active", true);
+        ipcRenderer.send("@room/joined", true);
       }
     }
   }, [roomId, setCurrentRoomId]);
@@ -53,7 +53,7 @@ export const useGetRoomByQueryParam = () => {
     if (noData) {
       setCurrentRoomId(null);
       if (isElectron()) {
-        ipcRenderer.send("@voice/active", false);
+        ipcRenderer.send("@room/joined", false);
       }
       push("/dash");
       return;
@@ -61,7 +61,7 @@ export const useGetRoomByQueryParam = () => {
     if (errMsg) {
       setCurrentRoomId(null);
       if (isElectron()) {
-        ipcRenderer.send("@voice/active", false);
+        ipcRenderer.send("@room/joined", false);
       }
       console.log(errMsg, isLoading);
       showErrorToast(errMsg);
