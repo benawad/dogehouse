@@ -15,7 +15,8 @@ _
 kebab/lib
 yarn-error.log
 
-.yarn/*
+dist
+.yarn
 !.yarn/releases
 !.yarn/plugins
 !.yarn/sdks
