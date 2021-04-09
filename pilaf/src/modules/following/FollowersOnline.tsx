@@ -102,7 +102,7 @@ export const FollowersOnlineWrapper: React.FC<{
 }> = ({ onlineFriendCount, children }) => {
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>People online</Text>
+      <Text style={styles.title}>People</Text>
       {children}
     </ScrollView>
   );

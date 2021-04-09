@@ -11,6 +11,8 @@ import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
 import { useKeyboard } from "@react-native-community/hooks";
 import BottomSheet from "reanimated-bottom-sheet";
 import { useNavigation } from "@react-navigation/core";
+import { useConn } from "../../../shared-hooks/useConn";
+import { useCurrentRoomInfo } from "../../../shared-hooks/useCurrentRoomInfo";
 
 interface ChatProps {
   room: Room;
@@ -30,6 +32,9 @@ export const RoomChat: React.FC<ChatProps> = ({
   const { message, setMessage } = useRoomChatStore();
   const keyboard = useKeyboard();
   const navigation = useNavigation();
+  const { canSpeak } = useCurrentRoomInfo();
+  const conn = useConn();
+  const me = users.find((u) => u.id === conn.user.id);
   useEffect(() => {
     Keyboard.addListener("keyboardWillShow", _keyboardDidShow);
     Keyboard.addListener("keyboardWillHide", _keyboardDidHide);
@@ -61,7 +66,11 @@ export const RoomChat: React.FC<ChatProps> = ({
         },
       ]}
     >
-      <RoomChatControls room={room} />
+      <RoomChatControls
+        room={room}
+        amISpeaker={canSpeak}
+        amIAskingForSpeak={me.roomPermissions?.askedToSpeak}
+      />
       <RoomChatList
         room={room}
         onUsernamePress={(userId: string, message?: RoomChatMessage) => {
