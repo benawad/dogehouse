@@ -143,7 +143,7 @@
       "inviteToRoom": "invită în cameră"
     },
     "micPermissionBanner": {
-      "permissionDenied": "Nu se poate accesa microfonul (s-ar putea să fie nevoie să schimbi setările browser-ului și să reîncarci pagina)",
+      "permissionDenied": "Nu se poate accesa microfonul (s-ar putea să fie nevoie să schimbați setările browser-ului și să reîncărcați pagina)",
       "dismiss": "Renunță",
       "tryAgain": "Încearcă din nou"
     },
