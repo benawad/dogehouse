@@ -19,7 +19,6 @@ const ScheduledHeading: Story<RoomCardHeadingProps> = ({ icon, text }) => {
         icon={icon || <SolidTime />}
         text={text || "Live with u/DeepFuckingValue"}
       />
-
   );
 };
 
