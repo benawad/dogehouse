@@ -33,7 +33,7 @@ export const connect: ConnectFunction<(device: Device) => Promise<void>> = (
   transport.on("connect", async ({ dtlsParameters }, resolve, reject) => {
     const result = await wrapper.mutation.connectTransport(transport.id, simplerDirection, dtlsParameters);
 
-    if(result) {
+    if("error" in result) {
       console.error(result.error);
       reject();
     } else {

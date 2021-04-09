@@ -49,7 +49,7 @@ export const wrap = (connection: Connection) => ({
       transportId: UUID,
       direction: "send" | "recv",
       dtlsParameters: DtlsParameters
-    ): Promise<{ error: string } | void> =>
+    ): Promise<{ error: string } | { roomId: UUID }> =>
       connection.fetch(
         "@connect-transport",
         { transportId, direction, dtlsParameters },
