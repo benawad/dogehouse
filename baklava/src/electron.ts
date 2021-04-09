@@ -195,10 +195,9 @@ if (!instanceLock) {
   app.on("ready", () => {
     localize().then(async () => {
       createSpalshWindow();
-      if (!__prod__) createMainWindow(); skipUpdateCheck(splash);
+      if (!__prod__) skipUpdateCheck(splash);
       if (__prod__ && !isLinux) await autoUpdater.checkForUpdates();
       if (isLinux && __prod__) {
-        createMainWindow();
         skipUpdateCheck(splash);
       }
     })
@@ -234,20 +233,13 @@ autoUpdater.on('update-downloaded', () => {
   if (skipUpdateTimeout) {
     clearTimeout(skipUpdateTimeout);
   }
-  setTimeout(async () => {
+  setTimeout(() => {
     autoUpdater.quitAndInstall();
   }, 1000);
 });
 autoUpdater.on('update-not-available', () => {
-  createMainWindow();
   splash.webContents.send('launch');
-  windowShowInterval = setInterval(() => {
-    if (shouldShowWindow) {
-      splash.destroy();
-      mainWindow.show();
-      clearInterval(windowShowInterval);
-    }
-  }, 500);
+  skipUpdateCheck(splash);
 });
 app.on("window-all-closed", async () => {
   await exitApp();
@@ -261,23 +253,25 @@ app.on("activate", () => {
 });
 
 function skipUpdateCheck(splash: BrowserWindow) {
+  createMainWindow();
   if (!splash.isDestroyed()) {
     splash.webContents.send('skipCheck');
   }
+  // stop timeout that skips the update
+  if (skipUpdateTimeout) {
+    clearTimeout(skipUpdateTimeout);
+  }
   windowShowInterval = setInterval(() => {
-    // stop timeout that skips the update
-    if (skipUpdateTimeout) {
-      clearTimeout(skipUpdateTimeout);
-    }
     if (shouldShowWindow) {
-      if (!splash.isDestroyed()) {
-        splash.webContents.send('launch');
-      }
       clearInterval(windowShowInterval);
       setTimeout(() => {
         if (!splash.isDestroyed()) {
+          splash.webContents.send('launch');
+        }
+        if (!splash.isDestroyed()) {
           splash.destroy();
         }
+        electronLogger.info('SKIP UPDATE CHECK SHOWING')
         mainWindow.show();
       }, 800);
     }

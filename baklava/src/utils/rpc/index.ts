@@ -26,7 +26,7 @@ export async function startRPC() {
     client.on('ready', () => {
         RPC_RUNNING = true;
         startRPCIPCHandler();
-        setPresence({ details: 'Exploring the home page' });
+        setPresence({ details: 'Logging In...' });
     })
 }
 
