@@ -57,7 +57,6 @@ export const useSplitUsersIntoSections = ({
         }}
       />
     );
-    // }
   });
 
   return { speakers, listeners, askingToSpeak, canIAskToSpeak };
