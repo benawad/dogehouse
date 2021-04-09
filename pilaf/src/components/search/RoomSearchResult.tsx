@@ -11,7 +11,6 @@ import {
 } from "react-native";
 import {
   colors,
-  paragraph,
   paragraphBold,
   radius,
   small,

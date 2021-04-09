@@ -7,7 +7,7 @@ export const LanguagesController: React.FC = () => {
   return (
     <>
       <TitledHeader title={"Languages"} showBackButton={true} />
-      <View style={styles.container}></View>
+      <View style={styles.container} />
     </>
   );
 };

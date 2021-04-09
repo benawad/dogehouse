@@ -9,10 +9,8 @@ const refreshTokenKey = "@toum/refresh-token";
 export const useTokenStore = create(
   combine(
     {
-      accessToken:
-        undefined,
-      refreshToken:
-        undefined
+      accessToken: undefined,
+      refreshToken: undefined,
     },
     (set) => ({
       setTokens: async (x: { accessToken: string; refreshToken: string }) => {

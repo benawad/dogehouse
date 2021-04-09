@@ -7,7 +7,7 @@ export const WalletController: React.FC = () => {
   return (
     <>
       <TitledHeader title={"Wallet"} showBackButton={true} />
-      <View style={styles.container}></View>
+      <View style={styles.container} />
     </>
   );
 };

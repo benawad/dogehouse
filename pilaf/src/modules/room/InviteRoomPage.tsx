@@ -1,33 +1,21 @@
-import React from "react";
-import { useState } from "react";
+import { RouteProp } from "@react-navigation/native";
+import React, { useState } from "react";
 import {
   ScrollView,
   Share,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
   ViewStyle,
 } from "react-native";
-import { Button } from "../../components/buttons/Buttons";
-import { useWrappedConn } from "../../shared-hooks/useConn";
-import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
-import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
-import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
-import { Spinner } from "../../components/Spinner";
-import {
-  colors,
-  paragraph,
-  paragraphBold,
-  small,
-} from "../../constants/dogeStyle";
 import { SingleUserAvatar } from "../../components/avatars/SingleUserAvatar";
-import { ApiPreloadLink } from "../../shared-components/ApiPreloadLink";
-import { Room } from "@dogehouse/kebab";
-import { RouteProp } from "@react-navigation/native";
-import { RoomStackParamList } from "../../navigation/RoomNavigator";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { Button } from "../../components/buttons/Buttons";
 import { TitledHeader } from "../../components/header/TitledHeader";
+import { Spinner } from "../../components/Spinner";
+import { colors, paragraph, small } from "../../constants/dogeStyle";
+import { RoomStackParamList } from "../../navigation/mainNavigator/RoomNavigator";
+import { useWrappedConn } from "../../shared-hooks/useConn";
+import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 
 const InviteButton: React.FC<{ style: ViewStyle; onPress: () => void }> = ({
   style,
@@ -50,8 +38,6 @@ const InviteButton: React.FC<{ style: ViewStyle; onPress: () => void }> = ({
 
 const Page = ({
   cursor,
-  isLastPage,
-  onLoadMore,
 }: {
   cursor: number;
   isLastPage: boolean;
@@ -59,8 +45,6 @@ const Page = ({
   onLoadMore: (o: number) => void;
 }) => {
   const conn = useWrappedConn();
-  const { currentRoomId } = useCurrentRoomIdStore();
-  const prefetch = useTypeSafePrefetch();
   const { isLoading, data } = useTypeSafeQuery(
     ["getInviteList", cursor],
     {
@@ -151,7 +135,6 @@ const onShare = async (message: string) => {
 };
 
 export const InviteRoomPage: React.FC<InviteRoomPageProps> = ({ route }) => {
-  const inset = useSafeAreaInsets();
   const [cursors, setCursors] = useState([0]);
   const room = route.params.room;
   const url = "https://next.dogehouse.tv" + `/room/${room.id}`;

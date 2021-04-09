@@ -1,9 +1,7 @@
 import { wrap } from "@dogehouse/kebab";
-import { useCallback, useContext } from "react";
-import { useQuery, useQueryClient, UseQueryOptions } from "react-query";
-import { WebSocketContext } from "../modules/ws/WebSocketProvider";
+import { useCallback } from "react";
+import { useQueryClient } from "react-query";
 import { Await } from "../types/util-types";
-import { useWrappedConn } from "./useConn";
 
 type Keys = keyof ReturnType<typeof wrap>["query"];
 

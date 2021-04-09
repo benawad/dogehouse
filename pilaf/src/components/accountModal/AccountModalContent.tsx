@@ -1,4 +1,3 @@
-import { useNavigation } from "@react-navigation/core";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -16,7 +15,6 @@ export type AccountModalContentProps = {
 export const AccountModalContent: React.FC<AccountModalContentProps> = ({
   onPress,
 }) => {
-  const navigation = useNavigation();
   const inset = useSafeAreaInsets();
   return (
     <View style={[styles.content, { paddingBottom: inset.bottom }]}>

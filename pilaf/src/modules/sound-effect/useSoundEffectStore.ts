@@ -1,6 +1,6 @@
+import Sound from "react-native-sound";
 import create from "zustand";
 import { combine } from "zustand/middleware";
-import Sound from "react-native-sound";
 
 Sound.setCategory("Playback");
 

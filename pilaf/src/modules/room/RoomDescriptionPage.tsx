@@ -1,11 +1,7 @@
-import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
 import { RouteProp } from "@react-navigation/native";
 import React, { useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 import { SearchHeader } from "../../components/header/SearchHeader";
-import { RoomSearchResult } from "../../components/search/RoomSearchResult";
-import { SearchHistoryResult } from "../../components/search/SearchHistoryResult";
-import { SearchHistoryResultList } from "../../components/search/SearchHistoryResultList";
 import { UserSearchResult } from "../../components/search/UserSearchResult";
 import {
   colors,
@@ -15,47 +11,7 @@ import {
   small,
   smallBold,
 } from "../../constants/dogeStyle";
-import { RoomStackParamList } from "../../navigation/RoomNavigator";
-
-const searchMocks = [
-  {
-    id: 0,
-    title:
-      "Why CI & CD is important when working with a team and more because I need a long one",
-    subtitle:
-      "This is the subtitle This is the subtitle This is the subtitle This is the subtitle This is the subtitle",
-    listeners: 300,
-  },
-  {
-    id: 1,
-    title: "Why Elon Musk buys DogeCoin",
-    subtitle: "Because he can",
-    listeners: 200,
-  },
-  {
-    id: 2,
-    title: "The developer's hangout",
-    subtitle: "Terry Owen, Grace Abraham",
-    listeners: 200,
-  },
-  {
-    id: 3,
-    title: "Why we should remove React from Earth",
-    subtitle: "Because Angular is Better",
-    listeners: 230000,
-  },
-];
-
-const historyMocks = [
-  {
-    id: 0,
-    query: "Elon",
-  },
-  {
-    id: 1,
-    query: "React",
-  },
-];
+import { RoomStackParamList } from "../../navigation/mainNavigator/RoomNavigator";
 
 type RoomDescriptionPageRouteProp = RouteProp<
   RoomStackParamList,
