@@ -31,7 +31,7 @@ export const DesktopLayout: React.FC<MainLayoutProps> = ({
         {children}
         <RightPanel>{rightPanel}</RightPanel>
       </>
-    	);
+      );
       break;
     case "2-cols":
       middle = (
@@ -40,7 +40,7 @@ export const DesktopLayout: React.FC<MainLayoutProps> = ({
         {children}
         <RightPanel>{rightPanel}</RightPanel>
       </>
-    	);
+      );
       break;
     case "1-cols":
       middle = (
@@ -48,7 +48,7 @@ export const DesktopLayout: React.FC<MainLayoutProps> = ({
         <LeftPanel>{tabletSidebar}</LeftPanel>
         {children}
       </>
-    	);
+      );
       break;
     case "fullscreen":
       middle = (
@@ -56,7 +56,7 @@ export const DesktopLayout: React.FC<MainLayoutProps> = ({
         {children}
         {floatingRoomInfo}
       </>
-    	);
+      );
   }
 
   return (
