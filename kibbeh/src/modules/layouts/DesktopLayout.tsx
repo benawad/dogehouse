@@ -57,9 +57,6 @@ export const DesktopLayout: React.FC<MainLayoutProps> = ({
         {floatingRoomInfo}
       </>
     	);
-			break;
-		default:
-			break;
   }
 
   return (
