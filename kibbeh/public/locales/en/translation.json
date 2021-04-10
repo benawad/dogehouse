@@ -72,7 +72,8 @@
       "voiceSettings": "Voice Settings",
       "overlaySettings": "Overlay Settings",
       "soundSettings": "Sound Settings",
-      "deleteAccount": "Delete Account"
+      "deleteAccount": "Delete Account",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Whoops! This page got lost in conversation.",

@@ -67,7 +67,8 @@
       "voiceSettings": "マイク設定",
       "soundSettings": "スピーカー設定",
       "deleteAccount": "アカウント削除",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "おっと！？ このページは会話に紛れてしまいました。",

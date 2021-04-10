@@ -67,7 +67,8 @@
       "voiceSettings": "salss ziņu iestatījumi",
       "soundSettings": "skaņas iestatījumi",
       "deleteAccount": "dzēst kontu",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Ups! Šī lapa tika pazaudēta sarunā.",

@@ -67,7 +67,8 @@
       "voiceSettings": "Mergi la setările de voce",
       "soundSettings": "Mergi la setările de sunet",
       "deleteAccount": "Şterge cont",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Ups! Această pagină a fost pierdută în conversație.",
