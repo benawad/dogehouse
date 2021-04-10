@@ -31,12 +31,13 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
     [query.username as string]
   );
 
-  useEffect(() => {
-    if (isElectron()) {
-      const ipcRenderer = window.require("electron").ipcRenderer;
-      ipcRenderer.send("@rpc/page", { page: "profile", data: query.username });
-    }
-  }, [query]);
+  // commented this out as rn this shows up all the time
+  // useEffect(() => {
+   // if (isElectron()) {
+     // const ipcRenderer = window.require("electron").ipcRenderer;
+     // ipcRenderer.send("@rpc/page", { page: "profile", data: query.username });
+   // }
+ // }, [query]);
 
   if (isLoading) {
     return <CenterLoader />;
