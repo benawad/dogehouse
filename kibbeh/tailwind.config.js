@@ -68,11 +68,6 @@ module.exports = {
       24: "24rem",
       400: "400px",
     },
-    screens: {
-      'md': '800px',
-      'lg': '1265px',
-      'xl': '1440px',
-    },
     borderWidth: {
       DEFAULT: "1px",
     },
