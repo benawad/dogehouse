@@ -5,6 +5,8 @@ import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslatio
 import { RoomSectionHeader } from "../../ui/RoomSectionHeader";
 import { useSplitUsersIntoSections } from "./useSplitUsersIntoSections";
 import { WebSocketContext } from "../../modules/ws/WebSocketProvider";
+import { useScreenType } from "../../shared-hooks/useScreenType";
+import { useMediaQuery } from "react-responsive";
 
 interface RoomUsersPanelProps extends JoinRoomAndGetInfoResponse {}
 
@@ -22,6 +24,17 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
   } = useSplitUsersIntoSections(props);
   const { t } = useTypeSafeTranslation();
   const me = useContext(WebSocketContext).conn?.user || {};
+
+  let gridTemplateColumns = "repeat(5, minmax(0, 1fr))";
+  const screenType = useScreenType();
+  const isBigFullscreen = useMediaQuery({ minWidth: 640 });
+
+  if (isBigFullscreen) {
+    gridTemplateColumns = "repeat(4, minmax(0, 1fr))";
+  } else if (screenType === "fullscreen") {
+    gridTemplateColumns = "repeat(3, minmax(0, 1fr))";
+  }
+
   useEffect(() => {
     if (isElectron()) {
       ipcRenderer.send("@room/data", {
@@ -39,7 +52,7 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
       <div className="w-full block">
         <div
           style={{
-            gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
+            gridTemplateColumns
           }}
           className={`w-full grid gap-5`}
         >
