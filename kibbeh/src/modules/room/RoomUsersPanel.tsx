@@ -29,7 +29,7 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
   const screenType = useScreenType();
   const isBigFullscreen = useMediaQuery({ minWidth: 640 });
 
-  if (isBigFullscreen) {
+  if (isBigFullscreen && screenType === "fullscreen") {
     gridTemplateColumns = "repeat(4, minmax(0, 1fr))";
   } else if (screenType === "fullscreen") {
     gridTemplateColumns = "repeat(3, minmax(0, 1fr))";
