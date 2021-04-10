@@ -34,6 +34,9 @@ jobs:
       - name: Install deps
         working-directory: baklava
         run: yarn
+      - name: Save env vars
+        working-directory: baklava/src
+        run: echo "export const DISCORD_CLIENT_ID = '${{ secrets.DISCORD_CLIENT_ID }}'" >> constants.ts
       - name: Compile Typescript
         working-directory: baklava
         run: yarn compile

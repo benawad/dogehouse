@@ -27,10 +27,18 @@ export const SoundEffectSettings: React.FC<ChatSettingsProps> = () => {
   const { t } = useTypeSafeTranslation();
   useEffect(() => {
     if (isElectron()) {
-      let ipcRenderer = window.require("electron").ipcRenderer;
-      ipcRenderer.send("@rpc/page", { page: "sound-effect-settings", data: '' })
+      const ipcRenderer = window.require("electron").ipcRenderer;
+      ipcRenderer.send("@rpc/page", {
+        page: "sound-effect-settings",
+        opened: true,
+        modal: false,
+        data: "",
+      });
+      return () => {
+        ipcRenderer.send("@rpc/page", { page: "sound-effect-settings", opened: false, modal: false, data: "" });
+      }
     }
-  }, [])
+  }, []);
   return (
     <DefaultDesktopLayout>
       <HeaderController embed={{}} title="Sound Settings" />

@@ -6,7 +6,7 @@ import { RoomSectionHeader } from "../../ui/RoomSectionHeader";
 import { useSplitUsersIntoSections } from "./useSplitUsersIntoSections";
 import { WebSocketContext } from "../../modules/ws/WebSocketProvider";
 
-interface RoomUsersPanelProps extends JoinRoomAndGetInfoResponse { }
+interface RoomUsersPanelProps extends JoinRoomAndGetInfoResponse {}
 
 let ipcRenderer: any = undefined;
 if (isElectron()) {
@@ -26,13 +26,16 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
     if (isElectron()) {
       ipcRenderer.send("@room/data", {
         currentRoom: props,
-        me: me
+        me,
       });
     }
   });
 
   return (
-    <div className={`pt-4 px-4 flex-1 bg-primary-800`} id={props.room.isPrivate ? "private-room" : "public-room"} >
+    <div
+      className={`pt-4 px-4 flex-1 bg-primary-800`}
+      id={props.room.isPrivate ? "private-room" : "public-room"}
+    >
       <div className="w-full block">
         <div
           style={{

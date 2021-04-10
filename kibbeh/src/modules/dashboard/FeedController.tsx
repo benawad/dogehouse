@@ -46,10 +46,15 @@ const Page = ({
   );
   useEffect(() => {
     if (isElectron()) {
-      let ipcRenderer = window.require("electron").ipcRenderer;
-      ipcRenderer.send("@rpc/page", { page: "home", data: data?.rooms.length })
+      const ipcRenderer = window.require("electron").ipcRenderer;
+      ipcRenderer.send("@rpc/page", { page: "home", opened: true, modal: false, data: data?.rooms.length });
+
+      return () => {
+        ipcRenderer.send("@rpc/page", { page: "home", opened: false, modal: false, data: data?.rooms.length });
+      }
     }
   }, [data]);
+
   if (isLoading) {
     return <CenterLoader />;
   }

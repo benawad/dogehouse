@@ -42,10 +42,10 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
 
   useEffect(() => {
     if (isElectron()) {
-      let ipcRenderer = window.require("electron").ipcRenderer;
-      ipcRenderer.send("@rpc/page", { page: "edit-profile", data: '' })
+      const ipcRenderer = window.require("electron").ipcRenderer;
+      ipcRenderer.send("@rpc/page", { page: "edit-profile", opened: isOpen, modal: true, data: "" });
     }
-  }, []);
+  }, [isOpen]);
 
   if (!conn) {
     return null;

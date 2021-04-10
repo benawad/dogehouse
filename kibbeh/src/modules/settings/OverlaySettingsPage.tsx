@@ -31,10 +31,13 @@ export const OverlaySettingsPage: PageComponent<OverlaySettingsProps> = () => {
 
   useEffect(() => {
     if (isElectron()) {
-      let ipcRenderer = window.require("electron").ipcRenderer;
-      ipcRenderer.send("@rpc/page", { page: "overlay-settings", data: '' })
+      const ipcRenderer = window.require("electron").ipcRenderer;
+      ipcRenderer.send("@rpc/page", { page: "overlay-settings", opened: true, modal: false, data: "" });
+      return () => {
+        ipcRenderer.send("@rpc/page", { page: "overlay-settings", opened: false, modal: false, data: "" });
+      }
     }
-  }, [])
+  }, []);
 
   return (
     <DefaultDesktopLayout>
