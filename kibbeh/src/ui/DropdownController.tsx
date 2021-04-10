@@ -47,16 +47,15 @@ export const DropdownController: React.FC<{
       </button>
       {createPortal(
         <div
-          className="z-20"
+          className="z-20 absolute top-9 right-3 md:right-0"
           ref={popperRef}
-          style={styles.popper}
           {...attributes.popper}
         >
-          <div style={styles.offset} className={`${visible ? "" : "hidden"}`}>
+          <div style={styles.offset} className={`${visible ? "" : "hidden"} fixed transform -translate-x-full`}>
             {visible ? overlay(() => setVisibility(false)) : null}
           </div>
         </div>,
-        document.querySelector("#__next")!
+        document.querySelector("#main")!
       )}
     </React.Fragment>
   );

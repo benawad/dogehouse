@@ -62,10 +62,16 @@ module.exports = {
       6: "40px",
       7: "60px",
       8: "75px",
+      9: "80px",
       "5l": "10rem",
       "n1/2": "-50%",
       24: "24rem",
       400: "400px",
+    },
+    screens: {
+      'md': '800px',
+      'lg': '1265px',
+      'xl': '1440px',
     },
     borderWidth: {
       DEFAULT: "1px",
