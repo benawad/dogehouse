@@ -1,4 +1,4 @@
 module.exports = {
-	placeholderName: 'rice',
-	templateDir: './template',
+  placeholderName: "rice",
+  templateDir: "./template",
 };

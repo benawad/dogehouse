@@ -100,14 +100,7 @@ export const CreateRoomPage: React.FC<CreateRoomModalProps> = ({
             }
           }}
         >
-          {({
-            values,
-            setFieldValue,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            errors,
-          }) => (
+          {({ values, setFieldValue, handleChange, handleSubmit, errors }) => (
             <ScrollView keyboardShouldPersistTaps="handled">
               <Text style={styles.titleText}>Create Room</Text>
               <Text style={styles.descriptionText}>

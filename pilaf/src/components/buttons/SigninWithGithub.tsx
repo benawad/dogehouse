@@ -17,7 +17,7 @@ const signinWithGithub = async () => {
     const url =
       apiBaseUrl + "/auth/github/web?redirect_after_base=dogehouse://home";
     if (await InAppBrowser.isAvailable()) {
-      const result = await InAppBrowser.open(url, {
+      await InAppBrowser.open(url, {
         // iOS Properties
         dismissButtonStyle: "cancel",
         preferredBarTintColor: colors.primary900,
@@ -42,7 +42,9 @@ const signinWithGithub = async () => {
           endExit: "slide_out_right",
         },
       });
-    } else Linking.openURL(url);
+    } else {
+      Linking.openURL(url);
+    }
   } catch (error) {
     Alert.alert(error.message);
   }

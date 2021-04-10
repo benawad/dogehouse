@@ -76,9 +76,9 @@ export const RoomCard: React.FC<RoomCardProps> = ({
 
   if (scheduledFor) {
     if (isToday(scheduledFor)) {
-      scheduledForLabel = format(scheduledFor, `K:mm a`);
+      scheduledForLabel = format(scheduledFor, "K:mm a");
     } else {
-      scheduledForLabel = format(scheduledFor, `LLL d`);
+      scheduledForLabel = format(scheduledFor, "LLL d");
     }
   }
 
@@ -117,7 +117,7 @@ export const RoomCard: React.FC<RoomCardProps> = ({
           </BubbleText>
         </View>
       </View>
-      <View></View>
+      <View />
       {tags && tags.length > 0 && (
         <View style={styles.tagsContainer}>{tags.map((tag) => tag)}</View>
       )}
