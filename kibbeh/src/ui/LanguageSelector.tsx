@@ -90,7 +90,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   const parsedOptions = options.map((e, i) => (
     <button
       key={i}
-      className={`items-center flex text-primary-100 w-full mb-2 py-1 px-2 rounded-5 focus:outline-no-chrome${
+      className={`items-center hover:bg-primary-700 transition duration-200 ease-out flex text-primary-100 w-full py-1 px-2 rounded-5 focus:outline-no-chrome${
         i18n.language === e.value ||
         (e.value === "en" && i18n.language === "en-US")
           ? " bg-primary-700"
