@@ -1,4 +1,5 @@
 import PushNotificationIOS from "@react-native-community/push-notification-ios";
+import { Platform } from "react-native";
 import PushNotification, {
   PushNotificationObject,
   PushNotificationPermissions,
@@ -64,19 +65,21 @@ export const configureNotificationCenter = () => {
     requestPermissions: false,
   });
 
-  PushNotificationIOS.setNotificationCategories([
-    {
-      id: "room_created",
-      actions: [
-        { id: "join", title: "Join the room", options: { foreground: true } },
-        {
-          id: "ignore",
-          title: "Ignore",
-          options: { foreground: true, destructive: true },
-        },
-      ],
-    },
-  ]);
+  if (Platform.OS === "ios") {
+    PushNotificationIOS.setNotificationCategories([
+      {
+        id: "room_created",
+        actions: [
+          { id: "join", title: "Join the room", options: { foreground: true } },
+          {
+            id: "ignore",
+            title: "Ignore",
+            options: { foreground: true, destructive: true },
+          },
+        ],
+      },
+    ]);
+  }
 };
 
 const pushPermissionSafe = (notification: PushNotificationObject) => {

@@ -13,3 +13,7 @@ export const InCallManagerStart = () => {
       });
   }
 };
+
+export const InCallManagerSetSpeakerOn = (on: boolean) => {
+  InCallManager.setSpeakerphoneOn(on);
+};

@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, StyleSheet, View, ViewProps, Text } from "react-native";
+import { ScrollView, StyleSheet, Text, View, ViewProps } from "react-native";
 import { colors, h4, radius } from "../../constants/dogeStyle";
 
 export const SearchHistoryResultList: React.FC<ViewProps> = ({

@@ -1,9 +1,8 @@
 import { wrap } from "@dogehouse/kebab";
-import React from "react";
-// import isElectron from "is-electron";
-import { FC, useContext, useEffect } from "react";
+import React, { FC, useContext, useEffect } from "react";
 import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
 import { useRoomChatMentionStore } from "../global-stores/useRoomChatMentionStore";
+import { pushRoomCreateNotification } from "../lib/notificationCenter";
 // import { showErrorToast } from "../lib/showErrorToast";
 import { useTokenStore } from "../modules/auth/useTokenStore";
 import {
@@ -14,8 +13,6 @@ import { mergeRoomPermission } from "../modules/webrtc/utils/mergeRoomPermission
 import { WebSocketContext } from "../modules/ws/WebSocketProvider";
 import { setMute } from "./useSetMute";
 import { useTypeSafeUpdateQuery } from "./useTypeSafeUpdateQuery";
-import PushNotification from "react-native-push-notification";
-import { pushRoomCreateNotification } from "../lib/notificationCenter";
 
 export const useMainWsHandler = () => {
   const { conn } = useContext(WebSocketContext);
