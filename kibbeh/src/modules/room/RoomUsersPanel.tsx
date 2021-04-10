@@ -39,7 +39,7 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
       <div className="w-full block">
         <div
           style={{
-            gridTemplateColumns: "repeat(auto-fit, 90px)",
+            gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
           }}
           className={`w-full grid gap-5`}
         >

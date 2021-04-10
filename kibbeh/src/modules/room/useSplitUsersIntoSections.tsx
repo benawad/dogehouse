@@ -70,20 +70,21 @@ export const useSplitUsersIntoSections = ({
 
   if (canIAskToSpeak) {
     speakers.push(
-      // match avatar size
-      <BoxedIcon
-        key="megaphone"
-        onClick={() => {
-          modalConfirm("Would you like to ask to speak?", () => {
-            wrap(conn).mutation.askToSpeak();
-          });
-        }}
-        style={{ width: 50, height: 50 }}
-        circle
-      >
-        {/* @todo add right icon */}
-        <SolidMegaphone />
-      </BoxedIcon>
+      <div className={`justify-center`}>
+        <BoxedIcon
+          key="megaphone"
+          onClick={() => {
+            modalConfirm("Would you like to ask to speak?", () => {
+              wrap(conn).mutation.askToSpeak();
+            });
+          }}
+          style={{ width: 60, height: 60 }}
+          circle
+        >
+          {/* @todo add right icon */}
+          <SolidMegaphone width={20} height={20} />
+        </BoxedIcon>
+      </div>
     );
   }
 
