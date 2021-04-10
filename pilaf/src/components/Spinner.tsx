@@ -1,15 +1,5 @@
 import React from "react";
-import {
-  StyleSheet,
-  TouchableOpacity,
-  Text,
-  ImageSourcePropType,
-  ViewProps,
-  Image,
-  ActivityIndicator,
-  Animated,
-  Easing,
-} from "react-native";
+import { Animated, Easing, ViewProps } from "react-native";
 import { colors } from "../constants/dogeStyle";
 
 export type SpinnerProps = ViewProps & {
@@ -55,5 +45,3 @@ export const Spinner: React.FC<SpinnerProps> = ({ style, size = "m" }) => {
     />
   );
 };
-
-const styles = StyleSheet.create({});

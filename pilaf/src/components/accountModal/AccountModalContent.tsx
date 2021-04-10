@@ -1,7 +1,6 @@
-import { useNavigation } from "@react-navigation/core";
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { colors, radius } from "../../constants/dogeStyle";
 import { AccountModalRow } from "./AccountModalRow";
 
@@ -16,9 +15,9 @@ export type AccountModalContentProps = {
 export const AccountModalContent: React.FC<AccountModalContentProps> = ({
   onPress,
 }) => {
-  const navigation = useNavigation();
+  const inset = useSafeAreaInsets();
   return (
-    <SafeAreaView style={styles.content}>
+    <View style={[styles.content, { paddingBottom: inset.bottom }]}>
       <View style={styles.dragIndicator} />
       <AccountModalRow
         icon={require("../../assets/images/account/sm-solid-user.png")}
@@ -56,7 +55,7 @@ export const AccountModalContent: React.FC<AccountModalContentProps> = ({
         onPress={() => onPress("ReportBug")}
       />
       <View />
-    </SafeAreaView>
+    </View>
   );
 };
 

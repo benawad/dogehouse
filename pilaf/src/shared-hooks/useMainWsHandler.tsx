@@ -1,9 +1,8 @@
 import { wrap } from "@dogehouse/kebab";
-import React from "react";
-// import isElectron from "is-electron";
-import { FC, useContext, useEffect } from "react";
+import React, { FC, useContext, useEffect } from "react";
 import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
 import { useRoomChatMentionStore } from "../global-stores/useRoomChatMentionStore";
+import { pushRoomCreateNotification } from "../lib/notificationCenter";
 // import { showErrorToast } from "../lib/showErrorToast";
 import { useTokenStore } from "../modules/auth/useTokenStore";
 import {
@@ -103,18 +102,18 @@ export const useMainWsHandler = () => {
         // }
       }),
       conn.addListener<any>("someone_you_follow_created_a_room", (value) => {
-        // @todo
-        // invitedToRoomConfirm(value, history);
-        // if (isElectron()) {
-        //   ipcRenderer.send("@notification/indirect_invitation", value);
-        // }
+        pushRoomCreateNotification(
+          value.username,
+          value.roomName,
+          value.roomId
+        );
       }),
       conn.addListener<any>("invitation_to_room", (value) => {
-        // @todo
-        // invitedToRoomConfirm(value, history);
-        // if (isElectron()) {
-        //   ipcRenderer.send("@notification/invitation", value);
-        // }
+        pushRoomCreateNotification(
+          value.username,
+          value.roomName,
+          value.roomId
+        );
       }),
       conn.addListener<any>(
         "active_speaker_change",

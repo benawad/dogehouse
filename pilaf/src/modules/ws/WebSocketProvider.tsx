@@ -1,6 +1,5 @@
 import { raw } from "@dogehouse/kebab";
 import React, { useEffect, useMemo, useState } from "react";
-import { apiBaseUrl } from "../../constants/env";
 import { useTokenStore } from "../auth/useTokenStore";
 
 interface WebSocketProviderProps {
@@ -34,6 +33,22 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
         .catch((err) => console.log(err));
     }
   }, [conn, shouldConnect, hasTokens]);
+
+  useEffect(() => {
+    if (!conn) {
+      return;
+    }
+
+    return conn.addListener<{
+      refreshToken: string;
+      accessToken: string;
+    }>("new-tokens", ({ refreshToken, accessToken }) => {
+      useTokenStore.getState().setTokens({
+        accessToken,
+        refreshToken,
+      });
+    });
+  }, [conn]);
 
   return (
     <WebSocketContext.Provider value={useMemo(() => ({ conn }), [conn])}>

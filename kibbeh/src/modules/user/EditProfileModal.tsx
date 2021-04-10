@@ -1,6 +1,7 @@
 import { BaseUser } from "@dogehouse/kebab";
 import { Form, Formik } from "formik";
-import React, { useContext } from "react";
+import isElectron from "is-electron";
+import React, { useContext, useEffect } from "react";
 import { useQueryClient } from "react-query";
 import { object, pattern, size, string } from "superstruct";
 import { FieldSpacer } from "../../form-fields/FieldSpacer";
@@ -20,7 +21,7 @@ const profileStruct = object({
   bio: size(string(), 0, 160),
   avatarUrl: pattern(
     string(),
-    /https?:\/\/(www\.|)((a|p)bs.twimg.com\/(profile_images|sticky\/default_profile_images)\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/)/
+    /^https?:\/\/(www\.|)((a|p)bs.twimg.com\/(profile_images|sticky\/default_profile_images)\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/)/
   ),
 });
 
@@ -38,6 +39,13 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
   const { conn, setUser } = useContext(WebSocketContext);
   const { mutateAsync, isLoading } = useTypeSafeMutation("editProfile");
   const { t } = useTypeSafeTranslation();
+
+  useEffect(() => {
+    if (isElectron()) {
+      const ipcRenderer = window.require("electron").ipcRenderer;
+      ipcRenderer.send("@rpc/page", { page: "edit-profile", opened: isOpen, modal: true, data: "" });
+    }
+  }, [isOpen]);
 
   if (!conn) {
     return null;

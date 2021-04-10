@@ -1,5 +1,5 @@
 import { BaseUser } from "@dogehouse/kebab";
-import { linkRegex, codeBlockRegex } from "../constants/env";
+import { codeBlockRegex, linkRegex } from "../constants/regex";
 
 export const createChatMessage = (
   message: string,
@@ -42,11 +42,17 @@ export const createChatMessage = (
     }
   };
 
-  const match = message.matchAll(new RegExp(codeBlockRegex, "g"));
-  let matchResult = match.next();
-  console.log(matchResult);
+  // const match = message.matchAll(new RegExp(codeBlockRegex, "g"));
+  const regex = new RegExp(codeBlockRegex, "g");
+  let match;
+  let matchResult = [];
+  while ((match = regex.exec(message)) !== null) {
+    matchResult.push(match[0]);
+  }
+  // let matchResult = match.next();
+
   // For message that matches the regex pattern of code blocks.
-  if (!matchResult.done) {
+  if (matchResult.length) {
     const splitMessage = message.split(codeBlockRegex);
 
     splitMessage.forEach((text, index) => {
@@ -57,7 +63,7 @@ export const createChatMessage = (
 
       const trimmed = text.trim();
 
-      if (!matchResult.done && text === matchResult.value[1]) {
+      if (matchResult.length && text === matchResult[1]) {
         if (trimmed) {
           tokens.push({
             t: "block",
@@ -66,7 +72,7 @@ export const createChatMessage = (
         } else {
           tokens.push({
             t: "text",
-            v: matchResult.value[0],
+            v: matchResult[0],
           });
         }
 
@@ -83,16 +89,6 @@ export const createChatMessage = (
     });
   }
 
-  console.log("RETURN ", {
-    tokens,
-    whisperedTo: roomUsers
-      .filter((u) =>
-        whisperedToUsernames
-          .map((x) => x?.toLowerCase())
-          .includes(u.username?.toLowerCase())
-      )
-      .map((u) => u.id),
-  });
   return {
     tokens,
     whisperedTo: roomUsers

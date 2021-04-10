@@ -1,6 +1,7 @@
 import { Room } from "@dogehouse/kebab";
 import React, { useEffect, useRef, useState } from "react";
-import { Image, ScrollView, Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import {
   colors,
   fontSize,
@@ -16,6 +17,7 @@ import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
 
 interface ChatListProps {
   room: Room;
+  onUsernamePress: (userId: string, message?: RoomChatMessage) => void;
 }
 
 const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
@@ -26,7 +28,10 @@ const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
   );
 };
 
-export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
+export const RoomChatList: React.FC<ChatListProps> = ({
+  room,
+  onUsernamePress,
+}) => {
   const scrollView = useRef<ScrollView>(null);
   const [scrollViewHeight, setScrollViewHeight] = useState(0);
   const [listHeight, setListHeight] = useState(0);
@@ -34,10 +39,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
 
   const me = useConn().user;
   const { isMod: iAmMod, isCreator: iAmCreator } = useCurrentRoomInfo();
-  const [
-    messageToBeDeleted,
-    setMessageToBeDeleted,
-  ] = useState<RoomChatMessage | null>(null);
   const {
     isRoomChatScrolledToTop,
     setIsRoomChatScrolledToTop,
@@ -53,11 +54,12 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
     <View
       style={{
         padding: 5,
-        flex: 1,
+        paddingHorizontal: 25,
+        flexGrow: 1,
       }}
     >
       <ScrollView
-        style={{ flex: 1, marginBottom: 10 }}
+        style={{ flex: 1, marginBottom: 10, paddingBottom: 10 }}
         contentContainerStyle={{
           flexGrow: 1,
           justifyContent: "flex-end",
@@ -91,6 +93,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                   ? {
                       backgroundColor: colors.primary700,
                       borderRadius: radius.s,
+                      paddingHorizontal: 5,
                     }
                   : {},
               ]}
@@ -101,17 +104,35 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                     ...small,
                     fontSize: fontSize.xs,
                     color: colors.primary300,
-                    marginHorizontal: 5,
                   }}
                 >
                   Whisper
                 </Text>
               )}
-              <Text
-                style={{ ...smallBold, color: m.color, marginHorizontal: 5 }}
-              >
-                {m.username}:{" "}
-                <Text style={{ ...small }}>
+              <Text>
+                <Text
+                  style={{
+                    ...smallBold,
+                    color: m.color,
+                    marginHorizontal: 5,
+                    textAlignVertical: "center",
+                  }}
+                  onPress={() => {
+                    onUsernamePress(
+                      m.userId,
+                      (me?.id === m.userId ||
+                        iAmCreator ||
+                        (iAmMod && room.creatorId !== m.userId)) &&
+                        !m.deleted
+                        ? m
+                        : undefined
+                    );
+                  }}
+                >
+                  {m.username}:{" "}
+                </Text>
+
+                <Text style={{ ...small, lineHeight: undefined }}>
                   {m.deleted ? (
                     <Text>
                       [message{" "}
@@ -124,7 +145,19 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                           return <Text key={i}>{v} </Text>;
                         case "emote":
                           return emoteMap[v] ? (
-                            <Image key={i} source={emoteMap[v]} />
+                            m.tokens.find((t) => t.t === "text") !==
+                            undefined ? (
+                              <Image
+                                key={i}
+                                source={emoteMap[v]}
+                                style={{
+                                  height: 20,
+                                  width: 20,
+                                }}
+                              />
+                            ) : (
+                              <Image key={i} source={emoteMap[v]} />
+                            )
                           ) : (
                             ":" + v + ":"
                           );

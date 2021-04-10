@@ -15,8 +15,10 @@ import {
 import { DefaultDesktopLayout } from "../layouts/DefaultDesktopLayout";
 import { MiddlePanel } from "../layouts/GridPanels";
 import { useMicIdStore } from "../webrtc/stores/useMicIdStore";
+import { HeaderController } from "../../modules/display/HeaderController";
+import isElectron from "is-electron";
 
-interface VoiceSettingsProps {}
+interface VoiceSettingsProps { }
 
 export const VoiceSettingsPage: PageComponent<VoiceSettingsProps> = () => {
   const { micId, setMicId } = useMicIdStore();
@@ -24,7 +26,15 @@ export const VoiceSettingsPage: PageComponent<VoiceSettingsProps> = () => {
   const [devices, setDevices] = useState<Array<{ id: string; label: string }>>(
     []
   );
-
+  useEffect(() => {
+    if (isElectron()) {
+      const ipcRenderer = window.require("electron").ipcRenderer;
+      ipcRenderer.send("@rpc/page", { page: "voice-settings", opened: true, modal: false, data: "" });
+      return () => {
+        ipcRenderer.send("@rpc/page", { page: "voice-settings", opened: false, modal: false, data: "" });
+      }
+    }
+  }, []);
   const fetchMics = useCallback(() => {
     navigator.mediaDevices.getUserMedia({ audio: true }).then(() => {
       navigator.mediaDevices
@@ -49,6 +59,7 @@ export const VoiceSettingsPage: PageComponent<VoiceSettingsProps> = () => {
 
   return (
     <DefaultDesktopLayout>
+      <HeaderController embed={{}} title="Voice Settings" />
       <MiddlePanel>
         <div className="flex-col text-primary-100">
           <div className={`mb-2`}>{t("pages.voiceSettings.mic")} </div>

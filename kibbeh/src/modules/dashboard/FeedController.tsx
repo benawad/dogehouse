@@ -6,15 +6,19 @@ import { isServer } from "../../lib/isServer";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
+import { useTypeSafeUpdateQuery } from "../../shared-hooks/useTypeSafeUpdateQuery";
 import { Button } from "../../ui/Button";
 import { CenterLoader } from "../../ui/CenterLoader";
 import { Feed, FeedHeader } from "../../ui/Feed";
 import { RoomCard } from "../../ui/RoomCard";
 import { MiddlePanel } from "../layouts/GridPanels";
+import { useRoomChatStore } from "../room/chat/useRoomChatStore";
+import { EditScheduleRoomModalController } from "../scheduled-rooms/EditScheduleRoomModalController";
+import { ScheduledRoomCard } from "../scheduled-rooms/ScheduledRoomCard";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 import { CreateRoomModal } from "./CreateRoomModal";
 
-interface FeedControllerProps {}
+interface FeedControllerProps { }
 
 const Page = ({
   cursor,
@@ -40,6 +44,16 @@ const Page = ({
     },
     [cursor]
   );
+  useEffect(() => {
+    if (isElectron()) {
+      const ipcRenderer = window.require("electron").ipcRenderer;
+      ipcRenderer.send("@rpc/page", { page: "home", opened: true, modal: false, data: data?.rooms.length });
+
+      return () => {
+        ipcRenderer.send("@rpc/page", { page: "home", opened: false, modal: false, data: data?.rooms.length });
+      }
+    }
+  }, [data]);
 
   if (isLoading) {
     return <CenterLoader />;
@@ -63,6 +77,7 @@ const Page = ({
         <RoomCard
           onClick={() => {
             if (room.id !== currentRoomId) {
+              useRoomChatStore.getState().reset();
               prefetch(["joinRoomAndGetInfo", room.id], [room.id]);
             }
 
@@ -73,9 +88,9 @@ const Page = ({
           subtitle={
             "peoplePreviewList" in room
               ? room.peoplePreviewList
-                  .slice(0, 3)
-                  .map((x) => x.displayName)
-                  .join(", ")
+                .slice(0, 3)
+                .map((x) => x.displayName)
+                .join(", ")
               : ""
           }
           listeners={"numPeopleInside" in room ? room.numPeopleInside : 0}
@@ -100,10 +115,15 @@ const Page = ({
 
 // const isMac = process.platform === "darwin";
 
-export const FeedController: React.FC<FeedControllerProps> = ({}) => {
+export const FeedController: React.FC<FeedControllerProps> = ({ }) => {
   const [cursors, setCursors] = useState([0]);
   const { conn } = useContext(WebSocketContext);
   const [roomModal, setRoomModal] = useState(false);
+  const { data } = useTypeSafeQuery("getMyScheduledRoomsAboutToStart", {
+    enabled: !!conn,
+    refetchOnMount: "always",
+  });
+  const updater = useTypeSafeUpdateQuery();
 
   // useEffect(() => {
   //   if (isElectron() && isMac) {
@@ -127,8 +147,50 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
         />
       }
     >
-      <div className="flex-1 flex-col" data-testid="feed">
+      <div className="flex-1 flex-col mb-7" data-testid="feed">
         <div className="flex-col space-y-4">
+          {data?.scheduledRooms?.map((sr) => (
+            <EditScheduleRoomModalController
+              key={sr.id}
+              onScheduledRoom={(_, editedRoomData) => {
+                updater("getMyScheduledRoomsAboutToStart", (x) => {
+                  return !x
+                    ? x
+                    : {
+                      scheduledRooms: x.scheduledRooms.map((y) =>
+                        y.id === sr.id
+                          ? {
+                            ...sr,
+                            name: editedRoomData.name,
+                            description: editedRoomData.description,
+                            scheduledFor: editedRoomData.scheduledFor.toISOString(),
+                          }
+                          : y
+                      ),
+                    };
+                });
+              }}
+            >
+              {({ onEdit }) => (
+                <ScheduledRoomCard
+                  info={sr}
+                  onDeleteComplete={() =>
+                    updater("getMyScheduledRoomsAboutToStart", (x) =>
+                      !x
+                        ? x
+                        : {
+                          scheduledRooms: x.scheduledRooms.filter(
+                            (y) => y.id !== sr.id
+                          ),
+                        }
+                    )
+                  }
+                  onEdit={() => onEdit({ cursor: "", scheduleRoomToEdit: sr })}
+                  noCopyLinkButton
+                />
+              )}
+            </EditScheduleRoomModalController>
+          ))}
           {cursors.map((cursor, i) => (
             <Page
               key={cursor}

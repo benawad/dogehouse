@@ -40,7 +40,7 @@
     "home": {
       "createRoom": "Vytvoriť miestnosť",
       "refresh": "Obnoviť",
-      "editRoom": "Edit Room"
+      "editRoom": "Upraviť Miestnosť"
     },
     "inviteList": {
       "roomGone": "miestnosť je fuč, vráť sa",
@@ -56,8 +56,8 @@
       "featureText_4": "Open Source",
       "featureText_5": "Textový chat",
       "featureText_6": "Powered by Doge",
-      "loginGithub": "prihlásiť se cez GitHub",
-      "loginTwitter": "prihlásiť se cez Twitter",
+      "loginGithub": "prihlásiť sa cez GitHub",
+      "loginTwitter": "prihlásiť sa cez Twitter",
       "createTestUser": "vytvoriť testovacieho používateľa"
     },
     "myProfile": {
@@ -91,7 +91,7 @@
       "followingHim": "sledovaný",
       "copyProfileUrl": "skopírovať url profilu",
       "urlCopied": "URL skopírované do schránky",
-      "unfollow": "Unfollow"
+      "unfollow": "Zrušiť sledovanie"
     },
     "voiceSettings": {
       "header": "Nastavenia hlasu",
@@ -205,8 +205,8 @@
         "requirePermission": "Poslucháči musia požiadať o povolenie rozprávať",
         "makePublic": "zverejniť miestnosť",
         "makePrivate": "zosúkromniť miestnosť",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "Nastaviť meno verejnej miestnosti",
+        "renamePrivate": "Nastaviť meno súkromnej miestnosti"
       }
     }
   },
@@ -235,7 +235,7 @@
       "searchResults": "Výsledky vyhľadávania",
       "recent": "Často používané",
       "sendMessage": "Odoslať správu",
-      "whisper": "Pošepkať",
+      "whisper": "Šepot",
       "welcomeMessage": "Vitaj v chate!",
       "roomDescription": "popis miestnosti"
     },

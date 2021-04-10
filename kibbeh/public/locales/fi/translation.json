@@ -41,7 +41,7 @@
     "home": {
       "createRoom": "Luo huone",
       "refresh": "Päivitä",
-      "editRoom": "Edit Room"
+      "editRoom": "Muokkaa Huonetta"
     },
     "inviteList": {
       "roomGone": "huone poistettu, palaa takaisin",
@@ -90,16 +90,16 @@
       "following": "seurannassa",
       "followHim": "seuraa",
       "followingHim": "seurannassa",
-      "copyProfileUrl": "kopioi profiili-URL",
-      "urlCopied": "URL kopioitu leikepöydälle",
+      "copyProfileUrl": "kopioi profiilin URL-osoite",
+      "urlCopied": "Osoite kopioitu leikepöydälle",
       "unfollow": "Lopeta seuraaminen"
     },
     "voiceSettings": {
       "header": "Puheasetukset",
-      "mic": "mikrofoni:",
+      "mic": "Mikrofoni:",
       "permissionError": "yhtään mikrofonia ei löytynyt. joko yhtään ei ole kytketty tai et ole antanut sivustolle lupaa käyttää mikrofonia.",
       "refresh": "päivitä lista",
-      "volume": "äänenvoimakkuus:"
+      "volume": "Äänenvoimakkuus:"
     },
     "overlaySettings": {
       "input": {
@@ -204,8 +204,8 @@
         "requirePermission": "puhuminen vaatii oikeuden",
         "makePublic": "tee huoneesta julkinen",
         "makePrivate": "tee huoneesta yksityinen",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "Aseta julkinen huoneen nimi",
+        "renamePrivate": "Aseta yksityinen huoneen nimi"
       }
     }
   },

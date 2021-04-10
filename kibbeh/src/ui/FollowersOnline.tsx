@@ -28,7 +28,12 @@ export const FollowerOnline: React.FC<UserWithFollowInfo> = ({
 }) => (
   <div className="py-3 w-full">
     <ApiPreloadLink route="profile" data={{ username }}>
-      <SingleUser size="sm" isOnline={online} src={avatar} />
+      <SingleUser
+        size="sm"
+        isOnline={online}
+        src={avatar}
+        username={username}
+      />
     </ApiPreloadLink>
     <div className="ml-3 flex flex-col">
       <ApiPreloadLink route="profile" data={{ username }}>
@@ -57,7 +62,7 @@ export const FollowersOnlineWrapper: React.FC<{
         ONLINE{" "}
         {onlineFriendCount !== undefined ? `(${onlineFriendCount})` : null}
       </h6>
-      <div className="flex flex-col mt-3 overflow-y-auto scrollbar-thin scrollbar-thumb-primary-700">
+      <div className="flex flex-col mt-3 overflow-y-auto scrollbar-thin scrollbar-thumb-primary-700 overflow-x-hidden">
         {children}
       </div>
     </div>

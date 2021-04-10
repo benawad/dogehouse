@@ -1,7 +1,13 @@
 import { useNavigation } from "@react-navigation/core";
 import React from "react";
-import { Image, StyleSheet, TouchableOpacity, ViewProps } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import {
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  ViewProps,
+} from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { colors } from "../../constants/dogeStyle";
 
 export type HeaderBaseProps = ViewProps & {
@@ -13,8 +19,9 @@ export const HeaderBase: React.FC<HeaderBaseProps> = ({
   children,
 }) => {
   const navigation = useNavigation();
+  const inset = useSafeAreaInsets();
   return (
-    <SafeAreaView style={styles.safeAreaView} edges={["top"]}>
+    <View style={[styles.container, { paddingTop: inset.top }]}>
       {showBackButton && (
         <TouchableOpacity
           style={styles.leftContainer}
@@ -26,15 +33,19 @@ export const HeaderBase: React.FC<HeaderBaseProps> = ({
         </TouchableOpacity>
       )}
       {children}
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  safeAreaView: {
+  container: {
     alignItems: "center",
     backgroundColor: colors.primary900,
     flexDirection: "row",
   },
-  leftContainer: { paddingLeft: 25, height: 70, justifyContent: "center" },
+  leftContainer: {
+    paddingLeft: 25,
+    height: 70,
+    justifyContent: "center",
+  },
 });

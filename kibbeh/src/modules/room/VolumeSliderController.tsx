@@ -28,6 +28,7 @@ export const VolumeSliderController: React.FC<VolumeSliderControllerProps> = ({
         label
         max={200}
         volume={consumerInfo.volume}
+        onDoubleClick={() => setVolume(userId, 100)}
         onVolume={(n) => setVolume(userId, n)}
       />
     </div>
