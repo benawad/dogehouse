@@ -13,7 +13,7 @@ import { OverlayKeybind } from "../keyboard-shortcuts";
 import { DefaultDesktopLayout } from "../layouts/DefaultDesktopLayout";
 import { MiddlePanel } from "../layouts/GridPanels";
 
-interface OverlaySettingsProps {}
+interface OverlaySettingsProps { }
 const overlaySettingsStruct = object({
   appTitle: string(),
 });
@@ -32,7 +32,10 @@ export const OverlaySettingsPage: PageComponent<OverlaySettingsProps> = () => {
   useEffect(() => {
     if (isElectron()) {
       const ipcRenderer = window.require("electron").ipcRenderer;
-      ipcRenderer.send("@rpc/page", { page: "overlay-settings", data: "" });
+      ipcRenderer.send("@rpc/page", { page: "overlay-settings", opened: true, modal: false, data: "" });
+      return () => {
+        ipcRenderer.send("@rpc/page", { page: "overlay-settings", opened: false, modal: false, data: "" });
+      }
     }
   }, []);
 
