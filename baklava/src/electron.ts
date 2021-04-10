@@ -174,14 +174,15 @@ function createSpalshWindow() {
     }
   });
   splash.loadFile(path.join(__dirname, "../resources/splash/splash-screen.html"));
-  electronLogger.info(`SPLASH PATH: ${path.join(__dirname, "../resources/splash/splash-screen.html")}`)
   splash.webContents.on('did-finish-load', () => {
     splash.webContents.send('@locale/text', {
       title: i18n.t('common.title'),
       check: i18n.t('splash.check'),
       download: i18n.t('splash.download'),
       relaunch: i18n.t('splash.relaunch'),
-      launch: i18n.t('splash.launch')
+      launch: i18n.t('splash.launch'),
+      skipCheck: i18n.t('splash.skipCheck'),
+      notfound: i18n.t('splash.notfound')
     });
   });
 }
@@ -195,10 +196,9 @@ if (!instanceLock) {
   app.on("ready", () => {
     localize().then(async () => {
       createSpalshWindow();
-      if (!__prod__) createMainWindow(); skipUpdateCheck(splash);
+      if (!__prod__) skipUpdateCheck(splash);
       if (__prod__ && !isLinux) await autoUpdater.checkForUpdates();
       if (isLinux && __prod__) {
-        createMainWindow();
         skipUpdateCheck(splash);
       }
     })
@@ -222,7 +222,7 @@ autoUpdater.on('update-available', info => {
 autoUpdater.on('download-progress', (progress) => {
   let prog = Math.floor(progress.percent)
   splash.webContents.send('percentage', prog);
-  splash.setProgressBar(prog);
+  splash.setProgressBar(prog / 100);
   // stop timeout that skips the update
   if (skipUpdateTimeout) {
     clearTimeout(skipUpdateTimeout);
@@ -234,20 +234,12 @@ autoUpdater.on('update-downloaded', () => {
   if (skipUpdateTimeout) {
     clearTimeout(skipUpdateTimeout);
   }
-  setTimeout(async () => {
+  setTimeout(() => {
     autoUpdater.quitAndInstall();
   }, 1000);
 });
 autoUpdater.on('update-not-available', () => {
-  createMainWindow();
-  splash.webContents.send('launch');
-  windowShowInterval = setInterval(() => {
-    if (shouldShowWindow) {
-      splash.destroy();
-      mainWindow.show();
-      clearInterval(windowShowInterval);
-    }
-  }, 500);
+  skipUpdateCheck(splash);
 });
 app.on("window-all-closed", async () => {
   await exitApp();
@@ -261,26 +253,24 @@ app.on("activate", () => {
 });
 
 function skipUpdateCheck(splash: BrowserWindow) {
-  if (!splash.isDestroyed()) {
+  createMainWindow();
+  splash.webContents.send('notfound');
+  if (isLinux || !__prod__) {
     splash.webContents.send('skipCheck');
   }
+  // stop timeout that skips the update
+  if (skipUpdateTimeout) {
+    clearTimeout(skipUpdateTimeout);
+  }
   windowShowInterval = setInterval(() => {
-    // stop timeout that skips the update
-    if (skipUpdateTimeout) {
-      clearTimeout(skipUpdateTimeout);
-    }
     if (shouldShowWindow) {
-      if (!splash.isDestroyed()) {
-        splash.webContents.send('launch');
-      }
+      splash.webContents.send('launch');
       clearInterval(windowShowInterval);
       setTimeout(() => {
-        if (!splash.isDestroyed()) {
-          splash.destroy();
-        }
+        splash.destroy();
         mainWindow.show();
       }, 800);
     }
-  }, 500);
+  }, 1000);
 }
 

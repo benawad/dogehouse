@@ -164,7 +164,7 @@ export const customEmojis = [
   {
     name: "waytoodank",
     short_names: ["WAYTOODANK"],
-    keywords: ["dank", "feelsdankman"],
+    keywords: ["dank", "feelsdankman", "waytoodank"],
     imageUrl: "/emotes/waytoodank.gif",
   },
   {

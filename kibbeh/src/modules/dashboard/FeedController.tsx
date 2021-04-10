@@ -18,7 +18,7 @@ import { ScheduledRoomCard } from "../scheduled-rooms/ScheduledRoomCard";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 import { CreateRoomModal } from "./CreateRoomModal";
 
-interface FeedControllerProps { }
+interface FeedControllerProps {}
 
 const Page = ({
   cursor,
@@ -46,8 +46,8 @@ const Page = ({
   );
   useEffect(() => {
     if (isElectron()) {
-      let ipcRenderer = window.require("electron").ipcRenderer;
-      ipcRenderer.send("@rpc/page", { page: "home", data: data?.rooms.length })
+      const ipcRenderer = window.require("electron").ipcRenderer;
+      ipcRenderer.send("@rpc/page", { page: "home", data: data?.rooms.length });
     }
   }, [data]);
   if (isLoading) {
@@ -83,9 +83,9 @@ const Page = ({
           subtitle={
             "peoplePreviewList" in room
               ? room.peoplePreviewList
-                .slice(0, 3)
-                .map((x) => x.displayName)
-                .join(", ")
+                  .slice(0, 3)
+                  .map((x) => x.displayName)
+                  .join(", ")
               : ""
           }
           listeners={"numPeopleInside" in room ? room.numPeopleInside : 0}
@@ -110,7 +110,7 @@ const Page = ({
 
 // const isMac = process.platform === "darwin";
 
-export const FeedController: React.FC<FeedControllerProps> = ({ }) => {
+export const FeedController: React.FC<FeedControllerProps> = ({}) => {
   const [cursors, setCursors] = useState([0]);
   const { conn } = useContext(WebSocketContext);
   const [roomModal, setRoomModal] = useState(false);
@@ -152,17 +152,17 @@ export const FeedController: React.FC<FeedControllerProps> = ({ }) => {
                   return !x
                     ? x
                     : {
-                      scheduledRooms: x.scheduledRooms.map((y) =>
-                        y.id === sr.id
-                          ? {
-                            ...sr,
-                            name: editedRoomData.name,
-                            description: editedRoomData.description,
-                            scheduledFor: editedRoomData.scheduledFor.toISOString(),
-                          }
-                          : y
-                      ),
-                    };
+                        scheduledRooms: x.scheduledRooms.map((y) =>
+                          y.id === sr.id
+                            ? {
+                                ...sr,
+                                name: editedRoomData.name,
+                                description: editedRoomData.description,
+                                scheduledFor: editedRoomData.scheduledFor.toISOString(),
+                              }
+                            : y
+                        ),
+                      };
                 });
               }}
             >
@@ -174,10 +174,10 @@ export const FeedController: React.FC<FeedControllerProps> = ({ }) => {
                       !x
                         ? x
                         : {
-                          scheduledRooms: x.scheduledRooms.filter(
-                            (y) => y.id !== sr.id
-                          ),
-                        }
+                            scheduledRooms: x.scheduledRooms.filter(
+                              (y) => y.id !== sr.id
+                            ),
+                          }
                     )
                   }
                   onEdit={() => onEdit({ cursor: "", scheduleRoomToEdit: sr })}

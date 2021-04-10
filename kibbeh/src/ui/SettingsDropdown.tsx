@@ -1,20 +1,16 @@
+import { User } from "@dogehouse/kebab";
 import React, { ReactNode, useState } from "react";
+import {
+  OutlineGlobe,
+  SolidBug,
+  SolidCaretRight,
+  SolidTime,
+  SolidUser,
+} from "../icons";
+import SvgSolidDiscord from "../icons/SolidDiscord";
+import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
 import { BaseOverlay } from "../ui/BaseOverlay";
 import { SettingsIcon } from "../ui/SettingsIcon";
-import {
-  SolidUser,
-  SolidSettings,
-  SolidDogenitro,
-  SolidHelp,
-  OutlineGlobe,
-  SolidCaretRight,
-  SolidBug,
-  SolidTime,
-} from "../icons";
-import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
-import { User } from "@dogehouse/kebab";
-import SvgSolidDiscord from "../icons/SolidDiscord";
-import { NativeSelect } from "./NativeSelect";
 import { LanguageSelector } from "./LanguageSelector";
 
 export const SettingsDropdown: React.FC<{
@@ -25,7 +21,7 @@ export const SettingsDropdown: React.FC<{
   const [currentOverlay, setCurrentOverlay] = useState<ReactNode>(null);
 
   return (
-    <div style={{ width: 200 }}>
+    <div style={{ width: 200 }} className="mt-5 mr-2">
       <BaseOverlay
         onActionButtonClicked={onActionButtonClicked}
         actionButton={"Log out"}
@@ -37,6 +33,7 @@ export const SettingsDropdown: React.FC<{
               onClick={onCloseDropdown}
               icon={<SolidUser />}
               label={"Profile"}
+              transition
             />
           </ApiPreloadLink>
           {/* <SettingsIcon icon={<SolidSettings />} label={"Settings"} />
@@ -45,6 +42,7 @@ export const SettingsDropdown: React.FC<{
             icon={<OutlineGlobe />}
             label={"Language"}
             trailingIcon={<SolidCaretRight />}
+            transition
             onClick={() =>
               setCurrentOverlay(
                 <LanguageSelector onClose={() => setCurrentOverlay(null)} />
@@ -61,6 +59,7 @@ export const SettingsDropdown: React.FC<{
               onClick={onCloseDropdown}
               icon={<SolidBug />}
               label={"Report a bug"}
+              transition
             />
           </a>
           <a href="https://dogehouse.tv" rel="noreferrer">
@@ -68,6 +67,7 @@ export const SettingsDropdown: React.FC<{
               onClick={onCloseDropdown}
               icon={<SolidTime />}
               label={"Use old version"}
+              transition
             />
           </a>
           <a
@@ -79,6 +79,7 @@ export const SettingsDropdown: React.FC<{
               onClick={onCloseDropdown}
               icon={<SvgSolidDiscord />}
               label={"Discord"}
+              transition
             />
           </a>
         </div>
