@@ -33,7 +33,9 @@ export async function startRPC() {
 }
 
 export async function setPresence(data: Presence) {
-    client.setActivity(Object.assign(data, defaultData));
+    if (RPC_RUNNING) {
+        client.setActivity(Object.assign(data, defaultData));
+    }
 }
 
 // added this for when there will be a electron settings page

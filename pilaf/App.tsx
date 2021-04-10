@@ -5,26 +5,25 @@
  * @format
  * @flow strict-local
  */
+import { LinkingOptions, NavigationContainer } from "@react-navigation/native";
+import React, { useEffect } from "react";
+import { StatusBar } from "react-native";
 import "react-native-gesture-handler";
 import "react-native-get-random-values";
-import { QueryClientProvider } from "react-query";
-import React, { useEffect } from "react";
-import { StatusBar, View } from "react-native";
-import SplashScreen from "react-native-splash-screen";
-import { useTokenStore } from "./src/modules/auth/useTokenStore";
-import { LinkingOptions, NavigationContainer } from "@react-navigation/native";
-import { AuthenticationSwitch } from "./src/navigation/AuthenticationSwitch";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { queryClient } from "./src/lib/queryClient";
+import SplashScreen from "react-native-splash-screen";
 import Toast from "react-native-toast-message";
-import { useSoundEffectStore } from "./src/modules/sound-effect/useSoundEffectStore";
 import { registerGlobals } from "react-native-webrtc";
-import InCallManager from "react-native-incall-manager";
+import { QueryClientProvider } from "react-query";
+import { colors } from "./src/constants/dogeStyle";
+import { queryClient } from "./src/lib/queryClient";
+import { useTokenStore } from "./src/modules/auth/useTokenStore";
+import { useSoundEffectStore } from "./src/modules/sound-effect/useSoundEffectStore";
 import { useVoiceStore } from "./src/modules/webrtc/stores/useVoiceStore";
+import { WebSocketProvider } from "./src/modules/ws/WebSocketProvider";
+import { AuthenticationSwitch } from "./src/navigation/AuthenticationSwitch";
 import { navigationRef } from "./src/navigation/RootNavigation";
 import { MainWsHandlerProvider } from "./src/shared-hooks/useMainWsHandler";
-import { WebSocketProvider } from "./src/modules/ws/WebSocketProvider";
-import { colors } from "./src/constants/dogeStyle";
 
 const App: React.FC = () => {
   registerGlobals();

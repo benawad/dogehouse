@@ -7,7 +7,7 @@ export const SettingsController: React.FC = () => {
   return (
     <>
       <TitledHeader title={"Settings"} showBackButton={true} />
-      <View style={styles.container}></View>
+      <View style={styles.container} />
     </>
   );
 };

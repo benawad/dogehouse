@@ -1,9 +1,4 @@
-import {
-  BaseUser,
-  JoinRoomAndGetInfoResponse,
-  Room,
-  RoomUser,
-} from "@dogehouse/kebab";
+import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
 import { useNavigation } from "@react-navigation/core";
 import React, { useContext } from "react";
 import { RoomAvatar } from "../../components/avatars/RoomAvatar";
@@ -35,8 +30,6 @@ export const useSplitUsersIntoSections = ({
     } else {
       canIAskToSpeak = true;
     }
-
-    let flair: React.ReactNode | undefined = undefined;
 
     const isCreator = u.id === room.creatorId;
     const isSpeaker = !!u.roomPermissions?.isSpeaker;
