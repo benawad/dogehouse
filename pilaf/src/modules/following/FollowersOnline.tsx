@@ -9,7 +9,7 @@ import {
   View,
 } from "react-native";
 import { SingleUserAvatar } from "../../components/avatars/SingleUserAvatar";
-import { Button } from "../../components/buttons/Buttons";
+import { Button } from "../../components/buttons/Button";
 import { colors, h3, paragraphBold, small } from "../../constants/dogeStyle";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";

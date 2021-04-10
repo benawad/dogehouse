@@ -21,7 +21,7 @@ import { useTypeSafeMutation } from "../shared-hooks/useTypeSafeMutation";
 import { useTypeSafeQuery } from "../shared-hooks/useTypeSafeQuery";
 import { useTypeSafeUpdateQuery } from "../shared-hooks/useTypeSafeUpdateQuery";
 import { SingleUserAvatar } from "./avatars/SingleUserAvatar";
-import { Button } from "./buttons/Buttons";
+import { Button } from "./buttons/Button";
 import { TitledHeader } from "./header/TitledHeader";
 import { Spinner } from "./Spinner";
 import { Tag } from "./Tag";

@@ -1,19 +1,13 @@
-import { RouteProp } from "@react-navigation/native";
-import React, { useState } from "react";
-import {
-  ScrollView,
-  Share,
-  StyleSheet,
-  Text,
-  View,
-  ViewStyle,
-} from "react-native";
+import { Room } from "@dogehouse/kebab";
+import React, { useEffect, useState } from "react";
+import { Share, StyleSheet, Text, View, ViewStyle } from "react-native";
 import { SingleUserAvatar } from "../../components/avatars/SingleUserAvatar";
-import { Button } from "../../components/buttons/Buttons";
+import { Button } from "../../components/buttons/Button";
 import { TitledHeader } from "../../components/header/TitledHeader";
+import { ScrollViewLoadMore } from "../../components/ScrollViewLoadMore";
 import { Spinner } from "../../components/Spinner";
 import { colors, paragraph, small } from "../../constants/dogeStyle";
-import { RoomStackParamList } from "../../navigation/mainNavigator/RoomNavigator";
+import { apiBaseUrl } from "../../constants/env";
 import { useWrappedConn } from "../../shared-hooks/useConn";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 
@@ -38,11 +32,10 @@ const InviteButton: React.FC<{ style: ViewStyle; onPress: () => void }> = ({
 
 const Page = ({
   cursor,
+  onLoad,
 }: {
   cursor: number;
-  isLastPage: boolean;
-  isOnlyPage: boolean;
-  onLoadMore: (o: number) => void;
+  onLoad: (nextpage: number) => void;
 }) => {
   const conn = useWrappedConn();
   const { isLoading, data } = useTypeSafeQuery(
@@ -54,7 +47,13 @@ const Page = ({
     },
     [cursor]
   );
-
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    if (data && !loaded) {
+      setLoaded(true);
+      onLoad(data.nextCursor);
+    }
+  }, [data, loaded, onLoad, setLoaded]);
   if (isLoading) {
     return (
       <View
@@ -73,8 +72,6 @@ const Page = ({
   if (!data) {
     return null;
   }
-
-  console.log(data);
 
   return (
     <>
@@ -109,35 +106,27 @@ const Page = ({
   );
 };
 
-type RoomPageRouteProp = RouteProp<RoomStackParamList, "RoomInvitation">;
-
-type InviteRoomPageProps = {
-  route: RoomPageRouteProp;
+type InviteRoomControllerPropse = {
+  room: Room;
 };
 
 const onShare = async (message: string) => {
   try {
-    const result = await Share.share({
+    await Share.share({
       message,
     });
-    if (result.action === Share.sharedAction) {
-      if (result.activityType) {
-        // shared with activity type of result.activityType
-      } else {
-        // shared
-      }
-    } else if (result.action === Share.dismissedAction) {
-      // dismissed
-    }
   } catch (error) {
-    alert(error.message);
+    console.error("Sharing failed with : ", error);
   }
 };
 
-export const InviteRoomPage: React.FC<InviteRoomPageProps> = ({ route }) => {
+export const InviteRoomController: React.FC<InviteRoomControllerPropse> = ({
+  room,
+}) => {
   const [cursors, setCursors] = useState([0]);
-  const room = route.params.room;
-  const url = "https://next.dogehouse.tv" + `/room/${room.id}`;
+  const [isLoading, setLoading] = useState(false);
+  const [nextCursor, setNextCursor] = useState(null);
+  const url = apiBaseUrl + `/room/${room.id}`;
 
   return (
     <>
@@ -155,17 +144,28 @@ export const InviteRoomPage: React.FC<InviteRoomPageProps> = ({ route }) => {
             />
           </>
         )}
-        <ScrollView>
-          {cursors.map((cursor, i) => (
+        <ScrollViewLoadMore
+          shouldLoadMore={nextCursor != null}
+          isLoading={isLoading}
+          onLoadMore={() => {
+            setLoading(true);
+            setCursors([...cursors, nextCursor]);
+            setNextCursor(null);
+          }}
+        >
+          {cursors.map((cursor) => (
             <Page
               key={cursor}
               cursor={cursor}
-              isOnlyPage={cursors.length === 1}
-              onLoadMore={(c) => setCursors([...cursors, c])}
-              isLastPage={i === cursors.length - 1}
+              onLoad={(c) => {
+                setLoading(false);
+                if (c) {
+                  setNextCursor(c);
+                }
+              }}
             />
           ))}
-        </ScrollView>
+        </ScrollViewLoadMore>
       </View>
     </>
   );

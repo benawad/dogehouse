@@ -4,7 +4,7 @@ import { boolean, radios, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react-native";
 import React from "react";
 import { View } from "react-native";
-import { Button } from "../../src/components/buttons/Buttons";
+import { Button } from "../../src/components/buttons/Button";
 import { colors } from "../../src/constants/dogeStyle";
 import CenterView from "./CenterView";
 

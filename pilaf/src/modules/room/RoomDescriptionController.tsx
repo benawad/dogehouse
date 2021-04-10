@@ -1,4 +1,4 @@
-import { RouteProp } from "@react-navigation/native";
+import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
 import React, { useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 import { SearchHeader } from "../../components/header/SearchHeader";
@@ -11,22 +11,16 @@ import {
   small,
   smallBold,
 } from "../../constants/dogeStyle";
-import { RoomStackParamList } from "../../navigation/mainNavigator/RoomNavigator";
 
-type RoomDescriptionPageRouteProp = RouteProp<
-  RoomStackParamList,
-  "RoomDescription"
->;
-
-type RoomDescriptionPageProps = {
-  route: RoomDescriptionPageRouteProp;
+type RoomDescriptionControllerProps = {
+  data: JoinRoomAndGetInfoResponse;
 };
 
-export const RoomDescriptionPage: React.FC<RoomDescriptionPageProps> = ({
-  route,
+export const RoomDescriptionController: React.FC<RoomDescriptionControllerProps> = ({
+  data,
 }) => {
   const [query, setQuery] = useState("");
-  const data = route.params.data;
+
   return (
     <>
       <SearchHeader
