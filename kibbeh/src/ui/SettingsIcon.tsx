@@ -27,7 +27,7 @@ export const SettingsIcon: React.FC<SettingsIconProps> = ({
       } ${classes}`}
     >
       {icon}
-      <span className="ml-2 font-medium text-primary-100 flex-1 capitalize">
+      <span className="ml-2 text-primary-100 flex-1 capitalize">
         {label}
       </span>
       {trailingIcon && trailingIcon}
