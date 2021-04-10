@@ -35,7 +35,7 @@ export const FollowerOnline: React.FC<UserWithFollowInfo> = ({
         username={username}
       />
     </ApiPreloadLink>
-    <div className="ml-3 flex flex-col overflow-hidden">
+    <div className="ml-3 flex flex-col overflow-hidden justify-center">
       <ApiPreloadLink route="profile" data={{ username }}>
         <h5 className="text-primary-100 font-bold">{username}</h5>
       </ApiPreloadLink>
