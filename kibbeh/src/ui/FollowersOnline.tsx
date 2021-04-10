@@ -39,16 +39,13 @@ export const FollowerOnline: React.FC<UserWithFollowInfo> = ({
       <ApiPreloadLink route="profile" data={{ username }}>
         <h5 className="text-primary-100 font-bold">{username}</h5>
       </ApiPreloadLink>
-      { currentRoom
-        ? (
-          <Link
-            href={`/room/[id]`}
-            as={`/room/${currentRoom.id}`}
-          >
-            <a className={`hover:underline text-primary-300 truncate block`}>{currentRoom.name}</a>
-          </Link>
-        ) : null
-      }
+      {currentRoom ? (
+        <Link href={`/room/[id]`} as={`/room/${currentRoom.id}`}>
+          <a className={`hover:underline text-primary-300 truncate block`}>
+            {currentRoom.name}
+          </a>
+        </Link>
+      ) : null}
     </div>
   </div>
 );

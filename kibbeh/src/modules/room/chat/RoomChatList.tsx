@@ -170,8 +170,8 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                                       style={{
                                         textDecorationColor:
                                           v === me?.username
-                                          ? ""
-                                          : messages[index].color,
+                                            ? ""
+                                            : messages[index].color,
                                         color:
                                           v === me?.username
                                             ? ""

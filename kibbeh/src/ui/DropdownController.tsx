@@ -51,7 +51,12 @@ export const DropdownController: React.FC<{
           ref={popperRef}
           {...attributes.popper}
         >
-          <div style={styles.offset} className={`${visible ? "" : "hidden"} fixed transform -translate-x-full`}>
+          <div
+            style={styles.offset}
+            className={`${
+              visible ? "" : "hidden"
+            } fixed transform -translate-x-full`}
+          >
             {visible ? overlay(() => setVisibility(false)) : null}
           </div>
         </div>,
