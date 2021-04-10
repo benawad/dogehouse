@@ -18,7 +18,7 @@ import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
 import electronLogger from 'electron-log';
-import { startRPC } from "./utils/rpc";
+import { setPresence, startRPC } from "./utils/rpc";
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
@@ -157,6 +157,9 @@ function createMainWindow() {
       }
     } else {
       mainWindow.setSize(560, 1000, true);
+      setPresence({
+        details: 'Taking DogeHouse to the moon'
+      })
     }
     mainWindow.center();
   });
