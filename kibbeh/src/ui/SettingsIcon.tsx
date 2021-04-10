@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 
 export interface SettingsIconProps {
   icon: ReactElement;
-  label: string;
+  label?: string;
   trailingIcon?: ReactElement;
   classes?: string;
   transition?: boolean;
