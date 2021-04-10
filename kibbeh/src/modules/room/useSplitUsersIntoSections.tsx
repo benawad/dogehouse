@@ -80,6 +80,7 @@ export const useSplitUsersIntoSections = ({
           }}
           style={{ width: 60, height: 60 }}
           circle
+          className="flex-shrink-0"
         >
           {/* @todo add right icon */}
           <SolidMegaphone width={20} height={20} />
