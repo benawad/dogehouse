@@ -22,13 +22,13 @@ export const RoomAvatar: React.FC<RoomAvatarProps> = ({
     <button className={`flex-col items-center`} onClick={onClick}>
       <SingleUser
         activeSpeaker={activeSpeaker}
-        size="md"
+        size="lg"
         src={src}
         muted={muted}
         username={username}
       />
-      <div>
-        <span className={`truncate text-primary-100 mt-1 text-xs`}>
+      <div className={`items-center`}>
+        <span className={`truncate w-8 text-primary-100 mt-2 text-sm block`}>
           {username}
         </span>
         {flair}

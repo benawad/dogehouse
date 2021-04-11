@@ -56,9 +56,12 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({ })
         idOrUsernameUsedForQuery={data.username}
         user={data}
       />
-      {data.id === conn.user.id &&
+      {data.id === conn.user.id && (
         <div className={`pt-6 flex`}>
-          <EditProfileModal isOpen={open} onRequestClose={() => setOpen(false)} />
+          <EditProfileModal
+            isOpen={open}
+            onRequestClose={() => setOpen(false)}
+          />
           <Button
             style={{ marginRight: "10px" }}
             size="small"
@@ -86,7 +89,7 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({ })
             {t("pages.myProfile.soundSettings")}
           </Button>
         </div>
-      }
+      )}
     </>
   );
 };

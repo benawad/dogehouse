@@ -162,14 +162,16 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                                       onClick={() => {
                                         setData({ userId: v });
                                       }}
-                                      className={`inline hover:underline flex-1 focus:outline-none ${
+                                      className={`inline flex-1 focus:outline-none ${
                                         v === me?.username
-                                          ? "bg-accent text-white px-1 rounded text-md"
+                                          ? "bg-accent text-button px-1 rounded text-md"
                                           : ""
                                       }`}
                                       style={{
                                         textDecorationColor:
-                                          messages[index].color,
+                                          v === me?.username
+                                            ? ""
+                                            : messages[index].color,
                                         color:
                                           v === me?.username
                                             ? ""

@@ -3,10 +3,11 @@ import { SolidMicrophoneOff } from "../../icons";
 
 export const avatarSizeMap = {
   default: "80px",
-  sm: "40px",
+  lg: "60px",
   md: "50px",
-  xxs: "30px",
+  sm: "40px",
   xs: "20px",
+  xxs: "30px",
 };
 
 export const onlineIndicatorStyleMap = {
@@ -17,12 +18,12 @@ export const onlineIndicatorStyleMap = {
     bottom: "-4px",
     borderWidth: "4px",
   },
-  xxs: {
-    width: "6px",
-    height: "6px",
-    right: "1px",
-    bottom: "-1px",
-    borderWidth: "1px",
+  lg: {
+    width: "12px",
+    height: "12px",
+    right: "2px",
+    bottom: "-2px",
+    borderWidth: "2px",
   },
   md: {
     width: "10px",
@@ -42,6 +43,13 @@ export const onlineIndicatorStyleMap = {
     width: "4px",
     height: "4px",
     right: "0px",
+    bottom: "-1px",
+    borderWidth: "1px",
+  },
+  xxs: {
+    width: "6px",
+    height: "6px",
+    right: "1px",
     bottom: "-1px",
     borderWidth: "1px",
   },
