@@ -1,4 +1,4 @@
-defmodule KousaTest.Broth.AuthTest do
+defmodule KousaTest.Broth.Auth.RequestTest do
   use ExUnit.Case, async: true
   use Kousa.Support.EctoSandbox
 
