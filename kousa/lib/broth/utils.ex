@@ -1,5 +1,6 @@
 defmodule Broth.Utils do
   import Ecto.Changeset
+  require Logger
 
   def validate_reply!(reply = %module{}) when module != Ecto.Changeset do
     if function_exported?(module, :validate, 1) do
@@ -34,10 +35,18 @@ defmodule Broth.Utils do
         Kousa.Utils.UUID.normalize(changeset, field)
 
       :boolean ->
-        if not is_boolean(value) do
-          raise "#{value} (field #{field}) is not boolean"
+        if is_boolean(value) do
+          changeset
+        else
+          add_error(changeset, field, "is invalid")
         end
-        changeset
+
+      :string ->
+        if is_binary(value) do
+          changeset
+        else
+          add_error(changeset, field, "is invalid")
+        end
 
       {:parameterized, _, %{cardinality: :one, related: related}} ->
         if get_field(changeset, field).__struct__ == related do
@@ -47,8 +56,8 @@ defmodule Broth.Utils do
         end
 
       other ->
-        other |> IO.inspect(label: "43")
-        raise "foo"
+        Logger.error("the type `#{inspect other}` has not been implemented in Broth.Utils.validate_type_of/2. Please implement it.")
+        raise "unimplemented"
     end
   end
 end
