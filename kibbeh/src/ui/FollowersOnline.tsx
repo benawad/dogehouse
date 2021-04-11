@@ -61,7 +61,7 @@ export const FollowersOnlineWrapper: React.FC<{
       data-testid="friends-online"
     >
       <h4 className="text-primary-100">People</h4>
-      <h6 className="text-primary-300 mt-3 text-sm font-bold">
+      <h6 className="text-primary-300 mt-3 text-sm font-bold uppercase">
         {t("components.followingOnline.online")}{" "}
         {onlineFriendCount !== undefined ? `(${onlineFriendCount})` : null}
       </h6>
