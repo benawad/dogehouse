@@ -47,6 +47,7 @@ Navigate to `/kibbeh`
 - Run `yarn`
 - Run `yarn staging` (this tells React to connect to a hosted version of the backend for development purposes)
 - Read `kibbeh/README.md` for more information and a fixes for known development issues.
+> **NOTE:** Please follow the [design guidelines](https://github.com/benawad/dogehouse/blob/staging/DESIGN_GUIDELINES.md) and [figma mockups](https://www.figma.com/file/CS01VVLR7ArQl0afYFkNj3/Web-App) and if what you're trying to do isn't in there, consult [@ajmnz](https://github.com/ajmnz)/[@benawad](https://github.com/benawad) beforehand.
 
 ### Old UI *(react only)*:
 Navigate to `/kofta`
