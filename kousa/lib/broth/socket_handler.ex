@@ -200,16 +200,6 @@ defmodule Broth.SocketHandler do
     {:ok, state}
   end
 
-  def handler("leave_room", _data, state) do
-    case Kousa.Room.leave_room(state.user_id) do
-      {:ok, d} ->
-        {:reply, prepare_socket_msg(%{op: "you_left_room", d: d}, state), state}
-
-      _ ->
-        {:ok, state}
-    end
-  end
-
   def handler(
         "block_from_room",
         %{"userId" => user_id_to_block_from_room},
