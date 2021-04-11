@@ -140,7 +140,7 @@ export const FeedController: React.FC<FeedControllerProps> = ({ }) => {
     <MiddlePanel
       stickyChildren={
         <FeedHeader
-          actionTitle="New room"
+          actionTitle={t("pages.home.createRoom")}
           onActionClicked={() => {
             setRoomModal(true);
           }}
