@@ -100,11 +100,11 @@ defmodule Onion.RoomChat do
     end
   end
 
-  def new_msg(room_id, user_id, msg, whispered_to) do
-    cast(room_id, {:new_msg, user_id, msg, whispered_to})
+  def new_msg(room_id, user_id, msg, whisperedTo) do
+    cast(room_id, {:new_msg, user_id, msg, whisperedTo})
   end
 
-  defp new_msg_impl(user_id, msg, whispered_to, state) do
+  defp new_msg_impl(user_id, msg, whisperedTo, state) do
     last_timestamp = Map.get(state.last_message_map, user_id)
 
     # TODO: check to make sure this will be consistent when we move to a distributed
@@ -113,10 +113,10 @@ defmodule Onion.RoomChat do
 
     if not Map.has_key?(state.ban_map, user_id) and
          (is_nil(last_timestamp) or seconds - last_timestamp > 0) do
-      whispered_to_users_list = [user_id | whispered_to]
+      whispered_to_users_list = [user_id | whisperedTo]
 
       users =
-        if whispered_to != [],
+        if whisperedTo != [],
           do: Enum.filter(state.users, fn uid -> Enum.member?(whispered_to_users_list, uid) end),
           else: state.users
 
@@ -173,8 +173,8 @@ defmodule Onion.RoomChat do
 
   def handle_cast({:add_user, user_id}, state), do: add_user_impl(user_id, state)
 
-  def handle_cast({:new_msg, user_id, msg, whispered_to}, state) do
-    new_msg_impl(user_id, msg, whispered_to, state)
+  def handle_cast({:new_msg, user_id, msg, whisperedTo}, state) do
+    new_msg_impl(user_id, msg, whisperedTo, state)
   end
 
   def handle_cast({:message_deleted, user_id, message_id}, state) do

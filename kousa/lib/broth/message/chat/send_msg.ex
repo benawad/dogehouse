@@ -8,24 +8,24 @@ defmodule Broth.Message.Chat.SendMsg do
   @primary_key false
   embedded_schema do
     embeds_many(:tokens, ChatToken)
-    field(:whispered_to, {:array, :binary_id})
+    field(:whisperedTo, {:array, :binary_id})
   end
 
   import Ecto.Changeset
 
   def changeset(changeset, data) do
     changeset
-    |> cast(data, [:whispered_to])
+    |> cast(data, [:whisperedTo])
     |> default_whispered_to
     |> put_tokens(data["tokens"])
     |> validate_whispered_to
   end
 
   defp default_whispered_to(changeset) do
-    if get_field(changeset, :whispered_to) do
+    if get_field(changeset, :whisperedTo) do
       changeset
     else
-      put_change(changeset, :whispered_to, [])
+      put_change(changeset, :whisperedTo, [])
     end
   end
 
@@ -76,7 +76,7 @@ defmodule Broth.Message.Chat.SendMsg do
   alias Kousa.Utils.UUID
 
   def validate_whispered_to(changeset) do
-    if whisper_target = get_field(changeset, :whispered_to) do
+    if whisper_target = get_field(changeset, :whisperedTo) do
       normalized_uuids =
         Enum.map(whisper_target, fn target ->
           case UUID.normalize(target) do
@@ -91,11 +91,11 @@ defmodule Broth.Message.Chat.SendMsg do
           end
         end)
 
-      put_change(changeset, :whispered_to, normalized_uuids)
+      put_change(changeset, :whisperedTo, normalized_uuids)
     else
       changeset
     end
   catch
-    :format_error -> add_error(changeset, :whispered_to, "is invalid")
+    :format_error -> add_error(changeset, :whisperedTo, "is invalid")
   end
 end
