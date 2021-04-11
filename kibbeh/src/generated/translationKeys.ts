@@ -151,6 +151,7 @@ export type TranslationKeys =
 	| "components.modals.roomSettingsModal.makePrivate"
 	| "components.modals.roomSettingsModal.renamePublic"
 	| "components.modals.roomSettingsModal.renamePrivate"
+	| "modules.feed.yourFeed"
 	| "modules.scheduledRooms.title"
 	| "modules.scheduledRooms.noneFound"
 	| "modules.scheduledRooms.allRooms"

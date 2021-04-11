@@ -231,6 +231,9 @@
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
+    "feed": {
+      "yourFeed": "Your Feed"
+    },
     "scheduledRooms": {
       "title": "Scheduled Rooms",
       "noneFound": "none found",
