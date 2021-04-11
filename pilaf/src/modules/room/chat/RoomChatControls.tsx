@@ -1,21 +1,50 @@
-import { Room } from "@dogehouse/kebab";
+import { Room, wrap } from "@dogehouse/kebab";
 import { useNavigation } from "@react-navigation/core";
-import React from "react";
+import React, { useState } from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { colors, radius } from "../../../constants/dogeStyle";
 import { useMuteStore } from "../../../global-stores/useMuteStore";
+import { InCallManagerSetSpeakerOn } from "../../../lib/inCallManagerCenter";
+import { useConn } from "../../../shared-hooks/useConn";
 import { useSetMute } from "../../../shared-hooks/useSetMute";
 
 interface RoomChatControlsProps {
   room: Room;
+  amISpeaker: boolean;
+  amIAskingForSpeak: boolean;
 }
 
-export const RoomChatControls: React.FC<RoomChatControlsProps> = ({ room }) => {
+const micOff = require("../../../assets/images/SolidMicrophoneOff.png");
+const micOn = require("../../../assets/images/sm-solid-microphone.png");
+const askSpeak = require("../../../assets/images/sm-solid-megaphone.png");
+const volumeHigh = require("../../../assets/images/ios-volume-high.png");
+const invite = require("../../../assets/images/md-person-add.png");
+
+export const RoomChatControls: React.FC<RoomChatControlsProps> = ({
+  room,
+  amISpeaker,
+  amIAskingForSpeak,
+}) => {
+  const conn = useConn();
   const { muted } = useMuteStore();
   const setMute = useSetMute();
   const inset = useSafeAreaInsets();
   const navigation = useNavigation();
+  const [speakerOn, setSpeakerOn] = useState(false);
+  InCallManagerSetSpeakerOn(speakerOn);
+
+  let onPress;
+  if (amISpeaker) {
+    onPress = () => setMute(!muted);
+  } else {
+    if (amIAskingForSpeak) {
+      onPress = () => {};
+    } else {
+      onPress = () => wrap(conn).mutation.askToSpeak();
+    }
+  }
+
   return (
     <View
       style={{
@@ -25,30 +54,42 @@ export const RoomChatControls: React.FC<RoomChatControlsProps> = ({ room }) => {
     >
       <View style={styles.toggle} />
       <View style={[styles.controlsContainer]}>
-        <TouchableOpacity
-          style={styles.micControl}
-          onPress={() => setMute(!muted)}
-        >
-          <Image
-            source={
-              muted
-                ? require("../../../assets/images/SolidMicrophoneOff.png")
-                : require("../../../assets/images/bxs-microphone.png")
-            }
-            style={{ tintColor: colors.text, height: 16, width: 16 }}
-          />
+        <TouchableOpacity style={styles.micControl} onPress={onPress}>
+          {amISpeaker && (
+            <Image
+              source={muted ? micOff : micOn}
+              style={{ tintColor: colors.text, width: 20, height: 20 }}
+            />
+          )}
+          {!amISpeaker && (
+            <Image
+              source={askSpeak}
+              style={{
+                tintColor: colors.text,
+                width: 20,
+                height: 20,
+              }}
+            />
+          )}
         </TouchableOpacity>
         <View style={{ flexGrow: 1 }} />
-        {/* <TouchableOpacity style={styles.soundControl}>
+        <TouchableOpacity
+          style={[
+            styles.soundControl,
+            speakerOn && { backgroundColor: colors.primary600 },
+          ]}
+          onPress={() => setSpeakerOn(!speakerOn)}
+        >
           <Image
-            source={require("../../../assets/images/ios-volume-low.png")}
+            source={volumeHigh}
+            style={{ tintColor: colors.text, width: 20, height: 17.5 }}
           />
-        </TouchableOpacity> */}
+        </TouchableOpacity>
         <TouchableOpacity
           style={styles.inviteControl}
           onPress={() => navigation.navigate("RoomInvitation", { room: room })}
         >
-          <Image source={require("../../../assets/images/md-person-add.png")} />
+          <Image source={invite} style={{ width: 20, height: 16 }} />
         </TouchableOpacity>
       </View>
     </View>

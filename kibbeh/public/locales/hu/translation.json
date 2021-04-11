@@ -65,7 +65,8 @@
       "voiceSettings": "hangbeállítások",
       "soundSettings": "hanghatások",
       "deleteAccount": "fiók törlése",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Whoops! Ez az oldal elveszett a beszélgetésben.",

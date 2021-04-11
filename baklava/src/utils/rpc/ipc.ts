@@ -4,7 +4,7 @@ import {
 } from "electron";
 import { setPresence } from "./index";
 let inRoom = false;
-
+let PREV_PAGE_DATA: { page: string, opened: boolean, modal: boolean, data: any };
 const ROOM_DATA_UPDATE_FUNC = (event, data) => {
     if (inRoom) {
         let muted = 'Muted';
@@ -54,31 +54,41 @@ const ROOM_JOINED_FUNC = (event, newinRoom) => {
     inRoom = newinRoom
 }
 
-const PAGE_UPDATE_FUNC = (event, pageData) => {
+const PAGE_UPDATE_FUNC = (event, pageData: { page: string, opened: boolean, modal: boolean, data: any }) => {
     if (!inRoom) {
-        switch (pageData.page) {
-            case "home":
-                setPresence({ details: 'Browsing Rooms', state: `${pageData.data} public rooms` });
-                break;
-            case "voice-settings":
-                setPresence({ details: 'User Settings', state: 'Editing Voice Settings' });
-                break;
-            case "overlay-settings":
-                setPresence({ details: 'User Settings', state: 'Editing Overlay Settings' });
-                break;
-            case "sound-effect-settings":
-                setPresence({ details: 'User Settings', state: 'Editing Sound Effect Settings' });
-                break;
-            case "profile":
-                setPresence({ details: 'User Profile', state: `Viewing @${pageData.data}` });
-                break;
-            case "edit-profile":
-                setPresence({ details: 'User Settings', state: 'Editing Profile' });
-                break;
-            default:
+        if (pageData.opened) {
+            if (!pageData.modal) PREV_PAGE_DATA = pageData;
+            switch (pageData.page) {
+                case "home":
+                    setPresence({ details: 'Browsing Rooms', state: `${pageData.data} public rooms` });
+                    break;
+                case "voice-settings":
+                    setPresence({ details: 'User Settings', state: 'Editing Voice Settings' });
+                    break;
+                case "overlay-settings":
+                    setPresence({ details: 'User Settings', state: 'Editing Overlay Settings' });
+                    break;
+                case "sound-effect-settings":
+                    setPresence({ details: 'User Settings', state: 'Editing Sound Effect Settings' });
+                    break;
+                case "profile":
+                    setPresence({ details: 'User Profile', state: `Viewing @${pageData.data}` });
+                    break;
+                case "edit-profile":
+                    setPresence({ details: 'User Settings', state: 'Editing Profile' });
+                    break;
+                default:
+                    setPresence({ details: 'Taking DogeHouse to the moon' });
+                    break;
+            }
+        } else {
+            if (PREV_PAGE_DATA) {
+                PAGE_UPDATE_FUNC(event, PREV_PAGE_DATA);
+            } else {
                 setPresence({ details: 'Taking DogeHouse to the moon' });
-                break;
+            }
         }
+
     }
 }
 

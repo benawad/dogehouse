@@ -1,42 +1,20 @@
 import React from "react";
 import {
-  StyleSheet,
-  TouchableOpacity,
-  Text,
-  ImageSourcePropType,
-  ViewProps,
   Image,
-  ActivityIndicator,
+  ImageSourcePropType,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  ViewProps,
   ViewStyle,
 } from "react-native";
 import {
   colors,
-  fontSize,
-  paragraph,
   paragraphBold,
   radius,
   smallBold,
 } from "../../constants/dogeStyle";
 import { Spinner } from "../Spinner";
-
-const sizeClassnames = {
-  big: "py-2 px-6 text-sm rounded-lg",
-  small: "px-2 py-1 text-xs rounded-md",
-};
-
-const colorClassnames = {
-  primary: {
-    container: {
-      backgroundColor: colors.accent,
-    },
-    textColor: {
-      color: colors.text,
-    },
-  },
-
-  secondary:
-    "text-button bg-primary-700 hover:bg-primary-600 disabled:text-primary-300",
-};
 
 export type ButtonProps = ViewProps & {
   iconSrc?: ImageSourcePropType;
@@ -49,7 +27,6 @@ export type ButtonProps = ViewProps & {
 };
 
 export const Button: React.FC<ButtonProps> = ({
-  children,
   size = "big",
   color = "primary",
   disabled = false,

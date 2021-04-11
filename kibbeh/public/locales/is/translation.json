@@ -67,7 +67,8 @@
       "voiceSettings": "farðu í raddstillingar",
       "soundSettings": "farðu í hljóðstillingar",
       "deleteAccount": "eyða reikningi",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Úps! Þessi síða týndist í samtali.",

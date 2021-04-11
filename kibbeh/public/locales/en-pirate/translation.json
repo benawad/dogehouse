@@ -67,7 +67,8 @@
       "voiceSettings": "go t' voice settings",
       "soundSettings": "go t' sound settings",
       "deleteAccount": "Cleave Him to the Brisket!",
-      "overlaySettings": "go t' overlay settings"
+      "overlaySettings": "go t' overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Blast ye! This page got lost in natter.",

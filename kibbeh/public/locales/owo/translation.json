@@ -67,7 +67,8 @@
       "voiceSettings": "<3 Go to Voice Settings ;-;",
       "soundSettings": "Go to Sound Settings x3",
       "deleteAccount": "Dewete Account UnU",
-      "overlaySettings": "Gow to Owerlay Settings ( ^_^ )"
+      "overlaySettings": "Gow to Owerlay Settings ( ^_^ )",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "OWO Whoops! This page got wost in convewsation. (●´ω｀●)",

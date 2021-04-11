@@ -67,7 +67,8 @@
       "voiceSettings": "tag goobta cod hagaajinta",
       "overlaySettings": "go to overlay settings",
       "soundSettings": "tag goobta dhawaq hagaajinta",
-      "deleteAccount": "tirtir koontada"
+      "deleteAccount": "tirtir koontada",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Whoops! This page got lost in conversation.",

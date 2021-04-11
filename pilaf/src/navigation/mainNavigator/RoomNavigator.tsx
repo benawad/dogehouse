@@ -5,9 +5,9 @@ import { Platform } from "react-native";
 import { UserPreview } from "../../components/UserPreview";
 import { WaitForWsAndAuth } from "../../modules/auth/WaitForWsAndAuth";
 import { RoomChatMessage } from "../../modules/room/chat/useRoomChatStore";
-import { InviteRoomPage } from "../../modules/room/InviteRoomPage";
-import { RoomDescriptionPage } from "../../modules/room/RoomDescriptionPage";
 import { RoomPanelController } from "../../modules/room/RoomPanelController";
+import { InviteRoomPage } from "./InviteRoomPage";
+import { RoomDescriptionPage } from "./RoomDescriptionPage";
 
 export type RoomStackParamList = {
   RoomMain: { data: JoinRoomAndGetInfoResponse };

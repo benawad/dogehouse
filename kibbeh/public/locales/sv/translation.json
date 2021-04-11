@@ -66,7 +66,8 @@
       "voiceSettings": "Gå till röstinställningar",
       "soundSettings": "Gå till ljudinställningar",
       "deleteAccount": "Radera konto",
-      "overlaySettings": "Gå till overlayinställningar"
+      "overlaySettings": "Gå till overlayinställningar",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Whoops! Denna sida blev förlorad i konversationen.",

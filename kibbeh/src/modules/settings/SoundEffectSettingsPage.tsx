@@ -11,7 +11,7 @@ import {
 import { HeaderController } from "../../modules/display/HeaderController";
 import isElectron from "is-electron";
 
-interface ChatSettingsProps {}
+interface ChatSettingsProps { }
 
 const capitalize = (s: string) =>
   s.length ? s[0].toUpperCase() + s.slice(1) : s;
@@ -30,8 +30,13 @@ export const SoundEffectSettings: React.FC<ChatSettingsProps> = () => {
       const ipcRenderer = window.require("electron").ipcRenderer;
       ipcRenderer.send("@rpc/page", {
         page: "sound-effect-settings",
+        opened: true,
+        modal: false,
         data: "",
       });
+      return () => {
+        ipcRenderer.send("@rpc/page", { page: "sound-effect-settings", opened: false, modal: false, data: "" });
+      }
     }
   }, []);
   return (

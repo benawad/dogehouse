@@ -33,7 +33,7 @@ const RightHeader: React.FC<RightHeaderProps> = ({
   const { close: closeWs, user } = useConn();
   const { push } = useRouter();
   return (
-    <div className="space-x-4 items-center justify-end focus:outline-no-chrome">
+    <div className="space-x-4 items-center justify-end focus:outline-no-chrome w-full">
       {onAnnouncementsClick && (
         <button onClick={onAnnouncementsClick}>
           <SolidMegaphone width={23} height={23} className="text-primary-200" />

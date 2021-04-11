@@ -67,7 +67,8 @@
       "voiceSettings": "cài đặt giọng nói",
       "overlaySettings": "cài đặt overlay",
       "soundSettings": "cài đặt âm thanh",
-      "deleteAccount": "xóa tài khoản"
+      "deleteAccount": "xóa tài khoản",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Á! Đi lạc đâu đây.",

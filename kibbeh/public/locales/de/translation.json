@@ -67,7 +67,8 @@
       "voiceSettings": "Spracheinstellungen",
       "soundSettings": "Soundeinstellungen",
       "deleteAccount": "Konto löschen",
-      "overlaySettings": "Overlay-Einstellungen löschen"
+      "overlaySettings": "Overlay-Einstellungen löschen",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Hoppla! Diese Seite ging im Gespräch verloren.",

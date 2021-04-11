@@ -67,7 +67,8 @@
       "voiceSettings": "siirry puheasetuksiin",
       "soundSettings": "siirry toistoasetuksiin",
       "deleteAccount": "poista käyttäjä",
-      "overlaySettings": "siirry overlay-asetuksiin"
+      "overlaySettings": "siirry overlay-asetuksiin",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Hups! Tämä sivu katosi keskusteluun.",

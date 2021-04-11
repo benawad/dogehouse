@@ -1,7 +1,7 @@
 import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import React, { useCallback, useEffect, useRef } from "react";
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import BottomSheet from "reanimated-bottom-sheet";
 import { validate as uuidValidate } from "uuid";
@@ -44,7 +44,7 @@ export const RoomController: React.FC<RoomControllerProps> = ({ roomId }) => {
       return () => {
         setOnRoomPage(false);
       };
-    }, [])
+    }, [setOnRoomPage])
   );
   const { data, isLoading } = useTypeSafeQuery(
     ["joinRoomAndGetInfo", roomId || ""],
@@ -73,7 +73,7 @@ export const RoomController: React.FC<RoomControllerProps> = ({ roomId }) => {
       //showErrorToast(data.error);
       navigation.navigate("Home");
     }
-  }, [data, isLoading, navigation.navigate, setCurrentRoomId]);
+  }, [data, isLoading, navigation, navigation.navigate, setCurrentRoomId]);
 
   if (isLoading || !currentRoomId) {
     return placeHolder;
@@ -107,11 +107,3 @@ export const RoomController: React.FC<RoomControllerProps> = ({ roomId }) => {
     </WaitForWsAndAuth>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    backgroundColor: colors.primary900,
-  },
-});

@@ -67,7 +67,8 @@
       "voiceSettings": "رفتن به تنظیمات میکروفون",
       "soundSettings": "رفتن به تنظیمات صدا",
       "deleteAccount": "حذف حساب",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "ای وای ! صفحه مورد نظر پیدا نشد",

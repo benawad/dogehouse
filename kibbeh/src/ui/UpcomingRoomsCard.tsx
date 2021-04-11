@@ -27,6 +27,7 @@ export interface ScheduledRoomSummaryCardProps {
   scheduledFor: Date;
   speakersInfo: UserCardProps;
   title: string;
+  transition?: boolean;
 }
 
 export interface UpcomingRoomsCardProps {
@@ -48,11 +49,12 @@ export const ScheduledRoomSummaryCard: React.FC<ScheduledRoomSummaryCardProps> =
   scheduledFor,
   speakersInfo,
   title,
+  transition,
 }) => {
   return (
     <button
       onClick={onClick}
-      className="px-4 py-2 w-full bg-primary-800 flex flex-col gap-2 border-b border-primary-600 cursor-pointer hover:bg-primary-700 z-0"
+      className={`px-4 py-2 w-full bg-primary-800 flex flex-col gap-2 border-b border-primary-600 cursor-pointer ${transition ? `transition duration-500 ease-in-out` : ``} hover:bg-primary-700 z-0`}
     >
       <div className="text-accent text-sm">{formattedDate(scheduledFor)}</div>
       <RoomCardHeading text={title} />
@@ -79,7 +81,7 @@ export const UpcomingRoomsCard: React.FC<UpcomingRoomsCardProps> = ({
       </div>
       <div className="flex-col">
         {rooms.map((room) => (
-          <ScheduledRoomSummaryCard key={room.id} {...room} />
+          <ScheduledRoomSummaryCard transition key={room.id} {...room} />
         ))}
       </div>
 

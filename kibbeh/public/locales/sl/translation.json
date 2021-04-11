@@ -67,7 +67,8 @@
       "voiceSettings": "Nastavitve glasu",
       "soundSettings": "Nastavitve zvoka",
       "deleteAccount": "Izbriši račun",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Ups! Ta stran se je v pogovoru izgubila.",

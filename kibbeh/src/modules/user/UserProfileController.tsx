@@ -11,13 +11,13 @@ import { InfoText } from "../../ui/InfoText";
 import { EditProfileModal } from "./EditProfileModal";
 import { VerticalUserInfoWithFollowButton } from "./VerticalUserInfoWithFollowButton";
 
-interface UserProfileControllerProps {}
+interface UserProfileControllerProps { }
 
 const isMac = process.platform === "darwin";
 
-export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) => {
+export const UserProfileController: React.FC<UserProfileControllerProps> = ({ }) => {
   const [open, setOpen] = useState(false);
-  const conn = useConn()
+  const conn = useConn();
   const { t } = useTypeSafeTranslation();
   const { push } = useRouter();
   const { query } = useRouter();
@@ -31,10 +31,14 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
     [query.username as string]
   );
 
+  // commented this out as rn this shows up all the time
   useEffect(() => {
     if (isElectron()) {
       const ipcRenderer = window.require("electron").ipcRenderer;
-      ipcRenderer.send("@rpc/page", { page: "profile", data: query.username });
+      ipcRenderer.send("@rpc/page", { page: "profile", opened: true, modal: false, data: query.username });
+      return () => {
+        ipcRenderer.send("@rpc/page", { page: "profile", opened: false, modal: false, data: query.username });
+      }
     }
   }, [query]);
 
@@ -43,7 +47,7 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
   }
 
   if (!data) {
-    return <InfoText>Sorry, we could not find that user</InfoText>;
+    return <InfoText>{t("pages.myProfile.couldNotFindUser")}</InfoText>;
   }
 
   return (
@@ -52,9 +56,12 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
         idOrUsernameUsedForQuery={data.username}
         user={data}
       />
-      {data.id === conn.user.id &&
+      {data.id === conn.user.id && (
         <div className={`pt-6 flex`}>
-          <EditProfileModal isOpen={open} onRequestClose={() => setOpen(false)} />
+          <EditProfileModal
+            isOpen={open}
+            onRequestClose={() => setOpen(false)}
+          />
           <Button
             style={{ marginRight: "10px" }}
             size="small"
@@ -82,7 +89,7 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
             {t("pages.myProfile.soundSettings")}
           </Button>
         </div>
-      }
+      )}
     </>
   );
 };

@@ -67,7 +67,8 @@
       "voiceSettings": "shko te cilësimet e zërit",
       "soundSettings": "shko te cilësimet e tingullit",
       "deleteAccount": "fshije llogarinë",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Whoops! Kjo faqja humbi në bisedë.",

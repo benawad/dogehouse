@@ -67,7 +67,8 @@
       "voiceSettings": "Sprachistellige",
       "soundSettings": "Tonistellige",
       "deleteAccount": "Konto lösche",
-      "overlaySettings": "Gang zu de Overlay Istellige"
+      "overlaySettings": "Gang zu de Overlay Istellige",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Hoppla! Die Site isch im Gspräch verlore gange.",

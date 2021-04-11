@@ -1,8 +1,8 @@
-import { JoinRoomAndGetInfoResponse, Room } from "@dogehouse/kebab";
+import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { Tag } from "../../components/Tag";
-import { h4, paragraphBold, smallBold } from "../../constants/dogeStyle";
+import { h4, smallBold } from "../../constants/dogeStyle";
 import { useSplitUsersIntoSections } from "./useSplitUsersIntoSections";
 
 interface RoomUsersPanelProps extends JoinRoomAndGetInfoResponse {}
