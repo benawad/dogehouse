@@ -32,7 +32,7 @@ defmodule KousaTest.Broth.BanTest do
 
     @ben_github_id Application.compile_env!(:kousa, :ben_github_id)
 
-    test "works for not-ben awad", t do
+    test "works for ben awad", t do
       t.user
       |> User.changeset(%{githubId: @ben_github_id})
       |> Beef.Repo.update!()

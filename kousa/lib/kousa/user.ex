@@ -22,25 +22,24 @@ defmodule Kousa.User do
     end
   end
 
-  def ban(user_id, username_to_ban, reason_for_ban) do
-    user = Users.get_by_id(user_id)
+  @doc """
+  bans a user from the platform.  Must be an admin operator (currently ben) to run
+  this function.  Authorization passed in via the opts (:admin_id) field.
 
-    if user.githubId == Application.get_env(:kousa, :ben_github_id, "") do
-      user_to_ban = Users.get_by_username(username_to_ban)
+  If someone that isn't ben tries to use it, it won't leak a meaningful error message
+  (to prevent side channel knowledge of authorization status)
+  """
+  def ban(user_id_to_ban, reason_for_ban, opts) do
+    authorized_github_id = Application.get_env(:kousa, :ben_github_id, "")
 
-      if not is_nil(user_to_ban) do
-        Kousa.Room.leave_room(user_to_ban.id, user_to_ban.currentRoomId)
-        Users.set_reason_for_ban(user_to_ban.id, reason_for_ban)
-
-        Onion.UserSession.send_ws(user_to_ban.id, nil, %{op: "banned", d: %{}})
-
-        true
-      else
-        IO.puts("tried to ban " <> username_to_ban <> " but that username didn't exist")
-        false
-      end
+    with %{githubId: ^authorized_github_id} <- Users.get_by_id(opts[:admin_id]),
+         user_to_ban = %{} <- Users.get_by_id(user_id_to_ban) do
+      Kousa.Room.leave_room(user_id_to_ban, user_to_ban.currentRoomId)
+      Users.set_reason_for_ban(user_id_to_ban, reason_for_ban)
+      Onion.UserSession.send_ws(user_id_to_ban, nil, %{op: "banned", d: %{}})
+      :ok
     else
-      false
+      _ -> {:error, "tried to ban #{user_id_to_ban} but that user didn't exist"}
     end
   end
 end

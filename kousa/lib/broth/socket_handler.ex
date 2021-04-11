@@ -173,19 +173,6 @@ defmodule Broth.SocketHandler do
     {:ok, state}
   end
 
-  def handler("ban", %{"username" => username, "reason" => reason}, state) do
-    worked = Kousa.User.ban(state.user_id, username, reason)
-
-    {:reply,
-     prepare_socket_msg(
-       %{
-         op: "ban_done",
-         d: %{worked: worked}
-       },
-       state
-     ), state}
-  end
-
   def handler("set_auto_speaker", %{"value" => value}, state) do
     Kousa.Room.set_auto_speaker(state.user_id, value)
 

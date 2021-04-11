@@ -36,6 +36,9 @@ defmodule Broth.Message.User.Update do
 
     @derive {Jason.Encoder, only: [:user, :error, :isUsernameTaken]}
 
+    Module.register_attribute(__MODULE__, :reply_operation, persist: true)
+    @reply_operation "ban_done"
+
     @primary_key false
     embedded_schema do
       embeds_one(:user, Beef.Schemas.User)

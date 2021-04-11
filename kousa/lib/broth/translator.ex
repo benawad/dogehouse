@@ -34,6 +34,15 @@ defmodule Broth.Translator do
     }
   end
 
+  def convert_legacy(%{"op" => "ban", "d" => d = %{"username" => _}}) do
+    userId = Beef.Users.get_by_username(d["username"]).id
+    %{
+      "op" => "user:ban",
+      "p" => %{"userId" => userId, "reason" => d["reason"]},
+      "ref" => UUID.uuid4()
+    }
+  end
+
   def convert_legacy(command) do
     command
   end
