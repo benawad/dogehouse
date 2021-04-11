@@ -25,7 +25,7 @@ export const AccountOverlay: React.FC<AccountOverlyProps> = ({
   axis = "y",
 }) => {
   const endPosition = useRef(0);
-  const node = useRef();
+  const node = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {

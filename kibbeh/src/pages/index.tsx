@@ -1,3 +1,3 @@
-import { LandingPage } from "../modules/landing-page/LandingPage";
-
-export default LandingPage;
+import { LoginPage } from "../modules/landing-page/LoginPage";
+//
+export default LoginPage;

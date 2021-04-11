@@ -15,7 +15,7 @@
     "copied": "copié",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Veuillez noter que l'exécution de DogeHouse sans autorisations d'accessibilité peut provoquer des erreurs indésirables"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,7 +36,11 @@
       "startPrivateRoom": "lancer une salle privée avec eux"
     },
     "followList": { "followHim": "suivre", "followingHim": "abonné" },
-    "home": { "createRoom": "Créer une salle", "refresh": "Actualiser" },
+    "home": {
+      "createRoom": "Créer une salle",
+      "refresh": "Actualiser",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "salle indisponible, retour",
       "shareRoomLink": "partager le lien de la salle",
@@ -85,7 +89,8 @@
       "followHim": "suivre",
       "followingHim": "abonné",
       "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard"
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Paramètres vocaux",
@@ -124,9 +129,9 @@
       "chat": "Chat"
     },
     "deviceNotSupported": {
-      "notSupported": "Votre système n'est pas encore supporté. Vous pouvez créer un",
+      "notSupported": "Votre système n'est pas encore supporté. Vous pouvez créer une",
       "linkText": "Issue sur GitHub",
-      "addSupport": "et je vais essayer d'ajouter un support pour votre système."
+      "addSupport": "et j'essaierai d'ajouter le support de votre système."
     },
     "inviteButton": {
       "invited": "invité",
@@ -180,7 +185,9 @@
       "roomSettingsModal": {
         "requirePermission": "requiert la permission de parler",
         "makePublic": "rendre la salle publique",
-        "makePrivate": "rendre la salle publique"
+        "makePrivate": "rendre la salle publique",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     },
     "userVolumeSlider": {

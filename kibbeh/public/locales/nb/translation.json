@@ -1,20 +1,21 @@
 {
   "common": {
-    "loadMore": "last inn flere",
-    "loading": "laster inn...",
-    "noUsersFound": "ingen brukere funnet",
-    "ok": "ok",
-    "yes": "ja",
-    "no": "nei",
-    "cancel": "avbryt",
-    "save": "lagre",
-    "edit": "rediger",
-    "delete": "slett",
-    "joinRoom": "bli med i rommet",
-    "copyLink": "kopier lenke",
-    "copied": "kopiert",
+    "loadMore": "Last inn flere",
+    "loading": "Laster inn...",
+    "noUsersFound": "Ingen brukere funnet",
+    "ok": "Ok",
+    "yes": "Ja",
+    "no": "Nei",
+    "cancel": "Avbryt",
+    "save": "Lagre",
+    "edit": "Rediger",
+    "delete": "Slett",
+    "joinRoom": "Bli med i rommet",
+    "copyLink": "Kopiér lenke",
+    "copied": "Kopiert",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Vær oppmerksom på at bruk av DogeHouse uten å gi nettleseren nødvendige tillatelser kan føre til uønskede feil"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -32,16 +33,20 @@
     "banUser": { "ban": "utesteng" },
     "followingOnlineList": {
       "listHeader": "Liste over brukere som ikke er i et privat rom, og som du følger.",
-      "currentRoom": "for tiden i:",
-      "startPrivateRoom": "start et privat rom med dem"
+      "currentRoom": "For tiden i:",
+      "startPrivateRoom": "Start et privat rom med dem"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Lag et rom", "refresh": "Last inn på nytt" },
+    "followList": { "followHim": "følg", "followingHim": "følger" },
+    "home": {
+      "createRoom": "Lag et rom",
+      "refresh": "Last inn på nytt",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
-      "roomGone": "rommet er borte, gå tilbake",
-      "shareRoomLink": "del lenken til rommet",
-      "inviteFollowers": "Du kan invitere følgerne dine som er online:",
-      "whenFollowersOnline": "Når følgerne dine er online, vil de dukke opp her."
+      "roomGone": "Rommet finnes ikke lengre, gå tilbake",
+      "shareRoomLink": "Del lenken til rommet",
+      "inviteFollowers": "Du kan invitere følgerne dine som er pålogget:",
+      "whenFollowersOnline": "Når følgerne dine er pålogget, vil de dukke opp her."
     },
     "login": {
       "headerText": "Tar talesamtaler til månen 🚀",
@@ -51,16 +56,18 @@
       "featureText_4": "Åpen kildekode",
       "featureText_5": "Tekstchat",
       "featureText_6": "Drevet av Doge",
-      "loginGithub": "logg inn med GitHub",
-      "loginTwitter": "logg inn med Twitter",
-      "createTestUser": "opprett en test-bruker"
+      "loginGithub": "Logg inn med GitHub",
+      "loginTwitter": "Logg inn med Twitter",
+      "createTestUser": "Opprett en test-bruker"
     },
     "myProfile": {
-      "logout": "logg ut",
-      "probablyLoading": "lastes sikkert inn...",
-      "voiceSettings": "gå til taleinnstillinger",
-      "soundSettings": "gå til lydinnstillinger",
-      "deleteAccount": "slett konto"
+      "logout": "Logg ut",
+      "probablyLoading": "Lastes sikkert inn...",
+      "voiceSettings": "Gå til taleinnstillinger",
+      "soundSettings": "Gå til lydinnstillinger",
+      "deleteAccount": "Slett konto",
+      "overlaySettings": "Gå til overleggsinnstillinger",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Oi sann! Denne siden ble tapt i samtalen.",
@@ -70,24 +77,33 @@
     "room": {
       "speakers": "Talere",
       "requestingToSpeak": "Ber om å få snakke",
-      "listeners": "Lyttere"
+      "listeners": "Lyttere",
+      "allowAll": "Tillat alle",
+      "allowAllConfirm": "Er du sikker? Dette vil tillate alle {{count}} spørrende brukere til å snakke"
     },
     "searchUser": { "search": "søk..." },
     "soundEffectSettings": { "header": "Lyder" },
     "viewUser": {
-      "editProfile": "rediger profil",
-      "followsYou": "følger deg",
+      "editProfile": "Rediger profil",
+      "followsYou": "Følger deg",
       "followers": "følgere",
       "following": "følger",
-      "followHim": "follow",
-      "followingHim": "following"
+      "followHim": "Følg",
+      "followingHim": "Følger",
+      "copyProfileUrl": "Kopiér profil URL",
+      "urlCopied": "URL kopiert til utklippstavlen",
+      "unfollow": "Slutt å følge"
     },
     "voiceSettings": {
       "header": "Taleinnstillinger",
-      "mic": "mikrofon:",
-      "permissionError": "ingen mikrofoner funnet, du har enten ingen plugget inn, eller så har du ikke gitt denne nettsiden tillatelse til å bruke den.",
-      "refresh": "oppdater mikrofon-listen",
-      "volume": "volum:"
+      "mic": "Mikrofon:",
+      "permissionError": "Ingen mikrofoner er funnet, du har enten ingen enheter tilgjenngelig, eller så har du ikke gitt tillatelse til å bruke den.",
+      "refresh": "Oppdater mikrofon-listen",
+      "volume": "Volum:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Ugyldig tittel", "label": "Angi tittel" },
+      "header": "Innstillinger for overlegg"
     }
   },
   "components": {
@@ -97,7 +113,7 @@
     "blockedFromRoomUsers": {
       "header": "Utestengte brukere",
       "unban": "Opphev utestengelsen",
-      "noBans": "ingen har blitt utestengt ennå"
+      "noBans": "Ingen har blitt utestengt ennå"
     },
     "bottomVoiceControl": {
       "leaveCurrentRoomBtn": "Forlat dette rommet",
@@ -120,72 +136,75 @@
       "addSupport": "så skal jeg prøve å legge til støtte for enheten din."
     },
     "inviteButton": {
-      "invited": "invitert",
-      "inviteToRoom": "inviter til rom"
+      "invited": "Invitert",
+      "inviteToRoom": "Inviter til rom"
     },
     "micPermissionBanner": {
       "permissionDenied": "Tillatelse nektet når vi prøvde å få tilgang til mikrofonen din (du må kanskje gå til nettleserinnstillingene og laste inn siden på nytt)",
-      "dismiss": "avvis",
-      "tryAgain": "prøv igjen"
+      "dismiss": "Avvis",
+      "tryAgain": "Prøv igjen"
     },
     "keyboardShortcuts": {
-      "setKeybind": "angi hurtigtast",
-      "listening": "lytter",
-      "toggleMuteKeybind": "veksle demping av hurtigtast",
-      "togglePushToTalkKeybind": "veksle trykk for å snakke hurtigtast"
+      "setKeybind": "Angi hurtigtast",
+      "listening": "Lytter",
+      "toggleMuteKeybind": "Veksle demping av hurtigtast",
+      "togglePushToTalkKeybind": "Veksle trykk for å snakke hurtigtast",
+      "toggleOverlayKeybind": "Overlay hurtigtast"
     },
     "userVolumeSlider": {
-      "noAudioMessage": "ingen lydmottaker av en eller annen grunn"
+      "noAudioMessage": "Ingen lydmottaker av en eller annen grunn"
     },
     "addToCalendar": { "add": "Legg til i Kalender" },
     "wsKilled": {
-      "description": "WebSocket ble drept av serveren. Dette skjer vanligvis når du åpner nettsiden i en annen fane.",
-      "reconnect": "koble til igjen"
+      "description": "Tilkoblingen din ble avsluttet av serveren. Dette skjer vanligvis når du åpner nettsiden i en annen fane.",
+      "reconnect": "Koble til igjen"
     },
     "modals": {
       "createRoomModal": {
-        "public": "offentlig",
-        "private": "privat",
-        "roomName": "romnavn",
-        "roomDescription": "rombeskrivelse",
-        "descriptionError": "maksimal lengde er 500 tegn",
-        "nameError": "må være mellom 2 og 60 tegn"
+        "public": "Offentlig",
+        "private": "Privat",
+        "roomName": "Romnavn",
+        "roomDescription": "Rombeskrivelse",
+        "descriptionError": "Maksimal lengde er 500 tegn",
+        "nameError": "Må være mellom 2 og 60 tegn"
       },
       "invitedToJoinRoomModal": {
-        "newRoomCreated": "Nytt rom opprettet",
+        "newRoomCreated": "Nytt rom er opprettet",
         "roomInviteFrom": "Rominvitasjon fra",
         "justStarted": "De startet nettopp",
         "likeToJoin": ", vil du bli med?",
         "inviteReceived": "du har blitt invitert til"
       },
       "editProfileModal": {
-        "usernameTaken": "brukernavnet er allerede i bruk",
+        "usernameTaken": "Brukernavnet er allerede i bruk",
         "avatarUrlError": "Ugyldig bilde",
-        "avatarUrlLabel": "GitHub/Twitter avatar url",
-        "displayNameError": "lengden må være mellom 2 og 50 tegn",
+        "avatarUrlLabel": "GitHub/Twitter profilbilde URL",
+        "displayNameError": "Lengden må være mellom 2 og 50 tegn",
         "displayNameLabel": "Visningsnavn",
-        "usernameError": "lengden må være mellom 4 og 15 tegn og kan kun inneholde alfanumerisk/understrek",
+        "usernameError": "Lengden må være mellom 4 og 15 tegn og kan kun inneholde alfanumerisk/understrek",
         "usernameLabel": "Brukernavn",
-        "bioError": "maksimal lengde er 160 tegn",
+        "bioError": "Maksimal lengde er 160 tegn",
         "bioLabel": "Bio"
       },
       "profileModal": {
-        "blockUserConfirm": "Er du sikker på at du vil blokkere denne brukeren fra å bli med i alle nye rom du lager?",
-        "blockUser": "blokker bruker",
-        "makeMod": "gjør til moderator",
-        "unmod": "fjern som moderator",
-        "addAsSpeaker": "legg til som taler",
-        "moveToListener": "flytt til lytter",
-        "banFromChat": "utesteng fra chatten",
-        "banFromRoom": "utesteng fra rommet",
-        "goBackToListener": "gå tilbake til lytter",
-        "deleteMessage": "slett denne meldingen",
-        "makeRoomCreator": "make room admin"
+        "blockUserConfirm": "Er du sikker på at du vil blokkere brukeren fra å bli med i alle nye rom du lager?",
+        "blockUser": "Blokkér bruker",
+        "makeMod": "Gjør til moderator",
+        "unmod": "Fjern som moderator",
+        "addAsSpeaker": "Legg til som taler",
+        "moveToListener": "Flytt til lytter",
+        "banFromChat": "Utesteng fra chatten",
+        "banFromRoom": "Utesteng fra rommet",
+        "goBackToListener": "Gå tilbake til lytter",
+        "deleteMessage": "Slett denne meldingen",
+        "makeRoomCreator": "Opprett rom-administrator"
       },
       "roomSettingsModal": {
-        "requirePermission": "krev tillatelse for å snakke",
-        "makePublic": "gjør rommet offentlig",
-        "makePrivate": "gjør rommet privat"
+        "requirePermission": "Krev tillatelse for å snakke",
+        "makePublic": "Gjør rommet offentlig",
+        "makePrivate": "Gjør rommet privat",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },
@@ -193,16 +212,16 @@
     "_comment": "Modules UI Internationalization Strings",
     "scheduledRooms": {
       "title": "Planlagte rom",
-      "noneFound": "ingen funnet",
-      "allRooms": "alle planlagte rom",
-      "myRooms": "mine planlagte rom",
-      "scheduleRoomHeader": "Planlegg rom",
-      "startRoom": "start rom",
+      "noneFound": "Ingen funnet",
+      "allRooms": "Alle planlagte rom",
+      "myRooms": "Mine planlagte rom",
+      "scheduleRoomHeader": "Planlegg et rom",
+      "startRoom": "Opprett et rom",
       "modal": {
-        "needsFuture": "må være i fremtiden",
-        "roomName": "romnavn",
-        "minLength": "minimun lengde er 2 tegn",
-        "roomDescription": "Description"
+        "needsFuture": "Må være i fremtiden",
+        "roomName": "Romnavn",
+        "minLength": "Minimum lengde er 2 tegn",
+        "roomDescription": "Beskrivelse"
       }
     },
     "roomChat": {
@@ -216,7 +235,7 @@
       "sendMessage": "Send en melding",
       "whisper": "Hviske",
       "welcomeMessage": "Velkommen til chatten!",
-      "roomDescription": "rombeskrivelse"
+      "roomDescription": "Rombeskrivelse"
     },
     "roomStatus": {
       "fuelingRocket": "Fyller på rakkett med drivstoff",
@@ -226,9 +245,9 @@
       "lunarDoge": "Måne-doge",
       "approachingSun": "Nærmer seg solen",
       "solarDoge": "Sol-doge",
-      "approachingGalaxy": "Nærme galaksen",
-      "galacticDoge": "Galaktisk Doge",
-      "spottedLife": "Fikk øye på en planet med liv"
+      "approachingGalaxy": "Nærmer seg galaksen",
+      "galacticDoge": "Galakse-doge",
+      "spottedLife": "Planet med liv oppdaget"
     }
   }
 }

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorMessageButton should match snapshot 1`] = `
+<button
+  class="rounded-lg px-3 font-bold text-sm bg-secondary-washed-out undefined"
+  data-testid="error-msg-btn"
+  style="padding-top: 3px; padding-bottom: 3px;"
+/>
+`;

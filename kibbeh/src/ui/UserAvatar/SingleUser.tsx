@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import { SolidMicrophoneOff } from "../../icons";
 
-const avatarSizeMap = {
+export const avatarSizeMap = {
   default: "80px",
+  lg: "60px",
+  md: "50px",
   sm: "40px",
-  xxs: "30px",
   xs: "20px",
+  xxs: "30px",
 };
 
-const onlineIndicatorStyleMap = {
+export const onlineIndicatorStyleMap = {
   default: {
     width: "15px",
     height: "15px",
@@ -15,12 +18,19 @@ const onlineIndicatorStyleMap = {
     bottom: "-4px",
     borderWidth: "4px",
   },
-  xxs: {
-    width: "6px",
-    height: "6px",
-    right: "1px",
-    bottom: "-1px",
-    borderWidth: "1px",
+  lg: {
+    width: "12px",
+    height: "12px",
+    right: "2px",
+    bottom: "-2px",
+    borderWidth: "2px",
+  },
+  md: {
+    width: "10px",
+    height: "10px",
+    right: "2px",
+    bottom: "-2px",
+    borderWidth: "2px",
   },
   sm: {
     width: "8px",
@@ -36,13 +46,23 @@ const onlineIndicatorStyleMap = {
     bottom: "-1px",
     borderWidth: "1px",
   },
+  xxs: {
+    width: "6px",
+    height: "6px",
+    right: "1px",
+    bottom: "-1px",
+    borderWidth: "1px",
+  },
 };
 
 export interface AvatarProps {
-  size: keyof typeof onlineIndicatorStyleMap;
   src: string;
+  size?: keyof typeof onlineIndicatorStyleMap;
   className?: string;
   isOnline?: boolean;
+  muted?: boolean;
+  activeSpeaker?: boolean;
+  username?: string;
 }
 
 export const SingleUser: React.FC<AvatarProps> = ({
@@ -50,7 +70,12 @@ export const SingleUser: React.FC<AvatarProps> = ({
   size = "default",
   className = "",
   isOnline = false,
+  muted,
+  activeSpeaker,
+  username,
 }) => {
+  const [isError, setError] = useState(false);
+  const sizeStyle = onlineIndicatorStyleMap[size];
   return (
     <div
       className={`relative inline-block ${className}`}
@@ -60,15 +85,43 @@ export const SingleUser: React.FC<AvatarProps> = ({
       }}
       data-testid="single-user-avatar"
     >
-      <img alt="avatar" className="rounded-full w-full h-full" src={src} />
+      <img
+        alt="avatar"
+        style={{
+          boxShadow: activeSpeaker ? "0 0 0 2px var(--color-accent)" : "",
+        }}
+        className="rounded-full w-full h-full object-cover"
+        onError={() => setError(true)}
+        src={
+          isError
+            ? `https://ui-avatars.com/api/${
+                username ? `&name=${username}` : "&name"
+              }&rounded=true&background=B23439&bold=true&color=FFFFFF`
+            : src
+        }
+      />
       {isOnline && (
         <span
           className={
             "rounded-full absolute box-content bg-accent border-primary-800"
           }
-          style={onlineIndicatorStyleMap[size]}
+          style={sizeStyle}
           data-testid="online-indictor"
         ></span>
+      )}
+      {muted && (
+        <span
+          className={
+            "rounded-full absolute box-content bg-primary-800 border-primary-800 text-accent items-center justify-center"
+          }
+          style={{ ...sizeStyle, padding: 2 }}
+          data-testid="online-indictor"
+        >
+          <SolidMicrophoneOff
+            width={sizeStyle.width}
+            height={sizeStyle.width}
+          />
+        </span>
       )}
     </div>
   );

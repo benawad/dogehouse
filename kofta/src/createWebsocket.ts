@@ -6,7 +6,7 @@ import { useSocketStatus } from "./webrtc/stores/useSocketStatus";
 import { useWsHandlerStore } from "./webrtc/stores/useWsHandlerStore";
 import { useVoiceStore } from "./webrtc/stores/useVoiceStore";
 import { useMuteStore } from "./webrtc/stores/useMuteStore";
-import { uuidv4 } from "./webrtc/utils/uuidv4";
+import { v4 as uuidv4 } from 'uuid';
 import { WsParam } from "./app/types";
 import { useCurrentRoomStore } from "./webrtc/stores/useCurrentRoomStore";
 import { toast } from "react-toastify";
@@ -103,7 +103,6 @@ export const createWebSocket = (force?: boolean) => {
             reconnectToVoice,
             currentRoomId: useCurrentRoomStore.getState().currentRoom?.id,
             muted: useMuteStore.getState().muted,
-            platform: "web",
           },
         }),
       { staleTime: 0 }
@@ -183,9 +182,9 @@ export const wsend = (d: { op: string; d: any }) => {
     if (isElectron()) {
       ipcRenderer = window.require("electron").ipcRenderer;
       if (d.op === "leave_room") {
-        ipcRenderer.send("@voice/active", false);
+        ipcRenderer.send("@room/joined", false);
       } else if (d.op === "join_room" || "create_room") {
-        ipcRenderer.send("@voice/active", true);
+        ipcRenderer.send("@room/joined", true);
       }
     }
     ws?.send(JSON.stringify(d));

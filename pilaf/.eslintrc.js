@@ -1,5 +1,9 @@
 module.exports = {
   root: true,
   extends: "@react-native-community",
-  singleQuote: false,
+  rules: {
+    quotes: [2, "double", { avoidEscape: true }],
+    semi: [2, "always"],
+    "react-native/no-inline-styles": 0,
+  },
 };

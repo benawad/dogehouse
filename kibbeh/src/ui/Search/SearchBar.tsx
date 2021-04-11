@@ -16,7 +16,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 }) => {
   return (
     <div
-      className={`w-full bg-primary-700 text-primary-300 focus-within:text-primary-100 rounded-lg ${
+      className={`w-full bg-primary-700 text-primary-300 transition duration-200 ease-in-out focus-within:text-primary-100 rounded-lg ${
         mobile ? "px-4" : ""
       } ${className}`}
     >
@@ -25,7 +25,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           <SolidSearch />
         </div>
       )}
-      <Input className={inputClassName} {...props} />
+      <Input className={`${inputClassName} pl-0`} {...props} />
     </div>
   );
 };

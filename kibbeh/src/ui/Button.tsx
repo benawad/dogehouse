@@ -15,6 +15,8 @@ const colorClassnames = {
     "text-button bg-accent hover:bg-accent-hover disabled:text-accent-disabled disabled:bg-accent-hover",
   secondary:
     "text-button bg-primary-700 hover:bg-primary-600 disabled:text-primary-300",
+  "secondary-800":
+    "text-button bg-primary-800 hover:bg-primary-600 disabled:text-primary-300",
 };
 
 export type ButtonProps = DetailedHTMLProps<
@@ -25,6 +27,7 @@ export type ButtonProps = DetailedHTMLProps<
   color?: keyof typeof colorClassnames;
   loading?: boolean;
   icon?: ReactNode;
+  transition?: boolean;
 };
 
 export const Button: React.FC<ButtonProps> = ({
@@ -35,12 +38,17 @@ export const Button: React.FC<ButtonProps> = ({
   loading,
   icon,
   className = "",
+  transition,
   ...props
 }) => {
   return (
     <button
       disabled={disabled || loading}
-      className={`${sizeClassnames[size]} ${colorClassnames[color]} font-bold flex items-center justify-center ${className}`}
+      className={`${sizeClassnames[size]} ${
+        transition ? `transition duration-200 ease-in-out` : ``
+      } ${
+        colorClassnames[color]
+      } font-bold flex items-center justify-center ${className}`}
       data-testid="button"
       {...props}
     >

@@ -7,6 +7,8 @@ export const tokensToString = (tokens: MessageToken[]): string => tokens
       case "text": return it.v;
       case "mention": return `@${it.v}`;
       case "link": return it.v;
+      case "emote": return `:${it.v}:`;
+      case "block": return `\`${it.v}\``;
       default: return "";
     }
   })

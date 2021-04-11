@@ -14,7 +14,8 @@
     "copyLink": "लिंक प्रतिलिपि गर्नुहोस्",
     "copied": "copied",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,7 +37,11 @@
       "startPrivateRoom": "यीनीहरू संग एक प्राइवेट रूम शुरू गर्नुहोस्"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "रूम बनाउनुहोस", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "रूम बनाउनुहोस",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "रूम गयो, पछाडि जानुहोस्",
       "shareRoomLink": "रूमको लिंक शेयर गर्नुहोस्",
@@ -51,8 +56,8 @@
       "featureText_4": "Open Source",
       "featureText_5": "Text Chat",
       "featureText_6": "Powered by Doge",
-      "loginGithub": "login with GitHub",
-      "loginTwitter": "login with Twitter",
+      "loginGithub": "log in with GitHub",
+      "loginTwitter": "log in with Twitter",
       "createTestUser": "create test user"
     },
     "myProfile": {
@@ -60,7 +65,9 @@
       "probablyLoading": "सायद लोड हुँदैछ ...",
       "voiceSettings": "वॉइस सेटिंग्समा जानुहोस्",
       "soundSettings": "साउंड सेटिंग्समा जानुहोस्",
-      "deleteAccount": "खाता मेटाउनुहोस्"
+      "deleteAccount": "खाता मेटाउनुहोस्",
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "ओहो ! यो पृष्ठ त कुराकानीमै हरायो।.",
@@ -70,7 +77,9 @@
     "room": {
       "speakers": "स्पिकरहरू",
       "requestingToSpeak": "बोल्न अनुरोध गर्दै",
-      "listeners": "श्रोताहरु"
+      "listeners": "श्रोताहरु",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "खोजी गर्नुहोस्..." },
     "soundEffectSettings": { "header": "साउंड" },
@@ -80,7 +89,10 @@
       "followers": "फॉलोअर्स",
       "following": "फॉलोइंग",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "वॉइस सेटिंग्स",
@@ -88,6 +100,10 @@
       "permissionError": "कुनै माईक फेला परेन, तपाईंले या त यस वेबसाइटलाई अनुमति दिनुभएन वा माइकमा प्लग इन गर्न बिर्सनुभयो।",
       "refresh": "रिफ्रेश माइक लिस्ट",
       "volume": "भोल्युम:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -132,7 +148,8 @@
       "setKeybind": "कीबाइंड सेट गर्नुहोस्",
       "listening": "सुन्दै",
       "toggleMuteKeybind": "टॉगल म्यूट कीबाइंड",
-      "togglePushToTalkKeybind": "टॉगल push-to-talk कीबाइंड"
+      "togglePushToTalkKeybind": "टॉगल push-to-talk कीबाइंड",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "कुनै कारणका लागि कुनै अडियो उपभोक्ता छैन"
@@ -185,7 +202,9 @@
       "roomSettingsModal": {
         "requirePermission": "बोल्नको लागि अनुमति चाहिन्छ",
         "makePublic": "रूम सार्वजनिक बनाउनुहोस",
-        "makePrivate": "रूम प्राइवेट बनाउनुहोस"
+        "makePrivate": "रूम प्राइवेट बनाउनुहोस",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

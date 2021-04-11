@@ -1,3 +1,7 @@
 {
-  "extends": "stylelint-config-standard"
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "selector-descendant-combinator-no-non-space": null,
+    "indentation": null
+  }
 }

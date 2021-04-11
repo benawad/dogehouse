@@ -24,7 +24,7 @@ export const RoomCard: React.FC<RoomProps> = ({
   const { rocketIcon } = useTimeElapsed(insertedAtDate);
 
   let n = room.numPeopleInside;
-  const previewNodes = [];
+  const previewNodes: React.ReactNode[] = [];
   let userList = room.peoplePreviewList;
   if (currentRoomId === room.id && "users" in room) {
     n = room.users.length;
@@ -39,7 +39,7 @@ export const RoomCard: React.FC<RoomProps> = ({
     previewNodes.push(
       <div
         key={p.id}
-        className={`text-left text-simple-gray-d9 ${!i ? "mt-1.5" : "mt-0.5"}`}
+        className={`text-left text-simple-gray-d9 overflow-x-hidden ${!i ? "mt-1.5" : "mt-0.5"}`}
       >
         {p.displayName?.slice(0, 50)}
       </div>

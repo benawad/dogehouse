@@ -11,12 +11,12 @@
     "save": "שמור",
     "edit": "ערוך",
     "delete": "מחק",
-    "joinRoom": "הצטרף/י לחדר",
+    "joinRoom": "הצטרף לחדר",
     "copyLink": "העתק קישור",
     "copied": "הועתק",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "בלי ההרשאות יכולה לגרום לבעיות לא רצויות DogeHouse שים לב שהפעלת"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -37,8 +37,12 @@
       "currentRoom": "ב:",
       "startPrivateRoom": "צור חדר פרטי איתם"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "צור חדר", "refresh": "טען מחדש" },
+    "followList": { "followHim": "עקוב", "followingHim": "עוקב" },
+    "home": {
+      "createRoom": "צור חדר",
+      "refresh": "טען מחדש",
+      "editRoom": "ערוך חדר"
+    },
     "inviteList": {
       "roomGone": "החדר נעלם, חזור",
       "shareRoomLink": "שתף קישור לחדר שלך",
@@ -74,8 +78,8 @@
       "speakers": "מדברים",
       "requestingToSpeak": "מבקשים לדבר",
       "listeners": "מקשיבים",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "הרשה לכולם",
+      "allowAllConfirm": "המשתמשים המבקשים רשות יכולת דיבור {{count}} אתה בטוח? זה יאפשר לכל"
     },
     "searchUser": { "search": "חפש..." },
     "soundEffectSettings": { "header": "צלילים" },
@@ -84,10 +88,11 @@
       "followsYou": "עוקב אחריך",
       "followers": "עוקבים",
       "following": "עוקב",
-      "followHim": "follow",
-      "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard"
+      "followHim": "עקוב",
+      "followingHim": "עוקב",
+      "copyProfileUrl": "העתק קישור פרופיל",
+      "urlCopied": "הקישור הועתק",
+      "unfollow": "הפסק מעקב"
     },
     "voiceSettings": {
       "header": "הגדרות קול",
@@ -112,7 +117,7 @@
     },
     "bottomVoiceControl": {
       "leaveCurrentRoomBtn": "עזוב את החדר הנוכחי",
-      "confirmLeaveRoom": "בטוח שאת/ה רוצה לעזוב?",
+      "confirmLeaveRoom": "בטוח שאתה רוצה לעזוב?",
       "leave": "עזוב",
       "inviteUsersToRoomBtn": "הזמן משתמשים לחדר",
       "invite": "הזמנה",
@@ -162,7 +167,7 @@
         "newRoomCreated": "חדר חדש נוצר",
         "roomInviteFrom": "הזמנת חדר מ",
         "justStarted": "הם רק התחילו",
-        "likeToJoin": ", תרצה/י להצתרף?",
+        "likeToJoin": ", תרצה להצטרף?",
         "inviteReceived": "הוזמנת ל"
       },
       "editProfileModal": {
@@ -192,7 +197,9 @@
       "roomSettingsModal": {
         "requirePermission": "דרוש אישור לדבר",
         "makePublic": "הפוך חדר לציבורי",
-        "makePrivate": "הפוך חדר לפרטי"
+        "makePrivate": "הפוך חדר לפרטי",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },
@@ -216,7 +223,7 @@
       "title": "צ'אט",
       "emotesSoon": "[emotes soon]",
       "bannedAlert": "קיבלת באן מהצ'אט",
-      "waitAlert": "חקה/י שנייה לפני שליחת הודעה",
+      "waitAlert": "חכה שנייה לפני שליחת הודעה",
       "search": "חפש",
       "searchResults": "תוצאות חיפוש",
       "recent": "לעיתים קרובות בשימוש",

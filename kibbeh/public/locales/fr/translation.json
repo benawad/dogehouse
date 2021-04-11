@@ -14,7 +14,8 @@
     "copyLink": "copier le lien",
     "copied": "copié",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Veuillez noter que l'exécution de DogeHouse sans autorisations d'accessibilité peut provoquer des erreurs indésirables"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -34,8 +35,12 @@
       "currentRoom": "actuellement dans :",
       "startPrivateRoom": "lancer une salle privée avec eux"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Créer une salle", "refresh": "Refresh" },
+    "followList": { "followHim": "suivre", "followingHim": "abonné" },
+    "home": {
+      "createRoom": "Créer une salle",
+      "refresh": "Actualiser",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "salle indisponible, retour",
       "shareRoomLink": "partager le lien de la salle",
@@ -59,7 +64,9 @@
       "probablyLoading": "probablement en train de charger...",
       "voiceSettings": "paramètres vocaux",
       "soundSettings": "paramètres audio",
-      "deleteAccount": "supprimer le compte"
+      "deleteAccount": "supprimer le compte",
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Oups ! Cette page s'est perdue dans la conversation.",
@@ -69,7 +76,9 @@
     "room": {
       "speakers": "Interlocuteurs",
       "requestingToSpeak": "Demande la parole",
-      "listeners": "Auditeurs"
+      "listeners": "Auditeurs",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Êtes-vous sur? Cela autorisera {{count}} utilisateurs en attente à parler"
     },
     "searchUser": { "search": "recherche..." },
     "soundEffectSettings": { "header": "Sons" },
@@ -78,15 +87,22 @@
       "followsYou": "vous suit",
       "followers": "abonnés",
       "following": "suivis",
-      "followHim": "follow",
-      "followingHim": "following"
+      "followHim": "suivre",
+      "followingHim": "abonné",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Paramètres vocaux",
-      "mic": "micro :",
+      "mic": "microphone :",
       "permissionError": "pas de microphone trouvé, soit vous n'en avez pas branché un soit vous n'avez pas donné la permission au site de l'utiliser.",
       "refresh": "rafraîchir la liste des microphones",
       "volume": "volume :"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -114,13 +130,13 @@
       "chat": "Chat"
     },
     "deviceNotSupported": {
-      "notSupported": "Votre système n'est pas encore supporté. Vous pouvez créer un",
+      "notSupported": "Votre système n'est pas encore supporté. Vous pouvez créer une",
       "linkText": "Issue sur GitHub",
-      "addSupport": "et je vais essayer d'ajouter un support pour votre système."
+      "addSupport": "et j'essaierai d'ajouter le support de votre système."
     },
     "inviteButton": {
       "invited": "invité",
-      "inviteToRoom": "inviter dans la salle"
+      "inviteToRoom": "inviter à la salle"
     },
     "micPermissionBanner": {
       "permissionDenied": "Permission refusée en essayant d'accéder à votre micro (vous devriez peut être vérifier vos paramètres de navigateur et recharger la page)",
@@ -158,19 +174,21 @@
         "blockUserConfirm": "Êtes-vous sûr de vouloir bloquer cet utilisateur de toutes vos salles ?",
         "blockUser": "bloquer l'utilisateur",
         "makeMod": "rendre modérateur",
-        "unmod": "enlever modérateur",
+        "unmod": "enlever des modérateurs",
         "addAsSpeaker": "ajouter en tant qu'interlocuteur",
         "moveToListener": "rendre auditeur",
         "banFromChat": "bannir du chat",
         "banFromRoom": "bannir de la salle",
         "goBackToListener": "retourner chez les auditeurs",
         "deleteMessage": "supprimer ce message",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "transférer la propriété"
       },
       "roomSettingsModal": {
         "requirePermission": "requiert la permission de parler",
         "makePublic": "rendre la salle publique",
-        "makePrivate": "rendre la salle publique"
+        "makePrivate": "rendre la salle publique",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     },
     "userVolumeSlider": {
@@ -181,7 +199,8 @@
       "setKeybind": "Changer les raccourcis clavier",
       "listening": "écoute",
       "toggleMuteKeybind": "Activer / désactiver le raccourci clavier pour rendre muet",
-      "togglePushToTalkKeybind": "Activer / désactiver le raccourci clavier appuyer-pour-parler"
+      "togglePushToTalkKeybind": "Activer / désactiver le raccourci clavier appuyer-pour-parler",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "wsKilled": {
       "description": "Le WebSocket a été fermé par le serveur. Cela arrive souvent quand vous ouvrez le site dans une autre fenêtre.",
@@ -217,16 +236,16 @@
       "roomDescription": "Description de la salle"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "fuelingRocket": "Ravitaillement de la fusée",
+      "takingOff": "Décollage",
+      "inSpace": "Dans l'espace",
+      "approachingMoon": "Approchant la lune",
+      "lunarDoge": "Doge Lunaire",
+      "approachingSun": "Approchant le soleil",
+      "solarDoge": "Doge Solaire",
+      "approachingGalaxy": "Approchant une galaxie",
+      "galacticDoge": "Doge Galactique",
+      "spottedLife": "Planète avec de la vie en vue"
     }
   }
 }

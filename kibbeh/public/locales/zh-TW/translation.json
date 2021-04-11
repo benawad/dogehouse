@@ -14,7 +14,8 @@
     "copyLink": "複製連結",
     "copied": "已複製",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,7 +37,11 @@
       "startPrivateRoom": "開啟私人房間"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "新增房間", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "新增房間",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "房間已被删除，請回到前一頁",
       "shareRoomLink": "在房間分享連結",
@@ -60,7 +65,9 @@
       "probablyLoading": "可能在讀取中...",
       "voiceSettings": "音量設定",
       "soundSettings": "聲音設定",
-      "deleteAccount": "刪除帳號"
+      "deleteAccount": "刪除帳號",
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "噢！這一頁不見了‧",
@@ -70,7 +77,9 @@
     "room": {
       "speakers": "講者",
       "requestingToSpeak": "要求發言",
-      "listeners": "聽眾"
+      "listeners": "聽眾",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "搜尋..." },
     "soundEffectSettings": { "header": "聲音" },
@@ -80,7 +89,10 @@
       "followers": "追蹤者們",
       "following": "你正在追蹤",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "語音設定",
@@ -88,6 +100,10 @@
       "permissionError": "沒有找到麥克風，請確認有插入或者要允許本網站使用麥克風的權限‧",
       "refresh": "更新麥克風列表",
       "volume": "音量:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -129,7 +145,8 @@
       "setKeybind": "設定按鍵組合",
       "listening": "請輸入按鍵",
       "toggleMuteKeybind": "觸發靜音的按鍵組合",
-      "togglePushToTalkKeybind": "觸發發言的按鍵組合"
+      "togglePushToTalkKeybind": "觸發發言的按鍵組合",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "沒有聲音" },
     "addToCalendar": { "add": "加到行事曆" },
@@ -180,7 +197,9 @@
       "roomSettingsModal": {
         "requirePermission": "需要許可才能發言",
         "makePublic": "把房間設定為公開",
-        "makePrivate": "把房間設定為私人"
+        "makePrivate": "把房間設定為私人",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

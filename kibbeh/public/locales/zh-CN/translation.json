@@ -14,7 +14,8 @@
     "copyLink": "拷贝链接",
     "copied": "已拷贝",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "请注意，在没有辅助功能权限的情况下运行DogeHouse可能会导致错误"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -35,10 +36,14 @@
       "currentRoom": "所在的聊天室:",
       "startPrivateRoom": "跟ta进入私人聊天室"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "新建聊天室", "refresh": "刷新" },
+    "followList": { "followHim": "关注ta", "followingHim": "已经关注" },
+    "home": {
+      "createRoom": "新建聊天室",
+      "refresh": "刷新",
+      "editRoom": "修改聊天室"
+    },
     "inviteList": {
-      "roomGone": "聊天室以被删除，请回到前一页",
+      "roomGone": "聊天室已被删除，请回到前一页",
       "shareRoomLink": "在聊天室分享链接",
       "inviteFollowers": "您可以邀请您在线的关注者:",
       "whenFollowersOnline": "当您的关注者在线的时候，ta们会在这里显示。"
@@ -60,7 +65,9 @@
       "probablyLoading": "加载中...",
       "voiceSettings": "音量设置",
       "soundSettings": "声音设置",
-      "deleteAccount": "删除账号"
+      "deleteAccount": "删除账号",
+      "overlaySettings": "覆盖层设置",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "哎呀，这页在聊天中被丢掉了",
@@ -70,7 +77,9 @@
     "room": {
       "speakers": "讲话者",
       "requestingToSpeak": "要求讲话",
-      "listeners": "听者"
+      "listeners": "听者",
+      "allowAll": "允许全体成员讲话",
+      "allowAllConfirm": "确定？这将会允许全部{{}}位成员讲话"
     },
     "searchUser": { "search": "搜索..." },
     "soundEffectSettings": { "header": "声音" },
@@ -78,9 +87,12 @@
       "editProfile": "编辑个人主页",
       "followsYou": "关注您的人",
       "followers": "关注者",
-      "following": "您关注的人",
+      "following": "关注的人",
       "followHim": "关注ta",
-      "followingHim": "已经关注"
+      "followingHim": "已经关注",
+      "copyProfileUrl": "复制个人主页链接",
+      "urlCopied": "个人主页链接已复制到剪贴板",
+      "unfollow": "取消关注"
     },
     "voiceSettings": {
       "header": "语音设置",
@@ -88,6 +100,10 @@
       "permissionError": "没有找到麦克风，也许没有插入麦克风，也许没有给此网页使用麦克风的权利。",
       "refresh": "刷新麦克风列表",
       "volume": "音量:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "不允许的App标题", "label": "输入App标题" },
+      "header": "覆盖层设置"
     }
   },
   "components": {
@@ -162,7 +178,9 @@
       "roomSettingsModal": {
         "requirePermission": "需要允许才能说话",
         "makePublic": "把聊天室设为公开",
-        "makePrivate": "把聊天室设为私人"
+        "makePrivate": "把聊天室设为私人",
+        "renamePublic": "设置公开聊天室名称",
+        "renamePrivate": "设置私人聊天室名称"
       }
     },
     "userVolumeSlider": {
@@ -173,16 +191,17 @@
       "setKeybind": "设置快捷键",
       "listening": "等待输入",
       "toggleMuteKeybind": "切换静音键绑定",
-      "togglePushToTalkKeybind": "toggle push-to-talk keybind"
+      "togglePushToTalkKeybind": "切换按键说话绑定",
+      "toggleOverlayKeybind": "切换覆盖层绑定"
     },
     "wsKilled": {
-      "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
-      "reconnect": "reconnect"
+      "description": "连接被服务器终止。当您在另一个标签中打开此网站时，通常会发生这种情况 ",
+      "reconnect": "正在重新连接"
     },
     "deviceNotSupported": {
-      "notSupported": "Your device is currently not supported. You can create an",
-      "linkText": "issue on GitHub",
-      "addSupport": "and I will try adding support for your device."
+      "notSupported": "您的设备展示还不被支持，您可以",
+      "linkText": "在GitHub开启一个报告",
+      "addSupport": "我将会尝试支持您的设备"
     },
     "inviteButton": { "invited": "被邀请", "inviteToRoom": "邀请进入聊天室" }
   },
@@ -216,16 +235,16 @@
       "roomDescription": "聊天室介绍"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "fuelingRocket": "火箭在加油",
+      "takingOff": "起飞",
+      "inSpace": "在太空",
+      "approachingMoon": "飞向月球",
+      "lunarDoge": "月球 Doge",
+      "approachingSun": "飞向太阳",
+      "solarDoge": "太阳 Doge",
+      "approachingGalaxy": "飞向宇宙",
+      "galacticDoge": "宇宙 Doge",
+      "spottedLife": "已发现新生命"
     }
   }
 }

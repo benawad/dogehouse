@@ -15,7 +15,8 @@
     "copyLink": "کپی کردن لینک",
     "copied": "کپی انجام شد",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,8 +37,12 @@
       "currentRoom": "در حال حاظر در:",
       "startPrivateRoom": "شروع اتاق شخصی"
     },
-    "followList": {},
-    "home": { "createRoom": "ساختن اتاق", "refresh": "تازه کردن" },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": {
+      "createRoom": "ساختن اتاق",
+      "refresh": "تازه کردن",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "اتاق گم شد. برگردید",
       "shareRoomLink": "اشتراک لینک اتاق",
@@ -45,7 +50,7 @@
       "whenFollowersOnline": "زمانی که دنبال کنندگان آنلاین باشند در اینجا نمایان میشوند"
     },
     "login": {
-      "headerText": "بردن تماس های صوتی به ماه🚀",
+      "headerText": "بردن تماص های صوتی به ماه🚀",
       "featureText_1": "حالت تاریک",
       "featureText_2": "ثبت نام رایگان",
       "featureText_3": "پشتیبانی از تمام دستگاه ها",
@@ -61,7 +66,9 @@
       "probablyLoading": "احتمالا در حال بارگذاری...",
       "voiceSettings": "رفتن به تنظیمات میکروفون",
       "soundSettings": "رفتن به تنظیمات صدا",
-      "deleteAccount": "حذف حساب"
+      "deleteAccount": "حذف حساب",
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "ای وای ! صفحه مورد نظر پیدا نشد",
@@ -71,7 +78,9 @@
     "room": {
       "speakers": "گویندگان",
       "requestingToSpeak": "درخواست حرف زدن",
-      "listeners": "شنوندگان"
+      "listeners": "شنوندگان",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "جستجو..." },
     "soundEffectSettings": { "header": "صدا" },
@@ -79,7 +88,12 @@
       "editProfile": "ویرایش حساب",
       "followsYou": "شما را دنبال میکنند",
       "followers": "دنبال کنندگان",
-      "following": "دنبال شوندگان"
+      "following": "دنبال شوندگان",
+      "followHim": "follow",
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "تنظیمات صدا",
@@ -87,6 +101,13 @@
       "permissionError": "میکروفون پیدا نشد! ممکن است میکروفونی وصل نباشد یا شما به آن دسترسی نداده اید.",
       "refresh": "بروزرسانی لیست",
       "volume": "مقدار:"
+    },
+    "overlaySettings": {
+      "header": "Overlay Settings",
+      "input": {
+        "errorMsg": "Please enter valid app title",
+        "label": "Enter app title"
+      }
     }
   },
   "components": {
@@ -107,11 +128,11 @@
       "toggleMuteMicBtn": "بی صدا",
       "mute": "بی صدا",
       "unmute": "فعالسازی صدا",
-      "makeRoomPublicBtn": "تبدیل کردن اتاق به اتاق عمومی!",
+      "makeRoomPublicBtn": "تبدیل کردن اتاق به عمومی!",
       "settings": "تنظیمات",
       "speaker": "گویندگان",
       "listener": "شنوندگان",
-      "chat": "گفتگو"
+      "chat": "پیام"
     },
     "deviceNotSupported": {
       "notSupported": " دستگاه شما پشتیبانی نمیشود. شما میتوانید یک",
@@ -121,14 +142,15 @@
     "inviteButton": { "invited": "دعوت شده", "inviteToRoom": "دعوت به اتاق" },
     "micPermissionBanner": {
       "permissionDenied": "دسترسی مسدود شده است تلاش کنید به میکروفون دسترسی بدهید",
-      "dismiss": "نادیده گرفتن",
+      "dismiss": "نادید گرفتن",
       "tryAgain": "تلاش دوباره"
     },
     "keyboardShortcuts": {
       "setKeybind": "تنظیم کلید",
       "listening": "در حال گوش دادن",
       "toggleMuteKeybind": "کلید فعال/غیرفعال بی صدا",
-      "togglePushToTalkKeybind": "کلید حرف زدن با فشردن دکمه"
+      "togglePushToTalkKeybind": "کلید حرف زدن با فشردن دکمه",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "بدون مخاطب به دلایلی" },
     "addToCalendar": { "add": "اضافه کردن به تقویم" },
@@ -164,7 +186,7 @@
         "bioLabel": "بیو"
       },
       "profileModal": {
-        "blockUserConfirm": "مطمئن هستید که میخواهید این کاربر را مسدود کنید؟",
+        "blockUserConfirm": "مطمئن هستید که میخاهید این کاربر را مسدود کنید؟",
         "blockUser": "مسدود کردن کاربر",
         "makeMod": "تبدیل به مدیریت کننده",
         "unmod": "تبدیل به کاربر عادی",
@@ -179,7 +201,9 @@
       "roomSettingsModal": {
         "requirePermission": "نیاز به دسترسی برای حرف زدن",
         "makePublic": "تبدیل به اتاق عمومی",
-        "makePrivate": "تبدیل به اتاق خصوصی"
+        "makePrivate": "تبدیل به اتاق خصوصی",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },
@@ -201,20 +225,20 @@
     },
     "roomChat": {
       "title": "پیام",
-      "emotesSoon": "[ایموجی ها بزودی]",
+      "emotesSoon": "[ایموجی ها بزردی]",
       "bannedAlert": "شما از پیام ها مسدود شدید",
       "waitAlert": "قبل از ارسال پیام یک ثانیه صبر کنید",
       "search": "جستجو",
       "searchResults": "نتایج جستجو",
       "recent": "بسیار زیاد استفاده شده",
       "sendMessage": "ارسال پیام",
-      "whisper": "در گوشی",
+      "whisper": "نجوا",
       "welcomeMessage": "به چت خوش آمدید",
       "roomDescription": "توضیحات اتاق"
     },
     "roomStatus": {
       "fuelingRocket": "سوخت گیری راکت",
-      "takingOff": "در حال بلند شدن",
+      "takingOff": "در حال بلند شده",
       "inSpace": "در فضا",
       "approachingMoon": "درحال نزدیک شده به ماه",
       "lunarDoge": "doge قمری",

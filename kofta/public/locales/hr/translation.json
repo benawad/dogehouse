@@ -15,7 +15,8 @@
     "copyLink": "kopiraj vezu",
     "copied": "kopirano",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -37,7 +38,11 @@
       "startPrivateRoom": "započnite privatnu sobu s njima"
     },
     "followList": { "followHim": "zaprati", "followingHim": "pratitelji" },
-    "home": { "createRoom": "Stvori sobu", "refresh": "Osvježi" },
+    "home": {
+      "createRoom": "Stvori sobu",
+      "refresh": "Osvježi",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "soba otišla, vrati se",
       "shareRoomLink": "podijeli vezu do sobe",
@@ -61,7 +66,8 @@
       "probablyLoading": "vjerojatno se učitava ...",
       "voiceSettings": "idite na glasovne postavke",
       "soundSettings": "idite na postavke zvuka",
-      "deleteAccount": "izbriši račun"
+      "deleteAccount": "izbriši račun",
+      "overlaySettings": "go to overlay settings"
     },
     "notFound": {
       "whoopsError": "Ups! Ova se stranica izgubila u razgovoru.",
@@ -87,7 +93,8 @@
       "followingHim": "slijedi",
       "followsYou": "follows you",
       "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard"
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Postavke glasa",
@@ -95,6 +102,13 @@
       "permissionError": "nisu pronađeni mikrofoni, ili ih nitko nije priključio ili niste dali dopuštenje ovom web mjestu.",
       "refresh": "osvježi popis mikrofona",
       "volume": "jačina zvuka:"
+    },
+    "overlaySettings": {
+      "header": "Overlay Settings",
+      "input": {
+        "errorMsg": "Please enter valid app title",
+        "label": "Enter app title"
+      }
     }
   },
   "components": {
@@ -136,7 +150,8 @@
       "setKeybind": "postavi tipkovnički prečac",
       "listening": "Slušanje",
       "toggleMuteKeybind": "uključivanje/isključivanje isključivanja tipkovničkih prečaca",
-      "togglePushToTalkKeybind": "uključivanje/isključivanje push-to-talk"
+      "togglePushToTalkKeybind": "uključivanje/isključivanje push-to-talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "iz nekog razloga nema potrošača zvuka"
@@ -189,7 +204,9 @@
       "roomSettingsModal": {
         "requirePermission": "zahtijeva dopuštenje za govor",
         "makePublic": "učini sobu javnom",
-        "makePrivate": "učini sobu privatnom"
+        "makePrivate": "učini sobu privatnom",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

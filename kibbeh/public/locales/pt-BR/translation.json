@@ -15,7 +15,8 @@
     "copyLink": "copiar link",
     "copied": "copiado",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Cabeçalho da interface principal para traduções",
@@ -36,7 +37,11 @@
       "startPrivateRoom": "iniciar uma sala privada com ele"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Criar Sala", "refresh": "Atualizar" },
+    "home": {
+      "createRoom": "Criar Sala",
+      "refresh": "Atualizar",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "acabou a sala, volte",
       "shareRoomLink": "compartilhar link para sala",
@@ -60,7 +65,9 @@
       "probablyLoading": "possívelmente carregando...",
       "voiceSettings": "ir para configurações de voz",
       "soundSettings": "ir para configurações de áudio",
-      "deleteAccount": "excluir conta"
+      "deleteAccount": "excluir conta",
+      "overlaySettings": "vá para as configurações de sobreposição",
+      "couldNotFindUser": "Desculpa, não foi possível encontrar esse usuário"
     },
     "notFound": {
       "whoopsError": "Ops! Essa página se perdeu na conversa.",
@@ -70,7 +77,9 @@
     "room": {
       "speakers": "Apresentadores",
       "requestingToSpeak": "Solicitando para falar",
-      "listeners": "Ouvintes"
+      "listeners": "Ouvintes",
+      "allowAll": "Permitir todos",
+      "allowAllConfirm": "Você tem certeza? Isso permitirá que todos os {{count}} usuários solicitantes falem"
     },
     "searchUser": { "search": "buscar..." },
     "soundEffectSettings": { "header": "Sons" },
@@ -79,8 +88,11 @@
       "followsYou": "segue você",
       "followers": "seguidores",
       "following": "seguindo",
-      "followHim": "follow",
-      "followingHim": "following"
+      "followHim": "seguir",
+      "unfollow": "deixar de seguir",
+      "followingHim": "seguindo",
+      "copyProfileUrl": "copiar url do perfil",
+      "urlCopied": "URL copiado para a área de transferência"
     },
     "voiceSettings": {
       "header": "Configurações do microfone",
@@ -88,6 +100,13 @@
       "permissionError": "não foram encontrados microfones, você não conectou um ou você não deu permissão para este website.",
       "refresh": "recarregar lista de microfones",
       "volume": "volume:"
+    },
+    "overlaySettings": {
+      "input": {
+        "errorMsg": "Título de aplicativo inválido",
+        "label": "Insira o título do aplicativo"
+      },
+      "header": "Configurações de sobreposição"
     }
   },
   "components": {
@@ -157,21 +176,24 @@
         "banFromRoom": "expulsar da sala",
         "goBackToListener": "voltar para ouvinte",
         "deleteMessage": "excluir essa mensagem",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "criar sala de administração"
       },
       "roomSettingsModal": {
         "requirePermission": "precisar de permissão para falar",
         "makePublic": "fazer a sala pública",
-        "makePrivate": "fazer a sala privada"
+        "makePrivate": "fazer a sala privada",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     },
     "userVolumeSlider": { "noAudioMessage": "não tem áudio por algum motivo" },
     "addToCalendar": { "add": "Adicionar ao Calendário" },
     "keyboardShortcuts": {
       "setKeybind": "definir atalho no teclado",
-      "listening": "listening",
+      "listening": "ouvindo",
       "toggleMuteKeybind": "ativar/desativar atalho para mutar",
-      "togglePushToTalkKeybind": "ativar/desativar pressione para falar"
+      "togglePushToTalkKeybind": "ativar/desativar pressione para falar",
+      "toggleOverlayKeybind": "alternar o atalho de teclado de sobreposição"
     },
     "wsKilled": {
       "description": "O Websocket foi finalizado pelo servidor. Isso geralmente acontece quando você abre o site em outra guia.",

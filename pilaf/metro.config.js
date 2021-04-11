@@ -6,10 +6,10 @@
  */
 const path = require("path");
 
-const extraNodeModules = {
-  "@dogehouse/kebab": path.resolve(__dirname + "/../kebab/"),
-};
-const watchFolders = [path.resolve(__dirname + "/../kebab/")];
+const watchFolders = [
+  path.resolve(__dirname, "..", "node_modules"),
+  path.resolve(path.join(__dirname, "/../kebab/")),
+];
 
 module.exports = {
   transformer: {
@@ -19,9 +19,6 @@ module.exports = {
         inlineRequires: false,
       },
     }),
-  },
-  resolver: {
-    extraNodeModules,
   },
   watchFolders,
 };

@@ -38,7 +38,11 @@
       "startPrivateRoom": "ان کے ساتھ ایک نجی روم شروع کریں"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "روم بنائیں", "refresh": "ریفریش" },
+    "home": {
+      "createRoom": "روم بنائیں",
+      "refresh": "ریفریش",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "یہ روم اب موجود نہیں ہے",
       "shareRoomLink": "روم کی لنک شیئر کریں",
@@ -53,8 +57,8 @@
       "featureText_4": "Open Source",
       "featureText_5": "Text Chat",
       "featureText_6": "Powered by Doge",
-      "loginGithub": "login with GitHub",
-      "loginTwitter": "login with Twitter",
+      "loginGithub": "log in with GitHub",
+      "loginTwitter": "log in with Twitter",
       "createTestUser": "create test user"
     },
     "myProfile": {
@@ -74,24 +78,25 @@
       "speakers": "اسپیکر",
       "requestingToSpeak": "بولنے کی درخواسات",
       "listeners": "سامعین",
-      "allowAll": "Allow all",
+      "allowAll": "سب کو اجازت دیں",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "تلاش کریں" },
     "soundEffectSettings": { "header": "آواز کی ترتیبات" },
     "viewUser": {
       "editProfile": "پروفائل میں ترمیم کریں",
-      "followsYou": "آپ کے پیچھے",
-      "followers": "پیروکار",
-      "following": "درج ذیل",
-      "followHim": "follow",
-      "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard"
+      "followsYou": "آپ کو فالو کیا ہوا ہے",
+      "followers": "فالور",
+      "following": "فالونگ",
+      "followHim": "فالو کریں",
+      "followingHim": "فالونگ",
+      "copyProfileUrl": "کاپی پروفائل یو آر ایل",
+      "urlCopied": "یو آر ایل کو کلپ بورڈ میں کاپی کیا گیا",
+      "unfollow": "ان فالو کریں"
     },
     "voiceSettings": {
       "header": "آواز کی ترتیبات",
-      "mic": "mic:",
+      "mic": "مائک:",
       "permissionError": "کوئی mics نہیں ملا ، آپ نے یا تو کسی نے پلگ ان نہیں لیا ہے یا اس ویب سائٹ کو اجازت نہیں دی ہے۔",
       "refresh": "مائک کی فہرست کو تازہ کریں",
       "volume": "حجم:"
@@ -106,9 +111,9 @@
     "avatar": {},
     "backBar": {},
     "blockedFromRoomUsers": {
-      "header": "Banned Users",
-      "unban": "unban",
-      "noBans": "no one has been banned yet"
+      "header": "ممنوعہ صارفین",
+      "unban": "غیر پابندی",
+      "noBans": "ابھی تک کسی پر پابندی عائد نہیں کی گئی ہے"
     },
     "bottomVoiceControl": {
       "leaveCurrentRoomBtn": "موجودہ کمرہ چھوڑ دو",
@@ -169,15 +174,15 @@
         "inviteReceived": "آپ کو مدعو کیا گیا ہے"
       },
       "editProfileModal": {
-        "usernameTaken": "username taken",
-        "avatarUrlError": "Invalid image",
-        "avatarUrlLabel": "Github/Twitter avatar url",
-        "displayNameError": "length 2 to 50 characters",
-        "displayNameLabel": "Display Name",
-        "usernameError": "length 4 to 15 characters and only alphanumeric/underscore",
-        "usernameLabel": "Username",
-        "bioError": "max length of 160 characters",
-        "bioLabel": "Bio"
+        "usernameTaken": "صارف نام پہلے ہی لیا گیا ہے",
+        "avatarUrlError": "غلط تصویر",
+        "avatarUrlLabel": "اوتار یو آر ایل Github / Twitter",
+        "displayNameError": "لمبائی 2 سے 50 حروف",
+        "displayNameLabel": "ڈسپلے نام",
+        "usernameError": "لمبائی 4 سے 15 حروف اور صرف حرفی / انگارے کی",
+        "usernameLabel": "صارف نام",
+        "bioError": "160 حروف کی زیادہ سے زیادہ لمبائی",
+        "bioLabel": "بایو"
       },
       "profileModal": {
         "blockUserConfirm": "کیا آپ واقعی اس صارف کو اپنے بنائے ہوئے کسی بھی کمرے میں شامل ہونے سے روکنا چاہتے ہیں؟",
@@ -190,12 +195,14 @@
         "banFromRoom": "کمرے سے پابندی لگانا",
         "goBackToListener": "سننے والوں کے پاس واپس جائیں",
         "deleteMessage": "اس پیغام کو حذف کریں",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "روم ایڈمن بنائیں"
       },
       "roomSettingsModal": {
         "requirePermission": "بولنے کی اجازت کی ضرورت ہے",
         "makePublic": "کمرے کو عوامی بنائیں",
-        "makePrivate": "کمرے کو نجی بنائیں"
+        "makePrivate": "کمرے کو نجی بنائیں",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },
@@ -212,7 +219,7 @@
         "needsFuture": "مستقبل میں ہونے کی ضرورت ہے",
         "roomName": "کمرے کا نام",
         "minLength": "منٹ لمبائی 2",
-        "roomDescription": "Description"
+        "roomDescription": "کمرے کی تفصیل"
       }
     },
     "roomChat": {

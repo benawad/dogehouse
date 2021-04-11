@@ -38,7 +38,11 @@
       "startPrivateRoom": "start a private cabin wit' 'em"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Create Cabin", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "Create Cabin",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "cabin gone, go back",
       "shareRoomLink": "share link t' cabin",
@@ -53,9 +57,9 @@
       "featureText_4": "Open Source",
       "featureText_5": "Text Chat",
       "featureText_6": "Powered by Doge",
-      "loginGithub": "login with GitHub",
-      "loginTwitter": "login with Twitter",
-      "createTestUser": "create test user"
+      "loginGithub": "Set Sail wit' GitHub",
+      "loginTwitter": "Set Sail wit' Twitter",
+      "createTestUser": "Set Sail wit' a Test User"
     },
     "myProfile": {
       "logout": "Walk the plank!",
@@ -63,7 +67,7 @@
       "voiceSettings": "go t' voice settings",
       "soundSettings": "go t' sound settings",
       "deleteAccount": "Cleave Him to the Brisket!",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go t' overlay settings"
     },
     "notFound": {
       "whoopsError": "Blast ye! This page got lost in natter.",
@@ -86,8 +90,9 @@
       "following": "hearties",
       "followHim": "follow",
       "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard"
+      "copyProfileUrl": "Copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Voice Settings",
@@ -106,7 +111,7 @@
     "avatar": {},
     "backBar": {},
     "blockedFromRoomUsers": {
-      "header": "people who 'ave walked eh plank",
+      "header": "People who 'ave walked eh plank",
       "unban": "save 'em from the o'en seas",
       "noBans": "no one has walked the plank yet"
     },
@@ -180,21 +185,23 @@
       },
       "profileModal": {
         "blockUserConfirm": "Are ye sure ye wants t' block this user from joinin' any cabin ye ever create?",
-        "blockUser": "block user",
-        "makeMod": "make mod",
-        "unmod": "unmod",
-        "addAsSpeaker": "add as crew",
+        "blockUser": "Block User",
+        "makeMod": "Make Mod",
+        "unmod": "Unmod",
+        "addAsSpeaker": "Add to crew",
         "moveToListener": "move t' shipmate",
-        "banFromChat": "ban from chat",
-        "banFromRoom": "ban from cabin",
-        "goBackToListener": "go back t' shipmate",
-        "deleteMessage": "scuttle this message",
-        "makeRoomCreator": "make cabin cap'n"
+        "banFromChat": "Ban from chat",
+        "banFromRoom": "Ban from cabin",
+        "goBackToListener": "Go back t' shipmate",
+        "deleteMessage": "Scuttle this message",
+        "makeRoomCreator": "Make cabin cap'n"
       },
       "roomSettingsModal": {
-        "requirePermission": "require permission t' speak",
-        "makePublic": "make cabin public",
-        "makePrivate": "make cabin private"
+        "requirePermission": "Require permission t' speak",
+        "makePublic": "Make Cabin Public",
+        "makePrivate": "Make Cabin Private",
+        "renamePublic": "Set Public Cabin Name",
+        "renamePrivate": "Set Private Cabin Name"
       }
     }
   },

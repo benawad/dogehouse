@@ -1,0 +1,268 @@
+{
+    "_comment": "if you change this file, do: npm run i18",
+    "common": {
+        "loadMore": "tenpo kama la sin li lon",
+        "loading": "sin li kama...",
+        "noUsersFound": "jan li ala",
+        "ok": "pona a",
+        "yes": "pona",
+        "no": "ike",
+        "cancel": "pini",
+        "save": "sitelen",
+        "edit": "ante",
+        "delete": "weka",
+        "joinRoom": "tawa tawa tomo",
+        "copyLink": "tu e sitelen tawa",
+        "copied": "ni li tu",
+        "formattedIntlDate": "{{date, intlDate}}",
+        "formattedIntlTime": "{{time, intlTime}}",
+        "requestPermissions": "DogeHouse li jo ala e ken la DogeHouse ken pali ala"
+    },
+    "header": {
+        "_comment": "Main Header UI Internationalization Strings",
+        "title": "DogeHouse",
+        "mutedTitle": "sina ken ala e toki | DogeHouse"
+    },
+    "footer": {
+        "_comment": "Main Footer UI Internationalization Strings",
+        "link_1": "sitelen tenpo pini ni",
+        "link_2": "Discord",
+        "link_3": "toki e ike"
+    },
+    "pages": {
+        "_comment": "Respective Page UI Internationalization Strings",
+        "banUser": {
+            "ban": "ken ala"
+        },
+        "followingOnlineList": {
+            "listHeader": "jan ni li lon ala e tomo pi jan wan. sina lukin e jan ni.",
+            "currentRoom": "sina lon:",
+            "startPrivateRoom": "pali e tenpo poka ona"
+        },
+        "followList": {
+            "followHim": "o lukin",
+            "followingHim": "sina lukin e ona"
+        },
+        "home": {
+            "createRoom": "pali e tomo",
+            "refresh": "tenpo tu la kama jo e ni",
+            "editRoom": "ante e tomo"
+        },
+        "inviteList": {
+            "roomGone": "tomo li weka, tawa monsi",
+            "shareRoomLink": "kulupu e sitelen tawa tomo",
+            "inviteFollowers": "sina ken toki e ni tawa jan lon linja pi lukin e sina:",
+            "whenFollowersOnline": "jan pi lukin e sina li lon linja la ona li lon."
+        },
+        "login": {
+            "headerText": "Tomo toki li tawa mun 🚀",
+            "featureText_1": "nasin lukin pimeja",
+            "featureText_2": "jan ale li ken e pali e jan",
+            "featureText_3": "pali kepeken ilo nanpa pi nasin ale",
+            "featureText_4": "sitelen kulupu",
+            "featureText_5": "pana e sitelen",
+            "featureText_6": "pali kepeken Doge",
+            "loginGithub": "nanpa e jan kepeken GitHub",
+            "loginTwitter": "nanpa e jan kepeken Twitter",
+            "createTestUser": "pali e jan pi tenpo lili"
+        },
+        "myProfile": {
+            "logout": "o sona ala e sina",
+            "probablyLoading": "ken la ni li kama...",
+            "voiceSettings": "open e sitelen lawa pi kalama uta",
+            "overlaySettings": "open e sitelen lawa pi sitelen sewi sitelen sina",
+            "soundSettings": "open e sitelen lawa pi kalama",
+            "deleteAccount": "pakala e jan sina",
+            "couldNotFindUser": "Sorry, we could not find that user"
+        },
+        "notFound": {
+            "whoopsError": "Whoops! This page got lost in conversation.",
+            "goHomeMessage": "Not to worry. You can",
+            "goHomeLinkText": "go home"
+        },
+        "room": {
+            "speakers": "jan pi ken e toki",
+            "requestingToSpeak": "mi wile e toki",
+            "listeners": "jan pi kute",
+            "allowAll": "Ken jan ale e toki",
+            "allowAllConfirm": "sina wile e ni? ni li ken jan ale {{count}} e toki."
+        },
+        "searchUser": {
+            "search": "o lukin..."
+        },
+        "soundEffectSettings": {
+            "header": "Kalama"
+        },
+        "viewUser": {
+            "editProfile": "ante e jan sina",
+            "followsYou": "li lukin e sina",
+            "followers": "jan ale ni li lukin e jan ni",
+            "following": "jan ni li lukin e jan ale ni",
+            "followHim": "o lukin",
+            "unfollow": "o lukin ala",
+            "followingHim": "sina li lukin e jan ni",
+            "copyProfileUrl": "tu e sitelen tawa pi jan ni",
+            "urlCopied": "ni li tu"
+        },
+        "voiceSettings": {
+            "header": "sitelen lawa pi kalama uta",
+            "mic": "ilo pi lipu e kalama:",
+            "permissionError": "ilo pi lipu e kalama li lon ala, sina jo ala e ni anu lipu len ni ken ala e lipu e kalama.",
+            "refresh": "tenpo tu la kama jo e sitelen pi ilo pi lipu e kalama",
+            "volume": "wawa pi kalama:"
+        },
+        "overlaySettings": {
+            "header": "sitelen lawa pi sitelen sewi sitelen sina",
+            "input": {
+                "errorMsg": "Please enter valid app title",
+                "label": "o sitelen e nimi pi "
+            }
+        }
+    },
+    "components": {
+        "_comment": "Component UI Internationalization Strings",
+        "avatar": {},
+        "backBar": {},
+        "blockedFromRoomUsers": {
+            "header": "jan pi ken ala",
+            "unban": "ken ala ala",
+            "noBans": "jan ala li ken ala"
+        },
+        "bottomVoiceControl": {
+            "leaveCurrentRoomBtn": "tawa tan tomo ni",
+            "confirmLeaveRoom": "sina wile e tawa tan ni?",
+            "leave": "tawa tan ni",
+            "inviteUsersToRoomBtn": "toki e tomo ni tawa jan",
+            "invite": "toki e \"kama lon\"",
+            "toggleMuteMicBtn": "ante e ken e toki",
+            "mute": "ken ala e toki",
+            "unmute": "ken ala ala e toki",
+            "makeRoomPublicBtn": "kulupu e tomo ni!",
+            "settings": "sitelen lawa",
+            "speaker": "jan toki",
+            "listener": "jan kute",
+            "chat": "sitelen kulupu"
+        },
+        "deviceNotSupported": {
+            "notSupported": "Lipu len ni li pali ala kepeken ilo nanpa sina. pali e",
+            "linkText": "sitelen ike lon GitHub la",
+            "addSupport": "mi ken ante e ni,mi ante e ni la ni pali kepeken ilo nanpa sina."
+        },
+        "inviteButton": {
+            "invited": "sina li toki tawa jan ni e \"kama lon\"",
+            "inviteToRoom": "o toki tawa jan e \"kama lon\""
+        },
+        "micPermissionBanner": {
+            "permissionDenied": "Lipu len ni li ken ala e kepeken e ilo pi lipu e kalama sina (open e sitelen lawa pi ilo linluwi sina.tenpo tu la kama jo e lipu len ni.)",
+            "dismiss": "mi pilin ala tawa ni.",
+            "tryAgain": "ken la tenpo tu la ni li pali."
+        },
+        "keyboardShortcuts": {
+            "setKeybind": "ante e nena",
+            "listening": "kute e nena",
+            "toggleMuteKeybind": "nena pi ante e ken toki",
+            "toggleOverlayKeybind": "nena pi ante e sitelen sewi sitelen sina",
+            "togglePushToTalkKeybind": "nena pi ante e \"utala la toki\""
+        },
+        "userVolumeSlider": {
+            "noAudioMessage": "ali li kute e kalama"
+        },
+        "addToCalendar": {
+            "add": "sitelen e ni lon lipu tenpo suno"
+        },
+        "wsKilled": {
+            "description": "ilo pi pana sona li moli e linja sona. tenpo tu la sina open e lipu len ni la ni li kama.",
+            "reconnect": "tenpo tu la o pali e linja sona."
+        },
+        "modals": {
+            "createRoomModal": {
+                "public": "tomo kulupu",
+                "private": "tomo pi kulupu ala",
+                "roomName": "nimi pi tomo",
+                "roomDescription": "sitelen pi tomo",
+                "descriptionError": "anpa sewi pi suli li ale ale ale ale ale",
+                "nameError": "anpa pi suli li tu. anpa sewi pi suli li mute mute mute."
+            },
+            "invitedToJoinRoomModal": {
+                "newRoomCreated": "ona li pali e tomo.",
+                "roomInviteFrom": "jan li toki e tomo tawa sina. jan li",
+                "justStarted": "ona li open e tomo.",
+                "likeToJoin": ", sina wile ala wile e tawa tawa tomo?",
+                "inviteReceived": "jan li toki tawa ni e "
+            },
+            "editProfileModal": {
+                "usernameTaken": "jan sin li jo e nimi nanpa ni",
+                "avatarUrlError": "sitelen sina li ike",
+                "avatarUrlLabel": "sitelen tawa pi sitelen sina pi lipu Github/Twitter",
+                "displayNameError": "anpa pi suli li tu. anpa sewi pi suli li mute mute luka luka.",
+                "displayNameLabel": "nimi",
+                "usernameError": "anpa pi suli li tu tu. anpa sewi pi suli li luka luka luka. wan pi nimi li sitelen Latin anu nanpa anu linja anpa",
+                "usernameLabel": "nimi nanpa",
+                "bioError": "anpa sewi pi suli li ale mute mute mute",
+                "bioLabel": "sitelen sina"
+            },
+            "profileModal": {
+                "blockUserConfirm": "Sina wile ala wile e ken ala e jan ni pi tomo sina ale?",
+                "blockUser": "ken ala e jan ni pi lukin e sina",
+                "makeMod": "ken e jan ni",
+                "unmod": "ken ala e jan ni",
+                "addAsSpeaker": "ken e jan ni pi toki",
+                "moveToListener": "ken ala e jan ni pi toki",
+                "banFromChat": "ken ala e jan ni pi sitelen",
+                "banFromRoom": "ken ala e jan ni pi tomo",
+                "goBackToListener": "o tawa monsi pi jan kute",
+                "deleteMessage": "weka e sitelen ni",
+                "makeRoomCreator": "ken e jan ni pi ken ale"
+            },
+            "roomSettingsModal": {
+                "requirePermission": "wile e ken pi toki",
+                "makePublic": "kulupu e tomo",
+                "makePrivate": "kulupu ala e tomo",
+                "renamePublic": "ante e nimi tomo kulupu",
+                "renamePrivate": "ante e nimi tomo pi kulupu ala"
+            }
+        }
+    },
+    "modules": {
+        "_comment": "Modules UI Internationalization Strings",
+        "scheduledRooms": {
+            "title": "tomo pi tenpo kama",
+            "noneFound": "tomo ala",
+            "allRooms": "tomo ale pi tenpo kama",
+            "myRooms": "tomo mi pi tenpo kama",
+            "scheduleRoomHeader": "pali e tomo pi tenpo kama",
+            "startRoom": "open e tomo",
+            "modal": {
+                "needsFuture": "tomo li wile e tenpo kama",
+                "roomName": "nimi tomo",
+                "roomDescription": "sitelen tomo",
+                "minLength": "anpa pi suli li tu tu."
+            }
+        },
+        "roomChat": {
+            "title": "Toki sitelen",
+            "emotesSoon": "[tenpo kama la sinpin lili li ni]",
+            "bannedAlert": "ona li ken ala e sina pi toki sitelen",
+            "waitAlert": "o awen lili.",
+            "search": "alasa",
+            "searchResults": "sina alasa. mi sona e ni:",
+            "recent": "tenpo mute la sina kepeken e sinpin lili ni",
+            "sendMessage": "pana e sitelen",
+            "whisper": "Toki pi kalama lili",
+            "welcomeMessage": "Kama pona lon toki sitelen!",
+            "roomDescription": "sitelen tomo"
+        },
+        "roomStatus": {
+            "fuelingRocket": "telo suli li tawa tawa palisa pi kon pi sewi mute",
+            "takingOff": "ni li tawa tawa kon pi sewi mute",
+            "inSpace": "lon kon pi sewi mute",
+            "approachingMoon": "poka mun",
+            "lunarDoge": "soweli Doge lon mun",
+            "approachingSun": "poka suno",
+            "solarDoge": "soweli Doge lon suno",
+            "approachingGalaxy": "poka e kulupu suno",
+            "galacticDoge": "soweli Doge lon kulupu suno",
+            "spottedLife": "ona li lukin e ma. ma ni li jo e moli ala."
+        }
+    }
+}

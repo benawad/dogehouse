@@ -19,9 +19,9 @@ if (isElectron()) {
   ipcRenderer = window.require("electron").ipcRenderer;
 }
 
-interface KeybindListenerProps {}
+interface KeybindListenerProps { }
 
-export const KeybindListener: React.FC<KeybindListenerProps> = ({}) => {
+export const KeybindListener: React.FC<KeybindListenerProps> = ({ }) => {
   return <>{isElectron() ? <ListenerElectron /> : <ListenerBrowser />}</>;
 };
 
@@ -83,27 +83,7 @@ function ListenerElectron() {
       ipcRenderer.removeListener(CHAT_KEY, CHAT_KEY_FUNC);
     };
   }, [history, toggleOpen]);
-  return (
-    <GlobalHotKeys
-      allowChanges={true}
-      keyMap={keyMap}
-      handlers={useMemo(
-        () => ({
-          PTT: (e) => {
-            if (!e) return;
-            const { setMute } = useMuteStore.getState();
-            const mute = e.type === "keyup";
-            wsend({
-              op: "mute",
-              d: { value: mute },
-            });
-            setMute(mute);
-          },
-        }),
-        []
-      )}
-    />
-  );
+  return null;
 }
 
 function ListenerBrowser() {
