@@ -3,9 +3,6 @@ defmodule Kousa.RoomChat do
 
   def send_msg(_, [], _), do: :ok
   def send_msg(user_id, tokens, whispered_to) do
-
-    tokens |> IO.inspect(label: "8")
-    whispered_to |> IO.inspect(label: "9")
     with room_id when not is_nil(room_id) <- Beef.Users.get_current_room_id(user_id),
          {avatar_url, display_name, username} <- Onion.UserSession.get_info_for_msg(user_id) do
       Onion.RoomChat.new_msg(
@@ -22,7 +19,7 @@ defmodule Kousa.RoomChat do
           isWhisper: whispered_to != []
         },
         whispered_to
-      ) |> IO.inspect(label: "25")
+      )
     end
   end
 

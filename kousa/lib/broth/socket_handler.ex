@@ -115,7 +115,7 @@ defmodule Broth.SocketHandler do
          # temporary translation from legacy maps to new maps
          command_map! = Broth.Translator.convert_legacy(command_map!),
          {:ok, command} <- Broth.Message.validate(command_map!),
-         {:reply, reply, state} <- Broth.Executor.execute(command.payload, state) |> IO.inspect(label: "118") do
+         {:reply, reply, state} <- Broth.Executor.execute(command.payload, state) do
       reply_msg =
         reply
         |> prepare_reply(command.reference)
@@ -126,8 +126,7 @@ defmodule Broth.SocketHandler do
       mediasoup_op = %{"op" => "@" <> _} ->
         raise "foo"
 
-      {:ok, state} ->
-        {:noreply, state}
+      ok = {:ok, _} -> ok
 
       {:error, changeset = %Ecto.Changeset{}} ->
         IO.inspect(command_json, label: "invalid command")
