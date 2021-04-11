@@ -74,7 +74,7 @@ defmodule KousaTest.Broth.Chat.SendMsgTest do
 
       WsClient.send_msg(t.client_ws, "chat:send_msg", %{
         "tokens" => @text_token,
-        "whisperedTo" => [whispener_id]
+        "whispered_to" => [whispener_id]
       })
 
       WsClient.assert_frame(
