@@ -37,7 +37,11 @@
       "startPrivateRoom": "Start een privé kamer met deze persoon"
     },
     "followList": { "followHim": "Volg", "followingHim": "Volgend" },
-    "home": { "createRoom": "Kamer maken", "refresh": "Verversen" },
+    "home": {
+      "createRoom": "Kamer maken",
+      "refresh": "Verversen",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Kamer bestaat niet, ga terug",
       "shareRoomLink": "Link van deze kamer delen",
@@ -62,7 +66,8 @@
       "voiceSettings": "Ga naar spraakinstellingen",
       "soundSettings": "Ga naar geluidsinstellingen",
       "deleteAccount": "Verwijder account",
-      "overlaySettings": "ga naar overlay-instellingen"
+      "overlaySettings": "ga naar overlay-instellingen",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Oeps! Deze pagina is verloren gegaan tijdens het gesprek.",

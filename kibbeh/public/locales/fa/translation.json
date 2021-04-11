@@ -38,7 +38,11 @@
       "startPrivateRoom": "شروع اتاق شخصی"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "ساختن اتاق", "refresh": "تازه کردن" },
+    "home": {
+      "createRoom": "ساختن اتاق",
+      "refresh": "تازه کردن",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "اتاق گم شد. برگردید",
       "shareRoomLink": "اشتراک لینک اتاق",
@@ -63,7 +67,8 @@
       "voiceSettings": "رفتن به تنظیمات میکروفون",
       "soundSettings": "رفتن به تنظیمات صدا",
       "deleteAccount": "حذف حساب",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "ای وای ! صفحه مورد نظر پیدا نشد",

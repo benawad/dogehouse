@@ -85,6 +85,11 @@ defmodule Broth.SocketHandler do
     {:reply, prepare_socket_msg(message, state), state}
   end
 
+  # @todo when we swap this to new design change this to 1000
+  def websocket_info({:kill}, state) do
+    {:reply, {:close, 4003, "killed_by_server"}, state}
+  end
+
   # needed for Task.async not to crash things
   def websocket_info({:EXIT, _, _}, state) do
     {:ok, state}
@@ -158,20 +163,6 @@ defmodule Broth.SocketHandler do
     }
   end
 
-  # @deprecated in new design
-  def handler("fetch_following_online", %{"cursor" => cursor}, state) do
-    {users, next_cursor} = Follows.get_my_following(state.user_id, cursor)
-
-    {:reply,
-     prepare_socket_msg(
-       %{
-         op: "fetch_following_online_done",
-         d: %{users: users, nextCursor: next_cursor, initial: cursor == 0}
-       },
-       state
-     ), state}
-  end
-
   def handler("invite_to_room", %{"userId" => user_id_to_invite}, state) do
     Kousa.Room.invite_to_room(state.user_id, user_id_to_invite)
     {:ok, state}
@@ -180,19 +171,6 @@ defmodule Broth.SocketHandler do
   def handler("make_room_public", %{"newName" => new_name}, state) do
     Kousa.Room.make_room_public(state.user_id, new_name)
     {:ok, state}
-  end
-
-  def handler("fetch_invite_list", %{"cursor" => cursor}, state) do
-    {users, next_cursor} = Follows.fetch_invite_list(state.user_id, cursor)
-
-    {:reply,
-     prepare_socket_msg(
-       %{
-         op: "fetch_invite_list_done",
-         d: %{users: users, nextCursor: next_cursor, initial: cursor == 0}
-       },
-       state
-     ), state}
   end
 
   def handler("ban", %{"username" => username, "reason" => reason}, state) do
@@ -214,35 +192,12 @@ defmodule Broth.SocketHandler do
     {:ok, state}
   end
 
-  # @deprecated
-  def handler("get_top_public_rooms", data, state) do
-    {:reply,
-     prepare_socket_msg(
-       %{
-         op: "get_top_public_rooms_done",
-         d: f_handler("get_top_public_rooms", data, state)
-       },
-       state
-     ), state}
-  end
-
   def handler("speaking_change", %{"value" => value}, state) do
     if current_room_id = Beef.Users.get_current_room_id(state.user_id) do
       Onion.RoomSession.speaking_change(current_room_id, state.user_id, value)
     end
 
     {:ok, state}
-  end
-
-  # @deprecated
-  def handler("edit_room_name", %{"name" => name}, state) do
-    case Kousa.Room.edit_room(state.user_id, name, "", false) do
-      {:error, message} ->
-        {:reply, prepare_socket_msg(%{op: "error", d: message}, state), state}
-
-      _ ->
-        {:ok, state}
-    end
   end
 
   def handler("leave_room", _data, state) do
@@ -252,21 +207,6 @@ defmodule Broth.SocketHandler do
 
       _ ->
         {:ok, state}
-    end
-  end
-
-  # @deprecated in new design
-  def handler("join_room", %{"roomId" => room_id}, state) do
-    case Kousa.Room.join_room(state.user_id, room_id) do
-      d ->
-        {:reply,
-         prepare_socket_msg(
-           %{
-             op: "join_room_done",
-             d: d
-           },
-           state
-         ), state}
     end
   end
 
@@ -364,37 +304,9 @@ defmodule Broth.SocketHandler do
     {:ok, state}
   end
 
-  # deprecated??
-  def handler("follow_info", %{"userId" => other_user_id}, state) do
-    {:reply,
-     prepare_socket_msg(
-       %{
-         op: "follow_info_done",
-         d:
-           Map.merge(
-             %{userId: other_user_id},
-             Follows.get_info(state.user_id, other_user_id)
-           )
-       },
-       state
-     ), state}
-  end
-
   def handler("mute", %{"value" => value}, state) do
     Onion.UserSession.set_mute(state.user_id, value)
     {:ok, state}
-  end
-
-  # @deprecated in new design
-  def handler("get_current_room_users", data, state) do
-    {:reply,
-     prepare_socket_msg(
-       %{
-         op: "get_current_room_users_done",
-         d: f_handler("get_current_room_users", data, state)
-       },
-       state
-     ), state}
   end
 
   def handler("ask_to_speak", _data, state) do
@@ -486,6 +398,12 @@ defmodule Broth.SocketHandler do
     }
   end
 
+  def f_handler("get_invite_list", %{"cursor" => cursor}, state) do
+    {users, next_cursor} = Follows.fetch_invite_list(state.user_id, cursor)
+
+    %{users: users, nextCursor: next_cursor}
+  end
+
   def f_handler("follow", %{"userId" => userId, "value" => value}, state) do
     Kousa.Follow.follow(state.user_id, userId, value)
     %{}
@@ -510,21 +428,27 @@ defmodule Broth.SocketHandler do
       %{room: room} ->
         {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
 
-        {muteMap, autoSpeaker, activeSpeakerMap} =
-          if room_id do
-            Onion.RoomSession.get_maps(room_id)
-          else
-            {%{}, false, %{}}
-          end
+        case Onion.RoomSession.lookup(room_id) do
+          [] ->
+            %{error: "Room no longer exists."}
 
-        %{
-          room: room,
-          users: users,
-          muteMap: muteMap,
-          activeSpeakerMap: activeSpeakerMap,
-          roomId: room_id,
-          autoSpeaker: autoSpeaker
-        }
+          _ ->
+            {muteMap, autoSpeaker, activeSpeakerMap} =
+              if room_id do
+                Onion.RoomSession.get_maps(room_id)
+              else
+                {%{}, false, %{}}
+              end
+
+            %{
+              room: room,
+              users: users,
+              muteMap: muteMap,
+              activeSpeakerMap: activeSpeakerMap,
+              roomId: room_id,
+              autoSpeaker: autoSpeaker
+            }
+        end
 
       _ ->
         %{error: "you should never see this, tell ben"}

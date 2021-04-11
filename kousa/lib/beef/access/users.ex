@@ -27,6 +27,17 @@ defmodule Beef.Access.Users do
     Repo.get(User, user_id)
   end
 
+  def get_by_id_with_room_permissions(user_id) do
+    from(u in User,
+      where: u.id == ^user_id,
+      left_join: rp in Beef.Schemas.RoomPermission,
+      on: rp.userId == u.id and rp.roomId == u.currentRoomId,
+      select: %{u | roomPermissions: rp},
+      limit: 1
+    )
+    |> Repo.one()
+  end
+
   def get_by_username(username) do
     Query.start()
     |> Query.filter_by_username(username)
@@ -64,6 +75,9 @@ defmodule Beef.Access.Users do
 
   def get_users_in_current_room(user_id) do
     case tuple_get_current_room_id(user_id) do
+      {:ok, nil} ->
+        {nil, []}
+
       {:ok, current_room_id} ->
         {current_room_id,
          from(u in User,

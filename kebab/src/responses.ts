@@ -27,3 +27,19 @@ export type GetRoomUsersResponse = {
   autoSpeaker: boolean;
   activeSpeakerMap: Record<string, boolean>;
 };
+
+export type NewRoomDetailsResponse = {
+  roomId: UUID;
+  name: string;
+  isPrivate: boolean;
+  description: string;
+};
+
+export type InvitationToRoomResponse = {
+  type: "invite",
+  username: string,
+  displayName: string,
+  avatarUrl: string,
+  roomName: string,
+  roomId: UUID
+};

@@ -37,7 +37,11 @@
       "startPrivateRoom": "začať s nimi súkromnú miestnosť"
     },
     "followList": { "followHim": "Sledovať", "followingHim": "Sledovaný" },
-    "home": { "createRoom": "Vytvoriť miestnosť", "refresh": "Obnoviť" },
+    "home": {
+      "createRoom": "Vytvoriť miestnosť",
+      "refresh": "Obnoviť",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "miestnosť je fuč, vráť sa",
       "shareRoomLink": "zdieľať odkaz miestnosti",
@@ -62,7 +66,8 @@
       "voiceSettings": "otvoriť nastavenia hlasu",
       "soundSettings": "otvoriť nastavenia zvuku",
       "deleteAccount": "odstrániť účet",
-      "overlaySettings": "otvoriť nastavenia prekresľovania"
+      "overlaySettings": "otvoriť nastavenia prekresľovania",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Uups! Táto stránka sa stratila v konverzácii.",

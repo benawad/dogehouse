@@ -38,7 +38,11 @@
       "startPrivateRoom": "An neichn Raum mit dem Benutzer starten"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Raum erstön", "refresh": "Aktualisiern" },
+    "home": {
+      "createRoom": "Raum erstön",
+      "refresh": "Aktualisiern",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Den Raum kau ma ned finden. Zruck",
       "shareRoomLink": "Link zum Raum teilen",
@@ -63,7 +67,8 @@
       "voiceSettings": "Sprocheinstöllungen",
       "soundSettings": "Toneinstöllungen",
       "deleteAccount": "Konto löschn",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Oida! De Seite ist im Gespräch verlurn gaunga.",

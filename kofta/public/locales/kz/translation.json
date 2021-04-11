@@ -38,7 +38,11 @@
       "startPrivateRoom": "Олармен жабық бөлме ашу"
     },
     "followList": { "followHim": "жазылу", "followingHim": "Сіз жазылдыңыз" },
-    "home": { "createRoom": "Бөлме ашу", "refresh": "Жаңарту" },
+    "home": {
+      "createRoom": "Бөлме ашу",
+      "refresh": "Жаңарту",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Бөлме жойылып кетті, артқа қайтыңыз",
       "shareRoomLink": "Бөлменің сілтемесімен бөлісу",

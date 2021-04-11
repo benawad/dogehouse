@@ -1,4 +1,5 @@
 import { app, shell } from 'electron';
+import { autoUpdater } from 'electron-updater';
 
 export const isMac = process.platform === 'darwin'
 export const isLinux = process.platform !== 'darwin' && process.platform !== 'win32'
@@ -8,6 +9,8 @@ export const MUTE_KEY = "@keybind/mute";
 export const CHAT_KEY = "@keybind/chat";
 export const PTT_KEY = "@keybind/ptt";
 export const OVERLAY_KEY = "@keybind/overlay";
+
+export const RPC_TRAY_OPTION_ID = "@tray/rpc";
 
 const REPO_URL = "https://github.com/benawad/dogehouse/";
 const DISCUSSION_URL = "https://github.com/benawad/dogehouse/discussions";
@@ -24,8 +27,6 @@ export const ALLOWED_HOSTS = [
     "doge-staging.stripcode.dev",
     "api.twitter.com",
 ];
-
-export const VOICE_MENU_ID = "@menu/voice_menu";
 
 export const MENU_TEMPLATE: any = [
     ...(isMac ? [{
@@ -124,6 +125,12 @@ export const MENU_TEMPLATE: any = [
                 label: 'Search Issues',
                 click: async () => {
                     await shell.openExternal(ISSUES_URL)
+                }
+            },
+            {
+                label: 'Check For Updates',
+                click: async () => {
+                    autoUpdater.checkForUpdatesAndNotify();
                 }
             }
         ]

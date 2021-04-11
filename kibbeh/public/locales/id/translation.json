@@ -37,7 +37,11 @@
       "startPrivateRoom": "mulai ruangan privat dengan mereka"
     },
     "followList": { "followHim": "ikuti", "followingHim": "mengikuti" },
-    "home": { "createRoom": "Buat Ruangan", "refresh": "Segarkan" },
+    "home": {
+      "createRoom": "Buat Ruangan",
+      "refresh": "Segarkan",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "ruangan hilang, kembali",
       "shareRoomLink": "bagikan tautan ke ruangan",
@@ -62,7 +66,8 @@
       "voiceSettings": "pergi ke pengaturan suara",
       "soundSettings": "pergi ke pengaturan bunyi",
       "deleteAccount": "hapus akun",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Oops! Halaman ini hilang dalam percakapan.",

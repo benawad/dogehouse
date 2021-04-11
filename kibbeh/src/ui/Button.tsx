@@ -27,6 +27,7 @@ export type ButtonProps = DetailedHTMLProps<
   color?: keyof typeof colorClassnames;
   loading?: boolean;
   icon?: ReactNode;
+  transition?: boolean;
 };
 
 export const Button: React.FC<ButtonProps> = ({
@@ -37,12 +38,17 @@ export const Button: React.FC<ButtonProps> = ({
   loading,
   icon,
   className = "",
+  transition,
   ...props
 }) => {
   return (
     <button
       disabled={disabled || loading}
-      className={`${sizeClassnames[size]} ${colorClassnames[color]} font-bold flex items-center justify-center ${className}`}
+      className={`${sizeClassnames[size]} ${
+        transition ? `transition duration-200 ease-in-out` : ``
+      } ${
+        colorClassnames[color]
+      } font-bold flex items-center justify-center ${className}`}
       data-testid="button"
       {...props}
     >

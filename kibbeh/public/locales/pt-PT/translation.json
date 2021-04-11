@@ -37,7 +37,11 @@
       "startPrivateRoom": "Iniciar uma sala privada com eles"
     },
     "followList": { "followHim": "seguir", "followingHim": "a seguir" },
-    "home": { "createRoom": "Criar Sala", "refresh": "Atualizar" },
+    "home": {
+      "createRoom": "Criar Sala",
+      "refresh": "Atualizar",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "A sala não existe, voltar atrás",
       "shareRoomLink": "Partilhar link da sala",
@@ -62,7 +66,8 @@
       "voiceSettings": "Definições de voz",
       "soundSettings": "Definições de som",
       "deleteAccount": "Apagar conta",
-      "overlaySettings": "Ir para definições de Overlay"
+      "overlaySettings": "Ir para definições de Overlay",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Ups! Esta página perdeu-se na conversa.",

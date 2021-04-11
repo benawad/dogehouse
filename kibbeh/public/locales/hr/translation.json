@@ -38,7 +38,11 @@
       "startPrivateRoom": "započnite privatnu sobu s njima"
     },
     "followList": { "followHim": "zaprati", "followingHim": "pratitelji" },
-    "home": { "createRoom": "Stvori sobu", "refresh": "Osvježi" },
+    "home": {
+      "createRoom": "Stvori sobu",
+      "refresh": "Osvježi",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "soba otišla, vrati se",
       "shareRoomLink": "podijeli vezu do sobe",
@@ -63,7 +67,8 @@
       "voiceSettings": "idite na glasovne postavke",
       "soundSettings": "idite na postavke zvuka",
       "deleteAccount": "izbriši račun",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Ups! Ova se stranica izgubila u razgovoru.",

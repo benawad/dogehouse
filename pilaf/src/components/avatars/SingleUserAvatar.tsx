@@ -15,6 +15,7 @@ interface SingleUserAvatarProps {
   size?: "default" | "sm" | "xxs" | "xs" | "md";
   isOnline?: boolean;
   muted?: boolean;
+  activeSpeaker?: boolean;
 }
 
 export const singleUserAvatarSize = {
@@ -39,10 +40,30 @@ export const SingleUserAvatar: React.FC<SingleUserAvatarProps> = ({
   style,
   isOnline = false,
   muted = false,
+  activeSpeaker = false,
 }) => {
   return (
-    <View style={[style, styles[size + "Avatar"]]}>
-      <Image source={src} style={styles[size + "Avatar"]} />
+    <View
+      style={[
+        style,
+        styles[size + "Avatar"],
+        activeSpeaker
+          ? {
+              shadowColor: colors.accent,
+              shadowRadius: 10,
+              shadowOpacity: 1,
+              shadowOffset: { height: 0.5 },
+            }
+          : {},
+      ]}
+    >
+      <Image
+        source={src}
+        style={[
+          styles[size + "Avatar"],
+          activeSpeaker && { borderWidth: 2, borderColor: colors.accent },
+        ]}
+      />
       {isOnline && (
         <View style={[styles[size + "Indicator"], styles.indicator]} />
       )}
@@ -63,7 +84,7 @@ export const SingleUserAvatar: React.FC<SingleUserAvatarProps> = ({
           ]}
         >
           <Image
-            source={require("../../assets/images/bxs-microphone.png")}
+            source={require("../../assets/images/SolidMicrophoneOff.png")}
             style={{
               height: indicatorSize[size] - 4,
               width: indicatorSize[size] - 4,
@@ -71,9 +92,6 @@ export const SingleUserAvatar: React.FC<SingleUserAvatarProps> = ({
             }}
           />
         </View>
-        // <View style={[styles[size + "Indicator"]]}>
-
-        // </View>
       )}
     </View>
   );

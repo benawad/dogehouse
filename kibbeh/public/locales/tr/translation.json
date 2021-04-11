@@ -37,7 +37,11 @@
       "startPrivateRoom": "Onlarla özel bir oda oluştur"
     },
     "followList": { "followHim": "Takip Et", "followingHim": "Takiptesin" },
-    "home": { "createRoom": "Oda oluştur", "refresh": "Yenile" },
+    "home": {
+      "createRoom": "Oda oluştur",
+      "refresh": "Yenile",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Oda gitti, geri dön",
       "shareRoomLink": "Oda bağlantısını paylaş",
@@ -62,7 +66,8 @@
       "voiceSettings": "Konuşma ayarlarına git",
       "soundSettings": "Ses ayarlarına git",
       "deleteAccount": "Hesabı sil",
-      "overlaySettings": "Kaplama ayarlarına git"
+      "overlaySettings": "Kaplama ayarlarına git",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Uups! Bu sayfa sohbette kayboldu.",

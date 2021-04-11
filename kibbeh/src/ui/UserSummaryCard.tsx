@@ -74,13 +74,19 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
   return (
     <div className="flex-col rounded-8 bg-primary-800 p-4 w-full">
       <button onClick={onClick}>
-        <SingleUser size="default" isOnline={isOnline} src={avatarUrl} />
-        <div className="flex-col ml-3">
-          <span className="text-sm text-primary-100 font-bold">
-            {displayName}
-          </span>
-          <span className="text-sm text-primary-300">@{username}</span>
-          <Badges badges={badges} />
+        <div>
+          <SingleUser size="default" isOnline={isOnline} src={avatarUrl} />
+        </div>
+        <div>
+          <div className="flex-col ml-3">
+            <span className="text-sm text-primary-100 font-bold break-all text-left">
+              {displayName}
+            </span>
+            <span className="text-sm text-primary-300 text-left break-all">
+              @{username}
+            </span>
+            <Badges badges={badges} />
+          </div>
         </div>
       </button>
       <div className="mt-3">
@@ -101,7 +107,7 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
           </ApiPreloadLink>
         </div>
       </div>
-      <div className="text-primary-300 mt-3">{bio}</div>
+      <div className="text-primary-300 mt-3 break-words text-left">{bio}</div>
       {website && <Website website={website} />}
     </div>
   );

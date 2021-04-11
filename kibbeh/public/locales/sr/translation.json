@@ -37,7 +37,11 @@
       "startPrivateRoom": "Започните приватну собу"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Направите собу", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "Направите собу",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Соба је нестала, вратите се назад",
       "shareRoomLink": "Поделите везу до собе",
@@ -62,7 +66,8 @@
       "voiceSettings": "идите на подешавања гласа",
       "soundSettings": "идите на подешавања звука",
       "deleteAccount": "Обришите налог",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Упс! Ова страница се изгубила у разговору.",

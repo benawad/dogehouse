@@ -18,7 +18,6 @@ import {
 import { MultipleUserAvatar } from "./avatars/MultipleUserAvatar";
 import { BubbleText } from "./BubbleText";
 import { RoomCardHeading } from "./RoomCardHeading";
-import { Tag } from "./Tag";
 
 function formatNumber(num: number): string {
   return Math.abs(num) > 999
@@ -77,9 +76,9 @@ export const RoomCard: React.FC<RoomCardProps> = ({
 
   if (scheduledFor) {
     if (isToday(scheduledFor)) {
-      scheduledForLabel = format(scheduledFor, `K:mm a`);
+      scheduledForLabel = format(scheduledFor, "K:mm a");
     } else {
-      scheduledForLabel = format(scheduledFor, `LLL d`);
+      scheduledForLabel = format(scheduledFor, "LLL d");
     }
   }
 
@@ -118,15 +117,9 @@ export const RoomCard: React.FC<RoomCardProps> = ({
           </BubbleText>
         </View>
       </View>
-      <View></View>
+      <View />
       {tags && tags.length > 0 && (
-        <View style={styles.tagsContainer}>
-          {tags.map((tag, idx) => (
-            <Tag style={{ marginRight: 10 }} key={idx}>
-              {tag}
-            </Tag>
-          ))}
-        </View>
+        <View style={styles.tagsContainer}>{tags.map((tag) => tag)}</View>
       )}
     </TouchableOpacity>
   );

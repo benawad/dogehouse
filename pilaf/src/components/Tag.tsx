@@ -9,7 +9,7 @@ interface TagProps {
 
 export const Tag: React.FC<TagProps> = ({ style, children, glow }) => {
   return (
-    <View style={[style, styles.container, glow && styles.glow]}>
+    <View style={[styles.container, glow && styles.glow, style]}>
       {children}
     </View>
   );
@@ -17,15 +17,18 @@ export const Tag: React.FC<TagProps> = ({ style, children, glow }) => {
 
 const styles = StyleSheet.create({
   container: {
-    alignSelf: "baseline",
     flexDirection: "row",
     flexGrow: 0,
-    backgroundColor: colors.primary700,
+    backgroundColor: colors.primary600,
     borderRadius: radius.s,
     paddingHorizontal: 10,
+    // height: 21,
+    borderWidth: 0.5,
+    borderColor: colors.primary600,
+    alignItems: "center",
   },
   glow: {
-    borderWidth: 1,
+    borderWidth: 0.5,
     borderColor: colors.accent,
   },
 });

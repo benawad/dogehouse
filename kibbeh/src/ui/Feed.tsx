@@ -23,7 +23,9 @@ export const FeedHeader: FC<FeedHeaderProps> = ({
   return (
     <div className="justify-between items-end mb-5">
       <h4 className="text-primary-100 mb-auto">{title}</h4>
-      <Button onClick={onActionClicked}>{actionTitle}</Button>
+      <Button transition onClick={onActionClicked}>
+        {actionTitle}
+      </Button>
     </div>
   );
 };

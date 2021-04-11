@@ -38,7 +38,11 @@
       "startPrivateRoom": "Začni zasebno sobo s tem uporabnikom"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Ustvari sobo", "refresh": "Osveži" },
+    "home": {
+      "createRoom": "Ustvari sobo",
+      "refresh": "Osveži",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Sobe ni bilo mogoče najti! Nazaj",
       "shareRoomLink": "Deli povezavo do sobe",

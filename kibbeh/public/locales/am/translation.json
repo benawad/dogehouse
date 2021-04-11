@@ -38,7 +38,11 @@
       "startPrivateRoom": "ከእነሱ ጋር አንድ የግል ክፍል መጀመር"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "ክፍል ፍጠር", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "ክፍል ፍጠር",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "ክፍሉ ጠፋ, ተመለስ",
       "shareRoomLink": "የክፍሉን ሊንክ አጋራ",
@@ -63,7 +67,8 @@
       "voiceSettings": "የአወራር ድምጽ ቅንብሮች",
       "soundSettings": "የድምጽ ቅንብሮች",
       "deleteAccount": "መለያህን ደልት",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "ውይ ውይ! ይህ ገጽ ውይይት ውስጥ ጠፋ፡፡",

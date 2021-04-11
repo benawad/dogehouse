@@ -11,12 +11,12 @@
     ]
   },
   "devDependencies": {
-    "@commitlint/cli": "^12.1.0",
-    "@commitlint/config-conventional": "^12.1.0",
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
     "@types/jest": "^26.0.22",
     "commitizen": "^4.2.3",
     "cz-conventional-changelog": "^3.3.0",
-    "husky": "^5.2.0",
+    "husky": "^6.0.0",
     "ts-jest": "^26.5.4"
   },
   "config": {

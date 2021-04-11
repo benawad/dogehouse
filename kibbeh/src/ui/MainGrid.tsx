@@ -1,4 +1,5 @@
 import React from "react";
+import { useScreenType } from "../shared-hooks/useScreenType";
 
 interface DashboardGridProps {
   className?: string;
@@ -6,14 +7,29 @@ interface DashboardGridProps {
 
 export const MainInnerGrid: React.FC<DashboardGridProps> = ({
   children,
-  className,
+  className = "",
 }) => {
+  const screenType = useScreenType();
+
+  let gridTemplateColumns = "235px 640px 325px";
+  let myClassName = ``;
+
+  if (screenType === "2-cols") {
+    gridTemplateColumns = "60px 640px 325px";
+  } else if (screenType === "1-cols") {
+    gridTemplateColumns = "60px 640px";
+  } else if (screenType === "fullscreen") {
+    myClassName = "w-full px-3";
+    gridTemplateColumns = "1fr";
+  }
+
   return (
     <div
-      className={className}
+      id="main"
+      className={`relative ${myClassName} ${className}`}
       style={{
-        display: "grid",
-        gridTemplateColumns: "235px 640px 325px",
+        display: screenType === "fullscreen" ? "flex" : "grid",
+        gridTemplateColumns,
         columnGap: 60,
       }}
     >

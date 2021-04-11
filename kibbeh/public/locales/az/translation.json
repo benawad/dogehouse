@@ -38,7 +38,11 @@
       "startPrivateRoom": "создать с ними закрытую комнату"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Otaq yaratmağ", "refresh": "Təzələmək" },
+    "home": {
+      "createRoom": "Otaq yaratmağ",
+      "refresh": "Təzələmək",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "room gone, go back",
       "shareRoomLink": "share link to room",
@@ -63,7 +67,8 @@
       "voiceSettings": "mikrofon parametrlərinə keçmək",
       "soundSettings": "səs parametrlərinə keçmək",
       "deleteAccount": "akkauntu ləğv etmək",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Ups! Bu səhifə məkan və zaman içində itmişdi.",

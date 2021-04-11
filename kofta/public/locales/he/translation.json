@@ -38,7 +38,11 @@
       "startPrivateRoom": "צור חדר פרטי איתם"
     },
     "followList": { "followHim": "עקוב", "followingHim": "עוקב" },
-    "home": { "createRoom": "צור חדר", "refresh": "טען מחדש" },
+    "home": {
+      "createRoom": "צור חדר",
+      "refresh": "טען מחדש",
+      "editRoom": "ערוך חדר"
+    },
     "inviteList": {
       "roomGone": "החדר נעלם, חזור",
       "shareRoomLink": "שתף קישור לחדר שלך",

@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 module.exports = {
-  darkMode: "media",
+  darkMode: "class",
   purge: ["./src/**/*.tsx", "./public/index.html"],
   theme: {
     fontFamily: {
@@ -14,7 +14,7 @@ module.exports = {
         "Arial",
         "sans-serif",
       ],
-      // mono: ["Menlo", "Monaco", "Courier New", "monospace"],
+      mono: ["Menlo", "Monaco", "Courier New", "monospace"],
     },
     fontSize: {
       tiny: "0.625rem",
@@ -62,6 +62,11 @@ module.exports = {
       6: "40px",
       7: "60px",
       8: "75px",
+      9: "80px",
+      "5l": "10rem",
+      "n1/2": "-50%",
+      24: "24rem",
+      400: "400px",
     },
     borderWidth: {
       DEFAULT: "1px",
@@ -71,14 +76,15 @@ module.exports = {
         5: "5px",
         8: "8px",
       },
+      outline: {
+        "no-chrome": 'none',
+      }
     },
   },
   variants: {
     backgroundColor: ({ after }) => after(["disabled"]),
     textColor: ({ after }) => after(["disabled"]),
-    scrollbar: ['rounded', 'dark'],
+    scrollbar: ["rounded", "dark"],
   },
-  plugins: [
-    require('tailwind-scrollbar'),
-  ],
+  plugins: [require("tailwind-scrollbar"), require('@tailwindcss/line-clamp')],
 };

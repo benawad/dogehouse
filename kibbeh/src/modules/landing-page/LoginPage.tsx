@@ -1,16 +1,16 @@
 import { useRouter } from "next/router";
-import React, { useCallback } from "react";
+import React, { useCallback, useContext, useEffect } from "react";
+import { LgLogo } from "../../icons";
+import SvgSolidBug from "../../icons/SolidBug";
+import SvgSolidDiscord from "../../icons/SolidDiscord";
+import SvgSolidGitHub from "../../icons/SolidGitHub";
+import SvgSolidTwitter from "../../icons/SolidTwitter";
 import { apiBaseUrl, loginNextPathKey, __prod__ } from "../../lib/constants";
-import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../../ui/Button";
 import { useSaveTokensFromQueryParams } from "../auth/useSaveTokensFromQueryParams";
 import { useTokenStore } from "../auth/useTokenStore";
-import SvgSolidGitHub from "../../icons/SolidGitHub";
-import SvgSolidNew from "../../icons/SolidNew";
-import SvgSolidBug from "../../icons/SolidBug";
-import SvgSolidTwitter from "../../icons/SolidTwitter";
-import { LgLogo } from "../../icons";
-import SvgSolidDiscord from "../../icons/SolidDiscord";
+import { HeaderController } from "../display/HeaderController";
+import { WebSocketContext } from "../ws/WebSocketProvider";
 
 /*
 
@@ -64,15 +64,35 @@ const LoginButton: React.FC<LoginButtonProps> = ({
 
 export const LoginPage: React.FC = () => {
   useSaveTokensFromQueryParams();
-  const { t } = useTypeSafeTranslation();
+  const hasTokens = useTokenStore((s) => !!(s.accessToken && s.refreshToken));
+  const { setConn } = useContext(WebSocketContext);
   const { push } = useRouter();
 
+  useEffect(() => {
+    // only want this on mount
+    setConn(null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (hasTokens) {
+      push("/dash");
+    }
+  }, [hasTokens, push]);
+
   return (
-    <div className="w-full h-full">
-      <div
-        className="m-auto flex-col p-6 gap-5 bg-primary-800 rounded-8 z-10"
-        style={{ width: "400px" }}
-      >
+    <div
+      className="grid w-full h-full"
+      style={{
+        gridTemplateRows: "1fr auto 1fr",
+      }}
+    >
+      <HeaderController embed={{}} title="Login" />
+      <div className="hidden sm:flex" />
+      <div className="justify-self-center self-center sm:hidden">
+        <LgLogo />
+      </div>
+      <div className="m-auto flex-col p-6 gap-5 bg-primary-800 sm:rounded-8 z-10 sm:w-400 w-full">
         <div className="gap-2 flex-col">
           <span className="text-3xl text-primary-100 font-bold">Welcome</span>
           <p className="text-primary-100 flex-wrap">
@@ -96,13 +116,12 @@ export const LoginPage: React.FC = () => {
         <div className="flex-col gap-4">
           <LoginButton oauthUrl={`${apiBaseUrl}/auth/github/web`}>
             <SvgSolidGitHub width={20} height={20} />
-            Login with GitHub
+            Log in with GitHub
           </LoginButton>
-          {/* @todo backend needs to be fixed for twitter to work */}
-          {/* <LoginButton oauthUrl={`${apiBaseUrl}/auth/twitter/web`}>
+          <LoginButton oauthUrl={`${apiBaseUrl}/auth/twitter/web`}>
             <SvgSolidTwitter width={20} height={20} />
-            Login with Twitter
-          </LoginButton> */}
+            Log in with Twitter
+          </LoginButton>
           {!__prod__ ? (
             <LoginButton
               dev
@@ -120,7 +139,7 @@ export const LoginPage: React.FC = () => {
                   accessToken: d.accessToken,
                   refreshToken: d.refreshToken,
                 });
-                push("/dashboard");
+                push("/dash");
               }}
             >
               <SvgSolidBug width={20} height={20} />
@@ -133,8 +152,10 @@ export const LoginPage: React.FC = () => {
           <span className="text-primary-300">unavailable lol</span>
         </div> */}
       </div>
-      <div className="absolute bottom-0 w-full justify-between px-7 py-5 mt-auto items-center">
-        <LgLogo />
+      <div className="absolute bottom-0 w-full justify-between px-5 py-5 mt-auto items-center sm:px-7">
+        <div className="hidden sm:flex">
+          <LgLogo />
+        </div>
         <div className="gap-6 text-primary-300">
           <a
             href="https://youtu.be/dQw4w9WgXcQ"
@@ -148,15 +169,23 @@ export const LoginPage: React.FC = () => {
           >
             Report a bug
           </a>
-          <div className="gap-4">
-            <a href="https://github.com/benawad/dogehouse">
+          <div className="gap-6 sm:gap-4">
+            <a
+              href="https://github.com/benawad/dogehouse"
+              target="_blank"
+              rel="noreferrer"
+            >
               <SvgSolidGitHub
                 width={20}
                 height={20}
                 className="cursor-pointer hover:text-primary-200"
               />
             </a>
-            <a href="https://discord.gg/wCbKBZF9cV">
+            <a
+              href="https://discord.gg/wCbKBZF9cV"
+              target="_blank"
+              rel="noreferrer"
+            >
               <SvgSolidDiscord
                 width={20}
                 height={20}

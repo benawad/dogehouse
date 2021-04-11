@@ -31,21 +31,17 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "mamnuuc"
-    },
+    "banUser": { "ban": "mamnuuc" },
     "followingOnlineList": {
       "listHeader": "Liiska isticmaaleyaasha aan ku jirin qol gaar ah oo aad raacday.",
       "currentRoom": "hadda ku jira:",
       "startPrivateRoom": "qol gaar ah la bilow"
     },
-    "followList": {
-      "followHim": "follow",
-      "followingHim": "following"
-    },
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "Abuur qol ",
-      "refresh": "Cusbooneysii"
+      "refresh": "Cusbooneysii",
+      "editRoom": "Edit Room"
     },
     "inviteList": {
       "roomGone": "Qolka wuu dhamaday, dib u noqo",
@@ -85,12 +81,8 @@
       "allowAll": "Dhammaan oggolow",
       "allowAllConfirm": "Ma hubtaa? Tani waxay u oggolaan doontaa dhammaan {{count}} Isticmaalayaasha inay codsadaan inay hadlaan"
     },
-    "searchUser": {
-      "search": "raadi..."
-    },
-    "soundEffectSettings": {
-      "header": "Codka"
-    },
+    "searchUser": { "search": "raadi..." },
+    "soundEffectSettings": { "header": "Codka" },
     "viewUser": {
       "editProfile": "wax ka beddel koontada",
       "followsYou": "adiga kuraacay",
@@ -99,7 +91,8 @@
       "followHim": "raac",
       "followingHim": "following",
       "copyProfileUrl": "naqli xiriiriyaha kontada",
-      "urlCopied": "URL copied to clipboard"
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "hagaajinta codka",
@@ -164,9 +157,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "no audio consumer for some reason"
     },
-    "addToCalendar": {
-      "add": "Ku dar Kalendarkaga"
-    },
+    "addToCalendar": { "add": "Ku dar Kalendarkaga" },
     "wsKilled": {
       "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
       "reconnect": "dib ugu xirmo"
@@ -214,7 +205,9 @@
       "roomSettingsModal": {
         "requirePermission": "Waxay u baahan tahay ogolaansho si aad uhadashid",
         "makePublic": "qolka ka dhig qol guud",
-        "makePrivate": "qolka ka dhig qol gaar"
+        "makePrivate": "qolka ka dhig qol gaar",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

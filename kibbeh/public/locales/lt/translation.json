@@ -38,7 +38,11 @@
       "startPrivateRoom": "Sukurti privatų kambarį su jais"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Sukurti kambarį", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "Sukurti kambarį",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Kambario nebėra, grįžkite atgal",
       "shareRoomLink": "Pasidalinkite nuoroda į kambarį",
@@ -63,7 +67,8 @@
       "voiceSettings": "Eiti į balso nustatymus",
       "soundSettings": "Eiti į garso nustatymus",
       "deleteAccount": "Ištrinti vartotoją",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Uppss! Šis puslapis buvo prarastas pokalbyje",

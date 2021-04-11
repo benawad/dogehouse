@@ -37,7 +37,11 @@
       "startPrivateRoom": "Start et privat rom med dem"
     },
     "followList": { "followHim": "følg", "followingHim": "følger" },
-    "home": { "createRoom": "Lag et rom", "refresh": "Last inn på nytt" },
+    "home": {
+      "createRoom": "Lag et rom",
+      "refresh": "Last inn på nytt",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Rommet finnes ikke lengre, gå tilbake",
       "shareRoomLink": "Del lenken til rommet",
@@ -62,7 +66,8 @@
       "voiceSettings": "Gå til taleinnstillinger",
       "soundSettings": "Gå til lydinnstillinger",
       "deleteAccount": "Slett konto",
-      "overlaySettings": "Gå til overleggsinnstillinger"
+      "overlaySettings": "Gå til overleggsinnstillinger",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Oi sann! Denne siden ble tapt i samtalen.",

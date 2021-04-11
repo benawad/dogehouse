@@ -38,7 +38,11 @@
       "startPrivateRoom": "Sjtart inge perseunlijke kamer mit disè persoon"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Kamer make", "refresh": "Verviesje" },
+    "home": {
+      "createRoom": "Kamer make",
+      "refresh": "Verviesje",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Kamer besjteed niet, gank teruk",
       "shareRoomLink": "Link van disè kamer deijle",
@@ -63,7 +67,8 @@
       "voiceSettings": "Gank noa spraakinsjtellinge",
       "soundSettings": "Gank noa geluidsinstjtellinge",
       "deleteAccount": "Account verwijdere",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Och nhee! Disè pagina is verlore gegange in t gesjprek.",

@@ -38,7 +38,11 @@
       "startPrivateRoom": "צור חדר פרטי איתם"
     },
     "followList": { "followHim": "עקוב", "followingHim": "עוקב" },
-    "home": { "createRoom": "צור חדר", "refresh": "טען מחדש" },
+    "home": {
+      "createRoom": "צור חדר",
+      "refresh": "טען מחדש",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "החדר נעלם, חזור",
       "shareRoomLink": "שתף קישור לחדר שלך",
@@ -63,7 +67,8 @@
       "voiceSettings": "עבור להגדרות קול",
       "soundSettings": "עבור להגדרות סאונד",
       "deleteAccount": "מחק חשבון",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "אופס! הדף הזה הלך לאיבוד בשיחה.",

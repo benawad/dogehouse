@@ -1,6 +1,7 @@
-<p align="center">
-    <img height=100 src="https://raw.githubusercontent.com/benawad/dogehouse/staging/.redesign-assets/dogehouse_logo.svg"/>
-</p>
+<a href="https://dogehouse.tv"><p align="center">
+<img height=100 src="https://raw.githubusercontent.com/benawad/dogehouse/staging/.redesign-assets/dogehouse_logo.svg"/>
+
+</p></a>
 <p align="center">
   <strong>Taking voice conversations to the moon 🚀</strong>
 </p>
@@ -21,7 +22,11 @@
   <a href="./docs/README.MD">Documentation</a>
 </h3>
 
-<p align="center"><b>https://dogehouse.tv/</b></p>
+<h4 align="center">
+  <a href="https://dogehouse.tv">DogeHouse</a>
+  <span> · </span>
+  <a href="https://next.dogehouse.tv">Beta</a>
+</h4>
 
 ---
 
@@ -41,7 +46,7 @@
 
 ## Branches
 
-- staging -> pr this branch for everything else
+- staging -> pr this branch for everything
 - prod -> don't touch, this is what's running in prod
 
 ## Contributions
@@ -57,11 +62,22 @@ A desktop app built with [electron](https://www.electronjs.org/) is available fo
 Download links are in [the releases section](https://github.com/benawad/dogehouse/releases/latest)
 
 Dogehouse is also available in the AUR
+
 ```bash
 yay -S dogehouse
 ```
 
-__*Notes:*__
+And in an Ubuntu ppa
+
+```bash
+echo "deb http://ppa.dogehouse.tv/ ./" | sudo tee -a /etc/apt/sources.list > /dev/null
+wget -q -O - http://ppa.dogehouse.tv/KEY.gpg | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install dogehouse
+```
+
+**_Notes:_**
+
 - If a warning message pops up on Windows, go to 'more info' and select 'Run Anyway'
 
 ## DogeReviewers
@@ -88,3 +104,7 @@ Check <a href="https://github.com/benawad/dogehouse/blob/staging/CONTRIBUTING.md
 ## Why did you make this?
 
 https://www.youtube.com/watch?v=hy-EhJ_tTQo
+
+## Attribution
+
+We use https://twemoji.twitter.com/

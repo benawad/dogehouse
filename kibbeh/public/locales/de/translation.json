@@ -38,7 +38,11 @@
       "startPrivateRoom": "Einen privaten Raum mit diesem Benutzer eröffnen"
     },
     "followList": { "followHim": "Folgen", "followingHim": "Entfolgen" },
-    "home": { "createRoom": "Raum erstellen", "refresh": "Aktualisieren" },
+    "home": {
+      "createRoom": "Raum erstellen",
+      "refresh": "Aktualisieren",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Raum konnte nicht gefunden werden! Zurück",
       "shareRoomLink": "Link zum Raum teilen",
@@ -63,7 +67,8 @@
       "voiceSettings": "Spracheinstellungen",
       "soundSettings": "Soundeinstellungen",
       "deleteAccount": "Konto löschen",
-      "overlaySettings": "Overlay-Einstellungen löschen"
+      "overlaySettings": "Overlay-Einstellungen löschen",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Hoppla! Diese Seite ging im Gespräch verloren.",

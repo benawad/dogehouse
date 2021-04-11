@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { createWebSocket } from "../createWebsocket";
 import { useSocketStatus } from "../webrtc/stores/useSocketStatus";
@@ -14,6 +14,7 @@ import { Routes } from "./Routes";
 import { useOverlayStore } from "./utils/useOverlayStore";
 import { useSaveTokensFromQueryParams } from "./utils/useSaveTokensFromQueryParams";
 import { useTokenStore } from "./utils/useTokenStore";
+import isElectron from "is-electron";
 
 interface AppProps { }
 
@@ -31,6 +32,13 @@ export const App: React.FC<AppProps> = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasTokens]);
+
+  useEffect(() => {
+    if (isElectron()) {
+      const ipcRenderer = window.require("electron").ipcRenderer;
+      ipcRenderer.send("@dogehouse/loaded", "kofta");
+    }
+  }, [])
 
   useSaveTokensFromQueryParams();
 

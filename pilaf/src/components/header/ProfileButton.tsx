@@ -8,7 +8,6 @@ import {
   ViewStyle,
 } from "react-native";
 import Modal from "react-native-modal";
-import { colors } from "../../constants/dogeStyle";
 import { AccountModalContent } from "../accountModal/AccountModalContent";
 import { SingleUserAvatar } from "../avatars/SingleUserAvatar";
 

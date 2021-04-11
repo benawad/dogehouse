@@ -41,7 +41,11 @@
       "followHim": "অনুসরণ করুন",
       "followingHim": "অনুসরণ করছেন"
     },
-    "home": { "createRoom": "রুম বানান", "refresh": "রিফ্রেশ করুন" },
+    "home": {
+      "createRoom": "রুম বানান",
+      "refresh": "রিফ্রেশ করুন",
+      "editRoom": "রুম এডিট করুন"
+    },
     "inviteList": {
       "roomGone": "রুম শেষ, ফিরে আসুন",
       "shareRoomLink": "রুমের লিংক শেয়ার করুন",
@@ -66,7 +70,8 @@
       "voiceSettings": "ভয়েস সেটিংস এ যান",
       "soundSettings": "সাউন্ড সেটিংস এ যান",
       "deleteAccount": "অ্যাকাউন্ট ডিলিট করুন",
-      "overlaySettings": "ওভারলে সেটিংস এ যান"
+      "overlaySettings": "ওভারলে সেটিংস এ যান",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "উপস! এই পেজের বার্তালাপ কেটে গেছে।",
@@ -207,8 +212,8 @@
         "requirePermission": "কথা বলার জন্য পারমিশন লাগবে",
         "makePublic": "রুমটাকে পাবলিক করুন",
         "makePrivate": "রুমটাকে প্রাইভেট করুন",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "পাবলিক রুমের নাম সেট করুন",
+        "renamePrivate": "প্রাইভেট রুমের নাম সেট করুন"
       }
     }
   },

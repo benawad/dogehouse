@@ -38,7 +38,11 @@
       "startPrivateRoom": "ɯǝɥʇ ɥʇᴉʍ ɯooɹ ǝʇɐʌᴉɹd ɐ ʇɹɐʇs"
     },
     "followList": { "followHim": "ʍoꞁꞁoɟ", "followingHim": "ƃuᴉʍoꞁꞁoɟ" },
-    "home": { "createRoom": "ɯooᴚ ǝʇɐǝɹƆ", "refresh": "ɥsǝɹɟǝᴚ" },
+    "home": {
+      "createRoom": "ɯooᴚ ǝʇɐǝɹƆ",
+      "refresh": "ɥsǝɹɟǝᴚ",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "ʞɔɐq oƃ 'ǝuoƃ ɯooɹ",
       "shareRoomLink": "ɯooɹ oʇ ʞuᴉꞁ ǝɹɐɥs",
@@ -63,7 +67,8 @@
       "voiceSettings": "sƃuᴉʇʇǝs ǝɔᴉoʌ oʇ oƃ",
       "overlaySettings": "sƃuᴉʇʇǝs ʎɐꞁɹǝʌo oʇ oƃ",
       "soundSettings": "sƃuᴉʇʇǝs punos oʇ oƃ",
-      "deleteAccount": "ʇunoɔɔɐ ǝʇǝꞁǝp"
+      "deleteAccount": "ʇunoɔɔɐ ǝʇǝꞁǝp",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "˙uoᴉʇɐsɹǝʌuoɔ uᴉ ʇsoꞁ ʇoƃ ǝƃɐd sᴉɥ⊥ ¡sdooɥM",

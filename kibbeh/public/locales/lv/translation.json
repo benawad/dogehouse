@@ -38,7 +38,11 @@
       "startPrivateRoom": "Izveidot privātu istabu ar viņiem"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Izveidot istabu", "refresh": "Atjaunot" },
+    "home": {
+      "createRoom": "Izveidot istabu",
+      "refresh": "Atjaunot",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Istaba pazuda, atgriezieties atpakaļ",
       "shareRoomLink": "Dalīties ar saiti uz istabu",
@@ -63,7 +67,8 @@
       "voiceSettings": "salss ziņu iestatījumi",
       "soundSettings": "skaņas iestatījumi",
       "deleteAccount": "dzēst kontu",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Ups! Šī lapa tika pazaudēta sarunā.",

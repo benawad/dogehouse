@@ -38,7 +38,11 @@
       "startPrivateRoom": "załóż z nim prywatny pokój"
     },
     "followList": { "followHim": "obserwuj", "followingHim": "obserwujesz" },
-    "home": { "createRoom": "Stwórz pokój", "refresh": "Odśwież" },
+    "home": {
+      "createRoom": "Stwórz pokój",
+      "refresh": "Odśwież",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "pokój usunięty, wróć",
       "shareRoomLink": "udostępnij link do pokoju",
@@ -63,7 +67,8 @@
       "voiceSettings": "przejdź do ustawień głosu",
       "soundSettings": "przejdź do ustawień dźwięku",
       "deleteAccount": "usuń konto",
-      "overlaySettings": "przejdź do ustawień nakładki"
+      "overlaySettings": "przejdź do ustawień nakładki",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Ups! Ta strona zagubiła się w konwersacji.",
@@ -201,9 +206,9 @@
       "roomSettingsModal": {
         "requirePermission": "wymaga pozwolenia na mówienie",
         "makePublic": "upublicznij pokój",
-        "makePrivate": "uprywatnij pokój",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "makePrivate": "uczyń pokój prywatnym",
+        "renamePublic": "Ustaw publiczną nazwę pokoju",
+        "renamePrivate": "Ustaw prywatną nazwę pokoju"
       }
     }
   },
@@ -232,7 +237,7 @@
       "searchResults": "Wyniki wyszukiwania",
       "recent": "Często używane",
       "sendMessage": "Wyślij wiadomość",
-      "whisper": "Szeptaj",
+      "whisper": "Napisane szpetem",
       "welcomeMessage": "Witaj w chacie!",
       "roomDescription": "opis pokoju"
     },

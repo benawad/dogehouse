@@ -38,7 +38,11 @@
       "startPrivateRoom": "ابدأ غرفة خاصة معهم"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "ابدأ غرفة", "refresh": "تحديث" },
+    "home": {
+      "createRoom": "ابدأ غرفة",
+      "refresh": "تحديث",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "انتهت الغرفة، عد إلى الوراء",
       "shareRoomLink": "شارك رابط الغرفة",
@@ -63,7 +67,8 @@
       "voiceSettings": "اذهب إلى إعدادات المحادثة الصوتية ",
       "soundSettings": "اذهب إلى إعدادات الصوت",
       "deleteAccount": "حذف الحساب",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "عذرا! ضاعت هذه الصفحة بين المحادثات.",

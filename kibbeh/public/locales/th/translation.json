@@ -37,7 +37,11 @@
       "startPrivateRoom": "สร้างห้องส่วนตัว"
     },
     "followList": { "followHim": "ติดตาม", "followingHim": "กำลังติดตาม" },
-    "home": { "createRoom": "สร้างห้อง", "refresh": "รีเฟรช" },
+    "home": {
+      "createRoom": "สร้างห้อง",
+      "refresh": "รีเฟรช",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "ไม่พบห้อง, กรุณากลับไปที่หน้าหลัก",
       "shareRoomLink": "แชร์ลิ้งก์ของห้อง",
@@ -62,7 +66,8 @@
       "voiceSettings": "การตั้งค่าเสียง",
       "soundSettings": "การตั้งค่าการแจ้งเตือนเสียง",
       "deleteAccount": "ลบบัญชี",
-      "overlaySettings": "การตั้งค่าโอเวอร์เลย์"
+      "overlaySettings": "การตั้งค่าโอเวอร์เลย์",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "โอ๊ะ! ไม่พบหน้าที่คุณค้นหา.",

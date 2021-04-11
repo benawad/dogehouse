@@ -37,7 +37,11 @@
       "startPrivateRoom": "開啟私人房間"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "新增房間", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "新增房間",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "房間已被删除，請回到前一頁",
       "shareRoomLink": "在房間分享連結",
@@ -62,7 +66,8 @@
       "voiceSettings": "音量設定",
       "soundSettings": "聲音設定",
       "deleteAccount": "刪除帳號",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "噢！這一頁不見了‧",

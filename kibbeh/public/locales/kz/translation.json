@@ -38,7 +38,11 @@
       "startPrivateRoom": "Олармен жабық бөлме ашу"
     },
     "followList": { "followHim": "жазылу", "followingHim": "Сіз жазылдыңыз" },
-    "home": { "createRoom": "Бөлме ашу", "refresh": "Жаңарту" },
+    "home": {
+      "createRoom": "Бөлме ашу",
+      "refresh": "Жаңарту",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Бөлме жойылып кетті, артқа қайтыңыз",
       "shareRoomLink": "Бөлменің сілтемесімен бөлісу",
@@ -63,7 +67,8 @@
       "voiceSettings": "дауыс баптауларына өту",
       "soundSettings": "дыбыс баптауларына өту",
       "deleteAccount": "аккаунтты жою",
-      "overlaySettings": "Қабаттасу (overlay) баптауларына өту"
+      "overlaySettings": "Қабаттасу (overlay) баптауларына өту",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Қап! Бұл бет сөйлесіп жатқанда жойылып кетіпті.",

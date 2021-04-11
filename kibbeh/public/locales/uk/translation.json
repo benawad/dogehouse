@@ -38,7 +38,11 @@
       "startPrivateRoom": "почніть з ними приватну кімнату"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Створити Кімнату", "refresh": "Оновити" },
+    "home": {
+      "createRoom": "Створити Кімнату",
+      "refresh": "Оновити",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "кімнати вже немає, повернутися",
       "shareRoomLink": "поділитися посиланням на кімнату",
@@ -63,7 +67,8 @@
       "voiceSettings": "перейти до голосових налаштувань",
       "soundSettings": "перейти до звукових налаштувань",
       "deleteAccount": "видалити аккаунт",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Упс! Ця сторінка загубилася в розмові.",

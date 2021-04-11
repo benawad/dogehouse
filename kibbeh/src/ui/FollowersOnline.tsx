@@ -1,6 +1,7 @@
 import { UserWithFollowInfo } from "@dogehouse/kebab";
 import Link from "next/link";
 import React, { MouseEventHandler } from "react";
+import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
 import { SingleUser } from "./UserAvatar/SingleUser";
 
 export interface FriendOnlineType {
@@ -26,23 +27,25 @@ export const FollowerOnline: React.FC<UserWithFollowInfo> = ({
   currentRoom,
 }) => (
   <div className="py-3 w-full">
-    <Link href={`/user/[username]`} as={`/user/${username}`}>
-      <a>
-        <SingleUser size="sm" isOnline={online} src={avatar} />
-      </a>
-    </Link>
-    <div className="ml-3 flex flex-col">
-      <Link href={`/user/[username]`} as={`/user/${username}`}>
-        <a>
-          <h5 className="text-primary-100 font-bold">{username}</h5>
-        </a>
-      </Link>
-      <Link
-        href={`/room/[id]`}
-        as={currentRoom ? `/room/${currentRoom.id}` : undefined}
-      >
-        <a className={`text-primary-300 border-b`}>{currentRoom?.name}</a>
-      </Link>
+    <ApiPreloadLink route="profile" data={{ username }}>
+      <SingleUser
+        size="sm"
+        isOnline={online}
+        src={avatar}
+        username={username}
+      />
+    </ApiPreloadLink>
+    <div className="ml-3 flex flex-col overflow-hidden justify-center">
+      <ApiPreloadLink route="profile" data={{ username }}>
+        <h5 className="text-primary-100 font-bold">{username}</h5>
+      </ApiPreloadLink>
+      {currentRoom ? (
+        <Link href={`/room/[id]`} as={`/room/${currentRoom.id}`}>
+          <a className={`hover:underline text-primary-300 truncate block`}>
+            {currentRoom.name}
+          </a>
+        </Link>
+      ) : null}
     </div>
   </div>
 );
@@ -60,7 +63,9 @@ export const FollowersOnlineWrapper: React.FC<{
         ONLINE{" "}
         {onlineFriendCount !== undefined ? `(${onlineFriendCount})` : null}
       </h6>
-      <div className="flex flex-col mt-3 overflow-y-auto">{children}</div>
+      <div className="flex flex-col mt-3 overflow-y-auto scrollbar-thin scrollbar-thumb-primary-700 overflow-x-hidden">
+        {children}
+      </div>
     </div>
   );
 };

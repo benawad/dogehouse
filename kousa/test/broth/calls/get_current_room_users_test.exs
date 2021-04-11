@@ -76,7 +76,6 @@ defmodule KousaTest.Broth.GetCurrentRoomUsersTest do
     @tag :skip
     test "returns what if the room doesn't exist"
 
-    @tag :skip
     test "returns what if you're not in a room", t do
       user_id = t.user.id
       # first, create a room owned by the primary user.
