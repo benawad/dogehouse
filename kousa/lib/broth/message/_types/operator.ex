@@ -18,6 +18,7 @@ defenum(
     {User.GetScheduledRooms, 7},
     {User.GetInfo, 8},
     {User.GetRelationship, 9},
+    {User.Block, 10},
     # room commands and casts: 64..127
     {Room.Invite, 65},
     {Room.Update, 66},
@@ -39,7 +40,7 @@ defenum(
     {Chat.Ban, 129},
     {Chat.SendMsg, 130},
     {Chat.DeleteMsg, 131},
-    # auth commands 192..254
+    # auth and maintenance commands 192..254
     {Auth.Request, 193},
     # etc 222 - 255
     {BrothTest.MessageTest.TestOperator, 255}

@@ -22,31 +22,30 @@ defmodule Broth.Utils do
     |> apply_action!(:validate)
   end
 
-  def validate_type_of(changeset), do: changeset
+  @basic_types [:binary_id, :boolean, :string]
+
   def validate_type_of(changeset = %{valid?: false}, _), do: changeset
-  def validate_type_of(changeset = %{data: data = %module{}}, field) do
-    value = :erlang.map_get(field, data)
+  def validate_type_of(changeset = %{data: %module{}}, field) do
+    funs = %{
+      binary_id: &uuid?/1,
+      boolean: &is_boolean/1,
+      string: &is_binary/1
+    }
+
+    value = get_field(changeset, field)
 
     case module.__schema__(:type, field) do
       _ when value == nil ->
         changeset
 
-      :binary_id ->
-        Kousa.Utils.UUID.normalize(changeset, field)
+      type when type in @basic_types ->
+        validate(changeset, value, field, funs[type])
 
-      :boolean ->
-        if is_boolean(value) do
-          changeset
-        else
-          add_error(changeset, field, "is invalid")
-        end
-
-      :string ->
-        if is_binary(value) do
-          changeset
-        else
-          add_error(changeset, field, "is invalid")
-        end
+      {:array, type} when type in @basic_types ->
+        Enum.reduce(
+          value,
+          changeset,
+          &validate(&2, &1, field, funs[type]))
 
       {:parameterized, _, %{cardinality: :one, related: related}} ->
         if get_field(changeset, field).__struct__ == related do
@@ -60,4 +59,17 @@ defmodule Broth.Utils do
         raise "unimplemented"
     end
   end
+
+  def validate(changeset, value, field, fun) do
+    if fun.(value) do
+      changeset
+    else
+      add_error(changeset, field, "is invalid")
+    end
+  end
+
+  defp uuid?(value) do
+    match?({:ok, _}, Kousa.Utils.UUID.normalize(value))
+  end
+
 end

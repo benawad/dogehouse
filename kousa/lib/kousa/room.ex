@@ -99,7 +99,6 @@ defmodule Kousa.Room do
   """
   def set_role(user_id, role, opts) do
     room = Beef.Users.get_current_room_id(user_id)
-    |> IO.inspect(label: "102")
     case role do
       :listener ->
         set_listener(room, user_id, opts[:by])

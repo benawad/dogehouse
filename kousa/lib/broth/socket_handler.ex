@@ -108,10 +108,14 @@ defmodule Broth.SocketHandler do
     {:reply, prepare_socket_msg("pong", state), state}
   end
 
+  @special_cases ["block_user_and_from_room"]
+
   def websocket_handle({:text, command_json}, state) do
     with {:ok, command_map!} <- Jason.decode(command_json),
          # temporary trap mediasoup direct commands
          %{"op" => <<not_at>> <> _} when not_at != ?@ <- command_map!,
+         # temporarily trap special cased commands
+         %{"op" => not_special_case} when not_special_case not in @special_cases <- command_map!,
          # temporary translation from legacy maps to new maps
          command_map! = Broth.Translator.convert_legacy(command_map!),
          {:ok, command} <- Broth.Message.validate(command_map!),
@@ -123,8 +127,13 @@ defmodule Broth.SocketHandler do
 
       {:reply, reply_msg, state}
     else
-      mediasoup_op = %{"op" => "@" <> _} ->
+      # special cases: mediasoup operations
+      _mediasoup_op = %{"op" => "@" <> _} ->
         raise "foo"
+      # TODO: deprecate
+      # special cases: block_user_and_from_room
+      %{"op" => "block_user_and_from_room", "d" => payload} ->
+        block_user_and_from_room(payload, state)
 
       ok = {:ok, _} -> ok
 
@@ -161,6 +170,14 @@ defmodule Broth.SocketHandler do
       # TODO: replace "fetchId" with "ref"
       "fetchId" => reference
     }
+  end
+
+  # legacy implementation
+  defp block_user_and_from_room(%{"userId" => user_id_to_block}, state) do
+    Logger.error("block_user_and_from_room command is deprecated.  Send two user:block and room:ban operations instead")
+    Kousa.UserBlock.block(state.user_id, user_id_to_block)
+    Kousa.Room.block_from_room(state.user_id, user_id_to_block)
+    {:ok, state}
   end
 
   def handler("invite_to_room", %{"userId" => user_id_to_invite}, state) do
@@ -203,12 +220,6 @@ defmodule Broth.SocketHandler do
 
   def handler("change_mod_status", %{"userId" => user_id_to_change, "value" => value}, state) do
     Kousa.Room.change_mod(state.user_id, user_id_to_change, value)
-    {:ok, state}
-  end
-
-  def handler("block_user_and_from_room", %{"userId" => user_id_to_block}, state) do
-    Kousa.UserBlock.block(state.user_id, user_id_to_block)
-    Kousa.Room.block_from_room(state.user_id, user_id_to_block)
     {:ok, state}
   end
 
