@@ -151,7 +151,8 @@
     "followingOnline": {
       "people": "People",
       "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now"
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
     },
     "inviteButton": {
       "invited": "Invited!",

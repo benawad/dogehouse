@@ -75,13 +75,14 @@ export const FollowersOnlineWrapper: React.FC<{
 export const FollowersOnlineShowMore: React.FC<{ onClick?: () => void }> = ({
   onClick,
 }) => {
+  const { t } = useTypeSafeTranslation()
   return (
     <button
       className="underline text-primary-300 font-bold mt-4 cursor-pointer"
       onClick={onClick}
       data-testid="show-more-btn"
     >
-      Show more
+      {t("components.followingOnline.showMore")}
     </button>
   );
 };

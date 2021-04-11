@@ -100,6 +100,7 @@ export type TranslationKeys =
 	| "components.followingOnline.people"
 	| "components.followingOnline.online"
 	| "components.followingOnline.noOnline"
+	| "components.followingOnline.showMore"
 	| "components.inviteButton.invited"
 	| "components.inviteButton.inviteToRoom"
 	| "components.micPermissionBanner.permissionDenied"
