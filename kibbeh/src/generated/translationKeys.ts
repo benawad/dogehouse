@@ -97,6 +97,7 @@ export type TranslationKeys =
 	| "components.deviceNotSupported.notSupported"
 	| "components.deviceNotSupported.linkText"
 	| "components.deviceNotSupported.addSupport"
+	| "components.followingOnline.online"
 	| "components.followingOnline.noOnline"
 	| "components.inviteButton.invited"
 	| "components.inviteButton.inviteToRoom"

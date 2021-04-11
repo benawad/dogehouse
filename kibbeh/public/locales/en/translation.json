@@ -149,6 +149,7 @@
       "addSupport": "and I will try adding support for your device."
     },
     "followingOnline": {
+      "online": "ONLINE",
       "noOnline": "You have 0 friends online right now"
     },
     "inviteButton": {
