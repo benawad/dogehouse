@@ -105,17 +105,22 @@ defmodule Broth.SocketHandler do
 
   def websocket_handle({:text, command_json}, state) do
     with {:ok, command_map!} <- Jason.decode(command_json),
+         # temporary trap mediasoup direct commands
+         %{"op" => <<not_at>> <> _} when not_at != ?@ <- command_map!,
          # temporary translation from legacy maps to new maps
-         command_map! = Broth.Translator.convert_legacy(command_map!),
-         {:ok, command} <- Broth.Message.validate(command_map!),
+         command_map! = Broth.Translator.convert_legacy(command_map!) |> IO.inspect(label: "109"),
+         {:ok, command} <- Broth.Message.validate(command_map!) |> IO.inspect(label: "110"),
          {:reply, reply, state} <- Broth.Executor.execute(command.payload, state) do
-
-      reply_msg = reply
-      |> prepare_reply(command.reference)
-      |> prepare_socket_msg(state)
+      reply_msg =
+        reply
+        |> prepare_reply(command.reference)
+        |> prepare_socket_msg(state)
 
       {:reply, reply_msg, state}
     else
+      mediasoup_op = %{"op" => "@" <> _} ->
+        raise "foo"
+
       {:ok, state} ->
         {:noreply, state}
 
@@ -158,10 +163,13 @@ defmodule Broth.SocketHandler do
     {users, next_cursor} = Follows.get_my_following(state.user_id, cursor)
 
     {:reply,
-     prepare_socket_msg(%{
-       op: "fetch_following_online_done",
-       d: %{users: users, nextCursor: next_cursor, initial: cursor == 0}
-     }, state), state}
+     prepare_socket_msg(
+       %{
+         op: "fetch_following_online_done",
+         d: %{users: users, nextCursor: next_cursor, initial: cursor == 0}
+       },
+       state
+     ), state}
   end
 
   def handler("invite_to_room", %{"userId" => user_id_to_invite}, state) do
@@ -178,20 +186,26 @@ defmodule Broth.SocketHandler do
     {users, next_cursor} = Follows.fetch_invite_list(state.user_id, cursor)
 
     {:reply,
-     prepare_socket_msg(%{
-       op: "fetch_invite_list_done",
-       d: %{users: users, nextCursor: next_cursor, initial: cursor == 0}
-     }, state), state}
+     prepare_socket_msg(
+       %{
+         op: "fetch_invite_list_done",
+         d: %{users: users, nextCursor: next_cursor, initial: cursor == 0}
+       },
+       state
+     ), state}
   end
 
   def handler("ban", %{"username" => username, "reason" => reason}, state) do
     worked = Kousa.User.ban(state.user_id, username, reason)
 
     {:reply,
-     prepare_socket_msg(%{
-       op: "ban_done",
-       d: %{worked: worked}
-     }, state), state}
+     prepare_socket_msg(
+       %{
+         op: "ban_done",
+         d: %{worked: worked}
+       },
+       state
+     ), state}
   end
 
   def handler("set_auto_speaker", %{"value" => value}, state) do
@@ -201,38 +215,15 @@ defmodule Broth.SocketHandler do
   end
 
   # @deprecated
-  def handler("create-room", data, state) do
-    resp =
-      case Kousa.Room.create_room(
-             state.user_id,
-             data["roomName"],
-             data["description"] || "",
-             data["value"] == "private",
-             Map.get(data, "userIdToInvite")
-           ) do
-        {:ok, d} ->
-          %{
-            op: "new_current_room",
-            d: d
-          }
-
-        {:error, d} ->
-          %{
-            op: "error",
-            d: d
-          }
-      end
-
-    {:reply, prepare_socket_msg(resp, state), state}
-  end
-
-  # @deprecated
   def handler("get_top_public_rooms", data, state) do
     {:reply,
-     prepare_socket_msg(%{
-       op: "get_top_public_rooms_done",
-       d: f_handler("get_top_public_rooms", data, state)
-     }, state), state}
+     prepare_socket_msg(
+       %{
+         op: "get_top_public_rooms_done",
+         d: f_handler("get_top_public_rooms", data, state)
+       },
+       state
+     ), state}
   end
 
   def handler("speaking_change", %{"value" => value}, state) do
@@ -269,10 +260,13 @@ defmodule Broth.SocketHandler do
     case Kousa.Room.join_room(state.user_id, room_id) do
       d ->
         {:reply,
-         prepare_socket_msg(%{
-           op: "join_room_done",
-           d: d
-         }, state), state}
+         prepare_socket_msg(
+           %{
+             op: "join_room_done",
+             d: d
+           },
+           state
+         ), state}
     end
   end
 
@@ -350,16 +344,19 @@ defmodule Broth.SocketHandler do
       Kousa.Follow.get_follow_list(state.user_id, user_id, get_following_list, cursor)
 
     {:reply,
-     prepare_socket_msg(%{
-       op: "fetch_follow_list_done",
-       d: %{
-         isFollowing: get_following_list,
-         userId: user_id,
-         users: users,
-         nextCursor: next_cursor,
-         initial: cursor == 0
-       }
-     }, state), state}
+     prepare_socket_msg(
+       %{
+         op: "fetch_follow_list_done",
+         d: %{
+           isFollowing: get_following_list,
+           userId: user_id,
+           users: users,
+           nextCursor: next_cursor,
+           initial: cursor == 0
+         }
+       },
+       state
+     ), state}
   end
 
   def handler("set_listener", %{"userId" => user_id_to_make_listener}, state) do
@@ -370,14 +367,17 @@ defmodule Broth.SocketHandler do
   # deprecated??
   def handler("follow_info", %{"userId" => other_user_id}, state) do
     {:reply,
-     prepare_socket_msg(%{
-       op: "follow_info_done",
-       d:
-         Map.merge(
-           %{userId: other_user_id},
-           Follows.get_info(state.user_id, other_user_id)
-         )
-     }, state), state}
+     prepare_socket_msg(
+       %{
+         op: "follow_info_done",
+         d:
+           Map.merge(
+             %{userId: other_user_id},
+             Follows.get_info(state.user_id, other_user_id)
+           )
+       },
+       state
+     ), state}
   end
 
   def handler("mute", %{"value" => value}, state) do
@@ -643,24 +643,6 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  def f_handler("create_room", data, state) do
-    case Kousa.Room.create_room(
-           state.user_id,
-           data["name"],
-           data["description"],
-           data["privacy"] == "private",
-           Map.get(data, "userIdToInvite")
-         ) do
-      {:ok, d} ->
-        d
-
-      {:error, d} ->
-        %{
-          error: d
-        }
-    end
-  end
-
   def f_handler("schedule_room", data, state) do
     case Kousa.ScheduledRoom.schedule(state.user_id, data) do
       {:ok, scheduledRoom} ->
@@ -721,8 +703,8 @@ defmodule Broth.SocketHandler do
 
   defp encode_data(data, %{encoding: :etf}) do
     data
-    |> Map.from_struct
-    |> :erlang.term_to_binary
+    |> Map.from_struct()
+    |> :erlang.term_to_binary()
   end
 
   defp encode_data(data, %{encoding: :json}) do

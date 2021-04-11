@@ -29,13 +29,14 @@ defmodule KousaTest.Broth.AuthTest do
       Process.link(pid)
       WsClient.forward_frames(pid)
 
-      ref = WsClient.send_call(pid, "auth:request", %{
-        "accessToken" => tokens.accessToken,
-        "refreshToken" => tokens.refreshToken,
-        "platform" => "foo",
-        "reconnectToVoice" => false,
-        "muted" => false
-      })
+      ref =
+        WsClient.send_call(pid, "auth:request", %{
+          "accessToken" => tokens.accessToken,
+          "refreshToken" => tokens.refreshToken,
+          "platform" => "foo",
+          "reconnectToVoice" => false,
+          "muted" => false
+        })
 
       WsClient.assert_reply("auth-good", ref, %{"user" => %{"id" => ^user_id}})
     end

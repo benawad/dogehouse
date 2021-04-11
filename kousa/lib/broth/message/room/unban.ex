@@ -20,6 +20,8 @@ defmodule Broth.Message.Room.Unban do
   defmodule Reply do
     use Ecto.Schema
 
+    @derive {Jason.Encoder, only: []}
+
     @primary_key false
     embedded_schema do
     end

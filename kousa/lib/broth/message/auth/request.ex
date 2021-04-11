@@ -26,6 +26,7 @@ defmodule Broth.Message.Auth.Request do
     use Ecto.Schema
 
     alias Beef.Schemas.User
+    alias Beef.Schemas.Room
 
     @derive {Jason.Encoder, only: [:user, :currentRoom]}
 
@@ -35,7 +36,11 @@ defmodule Broth.Message.Auth.Request do
     @primary_key false
     embedded_schema do
       embeds_one(:user, User)
-      field(:currentRoom, :binary_id)
+      embeds_one(:currentRoom, Room)
+    end
+
+    def validate(changeset) do
+
     end
   end
 end

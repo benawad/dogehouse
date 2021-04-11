@@ -31,7 +31,7 @@ defmodule Broth.Message do
   @valid_forms %{
     operator: ~w(operator op),
     payload: ~w(payload p d),
-    reference: ~w(reference ref id)
+    reference: ~w(reference ref fetchId)
   }
 
   @operators %{

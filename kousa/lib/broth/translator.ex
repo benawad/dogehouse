@@ -1,12 +1,12 @@
 defmodule Broth.Translator do
-  @direct_translation %{
-                        #  "auth" => "auth:request"
-                      }
+  @translations %{
+    "create_room" => "room:create"
+  }
 
-  @direct_translation_keys Map.keys(@direct_translation)
+  @translation_keys Map.keys(@translations)
 
-  def convert_legacy(command = %{"op" => operation}) when operation in @direct_translation_keys do
-    %{command | "op" => @direct_translation[operation]}
+  def convert_legacy(command = %{"op" => operation}) when operation in @translation_keys do
+    %{command | "op" => @translations[operation]}
   end
 
   # the "auth:request" form requires a reply, so needs to add a "ref" field value to make it valid.
