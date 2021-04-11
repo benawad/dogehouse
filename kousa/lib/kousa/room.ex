@@ -90,28 +90,44 @@ defmodule Kousa.Room do
     end
   end
 
+  @doc """
+  sets the role of the user in the room that they're in.  Authorization
+  to do so is pulled from the options `:by` keyword.
+
+  TODO: move room into the opts field, and have it be passed in by the
+  socket.
+  """
+  def set_role(user_id, role, opts) do
+    room = Beef.Users.get_current_room_id(user_id)
+    |> IO.inspect(label: "102")
+    case role do
+      :listener ->
+        set_listener(room, user_id, opts[:by])
+    end
+  end
+
+  ####################################################################
+  ## listener
+
+  defp set_listener(nil, _, _), do: :noop
+  # you are always allowed to set yourself as listener
+  defp set_listener(room, user_id, user_id) do
+    internal_set_listener(user_id, room)
+  end
+  defp set_listener(room, user_id, setter_id) do
+    # TODO: refactor this to be simpler.  The list of
+    # creators and mods should be in the preloads of the room.
+    case Rooms.get_room_status(setter_id) do
+      {_, nil} -> :noop
+      {auth, _} when auth in [:creator, :mod] ->
+        internal_set_listener(user_id, room)
+      _ -> :noop
+    end
+  end
+
   defp internal_set_listener(user_id_to_make_listener, room_id) do
     RoomPermissions.make_listener(user_id_to_make_listener, room_id)
     Onion.RoomSession.remove_speaker(room_id, user_id_to_make_listener)
-  end
-
-  def set_listener(user_id, user_id_to_set_listener) do
-    if user_id == user_id_to_set_listener do
-      internal_set_listener(
-        user_id_to_set_listener,
-        Beef.Users.get_current_room_id(user_id_to_set_listener)
-      )
-    else
-      {status, room} = Rooms.get_room_status(user_id)
-      is_creator = user_id_to_set_listener == not is_nil(room) and room.creatorId
-
-      if not is_creator and (status == :creator or status == :mod) do
-        internal_set_listener(
-          user_id_to_set_listener,
-          Beef.Users.get_current_room_id(user_id_to_set_listener)
-        )
-      end
-    end
   end
 
   @spec internal_set_speaker(any, any) :: nil | :ok | {:err, {:error, :not_found}}

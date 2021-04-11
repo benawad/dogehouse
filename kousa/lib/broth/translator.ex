@@ -43,6 +43,13 @@ defmodule Broth.Translator do
     }
   end
 
+  def convert_legacy(%{"op" => "set_listener", "d" => d}) do
+    %{
+      "op" => "room:set_role",
+      "p" => Map.put(d, "role", "listener")
+    }
+  end
+
   def convert_legacy(command) do
     command
   end

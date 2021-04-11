@@ -15,7 +15,7 @@ defmodule BrothTest.Message.Chat.SendMsgTest do
                       value: "foobar"
                     }
                   ],
-                  whisperedTo: nil
+                  whisperedTo: []
                 }
               }} =
                Broth.Message.validate(%{

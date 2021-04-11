@@ -266,11 +266,6 @@ defmodule Broth.SocketHandler do
      ), state}
   end
 
-  def handler("set_listener", %{"userId" => user_id_to_make_listener}, state) do
-    Kousa.Room.set_listener(state.user_id, user_id_to_make_listener)
-    {:ok, state}
-  end
-
   def handler("mute", %{"value" => value}, state) do
     Onion.UserSession.set_mute(state.user_id, value)
     {:ok, state}
