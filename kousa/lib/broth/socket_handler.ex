@@ -213,21 +213,6 @@ defmodule Broth.SocketHandler do
     {:ok, state}
   end
 
-  def handler("add_speaker", %{"userId" => user_id_to_make_speaker}, state) do
-    Kousa.Room.make_speaker(state.user_id, user_id_to_make_speaker)
-    {:ok, state}
-  end
-
-  def handler("change_mod_status", %{"userId" => user_id_to_change, "value" => value}, state) do
-    Kousa.Room.change_mod(state.user_id, user_id_to_change, value)
-    {:ok, state}
-  end
-
-  def handler("change_room_creator", %{"userId" => user_id_to_change}, state) do
-    Kousa.Room.change_room_creator(state.user_id, user_id_to_change)
-    {:ok, state}
-  end
-
   def handler("ban_from_room_chat", %{"userId" => user_id_to_ban}, state) do
     Kousa.RoomChat.ban_user(state.user_id, user_id_to_ban)
     {:ok, state}

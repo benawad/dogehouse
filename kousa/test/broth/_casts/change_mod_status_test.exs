@@ -70,11 +70,5 @@ defmodule KousaTest.Broth.ChangeModStatusTest do
 
       assert Beef.RoomPermissions.get(speaker_id, room_id).isMod
     end
-
-    @tag :skip
-    test "you can't make someone a mod when they aren't a speaker first"
-
-    @tag :skip
-    test "you can't make someone a mod when they aren't the owner of the room"
   end
 end

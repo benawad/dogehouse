@@ -50,6 +50,28 @@ defmodule Broth.Translator do
     }
   end
 
+  def convert_legacy(%{"op" => "add_speaker", "d" => d}) do
+    %{
+      "op" => "room:set_role",
+      "p" => Map.put(d, "role", "speaker")
+    }
+  end
+
+  def convert_legacy(%{"op" => "change_mod_status", "d" => d}) do
+    role = if d["value"], do: "mod", else: "user"
+    %{
+      "op" => "room:set_auth",
+      "p" => Map.put(d, "level", role)
+    }
+  end
+
+  def convert_legacy(%{"op" => "change_room_creator", "d" => d}) do
+    %{
+      "op" => "room:set_auth",
+      "p" => Map.put(d, "level", "owner")
+    }
+  end
+
   def convert_legacy(command) do
     command
   end

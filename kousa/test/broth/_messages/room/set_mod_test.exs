@@ -1,7 +1,7 @@
-defmodule BrothTest.Message.Room.SetMod do
+defmodule BrothTest.Message.Room.SetAuth do
   use ExUnit.Case, async: true
 
-  alias Broth.Message.Room.SetMod
+  alias Broth.Message.Room.SetAuth
 
   setup do
     {:ok, uuid: UUID.uuid4()}
@@ -11,45 +11,64 @@ defmodule BrothTest.Message.Room.SetMod do
     test "it validates", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %SetMod{userId: ^uuid, isMod: true}
+                payload: %SetAuth{userId: ^uuid, level: :mod}
               }} =
                Broth.Message.validate(%{
-                 "operator" => "room:set_mod",
-                 "payload" => %{"userId" => uuid, "isMod" => true}
+                 "operator" => "room:set_auth",
+                 "payload" => %{"userId" => uuid, "level" => "mod"}
                })
+
+               assert {:ok,
+               %{
+                 payload: %SetAuth{userId: ^uuid, level: :owner}
+               }} =
+                Broth.Message.validate(%{
+                  "operator" => "room:set_auth",
+                  "payload" => %{"userId" => uuid, "level" => "owner"}
+                })
+
+                assert {:ok,
+                %{
+                  payload: %SetAuth{userId: ^uuid, level: :user}
+                }} =
+                 Broth.Message.validate(%{
+                   "operator" => "room:set_auth",
+                   "payload" => %{"userId" => uuid, "level" => "user"}
+                 })
+
 
       # short form also allowed
       assert {:ok,
               %{
-                payload: %SetMod{userId: ^uuid, isMod: false}
+                payload: %SetAuth{userId: ^uuid, level: :mod}
               }} =
                Broth.Message.validate(%{
-                 "op" => "room:set_mod",
-                 "p" => %{"userId" => uuid, "isMod" => false}
+                 "op" => "room:set_auth",
+                 "p" => %{"userId" => uuid, "level" => "mod"}
                })
     end
 
     test "omitting the userId is not allowed" do
       assert {:error, %{errors: [userId: {"can't be blank", _}]}} =
                Broth.Message.validate(%{
-                 "operator" => "room:set_mod",
-                 "payload" => %{"isMod" => true}
+                 "operator" => "room:set_auth",
+                 "payload" => %{"level" => "mod"}
                })
     end
 
-    test "omitting isMod is not allowed", %{uuid: uuid} do
-      assert {:error, %{errors: [isMod: {"can't be blank", _}]}} =
+    test "omitting level is not allowed", %{uuid: uuid} do
+      assert {:error, %{errors: [level: {"can't be blank", _}]}} =
                Broth.Message.validate(%{
-                 "operator" => "room:set_mod",
+                 "operator" => "room:set_auth",
                  "payload" => %{"userId" => uuid}
                })
     end
 
-    test "isMod must be a bool", %{uuid: uuid} do
-      assert {:error, %{errors: [isMod: {"is invalid", _}]}} =
+    test "level must be the correct form", %{uuid: uuid} do
+      assert {:error, %{errors: [level: {"is invalid", _}]}} =
                Broth.Message.validate(%{
-                 "operator" => "room:set_mod",
-                 "payload" => %{"userId" => uuid, "isMod" => "yes"}
+                 "operator" => "room:set_auth",
+                 "payload" => %{"userId" => uuid, "level" => "admin"}
                })
     end
   end

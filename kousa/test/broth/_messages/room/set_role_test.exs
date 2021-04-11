@@ -68,16 +68,5 @@ defmodule BrothTest.Message.Room.SetRole do
                  "payload" => %{"userId" => uuid, "role" => "listener"}
                })
     end
-
-    test "creator it validates", %{uuid: uuid} do
-      assert {:ok,
-              %{
-                payload: %SetRole{userId: ^uuid, role: :creator}
-              }} =
-               Broth.Message.validate(%{
-                 "operator" => "room:set_role",
-                 "payload" => %{"userId" => uuid, "role" => "creator"}
-               })
-    end
   end
 end

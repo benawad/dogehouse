@@ -80,10 +80,8 @@ defmodule KousaTest.Broth.ChangeRoomCreatorTest do
       )
 
       assert Beef.Rooms.get_room_by_id(room_id).creatorId == speaker_id
+      assert Process.alive?(t.client_ws)
     end
-
-    @tag :skip
-    test "you can't make someone a room creator when they aren't a mod first"
 
     @tag :skip
     test "a non-owner can't make someone a room creator"
