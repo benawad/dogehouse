@@ -67,7 +67,8 @@
       "voiceSettings": "mine häälesätetesse",
       "overlaySettings": "go to overlay settings",
       "soundSettings": "mine helisätetesse",
-      "deleteAccount": "kustuta konto"
+      "deleteAccount": "kustuta konto",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Oih! See leht läks vestluses kaduma.",

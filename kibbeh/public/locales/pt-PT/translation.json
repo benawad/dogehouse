@@ -66,7 +66,8 @@
       "voiceSettings": "Definições de voz",
       "soundSettings": "Definições de som",
       "deleteAccount": "Apagar conta",
-      "overlaySettings": "Ir para definições de Overlay"
+      "overlaySettings": "Ir para definições de Overlay",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Ups! Esta página perdeu-se na conversa.",

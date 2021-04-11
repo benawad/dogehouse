@@ -7,7 +7,7 @@ export const ReportBugController: React.FC = () => {
   return (
     <>
       <TitledHeader title={"Report bug"} showBackButton={true} />
-      <View style={styles.container}></View>
+      <View style={styles.container} />
     </>
   );
 };

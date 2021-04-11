@@ -66,7 +66,8 @@
       "voiceSettings": "వాయిస్ సెట్టింగ్‌లకు వెళ్లండి",
       "overlaySettings": "go to overlay settings",
       "soundSettings": "సౌండ్  సెట్టింగ్‌లకు వెళ్లండి",
-      "deleteAccount": "delete account"
+      "deleteAccount": "delete account",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Whoops! This page got lost in conversation.",

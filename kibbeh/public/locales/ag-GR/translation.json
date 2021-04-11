@@ -67,7 +67,8 @@
       "voiceSettings": "πηγαίνετε στις ρυθμίσεις φωνής",
       "soundSettings": "πηγαίνετε στις ρυθμίσεις ήχου",
       "deleteAccount": "διαγραφή λογαριασμού",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Ουπς! Αυτή η σελίδα χάθηκε στη συζήτηση.",

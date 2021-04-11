@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 
 export interface SettingsIconProps {
   icon: ReactElement;
-  label: string;
+  label?: string;
   trailingIcon?: ReactElement;
   classes?: string;
   transition?: boolean;
@@ -27,9 +27,7 @@ export const SettingsIcon: React.FC<SettingsIconProps> = ({
       } ${classes}`}
     >
       {icon}
-      <span className="ml-2 font-medium text-primary-100 flex-1 capitalize">
-        {label}
-      </span>
+      <span className="ml-2 text-primary-100 flex-1 capitalize">{label}</span>
       {trailingIcon && trailingIcon}
     </button>
   );

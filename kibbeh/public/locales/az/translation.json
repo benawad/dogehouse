@@ -67,7 +67,8 @@
       "voiceSettings": "mikrofon parametrlərinə keçmək",
       "soundSettings": "səs parametrlərinə keçmək",
       "deleteAccount": "akkauntu ləğv etmək",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Ups! Bu səhifə məkan və zaman içində itmişdi.",

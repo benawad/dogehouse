@@ -13,11 +13,11 @@ import { RoomCardHeading } from "./RoomCardHeading";
 
 const formattedDate = (scheduledFor: Date) => {
   if (isToday(scheduledFor)) {
-    return "TODAY " + format(scheduledFor, `K:mm a`);
+    return "TODAY " + format(scheduledFor, "K:mm a");
   } else if (isTomorrow(scheduledFor)) {
-    return "TOMMOROW " + format(scheduledFor, `K:mm a`);
+    return "TOMMOROW " + format(scheduledFor, "K:mm a");
   } else {
-    return format(scheduledFor, `EEE, do MMM, K:mm a`);
+    return format(scheduledFor, "EEE, do MMM, K:mm a");
   }
 };
 
@@ -45,9 +45,9 @@ export const UpcomingRoomCard: React.FC<UpcomingRoomsCardProps> = ({
     <View style={[styles.container, style]}>
       <Text style={styles.scheduleFor}>{formattedDate(room.scheduledFor)}</Text>
       <RoomCardHeading text={room.title} />
-      <View style={{ flexDirection: "row", marginTop: 10 }}>
+      <View style={styles.content}>
         <MultipleUserAvatar srcArray={room.speakersInfo.avatars} size={"xs"} />
-        <Text style={{ ...small, color: colors.primary300, marginLeft: 7 }}>
+        <Text style={styles.speakers}>
           {room.speakersInfo.speakers.join(", ")}
         </Text>
       </View>
@@ -65,5 +65,14 @@ const styles = StyleSheet.create({
   scheduleFor: {
     ...small,
     color: colors.accent,
+  },
+  content: {
+    flexDirection: "row",
+    marginTop: 10,
+  },
+  speakers: {
+    ...small,
+    color: colors.primary300,
+    marginLeft: 7,
   },
 });

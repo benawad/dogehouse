@@ -72,7 +72,8 @@
             "voiceSettings": "open e sitelen lawa pi kalama uta",
             "overlaySettings": "open e sitelen lawa pi sitelen sewi sitelen sina",
             "soundSettings": "open e sitelen lawa pi kalama",
-            "deleteAccount": "pakala e jan sina"
+            "deleteAccount": "pakala e jan sina",
+            "couldNotFindUser": "Sorry, we could not find that user"
         },
         "notFound": {
             "whoopsError": "Whoops! This page got lost in conversation.",

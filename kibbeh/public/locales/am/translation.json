@@ -67,7 +67,8 @@
       "voiceSettings": "የአወራር ድምጽ ቅንብሮች",
       "soundSettings": "የድምጽ ቅንብሮች",
       "deleteAccount": "መለያህን ደልት",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "ውይ ውይ! ይህ ገጽ ውይይት ውስጥ ጠፋ፡፡",

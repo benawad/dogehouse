@@ -67,7 +67,8 @@
       "voiceSettings": "отиване към гласови настройки",
       "soundSettings": "отиване към звукови настройки",
       "deleteAccount": "изтриване на акаунт",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Опаа! Тази страниза бе изгубена.",

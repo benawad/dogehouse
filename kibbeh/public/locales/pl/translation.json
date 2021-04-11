@@ -67,7 +67,8 @@
       "voiceSettings": "przejdź do ustawień głosu",
       "soundSettings": "przejdź do ustawień dźwięku",
       "deleteAccount": "usuń konto",
-      "overlaySettings": "przejdź do ustawień nakładki"
+      "overlaySettings": "przejdź do ustawień nakładki",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Ups! Ta strona zagubiła się w konwersacji.",
@@ -125,7 +126,7 @@
       "inviteUsersToRoomBtn": "Zaproś użytkowników do pokoju",
       "invite": "Zaproś",
       "toggleMuteMicBtn": "Przełącz wyciszenie mikrofonów",
-      "mute": "Wyczisz",
+      "mute": "Wycisz",
       "unmute": "Odcisz",
       "makeRoomPublicBtn": "Upublicznij pokój!",
       "settings": "Ustawienia",

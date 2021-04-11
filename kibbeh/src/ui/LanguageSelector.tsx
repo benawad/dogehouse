@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Twemoji } from "./Twemoji";
 import backIcon from "../icons/SolidCaretRight";
+import { SettingsIcon } from "./SettingsIcon";
 
 interface LanguageSelectorProps {
   onClose(): void;
@@ -88,18 +89,17 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   console.log("Using: ", i18n.language);
 
   const parsedOptions = options.map((e, i) => (
-    <button
-      key={i}
-      className={`items-center flex text-primary-100 w-full mb-2 py-1 px-2 rounded-5 focus:outline-no-chrome${
+    <SettingsIcon
+      key={e.value + i}
+      classes={`text-primary-100 focus:outline-no-chrome${
         i18n.language === e.value ||
         (e.value === "en" && i18n.language === "en-US")
           ? " bg-primary-700"
           : ""
       }`}
       onClick={() => i18n.changeLanguage(e.value)}
-    >
-      <Twemoji style={{ marginRight: "1ch" }} text={e.label} />
-    </button>
+      icon={<Twemoji text={e.label} style={{ marginRight: "1ch" }} />}
+    ></SettingsIcon>
   ));
 
   return (
@@ -118,10 +118,10 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
           </p>
         </div>
         <div
-          className="pr-1 block h-full overflow-y-auto scrollbar-thin scrollbar-thumb-primary-700"
+          className="block h-full overflow-y-auto scrollbar-thin scrollbar-thumb-primary-700"
           style={{ height: "calc(100% - 40px)" }}
         >
-          <div className="m-2 block">{parsedOptions}</div>
+          <div className="block">{parsedOptions}</div>
         </div>
       </div>
     </div>

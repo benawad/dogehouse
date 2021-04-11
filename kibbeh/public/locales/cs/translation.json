@@ -67,7 +67,8 @@
       "voiceSettings": "Přejít na nastavení hlasu",
       "soundSettings": "Přejít na nastavení zvuku",
       "deleteAccount": "Smazat účet",
-      "overlaySettings": "Přejít na nastavení overlaye"
+      "overlaySettings": "Přejít na nastavení overlaye",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Upst! Tahle místnost se ztratila v konverzaci.",

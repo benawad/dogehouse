@@ -1,14 +1,6 @@
 import { User } from "@dogehouse/kebab";
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  ViewProps,
-  Image,
-  ActivityIndicator,
-  Animated,
-  Text,
-} from "react-native";
+import { Animated, StyleSheet, Text, View, ViewProps } from "react-native";
 import { h4, paragraph, paragraphBold } from "../../constants/dogeStyle";
 
 export type ReportProps = ViewProps & {

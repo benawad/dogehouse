@@ -19,6 +19,7 @@ import { bWindowsType } from "../../types";
 import { Worker } from 'worker_threads';
 import globkey from 'globkey';
 import path from "path";
+import { stopRPC } from "../rpc";
 
 export let CURRENT_REQUEST_TO_SPEAK_KEY = "Control+8";
 export let CURRENT_INVITE_KEY = "Control+7";
@@ -140,6 +141,7 @@ export async function SpawnWorker() {
 }
 
 export async function exitApp(quit = true) {
+    stopRPC();
     if (quit) {
         globkey.stop()
     }

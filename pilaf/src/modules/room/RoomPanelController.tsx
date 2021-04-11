@@ -3,16 +3,14 @@ import { useNavigation } from "@react-navigation/core";
 import { RouteProp } from "@react-navigation/native";
 import React from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
+import { validate as uuidValidate } from "uuid";
 import { RoomHeader } from "../../components/header/RoomHeader";
-import { TitledHeader } from "../../components/header/TitledHeader";
-import { Spinner } from "../../components/Spinner";
 import { colors } from "../../constants/dogeStyle";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
-import { validate as uuidValidate } from "uuid";
+import { RoomStackParamList } from "../../navigation/mainNavigator/RoomNavigator";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { RoomUsersPanel } from "./RoomUsersPanel";
-import { RoomStackParamList } from "../../navigation/mainNavigator/RoomNavigator";
 
 type RoomPageRouteProp = RouteProp<RoomStackParamList, "RoomMain">;
 
@@ -20,32 +18,17 @@ type RoomPageProps = {
   route: RoomPageRouteProp;
 };
 
-const placeHolder = (
-  <View
-    style={{
-      flex: 1,
-      backgroundColor: colors.primary900,
-    }}
-  >
-    <TitledHeader title={""} showBackButton={true} />
-    <Spinner size={"m"} />
-  </View>
-);
-
 export const RoomPanelController: React.FC<RoomPageProps> = ({ route }) => {
   const { mutateAsync: leaveRoom } = useTypeSafeMutation("leaveRoom");
   const navigation = useNavigation();
   const { setCurrentRoomId } = useCurrentRoomIdStore();
-  const { data, isLoading } = useTypeSafeQuery(
+  const { data } = useTypeSafeQuery(
     ["joinRoomAndGetInfo", route.params.data.room.id || ""],
     {
       enabled: uuidValidate(route.params.data.room.id),
       onSuccess: ((d: JoinRoomAndGetInfoResponse | { error: string }) => {
         if (!("error" in d)) {
           setCurrentRoomId(() => d.room.id);
-          // if (currentRoomId !== d.room.id) {
-          //   useRoomChatStore.getState().reset();
-          // }
         }
       }) as any,
     },
