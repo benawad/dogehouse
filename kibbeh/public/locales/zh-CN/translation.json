@@ -142,7 +142,8 @@
         "roomName": "聊天室名字",
         "roomDescription": "聊天室简介",
         "descriptionError": "最大长度为500字符",
-        "nameError": "长度为2到60字符"
+        "nameError": "长度为2到60字符",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "新聊天室被建",
@@ -203,7 +204,28 @@
       "linkText": "在GitHub开启一个报告",
       "addSupport": "我将会尝试支持您的设备"
     },
-    "inviteButton": { "invited": "被邀请", "inviteToRoom": "邀请进入聊天室" }
+    "inviteButton": { "invited": "被邀请", "inviteToRoom": "邀请进入聊天室" },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
+      }
+    }
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
@@ -245,6 +267,7 @@
       "approachingGalaxy": "飞向宇宙",
       "galacticDoge": "宇宙 Doge",
       "spottedLife": "已发现新生命"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

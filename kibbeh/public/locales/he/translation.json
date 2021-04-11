@@ -162,7 +162,8 @@
         "roomName": "שם החדר",
         "roomDescription": "תיאור החדר",
         "descriptionError": "אורך מקסימלי 500",
-        "nameError": "חייב להיות באורך של 2 עד 60 תווים"
+        "nameError": "חייב להיות באורך של 2 עד 60 תווים",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "חדר חדש נוצר",
@@ -201,6 +202,27 @@
         "makePrivate": "הפוך חדר לפרטי",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -244,6 +266,7 @@
       "approachingGalaxy": "מתקרב לגלקסיה",
       "galacticDoge": "גלקטי Doge",
       "spottedLife": "כוכב לכת עם חיים נמצא"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

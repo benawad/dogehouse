@@ -145,7 +145,8 @@
         "roomName": "nome da sala",
         "roomDescription": "descrição da sala",
         "descriptionError": "máximo 500 caracteres",
-        "nameError": "deverá ter entre 2 e 60 caracteres"
+        "nameError": "deverá ter entre 2 e 60 caracteres",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nova sala criada",
@@ -209,6 +210,27 @@
     "inviteButton": {
       "invited": "convidado",
       "inviteToRoom": "convidar para a sala"
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
+      }
     }
   },
   "modules": {
@@ -250,6 +272,7 @@
       "approachingGalaxy": "A aproximar-se da galáxia",
       "galacticDoge": "Doge galático",
       "spottedLife": "Encontrado planeta com vida"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

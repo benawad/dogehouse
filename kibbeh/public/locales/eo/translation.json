@@ -168,7 +168,8 @@
         "roomName": "ĉambronomo",
         "roomDescription": "ĉambra priskribo",
         "descriptionError": "maksimuma longo 500",
-        "nameError": "devas havi inter 2 kaj 60 signojn"
+        "nameError": "devas havi inter 2 kaj 60 signojn",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nova Ĉambro Kreita",
@@ -207,6 +208,27 @@
         "makePrivate": "privatigi ĉambron",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -250,6 +272,7 @@
       "approachingGalaxy": "Alproksimiĝanta galaksio",
       "galacticDoge": "Galaksia Doge",
       "spottedLife": "Planedo kun vivo ekvidita"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

@@ -150,7 +150,8 @@
         "roomName": "nom de la salle",
         "roomDescription": "description de la salle",
         "descriptionError": "capacité maximum de 500",
-        "nameError": "doit être entre 2 et 60 caractères de longueur"
+        "nameError": "doit être entre 2 et 60 caractères de longueur",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nouvelle salle créée",
@@ -205,6 +206,27 @@
     "wsKilled": {
       "description": "Le WebSocket a été fermé par le serveur. Cela arrive souvent quand vous ouvrez le site dans une autre fenêtre.",
       "reconnect": "se reconnecter"
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
+      }
     }
   },
   "modules": {
@@ -246,6 +268,7 @@
       "approachingGalaxy": "Approchant une galaxie",
       "galacticDoge": "Doge Galactique",
       "spottedLife": "Planète avec de la vie en vue"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

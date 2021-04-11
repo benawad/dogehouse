@@ -173,7 +173,8 @@
         "roomName": "அறையின் பெயர்",
         "roomDescription": "அறையின் விளக்கம்",
         "descriptionError": "அதிகபட்ச நீளம் 500",
-        "nameError": "2 முதல் 60 எழுத்துக்கள் வரை நீளமாக இருக்க வேண்டும்"
+        "nameError": "2 முதல் 60 எழுத்துக்கள் வரை நீளமாக இருக்க வேண்டும்",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "புதிய அறை உருவாக்கப்பட்டது",
@@ -212,6 +213,27 @@
         "makePrivate": "அறையை தனிப்பட்டதாக்குங்கள்",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -255,6 +277,7 @@
       "approachingGalaxy": "இதோ, விண்மீன்களை நெருங்கி வந்துவிட்டோம்",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "வாழ்க்கையுடன் ஒரு கிரகத்தைக் கண்டுபிடித்துவிட்டோம்"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

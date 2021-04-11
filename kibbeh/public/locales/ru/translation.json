@@ -171,7 +171,8 @@
         "roomName": "название комнаты",
         "roomDescription": "описание комнаты",
         "descriptionError": "максимальная длина 500",
-        "nameError": "длина должна быть от 2 до 60 символов"
+        "nameError": "длина должна быть от 2 до 60 символов",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Новая комната создана",
@@ -210,6 +211,27 @@
         "makePrivate": "сделать комнату приватной",
         "renamePublic": "Установить название общей комнаты",
         "renamePrivate": "Установить название приватной комнаты"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -253,6 +275,7 @@
       "approachingGalaxy": "приближаемся к галактике",
       "galacticDoge": "галактический Doge",
       "spottedLife": "замечена планета с жизнью"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

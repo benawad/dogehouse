@@ -128,6 +128,7 @@ const Page = ({
 export const FeedController: React.FC<FeedControllerProps> = ({}) => {
   const [cursors, setCursors] = useState([0]);
   const { conn } = useContext(WebSocketContext);
+  const { t } = useTypeSafeTranslation()
   const [roomModal, setRoomModal] = useState(false);
   const { data } = useTypeSafeQuery("getMyScheduledRoomsAboutToStart", {
     enabled: !!conn,
@@ -149,11 +150,11 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
     <MiddlePanel
       stickyChildren={
         <FeedHeader
-          actionTitle="New room"
+          actionTitle={t("pages.home.createRoom")}
           onActionClicked={() => {
             setRoomModal(true);
           }}
-          title="Your Feed"
+          title={t("modules.feed.yourFeed")}
         />
       }
     >

@@ -166,7 +166,8 @@
         "roomName": "रूमको नाम",
         "roomDescription": "रूमको बारेमा",
         "descriptionError": "अधिकतम लम्बाई 500 अक्षर",
-        "nameError": "२ देखि ६० अक्षरसम्म लामो हुनुपर्दछ"
+        "nameError": "२ देखि ६० अक्षरसम्म लामो हुनुपर्दछ",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "नयाँ रूम बनेको छ",
@@ -205,6 +206,27 @@
         "makePrivate": "रूम प्राइवेट बनाउनुहोस",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -248,6 +270,7 @@
       "approachingGalaxy": "Approaching galaxy",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

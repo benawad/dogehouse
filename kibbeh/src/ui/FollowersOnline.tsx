@@ -2,6 +2,7 @@ import { UserWithFollowInfo } from "@dogehouse/kebab";
 import Link from "next/link";
 import React, { MouseEventHandler } from "react";
 import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
+import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { SingleUser } from "./UserAvatar/SingleUser";
 
 export interface FriendOnlineType {
@@ -53,14 +54,15 @@ export const FollowerOnline: React.FC<UserWithFollowInfo> = ({
 export const FollowersOnlineWrapper: React.FC<{
   onlineFriendCount?: number;
 }> = ({ onlineFriendCount, children }) => {
+  const { t } = useTypeSafeTranslation()
   return (
     <div
       className="pb-5 w-full flex flex-col flex-1 overflow-y-auto"
       data-testid="friends-online"
     >
-      <h4 className="text-primary-100">People</h4>
-      <h6 className="text-primary-300 mt-3 text-sm font-bold">
-        ONLINE{" "}
+      <h4 className="text-primary-100">{t("components.followingOnline.people")}</h4>
+      <h6 className="text-primary-300 mt-3 text-sm font-bold uppercase">
+        {t("components.followingOnline.online")}{" "}
         {onlineFriendCount !== undefined ? `(${onlineFriendCount})` : null}
       </h6>
       <div className="flex flex-col mt-3 overflow-y-auto scrollbar-thin scrollbar-thumb-primary-700 overflow-x-hidden">
@@ -73,13 +75,14 @@ export const FollowersOnlineWrapper: React.FC<{
 export const FollowersOnlineShowMore: React.FC<{ onClick?: () => void }> = ({
   onClick,
 }) => {
+  const { t } = useTypeSafeTranslation()
   return (
     <button
       className="underline text-primary-300 font-bold mt-4 cursor-pointer"
       onClick={onClick}
       data-testid="show-more-btn"
     >
-      Show more
+      {t("components.followingOnline.showMore")}
     </button>
   );
 };
