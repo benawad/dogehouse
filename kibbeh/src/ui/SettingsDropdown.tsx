@@ -42,7 +42,7 @@ export const SettingsDropdown: React.FC<{
         <SettingsIcon icon={<SolidDogenitro />} label={"Wallet"} /> */}
           <SettingsIcon
             icon={<OutlineGlobe />}
-            label={"Language"}
+            label={t("components.settingsDropdown.language")}
             trailingIcon={<SolidCaretRight />}
             transition
             onClick={() =>

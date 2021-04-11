@@ -184,7 +184,8 @@
       "placeholder": "Search for rooms, users or categories"
     },
     "settingsDropdown": {
-      "profile": "Profile"
+      "profile": "Profile",
+      "language": "Language"
     },
     "modals": {
       "createRoomModal": {
