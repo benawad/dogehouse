@@ -182,6 +182,7 @@
     },
     "modals": {
       "createRoomModal": {
+        "subtitle": "Fill the following fields to start a new room",
         "public": "Public",
         "private": "Private",
         "roomName": "Room name",

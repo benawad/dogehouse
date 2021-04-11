@@ -115,6 +115,7 @@ export type TranslationKeys =
 	| "components.addToCalendar.add"
 	| "components.wsKilled.description"
 	| "components.wsKilled.reconnect"
+	| "components.modals.createRoomModal.subtitle"
 	| "components.modals.createRoomModal.public"
 	| "components.modals.createRoomModal.private"
 	| "components.modals.createRoomModal.roomName"
