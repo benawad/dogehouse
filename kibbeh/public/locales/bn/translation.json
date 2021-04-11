@@ -175,7 +175,8 @@
         "roomName": "রুমের নাম",
         "roomDescription": "রুমের সম্বন্ধে",
         "descriptionError": "৫০০ শব্দের মধ্যে হতে হবে",
-        "nameError": "২ থেকে ৬০ অক্ষরের মধ্যে হতে হবে"
+        "nameError": "২ থেকে ৬০ অক্ষরের মধ্যে হতে হবে",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "নতুন রুম তৈরি হয়েছে",
@@ -214,6 +215,27 @@
         "makePrivate": "রুমটাকে প্রাইভেট করুন",
         "renamePublic": "পাবলিক রুমের নাম সেট করুন",
         "renamePrivate": "প্রাইভেট রুমের নাম সেট করুন"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -257,6 +279,7 @@
       "approachingGalaxy": "গ্যালাক্সি এর নিকটে",
       "galacticDoge": "গ্যালাকটিক Doge",
       "spottedLife": "গ্রহে জীবনের সন্ধান পাওয়া গেছে"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

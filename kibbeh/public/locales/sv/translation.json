@@ -145,7 +145,8 @@
         "roomName": "Rumsnamn",
         "roomDescription": "Rumsbeskrivning",
         "descriptionError": "Max längden är 500 karaktärer",
-        "nameError": "Längden på namnet måste vara mellan 2 och 60 karaktärer"
+        "nameError": "Längden på namnet måste vara mellan 2 och 60 karaktärer",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Ett nytt rum har skapats",
@@ -209,6 +210,27 @@
     "wsKilled": {
       "description": "WebSocket anslutningen blev nerstängd av servern. Detta händer oftast när du öppnar hemsidan i en annan flik.",
       "reconnect": "Återanslut"
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
+      }
     }
   },
   "modules": {
@@ -251,6 +273,7 @@
       "approachingGalaxy": "Närmar sig en galax",
       "galacticDoge": "Galaktiskdoge",
       "spottedLife": "Planet med liv upptäckt"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

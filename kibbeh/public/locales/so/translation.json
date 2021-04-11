@@ -170,7 +170,8 @@
         "roomName": "Magaca qolka",
         "roomDescription": "Qeexitaanka qolka",
         "descriptionError": "Ugu badanaan 500",
-        "nameError": "waa inuu u dhexeeyaa 2 ilaa 60 xarfo"
+        "nameError": "waa inuu u dhexeeyaa 2 ilaa 60 xarfo",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Qol Cusub Ayaa La abuuray",
@@ -209,6 +210,27 @@
         "makePrivate": "qolka ka dhig qol gaar",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -252,6 +274,7 @@
       "approachingGalaxy": "Approaching galaxy",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "meeraha laga helay nolasha"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

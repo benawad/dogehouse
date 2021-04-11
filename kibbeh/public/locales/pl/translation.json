@@ -126,7 +126,7 @@
       "inviteUsersToRoomBtn": "Zaproś użytkowników do pokoju",
       "invite": "Zaproś",
       "toggleMuteMicBtn": "Przełącz wyciszenie mikrofonów",
-      "mute": "Wyczisz",
+      "mute": "Wycisz",
       "unmute": "Odcisz",
       "makeRoomPublicBtn": "Upublicznij pokój!",
       "settings": "Ustawienia",
@@ -170,7 +170,8 @@
         "roomName": "nazwa pokoju",
         "roomDescription": "opis pokoju",
         "descriptionError": "maksymalna długość to 500",
-        "nameError": "musi być pomiędzy 2 a 60 znakami"
+        "nameError": "musi być pomiędzy 2 a 60 znakami",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Stworzono nowy pokój",
@@ -209,6 +210,27 @@
         "makePrivate": "uczyń pokój prywatnym",
         "renamePublic": "Ustaw publiczną nazwę pokoju",
         "renamePrivate": "Ustaw prywatną nazwę pokoju"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -252,6 +274,7 @@
       "approachingGalaxy": "Zbliża się do galaktyki",
       "galacticDoge": "Galaktyczny Doge",
       "spottedLife": "Znaleziono planetę z życiem"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

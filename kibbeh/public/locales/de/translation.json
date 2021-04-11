@@ -146,7 +146,8 @@
         "roomName": "Raumname",
         "roomDescription": "Raumbeschreibung",
         "descriptionError": "die maximale Länge ist 500",
-        "nameError": "muss zwischen 2 und 60 Zeichen lang sein"
+        "nameError": "muss zwischen 2 und 60 Zeichen lang sein",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Neuen Raum erstellt",
@@ -209,6 +210,27 @@
     "inviteButton": {
       "invited": "eingeladen",
       "inviteToRoom": "zum Raum einladen"
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
+      }
     }
   },
   "modules": {
@@ -251,6 +273,7 @@
       "approachingGalaxy": "Nähert sich einer Galaxie",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

@@ -163,7 +163,8 @@
         "roomName": "채팅방 이름",
         "roomDescription": "채팅방 설명",
         "descriptionError": "최대 길이 500자",
-        "nameError": "2자에서 60자 사이로 설정해주세요"
+        "nameError": "2자에서 60자 사이로 설정해주세요",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "새로운 채팅방이 생성 되었습니다",
@@ -202,6 +203,27 @@
         "makePrivate": "채팅방 비공개화",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -245,6 +267,7 @@
       "approachingGalaxy": "은하계에 근접하는 중..",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "생명체가 있는 새로운 행성에 도착"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

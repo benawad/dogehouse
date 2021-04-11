@@ -164,7 +164,8 @@
         "roomName": "cabin name",
         "roomDescription": "cabin description",
         "descriptionError": "max length 500",
-        "nameError": "must be between 2 t' 60 characters long"
+        "nameError": "must be between 2 t' 60 characters long",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "New Cabin Created",
@@ -203,6 +204,27 @@
         "makePrivate": "Make Cabin Private",
         "renamePublic": "Set Public Cabin Name",
         "renamePrivate": "Set Private Cabin Name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -246,6 +268,7 @@
       "approachingGalaxy": "Approachin' galaxy",
       "galacticDoge": "Galactic doge been spotted",
       "spottedLife": "Planet wit' life spotted"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

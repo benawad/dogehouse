@@ -168,7 +168,8 @@
         "roomName": "бөлме атауы",
         "roomDescription": "бөлменің сипаттамасы",
         "descriptionError": "ең көп дегенде 500 символ",
-        "nameError": "ұзындығы 2-ден 60 символға дейін болуы тиіс"
+        "nameError": "ұзындығы 2-ден 60 символға дейін болуы тиіс",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Жаңа бөлме жасалды",
@@ -207,6 +208,27 @@
         "makePrivate": "бөлмені жеке қылдыру",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -250,6 +272,7 @@
       "approachingGalaxy": "Галактика шегіне сәл қалды",
       "galacticDoge": "Галакалық doge",
       "spottedLife": "Өмірі бар планета анықталды"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

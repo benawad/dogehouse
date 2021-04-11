@@ -166,7 +166,8 @@
         "roomName": "Kamer naam",
         "roomDescription": "Kamer omschrijving",
         "descriptionError": "Maximale lengte van 500",
-        "nameError": "Moet tussen de 2 en 60 karakters lang zijn"
+        "nameError": "Moet tussen de 2 en 60 karakters lang zijn",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nieuwe Kamer Gemaakt",
@@ -205,6 +206,27 @@
         "makePrivate": "Maak kamer privé",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -248,6 +270,7 @@
       "approachingGalaxy": "Heelal aan het benaderen",
       "galacticDoge": "Galactische Doge",
       "spottedLife": "Planeet met leven gespot"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

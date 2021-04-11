@@ -169,7 +169,8 @@
         "roomName": "Nome della stanza",
         "roomDescription": "Descrizione della stanza",
         "descriptionError": "La lunghezza massima è 500",
-        "nameError": "Il nome deve essere lungo dai 2 ai 60 caratteri"
+        "nameError": "Il nome deve essere lungo dai 2 ai 60 caratteri",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nuova stanza creata",
@@ -208,6 +209,27 @@
         "makePrivate": "Rendi la stanza privata",
         "renamePublic": "Imposta il nome della stanza pubblica",
         "renamePrivate": "Imposta il nome della stanza privata"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -251,6 +273,7 @@
       "approachingGalaxy": "Avvicinamento alla galassia",
       "galacticDoge": "Doge galattico",
       "spottedLife": "Avvistato pianeta con forme di vita"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }
