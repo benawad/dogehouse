@@ -37,7 +37,8 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
         {mute ? (
           <BoxedIcon
             transition
-            className="mr-2"
+            hover={mute.isMuted}
+            className={`mr-2 ${mute.isMuted ? `bg-accent` : ``}`}
             color="800"
             title={t("components.bottomVoiceControl.toggleMuteMicBtn")}
             onClick={() => mute.onMute()}
