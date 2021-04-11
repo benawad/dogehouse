@@ -3,6 +3,8 @@ defmodule Broth.Message.Types.ChatToken do
 
   @message_character_limit Application.compile_env!(:kousa, :message_character_limit)
 
+  @derive {Jason.Encoder, only: [:type, :value]}
+
   @primary_key false
   embedded_schema do
     # since this is an embedded schema it's worth being explicit about it.

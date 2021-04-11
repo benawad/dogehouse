@@ -115,7 +115,7 @@ defmodule Broth.SocketHandler do
          # temporary translation from legacy maps to new maps
          command_map! = Broth.Translator.convert_legacy(command_map!),
          {:ok, command} <- Broth.Message.validate(command_map!),
-         {:reply, reply, state} <- Broth.Executor.execute(command.payload, state)do
+         {:reply, reply, state} <- Broth.Executor.execute(command.payload, state) |> IO.inspect(label: "118") do
       reply_msg =
         reply
         |> prepare_reply(command.reference)
@@ -129,7 +129,9 @@ defmodule Broth.SocketHandler do
       {:ok, state} ->
         {:noreply, state}
 
-      {:error, %Ecto.Changeset{}} ->
+      {:error, changeset = %Ecto.Changeset{}} ->
+        IO.inspect(command_json, label: "invalid command")
+        IO.inspect(changeset, label: "changeset")
         {:reply, {:close, 4001, "invalid command"}, state}
 
       {:error, %Jason.DecodeError{}} ->
@@ -241,16 +243,6 @@ defmodule Broth.SocketHandler do
 
   def handler("ban_from_room_chat", %{"userId" => user_id_to_ban}, state) do
     Kousa.RoomChat.ban_user(state.user_id, user_id_to_ban)
-    {:ok, state}
-  end
-
-  def handler("send_room_chat_msg", %{"tokens" => tokens, "whisperedTo" => whispered_to}, state) do
-    Kousa.RoomChat.send_msg(state.user_id, tokens, whispered_to)
-    {:ok, state}
-  end
-
-  def handler("send_room_chat_msg", %{"tokens" => tokens}, state) do
-    Kousa.RoomChat.send_msg(state.user_id, tokens, [])
     {:ok, state}
   end
 

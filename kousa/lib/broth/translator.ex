@@ -1,6 +1,6 @@
 defmodule Broth.Translator do
   @translations %{
-  #  "create_room" => "room:create"
+    "send_room_chat_msg" => "chat:send_msg"
   }
 
   @translation_keys Map.keys(@translations)

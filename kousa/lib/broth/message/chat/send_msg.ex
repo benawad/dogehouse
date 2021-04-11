@@ -16,8 +16,17 @@ defmodule Broth.Message.Chat.SendMsg do
   def changeset(changeset, data) do
     changeset
     |> cast(data, [:whispered_to])
+    |> default_whispered_to
     |> put_tokens(data["tokens"])
     |> validate_whispered_to
+  end
+
+  defp default_whispered_to(changeset) do
+    if get_field(changeset, :whispered_to) do
+      changeset
+    else
+      put_change(changeset, :whispered_to, [])
+    end
   end
 
   def put_tokens(changeset, []) do
