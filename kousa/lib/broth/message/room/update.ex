@@ -34,9 +34,12 @@ defmodule Broth.Message.Room.Update do
   defmodule Reply do
     use Ecto.Schema
 
+    @derive {Jason.Encoder, only: ~w(room error)a}
+
     @primary_key false
     embedded_schema do
       embeds_one(:room, Beef.Schemas.Room)
+      field(:error, :string)
     end
   end
 end

@@ -65,7 +65,6 @@ defmodule Beef.Schemas.Room do
   def edit_changeset(room, attrs) do
     room
     |> cast(attrs, [:id, :name, :isPrivate, :description])
-    |> validate_required([:name])
     |> validate_length(:name, min: 2, max: 60)
     |> validate_length(:description, max: 500)
   end

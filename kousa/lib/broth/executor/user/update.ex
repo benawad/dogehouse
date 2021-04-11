@@ -2,15 +2,16 @@ defimpl Broth.Executor, for: Broth.Message.User.Update do
 
   alias Broth.Message.User.Update.Reply
 
-  def execute(req = %{user: user}, state) do
+  def execute(%{user: user}, state) do
     # TODO: make this a proper changeset-mediated alteration.
-    case Kousa.User.edit_profile(
-      state.user_id,
-      Map.take(user, [:muted, :username])) do
+    update = user
+    |> Map.take([:muted, :username])
+    |> Enum.filter(&elem(&1, 1)) # must not have nil values
+    |> Map.new()
+
+    case Kousa.User.edit_profile(state.user_id, update) do
       {:error, changeset} ->
-        error = Ecto.Changeset.traverse_errors(changeset, fn
-          {error, string} -> "#{error}: #{string}"
-        end)
+        error = Kousa.Utils.Errors.changeset_to_first_err_message(changeset)
         {:ok, %Reply{
           # TODO: have this return the current user state.
           user: nil,

@@ -264,6 +264,29 @@ defmodule Kousa.Room do
       {:error, "room not found"}
   end
 
+  ######################################################################
+  ## UPDATE
+
+  def update(user_id, data) do
+    if room = Rooms.get_room_by_creator_id(user_id) do
+      case Rooms.edit(room.id, data) do
+        ok = {:ok, room} ->
+          Onion.RoomSession.broadcast_ws(room.id, %{
+            op: "new_room_details",
+            d: %{
+              name: room.name,
+              description: room.description,
+              isPrivate: room.isPrivate,
+              roomId: room.id
+            }
+          })
+        ok
+        error = {:error, _} ->
+          error
+      end
+    end
+  end
+
   def join_vc_room(user_id, room, speaker? \\ nil) do
     speaker? =
       if is_nil(speaker?),
@@ -282,30 +305,6 @@ defmodule Kousa.Room do
       d: %{roomId: room.id, peerId: user_id},
       uid: user_id
     })
-  end
-
-  def edit_room(user_id, new_name, new_description, is_private) do
-    if room = Rooms.get_room_by_creator_id(user_id) do
-      case Rooms.edit(room.id, %{
-             name: new_name,
-             description: new_description,
-             is_private: is_private
-           }) do
-        {:ok, _room} ->
-          Onion.RoomSession.broadcast_ws(room.id, %{
-            op: "new_room_details",
-            d: %{
-              name: new_name,
-              description: new_description,
-              isPrivate: is_private,
-              roomId: room.id
-            }
-          })
-
-        {:error, x} ->
-          {:error, Kousa.Utils.Errors.changeset_to_first_err_message_with_field_name(x)}
-      end
-    end
   end
 
   @spec create_room(String.t(), String.t(), String.t(), boolean(), String.t() | nil) ::

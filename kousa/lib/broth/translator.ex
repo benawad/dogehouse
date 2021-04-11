@@ -15,7 +15,7 @@ defmodule Broth.Translator do
   }
   @call_keys Map.keys(@calls)
 
-  # these forms are converted from calls to casts.
+  # these forms are converted from casts to .
   def convert_legacy(command = %{"op" => operation}) when operation in @call_keys do
     Map.merge(command, %{"op" => @calls[operation], "ref" => UUID.uuid4()})
   end
@@ -69,6 +69,14 @@ defmodule Broth.Translator do
     %{
       "op" => "room:set_auth",
       "p" => Map.put(d, "level", "owner")
+    }
+  end
+
+  def convert_legacy(%{"op" => "make_room_public", "d" => d}) do
+    %{
+      "op" => "room:update",
+      "p" => %{"room" => d},
+      "ref" => UUID.uuid4()
     }
   end
 
