@@ -26,7 +26,7 @@ export const SettingsDropdown: React.FC<{
     <div style={{ width: 200 }}>
       <BaseOverlay
         onActionButtonClicked={onActionButtonClicked}
-        actionButton={"Log out"}
+        actionButton={t("components.settingsDropdown.logOut.button")}
         overlay={currentOverlay}
       >
         <div className="flex flex-col">

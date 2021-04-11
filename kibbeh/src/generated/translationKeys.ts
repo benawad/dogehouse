@@ -120,6 +120,8 @@ export type TranslationKeys =
 	| "components.settingsDropdown.language"
 	| "components.settingsDropdown.reportABug"
 	| "components.settingsDropdown.useOldVersion"
+	| "components.settingsDropdown.logOut.button"
+	| "components.settingsDropdown.logOut.modalSubtitle"
 	| "components.modals.createRoomModal.subtitle"
 	| "components.modals.createRoomModal.public"
 	| "components.modals.createRoomModal.private"

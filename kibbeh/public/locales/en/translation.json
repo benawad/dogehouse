@@ -187,7 +187,8 @@
       "profile": "Profile",
       "language": "Language",
       "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version"
+      "useOldVersion": "Use Old Version",
+      "logOut": { "button": "Log out", "modalSubtitle": "Are you sure you want to logout?" }
     },
     "modals": {
       "createRoomModal": {
