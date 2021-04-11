@@ -148,6 +148,9 @@
       "linkText": "issue on GitHub",
       "addSupport": "and I will try adding support for your device."
     },
+    "followingOnline": {
+      "noOnline": "You have 0 friends online right now"
+    },
     "inviteButton": {
       "invited": "Invited!",
       "inviteToRoom": "Invite to room"
