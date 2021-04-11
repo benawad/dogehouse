@@ -83,9 +83,6 @@ export const UpcomingRoomsCard: React.FC<UpcomingRoomsCardProps> = ({
         {rooms.map((room) => (
           <ScheduledRoomSummaryCard transition key={room.id} {...room} />
         ))}
-        {rooms.map((room) => (
-          <ScheduledRoomSummaryCard transition key={room.id} {...room} />
-        ))}
       </div>
 
       <Link href="/scheduled-rooms">
