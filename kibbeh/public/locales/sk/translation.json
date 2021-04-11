@@ -169,7 +169,8 @@
         "roomName": "názov miestnosti",
         "roomDescription": "popis miestnosti",
         "descriptionError": "maximálna dĺžka je 500 znakov",
-        "nameError": "počet znakov musí byť medzi 2-60"
+        "nameError": "počet znakov musí byť medzi 2-60",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Vytvorená nová miestnosť",
@@ -208,6 +209,27 @@
         "makePrivate": "zosúkromniť miestnosť",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -251,6 +273,7 @@
       "approachingGalaxy": "Blížime sa ku galaxii",
       "galacticDoge": "Galaktický Doge",
       "spottedLife": "Zahliadnutá planéta so životom"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

@@ -164,7 +164,8 @@
         "roomName": "Ime sobe",
         "roomDescription": "Opis sobe",
         "descriptionError": "največ 500 znakov",
-        "nameError": "mora biti dolžine 2 do 60 znakov"
+        "nameError": "mora biti dolžine 2 do 60 znakov",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nova soba ustvarjena",
@@ -203,6 +204,27 @@
         "makePrivate": "Naredi sobo zasebno",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -246,6 +268,7 @@
       "approachingGalaxy": "Approaching galaxy",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Najden planet z življenjem"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

@@ -166,7 +166,8 @@
         "roomName": "Romnavn",
         "roomDescription": "Rombeskrivelse",
         "descriptionError": "Maksimal lengde er 500 tegn",
-        "nameError": "Må være mellom 2 og 60 tegn"
+        "nameError": "Må være mellom 2 og 60 tegn",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nytt rom er opprettet",
@@ -205,6 +206,27 @@
         "makePrivate": "Gjør rommet privat",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -248,6 +270,7 @@
       "approachingGalaxy": "Nærmer seg galaksen",
       "galacticDoge": "Galakse-doge",
       "spottedLife": "Planet med liv oppdaget"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

@@ -167,7 +167,8 @@
         "roomName": "Tên phòng",
         "roomDescription": "Mô tả phòng",
         "descriptionError": "tối đa 500 ký tự",
-        "nameError": "phải từ 2 đến 60 ký tự"
+        "nameError": "phải từ 2 đến 60 ký tự",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Đã tạo phòng mới",
@@ -206,6 +207,27 @@
         "makePrivate": "chuyển thành phòng riêng tư",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -249,6 +271,7 @@
       "approachingGalaxy": "Đang tiếp cận dải ngân hà",
       "galacticDoge": "Doge đang bay quanh thiên hà",
       "spottedLife": "Đã tìm thấy hành tinh có sự sống"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

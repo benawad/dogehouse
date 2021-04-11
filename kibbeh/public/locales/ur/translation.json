@@ -165,7 +165,8 @@
         "roomName": "کمرے کا نام",
         "roomDescription": "کمرے کی تفصیل",
         "descriptionError": "زیادہ سے زیادہ لمبائی 500",
-        "nameError": "2 سے 60 حروف کے درمیان لمبا ہونا چاہئے"
+        "nameError": "2 سے 60 حروف کے درمیان لمبا ہونا چاہئے",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "نیا کمرہ تشکیل دیا گیا",
@@ -204,6 +205,27 @@
         "makePrivate": "کمرے کو نجی بنائیں",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -247,6 +269,7 @@
       "approachingGalaxy": "Approaching galaxy",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

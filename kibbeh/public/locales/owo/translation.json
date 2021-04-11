@@ -164,7 +164,8 @@
         "roomName": "Woom name ʕʘ‿ʘʔ",
         "roomDescription": "OwO Woom descwiption :D",
         "descriptionError": "Max wength 500 (●´ω｀●)",
-        "nameError": "Must be between 2 to 60 chawactews wong :3"
+        "nameError": "Must be between 2 to 60 chawactews wong :3",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "0w0 New Woom Cweated (●´ω｀●)",
@@ -203,6 +204,27 @@
         "makePrivate": "Make Woom Pwivate xD",
         "renamePublic": "Set Public Room Name",
         "renamePrivate": "Set Private Room Name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -246,6 +268,7 @@
       "approachingGalaxy": "Appwoaching galaxy (◠‿◠✿)",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Pwanet with uwu life spotted (• o •)"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

@@ -141,7 +141,8 @@
         "roomName": "szoba neve",
         "roomDescription": "szoba leírása",
         "descriptionError": "maximum 500 karakter",
-        "nameError": "minimum 2, maximum 60 karakter"
+        "nameError": "minimum 2, maximum 60 karakter",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Új szoba létrehozva",
@@ -203,6 +204,27 @@
     "inviteButton": {
       "invited": "meghívott",
       "inviteToRoom": "meghívás szobába"
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
+      }
     }
   },
   "modules": {
@@ -244,6 +266,7 @@
       "approachingGalaxy": "Galaxis megközelítése",
       "galacticDoge": "Galaktikus Doge",
       "spottedLife": "Élhető bolygó felfedezve"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

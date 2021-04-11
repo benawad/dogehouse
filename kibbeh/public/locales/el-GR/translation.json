@@ -174,7 +174,8 @@
         "roomName": "όνομα δωματίου",
         "roomDescription": "περιγραφή δωματίου",
         "descriptionError": "μέγιστο μήκος 500",
-        "nameError": "πρέπει να έχει μήκος μεταξύ 2 και 60 χαρακτήρων"
+        "nameError": "πρέπει να έχει μήκος μεταξύ 2 και 60 χαρακτήρων",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Δημιουργήθηκε Νέο Δωμάτιο",
@@ -213,6 +214,27 @@
         "makePrivate": "κάντε το δωμάτιο ιδιωτικό",
         "renamePublic": "ορίστε ένα όνομα για το δημόσιο δωμάτιο",
         "renamePrivate": "ορίστε ένα όνομα για το ιδιωτικό δωμάτιο"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -256,6 +278,7 @@
       "approachingGalaxy": "Πλησιάζουμε τον Γαλαξία",
       "galacticDoge": "Γαλαξιακό Doge",
       "spottedLife": "Εντοπίστηκε πλανήτης με ζωή"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

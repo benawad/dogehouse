@@ -144,7 +144,8 @@
         "roomName": "Ruumname",
         "roomDescription": "Ruumbeschribig",
         "descriptionError": "die maximali Längi isch 500",
-        "nameError": "mues zwüsche 2 und 60 Zeiche lang sii"
+        "nameError": "mues zwüsche 2 und 60 Zeiche lang sii",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Neue Ruum erstellt",
@@ -204,7 +205,28 @@
       "linkText": "Issue uf GitHub",
       "addSupport": "erstelle und ich werde versueche, d Ungerstützig für dis Grät hinzuefüege."
     },
-    "inviteButton": { "invited": "iglade", "inviteToRoom": "zum Ruum ilade" }
+    "inviteButton": { "invited": "iglade", "inviteToRoom": "zum Ruum ilade" },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
+      }
+    }
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
@@ -246,6 +268,7 @@
       "approachingGalaxy": "Geit uf d Galaxie zue",
       "galacticDoge": "Galaxie-Doge",
       "spottedLife": "Planet mit lebe gfunge"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

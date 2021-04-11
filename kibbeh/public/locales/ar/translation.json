@@ -164,7 +164,8 @@
         "roomName": "اسم الغرفة",
         "roomDescription": "وصف عن الغرفة",
         "descriptionError": "أقصى حد 500",
-        "nameError": "يجب أن يكون ما بين حرفين و 60 حرف"
+        "nameError": "يجب أن يكون ما بين حرفين و 60 حرف",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "تم إنشاء غرفة جديدة",
@@ -203,6 +204,27 @@
         "makePrivate": "جعل الغرفة خاصة",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -246,6 +268,7 @@
       "approachingGalaxy": "الاقتراب من المجره",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "اكتشاف كوكب فيه حياه"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }
