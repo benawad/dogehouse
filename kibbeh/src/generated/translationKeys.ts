@@ -112,6 +112,8 @@ export type TranslationKeys =
 	| "components.keyboardShortcuts.toggleOverlayKeybind"
 	| "components.keyboardShortcuts.togglePushToTalkKeybind"
 	| "components.userVolumeSlider.noAudioMessage"
+	| "components.upcomingRoomsCard.upcomingRooms"
+	| "components.upcomingRoomsCard.exploreMoreRooms"
 	| "components.addToCalendar.add"
 	| "components.wsKilled.description"
 	| "components.wsKilled.reconnect"

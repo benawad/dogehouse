@@ -2,6 +2,7 @@ import { format, isToday, isTomorrow } from "date-fns";
 import Link from "next/link";
 import React from "react";
 import { SolidPlus } from "../icons";
+import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { BoxedIcon } from "./BoxedIcon";
 import { RoomCardHeading } from "./RoomCardHeading";
 import { MultipleUsers } from "./UserAvatar";
@@ -67,10 +68,11 @@ export const UpcomingRoomsCard: React.FC<UpcomingRoomsCardProps> = ({
   onCreateScheduledRoom,
   rooms,
 }) => {
+  const { t } = useTypeSafeTranslation()
   return (
     <div className="w-full rounded-lg overflow-y-auto flex flex-col">
       <div className="px-4 py-2 bg-primary-800 border-b border-primary-600 flex justify-between items-center">
-        <h4 className="text-primary-100 font-bold">Upcoming rooms</h4>
+        <h4 className="text-primary-100 font-bold">{t("components.upcomingRoomsCard.upcomingRooms")}</h4>
         <BoxedIcon
           onClick={onCreateScheduledRoom}
           style={{ height: "30px", width: "30px" }}
@@ -87,7 +89,7 @@ export const UpcomingRoomsCard: React.FC<UpcomingRoomsCardProps> = ({
 
       <Link href="/scheduled-rooms">
         <a className="px-4 py-3 text-primary-100 font-bold bg-primary-700">
-          Explore More Rooms
+          {t("components.upcomingRoomsCard.exploreMoreRooms")}
         </a>
       </Link>
     </div>

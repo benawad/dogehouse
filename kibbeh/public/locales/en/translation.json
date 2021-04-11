@@ -173,6 +173,10 @@
     "userVolumeSlider": {
       "noAudioMessage": "No audio consumer for some reason"
     },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
     "addToCalendar": {
       "add": "Add to Calendar"
     },
@@ -188,7 +192,10 @@
       "language": "Language",
       "reportABug": "Report A Bug",
       "useOldVersion": "Use Old Version",
-      "logOut": { "button": "Log out", "modalSubtitle": "Are you sure you want to logout?" }
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
+      }
     },
     "modals": {
       "createRoomModal": {
