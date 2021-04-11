@@ -108,7 +108,7 @@ export const CreateScheduleRoomModal: React.FC<CreateRoomModalProps> = ({
                   <DateTimePicker
                     value={values.scheduledFor}
                     minDate={new Date()}
-                    maxDate={add(new Date(), { months: 1 })}
+                    maxDate={add(new Date(), { months: 6 })}
                     onChange={(x) => {
                       if (x) {
                         setFieldValue("scheduledFor", x);

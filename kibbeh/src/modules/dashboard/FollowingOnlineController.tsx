@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useConn } from "../../shared-hooks/useConn";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import {
   FollowerOnline,
@@ -43,6 +44,11 @@ const Page: React.FC<{
 
 export const FollowingOnlineController: React.FC<FriendsOnlineControllerProps> = ({}) => {
   const [cursors, setCursors] = useState<number[]>([0]);
+  const conn = useConn();
+
+  if (!conn) {
+    return null;
+  }
 
   return (
     <FollowersOnlineWrapper>
