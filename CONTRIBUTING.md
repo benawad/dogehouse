@@ -84,6 +84,12 @@ $ npm i
 $ npm run build
 $ npm start
 ```
+#### `kibbeh`
+```shell
+$ yarn
+$ yarn dev
+```
+
 #### `kofta`
 ```shell
 $ npm i
