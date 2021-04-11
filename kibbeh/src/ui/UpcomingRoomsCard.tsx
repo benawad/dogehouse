@@ -54,7 +54,9 @@ export const ScheduledRoomSummaryCard: React.FC<ScheduledRoomSummaryCardProps> =
   return (
     <button
       onClick={onClick}
-      className={`px-4 py-2 w-full bg-primary-800 flex flex-col gap-2 border-b border-primary-600 cursor-pointer ${transition ? `transition duration-500 ease-in-out` : ``} hover:bg-primary-700 z-0`}
+      className={`px-4 py-2 w-full bg-primary-800 flex flex-col gap-2 border-b border-primary-600 cursor-pointer ${
+        transition ? `transition duration-500 ease-in-out` : ``
+      } hover:bg-primary-700 z-0`}
     >
       <div className="text-accent text-sm">{formattedDate(scheduledFor)}</div>
       <RoomCardHeading text={title} />
