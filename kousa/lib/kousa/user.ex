@@ -8,19 +8,17 @@ defmodule Kousa.User do
 
   def edit_profile(user_id, data) do
     case Users.edit_profile(user_id, data) do
-      {:error, %Ecto.Changeset{errors: [{_, {"has already been taken", _}}]}} ->
-        :username_taken
-
-      {:ok, %{displayName: displayName, username: username, avatarUrl: avatarUrl}} ->
+      {:ok, user} ->
         Onion.UserSession.set_state(
           user_id,
-          %{display_name: displayName, username: username, avatar_url: avatarUrl}
+          %{
+            display_name: user.displayName,
+            username: user.username,
+            avatar_url: user.avatarUrl
+          }
         )
-
-        :ok
-
-      _ ->
-        :ok
+        {:ok, user}
+      error -> error
     end
   end
 

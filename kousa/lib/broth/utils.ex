@@ -10,7 +10,7 @@ defmodule Broth.Utils do
     else
       reply
       |> change
-      |> validate_reply! 
+      |> validate_reply!
     end
   end
 
@@ -24,13 +24,20 @@ defmodule Broth.Utils do
   def validate_type_of(changeset), do: changeset
   def validate_type_of(changeset = %{valid?: false}, _), do: changeset
   def validate_type_of(changeset = %{data: data = %module{}}, field) do
+    value = :erlang.map_get(field, data)
 
     case module.__schema__(:type, field) do
-      _ when :erlang.map_get(field, data) == nil ->
+      _ when value == nil ->
         changeset
 
       :binary_id ->
         Kousa.Utils.UUID.normalize(changeset, field)
+
+      :boolean ->
+        if not is_boolean(value) do
+          raise "#{value} (field #{field}) is not boolean"
+        end
+        changeset
 
       {:parameterized, _, %{cardinality: :one, related: related}} ->
         if get_field(changeset, field).__struct__ == related do

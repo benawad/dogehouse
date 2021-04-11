@@ -1,6 +1,6 @@
 defmodule Broth.Translator do
   @translations %{
-    "send_room_chat_msg" => "chat:send_msg"
+    "send_room_chat_msg" => "chat:send_msg",
   }
 
   @translation_keys Map.keys(@translations)
@@ -19,6 +19,14 @@ defmodule Broth.Translator do
     command
     |> Map.put("op", "room:create")
     |> put_in(["d", "isPrivate"], d["privacy"] == "private")
+  end
+
+  def convert_legacy(command = %{"op" => "edit_profile", "d" => %{"data" => data}}) do
+    %{
+      "op" => "user:update",
+      "p" => data,
+      "ref" => command["fetchId"]
+    }
   end
 
   def convert_legacy(command) do

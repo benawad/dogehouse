@@ -572,16 +572,6 @@ defmodule Broth.SocketHandler do
     %{}
   end
 
-  def f_handler("edit_profile", %{"data" => data}, state) do
-    %{
-      isUsernameTaken:
-        case Kousa.User.edit_profile(state.user_id, data) do
-          :username_taken -> true
-          _ -> false
-        end
-    }
-  end
-
   def f_handler("get_blocked_from_room_users", %{"offset" => offset}, state) do
     case Kousa.RoomBlock.get_blocked_users(state.user_id, offset) do
       {users, next_cursor} ->

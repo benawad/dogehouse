@@ -28,15 +28,23 @@ defmodule Broth.Message.User.Update do
   end
 
   def user_changeset(changeset, data) do
-    cast(changeset, data, ~w(muted)a)
+    cast(changeset, data, ~w(muted username)a)
   end
 
   defmodule Reply do
     use Ecto.Schema
 
+    @derive {Jason.Encoder, only: [:user, :error, :isUsernameTaken]}
+
     @primary_key false
     embedded_schema do
-      embeds_one(:room, Beef.Schemas.Room)
+      embeds_one(:user, Beef.Schemas.User)
+
+      # field is nil when there is no error.
+      field :error, :string
+
+      # TODO: Deprecate this field
+      field :isUsernameTaken, :boolean
     end
   end
 end
