@@ -40,7 +40,10 @@ defmodule Broth.Message.Auth.Request do
     end
 
     def validate(changeset) do
-
+      changeset
+      |> validate_required([:user])
+      |> Broth.Utils.validate_type_of(:user)
+      |> Broth.Utils.validate_type_of(:currentRoom)
     end
   end
 end

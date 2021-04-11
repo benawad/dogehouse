@@ -9,6 +9,8 @@ defmodule Beef.Schemas.User do
     # TODO: Make this a separate Schema that sees the same table.
 
     @derive {Poison.Encoder, only: [:id, :displayName, :numFollowers]}
+    @derive {Jason.Encoder, only: [:id, :displayName, :numFollowers]}
+
     @primary_key false
     embedded_schema do
       # does User.Preview really need an id?

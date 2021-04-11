@@ -1,29 +1,34 @@
 defmodule Broth.Utils do
   import Ecto.Changeset
 
-  def validate_reply(reply = %module{}) do
+  def validate_reply!(reply = %module{}) when module != Ecto.Changeset do
     if function_exported?(module, :validate, 1) do
       reply
+      |> change
       |> module.validate
-      |> validate_reply
+      |> validate_reply!
     else
       reply
       |> change
-      |> validate_reply
+      |> validate_reply! 
     end
   end
 
-  def validate_reply(changeset = %Ecto.Changeset{data: data = %module{}}) do
+  def validate_reply!(changeset = %Ecto.Changeset{data: %module{}}) do
     :fields
     |> module.__schema__()
-    |> Enum.reduce(changeset, &validate_type_of(&1, &2, data))
+    |> Enum.reduce(changeset, &validate_type_of(&2, &1))
     |> apply_action!(:validate)
   end
 
-  defp validate_type_of(_, changeset = %{valid?: false}, _), do: changeset
+  def validate_type_of(changeset), do: changeset
+  def validate_type_of(changeset = %{valid?: false}, _), do: changeset
+  def validate_type_of(changeset = %{data: data = %module{}}, field) do
 
-  defp validate_type_of(field, changeset, %module{}) do
     case module.__schema__(:type, field) do
+      _ when :erlang.map_get(field, data) == nil ->
+        changeset
+
       :binary_id ->
         Kousa.Utils.UUID.normalize(changeset, field)
 
@@ -33,6 +38,10 @@ defmodule Broth.Utils do
         else
           add_error(changeset, field, "is invalid")
         end
+
+      other ->
+        other |> IO.inspect(label: "43")
+        raise "foo"
     end
   end
 end

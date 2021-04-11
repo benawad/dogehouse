@@ -32,12 +32,25 @@ defmodule Broth.Message.Room.Create do
   def room_changeset(changeset, data) do
     changeset
     |> cast(data, ~w(description isPrivate name autoSpeaker)a)
+    |> set_default_privacy
     |> validate_required(~w(description name)a)
+  end
+
+  defp set_default_privacy(changeset) do
+    changeset
+    |> get_field(:isPrivate)
+    |> is_nil
+    |> if do
+      put_change(changeset, :isPrivate, false)
+    else
+      changeset
+    end
   end
 
   defmodule Reply do
     use Ecto.Schema
 
+    @derive {Jason.Encoder, only: [:room]}
     @primary_key false
     embedded_schema do
       embeds_one(:room, Beef.Schemas.Room)

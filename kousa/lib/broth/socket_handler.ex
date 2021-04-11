@@ -113,9 +113,9 @@ defmodule Broth.SocketHandler do
          # temporary trap mediasoup direct commands
          %{"op" => <<not_at>> <> _} when not_at != ?@ <- command_map!,
          # temporary translation from legacy maps to new maps
-         command_map! = Broth.Translator.convert_legacy(command_map!) |> IO.inspect(label: "109"),
-         {:ok, command} <- Broth.Message.validate(command_map!) |> IO.inspect(label: "110"),
-         {:reply, reply, state} <- Broth.Executor.execute(command.payload, state) do
+         command_map! = Broth.Translator.convert_legacy(command_map!),
+         {:ok, command} <- Broth.Message.validate(command_map!),
+         {:reply, reply, state} <- Broth.Executor.execute(command.payload, state)do
       reply_msg =
         reply
         |> prepare_reply(command.reference)
@@ -141,21 +141,20 @@ defmodule Broth.SocketHandler do
   end
 
   if Mix.env() in [:test, :dev] do
-    defdelegate validate_reply(payload), to: Broth.Utils
+    defdelegate validate_reply!(payload), to: Broth.Utils
   else
-    def validate_reply(_), do: :noop
+    def validate_reply!(_), do: :noop
   end
 
   def prepare_reply(payload = %reply_module{}, reference) do
-    validate_reply(payload)
-
+    validate_reply!(payload)
     %{
       # TODO: deprecate "fetch_done" as the generic reply
       "op" =>
         :attributes
         |> reply_module.__info__()
-        |> Keyword.get(:reply_operation, "fetch_done")
-        |> Enum.at(0),
+        |> Keyword.get(:reply_operation, ["fetch_done"])
+        |> List.first,
       # TODO: replace "d" with "p" as the reply payload parameter.
       "d" => payload,
       # TODO: replace "fetchId" with "ref"
@@ -632,7 +631,7 @@ defmodule Broth.SocketHandler do
   end
 
   defp encode_data(data, %{encoding: :json}) do
-    data |> Jason.encode!()
+    Jason.encode!(data)
   end
 
   defp prepare_data(data, %{compression: :zlib}) do

@@ -1,6 +1,6 @@
 defmodule Broth.Translator do
   @translations %{
-    "create_room" => "room:create"
+  #  "create_room" => "room:create"
   }
 
   @translation_keys Map.keys(@translations)
@@ -13,6 +13,12 @@ defmodule Broth.Translator do
   # this should be ignored by the FE.
   def convert_legacy(command = %{"op" => "auth"}) do
     Map.merge(command, %{"op" => "auth:request", "ref" => UUID.uuid4()})
+  end
+
+  def convert_legacy(command = %{"op" => "create_room", "d" => d}) do
+    command
+    |> Map.put("op", "room:create")
+    |> put_in(["d", "isPrivate"], d["privacy"] == "private")
   end
 
   def convert_legacy(command) do
