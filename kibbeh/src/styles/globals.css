@@ -78,7 +78,7 @@ html
 ::-webkit-scrollbar {
   overflow: overlay;
   width: thin;
-  /* shouldnt hardcode width, pls find way to make it dynamic, thin want working for me... */
+  /* shouldnt hardcode width, pls find way to make it dynamic, thin wasn't working for me... */
 }
 
 ::-webkit-scrollbar-track {
