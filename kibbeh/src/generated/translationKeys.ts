@@ -116,6 +116,7 @@ export type TranslationKeys =
 	| "components.wsKilled.description"
 	| "components.wsKilled.reconnect"
 	| "components.search.placeholder"
+	| "components.settingsDropdown.profile"
 	| "components.modals.createRoomModal.subtitle"
 	| "components.modals.createRoomModal.public"
 	| "components.modals.createRoomModal.private"
