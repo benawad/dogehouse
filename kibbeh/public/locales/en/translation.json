@@ -180,6 +180,9 @@
       "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
       "reconnect": "Reconnect"
     },
+    "search": {
+      "placeholder": "Search for rooms, users or categories"
+    },
     "modals": {
       "createRoomModal": {
         "subtitle": "Fill the following fields to start a new room",
