@@ -60,7 +60,7 @@ export const SettingsDropdown: React.FC<{
             <SettingsIcon
               onClick={onCloseDropdown}
               icon={<SolidBug />}
-              label={"Report a bug"}
+              label={t("components.settingsDropdown.reportABug")}
               transition
             />
           </a>
@@ -68,7 +68,7 @@ export const SettingsDropdown: React.FC<{
             <SettingsIcon
               onClick={onCloseDropdown}
               icon={<SolidTime />}
-              label={"Use old version"}
+              label={t("components.settingsDropdown.useOldVersion")}
               transition
             />
           </a>

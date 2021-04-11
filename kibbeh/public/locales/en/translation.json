@@ -185,7 +185,9 @@
     },
     "settingsDropdown": {
       "profile": "Profile",
-      "language": "Language"
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version"
     },
     "modals": {
       "createRoomModal": {

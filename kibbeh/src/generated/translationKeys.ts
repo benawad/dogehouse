@@ -118,6 +118,8 @@ export type TranslationKeys =
 	| "components.search.placeholder"
 	| "components.settingsDropdown.profile"
 	| "components.settingsDropdown.language"
+	| "components.settingsDropdown.reportABug"
+	| "components.settingsDropdown.useOldVersion"
 	| "components.modals.createRoomModal.subtitle"
 	| "components.modals.createRoomModal.public"
 	| "components.modals.createRoomModal.private"
