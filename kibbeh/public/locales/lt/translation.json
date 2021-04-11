@@ -67,7 +67,8 @@
       "voiceSettings": "Eiti į balso nustatymus",
       "soundSettings": "Eiti į garso nustatymus",
       "deleteAccount": "Ištrinti vartotoją",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Uppss! Šis puslapis buvo prarastas pokalbyje",

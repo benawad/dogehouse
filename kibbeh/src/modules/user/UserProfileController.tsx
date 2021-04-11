@@ -17,7 +17,7 @@ const isMac = process.platform === "darwin";
 
 export const UserProfileController: React.FC<UserProfileControllerProps> = ({ }) => {
   const [open, setOpen] = useState(false);
-  const conn = useConn()
+  const conn = useConn();
   const { t } = useTypeSafeTranslation();
   const { push } = useRouter();
   const { query } = useRouter();
@@ -47,7 +47,7 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({ })
   }
 
   if (!data) {
-    return <InfoText>Sorry, we could not find that user</InfoText>;
+    return <InfoText>{t("pages.myProfile.couldNotFindUser")}</InfoText>;
   }
 
   return (

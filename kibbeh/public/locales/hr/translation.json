@@ -67,7 +67,8 @@
       "voiceSettings": "idite na glasovne postavke",
       "soundSettings": "idite na postavke zvuka",
       "deleteAccount": "izbriši račun",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Ups! Ova se stranica izgubila u razgovoru.",

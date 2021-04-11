@@ -67,7 +67,8 @@
       "voiceSettings": "gaan na stem instellings",
       "soundSettings": "gaan na klank instellings",
       "deleteAccount": "verwyder rekening",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Oeps! Hierdie bladsy het verlore geraak in gesprek.",

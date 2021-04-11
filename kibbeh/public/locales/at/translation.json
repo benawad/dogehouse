@@ -67,7 +67,8 @@
       "voiceSettings": "Sprocheinstöllungen",
       "soundSettings": "Toneinstöllungen",
       "deleteAccount": "Konto löschn",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Oida! De Seite ist im Gespräch verlurn gaunga.",

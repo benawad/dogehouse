@@ -70,7 +70,8 @@
       "voiceSettings": "குரல் அமைப்பிற்குச் செல்லவும்",
       "soundSettings": "ஒலி அமைப்பிற்குச் செல்லவும்",
       "deleteAccount": "கணக்கை நீக்கு",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "அய்யகோ! இந்த பக்கத்தை காணவில்லை",

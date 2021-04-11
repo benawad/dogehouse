@@ -70,7 +70,8 @@
       "voiceSettings": "Голосовые настройки",
       "soundSettings": "Настройки звука",
       "deleteAccount": "Удалить аккаунт",
-      "overlaySettings": "Настройки оверлея"
+      "overlaySettings": "Настройки оверлея",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Упс! Эта страница была потеряна.",

@@ -67,7 +67,8 @@
       "voiceSettings": "עבור להגדרות קול",
       "soundSettings": "עבור להגדרות סאונד",
       "deleteAccount": "מחק חשבון",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "אופס! הדף הזה הלך לאיבוד בשיחה.",

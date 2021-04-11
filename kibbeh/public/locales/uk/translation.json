@@ -67,7 +67,8 @@
       "voiceSettings": "перейти до голосових налаштувань",
       "soundSettings": "перейти до звукових налаштувань",
       "deleteAccount": "видалити аккаунт",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Упс! Ця сторінка загубилася в розмові.",
