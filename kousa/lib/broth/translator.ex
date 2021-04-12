@@ -1,5 +1,4 @@
 defmodule Broth.Translator do
-
   @translations %{
     "send_room_chat_msg" => "chat:send_msg",
     "invite_to_room" => "room:invite"
@@ -37,6 +36,7 @@ defmodule Broth.Translator do
 
   def convert_inbound(%{"op" => "ban", "d" => d = %{"username" => _}}) do
     userId = Beef.Users.get_by_username(d["username"]).id
+
     %{
       "op" => "user:ban",
       "p" => %{"userId" => userId, "reason" => d["reason"]},
@@ -60,6 +60,7 @@ defmodule Broth.Translator do
 
   def convert_inbound(%{"op" => "change_mod_status", "d" => d}) do
     role = if d["value"], do: "mod", else: "user"
+
     %{
       "op" => "room:set_auth",
       "p" => Map.put(d, "level", role)
@@ -93,6 +94,7 @@ defmodule Broth.Translator do
   def convert_outbound(map, original = %{version: ~v(0.1.0)}) do
     convert_0_1_0(%{op: "fetch_done", d: map.p, fetchId: map.ref}, map.op, original)
   end
+
   def convert_outbound(map, _), do: map
 
   def convert_0_1_0(map, "auth:request:reply", _) do
@@ -100,7 +102,7 @@ defmodule Broth.Translator do
   end
 
   def convert_0_1_0(map, "user:ban:reply", _) do
-    %{map | op: "ban_done", d: %{worked: ! map[:error]}}
+    %{map | op: "ban_done", d: %{worked: !map[:error]}}
   end
 
   def convert_0_1_0(map, "room:create:reply", _) do
@@ -116,5 +118,4 @@ defmodule Broth.Translator do
   end
 
   def convert_0_1_0(map, _, _), do: map
-
 end

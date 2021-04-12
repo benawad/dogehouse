@@ -21,10 +21,12 @@ defmodule KousaTest.Broth.User.BlockTest do
       # create a blocked user that is logged in.
       blocked = %{id: blocked_id} = Factory.create(User)
 
-      ref = WsClient.send_call(
-        t.client_ws,
-        "user:block",
-        %{"userId" => blocked_id})
+      ref =
+        WsClient.send_call(
+          t.client_ws,
+          "user:block",
+          %{"userId" => blocked_id}
+        )
 
       # assert that you get a response that is yourself with an updated
       # block list.

@@ -5,10 +5,10 @@ defmodule Broth.Message.Room.Update do
 
   @primary_key false
   schema "rooms" do
-    field :name, :string
-    field :description, :string
-    field :isPrivate, :boolean
-    field :autoSpeaker, :string
+    field(:name, :string)
+    field(:description, :string)
+    field(:isPrivate, :boolean)
+    field(:autoSpeaker, :string)
   end
 
   def room_changeset(changeset, data) do
@@ -16,18 +16,21 @@ defmodule Broth.Message.Room.Update do
   end
 
   def execute(%{room: room}, state) do
-    update = room
-    |> Map.take([:name, :isPrivate, :description])
-    |> Enum.filter(&valid?/1) # must not have nil values
-    |> Map.new()
+    update =
+      room
+      |> Map.take([:name, :isPrivate, :description])
+      # must not have nil values
+      |> Enum.filter(&valid?/1)
+      |> Map.new()
 
     # TODO: make this a proper changeset-mediated alteration.
     case Kousa.Room.update(state.user_id, update) do
       {:error, changeset} ->
         raise "foobar"
+
       {:ok, room} ->
         raise "foo"
-        #{:reply, %__MODULE__{name: room}, state}
+        # {:reply, %__MODULE__{name: room}, state}
     end
   end
 

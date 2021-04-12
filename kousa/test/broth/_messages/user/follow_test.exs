@@ -1,6 +1,8 @@
 defmodule BrothTest.Message.User.FollowTest do
   use ExUnit.Case, async: true
 
+  @moduletag :message
+
   alias Broth.Message.User.Follow
 
   setup do

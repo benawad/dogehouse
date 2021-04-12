@@ -22,9 +22,9 @@ defmodule Broth.Message.User.Block do
 
     @primary_key false
     embedded_schema do
-      field :blocked, {:array, :binary_id}
+      field(:blocked, {:array, :binary_id})
       # field is nil when there is no error.
-      field :error, :string
+      field(:error, :string)
     end
   end
 
@@ -33,6 +33,7 @@ defmodule Broth.Message.User.Block do
       {:ok, %{userIdBlocked: blocked}} ->
         # TODO: update this to return a full user update.
         {:reply, %Reply{blocked: [blocked]}, state}
+
       {:error, _error} ->
         {:reply, %Reply{error: "error blocking #{user_id}"}, state}
     end

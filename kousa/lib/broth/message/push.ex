@@ -4,7 +4,6 @@ defmodule Broth.Message.Push do
   """
 
   defmacro __using__(opts) do
-
     operation = Keyword.fetch!(opts, :operation)
 
     quote do
@@ -18,11 +17,10 @@ defmodule Broth.Message.Push do
     end
   end
 
-  @callback changeset(Broth.json) :: Ecto.Changeset.t
+  @callback changeset(Broth.json()) :: Ecto.Changeset.t()
 
-  @callback operation :: String.t
-  @callback change_output(map) :: Ecto.Changeset.t
+  @callback operation :: String.t()
+  @callback change_output(map) :: Ecto.Changeset.t()
 
   @optional_callbacks [changeset: 1]
-
 end

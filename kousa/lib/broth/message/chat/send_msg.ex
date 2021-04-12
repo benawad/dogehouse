@@ -100,11 +100,11 @@ defmodule Broth.Message.Chat.SendMsg do
   end
 
   def execute(%{tokens: tokens, whisperedTo: whisperedTo}, state) do
-
     Kousa.RoomChat.send_msg(
       state.user_id,
       tokens,
-      whisperedTo)
+      whisperedTo
+    )
 
     {:ok, state}
   end

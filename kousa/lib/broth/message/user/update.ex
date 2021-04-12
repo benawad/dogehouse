@@ -13,8 +13,8 @@ defmodule Broth.Message.User.Update do
 
   @primary_key {:id, :binary_id, []}
   schema "users" do
-    field :username, :string
-    field :muted, :boolean, virtual: true
+    field(:username, :string)
+    field(:muted, :boolean, virtual: true)
   end
 
   def changeset(initializer \\ %__MODULE__{}, data) do
@@ -24,9 +24,10 @@ defmodule Broth.Message.User.Update do
   end
 
   def changeset(original_message, data) do
-    payload = %__MODULE__{}
-    |> cast(data, [:muted, :username, :error])
-    |> apply_action!(:validate)
+    payload =
+      %__MODULE__{}
+      |> cast(data, [:muted, :username, :error])
+      |> apply_action!(:validate)
 
     original_message
     |> change
@@ -40,6 +41,7 @@ defmodule Broth.Message.User.Update do
         # TODO: make this better:
         error = Kousa.Utils.Errors.changeset_to_first_err_message(changeset)
         {:reply, %{error: error}, state}
+
       {:ok, user} ->
         {:reply, Map.from_struct(user), state}
     end

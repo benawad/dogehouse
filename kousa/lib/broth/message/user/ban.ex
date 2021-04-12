@@ -23,15 +23,16 @@ defmodule Broth.Message.User.Ban do
     @primary_key false
     embedded_schema do
       # field is nil when there is no error.
-      field :error, :string
+      field(:error, :string)
     end
 
     def tag, do: "user:ban:reply"
 
     def changeset(original_message, data) do
-      payload = %__MODULE__{}
-      |> cast(data, [:error])
-      |> apply_action!(:validate)
+      payload =
+        %__MODULE__{}
+        |> cast(data, [:error])
+        |> apply_action!(:validate)
 
       original_message
       |> change

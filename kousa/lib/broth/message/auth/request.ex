@@ -46,7 +46,7 @@ defmodule Broth.Message.Auth.Request do
 
   @impl true
   def execute(changeset, state) do
-    case apply_action(changeset, :validate)  do
+    case apply_action(changeset, :validate) do
       {:ok, request} -> convert_tokens(request, state)
       error -> error
     end
@@ -54,6 +54,7 @@ defmodule Broth.Message.Auth.Request do
 
   defp convert_tokens(request, state) do
     alias Kousa.Utils.TokenUtils
+
     case TokenUtils.tokens_to_user_id(request.accessToken, request.refreshToken) do
       nil ->
         {:close, 4001, "invalid_authentication"}
@@ -111,7 +112,8 @@ defmodule Broth.Message.Auth.Request do
         roomIdFromFrontend ->
           Kousa.Room.join_room(user.id, roomIdFromFrontend)
 
-        true -> :ok
+        true ->
+          :ok
       end
 
       {:reply, Repo.get(Reply, user_id), %{state | user_id: user_id, awaiting_init: false}}

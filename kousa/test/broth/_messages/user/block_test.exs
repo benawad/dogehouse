@@ -1,6 +1,8 @@
 defmodule BrothTest.Message.User.BlockTest do
   use ExUnit.Case, async: true
 
+  @moduletag :message
+
   alias Broth.Message.User.Block
 
   setup do
@@ -44,7 +46,7 @@ defmodule BrothTest.Message.User.BlockTest do
       assert {:error, %{errors: [reference: {"is required for Broth.Message.User.Block", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:block",
-                 "payload" => %{"userId" => uuid},
+                 "payload" => %{"userId" => uuid}
                })
     end
   end

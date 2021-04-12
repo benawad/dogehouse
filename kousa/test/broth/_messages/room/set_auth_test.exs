@@ -1,6 +1,8 @@
 defmodule BrothTest.Message.Room.SetAuth do
   use ExUnit.Case, async: true
 
+  @moduletag :message
+
   alias Broth.Message.Room.SetAuth
 
   setup do
@@ -18,24 +20,23 @@ defmodule BrothTest.Message.Room.SetAuth do
                  "payload" => %{"userId" => uuid, "level" => "mod"}
                })
 
-               assert {:ok,
-               %{
-                 payload: %SetAuth{userId: ^uuid, level: :owner}
-               }} =
-                BrothTest.Support.Message.validate(%{
-                  "operator" => "room:set_auth",
-                  "payload" => %{"userId" => uuid, "level" => "owner"}
-                })
+      assert {:ok,
+              %{
+                payload: %SetAuth{userId: ^uuid, level: :owner}
+              }} =
+               BrothTest.Support.Message.validate(%{
+                 "operator" => "room:set_auth",
+                 "payload" => %{"userId" => uuid, "level" => "owner"}
+               })
 
-                assert {:ok,
-                %{
-                  payload: %SetAuth{userId: ^uuid, level: :user}
-                }} =
-                 BrothTest.Support.Message.validate(%{
-                   "operator" => "room:set_auth",
-                   "payload" => %{"userId" => uuid, "level" => "user"}
-                 })
-
+      assert {:ok,
+              %{
+                payload: %SetAuth{userId: ^uuid, level: :user}
+              }} =
+               BrothTest.Support.Message.validate(%{
+                 "operator" => "room:set_auth",
+                 "payload" => %{"userId" => uuid, "level" => "user"}
+               })
 
       # short form also allowed
       assert {:ok,

@@ -1,5 +1,7 @@
 defmodule BrothTest.Message.Room.InviteTest do
   use ExUnit.Case, async: true
+  
+  @moduletag :message
 
   alias Broth.Message.Room.Invite
 

@@ -7,11 +7,11 @@ defmodule Broth.Message.Room.Create do
 
   @primary_key {:id, :binary_id, []}
   schema "rooms" do
-    field :creatorId, :binary_id
-    field :name, :string
-    field :description, :string
-    field :isPrivate, :boolean, default: false
-    field :userIdsToInvite, {:array, :binary_id}, virtual: true
+    field(:creatorId, :binary_id)
+    field(:name, :string)
+    field(:description, :string)
+    field(:isPrivate, :boolean, default: false)
+    field(:userIdsToInvite, {:array, :binary_id}, virtual: true)
   end
 
   import Ecto.Changeset
@@ -25,13 +25,13 @@ defmodule Broth.Message.Room.Create do
   end
 
   def changeset(original_message, data) do
-    payload = %__MODULE__{}
-    |> cast(data, [:id, :creatorId, :name, :description, :isPrivate])
-    |> apply_action!(:validate)
+    payload =
+      %__MODULE__{}
+      |> cast(data, [:id, :creatorId, :name, :description, :isPrivate])
+      |> apply_action!(:validate)
 
     original_message
     |> change
     |> put_change(:payload, payload)
   end
-
 end

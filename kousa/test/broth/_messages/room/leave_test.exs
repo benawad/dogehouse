@@ -1,6 +1,8 @@
 defmodule BrothTest.Message.Room.LeaveTest do
   use ExUnit.Case, async: true
 
+  @moduletag :message
+
   alias Broth.Message.Room.Leave
 
   describe "when you send an leave message" do

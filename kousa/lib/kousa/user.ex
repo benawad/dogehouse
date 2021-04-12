@@ -17,8 +17,11 @@ defmodule Kousa.User do
             avatar_url: user.avatarUrl
           }
         )
+
         {:ok, user}
-      error -> error
+
+      error ->
+        error
     end
   end
 

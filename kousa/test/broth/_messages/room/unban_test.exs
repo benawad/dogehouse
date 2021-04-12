@@ -1,5 +1,6 @@
 defmodule BrothTest.Message.Room.UnbanTest do
   use ExUnit.Case, async: true
+  @moduletag :message
 
   alias Broth.Message.Room.Unban
 

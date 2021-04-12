@@ -104,12 +104,17 @@ defmodule Kousa.Room do
   """
   def set_auth(user_id, auth, opts) do
     room_id = Beef.Users.get_current_room_id(user_id)
+
     case auth do
-      _ when is_nil(room_id) -> :noop
+      _ when is_nil(room_id) ->
+        :noop
+
       :owner ->
         set_owner(room_id, user_id, opts[:by])
+
       :mod ->
         set_mod(room_id, user_id, opts[:by])
+
       :user ->
         set_user(room_id, user_id, opts[:by])
     end
@@ -122,6 +127,7 @@ defmodule Kousa.Room do
     with {:creator, _} <- Rooms.get_room_status(setter_id),
          {1, _} <- Rooms.replace_room_owner(setter_id, user_id) do
       internal_set_speaker(setter_id, room_id)
+
       Onion.RoomSession.broadcast_ws(
         room_id,
         %{
@@ -141,6 +147,7 @@ defmodule Kousa.Room do
     case Rooms.get_room_status(setter_id) do
       {:creator, _} ->
         RoomPermissions.set_is_mod(user_id, room_id, true)
+
         Onion.RoomSession.broadcast_ws(
           room_id,
           %{
@@ -148,7 +155,9 @@ defmodule Kousa.Room do
             d: %{roomId: room_id, userId: user_id}
           }
         )
-      _ -> :noop
+
+      _ ->
+        :noop
     end
   end
 
@@ -160,6 +169,7 @@ defmodule Kousa.Room do
     case Rooms.get_room_status(user_id) do
       {:mod, _} ->
         RoomPermissions.set_is_mod(user_id, room_id, true)
+
         Onion.RoomSession.broadcast_ws(
           room_id,
           %{
@@ -167,14 +177,18 @@ defmodule Kousa.Room do
             d: %{roomId: room_id, userId: user_id}
           }
         )
-      _ -> :noop
+
+      _ ->
+        :noop
     end
   end
+
   # only creators can demote mods
   defp set_user(room_id, user_id, setter_id) do
     case Rooms.get_room_status(setter_id) do
       {:creator, _} ->
         RoomPermissions.set_is_mod(user_id, room_id, false)
+
         Onion.RoomSession.broadcast_ws(
           room_id,
           %{
@@ -182,7 +196,9 @@ defmodule Kousa.Room do
             d: %{roomId: room_id, userId: user_id}
           }
         )
-      _ -> :noop
+
+      _ ->
+        :noop
     end
   end
 
@@ -198,10 +214,14 @@ defmodule Kousa.Room do
   """
   def set_role(user_id, role, opts) do
     room_id = Beef.Users.get_current_room_id(user_id)
+
     case role do
-      _ when is_nil(room_id) -> :noop
+      _ when is_nil(room_id) ->
+        :noop
+
       :listener ->
         set_listener(room_id, user_id, opts[:by])
+
       :speaker ->
         set_speaker(room_id, user_id, opts[:by])
     end
@@ -215,14 +235,19 @@ defmodule Kousa.Room do
   defp set_listener(room_id, user_id, user_id) do
     internal_set_listener(user_id, room_id)
   end
+
   defp set_listener(room_id, user_id, setter_id) do
     # TODO: refactor this to be simpler.  The list of
     # creators and mods should be in the preloads of the room.
     case Rooms.get_room_status(setter_id) do
-      {_, nil} -> :noop
+      {_, nil} ->
+        :noop
+
       {auth, _} when auth in [:creator, :mod] ->
         internal_set_listener(user_id, room_id)
-      _ -> :noop
+
+      _ ->
+        :noop
     end
   end
 
@@ -235,12 +260,17 @@ defmodule Kousa.Room do
   ## speaker
 
   defp set_speaker(nil, _, _), do: :noop
+
   defp set_speaker(room_id, user_id, setter_id) do
     case Rooms.get_room_status(setter_id) do
-      {_, nil} -> :noop
+      {_, nil} ->
+        :noop
+
       {:creator, _} ->
         internal_set_speaker(user_id, room_id)
-      {_, _} -> :noop
+
+      {_, _} ->
+        :noop
     end
   end
 
@@ -280,7 +310,9 @@ defmodule Kousa.Room do
               roomId: room.id
             }
           })
-        ok
+
+          ok
+
         error = {:error, _} ->
           error
       end

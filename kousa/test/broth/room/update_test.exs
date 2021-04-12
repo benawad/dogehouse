@@ -28,15 +28,18 @@ defmodule KousaTest.Broth.Room.UpdateTest do
 
       assert Rooms.get_room_by_id(room_id).isPrivate
 
-      ref = WsClient.send_call(
-        t.client_ws,
-        "room:update",
-        %{"room" => %{"newName" => "quux room"}})
+      ref =
+        WsClient.send_call(
+          t.client_ws,
+          "room:update",
+          %{"room" => %{"newName" => "quux room"}}
+        )
 
       WsClient.assert_reply(
         "fetch_done",
         ref,
-        %{"name" => "quux room", "isPrivate" => false})
+        %{"name" => "quux room", "isPrivate" => false}
+      )
 
       # make sure the room is actually private
       assert %{

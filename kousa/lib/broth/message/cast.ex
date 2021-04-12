@@ -21,12 +21,12 @@ defmodule Broth.Message.Cast do
   alias Broth.SocketHandler
   alias Ecto.Changeset
 
-  @callback changeset(Broth.json) :: Ecto.Changeset.t
-  @callback changeset(struct, Broth.json) :: Ecto.Changeset.t
+  @callback changeset(Broth.json()) :: Ecto.Changeset.t()
+  @callback changeset(struct, Broth.json()) :: Ecto.Changeset.t()
 
-  @callback execute(Changeset.t, SocketHandler.state) ::
-    {:noreply, SocketHandler.state} |
-    {:error, map, SocketHandler.state} |
-    {:error, Changeset.t} |
-    {:exit, code :: 1000..9999, reason :: String.t}
+  @callback execute(Changeset.t(), SocketHandler.state()) ::
+              {:noreply, SocketHandler.state()}
+              | {:error, map, SocketHandler.state()}
+              | {:error, Changeset.t()}
+              | {:exit, code :: 1000..9999, reason :: String.t()}
 end

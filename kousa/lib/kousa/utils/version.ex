@@ -6,14 +6,17 @@ defmodule Kousa.Utils.Version do
   def cast(v) when is_binary(v) do
     Version.parse(v)
   end
+
   def cast(v = %Version{}) do
     {:ok, v}
   end
+
   def cast(_), do: :error
 
   def dump(v = %Version{}) do
     {:ok, to_string(v)}
   end
+
   def dump(_), do: :error
 
   def load(v) when is_binary(v) do
@@ -22,8 +25,7 @@ defmodule Kousa.Utils.Version do
 
   defmacro sigil_v({:<<>>, _, [version]}, []) do
     version
-    |> Version.parse!
-    |> Macro.escape
+    |> Version.parse!()
+    |> Macro.escape()
   end
-
 end

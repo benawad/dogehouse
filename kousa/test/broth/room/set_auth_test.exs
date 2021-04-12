@@ -36,7 +36,9 @@ defmodule KousaTest.Broth.Room.SetAuthTest do
       # add the person as a speaker.
       WsClient.send_msg(
         t.client_ws,
-        "add_speaker", %{"userId" => speaker_id})
+        "add_speaker",
+        %{"userId" => speaker_id}
+      )
 
       # both clients get notified
       WsClient.assert_frame(
@@ -56,9 +58,10 @@ defmodule KousaTest.Broth.Room.SetAuthTest do
         t.client_ws,
         "room:set_auth",
         %{
-        "userId" => speaker_id,
-        "level" => "mod"
-      })
+          "userId" => speaker_id,
+          "level" => "mod"
+        }
+      )
 
       # both clients get notified
       WsClient.assert_frame(
@@ -76,5 +79,4 @@ defmodule KousaTest.Broth.Room.SetAuthTest do
       assert Beef.RoomPermissions.get(speaker_id, room_id).isMod
     end
   end
-
 end

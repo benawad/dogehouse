@@ -119,12 +119,12 @@ defmodule Broth.SocketHandler do
          # translation from legacy maps to new maps
          message_map! = Broth.Translator.convert_inbound(message_map!),
          {:ok, message} <- validate(message_map!) do
-
       dispatch(message, state)
     else
       # special cases: mediasoup operations
       _mediasoup_op = %{"op" => "@" <> _} ->
         raise "foo"
+
       # TODO: deprecate
       # special cases: block_user_and_from_room
       %{"op" => "block_user_and_from_room", "d" => payload} ->
@@ -143,7 +143,7 @@ defmodule Broth.SocketHandler do
 
   def validate(message) do
     message
-    |> Broth.Message.changeset
+    |> Broth.Message.changeset()
     |> apply_action(:validate)
   end
 
@@ -153,24 +153,30 @@ defmodule Broth.SocketHandler do
         {:reply, close, state}
 
       {:error, changeset = %Ecto.Changeset{}} ->
-        reply = changeset
-        |> Kousa.Utils.Errors.changeset_errors
-        |> prepare_socket_msg(state)
+        reply =
+          changeset
+          |> Kousa.Utils.Errors.changeset_errors()
+          |> prepare_socket_msg(state)
+
         {:reply, reply, state}
 
       {:error, errors, new_state} ->
-        reply = message
-        |> wrap({:errors, errors})
-        |> prepare_socket_msg(new_state)
+        reply =
+          message
+          |> wrap({:errors, errors})
+          |> prepare_socket_msg(new_state)
+
         {:reply, reply, new_state}
 
       {:noreply, new_state} ->
         {:ok, new_state}
 
       {:reply, payload, new_state} ->
-        reply = message
-        |> wrap(payload)
-        |> prepare_socket_msg(new_state)
+        reply =
+          message
+          |> wrap(payload)
+          |> prepare_socket_msg(new_state)
+
         {:reply, reply, new_state}
     end
   end
@@ -178,13 +184,17 @@ defmodule Broth.SocketHandler do
   def wrap(message, payload = %module{}) do
     %{message | operator: module, payload: payload}
   end
+
   def wrap(message, {:errors, error_map}) do
     %{message | payload: %{}, errors: error_map}
   end
 
   # legacy implementation
   defp block_user_and_from_room(%{"userId" => user_id_to_block}, state) do
-    Logger.error("block_user_and_from_room command is deprecated.  Send two user:block and room:ban operations instead")
+    Logger.error(
+      "block_user_and_from_room command is deprecated.  Send two user:block and room:ban operations instead"
+    )
+
     Kousa.UserBlock.block(state.user_id, user_id_to_block)
     Kousa.Room.block_from_room(state.user_id, user_id_to_block)
     {:ok, state}

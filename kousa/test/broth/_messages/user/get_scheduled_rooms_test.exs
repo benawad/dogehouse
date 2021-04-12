@@ -1,6 +1,8 @@
 defmodule BrothTest.Message.User.GetScheduledRoomsTest do
   use ExUnit.Case, async: true
 
+  @moduletag :message
+
   alias Broth.Message.User.GetScheduledRooms
 
   describe "when you send an get_scheduled_rooms message" do

@@ -1,6 +1,8 @@
 defmodule BrothTest.Message.User.GetRoomsAboutToStartTest do
   use ExUnit.Case, async: true
 
+  @moduletag :message
+
   alias Broth.Message.User.GetRoomsAboutToStart
 
   describe "when you send an get_about_to_start message" do

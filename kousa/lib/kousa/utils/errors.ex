@@ -1,6 +1,5 @@
 defmodule Kousa.Utils.Errors do
-
-  @spec changeset_errors(Ecto.Changeset.t) :: map
+  @spec changeset_errors(Ecto.Changeset.t()) :: map
   def changeset_errors(%{errors: errors}) do
     Map.new(errors, fn {k, {message, _}} -> {k, message} end)
   end

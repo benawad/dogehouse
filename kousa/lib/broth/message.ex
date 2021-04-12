@@ -17,11 +17,11 @@ defmodule Broth.Message do
   end
 
   @type t :: %__MODULE__{
-    operator: module(),
-    payload: map(),
-    reference: Kousa.Utils.UUID.t,
-    original_operator: String.t
-  }
+          operator: module(),
+          payload: map(),
+          reference: Kousa.Utils.UUID.t(),
+          original_operator: String.t()
+        }
 
   def changeset(source \\ %__MODULE__{}, data) do
     source
@@ -114,8 +114,10 @@ defmodule Broth.Message do
   end
 
   defp cast_payload(changeset = %{valid?: false}), do: changeset
+
   defp cast_payload(changeset) do
     operator = get_field(changeset, :operator)
+
     changeset.params["payload"]
     |> operator.changeset()
     |> case do
@@ -127,7 +129,7 @@ defmodule Broth.Message do
     end
   end
 
-  defp internal_cast(changeset, fields),  do: cast(changeset, changeset.params, fields)
+  defp internal_cast(changeset, fields), do: cast(changeset, changeset.params, fields)
 
   defp validate_calls_have_references(changeset = %{valid?: false}), do: changeset
 
@@ -148,7 +150,7 @@ defmodule Broth.Message do
     def encode(value, opts) do
       %{
         op: value.operator.operation(),
-        p: value.payload,
+        p: value.payload
       }
       |> add_reference(value)
       |> add_errors(value)
@@ -162,5 +164,4 @@ defmodule Broth.Message do
     defp add_errors(map, %{errors: nil}), do: map
     defp add_errors(map, %{errors: e}), do: Map.put(map, :e, e)
   end
-
 end

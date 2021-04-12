@@ -1,6 +1,8 @@
 defmodule BrothTest.Message.User.GetRelationshipTest do
   use ExUnit.Case, async: true
 
+  @moduletag :message
+
   alias Broth.Message.User.GetRelationship
 
   setup do

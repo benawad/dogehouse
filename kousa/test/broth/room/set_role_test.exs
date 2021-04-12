@@ -36,11 +36,10 @@ defmodule KousaTest.Broth.Room.SetRoleTest do
 
       assert Beef.RoomPermissions.speaker?(t.user.id, room_id)
 
-      WsClient.send_msg(t.client_ws, "room:set_role",
-        %{
-          "userId" => speaker_id,
-          "role" => "listener"
-        })
+      WsClient.send_msg(t.client_ws, "room:set_role", %{
+        "userId" => speaker_id,
+        "role" => "listener"
+      })
 
       WsClient.assert_frame(
         "speaker_removed",
@@ -84,7 +83,8 @@ defmodule KousaTest.Broth.Room.SetRoleTest do
       WsClient.send_msg(
         t.client_ws,
         "room:set_role",
-        %{"userId" => speaker_id, "role" => "speaker"})
+        %{"userId" => speaker_id, "role" => "speaker"}
+      )
 
       # both clients get notified
       WsClient.assert_frame(

@@ -1,5 +1,4 @@
 defmodule BrothTest.Support.Message do
-
   import Ecto.Changeset
   alias Kousa.Utils.Errors
 
@@ -12,10 +11,13 @@ defmodule BrothTest.Support.Message do
         case apply_action(msg.payload, :validate) do
           {:ok, payload} ->
             {:ok, %{msg | payload: payload}}
+
           {:error, changeset} ->
             {:error, %{msg | payload: %{}, errors: Errors.changeset_errors(changeset)}}
         end
-      error -> error
+
+      error ->
+        error
     end
   end
 end

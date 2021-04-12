@@ -1,5 +1,6 @@
 defmodule BrothTest.Message.Room.UpdateScheduledTest do
   use ExUnit.Case, async: true
+  @moduletag :message
 
   alias Beef.Schemas.ScheduledRoom
   alias Broth.Message.Room.UpdateScheduled

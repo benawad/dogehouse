@@ -17,16 +17,19 @@ defmodule Broth.Message.Call do
 
   defmacro __using__(opts) do
     default_reply_module = Module.concat(__CALLER__.module, Reply)
-    reply_module = opts
-    |> Keyword.get(:reply, default_reply_module)
-    |> Macro.expand(__CALLER__)
 
-    operation = if op = Keyword.get(opts, :operation) do
-      quote do
-        @impl true
-        def operation, do: unquote(op)
+    reply_module =
+      opts
+      |> Keyword.get(:reply, default_reply_module)
+      |> Macro.expand(__CALLER__)
+
+    operation =
+      if op = Keyword.get(opts, :operation) do
+        quote do
+          @impl true
+          def operation, do: unquote(op)
+        end
       end
-    end
 
     quote do
       use Ecto.Schema
@@ -52,26 +55,28 @@ defmodule Broth.Message.Call do
   alias Broth.SocketHandler
 
   @callback reply_module() :: module
-  @callback operation() :: String.t
-  @callback execute(Changeset.t, SocketHandler.state) ::
-    {:reply, map, SocketHandler.state} |
-    {:noreply, SocketHandler.state} |
-    {:error, map, SocketHandler.state} |
-    {:error, Changeset.t} |
-    {:close, code :: 1000..9999, reason :: String.t}
+  @callback operation() :: String.t()
+  @callback execute(Changeset.t(), SocketHandler.state()) ::
+              {:reply, map, SocketHandler.state()}
+              | {:noreply, SocketHandler.state()}
+              | {:error, map, SocketHandler.state()}
+              | {:error, Changeset.t()}
+              | {:close, code :: 1000..9999, reason :: String.t()}
 
-  @callback initializer(SocketHandler.state) :: struct
+  @callback initializer(SocketHandler.state()) :: struct
 
-  @callback changeset(struct, Broth.json) :: Ecto.Changeset.t
-  @callback changeset(Broth.json) :: Ecto.Changeset.t
+  @callback changeset(struct, Broth.json()) :: Ecto.Changeset.t()
+  @callback changeset(Broth.json()) :: Ecto.Changeset.t()
 
   @optional_callbacks [operation: 0]
 
   def __after_compile__(%{module: module}, _bin) do
     reply_module = module.reply_module()
     Code.ensure_loaded?(reply_module)
+
     unless function_exported?(reply_module, :operation, 0) do
-      raise CompileError, description: "#{inspect reply_module} does not seem to be a Broth.Message.Push module"
+      raise CompileError,
+        description: "#{inspect(reply_module)} does not seem to be a Broth.Message.Push module"
     end
   end
 end

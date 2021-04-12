@@ -1,6 +1,8 @@
 defmodule BrothTest.Message.User.BanTest do
   use ExUnit.Case, async: true
 
+  @moduletag :message
+
   alias Broth.Message.User.Ban
 
   setup do
@@ -53,7 +55,7 @@ defmodule BrothTest.Message.User.BanTest do
       assert {:error, %{errors: [reference: {"is required for Broth.Message.User.Ban", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:ban",
-                 "payload" => %{"userId" => uuid, "reason" => "foobar"},
+                 "payload" => %{"userId" => uuid, "reason" => "foobar"}
                })
     end
   end

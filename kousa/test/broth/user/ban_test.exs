@@ -22,10 +22,11 @@ defmodule KousaTest.Broth.User.BanTest do
       banned = Factory.create(User)
       WsClientFactory.create_client_for(banned)
 
-      ref = WsClient.send_call(t.client_ws, "user:ban", %{
-        "userId" => banned.id,
-        "reason" => "you're a douche"
-      })
+      ref =
+        WsClient.send_call(t.client_ws, "user:ban", %{
+          "userId" => banned.id,
+          "reason" => "you're a douche"
+        })
 
       WsClient.assert_reply("user:ban:reply", ref, %{"error" => error})
       refute is_nil(error)
@@ -41,10 +42,11 @@ defmodule KousaTest.Broth.User.BanTest do
       banned = Factory.create(User)
       banned_ws = WsClientFactory.create_client_for(banned)
 
-      ref = WsClient.send_call(t.client_ws, "user:ban", %{
-        "userId" => banned.id,
-        "reason" => "you're a douche"
-      })
+      ref =
+        WsClient.send_call(t.client_ws, "user:ban", %{
+          "userId" => banned.id,
+          "reason" => "you're a douche"
+        })
 
       WsClient.assert_reply("user:ban:reply", ref, %{"error" => nil})
 

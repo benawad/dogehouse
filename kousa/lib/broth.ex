@@ -1,7 +1,7 @@
 defmodule Broth do
   import Plug.Conn
 
-  @type json :: String.t | number | boolean | nil | [json] | %{String.t => json}
+  @type json :: String.t() | number | boolean | nil | [json] | %{String.t() => json}
 
   alias Broth.Routes.GitHubAuth
   alias Broth.Routes.TwitterAuth

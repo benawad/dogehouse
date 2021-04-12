@@ -1,5 +1,7 @@
 defmodule BrothTest.Message.Room.DeleteScheduledTest do
   use ExUnit.Case, async: true
+  
+  @moduletag :message
 
   alias Broth.Message.Room.DeleteScheduled
 

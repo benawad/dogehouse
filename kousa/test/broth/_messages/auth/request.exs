@@ -1,5 +1,7 @@
 defmodule BrothTest.Message.Auth.RequestTest do
   use ExUnit.Case, async: true
+  
+  @moduletag :message
 
   alias Broth.Message.Auth.Request
 
