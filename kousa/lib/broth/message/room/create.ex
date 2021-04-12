@@ -1,48 +1,36 @@
 defmodule Broth.Message.Room.Create do
   use Broth.Message, call: __MODULE__
 
+  @derive {Jason.Encoder, only: [:id, :creatorId, :name, :description, :isPrivate]}
+
+  @primary_key {:id, :binary_id, []}
   schema "rooms" do
+    field :creatorId, :binary_id
+    field :name, :string
+    field :description, :string
+    field :isPrivate, :boolean, default: false
+    field :userIdsToInvite, {:array, :binary_id}, virtual: true
     embed_error()
   end
 
   import Ecto.Changeset
 
-  def changeset(changeset, data) do
-    changeset
+  def tag, do: "room:create:reply"
+
+  # inbound data.
+  def changeset(data, _state) when not is_struct(data) do
+    %__MODULE__{}
+    |> cast(data, [:name, :description, :isPrivate, :userIdsToInvite])
+  end
+
+  def changeset(original_message, data) do
+    payload = %__MODULE__{}
+    |> cast(data, [:id, :creatorId, :name, :description, :isPrivate])
+    |> apply_action!(:validate)
+
+    original_message
     |> change
-    |> Map.put(:params, %{"room" => data})
-    |> cast_embed(
-      :room,
-      required: true,
-      # restrict modifications.
-      with: {__MODULE__, :room_changeset, []}
-    )
-    |> assimilate_embed_errors
+    |> put_change(:payload, payload)
   end
 
-  defp assimilate_embed_errors(changeset = %{valid?: true}), do: changeset
-
-  defp assimilate_embed_errors(changeset = %{changes: %{room: inner_changeset}}) do
-    %{changeset | errors: changeset.errors ++ inner_changeset.errors}
-  end
-
-  # TODO: unify this with the schema in Beef module.
-
-  def room_changeset(changeset, data) do
-    changeset
-    |> cast(data, ~w(description isPrivate name autoSpeaker)a)
-    |> set_default_privacy
-    |> validate_required(~w(description name)a)
-  end
-
-  defp set_default_privacy(changeset) do
-    changeset
-    |> get_field(:isPrivate)
-    |> is_nil
-    |> if do
-      put_change(changeset, :isPrivate, false)
-    else
-      changeset
-    end
-  end
 end

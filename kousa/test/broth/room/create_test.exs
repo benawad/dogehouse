@@ -32,16 +32,15 @@ defmodule KousaTest.Broth.Room.CreateTest do
           }
         )
 
-      WsClient.assert_reply_legacy(
+      WsClient.assert_reply(
+        "room:create:reply",
         ref,
         %{
-          "room" => %{
-            "creatorId" => ^user_id,
-            "description" => "baz quux",
-            "id" => room_id,
-            "name" => "foo room",
-            "isPrivate" => true
-          }
+          "creatorId" => ^user_id,
+          "description" => "baz quux",
+          "id" => room_id,
+          "name" => "foo room",
+          "isPrivate" => true
         }
       )
 

@@ -90,16 +90,20 @@ defmodule Broth.Translator do
   ## OUTBOUND CONVERSION
 
   def convert_outbound(map, original = %{version: ~v(0.1.0)}) do
-    convert_0_1_0(%{op: map.op, d: map.p, fetchId: map.ref}, original)
+    convert_0_1_0(%{op: "fetch_done", d: map.p, fetchId: map.ref}, map.op, original)
   end
   def convert_outbound(map, _), do: map
 
-  def convert_0_1_0(map = %{op: "auth:request:reply"}, _) do
+  def convert_0_1_0(map, "auth:request:reply", _) do
     %{map | op: "auth-good", d: %{user: %{id: map.d.id}}}
   end
 
-  def convert_0_1_0(map = %{op: "user:ban:reply"}, _) do
+  def convert_0_1_0(map, "user:ban:reply", _) do
     %{map | op: "ban_done", d: %{worked: ! map[:error]}}
+  end
+
+  def convert_0_1_0(map, "room:create:reply", _) do
+    %{map | d: %{room: map.d}}
   end
 
   def convert_0_1_0(map, _), do: map
