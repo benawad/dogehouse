@@ -16,7 +16,7 @@ interface ChatListProps {
 
 export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
   const { setData } = useContext(UserPreviewModalContext);
-  const messages = useRoomChatStore((s) => s.messages);
+  const { messages, toggleFrozen } = useRoomChatStore();
   const me = useConn().user;
   const { isMod: iAmMod, isCreator: iAmCreator } = useCurrentRoomInfo();
   const bottomRef = useRef<null | HTMLDivElement>(null);
@@ -56,6 +56,8 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
           useRoomChatMentionStore.getState().resetIAmMentioned();
         }
       }}
+      onMouseEnter={toggleFrozen}
+      onMouseLeave={toggleFrozen}
     >
       <div
         className="w-full h-full mt-auto"
