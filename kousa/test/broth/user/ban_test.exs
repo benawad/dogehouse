@@ -27,7 +27,7 @@ defmodule KousaTest.Broth.User.BanTest do
         "reason" => "you're a douche"
       })
 
-      WsClient.assert_reply("ban_done", ref, %{"error" => error})
+      WsClient.assert_reply("user:ban:reply", ref, %{"error" => error})
       refute is_nil(error)
     end
 
@@ -46,7 +46,7 @@ defmodule KousaTest.Broth.User.BanTest do
         "reason" => "you're a douche"
       })
 
-      WsClient.assert_reply("ban_done", ref, %{"error" => nil})
+      WsClient.assert_reply("user:ban:reply", ref, %{"error" => nil})
 
       # this frame is targetted to the banned user
       WsClient.assert_frame("banned", _, banned_ws)
@@ -73,11 +73,12 @@ defmodule KousaTest.Broth.User.BanTest do
 
       assert %{peoplePreviewList: [%{id: ^banned_id}]} = room
 
-      ref = WsClient.send_call(t.client_ws, "user:ban", %{
+      WsClient.send_call(t.client_ws, "user:ban", %{
         "userId" => banned.id,
         "reason" => "you're a douche"
       })
 
+      # note: targeted to banned_ws
       WsClient.assert_frame("banned", _, banned_ws)
 
       # check that the room is gone.
@@ -108,7 +109,7 @@ defmodule KousaTest.Broth.User.BanTest do
 
       assert %{peoplePreviewList: [_, _]} = Beef.Rooms.get_room_by_id(room.id)
 
-      ref = WsClient.send_call(t.client_ws, "user:ban", %{
+      WsClient.send_call(t.client_ws, "user:ban", %{
         "userId" => banned.id,
         "reason" => "you're a douche"
       })

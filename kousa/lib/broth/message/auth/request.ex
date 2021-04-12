@@ -45,7 +45,7 @@ defmodule Broth.Message.Auth.Request do
       embed_error()
     end
 
-    def tag, do: "auth:request_reply"
+    def tag, do: "auth:request:reply"
 
     @impl true
     def changeset(original_message, %{id: id}) do

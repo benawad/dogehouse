@@ -9,8 +9,8 @@ defmodule Broth.Message.User.Ban do
 
   import Ecto.Changeset
 
-  def changeset(changeset, data) do
-    changeset
+  def changeset(data, _state) do
+    %__MODULE__{}
     |> cast(data, [:userId, :reason])
     |> validate_required([:userId, :reason])
   end
@@ -18,17 +18,24 @@ defmodule Broth.Message.User.Ban do
   defmodule Reply do
     use Broth.Message
 
-    @derive {Jason.Encoder, only: [:error, :worked]}
-
-    Module.register_attribute(__MODULE__, :reply_operation, persist: true)
-    @reply_operation "ban_done"
+    @derive {Jason.Encoder, only: [:error]}
 
     @primary_key false
     embedded_schema do
       # field is nil when there is no error.
       field :error, :string
-      # to be deprecated
-      field :worked, :boolean
+    end
+
+    def tag, do: "user:ban:reply"
+
+    def changeset(original_message, data) do
+      payload = %__MODULE__{}
+      |> cast(data, [:error])
+      |> apply_action!(:validate)
+
+      original_message
+      |> change
+      |> put_change(:payload, payload)
     end
   end
 end

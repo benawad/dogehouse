@@ -29,7 +29,7 @@ defmodule KousaTest.Broth.User.BlockTest do
       # assert that you get a response that is yourself with an updated
       # block list.
       WsClient.assert_reply(
-        "user:block_reply",
+        "user:block:reply",
         ref,
         %{"blocked" => [^blocked_id]},
         t.client_ws
