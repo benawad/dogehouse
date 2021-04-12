@@ -71,7 +71,7 @@
     "notFound": {
       "whoopsError": "Oeps! Deze pagina is verloren gegaan tijdens het gesprek.",
       "goHomeMessage": "Maak je geen zorgen. Je kan",
-      "goHomeLinkText": "terug naar de homepagina"
+      "goHomeLinkText": "Terug naar de homepagina"
     },
     "room": {
       "speakers": "Sprekers",
