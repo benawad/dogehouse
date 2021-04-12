@@ -11,8 +11,6 @@ defmodule Broth.Message.Auth.Request do
     field(:muted, :boolean)
   end
 
-  import Ecto.Changeset
-
   alias Kousa.Utils.UUID
 
   @impl true
@@ -44,17 +42,19 @@ defmodule Broth.Message.Auth.Request do
     end
 
     def tag, do: "auth:request:reply"
+  end
 
-    @impl true
-    def changeset(original_message, %{id: id}) do
-      original_message
-      |> change
-      |> put_change(:payload, Repo.get(__MODULE__, id) )
+  @impl true
+  def execute(changeset, state) do
+    case apply_action(changeset, :validate)  do
+      {:ok, request} -> convert_tokens(request, state)
+      error -> error
     end
   end
 
-  def execute(request = %{accessToken: accessToken, refreshToken: refreshToken}, state) do
-    case Kousa.Utils.TokenUtils.tokens_to_user_id(accessToken, refreshToken) do
+  defp convert_tokens(request, state) do
+    alias Kousa.Utils.TokenUtils
+    case TokenUtils.tokens_to_user_id(request.accessToken, request.refreshToken) do
       nil ->
         {:close, 4001, "invalid_authentication"}
 
@@ -67,6 +67,11 @@ defmodule Broth.Message.Auth.Request do
   end
 
   defp do_auth(user_id, tokens, user, request, state) do
+    alias Onion.UserSession
+    alias Onion.RoomSession
+    alias Beef.Rooms
+    alias Beef.Repo
+
     if user do
       # note that this will start the session and will be ignored if the
       # session is already running.
@@ -92,12 +97,12 @@ defmodule Broth.Message.Auth.Request do
           # TODO: move toroom business logic
           room = Rooms.get_room_by_id(user.currentRoomId)
 
-          Onion.RoomSession.start_supervised(
+          RoomSession.start_supervised(
             room_id: user.currentRoomId,
             voice_server_id: room.voiceServerId
           )
 
-          Onion.RoomSession.join_room(room.id, user, request.muted)
+          RoomSession.join_room(room.id, user, request.muted)
 
           if request.reconnectToVoice == true do
             Kousa.Room.join_vc_room(user.id, room)
@@ -109,9 +114,7 @@ defmodule Broth.Message.Auth.Request do
         true -> :ok
       end
 
-      {:reply,
-        %{id: user_id},
-        %{state | user_id: user_id, awaiting_init: false}}
+      {:reply, Repo.get(Reply, user_id), %{state | user_id: user_id, awaiting_init: false}}
     else
       {:close, 4001, "invalid authentication"}
     end

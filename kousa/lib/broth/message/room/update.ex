@@ -13,7 +13,7 @@ defmodule Broth.Message.Room.Update do
   end
 
   def execute(%{room: room}, state) do
-    update = room |> IO.inspect(label: "6")
+    update = room
     |> Map.take([:name, :isPrivate, :description])
     |> Enum.filter(&valid?/1) # must not have nil values
     |> Map.new()

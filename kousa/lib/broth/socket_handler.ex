@@ -111,17 +111,16 @@ defmodule Broth.SocketHandler do
   @special_cases ["block_user_and_from_room"]
 
   def websocket_handle({:text, command_json}, state) do
-    with {:ok, command_map!} <- Jason.decode(command_json),
+    with {:ok, message_map!} <- Jason.decode(command_json),
          # temporary trap mediasoup direct commands
-         %{"op" => <<not_at>> <> _} when not_at != ?@ <- command_map!,
+         %{"op" => <<not_at>> <> _} when not_at != ?@ <- message_map!,
          # temporarily trap special cased commands
-         %{"op" => not_special_case} when not_special_case not in @special_cases <- command_map!,
+         %{"op" => not_special_case} when not_special_case not in @special_cases <- message_map!,
          # translation from legacy maps to new maps
-         command_map! = Broth.Translator.convert_inbound(command_map!) |> IO.inspect(label: "120") do
+         message_map! = Broth.Translator.convert_inbound(message_map!),
+         {:ok, message} <- validate(message_map!) do
 
-      command_map! |> IO.inspect(label: "122")
-      |> Broth.Message.changeset |> IO.inspect(label: "123")
-      |> dispatch(state) |> IO.inspect(label: "124")
+      dispatch(message, state)
     else
       # special cases: mediasoup operations
       _mediasoup_op = %{"op" => "@" <> _} ->
@@ -133,48 +132,48 @@ defmodule Broth.SocketHandler do
 
       {:error, %Jason.DecodeError{}} ->
         {:reply, {:close, 4001, "invalid input"}, state}
+
+      {:error, changeset = %Ecto.Changeset{}} ->
+        reply = %{errors: Kousa.Utils.Errors.changeset_errors(changeset)}
+        {:reply, prepare_socket_msg(reply, state), state}
     end
   end
 
   import Ecto.Changeset
 
-  def dispatch(changeset = %{valid?: false}, state) do
-    errors = Kousa.Utils.Errors.changeset_errors(changeset)
-
-    msg = if get_field(changeset, :reference) do
-      changeset
-      |> put_change(:payload, %{})
-      |> put_change(:error, errors)
-      |> apply_action!(:validate)
-    else
-      %{errors: errors}
-    end
-
-    {:reply, prepare_socket_msg(msg, state), state}
+  defp validate(message) do
+    message
+    |> Broth.Message.changeset
+    |> apply_action(:validate)
   end
 
-  def dispatch(changeset, state) do
-    message_module = Ecto.Changeset.get_field(changeset, :operator)
-    case message_module.execute(changeset, state) do
-      {:reply, payload, new_state} ->
-        {:reply, prepare_socket_msg(payload, new_state), new_state}
+  def dispatch(message, state) do
+    case message.operator.execute(message.payload, state) do
+      close = {:close, _, _} ->
+        {:reply, close, state}
+
       {:noreply, new_state} ->
         {:ok, new_state}
-      {:close, code, reason} ->
-        {:reply, {:close, code, reason}, state}
+
+      {:error, errors, new_state} ->
+        reply = message
+        |> wrap({:errors, errors})
+        |> prepare_socket_msg(new_state)
+        {:reply, reply, new_state}
+
+      {:reply, payload, new_state} ->
+        reply = message
+        |> wrap(payload)
+        |> prepare_socket_msg(new_state)
+        {:reply, reply, new_state}
     end
   end
 
-  @spec prepare_reply(Broth.Message.t, map) :: Ecto.Changeset.t
-  def prepare_reply(message, reply) do
-    import Ecto.Changeset
-
-    reply_module = message.operator.reply_module()
-
-    message
-    |> reply_module.changeset(reply)
-    |> put_change(:operator, reply_module)
-    |> apply_action!(:validate)
+  defp wrap(message, payload = %module{}) do
+    %{message | operator: module, payload: payload}
+  end
+  defp wrap(message, {:errors, error_map}) do
+    %{message | payload: %{}, errors: error_map}
   end
 
   # legacy implementation

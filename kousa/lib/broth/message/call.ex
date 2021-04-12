@@ -53,9 +53,9 @@ defmodule Broth.Message.Call do
     {:noreply, SocketHandler.state} |
     {:error, map, SocketHandler.state} |
     {:error, Changeset.t} |
-    {:exit, code :: 1000..9999, reason :: String.t}
+    {:close, code :: 1000..9999, reason :: String.t}
 
-  @callback change_input(Broth.json) :: Ecto.Changeset.t
+  @callback changeset(Broth.json) :: Ecto.Changeset.t
 
   @optional_callbacks [operation: 0]
 
@@ -63,7 +63,7 @@ defmodule Broth.Message.Call do
     reply_module = module.reply_module()
     Code.ensure_loaded?(reply_module)
     unless function_exported?(reply_module, :operation, 0) do
-      raise CompileError, description: "#{module.reply_module} does not seem to be a Broth.Message.Push module"
+      raise CompileError, description: "#{inspect reply_module} does not seem to be a Broth.Message.Push module"
     end
   end
 end

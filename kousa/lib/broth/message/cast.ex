@@ -15,8 +15,8 @@ defmodule Broth.Message.Cast do
   alias Broth.SocketHandler
   alias Ecto.Changeset
 
-  @callback change_input(Broth.json) :: Ecto.Changeset.t
-  
+  @callback changeset(Broth.json) :: Ecto.Changeset.t
+
   @callback execute(Changeset.t, SocketHandler.state) ::
     {:noreply, SocketHandler.state} |
     {:error, map, SocketHandler.state} |

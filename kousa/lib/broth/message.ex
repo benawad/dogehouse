@@ -113,7 +113,7 @@ defmodule Broth.Message do
     |> put_change(:original_operator, op)
   end
 
-  defp cast_payload(changeset = %{valid?: false}, _state), do: changeset
+  defp cast_payload(changeset = %{valid?: false}), do: changeset
   defp cast_payload(changeset) do
     operator = get_field(changeset, :operator)
     changeset.params["payload"]
@@ -147,7 +147,7 @@ defmodule Broth.Message do
   defimpl Jason.Encoder do
     def encode(value, opts) do
       %{
-        op: value.operator.tag(),
+        op: value.operator.operation(),
         p: value.payload,
       }
       |> add_reference(value)
@@ -162,5 +162,5 @@ defmodule Broth.Message do
     defp add_errors(map, %{errors: nil}), do: map
     defp add_errors(map, %{errors: e}), do: Map.put(map, :e, e)
   end
-  
+
 end
