@@ -23,4 +23,6 @@ defmodule Broth.Message.Push do
   @callback operation :: String.t
   @callback change_output(map) :: Ecto.Changeset.t
 
+  @optional_callbacks [changeset: 1]
+
 end

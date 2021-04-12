@@ -12,7 +12,7 @@ defmodule BrothTest.Message.User.UpdateTest do
     test "it populates update fields", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %Update{user: %User{muted: true}}
+                payload: %Update{muted: true}
               }} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:update",
@@ -23,7 +23,7 @@ defmodule BrothTest.Message.User.UpdateTest do
       # short form also allowed
       assert {:ok,
               %{
-                payload: %Update{user: %User{muted: false}}
+                payload: %Update{muted: false}
               }} =
                BrothTest.Support.Message.validate(%{
                  "op" => "user:update",

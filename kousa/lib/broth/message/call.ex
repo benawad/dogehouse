@@ -40,6 +40,11 @@ defmodule Broth.Message.Call do
 
       @impl true
       def reply_module, do: unquote(reply_module)
+
+      @impl true
+      def initializer(_state), do: struct(__MODULE__)
+
+      defoverridable initializer: 1
     end
   end
 
@@ -55,6 +60,9 @@ defmodule Broth.Message.Call do
     {:error, Changeset.t} |
     {:close, code :: 1000..9999, reason :: String.t}
 
+  @callback initializer(SocketHandler.state) :: struct
+
+  @callback changeset(struct, Broth.json) :: Ecto.Changeset.t
   @callback changeset(Broth.json) :: Ecto.Changeset.t
 
   @optional_callbacks [operation: 0]

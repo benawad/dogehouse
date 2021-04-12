@@ -6,6 +6,9 @@ defmodule Broth.Message.Room.Update do
   @primary_key false
   schema "rooms" do
     field :name, :string
+    field :description, :string
+    field :isPrivate, :boolean
+    field :autoSpeaker, :string
   end
 
   def room_changeset(changeset, data) do
