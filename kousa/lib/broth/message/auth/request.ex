@@ -15,31 +15,43 @@ defmodule Broth.Message.Auth.Request do
 
   alias Kousa.Utils.UUID
 
-  def changeset(changeset, data) do
-    changeset
+  @impl true
+  def changeset(data, _state) do
+    %__MODULE__{}
     |> cast(data, [:accessToken, :refreshToken, :platform, :reconnectToVoice, :muted])
     |> validate_required([:accessToken])
     |> UUID.normalize(:currentRoomId)
   end
 
   defmodule Reply do
+    alias Beef.Repo
     use Broth.Message
 
-    @derive {Jason.Encoder, only: [:id]}
+    @derive {Jason.Encoder, only: ~w(
+      id
+      username
+      displayName
+      avatarUrl
+      bio
+    )a}
 
-    Module.register_attribute(__MODULE__, :reply_operation, persist: true)
-    @reply_operation "auth-good"
-
+    @primary_key {:id, :binary_id, []}
     schema "users" do
+      field(:username, :string)
+      field(:displayName, :string)
+      field(:avatarUrl, :string)
+      field(:bio, :string, default: "")
 
       embed_error()
     end
 
-    def validate(changeset) do
-      changeset
-      |> validate_required([:user])
-      |> Broth.Utils.validate_type_of(:user)
-      |> Broth.Utils.validate_type_of(:currentRoom)
+    def tag, do: "auth:request_reply"
+
+    @impl true
+    def changeset(original_message, %{id: id}) do
+      original_message
+      |> change
+      |> put_change(:payload, Repo.get(__MODULE__, id) )
     end
   end
 end

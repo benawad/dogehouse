@@ -5,7 +5,7 @@ defmodule Broth.Translator do
   }
   @translation_keys Map.keys(@translations)
 
-  def convert_legacy(command = %{"op" => operation}) when operation in @translation_keys do
+  def convert_inbound(command = %{"op" => operation}) when operation in @translation_keys do
     %{command | "op" => @translations[operation]}
   end
 
@@ -16,17 +16,17 @@ defmodule Broth.Translator do
   @call_keys Map.keys(@calls)
 
   # these forms are converted from casts to .
-  def convert_legacy(command = %{"op" => operation}) when operation in @call_keys do
+  def convert_inbound(command = %{"op" => operation}) when operation in @call_keys do
     Map.merge(command, %{"op" => @calls[operation], "ref" => UUID.uuid4()})
   end
 
-  def convert_legacy(command = %{"op" => "create_room", "d" => d}) do
+  def convert_inbound(command = %{"op" => "create_room", "d" => d}) do
     command
     |> Map.put("op", "room:create")
     |> put_in(["d", "isPrivate"], d["privacy"] == "private")
   end
 
-  def convert_legacy(command = %{"op" => "edit_profile", "d" => %{"data" => data}}) do
+  def convert_inbound(command = %{"op" => "edit_profile", "d" => %{"data" => data}}) do
     %{
       "op" => "user:update",
       "p" => data,
@@ -34,7 +34,7 @@ defmodule Broth.Translator do
     }
   end
 
-  def convert_legacy(%{"op" => "ban", "d" => d = %{"username" => _}}) do
+  def convert_inbound(%{"op" => "ban", "d" => d = %{"username" => _}}) do
     userId = Beef.Users.get_by_username(d["username"]).id
     %{
       "op" => "user:ban",
@@ -43,21 +43,21 @@ defmodule Broth.Translator do
     }
   end
 
-  def convert_legacy(%{"op" => "set_listener", "d" => d}) do
+  def convert_inbound(%{"op" => "set_listener", "d" => d}) do
     %{
       "op" => "room:set_role",
       "p" => Map.put(d, "role", "listener")
     }
   end
 
-  def convert_legacy(%{"op" => "add_speaker", "d" => d}) do
+  def convert_inbound(%{"op" => "add_speaker", "d" => d}) do
     %{
       "op" => "room:set_role",
       "p" => Map.put(d, "role", "speaker")
     }
   end
 
-  def convert_legacy(%{"op" => "change_mod_status", "d" => d}) do
+  def convert_inbound(%{"op" => "change_mod_status", "d" => d}) do
     role = if d["value"], do: "mod", else: "user"
     %{
       "op" => "room:set_auth",
@@ -65,14 +65,14 @@ defmodule Broth.Translator do
     }
   end
 
-  def convert_legacy(%{"op" => "change_room_creator", "d" => d}) do
+  def convert_inbound(%{"op" => "change_room_creator", "d" => d}) do
     %{
       "op" => "room:set_auth",
       "p" => Map.put(d, "level", "owner")
     }
   end
 
-  def convert_legacy(%{"op" => "make_room_public", "d" => d}) do
+  def convert_inbound(%{"op" => "make_room_public", "d" => d}) do
     %{
       "op" => "room:update",
       "p" => %{"room" => d},
@@ -80,7 +80,22 @@ defmodule Broth.Translator do
     }
   end
 
-  def convert_legacy(command) do
-    command
+  import Kousa.Utils.Version
+
+  def convert_inbound(command) do
+    Map.put(command, "version", ~v(0.2.0))
   end
+
+  #############################################################################
+  ## OUTBOUND CONVERSION
+
+  def convert_outbound(map, %{version: ~v(0.1.0)}) do
+    convert_0_1_0(%{op: map.op, d: map.p, fetchId: map.ref})
+  end
+
+  def convert_0_1_0(map = %{op: "auth:request_reply"}) do
+    %{map | op: "auth-good", d: %{user: %{id: map.d.id}}}
+  end
+  def convert_0_1_0(map), do: map
+
 end

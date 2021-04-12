@@ -3,15 +3,25 @@ defmodule Broth.Message do
 
   alias Ecto.Changeset
   import Changeset
+  import Kousa.Utils.Version, only: [sigil_v: 2]
 
   @primary_key false
   embedded_schema do
     field(:operator, Broth.Message.Types.Operator, null: false)
     field(:payload, :map)
     field(:reference, :binary_id)
+    field(:original_operator, :string)
+    field(:version, Kousa.Utils.Version, default: ~v(0.1.0))
   end
 
-  def changeset(source, data) do
+  @type t :: %__MODULE__{
+    operator: module(),
+    payload: map(),
+    reference: Kousa.Utils.UUID.t,
+    original_operator: String.t
+  }
+
+  def changeset(source, data, state) do
     source
     |> change()
     |> Map.put(:params, data)
@@ -21,7 +31,7 @@ defmodule Broth.Message do
     |> cast_operator
     |> internal_cast([:operator, :reference])
     |> validate_required([:operator])
-    |> cast_payload
+    |> cast_payload(state)
     |> validate_calls_have_references
   end
 
@@ -98,16 +108,14 @@ defmodule Broth.Message do
     else
       changeset
     end
+    |> put_change(:original_operator, op)
   end
 
-  defp cast_payload(changeset = %{valid?: false}), do: changeset
-
-  defp cast_payload(changeset) do
+  defp cast_payload(changeset = %{valid?: false}, _state), do: changeset
+  defp cast_payload(changeset, state) do
     operator = get_field(changeset, :operator)
-
-    operator
-    |> struct
-    |> operator.changeset(changeset.params["payload"])
+    changeset.params["payload"]
+    |> operator.changeset(state)
     |> apply_action(:validate)
     |> case do
       {:ok, contract} ->
@@ -118,11 +126,11 @@ defmodule Broth.Message do
     end
   end
 
-  defp internal_cast(changeset, fields), do: cast(changeset, changeset.params, fields)
+  defp internal_cast(changeset, fields),  do: cast(changeset, changeset.params, fields)
 
-  def validate(data) do
+  def validate(data, state) do
     %__MODULE__{}
-    |> changeset(data)
+    |> changeset(data, state)
     |> apply_action(:validate)
   end
 
@@ -141,7 +149,30 @@ defmodule Broth.Message do
   end
 
   #########################################################################
+  # JSON Encoding
+
+  # encoding will only happen on egress out to the websocket.
+  defimpl Jason.Encoder do
+    def encode(value, opts) do
+      %{
+        op: value.operator.tag(),
+        p: value.payload,
+      }
+      |> add_reference(value)
+      |> Broth.Translator.convert_outbound(value)
+      |> Jason.Encode.map(opts)
+    end
+
+    defp add_reference(map, %{reference: nil}), do: map
+    defp add_reference(map, %{reference: ref}), do: Map.put(map, :ref, ref)
+  end
+
+  #########################################################################
   # TOOLSET
+
+  # TODO: make the struct definition more restrictive.
+  @callback changeset(map, Broth.SocketHandler.state) :: Ecto.Changeset.t
+  @callback changeset(t, map) :: Ecto.Changeset.t
 
   defmacro __using__(opts) do
     module = __CALLER__.module
@@ -178,6 +209,7 @@ defmodule Broth.Message do
       import Ecto.Changeset
 
       @after_compile Broth.Message
+      @behaviour Broth.Message
     end
   end
 

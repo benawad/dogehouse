@@ -117,12 +117,13 @@ defmodule Broth.SocketHandler do
          # temporarily trap special cased commands
          %{"op" => not_special_case} when not_special_case not in @special_cases <- command_map!,
          # temporary translation from legacy maps to new maps
-         command_map! = Broth.Translator.convert_legacy(command_map!),
-         {:ok, command} <- Broth.Message.validate(command_map!),
+         command_map! = Broth.Translator.convert_inbound(command_map!),
+         {:ok, command} <- Broth.Message.validate(command_map!, state),
          {:reply, reply, state} <- Broth.Executor.execute(command.payload, state) do
+
       reply_msg =
-        reply
-        |> prepare_reply(command.reference)
+        command
+        |> prepare_reply(reply)
         |> prepare_socket_msg(state)
 
       {:reply, reply_msg, state}
@@ -150,26 +151,16 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  if Mix.env() in [:test, :dev] do
-    defdelegate validate_reply!(payload), to: Broth.Utils
-  else
-    def validate_reply!(_), do: :noop
-  end
+  @spec prepare_reply(Broth.Message.t, map) :: Ecto.Changeset.t
+  def prepare_reply(message, reply) do
+    import Ecto.Changeset
 
-  def prepare_reply(payload = %reply_module{}, reference) do
-    validate_reply!(payload)
-    %{
-      # TODO: deprecate "fetch_done" as the generic reply
-      "op" =>
-        :attributes
-        |> reply_module.__info__()
-        |> Keyword.get(:reply_operation, ["fetch_done"])
-        |> List.first,
-      # TODO: replace "d" with "p" as the reply payload parameter.
-      "d" => payload,
-      # TODO: replace "fetchId" with "ref"
-      "fetchId" => reference
-    }
+    reply_module = message.operator.reply_module()
+
+    message
+    |> reply_module.changeset(reply)
+    |> put_change(:operator, reply_module)
+    |> apply_action!(:validate)
   end
 
   # legacy implementation
