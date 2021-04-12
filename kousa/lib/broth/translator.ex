@@ -107,6 +107,14 @@ defmodule Broth.Translator do
     %{map | d: %{room: map.d}}
   end
 
-  def convert_0_1_0(map, _), do: map
+  def convert_0_1_0(map, "user:update:reply", _) do
+    if map.d.error do
+      %{map | d: %{isUsernameTaken: map.d.error =~ "has already been taken"}}
+    else
+      %{map | d: %{isUsernameTaken: false}}
+    end
+  end
+
+  def convert_0_1_0(map, _, _), do: map
 
 end

@@ -1,7 +1,5 @@
 defimpl Broth.Executor, for: Broth.Message.Room.Update do
 
-  alias Broth.Message.Room.Update.Reply
-
   #def execute(%{room: room}, state) do
   #  update = room |> IO.inspect(label: "6")
   #  |> Map.take([:name, :isPrivate, :description])

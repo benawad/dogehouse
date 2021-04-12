@@ -30,13 +30,12 @@ defmodule KousaTest.Broth.User.UpdateTest do
           }
         )
 
-      WsClient.assert_reply_legacy(
+      WsClient.assert_reply(
+        "user:update:reply",
         ref,
         %{
           "error" => nil,
-          "user" => %{
-            "username" => "new_username"
-          }
+          "username" => "new_username"
         }
       )
 

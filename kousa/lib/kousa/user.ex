@@ -6,7 +6,7 @@ defmodule Kousa.User do
     Users.delete(user_id)
   end
 
-  def edit_profile(user_id, data) do
+  def update(user_id, data) do
     case Users.edit_profile(user_id, data) do
       {:ok, user} ->
         Onion.UserSession.set_state(
