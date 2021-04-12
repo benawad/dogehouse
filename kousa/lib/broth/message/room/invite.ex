@@ -8,8 +8,8 @@ defmodule Broth.Message.Room.Invite do
 
   import Ecto.Changeset
 
-  def changeset(changeset, data) do
-    changeset
+  def changeset(data, _state) do
+    %__MODULE__{}
     |> cast(data, [:userId])
     |> validate_required([:userId])
   end

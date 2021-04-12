@@ -171,11 +171,6 @@ defmodule Broth.SocketHandler do
     {:ok, state}
   end
 
-  def handler("invite_to_room", %{"userId" => user_id_to_invite}, state) do
-    Kousa.Room.invite_to_room(state.user_id, user_id_to_invite)
-    {:ok, state}
-  end
-
   def handler("make_room_public", %{"newName" => new_name}, state) do
     Kousa.Room.make_room_public(state.user_id, new_name)
     {:ok, state}
