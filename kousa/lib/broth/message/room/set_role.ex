@@ -10,8 +10,8 @@ defmodule Broth.Message.Room.SetRole do
   import Ecto.Changeset
   alias Kousa.Utils.UUID
 
-  def changeset(changeset, data) do
-    changeset
+  def changeset(data, _state) do
+    %__MODULE__{}
     |> cast(data, [:userId, :role])
     |> validate_required([:userId, :role])
     |> UUID.normalize(:userId)

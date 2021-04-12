@@ -129,9 +129,9 @@ defmodule Broth.Message do
   defp internal_cast(changeset, fields),  do: cast(changeset, changeset.params, fields)
 
   def validate(data, state) do
-    %__MODULE__{}
-    |> changeset(data, state)
-    |> apply_action(:validate)
+    %__MODULE__{} 
+    |> changeset(data, state) 
+    |> apply_action(:validate) 
   end
 
   defp validate_calls_have_references(changeset = %{valid?: false}), do: changeset
