@@ -3,7 +3,6 @@ defmodule Broth.Message.Room.CreateScheduled do
 
   schema "scheduled_room" do
     field :room, :string
-    embed_error()
   end
 
 

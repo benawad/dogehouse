@@ -4,7 +4,6 @@ defmodule Broth.Message.Room.Update do
   @primary_key false
   schema "rooms" do
     field :name, :string
-    embed_error()
   end
 
   def room_changeset(changeset, data) do
@@ -20,8 +19,7 @@ defmodule Broth.Message.Room.Update do
     # TODO: make this a proper changeset-mediated alteration.
     case Kousa.Room.update(state.user_id, update) do
       {:error, changeset} ->
-        error = Ecto.Changeset.traverse_errors(changeset, &inspect/1)
-        {:ok, %__MODULE__{error: error}}
+        raise "foobar"
       {:ok, room} ->
         raise "foo"
         #{:reply, %__MODULE__{name: room}, state}

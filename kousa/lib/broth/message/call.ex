@@ -7,7 +7,6 @@ defmodule Broth.Message.Call do
     quote do
       use Ecto.Schema
       import Ecto.Changeset
-      import Broth.Message, only: [embed_error: 0]
     end
   end
 

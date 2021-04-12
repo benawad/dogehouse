@@ -12,6 +12,8 @@ defmodule Broth.Message do
     field(:reference, :binary_id)
     field(:original_operator, :string)
     field(:version, Kousa.Utils.Version, default: ~v(0.1.0))
+    # reply messages only
+    field(:errors, :map)
   end
 
   @type t :: %__MODULE__{
@@ -149,20 +151,16 @@ defmodule Broth.Message do
         p: value.payload,
       }
       |> add_reference(value)
+      |> add_errors(value)
       |> Broth.Translator.convert_outbound(value)
       |> Jason.Encode.map(opts)
     end
 
     defp add_reference(map, %{reference: nil}), do: map
     defp add_reference(map, %{reference: ref}), do: Map.put(map, :ref, ref)
-  end
 
-  #########################################################################
-  # common message tools
-
-  defmacro embed_error do
-    quote do
-      Ecto.Schema.field(:error, :string, virtual: true)
-    end
+    defp add_errors(map, %{errors: nil}), do: map
+    defp add_errors(map, %{errors: e}), do: Map.put(map, :e, e)
   end
+  
 end

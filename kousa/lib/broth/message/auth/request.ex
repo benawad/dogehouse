@@ -41,8 +41,6 @@ defmodule Broth.Message.Auth.Request do
       field(:displayName, :string)
       field(:avatarUrl, :string)
       field(:bio, :string, default: "")
-
-      embed_error()
     end
 
     def tag, do: "auth:request:reply"

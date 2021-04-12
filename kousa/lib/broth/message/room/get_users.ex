@@ -24,7 +24,6 @@ defmodule Broth.Message.Room.GetUsers do
       embeds_many(:users, Beef.Schemas.User)
       field(:next_cursor, :integer)
       field(:initial, :boolean)
-      embed_error()
     end
   end
 end

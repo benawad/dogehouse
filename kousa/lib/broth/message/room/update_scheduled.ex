@@ -37,8 +37,6 @@ defmodule Broth.Message.Room.UpdateScheduled do
     @primary_key false
     embedded_schema do
       embeds_one(:room, Beef.Schemas.Room)
-
-      embed_error()
     end
   end
 end

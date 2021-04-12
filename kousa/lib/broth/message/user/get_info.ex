@@ -22,7 +22,6 @@ defmodule Broth.Message.User.GetInfo do
 
     @primary_key false
     schema "user" do
-      embed_error()
     end
   end
 end

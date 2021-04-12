@@ -1,4 +1,10 @@
 defmodule Kousa.Utils.Errors do
+
+  @spec changeset_errors(Ecto.Changeset.t) :: map
+  def changeset_errors(%{errors: errors}) do
+    Map.new(errors, fn {k, {message, _}} -> {k, message} end)
+  end
+
   def changeset_to_first_err_message(%{errors: [{_, {message, values}}]}) do
     Enum.reduce(values, message, fn {k, v}, acc ->
       String.replace(acc, "%{#{k}}", to_string(v))

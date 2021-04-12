@@ -18,7 +18,6 @@ defmodule Broth.Message.User.GetRoomsAboutToStart do
 
     embedded_schema do
       embeds_many(:rooms, Beef.Schemas.ScheduledRoom)
-      embed_error()
     end
   end
 end

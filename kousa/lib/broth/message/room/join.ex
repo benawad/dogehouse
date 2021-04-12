@@ -22,7 +22,6 @@ defmodule Broth.Message.Room.Join do
 
     @primary_key false
     schema "rooms" do
-      embed_error()
     end
   end
 end

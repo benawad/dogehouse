@@ -21,7 +21,6 @@ defmodule Broth.Message.Room.GetInfo do
     use Broth.Message.Push
 
     schema "rooms" do
-      embed_error()
     end
   end
 end

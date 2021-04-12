@@ -10,7 +10,6 @@ defmodule Broth.Message.Room.Create do
     field :description, :string
     field :isPrivate, :boolean, default: false
     field :userIdsToInvite, {:array, :binary_id}, virtual: true
-    embed_error()
   end
 
   import Ecto.Changeset

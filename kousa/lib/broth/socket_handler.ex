@@ -117,9 +117,11 @@ defmodule Broth.SocketHandler do
          # temporarily trap special cased commands
          %{"op" => not_special_case} when not_special_case not in @special_cases <- command_map!,
          # translation from legacy maps to new maps
-         command_map! = Broth.Translator.convert_inbound(command_map!),
-         changeset = %{valid?: true} <- Broth.Message.changeset(command_map!) do
-      dispatch(changeset, state)
+         command_map! = Broth.Translator.convert_inbound(command_map!) do
+
+      command_map!
+      |> Broth.Message.changeset
+      |> dispatch(state)
     else
       # special cases: mediasoup operations
       _mediasoup_op = %{"op" => "@" <> _} ->
@@ -131,27 +133,36 @@ defmodule Broth.SocketHandler do
 
       {:error, %Jason.DecodeError{}} ->
         {:reply, {:close, 4001, "invalid input"}, state}
-
-      # invalid changesets
-      changeset = %{valid?: false} ->
-        reply_with_error(changeset, state)
     end
+  end
+
+  import Ecto.Changeset
+
+  def dispatch(changeset = %{valid?: false}, state) do
+    errors = Kousa.Utils.Errors.changeset_errors(changeset)
+
+    msg = if get_field(changeset, :reference) do
+      changeset
+      |> put_change(:payload, %{})
+      |> put_change(:error, errors)
+      |> apply_action!(:validate)
+    else
+      %{errors: errors}
+    end
+    
+    {:reply, prepare_socket_msg(msg, state), state}
   end
 
   def dispatch(changeset, state) do
     message_module = Ecto.Changeset.get_field(changeset, :operator)
     case message_module.execute(changeset, state) do
-      reply = {:reply, _, _} -> reply
-      {:noreply, state} -> {:ok, state}
-      {:close, code, reason} -> {:reply, {:close, code, reason}, state}
+      {:reply, payload, new_state} ->
+        {:reply, prepare_socket_msg(payload, new_state), new_state}
+      {:noreply, new_state} ->
+        {:ok, new_state}
+      {:close, code, reason} ->
+        {:reply, {:close, code, reason}, state}
     end
-  end
-
-  def reply_with_error(changeset, state) do
-    # TODO: replace this with a better function
-    error = Kousa.Utils.Errors.changeset_to_first_err_message(changeset)
-    # TODO: check if the message has a reply, then conform it to the error.
-    {:reply, %{error: error}, state}
   end
 
   @spec prepare_reply(Broth.Message.t, map) :: Ecto.Changeset.t

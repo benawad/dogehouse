@@ -14,7 +14,6 @@ defmodule Broth.Message.User.Update do
     field :username, :string
 
     field :muted, :boolean, virtual: true
-    embed_error()
   end
 
   def tag, do: "user:update:reply"

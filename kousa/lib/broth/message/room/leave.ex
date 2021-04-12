@@ -28,7 +28,6 @@ defmodule Broth.Message.Room.Leave do
 
     @primary_key false
     embedded_schema do
-      embed_error()
     end
   end
 

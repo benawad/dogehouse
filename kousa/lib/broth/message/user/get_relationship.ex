@@ -27,7 +27,6 @@ defmodule Broth.Message.User.GetRelationship do
     @primary_key false
     embedded_schema do
       embeds_one(:relationship, Broth.Message.Types.Relationship)
-      embed_error()
     end
   end
 end
