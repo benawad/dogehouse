@@ -21,7 +21,7 @@ export interface FriendsOnlineProps {
   showMoreAction?: MouseEventHandler<HTMLDivElement>;
 }
 
-export const FollowerOnline: React.FC<UserWithFollowInfo> = ({
+export const FollowersOnline: React.FC<UserWithFollowInfo> = ({
   username,
   avatarUrl: avatar,
   online,
