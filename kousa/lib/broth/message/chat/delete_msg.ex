@@ -11,8 +11,8 @@ defmodule Broth.Message.Chat.DeleteMsg do
 
   alias Kousa.Utils.UUID
 
-  def changeset(changeset, data) do
-    changeset
+  def changeset(initializer \\ %__MODULE__{}, data) do
+    initializer
     |> cast(data, [:messageId, :userId])
     |> validate_required([:messageId, :userId])
     |> UUID.normalize(:messageId)

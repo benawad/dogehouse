@@ -9,7 +9,7 @@ defmodule BrothTest.Message.Room.LeaveTest do
               %{
                 payload: %Leave{}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:leave",
                  "payload" => %{},
                  "reference" => UUID.uuid4()
@@ -20,7 +20,7 @@ defmodule BrothTest.Message.Room.LeaveTest do
               %{
                 payload: %Leave{}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "op" => "room:leave",
                  "p" => %{},
                  "ref" => UUID.uuid4()

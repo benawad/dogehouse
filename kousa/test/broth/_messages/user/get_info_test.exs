@@ -13,7 +13,7 @@ defmodule BrothTest.Message.User.GetInfoTest do
               %{
                 payload: %GetInfo{userId: ^uuid}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "user:get_info",
                  "payload" => %{"userId" => uuid},
                  "reference" => UUID.uuid4()
@@ -24,7 +24,7 @@ defmodule BrothTest.Message.User.GetInfoTest do
               %{
                 payload: %GetInfo{userId: ^uuid}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "op" => "user:get_info",
                  "p" => %{"userId" => uuid},
                  "ref" => UUID.uuid4()
@@ -33,7 +33,7 @@ defmodule BrothTest.Message.User.GetInfoTest do
 
     test "userId parameter is required" do
       assert {:error, %{errors: [userId: {"can't be blank", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "user:get_info",
                  "payload" => %{},
                  "reference" => UUID.uuid4()

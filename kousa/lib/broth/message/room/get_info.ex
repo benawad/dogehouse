@@ -10,8 +10,8 @@ defmodule Broth.Message.Room.GetInfo do
   import Ecto.Changeset
   alias Kousa.Utils.UUID
 
-  def changeset(changeset, data) do
-    changeset
+  def changeset(initializer \\ %__MODULE__{}, data) do
+    initializer
     |> cast(data, [:roomId])
     |> validate_required([:roomId])
     |> UUID.normalize(:roomId)

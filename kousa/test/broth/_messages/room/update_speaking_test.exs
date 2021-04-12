@@ -9,7 +9,7 @@ defmodule BrothTest.Message.Room.UpdateSpeakingTest do
               %{
                 payload: %UpdateSpeaking{isSpeaking: true}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:update_speaking",
                  "payload" => %{"isSpeaking" => true}
                })
@@ -19,7 +19,7 @@ defmodule BrothTest.Message.Room.UpdateSpeakingTest do
               %{
                 payload: %UpdateSpeaking{isSpeaking: true}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "op" => "room:update_speaking",
                  "p" => %{"isSpeaking" => true}
                })
@@ -27,7 +27,7 @@ defmodule BrothTest.Message.Room.UpdateSpeakingTest do
 
     test "omitting the isSpeaking parameter is not allowed" do
       assert {:error, %{errors: [isSpeaking: {"can't be blank", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:update_speaking",
                  "payload" => %{}
                })

@@ -14,15 +14,11 @@ defmodule Broth.Message.User.Update do
   @primary_key {:id, :binary_id, []}
   schema "users" do
     field :username, :string
-
     field :muted, :boolean, virtual: true
   end
 
-  def tag, do: "user:update:reply"
-
-  def changeset(data, state) when not is_struct(data) do
-    __MODULE__
-    |> Repo.get(state.user_id)
+  def changeset(initializer \\ %__MODULE__{}, data) do
+    initializer
     |> cast(data, [:muted, :username])
     |> validate_required(:username)
   end

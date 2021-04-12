@@ -136,7 +136,7 @@ defmodule Broth.Message do
 
     # if the operator has a reply submodule then it must be a "call" message.
     # verify that these
-    if operator.reply_module() do
+    if function_exported?(operator, :reply_module, 0) do
       validate_required(changeset, [:reference], message: "is required for #{inspect(operator)}")
     else
       changeset

@@ -14,7 +14,7 @@ defmodule BrothTest.Message.User.UpdateTest do
               %{
                 payload: %Update{user: %User{muted: true}}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "user:update",
                  "payload" => %{"muted" => true},
                  "reference" => uuid
@@ -25,7 +25,7 @@ defmodule BrothTest.Message.User.UpdateTest do
               %{
                 payload: %Update{user: %User{muted: false}}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "op" => "user:update",
                  "p" => %{"muted" => false},
                  "ref" => uuid
@@ -34,7 +34,7 @@ defmodule BrothTest.Message.User.UpdateTest do
 
     test "omitting the reference is not allowed" do
       assert {:error, %{errors: [reference: {"is required for Broth.Message.User.Update", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "user:update",
                  "payload" => %{"muted" => true}
                })
@@ -42,14 +42,14 @@ defmodule BrothTest.Message.User.UpdateTest do
 
     test "providing the wrong datatype for muted state is disallowed", %{uuid: uuid} do
       assert {:error, %{errors: [muted: {"is invalid", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "user:update",
                  "payload" => %{"muted" => "foobar"},
                  "reference" => uuid
                })
 
       assert {:error, %{errors: [muted: {"is invalid", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "user:update",
                  "payload" => %{"muted" => ["foobar", "barbaz"]},
                  "reference" => uuid

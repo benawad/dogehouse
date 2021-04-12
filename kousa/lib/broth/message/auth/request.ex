@@ -14,8 +14,8 @@ defmodule Broth.Message.Auth.Request do
   alias Kousa.Utils.UUID
 
   @impl true
-  def changeset(data) do
-    %__MODULE__{}
+  def changeset(initializer \\ %__MODULE__{}, data) do
+    initializer
     |> cast(data, [:accessToken, :refreshToken, :platform, :reconnectToVoice, :muted])
     |> validate_required([:accessToken])
     |> UUID.normalize(:currentRoomId)

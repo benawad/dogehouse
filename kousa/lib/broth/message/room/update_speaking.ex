@@ -15,8 +15,8 @@ defmodule Broth.Message.Room.UpdateSpeaking do
     field(:isSpeaking, :boolean)
   end
 
-  def changeset(changeset, data) do
-    changeset
+  def changeset(initializer \\ %__MODULE__{}, data) do
+    initializer
     |> cast(data, [:isSpeaking])
     |> validate_required([:isSpeaking])
   end

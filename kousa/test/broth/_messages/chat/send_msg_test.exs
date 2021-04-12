@@ -18,7 +18,7 @@ defmodule BrothTest.Message.Chat.SendMsgTest do
                   whisperedTo: []
                 }
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "chat:send_msg",
                  "payload" => %{
                    "tokens" => [
@@ -42,7 +42,7 @@ defmodule BrothTest.Message.Chat.SendMsgTest do
                   ]
                 }
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "op" => "chat:send_msg",
                  "p" => %{
                    "tokens" => [
@@ -57,7 +57,7 @@ defmodule BrothTest.Message.Chat.SendMsgTest do
 
     test "empty list is forbidden" do
       assert {:error, %{errors: [tokens: {"must not be empty", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "chat:send_msg",
                  "payload" => %{
                    "tokens" => []
@@ -67,7 +67,7 @@ defmodule BrothTest.Message.Chat.SendMsgTest do
 
     test "non-lists are forbidden" do
       assert {:error, %{errors: [tokens: {"is invalid", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "chat:send_msg",
                  "payload" => %{
                    "tokens" => "foo"
@@ -75,7 +75,7 @@ defmodule BrothTest.Message.Chat.SendMsgTest do
                })
 
       assert {:error, %{errors: [tokens: {"is invalid", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "chat:send_msg",
                  "payload" => %{
                    "tokens" => %{"foo" => "bar"}
@@ -93,7 +93,7 @@ defmodule BrothTest.Message.Chat.SendMsgTest do
         )
 
       assert {:error, %{errors: [tokens: {"combined length too long", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "chat:send_msg",
                  "payload" => %{
                    "tokens" => too_long_message
@@ -103,7 +103,7 @@ defmodule BrothTest.Message.Chat.SendMsgTest do
 
     test "a message with invalid tokens are forbidden" do
       assert {:error, %{errors: [tokens: {"is invalid", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "chat:send_msg",
                  "payload" => %{
                    "tokens" => ["a"]
@@ -118,7 +118,7 @@ defmodule BrothTest.Message.Chat.SendMsgTest do
       uuid = UUID.uuid4()
 
       assert {:ok, %{payload: %{whisperedTo: [^uuid]}}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "chat:send_msg",
                  "payload" => %{
                    "tokens" => @tokens,
@@ -132,7 +132,7 @@ defmodule BrothTest.Message.Chat.SendMsgTest do
       uuid2 = UUID.uuid4()
 
       assert {:ok, %{payload: %{whisperedTo: [^uuid1, ^uuid2]}}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "chat:send_msg",
                  "payload" => %{
                    "tokens" => @tokens,
@@ -143,7 +143,7 @@ defmodule BrothTest.Message.Chat.SendMsgTest do
 
     test "doesn't populate wrong types" do
       assert {:error, %{errors: [whisperedTo: {"is invalid", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "chat:send_msg",
                  "payload" => %{
                    "tokens" => @tokens,
@@ -152,7 +152,7 @@ defmodule BrothTest.Message.Chat.SendMsgTest do
                })
 
       assert {:error, %{errors: [whisperedTo: {"is invalid", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "chat:send_msg",
                  "payload" => %{
                    "tokens" => @tokens,
@@ -161,7 +161,7 @@ defmodule BrothTest.Message.Chat.SendMsgTest do
                })
 
       assert {:error, %{errors: [whisperedTo: {"is invalid", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "chat:send_msg",
                  "payload" => %{
                    "tokens" => @tokens,

@@ -11,8 +11,8 @@ defmodule Broth.Message.Room.SetAuth do
 
   alias Kousa.Utils.UUID
 
-  def changeset(data, _state) do
-    %__MODULE__{}
+  def changeset(initializer \\ %__MODULE__{}, data) do
+    initializer
     |> cast(data, [:userId, :level])
     |> validate_required([:userId, :level])
     |> UUID.normalize(:userId)

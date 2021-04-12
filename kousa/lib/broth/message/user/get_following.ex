@@ -9,8 +9,8 @@ defmodule Broth.Message.User.GetFollowing do
 
   import Ecto.Changeset
 
-  def changeset(changeset, data) do
-    changeset
+  def changeset(initializer \\ %__MODULE__{}, data) do
+    initializer
     |> cast(data, [:cursor, :limit])
     |> validate_number(:limit, greater_than: 0, message: "too low")
   end

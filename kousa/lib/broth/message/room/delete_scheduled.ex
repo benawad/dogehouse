@@ -10,8 +10,8 @@ defmodule Broth.Message.Room.DeleteScheduled do
 
   alias Kousa.Utils.UUID
 
-  def changeset(changeset, data) do
-    changeset
+  def changeset(initializer \\ %__MODULE__{}, data) do
+    initializer
     |> cast(data, [:roomId])
     |> validate_required([:roomId])
     |> UUID.normalize(:roomId)

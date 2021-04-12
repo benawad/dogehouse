@@ -141,7 +141,7 @@ defmodule Broth.SocketHandler do
 
   import Ecto.Changeset
 
-  defp validate(message) do
+  def validate(message) do
     message
     |> Broth.Message.changeset
     |> apply_action(:validate)
@@ -152,14 +152,20 @@ defmodule Broth.SocketHandler do
       close = {:close, _, _} ->
         {:reply, close, state}
 
-      {:noreply, new_state} ->
-        {:ok, new_state}
+      {:error, changeset = %Ecto.Changeset{}} ->
+        reply = changeset
+        |> Kousa.Utils.Errors.changeset_errors
+        |> prepare_socket_msg(state)
+        {:reply, reply, state}
 
       {:error, errors, new_state} ->
         reply = message
         |> wrap({:errors, errors})
         |> prepare_socket_msg(new_state)
         {:reply, reply, new_state}
+
+      {:noreply, new_state} ->
+        {:ok, new_state}
 
       {:reply, payload, new_state} ->
         reply = message
@@ -169,10 +175,10 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  defp wrap(message, payload = %module{}) do
+  def wrap(message, payload = %module{}) do
     %{message | operator: module, payload: payload}
   end
-  defp wrap(message, {:errors, error_map}) do
+  def wrap(message, {:errors, error_map}) do
     %{message | payload: %{}, errors: error_map}
   end
 

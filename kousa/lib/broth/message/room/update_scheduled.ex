@@ -8,8 +8,8 @@ defmodule Broth.Message.Room.UpdateScheduled do
 
   import Ecto.Changeset
 
-  def changeset(changeset, data) do
-    changeset
+  def changeset(initializer \\ %__MODULE__{}, data) do
+    initializer
     |> change
     |> Map.put(:params, %{"room" => data})
     |> cast_embed(

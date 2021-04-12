@@ -8,8 +8,8 @@ defmodule Broth.Message.Chat.Ban do
 
   import Ecto.Changeset
 
-  def changeset(changeset, data) do
-    changeset
+  def changeset(initializer \\ %__MODULE__{}, data) do
+    initializer
     |> cast(data, [:userId])
     |> validate_required([:userId])
   end

@@ -6,12 +6,10 @@ defmodule Broth.Message.Room.Join do
     field(:roomId, :binary_id)
   end
 
-  import Ecto.Changeset
-
   alias Kousa.Utils.UUID
 
-  def changeset(changeset, data) do
-    changeset
+  def changeset(initializer \\ %__MODULE__{}, data) do
+    initializer
     |> cast(data, [:roomId])
     |> validate_required([:roomId])
     |> UUID.normalize(:roomId)

@@ -12,7 +12,7 @@ defmodule BrothTest.Message.User.GetRoomsAboutToStartTest do
                 payload: %GetRoomsAboutToStart{},
                 reference: ^ref
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "user:get_rooms_about_to_start",
                  "payload" => %{},
                  "reference" => ref
@@ -24,7 +24,7 @@ defmodule BrothTest.Message.User.GetRoomsAboutToStartTest do
                 payload: %GetRoomsAboutToStart{},
                 reference: ^ref
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "op" => "user:get_rooms_about_to_start",
                  "p" => %{},
                  "ref" => ref

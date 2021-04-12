@@ -14,7 +14,7 @@ defmodule BrothTest.Message.Room.CreateScheduledTest do
               %{
                 payload: %CreateScheduled{room: %ScheduledRoom{name: "foobar"}}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:create_scheduled",
                  "payload" => %{"name" => "foobar", "description" => "a room"},
                  "reference" => uuid
@@ -25,7 +25,7 @@ defmodule BrothTest.Message.Room.CreateScheduledTest do
               %{
                 payload: %CreateScheduled{room: %ScheduledRoom{name: "foobar"}}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "op" => "room:create_scheduled",
                  "p" => %{"name" => "foobar", "description" => "a room"},
                  "ref" => uuid
@@ -35,7 +35,7 @@ defmodule BrothTest.Message.Room.CreateScheduledTest do
     test "omitting the reference is not allowed" do
       assert {:error,
               %{errors: [reference: {"is required for Broth.Message.Room.CreateScheduled", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:create_scheduled",
                  "payload" => %{"name" => "foobar", "description" => "a room"}
                })
@@ -43,7 +43,7 @@ defmodule BrothTest.Message.Room.CreateScheduledTest do
 
     test "providing the wrong datatype for name is disallowed", %{uuid: uuid} do
       assert {:error, %{errors: [name: {"is invalid", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:create_scheduled",
                  "payload" => %{"name" => ["foobar", "barbaz"], "description" => "a room"},
                  "reference" => uuid
@@ -52,7 +52,7 @@ defmodule BrothTest.Message.Room.CreateScheduledTest do
 
     test "providing the wrong datatype for description is disallowed", %{uuid: uuid} do
       assert {:error, %{errors: [description: {"is invalid", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:create_scheduled",
                  "payload" => %{"name" => "foobar", "description" => ["a", "room"]},
                  "reference" => uuid

@@ -14,7 +14,7 @@ defmodule BrothTest.Message.Room.CreateTest do
               %{
                 payload: %Create{name: "foobar"}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:create",
                  "payload" => %{"name" => "foobar", "description" => "a room"},
                  "reference" => uuid
@@ -25,7 +25,7 @@ defmodule BrothTest.Message.Room.CreateTest do
               %{
                 payload: %Create{name: "foobar"}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "op" => "room:create",
                  "p" => %{"name" => "foobar", "description" => "a room"},
                  "ref" => uuid
@@ -34,7 +34,7 @@ defmodule BrothTest.Message.Room.CreateTest do
 
     test "omitting the reference is not allowed" do
       assert {:error, %{errors: [reference: {"is required for Broth.Message.Room.Create", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:create",
                  "payload" => %{"name" => "foobar", "description" => "a room"}
                })
@@ -42,7 +42,7 @@ defmodule BrothTest.Message.Room.CreateTest do
 
     test "providing the wrong datatype for name is disallowed", %{uuid: uuid} do
       assert {:error, %{errors: [name: {"is invalid", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:create",
                  "payload" => %{"name" => ["foobar", "barbaz"], "description" => "a room"},
                  "reference" => uuid
@@ -51,7 +51,7 @@ defmodule BrothTest.Message.Room.CreateTest do
 
     test "providing the wrong datatype for description is disallowed", %{uuid: uuid} do
       assert {:error, %{errors: [description: {"is invalid", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:create",
                  "payload" => %{"name" => "foobar", "description" => ["a", "room"]},
                  "reference" => uuid
@@ -65,7 +65,7 @@ defmodule BrothTest.Message.Room.CreateTest do
               %{
                 payload: %Create{isPrivate: true}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:create",
                  "payload" => %{
                    "isPrivate" => true,
@@ -81,7 +81,7 @@ defmodule BrothTest.Message.Room.CreateTest do
               %{
                 errors: [isPrivate: {"is invalid", _}]
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:create",
                  "payload" => %{
                    "isPrivate" => "barbaz",
@@ -99,7 +99,7 @@ defmodule BrothTest.Message.Room.CreateTest do
               %{
                 errors: [autoSpeaker: {"is invalid", _}]
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:create",
                  "payload" => %{
                    "autoSpeaker" => "barbaz",

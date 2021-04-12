@@ -19,7 +19,7 @@ defmodule BrothTest.Message.Auth.RequestTest do
                   muted: false
                 }
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "auth:request",
                  "payload" => %{
                    "accessToken" => "foo",
@@ -41,7 +41,7 @@ defmodule BrothTest.Message.Auth.RequestTest do
                   muted: false
                 }
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "op" => "auth:request",
                  "p" => %{
                    "accessToken" => "foo",
@@ -55,7 +55,7 @@ defmodule BrothTest.Message.Auth.RequestTest do
 
     test "omitting the userId is not allowed" do
       assert {:error, %{errors: [accessToken: {"can't be blank", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "op" => "auth:request",
                  "p" => %{
                    "refreshToken" => "bar",

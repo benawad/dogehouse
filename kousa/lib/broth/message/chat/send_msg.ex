@@ -13,8 +13,8 @@ defmodule Broth.Message.Chat.SendMsg do
 
   import Ecto.Changeset
 
-  def changeset(changeset, data) do
-    changeset
+  def changeset(initializer \\ %__MODULE__{}, data) do
+    initializer
     |> cast(data, [:whisperedTo])
     |> default_whispered_to
     |> put_tokens(data["tokens"])

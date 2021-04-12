@@ -19,8 +19,8 @@ defmodule Broth.Message.Room.Create do
   def tag, do: "room:create:reply"
 
   # inbound data.
-  def changeset(data, _state) when not is_struct(data) do
-    %__MODULE__{}
+  def changeset(initializer \\ %__MODULE__{}, data) do
+    initializer
     |> cast(data, [:name, :description, :isPrivate, :userIdsToInvite])
   end
 

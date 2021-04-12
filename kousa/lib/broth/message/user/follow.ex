@@ -6,8 +6,8 @@ defmodule Broth.Message.User.Follow do
     field(:followId, :binary_id)
   end
 
-  def changeset(changeset, data) do
-    changeset
+  def changeset(initializer \\ %__MODULE__{}, data) do
+    initializer
     |> cast(data, [:followId])
     |> validate_required([:followId])
   end

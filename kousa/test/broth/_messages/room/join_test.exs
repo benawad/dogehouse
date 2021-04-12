@@ -13,7 +13,7 @@ defmodule BrothTest.Message.Room.JoinTest do
               %{
                 payload: %Join{roomId: ^uuid}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:join",
                  "payload" => %{"roomId" => uuid},
                  "reference" => UUID.uuid4()
@@ -24,7 +24,7 @@ defmodule BrothTest.Message.Room.JoinTest do
               %{
                 payload: %Join{roomId: ^uuid}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "op" => "room:join",
                  "p" => %{"roomId" => uuid},
                  "ref" => UUID.uuid4()
@@ -33,7 +33,7 @@ defmodule BrothTest.Message.Room.JoinTest do
 
     test "omitting the reference is not allowed", %{uuid: uuid} do
       assert {:error, %{errors: [reference: {"is required for Broth.Message.Room.Join", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:join",
                  "payload" => %{"roomId" => uuid}
                })
@@ -41,7 +41,7 @@ defmodule BrothTest.Message.Room.JoinTest do
 
     test "omitting the roomId is not allowed" do
       assert {:error, %{errors: [roomId: {"can't be blank", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:join",
                  "payload" => %{},
                  "reference" => UUID.uuid4()
@@ -50,7 +50,7 @@ defmodule BrothTest.Message.Room.JoinTest do
 
     test "roomId must be a UUID" do
       assert {:error, %{errors: [roomId: {"is invalid", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:join",
                  "payload" => %{"roomId" => "aaa"},
                  "reference" => UUID.uuid4()

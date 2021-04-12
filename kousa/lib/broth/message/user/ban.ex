@@ -9,8 +9,8 @@ defmodule Broth.Message.User.Ban do
 
   import Ecto.Changeset
 
-  def changeset(data, _state) do
-    %__MODULE__{}
+  def changeset(initializer \\ %__MODULE__{}, data) do
+    initializer
     |> cast(data, [:userId, :reason])
     |> validate_required([:userId, :reason])
   end

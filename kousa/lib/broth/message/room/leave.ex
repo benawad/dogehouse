@@ -16,7 +16,9 @@ defmodule Broth.Message.Room.Leave do
 
   import Ecto.Changeset
 
-  def changeset(changeset, _data), do: change(changeset)
+  def changeset(initializer \\ %__MODULE__{}, data) do
+    change(initializer, data)
+  end
 
   defmodule Reply do
     use Broth.Message.Push, operation: "room:leave:reply"

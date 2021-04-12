@@ -13,7 +13,7 @@ defmodule BrothTest.Message.Room.DeleteScheduledTest do
               %{
                 payload: %DeleteScheduled{roomId: ^uuid}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:delete_scheduled",
                  "payload" => %{"roomId" => uuid},
                  "reference" => UUID.uuid4()
@@ -24,7 +24,7 @@ defmodule BrothTest.Message.Room.DeleteScheduledTest do
               %{
                 payload: %DeleteScheduled{roomId: ^uuid}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "op" => "room:delete_scheduled",
                  "p" => %{"roomId" => uuid},
                  "ref" => UUID.uuid4()
@@ -34,7 +34,7 @@ defmodule BrothTest.Message.Room.DeleteScheduledTest do
     test "omitting the reference is not allowed", %{uuid: uuid} do
       assert {:error,
               %{errors: [reference: {"is required for Broth.Message.Room.DeleteScheduled", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:delete_scheduled",
                  "payload" => %{"roomId" => uuid}
                })
@@ -42,7 +42,7 @@ defmodule BrothTest.Message.Room.DeleteScheduledTest do
 
     test "omitting the roomId is not allowed" do
       assert {:error, %{errors: [roomId: {"can't be blank", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:delete_scheduled",
                  "payload" => %{},
                  "reference" => UUID.uuid4()
@@ -51,7 +51,7 @@ defmodule BrothTest.Message.Room.DeleteScheduledTest do
 
     test "roomId must be a UUID" do
       assert {:error, %{errors: [roomId: {"is invalid", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:delete_scheduled",
                  "payload" => %{"roomId" => "aaa"},
                  "reference" => UUID.uuid4()

@@ -13,7 +13,7 @@ defmodule BrothTest.Message.Room.GetInfoTest do
               %{
                 payload: %GetInfo{roomId: ^uuid}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:get_info",
                  "payload" => %{roomId: uuid},
                  "reference" => UUID.uuid4()
@@ -24,7 +24,7 @@ defmodule BrothTest.Message.Room.GetInfoTest do
               %{
                 payload: %GetInfo{roomId: ^uuid}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "op" => "room:get_info",
                  "p" => %{roomId: uuid},
                  "ref" => UUID.uuid4()
@@ -33,7 +33,7 @@ defmodule BrothTest.Message.Room.GetInfoTest do
 
     test "roomId parameter is required" do
       assert {:error, %{errors: [roomId: {"can't be blank", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:get_info",
                  "payload" => %{},
                  "reference" => UUID.uuid4()

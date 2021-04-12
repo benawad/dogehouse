@@ -14,7 +14,7 @@ defmodule BrothTest.Message.User.GetFollowsTest do
                 payload: %GetFollows{cursor: 0, limit: 100},
                 reference: ^uuid
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "user:get_follows",
                  "payload" => %{},
                  "reference" => uuid
@@ -26,7 +26,7 @@ defmodule BrothTest.Message.User.GetFollowsTest do
                 payload: %GetFollows{cursor: 0, limit: 100},
                 reference: ^uuid
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "op" => "user:get_follows",
                  "p" => %{},
                  "ref" => uuid
@@ -38,7 +38,7 @@ defmodule BrothTest.Message.User.GetFollowsTest do
               %{
                 payload: %GetFollows{cursor: 10}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "user:get_follows",
                  "payload" => %{"cursor" => 10},
                  "reference" => uuid
@@ -50,7 +50,7 @@ defmodule BrothTest.Message.User.GetFollowsTest do
               %{
                 payload: %GetFollows{limit: 50}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "user:get_follows",
                  "payload" => %{"limit" => 50},
                  "reference" => uuid
@@ -59,7 +59,7 @@ defmodule BrothTest.Message.User.GetFollowsTest do
 
     test "you can't specify a limit == 0", %{uuid: uuid} do
       assert {:error, %{errors: [limit: {"too low", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "user:get_follows",
                  "payload" => %{"limit" => 0},
                  "reference" => uuid
@@ -68,14 +68,14 @@ defmodule BrothTest.Message.User.GetFollowsTest do
 
     test "you can't specify nonintegers for cursor or limit", %{uuid: uuid} do
       assert {:error, %{errors: [limit: {"is invalid", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "user:get_follows",
                  "payload" => %{"limit" => "foo"},
                  "reference" => uuid
                })
 
       assert {:error, %{errors: [cursor: {"is invalid", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "user:get_follows",
                  "payload" => %{"cursor" => "foo"},
                  "reference" => uuid
@@ -85,7 +85,7 @@ defmodule BrothTest.Message.User.GetFollowsTest do
     test "you must specify reference" do
       assert {:error,
               %{errors: [reference: {"is required for Broth.Message.User.GetFollows", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "user:get_follows",
                  "payload" => %{}
                })

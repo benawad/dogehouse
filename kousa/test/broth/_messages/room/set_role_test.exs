@@ -13,7 +13,7 @@ defmodule BrothTest.Message.Room.SetRole do
               %{
                 payload: %SetRole{userId: ^uuid, role: :speaker}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:set_role",
                  "payload" => %{"userId" => uuid, "role" => "speaker"}
                })
@@ -23,7 +23,7 @@ defmodule BrothTest.Message.Room.SetRole do
               %{
                 payload: %SetRole{userId: ^uuid, role: :speaker}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "op" => "room:set_role",
                  "p" => %{"userId" => uuid, "role" => "speaker"}
                })
@@ -31,7 +31,7 @@ defmodule BrothTest.Message.Room.SetRole do
 
     test "omitting the userId is not allowed" do
       assert {:error, %{errors: [userId: {"can't be blank", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:set_role",
                  "payload" => %{"role" => "speaker"}
                })
@@ -39,7 +39,7 @@ defmodule BrothTest.Message.Room.SetRole do
 
     test "omitting the role is not allowed", %{uuid: uuid} do
       assert {:error, %{errors: [role: {"can't be blank", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:set_role",
                  "payload" => %{"userId" => uuid}
                })
@@ -52,7 +52,7 @@ defmodule BrothTest.Message.Room.SetRole do
               %{
                 payload: %SetRole{userId: ^uuid, role: :raised_hand}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:set_role",
                  "payload" => %{"userId" => uuid, "role" => "raised_hand"}
                })
@@ -63,7 +63,7 @@ defmodule BrothTest.Message.Room.SetRole do
               %{
                 payload: %SetRole{userId: ^uuid, role: :listener}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:set_role",
                  "payload" => %{"userId" => uuid, "role" => "listener"}
                })

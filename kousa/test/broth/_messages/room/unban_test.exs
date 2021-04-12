@@ -13,7 +13,7 @@ defmodule BrothTest.Message.Room.UnbanTest do
               %{
                 payload: %Unban{userId: ^uuid}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:unban",
                  "payload" => %{"userId" => uuid},
                  "reference" => UUID.uuid4()
@@ -24,7 +24,7 @@ defmodule BrothTest.Message.Room.UnbanTest do
               %{
                 payload: %Unban{userId: ^uuid}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "op" => "room:unban",
                  "p" => %{"userId" => uuid},
                  "ref" => UUID.uuid4()
@@ -33,7 +33,7 @@ defmodule BrothTest.Message.Room.UnbanTest do
 
     test "omitting the reference is not allowed", %{uuid: uuid} do
       assert {:error, %{errors: [reference: {"is required for Broth.Message.Room.Unban", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:unban",
                  "payload" => %{"userId" => uuid}
                })
@@ -41,7 +41,7 @@ defmodule BrothTest.Message.Room.UnbanTest do
 
     test "omitting the userId is not allowed" do
       assert {:error, %{errors: [userId: {"can't be blank", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:unban",
                  "payload" => %{},
                  "reference" => UUID.uuid4()
@@ -50,7 +50,7 @@ defmodule BrothTest.Message.Room.UnbanTest do
 
     test "userId must be a UUID" do
       assert {:error, %{errors: [userId: {"is invalid", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:unban",
                  "payload" => %{"userId" => "aaa"},
                  "reference" => UUID.uuid4()

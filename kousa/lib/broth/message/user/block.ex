@@ -6,8 +6,8 @@ defmodule Broth.Message.User.Block do
     field(:userId, :binary_id)
   end
 
-  def changeset(changeset, data) do
-    changeset
+  def changeset(initializer \\ %__MODULE__{}, data) do
+    initializer
     |> cast(data, [:userId])
     |> validate_required([:userId])
   end

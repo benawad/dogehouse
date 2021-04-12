@@ -13,7 +13,7 @@ defmodule BrothTest.Message.Room.InviteTest do
               %{
                 payload: %Invite{userId: ^uuid}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:invite",
                  "payload" => %{"userId" => uuid}
                })
@@ -23,7 +23,7 @@ defmodule BrothTest.Message.Room.InviteTest do
               %{
                 payload: %Invite{userId: ^uuid}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "op" => "room:invite",
                  "p" => %{"userId" => uuid}
                })
@@ -31,7 +31,7 @@ defmodule BrothTest.Message.Room.InviteTest do
 
     test "omitting the userId is not allowed" do
       assert {:error, %{errors: [userId: {"can't be blank", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:invite",
                  "payload" => %{}
                })

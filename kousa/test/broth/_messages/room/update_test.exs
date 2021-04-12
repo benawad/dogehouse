@@ -14,7 +14,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
               %{
                 payload: %Update{name: "foobar"}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:update",
                  "payload" => %{"name" => "foobar"},
                  "reference" => uuid
@@ -25,7 +25,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
               %{
                 payload: %Update{name: "foobar"}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "op" => "room:update",
                  "p" => %{"name" => "foobar"},
                  "ref" => uuid
@@ -34,7 +34,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
 
     test "omitting the reference is not allowed" do
       assert {:error, %{errors: [reference: {"is required for Broth.Message.Room.Update", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:update",
                  "payload" => %{"name" => "foobar"}
                })
@@ -42,7 +42,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
 
     test "providing the wrong datatype for name is disallowed", %{uuid: uuid} do
       assert {:error, %{errors: [name: {"is invalid", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:update",
                  "payload" => %{"name" => ["foobar", "barbaz"]},
                  "reference" => uuid
@@ -56,7 +56,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
               %{
                 payload: %Update{description: "foobar"}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:update",
                  "payload" => %{"description" => "foobar"},
                  "reference" => uuid
@@ -70,7 +70,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
               %{
                 payload: %Update{isPrivate: true}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:update",
                  "payload" => %{"isPrivate" => true},
                  "reference" => uuid
@@ -84,7 +84,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
               %{
                 payload: %Update{autoSpeaker: true}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "room:update",
                  "payload" => %{"autoSpeaker" => true},
                  "reference" => uuid

@@ -6,9 +6,9 @@ defmodule Broth.Message.User.GetScheduledRooms do
   embedded_schema do
   end
 
-  import Ecto.Changeset
-
-  def changeset(changeset, _data), do: change(changeset)
+  def changeset(initializer \\ %__MODULE__{}, data) do
+    change(initializer, data)
+  end
 
   defmodule Reply do
     use Broth.Message.Push, operation: "user:get_scheduled_rooms:reply"

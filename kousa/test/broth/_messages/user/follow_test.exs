@@ -13,7 +13,7 @@ defmodule BrothTest.Message.User.FollowTest do
               %{
                 payload: %Follow{followId: ^uuid}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "user:follow",
                  "payload" => %{"followId" => uuid}
                })
@@ -23,7 +23,7 @@ defmodule BrothTest.Message.User.FollowTest do
               %{
                 payload: %Follow{followId: ^uuid}
               }} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "op" => "user:follow",
                  "p" => %{"followId" => uuid}
                })
@@ -31,7 +31,7 @@ defmodule BrothTest.Message.User.FollowTest do
 
     test "omitting the followId is not allowed" do
       assert {:error, %{errors: [followId: {"can't be blank", _}]}} =
-               Broth.Message.validate(%{
+               BrothTest.Support.Message.validate(%{
                  "operator" => "user:follow",
                  "payload" => %{}
                })
