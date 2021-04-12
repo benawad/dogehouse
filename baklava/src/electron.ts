@@ -179,6 +179,7 @@ function createSpalshWindow() {
     resizable: false,
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
     },
   });
   splash.loadFile(
