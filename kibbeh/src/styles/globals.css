@@ -71,7 +71,7 @@ html
 /* for firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-primary-700) rgba(0,0,0,0)
+  scrollbar-color: var(--color-primary-700) rgba(0, 0, 0, 0);
 }
 
 /* for non-firefox */

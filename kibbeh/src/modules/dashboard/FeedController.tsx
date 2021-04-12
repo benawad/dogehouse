@@ -128,7 +128,7 @@ const Page = ({
 export const FeedController: React.FC<FeedControllerProps> = ({}) => {
   const [cursors, setCursors] = useState([0]);
   const { conn } = useContext(WebSocketContext);
-  const { t } = useTypeSafeTranslation()
+  const { t } = useTypeSafeTranslation();
   const [roomModal, setRoomModal] = useState(false);
   const { data } = useTypeSafeQuery("getMyScheduledRoomsAboutToStart", {
     enabled: !!conn,

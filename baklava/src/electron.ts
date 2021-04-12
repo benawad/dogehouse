@@ -17,7 +17,7 @@ import { ALLOWED_HOSTS, isLinux, isMac, MENU_TEMPLATE } from "./constants";
 import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
-import electronLogger from 'electron-log';
+import electronLogger from "electron-log";
 import { setPresence, startRPC } from "./utils/rpc";
 
 let mainWindow: BrowserWindow;
@@ -37,7 +37,7 @@ let PREV_VERSION = "";
 
 i18n.use(Backend);
 
-electronLogger.transports.file.level = "debug"
+electronLogger.transports.file.level = "debug";
 autoUpdater.logger = electronLogger;
 // just in case we have to revert to a build
 autoUpdater.allowDowngrade = true;
@@ -48,13 +48,13 @@ async function localize() {
     debug: false,
     backend: {
       // path where resources get loaded from
-      loadPath: path.join(__dirname, '../locales/{{lng}}/translate.json'),
+      loadPath: path.join(__dirname, "../locales/{{lng}}/translate.json"),
     },
     interpolation: {
-      escapeValue: false
+      escapeValue: false,
     },
     saveMissing: true,
-    fallbackLng: "en"
+    fallbackLng: "en",
   });
 }
 
@@ -65,6 +65,7 @@ function createMainWindow() {
     autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
     },
     show: false,
   });
@@ -87,7 +88,6 @@ function createMainWindow() {
     main: mainWindow,
     overlay: undefined,
   };
-
 
   mainWindow.once("ready-to-show", () => {
     shouldShowWindow = true;
@@ -147,10 +147,10 @@ function createMainWindow() {
   mainWindow.webContents.on("new-window", handleLinks);
   mainWindow.webContents.on("will-navigate", handleLinks);
 
-  ipcMain.on('@app/version', (event, args) => {
-    event.sender.send('@app/version', app.getVersion());
+  ipcMain.on("@app/version", (event, args) => {
+    event.sender.send("@app/version", app.getVersion());
   });
-  ipcMain.on('@dogehouse/loaded', (event, doge) => {
+  ipcMain.on("@dogehouse/loaded", (event, doge) => {
     if (doge != PREV_VERSION) {
       PREV_VERSION = doge;
       if (doge === "kibbeh") {
@@ -162,8 +162,8 @@ function createMainWindow() {
       } else {
         mainWindow.setSize(560, 1000, true);
         setPresence({
-          details: 'Taking DogeHouse to the moon'
-        })
+          details: "Taking DogeHouse to the moon",
+        });
       }
       mainWindow.center();
     }
@@ -178,19 +178,21 @@ function createSpalshWindow() {
     frame: false,
     resizable: false,
     webPreferences: {
-      nodeIntegration: true
-    }
+      nodeIntegration: true,
+    },
   });
-  splash.loadFile(path.join(__dirname, "../resources/splash/splash-screen.html"));
-  splash.webContents.on('did-finish-load', () => {
-    splash.webContents.send('@locale/text', {
-      title: i18n.t('common.title'),
-      check: i18n.t('splash.check'),
-      download: i18n.t('splash.download'),
-      relaunch: i18n.t('splash.relaunch'),
-      launch: i18n.t('splash.launch'),
-      skipCheck: i18n.t('splash.skipCheck'),
-      notfound: i18n.t('splash.notfound')
+  splash.loadFile(
+    path.join(__dirname, "../resources/splash/splash-screen.html")
+  );
+  splash.webContents.on("did-finish-load", () => {
+    splash.webContents.send("@locale/text", {
+      title: i18n.t("common.title"),
+      check: i18n.t("splash.check"),
+      download: i18n.t("splash.download"),
+      relaunch: i18n.t("splash.relaunch"),
+      launch: i18n.t("splash.launch"),
+      skipCheck: i18n.t("splash.skipCheck"),
+      notfound: i18n.t("splash.notfound"),
     });
   });
 }
@@ -209,7 +211,7 @@ if (!instanceLock) {
       if (isLinux && __prod__) {
         skipUpdateCheck(splash);
       }
-    })
+    });
   });
   app.on("second-instance", (event, argv, workingDirectory) => {
     if (mainWindow) {
@@ -220,24 +222,24 @@ if (!instanceLock) {
   });
 }
 
-autoUpdater.on('update-available', info => {
-  splash.webContents.send('download', info);
+autoUpdater.on("update-available", (info) => {
+  splash.webContents.send("download", info);
   // skip the update if it takes more than 1 minute
   skipUpdateTimeout = setTimeout(() => {
     skipUpdateCheck(splash);
   }, 60000);
 });
-autoUpdater.on('download-progress', (progress) => {
-  let prog = Math.floor(progress.percent)
-  splash.webContents.send('percentage', prog);
+autoUpdater.on("download-progress", (progress) => {
+  let prog = Math.floor(progress.percent);
+  splash.webContents.send("percentage", prog);
   splash.setProgressBar(prog / 100);
   // stop timeout that skips the update
   if (skipUpdateTimeout) {
     clearTimeout(skipUpdateTimeout);
   }
 });
-autoUpdater.on('update-downloaded', () => {
-  splash.webContents.send('relaunch');
+autoUpdater.on("update-downloaded", () => {
+  splash.webContents.send("relaunch");
   // stop timeout that skips the update
   if (skipUpdateTimeout) {
     clearTimeout(skipUpdateTimeout);
@@ -246,7 +248,7 @@ autoUpdater.on('update-downloaded', () => {
     autoUpdater.quitAndInstall();
   }, 1000);
 });
-autoUpdater.on('update-not-available', () => {
+autoUpdater.on("update-not-available", () => {
   skipUpdateCheck(splash);
 });
 app.on("window-all-closed", async () => {
@@ -256,15 +258,15 @@ app.on("activate", () => {
   if (mainWindow === null) {
     localize().then(() => {
       createMainWindow();
-    })
+    });
   }
 });
 
 function skipUpdateCheck(splash: BrowserWindow) {
   createMainWindow();
-  splash.webContents.send('notfound');
+  splash.webContents.send("notfound");
   if (isLinux || !__prod__) {
-    splash.webContents.send('skipCheck');
+    splash.webContents.send("skipCheck");
   }
   // stop timeout that skips the update
   if (skipUpdateTimeout) {
@@ -272,7 +274,7 @@ function skipUpdateCheck(splash: BrowserWindow) {
   }
   windowShowInterval = setInterval(() => {
     if (shouldShowWindow) {
-      splash.webContents.send('launch');
+      splash.webContents.send("launch");
       clearInterval(windowShowInterval);
       setTimeout(() => {
         splash.destroy();
@@ -281,4 +283,3 @@ function skipUpdateCheck(splash: BrowserWindow) {
     }
   }, 1000);
 }
-

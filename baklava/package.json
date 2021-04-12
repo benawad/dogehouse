@@ -105,7 +105,7 @@
         "@types/prettier": "^2.2.3",
         "builder-util": "^22.10.5",
         "del-cli": "^3.0.1",
-        "electron": "^11.3.0",
+        "electron": "^12.0.2",
         "electron-build-env": "^0.2.0",
         "electron-builder": "^22.10.5",
         "electron-builder-notarize": "^1.2.0",
