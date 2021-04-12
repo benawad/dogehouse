@@ -23,7 +23,7 @@ defmodule Broth.Message do
 
   def changeset(source, data, state) do
     source
-    |> change()
+    |> cast(data, [:version])
     |> Map.put(:params, data)
     |> find(:operator)
     |> find(:payload)

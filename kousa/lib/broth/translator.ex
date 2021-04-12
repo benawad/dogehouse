@@ -92,6 +92,7 @@ defmodule Broth.Translator do
   def convert_outbound(map, %{version: ~v(0.1.0)}) do
     convert_0_1_0(%{op: map.op, d: map.p, fetchId: map.ref})
   end
+  def convert_outbound(map, _), do: map |> IO.inspect(label: "95")
 
   def convert_0_1_0(map = %{op: "auth:request_reply"}) do
     %{map | op: "auth-good", d: %{user: %{id: map.d.id}}}

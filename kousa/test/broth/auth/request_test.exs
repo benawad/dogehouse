@@ -38,7 +38,7 @@ defmodule KousaTest.Broth.Auth.RequestTest do
           "muted" => false
         })
 
-      WsClient.assert_reply("auth-good", ref, %{"user" => %{"id" => ^user_id}})
+      WsClient.assert_reply("auth:request_reply", ref, %{"id" => ^user_id})
     end
 
     test "fails auth if the accessToken is borked" do
