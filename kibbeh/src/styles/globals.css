@@ -55,11 +55,11 @@ html
   display: flex;
 }
 
-
 /* for non-firefox */
 ::-webkit-scrollbar {
   overflow: overlay;
   width: 8px;
+
   /* shouldnt hardcode width, pls find way to make it dynamic, thin wasn't working for me... */
 }
 
@@ -89,7 +89,6 @@ html
   --color-accent-hover: #fd6868;
   --color-accent-disabled: #f5bfbf;
 }
-
 
 html,
 body,
