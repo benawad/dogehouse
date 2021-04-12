@@ -72,7 +72,7 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
   isOnline,
   avatarUrl,
 }) => {
-  const { t } = useTypeSafeTranslation()
+  const { t } = useTypeSafeTranslation();
   return (
     <div className="flex-col rounded-8 bg-primary-800 p-4 w-full">
       <button onClick={onClick}>
@@ -81,7 +81,7 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
         </div>
         <div>
           <div className="flex-col ml-3">
-            <span className="text-sm text-primary-100 font-bold break-all text-left">
+            <span className="text-sm text-primary-100 font-bold break-all text-left overflow-hidden">
               {displayName}
             </span>
             <span className="text-sm text-primary-300 text-left break-all">
@@ -97,7 +97,9 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
             <span className="text-primary-100 font-bold">
               {kFormatter(numFollowers)}
             </span>{" "}
-            <span className="text-primary-300 ml-1 lowercase">{t("pages.viewUser.followers")}</span>
+            <span className="text-primary-300 ml-1 lowercase">
+              {t("pages.viewUser.followers")}
+            </span>
           </ApiPreloadLink>
         </div>
         <div className="ml-4">
@@ -105,11 +107,15 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
             <span className="text-primary-100 font-bold">
               {kFormatter(numFollowing)}
             </span>
-            <span className="text-primary-300 ml-1 lowercase">{t("pages.viewUser.following")}</span>
+            <span className="text-primary-300 ml-1 lowercase">
+              {t("pages.viewUser.following")}
+            </span>
           </ApiPreloadLink>
         </div>
       </div>
-      <div className="text-primary-300 mt-3 break-words text-left">{bio}</div>
+      <div className="text-primary-300 mt-3 break-words text-left overflow-hidden">
+        {bio}
+      </div>
       {website && <Website website={website} />}
     </div>
   );

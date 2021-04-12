@@ -22,7 +22,7 @@ export const BanUsersForm: React.FC<SearchUsersProps> = ({}) => {
       showErrorToast("nice try");
       replace("/dash");
     }
-  }, []);
+  }, [conn.user.username, replace]);
 
   if (conn.user.username !== "benawad") {
     return <MiddlePanel />;

@@ -36,7 +36,7 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
         with{" "}
         <span
           style={{ marginLeft: 3 }}
-          className={`font-bold text-primary-100`}
+          className={`font-bold text-primary-100 inline-flex overflow-hidden`}
         >
           {names.join(", ")}
         </span>

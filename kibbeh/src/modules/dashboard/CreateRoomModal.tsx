@@ -44,10 +44,10 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
           data
             ? data
             : {
-              name: "",
-              description: "",
-              privacy: "public",
-            }
+                name: "",
+                description: "",
+                privacy: "public",
+              }
         }
         validateOnChange={false}
         validateOnBlur={false}
