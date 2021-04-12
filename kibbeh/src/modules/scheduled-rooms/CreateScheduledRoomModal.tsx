@@ -106,6 +106,7 @@ export const CreateScheduleRoomModal: React.FC<CreateRoomModalProps> = ({
                 />
                 <div className={`mt-4 w-full flex-col`}>
                   <DateTimePicker
+                    className={`cursor-pointer`}
                     value={values.scheduledFor}
                     minDate={new Date()}
                     maxDate={add(new Date(), { months: 6 })}
