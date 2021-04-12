@@ -32,7 +32,7 @@ defmodule Broth.Message.Room.UpdateScheduled do
   end
 
   defmodule Reply do
-    use Broth.Message.Push
+    use Broth.Message.Push, operation: "room:update_scheduled:reply"
 
     @primary_key false
     embedded_schema do

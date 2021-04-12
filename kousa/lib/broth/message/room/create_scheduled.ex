@@ -1,10 +1,11 @@
 defmodule Broth.Message.Room.CreateScheduled do
-  use Broth.Message.Call, reply: __MODULE__
+  use Broth.Message.Call,
+    reply: __MODULE__,
+    operation: "room:create_scheduled:reply"
 
   schema "scheduled_room" do
     field :room, :string
   end
-
 
   def execute(data, state) do
     # TODO: revisit this contract.

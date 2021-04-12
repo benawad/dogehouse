@@ -1,5 +1,7 @@
 defmodule Broth.Message.Room.Update do
-  use Broth.Message.Call, reply: __MODULE__
+  use Broth.Message.Call,
+    reply: __MODULE__,
+    operation: "room:update:reply"
 
   @primary_key false
   schema "rooms" do

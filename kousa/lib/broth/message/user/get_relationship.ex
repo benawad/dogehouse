@@ -22,7 +22,7 @@ defmodule Broth.Message.User.GetRelationship do
   end
 
   defmodule Reply do
-    use Broth.Message.Push
+    use Broth.Message.Push, operation: "user:get_relationship:reply"
 
     @primary_key false
     embedded_schema do

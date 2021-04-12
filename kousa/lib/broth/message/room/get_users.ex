@@ -16,7 +16,7 @@ defmodule Broth.Message.Room.GetUsers do
   end
 
   defmodule Reply do
-    use Broth.Message.Push
+    use Broth.Message.Push, operation: "room:get_users"
 
     @primary_key false
 

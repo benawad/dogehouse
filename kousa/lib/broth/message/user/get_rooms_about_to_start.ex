@@ -12,7 +12,7 @@ defmodule Broth.Message.User.GetRoomsAboutToStart do
   def changeset(changeset, _data), do: change(changeset)
 
   defmodule Reply do
-    use Broth.Message.Push
+    use Broth.Message.Push, operation: "user:get_rooms_about_to_start"
 
     @primary_key false
 

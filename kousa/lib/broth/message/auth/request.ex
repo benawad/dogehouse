@@ -16,7 +16,7 @@ defmodule Broth.Message.Auth.Request do
   alias Kousa.Utils.UUID
 
   @impl true
-  def changeset(data, _state) do
+  def changeset(data) do
     %__MODULE__{}
     |> cast(data, [:accessToken, :refreshToken, :platform, :reconnectToVoice, :muted])
     |> validate_required([:accessToken])
@@ -24,7 +24,7 @@ defmodule Broth.Message.Auth.Request do
   end
 
   defmodule Reply do
-    use Broth.Message.Push
+    use Broth.Message.Push, operation: "auth:request:reply"
     alias Beef.Repo
 
     @derive {Jason.Encoder, only: ~w(

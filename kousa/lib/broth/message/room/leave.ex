@@ -19,12 +19,9 @@ defmodule Broth.Message.Room.Leave do
   def changeset(changeset, _data), do: change(changeset)
 
   defmodule Reply do
-    use Broth.Message.Push
+    use Broth.Message.Push, operation: "room:leave:reply"
 
     @derive {Jason.Encoder, only: []}
-
-    Module.register_attribute(__MODULE__, :reply_operation, persist: true)
-    @reply_operation "you_left_room"
 
     @primary_key false
     embedded_schema do

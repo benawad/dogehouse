@@ -117,11 +117,11 @@ defmodule Broth.SocketHandler do
          # temporarily trap special cased commands
          %{"op" => not_special_case} when not_special_case not in @special_cases <- command_map!,
          # translation from legacy maps to new maps
-         command_map! = Broth.Translator.convert_inbound(command_map!) do
+         command_map! = Broth.Translator.convert_inbound(command_map!) |> IO.inspect(label: "120") do
 
-      command_map!
-      |> Broth.Message.changeset
-      |> dispatch(state)
+      command_map! |> IO.inspect(label: "122")
+      |> Broth.Message.changeset |> IO.inspect(label: "123")
+      |> dispatch(state) |> IO.inspect(label: "124")
     else
       # special cases: mediasoup operations
       _mediasoup_op = %{"op" => "@" <> _} ->
@@ -149,7 +149,7 @@ defmodule Broth.SocketHandler do
     else
       %{errors: errors}
     end
-    
+
     {:reply, prepare_socket_msg(msg, state), state}
   end
 
