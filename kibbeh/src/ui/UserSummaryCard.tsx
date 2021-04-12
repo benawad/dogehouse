@@ -4,6 +4,7 @@ import { SingleUser } from "./UserAvatar";
 import { UserBadge } from "./UserBadge";
 import { kFormatter } from "../lib/kFormatter";
 import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
+import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 
 type badge = {
   content: React.ReactNode;
@@ -71,6 +72,7 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
   isOnline,
   avatarUrl,
 }) => {
+  const { t } = useTypeSafeTranslation()
   return (
     <div className="flex-col rounded-8 bg-primary-800 p-4 w-full">
       <button onClick={onClick}>
@@ -95,7 +97,7 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
             <span className="text-primary-100 font-bold">
               {kFormatter(numFollowers)}
             </span>{" "}
-            <span className="text-primary-300 ml-1">followers</span>
+            <span className="text-primary-300 ml-1 lowercase">{t("pages.viewUser.followers")}</span>
           </ApiPreloadLink>
         </div>
         <div className="ml-4">
@@ -103,7 +105,7 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
             <span className="text-primary-100 font-bold">
               {kFormatter(numFollowing)}
             </span>
-            <span className="text-primary-300 ml-1"> following</span>
+            <span className="text-primary-300 ml-1 lowercase">{t("pages.viewUser.following")}</span>
           </ApiPreloadLink>
         </div>
       </div>

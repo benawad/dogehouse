@@ -48,6 +48,8 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
       <div className="flex flex-row">
         <div className="grid grid-cols-3 gap-2">
           <BoxedIcon
+            transition
+            hover={room.myself.isMuted}
             onClick={room.myself.switchMuted}
             className={room.myself.isMuted ? "bg-accent" : ""}
           >
@@ -63,11 +65,12 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
           >
             <SolidVolume />
           </BoxedIcon> */}
-          <BoxedIcon onClick={onFullscreenClick}>
+          <BoxedIcon transition onClick={onFullscreenClick}>
             <SolidFullscreen />
           </BoxedIcon>
         </div>
         <Button
+          transition
           loading={leaveLoading}
           className="flex-grow ml-4"
           onClick={room.myself.leave}

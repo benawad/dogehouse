@@ -44,7 +44,7 @@ const LoginButton: React.FC<LoginButtonProps> = ({
 
   return (
     <Button
-      className="justify-center text-base py-3"
+      className="justify-center text-base py-3 mt-2"
       color={dev ? "primary" : "secondary"}
       onClick={oauthUrl ? clickHandler : onClick}
     >
@@ -152,11 +152,11 @@ export const LoginPage: React.FC = () => {
           <span className="text-primary-300">unavailable lol</span>
         </div> */}
       </div>
-      <div className="absolute bottom-0 w-full justify-between px-5 py-5 mt-auto items-center sm:px-7">
+      <div className="flex flex-row absolute bottom-0 w-full justify-between px-5 py-5 mt-auto items-center sm:px-7">
         <div className="hidden sm:flex">
           <LgLogo />
         </div>
-        <div className="gap-6 text-primary-300">
+        <div className="flex flex-row gap-6 text-primary-300">
           <a
             href="https://youtu.be/dQw4w9WgXcQ"
             className="hover:text-primary-200"
@@ -165,11 +165,11 @@ export const LoginPage: React.FC = () => {
           </a>
           <a
             href="https://github.com/benawad/dogehouse/issues"
-            className="hover:text-primary-200"
+            className="ml-2 hover:text-primary-200"
           >
             Report a bug
           </a>
-          <div className="gap-6 sm:gap-4">
+          <div className="flex flex-row gap-6 sm:gap-4">
             <a
               href="https://github.com/benawad/dogehouse"
               target="_blank"
@@ -178,7 +178,7 @@ export const LoginPage: React.FC = () => {
               <SvgSolidGitHub
                 width={20}
                 height={20}
-                className="cursor-pointer hover:text-primary-200"
+                className="ml-2 cursor-pointer hover:text-primary-200"
               />
             </a>
             <a
@@ -189,7 +189,7 @@ export const LoginPage: React.FC = () => {
               <SvgSolidDiscord
                 width={20}
                 height={20}
-                className="hover:text-primary-200"
+                className="ml-2 hover:text-primary-200"
               />
             </a>
           </div>

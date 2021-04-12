@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useConn } from "../../shared-hooks/useConn";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
+import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import {
   FollowerOnline,
   FollowersOnlineShowMore,
@@ -7,7 +9,7 @@ import {
 } from "../../ui/FollowersOnline";
 import { InfoText } from "../../ui/InfoText";
 
-interface FriendsOnlineControllerProps {}
+interface FriendsOnlineControllerProps { }
 
 const Page: React.FC<{
   cursor: number;
@@ -15,6 +17,7 @@ const Page: React.FC<{
   isLastPage: boolean;
   isOnlyPage: boolean;
 }> = ({ cursor, isLastPage, isOnlyPage, onLoadMore }) => {
+  const { t } = useTypeSafeTranslation()
   const { data, isLoading } = useTypeSafeQuery(
     ["getMyFollowing", cursor],
     {
@@ -24,7 +27,7 @@ const Page: React.FC<{
   );
 
   if (isOnlyPage && !isLoading && !data?.users.length) {
-    return <InfoText>You have 0 friends online right now</InfoText>;
+    return <InfoText>{t("components.followingOnline.noOnline")}</InfoText>;
   }
 
   return (
@@ -41,8 +44,13 @@ const Page: React.FC<{
   );
 };
 
-export const FollowingOnlineController: React.FC<FriendsOnlineControllerProps> = ({}) => {
+export const FollowingOnlineController: React.FC<FriendsOnlineControllerProps> = ({ }) => {
   const [cursors, setCursors] = useState<number[]>([0]);
+  const conn = useConn();
+
+  if (!conn) {
+    return null;
+  }
 
   return (
     <FollowersOnlineWrapper>

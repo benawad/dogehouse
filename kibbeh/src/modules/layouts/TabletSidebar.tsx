@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { SolidPlus } from "../../icons";
 import { ApiPreloadLink } from "../../shared-components/ApiPreloadLink";
+import { useConn } from "../../shared-hooks/useConn";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { BoxedIcon } from "../../ui/BoxedIcon";
 import { SingleUser } from "../../ui/UserAvatar";
@@ -59,7 +60,11 @@ const Page: React.FC<{
 
 export const TabletSidebar: React.FC<FriendsOnlineControllerProps> = ({}) => {
   const [cursors, setCursors] = useState<number[]>([0]);
-  console.log("heresdas");
+  const conn = useConn();
+
+  if (!conn) {
+    return null;
+  }
 
   return (
     <div className="pb-5 w-full flex flex-col flex-1 overflow-y-auto text-primary-100">

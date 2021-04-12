@@ -42,7 +42,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
               <span className="text-primary-100 font-bold">
                 {kFormatter(user.numFollowers)}
               </span>{" "}
-              <span className="text-primary-300 ml-1">
+              <span className="text-primary-300 ml-1 lowercase">
                 {t("pages.viewUser.followers")}
               </span>
             </ApiPreloadLink>
@@ -55,7 +55,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
               <span className="text-primary-100 font-bold">
                 {kFormatter(user.numFollowing)}
               </span>
-              <span className="text-primary-300 ml-1">
+              <span className="text-primary-300 ml-1 lowercase">
                 {" "}
                 {t("pages.viewUser.following")}
               </span>
@@ -82,7 +82,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
                     ) : (
                       `${chunk} `
                     );
-                  } catch (err) {}
+                  } catch (err) { }
                 })}
               </>
             ))}

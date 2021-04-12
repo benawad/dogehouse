@@ -44,10 +44,10 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
           data
             ? data
             : {
-                name: "",
-                description: "",
-                privacy: "public",
-              }
+              name: "",
+              description: "",
+              privacy: "public",
+            }
         }
         validateOnChange={false}
         validateOnBlur={false}
@@ -98,7 +98,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
                 {edit ? t("pages.home.editRoom") : t("pages.home.createRoom")}
               </h4>
               <p className={`text-primary-300`}>
-                Fill the following fields to start a new room
+                {t("components.modals.createRoomModal.subtitle")}
               </p>
             </div>
             <div className={`h-full w-full col-span-2`}>

@@ -1,13 +1,13 @@
 import { ScheduledRoom } from "@dogehouse/kebab";
 import { differenceInMilliseconds, isPast, isToday, sub } from "date-fns";
 import { useRouter } from "next/router";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { modalConfirm } from "../../shared-components/ConfirmModal";
-import { useConn } from "../../shared-hooks/useConn";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../../ui/Button";
 import { SingleUser } from "../../ui/UserAvatar";
+import { WebSocketContext } from "../ws/WebSocketProvider";
 import { AddToCalendarButton } from "./AddToCalendarButton";
 import { CopyScheduleRoomLinkButton } from "./CopyScheduleRoomLinkButton";
 
@@ -56,7 +56,8 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
       }
     };
   }, [dt]);
-  const me = useConn().user;
+  const { conn } = useContext(WebSocketContext);
+  const me = conn?.user;
   const { t } = useTypeSafeTranslation();
   const isCreator = me?.id === creator.id;
   const url = window.location.origin + `/scheduled-room/${id}`;

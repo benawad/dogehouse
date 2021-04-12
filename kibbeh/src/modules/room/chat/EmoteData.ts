@@ -1509,20 +1509,27 @@ export const customEmojis = [
   },
   {
     name: "ztlul",
-    short_names: ["ztlul, zerotwolul"],
+    short_names: ["ztlul", "zerotwolul"],
     keywords: ["lul", "lol", "anime", "girl", "zerotwo"],
     imageUrl: "/emotes/zerotwolul.png",
   },
   {
     name: "ztsmug",
-    short_names: ["ztsmug, zerotwosmug"],
+    short_names: ["ztsmug", "zerotwosmug"],
     keywords: ["smug", "anime", "girl", "zerotwo"],
     imageUrl: "/emotes/zerotwosmug.png",
   },
   {
     name: "ztthinking",
     short_names: ["ztthinking"],
-    keywords: ["thinking", "think", "anime", "girl", "zerotwo", "zerotwothinking"],
+    keywords: [
+      "thinking",
+      "think",
+      "anime",
+      "girl",
+      "zerotwo",
+      "zerotwothinking",
+    ],
     imageUrl: "/emotes/zerotwothinking.png",
   },
   {

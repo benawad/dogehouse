@@ -37,8 +37,10 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
         {mute ? (
           <BoxedIcon
             transition
-            className="mr-2"
+            hover={mute.isMuted}
+            className={`mr-2 ${mute.isMuted ? `bg-accent` : ``}`}
             color="800"
+            title={t("components.bottomVoiceControl.toggleMuteMicBtn")}
             onClick={() => mute.onMute()}
           >
             {mute.isMuted ? <SolidMicrophoneOff /> : <SolidMicrophone />}
@@ -49,6 +51,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
             transition
             className="mr-2"
             color="800"
+            title={t("components.bottomVoiceControl.inviteUsersToRoomBtn")}
             onClick={onInvitePeopleToRoom}
           >
             {/* @todo swap out right icon */}
@@ -71,6 +74,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
             transition
             className="mr-2"
             color="800"
+            title={t("components.bottomVoiceControl.settings")}
             onClick={onRoomSettings}
           >
             <SolidSettings />
