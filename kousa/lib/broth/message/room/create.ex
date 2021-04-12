@@ -1,9 +1,8 @@
 defmodule Broth.Message.Room.Create do
-  use Ecto.Schema
+  use Broth.Message, call: __MODULE__
 
-  @primary_key false
-  embedded_schema do
-    embeds_one(:room, Beef.Schemas.Room)
+  schema "rooms" do
+    embed_error()
   end
 
   import Ecto.Changeset
@@ -44,16 +43,6 @@ defmodule Broth.Message.Room.Create do
       put_change(changeset, :isPrivate, false)
     else
       changeset
-    end
-  end
-
-  defmodule Reply do
-    use Ecto.Schema
-
-    @derive {Jason.Encoder, only: [:room]}
-    @primary_key false
-    embedded_schema do
-      embeds_one(:room, Beef.Schemas.Room)
     end
   end
 end

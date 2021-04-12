@@ -1,7 +1,7 @@
 defmodule Broth.Message.User.GetRoomsAboutToStart do
   # TODO: consider deprecating this API endpoint.
 
-  use Ecto.Schema
+  use Broth.Message
 
   @primary_key false
   embedded_schema do
@@ -12,12 +12,13 @@ defmodule Broth.Message.User.GetRoomsAboutToStart do
   def changeset(changeset, _data), do: change(changeset)
 
   defmodule Reply do
-    use Ecto.Schema
+    use Broth.Message
 
     @primary_key false
 
     embedded_schema do
       embeds_many(:rooms, Beef.Schemas.ScheduledRoom)
+      embed_error()
     end
   end
 end

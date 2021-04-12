@@ -1,5 +1,5 @@
 defmodule Broth.Message.Room.GetInviteList do
-  use Ecto.Schema
+  use Broth.Message
 
   @primary_key false
   embedded_schema do
@@ -16,7 +16,7 @@ defmodule Broth.Message.Room.GetInviteList do
   end
 
   defmodule Reply do
-    use Ecto.Schema
+    use Broth.Message
 
     @primary_key false
 
@@ -24,6 +24,8 @@ defmodule Broth.Message.Room.GetInviteList do
       embeds_many(:invites, Beef.Schemas.User)
       field(:next_cursor, :integer)
       field(:initial, :boolean)
+
+      embed_error()
     end
   end
 end

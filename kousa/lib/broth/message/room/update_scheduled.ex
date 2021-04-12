@@ -1,5 +1,5 @@
 defmodule Broth.Message.Room.UpdateScheduled do
-  use Ecto.Schema
+  use Broth.Message
 
   @primary_key false
   embedded_schema do
@@ -32,11 +32,13 @@ defmodule Broth.Message.Room.UpdateScheduled do
   end
 
   defmodule Reply do
-    use Ecto.Schema
+    use Broth.Message
 
     @primary_key false
     embedded_schema do
       embeds_one(:room, Beef.Schemas.Room)
+
+      embed_error()
     end
   end
 end

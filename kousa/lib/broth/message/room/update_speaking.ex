@@ -8,7 +8,7 @@ defmodule Broth.Message.Room.UpdateSpeaking do
   parameters of Update call.
   """
 
-  use Ecto.Schema
+  use Broth.Message, call: false
 
   @primary_key false
   embedded_schema do

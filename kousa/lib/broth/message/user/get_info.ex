@@ -1,5 +1,5 @@
 defmodule Broth.Message.User.GetInfo do
-  use Ecto.Schema
+  use Broth.Message
 
   @primary_key false
   embedded_schema do
@@ -18,11 +18,11 @@ defmodule Broth.Message.User.GetInfo do
   end
 
   defmodule Reply do
-    use Ecto.Schema
+    use Broth.Message
 
     @primary_key false
-    embedded_schema do
-      embeds_one(:user, Beef.Schemas.User)
+    schema "user" do
+      embed_error()
     end
   end
 end

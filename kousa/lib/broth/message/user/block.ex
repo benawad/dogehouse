@@ -1,12 +1,10 @@
 defmodule Broth.Message.User.Block do
-  use Ecto.Schema
+  use Broth.Message
 
   @primary_key false
   embedded_schema do
     field(:userId, :binary_id)
   end
-
-  import Ecto.Changeset
 
   def changeset(changeset, data) do
     changeset
@@ -18,12 +16,9 @@ defmodule Broth.Message.User.Block do
     # TODO: make the reply be a schema that returns the entire user
     # database object
 
-    use Ecto.Schema
+    use Broth.Message
 
     @derive {Jason.Encoder, only: [:blocked, :error]}
-
-    Module.register_attribute(__MODULE__, :reply_operation, persist: true)
-    @reply_operation "user:block_reply"
 
     @primary_key false
     embedded_schema do

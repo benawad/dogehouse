@@ -8,7 +8,7 @@ defmodule Broth.Message.Room.Leave do
   parameters of Update call.
   """
 
-  use Ecto.Schema
+  use Broth.Message
 
   @primary_key false
   embedded_schema do
@@ -19,7 +19,7 @@ defmodule Broth.Message.Room.Leave do
   def changeset(changeset, _data), do: change(changeset)
 
   defmodule Reply do
-    use Ecto.Schema
+    use Broth.Message
 
     @derive {Jason.Encoder, only: []}
 
@@ -28,6 +28,7 @@ defmodule Broth.Message.Room.Leave do
 
     @primary_key false
     embedded_schema do
+      embed_error()
     end
   end
 end

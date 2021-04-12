@@ -1,5 +1,5 @@
 defmodule Broth.Message.Chat.SendMsg do
-  use Ecto.Schema
+  use Broth.Message, call: false
 
   alias Broth.Message.Types.ChatToken
 

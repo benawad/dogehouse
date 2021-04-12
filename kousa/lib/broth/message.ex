@@ -133,13 +133,75 @@ defmodule Broth.Message do
 
     # if the operator has a reply submodule then it must be a "call" message.
     # verify that these
-    operator
-    |> Module.concat(Reply)
-    |> function_exported?(:__info__, 1)
-    |> if do
+    if operator.reply_module() do
       validate_required(changeset, [:reference], message: "is required for #{inspect(operator)}")
     else
       changeset
+    end
+  end
+
+  #########################################################################
+  # TOOLSET
+
+  defmacro __using__(opts) do
+    module = __CALLER__.module
+    default_reply_module = Module.concat(module, Reply)
+
+    reply_module = opts
+    |> Keyword.get(:call, default_reply_module)
+    |> Macro.expand_once(__CALLER__)
+
+    reply? = module
+    |> Module.split()
+    |> List.last()
+    |> Kernel.==("Reply")
+
+    reply_boilerplate = unless reply? do
+      quote do
+        @reply_module unquote(reply_module)
+        def reply_module, do: @reply_module
+      end
+    end
+
+    # if something defines both reply module and reply, compile error.
+    if reply? && opts[:reply_module] do
+      raise CompileError,
+        description: "module #{inspect __CALLER__.module} can't define a reply module"
+    end
+
+    quote do
+      use Ecto.Schema
+
+      unquote(reply_boilerplate)
+
+      import Broth.Message, only: [embed_error: 0]
+      import Ecto.Changeset
+
+      @after_compile Broth.Message
+    end
+  end
+
+  defmacro embed_error do
+    quote do
+      Ecto.Schema.field(:error, :string, virtual: true)
+    end
+  end
+
+  def __after_compile__(%{module: module}, _binary) do
+    if function_exported?(module, :reply_module, 0) do
+      if reply_module = module.reply_module() do
+        unless function_exported?(reply_module, :__schema__, 1) do
+          raise CompileError,
+            description:
+              "the reply module for #{inspect module} doesn't exist or isn't a schema"
+        end
+
+        unless :error in Map.keys(reply_module.__struct__()) do
+          raise CompileError,
+            description:
+              "the reply module #{inspect reply_module} doesn't have an error field"
+        end
+      end
     end
   end
 end

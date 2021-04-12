@@ -1,5 +1,5 @@
 defmodule Broth.Message.Room.Join do
-  use Ecto.Schema
+  use Broth.Message
 
   @primary_key false
   embedded_schema do
@@ -18,11 +18,11 @@ defmodule Broth.Message.Room.Join do
   end
 
   defmodule Reply do
-    use Ecto.Schema
+    use Broth.Message
 
     @primary_key false
-    embedded_schema do
-      embeds_one(:room, Beef.Schemas.Room)
+    schema "rooms" do
+      embed_error()
     end
   end
 end

@@ -1,5 +1,5 @@
 defmodule Broth.Message.Auth.Request do
-  use Ecto.Schema
+  use Broth.Message
 
   @primary_key false
   embedded_schema do
@@ -23,20 +23,16 @@ defmodule Broth.Message.Auth.Request do
   end
 
   defmodule Reply do
-    use Ecto.Schema
+    use Broth.Message
 
-    alias Beef.Schemas.User
-    alias Beef.Schemas.Room
-
-    @derive {Jason.Encoder, only: [:user, :currentRoom]}
+    @derive {Jason.Encoder, only: [:id]}
 
     Module.register_attribute(__MODULE__, :reply_operation, persist: true)
     @reply_operation "auth-good"
 
-    @primary_key false
-    embedded_schema do
-      embeds_one(:user, User)
-      embeds_one(:currentRoom, Room)
+    schema "users" do
+
+      embed_error()
     end
 
     def validate(changeset) do

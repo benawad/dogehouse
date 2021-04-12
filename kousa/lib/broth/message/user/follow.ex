@@ -1,12 +1,10 @@
 defmodule Broth.Message.User.Follow do
-  use Ecto.Schema
+  use Broth.Message, call: false
 
   @primary_key false
   embedded_schema do
     field(:followId, :binary_id)
   end
-
-  import Ecto.Changeset
 
   def changeset(changeset, data) do
     changeset

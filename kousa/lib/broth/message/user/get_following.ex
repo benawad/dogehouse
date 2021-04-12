@@ -1,5 +1,5 @@
 defmodule Broth.Message.User.GetFollowing do
-  use Ecto.Schema
+  use Broth.Message
 
   @primary_key false
   embedded_schema do
@@ -16,14 +16,15 @@ defmodule Broth.Message.User.GetFollowing do
   end
 
   defmodule Reply do
-    use Ecto.Schema
+    use Broth.Message
 
     @primary_key false
-
     embedded_schema do
       embeds_many(:followers, Beef.Schemas.User)
       field(:next_cursor, :integer)
       field(:initial, :boolean)
+
+      embed_error()
     end
   end
 end

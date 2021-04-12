@@ -1,5 +1,5 @@
 defmodule Broth.Message.Chat.Ban do
-  use Ecto.Schema
+  use Broth.Message, call: false
 
   @primary_key false
   embedded_schema do
