@@ -77,7 +77,7 @@
     "notFound": {
       "whoopsError": "Whoops! Denna sida blev förlorad i konversationen.",
       "goHomeMessage": "Ingen fara. Du kan",
-      "goHomeLinkText": "gå hem."
+      "goHomeLinkText": "gå hem"
     },
     "room": {
       "speakers": "Talare",
