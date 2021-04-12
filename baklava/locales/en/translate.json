@@ -1,0 +1,13 @@
+{
+  "common": {
+    "title": "Dogehouse"
+  },
+  "splash": {
+    "check": "Checking for updates...",
+    "download": "Downloading Updates...",
+    "relaunch": "Relaunching...",
+    "launch": "Launching...",
+    "skipCheck": "Skipping update checks...",
+    "notfound": "No updates found..."
+  }
+}

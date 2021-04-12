@@ -2,7 +2,7 @@
   "_comment": "if you change this file, do: npm run i18",
   "common": {
     "loadMore": "Mehr laden",
-    "loading": "Lade...",
+    "loading": "Lädt...",
     "noUsersFound": "Keine Benutzer gefunden",
     "ok": "Ok",
     "yes": "Ja",
@@ -15,7 +15,8 @@
     "copyLink": "Link kopieren",
     "copied": "kopiert",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Bitte erteile DogeHouse Browserpermissions."
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -34,10 +35,14 @@
     "followingOnlineList": {
       "listHeader": "Benutzer, denen du folgst, die nicht in einem privaten Raum sind.",
       "currentRoom": "Zurzeit in:",
-      "startPrivateRoom": "Einen privaten Raum mit diesem Benutzer starten"
+      "startPrivateRoom": "Einen privaten Raum mit diesem Benutzer eröffnen"
     },
-    "followList": {},
-    "home": { "createRoom": "Raum erstellen", "refresh": "Aktualisieren" },
+    "followList": { "followHim": "Folgen", "followingHim": "Entfolgen" },
+    "home": {
+      "createRoom": "Raum erstellen",
+      "refresh": "Aktualisieren",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Raum konnte nicht gefunden werden! Zurück",
       "shareRoomLink": "Link zum Raum teilen",
@@ -60,8 +65,10 @@
       "logout": "Abmelden",
       "probablyLoading": "Lädt vermutlich...",
       "voiceSettings": "Spracheinstellungen",
-      "soundSettings": "Toneinstellungen",
-      "deleteAccount": "Konto löschen"
+      "soundSettings": "Soundeinstellungen",
+      "deleteAccount": "Konto löschen",
+      "overlaySettings": "Overlay-Einstellungen löschen",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Hoppla! Diese Seite ging im Gespräch verloren.",
@@ -71,7 +78,9 @@
     "room": {
       "speakers": "Sprecher",
       "requestingToSpeak": "Sprachanfragen",
-      "listeners": "Zuhörer"
+      "listeners": "Zuhörer",
+      "allowAll": "Alle zulassen",
+      "allowAllConfirm": "Bist du sicher? Damit erteilst du {{count}} Benutzern Redeberechtigungen."
     },
     "searchUser": { "search": "Suchen..." },
     "soundEffectSettings": { "header": "Ton" },
@@ -80,8 +89,11 @@
       "followsYou": "folgt dir",
       "following": "Abonniert",
       "followers": "Abonnenten",
-      "followHim": "follow",
-      "followingHim": "following"
+      "followHim": "Folgen",
+      "followingHim": "Folgt bereits",
+      "copyProfileUrl": "Benutzer-Url kopieren",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Entfolgen"
     },
     "voiceSettings": {
       "header": "Spracheinstellungen",
@@ -89,6 +101,12 @@
       "permissionError": "Keine Mikrofone gefunden, es ist entweder keines angeschlosen oder diese Seite besitzt nicht die benötigten Berechtigungen.",
       "volume": "Lautstärke:",
       "refresh": "Mikrofonliste aktualisieren"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Einstellungen",
+      "errorMsg": "Bitte gib einen gültigen App Titel ein",
+      "label": "App Titel eingeben"
     }
   },
   "components": {
@@ -128,7 +146,8 @@
         "roomName": "Raumname",
         "roomDescription": "Raumbeschreibung",
         "descriptionError": "die maximale Länge ist 500",
-        "nameError": "muss zwischen 2 und 60 Zeichen lang sein"
+        "nameError": "muss zwischen 2 und 60 Zeichen lang sein",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Neuen Raum erstellt",
@@ -164,7 +183,9 @@
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Sprechen verlangen",
         "makePublic": "Raum öffentlich machen",
-        "makePrivate": "Raum privat machen"
+        "makePrivate": "Raum privat machen",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     },
     "userVolumeSlider": {
@@ -174,7 +195,8 @@
       "setKeybind": "Tastenkürzel setzen",
       "listening": "Zuhören",
       "toggleMuteKeybind": "Stummschalttaste umschalten",
-      "togglePushToTalkKeybind": "Push-to-Talk Tastenkürzel umschalten"
+      "togglePushToTalkKeybind": "Push-to-Talk Tastenkürzel umschalten",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "wsKilled": {
       "description": "Die Websocket Verbindung zum Server wurde unterbrochen. Dies geschieht normalerweise, wenn du die Website in einem anderen Tab öffnest.",
@@ -188,6 +210,27 @@
     "inviteButton": {
       "invited": "eingeladen",
       "inviteToRoom": "zum Raum einladen"
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
+      }
     }
   },
   "modules": {
@@ -220,16 +263,17 @@
       "roomDescription": "Raumbeschreibung"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
+      "fuelingRocket": "Rakete wird getankt",
+      "takingOff": "Am Abheben",
+      "inSpace": "Im Weltall",
+      "approachingMoon": "Nähert sich dem Mond",
       "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
+      "approachingSun": "Nähert sich der Sonne",
       "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
+      "approachingGalaxy": "Nähert sich einer Galaxie",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

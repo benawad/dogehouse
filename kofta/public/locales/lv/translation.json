@@ -38,7 +38,11 @@
       "startPrivateRoom": "Izveidot privātu istabu ar viņiem"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Izveidot istabu", "refresh": "Atjaunot" },
+    "home": {
+      "createRoom": "Izveidot istabu",
+      "refresh": "Atjaunot",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Istaba pazuda, atgriezieties atpakaļ",
       "shareRoomLink": "Dalīties ar saiti uz istabu",
@@ -87,7 +91,8 @@
       "followHim": "follow",
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard"
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Mikrofona iestatījumi",
@@ -200,7 +205,9 @@
       "roomSettingsModal": {
         "requirePermission": "pieprasīt runāšanas atļauju",
         "makePublic": "padarīt istabu publisku",
-        "makePrivate": "padarīt istabu privātu"
+        "makePrivate": "padarīt istabu privātu",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },

@@ -32,7 +32,7 @@ export const Login: React.FC<LoginProps> = () => {
     if (isElectron() && isMac) {
       modalAlert(t("common.requestPermissions"));
     }
-  }, []);
+  }, [t]);
   return (
     <CenterLayout>
       <Wrapper>
@@ -103,7 +103,7 @@ export const Login: React.FC<LoginProps> = () => {
               variant="slim"
               className={`m-8`}
               onClick={() => {
-                modalPrompt("username", async (name) => {
+                modalPrompt("Username", async (name) => {
                   if (!name) {
                     return;
                   }

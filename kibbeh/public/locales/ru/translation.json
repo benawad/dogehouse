@@ -1,26 +1,27 @@
 {
   "_comment": "if you change this file, do: npm run i18",
   "common": {
-    "loadMore": "загрузить еще",
-    "loading": "загрузка...",
-    "noUsersFound": "пользователи не найдены",
+    "loadMore": "Загрузить еще",
+    "loading": "Загрузка...",
+    "noUsersFound": "Пользователи не найдены",
     "ok": "ОК",
-    "yes": "да",
-    "no": "нет",
-    "cancel": "отмена",
-    "save": "сохранить",
-    "edit": "редактировать",
-    "delete": "удалить",
+    "yes": "Да",
+    "no": "Нет",
+    "cancel": "Отмена",
+    "save": "Сохранить",
+    "edit": "Редактировать",
+    "delete": "Удалить",
     "joinRoom": "Присоединиться к комнате",
     "copyLink": "Скопировать ссылку",
     "copied": "Скопировано",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Работа в DogeHouse без разрешений доступа может привести к непредвиденным ошибкам"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Заглушено | DogeHouse"
+    "mutedTitle": "Приглушено | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -33,11 +34,18 @@
     "banUser": { "ban": "бан" },
     "followingOnlineList": {
       "listHeader": "Список пользователей, которые не в закрытой комнате и на которых вы подписаны.",
-      "currentRoom": "сейчас в :",
-      "startPrivateRoom": "создать с ними закрытую комнату"
+      "currentRoom": "Текущая комната",
+      "startPrivateRoom": "Создать приватную комнату"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Создать комнату", "refresh": "Обновить" },
+    "followList": {
+      "followHim": "Подписаться",
+      "followingHim": "Вы подписаны"
+    },
+    "home": {
+      "createRoom": "Создать комнату",
+      "refresh": "Обновить",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Комната исчезла, вернитесь назад",
       "shareRoomLink": "Поделиться ссылкой на комнату",
@@ -52,36 +60,43 @@
       "featureText_4": "Открытый исходный код",
       "featureText_5": "Текстовый чат",
       "featureText_6": "Работает благодаря Doge",
-      "loginGithub": "войти через GitHub",
-      "loginTwitter": "войти через Twitter",
-      "createTestUser": "создать тестового пользователя"
+      "loginGithub": "Войти через GitHub",
+      "loginTwitter": "Войти через Twitter",
+      "createTestUser": "Создать тестового пользователя"
     },
     "myProfile": {
-      "logout": "выйти",
-      "probablyLoading": "наверное загружается...",
-      "voiceSettings": "зайти в голосовые настройки",
-      "soundSettings": "зайти в настройки звука",
-      "deleteAccount": "удалить аккаунт"
+      "logout": "Выйти",
+      "probablyLoading": "Вероятно загружается...",
+      "voiceSettings": "Голосовые настройки",
+      "soundSettings": "Настройки звука",
+      "deleteAccount": "Удалить аккаунт",
+      "overlaySettings": "Настройки оверлея",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
-      "whoopsError": "Упс! Эта страница была утеряна в разговоре.",
+      "whoopsError": "Упс! Эта страница была потеряна.",
       "goHomeMessage": "Не переживайте. Вы можете ",
       "goHomeLinkText": "вернуться домой"
     },
     "room": {
       "speakers": "Ораторы",
       "requestingToSpeak": "Желающие говорить",
-      "listeners": "Слушатели"
+      "listeners": "Слушатели",
+      "allowAll": "Разрешить всем",
+      "allowAllConfirm": "Вы уверены? Это позволит всем {{count}} пользователям, запрашивающих разрешение, говорить"
     },
-    "searchUser": { "search": "поиск..." },
-    "soundEffectSettings": { "header": "звуки" },
+    "searchUser": { "search": "Поиск..." },
+    "soundEffectSettings": { "header": "Звуки" },
     "viewUser": {
       "editProfile": "редактировать профиль",
       "followsYou": "подписаны на вас",
       "followers": "подписчиков",
-      "following": "подписан на",
-      "followHim": "follow",
-      "followingHim": "following"
+      "following": "подписок",
+      "followHim": "подписаться",
+      "followingHim": "Вы подписаны",
+      "copyProfileUrl": "скопировать URL профиля",
+      "urlCopied": "URL профиля скопирован",
+      "unfollow": "Отписаться"
     },
     "voiceSettings": {
       "header": "Голосовые настройки",
@@ -89,6 +104,13 @@
       "permissionError": "микрофон не найден, он не подключен или браузеру не дано соответствующее разрешение.",
       "refresh": "обновить список микрофонов",
       "volume": "громкость:"
+    },
+    "overlaySettings": {
+      "input": {
+        "errorMsg": "Неправильное название приложения",
+        "label": "Введите название приложения"
+      },
+      "header": "Настройки оверлея"
     }
   },
   "components": {
@@ -110,15 +132,15 @@
       "mute": "Выключить звук",
       "unmute": "Включить звук",
       "makeRoomPublicBtn": "Сделать комнату открытой!",
-      "settings": "Настройки",
-      "speaker": "Оратор",
-      "listener": "Слушатели",
+      "settings": "настройки",
+      "speaker": "оратор",
+      "listener": "слушатель",
       "chat": "Чат"
     },
     "deviceNotSupported": {
       "notSupported": "Ваше устройство не поддерживается. Вы можете создать",
       "linkText": "запрос через GitHub",
-      "addSupport": "и я попробую добавить поддержку для вашего устройства."
+      "addSupport": "и мы попробуем добавить поддержку для вашего устройства."
     },
     "inviteButton": {
       "invited": "приглашен",
@@ -133,12 +155,13 @@
       "setKeybind": "назначить клавишу",
       "listening": "слушает",
       "toggleMuteKeybind": "Активация микрофона при нажатии",
-      "togglePushToTalkKeybind": "Включить режим рации"
+      "togglePushToTalkKeybind": "Включить режим рации",
+      "toggleOverlayKeybind": "переключить привязку клавиши оверлея"
     },
-    "userVolumeSlider": { "noAudioMessage": "почему-то нет аудиосвязи" },
+    "userVolumeSlider": { "noAudioMessage": "нет аудиосвязи" },
     "addToCalendar": { "add": "Добавить в Календарь" },
     "wsKilled": {
-      "description": "Вебсокет был уничтожен сервером. Обычно это происходит когда вы открываете сайт в другой вкладке.",
+      "description": "Вебсокет был удален сервером. Обычно это происходит когда вы открываете сайт в другой вкладке.",
       "reconnect": "присоединиться заново"
     },
     "modals": {
@@ -148,7 +171,8 @@
         "roomName": "название комнаты",
         "roomDescription": "описание комнаты",
         "descriptionError": "максимальная длина 500",
-        "nameError": "длина должна быть от 2 до 60 символов"
+        "nameError": "длина должна быть от 2 до 60 символов",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Новая комната создана",
@@ -184,7 +208,30 @@
       "roomSettingsModal": {
         "requirePermission": "чтобы разговаривать здесь требуется разрешение",
         "makePublic": "сделать комнату публичной",
-        "makePrivate": "сделать комнату приватной"
+        "makePrivate": "сделать комнату приватной",
+        "renamePublic": "Установить название общей комнаты",
+        "renamePrivate": "Установить название приватной комнаты"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -198,10 +245,10 @@
       "scheduleRoomHeader": "Запланированные комнаты",
       "startRoom": "создать комнату",
       "modal": {
-        "needsFuture": "должно начинаца в будущем",
+        "needsFuture": "должно появится в будущем",
         "roomName": "название комнаты",
-        "minLength": "минимальная длина 2",
-        "roomDescription": "Описание"
+        "roomDescription": "Описание",
+        "minLength": "минимальная длина 2"
       }
     },
     "roomChat": {
@@ -218,16 +265,17 @@
       "roomDescription": "описание комнаты"
     },
     "roomStatus": {
-      "fuelingRocket": "Заправка ракеты",
-      "takingOff": "Запуск",
+      "fuelingRocket": "заправляем ракету",
+      "takingOff": "старт двигатерей",
       "inSpace": "В космосе",
-      "approachingMoon": "Приближается к луне",
-      "lunarDoge": "Лунный doge",
-      "approachingSun": "Приближается к солнцу",
-      "solarDoge": "Сонечный doge",
-      "approachingGalaxy": "Приближается к галактике",
-      "galacticDoge": "Галактический doge",
-      "spottedLife": "Замечена планета с жизнью"
-    }
+      "approachingMoon": "приближаемся к луне",
+      "lunarDoge": "лунный Doge",
+      "approachingSun": "приближаемся к солнцу",
+      "solarDoge": "солнечный Doge",
+      "approachingGalaxy": "приближаемся к галактике",
+      "galacticDoge": "галактический Doge",
+      "spottedLife": "замечена планета с жизнью"
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

@@ -15,7 +15,8 @@
     "copyLink": "Kopiraj povezavo",
     "copied": "Kopirano",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,8 +37,12 @@
       "currentRoom": "Trenutno v:",
       "startPrivateRoom": "Začni zasebno sobo s tem uporabnikom"
     },
-    "followList": {},
-    "home": { "createRoom": "Ustvari sobo", "refresh": "Osveži" },
+    "followList": { "followHim": "follow", "followingHim": "following" },
+    "home": {
+      "createRoom": "Ustvari sobo",
+      "refresh": "Osveži",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Sobe ni bilo mogoče najti! Nazaj",
       "shareRoomLink": "Deli povezavo do sobe",
@@ -61,7 +66,9 @@
       "probablyLoading": "Verjetno se nalaga...",
       "voiceSettings": "Nastavitve glasu",
       "soundSettings": "Nastavitve zvoka",
-      "deleteAccount": "Izbriši račun"
+      "deleteAccount": "Izbriši račun",
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Ups! Ta stran se je v pogovoru izgubila.",
@@ -71,7 +78,9 @@
     "room": {
       "speakers": "Govorci",
       "requestingToSpeak": "Zahtevajo dovoljenje za vklop zvoka",
-      "listeners": "Poslušalci"
+      "listeners": "Poslušalci",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Iskanje..." },
     "soundEffectSettings": { "header": "Zvoki" },
@@ -79,7 +88,12 @@
       "editProfile": "Uredi profil",
       "followsYou": "ti sledi",
       "followers": "Sledilci",
-      "following": "Spremljane osebe"
+      "following": "Spremljane osebe",
+      "followHim": "Sledi tej osebi",
+      "followingHim": "Slediš tej osebi",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Nastavitve zvoka",
@@ -87,6 +101,10 @@
       "permissionError": "Mikrofona ni bilo mogoče najti. Morda ni priključen ali pa stran nima potrebnih pravic.",
       "refresh": "Osveži seznam mikrofonov",
       "volume": "Glasnost:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -128,7 +146,8 @@
       "setKeybind": "Nastavi bljižnico",
       "listening": "Poslušaj",
       "toggleMuteKeybind": "Preklopi bližnjico za vklop/izklop mikrofona",
-      "togglePushToTalkKeybind": "Preklopi bližnjico za push-to-talk"
+      "togglePushToTalkKeybind": "Preklopi bližnjico za push-to-talk",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Iz nekega razloga ni odjemalca zvoka"
@@ -145,7 +164,8 @@
         "roomName": "Ime sobe",
         "roomDescription": "Opis sobe",
         "descriptionError": "največ 500 znakov",
-        "nameError": "mora biti dolžine 2 do 60 znakov"
+        "nameError": "mora biti dolžine 2 do 60 znakov",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nova soba ustvarjena",
@@ -181,7 +201,30 @@
       "roomSettingsModal": {
         "requirePermission": "Potrebno dovoljenje za govor",
         "makePublic": "Naredi sobo javno",
-        "makePrivate": "Naredi sobo zasebno"
+        "makePrivate": "Naredi sobo zasebno",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -225,6 +268,7 @@
       "approachingGalaxy": "Approaching galaxy",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Najden planet z življenjem"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

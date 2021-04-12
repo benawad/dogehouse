@@ -1,4 +1,11 @@
+import { ConsumerOptions } from "mediasoup-client/lib/types";
+
 export type UUID = string;
+
+export type RoomPeer = {
+  peerId: UUID;
+  consumerParameters: ConsumerOptions;
+};
 
 export type UserPreview = {
   numFollowers: number;
@@ -30,6 +37,7 @@ export interface ScheduledRoom {
   name: string;
   id: UUID;
   creatorId: UUID;
+  creator: User;
 }
 
 export type User = {
@@ -57,6 +65,8 @@ export type MessageToken<T extends string = string, V = unknown> = {
 export type TextToken = MessageToken<"text", string>;
 export type MentionToken = MessageToken<"mention", string>;
 export type LinkToken = MessageToken<"link", string>;
+export type EmoteToken = MessageToken<"emote", string>;
+export type CodeBlockToken = MessageToken<"block", string>;
 
 export type Message = {
   id: UUID;
@@ -65,6 +75,7 @@ export type Message = {
   color: string;
   displayName: string;
   tokens: MessageToken[];
+  username: string;
   deleted?: boolean;
   deleterId?: UUID;
   sentAt: string;
@@ -74,7 +85,7 @@ export type Message = {
 export type BaseUser = {
   username: string;
   online: boolean;
-  lastOnline: Date;
+  lastOnline: string;
   id: string;
   bio: string;
   displayName: string;
@@ -110,3 +121,5 @@ export type CurrentRoom = Room & {
   activeSpeakerMap: Record<string, boolean>;
   autoSpeaker: boolean;
 };
+
+export type MuteMap = Record<UUID, boolean>;

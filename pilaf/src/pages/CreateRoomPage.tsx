@@ -1,5 +1,7 @@
+import SegmentedControl from "@react-native-segmented-control/segmented-control";
+import { useNavigation } from "@react-navigation/core";
+import { Formik } from "formik";
 import React, { useState } from "react";
-import { Form, Formik } from "formik";
 import {
   KeyboardAvoidingView,
   ScrollView,
@@ -9,9 +11,18 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import SegmentedControl from "@react-native-segmented-control/segmented-control";
-import { colors, fontFamily, fontSize } from "../constants/dogeStyle";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import {
+  colors,
+  fontFamily,
+  fontSize,
+  radius,
+  small,
+} from "../constants/dogeStyle";
+import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
+import { useRoomChatStore } from "../modules/room/chat/useRoomChatStore";
+import { useWrappedConn } from "../shared-hooks/useConn";
+import { useTypeSafePrefetch } from "../shared-hooks/useTypeSafePrefetch";
 
 interface CreateRoomModalProps {
   onRequestClose: () => void;
@@ -29,9 +40,19 @@ export const CreateRoomPage: React.FC<CreateRoomModalProps> = ({
   edit,
 }) => {
   const [segmentIndex, setSegmentIndex] = useState(0);
+  const conn = useWrappedConn();
+  const prefetch = useTypeSafePrefetch();
+  const navigation = useNavigation();
+  const inset = useSafeAreaInsets();
+  const [clearChat] = useRoomChatStore((s) => [s.clearChat]);
   return (
     <KeyboardAvoidingView style={{ flex: 1 }} behavior={"padding"}>
-      <SafeAreaView style={styles.safeAreaView}>
+      <View
+        style={[
+          styles.container,
+          { paddingBottom: 20 + inset.bottom, paddingTop: 20 + inset.top },
+        ]}
+      >
         <Formik<{
           name: string;
           privacy: string;
@@ -60,17 +81,26 @@ export const CreateRoomPage: React.FC<CreateRoomModalProps> = ({
             return errors;
           }}
           onSubmit={async ({ name, privacy, description }) => {
-            console.log(name, privacy, description);
+            const d = { name, privacy, description };
+            const resp = edit
+              ? await conn.mutation.editRoom(d)
+              : await conn.mutation.createRoom(d);
+
+            if ("error" in resp) {
+              //showErrorToast(resp.error);
+
+              return;
+            } else if (resp.room) {
+              const { room } = resp;
+              clearChat();
+              prefetch(["joinRoomAndGetInfo", room.id], [room.id]);
+              useCurrentRoomIdStore.getState().setCurrentRoomId(room.id);
+              navigation.navigate("Room", { roomId: room.id });
+              onRequestClose();
+            }
           }}
         >
-          {({
-            values,
-            setFieldValue,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            errors,
-          }) => (
+          {({ values, setFieldValue, handleChange, handleSubmit, errors }) => (
             <ScrollView keyboardShouldPersistTaps="handled">
               <Text style={styles.titleText}>Create Room</Text>
               <Text style={styles.descriptionText}>
@@ -79,22 +109,19 @@ export const CreateRoomPage: React.FC<CreateRoomModalProps> = ({
               <TextInput
                 placeholder={"Room name"}
                 placeholderTextColor={colors.primary300}
-                style={styles.roomNameEditText}
+                style={[
+                  styles.roomNameEditText,
+                  errors.name && {
+                    borderWidth: 1,
+                    borderColor: colors.secondary,
+                  },
+                ]}
                 autoFocus={true}
                 value={values.name}
                 onChangeText={handleChange("name")}
               />
               {errors.name && (
-                <Text
-                  style={{
-                    marginTop: 4,
-                    fontSize: fontSize.small,
-                    fontFamily: fontFamily.regular,
-                    color: colors.accent,
-                  }}
-                >
-                  {errors.name}
-                </Text>
+                <Text style={styles.errorMessage}>{errors.name}</Text>
               )}
               <SegmentedControl
                 style={styles.segment}
@@ -123,10 +150,19 @@ export const CreateRoomPage: React.FC<CreateRoomModalProps> = ({
                 placeholder={"Room description"}
                 placeholderTextColor={colors.primary300}
                 multiline={true}
-                style={styles.roomDescriptionEditText}
+                style={[
+                  styles.roomDescriptionEditText,
+                  errors.description && {
+                    borderWidth: 1,
+                    borderColor: colors.secondary,
+                  },
+                ]}
                 value={values.description}
                 onChangeText={handleChange("description")}
               />
+              {errors.description && (
+                <Text style={styles.errorMessage}>{errors.description}</Text>
+              )}
               <View style={styles.buttonsContainer}>
                 <TouchableOpacity
                   style={styles.createButton}
@@ -144,18 +180,16 @@ export const CreateRoomPage: React.FC<CreateRoomModalProps> = ({
             </ScrollView>
           )}
         </Formik>
-      </SafeAreaView>
+      </View>
     </KeyboardAvoidingView>
   );
 };
 
 const styles = StyleSheet.create({
-  safeAreaView: {
+  container: {
     flex: 1,
-    padding: 16,
+    padding: 20,
     backgroundColor: colors.primary800,
-    borderTopStartRadius: 8,
-    borderTopEndRadius: 8,
   },
   titleText: {
     fontFamily: fontFamily.extraBold,
@@ -172,7 +206,7 @@ const styles = StyleSheet.create({
     height: 40,
     backgroundColor: colors.primary700,
     paddingHorizontal: 16,
-    borderRadius: 8,
+    borderRadius: radius.m,
     marginTop: 16,
     color: colors.text,
   },
@@ -180,7 +214,7 @@ const styles = StyleSheet.create({
     height: 200,
     backgroundColor: colors.primary700,
     padding: 16,
-    borderRadius: 8,
+    borderRadius: radius.m,
     marginTop: 16,
     color: colors.text,
   },
@@ -193,9 +227,10 @@ const styles = StyleSheet.create({
   createButton: {
     flex: 1,
     backgroundColor: colors.accent,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 8,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: radius.m,
+    height: 38,
   },
   createButtonText: {
     color: colors.text,
@@ -206,10 +241,10 @@ const styles = StyleSheet.create({
   },
   cancelButton: {
     flex: 1,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 8,
-    marginLeft: 16,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: radius.m,
+    height: 38,
   },
   cancelButtonText: {
     color: colors.text,
@@ -217,6 +252,7 @@ const styles = StyleSheet.create({
     fontSize: fontSize.paragraph,
     fontWeight: "700",
     alignSelf: "center",
+    textDecorationLine: "underline",
   },
   segment: {
     marginTop: 16,
@@ -231,5 +267,10 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary700,
     borderWidth: 0,
     color: colors.primary300,
+  },
+  errorMessage: {
+    ...small,
+    marginLeft: 16,
+    color: colors.secondary,
   },
 });

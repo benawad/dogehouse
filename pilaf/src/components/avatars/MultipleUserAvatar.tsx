@@ -1,11 +1,10 @@
 import React from "react";
 import {
+  ImageSourcePropType,
   StyleProp,
   StyleSheet,
   View,
   ViewStyle,
-  Image,
-  ImageSourcePropType,
 } from "react-native";
 import { colors } from "../../constants/dogeStyle";
 import { SingleUserAvatar, singleUserAvatarSize } from "./SingleUserAvatar";
@@ -13,13 +12,15 @@ import { SingleUserAvatar, singleUserAvatarSize } from "./SingleUserAvatar";
 interface MultipleUserAvatarProps {
   style?: StyleProp<ViewStyle>;
   srcArray: ImageSourcePropType[];
-  size?: "default" | "sm" | "xs";
+  size?: "default" | "md" | "sm" | "xs";
+  translationRatio?: number;
 }
 
 export const MultipleUserAvatar: React.FC<MultipleUserAvatarProps> = ({
   srcArray,
   style,
   size = "sm",
+  translationRatio = 2,
 }) => {
   const singleAvatarSize = singleUserAvatarSize[size];
   return (
@@ -27,7 +28,8 @@ export const MultipleUserAvatar: React.FC<MultipleUserAvatarProps> = ({
       style={[
         style,
         {
-          width: ((srcArray.length + 1) * singleAvatarSize) / 2 + 4,
+          width:
+            ((srcArray.length + 1) * singleAvatarSize) / translationRatio + 4,
           height: singleAvatarSize + 4,
         },
       ]}
@@ -39,9 +41,9 @@ export const MultipleUserAvatar: React.FC<MultipleUserAvatarProps> = ({
             style={[
               styles.singleAvatarContainer,
               {
-                left: (i * singleAvatarSize) / 2,
+                left: (i * singleAvatarSize) / translationRatio,
                 borderRadius: (singleAvatarSize + 4) / 2,
-                zIndex: -i,
+                zIndex: 100 - i,
               },
             ]}
           >

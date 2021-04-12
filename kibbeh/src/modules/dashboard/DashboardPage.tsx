@@ -1,23 +1,19 @@
-import React, { useContext } from "react";
+import React from "react";
 import { PageComponent } from "../../types/PageComponent";
-import { useVerifyLoggedIn } from "../auth/useVerifyLoggedIn";
 import { WaitForWsAndAuth } from "../auth/WaitForWsAndAuth";
-import { DesktopLayout } from "../layouts/DesktopLayout";
-import { WebSocketContext } from "../ws/WebSocketProvider";
+import { HeaderController } from "../display/HeaderController";
+import { DefaultDesktopLayout } from "../layouts/DefaultDesktopLayout";
 import { FeedController } from "./FeedController";
-import { FollowingOnlineController } from "./FollowingOnlineController";
-import { ProfileBlockController } from "./ProfileBlockController";
 
 interface LoungePageProps {}
 
 export const DashboardPage: PageComponent<LoungePageProps> = ({}) => {
   return (
     <WaitForWsAndAuth>
-      <DesktopLayout>
-        <FollowingOnlineController />
+      <HeaderController embed={{}} title="Dashboard" />
+      <DefaultDesktopLayout>
         <FeedController />
-        <ProfileBlockController />
-      </DesktopLayout>
+      </DefaultDesktopLayout>
     </WaitForWsAndAuth>
   );
 };

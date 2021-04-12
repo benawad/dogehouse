@@ -1,6 +1,6 @@
 {
     "name": "dogehouse",
-    "version": "1.0.19",
+    "version": "1.0.53",
     "description": "Taking voice conversations to the moon 🚀",
     "main": "./dist/electron.js",
     "scripts": {
@@ -8,16 +8,24 @@
         "watch": "tsc -w",
         "dev": "yarn compile && node ./dist/dev.js",
         "start": "yarn compile && electron ./dist/electron.js",
-        "build": "yarn compile && electron-builder",
-        "build:all": "yarn compile && yarn build:overlay && electron-builder -mwl",
-        "build:mac": "yarn compile && yarn build:overlay && electron-builder --mac",
-        "build:win": "yarn compile && yarn build:overlay && electron-builder --win",
-        "build:linux": "yarn compile && yarn build:overlay && electron-builder --linux",
-        "build:overlay": "cd resources/overlay && yarn build && cd ../../"
+        "gen:i18:keys": "ts-node --project scripts/tsconfig.json scripts/generateTranslationTypes.ts",
+        "sync:i18": "ts-node --project scripts/tsconfig.json scripts/syncTranslations.ts",
+        "i18": "npm run gen:i18:keys && npm run sync:i18",
+        "build:all": "yarn compile && electron-builder -mwl",
+        "build:mac": "yarn compile && electron-builder --mac",
+        "build:win": "yarn compile && electron-builder --win",
+        "build:linux": "yarn compile && electron-builder --linux",
+        "build:overlay": "cd resources/overlay && yarn build && cd ../../",
+        "build:globkey": "yarn remove globkey && yarn add globkey && cd node_modules/globkey && npx electron-build-env nj-cli build --release",
+        "delete:artifacts": "yarn delete:globkey_artifacts && yarn delete:overlay_yarn_cache",
+        "delete:globkey_artifacts": "cd node_modules/globkey && del-cli target src && cd ../../",
+        "delete:overlay_yarn_cache": "cd resources/overlay && del-cli .yarn && cd ../../"
     },
     "keywords": [
         "DogeHouse",
-        "Electron"
+        "Electron",
+        "voice-chat",
+        "Doge"
     ],
     "author": "Ben Awad <benawadapps@gmail.com>",
     "homepage": "https://github.com/benawad/dogehouse/",
@@ -29,26 +37,22 @@
         "url": "https://github.com/benawad/dogehouse/issues"
     },
     "license": "MIT",
-    "devDependencies": {
-        "@types/node": "^14.14.31",
-        "builder-util": "^22.10.5",
-        "electron": "^11.3.0",
-        "electron-builder": "^22.10.5",
-        "typescript": "^4.2.2"
-    },
     "build": {
         "appId": "com.electron.dogehouse",
         "productName": "DogeHouse",
         "asar": true,
+        "afterSign": "electron-builder-notarize",
         "mac": {
+            "hardenedRuntime": true,
             "icon": "icons/icon.png",
             "category": "public.app-category.social-networking",
             "entitlements": "settings/entitlements.mac.plist",
             "extendInfo": {
-                "NSMicrophoneUsageDescription": "Mic access for speeach input in voice."
+                "NSMicrophoneUsageDescription": "Mic access for speech input in voice."
             },
             "target": [
-                "dmg"
+                "dmg",
+                "zip"
             ]
         },
         "win": {
@@ -62,7 +66,23 @@
             "icon": "icons/icon.png",
             "target": [
                 "deb",
-                "AppImage"
+                "AppImage",
+                "snap"
+            ],
+            "category": "AudioVideo"
+        },
+        "snap": {
+            "confinement": "strict",
+            "plugs": [
+                "default",
+                "audio-playback",
+                "audio-record",
+                {
+                    "browser-support": {
+                        "interface": "browser-support",
+                        "allow-sandbox": false
+                    }
+                }
             ]
         },
         "extraMetadata": {
@@ -71,26 +91,39 @@
         "directories": {
             "output": "./builds"
         },
+        "asarUnpack": [
+            "./dist/utils/keybinds/worker.js",
+            "./node_modules/globkey/**/*"
+        ],
         "extends": null
     },
+    "devDependencies": {
+        "@types/discord-rpc": "^3.0.5",
+        "@types/i18next-node-fs-backend": "^2.1.0",
+        "@types/lodash": "^4.14.168",
+        "@types/node": "^14.14.31",
+        "@types/prettier": "^2.2.3",
+        "builder-util": "^22.10.5",
+        "del-cli": "^3.0.1",
+        "electron": "^12.0.2",
+        "electron-build-env": "^0.2.0",
+        "electron-builder": "^22.10.5",
+        "electron-builder-notarize": "^1.2.0",
+        "lodash": "^4.17.21",
+        "prettier": "^2.2.1",
+        "pretty-quick": "^3.1.0",
+        "ts-node": "^9.1.1",
+        "typescript": "^4.2.2"
+    },
     "dependencies": {
+        "discord-rpc": "^3.2.0",
+        "dotenv": "^8.2.0",
+        "electron-log": "^4.3.2",
         "electron-overlay-window": "^1.0.4",
         "electron-updater": "^4.3.8",
-        "iohook": "^0.7.2"
-    },
-    "iohook": {
-        "targets": [
-            "node-83",
-            "electron-85"
-        ],
-        "platforms": [
-            "win32",
-            "darwin",
-            "linux"
-        ],
-        "arches": [
-            "x64"
-        ]
+        "globkey": "^1.0.41",
+        "i18next": "^20.0.0",
+        "i18next-node-fs-backend": "^2.1.3"
     },
     "files": [
         "./icons/**/*",

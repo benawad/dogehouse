@@ -1,1 +1,1 @@
-export const apiBaseUrl = "https://doge-staging.stripcode.dev";
+export const apiBaseUrl = "https://api.dogehouse.tv";

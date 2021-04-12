@@ -37,7 +37,11 @@
       "startPrivateRoom": "Onlarla özel bir oda oluştur"
     },
     "followList": { "followHim": "Takip Et", "followingHim": "Takiptesin" },
-    "home": { "createRoom": "Oda oluştur", "refresh": "Yenile" },
+    "home": {
+      "createRoom": "Oda oluştur",
+      "refresh": "Yenile",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Oda gitti, geri dön",
       "shareRoomLink": "Oda bağlantısını paylaş",
@@ -86,7 +90,8 @@
       "followHim": "Takip Et",
       "followingHim": "Takiptesin",
       "copyProfileUrl": "Profil URL'sini kopyala",
-      "urlCopied": "URL kopyalandı"
+      "urlCopied": "URL kopyalandı",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Ses Ayarları",
@@ -97,7 +102,10 @@
       "refresh": "Mikrofon listesini yenile"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Geçersiz uygulama başlığı", "label": "Uygulama Başlığı Girin" },
+      "input": {
+        "errorMsg": "Geçersiz uygulama başlığı",
+        "label": "Uygulama Başlığı Girin"
+      },
       "header": "Kaplama ayarları"
     }
   },
@@ -173,7 +181,9 @@
       "roomSettingsModal": {
         "requirePermission": "Konuşmak için izne ihtiyacın var",
         "makePublic": "Odayı herkese açık yap",
-        "makePrivate": "Odayı gizli yap"
+        "makePrivate": "Odayı gizli yap",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     },
     "userVolumeSlider": { "noAudioMessage": "Nedense ses alıcısı yok" },

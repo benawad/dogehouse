@@ -16,7 +16,7 @@
     "copied": "kopiart",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Bitte beachte, wennst Dogehouse ohne a Berechtigung rennen lost kennan ungwollte Fehler auftretn."
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -38,7 +38,11 @@
       "startPrivateRoom": "An neichn Raum mit dem Benutzer starten"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Raum erstön", "refresh": "Aktualisiern" },
+    "home": {
+      "createRoom": "Raum erstön",
+      "refresh": "Aktualisiern",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "Den Raum kau ma ned finden. Zruck",
       "shareRoomLink": "Link zum Raum teilen",
@@ -47,7 +51,7 @@
     },
     "login": {
       "headerText": "Wir bringan den Sprochchat zum Mond 🚀",
-      "featureText_1": "Dark-Mode",
+      "featureText_1": "Dunkl-Modus",
       "featureText_2": "Unbeschränkte Registrierung",
       "featureText_3": "Plattformunobhängig",
       "featureText_4": "Open-Source",
@@ -74,8 +78,8 @@
       "speakers": "Sprecha",
       "requestingToSpeak": "Sprochanfrogen",
       "listeners": "Zuhöra",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "Ollen erlaubn",
+      "allowAllConfirm": "Bist da sicha? Dadurch kennan olle {{count}} anfragenden Bnutzer spröchn"
     },
     "searchUser": { "search": "Suachn..." },
     "soundEffectSettings": { "header": "Ton" },
@@ -86,8 +90,9 @@
       "followers": "Abonnenten",
       "followHim": "follow",
       "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard"
+      "copyProfileUrl": "Profil URL kopian",
+      "urlCopied": "URL zua Zwischenablag kopian",
+      "unfollow": "Entfolgn"
     },
     "voiceSettings": {
       "header": "Sprocheinstöllungen",
@@ -97,10 +102,10 @@
       "refresh": "Mikrofonliste aktualisiern"
     },
     "overlaySettings": {
-      "header": "Overlay Settings",
+      "header": "Overlay Einstöllungen",
       "input": {
-        "errorMsg": "Please enter valid app title",
-        "label": "Enter app title"
+        "errorMsg": "Bitte giab an gültign Apptitel aun",
+        "label": "Giab an Apptitel aun."
       }
     }
   },
@@ -177,7 +182,9 @@
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Sprechen verlaungen",
         "makePublic": "Raum öffentlich mochen",
-        "makePrivate": "Raum privat mochen"
+        "makePrivate": "Raum privat mochen",
+        "renamePublic": "Öffentlichn Raumnaum festlegn",
+        "renamePrivate": "Privatn Raumnaum festlegn"
       }
     },
     "userVolumeSlider": {
@@ -234,16 +241,16 @@
       "roomDescription": "Raumbeschreibung"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
+      "fuelingRocket": "Rakete betaunkn",
+      "takingOff": "Auhebn",
+      "inSpace": "Im Wödall",
+      "approachingMoon": "¨Dem Mond aunnähern",
       "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
+      "approachingSun": "Da Sun aunnähern",
       "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "approachingGalaxy": "Da Galaxie aunnähern",
+      "galacticDoge": "Galaktischa Doge",
+      "spottedLife": "Planet mit Lebn gsichtet"
     }
   }
 }

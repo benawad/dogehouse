@@ -14,7 +14,8 @@
     "copyLink": "copy link",
     "copied": "copied",
     "formattedIntlDate": "{{date, intlDate}}",
-    "formattedIntlTime": "{{time, intlTime}}"
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -36,7 +37,11 @@
       "startPrivateRoom": "उनके साथ एक प्राइवेट रूम शुरू करें"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "रूम बनाये", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "रूम बनाये",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "रूम गया, वापस जाए",
       "shareRoomLink": "रूम की लिंक शेयर करें",
@@ -51,8 +56,8 @@
       "featureText_4": "Open Source",
       "featureText_5": "Text Chat",
       "featureText_6": "Powered by Doge",
-      "loginGithub": "login with GitHub",
-      "loginTwitter": "login with Twitter",
+      "loginGithub": "log in with GitHub",
+      "loginTwitter": "log in with Twitter",
       "createTestUser": "create test user"
     },
     "myProfile": {
@@ -60,7 +65,9 @@
       "probablyLoading": "शायद लोड हो रहा है...",
       "voiceSettings": "वॉइस सेटिंग्स में जाएं",
       "soundSettings": "साउंड सेटिंग में जाएं",
-      "deleteAccount": "खाता हटाएं"
+      "deleteAccount": "खाता हटाएं",
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Whoops! This page got lost in conversation.",
@@ -70,7 +77,9 @@
     "room": {
       "speakers": "बोलनेवाले",
       "requestingToSpeak": "बोलने की अनुमति माँग रहे है",
-      "listeners": "सुननेवाले"
+      "listeners": "सुननेवाले",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "खोज करे..." },
     "soundEffectSettings": { "header": "आवाज़" },
@@ -80,7 +89,10 @@
       "followers": "फॉलोअर्स",
       "following": "फॉलोइंग",
       "followHim": "follow",
-      "followingHim": "following"
+      "followingHim": "following",
+      "copyProfileUrl": "copy profile url",
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "आवाज़ की सेटिंग्स",
@@ -88,6 +100,10 @@
       "permissionError": "कोई माइक नहीं मिला, आपने या तो इस वेबसाइट को अनुमति नहीं दी है या माइक प्लग इन नहीं किया है।",
       "refresh": "रिफ्रेश माइक लिस्ट",
       "volume": "volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
     }
   },
   "components": {
@@ -129,7 +145,8 @@
       "setKeybind": "शॉर्टकट सैट करें",
       "listening": "सुन रहे है",
       "toggleMuteKeybind": "टॉगल म्यूट कीबाइंड",
-      "togglePushToTalkKeybind": "टॉगल push-to-talk कीबाइंड"
+      "togglePushToTalkKeybind": "टॉगल push-to-talk कीबाइंड",
+      "toggleOverlayKeybind": "toggle overlay keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "किसी कारण से कोई ऑडियो उपभोक्ता नहीं है"
@@ -146,7 +163,8 @@
         "roomName": "रूम का नाम",
         "roomDescription": "रूम के बारे में",
         "descriptionError": "500 अक्षर से कम ",
-        "nameError": "2 अक्षर से जयादा और 60 अक्षर से कम के बीच में होने चाहए"
+        "nameError": "2 अक्षर से जयादा और 60 अक्षर से कम के बीच में होने चाहए",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "नया रूम बन गया है",
@@ -182,7 +200,30 @@
       "roomSettingsModal": {
         "requirePermission": "बोलने की अनुमति की आवश्यकता है",
         "makePublic": "रूम को सार्वजनिक करें",
-        "makePrivate": "रूम को प्राइवेट करें!"
+        "makePrivate": "रूम को प्राइवेट करें!",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -226,6 +267,7 @@
       "approachingGalaxy": "Approaching galaxy",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

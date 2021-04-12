@@ -38,7 +38,11 @@
       "startPrivateRoom": "stofnaðu einkaspjallrásin með þeim"
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
-    "home": { "createRoom": "Stofna Spjallrás", "refresh": "Refresh" },
+    "home": {
+      "createRoom": "Stofna Spjallrás",
+      "refresh": "Refresh",
+      "editRoom": "Edit Room"
+    },
     "inviteList": {
       "roomGone": "rásin horfið, farðu tíl baka",
       "shareRoomLink": "deila hlekknum í herbergið",
@@ -87,7 +91,8 @@
       "followHim": "follow",
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard"
+      "urlCopied": "URL copied to clipboard",
+      "unfollow": "Unfollow"
     },
     "voiceSettings": {
       "header": "Talstillingar",
@@ -194,7 +199,9 @@
       "roomSettingsModal": {
         "requirePermission": "þurfa leyfi til að tala",
         "makePublic": "opinbera rás",
-        "makePrivate": "gera að einkarás"
+        "makePrivate": "gera að einkarás",
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     }
   },
