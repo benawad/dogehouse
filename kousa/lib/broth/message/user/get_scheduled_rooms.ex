@@ -1,6 +1,6 @@
 defmodule Broth.Message.User.GetScheduledRooms do
   # TODO: consider deprecating this API endpoint.
-  use Broth.Message
+  use Broth.Message.Call
 
   @primary_key false
   embedded_schema do
@@ -11,7 +11,7 @@ defmodule Broth.Message.User.GetScheduledRooms do
   def changeset(changeset, _data), do: change(changeset)
 
   defmodule Reply do
-    use Broth.Message
+    use Broth.Message.Push
 
     @primary_key false
 

@@ -1,5 +1,5 @@
 defmodule Broth.Message.Chat.SendMsg do
-  use Broth.Message, call: false
+  use Broth.Message.Cast
 
   alias Broth.Message.Types.ChatToken
 
@@ -97,5 +97,15 @@ defmodule Broth.Message.Chat.SendMsg do
     end
   catch
     :format_error -> add_error(changeset, :whisperedTo, "is invalid")
+  end
+
+  def execute(%{tokens: tokens, whisperedTo: whisperedTo}, state) do
+
+    Kousa.RoomChat.send_msg(
+      state.user_id,
+      tokens,
+      whisperedTo)
+
+    {:ok, state}
   end
 end

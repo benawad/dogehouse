@@ -1,5 +1,5 @@
 defmodule Broth.Message.Room.DeleteScheduled do
-  use Broth.Message
+  use Broth.Message.Call
 
   @primary_key false
   embedded_schema do
@@ -18,7 +18,7 @@ defmodule Broth.Message.Room.DeleteScheduled do
   end
 
   defmodule Reply do
-    use Broth.Message
+    use Broth.Message.Push
 
     @primary_key false
     embedded_schema do

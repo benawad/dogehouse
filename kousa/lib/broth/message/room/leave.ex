@@ -8,7 +8,7 @@ defmodule Broth.Message.Room.Leave do
   parameters of Update call.
   """
 
-  use Broth.Message
+  use Broth.Message.Call
 
   @primary_key false
   embedded_schema do
@@ -19,7 +19,7 @@ defmodule Broth.Message.Room.Leave do
   def changeset(changeset, _data), do: change(changeset)
 
   defmodule Reply do
-    use Broth.Message
+    use Broth.Message.Push
 
     @derive {Jason.Encoder, only: []}
 
@@ -29,6 +29,16 @@ defmodule Broth.Message.Room.Leave do
     @primary_key false
     embedded_schema do
       embed_error()
+    end
+  end
+
+  def execute(_, state) do
+    case Kousa.Room.leave_room(state.user_id) do
+      {:ok, d} ->
+        {:reply, %Reply{}, state}
+
+      _ ->
+        {:ok, state}
     end
   end
 end

@@ -1,5 +1,5 @@
 defmodule Broth.Message.Chat.DeleteMsg do
-  use Broth.Message, call: false
+  use Broth.Message.Call
 
   @primary_key false
   embedded_schema do

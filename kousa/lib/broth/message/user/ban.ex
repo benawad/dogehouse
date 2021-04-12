@@ -1,5 +1,5 @@
 defmodule Broth.Message.User.Ban do
-  use Broth.Message
+  use Broth.Message.Call
 
   @primary_key false
   embedded_schema do
@@ -16,7 +16,7 @@ defmodule Broth.Message.User.Ban do
   end
 
   defmodule Reply do
-    use Broth.Message
+    use Broth.Message.Push
 
     @derive {Jason.Encoder, only: [:error]}
 

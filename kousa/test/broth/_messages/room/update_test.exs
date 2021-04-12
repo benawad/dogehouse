@@ -12,7 +12,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
     test "it populates update fields", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %Update{room: %Room{name: "foobar"}}
+                payload: %Update{name: "foobar"}
               }} =
                Broth.Message.validate(%{
                  "operator" => "room:update",
@@ -23,7 +23,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
       # short form also allowed
       assert {:ok,
               %{
-                payload: %Update{room: %Room{name: "foobar"}}
+                payload: %Update{name: "foobar"}
               }} =
                Broth.Message.validate(%{
                  "op" => "room:update",
@@ -54,7 +54,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
     test "it validates", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %Update{room: %Room{description: "foobar"}}
+                payload: %Update{description: "foobar"}
               }} =
                Broth.Message.validate(%{
                  "operator" => "room:update",
@@ -68,7 +68,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
     test "it validates", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %Update{room: %Room{isPrivate: true}}
+                payload: %Update{isPrivate: true}
               }} =
                Broth.Message.validate(%{
                  "operator" => "room:update",
@@ -82,7 +82,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
     test "it validates", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %Update{room: %Room{autoSpeaker: true}}
+                payload: %Update{autoSpeaker: true}
               }} =
                Broth.Message.validate(%{
                  "operator" => "room:update",

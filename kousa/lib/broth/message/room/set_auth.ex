@@ -1,5 +1,5 @@
 defmodule Broth.Message.Room.SetAuth do
-  use Broth.Message, call: false
+  use Broth.Message.Cast
 
   @primary_key false
   embedded_schema do
@@ -16,5 +16,10 @@ defmodule Broth.Message.Room.SetAuth do
     |> cast(data, [:userId, :level])
     |> validate_required([:userId, :level])
     |> UUID.normalize(:userId)
+  end
+
+  def execute(%{userId: user_id, level: level}, state) do
+    Kousa.Room.set_auth(user_id, level, by: state.user_id)
+    {:ok, state}
   end
 end

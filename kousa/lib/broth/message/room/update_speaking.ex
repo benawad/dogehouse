@@ -8,14 +8,12 @@ defmodule Broth.Message.Room.UpdateSpeaking do
   parameters of Update call.
   """
 
-  use Broth.Message, call: false
+  use Broth.Message.Cast
 
   @primary_key false
   embedded_schema do
     field(:isSpeaking, :boolean)
   end
-
-  import Ecto.Changeset
 
   def changeset(changeset, data) do
     changeset

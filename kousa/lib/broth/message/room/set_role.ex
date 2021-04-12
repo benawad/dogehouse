@@ -1,5 +1,5 @@
 defmodule Broth.Message.Room.SetRole do
-  use Broth.Message, call: false
+  use Broth.Message.Cast
 
   @primary_key false
   embedded_schema do
@@ -15,5 +15,10 @@ defmodule Broth.Message.Room.SetRole do
     |> cast(data, [:userId, :role])
     |> validate_required([:userId, :role])
     |> UUID.normalize(:userId)
+  end
+
+  def execute(%{userId: user_id, role: role}, state) do
+    Kousa.Room.set_role(user_id, role, by: state.user_id)
+    {:ok, state}
   end
 end

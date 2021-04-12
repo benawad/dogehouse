@@ -1,5 +1,5 @@
 defmodule Broth.Message.Chat.Ban do
-  use Broth.Message, call: false
+  use Broth.Message.Cast
 
   @primary_key false
   embedded_schema do

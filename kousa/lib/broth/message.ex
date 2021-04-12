@@ -21,7 +21,7 @@ defmodule Broth.Message do
     original_operator: String.t
   }
 
-  def changeset(source, data, state) do
+  def changeset(source \\ %__MODULE__{}, data) do
     source
     |> cast(data, [:version])
     |> Map.put(:params, data)
@@ -31,7 +31,7 @@ defmodule Broth.Message do
     |> cast_operator
     |> internal_cast([:operator, :reference])
     |> validate_required([:operator])
-    |> cast_payload(state)
+    |> cast_payload()
     |> validate_calls_have_references
   end
 
@@ -112,27 +112,20 @@ defmodule Broth.Message do
   end
 
   defp cast_payload(changeset = %{valid?: false}, _state), do: changeset
-  defp cast_payload(changeset, state) do
+  defp cast_payload(changeset) do
     operator = get_field(changeset, :operator)
     changeset.params["payload"]
-    |> operator.changeset(state)
-    |> apply_action(:validate)
+    |> operator.changeset()
     |> case do
-      {:ok, contract} ->
-        put_change(changeset, :payload, contract)
+      inner_changeset = %{valid?: true} ->
+        put_change(changeset, :payload, inner_changeset)
 
-      {:error, inner_changeset} ->
+      inner_changeset = %{valid?: false} ->
         %{changeset | errors: inner_changeset.errors, valid?: false}
     end
   end
 
   defp internal_cast(changeset, fields),  do: cast(changeset, changeset.params, fields)
-
-  def validate(data, state) do
-    %__MODULE__{} 
-    |> changeset(data, state) 
-    |> apply_action(:validate) 
-  end
 
   defp validate_calls_have_references(changeset = %{valid?: false}), do: changeset
 
@@ -147,9 +140,6 @@ defmodule Broth.Message do
       changeset
     end
   end
-
-  #########################################################################
-  # JSON Encoding
 
   # encoding will only happen on egress out to the websocket.
   defimpl Jason.Encoder do
@@ -168,72 +158,11 @@ defmodule Broth.Message do
   end
 
   #########################################################################
-  # TOOLSET
-
-  # TODO: make the struct definition more restrictive.
-  @callback changeset(map, Broth.SocketHandler.state) :: Ecto.Changeset.t
-  @callback changeset(t, map) :: Ecto.Changeset.t
-
-  defmacro __using__(opts) do
-    module = __CALLER__.module
-    default_reply_module = Module.concat(module, Reply)
-
-    reply_module = opts
-    |> Keyword.get(:call, default_reply_module)
-    |> Macro.expand_once(__CALLER__)
-
-    reply? = module
-    |> Module.split()
-    |> List.last()
-    |> Kernel.==("Reply")
-
-    reply_boilerplate = unless reply? do
-      quote do
-        @reply_module unquote(reply_module)
-        def reply_module, do: @reply_module
-      end
-    end
-
-    # if something defines both reply module and reply, compile error.
-    if reply? && opts[:reply_module] do
-      raise CompileError,
-        description: "module #{inspect __CALLER__.module} can't define a reply module"
-    end
-
-    quote do
-      use Ecto.Schema
-
-      unquote(reply_boilerplate)
-
-      import Broth.Message, only: [embed_error: 0]
-      import Ecto.Changeset
-
-      @after_compile Broth.Message
-      @behaviour Broth.Message
-    end
-  end
+  # common message tools
 
   defmacro embed_error do
     quote do
       Ecto.Schema.field(:error, :string, virtual: true)
-    end
-  end
-
-  def __after_compile__(%{module: module}, _binary) do
-    if function_exported?(module, :reply_module, 0) do
-      if reply_module = module.reply_module() do
-        unless function_exported?(reply_module, :__schema__, 1) do
-          raise CompileError,
-            description:
-              "the reply module for #{inspect module} doesn't exist or isn't a schema"
-        end
-
-        unless :error in Map.keys(reply_module.__struct__()) do
-          raise CompileError,
-            description:
-              "the reply module #{inspect reply_module} doesn't have an error field"
-        end
-      end
     end
   end
 end

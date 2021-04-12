@@ -1,12 +1,11 @@
 defmodule Broth.Message.Room.Ban do
-  use Broth.Message, call: false
+  use Broth.Message.Cast
 
   @primary_key false
   embedded_schema do
     field(:userId, :binary_id)
   end
 
-  import Ecto.Changeset
   alias Kousa.Utils.UUID
 
   def changeset(changeset, data) do

@@ -3,7 +3,7 @@ defmodule Broth.Message.User.GetRelationship do
   # FULLY OPTIMIZED, IT SHOULD BE POSSIBLE TO GLEAN THIS INFORMATION OFF
   # OF PRELOAD INFORMATION.
 
-  use Broth.Message
+  use Broth.Message.Call
 
   @primary_key false
   embedded_schema do
@@ -22,8 +22,8 @@ defmodule Broth.Message.User.GetRelationship do
   end
 
   defmodule Reply do
-    use Broth.Message
-    
+    use Broth.Message.Push
+
     @primary_key false
     embedded_schema do
       embeds_one(:relationship, Broth.Message.Types.Relationship)

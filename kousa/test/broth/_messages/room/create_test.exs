@@ -12,7 +12,7 @@ defmodule BrothTest.Message.Room.CreateTest do
     test "it populates create fields", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %Create{room: %Room{name: "foobar"}}
+                payload: %Create{name: "foobar"}
               }} =
                Broth.Message.validate(%{
                  "operator" => "room:create",
@@ -23,7 +23,7 @@ defmodule BrothTest.Message.Room.CreateTest do
       # short form also allowed
       assert {:ok,
               %{
-                payload: %Create{room: %Room{name: "foobar"}}
+                payload: %Create{name: "foobar"}
               }} =
                Broth.Message.validate(%{
                  "op" => "room:create",
@@ -63,7 +63,7 @@ defmodule BrothTest.Message.Room.CreateTest do
     test "it validates", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %Create{room: %Room{isPrivate: true}}
+                payload: %Create{isPrivate: true}
               }} =
                Broth.Message.validate(%{
                  "operator" => "room:create",
