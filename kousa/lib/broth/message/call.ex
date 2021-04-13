@@ -65,7 +65,7 @@ defmodule Broth.Message.Call do
 
   @callback initialize(SocketHandler.state()) :: struct
 
-  @callback changeset(struct, Broth.json()) :: Ecto.Changeset.t()
+  @callback changeset(struct | nil, Broth.json()) :: Ecto.Changeset.t()
   @callback changeset(Broth.json()) :: Ecto.Changeset.t()
 
   @optional_callbacks [operation: 0]

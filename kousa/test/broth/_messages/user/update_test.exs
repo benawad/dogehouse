@@ -1,6 +1,6 @@
 defmodule BrothTest.Message.User.UpdateTest do
   use ExUnit.Case, async: true
-  use Kousa.Support.EctoSandbox
+  use KousaTest.Support.EctoSandbox
 
   @moduletag :message
 

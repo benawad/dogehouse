@@ -3,7 +3,7 @@ defmodule Kousa.Beef.UsersTest do
   # TODO: organize this into the correct context.
 
   use ExUnit.Case, async: true
-  use Kousa.Support.EctoSandbox
+  use KousaTest.Support.EctoSandbox
 
   alias Beef.Schemas.Room
   alias Beef.Schemas.User

@@ -1,6 +1,6 @@
 defmodule KousaTest.Broth.User.BlockTest do
   use ExUnit.Case, async: true
-  use Kousa.Support.EctoSandbox
+  use KousaTest.Support.EctoSandbox
 
   alias Beef.Schemas.User
   alias Broth.WsClient

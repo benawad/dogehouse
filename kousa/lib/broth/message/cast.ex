@@ -22,7 +22,7 @@ defmodule Broth.Message.Cast do
   alias Ecto.Changeset
 
   @callback changeset(Broth.json()) :: Ecto.Changeset.t()
-  @callback changeset(struct, Broth.json()) :: Ecto.Changeset.t()
+  @callback changeset(struct | nil, Broth.json()) :: Ecto.Changeset.t()
 
   @callback initialize(SocketHandler.state()) :: struct()
 

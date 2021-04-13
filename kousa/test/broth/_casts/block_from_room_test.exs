@@ -1,6 +1,6 @@
 defmodule KousaTest.Broth.BlockFromRoomTest do
   use ExUnit.Case, async: true
-  use Kousa.Support.EctoSandbox
+  use KousaTest.Support.EctoSandbox
 
   import KousaTest.Support.Deprecations
 

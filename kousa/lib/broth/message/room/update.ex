@@ -8,30 +8,23 @@ defmodule Broth.Message.Room.Update do
     field(:name, :string)
     field(:description, :string)
     field(:isPrivate, :boolean)
-    field(:autoSpeaker, :string)
+    field(:autoSpeaker, :boolean)
   end
 
-  def room_changeset(changeset, data) do
-    cast(changeset, data, ~w(description isPrivate name autoSpeaker)a)
-  end
-
-  def execute(%{room: room}, state) do
-    update =
-      room
-      |> Map.take([:name, :isPrivate, :description])
-      # must not have nil values
-      |> Enum.filter(&valid?/1)
-      |> Map.new()
-
-    # TODO: make this a proper changeset-mediated alteration.
-    case Kousa.Room.update(state.user_id, update) do
-      {:error, changeset} ->
-        raise "foobar"
-
-      {:ok, room} ->
-        raise "foo"
-        # {:reply, %__MODULE__{name: room}, state}
+  def initialize(state) do
+    if room = Beef.Rooms.get_room_by_creator_id(state.user_id) do
+      struct(__MODULE__, Map.from_struct(room))
     end
+  end
+
+  def changeset(initializer \\ %__MODULE__{}, data) do
+    initializer
+    |> cast(data, ~w(description isPrivate name autoSpeaker)a)
+    |> validate_required([:name])
+  end
+
+  def execute(xxx, state) do
+    raise "ZZZ"
   end
 
   # a bit hacky -- will need to refactor using proper db changesets in

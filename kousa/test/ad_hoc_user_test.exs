@@ -1,6 +1,6 @@
 defmodule KousaTest.AdHocUserTest do
   use ExUnit.Case, async: true
-  use Kousa.Support.EctoSandbox
+  use KousaTest.Support.EctoSandbox
 
   @moduledoc """
   ad-hoc test set to give coverage for all modules

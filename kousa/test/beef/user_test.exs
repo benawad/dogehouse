@@ -1,7 +1,7 @@
 defmodule Kousa.Beef.UserTest do
   # allow tests to run in parallel
   use ExUnit.Case, async: true
-  use Kousa.Support.EctoSandbox
+  use KousaTest.Support.EctoSandbox
 
   alias Kousa.Support.Factory
   alias Beef.Follows
