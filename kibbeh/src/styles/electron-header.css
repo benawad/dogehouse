@@ -1,0 +1,44 @@
+.electron-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  height: 30px;
+  background-color: var(--color-primary-700);
+  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: stretch;
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+.electron-header-cont {
+  margin-top: 30px;
+}
+
+.header-image-cont {
+  display: block;
+}
+
+.header-title {
+  padding-left: 5px;
+  color: #fd4d4d;
+  font-size: small;
+  font-weight: 700;
+  font-family: "Inter";
+}
+
+.header-icons {
+  color: #ffffff;
+  position: fixed;
+  right: 0;
+  padding-top: 2px;
+  display: flex;
+  margin-right: 16px;
+}
+
+.header-icon {
+  width: 10px;
+  height: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
