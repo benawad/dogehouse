@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import {
   SolidCompass,
   SolidFriends,
@@ -6,10 +6,13 @@ import {
   SolidMicrophoneOff,
   SolidSettings,
 } from "../icons";
+import { showErrorToast } from "../lib/showErrorToast";
+import { useDevices } from "../shared-hooks/useDevices";
 import { useScreenType } from "../shared-hooks/useScreenType";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { BoxedIcon } from "./BoxedIcon";
 import { Button } from "./Button";
+import { ErrorToast } from "./ErrorToast";
 
 interface RoomPanelIconBarProps {
   mute?: {
@@ -31,6 +34,18 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
 }) => {
   const { t } = useTypeSafeTranslation();
   const screenType = useScreenType();
+  const { devices } = useDevices();
+
+  useEffect(() => {
+    if (devices.length === 0) {
+      showErrorToast(t("pages.voiceSettings.permissionError"));
+    }
+  }, [devices.length, t]);
+
+  // {devices.length === 0 && (
+  //   <ErrorToast message={t("pages.voiceSettings.permissionError")} />
+  // )}
+
   return (
     <div className="justify-between bg-primary-700 rounded-b-8 py-3 px-4 w-full">
       <div>
@@ -81,7 +96,6 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
           </BoxedIcon>
         ) : null}
       </div>
-
       <Button
         transition
         className={`ml-2`}
