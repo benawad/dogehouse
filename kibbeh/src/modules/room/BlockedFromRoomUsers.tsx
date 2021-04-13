@@ -86,7 +86,7 @@ export const BlockedFromRoomUsersPage: React.FC<{
           className={`border-b border-solid w-full flex py-4 px-2 items-center`}
           key={profile.id}
         >
-          <div>
+          <div className="flex">
             <SingleUser size="md" src={profile.avatarUrl} />
           </div>
           <div className={`flex ml-4 flex-1 mr-4`}>

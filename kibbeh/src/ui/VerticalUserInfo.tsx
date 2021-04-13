@@ -34,7 +34,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
           {/* <Badges badges={badges} /> */}
         </div>
         <div className="flex mt-2">
-          <div>
+          <div className="flex">
             <ApiPreloadLink
               route="followers"
               data={{ username: user.username }}

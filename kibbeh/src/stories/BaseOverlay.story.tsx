@@ -34,7 +34,7 @@ export const Messages: Story<BaseOverlayProps> = ({
   title = "Messages",
   actionButton: actionLabel = "Show More",
 }) => (
-  <div style={{ width: 444 }}>
+  <div className="flex" style={{ width: 444 }}>
     <BaseOverlay title={title} actionButton={actionLabel}>
       <MessageElement user={user} msg={msg} />
       <MessageElement user={user} msg={msg} />
@@ -56,7 +56,7 @@ function IconWrapper({ children }: IconWrapperProps) {
 export const Notifications: Story<BaseOverlayProps> = ({
   title = "Notifications",
 }) => (
-  <div style={{ width: 444 }}>
+  <div className="flex" style={{ width: 444 }}>
     <BaseOverlay title={title}>
       <IconWrapper>
         <GenericNotification
@@ -86,7 +86,7 @@ Notifications.bind({});
 export const Settings: Story<BaseOverlayProps> = ({
   actionButton: actionLabel = "Log out",
 }) => (
-  <div style={{ width: 200 }}>
+  <div className="flex" style={{ width: 200 }}>
     <BaseOverlay actionButton={actionLabel}>
       <div className="flex flex flex-col">
         <SettingsIcon

@@ -55,7 +55,7 @@ export default {
 export const ScheduledRoom: Story<ScheduledRoomSummaryCardProps> = ({
   ...props
 }) => (
-  <div style={{ width: 365 }}>
+  <div className="flex" style={{ width: 365 }}>
     <ScheduledRoomSummaryCard {...props} {...upcomingRooms[2]} />
   </div>
 );
@@ -63,7 +63,7 @@ export const ScheduledRoom: Story<ScheduledRoomSummaryCardProps> = ({
 ScheduledRoom.bind({});
 
 export const Main: Story<UpcomingRoomsCardProps> = ({ ...props }) => (
-  <div style={{ width: 365 }}>
+  <div className="flex" style={{ width: 365 }}>
     <UpcomingRoomsCard {...props} rooms={upcomingRooms} />
   </div>
 );

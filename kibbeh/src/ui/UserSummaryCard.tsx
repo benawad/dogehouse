@@ -76,7 +76,7 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
   return (
     <div className="flex flex-col rounded-8 bg-primary-800 p-4 w-full">
       <button onClick={onClick}>
-        <div>
+        <div className="flex">
           <SingleUser size="default" isOnline={isOnline} src={avatarUrl} />
         </div>
         <div className="flex mt-2">
@@ -92,7 +92,7 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
         </div>
       </button>
       <div className="flex mt-3">
-        <div>
+        <div className="flex">
           <ApiPreloadLink route="followers" data={{ username }}>
             <span className="text-primary-100 font-bold">
               {kFormatter(numFollowers)}

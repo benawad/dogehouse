@@ -80,7 +80,7 @@ const Page = ({
       <HeaderController embed={{}} title="Invite" />
       {data.users.map((user) => (
         <div key={user.id} className="flex items-center mb-6">
-          <div>
+          <div className="flex">
             <SingleUser size="md" src={user.avatarUrl} />
           </div>
           <div className="flex px-4 flex-1">

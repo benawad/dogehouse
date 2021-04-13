@@ -226,7 +226,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
           }
         )}
         {/* {messages.length === 0 ? (
-        <div>{t("modules.roomChat.welcomeMessage")}</div>
+        <div className="flex">{t("modules.roomChat.welcomeMessage")}</div>
       ) : null} */}
       </div>
       <div ref={bottomRef} />

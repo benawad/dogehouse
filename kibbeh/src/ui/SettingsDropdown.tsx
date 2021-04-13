@@ -23,7 +23,7 @@ export const SettingsDropdown: React.FC<{
   const { t } = useTypeSafeTranslation();
 
   return (
-    <div style={{ width: 200 }}>
+    <div className="flex" style={{ width: 200 }}>
       <BaseOverlay
         onActionButtonClicked={onActionButtonClicked}
         actionButton={t("components.settingsDropdown.logOut.button")}

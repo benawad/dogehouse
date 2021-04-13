@@ -62,12 +62,12 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
   const isCreator = me?.id === creator.id;
   const url = window.location.origin + `/scheduled-room/${id}`;
   return (
-    <div>
+    <div className="flex">
       <div
         className={`p-4 w-full bg-primary-800 rounded-lg flex flex-col text-primary-100`}
       >
         <div className={`flex flex justify-between`}>
-          <div>
+          <div className="flex">
             {isToday(dt)
               ? t("common.formattedIntlTime", { time: dt })
               : t("common.formattedIntlDate", { date: dt })}
@@ -118,7 +118,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
               {description ? ` | ` + description : ``}
             </div>
           </div>
-          <div>
+          <div className="flex">
             <AddToCalendarButton
               event={{
                 name,

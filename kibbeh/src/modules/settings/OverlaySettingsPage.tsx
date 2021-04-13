@@ -70,7 +70,7 @@ export const OverlaySettingsPage: PageComponent<OverlaySettingsProps> = () => {
             }}
           >
             {({ handleSubmit }) => (
-              <div>
+              <div className="flex">
                 <InputField
                   errorMsg={t("pages.overlaySettings.input.errorMsg")}
                   label={t("pages.overlaySettings.input.label")}

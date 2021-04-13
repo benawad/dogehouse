@@ -71,7 +71,7 @@ export const VoiceSettingsPage: PageComponent<VoiceSettingsProps> = () => {
               {t("pages.voiceSettings.permissionError")}
             </div>
           )}
-          <div>
+          <div className="flex">
             <Button
               size="small"
               onClick={() => {

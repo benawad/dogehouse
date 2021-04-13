@@ -57,7 +57,7 @@ const UserPreview: React.FC<{
     return (
       <div
         style={{ height: "400px", maxHeight: "100%" }}
-        className={`items-center justify-center w-full`}
+        className={`flex items-center justify-center w-full`}
       >
         <Spinner />
       </div>
