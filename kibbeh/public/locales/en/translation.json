@@ -164,7 +164,7 @@
       "tryAgain": "Try Again"
     },
     "keyboardShortcuts": {
-      "setKeybind": "Det Keybind",
+      "setKeybind": "Set Keybind",
       "listening": "Listening...",
       "toggleMuteKeybind": "Toggle mute keybind",
       "toggleOverlayKeybind": "Toggle overlay keybind",
