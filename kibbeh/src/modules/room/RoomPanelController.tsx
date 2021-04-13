@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useConn } from "../../shared-hooks/useConn";
 import { CenterLoader } from "../../ui/CenterLoader";
@@ -12,6 +12,10 @@ import { UserPreviewModal } from "./UserPreviewModal";
 import { HeaderController } from "../display/HeaderController";
 import { useRoomChatStore } from "./chat/useRoomChatStore";
 import { useScreenType } from "../../shared-hooks/useScreenType";
+import { useCurrentRoomInfo } from "../../shared-hooks/useCurrentRoomInfo";
+import { showErrorToast } from "../../lib/showErrorToast";
+import { useDevices } from "../../shared-hooks/useDevices";
+import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 
 interface RoomPanelControllerProps {}
 
@@ -20,8 +24,17 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
   const { currentRoomId } = useCurrentRoomIdStore();
   const [showEditModal, setShowEditModal] = useState(false);
   const { data, isLoading } = useGetRoomByQueryParam();
+  const { canSpeak } = useCurrentRoomInfo();
+  const { devices } = useDevices();
   const open = useRoomChatStore((s) => s.open);
   const screenType = useScreenType();
+  const { t } = useTypeSafeTranslation();
+
+  useEffect(() => {
+    if (canSpeak && devices.length === 0) {
+      showErrorToast(t("pages.voiceSettings.permissionError"));
+    }
+  }, []);
 
   if (isLoading || !currentRoomId) {
     return (

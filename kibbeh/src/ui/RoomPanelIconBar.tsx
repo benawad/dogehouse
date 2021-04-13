@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   SolidCompass,
   SolidFriends,
@@ -33,13 +33,6 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
 }) => {
   const { t } = useTypeSafeTranslation();
   const screenType = useScreenType();
-  const { devices } = useDevices();
-
-  useEffect(() => {
-    if (devices.length === 0) {
-      showErrorToast(t("pages.voiceSettings.permissionError"));
-    }
-  }, [devices.length, t]);
 
   return (
     <div className="justify-between bg-primary-700 rounded-b-8 py-3 px-4 w-full">
