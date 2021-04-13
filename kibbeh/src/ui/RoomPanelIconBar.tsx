@@ -42,10 +42,6 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
     }
   }, [devices.length, t]);
 
-  // {devices.length === 0 && (
-  //   <ErrorToast message={t("pages.voiceSettings.permissionError")} />
-  // )}
-
   return (
     <div className="justify-between bg-primary-700 rounded-b-8 py-3 px-4 w-full">
       <div>
@@ -96,6 +92,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
           </BoxedIcon>
         ) : null}
       </div>
+
       <Button
         transition
         className={`ml-2`}
