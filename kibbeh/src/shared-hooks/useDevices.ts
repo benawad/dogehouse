@@ -6,7 +6,7 @@ export const useDevices = () => {
   );
 
   const fetchMics = useCallback(() => {
-    navigator.mediaDevices.getUserMedia({ audio: true }).then(() => {
+    navigator.mediaDevices?.getUserMedia({ audio: true }).then(() => {
       navigator.mediaDevices
         ?.enumerateDevices()
         .then((d) =>
