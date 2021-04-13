@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useEffect } from "react";
 import {
   SolidCompass,
   SolidFriends,
@@ -12,7 +12,6 @@ import { useScreenType } from "../shared-hooks/useScreenType";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { BoxedIcon } from "./BoxedIcon";
 import { Button } from "./Button";
-import { ErrorToast } from "./ErrorToast";
 
 interface RoomPanelIconBarProps {
   mute?: {
