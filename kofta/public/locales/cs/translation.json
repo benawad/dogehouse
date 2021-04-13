@@ -155,7 +155,7 @@
       "toggleOverlayKeybind": "Nastavit klávesovou zkratku pro overlay"
     },
     "userVolumeSlider": {
-      "noAudioMessage": "Z nějakého důvodu není vysílán zvuk..."
+      "noAudioMessage": "Z nějakého důvodu není vysílán zvuk"
     },
     "addToCalendar": { "add": "Přidat do kalendáře" },
     "wsKilled": {
