@@ -32,11 +32,11 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
   // gap-n only works with grid
   return (
     <div
-      className="bg-primary-800 border border-accent rounded-lg p-4 gap-4 grid max-w-md"
+      className="bg-primary-800 border border-accent rounded-lg p-4 gap-4 grid max-w-md w-full"
       data-testid="minimized-room-card"
     >
       <div className="gap-1 grid">
-        <h4 className="text-primary-100 break-all">{room.name}</h4>
+        <h4 className="text-primary-100 break-all overflow-hidden">{room.name}</h4>
         <p className="text-primary-300 overflow-ellipsis overflow-hidden w-auto">
           {room.speakers.join(", ")}
         </p>

@@ -81,7 +81,7 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
         </div>
         <div className="mt-2">
           <div className="flex-col ml-3">
-            <span className="text-sm text-primary-100 font-bold break-all text-left">
+            <span className="text-sm text-primary-100 font-bold overflow-hidden break-all text-left">
               {displayName}
             </span>
             <span className="text-sm text-primary-300 text-left break-all">
