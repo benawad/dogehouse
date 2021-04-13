@@ -93,6 +93,13 @@ defmodule Broth.Translator do
     }
   end
 
+  def convert_inbound(command = %{"op" => "fetch_invite_list", "d" => d}) do
+    Map.merge(command, %{
+      "op" => "room:get_invite_list",
+      "ref" => UUID.uuid4()
+    })
+  end
+
   import Kousa.Utils.Version
 
   def convert_inbound(command) do
@@ -140,6 +147,11 @@ defmodule Broth.Translator do
 
   def convert_0_1_0(map, "room:update:reply", _) do
     %{map | d: ! Map.get(map, :errors)}
+  end
+
+  def convert_0_1_0(map, "room:get_invite_list:reply", _) do
+    data = %{users: map.d.invites, next_cursor: map.d.next_cursor}
+    %{map | op: "fetch_invite_list_done", d: data}
   end
 
   def convert_0_1_0(map, _, _), do: map
