@@ -52,7 +52,7 @@ export const VoiceSettingsPage: PageComponent<VoiceSettingsProps> = () => {
     <DefaultDesktopLayout>
       <HeaderController embed={{}} title="Voice Settings" />
       <MiddlePanel>
-        <div className="flex-col text-primary-100">
+        <div className="flex flex-col text-primary-100">
           <div className={`mb-2`}>{t("pages.voiceSettings.mic")} </div>
           {devices.length ? (
             <NativeSelect

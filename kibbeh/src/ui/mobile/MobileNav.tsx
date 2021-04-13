@@ -32,7 +32,7 @@ export const MobileNavItem: React.FC<MobileNavItemProps> = ({
 
   return (
     <Link href={targetPath}>
-      <div className="cursor-pointer">
+      <div className="flex cursor-pointer">
         {children &&
           React.Children.map(children, (child) => {
             return React.cloneElement(child as React.ReactElement, {

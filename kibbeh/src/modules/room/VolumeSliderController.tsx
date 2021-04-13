@@ -23,7 +23,7 @@ export const VolumeSliderController: React.FC<VolumeSliderControllerProps> = ({
   }
 
   return (
-    <div className="mt-1 w-full px-4">
+    <div className="flex mt-1 w-full px-4">
       <VolumeSlider
         label
         max={200}

@@ -52,7 +52,7 @@ export const OverlaySettingsPage: PageComponent<OverlaySettingsProps> = () => {
   return (
     <DefaultDesktopLayout>
       <MiddlePanel>
-        <div className="flex-col text-primary-100">
+        <div className="flex flex-col text-primary-100">
           <OverlayKeybind className={`mb-4`} />
           <Formik
             initialValues={{

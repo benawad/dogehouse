@@ -60,9 +60,9 @@ export const InvitedToJoinRoomModal: React.FC<Props> = () => {
   const { t } = useTypeSafeTranslation();
   return (
     <Modal isOpen={!!options} onRequestClose={() => close()}>
-      <div className="flex-col">
+      <div className="flex flex-col">
         {options ? (
-          <div className="flex-col text-primary-100">
+          <div className="flex flex-col text-primary-100">
             <h1 className={`text-2xl mb-2`}>
               {options.type === "someone_you_follow_created_a_room"
                 ? t("components.modals.invitedToJoinRoomModal.newRoomCreated")

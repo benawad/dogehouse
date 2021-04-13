@@ -38,7 +38,7 @@ export interface UpcomingRoomsCardProps {
 
 const UserCard: React.FC<UserCardProps> = ({ avatars, speakers }) => {
   return (
-    <div className="w-full flex items-center">
+    <div className="flex w-full flex items-center">
       <MultipleUsers srcArray={avatars} />
       <p className="ml-1 text-primary-300 text-sm">{speakers.join(", ")}</p>
     </div>
@@ -59,7 +59,9 @@ export const ScheduledRoomSummaryCard: React.FC<ScheduledRoomSummaryCardProps> =
         transition ? `transition duration-200 ease-in-out` : ``
       } hover:bg-primary-700 z-0`}
     >
-      <div className="text-accent text-sm">{formattedDate(scheduledFor)}</div>
+      <div className="flex text-accent text-sm">
+        {formattedDate(scheduledFor)}
+      </div>
       <RoomCardHeading text={title} />
       <UserCard {...speakersInfo} />
     </button>
@@ -72,8 +74,8 @@ export const UpcomingRoomsCard: React.FC<UpcomingRoomsCardProps> = ({
 }) => {
   const { t } = useTypeSafeTranslation();
   return (
-    <div className="w-full rounded-lg overflow-y-auto flex flex-col">
-      <div className="px-4 py-3 bg-primary-800 border-b border-primary-600 flex justify-between items-center">
+    <div className="flex w-full rounded-lg overflow-y-auto flex flex-col">
+      <div className="flex px-4 py-3 bg-primary-800 border-b border-primary-600 flex justify-between items-center">
         <h4 className="text-primary-100 font-bold">
           {t("components.upcomingRoomsCard.upcomingRooms")}
         </h4>
@@ -85,7 +87,7 @@ export const UpcomingRoomsCard: React.FC<UpcomingRoomsCardProps> = ({
           <SolidPlus width={12} height={12} />
         </BoxedIcon>
       </div>
-      <div className="flex-col">
+      <div className="flex flex-col">
         {rooms.map((room) => (
           <ScheduledRoomSummaryCard transition key={room.id} {...room} />
         ))}

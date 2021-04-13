@@ -32,7 +32,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
   const { t } = useTypeSafeTranslation();
   const screenType = useScreenType();
   return (
-    <div className="justify-between bg-primary-700 rounded-b-8 py-3 px-4 w-full">
+    <div className="flex justify-between bg-primary-700 rounded-b-8 py-3 px-4 w-full">
       <div>
         {mute ? (
           <BoxedIcon

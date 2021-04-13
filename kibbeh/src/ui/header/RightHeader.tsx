@@ -35,7 +35,7 @@ const RightHeader: React.FC<RightHeaderProps> = ({
   const { push } = useRouter();
   const { t } = useTypeSafeTranslation();
   return (
-    <div className="space-x-4 items-center justify-end focus:outline-no-chrome w-full">
+    <div className="flex space-x-4 items-center justify-end focus:outline-no-chrome w-full">
       {onAnnouncementsClick && (
         <button onClick={onAnnouncementsClick}>
           <SolidMegaphone width={23} height={23} className="text-primary-200" />

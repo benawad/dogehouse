@@ -15,15 +15,15 @@ const MiddleHeader: React.FC<MiddleHeaderProps> = ({
 }) => {
   const screenType = useScreenType();
   return (
-    <div className="flex-1 justify-center w-full">
+    <div className="flex flex-1 justify-center w-full">
       {screenType === "fullscreen" ? (
-        <div className="mr-4">
+        <div className="flex mr-4">
           <LeftHeader />
         </div>
       ) : null}
       <SearchBar placeholder={searchPlaceholder} onChange={onSearchChange} />
       {screenType === "1-cols" || screenType === "fullscreen" ? (
-        <div className="ml-4">
+        <div className="flex ml-4">
           <RightHeader />
         </div>
       ) : null}

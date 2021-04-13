@@ -21,7 +21,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
       } ${className}`}
     >
       {!mobile && (
-        <div className="h-full mx-4 flex items-center pointer-events-none">
+        <div className="flex h-full mx-4 flex items-center pointer-events-none">
           <SolidSearch />
         </div>
       )}

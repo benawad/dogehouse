@@ -124,7 +124,7 @@ export const BlockedFromRoomUsers: React.FC<BlockedFromRoomUsersProps> = ({}) =>
         <h1 className={`text-xl`}>
           {t("components.blockedFromRoomUsers.header")}
         </h1>
-        <div className="flex-col">
+        <div className="flex flex-col">
           {offsets.map((offset, i) => (
             <BlockedFromRoomUsersPage
               key={offset}

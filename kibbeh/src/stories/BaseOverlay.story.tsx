@@ -50,7 +50,7 @@ interface IconWrapperProps {
 }
 
 function IconWrapper({ children }: IconWrapperProps) {
-  return <div className="py-3 px-4">{children}</div>;
+  return <div className="flex py-3 px-4">{children}</div>;
 }
 
 export const Notifications: Story<BaseOverlayProps> = ({
@@ -88,7 +88,7 @@ export const Settings: Story<BaseOverlayProps> = ({
 }) => (
   <div style={{ width: 200 }}>
     <BaseOverlay actionButton={actionLabel}>
-      <div className="flex flex-col">
+      <div className="flex flex flex-col">
         <SettingsIcon
           icon={<SolidUser className={`text-primary-100`} />}
           label={"profile"}

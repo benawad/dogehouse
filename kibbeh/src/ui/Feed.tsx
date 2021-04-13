@@ -21,7 +21,7 @@ export const FeedHeader: FC<FeedHeaderProps> = ({
   title,
 }) => {
   return (
-    <div className="justify-between items-end mb-5">
+    <div className="flex justify-between items-end mb-5">
       <h4 className="text-primary-100 mb-auto">{title}</h4>
       <Button transition onClick={onActionClicked}>
         {actionTitle}
@@ -36,8 +36,8 @@ export const Feed: React.FC<FeedProps> = ({
   onRoomClick,
 }) => {
   return (
-    <div className="flex-1 flex-col" data-testid="feed">
-      <div className="flex-col space-y-4">
+    <div className="flex flex-1 flex-col" data-testid="feed">
+      <div className="flex flex-col space-y-4">
         {rooms.length === 0 && emptyPlaceholder}
         {/* <hr className="border-primary-600" /> */}
         {rooms.map((room, index) => (

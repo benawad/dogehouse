@@ -97,7 +97,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
           ) : null}
         </div>
         <div className={`flex justify-between my-4`}>
-          <div className="flex-col">
+          <div className="flex flex-col">
             <div
               className={`relative inline-flex`} /* this is to aline the avatar and room name */
             >

@@ -174,7 +174,7 @@ const UserPreview: React.FC<{
           <VolumeSliderController userId={id} />
         </div>
       ) : null}
-      <div className="mt-1 flex-col">
+      <div className="flex mt-1 flex-col">
         {buttonData.map(([shouldShow, key, onClick, text]) => {
           return shouldShow ? (
             <Button
