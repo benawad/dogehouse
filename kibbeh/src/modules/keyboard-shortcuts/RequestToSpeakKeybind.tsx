@@ -36,7 +36,7 @@ export const RequestToSpeakKeybind: React.FC<RequestToSpeakKeybindProps> = ({
           setActive(true);
         }}
       >
-        set keybind
+        {t("components.keyboardShortcuts.setKeybind")}
       </Button>
       <div className={`ml-4`}>
         request to speak keybind:{" "}
