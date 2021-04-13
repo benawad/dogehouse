@@ -8,7 +8,7 @@ defmodule Broth.Message.Room.Update do
     field(:name, :string)
     field(:description, :string)
     field(:isPrivate, :boolean)
-    field(:autoSpeaker, :boolean)
+    field(:autoSpeaker, :boolean, virtual: true)
   end
 
   def initialize(state) do

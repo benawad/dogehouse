@@ -9,8 +9,6 @@ defmodule BrothTest.Message.Room.SetRole do
     {:ok, uuid: UUID.uuid4()}
   end
 
-  test "reactivate these"
-
   describe "when you send an set role message to speaker" do
     test "it validates", %{uuid: uuid} do
       assert {:ok,

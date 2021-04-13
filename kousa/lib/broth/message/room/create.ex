@@ -12,6 +12,7 @@ defmodule Broth.Message.Room.Create do
     field(:description, :string)
     field(:isPrivate, :boolean, default: false)
     field(:userIdsToInvite, {:array, :binary_id}, virtual: true)
+    field(:autoSpeaker, :boolean, virtual: true)
   end
 
   import Ecto.Changeset
@@ -21,17 +22,6 @@ defmodule Broth.Message.Room.Create do
   # inbound data.
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
-    |> cast(data, [:name, :description, :isPrivate, :userIdsToInvite])
-  end
-
-  def changeset(original_message, data) do
-    payload =
-      %__MODULE__{}
-      |> cast(data, [:id, :creatorId, :name, :description, :isPrivate])
-      |> apply_action!(:validate)
-
-    original_message
-    |> change
-    |> put_change(:payload, payload)
+    |> cast(data, [:name, :description, :isPrivate, :userIdsToInvite, :autoSpeaker])
   end
 end

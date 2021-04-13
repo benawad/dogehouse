@@ -12,10 +12,7 @@ defmodule BrothTest.Message.Room.CreateTest do
 
   describe "when you send an create message to change name" do
     test "it populates create fields", %{uuid: uuid} do
-      assert {:ok,
-              %{
-                payload: %Create{name: "foobar"}
-              }} =
+      assert {:ok, %{payload: %Create{name: "foobar"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:create",
                  "payload" => %{"name" => "foobar", "description" => "a room"},
@@ -23,10 +20,7 @@ defmodule BrothTest.Message.Room.CreateTest do
                })
 
       # short form also allowed
-      assert {:ok,
-              %{
-                payload: %Create{name: "foobar"}
-              }} =
+      assert {:ok, %{payload: %Create{name: "foobar"}}} =
                BrothTest.Support.Message.validate(%{
                  "op" => "room:create",
                  "p" => %{"name" => "foobar", "description" => "a room"},
@@ -63,10 +57,7 @@ defmodule BrothTest.Message.Room.CreateTest do
 
   describe "when you send an create message with non-default privacy" do
     test "it validates", %{uuid: uuid} do
-      assert {:ok,
-              %{
-                payload: %Create{isPrivate: true}
-              }} =
+      assert {:ok, %{payload: %Create{isPrivate: true}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:create",
                  "payload" => %{
@@ -79,10 +70,7 @@ defmodule BrothTest.Message.Room.CreateTest do
     end
 
     test "it fails if it's not a boolean", %{uuid: uuid} do
-      assert {:error,
-              %{
-                errors: [isPrivate: {"is invalid", _}]
-              }} =
+      assert {:error, %{errors: [isPrivate: {"is invalid", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:create",
                  "payload" => %{
@@ -97,10 +85,7 @@ defmodule BrothTest.Message.Room.CreateTest do
 
   describe "when you send an create message with autospeaker set" do
     test "it validates", %{uuid: uuid} do
-      assert {:error,
-              %{
-                errors: [autoSpeaker: {"is invalid", _}]
-              }} =
+      assert {:error, %{errors: [autoSpeaker: {"is invalid", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:create",
                  "payload" => %{
