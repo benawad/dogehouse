@@ -30,13 +30,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "bannlys" },
+    "banUser": {
+      "ban": "bannlys"
+    },
     "followingOnlineList": {
       "listHeader": "Personer du följer",
       "currentRoom": "Ansluten till:",
       "startPrivateRoom": "Skapa ett privat rum med dem"
     },
-    "followList": { "followHim": "Följ", "followingHim": "Följer" },
+    "followList": {
+      "followHim": "Följ",
+      "followingHim": "Följer"
+    },
     "home": {
       "createRoom": "Skapa ett rum",
       "refresh": "Uppdatera",
@@ -62,11 +67,11 @@
     },
     "myProfile": {
       "logout": "Logga ut",
-      "probablyLoading": "Laddar antagligen...",
-      "voiceSettings": "Gå till röstinställningar",
-      "soundSettings": "Gå till ljudinställningar",
+      "probablyLoading": "Laddar...",
+      "voiceSettings": "Röstinställningar",
+      "soundSettings": "Ljudinställningar",
       "deleteAccount": "Radera konto",
-      "overlaySettings": "Gå till overlayinställningar",
+      "overlaySettings": "Overlayinställningar",
       "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
@@ -81,8 +86,12 @@
       "allowAll": "Tillåt alla",
       "allowAllConfirm": "Är du säker på detta sergeant? Detta kommer tillåta {{count}} användare att få tala. Det kan utplåna månen! 🚀☢️"
     },
-    "searchUser": { "search": "Sök..." },
-    "soundEffectSettings": { "header": "Ljud" },
+    "searchUser": {
+      "search": "Sök..."
+    },
+    "soundEffectSettings": {
+      "header": "Ljud"
+    },
     "viewUser": {
       "editProfile": "Redigera profil",
       "followsYou": "Följer dig",
@@ -102,7 +111,7 @@
       "volume": "Volym:"
     },
     "overlaySettings": {
-      "header": "Overlay-inställningar",
+      "header": "Overlayinställningar",
       "input": {
         "errorMsg": "Ogiltlig fönstertitel",
         "label": "Ange fönstertitel"
@@ -146,7 +155,7 @@
         "roomDescription": "Rumsbeskrivning",
         "descriptionError": "Max längden är 500 karaktärer",
         "nameError": "Längden på namnet måste vara mellan 2 och 60 karaktärer",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "Fyll i dessa fält för att skapa ett rum"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Ett nytt rum har skapats",
@@ -190,7 +199,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "Ingen ljudanvändare av någon anledning"
     },
-    "addToCalendar": { "add": "Spara i kalender" },
+    "addToCalendar": {
+      "add": "Spara i kalender"
+    },
     "deviceNotSupported": {
       "notSupported": "Din enhet stöds inte. Du kan skapa ett",
       "linkText": "issue på GitHub",
@@ -212,24 +223,26 @@
       "reconnect": "Återanslut"
     },
     "followingOnline": {
-      "people": "People",
+      "people": "Personer",
       "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "noOnline": "Du har 0 vänner som är uppkopplade just nu",
+      "showMore": "Visa fler"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "Kommande rum",
+      "exploreMoreRooms": "Utforska Fler Rum"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Sök efter rum, användare eller kategorier"
+    },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "Profil",
+      "language": "Språk",
+      "reportABug": "Rapportera ett fel",
+      "useOldVersion": "Använd förra verisionen",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "Logga ut",
+        "modalSubtitle": "Är du säker på att du vill logga ut?"
       }
     }
   },
@@ -274,6 +287,8 @@
       "galacticDoge": "Galaktiskdoge",
       "spottedLife": "Planet med liv upptäckt"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": {
+      "yourFeed": "Ditt flöde"
+    }
   }
 }
