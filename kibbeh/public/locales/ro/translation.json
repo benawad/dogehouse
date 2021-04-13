@@ -16,7 +16,7 @@
     "copied": "copiat",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Vă rugăm să rețineți că rularea DogeHouse fără permisiuni de accesibilitate poate cauza erori nedorite"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -25,7 +25,7 @@
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
-    "link_1": "Origin Story",
+    "link_1": "Poveste de origine",
     "link_2": "Discord",
     "link_3": "Raportează o eroare"
   },
@@ -41,7 +41,7 @@
     "home": {
       "createRoom": "Creează cameră",
       "refresh": "Refresh",
-      "editRoom": "Edit Room"
+      "editRoom": "Editeaza cameră"
     },
     "inviteList": {
       "roomGone": "Camera a dispărut, du-te înapoi",
@@ -53,22 +53,22 @@
       "headerText": "Ducând conversații vocale către lună 🚀",
       "featureText_1": "Temă întunecată",
       "featureText_2": "Deschide Sign-Upuri",
-      "featureText_3": "Suport Cross-Platform",
-      "featureText_4": "Open Source",
+      "featureText_3": "Suport pe mai multe platformeorm",
+      "featureText_4": "Sursa deschisa",
       "featureText_5": "Chat Text",
       "featureText_6": "Alimentat de Doge",
-      "loginGithub": "Logare cu GitHub",
-      "loginTwitter": "Logare cu Twitter",
-      "createTestUser": "Creare user de test"
+      "loginGithub": "Autentificare cu GitHub",
+      "loginTwitter": "Autentificare cu Twitter",
+      "createTestUser": "Creare utilizatori de test"
     },
     "myProfile": {
-      "logout": "logout",
+      "logout": "Deconectați-vă",
       "probablyLoading": "Probabil se încarcă...",
       "voiceSettings": "Mergi la setările de voce",
       "soundSettings": "Mergi la setările de sunet",
       "deleteAccount": "Şterge cont",
-      "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "overlaySettings": "Accesați setările de suprapunere",
+      "couldNotFindUser": "Scuze, noi nu am putut gasi acel utilizatori"
     },
     "notFound": {
       "whoopsError": "Ups! Această pagină a fost pierdută în conversație.",
@@ -79,8 +79,8 @@
       "speakers": "Vorbitori",
       "requestingToSpeak": "Cere să vorbească",
       "listeners": "Ascultători",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "Permiteți-le pe toate",
+      "allowAllConfirm": "Esti sigur? Asta ar lasa toti {{count}} utilizatori sa vorbeasca"
     },
     "searchUser": { "search": "caută..." },
     "soundEffectSettings": { "header": "Sunete" },
@@ -219,7 +219,7 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": { "placeholder": "Search for rooms, utilizatori or categories" },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",
