@@ -49,7 +49,7 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
       className={`flex pt-4 px-4 flex-1 bg-primary-800`}
       id={props.room.isPrivate ? "private-room" : "public-room"}
     >
-      <div className="flex w-full block">
+      <div className="w-full block">
         <div
           style={{
             gridTemplateColumns,

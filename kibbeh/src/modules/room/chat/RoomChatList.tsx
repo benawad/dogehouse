@@ -94,13 +94,13 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                 >
                   {/* Whisper label */}
                   {messages[index].isWhisper ? (
-                    <p className="mb-0 text-sm text-primary-300 px-1 w-16 mt-1 text-center">
+                    <p className="flex mb-0 text-sm text-primary-300 px-1 w-16 mt-1 text-center">
                       {t("modules.roomChat.whisper")}
                     </p>
                   ) : null}
-                  <div className={`flex flex items-center px-1`}>
+                  <div className={`flex items-center px-1`}>
                     <div
-                      className={`flex block break-words max-w-full items-start flex-1 text-primary-100`}
+                      className={`block break-words max-w-full items-start flex-1 text-primary-100`}
                       key={messages[index].id}
                     >
                       <button
@@ -126,7 +126,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                         {messages[index].username}
                       </button>
                       <span className={`inline mr-1`}>: </span>
-                      <div className={`flex inline mr-1 space-x-1`}>
+                      <div className={`inline mr-1 space-x-1`}>
                         {messages[index].deleted ? (
                           <span className="inline text-primary-300">
                             [message{" "}
