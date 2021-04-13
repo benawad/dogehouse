@@ -68,7 +68,7 @@
       "soundSettings": "przejdź do ustawień dźwięku",
       "deleteAccount": "usuń konto",
       "overlaySettings": "przejdź do ustawień nakładki",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Przepraszamy, nie udało się znaleźć tego użytkownika"
     },
     "notFound": {
       "whoopsError": "Ups! Ta strona zagubiła się w konwersacji.",
@@ -171,7 +171,7 @@
         "roomDescription": "opis pokoju",
         "descriptionError": "maksymalna długość to 500",
         "nameError": "musi być pomiędzy 2 a 60 znakami",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "Wypełnij te informacje aby utworzyć pokój"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Stworzono nowy pokój",
@@ -213,21 +213,21 @@
       }
     },
     "followingOnline": {
-      "people": "People",
+      "people": "Użytkownicy",
       "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "noOnline": "Masz 0 dostępnych znajomych",
+      "showMore": "Pokaż więcej"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "Nadchodzące spotkania w pokojach",
+      "exploreMoreRooms": "Odkrywaj pokoje"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": { "placeholder": "Znajdź pokój, użytkowników lub kategorie" },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "Twój profil",
+      "language": "Język",
+      "reportABug": "Zgłoś błąd",
+      "useOldVersion": "Przejdź na starą wersję",
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
@@ -260,7 +260,7 @@
       "recent": "Często używane",
       "sendMessage": "Wyślij wiadomość",
       "whisper": "Napisane szpetem",
-      "welcomeMessage": "Witaj w chacie!",
+      "welcomeMessage": "Witaj na chacie!",
       "roomDescription": "opis pokoju"
     },
     "roomStatus": {
