@@ -12,7 +12,7 @@
     "delete": "हटाओ",
     "joinRoom": "कमरे में शामिल हों",
     "copyLink": "कॉपी",
-    "copied": "कॉपी",
+    "copied": "कॉपी हो गया",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
     "requestPermissions": "कृपया ध्यान दें कि एक्सेसिबिलिटी परमिशन के बिना डॉगहाउस चलाना अवांछित त्रुटियों का कारण हो सकता है"
