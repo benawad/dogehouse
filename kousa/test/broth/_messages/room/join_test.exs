@@ -1,6 +1,6 @@
 defmodule BrothTest.Message.Room.JoinTest do
   use ExUnit.Case, async: true
-  
+
   @moduletag :message
 
   alias Broth.Message.Room.Join

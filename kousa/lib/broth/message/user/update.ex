@@ -17,21 +17,14 @@ defmodule Broth.Message.User.Update do
     field(:muted, :boolean, virtual: true)
   end
 
+  def initialize(state) do
+    Repo.get(__MODULE__, state.user_id)
+  end
+
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
     |> cast(data, [:muted, :username])
     |> validate_required(:username)
-  end
-
-  def changeset(original_message, data) do
-    payload =
-      %__MODULE__{}
-      |> cast(data, [:muted, :username, :error])
-      |> apply_action!(:validate)
-
-    original_message
-    |> change
-    |> put_change(:payload, payload)
   end
 
   def execute(data, state) do

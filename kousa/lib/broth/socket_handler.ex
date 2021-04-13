@@ -118,7 +118,7 @@ defmodule Broth.SocketHandler do
          %{"op" => not_special_case} when not_special_case not in @special_cases <- message_map!,
          # translation from legacy maps to new maps
          message_map! = Broth.Translator.convert_inbound(message_map!),
-         {:ok, message} <- validate(message_map!) do
+         {:ok, message} <- validate(message_map!, state) do
       dispatch(message, state)
     else
       # special cases: mediasoup operations
@@ -141,9 +141,9 @@ defmodule Broth.SocketHandler do
 
   import Ecto.Changeset
 
-  def validate(message) do
+  def validate(message, state) do
     message
-    |> Broth.Message.changeset()
+    |> Broth.Message.changeset(state)
     |> apply_action(:validate)
   end
 

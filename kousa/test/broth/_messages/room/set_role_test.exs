@@ -1,6 +1,6 @@
 defmodule BrothTest.Message.Room.SetRole do
   use ExUnit.Case, async: true
-  
+
   @moduletag :message
 
   alias Broth.Message.Room.SetRole

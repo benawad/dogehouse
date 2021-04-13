@@ -13,8 +13,8 @@ defmodule Broth.Message.Cast do
       # default, overrideable intializer value
 
       @impl true
-      def initializer(_state), do: struct(__MODULE__)
-      defoverridable initializer: 1
+      def initialize(_state), do: struct(__MODULE__)
+      defoverridable initialize: 1
     end
   end
 
@@ -23,6 +23,8 @@ defmodule Broth.Message.Cast do
 
   @callback changeset(Broth.json()) :: Ecto.Changeset.t()
   @callback changeset(struct, Broth.json()) :: Ecto.Changeset.t()
+
+  @callback initialize(SocketHandler.state()) :: struct()
 
   @callback execute(Changeset.t(), SocketHandler.state()) ::
               {:noreply, SocketHandler.state()}

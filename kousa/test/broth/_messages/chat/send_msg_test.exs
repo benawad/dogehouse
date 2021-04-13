@@ -1,6 +1,6 @@
 defmodule BrothTest.Message.Chat.SendMsgTest do
   use ExUnit.Case, async: true
-  
+
   @moduletag :message
 
   alias Broth.Message.Types.ChatToken

@@ -23,8 +23,12 @@ defmodule Broth.Message do
           original_operator: String.t()
         }
 
-  def changeset(source \\ %__MODULE__{}, data) do
-    source
+  @spec changeset(%{String.t() => Broth.json()}, Broth.SocketHandler.state()) :: Changeset.t()
+  @doc """
+  Primary validation function for all websocket messages.
+  """
+  def changeset(data, state) do
+    %__MODULE__{}
     |> cast(data, [:version])
     |> Map.put(:params, data)
     |> find(:operator)
@@ -33,7 +37,7 @@ defmodule Broth.Message do
     |> cast_operator
     |> internal_cast([:operator, :reference])
     |> validate_required([:operator])
-    |> cast_payload()
+    |> cast_payload(state)
     |> validate_calls_have_references
   end
 
@@ -115,11 +119,12 @@ defmodule Broth.Message do
 
   defp cast_payload(changeset = %{valid?: false}), do: changeset
 
-  defp cast_payload(changeset) do
+  defp cast_payload(changeset, state) do
     operator = get_field(changeset, :operator)
 
-    changeset.params["payload"]
-    |> operator.changeset()
+    state
+    |> operator.initialize()
+    |> operator.changeset(changeset.params["payload"])
     |> case do
       inner_changeset = %{valid?: true} ->
         put_change(changeset, :payload, inner_changeset)

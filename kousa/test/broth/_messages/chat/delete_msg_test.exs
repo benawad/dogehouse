@@ -1,6 +1,6 @@
 defmodule BrothTest.Message.Chat.DeleteMsgTest do
   use ExUnit.Case, async: true
-  
+
   @moduletag :message
 
   alias Broth.Message.Chat.DeleteMsg

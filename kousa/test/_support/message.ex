@@ -2,9 +2,9 @@ defmodule BrothTest.Support.Message do
   import Ecto.Changeset
   alias Kousa.Utils.Errors
 
-  def validate(message) do
+  def validate(message, state \\ nil) do
     message
-    |> Broth.Message.changeset()
+    |> Broth.Message.changeset(state)
     |> apply_action(:validate)
     |> case do
       {:ok, msg} ->

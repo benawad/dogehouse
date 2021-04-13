@@ -1,6 +1,6 @@
 defmodule BrothTest.Message.Room.GetInfoTest do
   use ExUnit.Case, async: true
-  
+
   @moduletag :message
 
   alias Broth.Message.Room.GetInfo
