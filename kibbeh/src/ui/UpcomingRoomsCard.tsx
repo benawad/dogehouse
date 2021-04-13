@@ -38,9 +38,11 @@ export interface UpcomingRoomsCardProps {
 
 const UserCard: React.FC<UserCardProps> = ({ avatars, speakers }) => {
   return (
-    <div className="flex w-full flex items-center">
+    <div className="w-full flex items-center">
       <MultipleUsers srcArray={avatars} />
-      <p className="ml-1 text-primary-300 text-sm">{speakers.join(", ")}</p>
+      <p className="flex ml-1 text-primary-300 text-sm">
+        {speakers.join(", ")}
+      </p>
     </div>
   );
 };
