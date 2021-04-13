@@ -70,6 +70,7 @@ module.exports = {
     },
     borderWidth: {
       DEFAULT: "1px",
+      0: "0px",
     },
     extend: {
       borderRadius: {
@@ -77,14 +78,17 @@ module.exports = {
         8: "8px",
       },
       outline: {
-        "no-chrome": 'none',
-      }
+        "no-chrome": "none",
+      },
     },
   },
   variants: {
     backgroundColor: ({ after }) => after(["disabled"]),
     textColor: ({ after }) => after(["disabled"]),
     scrollbar: ["rounded", "dark"],
+    extend: {
+      borderWidth: ["last"],
+    },
   },
-  plugins: [require("tailwind-scrollbar"), require('@tailwindcss/line-clamp')],
+  plugins: [require("tailwind-scrollbar"), require("@tailwindcss/line-clamp")],
 };
