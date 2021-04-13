@@ -204,8 +204,6 @@ defmodule Beef.Mutations.Rooms do
           resp
       end
 
-    # IO.inspect(resp)
-
     case resp do
       {:ok, room} ->
         Beef.Users.set_current_room(data.creatorId, room.id)

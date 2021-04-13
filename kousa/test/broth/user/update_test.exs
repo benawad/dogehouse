@@ -17,7 +17,7 @@ defmodule KousaTest.Broth.User.UpdateTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket edit_profile operation" do
+  describe "the websocket user:edit operation" do
     test "a username can be changed", t do
       user_id = t.user.id
 
@@ -34,7 +34,6 @@ defmodule KousaTest.Broth.User.UpdateTest do
         "user:update:reply",
         ref,
         %{
-          "error" => nil,
           "username" => "new_username"
         }
       )

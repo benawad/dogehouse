@@ -8,7 +8,6 @@ defmodule Broth.Message.User.Update do
   @derive {Jason.Encoder, only: ~w(
     username
     muted
-    error
   )a}
 
   @primary_key {:id, :binary_id, []}
@@ -24,19 +23,14 @@ defmodule Broth.Message.User.Update do
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
     |> cast(data, [:muted, :username])
-    |> validate_required([:id, :username])
+    |> validate_required([:username])
   end
 
-  def execute(data, state) do
+  def execute(changeset, state) do
     # TODO: make this a proper changeset-mediated alteration.
-    case Kousa.User.update(state.user_id, Map.from_struct(data)) do
-      {:error, changeset} ->
-        # TODO: make this better:
-        error = Kousa.Utils.Errors.changeset_to_first_err_message(changeset)
-        {:reply, %{error: error}, state}
-
-      {:ok, user} ->
-        {:reply, Map.from_struct(user), state}
+    with {:ok, update} <- apply_action(changeset, :validate),
+         {:ok, user} <- Kousa.User.update(state.user_id, Map.from_struct(update)) do
+      {:reply, struct(__MODULE__, Map.from_struct(user)), state}
     end
   end
 end
