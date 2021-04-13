@@ -86,6 +86,13 @@ defmodule Broth.Translator do
     %{ command | "op" => "user:get_relationship"}
   end
 
+  def convert_inbound(command = %{"op" => "edit_room", "d" => d}) do
+    %{command |
+      "op" => "room:update",
+      "d" => Map.put(d, "isPrivate", d["privacy"] == "private")
+    }
+  end
+
   import Kousa.Utils.Version
 
   def convert_inbound(command) do
@@ -129,6 +136,10 @@ defmodule Broth.Translator do
       :mutual -> %{followsYou: true, youAreFollowing: true}
     end
     %{map | d: new_data}
+  end
+
+  def convert_0_1_0(map, "room:update:reply", _) do
+    %{map | d: ! Map.get(map, :errors)}
   end
 
   def convert_0_1_0(map, _, _), do: map

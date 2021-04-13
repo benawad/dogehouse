@@ -32,11 +32,11 @@ defmodule KousaTest.Broth.Room.UpdateTest do
         WsClient.send_call(
           t.client_ws,
           "room:update",
-          %{"room" => %{"newName" => "quux room"}}
+          %{"name" => "quux room", "isPrivate" => false}
         )
 
       WsClient.assert_reply(
-        "fetch_done",
+        "room:update:reply",
         ref,
         %{"name" => "quux room", "isPrivate" => false}
       )
