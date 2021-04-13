@@ -44,7 +44,7 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <button
       disabled={disabled || loading}
-      className={`${sizeClassnames[size]} ${
+      className={`flex ${sizeClassnames[size]} ${
         transition ? `transition duration-200 ease-in-out` : ``
       } ${
         colorClassnames[color]
