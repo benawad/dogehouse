@@ -54,13 +54,15 @@ export const FollowerOnline: React.FC<UserWithFollowInfo> = ({
 export const FollowersOnlineWrapper: React.FC<{
   onlineFriendCount?: number;
 }> = ({ onlineFriendCount, children }) => {
-  const { t } = useTypeSafeTranslation()
+  const { t } = useTypeSafeTranslation();
   return (
     <div
       className="pb-5 w-full flex flex-col flex-1 overflow-y-auto"
       data-testid="friends-online"
     >
-      <h4 className="text-primary-100">{t("components.followingOnline.people")}</h4>
+      <h4 className="text-primary-100">
+        {t("components.followingOnline.people")}
+      </h4>
       <h6 className="text-primary-300 mt-3 text-sm font-bold uppercase">
         {t("components.followingOnline.online")}{" "}
         {onlineFriendCount !== undefined ? `(${onlineFriendCount})` : null}
@@ -75,7 +77,7 @@ export const FollowersOnlineWrapper: React.FC<{
 export const FollowersOnlineShowMore: React.FC<{ onClick?: () => void }> = ({
   onClick,
 }) => {
-  const { t } = useTypeSafeTranslation()
+  const { t } = useTypeSafeTranslation();
   return (
     <button
       className="underline text-primary-300 font-bold mt-4 cursor-pointer"

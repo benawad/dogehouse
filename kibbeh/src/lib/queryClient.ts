@@ -47,7 +47,7 @@ export const queryClient = new QueryClient({
           showErrorToast((e as Error).message);
         }
       },
-      queryFn: defaultQueryFn,
+      queryFn: defaultQueryFn as any,
     },
   },
 });

@@ -10,9 +10,9 @@ import { CreateScheduleRoomModal } from "../scheduled-rooms/CreateScheduledRoomM
 import { EditProfileModal } from "../user/EditProfileModal";
 import { MinimizedRoomCardController } from "./MinimizedRoomCardController";
 
-interface ProfileBlockControllerProps { }
+interface ProfileBlockControllerProps {}
 
-export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({ }) => {
+export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({}) => {
   const { currentRoomId } = useCurrentRoomIdStore();
   const conn = useConn();
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
@@ -31,7 +31,7 @@ export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({ 
       />
       {showCreateScheduleRoomModal ? (
         <CreateScheduleRoomModal
-          onScheduledRoom={() => { }}
+          onScheduledRoom={() => {}}
           onRequestClose={() => setShowCreateScheduleRoomModal(false)}
         />
       ) : null}
