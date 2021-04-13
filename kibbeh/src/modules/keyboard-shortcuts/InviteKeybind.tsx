@@ -34,7 +34,7 @@ export const InviteKeybind: React.FC<InviteKeybindProps> = ({ className }) => {
           setActive(true);
         }}
       >
-        set keybind
+        {t("components.keyboardShortcuts.setKeybind")}
       </Button>
       <div className={`ml-4`}>
         invite keybind:{" "}
