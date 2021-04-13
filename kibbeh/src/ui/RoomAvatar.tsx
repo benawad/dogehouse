@@ -27,7 +27,7 @@ export const RoomAvatar: React.FC<RoomAvatarProps> = ({
         muted={muted}
         username={username}
       />
-      <div className={`items-center mt-2`}>
+      <div className={`flex items-center mt-2`}>
         <span className={`truncate text-primary-100 text-sm block`}>
           {username}
         </span>

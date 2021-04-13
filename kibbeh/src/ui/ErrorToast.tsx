@@ -52,7 +52,7 @@ export const ErrorToast: React.FC<ErrorMessageProps> = ({
           <SolidPlus style={{ transform: "rotate(45deg)" }} />
         </div>
       ) : null}
-      <div className={`flex space-x-4 items-center`}>
+      <div className={`flex flex space-x-4 items-center`}>
         <p className={`bold`}>{message}</p>
         {button}
       </div>

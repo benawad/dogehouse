@@ -76,7 +76,7 @@ export const OverlaySettingsPage: PageComponent<OverlaySettingsProps> = () => {
                   label={t("pages.overlaySettings.input.label")}
                   name="appTitle"
                 />
-                <div className={`flex mt-12`}>
+                <div className={`flex flex mt-12`}>
                   <Button
                     type="button"
                     onClick={() => handleSubmit()}

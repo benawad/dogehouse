@@ -66,18 +66,18 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
       <div
         className={`p-4 w-full bg-primary-800 rounded-lg flex flex-col text-primary-100`}
       >
-        <div className={`flex justify-between`}>
+        <div className={`flex flex justify-between`}>
           <div>
             {isToday(dt)
               ? t("common.formattedIntlTime", { time: dt })
               : t("common.formattedIntlDate", { date: dt })}
           </div>
           {isCreator ? (
-            <div className={`flex`}>
+            <div className={`flex flex`}>
               <Button size="small" onClick={() => onEdit()}>
                 {t("common.edit")}
               </Button>
-              <div className={`ml-4`}>
+              <div className={`flex ml-4`}>
                 <Button
                   loading={isLoading}
                   size="small"
@@ -96,7 +96,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
             </div>
           ) : null}
         </div>
-        <div className={`flex justify-between my-4`}>
+        <div className={`flex flex justify-between my-4`}>
           <div className="flex flex-col">
             <div
               className={`relative inline-flex`} /* this is to aline the avatar and room name */
@@ -113,7 +113,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
                 {name.slice(0, 100)}
               </div>
             </div>
-            <div className={`break-all`}>
+            <div className={`flex break-all`}>
               {creator.displayName}
               {description ? ` | ` + description : ``}
             </div>
@@ -137,7 +137,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
         </div>
 
         {canStartRoom ? (
-          <div className={`mt-4`}>
+          <div className={`flex mt-4`}>
             {isCreator ? (
               <Button
                 loading={isLoadingStartRoom}

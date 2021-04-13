@@ -8,7 +8,7 @@ import { WebSocketContext } from "../ws/WebSocketProvider";
 interface LeftPanelProps {}
 
 const HeaderWrapper: FC = ({ children }) => (
-  <div className={`mb-7 h-6 items-center`}>{children}</div>
+  <div className={`flex mb-7 h-6 items-center`}>{children}</div>
 );
 
 export const LeftPanel: React.FC<LeftPanelProps> = ({ children }) => {

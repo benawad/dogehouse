@@ -104,7 +104,7 @@ export const CreateScheduleRoomModal: React.FC<CreateRoomModalProps> = ({
                   placeholder={t("modules.scheduledRooms.modal.roomName")}
                   autoFocus
                 />
-                <div className={`mt-4 w-full flex-col`}>
+                <div className={`flex mt-4 w-full flex-col`}>
                   <DateTimePicker
                     value={values.scheduledFor}
                     minDate={new Date()}
@@ -116,11 +116,11 @@ export const CreateScheduleRoomModal: React.FC<CreateRoomModalProps> = ({
                     }}
                   />
                   {errors.scheduledFor ? (
-                    <div className={`mt-1`}>
+                    <div className={`flex mt-1`}>
                       <InputErrorMsg>{errors.scheduledFor}</InputErrorMsg>
                     </div>
                   ) : null}
-                  <div className={`mt-4`}>
+                  <div className={`flex mt-4`}>
                     <InputField
                       textarea
                       placeholder={t(

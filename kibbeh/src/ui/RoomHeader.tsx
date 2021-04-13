@@ -18,7 +18,7 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
     <div
       className={`flex-col p-4 bg-primary-800 rounded-t-8 border-b border-primary-600 w-full`}
     >
-      <div className={`text-primary-100`}>
+      <div className={`flex text-primary-100`}>
         <button
           onClick={onTitleClick}
           className={`text-xl font-bold mb-2 flex-1 truncate`}
@@ -32,7 +32,7 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
           height={20}
         />
       </div>
-      <div className={`text-primary-200 text-sm`}>
+      <div className={`flex text-primary-200 text-sm`}>
         with{" "}
         <span
           style={{ marginLeft: 3 }}

@@ -77,7 +77,7 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
             />
           ) : null}
           {listeners}
-          <div className={`h-3 w-full col-span-full`}></div>
+          <div className={`flex h-3 w-full col-span-full`}></div>
         </div>
       </div>
     </div>

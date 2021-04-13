@@ -14,9 +14,9 @@ export const ErrorToastController: React.FC<ErrorToastControllerProps> = ({}) =>
     >
       <MainInnerGrid>
         <div />
-        <div className={`flex-col w-full`}>
+        <div className={`flex flex-col w-full`}>
           {toasts.map((t) => (
-            <div key={t.id} className={`mb-3`}>
+            <div key={t.id} className={`flex mb-3`}>
               <ErrorToast
                 message={t.message}
                 duration={t.duration}

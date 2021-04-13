@@ -98,7 +98,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                       {t("modules.roomChat.whisper")}
                     </p>
                   ) : null}
-                  <div className={`flex items-center px-1`}>
+                  <div className={`flex flex items-center px-1`}>
                     <div
                       className={`block break-words max-w-full items-start flex-1 text-primary-100`}
                       key={messages[index].id}
@@ -126,7 +126,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                         {messages[index].username}
                       </button>
                       <span className={`inline mr-1`}>: </span>
-                      <div className={`inline mr-1 space-x-1`}>
+                      <div className={`flex inline mr-1 space-x-1`}>
                         {messages[index].deleted ? (
                           <span className="inline text-primary-300">
                             [message{" "}

@@ -79,7 +79,7 @@ export const RoomPanelIconBarController: React.FC<RoomPanelIconBarControllerProp
                 {t("modules.roomChat.title")}
               </button>
               <div className="flex overflow-y-auto flex-1">
-                <div className={`flex flex-1 w-full flex-col mt-4`}>
+                <div className={`flex flex flex-1 w-full flex-col mt-4`}>
                   <RoomChatList room={room} />
                   <RoomChatMentions users={users} />
                   <RoomChatInput users={users} />

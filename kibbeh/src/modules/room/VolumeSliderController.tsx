@@ -16,7 +16,7 @@ export const VolumeSliderController: React.FC<VolumeSliderControllerProps> = ({
 
   if (!consumerInfo) {
     return (
-      <div className={`text-primary-300 justify-center w-full py-2`}>
+      <div className={`flex text-primary-300 justify-center w-full py-2`}>
         {t("components.userVolumeSlider.noAudioMessage")}
       </div>
     );

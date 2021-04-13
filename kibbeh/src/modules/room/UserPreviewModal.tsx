@@ -65,7 +65,7 @@ const UserPreview: React.FC<{
   }
 
   if (!data) {
-    return <div className={`text-primary-100`}>This user is gone.</div>;
+    return <div className={`flex text-primary-100`}>This user is gone.</div>;
   }
 
   // @todo pretty sure this is some what bugged
@@ -162,15 +162,15 @@ const UserPreview: React.FC<{
   ] as const;
 
   return (
-    <div className={`flex-col w-full`}>
-      <div className={`bg-primary-900 flex-col`}>
+    <div className={`flex flex-col w-full`}>
+      <div className={`flex bg-primary-900 flex-col`}>
         <VerticalUserInfoWithFollowButton
           idOrUsernameUsedForQuery={data.id}
           user={data}
         />
       </div>
       {!isMe && (isCreator || roomPermissions?.isSpeaker) ? (
-        <div className={`bg-primary-800`}>
+        <div className={`flex bg-primary-800`}>
           <VolumeSliderController userId={id} />
         </div>
       ) : null}

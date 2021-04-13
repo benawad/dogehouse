@@ -28,7 +28,7 @@ export const ChatKeybind: React.FC<ChatKeybindProps> = ({ className }) => {
   }, [count, setChatKeybind]);
 
   return (
-    <div className={`flex items-center ${className}`}>
+    <div className={`flex flex items-center ${className}`}>
       <Button
         size="small"
         onClick={() => {
@@ -38,7 +38,7 @@ export const ChatKeybind: React.FC<ChatKeybindProps> = ({ className }) => {
       >
         {t("components.keyboardShortcuts.setKeybind")}
       </Button>
-      <div className={`ml-4`}>
+      <div className={`flex ml-4`}>
         toggle chat keybind:{" "}
         <span className={`font-bold text-lg`}>
           {active ? "listening" : CHAT}

@@ -17,7 +17,7 @@ export const VolumeSlider: React.FC<VolumeSliderProps> = ({
   onVolume,
 }) => {
   return (
-    <div className={`flex flex-col w-full`}>
+    <div className={`flex flex flex-col w-full`}>
       <div
         className={`text-primary-300 w-full text-center justify-center mb-1`}
       >

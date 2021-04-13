@@ -53,7 +53,7 @@ export const VoiceSettingsPage: PageComponent<VoiceSettingsProps> = () => {
       <HeaderController embed={{}} title="Voice Settings" />
       <MiddlePanel>
         <div className="flex flex-col text-primary-100">
-          <div className={`mb-2`}>{t("pages.voiceSettings.mic")} </div>
+          <div className={`flex mb-2`}>{t("pages.voiceSettings.mic")} </div>
           {devices.length ? (
             <NativeSelect
               className={`mb-4`}
@@ -67,7 +67,7 @@ export const VoiceSettingsPage: PageComponent<VoiceSettingsProps> = () => {
               ))}
             </NativeSelect>
           ) : (
-            <div className={`mb-4`}>
+            <div className={`flex mb-4`}>
               {t("pages.voiceSettings.permissionError")}
             </div>
           )}
@@ -81,8 +81,10 @@ export const VoiceSettingsPage: PageComponent<VoiceSettingsProps> = () => {
               {t("pages.voiceSettings.refresh")}
             </Button>
           </div>
-          <div className={`mt-8 mb-2`}>{t("pages.voiceSettings.volume")} </div>
-          <div className={`mb-8`}>
+          <div className={`flex mt-8 mb-2`}>
+            {t("pages.voiceSettings.volume")}{" "}
+          </div>
+          <div className={`flex mb-8`}>
             <VolumeSlider
               volume={volume}
               onVolume={(n) => set({ volume: n })}

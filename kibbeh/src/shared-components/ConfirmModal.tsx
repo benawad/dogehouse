@@ -33,8 +33,8 @@ export const ConfirmModal: React.FC<Props> = () => {
   return (
     <Modal isOpen={!!onConfirm} onRequestClose={() => close()}>
       <div className="flex flex-col">
-        <div className={`text-primary-100`}>{message}</div>
-        <div className={`flex mt-6 items-center`}>
+        <div className={`flex text-primary-100`}>{message}</div>
+        <div className={`flex flex mt-6 items-center`}>
           <Button
             onClick={() => {
               close();
