@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useGlobalVolumeStore } from "../../global-stores/useGlobalVolumeStore";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { PageComponent } from "../../types/PageComponent";
@@ -17,15 +17,15 @@ import { MiddlePanel } from "../layouts/GridPanels";
 import { useMicIdStore } from "../webrtc/stores/useMicIdStore";
 import { HeaderController } from "../../modules/display/HeaderController";
 import isElectron from "is-electron";
+import { useDevices } from "../../shared-hooks/useDevices";
 
 interface VoiceSettingsProps {}
 
 export const VoiceSettingsPage: PageComponent<VoiceSettingsProps> = () => {
   const { micId, setMicId } = useMicIdStore();
   const { volume, set } = useGlobalVolumeStore();
-  const [devices, setDevices] = useState<Array<{ id: string; label: string }>>(
-    []
-  );
+  const { devices, fetchMics } = useDevices();
+
   useEffect(() => {
     if (isElectron()) {
       const ipcRenderer = window.require("electron").ipcRenderer;
@@ -45,27 +45,8 @@ export const VoiceSettingsPage: PageComponent<VoiceSettingsProps> = () => {
       };
     }
   }, []);
-  const fetchMics = useCallback(() => {
-    navigator.mediaDevices.getUserMedia({ audio: true }).then(() => {
-      navigator.mediaDevices
-        ?.enumerateDevices()
-        .then((d) =>
-          setDevices(
-            d
-              .filter(
-                (device) => device.kind === "audioinput" && device.deviceId
-              )
-              .map((device) => ({ id: device.deviceId, label: device.label }))
-          )
-        );
-    });
-  }, []);
 
   const { t } = useTypeSafeTranslation();
-
-  useEffect(() => {
-    fetchMics();
-  }, [fetchMics]);
 
   return (
     <DefaultDesktopLayout>
