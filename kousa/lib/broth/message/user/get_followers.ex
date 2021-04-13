@@ -1,4 +1,4 @@
-defmodule Broth.Message.User.GetFollows do
+defmodule Broth.Message.User.GetFollowers do
   use Broth.Message.Call
 
   @primary_key false
@@ -7,7 +7,6 @@ defmodule Broth.Message.User.GetFollows do
     field(:limit, :integer, default: 100)
   end
 
-
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
     |> cast(data, [:cursor, :limit])
@@ -15,18 +14,17 @@ defmodule Broth.Message.User.GetFollows do
   end
 
   def execute(changeset, state) do
+    raise "ZZZ"
   end
 
-
   defmodule Reply do
-    use Broth.Message.Push, operation: "user:get_follows:reply"
+    use Broth.Message.Push, operation: "user:get_followers:reply"
 
     @primary_key false
 
     embedded_schema do
       embeds_many(:followers, Beef.Schemas.User)
       field(:next_cursor, :integer)
-      field(:initial, :boolean)
     end
   end
 end

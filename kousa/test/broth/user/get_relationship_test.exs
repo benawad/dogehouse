@@ -97,7 +97,6 @@ defmodule KousaTest.Broth.User.GetRelationshipTest do
       )
     end
 
-
     test "retrieves asymmetric following info", t do
       user_id = t.user.id
 

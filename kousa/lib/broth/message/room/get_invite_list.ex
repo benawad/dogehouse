@@ -28,11 +28,10 @@ defmodule Broth.Message.Room.GetInviteList do
   def execute(changeset, state) do
     with {:ok, get_request} <- apply_action(changeset, :validate),
          {users, next_cursor} <- Beef.Follows.fetch_invite_list(state.user_id, get_request.cursor) do
-
       {:reply, %Reply{invites: users, next_cursor: next_cursor}, state}
     else
       error = {:error, %Ecto.Changeset{}} -> error
-      other -> {:error, "#{inspect other}", state}
+      other -> {:error, "#{inspect(other)}", state}
     end
   end
 end

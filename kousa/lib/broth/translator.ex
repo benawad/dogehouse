@@ -82,22 +82,23 @@ defmodule Broth.Translator do
     }
   end
 
-  def convert_inbound(command = %{"op" => "follow_info", "d" => d}) do
-    %{ command | "op" => "user:get_relationship"}
+  def convert_inbound(command = %{"op" => "follow_info"}) do
+    %{command | "op" => "user:get_relationship"}
   end
 
   def convert_inbound(command = %{"op" => "edit_room", "d" => d}) do
-    %{command |
-      "op" => "room:update",
-      "d" => Map.put(d, "isPrivate", d["privacy"] == "private")
-    }
+    %{command | "op" => "room:update", "d" => Map.put(d, "isPrivate", d["privacy"] == "private")}
   end
 
-  def convert_inbound(command = %{"op" => "fetch_invite_list", "d" => d}) do
+  def convert_inbound(command = %{"op" => "fetch_invite_list"}) do
     Map.merge(command, %{
       "op" => "room:get_invite_list",
       "ref" => UUID.uuid4()
     })
+  end
+
+  def convert_inbound(command = %{"op" => "get_my_following"}) do
+    %{command | "op" => "user:get_following"}
   end
 
   import Kousa.Utils.Version
@@ -136,22 +137,29 @@ defmodule Broth.Translator do
   end
 
   def convert_0_1_0(map, "user:get_relationship:reply", _) do
-    new_data = case map.d.relationship do
-      nil -> %{followsYou: false, youAreFollowing: false}
-      :follows -> %{followsYou: true, youAreFollowing: false}
-      :following -> %{followsYou: false, youAreFollowing: true}
-      :mutual -> %{followsYou: true, youAreFollowing: true}
-    end
+    new_data =
+      case map.d.relationship do
+        nil -> %{followsYou: false, youAreFollowing: false}
+        :follows -> %{followsYou: true, youAreFollowing: false}
+        :following -> %{followsYou: false, youAreFollowing: true}
+        :mutual -> %{followsYou: true, youAreFollowing: true}
+      end
+
     %{map | d: new_data}
   end
 
   def convert_0_1_0(map, "room:update:reply", _) do
-    %{map | d: ! Map.get(map, :errors)}
+    %{map | d: !Map.get(map, :errors)}
   end
 
   def convert_0_1_0(map, "room:get_invite_list:reply", _) do
     data = %{users: map.d.invites, next_cursor: map.d.next_cursor}
     %{map | op: "fetch_invite_list_done", d: data}
+  end
+
+  def convert_0_1_0(map, "user:get_following:reply", _) do
+    data = %{users: map.d.following, next_cursor: map.d.next_cursor}
+    %{map | d: data}
   end
 
   def convert_0_1_0(map, _, _), do: map

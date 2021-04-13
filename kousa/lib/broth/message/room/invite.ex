@@ -17,7 +17,9 @@ defmodule Broth.Message.Room.Invite do
       {:ok, invite} ->
         Kousa.Room.invite_to_room(state.user_id, invite.userId)
         {:noreply, state}
-      error = {:error, _} -> error
+
+      error = {:error, _} ->
+        error
     end
   end
 end

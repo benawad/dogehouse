@@ -20,11 +20,14 @@ defmodule Broth.Message.Room.Update do
   end
 
   def changeset(initializer \\ %__MODULE__{}, data)
+
   def changeset(nil, _) do
     %__MODULE__{}
     |> change
-    |> add_error(:id, "does not exist") # generally 404 on an auth error
+    # generally 404 on an auth error
+    |> add_error(:id, "does not exist")
   end
+
   def changeset(initializer, data) do
     initializer
     |> cast(data, ~w(description isPrivate name autoSpeaker)a)

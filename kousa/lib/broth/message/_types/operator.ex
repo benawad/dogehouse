@@ -10,7 +10,7 @@ defenum(
   [
     # user commands and casts: 0..63
     {User.GetFollowing, 1},
-    {User.GetFollows, 2},
+    {User.GetFollowers, 2},
     {User.Follow, 3},
     {User.Ban, 4},
     {User.Update, 5},

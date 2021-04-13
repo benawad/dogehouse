@@ -56,7 +56,7 @@ defmodule Broth.Message do
     "user:block" => Broth.Message.User.Block,
     "user:follow" => Broth.Message.User.Follow,
     "user:get_following" => Broth.Message.User.GetFollowing,
-    "user:get_follows" => Broth.Message.User.GetFollows,
+    "user:get_followers" => Broth.Message.User.GetFollowers,
     "user:update" => Broth.Message.User.Update,
     "user:get_rooms_about_to_start" => Broth.Message.User.GetRoomsAboutToStart,
     "user:get_scheduled_rooms" => Broth.Message.User.GetScheduledRooms,

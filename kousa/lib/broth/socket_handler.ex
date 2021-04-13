@@ -376,12 +376,6 @@ defmodule Broth.SocketHandler do
     %{}
   end
 
-  def f_handler("get_my_following", %{"cursor" => cursor}, state) do
-    {users, next_cursor} = Follows.get_my_following(state.user_id, cursor)
-
-    %{users: users, nextCursor: next_cursor}
-  end
-
   def f_handler("mute", %{"value" => value}, state) do
     Onion.UserSession.set_mute(state.user_id, value)
     %{}
