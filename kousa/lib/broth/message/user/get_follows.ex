@@ -7,13 +7,16 @@ defmodule Broth.Message.User.GetFollows do
     field(:limit, :integer, default: 100)
   end
 
-  import Ecto.Changeset
 
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
     |> cast(data, [:cursor, :limit])
     |> validate_number(:limit, greater_than: 0, message: "too low")
   end
+
+  def execute(changeset, state) do
+  end
+
 
   defmodule Reply do
     use Broth.Message.Push, operation: "user:get_follows:reply"

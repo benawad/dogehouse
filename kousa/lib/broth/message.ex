@@ -35,7 +35,7 @@ defmodule Broth.Message do
     |> find(:payload)
     |> find(:reference, :optional)
     |> cast_operator
-    |> internal_cast([:operator, :reference])
+    |> cast_reference
     |> validate_required([:operator])
     |> cast_payload(state)
     |> validate_calls_have_references
@@ -108,16 +108,25 @@ defmodule Broth.Message do
 
   defp cast_operator(changeset = %{valid?: false}), do: changeset
 
-  defp cast_operator(changeset = %{params: params = %{"operator" => op}}) do
+  defp cast_operator(changeset = %{params: %{"operator" => op}}) do
     if operator = @operators[op] do
-      %{changeset | params: Map.put(params, "operator", operator)}
-    else
       changeset
+      |> put_change(:operator, operator)
+      |> put_change(:original_operator, op)
+    else
+      add_error(changeset, :operator, "#{op} is invalid")
     end
-    |> put_change(:original_operator, op)
   end
 
-  defp cast_payload(changeset = %{valid?: false}), do: changeset
+  defp cast_reference(changeset = %{valid?: false}), do: changeset
+
+  defp cast_reference(changeset = %{params: %{"reference" => reference}}) do
+    put_change(changeset, :reference, reference)
+  end
+
+  defp cast_reference(changeset), do: changeset
+
+  defp cast_payload(changeset = %{valid?: false}, _), do: changeset
 
   defp cast_payload(changeset, state) do
     operator = get_field(changeset, :operator)
@@ -133,8 +142,6 @@ defmodule Broth.Message do
         %{changeset | errors: inner_changeset.errors, valid?: false}
     end
   end
-
-  defp internal_cast(changeset, fields), do: cast(changeset, changeset.params, fields)
 
   defp validate_calls_have_references(changeset = %{valid?: false}), do: changeset
 

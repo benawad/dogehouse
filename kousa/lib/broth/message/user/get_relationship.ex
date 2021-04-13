@@ -11,7 +11,7 @@ defmodule Broth.Message.User.GetRelationship do
     field(:userId, :binary_id)
   end
 
-  import Ecto.Changeset
+  alias Beef.Follows
   alias Kousa.Utils.UUID
 
   def changeset(initializer \\ %__MODULE__{}, data) do
@@ -24,9 +24,27 @@ defmodule Broth.Message.User.GetRelationship do
   defmodule Reply do
     use Broth.Message.Push, operation: "user:get_relationship:reply"
 
+    @derive {Jason.Encoder, only: [:relationship]}
+
     @primary_key false
     embedded_schema do
-      embeds_one(:relationship, Broth.Message.Types.Relationship)
+      field(:relationship, Broth.Message.Types.Relationship)
     end
   end
+
+  def execute(changeset, state = %{user_id: oneself}) do
+    case apply_action(changeset, :validate) do
+      {:ok, %{userId: ^oneself}} -> {:reply, %Reply{relationship: :self}, state}
+      {:ok, get} ->
+        r = case Follows.get_info(state.user_id, get.userId) do
+          %{followsYou: false, youAreFollowing: false} -> nil
+          %{followsYou: true, youAreFollowing: false} -> :follows
+          %{followsYou: false, youAreFollowing: true} -> :following
+          %{followsYou: true, youAreFollowing: true} -> :mutual
+        end
+        {:reply, %Reply{relationship: r}, state}
+      error = {:error, _} -> error
+    end
+  end
+
 end

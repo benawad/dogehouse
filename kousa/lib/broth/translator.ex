@@ -82,6 +82,10 @@ defmodule Broth.Translator do
     }
   end
 
+  def convert_inbound(command = %{"op" => "follow_info", "d" => d}) do
+    %{ command | "op" => "user:get_relationship"}
+  end
+
   import Kousa.Utils.Version
 
   def convert_inbound(command) do
@@ -115,6 +119,16 @@ defmodule Broth.Translator do
 
   def convert_0_1_0(map, "user:update:reply", _) do
     %{map | d: %{isUsernameTaken: false}}
+  end
+
+  def convert_0_1_0(map, "user:get_relationship:reply", _) do
+    new_data = case map.d.relationship do
+      nil -> %{followsYou: false, youAreFollowing: false}
+      :follows -> %{followsYou: true, youAreFollowing: false}
+      :following -> %{followsYou: false, youAreFollowing: true}
+      :mutual -> %{followsYou: true, youAreFollowing: true}
+    end
+    %{map | d: new_data}
   end
 
   def convert_0_1_0(map, _, _), do: map
