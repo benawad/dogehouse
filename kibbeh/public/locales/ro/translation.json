@@ -37,7 +37,7 @@
       "currentRoom": "Deocamdată în:",
       "startPrivateRoom": "Începe o cameră privată cu ei"
     },
-    "followList": { "followHim": "follows", "followingHim": "following" },
+    "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "Creează cameră",
       "refresh": "Refresh",
