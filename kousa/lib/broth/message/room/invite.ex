@@ -13,7 +13,11 @@ defmodule Broth.Message.Room.Invite do
   end
 
   def execute(data, state) do
-    Kousa.Room.invite_to_room(state.user_id, data.userId)
-    {:ok, state}
+    case apply_action(data, :validate) do
+      {:ok, invite} ->
+        Kousa.Room.invite_to_room(state.user_id, invite.userId)
+        {:noreply, state}
+      error = {:error, _} -> error
+    end
   end
 end
