@@ -6,8 +6,6 @@ import {
   SolidMicrophoneOff,
   SolidSettings,
 } from "../icons";
-import { showErrorToast } from "../lib/showErrorToast";
-import { useDevices } from "../shared-hooks/useDevices";
 import { useScreenType } from "../shared-hooks/useScreenType";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { BoxedIcon } from "./BoxedIcon";
@@ -33,7 +31,6 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
 }) => {
   const { t } = useTypeSafeTranslation();
   const screenType = useScreenType();
-
   return (
     <div className="justify-between bg-primary-700 rounded-b-8 py-3 px-4 w-full">
       <div>
