@@ -18,7 +18,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
     {:ok, uuid: UUID.uuid4(), state: state}
   end
 
-  describe "when you send an update message to change name" do
+  describe "when you send an update message" do
     test "it populates update fields", %{uuid: uuid, state: state} do
       assert {:ok, %{payload: %Update{name: "foobar"}}} =
                BrothTest.Support.Message.validate(
@@ -52,7 +52,9 @@ defmodule BrothTest.Message.Room.UpdateTest do
                  state
                )
     end
+  end
 
+  describe "when you send an update message to change the name" do
     test "providing the wrong datatype for name is disallowed", %{uuid: uuid, state: state} do
       assert {:error, %{errors: [name: {"is invalid", _}]}} =
                BrothTest.Support.Message.validate(

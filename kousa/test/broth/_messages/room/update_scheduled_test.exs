@@ -44,8 +44,7 @@ defmodule BrothTest.Message.Room.UpdateScheduledTest do
     end
 
     test "omitting the id is not allowed", %{uuid: uuid} do
-      assert {:error,
-              %{errors: [id: {"can't be blank", _}]}} =
+      assert {:error, %{errors: [id: {"can't be blank", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:update_scheduled",
                  "payload" => %{"name" => "foobar"},
@@ -54,8 +53,7 @@ defmodule BrothTest.Message.Room.UpdateScheduledTest do
     end
 
     test "an invalid id is not allowed", %{uuid: uuid} do
-      assert {:error,
-              %{errors: [id: {"room not found", _}]}} =
+      assert {:error, %{errors: [id: {"room not found", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:update_scheduled",
                  "payload" => %{"name" => "foobar", "id" => UUID.uuid4()},

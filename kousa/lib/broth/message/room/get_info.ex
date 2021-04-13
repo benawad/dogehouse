@@ -6,7 +6,7 @@ defmodule Broth.Message.Room.GetInfo do
     # required.
     field(:roomId, :binary_id)
   end
-  
+
   alias Kousa.Utils.UUID
 
   def changeset(initializer \\ %__MODULE__{}, data) do

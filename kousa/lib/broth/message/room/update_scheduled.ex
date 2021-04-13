@@ -14,20 +14,17 @@ defmodule Broth.Message.Room.UpdateScheduled do
 
   import Broth.Message.Room.CreateScheduled, only: [validate_future: 1]
 
-  def changeset(_, data) when
-    not is_map_key(data, "id") or
-    is_nil(:erlang.map_get("id", data)) do
-
-    %__MODULE__{}
-    |> change
-    |> add_error(:id, "can't be blank")
+  def changeset(_, data)
+      when not is_map_key(data, "id") or
+             is_nil(:erlang.map_get("id", data)) do
+    id_error("can't be blank")
   end
+
   def changeset(_, data) do
     case Repo.get(__MODULE__, data["id"]) do
       nil ->
-        %__MODULE__{}
-        |> change
-        |> add_error(:id, "room not found")
+        id_error("room not found")
+
       room ->
         room
         |> cast(data, [:name, :scheduledFor, :description])
@@ -36,4 +33,9 @@ defmodule Broth.Message.Room.UpdateScheduled do
     end
   end
 
+  def id_error(message) do
+    %__MODULE__{}
+    |> change
+    |> add_error(:id, message)
+  end
 end

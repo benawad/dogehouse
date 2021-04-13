@@ -21,6 +21,7 @@ defmodule Broth.Message.Room.CreateScheduled do
   end
 
   def validate_future(changeset = %{valid?: false}), do: changeset
+
   def validate_future(changeset) do
     changeset
     |> get_field(:scheduledFor)
