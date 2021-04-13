@@ -1,42 +1,39 @@
 defmodule Broth.Message.Room.UpdateScheduled do
-  use Broth.Message.Call
+  use Broth.Message.Call,
+    reply: __MODULE__,
+    operation: "room:update_scheduled:reply"
 
-  @primary_key false
-  embedded_schema do
-    embeds_one(:room, Beef.Schemas.ScheduledRoom)
+  alias Beef.Repo
+
+  @primary_key {:id, :binary_id, []}
+  schema "scheduled_rooms" do
+    field(:name, :string)
+    field(:scheduledFor, :utc_datetime_usec)
+    field(:description, :string, default: "")
   end
 
-  import Ecto.Changeset
+  import Broth.Message.Room.CreateScheduled, only: [validate_future: 1]
 
-  def changeset(initializer \\ %__MODULE__{}, data) do
-    initializer
+  def changeset(_, data) when
+    not is_map_key(data, "id") or
+    is_nil(:erlang.map_get("id", data)) do
+
+    %__MODULE__{}
     |> change
-    |> Map.put(:params, %{"room" => data})
-    |> cast_embed(
-      :room,
-      required: true,
-      # restrict modifications.
-      with: {__MODULE__, :room_changeset, []}
-    )
-    |> assimilate_embed_errors
+    |> add_error(:id, "can't be blank")
   end
-
-  defp assimilate_embed_errors(changeset = %{valid?: true}), do: changeset
-
-  defp assimilate_embed_errors(changeset = %{changes: %{room: inner_changeset}}) do
-    %{changeset | errors: changeset.errors ++ inner_changeset.errors}
-  end
-
-  def room_changeset(changeset, data) do
-    cast(changeset, data, ~w(description name scheduledFor)a)
-  end
-
-  defmodule Reply do
-    use Broth.Message.Push, operation: "room:update_scheduled:reply"
-
-    @primary_key false
-    embedded_schema do
-      embeds_one(:room, Beef.Schemas.Room)
+  def changeset(_, data) do
+    case Repo.get(__MODULE__, data["id"]) do
+      nil ->
+        %__MODULE__{}
+        |> change
+        |> add_error(:id, "room not found")
+      room ->
+        room
+        |> cast(data, [:name, :scheduledFor, :description])
+        |> validate_required([:name, :scheduledFor])
+        |> validate_future
     end
   end
+
 end

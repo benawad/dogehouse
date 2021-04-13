@@ -6,8 +6,6 @@ defmodule Broth.Message.Room.DeleteScheduled do
     field(:roomId, :binary_id)
   end
 
-  import Ecto.Changeset
-
   alias Kousa.Utils.UUID
 
   def changeset(initializer \\ %__MODULE__{}, data) do

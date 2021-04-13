@@ -6,8 +6,7 @@ defmodule Broth.Message.Room.GetInfo do
     # required.
     field(:roomId, :binary_id)
   end
-
-  import Ecto.Changeset
+  
   alias Kousa.Utils.UUID
 
   def changeset(initializer \\ %__MODULE__{}, data) do
@@ -18,7 +17,7 @@ defmodule Broth.Message.Room.GetInfo do
   end
 
   defmodule Reply do
-    use Broth.Message.Push, operation: "user:get_info:reply"
+    use Broth.Message.Push, operation: "room:get_info:reply"
 
     schema "rooms" do
     end

@@ -3,6 +3,7 @@ defmodule Broth.Message.Room.CreateScheduled do
     reply: __MODULE__,
     operation: "room:create_scheduled:reply"
 
+  @primary_key {:id, :binary_id, []}
   schema "scheduled_room" do
     field(:name, :string)
     field(:scheduledFor, :utc_datetime_usec)

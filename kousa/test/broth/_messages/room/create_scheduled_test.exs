@@ -88,11 +88,11 @@ defmodule BrothTest.Message.Room.CreateScheduledTest do
       past = DateTime.utc_now() |> DateTime.add(-1, :second)
 
       assert {:error, %{errors: [scheduledFor: {"is in the past", _}]}} =
-        BrothTest.Support.Message.validate(%{
-          "operator" => "room:create_scheduled",
-          "payload" => %{"name" => "foobar", "scheduledFor" => past},
-          "reference" => uuid
-        })
+               BrothTest.Support.Message.validate(%{
+                 "operator" => "room:create_scheduled",
+                 "payload" => %{"name" => "foobar", "scheduledFor" => past},
+                 "reference" => uuid
+               })
     end
   end
 

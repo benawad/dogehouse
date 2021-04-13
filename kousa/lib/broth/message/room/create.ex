@@ -15,8 +15,6 @@ defmodule Broth.Message.Room.Create do
     field(:autoSpeaker, :boolean, virtual: true)
   end
 
-  import Ecto.Changeset
-
   def tag, do: "room:create:reply"
 
   # inbound data.

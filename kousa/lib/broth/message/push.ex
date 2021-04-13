@@ -20,7 +20,6 @@ defmodule Broth.Message.Push do
   @callback changeset(Broth.json()) :: Ecto.Changeset.t()
 
   @callback operation :: String.t()
-  @callback change_output(map) :: Ecto.Changeset.t()
-
+  
   @optional_callbacks [changeset: 1]
 end

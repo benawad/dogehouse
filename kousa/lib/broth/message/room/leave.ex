@@ -14,8 +14,6 @@ defmodule Broth.Message.Room.Leave do
   embedded_schema do
   end
 
-  import Ecto.Changeset
-
   def changeset(initializer \\ %__MODULE__{}, data) do
     change(initializer, data)
   end

@@ -7,8 +7,6 @@ defmodule Broth.Message.Room.SetAuth do
     field(:level, Broth.Message.Types.RoomAuth)
   end
 
-  import Ecto.Changeset
-
   alias Kousa.Utils.UUID
 
   def changeset(initializer \\ %__MODULE__{}, data) do

@@ -11,8 +11,6 @@ defmodule Broth.Message.Chat.SendMsg do
     field(:whisperedTo, {:array, :binary_id})
   end
 
-  import Ecto.Changeset
-
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
     |> cast(data, [:whisperedTo])

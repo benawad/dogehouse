@@ -24,7 +24,7 @@ defmodule Broth.Message.User.Update do
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
     |> cast(data, [:muted, :username])
-    |> validate_required(:username)
+    |> validate_required([:id, :username])
   end
 
   def execute(data, state) do

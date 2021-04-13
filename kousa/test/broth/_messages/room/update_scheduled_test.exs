@@ -1,91 +1,135 @@
 defmodule BrothTest.Message.Room.UpdateScheduledTest do
   use ExUnit.Case, async: true
+  use KousaTest.Support.EctoSandbox
+
   @moduletag :message
 
   alias Beef.Schemas.ScheduledRoom
+  alias Beef.Schemas.User
   alias Broth.Message.Room.UpdateScheduled
+  alias Kousa.Support.Factory
 
   setup do
-    {:ok, uuid: UUID.uuid4()}
+    user = Factory.create(User)
+    room = Factory.create(ScheduledRoom, creatorId: user.id)
+
+    {:ok, uuid: UUID.uuid4(), room: room}
   end
 
-  describe "when you send an update message to change name" do
-    test "it populates update fields", %{uuid: uuid} do
-      assert {:ok,
-              %{
-                payload: %UpdateScheduled{room: %ScheduledRoom{name: "foobar"}}
-              }} =
+  describe "when you send an update message" do
+    test "it populates update fields", %{uuid: uuid, room: room} do
+      assert {:ok, %{payload: %UpdateScheduled{name: "foobar"}}} =
+               BrothTest.Support.Message.validate(%{
+                 "operator" => "room:update_scheduled",
+                 "payload" => %{"name" => "foobar", "id" => room.id},
+                 "reference" => uuid
+               })
+
+      # short form also allowed
+      assert {:ok, %{payload: %UpdateScheduled{name: "foobar"}}} =
+               BrothTest.Support.Message.validate(%{
+                 "op" => "room:update_scheduled",
+                 "p" => %{"name" => "foobar", "id" => room.id},
+                 "ref" => uuid
+               })
+    end
+
+    test "omitting the reference is not allowed", %{room: room} do
+      assert {:error,
+              %{errors: [reference: {"is required for Broth.Message.Room.UpdateScheduled", _}]}} =
+               BrothTest.Support.Message.validate(%{
+                 "operator" => "room:update_scheduled",
+                 "payload" => %{"name" => "foobar", "id" => room.id}
+               })
+    end
+
+    test "omitting the id is not allowed", %{uuid: uuid} do
+      assert {:error,
+              %{errors: [id: {"can't be blank", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:update_scheduled",
                  "payload" => %{"name" => "foobar"},
                  "reference" => uuid
                })
-
-      # short form also allowed
-      assert {:ok,
-              %{
-                payload: %UpdateScheduled{room: %ScheduledRoom{name: "foobar"}}
-              }} =
-               BrothTest.Support.Message.validate(%{
-                 "op" => "room:update_scheduled",
-                 "p" => %{"name" => "foobar"},
-                 "ref" => uuid
-               })
     end
 
-    test "omitting the reference is not allowed" do
+    test "an invalid id is not allowed", %{uuid: uuid} do
       assert {:error,
-              %{errors: [reference: {"is required for Broth.Message.Room.UpdateScheduled", _}]}} =
+              %{errors: [id: {"room not found", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:update_scheduled",
-                 "payload" => %{"name" => "foobar"}
+                 "payload" => %{"name" => "foobar", "id" => UUID.uuid4()},
+                 "reference" => uuid
                })
     end
+  end
 
-    test "providing the wrong datatype for name is disallowed", %{uuid: uuid} do
+  describe "when updating scheduled room name" do
+    test "providing the wrong datatype for name is disallowed", %{uuid: uuid, room: room} do
       assert {:error, %{errors: [name: {"is invalid", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:update_scheduled",
-                 "payload" => %{"name" => ["foobar", "barbaz"]},
+                 "payload" => %{"id" => room.id, "name" => ["foobar", "barbaz"]},
+                 "reference" => uuid
+               })
+    end
+
+    test "erasing the name is disallowed", %{uuid: uuid, room: room} do
+      assert {:error, %{errors: [name: {"can't be blank", _}]}} =
+               BrothTest.Support.Message.validate(%{
+                 "operator" => "room:update_scheduled",
+                 "payload" => %{"name" => nil, "id" => room.id},
+                 "reference" => uuid
+               })
+
+      assert {:error, %{errors: [name: {"can't be blank", _}]}} =
+               BrothTest.Support.Message.validate(%{
+                 "operator" => "room:update_scheduled",
+                 "payload" => %{"name" => "", "id" => room.id},
                  "reference" => uuid
                })
     end
   end
 
   describe "when you send an update message to change description" do
-    test "it validates", %{uuid: uuid} do
-      assert {:ok,
-              %{
-                payload: %UpdateScheduled{room: %ScheduledRoom{description: "foobar"}}
-              }} =
+    test "it validates", %{uuid: uuid, room: room} do
+      assert {:ok, %{payload: %UpdateScheduled{description: "foobar"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:update_scheduled",
-                 "payload" => %{"description" => "foobar"},
+                 "payload" => %{"description" => "foobar", "id" => room.id},
                  "reference" => uuid
                })
     end
   end
 
   describe "when you send an update message to change scheduled time" do
-    test "it validates", %{uuid: uuid} do
-      time = DateTime.utc_now()
+    test "it validates", %{uuid: uuid, room: room} do
+      time = DateTime.utc_now() |> DateTime.add(1, :second)
 
-      assert {:ok,
-              %{
-                payload: %UpdateScheduled{room: %ScheduledRoom{scheduledFor: ^time}}
-              }} =
+      assert {:ok, %{payload: %UpdateScheduled{scheduledFor: ^time}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:update_scheduled",
-                 "payload" => %{"scheduledFor" => to_string(time)},
+                 "payload" => %{"scheduledFor" => to_string(time), "id" => room.id},
                  "reference" => uuid
                })
     end
 
-    test "it fails if it's not a proper time", %{uuid: uuid} do
+    test "it fails if it's not a proper time", %{uuid: uuid, room: room} do
       assert {:error, %{errors: [scheduledFor: {"is invalid", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:update_scheduled",
-                 "payload" => %{"scheduledFor" => "aaa"},
+                 "payload" => %{"scheduledFor" => "aaa", "id" => room.id},
+                 "reference" => uuid
+               })
+    end
+
+    test "it fails if it's in the past", %{uuid: uuid, room: room} do
+      time = DateTime.utc_now() |> DateTime.add(-1, :second)
+
+      assert {:error, %{errors: [scheduledFor: {"is in the past", _}]}} =
+               BrothTest.Support.Message.validate(%{
+                 "operator" => "room:update_scheduled",
+                 "payload" => %{"scheduledFor" => to_string(time), "id" => room.id},
                  "reference" => uuid
                })
     end

@@ -3,7 +3,7 @@ defmodule Broth.Message.Room.Update do
     reply: __MODULE__,
     operation: "room:update:reply"
 
-  @primary_key false
+  @primary_key {:id, :binary_id, []}
   schema "rooms" do
     field(:name, :string)
     field(:description, :string)
@@ -19,8 +19,8 @@ defmodule Broth.Message.Room.Update do
 
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
-    |> cast(data, ~w(description isPrivate name autoSpeaker)a)
-    |> validate_required([:name])
+    |> cast(data, ~w(id description isPrivate name autoSpeaker)a)
+    |> validate_required([:id, :name])
   end
 
   def execute(xxx, state) do

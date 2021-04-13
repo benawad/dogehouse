@@ -7,8 +7,6 @@ defmodule Broth.Message.Chat.DeleteMsg do
     field(:userId, :binary_id)
   end
 
-  import Ecto.Changeset
-
   alias Kousa.Utils.UUID
 
   def changeset(initializer \\ %__MODULE__{}, data) do

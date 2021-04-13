@@ -6,8 +6,6 @@ defmodule Broth.Message.Chat.Ban do
     field(:userId, :binary_id)
   end
 
-  import Ecto.Changeset
-
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
     |> cast(data, [:userId])

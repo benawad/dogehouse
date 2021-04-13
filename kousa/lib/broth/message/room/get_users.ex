@@ -7,8 +7,6 @@ defmodule Broth.Message.Room.GetUsers do
     field(:limit, :integer, default: 100)
   end
 
-  import Ecto.Changeset
-
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
     |> cast(data, [:cursor, :limit])

@@ -6,8 +6,7 @@ defmodule Broth.Message.Room.SetRole do
     field(:userId, :binary_id)
     field(:role, Broth.Message.Types.RoomRole)
   end
-
-  import Ecto.Changeset
+  
   alias Kousa.Utils.UUID
 
   def changeset(initializer \\ %__MODULE__{}, data) do
