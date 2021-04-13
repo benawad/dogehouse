@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { recordKeyCombination } from "react-hotkeys";
 import { useKeyMapStore } from "../../global-stores/useKeyMapStore";
+import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../../ui/Button";
 
 interface RequestToSpeakKeybindProps {
@@ -12,6 +13,7 @@ export const RequestToSpeakKeybind: React.FC<RequestToSpeakKeybindProps> = ({
 }) => {
   const [count, setCount] = useState(0);
   const [active, setActive] = useState(false);
+  const { t } = useTypeSafeTranslation();
   const {
     keyNames: { REQUEST_TO_SPEAK },
     setRequestToSpeakKeybind,
