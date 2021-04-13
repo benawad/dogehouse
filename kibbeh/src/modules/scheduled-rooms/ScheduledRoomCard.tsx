@@ -64,7 +64,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
   return (
     <div className="flex">
       <div
-        className={`p-4 w-full bg-primary-800 rounded-lg flex flex-col text-primary-100`}
+        className={`flex p-4 w-full bg-primary-800 rounded-lg flex flex-col text-primary-100`}
       >
         <div className={`flex flex justify-between`}>
           <div className="flex">
@@ -99,7 +99,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
         <div className={`flex flex justify-between my-4`}>
           <div className="flex flex-col">
             <div
-              className={`relative inline-flex`} /* this is to aline the avatar and room name */
+              className={`flex relative inline-flex`} /* this is to aline the avatar and room name */
             >
               <SingleUser size="sm" src={creator.avatarUrl} />
               <div

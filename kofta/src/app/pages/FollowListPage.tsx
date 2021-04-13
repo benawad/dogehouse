@@ -60,7 +60,7 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
         {!users.length ? <div>{t("common.noUsersFound")}</div> : null}
         {users.map((profile) => (
           <div
-            className={`border-b border-solid border-simple-gray-3c flex py-4 px-2 items-center`}
+            className={`flex border-b border-solid border-simple-gray-3c flex py-4 px-2 items-center`}
             key={profile.id}
           >
             <button
@@ -73,7 +73,9 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
               className={`ml-8`}
             >
               <div className={`text-lg`}>{profile.displayName}</div>
-              <div style={{ color: "" }} className={`font-mono`}>@{profile.username}</div>
+              <div style={{ color: "" }} className={`font-mono`}>
+                @{profile.username}
+              </div>
             </button>
             {me?.id === profile.id ||
             profile.youAreFollowing === undefined ||
@@ -109,7 +111,9 @@ export const FollowListPage: React.FC<FollowListPageProps> = () => {
                   }}
                   variant="small"
                 >
-                  {profile.youAreFollowing ? t("pages.followList.followingHim") : t("pages.followList.followHim")}
+                  {profile.youAreFollowing
+                    ? t("pages.followList.followingHim")
+                    : t("pages.followList.followHim")}
                 </Button>
               </div>
             )}

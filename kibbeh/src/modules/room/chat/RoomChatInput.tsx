@@ -131,7 +131,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
             }}
           />
           <div
-            className={`right-12 cursor-pointer flex flex-row-reverse fill-current text-primary-200 mr-3`}
+            className={`flex right-12 cursor-pointer flex flex-row-reverse fill-current text-primary-200 mr-3`}
             onClick={() => {
               setOpen(!open);
               position = 0;

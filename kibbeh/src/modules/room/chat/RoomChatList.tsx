@@ -43,7 +43,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
 
   return (
     <div
-      className={`px-5 flex-1 overflow-y-auto chat-message-container scrollbar-thin scrollbar-thumb-primary-700`}
+      className={`flex px-5 flex-1 overflow-y-auto chat-message-container scrollbar-thin scrollbar-thumb-primary-700`}
       ref={chatListRef}
       onScroll={() => {
         if (!chatListRef.current) return;
@@ -100,7 +100,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                   ) : null}
                   <div className={`flex flex items-center px-1`}>
                     <div
-                      className={`block break-words max-w-full items-start flex-1 text-primary-100`}
+                      className={`flex block break-words max-w-full items-start flex-1 text-primary-100`}
                       key={messages[index].id}
                     >
                       <button

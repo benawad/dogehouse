@@ -10,7 +10,7 @@ export const ErrorToastController: React.FC<ErrorToastControllerProps> = ({}) =>
   return (
     <div
       style={{ zIndex: 1001 }}
-      className={`w-full fixed bottom-0 justify-center`}
+      className={`flex w-full fixed bottom-0 justify-center`}
     >
       <MainInnerGrid>
         <div />

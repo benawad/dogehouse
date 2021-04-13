@@ -29,7 +29,7 @@ export const SettingsDropdown: React.FC<{
         actionButton={t("components.settingsDropdown.logOut.button")}
         overlay={currentOverlay}
       >
-        <div className="flex flex flex-col">
+        <div className="flex flex-col">
           <ApiPreloadLink route="profile" data={{ username: user.username }}>
             <SettingsIcon
               onClick={onCloseDropdown}

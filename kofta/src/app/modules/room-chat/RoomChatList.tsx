@@ -37,7 +37,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
 
   return (
     <div
-      className={`bg-simple-gray-26 px-8 pt-8 flex-1 overflow-y-auto flex-col flex chat-message-container`}
+      className={`flex bg-simple-gray-26 px-8 pt-8 flex-1 overflow-y-auto flex-col flex chat-message-container`}
       ref={chatListRef}
       onScroll={() => {
         if (!chatListRef.current) return;
@@ -80,11 +80,16 @@ export const RoomChatList: React.FC<ChatListProps> = ({}) => {
               }`}
             >
               <div
-                className={`py-1 block break-words max-w-full items-start flex-1`}
+                className={`flex py-1 block break-words max-w-full items-start flex-1`}
                 key={m.id}
               >
                 <span className={`pr-2`}>
-                  <Avatar size={20} src={m.avatarUrl} usernameForErrorImg={m.username} className="inline" />
+                  <Avatar
+                    size={20}
+                    src={m.avatarUrl}
+                    usernameForErrorImg={m.username}
+                    className="inline"
+                  />
                 </span>
 
                 <button

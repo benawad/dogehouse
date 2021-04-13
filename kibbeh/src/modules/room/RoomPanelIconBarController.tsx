@@ -70,7 +70,7 @@ export const RoomPanelIconBarController: React.FC<RoomPanelIconBarControllerProp
             // this is kind of hard to embed in the page
             // so tmp solution of portaling this and absolute positioning for fullscreen
             <div
-              className={`absolute flex-col w-full z-30 bg-primary-800 h-full rounded-8`}
+              className={`flex absolute flex-col w-full z-30 bg-primary-800 h-full rounded-8`}
             >
               <button
                 onClick={() => toggleOpen()}

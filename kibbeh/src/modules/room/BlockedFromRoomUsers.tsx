@@ -83,7 +83,7 @@ export const BlockedFromRoomUsersPage: React.FC<{
     <>
       {data.users.map((profile) => (
         <div
-          className={`border-b border-solid w-full flex py-4 px-2 items-center`}
+          className={`flex border-b border-solid w-full flex py-4 px-2 items-center`}
           key={profile.id}
         >
           <div className="flex">

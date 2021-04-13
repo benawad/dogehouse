@@ -19,7 +19,7 @@ export const InputField: React.FC<
   const [field, meta] = useField(props);
 
   return (
-    <div className={`flex h-full w-full block`}>
+    <div className={`h-full w-full block`}>
       {label ? (
         <div className={`flex mb-2 text-primary-300`}>{label}</div>
       ) : null}

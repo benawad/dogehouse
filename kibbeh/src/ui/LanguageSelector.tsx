@@ -105,8 +105,8 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
 
   return (
     <div className="flex absolute h-full w-full z-20 bg-primary-800">
-      <div className="flex block h-full w-full">
-        <div className="flex block h-6 w-full border-b border-primary-700 sticky top-0 bg-primary-800">
+      <div className="block h-full w-full">
+        <div className="block h-6 w-full border-b border-primary-700 sticky top-0 bg-primary-800">
           <button
             onClick={onClose}
             className="absolute left-3 text-primary-100 top-1/2 transform translate-y-n1/2 py-1 focus:outline-no-chrome hover:bg-primary-700 z-30 rounded-5"
@@ -122,7 +122,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
           className="block h-full overflow-y-auto scrollbar-thin scrollbar-thumb-primary-700"
           style={{ height: "calc(100% - 40px)" }}
         >
-          <div className="flex block">{parsedOptions}</div>
+          <div className="block">{parsedOptions}</div>
         </div>
       </div>
     </div>

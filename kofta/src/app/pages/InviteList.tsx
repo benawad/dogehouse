@@ -79,7 +79,7 @@ export const InviteList: React.FC<InviteListProps> = () => {
         )}
         {users.map((u) => (
           <div
-            className={`border-b border-solid border-simple-gray-3c flex py-4 px-2 items-center`}
+            className={`flex border-b border-solid border-simple-gray-3c flex py-4 px-2 items-center`}
             key={u.id}
           >
             <button onClick={() => history.push(`/user/${u.username}`, u)}>

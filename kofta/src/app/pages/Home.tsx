@@ -25,9 +25,9 @@ import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
 import isElectron from "is-electron";
 import { modalAlert } from "../components/AlertModal";
 
-const isMac = process.platform === 'darwin';
+const isMac = process.platform === "darwin";
 
-interface HomeProps { }
+interface HomeProps {}
 
 const get_top_public_rooms = "get_top_public_rooms";
 
@@ -63,9 +63,9 @@ const Page = ({
   useEffect(() => {
     if (isElectron()) {
       let ipcRenderer = window.require("electron").ipcRenderer;
-      ipcRenderer.send("@rpc/page", { page: "home", data: data?.rooms.length })
+      ipcRenderer.send("@rpc/page", { page: "home", data: data?.rooms.length });
     }
-  }, [data])
+  }, [data]);
   useEffect(() => {
     if (isElectron() && isMac) {
       modalAlert(t("common.requestPermissions"));
@@ -88,8 +88,6 @@ const Page = ({
     );
   }
 
-
-
   return (
     <>
       <Button variant="small" onClick={() => refetch()}>
@@ -106,9 +104,9 @@ const Page = ({
                 };
                 currentRoom
                   ? modalConfirm(
-                    `Leave room '${currentRoom.name}' and join room '${r.name}'?`,
-                    joinRoom
-                  )
+                      `Leave room '${currentRoom.name}' and join room '${r.name}'?`,
+                      joinRoom
+                    )
                   : joinRoom();
               }}
               room={r}
@@ -149,7 +147,7 @@ export const Home: React.FC<HomeProps> = () => {
   const { currentRoom } = useCurrentRoomStore();
   const [cursors, setCursors] = useState([0]);
   const [showCreateRoomModal, setShowCreateRoomModal] = useState(false);
-  const [showBetaPrompt, setShowBetaPrompt] = useState(true)
+  const [showBetaPrompt, setShowBetaPrompt] = useState(true);
   const queryClient = useQueryClient();
   const { status } = useSocketStatus();
   const { data } = useQuery<GetMyScheduledRoomsAboutToStartQuery>(
@@ -168,26 +166,48 @@ export const Home: React.FC<HomeProps> = () => {
         <BodyWrapper>
           <div className={`mb-10 mt-8`}>
             <Logo />
-            {showBetaPrompt
-              ?
-              <div className={isElectron() ?
-                "mt-4 grid lg:grid-cols-5 sm:grid-rows-2 lg:grid-rows-1 p-4 bg-simple-gray-33 rounded-md lg:grid"
-                : "mt-4 grid lg:grid-cols-5 sm:grid-rows-2 lg:grid-rows-1 p-4 bg-simple-gray-33 rounded-md hidden lg:grid"
-              }>
+            {showBetaPrompt ? (
+              <div
+                className={
+                  isElectron()
+                    ? "mt-4 grid lg:grid-cols-5 sm:grid-rows-2 lg:grid-rows-1 p-4 bg-simple-gray-33 rounded-md lg:grid"
+                    : "mt-4 grid lg:grid-cols-5 sm:grid-rows-2 lg:grid-rows-1 p-4 bg-simple-gray-33 rounded-md hidden lg:grid"
+                }
+              >
                 <div className="col-span-3">
-                  <div className="relative top-1/2" style={{ transform: "translateY(-50%)" }}>
-                    <h2 className="font-bold text-2xl text-opacity-90 text-white">The Desktop Beta is here</h2>
-                    <h3 className="font-semibold text-opacity-80 text-white">Would you like to test it?</h3>
+                  <div
+                    className="relative top-1/2"
+                    style={{ transform: "translateY(-50%)" }}
+                  >
+                    <h2 className="font-bold text-2xl text-opacity-90 text-white">
+                      The Desktop Beta is here
+                    </h2>
+                    <h3 className="font-semibold text-opacity-80 text-white">
+                      Would you like to test it?
+                    </h3>
                   </div>
                 </div>
                 <div className="col-span-2 space-x-3 flex flex-1 my-5">
-                  <a href="https://next.dogehouse.tv" className="rounded capitalize outline-none w-full flex items-center justify-center text-center text-white button-fix bg-blue-500 hover:bg-blue-400 py-2.5 px-1">Let's Go</a>
-                  <button onClick={() => setShowBetaPrompt(false)} className="rounded capitalize outline-none w-full flex items-center justify-center text-center text-white button-fix bg-simple-gray-23 hover:bg-simple-gray-26 py-2.5 px-1">No thanks</button>
+                  <a
+                    href="https://next.dogehouse.tv"
+                    className="rounded capitalize outline-none w-full flex items-center justify-center text-center text-white button-fix bg-blue-500 hover:bg-blue-400 py-2.5 px-1"
+                  >
+                    Let's Go
+                  </a>
+                  <button
+                    onClick={() => setShowBetaPrompt(false)}
+                    className="rounded capitalize outline-none w-full flex items-center justify-center text-center text-white button-fix bg-simple-gray-23 hover:bg-simple-gray-26 py-2.5 px-1"
+                  >
+                    No thanks
+                  </button>
                 </div>
-              </div> : ""}
+              </div>
+            ) : (
+              ""
+            )}
           </div>
           <div
-            className={`mb-6 flex justify-center`}
+            className={`flex mb-6 flex justify-center`}
             style={{ flexWrap: "wrap", gap: "1rem" }}
           >
             <div /* className={`mr-4 px-2.5`} */>
@@ -236,11 +256,11 @@ export const Home: React.FC<HomeProps> = () => {
                     scheduledRooms: (d?.scheduledRooms || []).map((x) =>
                       x.id === editInfo.scheduleRoomToEdit.id
                         ? {
-                          ...x,
-                          name: data.name,
-                          description: data.description,
-                          scheduledFor: data.scheduledFor.toISOString(),
-                        }
+                            ...x,
+                            name: data.name,
+                            description: data.description,
+                            scheduledFor: data.scheduledFor.toISOString(),
+                          }
                         : x
                     ),
                   };

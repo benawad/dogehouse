@@ -93,7 +93,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
       >
         {({ setFieldValue, values, isSubmitting }) => (
           <Form className={`grid grid-cols-3 gap-4 focus:outline-none w-full`}>
-            <div className={`flex col-span-3 block`}>
+            <div className={`col-span-3 block`}>
               <h4 className={`mb-2 text-primary-100`}>
                 {edit ? t("pages.home.editRoom") : t("pages.home.createRoom")}
               </h4>
@@ -111,7 +111,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
                 autoComplete="off"
               />
             </div>
-            <div className={`flex grid items-start grid-cols-1 h-6`}>
+            <div className={`grid items-start grid-cols-1 h-6`}>
               <NativeSelect
                 value={values.privacy}
                 onChange={(e) => {
@@ -139,9 +139,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
               />
             </div>
 
-            <div
-              className={`flex flex pt-2 space-x-3 col-span-full items-center`}
-            >
+            <div className={`flex pt-2 space-x-3 col-span-full items-center`}>
               <Button loading={isSubmitting} type="submit" className={`mr-3`}>
                 {edit ? t("common.save") : t("pages.home.createRoom")}
               </Button>

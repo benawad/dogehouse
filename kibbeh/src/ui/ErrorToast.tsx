@@ -34,12 +34,12 @@ export const ErrorToast: React.FC<ErrorMessageProps> = ({
 
   return (
     <div
-      className={`rounded-8 p-3 relative w-full items-center justify-center text-button transition-transform duration-300 bg-secondary`}
+      className={`flex rounded-8 p-3 relative w-full items-center justify-center text-button transition-transform duration-300 bg-secondary`}
       data-testid="error-message"
     >
       {onClose ? (
         <div
-          className={`absolute cursor-pointer`}
+          className={`flex absolute cursor-pointer`}
           style={{
             top: 5,
             right: 7,

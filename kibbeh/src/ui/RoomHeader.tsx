@@ -16,12 +16,12 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
 }) => {
   return (
     <div
-      className={`flex-col p-4 bg-primary-800 rounded-t-8 border-b border-primary-600 w-full`}
+      className={`flex flex-col p-4 bg-primary-800 rounded-t-8 border-b border-primary-600 w-full`}
     >
       <div className={`flex text-primary-100`}>
         <button
           onClick={onTitleClick}
-          className={`text-xl font-bold mb-2 flex-1 truncate`}
+          className={`flex text-xl font-bold mb-2 flex-1 truncate`}
         >
           {title}
         </button>

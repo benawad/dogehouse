@@ -74,8 +74,8 @@ export const UpcomingRoomsCard: React.FC<UpcomingRoomsCardProps> = ({
 }) => {
   const { t } = useTypeSafeTranslation();
   return (
-    <div className="flex w-full rounded-lg overflow-y-auto flex flex-col">
-      <div className="flex px-4 py-3 bg-primary-800 border-b border-primary-600 flex justify-between items-center">
+    <div className="w-full rounded-lg overflow-y-auto flex flex-col">
+      <div className="px-4 py-3 bg-primary-800 border-b border-primary-600 flex justify-between items-center">
         <h4 className="text-primary-100 font-bold">
           {t("components.upcomingRoomsCard.upcomingRooms")}
         </h4>
