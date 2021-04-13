@@ -34,7 +34,7 @@ export const ChatKeybind: React.FC<ChatKeybindProps> = ({ className }) => {
           setActive(true);
         }}
       >
-        set keybind
+        {t("components.keyboardShortcuts.setKeybind")}
       </Button>
       <div className={`ml-4`}>
         toggle chat keybind:{" "}
