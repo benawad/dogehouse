@@ -19,7 +19,7 @@ export const RoomAvatar: React.FC<RoomAvatarProps> = ({
   activeSpeaker,
 }) => {
   return (
-    <button className={`flex-col items-center`} onClick={onClick}>
+    <button className={`flex flex-col items-center`} onClick={onClick}>
       <SingleUser
         activeSpeaker={activeSpeaker}
         size="lg"
