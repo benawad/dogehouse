@@ -72,14 +72,14 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
   isOnline,
   avatarUrl,
 }) => {
-  const { t } = useTypeSafeTranslation()
+  const { t } = useTypeSafeTranslation();
   return (
     <div className="flex-col rounded-8 bg-primary-800 p-4 w-full">
       <button onClick={onClick}>
         <div>
           <SingleUser size="default" isOnline={isOnline} src={avatarUrl} />
         </div>
-        <div>
+        <div className="mt-2">
           <div className="flex-col ml-3">
             <span className="text-sm text-primary-100 font-bold break-all text-left">
               {displayName}
@@ -97,7 +97,9 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
             <span className="text-primary-100 font-bold">
               {kFormatter(numFollowers)}
             </span>{" "}
-            <span className="text-primary-300 ml-1 lowercase">{t("pages.viewUser.followers")}</span>
+            <span className="text-primary-300 ml-1 lowercase">
+              {t("pages.viewUser.followers")}
+            </span>
           </ApiPreloadLink>
         </div>
         <div className="ml-4">
@@ -105,7 +107,9 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
             <span className="text-primary-100 font-bold">
               {kFormatter(numFollowing)}
             </span>
-            <span className="text-primary-300 ml-1 lowercase">{t("pages.viewUser.following")}</span>
+            <span className="text-primary-300 ml-1 lowercase">
+              {t("pages.viewUser.following")}
+            </span>
           </ApiPreloadLink>
         </div>
       </div>

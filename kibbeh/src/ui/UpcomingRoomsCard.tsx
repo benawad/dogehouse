@@ -55,7 +55,7 @@ export const ScheduledRoomSummaryCard: React.FC<ScheduledRoomSummaryCardProps> =
   return (
     <button
       onClick={onClick}
-      className={`px-4 py-2 w-full bg-primary-800 flex flex-col gap-2 border-b border-primary-600 cursor-pointer ${
+      className={`px-4 py-2 w-full bg-primary-800 flex flex-col gap-2 border-b border-primary-600 cursor-pointer last:border-b-0 ${
         transition ? `transition duration-200 ease-in-out` : ``
       } hover:bg-primary-700 z-0`}
     >
@@ -70,17 +70,19 @@ export const UpcomingRoomsCard: React.FC<UpcomingRoomsCardProps> = ({
   onCreateScheduledRoom,
   rooms,
 }) => {
-  const { t } = useTypeSafeTranslation()
+  const { t } = useTypeSafeTranslation();
   return (
     <div className="w-full rounded-lg overflow-y-auto flex flex-col">
-      <div className="px-4 py-2 bg-primary-800 border-b border-primary-600 flex justify-between items-center">
-        <h4 className="text-primary-100 font-bold">{t("components.upcomingRoomsCard.upcomingRooms")}</h4>
+      <div className="px-4 py-3 bg-primary-800 border-b border-primary-600 flex justify-between items-center">
+        <h4 className="text-primary-100 font-bold">
+          {t("components.upcomingRoomsCard.upcomingRooms")}
+        </h4>
         <BoxedIcon
           onClick={onCreateScheduledRoom}
-          style={{ height: "30px", width: "30px" }}
+          style={{ height: "26px", width: "26px" }}
           transition
         >
-          <SolidPlus />
+          <SolidPlus width={12} height={12} />
         </BoxedIcon>
       </div>
       <div className="flex-col">
