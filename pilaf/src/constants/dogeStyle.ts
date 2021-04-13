@@ -101,3 +101,15 @@ export const smallBold: TextStyle = {
   ...small,
   fontWeight: "700",
 };
+
+export const xsmall: TextStyle = {
+  ...textBase,
+  fontWeight: "500",
+  fontSize: fontSize.xs,
+  lineHeight: 16,
+};
+
+export const xsmallBold: TextStyle = {
+  ...xsmall,
+  fontWeight: "700",
+};

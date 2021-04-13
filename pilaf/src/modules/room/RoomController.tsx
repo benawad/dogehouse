@@ -23,7 +23,9 @@ const placeHolder = (
     }}
   >
     <TitledHeader title={""} showBackButton={true} />
-    <Spinner size={"m"} />
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Spinner size={"m"} />
+    </View>
   </View>
 );
 
