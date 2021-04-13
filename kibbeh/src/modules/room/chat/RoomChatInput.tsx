@@ -48,6 +48,10 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
     if (!open) inputRef.current?.focus();
   }, [open]);
 
+  useEffect(() => () => {
+    setMessage("");
+  }, []);
+
   const handleSubmit = (
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>
   ) => {
