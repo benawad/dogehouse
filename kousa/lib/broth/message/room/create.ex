@@ -11,15 +11,35 @@ defmodule Broth.Message.Room.Create do
     field(:name, :string)
     field(:description, :string)
     field(:isPrivate, :boolean, default: false)
-    field(:userIdsToInvite, {:array, :binary_id}, virtual: true)
+    field(:userIdToInvite, {:array, :binary_id}, virtual: true)
     field(:autoSpeaker, :boolean, virtual: true)
   end
-
-  def tag, do: "room:create:reply"
 
   # inbound data.
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
-    |> cast(data, [:name, :description, :isPrivate, :userIdsToInvite, :autoSpeaker])
+    |> cast(data, [:name, :description, :isPrivate, :userIdToInvite, :autoSpeaker])
+    |> validate_required([:name])
+  end
+
+  def execute(changeset!, state) do
+    changeset! = put_change(changeset!, :creatorId, state.user_id)
+
+    # TODO: pass the changeset to the create_room and avoid the validation
+    # step.
+    with {:ok, room_spec} <- apply_action(changeset!, :validation),
+         {:ok, %{room: room}} <-
+           Kousa.Room.create_room(
+             state.user_id,
+             room_spec.name,
+             room_spec.description,
+             room_spec.isPrivate,
+             room_spec.userIdToInvite
+           ) do
+      {:reply, struct(__MODULE__, Map.from_struct(room)), state}
+    else
+      error = {:error, %Ecto.Changeset{}} -> error
+      {:error, any} -> {:error, inspect(any), state}
+    end
   end
 end
