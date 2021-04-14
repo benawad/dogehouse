@@ -8,7 +8,6 @@ import {
   MacCloseIcon,
   MacMinimizeIcon,
 } from "../../icons";
-import { Button } from "../../ui/Button";
 import { useHostStore } from "../../global-stores/useHostStore";
 import { MacButton } from "../../ui/MacButton";
 import { WinButton } from "../../ui/WinButton";
@@ -35,7 +34,7 @@ function WinHeader() {
       </div>
       <p className="header-title">DogeHouse</p>
       <div className="w-full header-drag-region"></div>
-      <div className="header-icons flex flex-row-reverse w-auto space-x-2 space-x-reverse">
+      <div className="header-icons flex flex-row-reverse w-auto">
         <WinButton
           icon={<WinCloseIcon width={10} height={10} />}
           className="hover:bg-accent-hover"
@@ -75,7 +74,6 @@ function MacHeader() {
       >
         <MacButton
           icon={hovering ? <MacCloseIcon /> : null}
-          size="small"
           color="red"
           onClick={() => {
             if (isElectron()) ipcRenderer.send("@app/quit");
@@ -83,7 +81,6 @@ function MacHeader() {
         />
         <MacButton
           icon={hovering ? <MacMinimizeIcon /> : null}
-          size="small"
           color="yellow"
           onClick={() => {
             if (isElectron()) ipcRenderer.send("@app/minimize");
@@ -91,7 +88,6 @@ function MacHeader() {
         />
         <MacButton
           icon={hovering ? <MacMaximizeIcon /> : null}
-          size="small"
           color="green"
           onClick={() => {
             if (isElectron()) ipcRenderer.send("@app/maximize");

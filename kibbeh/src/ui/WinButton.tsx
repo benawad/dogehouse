@@ -19,7 +19,7 @@ export const WinButton: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
-      className={`flex px-2 py-1 text-xs rounded-md transition 
+      className={`flex px-2 py-1 text-xs transition 
       duration-200 ease-in-out text-button 
       bg-primary-700 hover:bg-primary-600 disabled:text-primary-300
        font-bold flex items-center justify-center remove-outline ${className}`}
@@ -27,7 +27,7 @@ export const WinButton: React.FC<ButtonProps> = ({
       {...props}
     >
       <span className={`flex items-center`}>
-        {icon ? <span className={`mr-2 items-center`}>{icon}</span> : null}
+        {icon ? <span className={`items-center`}>{icon}</span> : null}
         {children}
       </span>
     </button>

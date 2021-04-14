@@ -41,10 +41,6 @@
   margin-left: 5px;
 }
 
-.remove-margin-right {
-  margin-right: 0px;
-}
-
 .remove-outline:focus {
   outline: none;
 }
