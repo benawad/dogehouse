@@ -27,3 +27,4 @@ export { default as Smiley } from "./Smiley";
 export { default as WinMaximizeIcon } from "./WinMaximizeIcon";
 export { default as WinMinimizeIcon } from "./WinMinimizeIcon";
 export { default as WinCloseIcon } from "./WinCloseIcon";
+export { default as SolidChatBubble } from "./SolidChatBubble";

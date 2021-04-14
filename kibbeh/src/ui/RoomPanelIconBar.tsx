@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  SolidChatBubble,
   SolidCompass,
   SolidFriends,
   SolidMicrophone,
@@ -59,14 +60,13 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
           </BoxedIcon>
         ) : null}
         {screenType === "1-cols" || screenType === "fullscreen" ? (
-          // @todo put chat icon
           <BoxedIcon
             transition
             className="mr-2"
             color="800"
             onClick={onToggleChat}
           >
-            <SolidCompass />
+            <SolidChatBubble />
           </BoxedIcon>
         ) : null}
         {onRoomSettings ? (

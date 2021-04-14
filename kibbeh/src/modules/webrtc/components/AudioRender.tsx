@@ -67,7 +67,7 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
   return (
     <>
       <div
-        className={`absolute w-full h-full flex z-50 bg-primary-900 ${
+        className={`absolute top-0 w-full h-full flex z-50 bg-primary-900 ${
           showAutoPlayModal ? "" : "hidden"
         }`}
       >
