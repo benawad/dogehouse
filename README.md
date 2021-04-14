@@ -107,4 +107,4 @@ https://www.youtube.com/watch?v=hy-EhJ_tTQo
 
 ## Attribution
 
-We use https://twemoji.twitter.com/
+For emojis, we use [Twemoji](https://twemoji.twitter.com/)
