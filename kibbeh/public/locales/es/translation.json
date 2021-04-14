@@ -145,7 +145,7 @@
         "roomDescription": "descripción de la sala",
         "descriptionError": "longitud máxima de 500 caracteres",
         "nameError": "debe contener entre 2 y 60 caracteres",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "Completa este Formulario para crear una nueva sala"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nueva Sala Creada",
@@ -213,22 +213,22 @@
     "followingOnline": {
       "people": "People",
       "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
+      "noOnline": "Tu tienes 0 amigos online",
       "showMore": "Show more"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "Proximas Salas",
+      "exploreMoreRooms": "Explora nuevas salas"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": { "placeholder": "Buscar salas, usuarios or categorias" },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
+      "profile": "Perfil",
+      "language": "Idioma",
+      "reportABug": "Informa una problema",
       "useOldVersion": "Use Old Version",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "cerrar sesión",
+        "modalSubtitle": "¿Estás seguro que quieres cerrar sesión?"
       }
     }
   },
