@@ -23,11 +23,12 @@ defmodule Broth.Message.Call do
       |> Keyword.get(:reply, default_reply_module)
       |> Macro.expand(__CALLER__)
 
-    directions = if reply_module == __CALLER__.module do
-      [:inbound, :outbound]
-    else
-      [:outbound]
-    end
+    directions =
+      if reply_module == __CALLER__.module do
+        [:inbound, :outbound]
+      else
+        [:outbound]
+      end
 
     quote do
       use Ecto.Schema

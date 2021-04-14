@@ -139,6 +139,7 @@ defmodule Broth.Message do
     end
 
     defp operator(%{operator: op}) when is_binary(op), do: op
+
     defp operator(%{operator: op}) when is_atom(op) do
       if function_exported?(op, :operator, 0) do
         op.operator()

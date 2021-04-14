@@ -125,18 +125,9 @@ defmodule Broth.SocketHandler do
       _mediasoup_op = %{"op" => "@" <> _} ->
         raise "foo"
 
-      # TODO: deprecate
-      # special cases: block_user_and_from_room
-      %{"op" => "block_user_and_from_room", "d" => payload} ->
-        block_user_and_from_room(payload, state)
-
-      # special cases: fetch_follow_list
-      %{"op" => "fetch_follow_list", "d" => payload} ->
-        fetch_follow_list(payload, state)
-
-      # special cases: join_room_and_get_info
-      %{"op" => "join_room_and_get_info", "d" => payload, "fetchId" => fetch_id} ->
-        join_room_and_get_info(payload, fetch_id, state)
+      # legacy special cases
+      msg = %{"op" => special_case} when special_case in @special_cases ->
+        Broth.LegacyHandler.process(msg, state)
 
       {:error, %Jason.DecodeError{}} ->
         {:reply, {:close, 4001, "invalid input"}, state}
@@ -224,78 +215,6 @@ defmodule Broth.SocketHandler do
 
   def wrap_error(message, error_map) do
     %{message | payload: %{}, errors: error_map}
-  end
-
-  # legacy implementation special cases
-  defp block_user_and_from_room(%{"userId" => user_id_to_block}, state) do
-    Logger.error(
-      "block_user_and_from_room command is deprecated.  Send two user:block and room:ban operations instead"
-    )
-
-    Kousa.UserBlock.block(state.user_id, user_id_to_block)
-    Kousa.Room.block_from_room(state.user_id, user_id_to_block)
-    {:ok, state}
-  end
-
-  defp fetch_follow_list(
-         %{"userId" => user_id, "isFollowing" => get_following_list, "cursor" => cursor},
-         state
-       ) do
-    {users, nextCursor} =
-      Kousa.Follow.get_follow_list(state.user_id, user_id, get_following_list, cursor)
-
-    {:reply,
-     prepare_socket_msg(
-       %{
-         op: "fetch_follow_list_done",
-         d: %{
-           isFollowing: get_following_list,
-           userId: user_id,
-           users: users,
-           nextCursor: nextCursor,
-           initial: cursor == 0
-         }
-       },
-       state
-     ), state}
-  end
-
-  defp join_room_and_get_info(%{"roomId" => room_id_to_join}, fetch_id, state) do
-    reply = case Kousa.Room.join_room(state.user_id, room_id_to_join) do
-      %{error: err} ->
-        %{error: err}
-
-      %{room: room} ->
-        {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
-
-        case Onion.RoomSession.lookup(room_id) do
-          [] ->
-            %{error: "Room no longer exists."}
-
-          _ ->
-            {muteMap, autoSpeaker, activeSpeakerMap} =
-              if room_id do
-                Onion.RoomSession.get_maps(room_id)
-              else
-                {%{}, false, %{}}
-              end
-
-            payload = %{
-              room: room,
-              users: users,
-              muteMap: muteMap,
-              activeSpeakerMap: activeSpeakerMap,
-              roomId: room_id,
-              autoSpeaker: autoSpeaker
-            }
-
-            %{d: payload, op: "fetch_done", fetchId: fetch_id}
-        end
-      _ ->
-        %{error: "error"}
-    end
-
-    {:reply, prepare_socket_msg(reply, state), state}
   end
 
   def handler("make_room_public", %{"newName" => new_name}, state) do
@@ -573,7 +492,7 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  defp prepare_socket_msg(data, state) do
+  def prepare_socket_msg(data, state) do
     data
     |> encode_data(state)
     |> prepare_data(state)

@@ -20,7 +20,7 @@ defmodule Broth.Message.Room.GetUsers do
 
   defmodule Reply do
     use Broth.Message.Push
-    
+
     @primary_key false
 
     @derive {Jason.Encoder, only: [:users, :muteMap, :activeSpeakerMap, :roomId, :autoSpeaker]}
