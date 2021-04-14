@@ -67,6 +67,7 @@ function createMainWindow() {
       nodeIntegration: true,
       contextIsolation: false,
     },
+    frame: false,
     show: false,
   });
 
@@ -147,9 +148,6 @@ function createMainWindow() {
   mainWindow.webContents.on("new-window", handleLinks);
   mainWindow.webContents.on("will-navigate", handleLinks);
 
-  ipcMain.on("@app/version", (event, args) => {
-    event.sender.send("@app/version", app.getVersion());
-  });
   ipcMain.on("@dogehouse/loaded", (event, doge) => {
     if (doge != PREV_VERSION) {
       PREV_VERSION = doge;
@@ -166,6 +164,24 @@ function createMainWindow() {
         });
       }
       mainWindow.center();
+    }
+  });
+
+  ipcMain.on("@app/quit", (event, args) => {
+    mainWindow.close();
+  });
+  ipcMain.on("@app/maximize", (event, args) => {
+    if (mainWindow.maximizable) {
+      if (mainWindow.isMaximized()) {
+        mainWindow.unmaximize();
+      } else {
+        mainWindow.maximize();
+      }
+    }
+  });
+  ipcMain.on("@app/minimize", (event, args) => {
+    if (mainWindow.minimizable) {
+      mainWindow.minimize();
     }
   });
 }
