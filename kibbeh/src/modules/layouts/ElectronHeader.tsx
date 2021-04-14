@@ -11,6 +11,7 @@ import {
 import { Button } from "../../ui/Button";
 import { useHostStore } from "../../global-stores/useHostStore";
 import { MacButton } from "../../ui/MacButton";
+import { WinButton } from "../../ui/WinButton";
 
 let ipcRenderer: any = undefined;
 if (isElectron()) {
@@ -35,29 +36,21 @@ function WinHeader() {
       <p className="header-title">DogeHouse</p>
       <div className="w-full header-drag-region"></div>
       <div className="header-icons flex flex-row-reverse w-auto space-x-2 space-x-reverse">
-        <Button
+        <WinButton
           icon={<WinCloseIcon width={10} height={10} />}
-          size="small"
-          color="secondary"
-          className="remove-outline hover:bg-accent-hover"
+          className="hover:bg-accent-hover"
           onClick={() => {
             if (isElectron()) ipcRenderer.send("@app/quit");
           }}
         />
-        <Button
+        <WinButton
           icon={<WinMaximizeIcon width={10} height={10} />}
-          size="small"
-          color="secondary"
-          className="remove-outline"
           onClick={() => {
             if (isElectron()) ipcRenderer.send("@app/maximize");
           }}
         />
-        <Button
+        <WinButton
           icon={<WinMinimizeIcon width={10} height={10} />}
-          size="small"
-          color="secondary"
-          className="remove-outline"
           onClick={() => {
             if (isElectron()) ipcRenderer.send("@app/minimize");
           }}
