@@ -13,7 +13,7 @@ defmodule BrothTest.Message.User.GetInfoTest do
     test "an empty payload is ok.", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %GetInfo{userId: ^uuid}
+                payload: %GetInfo{id: ^uuid}
               }} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:get_info",
@@ -24,7 +24,7 @@ defmodule BrothTest.Message.User.GetInfoTest do
       # short form also allowed
       assert {:ok,
               %{
-                payload: %GetInfo{userId: ^uuid}
+                payload: %GetInfo{id: ^uuid}
               }} =
                BrothTest.Support.Message.validate(%{
                  "op" => "user:get_info",
@@ -34,7 +34,7 @@ defmodule BrothTest.Message.User.GetInfoTest do
     end
 
     test "userId parameter is required" do
-      assert {:error, %{errors: [userId: {"can't be blank", _}]}} =
+      assert {:error, %{errors: [id: {"can't be blank", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:get_info",
                  "payload" => %{},
