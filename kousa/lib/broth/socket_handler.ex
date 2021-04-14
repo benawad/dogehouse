@@ -108,7 +108,7 @@ defmodule Broth.SocketHandler do
     {:reply, prepare_socket_msg("pong", state), state}
   end
 
-  @special_cases ["block_user_and_from_room", "fetch_follow_list"]
+  @special_cases ["block_user_and_from_room", "fetch_follow_list", "join_room_and_get_info"]
 
   def websocket_handle({:text, command_json}, state) do
     with {:ok, message_map!} <- Jason.decode(command_json),
@@ -132,7 +132,11 @@ defmodule Broth.SocketHandler do
 
       # special cases: fetch_follow_list
       %{"op" => "fetch_follow_list", "d" => payload} ->
-        block_user_and_from_room(payload, state)
+        fetch_follow_list(payload, state)
+
+      # special cases: join_room_and_get_info
+      %{"op" => "join_room_and_get_info", "d" => payload, "fetchId" => fetch_id} ->
+        join_room_and_get_info(payload, fetch_id, state)
 
       {:error, %Jason.DecodeError{}} ->
         {:reply, {:close, 4001, "invalid input"}, state}
@@ -254,6 +258,44 @@ defmodule Broth.SocketHandler do
        },
        state
      ), state}
+  end
+
+  defp join_room_and_get_info(%{"roomId" => room_id_to_join}, fetch_id, state) do
+    reply = case Kousa.Room.join_room(state.user_id, room_id_to_join) do
+      %{error: err} ->
+        %{error: err}
+
+      %{room: room} ->
+        {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
+
+        case Onion.RoomSession.lookup(room_id) do
+          [] ->
+            %{error: "Room no longer exists."}
+
+          _ ->
+            {muteMap, autoSpeaker, activeSpeakerMap} =
+              if room_id do
+                Onion.RoomSession.get_maps(room_id)
+              else
+                {%{}, false, %{}}
+              end
+
+            payload = %{
+              room: room,
+              users: users,
+              muteMap: muteMap,
+              activeSpeakerMap: activeSpeakerMap,
+              roomId: room_id,
+              autoSpeaker: autoSpeaker
+            }
+
+            %{d: payload, op: "fetch_done", fetchId: fetch_id}
+        end
+      _ ->
+        %{error: "error"}
+    end
+
+    {:reply, prepare_socket_msg(reply, state), state}
   end
 
   def handler("make_room_public", %{"newName" => new_name}, state) do
@@ -411,41 +453,6 @@ defmodule Broth.SocketHandler do
   def f_handler("mute", %{"value" => value}, state) do
     Onion.UserSession.set_mute(state.user_id, value)
     %{}
-  end
-
-  def f_handler("join_room_and_get_info", %{"roomId" => room_id_to_join}, state) do
-    case Kousa.Room.join_room(state.user_id, room_id_to_join) do
-      %{error: err} ->
-        %{error: err}
-
-      %{room: room} ->
-        {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
-
-        case Onion.RoomSession.lookup(room_id) do
-          [] ->
-            %{error: "Room no longer exists."}
-
-          _ ->
-            {muteMap, autoSpeaker, activeSpeakerMap} =
-              if room_id do
-                Onion.RoomSession.get_maps(room_id)
-              else
-                {%{}, false, %{}}
-              end
-
-            %{
-              room: room,
-              users: users,
-              muteMap: muteMap,
-              activeSpeakerMap: activeSpeakerMap,
-              roomId: room_id,
-              autoSpeaker: autoSpeaker
-            }
-        end
-
-      _ ->
-        %{error: "you should never see this, tell ben"}
-    end
   end
 
   @spec f_handler(<<_::64, _::_*8>>, any, atom | map) :: any
