@@ -1,7 +1,6 @@
 defmodule Broth.Message.Room.Create do
   use Broth.Message.Call,
-    reply: __MODULE__,
-    operation: "room:create:reply"
+    reply: __MODULE__
 
   @derive {Jason.Encoder, only: [:id, :creatorId, :name, :description, :isPrivate]}
 

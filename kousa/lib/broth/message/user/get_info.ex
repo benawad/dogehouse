@@ -17,7 +17,7 @@ defmodule Broth.Message.User.GetInfo do
   end
 
   defmodule Reply do
-    use Broth.Message.Push, operation: "user:get_info:reply"
+    use Broth.Message.Push
 
     @derive {Jason.Encoder, only: [:id, :username, :displayName, :avatarUrl, :bio]}
 

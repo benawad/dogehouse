@@ -16,7 +16,7 @@ defmodule Broth.Message.Room.Unban do
   end
 
   defmodule Reply do
-    use Broth.Message.Push, operation: "room:unban:reply"
+    use Broth.Message.Push
 
     @derive {Jason.Encoder, only: [:error]}
 

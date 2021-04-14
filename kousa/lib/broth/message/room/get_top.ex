@@ -15,15 +15,15 @@ defmodule Broth.Message.Room.GetTop do
   end
 
   defmodule Reply do
-    use Broth.Message.Push, operation: "room:get_top:reply"
+    use Broth.Message.Push
 
     @derive {Jason.Encoder, only: [:rooms, :nextCursor, :initial]}
 
     @primary_key false
     embedded_schema do
-      embeds_many :rooms, Beef.Schemas.Room
-      field :nextCursor, :integer
-      field :initial, :boolean
+      embeds_many(:rooms, Beef.Schemas.Room)
+      field(:nextCursor, :integer)
+      field(:initial, :boolean)
     end
   end
 
@@ -35,5 +35,4 @@ defmodule Broth.Message.Room.GetTop do
       {:reply, %Reply{rooms: rooms, nextCursor: nextCursor, initial: request.cursor == 0}, state}
     end
   end
-
 end

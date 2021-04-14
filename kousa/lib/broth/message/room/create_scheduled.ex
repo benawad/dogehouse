@@ -1,7 +1,6 @@
 defmodule Broth.Message.Room.CreateScheduled do
   use Broth.Message.Call,
-    reply: __MODULE__,
-    operation: "room:create_scheduled:reply"
+    reply: __MODULE__
 
   @primary_key {:id, :binary_id, []}
   schema "scheduled_room" do

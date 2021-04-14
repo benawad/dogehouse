@@ -10,6 +10,9 @@ defmodule Broth.Message.Cast do
 
       @behaviour Broth.Message.Cast
 
+      Module.register_attribute(__MODULE__, :directions, accumulate: true, persist: true)
+      @directions [:inbound]
+
       # default, overrideable intializer value
 
       @impl true

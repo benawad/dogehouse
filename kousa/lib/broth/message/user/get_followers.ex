@@ -19,7 +19,7 @@ defmodule Broth.Message.User.GetFollowers do
   end
 
   defmodule Reply do
-    use Broth.Message.Push, operation: "user:get_followers:reply"
+    use Broth.Message.Push
 
     @primary_key false
 

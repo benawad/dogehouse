@@ -1,7 +1,6 @@
 defmodule Broth.Message.User.Update do
   use Broth.Message.Call,
-    reply: __MODULE__,
-    operation: "user:update:reply"
+    reply: __MODULE__
 
   alias Beef.Repo
 

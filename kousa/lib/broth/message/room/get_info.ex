@@ -17,7 +17,7 @@ defmodule Broth.Message.Room.GetInfo do
   end
 
   defmodule Reply do
-    use Broth.Message.Push, operation: "room:get_info:reply"
+    use Broth.Message.Push
 
     schema "rooms" do
     end

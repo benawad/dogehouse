@@ -1,7 +1,6 @@
 defmodule Broth.Message.Room.Update do
   use Broth.Message.Call,
-    reply: __MODULE__,
-    operation: "room:update:reply"
+    reply: __MODULE__
 
   @derive {Jason.Encoder, only: [:name, :description, :isPrivate, :autoSpeaker]}
 

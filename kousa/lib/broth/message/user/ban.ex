@@ -13,7 +13,7 @@ defmodule Broth.Message.User.Ban do
   end
 
   defmodule Reply do
-    use Broth.Message.Push, operation: "user:ban:reply"
+    use Broth.Message.Push
 
     @derive {Jason.Encoder, only: []}
 

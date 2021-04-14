@@ -50,42 +50,6 @@ defmodule Broth.Message do
     reference: ~w(reference ref fetchId)
   }
 
-  @operators %{
-    "test:operator" => BrothTest.MessageTest.TestOperator,
-    "user:ban" => Broth.Message.User.Ban,
-    "user:block" => Broth.Message.User.Block,
-    "user:follow" => Broth.Message.User.Follow,
-    "user:get_following" => Broth.Message.User.GetFollowing,
-    "user:get_followers" => Broth.Message.User.GetFollowers,
-    "user:update" => Broth.Message.User.Update,
-    "user:get_rooms_about_to_start" => Broth.Message.User.GetRoomsAboutToStart,
-    "user:get_scheduled_rooms" => Broth.Message.User.GetScheduledRooms,
-    "user:get_info" => Broth.Message.User.GetInfo,
-    "user:get_relationship" => Broth.Message.User.GetRelationship,
-    "room:invite" => Broth.Message.Room.Invite,
-    "room:update" => Broth.Message.Room.Update,
-    "room:get_invite_list" => Broth.Message.Room.GetInviteList,
-    "room:update_speaking" => Broth.Message.Room.UpdateSpeaking,
-    "room:leave" => Broth.Message.Room.Leave,
-    "room:ban" => Broth.Message.Room.Ban,
-    "room:set_role" => Broth.Message.Room.SetRole,
-    "room:set_auth" => Broth.Message.Room.SetAuth,
-    "room:join" => Broth.Message.Room.Join,
-    "room:get_users" => Broth.Message.Room.GetUsers,
-    "room:update_scheduled" => Broth.Message.Room.UpdateScheduled,
-    "room:delete_scheduled" => Broth.Message.Room.DeleteScheduled,
-    "room:create" => Broth.Message.Room.Create,
-    "room:create_scheduled" => Broth.Message.Room.CreateScheduled,
-    "room:unban" => Broth.Message.Room.Unban,
-    "room:get_info" => Broth.Message.Room.GetInfo,
-    "room:change_owner" => Broth.Message.Room.ChangeOwner,
-    "room:get_top" => Broth.Message.Room.GetTop,
-    "chat:ban" => Broth.Message.Chat.Ban,
-    "chat:send_msg" => Broth.Message.Chat.SendMsg,
-    "chat:delete_msg" => Broth.Message.Chat.DeleteMsg,
-    "auth:request" => Broth.Message.Auth.Request
-  }
-
   defp find(changeset, field, optional \\ false) when is_atom(field) do
     find(changeset, field, @valid_forms[field], optional)
   end
@@ -174,6 +138,7 @@ defmodule Broth.Message do
 
     # hacky. let's do a reverse lookup in the future.
     defp operator(%{operator: op}) when is_binary(op), do: op
+
     defp operator(message) do
       message.operator.operation()
     end

@@ -16,7 +16,7 @@ defmodule Broth.Message.Room.Join do
   end
 
   defmodule Reply do
-    use Broth.Message.Push, operation: "room:join:reply"
+    use Broth.Message.Push
 
     @primary_key false
     schema "rooms" do

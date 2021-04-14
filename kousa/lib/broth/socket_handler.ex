@@ -140,9 +140,10 @@ defmodule Broth.SocketHandler do
       # error validating the inner changeset.
       {:ok, error} ->
         # hacky.  Solve this with a reverse lookup in the future.
-        reply = error
-        |> Map.put(:operator, error.original_operator)
-        |> prepare_socket_msg(state)
+        reply =
+          error
+          |> Map.put(:operator, error.original_operator)
+          |> prepare_socket_msg(state)
 
         {:reply, reply, state}
 
@@ -167,12 +168,13 @@ defmodule Broth.SocketHandler do
 
       {:error, changeset = %Ecto.Changeset{}} ->
         # hacky, we need to build a reverse lookup for the modules/operations.
-        reply = message
-        |> Map.merge(%{
-          operator: message.original_operator,
-          errors: Kousa.Utils.Errors.changeset_errors(changeset)
-        })
-        |> prepare_socket_msg(state)
+        reply =
+          message
+          |> Map.merge(%{
+            operator: message.original_operator,
+            errors: Kousa.Utils.Errors.changeset_errors(changeset)
+          })
+          |> prepare_socket_msg(state)
 
         {:reply, reply, state}
 
@@ -181,6 +183,7 @@ defmodule Broth.SocketHandler do
           message
           |> wrap({:errors, %{message: err}})
           |> prepare_socket_msg(state)
+
         {:reply, reply, state}
 
       {:error, err} ->
@@ -188,6 +191,7 @@ defmodule Broth.SocketHandler do
           message
           |> wrap({:errors, %{message: inspect(err)}})
           |> prepare_socket_msg(state)
+
         {:reply, reply, state}
 
       {:error, errors, new_state} ->

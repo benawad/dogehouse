@@ -14,7 +14,7 @@ defmodule Broth.Message.Room.GetInviteList do
   end
 
   defmodule Reply do
-    use Broth.Message.Push, operation: "room:get_invite_list:reply"
+    use Broth.Message.Push
 
     @derive {Jason.Encoder, only: [:invites, :nextCursor]}
 
@@ -22,14 +22,15 @@ defmodule Broth.Message.Room.GetInviteList do
     embedded_schema do
       embeds_many(:invites, Beef.Schemas.User)
       field(:nextCursor, :integer)
-      field :initial, :boolean
+      field(:initial, :boolean)
     end
   end
 
   def execute(changeset, state) do
     with {:ok, request} <- apply_action(changeset, :validate),
          {users, nextCursor} <- Beef.Follows.fetch_invite_list(state.user_id, request.cursor) do
-      {:reply, %Reply{invites: users, nextCursor: nextCursor, initial: request.cursor == 0}, state}
+      {:reply, %Reply{invites: users, nextCursor: nextCursor, initial: request.cursor == 0},
+       state}
     end
   end
 end

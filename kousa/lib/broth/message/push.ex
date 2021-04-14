@@ -4,16 +4,14 @@ defmodule Broth.Message.Push do
   """
 
   defmacro __using__(opts) do
-    operation = Keyword.fetch!(opts, :operation)
-
     quote do
       use Ecto.Schema
       import Ecto.Changeset
 
       @behaviour Broth.Message.Push
 
-      @impl true
-      def operation, do: unquote(operation)
+      Module.register_attribute(__MODULE__, :directions, accumulate: true, persist: true)
+      @directions [:outbound]
     end
   end
 

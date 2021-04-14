@@ -22,7 +22,7 @@ defmodule Broth.Message.User.GetRelationship do
   end
 
   defmodule Reply do
-    use Broth.Message.Push, operation: "user:get_relationship:reply"
+    use Broth.Message.Push
 
     @derive {Jason.Encoder, only: [:relationship]}
 

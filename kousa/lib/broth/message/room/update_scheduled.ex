@@ -1,7 +1,6 @@
 defmodule Broth.Message.Room.UpdateScheduled do
   use Broth.Message.Call,
-    reply: __MODULE__,
-    operation: "room:update_scheduled:reply"
+    reply: __MODULE__
 
   alias Beef.Repo
 

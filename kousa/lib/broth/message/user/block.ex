@@ -16,7 +16,7 @@ defmodule Broth.Message.User.Block do
     # TODO: make the reply be a schema that returns the entire user
     # database object
 
-    use Broth.Message.Push, operation: "user:block:reply"
+    use Broth.Message.Push
 
     @derive {Jason.Encoder, only: [:blocked, :error]}
 

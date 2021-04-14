@@ -22,7 +22,7 @@ defmodule Broth.Message.Auth.Request do
   end
 
   defmodule Reply do
-    use Broth.Message.Push, operation: "auth:request:reply"
+    use Broth.Message.Push
     alias Beef.Repo
 
     @derive {Jason.Encoder, only: ~w(

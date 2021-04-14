@@ -15,7 +15,7 @@ defmodule Broth.Message.User.GetFollowing do
   end
 
   defmodule Reply do
-    use Broth.Message.Push, operation: "user:get_following:reply"
+    use Broth.Message.Push
 
     @derive {Jason.Encoder, only: [:following, :nextCursor]}
 
@@ -32,7 +32,8 @@ defmodule Broth.Message.User.GetFollowing do
 
     with {:ok, request} <- apply_action(changeset, :validate),
          {users, nextCursor} <- Follows.get_my_following(state.user_id, request.cursor) do
-      {:reply, %Reply{following: users, nextCursor: nextCursor, initial: request.cursor == 0}, state}
+      {:reply, %Reply{following: users, nextCursor: nextCursor, initial: request.cursor == 0},
+       state}
     end
   end
 end

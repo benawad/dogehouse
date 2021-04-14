@@ -19,8 +19,8 @@ defmodule Broth.Message.Room.GetUsers do
   end
 
   defmodule Reply do
-    use Broth.Message.Push, operation: "room:get_users:reply"
-
+    use Broth.Message.Push
+    
     @primary_key false
 
     @derive {Jason.Encoder, only: [:users, :muteMap, :activeSpeakerMap, :roomId, :autoSpeaker]}
@@ -37,7 +37,6 @@ defmodule Broth.Message.Room.GetUsers do
   def execute(changeset, state) do
     with {:ok, request} <- apply_action(changeset, :validate),
          {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id) do
-
       {muteMap, autoSpeaker, activeSpeakerMap} =
         if room_id do
           Onion.RoomSession.get_maps(room_id)
@@ -45,13 +44,14 @@ defmodule Broth.Message.Room.GetUsers do
           {%{}, false, %{}}
         end
 
-      {:reply, %Reply{
-        users: users,
-        muteMap: muteMap,
-        activeSpeakerMap: activeSpeakerMap,
-        roomId: room_id,
-        autoSpeaker: autoSpeaker
-      }, state}
+      {:reply,
+       %Reply{
+         users: users,
+         muteMap: muteMap,
+         activeSpeakerMap: activeSpeakerMap,
+         roomId: room_id,
+         autoSpeaker: autoSpeaker
+       }, state}
     end
   end
 end

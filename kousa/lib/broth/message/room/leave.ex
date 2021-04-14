@@ -19,7 +19,7 @@ defmodule Broth.Message.Room.Leave do
   end
 
   defmodule Reply do
-    use Broth.Message.Push, operation: "room:leave:reply"
+    use Broth.Message.Push
 
     @derive {Jason.Encoder, only: []}
 

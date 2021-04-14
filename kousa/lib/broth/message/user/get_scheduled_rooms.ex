@@ -11,7 +11,7 @@ defmodule Broth.Message.User.GetScheduledRooms do
   end
 
   defmodule Reply do
-    use Broth.Message.Push, operation: "user:get_scheduled_rooms:reply"
+    use Broth.Message.Push
 
     @primary_key false
 

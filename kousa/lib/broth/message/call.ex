@@ -23,13 +23,11 @@ defmodule Broth.Message.Call do
       |> Keyword.get(:reply, default_reply_module)
       |> Macro.expand(__CALLER__)
 
-    operation =
-      if op = Keyword.get(opts, :operation) do
-        quote do
-          @impl true
-          def operation, do: unquote(op)
-        end
-      end
+    directions = if reply_module == __CALLER__.module do
+      [:inbound, :outbound]
+    else
+      [:outbound]
+    end
 
     quote do
       use Ecto.Schema
@@ -39,7 +37,8 @@ defmodule Broth.Message.Call do
 
       @behaviour Broth.Message.Call
 
-      unquote(operation)
+      Module.register_attribute(__MODULE__, :directions, accumulate: true, persist: true)
+      @directions unquote(directions)
 
       @impl true
       def reply_module, do: unquote(reply_module)
@@ -68,15 +67,13 @@ defmodule Broth.Message.Call do
   @callback changeset(struct | nil, Broth.json()) :: Ecto.Changeset.t()
   @callback changeset(Broth.json()) :: Ecto.Changeset.t()
 
-  @optional_callbacks [operation: 0]
-
   def __after_compile__(%{module: module}, _bin) do
     reply_module = module.reply_module()
     Code.ensure_loaded?(reply_module)
 
-    unless function_exported?(reply_module, :operation, 0) do
+    unless :outbound in reply_module.__info__(:attributes)[:directions] do
       raise CompileError,
-        description: "#{inspect(reply_module)} does not seem to be a Broth.Message.Push module"
+        description: "reply module #{inspect(reply_module)} does not seem to be a outbound module"
     end
   end
 end
