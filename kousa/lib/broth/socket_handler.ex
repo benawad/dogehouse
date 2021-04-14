@@ -108,7 +108,12 @@ defmodule Broth.SocketHandler do
     {:reply, prepare_socket_msg("pong", state), state}
   end
 
-  @special_cases ["block_user_and_from_room", "fetch_follow_list", "join_room_and_get_info"]
+  @special_cases ~w(
+    block_user_and_from_room
+    fetch_follow_list
+    join_room_and_get_info
+    audio_autoplay_error
+  )
 
   def websocket_handle({:text, command_json}, state) do
     with {:ok, message_map!} <- Jason.decode(command_json),
@@ -286,19 +291,6 @@ defmodule Broth.SocketHandler do
           )
       end
     end
-
-    {:ok, state}
-  end
-
-  def handler("audio_autoplay_error", _data, state) do
-    Onion.UserSession.send_ws(
-      state.user_id,
-      nil,
-      %{
-        op: "error",
-        d: "browser can't autoplay audio the first time, go press play audio in your browser"
-      }
-    )
 
     {:ok, state}
   end

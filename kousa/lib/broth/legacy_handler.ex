@@ -24,6 +24,10 @@ defmodule Broth.LegacyHandler do
     join_room_and_get_info(payload, fetch_id, state)
   end
 
+  def process(%{"op" => "audio_autoplay_error"}, state) do
+    audio_autoplay_error(state)
+  end
+
   # legacy implementation special cases
   defp block_user_and_from_room(%{"userId" => user_id_to_block}, state) do
     Logger.error(
@@ -96,5 +100,18 @@ defmodule Broth.LegacyHandler do
       end
 
     {:reply, prepare_socket_msg(reply, state), state}
+  end
+
+  defp audio_autoplay_error(state) do
+    Onion.UserSession.send_ws(
+      state.user_id,
+      nil,
+      %{
+        op: "error",
+        d: "browser can't autoplay audio the first time, go press play audio in your browser"
+      }
+    )
+
+    {:ok, state}
   end
 end

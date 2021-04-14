@@ -2,7 +2,7 @@ defmodule Broth.Message.Room.Mute do
   use Broth.Message.Call
   @primary_key false
   embedded_schema do
-    field :value, :boolean
+    field(:value, :boolean)
   end
 
   # inbound data.
