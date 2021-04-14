@@ -6,11 +6,7 @@ interface TagProps {
 }
 
 // @todo the tag doesn't really glow like in figma right now
-export const Tag: React.FC<TagProps> = ({
-  children,
-  glow,
-  className = '',
-}) => {
+export const Tag: React.FC<TagProps> = ({ children, glow, className = "" }) => {
   return (
     <div
       className={`cursor-pointer bg-primary-700 hover:bg-primary-600 text-xs px-2 font-bold text-primary-100 justify-center items-center rounded ${
