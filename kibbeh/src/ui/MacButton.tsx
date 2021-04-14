@@ -27,7 +27,10 @@ export const MacButton: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
-      className={`flex px-2 py-1 text-xs rounded-md transition duration-200 ease-in-out ${colorClassnames[color]} font-bold flex items-center justify-center ${className} rounded-full remove-outline mac-buttons`}
+      className={`flex text-xs rounded-md transition duration-200 ease-in-out 
+      ${colorClassnames[color]} font-bold flex items-center justify-center
+       ${className} mac-buttons
+       rounded-full focus:outline-none p-0`}
       data-testid="button"
       {...props}
     >

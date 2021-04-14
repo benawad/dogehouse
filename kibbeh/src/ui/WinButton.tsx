@@ -22,7 +22,7 @@ export const WinButton: React.FC<ButtonProps> = ({
       className={`flex px-2 py-1 text-xs transition 
       duration-200 ease-in-out text-button 
       bg-primary-700 hover:bg-primary-600 disabled:text-primary-300
-       font-bold flex items-center justify-center remove-outline ${className}`}
+       font-bold flex items-center justify-center focus:outline-none ${className}`}
       data-testid="button"
       {...props}
     >
