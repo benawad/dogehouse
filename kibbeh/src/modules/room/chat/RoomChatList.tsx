@@ -147,14 +147,13 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                                 );
                               case "emote":
                                 return emoteMap[v.toLowerCase()] ? (
-                                  <>
+                                  <React.Fragment key={i}>
                                     <img
-                                      key={i}
                                       className="inline"
                                       alt={`:${v}:`}
                                       src={emoteMap[v.toLowerCase()]}
                                     />{" "}
-                                  </>
+                                  </React.Fragment>
                                 ) : (
                                   ":" + v + ":"
                                 );
