@@ -4,16 +4,16 @@ defmodule Broth.Message.User.GetInfo do
   @primary_key false
   embedded_schema do
     # required.
-    field(:userId, :binary_id)
+    field(:id, :binary_id)
   end
 
   alias Kousa.Utils.UUID
 
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
-    |> cast(data, [:userId])
-    |> validate_required([:userId])
-    |> UUID.normalize(:userId)
+    |> cast(data, [:id])
+    |> validate_required([:id])
+    |> UUID.normalize(:id)
   end
 
   defmodule Reply do
@@ -34,7 +34,7 @@ defmodule Broth.Message.User.GetInfo do
 
   def execute(changeset, state) do
     case apply_action(changeset, :validate) do
-      {:ok, %{userId: user_id}} ->
+      {:ok, %{id: user_id}} ->
         {:reply, Repo.get(Reply, user_id), state}
       error -> error
     end

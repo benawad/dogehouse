@@ -101,8 +101,8 @@ defmodule Broth.Translator do
     %{command | "op" => "user:get_following"}
   end
 
-  def convert_inbound(command = %{"op" => "get_user_profile"}) do
-    %{command | "op" => "user:get_info"}
+  def convert_inbound(command = %{"op" => "get_user_profile", "d" => d}) do
+    %{command | "op" => "user:get_info", "d" => %{"id" => d["userId"]}}
   end
 
   import Kousa.Utils.Version
