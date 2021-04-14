@@ -108,7 +108,7 @@ defmodule Broth.SocketHandler do
     {:reply, prepare_socket_msg("pong", state), state}
   end
 
-  @special_cases ["block_user_and_from_room"]
+  @special_cases ["block_user_and_from_room", "fetch_follow_list"]
 
   def websocket_handle({:text, command_json}, state) do
     with {:ok, message_map!} <- Jason.decode(command_json),
@@ -128,6 +128,10 @@ defmodule Broth.SocketHandler do
       # TODO: deprecate
       # special cases: block_user_and_from_room
       %{"op" => "block_user_and_from_room", "d" => payload} ->
+        block_user_and_from_room(payload, state)
+
+      # special cases: fetch_follow_list
+      %{"op" => "fetch_follow_list", "d" => payload} ->
         block_user_and_from_room(payload, state)
 
       {:error, %Jason.DecodeError{}} ->
@@ -189,7 +193,7 @@ defmodule Broth.SocketHandler do
     %{message | payload: %{}, errors: error_map}
   end
 
-  # legacy implementation
+  # legacy implementation special cases
   defp block_user_and_from_room(%{"userId" => user_id_to_block}, state) do
     Logger.error(
       "block_user_and_from_room command is deprecated.  Send two user:block and room:ban operations instead"
@@ -198,6 +202,29 @@ defmodule Broth.SocketHandler do
     Kousa.UserBlock.block(state.user_id, user_id_to_block)
     Kousa.Room.block_from_room(state.user_id, user_id_to_block)
     {:ok, state}
+  end
+
+  defp fetch_follow_list(
+         %{"userId" => user_id, "isFollowing" => get_following_list, "cursor" => cursor},
+         state
+       ) do
+    {users, next_cursor} =
+      Kousa.Follow.get_follow_list(state.user_id, user_id, get_following_list, cursor)
+
+    {:reply,
+     prepare_socket_msg(
+       %{
+         op: "fetch_follow_list_done",
+         d: %{
+           isFollowing: get_following_list,
+           userId: user_id,
+           users: users,
+           nextCursor: next_cursor,
+           initial: cursor == 0
+         }
+       },
+       state
+     ), state}
   end
 
   def handler("make_room_public", %{"newName" => new_name}, state) do
@@ -251,30 +278,6 @@ defmodule Broth.SocketHandler do
   def handler("follow", %{"userId" => userId, "value" => value}, state) do
     Kousa.Follow.follow(state.user_id, userId, value)
     {:ok, state}
-  end
-
-  def handler(
-        "fetch_follow_list",
-        %{"userId" => user_id, "isFollowing" => get_following_list, "cursor" => cursor},
-        state
-      ) do
-    {users, next_cursor} =
-      Kousa.Follow.get_follow_list(state.user_id, user_id, get_following_list, cursor)
-
-    {:reply,
-     prepare_socket_msg(
-       %{
-         op: "fetch_follow_list_done",
-         d: %{
-           isFollowing: get_following_list,
-           userId: user_id,
-           users: users,
-           nextCursor: next_cursor,
-           initial: cursor == 0
-         }
-       },
-       state
-     ), state}
   end
 
   def handler("mute", %{"value" => value}, state) do
