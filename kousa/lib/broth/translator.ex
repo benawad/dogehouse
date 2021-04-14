@@ -113,6 +113,10 @@ defmodule Broth.Translator do
     %{command | "op" => "room:get_users"}
   end
 
+  def convert_inbound(command = %{"op" => "mute"}) do
+    %{command | "op" => "room:mute"}
+  end
+
   import Kousa.Utils.Version
 
   def convert_inbound(command) do

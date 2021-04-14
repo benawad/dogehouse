@@ -270,11 +270,6 @@ defmodule Broth.SocketHandler do
     {:ok, state}
   end
 
-  def handler("mute", %{"value" => value}, state) do
-    Onion.UserSession.set_mute(state.user_id, value)
-    {:ok, state}
-  end
-
   def handler("ask_to_speak", _data, state) do
     with {:ok, room_id} <- Users.tuple_get_current_room_id(state.user_id) do
       case RoomPermissions.ask_to_speak(state.user_id, room_id) do

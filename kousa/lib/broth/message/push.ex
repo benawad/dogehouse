@@ -3,7 +3,7 @@ defmodule Broth.Message.Push do
   API contract statement for push message modules
   """
 
-  defmacro __using__(opts) do
+  defmacro __using__(_opts) do
     quote do
       use Ecto.Schema
       import Ecto.Changeset
@@ -16,8 +16,7 @@ defmodule Broth.Message.Push do
   end
 
   @callback changeset(Broth.json()) :: Ecto.Changeset.t()
+  @callback operation() :: String.t()
 
-  @callback operation :: String.t()
-
-  @optional_callbacks [changeset: 1]
+  @optional_callbacks [changeset: 1, operation: 0]
 end
