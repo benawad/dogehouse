@@ -18,7 +18,7 @@ if (isElectron()) {
 }
 
 export function ElectronHeader() {
-  return useHostStore.getState().isMac ? <MacHeader /> : <WinHeader />;
+  return !useHostStore.getState().isMac ? <MacHeader /> : <WinHeader />;
 }
 
 function WinHeader() {
@@ -64,7 +64,7 @@ function MacHeader() {
   return (
     <div className="electron-header z-50">
       <div
-        className="header-icons-mac flex flex-row space-x-2 content-center"
+        className="header-icons-mac flex flex-row space-x-2 content-center mt-9 ml-5"
         onMouseEnter={() => {
           setHovering(true);
         }}

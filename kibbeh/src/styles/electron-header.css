@@ -41,10 +41,6 @@
   margin-left: 5px;
 }
 
-.remove-outline:focus {
-  outline: none;
-}
-
 .red-mac-button {
   color: #4c0000;
   background-color: #ef4444;
