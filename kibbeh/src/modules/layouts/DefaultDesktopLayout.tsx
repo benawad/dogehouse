@@ -15,9 +15,9 @@ export const DefaultDesktopLayout: React.FC<DefaultDesktopLayoutProps> = ({
 }) => {
   return (
     <WaitForWsAndAuth>
-      {!isElectron() ? <ElectronHeader /> : null}
+      {isElectron() ? <ElectronHeader /> : null}
       <div
-        className={!isElectron() ? "default-desktop-layout w-full" : "w-full"}
+        className={isElectron() ? "default-desktop-layout w-full" : "w-full"}
       >
         <DesktopLayout
           floatingRoomInfo={<FloatingRoomInfo />}
