@@ -59,11 +59,5 @@ export const DesktopLayout: React.FC<MainLayoutProps> = ({
       );
   }
 
-  return (
-    <div
-      className={`flex flex-col items-center w-full scrollbar-thin scrollbar-thumb-primary-700`}
-    >
-      <MainInnerGrid>{middle}</MainInnerGrid>
-    </div>
-  );
+  return <MainInnerGrid>{middle}</MainInnerGrid>;
 };

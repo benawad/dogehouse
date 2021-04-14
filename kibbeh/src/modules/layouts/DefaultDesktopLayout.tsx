@@ -1,5 +1,6 @@
 import isElectron from "is-electron";
 import React from "react";
+import { useHostStore } from "../../global-stores/useHostStore";
 import { WaitForWsAndAuth } from "../auth/WaitForWsAndAuth";
 import { FollowingOnlineController } from "../dashboard/FollowingOnlineController";
 import { ProfileBlockController } from "../dashboard/ProfileBlockController";
@@ -15,9 +16,15 @@ export const DefaultDesktopLayout: React.FC<DefaultDesktopLayoutProps> = ({
 }) => {
   return (
     <WaitForWsAndAuth>
-      {isElectron() ? <ElectronHeader /> : null}
+      {isElectron() && !useHostStore.getState().isLinux ? (
+        <ElectronHeader />
+      ) : null}
       <div
-        className={isElectron() ? "default-desktop-layout w-full" : "w-full"}
+        className={
+          isElectron() && !useHostStore.getState().isLinux
+            ? "default-desktop-layout flex flex-col items-center w-full scrollbar-thin scrollbar-thumb-primary-700"
+            : "flex flex-col items-center w-full scrollbar-thin scrollbar-thumb-primary-700"
+        }
       >
         <DesktopLayout
           floatingRoomInfo={<FloatingRoomInfo />}

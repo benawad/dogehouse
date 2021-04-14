@@ -22,6 +22,8 @@ import { InvitedToJoinRoomModal } from "../shared-components/InvitedToJoinRoomMo
 import { ConfirmModal } from "../shared-components/ConfirmModal";
 import isElectron from "is-electron";
 import Head from "next/head";
+import { platform } from "node:os";
+import { useHostStore } from "../global-stores/useHostStore";
 
 if (!isServer) {
   init_i18n();
@@ -42,6 +44,16 @@ function App({ Component, pageProps }: AppProps) {
     if (isElectron()) {
       const ipcRenderer = window.require("electron").ipcRenderer;
       ipcRenderer.send("@dogehouse/loaded", "kibbeh");
+      ipcRenderer.send("@app/hostPlatform");
+      ipcRenderer.on(
+        "@app/hostPlatform",
+        (
+          event: any,
+          platform: { isLinux: boolean; isWin: boolean; isMac: boolean }
+        ) => {
+          useHostStore.getState().setData(platform);
+        }
+      );
     }
   }, []);
 
