@@ -105,6 +105,10 @@ defmodule Broth.Translator do
     %{command | "op" => "user:get_info", "d" => %{"id" => d["userId"]}}
   end
 
+  def convert_inbound(command = %{"op" => "get_top_public_rooms"}) do
+    %{command | "op" => "room:get_top"}
+  end
+
   import Kousa.Utils.Version
 
   def convert_inbound(command) do
@@ -157,12 +161,12 @@ defmodule Broth.Translator do
   end
 
   def convert_0_1_0(map, "room:get_invite_list:reply", _) do
-    data = %{users: map.d.invites, next_cursor: map.d.next_cursor}
+    data = %{users: map.d.invites, nextCursor: map.d.nextCursor}
     %{map | op: "fetch_invite_list_done", d: data}
   end
 
   def convert_0_1_0(map, "user:get_following:reply", _) do
-    data = %{users: map.d.following, next_cursor: map.d.next_cursor}
+    data = %{users: map.d.following, nextCursor: map.d.nextCursor}
     %{map | d: data}
   end
 

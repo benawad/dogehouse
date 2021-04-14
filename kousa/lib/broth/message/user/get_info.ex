@@ -36,7 +36,9 @@ defmodule Broth.Message.User.GetInfo do
     case apply_action(changeset, :validate) do
       {:ok, %{id: user_id}} ->
         {:reply, Repo.get(Reply, user_id), state}
-      error -> error
+
+      error ->
+        error
     end
   end
 end

@@ -20,7 +20,7 @@ defmodule Broth.Message.Room.GetUsers do
 
     embedded_schema do
       embeds_many(:users, Beef.Schemas.User)
-      field(:next_cursor, :integer)
+      field(:nextCursor, :integer)
       field(:initial, :boolean)
     end
   end

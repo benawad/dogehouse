@@ -36,6 +36,7 @@ defenum(
     {Room.CreateScheduled, 78},
     {Room.Unban, 79},
     {Room.GetInfo, 80},
+    {Room.GetTop, 81},
     # chat commands and casts: 128..191
     {Chat.Ban, 129},
     {Chat.SendMsg, 130},

@@ -208,7 +208,7 @@ defmodule Broth.SocketHandler do
          %{"userId" => user_id, "isFollowing" => get_following_list, "cursor" => cursor},
          state
        ) do
-    {users, next_cursor} =
+    {users, nextCursor} =
       Kousa.Follow.get_follow_list(state.user_id, user_id, get_following_list, cursor)
 
     {:reply,
@@ -219,7 +219,7 @@ defmodule Broth.SocketHandler do
            isFollowing: get_following_list,
            userId: user_id,
            users: users,
-           nextCursor: next_cursor,
+           nextCursor: nextCursor,
            initial: cursor == 0
          }
        },
@@ -360,7 +360,7 @@ defmodule Broth.SocketHandler do
         %{"username" => username, "isFollowing" => get_following_list, "cursor" => cursor},
         state
       ) do
-    {users, next_cursor} =
+    {users, nextCursor} =
       Kousa.Follow.get_follow_list_by_username(
         state.user_id,
         username,
@@ -370,7 +370,7 @@ defmodule Broth.SocketHandler do
 
     %{
       users: users,
-      nextCursor: next_cursor
+      nextCursor: nextCursor
     }
   end
 
@@ -443,16 +443,6 @@ defmodule Broth.SocketHandler do
     %{scheduledRooms: Kousa.ScheduledRoom.get_my_scheduled_rooms_about_to_start(state.user_id)}
   end
 
-  def f_handler("get_top_public_rooms", data, state) do
-    {rooms, next_cursor} =
-      Rooms.get_top_public_rooms(
-        state.user_id,
-        data["cursor"]
-      )
-
-    %{rooms: rooms, nextCursor: next_cursor, initial: data["cursor"] == 0}
-  end
-
   def f_handler(
         "edit_room",
         %{"name" => name, "description" => description, "privacy" => privacy},
@@ -470,7 +460,7 @@ defmodule Broth.SocketHandler do
   end
 
   def f_handler("get_scheduled_rooms", data, state) do
-    {scheduled_rooms, next_cursor} =
+    {scheduled_rooms, nextCursor} =
       Kousa.ScheduledRoom.get_scheduled_rooms(
         state.user_id,
         Map.get(data, "getOnlyMyScheduledRooms") == true,
@@ -479,7 +469,7 @@ defmodule Broth.SocketHandler do
 
     %{
       scheduledRooms: scheduled_rooms,
-      nextCursor: next_cursor
+      nextCursor: nextCursor
     }
   end
 
@@ -548,8 +538,8 @@ defmodule Broth.SocketHandler do
 
   def f_handler("get_blocked_from_room_users", %{"offset" => offset}, state) do
     case Kousa.RoomBlock.get_blocked_users(state.user_id, offset) do
-      {users, next_cursor} ->
-        %{users: users, nextCursor: next_cursor}
+      {users, nextCursor} ->
+        %{users: users, nextCursor: nextCursor}
 
       _ ->
         %{users: [], nextCursor: nil}

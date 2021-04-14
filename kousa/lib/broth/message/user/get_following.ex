@@ -17,12 +17,13 @@ defmodule Broth.Message.User.GetFollowing do
   defmodule Reply do
     use Broth.Message.Push, operation: "user:get_following:reply"
 
-    @derive {Jason.Encoder, only: [:following, :next_cursor]}
+    @derive {Jason.Encoder, only: [:following, :nextCursor]}
 
     @primary_key false
     embedded_schema do
       embeds_many(:following, Beef.Schemas.User)
-      field(:next_cursor, :integer)
+      field(:nextCursor, :integer)
+      field(:initial, :boolean)
     end
   end
 
@@ -30,8 +31,8 @@ defmodule Broth.Message.User.GetFollowing do
     alias Beef.Follows
 
     with {:ok, request} <- apply_action(changeset, :validate),
-         {users, next_cursor} = Follows.get_my_following(state.user_id, request.cursor) do
-      {:reply, %Reply{following: users, next_cursor: next_cursor}, state}
+         {users, nextCursor} = Follows.get_my_following(state.user_id, request.cursor) do
+      {:reply, %Reply{following: users, nextCursor: nextCursor, initial: request.cursor == 0}, state}
     else
       error = {:error, %Ecto.Changeset{}} -> error
       other -> {:error, "#{inspect(other)}", state}

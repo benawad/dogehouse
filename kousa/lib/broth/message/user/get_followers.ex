@@ -25,7 +25,8 @@ defmodule Broth.Message.User.GetFollowers do
 
     embedded_schema do
       embeds_many(:followers, Beef.Schemas.User)
-      field(:next_cursor, :integer)
+      field(:nextCursor, :integer)
+      field(:initial, :boolean)
     end
   end
 end

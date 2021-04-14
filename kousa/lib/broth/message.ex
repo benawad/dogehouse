@@ -79,6 +79,7 @@ defmodule Broth.Message do
     "room:unban" => Broth.Message.Room.Unban,
     "room:get_info" => Broth.Message.Room.GetInfo,
     "room:change_owner" => Broth.Message.Room.ChangeOwner,
+    "room:get_top" => Broth.Message.Room.GetTop,
     "chat:ban" => Broth.Message.Chat.Ban,
     "chat:send_msg" => Broth.Message.Chat.SendMsg,
     "chat:delete_msg" => Broth.Message.Chat.DeleteMsg,
