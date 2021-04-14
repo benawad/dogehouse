@@ -8,6 +8,7 @@ function WinMaximizeIcon(props: React.SVGProps<SVGSVGElement>) {
       height="15"
       viewBox="0 0 15 15"
       fill="currentColor"
+      {...props}
     >
       <g id="Layer_2" data-name="Layer 2">
         <g id="svg8">

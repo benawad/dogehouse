@@ -8,6 +8,7 @@ function WinMinimizeIcon(props: React.SVGProps<SVGSVGElement>) {
       height="1.24"
       viewBox="0 0 15 1.24"
       fill="currentColor"
+      {...props}
     >
       <g id="Layer_2" data-name="Layer 2">
         <g id="svg8">

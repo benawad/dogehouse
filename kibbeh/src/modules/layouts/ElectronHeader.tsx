@@ -22,7 +22,7 @@ export function ElectronHeader() {
       <p className="header-title">DogeHouse</p>
       <div className="header-icons flex flex-row-reverse w-full space-x-2 space-x-reverse">
         <Button
-          icon={<WinCloseIcon />}
+          icon={<WinCloseIcon width={10} height={10} />}
           size="small"
           color="secondary"
           className="remove-outline hover:bg-accent-hover"
@@ -31,7 +31,7 @@ export function ElectronHeader() {
           }}
         />
         <Button
-          icon={<WinMaximizeIcon />}
+          icon={<WinMaximizeIcon width={10} height={10} />}
           size="small"
           color="secondary"
           className="remove-outline"
@@ -40,7 +40,7 @@ export function ElectronHeader() {
           }}
         />
         <Button
-          icon={<WinMinimizeIcon />}
+          icon={<WinMinimizeIcon width={10} height={10} />}
           size="small"
           color="secondary"
           className="remove-outline"
