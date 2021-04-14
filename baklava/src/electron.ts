@@ -13,7 +13,13 @@ import Backend from "i18next-node-fs-backend";
 import { autoUpdater } from "electron-updater";
 import { RegisterKeybinds, exitApp } from "./utils/keybinds";
 import { HandleVoiceTray } from "./utils/tray";
-import { ALLOWED_HOSTS, isLinux, isMac, MENU_TEMPLATE } from "./constants";
+import {
+  ALLOWED_HOSTS,
+  isLinux,
+  isMac,
+  isWin,
+  MENU_TEMPLATE,
+} from "./constants";
 import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
@@ -67,7 +73,7 @@ function createMainWindow() {
       nodeIntegration: true,
       contextIsolation: false,
     },
-    frame: false,
+    frame: isLinux,
     show: false,
   });
 
@@ -166,7 +172,6 @@ function createMainWindow() {
       mainWindow.center();
     }
   });
-
   ipcMain.on("@app/quit", (event, args) => {
     mainWindow.close();
   });
@@ -183,6 +188,14 @@ function createMainWindow() {
     if (mainWindow.minimizable) {
       mainWindow.minimize();
     }
+  });
+
+  ipcMain.on("@app/hostPlatform", (event, args) => {
+    event.sender.send("@app/hostPlatform", {
+      isLinux,
+      isMac,
+      isWin,
+    });
   });
 }
 

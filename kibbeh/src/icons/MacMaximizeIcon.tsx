@@ -3,7 +3,7 @@ import * as React from "react";
 function MacMaximizeIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg width="12" height="12" viewBox="0 0 12 12" {...props}>
-      <g fill="currentColor" fill-rule="evenodd">
+      <g fill="currentColor" fillRule="evenodd">
         <path
           d="M5,3 C5,3 5,6.1325704 5,6.48601043 C5,6.83945045 5.18485201,7 5.49021559,7 L9,7 L9,6 L8,6 L8,5 L7,5 L7,4 L6,4 L6,3 L5,3 Z"
           transform="rotate(180 7 5)"

@@ -8,6 +8,7 @@
   display: inline-flex;
   align-items: stretch;
   padding-left: 10px;
+  user-select: none;
 }
 
 .default-desktop-layout {
@@ -17,8 +18,11 @@
 .header-image-cont {
   margin-top: 6px;
   display: block;
+  -webkit-app-region: drag;
 }
-
+.header-drag-region {
+  -webkit-app-region: drag;
+}
 .header-title {
   margin-top: 5px;
   padding-left: 5px;
@@ -26,10 +30,15 @@
   font-size: small;
   font-weight: 700;
   font-family: "Inter";
+  -webkit-app-region: drag;
 }
 
 .header-icons {
   color: #ffffff;
+}
+.header-icons-mac {
+  margin-top: 9px;
+  margin-left: 5px;
 }
 
 .remove-margin-right {
@@ -38,4 +47,23 @@
 
 .remove-outline:focus {
   outline: none;
+}
+
+.red-mac-button {
+  color: #4c0000;
+  background-color: #ef4444;
+}
+.green-mac-button {
+  color: #006500;
+  background-color: #10b981;
+}
+.yellow-mac-button {
+  color: #975500;
+  background-color: #f59e0b;
+}
+
+.mac-buttons {
+  padding: 0px;
+  height: 12.5px;
+  width: 12.5px;
 }

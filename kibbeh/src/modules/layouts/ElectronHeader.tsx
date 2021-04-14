@@ -1,5 +1,5 @@
 import isElectron from "is-electron";
-import React from "react";
+import React, { useState } from "react";
 import {
   WinMaximizeIcon,
   WinCloseIcon,
@@ -10,6 +10,7 @@ import {
 } from "../../icons";
 import { Button } from "../../ui/Button";
 import { useHostStore } from "../../global-stores/useHostStore";
+import { MacButton } from "../../ui/MacButton";
 
 let ipcRenderer: any = undefined;
 if (isElectron()) {
@@ -32,7 +33,8 @@ function WinHeader() {
         />
       </div>
       <p className="header-title">DogeHouse</p>
-      <div className="header-icons flex flex-row-reverse w-full space-x-2 space-x-reverse">
+      <div className="w-full header-drag-region"></div>
+      <div className="header-icons flex flex-row-reverse w-auto space-x-2 space-x-reverse">
         <Button
           icon={<WinCloseIcon width={10} height={10} />}
           size="small"
@@ -66,46 +68,44 @@ function WinHeader() {
 }
 
 function MacHeader() {
+  const [hovering, setHovering] = useState(false);
   return (
     <div className="electron-header z-50">
-      <div className="header-image-cont">
-        <img
-          className="header-image"
-          src="https://github.com/benawad/dogehouse/raw/staging/kibbeh/public/img/doge.png"
-          width="20px"
-          height="20px"
-        />
-      </div>
-      <p className="header-title">DogeHouse</p>
-      <div className="header-icons flex flex-row-reverse w-full space-x-2 space-x-reverse">
-        <Button
-          icon={<MacCloseIcon width={10} height={10} />}
+      <div
+        className="header-icons-mac flex flex-row space-x-2 content-center"
+        onMouseEnter={() => {
+          setHovering(true);
+        }}
+        onMouseLeave={() => {
+          setHovering(false);
+        }}
+      >
+        <MacButton
+          icon={hovering ? <MacCloseIcon /> : null}
           size="small"
-          color="secondary"
-          className="remove-outline hover:bg-accent-hover"
+          color="red"
           onClick={() => {
             if (isElectron()) ipcRenderer.send("@app/quit");
           }}
         />
-        <Button
-          icon={<MacMaximizeIcon width={10} height={10} />}
+        <MacButton
+          icon={hovering ? <MacMinimizeIcon /> : null}
           size="small"
-          color="secondary"
-          className="remove-outline"
-          onClick={() => {
-            if (isElectron()) ipcRenderer.send("@app/maximize");
-          }}
-        />
-        <Button
-          icon={<MacMinimizeIcon width={10} height={10} />}
-          size="small"
-          color="secondary"
-          className="remove-outline"
+          color="yellow"
           onClick={() => {
             if (isElectron()) ipcRenderer.send("@app/minimize");
           }}
         />
+        <MacButton
+          icon={hovering ? <MacMaximizeIcon /> : null}
+          size="small"
+          color="green"
+          onClick={() => {
+            if (isElectron()) ipcRenderer.send("@app/maximize");
+          }}
+        />
       </div>
+      <div className="w-full header-drag-region"></div>
     </div>
   );
 }
