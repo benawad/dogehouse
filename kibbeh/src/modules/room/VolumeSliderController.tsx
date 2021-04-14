@@ -16,14 +16,14 @@ export const VolumeSliderController: React.FC<VolumeSliderControllerProps> = ({
 
   if (!consumerInfo) {
     return (
-      <div className={`text-primary-300 justify-center w-full py-2`}>
+      <div className={`flex text-primary-300 justify-center w-full py-2`}>
         {t("components.userVolumeSlider.noAudioMessage")}
       </div>
     );
   }
 
   return (
-    <div className="mt-1 w-full px-4">
+    <div className="flex mt-1 w-full px-4">
       <VolumeSlider
         label
         max={200}

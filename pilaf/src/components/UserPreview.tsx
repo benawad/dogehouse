@@ -1,46 +1,30 @@
-import React, { ReactNode, useContext, useState } from "react";
-import { JoinRoomAndGetInfoResponse, RoomUser, User } from "@dogehouse/kebab";
-import { SingleUserAvatar } from "./avatars/SingleUserAvatar";
-import { Tag } from "./Tag";
-import { Button } from "./buttons/Buttons";
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  ViewProps,
-  ViewStyle,
-  Image,
-  Dimensions,
-} from "react-native";
-import Slider from "react-native-slider";
+import { RoomUser } from "@dogehouse/kebab";
+import { RouteProp, useNavigation } from "@react-navigation/native";
+import React from "react";
+import { ScrollView, StyleSheet, Text, View, ViewProps } from "react-native";
+import { useQueryClient } from "react-query";
 import {
   colors,
-  fontFamily,
   fontSize,
   paragraph,
   paragraphBold,
-  radius,
-  small,
   smallBold,
 } from "../constants/dogeStyle";
-import { Spinner } from "./Spinner";
-import Modal from "react-native-modal";
-import { useTypeSafeMutation } from "../shared-hooks/useTypeSafeMutation";
-import { useTypeSafeQuery } from "../shared-hooks/useTypeSafeQuery";
 import {
   RoomChatMessage,
   useRoomChatStore,
 } from "../modules/room/chat/useRoomChatStore";
-import { useCurrentRoomInfo } from "../shared-hooks/useCurrentRoomInfo";
-import { useConn } from "../shared-hooks/useConn";
 import { RoomStackParamList } from "../navigation/mainNavigator/RoomNavigator";
-import { RouteProp, useNavigation } from "@react-navigation/native";
-import { TitledHeader } from "./header/TitledHeader";
-import { useConsumerStore } from "../modules/webrtc/stores/useConsumerStore";
+import { useConn } from "../shared-hooks/useConn";
+import { useCurrentRoomInfo } from "../shared-hooks/useCurrentRoomInfo";
+import { useTypeSafeMutation } from "../shared-hooks/useTypeSafeMutation";
+import { useTypeSafeQuery } from "../shared-hooks/useTypeSafeQuery";
 import { useTypeSafeUpdateQuery } from "../shared-hooks/useTypeSafeUpdateQuery";
-import { useQueryClient } from "react-query";
+import { SingleUserAvatar } from "./avatars/SingleUserAvatar";
+import { Button } from "./buttons/Button";
+import { TitledHeader } from "./header/TitledHeader";
+import { Spinner } from "./Spinner";
+import { Tag } from "./Tag";
 
 export type UserPreviewProps = ViewProps & {
   message?: RoomChatMessage;
@@ -64,7 +48,6 @@ export const UserPreviewInternal: React.FC<UserPreviewProps> = ({
   message,
   roomPermissions,
   onClosePress,
-  onVolumeChange,
 }) => {
   const updater = useTypeSafeUpdateQuery();
   const {
@@ -93,8 +76,6 @@ export const UserPreviewInternal: React.FC<UserPreviewProps> = ({
 
   const bannedUserIdMap = useRoomChatStore((s) => s.bannedUserIdMap);
 
-  const { consumerMap, setVolume } = useConsumerStore();
-  const consumerInfo = consumerMap[id];
   const queryClient = useQueryClient();
 
   if (isLoading) {

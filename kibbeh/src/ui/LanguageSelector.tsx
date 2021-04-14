@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Twemoji } from "./Twemoji";
 import backIcon from "../icons/SolidCaretRight";
+import { SettingsIcon } from "./SettingsIcon";
 
 interface LanguageSelectorProps {
   onClose(): void;
@@ -57,7 +58,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "ro", label: "🇷🇴 Română" }, // Romanian
     { value: "ru", label: "🇷🇺 Русский" }, // Russian
     { value: "si", label: "🇱🇰 සිංහල" }, // Sinhala
-    { value: "sk", label: "🇸🇰 slovenčina" }, // Slovak
+    { value: "sk", label: "🇸🇰 Slovenčina" }, // Slovak
     { value: "sl", label: "🇸🇮 Slovenščina" }, // Slovenian
     { value: "sq", label: "🇦🇱 Shqip" }, // Albanian
     { value: "sr", label: "🇷🇸 Српски" }, // Serbian
@@ -70,6 +71,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "tr", label: "🇹🇷 Türkçe" }, // Turkish
     { value: "uk", label: "🇺🇦 Українська" }, // Ukrainian
     { value: "ur", label: "🇵🇰 اردو" }, // Urdu
+    { value: "uz", label: "🇺🇿 Oʻzbek" }, // Uzbek
     { value: "vi", label: "🇻🇳 Tiếng Việt" }, // Vietnamese
     { value: "zh-CN", label: "🇨🇳 中文 (简体)" }, // Chinese (Simplified)
     { value: "zh-TW", label: "🇹🇼 正體中文 (繁體)" }, // Chinese (Traditional)
@@ -88,22 +90,21 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   console.log("Using: ", i18n.language);
 
   const parsedOptions = options.map((e, i) => (
-    <button
-      key={i}
-      className={`items-center flex text-primary-100 w-full mb-2 py-1 px-2 rounded-5 focus:outline-no-chrome${
+    <SettingsIcon
+      key={e.value + i}
+      classes={`text-primary-100 focus:outline-no-chrome${
         i18n.language === e.value ||
         (e.value === "en" && i18n.language === "en-US")
           ? " bg-primary-700"
           : ""
       }`}
       onClick={() => i18n.changeLanguage(e.value)}
-    >
-      <Twemoji style={{ marginRight: "1ch" }} text={e.label} />
-    </button>
+      icon={<Twemoji text={e.label} style={{ marginRight: "1ch" }} />}
+    ></SettingsIcon>
   ));
 
   return (
-    <div className="absolute h-full w-full z-20 bg-primary-800">
+    <div className="flex absolute h-full w-full z-20 bg-primary-800">
       <div className="block h-full w-full">
         <div className="block h-6 w-full border-b border-primary-700 sticky top-0 bg-primary-800">
           <button
@@ -117,8 +118,11 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
             Language
           </p>
         </div>
-        <div className="pr-1 block h-full overflow-y-auto scrollbar-thin scrollbar-thumb-primary-700">
-          <div className="m-2 block">{parsedOptions}</div>
+        <div
+          className="block h-full overflow-y-auto scrollbar-thin scrollbar-thumb-primary-700"
+          style={{ height: "calc(100% - 40px)" }}
+        >
+          <div className="block">{parsedOptions}</div>
         </div>
       </div>
     </div>

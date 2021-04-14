@@ -13,7 +13,7 @@ const LeftHeader: React.FC<LeftHeaderProps> = ({}) => {
         {screenType === "3-cols" ? (
           <LgLogo />
         ) : (
-          <div className="justify-center w-full">
+          <div className="flex justify-center w-full">
             <LogoIcon width={40} height={40} />
           </div>
         )}

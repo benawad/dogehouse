@@ -16,7 +16,7 @@
     "copied": "copiado",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Considere que rodar DogeHouse sem permissões de acessibilidade pode causar erros não desejados"
   },
   "header": {
     "_comment": "Cabeçalho da interface principal para traduções",
@@ -40,7 +40,7 @@
     "home": {
       "createRoom": "Criar Sala",
       "refresh": "Atualizar",
-      "editRoom": "Edit Room"
+      "editRoom": "Editar Sala"
     },
     "inviteList": {
       "roomGone": "acabou a sala, volte",
@@ -181,8 +181,8 @@
         "requirePermission": "precisar de permissão para falar",
         "makePublic": "fazer a sala pública",
         "makePrivate": "fazer a sala privada",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "Definir nome de sala pública",
+        "renamePrivate": "Definir nome de sala privada"
       }
     },
     "userVolumeSlider": { "noAudioMessage": "não tem áudio por algum motivo" },

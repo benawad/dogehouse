@@ -67,7 +67,8 @@
       "voiceSettings": "przejdź do ustawień głosu",
       "soundSettings": "przejdź do ustawień dźwięku",
       "deleteAccount": "usuń konto",
-      "overlaySettings": "przejdź do ustawień nakładki"
+      "overlaySettings": "przejdź do ustawień nakładki",
+      "couldNotFindUser": "Przepraszamy, nie udało się znaleźć tego użytkownika"
     },
     "notFound": {
       "whoopsError": "Ups! Ta strona zagubiła się w konwersacji.",
@@ -125,7 +126,7 @@
       "inviteUsersToRoomBtn": "Zaproś użytkowników do pokoju",
       "invite": "Zaproś",
       "toggleMuteMicBtn": "Przełącz wyciszenie mikrofonów",
-      "mute": "Wyczisz",
+      "mute": "Wycisz",
       "unmute": "Odcisz",
       "makeRoomPublicBtn": "Upublicznij pokój!",
       "settings": "Ustawienia",
@@ -169,7 +170,8 @@
         "roomName": "nazwa pokoju",
         "roomDescription": "opis pokoju",
         "descriptionError": "maksymalna długość to 500",
-        "nameError": "musi być pomiędzy 2 a 60 znakami"
+        "nameError": "musi być pomiędzy 2 a 60 znakami",
+        "subtitle": "Wypełnij te informacje aby utworzyć pokój"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Stworzono nowy pokój",
@@ -209,6 +211,27 @@
         "renamePublic": "Ustaw publiczną nazwę pokoju",
         "renamePrivate": "Ustaw prywatną nazwę pokoju"
       }
+    },
+    "followingOnline": {
+      "people": "Użytkownicy",
+      "online": "ONLINE",
+      "noOnline": "Masz 0 dostępnych znajomych",
+      "showMore": "Pokaż więcej"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Nadchodzące spotkania w pokojach",
+      "exploreMoreRooms": "Odkrywaj pokoje"
+    },
+    "search": { "placeholder": "Znajdź pokój, użytkowników lub kategorie" },
+    "settingsDropdown": {
+      "profile": "Twój profil",
+      "language": "Język",
+      "reportABug": "Zgłoś błąd",
+      "useOldVersion": "Przejdź na starą wersję",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
+      }
     }
   },
   "modules": {
@@ -237,7 +260,7 @@
       "recent": "Często używane",
       "sendMessage": "Wyślij wiadomość",
       "whisper": "Napisane szpetem",
-      "welcomeMessage": "Witaj w chacie!",
+      "welcomeMessage": "Witaj na chacie!",
       "roomDescription": "opis pokoju"
     },
     "roomStatus": {
@@ -251,6 +274,7 @@
       "approachingGalaxy": "Zbliża się do galaktyki",
       "galacticDoge": "Galaktyczny Doge",
       "spottedLife": "Znaleziono planetę z życiem"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

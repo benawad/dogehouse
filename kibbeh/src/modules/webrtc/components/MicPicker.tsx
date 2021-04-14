@@ -21,7 +21,9 @@ export const MicPicker: React.FC<MicPickerProps> = () => {
   }, []);
   return (
     <>
-      {options.length === 0 ? <div>no mics available</div> : null}
+      {options.length === 0 ? (
+        <div className="flex">no mics available</div>
+      ) : null}
       {options.length ? (
         <select
           value={micId}

@@ -62,10 +62,25 @@ p.small {
   font-size: 0.85rem;
 }
 
-html
-  *:not(head *, script, style, .MuiDialog-root, .MuiDialog-root
-    *, .block, .inline-block, .inline, .inline-flex, .table, .table-caption, .table-cell, .table-column, .table-column-group, .table-footer-group, .table-header-group, .table-row-group, .table-row, .flow-root, .grid, .inline-grid, .contents, .hidden, .sm\:hidden, .sm\:flex) {
-  display: flex;
+/* for firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary-700) rgba(0, 0, 0, 0);
+}
+
+/* for non-firefox */
+::-webkit-scrollbar {
+  overflow: overlay;
+  width: 8px;
+  /* shouldnt hardcode width, pls find way to make it dynamic, thin wasn't working for me... */
+}
+
+::-webkit-scrollbar-track {
+  display: initial;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary-700);
 }
 
 html,
@@ -74,6 +89,7 @@ body,
   background-color: var(--color-primary-900);
   height: 100%;
   width: 100%;
+  display: flex;
 }
 
 audio {

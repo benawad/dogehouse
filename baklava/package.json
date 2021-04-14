@@ -1,6 +1,6 @@
 {
     "name": "dogehouse",
-    "version": "1.0.50",
+    "version": "1.0.53",
     "description": "Taking voice conversations to the moon 🚀",
     "main": "./dist/electron.js",
     "scripts": {
@@ -48,7 +48,7 @@
             "category": "public.app-category.social-networking",
             "entitlements": "settings/entitlements.mac.plist",
             "extendInfo": {
-                "NSMicrophoneUsageDescription": "Mic access for speeach input in voice."
+                "NSMicrophoneUsageDescription": "Mic access for speech input in voice."
             },
             "target": [
                 "dmg",
@@ -68,6 +68,21 @@
                 "deb",
                 "AppImage",
                 "snap"
+            ],
+            "category": "AudioVideo"
+        },
+        "snap": {
+            "confinement": "strict",
+            "plugs": [
+                "default",
+                "audio-playback",
+                "audio-record",
+                {
+                    "browser-support": {
+                        "interface": "browser-support",
+                        "allow-sandbox": false
+                    }
+                }
             ]
         },
         "extraMetadata": {
@@ -90,7 +105,7 @@
         "@types/prettier": "^2.2.3",
         "builder-util": "^22.10.5",
         "del-cli": "^3.0.1",
-        "electron": "^11.3.0",
+        "electron": "^12.0.2",
         "electron-build-env": "^0.2.0",
         "electron-builder": "^22.10.5",
         "electron-builder-notarize": "^1.2.0",
@@ -106,7 +121,7 @@
         "electron-log": "^4.3.2",
         "electron-overlay-window": "^1.0.4",
         "electron-updater": "^4.3.8",
-        "globkey": "^1.0.36",
+        "globkey": "^1.0.41",
         "i18next": "^20.0.0",
         "i18next-node-fs-backend": "^2.1.3"
     },

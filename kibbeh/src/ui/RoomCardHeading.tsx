@@ -10,7 +10,7 @@ export const RoomCardHeading: React.FC<RoomCardHeadingProps> = ({
   text,
 }) => {
   return (
-    <div className="text-primary-100 font-bold leading-5 truncate">
+    <div className="flex text-primary-100 font-bold leading-5 truncate w-full">
       {icon ? <span className="mr-2 align-middle">{icon}</span> : null}
       <span className="inline truncate">{text}</span>
     </div>

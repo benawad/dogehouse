@@ -1,10 +1,10 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
-import { Image, Platform } from "react-native";
+import { Image } from "react-native";
 import { CreateRoomButton } from "../../components/bottomBar/CreateRoomButton";
 import { colors } from "../../constants/dogeStyle";
-import { FeedPage } from "./bottomNavigator/FeedPage";
 import { ExplorePage } from "./bottomNavigator/ExplorePage";
+import { FeedPage } from "./bottomNavigator/FeedPage";
 import { FollowingPage } from "./bottomNavigator/FollowingPage";
 import { SchedulePage } from "./bottomNavigator/SchedulePage";
 const Tab = createBottomTabNavigator();

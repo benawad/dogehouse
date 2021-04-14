@@ -87,7 +87,7 @@ export const BlockedFromRoomUsersPage: React.FC<{
     <>
       {data.users.map((profile) => (
         <div
-          className={`border-b border-solid border-simple-gray-3c flex py-4 px-2 items-center`}
+          className={`flex border-b border-solid border-simple-gray-3c flex py-4 px-2 items-center`}
           key={profile.id}
         >
           <div>
@@ -95,7 +95,9 @@ export const BlockedFromRoomUsersPage: React.FC<{
           </div>
           <div className={`ml-4 flex-1 mr-4`}>
             <div className={`text-lg`}>{profile.displayName}</div>
-            <div style={{ color: "" }} className={`font-mono`}>@{profile.username}</div>
+            <div style={{ color: "" }} className={`font-mono`}>
+              @{profile.username}
+            </div>
           </div>
           <UnbanButton offset={offset} userId={profile.id} />
         </div>

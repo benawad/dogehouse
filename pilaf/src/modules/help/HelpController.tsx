@@ -7,7 +7,7 @@ export const HelpController: React.FC = () => {
   return (
     <>
       <TitledHeader title={"Help"} showBackButton={true} />
-      <View style={styles.container}></View>
+      <View style={styles.container} />
     </>
   );
 };

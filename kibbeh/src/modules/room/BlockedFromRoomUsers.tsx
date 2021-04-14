@@ -83,15 +83,17 @@ export const BlockedFromRoomUsersPage: React.FC<{
     <>
       {data.users.map((profile) => (
         <div
-          className={`border-b border-solid w-full flex py-4 px-2 items-center`}
+          className={`flex border-b border-solid w-full flex py-4 px-2 items-center`}
           key={profile.id}
         >
-          <div>
+          <div className="flex">
             <SingleUser size="md" src={profile.avatarUrl} />
           </div>
-          <div className={`ml-4 flex-1 mr-4`}>
-            <div className={`text-lg font-bold`}>{profile.displayName}</div>
-            <div style={{ color: "" }} className={`font-mono font-light`}>
+          <div className={`flex ml-4 flex-1 mr-4`}>
+            <div className={`flex text-lg font-bold`}>
+              {profile.displayName}
+            </div>
+            <div style={{ color: "" }} className={`flex font-mono font-light`}>
               &nbsp;(@{profile.username})
             </div>
           </div>
@@ -99,7 +101,7 @@ export const BlockedFromRoomUsersPage: React.FC<{
         </div>
       ))}
       {isLastPage && data.nextCursor ? (
-        <div className={`flex items-center justify-center mt-4`}>
+        <div className={`flex flex items-center justify-center mt-4`}>
           <Button
             size="small"
             onClick={() => {
@@ -120,11 +122,11 @@ export const BlockedFromRoomUsers: React.FC<BlockedFromRoomUsersProps> = ({}) =>
 
   return (
     <>
-      <div className={`mt-4 flex-col text-primary-100`}>
+      <div className={`flex mt-4 flex-col text-primary-100`}>
         <h1 className={`text-xl`}>
           {t("components.blockedFromRoomUsers.header")}
         </h1>
-        <div className="flex-col">
+        <div className="flex flex-col">
           {offsets.map((offset, i) => (
             <BlockedFromRoomUsersPage
               key={offset}

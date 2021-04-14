@@ -65,7 +65,8 @@
       "voiceSettings": "ir a ajustes de voz",
       "soundSettings": "ir a ajustes de sonido",
       "deleteAccount": "eliminar cuenta",
-      "overlaySettings": "ir a ajustes del overlay"
+      "overlaySettings": "ir a ajustes del overlay",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "¡Ups! Esta página se perdió en una conversación.",
@@ -143,7 +144,8 @@
         "roomName": "nombre de la sala",
         "roomDescription": "descripción de la sala",
         "descriptionError": "longitud máxima de 500 caracteres",
-        "nameError": "debe contener entre 2 y 60 caracteres"
+        "nameError": "debe contener entre 2 y 60 caracteres",
+        "subtitle": "Completa este Formulario para crear una nueva sala"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nueva Sala Creada",
@@ -207,6 +209,27 @@
     "inviteButton": {
       "invited": "invitado",
       "inviteToRoom": "invitar a la sala"
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "Tu tienes 0 amigos online",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Proximas Salas",
+      "exploreMoreRooms": "Explora nuevas salas"
+    },
+    "search": { "placeholder": "Buscar salas, usuarios or categorias" },
+    "settingsDropdown": {
+      "profile": "Perfil",
+      "language": "Idioma",
+      "reportABug": "Informa una problema",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "cerrar sesión",
+        "modalSubtitle": "¿Estás seguro que quieres cerrar sesión?"
+      }
     }
   },
   "modules": {
@@ -248,6 +271,7 @@
       "approachingGalaxy": "Acercandose a la galaxia",
       "galacticDoge": "Doge galáctico",
       "spottedLife": "Vida descubierta en el planeta"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

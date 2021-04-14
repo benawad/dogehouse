@@ -11,9 +11,9 @@ export interface RoomSearchResultProps {
 
 export const RoomSearchResult: React.FC<RoomSearchResultProps> = ({ room }) => {
   return (
-    <div className="cursor-pointer hover:bg-primary-700 px-4 py-3 w-full">
-      <div className="flex-col w-full">
-        <div className="w-full">
+    <div className="flex cursor-pointer hover:bg-primary-700 px-4 py-3 w-full">
+      <div className="flex flex-col w-full">
+        <div className="flex w-full">
           <span
             className="text-primary-100 font-bold flex-1 items-center"
             style={{ lineHeight: "22px" }}

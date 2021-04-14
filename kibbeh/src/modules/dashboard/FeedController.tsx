@@ -18,7 +18,7 @@ import { ScheduledRoomCard } from "../scheduled-rooms/ScheduledRoomCard";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 import { CreateRoomModal } from "./CreateRoomModal";
 
-interface FeedControllerProps { }
+interface FeedControllerProps {}
 
 const Page = ({
   cursor,
@@ -46,10 +46,25 @@ const Page = ({
   );
   useEffect(() => {
     if (isElectron()) {
-      let ipcRenderer = window.require("electron").ipcRenderer;
-      ipcRenderer.send("@rpc/page", { page: "home", data: data?.rooms.length })
+      const ipcRenderer = window.require("electron").ipcRenderer;
+      ipcRenderer.send("@rpc/page", {
+        page: "home",
+        opened: true,
+        modal: false,
+        data: data?.rooms.length,
+      });
+
+      return () => {
+        ipcRenderer.send("@rpc/page", {
+          page: "home",
+          opened: false,
+          modal: false,
+          data: data?.rooms.length,
+        });
+      };
     }
   }, [data]);
+
   if (isLoading) {
     return <CenterLoader />;
   }
@@ -83,9 +98,9 @@ const Page = ({
           subtitle={
             "peoplePreviewList" in room
               ? room.peoplePreviewList
-                .slice(0, 3)
-                .map((x) => x.displayName)
-                .join(", ")
+                  .slice(0, 3)
+                  .map((x) => x.displayName)
+                  .join(", ")
               : ""
           }
           listeners={"numPeopleInside" in room ? room.numPeopleInside : 0}
@@ -110,9 +125,10 @@ const Page = ({
 
 // const isMac = process.platform === "darwin";
 
-export const FeedController: React.FC<FeedControllerProps> = ({ }) => {
+export const FeedController: React.FC<FeedControllerProps> = ({}) => {
   const [cursors, setCursors] = useState([0]);
   const { conn } = useContext(WebSocketContext);
+  const { t } = useTypeSafeTranslation();
   const [roomModal, setRoomModal] = useState(false);
   const { data } = useTypeSafeQuery("getMyScheduledRoomsAboutToStart", {
     enabled: !!conn,
@@ -134,16 +150,16 @@ export const FeedController: React.FC<FeedControllerProps> = ({ }) => {
     <MiddlePanel
       stickyChildren={
         <FeedHeader
-          actionTitle="New room"
+          actionTitle={t("pages.home.createRoom")}
           onActionClicked={() => {
             setRoomModal(true);
           }}
-          title="Your Feed"
+          title={t("modules.feed.yourFeed")}
         />
       }
     >
-      <div className="flex-1 flex-col mb-7" data-testid="feed">
-        <div className="flex-col space-y-4">
+      <div className="flex flex-1 flex-col mb-7" data-testid="feed">
+        <div className="flex flex-col space-y-4">
           {data?.scheduledRooms?.map((sr) => (
             <EditScheduleRoomModalController
               key={sr.id}
@@ -152,17 +168,17 @@ export const FeedController: React.FC<FeedControllerProps> = ({ }) => {
                   return !x
                     ? x
                     : {
-                      scheduledRooms: x.scheduledRooms.map((y) =>
-                        y.id === sr.id
-                          ? {
-                            ...sr,
-                            name: editedRoomData.name,
-                            description: editedRoomData.description,
-                            scheduledFor: editedRoomData.scheduledFor.toISOString(),
-                          }
-                          : y
-                      ),
-                    };
+                        scheduledRooms: x.scheduledRooms.map((y) =>
+                          y.id === sr.id
+                            ? {
+                                ...sr,
+                                name: editedRoomData.name,
+                                description: editedRoomData.description,
+                                scheduledFor: editedRoomData.scheduledFor.toISOString(),
+                              }
+                            : y
+                        ),
+                      };
                 });
               }}
             >
@@ -174,10 +190,10 @@ export const FeedController: React.FC<FeedControllerProps> = ({ }) => {
                       !x
                         ? x
                         : {
-                          scheduledRooms: x.scheduledRooms.filter(
-                            (y) => y.id !== sr.id
-                          ),
-                        }
+                            scheduledRooms: x.scheduledRooms.filter(
+                              (y) => y.id !== sr.id
+                            ),
+                          }
                     )
                   }
                   onEdit={() => onEdit({ cursor: "", scheduleRoomToEdit: sr })}

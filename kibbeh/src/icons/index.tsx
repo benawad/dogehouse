@@ -24,3 +24,5 @@ export { default as SolidUser } from "./SolidUser";
 export { default as SolidVolume } from "./SolidVolume";
 export { default as SolidRocket } from "./SolidRocket";
 export { default as Smiley } from "./Smiley";
+export { default as SolidChatBubble } from "./SolidChatBubble";
+export { default as SolidInstagram } from "./SolidInstagram";
