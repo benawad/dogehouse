@@ -139,7 +139,6 @@ defmodule Broth.SocketHandler do
 
       # error validating the inner changeset.
       {:ok, error} ->
-        # hacky.  Solve this with a reverse lookup in the future.
         reply =
           error
           |> Map.put(:operator, error.original_operator)
@@ -181,7 +180,7 @@ defmodule Broth.SocketHandler do
       {:error, err} when is_binary(err) ->
         reply =
           message
-          |> wrap({:errors, %{message: err}})
+          |> wrap_error(%{message: err})
           |> prepare_socket_msg(state)
 
         {:reply, reply, state}
@@ -189,7 +188,7 @@ defmodule Broth.SocketHandler do
       {:error, err} ->
         reply =
           message
-          |> wrap({:errors, %{message: inspect(err)}})
+          |> wrap_error(%{message: inspect(err)})
           |> prepare_socket_msg(state)
 
         {:reply, reply, state}
@@ -197,7 +196,7 @@ defmodule Broth.SocketHandler do
       {:error, errors, new_state} ->
         reply =
           message
-          |> wrap({:errors, errors})
+          |> wrap_error(errors)
           |> prepare_socket_msg(new_state)
 
         {:reply, reply, new_state}
@@ -216,10 +215,10 @@ defmodule Broth.SocketHandler do
   end
 
   def wrap(message, payload = %module{}) do
-    %{message | operator: module, payload: payload}
+    %{message | operator: message.original_operator <> ":reply", payload: payload}
   end
 
-  def wrap(message, {:errors, error_map}) do
+  def wrap_error(message, error_map) do
     %{message | payload: %{}, errors: error_map}
   end
 

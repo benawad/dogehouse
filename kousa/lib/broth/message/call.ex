@@ -54,7 +54,6 @@ defmodule Broth.Message.Call do
   alias Broth.SocketHandler
 
   @callback reply_module() :: module
-  @callback operation() :: String.t()
   @callback execute(Changeset.t(), SocketHandler.state()) ::
               {:reply, map, SocketHandler.state()}
               | {:noreply, SocketHandler.state()}

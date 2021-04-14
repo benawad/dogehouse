@@ -71,6 +71,8 @@ defmodule Broth.Message do
     end
   end
 
+  @operators Broth.Message.Manifest.actions()
+
   defp cast_operator(changeset = %{valid?: false}), do: changeset
 
   defp cast_operator(changeset = %{params: %{"operator" => op}}) do
@@ -136,11 +138,11 @@ defmodule Broth.Message do
       |> Jason.Encode.map(opts)
     end
 
-    # hacky. let's do a reverse lookup in the future.
     defp operator(%{operator: op}) when is_binary(op), do: op
-
-    defp operator(message) do
-      message.operator.operation()
+    defp operator(%{operator: op}) when is_atom(op) do
+      if function_exported?(op, :operator, 0) do
+        op.operator()
+      end
     end
 
     defp add_reference(map, %{reference: nil}), do: map

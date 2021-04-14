@@ -1,9 +1,9 @@
 defmodule Broth.Message.Manifest do
 
-    alias Auth
-    alias Chat
-    alias Room
-    alias User
+    alias Broth.Message.Auth
+    alias Broth.Message.Chat
+    alias Broth.Message.Room
+    alias Broth.Message.User
 
   @actions %{
     "test:operator" => BrothTest.MessageTest.TestOperator,
@@ -43,9 +43,4 @@ defmodule Broth.Message.Manifest do
 
   def actions, do: @actions
 
-  def action_tags do
-    @replies
-    |> Enum.map(fn {k, v} -> {v, k} end)
-    |> Map.new()
-  end
 end
