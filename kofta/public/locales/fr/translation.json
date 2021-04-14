@@ -39,7 +39,7 @@
     "home": {
       "createRoom": "Créer une salle",
       "refresh": "Actualiser",
-      "editRoom": "Edit Room"
+      "editRoom": "Modifier la salle"
     },
     "inviteList": {
       "roomGone": "salle indisponible, retour",
