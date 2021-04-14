@@ -118,7 +118,7 @@ defmodule Broth.SocketHandler do
          %{"op" => not_special_case} when not_special_case not in @special_cases <- message_map!,
          # translation from legacy maps to new maps
          message_map! = Broth.Translator.convert_inbound(message_map!),
-         {:ok, message} <- validate(message_map!, state) do
+         {:ok, message = %{errors: nil}} <- validate(message_map!, state) do
       dispatch(message, state)
     else
       # special cases: mediasoup operations
@@ -136,6 +136,15 @@ defmodule Broth.SocketHandler do
 
       {:error, %Jason.DecodeError{}} ->
         {:reply, {:close, 4001, "invalid input"}, state}
+
+      # error validating the inner changeset.
+      {:ok, error} ->
+        # hacky.  Solve this with a reverse lookup in the future.
+        reply = error
+        |> Map.put(:operator, error.original_operator)
+        |> prepare_socket_msg(state)
+
+        {:reply, reply, state}
 
       {:error, changeset = %Ecto.Changeset{}} ->
         reply = %{errors: Kousa.Utils.Errors.changeset_errors(changeset)}
@@ -157,11 +166,28 @@ defmodule Broth.SocketHandler do
         {:reply, close, state}
 
       {:error, changeset = %Ecto.Changeset{}} ->
-        reply =
-          changeset
-          |> Kousa.Utils.Errors.changeset_errors()
-          |> prepare_socket_msg(state)
+        # hacky, we need to build a reverse lookup for the modules/operations.
+        reply = message
+        |> Map.merge(%{
+          operator: message.original_operator,
+          errors: Kousa.Utils.Errors.changeset_errors(changeset)
+        })
+        |> prepare_socket_msg(state)
 
+        {:reply, reply, state}
+
+      {:error, err} when is_binary(err) ->
+        reply =
+          message
+          |> wrap({:errors, %{message: err}})
+          |> prepare_socket_msg(state)
+        {:reply, reply, state}
+
+      {:error, err} ->
+        reply =
+          message
+          |> wrap({:errors, %{message: inspect(err)}})
+          |> prepare_socket_msg(state)
         {:reply, reply, state}
 
       {:error, errors, new_state} ->
@@ -417,25 +443,6 @@ defmodule Broth.SocketHandler do
       _ ->
         %{error: "you should never see this, tell ben"}
     end
-  end
-
-  def f_handler("get_current_room_users", _data, state) do
-    {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
-
-    {muteMap, autoSpeaker, activeSpeakerMap} =
-      if room_id do
-        Onion.RoomSession.get_maps(room_id)
-      else
-        {%{}, false, %{}}
-      end
-
-    %{
-      users: users,
-      muteMap: muteMap,
-      activeSpeakerMap: activeSpeakerMap,
-      roomId: room_id,
-      autoSpeaker: autoSpeaker
-    }
   end
 
   @spec f_handler(<<_::64, _::_*8>>, any, atom | map) :: any

@@ -109,6 +109,10 @@ defmodule Broth.Translator do
     %{command | "op" => "room:get_top"}
   end
 
+  def convert_inbound(command = %{"op" => "get_current_room_users"}) do
+    %{command | "op" => "room:get_users"}
+  end
+
   import Kousa.Utils.Version
 
   def convert_inbound(command) do

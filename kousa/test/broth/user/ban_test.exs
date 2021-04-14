@@ -24,7 +24,7 @@ defmodule KousaTest.Broth.User.BanTest do
 
       ref =
         WsClient.send_call(t.client_ws, "user:ban", %{
-          "userId" => banned.id,
+          "id" => banned.id,
           "reason" => "you're a douche"
         })
 
@@ -44,7 +44,7 @@ defmodule KousaTest.Broth.User.BanTest do
 
       ref =
         WsClient.send_call(t.client_ws, "user:ban", %{
-          "userId" => banned.id,
+          "id" => banned.id,
           "reason" => "you're a douche"
         })
 
@@ -76,7 +76,7 @@ defmodule KousaTest.Broth.User.BanTest do
       assert %{peoplePreviewList: [%{id: ^banned_id}]} = room
 
       WsClient.send_call(t.client_ws, "user:ban", %{
-        "userId" => banned.id,
+        "id" => banned.id,
         "reason" => "you're a douche"
       })
 
@@ -112,7 +112,7 @@ defmodule KousaTest.Broth.User.BanTest do
       assert %{peoplePreviewList: [_, _]} = Beef.Rooms.get_room_by_id(room.id)
 
       WsClient.send_call(t.client_ws, "user:ban", %{
-        "userId" => banned.id,
+        "id" => banned.id,
         "reason" => "you're a douche"
       })
 

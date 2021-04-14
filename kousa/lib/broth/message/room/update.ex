@@ -38,9 +38,6 @@ defmodule Broth.Message.Room.Update do
     with {:ok, update} <- apply_action(changeset, :validate),
          {:ok, room} <- Kousa.Room.update(state.user_id, Map.from_struct(update)) do
       {:reply, struct(__MODULE__, Map.from_struct(room)), state}
-    else
-      error = {:error, %Ecto.Changeset{}} -> error
-      {:error, msg} -> {:error, inspect(msg), state}
     end
   end
 

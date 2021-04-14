@@ -1,42 +1,31 @@
 defmodule Broth.Message.User.Ban do
   use Broth.Message.Call
 
-  @primary_key false
+  @primary_key {:id, :binary_id, []}
   embedded_schema do
-    field(:userId, :binary_id)
     field(:reason, :string)
   end
 
-  import Ecto.Changeset
-
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
-    |> cast(data, [:userId, :reason])
-    |> validate_required([:userId, :reason])
+    |> cast(data, [:id, :reason])
+    |> validate_required([:id, :reason])
   end
 
   defmodule Reply do
     use Broth.Message.Push, operation: "user:ban:reply"
 
-    @derive {Jason.Encoder, only: [:error]}
+    @derive {Jason.Encoder, only: []}
 
     @primary_key false
     embedded_schema do
-      # field is nil when there is no error.
-      field(:error, :string)
     end
+  end
 
-    def tag, do: "user:ban:reply"
-
-    def changeset(original_message, data) do
-      payload =
-        %__MODULE__{}
-        |> cast(data, [:error])
-        |> apply_action!(:validate)
-
-      original_message
-      |> change
-      |> put_change(:payload, payload)
+  def execute(changeset, state) do
+    with {:ok, request} <- apply_action(changeset, :validate),
+         :ok <- Kousa.User.ban(request.id, request.reason, admin_id: state.user_id) do
+      {:reply, %Reply{}, state}
     end
   end
 end

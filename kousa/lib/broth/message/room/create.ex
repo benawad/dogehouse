@@ -37,9 +37,6 @@ defmodule Broth.Message.Room.Create do
              room_spec.userIdToInvite
            ) do
       {:reply, struct(__MODULE__, Map.from_struct(room)), state}
-    else
-      error = {:error, %Ecto.Changeset{}} -> error
-      {:error, any} -> {:error, inspect(any), state}
     end
   end
 end

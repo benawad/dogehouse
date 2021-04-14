@@ -31,11 +31,8 @@ defmodule Broth.Message.User.GetFollowing do
     alias Beef.Follows
 
     with {:ok, request} <- apply_action(changeset, :validate),
-         {users, nextCursor} = Follows.get_my_following(state.user_id, request.cursor) do
+         {users, nextCursor} <- Follows.get_my_following(state.user_id, request.cursor) do
       {:reply, %Reply{following: users, nextCursor: nextCursor, initial: request.cursor == 0}, state}
-    else
-      error = {:error, %Ecto.Changeset{}} -> error
-      other -> {:error, "#{inspect(other)}", state}
     end
   end
 end

@@ -100,6 +100,29 @@ defmodule Broth.WsClient do
     end
   end
 
+  defmacro assert_error(op, ref, error, from \\ nil) do
+    if from do
+      quote do
+        op = unquote(op)
+        from = unquote(from)
+        ref = unquote(ref)
+
+        ExUnit.Assertions.assert_receive(
+          {:text, %{"op" => ^op, "e" => unquote(error), "ref" => ^ref}, ^from}
+        )
+      end
+    else
+      quote do
+        op = unquote(op)
+        ref = unquote(ref)
+
+        ExUnit.Assertions.assert_receive(
+          {:text, %{"op" => ^op, "e" => unquote(error), "ref" => ^ref}, _}
+        )
+      end
+    end
+  end
+
   defmacro assert_reply_legacy(ref, payload, from \\ nil) do
     if from do
       quote do

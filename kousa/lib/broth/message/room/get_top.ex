@@ -33,9 +33,6 @@ defmodule Broth.Message.Room.GetTop do
     with {:ok, request} <- apply_action(changeset, :validate),
          {rooms, nextCursor} <- Rooms.get_top_public_rooms(state.user_id, request.cursor) do
       {:reply, %Reply{rooms: rooms, nextCursor: nextCursor, initial: request.cursor == 0}, state}
-    else
-      error = {:error, %Ecto.Changeset{}} -> error
-      error -> {:error, inspect(error), state}
     end
   end
 

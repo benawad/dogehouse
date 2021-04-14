@@ -140,7 +140,8 @@ defmodule Broth.Message do
         put_change(changeset, :payload, inner_changeset)
 
       inner_changeset = %{valid?: false} ->
-        %{changeset | errors: inner_changeset.errors, valid?: false}
+        errors = Kousa.Utils.Errors.changeset_errors(inner_changeset)
+        put_change(changeset, :errors, errors)
     end
   end
 
@@ -160,15 +161,21 @@ defmodule Broth.Message do
 
   # encoding will only happen on egress out to the websocket.
   defimpl Jason.Encoder do
-    def encode(value, opts) do
+    def encode(message, opts) do
       %{
-        op: value.operator.operation(),
-        p: value.payload
+        op: operator(message),
+        p: message.payload
       }
-      |> add_reference(value)
-      |> add_errors(value)
-      |> Broth.Translator.convert_outbound(value)
+      |> add_reference(message)
+      |> add_errors(message)
+      |> Broth.Translator.convert_outbound(message)
       |> Jason.Encode.map(opts)
+    end
+
+    # hacky. let's do a reverse lookup in the future.
+    defp operator(%{operator: op}) when is_binary(op), do: op
+    defp operator(message) do
+      message.operator.operation()
     end
 
     defp add_reference(map, %{reference: nil}), do: map
