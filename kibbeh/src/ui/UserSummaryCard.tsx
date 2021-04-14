@@ -75,7 +75,7 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
   const { t } = useTypeSafeTranslation();
   return (
     <div className="flex flex-col rounded-8 bg-primary-800 p-4 w-full">
-      <button onClick={onClick}>
+      <button className="flex" onClick={onClick}>
         <div className="flex">
           <SingleUser size="default" isOnline={isOnline} src={avatarUrl} />
         </div>
