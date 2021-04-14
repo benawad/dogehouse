@@ -25,7 +25,7 @@ export function ElectronHeader() {
           icon={<WinCloseIcon />}
           size="small"
           color="secondary"
-          className="remove-outline"
+          className="remove-outline hover:bg-accent-hover"
           onClick={() => {
             if (isElectron()) ipcRenderer.send("@app/quit");
           }}
