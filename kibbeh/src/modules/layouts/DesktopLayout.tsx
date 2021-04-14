@@ -64,9 +64,6 @@ export const DesktopLayout: React.FC<MainLayoutProps> = ({
 
   return (
     <>
-      {isElectron() && !useHostStore.getState().isLinux ? (
-        <ElectronHeader />
-      ) : null}
       <div
         className={
           isElectron() && !useHostStore.getState().isLinux
@@ -74,6 +71,9 @@ export const DesktopLayout: React.FC<MainLayoutProps> = ({
             : "flex flex-col items-center w-full scrollbar-thin scrollbar-thumb-primary-700"
         }
       >
+        {isElectron() && !useHostStore.getState().isLinux ? (
+          <ElectronHeader />
+        ) : null}
         <MainInnerGrid>{middle}</MainInnerGrid>
       </div>
     </>

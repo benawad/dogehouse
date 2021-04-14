@@ -1,14 +1,14 @@
 .electron-header {
   width: 100%;
-  position: fixed;
-  top: 0;
   height: 30px;
   background-color: var(--color-primary-700);
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   display: inline-flex;
   align-items: stretch;
   padding-left: 10px;
   user-select: none;
+  position: fixed;
+  top: 0;
 }
 
 .default-desktop-layout {
