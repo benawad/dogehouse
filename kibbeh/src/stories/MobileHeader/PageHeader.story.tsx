@@ -15,7 +15,7 @@ const ThePageHeader: Story<PageHeaderProps> = ({
   title = "Loren ipsum",
   onBackClick = () => null,
 }) => (
-  <div style={{ width: 420 }}>
+  <div className="flex" style={{ width: 420 }}>
     <PageHeader title={title} onBackClick={onBackClick} />
   </div>
 );

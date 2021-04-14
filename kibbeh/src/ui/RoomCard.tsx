@@ -76,7 +76,7 @@ export const RoomCard: React.FC<RoomCardProps> = ({
           icon={roomLive ? undefined : <SolidTime />}
           text={title}
         />
-        <div className="flex-shrink-0">
+        <div className="flex flex-shrink-0">
           <BubbleText live={roomLive}>
             {roomLive ? formatNumber(listeners) : scheduledForLabel}
           </BubbleText>
@@ -85,7 +85,7 @@ export const RoomCard: React.FC<RoomCardProps> = ({
       <p className="block w-full mt-2 text-left break-all truncate whitespace-pre-wrap line-clamp-2 text-primary-300">
         {subtitle}
       </p>
-      <div className="mt-4 space-x-2">
+      <div className="flex mt-4 space-x-2">
         {tags.map((tag, idx) => (
           <Tag key={idx}>{tag}</Tag>
         ))}

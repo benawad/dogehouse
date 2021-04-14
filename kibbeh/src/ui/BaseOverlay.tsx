@@ -22,12 +22,12 @@ export const BaseOverlay: React.FC<BaseOverlayProps> = ({
     >
       {overlay ? overlay : ""}
       {title && (
-        <div className="px-4 py-3 border-b border-primary-600 flex items-center">
+        <div className="flex px-4 py-3 border-b border-primary-600 flex items-center">
           <h4 className="text-primary-100">{title}</h4>
         </div>
       )}
 
-      <div className="flex flex-col text-primary-100">{children}</div>
+      <div className="flex flex flex-col text-primary-100">{children}</div>
 
       {actionButton && (
         <button

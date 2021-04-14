@@ -20,21 +20,21 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
         embed={{}}
         title={`${user.displayName} (@${user.username})`}
       />
-      <div className="flex-col rounded-8 pt-5 px-6 pb-4 w-full items-center">
+      <div className="flex flex-col rounded-8 pt-5 px-6 pb-4 w-full items-center">
         <SingleUser
           size="default"
           src={user.avatarUrl}
           username={user.username}
         />
-        <div className="mt-2 max-w-full">
-          <span className="text-primary-100 font-bold h-full break-all line-clamp-1 truncate">
+        <div className="flex mt-2 max-w-full">
+          <span className="flex text-primary-100 font-bold h-full break-all line-clamp-1 truncate">
             {user.displayName}
           </span>
-          <span className="text-primary-300 ml-1">@{user.username}</span>
+          <span className="flex text-primary-300 ml-1">@{user.username}</span>
           {/* <Badges badges={badges} /> */}
         </div>
-        <div className="mt-2">
-          <div>
+        <div className="flex mt-2">
+          <div className="flex">
             <ApiPreloadLink
               route="followers"
               data={{ username: user.username }}
@@ -47,7 +47,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
               </span>
             </ApiPreloadLink>
           </div>
-          <div className="ml-4">
+          <div className="flex ml-4">
             <ApiPreloadLink
               route="following"
               data={{ username: user.username }}
@@ -62,7 +62,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
             </ApiPreloadLink>
           </div>
         </div>
-        <div className="w-full mt-2">
+        <div className="flex w-full mt-2">
           <p className="text-primary-300 mt-2 text-center w-full whitespace-pre-wrap break-words inline line-clamp-6">
             {user.bio.split(/\n/).map((line, i) => (
               <>
@@ -82,7 +82,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
                     ) : (
                       `${chunk} `
                     );
-                  } catch (err) { }
+                  } catch (err) {}
                 })}
               </>
             ))}

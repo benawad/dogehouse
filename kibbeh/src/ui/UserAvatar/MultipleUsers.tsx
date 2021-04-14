@@ -12,7 +12,7 @@ export const MultipleUsers: React.FC<AvatarProps> = ({
   className = "",
 }) => {
   return (
-    <div className={className}>
+    <div className={`flex ${className}`}>
       {srcArray.slice(0, 3).map((s, i) => (
         <span
           key={s + i}

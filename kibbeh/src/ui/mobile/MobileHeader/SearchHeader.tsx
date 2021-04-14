@@ -16,7 +16,7 @@ export const SearchHeader: React.FC<SearchHeaderProps> = ({
   searchPlaceholder,
 }) => {
   return (
-    <div className="w-full px-3 py-2 bg-primary-900 text-primary-100">
+    <div className="flex w-full px-3 py-2 bg-primary-900 text-primary-100">
       {onBackClick && (
         <button onClick={onBackClick}>
           <SolidCaretRight

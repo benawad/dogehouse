@@ -158,8 +158,8 @@ export const FeedController: React.FC<FeedControllerProps> = ({}) => {
         />
       }
     >
-      <div className="flex-1 flex-col mb-7" data-testid="feed">
-        <div className="flex-col space-y-4">
+      <div className="flex flex-1 flex-col mb-7" data-testid="feed">
+        <div className="flex flex-col space-y-4">
           {data?.scheduledRooms?.map((sr) => (
             <EditScheduleRoomModalController
               key={sr.id}

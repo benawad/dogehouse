@@ -24,9 +24,11 @@ export const BoxedIcon: React.FC<BoxedIconProps> = ({
 }) => {
   return (
     <button
-      className={`${colorMap[color]} ${
+      className={`flex ${colorMap[color]} ${
         transition ? `transition duration-200 ease-in-out` : ``
-      } ${hover ? `` : `hover:bg-primary-600`} h-6 w-6 cursor-pointer text-primary-100 justify-center items-center ${
+      } ${
+        hover ? `` : `hover:bg-primary-600`
+      } h-6 w-6 cursor-pointer text-primary-100 justify-center items-center ${
         circle ? `rounded-full` : `rounded`
       }
         ${className}`}

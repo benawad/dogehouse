@@ -54,7 +54,7 @@ export const SoundEffectSettings: React.FC<ChatSettingsProps> = () => {
 
         {Object.keys(soundEffectSettings).map((k) => {
           return (
-            <div className={`flex mb-4 items-center`} key={k}>
+            <div className={`flex flex mb-4 items-center`} key={k}>
               <InfoText>{capitalize(camelToReg(k))}</InfoText>
               <input
                 className="ml-2"

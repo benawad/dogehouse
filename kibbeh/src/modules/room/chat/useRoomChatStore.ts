@@ -106,6 +106,7 @@ export const useRoomChatStore = create(
         set({
           messages: [],
           newUnreadMessages: false,
+          message: "",
           bannedUserIdMap: {},
         }),
       toggleOpen: () =>

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useGlobalVolumeStore } from "../../global-stores/useGlobalVolumeStore";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { PageComponent } from "../../types/PageComponent";
@@ -17,15 +17,15 @@ import { MiddlePanel } from "../layouts/GridPanels";
 import { useMicIdStore } from "../webrtc/stores/useMicIdStore";
 import { HeaderController } from "../../modules/display/HeaderController";
 import isElectron from "is-electron";
+import { useDevices } from "../../shared-hooks/useDevices";
 
 interface VoiceSettingsProps {}
 
 export const VoiceSettingsPage: PageComponent<VoiceSettingsProps> = () => {
   const { micId, setMicId } = useMicIdStore();
   const { volume, set } = useGlobalVolumeStore();
-  const [devices, setDevices] = useState<Array<{ id: string; label: string }>>(
-    []
-  );
+  const { devices, fetchMics } = useDevices();
+
   useEffect(() => {
     if (isElectron()) {
       const ipcRenderer = window.require("electron").ipcRenderer;
@@ -45,34 +45,15 @@ export const VoiceSettingsPage: PageComponent<VoiceSettingsProps> = () => {
       };
     }
   }, []);
-  const fetchMics = useCallback(() => {
-    navigator.mediaDevices.getUserMedia({ audio: true }).then(() => {
-      navigator.mediaDevices
-        ?.enumerateDevices()
-        .then((d) =>
-          setDevices(
-            d
-              .filter(
-                (device) => device.kind === "audioinput" && device.deviceId
-              )
-              .map((device) => ({ id: device.deviceId, label: device.label }))
-          )
-        );
-    });
-  }, []);
 
   const { t } = useTypeSafeTranslation();
-
-  useEffect(() => {
-    fetchMics();
-  }, [fetchMics]);
 
   return (
     <DefaultDesktopLayout>
       <HeaderController embed={{}} title="Voice Settings" />
       <MiddlePanel>
-        <div className="flex-col text-primary-100">
-          <div className={`mb-2`}>{t("pages.voiceSettings.mic")} </div>
+        <div className="flex flex-col text-primary-100">
+          <div className={`flex mb-2`}>{t("pages.voiceSettings.mic")} </div>
           {devices.length ? (
             <NativeSelect
               className={`mb-4`}
@@ -86,11 +67,11 @@ export const VoiceSettingsPage: PageComponent<VoiceSettingsProps> = () => {
               ))}
             </NativeSelect>
           ) : (
-            <div className={`mb-4`}>
+            <div className={`flex mb-4`}>
               {t("pages.voiceSettings.permissionError")}
             </div>
           )}
-          <div>
+          <div className="flex">
             <Button
               size="small"
               onClick={() => {
@@ -100,8 +81,10 @@ export const VoiceSettingsPage: PageComponent<VoiceSettingsProps> = () => {
               {t("pages.voiceSettings.refresh")}
             </Button>
           </div>
-          <div className={`mt-8 mb-2`}>{t("pages.voiceSettings.volume")} </div>
-          <div className={`mb-8`}>
+          <div className={`flex mt-8 mb-2`}>
+            {t("pages.voiceSettings.volume")}{" "}
+          </div>
+          <div className={`flex mb-8`}>
             <VolumeSlider
               volume={volume}
               onVolume={(n) => set({ volume: n })}

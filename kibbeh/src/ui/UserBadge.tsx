@@ -15,7 +15,7 @@ export const UserBadge: React.FC<UserBadgeProps> = ({
 }) => {
   return (
     <div
-      className={`${badgeVariants[variant]} select-none text-xs px-1 font-bold text-primary-100 justify-center items-center rounded`}
+      className={`flex ${badgeVariants[variant]} select-none text-xs px-1 font-bold text-primary-100 justify-center items-center rounded`}
       style={{ minWidth: "31px", height: "16px" }}
     >
       {children}

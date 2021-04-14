@@ -20,10 +20,10 @@ export const SettingsDropdown: React.FC<{
   onActionButtonClicked: () => void;
 }> = ({ user, onCloseDropdown, onActionButtonClicked }) => {
   const [currentOverlay, setCurrentOverlay] = useState<ReactNode>(null);
-  const { t } = useTypeSafeTranslation()
+  const { t } = useTypeSafeTranslation();
 
   return (
-    <div style={{ width: 200 }}>
+    <div className="flex" style={{ width: 200 }}>
       <BaseOverlay
         onActionButtonClicked={onActionButtonClicked}
         actionButton={t("components.settingsDropdown.logOut.button")}

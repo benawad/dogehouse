@@ -215,7 +215,7 @@ export const BottomVoiceControl: React.FC<BottomVoiceControlProps> = ({
           </button>
         ) : null}
         <div
-          className={`border-simple-gray-80 bg-simple-gray-26 border-t w-full mt-auto p-5`}
+          className={`flex border-simple-gray-80 bg-simple-gray-26 border-t w-full mt-auto p-5`}
         >
           {currentRoom ? (
             <>

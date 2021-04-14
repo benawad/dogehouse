@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MessageElement should match snapshot 1`] = `
-<div
+<div className="flex"
   class="items-center w-full px-4 md:bg-primary-800 md:border-b md:border-primary-600 cursor-pointer hover:bg-primary-700 bg-primary-900"
   data-testid="msg-element"
 >
-  <div
+  <div className="flex"
     class="mr-3"
   >
-    <div
+    <div className="flex"
       class="relative inline-block "
       data-testid="single-user-avatar"
       style="width: 40px; height: 40px;"
@@ -25,11 +25,11 @@ exports[`MessageElement should match snapshot 1`] = `
       />
     </div>
   </div>
-  <div
+  <div className="flex"
     class="flex-col py-3 border-b border-primary-600 md:border-none md:py-0"
     style="width: calc(100% - 50px);"
   >
-    <div
+    <div className="flex"
       class="justify-between"
     >
       <span

@@ -35,7 +35,7 @@ interface WebsiteProps {
 
 export const Badges: React.FC<BadgesProps> = ({ badges }) => {
   return (
-    <div className="mt-2">
+    <div className="flex mt-2">
       {badges.map(({ content, variant }, i) => (
         <span className="mr-1" key={i}>
           <UserBadge variant={variant}>{content}</UserBadge>
@@ -74,13 +74,13 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
 }) => {
   const { t } = useTypeSafeTranslation();
   return (
-    <div className="flex-col rounded-8 bg-primary-800 p-4 w-full">
-      <button onClick={onClick}>
-        <div>
+    <div className="flex flex-col rounded-8 bg-primary-800 p-4 w-full">
+      <button className="flex" onClick={onClick}>
+        <div className="flex">
           <SingleUser size="default" isOnline={isOnline} src={avatarUrl} />
         </div>
-        <div className="mt-2">
-          <div className="flex-col ml-3">
+        <div className="flex mt-2">
+          <div className="flex flex-col ml-3">
             <span className="text-sm text-primary-100 font-bold overflow-hidden break-all text-left">
               {displayName}
             </span>
@@ -91,8 +91,8 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
           </div>
         </div>
       </button>
-      <div className="mt-3">
-        <div>
+      <div className="flex mt-3">
+        <div className="flex">
           <ApiPreloadLink route="followers" data={{ username }}>
             <span className="text-primary-100 font-bold">
               {kFormatter(numFollowers)}
@@ -102,7 +102,7 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
             </span>
           </ApiPreloadLink>
         </div>
-        <div className="ml-4">
+        <div className="flex ml-4">
           <ApiPreloadLink route="following" data={{ username }}>
             <span className="text-primary-100 font-bold">
               {kFormatter(numFollowing)}
@@ -113,7 +113,9 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
           </ApiPreloadLink>
         </div>
       </div>
-      <div className="text-primary-300 mt-3 break-words text-left">{bio}</div>
+      <div className="flex text-primary-300 mt-3 break-words text-left">
+        {bio}
+      </div>
       {website && <Website website={website} />}
     </div>
   );

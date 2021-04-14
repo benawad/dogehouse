@@ -15,7 +15,7 @@ export const WaitForWsAndAuth: React.FC<WaitForWsAndAuthProps> = ({
 
   if (!conn) {
     // @todo make this better
-    return <div>loading...</div>;
+    return <div className="flex">loading...</div>;
   }
 
   return <>{children}</>;

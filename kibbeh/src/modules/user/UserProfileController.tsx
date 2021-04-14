@@ -67,7 +67,7 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
         user={data}
       />
       {data.id === conn.user.id && (
-        <div className={`pt-6 flex`}>
+        <div className={`flex pt-6 flex`}>
           <EditProfileModal
             isOpen={open}
             onRequestClose={() => setOpen(false)}

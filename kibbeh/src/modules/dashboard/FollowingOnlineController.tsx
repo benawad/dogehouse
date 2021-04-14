@@ -9,7 +9,7 @@ import {
 } from "../../ui/FollowersOnline";
 import { InfoText } from "../../ui/InfoText";
 
-interface FriendsOnlineControllerProps { }
+interface FriendsOnlineControllerProps {}
 
 const Page: React.FC<{
   cursor: number;
@@ -17,7 +17,7 @@ const Page: React.FC<{
   isLastPage: boolean;
   isOnlyPage: boolean;
 }> = ({ cursor, isLastPage, isOnlyPage, onLoadMore }) => {
-  const { t } = useTypeSafeTranslation()
+  const { t } = useTypeSafeTranslation();
   const { data, isLoading } = useTypeSafeQuery(
     ["getMyFollowing", cursor],
     {
@@ -44,7 +44,7 @@ const Page: React.FC<{
   );
 };
 
-export const FollowingOnlineController: React.FC<FriendsOnlineControllerProps> = ({ }) => {
+export const FollowingOnlineController: React.FC<FriendsOnlineControllerProps> = ({}) => {
   const [cursors, setCursors] = useState<number[]>([0]);
   const conn = useConn();
 

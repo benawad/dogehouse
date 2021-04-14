@@ -43,7 +43,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
 
   return (
     <div
-      className={`px-5 flex-1 overflow-y-auto chat-message-container scrollbar-thin scrollbar-thumb-primary-700`}
+      className={`flex px-5 flex-1 overflow-y-auto chat-message-container scrollbar-thin scrollbar-thumb-primary-700`}
       ref={chatListRef}
       onScroll={() => {
         if (!chatListRef.current) return;
@@ -94,7 +94,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                 >
                   {/* Whisper label */}
                   {messages[index].isWhisper ? (
-                    <p className="mb-0 text-sm text-primary-300 px-1 w-16 mt-1 text-center">
+                    <p className="flex mb-0 text-sm text-primary-300 px-1 w-16 mt-1 text-center">
                       {t("modules.roomChat.whisper")}
                     </p>
                   ) : null}
@@ -227,7 +227,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
           }
         )}
         {/* {messages.length === 0 ? (
-        <div>{t("modules.roomChat.welcomeMessage")}</div>
+        <div className="flex">{t("modules.roomChat.welcomeMessage")}</div>
       ) : null} */}
       </div>
       <div ref={bottomRef} />

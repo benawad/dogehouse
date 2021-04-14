@@ -104,7 +104,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   ));
 
   return (
-    <div className="absolute h-full w-full z-20 bg-primary-800">
+    <div className="flex absolute h-full w-full z-20 bg-primary-800">
       <div className="block h-full w-full">
         <div className="block h-6 w-full border-b border-primary-700 sticky top-0 bg-primary-800">
           <button

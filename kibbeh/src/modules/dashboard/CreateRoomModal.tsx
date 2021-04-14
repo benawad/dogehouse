@@ -44,10 +44,10 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
           data
             ? data
             : {
-              name: "",
-              description: "",
-              privacy: "public",
-            }
+                name: "",
+                description: "",
+                privacy: "public",
+              }
         }
         validateOnChange={false}
         validateOnBlur={false}
@@ -101,7 +101,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
                 {t("components.modals.createRoomModal.subtitle")}
               </p>
             </div>
-            <div className={`h-full w-full col-span-2`}>
+            <div className={`flex h-full w-full col-span-2`}>
               <InputField
                 className={`rounded-8 bg-primary-700 px-3 h-6`}
                 name="name"
@@ -126,7 +126,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
                 </option>
               </NativeSelect>
             </div>
-            <div className={`col-span-3 bg-primary-700 rounded-8`}>
+            <div className={`flex col-span-3 bg-primary-700 rounded-8`}>
               <InputField
                 className={`px-3 h-11 col-span-3 w-full`}
                 name="description"

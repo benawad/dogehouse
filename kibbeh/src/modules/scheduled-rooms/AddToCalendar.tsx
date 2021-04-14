@@ -118,7 +118,7 @@ const AddToCalendar: React.FC<AddToCalendarProps> = ({
   const urls = useMemo<CalendarURLs>(() => makeUrls(event), [event]);
 
   return (
-    <div className="chq-atc">
+    <div className="flex chq-atc">
       {event && (
         <Button
           type="button"

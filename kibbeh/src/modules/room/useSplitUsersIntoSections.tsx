@@ -70,7 +70,7 @@ export const useSplitUsersIntoSections = ({
 
   if (canIAskToSpeak) {
     speakers.push(
-      <div className={`justify-center`}>
+      <div className={`flex justify-center`}>
         <BoxedIcon
           key="megaphone"
           onClick={() => {

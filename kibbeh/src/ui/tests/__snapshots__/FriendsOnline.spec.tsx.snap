@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FriendsOnline should match snapshot 1`] = `
-<div
+<div className="flex"
   class="pb-5 w-full flex flex-col"
   data-testid="friends-online"
 >
@@ -17,13 +17,13 @@ exports[`FriendsOnline should match snapshot 1`] = `
     1
     )
   </h6>
-  <div
+  <div className="flex"
     class="flex flex-col mt-3"
   >
-    <div
+    <div className="flex"
       class="py-3 w-full"
     >
-      <div
+      <div className="flex"
         class="relative inline-block "
         data-testid="single-user-avatar"
         style="width: 40px; height: 40px;"
@@ -39,7 +39,7 @@ exports[`FriendsOnline should match snapshot 1`] = `
           style="width: 8px; height: 8px; right: 2px; bottom: -2px; border-width: 2px;"
         />
       </div>
-      <div
+      <div className="flex"
         class="ml-3 flex flex-col"
       >
         <h5
@@ -54,7 +54,7 @@ exports[`FriendsOnline should match snapshot 1`] = `
         </a>
       </div>
     </div>
-    <div
+    <div className="flex"
       class="underline text-primary-300 font-bold mt-4 cursor-pointer"
       data-testid="show-more-btn"
     >

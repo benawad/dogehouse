@@ -40,7 +40,9 @@ const UserCard: React.FC<UserCardProps> = ({ avatars, speakers }) => {
   return (
     <div className="w-full flex items-center">
       <MultipleUsers srcArray={avatars} />
-      <p className="ml-1 text-primary-300 text-sm">{speakers.join(", ")}</p>
+      <p className="flex ml-1 text-primary-300 text-sm">
+        {speakers.join(", ")}
+      </p>
     </div>
   );
 };
@@ -59,7 +61,9 @@ export const ScheduledRoomSummaryCard: React.FC<ScheduledRoomSummaryCardProps> =
         transition ? `transition duration-200 ease-in-out` : ``
       } hover:bg-primary-700 z-0`}
     >
-      <div className="text-accent text-sm">{formattedDate(scheduledFor)}</div>
+      <div className="flex text-accent text-sm">
+        {formattedDate(scheduledFor)}
+      </div>
       <RoomCardHeading text={title} />
       <UserCard {...speakersInfo} />
     </button>
@@ -85,7 +89,7 @@ export const UpcomingRoomsCard: React.FC<UpcomingRoomsCardProps> = ({
           <SolidPlus width={12} height={12} />
         </BoxedIcon>
       </div>
-      <div className="flex-col">
+      <div className="flex flex-col">
         {rooms.map((room) => (
           <ScheduledRoomSummaryCard transition key={room.id} {...room} />
         ))}

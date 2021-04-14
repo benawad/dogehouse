@@ -60,24 +60,24 @@ export const InvitedToJoinRoomModal: React.FC<Props> = () => {
   const { t } = useTypeSafeTranslation();
   return (
     <Modal isOpen={!!options} onRequestClose={() => close()}>
-      <div className="flex-col">
+      <div className="flex flex-col">
         {options ? (
-          <div className="flex-col text-primary-100">
+          <div className="flex flex-col text-primary-100">
             <h1 className={`text-2xl mb-2`}>
               {options.type === "someone_you_follow_created_a_room"
                 ? t("components.modals.invitedToJoinRoomModal.newRoomCreated")
                 : t("components.modals.invitedToJoinRoomModal.roomInviteFrom")}
             </h1>
-            <div className={`flex items-center`}>
+            <div className={`flex flex items-center`}>
               <SingleUser size="md" src={options.avatarUrl} />
-              <div className={`ml-2 flex-col`}>
-                <div className={`font-bold`}>{options.displayName}</div>
-                <div className={`my-1 flex`}>
-                  <div>@{options.username}</div>
+              <div className={`flex ml-2 flex-col`}>
+                <div className={`flex font-bold`}>{options.displayName}</div>
+                <div className={`flex my-1 flex`}>
+                  <div className="flex">@{options.username}</div>
                 </div>
               </div>
             </div>
-            <div className={`mt-4`}>
+            <div className={`flex mt-4`}>
               {options.type === "someone_you_follow_created_a_room"
                 ? t("components.modals.invitedToJoinRoomModal.justStarted")
                 : t(
@@ -88,7 +88,7 @@ export const InvitedToJoinRoomModal: React.FC<Props> = () => {
             </div>
           </div>
         ) : null}
-        <div className={`flex mt-4 items-center`}>
+        <div className={`flex flex mt-4 items-center`}>
           <Button
             onClick={() => {
               close();
