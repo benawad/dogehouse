@@ -242,20 +242,6 @@ defmodule Broth.SocketHandler do
   #   {:reply, {:close, 4001, "invalid_authentication"}, state}
   # end
 
-  def handler(
-        "delete_room_chat_message",
-        %{"messageId" => message_id, "userId" => user_id},
-        state
-      ) do
-    Kousa.RoomChat.delete_message(state.user_id, message_id, user_id)
-    {:ok, state}
-  end
-
-  def handler("follow", %{"userId" => userId, "value" => value}, state) do
-    Kousa.Follow.follow(state.user_id, userId, value)
-    {:ok, state}
-  end
-
   def handler(op, data, state) do
     with {:ok, room_id} <- Beef.Users.tuple_get_current_room_id(state.user_id) do
       voice_server_id = Onion.RoomSession.get(room_id, :voice_server_id)

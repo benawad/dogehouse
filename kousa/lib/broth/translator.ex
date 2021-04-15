@@ -26,6 +26,7 @@ defmodule Broth.Translator do
     ban_from_room_chat
     block_from_room
     follow
+    delete_room_chat_message
   )
 
   def convert_inbound(command = %{"op" => op}) when op in @operators_0_1_0 do
@@ -44,7 +45,8 @@ defmodule Broth.Translator do
     "get_my_following" => "user:get_following",
     "get_top_public_rooms" => "room:get_top",
     "get_current_room_users" => "room:get_users",
-    "mute" => "user:mute"
+    "mute" => "user:mute",
+    "delete_room_chat_message" => "chat:delete_msg"
   }
   @translation_keys Map.keys(@translations)
 

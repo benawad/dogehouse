@@ -1,32 +1,32 @@
-defmodule BrothTest.Message.User.FollowTest do
+defmodule BrothTest.Message.User.UnfollowTest do
   use ExUnit.Case, async: true
 
   @moduletag :message
 
-  alias Broth.Message.User.Follow
+  alias Broth.Message.User.Unfollow
 
   setup do
     {:ok, uuid: UUID.uuid4()}
   end
 
-  describe "when you send an follow message" do
+  describe "when you send an unfollow message" do
     test "it populates id", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %Follow{id: ^uuid}
+                payload: %Unfollow{id: ^uuid}
               }} =
                BrothTest.Support.Message.validate(%{
-                 "operator" => "user:follow",
+                 "operator" => "user:unfollow",
                  "payload" => %{"id" => uuid}
                })
 
       # short form also allowed
       assert {:ok,
               %{
-                payload: %Follow{id: ^uuid}
+                payload: %Unfollow{id: ^uuid}
               }} =
                BrothTest.Support.Message.validate(%{
-                 "op" => "user:follow",
+                 "op" => "user:unfollow",
                  "p" => %{"id" => uuid}
                })
     end
@@ -34,7 +34,7 @@ defmodule BrothTest.Message.User.FollowTest do
     test "omitting the id is not allowed" do
       assert {:error, %{errors: [id: {"can't be blank", _}]}} =
                BrothTest.Support.Message.validate(%{
-                 "operator" => "user:follow",
+                 "operator" => "user:unfollow",
                  "payload" => %{}
                })
     end

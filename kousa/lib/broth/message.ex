@@ -31,16 +31,15 @@ defmodule Broth.Message do
     %__MODULE__{}
     |> cast(data, [:inbound_operator])
     |> Map.put(:params, data)
-    |> find(:version)
     |> find(:operator)
     |> find(:payload)
     |> find(:reference, :optional)
     |> cast_operator
     |> cast_reference
     |> cast_inbound_operator
-    |> validate_required([:operator, :version])
     |> cast_payload(state)
     |> validate_calls_have_references
+    |> find(:version)
   end
 
   @type message_field :: :operator | :payload | :reference
