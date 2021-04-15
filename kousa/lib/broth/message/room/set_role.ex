@@ -16,7 +16,8 @@ defmodule Broth.Message.Room.SetRole do
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
     |> cast(data, [:id, :role])
-    |> validate_required([:id, :role])  # if we don't have an id, assume self.
+    # if we don't have an id, assume self.
+    |> validate_required([:id, :role])
     |> UUID.normalize(:id)
   end
 

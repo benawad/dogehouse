@@ -99,11 +99,13 @@ defmodule Broth.Translator do
   end
 
   def convert_inbound_0_1_0(command = %{"op" => "add_speaker", "d" => d}) do
-    Map.merge(command,
-    %{
-      "op" => "room:set_role",
-      "d" => Map.merge(d, %{"role" => "speaker", "id" => d["userId"]})
-    })
+    Map.merge(
+      command,
+      %{
+        "op" => "room:set_role",
+        "d" => Map.merge(d, %{"role" => "speaker", "id" => d["userId"]})
+      }
+    )
   end
 
   def convert_inbound_0_1_0(command = %{"op" => "change_mod_status", "d" => d}) do
@@ -116,20 +118,24 @@ defmodule Broth.Translator do
   end
 
   def convert_inbound_0_1_0(command = %{"op" => "change_room_creator", "d" => d}) do
-    Map.merge(command,
-    %{
-      "op" => "room:set_auth",
-      "d" => Map.put(d, "level", "owner")
-    })
+    Map.merge(
+      command,
+      %{
+        "op" => "room:set_auth",
+        "d" => %{"id" => d["userId"], "level" => "owner"}
+      }
+    )
   end
 
   def convert_inbound_0_1_0(command = %{"op" => "make_room_public", "d" => d}) do
-    Map.merge(command,
-    %{
-      "op" => "room:update",
-      "d" => %{"room" => d},
-      "fetchId" => UUID.uuid4()
-    })
+    Map.merge(
+      command,
+      %{
+        "op" => "room:update",
+        "d" => %{"room" => d},
+        "fetchId" => UUID.uuid4()
+      }
+    )
   end
 
   def convert_inbound_0_1_0(command = %{"op" => "edit_room", "d" => d}) do
@@ -148,36 +154,45 @@ defmodule Broth.Translator do
   end
 
   def convert_inbound_0_1_0(command = %{"op" => "ask_to_speak", "d" => d}) do
-    Map.merge(command,
-    %{
-      "op" => "room:set_role",
-      "d" => Map.merge(d, %{"role" => "raised_hand"})
-    })
+    Map.merge(
+      command,
+      %{
+        "op" => "room:set_role",
+        "d" => Map.merge(d, %{"role" => "raised_hand"})
+      }
+    )
   end
 
   def convert_inbound_0_1_0(command = %{"op" => "ban_from_room_chat", "d" => d}) do
-    Map.merge(command,
-    %{
-      "op" => "chat:ban",
-      "d" => Map.merge(d, %{"id" => d["userId"]})
-    })
+    Map.merge(
+      command,
+      %{
+        "op" => "chat:ban",
+        "d" => Map.merge(d, %{"id" => d["userId"]})
+      }
+    )
   end
 
   def convert_inbound_0_1_0(command = %{"op" => "block_from_room", "d" => d}) do
-    Map.merge(command,
-    %{
-      "op" => "room:ban",
-      "d" => Map.merge(d, %{"id" => d["userId"]})
-    })
+    Map.merge(
+      command,
+      %{
+        "op" => "room:ban",
+        "d" => Map.merge(d, %{"id" => d["userId"]})
+      }
+    )
   end
 
   def convert_inbound_0_1_0(command = %{"op" => "follow", "d" => d}) do
     operation = if d["value"], do: "user:follow", else: "user:unfollow"
-    Map.merge(command,
-    %{
-      "op" => operation,
-      "d" => Map.merge(d, %{"id" => d["userId"]})
-    })
+
+    Map.merge(
+      command,
+      %{
+        "op" => operation,
+        "d" => Map.merge(d, %{"id" => d["userId"]})
+      }
+    )
   end
 
   # let it pass, and return a general error.
@@ -249,7 +264,7 @@ defmodule Broth.Translator do
 
   def convert_outbound_0_1_0(map, orig) do
     orig |> IO.inspect(label: "239")
-    map|> IO.inspect(label: "240")
+    map |> IO.inspect(label: "240")
   end
 
   def convert_outbound_0_1_0(map, _), do: map

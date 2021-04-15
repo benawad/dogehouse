@@ -314,6 +314,7 @@ defmodule Kousa.Room do
         )
     end
   end
+
   defp set_raised_hand(_, _, _), do: :noop
 
   ######################################################################

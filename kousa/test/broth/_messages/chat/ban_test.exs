@@ -32,7 +32,7 @@ defmodule BrothTest.Message.Chat.BanTest do
     end
 
     test "omitting the userId is not allowed" do
-      assert {:error, %{errors: [id: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{id: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "chat:ban",
                  "payload" => %{}
