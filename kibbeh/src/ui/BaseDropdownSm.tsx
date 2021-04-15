@@ -12,7 +12,10 @@ export const BaseDropdownSmItem: React.FC<BaseDropdownSmItemProps> = ({
   className,
   ...props
 }) => (
-  <div className={`px-3 py-1 cursor-pointer ${className}`} {...props}>
+  <div
+    className={`px-3 py-1 cursor-pointer hover:bg-primary-700 ${className}`}
+    {...props}
+  >
     {children}
   </div>
 );
