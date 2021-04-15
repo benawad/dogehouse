@@ -312,11 +312,6 @@ defmodule Broth.SocketHandler do
     }
   end
 
-  def f_handler("follow", %{"userId" => userId, "value" => value}, state) do
-    Kousa.Follow.follow(state.user_id, userId, value)
-    %{}
-  end
-
   def f_handler("mute", %{"value" => value}, state) do
     Onion.UserSession.set_mute(state.user_id, value)
     %{}

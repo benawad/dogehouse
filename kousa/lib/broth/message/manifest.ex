@@ -17,6 +17,7 @@ defmodule Broth.Message.Manifest do
     "user:get_info" => User.GetInfo,
     "user:get_relationship" => User.GetRelationship,
     "user:mute" => User.Mute,
+    "user:unfollow" => User.Unfollow,
     "room:invite" => Room.Invite,
     "room:update" => Room.Update,
     "room:get_invite_list" => Room.GetInviteList,

@@ -25,6 +25,7 @@ defmodule Broth.Translator do
     mute
     ban_from_room_chat
     block_from_room
+    follow
   )
 
   def convert_inbound(command = %{"op" => op}) when op in @operators_0_1_0 do
@@ -80,7 +81,7 @@ defmodule Broth.Translator do
 
     Map.merge(command, %{
       "op" => "user:ban",
-      "d" => %{"userId" => userId, "reason" => d["reason"]},
+      "d" => %{"id" => userId, "reason" => d["reason"]},
       "ref" => UUID.uuid4()
     })
   end
@@ -165,11 +166,20 @@ defmodule Broth.Translator do
     %{
       "op" => "room:ban",
       "d" => Map.merge(d, %{"id" => d["userId"]})
-    }) |> IO.inspect(label: "167")
+    })
+  end
+
+  def convert_inbound_0_1_0(command = %{"op" => "follow", "d" => d}) do
+    operation = if d["value"], do: "user:follow", else: "user:unfollow"
+    Map.merge(command,
+    %{
+      "op" => operation,
+      "d" => Map.merge(d, %{"id" => d["userId"]})
+    })
   end
 
   # let it pass, and return a general error.
-  def convert_inbound_0_1_0(command), do: command |> IO.inspect(label: "171")
+  def convert_inbound_0_1_0(command), do: command
 
   #############################################################################
   ## OUTBOUND CONVERSION
@@ -186,7 +196,7 @@ defmodule Broth.Translator do
   defp add_ref(map, %{ref: ref}), do: Map.put(map, :fetchId, ref)
   defp add_ref(map, _), do: map
 
-  defp add_err(map, %{errors: err}), do: Map.put(map, :errors, err)
+  defp add_err(map, %{e: err}), do: Map.put(map, :e, err)
   defp add_err(map, _), do: map
 
   def convert_outbound_0_1_0(map, "auth:request") do
@@ -194,14 +204,14 @@ defmodule Broth.Translator do
   end
 
   def convert_outbound_0_1_0(map, "user:ban") do
-    %{map | op: "ban_done", d: %{worked: !map[:error]}}
+    %{map | op: "ban_done", d: %{worked: !map[:e]}}
   end
 
   def convert_outbound_0_1_0(map, "room:create") do
     %{map | d: %{room: map.d}}
   end
 
-  def convert_outbound_0_1_0(map = %{errors: errors}, "user:update") do
+  def convert_outbound_0_1_0(map = %{e: errors}, "user:update") do
     %{map | d: %{isUsernameTaken: errors =~ "has already been taken"}}
   end
 
@@ -222,7 +232,7 @@ defmodule Broth.Translator do
   end
 
   def convert_outbound_0_1_0(map, "room:update") do
-    %{map | d: !Map.get(map, :errors)}
+    %{map | d: !Map.get(map, :e)}
   end
 
   def convert_outbound_0_1_0(map, "room:get_invite_list") do
@@ -236,7 +246,8 @@ defmodule Broth.Translator do
   end
 
   def convert_outbound_0_1_0(map, orig) do
-    map
+    orig |> IO.inspect(label: "239")
+    map|> IO.inspect(label: "240")
   end
 
   def convert_outbound_0_1_0(map, _), do: map
