@@ -122,6 +122,10 @@ export const LoginPage: React.FC = () => {
             <SvgSolidTwitter width={20} height={20} />
             Log in with Twitter
           </LoginButton>
+          <LoginButton oauthUrl={`${apiBaseUrl}/auth/discord/web`}>
+            <SvgSolidDiscord width={20} height={20} />
+            Log in with Discord
+          </LoginButton>
           {!__prod__ ? (
             <LoginButton
               dev
