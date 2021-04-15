@@ -32,7 +32,7 @@ defmodule Broth.WsClient do
 
     WebSockex.cast(
       client_ws,
-      {:send, %{"op" => op, "p" => payload, "ref" => call_ref, "version" => "0.2.0"}}
+      {:send, %{"op" => op, "p" => payload, "ref" => call_ref, "v" => "0.2.0"}}
     )
 
     call_ref

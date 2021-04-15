@@ -139,12 +139,7 @@ defmodule Broth.SocketHandler do
 
       # error validating the inner changeset.
       {:ok, error} ->
-        reply =
-          error
-          |> Map.put(:operator, error.inbound_operator)
-          |> prepare_socket_msg(state)
-
-        {:reply, reply, state}
+        {:reply, prepare_socket_msg(error, state), state}
 
       {:error, changeset = %Ecto.Changeset{}} ->
         reply = %{errors: Kousa.Utils.Errors.changeset_errors(changeset)}

@@ -37,6 +37,7 @@ defmodule Broth.Message do
     |> find(:reference, :optional)
     |> cast_operator
     |> cast_reference
+    |> cast_inbound_operator
     |> validate_required([:operator, :version])
     |> cast_payload(state)
     |> validate_calls_have_references
@@ -94,6 +95,15 @@ defmodule Broth.Message do
   end
 
   defp cast_reference(changeset), do: changeset
+
+  defp cast_inbound_operator(changeset) do
+    if get_field(changeset, :inbound_operator) do
+      changeset
+    else
+      inbound_operator = get_field(changeset, :operator)
+      put_change(changeset, :inbound_operator, inbound_operator)
+    end
+  end
 
   defp cast_payload(changeset = %{valid?: false}, _), do: changeset
 

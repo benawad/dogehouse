@@ -16,8 +16,10 @@ defmodule Broth.Message.Room.SetRole do
     |> UUID.normalize(:id)
   end
 
-  def execute(%{id: user_id, role: role}, state) do
-    Kousa.Room.set_role(user_id, role, by: state.user_id)
-    {:ok, state}
+  def execute(changeset, state) do
+    with {:ok, %{id: user_id, role: role}} <- apply_action(changeset, :validate) do
+      Kousa.Room.set_role(user_id, role, by: state.user_id)
+      {:noreply, state}
+    end
   end
 end

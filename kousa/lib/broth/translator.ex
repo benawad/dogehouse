@@ -20,12 +20,13 @@ defmodule Broth.Translator do
     get_my_following
     get_top_public_rooms
     get_current_room_users
+    get_user_profile
     mute
   )
 
   def convert_inbound(command = %{"op" => op}) when op in @operators_0_1_0 do
     command
-    |> Map.merge(%{"version" => ~v(0.1.0), "inbound_operator" => op})
+    |> Map.merge(%{"v" => ~v(0.1.0), "inbound_operator" => op})
     |> convert_inbound_0_1_0
   end
 
@@ -38,7 +39,7 @@ defmodule Broth.Translator do
     "follow_info" => "user:get_relationship",
     "get_my_following" => "user:get_following",
     "get_top_public_rooms" => "room:get_top",
-    "get_current_users" => "room:get_users",
+    "get_current_room_users" => "room:get_users",
     "mute" => "user:mute"
   }
   @translation_keys Map.keys(@translations)
@@ -86,7 +87,7 @@ defmodule Broth.Translator do
       command,
       %{
         "op" => "room:set_role",
-        "p" => Map.put(d, "role", "listener")
+        "d" => Map.put(d, "role", "listener")
       }
     )
   end
@@ -95,7 +96,7 @@ defmodule Broth.Translator do
     Map.merge(command,
     %{
       "op" => "room:set_role",
-      "p" => Map.put(d, "role", "speaker")
+      "d" => Map.merge(d, %{"role" => "speaker", "id" => d["userId"]})
     })
   end
 
@@ -104,7 +105,7 @@ defmodule Broth.Translator do
 
     Map.merge(command, %{
       "op" => "room:set_auth",
-      "p" => Map.put(d, "level", role)
+      "d" => Map.put(d, "level", role)
     })
   end
 
@@ -112,7 +113,7 @@ defmodule Broth.Translator do
     Map.merge(command,
     %{
       "op" => "room:set_auth",
-      "p" => Map.put(d, "level", "owner")
+      "d" => Map.put(d, "level", "owner")
     })
   end
 
@@ -120,8 +121,8 @@ defmodule Broth.Translator do
     Map.merge(command,
     %{
       "op" => "room:update",
-      "p" => %{"room" => d},
-      "ref" => UUID.uuid4()
+      "d" => %{"room" => d},
+      "fetchId" => UUID.uuid4()
     })
   end
 
@@ -140,6 +141,9 @@ defmodule Broth.Translator do
     %{command | "op" => "user:get_info", "d" => %{"id" => d["userId"]}}
   end
 
+  # let it pass, and return a general error.
+  def convert_inbound_0_1_0(command), do: command
+
   #############################################################################
   ## OUTBOUND CONVERSION
 
@@ -147,7 +151,7 @@ defmodule Broth.Translator do
     %{op: "fetch_done", d: map.p}
     |> add_ref(map)
     |> add_err(map)
-    |> convert_outbound_0_1_0(map.op, original)
+    |> convert_outbound_0_1_0(original.inbound_operator)
   end
 
   def convert_outbound(map, _), do: map
@@ -158,27 +162,27 @@ defmodule Broth.Translator do
   defp add_err(map, %{errors: err}), do: Map.put(map, :errors, err)
   defp add_err(map, _), do: map
 
-  def convert_outbound_0_1_0(map, "auth:request:reply", _) do
+  def convert_outbound_0_1_0(map, "auth:request") do
     %{map | op: "auth-good", d: %{user: %{id: map.d.id}}}
   end
 
-  def convert_outbound_0_1_0(map, "user:ban:reply", _) do
+  def convert_outbound_0_1_0(map, "user:ban") do
     %{map | op: "ban_done", d: %{worked: !map[:error]}}
   end
 
-  def convert_outbound_0_1_0(map, "room:create:reply", _) do
+  def convert_outbound_0_1_0(map, "room:create") do
     %{map | d: %{room: map.d}}
   end
 
-  def convert_outbound_0_1_0(map = %{errors: errors}, "user:update:reply", _) do
+  def convert_outbound_0_1_0(map = %{errors: errors}, "user:update") do
     %{map | d: %{isUsernameTaken: errors =~ "has already been taken"}}
   end
 
-  def convert_outbound_0_1_0(map, "user:update:reply", _) do
+  def convert_outbound_0_1_0(map, "user:update") do
     %{map | d: %{isUsernameTaken: false}}
   end
 
-  def convert_outbound_0_1_0(map, "user:get_relationship:reply", _) do
+  def convert_outbound_0_1_0(map, "user:get_relationship") do
     new_data =
       case map.d.relationship do
         nil -> %{followsYou: false, youAreFollowing: false}
@@ -190,19 +194,23 @@ defmodule Broth.Translator do
     %{map | d: new_data}
   end
 
-  def convert_outbound_0_1_0(map, "room:update:reply", _) do
+  def convert_outbound_0_1_0(map, "room:update") do
     %{map | d: !Map.get(map, :errors)}
   end
 
-  def convert_outbound_0_1_0(map, "room:get_invite_list:reply", _) do
+  def convert_outbound_0_1_0(map, "room:get_invite_list") do
     data = %{users: map.d.invites, nextCursor: map.d.nextCursor}
     %{map | op: "fetch_invite_list_done", d: data}
   end
 
-  def convert_outbound_0_1_0(map, "user:get_following:reply", _) do
+  def convert_outbound_0_1_0(map, "user:get_following") do
     data = %{users: map.d.following, nextCursor: map.d.nextCursor}
     %{map | d: data}
   end
 
-  def convert_outbound_0_1_0(map, _, _), do: map
+  def convert_outbound_0_1_0(map, orig) do
+    map
+  end
+
+  def convert_outbound_0_1_0(map, _), do: map
 end
