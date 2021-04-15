@@ -67,6 +67,7 @@ function App({ Component, pageProps }: AppProps) {
       <QueryClientProvider client={queryClient}>
         <MainWsHandlerProvider>
           <Head>
+            <link rel="icon" href="/favicon.ico" type="image/x-icon" />
             <meta
               name="viewport"
               content="width=device-width, initial-scale=1, user-scalable=no, user-scalable=0"
