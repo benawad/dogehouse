@@ -28,8 +28,8 @@ defmodule KousaTest.Broth.User.BanTest do
           "reason" => "you're a douche"
         })
 
-      WsClient.assert_reply("user:ban:reply", ref, %{"error" => error})
-      refute is_nil(error)
+      WsClient.assert_error("user:ban", ref, %{"message" => message})
+      assert message =~ "but that user didn't exist"
     end
 
     @ben_github_id Application.compile_env!(:kousa, :ben_github_id)

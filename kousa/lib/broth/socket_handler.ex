@@ -123,7 +123,7 @@ defmodule Broth.SocketHandler do
          %{"op" => not_special_case} when not_special_case not in @special_cases <- message_map!,
          # translation from legacy maps to new maps
          message_map! = Broth.Translator.convert_inbound(message_map!),
-         {:ok, message = %{errors: nil}} <- validate(message_map!, state)  do
+         {:ok, message = %{errors: nil}} <- validate(message_map!, state) do
       dispatch(message, state)
     else
       # special cases: mediasoup operations
@@ -219,7 +219,7 @@ defmodule Broth.SocketHandler do
   end
 
   def wrap_error(message, error_map) do
-    %{message | payload: %{}, errors: error_map}
+    %{message | payload: %{}, errors: error_map, operator: message.inbound_operator}
   end
 
   def handler("set_auto_speaker", %{"value" => value}, state) do
