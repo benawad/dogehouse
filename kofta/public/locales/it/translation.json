@@ -40,7 +40,7 @@
     "home": {
       "createRoom": "Crea una stanza",
       "refresh": "Ricarica",
-      "editRoom": "Edit Room"
+      "editRoom": "Modifica la stanza"
     },
     "inviteList": {
       "roomGone": "La stanza non esiste, torna indietro",
