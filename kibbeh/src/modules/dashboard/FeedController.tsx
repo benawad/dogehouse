@@ -108,7 +108,7 @@ const Page = ({
         />
       ))}
       {isLastPage && data.nextCursor ? (
-        <div className={`flex flex justify-center py-5`}>
+        <div className={`flex justify-center py-5`}>
           <Button
             size="small"
             onClick={() => {

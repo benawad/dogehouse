@@ -27,10 +27,10 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
           username={user.username}
         />
         <div className="flex mt-2 max-w-full">
-          <span className="text-primary-100 font-bold h-full break-all line-clamp-1 truncate">
+          <span className="flex text-primary-100 font-bold h-full break-all line-clamp-1 truncate">
             {user.displayName}
           </span>
-          <span className="text-primary-300 ml-1">@{user.username}</span>
+          <span className="flex text-primary-300 ml-1">@{user.username}</span>
           {/* <Badges badges={badges} /> */}
         </div>
         <div className="flex mt-2">
