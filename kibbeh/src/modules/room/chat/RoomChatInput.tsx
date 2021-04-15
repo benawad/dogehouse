@@ -109,7 +109,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
           }}
         />
       </div>
-      <div className="flex flex items-stretch">
+      <div className="flex items-stretch">
         <div className="flex flex-1 mr-2 lg:mr-0 items-center bg-primary-700 rounded-8">
           <Input
             maxLength={512}
