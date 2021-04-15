@@ -11,7 +11,7 @@ export default {
   component: UserBadgeLg,
   args: {
     label: "DogeHouse User",
-  }
+  },
 } as Meta;
 
 export const Primary = Template.bind({});

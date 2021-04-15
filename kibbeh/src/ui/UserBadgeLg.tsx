@@ -24,10 +24,14 @@ export const UserBadgeLg: React.FC<UserBadgeLgProps> = ({ icon, children }) => {
         );
         break;
       case "dogeStaff":
-        setParsedIcon(<span className="font-bold block text-center h-full w-full">ƉS</span>);
+        setParsedIcon(
+          <span className="font-bold block text-center h-full w-full">ƉS</span>
+        );
         break;
       case "dogeContributor":
-        setParsedIcon(<span className="font-bold block text-center h-full w-full">ƉC</span>);
+        setParsedIcon(
+          <span className="font-bold block text-center h-full w-full">ƉC</span>
+        );
         break;
     }
   }, [setParsedIcon, icon]);
