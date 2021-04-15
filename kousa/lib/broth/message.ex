@@ -3,7 +3,6 @@ defmodule Broth.Message do
 
   alias Ecto.Changeset
   import Changeset
-  import Kousa.Utils.Version, only: [sigil_v: 2]
 
   @primary_key false
   embedded_schema do
@@ -11,7 +10,7 @@ defmodule Broth.Message do
     field(:payload, :map)
     field(:reference, :binary_id)
     field(:inbound_operator, :string)
-    field(:version, Kousa.Utils.Version, default: ~v(0.1.0))
+    field(:version, Kousa.Utils.Version)
     # reply messages only
     field(:errors, :map)
   end
@@ -40,6 +39,7 @@ defmodule Broth.Message do
     |> cast_payload(state)
     |> validate_calls_have_references
     |> find(:version)
+    |> cast_version
   end
 
   @type message_field :: :operator | :payload | :reference
@@ -119,6 +119,16 @@ defmodule Broth.Message do
       inner_changeset = %{valid?: false} ->
         errors = Kousa.Utils.Errors.changeset_errors(inner_changeset)
         put_change(changeset, :errors, errors)
+    end
+  end
+
+  defp cast_version(changeset = %{valid?: false}), do: changeset
+
+  defp cast_version(changeset = %{params: params}) do
+    if Map.has_key?(params, "version") do
+      cast(changeset, params, [:version])
+    else
+      add_error(changeset, :version, "is required")
     end
   end
 

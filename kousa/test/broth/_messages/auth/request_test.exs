@@ -29,7 +29,8 @@ defmodule BrothTest.Message.Auth.RequestTest do
                    "platform" => "baz",
                    "reconnectToVoice" => false,
                    "muted" => false
-                 }
+                 },
+                 "reference" => UUID.uuid4()
                })
 
       # short form also allowed
@@ -51,20 +52,22 @@ defmodule BrothTest.Message.Auth.RequestTest do
                    "platform" => "baz",
                    "reconnectToVoice" => false,
                    "muted" => false
-                 }
+                 },
+                 "ref" => UUID.uuid4()
                })
     end
 
     test "omitting the userId is not allowed" do
       assert {:error, %{errors: %{accessToken: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
-                 "op" => "auth:request",
-                 "p" => %{
+                 "operator" => "auth:request",
+                 "payload" => %{
                    "refreshToken" => "bar",
                    "platform" => "baz",
                    "reconnectToVoice" => false,
                    "muted" => false
-                 }
+                 },
+                 "reference" => UUID.uuid4()
                })
     end
   end

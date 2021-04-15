@@ -156,7 +156,7 @@ defmodule Broth.SocketHandler do
   end
 
   def dispatch(message, state) do
-    case message.operator.execute(message.payload, state) do
+    case message.operator.execute(message.payload, state)  do
       close = {:close, _, _} ->
         {:reply, close, state}
 

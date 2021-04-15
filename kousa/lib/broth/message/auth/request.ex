@@ -39,6 +39,7 @@ defmodule Broth.Message.Auth.Request do
       field(:displayName, :string)
       field(:avatarUrl, :string)
       field(:bio, :string, default: "")
+      field(:currentRoomId, :binary_id)
     end
 
     def tag, do: "auth:request:reply"
@@ -52,15 +53,17 @@ defmodule Broth.Message.Auth.Request do
     end
   end
 
+  alias Beef.Repo
+
   defp convert_tokens(request, state) do
     alias Kousa.Utils.TokenUtils
 
-    case TokenUtils.tokens_to_user_id(request.accessToken, request.refreshToken) do
+    case TokenUtils.tokens_to_user_id(request.accessToken, request.refreshToken)  do
       nil ->
         {:close, 4001, "invalid_authentication"}
 
       {:existing_claim, user_id} ->
-        do_auth(user_id, nil, Beef.Users.get_by_id(user_id), request, state)
+        do_auth(user_id, nil, Repo.get(Reply, user_id), request, state)
 
       {:new_tokens, user_id, tokens, user} ->
         do_auth(user_id, tokens, user, request, state)
