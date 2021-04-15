@@ -32,7 +32,7 @@ defmodule Broth.WsClient do
 
     WebSockex.cast(
       client_ws,
-      {:send, %{"op" => op, "p" => payload, "ref" => call_ref}}
+      {:send, %{"op" => op, "p" => payload, "ref" => call_ref, "version" => "0.2.0"}}
     )
 
     call_ref
@@ -50,6 +50,9 @@ defmodule Broth.WsClient do
   end
 
   def send_msg(client_ws, op, payload),
+    do: WebSockex.cast(client_ws, {:send, %{"op" => op, "d" => payload, "v" => "0.2.0"}})
+
+  def send_msg_legacy(client_ws, op, payload),
     do: WebSockex.cast(client_ws, {:send, %{"op" => op, "d" => payload}})
 
   defp send_msg_impl(map, test_pid) do

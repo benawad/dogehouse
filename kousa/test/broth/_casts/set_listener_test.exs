@@ -36,7 +36,7 @@ defmodule KousaTest.Broth.SetListenerTest do
 
       assert Beef.RoomPermissions.speaker?(t.user.id, room_id)
 
-      WsClient.send_msg(t.client_ws, "set_listener", %{"userId" => speaker_id})
+      WsClient.send_msg_legacy(t.client_ws, "set_listener", %{"userId" => speaker_id})
 
       WsClient.assert_frame(
         "speaker_removed",

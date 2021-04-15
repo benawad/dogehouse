@@ -30,7 +30,7 @@ defmodule KousaTest.Broth.LeaveRoomTest do
 
       assert Users.get_by_id(t.user.id).currentRoomId == room.id
 
-      WsClient.send_msg(t.client_ws, "leave_room", %{})
+      WsClient.send_msg_legacy(t.client_ws, "leave_room", %{})
 
       WsClient.assert_frame("you_left_room", _)
 
@@ -58,7 +58,7 @@ defmodule KousaTest.Broth.LeaveRoomTest do
 
       assert %{peoplePreviewList: [_, _]} = Rooms.get_room_by_id(room.id)
 
-      WsClient.send_msg(other_ws, "leave_room", %{})
+      WsClient.send_msg_legacy(other_ws, "leave_room", %{})
 
       WsClient.assert_frame("you_left_room", _, other_ws)
 

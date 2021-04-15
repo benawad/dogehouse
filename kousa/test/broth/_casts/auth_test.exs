@@ -29,7 +29,7 @@ defmodule KousaTest.Broth.AuthTest do
       Process.link(pid)
       WsClient.forward_frames(pid)
 
-      WsClient.send_msg(pid, "auth", %{
+      WsClient.send_msg_legacy(pid, "auth", %{
         "accessToken" => tokens.accessToken,
         "refreshToken" => tokens.refreshToken,
         "platform" => "foo",
@@ -51,7 +51,7 @@ defmodule KousaTest.Broth.AuthTest do
       WsClient.assert_dies(
         pid,
         fn ->
-          WsClient.send_msg(pid, "auth", %{
+          WsClient.send_msg_legacy(pid, "auth", %{
             "accessToken" => "foo",
             "refreshToken" => "bar",
             "platform" => "foo",

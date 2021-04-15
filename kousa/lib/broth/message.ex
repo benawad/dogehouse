@@ -10,7 +10,7 @@ defmodule Broth.Message do
     field(:operator, Broth.Message.Types.Operator, null: false)
     field(:payload, :map)
     field(:reference, :binary_id)
-    field(:original_operator, :string)
+    field(:inbound_operator, :string)
     field(:version, Kousa.Utils.Version, default: ~v(0.1.0))
     # reply messages only
     field(:errors, :map)
@@ -20,7 +20,7 @@ defmodule Broth.Message do
           operator: module(),
           payload: map(),
           reference: Kousa.Utils.UUID.t(),
-          original_operator: String.t()
+          inbound_operator: String.t()
         }
 
   @spec changeset(%{String.t() => Broth.json()}, Broth.SocketHandler.state()) :: Changeset.t()
@@ -29,14 +29,15 @@ defmodule Broth.Message do
   """
   def changeset(data, state) do
     %__MODULE__{}
-    |> cast(data, [:version])
+    |> cast(data, [:inbound_operator])
     |> Map.put(:params, data)
+    |> find(:version)
     |> find(:operator)
     |> find(:payload)
     |> find(:reference, :optional)
     |> cast_operator
     |> cast_reference
-    |> validate_required([:operator])
+    |> validate_required([:operator, :version])
     |> cast_payload(state)
     |> validate_calls_have_references
   end
@@ -47,7 +48,8 @@ defmodule Broth.Message do
   @valid_forms %{
     operator: ~w(operator op),
     payload: ~w(payload p d),
-    reference: ~w(reference ref fetchId)
+    reference: ~w(reference ref fetchId),
+    version: ~w(version v)
   }
 
   defp find(changeset, field, optional \\ false) when is_atom(field) do
@@ -79,7 +81,7 @@ defmodule Broth.Message do
     if operator = @operators[op] do
       changeset
       |> put_change(:operator, operator)
-      |> put_change(:original_operator, op)
+      |> put_change(:inbound_operator, op)
     else
       add_error(changeset, :operator, "#{op} is invalid")
     end

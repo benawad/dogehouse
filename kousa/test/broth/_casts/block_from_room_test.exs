@@ -35,7 +35,7 @@ defmodule KousaTest.Broth.BlockFromRoomTest do
       WsClient.assert_frame("new_user_join_room", _)
 
       # block the person.
-      WsClient.send_msg(t.client_ws, "block_from_room", %{"userId" => blocked_id})
+      WsClient.send_msg_legacy(t.client_ws, "block_from_room", %{"userId" => blocked_id})
 
       WsClient.assert_frame(
         "user_left_room",
@@ -64,7 +64,9 @@ defmodule KousaTest.Broth.BlockFromRoomTest do
 
       capture_deprecation(fn ->
         # block the person.
-        WsClient.send_msg(t.client_ws, "block_user_and_from_room", %{"userId" => blocked_id})
+        WsClient.send_msg_legacy(t.client_ws, "block_user_and_from_room", %{
+          "userId" => blocked_id
+        })
 
         WsClient.assert_frame(
           "user_left_room",

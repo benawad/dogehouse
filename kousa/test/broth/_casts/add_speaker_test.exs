@@ -34,7 +34,7 @@ defmodule KousaTest.Broth.AddSpeakerTest do
       WsClient.assert_frame("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
 
       # add the person as a speaker.
-      WsClient.send_msg(t.client_ws, "add_speaker", %{"userId" => speaker_id})
+      WsClient.send_msg_legacy(t.client_ws, "add_speaker", %{"userId" => speaker_id})
 
       # both clients get notified
       WsClient.assert_frame(

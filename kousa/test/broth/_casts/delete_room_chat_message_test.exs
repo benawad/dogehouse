@@ -39,7 +39,7 @@ defmodule KousaTest.Broth.DeleteRoomChatMessageTest do
       # TODO: double check that the listener-id can't be hijacked
       # (is it only sent to early-block poor attempts to delete messages?)
       # maybe we should handle this at the frontend level?
-      WsClient.send_msg(t.client_ws, "delete_room_chat_message", %{
+      WsClient.send_msg_legacy(t.client_ws, "delete_room_chat_message", %{
         "messageId" => "foo-bar-baz",
         "userId" => listener_id
       })

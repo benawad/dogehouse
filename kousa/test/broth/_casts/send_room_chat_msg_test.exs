@@ -34,7 +34,7 @@ defmodule KousaTest.Broth.SendRoomChatMsgTest do
       Kousa.Room.join_room(listener_id, room_id)
       WsClient.assert_frame("new_user_join_room", _)
 
-      WsClient.send_msg(t.client_ws, "send_room_chat_msg", %{"tokens" => @text_token})
+      WsClient.send_msg_legacy(t.client_ws, "send_room_chat_msg", %{"tokens" => @text_token})
 
       WsClient.assert_frame(
         "new_chat_msg",
@@ -72,7 +72,7 @@ defmodule KousaTest.Broth.SendRoomChatMsgTest do
       WsClient.assert_frame("new_user_join_room", _)
       WsClient.assert_frame("new_user_join_room", _)
 
-      WsClient.send_msg(t.client_ws, "send_room_chat_msg", %{
+      WsClient.send_msg_legacy(t.client_ws, "send_room_chat_msg", %{
         "tokens" => @text_token,
         "whisperedTo" => [whispener_id]
       })

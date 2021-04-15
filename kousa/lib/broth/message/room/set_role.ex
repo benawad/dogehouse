@@ -3,7 +3,7 @@ defmodule Broth.Message.Room.SetRole do
 
   @primary_key false
   embedded_schema do
-    field(:userId, :binary_id)
+    field(:id, :binary_id)
     field(:role, Broth.Message.Types.RoomRole)
   end
 
@@ -11,12 +11,12 @@ defmodule Broth.Message.Room.SetRole do
 
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
-    |> cast(data, [:userId, :role])
-    |> validate_required([:userId, :role])
-    |> UUID.normalize(:userId)
+    |> cast(data, [:id, :role])
+    |> validate_required([:id, :role])
+    |> UUID.normalize(:id)
   end
 
-  def execute(%{userId: user_id, role: role}, state) do
+  def execute(%{id: user_id, role: role}, state) do
     Kousa.Room.set_role(user_id, role, by: state.user_id)
     {:ok, state}
   end

@@ -34,7 +34,7 @@ defmodule KousaTest.Broth.AskToSpeakTest do
       WsClient.assert_frame("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
 
       # make the ask_to_speak request
-      WsClient.send_msg(speaker_ws, "ask_to_speak", %{})
+      WsClient.send_msg_legacy(speaker_ws, "ask_to_speak", %{})
 
       # both clients get notified
       WsClient.assert_frame(

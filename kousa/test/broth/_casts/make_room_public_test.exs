@@ -28,7 +28,7 @@ defmodule KousaTest.Broth.MakeRoomPublicTest do
 
       assert Rooms.get_room_by_id(room_id).isPrivate
 
-      WsClient.send_msg(t.client_ws, "make_room_public", %{"newName" => "quux room"})
+      WsClient.send_msg_legacy(t.client_ws, "make_room_public", %{"newName" => "quux room"})
 
       WsClient.assert_frame("room_privacy_change", %{"name" => "quux room", "isPrivate" => false})
 

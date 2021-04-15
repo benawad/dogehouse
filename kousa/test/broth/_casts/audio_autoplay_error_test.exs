@@ -25,7 +25,7 @@ defmodule KousaTest.Broth.AudioAutoplayErrorTest do
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
       # make the ask_to_speak request
-      WsClient.send_msg(t.client_ws, "audio_autoplay_error", %{})
+      WsClient.send_msg_legacy(t.client_ws, "audio_autoplay_error", %{})
 
       WsClient.assert_frame("error", _)
     end

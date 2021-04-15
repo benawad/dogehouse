@@ -32,7 +32,7 @@ defmodule KousaTest.Broth.BanFromRoomChatTest do
       Kousa.Room.join_room(banned_id, room_id)
       WsClient.assert_frame("new_user_join_room", _)
 
-      WsClient.send_msg(t.client_ws, "ban_from_room_chat", %{userId: banned_id})
+      WsClient.send_msg_legacy(t.client_ws, "ban_from_room_chat", %{userId: banned_id})
       WsClient.assert_frame("chat_user_banned", %{"userId" => ^banned_id}, t.client_ws)
       WsClient.assert_frame("chat_user_banned", %{"userId" => ^banned_id}, ws_banned)
 

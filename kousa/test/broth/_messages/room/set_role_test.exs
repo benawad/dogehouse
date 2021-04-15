@@ -13,7 +13,7 @@ defmodule BrothTest.Message.Room.SetRole do
     test "it validates", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %SetRole{userId: ^uuid, role: :speaker}
+                payload: %SetRole{id: ^uuid, role: :speaker}
               }} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:set_role",
@@ -23,7 +23,7 @@ defmodule BrothTest.Message.Room.SetRole do
       # short form also allowed
       assert {:ok,
               %{
-                payload: %SetRole{userId: ^uuid, role: :speaker}
+                payload: %SetRole{id: ^uuid, role: :speaker}
               }} =
                BrothTest.Support.Message.validate(%{
                  "op" => "room:set_role",
@@ -32,7 +32,7 @@ defmodule BrothTest.Message.Room.SetRole do
     end
 
     test "omitting the userId is not allowed" do
-      assert {:error, %{errors: [userId: {"can't be blank", _}]}} =
+      assert {:error, %{errors: [id: {"can't be blank", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:set_role",
                  "payload" => %{"role" => "speaker"}
@@ -52,7 +52,7 @@ defmodule BrothTest.Message.Room.SetRole do
     test "raised hand it validates", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %SetRole{userId: ^uuid, role: :raised_hand}
+                payload: %SetRole{id: ^uuid, role: :raised_hand}
               }} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:set_role",
@@ -63,7 +63,7 @@ defmodule BrothTest.Message.Room.SetRole do
     test "listener it validates", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %SetRole{userId: ^uuid, role: :listener}
+                payload: %SetRole{id: ^uuid, role: :listener}
               }} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:set_role",

@@ -18,7 +18,7 @@ defmodule KousaTest.Broth.FetchInviteListTest do
 
   describe "the websocket fetch_invite_list operation" do
     test "gets an empty list when you haven't invited anyone", t do
-      WsClient.send_msg(t.client_ws, "fetch_invite_list", %{"cursor" => 0})
+      WsClient.send_msg_legacy(t.client_ws, "fetch_invite_list", %{"cursor" => 0})
       WsClient.assert_frame("fetch_invite_list_done", %{"users" => []})
     end
 
@@ -28,9 +28,9 @@ defmodule KousaTest.Broth.FetchInviteListTest do
       WsClientFactory.create_client_for(follower)
       Kousa.Follow.follow(follower_id, t.user.id, true)
 
-      WsClient.send_msg(t.client_ws, "invite_to_room", %{"userId" => follower_id})
+      WsClient.send_msg_legacy(t.client_ws, "invite_to_room", %{"userId" => follower_id})
 
-      WsClient.send_msg(t.client_ws, "fetch_invite_list", %{"cursor" => 0})
+      WsClient.send_msg_legacy(t.client_ws, "fetch_invite_list", %{"cursor" => 0})
 
       WsClient.assert_frame(
         "fetch_invite_list_done",

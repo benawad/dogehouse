@@ -141,7 +141,7 @@ defmodule Broth.SocketHandler do
       {:ok, error} ->
         reply =
           error
-          |> Map.put(:operator, error.original_operator)
+          |> Map.put(:operator, error.inbound_operator)
           |> prepare_socket_msg(state)
 
         {:reply, reply, state}
@@ -170,7 +170,7 @@ defmodule Broth.SocketHandler do
         reply =
           message
           |> Map.merge(%{
-            operator: message.original_operator,
+            operator: message.inbound_operator,
             errors: Kousa.Utils.Errors.changeset_errors(changeset)
           })
           |> prepare_socket_msg(state)
@@ -215,7 +215,7 @@ defmodule Broth.SocketHandler do
   end
 
   def wrap(message, payload = %module{}) do
-    %{message | operator: message.original_operator <> ":reply", payload: payload}
+    %{message | operator: message.inbound_operator <> ":reply", payload: payload}
   end
 
   def wrap_error(message, error_map) do

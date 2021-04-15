@@ -34,7 +34,7 @@ defmodule KousaTest.Broth.ChangeRoomCreatorTest do
       WsClient.assert_frame("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
 
       # add the person as a speaker.
-      WsClient.send_msg(t.client_ws, "add_speaker", %{"userId" => speaker_id})
+      WsClient.send_msg_legacy(t.client_ws, "add_speaker", %{"userId" => speaker_id})
 
       # both clients get notified
       WsClient.assert_frame(
@@ -50,7 +50,7 @@ defmodule KousaTest.Broth.ChangeRoomCreatorTest do
       )
 
       # make the person a mod
-      WsClient.send_msg(t.client_ws, "change_mod_status", %{
+      WsClient.send_msg_legacy(t.client_ws, "change_mod_status", %{
         "userId" => speaker_id,
         "value" => true
       })
@@ -69,7 +69,7 @@ defmodule KousaTest.Broth.ChangeRoomCreatorTest do
       )
 
       # make the person a room creator.
-      WsClient.send_msg(t.client_ws, "change_room_creator", %{
+      WsClient.send_msg_legacy(t.client_ws, "change_room_creator", %{
         "userId" => speaker_id
       })
 

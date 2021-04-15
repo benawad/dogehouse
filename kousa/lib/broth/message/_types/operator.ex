@@ -19,6 +19,7 @@ defenum(
     {User.GetInfo, 8},
     {User.GetRelationship, 9},
     {User.Block, 10},
+    {User.Mute, 11},
     # room commands and casts: 64..127
     {Room.Invite, 65},
     {Room.Update, 66},

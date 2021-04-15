@@ -1,4 +1,4 @@
-defmodule Broth.Message.Room.Mute do
+defmodule Broth.Message.User.Mute do
   use Broth.Message.Call
   @primary_key false
   embedded_schema do
