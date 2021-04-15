@@ -9,10 +9,14 @@ defmodule Broth.Message.Room.SetRole do
 
   alias Kousa.Utils.UUID
 
+  def initialize(state) do
+    %__MODULE__{id: state.user_id}
+  end
+
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
     |> cast(data, [:id, :role])
-    |> validate_required([:id, :role])
+    |> validate_required([:id, :role])  # if we don't have an id, assume self.
     |> UUID.normalize(:id)
   end
 

@@ -224,6 +224,9 @@ defmodule Kousa.Room do
 
       :speaker ->
         set_speaker(room_id, user_id, opts[:by])
+
+      :raised_hand ->
+        set_raised_hand(room_id, user_id, opts[:by])
     end
   end
 
@@ -293,6 +296,25 @@ defmodule Kousa.Room do
     _, _ ->
       {:error, "room not found"}
   end
+
+  # only you can raise your own hand
+  defp set_raised_hand(room_id, user_id, user_id) do
+    # ??
+    case RoomPermissions.ask_to_speak(user_id, room_id) do
+      {:ok, %{isSpeaker: true}} ->
+        Kousa.Room.internal_set_speaker(user_id, room_id)
+
+      _ ->
+        Onion.RoomSession.broadcast_ws(
+          room_id,
+          %{
+            op: "hand_raised",
+            d: %{userId: user_id, roomId: room_id}
+          }
+        )
+    end
+  end
+  defp set_raised_hand(_, _, _), do: :noop
 
   ######################################################################
   ## UPDATE

@@ -270,26 +270,6 @@ defmodule Broth.SocketHandler do
     {:ok, state}
   end
 
-  def handler("ask_to_speak", _data, state) do
-    with {:ok, room_id} <- Users.tuple_get_current_room_id(state.user_id) do
-      case RoomPermissions.ask_to_speak(state.user_id, room_id) do
-        {:ok, %{isSpeaker: true}} ->
-          Kousa.Room.internal_set_speaker(state.user_id, room_id)
-
-        _ ->
-          Onion.RoomSession.broadcast_ws(
-            room_id,
-            %{
-              op: "hand_raised",
-              d: %{userId: state.user_id, roomId: room_id}
-            }
-          )
-      end
-    end
-
-    {:ok, state}
-  end
-
   def handler(op, data, state) do
     with {:ok, room_id} <- Beef.Users.tuple_get_current_room_id(state.user_id) do
       voice_server_id = Onion.RoomSession.get(room_id, :voice_server_id)

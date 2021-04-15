@@ -21,6 +21,7 @@ defmodule Broth.Translator do
     get_top_public_rooms
     get_current_room_users
     get_user_profile
+    ask_to_speak
     mute
   )
 
@@ -139,6 +140,14 @@ defmodule Broth.Translator do
 
   def convert_inbound_0_1_0(command = %{"op" => "get_user_profile", "d" => d}) do
     %{command | "op" => "user:get_info", "d" => %{"id" => d["userId"]}}
+  end
+
+  def convert_inbound_0_1_0(command = %{"op" => "ask_to_speak", "d" => d}) do
+    Map.merge(command,
+    %{
+      "op" => "room:set_role",
+      "d" => Map.merge(d, %{"role" => "raised_hand"})
+    })
   end
 
   # let it pass, and return a general error.
