@@ -1,15 +1,15 @@
 defmodule Broth.Message.User.Ban do
   use Broth.Message.Call
 
-  @primary_key {:id, :binary_id, []}
   embedded_schema do
+    field(:userId, :binary)
     field(:reason, :string)
   end
 
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
-    |> cast(data, [:id, :reason])
-    |> validate_required([:id, :reason])
+    |> cast(data, [:userId, :reason])
+    |> validate_required([:userId, :reason])
   end
 
   defmodule Reply do
@@ -24,7 +24,7 @@ defmodule Broth.Message.User.Ban do
 
   def execute(changeset, state) do
     with {:ok, request} <- apply_action(changeset, :validate),
-         :ok <- Kousa.User.ban(request.id, request.reason, admin_id: state.user_id) do
+         :ok <- Kousa.User.ban(request.userId, request.reason, admin_id: state.user_id) do
       {:reply, %Reply{}, state}
     end
   end
