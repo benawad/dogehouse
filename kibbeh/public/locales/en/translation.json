@@ -44,7 +44,7 @@
       "followingHim": "Following"
     },
     "home": {
-      "createRoom": "Create Room",
+      "createRoom": "New room",
       "editRoom": "Edit Room",
       "refresh": "Refresh"
     },
@@ -250,7 +250,7 @@
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
     "feed": {
-      "yourFeed": "Your Feed"
+      "yourFeed": "Your feed"
     },
     "scheduledRooms": {
       "title": "Scheduled Rooms",

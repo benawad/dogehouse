@@ -75,13 +75,13 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
   const { t } = useTypeSafeTranslation();
   return (
     <div className="flex flex-col rounded-8 bg-primary-800 p-4 w-full">
-      <button onClick={onClick}>
+      <button className="flex" onClick={onClick}>
         <div className="flex">
           <SingleUser size="default" isOnline={isOnline} src={avatarUrl} />
         </div>
         <div className="flex mt-2">
           <div className="flex flex-col ml-3">
-            <span className="text-sm text-primary-100 font-bold break-all text-left">
+            <span className="text-sm text-primary-100 font-bold overflow-hidden break-all text-left">
               {displayName}
             </span>
             <span className="text-sm text-primary-300 text-left break-all">
