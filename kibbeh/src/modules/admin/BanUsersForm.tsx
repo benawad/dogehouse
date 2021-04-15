@@ -22,6 +22,7 @@ export const BanUsersForm: React.FC<SearchUsersProps> = ({}) => {
       showErrorToast("nice try");
       replace("/dash");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (conn.user.username !== "benawad") {
