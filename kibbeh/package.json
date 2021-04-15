@@ -27,6 +27,7 @@
     "@svgr/webpack": "^5.5.0",
     "@tailwindcss/line-clamp": "^0.2.0",
     "date-fns": "^2.21.1",
+    "downshift": "^6.1.2",
     "emoji-regex": "^9.2.2",
     "formik": "^2.2.6",
     "grapheme-splitter": "^1.0.4",
@@ -55,6 +56,7 @@
     "superstruct": "^0.15.1",
     "tslib": "^2.2.0",
     "twemoji-parser": "^13.0.0",
+    "use-debounce": "^6.0.1",
     "uuid": "^8.3.2",
     "zustand": "^3.4.1"
   },

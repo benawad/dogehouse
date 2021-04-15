@@ -14,6 +14,19 @@ defmodule Beef.Access.Users do
     |> Repo.all()
   end
 
+  def search_username(<<first_letter>> <> rest) when first_letter == ?@ do
+    search_username(rest)
+  end
+
+  def search_username(start_of_username) do
+    search_str = start_of_username <> "%"
+
+    Query.start()
+    |> where([u], ilike(u.username, ^search_str))
+    |> limit([], 15)
+    |> Repo.all()
+  end
+
   @spec get_by_id_with_follow_info(any, any) :: any
   def get_by_id_with_follow_info(me_id, them_id) do
     Query.start()
