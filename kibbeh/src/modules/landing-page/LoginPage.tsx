@@ -88,7 +88,7 @@ export const LoginPage: React.FC = () => {
       }}
     >
       <HeaderController embed={{}} title="Login" />
-      <div className="flex hidden sm:flex" />
+      <div className="hidden sm:flex" />
       <div className="flex justify-self-center self-center sm:hidden">
         <LgLogo />
       </div>
@@ -152,11 +152,11 @@ export const LoginPage: React.FC = () => {
           <span className="text-primary-300">unavailable lol</span>
         </div> */}
       </div>
-      <div className="flex flex flex-row absolute bottom-0 w-full justify-between px-5 py-5 mt-auto items-center sm:px-7">
-        <div className="flex hidden sm:flex">
+      <div className="flex flex-row absolute bottom-0 w-full justify-between px-5 py-5 mt-auto items-center sm:px-7">
+        <div className="hidden sm:flex">
           <LgLogo />
         </div>
-        <div className="flex flex flex-row gap-6 text-primary-300">
+        <div className="flex flex-row gap-6 text-primary-300">
           <a
             href="https://youtu.be/dQw4w9WgXcQ"
             className="hover:text-primary-200"
@@ -169,7 +169,7 @@ export const LoginPage: React.FC = () => {
           >
             Report a bug
           </a>
-          <div className="flex flex flex-row gap-6 sm:gap-4">
+          <div className="flex flex-row gap-6 sm:gap-4">
             <a
               href="https://github.com/benawad/dogehouse"
               target="_blank"
