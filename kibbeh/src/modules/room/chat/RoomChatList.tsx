@@ -100,7 +100,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                   ) : null}
                   <div className={`flex items-center px-1`}>
                     <div
-                      className={`block break-words max-w-full items-start flex-1 text-primary-100`}
+                      className={`block break-words overflow-hidden max-w-full items-start flex-1 text-primary-100`}
                       key={messages[index].id}
                     >
                       <button
@@ -147,12 +147,13 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                                 );
                               case "emote":
                                 return emoteMap[v.toLowerCase()] ? (
-                                  <img
-                                    key={i}
-                                    className="inline"
-                                    alt={`:${v}:`}
-                                    src={emoteMap[v.toLowerCase()]}
-                                  />
+                                  <React.Fragment key={i}>
+                                    <img
+                                      className="inline"
+                                      alt={`:${v}:`}
+                                      src={emoteMap[v.toLowerCase()]}
+                                    />{" "}
+                                  </React.Fragment>
                                 ) : (
                                   ":" + v + ":"
                                 );

@@ -31,9 +31,7 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { 
-      "ban": "taqiqlash"
-    },
+    "banUser": { "ban": "taqiqlash" },
     "followingOnlineList": {
       "listHeader": "Yopiq xonada bo'lmagan va siz obuna bo'lgan foydalanuvchilar ro'yxati.",
       "currentRoom": "Hozirgi xona",
@@ -87,12 +85,8 @@
       "allowAll": "Barchaga ruxsat berish",
       "allowAllConfirm": "Ishonchingiz komilmi? Bu {{count}} foydalanuvchilariga gapirish uchun ruxsat so'rab murojaat qilganlarga gapirishga imkon beradi"
     },
-    "searchUser": {
-      "search": "Qidirish..."
-    },
-    "soundEffectSettings": {
-      "header": "Tovushlar"
-    },
+    "searchUser": { "search": "Qidirish..." },
+    "soundEffectSettings": { "header": "Tovushlar" },
     "viewUser": {
       "editProfile": "Profilni tahrirlash",
       "followsYou": "Obunachilaringiz",
@@ -164,12 +158,8 @@
       "togglePushToTalkKeybind": "Raciya rejimini yoqing",
       "toggleOverlayKeybind": "Keybind almashtirish tugmachasini biriktirish"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "Audio yo'q"
-    },
-    "addToCalendar": {
-      "add": "Taqvimga qo'shish"
-    },
+    "userVolumeSlider": { "noAudioMessage": "Audio yo'q" },
+    "addToCalendar": { "add": "Taqvimga qo'shish" },
     "wsKilled": {
       "description": "Veb-server server tomonidan o'chirildi. Bu odatda saytni boshqa yorliqda ochganda yuz beradi.",
       "reconnect": "Qayta qo'shilish"
@@ -249,9 +239,7 @@
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
-    "feed": {
-      "yourFeed": "Sizning tasmangiz"
-    },
+    "feed": { "yourFeed": "Sizning tasmangiz" },
     "scheduledRooms": {
       "title": "Rejalashtirilgan xonalar",
       "noneFound": "topilmadi",
