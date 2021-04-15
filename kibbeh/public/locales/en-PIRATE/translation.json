@@ -59,7 +59,8 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "Set Sail wit' with GitHub",
       "loginTwitter": "Set Sail wit' Twitter",
-      "createTestUser": "Set Sail wit' a Test User"
+      "createTestUser": "Set Sail wit' a Test User",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Walk the plank!",

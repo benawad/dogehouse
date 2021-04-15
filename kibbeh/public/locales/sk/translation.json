@@ -58,7 +58,8 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "prihlásiť se cez GitHub",
       "loginTwitter": "prihlásiť se cez Twitter",
-      "createTestUser": "vytvoriť testovacieho používateľa"
+      "createTestUser": "vytvoriť testovacieho používateľa",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "odhlásiť sa",
@@ -221,7 +222,9 @@
       "upcomingRooms": "Nadchádzajúce miestnosti",
       "exploreMoreRooms": "Preskúmať viac miestností"
     },
-    "search": { "placeholder": "Vyhľadaj miestnosti, užívateľov alebo kategórie" },
+    "search": {
+      "placeholder": "Vyhľadaj miestnosti, užívateľov alebo kategórie"
+    },
     "settingsDropdown": {
       "profile": "Profil",
       "language": "Jazyk",

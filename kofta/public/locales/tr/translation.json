@@ -58,7 +58,8 @@
       "featureText_6": "Doge tarafından desteklenmektedir",
       "loginGithub": "GitHub ile giriş yap",
       "loginTwitter": "Twitter ile giriş yap",
-      "createTestUser": "Test kullanıcısı oluştur"
+      "createTestUser": "Test kullanıcısı oluştur",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "Çıkış yap",

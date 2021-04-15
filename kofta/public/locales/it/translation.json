@@ -58,7 +58,8 @@
       "featureText_6": "Offerto da Doge",
       "loginGithub": "Accedi con Github",
       "loginTwitter": "Accedi con Twitter",
-      "createTestUser": "Area utente per test"
+      "createTestUser": "Area utente per test",
+      "loginDiscord": "log in with Discord"
     },
     "myProfile": {
       "logout": "Disconnetti",

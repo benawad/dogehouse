@@ -59,7 +59,8 @@
       "featureText_6": "Angetrieben durch Doge",
       "loginGithub": "mit GitHub anmelden",
       "loginTwitter": "mit Twitter anmelden",
-      "createTestUser": "Testnutzer erstellen"
+      "createTestUser": "Testnutzer erstellen",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "Abmelden",

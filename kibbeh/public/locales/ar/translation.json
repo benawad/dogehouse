@@ -59,7 +59,8 @@
       "featureText_6": "Doge تم التطوير بواسطة",
       "loginGithub": "GitHub التسجيل باستخدام",
       "loginTwitter": "التسجيل باستخدام حساب تويتر",
-      "createTestUser": "إنشاء حساب تجريبي"
+      "createTestUser": "إنشاء حساب تجريبي",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "تسجيل خروج",

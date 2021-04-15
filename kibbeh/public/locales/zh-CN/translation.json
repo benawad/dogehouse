@@ -58,7 +58,8 @@
       "featureText_6": "神烦狗出品",
       "loginGithub": "用GitHub登录",
       "loginTwitter": "用Twitter登录",
-      "createTestUser": "创建测试账号"
+      "createTestUser": "创建测试账号",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "登出",

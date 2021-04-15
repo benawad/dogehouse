@@ -59,7 +59,8 @@
       "featureText_6": "Με την υποστήριξη του Doge",
       "loginGithub": "σύνδεση μέσω GitHub",
       "loginTwitter": "σύνδεση μέσω Twitter",
-      "createTestUser": "δημιουργήστε δοκιμαστικό χρήστη"
+      "createTestUser": "δημιουργήστε δοκιμαστικό χρήστη",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "αποσύνδεση",

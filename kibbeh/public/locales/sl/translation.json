@@ -59,7 +59,8 @@
       "featureText_6": "Poganja ga Doge",
       "loginGithub": "Prijava z GitHub računom",
       "loginTwitter": "Prijava z Twitter računom",
-      "createTestUser": "Ustvari testnega uporabnika"
+      "createTestUser": "Ustvari testnega uporabnika",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Odjava",

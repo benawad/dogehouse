@@ -59,7 +59,8 @@
       "featureText_6": "Funkciigita de Doge",
       "loginGithub": "ensaluti per GitHub",
       "loginTwitter": "ensaluti per Twitter",
-      "createTestUser": "krei testuzanton"
+      "createTestUser": "krei testuzanton",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "elsaluti",
