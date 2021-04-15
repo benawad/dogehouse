@@ -1799,7 +1799,7 @@ __metadata:
     nprogress: ^0.2.0
     postcss: ^8.2.9
     postcss-import: ^14.0.1
-    postcss-loader: ^5.2.0
+    postcss-loader: v4.2.0
     prettier: ^2.2.1
     rc-slider: ^9.7.2
     react: 17.0.2
@@ -14216,7 +14216,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"postcss-loader@npm:^4.2.0":
+"postcss-loader@npm:^4.2.0, postcss-loader@npm:v4.2.0":
   version: 4.2.0
   resolution: "postcss-loader@npm:4.2.0"
   dependencies:
@@ -14229,20 +14229,6 @@ fsevents@^1.2.7:
     postcss: ^7.0.0 || ^8.0.1
     webpack: ^4.0.0 || ^5.0.0
   checksum: 685a54e5768171d27ada47f304b7a375ac5ec768844e70238bb88089636494efa29ec082525efaac889f7dfac0fbea55cf0f4680c12597b7b80cabf442390c46
-  languageName: node
-  linkType: hard
-
-"postcss-loader@npm:^5.2.0":
-  version: 5.2.0
-  resolution: "postcss-loader@npm:5.2.0"
-  dependencies:
-    cosmiconfig: ^7.0.0
-    klona: ^2.0.4
-    semver: ^7.3.4
-  peerDependencies:
-    postcss: ^7.0.0 || ^8.0.1
-    webpack: ^5.0.0
-  checksum: 669232a256aa44a08f37122f7645a4979f8ec9f87c387596e4970c39da96d1ae12cec077e915314d09262dcd584fc12592920298b21b1b6cbb562adadc3ce516
   languageName: node
   linkType: hard
 
