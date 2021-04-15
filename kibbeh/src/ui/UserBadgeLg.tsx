@@ -6,7 +6,6 @@ export interface UserBadgeLgProps extends React.HTMLProps<HTMLDivElement> {
   icon: "logo" | "dogeNitro" | "dogeStaff" | "dogeContributor";
 }
 
-// @todo the tag doesn't really glow like in figma right now
 export const UserBadgeLg: React.FC<UserBadgeLgProps> = ({ icon, children }) => {
   const [parsedIcon, setParsedIcon] = useState(null as React.ReactNode);
   useEffect(() => {
