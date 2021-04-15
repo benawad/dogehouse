@@ -14,6 +14,7 @@ function SvgDogehouseIcon(props: SvgDogehouseIconProps) {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
+      <g>
         <path d="M4.2,5.5C3.9,4.9,3.8,4.4,4.6,4.1C4.1,4.1,3.8,4.5,3.7,5C3.7,5.2,3.9,5.5,4.2,5.5z" />
         <path
           className={props.fillCurrent ? "fill-current" : ""}
