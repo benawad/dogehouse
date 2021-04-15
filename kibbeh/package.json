@@ -58,7 +58,8 @@
     "twemoji-parser": "^13.0.0",
     "use-debounce": "^6.0.1",
     "uuid": "^8.3.2",
-    "zustand": "^3.4.1"
+    "zustand": "^3.4.1",
+    "wakelock-lazy-polyfill": "^1.0.0"
   },
   "devDependencies": {
     "@babel/runtime": "^7.13.10",
