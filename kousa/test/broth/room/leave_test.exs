@@ -32,7 +32,7 @@ defmodule KousaTest.Broth.Room.LeaveTest do
 
       ref = WsClient.send_call(t.client_ws, "room:leave", %{})
 
-      WsClient.assert_reply("you_left_room", ref, _)
+      WsClient.assert_reply("room:leave:reply", ref, _)
 
       refute Users.get_by_id(t.user.id).currentRoomId
       refute Rooms.get_room_by_id(room.id)
@@ -60,7 +60,7 @@ defmodule KousaTest.Broth.Room.LeaveTest do
 
       ref = WsClient.send_call(other_ws, "room:leave", %{})
 
-      WsClient.assert_reply("you_left_room", ref, _)
+      WsClient.assert_reply("room:leave:reply", ref, _)
 
       assert %{
                peoplePreviewList: [
