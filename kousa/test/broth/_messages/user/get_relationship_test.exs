@@ -13,28 +13,28 @@ defmodule BrothTest.Message.User.GetRelationshipTest do
     test "an empty payload is ok.", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %GetRelationship{id: ^uuid}
+                payload: %GetRelationship{userId: ^uuid}
               }} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:get_relationship",
-                 "payload" => %{"id" => uuid},
+                 "payload" => %{"userId" => uuid},
                  "reference" => UUID.uuid4()
                })
 
       # short form also allowed
       assert {:ok,
               %{
-                payload: %GetRelationship{id: ^uuid}
+                payload: %GetRelationship{userId: ^uuid}
               }} =
                BrothTest.Support.Message.validate(%{
                  "op" => "user:get_relationship",
-                 "p" => %{"id" => uuid},
+                 "p" => %{"userId" => uuid},
                  "ref" => UUID.uuid4()
                })
     end
 
     test "userId parameter is required" do
-      assert {:error, %{errors: %{id: "can't be blank"}}} =
+      assert {:error, %{errors: %{userId: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:get_relationship",
                  "payload" => %{},

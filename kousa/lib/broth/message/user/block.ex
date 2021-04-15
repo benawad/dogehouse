@@ -28,13 +28,15 @@ defmodule Broth.Message.User.Block do
     end
   end
 
-  def execute(%{userId: user_id}, state) do
-    case Kousa.UserBlock.block(state.user_id, user_id) do
-      {:ok, %{userIdBlocked: blocked}} ->
+  def execute(changeset, state) do
+    with {:ok, %{userId: user_id}} <- apply_action(changeset, :validate),
+         {:ok, %{userIdBlocked: blocked}} <- Kousa.UserBlock.block(state.user_id, user_id) do
         # TODO: update this to return a full user update.
         {:reply, %Reply{blocked: [blocked]}, state}
-
+    else
+      error = {:error, %Ecto.Changeset{}} -> error
       {:error, _error} ->
+        user_id = get_field(changeset, :userId)
         {:reply, %Reply{error: "error blocking #{user_id}"}, state}
     end
   end

@@ -8,7 +8,7 @@ defmodule Broth.Message.User.GetRelationship do
   @primary_key false
   embedded_schema do
     # required.
-    field(:id, :binary_id)
+    field(:userId, :binary_id)
   end
 
   alias Beef.Follows
@@ -16,9 +16,9 @@ defmodule Broth.Message.User.GetRelationship do
 
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
-    |> cast(data, [:id])
-    |> validate_required([:id])
-    |> UUID.normalize(:id)
+    |> cast(data, [:userId])
+    |> validate_required([:userId])
+    |> UUID.normalize(:userId)
   end
 
   defmodule Reply do
@@ -34,10 +34,10 @@ defmodule Broth.Message.User.GetRelationship do
 
   def execute(changeset, state = %{user_id: oneself}) do
     case apply_action(changeset, :validate) do
-      {:ok, %{id: ^oneself}} ->
+      {:ok, %{userId: ^oneself}} ->
         {:reply, %Reply{relationship: :self}, state}
 
-      {:ok, %{id: user_id}} ->
+      {:ok, %{userId: user_id}} ->
         r =
           case Follows.get_info(state.user_id, user_id) do
             %{followsYou: false, youAreFollowing: false} -> nil
