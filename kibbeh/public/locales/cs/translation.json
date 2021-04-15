@@ -68,7 +68,7 @@
       "soundSettings": "Přejít na nastavení zvuku",
       "deleteAccount": "Smazat účet",
       "overlaySettings": "Přejít na nastavení overlaye",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Uživatel bohužel nenalezen..."
     },
     "notFound": {
       "whoopsError": "Upst! Tahle místnost se ztratila v konverzaci.",
@@ -155,7 +155,7 @@
       "toggleOverlayKeybind": "Nastavit klávesovou zkratku pro overlay"
     },
     "userVolumeSlider": {
-      "noAudioMessage": "Z nějakého důvodu se nepřehrává zvuk..."
+      "noAudioMessage": "Z nějakého důvodu není vysílán zvuk"
     },
     "addToCalendar": { "add": "Přidat do kalendáře" },
     "wsKilled": {
@@ -170,7 +170,7 @@
         "roomDescription": "Popis místnosti",
         "descriptionError": "Maximální délka: 500",
         "nameError": "Musí být 2 až 60 znaků",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "Prosím, vyplň následující pole:"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nová místnost vytvořena.",
@@ -212,24 +212,24 @@
       }
     },
     "followingOnline": {
-      "people": "People",
+      "people": "Lidé",
       "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "noOnline": "Nikdo z tvých přátel není online.",
+      "showMore": "Načíst více"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "Očekávané místnosti",
+      "exploreMoreRooms": "Hledat nové místnosti"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": { "placeholder": "Hledat místnosti, uživatele, nebo kategorie" },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "Profil",
+      "language": "Jazyk (Language)",
+      "reportABug": "Nahlásit chybu",
+      "useOldVersion": "Přejít na starou verzi stránky",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "Odhlásit se",
+        "modalSubtitle": "Určitě se chceš odhlásit?"
       }
     }
   },
@@ -251,7 +251,7 @@
     },
     "roomChat": {
       "title": "Chat",
-      "emotesSoon": "Emotikony \"již brzy\"",
+      "emotesSoon": "Emoty \"již brzy\"",
       "bannedAlert": "Jsi zabanovaný z chatu.",
       "waitAlert": "Prosím, vyčkej pár sekund, než začneš zase psát!",
       "search": "Hledat",
@@ -263,17 +263,17 @@
       "roomDescription": "Popis místnosti"
     },
     "roomStatus": {
-      "fuelingRocket": "Doplňování rakety",
-      "takingOff": "Vzlétá",
+      "fuelingRocket": "Plníme raketu",
+      "takingOff": "Vzlétáme",
       "inSpace": "Ve vesmíru",
-      "approachingMoon": "Přibližování k Měsíci",
+      "approachingMoon": "Přibližujeme se k měsíci",
       "lunarDoge": "Měsíční Doge",
-      "approachingSun": "Přibližování ke Slunci",
+      "approachingSun": "Blížíme se ke Slunci",
       "solarDoge": "Sluneční Doge",
-      "approachingGalaxy": "Přibližování ke Galaxii",
+      "approachingGalaxy": "Vylétáme z Galaxie",
       "galacticDoge": "Galaktický Doge",
       "spottedLife": "Planeta se životem objevena"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": { "yourFeed": "Tvůj Feed" }
   }
 }
