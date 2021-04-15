@@ -58,7 +58,7 @@ defmodule Broth.Message.Auth.Request do
   defp convert_tokens(request, state) do
     alias Kousa.Utils.TokenUtils
 
-    case TokenUtils.tokens_to_user_id(request.accessToken, request.refreshToken)  do
+    case TokenUtils.tokens_to_user_id(request.accessToken, request.refreshToken) do
       nil ->
         {:close, 4001, "invalid_authentication"}
 

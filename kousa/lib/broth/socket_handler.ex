@@ -123,7 +123,7 @@ defmodule Broth.SocketHandler do
          %{"op" => not_special_case} when not_special_case not in @special_cases <- message_map!,
          # translation from legacy maps to new maps
          message_map! = Broth.Translator.convert_inbound(message_map!),
-         {:ok, message = %{errors: nil}} <- validate(message_map!, state) do
+         {:ok, message = %{errors: nil}} <- validate(message_map!, state)  do
       dispatch(message, state)
     else
       # special cases: mediasoup operations
@@ -139,7 +139,12 @@ defmodule Broth.SocketHandler do
 
       # error validating the inner changeset.
       {:ok, error} ->
-        {:reply, prepare_socket_msg(error, state), state}
+        reply =
+          error
+          |> Map.put(:operator, error.inbound_operator)
+          |> prepare_socket_msg(state)
+
+        {:reply, reply, state}
 
       {:error, changeset = %Ecto.Changeset{}} ->
         reply = %{errors: Kousa.Utils.Errors.changeset_errors(changeset)}
@@ -156,7 +161,7 @@ defmodule Broth.SocketHandler do
   end
 
   def dispatch(message, state) do
-    case message.operator.execute(message.payload, state)  do
+    case message.operator.execute(message.payload, state) do
       close = {:close, _, _} ->
         {:reply, close, state}
 

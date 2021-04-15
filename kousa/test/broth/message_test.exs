@@ -69,8 +69,7 @@ defmodule BrothTest.MessageTest do
     @operatorless Map.delete(@passing_contract, "op")
 
     test "because it's missing fails" do
-      assert {:error, %{errors: [operator: {"no operator present", _}]}} =
-               validate(@operatorless)
+      assert {:error, %{errors: [operator: {"no operator present", _}]}} = validate(@operatorless)
     end
 
     @invalid_operator Map.put(@passing_contract, "op", "foobarbaz")
@@ -84,14 +83,12 @@ defmodule BrothTest.MessageTest do
     @versionless Map.delete(@passing_contract, "v")
 
     test "because it's missing fails" do
-      assert {:error, %{errors: [version: {"no version present", _}]}} =
-               validate(@versionless)
+      assert {:error, %{errors: [version: {"no version present", _}]}} = validate(@versionless)
     end
 
     @invalid_version Map.put(@passing_contract, "v", "foobarbaz")
     test "because it's not implemented fails" do
-      assert {:error, %{errors: [version: {"is invalid", _}]}} =
-               validate(@invalid_version)
+      assert {:error, %{errors: [version: {"is invalid", _}]}} = validate(@invalid_version)
     end
   end
 end

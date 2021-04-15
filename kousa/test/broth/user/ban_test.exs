@@ -48,7 +48,8 @@ defmodule KousaTest.Broth.User.BanTest do
           "reason" => "you're a douche"
         })
 
-      WsClient.assert_reply("user:ban:reply", ref, %{"error" => nil})
+      WsClient.assert_reply("user:ban:reply", ref, reply)
+      refute is_map_key(reply, "error")
 
       # this frame is targetted to the banned user
       WsClient.assert_frame("banned", _, banned_ws)

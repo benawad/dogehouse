@@ -217,7 +217,7 @@ defmodule Broth.Translator do
     |> convert_outbound_0_1_0(original.inbound_operator)
   end
 
-  def convert_outbound(map, _), do: map
+  def convert_outbound(map, _), do: map 
 
   defp add_ref(map, %{ref: ref}), do: Map.put(map, :fetchId, ref)
   defp add_ref(map, _), do: map

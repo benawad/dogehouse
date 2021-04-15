@@ -33,26 +33,6 @@ defmodule KousaTest.Broth.Room.SetAuthTest do
 
       WsClient.assert_frame("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
 
-      # add the person as a speaker.
-      WsClient.send_msg(
-        t.client_ws,
-        "room:set_role",
-        %{"id" => speaker_id, "role" => "speaker"}
-      )
-
-      # both clients get notified
-      WsClient.assert_frame(
-        "speaker_added",
-        %{"userId" => ^speaker_id, "roomId" => ^room_id},
-        t.client_ws
-      )
-
-      WsClient.assert_frame(
-        "speaker_added",
-        %{"userId" => ^speaker_id, "roomId" => ^room_id},
-        speaker_ws
-      )
-
       # make the person a mod
       WsClient.send_msg(
         t.client_ws,
@@ -98,38 +78,6 @@ defmodule KousaTest.Broth.Room.SetAuthTest do
 
       # add the person as a speaker.
       WsClient.send_msg(t.client_ws, "room:set_role", %{"id" => speaker_id, "role" => "speaker"})
-
-      # both clients get notified
-      WsClient.assert_frame(
-        "speaker_added",
-        %{"userId" => ^speaker_id, "roomId" => ^room_id},
-        t.client_ws
-      )
-
-      WsClient.assert_frame(
-        "speaker_added",
-        %{"userId" => ^speaker_id, "roomId" => ^room_id},
-        ws_speaker
-      )
-
-      # make the person a mod
-      WsClient.send_msg(t.client_ws, "room:set_auth", %{
-        "id" => speaker_id,
-        "level" => "mod"
-      })
-
-      # both clients get notified
-      WsClient.assert_frame(
-        "mod_changed",
-        %{"userId" => ^speaker_id, "roomId" => ^room_id},
-        t.client_ws
-      )
-
-      WsClient.assert_frame(
-        "mod_changed",
-        %{"userId" => ^speaker_id, "roomId" => ^room_id},
-        ws_speaker
-      )
 
       # make the person a room creator.
       WsClient.send_msg(t.client_ws, "room:set_auth", %{
