@@ -37,6 +37,20 @@ config :ueberauth, Ueberauth.Strategy.Twitter.OAuth,
       Create an oauth application on Twitter to get one
       """)
 
+config :ueberauth, Ueberauth.Strategy.Discord.OAuth,
+  client_id:
+    System.get_env("DISCORD_CLIENT_ID") ||
+      raise("""
+      environment variable DISCORD_CLIENT_ID is missing.
+      Create an oauth application on Discord to get one
+      """),
+  client_secret:
+    System.get_env("DISCORD_CLIENT_SECRET") ||
+      raise("""
+      environment variable DISCORD_CLIENT_SECRET is missing.
+      Create an oauth application on Discord to get one
+      """)
+
 config :kousa,
   num_voice_servers: 1,
   staging?: System.get_env("IS_STAGING") == "true",
