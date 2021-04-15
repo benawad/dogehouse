@@ -1,6 +1,10 @@
 import * as React from "react";
 
-function SvgDogehouseIcon(props: React.SVGProps<SVGSVGElement>) {
+interface SvgDogehouseIconProps extends React.SVGProps<SVGSVGElement> {
+  fillCurrent?: boolean;
+}
+
+function SvgDogehouseIcon(props: SvgDogehouseIconProps) {
   return (
     <svg
       width={16}
@@ -11,6 +15,7 @@ function SvgDogehouseIcon(props: React.SVGProps<SVGSVGElement>) {
       {...props}
     >
       <path
+        className={props.fillCurrent ? "fill-current" : ""}
         d="M4.061 0h7.878C14.189 0 16 1.81 16 4.061v7.878C16 14.189 14.19 16 11.939 16H4.06A4.051 4.051 0 010 11.939V4.06C0 1.811 1.81 0 4.061 0z"
         fill="#EFE7DC"
       />
