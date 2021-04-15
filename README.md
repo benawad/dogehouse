@@ -57,23 +57,46 @@ Please read [CONTRIBUTING.md](https://github.com/benawad/dogehouse/blob/staging/
 
 ## DogeHouse Desktop
 
-A desktop app built with [electron](https://www.electronjs.org/) is available for Windows, Mac, and Linux
+A desktop app built with [Electron](https://www.electronjs.org/) is available for Windows, Mac, and Linux.
 
 Download links are in [the releases section](https://github.com/benawad/dogehouse/releases/latest)
 
-Dogehouse is also available in the AUR
+Dogehouse is also available in the AUR...
 
 ```bash
 yay -S dogehouse
 ```
 
-And in an Ubuntu ppa
+...and in an Ubuntu PPA/self-hosted APT repoistory...
 
 ```bash
+# using the self-hosted APT repoistory
+# should work for most modern Debian-based repos
 echo "deb http://ppa.dogehouse.tv/ ./" | sudo tee -a /etc/apt/sources.list > /dev/null
 wget -q -O - http://ppa.dogehouse.tv/KEY.gpg | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install dogehouse
+
+# using the PPA from Launchpad.net
+# SOON
+```
+
+...and of course, as an snap for systemd-supported Linux distros. ([Don't have `snapd` Get set up for snaps first.](https://snapcraft.io/docs/installing-snapd))
+
+```sh
+# currently, only the edge channel is available for download
+# when reached desktop client stability, it will be installed from the stable channel.
+# for daily builds, add --edge.
+sudo snap install dogehouse
+
+# after installing, connect the audio-reord interface in orfer to
+# have mic access for rooms
+sudo snap connect dogehouse:audio-record
+
+# then launch the app from either the GUI or terminal
+# first-launch may take a bit longer because the `.snap` file needs to be
+# unsquashed first before using
+dogehouse
 ```
 
 **_Notes:_**
