@@ -176,11 +176,17 @@ function createMainWindow() {
     mainWindow.close();
   });
   ipcMain.on("@app/maximize", (event, args) => {
-    if (mainWindow.maximizable) {
-      if (mainWindow.isMaximized()) {
-        mainWindow.unmaximize();
-      } else {
-        mainWindow.maximize();
+    if (isMac) {
+      if (mainWindow.isFullScreenable()) {
+        mainWindow.setFullScreen(!mainWindow.isFullScreen());
+      }
+    } else {
+      if (mainWindow.maximizable) {
+        if (mainWindow.isMaximized()) {
+          mainWindow.unmaximize();
+        } else {
+          mainWindow.maximize();
+        }
       }
     }
   });
