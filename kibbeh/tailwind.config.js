@@ -90,5 +90,5 @@ module.exports = {
       borderWidth: ["last"],
     },
   },
-  plugins: [require("tailwind-scrollbar"), require("@tailwindcss/line-clamp")],
+  plugins: [require("@tailwindcss/line-clamp")],
 };

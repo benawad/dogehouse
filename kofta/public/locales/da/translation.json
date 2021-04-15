@@ -40,7 +40,7 @@
     "home": {
       "createRoom": "Start Rum",
       "refresh": "Opdater",
-      "editRoom": "Edit Room"
+      "editRoom": "Rediger rummet"
     },
     "inviteList": {
       "roomGone": "rummet er væk, gå tilbage",

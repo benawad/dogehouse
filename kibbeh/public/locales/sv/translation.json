@@ -30,18 +30,13 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "bannlys"
-    },
+    "banUser": { "ban": "bannlys" },
     "followingOnlineList": {
       "listHeader": "Personer du följer",
       "currentRoom": "Ansluten till:",
       "startPrivateRoom": "Skapa ett privat rum med dem"
     },
-    "followList": {
-      "followHim": "Följ",
-      "followingHim": "Följer"
-    },
+    "followList": { "followHim": "Följ", "followingHim": "Följer" },
     "home": {
       "createRoom": "Skapa ett rum",
       "refresh": "Uppdatera",
@@ -86,12 +81,8 @@
       "allowAll": "Tillåt alla",
       "allowAllConfirm": "Är du säker på detta sergeant? Detta kommer tillåta {{count}} användare att få tala. Det kan utplåna månen! 🚀☢️"
     },
-    "searchUser": {
-      "search": "Sök..."
-    },
-    "soundEffectSettings": {
-      "header": "Ljud"
-    },
+    "searchUser": { "search": "Sök..." },
+    "soundEffectSettings": { "header": "Ljud" },
     "viewUser": {
       "editProfile": "Redigera profil",
       "followsYou": "Följer dig",
@@ -199,9 +190,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "Ingen ljudanvändare av någon anledning"
     },
-    "addToCalendar": {
-      "add": "Spara i kalender"
-    },
+    "addToCalendar": { "add": "Spara i kalender" },
     "deviceNotSupported": {
       "notSupported": "Din enhet stöds inte. Du kan skapa ett",
       "linkText": "issue på GitHub",
@@ -232,9 +221,7 @@
       "upcomingRooms": "Kommande rum",
       "exploreMoreRooms": "Utforska Fler Rum"
     },
-    "search": {
-      "placeholder": "Sök efter rum, användare eller kategorier"
-    },
+    "search": { "placeholder": "Sök efter rum, användare eller kategorier" },
     "settingsDropdown": {
       "profile": "Profil",
       "language": "Språk",
@@ -287,8 +274,6 @@
       "galacticDoge": "Galaktiskdoge",
       "spottedLife": "Planet med liv upptäckt"
     },
-    "feed": {
-      "yourFeed": "Ditt flöde"
-    }
+    "feed": { "yourFeed": "Ditt flöde" }
   }
 }
