@@ -236,20 +236,6 @@ defmodule Broth.SocketHandler do
     {:ok, state}
   end
 
-  def handler(
-        "block_from_room",
-        %{"userId" => user_id_to_block_from_room},
-        state
-      ) do
-    Kousa.Room.block_from_room(state.user_id, user_id_to_block_from_room)
-    {:ok, state}
-  end
-
-  def handler("ban_from_room_chat", %{"userId" => user_id_to_ban}, state) do
-    Kousa.RoomChat.ban_user(state.user_id, user_id_to_ban)
-    {:ok, state}
-  end
-
   # def handler("delete_account", _data, state) do
   #   Kousa.User.delete(state.user_id)
   #   # this will log the user out

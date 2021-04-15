@@ -13,26 +13,26 @@ defmodule BrothTest.Message.Chat.BanTest do
     test "it populates userId", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %Ban{userId: ^uuid}
+                payload: %Ban{id: ^uuid}
               }} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "chat:ban",
-                 "payload" => %{"userId" => uuid}
+                 "payload" => %{"id" => uuid}
                })
 
       # short form also allowed
       assert {:ok,
               %{
-                payload: %Ban{userId: ^uuid}
+                payload: %Ban{id: ^uuid}
               }} =
                BrothTest.Support.Message.validate(%{
                  "op" => "chat:ban",
-                 "p" => %{"userId" => uuid}
+                 "p" => %{"id" => uuid}
                })
     end
 
     test "omitting the userId is not allowed" do
-      assert {:error, %{errors: [userId: {"can't be blank", _}]}} =
+      assert {:error, %{errors: [id: {"can't be blank", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "chat:ban",
                  "payload" => %{}

@@ -23,6 +23,8 @@ defmodule Broth.Translator do
     get_user_profile
     ask_to_speak
     mute
+    ban_from_room_chat
+    block_from_room
   )
 
   def convert_inbound(command = %{"op" => op}) when op in @operators_0_1_0 do
@@ -150,8 +152,24 @@ defmodule Broth.Translator do
     })
   end
 
+  def convert_inbound_0_1_0(command = %{"op" => "ban_from_room_chat", "d" => d}) do
+    Map.merge(command,
+    %{
+      "op" => "chat:ban",
+      "d" => Map.merge(d, %{"id" => d["userId"]})
+    })
+  end
+
+  def convert_inbound_0_1_0(command = %{"op" => "block_from_room", "d" => d}) do
+    Map.merge(command,
+    %{
+      "op" => "room:ban",
+      "d" => Map.merge(d, %{"id" => d["userId"]})
+    }) |> IO.inspect(label: "167")
+  end
+
   # let it pass, and return a general error.
-  def convert_inbound_0_1_0(command), do: command
+  def convert_inbound_0_1_0(command), do: command |> IO.inspect(label: "171")
 
   #############################################################################
   ## OUTBOUND CONVERSION
