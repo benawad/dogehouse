@@ -46,6 +46,8 @@ export const wrap = (connection: Connection) => ({
       connection.addListener("speaker_removed", handler),
   },
   query: {
+    search: (query: string): Promise<{ items: Array<Room | User> }> =>
+      connection.fetch("search", { query }),
     getMyScheduledRoomsAboutToStart: (
       roomId: string
     ): Promise<{ scheduledRooms: ScheduledRoom[] }> =>

@@ -1777,6 +1777,7 @@ __metadata:
     cross-env: ^7.0.3
     css-loader: ^5.2.1
     date-fns: ^2.20.1
+    downshift: ^6.1.2
     emoji-regex: ^9.2.2
     eslint: ^7.23.0
     eslint-plugin-react: ^7.23.2
@@ -1821,6 +1822,7 @@ __metadata:
     tslib: ^2.2.0
     twemoji-parser: ^13.0.0
     typescript: 4.2.4
+    use-debounce: ^6.0.1
     uuid: ^8.3.2
     zustand: ^3.4.1
   languageName: unknown
@@ -7784,7 +7786,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"downshift@npm:^6.0.15":
+"downshift@npm:^6.0.15, downshift@npm:^6.1.2":
   version: 6.1.2
   resolution: "downshift@npm:6.1.2"
   dependencies:
@@ -18238,6 +18240,15 @@ resolve@^2.0.0-next.3:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
   checksum: 2cea8efcb740634ebd1409eafc52232abc28361386305afe2216cd791529c150f20c580c8310d790b59ff5d927b40c3b675775948183d0f9dce2f92100389c93
+  languageName: node
+  linkType: hard
+
+"use-debounce@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "use-debounce@npm:6.0.1"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 4e28868f1b87d6911b89486eb9537abc3ef11962e631682b21da71678532230a084aced98d39fe266b1294fed02cdbbcdc179a7e39ef166977f44c2203a3e7d9
   languageName: node
   linkType: hard
 
