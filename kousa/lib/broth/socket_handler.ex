@@ -122,7 +122,7 @@ defmodule Broth.SocketHandler do
          # temporarily trap special cased commands
          %{"op" => not_special_case} when not_special_case not in @special_cases <- message_map!,
          # translation from legacy maps to new maps
-         message_map! = Broth.Translator.convert_inbound(message_map!),
+         message_map! = Broth.Translator.translate_inbound(message_map!),
          {:ok, message = %{errors: nil}} <- validate(message_map!, state) do
       dispatch(message, state)
     else
