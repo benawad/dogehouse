@@ -16,9 +16,14 @@ kebab/lib
 yarn-error.log
 
 dist
+
+# yarn stuff
 .yarn
 !.yarn/releases
 !.yarn/plugins
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+
+# Docker Compose stuff
+.data/

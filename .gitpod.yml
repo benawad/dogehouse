@@ -1,0 +1,26 @@
+tasks:
+  - init: yarn install
+    command: echo "Welcome to your cloud dev! Enjoy building."
+  # sidenote: systemd is still unsupported in Gitpod SaaS (may vary on self-hosted instances)
+  # so we do 'sudo docker-up' to start the deamon manually
+  - name: Starting up Docker deamon
+    command: sudo docker-up
+
+## Only ports =<9999 must get notified
+ports:
+  - port: 1024-9999
+    onOpen: notify
+
+# For the Gitpod GH app, configure stuff here.
+github:
+  prebuilds:
+    # enable for the master/default branch (defaults to true)
+    master: true
+    # enable for all branches in this repo (defaults to false)
+    branches: true
+    # enable for pull requests coming from this repo (defaults to true)
+    pullRequests: true
+    # add a check to pull requests (defaults to true)
+    addCheck: true
+    # add a "Review in Gitpod" button as a comment to pull requests (defaults to false)
+    addComment: true
