@@ -1825,7 +1825,7 @@ __metadata:
     mutationobserver-shim: ^0.3.7
     next: 10.1.3
     next-transpile-modules: ^6.4.0
-    normalize-url: ^6.0.0
+    normalize-url: 4
     nprogress: ^0.2.0
     postcss: ^8.2.10
     postcss-import: ^14.0.1
@@ -1853,6 +1853,7 @@ __metadata:
     typescript: 4.2.4
     use-debounce: ^6.0.1
     uuid: ^8.3.2
+    wakelock-lazy-polyfill: ^1.0.0
     zustand: ^3.4.1
   languageName: unknown
   linkType: soft
@@ -13424,10 +13425,10 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"normalize-url@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "normalize-url@npm:6.0.0"
-  checksum: ea8e39b4bbaad5110e5fe706eca4eee430635e3c4cf831cb99d9b31bfd25efc125b6446dbf5a24ff767c77e8bdd9ea09fced951d170ac31a25078937ff815529
+"normalize-url@npm:4":
+  version: 4.5.0
+  resolution: "normalize-url@npm:4.5.0"
+  checksum: 09794941dbe5c7b91caf6f3cd1ae167c27f6d09793e4a03601a68b62de7e8ee9e5de21a246130cdbab98b01481de292f9556d492444a527648f9cf1220e4b0df
   languageName: node
   linkType: hard
 
@@ -18566,6 +18567,13 @@ resolve@^2.0.0-next.3:
   dependencies:
     xml-name-validator: ^3.0.0
   checksum: 2327c8a6c7302ed4b685125c193f4b4b859ee12cd6e1938407a02dda9cfcfff7f0c103de387b268444c4b61d7892d5260b5c684eb7519886fb3a07798bd565ba
+  languageName: node
+  linkType: hard
+
+"wakelock-lazy-polyfill@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "wakelock-lazy-polyfill@npm:1.0.0"
+  checksum: 70e4b23b1bd73ce46edd2a745bd354ff80a87a6d07a055d704a5406350142aaa94a643d0860b56d574ba04cd202f0d42b1c2e1d4650ba281571a09e5a67b56fb
   languageName: node
   linkType: hard
 
