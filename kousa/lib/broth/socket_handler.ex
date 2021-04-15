@@ -618,6 +618,12 @@ defmodule Broth.SocketHandler do
     }
   end
 
+  def f_handler("search", %{"query" => query}, _state) do
+    items = Kousa.Search.search(query)
+
+    %{items: items, nextCursor: nil}
+  end
+
   def f_handler("get_invite_list", %{"cursor" => cursor}, state) do
     {users, next_cursor} = Follows.fetch_invite_list(state.user_id, cursor)
 
