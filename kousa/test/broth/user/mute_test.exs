@@ -1,4 +1,4 @@
-defmodule KousaTest.Broth.Room.MuteTest do
+defmodule KousaTest.Broth.User.MuteTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 
@@ -24,9 +24,9 @@ defmodule KousaTest.Broth.Room.MuteTest do
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
-      ref = WsClient.send_call(t.client_ws, "room:mute", %{"value" => true})
+      ref = WsClient.send_call(t.client_ws, "user:mute", %{"value" => true})
 
-      WsClient.assert_reply("room:mute:reply", ref, _)
+      WsClient.assert_reply("user:mute:reply", ref, _)
 
       # TODO: do a test to check to make sure the muted state is correct
     end
@@ -37,9 +37,9 @@ defmodule KousaTest.Broth.Room.MuteTest do
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
-      ref = WsClient.send_call(t.client_ws, "room:mute", %{"value" => false})
+      ref = WsClient.send_call(t.client_ws, "user:mute", %{"value" => false})
 
-      WsClient.assert_reply("room:mute:reply", ref, _)
+      WsClient.assert_reply("user:mute:reply", ref, _)
 
       # TODO: do a test to check to make sure the muted state is correct
     end
