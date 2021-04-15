@@ -81,7 +81,7 @@ sudo apt-get install dogehouse
 # SOON
 ```
 
-...and of course, as an snap for systemd-supported Linux distros. ([Don't have `snapd` Get set up for snaps first.](https://snapcraft.io/docs/installing-snapd))
+...and of course, as an snap for systemd-supported Linux distros. ([Don't have `snapd`? Get set up for snaps first.](https://snapcraft.io/docs/installing-snapd))
 
 ```sh
 # currently, only the edge channel is available for download
