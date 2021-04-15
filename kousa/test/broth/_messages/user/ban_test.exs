@@ -52,7 +52,7 @@ defmodule BrothTest.Message.User.BanTest do
     end
 
     test "omitting the reference is not allowed", %{uuid: uuid} do
-      assert {:error, %{errors: %{reference: "is required for Broth.Message.User.Ban"}}} =
+      assert {:error, %{errors: [reference: {"is required for Broth.Message.User.Ban", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:ban",
                  "payload" => %{"id" => uuid, "reason" => "foobar"}

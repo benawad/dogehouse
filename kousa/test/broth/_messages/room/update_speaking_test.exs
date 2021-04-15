@@ -27,7 +27,7 @@ defmodule BrothTest.Message.Room.UpdateSpeakingTest do
     end
 
     test "omitting the isSpeaking parameter is not allowed" do
-      assert {:error, %{errors: [isSpeaking: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{isSpeaking: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:update_speaking",
                  "payload" => %{}

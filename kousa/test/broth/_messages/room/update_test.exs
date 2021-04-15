@@ -43,7 +43,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
     end
 
     test "omitting the reference is not allowed", %{state: state} do
-      assert {:error, %{errors: %{reference: "is required for Broth.Message.Room.Update"}}} =
+      assert {:error, %{errors: [reference: {"is required for Broth.Message.Room.Update", _}]}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "room:update",

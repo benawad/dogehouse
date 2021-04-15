@@ -10,6 +10,7 @@ defmodule BrothTest.Message.Room.UpdateScheduledTest do
   alias KousaTest.Support.Factory
 
   setup do
+    # TODO: make this a mock instead of a db dependency.
     user = Factory.create(User)
     room = Factory.create(ScheduledRoom, creatorId: user.id)
 
@@ -36,7 +37,7 @@ defmodule BrothTest.Message.Room.UpdateScheduledTest do
 
     test "omitting the reference is not allowed", %{room: room} do
       assert {:error,
-              %{errors: %{reference: "is required for Broth.Message.Room.UpdateScheduled"}}} =
+              %{errors: [reference: {"is required for Broth.Message.Room.UpdateScheduled", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:update_scheduled",
                  "payload" => %{"name" => "foobar", "id" => room.id}

@@ -69,14 +69,14 @@ defmodule BrothTest.Message.User.GetFollowersTest do
     end
 
     test "you can't specify nonintegers for cursor or limit", %{uuid: uuid} do
-      assert {:error, %{errors: [limit: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{limit: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:get_followers",
                  "payload" => %{"limit" => "foo"},
                  "reference" => uuid
                })
 
-      assert {:error, %{errors: [cursor: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{cursor: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:get_followers",
                  "payload" => %{"cursor" => "foo"},

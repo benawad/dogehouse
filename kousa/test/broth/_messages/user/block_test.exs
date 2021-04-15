@@ -43,7 +43,7 @@ defmodule BrothTest.Message.User.BlockTest do
     end
 
     test "omitting the reference is not allowed", %{uuid: uuid} do
-      assert {:error, %{errors: %{reference: "is required for Broth.Message.User.Block"}}} =
+      assert {:error, %{errors: [reference: {"is required for Broth.Message.User.Block", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:block",
                  "payload" => %{"userId" => uuid}

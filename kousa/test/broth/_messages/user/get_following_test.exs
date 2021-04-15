@@ -85,7 +85,7 @@ defmodule BrothTest.Message.User.GetFollowingTest do
     end
 
     test "you must specify reference" do
-      assert {:error, %{errors: %{reference: "is required for Broth.Message.User.GetFollowing"}}} =
+      assert {:error, %{errors: [reference: {"is required for Broth.Message.User.GetFollowing", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:get_following",
                  "payload" => %{}
