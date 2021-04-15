@@ -1,4 +1,4 @@
-defmodule Kousa.Support.Factory do
+defmodule KousaTest.Support.Factory do
   @moduledoc """
   defines the `create/2` function.
 

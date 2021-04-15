@@ -34,7 +34,7 @@ defmodule BrothTest.Message.User.BanTest do
     end
 
     test "omitting the id is not allowed" do
-      assert {:error, %{errors: [id: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{id: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:ban",
                  "payload" => %{"reason" => "foobar"},
@@ -43,7 +43,7 @@ defmodule BrothTest.Message.User.BanTest do
     end
 
     test "omitting the reason is not allowed", %{uuid: uuid} do
-      assert {:error, %{errors: [reason: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{reason: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:ban",
                  "payload" => %{"id" => uuid},
@@ -52,7 +52,7 @@ defmodule BrothTest.Message.User.BanTest do
     end
 
     test "omitting the reference is not allowed", %{uuid: uuid} do
-      assert {:error, %{errors: [reference: {"is required for Broth.Message.User.Ban", _}]}} =
+      assert {:error, %{errors: %{reference: "is required for Broth.Message.User.Ban"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:ban",
                  "payload" => %{"id" => uuid, "reason" => "foobar"}

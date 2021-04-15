@@ -3,8 +3,8 @@ defmodule KousaTest.Broth.CreateRoomFromScheduledRoomTest do
   use KousaTest.Support.EctoSandbox
 
   alias Broth.WsClient
-  alias Broth.WsClientFactory
-  alias Kousa.Support.Factory
+  alias BrothTest.WsClientFactory
+  alias KousaTest.Support.Factory
 
   require WsClient
 

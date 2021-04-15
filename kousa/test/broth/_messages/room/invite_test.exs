@@ -32,7 +32,7 @@ defmodule BrothTest.Message.Room.InviteTest do
     end
 
     test "omitting the userId is not allowed" do
-      assert {:error, %{errors: [userId: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{userId: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:invite",
                  "payload" => %{}

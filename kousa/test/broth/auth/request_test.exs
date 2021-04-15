@@ -4,7 +4,7 @@ defmodule KousaTest.Broth.Auth.RequestTest do
 
   alias Beef.Schemas.User
   alias Broth.WsClient
-  alias Kousa.Support.Factory
+  alias KousaTest.Support.Factory
 
   require WsClient
 

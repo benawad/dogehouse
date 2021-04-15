@@ -41,7 +41,7 @@ defmodule BrothTest.Message.Room.UnbanTest do
     end
 
     test "omitting the userId is not allowed" do
-      assert {:error, %{errors: [userId: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{userId: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:unban",
                  "payload" => %{},
@@ -50,7 +50,7 @@ defmodule BrothTest.Message.Room.UnbanTest do
     end
 
     test "userId must be a UUID" do
-      assert {:error, %{errors: [userId: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{userId: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:unban",
                  "payload" => %{"userId" => "aaa"},

@@ -6,8 +6,8 @@ defmodule KousaTest.Broth.LeaveRoomTest do
   alias Beef.Users
   alias Beef.Rooms
   alias Broth.WsClient
-  alias Broth.WsClientFactory
-  alias Kousa.Support.Factory
+  alias BrothTest.WsClientFactory
+  alias KousaTest.Support.Factory
 
   require WsClient
 

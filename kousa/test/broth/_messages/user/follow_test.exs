@@ -32,7 +32,7 @@ defmodule BrothTest.Message.User.FollowTest do
     end
 
     test "omitting the id is not allowed" do
-      assert {:error, %{errors: [id: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{id: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:follow",
                  "payload" => %{}

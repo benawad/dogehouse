@@ -7,7 +7,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
   alias Beef.Schemas.User
   alias Beef.Schemas.Room
   alias Broth.Message.Room.Update
-  alias Kousa.Support.Factory
+  alias KousaTest.Support.Factory
 
   setup do
     user = Factory.create(User)
@@ -43,7 +43,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
     end
 
     test "omitting the reference is not allowed", %{state: state} do
-      assert {:error, %{errors: [reference: {"is required for Broth.Message.Room.Update", _}]}} =
+      assert {:error, %{errors: %{reference: "is required for Broth.Message.Room.Update"}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "room:update",
@@ -56,7 +56,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
 
   describe "when you send an update message to change the name" do
     test "providing the wrong datatype for name is disallowed", %{uuid: uuid, state: state} do
-      assert {:error, %{errors: [name: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{name: "is invalid"}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "room:update",
@@ -68,7 +68,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
     end
 
     test "empty name is disallowed", %{uuid: uuid, state: state} do
-      assert {:error, %{errors: [name: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{name: "can't be blank"}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "room:update",
@@ -78,7 +78,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
                  state
                )
 
-      assert {:error, %{errors: [name: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{name: "can't be blank"}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "room:update",

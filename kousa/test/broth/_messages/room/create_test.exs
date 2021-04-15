@@ -37,7 +37,7 @@ defmodule BrothTest.Message.Room.CreateTest do
     end
 
     test "providing the wrong datatype for name is disallowed", %{uuid: uuid} do
-      assert {:error, %{errors: [name: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{name: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:create",
                  "payload" => %{"name" => ["foobar", "barbaz"], "description" => "a room"},
@@ -46,7 +46,7 @@ defmodule BrothTest.Message.Room.CreateTest do
     end
 
     test "providing the wrong datatype for description is disallowed", %{uuid: uuid} do
-      assert {:error, %{errors: [description: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{description: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:create",
                  "payload" => %{"name" => "foobar", "description" => ["a", "room"]},
@@ -70,7 +70,7 @@ defmodule BrothTest.Message.Room.CreateTest do
     end
 
     test "it fails if it's not a boolean", %{uuid: uuid} do
-      assert {:error, %{errors: [isPrivate: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{isPrivate: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:create",
                  "payload" => %{
@@ -85,7 +85,7 @@ defmodule BrothTest.Message.Room.CreateTest do
 
   describe "when you send an create message with autospeaker set" do
     test "it validates", %{uuid: uuid} do
-      assert {:error, %{errors: [autoSpeaker: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{autoSpeaker: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:create",
                  "payload" => %{

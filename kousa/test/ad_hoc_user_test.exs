@@ -14,7 +14,7 @@ defmodule KousaTest.AdHocUserTest do
   alias Beef.Schemas.Room
 
   alias Beef.Repo
-  alias Kousa.Support.Factory
+  alias KousaTest.Support.Factory
 
   describe "Beef.Schemas.RoomBlock" do
     alias Beef.Schemas.RoomBlock

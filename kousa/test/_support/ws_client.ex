@@ -178,7 +178,7 @@ defmodule Broth.WsClient do
   def handle_cast({:forward_frames, test_pid}, state), do: forward_frames_impl(test_pid, state)
 end
 
-defmodule Broth.WsClientFactory do
+defmodule BrothTest.WsClientFactory do
   alias Beef.Schemas.User
   alias Broth.WsClient
   require WsClient

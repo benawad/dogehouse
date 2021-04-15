@@ -38,7 +38,7 @@ defmodule BrothTest.Message.Room.CreateScheduledTest do
     end
 
     test "providing the wrong datatype for name is disallowed", %{uuid: uuid, future: future} do
-      assert {:error, %{errors: [name: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{name: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:create_scheduled",
                  "payload" => %{"name" => ["foobar", "barbaz"], "scheduledFor" => future},
@@ -47,7 +47,7 @@ defmodule BrothTest.Message.Room.CreateScheduledTest do
     end
 
     test "omitting the name is disallowed", %{uuid: uuid, future: future} do
-      assert {:error, %{errors: [name: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{name: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:create_scheduled",
                  "payload" => %{"scheduledFor" => future},
@@ -67,7 +67,7 @@ defmodule BrothTest.Message.Room.CreateScheduledTest do
     end
 
     test "providing the wrong datatype is disallowed", %{uuid: uuid} do
-      assert {:error, %{errors: [scheduledFor: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{scheduledFor: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:create_scheduled",
                  "payload" => %{"name" => "foobar", "scheduledFor" => "xxxx"},
@@ -76,7 +76,7 @@ defmodule BrothTest.Message.Room.CreateScheduledTest do
     end
 
     test "omitting is disallowed", %{uuid: uuid} do
-      assert {:error, %{errors: [scheduledFor: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{scheduledFor: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:create_scheduled",
                  "payload" => %{"name" => "foobar"},
@@ -87,7 +87,7 @@ defmodule BrothTest.Message.Room.CreateScheduledTest do
     test "a time in the past is disallowed", %{uuid: uuid} do
       past = DateTime.utc_now() |> DateTime.add(-1, :second)
 
-      assert {:error, %{errors: [scheduledFor: {"is in the past", _}]}} =
+      assert {:error, %{errors: %{scheduledFor: "is in the past"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:create_scheduled",
                  "payload" => %{"name" => "foobar", "scheduledFor" => past},
@@ -114,7 +114,7 @@ defmodule BrothTest.Message.Room.CreateScheduledTest do
       uuid: uuid,
       future: future
     } do
-      assert {:error, %{errors: [description: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{description: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:create_scheduled",
                  "payload" => %{

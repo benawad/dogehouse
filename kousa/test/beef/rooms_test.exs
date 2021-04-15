@@ -3,7 +3,7 @@ defmodule Kousa.Beef.RoomsTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 
-  alias Kousa.Support.Factory
+  alias KousaTest.Support.Factory
   alias Beef.Schemas.User
   alias Beef.Schemas.Room
   alias Beef.Rooms

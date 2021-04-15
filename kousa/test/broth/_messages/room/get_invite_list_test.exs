@@ -60,7 +60,7 @@ defmodule BrothTest.Message.Room.GetInviteListTest do
     end
 
     test "you can't specify a limit == 0", %{uuid: uuid} do
-      assert {:error, %{errors: [limit: {"too low", _}]}} =
+      assert {:error, %{errors: %{limit: "too low"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:get_invite_list",
                  "payload" => %{"limit" => 0},
@@ -69,14 +69,14 @@ defmodule BrothTest.Message.Room.GetInviteListTest do
     end
 
     test "you can't specify nonintegers for cursor or limit", %{uuid: uuid} do
-      assert {:error, %{errors: [limit: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{limit: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:get_invite_list",
                  "payload" => %{"limit" => "foo"},
                  "reference" => uuid
                })
 
-      assert {:error, %{errors: [cursor: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{cursor: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:get_invite_list",
                  "payload" => %{"cursor" => "foo"},

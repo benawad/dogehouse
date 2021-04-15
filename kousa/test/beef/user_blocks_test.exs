@@ -3,7 +3,7 @@ defmodule Kousa.Beef.UserBlocksTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 
-  alias Kousa.Support.Factory
+  alias KousaTest.Support.Factory
   alias Beef.UserBlocks
   alias Beef.Schemas.UserBlock
   # alias

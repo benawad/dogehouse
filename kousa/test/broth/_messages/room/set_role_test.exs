@@ -32,7 +32,7 @@ defmodule BrothTest.Message.Room.SetRole do
     end
 
     test "omitting the userId is not allowed" do
-      assert {:error, %{errors: [id: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{id: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:set_role",
                  "payload" => %{"role" => "speaker"}
@@ -40,7 +40,7 @@ defmodule BrothTest.Message.Room.SetRole do
     end
 
     test "omitting the role is not allowed", %{uuid: uuid} do
-      assert {:error, %{errors: [role: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{role: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:set_role",
                  "payload" => %{"userId" => uuid}

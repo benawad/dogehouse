@@ -42,7 +42,7 @@ defmodule BrothTest.Message.Room.JoinTest do
     end
 
     test "omitting the roomId is not allowed" do
-      assert {:error, %{errors: [roomId: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{roomId: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:join",
                  "payload" => %{},
@@ -51,7 +51,7 @@ defmodule BrothTest.Message.Room.JoinTest do
     end
 
     test "roomId must be a UUID" do
-      assert {:error, %{errors: [roomId: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{roomId: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:join",
                  "payload" => %{"roomId" => "aaa"},

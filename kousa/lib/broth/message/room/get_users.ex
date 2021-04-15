@@ -8,7 +8,9 @@ defmodule Broth.Message.Room.GetUsers do
   end
 
   def initialize(state) do
-    %__MODULE__{id: Beef.Users.get_current_room_id(state.user_id)}
+    # hacky.  Fix this later (will pull from kousa)
+    beef_users = Map.get(state, :data_source, Beef.Users)
+    %__MODULE__{id: beef_users.get_current_room_id(state.user_id)}
   end
 
   def changeset(initializer \\ %__MODULE__{}, data) do

@@ -34,7 +34,7 @@ defmodule BrothTest.Message.User.GetInfoTest do
     end
 
     test "userId parameter is required" do
-      assert {:error, %{errors: [id: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{id: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:get_info",
                  "payload" => %{},

@@ -7,7 +7,7 @@ defmodule BrothTest.Message.Room.UpdateScheduledTest do
   alias Beef.Schemas.ScheduledRoom
   alias Beef.Schemas.User
   alias Broth.Message.Room.UpdateScheduled
-  alias Kousa.Support.Factory
+  alias KousaTest.Support.Factory
 
   setup do
     user = Factory.create(User)
@@ -36,7 +36,7 @@ defmodule BrothTest.Message.Room.UpdateScheduledTest do
 
     test "omitting the reference is not allowed", %{room: room} do
       assert {:error,
-              %{errors: [reference: {"is required for Broth.Message.Room.UpdateScheduled", _}]}} =
+              %{errors: %{reference: "is required for Broth.Message.Room.UpdateScheduled"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:update_scheduled",
                  "payload" => %{"name" => "foobar", "id" => room.id}
@@ -44,7 +44,7 @@ defmodule BrothTest.Message.Room.UpdateScheduledTest do
     end
 
     test "omitting the id is not allowed", %{uuid: uuid} do
-      assert {:error, %{errors: [id: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{id: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:update_scheduled",
                  "payload" => %{"name" => "foobar"},
@@ -53,7 +53,7 @@ defmodule BrothTest.Message.Room.UpdateScheduledTest do
     end
 
     test "an invalid id is not allowed", %{uuid: uuid} do
-      assert {:error, %{errors: [id: {"room not found", _}]}} =
+      assert {:error, %{errors: %{id: "room not found"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:update_scheduled",
                  "payload" => %{"name" => "foobar", "id" => UUID.uuid4()},
@@ -64,7 +64,7 @@ defmodule BrothTest.Message.Room.UpdateScheduledTest do
 
   describe "when updating scheduled room name" do
     test "providing the wrong datatype for name is disallowed", %{uuid: uuid, room: room} do
-      assert {:error, %{errors: [name: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{name: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:update_scheduled",
                  "payload" => %{"id" => room.id, "name" => ["foobar", "barbaz"]},
@@ -73,14 +73,14 @@ defmodule BrothTest.Message.Room.UpdateScheduledTest do
     end
 
     test "erasing the name is disallowed", %{uuid: uuid, room: room} do
-      assert {:error, %{errors: [name: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{name: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:update_scheduled",
                  "payload" => %{"name" => nil, "id" => room.id},
                  "reference" => uuid
                })
 
-      assert {:error, %{errors: [name: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{name: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:update_scheduled",
                  "payload" => %{"name" => "", "id" => room.id},
@@ -113,7 +113,7 @@ defmodule BrothTest.Message.Room.UpdateScheduledTest do
     end
 
     test "it fails if it's not a proper time", %{uuid: uuid, room: room} do
-      assert {:error, %{errors: [scheduledFor: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{scheduledFor: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:update_scheduled",
                  "payload" => %{"scheduledFor" => "aaa", "id" => room.id},
@@ -124,7 +124,7 @@ defmodule BrothTest.Message.Room.UpdateScheduledTest do
     test "it fails if it's in the past", %{uuid: uuid, room: room} do
       time = DateTime.utc_now() |> DateTime.add(-1, :second)
 
-      assert {:error, %{errors: [scheduledFor: {"is in the past", _}]}} =
+      assert {:error, %{errors: %{scheduledFor: "is in the past"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:update_scheduled",
                  "payload" => %{"scheduledFor" => to_string(time), "id" => room.id},

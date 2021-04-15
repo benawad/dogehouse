@@ -56,7 +56,7 @@ defmodule BrothTest.Message.Auth.RequestTest do
     end
 
     test "omitting the userId is not allowed" do
-      assert {:error, %{errors: [accessToken: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{accessToken: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "op" => "auth:request",
                  "p" => %{

@@ -4,8 +4,8 @@ defmodule KousaTest.Broth.DeleteScheduledRoomTest do
 
   alias Beef.Schemas.User
   alias Broth.WsClient
-  alias Broth.WsClientFactory
-  alias Kousa.Support.Factory
+  alias BrothTest.WsClientFactory
+  alias KousaTest.Support.Factory
 
   require WsClient
 

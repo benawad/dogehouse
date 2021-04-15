@@ -50,7 +50,7 @@ defmodule BrothTest.Message.Room.SetAuth do
     end
 
     test "omitting the id is not allowed" do
-      assert {:error, %{errors: [id: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{id: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:set_auth",
                  "payload" => %{"level" => "mod"}
@@ -58,7 +58,7 @@ defmodule BrothTest.Message.Room.SetAuth do
     end
 
     test "omitting level is not allowed", %{uuid: uuid} do
-      assert {:error, %{errors: [level: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{level: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:set_auth",
                  "payload" => %{"id" => uuid}
@@ -66,7 +66,7 @@ defmodule BrothTest.Message.Room.SetAuth do
     end
 
     test "level must be the correct form", %{uuid: uuid} do
-      assert {:error, %{errors: [level: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{level: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:set_auth",
                  "payload" => %{"id" => uuid, "level" => "admin"}

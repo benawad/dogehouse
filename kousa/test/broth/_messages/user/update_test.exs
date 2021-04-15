@@ -6,7 +6,7 @@ defmodule BrothTest.Message.User.UpdateTest do
 
   alias Beef.Schemas.User
   alias Broth.Message.User.Update
-  alias Kousa.Support.Factory
+  alias KousaTest.Support.Factory
 
   setup do
     # this "UNIT" test requires the db because the message gets
@@ -53,7 +53,7 @@ defmodule BrothTest.Message.User.UpdateTest do
 
     test "providing the wrong datatype for muted state is disallowed",
          %{uuid: uuid, state: state} do
-      assert {:error, %{errors: [muted: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{muted: "is invalid"}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "user:update",
@@ -63,7 +63,7 @@ defmodule BrothTest.Message.User.UpdateTest do
                  state
                )
 
-      assert {:error, %{errors: [muted: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{muted: "is invalid"}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "user:update",
@@ -89,7 +89,7 @@ defmodule BrothTest.Message.User.UpdateTest do
     end
 
     test "it rejects attempting to delete the username", %{uuid: uuid, state: state} do
-      assert {:error, %{errors: [username: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{username: "can't be blank"}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "user:update",
@@ -99,7 +99,7 @@ defmodule BrothTest.Message.User.UpdateTest do
                  state
                )
 
-      assert {:error, %{errors: [username: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{username: "can't be blank"}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "user:update",
