@@ -97,13 +97,15 @@ defmodule Broth.Message.Chat.SendMsg do
     :format_error -> add_error(changeset, :whisperedTo, "is invalid")
   end
 
-  def execute(%{tokens: tokens, whisperedTo: whisperedTo}, state) do
-    Kousa.RoomChat.send_msg(
-      state.user_id,
-      tokens,
-      whisperedTo
-    )
+  def execute(changeset, state) do
+    with {:ok, %{tokens: tokens, whisperedTo: whisperedTo}} <- apply_action(changeset, :validate) do
+      Kousa.RoomChat.send_msg(
+        state.user_id,
+        tokens,
+        whisperedTo
+      )
 
-    {:noreply, state}
+      {:noreply, state}
+    end
   end
 end

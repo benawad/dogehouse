@@ -6,69 +6,97 @@ defmodule BrothTest.Message.Room.SetRole do
   alias Broth.Message.Room.SetRole
 
   setup do
-    {:ok, uuid: UUID.uuid4()}
+    state = %{user_id: UUID.uuid4()}
+    {:ok, uuid: UUID.uuid4(), state: state}
   end
 
   describe "when you send an set role message to speaker" do
-    test "it validates", %{uuid: uuid} do
+    test "it validates", %{uuid: uuid, state: state} do
       assert {:ok,
               %{
-                payload: %SetRole{id: ^uuid, role: :speaker}
+                payload: %SetRole{userId: ^uuid, role: :speaker}
               }} =
-               BrothTest.Support.Message.validate(%{
-                 "operator" => "room:set_role",
-                 "payload" => %{"userId" => uuid, "role" => "speaker"}
-               })
+               BrothTest.Support.Message.validate(
+                 %{
+                   "operator" => "room:set_role",
+                   "payload" => %{"userId" => uuid, "role" => "speaker"}
+                 },
+                 state
+               )
 
       # short form also allowed
       assert {:ok,
               %{
-                payload: %SetRole{id: ^uuid, role: :speaker}
+                payload: %SetRole{userId: ^uuid, role: :speaker}
               }} =
-               BrothTest.Support.Message.validate(%{
-                 "op" => "room:set_role",
-                 "p" => %{"userId" => uuid, "role" => "speaker"}
-               })
+               BrothTest.Support.Message.validate(
+                 %{
+                   "op" => "room:set_role",
+                   "p" => %{"userId" => uuid, "role" => "speaker"}
+                 },
+                 state
+               )
     end
 
-    test "omitting the userId is not allowed" do
-      assert {:error, %{errors: %{id: "can't be blank"}}} =
-               BrothTest.Support.Message.validate(%{
-                 "operator" => "room:set_role",
-                 "payload" => %{"role" => "speaker"}
-               })
+    test "zeroing out the userId is not allowed", %{state: state} do
+      assert {:error, %{errors: %{userId: "can't be blank"}}} =
+               BrothTest.Support.Message.validate(
+                 %{
+                   "operator" => "room:set_role",
+                   "payload" => %{"role" => "speaker", "userId" => nil}
+                 },
+                 state
+               )
+
+      assert {:error, %{errors: %{userId: "can't be blank"}}} =
+               BrothTest.Support.Message.validate(
+                 %{
+                   "operator" => "room:set_role",
+                   "payload" => %{"role" => "speaker", "userId" => ""}
+                 },
+                 state
+               )
     end
 
-    test "omitting the role is not allowed", %{uuid: uuid} do
-      assert {:error, %{errors: %{role: "can't be blank"}}} =
-               BrothTest.Support.Message.validate(%{
-                 "operator" => "room:set_role",
-                 "payload" => %{"userId" => uuid}
-               })
+    test "if you don't supply the userId, it's treated as self", %{state: state = %{user_id: id}} do
+      assert {:ok, %{payload: %SetRole{userId: ^id}}} =
+               BrothTest.Support.Message.validate(
+                 %{
+                   "operator" => "room:set_role",
+                   "payload" => %{"role" => "speaker"}
+                 },
+                 state
+               )
     end
   end
 
   describe "when you send an set role message to" do
-    test "raised hand it validates", %{uuid: uuid} do
+    test "raised hand it validates", %{uuid: uuid, state: state} do
       assert {:ok,
               %{
-                payload: %SetRole{id: ^uuid, role: :raised_hand}
+                payload: %SetRole{userId: ^uuid, role: :raised_hand}
               }} =
-               BrothTest.Support.Message.validate(%{
-                 "operator" => "room:set_role",
-                 "payload" => %{"userId" => uuid, "role" => "raised_hand"}
-               })
+               BrothTest.Support.Message.validate(
+                 %{
+                   "operator" => "room:set_role",
+                   "payload" => %{"userId" => uuid, "role" => "raised_hand"}
+                 },
+                 state
+               )
     end
 
-    test "listener it validates", %{uuid: uuid} do
+    test "listener it validates", %{uuid: uuid, state: state} do
       assert {:ok,
               %{
-                payload: %SetRole{id: ^uuid, role: :listener}
+                payload: %SetRole{userId: ^uuid, role: :listener}
               }} =
-               BrothTest.Support.Message.validate(%{
-                 "operator" => "room:set_role",
-                 "payload" => %{"userId" => uuid, "role" => "listener"}
-               })
+               BrothTest.Support.Message.validate(
+                 %{
+                   "operator" => "room:set_role",
+                   "payload" => %{"userId" => uuid, "role" => "listener"}
+                 },
+                 state
+               )
     end
   end
 end

@@ -41,7 +41,6 @@ defmodule Broth.Translator do
   @translations %{
     "send_room_chat_msg" => "chat:send_msg",
     "invite_to_room" => "room:invite",
-    "follow_info" => "user:get_relationship",
     "get_my_following" => "user:get_following",
     "get_top_public_rooms" => "room:get_top",
     "get_current_room_users" => "room:get_users",
@@ -195,6 +194,16 @@ defmodule Broth.Translator do
     )
   end
 
+  def convert_inbound_0_1_0(command = %{"op" => "follow_info", "d" => d}) do
+    Map.merge(
+      command,
+      %{
+        "op" => "user:get_relationship",
+        "d" => Map.merge(d, %{"id" => d["userId"]})
+      }
+    )
+  end
+
   # let it pass, and return a general error.
   def convert_inbound_0_1_0(command), do: command
 
@@ -249,7 +258,6 @@ defmodule Broth.Translator do
   end
 
   def convert_outbound_0_1_0(map, "room:update") do
-    IO.puts("hi mom")
     %{map | d: !Map.get(map, :e)}
   end
 
@@ -267,10 +275,9 @@ defmodule Broth.Translator do
     %{map | op: "you_left_room"}
   end
 
-  def convert_outbound_0_1_0(map, orig) do
-    orig |> IO.inspect(label: "239")
-    map |> IO.inspect(label: "240")
-  end
+  # def convert_outbound_0_1_0(map, orig) do
+  #  raise "foo"
+  # end
 
   def convert_outbound_0_1_0(map, _), do: map
 end

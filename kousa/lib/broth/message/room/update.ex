@@ -37,13 +37,16 @@ defmodule Broth.Message.Room.Update do
     # TODO: move this changeset stuff into Kousa itself.
     with {:ok, update} <- apply_action(changeset, :validate),
          {:ok, room} <- Kousa.Room.update(state.user_id, Map.from_struct(update)) do
-
       changes = changeset.changes
+
       if Map.has_key?(changes, :isPrivate) do
         # send the room_privacy_change message.
         Onion.RoomSession.broadcast_ws(
           room.id,
-          %{op: "room_privacy_change", d: %{roomId: room.id, name: room.name, isPrivate: changes.isPrivate}}
+          %{
+            op: "room_privacy_change",
+            d: %{roomId: room.id, name: room.name, isPrivate: changes.isPrivate}
+          }
         )
       end
 

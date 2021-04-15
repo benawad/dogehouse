@@ -16,9 +16,9 @@ defmodule Broth.Message.User.GetRelationship do
 
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
-    |> cast(data, [:userId])
-    |> validate_required([:userId])
-    |> UUID.normalize(:userId)
+    |> cast(data, [:id])
+    |> validate_required([:id])
+    |> UUID.normalize(:id)
   end
 
   defmodule Reply do
@@ -34,12 +34,12 @@ defmodule Broth.Message.User.GetRelationship do
 
   def execute(changeset, state = %{user_id: oneself}) do
     case apply_action(changeset, :validate) do
-      {:ok, %{userId: ^oneself}} ->
+      {:ok, %{id: ^oneself}} ->
         {:reply, %Reply{relationship: :self}, state}
 
-      {:ok, get} ->
+      {:ok, %{id: user_id}} ->
         r =
-          case Follows.get_info(state.user_id, get.userId) do
+          case Follows.get_info(state.user_id, user_id) do
             %{followsYou: false, youAreFollowing: false} -> nil
             %{followsYou: true, youAreFollowing: false} -> :follows
             %{followsYou: false, youAreFollowing: true} -> :following

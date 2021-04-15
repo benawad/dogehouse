@@ -3,7 +3,7 @@ defmodule Broth.Message.User.GetFollowing do
 
   @primary_key false
   embedded_schema do
-    field(:userId, :binary_id)
+    field(:id, :binary_id)
     field(:cursor, :integer, default: 0)
     field(:limit, :integer, default: 100)
   end
