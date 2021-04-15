@@ -105,6 +105,7 @@
     "stylelint-config-standard": "^21.0.0",
     "tailwind-scrollbar": "^1.2.4",
     "tailwindcss": "^2.1.1",
+    "ts-node": "9.1.1",
     "typescript": "4.2.4"
   }
 }
