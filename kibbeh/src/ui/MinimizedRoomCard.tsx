@@ -36,7 +36,9 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
       data-testid="minimized-room-card"
     >
       <div className="flex gap-1 grid">
-        <h4 className="text-primary-100 break-all overflow-hidden">{room.name}</h4>
+        <h4 className="text-primary-100 break-all overflow-hidden">
+          {room.name}
+        </h4>
         <p className="text-primary-300 overflow-ellipsis overflow-hidden w-auto">
           {room.speakers.join(", ")}
         </p>

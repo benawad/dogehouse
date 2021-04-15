@@ -22,7 +22,6 @@ import { InvitedToJoinRoomModal } from "../shared-components/InvitedToJoinRoomMo
 import { ConfirmModal } from "../shared-components/ConfirmModal";
 import isElectron from "is-electron";
 import Head from "next/head";
-import { platform } from "node:os";
 import { useHostStore } from "../global-stores/useHostStore";
 
 if (!isServer) {

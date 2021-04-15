@@ -9,7 +9,7 @@ function MacMinimizeIcon(props: React.SVGProps<SVGSVGElement>) {
         height="2"
         x="2"
         y="5"
-        fill-rule="evenodd"
+        fillRule="evenodd"
       ></rect>
     </svg>
   );
