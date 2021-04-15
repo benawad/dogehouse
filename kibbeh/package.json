@@ -98,7 +98,7 @@
     "next-transpile-modules": "^6.4.0",
     "postcss": "^8.2.9",
     "postcss-import": "^14.0.1",
-    "postcss-loader": "^5.2.0",
+    "postcss-loader": "v4.2.0",
     "prettier": "^2.2.1",
     "style-loader": "^2.0.0",
     "stylelint": "^13.12.0",
