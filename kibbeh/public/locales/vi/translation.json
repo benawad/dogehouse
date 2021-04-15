@@ -59,7 +59,8 @@
       "featureText_6": "Được bảo kê bởi Doge",
       "loginGithub": "đăng nhập với GitHub",
       "loginTwitter": "đăng nhập với Twitter",
-      "createTestUser": "tạo người dùng thử"
+      "createTestUser": "tạo người dùng thử",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "đăng xuất",

@@ -58,7 +58,8 @@
       "featureText_6": "ขับเคลื่อนโดย Doge",
       "loginGithub": "เข้าสู่ระบบด้วย GitHub",
       "loginTwitter": "เข้าสู่ระบบด้วย Twitter",
-      "createTestUser": "สร้างผู้ใช้ทดสอบ"
+      "createTestUser": "สร้างผู้ใช้ทดสอบ",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "ออกจากระบบ",

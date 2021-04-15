@@ -62,7 +62,8 @@
       "featureText_6": "இது Doge ஆல் பவர் செய்யப்பட்டது  ",
       "loginGithub": "GitHub மூலமாக உள்நுழை",
       "loginTwitter": "Twitter மூலமாக உள்நுழை",
-      "createTestUser": "சோதனை பயனரை உருவாக்கவும்"
+      "createTestUser": "சோதனை பயனரை உருவாக்கவும்",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "லாக் அவுட் செய்",

@@ -58,7 +58,8 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "GitHub తో లాగిన్ అవ్వండి",
       "loginTwitter": "Twitter తో లాగిన్ అవ్వండి",
-      "createTestUser": "create test user"
+      "createTestUser": "create test user",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "logout",

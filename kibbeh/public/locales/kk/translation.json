@@ -59,7 +59,8 @@
       "featureText_6": "Doge арқылы жұмыс істейді",
       "loginGithub": "GitHub арқылы кіру",
       "loginTwitter": "Twitter арқылы кіру",
-      "createTestUser": "Текстілік қолданушыны жасау"
+      "createTestUser": "Текстілік қолданушыны жасау",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "шығу",

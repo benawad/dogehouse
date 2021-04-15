@@ -58,7 +58,8 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "Entrar com GitHub",
       "loginTwitter": "Entrar com Twitter",
-      "createTestUser": "Criar utilizador de teste"
+      "createTestUser": "Criar utilizador de teste",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Sair",
@@ -221,9 +222,7 @@
       "upcomingRooms": "Próximas salas",
       "exploreMoreRooms": "Explorar mais salas"
     },
-    "search": {
-      "placeholder": "Pesquisar salas, utilizadores ou categorias"
-    },
+    "search": { "placeholder": "Pesquisar salas, utilizadores ou categorias" },
     "settingsDropdown": {
       "profile": "Perfil",
       "language": "Linguagem",

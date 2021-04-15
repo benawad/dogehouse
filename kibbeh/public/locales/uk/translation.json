@@ -59,7 +59,8 @@
       "featureText_6": "Працює на Doge",
       "loginGithub": "увійти з GitHub",
       "loginTwitter": "увійти з Twitter",
-      "createTestUser": "створити тестового користувача"
+      "createTestUser": "створити тестового користувача",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "вийти",

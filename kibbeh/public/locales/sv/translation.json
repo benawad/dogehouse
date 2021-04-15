@@ -58,7 +58,8 @@
       "featureText_6": "Drivs av Doge",
       "loginGithub": "Logga in med GitHub",
       "loginTwitter": "Logga in Twitter",
-      "createTestUser": "Skapa testanvändare"
+      "createTestUser": "Skapa testanvändare",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Logga ut",

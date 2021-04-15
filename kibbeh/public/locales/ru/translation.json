@@ -62,7 +62,8 @@
       "featureText_6": "Работает благодаря Doge",
       "loginGithub": "Войти через GitHub",
       "loginTwitter": "Войти через Twitter",
-      "createTestUser": "Создать тестового пользователя"
+      "createTestUser": "Создать тестового пользователя",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Выйти",

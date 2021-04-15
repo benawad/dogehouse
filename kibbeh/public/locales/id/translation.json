@@ -58,7 +58,8 @@
       "featureText_6": "Dipersembahkan oleh Doge",
       "loginGithub": "masuk dengan GitHub",
       "loginTwitter": "masuk dengan Twitter",
-      "createTestUser": "buat akun uji coba"
+      "createTestUser": "buat akun uji coba",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "keluar",

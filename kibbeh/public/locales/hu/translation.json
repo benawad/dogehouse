@@ -57,7 +57,8 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "bejelentkezés GitHub fiókkal",
       "loginTwitter": "bejelentkezés Twitter fiókkal",
-      "createTestUser": "teszt felhasználó létrehozása"
+      "createTestUser": "teszt felhasználó létrehozása",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "kijelentkezés",

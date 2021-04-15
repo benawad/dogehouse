@@ -59,7 +59,8 @@
       "featureText_6": "በ Doge የተጎላበተ",
       "loginGithub": "በ GitHub ግባ",
       "loginTwitter": "በ Twitter ግባ",
-      "createTestUser": "የሙከራ ተጠቃሚ ይፍጠሩ"
+      "createTestUser": "የሙከራ ተጠቃሚ ይፍጠሩ",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "ውጣ",

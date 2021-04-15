@@ -59,7 +59,8 @@
       "featureText_6": "Autrieben durch Doge",
       "loginGithub": "mit GitHub aumöden",
       "loginTwitter": "mit Twitter aumöden",
-      "createTestUser": "Testnutzer erstön"
+      "createTestUser": "Testnutzer erstön",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Omöden",
