@@ -132,7 +132,7 @@ defmodule Broth.Translator do
       command,
       %{
         "op" => "room:update",
-        "d" => %{"room" => d},
+        "d" => %{"name" => d["newName"], "isPrivate" => Map.get(d, "isPrivate", false)},
         "fetchId" => UUID.uuid4()
       }
     )
@@ -249,6 +249,7 @@ defmodule Broth.Translator do
   end
 
   def convert_outbound_0_1_0(map, "room:update") do
+    IO.puts("hi mom")
     %{map | d: !Map.get(map, :e)}
   end
 
@@ -260,6 +261,10 @@ defmodule Broth.Translator do
   def convert_outbound_0_1_0(map, "user:get_following") do
     data = %{users: map.d.following, nextCursor: map.d.nextCursor}
     %{map | d: data}
+  end
+
+  def convert_outbound_0_1_0(map, "room:leave") do
+    %{map | op: "you_left_room"}
   end
 
   def convert_outbound_0_1_0(map, orig) do

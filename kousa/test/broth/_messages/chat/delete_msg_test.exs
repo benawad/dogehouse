@@ -39,13 +39,13 @@ defmodule BrothTest.Message.Chat.DeleteMsgTest do
     test "messageId must be well-formed" do
       id = UUID.uuid4()
 
-      assert {:error, %{errors: [messageId: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{messageId: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "chat:delete_msg",
                  "payload" => %{"userId" => id, "messageId" => "aaa"}
                })
 
-      assert {:error, %{errors: [messageId: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{messageId: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "chat:delete_msg",
                  "payload" => %{"userId" => id, "messageId" => %{"foo" => "bar"}}
@@ -55,13 +55,13 @@ defmodule BrothTest.Message.Chat.DeleteMsgTest do
     test "userId must be well-formed" do
       id = UUID.uuid4()
 
-      assert {:error, %{errors: [userId: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{userId: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "chat:delete_msg",
                  "payload" => %{"messageId" => id, "userId" => "aaa"}
                })
 
-      assert {:error, %{errors: [userId: {"is invalid", _}]}} =
+      assert {:error, %{errors: %{userId: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "chat:delete_msg",
                  "payload" => %{"messageId" => id, "userId" => %{"foo" => "bar"}}
@@ -71,7 +71,7 @@ defmodule BrothTest.Message.Chat.DeleteMsgTest do
     test "messageId required" do
       id = UUID.uuid4()
 
-      assert {:error, %{errors: [messageId: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{messageId: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "chat:delete_msg",
                  "payload" => %{"userId" => id}
@@ -81,7 +81,7 @@ defmodule BrothTest.Message.Chat.DeleteMsgTest do
     test "userId required" do
       id = UUID.uuid4()
 
-      assert {:error, %{errors: [userId: {"can't be blank", _}]}} =
+      assert {:error, %{errors: %{userId: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "chat:delete_msg",
                  "payload" => %{"messageId" => id}

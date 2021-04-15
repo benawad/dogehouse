@@ -217,11 +217,6 @@ defmodule Broth.SocketHandler do
     %{message | payload: %{}, errors: error_map}
   end
 
-  def handler("make_room_public", %{"newName" => new_name}, state) do
-    Kousa.Room.make_room_public(state.user_id, new_name)
-    {:ok, state}
-  end
-
   def handler("set_auto_speaker", %{"value" => value}, state) do
     Kousa.Room.set_auto_speaker(state.user_id, value)
 
