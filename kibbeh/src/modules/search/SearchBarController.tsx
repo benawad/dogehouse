@@ -81,8 +81,8 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
             placeholder={t("components.search.placeholder")}
           />
           <ul
-            className="absolute w-full bg-primary-800 rounded-b-8"
-            {...getMenuProps({ style: { top: 42 } })}
+            className="absolute w-full bg-primary-800 rounded-b-8 overflow-y-auto"
+            {...getMenuProps({ style: { top: 42, maxHeight: "50vh" } })}
           >
             {isOpen && data?.items.length === 0 ? (
               <InfoText className="p-3">no results</InfoText>
