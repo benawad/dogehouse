@@ -3,7 +3,7 @@ defmodule Broth.Message.Room.SetAuth do
 
   @primary_key false
   embedded_schema do
-    field(:userId, :binary_id)
+    field(:id, :binary_id)
     field(:level, Broth.Message.Types.RoomAuth)
   end
 
@@ -11,13 +11,15 @@ defmodule Broth.Message.Room.SetAuth do
 
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
-    |> cast(data, [:userId, :level])
-    |> validate_required([:userId, :level])
-    |> UUID.normalize(:userId)
+    |> cast(data, [:id, :level])
+    |> validate_required([:id, :level])
+    |> UUID.normalize(:id)
   end
 
-  def execute(%{userId: user_id, level: level}, state) do
-    Kousa.Room.set_auth(user_id, level, by: state.user_id)
-    {:ok, state}
+  def execute(changeset, state) do
+    with {:ok, %{id: user_id, level: level}} <- apply_action(changeset, :validate) do
+      Kousa.Room.set_auth(user_id, level, by: state.user_id)
+      {:noreply, state}
+    end
   end
 end

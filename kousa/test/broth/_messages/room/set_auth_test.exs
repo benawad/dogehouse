@@ -13,44 +13,44 @@ defmodule BrothTest.Message.Room.SetAuth do
     test "it validates", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %SetAuth{userId: ^uuid, level: :mod}
+                payload: %SetAuth{id: ^uuid, level: :mod}
               }} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:set_auth",
-                 "payload" => %{"userId" => uuid, "level" => "mod"}
+                 "payload" => %{"id" => uuid, "level" => "mod"}
                })
 
       assert {:ok,
               %{
-                payload: %SetAuth{userId: ^uuid, level: :owner}
+                payload: %SetAuth{id: ^uuid, level: :owner}
               }} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:set_auth",
-                 "payload" => %{"userId" => uuid, "level" => "owner"}
+                 "payload" => %{"id" => uuid, "level" => "owner"}
                })
 
       assert {:ok,
               %{
-                payload: %SetAuth{userId: ^uuid, level: :user}
+                payload: %SetAuth{id: ^uuid, level: :user}
               }} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:set_auth",
-                 "payload" => %{"userId" => uuid, "level" => "user"}
+                 "payload" => %{"id" => uuid, "level" => "user"}
                })
 
       # short form also allowed
       assert {:ok,
               %{
-                payload: %SetAuth{userId: ^uuid, level: :mod}
+                payload: %SetAuth{id: ^uuid, level: :mod}
               }} =
                BrothTest.Support.Message.validate(%{
                  "op" => "room:set_auth",
-                 "p" => %{"userId" => uuid, "level" => "mod"}
+                 "p" => %{"id" => uuid, "level" => "mod"}
                })
     end
 
-    test "omitting the userId is not allowed" do
-      assert {:error, %{errors: [userId: {"can't be blank", _}]}} =
+    test "omitting the id is not allowed" do
+      assert {:error, %{errors: [id: {"can't be blank", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:set_auth",
                  "payload" => %{"level" => "mod"}
@@ -61,7 +61,7 @@ defmodule BrothTest.Message.Room.SetAuth do
       assert {:error, %{errors: [level: {"can't be blank", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:set_auth",
-                 "payload" => %{"userId" => uuid}
+                 "payload" => %{"id" => uuid}
                })
     end
 
@@ -69,7 +69,7 @@ defmodule BrothTest.Message.Room.SetAuth do
       assert {:error, %{errors: [level: {"is invalid", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:set_auth",
-                 "payload" => %{"userId" => uuid, "level" => "admin"}
+                 "payload" => %{"id" => uuid, "level" => "admin"}
                })
     end
   end

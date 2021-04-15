@@ -111,7 +111,7 @@ defmodule Broth.Translator do
 
     Map.merge(command, %{
       "op" => "room:set_auth",
-      "d" => Map.put(d, "level", role)
+      "d" => %{"id" => d["userId"], "level" => role}
     })
   end
 

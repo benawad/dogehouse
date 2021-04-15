@@ -104,6 +104,6 @@ defmodule Broth.Message.Chat.SendMsg do
       whisperedTo
     )
 
-    {:ok, state}
+    {:noreply, state}
   end
 end
