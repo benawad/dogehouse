@@ -13,7 +13,13 @@ import Backend from "i18next-node-fs-backend";
 import { autoUpdater } from "electron-updater";
 import { RegisterKeybinds, exitApp } from "./utils/keybinds";
 import { HandleVoiceTray } from "./utils/tray";
-import { ALLOWED_HOSTS, isLinux, isMac, MENU_TEMPLATE } from "./constants";
+import {
+  ALLOWED_HOSTS,
+  isLinux,
+  isMac,
+  isWin,
+  MENU_TEMPLATE,
+} from "./constants";
 import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
@@ -67,6 +73,7 @@ function createMainWindow() {
       nodeIntegration: true,
       contextIsolation: false,
     },
+    frame: isLinux,
     show: false,
   });
 
@@ -81,7 +88,7 @@ function createMainWindow() {
     mainWindow.webContents.openDevTools();
   }
   mainWindow.loadURL(
-    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000"
+    __prod__ ? `https://next.dogehouse.tv/` : "http://localhost:3000"
   );
 
   bWindows = {
@@ -147,9 +154,6 @@ function createMainWindow() {
   mainWindow.webContents.on("new-window", handleLinks);
   mainWindow.webContents.on("will-navigate", handleLinks);
 
-  ipcMain.on("@app/version", (event, args) => {
-    event.sender.send("@app/version", app.getVersion());
-  });
   ipcMain.on("@dogehouse/loaded", (event, doge) => {
     if (doge != PREV_VERSION) {
       PREV_VERSION = doge;
@@ -167,6 +171,37 @@ function createMainWindow() {
       }
       mainWindow.center();
     }
+  });
+  ipcMain.on("@app/quit", (event, args) => {
+    mainWindow.close();
+  });
+  ipcMain.on("@app/maximize", (event, args) => {
+    if (isMac) {
+      if (mainWindow.isFullScreenable()) {
+        mainWindow.setFullScreen(!mainWindow.isFullScreen());
+      }
+    } else {
+      if (mainWindow.maximizable) {
+        if (mainWindow.isMaximized()) {
+          mainWindow.unmaximize();
+        } else {
+          mainWindow.maximize();
+        }
+      }
+    }
+  });
+  ipcMain.on("@app/minimize", (event, args) => {
+    if (mainWindow.minimizable) {
+      mainWindow.minimize();
+    }
+  });
+
+  ipcMain.on("@app/hostPlatform", (event, args) => {
+    event.sender.send("@app/hostPlatform", {
+      isLinux,
+      isMac,
+      isWin,
+    });
   });
 }
 
