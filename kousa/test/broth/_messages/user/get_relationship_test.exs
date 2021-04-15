@@ -24,7 +24,7 @@ defmodule BrothTest.Message.User.GetRelationshipTest do
       # short form also allowed
       assert {:ok,
               %{
-                payload: %GetRelationship{userId: ^uuid}
+                payload: %GetRelationship{id: ^uuid}
               }} =
                BrothTest.Support.Message.validate(%{
                  "op" => "user:get_relationship",

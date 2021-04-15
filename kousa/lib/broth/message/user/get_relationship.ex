@@ -8,7 +8,7 @@ defmodule Broth.Message.User.GetRelationship do
   @primary_key false
   embedded_schema do
     # required.
-    field(:userId, :binary_id)
+    field(:id, :binary_id)
   end
 
   alias Beef.Follows
