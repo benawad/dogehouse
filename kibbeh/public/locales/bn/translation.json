@@ -63,7 +63,7 @@
       "loginGithub": "GitHub এর দ্বারা লগইন করুন",
       "loginTwitter": "Twitter এর দ্বারা লগইন করুন",
       "createTestUser": "টেস্ট ইউজার তৈরি করুন",
-      "loginDiscord": "Login with Discord"
+      "loginDiscord": "Discord এর দ্বারা লগইন করুন"
     },
     "myProfile": {
       "logout": "লগআউট",
@@ -72,7 +72,7 @@
       "soundSettings": "সাউন্ড সেটিংস এ যান",
       "deleteAccount": "অ্যাকাউন্ট ডিলিট করুন",
       "overlaySettings": "ওভারলে সেটিংস এ যান",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "দুঃখিত, আমরা সেই ইউজারকে খুঁজে পাইনি"
     },
     "notFound": {
       "whoopsError": "উপস! এই পেজের বার্তালাপ কেটে গেছে।",
@@ -209,7 +209,7 @@
         "goBackToListener": "শ্রোতাতে ফিরে যান",
         "deleteMessage": "মেসেজটি মুছে ফেলুন",
         "makeRoomCreator": "রুম অ্যাডমিন তৈরি করুন",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "চ্যাট থেকে আনব্যান করুন"
       },
       "roomSettingsModal": {
         "requirePermission": "কথা বলার জন্য পারমিশন লাগবে",
@@ -220,24 +220,24 @@
       }
     },
     "followingOnline": {
-      "people": "People",
-      "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "people": "মানুষ",
+      "online": "অনলাইন",
+      "noOnline": "এই মুহুর্তে আপনার অনলাইনে 0 জন বন্ধু রয়েছে",
+      "showMore": "আরো দেখুন"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "আসন্ন রুমগুলো",
+      "exploreMoreRooms": "আরো রুম এক্সপ্লোর করুন"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": { "placeholder": "সার্চ করুন রুম, ইউজার অথবা ক্যাটেগরি" },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "প্রোফাইল",
+      "language": "ভাষা",
+      "reportABug": "বাগ রিপোর্ট করুন",
+      "useOldVersion": "পুরাতন ভার্সন ব্যবহার করুন",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "লগ আউট",
+        "modalSubtitle": "আপনি কি নিশ্চিত আপনি লগ আউট করতে চান?"
       }
     }
   },
@@ -282,6 +282,6 @@
       "galacticDoge": "গ্যালাকটিক Doge",
       "spottedLife": "গ্রহে জীবনের সন্ধান পাওয়া গেছে"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": { "yourFeed": "আপনার ফিড" }
   }
 }
