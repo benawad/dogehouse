@@ -1,7 +1,27 @@
 defmodule Kousa.RoomChat do
   alias Beef.Rooms
+  alias Onion.RoomChat
 
   @message_character_limit 512
+
+  def unban_user(user_id, user_id_to_unban) do
+    case Rooms.get_room_status(user_id) do
+      {:creator, room} ->
+        if room.creatorId != user_id_to_unban do
+          RoomChat.unban_user(room.id, user_id_to_unban)
+        end
+
+      {:mod, room} ->
+        if room.creatorId != user_id_to_unban do
+          RoomChat.unban_user(room.id, user_id_to_unban)
+        end
+
+      _ ->
+        nil
+    end
+
+    :ok
+  end
 
   @spec send_msg(String.t(), list(map), list(String.t())) :: any
   def send_msg(user_id, tokens, whispered_to) do

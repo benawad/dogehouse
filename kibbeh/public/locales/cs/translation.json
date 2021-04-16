@@ -202,7 +202,8 @@
         "banFromRoom": "Zabanovat z místnosti",
         "goBackToListener": "Přesunout se do posluchačů",
         "deleteMessage": "Smazat tuto zprávu",
-        "makeRoomCreator": "Předat místnost"
+        "makeRoomCreator": "Předat místnost",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Požádat o přesunutí do mluvících",

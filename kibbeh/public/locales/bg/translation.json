@@ -199,7 +199,8 @@
         "banFromRoom": "блокиране от стая",
         "goBackToListener": "върни се към слушател",
         "deleteMessage": "изтриване на това съобщение",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "изискване на позволение за говорене",

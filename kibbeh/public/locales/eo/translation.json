@@ -201,7 +201,8 @@
         "banFromRoom": "malpermeso de ĉambro",
         "goBackToListener": "reiru al aŭskultanto",
         "deleteMessage": "forigu ĉi tiun mesaĝon",
-        "makeRoomCreator": "fari ĉambron administranto"
+        "makeRoomCreator": "fari ĉambron administranto",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "postulas permeson paroli",

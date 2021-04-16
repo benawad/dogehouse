@@ -201,7 +201,8 @@
         "banFromRoom": "заблокувати в цій кімнаті",
         "goBackToListener": "повернутися у статус слухача",
         "deleteMessage": "видалити це повідомлення",
-        "makeRoomCreator": "зробити адміном кімнати"
+        "makeRoomCreator": "зробити адміном кімнати",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "запитувати дозвіл говорити",

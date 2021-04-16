@@ -196,7 +196,8 @@
         "banFromRoom": "Забраните приступ соби",
         "goBackToListener": "Вратите се слушаоцу",
         "deleteMessage": "Обришите ову поруку",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Затражи дозволу за причање",

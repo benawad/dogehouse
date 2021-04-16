@@ -233,6 +233,7 @@
         "unmod": "Demote from Mod",
         "addAsSpeaker": "Add as Speaker",
         "moveToListener": "Move to Listener",
+        "unBanFromChat": "Unban from Chat",
         "banFromChat": "Ban from Chat",
         "banFromRoom": "Ban from Room",
         "goBackToListener": "Go Back to Listener",

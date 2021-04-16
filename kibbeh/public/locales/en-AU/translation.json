@@ -200,7 +200,8 @@
         "banFromRoom": "ɯooɹ ɯoɹɟ uɐq",
         "goBackToListener": "ɹǝuǝʇsᴉꞁ oʇ ʞɔɐq oƃ",
         "deleteMessage": "ǝƃɐssǝɯ sᴉɥʇ ǝʇǝꞁǝp",
-        "makeRoomCreator": "uᴉɯpɐ ɯooɹ ǝʞɐɯ"
+        "makeRoomCreator": "uᴉɯpɐ ɯooɹ ǝʞɐɯ",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "ʞɐǝds oʇ uoᴉssᴉɯɹǝd ǝɹᴉnbǝɹ",

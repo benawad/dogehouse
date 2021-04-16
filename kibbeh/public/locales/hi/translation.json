@@ -196,7 +196,8 @@
         "banFromRoom": "ban from room",
         "goBackToListener": "go back to listener",
         "deleteMessage": "इस मैसेज को हटा दें",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "बोलने की अनुमति की आवश्यकता है",

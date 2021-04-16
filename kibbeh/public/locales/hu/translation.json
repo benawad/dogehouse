@@ -174,7 +174,8 @@
         "banFromRoom": "kitiltás a szobából",
         "goBackToListener": "visszalépés hallgatóvá",
         "deleteMessage": "üzenet törlése",
-        "makeRoomCreator": "adminná tétel"
+        "makeRoomCreator": "adminná tétel",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "beszélői engedélyre van szükség ",

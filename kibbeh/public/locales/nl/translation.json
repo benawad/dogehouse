@@ -199,7 +199,8 @@
         "banFromRoom": "Verban uit de kamer",
         "goBackToListener": "Ga terug naar luisteraar",
         "deleteMessage": "Verwijder dit bericht",
-        "makeRoomCreator": "kamerbeheerder maken"
+        "makeRoomCreator": "kamerbeheerder maken",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Toestemming nodig om te spreken",

@@ -175,7 +175,8 @@
         "banFromRoom": "踢出聊天室",
         "goBackToListener": "回到听者",
         "deleteMessage": "删除此信息",
-        "makeRoomCreator": "设为聊天室管理员"
+        "makeRoomCreator": "设为聊天室管理员",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "需要允许才能说话",

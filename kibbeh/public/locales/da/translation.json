@@ -201,7 +201,8 @@
         "banFromRoom": "Bandlys fra rummet",
         "goBackToListener": "Gå tilbage til lytter",
         "deleteMessage": "Slet denne besked",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "kræv tilladelse for at tale",

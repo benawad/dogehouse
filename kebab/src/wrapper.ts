@@ -156,6 +156,8 @@ export const wrap = (connection: Connection) => ({
       connection.send("delete_room_chat_message", { userId, messageId }),
     blockFromRoom: (userId: string): Promise<void> =>
       connection.send("block_from_room", { userId }),
+    unbanFromRoomChat: (userId: string): Promise<void> =>
+      connection.send("unban_from_room_chat", { userId }),
     banFromRoomChat: (userId: string): Promise<void> =>
       connection.send("ban_from_room_chat", { userId }),
     setListener: (userId: string): Promise<void> =>

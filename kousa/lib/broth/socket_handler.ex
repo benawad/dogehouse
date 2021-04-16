@@ -562,6 +562,12 @@ defmodule Broth.SocketHandler do
     {:ok, state}
   end
 
+  def handler("unban_from_room_chat", %{"userId" => user_id_to_unban}, state) do
+    Kousa.RoomChat.unban_user(state.user_id, user_id_to_unban)
+    {:ok, state}
+  end
+
+
   def handler(op, data, state) do
     with {:ok, room_id} <- Beef.Users.tuple_get_current_room_id(state.user_id) do
       voice_server_id = Onion.RoomSession.get(room_id, :voice_server_id)
