@@ -59,7 +59,8 @@
       "featureText_6": "Tvarkomas Doge",
       "loginGithub": "Prisijunkite su GitHub",
       "loginTwitter": "Prisijunkite su Twitter",
-      "createTestUser": "Sukurkite testavimo naudotoją"
+      "createTestUser": "Sukurkite testavimo naudotoją",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "Atsijungti",

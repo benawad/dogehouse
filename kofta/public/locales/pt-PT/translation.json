@@ -58,7 +58,8 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "Entrar com GitHub",
       "loginTwitter": "Entrar com Twitter",
-      "createTestUser": "Criar utilizador de teste"
+      "createTestUser": "Criar utilizador de teste",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "Sair",

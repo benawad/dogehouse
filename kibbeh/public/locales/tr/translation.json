@@ -58,7 +58,8 @@
       "featureText_6": "Doge tarafından desteklenmektedir",
       "loginGithub": "GitHub ile giriş yap",
       "loginTwitter": "Twitter ile giriş yap",
-      "createTestUser": "Test kullanıcısı oluştur"
+      "createTestUser": "Test kullanıcısı oluştur",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Çıkış yap",
@@ -178,7 +179,8 @@
         "banFromRoom": "Odadan Yasakla",
         "goBackToListener": "Dinlemeye Geri Dön",
         "deleteMessage": "Mesajı Sil",
-        "makeRoomCreator": "Oda Yetkilisi Yap"
+        "makeRoomCreator": "Oda Yetkilisi Yap",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Konuşmak için izne ihtiyacın var",

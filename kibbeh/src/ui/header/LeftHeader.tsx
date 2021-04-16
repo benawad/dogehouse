@@ -14,7 +14,7 @@ const LeftHeader: React.FC<LeftHeaderProps> = ({}) => {
           <LgLogo />
         ) : (
           <div className="flex justify-center w-full">
-            <LogoIcon width={40} height={40} />
+            <LogoIcon width={40} height={40} color="#EFE7DC" />
           </div>
         )}
       </a>

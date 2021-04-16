@@ -59,7 +59,8 @@
       "featureText_6": "提供: Doge",
       "loginGithub": "GitHub でログイン",
       "loginTwitter": "Twitter でログイン",
-      "createTestUser": "テストユーザーを作成"
+      "createTestUser": "テストユーザーを作成",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "ログアウト",
@@ -194,7 +195,8 @@
         "banFromRoom": "ルームからBAN",
         "goBackToListener": "リスナーに戻る",
         "deleteMessage": "メッセージを削除",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "発言を許可制にする",

@@ -92,7 +92,7 @@
       "unfollow": "Oprește urmărirea",
       "followingHim": "urmărind",
       "copyProfileUrl": "copiază adresa profilului",
-      "urlCopied": "Copiat",
+      "urlCopied": "Copiat"
     },
     "voiceSettings": {
       "header": "Setări Voce",
@@ -102,9 +102,9 @@
       "volume": "volum:"
     },
     "overlaySettings": {
-      "input": { 
-        "errorMsg": "Vă rugăm să introduceți un titlu valid", 
-        "label": "Introduce titlul aplicației" 
+      "input": {
+        "errorMsg": "Vă rugăm să introduceți un titlu valid",
+        "label": "Introduce titlul aplicației"
       },
       "header": "Setări Overlay"
     }
@@ -157,8 +157,8 @@
     "userVolumeSlider": {
       "noAudioMessage": "niciun consumator audio dintr-un motiv neștiut"
     },
-    "addToCalendar": { 
-      "add": "Adaugă în Calendar" 
+    "addToCalendar": {
+      "add": "Adaugă în Calendar"
     },
     "wsKilled": {
       "description": "Conexiunea a fost dezactivată de către server. Asta se întamplă de obicei cănd website-ul este deschis în altă filă.",

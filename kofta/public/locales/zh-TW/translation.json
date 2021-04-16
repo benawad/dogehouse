@@ -58,7 +58,8 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "用GitHub登入",
       "loginTwitter": "用Twitter登入",
-      "createTestUser": "建立測試使用者"
+      "createTestUser": "建立測試使用者",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "登出",

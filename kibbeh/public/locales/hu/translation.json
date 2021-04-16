@@ -57,7 +57,8 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "bejelentkezés GitHub fiókkal",
       "loginTwitter": "bejelentkezés Twitter fiókkal",
-      "createTestUser": "teszt felhasználó létrehozása"
+      "createTestUser": "teszt felhasználó létrehozása",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "kijelentkezés",
@@ -173,7 +174,8 @@
         "banFromRoom": "kitiltás a szobából",
         "goBackToListener": "visszalépés hallgatóvá",
         "deleteMessage": "üzenet törlése",
-        "makeRoomCreator": "adminná tétel"
+        "makeRoomCreator": "adminná tétel",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "beszélői engedélyre van szükség ",

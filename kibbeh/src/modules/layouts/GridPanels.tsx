@@ -1,8 +1,8 @@
 import React, { FC, useContext } from "react";
 import { FixedGridPanel, GridPanel } from "../../ui/GridPanel";
 import LeftHeader from "../../ui/header/LeftHeader";
+import { MiddleHeader } from "../../ui/header/MiddleHeader";
 import RightHeader from "../../ui/header/RightHeader";
-import { MiddleHeaderController } from "../search/MiddleHeaderController";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 
 interface LeftPanelProps {}
@@ -29,7 +29,7 @@ export const MiddlePanel: React.FC<
     <GridPanel>
       <div className="flex sticky top-0 w-full flex-col z-10 bg-primary-900 pt-5">
         <HeaderWrapper>
-          <MiddleHeaderController />
+          <MiddleHeader />
         </HeaderWrapper>
         {stickyChildren}
       </div>

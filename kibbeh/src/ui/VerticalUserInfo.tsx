@@ -66,7 +66,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
           <p className="text-primary-300 mt-2 text-center w-full whitespace-pre-wrap break-words inline line-clamp-6">
             {user.bio.split(/\n/).map((line, i) => (
               <>
-                {i > 0 ? <br /> : null}
+                {i > 0 ? <br key={i} /> : null}
                 {line.split(" ").map((chunk, j) => {
                   try {
                     return linkRegex.test(chunk) ? (
@@ -80,9 +80,13 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
                         {chunk}&nbsp;
                       </a>
                     ) : (
-                      `${chunk} `
+                      <React.Fragment
+                        key={`${i}${j}`}
+                      >{`${chunk} `}</React.Fragment>
                     );
                   } catch (err) {}
+
+                  return null;
                 })}
               </>
             ))}

@@ -31,18 +31,13 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "estä"
-    },
+    "banUser": { "ban": "estä" },
     "followingOnlineList": {
       "listHeader": "Lista seuraamistasi käyttäjistä, jotka eivät ole yksityisessä huoneessa.",
       "currentRoom": "paikalla:",
       "startPrivateRoom": "luo yksityinen huone heidän kanssaan"
     },
-    "followList": {
-      "followHim": "seuraa",
-      "followingHim": "seurannassa"
-    },
+    "followList": { "followHim": "seuraa", "followingHim": "seurannassa" },
     "home": {
       "createRoom": "Luo huone",
       "refresh": "Päivitä",
@@ -64,7 +59,8 @@
       "featureText_6": "Dogen voimalla",
       "loginGithub": "kirjaudu GitHubilla",
       "loginTwitter": "kirjaudu Twitterillä",
-      "createTestUser": "luo testikäyttäjä"
+      "createTestUser": "luo testikäyttäjä",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "kirjaudu ulos",
@@ -87,12 +83,8 @@
       "allowAll": "Hyväksy kaikki",
       "allowAllConfirm": "Oletko varma? Tämä antaa kaikille {{count}} pyytäville käyttäjille puheoikeuden"
     },
-    "searchUser": {
-      "search": "hae..."
-    },
-    "soundEffectSettings": {
-      "header": "Äänet"
-    },
+    "searchUser": { "search": "hae..." },
+    "soundEffectSettings": { "header": "Äänet" },
     "viewUser": {
       "editProfile": "muokkaa profiilia",
       "followsYou": "seuraa sinua",
@@ -164,12 +156,8 @@
       "togglePushToTalkKeybind": "push-to-talk-pikanäppäin",
       "toggleOverlayKeybind": "overlay-pikanäppäin"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "ei äänen ulostulolaitteita"
-    },
-    "addToCalendar": {
-      "add": "Lisää kalenteriin"
-    },
+    "userVolumeSlider": { "noAudioMessage": "ei äänen ulostulolaitteita" },
+    "addToCalendar": { "add": "Lisää kalenteriin" },
     "wsKilled": {
       "description": "Palvelin katkaisi yhteyden. Tämä johtuu yleensä sivuston avaamisesta useampaan välilehteen.",
       "reconnect": "yhdistä uudelleen"
@@ -213,7 +201,8 @@
         "banFromRoom": "estä huoneesta",
         "goBackToListener": "palaa kuuntelijaksi",
         "deleteMessage": "poista viesti",
-        "makeRoomCreator": "ylennä huoneen ylläpitäjäksi"
+        "makeRoomCreator": "ylennä huoneen ylläpitäjäksi",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "puhuminen vaatii oikeuden",
@@ -233,9 +222,7 @@
       "upcomingRooms": "Tulevat huoneet",
       "exploreMoreRooms": "Etsi lisää huoneita"
     },
-    "search": {
-      "placeholder": "Hae huoneita, käyttäjiä tai kategorioita"
-    },
+    "search": { "placeholder": "Hae huoneita, käyttäjiä tai kategorioita" },
     "settingsDropdown": {
       "profile": "Profiili",
       "language": "Kieli",
@@ -288,8 +275,6 @@
       "galacticDoge": "Galaktinen Doge",
       "spottedLife": "Havaittiin planeetta, jossa on elämää"
     },
-    "feed": {
-      "yourFeed": "Syötteesi"
-    }
+    "feed": { "yourFeed": "Syötteesi" }
   }
 }

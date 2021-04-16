@@ -64,16 +64,16 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
   return (
     <div className="flex">
       <div
-        className={`flex p-4 w-full bg-primary-800 rounded-lg flex flex-col text-primary-100`}
+        className={`p-4 w-full bg-primary-800 rounded-lg flex flex-col text-primary-100`}
       >
-        <div className={`flex flex justify-between`}>
+        <div className={`flex justify-between`}>
           <div className="flex">
             {isToday(dt)
               ? t("common.formattedIntlTime", { time: dt })
               : t("common.formattedIntlDate", { date: dt })}
           </div>
           {isCreator ? (
-            <div className={`flex flex`}>
+            <div className={`flex`}>
               <Button size="small" onClick={() => onEdit()}>
                 {t("common.edit")}
               </Button>
@@ -96,10 +96,10 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
             </div>
           ) : null}
         </div>
-        <div className={`flex flex justify-between my-4`}>
+        <div className={`flex justify-between my-4`}>
           <div className="flex flex-col">
             <div
-              className={`flex relative inline-flex`} /* this is to aline the avatar and room name */
+              className={`relative inline-flex`} /* this is to aline the avatar and room name */
             >
               <SingleUser size="sm" src={creator.avatarUrl} />
               <div

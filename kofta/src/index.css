@@ -63,3 +63,8 @@ option {
   background: none;
   border: none;
 }
+
+::selection {
+  background-color: black;
+  color: white;
+}

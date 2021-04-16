@@ -43,6 +43,7 @@ export type TranslationKeys =
 	| "pages.login.featureText_6"
 	| "pages.login.loginGithub"
 	| "pages.login.loginTwitter"
+	| "pages.login.loginDiscord"
 	| "pages.login.createTestUser"
 	| "pages.myProfile.logout"
 	| "pages.myProfile.probablyLoading"

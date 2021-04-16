@@ -59,7 +59,8 @@
       "featureText_6": "Knúið af Doge",
       "loginGithub": "innskráning með GitHub",
       "loginTwitter": "innskráning með Twitter",
-      "createTestUser": "búa til prófanotanda"
+      "createTestUser": "búa til prófanotanda",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "skrá út",
@@ -196,7 +197,8 @@
         "banFromRoom": "banna frá rásinni",
         "goBackToListener": "fara aftur til hlustandans",
         "deleteMessage": "eyða skilaboðum",
-        "makeRoomCreator": "gera að rásarstjórnenda"
+        "makeRoomCreator": "gera að rásarstjórnenda",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "þurfa leyfi til að tala",

@@ -58,7 +58,8 @@
       "featureText_6": "멍멍이의 힘으로 구동됨 ",
       "loginGithub": "깃허브로 로그인",
       "loginTwitter": "트위터로 로그인",
-      "createTestUser": "테스트 계정 만들기"
+      "createTestUser": "테스트 계정 만들기",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "로그아웃",

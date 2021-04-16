@@ -13,7 +13,13 @@ import Backend from "i18next-node-fs-backend";
 import { autoUpdater } from "electron-updater";
 import { RegisterKeybinds, exitApp } from "./utils/keybinds";
 import { HandleVoiceTray } from "./utils/tray";
-import { ALLOWED_HOSTS, isLinux, isMac, MENU_TEMPLATE } from "./constants";
+import {
+  ALLOWED_HOSTS,
+  isLinux,
+  isMac,
+  isWin,
+  MENU_TEMPLATE,
+} from "./constants";
 import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
@@ -32,8 +38,6 @@ const instanceLock = app.requestSingleInstanceLock();
 let shouldShowWindow = false;
 let windowShowInterval: NodeJS.Timeout;
 let skipUpdateTimeout: NodeJS.Timeout;
-
-let PREV_VERSION = "";
 
 i18n.use(Backend);
 
@@ -60,13 +64,14 @@ async function localize() {
 
 function createMainWindow() {
   mainWindow = new BrowserWindow({
-    width: 560,
-    height: 1000,
+    width: 1500,
+    height: 800,
     autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
     },
+    frame: isLinux,
     show: false,
   });
 
@@ -147,26 +152,39 @@ function createMainWindow() {
   mainWindow.webContents.on("new-window", handleLinks);
   mainWindow.webContents.on("will-navigate", handleLinks);
 
-  ipcMain.on("@app/version", (event, args) => {
-    event.sender.send("@app/version", app.getVersion());
-  });
   ipcMain.on("@dogehouse/loaded", (event, doge) => {
-    if (doge != PREV_VERSION) {
-      PREV_VERSION = doge;
-      if (doge === "kibbeh") {
-        if (isMac) {
-          mainWindow.maximize();
-        } else {
-          mainWindow.setSize(1500, 800, true);
-        }
-      } else {
-        mainWindow.setSize(560, 1000, true);
-        setPresence({
-          details: "Taking DogeHouse to the moon",
-        });
+    if (isMac) mainWindow.maximize();
+  });
+  ipcMain.on("@app/quit", (event, args) => {
+    mainWindow.close();
+  });
+  ipcMain.on("@app/maximize", (event, args) => {
+    if (isMac) {
+      if (mainWindow.isFullScreenable()) {
+        mainWindow.setFullScreen(!mainWindow.isFullScreen());
       }
-      mainWindow.center();
+    } else {
+      if (mainWindow.maximizable) {
+        if (mainWindow.isMaximized()) {
+          mainWindow.unmaximize();
+        } else {
+          mainWindow.maximize();
+        }
+      }
     }
+  });
+  ipcMain.on("@app/minimize", (event, args) => {
+    if (mainWindow.minimizable) {
+      mainWindow.minimize();
+    }
+  });
+
+  ipcMain.on("@app/hostPlatform", (event, args) => {
+    event.sender.send("@app/hostPlatform", {
+      isLinux,
+      isMac,
+      isWin,
+    });
   });
 }
 
