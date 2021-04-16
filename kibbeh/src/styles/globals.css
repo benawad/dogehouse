@@ -122,8 +122,3 @@ img.emoji {
   vertical-align: -0.1em;
 }
 
-::selection {
-  background-color: black;
-  color: white;
-  /*We can delete if Ben doesn't like it*/
-}
