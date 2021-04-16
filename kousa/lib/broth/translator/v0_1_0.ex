@@ -35,6 +35,7 @@ defmodule Broth.Translator.V0_1_0 do
     "follow_info" => "user:get_relationship",
     "speaking_change" => "room:set_active_speaker",
     "get_my_scheduled_rooms_about_to_start" => "room:get_scheduled",
+    "get_scheduled_rooms" => "room:get_scheduled",
     # follow needs to arbitrate if it becomes follow or unfollow.
     "follow" => nil,
     # these are special cases:
@@ -133,6 +134,14 @@ defmodule Broth.Translator.V0_1_0 do
     message
     |> put_in(["d", "range"], "upcoming")
     |> put_in(["d", "userId"], "self")
+  end
+
+  def translate_in_body(message, "get_scheduled_rooms") do
+    if get_in(message, ["d", "getOnlyMyScheduledRooms"]) do
+      put_in(message, ["d", "userId"], "self")
+    else
+      message
+    end
   end
 
   def translate_in_body(message, _op), do: message
