@@ -96,5 +96,11 @@ function MacHeader() {
 }
 
 export function ElectronHeader() {
-  return useHostStore.getState().isMac ? <MacHeader /> : <WinHeader />;
+  return isElectron() && !useHostStore.getState().isLinux ? (
+    useHostStore.getState().isMac ? (
+      <MacHeader />
+    ) : (
+      <WinHeader />
+    )
+  ) : null;
 }

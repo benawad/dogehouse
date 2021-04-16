@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { useTokenStore } from "../modules/auth/useTokenStore";
+import { ElectronHeader } from "../modules/layouts/ElectronHeader";
 import { ButtonLink } from "../ui/ButtonLink";
 
 interface logoutProps {}
@@ -22,11 +22,14 @@ const Logout: React.FC<logoutProps> = ({}) => {
   }, [hasTokens, replace]);
 
   return (
-    <ButtonLink
-      onClick={() => setTokens({ accessToken: "", refreshToken: "" })}
-    >
-      click here if you are not automatically redirected
-    </ButtonLink>
+    <>
+      <ElectronHeader />
+      <ButtonLink
+        onClick={() => setTokens({ accessToken: "", refreshToken: "" })}
+      >
+        click here if you are not automatically redirected
+      </ButtonLink>
+    </>
   );
 };
 

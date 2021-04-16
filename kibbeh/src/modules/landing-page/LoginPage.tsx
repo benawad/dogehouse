@@ -10,6 +10,7 @@ import { Button } from "../../ui/Button";
 import { useSaveTokensFromQueryParams } from "../auth/useSaveTokensFromQueryParams";
 import { useTokenStore } from "../auth/useTokenStore";
 import { HeaderController } from "../display/HeaderController";
+import { ElectronHeader } from "../layouts/ElectronHeader";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 
 /*
@@ -81,124 +82,129 @@ export const LoginPage: React.FC = () => {
   }, [hasTokens, push]);
 
   return (
-    <div
-      className="grid w-full h-full"
-      style={{
-        gridTemplateRows: "1fr auto 1fr",
-      }}
-    >
-      <HeaderController embed={{}} title="Login" />
-      <div className="hidden sm:flex" />
-      <div className="flex justify-self-center self-center sm:hidden">
-        <LgLogo />
+    <>
+      <div className="flex">
+        <ElectronHeader />
       </div>
-      <div className="flex m-auto flex-col p-6 gap-5 bg-primary-800 sm:rounded-8 z-10 sm:w-400 w-full">
-        <div className="flex gap-2 flex-col">
-          <span className="text-3xl text-primary-100 font-bold">Welcome</span>
-          <p className="text-primary-100 flex-wrap">
-            By logging in you accept our&nbsp;
-            <a
-              href="https://youtu.be/dQw4w9WgXcQ"
-              className="text-accent hover:underline"
-            >
-              Privacy Policy
-            </a>
-            &nbsp;and&nbsp;
-            <a
-              href="https://youtu.be/dQw4w9WgXcQ"
-              className="text-accent hover:underline"
-            >
-              Terms of Service
-            </a>
-            .
-          </p>
+      <div
+        className="grid w-full h-full"
+        style={{
+          gridTemplateRows: "1fr auto 1fr",
+        }}
+      >
+        <HeaderController embed={{}} title="Login" />
+        <div className="hidden sm:flex" />
+        <div className="flex justify-self-center self-center sm:hidden">
+          <LgLogo />
         </div>
-        <div className="flex flex-col gap-4">
-          <LoginButton oauthUrl={`${apiBaseUrl}/auth/github/web`}>
-            <SvgSolidGitHub width={20} height={20} />
-            Log in with GitHub
-          </LoginButton>
-          <LoginButton oauthUrl={`${apiBaseUrl}/auth/twitter/web`}>
-            <SvgSolidTwitter width={20} height={20} />
-            Log in with Twitter
-          </LoginButton>
-          <LoginButton oauthUrl={`${apiBaseUrl}/auth/discord/web`}>
-            <SvgSolidDiscord width={20} height={20} />
-            Log in with Discord
-          </LoginButton>
-          {!__prod__ ? (
-            <LoginButton
-              dev
-              onClick={async () => {
-                // eslint-disable-next-line no-alert
-                const name = window.prompt("username");
-                if (!name) {
-                  return;
-                }
-                const r = await fetch(
-                  `${apiBaseUrl}/dev/test-info?username=` + name
-                );
-                const d = await r.json();
-                useTokenStore.getState().setTokens({
-                  accessToken: d.accessToken,
-                  refreshToken: d.refreshToken,
-                });
-                push("/dash");
-              }}
-            >
-              <SvgSolidBug width={20} height={20} />
-              Create a test user
+        <div className="flex m-auto flex-col p-6 gap-5 bg-primary-800 sm:rounded-8 z-10 sm:w-400 w-full">
+          <div className="flex gap-2 flex-col">
+            <span className="text-3xl text-primary-100 font-bold">Welcome</span>
+            <p className="text-primary-100 flex-wrap">
+              By logging in you accept our&nbsp;
+              <a
+                href="https://youtu.be/dQw4w9WgXcQ"
+                className="text-accent hover:underline"
+              >
+                Privacy Policy
+              </a>
+              &nbsp;and&nbsp;
+              <a
+                href="https://youtu.be/dQw4w9WgXcQ"
+                className="text-accent hover:underline"
+              >
+                Terms of Service
+              </a>
+              .
+            </p>
+          </div>
+          <div className="flex flex-col gap-4">
+            <LoginButton oauthUrl={`${apiBaseUrl}/auth/github/web`}>
+              <SvgSolidGitHub width={20} height={20} />
+              Log in with GitHub
             </LoginButton>
-          ) : null}
-        </div>
-        {/* <div className="flex flex-col gap-3 items-center">
+            <LoginButton oauthUrl={`${apiBaseUrl}/auth/twitter/web`}>
+              <SvgSolidTwitter width={20} height={20} />
+              Log in with Twitter
+            </LoginButton>
+            <LoginButton oauthUrl={`${apiBaseUrl}/auth/discord/web`}>
+              <SvgSolidDiscord width={20} height={20} />
+              Log in with Discord
+            </LoginButton>
+            {!__prod__ ? (
+              <LoginButton
+                dev
+                onClick={async () => {
+                  // eslint-disable-next-line no-alert
+                  const name = window.prompt("username");
+                  if (!name) {
+                    return;
+                  }
+                  const r = await fetch(
+                    `${apiBaseUrl}/dev/test-info?username=` + name
+                  );
+                  const d = await r.json();
+                  useTokenStore.getState().setTokens({
+                    accessToken: d.accessToken,
+                    refreshToken: d.refreshToken,
+                  });
+                  push("/dash");
+                }}
+              >
+                <SvgSolidBug width={20} height={20} />
+                Create a test user
+              </LoginButton>
+            ) : null}
+          </div>
+          {/* <div className="flex flex-col gap-3 items-center">
           <span className="text-primary-100">Download the app</span>
           <span className="text-primary-300">unavailable lol</span>
         </div> */}
-      </div>
-      <div className="flex flex-row absolute bottom-0 w-full justify-between px-5 py-5 mt-auto items-center sm:px-7">
-        <div className="hidden sm:flex">
-          <LgLogo />
         </div>
-        <div className="flex flex-row gap-6 text-primary-300">
-          <a
-            href="https://youtu.be/dQw4w9WgXcQ"
-            className="hover:text-primary-200"
-          >
-            Privacy policy
-          </a>
-          <a
-            href="https://github.com/benawad/dogehouse/issues"
-            className="ml-2 hover:text-primary-200"
-          >
-            Report a bug
-          </a>
-          <div className="flex flex-row gap-6 sm:gap-4">
+        <div className="flex flex-row absolute bottom-0 w-full justify-between px-5 py-5 mt-auto items-center sm:px-7">
+          <div className="hidden sm:flex">
+            <LgLogo />
+          </div>
+          <div className="flex flex-row gap-6 text-primary-300">
             <a
-              href="https://github.com/benawad/dogehouse"
-              target="_blank"
-              rel="noreferrer"
+              href="https://youtu.be/dQw4w9WgXcQ"
+              className="hover:text-primary-200"
             >
-              <SvgSolidGitHub
-                width={20}
-                height={20}
-                className="ml-2 cursor-pointer hover:text-primary-200"
-              />
+              Privacy policy
             </a>
             <a
-              href="https://discord.gg/wCbKBZF9cV"
-              target="_blank"
-              rel="noreferrer"
+              href="https://github.com/benawad/dogehouse/issues"
+              className="ml-2 hover:text-primary-200"
             >
-              <SvgSolidDiscord
-                width={20}
-                height={20}
-                className="ml-2 hover:text-primary-200"
-              />
+              Report a bug
             </a>
+            <div className="flex flex-row gap-6 sm:gap-4">
+              <a
+                href="https://github.com/benawad/dogehouse"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <SvgSolidGitHub
+                  width={20}
+                  height={20}
+                  className="ml-2 cursor-pointer hover:text-primary-200"
+                />
+              </a>
+              <a
+                href="https://discord.gg/wCbKBZF9cV"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <SvgSolidDiscord
+                  width={20}
+                  height={20}
+                  className="ml-2 hover:text-primary-200"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
