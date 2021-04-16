@@ -3,7 +3,7 @@
   "common": {
     "loadMore": "Pakrauti daugiau",
     "loading": "Kraunasi...",
-    "noUsersFound": "Nieko nerasta",
+    "noUsersFound": "Vartotojų nerasta!",
     "ok": "Gerai",
     "yes": "Taip",
     "no": "Ne",
@@ -27,7 +27,7 @@
     "_comment": "Main Footer UI Internationalization Strings",
     "link_1": "Kilmės istorija",
     "link_2": "Discord",
-    "link_3": "Pranešti"
+    "link_3": "Pranešti apie klaidą"
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
@@ -59,7 +59,8 @@
       "featureText_6": "Tvarkomas Doge",
       "loginGithub": "Prisijunkite su GitHub",
       "loginTwitter": "Prisijunkite su Twitter",
-      "createTestUser": "Sukurkite testavimo naudotoją"
+      "createTestUser": "Sukurkite testavimo naudotoją",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Atsijungti",
@@ -167,7 +168,8 @@
         "roomName": "Kambario pavadinimas",
         "roomDescription": "Kambario aprašymas",
         "descriptionError": "Didžiausias teksto ilgis yra 500 raidžių",
-        "nameError": "Turi būti nuo 2 iki 60 raidžių ilgio"
+        "nameError": "Turi būti nuo 2 iki 60 raidžių ilgio",
+        "subtitle": "Kad pradėtumėte kambarį, užpildykite formą"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Naujas kambarys sukurtas",
@@ -207,6 +209,27 @@
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
       }
+    },
+    "followingOnline": {
+      "people": "Žmonės",
+      "online": "PRISIJUNGĘ",
+      "noOnline": "Nėra prisijungusių draugų",
+      "showMore": "Rodyti daugiau"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Būsimi kambariai",
+      "exploreMoreRooms": "Rodyti daugiau kambarių"
+    },
+    "search": { "placeholder": "Ieškoti kambarių, vartotojų ar kategorijų" },
+    "settingsDropdown": {
+      "profile": "Profilis",
+      "language": "Kalba",
+      "reportABug": "Pranešti apie klaidą",
+      "useOldVersion": "Naudoti seną versiją",
+      "logOut": {
+        "button": "Atsijungti",
+        "modalSubtitle": "Ar tikrai norite atsijungti?"
+      }
     }
   },
   "modules": {
@@ -222,13 +245,13 @@
         "needsFuture": "Turi būti ateityje",
         "roomName": "Kambario pavadinimas",
         "minLength": "Mažiausias ilgis 2",
-        "roomDescription": "Description"
+        "roomDescription": "Kambario aprašymas"
       }
     },
     "roomChat": {
       "title": "Pokalbis",
       "emotesSoon": "[emotes soon]",
-      "bannedAlert": "Tu buvo užblokuotas šiame kambaryje -GG",
+      "bannedAlert": "Buvai užblokuotas šiame kambaryje",
       "waitAlert": "Prieš išsiųsdami kitą pranešimą, turite palaukti sekundę",
       "search": "Ieškoti",
       "searchResults": "Paieškos rezultatai",
@@ -249,6 +272,7 @@
       "approachingGalaxy": "Approaching galaxy",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

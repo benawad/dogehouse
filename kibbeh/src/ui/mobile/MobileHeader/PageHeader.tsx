@@ -13,7 +13,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
   onBackClick,
 }) => {
   return (
-    <div className="w-full px-3 py-4 bg-primary-900 text-primary-100">
+    <div className="flex w-full px-3 py-4 bg-primary-900 text-primary-100">
       {onBackClick && (
         <button className="absolute" onClick={onBackClick}>
           <SolidCaretRight

@@ -18,7 +18,7 @@ import { Wrapper } from "../components/Wrapper";
 import { useShouldFullscreenChat } from "../modules/room-chat/useShouldFullscreenChat";
 import { Codicon } from "../svgs/Codicon";
 import { BaseUser } from "../types";
-import { validate as uuidValidate } from 'uuid';
+import { validate as uuidValidate } from "uuid";
 import { useTimeElapsed } from "../utils/timeElapsed";
 import { useMeQuery } from "../utils/useMeQuery";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
@@ -31,7 +31,7 @@ if (isElectron()) {
 
 const isMac = process.platform === "darwin";
 
-interface RoomPageProps { }
+interface RoomPageProps {}
 
 export const RoomPage: React.FC<RoomPageProps> = () => {
   const {
@@ -63,7 +63,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
     if (isElectron()) {
       ipcRenderer.send("@room/data", {
         currentRoom: room,
-        me: me
+        me: me,
       });
     }
   });
@@ -225,7 +225,7 @@ export const RoomPage: React.FC<RoomPageProps> = () => {
             ))}
             {listeners.length ? (
               <div
-                className={`flex col-span-full text-xl mt-2.5 ml-2.5 text-white`}
+                className={`flex flex col-span-full text-xl mt-2.5 ml-2.5 text-white`}
               >
                 {t("pages.room.listeners")} ({listeners.length})
               </div>

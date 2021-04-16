@@ -43,6 +43,13 @@ defmodule Kousa.Beef.UserTest do
     test "by user_id", %{user: user = %{id: id}} do
       assert [^id] = Users.find_by_github_ids([user.githubId])
     end
+
+    test "by searching username", %{user: %{id: id, username: username}} do
+      assert [%{id: ^id}] = Users.search_username("@" <> username)
+      assert [%{id: ^id}] = Users.search_username(username)
+      assert [%{id: ^id}] = Users.search_username(String.slice(username, 0..2))
+      assert [] = Users.search_username("akljdsjoqwdijo12")
+    end
   end
 
   describe "when you edit a user" do

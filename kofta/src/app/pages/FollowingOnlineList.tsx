@@ -29,7 +29,7 @@ export const FollowingOnlineList: React.FC<FriendListProps> = () => {
         {users.length === 0 ? <div>{t("common.noUsersFound")}</div> : null}
         {users.map((u) => (
           <div
-            className={`border-b border-solid border-simple-gray-3c flex py-4 px-2 items-center`}
+            className={`flex border-b border-solid border-simple-gray-3c flex py-4 px-2 items-center`}
             key={u.id}
           >
             <button onClick={() => history.push(`/user/${u.username}`, u)}>
@@ -47,7 +47,9 @@ export const FollowingOnlineList: React.FC<FriendListProps> = () => {
               className={`ml-4 flex-1 text-left`}
             >
               <div className={`text-lg`}>
-                {u.displayName || <div className={`font-mono`}>@{u.username}</div>}
+                {u.displayName || (
+                  <div className={`font-mono`}>@{u.username}</div>
+                )}
               </div>
               <div style={{ color: "" }}>
                 {u.currentRoom ? (

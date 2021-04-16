@@ -43,6 +43,16 @@ defmodule Kousa.Beef.RoomsTest do
       # assert Rooms.get_room_status(user.id) == {:askedToSpeak, room}
     end
 
+    test "search_name" do
+      room = Factory.create(Room)
+      id = room.id
+      assert [%{id: ^id}] = Rooms.search_name(room.name)
+      assert [%{id: ^id}] = Rooms.search_name(String.slice(room.name, 0..2))
+      assert [] = Rooms.search_name("akljdsjoqwdijo12")
+      room2 = Factory.create(Room, isPrivate: true)
+      assert [] = Rooms.search_name(room2.name)
+    end
+
     test "can_join_room" do
       u = Factory.create(User)
 

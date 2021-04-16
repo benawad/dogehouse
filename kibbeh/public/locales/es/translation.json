@@ -57,7 +57,8 @@
       "featureText_6": "Desarrollado por Doge",
       "loginGithub": "iniciar sesión con GitHub",
       "loginTwitter": "iniciar sesión con Twitter",
-      "createTestUser": "crear usuario de prueba"
+      "createTestUser": "crear usuario de prueba",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "cerrar sesión",
@@ -144,7 +145,8 @@
         "roomName": "nombre de la sala",
         "roomDescription": "descripción de la sala",
         "descriptionError": "longitud máxima de 500 caracteres",
-        "nameError": "debe contener entre 2 y 60 caracteres"
+        "nameError": "debe contener entre 2 y 60 caracteres",
+        "subtitle": "Completa este Formulario para crear una nueva sala"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nueva Sala Creada",
@@ -208,6 +210,27 @@
     "inviteButton": {
       "invited": "invitado",
       "inviteToRoom": "invitar a la sala"
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "Tu tienes 0 amigos online",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Proximas Salas",
+      "exploreMoreRooms": "Explora nuevas salas"
+    },
+    "search": { "placeholder": "Buscar salas, usuarios or categorias" },
+    "settingsDropdown": {
+      "profile": "Perfil",
+      "language": "Idioma",
+      "reportABug": "Informa una problema",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "cerrar sesión",
+        "modalSubtitle": "¿Estás seguro que quieres cerrar sesión?"
+      }
     }
   },
   "modules": {
@@ -249,6 +272,7 @@
       "approachingGalaxy": "Acercandose a la galaxia",
       "galacticDoge": "Doge galáctico",
       "spottedLife": "Vida descubierta en el planeta"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

@@ -46,7 +46,7 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
 
   return (
     <div
-      className={`pt-4 px-4 flex-1 bg-primary-800`}
+      className={`flex pt-4 px-4 flex-1 bg-primary-800`}
       id={props.room.isPrivate ? "private-room" : "public-room"}
     >
       <div className="w-full block">
@@ -77,7 +77,7 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
             />
           ) : null}
           {listeners}
-          <div className={`h-3 w-full col-span-full`}></div>
+          <div className={`flex h-3 w-full col-span-full`}></div>
         </div>
       </div>
     </div>

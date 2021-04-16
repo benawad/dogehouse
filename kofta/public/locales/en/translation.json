@@ -64,7 +64,8 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "Log in with GitHub",
       "loginTwitter": "Log in with Twitter",
-      "createTestUser": "create Test User"
+      "createTestUser": "create Test User",
+      "loginDiscord": "Log in with Discord"
     },
     "myProfile": {
       "logout": "Logout",
@@ -157,7 +158,7 @@
       "tryAgain": "Try Again"
     },
     "keyboardShortcuts": {
-      "setKeybind": "Det Keybind",
+      "setKeybind": "Set Keybind",
       "listening": "Listening...",
       "toggleMuteKeybind": "Toggle mute keybind",
       "toggleOverlayKeybind": "Toggle overlay keybind",

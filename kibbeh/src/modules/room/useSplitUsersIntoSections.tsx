@@ -44,7 +44,7 @@ export const useSplitUsersIntoSections = ({
         <img
           src={isCreator ? `/emotes/coolhouse.png` : `/emotes/dogehouse.png`}
           alt={isCreator ? `admin` : `mod`}
-          style={{ marginLeft: 4, marginTop: 4 }}
+          style={{ marginLeft: 4 }}
           className={`w-3 h-3 ml-1`}
         />
       );
@@ -70,7 +70,7 @@ export const useSplitUsersIntoSections = ({
 
   if (canIAskToSpeak) {
     speakers.push(
-      <div className={`justify-center`}>
+      <div className={`flex justify-center`}>
         <BoxedIcon
           key="megaphone"
           onClick={() => {

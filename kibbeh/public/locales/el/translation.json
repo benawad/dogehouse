@@ -16,7 +16,7 @@
     "copied": "αντιγράφτηκε",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Λάβετε υπόψη ότι το να τρέχετε το DogeHouse χωρίς δικαιώματα προσβασιμότητας μπορεί να προκαλέσει ανεπιθύμητα σφάλματα "
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -25,7 +25,7 @@
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
-    "link_1": "Ιστορία Προέλευσης",
+    "link_1": "Ιστορία",
     "link_2": "Discord",
     "link_3": "Αναφορά Προβλήματος"
   },
@@ -33,11 +33,15 @@
     "_comment": "Respective Page UI Internationalization Strings",
     "banUser": { "ban": "αποκλεισμός" },
     "followingOnlineList": {
-      "listHeader": "Χρήστες που ακολουθείτε και δεν βρίσκονται σε κάποιο δωμάτιο",
+      "listHeader": "Οι χρήστες που ακολουθείτε και δεν βρίσκονται σε κάποιο δωμάτιο",
       "currentRoom": "αυτή τη στιγμή βρίσκεστε σε:",
       "startPrivateRoom": "δημιουργήστε ένα ιδιωτικό δωμάτιο μαζί τους"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "ακολουθήστε",
+      "ακολουθήστε": "ακολουθείτε",
+      "followingHim": "ακολουθείτε"
+    },
     "home": {
       "createRoom": "Δημιουργία Δωματίου",
       "refresh": "Επαναφόρτωση",
@@ -53,13 +57,14 @@
       "headerText": "Πάμε τις φωνητικές συνομιλίες στο φεγγάρι 🚀",
       "featureText_1": "Σκούρο Θέμα",
       "featureText_2": "Ανοιχτές Εγγραφές",
-      "featureText_3": "Υποστήριξη Πολλαπλών Πλατφορμών",
+      "featureText_3": "Υποστήριξη Πολλαπλών Συσκευών",
       "featureText_4": "Ανοιχτού Πηγαίου Κώδικα",
       "featureText_5": "Συζήτηση Κειμένου",
       "featureText_6": "Με την υποστήριξη του Doge",
       "loginGithub": "σύνδεση μέσω GitHub",
       "loginTwitter": "σύνδεση μέσω Twitter",
-      "createTestUser": "δημιουργήστε δοκιμαστικό χρήστη"
+      "createTestUser": "δημιουργήστε δοκιμαστικό χρήστη",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "αποσύνδεση",
@@ -67,20 +72,20 @@
       "voiceSettings": "πηγαίνετε στις ρυθμίσεις φωνής",
       "soundSettings": "πηγαίνετε στις ρυθμίσεις ήχου",
       "deleteAccount": "διαγραφή λογαριασμού",
-      "overlaySettings": "go to overlay settings",
+      "overlaySettings": "πηγαιντε στις ρυθμίσεις του overlay",
       "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Ουπς! Αυτή η σελίδα χάθηκε στη συζήτηση.",
       "goHomeMessage": "Μην ανησυχείτε. Μπορείτε να",
-      "goHomeLinkText": "επιστρέψετε στην αρχική"
+      "goHomeLinkText": "επιστρέψετε στην αρχική σελίδα"
     },
     "room": {
       "speakers": "Ομιλητές",
       "requestingToSpeak": "Αιτούμενοι να μιλήσουν",
       "listeners": "Ακροατές",
       "allowAll": "Επιτρέψτε τα όλα",
-      "allowAllConfirm": "Είστε σίγουρος; Αυτό θα επιτρέψει όλους τους {{count}} χρήστες που έχουν ζητήσει να μιλήσουν"
+      "allowAllConfirm": "Είστε σίγουρος; Αυτό θα επιτρέψει όλους τους {{count}} χρήστες που έχουν ζητήσει, να μιλήσουν"
     },
     "searchUser": { "search": "αναζήτηση..." },
     "soundEffectSettings": { "header": "Ήχοι" },
@@ -91,9 +96,9 @@
       "following": "ακολουθείτε",
       "followHim": "ακολουθήστε",
       "followingHim": "ακολουθείτε",
-      "unfollow": "Unfollow",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard"
+      "copyProfileUrl": "αντιγράψτε τον σύνδεσμο της εικόνας",
+      "urlCopied": "ο συνδεσμος αντιγράφθηκε στο πρόχειρο",
+      "unfollow": "ξε-ακολουθήστε"
     },
     "voiceSettings": {
       "header": "Ρυθμίσεις Φωνής",
@@ -103,11 +108,11 @@
       "volume": "ένταση ήχου:"
     },
     "overlaySettings": {
-      "header": "Overlay Settings",
       "input": {
-        "errorMsg": "Please enter valid app title",
-        "label": "Enter app title"
-      }
+        "errorMsg": "Μη έγκυρος τίτλος εφαρμογής",
+        "label": "Εισάγετε τον τίτλο της εφαρμογής"
+      },
+      "header": "Ρυθμίσεις overlay"
     }
   },
   "components": {
@@ -153,7 +158,7 @@
       "listening": "ακροατές",
       "toggleMuteKeybind": "συντόμευση εναλλαγής σίγασης",
       "togglePushToTalkKeybind": "συντόμευση εναλλαγής push-to-talk",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "θέστε μια συντόμευση για το overlay"
     },
     "userVolumeSlider": {
       "noAudioMessage": "δεν υπάρχει δέκτης ήχου για κάποιο λόγο"
@@ -170,7 +175,8 @@
         "roomName": "όνομα δωματίου",
         "roomDescription": "περιγραφή δωματίου",
         "descriptionError": "μέγιστο μήκος 500",
-        "nameError": "πρέπει να έχει μήκος μεταξύ 2 και 60 χαρακτήρων"
+        "nameError": "πρέπει να έχει μήκος μεταξύ 2 και 60 χαρακτήρων",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Δημιουργήθηκε Νέο Δωμάτιο",
@@ -182,7 +188,7 @@
       "editProfileModal": {
         "usernameTaken": "όνομα χρήστη μη διαθέσιμο",
         "avatarUrlError": "Άκυρη φωτογραφία",
-        "avatarUrlLabel": "Διεύθυνση URL άβαταρ Github/Twitter",
+        "avatarUrlLabel": "Διεύθυνση URL άβαταρ απο Github/Twitter",
         "displayNameError": "μήκος από 2 έως 50 χαρακτήρες",
         "displayNameLabel": "Εμφανιζόμενο Όνομα",
         "usernameError": "μήκος από 4 έως 15 χαρακτήρες και μόνο αλφαριθμητικά/κάτω παύλα",
@@ -207,8 +213,29 @@
         "requirePermission": "απαίτηση άδειας για ομιλία",
         "makePublic": "κάντε το δωμάτιο δημόσιο",
         "makePrivate": "κάντε το δωμάτιο ιδιωτικό",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "ορίστε ένα όνομα για το δημόσιο δωμάτιο",
+        "renamePrivate": "ορίστε ένα όνομα για το ιδιωτικό δωμάτιο"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -252,6 +279,7 @@
       "approachingGalaxy": "Πλησιάζουμε τον Γαλαξία",
       "galacticDoge": "Γαλαξιακό Doge",
       "spottedLife": "Εντοπίστηκε πλανήτης με ζωή"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

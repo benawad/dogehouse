@@ -36,14 +36,25 @@ commit messages are standardized:
 Emojis need to be 28x28px. To add an emoji, add the png/gif image to public/emojis and add the emoji to the `kofta/src/app/modules/room-chat/EmoteData.ts`.
 
 To avoid conflicts please add the emojis to the top of the file.
+> **NOTE:** We are not accepting new emojis atm
 
 ## Quickstart Local Frontend Development
 Do this if you only want to do React stuff and don't want to touch Elixir:
 
+### New UI *(react + next.js)*:
+Navigate to `/kibbeh`
+
+- Run `yarn`
+- Run `yarn staging` (this tells React to connect to a hosted version of the backend for development purposes)
+- Read `kibbeh/README.md` for more information and a fixes for known development issues.
+> **NOTE:** Please follow the [design guidelines](https://github.com/benawad/dogehouse/blob/staging/DESIGN_GUIDELINES.md) and [figma mockups](https://www.figma.com/file/CS01VVLR7ArQl0afYFkNj3/Web-App) and if what you're trying to do isn't in there, consult [@ajmnz](https://github.com/ajmnz)/[@benawad](https://github.com/benawad) beforehand.
+
+### Old UI *(react only)*:
 Navigate to `/kofta`
 
 - Run `npm i`
 - Run `npm run start:staging` (this tells React to connect to a hosted version of the backend for development purposes)
+> **NOTE:** If you make changes to this and PR, it mostly won't be accepted as this version is going to be deprecated <ins>VERY</ins> soon
 
 ## Devcontainer Full Local Development
 For VSCode users, we're able to use devcontainers which allows to create development environments that already have all the tools and services configured and ready to go.
@@ -52,7 +63,7 @@ For VSCode users, we're able to use devcontainers which allows to create develop
 
 _Prerequisite: [Install Docker](https://docs.docker.com/install) on your local environment._
 
-To get started, read and follow the instuctions in [Developing inside a Container](https://code.visualstudio.com/docs/remote/containers). The [.devcontainer/](./.devcontainer) directory contains pre-configured `devcontainer.json`, `docker-compose.yml` and `Dockerfile` files, which you can use to set up remote development within a docker container.
+To get started, read and follow the instructions in [Developing inside a Container](https://code.visualstudio.com/docs/remote/containers). The [.devcontainer/](./.devcontainer) directory contains pre-configured `devcontainer.json`, `docker-compose.yml` and `Dockerfile` files, which you can use to set up remote development within a docker container.
 
 - Install the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension.
 - Open VSCode and bring up the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
@@ -73,6 +84,12 @@ $ npm i
 $ npm run build
 $ npm start
 ```
+#### `kibbeh`
+```shell
+$ yarn
+$ yarn dev
+```
+
 #### `kofta`
 ```shell
 $ npm i

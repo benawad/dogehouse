@@ -7,7 +7,7 @@ describe("BaseOverlay", () => {
   it("should render correctly", () => {
     const { getByTestId, getByText } = render(
       <BaseOverlay>
-        <div>Child</div>
+        <div className="flex">Child</div>
       </BaseOverlay>
     );
     const baseOverlay = getByTestId("base-overlay");
@@ -20,7 +20,7 @@ describe("BaseOverlay", () => {
   it("should render title if title prop is passed", () => {
     const { getByText } = render(
       <BaseOverlay title="Messages">
-        <div>Child</div>
+        <div className="flex">Child</div>
       </BaseOverlay>
     );
     const title = getByText("Messages");
@@ -31,7 +31,7 @@ describe("BaseOverlay", () => {
   it("should render actionButton if actionButton prop is passed", () => {
     const { getByText } = render(
       <BaseOverlay actionButton="Show more">
-        <div>Child</div>
+        <div className="flex">Child</div>
       </BaseOverlay>
     );
     const actionButton = getByText("Show more");
@@ -46,7 +46,7 @@ describe("BaseOverlay", () => {
         actionButton="Show more"
         onActionButtonClicked={onActionButtonClickedMock}
       >
-        <div>Child</div>
+        <div className="flex">Child</div>
       </BaseOverlay>
     );
     const actionButton = getByText("Show more");
@@ -59,7 +59,7 @@ describe("BaseOverlay", () => {
   it("should match snapshot", () => {
     const { getByTestId } = render(
       <BaseOverlay>
-        <div>Child</div>
+        <div className="flex">Child</div>
       </BaseOverlay>
     );
     const baseOverlay = getByTestId("base-overlay");

@@ -1,13 +1,13 @@
 import { ScheduledRoom } from "@dogehouse/kebab";
 import { differenceInMilliseconds, isPast, isToday, sub } from "date-fns";
 import { useRouter } from "next/router";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { modalConfirm } from "../../shared-components/ConfirmModal";
-import { useConn } from "../../shared-hooks/useConn";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../../ui/Button";
 import { SingleUser } from "../../ui/UserAvatar";
+import { WebSocketContext } from "../ws/WebSocketProvider";
 import { AddToCalendarButton } from "./AddToCalendarButton";
 import { CopyScheduleRoomLinkButton } from "./CopyScheduleRoomLinkButton";
 
@@ -56,17 +56,18 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
       }
     };
   }, [dt]);
-  const me = useConn().user;
+  const { conn } = useContext(WebSocketContext);
+  const me = conn?.user;
   const { t } = useTypeSafeTranslation();
   const isCreator = me?.id === creator.id;
   const url = window.location.origin + `/scheduled-room/${id}`;
   return (
-    <div>
+    <div className="flex">
       <div
         className={`p-4 w-full bg-primary-800 rounded-lg flex flex-col text-primary-100`}
       >
         <div className={`flex justify-between`}>
-          <div>
+          <div className="flex">
             {isToday(dt)
               ? t("common.formattedIntlTime", { time: dt })
               : t("common.formattedIntlDate", { date: dt })}
@@ -76,7 +77,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
               <Button size="small" onClick={() => onEdit()}>
                 {t("common.edit")}
               </Button>
-              <div className={`ml-4`}>
+              <div className={`flex ml-4`}>
                 <Button
                   loading={isLoading}
                   size="small"
@@ -96,7 +97,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
           ) : null}
         </div>
         <div className={`flex justify-between my-4`}>
-          <div className="flex-col">
+          <div className="flex flex-col">
             <div
               className={`relative inline-flex`} /* this is to aline the avatar and room name */
             >
@@ -112,12 +113,12 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
                 {name.slice(0, 100)}
               </div>
             </div>
-            <div className={`break-all`}>
+            <div className={`flex break-all`}>
               {creator.displayName}
               {description ? ` | ` + description : ``}
             </div>
           </div>
-          <div>
+          <div className="flex">
             <AddToCalendarButton
               event={{
                 name,
@@ -136,7 +137,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
         </div>
 
         {canStartRoom ? (
-          <div className={`mt-4`}>
+          <div className={`flex mt-4`}>
             {isCreator ? (
               <Button
                 loading={isLoadingStartRoom}

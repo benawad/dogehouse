@@ -59,7 +59,8 @@
       "featureText_6": "Dogen voimalla",
       "loginGithub": "kirjaudu GitHubilla",
       "loginTwitter": "kirjaudu Twitterillä",
-      "createTestUser": "luo testikäyttäjä"
+      "createTestUser": "luo testikäyttäjä",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "kirjaudu ulos",
@@ -68,7 +69,7 @@
       "soundSettings": "siirry toistoasetuksiin",
       "deleteAccount": "poista käyttäjä",
       "overlaySettings": "siirry overlay-asetuksiin",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Käyttäjää ei löytynyt"
     },
     "notFound": {
       "whoopsError": "Hups! Tämä sivu katosi keskusteluun.",
@@ -168,7 +169,8 @@
         "roomName": "huoneen nimi",
         "roomDescription": "huoneen kuvaus",
         "descriptionError": "maksimipituus 500 merkkiä",
-        "nameError": "tulee olla 2-60 merkkiä pitkä"
+        "nameError": "tulee olla 2-60 merkkiä pitkä",
+        "subtitle": "Luo uusi huone täyttämällä seuraavat kentät"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Uusi huone luotu",
@@ -207,6 +209,27 @@
         "makePrivate": "tee huoneesta yksityinen",
         "renamePublic": "Aseta julkinen huoneen nimi",
         "renamePrivate": "Aseta yksityinen huoneen nimi"
+      }
+    },
+    "followingOnline": {
+      "people": "Henkilöt",
+      "online": "PAIKALLA",
+      "noOnline": "Sinulla on tällä hetkellä 0 kaveria paikalla",
+      "showMore": "Näytä lisää"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Tulevat huoneet",
+      "exploreMoreRooms": "Etsi lisää huoneita"
+    },
+    "search": { "placeholder": "Hae huoneita, käyttäjiä tai kategorioita" },
+    "settingsDropdown": {
+      "profile": "Profiili",
+      "language": "Kieli",
+      "reportABug": "Ilmoita ongelmasta",
+      "useOldVersion": "Käytä vanhaa versioita",
+      "logOut": {
+        "button": "Kirjaudu ulos",
+        "modalSubtitle": "Haluatko varmasti kirjautua ulos?"
       }
     }
   },
@@ -250,6 +273,7 @@
       "approachingGalaxy": "Lähestymässä galaksia",
       "galacticDoge": "Galaktinen Doge",
       "spottedLife": "Havaittiin planeetta, jossa on elämää"
-    }
+    },
+    "feed": { "yourFeed": "Syötteesi" }
   }
 }

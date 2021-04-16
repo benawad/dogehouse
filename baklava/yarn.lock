@@ -234,17 +234,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^14.14.31":
+"@types/node@npm:*, @types/node@npm:^14.14.31, @types/node@npm:^14.6.2":
   version: 14.14.37
   resolution: "@types/node@npm:14.14.37"
   checksum: 5e2d9baf7594ebacaf016716515f30de0765169412787f981481c2fb8b468923149bb9e2e3219ee672399811672ceddc339a7372a61cf15bc656836a5494d991
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^12.0.12":
-  version: 12.20.7
-  resolution: "@types/node@npm:12.20.7"
-  checksum: 0c12d32c14bfc3c91431592d1063c31d0267c14471bba6fa0907dd618eedf50acd7f3ff16ee441a53807058819c09354d9343798f710a975b447792e39c3b940
   languageName: node
   linkType: hard
 
@@ -1258,14 +1251,14 @@ __metadata:
     del-cli: ^3.0.1
     discord-rpc: ^3.2.0
     dotenv: ^8.2.0
-    electron: ^11.3.0
+    electron: ^12.0.2
     electron-build-env: ^0.2.0
     electron-builder: ^22.10.5
     electron-builder-notarize: ^1.2.0
     electron-log: ^4.3.2
     electron-overlay-window: ^1.0.4
     electron-updater: ^4.3.8
-    globkey: v1.0.36
+    globkey: ^1.0.41
     i18next: ^20.0.0
     i18next-node-fs-backend: ^2.1.3
     lodash: ^4.17.21
@@ -1438,16 +1431,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron@npm:^11.3.0":
-  version: 11.4.2
-  resolution: "electron@npm:11.4.2"
+"electron@npm:^12.0.2":
+  version: 12.0.2
+  resolution: "electron@npm:12.0.2"
   dependencies:
     "@electron/get": ^1.0.1
-    "@types/node": ^12.0.12
+    "@types/node": ^14.6.2
     extract-zip: ^1.0.3
   bin:
     electron: cli.js
-  checksum: ff7acad3fbae129b8f14c7b1e9cc4be03d2589ac60759cd312505336b7c0b2c35f0f7fac969781c000bebf6f9f70265420001ffa5bac18054d0407d4fe26e569
+  checksum: 77f69f651309151748913fe3b57bcfc82f814142d7ccc8f9157c2ba7647b08ab9ae7d38b3231075ecce348422f0ce4351879e5f0e76095a8c8c304d08c2983d0
   languageName: node
   linkType: hard
 
@@ -1848,10 +1841,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globkey@npm:v1.0.36":
-  version: 1.0.36
-  resolution: "globkey@npm:1.0.36"
-  checksum: 2b3ca52c0cc775d9d46647927a6a2a4289e270a2e9a604ce997c40a5962a26c9cc4a05fd125532e1e4ace01532892f4b1e9bcff92accbe511565074f600072b8
+"globkey@npm:^1.0.41":
+  version: 1.0.41
+  resolution: "globkey@npm:1.0.41"
+  checksum: adb7672900c38c333ffe420738b90b4da5e11038d723354ae1c5fdec6212e017038d040b475a6e258088b706ff8b946b70d96883071cf5de76170658b8505516
   languageName: node
   linkType: hard
 

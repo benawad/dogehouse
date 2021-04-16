@@ -7,15 +7,15 @@
     "yes": "सही",
     "no": "गलत",
     "cancel": "रद्द करें",
-    "save": "save",
-    "edit": "edit",
-    "delete": "delete",
-    "joinRoom": "join room",
-    "copyLink": "copy link",
-    "copied": "copied",
+    "save": "सेव",
+    "edit": "संपादित करे",
+    "delete": "हटाओ",
+    "joinRoom": "कमरे में शामिल हों",
+    "copyLink": "कॉपी",
+    "copied": "कॉपी हो गया",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "कृपया ध्यान दें कि एक्सेसिबिलिटी परमिशन के बिना डॉगहाउस चलाना अवांछित त्रुटियों का कारण हो सकता है"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -58,7 +58,8 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "log in with GitHub",
       "loginTwitter": "log in with Twitter",
-      "createTestUser": "create test user"
+      "createTestUser": "create test user",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "logout",
@@ -163,7 +164,8 @@
         "roomName": "रूम का नाम",
         "roomDescription": "रूम के बारे में",
         "descriptionError": "500 अक्षर से कम ",
-        "nameError": "2 अक्षर से जयादा और 60 अक्षर से कम के बीच में होने चाहए"
+        "nameError": "2 अक्षर से जयादा और 60 अक्षर से कम के बीच में होने चाहए",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "नया रूम बन गया है",
@@ -202,6 +204,27 @@
         "makePrivate": "रूम को प्राइवेट करें!",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -245,6 +268,7 @@
       "approachingGalaxy": "Approaching galaxy",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

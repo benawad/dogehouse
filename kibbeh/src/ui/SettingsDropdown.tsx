@@ -9,6 +9,7 @@ import {
 } from "../icons";
 import SvgSolidDiscord from "../icons/SolidDiscord";
 import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
+import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { BaseOverlay } from "../ui/BaseOverlay";
 import { SettingsIcon } from "../ui/SettingsIcon";
 import { LanguageSelector } from "./LanguageSelector";
@@ -19,12 +20,13 @@ export const SettingsDropdown: React.FC<{
   onActionButtonClicked: () => void;
 }> = ({ user, onCloseDropdown, onActionButtonClicked }) => {
   const [currentOverlay, setCurrentOverlay] = useState<ReactNode>(null);
+  const { t } = useTypeSafeTranslation();
 
   return (
-    <div style={{ width: 200 }}>
+    <div className="flex" style={{ width: 200 }}>
       <BaseOverlay
         onActionButtonClicked={onActionButtonClicked}
-        actionButton={"Log out"}
+        actionButton={t("components.settingsDropdown.logOut.button")}
         overlay={currentOverlay}
       >
         <div className="flex flex-col">
@@ -32,7 +34,7 @@ export const SettingsDropdown: React.FC<{
             <SettingsIcon
               onClick={onCloseDropdown}
               icon={<SolidUser />}
-              label={"Profile"}
+              label={t("components.settingsDropdown.profile")}
               transition
             />
           </ApiPreloadLink>
@@ -40,7 +42,7 @@ export const SettingsDropdown: React.FC<{
         <SettingsIcon icon={<SolidDogenitro />} label={"Wallet"} /> */}
           <SettingsIcon
             icon={<OutlineGlobe />}
-            label={"Language"}
+            label={t("components.settingsDropdown.language")}
             trailingIcon={<SolidCaretRight />}
             transition
             onClick={() =>
@@ -58,7 +60,7 @@ export const SettingsDropdown: React.FC<{
             <SettingsIcon
               onClick={onCloseDropdown}
               icon={<SolidBug />}
-              label={"Report a bug"}
+              label={t("components.settingsDropdown.reportABug")}
               transition
             />
           </a>
@@ -66,7 +68,7 @@ export const SettingsDropdown: React.FC<{
             <SettingsIcon
               onClick={onCloseDropdown}
               icon={<SolidTime />}
-              label={"Use old version"}
+              label={t("components.settingsDropdown.useOldVersion")}
               transition
             />
           </a>

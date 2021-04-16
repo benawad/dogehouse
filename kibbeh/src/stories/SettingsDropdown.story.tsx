@@ -7,7 +7,14 @@ export default {
 };
 
 const TheSettingsDropdown: Story = () => {
-  return <SettingsDropdown />;
+  return (
+    <SettingsDropdown
+      onActionButtonClicked={() => {}}
+      onCloseDropdown={() => {}}
+      // @todo
+      user={{} as any}
+    />
+  );
 };
 
 export const Main = TheSettingsDropdown.bind({});

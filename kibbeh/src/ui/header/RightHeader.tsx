@@ -7,6 +7,7 @@ import { useTokenStore } from "../../modules/auth/useTokenStore";
 import { closeVoiceConnections } from "../../modules/webrtc/WebRtcApp";
 import { modalConfirm } from "../../shared-components/ConfirmModal";
 import { useConn } from "../../shared-hooks/useConn";
+import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { DropdownController } from "../DropdownController";
 import { SettingsDropdown } from "../SettingsDropdown";
 import { SingleUser } from "../UserAvatar";
@@ -32,8 +33,9 @@ const RightHeader: React.FC<RightHeaderProps> = ({
 }) => {
   const { close: closeWs, user } = useConn();
   const { push } = useRouter();
+  const { t } = useTypeSafeTranslation();
   return (
-    <div className="space-x-4 items-center justify-end focus:outline-no-chrome w-full">
+    <div className="flex space-x-4 items-center justify-end focus:outline-no-chrome w-full">
       {onAnnouncementsClick && (
         <button onClick={onAnnouncementsClick}>
           <SolidMegaphone width={23} height={23} className="text-primary-200" />
@@ -58,15 +60,18 @@ const RightHeader: React.FC<RightHeaderProps> = ({
         overlay={(close) => (
           <SettingsDropdown
             onActionButtonClicked={() => {
-              modalConfirm("Are you sure you want to logout?", () => {
-                closeWs();
-                closeVoiceConnections(null);
-                useCurrentRoomIdStore.getState().setCurrentRoomId(null);
-                useTokenStore
-                  .getState()
-                  .setTokens({ accessToken: "", refreshToken: "" });
-                push("/logout");
-              });
+              modalConfirm(
+                t("components.settingsDropdown.logOut.modalSubtitle"),
+                () => {
+                  closeWs();
+                  closeVoiceConnections(null);
+                  useCurrentRoomIdStore.getState().setCurrentRoomId(null);
+                  useTokenStore
+                    .getState()
+                    .setTokens({ accessToken: "", refreshToken: "" });
+                  push("/logout");
+                }
+              );
             }}
             onCloseDropdown={close}
             user={user}

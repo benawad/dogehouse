@@ -15,9 +15,9 @@ export const RoomCardParticipants: React.FC<RoomCardParticipantsProps> = ({
   const names = users.map((u) => u.name).join(", ");
 
   return (
-    <div className={`space-x-1 ${className ? className : ""}`} {...props}>
+    <div className={`flex space-x-1 ${className ? className : ""}`} {...props}>
       <MultipleUsers srcArray={pics} />
-      <div className={`table-cell`}>
+      <div className={`flex table-cell`}>
         <p
           className={`text-primary-300 truncate`}
           style={{ fontSize: "0.9rem" }}

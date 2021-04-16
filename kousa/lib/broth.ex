@@ -4,6 +4,7 @@ defmodule Broth do
   @type json :: String.t() | number | boolean | nil | [json] | %{String.t() => json}
 
   alias Broth.Routes.GitHubAuth
+  alias Broth.Routes.DiscordAuth
   alias Broth.Routes.TwitterAuth
   alias Broth.Routes.ScheduledRoom
   alias Broth.Routes.Dev
@@ -21,6 +22,8 @@ defmodule Broth do
 
   forward("/auth/github", to: GitHubAuth)
   forward("/auth/twitter", to: TwitterAuth)
+  forward("/auth/discord", to: DiscordAuth)
+  # forward("/me", to: Kousa.Me)
   forward("/dev", to: Dev)
   forward("/scheduled-room", to: ScheduledRoom)
 

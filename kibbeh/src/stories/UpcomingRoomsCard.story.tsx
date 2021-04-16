@@ -15,6 +15,7 @@ const today = new Date();
 
 const upcomingRooms: ScheduledRoomSummaryCardProps[] = [
   {
+    onClick: () => {},
     id: "1",
     scheduledFor: today,
     speakersInfo: {
@@ -24,6 +25,7 @@ const upcomingRooms: ScheduledRoomSummaryCardProps[] = [
     title: "Live with u/DeepFuckingValue",
   },
   {
+    onClick: () => {},
     id: "2",
     scheduledFor: addDays(today, 1),
     speakersInfo: {
@@ -33,6 +35,7 @@ const upcomingRooms: ScheduledRoomSummaryCardProps[] = [
     title: "Is Apple equipment worth it?",
   },
   {
+    onClick: () => {},
     id: "3",
     scheduledFor: addDays(today, 2),
     speakersInfo: {
@@ -52,7 +55,7 @@ export default {
 export const ScheduledRoom: Story<ScheduledRoomSummaryCardProps> = ({
   ...props
 }) => (
-  <div style={{ width: 365 }}>
+  <div className="flex" style={{ width: 365 }}>
     <ScheduledRoomSummaryCard {...props} {...upcomingRooms[2]} />
   </div>
 );
@@ -60,7 +63,7 @@ export const ScheduledRoom: Story<ScheduledRoomSummaryCardProps> = ({
 ScheduledRoom.bind({});
 
 export const Main: Story<UpcomingRoomsCardProps> = ({ ...props }) => (
-  <div style={{ width: 365 }}>
+  <div className="flex" style={{ width: 365 }}>
     <UpcomingRoomsCard {...props} rooms={upcomingRooms} />
   </div>
 );
