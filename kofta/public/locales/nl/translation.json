@@ -15,7 +15,7 @@
     "copied": "Gekopieerd",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Houd er rekening mee dat het uitvoeren van DogeHouse zonder toegankelijkheidsrechten ongewenste fouten kan veroorzaken"
+    "requestPermissions": "Houd er rekening mee dat het uitvoeren van DogeHouse zonder de benodigde permissies ongewenste fouten kan veroorzaken"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -32,9 +32,9 @@
     "_comment": "Respective Page UI Internationalization Strings",
     "banUser": { "ban": "Verban" },
     "followingOnlineList": {
-      "listHeader": "Lijst van gebruikers die je volgt en niet in een privé kamer zijn.",
+      "listHeader": "Lijst van gebruikers die je volgt en niet in een privékamer zijn.",
       "currentRoom": "Momenteel in:",
-      "startPrivateRoom": "Start een privé kamer met deze persoon"
+      "startPrivateRoom": "Start een privékamer met deze persoon"
     },
     "followList": { "followHim": "Volg", "followingHim": "Volgend" },
     "home": {
@@ -51,15 +51,15 @@
     "login": {
       "headerText": "Wij brengen gesprekken naar de maan! 🚀",
       "featureText_1": "Donkere modus",
-      "featureText_2": "Open Registraties",
-      "featureText_3": "Cross-Platform Ondersteuning",
-      "featureText_4": "Open Source",
-      "featureText_5": "Tekst Chat",
+      "featureText_2": "Open registraties",
+      "featureText_3": "Platformoverschrijdend",
+      "featureText_4": "Open source",
+      "featureText_5": "Tekstchat",
       "featureText_6": "Mogelijk gemaakt door Doge",
       "loginGithub": "Log in met GitHub",
       "loginTwitter": "Log in met Twitter",
-      "createTestUser": "Maak een test gebruiker",
-      "loginDiscord": "login with Discord"
+      "createTestUser": "Maak een testgebruiker",
+      "loginDiscord": "Log in met Discord"
     },
     "myProfile": {
       "logout": "Afmelden",
@@ -67,7 +67,7 @@
       "voiceSettings": "Ga naar spraakinstellingen",
       "soundSettings": "Ga naar geluidsinstellingen",
       "deleteAccount": "Verwijder account",
-      "overlaySettings": "ga naar overlay-instellingen"
+      "overlaySettings": "Ga naar overlay-instellingen"
     },
     "notFound": {
       "whoopsError": "Oeps! Deze pagina is verloren gegaan tijdens het gesprek.",
@@ -76,10 +76,10 @@
     },
     "room": {
       "speakers": "Sprekers",
-      "requestingToSpeak": "Aanvragen om te spreken",
+      "requestingToSpeak": "Spreekrechten aanvragen",
       "listeners": "Luisteraars",
       "allowAll": "Iedereen toestaan",
-      "allowAllConfirm": "Weet je het zeker? Dit geeft toestemming aan alle {{count}} verzoekende gebruikers om te spreken"
+      "allowAllConfirm": "Weet je het zeker? Dit geeft toestemming aan {{count}} verzoekende gebruikers om te spreken"
     },
     "searchUser": { "search": "Zoek..." },
     "soundEffectSettings": { "header": "Geluiden" },
@@ -90,19 +90,19 @@
       "following": "Volgend",
       "followHim": "Volg",
       "followingHim": "Volgend",
-      "copyProfileUrl": "kopieer profiel url",
-      "urlCopied": "URL gekopieerd naar klembord",
+      "copyProfileUrl": "Kopieer link naar profiel",
+      "urlCopied": "Link gekopieerd naar klembord",
       "unfollow": "Ontvolgen"
     },
     "voiceSettings": {
       "header": "Spraakinstellingen",
       "mic": "Microfoon:",
       "permissionError": "Geen microfoon gevonden, waarschijnlijk is er geen microfoon aangesloten of heb je geen toestemming gegeven.",
-      "refresh": "Ververs microfoonlijst",
+      "refresh": "Ververs microfoonoverzicht",
       "volume": "Volume:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": { "errorMsg": "Ongeldige applicatietitel", "label": "Voer applicatietitel in" },
       "header": "Overlay-instellingen"
     }
   },
@@ -112,7 +112,7 @@
     "backBar": {},
     "blockedFromRoomUsers": {
       "header": "Verbannen Gebruikers",
-      "unban": "Unban",
+      "unban": "Hef ban op",
       "noBans": "Er is nog niemand verbannen"
     },
     "bottomVoiceControl": {
@@ -133,7 +133,7 @@
     "deviceNotSupported": {
       "notSupported": "Je apparaat wordt momenteel niet ondersteund. Je kunt een",
       "linkText": "issue op GitHub",
-      "addSupport": "maken en ik zal ondersteuning voor je apparaat proberen toe te voegen."
+      "addSupport": "maken en we zullen ondersteuning voor jouw apparaat proberen toe te voegen."
     },
     "inviteButton": {
       "invited": "Uitgenodigd",
@@ -149,28 +149,28 @@
       "listening": "Aan het luisteren",
       "toggleMuteKeybind": "Schakel demp sneltoets",
       "togglePushToTalkKeybind": "Schakel push-to-talk sneltoets",
-      "toggleOverlayKeybind": "schakel overlay keybind"
+      "toggleOverlayKeybind": "Schakel overlay sneltoets"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Geen audioapparaat om een of andere reden"
     },
     "addToCalendar": { "add": "Voeg toe aan agenda" },
     "wsKilled": {
-      "description": "WebSocket is gestopt door de server. Dit gebeurt meestal als je de site open hebt staan in een ander tabblad.",
+      "description": "De websocket is gestopt door de server. Dit gebeurt meestal als je de site open hebt staan in een ander tabblad.",
       "reconnect": "Opnieuw verbinden"
     },
     "modals": {
       "createRoomModal": {
         "public": "Openbaar",
         "private": "Privé",
-        "roomName": "Kamer naam",
-        "roomDescription": "Kamer omschrijving",
-        "descriptionError": "Maximale lengte van 500",
+        "roomName": "Kamernaam",
+        "roomDescription": "Omschrijving",
+        "descriptionError": "Maximaal 500 karakters toegestaan",
         "nameError": "Moet tussen de 2 en 60 karakters lang zijn"
       },
       "invitedToJoinRoomModal": {
-        "newRoomCreated": "Nieuwe Kamer Gemaakt",
-        "roomInviteFrom": "Kamer Uitnodiging van",
+        "newRoomCreated": "Nieuwe kamer gemaakt",
+        "roomInviteFrom": "Kameruitnodiging van",
         "justStarted": "Ze zijn zojuist begonnen",
         "likeToJoin": ", wil je meedoen?",
         "inviteReceived": "Je bent uitgenodigd voor"
@@ -178,10 +178,10 @@
       "editProfileModal": {
         "usernameTaken": "Gebruikersnaam bezet",
         "avatarUrlError": "Ongeldige afbeelding",
-        "avatarUrlLabel": "Github/Twitter avatar url",
+        "avatarUrlLabel": "Link naar Github/Twitter avatar",
         "displayNameError": "2 tot 50 karakters",
         "displayNameLabel": "Weergavenaam",
-        "usernameError": "4 tot 15 karakters en alleen letters, cijfers en underscore",
+        "usernameError": "4 tot 15 karakters en alleen letters, cijfers en underscores",
         "usernameLabel": "Gebruikersnaam",
         "bioError": "Maximaal 160 karakters",
         "bioLabel": "Bio"
@@ -203,8 +203,8 @@
         "requirePermission": "Toestemming nodig om te spreken",
         "makePublic": "Maak kamer openbaar",
         "makePrivate": "Maak kamer privé",
-        "renamePublic": "Openbare kamer naam aanpassen",
-        "renamePrivate": "Privé kamer naam aanpassen"
+        "renamePublic": "Openbare kamernaam aanpassen",
+        "renamePrivate": "Privé kamernaam aanpassen"
       }
     }
   },
@@ -231,21 +231,21 @@
       "waitAlert": "Je moet een seconde wachten voordat je weer een bericht kan sturen.",
       "search": "Zoeken",
       "searchResults": "Zoekresultaten",
-      "recent": "Vaak Gebruikt",
-      "sendMessage": "Stuur een Bericht",
+      "recent": "Vaak gebruikt",
+      "sendMessage": "Stuur een bericht",
       "whisper": "Fluister",
       "welcomeMessage": "Welkom in de chat!",
-      "roomDescription": "Kamer omschrijving"
+      "roomDescription": "Kameromschrijving"
     },
     "roomStatus": {
       "fuelingRocket": "Raket aan het tanken",
       "takingOff": "Aan het opstijgen",
       "inSpace": "In de ruimte",
-      "approachingMoon": "Maan aan het benaderen",
+      "approachingMoon": "In een traject om de maan",
       "lunarDoge": "Maan-hond",
-      "approachingSun": "Zon aan het benaderen",
+      "approachingSun": "In een baan om de zon",
       "solarDoge": "Zonne-hond",
-      "approachingGalaxy": "Heelal aan het benaderen",
+      "approachingGalaxy": "Aan het uiteinde van het heelal",
       "galacticDoge": "Galactische Doge",
       "spottedLife": "Planeet met leven gespot"
     }
