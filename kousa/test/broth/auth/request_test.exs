@@ -3,7 +3,7 @@ defmodule KousaTest.Broth.Auth.RequestTest do
   use KousaTest.Support.EctoSandbox
 
   alias Beef.Schemas.User
-  alias Broth.WsClient
+  alias BrothTest.WsClient
   alias KousaTest.Support.Factory
 
   require WsClient

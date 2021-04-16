@@ -36,6 +36,7 @@ defmodule Broth.Message.Manifest do
     "room:get_info" => Room.GetInfo,
     "room:change_owner" => Room.ChangeOwner,
     "room:get_top" => Room.GetTop,
+    "room:set_active_speaker" => Room.SetActiveSpeaker,
     "chat:ban" => Chat.Ban,
     "chat:send_msg" => Chat.SendMsg,
     "chat:delete_msg" => Chat.DeleteMsg,

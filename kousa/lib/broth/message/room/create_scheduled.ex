@@ -30,5 +30,4 @@ defmodule Broth.Message.Room.CreateScheduled do
       _ -> changeset
     end
   end
-
 end

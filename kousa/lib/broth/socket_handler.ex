@@ -216,11 +216,11 @@ defmodule Broth.SocketHandler do
     %{message | payload: %{}, errors: error_map, operator: message.inbound_operator}
   end
 
-  #def f_handler("search", %{"query" => query}, _state) do
+  # def f_handler("search", %{"query" => query}, _state) do
   #  items = Kousa.Search.search(query)
-#
+  #
   #  %{items: items, nextCursor: nil}
-  #end
+  # end
 
   def prepare_socket_msg(data, state) do
     data

@@ -14,6 +14,6 @@ defmodule Broth.Translator do
   def translate_outbound(message, original = %{version: ~v(0.1.0)}) do
     V0_1_0.translate_outbound(message, original)
   end
-  def translate_outbound(message, _), do: message
 
+  def translate_outbound(message, _), do: message
 end

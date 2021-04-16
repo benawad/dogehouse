@@ -32,9 +32,10 @@ defmodule Broth.Translator.V0_1_0 do
     "ask_to_speak" => "room:set_role",
     "ban_from_room_chat" => "chat:ban",
     "block_from_room" => "room:ban",
+    "follow_info" => "user:get_relationship",
+    "speaking_change" => "room:set_active_speaker",
     # follow needs to arbitrate if it becomes follow or unfollow.
     "follow" => nil,
-    "follow_info" => "user:get_relationship",
     # these are special cases:
     "block_user_and_from_room" => "block_user_and_from_room",
     "fetch_follow_list" => "fetch_follow_list",
@@ -55,11 +56,11 @@ defmodule Broth.Translator.V0_1_0 do
   end
 
   def translate_operation(message = %{"op" => operator}) do
-    %{message | "op" => @operator_translations[operator]}
+    put_in(message, ["op"], @operator_translations[operator])
   end
 
   def translate_in_body(message, "edit_profile") do
-    %{message | "d" => get_in(message, ["d", "data"])}
+    put_in(message, ["d"], get_in(message, ["d", "data"]))
   end
 
   def translate_in_body(message, "create_room") do
@@ -85,7 +86,7 @@ defmodule Broth.Translator.V0_1_0 do
   end
 
   def translate_in_body(message, "change_mod_status") do
-    role = if get_in(message, ["d","value"]), do: "mod", else: "user"
+    role = if get_in(message, ["d", "value"]), do: "mod", else: "user"
     put_in(message, ["d", "level"], role)
   end
 
@@ -114,7 +115,12 @@ defmodule Broth.Translator.V0_1_0 do
   def translate_in_body(message, "follow") do
     # this one has to also alter the operation.
     operation = if get_in(message, ["d", "value"]), do: "user:follow", else: "user:unfollow"
-    %{message | "op" => operation}
+    put_in(message, ["op"], operation)
+  end
+
+  def translate_in_body(message, "speaking_change") do
+    active? = get_in(message, ["d", "value"])
+    put_in(message, ["d"], %{"active" => active?})
   end
 
   def translate_in_body(message, _op), do: message

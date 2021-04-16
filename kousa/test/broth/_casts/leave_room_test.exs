@@ -5,7 +5,7 @@ defmodule KousaTest.Broth.LeaveRoomTest do
   alias Beef.Schemas.User
   alias Beef.Users
   alias Beef.Rooms
-  alias Broth.WsClient
+  alias BrothTest.WsClient
   alias BrothTest.WsClientFactory
   alias KousaTest.Support.Factory
 

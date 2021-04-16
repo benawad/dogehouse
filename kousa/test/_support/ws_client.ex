@@ -1,4 +1,4 @@
-defmodule Broth.WsClient do
+defmodule BrothTest.WsClient do
   use WebSockex
 
   @api_url Application.compile_env!(:kousa, :api_url)
@@ -180,7 +180,7 @@ end
 
 defmodule BrothTest.WsClientFactory do
   alias Beef.Schemas.User
-  alias Broth.WsClient
+  alias BrothTest.WsClient
   require WsClient
 
   import ExUnit.Assertions

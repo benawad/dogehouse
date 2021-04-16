@@ -1,4 +1,4 @@
-defmodule KousaTest.Broth.SpeakingChangeTest do
+defmodule KousaTest.Broth.SetActiveSpeakerTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 
@@ -32,10 +32,10 @@ defmodule KousaTest.Broth.SpeakingChangeTest do
 
       assert %{} = Onion.RoomSession.get(room.id, :activeSpeakerMap)
 
-      WsClient.send_msg_legacy(
+      WsClient.send_msg(
         t.client_ws,
-        "speaking_change",
-        %{"value" => true}
+        "room:set_active_speaker",
+        %{"active" => true}
       )
 
       # both websockets will be informed
@@ -59,10 +59,10 @@ defmodule KousaTest.Broth.SpeakingChangeTest do
 
       Process.sleep(100)
 
-      WsClient.send_msg_legacy(
+      WsClient.send_msg(
         t.client_ws,
-        "speaking_change",
-        %{"value" => false}
+        "room:set_active_speaker",
+        %{"active" => false}
       )
 
       WsClient.assert_frame(
@@ -97,10 +97,10 @@ defmodule KousaTest.Broth.SpeakingChangeTest do
 
       Onion.RoomSession.get(room.id, :activeSpeakerMap)
 
-      WsClient.send_msg_legacy(
+      WsClient.send_msg(
         t.client_ws,
-        "speaking_change",
-        %{"value" => false}
+        "room:set_active_speaker",
+        %{"active" => false}
       )
 
       WsClient.assert_frame(

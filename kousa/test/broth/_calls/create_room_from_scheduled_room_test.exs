@@ -2,7 +2,7 @@ defmodule KousaTest.Broth.CreateRoomFromScheduledRoomTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 
-  alias Broth.WsClient
+  alias BrothTest.WsClient
   alias BrothTest.WsClientFactory
   alias KousaTest.Support.Factory
 
