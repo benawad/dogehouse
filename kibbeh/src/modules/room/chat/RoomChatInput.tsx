@@ -1,5 +1,5 @@
 import { RoomUser } from "@dogehouse/kebab";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Smiley } from "../../../icons";
 import { createChatMessage } from "../../../lib/createChatMessage";
 import { showErrorToast } from "../../../lib/showErrorToast";
@@ -44,6 +44,10 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
 
   let position = 0;
 
+  useEffect(() => {
+    if (!open) inputRef.current?.focus();
+  }, [open]);
+
   const handleSubmit = (
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>
   ) => {
@@ -85,7 +89,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
 
   return (
     <form onSubmit={handleSubmit} className={`pb-3 px-4 pt-2 flex flex-col`}>
-      <div className={`mb-1`}>
+      <div className={`flex mb-1`}>
         <EmojiPicker
           emojiSet={customEmojis}
           onEmojiSelect={(emoji) => {
@@ -106,7 +110,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
         />
       </div>
       <div className="flex items-stretch">
-        <div className="flex-1 mr-2 lg:mr-0 items-center bg-primary-700 rounded-8">
+        <div className="flex flex-1 mr-2 lg:mr-0 items-center bg-primary-700 rounded-8">
           <Input
             maxLength={512}
             placeholder={t("modules.roomChat.sendMessage")}

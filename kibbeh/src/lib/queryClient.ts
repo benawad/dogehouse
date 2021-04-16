@@ -2,9 +2,11 @@ import { QueryClient } from "react-query";
 import { useTokenStore } from "../modules/auth/useTokenStore";
 import { apiBaseUrl } from "./constants";
 import { showErrorToast } from "./showErrorToast";
+import fetch from "isomorphic-fetch";
 
 export const defaultQueryFn = async ({ queryKey }: { queryKey: string }) => {
   const { accessToken, refreshToken } = useTokenStore.getState();
+
   const r = await fetch(`${apiBaseUrl}${queryKey[0]}`, {
     headers: {
       "X-Access-Token": accessToken,
@@ -45,7 +47,7 @@ export const queryClient = new QueryClient({
           showErrorToast((e as Error).message);
         }
       },
-      queryFn: defaultQueryFn,
+      queryFn: defaultQueryFn as any,
     },
   },
 });

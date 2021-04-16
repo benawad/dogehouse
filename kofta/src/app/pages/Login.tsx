@@ -17,6 +17,7 @@ import { TwitterIcon } from "../svgs/TwitterIcon";
 import { showErrorToast } from "../utils/showErrorToast";
 import { useTokenStore } from "../utils/useTokenStore";
 import { useTypeSafeTranslation } from "../utils/useTypeSafeTranslation";
+import { DiscordIcon } from "../svgs/DiscordIcon";
 
 const isMac = process.platform === "darwin";
 
@@ -79,6 +80,25 @@ export const Login: React.FC<LoginProps> = () => {
               </span>
             </Button>
           </div>
+          <div className={`mb-8`}>
+            <Button
+              variant="slim"
+              style={{ backgroundColor: "#36393F" }}
+              onClick={() =>
+                (window.location.href =
+                  apiBaseUrl +
+                  "/auth/discord/web" +
+                  (__staging__
+                    ? "?redirect_after_base=" + window.location.origin
+                    : ""))
+              }
+            >
+              <span className={`inline-flex items-center`}>
+                <DiscordIcon className={`h-6 w-6`} />
+                <p className={`ml-3`}>{t("pages.login.loginDiscord")}</p>
+              </span>
+            </Button>
+          </div>
           {!__staging__ ? (
             <Button
               variant="slim"
@@ -103,7 +123,7 @@ export const Login: React.FC<LoginProps> = () => {
               variant="slim"
               className={`m-8`}
               onClick={() => {
-                modalPrompt("username", async (name) => {
+                modalPrompt("Username", async (name) => {
                   if (!name) {
                     return;
                   }

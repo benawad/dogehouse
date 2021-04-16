@@ -10,13 +10,13 @@ export const ErrorToastController: React.FC<ErrorToastControllerProps> = ({}) =>
   return (
     <div
       style={{ zIndex: 1001 }}
-      className={`w-full fixed bottom-0 justify-center`}
+      className={`flex w-full fixed bottom-0 justify-center`}
     >
       <MainInnerGrid>
         <div />
-        <div className={`flex-col`}>
+        <div className={`flex flex-col w-full`}>
           {toasts.map((t) => (
-            <div key={t.id} className={`mb-3`}>
+            <div key={t.id} className={`flex mb-3`}>
               <ErrorToast
                 message={t.message}
                 duration={t.duration}

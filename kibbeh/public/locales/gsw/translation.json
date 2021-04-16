@@ -59,7 +59,8 @@
       "featureText_6": "Atribe vo Doge",
       "loginGithub": "mit GitHub amälde",
       "loginTwitter": "mit Twitter amälde",
-      "createTestUser": "Testnutzer erstelle"
+      "createTestUser": "Testnutzer erstelle",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Abmälde",
@@ -67,7 +68,8 @@
       "voiceSettings": "Sprachistellige",
       "soundSettings": "Tonistellige",
       "deleteAccount": "Konto lösche",
-      "overlaySettings": "Gang zu de Overlay Istellige"
+      "overlaySettings": "Gang zu de Overlay Istellige",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Hoppla! Die Site isch im Gspräch verlore gange.",
@@ -143,7 +145,8 @@
         "roomName": "Ruumname",
         "roomDescription": "Ruumbeschribig",
         "descriptionError": "die maximali Längi isch 500",
-        "nameError": "mues zwüsche 2 und 60 Zeiche lang sii"
+        "nameError": "mues zwüsche 2 und 60 Zeiche lang sii",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Neue Ruum erstellt",
@@ -174,7 +177,8 @@
         "banFromRoom": "Usem Ruum usschliesse",
         "goBackToListener": "Zrügg zum Zuehörer",
         "deleteMessage": "Nachricht lösche",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Rede verlange",
@@ -203,7 +207,28 @@
       "linkText": "Issue uf GitHub",
       "addSupport": "erstelle und ich werde versueche, d Ungerstützig für dis Grät hinzuefüege."
     },
-    "inviteButton": { "invited": "iglade", "inviteToRoom": "zum Ruum ilade" }
+    "inviteButton": { "invited": "iglade", "inviteToRoom": "zum Ruum ilade" },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
+      }
+    }
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
@@ -245,6 +270,7 @@
       "approachingGalaxy": "Geit uf d Galaxie zue",
       "galacticDoge": "Galaxie-Doge",
       "spottedLife": "Planet mit lebe gfunge"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

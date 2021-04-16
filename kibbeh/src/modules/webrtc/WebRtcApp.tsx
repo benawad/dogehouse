@@ -78,7 +78,6 @@ export const WebRtcApp: React.FC<App2Props> = () => {
           if (currentRoomId !== d.roomId) {
             return;
           }
-
           setCurrentRoomId(null);
           closeVoiceConnections(d.roomId);
           push("/dash");

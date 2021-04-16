@@ -40,7 +40,7 @@
     "home": {
       "createRoom": "Crea una stanza",
       "refresh": "Ricarica",
-      "editRoom": "Edit Room"
+      "editRoom": "Modifica la stanza"
     },
     "inviteList": {
       "roomGone": "La stanza non esiste, torna indietro",
@@ -58,7 +58,8 @@
       "featureText_6": "Offerto da Doge",
       "loginGithub": "Accedi con Github",
       "loginTwitter": "Accedi con Twitter",
-      "createTestUser": "Area utente per test"
+      "createTestUser": "Area utente per test",
+      "loginDiscord": "log in with Discord"
     },
     "myProfile": {
       "logout": "Disconnetti",

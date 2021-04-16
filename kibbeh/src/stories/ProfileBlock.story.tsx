@@ -38,6 +38,7 @@ interface ProfileBlockProps {
 
 const upcoming: ScheduledRoomSummaryCardProps[] = [
   {
+    onClick: () => {},
     id: "1",
     scheduledFor: today,
     speakersInfo: {
@@ -47,6 +48,7 @@ const upcoming: ScheduledRoomSummaryCardProps[] = [
     title: "Live with u/DeepFuckingValue",
   },
   {
+    onClick: () => {},
     id: "2",
     scheduledFor: addDays(today, 1),
     speakersInfo: {
@@ -56,6 +58,7 @@ const upcoming: ScheduledRoomSummaryCardProps[] = [
     title: "Is Apple equipment worth it?",
   },
   {
+    onClick: () => {},
     id: "3",
     scheduledFor: addDays(today, 2),
     speakersInfo: {
@@ -68,6 +71,7 @@ const upcoming: ScheduledRoomSummaryCardProps[] = [
 ];
 
 const userDetail: UserSummaryCardProps = {
+  onClick: () => {},
   avatarUrl: avatar,
   id: "1",
   displayName: "Arnau Jiménez",
@@ -90,7 +94,12 @@ export const Main: Story<ProfileBlockProps> = ({
 }) => (
   <ProfileBlock
     top={<UserSummaryCard {...userDetails} />}
-    bottom={<UpcomingRoomsCard rooms={upcomingRooms} />}
+    bottom={
+      <UpcomingRoomsCard
+        onCreateScheduledRoom={() => {}}
+        rooms={upcomingRooms}
+      />
+    }
   />
 );
 
@@ -122,7 +131,12 @@ export const ConnectedRoom: Story<ProfileBlockProps> = ({
 }) => (
   <ProfileBlock
     top={<ConnectedRoom connectedRoom={connectedRoom} />}
-    bottom={<UpcomingRoomsCard rooms={upcomingRooms} />}
+    bottom={
+      <UpcomingRoomsCard
+        onCreateScheduledRoom={() => {}}
+        rooms={upcomingRooms}
+      />
+    }
   />
 );
 

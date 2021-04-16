@@ -59,7 +59,8 @@
       "featureText_6": "බලගැන්වෙන්නේ Doge මගින්",
       "loginGithub": " GitHub මගින් සම්බන්ධ වන්න",
       "loginTwitter": "Twitter මගින් සම්බන්ධ වන්න",
-      "createTestUser": "පරිශීලක පරීක්ෂකයෙක් සාදන්න"
+      "createTestUser": "පරිශීලක පරීක්ෂකයෙක් සාදන්න",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "ඉවත් වන්න",

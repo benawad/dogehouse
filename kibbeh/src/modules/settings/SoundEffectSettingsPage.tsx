@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../../ui/Button";
 import { InfoText } from "../../ui/InfoText";
@@ -9,6 +9,7 @@ import {
   PossibleSoundEffect,
 } from "../sound-effects/useSoundEffectStore";
 import { HeaderController } from "../../modules/display/HeaderController";
+import isElectron from "is-electron";
 
 interface ChatSettingsProps {}
 
@@ -24,7 +25,25 @@ export const SoundEffectSettings: React.FC<ChatSettingsProps> = () => {
     playSoundEffect,
   ] = useSoundEffectStore((x) => [x.settings, x.setSetting, x.playSoundEffect]);
   const { t } = useTypeSafeTranslation();
-
+  useEffect(() => {
+    if (isElectron()) {
+      const ipcRenderer = window.require("electron").ipcRenderer;
+      ipcRenderer.send("@rpc/page", {
+        page: "sound-effect-settings",
+        opened: true,
+        modal: false,
+        data: "",
+      });
+      return () => {
+        ipcRenderer.send("@rpc/page", {
+          page: "sound-effect-settings",
+          opened: false,
+          modal: false,
+          data: "",
+        });
+      };
+    }
+  }, []);
   return (
     <DefaultDesktopLayout>
       <HeaderController embed={{}} title="Sound Settings" />
@@ -35,7 +54,7 @@ export const SoundEffectSettings: React.FC<ChatSettingsProps> = () => {
 
         {Object.keys(soundEffectSettings).map((k) => {
           return (
-            <div className={`flex mb-4 items-center`} key={k}>
+            <div className={`flex flex mb-4 items-center`} key={k}>
               <InfoText>{capitalize(camelToReg(k))}</InfoText>
               <input
                 className="ml-2"

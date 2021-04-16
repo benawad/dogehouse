@@ -84,7 +84,7 @@ export const SingleUserAvatar: React.FC<SingleUserAvatarProps> = ({
           ]}
         >
           <Image
-            source={require("../../assets/images/bxs-microphone.png")}
+            source={require("../../assets/images/SolidMicrophoneOff.png")}
             style={{
               height: indicatorSize[size] - 4,
               width: indicatorSize[size] - 4,

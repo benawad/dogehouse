@@ -22,6 +22,11 @@ const handlers = {
     as: `/u/${username}`,
     onClick: (prefetch: Prefetch) => prefetch("getUserProfile", [username]),
   }),
+  room: ({ id }: { id: string }) => ({
+    href: "/room/[id]",
+    as: `/room/${id}`,
+    onClick: (prefetch: Prefetch) => prefetch("joinRoomAndGetInfo", [id]),
+  }),
 };
 
 type Handler = typeof handlers;
@@ -43,7 +48,7 @@ export const ApiPreloadLink: React.FC<ValueOf<DifferentProps>> = ({
 }) => {
   const prefetch = useTypeSafePrefetch();
 
-  const { as, href, onClick } = handlers[route](data);
+  const { as, href, onClick } = handlers[route](data as any);
 
   return (
     <Link href={href} as={as}>

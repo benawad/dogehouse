@@ -59,7 +59,8 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "prijava s GitHubom",
       "loginTwitter": "prijava putem Twittera",
-      "createTestUser": "izradi test korisnika"
+      "createTestUser": "izradi test korisnika",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "odjava",
@@ -67,7 +68,8 @@
       "voiceSettings": "idite na glasovne postavke",
       "soundSettings": "idite na postavke zvuka",
       "deleteAccount": "izbriši račun",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Ups! Ova se stranica izgubila u razgovoru.",
@@ -168,7 +170,8 @@
         "roomName": "Naziv sobe",
         "roomDescription": "Opis sobe",
         "descriptionError": "maksimalna duljina 500",
-        "nameError": "mora imati između 2 i 60 znakova"
+        "nameError": "mora imati između 2 i 60 znakova",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nova soba stvorena",
@@ -199,7 +202,8 @@
         "banFromRoom": "zabrani mu pristup sobi",
         "goBackToListener": "vratite se na slušatelj",
         "deleteMessage": "izbriši ovu poruku",
-        "makeRoomCreator": "napravi administratorom sobe"
+        "makeRoomCreator": "napravi administratorom sobe",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "zahtijeva dopuštenje za govor",
@@ -207,6 +211,27 @@
         "makePrivate": "učini sobu privatnom",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -250,6 +275,7 @@
       "approachingGalaxy": "Približavanje galaksiji",
       "galacticDoge": "Galaktički doge",
       "spottedLife": "Planeta sa životom uočena"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

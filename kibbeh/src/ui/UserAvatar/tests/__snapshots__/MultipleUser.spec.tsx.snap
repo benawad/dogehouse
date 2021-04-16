@@ -2,7 +2,7 @@
 
 exports[`UserAvatar MultipleUsers should match snapshot 1`] = `
 Array [
-  <div
+  <div className="flex"
     class="relative inline-block "
     data-testid="single-user-avatar"
     style="width: 20px; height: 20px;"
@@ -13,7 +13,7 @@ Array [
       src=""
     />
   </div>,
-  <div
+  <div className="flex"
     class="relative inline-block "
     data-testid="single-user-avatar"
     style="width: 20px; height: 20px;"
@@ -24,7 +24,7 @@ Array [
       src=""
     />
   </div>,
-  <div
+  <div className="flex"
     class="relative inline-block "
     data-testid="single-user-avatar"
     style="width: 20px; height: 20px;"

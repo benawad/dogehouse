@@ -40,7 +40,7 @@
     "home": {
       "createRoom": "新建聊天室",
       "refresh": "刷新",
-      "editRoom": "Edit Room"
+      "editRoom": "修改聊天室"
     },
     "inviteList": {
       "roomGone": "聊天室已被删除，请回到前一页",
@@ -58,7 +58,8 @@
       "featureText_6": "神烦狗出品",
       "loginGithub": "用GitHub登录",
       "loginTwitter": "用Twitter登录",
-      "createTestUser": "创建测试账号"
+      "createTestUser": "创建测试账号",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "登出",

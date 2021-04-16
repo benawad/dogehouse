@@ -22,7 +22,11 @@
   <a href="./docs/README.MD">Documentation</a>
 </h3>
 
-<p align="center"><b>https://dogehouse.tv/</b></p>
+<h4 align="center">
+  <a href="https://dogehouse.tv">DogeHouse</a>
+  <span> · </span>
+  <a href="https://next.dogehouse.tv">Beta</a>
+</h4>
 
 ---
 
@@ -42,7 +46,7 @@
 
 ## Branches
 
-- staging -> pr this branch for everything else
+- staging -> pr this branch for everything
 - prod -> don't touch, this is what's running in prod
 
 ## Contributions
@@ -100,3 +104,7 @@ Check <a href="https://github.com/benawad/dogehouse/blob/staging/CONTRIBUTING.md
 ## Why did you make this?
 
 https://www.youtube.com/watch?v=hy-EhJ_tTQo
+
+## Attribution
+
+For emojis, we use [Twemoji](https://twemoji.twitter.com/)

@@ -12,14 +12,19 @@ import {
   View,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { Spinner } from "../components/Spinner";
 import {
   colors,
   fontFamily,
   fontSize,
+  h4,
+  paragraph,
+  paragraphBold,
   radius,
   small,
 } from "../constants/dogeStyle";
 import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
+import { useRoomChatStore } from "../modules/room/chat/useRoomChatStore";
 import { useWrappedConn } from "../shared-hooks/useConn";
 import { useTypeSafePrefetch } from "../shared-hooks/useTypeSafePrefetch";
 
@@ -43,6 +48,8 @@ export const CreateRoomPage: React.FC<CreateRoomModalProps> = ({
   const prefetch = useTypeSafePrefetch();
   const navigation = useNavigation();
   const inset = useSafeAreaInsets();
+  const [clearChat] = useRoomChatStore((s) => [s.clearChat]);
+  const [loading, setLoading] = useState(false);
   return (
     <KeyboardAvoidingView style={{ flex: 1 }} behavior={"padding"}>
       <View
@@ -79,6 +86,7 @@ export const CreateRoomPage: React.FC<CreateRoomModalProps> = ({
             return errors;
           }}
           onSubmit={async ({ name, privacy, description }) => {
+            setLoading(true);
             const d = { name, privacy, description };
             const resp = edit
               ? await conn.mutation.editRoom(d)
@@ -86,25 +94,20 @@ export const CreateRoomPage: React.FC<CreateRoomModalProps> = ({
 
             if ("error" in resp) {
               //showErrorToast(resp.error);
-
+              setLoading(false);
               return;
             } else if (resp.room) {
               const { room } = resp;
+              clearChat();
               prefetch(["joinRoomAndGetInfo", room.id], [room.id]);
               useCurrentRoomIdStore.getState().setCurrentRoomId(room.id);
               navigation.navigate("Room", { roomId: room.id });
               onRequestClose();
+              setLoading(false);
             }
           }}
         >
-          {({
-            values,
-            setFieldValue,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            errors,
-          }) => (
+          {({ values, setFieldValue, handleChange, handleSubmit, errors }) => (
             <ScrollView keyboardShouldPersistTaps="handled">
               <Text style={styles.titleText}>Create Room</Text>
               <Text style={styles.descriptionText}>
@@ -172,7 +175,11 @@ export const CreateRoomPage: React.FC<CreateRoomModalProps> = ({
                   style={styles.createButton}
                   onPress={() => handleSubmit()}
                 >
-                  <Text style={styles.createButtonText}>Create room</Text>
+                  {loading ? (
+                    <Spinner />
+                  ) : (
+                    <Text style={styles.createButtonText}>Create room</Text>
+                  )}
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.cancelButton}
@@ -196,14 +203,11 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary800,
   },
   titleText: {
-    fontFamily: fontFamily.extraBold,
-    fontSize: fontSize.h4,
-    color: colors.text,
+    ...h4,
   },
   descriptionText: {
+    ...paragraph,
     marginTop: 16,
-    fontFamily: fontFamily.regular,
-    fontSize: fontSize.paragraph,
     color: colors.primary300,
   },
   roomNameEditText: {
@@ -237,10 +241,7 @@ const styles = StyleSheet.create({
     height: 38,
   },
   createButtonText: {
-    color: colors.text,
-    fontFamily: fontFamily.regular,
-    fontSize: fontSize.paragraph,
-    fontWeight: "700",
+    ...paragraphBold,
     alignSelf: "center",
   },
   cancelButton: {
@@ -251,10 +252,7 @@ const styles = StyleSheet.create({
     height: 38,
   },
   cancelButtonText: {
-    color: colors.text,
-    fontFamily: fontFamily.regular,
-    fontSize: fontSize.paragraph,
-    fontWeight: "700",
+    ...paragraphBold,
     alignSelf: "center",
     textDecorationLine: "underline",
   },

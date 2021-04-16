@@ -15,7 +15,11 @@ const defaultProps: AccountOverlyProps = {
   axis: "y",
   position: { x: 0, y: 0 },
   bounds: { top: -363, bottom: 0 },
-  children: <div style={{ color: "white" }}>Use the handle to drag me up!</div>,
+  children: (
+    <div className="flex" style={{ color: "white" }}>
+      Use the handle to drag me up!
+    </div>
+  ),
   dragHandler: (_e, ui) => console.log(ui.deltaY),
   closeHandler: () => console.log("closing"),
 };
@@ -29,6 +33,7 @@ export const Main: Story<AccountOverlyProps> = (props) => {
 
   return (
     <div
+      className="flex"
       style={{
         width: "414px",
         height: "362x",
@@ -37,7 +42,7 @@ export const Main: Story<AccountOverlyProps> = (props) => {
         top: "500px",
       }}
     >
-      <div style={{ width: "414px", height: "362px" }}>
+      <div className="flex" style={{ width: "414px", height: "362px" }}>
         <AccountOverlay
           {...props}
           axis={props.axis || defaultProps.axis}

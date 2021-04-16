@@ -7,9 +7,11 @@ export interface ProfileBlockProps {
 
 export const ProfileBlock: React.FC<ProfileBlockProps> = ({ top, bottom }) => {
   return (
-    <div className="flex-1 flex-col">
-      <div className="justify-between items-end mb-5 max-w-md">{top}</div>
-      <div className="justify-between items-end mb-5 max-w-md">{bottom}</div>
+    <div className="flex flex-1 flex-col overflow-y-auto">
+      <div className="flex justify-between items-end mb-5 max-w-md">{top}</div>
+      <div className="flex justify-between items-end mb-5 max-w-md">
+        {bottom}
+      </div>
     </div>
   );
 };

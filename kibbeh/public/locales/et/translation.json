@@ -59,7 +59,8 @@
       "featureText_6": "Töötab Doge'i jõul",
       "loginGithub": "Logi GitHub'iga",
       "loginTwitter": "Logi Twitter'iga",
-      "createTestUser": "Loo test-kasutaja"
+      "createTestUser": "Loo test-kasutaja",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "logi välja",
@@ -67,7 +68,8 @@
       "voiceSettings": "mine häälesätetesse",
       "overlaySettings": "go to overlay settings",
       "soundSettings": "mine helisätetesse",
-      "deleteAccount": "kustuta konto"
+      "deleteAccount": "kustuta konto",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Oih! See leht läks vestluses kaduma.",
@@ -163,7 +165,8 @@
         "roomName": "ruumi nimi",
         "roomDescription": "ruumi kirjeldus",
         "descriptionError": "max. pikkus 500",
-        "nameError": "peab olema 2 kuni 60 tähemärki pikk"
+        "nameError": "peab olema 2 kuni 60 tähemärki pikk",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Uus ruum loodud",
@@ -194,7 +197,8 @@
         "banFromRoom": "bänni ruumist",
         "goBackToListener": "mine tagasi kuulajatesse",
         "deleteMessage": "kustuta sõnum",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "nõua luba rääkimiseks",
@@ -202,6 +206,27 @@
         "makePrivate": "tee ruum privaatseks",
         "renamePublic": "Säti avaliku ruumi nimi",
         "renamePrivate": "Säti privaatse ruumi nimi"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -245,6 +270,7 @@
       "approachingGalaxy": "Lähenemas galaktikale",
       "galacticDoge": "Galaktiline-Doge",
       "spottedLife": "Planeet eluga"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

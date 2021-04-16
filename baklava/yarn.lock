@@ -169,6 +169,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/discord-rpc@npm:^3.0.5":
+  version: 3.0.5
+  resolution: "@types/discord-rpc@npm:3.0.5"
+  checksum: 29419dc98e477890e02c572582ecdb5495a029b2e4c76fd15fb04bb688ed93b0bf54fcc09ad9fa15241e440022cca8c16cc1a9264e5aff583bbc830c48b587b6
+  languageName: node
+  linkType: hard
+
 "@types/fs-extra@npm:^9.0.7":
   version: 9.0.10
   resolution: "@types/fs-extra@npm:9.0.10"
@@ -227,17 +234,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^14.14.31":
+"@types/node@npm:*, @types/node@npm:^14.14.31, @types/node@npm:^14.6.2":
   version: 14.14.37
   resolution: "@types/node@npm:14.14.37"
   checksum: 5e2d9baf7594ebacaf016716515f30de0765169412787f981481c2fb8b468923149bb9e2e3219ee672399811672ceddc339a7372a61cf15bc656836a5494d991
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^12.0.12":
-  version: 12.20.7
-  resolution: "@types/node@npm:12.20.7"
-  checksum: 0c12d32c14bfc3c91431592d1063c31d0267c14471bba6fa0907dd618eedf50acd7f3ff16ee441a53807058819c09354d9343798f710a975b447792e39c3b940
   languageName: node
   linkType: hard
 
@@ -523,15 +523,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"asar-node@npm:^2.1.3":
-  version: 2.1.3
-  resolution: "asar-node@npm:2.1.3"
-  bin:
-    asar-node: bin/asar-node.js
-  checksum: 8e02b41719655d787c77dc1fce86c37045c9d00c30d65396e683a477ae2882c8144db32ec909abed270710ee7e91e3ffdf441e1fa7e295423200148ce4b40a88
-  languageName: node
-  linkType: hard
-
 "asar@npm:^3.0.3":
   version: 3.0.3
   resolution: "asar@npm:3.0.3"
@@ -579,9 +570,9 @@ __metadata:
   linkType: hard
 
 "balanced-match@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "balanced-match@npm:1.0.0"
-  checksum: f515a605fe1b59f476f7477c5e1d53ad55b4f42982fca1d57b6701906f4ad1f1ac90fd6587d92cc1af2edb43eecf979214dd847ee410a6de9db4ebf0dd128d62
+  version: 1.0.2
+  resolution: "balanced-match@npm:1.0.2"
+  checksum: 690643f3009a04289ac401079de5a780aae452f7625fb2884051cc847b231e6521ee15dd6430b066d3cf4bd8bb00bb7ff55b7d134f34b8f0b8c043806796f94e
   languageName: node
   linkType: hard
 
@@ -623,8 +614,8 @@ __metadata:
   linkType: hard
 
 "boxen@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "boxen@npm:5.0.0"
+  version: 5.0.1
+  resolution: "boxen@npm:5.0.1"
   dependencies:
     ansi-align: ^3.0.0
     camelcase: ^6.2.0
@@ -634,7 +625,7 @@ __metadata:
     type-fest: ^0.20.2
     widest-line: ^3.1.0
     wrap-ansi: ^7.0.0
-  checksum: 2e7f20652542dd57badcac6800d919f8eddc220d7ef6e4b5ba59f48f0fbb02f9c03f03146a16963f11f64cefaeb8d698357b358378f425524026888dd030e089
+  checksum: 7ebc1a33d19630e1272a6fa81b500399b9d8d5fea0fc027da36573b7e3dccb63e67ea6e804e9ac72fab576cbba1dc98b149285ae87f72fb8280acd18e273a332
   languageName: node
   linkType: hard
 
@@ -1198,6 +1189,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"discord-rpc@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "discord-rpc@npm:3.2.0"
+  dependencies:
+    node-fetch: ^2.6.1
+    ws: ^7.3.1
+  peerDependencies:
+    register-scheme: "*"
+  checksum: 40b07dab1801c46cc5b29c153f20aa3c7b41f681169abb9069f5692078dd877c84dc8721bf6650c3a699fad67a523aa415b9b376372c7e78a0075a39b6501617
+  languageName: node
+  linkType: hard
+
 "dmg-builder@npm:22.10.5":
   version: 22.10.5
   resolution: "dmg-builder@npm:22.10.5"
@@ -1239,21 +1242,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "dogehouse@workspace:."
   dependencies:
+    "@types/discord-rpc": ^3.0.5
     "@types/i18next-node-fs-backend": ^2.1.0
     "@types/lodash": ^4.14.168
     "@types/node": ^14.14.31
     "@types/prettier": ^2.2.3
-    asar-node: ^2.1.3
     builder-util: ^22.10.5
     del-cli: ^3.0.1
-    electron: ^11.3.0
+    discord-rpc: ^3.2.0
+    dotenv: ^8.2.0
+    electron: ^12.0.2
     electron-build-env: ^0.2.0
     electron-builder: ^22.10.5
     electron-builder-notarize: ^1.2.0
     electron-log: ^4.3.2
     electron-overlay-window: ^1.0.4
     electron-updater: ^4.3.8
-    globkey: ^1.0.21
+    globkey: ^1.0.41
     i18next: ^20.0.0
     i18next-node-fs-backend: ^2.1.3
     lodash: ^4.17.21
@@ -1426,16 +1431,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron@npm:^11.3.0":
-  version: 11.4.2
-  resolution: "electron@npm:11.4.2"
+"electron@npm:^12.0.2":
+  version: 12.0.2
+  resolution: "electron@npm:12.0.2"
   dependencies:
     "@electron/get": ^1.0.1
-    "@types/node": ^12.0.12
+    "@types/node": ^14.6.2
     extract-zip: ^1.0.3
   bin:
     electron: cli.js
-  checksum: ff7acad3fbae129b8f14c7b1e9cc4be03d2589ac60759cd312505336b7c0b2c35f0f7fac969781c000bebf6f9f70265420001ffa5bac18054d0407d4fe26e569
+  checksum: 77f69f651309151748913fe3b57bcfc82f814142d7ccc8f9157c2ba7647b08ab9ae7d38b3231075ecce348422f0ce4351879e5f0e76095a8c8c304d08c2983d0
   languageName: node
   linkType: hard
 
@@ -1836,10 +1841,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globkey@npm:^1.0.21":
-  version: 1.0.21
-  resolution: "globkey@npm:1.0.21"
-  checksum: 98186ae3e195c4d86a63f5f44e92e39bc03c2cdd24937034d12b12e36f8630351e878b44eba1a3736a671808b8fe0a2a32ed1e9eb5ac44a1bdf59b062ebadd8c
+"globkey@npm:^1.0.41":
+  version: 1.0.41
+  resolution: "globkey@npm:1.0.41"
+  checksum: adb7672900c38c333ffe420738b90b4da5e11038d723354ae1c5fdec6212e017038d040b475a6e258088b706ff8b946b70d96883071cf5de76170658b8505516
   languageName: node
   linkType: hard
 
@@ -2000,11 +2005,11 @@ __metadata:
   linkType: hard
 
 "i18next@npm:>=17.0.11, i18next@npm:^20.0.0":
-  version: 20.1.0
-  resolution: "i18next@npm:20.1.0"
+  version: 20.2.1
+  resolution: "i18next@npm:20.2.1"
   dependencies:
     "@babel/runtime": ^7.12.0
-  checksum: fb95e19026c2d3d9376087ddfb33c65ba98c80d3e1fb62b93edf7f6b178a492cd5a54bf139edd515a774ee65a75b0051774fdfcf7630f577c26f7014cad2bb12
+  checksum: b73d828f43a8df4edfcc85f23721c1f2bc797367ac9864e75f6312a5f7e9a3729917f4ea0e6149eb78f87b3acdf9dfee72b37c2b2f00e5f5ed31ccb1de75c33c
   languageName: node
   linkType: hard
 
@@ -2541,9 +2546,9 @@ __metadata:
   linkType: hard
 
 "map-obj@npm:^4.0.0":
-  version: 4.2.0
-  resolution: "map-obj@npm:4.2.0"
-  checksum: 0ee5029e6d4482f378292565e3da1b70364f360e141295c6b3bd9164c916d31dcd43be126085dddd2f10d70846660728657d4ea5fa96baa5b40b03b135068600
+  version: 4.2.1
+  resolution: "map-obj@npm:4.2.1"
+  checksum: 59c2f09ffccf8878cdb67dc46d0dd73a55bcfb27c20afc2fb87250ac95f2b19e3187c8de887c40f41b96b0200aac3dfdbc31759615cb666b35864a307885c896
   languageName: node
   linkType: hard
 
@@ -2793,6 +2798,13 @@ __metadata:
   dependencies:
     node-gyp: latest
   checksum: 6796f58946713c647bccdfdb6ceb42dccb980170e9ce3ca3a65cca659a417d79210999fd297963656371c616c7b75b74bbdefae36257ae84c28927fb7ae037d4
+  languageName: node
+  linkType: hard
+
+"node-fetch@npm:^2.6.1":
+  version: 2.6.1
+  resolution: "node-fetch@npm:2.6.1"
+  checksum: cbb171635e538162b977eac5dfe7a1e07a9a02e991924377a6435502291e2f823d306b95aabc455caebf4a118ccf836868462bc70ccc3095af02bb9da61fda37
   languageName: node
   linkType: hard
 
@@ -4106,6 +4118,21 @@ typescript@^4.2.2:
   languageName: node
   linkType: hard
 
+"ws@npm:^7.3.1":
+  version: 7.4.4
+  resolution: "ws@npm:7.4.4"
+  peerDependencies:
+    bufferutil: ^4.0.1
+    utf-8-validate: ^5.0.2
+  peerDependenciesMeta:
+    bufferutil:
+      optional: true
+    utf-8-validate:
+      optional: true
+  checksum: ad08761ed753cdd3f7172e9a9efc7d74e7e196623cace2380e5f74ff0abd16196e03223bd4148a34278dcbc653ee3841994635419281cbf303b3f22c589e2ec4
+  languageName: node
+  linkType: hard
+
 "xdg-basedir@npm:^4.0.0":
   version: 4.0.0
   resolution: "xdg-basedir@npm:4.0.0"
@@ -4135,9 +4162,9 @@ typescript@^4.2.2:
   linkType: hard
 
 "y18n@npm:^5.0.5":
-  version: 5.0.5
-  resolution: "y18n@npm:5.0.5"
-  checksum: a7d41b0cccca1c98ebab270a944df48eb3b5352d3be0affb8afc8369823f6aa97a5fbead2c5b35e59a5650cb786b2b37627b45be5ff31f02a80dd3b881aceb17
+  version: 5.0.7
+  resolution: "y18n@npm:5.0.7"
+  checksum: d1e08cd58e59690e5f691a0dcf35d7fc8d38a08bb733d1687f03bd44b89fdb8fc8ff1f9040b8681dc2a996bc24e0b587062e0b3260f1c744b2dcc920e4efda61
   languageName: node
   linkType: hard
 

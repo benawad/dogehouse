@@ -48,6 +48,9 @@ const UserPreview: React.FC<{
   const { mutateAsync: banFromRoomChat } = useTypeSafeMutation(
     "banFromRoomChat"
   );
+  const { mutateAsync: unbanFromRoomChat } = useTypeSafeMutation(
+    "unbanFromRoomChat"
+  );
   const { data, isLoading } = useTypeSafeQuery(["getUserProfile", id], {}, [
     id,
   ]);
@@ -57,7 +60,7 @@ const UserPreview: React.FC<{
     return (
       <div
         style={{ height: "400px", maxHeight: "100%" }}
-        className={`items-center justify-center w-full`}
+        className={`flex items-center justify-center w-full`}
       >
         <Spinner />
       </div>
@@ -65,7 +68,7 @@ const UserPreview: React.FC<{
   }
 
   if (!data) {
-    return <div className={`text-primary-100`}>This user is gone.</div>;
+    return <div className={`flex text-primary-100`}>This user is gone.</div>;
   }
 
   // @todo pretty sure this is some what bugged
@@ -128,6 +131,17 @@ const UserPreview: React.FC<{
       t("components.modals.profileModal.banFromChat"),
     ],
     [
+      canDoModStuffOnThisUser &&
+        id in bannedUserIdMap &&
+        (iAmCreator || !roomPermissions?.isMod),
+      "unbanFromChat",
+      () => {
+        onClose();
+        unbanFromRoomChat([id]);
+      },
+      t("components.modals.profileModal.unBanFromChat"),
+    ],
+    [
       canDoModStuffOnThisUser && (iAmCreator || !roomPermissions?.isMod),
       "blockFromRoom",
       () => {
@@ -162,19 +176,19 @@ const UserPreview: React.FC<{
   ] as const;
 
   return (
-    <div className={`flex-col w-full`}>
-      <div className={`bg-primary-900 flex-col`}>
+    <div className={`flex flex-col w-full`}>
+      <div className={`flex bg-primary-900 flex-col`}>
         <VerticalUserInfoWithFollowButton
           idOrUsernameUsedForQuery={data.id}
           user={data}
         />
       </div>
       {!isMe && (isCreator || roomPermissions?.isSpeaker) ? (
-        <div className={`bg-primary-800`}>
+        <div className={`flex bg-primary-800 pb-3`}>
           <VolumeSliderController userId={id} />
         </div>
       ) : null}
-      <div className="mt-1 flex-col">
+      <div className="flex mt-1 px-6 flex-col">
         {buttonData.map(([shouldShow, key, onClick, text]) => {
           return shouldShow ? (
             <Button

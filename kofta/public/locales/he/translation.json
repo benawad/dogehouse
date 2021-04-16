@@ -59,7 +59,8 @@
       "featureText_6": "מופעל על ידי דוג'",
       "loginGithub": "התחבר באמצעות GitHub",
       "loginTwitter": "התחבר באמצעות Twitter",
-      "createTestUser": "צור משתמש נסיון"
+      "createTestUser": "צור משתמש נסיון",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "התנתק",

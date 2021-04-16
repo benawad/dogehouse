@@ -1,9 +1,5 @@
-import {
-  BaseUser,
-  JoinRoomAndGetInfoResponse,
-  Room,
-  RoomUser,
-} from "@dogehouse/kebab";
+import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
+import { useNavigation } from "@react-navigation/core";
 import React, { useContext } from "react";
 import { RoomAvatar } from "../../components/avatars/RoomAvatar";
 import { useMuteStore } from "../../global-stores/useMuteStore";
@@ -19,6 +15,7 @@ export const useSplitUsersIntoSections = ({
   const conn = useConn();
   const { muted } = useMuteStore();
   const { setData } = useContext(UserPreviewModalContext);
+  const navigation = useNavigation();
   const speakers: React.ReactNode[] = [];
   const askingToSpeak: React.ReactNode[] = [];
   const listeners: React.ReactNode[] = [];
@@ -34,8 +31,6 @@ export const useSplitUsersIntoSections = ({
       canIAskToSpeak = true;
     }
 
-    let flair: React.ReactNode | undefined = undefined;
-
     const isCreator = u.id === room.creatorId;
     const isSpeaker = !!u.roomPermissions?.isSpeaker;
     const canSpeak = isCreator || isSpeaker;
@@ -47,12 +42,14 @@ export const useSplitUsersIntoSections = ({
         src={{ uri: u.avatarUrl }}
         muted={canSpeak && isMuted}
         username={u.displayName}
-        style={{ marginRight: 5, marginBottom: 10 }}
+        style={{ marginRight: 5, marginBottom: 10, flexBasis: "23%" }}
         activeSpeaker={canSpeak && !isMuted && u.id in activeSpeakerMap}
-        onPress={() => setData({ userId: u.id })}
+        onPress={() => {
+          setData({ userId: u.id });
+          navigation.navigate("RoomUserPreview", { userId: u.id });
+        }}
       />
     );
-    // }
   });
 
   return { speakers, listeners, askingToSpeak, canIAskToSpeak };

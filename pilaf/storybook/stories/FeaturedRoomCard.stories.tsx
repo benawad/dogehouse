@@ -1,11 +1,11 @@
+import { number, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react-native";
 import React from "react";
-import { ScrollView, Text, View } from "react-native";
-import CenterView from "./CenterView";
-import { number, text } from "@storybook/addon-knobs";
+import { ScrollView, Text } from "react-native";
 import { FeaturedRoomCard } from "../../src/components/FeaturedRoomCard";
 import { Tag } from "../../src/components/Tag";
-import { paragraph } from "../../src/constants/dogeStyle";
+import { smallBold } from "../../src/constants/dogeStyle";
+import CenterView from "./CenterView";
 
 const featuredRoomCardStories = storiesOf("FeaturedRoomCard", module);
 
@@ -26,16 +26,16 @@ featuredRoomCardStories.add("Main", () => (
       ]}
       tags={[
         <Tag style={{ marginRight: 10 }} key={"trending"} glow>
-          <Text style={{ ...paragraph }}>🔥 Trending</Text>
+          <Text style={{ ...smallBold }}>🔥 Trending</Text>
         </Tag>,
         <Tag style={{ marginRight: 10 }} key={"business-1"}>
-          <Text style={{ ...paragraph }}>#Business</Text>
+          <Text style={{ ...smallBold }}>#Trending</Text>
         </Tag>,
         <Tag style={{ marginRight: 10 }} key={"business-2"}>
-          <Text style={{ ...paragraph }}>#Business</Text>
+          <Text style={{ ...smallBold }}>#Business</Text>
         </Tag>,
         <Tag style={{ marginRight: 10 }} key={"business-3"}>
-          <Text style={{ ...paragraph }}>#Business</Text>
+          <Text style={{ ...smallBold }}>#Business</Text>
         </Tag>,
       ]}
     />

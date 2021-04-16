@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useConn } from "../../shared-hooks/useConn";
+import { useCurrentRoomInfo } from "../../shared-hooks/useCurrentRoomInfo";
+import { useScreenType } from "../../shared-hooks/useScreenType";
+import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { CenterLoader } from "../../ui/CenterLoader";
 import { RoomHeader } from "../../ui/RoomHeader";
 import { CreateRoomModal } from "../dashboard/CreateRoomModal";
+import { HeaderController } from "../display/HeaderController";
 import { MiddlePanel } from "../layouts/GridPanels";
+import { useRoomChatStore } from "./chat/useRoomChatStore";
 import { RoomPanelIconBarController } from "./RoomPanelIconBarController";
 import { RoomUsersPanel } from "./RoomUsersPanel";
 import { useGetRoomByQueryParam } from "./useGetRoomByQueryParam";
 import { UserPreviewModal } from "./UserPreviewModal";
-import { HeaderController } from "../display/HeaderController";
 
 interface RoomPanelControllerProps {}
 
@@ -18,6 +22,10 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
   const { currentRoomId } = useCurrentRoomIdStore();
   const [showEditModal, setShowEditModal] = useState(false);
   const { data, isLoading } = useGetRoomByQueryParam();
+  const { canSpeak } = useCurrentRoomInfo();
+  const open = useRoomChatStore((s) => s.open);
+  const screenType = useScreenType();
+  const { t } = useTypeSafeTranslation();
 
   if (isLoading || !currentRoomId) {
     return (
@@ -33,7 +41,7 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
     return null;
   }
 
-  const roomCreator = data.users.find((x) => x.id === data.room.creatorId);
+  const roomCreator = data.users.find((x: any) => x.id === data.room.creatorId);
 
   return (
     <>
@@ -64,9 +72,17 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
         }
       >
         <UserPreviewModal {...data} />
-        <RoomUsersPanel {...data} />
-        <div className={`sticky bottom-0 pb-7 bg-primary-900`}>
-          <RoomPanelIconBarController />
+        {screenType === "fullscreen" && open ? null : (
+          <RoomUsersPanel {...data} />
+        )}
+        <div
+          className={`sticky bottom-0 pb-7 bg-primary-900 ${
+            (screenType === "fullscreen" || screenType === "1-cols") && open
+              ? "flex-1"
+              : ""
+          }`}
+        >
+          <RoomPanelIconBarController {...data} />
         </div>
       </MiddlePanel>
     </>

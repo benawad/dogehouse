@@ -16,7 +16,7 @@
     "copied": "copiat",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Vă rugăm să rețineți că rularea DogeHouse fără permisiuni de accesibilitate poate cauza erori nedorite"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -25,7 +25,7 @@
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
-    "link_1": "Origin Story",
+    "link_1": "Poveste de origine",
     "link_2": "Discord",
     "link_3": "Raportează o eroare"
   },
@@ -41,7 +41,7 @@
     "home": {
       "createRoom": "Creează cameră",
       "refresh": "Refresh",
-      "editRoom": "Edit Room"
+      "editRoom": "Editeaza cameră"
     },
     "inviteList": {
       "roomGone": "Camera a dispărut, du-te înapoi",
@@ -53,21 +53,23 @@
       "headerText": "Ducând conversații vocale către lună 🚀",
       "featureText_1": "Temă întunecată",
       "featureText_2": "Deschide Sign-Upuri",
-      "featureText_3": "Suport Cross-Platform",
-      "featureText_4": "Open Source",
+      "featureText_3": "Suport pe mai multe platformeorm",
+      "featureText_4": "Sursa deschisa",
       "featureText_5": "Chat Text",
       "featureText_6": "Alimentat de Doge",
-      "loginGithub": "Logare cu GitHub",
-      "loginTwitter": "Logare cu Twitter",
-      "createTestUser": "Creare user de test"
+      "loginGithub": "Autentificare cu GitHub",
+      "loginTwitter": "Autentificare cu Twitter",
+      "createTestUser": "Creare utilizatori de test",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
-      "logout": "logout",
+      "logout": "Deconectați-vă",
       "probablyLoading": "Probabil se încarcă...",
       "voiceSettings": "Mergi la setările de voce",
       "soundSettings": "Mergi la setările de sunet",
       "deleteAccount": "Şterge cont",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "Accesați setările de suprapunere",
+      "couldNotFindUser": "Scuze, noi nu am putut gasi acel utilizatori"
     },
     "notFound": {
       "whoopsError": "Ups! Această pagină a fost pierdută în conversație.",
@@ -78,8 +80,8 @@
       "speakers": "Vorbitori",
       "requestingToSpeak": "Cere să vorbească",
       "listeners": "Ascultători",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "Permiteți-le pe toate",
+      "allowAllConfirm": "Esti sigur? Asta ar lasa toti {{count}} utilizatori sa vorbeasca"
     },
     "searchUser": { "search": "caută..." },
     "soundEffectSettings": { "header": "Sunete" },
@@ -166,7 +168,8 @@
         "roomName": "Nume Cameră",
         "roomDescription": "Descriere cameră",
         "descriptionError": "Lungime maximă de 500",
-        "nameError": "Trebuie să fie între 2 și 60 caractere"
+        "nameError": "Trebuie să fie între 2 și 60 caractere",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nouă Cameră Creată",
@@ -197,7 +200,8 @@
         "banFromRoom": "Interzice din cameră",
         "goBackToListener": "Du-te înapoi la ascultător",
         "deleteMessage": "Şterge acest mesaj",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Necesită permisiunea de a vorbi",
@@ -205,6 +209,27 @@
         "makePrivate": "Fă camera privată",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, utilizatori or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -248,6 +273,7 @@
       "approachingGalaxy": "Approaching galaxy",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

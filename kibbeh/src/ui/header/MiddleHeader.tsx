@@ -1,20 +1,26 @@
 import React from "react";
-import { SearchBar } from "../Search/SearchBar";
+import { SearchBarController } from "../../modules/search/SearchBarController";
+import { useScreenType } from "../../shared-hooks/useScreenType";
+import LeftHeader from "./LeftHeader";
+import RightHeader from "./RightHeader";
 
-export interface MiddleHeaderProps {
-  searchPlaceholder: string;
-  onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}
+export interface MiddleHeaderProps {}
 
-const MiddleHeader: React.FC<MiddleHeaderProps> = ({
-  searchPlaceholder,
-  onSearchChange,
-}) => {
+export const MiddleHeader: React.FC<MiddleHeaderProps> = () => {
+  const screenType = useScreenType();
   return (
-    <div className="flex-1 justify-center w-full">
-      <SearchBar placeholder={searchPlaceholder} onChange={onSearchChange} />
+    <div className="flex flex-1 justify-center w-full">
+      {screenType === "fullscreen" ? (
+        <div className="flex mr-4">
+          <LeftHeader />
+        </div>
+      ) : null}
+      <SearchBarController />
+      {screenType === "1-cols" || screenType === "fullscreen" ? (
+        <div className="flex ml-4">
+          <RightHeader />
+        </div>
+      ) : null}
     </div>
   );
 };
-
-export default MiddleHeader;

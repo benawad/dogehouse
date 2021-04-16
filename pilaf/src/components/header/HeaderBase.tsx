@@ -4,8 +4,8 @@ import {
   Image,
   StyleSheet,
   TouchableOpacity,
-  ViewProps,
   View,
+  ViewProps,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { colors } from "../../constants/dogeStyle";
@@ -43,5 +43,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary900,
     flexDirection: "row",
   },
-  leftContainer: { paddingLeft: 25, height: 70, justifyContent: "center" },
+  leftContainer: {
+    paddingLeft: 25,
+    height: 70,
+    justifyContent: "center",
+  },
 });

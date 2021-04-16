@@ -1,14 +1,12 @@
 import React from "react";
 import {
-  Image,
   ImageSourcePropType,
   StyleProp,
-  StyleSheet,
   Text,
   TouchableOpacity,
   ViewStyle,
 } from "react-native";
-import { colors, small } from "../../constants/dogeStyle";
+import { small } from "../../constants/dogeStyle";
 import { SingleUserAvatar } from "./SingleUserAvatar";
 
 interface RoomAvatarProps {
@@ -42,7 +40,7 @@ export const RoomAvatar: React.FC<RoomAvatarProps> = ({
         activeSpeaker={activeSpeaker}
       />
       <Text
-        style={{ ...small, width: 80, textAlign: "center" }}
+        style={{ ...small, maxWidth: 80, textAlign: "center" }}
         numberOfLines={1}
       >
         {username}
@@ -51,5 +49,3 @@ export const RoomAvatar: React.FC<RoomAvatarProps> = ({
     </TouchableOpacity>
   );
 };
-
-const styles = StyleSheet.create({});

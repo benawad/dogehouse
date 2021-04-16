@@ -33,7 +33,7 @@ export const navigateThroughQueriedUsers = (e: any) => {
   } else if (e.code === "ArrowDown") {
     changeToIndex =
       activeIndex === queriedUsernames.length - 1 ? 0 : activeIndex + 1;
-  } else if (["Enter", "Tab"].includes(e.code)) {
+  } else if (e.code === "Enter" || e.code === "Tab") {
     const selected = queriedUsernames[activeIndex];
     setMentions([...mentions, selected]);
     setMessage(

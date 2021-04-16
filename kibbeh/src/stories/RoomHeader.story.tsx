@@ -9,7 +9,7 @@ export default {
 
 const TheRoomHeader: Story<RoomCardHeadingProps> = () => {
   return (
-    <div className="flex flex-col space-y-5">
+    <div className="flex flex flex-col space-y-5">
       <RoomHeader
         title="Why CI/CD is important when working with a team"
         description=""

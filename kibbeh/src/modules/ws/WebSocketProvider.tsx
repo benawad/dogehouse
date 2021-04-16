@@ -8,6 +8,7 @@ import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useVoiceStore } from "../webrtc/stores/useVoiceStore";
 import { Connection } from "@dogehouse/kebab/lib/raw";
+import { closeVoiceConnections } from "../webrtc/WebRtcApp";
 
 interface WebSocketProviderProps {
   shouldConnect: boolean;
@@ -64,21 +65,19 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
             };
           },
           onConnectionTaken: () => {
-            // the index page nulls the conn
-            // if you switch this, make sure to null the conn at the new location
-            replace("/");
-            // @todo do something better
-            showErrorToast(
-              "You can only have 1 tab of DogeHouse open at a time"
-            );
+            closeVoiceConnections(null);
+            useCurrentRoomIdStore.getState().setCurrentRoomId(null);
+            replace("/connection-taken");
           },
           onClearTokens: () => {
             console.log("clearing tokens...");
-            replace("/");
             useTokenStore
               .getState()
               .setTokens({ accessToken: "", refreshToken: "" });
             setConn(null);
+            closeVoiceConnections(null);
+            useCurrentRoomIdStore.getState().setCurrentRoomId(null);
+            replace("/logout");
           },
         })
         .then((x) => {
