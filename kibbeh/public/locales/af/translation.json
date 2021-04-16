@@ -59,7 +59,8 @@
       "featureText_6": "Aangedryf deur Doge",
       "loginGithub": "Teken aan met GitHub",
       "loginTwitter": "Teken aan met Twitter",
-      "createTestUser": "Maak toets gebruiker"
+      "createTestUser": "Maak toets gebruiker",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "teken uit",
@@ -198,7 +199,8 @@
         "banFromRoom": "verban van kamer",
         "goBackToListener": "gaan terug na luisteraar",
         "deleteMessage": "verwyder hierdie boodskap",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "benodig toestemming om te praat",

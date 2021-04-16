@@ -58,7 +58,8 @@
       "featureText_6": "멍멍이의 힘으로 구동됨 ",
       "loginGithub": "깃허브로 로그인",
       "loginTwitter": "트위터로 로그인",
-      "createTestUser": "테스트 계정 만들기"
+      "createTestUser": "테스트 계정 만들기",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "로그아웃",
@@ -195,7 +196,8 @@
         "banFromRoom": "채팅방 에서 차단",
         "goBackToListener": "청취자로 돌아가기",
         "deleteMessage": "이 메세지 삭제",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "발언권이 필요합니다",

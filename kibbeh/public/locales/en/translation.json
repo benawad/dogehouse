@@ -64,6 +64,7 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "Login with GitHub",
       "loginTwitter": "Login with Twitter",
+      "loginDiscord": "Login with Discord",
       "createTestUser": "Create Test User"
     },
     "myProfile": {
@@ -232,6 +233,7 @@
         "unmod": "Demote from Mod",
         "addAsSpeaker": "Add as Speaker",
         "moveToListener": "Move to Listener",
+        "unBanFromChat": "Unban from Chat",
         "banFromChat": "Ban from Chat",
         "banFromRoom": "Ban from Room",
         "goBackToListener": "Go Back to Listener",

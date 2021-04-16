@@ -58,7 +58,8 @@
       "featureText_6": "Dipersembahkan oleh Doge",
       "loginGithub": "masuk dengan GitHub",
       "loginTwitter": "masuk dengan Twitter",
-      "createTestUser": "buat akun uji coba"
+      "createTestUser": "buat akun uji coba",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "keluar",
@@ -196,7 +197,8 @@
         "banFromRoom": "blokir dari ruangan",
         "goBackToListener": "kembali ke pendengar",
         "deleteMessage": "hapus pesan ini",
-        "makeRoomCreator": "buat admin ruangan"
+        "makeRoomCreator": "buat admin ruangan",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "membutuhkan izin untuk berbicara",

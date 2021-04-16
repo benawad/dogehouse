@@ -59,7 +59,8 @@
       "featureText_6": "Dogen voimalla",
       "loginGithub": "kirjaudu GitHubilla",
       "loginTwitter": "kirjaudu Twitterillä",
-      "createTestUser": "luo testikäyttäjä"
+      "createTestUser": "luo testikäyttäjä",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "kirjaudu ulos",
@@ -200,7 +201,8 @@
         "banFromRoom": "estä huoneesta",
         "goBackToListener": "palaa kuuntelijaksi",
         "deleteMessage": "poista viesti",
-        "makeRoomCreator": "ylennä huoneen ylläpitäjäksi"
+        "makeRoomCreator": "ylennä huoneen ylläpitäjäksi",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "puhuminen vaatii oikeuden",

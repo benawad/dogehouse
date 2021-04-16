@@ -88,7 +88,7 @@ export const LoginPage: React.FC = () => {
       }}
     >
       <HeaderController embed={{}} title="Login" />
-      <div className="flex hidden sm:flex" />
+      <div className="hidden sm:flex" />
       <div className="flex justify-self-center self-center sm:hidden">
         <LgLogo />
       </div>
@@ -98,16 +98,13 @@ export const LoginPage: React.FC = () => {
           <p className="text-primary-100 flex-wrap">
             By logging in you accept our&nbsp;
             <a
-              href="https://youtu.be/dQw4w9WgXcQ"
+              href="/privacy-policy.html"
               className="text-accent hover:underline"
             >
               Privacy Policy
             </a>
             &nbsp;and&nbsp;
-            <a
-              href="https://youtu.be/dQw4w9WgXcQ"
-              className="text-accent hover:underline"
-            >
+            <a href="/terms.html" className="text-accent hover:underline">
               Terms of Service
             </a>
             .
@@ -122,6 +119,10 @@ export const LoginPage: React.FC = () => {
             <SvgSolidTwitter width={20} height={20} />
             Log in with Twitter
           </LoginButton>
+          {/* <LoginButton oauthUrl={`${apiBaseUrl}/auth/discord/web`}>
+            <SvgSolidDiscord width={20} height={20} />
+            Log in with Discord
+          </LoginButton> */}
           {!__prod__ ? (
             <LoginButton
               dev
@@ -152,15 +153,12 @@ export const LoginPage: React.FC = () => {
           <span className="text-primary-300">unavailable lol</span>
         </div> */}
       </div>
-      <div className="flex flex flex-row absolute bottom-0 w-full justify-between px-5 py-5 mt-auto items-center sm:px-7">
-        <div className="flex hidden sm:flex">
+      <div className="flex flex-row absolute bottom-0 w-full justify-between px-5 py-5 mt-auto items-center sm:px-7">
+        <div className="hidden sm:flex">
           <LgLogo />
         </div>
-        <div className="flex flex flex-row gap-6 text-primary-300">
-          <a
-            href="https://youtu.be/dQw4w9WgXcQ"
-            className="hover:text-primary-200"
-          >
+        <div className="flex flex-row gap-6 text-primary-300">
+          <a href="/privacy-policy.html" className="hover:text-primary-200">
             Privacy policy
           </a>
           <a
@@ -169,7 +167,7 @@ export const LoginPage: React.FC = () => {
           >
             Report a bug
           </a>
-          <div className="flex flex flex-row gap-6 sm:gap-4">
+          <div className="flex flex-row gap-6 sm:gap-4">
             <a
               href="https://github.com/benawad/dogehouse"
               target="_blank"

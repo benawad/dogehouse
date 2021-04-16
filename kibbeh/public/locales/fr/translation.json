@@ -57,7 +57,8 @@
       "featureText_6": "Alimenté au Doge",
       "loginGithub": "se connecter avec GitHub",
       "loginTwitter": "se connecter avec Twitter",
-      "createTestUser": "créer un utilisateur de test"
+      "createTestUser": "créer un utilisateur de test",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "se déconnecter",
@@ -182,7 +183,8 @@
         "banFromRoom": "bannir de la salle",
         "goBackToListener": "retourner chez les auditeurs",
         "deleteMessage": "supprimer ce message",
-        "makeRoomCreator": "transférer la propriété"
+        "makeRoomCreator": "transférer la propriété",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "requiert la permission de parler",

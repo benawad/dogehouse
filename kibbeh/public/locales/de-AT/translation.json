@@ -59,7 +59,8 @@
       "featureText_6": "Autrieben durch Doge",
       "loginGithub": "mit GitHub aumöden",
       "loginTwitter": "mit Twitter aumöden",
-      "createTestUser": "Testnutzer erstön"
+      "createTestUser": "Testnutzer erstön",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Omöden",
@@ -179,7 +180,8 @@
         "banFromRoom": "Aus Raum ausschliaßen",
         "goBackToListener": "Zruck zum Zuhörer",
         "deleteMessage": "Nochricht löschn",
-        "makeRoomCreator": "zum Raumadmin befördern"
+        "makeRoomCreator": "zum Raumadmin befördern",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Sprechen verlaungen",

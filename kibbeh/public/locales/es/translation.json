@@ -57,7 +57,8 @@
       "featureText_6": "Desarrollado por Doge",
       "loginGithub": "iniciar sesión con GitHub",
       "loginTwitter": "iniciar sesión con Twitter",
-      "createTestUser": "crear usuario de prueba"
+      "createTestUser": "crear usuario de prueba",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "cerrar sesión",
@@ -176,7 +177,8 @@
         "banFromRoom": "banear de la sala",
         "goBackToListener": "volver a ser oyente",
         "deleteMessage": "eliminar mensaje",
-        "makeRoomCreator": "hacer administrador de la sala"
+        "makeRoomCreator": "hacer administrador de la sala",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "solicitar permiso para hablar",
