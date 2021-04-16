@@ -24,7 +24,7 @@ export const ProfileAbout: React.FC<ProfileAboutProps> = ({
 }) => {
   const { t } = useTypeSafeTranslation()
   return (
-    <div className="bg-primary-800 p-4 rounded-8 w-full leading-8">
+    <div className="bg-primary-800 p-4 rounded-8 w-full leading-8" style={{ maxWidth: 640 }}>
       <p className="text-primary-100 font-bold text-xl pb-4">About {username}</p>
       <div className="flex mb-2">
         <div className="flex">
