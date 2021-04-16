@@ -177,7 +177,7 @@
         "roomDescription": "রুমের সম্বন্ধে",
         "descriptionError": "৫০০ শব্দের মধ্যে হতে হবে",
         "nameError": "২ থেকে ৬০ অক্ষরের মধ্যে হতে হবে",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "নিচের স্থানগুলো পূরণ করুন একটি নতুন রুম শুরু করতে"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "নতুন রুম তৈরি হয়েছে",
@@ -222,7 +222,7 @@
     "followingOnline": {
       "people": "মানুষ",
       "online": "অনলাইন",
-      "noOnline": "এই মুহুর্তে আপনার অনলাইনে 0 জন বন্ধু রয়েছে",
+      "noOnline": "এই মুহুর্তে আপনার অনলাইনে ০ জন বন্ধু রয়েছে",
       "showMore": "আরো দেখুন"
     },
     "upcomingRoomsCard": {
