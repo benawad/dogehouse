@@ -15,14 +15,6 @@ defmodule Broth.Message.Room.Create do
   end
 
   # inbound data.
-  @spec changeset(
-          {map, map}
-          | %{
-              :__struct__ => atom | %{:__changeset__ => map, optional(any) => any},
-              optional(atom) => any
-            },
-          :invalid | %{optional(:__struct__) => none, optional(atom | binary) => any}
-        ) :: Ecto.Changeset.t()
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
     |> cast(data, [:name, :description, :isPrivate, :userIdToInvite, :autoSpeaker])

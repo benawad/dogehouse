@@ -3,22 +3,22 @@ defmodule Broth.Message.Room.Ban do
 
   @primary_key false
   embedded_schema do
-    field(:id, :binary_id)
+    field(:userId, :binary_id)
   end
 
   alias Kousa.Utils.UUID
 
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
-    |> cast(data, [:id])
-    |> validate_required([:id])
-    |> UUID.normalize(:id)
+    |> cast(data, [:userId])
+    |> validate_required([:userId])
+    |> UUID.normalize(:userId)
   end
 
   def execute(changeset, state) do
-    with {:ok, ban} <- apply_action(changeset, :validate) do
+    with {:ok, %{userId: user_id}} <- apply_action(changeset, :validate) do
       # TODO: change to auth: format.
-      Kousa.Room.block_from_room(state.user_id, ban.id)
+      Kousa.Room.block_from_room(state.user_id, user_id)
       {:noreply, state}
     end
   end

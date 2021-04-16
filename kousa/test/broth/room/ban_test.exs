@@ -35,7 +35,7 @@ defmodule KousaTest.Broth.Room.BanTest do
       WsClient.assert_frame("new_user_join_room", _)
 
       # block the person.
-      WsClient.send_msg(t.client_ws, "room:ban", %{"id" => blocked_id})
+      WsClient.send_msg(t.client_ws, "room:ban", %{"userId" => blocked_id})
 
       WsClient.assert_frame(
         "user_left_room",

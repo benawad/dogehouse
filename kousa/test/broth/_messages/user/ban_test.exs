@@ -13,28 +13,28 @@ defmodule BrothTest.Message.User.BanTest do
     test "it populates id", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %Ban{id: ^uuid, reason: "foobar"}
+                payload: %Ban{userId: ^uuid, reason: "foobar"}
               }} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:ban",
-                 "payload" => %{"id" => uuid, "reason" => "foobar"},
+                 "payload" => %{"userId" => uuid, "reason" => "foobar"},
                  "reference" => UUID.uuid4()
                })
 
       # short form also allowed
       assert {:ok,
               %{
-                payload: %Ban{id: ^uuid, reason: "foobar"}
+                payload: %Ban{userId: ^uuid, reason: "foobar"}
               }} =
                BrothTest.Support.Message.validate(%{
                  "op" => "user:ban",
-                 "p" => %{"id" => uuid, "reason" => "foobar"},
+                 "p" => %{"userId" => uuid, "reason" => "foobar"},
                  "ref" => UUID.uuid4()
                })
     end
 
     test "omitting the id is not allowed" do
-      assert {:error, %{errors: %{id: "can't be blank"}}} =
+      assert {:error, %{errors: %{userId: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:ban",
                  "payload" => %{"reason" => "foobar"},
@@ -46,7 +46,7 @@ defmodule BrothTest.Message.User.BanTest do
       assert {:error, %{errors: %{reason: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:ban",
-                 "payload" => %{"id" => uuid},
+                 "payload" => %{"userId" => uuid},
                  "reference" => UUID.uuid4()
                })
     end
@@ -55,7 +55,7 @@ defmodule BrothTest.Message.User.BanTest do
       assert {:error, %{errors: [reference: {"is required for Broth.Message.User.Ban", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:ban",
-                 "payload" => %{"id" => uuid, "reason" => "foobar"}
+                 "payload" => %{"userId" => uuid, "reason" => "foobar"}
                })
     end
   end

@@ -28,7 +28,7 @@ defmodule KousaTest.Broth.User.UnfollowTest do
       assert Beef.Follows.following_me?(followed.id, t.user.id)
 
       WsClient.send_msg(t.client_ws, "user:unfollow", %{
-        "id" => followed.id
+        "userId" => followed.id
       })
 
       # this is kind of terrible, we should make this a call operation.

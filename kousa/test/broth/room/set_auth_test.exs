@@ -38,7 +38,7 @@ defmodule KousaTest.Broth.Room.SetAuthTest do
         t.client_ws,
         "room:set_auth",
         %{
-          "id" => speaker_id,
+          "userId" => speaker_id,
           "level" => "mod"
         }
       )
@@ -76,12 +76,9 @@ defmodule KousaTest.Broth.Room.SetAuthTest do
 
       WsClient.assert_frame("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
 
-      # add the person as a speaker.
-      WsClient.send_msg(t.client_ws, "room:set_role", %{"id" => speaker_id, "role" => "speaker"})
-
       # make the person a room creator.
       WsClient.send_msg(t.client_ws, "room:set_auth", %{
-        "id" => speaker_id,
+        "userId" => speaker_id,
         "level" => "owner"
       })
 

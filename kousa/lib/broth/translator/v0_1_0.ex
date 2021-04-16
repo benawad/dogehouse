@@ -5,6 +5,9 @@ defmodule Broth.Translator.V0_1_0 do
 
   import Kousa.Utils.Version, only: [sigil_v: 2]
 
+  ############################################################################
+  ## INBOUND MESSAGES
+
   @operator_translations %{
     "send_room_chat_msg" => "chat:send_msg",
     "invite_to_room" => "room:invite",
@@ -26,7 +29,7 @@ defmodule Broth.Translator.V0_1_0 do
     "edit_room" => "room:update",
     "fetch_invite_list" => "room:get_invite_list",
     "get_user_profile" => "user:get_info",
-    "ask_to_speak" => "user:set_role",
+    "ask_to_speak" => "room:set_role",
     "ban_from_room_chat" => "chat:ban",
     "block_from_room" => "room:ban",
     # follow needs to arbitrate if it becomes follow or unfollow.
@@ -55,18 +58,22 @@ defmodule Broth.Translator.V0_1_0 do
     %{message | "op" => @operator_translations[operator]}
   end
 
-  def translate_body(message = %{"d" => %{"data" => data}}, "edit_profile") do
-    %{message | "d" => data}
+  def translate_body(message, "edit_profile") do
+    %{message | "d" => get_in(message, ["d", "data"])}
   end
 
   def translate_body(message, "create_room") do
-    put_in(message, ["d", "isPrivate"], message["privacy"] == "private")
+    is_private = get_in(message, ["d", "privacy"]) == "private"
+    put_in(message, ["d", "isPrivate"], is_private)
   end
 
-  def translate_body(message = %{"d" => data = %{"username" => username}}, "ban") do
+  def translate_body(message, "ban") do
+    username = get_in(message, ["d", "username"])
+    reason = get_in(message, ["d", "reason"])
+
     message
     |> put_in(["d", "userId"], Beef.Users.get_by_username(username).id)
-    |> put_in(["d", "reason"], data["reason"])
+    |> put_in(["d", "reason"], reason)
   end
 
   def translate_body(message, "set_listener") do
@@ -77,8 +84,8 @@ defmodule Broth.Translator.V0_1_0 do
     put_in(message, ["d", "role"], "speaker")
   end
 
-  def translate_body(message = %{"d" => d}, "change_mod_status") do
-    role = if d["value"], do: "mod", else: "user"
+  def translate_body(message, "change_mod_status") do
+    role = if get_in(message, ["d","value"]), do: "mod", else: "user"
     put_in(message, ["d", "level"], role)
   end
 
@@ -86,30 +93,35 @@ defmodule Broth.Translator.V0_1_0 do
     put_in(message, ["d", "level"], "owner")
   end
 
-  def translate_body(message = %{"d" => d}, "make_room_public") do
-    is_private = Map.get(d, "isPrivate", false)
-    new_d = %{"name" => d["newName"], "isPrivate" => is_private}
-    Map.put(message, "d", new_d)
+  def translate_body(message, "make_room_public") do
+    name = get_in(message, ["d", "newName"])
+    is_private = get_in(message, ["d", "isPrivate"]) || false
+
+    message
+    |> put_in(["d", "name"], name)
+    |> put_in(["d", "isPrivate"], is_private)
   end
 
-  def translate_body(message = %{"d" => d}, "edit_room") do
-    put_in(message, ["d", "isPrivate"], d["privacy"] == "private")
+  def translate_body(message, "edit_room") do
+    is_private = get_in(message, ["d", "privacy"]) == "private"
+    put_in(message, ["d", "isPrivate"], is_private)
   end
 
   def translate_body(message, "ask_to_speak") do
     put_in(message, ["d", "role"], "raised_hand")
   end
 
-  def translate_body(message = %{"d" => d}, "follow") do
+  def translate_body(message, "follow") do
     # this one has to also alter the operation.
-    operation = if d["value"], do: "user:follow", else: "user:unfollow"
-    Map.put(message, "op", operation)
+    operation = if get_in(message, ["d", "value"]), do: "user:follow", else: "user:unfollow"
+    %{message | "op" => operation}
   end
+
   def translate_body(message, _op), do: message
 
   # these casts need to be instrumented with fetchId in order to be treated
   # as a cast.
-  @casts_to_calls ["auth", "leave_room", "ban", "fetch_invite_list"]
+  @casts_to_calls ~w(auth leave_room ban fetch_invite_list make_room_public)
 
   def add_ref(message, op) when op in @casts_to_calls do
     Map.put(message, "fetchId", UUID.uuid4())
@@ -118,4 +130,7 @@ defmodule Broth.Translator.V0_1_0 do
   def add_ref(message, _op), do: message
 
   def add_version(message), do: Map.put(message, "version", ~v(0.1.0))
+
+  ############################################################################
+  ## OUTBOUND MESSAGES
 end

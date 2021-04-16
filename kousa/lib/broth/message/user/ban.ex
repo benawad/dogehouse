@@ -1,6 +1,7 @@
 defmodule Broth.Message.User.Ban do
   use Broth.Message.Call
 
+  @primary_key false
   embedded_schema do
     field(:userId, :binary)
     field(:reason, :string)

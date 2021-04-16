@@ -23,7 +23,7 @@ defmodule KousaTest.Broth.User.FollowTest do
       refute Beef.Follows.following_me?(followed.id, t.user.id)
 
       WsClient.send_msg(t.client_ws, "user:follow", %{
-        "id" => followed.id
+        "userId" => followed.id
       })
 
       # this is kind of terrible, we should make this a call operation.

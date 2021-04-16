@@ -381,7 +381,7 @@ defmodule Kousa.Room do
            creatorId: user_id,
            numPeopleInside: 1,
            voiceServerId: VoiceServerUtils.get_next_voice_server_id(),
-           isPrivate: is_private
+           isPrivate: is_private 
          }) do
       {:ok, room} ->
         Onion.RoomSession.start_supervised(

@@ -3,19 +3,19 @@ defmodule Broth.Message.Chat.Ban do
 
   @primary_key false
   embedded_schema do
-    field(:id, :binary_id)
+    field(:userId, :binary_id)
   end
 
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
-    |> cast(data, [:id])
-    |> validate_required([:id])
+    |> cast(data, [:userId])
+    |> validate_required([:userId])
   end
 
   def execute(changeset, state) do
-    with {:ok, ban} <- apply_action(changeset, :validate) do
+    with {:ok, %{userId: userId}} <- apply_action(changeset, :validate) do
       # TODO: change to by: format
-      Kousa.RoomChat.ban_user(state.user_id, ban.id)
+      Kousa.RoomChat.ban_user(state.user_id, userId)
       {:noreply, state}
     end
   end
