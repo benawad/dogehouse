@@ -141,5 +141,11 @@ defmodule Beef.Access.Users do
     end
   end
 
-  defdelegate get_current_room_id(user_id), to: Onion.UserSession
+  def get_current_room_id(user_id) do
+    try do
+      Onion.UserSession.get_current_room_id(user_id)
+    catch
+      _, _ -> nil
+    end
+  end
 end

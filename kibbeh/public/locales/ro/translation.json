@@ -200,7 +200,8 @@
         "banFromRoom": "Interzice din cameră",
         "goBackToListener": "Du-te înapoi la ascultător",
         "deleteMessage": "Şterge acest mesaj",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Necesită permisiunea de a vorbi",

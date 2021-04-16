@@ -14,9 +14,7 @@ import { ElectronHeader } from "../layouts/ElectronHeader";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 
 /*
-
 i know this code is kinda garbage but that's because the mockup is garbage and doesn't use the design system
-
  */
 
 interface LoginButtonProps {
@@ -103,16 +101,13 @@ export const LoginPage: React.FC = () => {
             <p className="text-primary-100 flex-wrap">
               By logging in you accept our&nbsp;
               <a
-                href="https://youtu.be/dQw4w9WgXcQ"
+                href="/privacy-policy.html"
                 className="text-accent hover:underline"
               >
                 Privacy Policy
               </a>
               &nbsp;and&nbsp;
-              <a
-                href="https://youtu.be/dQw4w9WgXcQ"
-                className="text-accent hover:underline"
-              >
+              <a href="/terms.html" className="text-accent hover:underline">
                 Terms of Service
               </a>
               .
@@ -127,10 +122,10 @@ export const LoginPage: React.FC = () => {
               <SvgSolidTwitter width={20} height={20} />
               Log in with Twitter
             </LoginButton>
-            <LoginButton oauthUrl={`${apiBaseUrl}/auth/discord/web`}>
-              <SvgSolidDiscord width={20} height={20} />
-              Log in with Discord
-            </LoginButton>
+            {/* <LoginButton oauthUrl={`${apiBaseUrl}/auth/discord/web`}>
+            <SvgSolidDiscord width={20} height={20} />
+            Log in with Discord
+          </LoginButton> */}
             {!__prod__ ? (
               <LoginButton
                 dev
@@ -166,10 +161,7 @@ export const LoginPage: React.FC = () => {
             <LgLogo />
           </div>
           <div className="flex flex-row gap-6 text-primary-300">
-            <a
-              href="https://youtu.be/dQw4w9WgXcQ"
-              className="hover:text-primary-200"
-            >
+            <a href="/privacy-policy.html" className="hover:text-primary-200">
               Privacy policy
             </a>
             <a

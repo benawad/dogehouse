@@ -203,7 +203,8 @@
         "banFromRoom": "ka mamnuuc qolka",
         "goBackToListener": "Ku laabo Dhageystayaasha",
         "deleteMessage": "tirtir fariintan",
-        "makeRoomCreator": "samee maamulaha qolka"
+        "makeRoomCreator": "samee maamulaha qolka",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Waxay u baahan tahay ogolaansho si aad uhadashid",

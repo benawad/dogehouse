@@ -204,7 +204,8 @@
         "banFromRoom": "ken ala e jan ni pi tomo",
         "goBackToListener": "o tawa monsi pi jan kute",
         "deleteMessage": "weka e sitelen ni",
-        "makeRoomCreator": "ken e jan ni pi ken ale"
+        "makeRoomCreator": "ken e jan ni pi ken ale",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "wile e ken pi toki",

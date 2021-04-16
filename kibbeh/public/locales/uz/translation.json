@@ -217,7 +217,8 @@
         "banFromRoom": "ushbu xonadan taqiqlash",
         "goBackToListener": "tinglovchiga aylanish",
         "deleteMessage": "Xatni o'chirish",
-        "makeRoomCreator": "xonani admini qilish"
+        "makeRoomCreator": "xonani admini qilish",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "bu erda gapirish uchun ruxsat talab qilinadi",

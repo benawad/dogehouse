@@ -202,7 +202,8 @@
         "banFromRoom": "zabanovat z miestnosti",
         "goBackToListener": "vrátiť sa k poslucháčovi",
         "deleteMessage": "zmazať túto správu",
-        "makeRoomCreator": "udeliť správcu miestnosti"
+        "makeRoomCreator": "udeliť správcu miestnosti",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Poslucháči musia požiadať o povolenie rozprávať",

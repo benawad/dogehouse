@@ -203,7 +203,8 @@
         "banFromRoom": "αποκλεισμός από το δωμάτιο",
         "goBackToListener": "επιστροφή σε ακροατή",
         "deleteMessage": "διαγράψτε αυτό το μήνυμα",
-        "makeRoomCreator": "μετατροπή σε διαχειριστή δωματίου"
+        "makeRoomCreator": "μετατροπή σε διαχειριστή δωματίου",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "απαίτηση άδειας για ομιλία",
