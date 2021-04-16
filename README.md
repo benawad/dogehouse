@@ -61,7 +61,7 @@ A desktop app built with [Electron](https://www.electronjs.org/) is available fo
 
 There are different ways to get the Electron desktop app:
 
-* Get the official builds from [here, in GitHub Releases][gh-releases]
+* Get the official builds from [here, in GitHub Releases][gh-releases/latest]
 for any platform.
 * Get it from AUR (unofficial package) for Arch/Manjaro with
 `yay -S dogehouse`.
