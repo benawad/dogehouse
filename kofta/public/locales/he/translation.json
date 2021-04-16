@@ -60,7 +60,7 @@
       "loginGithub": "התחבר באמצעות GitHub",
       "loginTwitter": "התחבר באמצעות Twitter",
       "createTestUser": "צור משתמש נסיון",
-      "loginDiscord": "login with Discord"
+      "loginDiscord": "התחבר באמצעות Discord"
     },
     "myProfile": {
       "logout": "התנתק",
@@ -199,8 +199,8 @@
         "requirePermission": "דרוש אישור לדבר",
         "makePublic": "הפוך חדר לציבורי",
         "makePrivate": "הפוך חדר לפרטי",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "הגדר שם חדר ציבורי",
+        "renamePrivate": "הגדר שם חדר פרטי"
       }
     }
   },
