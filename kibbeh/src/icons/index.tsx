@@ -1,4 +1,5 @@
 export { default as SolidCalendar } from "./SolidCalendar";
+export { default as SolidContributor } from "./SolidContributor"
 export { default as SolidCompass } from "./SolidCompass";
 export { default as SolidFriends } from "./SolidFriends";
 export { default as SolidHome } from "./SolidHome";
@@ -15,10 +16,12 @@ export { default as SolidCaretRight } from "./SolidCaretRight";
 export { default as SolidDogenitro } from "./SolidDogenitro";
 export { default as SolidFullscreen } from "./SolidFullscreen";
 export { default as SolidHelp } from "./SolidHelp";
+export { default as SolidLink } from "./SolidLink"
 export { default as SolidMegaphone } from "./SolidMegaphone";
 export { default as SolidMicrophone } from "./SolidMicrophone";
 export { default as SolidMicrophoneOff } from "./SolidMicrophoneOff";
 export { default as SolidSettings } from "./SolidSettings";
+export { default as SolidStaff } from "./SolidStaff"
 export { default as SolidTime } from "./SolidTime";
 export { default as SolidUser } from "./SolidUser";
 export { default as SolidVolume } from "./SolidVolume";
