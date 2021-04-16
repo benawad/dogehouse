@@ -17,7 +17,37 @@ defmodule KousaTest.Broth.GetMyScheduledRoomsAboutToStartTest do
   end
 
   describe "the websocket get_my_scheduled_rooms_about_to_start operation" do
-    @tag :skip
-    test "returns a scheduled room"
+    test "returns a scheduled room", t do
+      time = DateTime.utc_now() |> DateTime.add(10, :second)
+      user_id = t.user.id
+
+      {:ok, sroom} =
+        Kousa.ScheduledRoom.schedule(user_id, %{
+          "name" => "foo room",
+          "scheduledFor" => time
+        })
+
+      ref =
+        WsClient.send_call_legacy(
+          t.client_ws,
+          "get_my_scheduled_rooms_about_to_start",
+          %{}
+        )
+
+      WsClient.assert_reply_legacy(
+        ref,
+        %{
+          "scheduledRooms" => [
+            %{
+              "creator" => %{"id" => ^user_id},
+              "name" => "foo room",
+              "scheduledFor" => the_future
+            }
+          ]
+        }
+      )
+
+      assert DateTime.to_iso8601(time) == the_future
+    end
   end
 end

@@ -44,13 +44,18 @@ defmodule Broth.Message do
 
   @type message_field :: :operator | :payload | :reference
 
-  # TODO: slowly deprecate "d" and "id" forms in the following table.
+  #########################################################################
+  # TODO: deprecate other forms, convert into them in "Translator".
+  # then collapse find into some simpler methods.
+
   @valid_forms %{
     operator: ~w(operator op),
     payload: ~w(payload p d),
     reference: ~w(reference ref fetchId),
     version: ~w(version v)
   }
+
+  defp find(changeset = %{valid?: false}, _, _), do: changeset
 
   defp find(changeset, field, optional \\ false) when is_atom(field) do
     find(changeset, field, @valid_forms[field], optional)
@@ -72,6 +77,8 @@ defmodule Broth.Message do
       add_error(changeset, field, "no #{field} present")
     end
   end
+
+  ############################################################################
 
   @operators Broth.Message.Manifest.actions()
 

@@ -17,6 +17,8 @@
       -  if it's a cast, it expects `{:noreply, state}`
       -  if it's a call, it expects `{:reply, %__MODULE__{...}, state}`
          or `{:error, message}`
+      - note that if you have a reply, the execute function must come
+        *after* the Reply module definition.
 4.  write schema validation tests in `test/broth/_messages/*`.  This
     helps prevent some malicious payloads.
 5.  write end-to-end tests in `test/broth/*`

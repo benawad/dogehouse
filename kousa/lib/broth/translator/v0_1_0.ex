@@ -34,6 +34,7 @@ defmodule Broth.Translator.V0_1_0 do
     "block_from_room" => "room:ban",
     "follow_info" => "user:get_relationship",
     "speaking_change" => "room:set_active_speaker",
+    "get_my_scheduled_rooms_about_to_start" => "room:get_scheduled",
     # follow needs to arbitrate if it becomes follow or unfollow.
     "follow" => nil,
     # these are special cases:
@@ -128,6 +129,10 @@ defmodule Broth.Translator.V0_1_0 do
     put_in(message, ["d"], %{"muted" => active?})
   end
 
+  def translate_in_body(message, "get_my_scheduled_rooms_about_to_start") do
+    put_in(message, ["d", "all"], false)
+  end
+
   def translate_in_body(message, _op), do: message
 
   # these casts need to be instrumented with fetchId in order to be treated
@@ -206,6 +211,11 @@ defmodule Broth.Translator.V0_1_0 do
 
   def translate_out_body(message, "room:leave") do
     %{message | op: "you_left_room"}
+  end
+
+  def translate_out_body(message, "room:get_scheduled") do
+    rooms = message.d.rooms
+    %{message | d: %{"scheduledRooms" => rooms}}
   end
 
   def translate_out_body(message, _), do: message

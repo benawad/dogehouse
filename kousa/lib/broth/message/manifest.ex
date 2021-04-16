@@ -37,6 +37,7 @@ defmodule Broth.Message.Manifest do
     "room:get_top" => Room.GetTop,
     "room:set_active_speaker" => Room.SetActiveSpeaker,
     "room:mute" => Room.Mute,
+    "room:get_scheduled" => Room.GetScheduled,
     "chat:ban" => Chat.Ban,
     "chat:send_msg" => Chat.SendMsg,
     "chat:delete_msg" => Chat.DeleteMsg,
