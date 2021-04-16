@@ -151,11 +151,12 @@ defmodule Broth.Message do
     def encode(message, opts) do
       %{
         op: operator(message),
-        p: message.payload
+        p: message.payload,
+        v: message.version
       }
       |> add_reference(message)
       |> add_errors(message)
-      |> Broth.Translator.convert_outbound(message)
+      |> Broth.Translator.translate_outbound(message)
       |> Jason.Encode.map(opts)
     end
 

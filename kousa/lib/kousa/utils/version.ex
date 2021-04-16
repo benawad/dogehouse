@@ -29,3 +29,9 @@ defmodule Kousa.Utils.Version do
     |> Macro.escape()
   end
 end
+
+defimpl Jason.Encoder, for: Version do
+  def encode(version, opts) do
+    inspect(to_string(version))
+  end
+end

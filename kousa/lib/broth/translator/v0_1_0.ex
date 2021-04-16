@@ -46,11 +46,11 @@ defmodule Broth.Translator.V0_1_0 do
 
   defguard translates(message) when :erlang.map_get("op", message) in @operators
 
-  def translate(message = %{"op" => operator}) do
+  def translate_inbound(message = %{"op" => operator}) do
     message
     |> translate_operation
-    |> translate_body(operator)
-    |> add_ref(operator)
+    |> translate_in_body(operator)
+    |> add_in_ref(operator)
     |> add_version
   end
 
@@ -58,16 +58,16 @@ defmodule Broth.Translator.V0_1_0 do
     %{message | "op" => @operator_translations[operator]}
   end
 
-  def translate_body(message, "edit_profile") do
+  def translate_in_body(message, "edit_profile") do
     %{message | "d" => get_in(message, ["d", "data"])}
   end
 
-  def translate_body(message, "create_room") do
+  def translate_in_body(message, "create_room") do
     is_private = get_in(message, ["d", "privacy"]) == "private"
     put_in(message, ["d", "isPrivate"], is_private)
   end
 
-  def translate_body(message, "ban") do
+  def translate_in_body(message, "ban") do
     username = get_in(message, ["d", "username"])
     reason = get_in(message, ["d", "reason"])
 
@@ -76,24 +76,24 @@ defmodule Broth.Translator.V0_1_0 do
     |> put_in(["d", "reason"], reason)
   end
 
-  def translate_body(message, "set_listener") do
+  def translate_in_body(message, "set_listener") do
     put_in(message, ["d", "role"], "listener")
   end
 
-  def translate_body(message, "add_speaker") do
+  def translate_in_body(message, "add_speaker") do
     put_in(message, ["d", "role"], "speaker")
   end
 
-  def translate_body(message, "change_mod_status") do
+  def translate_in_body(message, "change_mod_status") do
     role = if get_in(message, ["d","value"]), do: "mod", else: "user"
     put_in(message, ["d", "level"], role)
   end
 
-  def translate_body(message, "change_room_creator") do
+  def translate_in_body(message, "change_room_creator") do
     put_in(message, ["d", "level"], "owner")
   end
 
-  def translate_body(message, "make_room_public") do
+  def translate_in_body(message, "make_room_public") do
     name = get_in(message, ["d", "newName"])
     is_private = get_in(message, ["d", "isPrivate"]) || false
 
@@ -102,35 +102,100 @@ defmodule Broth.Translator.V0_1_0 do
     |> put_in(["d", "isPrivate"], is_private)
   end
 
-  def translate_body(message, "edit_room") do
+  def translate_in_body(message, "edit_room") do
     is_private = get_in(message, ["d", "privacy"]) == "private"
     put_in(message, ["d", "isPrivate"], is_private)
   end
 
-  def translate_body(message, "ask_to_speak") do
+  def translate_in_body(message, "ask_to_speak") do
     put_in(message, ["d", "role"], "raised_hand")
   end
 
-  def translate_body(message, "follow") do
+  def translate_in_body(message, "follow") do
     # this one has to also alter the operation.
     operation = if get_in(message, ["d", "value"]), do: "user:follow", else: "user:unfollow"
     %{message | "op" => operation}
   end
 
-  def translate_body(message, _op), do: message
+  def translate_in_body(message, _op), do: message
 
   # these casts need to be instrumented with fetchId in order to be treated
   # as a cast.
   @casts_to_calls ~w(auth leave_room ban fetch_invite_list make_room_public)
 
-  def add_ref(message, op) when op in @casts_to_calls do
+  def add_in_ref(message, op) when op in @casts_to_calls do
     Map.put(message, "fetchId", UUID.uuid4())
   end
 
-  def add_ref(message, _op), do: message
+  def add_in_ref(message, _op), do: message
 
   def add_version(message), do: Map.put(message, "version", ~v(0.1.0))
 
   ############################################################################
   ## OUTBOUND MESSAGES
+
+  def translate_outbound(message, original) do
+    %{op: "fetch_done", d: message.p}
+    |> add_out_ref(message)
+    |> add_out_err(message)
+    |> translate_out_body(original.inbound_operator)
+  end
+
+  defp add_out_ref(message, %{ref: ref}), do: Map.put(message, :fetchId, ref)
+  defp add_out_ref(message, _), do: message
+
+  defp add_out_err(message, %{e: err}), do: Map.put(message, :e, err)
+  defp add_out_err(message, _), do: message
+
+  def translate_out_body(message, "auth:request") do
+    %{message | op: "auth-good", d: %{user: %{id: message.d.id}}}
+  end
+
+  def translate_out_body(message, "user:ban") do
+    %{message | op: "ban_done", d: %{worked: !message[:e]}}
+  end
+
+  def translate_out_body(message, "room:create") do
+    %{message | d: %{room: message.d}}
+  end
+
+  def translate_out_body(message = %{e: errors}, "user:update") do
+    %{message | d: %{isUsernameTaken: errors =~ "has already been taken"}}
+  end
+
+  def translate_out_body(message, "user:update") do
+    %{message | d: %{isUsernameTaken: false}}
+  end
+
+  def translate_out_body(message, "user:get_relationship") do
+    new_data =
+      case message.d.relationship do
+        nil -> %{followsYou: false, youAreFollowing: false}
+        :follows -> %{followsYou: true, youAreFollowing: false}
+        :following -> %{followsYou: false, youAreFollowing: true}
+        :mutual -> %{followsYou: true, youAreFollowing: true}
+      end
+
+    %{message | d: new_data}
+  end
+
+  def translate_out_body(message, "room:update") do
+    %{message | d: !Map.get(message, :e)}
+  end
+
+  def translate_out_body(message, "room:get_invite_list") do
+    data = %{users: message.d.invites, nextCursor: message.d.nextCursor}
+    %{message | op: "fetch_invite_list_done", d: data}
+  end
+
+  def translate_out_body(message, "user:get_following") do
+    data = %{users: message.d.following, nextCursor: message.d.nextCursor}
+    %{message | d: data}
+  end
+
+  def translate_out_body(message, "room:leave") do
+    %{message | op: "you_left_room"}
+  end
+
+  def translate_out_body(message, _), do: message
 end
