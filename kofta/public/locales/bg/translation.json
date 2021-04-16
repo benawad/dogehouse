@@ -59,7 +59,8 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "влизане с GitHub",
       "loginTwitter": "влизане с Twitter",
-      "createTestUser": "създаване на тестови потребител"
+      "createTestUser": "създаване на тестови потребител",
+      "loginDiscord": "login with Discord"
     },
     "myProfile": {
       "logout": "излизане",

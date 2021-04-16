@@ -59,7 +59,8 @@
       "featureText_6": "Darbojas ar Doge",
       "loginGithub": "Ieiet caur GitHub",
       "loginTwitter": "Ieiet caur Twitter",
-      "createTestUser": "Izveidot izmēģinājuma lietotāju"
+      "createTestUser": "Izveidot izmēģinājuma lietotāju",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Iziet",
@@ -202,7 +203,8 @@
         "banFromRoom": "bloķēt no šis istabas",
         "goBackToListener": "kļūt par klausītāju",
         "deleteMessage": "izdzēst šo ziņu",
-        "makeRoomCreator": "iestatīt par šis istabas administrātoru"
+        "makeRoomCreator": "iestatīt par šis istabas administrātoru",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "pieprasīt runāšanas atļauju",

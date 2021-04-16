@@ -62,7 +62,8 @@
       "featureText_6": "pali kepeken Doge",
       "loginGithub": "nanpa e jan kepeken GitHub",
       "loginTwitter": "nanpa e jan kepeken Twitter",
-      "createTestUser": "pali e jan pi tenpo lili"
+      "createTestUser": "pali e jan pi tenpo lili",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "o sona ala e sina",
@@ -203,7 +204,8 @@
         "banFromRoom": "ken ala e jan ni pi tomo",
         "goBackToListener": "o tawa monsi pi jan kute",
         "deleteMessage": "weka e sitelen ni",
-        "makeRoomCreator": "ken e jan ni pi ken ale"
+        "makeRoomCreator": "ken e jan ni pi ken ale",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "wile e ken pi toki",

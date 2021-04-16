@@ -62,7 +62,8 @@
       "featureText_6": "সৌজন্যে Doge",
       "loginGithub": "GitHub এর দ্বারা লগইন করুন",
       "loginTwitter": "Twitter এর দ্বারা লগইন করুন",
-      "createTestUser": "টেস্ট ইউজার তৈরি করুন"
+      "createTestUser": "টেস্ট ইউজার তৈরি করুন",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "লগআউট",
@@ -207,7 +208,8 @@
         "banFromRoom": "রুম থেকে ব্যান করুন",
         "goBackToListener": "শ্রোতাতে ফিরে যান",
         "deleteMessage": "মেসেজটি মুছে ফেলুন",
-        "makeRoomCreator": "রুম অ্যাডমিন তৈরি করুন"
+        "makeRoomCreator": "রুম অ্যাডমিন তৈরি করুন",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "কথা বলার জন্য পারমিশন লাগবে",

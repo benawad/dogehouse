@@ -59,7 +59,8 @@
       "featureText_6": "Poganja ga Doge",
       "loginGithub": "Prijava z GitHub računom",
       "loginTwitter": "Prijava z Twitter računom",
-      "createTestUser": "Ustvari testnega uporabnika"
+      "createTestUser": "Ustvari testnega uporabnika",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Odjava",
@@ -196,7 +197,8 @@
         "banFromRoom": "Odstrani iz sobe",
         "goBackToListener": "Nazaj k poslušalcem",
         "deleteMessage": "Izbriši sporočilo ",
-        "makeRoomCreator": "Nastavi kot administratorja sobe"
+        "makeRoomCreator": "Nastavi kot administratorja sobe",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Potrebno dovoljenje za govor",

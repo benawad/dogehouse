@@ -58,7 +58,8 @@
       "featureText_6": "ขับเคลื่อนโดย Doge",
       "loginGithub": "เข้าสู่ระบบด้วย GitHub",
       "loginTwitter": "เข้าสู่ระบบด้วย Twitter",
-      "createTestUser": "สร้างผู้ใช้ทดสอบ"
+      "createTestUser": "สร้างผู้ใช้ทดสอบ",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "ออกจากระบบ",
@@ -196,7 +197,8 @@
         "banFromRoom": "แบนจากห้อง",
         "goBackToListener": "กลับไปเป็นผู้ฟัง",
         "deleteMessage": "ลบข้อความ",
-        "makeRoomCreator": "แต่งตั้งเป็นแอดมินห้อง"
+        "makeRoomCreator": "แต่งตั้งเป็นแอดมินห้อง",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "ต้องใช้สิทธิ์ในการพูด",

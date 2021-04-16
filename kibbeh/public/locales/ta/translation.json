@@ -62,7 +62,8 @@
       "featureText_6": "இது Doge ஆல் பவர் செய்யப்பட்டது  ",
       "loginGithub": "GitHub மூலமாக உள்நுழை",
       "loginTwitter": "Twitter மூலமாக உள்நுழை",
-      "createTestUser": "சோதனை பயனரை உருவாக்கவும்"
+      "createTestUser": "சோதனை பயனரை உருவாக்கவும்",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "லாக் அவுட் செய்",
@@ -205,7 +206,8 @@
         "banFromRoom": "அறையில் இருந்து தடைசெய்க",
         "goBackToListener": "கேட்பவராக திரும்பிச் செல்லுங்கள்",
         "deleteMessage": "இந்த செய்தியை நீக்கு",
-        "makeRoomCreator": "அவரை அறையின் நிர்வாகியாக ஆக்கு"
+        "makeRoomCreator": "அவரை அறையின் நிர்வாகியாக ஆக்கு",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "பேச அனுமதி தேவை",

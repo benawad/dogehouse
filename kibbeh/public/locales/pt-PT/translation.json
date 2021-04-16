@@ -38,9 +38,9 @@
     },
     "followList": { "followHim": "seguir", "followingHim": "a seguir" },
     "home": {
-      "createRoom": "Criar Sala",
+      "createRoom": "Criar sala",
       "refresh": "Atualizar",
-      "editRoom": "Edit Room"
+      "editRoom": "Editar sala"
     },
     "inviteList": {
       "roomGone": "A sala não existe, voltar atrás",
@@ -58,7 +58,8 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "Entrar com GitHub",
       "loginTwitter": "Entrar com Twitter",
-      "createTestUser": "Criar utilizador de teste"
+      "createTestUser": "Criar utilizador de teste",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Sair",
@@ -67,7 +68,7 @@
       "soundSettings": "Definições de som",
       "deleteAccount": "Apagar conta",
       "overlaySettings": "Ir para definições de Overlay",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Desculpa, não conseguimos encontrar esse utilizador"
     },
     "notFound": {
       "whoopsError": "Ups! Esta página perdeu-se na conversa.",
@@ -146,7 +147,7 @@
         "roomDescription": "descrição da sala",
         "descriptionError": "máximo 500 caracteres",
         "nameError": "deverá ter entre 2 e 60 caracteres",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "Preenche os campos seguintes para iniciar uma nova sala"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nova sala criada",
@@ -177,7 +178,8 @@
         "banFromRoom": "Banir da sala",
         "goBackToListener": "voltar a ouvinte",
         "deleteMessage": "Apagar mensagem",
-        "makeRoomCreator": "Tornar administrador da sala"
+        "makeRoomCreator": "Tornar administrador da sala",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Pedir permissão para falar",
@@ -212,24 +214,24 @@
       "inviteToRoom": "convidar para a sala"
     },
     "followingOnline": {
-      "people": "People",
+      "people": "Pessoas",
       "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "noOnline": "Neste momento tens 0 amigos online",
+      "showMore": "Mostrar mais"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "Próximas salas",
+      "exploreMoreRooms": "Explorar mais salas"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": { "placeholder": "Pesquisar salas, utilizadores ou categorias" },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "Perfil",
+      "language": "Linguagem",
+      "reportABug": "Reportar um erro",
+      "useOldVersion": "Usar versão antiga",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "Sair",
+        "modalSubtitle": "De certeza que pretendes sair?"
       }
     }
   },
@@ -273,6 +275,6 @@
       "galacticDoge": "Doge galático",
       "spottedLife": "Encontrado planeta com vida"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": { "yourFeed": "O teu Feed" }
   }
 }

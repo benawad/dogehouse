@@ -17,10 +17,6 @@ if (isElectron()) {
   ipcRenderer = window.require("electron").ipcRenderer;
 }
 
-export function ElectronHeader() {
-  return useHostStore.getState().isMac ? <MacHeader /> : <WinHeader />;
-}
-
 function WinHeader() {
   return (
     <div className="electron-header z-50">
@@ -97,4 +93,8 @@ function MacHeader() {
       <div className="w-full header-drag-region"></div>
     </div>
   );
+}
+
+export function ElectronHeader() {
+  return useHostStore.getState().isMac ? <MacHeader /> : <WinHeader />;
 }

@@ -58,7 +58,8 @@
       "featureText_6": "Drevet av Doge",
       "loginGithub": "Logg inn med GitHub",
       "loginTwitter": "Logg inn med Twitter",
-      "createTestUser": "Opprett en test-bruker"
+      "createTestUser": "Opprett en test-bruker",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Logg ut",
@@ -198,7 +199,8 @@
         "banFromRoom": "Utesteng fra rommet",
         "goBackToListener": "Gå tilbake til lytter",
         "deleteMessage": "Slett denne meldingen",
-        "makeRoomCreator": "Opprett rom-administrator"
+        "makeRoomCreator": "Opprett rom-administrator",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Krev tillatelse for å snakke",

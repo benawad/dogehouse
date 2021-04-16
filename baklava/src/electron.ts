@@ -39,8 +39,6 @@ let shouldShowWindow = false;
 let windowShowInterval: NodeJS.Timeout;
 let skipUpdateTimeout: NodeJS.Timeout;
 
-let PREV_VERSION = "";
-
 i18n.use(Backend);
 
 electronLogger.transports.file.level = "debug";
@@ -66,8 +64,8 @@ async function localize() {
 
 function createMainWindow() {
   mainWindow = new BrowserWindow({
-    width: 560,
-    height: 1000,
+    width: 1500,
+    height: 800,
     autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,
@@ -155,32 +153,23 @@ function createMainWindow() {
   mainWindow.webContents.on("will-navigate", handleLinks);
 
   ipcMain.on("@dogehouse/loaded", (event, doge) => {
-    if (doge != PREV_VERSION) {
-      PREV_VERSION = doge;
-      if (doge === "kibbeh") {
-        if (isMac) {
-          mainWindow.maximize();
-        } else {
-          mainWindow.setSize(1500, 800, true);
-        }
-      } else {
-        mainWindow.setSize(560, 1000, true);
-        setPresence({
-          details: "Taking DogeHouse to the moon",
-        });
-      }
-      mainWindow.center();
-    }
+    if (isMac) mainWindow.maximize();
   });
   ipcMain.on("@app/quit", (event, args) => {
     mainWindow.close();
   });
   ipcMain.on("@app/maximize", (event, args) => {
-    if (mainWindow.maximizable) {
-      if (mainWindow.isMaximized()) {
-        mainWindow.unmaximize();
-      } else {
-        mainWindow.maximize();
+    if (isMac) {
+      if (mainWindow.isFullScreenable()) {
+        mainWindow.setFullScreen(!mainWindow.isFullScreen());
+      }
+    } else {
+      if (mainWindow.maximizable) {
+        if (mainWindow.isMaximized()) {
+          mainWindow.unmaximize();
+        } else {
+          mainWindow.maximize();
+        }
       }
     }
   });

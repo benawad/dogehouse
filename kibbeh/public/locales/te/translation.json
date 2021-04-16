@@ -58,7 +58,8 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "GitHub తో లాగిన్ అవ్వండి",
       "loginTwitter": "Twitter తో లాగిన్ అవ్వండి",
-      "createTestUser": "create test user"
+      "createTestUser": "create test user",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "logout",
@@ -198,7 +199,8 @@
         "banFromRoom": "ban from room",
         "goBackToListener": "go back to listener",
         "deleteMessage": "ఈ సందేశాన్ని తొలగించండి",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "నాకు మాట్లాడటానికి అనుమతి కావాలి",

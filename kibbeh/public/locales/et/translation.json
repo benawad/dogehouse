@@ -59,7 +59,8 @@
       "featureText_6": "Töötab Doge'i jõul",
       "loginGithub": "Logi GitHub'iga",
       "loginTwitter": "Logi Twitter'iga",
-      "createTestUser": "Loo test-kasutaja"
+      "createTestUser": "Loo test-kasutaja",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "logi välja",
@@ -196,7 +197,8 @@
         "banFromRoom": "bänni ruumist",
         "goBackToListener": "mine tagasi kuulajatesse",
         "deleteMessage": "kustuta sõnum",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "nõua luba rääkimiseks",

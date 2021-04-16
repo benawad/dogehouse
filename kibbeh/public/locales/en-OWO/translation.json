@@ -59,7 +59,8 @@
       "featureText_6": "Powewed by Doge",
       "loginGithub": "Log in with GitHub",
       "loginTwitter": "Log in with Twittew",
-      "createTestUser": "Cweate Test Usew UwU"
+      "createTestUser": "Cweate Test Usew UwU",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Logout",
@@ -196,7 +197,8 @@
         "banFromRoom": "Ban fwom Woom UwU",
         "goBackToListener": "Go Back to Wistenew (╯﹏╰）",
         "deleteMessage": "Dewete this Message >_>",
-        "makeRoomCreator": "Make Woom Admin"
+        "makeRoomCreator": "Make Woom Admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Wequiwe pewmission to speak <{^n^}>",

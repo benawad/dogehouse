@@ -59,7 +59,8 @@
       "featureText_6": "Angetrieben durch Doge",
       "loginGithub": "mit GitHub anmelden",
       "loginTwitter": "mit Twitter anmelden",
-      "createTestUser": "Testnutzer erstellen"
+      "createTestUser": "Testnutzer erstellen",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Abmelden",
@@ -178,7 +179,8 @@
         "banFromRoom": "Aus Raum ausschließen",
         "goBackToListener": "Zurück zum Zuhörer",
         "deleteMessage": "Nachricht löschen",
-        "makeRoomCreator": "zum Raumadmin befördern"
+        "makeRoomCreator": "zum Raumadmin befördern",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Sprechen verlangen",

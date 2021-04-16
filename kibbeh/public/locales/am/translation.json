@@ -59,7 +59,8 @@
       "featureText_6": "በ Doge የተጎላበተ",
       "loginGithub": "በ GitHub ግባ",
       "loginTwitter": "በ Twitter ግባ",
-      "createTestUser": "የሙከራ ተጠቃሚ ይፍጠሩ"
+      "createTestUser": "የሙከራ ተጠቃሚ ይፍጠሩ",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "ውጣ",
@@ -197,7 +198,8 @@
         "banFromRoom": "ከ ክፍል ያግዱ",
         "goBackToListener": "አዳማጭ ይመለሱ",
         "deleteMessage": "ይህን መልዕክት ሰርዝ",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "መናገር ፈቃድ ይጠይቃል",

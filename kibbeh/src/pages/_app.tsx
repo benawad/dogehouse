@@ -22,7 +22,6 @@ import { InvitedToJoinRoomModal } from "../shared-components/InvitedToJoinRoomMo
 import { ConfirmModal } from "../shared-components/ConfirmModal";
 import isElectron from "is-electron";
 import Head from "next/head";
-import { platform } from "node:os";
 import { useHostStore } from "../global-stores/useHostStore";
 
 if (!isServer) {
@@ -68,6 +67,7 @@ function App({ Component, pageProps }: AppProps) {
       <QueryClientProvider client={queryClient}>
         <MainWsHandlerProvider>
           <Head>
+            <link rel="icon" href="/favicon.ico" type="image/x-icon" />
             <meta
               name="viewport"
               content="width=device-width, initial-scale=1, user-scalable=no, user-scalable=0"

@@ -59,7 +59,8 @@
       "featureText_6": "Pokreće Doge",
       "loginGithub": "prijavi se preko GitHub-a",
       "loginTwitter": "prijavi se preko Twitter-a",
-      "createTestUser": "kreiraj test korisnika"
+      "createTestUser": "kreiraj test korisnika",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "odjavi me",
@@ -196,7 +197,8 @@
         "banFromRoom": "zabrani pristup sobi",
         "goBackToListener": "vrati se slušaocu",
         "deleteMessage": "obriši ovu poruku",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "zatraži dozvolu za govor",

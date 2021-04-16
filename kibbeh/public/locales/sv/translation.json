@@ -58,7 +58,8 @@
       "featureText_6": "Drivs av Doge",
       "loginGithub": "Logga in med GitHub",
       "loginTwitter": "Logga in Twitter",
-      "createTestUser": "Skapa testanvändare"
+      "createTestUser": "Skapa testanvändare",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Logga ut",
@@ -177,7 +178,8 @@
         "banFromRoom": "Bannlys från rum",
         "goBackToListener": "Gå tillbaka till lyssnare",
         "deleteMessage": "Ta bort meddelande",
-        "makeRoomCreator": "Gör till rumsadministratör"
+        "makeRoomCreator": "Gör till rumsadministratör",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Be om tillåtelse att prata",

@@ -59,7 +59,8 @@
       "featureText_6": "Atribe vo Doge",
       "loginGithub": "mit GitHub amälde",
       "loginTwitter": "mit Twitter amälde",
-      "createTestUser": "Testnutzer erstelle"
+      "createTestUser": "Testnutzer erstelle",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Abmälde",
@@ -176,7 +177,8 @@
         "banFromRoom": "Usem Ruum usschliesse",
         "goBackToListener": "Zrügg zum Zuehörer",
         "deleteMessage": "Nachricht lösche",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Rede verlange",

@@ -59,7 +59,8 @@
       "featureText_6": "Zasilany przez Doge",
       "loginGithub": "zaloguj się przy użyciu GitHub",
       "loginTwitter": "zaloguj się przy użyciu Twitter",
-      "createTestUser": "stwórz testowe konto"
+      "createTestUser": "stwórz testowe konto",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "wyloguj się",
@@ -202,7 +203,8 @@
         "banFromRoom": "zbanuj z pokoju",
         "goBackToListener": "powróć do słuchacza",
         "deleteMessage": "usuń tą wiadomość",
-        "makeRoomCreator": "zmień na administratora pokoju"
+        "makeRoomCreator": "zmień na administratora pokoju",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "wymaga pozwolenia na mówienie",

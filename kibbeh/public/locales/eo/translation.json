@@ -59,7 +59,8 @@
       "featureText_6": "Funkciigita de Doge",
       "loginGithub": "ensaluti per GitHub",
       "loginTwitter": "ensaluti per Twitter",
-      "createTestUser": "krei testuzanton"
+      "createTestUser": "krei testuzanton",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "elsaluti",
@@ -200,7 +201,8 @@
         "banFromRoom": "malpermeso de ĉambro",
         "goBackToListener": "reiru al aŭskultanto",
         "deleteMessage": "forigu ĉi tiun mesaĝon",
-        "makeRoomCreator": "fari ĉambron administranto"
+        "makeRoomCreator": "fari ĉambron administranto",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "postulas permeson paroli",

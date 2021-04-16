@@ -58,7 +58,8 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "log in with GitHub",
       "loginTwitter": "log in with Twitter",
-      "createTestUser": "create test user"
+      "createTestUser": "create test user",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "logout",
@@ -195,7 +196,8 @@
         "banFromRoom": "ban from room",
         "goBackToListener": "go back to listener",
         "deleteMessage": "इस मैसेज को हटा दें",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "बोलने की अनुमति की आवश्यकता है",

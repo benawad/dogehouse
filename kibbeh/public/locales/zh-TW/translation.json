@@ -58,7 +58,8 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "用GitHub登入",
       "loginTwitter": "用Twitter登入",
-      "createTestUser": "建立測試使用者"
+      "createTestUser": "建立測試使用者",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "登出",
@@ -193,7 +194,8 @@
         "banFromRoom": "踢出房間",
         "goBackToListener": "回到聽眾",
         "deleteMessage": "删除此訊息",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "需要許可才能發言",

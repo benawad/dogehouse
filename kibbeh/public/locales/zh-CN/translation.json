@@ -58,7 +58,8 @@
       "featureText_6": "神烦狗出品",
       "loginGithub": "用GitHub登录",
       "loginTwitter": "用Twitter登录",
-      "createTestUser": "创建测试账号"
+      "createTestUser": "创建测试账号",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "登出",
@@ -174,7 +175,8 @@
         "banFromRoom": "踢出聊天室",
         "goBackToListener": "回到听者",
         "deleteMessage": "删除此信息",
-        "makeRoomCreator": "设为聊天室管理员"
+        "makeRoomCreator": "设为聊天室管理员",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "需要允许才能说话",

@@ -59,7 +59,8 @@
       "featureText_6": "Doporučuje 10/10 hafanů",
       "loginGithub": "Přihlásit se přes GitHub",
       "loginTwitter": "Přihlásit se přes Twitter",
-      "createTestUser": "Vytvořit testovacího uživatele"
+      "createTestUser": "Vytvořit testovacího uživatele",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Odhlásit se",
@@ -201,7 +202,8 @@
         "banFromRoom": "Zabanovat z místnosti",
         "goBackToListener": "Přesunout se do posluchačů",
         "deleteMessage": "Smazat tuto zprávu",
-        "makeRoomCreator": "Předat místnost"
+        "makeRoomCreator": "Předat místnost",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Požádat o přesunutí do mluvících",

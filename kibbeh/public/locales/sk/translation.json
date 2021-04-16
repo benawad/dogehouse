@@ -58,7 +58,8 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "prihlásiť se cez GitHub",
       "loginTwitter": "prihlásiť se cez Twitter",
-      "createTestUser": "vytvoriť testovacieho používateľa"
+      "createTestUser": "vytvoriť testovacieho používateľa",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "odhlásiť sa",
@@ -201,7 +202,8 @@
         "banFromRoom": "zabanovat z miestnosti",
         "goBackToListener": "vrátiť sa k poslucháčovi",
         "deleteMessage": "zmazať túto správu",
-        "makeRoomCreator": "udeliť správcu miestnosti"
+        "makeRoomCreator": "udeliť správcu miestnosti",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Poslucháči musia požiadať o povolenie rozprávať",
@@ -221,7 +223,9 @@
       "upcomingRooms": "Nadchádzajúce miestnosti",
       "exploreMoreRooms": "Preskúmať viac miestností"
     },
-    "search": { "placeholder": "Vyhľadaj miestnosti, užívateľov alebo kategórie" },
+    "search": {
+      "placeholder": "Vyhľadaj miestnosti, užívateľov alebo kategórie"
+    },
     "settingsDropdown": {
       "profile": "Profil",
       "language": "Jazyk",

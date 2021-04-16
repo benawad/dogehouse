@@ -48,6 +48,9 @@ const UserPreview: React.FC<{
   const { mutateAsync: banFromRoomChat } = useTypeSafeMutation(
     "banFromRoomChat"
   );
+  const { mutateAsync: unbanFromRoomChat } = useTypeSafeMutation(
+    "unbanFromRoomChat"
+  );
   const { data, isLoading } = useTypeSafeQuery(["getUserProfile", id], {}, [
     id,
   ]);
@@ -126,6 +129,17 @@ const UserPreview: React.FC<{
         banFromRoomChat([id]);
       },
       t("components.modals.profileModal.banFromChat"),
+    ],
+    [
+      canDoModStuffOnThisUser &&
+        id in bannedUserIdMap &&
+        (iAmCreator || !roomPermissions?.isMod),
+      "unbanFromChat",
+      () => {
+        onClose();
+        unbanFromRoomChat([id]);
+      },
+      t("components.modals.profileModal.unBanFromChat"),
     ],
     [
       canDoModStuffOnThisUser && (iAmCreator || !roomPermissions?.isMod),

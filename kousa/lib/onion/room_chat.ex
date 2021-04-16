@@ -33,11 +33,14 @@ defmodule Onion.RoomChat do
         # ensures that the chat dies alongside the room
         Process.link(pid)
         {:ok, pid}
+
       {:error, {:already_started, pid}} ->
         Logger.warn("unexpectedly tried to restart already started Room chat #{room_id}")
         Process.link(pid)
         {:ignored, pid}
-      error -> error
+
+      error ->
+        error
     end
   end
 
@@ -80,6 +83,8 @@ defmodule Onion.RoomChat do
   defp banned_impl(who, _reply, state) do
     {:reply, who in Map.keys(state.ban_map), state}
   end
+
+  def unban_user(room_id, user_id), do: cast(room_id, {:unban_user, user_id})
 
   def remove_user(room_id, user_id), do: cast(room_id, {:remove_user, user_id})
 
@@ -161,10 +166,23 @@ defmodule Onion.RoomChat do
     {:noreply, %State{state | ban_map: Map.put(state.ban_map, user_id, 1)}}
   end
 
+  defp unban_user_impl(user_id, state) do
+    ws_fan(state.users, %{
+      op: "chat_user_unbanned",
+      d: %{
+        userId: user_id
+      }
+    })
+
+    {:noreply, %State{state | ban_map: Map.delete(state.ban_map, user_id)}}
+  end
+
   ################################################################################ 3
   ## ROUTER
 
   def handle_call({:banned?, who}, reply, state), do: banned_impl(who, reply, state)
+
+  def handle_cast({:unban_user, user_id}, state), do: unban_user_impl(user_id, state)
 
   def handle_cast({:remove_user, user_id}, state), do: remove_user_impl(user_id, state)
 
