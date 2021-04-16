@@ -30,8 +30,18 @@ export const SoundEffectSettings: React.FC<ChatSettingsProps> = () => {
       const ipcRenderer = window.require("electron").ipcRenderer;
       ipcRenderer.send("@rpc/page", {
         page: "sound-effect-settings",
+        opened: true,
+        modal: false,
         data: "",
       });
+      return () => {
+        ipcRenderer.send("@rpc/page", {
+          page: "sound-effect-settings",
+          opened: false,
+          modal: false,
+          data: "",
+        });
+      };
     }
   }, []);
   return (
@@ -44,7 +54,7 @@ export const SoundEffectSettings: React.FC<ChatSettingsProps> = () => {
 
         {Object.keys(soundEffectSettings).map((k) => {
           return (
-            <div className={`flex mb-4 items-center`} key={k}>
+            <div className={`flex flex mb-4 items-center`} key={k}>
               <InfoText>{capitalize(camelToReg(k))}</InfoText>
               <input
                 className="ml-2"

@@ -10,7 +10,7 @@ describe("AccountOverlay", () => {
   it("should render correctly", () => {
     const { getByTestId, getByText } = render(
       <AccountOverlay>
-        <div>Child</div>
+        <div className="flex">Child</div>
       </AccountOverlay>
     );
     const component = getByTestId("account-overlay");
@@ -23,7 +23,7 @@ describe("AccountOverlay", () => {
   it("should match snapshot", () => {
     const { getByTestId } = render(
       <AccountOverlay>
-        <div>Child</div>
+        <div className="flex">Child</div>
       </AccountOverlay>
     );
     const component = getByTestId("account-overlay");

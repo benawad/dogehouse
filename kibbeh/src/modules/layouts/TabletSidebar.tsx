@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { SolidPlus } from "../../icons";
 import { ApiPreloadLink } from "../../shared-components/ApiPreloadLink";
+import { useConn } from "../../shared-hooks/useConn";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { BoxedIcon } from "../../ui/BoxedIcon";
 import { SingleUser } from "../../ui/UserAvatar";
@@ -28,7 +29,7 @@ const Page: React.FC<{
   return (
     <>
       {data?.users.map((u) => (
-        <div key={u.id} className="pb-3 w-full justify-center">
+        <div key={u.id} className="flex pb-3 w-full justify-center">
           <ApiPreloadLink
             {...(u.currentRoom
               ? { route: "room", data: { id: u.currentRoom.id } }
@@ -47,7 +48,7 @@ const Page: React.FC<{
         </div>
       ))}
       {isLastPage && data?.nextCursor ? (
-        <div className="justify-center">
+        <div className="flex justify-center">
           <BoxedIcon circle onClick={() => onLoadMore(data!.nextCursor!)}>
             <SolidPlus />
           </BoxedIcon>
@@ -59,10 +60,14 @@ const Page: React.FC<{
 
 export const TabletSidebar: React.FC<FriendsOnlineControllerProps> = ({}) => {
   const [cursors, setCursors] = useState<number[]>([0]);
-  console.log("heresdas");
+  const conn = useConn();
+
+  if (!conn) {
+    return null;
+  }
 
   return (
-    <div className="pb-5 w-full flex flex-col flex-1 overflow-y-auto text-primary-100">
+    <div className="flex pb-5 w-full flex flex-col flex-1 overflow-y-auto text-primary-100">
       {cursors.map((c, i) => (
         <Page
           key={c}

@@ -10,6 +10,7 @@ export default {
 };
 
 const userSummary: UserSummaryCardProps = {
+  onClick: () => {},
   avatarUrl: avatar,
   id: "1",
   displayName: "Arnau Jiménez",

@@ -43,9 +43,14 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
   useEffect(() => {
     if (isElectron()) {
       const ipcRenderer = window.require("electron").ipcRenderer;
-      ipcRenderer.send("@rpc/page", { page: "edit-profile", data: "" });
+      ipcRenderer.send("@rpc/page", {
+        page: "edit-profile",
+        opened: isOpen,
+        modal: true,
+        data: "",
+      });
     }
-  }, []);
+  }, [isOpen]);
 
   if (!conn) {
     return null;
@@ -123,7 +128,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                 textarea
                 name="bio"
               />
-              <div className={`flex pt-2 items-center`}>
+              <div className={`flex flex pt-2 items-center`}>
                 <Button loading={isSubmitting} type="submit" className={`mr-3`}>
                   {t("common.save")}
                 </Button>

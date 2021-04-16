@@ -32,14 +32,27 @@ export const OverlaySettingsPage: PageComponent<OverlaySettingsProps> = () => {
   useEffect(() => {
     if (isElectron()) {
       const ipcRenderer = window.require("electron").ipcRenderer;
-      ipcRenderer.send("@rpc/page", { page: "overlay-settings", data: "" });
+      ipcRenderer.send("@rpc/page", {
+        page: "overlay-settings",
+        opened: true,
+        modal: false,
+        data: "",
+      });
+      return () => {
+        ipcRenderer.send("@rpc/page", {
+          page: "overlay-settings",
+          opened: false,
+          modal: false,
+          data: "",
+        });
+      };
     }
   }, []);
 
   return (
     <DefaultDesktopLayout>
       <MiddlePanel>
-        <div className="flex-col text-primary-100">
+        <div className="flex flex-col text-primary-100">
           <OverlayKeybind className={`mb-4`} />
           <Formik
             initialValues={{
@@ -57,13 +70,13 @@ export const OverlaySettingsPage: PageComponent<OverlaySettingsProps> = () => {
             }}
           >
             {({ handleSubmit }) => (
-              <div>
+              <div className="flex">
                 <InputField
                   errorMsg={t("pages.overlaySettings.input.errorMsg")}
                   label={t("pages.overlaySettings.input.label")}
                   name="appTitle"
                 />
-                <div className={`flex mt-12`}>
+                <div className={`flex flex mt-12`}>
                   <Button
                     type="button"
                     onClick={() => handleSubmit()}

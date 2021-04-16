@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "Load More",
     "loading": "Loading...",
@@ -44,7 +44,7 @@
       "followingHim": "Following"
     },
     "home": {
-      "createRoom": "Create Room",
+      "createRoom": "New room",
       "editRoom": "Edit Room",
       "refresh": "Refresh"
     },
@@ -64,6 +64,7 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "Login with GitHub",
       "loginTwitter": "Login with Twitter",
+      "loginDiscord": "Login with Discord",
       "createTestUser": "Create Test User"
     },
     "myProfile": {
@@ -72,7 +73,8 @@
       "voiceSettings": "Voice Settings",
       "overlaySettings": "Overlay Settings",
       "soundSettings": "Sound Settings",
-      "deleteAccount": "Delete Account"
+      "deleteAccount": "Delete Account",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Whoops! This page got lost in conversation.",
@@ -147,6 +149,12 @@
       "linkText": "issue on GitHub",
       "addSupport": "and I will try adding support for your device."
     },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
     "inviteButton": {
       "invited": "Invited!",
       "inviteToRoom": "Invite to room"
@@ -157,7 +165,7 @@
       "tryAgain": "Try Again"
     },
     "keyboardShortcuts": {
-      "setKeybind": "Det Keybind",
+      "setKeybind": "Set Keybind",
       "listening": "Listening...",
       "toggleMuteKeybind": "Toggle mute keybind",
       "toggleOverlayKeybind": "Toggle overlay keybind",
@@ -166,6 +174,10 @@
     "userVolumeSlider": {
       "noAudioMessage": "No audio consumer for some reason"
     },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore more rooms"
+    },
     "addToCalendar": {
       "add": "Add to Calendar"
     },
@@ -173,8 +185,22 @@
       "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
       "reconnect": "Reconnect"
     },
+    "search": {
+      "placeholder": "Search for rooms, users or categories"
+    },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
+      }
+    },
     "modals": {
       "createRoomModal": {
+        "subtitle": "Fill the following fields to start a new room",
         "public": "Public",
         "private": "Private",
         "roomName": "Room name",
@@ -207,6 +233,7 @@
         "unmod": "Demote from Mod",
         "addAsSpeaker": "Add as Speaker",
         "moveToListener": "Move to Listener",
+        "unBanFromChat": "Unban from Chat",
         "banFromChat": "Ban from Chat",
         "banFromRoom": "Ban from Room",
         "goBackToListener": "Go Back to Listener",
@@ -224,6 +251,9 @@
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
+    "feed": {
+      "yourFeed": "Your feed"
+    },
     "scheduledRooms": {
       "title": "Scheduled Rooms",
       "noneFound": "none found",

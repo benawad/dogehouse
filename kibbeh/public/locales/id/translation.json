@@ -58,7 +58,8 @@
       "featureText_6": "Dipersembahkan oleh Doge",
       "loginGithub": "masuk dengan GitHub",
       "loginTwitter": "masuk dengan Twitter",
-      "createTestUser": "buat akun uji coba"
+      "createTestUser": "buat akun uji coba",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "keluar",
@@ -66,7 +67,8 @@
       "voiceSettings": "pergi ke pengaturan suara",
       "soundSettings": "pergi ke pengaturan bunyi",
       "deleteAccount": "hapus akun",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Oops! Halaman ini hilang dalam percakapan.",
@@ -163,7 +165,8 @@
         "roomName": "nama ruangan",
         "roomDescription": "deskripsi ruangan",
         "descriptionError": "panjang maksimal 500",
-        "nameError": "panjang karakter antara 2 sampai 60"
+        "nameError": "panjang karakter antara 2 sampai 60",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Ruangan Baru Dibuat",
@@ -194,7 +197,8 @@
         "banFromRoom": "blokir dari ruangan",
         "goBackToListener": "kembali ke pendengar",
         "deleteMessage": "hapus pesan ini",
-        "makeRoomCreator": "buat admin ruangan"
+        "makeRoomCreator": "buat admin ruangan",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "membutuhkan izin untuk berbicara",
@@ -202,6 +206,27 @@
         "makePrivate": "buat ruangan jadi privat",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -245,6 +270,7 @@
       "approachingGalaxy": "Mendekati galaksi",
       "galacticDoge": "Doge di galaksi",
       "spottedLife": "Planet dengan kehidupan ditemukan"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

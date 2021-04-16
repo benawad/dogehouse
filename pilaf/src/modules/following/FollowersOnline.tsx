@@ -1,26 +1,19 @@
 import { UserWithFollowInfo } from "@dogehouse/kebab";
-import React, { MouseEventHandler } from "react";
 import { useNavigation } from "@react-navigation/core";
-import { ApiPreloadLink } from "../../shared-components/ApiPreloadLink";
-import { SingleUserAvatar } from "../../components/avatars/SingleUserAvatar";
+import React, { MouseEventHandler } from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
   ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { Button } from "../../components/buttons/Buttons";
-import {
-  colors,
-  h3,
-  paragraph,
-  paragraphBold,
-  small,
-} from "../../constants/dogeStyle";
+import { SingleUserAvatar } from "../../components/avatars/SingleUserAvatar";
+import { Button } from "../../components/buttons/Button";
+import { colors, h3, paragraphBold, small } from "../../constants/dogeStyle";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
-import { useRoomChatStore } from "../room/chat/useRoomChatStore";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
+import { useRoomChatStore } from "../room/chat/useRoomChatStore";
 
 export interface FriendOnlineType {
   username: string;
@@ -99,10 +92,10 @@ export const FollowerOnline: React.FC<UserWithFollowInfo> = ({
 
 export const FollowersOnlineWrapper: React.FC<{
   onlineFriendCount?: number;
-}> = ({ onlineFriendCount, children }) => {
+}> = ({ children }) => {
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>People online</Text>
+      <Text style={styles.title}>People</Text>
       {children}
     </ScrollView>
   );

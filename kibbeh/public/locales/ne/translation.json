@@ -58,7 +58,8 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "log in with GitHub",
       "loginTwitter": "log in with Twitter",
-      "createTestUser": "create test user"
+      "createTestUser": "create test user",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "logout",
@@ -66,7 +67,8 @@
       "voiceSettings": "वॉइस सेटिंग्समा जानुहोस्",
       "soundSettings": "साउंड सेटिंग्समा जानुहोस्",
       "deleteAccount": "खाता मेटाउनुहोस्",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "ओहो ! यो पृष्ठ त कुराकानीमै हरायो।.",
@@ -165,7 +167,8 @@
         "roomName": "रूमको नाम",
         "roomDescription": "रूमको बारेमा",
         "descriptionError": "अधिकतम लम्बाई 500 अक्षर",
-        "nameError": "२ देखि ६० अक्षरसम्म लामो हुनुपर्दछ"
+        "nameError": "२ देखि ६० अक्षरसम्म लामो हुनुपर्दछ",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "नयाँ रूम बनेको छ",
@@ -196,7 +199,8 @@
         "banFromRoom": "रूमबाट प्रतिबन्ध",
         "goBackToListener": "श्रोताको लागि पछाडि जानुहोस",
         "deleteMessage": "यो मेसेज मेटाउनुहोस",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "बोल्नको लागि अनुमति चाहिन्छ",
@@ -204,6 +208,27 @@
         "makePrivate": "रूम प्राइवेट बनाउनुहोस",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -247,6 +272,7 @@
       "approachingGalaxy": "Approaching galaxy",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

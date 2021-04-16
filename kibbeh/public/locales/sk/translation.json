@@ -40,7 +40,7 @@
     "home": {
       "createRoom": "Vytvoriť miestnosť",
       "refresh": "Obnoviť",
-      "editRoom": "Edit Room"
+      "editRoom": "Upraviť miestnosť"
     },
     "inviteList": {
       "roomGone": "miestnosť je fuč, vráť sa",
@@ -58,7 +58,8 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "prihlásiť se cez GitHub",
       "loginTwitter": "prihlásiť se cez Twitter",
-      "createTestUser": "vytvoriť testovacieho používateľa"
+      "createTestUser": "vytvoriť testovacieho používateľa",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "odhlásiť sa",
@@ -66,7 +67,8 @@
       "voiceSettings": "otvoriť nastavenia hlasu",
       "soundSettings": "otvoriť nastavenia zvuku",
       "deleteAccount": "odstrániť účet",
-      "overlaySettings": "otvoriť nastavenia prekresľovania"
+      "overlaySettings": "otvoriť nastavenia prekresľovania",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Uups! Táto stránka sa stratila v konverzácii.",
@@ -91,7 +93,7 @@
       "followingHim": "sledovaný",
       "copyProfileUrl": "skopírovať url profilu",
       "urlCopied": "URL skopírované do schránky",
-      "unfollow": "Unfollow"
+      "unfollow": "Prestať sledovať"
     },
     "voiceSettings": {
       "header": "Nastavenia hlasu",
@@ -168,7 +170,8 @@
         "roomName": "názov miestnosti",
         "roomDescription": "popis miestnosti",
         "descriptionError": "maximálna dĺžka je 500 znakov",
-        "nameError": "počet znakov musí byť medzi 2-60"
+        "nameError": "počet znakov musí byť medzi 2-60",
+        "subtitle": "Vyplň nasledovné polia pre vytvorenie novej miestnosti"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Vytvorená nová miestnosť",
@@ -199,14 +202,38 @@
         "banFromRoom": "zabanovat z miestnosti",
         "goBackToListener": "vrátiť sa k poslucháčovi",
         "deleteMessage": "zmazať túto správu",
-        "makeRoomCreator": "udeliť správcu miestnosti"
+        "makeRoomCreator": "udeliť správcu miestnosti",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Poslucháči musia požiadať o povolenie rozprávať",
         "makePublic": "zverejniť miestnosť",
         "makePrivate": "zosúkromniť miestnosť",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "Nastaviť názov verejnej miestnosti",
+        "renamePrivate": "Nastaviť názov súkromnej miestnosti"
+      }
+    },
+    "followingOnline": {
+      "people": "Ľudia",
+      "online": "ONLINE",
+      "noOnline": "Aktuálne niesú online žiadny tvoji priatelia",
+      "showMore": "Ukázať viac"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Nadchádzajúce miestnosti",
+      "exploreMoreRooms": "Preskúmať viac miestností"
+    },
+    "search": {
+      "placeholder": "Vyhľadaj miestnosti, užívateľov alebo kategórie"
+    },
+    "settingsDropdown": {
+      "profile": "Profil",
+      "language": "Jazyk",
+      "reportABug": "Nahlásiť chybu",
+      "useOldVersion": "Prepnúť na starú verziu",
+      "logOut": {
+        "button": "Odhlásiť sa",
+        "modalSubtitle": "Si si istý, že sa chceš odhlásiť?"
       }
     }
   },
@@ -250,6 +277,7 @@
       "approachingGalaxy": "Blížime sa ku galaxii",
       "galacticDoge": "Galaktický Doge",
       "spottedLife": "Zahliadnutá planéta so životom"
-    }
+    },
+    "feed": { "yourFeed": "Tvoj feed" }
   }
 }

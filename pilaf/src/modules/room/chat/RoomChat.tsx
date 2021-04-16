@@ -1,16 +1,18 @@
 import { Room, RoomUser } from "@dogehouse/kebab";
-import React, { MutableRefObject, Ref, useEffect, useState } from "react";
-import { KeyboardAvoidingView, View, ViewStyle, Keyboard } from "react-native";
+import { useKeyboard } from "@react-native-community/hooks";
+import { useNavigation } from "@react-navigation/core";
+import React, { MutableRefObject, useEffect, useState } from "react";
+import { Keyboard, View, ViewStyle } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import BottomSheet from "reanimated-bottom-sheet";
 import { colors } from "../../../constants/dogeStyle";
+import { useConn } from "../../../shared-hooks/useConn";
+import { useCurrentRoomInfo } from "../../../shared-hooks/useCurrentRoomInfo";
 import { EmotePicker } from "./EmotePicker";
 import { RoomChatControls } from "./RoomChatControls";
 import { RoomChatInput } from "./RoomChatInput";
 import { RoomChatList } from "./RoomChatList";
 import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
-import { useKeyboard } from "@react-native-community/hooks";
-import BottomSheet from "reanimated-bottom-sheet";
-import { useNavigation } from "@react-navigation/core";
 
 interface ChatProps {
   room: Room;
@@ -30,6 +32,9 @@ export const RoomChat: React.FC<ChatProps> = ({
   const { message, setMessage } = useRoomChatStore();
   const keyboard = useKeyboard();
   const navigation = useNavigation();
+  const { canSpeak } = useCurrentRoomInfo();
+  const conn = useConn();
+  const me = users.find((u) => u.id === conn.user.id);
   useEffect(() => {
     Keyboard.addListener("keyboardWillShow", _keyboardDidShow);
     Keyboard.addListener("keyboardWillHide", _keyboardDidHide);
@@ -61,7 +66,11 @@ export const RoomChat: React.FC<ChatProps> = ({
         },
       ]}
     >
-      <RoomChatControls room={room} />
+      <RoomChatControls
+        room={room}
+        amISpeaker={canSpeak}
+        amIAskingForSpeak={me.roomPermissions?.askedToSpeak}
+      />
       <RoomChatList
         room={room}
         onUsernamePress={(userId: string, message?: RoomChatMessage) => {

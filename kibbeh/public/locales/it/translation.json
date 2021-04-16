@@ -58,7 +58,8 @@
       "featureText_6": "Offerto da Doge",
       "loginGithub": "Accedi con Github",
       "loginTwitter": "Accedi con Twitter",
-      "createTestUser": "Area utente per test"
+      "createTestUser": "Area utente per test",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Disconnetti",
@@ -66,7 +67,8 @@
       "voiceSettings": "Modifica impostazioni della voce",
       "soundSettings": "Modifica impostazioni dei suoni",
       "deleteAccount": "Elimina account",
-      "overlaySettings": "Vai alle impostazioni di sovrapposizione"
+      "overlaySettings": "Vai alle impostazioni di sovrapposizione",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Oops! questa pagina si è persa nella conversazione.",
@@ -168,7 +170,8 @@
         "roomName": "Nome della stanza",
         "roomDescription": "Descrizione della stanza",
         "descriptionError": "La lunghezza massima è 500",
-        "nameError": "Il nome deve essere lungo dai 2 ai 60 caratteri"
+        "nameError": "Il nome deve essere lungo dai 2 ai 60 caratteri",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nuova stanza creata",
@@ -199,7 +202,8 @@
         "banFromRoom": "Bandisci dalla stanza",
         "goBackToListener": "Torna ad essere un ascoltatore",
         "deleteMessage": "Elimina questo messaggio",
-        "makeRoomCreator": "Rendi amministratore della stanza"
+        "makeRoomCreator": "Rendi amministratore della stanza",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Richiedi permesso per parlare",
@@ -207,6 +211,27 @@
         "makePrivate": "Rendi la stanza privata",
         "renamePublic": "Imposta il nome della stanza pubblica",
         "renamePrivate": "Imposta il nome della stanza privata"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -250,6 +275,7 @@
       "approachingGalaxy": "Avvicinamento alla galassia",
       "galacticDoge": "Doge galattico",
       "spottedLife": "Avvistato pianeta con forme di vita"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

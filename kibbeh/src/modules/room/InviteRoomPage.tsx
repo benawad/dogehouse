@@ -79,19 +79,19 @@ const Page = ({
     <>
       <HeaderController embed={{}} title="Invite" />
       {data.users.map((user) => (
-        <div key={user.id} className="items-center mb-6">
-          <div>
+        <div key={user.id} className="flex items-center mb-6">
+          <div className="flex">
             <SingleUser size="md" src={user.avatarUrl} />
           </div>
-          <div className="px-4 flex-1">
+          <div className="flex px-4 flex-1">
             <ApiPreloadLink route="profile" data={{ username: user.username }}>
-              <div className="flex-col">
-                <div className="text-primary-100">{user.displayName}</div>
-                <div className="text-primary-200">@{user.username}</div>
+              <div className="flex flex-col">
+                <div className="flex text-primary-100">{user.displayName}</div>
+                <div className="flex text-primary-200">@{user.username}</div>
               </div>
             </ApiPreloadLink>
           </div>
-          <div className="block">
+          <div className="flex block">
             <InviteButton
               onClick={() => {
                 conn.mutation.inviteToRoom(user.id);
@@ -101,7 +101,7 @@ const Page = ({
         </div>
       ))}
       {isLastPage && data.nextCursor ? (
-        <div className={`flex justify-center py-5`}>
+        <div className={`flex flex justify-center py-5`}>
           <Button
             size="small"
             onClick={() => {
@@ -152,11 +152,11 @@ export const InviteRoomPage: PageComponent<InviteRoomPageProps> = ({}) => {
         {room.isPrivate ? null : (
           <>
             {!navigator.share ? (
-              <div className={`text-primary-100 font-bold text-2xl mb-2`}>
+              <div className={`flex text-primary-100 font-bold text-2xl mb-2`}>
                 {t("pages.inviteList.shareRoomLink")}
               </div>
             ) : null}
-            <div className={`mb-8 flex`}>
+            <div className={`flex mb-8 flex`}>
               <Input readOnly ref={inputRef} value={url} className="mr-2" />
               <Button
                 size="small"

@@ -1,7 +1,6 @@
 import { differenceInMilliseconds, format, isPast, isToday } from "date-fns";
 import React, { useEffect, useState } from "react";
 import {
-  Image,
   ImageBackground,
   ImageSourcePropType,
   StyleSheet,
@@ -77,9 +76,9 @@ export const FeaturedRoomCard: React.FC<FeaturedRoomCardProps> = ({
 
   if (scheduledFor) {
     if (isToday(scheduledFor)) {
-      scheduledForLabel = format(scheduledFor, `K:mm a`);
+      scheduledForLabel = format(scheduledFor, "K:mm a");
     } else {
-      scheduledForLabel = format(scheduledFor, `LLL d`);
+      scheduledForLabel = format(scheduledFor, "LLL d");
     }
   }
 

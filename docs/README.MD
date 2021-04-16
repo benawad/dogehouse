@@ -12,40 +12,38 @@ Welcome to the DogeHouse Documentation, the next voice conversation social platf
 DogeHouse makes it easy to connect with friends and people over voice and chat message.
 
 ### Overview
-- Dark theme
-- Open sign ups (Twitter and Github)
-- Cross platform support
+- Dark Theme
+- Open Sign-Ups (Twitter and GitHub)
+- Cross-Platform Support
 - Open Source
-- Text chat
+- Text Chat
 - Powered by Doge
 
 ### Basic Features
-- Create account (Twitter and Github for now)
-- Create rooms and invite friends (Public/private)
-  - When you create a room you are automatically a mod and have a doge with glasses.
-  - You can also make people in room mod by clicking on their profile
-  - You can edit room name, edit room description and change room visibility by clicking the room name
-- Edit Profile (https://dogehouse.tv/me)
+- Create account (Twitter and GitHub for now)
+- Create rooms and invite friends (Public/Private)
+  - When you create a room, you are automatically a mod and have a doge with glasses.
+  - You can also make people in room mod by clicking on their profile.
+  - You can edit room name, edit room description and change room visibility by clicking on the room name.
 - Schedule Room to take place at a future date
   - Add scheduled rooms to calender
-    - Apple calendar
-    - Google
+    - Apple's Calendar
+    - Google Calendar
     - Outlook
-    - Outlook web app
-    - Yahoo
+    - Outlook Web App
+    - Yahoo! Calendar
 - Join room, leave room, chat in room (chat now has emojis😋), mute/unmute and invite
-- Mention someone in the chat with an @ (`@username`)
-- Whisper to someone in the room (#@username)
-- Write codeblocks using \`yourCodeHere\`
+- Mention someone in the chat with an @ (e.g. `@username`)
+- Whisper to someone in the room by using `#@username`
+- Write codeblocks using \`backticks\`
 - Delete message. You can only delete messages if:
   - You wrote it
   - You are a mod
 - Adjust volume of a speaker by clicking on their profile
-- 40+ Translations
-- Desktop App: Global Keybinds
-- Desktop App: Desktop Notifications
+- 60+ Translations
+- Desktop App has Global Keybinds & Desktop Notifications
 - Custom Emojis
-- [Add a feature here Please!]
+- 🐕
 
 ### Why DogeHouse?
 For more please watch here: https://www.youtube.com/watch?v=hy-EhJ_tTQo

@@ -1,9 +1,9 @@
 import React from "react";
-import * as RootNavigation from "../../navigation/RootNavigation";
 import { MinimizedRoomCard } from "../../components/minimizedRoomCard/MinimizedRoomCard";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useMuteStore } from "../../global-stores/useMuteStore";
-import { useSetMute, setMute } from "../../shared-hooks/useSetMute";
+import * as RootNavigation from "../../navigation/RootNavigation";
+import { useSetMute } from "../../shared-hooks/useSetMute";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { useOnRoomPage } from "./useOnRoomPage";
 
