@@ -15,7 +15,7 @@
     "copied": "disalin",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Mohon ingat menggunakan DogeHouse tanpa ijin aksesibilitas mungkin akan menimbulkan error yang tidak di inginkan"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -56,10 +56,10 @@
       "featureText_4": "Sumber Terbuka",
       "featureText_5": "Obrolan Teks",
       "featureText_6": "Dipersembahkan oleh Doge",
-      "loginGithub": "masuk dengan GitHub",
-      "loginTwitter": "masuk dengan Twitter",
+      "loginGithub": "Masuk dengan GitHub",
+      "loginTwitter": "Masuk dengan Twitter",
       "createTestUser": "buat akun uji coba",
-      "loginDiscord": "Login with Discord"
+      "loginDiscord": "Masuk dengan Discord"
     },
     "myProfile": {
       "logout": "keluar",
@@ -68,7 +68,7 @@
       "soundSettings": "pergi ke pengaturan bunyi",
       "deleteAccount": "hapus akun",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Maaf, kami tidak bisa menemukan pengguna itu"
     },
     "notFound": {
       "whoopsError": "Oops! Halaman ini hilang dalam percakapan.",
@@ -198,14 +198,14 @@
         "goBackToListener": "kembali ke pendengar",
         "deleteMessage": "hapus pesan ini",
         "makeRoomCreator": "buat admin ruangan",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Bolehkan di chat"
       },
       "roomSettingsModal": {
         "requirePermission": "membutuhkan izin untuk berbicara",
         "makePublic": "buat ruangan jadi publik",
         "makePrivate": "buat ruangan jadi privat",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "Ubah nama ruangan publik",
+        "renamePrivate": "Ubah nama ruangan privat"
       }
     },
     "followingOnline": {
@@ -215,18 +215,18 @@
       "showMore": "Show more"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "Ruangan yang akan datang",
+      "exploreMoreRooms": "Jelajahi ruangan lain"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": { "placeholder": "Cari pengguna, ruangan, atau kategori" },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "Profil",
+      "language": "Bahasa",
+      "reportABug": "Laporkan Kesalahan",
+      "useOldVersion": "Pakai Versi Lama",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "Keluar",
+        "modalSubtitle": "Apakah kamu yakin ingin keluar?"
       }
     }
   },
