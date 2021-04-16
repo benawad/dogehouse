@@ -97,11 +97,14 @@ export const LoginPage: React.FC = () => {
           <span className="text-3xl text-primary-100 font-bold">Welcome</span>
           <p className="text-primary-100 flex-wrap">
             By logging in you accept our&nbsp;
-            <a href="/privacy-policy" className="text-accent hover:underline">
+            <a
+              href="/privacy-policy.html"
+              className="text-accent hover:underline"
+            >
               Privacy Policy
             </a>
             &nbsp;and&nbsp;
-            <a href="/terms" className="text-accent hover:underline">
+            <a href="/terms.html" className="text-accent hover:underline">
               Terms of Service
             </a>
             .
@@ -155,7 +158,7 @@ export const LoginPage: React.FC = () => {
           <LgLogo />
         </div>
         <div className="flex flex-row gap-6 text-primary-300">
-          <a href="/privacy-policy" className="hover:text-primary-200">
+          <a href="/privacy-policy.html" className="hover:text-primary-200">
             Privacy policy
           </a>
           <a
