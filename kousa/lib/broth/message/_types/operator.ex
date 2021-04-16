@@ -14,10 +14,8 @@ defenum(
     {User.Follow, 3},
     {User.Ban, 4},
     {User.Update, 5},
-    {Room.GetAboutToStart, 6},
-    {Room.GetScheduled, 7},
-    {User.GetInfo, 8},
-    {User.GetRelationship, 9},
+    {User.GetInfo, 6},
+    {User.GetRelationship, 7},
     {User.Block, 10},
     {User.Unfollow, 11},
     # room commands and casts: 64..127

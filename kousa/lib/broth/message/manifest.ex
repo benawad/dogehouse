@@ -12,8 +12,6 @@ defmodule Broth.Message.Manifest do
     "user:get_following" => User.GetFollowing,
     "user:get_followers" => User.GetFollowers,
     "user:update" => User.Update,
-    "room:get_about_to_start" => Room.GetAboutToStart,
-    "room:get_scheduleds" => Room.GetScheduled,
     "user:get_info" => User.GetInfo,
     "user:get_relationship" => User.GetRelationship,
     "user:unfollow" => User.Unfollow,
