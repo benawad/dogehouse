@@ -24,8 +24,12 @@ function WinHeader() {
         <img
           className="header-image"
           src="https://github.com/benawad/dogehouse/raw/staging/kibbeh/public/img/doge.png"
-          width="20px"
-          height="20px"
+          width="18px"
+          height="18px"
+          style={{
+            minWidth: "18px",
+            minHeight: "18px",
+          }}
         />
       </div>
       <p className="header-title">DogeHouse</p>
@@ -97,7 +101,7 @@ function MacHeader() {
 
 export function ElectronHeader() {
   return isElectron() && !useHostStore.getState().isLinux ? (
-    useHostStore.getState().isMac ? (
+    !useHostStore.getState().isMac ? (
       <MacHeader />
     ) : (
       <WinHeader />
