@@ -1825,6 +1825,7 @@ __metadata:
     react: 17.0.2
     react-dom: ^17.0.2
     react-draggable: ^4.4.3
+    react-feather: ^2.0.9
     react-hotkeys: ^2.0.0
     react-i18next: ^11.8.13
     react-modal: ^3.13.1
@@ -15134,6 +15135,17 @@ fsevents@^1.2.7:
   version: 3.2.0
   resolution: "react-fast-compare@npm:3.2.0"
   checksum: 6fe65c889eb4f326e97769135f97b3d63ac68737866f9c37f9625c9de4f5eaa9abed6f748eb3fd6a66808392118842916309cab7cfa99c67991f0c837433d6d2
+  languageName: node
+  linkType: hard
+
+"react-feather@npm:^2.0.9":
+  version: 2.0.9
+  resolution: "react-feather@npm:2.0.9"
+  dependencies:
+    prop-types: ^15.7.2
+  peerDependencies:
+    react: ^16.8.6 || ^17
+  checksum: 302a5ce0bffbd789b0c9ffe29146191db1b0926ae090bb48486f9cb40267d4e636822fa468dfb8614cbc0b3ac13e394937cd51327ec6c6b7ec6032060dfafbd2
   languageName: node
   linkType: hard
 
