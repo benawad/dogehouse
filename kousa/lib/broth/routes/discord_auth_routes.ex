@@ -1,51 +1,51 @@
 defmodule Broth.Routes.DiscordAuth do
-  import Plug.Conn
-  use Plug.Router
+  # import Plug.Conn
+  # use Plug.Router
 
   alias Beef.Users
-  alias Kousa.Utils.Urls
+  # alias Kousa.Utils.Urls
 
-  plug(:match)
-  plug(:dispatch)
+  # plug(:match)
+  # plug(:dispatch)
 
-  get "/web" do
-    redirect_to_next =
-      Enum.any?(conn.req_headers, fn {k, v} ->
-        k == "referer" and Urls.next_site_url?(v)
-      end)
+  # get "/web" do
+  #   redirect_to_next =
+  #     Enum.any?(conn.req_headers, fn {k, v} ->
+  #       k == "referer" and Urls.next_site_url?(v)
+  #     end)
 
-    state =
-      %{
-        redirect_base_url:
-          if(Application.get_env(:kousa, :staging?),
-            do: fetch_query_params(conn).query_params["redirect_after_base"],
-            else: "web"
-          ),
-        redirect_to_next: redirect_to_next
-      }
-      |> Poison.encode!()
-      |> Base.encode64()
+  #   state =
+  #     %{
+  #       redirect_base_url:
+  #         if(Application.get_env(:kousa, :staging?),
+  #           do: fetch_query_params(conn).query_params["redirect_after_base"],
+  #           else: "web"
+  #         ),
+  #       redirect_to_next: redirect_to_next
+  #     }
+  #     |> Poison.encode!()
+  #     |> Base.encode64()
 
-    %{conn | params: Map.put(conn.params, "state", state)}
-    |> Plug.Conn.put_private(:ueberauth_request_options, %{
-      callback_url: Application.get_env(:kousa, :api_url) <> "/auth/discord/callback",
-      options: [
-        default_scope: "identify email"
-      ]
-    })
-    |> Ueberauth.Strategy.Discord.handle_request!()
-  end
+  #   %{conn | params: Map.put(conn.params, "state", state)}
+  #   |> Plug.Conn.put_private(:ueberauth_request_options, %{
+  #     callback_url: Application.get_env(:kousa, :api_url) <> "/auth/discord/callback",
+  #     options: [
+  #       default_scope: "identify email"
+  #     ]
+  #   })
+  #   |> Ueberauth.Strategy.Discord.handle_request!()
+  # end
 
-  get "/callback" do
-    conn
-    |> fetch_query_params()
-    |> Plug.Conn.put_private(:ueberauth_request_options, %{
-      callback_url: Application.get_env(:kousa, :api_url) <> "/auth/discord/callback",
-      options: []
-    })
-    |> Ueberauth.Strategy.Discord.handle_callback!()
-    |> handle_callback()
-  end
+  # get "/callback" do
+  #   conn
+  #   |> fetch_query_params()
+  #   |> Plug.Conn.put_private(:ueberauth_request_options, %{
+  #     callback_url: Application.get_env(:kousa, :api_url) <> "/auth/discord/callback",
+  #     options: []
+  #   })
+  #   |> Ueberauth.Strategy.Discord.handle_callback!()
+  #   |> handle_callback()
+  # end
 
   def get_base_url(conn) do
     with state <- Map.get(conn.query_params, "state", ""),
