@@ -14,7 +14,7 @@ defmodule Broth.Translator.V0_1_0 do
     "get_my_following" => "user:get_following",
     "get_top_public_rooms" => "room:get_top",
     "get_current_room_users" => "room:get_users",
-    "mute" => "user:mute",
+    "mute" => "room:mute",
     "delete_room_chat_message" => "chat:delete_msg",
     "auth" => "auth:request",
     "leave_room" => "room:leave",
@@ -123,11 +123,16 @@ defmodule Broth.Translator.V0_1_0 do
     put_in(message, ["d"], %{"active" => active?})
   end
 
+  def translate_in_body(message, "mute") do
+    active? = get_in(message, ["d", "value"])
+    put_in(message, ["d"], %{"muted" => active?})
+  end
+
   def translate_in_body(message, _op), do: message
 
   # these casts need to be instrumented with fetchId in order to be treated
   # as a cast.
-  @casts_to_calls ~w(auth leave_room ban fetch_invite_list make_room_public)
+  @casts_to_calls ~w(auth leave_room ban fetch_invite_list make_room_public mute)
 
   def add_in_ref(message, op) when op in @casts_to_calls do
     Map.put(message, "fetchId", UUID.uuid4())

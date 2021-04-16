@@ -20,8 +20,7 @@ defmodule KousaTest.Broth.SpeakingChangeTest do
     test "toggles the active speaking state", t do
       user_id = t.user.id
 
-      {:ok, %{room: room}} =
-        Kousa.Room.create_room(user_id, "foo room", "foobar", false)
+      {:ok, %{room: room}} = Kousa.Room.create_room(user_id, "foo room", "foobar", false)
 
       # add a second user to the test
       other = %{id: other_id} = Factory.create(User)
@@ -42,14 +41,16 @@ defmodule KousaTest.Broth.SpeakingChangeTest do
       WsClient.assert_frame(
         "active_speaker_change",
         %{"activeSpeakerMap" => map},
-        t.client_ws)
+        t.client_ws
+      )
 
       assert is_map_key(map, t.user.id)
 
       WsClient.assert_frame(
         "active_speaker_change",
         %{"activeSpeakerMap" => map},
-        other_ws)
+        other_ws
+      )
 
       assert is_map_key(map, t.user.id)
 
@@ -67,13 +68,17 @@ defmodule KousaTest.Broth.SpeakingChangeTest do
 
       WsClient.assert_frame(
         "active_speaker_change",
-        %{"activeSpeakerMap" => map}, t.client_ws)
+        %{"activeSpeakerMap" => map},
+        t.client_ws
+      )
 
       refute is_map_key(map, t.user.id)
 
       WsClient.assert_frame(
         "active_speaker_change",
-        %{"activeSpeakerMap" => map}, other_ws)
+        %{"activeSpeakerMap" => map},
+        other_ws
+      )
 
       refute is_map_key(map, t.user.id)
 
@@ -85,8 +90,7 @@ defmodule KousaTest.Broth.SpeakingChangeTest do
     test "does nothing if it's unset", t do
       user_id = t.user.id
 
-      {:ok, %{room: room}} =
-        Kousa.Room.create_room(user_id, "foo room", "foobar", false)
+      {:ok, %{room: room}} = Kousa.Room.create_room(user_id, "foo room", "foobar", false)
 
       # add a second user to the test
       other = %{id: other_id} = Factory.create(User)
@@ -105,7 +109,8 @@ defmodule KousaTest.Broth.SpeakingChangeTest do
 
       WsClient.assert_frame(
         "active_speaker_change",
-        %{"activeSpeakerMap" => map})
+        %{"activeSpeakerMap" => map}
+      )
 
       assert map == %{}
 

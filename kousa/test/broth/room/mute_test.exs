@@ -1,4 +1,4 @@
-defmodule KousaTest.Broth.User.MuteTest do
+defmodule KousaTest.Broth.Room.MuteTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 
@@ -24,11 +24,17 @@ defmodule KousaTest.Broth.User.MuteTest do
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
-      ref = WsClient.send_call(t.client_ws, "user:mute", %{"value" => true})
+      # mute ON
+      ref = WsClient.send_call(t.client_ws, "room:mute", %{"muted" => true})
+      WsClient.assert_reply("room:mute:reply", ref, _)
+      map = Onion.RoomSession.get(room_id, :muteMap)
+      assert is_map_key(map, t.user.id)
 
-      WsClient.assert_reply("user:mute:reply", ref, _)
-
-      # TODO: do a test to check to make sure the muted state is correct
+      # mute OFF
+      ref = WsClient.send_call(t.client_ws, "room:mute", %{"muted" => false})
+      WsClient.assert_reply("room:mute:reply", ref, _)
+      map = Onion.RoomSession.get(room_id, :muteMap)
+      refute is_map_key(map, t.user.id)
     end
 
     test "can be used to unmute", t do
@@ -37,11 +43,13 @@ defmodule KousaTest.Broth.User.MuteTest do
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
-      ref = WsClient.send_call(t.client_ws, "user:mute", %{"value" => false})
+      ref = WsClient.send_call(t.client_ws, "room:mute", %{"muted" => false})
 
-      WsClient.assert_reply("user:mute:reply", ref, _)
+      WsClient.assert_reply("room:mute:reply", ref, _)
 
-      # TODO: do a test to check to make sure the muted state is correct
+      map = Onion.RoomSession.get(room_id, :muteMap)
+
+      assert map == %{}
     end
   end
 end

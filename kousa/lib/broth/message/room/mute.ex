@@ -1,15 +1,15 @@
-defmodule Broth.Message.User.Mute do
+defmodule Broth.Message.Room.Mute do
   use Broth.Message.Call
   @primary_key false
   embedded_schema do
-    field(:value, :boolean)
+    field(:muted, :boolean)
   end
 
   # inbound data.
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
-    |> cast(data, [:value])
-    |> validate_required([:value])
+    |> cast(data, [:muted])
+    |> validate_required([:muted])
   end
 
   defmodule Reply do
@@ -21,8 +21,8 @@ defmodule Broth.Message.User.Mute do
   end
 
   def execute(changeset, state) do
-    with {:ok, _} <- apply_action(changeset, :validation) do
-      raise "foo"
+    with {:ok, %{muted: muted?}} <- apply_action(changeset, :validation) do
+      Onion.UserSession.set_mute(state.user_id, muted?)
       {:reply, %Reply{}, state}
     end
   end

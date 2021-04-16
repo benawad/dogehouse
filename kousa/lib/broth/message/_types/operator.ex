@@ -19,8 +19,7 @@ defenum(
     {User.GetInfo, 8},
     {User.GetRelationship, 9},
     {User.Block, 10},
-    {User.Mute, 11},
-    {User.Unfollow, 12},
+    {User.Unfollow, 11},
     # room commands and casts: 64..127
     {Room.Invite, 65},
     {Room.Update, 66},
@@ -40,6 +39,7 @@ defenum(
     {Room.GetInfo, 80},
     {Room.GetTop, 81},
     {Room.SetActiveSpeaker, 82},
+    {Room.Mute, 83},
     # chat commands and casts: 128..191
     {Chat.Ban, 129},
     {Chat.SendMsg, 130},
