@@ -11,10 +11,6 @@ It uses ElectronJS as a wrapper for [dogehouse.tv](https://dogehouse.tv) and add
 - Splash screen
 - Localization
 
-## Installing from releases
-
-See the [root README](../README.md) for details.
-
 ## How to reproduce builds
 
 > NOTE: Windows users may have to install Visual Studio 2019 and the workload `Desktop Development with C++`.
