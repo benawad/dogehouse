@@ -15,10 +15,10 @@ It uses ElectronJS as a wrapper for [dogehouse.tv](https://dogehouse.tv) and add
 
 > NOTE: Windows users may have to install Visual Studio 2019 and the workload `Desktop Development with C++`.
 
-- Run `yarn install` to install Node.js dependencies for the Electron app.
+- Run `yarn install`
 - Ensure [Rust](https://www.rust-lang.org/learn/get-started) is installed
 - Install `nj-cli` by running `cargo install nj-cli`
-- Run `yarn build:globkey` to build the global keys.
+- Run `yarn build:globkey`
 - Run `yarn start`
 - *(Optional)* Run `yarn build:%YOUR_PLATFORM_CODE%` and install the app from the build *(located in `/builds`)*
 
