@@ -1846,6 +1846,7 @@ __metadata:
     stylelint: ^13.12.0
     stylelint-config-standard: ^21.0.0
     superstruct: ^0.15.1
+    tailwind-scrollbar: ^1.2.4
     tailwindcss: ^2.1.1
     ts-node: 9.1.1
     tslib: ^2.2.0
@@ -17339,6 +17340,13 @@ resolve@^2.0.0-next.3:
     slice-ansi: ^4.0.0
     string-width: ^4.2.0
   checksum: 18d2dc857063e602730aeb1ed7216dcc2b491ce4ba8087c941b10ce2373c06398e94fef04b407168d6b8d8afc4134050fe3b3500aecfdaf602c5313929943a55
+  languageName: node
+  linkType: hard
+
+"tailwind-scrollbar@npm:^1.2.4":
+  version: 1.2.4
+  resolution: "tailwind-scrollbar@npm:1.2.4"
+  checksum: 8ab923d2d4be10fc44b8ca781f925d347eab6c30bf3efa6b955b7421d2dfbb1bf4849ac3031f52dfcb01f9001373dda1bcf899403fc42469da86cd3d268ea52d
   languageName: node
   linkType: hard
 

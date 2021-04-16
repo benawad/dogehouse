@@ -7,9 +7,7 @@
       "kibbeh"
     ],
     "nohoist": [
-      "**",
-      "node_modules/@tailwindcss/line-clamp",
-      "node_modules/@tailwindcss/line-clamp/**"
+      "**"
     ]
   },
   "devDependencies": {
