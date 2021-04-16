@@ -81,6 +81,7 @@ p.small {
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--color-primary-700);
+  border-radius: 5px;
 }
 
 html,
@@ -119,4 +120,10 @@ img.emoji {
   width: 1em;
   margin: 0 0.05em 0 0.1em;
   vertical-align: -0.1em;
+}
+
+::selection {
+  background-color: black;
+  color: white;
+  /*We can delete if Ben doesn't like it*/
 }
