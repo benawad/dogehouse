@@ -36,13 +36,13 @@
 | :------------------- | :-------------------: |
 | [kousa](kousa)       |      Elixir API       |
 | [shawarma](shawarma) |     Voice Server      |
-| [kofta](kofta)       |    React frontend     |
 | [dinner](dinner)     | Puppeteer shenanigans |
 | [baklava](baklava)   |   Electron Wrapper    |
 | [pilaf](pilaf)       |   React Native App    |
 | [feta](feta)         | Shared utils web/app  |
 | [kibbeh](kibbeh)     |   Next.js frontend    |
 | [kebab](kebab)       |      API Client       |
+| [kofta (archived)](kofta)       |    React frontend     |
 
 ## Branches
 
