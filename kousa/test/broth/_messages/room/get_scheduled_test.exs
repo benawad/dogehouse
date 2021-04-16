@@ -35,24 +35,24 @@ defmodule BrothTest.Message.Room.GetScheduled do
 
     test "supplying all parameter is possible" do
       assert {:ok,
-      %{
-        payload: %GetScheduled{all: false}
-      }} =
-       BrothTest.Support.Message.validate(%{
-         "operator" => "room:get_scheduled",
-         "payload" => %{"all" => false},
-         "reference" => UUID.uuid4()
-       })
+              %{
+                payload: %GetScheduled{all: false}
+              }} =
+               BrothTest.Support.Message.validate(%{
+                 "operator" => "room:get_scheduled",
+                 "payload" => %{"all" => false},
+                 "reference" => UUID.uuid4()
+               })
 
-       assert {:ok,
-       %{
-         payload: %GetScheduled{all: true}
-       }} =
-        BrothTest.Support.Message.validate(%{
-          "operator" => "room:get_scheduled",
-          "payload" => %{"all" => true},
-          "reference" => UUID.uuid4()
-        })
+      assert {:ok,
+              %{
+                payload: %GetScheduled{all: true}
+              }} =
+               BrothTest.Support.Message.validate(%{
+                 "operator" => "room:get_scheduled",
+                 "payload" => %{"all" => true},
+                 "reference" => UUID.uuid4()
+               })
     end
   end
 end

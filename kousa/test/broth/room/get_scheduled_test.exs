@@ -16,8 +16,23 @@ defmodule KousaTest.Broth.Room.GetScheduledTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket get_my_scheduled_rooms_about_to_start operation" do
-    test "returns your scheduled rooms if you don't supply `all` parameter", t do
+  describe "when you supply your userId to room:get_scheduled " do
+    test "it returns no rooms if there are none", t do
+      ref =
+        WsClient.send_call(
+          t.client_ws,
+          "room:get_scheduled",
+          %{"range" => "upcoming", "userId" => t.user.id}
+        )
+
+      WsClient.assert_reply(
+        "room:get_scheduled:reply",
+        ref,
+        %{"rooms" => []}
+      )
+    end
+
+    test "it returns most recent rooms", t do
       time = DateTime.utc_now() |> DateTime.add(10, :second)
       user_id = t.user.id
 
@@ -31,7 +46,145 @@ defmodule KousaTest.Broth.Room.GetScheduledTest do
         WsClient.send_call(
           t.client_ws,
           "room:get_scheduled",
-          %{"all" => false}
+          %{"range" => "upcoming", "userId" => user_id}
+        )
+
+      WsClient.assert_reply(
+        "room:get_scheduled:reply",
+        ref,
+        %{
+          "rooms" => [
+            %{
+              "creator" => %{"id" => ^user_id},
+              "name" => "foo room",
+              "scheduledFor" => the_future
+            }
+          ]
+        }
+      )
+
+      assert DateTime.to_iso8601(time) == the_future
+    end
+
+    test "it doesn't return other user's rooms", t do
+      other_user = Factory.create(User)
+
+      time = DateTime.utc_now() |> DateTime.add(10, :second)
+      user_id = t.user.id
+
+      {:ok, sroom} =
+        Kousa.ScheduledRoom.schedule(other_user.id, %{
+          "name" => "foo room",
+          "scheduledFor" => time
+        })
+
+      ref =
+        WsClient.send_call(
+          t.client_ws,
+          "room:get_scheduled",
+          %{"range" => "upcoming", "userId" => user_id}
+        )
+
+      WsClient.assert_reply(
+        "room:get_scheduled:reply",
+        ref,
+        %{
+          "rooms" => []
+        }
+      )
+    end
+
+    test "it won't return a far future room", t do
+      time = DateTime.utc_now() |> DateTime.add(3600, :second)
+      user_id = t.user.id
+
+      {:ok, sroom} =
+        Kousa.ScheduledRoom.schedule(user_id, %{
+          "name" => "foo room",
+          "scheduledFor" => time
+        })
+
+      ref =
+        WsClient.send_call(
+          t.client_ws,
+          "room:get_scheduled",
+          %{"range" => "upcoming", "userId" => user_id}
+        )
+
+      WsClient.assert_reply(
+        "room:get_scheduled:reply",
+        ref,
+        %{
+          "rooms" => []
+        }
+      )
+    end
+
+    test "it will return a far future room if range is set to all", t do
+      time = DateTime.utc_now() |> DateTime.add(3600, :second)
+      user_id = t.user.id
+
+      {:ok, sroom} =
+        Kousa.ScheduledRoom.schedule(user_id, %{
+          "name" => "foo room",
+          "scheduledFor" => time
+        })
+
+      ref =
+        WsClient.send_call(
+          t.client_ws,
+          "room:get_scheduled",
+          %{"userId" => user_id}
+        )
+
+      WsClient.assert_reply(
+        "room:get_scheduled:reply",
+        ref,
+        %{
+          "rooms" => [%{"scheduledFor" => the_future}]
+        }
+      )
+
+      assert DateTime.to_iso8601(time) == the_future
+    end
+
+    @tag :skip
+    test "you can supply someone else's userId"
+  end
+
+  describe "when you don't supply your userId to room:get_scheduled " do
+    test "it returns no rooms if there are none", t do
+      ref =
+        WsClient.send_call(
+          t.client_ws,
+          "room:get_scheduled",
+          %{}
+        )
+
+      WsClient.assert_reply(
+        "room:get_scheduled:reply",
+        ref,
+        %{"rooms" => []}
+      )
+    end
+
+    test "it returns other rooms", t do
+      other_user = Factory.create(User)
+
+      time = DateTime.utc_now() |> DateTime.add(10, :second)
+      user_id = other_user.id
+
+      {:ok, sroom} =
+        Kousa.ScheduledRoom.schedule(user_id, %{
+          "name" => "foo room",
+          "scheduledFor" => time
+        })
+
+      ref =
+        WsClient.send_call(
+          t.client_ws,
+          "room:get_scheduled",
+          %{}
         )
 
       WsClient.assert_reply(
