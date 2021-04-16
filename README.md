@@ -61,7 +61,7 @@ A desktop app built with [Electron](https://www.electronjs.org/) is available fo
 
 There are different ways to get the Electron desktop app:
 
-* Get the official builds from [here, in GitHub Releases][gh-releases/latest]
+* Get the official builds from [here, in GitHub Releases][gh-releases]
 for any platform.
 * Get it from AUR (unofficial package) for Arch/Manjaro with
 `yay -S dogehouse`.
@@ -77,7 +77,7 @@ with `sudo apt update && sudo apt install dogehouse`.
   * After installing the snap, you need to allow microphone access with
 `sudo snap connect dogehouse:audio-record` to be able to speak in rooms.
 
-[gh-releases]: https://github.com/benawad/dogehouse/releases
+[gh-releases]: https://github.com/benawad/dogehouse/releases/latest
 
 **_Notes:_**
 
