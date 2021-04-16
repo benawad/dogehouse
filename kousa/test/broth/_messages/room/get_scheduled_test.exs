@@ -13,7 +13,11 @@ defmodule BrothTest.Message.Room.GetScheduled do
     test "an empty payload is ok.", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %GetScheduled{all: true}
+                payload: %GetScheduled{
+                  range: "all",
+                  userId: nil,
+                  cursor: nil
+                }
               }} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:get_scheduled",
@@ -24,7 +28,11 @@ defmodule BrothTest.Message.Room.GetScheduled do
       # short form also allowed
       assert {:ok,
               %{
-                payload: %GetScheduled{all: true}
+                payload: %GetScheduled{
+                  range: "all",
+                  userId: nil,
+                  cursor: nil
+                }
               }} =
                BrothTest.Support.Message.validate(%{
                  "op" => "room:get_scheduled",
@@ -32,25 +40,56 @@ defmodule BrothTest.Message.Room.GetScheduled do
                  "ref" => UUID.uuid4()
                })
     end
+  end
 
-    test "supplying all parameter is possible" do
-      assert {:ok,
-              %{
-                payload: %GetScheduled{all: false}
-              }} =
+  describe "for get_scheduled supplying range parameter" do
+    test "supplying all directly is possible" do
+      assert {:ok, %{payload: %GetScheduled{range: "all"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:get_scheduled",
-                 "payload" => %{"all" => false},
+                 "payload" => %{"range" => "all"},
                  "reference" => UUID.uuid4()
                })
+    end
 
-      assert {:ok,
-              %{
-                payload: %GetScheduled{all: true}
-              }} =
+    test "supplying upcoming is possible" do
+      assert {:ok, %{payload: %GetScheduled{range: "upcoming"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:get_scheduled",
-                 "payload" => %{"all" => true},
+                 "payload" => %{"range" => "upcoming"},
+                 "reference" => UUID.uuid4()
+               })
+    end
+
+    test "anything else is fail" do
+      assert {:error, %{errors: %{range: "is invalid"}}} =
+               BrothTest.Support.Message.validate(%{
+                 "operator" => "room:get_scheduled",
+                 "payload" => %{"range" => "invalid"},
+                 "reference" => UUID.uuid4()
+               })
+    end
+  end
+
+  describe "for get_scheduled supplying userId parameter" do
+    test "supplying is possible" do
+      uuid = UUID.uuid4()
+      assert {:ok, %{payload: %GetScheduled{userId: ^uuid}}} =
+               BrothTest.Support.Message.validate(%{
+                 "operator" => "room:get_scheduled",
+                 "payload" => %{"userId" => uuid},
+                 "reference" => UUID.uuid4()
+               })
+    end
+  end
+
+  describe "for get_scheduled supplying cursor parameter" do
+    test "supplying cursor is possible" do
+      uuid = UUID.uuid4()
+      assert {:ok, %{payload: %GetScheduled{cursor: 10}}} =
+               BrothTest.Support.Message.validate(%{
+                 "operator" => "room:get_scheduled",
+                 "payload" => %{"cursor" => 10},
                  "reference" => UUID.uuid4()
                })
     end

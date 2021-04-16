@@ -16,7 +16,10 @@ defmodule Broth.Message.Room.GetScheduled do
     initializer
     |> cast(data, [:range, :userId, :cursor])
     |> validate_inclusion(:range, ["all", "upcoming"])
-    |> UUID.normalize(:userId)
+
+    # to be made explicit in the future, currently we need "user"
+    # hack to get this to work.
+    #    |> UUID.normalize(:userId)
   end
 
   defmodule Reply do
@@ -35,22 +38,26 @@ defmodule Broth.Message.Room.GetScheduled do
     with {:ok, request} <- apply_action(changeset, :validate) do
       case request do
         %{userId: nil, range: "all"} ->
-          {rooms, next_cursor} = Kousa.ScheduledRoom.get_scheduled_rooms(
-            state.user_id,
-            false,
-            request.cursor
-          )
-        {:reply, %Reply{rooms: rooms, nextCursor: next_cursor}, state}
+          {rooms, next_cursor} =
+            Kousa.ScheduledRoom.get_scheduled_rooms(
+              state.user_id,
+              false,
+              request.cursor
+            )
 
-        %{userId: ^user_id, range: "all"} ->
-          {rooms, next_cursor} = Kousa.ScheduledRoom.get_scheduled_rooms(
-            state.user_id,
-            true,
-            request.cursor
-          )
-        {:reply, %Reply{rooms: rooms, nextCursor: next_cursor}, state}
+          {:reply, %Reply{rooms: rooms, nextCursor: next_cursor}, state}
 
-        %{userId: ^user_id, range: "upcoming"} ->
+        %{userId: u, range: "all"} when u == "self" or u == user_id ->
+          {rooms, next_cursor} =
+            Kousa.ScheduledRoom.get_scheduled_rooms(
+              state.user_id,
+              true,
+              request.cursor
+            )
+
+          {:reply, %Reply{rooms: rooms, nextCursor: next_cursor}, state}
+
+        %{userId: u, range: "upcoming"} when u == "self" or u == user_id ->
           rooms = Kousa.ScheduledRoom.get_my_scheduled_rooms_about_to_start(state.user_id)
           {:reply, %Reply{rooms: rooms}, state}
 

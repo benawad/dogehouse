@@ -130,7 +130,9 @@ defmodule Broth.Translator.V0_1_0 do
   end
 
   def translate_in_body(message, "get_my_scheduled_rooms_about_to_start") do
-    put_in(message, ["d", "all"], false)
+    message
+    |> put_in(["d", "range"], "upcoming")
+    |> put_in(["d", "userId"], "self")
   end
 
   def translate_in_body(message, _op), do: message
