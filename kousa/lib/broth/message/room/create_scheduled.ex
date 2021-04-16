@@ -31,6 +31,4 @@ defmodule Broth.Message.Room.CreateScheduled do
     end
   end
 
-  def execute(data, state) do
-  end
 end

@@ -69,7 +69,7 @@ defmodule KousaTest.Broth.Room.SetAuthTest do
 
       # create a user that is logged in.
       speaker = %{id: speaker_id} = Factory.create(User)
-      ws_speaker = WsClientFactory.create_client_for(speaker)
+      _ws_speaker = WsClientFactory.create_client_for(speaker)
 
       # join the speaker user into the room
       Kousa.Room.join_room(speaker_id, room_id)

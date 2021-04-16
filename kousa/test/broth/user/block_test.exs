@@ -19,7 +19,7 @@ defmodule KousaTest.Broth.User.BlockTest do
   describe "the websocket user:block operation" do
     test "blocks that person from the user", t do
       # create a blocked user that is logged in.
-      blocked = %{id: blocked_id} = Factory.create(User)
+      %{id: blocked_id} = Factory.create(User)
 
       ref =
         WsClient.send_call(

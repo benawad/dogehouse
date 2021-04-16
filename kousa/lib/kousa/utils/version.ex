@@ -31,7 +31,7 @@ defmodule Kousa.Utils.Version do
 end
 
 defimpl Jason.Encoder, for: Version do
-  def encode(version, opts) do
+  def encode(version, _opts) do
     inspect(to_string(version))
   end
 end

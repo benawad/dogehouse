@@ -1,12 +1,6 @@
 defmodule Broth.SocketHandler do
   require Logger
 
-  alias Beef.Users
-  alias Beef.Rooms
-  alias Beef.Follows
-  alias Ecto.UUID
-  alias Beef.RoomPermissions
-
   @type state :: %__MODULE__{
           awaiting_init: boolean(),
           user_id: String.t(),
@@ -214,7 +208,7 @@ defmodule Broth.SocketHandler do
     end
   end
 
-  def wrap(message, payload = %module{}) do
+  def wrap(message, payload = %{}) do
     %{message | operator: message.inbound_operator <> ":reply", payload: payload}
   end
 

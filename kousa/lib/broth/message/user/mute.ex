@@ -21,7 +21,8 @@ defmodule Broth.Message.User.Mute do
   end
 
   def execute(changeset, state) do
-    with {:ok, request} <- apply_action(changeset, :validation) do
+    with {:ok, _} <- apply_action(changeset, :validation) do
+      raise "foo"
       {:reply, %Reply{}, state}
     end
   end

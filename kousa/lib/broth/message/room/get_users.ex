@@ -37,7 +37,7 @@ defmodule Broth.Message.Room.GetUsers do
   end
 
   def execute(changeset, state) do
-    with {:ok, request} <- apply_action(changeset, :validate),
+    with {:ok, _request} <- apply_action(changeset, :validate),
          {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id) do
       {muteMap, autoSpeaker, activeSpeakerMap} =
         if room_id do
