@@ -74,6 +74,7 @@ defmodule BrothTest.Message.Room.GetScheduled do
   describe "for get_scheduled supplying userId parameter" do
     test "supplying is possible" do
       uuid = UUID.uuid4()
+
       assert {:ok, %{payload: %GetScheduled{userId: ^uuid}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:get_scheduled",
@@ -86,6 +87,7 @@ defmodule BrothTest.Message.Room.GetScheduled do
   describe "for get_scheduled supplying cursor parameter" do
     test "supplying cursor is possible" do
       uuid = UUID.uuid4()
+
       assert {:ok, %{payload: %GetScheduled{cursor: 10}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:get_scheduled",

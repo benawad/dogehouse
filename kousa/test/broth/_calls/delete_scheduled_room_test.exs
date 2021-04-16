@@ -17,7 +17,29 @@ defmodule KousaTest.Broth.DeleteScheduledRoomTest do
   end
 
   describe "the websocket delete_scheduled_room operation" do
-    @tag :skip
-    test "edits a scheduled room"
+    test "deletes a scheduled room", t do
+      time = DateTime.utc_now() |> DateTime.add(10, :second)
+      user_id = t.user.id
+
+      {:ok, %{id: room_id}} =
+        Kousa.ScheduledRoom.schedule(user_id, %{
+          "name" => "foo room",
+          "scheduledFor" => time
+        })
+
+      ref =
+        WsClient.send_call_legacy(
+          t.client_ws,
+          "delete_scheduled_room",
+          %{"id" => room_id}
+        )
+
+      WsClient.assert_reply_legacy(
+        ref,
+        %{}
+      )
+
+      refute Beef.ScheduledRooms.get_by_id(room_id)
+    end
   end
 end

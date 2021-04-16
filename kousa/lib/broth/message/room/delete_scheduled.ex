@@ -18,9 +18,17 @@ defmodule Broth.Message.Room.DeleteScheduled do
   defmodule Reply do
     use Broth.Message.Push
 
+    @derive {Jason.Encoder, only: []}
+
     @primary_key false
     embedded_schema do
-      field(:error, :map)
+    end
+  end
+
+  def execute(changeset, state) do
+    with {:ok, %{roomId: room_id}} <- apply_action(changeset, :validate) do
+      Kousa.ScheduledRoom.delete(state.user_id, room_id)
+      {:reply, %Reply{}, state}
     end
   end
 end
