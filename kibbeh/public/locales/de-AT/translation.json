@@ -16,7 +16,7 @@
     "copied": "kopiart",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Bitte beachte, wennst Dogehouse ohne a Berechtigung rennen lost kennan ungwollte Fehler auftretn."
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -41,7 +41,7 @@
     "home": {
       "createRoom": "Raum erstön",
       "refresh": "Aktualisiern",
-      "editRoom": "Edit Room"
+      "editRoom": "Raum bearbeiten"
     },
     "inviteList": {
       "roomGone": "Den Raum kau ma ned finden. Zruck",
@@ -60,7 +60,7 @@
       "loginGithub": "mit GitHub aumöden",
       "loginTwitter": "mit Twitter aumöden",
       "createTestUser": "Testnutzer erstön",
-      "loginDiscord": "Login with Discord"
+      "loginDiscord": "mit Discord aumöden"
     },
     "myProfile": {
       "logout": "Omöden",
@@ -69,7 +69,7 @@
       "soundSettings": "Toneinstöllungen",
       "deleteAccount": "Konto löschn",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Tuat uns leid, konntn den Nutza ned findn"
     },
     "notFound": {
       "whoopsError": "Oida! De Seite ist im Gespräch verlurn gaunga.",
@@ -80,8 +80,8 @@
       "speakers": "Sprecha",
       "requestingToSpeak": "Sprochanfrogen",
       "listeners": "Zuhöra",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "Ollen erlaubn",
+      "allowAllConfirm": "Bist da sicha? Dadurch kennan olle {{count}} anfragenden Bnutzer spröchn"
     },
     "searchUser": { "search": "Suachn..." },
     "soundEffectSettings": { "header": "Ton" },
@@ -92,9 +92,9 @@
       "followers": "Abonnenten",
       "followHim": "follow",
       "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "copyProfileUrl": "Profil URL kopian",
+      "urlCopied": "URL zua Zwischenablag kopian",
+      "unfollow": "Entfolgn"
     },
     "voiceSettings": {
       "header": "Sprocheinstöllungen",
@@ -106,8 +106,8 @@
     "overlaySettings": {
       "header": "Overlay Settings",
       "input": {
-        "errorMsg": "Please enter valid app title",
-        "label": "Enter app title"
+        "errorMsg": "Bitte giab an gültign Apptitel au",
+        "label": "Giab an Apptitel au"
       }
     }
   },
@@ -149,7 +149,7 @@
         "roomDescription": "Raumbeschreibung",
         "descriptionError": "de maximale Länge is 500",
         "nameError": "muas zwischen 2 und 60 Zeichn laung sei",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "Füll de folgendn Felder aus um den Raum zu startn"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Neichn Raum erstöt",
@@ -181,14 +181,14 @@
         "goBackToListener": "Zruck zum Zuhörer",
         "deleteMessage": "Nochricht löschn",
         "makeRoomCreator": "zum Raumadmin befördern",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Vom Chat entblockian"
       },
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Sprechen verlaungen",
         "makePublic": "Raum öffentlich mochen",
         "makePrivate": "Raum privat mochen",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "Öffentlichn Raumnaumn festlegn",
+        "renamePrivate": "Privatn Raumnaumn festlegn"
       }
     },
     "userVolumeSlider": {
@@ -199,7 +199,7 @@
       "listening": "Zuhören",
       "toggleMuteKeybind": "Stummschoittaste umschoiten",
       "togglePushToTalkKeybind": "Push-to-Talk Tastenkürzl umschoiten",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "Overlay-Tastenkürzl umschoiten"
     },
     "wsKilled": {
       "description": "De Websocket Verbindung zum Server wurde unterbrochen. Des passiert normalerweise, wenn du de Website in an aunderen Tab öffnest.",
@@ -215,24 +215,24 @@
       "inviteToRoom": "zum Raum eilona"
     },
     "followingOnline": {
-      "people": "People",
+      "people": "Leit",
       "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "noOnline": "Du host grod 0 freind online",
+      "showMore": "Zoag ma mehr"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "Zukünftige Räum",
+      "exploreMoreRooms": "Erforsch mehr Räum"
     },
     "search": { "placeholder": "Search for rooms, users or categories" },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "Profil",
+      "language": "Sproch",
+      "reportABug": "An Fehler möden",
+      "useOldVersion": "Nutz a oide Version",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "Omöden",
+        "modalSubtitle": "Bist da sicha dost di omöden wüst?"
       }
     }
   },
@@ -266,16 +266,16 @@
       "roomDescription": "Raumbeschreibung"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
+      "fuelingRocket": "Rakete betankn",
+      "takingOff": "Auhebn",
+      "inSpace": "Im Wödall",
+      "approachingMoon": "Dem Mond aunnähern",
       "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
+      "approachingSun": "Da Sun aunnähern",
       "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
+      "approachingGalaxy": "Da Galaxie aunnähern",
       "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "spottedLife": "Planet mit Lebn gsichtet"
     },
     "feed": { "yourFeed": "Your Feed" }
   }
