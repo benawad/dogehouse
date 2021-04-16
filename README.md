@@ -22,12 +22,6 @@
   <a href="./docs/README.MD">Documentation</a>
 </h3>
 
-<h4 align="center">
-  <a href="https://dogehouse.tv">DogeHouse</a>
-  <span> · </span>
-  <a href="https://next.dogehouse.tv">Beta</a>
-</h4>
-
 ---
 
 ## Structure
@@ -92,6 +86,7 @@ Contributors helping to review/merge pull requests:
 - [@goldyydev](https://github.com/goldyydev)
 - [@jamesql](https://github.com/jamesql)
 - [@amitojsingh366](https://github.com/amitojsingh366)
+- [@TheOtterlord](https://github.com/TheOtterlord)
 
 ## Code of Conduct
 
