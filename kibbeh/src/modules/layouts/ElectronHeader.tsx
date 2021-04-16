@@ -60,7 +60,7 @@ function MacHeader() {
   return (
     <div className="electron-header z-50">
       <div
-        className="header-icons-mac flex flex-row space-x-2 content-center mt-9 ml-5"
+        className="header-icons-mac flex flex-row space-x-2 content-center ml-5"
         onMouseEnter={() => {
           setHovering(true);
         }}
