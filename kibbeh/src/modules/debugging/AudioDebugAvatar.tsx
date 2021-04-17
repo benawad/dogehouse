@@ -46,12 +46,13 @@ export const AudioDebugAvatar: React.FC<AudioDebugAvatarProps> = ({
     return () => {
       harker.stop();
     };
-  }, [consumer, consumer.consumer.id]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [consumer?.consumer.id]);
 
   return (
     <div style={{ height: 60 }} className="relative">
       {children}
-      <div className="rounded-full flex z-10 absolute top-0 h-full w-full opacity-50 overflow-hidden">
+      <div className="rounded-full flex z-10 absolute top-0 h-full w-full opacity-70 overflow-hidden">
         <div
           className="mt-auto w-full"
           style={{
