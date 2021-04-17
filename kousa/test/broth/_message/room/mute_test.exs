@@ -36,7 +36,7 @@ defmodule BrothTest.Message.Room.MuteTest do
                })
     end
 
-    test "reference is required", %{uuid: uuid} do
+    test "reference is required" do
       assert {:error, %{errors: [reference: {"is required for Broth.Message.Room.Mute", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:mute",

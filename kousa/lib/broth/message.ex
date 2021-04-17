@@ -55,9 +55,9 @@ defmodule Broth.Message do
     version: ~w(version v)
   }
 
+  defp find(changeset, field, optional \\ false)
   defp find(changeset = %{valid?: false}, _, _), do: changeset
-
-  defp find(changeset, field, optional \\ false) when is_atom(field) do
+  defp find(changeset, field, optional) when is_atom(field) do
     find(changeset, field, @valid_forms[field], optional)
   end
 

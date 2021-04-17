@@ -2,12 +2,6 @@ defmodule BrothTest.Message.Room.SetActiveSpeakerTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 
-  alias Beef.Schemas.User
-  alias Beef.Users
-  alias BrothTest.WsClient
-  alias BrothTest.WsClientFactory
-  alias KousaTest.Support.Factory
-
   alias Broth.Message.Room.SetActiveSpeaker
 
   describe "when you send a room:set_active_speaker message" do

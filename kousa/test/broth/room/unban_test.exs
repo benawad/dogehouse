@@ -25,7 +25,7 @@ defmodule BrothTest.Room.UnbanTest do
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
       # create a blocked user that is logged in.
-      blocked = %{id: blocked_id} = Factory.create(User)
+      %{id: blocked_id} = Factory.create(User)
 
       Beef.RoomBlocks.insert(%{
         userId: blocked_id,
