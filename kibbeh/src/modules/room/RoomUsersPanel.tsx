@@ -26,7 +26,7 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
     canIAskToSpeak,
   } = useSplitUsersIntoSections(props);
   const { t } = useTypeSafeTranslation();
-  const me = useContext(WebSocketContext).conn?.user || {};
+  const me = useContext(WebSocketContext).conn?.user;
   const muted = useMuteStore().muted;
   let gridTemplateColumns = "repeat(5, minmax(0, 1fr))";
   const screenType = useScreenType();
@@ -42,7 +42,7 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
       ipcRenderer.send("@room/data", {
         currentRoom: props,
         muted,
-        me,
+        me: me || {},
       });
     }
   }, [props, muted, me]);
