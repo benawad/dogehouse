@@ -36,27 +36,31 @@ defmodule KousaTest do
   end
 end
 
-ExUnit.after_suite(fn _ ->
-  # check to make sure all of the modules have corresponding tests
-  all_elixir_modules =
-    :code.all_loaded()
-    |> Enum.map(&elem(&1, 0))
-    |> Enum.filter(&KousaTest.elixir_module?/1)
+if System.argv() == ["test"] do
+  # this check only gets triggered when you do a full test
 
-  message_modules = Enum.filter(all_elixir_modules, &KousaTest.message_module?/1)
+  ExUnit.after_suite(fn _ ->
+    # check to make sure all of the modules have corresponding tests
+    all_elixir_modules =
+      :code.all_loaded()
+      |> Enum.map(&elem(&1, 0))
+      |> Enum.filter(&KousaTest.elixir_module?/1)
 
-  message_test_modules = Enum.filter(all_elixir_modules, &KousaTest.message_test_module?/1)
+    message_modules = Enum.filter(all_elixir_modules, &KousaTest.message_module?/1)
 
-  message_validation_modules =
-    Enum.filter(all_elixir_modules, &KousaTest.message_validation_module?/1)
+    message_test_modules = Enum.filter(all_elixir_modules, &KousaTest.message_test_module?/1)
 
-  Enum.each(message_modules, fn module ->
-    unless (tm = KousaTest.test_for(module)) in message_test_modules do
-      raise "#{inspect(module)} did not have test module #{inspect(tm)}"
-    end
+    message_validation_modules =
+      Enum.filter(all_elixir_modules, &KousaTest.message_validation_module?/1)
 
-    unless (tm = KousaTest.validation_for(module)) in message_validation_modules do
-      raise "#{inspect(module)} did not have validation module #{inspect(tm)}"
-    end
+    Enum.each(message_modules, fn module ->
+      unless (tm = KousaTest.test_for(module)) in message_test_modules do
+        raise "#{inspect(module)} did not have test module #{inspect(tm)}"
+      end
+
+      unless (tm = KousaTest.validation_for(module)) in message_validation_modules do
+        raise "#{inspect(module)} did not have validation module #{inspect(tm)}"
+      end
+    end)
   end)
-end)
+end

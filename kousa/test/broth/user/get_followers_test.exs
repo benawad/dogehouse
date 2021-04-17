@@ -1,4 +1,4 @@
-defmodule BrothTest.User.GetFollowingTest do
+defmodule BrothTest.User.GetFollowersTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 
@@ -16,27 +16,33 @@ defmodule BrothTest.User.GetFollowingTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket user:get_following operation" do
-    test "returns an empty list if you aren't following anyone", t do
-      ref = WsClient.send_call(t.client_ws, "user:get_following", %{"cursor" => 0})
+  describe "the websocket user:get_followers operation" do
+    test "returns an empty list if no one is following you", t do
+      ref = WsClient.send_call(t.client_ws, "user:get_followers", %{"cursor" => 0})
 
-      WsClient.assert_reply("user:get_following:reply", ref, %{"following" => []})
+      WsClient.assert_reply("user:get_followers:reply", ref, %{"followers" => []})
     end
 
-    test "returns that person if you are following someone", t do
-      %{id: followed_id} = Factory.create(User)
-      Kousa.Follow.follow(t.user.id, followed_id, true)
+    test "returns that person if someone is following you", t do
+      %{id: follower_id} = Factory.create(User)
+      Kousa.Follow.follow(follower_id, t.user.id, true)
 
-      ref = WsClient.send_call(t.client_ws, "user:get_following", %{"cursor" => 0})
+      ref =
+        WsClient.send_call(t.client_ws, "user:get_followers", %{
+          "cursor" => 0
+        })
 
-      WsClient.assert_reply("user:get_following:reply", ref, %{
-        "following" => [
+      WsClient.assert_reply("user:get_followers:reply", ref, %{
+        "followers" => [
           %{
-            "id" => ^followed_id
+            "id" => ^follower_id
           }
         ]
       })
     end
+
+    @tag :skip
+    test "you can't stalk someone who has blocked you"
 
     @tag :skip
     test "test proper pagination of user:get_following"
