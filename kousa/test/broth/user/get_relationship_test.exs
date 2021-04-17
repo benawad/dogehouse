@@ -16,7 +16,7 @@ defmodule BrothTest.User.GetRelationshipTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket follow_info operation" do
+  describe "the websocket user:get_relationship operation" do
     test "retrieves symmetric following info", t do
       user_id = t.user.id
 

@@ -17,7 +17,7 @@ defmodule BrothTest.Room.SetRoleTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "for when you set_role to listener" do
+  describe "for when you room:set_role to listener" do
     test "takes a speaker and turns them into listener", t do
       # first, create a room owned by the test user.
       {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)

@@ -17,7 +17,7 @@ defmodule BrothTest.Room.UnbanTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket block_from_room operation" do
+  describe "the websocket room:unban operation" do
     test "blocks that person from a room", t do
       # first, create a room owned by the test user.
       {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)

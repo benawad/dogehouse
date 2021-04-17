@@ -17,7 +17,7 @@ defmodule BrothTest.Room.InviteTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket invite_to_room operation" do
+  describe "the websocket room:invite operation" do
     test "invites that person to a room", t do
       # first, create a room owned by the primary user.
       {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)

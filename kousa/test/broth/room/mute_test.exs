@@ -17,7 +17,7 @@ defmodule BrothTest.Room.MuteTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket mute call operation" do
+  describe "the websocket room:mute operation" do
     test "can be used to mute", t do
       # first, create a room owned by the primary user.
       {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)

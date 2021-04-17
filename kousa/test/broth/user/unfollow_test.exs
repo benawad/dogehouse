@@ -16,7 +16,7 @@ defmodule BrothTest.User.UnfollowTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the unfollow operation" do
+  describe "the user:unfollow operation" do
     test "causes you to to unfollow", t do
       followed = Factory.create(User)
 

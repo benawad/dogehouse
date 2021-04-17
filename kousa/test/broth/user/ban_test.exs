@@ -17,7 +17,7 @@ defmodule BrothTest.User.BanTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket ban operation" do
+  describe "the websocket user:ban operation" do
     test "doesn't work for not-ben awad", t do
       banned = Factory.create(User)
       WsClientFactory.create_client_for(banned)

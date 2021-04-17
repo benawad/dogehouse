@@ -17,7 +17,7 @@ defmodule BrothTest.User.UpdateTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket user:edit operation" do
+  describe "the websocket user:update operation" do
     test "a username can be changed", t do
       user_id = t.user.id
 

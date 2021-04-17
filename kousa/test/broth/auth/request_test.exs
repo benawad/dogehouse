@@ -8,7 +8,7 @@ defmodule BrothTest.Auth.RequestTest do
 
   require WsClient
 
-  describe "the websocket auth operation" do
+  describe "the websocket auth:request operation" do
     test "is required within the timeout time or else the connection will be closed" do
       # set it to trap exits so we can watch the websocket connection die
       Process.flag(:trap_exit, true)

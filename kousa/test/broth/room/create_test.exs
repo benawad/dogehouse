@@ -1,4 +1,4 @@
-defmodule BrothTest.Room.JoinTest do
+defmodule BrothTest.Room.CreateTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 
@@ -17,7 +17,7 @@ defmodule BrothTest.Room.JoinTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket room:join operation" do
+  describe "the websocket room:create operation" do
     test "joins the user to the room", t do
       user_id = t.user.id
 

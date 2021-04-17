@@ -18,7 +18,7 @@ defmodule BrothTest.Room.LeaveTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket leave_room operation" do
+  describe "the websocket room:leave operation" do
     test "deletes the room if they are the only person", t do
       {:ok, %{room: room}} =
         Kousa.Room.create_room(

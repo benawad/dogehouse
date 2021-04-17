@@ -17,7 +17,7 @@ defmodule BrothTest.Chat.SendMsgTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket send_room_chat operation" do
+  describe "the websocket chat:send_msg operation" do
     @text_token [%{"t" => "text", "v" => "foobar"}]
 
     test "sends a message to the room", t do

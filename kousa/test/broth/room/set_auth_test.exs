@@ -17,7 +17,7 @@ defmodule BrothTest.Room.SetAuthTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the using set_auth with mod" do
+  describe "the using room:set_auth with mod" do
     test "makes the person a mod", t do
       # first, create a room owned by the primary user.
       {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)

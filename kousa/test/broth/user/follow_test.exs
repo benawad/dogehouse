@@ -16,7 +16,7 @@ defmodule BrothTest.User.FollowTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the follow operation" do
+  describe "the user:follow operation" do
     test "causes you to follow", t do
       followed = Factory.create(User)
 

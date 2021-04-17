@@ -17,7 +17,7 @@ defmodule BrothTest.Chat.BanTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket chat_user_banned operation" do
+  describe "the websocket chat:ban operation" do
     test "bans the person from the room chat", t do
       # first, create a room owned by the primary user.
       {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)

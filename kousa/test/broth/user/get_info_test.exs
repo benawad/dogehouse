@@ -16,7 +16,7 @@ defmodule BrothTest.User.GetInfoTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket get_user_profile operation" do
+  describe "the websocket user:get_info operation" do
     test "can get your own user info", t do
       user_id = t.user.id
 

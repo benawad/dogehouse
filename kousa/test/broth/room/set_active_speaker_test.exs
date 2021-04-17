@@ -16,7 +16,7 @@ defmodule BrothTest.Room.SetActiveSpeakerTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket speaking_change operation" do
+  describe "the websocket room:set_active_speaker operation" do
     test "toggles the active speaking state", t do
       user_id = t.user.id
 

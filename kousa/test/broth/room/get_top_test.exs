@@ -17,7 +17,7 @@ defmodule BrothTest.Room.GetTopTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket get_top_public_rooms operation" do
+  describe "the websocket room:get_top operation" do
     test "returns one public room if it's the only one", t do
       user_id = t.user.id
       # first, create a room owned by the primary user.
