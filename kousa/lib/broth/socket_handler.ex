@@ -122,7 +122,7 @@ defmodule Broth.SocketHandler do
     else
       # special cases: mediasoup operations
       msg = %{"op" => "@" <> _} ->
-        dispatch_mediasoup_directive(msg, state)
+        dispatch_mediasoup_message(msg, state)
 
       # legacy special cases
       msg = %{"op" => special_case} when special_case in @special_cases ->
