@@ -19,14 +19,12 @@ defmodule KousaTest.Broth.ScheduleRoomTest do
   describe "the websocket schedule_room operation" do
     test "creates a scheduled room", t do
       time = DateTime.utc_now() |> DateTime.add(10, :second)
-      user_id = t.user.id
 
       ref =
         WsClient.send_call_legacy(
           t.client_ws,
           "schedule_room",
-          %{"name" => "foo room",
-            "scheduledFor" => DateTime.to_iso8601(time)}
+          %{"name" => "foo room", "scheduledFor" => DateTime.to_iso8601(time)}
         )
 
       WsClient.assert_reply_legacy(

@@ -16,12 +16,14 @@ defmodule BrothTest.MessageTest do
 
     import Ecto.Changeset
 
-    def changeset(changeset, data) do
+    def changeset(changeset \\ %__MODULE__{}, data) do
       changeset
       |> cast(data, [:foo])
       |> validate_number(:foo, not_equal_to: 42, message: "bad number")
       |> validate_required(:foo)
     end
+
+    def execute(_, state), do: {:reply, %__MODULE__{}, state}
   end
 
   @passing_contract %{

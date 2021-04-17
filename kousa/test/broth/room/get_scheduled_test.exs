@@ -36,11 +36,10 @@ defmodule KousaTest.Broth.Room.GetScheduledTest do
       time = DateTime.utc_now() |> DateTime.add(10, :second)
       user_id = t.user.id
 
-      {:ok, sroom} =
-        Kousa.ScheduledRoom.schedule(user_id, %{
-          "name" => "foo room",
-          "scheduledFor" => time
-        })
+      Kousa.ScheduledRoom.schedule(user_id, %{
+        "name" => "foo room",
+        "scheduledFor" => time
+      })
 
       ref =
         WsClient.send_call(
@@ -72,11 +71,10 @@ defmodule KousaTest.Broth.Room.GetScheduledTest do
       time = DateTime.utc_now() |> DateTime.add(10, :second)
       user_id = t.user.id
 
-      {:ok, sroom} =
-        Kousa.ScheduledRoom.schedule(other_user.id, %{
-          "name" => "foo room",
-          "scheduledFor" => time
-        })
+      Kousa.ScheduledRoom.schedule(other_user.id, %{
+        "name" => "foo room",
+        "scheduledFor" => time
+      })
 
       ref =
         WsClient.send_call(
@@ -98,11 +96,10 @@ defmodule KousaTest.Broth.Room.GetScheduledTest do
       time = DateTime.utc_now() |> DateTime.add(3600, :second)
       user_id = t.user.id
 
-      {:ok, sroom} =
-        Kousa.ScheduledRoom.schedule(user_id, %{
-          "name" => "foo room",
-          "scheduledFor" => time
-        })
+      Kousa.ScheduledRoom.schedule(user_id, %{
+        "name" => "foo room",
+        "scheduledFor" => time
+      })
 
       ref =
         WsClient.send_call(
@@ -124,11 +121,10 @@ defmodule KousaTest.Broth.Room.GetScheduledTest do
       time = DateTime.utc_now() |> DateTime.add(3600, :second)
       user_id = t.user.id
 
-      {:ok, sroom} =
-        Kousa.ScheduledRoom.schedule(user_id, %{
-          "name" => "foo room",
-          "scheduledFor" => time
-        })
+      Kousa.ScheduledRoom.schedule(user_id, %{
+        "name" => "foo room",
+        "scheduledFor" => time
+      })
 
       ref =
         WsClient.send_call(
@@ -174,11 +170,10 @@ defmodule KousaTest.Broth.Room.GetScheduledTest do
       time = DateTime.utc_now() |> DateTime.add(10, :second)
       user_id = other_user.id
 
-      {:ok, sroom} =
-        Kousa.ScheduledRoom.schedule(user_id, %{
-          "name" => "foo room",
-          "scheduledFor" => time
-        })
+      Kousa.ScheduledRoom.schedule(user_id, %{
+        "name" => "foo room",
+        "scheduledFor" => time
+      })
 
       ref =
         WsClient.send_call(

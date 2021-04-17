@@ -2,8 +2,6 @@ defmodule KousaTest.Broth.Room.BanTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 
-  import KousaTest.Support.Deprecations
-
   alias Beef.Schemas.User
   alias Beef.Users
   alias BrothTest.WsClient

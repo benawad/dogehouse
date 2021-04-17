@@ -81,7 +81,7 @@ defmodule KousaTest.Broth.Room.GetUsersTest do
     test "returns what if you're not in a room", t do
       user_id = t.user.id
       # first, create a room owned by the primary user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(user_id, "foo room", "foo", false)
+      Kousa.Room.create_room(user_id, "foo room", "foo", false)
 
       # create a user that is logged in.
       other = Factory.create(User)

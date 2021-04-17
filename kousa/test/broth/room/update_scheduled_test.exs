@@ -3,8 +3,6 @@ defmodule KousaTest.Broth.Room.UpdateScheduledTest do
   use KousaTest.Support.EctoSandbox
 
   alias Beef.Schemas.User
-  alias Beef.Users
-  alias Beef.Rooms
   alias BrothTest.WsClient
   alias BrothTest.WsClientFactory
   alias KousaTest.Support.Factory

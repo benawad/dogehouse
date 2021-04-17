@@ -37,9 +37,12 @@ defmodule Broth.Message.Room.CreateScheduled do
   # TODO: this will be much cleaner when direct changeset posting is enabled.
   def execute(changeset, state) do
     with {:ok, room} <- apply_action(changeset, :validation),
-         room_data = %{"name" => room.name, "scheduledFor" => room.scheduledFor, "description" => room.description},
+         room_data = %{
+           "name" => room.name,
+           "scheduledFor" => room.scheduledFor,
+           "description" => room.description
+         },
          {:ok, s_room} <- Kousa.ScheduledRoom.schedule(state.user_id, room_data) do
-
       reply = %__MODULE__{
         id: s_room.id,
         name: s_room.name,

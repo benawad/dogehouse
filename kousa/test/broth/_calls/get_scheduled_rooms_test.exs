@@ -18,8 +18,6 @@ defmodule KousaTest.Broth.GetScheduledRoomsTest do
 
   describe "the websocket get_scheduled_rooms operation" do
     test "returns no scheduled rooms", t do
-      time = DateTime.utc_now() |> DateTime.add(10, :second)
-
       ref =
         WsClient.send_call_legacy(
           t.client_ws,
@@ -39,11 +37,10 @@ defmodule KousaTest.Broth.GetScheduledRoomsTest do
       time = DateTime.utc_now() |> DateTime.add(10, :second)
       user_id = t.user.id
 
-      {:ok, sroom} =
-        Kousa.ScheduledRoom.schedule(user_id, %{
-          "name" => "foo room",
-          "scheduledFor" => time
-        })
+      Kousa.ScheduledRoom.schedule(user_id, %{
+        "name" => "foo room",
+        "scheduledFor" => time
+      })
 
       ref =
         WsClient.send_call_legacy(
@@ -99,11 +96,10 @@ defmodule KousaTest.Broth.GetScheduledRoomsTest do
 
       time = DateTime.utc_now() |> DateTime.add(10, :second)
 
-      {:ok, sroom} =
-        Kousa.ScheduledRoom.schedule(other_user.id, %{
-          "name" => "foo room",
-          "scheduledFor" => time
-        })
+      Kousa.ScheduledRoom.schedule(other_user.id, %{
+        "name" => "foo room",
+        "scheduledFor" => time
+      })
 
       ref =
         WsClient.send_call_legacy(

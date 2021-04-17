@@ -6,8 +6,6 @@ defmodule Broth.Message.Room.SetActiveSpeaker do
     field(:active, :boolean)
   end
 
-  alias Kousa.Utils.UUID
-
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
     |> cast(data, [:active])

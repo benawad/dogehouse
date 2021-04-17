@@ -10,7 +10,7 @@ defmodule BrothTest.Message.Auth.RequestTest do
   end
 
   describe "when you send a block message" do
-    test "it populates userId", %{uuid: uuid} do
+    test "it populates userId" do
       assert {:ok,
               %{
                 payload: %Request{

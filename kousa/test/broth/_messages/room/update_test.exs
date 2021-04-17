@@ -11,7 +11,7 @@ defmodule BrothTest.Message.Room.UpdateTest do
 
   setup do
     user = Factory.create(User)
-    room = Factory.create(Room, creatorId: user.id)
+    _room = Factory.create(Room, creatorId: user.id)
 
     state = %Broth.SocketHandler{user_id: user.id}
 

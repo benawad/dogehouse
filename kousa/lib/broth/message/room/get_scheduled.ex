@@ -10,8 +10,6 @@ defmodule Broth.Message.Room.GetScheduled do
     field(:cursor, :integer)
   end
 
-  alias Kousa.Utils.UUID
-
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
     |> cast(data, [:range, :userId, :cursor])

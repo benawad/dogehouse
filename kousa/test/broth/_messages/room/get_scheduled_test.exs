@@ -10,7 +10,7 @@ defmodule BrothTest.Message.Room.GetScheduled do
   end
 
   describe "when you send an get_scheduled message" do
-    test "an empty payload is ok.", %{uuid: uuid} do
+    test "an empty payload is ok." do
       assert {:ok,
               %{
                 payload: %GetScheduled{
@@ -86,8 +86,6 @@ defmodule BrothTest.Message.Room.GetScheduled do
 
   describe "for get_scheduled supplying cursor parameter" do
     test "supplying cursor is possible" do
-      uuid = UUID.uuid4()
-
       assert {:ok, %{payload: %GetScheduled{cursor: 10}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:get_scheduled",

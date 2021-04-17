@@ -3,7 +3,6 @@ defmodule BrothTest.Message.Room.CreateTest do
 
   @moduletag :message
 
-  alias Beef.Schemas.Room
   alias Broth.Message.Room.Create
 
   setup do

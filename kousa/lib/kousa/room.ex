@@ -302,7 +302,7 @@ defmodule Kousa.Room do
     # ??
     case RoomPermissions.ask_to_speak(user_id, room_id) do
       {:ok, %{isSpeaker: true}} ->
-        Kousa.Room.internal_set_speaker(user_id, room_id)
+        internal_set_speaker(user_id, room_id)
 
       _ ->
         Onion.RoomSession.broadcast_ws(

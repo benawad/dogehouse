@@ -154,10 +154,12 @@ defmodule Broth.Translator.V0_1_0 do
 
   def translate_in_body(message, "edit_scheduled_room") do
     room_id = get_in(message, ["d", "id"])
-    room_data = message
-    |> get_in(["d", "data"])
-    |> Kernel.||(%{})
-    |> Map.put("id", room_id)
+
+    room_data =
+      message
+      |> get_in(["d", "data"])
+      |> Kernel.||(%{})
+      |> Map.put("id", room_id)
 
     Map.put(message, "d", room_data)
   end

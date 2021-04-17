@@ -3,8 +3,6 @@ defmodule KousaTest.Broth.Room.CreateScheduledTest do
   use KousaTest.Support.EctoSandbox
 
   alias Beef.Schemas.User
-  alias Beef.Users
-  alias Beef.Rooms
   alias BrothTest.WsClient
   alias BrothTest.WsClientFactory
   alias KousaTest.Support.Factory
@@ -21,14 +19,12 @@ defmodule KousaTest.Broth.Room.CreateScheduledTest do
   describe "the websocket room:create_scheduled operation" do
     test "edits a scheduled room", t do
       time = DateTime.utc_now() |> DateTime.add(10, :second)
-      user_id = t.user.id
 
       ref =
         WsClient.send_call(
           t.client_ws,
           "room:create_scheduled",
-          %{"name" => "foo room",
-            "scheduledFor" => DateTime.to_iso8601(time)}
+          %{"name" => "foo room", "scheduledFor" => DateTime.to_iso8601(time)}
         )
 
       WsClient.assert_reply(

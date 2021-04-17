@@ -34,6 +34,7 @@ defmodule KousaTest.Broth.Room.MuteTest do
       ref = WsClient.send_call(t.client_ws, "room:mute", %{"muted" => false})
       WsClient.assert_reply("room:mute:reply", ref, _)
       map = Onion.RoomSession.get(room_id, :muteMap)
+      Process.sleep(100)
       refute is_map_key(map, t.user.id)
     end
 
