@@ -64,14 +64,6 @@ export const SettingsDropdown: React.FC<{
               transition
             />
           </a>
-          <a href="https://dogehouse.tv" rel="noreferrer">
-            <SettingsIcon
-              onClick={onCloseDropdown}
-              icon={<SolidTime />}
-              label={t("components.settingsDropdown.useOldVersion")}
-              transition
-            />
-          </a>
           <a
             href="https://discord.gg/wCbKBZF9cV"
             target="_blank"

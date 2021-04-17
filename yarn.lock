@@ -1715,31 +1715,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@date-io/core@npm:1.x":
+"@date-io/core@npm:1.x, @date-io/core@npm:^1.3.13":
   version: 1.3.13
   resolution: "@date-io/core@npm:1.3.13"
   checksum: a9bd45041e9a52037121bc90889e93dfd351c25f31f8f547785dff2ddad14baba28b44d3838521db4cfca33b2c4be9651dc6d4c0d472c1860308346fd32f603f
   languageName: node
   linkType: hard
 
-"@date-io/core@npm:^2.10.7":
-  version: 2.10.7
-  resolution: "@date-io/core@npm:2.10.7"
-  checksum: 2e616bc3b01df12a240c24725f3d9b8a8471997a55c2ceb807fdad99084b6b200d46f31b9eb6f4761436861cbea9b45dbbc08edddf47220e77a5b8561f03e0da
-  languageName: node
-  linkType: hard
-
-"@date-io/date-fns@npm:^2.10.8":
-  version: 2.10.8
-  resolution: "@date-io/date-fns@npm:2.10.8"
+"@date-io/date-fns@npm:^1.3.13":
+  version: 1.3.13
+  resolution: "@date-io/date-fns@npm:1.3.13"
   dependencies:
-    "@date-io/core": ^2.10.7
+    "@date-io/core": ^1.3.13
   peerDependencies:
     date-fns: ^2.0.0
-  peerDependenciesMeta:
-    date-fns:
-      optional: true
-  checksum: 32296fdcb270045388b71ea49c3041770718d739d23b846b7e710167097f0d3c4d5560c88087eb28af84d63d93d2481dbef824134769b0a739eb455f127e9c19
+  checksum: 0c61c3dea9a4659b48a6cf5f4de3e49cafdccdd0382ff4bf89fbe2191ea7fe066726aeca0eebf166185e0e34f4f290429836f29a8c98e8219e3823b84d74f66a
   languageName: node
   linkType: hard
 
@@ -1769,7 +1759,7 @@ __metadata:
   resolution: "@dogehouse/kibbeh@workspace:kibbeh"
   dependencies:
     "@babel/runtime": ^7.13.10
-    "@date-io/date-fns": ^2.10.8
+    "@date-io/date-fns": ^1.3.13
     "@dogehouse/kebab": ^0.2.6
     "@material-ui/core": ^4.11.3
     "@material-ui/pickers": ^3.3.10
@@ -1835,6 +1825,7 @@ __metadata:
     react: 17.0.2
     react-dom: ^17.0.2
     react-draggable: ^4.4.3
+    react-feather: ^2.0.9
     react-hotkeys: ^2.0.0
     react-i18next: ^11.8.13
     react-modal: ^3.13.1
@@ -15144,6 +15135,17 @@ fsevents@^1.2.7:
   version: 3.2.0
   resolution: "react-fast-compare@npm:3.2.0"
   checksum: 6fe65c889eb4f326e97769135f97b3d63ac68737866f9c37f9625c9de4f5eaa9abed6f748eb3fd6a66808392118842916309cab7cfa99c67991f0c837433d6d2
+  languageName: node
+  linkType: hard
+
+"react-feather@npm:^2.0.9":
+  version: 2.0.9
+  resolution: "react-feather@npm:2.0.9"
+  dependencies:
+    prop-types: ^15.7.2
+  peerDependencies:
+    react: ^16.8.6 || ^17
+  checksum: 302a5ce0bffbd789b0c9ffe29146191db1b0926ae090bb48486f9cb40267d4e636822fa468dfb8614cbc0b3ac13e394937cd51327ec6c6b7ec6032060dfafbd2
   languageName: node
   linkType: hard
 

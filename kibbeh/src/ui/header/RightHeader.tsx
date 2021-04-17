@@ -57,6 +57,7 @@ const RightHeader: React.FC<RightHeaderProps> = ({
       )}
       {actionButton}
       <DropdownController
+        className="top-9 right-3 md:right-0"
         overlay={(close) => (
           <SettingsDropdown
             onActionButtonClicked={() => {
