@@ -4,6 +4,7 @@ defmodule Broth.Message.Room.UpdateScheduled do
 
   alias Beef.Repo
 
+  @derive {Jason.Encoder, only: [:name, :scheduledFor, :description]}
   @primary_key {:id, :binary_id, []}
   schema "scheduled_rooms" do
     field(:name, :string)
@@ -36,5 +37,13 @@ defmodule Broth.Message.Room.UpdateScheduled do
     %__MODULE__{}
     |> change
     |> add_error(:id, message)
+  end
+
+  def execute(changeset, state) do
+    with {:ok, update} <- apply_action(changeset, :validate),
+         update_data = update |> Map.from_struct |> Map.delete(:id),
+         :ok <- Kousa.ScheduledRoom.edit(state.user_id, update.id, update_data) do
+      {:reply, Repo.get(__MODULE__, update.id), state}
+    end
   end
 end

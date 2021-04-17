@@ -37,6 +37,8 @@ defmodule Broth.Translator.V0_1_0 do
     "get_my_scheduled_rooms_about_to_start" => "room:get_scheduled",
     "get_scheduled_rooms" => "room:get_scheduled",
     "delete_scheduled_room" => "room:delete_scheduled",
+    "edit_scheduled_room" => "room:update_scheduled",
+    "schedule_room" => "room:create_scheduled",
     # follow needs to arbitrate if it becomes follow or unfollow.
     "follow" => nil,
     # these are special cases:
@@ -148,6 +150,16 @@ defmodule Broth.Translator.V0_1_0 do
   def translate_in_body(message, "delete_scheduled_room") do
     room_id = get_in(message, ["d", "id"])
     put_in(message, ["d", "roomId"], room_id)
+  end
+
+  def translate_in_body(message, "edit_scheduled_room") do
+    room_id = get_in(message, ["d", "id"])
+    room_data = message
+    |> get_in(["d", "data"])
+    |> Kernel.||(%{})
+    |> Map.put("id", room_id)
+
+    Map.put(message, "d", room_data)
   end
 
   def translate_in_body(message, _op), do: message

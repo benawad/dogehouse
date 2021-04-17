@@ -1,8 +1,10 @@
-defmodule KousaTest.Broth.ScheduleRoomTest do
+defmodule KousaTest.Broth.Room.CreateScheduledTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 
   alias Beef.Schemas.User
+  alias Beef.Users
+  alias Beef.Rooms
   alias BrothTest.WsClient
   alias BrothTest.WsClientFactory
   alias KousaTest.Support.Factory
@@ -16,20 +18,21 @@ defmodule KousaTest.Broth.ScheduleRoomTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket schedule_room operation" do
-    test "creates a scheduled room", t do
+  describe "the websocket room:create_scheduled operation" do
+    test "edits a scheduled room", t do
       time = DateTime.utc_now() |> DateTime.add(10, :second)
       user_id = t.user.id
 
       ref =
-        WsClient.send_call_legacy(
+        WsClient.send_call(
           t.client_ws,
-          "schedule_room",
+          "room:create_scheduled",
           %{"name" => "foo room",
             "scheduledFor" => DateTime.to_iso8601(time)}
         )
 
-      WsClient.assert_reply_legacy(
+      WsClient.assert_reply(
+        "room:create_scheduled:reply",
         ref,
         %{"id" => room_id, "name" => "foo room"}
       )

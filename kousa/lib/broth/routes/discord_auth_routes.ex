@@ -2,6 +2,7 @@ defmodule Broth.Routes.DiscordAuth do
   import Plug.Conn
   use Plug.Router
 
+  require Logger
   alias Beef.Users
   alias Kousa.Utils.Urls
 
@@ -83,8 +84,7 @@ defmodule Broth.Routes.DiscordAuth do
   end
 
   def handle_callback(%Plug.Conn{assigns: %{ueberauth_failure: failure}} = conn) do
-    IO.puts("Discord oauth failure")
-    IO.inspect(failure)
+    Logger.info("discord oauth failure #{inspect failure}")
 
     conn
     |> Broth.Plugs.Redirect.redirect(
