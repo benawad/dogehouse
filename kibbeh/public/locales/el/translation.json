@@ -155,7 +155,7 @@
     },
     "keyboardShortcuts": {
       "setKeybind": "Αλλαγή συντόμευσης",
-      "listening": "Ακούν...",
+      "listening": "Ακροατές",
       "toggleMuteKeybind": "Συντόμευση εναλλαγής σίγασης",
       "togglePushToTalkKeybind": "Συντόμευση εναλλαγής push-to-talk",
       "toggleOverlayKeybind": "Συντόμευση για το overlay"
