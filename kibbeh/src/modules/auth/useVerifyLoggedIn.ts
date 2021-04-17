@@ -3,14 +3,19 @@ import { useEffect } from "react";
 import { useTokenStore } from "./useTokenStore";
 
 export const useVerifyLoggedIn = () => {
-  const { replace, pathname } = useRouter();
+  const { replace, query, pathname } = useRouter();
+  const { id } = query;
   const hasTokens = useTokenStore((s) => !!(s.accessToken && s.refreshToken));
 
   useEffect(() => {
     if (!hasTokens) {
-      replace(`/?next=${pathname}`);
+      if (id) {
+        replace(`/?next=/room/${id}`);
+      } else {
+        replace(pathname);
+      }
     }
-  }, [hasTokens, pathname, replace]);
+  }, [hasTokens, id, replace, pathname]);
 
   return hasTokens;
 };

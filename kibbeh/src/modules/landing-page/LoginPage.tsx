@@ -35,7 +35,7 @@ const LoginButton: React.FC<LoginButtonProps> = ({
     if (typeof query.next === "string" && query.next) {
       try {
         localStorage.setItem(loginNextPathKey, query.next);
-      } catch {}
+      } catch { }
     }
 
     window.location.href = oauthUrl as string;
@@ -65,7 +65,7 @@ export const LoginPage: React.FC = () => {
   useSaveTokensFromQueryParams();
   const hasTokens = useTokenStore((s) => !!(s.accessToken && s.refreshToken));
   const { setConn } = useContext(WebSocketContext);
-  const { push } = useRouter();
+  const { push, query } = useRouter();
 
   useEffect(() => {
     // only want this on mount
@@ -75,9 +75,13 @@ export const LoginPage: React.FC = () => {
 
   useEffect(() => {
     if (hasTokens) {
-      push("/dash");
+      if (query.next) {
+        push(query.next);
+      } else {
+        push('/dash');
+      }
     }
-  }, [hasTokens, push]);
+  }, [hasTokens, push, query]);
 
   return (
     <>
