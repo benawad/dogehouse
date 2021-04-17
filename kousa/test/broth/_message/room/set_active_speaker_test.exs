@@ -30,7 +30,7 @@ defmodule BrothTest.Message.Room.SetActiveSpeakerTest do
       assert {:error, %{errors: %{active: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:set_active_speaker",
-                 "payload" => %{},
+                 "payload" => %{}
                })
     end
   end
