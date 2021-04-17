@@ -9,6 +9,7 @@ import { useScreenType } from "../../shared-hooks/useScreenType";
 import { useMediaQuery } from "react-responsive";
 import { AudioDebugPanel } from "../debugging/AudioDebugPanel";
 import { useDebugAudioStore } from "../../global-stores/useDebugAudio";
+import { useMuteStore } from "../../global-stores/useMuteStore";
 
 interface RoomUsersPanelProps extends JoinRoomAndGetInfoResponse {}
 
@@ -26,7 +27,7 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
   } = useSplitUsersIntoSections(props);
   const { t } = useTypeSafeTranslation();
   const me = useContext(WebSocketContext).conn?.user || {};
-
+  const muted = useMuteStore().muted;
   let gridTemplateColumns = "repeat(5, minmax(0, 1fr))";
   const screenType = useScreenType();
   const isBigFullscreen = useMediaQuery({ minWidth: 640 });
@@ -36,15 +37,16 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
   } else if (screenType === "fullscreen") {
     gridTemplateColumns = "repeat(3, minmax(0, 1fr))";
   }
-
   useEffect(() => {
     if (isElectron()) {
       ipcRenderer.send("@room/data", {
         currentRoom: props,
+        muted,
         me,
       });
     }
-  });
+  }, [props, muted, me]);
+
   const { debugAudio } = useDebugAudioStore();
 
   return (
