@@ -30,7 +30,6 @@ defmodule Broth.Message.Manifest do
     "room:create_scheduled" => Room.CreateScheduled,
     "room:unban" => Room.Unban,
     "room:get_info" => Room.GetInfo,
-    "room:change_owner" => Room.ChangeOwner,
     "room:get_top" => Room.GetTop,
     "room:set_active_speaker" => Room.SetActiveSpeaker,
     "room:mute" => Room.Mute,
@@ -40,6 +39,19 @@ defmodule Broth.Message.Manifest do
     "chat:delete_msg" => Chat.DeleteMsg,
     "auth:request" => Auth.Request
   }
+
+  # verify that all of the actions are accounted for in the
+  # operators list
+  alias Broth.Message.Types.Operator
+  require Operator
+
+  @actions
+  |> Map.values()
+  |> Enum.each(fn module ->
+    Operator.valid_value?(module)
+      || raise CompileError,
+        description: "the module #{inspect module} is not a member of #{inspect Operator}"
+  end)
 
   def actions, do: @actions
 end
