@@ -1,4 +1,4 @@
-defmodule BrothTest.Message.Room.GetScheduled do
+defmodule BrothTest.Message.Room.GetScheduledTest do
   use ExUnit.Case, async: true
 
   @moduletag :message

@@ -1,4 +1,4 @@
-defmodule BrothTest.Message.Room.SetAuth do
+defmodule BrothTest.Message.Room.SetAuthTest do
   use ExUnit.Case, async: true
 
   @moduletag :message

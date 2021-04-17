@@ -1,4 +1,4 @@
-defmodule BrothTest.Rooms.GetInviteListTest do
+defmodule BrothTest.Room.GetInviteListTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 
