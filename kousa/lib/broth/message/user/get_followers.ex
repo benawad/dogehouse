@@ -32,7 +32,8 @@ defmodule Broth.Message.User.GetFollowers do
 
   def execute(changeset, state) do
     # currently limit is unused.
-    with {:ok, %{userId: user_id, cursor: cursor, limit: _limit}} <- apply_action(changeset, :validate) do
+    with {:ok, %{userId: user_id, cursor: cursor, limit: _limit}} <-
+           apply_action(changeset, :validate) do
       user_id = user_id || state.user_id
       {users, next_cursor} = Kousa.Follow.get_follow_list(state.user_id, user_id, false, cursor)
 

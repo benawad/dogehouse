@@ -8,42 +8,30 @@ defmodule BrothTest.Message.Room.SetActiveSpeakerTest do
   alias BrothTest.WsClientFactory
   alias KousaTest.Support.Factory
 
-  require WsClient
+  alias Broth.Message.Room.SetActiveSpeaker
 
-  setup do
-    user = Factory.create(User)
-    client_ws = WsClientFactory.create_client_for(user)
+  describe "when you send a room:set_active_speaker message" do
+    test "a basic message works" do
+      assert {:ok, %{payload: %SetActiveSpeaker{active: true}}} =
+               BrothTest.Support.Message.validate(%{
+                 "operator" => "room:set_active_speaker",
+                 "payload" => %{active: true}
+               })
 
-    {:ok, user: user, client_ws: client_ws}
+      # short form also allowed
+      assert {:ok, %{payload: %SetActiveSpeaker{active: false}}} =
+               BrothTest.Support.Message.validate(%{
+                 "op" => "room:set_active_speaker",
+                 "p" => %{active: false}
+               })
+    end
+
+    test "active parameter is required" do
+      assert {:error, %{errors: %{active: "can't be blank"}}} =
+               BrothTest.Support.Message.validate(%{
+                 "operator" => "room:set_active_speaker",
+                 "payload" => %{},
+               })
+    end
   end
-
-  test "but write this plz"
-
-  #  describe "when you send an leave message" do
-  #    test "an empty payload is ok.", %{uuid: uuid} do
-  #      assert {:ok, %{payload: %GetInfo{roomId: ^uuid}}} =
-  #               BrothTest.Support.Message.validate(%{
-  #                 "operator" => "room:get_info",
-  #                 "payload" => %{roomId: uuid},
-  #                 "reference" => UUID.uuid4()
-  #               })
-  #
-  #      # short form also allowed
-  #      assert {:ok, %{payload: %GetInfo{roomId: ^uuid}}} =
-  #               BrothTest.Support.Message.validate(%{
-  #                 "op" => "room:get_info",
-  #                 "p" => %{roomId: uuid},
-  #                 "ref" => UUID.uuid4()
-  #               })
-  #    end
-  #
-  #    test "roomId parameter is required" do
-  #      assert {:ok, %{payload: %GetInfo{roomId: nil}}} =
-  #               BrothTest.Support.Message.validate(%{
-  #                 "operator" => "room:get_info",
-  #                 "payload" => %{},
-  #                 "reference" => UUID.uuid4()
-  #               })
-  #    end
-  #  end
 end
