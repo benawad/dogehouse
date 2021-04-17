@@ -87,6 +87,7 @@ Contributors helping to review/merge pull requests:
 - [@jamesql](https://github.com/jamesql)
 - [@amitojsingh366](https://github.com/amitojsingh366)
 - [@TheOtterlord](https://github.com/TheOtterlord)
+- [@dk-raw](https://github.com/dk-raw)
 
 ## Code of Conduct
 
