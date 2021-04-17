@@ -1,4 +1,4 @@
-defmodule KousaTest.Broth.Room.BanTest do
+defmodule KousaTest.Broth.Room.UnbanTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 
@@ -30,16 +30,18 @@ defmodule KousaTest.Broth.Room.BanTest do
       Beef.RoomBlocks.insert(%{
         userId: blocked_id,
         roomId: room_id,
-        modId: t.user.id,
+        modId: t.user.id
       })
 
       assert Beef.RoomBlocks.blocked?(room_id, blocked_id)
 
       # block the person.
-      ref = WsClient.send_call(
-        t.client_ws,
-        "room:unban",
-        %{"userId" => blocked_id})
+      ref =
+        WsClient.send_call(
+          t.client_ws,
+          "room:unban",
+          %{"userId" => blocked_id}
+        )
 
       WsClient.assert_reply("room:unban:reply", ref, %{}, t.client_ws)
 
