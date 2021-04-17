@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { SolidContributor, SolidDogenitro, SolidStaff, LogoIcon } from "../icons";
+import {
+  SolidContributor,
+  SolidDogenitro,
+  SolidStaff,
+  LogoIcon,
+} from "../icons";
 
 export interface UserBadgeLgProps extends React.HTMLProps<HTMLDivElement> {
   icon: "logo" | "dogeNitro" | "dogeStaff" | "dogeContributor";

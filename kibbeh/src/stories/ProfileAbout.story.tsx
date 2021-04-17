@@ -2,7 +2,6 @@ import React from "react";
 import { Story } from "@storybook/react";
 import { ProfileAbout, ProfileAboutProps } from "../ui/ProfileAbout";
 
-
 export default {
   title: "ProfileAbout",
   component: ProfileAbout,
@@ -19,23 +18,23 @@ export const Main: Story<ProfileAboutProps> = (props) => {
       tags={[
         {
           icon: "logo",
-          children: "Member since 13 March 2021"
+          children: "Member since 13 March 2021",
         },
         {
           icon: "dogeNitro",
-          children: "DogeNitro User"
+          children: "DogeNitro User",
         },
         {
           icon: "dogeStaff",
-          children: "DogeHouse Staff"
+          children: "DogeHouse Staff",
         },
         {
           icon: "dogeContributor",
-          children: "DogeHouse Contributor"
-        }
+          children: "DogeHouse Contributor",
+        },
       ]}
     />
-  )
+  );
 };
 
 Main.bind({});
