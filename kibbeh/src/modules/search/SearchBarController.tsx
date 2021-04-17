@@ -73,13 +73,15 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
         selectedItem,
         getRootProps,
       }) => (
+        <div className="relative w-full z-10">
+        <SearchBar
+          {...getInputProps()}
+          placeholder={t("components.search.placeholder")}
+        />
         <SearchOverlay
           {...getRootProps({ refKey: "ref" }, { suppressRefError: true })}
+          className={isOpen ? "visible" : "invisible"}
         >
-          <SearchBar
-            {...getInputProps()}
-            placeholder={t("components.search.placeholder")}
-          />
           <ul
             className="absolute w-full bg-primary-800 rounded-b-8 overflow-y-auto"
             {...getMenuProps({ style: { top: 42, maxHeight: "50vh" } })}
@@ -147,6 +149,7 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
               : null}
           </ul>
         </SearchOverlay>
+        </div>
       )}
     </Downshift>
   );
