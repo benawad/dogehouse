@@ -1,11 +1,14 @@
 import { User } from "@dogehouse/kebab";
 import React, { ReactNode, useState } from "react";
+import { useDebugAudioStore } from "../global-stores/useDebugAudio";
 import {
   OutlineGlobe,
   SolidBug,
   SolidCaretRight,
+  SolidMicrophone,
   SolidTime,
   SolidUser,
+  SolidVolume,
 } from "../icons";
 import SvgSolidDiscord from "../icons/SolidDiscord";
 import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
@@ -21,6 +24,7 @@ export const SettingsDropdown: React.FC<{
 }> = ({ user, onCloseDropdown, onActionButtonClicked }) => {
   const [currentOverlay, setCurrentOverlay] = useState<ReactNode>(null);
   const { t } = useTypeSafeTranslation();
+  const { debugAudio, setDebugAudio } = useDebugAudioStore();
 
   return (
     <div className="flex" style={{ width: 200 }}>
@@ -64,6 +68,12 @@ export const SettingsDropdown: React.FC<{
               transition
             />
           </a>
+          <SettingsIcon
+            label={!debugAudio ? "Debug Audio" : "Stop Debugger"}
+            icon={<SolidVolume />}
+            transition
+            onClick={() => setDebugAudio(!debugAudio)}
+          />
           <a
             href="https://discord.gg/wCbKBZF9cV"
             target="_blank"
