@@ -16,7 +16,8 @@ defmodule KousaTest.Broth.FetchFollowListTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket get_follow_list operation" do
+  describe "the websocket fetch_follow_list operation" do
+    @tag :skip
     test "works"
   end
 end
