@@ -51,28 +51,34 @@ Please read [CONTRIBUTING.md](https://github.com/benawad/dogehouse/blob/staging/
 
 ## DogeHouse Desktop
 
-A desktop app built with [electron](https://www.electronjs.org/) is available for Windows, Mac, and Linux
+A desktop app built with [Electron](https://www.electronjs.org/) is available for Windows, Mac, and Linux.
 
-Download links are in [the releases section](https://github.com/benawad/dogehouse/releases/latest)
+There are different ways to get the Electron desktop app:
 
-Dogehouse is also available in the AUR
+* Get the official builds from [here, in GitHub Releases][gh-releases]
+for any platform.
+* Get it from AUR (unofficial package) for Arch/Manjaro with
+`yay -S dogehouse`.
+* Get the desktop client for Debian-based distros (including Ubuntu)
+from the official APT repo with these simple steps:
+  * Add the repo with `echo "deb http://ppa.dogehouse.tv/ ./" | sudo tee -a /etc/apt/sources.list > /dev/null`
+  * Add Ben Awad's GPG key with `$(command -v curl>>/dev/null && echo "curl -o-" || echo "wget -q0-") http://ppa.dogehouse.tv/KEY.gpg | sudo apt-key add -`.
+  * Finally, update your local repoistory list and install DogeHouse
+with `sudo apt update && sudo apt install dogehouse`.
+* Get the snap for your systemd-powered Linux distro from either the
+[Snap Store](https://snapcraft.io/dogehouse) or in an terminal with
+`sudo snap install dogehouse`.
+  * After installing the snap, you need to allow microphone access with
+`sudo snap connect dogehouse:audio-record` to be able to speak in rooms.
 
-```bash
-yay -S dogehouse
-```
-
-And in an Ubuntu ppa
-
-```bash
-echo "deb http://ppa.dogehouse.tv/ ./" | sudo tee -a /etc/apt/sources.list > /dev/null
-wget -q -O - http://ppa.dogehouse.tv/KEY.gpg | sudo apt-key add -
-sudo apt-get update
-sudo apt-get install dogehouse
-```
+[gh-releases]: https://github.com/benawad/dogehouse/releases/latest
 
 **_Notes:_**
 
 - If a warning message pops up on Windows, go to 'more info' and select 'Run Anyway'
+- Currently, the snap package's available channels are only `edge` as
+contributions for Baklava are merged almost on daily basis. Tested
+versions that are stable will be promoted into `stable` in the future.
 
 ## DogeReviewers
 
