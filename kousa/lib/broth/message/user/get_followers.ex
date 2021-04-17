@@ -14,10 +14,6 @@ defmodule Broth.Message.User.GetFollowers do
     |> validate_number(:limit, greater_than: 0, message: "too low")
   end
 
-  def execute(changeset, state) do
-    raise "ZZZ"
-  end
-
   defmodule Reply do
     use Broth.Message.Push
 

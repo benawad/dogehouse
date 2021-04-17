@@ -18,7 +18,6 @@ defmodule Broth.Message.Manifest do
     "room:invite" => Room.Invite,
     "room:update" => Room.Update,
     "room:get_invite_list" => Room.GetInviteList,
-    "room:update_speaking" => Room.UpdateSpeaking,
     "room:leave" => Room.Leave,
     "room:ban" => Room.Ban,
     "room:set_role" => Room.SetRole,

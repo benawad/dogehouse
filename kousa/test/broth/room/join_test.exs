@@ -1,4 +1,4 @@
-defmodule KousaTest.Broth.Room.JoinTest do
+defmodule KousaTest.Broth.Room.CreateTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 
@@ -17,34 +17,34 @@ defmodule KousaTest.Broth.Room.JoinTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket room:join operation" do
-    test "joins the user to the room", t do
+  describe "the websocket create_room operation" do
+    test "creates a new room", t do
       user_id = t.user.id
+
+      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(user_id, "foo room", "foo", false)
+
+      other = Factory.create(User)
+      other_ws = WsClientFactory.create_client_for(other)
 
       ref =
         WsClient.send_call(
-          t.client_ws,
-          "room:create",
-          %{
-            "name" => "foo room",
-            "description" => "baz quux",
-            "isPrivate" => true
-          }
+          other_ws,
+          "room:join",
+          %{"roomId" => room_id}
         )
 
       WsClient.assert_reply(
-        "room:create:reply",
+        "room:join:reply",
         ref,
         %{
-          "creatorId" => ^user_id,
-          "description" => "baz quux",
+          "description" => "foo",
           "id" => room_id,
           "name" => "foo room",
-          "isPrivate" => true
+          "isPrivate" => false
         }
       )
 
-      assert %{currentRoomId: ^room_id} = Users.get_by_id(user_id)
+      assert %{currentRoomId: ^room_id} = Users.get_by_id(other.id)
     end
   end
 end

@@ -1,5 +1,6 @@
 defmodule Broth.Message.Room.Join do
   use Broth.Message.Call
+  alias Beef.Repo
 
   @primary_key false
   embedded_schema do
@@ -18,8 +19,21 @@ defmodule Broth.Message.Room.Join do
   defmodule Reply do
     use Broth.Message.Push
 
-    @primary_key false
+    @derive {Jason.Encoder, only: [:id, :name, :description, :isPrivate]}
+
+    @primary_key {:id, :binary_id, []}
     schema "rooms" do
+      field(:name, :string)
+      field(:description, :string)
+      field(:isPrivate, :boolean)
+    end
+  end
+
+  def execute(changeset, state) do
+    with {:ok, %{roomId: room_id}} <- apply_action(changeset, :validate) do
+      Kousa.Room.join_room(state.user_id, room_id)
+
+      {:reply, Repo.get(Reply, room_id), state}
     end
   end
 end

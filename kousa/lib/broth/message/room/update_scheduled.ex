@@ -15,6 +15,7 @@ defmodule Broth.Message.Room.UpdateScheduled do
   import Broth.Message.Room.CreateScheduled, only: [validate_future: 1]
 
   def changeset(initializer \\ %__MODULE__{}, data)
+
   def changeset(_, data)
       when not is_map_key(data, "id") or
              is_nil(:erlang.map_get("id", data)) do

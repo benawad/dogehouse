@@ -37,10 +37,10 @@ defmodule KousaTest.Broth.GetMyScheduledRoomsAboutToStartTest do
       time = DateTime.utc_now() |> DateTime.add(10, :second)
       user_id = t.user.id
 
-        Kousa.ScheduledRoom.schedule(user_id, %{
-          "name" => "foo room",
-          "scheduledFor" => time
-        })
+      Kousa.ScheduledRoom.schedule(user_id, %{
+        "name" => "foo room",
+        "scheduledFor" => time
+      })
 
       ref =
         WsClient.send_call_legacy(
