@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function ShareIcon(props: React.SVGProps<SVGSVGElement>) {
+function LinkIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="16"
@@ -18,4 +18,4 @@ function ShareIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default ShareIcon;
+export default LinkIcon;
