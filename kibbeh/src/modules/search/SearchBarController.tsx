@@ -74,6 +74,7 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
         getRootProps,
       }) => (
         <SearchOverlay
+          className="z-20"
           {...getRootProps({ refKey: "ref" }, { suppressRefError: true })}
         >
           <SearchBar
