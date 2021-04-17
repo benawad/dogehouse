@@ -41,7 +41,7 @@ defmodule Broth.Message.User.GetRelationship do
         r =
           case Follows.get_info(state.user_id, user_id) do
             %{followsYou: false, youAreFollowing: false} -> nil
-            %{followsYou: true, youAreFollowing: false} -> :follows
+            %{followsYou: true, youAreFollowing: false} -> :follower
             %{followsYou: false, youAreFollowing: true} -> :following
             %{followsYou: true, youAreFollowing: true} -> :mutual
           end

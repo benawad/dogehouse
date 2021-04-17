@@ -129,7 +129,7 @@ defmodule KousaTest.Broth.User.GetRelationshipTest do
       WsClient.assert_reply(
         "user:get_relationship:reply",
         ref,
-        %{"relationship" => "follows"},
+        %{"relationship" => "follower"},
         followed_ws
       )
     end

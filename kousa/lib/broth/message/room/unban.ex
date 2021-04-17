@@ -18,10 +18,17 @@ defmodule Broth.Message.Room.Unban do
   defmodule Reply do
     use Broth.Message.Push
 
-    @derive {Jason.Encoder, only: [:error]}
+    @derive {Jason.Encoder, only: []}
 
     @primary_key false
     embedded_schema do
+    end
+  end
+
+  def execute(changeset, state) do
+    with {:ok, %{userId: user_id}} <- apply_action(changeset, :validate) do
+      Kousa.RoomBlock.unban(state.user_id, user_id)
+      {:reply, %Reply{}, state}
     end
   end
 end

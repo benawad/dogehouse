@@ -11,10 +11,7 @@ defmodule BrothTest.Message.Room.GetInfoTest do
 
   describe "when you send an leave message" do
     test "an empty payload is ok.", %{uuid: uuid} do
-      assert {:ok,
-              %{
-                payload: %GetInfo{roomId: ^uuid}
-              }} =
+      assert {:ok, %{payload: %GetInfo{roomId: ^uuid}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:get_info",
                  "payload" => %{roomId: uuid},
@@ -22,10 +19,7 @@ defmodule BrothTest.Message.Room.GetInfoTest do
                })
 
       # short form also allowed
-      assert {:ok,
-              %{
-                payload: %GetInfo{roomId: ^uuid}
-              }} =
+      assert {:ok, %{payload: %GetInfo{roomId: ^uuid}}} =
                BrothTest.Support.Message.validate(%{
                  "op" => "room:get_info",
                  "p" => %{roomId: uuid},
@@ -34,7 +28,7 @@ defmodule BrothTest.Message.Room.GetInfoTest do
     end
 
     test "roomId parameter is required" do
-      assert {:error, %{errors: %{roomId: "can't be blank"}}} =
+      assert {:ok, %{payload: %GetInfo{roomId: nil}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:get_info",
                  "payload" => %{},

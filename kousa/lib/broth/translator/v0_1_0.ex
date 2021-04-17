@@ -39,6 +39,7 @@ defmodule Broth.Translator.V0_1_0 do
     "delete_scheduled_room" => "room:delete_scheduled",
     "edit_scheduled_room" => "room:update_scheduled",
     "schedule_room" => "room:create_scheduled",
+    "unban_from_room" => "room:unban",
     # follow needs to arbitrate if it becomes follow or unfollow.
     "follow" => nil,
     # these are special cases:
@@ -218,7 +219,7 @@ defmodule Broth.Translator.V0_1_0 do
     new_data =
       case message.d.relationship do
         nil -> %{followsYou: false, youAreFollowing: false}
-        :follows -> %{followsYou: true, youAreFollowing: false}
+        :follower -> %{followsYou: true, youAreFollowing: false}
         :following -> %{followsYou: false, youAreFollowing: true}
         :mutual -> %{followsYou: true, youAreFollowing: true}
       end
