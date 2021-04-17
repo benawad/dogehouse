@@ -133,7 +133,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
                 {creator.displayName}
               </div>
             </div>
-            <div className={`flex break-all`}>
+            <div className={`inline break-all`}>
               <span className="text-accent">
                 {isToday(dt)
                   ? t("common.formattedIntlTime", { time: dt })
