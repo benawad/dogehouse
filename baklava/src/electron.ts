@@ -46,6 +46,8 @@ autoUpdater.logger = electronLogger;
 // just in case we have to revert to a build
 autoUpdater.allowDowngrade = true;
 
+app.setAppUserModelId("DogeHouse");
+
 async function localize() {
   await i18n.init({
     lng: app.getLocale(),
