@@ -1,4 +1,4 @@
-defmodule KousaTest.Broth.MuteTest do
+defmodule BrothTest.MuteTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 
@@ -28,6 +28,9 @@ defmodule KousaTest.Broth.MuteTest do
 
       # obtain the pseudo-response
       assert_receive({:text, _, _})
+
+      Process.sleep(100)
+
       map = Onion.RoomSession.get(room_id, :muteMap)
 
       assert is_map_key(map, t.user.id)

@@ -1,4 +1,4 @@
-defmodule KousaTest.Broth.ChangeModStatusTest do
+defmodule BrothTest.ChangeModStatusTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 

@@ -1,4 +1,4 @@
-defmodule KousaTest.Broth.GetBlockedFromRoomUsersTest do
+defmodule BrothTest.GetBlockedFromRoomUsersTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 

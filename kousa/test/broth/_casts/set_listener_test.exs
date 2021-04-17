@@ -1,4 +1,4 @@
-defmodule KousaTest.Broth.SetListenerTest do
+defmodule BrothTest.SetListenerTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 

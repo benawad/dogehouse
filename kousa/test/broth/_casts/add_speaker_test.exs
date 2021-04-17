@@ -1,4 +1,4 @@
-defmodule KousaTest.Broth.AddSpeakerTest do
+defmodule BrothTest.AddSpeakerTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 

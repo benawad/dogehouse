@@ -1,4 +1,4 @@
-defmodule KousaTest.Broth.AudioAutoplayErrorTest do
+defmodule BrothTest.AudioAutoplayErrorTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 

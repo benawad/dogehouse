@@ -1,4 +1,4 @@
-defmodule KousaTest.Broth.Room.CreateScheduledTest do
+defmodule BrothTest.Room.CreateScheduledTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 

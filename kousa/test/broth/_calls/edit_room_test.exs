@@ -1,4 +1,4 @@
-defmodule KousaTest.Broth.EditRoomTest do
+defmodule BrothTest.EditRoomTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 
