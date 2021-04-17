@@ -21,7 +21,7 @@
         *after* the Reply module definition.
     - if it's a schema that creates or edits a database table, refer to
       one of the other messages that creates or edits, for now.
-4.  write schema validation tests in `test/broth/_messages/*`.  This
+4.  write schema validation tests in `test/broth/_message/*`.  This
     helps prevent some malicious payloads.
 5.  write end-to-end tests in `test/broth/*`
 
