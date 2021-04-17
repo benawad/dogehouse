@@ -37,24 +37,24 @@
   color: #ffffff;
 }
 .header-icons-mac {
-  margin-top: 9px;
+  margin-top: 9.5px;
   margin-left: 5px;
 }
 
 .red-mac-button {
   color: #4c0000;
-  background-color: #ef4444;
+  background-color: #fd605b;
 }
 .green-mac-button {
   color: #006500;
-  background-color: #10b981;
+  background-color: #32ca51;
 }
 .yellow-mac-button {
   color: #975500;
-  background-color: #f59e0b;
+  background-color: #fdbc47;
 }
 
 .mac-buttons {
-  height: 12.5px;
-  width: 12.5px;
+  height: 12px;
+  width: 12px;
 }
