@@ -17,9 +17,7 @@ defmodule BrothTest.Chat.DeleteMsgTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  test "do this thing"
-
-  describe "the websocket delete_room_chat_message operation" do
+  describe "the websocket chat:delete_msg operation" do
     test "sends a message to the room", t do
       user_id = t.user.id
       # first, create a room owned by the primary user.
@@ -43,7 +41,7 @@ defmodule BrothTest.Chat.DeleteMsgTest do
       # maybe we should handle this at the frontend level?
       msg_id = UUID.uuid4()
 
-      WsClient.send_msg_legacy(t.client_ws, "delete_room_chat_message", %{
+      WsClient.send_msg(t.client_ws, "chat:delete_msg", %{
         "messageId" => msg_id,
         "userId" => listener_id
       })
