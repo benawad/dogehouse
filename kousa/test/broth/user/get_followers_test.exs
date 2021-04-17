@@ -1,4 +1,4 @@
-defmodule BrothTest.User.GetFollowersTest do
+defmodule BrothTest.User.GetFollowingTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 
@@ -15,8 +15,6 @@ defmodule BrothTest.User.GetFollowersTest do
 
     {:ok, user: user, client_ws: client_ws}
   end
-
-  test "rejigger this test"
 
   describe "the websocket user:get_following operation" do
     test "returns an empty list if you aren't following anyone", t do

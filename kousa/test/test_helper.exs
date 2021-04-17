@@ -17,12 +17,12 @@ defmodule KousaTest do
 
   def message_validation_module?(module) do
     exploded = Module.split(module)
-    match?(["KousaTest", "Broth", "Messages", class, _] when class in @classes, exploded)
+    match?(["BrothTest", "Message", class, _] when class in @classes, exploded)
   end
 
   def message_test_module?(module) do
     exploded = Module.split(module)
-    match?(["KousaTest", "Broth", class, _] when class in @classes, exploded)
+    match?(["BrothTest", class, _] when class in @classes, exploded)
   end
 
   def test_for(module) do
@@ -33,6 +33,7 @@ defmodule KousaTest do
   def validation_for(module) do
     ["Broth", "Message", class, type] = Module.split(module)
     Module.concat(["BrothTest", "Message", class, type <> "Test"])
+    |> IO.inspect(label: "36")
   end
 end
 
@@ -52,11 +53,11 @@ ExUnit.after_suite(fn _ ->
     Enum.filter(all_elixir_modules, &KousaTest.message_validation_module?/1)
 
   Enum.each(message_modules, fn module ->
-    unless KousaTest.test_for(module) in message_test_modules do
-      raise "#{inspect module} did not have test module"
+    unless (tm = KousaTest.test_for(module)) in message_test_modules do
+      raise "#{inspect module} did not have test module #{inspect tm}"
     end
-    unless KousaTest.validation_for(module)in message_validation_modules do
-      raise "#{inspect module} did not have validation module"
+    unless (tm = KousaTest.validation_for(module)) in message_validation_modules do
+      raise "#{inspect module} did not have validation module #{inspect tm}"
     end
   end)
 end)
