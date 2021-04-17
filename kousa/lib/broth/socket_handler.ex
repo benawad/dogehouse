@@ -121,8 +121,8 @@ defmodule Broth.SocketHandler do
       dispatch(message, state)
     else
       # special cases: mediasoup operations
-      _mediasoup_op = %{"op" => "@" <> _} ->
-        raise "foo"
+      msg = %{"op" => "@" <> _} ->
+        dispatch_mediasoup_directive(msg, state)
 
       # legacy special cases
       msg = %{"op" => special_case} when special_case in @special_cases ->
@@ -214,6 +214,23 @@ defmodule Broth.SocketHandler do
 
   def wrap_error(message, error_map) do
     %{message | payload: %{}, errors: error_map, operator: message.inbound_operator}
+  end
+
+  defp dispatch_mediasoup_message(msg, state = %{user_id: user_id}) do
+    with {:ok, room_id} <- Beef.Users.tuple_get_current_room_id(user_id) do
+      voice_server_id = Onion.RoomSession.get(room_id, :voice_server_id)
+
+      mediasoup_message = msg
+      |> Map.put("d", msg["p"] || msg["d"])
+      |> put_in(["d", "peerId"], user_id)
+      |> put_in(["d", "roomId"], room_id)
+
+      Onion.VoiceRabbit.send(voice_server_id, mediasoup_message)
+    end
+    # if this results in something funny because the user isn't in a room, we
+    # will just swallow the result, it means that there is some amount of asynchrony
+    # in the information about who is in what room.
+    {:ok, state}
   end
 
   # def f_handler("search", %{"query" => query}, _state) do
