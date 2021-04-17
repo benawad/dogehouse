@@ -29,11 +29,7 @@ const ROOM_DATA_UPDATE_FUNC = (event, data) => {
         }
       }
       if (isSpeaker) {
-        if (data.currentRoom.muteMap[data.me.id]) {
-          isMuted = data.currentRoom.muteMap[data.me.id];
-        } else {
-          isMuted = false;
-        }
+        isMuted = data.muted;
         muted = isMuted ? "Muted" : "Unmuted";
       }
       let pdata: Presence = {
@@ -46,7 +42,7 @@ const ROOM_DATA_UPDATE_FUNC = (event, data) => {
           ? `Speaking (${data.currentRoom.users.length} of ∞)`
           : `Listening (${data.currentRoom.users.length} of ∞)`;
         pdata.partyId = data.currentRoom.room.id;
-        pdata.startTimestamp = Date.parse(data.currentRoom.room.inserted_at);
+        pdata.startTimestamp = new Date(data.currentRoom.room.inserted_at);
         pdata.smallImageKey = isSpeaker && !isMuted ? "mic_on" : "mic_off";
         pdata.smallImageText = isSpeaker ? `Speaker - ${muted}` : `Listener`;
         pdata.buttons = [

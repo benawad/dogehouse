@@ -24,7 +24,7 @@ import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
 import electronLogger from "electron-log";
-import { setPresence, startRPC } from "./utils/rpc";
+import { startRPC } from "./utils/rpc";
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
@@ -45,6 +45,8 @@ electronLogger.transports.file.level = "debug";
 autoUpdater.logger = electronLogger;
 // just in case we have to revert to a build
 autoUpdater.allowDowngrade = true;
+
+if (isWin) app.setAppUserModelId("DogeHouse");
 
 async function localize() {
   await i18n.init({
