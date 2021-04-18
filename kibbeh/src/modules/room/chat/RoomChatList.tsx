@@ -134,7 +134,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                             messages[index].userId
                               ? "retracted"
                               : "deleted"}
-                            
                           </span>
                         ) : (
                           messages[index].tokens.map(({ t: token, v }, i) => {
