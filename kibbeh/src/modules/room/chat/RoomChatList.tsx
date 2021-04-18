@@ -128,7 +128,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                       <span className={`inline mr-1`}>: </span>
                       <div className={`inline mr-1 space-x-1`}>
                         {messages[index].deleted ? (
-                          <span className="inline text-primary-300 italic ">
+                          <span className="inline text-primary-300 italic">
                             message{" "}
                             {messages[index].deleterId ===
                             messages[index].userId
