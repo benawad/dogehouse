@@ -7,7 +7,7 @@
     "yes": "सही",
     "no": "गलत",
     "cancel": "रद्द करें",
-    "save": "सेव",
+    "save": "सेव/बचा ले",
     "edit": "संपादित करे",
     "delete": "हटाओ",
     "joinRoom": "कमरे में शामिल हों",
@@ -15,7 +15,7 @@
     "copied": "कॉपी हो गया",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "कृपया ध्यान दें कि एक्सेसिबिलिटी परमिशन के बिना डॉगहाउस चलाना अवांछित त्रुटियों का कारण हो सकता है"
+    "requestPermissions": "कृपया ध्यान दें कि एक्सेसिबिलिटी परमिशन के बिना दोजेहाउस चलाना अवांछित त्रुटियों का कारण हो सकता है"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -25,8 +25,8 @@
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
     "link_1": "शूरूआत की कहानी",
-    "link_2": "Discord",
-    "link_3": "Report a Bug"
+    "link_2": "डिस्कॉर्ड ",
+    "link_3": "रिपोर्ट अ बग "
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
@@ -39,8 +39,8 @@
     "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "रूम बनाये",
-      "refresh": "Refresh",
-      "editRoom": "Edit Room"
+      "refresh": "रिफ्रेश",
+      "editRoom": "एडिट रूम "
     },
     "inviteList": {
       "roomGone": "रूम गया, वापस जाए",
@@ -59,7 +59,7 @@
       "loginGithub": "log in with GitHub",
       "loginTwitter": "log in with Twitter",
       "createTestUser": "create test user",
-      "loginDiscord": "Login with Discord"
+      "loginDiscord": "Login with Discord  "
     },
     "myProfile": {
       "logout": "logout",
@@ -67,11 +67,11 @@
       "voiceSettings": "वॉइस सेटिंग्स में जाएं",
       "soundSettings": "साउंड सेटिंग में जाएं",
       "deleteAccount": "खाता हटाएं",
-      "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "overlaySettings": "ओवरले सेटिंग्स पर जाएं",
+      "couldNotFindUser": "क्षमा करें, हमें वह उपयोगकर्ता नहीं मिला"
     },
     "notFound": {
-      "whoopsError": "Whoops! This page got lost in conversation.",
+      "whoopsError": "वूप्स! यह पेज बातचीत में खो गया.",
       "goHomeMessage": "चिंता नहीं करे। आप ऐसा कर सकते हैं।",
       "goHomeLinkText": "go home"
     },
@@ -79,8 +79,8 @@
       "speakers": "बोलनेवाले",
       "requestingToSpeak": "बोलने की अनुमति माँग रहे है",
       "listeners": "सुननेवाले",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "अल्लोव आल ",
+      "allowAllConfirm": "अरे  यू  सूरे ? थिस  विल अल्लोव आल {{count}} रिक्वेस्टिंग  उसेर्स  तो  स्पीक "
     },
     "searchUser": { "search": "खोज करे..." },
     "soundEffectSettings": { "header": "आवाज़" },
@@ -246,7 +246,7 @@
       }
     },
     "roomChat": {
-      "title": "Chat",
+      "title": "चाट",
       "emotesSoon": "[emotes soon]",
       "bannedAlert": "आपको चैट से प्रतिबंधित कर दिया गया है",
       "waitAlert": "आपको दूसरा मैसेज भेजने से पहले एक सेकंड इंतजार करना होगा",
@@ -254,7 +254,7 @@
       "searchResults": "खोज के परिणाम",
       "recent": "ज्यदातर इस्तेमाल किया जाने वाला",
       "sendMessage": "एक मैसेज भेजो",
-      "whisper": "Whisper",
+      "whisper": "व्हिस्पर ",
       "welcomeMessage": "चैट में आपका स्वागत है!",
       "roomDescription": "रूम के बारे में"
     },
