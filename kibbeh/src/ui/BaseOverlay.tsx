@@ -35,7 +35,7 @@ export const BaseOverlay: React.FC<BaseOverlayProps> = ({
 
       {actionButton && (
         <button
-          className="px-4 bg-primary-700 text-primary-100 outline-none font-bold"
+          className="flex px-4 bg-primary-700 text-primary-100 outline-none font-bold"
           style={{
             paddingTop: 8,
             paddingBottom: 12,
