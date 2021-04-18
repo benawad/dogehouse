@@ -57,8 +57,8 @@ There are different ways to get the Electron desktop app:
 
 * Get the official builds from [here, in GitHub Releases][gh-releases]
 for any platform.
-* Get it from AUR (unofficial package) for Arch/Manjaro with
-`yay -S dogehouse`.
+* Get it from AUR (unofficial package) for Arch/Manjaro or other Arch-based distro with
+`yay -S dogehouse`, using another AUR helper, or installing manually from the AUR.
 * Get the desktop client for Debian-based distros (including Ubuntu)
 from the official APT repo with these simple steps:
   * Add the repo with `echo "deb http://ppa.dogehouse.tv/ ./" | sudo tee -a /etc/apt/sources.list > /dev/null`
