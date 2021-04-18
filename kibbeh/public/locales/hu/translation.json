@@ -29,13 +29,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "ban" },
+    "banUser": {
+      "ban": "ban"
+    },
     "followingOnlineList": {
       "listHeader": "Követett felhasználók nem privát szobában.",
       "currentRoom": "jelenleg itt:",
       "startPrivateRoom": "privát szoba létrehozása velük"
     },
-    "followList": { "followHim": "követés", "followingHim": "követve" },
+    "followList": {
+      "followHim": "követés",
+      "followingHim": "követve"
+    },
     "home": {
       "createRoom": "Szoba létrehozása",
       "refresh": "Frissítés",
@@ -81,8 +86,12 @@
       "allowAll": "Mindegyik engedélyezése",
       "allowAllConfirm": "Biztos benne? Ezzel engedélyezi mind a {{count}} felhasználónak, hogy beszéljen"
     },
-    "searchUser": { "search": "keresés..." },
-    "soundEffectSettings": { "header": "Hangok" },
+    "searchUser": {
+      "search": "keresés..."
+    },
+    "soundEffectSettings": {
+      "header": "Hangok"
+    },
     "viewUser": {
       "editProfile": "fiók szerkesztése",
       "followsYou": "követ téged",
@@ -102,7 +111,10 @@
       "volume": "Hangerő:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": {
+        "errorMsg": "Invalid app title",
+        "label": "Enter App Title"
+      },
       "header": "Overlay beállítások"
     }
   },
@@ -185,8 +197,12 @@
         "renamePrivate": "Set private room name"
       }
     },
-    "userVolumeSlider": { "noAudioMessage": "valamilyen okból nincs hallgató" },
-    "addToCalendar": { "add": "Felvétel naptárba" },
+    "userVolumeSlider": {
+      "noAudioMessage": "valamilyen okból nincs hallgató"
+    },
+    "addToCalendar": {
+      "add": "Felvétel naptárba"
+    },
     "keyboardShortcuts": {
       "setKeybind": "Gyorsbillentyű beállítása",
       "listening": "figyelés...",
@@ -217,7 +233,9 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",
@@ -269,6 +287,8 @@
       "galacticDoge": "Galaktikus Doge",
       "spottedLife": "Élhető bolygó felfedezve"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": {
+      "yourFeed": "Your Feed"
+    }
   }
 }
