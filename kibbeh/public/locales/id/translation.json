@@ -209,10 +209,10 @@
       }
     },
     "followingOnline": {
-      "people": "People",
-      "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "people": "Orang-orang",
+      "online": "AKTIF",
+      "noOnline": "Kamu tidak mempunyai teman yang sedang aktif",
+      "showMore": "Tampilkan lebih banyak"
     },
     "upcomingRoomsCard": {
       "upcomingRooms": "Ruangan yang akan datang",
