@@ -1,8 +1,8 @@
 import { ScheduledRoom } from "@dogehouse/kebab";
 import { useRouter } from "next/router";
+import { validate } from "uuid";
 import React, { useState } from "react";
 import { useQuery, useQueryClient } from "react-query";
-import MiddleHeader from "../../ui/header/MiddleHeader";
 import { InfoText } from "../../ui/InfoText";
 import { DesktopLayout } from "../layouts/DesktopLayout";
 import { MiddlePanel } from "../layouts/GridPanels";
@@ -21,13 +21,13 @@ export const ViewScheduledRoomPage: React.FC<ViewScheduledRoomPageProps> = ({}) 
   const key = `/scheduled-room/${id}`;
   const { data, isLoading } = useQuery<
     GetScheduledRoomById | { error: string }
-  >(key);
+  >(key, { enabled: validate(id) });
 
-  if (isLoading) {
+  if (!data || isLoading) {
     return null;
   }
 
-  if (!data || "error" in data || !data.room) {
+  if ("error" in data || !data.room) {
     return (
       <DesktopLayout>
         <InfoText>could not find room</InfoText>

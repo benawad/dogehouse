@@ -59,7 +59,7 @@ export const NotificationsDropdown: React.FC<NotificationsDropdownProps> = (
   props
 ) => {
   return (
-    <div style={{ width: 444 }}>
+    <div className="flex" style={{ width: 444 }}>
       <BaseOverlay title={"Notifications"}>
         {props.data.map((p, i) => (
           <div className={"py-3 px-4"} key={i}>

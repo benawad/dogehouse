@@ -6,7 +6,7 @@ export type GetTopPublicRoomsResponse = {
 };
 
 export type GetScheduledRoomsResponse = {
-  nextCursor: number | null;
+  nextCursor: string | null;
   scheduledRooms: ScheduledRoom[];
 };
 
@@ -36,10 +36,10 @@ export type NewRoomDetailsResponse = {
 };
 
 export type InvitationToRoomResponse = {
-  type: "invite",
-  username: string,
-  displayName: string,
-  avatarUrl: string,
-  roomName: string,
-  roomId: UUID
+  type: "invite";
+  username: string;
+  displayName: string;
+  avatarUrl: string;
+  roomName: string;
+  roomId: UUID;
 };

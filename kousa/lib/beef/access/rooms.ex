@@ -128,6 +128,16 @@ defmodule Beef.Access.Rooms do
     )
   end
 
+  def search_name(start_of_name) do
+    search_str = start_of_name <> "%"
+
+    Query.start()
+    |> where([r], ilike(r.name, ^search_str) and r.isPrivate == false)
+    |> limit([], 15)
+    |> Repo.all()
+  end
+
+  @spec all_rooms :: any
   def all_rooms() do
     Repo.all(Room)
   end

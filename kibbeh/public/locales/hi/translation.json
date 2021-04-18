@@ -7,15 +7,15 @@
     "yes": "सही",
     "no": "गलत",
     "cancel": "रद्द करें",
-    "save": "save",
-    "edit": "edit",
-    "delete": "delete",
-    "joinRoom": "join room",
-    "copyLink": "copy link",
-    "copied": "copied",
+    "save": "सेव/बचा ले",
+    "edit": "संपादित करे",
+    "delete": "हटाओ",
+    "joinRoom": "कमरे में शामिल हों",
+    "copyLink": "कॉपी",
+    "copied": "कॉपी हो गया",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "कृपया ध्यान दें कि एक्सेसिबिलिटी परमिशन के बिना दोजेहाउस चलाना अवांछित त्रुटियों का कारण हो सकता है"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -25,8 +25,8 @@
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
     "link_1": "शूरूआत की कहानी",
-    "link_2": "Discord",
-    "link_3": "Report a Bug"
+    "link_2": "डिस्कॉर्ड ",
+    "link_3": "रिपोर्ट अ बग "
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
@@ -39,8 +39,8 @@
     "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "रूम बनाये",
-      "refresh": "Refresh",
-      "editRoom": "Edit Room"
+      "refresh": "रिफ्रेश",
+      "editRoom": "एडिट रूम "
     },
     "inviteList": {
       "roomGone": "रूम गया, वापस जाए",
@@ -58,7 +58,8 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "log in with GitHub",
       "loginTwitter": "log in with Twitter",
-      "createTestUser": "create test user"
+      "createTestUser": "create test user",
+      "loginDiscord": "Login with Discord  "
     },
     "myProfile": {
       "logout": "logout",
@@ -66,10 +67,11 @@
       "voiceSettings": "वॉइस सेटिंग्स में जाएं",
       "soundSettings": "साउंड सेटिंग में जाएं",
       "deleteAccount": "खाता हटाएं",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "ओवरले सेटिंग्स पर जाएं",
+      "couldNotFindUser": "क्षमा करें, हमें वह उपयोगकर्ता नहीं मिला"
     },
     "notFound": {
-      "whoopsError": "Whoops! This page got lost in conversation.",
+      "whoopsError": "वूप्स! यह पेज बातचीत में खो गया.",
       "goHomeMessage": "चिंता नहीं करे। आप ऐसा कर सकते हैं।",
       "goHomeLinkText": "go home"
     },
@@ -77,8 +79,8 @@
       "speakers": "बोलनेवाले",
       "requestingToSpeak": "बोलने की अनुमति माँग रहे है",
       "listeners": "सुननेवाले",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "अल्लोव आल ",
+      "allowAllConfirm": "अरे  यू  सूरे ? थिस  विल अल्लोव आल {{count}} रिक्वेस्टिंग  उसेर्स  तो  स्पीक "
     },
     "searchUser": { "search": "खोज करे..." },
     "soundEffectSettings": { "header": "आवाज़" },
@@ -162,7 +164,8 @@
         "roomName": "रूम का नाम",
         "roomDescription": "रूम के बारे में",
         "descriptionError": "500 अक्षर से कम ",
-        "nameError": "2 अक्षर से जयादा और 60 अक्षर से कम के बीच में होने चाहए"
+        "nameError": "2 अक्षर से जयादा और 60 अक्षर से कम के बीच में होने चाहए",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "नया रूम बन गया है",
@@ -193,7 +196,8 @@
         "banFromRoom": "ban from room",
         "goBackToListener": "go back to listener",
         "deleteMessage": "इस मैसेज को हटा दें",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "बोलने की अनुमति की आवश्यकता है",
@@ -201,6 +205,27 @@
         "makePrivate": "रूम को प्राइवेट करें!",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -221,7 +246,7 @@
       }
     },
     "roomChat": {
-      "title": "Chat",
+      "title": "चाट",
       "emotesSoon": "[emotes soon]",
       "bannedAlert": "आपको चैट से प्रतिबंधित कर दिया गया है",
       "waitAlert": "आपको दूसरा मैसेज भेजने से पहले एक सेकंड इंतजार करना होगा",
@@ -229,7 +254,7 @@
       "searchResults": "खोज के परिणाम",
       "recent": "ज्यदातर इस्तेमाल किया जाने वाला",
       "sendMessage": "एक मैसेज भेजो",
-      "whisper": "Whisper",
+      "whisper": "व्हिस्पर ",
       "welcomeMessage": "चैट में आपका स्वागत है!",
       "roomDescription": "रूम के बारे में"
     },
@@ -244,6 +269,7 @@
       "approachingGalaxy": "Approaching galaxy",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

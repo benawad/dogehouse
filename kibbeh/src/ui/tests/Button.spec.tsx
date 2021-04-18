@@ -27,7 +27,7 @@ describe("Button", () => {
 
   it("should render an icon if icon props is passed", () => {
     const { getByText, container } = render(
-      <Button icon={<div>Fake icon</div>}>Click me</Button>
+      <Button icon={<div className="flex">Fake icon</div>}>Click me</Button>
     );
     const icon = getByText("Fake icon");
 

@@ -16,7 +16,7 @@ const TheSearchHeader: Story<SearchHeaderProps> = ({
   onSearchChange = () => null,
   searchPlaceholder = "Search",
 }) => (
-  <div style={{ width: 420 }}>
+  <div className="flex" style={{ width: 420 }}>
     <SearchHeader
       onBackClick={onBackClick}
       onSearchChange={onSearchChange}

@@ -40,7 +40,7 @@ export const RoomPanelIconBarController: React.FC<RoomPanelIconBarControllerProp
   const screenType = useScreenType();
 
   return (
-    <div className="flex-col w-full">
+    <div className="flex flex-col w-full">
       <RoomSettingsModal onRequestClose={() => setRoomId("")} roomId={roomId} />
       <RoomPanelIconBar
         onToggleChat={() => toggleOpen()}
@@ -70,15 +70,15 @@ export const RoomPanelIconBarController: React.FC<RoomPanelIconBarControllerProp
             // this is kind of hard to embed in the page
             // so tmp solution of portaling this and absolute positioning for fullscreen
             <div
-              className={`absolute flex-col w-full z-30 bg-primary-800 h-full rounded-8`}
+              className={`flex absolute flex-col w-full z-30 bg-primary-800 h-full rounded-8`}
             >
               <button
                 onClick={() => toggleOpen()}
-                className="text-primary-100 p-4 text-2xl"
+                className="flex text-primary-100 p-4 text-2xl"
               >
                 {t("modules.roomChat.title")}
               </button>
-              <div className="overflow-y-auto flex-1">
+              <div className="flex overflow-y-auto flex-1">
                 <div className={`flex flex-1 w-full flex-col mt-4`}>
                   <RoomChatList room={room} />
                   <RoomChatMentions users={users} />

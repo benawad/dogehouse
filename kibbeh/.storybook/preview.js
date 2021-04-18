@@ -1,15 +1,17 @@
 import "../src/styles/globals.css";
 import { addDecorator } from "@storybook/react";
 import { init_i18n } from "../src/lib/i18n";
+import { QueryClientProvider, QueryClient } from "react-query";
 
 let hasInit = false;
+const client = new QueryClient();
 
 addDecorator((storyFn) => {
   if (!hasInit) {
     init_i18n();
     hasInit = true;
   }
-  return storyFn();
+  return <QueryClientProvider client={client}>{storyFn()}</QueryClientProvider>;
 });
 
 export const parameters = {

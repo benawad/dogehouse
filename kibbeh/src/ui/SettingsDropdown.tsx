@@ -1,14 +1,18 @@
 import { User } from "@dogehouse/kebab";
 import React, { ReactNode, useState } from "react";
+import { useDebugAudioStore } from "../global-stores/useDebugAudio";
 import {
   OutlineGlobe,
   SolidBug,
   SolidCaretRight,
+  SolidMicrophone,
   SolidTime,
   SolidUser,
+  SolidVolume,
 } from "../icons";
 import SvgSolidDiscord from "../icons/SolidDiscord";
 import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
+import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { BaseOverlay } from "../ui/BaseOverlay";
 import { SettingsIcon } from "../ui/SettingsIcon";
 import { LanguageSelector } from "./LanguageSelector";
@@ -19,12 +23,14 @@ export const SettingsDropdown: React.FC<{
   onActionButtonClicked: () => void;
 }> = ({ user, onCloseDropdown, onActionButtonClicked }) => {
   const [currentOverlay, setCurrentOverlay] = useState<ReactNode>(null);
+  const { t } = useTypeSafeTranslation();
+  const { debugAudio, setDebugAudio } = useDebugAudioStore();
 
   return (
-    <div style={{ width: 200 }} className="mt-5 mr-2">
+    <div className="flex" style={{ width: 200 }}>
       <BaseOverlay
         onActionButtonClicked={onActionButtonClicked}
-        actionButton={"Log out"}
+        actionButton={t("components.settingsDropdown.logOut.button")}
         overlay={currentOverlay}
       >
         <div className="flex flex-col">
@@ -32,7 +38,7 @@ export const SettingsDropdown: React.FC<{
             <SettingsIcon
               onClick={onCloseDropdown}
               icon={<SolidUser />}
-              label={"Profile"}
+              label={t("components.settingsDropdown.profile")}
               transition
             />
           </ApiPreloadLink>
@@ -40,7 +46,7 @@ export const SettingsDropdown: React.FC<{
         <SettingsIcon icon={<SolidDogenitro />} label={"Wallet"} /> */}
           <SettingsIcon
             icon={<OutlineGlobe />}
-            label={"Language"}
+            label={t("components.settingsDropdown.language")}
             trailingIcon={<SolidCaretRight />}
             transition
             onClick={() =>
@@ -58,18 +64,16 @@ export const SettingsDropdown: React.FC<{
             <SettingsIcon
               onClick={onCloseDropdown}
               icon={<SolidBug />}
-              label={"Report a bug"}
+              label={t("components.settingsDropdown.reportABug")}
               transition
             />
           </a>
-          <a href="https://dogehouse.tv" rel="noreferrer">
-            <SettingsIcon
-              onClick={onCloseDropdown}
-              icon={<SolidTime />}
-              label={"Use old version"}
-              transition
-            />
-          </a>
+          <SettingsIcon
+            label={!debugAudio ? "Debug Audio" : "Stop Debugger"}
+            icon={<SolidVolume />}
+            transition
+            onClick={() => setDebugAudio(!debugAudio)}
+          />
           <a
             href="https://discord.gg/wCbKBZF9cV"
             target="_blank"

@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ErrorMessage should match snapshot 1`] = `
-<div
+<div className="flex"
   class="rounded-8 p-3 relative w-full items-center justify-center text-button transition-transform duration-300 bg-secondary"
   data-testid="error-message"
 >
-  <div
+  <div className="flex"
     class="absolute cursor-pointer"
     data-testid="close-btn"
     style="top: 5px; right: 7px; width: 13px; height: 13px;"
@@ -47,7 +47,7 @@ exports[`ErrorMessage should match snapshot 1`] = `
       </defs>
     </svg>
   </div>
-  <div
+  <div className="flex"
     class="flex space-x-4 items-center"
   >
     <p

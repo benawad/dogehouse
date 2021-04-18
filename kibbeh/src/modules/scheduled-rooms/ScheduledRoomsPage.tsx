@@ -1,10 +1,9 @@
 import React from "react";
 import { PageComponent } from "../../types/PageComponent";
-import { InfoText } from "../../ui/InfoText";
 import { WaitForWsAndAuth } from "../auth/WaitForWsAndAuth";
 import { HeaderController } from "../display/HeaderController";
 import { DefaultDesktopLayout } from "../layouts/DefaultDesktopLayout";
-import { MiddlePanel } from "../layouts/GridPanels";
+import { ScheduledRoomsList } from "./ScheduledRoomsList";
 
 interface LoungePageProps {}
 
@@ -13,9 +12,7 @@ export const ScheduledRoomsPage: PageComponent<LoungePageProps> = ({}) => {
     <WaitForWsAndAuth>
       <HeaderController embed={{}} title="Scheduled Rooms" />
       <DefaultDesktopLayout>
-        <MiddlePanel>
-          <InfoText>coming soon</InfoText>
-        </MiddlePanel>
+        <ScheduledRoomsList />
       </DefaultDesktopLayout>
     </WaitForWsAndAuth>
   );

@@ -59,7 +59,8 @@
       "featureText_6": "Mundësuar nga Doge",
       "loginGithub": "hyrje me GitHub",
       "loginTwitter": "hyrje me Twitter",
-      "createTestUser": "krijo pëdorues testi"
+      "createTestUser": "krijo pëdorues testi",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "dil",
@@ -67,7 +68,8 @@
       "voiceSettings": "shko te cilësimet e zërit",
       "soundSettings": "shko te cilësimet e tingullit",
       "deleteAccount": "fshije llogarinë",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Whoops! Kjo faqja humbi në bisedë.",
@@ -163,7 +165,8 @@
         "roomName": "emri dhomës",
         "roomDescription": "përshkrimi i dhomës",
         "descriptionError": "gjatësia maks. 500",
-        "nameError": "duhet të jetë midis 2 dhe 60 shkronjash"
+        "nameError": "duhet të jetë midis 2 dhe 60 shkronjash",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Dhoma e re u krijua",
@@ -194,7 +197,8 @@
         "banFromRoom": "ndalo prej dhomës",
         "goBackToListener": "kthenu në dëgjues",
         "deleteMessage": "fshije këtë mesazh",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "kërko leje për të folur",
@@ -202,6 +206,27 @@
         "makePrivate": "bëje dhomën private",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -245,6 +270,7 @@
       "approachingGalaxy": "Approaching galaxy",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

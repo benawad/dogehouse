@@ -7,7 +7,7 @@
  */
 import { LinkingOptions, NavigationContainer } from "@react-navigation/native";
 import React, { useEffect } from "react";
-import { StatusBar } from "react-native";
+import { LogBox, StatusBar } from "react-native";
 import "react-native-gesture-handler";
 import "react-native-get-random-values";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -24,6 +24,8 @@ import { WebSocketProvider } from "./src/modules/ws/WebSocketProvider";
 import { AuthenticationSwitch } from "./src/navigation/AuthenticationSwitch";
 import { navigationRef } from "./src/navigation/RootNavigation";
 import { MainWsHandlerProvider } from "./src/shared-hooks/useMainWsHandler";
+
+LogBox.ignoreLogs(["Setting a timer"]);
 
 const App: React.FC = () => {
   registerGlobals();

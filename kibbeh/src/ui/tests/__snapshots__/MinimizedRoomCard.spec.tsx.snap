@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MinimizedRoomCard should match snapshot 1`] = `
-<div
+<div className="flex"
   class="bg-primary-800 border border-accent rounded-lg p-4 gap-4 grid max-w-md"
   data-testid="minimized-room-card"
 >
-  <div
+  <div className="flex"
     class="gap-1 grid"
   >
     <h4
@@ -21,14 +21,14 @@ exports[`MinimizedRoomCard should match snapshot 1`] = `
     >
       Speaker
        ·
-       
+
       00:00
     </p>
   </div>
-  <div
+  <div className="flex"
     class="flex flex-row"
   >
-    <div
+    <div className="flex"
       class="grid grid-cols-3 gap-2"
     >
       <button

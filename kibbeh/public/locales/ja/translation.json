@@ -59,7 +59,8 @@
       "featureText_6": "提供: Doge",
       "loginGithub": "GitHub でログイン",
       "loginTwitter": "Twitter でログイン",
-      "createTestUser": "テストユーザーを作成"
+      "createTestUser": "テストユーザーを作成",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "ログアウト",
@@ -67,7 +68,8 @@
       "voiceSettings": "マイク設定",
       "soundSettings": "スピーカー設定",
       "deleteAccount": "アカウント削除",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "おっと！？ このページは会話に紛れてしまいました。",
@@ -161,7 +163,8 @@
         "roomName": "名前",
         "roomDescription": "説明",
         "descriptionError": "500文字以内",
-        "nameError": "2文字から60文字で設定してください"
+        "nameError": "2文字から60文字で設定してください",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "ルームが作成されました",
@@ -192,7 +195,8 @@
         "banFromRoom": "ルームからBAN",
         "goBackToListener": "リスナーに戻る",
         "deleteMessage": "メッセージを削除",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "発言を許可制にする",
@@ -200,6 +204,27 @@
         "makePrivate": "ルームを非公開に変更",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -243,6 +268,7 @@
       "approachingGalaxy": "まもなく銀河系",
       "galacticDoge": "銀河系犬 / Galactic Doge",
       "spottedLife": "新たな生命を発見"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }
