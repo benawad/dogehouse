@@ -36,7 +36,6 @@
 | [feta](feta)         | Shared utils web/app  |
 | [kibbeh](kibbeh)     |   Next.js frontend    |
 | [kebab](kebab)       |      API Client       |
-| kofta(removed)|    Old Unreliable React frontend     |
 
 ## Branches
 
