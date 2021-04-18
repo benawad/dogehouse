@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useGlobalVolumeStore } from "../../../global-stores/useGlobalVolumeStore";
+import { useIsDeafened } from "../../../global-stores/useIsDeafened";
 import { Button } from "../../../ui/Button";
 import { useConsumerStore } from "../stores/useConsumerStore";
 
@@ -61,6 +62,7 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
   const notAllowedErrorCountRef = useRef(0);
   const [showAutoPlayModal, setShowAutoPlayModal] = useState(false);
   const { volume: globalVolume } = useGlobalVolumeStore();
+  const { isDeafened } = useIsDeafened()
   const { consumerMap } = useConsumerStore();
   const audioRefs = useRef<[string, HTMLAudioElement][]>([]);
 
@@ -91,7 +93,7 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
               const { consumer, volume: userVolume, debug } = consumerMap[k];
               return (
                 <MyAudio
-                  volume={(userVolume / 200) * (globalVolume / 100)}
+                  volume={isDeafened ? 0 : (userVolume / 200) * (globalVolume / 100)}
                   // autoPlay
                   playsInline
                   controls={false}

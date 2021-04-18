@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
+import { useIsDeafened } from "../../global-stores/useIsDeafened";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useCurrentRoomInfo } from "../../shared-hooks/useCurrentRoomInfo";
 import { useLeaveRoom } from "../../shared-hooks/useLeaveRoom";
@@ -20,6 +21,7 @@ export const MinimizedRoomCardController: React.FC<MinimizedRoomCardControllerPr
   const { canSpeak } = useCurrentRoomInfo();
   const { leaveRoom, isLoading } = useLeaveRoom();
   const { muted } = useMuteStore();
+  const { isDeafened, setIsDeafened } = useIsDeafened()
   const setMute = useSetMute();
   const router = useRouter();
 
@@ -45,7 +47,9 @@ export const MinimizedRoomCardController: React.FC<MinimizedRoomCardControllerPr
           leave: () => {
             leaveRoom();
           },
-          switchDeafened: () => {},
+          switchDeafened: () => {
+            setIsDeafened(!isDeafened)
+          },
           switchMuted: () => {
             setMute(!muted);
           },

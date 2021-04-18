@@ -63,12 +63,12 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
               )}
             </BoxedIcon>
           ) : null}
-          {/* <BoxedIcon
+          <BoxedIcon
             onClick={room.myself.switchDeafened}
             className={room.myself.isDeafened ? "bg-accent" : ""}
           >
             <SolidVolume />
-          </BoxedIcon> */}
+          </BoxedIcon>
           <BoxedIcon transition onClick={onFullscreenClick}>
             <SolidFullscreen />
           </BoxedIcon>
