@@ -145,7 +145,11 @@ defmodule Beef.Access.Users do
     try do
       Onion.UserSession.get_current_room_id(user_id)
     catch
-      _, _ -> nil
+      _, _ ->
+        case get_by_id(user_id) do
+          nil -> nil
+          %{currentRoomId: id} -> id
+        end
     end
   end
 end
