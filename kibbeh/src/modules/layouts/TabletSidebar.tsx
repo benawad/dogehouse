@@ -30,14 +30,7 @@ const Page: React.FC<{
     <>
       {data?.users.map((u) => (
         <div key={u.id} className="flex pb-3 w-full justify-center">
-          <ApiPreloadLink
-            {...(u.currentRoom
-              ? { route: "room", data: { id: u.currentRoom.id } }
-              : {
-                  route: "profile",
-                  data: { username: u.username },
-                })}
-          >
+          <ApiPreloadLink route="profile" data={{ username: u.username }}>
             <SingleUser
               size="sm"
               isOnline={u.online}

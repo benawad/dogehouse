@@ -57,8 +57,8 @@ There are different ways to get the Electron desktop app:
 
 * Get the official builds from [here, in GitHub Releases][gh-releases]
 for any platform.
-* Get it from AUR (unofficial package) for Arch/Manjaro with
-`yay -S dogehouse`.
+* Get it from AUR (unofficial package) for Arch/Manjaro or other Arch-based distro with
+`yay -S dogehouse`, using another AUR helper, or installing manually from the AUR.
 * Get the desktop client for Debian-based distros (including Ubuntu)
 from the official APT repo with these simple steps:
   * Add the repo with `echo "deb http://ppa.dogehouse.tv/ ./" | sudo tee -a /etc/apt/sources.list > /dev/null`
@@ -84,16 +84,16 @@ versions that are stable will be promoted into `stable` in the future.
 
 Contributors helping to review/merge pull requests:
 
-- [@ermalsh](https://github.com/ermalsh)
-- [@ofsho](https://github.com/ofsho)
 - [@HarrisonMayotte](https://github.com/HarrisonMayotte)
-- [@nadirabbas](https://github.com/nadirabbas)
-- [@overlisted](https://github.com/overlisted)
+- [@TheOtterlord](https://github.com/TheOtterlord)
+- [@amitojsingh366](https://github.com/amitojsingh366)
+- [@dk-raw](https://github.com/dk-raw)
+- [@ermalsh](https://github.com/ermalsh)
 - [@goldyydev](https://github.com/goldyydev)
 - [@jamesql](https://github.com/jamesql)
-- [@amitojsingh366](https://github.com/amitojsingh366)
-- [@TheOtterlord](https://github.com/TheOtterlord)
-- [@dk-raw](https://github.com/dk-raw)
+- [@nadirabbas](https://github.com/nadirabbas)
+- [@ofsho](https://github.com/ofsho)
+- [@overlisted](https://github.com/overlisted)
 
 ## Code of Conduct
 
