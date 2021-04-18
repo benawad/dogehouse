@@ -38,6 +38,9 @@
 | [kebab](kebab)       |      API Client       |
 | kofta(removed)|    Old Unreliable React frontend     |
 
+**_Notes:_**
+- to see kofta's source code go to the before-kofta-removal tag
+
 ## Branches
 
 - staging -> pr this branch for everything
