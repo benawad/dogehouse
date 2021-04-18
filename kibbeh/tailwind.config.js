@@ -59,6 +59,7 @@ module.exports = {
       3: "15px",
       4: "20px",
       5: "30px",
+      5.5: "35px",
       6: "40px",
       7: "60px",
       8: "75px",
@@ -90,8 +91,5 @@ module.exports = {
       borderWidth: ["last"],
     },
   },
-  plugins: [
-    require("tailwind-scrollbar"),
-    require("@tailwindcss/line-clamp")
-  ],
+  plugins: [require("tailwind-scrollbar"), require("@tailwindcss/line-clamp")],
 };
