@@ -130,7 +130,7 @@ export const UpcomingRoomCardLg: React.FC<UpcomingRoomCardLgProps> = ({
   return (
     <div className="p-4 bg-primary-800 rounded-8">
       <div className="flex justify-between mb-4">
-        <h6 className="text-primary-100 overflow-ellipsis overflow-hidden whitespace-nowrap mr-5">
+        <h6 className="text-primary-100 font-bold overflow-ellipsis overflow-hidden whitespace-nowrap mr-5">
           {title}
         </h6>
         <div className="flex">
