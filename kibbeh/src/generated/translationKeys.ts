@@ -17,6 +17,8 @@ export type TranslationKeys =
 	| "common.formattedIntlTime"
 	| "common.requestPermissions"
 	| "header.title"
+	| "header.dashboard"
+	| "header.connectionTaken"
 	| "header.mutedTitle"
 	| "footer.link_1"
 	| "footer.link_2"
