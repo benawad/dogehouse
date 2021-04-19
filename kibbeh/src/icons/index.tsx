@@ -25,6 +25,7 @@ export { default as SolidStaff } from "./SolidStaff";
 export { default as SolidTime } from "./SolidTime";
 export { default as SolidUser } from "./SolidUser";
 export { default as SolidVolume } from "./SolidVolume";
+export { default as SolidVolumeOff } from "./SolidVolumeOff";
 export { default as SolidRocket } from "./SolidRocket";
 export { default as Smiley } from "./Smiley";
 export { default as WinMaximizeIcon } from "./WinMaximizeIcon";

@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React from "react";
 import { PageComponent } from "../../types/PageComponent";
 import { WaitForWsAndAuth } from "../auth/WaitForWsAndAuth";
@@ -12,6 +13,8 @@ import { UserPreviewModalProvider } from "./UserPreviewModalProvider";
 interface RoomPageProps {}
 
 export const RoomPage: PageComponent<RoomPageProps> = ({}) => {
+  const { query } = useRouter();
+  const key = typeof query.id === "string" ? query.id : "";
   return (
     <WaitForWsAndAuth>
       <UserPreviewModalProvider>
@@ -21,7 +24,7 @@ export const RoomPage: PageComponent<RoomPageProps> = ({}) => {
           leftPanel={<FollowingOnlineController />}
           rightPanel={<RoomChatController />}
         >
-          <RoomPanelController />
+          <RoomPanelController key={key} />
         </DesktopLayout>
       </UserPreviewModalProvider>
     </WaitForWsAndAuth>

@@ -27,7 +27,10 @@ export const SettingsDropdown: React.FC<{
   const { debugAudio, setDebugAudio } = useDebugAudioStore();
 
   return (
-    <div className="flex" style={{ width: 200 }}>
+    <div
+      className="flex whitespace-nowrap overflow-ellipsis"
+      style={{ width: 200 }}
+    >
       <BaseOverlay
         onActionButtonClicked={onActionButtonClicked}
         actionButton={t("components.settingsDropdown.logOut.button")}
