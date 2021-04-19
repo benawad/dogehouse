@@ -101,7 +101,7 @@ export const BlockedFromRoomUsersPage: React.FC<{
         </div>
       ))}
       {isLastPage && data.nextCursor ? (
-        <div className={`flex flex items-center justify-center mt-4`}>
+        <div className={`flex items-center justify-center mt-4`}>
           <Button
             size="small"
             onClick={() => {
