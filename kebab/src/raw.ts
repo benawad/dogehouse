@@ -53,9 +53,9 @@ export const connect = (
   token: Token,
   refreshToken: Token,
   {
-    logger = () => {},
-    onConnectionTaken = () => {},
-    onClearTokens = () => {},
+    logger = () => { },
+    onConnectionTaken = () => { },
+    onClearTokens = () => { },
     url = apiUrl,
     fetchTimeout,
     getAuthOptions,
@@ -69,6 +69,7 @@ export const connect = (
       reconnectToVoice: boolean;
       currentRoomId: string | null;
       muted: boolean;
+      deafened: boolean;
       token: Token;
       refreshToken: Token;
     }>;
@@ -80,9 +81,8 @@ export const connect = (
       WebSocket,
     });
     const apiSend = (opcode: Opcode, data: unknown, fetchId?: FetchID) => {
-      const raw = `{"op":"${opcode}","d":${JSON.stringify(data)}${
-        fetchId ? `,"fetchId":"${fetchId}"` : ""
-      }}`;
+      const raw = `{"op":"${opcode}","d":${JSON.stringify(data)}${fetchId ? `,"fetchId":"${fetchId}"` : ""
+        }}`;
 
       socket.send(raw);
       logger("out", opcode, data, fetchId, raw);
@@ -191,6 +191,7 @@ export const connect = (
         reconnectToVoice: false,
         currentRoomId: null,
         muted: false,
+        deafened: false,
         ...getAuthOptions?.(),
       });
     });
