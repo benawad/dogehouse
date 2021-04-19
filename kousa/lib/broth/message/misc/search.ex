@@ -4,6 +4,9 @@ defmodule Broth.Message.Misc.Search do
   @primary_key false
   embedded_schema do
     field(:query, :string)
+    # not used currently, but will be used in the future:
+    field(:cursor, :integer)
+    field(:limit, :integer)
   end
 
   @impl true
@@ -12,36 +15,6 @@ defmodule Broth.Message.Misc.Search do
     |> cast(data, [:query])
     |> validate_required([:query])
     |> validate_length(:query, min: 3, max: 100)
-  end
-
-  defmodule SearchItem do
-    use Ecto.Schema
-
-    @derive {Jason.Encoder, only: ~w(
-        id
-        username
-        displayName
-        avatarUrl
-        bio
-        name
-        description
-        isPrivate
-      )a}
-
-    # my attempt at a schema for the union: Array<User | Room>
-    @primary_key false
-    embedded_schema do
-      # user
-      field(:username, :string)
-      field(:displayName, :string)
-      field(:avatarUrl, :string)
-      field(:bio, :string, default: "")
-      field(:currentRoomId, :binary_id)
-      # room
-      field(:name, :string)
-      field(:description, :string)
-      field(:isPrivate, :boolean)
-    end
   end
 
   defmodule Reply do
@@ -54,7 +27,10 @@ defmodule Broth.Message.Misc.Search do
 
     @primary_key false
     embedded_schema do
-      embeds_many(:items, SearchItem)
+      # the types of this is Room | User.
+      # currently not enforced, but once we have real DisplayRoom and
+      # DisplayUser schemas we'll make sure Search.search outputs those.
+      field(:items, {:array, :map})
       field(:nextCursor, :integer)
     end
   end
