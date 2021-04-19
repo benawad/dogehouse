@@ -117,7 +117,8 @@ defmodule Broth.SocketHandler do
             "accessToken" => accessToken,
             "refreshToken" => refreshToken,
             "reconnectToVoice" => reconnectToVoice,
-            "muted" => muted
+            "muted" => muted,
+            "deafened" => deafened
           } = json["d"]
 
           case Kousa.Utils.TokenUtils.tokens_to_user_id(accessToken, refreshToken) do
@@ -140,7 +141,8 @@ defmodule Broth.SocketHandler do
                   avatar_url: user.avatarUrl,
                   display_name: user.displayName,
                   current_room_id: user.currentRoomId,
-                  muted: muted
+                  muted: muted,
+                  deafened: deafened
                 )
 
                 UserSession.set_pid(user_id, self())
@@ -162,7 +164,7 @@ defmodule Broth.SocketHandler do
                         voice_server_id: room.voiceServerId
                       )
 
-                      Onion.RoomSession.join_room(room.id, user.id, muted)
+                      Onion.RoomSession.join_room(room.id, user.id, muted, deafened)
 
                       if reconnectToVoice == true do
                         Kousa.Room.join_vc_room(user.id, room)
@@ -517,6 +519,11 @@ defmodule Broth.SocketHandler do
     {:ok, state}
   end
 
+  def handler("deafen", %{"value" => value}, state) do
+    Onion.UserSession.set_deaf(state.user_id, value)
+    {:ok, state}
+  end
+
   # @deprecated in new design
   def handler("get_current_room_users", data, state) do
     {:reply,
@@ -652,6 +659,11 @@ defmodule Broth.SocketHandler do
     %{}
   end
 
+  def f_handler("deafen", %{"value" => value}, state) do
+    Onion.UserSession.set_deaf(state.user_id, value)
+    %{}
+  end
+
   def f_handler("join_room_and_get_info", %{"roomId" => room_id_to_join}, state) do
     case Kousa.Room.join_room(state.user_id, room_id_to_join) do
       %{error: err} ->
@@ -665,7 +677,7 @@ defmodule Broth.SocketHandler do
             %{error: "Room no longer exists."}
 
           _ ->
-            {muteMap, autoSpeaker, activeSpeakerMap} =
+            {muteMap, deafMap, autoSpeaker, activeSpeakerMap} =
               if room_id do
                 Onion.RoomSession.get_maps(room_id)
               else
@@ -676,6 +688,7 @@ defmodule Broth.SocketHandler do
               room: room,
               users: users,
               muteMap: muteMap,
+              deafMap: deafMap,
               activeSpeakerMap: activeSpeakerMap,
               roomId: room_id,
               autoSpeaker: autoSpeaker
@@ -690,7 +703,7 @@ defmodule Broth.SocketHandler do
   def f_handler("get_current_room_users", _data, state) do
     {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
 
-    {muteMap, autoSpeaker, activeSpeakerMap} =
+    {muteMap, deafMap, autoSpeaker, activeSpeakerMap} =
       if room_id do
         Onion.RoomSession.get_maps(room_id)
       else
@@ -700,6 +713,7 @@ defmodule Broth.SocketHandler do
     %{
       users: users,
       muteMap: muteMap,
+      deafMap: deafMap,
       activeSpeakerMap: activeSpeakerMap,
       roomId: room_id,
       autoSpeaker: autoSpeaker

@@ -11,12 +11,14 @@ defmodule Onion.UserSession do
             display_name: String.t(),
             current_room_id: String.t(),
             muted: boolean(),
+            deafened: boolean(),
             pid: pid()
           }
 
     defstruct user_id: nil,
               current_room_id: nil,
               muted: false,
+              deafened: false,
               pid: nil,
               username: nil,
               display_name: nil,
@@ -81,12 +83,23 @@ defmodule Onion.UserSession do
   def set_mute(user_id, value) when is_boolean(value),
     do: cast(user_id, {:set_mute, value})
 
+  def set_deaf(user_id, value) when is_boolean(value),
+    do: cast(user_id, {:set_deaf, value})
+
   defp set_mute_impl(value, state = %{current_room_id: current_room_id}) do
     if current_room_id do
       Onion.RoomSession.mute(current_room_id, state.user_id, value)
     end
 
     {:noreply, %{state | muted: value}}
+  end
+
+  defp set_deaf_impl(value, state = %{current_room_id: current_room_id}) do
+    if current_room_id do
+      Onion.RoomSession.deaf(current_room_id, state.user_id, value)
+    end
+
+    {:noreply, %{state | deafened: value}}
   end
 
   def new_tokens(user_id, tokens), do: cast(user_id, {:new_tokens, tokens})
@@ -189,6 +202,7 @@ defmodule Onion.UserSession do
     do: reconnect_impl(voice_server_id, state)
 
   def handle_cast({:set_mute, value}, state), do: set_mute_impl(value, state)
+  def handle_cast({:set_deaf, value}, state), do: set_deaf_impl(value, state)
   def handle_cast({:new_tokens, tokens}, state), do: new_tokens_impl(tokens, state)
   def handle_cast({:set_state, info}, state), do: set_state_impl(info, state)
 
