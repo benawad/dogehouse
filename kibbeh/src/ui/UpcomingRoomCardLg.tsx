@@ -60,7 +60,7 @@ const CalenderDropDown: React.FC<DropdownProps> = () => {
         <span style={{ marginRight: "8px" }}>
           <SolidCalendar />
         </span>
-        Add to calender
+        Add to calendar
       </Button>
       {open && (
         <span className="absolute top-5 left-0">
