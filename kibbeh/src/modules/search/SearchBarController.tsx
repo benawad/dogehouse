@@ -73,23 +73,24 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
         selectedItem,
         getRootProps,
       }) => (
-        <SearchOverlay
-          className="z-20"
+        <div
+          className="flex w-full flex-col"
           {...getRootProps({ refKey: "ref" }, { suppressRefError: true })}
         >
           <SearchBar
             {...getInputProps()}
             placeholder={t("components.search.placeholder")}
           />
-          <ul
-            className="absolute w-full bg-primary-800 rounded-b-8 overflow-y-auto"
-            {...getMenuProps({ style: { top: 42, maxHeight: "50vh" } })}
-          >
-            {isOpen && data?.items.length === 0 ? (
-              <InfoText className="p-3">no results</InfoText>
-            ) : null}
-            {isOpen
-              ? data?.items.map((item, index) =>
+          {isOpen ? (
+            <SearchOverlay className="z-20">
+              <ul
+                className="absolute w-full bg-primary-800 rounded-b-8 overflow-y-auto"
+                {...getMenuProps({ style: { maxHeight: "50vh" } })}
+              >
+                {data?.items.length === 0 ? (
+                  <InfoText className="p-3">no results</InfoText>
+                ) : null}
+                {data?.items.map((item, index) =>
                   "username" in item ? (
                     // eslint-disable-next-line react/jsx-key
                     <li
@@ -144,10 +145,11 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                       </div>
                     </li>
                   )
-                )
-              : null}
-          </ul>
-        </SearchOverlay>
+                )}
+              </ul>
+            </SearchOverlay>
+          ) : null}
+        </div>
       )}
     </Downshift>
   );

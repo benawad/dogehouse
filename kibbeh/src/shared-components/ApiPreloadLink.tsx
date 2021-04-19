@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { useTypeSafePrefetch } from "../shared-hooks/useTypeSafePrefetch";
 
@@ -55,4 +56,14 @@ export const ApiPreloadLink: React.FC<ValueOf<DifferentProps>> = ({
       <a onClick={() => onClick(prefetch)}>{children}</a>
     </Link>
   );
+};
+
+export const usePreloadPush = () => {
+  const { push } = useRouter();
+  const prefetch = useTypeSafePrefetch();
+  return ({ route, data }: ValueOf<DifferentProps>) => {
+    const { as, href, onClick } = handlers[route](data as any);
+    onClick(prefetch);
+    push(href, as);
+  };
 };
