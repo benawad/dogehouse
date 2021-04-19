@@ -8,10 +8,11 @@ import { RoomCardHeading } from "./RoomCardHeading";
 import { MultipleUsers } from "./UserAvatar";
 
 const formattedDate = (scheduledFor: Date) => {
+  const { t } = useTypeSafeTranslation()
   if (isToday(scheduledFor)) {
-    return "TODAY " + format(scheduledFor, `K:mm a`);
+    return t("modules.scheduledRooms.today") + " " + format(scheduledFor, `K:mm a`);
   } else if (isTomorrow(scheduledFor)) {
-    return "TOMMOROW " + format(scheduledFor, `K:mm a`);
+    return t("modules.scheduledRooms.tommorow") + " " + format(scheduledFor, `K:mm a`);
   } else {
     return format(scheduledFor, `EEE, do MMM, K:mm a`);
   }
@@ -61,7 +62,7 @@ export const ScheduledRoomSummaryCard: React.FC<ScheduledRoomSummaryCardProps> =
         transition ? `transition duration-200 ease-in-out` : ``
       } hover:bg-primary-700 z-0`}
     >
-      <div className="flex text-accent text-sm">
+      <div className="flex text-accent text-sm uppercase">
         {formattedDate(scheduledFor)}
       </div>
       <RoomCardHeading text={title} />

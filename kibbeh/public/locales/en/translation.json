@@ -94,7 +94,8 @@
       "search": "search..."
     },
     "soundEffectSettings": {
-      "header": "Sounds"
+      "header": "Sounds",
+      "title": "Sound Settings"
     },
     "viewUser": {
       "editProfile": "Edit Profile",
@@ -267,6 +268,8 @@
       "myRooms": "my scheduled rooms",
       "scheduleRoomHeader": "Schedule Room",
       "startRoom": "start room",
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
       "modal": {
         "needsFuture": "needs to be in the future",
         "roomName": "room name",
