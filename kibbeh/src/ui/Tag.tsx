@@ -9,7 +9,7 @@ interface TagProps {
 export const Tag: React.FC<TagProps> = ({ children, glow, className = "" }) => {
   return (
     <div
-      className={`cursor-pointer bg-primary-700 hover:bg-primary-600 text-xs px-2 font-bold text-primary-100 justify-center items-center rounded flex justify-center items-center ${
+      className={`cursor-pointer bg-primary-700 hover:bg-primary-600 text-sm px-2 font-bold text-primary-100 justify-center items-center rounded flex justify-center items-center ${
         glow ? `border` : ``
       } ${className}`}
       style={{
