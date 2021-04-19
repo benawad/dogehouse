@@ -1,17 +1,14 @@
+import { useNavigation } from "@react-navigation/core";
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import {
   colors,
   h4,
-  paragraph,
   paragraphBold,
   small,
   smallBold,
 } from "../../constants/dogeStyle";
-import { IconButton } from "../buttons/IconButton";
-import { HeaderBase } from "./HeaderBase";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { useNavigation } from "@react-navigation/core";
 
 type RoomHeaderProps = {
   onLeavePress: () => void;

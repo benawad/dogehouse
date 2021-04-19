@@ -11,7 +11,6 @@ import {
 } from "react-native";
 import {
   colors,
-  paragraph,
   paragraphBold,
   radius,
   small,
@@ -70,9 +69,9 @@ export const RoomSearchResult: React.FC<RoomSearchResultProps> = ({
 
   if (scheduledFor) {
     if (isToday(scheduledFor)) {
-      scheduledForLabel = format(scheduledFor, `K:mm a`);
+      scheduledForLabel = format(scheduledFor, "K:mm a");
     } else {
-      scheduledForLabel = format(scheduledFor, `LLL d`);
+      scheduledForLabel = format(scheduledFor, "LLL d");
     }
   }
 

@@ -17,4 +17,4 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
-          script: cd dogehouse && ./run.sh prod up kousa shwarma -d
+          script: cd dogehouse/kousa && git pull origin staging && docker build -t benawad/kousa:0.0.1 . && docker tag benawad/kousa:0.0.1 dokku/doge-staging:latest && dokku tags:deploy doge-staging latest

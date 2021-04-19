@@ -1,6 +1,7 @@
 import { Device, Transport } from "mediasoup-client/lib/types";
 import { ConnectFunction, ConsumerPlayer } from "./interface";
 import { RoomPeer } from "..";
+import { wrap } from "./audioWrapper";
 
 export const makeConsumer = (transport: Transport) => async (data: RoomPeer) => ({
   user: data.peerId,
@@ -23,20 +24,17 @@ export const connect: ConnectFunction<(device: Device) => Promise<void>> = (
 ) => async (device) => {
   if(!device.loaded) await device.load({ routerRtpCapabilities });
 
+  const wrapper = wrap(connection);
   const simplerDirection = direction === "output" ? "recv" : "send";
   const transport = direction === "output"
     ? device.createRecvTransport(transportOptions)
     : device.createSendTransport(transportOptions);
 
   transport.on("connect", async ({ dtlsParameters }, resolve, reject) => {
-    const { error } = await connection.fetch(
-      "@connect-transport",
-      { transportId: transportOptions.id, dtlsParameters, direction: simplerDirection },
-      `@connect-transport-${simplerDirection}-done`
-    ) as { error?: string };
+    const result = await wrapper.mutation.connectTransport(transport.id, simplerDirection, dtlsParameters);
 
-    if(error) {
-      console.error(error);
+    if("error" in result) {
+      console.error(result.error);
       reject();
     } else {
       resolve();
@@ -45,25 +43,21 @@ export const connect: ConnectFunction<(device: Device) => Promise<void>> = (
 
   if(direction === "input") {
     transport.on("produce", async ({ kind, rtpParameters, appData }, resolve, reject) => {
-      const { error } = await connection.fetch(
-        "@send-track",
-        {
-          transportId: transportOptions.id,
-          kind,
-          rtpParameters,
-          rtpCapabilities: device.rtpCapabilities,
-          paused: false,
-          appData,
-          direction: simplerDirection
-        },
-        "@send-track-send-done"
-      ) as { error?: string };
+      const result = await wrapper.mutation.sendTrack(
+        transportOptions.id,
+        kind,
+        rtpParameters,
+        device.rtpCapabilities,
+        false,
+        appData,
+        simplerDirection as "send"
+      );
 
-      if(error) {
-        console.error(error);
+      if("error" in result) {
+        console.error(result.error);
         reject();
       } else {
-        resolve();
+        resolve(result);
       }
     });
 
@@ -72,20 +66,23 @@ export const connect: ConnectFunction<(device: Device) => Promise<void>> = (
       appData: { mediaTag: "cam-audio" }
     });
   } else {
-    const { consumerParametersArr } = await connection.fetch(
-      "@get-recv-tracks",
-      { rtpCapabilities: device.rtpCapabilities },
-      "@get-recv-tracks-done"
-    ) as { consumerParametersArr: Array<RoomPeer> };
+    const { consumerParametersArr } = await wrapper.query.getConsumersParameters(device.rtpCapabilities);
 
     const consumers = await Promise.all(consumerParametersArr.map(makeConsumer(transport)));
-    const unsubNps = connection.addListener("new-peer-speaker", async (data: RoomPeer) => {
-      consumers.push(await makeConsumer(transport)(data));
+    const unsubNps = wrapper.subscribe.newPeerSpeaker(async (peer) => {
+      consumers.push(await makeConsumer(transport)(peer));
+    });
+
+    const unsubCc = wrapper.subscribe.closeConsumer(({ producerId }) => {
+      const found = consumers.filter(it => it.consumer.producerId === producerId);
+
+      if(found[0]) consumers.splice(consumers.indexOf(found[0]), 1);
     });
 
     const unsubYlr = connection.addListener("you_left_room", () => {
       unsubYlr();
       unsubNps();
+      unsubCc();
     });
 
     const giveTrack = track as ConsumerPlayer;

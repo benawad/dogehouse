@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import { Text } from "react-native";
+import React, { useEffect, useState } from "react";
+import { StyleSheet, Text } from "react-native";
+import { ScrollViewLoadMore } from "../../components/ScrollViewLoadMore";
+import { colors, h3 } from "../../constants/dogeStyle";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
-import { FollowerOnline, FollowersOnlineWrapper } from "./FollowersOnline";
+import { FollowerOnline } from "./FollowersOnline";
 
-interface FriendsOnlineControllerProps {}
-
-const Page: React.FC<{
+export type FriendsOnlineControllerProps = {
   cursor: number;
-  onLoadMore: (cursor: number) => void;
-  isLastPage: boolean;
-  isOnlyPage: boolean;
-}> = ({ cursor, isLastPage, isOnlyPage, onLoadMore }) => {
+  onLoad: (nextpage: number) => void;
+};
+
+const Page: React.FC<FriendsOnlineControllerProps> = ({ cursor, onLoad }) => {
   const { data, isLoading } = useTypeSafeQuery(
     ["getMyFollowing", cursor],
     {
@@ -19,7 +19,15 @@ const Page: React.FC<{
     [cursor]
   );
 
-  if (isOnlyPage && !isLoading && !data?.users.length) {
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    if (data && !loaded) {
+      setLoaded(true);
+      onLoad(data.nextCursor);
+    }
+  }, [data, loaded, onLoad, setLoaded]);
+
+  if (cursor === 0 && !isLoading && !data?.users.length) {
     return <Text>You have 0 friends online right now</Text>;
   }
 
@@ -28,29 +36,52 @@ const Page: React.FC<{
       {data?.users.map((u) => (
         <FollowerOnline {...u} key={u.id} />
       ))}
-      {/* {isLastPage && data?.nextCursor ? (
-        <FollowersOnlineShowMore
-          onClick={() => onLoadMore(data!.nextCursor!)}
-        />
-      ) : null} */}
     </>
   );
 };
 
 export const FollowingOnlineController: React.FC<FriendsOnlineControllerProps> = ({}) => {
-  const [cursors, setCursors] = useState<number[]>([0]);
+  const [cursors, setCursors] = useState([0]);
+  const [isLoading, setLoading] = useState(false);
+  const [nextCursor, setNextCursor] = useState(null);
 
   return (
-    <FollowersOnlineWrapper>
-      {cursors.map((c, i) => (
+    <ScrollViewLoadMore
+      scrollViewProps={{ style: styles.container }}
+      shouldLoadMore={nextCursor != null}
+      isLoading={isLoading}
+      onLoadMore={() => {
+        setLoading(true);
+        setCursors([...cursors, nextCursor]);
+        setNextCursor(null);
+      }}
+    >
+      <Text style={styles.title}>People</Text>
+      {cursors.map((c) => (
         <Page
           key={c}
           cursor={c}
-          onLoadMore={(nc) => setCursors([...cursors, nc])}
-          isLastPage={i === cursors.length - 1}
-          isOnlyPage={cursors.length === 1}
+          onLoad={(nextpage) => {
+            setLoading(false);
+            if (nextpage) {
+              setNextCursor(nextpage);
+            }
+          }}
         />
       ))}
-    </FollowersOnlineWrapper>
+    </ScrollViewLoadMore>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.primary900,
+    paddingHorizontal: 20,
+    paddingTop: 10,
+  },
+  title: {
+    ...h3,
+    marginBottom: 20,
+  },
+});

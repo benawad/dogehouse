@@ -1,7 +1,9 @@
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useConn } from "../../shared-hooks/useConn";
-import { MinimizedRoomCard } from "../../ui/MinimizedRoomCard";
+import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
+import { useTypeSafeUpdateQuery } from "../../shared-hooks/useTypeSafeUpdateQuery";
 import { ProfileBlock } from "../../ui/ProfileBlock";
 import { UpcomingRoomsCard } from "../../ui/UpcomingRoomsCard";
 import { UserSummaryCard } from "../../ui/UserSummaryCard";
@@ -19,6 +21,9 @@ export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({}
     showCreateScheduleRoomModal,
     setShowCreateScheduleRoomModal,
   ] = useState(false);
+  const { data } = useTypeSafeQuery(["getScheduledRooms", "", false]);
+  const { push } = useRouter();
+  const update = useTypeSafeUpdateQuery();
 
   return (
     <>
@@ -28,7 +33,26 @@ export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({}
       />
       {showCreateScheduleRoomModal ? (
         <CreateScheduleRoomModal
-          onScheduledRoom={() => {}}
+          onScheduledRoom={(srData, resp) => {
+            update(["getScheduledRooms", "", false], (d) => {
+              return {
+                scheduledRooms: [
+                  {
+                    roomId: null,
+                    creator: conn.user!,
+                    creatorId: conn.user!.id,
+                    description: srData.description,
+                    id: resp.scheduledRoom.id,
+                    name: srData.name,
+                    numAttending: 0,
+                    scheduledFor: srData.scheduledFor.toISOString(),
+                  },
+                  ...(d?.scheduledRooms || []),
+                ],
+                nextCursor: d?.nextCursor,
+              };
+            });
+          }}
           onRequestClose={() => setShowCreateScheduleRoomModal(false)}
         />
       ) : null}
@@ -50,7 +74,20 @@ export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({}
         bottom={
           <UpcomingRoomsCard
             onCreateScheduledRoom={() => setShowCreateScheduleRoomModal(true)}
-            rooms={[]}
+            rooms={
+              data?.scheduledRooms.slice(0, 3).map((sr) => ({
+                onClick: () => {
+                  push(`/scheduled-room/[id]`, `/scheduled-room/${sr.id}`);
+                },
+                id: sr.id,
+                scheduledFor: new Date(sr.scheduledFor),
+                title: sr.name,
+                speakersInfo: {
+                  avatars: [sr.creator.avatarUrl],
+                  speakers: [sr.creator.username],
+                },
+              })) || []
+            }
           />
         }
       />

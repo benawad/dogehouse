@@ -1,11 +1,11 @@
+import { number, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react-native";
 import React from "react";
-import { ScrollView, Text, View } from "react-native";
-import CenterView from "./CenterView";
-import { number, text } from "@storybook/addon-knobs";
+import { ScrollView, Text } from "react-native";
 import { FeaturedRoomCard } from "../../src/components/FeaturedRoomCard";
 import { Tag } from "../../src/components/Tag";
 import { smallBold } from "../../src/constants/dogeStyle";
+import CenterView from "./CenterView";
 
 const featuredRoomCardStories = storiesOf("FeaturedRoomCard", module);
 

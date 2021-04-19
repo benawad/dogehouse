@@ -1,0 +1,60 @@
+.electron-header {
+  width: 100%;
+  height: 30px;
+  background-color: var(--color-primary-700);
+  margin-bottom: 30px;
+  display: inline-flex;
+  align-items: stretch;
+  padding-left: 10px;
+  user-select: none;
+  position: fixed;
+  top: 0;
+}
+
+.default-desktop-layout {
+  margin-top: 30px;
+}
+
+.header-image-cont {
+  margin-top: 6px;
+  display: block;
+  -webkit-app-region: drag;
+}
+.header-drag-region {
+  -webkit-app-region: drag;
+}
+.header-title {
+  margin-top: 5px;
+  padding-left: 5px;
+  color: #fd4d4d;
+  font-size: small;
+  font-weight: 700;
+  font-family: "Inter";
+  -webkit-app-region: drag;
+}
+
+.header-icons {
+  color: #ffffff;
+}
+.header-icons-mac {
+  margin-top: 9.5px;
+  margin-left: 5px;
+}
+
+.red-mac-button {
+  color: #4c0000;
+  background-color: #fd605b;
+}
+.green-mac-button {
+  color: #006500;
+  background-color: #32ca51;
+}
+.yellow-mac-button {
+  color: #975500;
+  background-color: #fdbc47;
+}
+
+.mac-buttons {
+  height: 12px;
+  width: 12px;
+}

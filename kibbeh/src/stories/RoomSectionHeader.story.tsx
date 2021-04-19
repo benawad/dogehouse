@@ -9,7 +9,7 @@ export default {
 
 const TheRoomSectionHeader: Story<RoomCardHeadingProps> = () => {
   return (
-    <div className="flex flex-col space-y-5">
+    <div className="flex flex flex-col space-y-5">
       <RoomSectionHeader tagText="17" title="Speakers" />
     </div>
   );

@@ -1,12 +1,10 @@
-import { action } from "@storybook/addon-actions";
+// the boolean knob renders a switch which lets you toggle a value between true or false
+// you call it like boolean("name here", default_value)
+import { boolean, radios, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react-native";
 import React from "react";
 import { View } from "react-native";
-import { Button } from "../../src/components/buttons/Buttons";
-
-// the boolean knob renders a switch which lets you toggle a value between true or false
-// you call it like boolean("name here", default_value)
-import { boolean, radios, withKnobs, text } from "@storybook/addon-knobs";
+import { Button } from "../../src/components/buttons/Button";
 import { colors } from "../../src/constants/dogeStyle";
 import CenterView from "./CenterView";
 

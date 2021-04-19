@@ -1,7 +1,7 @@
 import { storiesOf } from "@storybook/react-native";
 import React from "react";
-import CenterView from "./CenterView";
 import { LiveNotification } from "../../src/components/notifications/LiveNotification";
+import CenterView from "./CenterView";
 
 const buttonStories = storiesOf("LiveNotification", module);
 

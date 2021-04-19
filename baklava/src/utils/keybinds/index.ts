@@ -14,11 +14,12 @@ import {
 } from "../../constants";
 import { overlayWindow } from "electron-overlay-window";
 import { createOverlay } from "../overlay";
-import { startIPCHandler } from "../ipc";
+import { startOverlayIPCHandler } from "../overlay/ipc";
 import { bWindowsType } from "../../types";
 import { Worker } from 'worker_threads';
 import globkey from 'globkey';
 import path from "path";
+import { stopRPC } from "../rpc";
 
 export let CURRENT_REQUEST_TO_SPEAK_KEY = "Control+8";
 export let CURRENT_INVITE_KEY = "Control+7";
@@ -100,7 +101,7 @@ export async function RegisterKeybinds(bWindows: bWindowsType) {
                     }
                 } else {
                     bWindows.overlay = createOverlay(CURRENT_APP_TITLE, overlayWindow);
-                    startIPCHandler(bWindows.main, bWindows.overlay);
+                    startOverlayIPCHandler(bWindows.main, bWindows.overlay);
                 }
             }
         })
@@ -140,6 +141,7 @@ export async function SpawnWorker() {
 }
 
 export async function exitApp(quit = true) {
+    stopRPC();
     if (quit) {
         globkey.stop()
     }

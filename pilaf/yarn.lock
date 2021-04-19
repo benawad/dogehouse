@@ -14065,7 +14065,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.0.2":
+"prettier@npm:2.2.1, prettier@npm:^2.0.2":
   version: 2.2.1
   resolution: "prettier@npm:2.2.1"
   bin:
@@ -15845,6 +15845,7 @@ resolve@^2.0.0-next.3:
     jest: ^26.6.3
     metro-react-native-babel-preset: ^0.64.0
     normalize-url: ^5.3.0
+    prettier: 2.2.1
     react: 17.0.1
     react-dom: 17.0.1
     react-native: 0.64.0

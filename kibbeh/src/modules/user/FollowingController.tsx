@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { SolidFriends } from "../../icons";
 import { isServer } from "../../lib/isServer";
 import { ApiPreloadLink } from "../../shared-components/ApiPreloadLink";
+import { useConn } from "../../shared-hooks/useConn";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
@@ -28,6 +29,8 @@ const Page = ({
   isOnlyPage: boolean;
   onLoadMore: (o: number) => void;
 }) => {
+  const conn = useConn();
+
   const {
     mutateAsync,
     isLoading: followLoading,
@@ -66,57 +69,59 @@ const Page = ({
   return (
     <>
       {data.users.map((user) => (
-        <div key={user.id} className="items-center mb-6">
-          <div>
+        <div key={user.id} className="flex items-center mb-6">
+          <div className="flex">
             <SingleUser size="md" src={user.avatarUrl} />
           </div>
-          <div className="px-4 flex-1">
+          <div className="flex px-4 flex-1">
             <ApiPreloadLink route="profile" data={{ username: user.username }}>
-              <div className="flex-col w-full">
+              <div className="flex flex-col w-full">
                 <p className="block max-w-md text-primary-100 truncate w-full">
                   {user.displayName}
                 </p>
-                <div className="text-primary-200">@{user.username}</div>
+                <div className="flex text-primary-200">@{user.username}</div>
               </div>
             </ApiPreloadLink>
           </div>
-          <div className="block">
-            <Button
-              loading={followLoading && variables?.[0] === user.id}
-              onClick={async () => {
-                await mutateAsync([user.id, !user.youAreFollowing]);
-                updater(["getFollowList", ...vars], (x) =>
-                  !x
-                    ? x
-                    : {
-                        ...x,
-                        users: x.users.map((u) =>
-                          u.id === user.id
-                            ? {
-                                ...u,
-                                numFollowers:
-                                  u.numFollowers +
-                                  (user.youAreFollowing ? -1 : 1),
-                                youAreFollowing: !user.youAreFollowing,
-                              }
-                            : u
-                        ),
-                      }
-                );
-              }}
-              size="small"
-              color={user.youAreFollowing ? "secondary" : "primary"}
-              icon={user.youAreFollowing ? null : <SolidFriends />}
-            >
-              {user.youAreFollowing
-                ? t("pages.viewUser.unfollow")
-                : t("pages.viewUser.followHim")}
-            </Button>
+          <div className="flex block">
+            {conn.user.username !== user.username && (
+              <Button
+                loading={followLoading && variables?.[0] === user.id}
+                onClick={async () => {
+                  await mutateAsync([user.id, !user.youAreFollowing]);
+                  updater(["getFollowList", ...vars], (x) =>
+                    !x
+                      ? x
+                      : {
+                          ...x,
+                          users: x.users.map((u) =>
+                            u.id === user.id
+                              ? {
+                                  ...u,
+                                  numFollowers:
+                                    u.numFollowers +
+                                    (user.youAreFollowing ? -1 : 1),
+                                  youAreFollowing: !user.youAreFollowing,
+                                }
+                              : u
+                          ),
+                        }
+                  );
+                }}
+                size="small"
+                color={user.youAreFollowing ? "secondary" : "primary"}
+                icon={user.youAreFollowing ? null : <SolidFriends />}
+              >
+                {user.youAreFollowing
+                  ? t("pages.viewUser.unfollow")
+                  : t("pages.viewUser.followHim")}
+              </Button>
+            )}
           </div>
         </div>
       ))}
       {isLastPage && data.nextCursor ? (
-        <div className={`flex justify-center py-5`}>
+        <div className={`flex flex justify-center py-5`}>
           <Button
             size="small"
             onClick={() => {

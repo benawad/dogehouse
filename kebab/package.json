@@ -2,7 +2,7 @@
   "name": "@dogehouse/kebab",
   "author": "Ilya Maximov <mail@overlisted.net> (https://overlisted.net)",
   "bugs": "https://github.com/benawad/dogehouse/issues",
-  "version": "0.2.4",
+  "version": "0.2.6",
   "license": "MIT",
   "keywords": [
     "dogehouse"
@@ -14,6 +14,7 @@
     "build": "tsc",
     "watch": "tsc -w",
     "lint": "eslint src/",
+    "test": "jest",
     "postinstall": "npm run build"
   },
   "publishConfig": {
@@ -21,7 +22,7 @@
   },
   "dependencies": {
     "@types/uuid": "^8.3.0",
-    "@types/ws": "^7.4.0",
+    "@types/ws": "^7.4.1",
     "isomorphic-ws": "^4.0.1",
     "mediasoup-client": "^3.6.29",
     "reconnecting-websocket": "^4.4.0",
@@ -29,9 +30,12 @@
     "ws": "^7.4.4"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.19.0",
-    "@typescript-eslint/parser": "^4.19.0",
-    "eslint": "^7.23.0",
-    "typescript": "^4.2.3"
+    "@types/jest": "^26.0.22",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.24.0",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.4",
+    "typescript": "^4.2.4"
   }
 }

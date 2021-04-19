@@ -25,7 +25,8 @@ export const MainInnerGrid: React.FC<DashboardGridProps> = ({
 
   return (
     <div
-      className={`${myClassName} ${className}`}
+      id="main"
+      className={`relative ${myClassName} ${className}`}
       style={{
         display: screenType === "fullscreen" ? "flex" : "grid",
         gridTemplateColumns,
@@ -40,7 +41,7 @@ export const MainInnerGrid: React.FC<DashboardGridProps> = ({
 export const MainGrid: React.FC<DashboardGridProps> = ({ children }) => {
   return (
     <div
-      className={`flex justify-center w-full min-h-screen bg-primary-900`}
+      className={`flex flex justify-center w-full min-h-screen bg-primary-900`}
       data-testid="main-grid"
     >
       <MainInnerGrid>{children}</MainInnerGrid>

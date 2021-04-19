@@ -1,5 +1,4 @@
 import { Wrapper } from "@dogehouse/kebab";
-import { Connection } from "@dogehouse/kebab/lib/raw";
 import { useMuteStore } from "../global-stores/useMuteStore";
 import { useWrappedConn } from "./useConn";
 

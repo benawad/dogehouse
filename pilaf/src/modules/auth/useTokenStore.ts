@@ -2,15 +2,15 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import create from "zustand";
 import { combine } from "zustand/middleware";
-
+import { accessToken, refreshToken } from "../../../tokens";
 const accessTokenKey = "@toum/token";
 const refreshTokenKey = "@toum/refresh-token";
 
 export const useTokenStore = create(
   combine(
     {
-      accessToken: undefined,
-      refreshToken: undefined,
+      accessToken,
+      refreshToken,
     },
     (set) => ({
       setTokens: async (x: { accessToken: string; refreshToken: string }) => {

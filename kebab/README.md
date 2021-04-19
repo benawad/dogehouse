@@ -1,4 +1,4 @@
-# dogehouse-client
+# Kebab
 Client-side implementation of DogeHouse API.
 
 ## Usage

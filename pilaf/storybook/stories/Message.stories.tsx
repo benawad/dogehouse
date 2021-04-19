@@ -1,13 +1,6 @@
-import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react-native";
 import React from "react";
-import { View } from "react-native";
 import { MessageElement } from "../../src/components/MessageElement";
-
-// the boolean knob renders a switch which lets you toggle a value between true or false
-// you call it like boolean("name here", default_value)
-import { boolean, radios, withKnobs, text } from "@storybook/addon-knobs";
-import { colors } from "../../src/constants/dogeStyle";
 import CenterView from "./CenterView";
 
 const buttonStories = storiesOf("MessageElement", module);

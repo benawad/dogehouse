@@ -69,6 +69,9 @@
             ipcRenderer.on('skipCheck', () => {
                 header.textContent = locale.skipCheck;
             });
+            ipcRenderer.on('notfound', () => {
+                header.textContent = locale.notfound;
+            });
         </script>
     </div>
 </body>

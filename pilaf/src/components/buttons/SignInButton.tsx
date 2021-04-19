@@ -3,21 +3,13 @@ import {
   Alert,
   Image,
   Linking,
-  StyleProp,
   StyleSheet,
   Text,
   TouchableOpacity,
   ViewProps,
-  ViewStyle,
 } from "react-native";
 import InAppBrowser from "react-native-inappbrowser-reborn";
-import {
-  colors,
-  fontFamily,
-  paragraph,
-  paragraphBold,
-  radius,
-} from "../../constants/dogeStyle";
+import { colors, paragraphBold, radius } from "../../constants/dogeStyle";
 import { apiBaseUrl } from "../../constants/env";
 
 type Provider = "google" | "twitter" | "github" | "apple";
@@ -30,7 +22,7 @@ const onPress = async (provider: Provider) => {
       provider +
       "/web?redirect_after_base=dogehouse://home";
     if (await InAppBrowser.isAvailable()) {
-      const result = await InAppBrowser.open(url, {
+      await InAppBrowser.open(url, {
         // iOS Properties
         dismissButtonStyle: "cancel",
         preferredBarTintColor: colors.primary900,
@@ -55,7 +47,9 @@ const onPress = async (provider: Provider) => {
           endExit: "slide_out_right",
         },
       });
-    } else Linking.openURL(url);
+    } else {
+      Linking.openURL(url);
+    }
   } catch (error) {
     Alert.alert(error.message);
   }

@@ -1,6 +1,10 @@
 import PushNotificationIOS from "@react-native-community/push-notification-ios";
-import PushNotification from "react-native-push-notification";
-import * as RootNavigation from "../navigators/RootNavigation";
+import { Platform } from "react-native";
+import PushNotification, {
+  PushNotificationObject,
+  PushNotificationPermissions,
+} from "react-native-push-notification";
+import * as RootNavigation from "../navigation/RootNavigation";
 
 export const configureNotificationCenter = () => {
   // Must be outside of any component LifeCycle (such as `componentDidMount`).
@@ -58,22 +62,40 @@ export const configureNotificationCenter = () => {
      * - if you are not using remote notification or do not have Firebase installed, use this:
      *     requestPermissions: Platform.OS === 'ios'
      */
-    requestPermissions: true,
+    requestPermissions: false,
   });
 
-  PushNotificationIOS.setNotificationCategories([
-    {
-      id: "room_created",
-      actions: [
-        { id: "join", title: "Join the room", options: { foreground: true } },
-        {
-          id: "ignore",
-          title: "Ignore",
-          options: { foreground: true, destructive: true },
-        },
-      ],
-    },
-  ]);
+  if (Platform.OS === "ios") {
+    PushNotificationIOS.setNotificationCategories([
+      {
+        id: "room_created",
+        actions: [
+          { id: "join", title: "Join the room", options: { foreground: true } },
+          {
+            id: "ignore",
+            title: "Ignore",
+            options: { foreground: true, destructive: true },
+          },
+        ],
+      },
+    ]);
+  }
+};
+
+const pushPermissionSafe = (notification: PushNotificationObject) => {
+  PushNotification.checkPermissions(
+    (permission: PushNotificationPermissions) => {
+      if (permission.alert) {
+        PushNotification.localNotification(notification);
+      } else {
+        PushNotification.requestPermissions()
+          .then((value: PushNotificationPermissions) => {
+            PushNotification.localNotification(notification);
+          })
+          .catch((reason: any) => {});
+      }
+    }
+  );
 };
 
 export const pushRoomCreateNotification = (
@@ -81,7 +103,7 @@ export const pushRoomCreateNotification = (
   roomName: string,
   roomId: string
 ) => {
-  PushNotification.localNotification({
+  pushPermissionSafe({
     id: 0,
     title: username + " created a room",
     message: roomName,
@@ -97,7 +119,7 @@ export const pushRoomInvitationNotification = (
   roomName: string,
   roomId: string
 ) => {
-  PushNotification.localNotification({
+  pushPermissionSafe({
     id: 0,
     title: username + " invites you",
     message: "Room: " + roomName,

@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Feed should match snapshot 1`] = `
-<div
+<div className="flex"
   class="flex-1 flex-col"
   data-testid="feed"
 >
-  <div
+  <div className="flex"
     class="justify-between items-end mb-5"
   >
     <h4
@@ -24,10 +24,10 @@ exports[`Feed should match snapshot 1`] = `
       </span>
     </button>
   </div>
-  <div
+  <div className="flex"
     class="flex-col space-y-4"
   >
-    <div>
+    <div className="flex">
       Empty
     </div>
   </div>

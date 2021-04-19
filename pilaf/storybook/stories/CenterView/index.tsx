@@ -1,5 +1,5 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import { StyleSheet, View } from "react-native";
 import { colors } from "../../../src/constants/dogeStyle";
 

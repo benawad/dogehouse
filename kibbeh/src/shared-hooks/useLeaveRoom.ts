@@ -12,7 +12,7 @@ export const useLeaveRoom = () => {
     leaveRoom: useCallback(() => {
       if (isElectron()) {
         const ipcRenderer = window.require("electron").ipcRenderer;
-        ipcRenderer.send("@voice/active", false);
+        ipcRenderer.send("@room/joined", false);
       }
       mutateAsync([]);
       useCurrentRoomIdStore.getState().setCurrentRoomId(null);

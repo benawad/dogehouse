@@ -1,15 +1,18 @@
 import { ScheduledRoom } from "@dogehouse/kebab";
 import { differenceInMilliseconds, isPast, isToday, sub } from "date-fns";
 import { useRouter } from "next/router";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
+import { SolidCalendar, SolidRocket } from "../../icons";
 import { modalConfirm } from "../../shared-components/ConfirmModal";
-import { useConn } from "../../shared-hooks/useConn";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
+import { BoxedIcon } from "../../ui/BoxedIcon";
 import { Button } from "../../ui/Button";
 import { SingleUser } from "../../ui/UserAvatar";
-import { AddToCalendarButton } from "./AddToCalendarButton";
+import { WebSocketContext } from "../ws/WebSocketProvider";
+import AddToCalendar from "./AddToCalendar";
 import { CopyScheduleRoomLinkButton } from "./CopyScheduleRoomLinkButton";
+import { Edit, Trash } from "react-feather";
 
 interface ScheduledRoomCardProps {
   onEdit: () => void;
@@ -56,87 +59,93 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
       }
     };
   }, [dt]);
-  const me = useConn().user;
+  const { conn } = useContext(WebSocketContext);
+  const me = conn?.user;
   const { t } = useTypeSafeTranslation();
   const isCreator = me?.id === creator.id;
   const url = window.location.origin + `/scheduled-room/${id}`;
   return (
-    <div>
+    <div className="flex">
       <div
-        className={`p-4 w-full bg-primary-800 rounded-lg flex flex-col text-primary-100`}
+        className={`p-4 w-full text-base bg-primary-800 rounded-lg flex flex-col text-primary-100`}
       >
         <div className={`flex justify-between`}>
-          <div>
-            {isToday(dt)
-              ? t("common.formattedIntlTime", { time: dt })
-              : t("common.formattedIntlDate", { date: dt })}
-          </div>
-          {isCreator ? (
-            <div className={`flex`}>
-              <Button size="small" onClick={() => onEdit()}>
-                {t("common.edit")}
-              </Button>
-              <div className={`ml-4`}>
-                <Button
-                  loading={isLoading}
-                  size="small"
-                  onClick={() =>
-                    modalConfirm(
-                      "Are you sure you want to delete this scheduled room?",
-                      () => {
-                        mutateAsync([id]);
-                      }
-                    )
-                  }
-                >
-                  {t("common.delete")}
-                </Button>
-              </div>
+          <div className="flex w-full">
+            <div className="flex flex-1 font-bold text-ellipsis overflow-hidden break-all mb-4">
+              {name}
             </div>
-          ) : null}
+            <div className="flex gap-2">
+              <AddToCalendar
+                event={{
+                  name,
+                  details: description,
+                  location: url,
+                  startsAt: dt.toISOString(),
+                  endsAt: new Date(
+                    dt.getTime() + 1 * 60 * 60 * 1000
+                  ).toISOString(),
+                }}
+                filename={name}
+              >
+                {(toggle) => (
+                  <BoxedIcon onClick={toggle}>
+                    <SolidCalendar />
+                  </BoxedIcon>
+                )}
+              </AddToCalendar>
+              {noCopyLinkButton ? null : (
+                <CopyScheduleRoomLinkButton text={url} />
+              )}
+              {isCreator ? (
+                <>
+                  <BoxedIcon onClick={() => onEdit()}>
+                    <Edit size={18} />
+                  </BoxedIcon>
+                  <BoxedIcon
+                    onClick={() =>
+                      modalConfirm(
+                        "Are you sure you want to delete this scheduled room?",
+                        () => {
+                          mutateAsync([id]);
+                        }
+                      )
+                    }
+                  >
+                    <Trash size={18} />
+                  </BoxedIcon>
+                </>
+              ) : null}
+            </div>
+          </div>
         </div>
-        <div className={`flex justify-between my-4`}>
-          <div className="flex-col">
-            <div
-              className={`relative inline-flex`} /* this is to aline the avatar and room name */
-            >
-              <SingleUser size="sm" src={creator.avatarUrl} />
+        <div className={`flex justify-between`}>
+          <div className="flex flex-col">
+            <div className={`relative inline-flex mb-4`}>
+              <SingleUser size="xs" src={creator.avatarUrl} />
               <div
                 style={{
                   display: "-webkit-box",
                   WebkitBoxOrient: "vertical",
                   WebkitLineClamp: 3,
                 }}
-                className={`ml-2 text-left flex-1 text-xl text-simple-gray-d9 text-ellipsis overflow-hidden break-all`}
+                className={`ml-2 text-left flex-1`}
               >
-                {name.slice(0, 100)}
+                {creator.displayName}
               </div>
             </div>
-            <div className={`break-all`}>
-              {creator.displayName}
+            <div className={`inline break-all`}>
+              <span className="text-accent">
+                {isToday(dt)
+                  ? t("common.formattedIntlTime", { time: dt })
+                  : t("common.formattedIntlDate", { date: dt })}
+              </span>
               {description ? ` | ` + description : ``}
             </div>
-          </div>
-          <div>
-            <AddToCalendarButton
-              event={{
-                name,
-                details: description,
-                location: url,
-                startsAt: dt.toISOString(),
-                endsAt: new Date(
-                  dt.getTime() + 1 * 60 * 60 * 1000
-                ).toISOString(),
-              }}
-            />
-            {noCopyLinkButton ? null : (
-              <CopyScheduleRoomLinkButton text={url} />
-            )}
           </div>
         </div>
 
         {canStartRoom ? (
-          <div className={`mt-4`}>
+          <div className={`flex mt-4`}>
             {isCreator ? (
               <Button
                 loading={isLoadingStartRoom}

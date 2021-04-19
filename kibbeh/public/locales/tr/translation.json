@@ -58,7 +58,8 @@
       "featureText_6": "Doge tarafından desteklenmektedir",
       "loginGithub": "GitHub ile giriş yap",
       "loginTwitter": "Twitter ile giriş yap",
-      "createTestUser": "Test kullanıcısı oluştur"
+      "createTestUser": "Test kullanıcısı oluştur",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Çıkış yap",
@@ -66,7 +67,8 @@
       "voiceSettings": "Konuşma ayarlarına git",
       "soundSettings": "Ses ayarlarına git",
       "deleteAccount": "Hesabı sil",
-      "overlaySettings": "Kaplama ayarlarına git"
+      "overlaySettings": "Kaplama ayarlarına git",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Uups! Bu sayfa sohbette kayboldu.",
@@ -145,7 +147,8 @@
         "roomName": "Oda ismi",
         "roomDescription": "Oda açıklaması",
         "descriptionError": "Maksimum uzunluk 500",
-        "nameError": "2 ila 60 karakter uzunluğunda olmalıdır"
+        "nameError": "2 ila 60 karakter uzunluğunda olmalıdır",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Yeni oda oluşturuldu",
@@ -176,7 +179,8 @@
         "banFromRoom": "Odadan Yasakla",
         "goBackToListener": "Dinlemeye Geri Dön",
         "deleteMessage": "Mesajı Sil",
-        "makeRoomCreator": "Oda Yetkilisi Yap"
+        "makeRoomCreator": "Oda Yetkilisi Yap",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Konuşmak için izne ihtiyacın var",
@@ -207,6 +211,27 @@
     "inviteButton": {
       "invited": "Davet Edildi",
       "inviteToRoom": "Odaya Davet Et"
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
+      }
     }
   },
   "modules": {
@@ -248,6 +273,7 @@
       "approachingGalaxy": "Galaksi yaklaşıyor",
       "galacticDoge": "Galaktik doge'u",
       "spottedLife": "Yaşam tespit edilen gezegen"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

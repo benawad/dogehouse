@@ -1,6 +1,5 @@
 import { raw } from "@dogehouse/kebab";
 import React, { useEffect, useMemo, useState } from "react";
-import { apiBaseUrl } from "../../constants/env";
 import { useTokenStore } from "../auth/useTokenStore";
 
 interface WebSocketProviderProps {

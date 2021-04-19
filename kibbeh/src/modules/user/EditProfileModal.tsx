@@ -1,6 +1,7 @@
 import { BaseUser } from "@dogehouse/kebab";
 import { Form, Formik } from "formik";
-import React, { useContext } from "react";
+import isElectron from "is-electron";
+import React, { useContext, useEffect } from "react";
 import { useQueryClient } from "react-query";
 import { object, pattern, size, string } from "superstruct";
 import { FieldSpacer } from "../../form-fields/FieldSpacer";
@@ -38,6 +39,18 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
   const { conn, setUser } = useContext(WebSocketContext);
   const { mutateAsync, isLoading } = useTypeSafeMutation("editProfile");
   const { t } = useTypeSafeTranslation();
+
+  useEffect(() => {
+    if (isElectron()) {
+      const ipcRenderer = window.require("electron").ipcRenderer;
+      ipcRenderer.send("@rpc/page", {
+        page: "edit-profile",
+        opened: isOpen,
+        modal: true,
+        data: "",
+      });
+    }
+  }, [isOpen]);
 
   if (!conn) {
     return null;
@@ -115,7 +128,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                 textarea
                 name="bio"
               />
-              <div className={`flex pt-2 items-center`}>
+              <div className={`flex flex pt-2 items-center`}>
                 <Button loading={isSubmitting} type="submit" className={`mr-3`}>
                   {t("common.save")}
                 </Button>
