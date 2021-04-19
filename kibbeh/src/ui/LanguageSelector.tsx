@@ -9,7 +9,6 @@ interface LanguageSelectorProps {
 }
 
 export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
-  children,
   onClose,
 }) => {
   const options = [
@@ -86,12 +85,11 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   ];
 
   const { i18n } = useTranslation();
-  console.log("Using: ", i18n.language);
 
   const parsedOptions = options.map((e, i) => (
     <SettingsIcon
       key={e.value + i}
-      classes={`text-primary-100 focus:outline-no-chrome${
+      classes={`text-primary-100 focus:outline-no-chrome whitespace-nowrap overflow-ellipsis${
         i18n.language === e.value ||
         (e.value === "en" && i18n.language === "en-US")
           ? " bg-primary-700"
