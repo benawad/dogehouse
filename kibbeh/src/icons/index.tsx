@@ -39,3 +39,6 @@ export { default as SolidInstagram } from "./SolidInstagram";
 export { default as ShareIcon } from "./Share";
 export { default as TwitterIcon } from "./SolidTwitter";
 export { default as LinkIcon } from "./Link";
+export { default as SolidTrash } from "./SolidTrash";
+export { default as SolidMoon } from "./SolidMoon";
+export { default as SolidWarning } from "./SolidWarning";
