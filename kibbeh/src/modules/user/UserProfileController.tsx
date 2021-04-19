@@ -2,9 +2,11 @@ import isElectron from "is-electron";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { isServer } from "../../lib/isServer";
+import { usePreloadPush } from "../../shared-components/ApiPreloadLink";
 import { useConn } from "../../shared-hooks/useConn";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
+import { useTypeSafeUpdateQuery } from "../../shared-hooks/useTypeSafeUpdateQuery";
 import { Button } from "../../ui/Button";
 import { CenterLoader } from "../../ui/CenterLoader";
 import { InfoText } from "../../ui/InfoText";
@@ -19,6 +21,7 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
   const [open, setOpen] = useState(false);
   const conn = useConn();
   const { t } = useTypeSafeTranslation();
+  const preloadPush = usePreloadPush();
   const { push } = useRouter();
   const { query } = useRouter();
   const { data, isLoading } = useTypeSafeQuery(
@@ -30,6 +33,7 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
     },
     [query.username as string]
   );
+  const update = useTypeSafeUpdateQuery();
 
   // commented this out as rn this shows up all the time
   useEffect(() => {
@@ -67,10 +71,21 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
         user={data}
       />
       {data.id === conn.user.id && (
-        <div className={`flex pt-6 flex`}>
+        <div className={`pt-6 flex`}>
           <EditProfileModal
             isOpen={open}
             onRequestClose={() => setOpen(false)}
+            onEdit={(d) => {
+              update(["getUserProfile", d.username], (x) =>
+                !x ? x : { ...x, ...d }
+              );
+              if (d.username !== data.username) {
+                preloadPush({
+                  route: "profile",
+                  data: { username: d.username },
+                });
+              }
+            }}
           />
           <Button
             style={{ marginRight: "10px" }}
