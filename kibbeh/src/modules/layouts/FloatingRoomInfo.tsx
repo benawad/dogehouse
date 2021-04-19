@@ -3,13 +3,14 @@ import React from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useDeafStore } from "../../global-stores/useDeafStore";
-import { SolidMicrophone } from "../../icons";
+import { SolidMicrophone, SolidVolume } from "../../icons";
 import SvgSolidMicrophoneOff from "../../icons/SolidMicrophoneOff";
 import { useCurrentRoomInfo } from "../../shared-hooks/useCurrentRoomInfo";
 import { useSetMute } from "../../shared-hooks/useSetMute";
 import { useSetDeaf } from "../../shared-hooks/useSetDeaf";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { BoxedIcon } from "../../ui/BoxedIcon";
+import SvgSolidVolumeOff from "../../icons/SolidVolumeOff";
 
 interface MinimizedRoomCardControllerProps {}
 
@@ -68,9 +69,9 @@ export const FloatingRoomInfo: React.FC<MinimizedRoomCardControllerProps> = () =
             className={deafened ? "bg-accent" : ""}
           >
             {deafened ? (
-              <SvgSolidMicrophoneOff data-testid="mic-off-icon" />
+              <SvgSolidVolumeOff data-testid="mic-off-icon" />
             ) : (
-              <SolidMicrophone data-testid="mic-icon" />
+              <SolidVolume data-testid="mic-icon" />
             )}
           </BoxedIcon>
         </div>

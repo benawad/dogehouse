@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { Button } from "./Button";
 import { DurationTicker } from "./DurationTicker";
 import SvgSolidMicrophoneOff from "../icons/SolidMicrophoneOff";
+import SvgSolidVolumeOff from "../icons/SolidVolumeOff";
 
 export interface MinimizedRoomCardProps {
   onFullscreenClick?: () => void;
@@ -71,19 +72,13 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
                 className={room.myself.isDeafened ? "bg-accent" : ""}
               >
                 {room.myself.isDeafened ? (
-                  <SvgSolidMicrophoneOff data-testid="mic-off-icon" />
+                  <SvgSolidVolumeOff data-testid="speaker-off-icon" />
                 ) : (
-                  <SolidMicrophone data-testid="mic-icon" />
+                  <SolidVolume data-testid="speaker-icon" />
                 )}
               </BoxedIcon>
             </>
           ) : null}
-          {/* <BoxedIcon
-            onClick={room.myself.switchDeafened}
-            className={room.myself.isDeafened ? "bg-accent" : ""}
-          >
-            <SolidVolume />
-          </BoxedIcon> */}
           <BoxedIcon transition onClick={onFullscreenClick}>
             <SolidFullscreen />
           </BoxedIcon>

@@ -96,7 +96,7 @@ defmodule Onion.UserSession do
 
   defp set_deaf_impl(value, state = %{current_room_id: current_room_id}) do
     if current_room_id do
-      Onion.RoomSession.deaf(current_room_id, state.user_id, value)
+      Onion.RoomSession.deafen(current_room_id, state.user_id, value)
     end
 
     {:noreply, %{state | deafened: value}}

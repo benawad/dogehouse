@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { SolidMicrophoneOff } from "../../icons";
+import SolidVolumeOff from "../../icons/SolidVolumeOff";
 
 export const avatarSizeMap = {
   default: "80px",
@@ -133,10 +134,7 @@ export const SingleUser: React.FC<AvatarProps> = ({
           style={{ ...sizeStyle, padding: 2 }}
           data-testid="online-indictor"
         >
-          <SolidMicrophoneOff
-            width={sizeStyle.width}
-            height={sizeStyle.width}
-          />
+          <SolidVolumeOff width={sizeStyle.width} height={sizeStyle.width} />
         </span>
       )}
     </div>

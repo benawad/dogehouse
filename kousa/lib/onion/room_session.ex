@@ -182,7 +182,7 @@ defmodule Onion.RoomSession do
     {:noreply, %State{state | muteMap: new_mm, deafMap: new_dm}}
   end
 
-  def add_speaker(room_id, user_id, muted?, deafened?) when is_boolean(muted?) && is_boolean(deafened?) do
+  def add_speaker(room_id, user_id, muted?, deafened?) when is_boolean(muted?) and is_boolean(deafened?) do
     cast(room_id, {:add_speaker, user_id, muted?, deafened?})
   end
 
@@ -217,7 +217,7 @@ defmodule Onion.RoomSession do
   end
 
   def join_room(room_id, user_id, mute, deafen, opts \\ [])
-      when is_boolean(mute) && is_boolean(deafen) do
+      when is_boolean(mute) and is_boolean(deafen) do
     cast(room_id, {:join_room, user_id, mute, deafen, opts})
   end
 

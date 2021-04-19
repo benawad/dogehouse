@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useGlobalVolumeStore } from "../../../global-stores/useGlobalVolumeStore";
 import { Button } from "../../../ui/Button";
 import { useConsumerStore } from "../stores/useConsumerStore";
-
+import { useDeafStore } from "../../../global-stores/useDeafStore";
 interface AudioRenderProps {}
 
 const MyAudio = ({
@@ -24,7 +24,6 @@ const MyAudio = ({
       myRef.current.volume = volume;
     }
   }, [volume]);
-
   return (
     <audio
       ref={(r) => {
@@ -63,7 +62,7 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
   const { volume: globalVolume } = useGlobalVolumeStore();
   const { consumerMap } = useConsumerStore();
   const audioRefs = useRef<[string, HTMLAudioElement][]>([]);
-
+  const { deafened } = useDeafStore();
   return (
     <>
       <div
@@ -91,7 +90,9 @@ export const AudioRender: React.FC<AudioRenderProps> = () => {
               const { consumer, volume: userVolume, debug } = consumerMap[k];
               return (
                 <MyAudio
-                  volume={(userVolume / 200) * (globalVolume / 100)}
+                  volume={
+                    deafened ? 0 : (userVolume / 200) * (globalVolume / 100)
+                  }
                   // autoPlay
                   playsInline
                   controls={false}

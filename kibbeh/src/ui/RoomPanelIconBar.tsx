@@ -6,6 +6,8 @@ import {
   SolidMicrophone,
   SolidMicrophoneOff,
   SolidSettings,
+  SolidVolume,
+  SolidVolumeOff,
 } from "../icons";
 import { useScreenType } from "../shared-hooks/useScreenType";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
@@ -61,7 +63,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
             title={t("components.bottomVoiceControl.toggleDeafMicBtn")}
             onClick={() => deaf.onDeaf()}
           >
-            {deaf.isDeaf ? <SolidMicrophoneOff /> : <SolidMicrophone />}
+            {deaf.isDeaf ? <SolidVolumeOff /> : <SolidVolume />}
           </BoxedIcon>
         ) : null}
         {onInvitePeopleToRoom ? (
