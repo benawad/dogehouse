@@ -41,8 +41,6 @@ defmodule Broth.Message.Auth.Request do
       field(:bio, :string, default: "")
       field(:currentRoomId, :binary_id)
     end
-
-    def tag, do: "auth:request:reply"
   end
 
   @impl true

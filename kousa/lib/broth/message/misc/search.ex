@@ -57,8 +57,6 @@ defmodule Broth.Message.Misc.Search do
       embeds_many(:items, SearchItem)
       field(:nextCursor, :integer)
     end
-
-    def tag, do: "misc:search:reply"
   end
 
   alias Kousa.Search
