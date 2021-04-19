@@ -71,6 +71,7 @@ module.exports = {
     borderWidth: {
       DEFAULT: "1px",
       0: "0px",
+      2: "2px"
     },
     extend: {
       borderRadius: {
