@@ -104,7 +104,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
                   <BoxedIcon
                     onClick={() =>
                       modalConfirm(
-                        "Are you sure you want to delete this scheduled room?",
+                        t("modules.scheduledRooms.deleteModal.areYouSure"),
                         () => {
                           mutateAsync([id]);
                         }
