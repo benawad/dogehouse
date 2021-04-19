@@ -26,15 +26,17 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
         >
           {title}
         </button>
-        <button className="pb-2" onClick={() => setOpen(!open)}>
-          <SolidCaretRight
-            className={`ml-2 transform ${
-              open ? "-rotate-90" : "rotate-90"
-            } cursor-pointer`}
-            width={20}
-            height={20}
-          />
-        </button>
+        {description.trim().length > 0 && (
+          <button className="pb-2" onClick={() => setOpen(!open)}>
+            <SolidCaretRight
+              className={`ml-2 transform ${
+                open ? "-rotate-90" : "rotate-90"
+              } cursor-pointer`}
+              width={20}
+              height={20}
+            />
+          </button>
+        )}
       </div>
       <div className={`flex text-primary-200 text-sm`}>
         with{" "}
