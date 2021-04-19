@@ -21,7 +21,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Stumm | DogeHouse"
+    "mutedTitle": "Stumm | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -133,7 +134,10 @@
       "settings": "Einstellungen",
       "speaker": "Sprecher",
       "listener": "Zuhörer",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "micPermissionBanner": {
       "permissionDenied": "Wir haben keinen Zugriff auf dein Mikrofon. Öffne deine Browsereinstellungen, setze die nötigen Berechtigungen und lade die Seite erneut.",
@@ -198,7 +202,8 @@
       "listening": "Zuhören",
       "toggleMuteKeybind": "Stummschalttaste umschalten",
       "togglePushToTalkKeybind": "Push-to-Talk Tastenkürzel umschalten",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "wsKilled": {
       "description": "Die Websocket Verbindung zum Server wurde unterbrochen. Dies geschieht normalerweise, wenn du die Website in einem anderen Tab öffnest.",

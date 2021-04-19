@@ -21,7 +21,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "بی صدا | DogeHouse"
+    "mutedTitle": "بی صدا | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -133,7 +134,10 @@
       "settings": "تنظیمات",
       "speaker": "گویندگان",
       "listener": "شنوندگان",
-      "chat": "پیام"
+      "chat": "پیام",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": " دستگاه شما پشتیبانی نمیشود. شما میتوانید یک",
@@ -151,7 +155,8 @@
       "listening": "در حال گوش دادن",
       "toggleMuteKeybind": "کلید فعال/غیرفعال بی صدا",
       "togglePushToTalkKeybind": "کلید حرف زدن با فشردن دکمه",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "بدون مخاطب به دلایلی" },
     "addToCalendar": { "add": "اضافه کردن به تقویم" },

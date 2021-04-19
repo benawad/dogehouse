@@ -20,7 +20,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Isilik | DogeHouse"
+    "mutedTitle": "Isilik | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -30,18 +31,13 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "blokeatu"
-    },
+    "banUser": { "ban": "blokeatu" },
     "followingOnlineList": {
       "listHeader": "List of users that are not in a private room and you follow.",
       "currentRoom": "orain:",
       "startPrivateRoom": "hasi saio pribatu bat"
     },
-    "followList": {
-      "followHim": "Follow",
-      "followingHim": "Following"
-    },
+    "followList": { "followHim": "Follow", "followingHim": "Following" },
     "home": {
       "createRoom": "Gela Sortu",
       "editRoom": "Edit Room",
@@ -87,12 +83,8 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "bilatu..."
-    },
-    "soundEffectSettings": {
-      "header": "Soinuak"
-    },
+    "searchUser": { "search": "bilatu..." },
+    "soundEffectSettings": { "header": "Soinuak" },
     "viewUser": {
       "editProfile": "editatu profila",
       "followsYou": "jarraitzen zaitu",
@@ -141,7 +133,10 @@
       "settings": "Aukerak",
       "speaker": "Mintzatzaile",
       "listener": "Entzule",
-      "chat": "Txat"
+      "chat": "Txat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Gaur egun zure gailua ez da bateragarri. Sortu",
@@ -168,7 +163,8 @@
       "listening": "entzuten...",
       "toggleMuteKeybind": "Piztu/itzali isiltzeko tekla konbinazioa",
       "toggleOverlayKeybind": "Toggle overlay keybind",
-      "togglePushToTalkKeybind": "Piztu/itzali sakatu-hitz-egiteko tekla konbinazioa"
+      "togglePushToTalkKeybind": "Piztu/itzali sakatu-hitz-egiteko tekla konbinazioa",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "No audio consumer for some reason"
@@ -177,16 +173,12 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore more rooms"
     },
-    "addToCalendar": {
-      "add": "Egutegira gehitu"
-    },
+    "addToCalendar": { "add": "Egutegira gehitu" },
     "wsKilled": {
       "description": "Serbitzariak websocket-a ezabatu du. Hau gertatzen da web-orrialdea beste fitxa batean irekeitzen denean.",
       "reconnect": "berriro konektatu"
     },
-    "search": {
-      "placeholder": "Search for rooms, users or categories"
-    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
     "settingsDropdown": {
       "profile": "Profila",
       "language": "Hizkuntza",
@@ -250,9 +242,7 @@
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
-    "feed": {
-      "yourFeed": "Your feed"
-    },
+    "feed": { "yourFeed": "Your feed" },
     "scheduledRooms": {
       "title": "Gela programatuak",
       "noneFound": "ez da bakar bat ere aurkitu",

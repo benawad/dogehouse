@@ -21,7 +21,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Mykistetty | DogeHouse"
+    "mutedTitle": "Mykistetty | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -108,7 +109,7 @@
       "input": {
         "errorMsg": "Epäkelpo sovelluksen otsikko",
         "label": "Syötä sovelluksen otsikko"
-      }  
+      }
     }
   },
   "components": {
@@ -133,7 +134,10 @@
       "settings": "Asetukset",
       "speaker": "Puhuja",
       "listener": "Kuuntelija",
-      "chat": "Chatti"
+      "chat": "Chatti",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Käyttämääsi laitetta ei tueta. Voit luoda",
@@ -154,7 +158,8 @@
       "listening": "Odotetaan näppäintä",
       "toggleMuteKeybind": "Mikrofonin mykistys -pikanäppäin",
       "togglePushToTalkKeybind": "Push-to-talk-pikanäppäin",
-      "toggleOverlayKeybind": "Overlay-pikanäppäin"
+      "toggleOverlayKeybind": "Overlay-pikanäppäin",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "Ei äänen ulostulolaitteita" },
     "addToCalendar": { "add": "Lisää kalenteriin" },

@@ -21,7 +21,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muted | DogeHouse"
+    "mutedTitle": "Muted | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -133,7 +134,10 @@
       "settings": "සැකසුම්",
       "speaker": "Speaker",
       "listener": "Listener",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "ඔබගේ උපාංගය සහාය නොදක්වයි.ඔබට සැකසිය හැක",
@@ -154,7 +158,8 @@
       "listening": "listening",
       "toggleMuteKeybind": "keybind වල තත්වය වෙනස් කරන්න",
       "togglePushToTalkKeybind": "push-to-talk keybind වල තත්වය වෙනස් කරන්න",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "no audio consumer for some reason"

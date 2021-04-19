@@ -20,7 +20,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Bisu | DogeHouse"
+    "mutedTitle": "Bisu | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -129,7 +130,10 @@
       "settings": "Pengaturan",
       "speaker": "Pembicara",
       "listener": "Pendengar",
-      "chat": "Percakapan"
+      "chat": "Percakapan",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Perangkatmu saat ini belum didukung. Kamu bisa membuat",
@@ -150,7 +154,8 @@
       "listening": "Menunggu tombol",
       "toggleMuteKeybind": "Atur tombol untuk membisu",
       "togglePushToTalkKeybind": "Atur tombol klik-untuk-bicara",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "Perangkat audio tidak ditemukan" },
     "addToCalendar": { "add": "Tambahkan ke Kalender" },

@@ -20,7 +20,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Tystad | DogeHouse"
+    "mutedTitle": "Tystad | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -132,7 +133,10 @@
       "settings": "Inställningar",
       "speaker": "Talare",
       "listener": "Lyssnare",
-      "chat": "Chatt"
+      "chat": "Chatt",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "micPermissionBanner": {
       "permissionDenied": "Åtkomst nekad när vi försökte att ansluta till din mikrofon (du kan behöva gå till webbläsarinställningarna, tillåta att webläsaren tillåter din mikrofon och sedan ladda om sidan)",
@@ -207,7 +211,8 @@
       "listening": "Lyssnar",
       "toggleMuteKeybind": "Växla tystad kortkommando",
       "togglePushToTalkKeybind": "Växla tryck-för-tal kortkommando",
-      "toggleOverlayKeybind": "Växla overlay-keybind"
+      "toggleOverlayKeybind": "Växla overlay-keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "wsKilled": {
       "description": "WebSocket anslutningen blev nerstängd av servern. Detta händer oftast när du öppnar hemsidan i en annan flik.",

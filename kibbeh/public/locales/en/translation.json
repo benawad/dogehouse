@@ -21,7 +21,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muted | DogeHouse"
+    "mutedTitle": "Muted | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -136,8 +137,11 @@
       "inviteUsersToRoomBtn": "Invite Users to Room",
       "invite": "Invite",
       "toggleMuteMicBtn": "Toggle Mute",
+      "toggleDeafMicBtn": "Toggle Deafen",
       "mute": "Mute",
       "unmute": "Unmute",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen",
       "makeRoomPublicBtn": "Make Room Public!",
       "settings": "Settings",
       "speaker": "Speaker",
@@ -168,6 +172,7 @@
       "setKeybind": "Set Keybind",
       "listening": "Listening...",
       "toggleMuteKeybind": "Toggle mute keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind",
       "toggleOverlayKeybind": "Toggle overlay keybind",
       "togglePushToTalkKeybind": "Toggle push-to-talk keybind"
     },

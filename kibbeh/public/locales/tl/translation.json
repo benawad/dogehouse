@@ -20,7 +20,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muted | DogeHouse"
+    "mutedTitle": "Muted | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -30,18 +31,13 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "Ban"
-    },
+    "banUser": { "ban": "Ban" },
     "followingOnlineList": {
-      "listHeader": "Listahan nang mga users na hindi naka private at iyong sinundan", 
+      "listHeader": "Listahan nang mga users na hindi naka private at iyong sinundan",
       "currentRoom": "kasalukuyan nasa:",
       "startPrivateRoom": "magsimula ng isang pribadong silid sa kanila"
     },
-    "followList": {
-      "followHim": "I-follow",
-      "followingHim": "sinusubaybayan"
-    },
+    "followList": { "followHim": "I-follow", "followingHim": "sinusubaybayan" },
     "home": {
       "createRoom": "Bagong room",
       "editRoom": "Edit Room",
@@ -87,12 +83,8 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "maghanap..."
-    },
-    "soundEffectSettings": {
-      "header": "Tunog"
-    },
+    "searchUser": { "search": "maghanap..." },
+    "soundEffectSettings": { "header": "Tunog" },
     "viewUser": {
       "editProfile": "I-edit ang profile",
       "followsYou": "mga sumusunod sayo",
@@ -141,7 +133,10 @@
       "settings": "Mga Settings",
       "speaker": "Nagsasalita",
       "listener": "Nakikinig",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Pasensya na hindi pa supportado ang iyong device.",
@@ -168,7 +163,8 @@
       "listening": "nakikinig...",
       "toggleMuteKeybind": "I-toggle ang mute keybind",
       "toggleOverlayKeybind": "Toggle overlay keybind",
-      "togglePushToTalkKeybind": "I-toggle ang push-to-talk keybind"
+      "togglePushToTalkKeybind": "I-toggle ang push-to-talk keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Walang na detect na audio consumer"
@@ -177,16 +173,12 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore more rooms"
     },
-    "addToCalendar": {
-      "add": "Idagdag sa kalendaryo"
-    },
+    "addToCalendar": { "add": "Idagdag sa kalendaryo" },
     "wsKilled": {
       "description": "Pinatay ng server ang websocket. Karaniwang magyayari ito dahil naka bukas ang website sa ibang tab.",
       "reconnect": "kumonekta"
     },
-    "search": {
-      "placeholder": "Search for rooms, users or categories"
-    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",
@@ -250,9 +242,7 @@
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
-    "feed": {
-      "yourFeed": "Your feed"
-    },
+    "feed": { "yourFeed": "Your feed" },
     "scheduledRooms": {
       "title": "Mga Nakaiskedyul na",
       "noneFound": "walang nakita",

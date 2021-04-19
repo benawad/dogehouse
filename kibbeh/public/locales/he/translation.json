@@ -21,7 +21,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "מושתק | DogeHouse"
+    "mutedTitle": "מושתק | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -130,7 +131,10 @@
       "settings": "הגדרות",
       "speaker": "דובר",
       "listener": "מקשיב",
-      "chat": "צ'אט"
+      "chat": "צ'אט",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "המכשיר שלך אינו נתמך כרגע. אתה יכול ליצור",
@@ -148,7 +152,8 @@
       "listening": "מקשיב",
       "toggleMuteKeybind": "הפעל את מקש ההשתקה",
       "togglePushToTalkKeybind": "הפעל push-to-talk",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "שום צרכן קול משום מה" },
     "addToCalendar": { "add": "הוסף ליומן" },

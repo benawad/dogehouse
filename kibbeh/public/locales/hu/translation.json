@@ -20,7 +20,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Némítva | DogeHouse"
+    "mutedTitle": "Némítva | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "link_1": "Története",
@@ -128,7 +129,10 @@
       "settings": "Beállítások",
       "speaker": "Beszélők",
       "listener": "Hallgatók",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "micPermissionBanner": {
       "permissionDenied": "A mikrofonhoz való hozzáférést megtagadták (lehet, hogy be kell lépnie a böngészőbeállításaiba és újra be kell töltenie az oldalt)",
@@ -192,7 +196,8 @@
       "listening": "figyelés...",
       "toggleMuteKeybind": "Némítás kapcsolása",
       "togglePushToTalkKeybind": "Push-to-talk kapcsolása",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "wsKilled": {
       "description": "A Websocket kapcsolatot megszakította a szerver. Ez általában akkor fordul elő, amikor több fülön meg van nyitva a weboldal.",

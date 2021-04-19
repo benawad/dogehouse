@@ -21,7 +21,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Vaigistatud | DogeHouse"
+    "mutedTitle": "Vaigistatud | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -130,7 +131,10 @@
       "settings": "Sätted",
       "speaker": "Kõneleja",
       "listener": "Kuulaja",
-      "chat": "Vestlus"
+      "chat": "Vestlus",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Sinu seadet ei toetata veel. Saad luua",
@@ -148,7 +152,8 @@
       "listening": "kuulab",
       "toggleMuteKeybind": "vaigistamise klahvistik",
       "togglePushToTalkKeybind": "push-to-talk klahvistik",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "pole ühtegi audiotarbijat mingil põhjusel"

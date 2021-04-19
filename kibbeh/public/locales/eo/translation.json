@@ -21,7 +21,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Silentigita | DogeHouse"
+    "mutedTitle": "Silentigita | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -133,7 +134,10 @@
       "settings": "Agordoj",
       "speaker": "Parolanto",
       "listener": "Aŭskultanto",
-      "chat": "Babili"
+      "chat": "Babili",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Via aparato nuntempe ne estas subtenata. Vi povas krei",
@@ -154,7 +158,8 @@
       "listening": "aŭskultanta",
       "toggleMuteKeybind": "baskuli mutan klavaron",
       "togglePushToTalkKeybind": "ŝalti puŝ-al-parolan klavaron",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "neniu audio-konsumanto ial" },
     "addToCalendar": { "add": "Aldoni al Kalendaro" },

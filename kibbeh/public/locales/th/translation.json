@@ -20,7 +20,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "ปิดเสียง | DogeHouse"
+    "mutedTitle": "ปิดเสียง | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -129,7 +130,10 @@
       "settings": "การตั้งค่า",
       "speaker": "ผู้พูด",
       "listener": "ผู้ฟัง",
-      "chat": "แชท"
+      "chat": "แชท",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "ขณะนี้เรายังไม่รองรับอุปกรณ์ของคุณ คุณสามารถแจ้งปัญหาได้ที่",
@@ -150,7 +154,8 @@
       "listening": "กำลังตรวจจับ Keybind",
       "toggleMuteKeybind": "Keybind เปิด/ปิด ไมโครโฟน",
       "togglePushToTalkKeybind": "Keybind เปิด/ปิด Push to Talk",
-      "toggleOverlayKeybind": "Keybind เปิด/ปิด โอเวอร์เลย์"
+      "toggleOverlayKeybind": "Keybind เปิด/ปิด โอเวอร์เลย์",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "ไม่พบลำโพง" },
     "addToCalendar": { "add": "เพิ่มไปยังปฏิทิน" },

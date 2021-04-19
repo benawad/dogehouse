@@ -20,7 +20,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Silenciado | DogeHouse"
+    "mutedTitle": "Silenciado | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -132,7 +133,10 @@
       "settings": "Definições",
       "speaker": "Orador",
       "listener": "Ouvinte",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "micPermissionBanner": {
       "permissionDenied": "Sem permissão para aceder ao microfone (poderás ter que de ir às configurações do teu navegador e atualizar a página)",
@@ -198,7 +202,8 @@
       "listening": "a ouvir",
       "toggleMuteKeybind": "teclas de atalho para silenciar",
       "togglePushToTalkKeybind": "teclas de atalho para ativar o premir-para-falar",
-      "toggleOverlayKeybind": "teclas de atalho para mostrar/esconder o Overlay"
+      "toggleOverlayKeybind": "teclas de atalho para mostrar/esconder o Overlay",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "wsKilled": {
       "description": "O WebSocket foi quebrado pelo servidor. Isto geralmente acontece quando abres o site noutro separador.",

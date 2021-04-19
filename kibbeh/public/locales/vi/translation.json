@@ -21,7 +21,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Tắt âm | DogeHouse"
+    "mutedTitle": "Tắt âm | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -133,7 +134,10 @@
       "settings": "Cài đặt",
       "speaker": "Diễn giả",
       "listener": "Thính giả",
-      "chat": "Trò chuyện"
+      "chat": "Trò chuyện",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Thiết bị của bạn hiện không được hỗ trợ. Bạn có thể tạo một",
@@ -151,7 +155,8 @@
       "listening": "đang nghe",
       "toggleMuteKeybind": "phím tắt/mở mic",
       "toggleOverlayKeybind": "phím bật/tắt overlay",
-      "togglePushToTalkKeybind": "phím nhấn-để-nói"
+      "togglePushToTalkKeybind": "phím nhấn-để-nói",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "không có âm thanh vì một số lý do"

@@ -21,7 +21,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muted | DogeHouse xD"
+    "mutedTitle": "Muted | DogeHouse xD",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -130,7 +131,10 @@
       "settings": "Settings ^_^",
       "speaker": "Speakew :D",
       "listener": "OwO Wistenew",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "HIIII! Youw device is cuwwentwy nut suppowted. You can cweate an",
@@ -148,7 +152,8 @@
       "listening": "OWO Wistening",
       "toggleMuteKeybind": "0w0 Toggwe Mute keybind (❁´◡`❁)",
       "togglePushToTalkKeybind": "Toggwe Push-to-Tawk keybind :D",
-      "toggleOverlayKeybind": "Toggwe Owerlay keybind :3"
+      "toggleOverlayKeybind": "Toggwe Owerlay keybind :3",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Nu audio consumew fow some weason D:"

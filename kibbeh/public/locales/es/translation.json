@@ -20,7 +20,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Silenciado | DogeHouse"
+    "mutedTitle": "Silenciado | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "link_1": "Historia de Origen",
@@ -131,7 +132,10 @@
       "settings": "Ajustes",
       "speaker": "Hablante",
       "listener": "Oyente",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "micPermissionBanner": {
       "permissionDenied": "Permiso denegado al intentar acceder a su micrófono (es posible que tengas que acceder a la configuración del navegador y recargar la página)",
@@ -197,7 +201,8 @@
       "listening": "escuchando",
       "toggleMuteKeybind": "Combinación de teclas para apagar/encender tu micrófono",
       "togglePushToTalkKeybind": "Combinación de teclas para activar/desactivar tocar-para-hablar",
-      "toggleOverlayKeybind": "Combinación de teclas para alternar el overlay"
+      "toggleOverlayKeybind": "Combinación de teclas para alternar el overlay",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "wsKilled": {
       "description": "El Websocket fue eliminado por el servidor. Esto suele suceder cuando abre el sitio web en otra pestaña.",

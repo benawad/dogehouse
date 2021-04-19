@@ -21,7 +21,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "ミュート | DogeHouse"
+    "mutedTitle": "ミュート | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -130,7 +131,10 @@
       "settings": "設定",
       "speaker": "スピーカー",
       "listener": "リスナー",
-      "chat": "チャット"
+      "chat": "チャット",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "デバイスはサポートされていません。",
@@ -148,7 +152,8 @@
       "listening": "聞いています",
       "toggleMuteKeybind": "ミュート切り替え",
       "togglePushToTalkKeybind": "プッシュトゥートーク切り替え",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "何らかの原因で音声が出ません" },
     "addToCalendar": { "add": "カレンダーに追加" },

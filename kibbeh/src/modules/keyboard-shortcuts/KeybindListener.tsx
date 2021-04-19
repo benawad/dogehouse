@@ -7,12 +7,15 @@ import {
   CHAT_KEY,
   INVITE_KEY,
   MUTE_KEY,
+  DEAF_KEY,
   REQUEST_TO_SPEAK_KEY,
   useKeyMapStore,
 } from "../../global-stores/useKeyMapStore";
 import { useMuteStore } from "../../global-stores/useMuteStore";
+import { useDeafStore } from "../../global-stores/useDeafStore";
 import { modalConfirm } from "../../shared-components/ConfirmModal";
 import { setMute } from "../../shared-hooks/useSetMute";
+import { setDeaf } from "../../shared-hooks/useSetDeaf";
 import { useRoomChatStore } from "../room/chat/useRoomChatStore";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 
@@ -43,6 +46,10 @@ function ListenerElectron() {
       const { muted } = useMuteStore.getState();
       setMute(wrapper, !muted);
     };
+    const DEAF_KEY_FUNC = (event: any, args: any) => {
+      const { deafened } = useDeafStore.getState();
+      setDeaf(wrapper, !deafened);
+    };
     const INVITE_KEY_FUNC = (event: any, args: any) => {
       push("/invite");
     };
@@ -58,6 +65,7 @@ function ListenerElectron() {
     // Subscribing to keybind events
     ipcRenderer.on(REQUEST_TO_SPEAK_KEY, REQUEST_TO_SPEAK_KEY_FUNC);
     ipcRenderer.on(MUTE_KEY, MUTE_KEY_FUNC);
+    ipcRenderer.on(DEAF_KEY, DEAF_KEY_FUNC);
     ipcRenderer.on(INVITE_KEY, INVITE_KEY_FUNC);
     ipcRenderer.on("@voice/ptt_status_change", PTT_STATUS_CHANGE_FUNC);
     ipcRenderer.on(CHAT_KEY, CHAT_KEY_FUNC);
@@ -69,6 +77,7 @@ function ListenerElectron() {
         REQUEST_TO_SPEAK_KEY_FUNC
       );
       ipcRenderer.removeListener(MUTE_KEY, MUTE_KEY_FUNC);
+      ipcRenderer.removeListener(DEAF_KEY, DEAF_KEY_FUNC);
       ipcRenderer.removeListener(INVITE_KEY, INVITE_KEY_FUNC);
       ipcRenderer.removeListener(
         "@voice/ptt_status_change",
@@ -104,6 +113,10 @@ function ListenerBrowser() {
           MUTE: () => {
             const { muted } = useMuteStore.getState();
             setMute(wrapper, !muted);
+          },
+          DEAF: () => {
+            const { deafened } = useDeafStore.getState();
+            setDeaf(wrapper, !deafened);
           },
           INVITE: () => {
             // wsend({ op: "fetch_invite_list", d: { cursor: 0 } });

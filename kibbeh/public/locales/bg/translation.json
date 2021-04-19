@@ -21,7 +21,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muted | DogeHouse"
+    "mutedTitle": "Muted | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -132,7 +133,10 @@
       "settings": "Настройки",
       "speaker": "Говорител",
       "listener": "Слушател",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Вашето устройство не е поддържано. Можете да създадете",
@@ -150,7 +154,8 @@
       "listening": "слушане",
       "toggleMuteKeybind": "превключване на клавишна комбинация за заглушаване",
       "togglePushToTalkKeybind": "превключване на клавишна комбинация за натисни-за-говорене",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "по някаква причина няма звуков консуматор"

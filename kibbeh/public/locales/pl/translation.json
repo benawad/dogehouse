@@ -21,7 +21,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Wyciszono | DogeHouse"
+    "mutedTitle": "Wyciszono | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -133,7 +134,10 @@
       "settings": "Ustawienia",
       "speaker": "Mówiący",
       "listener": "Słuchacz",
-      "chat": "Czat"
+      "chat": "Czat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Twoje urządzenie nie jest obecnie wspierane. Możesz zgłosić to",
@@ -154,7 +158,8 @@
       "listening": "słuchanie",
       "toggleMuteKeybind": "przełącz skrót klawiszowy od wyciszania",
       "togglePushToTalkKeybind": "przełącz keybind push-to-talk",
-      "toggleOverlayKeybind": "przełącz keybind nakładki"
+      "toggleOverlayKeybind": "przełącz keybind nakładki",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "brak konsumenta dźwięku z jakiegoś powodu"

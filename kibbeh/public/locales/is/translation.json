@@ -21,7 +21,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Þaggaður | DogeHouse"
+    "mutedTitle": "Þaggaður | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -130,7 +131,10 @@
       "settings": "Stillingar",
       "speaker": "Ræðumaður",
       "listener": "Hlustandi",
-      "chat": "Spjall"
+      "chat": "Spjall",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Tækið þitt er sem stendur ekki stutt. Þú getur búið til",
@@ -148,7 +152,8 @@
       "listening": "er að hlusta",
       "toggleMuteKeybind": "afþagga",
       "togglePushToTalkKeybind": "slökkva á 'Ýttu til að tala'",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "enginn hljóðnotandi af einhverjum ástæðum"

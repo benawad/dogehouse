@@ -20,7 +20,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "음소거 | DogeHouse"
+    "mutedTitle": "음소거 | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -129,7 +130,10 @@
       "settings": "설정",
       "speaker": "스피커",
       "listener": "청취자",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "현재 기기는 지원되지 않습니다, ",
@@ -147,7 +151,8 @@
       "listening": "듣는중",
       "toggleMuteKeybind": "음소거 키 토글",
       "togglePushToTalkKeybind": "푸시 투 토크 키 토글",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "오디오 컨수머를 찾을수 없었습니다"

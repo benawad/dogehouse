@@ -20,7 +20,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Microfono disabilitato | DogeHouse"
+    "mutedTitle": "Microfono disabilitato | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -132,7 +133,10 @@
       "settings": "Impostazioni",
       "speaker": "Oratore",
       "listener": "Ascoltatori",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Il tuo dispositivo non è supportato. Puoi segnalare il problema",
@@ -153,7 +157,8 @@
       "listening": "Ascoltatore",
       "toggleMuteKeybind": "Scorciatoia per attivare/disattivare il microfono",
       "togglePushToTalkKeybind": "Scorciatoia per il push-to-talk",
-      "toggleOverlayKeybind": "Attiva/disattiva la schermata delle scorciatoie"
+      "toggleOverlayKeybind": "Attiva/disattiva la schermata delle scorciatoie",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Nessun audio è disponibile per qualche motivo"

@@ -50,18 +50,33 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
       <div className="flex flex-row">
         <div className="grid grid-cols-3 gap-2">
           {room.myself.isSpeaker ? (
-            <BoxedIcon
-              transition
-              hover={room.myself.isMuted}
-              onClick={room.myself.switchMuted}
-              className={room.myself.isMuted ? "bg-accent" : ""}
-            >
-              {room.myself.isMuted ? (
-                <SvgSolidMicrophoneOff data-testid="mic-off-icon" />
-              ) : (
-                <SolidMicrophone data-testid="mic-icon" />
-              )}
-            </BoxedIcon>
+            <>
+              <BoxedIcon
+                transition
+                hover={room.myself.isMuted}
+                onClick={room.myself.switchMuted}
+                className={room.myself.isMuted ? "bg-accent" : ""}
+              >
+                {room.myself.isMuted ? (
+                  <SvgSolidMicrophoneOff data-testid="mic-off-icon" />
+                ) : (
+                  <SolidMicrophone data-testid="mic-icon" />
+                )}
+              </BoxedIcon>
+
+              <BoxedIcon
+                transition
+                hover={room.myself.isDeafened}
+                onClick={room.myself.switchDeafened}
+                className={room.myself.isDeafened ? "bg-accent" : ""}
+              >
+                {room.myself.isDeafened ? (
+                  <SvgSolidMicrophoneOff data-testid="mic-off-icon" />
+                ) : (
+                  <SolidMicrophone data-testid="mic-icon" />
+                )}
+              </BoxedIcon>
+            </>
           ) : null}
           {/* <BoxedIcon
             onClick={room.myself.switchDeafened}

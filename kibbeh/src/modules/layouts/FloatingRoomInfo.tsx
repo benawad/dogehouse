@@ -2,10 +2,12 @@ import { useRouter } from "next/router";
 import React from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useMuteStore } from "../../global-stores/useMuteStore";
+import { useDeafStore } from "../../global-stores/useDeafStore";
 import { SolidMicrophone } from "../../icons";
 import SvgSolidMicrophoneOff from "../../icons/SolidMicrophoneOff";
 import { useCurrentRoomInfo } from "../../shared-hooks/useCurrentRoomInfo";
 import { useSetMute } from "../../shared-hooks/useSetMute";
+import { useSetDeaf } from "../../shared-hooks/useSetDeaf";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { BoxedIcon } from "../../ui/BoxedIcon";
 
@@ -21,6 +23,8 @@ export const FloatingRoomInfo: React.FC<MinimizedRoomCardControllerProps> = () =
   const { canSpeak } = useCurrentRoomInfo();
   const { muted } = useMuteStore();
   const setMute = useSetMute();
+  const { deafened } = useDeafStore();
+  const setDeaf = useSetDeaf();
   const router = useRouter();
 
   if (!data || "error" in data) {
@@ -52,6 +56,18 @@ export const FloatingRoomInfo: React.FC<MinimizedRoomCardControllerProps> = () =
             className={muted ? "bg-accent" : ""}
           >
             {muted ? (
+              <SvgSolidMicrophoneOff data-testid="mic-off-icon" />
+            ) : (
+              <SolidMicrophone data-testid="mic-icon" />
+            )}
+          </BoxedIcon>
+          <BoxedIcon
+            onClick={() => {
+              setDeaf(!deafened);
+            }}
+            className={deafened ? "bg-accent" : ""}
+          >
+            {deafened ? (
               <SvgSolidMicrophoneOff data-testid="mic-off-icon" />
             ) : (
               <SolidMicrophone data-testid="mic-icon" />

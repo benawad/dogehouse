@@ -21,7 +21,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Gedemp | DogeHouse"
+    "mutedTitle": "Gedemp | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -132,7 +133,10 @@
       "settings": "Instellings",
       "speaker": "Sprekers",
       "listener": "Luisteraar",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Jou toestel word tans nie ondersteun nie. Jy kan 'n",
@@ -150,7 +154,8 @@
       "listening": "luister",
       "toggleMuteKeybind": "wissel demp sleutelbind",
       "togglePushToTalkKeybind": "wissel push-to-talk sleutelbind",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "geen klank verbruiker vir een of ander rede"

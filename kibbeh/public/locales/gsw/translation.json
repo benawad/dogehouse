@@ -21,7 +21,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Stumm | DogeHouse"
+    "mutedTitle": "Stumm | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -131,7 +132,10 @@
       "settings": "Istellige",
       "speaker": "Sprächer",
       "listener": "Zuehörer",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "micPermissionBanner": {
       "permissionDenied": "Mir hei ke Zuegriff uf dis Mikrofon. Mach dini Browseristellige uf, setz die nötige Berechtigunge und lad d Site neu.",
@@ -196,7 +200,8 @@
       "listening": "Zuelose",
       "toggleMuteKeybind": "Stummschalttaste umschalte",
       "togglePushToTalkKeybind": "Push-to-Talk Tastekürzel umschalte",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "wsKilled": {
       "description": "D Websocket Verbindig zum Server isch ungebroche worde. Das gscheht normalerwiis, wenn du d Website imne angere Tab öffnisch.",

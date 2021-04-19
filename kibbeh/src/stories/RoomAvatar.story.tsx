@@ -42,3 +42,7 @@ export const Mod: Story<RoomCardHeadingProps> = () => {
 export const Muted: Story<RoomCardHeadingProps> = () => {
   return <RoomAvatar src={src} username="Terry" muted />;
 };
+
+export const Deafened: Story<RoomCardHeadingProps> = () => {
+  return <RoomAvatar src={src} username="Terry" deafened />;
+};
