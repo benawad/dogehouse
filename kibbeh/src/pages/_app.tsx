@@ -67,10 +67,13 @@ function App({ Component, pageProps }: AppProps) {
         <MainWsHandlerProvider>
           <Head>
             <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+            <link rel="manifest" href="/manifest.json" />
             <meta
               name="viewport"
               content="width=device-width, initial-scale=1, user-scalable=no, user-scalable=0"
             />
+            <link rel="apple-touch-icon" href="/img/doge.png"></link>
+            <link rel="apple-touch-startup-image" href="img/doge512.png" />
           </Head>
           <Component {...pageProps} />
           <SoundEffectPlayer />

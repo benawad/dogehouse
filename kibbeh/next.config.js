@@ -1,6 +1,8 @@
 const withTM = require("next-transpile-modules")(["@dogehouse/kebab"]);
+const withPWA = require('next-pwa')
+const runtimeCaching = require('next-pwa/cache')
 
-module.exports = withTM({
+module.exports = withPWA(withTM({
   reactStrictMode: true,
   typescript: {
     // !! WARN !!
@@ -10,4 +12,8 @@ module.exports = withTM({
     // !! WARN !!
     ignoreBuildErrors: true,
   },
-});
+  pwa: {
+    dest: "public",
+    runtimeCaching,
+  }
+}));
