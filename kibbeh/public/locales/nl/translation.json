@@ -103,7 +103,10 @@
       "volume": "Volume:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Ongeldige applicatietitel", "label": "Voer applicatietitel in" },
+      "input": {
+        "errorMsg": "Ongeldige applicatietitel",
+        "label": "Voer applicatietitel in"
+      },
       "header": "Overlay-instellingen"
     }
   },
