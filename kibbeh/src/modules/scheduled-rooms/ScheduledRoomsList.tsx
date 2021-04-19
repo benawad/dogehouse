@@ -54,9 +54,9 @@ const Page = ({
   }
 
   return (
-    <>
+    <div className={`${isLastPage ? "mb-24" : ""}`}>
       {data.scheduledRooms.map((r) => (
-        <div className={`mt-4 ${isLastPage ? "mb-24" : ""}`} key={r.id}>
+        <div className={`mt-4`} key={r.id}>
           <ScheduledRoomCard
             onDeleteComplete={() => {
               update(
@@ -83,7 +83,7 @@ const Page = ({
           </Button>
         </div>
       ) : null}
-    </>
+    </div>
   );
 };
 
