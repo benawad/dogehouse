@@ -40,6 +40,7 @@ defmodule Broth.Translator.V0_1_0 do
     "edit_scheduled_room" => "room:update_scheduled",
     "schedule_room" => "room:create_scheduled",
     "unban_from_room" => "room:unban",
+    "search" => "misc:search",
     # follow needs to arbitrate if it becomes follow or unfollow.
     "follow" => nil,
     # these are special cases:
