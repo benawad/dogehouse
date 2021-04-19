@@ -15,8 +15,7 @@
     "copied": "कॉपी हो गया",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions":
-      "कृपया ध्यान दें कि एक्सेसिबिलिटी परमिशन के बिना दोजेहाउस चलाना अवांछित त्रुटियों का कारण हो सकता है"
+    "requestPermissions": "कृपया ध्यान दें कि एक्सेसिबिलिटी परमिशन के बिना दोजेहाउस चलाना अवांछित त्रुटियों का कारण हो सकता है"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
@@ -33,8 +32,7 @@
     "_comment": "Respective Page UI Internationalization Strings",
     "banUser": { "ban": "ban" },
     "followingOnlineList": {
-      "listHeader":
-        "उन उपयोगकर्ताओं की सूची जो एक प्राइवेट रूम में नहीं हैं और आप उन्हें फॉलो करते हैं।",
+      "listHeader": "उन उपयोगकर्ताओं की सूची जो एक प्राइवेट रूम में नहीं हैं और आप उन्हें फॉलो करते हैं।",
       "currentRoom": "वर्तमान में:",
       "startPrivateRoom": "उनके साथ एक प्राइवेट रूम शुरू करें"
     },
@@ -82,8 +80,7 @@
       "requestingToSpeak": "बोलने की अनुमति माँग रहे है",
       "listeners": "सुननेवाले",
       "allowAll": "अल्लोव आल ",
-      "allowAllConfirm":
-        "अरे  यू  सूरे ? थिस  विल अल्लोव आल {{count}} रिक्वेस्टिंग  उसेर्स  तो  स्पीक "
+      "allowAllConfirm": "अरे  यू  सूरे ? थिस  विल अल्लोव आल {{count}} रिक्वेस्टिंग  उसेर्स  तो  स्पीक "
     },
     "searchUser": { "search": "खोज करे..." },
     "soundEffectSettings": { "header": "आवाज़" },
@@ -101,8 +98,7 @@
     "voiceSettings": {
       "header": "आवाज़ की सेटिंग्स",
       "mic": "mic:",
-      "permissionError":
-        "कोई माइक नहीं मिला, आपने या तो इस वेबसाइट को अनुमति नहीं दी है या माइक प्लग इन नहीं किया है।",
+      "permissionError": "कोई माइक नहीं मिला, आपने या तो इस वेबसाइट को अनुमति नहीं दी है या माइक प्लग इन नहीं किया है।",
       "refresh": "रिफ्रेश माइक लिस्ट",
       "volume": "volume:"
     },
@@ -138,13 +134,11 @@
     "deviceNotSupported": {
       "notSupported": "वर्तमान में आपका डिवाइस समर्थित नहीं है। आप एक",
       "linkText": "GitHub issue",
-      "addSupport":
-        "बना सकते है|  हम आपके डिवाइस के लिए समर्थन जोड़ने का प्रयास करेंगे।"
+      "addSupport": "बना सकते है|  हम आपके डिवाइस के लिए समर्थन जोड़ने का प्रयास करेंगे।"
     },
     "inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" },
     "micPermissionBanner": {
-      "permissionDenied":
-        "आपने माइक को उपयोग करने की अनुमति को इनकार कर दी है (आपको ब्राउज़र सेटिंग्स में जा के सैट करें या वेबसाइट को फिर से लोड करने की आवश्यकता हो सकती है)",
+      "permissionDenied": "आपने माइक को उपयोग करने की अनुमति को इनकार कर दी है (आपको ब्राउज़र सेटिंग्स में जा के सैट करें या वेबसाइट को फिर से लोड करने की आवश्यकता हो सकती है)",
       "dismiss": "डिसमिस",
       "tryAgain": "फिर प्रयास करें"
     },
@@ -160,8 +154,7 @@
     },
     "addToCalendar": { "add": "कैलेंडर में जोड़ें" },
     "wsKilled": {
-      "description":
-        "Websocket was killed by the server. This usually happens when you open the website in another tab.",
+      "description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
       "reconnect": "फिर कनेक्ट करे"
     },
     "modals": {
@@ -187,15 +180,13 @@
         "avatarUrlLabel": "Github/Twitter avatar url",
         "displayNameError": "length 2 to 50 characters",
         "displayNameLabel": "Display Name",
-        "usernameError":
-          "length 4 to 15 characters and only alphanumeric/underscore",
+        "usernameError": "length 4 to 15 characters and only alphanumeric/underscore",
         "usernameLabel": "Username",
         "bioError": "max length of 160 characters",
         "bioLabel": "Bio"
       },
       "profileModal": {
-        "blockUserConfirm":
-          "क्या आप इस उपयोगकर्ता को आपके द्वारा बनाए गए सभी रूम में शामिल होने से रोकना चाहते हैं?",
+        "blockUserConfirm": "क्या आप इस उपयोगकर्ता को आपके द्वारा बनाए गए सभी रूम में शामिल होने से रोकना चाहते हैं?",
         "blockUser": "block user",
         "makeMod": "make mod",
         "unmod": "unmod",
