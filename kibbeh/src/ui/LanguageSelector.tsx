@@ -9,7 +9,6 @@ interface LanguageSelectorProps {
 }
 
 export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
-  children,
   onClose,
 }) => {
   const options = [
@@ -86,7 +85,6 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   ];
 
   const { i18n } = useTranslation();
-  console.log("Using: ", i18n.language);
 
   const parsedOptions = options.map((e, i) => (
     <SettingsIcon
