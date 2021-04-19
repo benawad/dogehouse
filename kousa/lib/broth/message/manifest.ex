@@ -3,6 +3,7 @@ defmodule Broth.Message.Manifest do
   alias Broth.Message.Chat
   alias Broth.Message.Room
   alias Broth.Message.User
+  alias Broth.Message.Misc
 
   @actions %{
     "test:operator" => BrothTest.MessageTest.TestOperator,
@@ -37,7 +38,8 @@ defmodule Broth.Message.Manifest do
     "chat:ban" => Chat.Ban,
     "chat:send_msg" => Chat.SendMsg,
     "chat:delete_msg" => Chat.DeleteMsg,
-    "auth:request" => Auth.Request
+    "auth:request" => Auth.Request,
+    "misc:search" => Misc.Search
   }
 
   # verify that all of the actions are accounted for in the
@@ -48,9 +50,9 @@ defmodule Broth.Message.Manifest do
   @actions
   |> Map.values()
   |> Enum.each(fn module ->
-    Operator.valid_value?(module)
-      || raise CompileError,
-        description: "the module #{inspect module} is not a member of #{inspect Operator}"
+    Operator.valid_value?(module) ||
+      raise CompileError,
+        description: "the module #{inspect(module)} is not a member of #{inspect(Operator)}"
   end)
 
   def actions, do: @actions

@@ -4,6 +4,7 @@ alias Broth.Message.User
 alias Broth.Message.Room
 alias Broth.Message.Chat
 alias Broth.Message.Auth
+alias Broth.Message.Misc
 
 defenum(
   Broth.Message.Types.Operator,
@@ -44,7 +45,8 @@ defenum(
     {Chat.DeleteMsg, 131},
     # auth and maintenance commands 192..254
     {Auth.Request, 193},
-    # etc 222 - 255
+    {Misc.Search, 210},
+    # etc 255 - 317
     {BrothTest.MessageTest.TestOperator, 255}
   ]
 )
