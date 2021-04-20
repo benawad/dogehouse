@@ -41,7 +41,8 @@
     "home": {
       "createRoom": "Lag et rom",
       "refresh": "Last inn på nytt",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Rommet finnes ikke lengre, gå tilbake",
@@ -106,6 +107,11 @@
     "overlaySettings": {
       "input": { "errorMsg": "Ugyldig tittel", "label": "Angi tittel" },
       "header": "Innstillinger for overlegg"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

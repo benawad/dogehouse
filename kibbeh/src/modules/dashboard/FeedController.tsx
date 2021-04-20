@@ -2,11 +2,14 @@ import isElectron from "is-electron";
 import { useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
+import { useDownloadAlertStore } from "../../global-stores/useDownloadAlertStore";
 import { isServer } from "../../lib/isServer";
+import { showBanner } from "../../lib/showBanner";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { useTypeSafeUpdateQuery } from "../../shared-hooks/useTypeSafeUpdateQuery";
+import { BannerButton } from "../../ui/BannerButton";
 import { Button } from "../../ui/Button";
 import { CenterLoader } from "../../ui/CenterLoader";
 import { Feed, FeedHeader } from "../../ui/Feed";
@@ -34,6 +37,7 @@ const Page = ({
   const { push } = useRouter();
   const prefetch = useTypeSafePrefetch();
   const { t } = useTypeSafeTranslation();
+  const shouldAlert = useDownloadAlertStore().shouldAlert;
   const { isLoading, data } = useTypeSafeQuery(
     ["getTopPublicRooms", cursor],
     {
@@ -64,6 +68,25 @@ const Page = ({
       };
     }
   }, [data]);
+
+  useEffect(() => {
+    if (shouldAlert && !isElectron()) {
+      showBanner(
+        t("pages.home.desktopAlert"),
+        "sticky",
+        <BannerButton
+          onClick={() => {
+            window.location.href = window.location.origin + "/download";
+          }}
+        >
+          Download
+        </BannerButton>,
+        () => {
+          localStorage.setItem("@baklava/showDownloadAlert", "false");
+        }
+      );
+    }
+  }, []);
 
   if (isLoading) {
     return <CenterLoader />;

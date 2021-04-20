@@ -41,7 +41,8 @@
     "home": {
       "createRoom": "గదిని సృష్టించండి",
       "refresh": "Refresh",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "గది పోయింది, తిరిగి వెళ్ళు",
@@ -109,6 +110,11 @@
         "errorMsg": "Please enter valid app title",
         "label": "Enter app title"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

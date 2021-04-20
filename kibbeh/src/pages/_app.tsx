@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "../styles/globals.css";
 import "../styles/electron-header.css";
+import "../styles/banner-button.css";
 import { AppProps } from "next/app";
 import { QueryClientProvider } from "react-query";
 import { WebSocketProvider } from "../modules/ws/WebSocketProvider";
@@ -11,6 +12,7 @@ import { init_i18n } from "../lib/i18n";
 import { SoundEffectPlayer } from "../modules/sound-effects/SoundEffectPlayer";
 import ReactModal from "react-modal";
 import { ErrorToastController } from "../modules/errors/ErrorToastController";
+import { BannerController } from "../modules/banners/BannerController";
 import { WebRtcApp } from "../modules/webrtc/WebRtcApp";
 import { MainWsHandlerProvider } from "../shared-hooks/useMainWsHandler";
 import NProgress from "nprogress";
@@ -75,6 +77,7 @@ function App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
           <SoundEffectPlayer />
           <ErrorToastController />
+          <BannerController />
           <WebRtcApp />
           <KeybindListener />
           <InvitedToJoinRoomModal />

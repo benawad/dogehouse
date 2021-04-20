@@ -30,22 +30,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "Banear"
-    },
+    "banUser": { "ban": "Banear" },
     "followingOnlineList": {
       "listHeader": "Lista de usuarios que sigues y que no se encuentran en una sala privada.",
       "currentRoom": "Actualmente en la sala:",
       "startPrivateRoom": "Empezar una sala privada con ellos"
     },
-    "followList": {
-      "followHim": "Seguir",
-      "followingHim": "Siguiendo"
-    },
+    "followList": { "followHim": "Seguir", "followingHim": "Siguiendo" },
     "home": {
       "createRoom": "Crear sala",
       "editRoom": "Editar sala",
-      "refresh": "Recargar"
+      "refresh": "Recargar",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Sala no disponible, volver atrás",
@@ -87,12 +83,8 @@
       "allowAll": "Permitir todos",
       "allowAllConfirm": "¿Estás seguro? Esto dejará hablar a los {{count}} usuarios que quieren hablar"
     },
-    "searchUser": {
-      "search": "Buscar..."
-    },
-    "soundEffectSettings": {
-      "header": "Sonidos"
-    },
+    "searchUser": { "search": "Buscar..." },
+    "soundEffectSettings": { "header": "Sonidos" },
     "viewUser": {
       "editProfile": "Editar perfil",
       "followsYou": "Te sigue",
@@ -117,6 +109,11 @@
         "errorMsg": "Ese nombre de aplicación no es válido",
         "label": "Introduce el nombre de la aplicación"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -171,7 +168,8 @@
       "listening": "Escuchando",
       "toggleMuteKeybind": "Combinación de teclas para apagar/encender tu micrófono",
       "toggleOverlayKeybind": "Combinación de teclas para alternar el overlay",
-      "togglePushToTalkKeybind": "Combinación de teclas para activar/desactivar tocar-para-hablar"
+      "togglePushToTalkKeybind": "Combinación de teclas para activar/desactivar tocar-para-hablar",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Por alguna razón no hay ningún consumidor de audio"
@@ -180,16 +178,12 @@
       "upcomingRooms": "Próximas salas",
       "exploreMoreRooms": "Explorar nuevas salas"
     },
-    "addToCalendar": {
-      "add": "Añadir al calendario"
-    },
+    "addToCalendar": { "add": "Añadir al calendario" },
     "wsKilled": {
       "description": "El Websocket fue eliminado por el servidor. Esto suele suceder cuando abres el sitio web en otra pestaña.",
       "reconnect": "Reconectar"
     },
-    "search": {
-      "placeholder": "Buscar salas, usuarios o categorías"
-    },
+    "search": { "placeholder": "Buscar salas, usuarios o categorías" },
     "settingsDropdown": {
       "profile": "Perfil",
       "language": "Idioma",
@@ -249,61 +243,10 @@
         "renamePublic": "Configurar el nombre de la sala pública",
         "renamePrivate": "Configurar el nombre de la sala privada"
       }
-<<<<<<< HEAD
-    },
-    "userVolumeSlider": {
-      "noAudioMessage": "no hay consumidor de audio por alguna razón"
-    },
-    "addToCalendar": { "add": "Añadir al calendario" },
-    "keyboardShortcuts": {
-      "setKeybind": "configurar combinación de teclas",
-      "listening": "escuchando",
-      "toggleMuteKeybind": "Combinación de teclas para apagar/encender tu micrófono",
-      "togglePushToTalkKeybind": "Combinación de teclas para activar/desactivar tocar-para-hablar",
-      "toggleOverlayKeybind": "Combinación de teclas para alternar el overlay",
-      "toggleDeafKeybind": "Toggle deafen keybind"
-    },
-    "wsKilled": {
-      "description": "El Websocket fue eliminado por el servidor. Esto suele suceder cuando abre el sitio web en otra pestaña.",
-      "reconnect": "reconectar"
-    },
-    "deviceNotSupported": {
-      "notSupported": "Actualmente, su dispositivo no es compatible. Puede crear un",
-      "linkText": "issue en GitHub",
-      "addSupport": "e intentaré agregar soporte para su dispositivo."
-    },
-    "inviteButton": {
-      "invited": "invitado",
-      "inviteToRoom": "invitar a la sala"
-    },
-    "followingOnline": {
-      "people": "People",
-      "online": "ONLINE",
-      "noOnline": "Tu tienes 0 amigos online",
-      "showMore": "Show more"
-    },
-    "upcomingRoomsCard": {
-      "upcomingRooms": "Proximas Salas",
-      "exploreMoreRooms": "Explora nuevas salas"
-    },
-    "search": { "placeholder": "Buscar salas, usuarios or categorias" },
-    "settingsDropdown": {
-      "profile": "Perfil",
-      "language": "Idioma",
-      "reportABug": "Informa una problema",
-      "useOldVersion": "Use Old Version",
-      "logOut": {
-        "button": "cerrar sesión",
-        "modalSubtitle": "¿Estás seguro que quieres cerrar sesión?"
-      }
-=======
->>>>>>> 297c797632b60181047b99f82105e5f406163861
     }
   },
   "modules": {
-    "feed": {
-      "yourFeed": "Tu inicio"
-    },
+    "feed": { "yourFeed": "Tu inicio" },
     "scheduledRooms": {
       "title": "Salas programadas",
       "noneFound": "No se ha encontrado ninguna",

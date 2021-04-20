@@ -41,7 +41,8 @@
     "home": {
       "createRoom": "Vytvoriť miestnosť",
       "refresh": "Obnoviť",
-      "editRoom": "Upraviť miestnosť"
+      "editRoom": "Upraviť miestnosť",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "miestnosť je fuč, vráť sa",
@@ -109,6 +110,11 @@
         "label": "Vlož názov aplikácie"
       },
       "header": "Nastavenia Prekresľovania"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

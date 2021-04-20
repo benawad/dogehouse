@@ -42,7 +42,8 @@
     "home": {
       "createRoom": "Raum erstön",
       "refresh": "Aktualisiern",
-      "editRoom": "Raum bearbeiten"
+      "editRoom": "Raum bearbeiten",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Den Raum kau ma ned finden. Zruck",
@@ -110,6 +111,11 @@
         "errorMsg": "Bitte giab an gültign Apptitel au",
         "label": "Giab an Apptitel au"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

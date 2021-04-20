@@ -42,7 +42,8 @@
     "home": {
       "createRoom": "Stwórz pokój",
       "refresh": "Odśwież",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "pokój usunięty, wróć",
@@ -110,6 +111,11 @@
         "label": "Wpisz nazwę aplikacji"
       },
       "header": "Ustawienia Nakładki"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

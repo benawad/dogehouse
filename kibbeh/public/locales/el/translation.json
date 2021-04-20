@@ -46,7 +46,8 @@
     "home": {
       "createRoom": "Δημιουργία δωματίου",
       "refresh": "Επαναφόρτωση",
-      "editRoom": "Επεξεργασία δωματίου"
+      "editRoom": "Επεξεργασία δωματίου",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Το δωμάτιο διαγράφηκε, πηγαίνετε πίσω",
@@ -114,6 +115,11 @@
         "label": "Εισάγετε τον τίτλο της εφαρμογής"
       },
       "header": "Ρυθμίσεις overlay"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

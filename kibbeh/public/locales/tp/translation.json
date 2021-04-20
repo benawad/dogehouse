@@ -45,7 +45,8 @@
     "home": {
       "createRoom": "pali e tomo",
       "refresh": "tenpo tu la kama jo e ni",
-      "editRoom": "ante e tomo"
+      "editRoom": "ante e tomo",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "tomo li weka, tawa monsi",
@@ -113,6 +114,11 @@
         "errorMsg": "Please enter valid app title",
         "label": "o sitelen e nimi pi "
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

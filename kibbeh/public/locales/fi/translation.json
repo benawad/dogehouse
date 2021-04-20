@@ -42,7 +42,8 @@
     "home": {
       "createRoom": "Luo huone",
       "refresh": "Päivitä",
-      "editRoom": "Muokkaa huonetta"
+      "editRoom": "Muokkaa huonetta",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Huone poistettu, palaa takaisin",
@@ -110,6 +111,11 @@
         "errorMsg": "Epäkelpo sovelluksen otsikko",
         "label": "Syötä sovelluksen otsikko"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

@@ -45,7 +45,8 @@
     "home": {
       "createRoom": "Xona yaratish",
       "refresh": "Yangilash",
-      "editRoom": "Xonani tahrirlash"
+      "editRoom": "Xonani tahrirlash",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Xona yo'q, orqaga qayting",
@@ -113,6 +114,11 @@
         "errorMsg": "Ilova nomi noto‘g‘ri",
         "label": "Ilova nomini kiriting"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

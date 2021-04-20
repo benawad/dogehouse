@@ -41,7 +41,8 @@
     "home": {
       "createRoom": "สร้างห้อง",
       "refresh": "รีเฟรช",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "ไม่พบห้อง, กรุณากลับไปที่หน้าหลัก",
@@ -106,6 +107,11 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "การตั้งค่าโอเวอร์เลย์"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

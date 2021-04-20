@@ -41,7 +41,8 @@
     "home": {
       "createRoom": "Buat Ruangan",
       "refresh": "Segarkan",
-      "editRoom": "Ubah Ruangan"
+      "editRoom": "Ubah Ruangan",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Ruangan hilang, kembali",
@@ -106,6 +107,11 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
