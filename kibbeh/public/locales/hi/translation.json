@@ -129,7 +129,7 @@
       "settings": "सेटिंग्स",
       "speaker": "बोलनेवाले",
       "listener": "सुननेवाले",
-      "chat": "चाट"
+      "chat": "चैट"
     },
     "deviceNotSupported": {
       "notSupported": "वर्तमान में आपका डिवाइस समर्थित नहीं है। आप एक",
@@ -246,7 +246,7 @@
       }
     },
     "roomChat": {
-      "title": "चाट",
+      "title": "चैट",
       "emotesSoon": "[emotes soon]",
       "bannedAlert": "आपको चैट से प्रतिबंधित कर दिया गया है",
       "waitAlert": "आपको दूसरा मैसेज भेजने से पहले एक सेकंड इंतजार करना होगा",
