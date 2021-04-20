@@ -78,14 +78,15 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
           {...getInputProps()}
           placeholder={t("components.search.placeholder")}
         />
-        {isOpen ? (
+        {!isOpen ? (
           <SearchOverlay
             {...getRootProps({ refKey: "ref" }, { suppressRefError: true })}
           >
             <ul
-              className="w-full px-5 py-2 bg-primary-800 rounded-b-8 overflow-y-auto"
+              className="w-full px-5 mb-2 mt-7 bg-primary-800 rounded-b-8 overflow-y-auto"
               {...getMenuProps({ style: { top: 0 } })}
             >
+              {Array(15).fill(0).map(_ => <li className="text-base bg-primary-300 my-1 font-medium text-primary-100 py-1">Hello world</li>)}
               {isOpen && data?.items.length === 0 ? (
                 <InfoText className="p-3">no results</InfoText>
               ) : null}
