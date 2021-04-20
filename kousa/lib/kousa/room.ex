@@ -164,26 +164,24 @@ defmodule Kousa.Room do
     # get old creator's room id for validation
     old_creator_room_id = Beef.Users.get_current_room_id(old_creator_id)
 
-    # validate
-    case {is_speaker, is_nil(current_room_id), new_creator_id == old_creator_id,
-          current_room_id == old_creator_room_id} do
-      {true, false, false, true} ->
-        case Rooms.replace_room_owner(old_creator_id, new_creator_id) do
-          {1, _} ->
-            internal_set_speaker(old_creator_id, current_room_id)
+    if is_speaker and not is_nil(current_room_id) and new_creator_id != old_creator_id and
+         current_room_id == old_creator_room_id do
+      case Rooms.replace_room_owner(old_creator_id, new_creator_id) do
+        {1, _} ->
+          internal_set_speaker(old_creator_id, current_room_id)
+          Beef.RoomPermissions
 
-            Onion.RoomSession.broadcast_ws(
-              current_room_id,
-              %{op: "new_room_creator", d: %{roomId: current_room_id, userId: new_creator_id}}
-            )
+          Onion.RoomSession.broadcast_ws(
+            current_room_id,
+            %{op: "new_room_creator", d: %{roomId: current_room_id, userId: new_creator_id}}
+          )
 
-          _ ->
-            nil
-        end
-
-      _ ->
-        nil
+        _ ->
+          nil
+      end
     end
+
+    nil
   end
 
   def join_vc_room(user_id, room, speaker? \\ nil) do

@@ -187,6 +187,10 @@ defmodule Kousa.Beef.UsersTest do
       assert creation_time == last_online_time
     end
 
+    test "get_current_room_id returns nil", %{user: %{id: id}} do
+      refute Users.get_current_room_id(id)
+    end
+
     @tag :skip
     # doesn't work on account of no mocked room process pool
     test "get_current_room"

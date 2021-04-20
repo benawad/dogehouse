@@ -45,14 +45,14 @@ export const WebRtcApp: React.FC<App2Props> = () => {
   }, [micId]);
   const consumerQueue = useRef<{ roomId: string; d: any }[]>([]);
 
-  async function flushConsumerQueue(_roomId: string) {
+  function flushConsumerQueue(_roomId: string) {
     try {
       for (const {
         roomId,
         d: { peerId, consumerParameters },
       } of consumerQueue.current) {
         if (_roomId === roomId) {
-          await consumeAudio(consumerParameters, peerId);
+          consumeAudio(consumerParameters, peerId);
         }
       }
     } catch (err) {

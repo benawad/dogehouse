@@ -2,6 +2,7 @@
 
 set -e
 
+git pull origin staging
 git checkout prod
 git merge staging
 git push origin prod

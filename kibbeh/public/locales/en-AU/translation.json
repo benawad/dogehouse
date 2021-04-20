@@ -59,7 +59,8 @@
       "featureText_6": "ǝƃoᗡ ʎq pǝɹǝʍoԀ",
       "loginGithub": "qnHʇᴉ⅁ ɥʇᴉʍ uᴉƃoꞁ",
       "loginTwitter": "ɹǝʇʇᴉʍ⊥ ɥʇᴉʍ uᴉƃoꞁ",
-      "createTestUser": "ɹǝsn ʇsǝʇ ǝʇɐǝɹɔ"
+      "createTestUser": "ɹǝsn ʇsǝʇ ǝʇɐǝɹɔ",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "ʇnoƃoꞁ",
@@ -199,7 +200,8 @@
         "banFromRoom": "ɯooɹ ɯoɹɟ uɐq",
         "goBackToListener": "ɹǝuǝʇsᴉꞁ oʇ ʞɔɐq oƃ",
         "deleteMessage": "ǝƃɐssǝɯ sᴉɥʇ ǝʇǝꞁǝp",
-        "makeRoomCreator": "uᴉɯpɐ ɯooɹ ǝʞɐɯ"
+        "makeRoomCreator": "uᴉɯpɐ ɯooɹ ǝʞɐɯ",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "ʞɐǝds oʇ uoᴉssᴉɯɹǝd ǝɹᴉnbǝɹ",
