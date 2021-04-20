@@ -12,6 +12,7 @@ export interface ProfileHeaderProps {
   displayName: string;
   username: string;
   isFollowing?: boolean;
+  doesFollow?: boolean; // if you already follow someone then don't show follow button
   isOnline?: boolean;
   children?: ReactChild;
 }
@@ -19,8 +20,9 @@ export interface ProfileHeaderProps {
 export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   displayName,
   username,
-  isFollowing,
-  isOnline,
+  isFollowing = true,
+  doesFollow = true,
+  isOnline = true,
   children,
 }) => {
   return (
@@ -42,9 +44,11 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
       </div>
       <div className="w-3/6 ">
         <div className="flex flex-row justify-end content-end gap-2">
-          <Button size="small" icon={<SolidPersonAdd />}>
-            Follow
-          </Button>
+          {doesFollow && (
+            <Button size="small" icon={<SolidPersonAdd />}>
+              Follow
+            </Button>
+          )}
           <Button size="small" color="secondary" icon={<SolidMessages />}>
             Send DM
           </Button>
