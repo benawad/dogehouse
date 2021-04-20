@@ -21,7 +21,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Tovushsiz | DogeHouse"
+    "mutedTitle": "Tovushsiz | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -87,7 +89,7 @@
       "allowAllConfirm": "Ishonchingiz komilmi? Bu {{count}} foydalanuvchilariga gapirish uchun ruxsat so'rab murojaat qilganlarga gapirishga imkon beradi"
     },
     "searchUser": { "search": "Qidirish..." },
-    "soundEffectSettings": { "header": "Tovushlar" },
+    "soundEffectSettings": { "header": "Tovushlar", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Profilni tahrirlash",
       "followsYou": "Obunachilaringiz",
@@ -176,6 +178,10 @@
       "logOut": {
         "button": "Chiqish",
         "modalSubtitle": "Chiqishga ishonchingiz komilmi?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     },
     "modals": {
@@ -254,6 +260,11 @@
         "roomName": "xona nomi",
         "roomDescription": "Tavsif",
         "minLength": "minimal uzunlik 2"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

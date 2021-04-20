@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { Button } from "./Button";
 import { DurationTicker } from "./DurationTicker";
 import SvgSolidMicrophoneOff from "../icons/SolidMicrophoneOff";
+import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 
 export interface MinimizedRoomCardProps {
   onFullscreenClick?: () => void;
@@ -29,6 +30,7 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
   leaveLoading,
   room,
 }) => {
+  const { t } = useTypeSafeTranslation();
   // gap-n only works with grid
   return (
     <div
@@ -43,7 +45,7 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
           {room.speakers.join(", ")}
         </p>
         <p className="text-accent">
-          {room.myself.isSpeaker ? "Speaker" : "Listener"} ·{" "}
+          {room.myself.isSpeaker ? t("components.bottomVoiceControl.speaker") : t("components.bottomVoiceControl.listener")} ·{" "}
           <DurationTicker dt={room.roomStartedAt} />
         </p>
       </div>
@@ -79,7 +81,7 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
           className="flex-grow ml-4"
           onClick={room.myself.leave}
         >
-          Leave
+          {t("components.bottomVoiceControl.leave")}
         </Button>
       </div>
     </div>
