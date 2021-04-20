@@ -9,7 +9,7 @@ export default {
 
 const TheUserBadge: Story = () => {
   return (
-    <div className="flex flex-row gap-1">
+    <div className="flex flex-row">
       <div className="flex m-0">
         <UserBadge>ƉC</UserBadge>
       </div>
