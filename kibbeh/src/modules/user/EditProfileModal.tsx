@@ -6,7 +6,7 @@ import { useQueryClient } from "react-query";
 import { object, pattern, size, string } from "superstruct";
 import { FieldSpacer } from "../../form-fields/FieldSpacer";
 import { InputField } from "../../form-fields/InputField";
-import { showErrorToast } from "../../lib/showErrorToast";
+import { showToast } from "../../lib/showToast";
 import { validateStruct } from "../../lib/validateStruct";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
@@ -86,9 +86,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
           onSubmit={async (data) => {
             const { isUsernameTaken } = await mutateAsync([data]);
             if (isUsernameTaken) {
-              showErrorToast(
-                t("components.modals.editProfileModal.usernameTaken")
-              );
+              showToast(t("components.modals.editProfileModal.usernameTaken"));
             } else {
               if (conn) {
                 setUser({

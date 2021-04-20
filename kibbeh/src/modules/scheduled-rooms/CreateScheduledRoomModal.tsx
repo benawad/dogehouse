@@ -6,7 +6,7 @@ import { add } from "date-fns";
 import { Form, Formik } from "formik";
 import React from "react";
 import { InputField } from "../../form-fields/InputField";
-import { showErrorToast } from "../../lib/showErrorToast";
+import { showToast } from "../../lib/showToast";
 import { useWrappedConn } from "../../shared-hooks/useConn";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../../ui/Button";
@@ -88,7 +88,7 @@ export const CreateScheduleRoomModal: React.FC<CreateRoomModalProps> = ({
                   }));
 
               if ("error" in resp && resp.error) {
-                showErrorToast(resp.error);
+                showToast(resp.error);
                 return;
               } else {
                 onScheduledRoom(allData, resp);

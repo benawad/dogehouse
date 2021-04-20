@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { FC, useContext, useEffect } from "react";
 import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
 import { useRoomChatMentionStore } from "../global-stores/useRoomChatMentionStore";
-import { showErrorToast } from "../lib/showErrorToast";
+import { showToast } from "../lib/showToast";
 import { useTokenStore } from "../modules/auth/useTokenStore";
 import {
   RoomChatMessageToken,
@@ -51,7 +51,7 @@ export const useMainWsHandler = () => {
         }
       ),
       conn.addListener<any>("error", (message) => {
-        showErrorToast(message);
+        showToast(message);
       }),
       conn.addListener<any>("chat_user_unbanned", ({ userId }) => {
         useRoomChatStore.getState().unbanUser(userId);
@@ -105,7 +105,7 @@ export const useMainWsHandler = () => {
         }
       ),
       conn.addListener<any>("banned", () => {
-        showErrorToast("you got banned");
+        showToast("you got banned");
         conn.close();
         useTokenStore
           .getState()
@@ -113,9 +113,9 @@ export const useMainWsHandler = () => {
       }),
       conn.addListener<any>("ban_done", ({ worked }) => {
         if (worked) {
-          showErrorToast("ban worked");
+          showToast("ban worked");
         } else {
-          showErrorToast("ban failed");
+          showToast("ban failed");
         }
       }),
       conn.addListener<any>("someone_you_follow_created_a_room", (value) => {

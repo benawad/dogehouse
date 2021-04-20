@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { InputField } from "../../form-fields/InputField";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
-import { showErrorToast } from "../../lib/showErrorToast";
+import { showToast } from "../../lib/showToast";
 import { useWrappedConn } from "../../shared-hooks/useConn";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
@@ -75,7 +75,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
             : await conn.mutation.createRoom(d);
 
           if (typeof resp === "object" && "error" in resp) {
-            showErrorToast(resp.error);
+            showToast(resp.error);
 
             return;
           } else if (resp.room) {

@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useDownloadAlertStore } from "../../global-stores/useDownloadAlertStore";
 import { isServer } from "../../lib/isServer";
-import { showBanner } from "../../lib/showBanner";
+import { showToast } from "../../lib/showToast";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
@@ -71,7 +71,7 @@ const Page = ({
 
   useEffect(() => {
     if (shouldAlert && !isElectron()) {
-      showBanner(
+      showToast(
         t("pages.home.desktopAlert"),
         "sticky",
         <BannerButton

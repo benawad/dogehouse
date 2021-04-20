@@ -1,7 +1,7 @@
 import { wrap } from "@dogehouse/kebab";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { showErrorToast } from "../../lib/showErrorToast";
+import { showToast } from "../../lib/showToast";
 import { useConn } from "../../shared-hooks/useConn";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../../ui/Button";
@@ -19,7 +19,7 @@ export const BanUsersForm: React.FC<SearchUsersProps> = ({}) => {
 
   useEffect(() => {
     if (conn.user.username !== "benawad") {
-      showErrorToast("nice try");
+      showToast("nice try");
       replace("/dash");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
