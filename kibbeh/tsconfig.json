@@ -10,6 +10,7 @@
     "importHelpers": true,
     "strict": true,
     "lib": ["ESNext", "DOM"],
+    "types": ["@types/jest"],
     "module": "commonjs",
     "esModuleInterop": true,
     "preserveSymlinks": true,

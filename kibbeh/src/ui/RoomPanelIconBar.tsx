@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  SolidChatBubble,
   SolidCompass,
   SolidFriends,
   SolidMicrophone,
@@ -32,13 +33,15 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
   const { t } = useTypeSafeTranslation();
   const screenType = useScreenType();
   return (
-    <div className="justify-between bg-primary-700 rounded-b-8 py-3 px-4 w-full">
-      <div>
+    <div className="flex justify-between bg-primary-700 rounded-b-8 py-3 px-4 w-full">
+      <div className="flex">
         {mute ? (
           <BoxedIcon
             transition
-            className="mr-2"
+            hover={mute.isMuted}
+            className={`mr-2 ${mute.isMuted ? `bg-accent` : ``}`}
             color="800"
+            title={t("components.bottomVoiceControl.toggleMuteMicBtn")}
             onClick={() => mute.onMute()}
           >
             {mute.isMuted ? <SolidMicrophoneOff /> : <SolidMicrophone />}
@@ -49,6 +52,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
             transition
             className="mr-2"
             color="800"
+            title={t("components.bottomVoiceControl.inviteUsersToRoomBtn")}
             onClick={onInvitePeopleToRoom}
           >
             {/* @todo swap out right icon */}
@@ -56,14 +60,13 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
           </BoxedIcon>
         ) : null}
         {screenType === "1-cols" || screenType === "fullscreen" ? (
-          // @todo put chat icon
           <BoxedIcon
             transition
             className="mr-2"
             color="800"
             onClick={onToggleChat}
           >
-            <SolidCompass />
+            <SolidChatBubble />
           </BoxedIcon>
         ) : null}
         {onRoomSettings ? (
@@ -71,6 +74,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
             transition
             className="mr-2"
             color="800"
+            title={t("components.bottomVoiceControl.settings")}
             onClick={onRoomSettings}
           >
             <SolidSettings />

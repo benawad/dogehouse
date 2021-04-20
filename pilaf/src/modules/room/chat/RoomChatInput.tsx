@@ -1,18 +1,15 @@
-import { Room, RoomUser } from "@dogehouse/kebab";
+import { RoomUser } from "@dogehouse/kebab";
 import React, { useRef, useState } from "react";
 import {
-  KeyboardAvoidingView,
+  Image,
   TextInput,
   TouchableOpacity,
-  Image,
   View,
   ViewStyle,
 } from "react-native";
 import { colors, radius } from "../../../constants/dogeStyle";
 import { createChatMessage } from "../../../lib/createChatMessage";
 import { useConn } from "../../../shared-hooks/useConn";
-import { EmotePicker } from "./EmotePicker";
-
 import { RoomChatMentions } from "./RoomChatMentions";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { useRoomChatStore } from "./useRoomChatStore";

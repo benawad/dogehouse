@@ -30,7 +30,10 @@ export const FloatingRoomInfo: React.FC<MinimizedRoomCardControllerProps> = () =
   const { room } = data;
 
   return (
-    <div className="fixed bottom-6 right-6 border-accent border rounded-8 bg-primary-800 items-center">
+    <div
+      style={{ maxWidth: "70vw" }}
+      className="flex fixed bottom-6 right-6 border-accent border rounded-8 bg-primary-800 items-center"
+    >
       <button
         onClick={() => {
           router.push(`/room/${room.id}`);
@@ -41,7 +44,7 @@ export const FloatingRoomInfo: React.FC<MinimizedRoomCardControllerProps> = () =
         {room.name}
       </button>
       {canSpeak ? (
-        <div className="py-2 pr-2">
+        <div className="flex py-2 pr-2">
           <BoxedIcon
             onClick={() => {
               setMute(!muted);

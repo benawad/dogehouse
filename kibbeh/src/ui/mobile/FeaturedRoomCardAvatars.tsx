@@ -9,7 +9,7 @@ export const FeaturedRoomCardAvatars: React.FC<FeaturedRoomCardAvatarsProps> = (
   avatars,
 }) => {
   return (
-    <div className="z-0">
+    <div className="flex z-0">
       {avatars.slice(0, 2).map((s, i) => (
         <span
           key={s + i}

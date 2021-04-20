@@ -7,7 +7,6 @@ import { TitledHeader } from "../../components/header/TitledHeader";
 import { ScrollViewLoadMore } from "../../components/ScrollViewLoadMore";
 import { Spinner } from "../../components/Spinner";
 import { colors, paragraph, small } from "../../constants/dogeStyle";
-import { apiBaseUrl } from "../../constants/env";
 import { useWrappedConn } from "../../shared-hooks/useConn";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 
@@ -126,7 +125,7 @@ export const InviteRoomController: React.FC<InviteRoomControllerPropse> = ({
   const [cursors, setCursors] = useState([0]);
   const [isLoading, setLoading] = useState(false);
   const [nextCursor, setNextCursor] = useState(null);
-  const url = apiBaseUrl + `/room/${room.id}`;
+  const url = `https://next.dogehouse.tv/room/${room.id}`;
 
   return (
     <>

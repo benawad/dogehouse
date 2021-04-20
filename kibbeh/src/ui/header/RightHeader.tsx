@@ -7,6 +7,7 @@ import { useTokenStore } from "../../modules/auth/useTokenStore";
 import { closeVoiceConnections } from "../../modules/webrtc/WebRtcApp";
 import { modalConfirm } from "../../shared-components/ConfirmModal";
 import { useConn } from "../../shared-hooks/useConn";
+import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { DropdownController } from "../DropdownController";
 import { SettingsDropdown } from "../SettingsDropdown";
 import { SingleUser } from "../UserAvatar";
@@ -30,10 +31,16 @@ const RightHeader: React.FC<RightHeaderProps> = ({
   onMessagesClick,
   onNotificationsClick,
 }) => {
-  const { close: closeWs, user } = useConn();
+  const conn = useConn();
   const { push } = useRouter();
+  const { t } = useTypeSafeTranslation();
+
+  if (!conn) {
+    return <div />;
+  }
+
   return (
-    <div className="space-x-4 items-center justify-end focus:outline-no-chrome">
+    <div className="flex space-x-4 items-center justify-end focus:outline-no-chrome w-full">
       {onAnnouncementsClick && (
         <button onClick={onAnnouncementsClick}>
           <SolidMegaphone width={23} height={23} className="text-primary-200" />
@@ -55,28 +62,32 @@ const RightHeader: React.FC<RightHeaderProps> = ({
       )}
       {actionButton}
       <DropdownController
+        className="top-9 right-3 md:right-0"
         overlay={(close) => (
           <SettingsDropdown
             onActionButtonClicked={() => {
-              modalConfirm("Are you sure you want to logout?", () => {
-                closeWs();
-                closeVoiceConnections(null);
-                useCurrentRoomIdStore.getState().setCurrentRoomId(null);
-                useTokenStore
-                  .getState()
-                  .setTokens({ accessToken: "", refreshToken: "" });
-                push("/logout");
-              });
+              modalConfirm(
+                t("components.settingsDropdown.logOut.modalSubtitle"),
+                () => {
+                  conn.close();
+                  closeVoiceConnections(null);
+                  useCurrentRoomIdStore.getState().setCurrentRoomId(null);
+                  useTokenStore
+                    .getState()
+                    .setTokens({ accessToken: "", refreshToken: "" });
+                  push("/logout");
+                }
+              );
             }}
             onCloseDropdown={close}
-            user={user}
+            user={conn.user}
           />
         )}
       >
         <SingleUser
           className={"focus:outline-no-chrome"}
           size="sm"
-          src={user.avatarUrl}
+          src={conn.user.avatarUrl}
         />
       </DropdownController>
     </div>

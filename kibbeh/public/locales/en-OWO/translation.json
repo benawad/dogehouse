@@ -1,0 +1,276 @@
+{
+  "_comment": "if you change this file, do: npm run i18",
+  "common": {
+    "loadMore": "0w0 Woad Mowe UwU",
+    "loading": "<3 Woading... ;_;",
+    "noUsersFound": "<3 Nu usews found >_<",
+    "ok": "okie UwU",
+    "yes": "yes xD",
+    "no": "no xD",
+    "cancel": "Cancew <{^v^}>",
+    "save": "0w0 Save (；ω；)",
+    "edit": "UwU Edit UwU",
+    "delete": "UnU Dewete",
+    "joinRoom": "Haiiii! Join Woom (；ω；)",
+    "copyLink": "Copy Wink ;3",
+    "copied": "0w0 Copied ^-^",
+    "formattedIntlDate": "{{date, intlDate}}",
+    "formattedIntlTime": "{{time, intlTime}}",
+    "requestPermissions": "<3 Pwease note ruwwing DogeHouse without accessabiwity pewmissiowns may cause ewwows ＞﹏＜"
+  },
+  "header": {
+    "_comment": "Main Header UI Internationalization Strings",
+    "title": "DogeHouse",
+    "mutedTitle": "Muted | DogeHouse xD"
+  },
+  "footer": {
+    "_comment": "Main Footer UI Internationalization Strings",
+    "link_1": " Owigin Stowy ʕʘ‿ʘʔ",
+    "link_2": "Discord",
+    "link_3": "UwU Wepowt a Bug (✿ ♡‿♡)"
+  },
+  "pages": {
+    "_comment": "Respective Page UI Internationalization Strings",
+    "banUser": { "ban": "ban >:3" },
+    "followingOnlineList": {
+      "listHeader": "<3 Wist of usews that awe nut in a pwivate woom and uu fowwow. :3",
+      "currentRoom": "UwU Cuwwentwy in:",
+      "startPrivateRoom": "<3 Stawt a pwivate woom with them x3"
+    },
+    "followList": { "followHim": "Follow", "followingHim": "Following" },
+    "home": {
+      "createRoom": "OwO Cweate Woom (ʘᗩʘ')",
+      "refresh": " Wefwesh (◠‿◠✿)",
+      "editRoom": "Edit Room"
+    },
+    "inviteList": {
+      "roomGone": "Woom gone, go back <{^v^}>",
+      "shareRoomLink": "Shawe Wink to Woom (❁´◡`❁)",
+      "inviteFollowers": "0w0 You can invite uuw fowwowews that awe onwine:",
+      "whenFollowersOnline": "UwU When uuw fowwowews awe onwine, they wiww show up hewe. ÙωÙ"
+    },
+    "login": {
+      "headerText": "OWO Taking voice convewsations to da moon 🚀 (• o •)",
+      "featureText_1": "Dawk Theme",
+      "featureText_2": "Open Sign-Ups, fwendo",
+      "featureText_3": "OWO Cwoss-Pwatfowm Suppowt（＾ｖ＾）",
+      "featureText_4": "0w0 Open Souwce ÙωÙ",
+      "featureText_5": "Text Chat <{^v^}>",
+      "featureText_6": "Powewed by Doge",
+      "loginGithub": "Log in with GitHub",
+      "loginTwitter": "Log in with Twittew",
+      "createTestUser": "Cweate Test Usew UwU",
+      "loginDiscord": "Login with Discord"
+    },
+    "myProfile": {
+      "logout": "Logout",
+      "probablyLoading": "Pwobabwy woading...",
+      "voiceSettings": "<3 Go to Voice Settings ;-;",
+      "soundSettings": "Go to Sound Settings x3",
+      "deleteAccount": "Dewete Account UnU",
+      "overlaySettings": "Gow to Owerlay Settings ( ^_^ )",
+      "couldNotFindUser": "Sorry, we could not find that user"
+    },
+    "notFound": {
+      "whoopsError": "OWO Whoops! This page got wost in convewsation. (●´ω｀●)",
+      "goHomeMessage": "Not to wowwy. You can",
+      "goHomeLinkText": "go home xD"
+    },
+    "room": {
+      "speakers": "<3 Speakews :P",
+      "requestingToSpeak": "Wequesting to speak (╯﹏╰）",
+      "listeners": "Wistenews (´・ω・｀)",
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+    },
+    "searchUser": { "search": "Seawch... >_<" },
+    "soundEffectSettings": { "header": "OWO Sounds :D" },
+    "viewUser": {
+      "editProfile": "Edit Pwofiwe (⁎˃ᆺ˂)",
+      "followsYou": "Fowwows uu (๑•́ ₃ •̀๑)",
+      "followers": "Fowwowews >_>",
+      "following": "Fowwowing ( ͡° ᴥ ͡°)",
+      "followHim": "Fowwow uwu",
+      "followingHim": "Fowwowing <3",
+      "copyProfileUrl": "Copy Pwofile URL",
+      "urlCopied": "URL Cwopied to Cwipboard (❤´艸｀❤)",
+      "unfollow": "Unfowwow"
+    },
+    "voiceSettings": {
+      "header": "OWO Voice Settings (✿ ♡‿♡)",
+      "mic": "Mic:",
+      "permissionError": "Nu mics found, uu eithew haz nune pwugged in ow hazn't given this website pewmission. ;_;",
+      "refresh": "Wefwesh mic wist (｀へ´)",
+      "volume": "Volume:"
+    },
+    "overlaySettings": {
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
+    }
+  },
+  "components": {
+    "_comment": "Component UI Internationalization Strings",
+    "avatar": {},
+    "backBar": {},
+    "blockedFromRoomUsers": {
+      "header": "Banned Usews, fwendo",
+      "unban": "Unban",
+      "noBans": "Nu one haz been banned yet (；ω；)"
+    },
+    "bottomVoiceControl": {
+      "leaveCurrentRoomBtn": "Weave cuwwent woom ;_;",
+      "confirmLeaveRoom": "Awe uu suwe uu want to weave? (๑•́ ₃ •̀๑)",
+      "leave": "Weave",
+      "inviteUsersToRoomBtn": "Invite Usews to Woom :D",
+      "invite": "Invite",
+      "toggleMuteMicBtn": "Toggwe Mute Micwophone (　'◟ ')",
+      "mute": "Mute",
+      "unmute": "Unmute",
+      "makeRoomPublicBtn": "OWO Make Woom Pubwic! (❁´◡`❁)",
+      "settings": "Settings ^_^",
+      "speaker": "Speakew :D",
+      "listener": "OwO Wistenew",
+      "chat": "Chat"
+    },
+    "deviceNotSupported": {
+      "notSupported": "HIIII! Youw device is cuwwentwy nut suppowted. You can cweate an",
+      "linkText": "issue on GitHub",
+      "addSupport": "and I wiww twy adding suppowt fow uuw device. x3"
+    },
+    "inviteButton": { "invited": "Invited!", "inviteToRoom": "Invite to Woom" },
+    "micPermissionBanner": {
+      "permissionDenied": "Huohhhh. Pewmission denied twying to access uuw mic (uu may need to go into bwowsew settings and wewoad da page) (❁´◡`❁)",
+      "dismiss": "Dismiss",
+      "tryAgain": "Twy Again"
+    },
+    "keyboardShortcuts": {
+      "setKeybind": "Set Keybind",
+      "listening": "OWO Wistening",
+      "toggleMuteKeybind": "0w0 Toggwe Mute keybind (❁´◡`❁)",
+      "togglePushToTalkKeybind": "Toggwe Push-to-Tawk keybind :D",
+      "toggleOverlayKeybind": "Toggwe Owerlay keybind :3"
+    },
+    "userVolumeSlider": {
+      "noAudioMessage": "Nu audio consumew fow some weason D:"
+    },
+    "addToCalendar": { "add": "Add to Cawendaw ^_^" },
+    "wsKilled": {
+      "description": " WebSocket was kiwwed by da sewvew. This usuawwy happens when uu open da website in anuthew tab. ;3",
+      "reconnect": "Weconnect (；ω；)"
+    },
+    "modals": {
+      "createRoomModal": {
+        "public": "Pubwic",
+        "private": "UwU Pwivate ^_^",
+        "roomName": "Woom name ʕʘ‿ʘʔ",
+        "roomDescription": "OwO Woom descwiption :D",
+        "descriptionError": "Max wength 500 (●´ω｀●)",
+        "nameError": "Must be between 2 to 60 chawactews wong :3",
+        "subtitle": "Fill the following fields to start a new room"
+      },
+      "invitedToJoinRoomModal": {
+        "newRoomCreated": "0w0 New Woom Cweated (●´ω｀●)",
+        "roomInviteFrom": "0w0 Woom Invite fwom :D",
+        "justStarted": "0w0 They just stawted ^_^",
+        "likeToJoin": ", wouwd uu wike to join? ^-^",
+        "inviteReceived": "uu've been invited to"
+      },
+      "editProfileModal": {
+        "usernameTaken": "Usewname taken (人◕ω◕)",
+        "avatarUrlError": "Invawid image (⁎˃ᆺ˂)",
+        "avatarUrlLabel": "GitHub/Twittew avataw uww UwU",
+        "displayNameError": "wength 2 to 50 chawactews ㅇㅅㅇ",
+        "displayNameLabel": "<3 Dispway Name",
+        "usernameError": "OWO wength 4 to 15 chawactews and onwy awphanumewic/undewscowe (இωஇ )",
+        "usernameLabel": "UwU Usewname UwU",
+        "bioError": "Max wength of 160 chawactews :D",
+        "bioLabel": "Bio"
+      },
+      "profileModal": {
+        "blockUserConfirm": "OwO Awe uu suwe uu want to bwock this usew fwom joining any woom uu evew cweate? (　'◟ ')",
+        "blockUser": "Bwock Usew ʕʘ‿ʘʔ",
+        "makeMod": "Make Mod xD",
+        "unmod": "Unmod",
+        "addAsSpeaker": "UwU Add as Speakew (人◕ω◕)",
+        "moveToListener": "Move to Wistenew ;3",
+        "banFromChat": "<3 Ban fwom Chat (இωஇ )",
+        "banFromRoom": "Ban fwom Woom UwU",
+        "goBackToListener": "Go Back to Wistenew (╯﹏╰）",
+        "deleteMessage": "Dewete this Message >_>",
+        "makeRoomCreator": "Make Woom Admin",
+        "unBanFromChat": "Unban from Chat"
+      },
+      "roomSettingsModal": {
+        "requirePermission": "Wequiwe pewmission to speak <{^n^}>",
+        "makePublic": "UwU Make Woom Pubwic (⁎˃ᆺ˂)",
+        "makePrivate": "Make Woom Pwivate xD",
+        "renamePublic": "Set Public Room Name",
+        "renamePrivate": "Set Private Room Name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
+      }
+    }
+  },
+  "modules": {
+    "_comment": "Modules UI Internationalization Strings",
+    "scheduledRooms": {
+      "title": "Scheduwed Wooms (• o •)",
+      "noneFound": "Nune found ;3",
+      "allRooms": "<3 Aww Scheduwed Wooms",
+      "myRooms": "My Scheduwed Wooms x3",
+      "scheduleRoomHeader": "Scheduwe Woom >_<",
+      "startRoom": "<3 Stawt Woom ;_;",
+      "modal": {
+        "needsFuture": "Needs to be in da futuwe (人◕ω◕)",
+        "roomName": "Woom Name (◠‿◠✿)",
+        "minLength": "<3 min wength 2 ^_^",
+        "roomDescription": "Descwiptiow"
+      }
+    },
+    "roomChat": {
+      "title": "Chat",
+      "emotesSoon": "[emotes soon ._.]",
+      "bannedAlert": "You got banned fwom chat (๑•́ ₃ •̀๑)",
+      "waitAlert": "You haz to wait a second befowe sending anuthew message ( ͡° ᴥ ͡°)",
+      "search": "UwU Seawch (；ω；)",
+      "searchResults": "<3 Seawch Wesuwts",
+      "recent": "Fwequentwy Used :P",
+      "sendMessage": "Send a Message xD",
+      "whisper": "Whispew <{^v^}>",
+      "welcomeMessage": "UwU Wewcome to chat! (✿ ♡‿♡)",
+      "roomDescription": "Woom Descwiption（＾ｖ＾）"
+    },
+    "roomStatus": {
+      "fuelingRocket": "Fuewing rocket uwu",
+      "takingOff": "Tawking off xD",
+      "inSpace": "In space ʕʘ‿ʘʔ",
+      "approachingMoon": "Appwoaching moon  (❁´◡`❁)",
+      "lunarDoge": "Lunar doge (；ω；)",
+      "approachingSun": "Appwoaching sun >_<",
+      "solarDoge": "Solar doge :3",
+      "approachingGalaxy": "Appwoaching galaxy (◠‿◠✿)",
+      "galacticDoge": "Galactic Doge",
+      "spottedLife": "Pwanet with uwu life spotted (• o •)"
+    },
+    "feed": { "yourFeed": "Your Feed" }
+  }
+}

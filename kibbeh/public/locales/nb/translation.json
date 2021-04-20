@@ -53,12 +53,13 @@
       "featureText_1": "Mørkt tema",
       "featureText_2": "Åpne registreringer",
       "featureText_3": "Støtte på tvers av plattformer",
-      "featureText_4": "Åpen kildekode",
+      "featureText_4": "Åpene kildekoden",
       "featureText_5": "Tekstchat",
       "featureText_6": "Drevet av Doge",
       "loginGithub": "Logg inn med GitHub",
       "loginTwitter": "Logg inn med Twitter",
-      "createTestUser": "Opprett en test-bruker"
+      "createTestUser": "Opprett en test-bruker",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Logg ut",
@@ -66,7 +67,8 @@
       "voiceSettings": "Gå til taleinnstillinger",
       "soundSettings": "Gå til lydinnstillinger",
       "deleteAccount": "Slett konto",
-      "overlaySettings": "Gå til overleggsinnstillinger"
+      "overlaySettings": "Gå til overleggsinnstillinger",
+      "couldNotFindUser": "Beklager, vi kunne ikke finne denne brukeren.."
     },
     "notFound": {
       "whoopsError": "Oi sann! Denne siden ble tapt i samtalen.",
@@ -165,7 +167,8 @@
         "roomName": "Romnavn",
         "roomDescription": "Rombeskrivelse",
         "descriptionError": "Maksimal lengde er 500 tegn",
-        "nameError": "Må være mellom 2 og 60 tegn"
+        "nameError": "Må være mellom 2 og 60 tegn",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nytt rom er opprettet",
@@ -196,7 +199,8 @@
         "banFromRoom": "Utesteng fra rommet",
         "goBackToListener": "Gå tilbake til lytter",
         "deleteMessage": "Slett denne meldingen",
-        "makeRoomCreator": "Opprett rom-administrator"
+        "makeRoomCreator": "Opprett rom-administrator",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Krev tillatelse for å snakke",
@@ -204,6 +208,27 @@
         "makePrivate": "Gjør rommet privat",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "Mennesker",
+      "online": "Pålogget",
+      "noOnline": "Du har ingen venner pålogget",
+      "showMore": "Vis flere"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Kommende rom",
+      "exploreMoreRooms": "Utforsk flere rom"
+    },
+    "search": { "placeholder": "Søk etter rom, brukere eller kategorier" },
+    "settingsDropdown": {
+      "profile": "Profil",
+      "language": "Språk",
+      "reportABug": "Rapporter en feil",
+      "useOldVersion": "Bruk den gamle versjonen",
+      "logOut": {
+        "button": "Logg ut",
+        "modalSubtitle": "Er du sikker på at du vil logge ut?"
       }
     }
   },
@@ -247,6 +272,7 @@
       "approachingGalaxy": "Nærmer seg galaksen",
       "galacticDoge": "Galakse-doge",
       "spottedLife": "Planet med liv oppdaget"
-    }
+    },
+    "feed": { "yourFeed": "Din Feed" }
   }
 }

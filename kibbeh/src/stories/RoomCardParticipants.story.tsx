@@ -14,7 +14,7 @@ const TheRoomCardParticipants: Story<RoomCardParticipantsProps> = ({
   users,
 }) => {
   return (
-    <div style={{ width: "200px" }}>
+    <div className="flex" style={{ width: "200px" }}>
       <RoomCardParticipants
         users={
           users

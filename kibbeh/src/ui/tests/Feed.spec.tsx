@@ -15,7 +15,7 @@ describe("Feed", () => {
     defaultProps = {
       title: "Your feed",
       actionTitle: "New Room",
-      emptyPlaceholder: <div>Empty</div>,
+      emptyPlaceholder: <div className="flex">Empty</div>,
       onActionClicked: () => jest.fn(),
       rooms: [],
     };

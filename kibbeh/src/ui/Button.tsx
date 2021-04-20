@@ -7,7 +7,7 @@ import { Spinner } from "./Spinner";
 
 const sizeClassnames = {
   big: "py-2 px-6 text-sm rounded-lg",
-  small: "px-2 py-1 text-xs rounded-md",
+  small: "px-2 py-1 text-sm rounded-md",
 };
 
 const colorClassnames = {
@@ -44,9 +44,9 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <button
       disabled={disabled || loading}
-      className={`${sizeClassnames[size]} ${
-        transition ? `transition duration-500 ease-in-out` : ``
-      } ${
+      className={`flex outline-none focus:ring-4 focus:ring-${color} ${
+        sizeClassnames[size]
+      } ${transition ? `transition duration-200 ease-in-out` : ``} ${
         colorClassnames[color]
       } font-bold flex items-center justify-center ${className}`}
       data-testid="button"

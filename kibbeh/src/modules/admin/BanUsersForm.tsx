@@ -22,6 +22,7 @@ export const BanUsersForm: React.FC<SearchUsersProps> = ({}) => {
       showErrorToast("nice try");
       replace("/dash");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (conn.user.username !== "benawad") {
@@ -30,7 +31,7 @@ export const BanUsersForm: React.FC<SearchUsersProps> = ({}) => {
 
   return (
     <MiddlePanel>
-      <div>
+      <div className="flex">
         <Input
           className={`mb-4`}
           autoFocus

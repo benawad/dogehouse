@@ -59,7 +59,8 @@
       "featureText_6": "Aangedryf deur Doge",
       "loginGithub": "Teken aan met GitHub",
       "loginTwitter": "Teken aan met Twitter",
-      "createTestUser": "Maak toets gebruiker"
+      "createTestUser": "Maak toets gebruiker",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "teken uit",
@@ -67,7 +68,8 @@
       "voiceSettings": "gaan na stem instellings",
       "soundSettings": "gaan na klank instellings",
       "deleteAccount": "verwyder rekening",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Oeps! Hierdie bladsy het verlore geraak in gesprek.",
@@ -165,7 +167,8 @@
         "roomName": "kamer naam",
         "roomDescription": "kamer beskrying",
         "descriptionError": "maximum lengte 500",
-        "nameError": "moet tussen 2 en 60 karakters lank wees"
+        "nameError": "moet tussen 2 en 60 karakters lank wees",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nuwe kamer geskep",
@@ -196,7 +199,8 @@
         "banFromRoom": "verban van kamer",
         "goBackToListener": "gaan terug na luisteraar",
         "deleteMessage": "verwyder hierdie boodskap",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "benodig toestemming om te praat",
@@ -204,6 +208,27 @@
         "makePrivate": "maak kamer privaat",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -247,6 +272,7 @@
       "approachingGalaxy": "Approaching galaxy",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

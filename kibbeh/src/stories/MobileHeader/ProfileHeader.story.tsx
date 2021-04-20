@@ -19,7 +19,7 @@ const TheProfileHeader: Story<ProfileHeaderProps> = ({
   onMessagesClick = () => null,
   onSearchClick = () => null,
 }) => (
-  <div style={{ width: 420 }}>
+  <div className="flex" style={{ width: 420 }}>
     <ProfileHeader
       avatar={avatar}
       onAnnouncementsClick={onAnnouncementsClick}

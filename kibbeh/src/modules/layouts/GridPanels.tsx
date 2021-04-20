@@ -1,14 +1,14 @@
 import React, { FC, useContext } from "react";
 import { FixedGridPanel, GridPanel } from "../../ui/GridPanel";
 import LeftHeader from "../../ui/header/LeftHeader";
+import { MiddleHeader } from "../../ui/header/MiddleHeader";
 import RightHeader from "../../ui/header/RightHeader";
-import { MiddleHeaderController } from "../search/MiddleHeaderController";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 
 interface LeftPanelProps {}
 
 const HeaderWrapper: FC = ({ children }) => (
-  <div className={`mb-7 h-6 items-center`}>{children}</div>
+  <div className={`flex mb-7 h-6 items-center`}>{children}</div>
 );
 
 export const LeftPanel: React.FC<LeftPanelProps> = ({ children }) => {
@@ -27,9 +27,9 @@ export const MiddlePanel: React.FC<
 > = ({ stickyChildren, children }) => {
   return (
     <GridPanel>
-      <div className="sticky top-0 w-full flex-col z-10 bg-primary-900 pt-5">
+      <div className="flex sticky top-0 w-full flex-col z-10 bg-primary-900 pt-5">
         <HeaderWrapper>
-          <MiddleHeaderController />
+          <MiddleHeader />
         </HeaderWrapper>
         {stickyChildren}
       </div>

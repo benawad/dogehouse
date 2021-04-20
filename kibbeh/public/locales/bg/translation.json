@@ -59,7 +59,8 @@
       "featureText_6": "Powered by Doge",
       "loginGithub": "влизане с GitHub",
       "loginTwitter": "влизане с Twitter",
-      "createTestUser": "създаване на тестови потребител"
+      "createTestUser": "създаване на тестови потребител",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "излизане",
@@ -67,7 +68,8 @@
       "voiceSettings": "отиване към гласови настройки",
       "soundSettings": "отиване към звукови настройки",
       "deleteAccount": "изтриване на акаунт",
-      "overlaySettings": "go to overlay settings"
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "Опаа! Тази страниза бе изгубена.",
@@ -165,7 +167,8 @@
         "roomName": "има на стая",
         "roomDescription": "описание на стаята",
         "descriptionError": "максимална дължина 500",
-        "nameError": "името трябва да е между 2 и 60 знака"
+        "nameError": "името трябва да е между 2 и 60 знака",
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Нова стая беше създадена",
@@ -196,7 +199,8 @@
         "banFromRoom": "блокиране от стая",
         "goBackToListener": "върни се към слушател",
         "deleteMessage": "изтриване на това съобщение",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "изискване на позволение за говорене",
@@ -204,6 +208,27 @@
         "makePrivate": "направи стаята частна",
         "renamePublic": "Set public room name",
         "renamePrivate": "Set private room name"
+      }
+    },
+    "followingOnline": {
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
+    },
+    "upcomingRoomsCard": {
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
+    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
+    "settingsDropdown": {
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
+      "logOut": {
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -247,6 +272,7 @@
       "approachingGalaxy": "Approaching galaxy",
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
-    }
+    },
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

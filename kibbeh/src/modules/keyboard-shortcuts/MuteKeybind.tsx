@@ -28,7 +28,7 @@ export const MuteKeybind: React.FC<MuteKeybindProps> = ({ className }) => {
   }, [count, setMuteKeybind]);
 
   return (
-    <div className={`flex items-center ${className}`}>
+    <div className={`flex flex items-center ${className}`}>
       <Button
         size="small"
         onClick={() => {
@@ -38,7 +38,7 @@ export const MuteKeybind: React.FC<MuteKeybindProps> = ({ className }) => {
       >
         {t("components.keyboardShortcuts.setKeybind")}
       </Button>
-      <div className={`ml-4`}>
+      <div className={`flex ml-4`}>
         {t("components.keyboardShortcuts.toggleMuteKeybind")}:{" "}
         <span className={`font-bold text-lg`}>
           {active ? t("components.keyboardShortcuts.listening") : MUTE}

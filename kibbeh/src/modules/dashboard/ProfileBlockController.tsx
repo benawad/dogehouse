@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useConn } from "../../shared-hooks/useConn";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
+import { useTypeSafeUpdateQuery } from "../../shared-hooks/useTypeSafeUpdateQuery";
 import { ProfileBlock } from "../../ui/ProfileBlock";
 import { UpcomingRoomsCard } from "../../ui/UpcomingRoomsCard";
 import { UserSummaryCard } from "../../ui/UserSummaryCard";
@@ -22,6 +23,7 @@ export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({}
   ] = useState(false);
   const { data } = useTypeSafeQuery(["getScheduledRooms", "", false]);
   const { push } = useRouter();
+  const update = useTypeSafeUpdateQuery();
 
   return (
     <>
@@ -31,7 +33,26 @@ export const ProfileBlockController: React.FC<ProfileBlockControllerProps> = ({}
       />
       {showCreateScheduleRoomModal ? (
         <CreateScheduleRoomModal
-          onScheduledRoom={() => {}}
+          onScheduledRoom={(srData, resp) => {
+            update(["getScheduledRooms", "", false], (d) => {
+              return {
+                scheduledRooms: [
+                  {
+                    roomId: null,
+                    creator: conn.user!,
+                    creatorId: conn.user!.id,
+                    description: srData.description,
+                    id: resp.scheduledRoom.id,
+                    name: srData.name,
+                    numAttending: 0,
+                    scheduledFor: srData.scheduledFor.toISOString(),
+                  },
+                  ...(d?.scheduledRooms || []),
+                ],
+                nextCursor: d?.nextCursor,
+              };
+            });
+          }}
           onRequestClose={() => setShowCreateScheduleRoomModal(false)}
         />
       ) : null}

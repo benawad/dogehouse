@@ -1,18 +1,18 @@
 import { Room, RoomUser } from "@dogehouse/kebab";
-import React, { MutableRefObject, Ref, useEffect, useState } from "react";
-import { KeyboardAvoidingView, View, ViewStyle, Keyboard } from "react-native";
+import { useKeyboard } from "@react-native-community/hooks";
+import { useNavigation } from "@react-navigation/core";
+import React, { MutableRefObject, useEffect, useState } from "react";
+import { Keyboard, View, ViewStyle } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import BottomSheet from "reanimated-bottom-sheet";
 import { colors } from "../../../constants/dogeStyle";
+import { useConn } from "../../../shared-hooks/useConn";
+import { useCurrentRoomInfo } from "../../../shared-hooks/useCurrentRoomInfo";
 import { EmotePicker } from "./EmotePicker";
 import { RoomChatControls } from "./RoomChatControls";
 import { RoomChatInput } from "./RoomChatInput";
 import { RoomChatList } from "./RoomChatList";
 import { RoomChatMessage, useRoomChatStore } from "./useRoomChatStore";
-import { useKeyboard } from "@react-native-community/hooks";
-import BottomSheet from "reanimated-bottom-sheet";
-import { useNavigation } from "@react-navigation/core";
-import { useConn } from "../../../shared-hooks/useConn";
-import { useCurrentRoomInfo } from "../../../shared-hooks/useCurrentRoomInfo";
 
 interface ChatProps {
   room: Room;

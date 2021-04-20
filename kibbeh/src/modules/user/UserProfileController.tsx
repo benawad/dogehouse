@@ -2,23 +2,26 @@ import isElectron from "is-electron";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { isServer } from "../../lib/isServer";
+import { usePreloadPush } from "../../shared-components/ApiPreloadLink";
 import { useConn } from "../../shared-hooks/useConn";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
+import { useTypeSafeUpdateQuery } from "../../shared-hooks/useTypeSafeUpdateQuery";
 import { Button } from "../../ui/Button";
 import { CenterLoader } from "../../ui/CenterLoader";
 import { InfoText } from "../../ui/InfoText";
 import { EditProfileModal } from "./EditProfileModal";
 import { VerticalUserInfoWithFollowButton } from "./VerticalUserInfoWithFollowButton";
 
-interface UserProfileControllerProps { }
+interface UserProfileControllerProps {}
 
 const isMac = process.platform === "darwin";
 
-export const UserProfileController: React.FC<UserProfileControllerProps> = ({ }) => {
+export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) => {
   const [open, setOpen] = useState(false);
-  const conn = useConn()
+  const conn = useConn();
   const { t } = useTypeSafeTranslation();
+  const preloadPush = usePreloadPush();
   const { push } = useRouter();
   const { query } = useRouter();
   const { data, isLoading } = useTypeSafeQuery(
@@ -30,15 +33,26 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({ })
     },
     [query.username as string]
   );
+  const update = useTypeSafeUpdateQuery();
 
   // commented this out as rn this shows up all the time
   useEffect(() => {
     if (isElectron()) {
       const ipcRenderer = window.require("electron").ipcRenderer;
-      ipcRenderer.send("@rpc/page", { page: "profile", opened: true, modal: false, data: query.username });
+      ipcRenderer.send("@rpc/page", {
+        page: "profile",
+        opened: true,
+        modal: false,
+        data: query.username,
+      });
       return () => {
-        ipcRenderer.send("@rpc/page", { page: "profile", opened: false, modal: false, data: query.username });
-      }
+        ipcRenderer.send("@rpc/page", {
+          page: "profile",
+          opened: false,
+          modal: false,
+          data: query.username,
+        });
+      };
     }
   }, [query]);
 
@@ -47,7 +61,7 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({ })
   }
 
   if (!data) {
-    return <InfoText>Sorry, we could not find that user</InfoText>;
+    return <InfoText>{t("pages.myProfile.couldNotFindUser")}</InfoText>;
   }
 
   return (
@@ -56,9 +70,23 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({ })
         idOrUsernameUsedForQuery={data.username}
         user={data}
       />
-      {data.id === conn.user.id &&
+      {data.id === conn.user.id && (
         <div className={`pt-6 flex`}>
-          <EditProfileModal isOpen={open} onRequestClose={() => setOpen(false)} />
+          <EditProfileModal
+            isOpen={open}
+            onRequestClose={() => setOpen(false)}
+            onEdit={(d) => {
+              update(["getUserProfile", d.username], (x) =>
+                !x ? x : { ...x, ...d }
+              );
+              if (d.username !== data.username) {
+                preloadPush({
+                  route: "profile",
+                  data: { username: d.username },
+                });
+              }
+            }}
+          />
           <Button
             style={{ marginRight: "10px" }}
             size="small"
@@ -86,7 +114,7 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({ })
             {t("pages.myProfile.soundSettings")}
           </Button>
         </div>
-      }
+      )}
     </>
   );
 };

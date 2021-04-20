@@ -19,7 +19,7 @@ export const VolumeSlider: React.FC<VolumeSliderProps> = ({
   return (
     <div className={`flex flex-col w-full`}>
       <div
-        className={`text-primary-300 w-full text-center justify-center mb-1`}
+        className={`flex text-primary-300 w-full text-center justify-center mb-1`}
       >
         {label ? "volume: " : ""} {volume}
       </div>

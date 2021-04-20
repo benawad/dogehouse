@@ -9,14 +9,14 @@ export default {
 
 const TheUserBadge: Story = () => {
   return (
-    <div className="flex flex-row">
-      <div className="m-1">
+    <div className="flex flex flex-row">
+      <div className="flex m-1">
         <UserBadge>ƉC</UserBadge>
       </div>
-      <div className="m-1">
+      <div className="flex m-1">
         <UserBadge>ƉS</UserBadge>
       </div>
-      <div className="m-1">
+      <div className="flex m-1">
         <UserBadge variant="secondary">
           <SolidDogenitro style={{ color: "#FFF" }} width={12} />
         </UserBadge>

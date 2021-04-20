@@ -54,8 +54,10 @@ const Page = ({
     return <CenterLoader />;
   }
 
-  if (!data) {
-    return null;
+  if (!data || data.users.length === 0) {
+    const styles = "text-primary-200 text-center";
+    if(isFollowing) return <div className={styles}>Not following anyone</div>;
+    else return <div className={styles}>No followers</div>;
   }
 
   // if (isOnlyPage && data.rooms.length === 0) {
@@ -69,21 +71,21 @@ const Page = ({
   return (
     <>
       {data.users.map((user) => (
-        <div key={user.id} className="items-center mb-6">
-          <div>
+        <div key={user.id} className="flex items-center mb-6">
+          <div className="flex">
             <SingleUser size="md" src={user.avatarUrl} />
           </div>
-          <div className="px-4 flex-1">
+          <div className="flex px-4 flex-1">
             <ApiPreloadLink route="profile" data={{ username: user.username }}>
-              <div className="flex-col w-full">
+              <div className="flex flex-col w-full">
                 <p className="block max-w-md text-primary-100 truncate w-full">
                   {user.displayName}
                 </p>
-                <div className="text-primary-200">@{user.username}</div>
+                <div className="flex text-primary-200">@{user.username}</div>
               </div>
             </ApiPreloadLink>
           </div>
-          <div className="block">
+          <div className="flex block">
             {conn.user.username !== user.username && (
               <Button
                 loading={followLoading && variables?.[0] === user.id}
@@ -121,7 +123,7 @@ const Page = ({
         </div>
       ))}
       {isLastPage && data.nextCursor ? (
-        <div className={`flex justify-center py-5`}>
+        <div className={`flex flex justify-center py-5`}>
           <Button
             size="small"
             onClick={() => {
