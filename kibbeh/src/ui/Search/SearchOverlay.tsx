@@ -16,10 +16,11 @@ export const SearchOverlay = forwardRef<
       className={`absolute flex flex-col py-2 rounded-8 bg-primary-800 border-primary-700 border ${className}`}
       style={{
         minHeight: "198px",
+        maxHeight: "50vh",
         top: "-10px",
         left: "-10px",
         boxShadow: "-3px 4px 14px rgba(0, 0, 0, 0.7)",
-        width: "104%",
+        width: "103.5%",
         zIndex: -1
       }}
       {...props}
