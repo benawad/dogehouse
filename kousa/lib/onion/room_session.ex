@@ -186,7 +186,7 @@ defmodule Onion.RoomSession do
     cast(room_id, {:add_speaker, user_id, muted?, deafened?})
   end
 
-  def add_speaker_impl(user_id, muted?, deafened? ,state) do
+  def add_speaker_impl(user_id, muted?, deafened?, state) do
     new_mm =
       if muted?,
         do: Map.put(state.muteMap, user_id, true),
