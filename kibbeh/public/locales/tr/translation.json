@@ -20,7 +20,9 @@
   "header": {
     "_comment": "Ana başlık arayüz ulusallaştırma yazıları",
     "title": "DogeHouse",
-    "mutedTitle": "Sessiz | DogeHouse"
+    "mutedTitle": "Sessiz | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Ana altbilgi arayüz ulusallaştırma yazıları",
@@ -83,7 +85,7 @@
       "allowAllConfirm": "Emin misiniz? Bu, talep eden {{count}} kullanıcının konuşmasına izin verecektir"
     },
     "searchUser": { "search": "Ara..." },
-    "soundEffectSettings": { "header": "Sesler" },
+    "soundEffectSettings": { "header": "Sesler", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Profili düzenle",
       "followsYou": "Seni takip ediyor",
@@ -231,6 +233,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -247,6 +253,11 @@
         "roomName": "Oda ismi",
         "minLength": "Minimum oda ismi uzunluğu 2",
         "roomDescription": "Açıklama"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

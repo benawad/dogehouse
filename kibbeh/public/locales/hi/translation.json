@@ -20,7 +20,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muted | DogeHouse"
+    "mutedTitle": "Muted | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -83,7 +85,7 @@
       "allowAllConfirm": "अरे  यू  सूरे ? थिस  विल अल्लोव आल {{count}} रिक्वेस्टिंग  उसेर्स  तो  स्पीक "
     },
     "searchUser": { "search": "खोज करे..." },
-    "soundEffectSettings": { "header": "आवाज़" },
+    "soundEffectSettings": { "header": "आवाज़", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "edit profile",
       "followsYou": "follows you",
@@ -226,6 +228,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -243,6 +249,11 @@
         "roomName": "रूम का नाम",
         "minLength": "काम से काम 2",
         "roomDescription": "रूम के बारे में"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

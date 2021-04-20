@@ -20,7 +20,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Stíšený | DogeHouse"
+    "mutedTitle": "Stíšený | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -83,7 +85,7 @@
       "allowAllConfirm": "Si si istý? Povolíš rozprávať všetkým {{count}} žiadateľom"
     },
     "searchUser": { "search": "hľadať..." },
-    "soundEffectSettings": { "header": "Zvuky" },
+    "soundEffectSettings": { "header": "Zvuky", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "upraviť profil",
       "followsYou": "sleduje ťa",
@@ -234,6 +236,10 @@
       "logOut": {
         "button": "Odhlásiť sa",
         "modalSubtitle": "Si si istý, že sa chceš odhlásiť?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -251,6 +257,11 @@
         "roomName": "názov miestnosti",
         "minLength": "minimálne 2 znaky",
         "roomDescription": "Popis"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

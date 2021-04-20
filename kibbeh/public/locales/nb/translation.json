@@ -20,7 +20,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Dempet | DogeHouse"
+    "mutedTitle": "Dempet | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -83,7 +85,7 @@
       "allowAllConfirm": "Er du sikker? Dette vil tillate alle {{count}} spørrende brukere til å snakke"
     },
     "searchUser": { "search": "søk..." },
-    "soundEffectSettings": { "header": "Lyder" },
+    "soundEffectSettings": { "header": "Lyder", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Rediger profil",
       "followsYou": "Følger deg",
@@ -229,6 +231,10 @@
       "logOut": {
         "button": "Logg ut",
         "modalSubtitle": "Er du sikker på at du vil logge ut?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -246,6 +252,11 @@
         "roomName": "Romnavn",
         "minLength": "Minimum lengde er 2 tegn",
         "roomDescription": "Beskrivelse"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

@@ -21,7 +21,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Stüh | DogeHouse"
+    "mutedTitle": "Stüh | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -84,7 +86,7 @@
       "allowAllConfirm": "Bist da sicha? Dadurch kennan olle {{count}} anfragenden Bnutzer spröchn"
     },
     "searchUser": { "search": "Suachn..." },
-    "soundEffectSettings": { "header": "Ton" },
+    "soundEffectSettings": { "header": "Ton", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Profü beorbeiten",
       "followsYou": "foigt da",
@@ -233,6 +235,10 @@
       "logOut": {
         "button": "Omöden",
         "modalSubtitle": "Bist da sicha dost di omöden wüst?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -250,6 +256,11 @@
         "roomName": "Naum des Raums",
         "minLength": "minimale Läng: 2",
         "roomDescription": "Raumbeschreibung"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

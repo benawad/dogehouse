@@ -20,7 +20,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Silenciado | DogeHouse"
+    "mutedTitle": "Silenciado | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "link_1": "Historia de origen",
@@ -29,18 +31,13 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "Banear"
-    },
+    "banUser": { "ban": "Banear" },
     "followingOnlineList": {
       "listHeader": "Lista de usuarios que sigues y que no se encuentran en una sala privada.",
       "currentRoom": "Actualmente en la sala:",
       "startPrivateRoom": "Empezar una sala privada con ellos"
     },
-    "followList": {
-      "followHim": "Seguir",
-      "followingHim": "Siguiendo"
-    },
+    "followList": { "followHim": "Seguir", "followingHim": "Siguiendo" },
     "home": {
       "createRoom": "Crear sala",
       "editRoom": "Editar sala",
@@ -86,12 +83,8 @@
       "allowAll": "Permitir todos",
       "allowAllConfirm": "¿Estás seguro? Esto dejará hablar a los {{count}} usuarios que quieren hablar"
     },
-    "searchUser": {
-      "search": "Buscar..."
-    },
-    "soundEffectSettings": {
-      "header": "Sonidos"
-    },
+    "searchUser": { "search": "Buscar..." },
+    "soundEffectSettings": { "header": "Sonidos", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Editar perfil",
       "followsYou": "Te sigue",
@@ -176,16 +169,12 @@
       "upcomingRooms": "Próximas salas",
       "exploreMoreRooms": "Explorar nuevas salas"
     },
-    "addToCalendar": {
-      "add": "Añadir al calendario"
-    },
+    "addToCalendar": { "add": "Añadir al calendario" },
     "wsKilled": {
       "description": "El Websocket fue eliminado por el servidor. Esto suele suceder cuando abres el sitio web en otra pestaña.",
       "reconnect": "Reconectar"
     },
-    "search": {
-      "placeholder": "Buscar salas, usuarios o categorías"
-    },
+    "search": { "placeholder": "Buscar salas, usuarios o categorías" },
     "settingsDropdown": {
       "profile": "Perfil",
       "language": "Idioma",
@@ -194,6 +183,10 @@
       "logOut": {
         "button": "Cerrar sesión",
         "modalSubtitle": "¿Estás seguro de que quieres cerrar sesión?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     },
     "modals": {
@@ -248,9 +241,7 @@
     }
   },
   "modules": {
-    "feed": {
-      "yourFeed": "Tu inicio"
-    },
+    "feed": { "yourFeed": "Tu inicio" },
     "scheduledRooms": {
       "title": "Salas programadas",
       "noneFound": "No se ha encontrado ninguna",
@@ -263,6 +254,11 @@
         "roomName": "Nombre de la sala",
         "roomDescription": "Descripción",
         "minLength": "La longitud mínima es de 2 caracteres"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {
