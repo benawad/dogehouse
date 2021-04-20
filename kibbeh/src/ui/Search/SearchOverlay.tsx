@@ -19,8 +19,9 @@ export const SearchOverlay = forwardRef<
         maxHeight: "50vh",
         top: "-10px",
         left: "-10px",
+        right: "0px",
         boxShadow: "-3px 4px 14px rgba(0, 0, 0, 0.7)",
-        width: "103.5%",
+        width: "calc(100% + 20px)",
         zIndex: -1
       }}
       {...props}
