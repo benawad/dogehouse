@@ -10,6 +10,7 @@ import { showErrorToast } from "../../lib/showErrorToast";
 import { validateStruct } from "../../lib/validateStruct";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
+import { useTypeSafeUpdateQuery } from "../../shared-hooks/useTypeSafeUpdateQuery";
 import { Button } from "../../ui/Button";
 import { ButtonLink } from "../../ui/ButtonLink";
 import { Modal } from "../../ui/Modal";
@@ -28,6 +29,12 @@ const profileStruct = object({
 interface EditProfileModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
+  onEdit?: (data: {
+    displayName: string;
+    username: string;
+    bio: string;
+    avatarUrl: string;
+  }) => void;
 }
 
 const validateFn = validateStruct(profileStruct);
@@ -35,9 +42,10 @@ const validateFn = validateStruct(profileStruct);
 export const EditProfileModal: React.FC<EditProfileModalProps> = ({
   isOpen,
   onRequestClose,
+  onEdit,
 }) => {
   const { conn, setUser } = useContext(WebSocketContext);
-  const { mutateAsync, isLoading } = useTypeSafeMutation("editProfile");
+  const { mutateAsync } = useTypeSafeMutation("editProfile");
   const { t } = useTypeSafeTranslation();
 
   useEffect(() => {
@@ -90,6 +98,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                   displayName: data.displayName.trim(),
                 });
               }
+              onEdit?.(data);
               onRequestClose();
             }
           }}

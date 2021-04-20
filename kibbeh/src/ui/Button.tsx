@@ -7,7 +7,7 @@ import { Spinner } from "./Spinner";
 
 const sizeClassnames = {
   big: "py-2 px-6 text-sm rounded-lg",
-  small: "px-2 py-1 text-xs rounded-md",
+  small: "px-2 py-1 text-sm rounded-md",
 };
 
 const colorClassnames = {

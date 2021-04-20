@@ -19,7 +19,7 @@
   <span> · </span>
   <a href="https://discord.gg/82HzQCJCDg">Community</a>
   <span> · </span>
-  <a href="./docs/README.MD">Documentation</a>
+  <a href="https://github.com/FotieMConstant/dogehouse-docs">Documentation</a>
 </h3>
 
 ---
@@ -33,7 +33,6 @@
 | [dinner](dinner)     | Puppeteer shenanigans |
 | [baklava](baklava)   |   Electron Wrapper    |
 | [pilaf](pilaf)       |   React Native App    |
-| [feta](feta)         | Shared utils web/app  |
 | [kibbeh](kibbeh)     |   Next.js frontend    |
 | [kebab](kebab)       |      API Client       |
 
