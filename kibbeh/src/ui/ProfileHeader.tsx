@@ -28,7 +28,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
       <div className="flex mr-4">
         <SingleUser
           isOnline={isOnline}
-          className="absolute flex-none -top-5.5"
+          className="absolute flex-none -top-5.5 border-4 border-color-800 rounded-40"
           src={src}
         />
       </div>

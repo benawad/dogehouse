@@ -72,11 +72,16 @@ module.exports = {
     borderWidth: {
       DEFAULT: "1px",
       0: "0px",
+      4: "4px",
     },
     extend: {
       borderRadius: {
         5: "5px",
         8: "8px",
+        40: "40px",
+      },
+      borderColor: {
+        "color-800": "var(--color-primary-800)",
       },
       outline: {
         "no-chrome": "none",
