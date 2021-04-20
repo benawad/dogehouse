@@ -15,6 +15,7 @@ export const VolumeIndicator: React.FC<VolumeIndicatorProps> = ({
   for (let i = 0; i < bars; i++) {
     hBars.push(
       <div
+        key={i}
         className={`h-full rounded-full w-1 transition ${
           Math.round((volume * bars) / 100) >= i && volume > 0
             ? "bg-primary-100"
