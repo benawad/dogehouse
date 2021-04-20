@@ -31,13 +31,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "ban" },
+    "banUser": {
+      "ban": "ban"
+    },
     "followingOnlineList": {
       "listHeader": "उन उपयोगकर्ताओं की सूची जो एक प्राइवेट रूम में नहीं हैं और आप उन्हें फॉलो करते हैं।",
       "currentRoom": "वर्तमान में:",
       "startPrivateRoom": "उनके साथ एक प्राइवेट रूम शुरू करें"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "follow",
+      "followingHim": "following"
+    },
     "home": {
       "createRoom": "रूम बनाये",
       "refresh": "रिफ्रेश",
@@ -84,8 +89,12 @@
       "allowAll": "अल्लोव आल ",
       "allowAllConfirm": "अरे  यू  सूरे ? थिस  विल अल्लोव आल {{count}} रिक्वेस्टिंग  उसेर्स  तो  स्पीक "
     },
-    "searchUser": { "search": "खोज करे..." },
-    "soundEffectSettings": { "header": "आवाज़" },
+    "searchUser": {
+      "search": "खोज करे..."
+    },
+    "soundEffectSettings": {
+      "header": "आवाज़"
+    },
     "viewUser": {
       "editProfile": "edit profile",
       "followsYou": "follows you",
@@ -105,7 +114,10 @@
       "volume": "volume:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": {
+        "errorMsg": "Invalid app title",
+        "label": "Enter App Title"
+      },
       "header": "Overlay Settings"
     },
     "download": {
@@ -126,17 +138,17 @@
     "bottomVoiceControl": {
       "leaveCurrentRoomBtn": "वर्तमान रूम छोड़े",
       "confirmLeaveRoom": "क्या आप छोड़ना चाहते हैं?",
-      "leave": "Leave",
+      "leave": "लीव",
       "inviteUsersToRoomBtn": "उपयोगकर्ताओं को रूम में आमंत्रित करें",
       "invite": "आमंत्रण",
       "toggleMuteMicBtn": "म्यूट माइक्रोफोन टॉगल करें",
-      "mute": "Mute",
-      "unmute": "Unmute",
+      "mute": "म्यूट",
+      "unmute": "अनम्यूट",
       "makeRoomPublicBtn": "रूम को सार्वजनिक करें!",
       "settings": "सेटिंग्स",
       "speaker": "बोलनेवाले",
       "listener": "सुननेवाले",
-      "chat": "Chat",
+      "chat": "चैट",
       "toggleDeafMicBtn": "Toggle Deafen",
       "deafen": "Deafen",
       "undeafen": "Undeafen"
@@ -146,7 +158,10 @@
       "linkText": "GitHub issue",
       "addSupport": "बना सकते है|  हम आपके डिवाइस के लिए समर्थन जोड़ने का प्रयास करेंगे।"
     },
-    "inviteButton": { "invited": "invited", "inviteToRoom": "invite to room" },
+    "inviteButton": {
+      "invited": "invited",
+      "inviteToRoom": "invite to room"
+    },
     "micPermissionBanner": {
       "permissionDenied": "आपने माइक को उपयोग करने की अनुमति को इनकार कर दी है (आपको ब्राउज़र सेटिंग्स में जा के सैट करें या वेबसाइट को फिर से लोड करने की आवश्यकता हो सकती है)",
       "dismiss": "डिसमिस",
@@ -163,7 +178,9 @@
     "userVolumeSlider": {
       "noAudioMessage": "किसी कारण से कोई ऑडियो उपभोक्ता नहीं है"
     },
-    "addToCalendar": { "add": "कैलेंडर में जोड़ें" },
+    "addToCalendar": {
+      "add": "कैलेंडर में जोड़ें"
+    },
     "wsKilled": {
       "description": "Websocket was killed by the server. This usually happens when you open the website in another tab.",
       "reconnect": "फिर कनेक्ट करे"
@@ -228,7 +245,9 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",
@@ -257,7 +276,7 @@
       }
     },
     "roomChat": {
-      "title": "चाट",
+      "title": "चैट",
       "emotesSoon": "[emotes soon]",
       "bannedAlert": "आपको चैट से प्रतिबंधित कर दिया गया है",
       "waitAlert": "आपको दूसरा मैसेज भेजने से पहले एक सेकंड इंतजार करना होगा",
@@ -281,6 +300,8 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": {
+      "yourFeed": "Your Feed"
+    }
   }
 }
