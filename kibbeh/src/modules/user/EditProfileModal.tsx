@@ -131,7 +131,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                 name="username"
               />
               <InputField
-                className={`mb-4`}
+                className={`mb-4 resizable-textarea`}
                 errorMsg={t("components.modals.editProfileModal.bioError")}
                 label={t("components.modals.editProfileModal.bioLabel")}
                 textarea

@@ -106,7 +106,7 @@ html {
   overflow: auto;
 }
 
-textarea {
+textarea :not(.resizable-textarea) {
   resize: none;
 }
 
