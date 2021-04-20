@@ -11,10 +11,10 @@ RUN sudo apt-get install -y g++ gcc make pkg-config libx11-dev libxkbfile-dev li
 
 # since Elixir needs Erlang, let's install them all.
 RUN wget https://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb \
-    && sudo apt install ./erlang-solutions_2.0_all.deb \
+    && DEBIAN_FRONTEND="noninteractive" sudo apt install ./erlang-solutions_2.0_all.deb \
     && rm erlang-solutions_2.0_all.deb \
     && wget https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc \
     && sudo apt-key add erlang_solutions.asc \
     ## Let's use the badass big esl-erlang package
     ## finger cross!
-    && sudo apt update && sudo apt install -y esl-erlang elixir
+    && sudo apt update && DEBIAN_FRONTEND="noninteractive" sudo apt install -y esl-erlang elixir
