@@ -13,7 +13,7 @@ tasks:
       cd baklava && yarn && cd ..
       echo "==> Installing Shawarma deps..."
       cd shawarma && yarn && cd ..
-    command: echo "Welcome to your cloud dev in Gitpod! Enjoy building."
+      echo "Welcome to your cloud dev in Gitpod! Enjoy building."
   # sidenote: systemd is still unsupported in Gitpod SaaS (may vary on self-hosted instances)
   # so we do 'sudo docker-up' to start the deamon manually
   - name: Starting up Docker deamon
