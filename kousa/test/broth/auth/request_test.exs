@@ -8,6 +8,22 @@ defmodule BrothTest.Auth.RequestTest do
 
   require WsClient
 
+  setup do
+    user = %{id: user_id} = Factory.create(User)
+    tokens = Kousa.Utils.TokenUtils.create_tokens(user)
+
+    on_exit fn ->
+      case Registry.lookup(Onion.UserSessionRegistry, user_id) do
+        [{usersession_pid, _}] ->
+          Process.link(usersession_pid)
+        _ ->
+          :ok
+      end
+    end
+
+    {:ok, tokens: tokens, user_id: user_id}
+  end
+
   describe "the websocket auth:request operation" do
     test "is required within the timeout time or else the connection will be closed" do
       # set it to trap exits so we can watch the websocket connection die
@@ -20,10 +36,7 @@ defmodule BrothTest.Auth.RequestTest do
       WsClient.assert_dies(pid, fn -> nil end, :normal)
     end
 
-    test "can be sent an auth" do
-      user = %{id: user_id} = Factory.create(User)
-      tokens = Kousa.Utils.TokenUtils.create_tokens(user)
-
+    test "can be sent an auth", %{tokens: tokens, user_id: user_id} do
       # start and link the websocket client
       pid = start_supervised!(WsClient)
       Process.link(pid)
@@ -42,9 +55,6 @@ defmodule BrothTest.Auth.RequestTest do
     end
 
     test "fails auth if the accessToken is borked" do
-      user = Factory.create(User)
-      Kousa.Utils.TokenUtils.create_tokens(user)
-
       # start and link the websocket client
       pid = start_supervised!(WsClient)
 

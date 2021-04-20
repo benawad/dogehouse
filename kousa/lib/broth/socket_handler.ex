@@ -94,7 +94,6 @@ defmodule Broth.SocketHandler do
     block_user_and_from_room
     fetch_follow_list
     join_room_and_get_info
-    audio_autoplay_error
   )
 
   @impl true

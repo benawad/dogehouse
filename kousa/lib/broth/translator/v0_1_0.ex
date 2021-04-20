@@ -47,7 +47,6 @@ defmodule Broth.Translator.V0_1_0 do
     "block_user_and_from_room" => "block_user_and_from_room",
     "fetch_follow_list" => "fetch_follow_list",
     "join_room_and_get_info" => "join_room_and_get_info",
-    "audio_autoplay_error" => "audio_autoplay_error"
   }
 
   @operators Map.keys(@operator_translations)
