@@ -19,7 +19,7 @@
   <span> · </span>
   <a href="https://discord.gg/82HzQCJCDg">Community</a>
   <span> · </span>
-  <a href="./docs/README.MD">Documentation</a>
+  <a href="https://github.com/FotieMConstant/dogehouse-docs">Documentation</a>
 </h3>
 
 ---
