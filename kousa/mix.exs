@@ -32,7 +32,7 @@ defmodule Kousa.MixProject do
   defp deps do
     [
       {:amqp, "~> 2.1"},
-      {:plug_cowboy, "~> 2.0"},
+      {:plug_cowboy, "~> 2.5"},
       # TODO: switch from poison to jason everywhere
       {:poison, "~> 3.1"},
       {:ecto_sql, "~> 3.0"},
