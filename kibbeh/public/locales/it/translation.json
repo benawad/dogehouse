@@ -58,7 +58,8 @@
       "featureText_6": "Offerto da Doge",
       "loginGithub": "Accedi con Github",
       "loginTwitter": "Accedi con Twitter",
-      "createTestUser": "Area utente per test"
+      "createTestUser": "Area utente per test",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Disconnetti",
@@ -201,7 +202,8 @@
         "banFromRoom": "Bandisci dalla stanza",
         "goBackToListener": "Torna ad essere un ascoltatore",
         "deleteMessage": "Elimina questo messaggio",
-        "makeRoomCreator": "Rendi amministratore della stanza"
+        "makeRoomCreator": "Rendi amministratore della stanza",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Richiedi permesso per parlare",

@@ -59,7 +59,8 @@
       "featureText_6": "Tvarkomas Doge",
       "loginGithub": "Prisijunkite su GitHub",
       "loginTwitter": "Prisijunkite su Twitter",
-      "createTestUser": "Sukurkite testavimo naudotoją"
+      "createTestUser": "Sukurkite testavimo naudotoją",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "Atsijungti",
@@ -199,7 +200,8 @@
         "banFromRoom": "Užblokuoti iš kambario",
         "goBackToListener": "Gražinti atgal į klausytojus",
         "deleteMessage": "Ištrinti šią žinutę",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Reikalingas patvirtinimas kalbėti",

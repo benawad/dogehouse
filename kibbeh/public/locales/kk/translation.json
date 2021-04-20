@@ -59,7 +59,8 @@
       "featureText_6": "Doge арқылы жұмыс істейді",
       "loginGithub": "GitHub арқылы кіру",
       "loginTwitter": "Twitter арқылы кіру",
-      "createTestUser": "Текстілік қолданушыны жасау"
+      "createTestUser": "Текстілік қолданушыны жасау",
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "шығу",
@@ -200,7 +201,8 @@
         "banFromRoom": "осы бөлмеден бұғаттау",
         "goBackToListener": "тыңдарман болу",
         "deleteMessage": "осы хабарламаны жою",
-        "makeRoomCreator": "бөлме админы қылдыру"
+        "makeRoomCreator": "бөлме админы қылдыру",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Мұнда сөйлеу үшін рұқсат алу қажет",

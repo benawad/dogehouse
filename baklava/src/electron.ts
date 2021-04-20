@@ -24,7 +24,7 @@ import path from "path";
 import { StartNotificationHandler } from "./utils/notifications";
 import { bWindowsType } from "./types";
 import electronLogger from "electron-log";
-import { setPresence, startRPC } from "./utils/rpc";
+import { startRPC } from "./utils/rpc";
 
 let mainWindow: BrowserWindow;
 let tray: Tray;
@@ -39,14 +39,14 @@ let shouldShowWindow = false;
 let windowShowInterval: NodeJS.Timeout;
 let skipUpdateTimeout: NodeJS.Timeout;
 
-let PREV_VERSION = "";
-
 i18n.use(Backend);
 
 electronLogger.transports.file.level = "debug";
 autoUpdater.logger = electronLogger;
 // just in case we have to revert to a build
 autoUpdater.allowDowngrade = true;
+
+if (isWin) app.setAppUserModelId("DogeHouse");
 
 async function localize() {
   await i18n.init({
@@ -66,8 +66,8 @@ async function localize() {
 
 function createMainWindow() {
   mainWindow = new BrowserWindow({
-    width: 560,
-    height: 1000,
+    width: 1500,
+    height: 800,
     autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,
@@ -88,7 +88,7 @@ function createMainWindow() {
     mainWindow.webContents.openDevTools();
   }
   mainWindow.loadURL(
-    __prod__ ? `https://next.dogehouse.tv/` : "http://localhost:3000"
+    __prod__ ? `https://dogehouse.tv/` : "http://localhost:3000"
   );
 
   bWindows = {
@@ -155,22 +155,7 @@ function createMainWindow() {
   mainWindow.webContents.on("will-navigate", handleLinks);
 
   ipcMain.on("@dogehouse/loaded", (event, doge) => {
-    if (doge != PREV_VERSION) {
-      PREV_VERSION = doge;
-      if (doge === "kibbeh") {
-        if (isMac) {
-          mainWindow.maximize();
-        } else {
-          mainWindow.setSize(1500, 800, true);
-        }
-      } else {
-        mainWindow.setSize(560, 1000, true);
-        setPresence({
-          details: "Taking DogeHouse to the moon",
-        });
-      }
-      mainWindow.center();
-    }
+    if (isMac) mainWindow.maximize();
   });
   ipcMain.on("@app/quit", (event, args) => {
     mainWindow.close();
