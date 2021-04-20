@@ -119,30 +119,17 @@
     "bottomVoiceControl": {
       "leaveCurrentRoomBtn": "वर्तमान रूम छोड़े",
       "confirmLeaveRoom": "क्या आप छोड़ना चाहते हैं?",
-<<<<<<< HEAD
       "leave": "लीव",
       "inviteUsersToRoomBtn": "उपयोगकर्ताओं को रूम में आमंत्रित करें",
       "invite": "आमंत्रण",
       "toggleMuteMicBtn": "म्यूट माइक्रोफोन टॉगल करें",
       "mute": "म्यूट",
       "unmute": "अनम्यूट",
-=======
-      "leave": "Leave",
-      "inviteUsersToRoomBtn": "उपयोगकर्ताओं को रूम में आमंत्रित करें",
-      "invite": "आमंत्रण",
-      "toggleMuteMicBtn": "म्यूट माइक्रोफोन टॉगल करें",
-      "mute": "Mute",
-      "unmute": "Unmute",
->>>>>>> 297c797632b60181047b99f82105e5f406163861
       "makeRoomPublicBtn": "रूम को सार्वजनिक करें!",
       "settings": "सेटिंग्स",
       "speaker": "बोलनेवाले",
       "listener": "सुननेवाले",
-<<<<<<< HEAD
       "chat": "चाट"
-=======
-      "chat": "Chat"
->>>>>>> 297c797632b60181047b99f82105e5f406163861
     },
     "deviceNotSupported": {
       "notSupported": "वर्तमान में आपका डिवाइस समर्थित नहीं है। आप एक",
