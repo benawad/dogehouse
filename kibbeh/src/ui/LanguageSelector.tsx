@@ -9,7 +9,6 @@ interface LanguageSelectorProps {
 }
 
 export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
-  children,
   onClose,
 }) => {
   const options = [
@@ -86,12 +85,11 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   ];
 
   const { i18n } = useTranslation();
-  console.log("Using: ", i18n.language);
 
   const parsedOptions = options.map((e, i) => (
     <SettingsIcon
       key={e.value + i}
-      classes={`text-primary-100 focus:outline-no-chrome${
+      classes={`text-primary-100 focus:outline-no-chrome whitespace-nowrap overflow-ellipsis${
         i18n.language === e.value ||
         (e.value === "en" && i18n.language === "en-US")
           ? " bg-primary-700"
@@ -111,7 +109,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
             className="absolute left-3 text-primary-100 top-1/2 transform translate-y-n1/2 py-1 focus:outline-no-chrome hover:bg-primary-700 z-30 rounded-5"
             style={{ paddingLeft: "10px", paddingRight: "-6px" }}
           >
-            {backIcon({ transform: "rotate(-180)" })}
+            {backIcon({ style: { "transform": "rotate(180deg)" } })}
           </button>
           <p className="block relative text-center top-1/2 transform translate-y-n1/2 w-full font-semibold text-primary-100">
             Language
