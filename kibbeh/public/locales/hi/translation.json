@@ -119,17 +119,17 @@
     "bottomVoiceControl": {
       "leaveCurrentRoomBtn": "वर्तमान रूम छोड़े",
       "confirmLeaveRoom": "क्या आप छोड़ना चाहते हैं?",
-      "leave": "विदा",
+      "leave": "Leave",
       "inviteUsersToRoomBtn": "उपयोगकर्ताओं को रूम में आमंत्रित करें",
       "invite": "आमंत्रण",
       "toggleMuteMicBtn": "म्यूट माइक्रोफोन टॉगल करें",
-      "mute": "mute",
-      "unmute": "unmute",
+      "mute": "Mute",
+      "unmute": "Unmute",
       "makeRoomPublicBtn": "रूम को सार्वजनिक करें!",
       "settings": "सेटिंग्स",
       "speaker": "बोलनेवाले",
       "listener": "सुननेवाले",
-      "chat": "गपशप"
+      "chat": "Chat"
     },
     "deviceNotSupported": {
       "notSupported": "वर्तमान में आपका डिवाइस समर्थित नहीं है। आप एक",
@@ -241,12 +241,12 @@
       "modal": {
         "needsFuture": "भविष्य में होना चाहिए",
         "roomName": "रूम का नाम",
-        "minLength": "कम से कम 2",
+        "minLength": "काम से काम 2",
         "roomDescription": "रूम के बारे में"
       }
     },
     "roomChat": {
-      "title": "गपशप",
+      "title": "चाट",
       "emotesSoon": "[emotes soon]",
       "bannedAlert": "आपको चैट से प्रतिबंधित कर दिया गया है",
       "waitAlert": "आपको दूसरा मैसेज भेजने से पहले एक सेकंड इंतजार करना होगा",
