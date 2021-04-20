@@ -52,11 +52,11 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
         onMouseLeave={toggleFrozen}
       >
         <Virtuoso
-          style={{ height: "100%" }}
-          cellPadding={20}
+          overscan={10}
           data={messages}
           alignToBottom={true}
-          followOutput={"smooth"}
+          followOutput={"auto"}
+          style={{ height: "100%" }}
           atBottomStateChange={atBottomStateChange}
           itemContent={(_, message) => (
             <div className="py-1 mr-4">
