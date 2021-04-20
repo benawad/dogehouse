@@ -11,7 +11,7 @@ import { isServer } from "../lib/isServer";
 import { init_i18n } from "../lib/i18n";
 import { SoundEffectPlayer } from "../modules/sound-effects/SoundEffectPlayer";
 import ReactModal from "react-modal";
-import { ErrorToastController } from "../modules/toast/ToastController";
+import { ErrorToastController } from "../modules/errors/ErrorToastController";
 import { WebRtcApp } from "../modules/webrtc/WebRtcApp";
 import { MainWsHandlerProvider } from "../shared-hooks/useMainWsHandler";
 import NProgress from "nprogress";
