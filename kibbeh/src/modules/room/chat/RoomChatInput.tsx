@@ -2,7 +2,7 @@ import { RoomUser } from "@dogehouse/kebab";
 import React, { useRef, useState, useEffect } from "react";
 import { Smiley } from "../../../icons";
 import { createChatMessage } from "../../../lib/createChatMessage";
-import { showToast } from "../../../lib/showToast";
+import { showErrorToast } from "../../../lib/showErrorToast";
 import { useConn } from "../../../shared-hooks/useConn";
 import { useTypeSafeTranslation } from "../../../shared-hooks/useTypeSafeTranslation";
 import { Input } from "../../../ui/Input";
@@ -56,12 +56,12 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
     if (!me) return;
 
     if (me.id in useRoomChatStore.getState().bannedUserIdMap) {
-      showToast(t("modules.roomChat.bannedAlert"));
+      showErrorToast(t("modules.roomChat.bannedAlert"));
       return;
     }
 
     if (Date.now() - lastMessageTimestamp <= 1000) {
-      showToast(t("modules.roomChat.waitAlert"));
+      showErrorToast(t("modules.roomChat.waitAlert"));
 
       return;
     }

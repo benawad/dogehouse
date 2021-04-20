@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { isServer } from "../../lib/isServer";
 import { validate as uuidValidate } from "uuid";
-import { showToast } from "../../lib/showToast";
+import { showErrorToast } from "../../lib/showErrorToast";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import isElectron from "is-electron";
 import { useRoomChatStore } from "./chat/useRoomChatStore";
@@ -65,7 +65,7 @@ export const useGetRoomByQueryParam = () => {
         ipcRenderer.send("@room/joined", false);
       }
       console.log(errMsg, isLoading);
-      showToast(errMsg);
+      showErrorToast(errMsg);
       push("/dash");
     }
   }, [noData, errMsg, isLoading, push, setCurrentRoomId]);

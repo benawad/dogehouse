@@ -3,7 +3,7 @@ import { raw, User } from "@dogehouse/kebab";
 import { useTokenStore } from "../auth/useTokenStore";
 import { apiBaseUrl } from "../../lib/constants";
 import { useRouter } from "next/router";
-import { showToast } from "../../lib/showToast";
+import { showErrorToast } from "../../lib/showErrorToast";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useDeafStore } from "../../global-stores/useDeafStore";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";

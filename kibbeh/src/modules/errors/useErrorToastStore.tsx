@@ -12,7 +12,7 @@ type Toast = {
   message: string;
 };
 
-export const useToastStore = create(
+export const useErrorToastStore = create(
   combine(
     {
       toasts: [] as Toast[],
@@ -20,7 +20,7 @@ export const useToastStore = create(
     (set) => ({
       hideToast: (id: string) =>
         set((x) => ({ toasts: x.toasts.filter((y) => y.id !== id) })),
-      showToast: (t: Omit<Toast, "id">) =>
+      showErrorToast: (t: Omit<Toast, "id">) =>
         set((x) => ({ toasts: [...x.toasts, { ...t, id: v4() }] })),
     })
   )

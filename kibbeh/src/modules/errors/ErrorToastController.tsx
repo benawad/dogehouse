@@ -1,12 +1,12 @@
 import React from "react";
 import { MainInnerGrid } from "../../ui/MainGrid";
 import { ErrorToast } from "../../ui/Toast";
-import { useToastStore } from "./useToastStore";
+import { useErrorToastStore } from "./useErrorToastStore";
 
 interface ErrorToastControllerProps {}
 
 export const ErrorToastController: React.FC<ErrorToastControllerProps> = ({}) => {
-  const { toasts, hideToast } = useToastStore();
+  const { toasts, hideToast } = useErrorToastStore();
   return (
     <div
       style={{ zIndex: 1001 }}

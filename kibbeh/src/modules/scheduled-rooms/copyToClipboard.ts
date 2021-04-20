@@ -1,4 +1,4 @@
-import { showToast } from "../../lib/showToast";
+import { showErrorToast } from "../../lib/showErrorToast";
 
 // https://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript
 export function copyTextToClipboard(text: string) {
@@ -20,7 +20,7 @@ export function copyTextToClipboard(text: string) {
     good = document.execCommand("copy");
   } catch (err) {
     console.error(err);
-    showToast(err);
+    showErrorToast(err);
     good = false;
   }
 

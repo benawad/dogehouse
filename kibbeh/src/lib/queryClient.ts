@@ -1,7 +1,7 @@
 import { QueryClient } from "react-query";
 import { useTokenStore } from "../modules/auth/useTokenStore";
 import { apiBaseUrl } from "./constants";
-import { showToast } from "./showToast";
+import { showErrorToast } from "./showErrorToast";
 import fetch from "isomorphic-fetch";
 
 export const defaultQueryFn = async ({ queryKey }: { queryKey: string }) => {
@@ -35,7 +35,7 @@ export const queryClient = new QueryClient({
     mutations: {
       onError: (e) => {
         if ("message" in (e as Error)) {
-          showToast((e as Error).message);
+          showErrorToast((e as Error).message);
         }
       },
     },
@@ -44,7 +44,7 @@ export const queryClient = new QueryClient({
       staleTime: 60 * 1000 * 5,
       onError: (e) => {
         if ("message" in (e as Error)) {
-          showToast((e as Error).message);
+          showErrorToast((e as Error).message);
         }
       },
       queryFn: defaultQueryFn as any,

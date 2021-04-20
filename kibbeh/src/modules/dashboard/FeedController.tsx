@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useDownloadAlertStore } from "../../global-stores/useDownloadAlertStore";
 import { isServer } from "../../lib/isServer";
-import { showToast } from "../../lib/showToast";
+import { showErrorToast } from "../../lib/showErrorToast";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
@@ -69,24 +69,24 @@ const Page = ({
     }
   }, [data]);
 
-  useEffect(() => {
-    if (shouldAlert && !isElectron()) {
-      showToast(
-        t("pages.home.desktopAlert"),
-        "sticky",
-        <BannerButton
-          onClick={() => {
-            window.location.href = window.location.origin + "/download";
-          }}
-        >
-          Download
-        </BannerButton>,
-        () => {
-          localStorage.setItem("@baklava/showDownloadAlert", "false");
-        }
-      );
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (shouldAlert && !isElectron()) {
+  //     showErrorToast(
+  //       t("pages.home.desktopAlert"),
+  //       "sticky",
+  //       <BannerButton
+  //         onClick={() => {
+  //           window.location.href = window.location.origin + "/download";
+  //         }}
+  //       >
+  //         Download
+  //       </BannerButton>,
+  //       () => {
+  //         localStorage.setItem("@baklava/showDownloadAlert", "false");
+  //       }
+  //     );
+  //   }
+  // }, []);
 
   if (isLoading) {
     return <CenterLoader />;
