@@ -12,7 +12,7 @@ export interface ProfileHeaderProps {
   displayName: string;
   username: string;
   isFollowing?: boolean;
-  doesFollow?: boolean; // if you already follow someone then don't show follow button
+  doesFollow?: boolean;
   isOnline?: boolean;
   children?: ReactChild;
 }
@@ -38,7 +38,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
         <h4 className="text-primary-100 font-bold">{displayName}</h4>
         <div className="flex flex-row items-center">
           <p className="text-primary-300 mr-2">{username}</p>
-          {isFollowing ? <UserBadge color="grey">Follows you</UserBadge> : null}
+          {isFollowing ?? <UserBadge color="grey">Follows you</UserBadge>}
         </div>
         <div className="mt-2">{children}</div>
       </div>
