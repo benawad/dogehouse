@@ -30,7 +30,7 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
   leaveLoading,
   room,
 }) => {
-  const { t } = useTypeSafeTranslation()
+  const { t } = useTypeSafeTranslation();
   // gap-n only works with grid
   return (
     <div
