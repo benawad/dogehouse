@@ -7,7 +7,7 @@ defmodule Broth.Message.Types.ChatToken do
   embedded_schema do
     # since this is an embedded schema it's worth being explicit about it.
     field(:type, Broth.Message.Types.ChatTokenType)
-    field(:value, :string)
+    field(:value, :string, default: "")
   end
 
   defimpl Jason.Encoder do
@@ -31,7 +31,8 @@ defmodule Broth.Message.Types.ChatToken do
   def changeset(changeset, data) do
     changeset
     |> cast(data, [:type, :value])
-    |> validate_required([:type, :value])
+    # I removed :value because an empty string for a single token is ok
+    |> validate_required([:type])
     |> validate_length(:value, min: 0, max: @message_character_limit)
     |> validate_link
   end
