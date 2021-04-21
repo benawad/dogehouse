@@ -7,6 +7,8 @@ import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslatio
 import { useTypeSafeUpdateQuery } from "../../shared-hooks/useTypeSafeUpdateQuery";
 import { Button } from "../../ui/Button";
 import { VerticalUserInfo } from "../../ui/VerticalUserInfo";
+import UserSummaryCardStory from '../../stories/UserSummaryCard.story';
+import { UserWideButton } from '../../ui/UserWideButton';
 
 interface VerticalUserInfoControllerProps {
   user: UserWithFollowInfo;
@@ -27,6 +29,7 @@ export const VerticalUserInfoWithFollowButton: React.FC<VerticalUserInfoControll
   return (
     <>
       <VerticalUserInfo user={user} />
+      <UserWideButton user={user} />
       <div className={`flex mb-5 items-center w-full justify-center`}>
         {/* @todo add real icon */}
         {user.id !== conn.user.id ? (
