@@ -85,7 +85,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "खोजी गर्नुहोस्..." },
-    "soundEffectSettings": { "header": "साउंड" },
+    "soundEffectSettings": { "header": "साउंड", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "प्रोफाइल सम्पादन गर्नुहोस",
       "followsYou": "follows you",

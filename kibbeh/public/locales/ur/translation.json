@@ -86,7 +86,10 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "تلاش کریں" },
-    "soundEffectSettings": { "header": "آواز کی ترتیبات" },
+    "soundEffectSettings": {
+      "header": "آواز کی ترتیبات",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "پروفائل میں ترمیم کریں",
       "followsYou": "آپ کو فالو کیا ہوا ہے",

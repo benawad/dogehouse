@@ -86,7 +86,10 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Seawch... >_<" },
-    "soundEffectSettings": { "header": "OWO Sounds :D" },
+    "soundEffectSettings": {
+      "header": "OWO Sounds :D",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "Edit Pwofiwe (⁎˃ᆺ˂)",
       "followsYou": "Fowwows uu (๑•́ ₃ •̀๑)",

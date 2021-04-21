@@ -84,7 +84,7 @@
       "allowAllConfirm": "Biztos benne? Ezzel engedélyezi mind a {{count}} felhasználónak, hogy beszéljen"
     },
     "searchUser": { "search": "keresés..." },
-    "soundEffectSettings": { "header": "Hangok" },
+    "soundEffectSettings": { "header": "Hangok", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "fiók szerkesztése",
       "followsYou": "követ téged",

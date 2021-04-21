@@ -85,7 +85,7 @@
       "allowAllConfirm": "Er du sikker? Dette vil tillate alle {{count}} spørrende brukere til å snakke"
     },
     "searchUser": { "search": "søk..." },
-    "soundEffectSettings": { "header": "Lyder" },
+    "soundEffectSettings": { "header": "Lyder", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Rediger profil",
       "followsYou": "Følger deg",

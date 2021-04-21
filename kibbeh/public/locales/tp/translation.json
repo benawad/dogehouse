@@ -89,7 +89,7 @@
       "allowAllConfirm": "sina wile e ni? ni li ken jan ale {{count}} e toki."
     },
     "searchUser": { "search": "o lukin..." },
-    "soundEffectSettings": { "header": "Kalama" },
+    "soundEffectSettings": { "header": "Kalama", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "ante e jan sina",
       "followsYou": "li lukin e sina",

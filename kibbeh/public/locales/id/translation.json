@@ -85,7 +85,7 @@
       "allowAllConfirm": "Apakah anda yakin? Ini akan mengizinkan semua {{count}} permintaan pengguna untuk bicara"
     },
     "searchUser": { "search": "cari..." },
-    "soundEffectSettings": { "header": "Bunyi" },
+    "soundEffectSettings": { "header": "Bunyi", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Ubah profil",
       "followsYou": "Mengikutimu",

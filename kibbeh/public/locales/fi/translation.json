@@ -86,7 +86,7 @@
       "allowAllConfirm": "Oletko varma? Tämä antaa kaikille {{count}} pyytäville käyttäjille puheoikeuden"
     },
     "searchUser": { "search": "Hae..." },
-    "soundEffectSettings": { "header": "Äänet" },
+    "soundEffectSettings": { "header": "Äänet", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Muokkaa profiilia",
       "followsYou": "Seuraa sinua",

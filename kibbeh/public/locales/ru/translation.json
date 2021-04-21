@@ -89,7 +89,7 @@
       "allowAllConfirm": "Вы уверены? Это позволит всем {{count}} пользователям, запрашивающих разрешение, говорить"
     },
     "searchUser": { "search": "Поиск..." },
-    "soundEffectSettings": { "header": "Звуки" },
+    "soundEffectSettings": { "header": "Звуки", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "редактировать профиль",
       "followsYou": "подписаны на вас",

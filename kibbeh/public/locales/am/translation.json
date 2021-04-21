@@ -86,7 +86,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "ፈልግ ..." },
-    "soundEffectSettings": { "header": "ድምፆች" },
+    "soundEffectSettings": { "header": "ድምፆች", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "መገለጫ ቀይር",
       "followsYou": "እርስዎን ይከተላል",

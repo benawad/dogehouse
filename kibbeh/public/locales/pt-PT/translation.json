@@ -85,7 +85,7 @@
       "allowAllConfirm": "De certeza? Isto permitirá todos os {{count}} utilizadores a pedir, falar"
     },
     "searchUser": { "search": "Procurar..." },
-    "soundEffectSettings": { "header": "Sons" },
+    "soundEffectSettings": { "header": "Sons", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Editar perfil",
       "followsYou": "Seguem-te",

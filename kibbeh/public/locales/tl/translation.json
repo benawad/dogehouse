@@ -85,7 +85,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "maghanap..." },
-    "soundEffectSettings": { "header": "Tunog" },
+    "soundEffectSettings": { "header": "Tunog", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "I-edit ang profile",
       "followsYou": "mga sumusunod sayo",

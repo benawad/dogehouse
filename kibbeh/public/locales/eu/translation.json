@@ -85,7 +85,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "bilatu..." },
-    "soundEffectSettings": { "header": "Soinuak" },
+    "soundEffectSettings": { "header": "Soinuak", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "editatu profila",
       "followsYou": "jarraitzen zaitu",

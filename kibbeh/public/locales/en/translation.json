@@ -99,7 +99,8 @@
       "search": "search..."
     },
     "soundEffectSettings": {
-      "header": "Sounds"
+      "header": "Sounds",
+      "title": "Sound Settings"
     },
     "viewUser": {
       "editProfile": "Edit Profile",

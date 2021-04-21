@@ -86,7 +86,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "pretraži..." },
-    "soundEffectSettings": { "header": "Zvukovi" },
+    "soundEffectSettings": { "header": "Zvukovi", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "uredi profil",
       "followsYou": "prati vas",

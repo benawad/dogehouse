@@ -85,7 +85,10 @@
       "allowAllConfirm": "แน่ใจหรือไม่? คุณกำลังอนุมัติให้ผู้ใช้ {{count}} คน ขึ้นมาเป็นผู้พูด"
     },
     "searchUser": { "search": "ค้นหา..." },
-    "soundEffectSettings": { "header": "การแจ้งเตือนเสียง" },
+    "soundEffectSettings": {
+      "header": "การแจ้งเตือนเสียง",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "แก้ไขโปรไฟล์",
       "followsYou": "กำลังติดตามคุณ",

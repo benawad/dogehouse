@@ -86,7 +86,7 @@
       "allowAllConfirm": "Είστε σίγουρος; Αυτό θα επιτρέψει όλους τους {{count}} χρήστες που έχουν ζητήσει να μιλήσουν"
     },
     "searchUser": { "search": "αναζήτηση..." },
-    "soundEffectSettings": { "header": "Ήχοι" },
+    "soundEffectSettings": { "header": "Ήχοι", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "επεξεργασία προφίλ",
       "followsYou": "σας ακολουθεί",

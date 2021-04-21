@@ -86,7 +86,7 @@
       "allowAllConfirm": "Êtes-vous sur? Cela autorisera {{count}} utilisateurs en attente à parler"
     },
     "searchUser": { "search": "recherche..." },
-    "soundEffectSettings": { "header": "Sons" },
+    "soundEffectSettings": { "header": "Sons", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Éditer le profil",
       "followsYou": "Vous suit",
@@ -196,13 +196,10 @@
       "logOut": {
         "button": "Se déconnecter",
         "modalSubtitle": "Êtes vous sur de vouloir vous déconnecter ?"
-<<<<<<< HEAD
-=======
       },
       "debugAudio": {
         "debugAudio": "Débugger l'audio",
         "stopDebugger": "Arreter le débuggage"
->>>>>>> 8fe929a780fd7519baf938a2f52a0c607547459f
       }
     },
     "modals": {
@@ -271,14 +268,11 @@
         "roomName": "nom de salle",
         "roomDescription": "Description",
         "minLength": "longueur minimum de 2 caractères"
-<<<<<<< HEAD
-=======
       },
       "tommorow": "DEMAIN",
       "today": "AUJOURD'HUI",
       "deleteModal": {
         "areYouSure": "Êtes vous sûr de vouloir supprimer cette salle programmée?"
->>>>>>> 8fe929a780fd7519baf938a2f52a0c607547459f
       }
     },
     "roomChat": {

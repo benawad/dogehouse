@@ -86,7 +86,7 @@
       "allowAllConfirm": "Jsi si jistý? Tohle povolí všem {{count}} žádajícím uživatelům mluvit"
     },
     "searchUser": { "search": "Hledat..." },
-    "soundEffectSettings": { "header": "Zvuky" },
+    "soundEffectSettings": { "header": "Zvuky", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Pozměnit profil",
       "followsYou": "Sleduje tě.",

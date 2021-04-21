@@ -86,7 +86,7 @@
       "allowAllConfirm": "Bạn có chắc không? Hành động này sẽ cho phép {{count}} người dùng có quyền nói"
     },
     "searchUser": { "search": "tìm kiếm..." },
-    "soundEffectSettings": { "header": "Âm thanh" },
+    "soundEffectSettings": { "header": "Âm thanh", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "chỉnh sửa hồ sơ",
       "followsYou": "Theo dõi bạn",

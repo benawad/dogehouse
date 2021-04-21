@@ -86,7 +86,7 @@
       "allowAllConfirm": "Czy napewno? To dopuści {{count}} użytkowników do mówienia"
     },
     "searchUser": { "search": "szukaj..." },
-    "soundEffectSettings": { "header": "Dźwięki" },
+    "soundEffectSettings": { "header": "Dźwięki", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "edytuj profil",
       "followsYou": "obserwuje cię",

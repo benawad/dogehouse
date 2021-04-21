@@ -89,7 +89,7 @@
       "allowAllConfirm": "আপনি কি নিশ্চিত? এটা অনুমতি দেবে সব {{count}} জন অনুরোধ করা ইউজারদের কথা বলতে"
     },
     "searchUser": { "search": "খুঁজুন..." },
-    "soundEffectSettings": { "header": "সাউন্ডস" },
+    "soundEffectSettings": { "header": "সাউন্ডস", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "প্রোফাইল এডিট করুন",
       "followsYou": "আপনাকে অনুসরণ করে",

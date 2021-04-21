@@ -85,7 +85,7 @@
       "allowAllConfirm": "Weet je het zeker? Dit geeft toestemming aan {{count}} verzoekende gebruikers om te spreken"
     },
     "searchUser": { "search": "Zoek..." },
-    "soundEffectSettings": { "header": "Geluiden" },
+    "soundEffectSettings": { "header": "Geluiden", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Profiel bewerken",
       "followsYou": "Volgt jou",

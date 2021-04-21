@@ -86,7 +86,7 @@
       "allowAllConfirm": "המשתמשים המבקשים רשות יכולת דיבור {{count}} אתה בטוח? זה יאפשר לכל"
     },
     "searchUser": { "search": "חפש..." },
-    "soundEffectSettings": { "header": "צלילים" },
+    "soundEffectSettings": { "header": "צלילים", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "ערוך פרופיל",
       "followsYou": "עוקב אחריך",

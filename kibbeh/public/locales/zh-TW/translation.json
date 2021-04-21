@@ -85,7 +85,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "搜尋..." },
-    "soundEffectSettings": { "header": "聲音" },
+    "soundEffectSettings": { "header": "聲音", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "編輯個人主頁",
       "followsYou": "正在追蹤你",

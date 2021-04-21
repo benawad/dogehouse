@@ -86,7 +86,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "جستجو..." },
-    "soundEffectSettings": { "header": "صدا" },
+    "soundEffectSettings": { "header": "صدا", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "ویرایش حساب",
       "followsYou": "شما را دنبال میکنند",

@@ -86,7 +86,7 @@
       "allowAllConfirm": "Ma hubtaa? Tani waxay u oggolaan doontaa dhammaan {{count}} Isticmaalayaasha inay codsadaan inay hadlaan"
     },
     "searchUser": { "search": "raadi..." },
-    "soundEffectSettings": { "header": "Codka" },
+    "soundEffectSettings": { "header": "Codka", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "wax ka beddel koontada",
       "followsYou": "adiga kuraacay",

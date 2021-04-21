@@ -85,7 +85,7 @@
       "allowAllConfirm": "Är du säker på detta sergeant? Detta kommer tillåta {{count}} användare att få tala. Det kan utplåna månen! 🚀☢️"
     },
     "searchUser": { "search": "Sök..." },
-    "soundEffectSettings": { "header": "Ljud" },
+    "soundEffectSettings": { "header": "Ljud", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Redigera profil",
       "followsYou": "Följer dig",

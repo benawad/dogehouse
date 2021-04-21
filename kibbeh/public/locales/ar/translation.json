@@ -86,7 +86,7 @@
       "allowAllConfirm": "هل انت متأكد ؟ هذا سيسمح لـ {{count}} مستخدم بالتحدث"
     },
     "searchUser": { "search": "ابحث..." },
-    "soundEffectSettings": { "header": "الأصوات" },
+    "soundEffectSettings": { "header": "الأصوات", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "تعديل الحساب",
       "followsYou": "يتابعك",

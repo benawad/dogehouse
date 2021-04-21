@@ -87,7 +87,7 @@
       "speakers": "Speakers"
     },
     "searchUser": { "search": "traži..." },
-    "soundEffectSettings": { "header": "Zvuči" },
+    "soundEffectSettings": { "header": "Zvuči", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "uredi profil",
       "followYou": "prati vas",

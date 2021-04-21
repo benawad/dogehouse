@@ -86,7 +86,7 @@
       "allowAllConfirm": "Bist da sicha? Dadurch kennan olle {{count}} anfragenden Bnutzer spröchn"
     },
     "searchUser": { "search": "Suachn..." },
-    "soundEffectSettings": { "header": "Ton" },
+    "soundEffectSettings": { "header": "Ton", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Profü beorbeiten",
       "followsYou": "foigt da",

@@ -86,7 +86,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "soek..." },
-    "soundEffectSettings": { "header": "Klanke" },
+    "soundEffectSettings": { "header": "Klanke", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "wysig profiel",
       "followsYou": "volg jou",

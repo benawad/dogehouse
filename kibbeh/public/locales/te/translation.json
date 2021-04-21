@@ -85,7 +85,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "అన్వేషించు..." },
-    "soundEffectSettings": { "header": "సౌండ్స్" },
+    "soundEffectSettings": { "header": "సౌండ్స్", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "edit profile",
       "followsYou": "Follows you",

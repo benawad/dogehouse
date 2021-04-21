@@ -86,7 +86,7 @@
       "allowAllConfirm": "Esti sigur? Asta ar lasa toti {{count}} utilizatori sa vorbeasca"
     },
     "searchUser": { "search": "caută..." },
-    "soundEffectSettings": { "header": "Sunete" },
+    "soundEffectSettings": { "header": "Sunete", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Editează profil",
       "followsYou": "Te urmărește",

@@ -86,7 +86,7 @@
       "allowAllConfirm": "ʞɐǝds oʇ sɹǝsn ƃuᴉʇsǝnbǝɹ {{count}} ꞁꞁɐ ʍoꞁꞁɐ ꞁꞁᴉʍ sᴉɥ⊥ ¿ǝɹns noʎ ǝɹⱯ"
     },
     "searchUser": { "search": "˙˙˙ɥɔɹɐǝs" },
-    "soundEffectSettings": { "header": "spunoS" },
+    "soundEffectSettings": { "header": "spunoS", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "ǝꞁᴉɟoɹd ʇᴉpǝ",
       "followsYou": "noʎ sʍoꞁꞁoɟ",

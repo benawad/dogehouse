@@ -85,7 +85,7 @@
       "allowAllConfirm": "अरे  यू  सूरे ? थिस  विल अल्लोव आल {{count}} रिक्वेस्टिंग  उसेर्स  तो  स्पीक "
     },
     "searchUser": { "search": "खोज करे..." },
-    "soundEffectSettings": { "header": "आवाज़" },
+    "soundEffectSettings": { "header": "आवाज़", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "edit profile",
       "followsYou": "follows you",

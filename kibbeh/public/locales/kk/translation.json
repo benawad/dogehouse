@@ -86,7 +86,7 @@
       "allowAllConfirm": "Бұл барлық рұқсат сұраған {{count}} қолданушыға, сөйлеуге мүмкіндік береді.Сіз сенімдісіз бе?"
     },
     "searchUser": { "search": "іздеу..." },
-    "soundEffectSettings": { "header": "дыбыстар" },
+    "soundEffectSettings": { "header": "дыбыстар", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Профайлды өңдеу",
       "followsYou": "сізге жазылған",

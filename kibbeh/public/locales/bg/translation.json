@@ -86,7 +86,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "търсене..." },
-    "soundEffectSettings": { "header": "Звук" },
+    "soundEffectSettings": { "header": "Звук", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "промяна на профил",
       "followsYou": "следват те",

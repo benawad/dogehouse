@@ -67,6 +67,7 @@ export type TranslationKeys =
 	| "pages.room.allowAllConfirm"
 	| "pages.searchUser.search"
 	| "pages.soundEffectSettings.header"
+	| "pages.soundEffectSettings.title"
 	| "pages.viewUser.editProfile"
 	| "pages.viewUser.followsYou"
 	| "pages.viewUser.followers"

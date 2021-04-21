@@ -86,7 +86,7 @@
       "allowAllConfirm": "Ye sure? Ye will allow all {{count}} skallywags to speak!"
     },
     "searchUser": { "search": "searchin' fer booty..." },
-    "soundEffectSettings": { "header": "Sounds" },
+    "soundEffectSettings": { "header": "Sounds", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "avast ye profile",
       "followsYou": "follows you",

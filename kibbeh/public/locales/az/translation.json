@@ -86,7 +86,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "axtarış..." },
-    "soundEffectSettings": { "header": "səslər" },
+    "soundEffectSettings": { "header": "səslər", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "profilə düzəliş et",
       "followsYou": "sizi izləyənlər",
