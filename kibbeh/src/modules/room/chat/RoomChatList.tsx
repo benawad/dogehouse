@@ -122,6 +122,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                                   <img
                                     className="inline"
                                     alt={`:${v}:`}
+                                    title={`:${v}:`}
                                     src={emoteMap[v.toLowerCase()]}
                                   />{" "}
                                 </React.Fragment>
