@@ -69,6 +69,10 @@ module.exports = {
       24: "24rem",
       400: "400px",
     },
+
+    boxShadow: {
+      avator: "0 0 0 4pt var(--color-primary-800)",
+    },
     borderWidth: {
       DEFAULT: "1px",
       0: "0px",
