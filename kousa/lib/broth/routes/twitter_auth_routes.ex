@@ -2,6 +2,7 @@ defmodule Broth.Routes.TwitterAuth do
   import Plug.Conn
   use Plug.Router
 
+  require Logger
   alias Beef.Users
   alias Kousa.Utils.Urls
 
@@ -88,8 +89,7 @@ defmodule Broth.Routes.TwitterAuth do
   end
 
   def handle_callback(%Plug.Conn{assigns: %{ueberauth_failure: failure}} = conn) do
-    IO.puts("twitter oauth failure")
-    IO.inspect(failure)
+    Logger.warn("twitter oauth failure #{inspect(failure)}")
 
     conn
     |> Broth.Plugs.Redirect.redirect(
@@ -148,7 +148,7 @@ defmodule Broth.Routes.TwitterAuth do
       end
     rescue
       e ->
-        IO.inspect(e)
+        Logger.warn("twitter login error #{inspect(e)}")
 
         Sentry.capture_exception(e,
           stacktrace: __STACKTRACE__,
@@ -165,8 +165,7 @@ defmodule Broth.Routes.TwitterAuth do
   end
 
   def handle_callback(conn) do
-    IO.puts("expected never to see this handle_callback in twitter_auth")
-    IO.inspect(conn)
+    Logger.warn("twitter authorization error #{inspect(conn)}")
 
     conn
     |> Broth.Plugs.Redirect.redirect(

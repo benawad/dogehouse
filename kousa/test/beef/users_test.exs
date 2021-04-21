@@ -3,12 +3,12 @@ defmodule Kousa.Beef.UsersTest do
   # TODO: organize this into the correct context.
 
   use ExUnit.Case, async: true
-  use Kousa.Support.EctoSandbox
+  use KousaTest.Support.EctoSandbox
 
   alias Beef.Schemas.Room
   alias Beef.Schemas.User
   alias Beef.Users
-  alias Kousa.Support.Factory
+  alias KousaTest.Support.Factory
   alias Beef.Repo
 
   describe "Users" do
@@ -182,7 +182,6 @@ defmodule Kousa.Beef.UsersTest do
 
       assert %User{online: false, lastOnline: last_online_time} = Repo.get(User, user.id)
 
-      IO.warn("check users_test.exs set offline test")
       # is this really what we want?
       assert creation_time == last_online_time
     end

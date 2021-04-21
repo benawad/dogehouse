@@ -1,9 +1,9 @@
 defmodule Kousa.Beef.UserBlocksTest do
   # allow tests to run in parallel
   use ExUnit.Case, async: true
-  use Kousa.Support.EctoSandbox
+  use KousaTest.Support.EctoSandbox
 
-  alias Kousa.Support.Factory
+  alias KousaTest.Support.Factory
   alias Beef.UserBlocks
   alias Beef.Schemas.UserBlock
   # alias

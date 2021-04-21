@@ -1,6 +1,6 @@
 defmodule Kousa.Beef.FollowTest do
   use ExUnit.Case, async: true
-  use Kousa.Support.EctoSandbox
+  use KousaTest.Support.EctoSandbox
 
   @moduledoc """
   ad-hoc test set to give coverage for all modules
@@ -16,7 +16,7 @@ defmodule Kousa.Beef.FollowTest do
   alias Beef.Users
 
   alias Beef.Repo
-  alias Kousa.Support.Factory
+  alias KousaTest.Support.Factory
 
   describe "for Beef.Follow" do
     test "you can safely insert a beef users into follows table" do
