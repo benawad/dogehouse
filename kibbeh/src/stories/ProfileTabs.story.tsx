@@ -6,7 +6,9 @@ export default {
   component: ProfileTabs,
 };
 
-export const ScheduledTabActive: Story<ProfileTabsProps> = ({ activeTab = "scheduled" }) => {
+export const ScheduledTabActive: Story<ProfileTabsProps> = ({
+  activeTab = "scheduled",
+}) => {
   return (
     <div className="space-y-4 space-x-2">
       <ProfileTabs activeTab={activeTab} />
@@ -16,7 +18,9 @@ export const ScheduledTabActive: Story<ProfileTabsProps> = ({ activeTab = "sched
 
 ScheduledTabActive.bind({});
 
-export const RoomsTabActive: Story<ProfileTabsProps> = ({ activeTab = "rooms" }) => {
+export const RoomsTabActive: Story<ProfileTabsProps> = ({
+  activeTab = "rooms",
+}) => {
   return (
     <div className="space-y-4 space-x-2">
       <ProfileTabs activeTab={activeTab} />
