@@ -15363,13 +15363,14 @@ fsevents@^1.2.7:
   linkType: hard
 
 "react-virtual@npm:^2.7.0":
-  version: 2.7.1
-  resolution: "react-virtual@npm:2.7.1"
+  version: 2.7.0
+  resolution: "react-virtual@npm:2.7.0"
   dependencies:
     "@reach/observe-rect": ^1.1.0
+    ts-toolbelt: ^6.4.2
   peerDependencies:
     react: ^16.6.3 || ^17.0.0
-  checksum: a504a97627a2c04d751eaf20a1de1e427832e052c8231f3857361ce101917f768c4ee8fcfb5d4ae2d3fb2dca487fc125d12eaaa1f65367e4ab41de3d57ab133a
+  checksum: fa61a48c37b26c47bb5a8ba12bcdb8bf99f9bbd6400dc3bc453630da793c722f8494a2bc45848596e8b2401c72a235820fec6c1b19af2bc776b4e3046fa590ac
   languageName: node
   linkType: hard
 
@@ -17815,6 +17816,13 @@ resolve@^2.0.0-next.3:
     typescript:
       optional: true
   checksum: 78341a27939de565e2754ff65ebb689743c16e3295528089d143c08d91842cf9029c3d6b3c95a9a20854a114a7904329d02c710d63f7ce4dbf671b8a3e560ac1
+  languageName: node
+  linkType: hard
+
+"ts-toolbelt@npm:^6.4.2":
+  version: 6.15.5
+  resolution: "ts-toolbelt@npm:6.15.5"
+  checksum: d2f585ee3439ae7a72dd7c00630491195b2a4f34107c595d567242482b9fa911b5a9b5921fb4984506c2f7d8efce61351c7f48519438df67b6c0a8dcd40c862c
   languageName: node
   linkType: hard
 

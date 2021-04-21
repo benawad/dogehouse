@@ -204,7 +204,7 @@ defmodule Broth.Translator.V0_1_0 do
   defp add_out_err(message, _), do: message
 
   def translate_out_body(message, "auth:request") do
-    %{message | op: "auth-good", d: %{user: %{id: message.d.id}}}
+    %{message | op: "auth-good", d: %{user: message.d}}
   end
 
   def translate_out_body(message, "user:ban") do

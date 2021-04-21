@@ -46,5 +46,34 @@ defmodule BrothTest.Room.CreateTest do
 
       assert %{currentRoomId: ^room_id} = Users.get_by_id(user_id)
     end
+
+    test "can pass null description", t do
+      user_id = t.user.id
+
+      ref =
+        WsClient.send_call(
+          t.client_ws,
+          "room:create",
+          %{
+            "name" => "foo room",
+            "description" => nil,
+            "isPrivate" => true
+          }
+        )
+
+      WsClient.assert_reply(
+        "room:create:reply",
+        ref,
+        %{
+          "creatorId" => ^user_id,
+          "description" => nil,
+          "id" => room_id,
+          "name" => "foo room",
+          "isPrivate" => true
+        }
+      )
+
+      assert %{currentRoomId: ^room_id} = Users.get_by_id(user_id)
+    end
   end
 end

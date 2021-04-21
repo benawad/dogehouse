@@ -196,6 +196,13 @@
       "logOut": {
         "button": "Se déconnecter",
         "modalSubtitle": "Êtes vous sur de vouloir vous déconnecter ?"
+<<<<<<< HEAD
+=======
+      },
+      "debugAudio": {
+        "debugAudio": "Débugger l'audio",
+        "stopDebugger": "Arreter le débuggage"
+>>>>>>> 8fe929a780fd7519baf938a2f52a0c607547459f
       }
     },
     "modals": {
@@ -264,6 +271,14 @@
         "roomName": "nom de salle",
         "roomDescription": "Description",
         "minLength": "longueur minimum de 2 caractères"
+<<<<<<< HEAD
+=======
+      },
+      "tommorow": "DEMAIN",
+      "today": "AUJOURD'HUI",
+      "deleteModal": {
+        "areYouSure": "Êtes vous sûr de vouloir supprimer cette salle programmée?"
+>>>>>>> 8fe929a780fd7519baf938a2f52a0c607547459f
       }
     },
     "roomChat": {
@@ -275,7 +290,7 @@
       "searchResults": "Résultats de recherche",
       "recent": "Fréquemment utilisées",
       "sendMessage": "Envoyer un message",
-      "whisper": "Chuchoter",
+      "whisper": "Chuchotement",
       "welcomeMessage": "Bienvenue dans le chat !",
       "roomDescription": "Description de la salle"
     },

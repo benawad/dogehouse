@@ -24,5 +24,9 @@ export const VolumeIndicator: React.FC<VolumeIndicatorProps> = ({
       ></div>
     );
   }
-  return <div {...props} className="w-auto h-4 flex gap-1.5">{hBars}</div>;
+  return (
+    <div {...props} className="w-auto h-4 flex gap-1.5">
+      {hBars}
+    </div>
+  );
 };

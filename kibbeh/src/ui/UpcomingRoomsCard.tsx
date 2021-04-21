@@ -7,11 +7,29 @@ import { BoxedIcon } from "./BoxedIcon";
 import { RoomCardHeading } from "./RoomCardHeading";
 import { MultipleUsers } from "./UserAvatar";
 
+<<<<<<< HEAD
 const formattedDate = (scheduledFor: Date) => {
   if (isToday(scheduledFor)) {
     return "TODAY " + format(scheduledFor, `K:mm a`);
   } else if (isTomorrow(scheduledFor)) {
     return "TOMMOROW " + format(scheduledFor, `K:mm a`);
+=======
+interface FormattedDateProps {
+  scheduledFor: Date;
+}
+
+const FormattedDate: React.FC<FormattedDateProps> = ({ scheduledFor }) => {
+  const { t } = useTypeSafeTranslation();
+  let text = "";
+  if (isToday(scheduledFor)) {
+    text =
+      t("modules.scheduledRooms.today") + " " + format(scheduledFor, `K:mm a`);
+  } else if (isTomorrow(scheduledFor)) {
+    text =
+      t("modules.scheduledRooms.tommorow") +
+      " " +
+      format(scheduledFor, `K:mm a`);
+>>>>>>> 8fe929a780fd7519baf938a2f52a0c607547459f
   } else {
     return format(scheduledFor, `EEE, do MMM, K:mm a`);
   }

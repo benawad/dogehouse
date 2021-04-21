@@ -32,7 +32,12 @@ defmodule Broth.Message.Chat.SendMsg do
   end
 
   def put_tokens(changeset, tokens) when is_list(tokens) do
-    {embedded_tokens, _} = Enum.map_reduce(tokens, 0, &apply_changeset_accumulate_length/2)
+    {embedded_tokens, acc_length} =
+      Enum.map_reduce(tokens, 0, &apply_changeset_accumulate_length/2)
+
+    if acc_length == 0 do
+      throw(tokens: {"no empty messages", []})
+    end
 
     put_embed(changeset, :tokens, embedded_tokens)
   rescue
@@ -65,6 +70,8 @@ defmodule Broth.Message.Chat.SendMsg do
     {changeset, new_length}
   end
 
+  # this fn crashes if :value is nil
+  # but :value should be defaulting to "" now
   defp text_size(changeset) do
     changeset
     |> get_field(:value)

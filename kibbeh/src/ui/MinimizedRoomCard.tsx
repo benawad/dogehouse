@@ -44,8 +44,15 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
           {room.speakers.join(", ")}
         </p>
         <p className="text-accent">
+<<<<<<< HEAD
           {room.myself.isSpeaker ? "Speaker" : "Listener"} ·{" "}
           <DurationTicker dt={room.roomStartedAt} />
+=======
+          {room.myself.isSpeaker
+            ? t("components.bottomVoiceControl.speaker")
+            : t("components.bottomVoiceControl.listener")}{" "}
+          · <DurationTicker dt={room.roomStartedAt} />
+>>>>>>> 8fe929a780fd7519baf938a2f52a0c607547459f
         </p>
       </div>
       <div className="flex flex-row">

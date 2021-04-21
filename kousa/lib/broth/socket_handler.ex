@@ -224,6 +224,8 @@ defmodule Broth.SocketHandler do
         msg
         |> Map.put("d", msg["p"] || msg["d"])
         |> put_in(["d", "peerId"], user_id)
+        # voice server expects this key
+        |> put_in(["uid"], user_id)
         |> put_in(["d", "roomId"], room_id)
 
       Onion.VoiceRabbit.send(voice_server_id, mediasoup_message)

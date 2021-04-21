@@ -31,7 +31,7 @@ defmodule Broth.Message.Room.Create do
            Kousa.Room.create_room(
              state.user_id,
              room_spec.name,
-             room_spec.description,
+             room_spec.description || "",
              room_spec.isPrivate,
              room_spec.userIdToInvite
            ) do
