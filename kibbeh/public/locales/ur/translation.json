@@ -198,7 +198,8 @@
         "banFromRoom": "کمرے سے پابندی لگانا",
         "goBackToListener": "سننے والوں کے پاس واپس جائیں",
         "deleteMessage": "اس پیغام کو حذف کریں",
-        "makeRoomCreator": "روم ایڈمن بنائیں"
+        "makeRoomCreator": "روم ایڈمن بنائیں",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "بولنے کی اجازت کی ضرورت ہے",

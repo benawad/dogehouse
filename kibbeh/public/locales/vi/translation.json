@@ -200,7 +200,8 @@
         "banFromRoom": "cấm khỏi phòng",
         "goBackToListener": "trở về làm thính giả",
         "deleteMessage": "xóa tin nhắn này",
-        "makeRoomCreator": "cho làm quản trị viên"
+        "makeRoomCreator": "cho làm quản trị viên",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "phải được cấp quyền mới có thể nói",
