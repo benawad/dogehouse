@@ -21,7 +21,7 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "dashboard" : "Dashboard",
+    "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken",
     "mutedTitle": "Muted | DogeHouse"
   },
@@ -35,6 +35,11 @@
     "_comment": "Respective Page UI Internationalization Strings",
     "banUser": {
       "ban": "Ban"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     },
     "followingOnlineList": {
       "listHeader": "List of users that are not in a private room and you follow.",

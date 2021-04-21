@@ -109,6 +109,11 @@
         "errorMsg": "Ese nombre de aplicación no es válido",
         "label": "Introduce el nombre de la aplicación"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

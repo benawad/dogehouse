@@ -111,6 +111,11 @@
         "errorMsg": "Veuillez rentrer un titre valide",
         "label": "Titrede l'application"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

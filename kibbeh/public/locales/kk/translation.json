@@ -111,6 +111,11 @@
         "label": "Қолданба тақырыбын еңгізіңіз"
       },
       "header": "Қабаттасу (Overlay) баптамалары"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

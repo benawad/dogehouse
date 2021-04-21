@@ -110,6 +110,11 @@
         "errorMsg": "Please enter a valid app title",
         "label": "App title"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

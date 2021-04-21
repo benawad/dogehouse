@@ -111,6 +111,11 @@
         "errorMsg": "ǝꞁʇᴉʇ ddɐ pᴉꞁɐʌ ɹǝʇuǝ ǝsɐǝꞁԀ",
         "label": "ǝꞁʇᴉʇ ddɐ ɹǝʇuƎ"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
