@@ -1832,7 +1832,7 @@ __metadata:
     react-popper: ^2.2.5
     react-query: ^3.13.8
     react-responsive: ^8.2.0
-    react-virtuoso: ^1.8.2
+    react-virtual: ^2.7.0
     style-loader: ^2.0.0
     stylelint: ^13.12.0
     stylelint-config-standard: ^21.0.0
@@ -2591,6 +2591,13 @@ __metadata:
   version: 2.9.2
   resolution: "@popperjs/core@npm:2.9.2"
   checksum: cc4de8b46fc190805619224f1c683bee6a162276430af3728d35087099ad83a80da3c11c4eac7cb2b5aa2fa59d4c7c689e211a3e955136588ed6dedb5bff32c5
+  languageName: node
+  linkType: hard
+
+"@reach/observe-rect@npm:^1.1.0":
+  version: 1.2.0
+  resolution: "@reach/observe-rect@npm:1.2.0"
+  checksum: 4aa32fa1ab410527cecf62e3143664e4b7823212bb7b79b5fd84d0d390fa086fcdba27fceebc0e24e2958f2a0649d5b88ec8b0ed907c72730964ac33eb3089af
   languageName: node
   linkType: hard
 
@@ -4451,24 +4458,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@virtuoso.dev/react-urx@npm:^0.2.5":
-  version: 0.2.5
-  resolution: "@virtuoso.dev/react-urx@npm:0.2.5"
-  dependencies:
-    "@virtuoso.dev/urx": ^0.2.5
-  peerDependencies:
-    react: ">=16"
-  checksum: 813f1c2e90a7ddc33a91ff73e9f56ca53d5cf0a7d807ba28c55effe3af6ade02d9c69e5e32af9575152c39a3cbce4252647f16824e8f14378fac265ba4b127d3
-  languageName: node
-  linkType: hard
-
-"@virtuoso.dev/urx@npm:^0.2.5":
-  version: 0.2.5
-  resolution: "@virtuoso.dev/urx@npm:0.2.5"
-  checksum: 722a0b0010e8533f5f1ec86908e0f915afce32917ef5d0610ae6f9f32be289e4f763cb6de8128d51944917765a14d88a54a8f09535a743244e2b2308093ed5df
-  languageName: node
-  linkType: hard
-
 "@webassemblyjs/ast@npm:1.9.0":
   version: 1.9.0
   resolution: "@webassemblyjs/ast@npm:1.9.0"
@@ -5182,13 +5171,6 @@ __metadata:
   version: 2.0.1
   resolution: "arrify@npm:2.0.1"
   checksum: 2a19726815590d829e07998aefa2c352bd9061e58bf4391ffffa227129995841a710bef2d8b4c9408a6b0679d96c96bd23764bdbcc29bb21666c976816093972
-  languageName: node
-  linkType: hard
-
-"asap@npm:~2.0.6":
-  version: 2.0.6
-  resolution: "asap@npm:2.0.6"
-  checksum: 3d314f8c598b625a98347bacdba609d4c889c616ca5d8ea65acaae8050ab8b7aa6630df2cfe9856c20b260b432adf2ee7a65a1021f268ef70408c70f809e3a39
   languageName: node
   linkType: hard
 
@@ -6878,13 +6860,6 @@ __metadata:
   version: 3.10.1
   resolution: "core-js@npm:3.10.1"
   checksum: 5329c1bb03a9fa36d259b26180d9c4ad377a37867d2753b08a53738d41adb3b1193708abfaec4976d422140abcfabdc272584fb9ed16b1406a5c02fd122b8702
-  languageName: node
-  linkType: hard
-
-"core-js@npm:^3.5.0":
-  version: 3.10.2
-  resolution: "core-js@npm:3.10.2"
-  checksum: 6ff7c525419144998bfbe9c101872fcd350f46c455375e794fe34eb8d086bfdabb95a67da9eb0e98bcfc190f2cf4d7efd43eb726dcdb5f12a46dc5c8a7191f54
   languageName: node
   linkType: hard
 
@@ -14648,15 +14623,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"promise@npm:^8.0.3":
-  version: 8.1.0
-  resolution: "promise@npm:8.1.0"
-  dependencies:
-    asap: ~2.0.6
-  checksum: ec94008d8a673c276dbc7722c215f583026b8d2588fb83f40e69908c553801eac7fbe3034c9bca853d5c422af20826abdfb9391b982a888868d9c88281dc59fb
-  languageName: node
-  linkType: hard
-
 "prompts@npm:2.4.0":
   version: 2.4.0
   resolution: "prompts@npm:2.4.0"
@@ -14873,15 +14839,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"raf@npm:^3.4.1":
-  version: 3.4.1
-  resolution: "raf@npm:3.4.1"
-  dependencies:
-    performance-now: ^2.1.0
-  checksum: 567b0160be46ed20b124a05ace6e653f4ad3c047c48d02ac76161e9ac624488c0fdf622b2f4fb9c35c0c828a13dfa549044ad1db89c7af075cb0f99403b88c4b
-  languageName: node
-  linkType: hard
-
 "ramda@npm:^0.21.0":
   version: 0.21.0
   resolution: "ramda@npm:0.21.0"
@@ -15037,20 +14994,6 @@ fsevents@^1.2.7:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
   checksum: ba12151dd36093c8a5f813f77b295b68f33727fe5118c31de312e1ab012735e26fc42025fbfc7e03f4d96565c8a1e6c5ab153941a4b33ed75f97756538d0bae0
-  languageName: node
-  linkType: hard
-
-"react-app-polyfill@npm:^1.0.6":
-  version: 1.0.6
-  resolution: "react-app-polyfill@npm:1.0.6"
-  dependencies:
-    core-js: ^3.5.0
-    object-assign: ^4.1.1
-    promise: ^8.0.3
-    raf: ^3.4.1
-    regenerator-runtime: ^0.13.3
-    whatwg-fetch: ^3.0.0
-  checksum: 94d24bf1d69a0cbb26d8adbb14ba600b29c7c5adc06c9f9c8337d0f8ee7358ee2c443d806f8ca96fdf002d7f37c1a5fae6a796f63164df44a4fc3996aeb2d71f
   languageName: node
   linkType: hard
 
@@ -15419,17 +15362,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-virtuoso@npm:^1.8.2":
-  version: 1.8.2
-  resolution: "react-virtuoso@npm:1.8.2"
+"react-virtual@npm:^2.7.0":
+  version: 2.7.0
+  resolution: "react-virtual@npm:2.7.0"
   dependencies:
-    "@virtuoso.dev/react-urx": ^0.2.5
-    "@virtuoso.dev/urx": ^0.2.5
-    react-app-polyfill: ^1.0.6
-    resize-observer-polyfill: ^1.5.1
+    "@reach/observe-rect": ^1.1.0
+    ts-toolbelt: ^6.4.2
   peerDependencies:
-    react: ">=16"
-  checksum: 4430e031d381d3eace1ff973685a6bef26e5d4d1a66a49d8f000c36f337b821cf6f3271f426fa9d07a83ce83f21519aadd1c6786c07cc7ba970bc836e440fad4
+    react: ^16.6.3 || ^17.0.0
+  checksum: fa61a48c37b26c47bb5a8ba12bcdb8bf99f9bbd6400dc3bc453630da793c722f8494a2bc45848596e8b2401c72a235820fec6c1b19af2bc776b4e3046fa590ac
   languageName: node
   linkType: hard
 
@@ -15584,7 +15525,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"regenerator-runtime@npm:^0.13.3, regenerator-runtime@npm:^0.13.4, regenerator-runtime@npm:^0.13.7":
+"regenerator-runtime@npm:^0.13.4, regenerator-runtime@npm:^0.13.7":
   version: 0.13.8
   resolution: "regenerator-runtime@npm:0.13.8"
   checksum: 20178f5753f181d59691e5c3b4c59a2769987f75c7ccf325777673b5478acca61a553b10e895585086c222f72f5ee428090acf50320264de4b79f630f7388653
@@ -17878,6 +17819,13 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"ts-toolbelt@npm:^6.4.2":
+  version: 6.15.5
+  resolution: "ts-toolbelt@npm:6.15.5"
+  checksum: d2f585ee3439ae7a72dd7c00630491195b2a4f34107c595d567242482b9fa911b5a9b5921fb4984506c2f7d8efce61351c7f48519438df67b6c0a8dcd40c862c
+  languageName: node
+  linkType: hard
+
 "tslib@npm:^1.10.0, tslib@npm:^1.8.1, tslib@npm:^1.9.0":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
@@ -18833,7 +18781,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"whatwg-fetch@npm:^3.0.0, whatwg-fetch@npm:^3.4.1":
+"whatwg-fetch@npm:^3.4.1":
   version: 3.6.2
   resolution: "whatwg-fetch@npm:3.6.2"
   checksum: eaa370015f81fbf7fc69d5410a13c2200d3342fa783397e9a7e64215498276459993c05e826ed736d28a8abe4e7cc3f97e9b2ffadbc58129a55f443abdfea494
