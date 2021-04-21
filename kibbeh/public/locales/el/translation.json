@@ -22,8 +22,8 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Σε σίγαση | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "dashboard": "Ταμπλό",
+    "connectionTaken": "Έγινε σύνδεση"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -38,6 +38,11 @@
       "listHeader": "Xρήστες που ακολουθείτε και δεν βρίσκονται σε κάποιο δωμάτιο",
       "currentRoom": "Aυτή τη στιγμή βρίσκεστε σε:",
       "startPrivateRoom": "Δημιουργήστε ένα ιδιωτικό δωμάτιο μαζί τους"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     },
     "followList": {
       "followHim": "Ακολουθήστε",
@@ -115,11 +120,6 @@
         "label": "Εισάγετε τον τίτλο της εφαρμογής"
       },
       "header": "Ρυθμίσεις overlay"
-    },
-    "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -246,8 +246,8 @@
         "modalSubtitle": "Είστε σίγουροι πως θέλετε να αποσυνδεθείτε;"
       },
       "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
+        "debugAudio": "Κάντε debug τον ήχο",
+        "stopDebugger": "Σταματήστε το Debugger"
       }
     }
   },
@@ -266,10 +266,10 @@
         "roomDescription": "Περιγραφή δωματίου",
         "minLength": "Ελάχιστο μήκος 2"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "tommorow": "Άυριο",
+      "today": "Σήμερα",
       "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
+        "areYouSure": "Είστε σίγουρος πως θέλετε να διαγράψετε αυτό το προγραμματισμέν δωμάτιο;"
       }
     },
     "roomChat": {
