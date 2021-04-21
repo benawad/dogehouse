@@ -51,7 +51,6 @@ defmodule Onion.RoomSession do
   ## INITIALIZATION BOILERPLATE
 
   def start_link(init) do
-    IO.puts("room session starting: " <> init[:room_id])
     GenServer.start_link(__MODULE__, init, name: via(init[:room_id]))
   end
 
