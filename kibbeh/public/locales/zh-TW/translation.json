@@ -21,8 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "已靜音 | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -42,7 +41,8 @@
     "home": {
       "createRoom": "新增房間",
       "refresh": "Refresh",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "房間已被删除，請回到前一頁",
@@ -85,7 +85,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "搜尋..." },
-    "soundEffectSettings": { "header": "聲音", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "聲音" },
     "viewUser": {
       "editProfile": "編輯個人主頁",
       "followsYou": "正在追蹤你",
@@ -107,6 +107,11 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -131,7 +136,10 @@
       "settings": "設定",
       "speaker": "講者",
       "listener": "聽眾",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "你的裝置目前並不支援，你可以到",
@@ -149,7 +157,8 @@
       "listening": "請輸入按鍵",
       "toggleMuteKeybind": "觸發靜音的按鍵組合",
       "togglePushToTalkKeybind": "觸發發言的按鍵組合",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "沒有聲音" },
     "addToCalendar": { "add": "加到行事曆" },
@@ -226,10 +235,6 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
-      },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -247,11 +252,6 @@
         "roomName": "房間名稱",
         "minLength": "最短長度為 2",
         "roomDescription": "Description"
-      },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

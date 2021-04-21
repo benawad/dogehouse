@@ -22,8 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Skaņa izslēgta | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -43,7 +42,8 @@
     "home": {
       "createRoom": "Izveidot istabu",
       "refresh": "Atjaunot",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Istaba pazuda, atgriezieties atpakaļ",
@@ -86,7 +86,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "meklēšana..." },
-    "soundEffectSettings": { "header": "skaņas", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "skaņas" },
     "viewUser": {
       "editProfile": "rediģēt profilu",
       "followsYou": "seko jums",
@@ -111,6 +111,11 @@
         "errorMsg": "Please enter valid app title",
         "label": "Enter app title"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -135,7 +140,10 @@
       "settings": "Iestatījumi",
       "speaker": "Runātājs",
       "listener": "Klausītāji",
-      "chat": "Čats"
+      "chat": "Čats",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Jūsu ierīce nav atbalstīta. Jūs varat izveidot",
@@ -156,7 +164,8 @@
       "listening": "klausās",
       "toggleMuteKeybind": "Skaņas izslēgšanas taustiņš",
       "togglePushToTalkKeybind": ":Īslaicīgās mikrofona ieslēgšanas taustiņš",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "nezināmu iemeslu dēļ, nav pieejama audiosaziņa"
@@ -235,10 +244,6 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
-      },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -256,11 +261,6 @@
         "roomName": "istabas nosaukums",
         "minLength": "minimālais garums 2",
         "roomDescription": "apraksts"
-      },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

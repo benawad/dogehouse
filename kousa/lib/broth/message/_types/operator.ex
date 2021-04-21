@@ -39,6 +39,7 @@ defenum(
     {Room.GetTop, 81},
     {Room.SetActiveSpeaker, 82},
     {Room.Mute, 83},
+    {Room.Deafen, 84},
     # chat commands and casts: 128..191
     {Chat.Ban, 129},
     {Chat.Unban, 130},

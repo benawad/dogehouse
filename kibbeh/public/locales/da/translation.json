@@ -21,8 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Lydløs | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -42,7 +41,8 @@
     "home": {
       "createRoom": "Start Rum",
       "refresh": "Opdater",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "rummet er væk, gå tilbage",
@@ -85,7 +85,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Søger..." },
-    "soundEffectSettings": { "header": "Lyde", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "Lyde" },
     "viewUser": {
       "editProfile": "Rediger profil",
       "followsYou": "Følger dig",
@@ -109,6 +109,11 @@
       "header": "Overlay Settings",
       "errorMsg": "Please enter valid app title",
       "label": "Enter app title"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -133,7 +138,10 @@
       "settings": "Indstillinger",
       "speaker": "Taler",
       "listener": "Lytter",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Din enhed understøttes ikke lige nu. Du kan oprette et",
@@ -154,7 +162,8 @@
       "listening": "Lytter",
       "toggleMuteKeybind": "Slå mikrofon til/fra genvej",
       "togglePushToTalkKeybind": "Slå push-to-talk til/fra genvej",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Ingen audio consumer af en eller anden grund"
@@ -233,10 +242,6 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
-      },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -254,11 +259,6 @@
         "roomName": "Rum navn",
         "minLength": "Minimum længde på 2 tegn",
         "roomDescription": "Description"
-      },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

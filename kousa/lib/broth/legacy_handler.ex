@@ -76,7 +76,7 @@ defmodule Broth.LegacyHandler do
               %{error: "Room no longer exists."}
 
             _ ->
-              {muteMap, autoSpeaker, activeSpeakerMap} =
+              {muteMap, deafMap, autoSpeaker, activeSpeakerMap} =
                 if room_id do
                   Onion.RoomSession.get_maps(room_id)
                 else
@@ -87,6 +87,7 @@ defmodule Broth.LegacyHandler do
                 room: room,
                 users: users,
                 muteMap: muteMap,
+                deafMap: deafMap,
                 activeSpeakerMap: activeSpeakerMap,
                 roomId: room_id,
                 autoSpeaker: autoSpeaker

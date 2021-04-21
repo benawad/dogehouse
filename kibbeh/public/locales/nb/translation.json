@@ -21,8 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Dempet | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -42,7 +41,8 @@
     "home": {
       "createRoom": "Lag et rom",
       "refresh": "Last inn på nytt",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Rommet finnes ikke lengre, gå tilbake",
@@ -85,7 +85,7 @@
       "allowAllConfirm": "Er du sikker? Dette vil tillate alle {{count}} spørrende brukere til å snakke"
     },
     "searchUser": { "search": "søk..." },
-    "soundEffectSettings": { "header": "Lyder", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "Lyder" },
     "viewUser": {
       "editProfile": "Rediger profil",
       "followsYou": "Følger deg",
@@ -107,6 +107,11 @@
     "overlaySettings": {
       "input": { "errorMsg": "Ugyldig tittel", "label": "Angi tittel" },
       "header": "Innstillinger for overlegg"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -131,7 +136,10 @@
       "settings": "Innstillinger",
       "speaker": "Taler",
       "listener": "Lytter",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Enheten din støttes foreløpig ikke. Du kan opprette ett",
@@ -152,7 +160,8 @@
       "listening": "Lytter",
       "toggleMuteKeybind": "Veksle demping av hurtigtast",
       "togglePushToTalkKeybind": "Veksle trykk for å snakke hurtigtast",
-      "toggleOverlayKeybind": "Overlay hurtigtast"
+      "toggleOverlayKeybind": "Overlay hurtigtast",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Ingen lydmottaker av en eller annen grunn"
@@ -231,10 +240,6 @@
       "logOut": {
         "button": "Logg ut",
         "modalSubtitle": "Er du sikker på at du vil logge ut?"
-      },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -252,11 +257,6 @@
         "roomName": "Romnavn",
         "minLength": "Minimum lengde er 2 tegn",
         "roomDescription": "Beskrivelse"
-      },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

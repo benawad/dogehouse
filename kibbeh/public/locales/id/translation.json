@@ -11,7 +11,7 @@
     "edit": "Ubah",
     "delete": "Hapus",
     "joinRoom": "Gabung ke ruangan",
-    "copyLink": "Salin tautan",
+    "copyLink": "Calin tautan",
     "copied": "Disalin",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
@@ -21,8 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Bisu | DogeHouse",
-    "dashboard": "Dasbor",
-    "connectionTaken": "Koneksi Diambil"
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -42,7 +41,8 @@
     "home": {
       "createRoom": "Buat Ruangan",
       "refresh": "Segarkan",
-      "editRoom": "Ubah Ruangan"
+      "editRoom": "Ubah Ruangan",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Ruangan hilang, kembali",
@@ -85,7 +85,7 @@
       "allowAllConfirm": "Apakah anda yakin? Ini akan mengizinkan semua {{count}} permintaan pengguna untuk bicara"
     },
     "searchUser": { "search": "cari..." },
-    "soundEffectSettings": { "header": "Bunyi", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "Bunyi" },
     "viewUser": {
       "editProfile": "Ubah profil",
       "followsYou": "Mengikutimu",
@@ -107,6 +107,11 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -131,7 +136,10 @@
       "settings": "Pengaturan",
       "speaker": "Pembicara",
       "listener": "Pendengar",
-      "chat": "Percakapan"
+      "chat": "Percakapan",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Perangkatmu saat ini belum didukung. Kamu bisa membuat",
@@ -152,7 +160,8 @@
       "listening": "Menunggu tombol",
       "toggleMuteKeybind": "Atur tombol untuk membisu",
       "togglePushToTalkKeybind": "Atur tombol klik-untuk-bicara",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "Perangkat audio tidak ditemukan" },
     "addToCalendar": { "add": "Tambahkan ke Kalender" },
@@ -229,10 +238,6 @@
       "logOut": {
         "button": "Keluar",
         "modalSubtitle": "Apakah kamu yakin ingin keluar?"
-      },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Berhentikan Debugger"
       }
     }
   },
@@ -250,11 +255,6 @@
         "roomName": "nama ruangan",
         "minLength": "minimal panjang 2",
         "roomDescription": "Deskripsi"
-      },
-      "tommorow": "BESOK",
-      "today": "HARI INI",
-      "deleteModal": {
-        "areYouSure": "Apakah kamu yakin ingin menghapus ruangan yang sudah terjadwal ini?"
       }
     },
     "roomChat": {

@@ -21,8 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Isilik | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -42,7 +41,8 @@
     "home": {
       "createRoom": "Gela Sortu",
       "editRoom": "Edit Room",
-      "refresh": "Refresh"
+      "refresh": "Refresh",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "gela ez dago erabilgarri",
@@ -85,7 +85,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "bilatu..." },
-    "soundEffectSettings": { "header": "Soinuak", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "Soinuak" },
     "viewUser": {
       "editProfile": "editatu profila",
       "followsYou": "jarraitzen zaitu",
@@ -110,6 +110,11 @@
         "errorMsg": "Please enter a valid app title",
         "label": "App title"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -134,7 +139,10 @@
       "settings": "Aukerak",
       "speaker": "Mintzatzaile",
       "listener": "Entzule",
-      "chat": "Txat"
+      "chat": "Txat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Gaur egun zure gailua ez da bateragarri. Sortu",
@@ -161,7 +169,8 @@
       "listening": "entzuten...",
       "toggleMuteKeybind": "Piztu/itzali isiltzeko tekla konbinazioa",
       "toggleOverlayKeybind": "Toggle overlay keybind",
-      "togglePushToTalkKeybind": "Piztu/itzali sakatu-hitz-egiteko tekla konbinazioa"
+      "togglePushToTalkKeybind": "Piztu/itzali sakatu-hitz-egiteko tekla konbinazioa",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "No audio consumer for some reason"
@@ -184,10 +193,6 @@
       "logOut": {
         "button": "Saioa itxi",
         "modalSubtitle": "Are you sure you want to logout?"
-      },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
       }
     },
     "modals": {
@@ -256,11 +261,6 @@
         "roomName": "gelaren izena",
         "roomDescription": "deskribapena",
         "minLength": "luzera minimoa: 2 karaktere"
-      },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

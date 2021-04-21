@@ -21,8 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Silenciado | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "link_1": "Historia de origen",
@@ -41,7 +40,8 @@
     "home": {
       "createRoom": "Crear sala",
       "editRoom": "Editar sala",
-      "refresh": "Recargar"
+      "refresh": "Recargar",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Sala no disponible, volver atrás",
@@ -84,7 +84,7 @@
       "allowAllConfirm": "¿Estás seguro? Esto dejará hablar a los {{count}} usuarios que quieren hablar"
     },
     "searchUser": { "search": "Buscar..." },
-    "soundEffectSettings": { "header": "Sonidos", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "Sonidos" },
     "viewUser": {
       "editProfile": "Editar perfil",
       "followsYou": "Te sigue",
@@ -109,6 +109,11 @@
         "errorMsg": "Ese nombre de aplicación no es válido",
         "label": "Introduce el nombre de la aplicación"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -133,7 +138,10 @@
       "settings": "Ajustes",
       "speaker": "Hablante",
       "listener": "Oyente",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Actualmente tu dispositivo no es compatible. Puedes crear un",
@@ -160,7 +168,8 @@
       "listening": "Escuchando",
       "toggleMuteKeybind": "Combinación de teclas para apagar/encender tu micrófono",
       "toggleOverlayKeybind": "Combinación de teclas para alternar el overlay",
-      "togglePushToTalkKeybind": "Combinación de teclas para activar/desactivar tocar-para-hablar"
+      "togglePushToTalkKeybind": "Combinación de teclas para activar/desactivar tocar-para-hablar",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Por alguna razón no hay ningún consumidor de audio"
@@ -183,10 +192,6 @@
       "logOut": {
         "button": "Cerrar sesión",
         "modalSubtitle": "¿Estás seguro de que quieres cerrar sesión?"
-      },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
       }
     },
     "modals": {
@@ -254,11 +259,6 @@
         "roomName": "Nombre de la sala",
         "roomDescription": "Descripción",
         "minLength": "La longitud mínima es de 2 caracteres"
-      },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

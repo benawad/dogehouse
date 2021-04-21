@@ -22,8 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "بی صدا | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -43,7 +42,8 @@
     "home": {
       "createRoom": "ساختن اتاق",
       "refresh": "تازه کردن",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "اتاق گم شد. برگردید",
@@ -86,7 +86,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "جستجو..." },
-    "soundEffectSettings": { "header": "صدا", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "صدا" },
     "viewUser": {
       "editProfile": "ویرایش حساب",
       "followsYou": "شما را دنبال میکنند",
@@ -111,6 +111,11 @@
         "errorMsg": "Please enter valid app title",
         "label": "Enter app title"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -135,7 +140,10 @@
       "settings": "تنظیمات",
       "speaker": "گویندگان",
       "listener": "شنوندگان",
-      "chat": "پیام"
+      "chat": "پیام",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": " دستگاه شما پشتیبانی نمیشود. شما میتوانید یک",
@@ -153,7 +161,8 @@
       "listening": "در حال گوش دادن",
       "toggleMuteKeybind": "کلید فعال/غیرفعال بی صدا",
       "togglePushToTalkKeybind": "کلید حرف زدن با فشردن دکمه",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "بدون مخاطب به دلایلی" },
     "addToCalendar": { "add": "اضافه کردن به تقویم" },
@@ -230,10 +239,6 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
-      },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -251,11 +256,6 @@
         "roomName": "نام اتاق",
         "minLength": "حداقل 2 کاراکتر",
         "roomDescription": "توضیحات"
-      },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

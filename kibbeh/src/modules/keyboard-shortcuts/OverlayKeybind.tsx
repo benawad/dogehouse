@@ -30,7 +30,7 @@ export const OverlayKeybind: React.FC<OverlayKeybindProps> = ({
   }, [count, setOverlayKeybind]);
 
   return (
-    <div className={`flex items-center ${className}`}>
+    <div className={`flex flex items-center ${className}`}>
       <Button
         size="small"
         onClick={() => {

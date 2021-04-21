@@ -14,6 +14,7 @@ export type JoinRoomAndGetInfoResponse = {
   room: Room;
   users: RoomUser[];
   muteMap: Record<string, boolean>;
+  deafMap: Record<string, boolean>;
   roomId: string;
   activeSpeakerMap: Record<string, boolean>;
   autoSpeaker: boolean;
@@ -24,6 +25,7 @@ export type GetRoomUsersResponse = {
   roomId: UUID;
   raiseHandMap: Record<string, boolean>;
   muteMap: Record<string, boolean>;
+  deafMap: Record<string, boolean>;
   autoSpeaker: boolean;
   activeSpeakerMap: Record<string, boolean>;
 };

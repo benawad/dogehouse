@@ -22,8 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Prigušen | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -43,7 +42,8 @@
     "home": {
       "createRoom": "Stvori sobu",
       "refresh": "Osvježi",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "soba otišla, vrati se",
@@ -87,7 +87,7 @@
       "speakers": "Speakers"
     },
     "searchUser": { "search": "traži..." },
-    "soundEffectSettings": { "header": "Zvuči", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "Zvuči" },
     "viewUser": {
       "editProfile": "uredi profil",
       "followYou": "prati vas",
@@ -113,6 +113,11 @@
         "errorMsg": "Please enter valid app title",
         "label": "Enter app title"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -137,7 +142,10 @@
       "settings": "Postavke",
       "speaker": "Govornik",
       "listener": "Slušatelj",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Vaš uređaj trenutno nije podržan. Možete dodati",
@@ -155,7 +163,8 @@
       "listening": "Slušanje",
       "toggleMuteKeybind": "uključivanje/isključivanje isključivanja tipkovničkih prečaca",
       "togglePushToTalkKeybind": "uključivanje/isključivanje push-to-talk",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "iz nekog razloga nema potrošača zvuka"
@@ -234,10 +243,6 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
-      },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -255,11 +260,6 @@
         "roomName": "ime sobe",
         "roomDescription": "Opis",
         "minLength": "min duljina 2"
-      },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

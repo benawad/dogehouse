@@ -4,10 +4,12 @@ import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useMuteStore } from "../../global-stores/useMuteStore";
+import { useDeafStore } from "../../global-stores/useDeafStore";
 import { useCurrentRoomInfo } from "../../shared-hooks/useCurrentRoomInfo";
 import { useLeaveRoom } from "../../shared-hooks/useLeaveRoom";
 import { useScreenType } from "../../shared-hooks/useScreenType";
 import { useSetMute } from "../../shared-hooks/useSetMute";
+import { useSetDeaf } from "../../shared-hooks/useSetDeaf";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { RoomPanelIconBar } from "../../ui/RoomPanelIconBar";
@@ -30,6 +32,8 @@ export const RoomPanelIconBarController: React.FC<RoomPanelIconBarControllerProp
   const { t } = useTypeSafeTranslation();
   const { muted } = useMuteStore();
   const setMute = useSetMute();
+  const { deafened } = useDeafStore();
+  const setDeaf = useSetDeaf();
   const { canSpeak, isCreator } = useCurrentRoomInfo();
   const { leaveRoom } = useLeaveRoom();
   const { push } = useRouter();
@@ -47,6 +51,11 @@ export const RoomPanelIconBarController: React.FC<RoomPanelIconBarControllerProp
         mute={
           canSpeak
             ? { isMuted: muted, onMute: () => setMute(!muted) }
+            : undefined
+        }
+        deaf={
+          canSpeak
+            ? { isDeaf: deafened, onDeaf: () => setDeaf(!deafened) }
             : undefined
         }
         onLeaveRoom={() => {

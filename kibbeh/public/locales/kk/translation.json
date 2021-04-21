@@ -22,8 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Үнсіз | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -43,7 +42,8 @@
     "home": {
       "createRoom": "Бөлме ашу",
       "refresh": "Жаңарту",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Бөлме жойылып кетті, артқа қайтыңыз",
@@ -86,7 +86,7 @@
       "allowAllConfirm": "Бұл барлық рұқсат сұраған {{count}} қолданушыға, сөйлеуге мүмкіндік береді.Сіз сенімдісіз бе?"
     },
     "searchUser": { "search": "іздеу..." },
-    "soundEffectSettings": { "header": "дыбыстар", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "дыбыстар" },
     "viewUser": {
       "editProfile": "Профайлды өңдеу",
       "followsYou": "сізге жазылған",
@@ -111,6 +111,11 @@
         "label": "Қолданба тақырыбын еңгізіңіз"
       },
       "header": "Қабаттасу (Overlay) баптамалары"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -135,7 +140,10 @@
       "settings": "Баптамалар",
       "speaker": "Спикер",
       "listener": "Тыңдармандар",
-      "chat": "Чат"
+      "chat": "Чат",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Өкінішке орай, сіздің құрылғыға қолдау көрсетілмейді. Сіз келесіні жасай аласыз",
@@ -156,7 +164,8 @@
       "listening": "тыңдалуда",
       "toggleMuteKeybind": "Микрофонды осы пернені басқанда қосу",
       "togglePushToTalkKeybind": "Осы пернені басып сөйлеулң қосу",
-      "toggleOverlayKeybind": "Қабаттасуды осы перне арқылы өшіріп/қосу"
+      "toggleOverlayKeybind": "Қабаттасуды осы перне арқылы өшіріп/қосу",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "белгісіз себептермен дыбыс жоқ" },
     "addToCalendar": { "add": "Күнтізбеге қосу" },
@@ -233,10 +242,6 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
-      },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -254,11 +259,6 @@
         "roomName": "бөлменің атауы",
         "roomDescription": "сипаттамасы",
         "minLength": "Ең кем дегенде 2 символ"
-      },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

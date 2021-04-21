@@ -7,21 +7,14 @@ import { BoxedIcon } from "./BoxedIcon";
 import { RoomCardHeading } from "./RoomCardHeading";
 import { MultipleUsers } from "./UserAvatar";
 
-interface FormattedDateProps {
-  scheduledFor: Date
-}
-
-const FormattedDate: React.FC<FormattedDateProps> = ({ scheduledFor }) => {
-  const { t } = useTypeSafeTranslation();
-  let text = '';
+const formattedDate = (scheduledFor: Date) => {
   if (isToday(scheduledFor)) {
-    text = t("modules.scheduledRooms.today") + " " + format(scheduledFor, `K:mm a`);
+    return "TODAY " + format(scheduledFor, `K:mm a`);
   } else if (isTomorrow(scheduledFor)) {
-    text = t("modules.scheduledRooms.tommorow") + " " + format(scheduledFor, `K:mm a`);
+    return "TOMMOROW " + format(scheduledFor, `K:mm a`);
   } else {
-    text = format(scheduledFor, `EEE, do MMM, K:mm a`);
+    return format(scheduledFor, `EEE, do MMM, K:mm a`);
   }
-  return <>{text}</>;
 };
 
 export interface UserCardProps {
@@ -68,8 +61,8 @@ export const ScheduledRoomSummaryCard: React.FC<ScheduledRoomSummaryCardProps> =
         transition ? `transition duration-200 ease-in-out` : ``
       } hover:bg-primary-700 z-0`}
     >
-      <div className="flex text-accent text-sm uppercase">
-        <FormattedDate scheduledFor={scheduledFor} />
+      <div className="flex text-accent text-sm">
+        {formattedDate(scheduledFor)}
       </div>
       <RoomCardHeading text={title} />
       <UserCard {...speakersInfo} />

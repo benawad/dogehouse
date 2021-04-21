@@ -22,8 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Səssizdir | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -43,7 +42,8 @@
     "home": {
       "createRoom": "Otaq yaratmağ",
       "refresh": "Təzələmək",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "room gone, go back",
@@ -86,7 +86,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "axtarış..." },
-    "soundEffectSettings": { "header": "səslər", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "səslər" },
     "viewUser": {
       "editProfile": "profilə düzəliş et",
       "followsYou": "sizi izləyənlər",
@@ -110,6 +110,11 @@
       "header": "Overlay Settings",
       "errorMsg": "Please enter valid app title",
       "label": "Enter app title"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -134,7 +139,10 @@
       "settings": "Parametlər",
       "speaker": "Natiqlər",
       "listener": "Dinləyicilər",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Your device is currently not supported. You can create an",
@@ -155,7 +163,8 @@
       "listening": "listening",
       "toggleMuteKeybind": "toggle mute keybind",
       "togglePushToTalkKeybind": "toggle push-to-talk keybind",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "no audio consumer for some reason"
@@ -234,10 +243,6 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
-      },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -255,11 +260,6 @@
         "roomName": "room name",
         "minLength": "min length 2",
         "roomDescription": "Description"
-      },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

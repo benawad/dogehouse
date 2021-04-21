@@ -21,8 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Пригушен | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -42,7 +41,8 @@
     "home": {
       "createRoom": "Направите собу",
       "refresh": "Refresh",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Соба је нестала, вратите се назад",
@@ -85,7 +85,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Претражите..." },
-    "soundEffectSettings": { "header": "Звукови", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "Звукови" },
     "viewUser": {
       "editProfile": "Уредите профил",
       "followsYou": "Прати вас",
@@ -107,6 +107,11 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -131,7 +136,10 @@
       "settings": "Подешавања",
       "speaker": "Говорник",
       "listener": "Слушалац",
-      "chat": "Ћаскање"
+      "chat": "Ћаскање",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Ваш уређај тренутно није подржан. Можете направити",
@@ -149,7 +157,8 @@
       "listening": "Слушање",
       "toggleMuteKeybind": "Укључите/искључите пречицу на тастатури за мутирање",
       "togglePushToTalkKeybind": "Укључите/искључите пречицу на тастатури за говор на притисак",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Из неког разлога нема потрошача звука"
@@ -228,10 +237,6 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
-      },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -249,11 +254,6 @@
         "roomName": "Назив собе",
         "minLength": "Минимална дужина 2",
         "roomDescription": "Description"
-      },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

@@ -22,8 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "ድምፀ-ከል | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -43,7 +42,8 @@
     "home": {
       "createRoom": "ክፍል ፍጠር",
       "refresh": "Refresh",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "ክፍሉ ጠፋ, ተመለስ",
@@ -86,7 +86,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "ፈልግ ..." },
-    "soundEffectSettings": { "header": "ድምፆች", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "ድምፆች" },
     "viewUser": {
       "editProfile": "መገለጫ ቀይር",
       "followsYou": "እርስዎን ይከተላል",
@@ -111,6 +111,11 @@
       "header": "Overlay Settings",
       "errorMsg": "Please enter valid app title",
       "label": "Enter app title"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -135,7 +140,10 @@
       "settings": "ቅንብሮች",
       "speaker": "ተናጋሪ",
       "listener": "አድማጭ",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "የእርስዎ መሣሪያ በአሁኑ ጊዜ አይደገፍም፡፡ ቸግሩን",
@@ -153,7 +161,8 @@
       "listening": "በማዳመጥ ላይ",
       "toggleMuteKeybind": "ድምጸ ማጥፍያ/ማብርያ ቁልፍ",
       "togglePushToTalkKeybind": "ተጭኖ ማውሪያ ማጥፍያ/ማብርያ ቁልፍ",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "በሆነ ምክንያት ምንም ድምጽ ተጠቃሚ የለም" },
     "addToCalendar": { "add": "ወደ ቀን መቁጠሪያ ጨምር" },
@@ -230,10 +239,6 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
-      },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -251,11 +256,6 @@
         "roomName": "የክፍል ስም",
         "minLength": "ደቂቃ ርዝመት 2",
         "roomDescription": "ክፍል መግለጫ"
-      },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

@@ -22,8 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Stüh | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -43,7 +42,8 @@
     "home": {
       "createRoom": "Raum erstön",
       "refresh": "Aktualisiern",
-      "editRoom": "Raum bearbeiten"
+      "editRoom": "Raum bearbeiten",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Den Raum kau ma ned finden. Zruck",
@@ -86,7 +86,7 @@
       "allowAllConfirm": "Bist da sicha? Dadurch kennan olle {{count}} anfragenden Bnutzer spröchn"
     },
     "searchUser": { "search": "Suachn..." },
-    "soundEffectSettings": { "header": "Ton", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "Ton" },
     "viewUser": {
       "editProfile": "Profü beorbeiten",
       "followsYou": "foigt da",
@@ -111,6 +111,11 @@
         "errorMsg": "Bitte giab an gültign Apptitel au",
         "label": "Giab an Apptitel au"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -136,7 +141,10 @@
       "settings": "Einstöllungen",
       "speaker": "Sprecha",
       "listener": "Zuhörer",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "micPermissionBanner": {
       "permissionDenied": "Wir haum kan Zugriff auf dei Mikrofon. Öffne eine Browsereinstöllungen, setz die nötigen Berechtigungen und lod de Seitn neich.",
@@ -201,7 +209,8 @@
       "listening": "Zuhören",
       "toggleMuteKeybind": "Stummschoittaste umschoiten",
       "togglePushToTalkKeybind": "Push-to-Talk Tastenkürzl umschoiten",
-      "toggleOverlayKeybind": "Overlay-Tastenkürzl umschoiten"
+      "toggleOverlayKeybind": "Overlay-Tastenkürzl umschoiten",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "wsKilled": {
       "description": "De Websocket Verbindung zum Server wurde unterbrochen. Des passiert normalerweise, wenn du de Website in an aunderen Tab öffnest.",
@@ -235,10 +244,6 @@
       "logOut": {
         "button": "Omöden",
         "modalSubtitle": "Bist da sicha dost di omöden wüst?"
-      },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -256,11 +261,6 @@
         "roomName": "Naum des Raums",
         "minLength": "minimale Läng: 2",
         "roomDescription": "Raumbeschreibung"
-      },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

@@ -21,8 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Silenciado | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -42,7 +41,8 @@
     "home": {
       "createRoom": "Criar sala",
       "refresh": "Atualizar",
-      "editRoom": "Editar sala"
+      "editRoom": "Editar sala",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "A sala não existe, voltar atrás",
@@ -85,7 +85,7 @@
       "allowAllConfirm": "De certeza? Isto permitirá todos os {{count}} utilizadores a pedir, falar"
     },
     "searchUser": { "search": "Procurar..." },
-    "soundEffectSettings": { "header": "Sons", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "Sons" },
     "viewUser": {
       "editProfile": "Editar perfil",
       "followsYou": "Seguem-te",
@@ -110,6 +110,11 @@
         "label": "Introduza o título da aplicação"
       },
       "header": "Definições de Overlay"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -134,7 +139,10 @@
       "settings": "Definições",
       "speaker": "Orador",
       "listener": "Ouvinte",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "micPermissionBanner": {
       "permissionDenied": "Sem permissão para aceder ao microfone (poderás ter que de ir às configurações do teu navegador e atualizar a página)",
@@ -200,7 +208,8 @@
       "listening": "a ouvir",
       "toggleMuteKeybind": "teclas de atalho para silenciar",
       "togglePushToTalkKeybind": "teclas de atalho para ativar o premir-para-falar",
-      "toggleOverlayKeybind": "teclas de atalho para mostrar/esconder o Overlay"
+      "toggleOverlayKeybind": "teclas de atalho para mostrar/esconder o Overlay",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "wsKilled": {
       "description": "O WebSocket foi quebrado pelo servidor. Isto geralmente acontece quando abres o site noutro separador.",
@@ -234,10 +243,6 @@
       "logOut": {
         "button": "Sair",
         "modalSubtitle": "De certeza que pretendes sair?"
-      },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -254,11 +259,6 @@
         "roomName": "nome da sala",
         "minLength": "mínimo de 2 caracteres",
         "roomDescription": "descrição da sala"
-      },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

@@ -54,10 +54,8 @@ const Page = ({
     return <CenterLoader />;
   }
 
-  if (!data || data.users.length === 0) {
-    const styles = "text-primary-200 text-center";
-    if(isFollowing) return <div className={styles}>Not following anyone</div>;
-    else return <div className={styles}>No followers</div>;
+  if (!data) {
+    return null;
   }
 
   // if (isOnlyPage && data.rooms.length === 0) {
@@ -123,7 +121,7 @@ const Page = ({
         </div>
       ))}
       {isLastPage && data.nextCursor ? (
-        <div className={`flex justify-center py-5`}>
+        <div className={`flex flex justify-center py-5`}>
           <Button
             size="small"
             onClick={() => {

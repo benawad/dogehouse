@@ -9,7 +9,7 @@ export default {
 
 const TheBoxedIcon: Story = () => {
   return (
-    <div className="flex flex-row">
+    <div className="flex flex flex-row">
       <div className="flex m-1">
         <BoxedIcon>
           <SolidMicrophone />

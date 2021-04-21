@@ -22,8 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Без звуку | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -46,7 +45,8 @@
     "home": {
       "createRoom": "Створити Кімнату",
       "refresh": "Оновити",
-      "editRoom": "Редагувати кімнату"
+      "editRoom": "Редагувати кімнату",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "кімнати вже немає, повернутися",
@@ -89,7 +89,7 @@
       "allowAllConfirm": "Ви впевнені? Це дозволить усім {{count}} запитуючим користувачам розмовляти"
     },
     "searchUser": { "search": "шукати..." },
-    "soundEffectSettings": { "header": "Звуки", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "Звуки" },
     "viewUser": {
       "editProfile": "редагувати профіль",
       "followsYou": "підписані на вас",
@@ -114,6 +114,11 @@
         "label": "Введіть назву додатку"
       },
       "header": "Налаштування накладення"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -138,7 +143,10 @@
       "settings": "Налаштування",
       "speaker": "Доповідач",
       "listener": "Слухач",
-      "chat": "Чат"
+      "chat": "Чат",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Ваш пристрій не підтримується. Ви можете створити",
@@ -159,7 +167,8 @@
       "listening": "слухає",
       "toggleMuteKeybind": "Перемикнути прив'язку клавіши",
       "togglePushToTalkKeybind": "Перемикнути режим рації",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "споживача аудіо відсутній" },
     "addToCalendar": { "add": "Додати до календаря" },
@@ -236,10 +245,6 @@
       "logOut": {
         "button": "Вийти",
         "modalSubtitle": "Ви впевнені що хочете вийти?"
-      },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -257,11 +262,6 @@
         "roomName": "назва кімнати",
         "minLength": "має містити від 2 символів",
         "roomDescription": "Опис"
-      },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

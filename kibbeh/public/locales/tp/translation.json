@@ -22,8 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "sina ken ala e toki | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -46,7 +45,8 @@
     "home": {
       "createRoom": "pali e tomo",
       "refresh": "tenpo tu la kama jo e ni",
-      "editRoom": "ante e tomo"
+      "editRoom": "ante e tomo",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "tomo li weka, tawa monsi",
@@ -89,7 +89,7 @@
       "allowAllConfirm": "sina wile e ni? ni li ken jan ale {{count}} e toki."
     },
     "searchUser": { "search": "o lukin..." },
-    "soundEffectSettings": { "header": "Kalama", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "Kalama" },
     "viewUser": {
       "editProfile": "ante e jan sina",
       "followsYou": "li lukin e sina",
@@ -114,6 +114,11 @@
         "errorMsg": "Please enter valid app title",
         "label": "o sitelen e nimi pi "
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -138,7 +143,10 @@
       "settings": "sitelen lawa",
       "speaker": "jan toki",
       "listener": "jan kute",
-      "chat": "sitelen kulupu"
+      "chat": "sitelen kulupu",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Lipu len ni li pali ala kepeken ilo nanpa sina. pali e",
@@ -159,7 +167,8 @@
       "listening": "kute e nena",
       "toggleMuteKeybind": "nena pi ante e ken toki",
       "toggleOverlayKeybind": "nena pi ante e sitelen sewi sitelen sina",
-      "togglePushToTalkKeybind": "nena pi ante e \"utala la toki\""
+      "togglePushToTalkKeybind": "nena pi ante e \"utala la toki\"",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "ali li kute e kalama" },
     "addToCalendar": { "add": "sitelen e ni lon lipu tenpo suno" },
@@ -236,10 +245,6 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
-      },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -257,11 +262,6 @@
         "roomName": "nimi tomo",
         "roomDescription": "sitelen tomo",
         "minLength": "anpa pi suli li tu tu."
-      },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

@@ -1,6 +1,6 @@
 {
   "common": {
-    "loadMore": "더 불러오기",
+    "loadMore": "더 로드하기",
     "loading": "로딩중...",
     "noUsersFound": "사용자를 찾지 못했습니다",
     "ok": "확인",
@@ -21,33 +21,33 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "음소거 | DogeHouse",
-    "dashboard": "대시보드",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
     "link_1": "사이트 역사",
-    "link_2": "디스코드",
+    "link_2": "Discord",
     "link_3": "버그 보고"
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "banUser": { "ban": "유저 차단" },
     "followingOnlineList": {
-      "listHeader": "비공개 채팅방에 없는, 팔로우하는 사람들.",
-      "currentRoom": "현재 채팅방:",
-      "startPrivateRoom": "비공개 채팅방에 입장하기"
+      "listHeader": "비공개 채팅방에 있지 않은 팔로우하는 사람들.",
+      "currentRoom": "채팅방:",
+      "startPrivateRoom": "비공개 채팅방에 입장하기."
     },
     "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "방 만들기",
-      "refresh": "새로고침",
-      "editRoom": "방 수정하기"
+      "refresh": "Refresh",
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "채팅방이 삭제됨. 이전 페이지로 돌아가기.",
       "shareRoomLink": "채팅방 링크 공유",
-      "inviteFollowers": "현재 온라인 팔로워 초대하기:",
+      "inviteFollowers": "현재 온라인인 팔로워 초대하기:",
       "whenFollowersOnline": "팔로워가 온라인 상태이면 여기에 표시됩니다."
     },
     "login": {
@@ -57,42 +57,42 @@
       "featureText_3": "크로스 플랫폼 지원",
       "featureText_4": "오픈 소스",
       "featureText_5": "문자 채팅",
-      "featureText_6": "멍멍이의 힘으로 구동됨",
+      "featureText_6": "멍멍이의 힘으로 구동됨 ",
       "loginGithub": "깃허브로 로그인",
       "loginTwitter": "트위터로 로그인",
       "createTestUser": "테스트 계정 만들기",
-      "loginDiscord": "디스코드로 로그인"
+      "loginDiscord": "Login with Discord"
     },
     "myProfile": {
       "logout": "로그아웃",
       "probablyLoading": "아마도 로딩 중...",
-      "voiceSettings": "음성 설정",
-      "soundSettings": "소리 설정",
+      "voiceSettings": "음성 설정 들어가기",
+      "soundSettings": "소리 설정 들어가기",
       "deleteAccount": "계정 삭제",
-      "overlaySettings": "오버레이 설정",
-      "couldNotFindUser": "죄송합니다. 유저를 찾지 못했습니다."
+      "overlaySettings": "go to overlay settings",
+      "couldNotFindUser": "Sorry, we could not find that user"
     },
     "notFound": {
       "whoopsError": "아이고! 페이지가 사라졌습니다",
-      "goHomeMessage": "걱정할 필요 없습니다.",
-      "goHomeLinkText": "홈으로 돌아 가기 "
+      "goHomeMessage": "걱정할 필요 없습니다,",
+      "goHomeLinkText": "홈페이지로 돌아 가기 "
     },
     "room": {
       "speakers": "스피커",
       "requestingToSpeak": "발언권 요청",
       "listeners": "청취자",
-      "allowAll": "모두 허가",
-      "allowAllConfirm": "정말로 모든 {{count}}명에게 발언권을 주시겠습니까?"
+      "allowAll": "Allow all",
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "검색..." },
-    "soundEffectSettings": { "header": "소리", "title": "소리 설정" },
+    "soundEffectSettings": { "header": "소리" },
     "viewUser": {
       "editProfile": "프로필 변경",
       "followsYou": "나를 팔로우하는 사람들",
       "followers": "팔로워들",
       "following": "팔로우하는 사람들",
-      "followHim": "팔로우",
-      "followingHim": "팔로잉",
+      "followHim": "follow",
+      "followingHim": "following",
       "copyProfileUrl": "프로필 URL 복사",
       "urlCopied": "URL이 클립보드에 복사 되었습니다.",
       "unfollow": "팔로우 취소"
@@ -101,12 +101,17 @@
       "header": "음성 설정",
       "mic": "마이크:",
       "permissionError": "마이크를 찾을 수 없거나, 연결되지 않았거나, 이 페이지에서 마이크를 사용할 수있는 권한이 없습니다.",
-      "refresh": "마이크 목록 새로고침",
+      "refresh": "마이크 목록 새로코침",
       "volume": "음량:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "유효하지 않은 앱 타이틀 입니다.", "label": "앱 타이틀 입력하기" },
-      "header": "오버레이 설정"
+      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "header": "Overlay Settings"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -124,14 +129,17 @@
       "leave": "나가기",
       "inviteUsersToRoomBtn": "채팅방에 유저 초대",
       "invite": "초대",
-      "toggleMuteMicBtn": "마이크 음소거",
+      "toggleMuteMicBtn": "마이크 음소거 토글",
       "mute": "음소거",
       "unmute": "음소거 취소",
       "makeRoomPublicBtn": "채팅방 공개 하기!",
       "settings": "설정",
       "speaker": "스피커",
       "listener": "청취자",
-      "chat": "채팅"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "현재 기기는 지원되지 않습니다, ",
@@ -147,9 +155,10 @@
     "keyboardShortcuts": {
       "setKeybind": "키바인드 설정",
       "listening": "듣는중",
-      "toggleMuteKeybind": "음소거 키",
-      "togglePushToTalkKeybind": "푸시 투 토크 키",
-      "toggleOverlayKeybind": "오버레이 키 바인딩"
+      "toggleMuteKeybind": "음소거 키 토글",
+      "togglePushToTalkKeybind": "푸시 투 토크 키 토글",
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "오디오 컨수머를 찾을수 없었습니다"
@@ -167,21 +176,21 @@
         "roomDescription": "채팅방 설명",
         "descriptionError": "최대 길이 500자",
         "nameError": "2자에서 60자 사이로 설정해주세요",
-        "subtitle": "아래 항목을 채워, 새로운 방을 시작하세요."
+        "subtitle": "Fill the following fields to start a new room"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "새로운 채팅방이 생성 되었습니다",
         "roomInviteFrom": "채팅방에서 초대",
         "justStarted": "채팅방이 생성되었습니다",
-        "likeToJoin": ",들어가시겠습니까?",
+        "likeToJoin": ",들어가시겠습니까 ?",
         "inviteReceived": "초대된 방 이름"
       },
       "editProfileModal": {
         "usernameTaken": "사용자 이름이 이미 채택되었습니다",
-        "avatarUrlError": "사진이 잘못되었습니다",
+        "avatarUrlError": "사진이 잘몼되었습니다",
         "avatarUrlLabel": "깃허브/트위터 아바타 url",
         "displayNameError": "2자에서 50자 사이",
-        "displayNameLabel": "보여지는 이름",
+        "displayNameLabel": "표시된 이름",
         "usernameError": "길이는 4 ~ 15 자 이내 여야하며 문자, 숫자 또는 밑줄 만 허용됩니다.",
         "usernameLabel": "사용자 이름",
         "bioError": "최대 길이는 160 자입니다.",
@@ -198,40 +207,36 @@
         "banFromRoom": "채팅방 에서 차단",
         "goBackToListener": "청취자로 돌아가기",
         "deleteMessage": "이 메세지 삭제",
-        "makeRoomCreator": "방 어드민으로 설정",
-        "unBanFromChat": "채팅 밴 풀기"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "발언권이 필요합니다",
         "makePublic": "채팅방 공개화",
         "makePrivate": "채팅방 비공개화",
-        "renamePublic": "공개방 이름 설정",
-        "renamePrivate": "비공개방 이름 설정"
+        "renamePublic": "Set public room name",
+        "renamePrivate": "Set private room name"
       }
     },
     "followingOnline": {
-      "people": "사람들",
-      "online": "온라인",
-      "noOnline": "아직 0 명의 친구가 온라인입니다.",
-      "showMore": "더보기"
+      "people": "People",
+      "online": "ONLINE",
+      "noOnline": "You have 0 friends online right now",
+      "showMore": "Show more"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "공개 예정인 방",
-      "exploreMoreRooms": "더 많은 방 탐색하기"
+      "upcomingRooms": "Upcoming rooms",
+      "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "방, 유저 혹은 카테고리 검색하기" },
+    "search": { "placeholder": "Search for rooms, users or categories" },
     "settingsDropdown": {
-      "profile": "프로필",
-      "language": "언어",
-      "reportABug": "버그 신고하기",
-      "useOldVersion": "옛 버전 사용하기",
+      "profile": "Profile",
+      "language": "Language",
+      "reportABug": "Report A Bug",
+      "useOldVersion": "Use Old Version",
       "logOut": {
-        "button": "로그아웃",
-        "modalSubtitle": "정말 로그아웃 하시겠습니까?"
-      },
-      "debugAudio": {
-        "debugAudio": "오디오 디버그",
-        "stopDebugger": "디버거 멈추기"
+        "button": "Log out",
+        "modalSubtitle": "Are you sure you want to logout?"
       }
     }
   },
@@ -248,12 +253,7 @@
         "needsFuture": "시간을 미래로 설정하세요",
         "roomName": "채팅방 이름",
         "minLength": "최소 2자",
-        "roomDescription": "설명"
-      },
-      "tommorow": "내일",
-      "today": "오늘",
-      "deleteModal": {
-        "areYouSure": "정말 예약 된 방을 제거하시겠습니까?"
+        "roomDescription": "Description"
       }
     },
     "roomChat": {
@@ -270,17 +270,17 @@
       "roomDescription": "방 설명"
     },
     "roomStatus": {
-      "fuelingRocket": "로켓 연료 주입중...",
+      "fuelingRocket": "로켓 연료 주입중..",
       "takingOff": "이륙!",
-      "inSpace": "우주 속...",
-      "approachingMoon": "달에 근접하는 중...",
-      "lunarDoge": "달 Doge",
-      "approachingSun": "태양에 근접하는 중...",
-      "solarDoge": "항성계 Doge",
-      "approachingGalaxy": "은하계에 근접하는 중...",
-      "galacticDoge": "은하적인 Doge",
+      "inSpace": "우주 속..",
+      "approachingMoon": "달에 근접하는 중..",
+      "lunarDoge": "Lunar doge",
+      "approachingSun": "태양에 근접하는 중..",
+      "solarDoge": "Solar doge",
+      "approachingGalaxy": "은하계에 근접하는 중..",
+      "galacticDoge": "Galactic Doge",
       "spottedLife": "생명체가 있는 새로운 행성에 도착"
     },
-    "feed": { "yourFeed": "당신의 피드" }
+    "feed": { "yourFeed": "Your Feed" }
   }
 }

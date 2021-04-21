@@ -22,8 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "מושתק | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -43,7 +42,8 @@
     "home": {
       "createRoom": "צור חדר",
       "refresh": "טען מחדש",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "החדר נעלם, חזור",
@@ -86,7 +86,7 @@
       "allowAllConfirm": "המשתמשים המבקשים רשות יכולת דיבור {{count}} אתה בטוח? זה יאפשר לכל"
     },
     "searchUser": { "search": "חפש..." },
-    "soundEffectSettings": { "header": "צלילים", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "צלילים" },
     "viewUser": {
       "editProfile": "ערוך פרופיל",
       "followsYou": "עוקב אחריך",
@@ -108,6 +108,11 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -132,7 +137,10 @@
       "settings": "הגדרות",
       "speaker": "דובר",
       "listener": "מקשיב",
-      "chat": "צ'אט"
+      "chat": "צ'אט",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "המכשיר שלך אינו נתמך כרגע. אתה יכול ליצור",
@@ -150,7 +158,8 @@
       "listening": "מקשיב",
       "toggleMuteKeybind": "הפעל את מקש ההשתקה",
       "togglePushToTalkKeybind": "הפעל push-to-talk",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "שום צרכן קול משום מה" },
     "addToCalendar": { "add": "הוסף ליומן" },
@@ -227,10 +236,6 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
-      },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -248,11 +253,6 @@
         "roomName": "שם החדר",
         "minLength": "אורך מינימלי 2",
         "roomDescription": "תיאור"
-      },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

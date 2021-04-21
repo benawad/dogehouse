@@ -22,8 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Vaigistatud | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -43,7 +42,8 @@
     "home": {
       "createRoom": "Loo ruum",
       "refresh": "Värskenda",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "ruum läinud, mine tagasi",
@@ -86,7 +86,7 @@
       "allowAllConfirm": "Oled sa kindel? See tegevus lubab kõigil {{count}} taotlejal rääkida"
     },
     "searchUser": { "search": "otsi..." },
-    "soundEffectSettings": { "header": "Helid", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "Helid" },
     "viewUser": {
       "editProfile": "muuda profiili",
       "followsYou": "jälgib sind",
@@ -108,6 +108,11 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Ülekatte Sätted"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -132,7 +137,10 @@
       "settings": "Sätted",
       "speaker": "Kõneleja",
       "listener": "Kuulaja",
-      "chat": "Vestlus"
+      "chat": "Vestlus",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Sinu seadet ei toetata veel. Saad luua",
@@ -150,7 +158,8 @@
       "listening": "kuulab",
       "toggleMuteKeybind": "vaigistamise klahvistik",
       "togglePushToTalkKeybind": "push-to-talk klahvistik",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "pole ühtegi audiotarbijat mingil põhjusel"
@@ -229,10 +238,6 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
-      },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -250,11 +255,6 @@
         "roomName": "ruumi nimi",
         "roomDescription": "kirjeldus",
         "minLength": "min. pikkus 2"
-      },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

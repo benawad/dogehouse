@@ -21,8 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Stíšený | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -42,7 +41,8 @@
     "home": {
       "createRoom": "Vytvoriť miestnosť",
       "refresh": "Obnoviť",
-      "editRoom": "Upraviť miestnosť"
+      "editRoom": "Upraviť miestnosť",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "miestnosť je fuč, vráť sa",
@@ -85,7 +85,7 @@
       "allowAllConfirm": "Si si istý? Povolíš rozprávať všetkým {{count}} žiadateľom"
     },
     "searchUser": { "search": "hľadať..." },
-    "soundEffectSettings": { "header": "Zvuky", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "Zvuky" },
     "viewUser": {
       "editProfile": "upraviť profil",
       "followsYou": "sleduje ťa",
@@ -110,6 +110,11 @@
         "label": "Vlož názov aplikácie"
       },
       "header": "Nastavenia Prekresľovania"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -134,7 +139,10 @@
       "settings": "Nastavenia",
       "speaker": "Rozprávač",
       "listener": "Poslúchač",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Tvoje zariadenie nie je podporované. Môžeš vytvoriť:",
@@ -155,7 +163,8 @@
       "listening": "počúvam",
       "toggleMuteKeybind": "prepínač stíšenia",
       "togglePushToTalkKeybind": "prepínač push-to-talk",
-      "toggleOverlayKeybind": "prepínač prekreslenia"
+      "toggleOverlayKeybind": "prepínač prekreslenia",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "z nejakého dôvodu nemáme žiadny zvuk"
@@ -236,10 +245,6 @@
       "logOut": {
         "button": "Odhlásiť sa",
         "modalSubtitle": "Si si istý, že sa chceš odhlásiť?"
-      },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -257,11 +262,6 @@
         "roomName": "názov miestnosti",
         "minLength": "minimálne 2 znaky",
         "roomDescription": "Popis"
-      },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {
