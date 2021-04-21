@@ -88,7 +88,7 @@ export const Settings: Story<BaseOverlayProps> = ({
 }) => (
   <div className="flex" style={{ width: 200 }}>
     <BaseOverlay actionButton={actionLabel}>
-      <div className="flex flex flex-col">
+      <div className="flex flex-col">
         <SettingsIcon
           icon={<SolidUser className={`text-primary-100`} />}
           label={"profile"}

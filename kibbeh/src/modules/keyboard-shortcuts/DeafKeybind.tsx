@@ -28,7 +28,7 @@ export const DeafKeybind: React.FC<DeafKeybindProps> = ({ className }) => {
   }, [count, setDeafKeybind]);
 
   return (
-    <div className={`flex flex items-center ${className}`}>
+    <div className={`flex items-center ${className}`}>
       <Button
         size="small"
         onClick={() => {

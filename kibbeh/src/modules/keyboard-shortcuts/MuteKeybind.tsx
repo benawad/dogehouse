@@ -28,7 +28,7 @@ export const MuteKeybind: React.FC<MuteKeybindProps> = ({ className }) => {
   }, [count, setMuteKeybind]);
 
   return (
-    <div className={`flex flex items-center ${className}`}>
+    <div className={`flex items-center ${className}`}>
       <Button
         size="small"
         onClick={() => {
