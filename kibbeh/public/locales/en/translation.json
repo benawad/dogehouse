@@ -39,7 +39,7 @@
     "download": {
       "starting": "Starting download...",
       "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases"
+      "visit_gh": "Visit GitHub Releases"
     },
     "followingOnlineList": {
       "listHeader": "List of users that are not in a private room and you follow.",
