@@ -209,13 +209,15 @@ defmodule Broth.SocketHandler do
     with {:ok, room_id} <- Beef.Users.tuple_get_current_room_id(user_id) do
       voice_server_id = Onion.RoomSession.get(room_id, :voice_server_id)
 
-      mediasoup_message = msg
-      |> Map.put("d", msg["p"] || msg["d"])
-      |> put_in(["d", "peerId"], user_id)
-      |> put_in(["d", "roomId"], room_id)
+      mediasoup_message =
+        msg
+        |> Map.put("d", msg["p"] || msg["d"])
+        |> put_in(["d", "peerId"], user_id)
+        |> put_in(["d", "roomId"], room_id)
 
       Onion.VoiceRabbit.send(voice_server_id, mediasoup_message)
     end
+
     # if this results in something funny because the user isn't in a room, we
     # will just swallow the result, it means that there is some amount of asynchrony
     # in the information about who is in what room.

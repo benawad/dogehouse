@@ -73,80 +73,82 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
         selectedItem,
         getRootProps,
       }) => (
-        <SearchOverlay
-          {...getRootProps({ refKey: "ref" }, { suppressRefError: true })}
-        >
-          <SearchBar
-            {...getInputProps()}
-            placeholder={t("components.search.placeholder")}
-          />
-          <ul
-            className="absolute w-full bg-primary-800 rounded-b-8 overflow-y-auto"
-            {...getMenuProps({ style: { top: 42, maxHeight: "50vh" } })}
+        <div className="relative w-full z-10 flex flex-col">
+        <SearchBar
+          {...getInputProps()}
+          placeholder={t("components.search.placeholder")}
+        />
+        {isOpen ? (
+          <SearchOverlay
+            {...getRootProps({ refKey: "ref" }, { suppressRefError: true })}
           >
-            {isOpen && data?.items.length === 0 ? (
-              <InfoText className="p-3">no results</InfoText>
-            ) : null}
-            {isOpen
-              ? data?.items.map((item, index) =>
-                  "username" in item ? (
-                    // eslint-disable-next-line react/jsx-key
-                    <li
-                      className={`flex p-3 ${
-                        highlightedIndex === index
-                          ? "bg-primary-700"
-                          : "bg-primary-800"
-                      } ${data.items.length - 1 === index ? "rounded-b-8" : ""}
-                      `}
-                      {...getItemProps({
-                        key: item.id,
-                        index,
-                        item,
-                      })}
-                    >
-                      <SingleUser src={item.avatarUrl} size="md" />
-                      <div className="ml-2">
-                        <div className="text-primary-100">
-                          {item.displayName}
-                        </div>
-                        <div className="text-primary-300">@{item.username}</div>
+            <ul
+              className="w-full px-2 mb-2 mt-7 bg-primary-800 rounded-b-8 overflow-y-auto"
+              {...getMenuProps({ style: { top: 0 } })}
+            >
+              {data?.items.length === 0 ? (
+                <InfoText className="p-3">no results</InfoText>
+              ) : null}
+              {data?.items.map((item, index) =>
+                "username" in item ? (
+                  // eslint-disable-next-line react/jsx-key
+                  <li
+                    className={`flex p-3 ${
+                      highlightedIndex === index
+                        ? "bg-primary-700"
+                        : "bg-primary-800"
+                    } ${data.items.length - 1 === index ? "rounded-b-8" : ""}
+                    `}
+                    {...getItemProps({
+                      key: item.id,
+                      index,
+                      item,
+                    })}
+                  >
+                    <SingleUser src={item.avatarUrl} size="md" />
+                    <div className="ml-2">
+                      <div className="text-primary-100">
+                        {item.displayName}
                       </div>
-                    </li>
-                  ) : (
-                    // eslint-disable-next-line react/jsx-key
-                    <li
-                      className={`flex p-3 ${
-                        highlightedIndex === index
-                          ? "bg-primary-700"
-                          : "bg-primary-800"
-                      } ${data.items.length - 1 === index ? "rounded-b-8" : ""}
-                      `}
-                      {...getItemProps({
-                        key: item.id,
-                        index,
-                        item,
-                      })}
-                    >
-                      <div className="mr-auto">
-                        <div className="text-primary-100">{item.name}</div>
-                        <div className="text-primary-300">
-                          {item.peoplePreviewList
-                            .slice(0, 3)
-                            .map((x) => x.displayName)
-                            .join(", ")}
-                        </div>
+                      <div className="text-primary-300">@{item.username}</div>
+                    </div>
+                  </li>
+                ) : (
+                  // eslint-disable-next-line react/jsx-key
+                  <li
+                    className={`flex p-3 ${
+                      highlightedIndex === index
+                        ? "bg-primary-700"
+                        : "bg-primary-800"
+                    } ${data.items.length - 1 === index ? "rounded-b-8" : ""}
+                    `}
+                    {...getItemProps({
+                      key: item.id,
+                      index,
+                      item,
+                    })}
+                  >
+                    <div className="mr-auto">
+                      <div className="text-primary-100">{item.name}</div>
+                      <div className="text-primary-300">
+                        {item.peoplePreviewList
+                          .slice(0, 3)
+                          .map((x) => x.displayName)
+                          .join(", ")}
                       </div>
-                      <div>
-                        <BubbleText live>
-                          {formatNumber(item.numPeopleInside)}
-                        </BubbleText>
-                      </div>
-                    </li>
-                  )
+                    </div>
+                    <div>
+                      <BubbleText live>
+                        {formatNumber(item.numPeopleInside)}
+                      </BubbleText>
+                    </div>
+                  </li>
                 )
-              : null}
-          </ul>
-        </SearchOverlay>
+              )}
+            </ul>
+          </SearchOverlay>
+        ) : null}
+        </div>
       )}
     </Downshift>
   );

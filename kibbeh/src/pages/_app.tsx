@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import "../styles/globals.css";
-import "../styles/add-to-calendar-button.css";
 import "../styles/electron-header.css";
 import { AppProps } from "next/app";
 import { QueryClientProvider } from "react-query";
@@ -52,6 +51,10 @@ function App({ Component, pageProps }: AppProps) {
         ) => {
           useHostStore.getState().setData(platform);
         }
+      );
+      document.documentElement.style.setProperty(
+        "--screen-height-reduction",
+        "30px"
       );
     }
   }, []);

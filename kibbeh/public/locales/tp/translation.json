@@ -21,7 +21,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "sina ken ala e toki | DogeHouse"
+    "mutedTitle": "sina ken ala e toki | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -87,7 +89,7 @@
       "allowAllConfirm": "sina wile e ni? ni li ken jan ale {{count}} e toki."
     },
     "searchUser": { "search": "o lukin..." },
-    "soundEffectSettings": { "header": "Kalama" },
+    "soundEffectSettings": { "header": "Kalama", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "ante e jan sina",
       "followsYou": "li lukin e sina",
@@ -234,6 +236,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -251,6 +257,11 @@
         "roomName": "nimi tomo",
         "roomDescription": "sitelen tomo",
         "minLength": "anpa pi suli li tu tu."
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

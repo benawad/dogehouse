@@ -22,6 +22,7 @@ defmodule Kousa.RoomChat do
         },
         whisperedTo
       )
+      :ok
     end
   end
 
@@ -53,8 +54,6 @@ defmodule Kousa.RoomChat do
       _ ->
         nil
     end
-
-    :ok
   end
 
   # Delete room chat messages

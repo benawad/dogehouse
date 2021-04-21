@@ -1,26 +1,28 @@
 {
   "common": {
-    "loadMore": "muat lebih banyak",
-    "loading": "memuat...",
-    "noUsersFound": "pengguna tidak ditemukan",
-    "ok": "ok",
-    "yes": "ya",
-    "no": "tidak",
+    "loadMore": "Muat lebih banyak",
+    "loading": "Memuat...",
+    "noUsersFound": "Pengguna tidak ditemukan!",
+    "ok": "Ok",
+    "yes": "Ya",
+    "no": "Tidak",
     "cancel": "Batal",
-    "save": "simpan",
-    "edit": "ubah",
-    "delete": "hapus",
-    "joinRoom": "gabung ke ruangan",
-    "copyLink": "salin tautan",
-    "copied": "disalin",
+    "save": "Simpan",
+    "edit": "Ubah",
+    "delete": "Hapus",
+    "joinRoom": "Gabung ke ruangan",
+    "copyLink": "Salin tautan",
+    "copied": "Disalin",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Mohon ingat menggunakan DogeHouse tanpa ijin aksesibilitas mungkin akan menimbulkan error yang tidak di inginkan"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Bisu | DogeHouse"
+    "mutedTitle": "Bisu | DogeHouse",
+    "dashboard": "Dasbor",
+    "connectionTaken": "Koneksi Diambil"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -30,21 +32,21 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": { "ban": "blokir" },
+    "banUser": { "ban": "Blokir" },
     "followingOnlineList": {
       "listHeader": "Daftar pengguna yang tidak ada di ruangan privat dan kamu ikuti.",
-      "currentRoom": "saat ini di:",
-      "startPrivateRoom": "mulai ruangan privat dengan mereka"
+      "currentRoom": "Saat ini di:",
+      "startPrivateRoom": "Mulai ruangan privat dengan mereka"
     },
-    "followList": { "followHim": "ikuti", "followingHim": "mengikuti" },
+    "followList": { "followHim": "Ikuti", "followingHim": "Mengikuti" },
     "home": {
       "createRoom": "Buat Ruangan",
       "refresh": "Segarkan",
-      "editRoom": "Edit Room"
+      "editRoom": "Ubah Ruangan"
     },
     "inviteList": {
-      "roomGone": "ruangan hilang, kembali",
-      "shareRoomLink": "bagikan tautan ke ruangan",
+      "roomGone": "Ruangan hilang, kembali",
+      "shareRoomLink": "Bagikan tautan ke ruangan",
       "inviteFollowers": "Kamu bisa ajak pengikut kamu yang online:",
       "whenFollowersOnline": "Saat pengikut Anda online, mereka akan muncul di sini."
     },
@@ -56,19 +58,19 @@
       "featureText_4": "Sumber Terbuka",
       "featureText_5": "Obrolan Teks",
       "featureText_6": "Dipersembahkan oleh Doge",
-      "loginGithub": "masuk dengan GitHub",
-      "loginTwitter": "masuk dengan Twitter",
+      "loginGithub": "Masuk dengan GitHub",
+      "loginTwitter": "Masuk dengan Twitter",
       "createTestUser": "buat akun uji coba",
-      "loginDiscord": "Login with Discord"
+      "loginDiscord": "Masuk dengan Discord"
     },
     "myProfile": {
-      "logout": "keluar",
+      "logout": "Keluar",
       "probablyLoading": "mungkin sedang memuat...",
-      "voiceSettings": "pergi ke pengaturan suara",
-      "soundSettings": "pergi ke pengaturan bunyi",
-      "deleteAccount": "hapus akun",
+      "voiceSettings": "Pengaturan suara",
+      "soundSettings": "Pengaturan bunyi",
+      "deleteAccount": "Hapus akun",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Maaf, kami tidak bisa menemukan pengguna itu"
     },
     "notFound": {
       "whoopsError": "Oops! Halaman ini hilang dalam percakapan.",
@@ -83,24 +85,24 @@
       "allowAllConfirm": "Apakah anda yakin? Ini akan mengizinkan semua {{count}} permintaan pengguna untuk bicara"
     },
     "searchUser": { "search": "cari..." },
-    "soundEffectSettings": { "header": "Bunyi" },
+    "soundEffectSettings": { "header": "Bunyi", "title": "Sound Settings" },
     "viewUser": {
-      "editProfile": "ubah profil",
+      "editProfile": "Ubah profil",
       "followsYou": "Mengikutimu",
       "followers": "pengikut",
       "following": "mengikuti",
-      "followHim": "ikuti",
-      "followingHim": "mengikuti",
-      "copyProfileUrl": "salin url profil",
+      "followHim": "Ikuti",
+      "followingHim": "Mengikuti",
+      "copyProfileUrl": "Salin url profil",
       "urlCopied": "URL disalin ke papan klip",
       "unfollow": "Berhenti mengikuti"
     },
     "voiceSettings": {
       "header": "Pengaturan Suara",
-      "mic": "mikrofon:",
-      "permissionError": "mikrofon tidak ditemukan, mungkin kamu belum memasangnya atau belum memberikan website ini akses.",
-      "refresh": "muat ulang daftar mikrofon",
-      "volume": "volume:"
+      "mic": "Mikrofon:",
+      "permissionError": "Mikrofon tidak ditemukan, mungkin kamu belum memasangnya atau belum memberikan website ini akses.",
+      "refresh": "Muat ulang daftar mikrofon",
+      "volume": "Volume:"
     },
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
@@ -113,8 +115,8 @@
     "backBar": {},
     "blockedFromRoomUsers": {
       "header": "Pengguna diblokir",
-      "unban": "berhenti blokir",
-      "noBans": "tidak ada pengguna yang diblokir"
+      "unban": "Berhenti blokir",
+      "noBans": "Tidak ada pengguna yang diblokir"
     },
     "bottomVoiceControl": {
       "leaveCurrentRoomBtn": "Keluar ruangan saat ini",
@@ -137,26 +139,26 @@
       "addSupport": "dan saya akan coba menambahkan dukungan untuk perangkatmu."
     },
     "inviteButton": {
-      "invited": "diundang",
-      "inviteToRoom": "undang ke ruangan"
+      "invited": "Diundang!",
+      "inviteToRoom": "Undang ke ruangan"
     },
     "micPermissionBanner": {
       "permissionDenied": "Izin ditolak saat mencoba akses mikrofon (kamu mungkin bisa ke pengaturan browser dan memuat ulang halaman)",
-      "dismiss": "hilangkan",
-      "tryAgain": "coba lagi"
+      "dismiss": "Hilangkan",
+      "tryAgain": "Coba lagi"
     },
     "keyboardShortcuts": {
-      "setKeybind": "atur tombol",
-      "listening": "menunggu tombol",
-      "toggleMuteKeybind": "atur tombol untuk membisu",
-      "togglePushToTalkKeybind": "atur tombol klik-untuk-bicara",
+      "setKeybind": "Atur tombol",
+      "listening": "Menunggu tombol",
+      "toggleMuteKeybind": "Atur tombol untuk membisu",
+      "togglePushToTalkKeybind": "Atur tombol klik-untuk-bicara",
       "toggleOverlayKeybind": "toggle overlay keybind"
     },
-    "userVolumeSlider": { "noAudioMessage": "perangkat audio tidak ditemukan" },
+    "userVolumeSlider": { "noAudioMessage": "Perangkat audio tidak ditemukan" },
     "addToCalendar": { "add": "Tambahkan ke Kalender" },
     "wsKilled": {
       "description": "WebSocket dihentikan oleh server. Biasanya terjadi karena kamu membuka laman web ini di tab lain.",
-      "reconnect": "menghubungkan kembali"
+      "reconnect": "Menghubungkan kembali"
     },
     "modals": {
       "createRoomModal": {
@@ -166,7 +168,7 @@
         "roomDescription": "deskripsi ruangan",
         "descriptionError": "panjang maksimal 500",
         "nameError": "panjang karakter antara 2 sampai 60",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "Isi kolom-kolom berikut untuk memulai ruangan baru"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Ruangan Baru Dibuat",
@@ -176,57 +178,61 @@
         "inviteReceived": "kamu telah diundang ke"
       },
       "editProfileModal": {
-        "usernameTaken": "nama pengguna telah dipakai",
+        "usernameTaken": "Nama pengguna telah dipakai",
         "avatarUrlError": "Gambar tidak valid",
         "avatarUrlLabel": "URL avatar GitHub/Twitter",
-        "displayNameError": "panjang 2 sampai 50 karakter",
+        "displayNameError": "Panjang 2 sampai 50 karakter",
         "displayNameLabel": "Nama Tampilan",
-        "usernameError": "panjang 4 sampai 15 karakter dan hanya alfanumerik/garis bawah",
+        "usernameError": "Panjang 4 sampai 15 karakter dan hanya alfanumerik/garis bawah",
         "usernameLabel": "Nama pengguna",
-        "bioError": "maksimal 160 karakter",
+        "bioError": "Maksimal 160 karakter",
         "bioLabel": "Biodata"
       },
       "profileModal": {
         "blockUserConfirm": "Anda yakin memblokir pengguna ini untuk bergabung ke ruangan yang anda buat?",
-        "blockUser": "blokir pengguna",
-        "makeMod": "jadikan moderator",
-        "unmod": "berhenti menjadi moderator",
-        "addAsSpeaker": "tambahkan sebagai pembicara",
-        "moveToListener": "pindah ke pendengar",
-        "banFromChat": "blokir dari percakapan",
-        "banFromRoom": "blokir dari ruangan",
-        "goBackToListener": "kembali ke pendengar",
-        "deleteMessage": "hapus pesan ini",
-        "makeRoomCreator": "buat admin ruangan",
-        "unBanFromChat": "Unban from Chat"
+        "blockUser": "Blokir pengguna",
+        "makeMod": "Jadikan moderator",
+        "unmod": "Berhenti menjadi moderator",
+        "addAsSpeaker": "Tambahkan sebagai pembicara",
+        "moveToListener": "Pindah ke pendengar",
+        "banFromChat": "Blokir dari percakapan",
+        "banFromRoom": "Blokir dari ruangan",
+        "goBackToListener": "Kembali ke pendengar",
+        "deleteMessage": "Hapus pesan ini",
+        "makeRoomCreator": "Buat admin ruangan",
+        "unBanFromChat": "Bolehkan di percakapan"
       },
       "roomSettingsModal": {
         "requirePermission": "membutuhkan izin untuk berbicara",
         "makePublic": "buat ruangan jadi publik",
         "makePrivate": "buat ruangan jadi privat",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "Ubah nama ruangan publik",
+        "renamePrivate": "Ubah nama ruangan privat"
       }
     },
     "followingOnline": {
-      "people": "People",
-      "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "people": "Orang-orang",
+      "online": "AKTIF",
+      "noOnline": "Kamu tidak mempunyai teman yang sedang aktif",
+      "showMore": "Tampilkan lebih banyak"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "Ruangan yang akan datang",
+      "exploreMoreRooms": "Jelajahi ruangan lain"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": { "placeholder": "Cari pengguna, ruangan, atau kategori" },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "Profil",
+      "language": "Bahasa",
+      "reportABug": "Laporkan Kesalahan",
+      "useOldVersion": "Pakai Versi Lama",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "Keluar",
+        "modalSubtitle": "Apakah kamu yakin ingin keluar?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Berhentikan Debugger"
       }
     }
   },
@@ -244,6 +250,11 @@
         "roomName": "nama ruangan",
         "minLength": "minimal panjang 2",
         "roomDescription": "Deskripsi"
+      },
+      "tommorow": "BESOK",
+      "today": "HARI INI",
+      "deleteModal": {
+        "areYouSure": "Apakah kamu yakin ingin menghapus ruangan yang sudah terjadwal ini?"
       }
     },
     "roomChat": {
@@ -255,9 +266,9 @@
       "searchResults": "Hasil Pencarian",
       "recent": "Sering Digunakan",
       "sendMessage": "Kirim Pesan",
-      "whisper": "bisikan",
+      "whisper": "Bisikan",
       "welcomeMessage": "Selamat datang di percakapan!",
-      "roomDescription": "deskripsi ruangan"
+      "roomDescription": "Deskripsi ruangan"
     },
     "roomStatus": {
       "fuelingRocket": "Mengisi bahan bakar roket",

@@ -1,5 +1,8 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { ReactNode, useEffect, useMemo, useRef, useState } from "react";
+import { BaseOverlay } from "../../ui/BaseOverlay";
 import { Button } from "../../ui/Button";
+import { DropdownController } from "../../ui/DropdownController";
+import { SettingsIcon } from "../../ui/SettingsIcon";
 
 import makeUrls, { CalendarEvent } from "./makeUrls";
 
@@ -84,21 +87,33 @@ const Dropdown: React.FC<DropdownProps> = ({ filename, onToggle, urls }) => {
   };
 
   return (
-    <div
-      className="chq-atc--dropdown flex-col"
-      onKeyDown={onKeyDown}
-      role="presentation"
-    >
-      <Calendar href={urls.ics} filename={filename} ref={ref}>
-        Apple Calendar
-      </Calendar>
-      <Calendar href={urls.google}>Google</Calendar>
-      <Calendar href={urls.ics} filename={filename}>
-        Outlook
-      </Calendar>
-      <Calendar href={urls.outlook}>Outlook Web App</Calendar>
-      <Calendar href={urls.yahoo}>Yahoo</Calendar>
-    </div>
+    <BaseOverlay onKeyDown={onKeyDown} role="presentation">
+      <SettingsIcon
+        onClick={onToggle}
+        a={{
+          href: urls.ics,
+          download: filename,
+          ref,
+        }}
+        label="Apple Calendar"
+      />
+      <SettingsIcon
+        onClick={onToggle}
+        a={{ href: urls.google }}
+        label="Google"
+      />
+      <SettingsIcon
+        onClick={onToggle}
+        a={{ href: urls.ics, download: filename }}
+        label="Outlook"
+      />
+      <SettingsIcon
+        onClick={onToggle}
+        a={{ href: urls.outlook }}
+        label="Outlook Web App"
+      />
+      <SettingsIcon onClick={onToggle} a={{ href: urls.yahoo }} label="Yahoo" />
+    </BaseOverlay>
   );
 };
 
@@ -106,10 +121,11 @@ type AddToCalendarProps = {
   event: CalendarEvent;
   open?: boolean;
   filename?: string;
+  children: (tog: () => void) => ReactNode;
 };
 
 const AddToCalendar: React.FC<AddToCalendarProps> = ({
-  children = "Add to My Calendar",
+  children,
   event,
   filename = "download",
   open: initialOpen = false,
@@ -118,27 +134,15 @@ const AddToCalendar: React.FC<AddToCalendarProps> = ({
   const urls = useMemo<CalendarURLs>(() => makeUrls(event), [event]);
 
   return (
-    <div className="flex chq-atc">
-      {event && (
-        <Button
-          type="button"
-          className="inline"
-          size="small"
-          color="secondary"
-          onClick={onToggle}
-        >
-          <svg
-            className="chq-atc--button-svg"
-            width="20px"
-            height="20px"
-            viewBox="0 0 1024 1024"
-          >
-            <path d="M704 192v-64h-32v64h-320v-64h-32v64h-192v704h768v-704h-192z M864 864h-704v-480h704v480z M864 352h-704v-128h160v64h32v-64h320v64h32v-64h160v128z" />
-          </svg>{" "}
-          {children}
-        </Button>
-      )}
-      {open && <Dropdown filename={filename} onToggle={onToggle} urls={urls} />}
+    <div className="relative">
+      <DropdownController
+        portal={false}
+        overlay={(close) => (
+          <Dropdown filename={filename} onToggle={close} urls={urls} />
+        )}
+      >
+        {children(onToggle)}
+      </DropdownController>
     </div>
   );
 };

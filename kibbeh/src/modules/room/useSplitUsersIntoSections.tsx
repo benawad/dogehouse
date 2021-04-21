@@ -54,6 +54,9 @@ export const useSplitUsersIntoSections = ({
     arr.push(
       <RoomAvatar
         // key={u.id + i}
+        id={u.id}
+        canSpeak={canSpeak}
+        isMe={u.id === conn.user.id}
         key={u.id}
         src={u.avatarUrl}
         username={u.username}
