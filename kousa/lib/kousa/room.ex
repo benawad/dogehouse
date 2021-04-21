@@ -340,8 +340,6 @@ defmodule Kousa.Room do
           error
       end
     end
-
-    nil
   end
 
   def join_vc_room(user_id, room, speaker? \\ nil) do
