@@ -6,10 +6,10 @@ defmodule Broth.LegacyHandler do
   Kousa.MixProject.project()
   |> Keyword.get(:version)
   |> Version.parse!()
-  |> Version.compare(~v(0.2.0))
+  |> Version.compare(~v(0.3.0))
   |> case do
     :lt -> :ok
-    _ -> raise CompileError, message: "this module should not exist beyond version 0.2.0"
+    _ -> raise CompileError, message: "this module should not exist beyond version 0.3.0"
   end
 
   def process(%{"op" => "block_user_and_from_room", "d" => payload}, state) do
