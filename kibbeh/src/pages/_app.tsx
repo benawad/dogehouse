@@ -22,6 +22,7 @@ import { ConfirmModal } from "../shared-components/ConfirmModal";
 import isElectron from "is-electron";
 import Head from "next/head";
 import { useHostStore } from "../global-stores/useHostStore";
+import { useScrollStore } from "../global-stores/useScrollStore";
 
 if (!isServer) {
   init_i18n();
@@ -57,6 +58,12 @@ function App({ Component, pageProps }: AppProps) {
         "30px"
       );
     }
+    let a = 0;
+    window.onscroll = () => {
+      a++;
+      console.log("Scrolled", a);
+      useScrollStore().setData(Date.now());
+    };
   }, []);
 
   if (isServer && (Component as PageComponent<unknown>).ws) {

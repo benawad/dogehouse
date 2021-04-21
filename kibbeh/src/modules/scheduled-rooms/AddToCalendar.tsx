@@ -1,4 +1,5 @@
 import React, { ReactNode, useEffect, useMemo, useRef, useState } from "react";
+import { useScrollStore } from "../../global-stores/useScrollStore";
 import { BaseOverlay } from "../../ui/BaseOverlay";
 import { Button } from "../../ui/Button";
 import { DropdownController } from "../../ui/DropdownController";
@@ -34,6 +35,7 @@ type OpenStateToggle = (event?: React.MouseEvent) => void;
 const useOpenState = (initialOpen: boolean): [boolean, OpenStateToggle] => {
   const [open, setOpen] = useState<boolean>(initialOpen);
   const onToggle = () => setOpen((current) => !current);
+  const { scrollTime } = useScrollStore();
 
   useEffect(() => {
     if (open) {
@@ -45,7 +47,12 @@ const useOpenState = (initialOpen: boolean): [boolean, OpenStateToggle] => {
 
     return undefined;
   }, [open, setOpen]);
-
+  useEffect(() => {
+    console.log(scrollTime);
+    if (Date.now() - scrollTime < 500) {
+      onToggle();
+    }
+  }, [scrollTime]);
   return [open, onToggle];
 };
 
