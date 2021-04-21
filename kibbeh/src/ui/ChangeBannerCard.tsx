@@ -20,6 +20,10 @@ export const ChangeBannerCard: React.FC<ChangeBannerCardProps> = ({
   const fileChangeHandler: ChangeEventHandler<HTMLInputElement> = (e) => {
     if (e.target.files!.length < 1) return;
     const file = e.target.files![0];
+    if (file.size > 5000000) {
+      console.log("File size must be less than 5MB");
+      return;
+    }
     const type = file.type.toLocaleLowerCase();
     if (type.includes("jpg") || type.includes("jpeg") || type.includes("png")) {
       setBanner(URL.createObjectURL(file));
@@ -44,14 +48,14 @@ export const ChangeBannerCard: React.FC<ChangeBannerCardProps> = ({
         <div className="flex">
           <Button
             size="small"
-            color="secondary"
+            color="primary-300"
             onClick={changeProfileButtonClickHandler}
           >
             Change profile header
           </Button>
           <Button
             className="ml-2"
-            color="secondary"
+            color="primary-300"
             size="small"
             onClick={deleteHandler}
           >
