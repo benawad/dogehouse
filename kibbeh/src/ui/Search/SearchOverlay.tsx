@@ -13,7 +13,7 @@ export const SearchOverlay = forwardRef<
   return (
     <div
       ref={ref}
-      className={`relative flex flex-col w-full rounded-8 bg-primary-800 border border-primary-700 ${className}`}
+      className={`relative flex flex-col w-full rounded-8 bg-primary-800 ${className}`}
       {...props}
     >
       {children}

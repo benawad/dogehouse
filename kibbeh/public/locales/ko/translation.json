@@ -20,7 +20,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "음소거 | DogeHouse"
+    "mutedTitle": "음소거 | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -83,7 +85,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "검색..." },
-    "soundEffectSettings": { "header": "소리" },
+    "soundEffectSettings": { "header": "소리", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "프로필 변경",
       "followsYou": "나를 팔로우하는 사람들",
@@ -196,7 +198,8 @@
         "banFromRoom": "채팅방 에서 차단",
         "goBackToListener": "청취자로 돌아가기",
         "deleteMessage": "이 메세지 삭제",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "발언권이 필요합니다",
@@ -225,6 +228,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -242,6 +249,11 @@
         "roomName": "채팅방 이름",
         "minLength": "최소 2자",
         "roomDescription": "Description"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

@@ -48,6 +48,9 @@ const UserPreview: React.FC<{
   const { mutateAsync: banFromRoomChat } = useTypeSafeMutation(
     "banFromRoomChat"
   );
+  const { mutateAsync: unbanFromRoomChat } = useTypeSafeMutation(
+    "unbanFromRoomChat"
+  );
   const { data, isLoading } = useTypeSafeQuery(["getUserProfile", id], {}, [
     id,
   ]);
@@ -68,23 +71,19 @@ const UserPreview: React.FC<{
     return <div className={`flex text-primary-100`}>This user is gone.</div>;
   }
 
-  // @todo pretty sure this is some what bugged
-  // will add it back when 100% works
-  // const setNewCreatorButton = (
-  //   <Button
-  //     onClick={() => {
-  //       onClose();
-  //       changeRoomCreator([id]);
-  //     }}
-  //   >
-  //     {t("components.modals.profileModal.makeRoomCreator")}
-  //   </Button>
-  // );
-
   const canDoModStuffOnThisUser = !isMe && (iAmCreator || iAmMod) && !isCreator;
 
   // [shouldShow, key, onClick, text]
   const buttonData = [
+    [
+      iAmCreator && !isMe && roomPermissions?.isSpeaker,
+      "changeRoomCreator",
+      () => {
+        onClose();
+        changeRoomCreator([id]);
+      },
+      t("components.modals.profileModal.makeRoomCreator"),
+    ],
     [
       !isMe && iAmCreator,
       "makeMod",
@@ -126,6 +125,17 @@ const UserPreview: React.FC<{
         banFromRoomChat([id]);
       },
       t("components.modals.profileModal.banFromChat"),
+    ],
+    [
+      canDoModStuffOnThisUser &&
+        id in bannedUserIdMap &&
+        (iAmCreator || !roomPermissions?.isMod),
+      "unbanFromChat",
+      () => {
+        onClose();
+        unbanFromRoomChat([id]);
+      },
+      t("components.modals.profileModal.unBanFromChat"),
     ],
     [
       canDoModStuffOnThisUser && (iAmCreator || !roomPermissions?.isMod),

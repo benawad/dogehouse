@@ -1,4 +1,6 @@
 # Contributing to DogeHouse
+> Please read the [PRIORITY LIST](https://github.com/benawad/dogehouse/issues/1969) before contributing.
+
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
 - Reporting an issue
 - Discussing the current state of the code

@@ -21,7 +21,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Vaigistatud | DogeHouse"
+    "mutedTitle": "Vaigistatud | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -84,7 +86,7 @@
       "allowAllConfirm": "Oled sa kindel? See tegevus lubab kõigil {{count}} taotlejal rääkida"
     },
     "searchUser": { "search": "otsi..." },
-    "soundEffectSettings": { "header": "Helid" },
+    "soundEffectSettings": { "header": "Helid", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "muuda profiili",
       "followsYou": "jälgib sind",
@@ -197,7 +199,8 @@
         "banFromRoom": "bänni ruumist",
         "goBackToListener": "mine tagasi kuulajatesse",
         "deleteMessage": "kustuta sõnum",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "nõua luba rääkimiseks",
@@ -226,6 +229,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -243,6 +250,11 @@
         "roomName": "ruumi nimi",
         "roomDescription": "kirjeldus",
         "minLength": "min. pikkus 2"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

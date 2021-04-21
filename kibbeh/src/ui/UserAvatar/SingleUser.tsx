@@ -78,7 +78,7 @@ export const SingleUser: React.FC<AvatarProps> = ({
   const sizeStyle = onlineIndicatorStyleMap[size];
   return (
     <div
-      className={`flex relative inline-block ${className}`}
+      className={`relative inline-block ${className}`}
       style={{
         width: avatarSizeMap[size],
         height: avatarSizeMap[size],

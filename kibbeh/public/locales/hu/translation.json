@@ -20,7 +20,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Némítva | DogeHouse"
+    "mutedTitle": "Némítva | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "link_1": "Története",
@@ -82,7 +84,7 @@
       "allowAllConfirm": "Biztos benne? Ezzel engedélyezi mind a {{count}} felhasználónak, hogy beszéljen"
     },
     "searchUser": { "search": "keresés..." },
-    "soundEffectSettings": { "header": "Hangok" },
+    "soundEffectSettings": { "header": "Hangok", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "fiók szerkesztése",
       "followsYou": "követ téged",
@@ -174,7 +176,8 @@
         "banFromRoom": "kitiltás a szobából",
         "goBackToListener": "visszalépés hallgatóvá",
         "deleteMessage": "üzenet törlése",
-        "makeRoomCreator": "adminná tétel"
+        "makeRoomCreator": "adminná tétel",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "beszélői engedélyre van szükség ",
@@ -225,6 +228,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -241,6 +248,11 @@
         "roomName": "szoba neve",
         "minLength": "legalább 2 karakter hosszú",
         "roomDescription": "Leírás"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

@@ -21,7 +21,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Үнсіз | DogeHouse"
+    "mutedTitle": "Үнсіз | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -84,7 +86,7 @@
       "allowAllConfirm": "Бұл барлық рұқсат сұраған {{count}} қолданушыға, сөйлеуге мүмкіндік береді.Сіз сенімдісіз бе?"
     },
     "searchUser": { "search": "іздеу..." },
-    "soundEffectSettings": { "header": "дыбыстар" },
+    "soundEffectSettings": { "header": "дыбыстар", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Профайлды өңдеу",
       "followsYou": "сізге жазылған",
@@ -201,7 +203,8 @@
         "banFromRoom": "осы бөлмеден бұғаттау",
         "goBackToListener": "тыңдарман болу",
         "deleteMessage": "осы хабарламаны жою",
-        "makeRoomCreator": "бөлме админы қылдыру"
+        "makeRoomCreator": "бөлме админы қылдыру",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Мұнда сөйлеу үшін рұқсат алу қажет",
@@ -230,6 +233,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -247,6 +254,11 @@
         "roomName": "бөлменің атауы",
         "roomDescription": "сипаттамасы",
         "minLength": "Ең кем дегенде 2 символ"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

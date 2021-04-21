@@ -21,7 +21,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muted | DogeHouse xD"
+    "mutedTitle": "Muted | DogeHouse xD",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -84,7 +86,10 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Seawch... >_<" },
-    "soundEffectSettings": { "header": "OWO Sounds :D" },
+    "soundEffectSettings": {
+      "header": "OWO Sounds :D",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "Edit Pwofiwe (⁎˃ᆺ˂)",
       "followsYou": "Fowwows uu (๑•́ ₃ •̀๑)",
@@ -197,7 +202,8 @@
         "banFromRoom": "Ban fwom Woom UwU",
         "goBackToListener": "Go Back to Wistenew (╯﹏╰）",
         "deleteMessage": "Dewete this Message >_>",
-        "makeRoomCreator": "Make Woom Admin"
+        "makeRoomCreator": "Make Woom Admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Wequiwe pewmission to speak <{^n^}>",
@@ -226,6 +232,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -243,6 +253,11 @@
         "roomName": "Woom Name (◠‿◠✿)",
         "minLength": "<3 min wength 2 ^_^",
         "roomDescription": "Descwiptiow"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

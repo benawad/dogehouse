@@ -21,7 +21,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Без звуку | DogeHouse"
+    "mutedTitle": "Без звуку | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -37,11 +39,14 @@
       "currentRoom": "зараз у:",
       "startPrivateRoom": "почніть з ними приватну кімнату"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": {
+      "followHim": "відстежувати",
+      "followingHim": "відстежуєте"
+    },
     "home": {
       "createRoom": "Створити Кімнату",
       "refresh": "Оновити",
-      "editRoom": "Edit Room"
+      "editRoom": "Редагувати кімнату"
     },
     "inviteList": {
       "roomGone": "кімнати вже немає, повернутися",
@@ -60,7 +65,7 @@
       "loginGithub": "увійти з GitHub",
       "loginTwitter": "увійти з Twitter",
       "createTestUser": "створити тестового користувача",
-      "loginDiscord": "Login with Discord"
+      "loginDiscord": "увійти з Discord"
     },
     "myProfile": {
       "logout": "вийти",
@@ -68,8 +73,8 @@
       "voiceSettings": "перейти до голосових налаштувань",
       "soundSettings": "перейти до звукових налаштувань",
       "deleteAccount": "видалити аккаунт",
-      "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "overlaySettings": "перейти до налаштувань накладення",
+      "couldNotFindUser": "Вибачте, ми не змогли знайти даного користувача"
     },
     "notFound": {
       "whoopsError": "Упс! Ця сторінка загубилася в розмові.",
@@ -81,20 +86,20 @@
       "requestingToSpeak": "Запитую дозвіл говорити",
       "listeners": "Слухачі",
       "allowAll": "Дозволити все",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAllConfirm": "Ви впевнені? Це дозволить усім {{count}} запитуючим користувачам розмовляти"
     },
     "searchUser": { "search": "шукати..." },
-    "soundEffectSettings": { "header": "Звуки" },
+    "soundEffectSettings": { "header": "Звуки", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "редагувати профіль",
       "followsYou": "підписані на вас",
       "followers": "підписники",
       "following": "ви підписані",
       "followHim": "підписатися",
-      "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "followingHim": "відстежується",
+      "copyProfileUrl": "скопіювати посилання на профіль",
+      "urlCopied": "Посилання скопійовано",
+      "unfollow": "Відписатися"
     },
     "voiceSettings": {
       "header": "Голосові налаштування",
@@ -104,8 +109,11 @@
       "volume": "гучність:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings"
+      "input": {
+        "errorMsg": "Недійсне ім'я додатку",
+        "label": "Введіть назву додатку"
+      },
+      "header": "Налаштування накладення"
     }
   },
   "components": {
@@ -153,10 +161,7 @@
       "togglePushToTalkKeybind": "Перемикнути режим рації",
       "toggleOverlayKeybind": "toggle overlay keybind"
     },
-    "userVolumeSlider": {
-      "noAudioMessзагальнодоступноюage": "з якихось причин немає споживача аудіо",
-      "noAudioMessage": "no audio consumer for some reason"
-    },
+    "userVolumeSlider": { "noAudioMessage": "споживача аудіо відсутній" },
     "addToCalendar": { "add": "Додати до календаря" },
     "wsKilled": {
       "description": "Вебсокет був зрушиний сервером. Зазвичай це відбувається, коли ви відкриваєте веб-сайт в іншій вкладці.",
@@ -170,7 +175,7 @@
         "roomDescription": "опис кімнати",
         "descriptionError": "має містити до 500 символів",
         "nameError": "має містити від 2 до 60 символів",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "Заповніть наступні поля для того, щоб розпочати нову кімнату"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Створено нову кімнату",
@@ -201,35 +206,40 @@
         "banFromRoom": "заблокувати в цій кімнаті",
         "goBackToListener": "повернутися у статус слухача",
         "deleteMessage": "видалити це повідомлення",
-        "makeRoomCreator": "зробити адміном кімнати"
+        "makeRoomCreator": "зробити адміном кімнати",
+        "unBanFromChat": "Розбанити у цьому чаті"
       },
       "roomSettingsModal": {
         "requirePermission": "запитувати дозвіл говорити",
         "makePublic": "зробити кімнату загальнодоступною",
         "makePrivate": "зробити кімнату приватною",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "Встановити ім'я публічної кімнати",
+        "renamePrivate": "Встановити ім'я приватної кімнати"
       }
     },
     "followingOnline": {
-      "people": "People",
-      "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "people": "Люди",
+      "online": "ОНЛАЙН",
+      "noOnline": "На даний момент у вас 0 друзів онлайн",
+      "showMore": "Показати більше"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "Заплановані кімнати",
+      "exploreMoreRooms": "Знайти Більше Кімнат"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": { "placeholder": "Знайти кімнати, користувачів або категорії" },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "Профіль",
+      "language": "Мова",
+      "reportABug": "Повідомити про помилку",
+      "useOldVersion": "Використовувати стару версію",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "Вийти",
+        "modalSubtitle": "Ви впевнені що хочете вийти?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -247,6 +257,11 @@
         "roomName": "назва кімнати",
         "minLength": "має містити від 2 символів",
         "roomDescription": "Опис"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {
@@ -263,17 +278,17 @@
       "roomDescription": "Опис кімнати"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "fuelingRocket": "Заправляємо ракету",
+      "takingOff": "Злітаємо",
+      "inSpace": "У космосі",
+      "approachingMoon": "Досягаємо луни",
+      "lunarDoge": "Місячний doge",
+      "approachingSun": "Досягаємо сонця",
+      "solarDoge": "Сонячний doge",
+      "approachingGalaxy": "Досягаємо галактики",
+      "galacticDoge": "Галактичний Doge",
+      "spottedLife": "Помічена планета з життям"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": { "yourFeed": "Ваша Стрічка" }
   }
 }

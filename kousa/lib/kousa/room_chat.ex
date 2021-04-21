@@ -1,5 +1,6 @@
 defmodule Kousa.RoomChat do
   alias Beef.Rooms
+  alias Onion.RoomChat
 
   def send_msg(_, [], _), do: :ok
 
@@ -21,6 +22,8 @@ defmodule Kousa.RoomChat do
         },
         whisperedTo
       )
+
+      :ok
     end
   end
 
@@ -42,6 +45,16 @@ defmodule Kousa.RoomChat do
       :ok
     else
       {:error, "#{user_id} not authorized to ban #{user_id_to_ban}"}
+    end
+  end
+
+  def unban_user(user_id, user_id_to_unban) do
+    case Rooms.get_room_status(user_id) do
+      {role, room} when role in @ban_roles ->
+        RoomChat.unban_user(room.id, user_id_to_unban)
+
+      _ ->
+        nil
     end
   end
 

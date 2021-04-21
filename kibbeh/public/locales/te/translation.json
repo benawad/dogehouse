@@ -20,7 +20,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muted | DogeHouse"
+    "mutedTitle": "Muted | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -83,7 +85,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "అన్వేషించు..." },
-    "soundEffectSettings": { "header": "సౌండ్స్" },
+    "soundEffectSettings": { "header": "సౌండ్స్", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "edit profile",
       "followsYou": "Follows you",
@@ -199,7 +201,8 @@
         "banFromRoom": "ban from room",
         "goBackToListener": "go back to listener",
         "deleteMessage": "ఈ సందేశాన్ని తొలగించండి",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "నాకు మాట్లాడటానికి అనుమతి కావాలి",
@@ -228,6 +231,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -245,6 +252,11 @@
         "roomName": "గది పేరు",
         "roomDescription": "వివరణ",
         "minLength": "కనిష్ట పొడవు 2"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

@@ -21,7 +21,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "ǝsnoHǝƃoᗡ",
-    "mutedTitle": "ǝsnoHǝƃoᗡ | pǝʇnW"
+    "mutedTitle": "ǝsnoHǝƃoᗡ | pǝʇnW",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -84,7 +86,7 @@
       "allowAllConfirm": "ʞɐǝds oʇ sɹǝsn ƃuᴉʇsǝnbǝɹ {{count}} ꞁꞁɐ ʍoꞁꞁɐ ꞁꞁᴉʍ sᴉɥ⊥ ¿ǝɹns noʎ ǝɹⱯ"
     },
     "searchUser": { "search": "˙˙˙ɥɔɹɐǝs" },
-    "soundEffectSettings": { "header": "spunoS" },
+    "soundEffectSettings": { "header": "spunoS", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "ǝꞁᴉɟoɹd ʇᴉpǝ",
       "followsYou": "noʎ sʍoꞁꞁoɟ",
@@ -200,7 +202,8 @@
         "banFromRoom": "ɯooɹ ɯoɹɟ uɐq",
         "goBackToListener": "ɹǝuǝʇsᴉꞁ oʇ ʞɔɐq oƃ",
         "deleteMessage": "ǝƃɐssǝɯ sᴉɥʇ ǝʇǝꞁǝp",
-        "makeRoomCreator": "uᴉɯpɐ ɯooɹ ǝʞɐɯ"
+        "makeRoomCreator": "uᴉɯpɐ ɯooɹ ǝʞɐɯ",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "ʞɐǝds oʇ uoᴉssᴉɯɹǝd ǝɹᴉnbǝɹ",
@@ -229,6 +232,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -246,6 +253,11 @@
         "roomName": "ǝɯɐu ɯooɹ",
         "roomDescription": "uoᴉʇdᴉɹɔsǝᗡ",
         "minLength": "ᘔ ɥʇƃuǝꞁ uᴉɯ"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

@@ -20,7 +20,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Silenciado | DogeHouse"
+    "mutedTitle": "Silenciado | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -83,7 +85,7 @@
       "allowAllConfirm": "De certeza? Isto permitirá todos os {{count}} utilizadores a pedir, falar"
     },
     "searchUser": { "search": "Procurar..." },
-    "soundEffectSettings": { "header": "Sons" },
+    "soundEffectSettings": { "header": "Sons", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Editar perfil",
       "followsYou": "Seguem-te",
@@ -178,7 +180,8 @@
         "banFromRoom": "Banir da sala",
         "goBackToListener": "voltar a ouvinte",
         "deleteMessage": "Apagar mensagem",
-        "makeRoomCreator": "Tornar administrador da sala"
+        "makeRoomCreator": "Tornar administrador da sala",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Pedir permissão para falar",
@@ -231,6 +234,10 @@
       "logOut": {
         "button": "Sair",
         "modalSubtitle": "De certeza que pretendes sair?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -247,6 +254,11 @@
         "roomName": "nome da sala",
         "minLength": "mínimo de 2 caracteres",
         "roomDescription": "descrição da sala"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

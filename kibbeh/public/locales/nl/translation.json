@@ -15,12 +15,14 @@
     "copied": "Gekopieerd",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Houd er rekening mee dat het uitvoeren van DogeHouse zonder toegankelijkheidsrechten ongewenste fouten kan veroorzaken"
+    "requestPermissions": "Houd er rekening mee dat het uitvoeren van DogeHouse zonder de benodigde permissies ongewenste fouten kan veroorzaken"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Gedempt | DogeHouse"
+    "mutedTitle": "Gedempt | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -32,15 +34,15 @@
     "_comment": "Respective Page UI Internationalization Strings",
     "banUser": { "ban": "Verban" },
     "followingOnlineList": {
-      "listHeader": "Lijst van gebruikers die je volgt en niet in een privé kamer zijn.",
+      "listHeader": "Lijst van gebruikers die je volgt en niet in een privékamer zijn.",
       "currentRoom": "Momenteel in:",
-      "startPrivateRoom": "Start een privé kamer met deze persoon"
+      "startPrivateRoom": "Start een privékamer met deze persoon"
     },
     "followList": { "followHim": "Volg", "followingHim": "Volgend" },
     "home": {
       "createRoom": "Kamer maken",
       "refresh": "Verversen",
-      "editRoom": "Edit Room"
+      "editRoom": "Kamer aanpassen"
     },
     "inviteList": {
       "roomGone": "Kamer bestaat niet, ga terug",
@@ -51,15 +53,15 @@
     "login": {
       "headerText": "Wij brengen gesprekken naar de maan! 🚀",
       "featureText_1": "Donkere modus",
-      "featureText_2": "Open Registraties",
-      "featureText_3": "Cross-Platform Ondersteuning",
+      "featureText_2": "Open registraties",
+      "featureText_3": "Platformoverschrijdend",
       "featureText_4": "Open Source",
-      "featureText_5": "Tekst Chat",
+      "featureText_5": "Tekstchat",
       "featureText_6": "Mogelijk gemaakt door Doge",
       "loginGithub": "Log in met GitHub",
       "loginTwitter": "Log in met Twitter",
-      "createTestUser": "Maak een test gebruiker",
-      "loginDiscord": "Login with Discord"
+      "createTestUser": "Maak een testgebruiker",
+      "loginDiscord": "Log in met Discord"
     },
     "myProfile": {
       "logout": "Afmelden",
@@ -67,8 +69,8 @@
       "voiceSettings": "Ga naar spraakinstellingen",
       "soundSettings": "Ga naar geluidsinstellingen",
       "deleteAccount": "Verwijder account",
-      "overlaySettings": "ga naar overlay-instellingen",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "overlaySettings": "Ga naar overlay-instellingen",
+      "couldNotFindUser": "Sorry, die gebruiker kon niet gevonden worden"
     },
     "notFound": {
       "whoopsError": "Oeps! Deze pagina is verloren gegaan tijdens het gesprek.",
@@ -80,10 +82,10 @@
       "requestingToSpeak": "Aanvragen om te spreken",
       "listeners": "Luisteraars",
       "allowAll": "Iedereen toestaan",
-      "allowAllConfirm": "Weet je het zeker? Dit geeft toestemming aan alle {{count}} verzoekende gebruikers om te spreken"
+      "allowAllConfirm": "Weet je het zeker? Dit geeft toestemming aan {{count}} verzoekende gebruikers om te spreken"
     },
     "searchUser": { "search": "Zoek..." },
-    "soundEffectSettings": { "header": "Geluiden" },
+    "soundEffectSettings": { "header": "Geluiden", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Profiel bewerken",
       "followsYou": "Volgt jou",
@@ -91,9 +93,9 @@
       "following": "Volgend",
       "followHim": "Volg",
       "followingHim": "Volgend",
-      "copyProfileUrl": "kopieer profiel url",
-      "urlCopied": "URL gekopieerd naar klembord",
-      "unfollow": "Unfollow"
+      "copyProfileUrl": "kopieer link naar profiel",
+      "urlCopied": "Link gekopieerd naar klembord",
+      "unfollow": "Ontvolgen"
     },
     "voiceSettings": {
       "header": "Spraakinstellingen",
@@ -103,7 +105,10 @@
       "volume": "Volume:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": {
+        "errorMsg": "Ongeldige applicatietitel",
+        "label": "Voer applicatietitel in"
+      },
       "header": "Overlay-instellingen"
     }
   },
@@ -113,7 +118,7 @@
     "backBar": {},
     "blockedFromRoomUsers": {
       "header": "Verbannen Gebruikers",
-      "unban": "Unban",
+      "unban": "Ontban",
       "noBans": "Er is nog niemand verbannen"
     },
     "bottomVoiceControl": {
@@ -134,7 +139,7 @@
     "deviceNotSupported": {
       "notSupported": "Je apparaat wordt momenteel niet ondersteund. Je kunt een",
       "linkText": "issue op GitHub",
-      "addSupport": "maken en ik zal ondersteuning voor je apparaat proberen toe te voegen."
+      "addSupport": "maken en we zullen ondersteuning voor je apparaat proberen toe te voegen."
     },
     "inviteButton": {
       "invited": "Uitgenodigd",
@@ -153,7 +158,7 @@
       "toggleOverlayKeybind": "schakel overlay keybind"
     },
     "userVolumeSlider": {
-      "noAudioMessage": "Geen audioapparaat om een of andere reden"
+      "noAudioMessage": "Geen audioapparaat (om een of andere reden)"
     },
     "addToCalendar": { "add": "Voeg toe aan agenda" },
     "wsKilled": {
@@ -164,15 +169,15 @@
       "createRoomModal": {
         "public": "Openbaar",
         "private": "Privé",
-        "roomName": "Kamer naam",
-        "roomDescription": "Kamer omschrijving",
-        "descriptionError": "Maximale lengte van 500",
+        "roomName": "Kamernaam",
+        "roomDescription": "Kameromschrijving",
+        "descriptionError": "Maximale lengte van 500 karakters",
         "nameError": "Moet tussen de 2 en 60 karakters lang zijn",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "Vul de volgende velden in om een kamer te starten"
       },
       "invitedToJoinRoomModal": {
-        "newRoomCreated": "Nieuwe Kamer Gemaakt",
-        "roomInviteFrom": "Kamer Uitnodiging van",
+        "newRoomCreated": "Nieuwe kamer gemaakt",
+        "roomInviteFrom": "Kameruitnodiging van",
         "justStarted": "Ze zijn zojuist begonnen",
         "likeToJoin": ", wil je meedoen?",
         "inviteReceived": "Je bent uitgenodigd voor"
@@ -199,35 +204,40 @@
         "banFromRoom": "Verban uit de kamer",
         "goBackToListener": "Ga terug naar luisteraar",
         "deleteMessage": "Verwijder dit bericht",
-        "makeRoomCreator": "kamerbeheerder maken"
+        "makeRoomCreator": "kamerbeheerder maken",
+        "unBanFromChat": "Ontban van chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Toestemming nodig om te spreken",
         "makePublic": "Maak kamer openbaar",
         "makePrivate": "Maak kamer privé",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "Stel openbare kamernaam in",
+        "renamePrivate": "Stel privékamernaam in"
       }
     },
     "followingOnline": {
-      "people": "People",
+      "people": "Mensen",
       "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "noOnline": "Er zijn momenteel geen vrienden online",
+      "showMore": "Toon meer"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "Geplande kamers",
+      "exploreMoreRooms": "Ontdek meer kamers"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": { "placeholder": "Zoek naar kamers, gebruikers of categorieën" },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "Profiel",
+      "language": "Taal",
+      "reportABug": "Rapporteer een bug",
+      "useOldVersion": "Gebruik de oude versie",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "Log uit",
+        "modalSubtitle": "Weet je zeker dat je wilt uitloggen?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -245,6 +255,11 @@
         "roomName": "Kamer naam",
         "minLength": "Naam moet minimaal 2 karakters zijn",
         "roomDescription": "Beschrijving"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

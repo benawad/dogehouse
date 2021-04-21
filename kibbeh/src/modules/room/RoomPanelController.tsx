@@ -22,10 +22,8 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
   const { currentRoomId } = useCurrentRoomIdStore();
   const [showEditModal, setShowEditModal] = useState(false);
   const { data, isLoading } = useGetRoomByQueryParam();
-  const { canSpeak } = useCurrentRoomInfo();
   const open = useRoomChatStore((s) => s.open);
   const screenType = useScreenType();
-  const { t } = useTypeSafeTranslation();
 
   if (isLoading || !currentRoomId) {
     return (

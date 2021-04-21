@@ -20,7 +20,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "已静音 | DogeHouse"
+    "mutedTitle": "已静音 | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -59,7 +61,7 @@
       "loginGithub": "用GitHub登录",
       "loginTwitter": "用Twitter登录",
       "createTestUser": "创建测试账号",
-      "loginDiscord": "Login with Discord"
+      "loginDiscord": "用Discord登录"
     },
     "myProfile": {
       "logout": "登出",
@@ -68,7 +70,7 @@
       "soundSettings": "声音设置",
       "deleteAccount": "删除账号",
       "overlaySettings": "覆盖层设置",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "对不起，无法找到该用户"
     },
     "notFound": {
       "whoopsError": "哎呀，这页在聊天中被丢掉了",
@@ -83,7 +85,7 @@
       "allowAllConfirm": "确定？这将会允许全部{{}}位成员讲话"
     },
     "searchUser": { "search": "搜索..." },
-    "soundEffectSettings": { "header": "声音" },
+    "soundEffectSettings": { "header": "声音", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "编辑个人主页",
       "followsYou": "关注您的人",
@@ -144,7 +146,7 @@
         "roomDescription": "聊天室简介",
         "descriptionError": "最大长度为500字符",
         "nameError": "长度为2到60字符",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "填写以下信息开启新聊天室"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "新聊天室被建",
@@ -175,7 +177,8 @@
         "banFromRoom": "踢出聊天室",
         "goBackToListener": "回到听者",
         "deleteMessage": "删除此信息",
-        "makeRoomCreator": "设为聊天室管理员"
+        "makeRoomCreator": "设为聊天室管理员",
+        "unBanFromChat": "恢复此人使用文字聊天"
       },
       "roomSettingsModal": {
         "requirePermission": "需要允许才能说话",
@@ -207,24 +210,25 @@
     },
     "inviteButton": { "invited": "被邀请", "inviteToRoom": "邀请进入聊天室" },
     "followingOnline": {
-      "people": "People",
-      "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "people": "用户",
+      "online": "在线",
+      "noOnline": "你有0个朋友现在在线",
+      "showMore": "显示更多"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "即将开始的聊天室",
+      "exploreMoreRooms": "探寻更多聊天室"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": { "placeholder": "搜索聊天室，用户或者种类" },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
-      "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+      "profile": "个人信息页面",
+      "language": "语言",
+      "reportABug": "反馈Bug",
+      "useOldVersion": "使用旧版本",
+      "logOut": { "button": "登出", "modalSubtitle": "是否确定登出?" },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -242,6 +246,11 @@
         "roomName": "聊天室名字",
         "minLength": "最短长度为2",
         "roomDescription": "聊天室描述"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {
@@ -269,6 +278,6 @@
       "galacticDoge": "宇宙 Doge",
       "spottedLife": "已发现新生命"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": { "yourFeed": "您的推送" }
   }
 }

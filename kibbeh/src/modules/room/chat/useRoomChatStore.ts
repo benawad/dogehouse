@@ -77,6 +77,11 @@ export const useRoomChatStore = create(
       frozen: false,
     },
     (set) => ({
+      unbanUser: (userId: string) =>
+        set(({ bannedUserIdMap: { [userId]: _, ...banMap }, ...s }) => ({
+          messages: s.messages.filter((m) => m.userId !== userId),
+          bannedUserIdMap: banMap,
+        })),
       addBannedUser: (userId: string) =>
         set((s) => ({
           messages: s.messages.filter((m) => m.userId !== userId),
@@ -86,10 +91,10 @@ export const useRoomChatStore = create(
         set((s) => ({
           newUnreadMessages: !s.open,
           messages: [
-            { ...m, color: generateColorFromString(m.userId) },
             ...(s.messages.length <= 100 || s.frozen
               ? s.messages
-              : s.messages.slice(0, 100)),
+              : s.messages.slice(s.message.length - 100, s.messages.length)),
+            { ...m, color: generateColorFromString(m.userId) },
           ],
         })),
       setMessages: (messages: RoomChatMessage[]) =>

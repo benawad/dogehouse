@@ -21,7 +21,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "ድምፀ-ከል | DogeHouse"
+    "mutedTitle": "ድምፀ-ከል | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -84,7 +86,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "ፈልግ ..." },
-    "soundEffectSettings": { "header": "ድምፆች" },
+    "soundEffectSettings": { "header": "ድምፆች", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "መገለጫ ቀይር",
       "followsYou": "እርስዎን ይከተላል",
@@ -198,7 +200,8 @@
         "banFromRoom": "ከ ክፍል ያግዱ",
         "goBackToListener": "አዳማጭ ይመለሱ",
         "deleteMessage": "ይህን መልዕክት ሰርዝ",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "መናገር ፈቃድ ይጠይቃል",
@@ -227,6 +230,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -244,6 +251,11 @@
         "roomName": "የክፍል ስም",
         "minLength": "ደቂቃ ርዝመት 2",
         "roomDescription": "ክፍል መግለጫ"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

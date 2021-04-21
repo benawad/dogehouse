@@ -21,7 +21,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muted | DogeHouse"
+    "mutedTitle": "Muted | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -84,7 +86,7 @@
       "allowAllConfirm": "Ye sure? Ye will allow all {{count}} skallywags to speak!"
     },
     "searchUser": { "search": "searchin' fer booty..." },
-    "soundEffectSettings": { "header": "Sounds" },
+    "soundEffectSettings": { "header": "Sounds", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "avast ye profile",
       "followsYou": "follows you",
@@ -197,7 +199,8 @@
         "banFromRoom": "Ban from cabin",
         "goBackToListener": "Go back t' shipmate",
         "deleteMessage": "Scuttle this message",
-        "makeRoomCreator": "Make cabin cap'n"
+        "makeRoomCreator": "Make cabin cap'n",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Require permission t' speak",
@@ -226,6 +229,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -243,6 +250,11 @@
         "roomName": "cabin name",
         "minLength": "min length 2",
         "roomDescription": "Description"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

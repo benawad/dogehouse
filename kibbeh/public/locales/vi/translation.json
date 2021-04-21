@@ -21,7 +21,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Tắt âm | DogeHouse"
+    "mutedTitle": "Tắt âm | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -84,7 +86,7 @@
       "allowAllConfirm": "Bạn có chắc không? Hành động này sẽ cho phép {{count}} người dùng có quyền nói"
     },
     "searchUser": { "search": "tìm kiếm..." },
-    "soundEffectSettings": { "header": "Âm thanh" },
+    "soundEffectSettings": { "header": "Âm thanh", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "chỉnh sửa hồ sơ",
       "followsYou": "Theo dõi bạn",
@@ -200,7 +202,8 @@
         "banFromRoom": "cấm khỏi phòng",
         "goBackToListener": "trở về làm thính giả",
         "deleteMessage": "xóa tin nhắn này",
-        "makeRoomCreator": "cho làm quản trị viên"
+        "makeRoomCreator": "cho làm quản trị viên",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "phải được cấp quyền mới có thể nói",
@@ -229,6 +232,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -246,6 +253,11 @@
         "roomName": "tên phòng",
         "roomDescription": "Mô tả",
         "minLength": "tối thiểu 2 ký tự"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

@@ -28,7 +28,7 @@ export const InviteKeybind: React.FC<InviteKeybindProps> = ({ className }) => {
   }, [count, setInviteKeybind]);
 
   return (
-    <div className={`flex flex items-center ${className}`}>
+    <div className={`flex items-center ${className}`}>
       <Button
         size="small"
         onClick={() => {

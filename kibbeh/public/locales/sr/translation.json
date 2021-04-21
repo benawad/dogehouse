@@ -20,7 +20,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Пригушен | DogeHouse"
+    "mutedTitle": "Пригушен | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -83,7 +85,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Претражите..." },
-    "soundEffectSettings": { "header": "Звукови" },
+    "soundEffectSettings": { "header": "Звукови", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Уредите профил",
       "followsYou": "Прати вас",
@@ -196,7 +198,8 @@
         "banFromRoom": "Забраните приступ соби",
         "goBackToListener": "Вратите се слушаоцу",
         "deleteMessage": "Обришите ову поруку",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "Затражи дозволу за причање",
@@ -225,6 +228,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -242,6 +249,11 @@
         "roomName": "Назив собе",
         "minLength": "Минимална дужина 2",
         "roomDescription": "Description"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

@@ -21,7 +21,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Σε Σίγαση | DogeHouse"
+    "mutedTitle": "Σε Σίγαση | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -84,7 +86,7 @@
       "allowAllConfirm": "Είστε σίγουρος; Αυτό θα επιτρέψει όλους τους {{count}} χρήστες που έχουν ζητήσει να μιλήσουν"
     },
     "searchUser": { "search": "αναζήτηση..." },
-    "soundEffectSettings": { "header": "Ήχοι" },
+    "soundEffectSettings": { "header": "Ήχοι", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "επεξεργασία προφίλ",
       "followsYou": "σας ακολουθεί",
@@ -203,7 +205,8 @@
         "banFromRoom": "αποκλεισμός από το δωμάτιο",
         "goBackToListener": "επιστροφή σε ακροατή",
         "deleteMessage": "διαγράψτε αυτό το μήνυμα",
-        "makeRoomCreator": "μετατροπή σε διαχειριστή δωματίου"
+        "makeRoomCreator": "μετατροπή σε διαχειριστή δωματίου",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "απαίτηση άδειας για ομιλία",
@@ -232,6 +235,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -249,6 +256,11 @@
         "roomName": "όνομα δωματίου",
         "roomDescription": "Περιγραφή Δωματίου",
         "minLength": "ελάχιστο μήκος 2"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

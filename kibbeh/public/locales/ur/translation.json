@@ -21,7 +21,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muted | DogeHouse"
+    "mutedTitle": "Muted | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -84,7 +86,10 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "تلاش کریں" },
-    "soundEffectSettings": { "header": "آواز کی ترتیبات" },
+    "soundEffectSettings": {
+      "header": "آواز کی ترتیبات",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "پروفائل میں ترمیم کریں",
       "followsYou": "آپ کو فالو کیا ہوا ہے",
@@ -198,7 +203,8 @@
         "banFromRoom": "کمرے سے پابندی لگانا",
         "goBackToListener": "سننے والوں کے پاس واپس جائیں",
         "deleteMessage": "اس پیغام کو حذف کریں",
-        "makeRoomCreator": "روم ایڈمن بنائیں"
+        "makeRoomCreator": "روم ایڈمن بنائیں",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "بولنے کی اجازت کی ضرورت ہے",
@@ -227,6 +233,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -244,6 +254,11 @@
         "roomName": "کمرے کا نام",
         "minLength": "منٹ لمبائی 2",
         "roomDescription": "کمرے کی تفصیل"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

@@ -21,7 +21,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "ミュート | DogeHouse"
+    "mutedTitle": "ミュート | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -84,7 +86,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "検索..." },
-    "soundEffectSettings": { "header": "音声設定" },
+    "soundEffectSettings": { "header": "音声設定", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "プロフィールを編集",
       "followsYou": "フォローされています",
@@ -195,7 +197,8 @@
         "banFromRoom": "ルームからBAN",
         "goBackToListener": "リスナーに戻る",
         "deleteMessage": "メッセージを削除",
-        "makeRoomCreator": "make room admin"
+        "makeRoomCreator": "make room admin",
+        "unBanFromChat": "Unban from Chat"
       },
       "roomSettingsModal": {
         "requirePermission": "発言を許可制にする",
@@ -224,6 +227,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -241,6 +248,11 @@
         "roomName": "名前",
         "minLength": "2文字以上の名前を指定してください",
         "roomDescription": "説明"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

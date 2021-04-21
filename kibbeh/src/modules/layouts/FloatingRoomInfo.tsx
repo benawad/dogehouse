@@ -30,7 +30,10 @@ export const FloatingRoomInfo: React.FC<MinimizedRoomCardControllerProps> = () =
   const { room } = data;
 
   return (
-    <div className="flex fixed bottom-6 right-6 border-accent border rounded-8 bg-primary-800 items-center">
+    <div
+      style={{ maxWidth: "70vw" }}
+      className="flex fixed bottom-6 right-6 border-accent border rounded-8 bg-primary-800 items-center"
+    >
       <button
         onClick={() => {
           router.push(`/room/${room.id}`);
