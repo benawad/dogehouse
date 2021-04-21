@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../ui/Button";
+import { HeaderController } from "../modules/display/HeaderController";
 
 const links: any = {
   "Mac OS":
@@ -44,23 +45,26 @@ export default function Download() {
   }, []);
 
   return (
-    <div className="flex w-full h-full flex-col items-center justify-center p-8">
-      <h4 className="text-primary-100 mb-4">
-        {downloadFailed
-          ? t("pages.download.failed")
-          : t("pages.download.starting")}
-      </h4>
-      {downloadFailed ? (
-        <Button
-          onClick={() => {
-            window.location.href =
-              "https://github.com/benawad/dogehouse/releases/latest";
-          }}
-        >
-          {t("pages.download.visit_gh")}
-        </Button>
-      ) : null}
-    </div>
+    <>
+      <HeaderController title="Download" />
+      <div className="flex w-full h-full flex-col items-center justify-center p-8">
+        <h4 className="text-primary-100 mb-4">
+          {downloadFailed
+            ? t("pages.download.failed")
+            : t("pages.download.starting")}
+        </h4>
+        {downloadFailed ? (
+          <Button
+            onClick={() => {
+              window.location.href =
+                "https://github.com/benawad/dogehouse/releases/latest";
+            }}
+          >
+            {t("pages.download.visit_gh")}
+          </Button>
+        ) : null}
+      </div>
+    </>
   );
 }
 
