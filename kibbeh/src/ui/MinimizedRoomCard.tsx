@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { Button } from "./Button";
 import { DurationTicker } from "./DurationTicker";
 import SvgSolidMicrophoneOff from "../icons/SolidMicrophoneOff";
-import SvgSolidVolumeOff from "../icons/SolidVolumeOff";
+import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 
 export interface MinimizedRoomCardProps {
   onFullscreenClick?: () => void;
@@ -30,6 +30,7 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
   leaveLoading,
   room,
 }) => {
+  const { t } = useTypeSafeTranslation();
   // gap-n only works with grid
   return (
     <div
@@ -44,48 +45,34 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
           {room.speakers.join(", ")}
         </p>
         <p className="text-accent">
-<<<<<<< HEAD
-          {room.myself.isSpeaker ? "Speaker" : "Listener"} ·{" "}
-          <DurationTicker dt={room.roomStartedAt} />
-=======
           {room.myself.isSpeaker
             ? t("components.bottomVoiceControl.speaker")
             : t("components.bottomVoiceControl.listener")}{" "}
           · <DurationTicker dt={room.roomStartedAt} />
->>>>>>> 8fe929a780fd7519baf938a2f52a0c607547459f
         </p>
       </div>
       <div className="flex flex-row">
         <div className="grid grid-cols-3 gap-2">
           {room.myself.isSpeaker ? (
-            <>
-              <BoxedIcon
-                transition
-                hover={room.myself.isMuted}
-                onClick={room.myself.switchMuted}
-                className={room.myself.isMuted ? "bg-accent" : ""}
-              >
-                {room.myself.isMuted ? (
-                  <SvgSolidMicrophoneOff data-testid="mic-off-icon" />
-                ) : (
-                  <SolidMicrophone data-testid="mic-icon" />
-                )}
-              </BoxedIcon>
-
-              <BoxedIcon
-                transition
-                hover={room.myself.isDeafened}
-                onClick={room.myself.switchDeafened}
-                className={room.myself.isDeafened ? "bg-accent" : ""}
-              >
-                {room.myself.isDeafened ? (
-                  <SvgSolidVolumeOff data-testid="speaker-off-icon" />
-                ) : (
-                  <SolidVolume data-testid="speaker-icon" />
-                )}
-              </BoxedIcon>
-            </>
+            <BoxedIcon
+              transition
+              hover={room.myself.isMuted}
+              onClick={room.myself.switchMuted}
+              className={room.myself.isMuted ? "bg-accent" : ""}
+            >
+              {room.myself.isMuted ? (
+                <SvgSolidMicrophoneOff data-testid="mic-off-icon" />
+              ) : (
+                <SolidMicrophone data-testid="mic-icon" />
+              )}
+            </BoxedIcon>
           ) : null}
+          {/* <BoxedIcon
+            onClick={room.myself.switchDeafened}
+            className={room.myself.isDeafened ? "bg-accent" : ""}
+          >
+            <SolidVolume />
+          </BoxedIcon> */}
           <BoxedIcon transition onClick={onFullscreenClick}>
             <SolidFullscreen />
           </BoxedIcon>
@@ -96,7 +83,7 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
           className="flex-grow ml-4"
           onClick={room.myself.leave}
         >
-          Leave
+          {t("components.bottomVoiceControl.leave")}
         </Button>
       </div>
     </div>

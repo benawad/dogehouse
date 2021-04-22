@@ -210,6 +210,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     },
     "modals": {
@@ -275,11 +279,16 @@
       "myRooms": "my scheduled rooms",
       "scheduleRoomHeader": "Schedule Room",
       "startRoom": "start room",
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
       "modal": {
         "needsFuture": "needs to be in the future",
         "roomName": "room name",
         "roomDescription": "Description",
         "minLength": "min length 2"
+      },
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

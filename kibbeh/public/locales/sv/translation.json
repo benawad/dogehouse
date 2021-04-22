@@ -245,6 +245,10 @@
       "logOut": {
         "button": "Logga ut",
         "modalSubtitle": "Är du säker på att du vill logga ut?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -262,6 +266,11 @@
         "roomName": "Namn",
         "roomDescription": "Beskrivning",
         "minLength": "Lägsta längden: 2"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

@@ -189,6 +189,10 @@
       "logOut": {
         "button": "Chiqish",
         "modalSubtitle": "Chiqishga ishonchingiz komilmi?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     },
     "modals": {
@@ -267,6 +271,11 @@
         "roomName": "xona nomi",
         "roomDescription": "Tavsif",
         "minLength": "minimal uzunlik 2"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

@@ -194,6 +194,10 @@
       "logOut": {
         "button": "Cerrar sesión",
         "modalSubtitle": "¿Estás seguro de que quieres cerrar sesión?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     },
     "modals": {
@@ -261,6 +265,11 @@
         "roomName": "Nombre de la sala",
         "roomDescription": "Descripción",
         "minLength": "La longitud mínima es de 2 caracteres"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

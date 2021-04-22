@@ -243,6 +243,10 @@
       "logOut": {
         "button": "Atsijungti",
         "modalSubtitle": "Ar tikrai norite atsijungti?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -260,6 +264,11 @@
         "roomName": "Kambario pavadinimas",
         "minLength": "Mažiausias ilgis 2",
         "roomDescription": "Kambario aprašymas"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

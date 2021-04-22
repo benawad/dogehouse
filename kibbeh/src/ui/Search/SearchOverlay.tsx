@@ -13,9 +13,6 @@ export const SearchOverlay = forwardRef<
   return (
     <div
       ref={ref}
-<<<<<<< HEAD
-      className={`relative flex flex-col w-full rounded-8 bg-primary-800 ${className}`}
-=======
       className={`absolute flex flex-col py-2 rounded-8 bg-primary-800 border-primary-700 border ${className}`}
       style={{
         minHeight: "198px",
@@ -27,7 +24,6 @@ export const SearchOverlay = forwardRef<
         width: "calc(100% + 20px)",
         zIndex: -1,
       }}
->>>>>>> 8fe929a780fd7519baf938a2f52a0c607547459f
       {...props}
     >
       {children}
