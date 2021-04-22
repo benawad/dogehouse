@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 
 export interface BaseSettingsItemProps {
   children: ReactNode;
+  className: string;
 }
 
 export const BaseSettingsItem: React.FC<BaseSettingsItemProps> = ({
