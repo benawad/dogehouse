@@ -53,7 +53,8 @@
     "home": {
       "createRoom": "New room",
       "editRoom": "Edit Room",
-      "refresh": "Refresh"
+      "refresh": "Refresh",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Room gone; go back",

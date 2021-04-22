@@ -42,7 +42,8 @@
     "home": {
       "createRoom": "Kamer maken",
       "refresh": "Verversen",
-      "editRoom": "Kamer aanpassen"
+      "editRoom": "Kamer aanpassen",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Kamer bestaat niet, ga terug",

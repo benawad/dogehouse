@@ -42,7 +42,8 @@
     "home": {
       "createRoom": "방 만들기",
       "refresh": "새로고침",
-      "editRoom": "방 수정하기"
+      "editRoom": "방 수정하기",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "채팅방이 삭제됨. 이전 페이지로 돌아가기.",

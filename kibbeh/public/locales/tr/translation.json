@@ -42,7 +42,8 @@
     "home": {
       "createRoom": "Oda oluştur",
       "refresh": "Yenile",
-      "editRoom": "Oda Düzenle"
+      "editRoom": "Oda Düzenle",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Oda gitti, geri dön",

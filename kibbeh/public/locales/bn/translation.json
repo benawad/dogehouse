@@ -46,7 +46,8 @@
     "home": {
       "createRoom": "রুম বানান",
       "refresh": "রিফ্রেশ করুন",
-      "editRoom": "রুম এডিট করুন"
+      "editRoom": "রুম এডিট করুন",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "রুম শেষ, ফিরে আসুন",

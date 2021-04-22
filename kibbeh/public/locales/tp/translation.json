@@ -46,7 +46,8 @@
     "home": {
       "createRoom": "pali e tomo",
       "refresh": "tenpo tu la kama jo e ni",
-      "editRoom": "ante e tomo"
+      "editRoom": "ante e tomo",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "tomo li weka, tawa monsi",

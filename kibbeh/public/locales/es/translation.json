@@ -41,7 +41,8 @@
     "home": {
       "createRoom": "Crear sala",
       "editRoom": "Editar sala",
-      "refresh": "Recargar"
+      "refresh": "Recargar",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Sala no disponible, volver atrás",

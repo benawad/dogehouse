@@ -43,7 +43,8 @@
     "home": {
       "createRoom": "Sukurti kambarį",
       "refresh": "Refresh",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Kambario nebėra, grįžkite atgal",

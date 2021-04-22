@@ -42,7 +42,8 @@
     "home": {
       "createRoom": "గదిని సృష్టించండి",
       "refresh": "Refresh",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "గది పోయింది, తిరిగి వెళ్ళు",

@@ -42,7 +42,8 @@
     "home": {
       "createRoom": "Vytvoriť miestnosť",
       "refresh": "Obnoviť",
-      "editRoom": "Upraviť miestnosť"
+      "editRoom": "Upraviť miestnosť",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "miestnosť je fuč, vráť sa",

@@ -42,7 +42,8 @@
     "home": {
       "createRoom": "สร้างห้อง",
       "refresh": "รีเฟรช",
-      "editRoom": "แก้ไขห้อง"
+      "editRoom": "แก้ไขห้อง",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "ไม่พบห้อง, กรุณากลับไปที่หน้าหลัก",

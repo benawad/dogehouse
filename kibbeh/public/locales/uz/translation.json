@@ -46,7 +46,8 @@
     "home": {
       "createRoom": "Xona yaratish",
       "refresh": "Yangilash",
-      "editRoom": "Xonani tahrirlash"
+      "editRoom": "Xonani tahrirlash",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Xona yo'q, orqaga qayting",

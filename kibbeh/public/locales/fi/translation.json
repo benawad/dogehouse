@@ -43,7 +43,8 @@
     "home": {
       "createRoom": "Luo huone",
       "refresh": "Päivitä",
-      "editRoom": "Muokkaa huonetta"
+      "editRoom": "Muokkaa huonetta",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Huone poistettu, palaa takaisin",

@@ -42,7 +42,8 @@
     "home": {
       "createRoom": "Gela Sortu",
       "editRoom": "Edit Room",
-      "refresh": "Refresh"
+      "refresh": "Refresh",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "gela ez dago erabilgarri",

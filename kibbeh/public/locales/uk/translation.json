@@ -46,7 +46,8 @@
     "home": {
       "createRoom": "Створити Кімнату",
       "refresh": "Оновити",
-      "editRoom": "Редагувати кімнату"
+      "editRoom": "Редагувати кімнату",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "кімнати вже немає, повернутися",

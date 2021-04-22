@@ -43,7 +43,8 @@
     "home": {
       "createRoom": "Ustvari sobo",
       "refresh": "Osveži",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Sobe ni bilo mogoče najti! Nazaj",

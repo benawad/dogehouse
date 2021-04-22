@@ -43,7 +43,8 @@
     "home": {
       "createRoom": "Tạo phòng",
       "refresh": "Làm mới",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "phòng đã kết thúc, quay lại đi",

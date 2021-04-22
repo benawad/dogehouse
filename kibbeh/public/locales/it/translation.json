@@ -42,7 +42,8 @@
     "home": {
       "createRoom": "Crea una stanza",
       "refresh": "Ricarica",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "La stanza non esiste, torna indietro",

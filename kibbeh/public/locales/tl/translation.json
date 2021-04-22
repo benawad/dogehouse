@@ -42,7 +42,8 @@
     "home": {
       "createRoom": "Bagong room",
       "editRoom": "Edit Room",
-      "refresh": "Refresh"
+      "refresh": "Refresh",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "nawala ang room, bumalik ka",

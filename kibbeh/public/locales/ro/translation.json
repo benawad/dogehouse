@@ -43,7 +43,8 @@
     "home": {
       "createRoom": "Creează cameră",
       "refresh": "Refresh",
-      "editRoom": "Editeaza cameră"
+      "editRoom": "Editeaza cameră",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Camera a dispărut, du-te înapoi",

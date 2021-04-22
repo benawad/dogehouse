@@ -43,7 +43,8 @@
     "home": {
       "createRoom": "Kamer make",
       "refresh": "Verviesje",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Kamer besjteed niet, gank teruk",

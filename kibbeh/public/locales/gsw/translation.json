@@ -43,7 +43,8 @@
     "home": {
       "createRoom": "Ruum erstelle",
       "refresh": "Aktualisiere",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Ruum isch nid gfunge worde! Zrugg",
