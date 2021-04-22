@@ -97,7 +97,10 @@ defmodule Broth.Message.Auth.Request do
         deafened: request.deafened
       )
 
-      UserSession.set_pid(user_id, self())
+      # currently we only allow one active websocket connection per-user
+      # at some point soon we're going to make this multi-connection, and we
+      # won't have to do this.
+      UserSession.set_active_ws(user_id, self())
 
       if tokens do
         UserSession.new_tokens(user_id, tokens)
