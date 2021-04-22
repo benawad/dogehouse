@@ -22,13 +22,12 @@ defmodule BrothTest.FollowTest do
 
       refute Beef.Follows.following_me?(followed.id, t.user.id)
 
-      WsClient.send_msg_legacy(t.client_ws, "follow", %{
+      WsClient.send_call_legacy(t.client_ws, "follow", %{
         "userId" => followed.id,
         "value" => true
       })
 
-      # this is kind of terrible, we should make this a call operation.
-      Process.sleep(100)
+      WsClient.assert_frame(_, payload)
 
       assert Beef.Follows.following_me?(followed.id, t.user.id)
     end
@@ -43,13 +42,12 @@ defmodule BrothTest.FollowTest do
 
       assert Beef.Follows.following_me?(followed.id, t.user.id)
 
-      WsClient.send_msg_legacy(t.client_ws, "follow", %{
+      WsClient.send_call_legacy(t.client_ws, "follow", %{
         "userId" => followed.id,
         "value" => false
       })
 
-      # this is kind of terrible, we should make this a call operation.
-      Process.sleep(100)
+      WsClient.assert_frame(_, payload)
 
       refute Beef.Follows.following_me?(followed.id, t.user.id)
     end

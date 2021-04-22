@@ -1,9 +1,20 @@
 defmodule Broth.Message.Cast do
   @moduledoc """
   API contract statement for cast message modules
+
+  If this route can be used without authorization, set the
+  `:needs_auth` keyword parameter to false.
   """
 
-  defmacro __using__(_) do
+  import Broth.Message.Call, only: [auth_check: 1]
+
+  defmacro __using__(opts) do
+    # needs_auth defaults to true
+    auth_check =
+      opts
+      |> Keyword.get(:needs_auth, true)
+      |> auth_check()
+
     quote do
       use Ecto.Schema
       import Ecto.Changeset
@@ -12,6 +23,8 @@ defmodule Broth.Message.Cast do
 
       Module.register_attribute(__MODULE__, :directions, accumulate: true, persist: true)
       @directions [:inbound]
+
+      unquote(auth_check)
 
       # default, overrideable intializer value
 
@@ -23,6 +36,8 @@ defmodule Broth.Message.Cast do
 
   alias Broth.SocketHandler
   alias Ecto.Changeset
+
+  @callback auth_check(SocketHandler.state()) :: :ok | {:error, :auth}
 
   @callback changeset(Broth.json()) :: Ecto.Changeset.t()
   @callback changeset(struct | nil, Broth.json()) :: Ecto.Changeset.t()
