@@ -22,6 +22,7 @@
     "_comment": "Cabeçalho da interface principal para traduções",
     "title": "DogeHouse",
     "mutedTitle": "Silenciado | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -140,7 +141,10 @@
       "settings": "Configurações",
       "speaker": "Apresentador",
       "listener": "Ouvintes",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "micPermissionBanner": {
       "permissionDenied": "Permissão negada ao tentar acessar o seu microfone (talvez você tenha que ir nas configurações de seu navegador e recarregar a página)",
@@ -204,7 +208,8 @@
       "listening": "ouvindo",
       "toggleMuteKeybind": "ativar/desativar atalho para mutar",
       "togglePushToTalkKeybind": "ativar/desativar pressione para falar",
-      "toggleOverlayKeybind": "alternar o atalho de teclado de sobreposição"
+      "toggleOverlayKeybind": "alternar o atalho de teclado de sobreposição",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "wsKilled": {
       "description": "O Websocket foi finalizado pelo servidor. Isso geralmente acontece quando você abre o site em outra guia.",

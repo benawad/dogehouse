@@ -21,6 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "已静音 | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "概览",
     "connectionTaken": "Connection Taken"
   },
@@ -137,7 +138,10 @@
       "settings": "设置",
       "speaker": "扬声器",
       "listener": "听者",
-      "chat": "文字聊天"
+      "chat": "文字聊天",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "micPermissionBanner": {
       "permissionDenied": "麦克风使用权被拒绝（可能需要更改设置并且刷新页面）",
@@ -203,7 +207,8 @@
       "listening": "等待输入",
       "toggleMuteKeybind": "切换静音键绑定",
       "togglePushToTalkKeybind": "切换按键说话绑定",
-      "toggleOverlayKeybind": "切换覆盖层绑定"
+      "toggleOverlayKeybind": "切换覆盖层绑定",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "wsKilled": {
       "description": "连接被服务器终止。当您在另一个标签中打开此网站时，通常会发生这种情况 ",

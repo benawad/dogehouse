@@ -1,6 +1,6 @@
 import React from "react";
 import { Story } from "@storybook/react";
-import { ErrorToast, ErrorMessageProps } from "../ui/ErrorToast";
+import { ErrorToast, ErrorMessageProps } from "../ui/Toast";
 import { toStr } from "./utils/toStr";
 import { toBoolean } from "./utils/toBoolean";
 

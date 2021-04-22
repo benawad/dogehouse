@@ -31,7 +31,7 @@ export const ViewScheduledRoomPage: React.FC<ViewScheduledRoomPageProps> = ({}) 
   if ("error" in data || !data.room) {
     return (
       <DesktopLayout>
-        <InfoText>Could not find room</InfoText>
+        <InfoText>could not find room</InfoText>
       </DesktopLayout>
     );
   }

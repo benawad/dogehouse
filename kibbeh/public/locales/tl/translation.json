@@ -21,6 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Muted | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -140,7 +141,10 @@
       "settings": "Mga Settings",
       "speaker": "Nagsasalita",
       "listener": "Nakikinig",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Pasensya na hindi pa supportado ang iyong device.",
@@ -167,7 +171,8 @@
       "listening": "nakikinig...",
       "toggleMuteKeybind": "I-toggle ang mute keybind",
       "toggleOverlayKeybind": "Toggle overlay keybind",
-      "togglePushToTalkKeybind": "I-toggle ang push-to-talk keybind"
+      "togglePushToTalkKeybind": "I-toggle ang push-to-talk keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Walang na detect na audio consumer"

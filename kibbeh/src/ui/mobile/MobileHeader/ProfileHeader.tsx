@@ -22,7 +22,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   onSearchClick,
 }) => {
   return (
-    <div className="flex w-full p-3 justify-between items-center bg-primary-900">
+    <div className="flex w-full p-3 flex justify-between items-center bg-primary-900">
       <SingleUser size="xxs" src={avatar} isOnline={true} />
       <div className="flex gap-x-5">
         {onAnnouncementsClick && (

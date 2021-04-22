@@ -71,7 +71,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
       >
         <div className={`flex justify-between`}>
           <div className="flex w-full">
-            <div className="flex flex-1 font-bold text-ellipsis overflow-hidden break-all">
+            <div className="flex flex-1 font-bold text-ellipsis overflow-hidden break-all mb-4">
               {name}
             </div>
             <div className="flex gap-2">
@@ -104,7 +104,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
                   <BoxedIcon
                     onClick={() =>
                       modalConfirm(
-                        t("modules.scheduledRooms.deleteModal.areYouSure"),
+                        "Are you sure you want to delete this scheduled room?",
                         () => {
                           mutateAsync([id]);
                         }
@@ -120,7 +120,7 @@ export const ScheduledRoomCard: React.FC<ScheduledRoomCardProps> = ({
         </div>
         <div className={`flex justify-between`}>
           <div className="flex flex-col">
-            <div className={`relative inline-flex`}>
+            <div className={`relative inline-flex mb-4`}>
               <SingleUser size="xs" src={creator.avatarUrl} />
               <div
                 style={{

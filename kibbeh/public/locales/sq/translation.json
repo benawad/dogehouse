@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "I heshtur | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -138,7 +139,10 @@
       "settings": "Cilësimet",
       "speaker": "Folësit",
       "listener": "Dëgjuesit",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Paisja juaj nuk është e mbështetur. Ju mund të krijoni një",
@@ -156,7 +160,8 @@
       "listening": "duke dëgjuar",
       "toggleMuteKeybind": "Keybind hesht/ç'hesht",
       "togglePushToTalkKeybind": "Keybind ndiz/fik shtyp-për-të-folur",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "për ndonjë arsye nuk ka asnje konsumator audio"

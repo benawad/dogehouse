@@ -16,6 +16,7 @@ defmodule Broth.Translator.V0_1_0 do
     "get_current_room_users" => "room:get_users",
     "get_blocked_from_room_users" => "room:get_banned_users",
     "mute" => "room:mute",
+    "deafen" => "room:deafen",
     "delete_room_chat_message" => "chat:delete_msg",
     "auth" => "auth:request",
     "leave_room" => "room:leave",
@@ -148,6 +149,11 @@ defmodule Broth.Translator.V0_1_0 do
     put_in(message, ["d"], %{"muted" => active?})
   end
 
+  def translate_in_body(message, "deafen") do
+    active? = get_in(message, ["d", "value"])
+    put_in(message, ["d"], %{"deafened" => active?})
+  end
+
   def translate_in_body(message, "get_my_scheduled_rooms_about_to_start") do
     message
     |> put_in(["d", "range"], "upcoming")
@@ -183,7 +189,7 @@ defmodule Broth.Translator.V0_1_0 do
 
   # these casts need to be instrumented with fetchId in order to be treated
   # as a cast.
-  @casts_to_calls ~w(auth leave_room ban fetch_invite_list make_room_public mute)
+  @casts_to_calls ~w(auth leave_room ban fetch_invite_list make_room_public mute deafen)
 
   def add_in_ref(message, op) when op in @casts_to_calls do
     Map.put(message, "fetchId", UUID.uuid4())

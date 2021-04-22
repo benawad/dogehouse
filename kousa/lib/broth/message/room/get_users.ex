@@ -25,11 +25,12 @@ defmodule Broth.Message.Room.GetUsers do
 
     @primary_key false
 
-    @derive {Jason.Encoder, only: [:users, :muteMap, :activeSpeakerMap, :roomId, :autoSpeaker]}
+    @derive {Jason.Encoder, only: [:users, :muteMap, :deafMap, :activeSpeakerMap, :roomId, :autoSpeaker]}
 
     embedded_schema do
       embeds_many(:users, Beef.Schemas.User)
       field(:muteMap, :map)
+      field(:deafMap, :map)
       field(:activeSpeakerMap, :map)
       field(:roomId, :binary_id)
       field(:autoSpeaker, :boolean)
@@ -39,7 +40,7 @@ defmodule Broth.Message.Room.GetUsers do
   def execute(changeset, state) do
     with {:ok, _request} <- apply_action(changeset, :validate),
          {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id) do
-      {muteMap, autoSpeaker, activeSpeakerMap} =
+      {muteMap, deafMap, autoSpeaker, activeSpeakerMap} =
         if room_id do
           Onion.RoomSession.get_maps(room_id)
         else
@@ -50,6 +51,7 @@ defmodule Broth.Message.Room.GetUsers do
        %Reply{
          users: users,
          muteMap: muteMap,
+         deafMap: muteMap,
          activeSpeakerMap: activeSpeakerMap,
          roomId: room_id,
          autoSpeaker: autoSpeaker

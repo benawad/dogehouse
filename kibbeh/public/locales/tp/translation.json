@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "sina ken ala e toki | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -144,7 +145,10 @@
       "settings": "sitelen lawa",
       "speaker": "jan toki",
       "listener": "jan kute",
-      "chat": "sitelen kulupu"
+      "chat": "sitelen kulupu",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Lipu len ni li pali ala kepeken ilo nanpa sina. pali e",
@@ -165,7 +169,8 @@
       "listening": "kute e nena",
       "toggleMuteKeybind": "nena pi ante e ken toki",
       "toggleOverlayKeybind": "nena pi ante e sitelen sewi sitelen sina",
-      "togglePushToTalkKeybind": "nena pi ante e \"utala la toki\""
+      "togglePushToTalkKeybind": "nena pi ante e \"utala la toki\"",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "ali li kute e kalama" },
     "addToCalendar": { "add": "sitelen e ni lon lipu tenpo suno" },

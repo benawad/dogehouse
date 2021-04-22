@@ -21,6 +21,7 @@
     "_comment": "Ana başlık arayüz ulusallaştırma yazıları",
     "title": "DogeHouse",
     "mutedTitle": "Sessiz | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Panel",
     "connectionTaken": "Bağlantı Sağlandı"
   },
@@ -141,7 +142,10 @@
       "settings": "Ayarlar",
       "speaker": "Konuşmacı",
       "listener": "Dinleyici",
-      "chat": "Sohbet"
+      "chat": "Sohbet",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "micPermissionBanner": {
       "permissionDenied": "Mikrofonunuza erişmeye çalışırken izin reddedildi (tarayıcı ayarlarına gitmeniz ve sayfayı yeniden yüklemeniz gerekebilir)",
@@ -205,7 +209,8 @@
       "listening": "Dinleniyor",
       "toggleMuteKeybind": "susturma aç/kapat tuş ataması",
       "togglePushToTalkKeybind": "bas-konuş tuş ataması",
-      "toggleOverlayKeybind": "kaplama tuş ataması"
+      "toggleOverlayKeybind": "kaplama tuş ataması",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "wsKilled": {
       "description": "WebSocket bağlantısı sunucu tarafından kapatıldı. Bu genellikle websiteyi başka bir sekmede açtığında yaşanır.",
