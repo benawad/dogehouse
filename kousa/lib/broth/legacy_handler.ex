@@ -32,7 +32,7 @@ defmodule Broth.LegacyHandler do
 
     Kousa.UserBlock.block(state.user_id, user_id_to_block)
     Kousa.Room.block_from_room(state.user_id, user_id_to_block)
-    {:ok, state}
+    nil
   end
 
   defp fetch_follow_list(
@@ -42,20 +42,19 @@ defmodule Broth.LegacyHandler do
     {users, nextCursor} =
       Kousa.Follow.get_follow_list(state.user_id, user_id, get_following_list, cursor)
 
-    {:reply,
-     prepare_socket_msg(
-       %{
-         op: "fetch_follow_list_done",
-         d: %{
-           isFollowing: get_following_list,
-           userId: user_id,
-           users: users,
-           nextCursor: nextCursor,
-           initial: cursor == 0
-         }
-       },
-       state
-     ), state}
+    prepare_socket_msg(
+      %{
+        op: "fetch_follow_list_done",
+        d: %{
+          isFollowing: get_following_list,
+          userId: user_id,
+          users: users,
+          nextCursor: nextCursor,
+          initial: cursor == 0
+        }
+      },
+      state
+    )
   end
 
   defp join_room_and_get_info(%{"roomId" => room_id_to_join}, fetch_id, state) do
@@ -95,6 +94,6 @@ defmodule Broth.LegacyHandler do
           %{op: "error", d: "unexpected error"}
       end
 
-    {:reply, prepare_socket_msg(reply, state), state}
+    prepare_socket_msg(reply, state)
   end
 end

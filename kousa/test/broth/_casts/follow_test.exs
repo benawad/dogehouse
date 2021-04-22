@@ -48,7 +48,7 @@ defmodule BrothTest.FollowTest do
       })
 
       WsClient.assert_frame(_, payload)
-      
+
       refute Beef.Follows.following_me?(followed.id, t.user.id)
     end
 

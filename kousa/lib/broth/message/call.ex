@@ -30,7 +30,8 @@ defmodule Broth.Message.Call do
         [:outbound]
       end
 
-      auth_check = opts
+    auth_check =
+      opts
       |> Keyword.get(:needs_auth, true)
       |> auth_check()
 
@@ -64,6 +65,7 @@ defmodule Broth.Message.Call do
       def auth_check(_), do: :ok
     end
   end
+
   def auth_check(false) do
     quote do
       @impl true

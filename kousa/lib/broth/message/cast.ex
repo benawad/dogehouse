@@ -7,9 +7,10 @@ defmodule Broth.Message.Cast do
 
   defmacro __using__(opts) do
     # needs_auth defaults to true
-    auth_check = opts
-    |> Keyword.get(:needs_auth, true)
-    |> auth_check()
+    auth_check =
+      opts
+      |> Keyword.get(:needs_auth, true)
+      |> auth_check()
 
     quote do
       use Ecto.Schema

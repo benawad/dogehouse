@@ -22,9 +22,10 @@ defmodule BrothTest.User.FollowTest do
 
       refute Beef.Follows.following_me?(followed.id, t.user.id)
 
-      ref = WsClient.send_call(t.client_ws, "user:follow", %{
-        "userId" => followed.id
-      })
+      ref =
+        WsClient.send_call(t.client_ws, "user:follow", %{
+          "userId" => followed.id
+        })
 
       WsClient.assert_reply("user:follow:reply", ref, %{})
 
