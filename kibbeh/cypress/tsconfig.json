@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "target": "es6",
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "noEmitOnError": false,
+    "resolveJsonModule": true,
+    "importHelpers": true,
+    "strict": true,
+    "lib": ["ESNext", "DOM"],
+    "types": ["cypress"],
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "preserveSymlinks": true,
+    "typeRoots": ["./node_modules/@types"],
+    "downlevelIteration": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+    // "baseUrl": "src"
+  },
+  "include": ["./**/*.ts"],
+  "exclude": ["node_modules"]
+}

@@ -12,64 +12,6 @@ const links: any = {
     "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{version}}.AppImage",
 };
 
-export default function Download() {
-  const [downloadFailed, setDownloadFailed] = useState(false);
-  const { t } = useTypeSafeTranslation();
-  useEffect(() => {
-    let os = getOS();
-    if (!os.isPhone) {
-      let res = false;
-      var xmlHttp = new XMLHttpRequest();
-      xmlHttp.open(
-        "GET",
-        "https://api.github.com/repos/benawad/dogehouse/releases/latest"
-      );
-      xmlHttp.send(null);
-      xmlHttp.onreadystatechange = () => {
-        if (xmlHttp.responseText && !res) {
-          res = true;
-          const data = JSON.parse(xmlHttp.responseText);
-          const tag = data.tag_name;
-          if (tag) {
-            let version = tag.replace("version", "");
-            let link = links[os.os]
-              .replace("{{tag}}", tag)
-              .replace("{{version}}", version);
-            window.location.href = link;
-          } else {
-            setDownloadFailed(true);
-          }
-        }
-      };
-    } else {
-      setDownloadFailed(true);
-    }
-  }, []);
-
-  return (
-    <>
-      <HeaderController title="Download" />
-      <div className="flex w-full h-full flex-col items-center justify-center p-8">
-        <h4 className="text-primary-100 mb-4">
-          {downloadFailed
-            ? t("pages.download.failed")
-            : t("pages.download.starting")}
-        </h4>
-        {downloadFailed ? (
-          <Button
-            onClick={() => {
-              window.location.href =
-                "https://github.com/benawad/dogehouse/releases/latest";
-            }}
-          >
-            {t("pages.download.visit_gh")}
-          </Button>
-        ) : null}
-      </div>
-    </>
-  );
-}
-
 function getOS() {
   let isWindows = false;
   let isMac = false;
@@ -107,4 +49,62 @@ function getOS() {
   }
 
   return { isWindows, isMac, isLinux, isPhone, os };
+}
+
+export default function Download() {
+  const [downloadFailed, setDownloadFailed] = useState(false);
+  const { t } = useTypeSafeTranslation();
+  useEffect(() => {
+    const os = getOS();
+    if (!os.isPhone) {
+      let res = false;
+      const xmlHttp = new XMLHttpRequest();
+      xmlHttp.open(
+        "GET",
+        "https://api.github.com/repos/benawad/dogehouse/releases/latest"
+      );
+      xmlHttp.send(null);
+      xmlHttp.onreadystatechange = () => {
+        if (xmlHttp.responseText && !res) {
+          res = true;
+          const data = JSON.parse(xmlHttp.responseText);
+          const tag = data.tag_name;
+          if (tag) {
+            const version = tag.replace("version", "");
+            const link = links[os.os]
+              .replace("{{tag}}", tag)
+              .replace("{{version}}", version);
+            window.location.href = link;
+          } else {
+            setDownloadFailed(true);
+          }
+        }
+      };
+    } else {
+      setDownloadFailed(true);
+    }
+  }, []);
+
+  return (
+    <>
+      <HeaderController title="Download" />
+      <div className="flex w-full h-full flex-col items-center justify-center p-8">
+        <h4 className="text-primary-100 mb-4">
+          {downloadFailed
+            ? t("pages.download.failed")
+            : t("pages.download.starting")}
+        </h4>
+        {downloadFailed ? (
+          <Button
+            onClick={() => {
+              window.location.href =
+                "https://github.com/benawad/dogehouse/releases/latest";
+            }}
+          >
+            {t("pages.download.visit_gh")}
+          </Button>
+        ) : null}
+      </div>
+    </>
+  );
 }
