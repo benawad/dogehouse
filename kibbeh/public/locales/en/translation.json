@@ -38,8 +38,9 @@
       "ban": "Ban"
     },
     "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
+      "prompt": "Download the DogeHouse Desktop app",
+      "download_for": "Download for %platform%",
+      "failed": "Unable to detect platform, please try again later or visit GitHub Releases",
       "visit_gh": "Visit GitHub Releases"
     },
     "followingOnlineList": {

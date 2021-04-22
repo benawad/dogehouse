@@ -3,14 +3,13 @@ import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../ui/Button";
 import { HeaderController } from "../modules/display/HeaderController";
 
-const links: any = {
-  "Mac OS":
-    "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{version}}.dmg",
-  Windows:
-    "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-Setup-{{version}}.exe",
-  Linux:
-    "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{version}}.AppImage",
-};
+const links = [
+  "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-Setup-{{version}}.exe", // windows
+  "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{version}}.dmg", // macOS
+  "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{version}}.AppImage", // linux
+];
+
+const platforms = ["Windows", "macOS", "Linux"];
 
 function getOS() {
   let isWindows = false;
@@ -31,8 +30,9 @@ function getOS() {
   const iosPlatforms = ["iPhone", "iPad", "iPod"];
 
   let os = "Windows";
+  isWindows = true;
   if (macosPlatforms.indexOf(platform) !== -1) {
-    os = "Mac OS";
+    os = "macOS";
     isMac = true;
   } else if (iosPlatforms.indexOf(platform) !== -1) {
     os = "iOS";
@@ -52,8 +52,13 @@ function getOS() {
 }
 
 export default function Download() {
+  const [loaded, setLoaded] = useState(false);
+  const [downloadLinks, setDownloadLinks] = useState(links);
+  const [currentPlatform, setCurrentPlatform] = useState(0);
   const [downloadFailed, setDownloadFailed] = useState(false);
+
   const { t } = useTypeSafeTranslation();
+
   useEffect(() => {
     const os = getOS();
     if (!os.isPhone) {
@@ -66,21 +71,34 @@ export default function Download() {
       xmlHttp.send(null);
       xmlHttp.onreadystatechange = () => {
         if (xmlHttp.responseText && !res) {
-          res = true;
-          const data = JSON.parse(xmlHttp.responseText);
-          const tag = data.tag_name;
-          if (tag) {
-            const version = tag.replace("version", "");
-            const link = links[os.os]
-              .replace("{{tag}}", tag)
-              .replace("{{version}}", version);
-            window.location.href = link;
-          } else {
+          try {
+            const data = JSON.parse(xmlHttp.responseText);
+            res = true;
+            const tag = data.tag_name;
+            if (tag) {
+              const version = tag.replace("v", "");
+              links.forEach((l) => {
+                let i = links.indexOf(l);
+                links[i] = l
+                  .replace("{{tag}}", tag)
+                  .replace("{{version}}", version);
+              });
+              setDownloadLinks(links);
+              setCurrentPlatform(platforms.indexOf(os.os));
+              setLoaded(true);
+              setDownloadFailed(false);
+            } else {
+              setLoaded(true);
+              setDownloadFailed(true);
+            }
+          } catch (e) {
+            res = false;
             setDownloadFailed(true);
           }
         }
       };
     } else {
+      setLoaded(true);
       setDownloadFailed(true);
     }
   }, []);
@@ -90,21 +108,67 @@ export default function Download() {
       <HeaderController title="Download" />
       <div className="flex w-full h-full flex-col items-center justify-center p-8">
         <h4 className="text-primary-100 mb-4">
-          {downloadFailed
-            ? t("pages.download.failed")
-            : t("pages.download.starting")}
+          {loaded
+            ? downloadFailed
+              ? t("pages.download.failed")
+              : t("pages.download.prompt")
+            : t("common.loading")}
         </h4>
-        {downloadFailed ? (
+
+        {loaded ? (
           <Button
             onClick={() => {
-              window.location.href =
-                "https://github.com/benawad/dogehouse/releases/latest";
+              window.location.href = downloadFailed
+                ? "https://github.com/benawad/dogehouse/releases/latest"
+                : downloadLinks[currentPlatform];
             }}
           >
-            {t("pages.download.visit_gh")}
+            {downloadFailed
+              ? t("pages.download.visit_gh")
+              : t("pages.download.download_for").replace(
+                  "%platform%",
+                  platforms[currentPlatform]
+                )}
           </Button>
+        ) : null}
+
+        {loaded ? (
+          !downloadFailed ? (
+            <div className="flex lg:flex-row md:flex-col sm:flex-col lg:space-x-4 p-2 items-center">
+              {platforms &&
+                platforms.map((platform) => (
+                  <OtherPlatformButton
+                    platform={platform}
+                    currentPlatform={currentPlatform}
+                    downloadLinks={downloadLinks}
+                    key={platform}
+                  />
+                ))}
+            </div>
+          ) : null
         ) : null}
       </div>
     </>
   );
+}
+
+function OtherPlatformButton(props: {
+  platform: string;
+  currentPlatform: number;
+  downloadLinks: string[];
+}) {
+  const { t } = useTypeSafeTranslation();
+  const index = platforms.indexOf(props.platform);
+  const isCurrent = index === props.currentPlatform;
+  return !isCurrent ? (
+    <Button
+      color="secondary"
+      className="my-2"
+      onClick={() => {
+        window.location.href = props.downloadLinks[index];
+      }}
+    >
+      {t("pages.download.download_for").replace("%platform%", platforms[index])}
+    </Button>
+  ) : null;
 }
