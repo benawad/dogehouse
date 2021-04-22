@@ -42,7 +42,7 @@
     "home": {
       "createRoom": "Oda oluştur",
       "refresh": "Yenile",
-      "editRoom": "Edit Room"
+      "editRoom": "Oda Düzenle"
     },
     "inviteList": {
       "roomGone": "Oda gitti, geri dön",
@@ -171,7 +171,7 @@
         "bioLabel": "Biyo"
       },
       "profileModal": {
-        "blockUserConfirm": "Oluşturduğun tüm odalar için bu kullanıcıyı bloklamak istediğine emin misin?",
+        "blockUserConfirm": "Oluşturduğun tüm odalar için bu kullanıcıyı yasaklamak istediğine emin misin?",
         "blockUser": "Kullanıcıyı Blokla",
         "makeMod": "Moderatör Yap",
         "unmod": "Moderatörlükten Çıkar",
@@ -182,14 +182,14 @@
         "goBackToListener": "Dinlemeye Geri Dön",
         "deleteMessage": "Mesajı Sil",
         "makeRoomCreator": "Oda Yetkilisi Yap",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Sohbetten yasaklanmasını kaldır"
       },
       "roomSettingsModal": {
         "requirePermission": "Konuşmak için izne ihtiyacın var",
         "makePublic": "Odayı herkese açık yap",
         "makePrivate": "Odayı gizli yap",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "Herkese açık oda adı seç",
+        "renamePrivate": "Gizli oda adı seç"
       }
     },
     "userVolumeSlider": { "noAudioMessage": "Nedense ses alıcısı yok" },
@@ -215,28 +215,28 @@
       "inviteToRoom": "Odaya Davet Et"
     },
     "followingOnline": {
-      "people": "People",
-      "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "people": "Arkadaşlar",
+      "online": "AKTİF",
+      "noOnline": "Şu anda hiçbir arkadaşın aktif değil",
+      "showMore": "Daha fazlasını göster"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "Yaklaşan Odalar",
+      "exploreMoreRooms": "Daha Çok Oda Keşfet"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": { "placeholder": "Oda, kullanıcı veya kategori ara..." },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "Profil",
+      "language": "Dil",
+      "reportABug": "Hata Bildir",
+      "useOldVersion": "Eski sürümü kullan",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "Çıkış yap",
+        "modalSubtitle": "Çıkış yapmak istediğine emin misin?"
       },
       "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
+        "debugAudio": "Ses Hatalarını Ayıkla",
+        "stopDebugger": "Hata Ayıklamayı Durdur"
       }
     }
   },
@@ -254,10 +254,10 @@
         "minLength": "Minimum oda ismi uzunluğu 2",
         "roomDescription": "Açıklama"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "tommorow": "YARIN",
+      "today": "BUGÜN",
       "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
+        "areYouSure": "Bu planlanmış odayı silmek istediğinize emin misiniz?"
       }
     },
     "roomChat": {
