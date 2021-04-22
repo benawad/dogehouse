@@ -1,5 +1,6 @@
 defmodule Broth.Message.Auth.Request do
-  use Broth.Message.Call
+  use Broth.Message.Call,
+    needs_auth: false
 
   @primary_key false
   embedded_schema do

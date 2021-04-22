@@ -207,6 +207,7 @@ defmodule BrothTest.WsClientFactory do
 
     # link the UserProcess to prevent dangling DB sandbox lookups
     [{usersession_pid, _}] = Registry.lookup(Onion.UserSessionRegistry, user.id)
+    # associate the user session with the database.
     Process.link(usersession_pid)
 
     client_ws

@@ -16,6 +16,10 @@ defmodule Broth.SocketHandler do
 
   @behaviour :cowboy_websocket
 
+  ###############################################################
+  ## initialization boilerplate
+
+  @impl true
   def init(request, _state) do
     props = :cowboy_req.parse_qs(request)
 
@@ -42,24 +46,9 @@ defmodule Broth.SocketHandler do
     {:cowboy_websocket, request, state}
   end
 
-  if Mix.env() == :test do
-    defp get_callers(request) do
-      request_bin = :cowboy_req.header("user-agent", request)
-
-      List.wrap(
-        if is_binary(request_bin) do
-          request_bin
-          |> Base.decode16!()
-          |> :erlang.binary_to_term()
-        end
-      )
-    end
-  else
-    defp get_callers(_), do: []
-  end
-
   @auth_timeout Application.compile_env(:kousa, :websocket_auth_timeout)
 
+  @impl true
   def websocket_init(state) do
     Process.send_after(self(), :auth_timeout, @auth_timeout)
     Process.put(:"$callers", state.callers)
@@ -67,47 +56,48 @@ defmodule Broth.SocketHandler do
     {:ok, state}
   end
 
-  def websocket_info(:auth_timeout, state) do
+  #######################################################################
+  ## API
+
+  @typep command :: :cow_ws.frame() | {:shutdown, :normal}
+  @typep call_result :: {[command], state}
+
+  # exit
+  def exit(pid), do: send(pid, :exit)
+  @spec exit_impl(state) :: call_result
+  defp exit_impl(state) do
+    # note the remote webserver will then close the connection.  The
+    # second command forces a shutdown in case the client is a jerk and
+    # tries to DOS us by holding open connections.
+    ws_push([{:close, 1000, "killed by server"}, shutdown: :normal], state)
+  end
+
+  # auth timeout
+  @spec auth_timeout_impl(state) :: call_result
+  defp auth_timeout_impl(state) do
     if state.awaiting_init do
-      {:stop, state}
+      ws_push([{:close, 1000, "authorization"}, shutdown: :normal], state)
     else
-      {:ok, state}
+      ws_push(nil, state)
     end
   end
 
-  def websocket_info({:remote_send, message}, state) do
-    {:reply, prepare_socket_msg(message, state), state}
-  end
+  # transitional remote_send message
+  def remote_send(socket, message), do: send(socket, {:remote_send, message})
 
-  # @todo when we swap this to new design change this to 1000
-  def websocket_info({:kill}, state) do
-    {:reply, {:close, 4003, "killed_by_server"}, state}
-  end
-
-  # needed for Task.async not to crash things
-  def websocket_info({:EXIT, _, _}, state) do
-    {:ok, state}
-  end
-
-  def websocket_info({:send_to_linked_session, message}, state) do
-    send(state.linked_session, message)
-    {:ok, state}
-  end
-
-  def websocket_handle({:text, "ping"}, state) do
-    {:reply, prepare_socket_msg("pong", state), state}
-  end
-
-  def websocket_handle({:ping, _}, state) do
-    {:reply, prepare_socket_msg("pong", state), state}
+  @spec remote_send_impl(Kousa.json(), state) :: call_result
+  defp remote_send_impl(message, state) do
+    {[prepare_socket_msg(message, state)], state}
   end
 
   @special_cases ~w(
     block_user_and_from_room
     fetch_follow_list
     join_room_and_get_info
-    audio_autoplay_error
   )
+
+  @impl true
+  def websocket_handle({:text, "ping"}, state), do: {[text: "pong"], state}
 
   def websocket_handle({:text, command_json}, state) do
     with {:ok, message_map!} <- Jason.decode(command_json),
@@ -117,32 +107,38 @@ defmodule Broth.SocketHandler do
          %{"op" => not_special_case} when not_special_case not in @special_cases <- message_map!,
          # translation from legacy maps to new maps
          message_map! = Broth.Translator.translate_inbound(message_map!),
-         {:ok, message = %{errors: nil}} <- validate(message_map!, state) do
+         {:ok, message = %{errors: nil}} <- validate(message_map!, state),
+         :ok <- auth_check(message, state) do
       dispatch(message, state)
     else
       # special cases: mediasoup operations
       msg = %{"op" => "@" <> _} ->
         dispatch_mediasoup_message(msg, state)
+        ws_push(nil, state)
 
       # legacy special cases
       msg = %{"op" => special_case} when special_case in @special_cases ->
-        Broth.LegacyHandler.process(msg, state)
+        msg
+        |> Broth.LegacyHandler.process(state)
+        |> ws_push(state)
+
+      {:error, :auth} ->
+        ws_push({:close, 4004, "not_authenticated"}, state)
 
       {:error, %Jason.DecodeError{}} ->
-        {:reply, {:close, 4001, "invalid input"}, state}
+        ws_push({:close, 4001, "invalid input"}, state)
 
       # error validating the inner changeset.
       {:ok, error} ->
-        reply =
-          error
-          |> Map.put(:operator, error.inbound_operator)
-          |> prepare_socket_msg(state)
-
-        {:reply, reply, state}
+        error
+        |> Map.put(:operator, error.inbound_operator)
+        |> prepare_socket_msg(state)
+        |> ws_push(state)
 
       {:error, changeset = %Ecto.Changeset{}} ->
-        reply = %{errors: Kousa.Utils.Errors.changeset_errors(changeset)}
-        {:reply, prepare_socket_msg(reply, state), state}
+        %{errors: Kousa.Utils.Errors.changeset_errors(changeset)}
+        |> prepare_socket_msg(state)
+        |> ws_push(state)
     end
   end
 
@@ -154,57 +150,33 @@ defmodule Broth.SocketHandler do
     |> apply_action(:validate)
   end
 
+  def auth_check(%{operator: op}, state), do: op.auth_check(state)
+
   def dispatch(message, state) do
     case message.operator.execute(message.payload, state) do
-      close = {:close, _, _} ->
-        {:reply, close, state}
-
-      {:error, changeset = %Ecto.Changeset{}} ->
-        # hacky, we need to build a reverse lookup for the modules/operations.
-        reply =
-          message
-          |> Map.merge(%{
-            operator: message.inbound_operator,
-            errors: Kousa.Utils.Errors.changeset_errors(changeset)
-          })
-          |> prepare_socket_msg(state)
-
-        {:reply, reply, state}
-
-      {:error, err} when is_binary(err) ->
-        reply =
-          message
-          |> wrap_error(%{message: err})
-          |> prepare_socket_msg(state)
-
-        {:reply, reply, state}
+      close when elem(close, 0) == :close ->
+        ws_push(close, state)
 
       {:error, err} ->
-        reply =
-          message
-          |> wrap_error(%{message: inspect(err)})
-          |> prepare_socket_msg(state)
-
-        {:reply, reply, state}
+        message
+        |> wrap_error(err)
+        |> prepare_socket_msg(state)
+        |> ws_push(state)
 
       {:error, errors, new_state} ->
-        reply =
-          message
-          |> wrap_error(errors)
-          |> prepare_socket_msg(new_state)
-
-        {:reply, reply, new_state}
+        message
+        |> wrap_error(errors)
+        |> prepare_socket_msg(new_state)
+        |> ws_push(new_state)
 
       {:noreply, new_state} ->
-        {:ok, new_state}
+        ws_push(nil, new_state)
 
       {:reply, payload, new_state} ->
-        reply =
-          message
-          |> wrap(payload)
-          |> prepare_socket_msg(new_state)
-
-        {:reply, reply, new_state}
+        message
+        |> wrap(payload)
+        |> prepare_socket_msg(new_state)
+        |> ws_push(new_state)
     end
   end
 
@@ -212,11 +184,36 @@ defmodule Broth.SocketHandler do
     %{message | operator: message.inbound_operator <> ":reply", payload: payload}
   end
 
-  def wrap_error(message, error_map) do
-    %{message | payload: %{}, errors: error_map, operator: message.inbound_operator}
+  defp wrap_error(message, error) do
+    Map.merge(
+      message,
+      %{
+        payload: nil,
+        operator: message.inbound_operator,
+        errors: to_map(error)
+      }
+    )
   end
 
-  defp dispatch_mediasoup_message(msg, state = %{user_id: user_id}) do
+  # we expect three types of errors:
+  # - Changeset errors
+  # - textual errors
+  # - anything else
+  # this common `to_map` function handles them all.
+
+  defp to_map(changeset = %Ecto.Changeset{}) do
+    Kousa.Utils.Errors.changeset_errors(changeset)
+  end
+
+  defp to_map(string) when is_binary(string) do
+    %{message: string}
+  end
+
+  defp to_map(other) do
+    %{message: inspect(other)}
+  end
+
+  defp dispatch_mediasoup_message(msg, %{user_id: user_id}) do
     with {:ok, room_id} <- Beef.Users.tuple_get_current_room_id(user_id) do
       voice_server_id = Onion.RoomSession.get(room_id, :voice_server_id)
 
@@ -234,14 +231,7 @@ defmodule Broth.SocketHandler do
     # if this results in something funny because the user isn't in a room, we
     # will just swallow the result, it means that there is some amount of asynchrony
     # in the information about who is in what room.
-    {:ok, state}
   end
-
-  # def f_handler("search", %{"query" => query}, _state) do
-  #  items = Kousa.Search.search(query)
-  #
-  #  %{items: items, nextCursor: nil}
-  # end
 
   def prepare_socket_msg(data, state) do
     data
@@ -276,4 +266,34 @@ defmodule Broth.SocketHandler do
   defp prepare_data(data, %{encoding: :json}) do
     {:text, data}
   end
+
+  def ws_push(frame, state) do
+    {List.wrap(frame), state}
+  end
+
+  ########################################################################
+  # helper functions
+
+  if Mix.env() == :test do
+    defp get_callers(request) do
+      request_bin = :cowboy_req.header("user-agent", request)
+
+      List.wrap(
+        if is_binary(request_bin) do
+          request_bin
+          |> Base.decode16!()
+          |> :erlang.binary_to_term()
+        end
+      )
+    end
+  else
+    defp get_callers(_), do: []
+  end
+
+  # ROUTER
+
+  @impl true
+  def websocket_info(:exit, state), do: exit_impl(state)
+  def websocket_info(:auth_timeout, state), do: auth_timeout_impl(state)
+  def websocket_info({:remote_send, message}, state), do: remote_send_impl(message, state)
 end

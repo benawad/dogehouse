@@ -21,7 +21,9 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "已静音 | DogeHouse",
-    "deafenedTitle": "Deafened | DogeHouse"
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "概览",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -85,7 +87,7 @@
       "allowAllConfirm": "确定？这将会允许全部{{}}位成员讲话"
     },
     "searchUser": { "search": "搜索..." },
-    "soundEffectSettings": { "header": "声音", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "声音", "title": "声音设置" },
     "viewUser": {
       "editProfile": "编辑个人主页",
       "followsYou": "关注您的人",
@@ -234,7 +236,8 @@
       "language": "语言",
       "reportABug": "反馈Bug",
       "useOldVersion": "使用旧版本",
-      "logOut": { "button": "登出", "modalSubtitle": "是否确定登出?" }
+      "logOut": { "button": "登出", "modalSubtitle": "是否确定登出?" },
+      "debugAudio": { "debugAudio": "调试声音", "stopDebugger": "取消调试" }
     }
   },
   "modules": {
@@ -251,7 +254,10 @@
         "roomName": "聊天室名字",
         "minLength": "最短长度为2",
         "roomDescription": "聊天室描述"
-      }
+      },
+      "tommorow": "明天",
+      "today": "今天",
+      "deleteModal": { "areYouSure": "你确定要删除此预定的聊天室？" }
     },
     "roomChat": {
       "title": "文字聊天",

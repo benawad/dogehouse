@@ -22,7 +22,9 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Mykistetty | DogeHouse",
-    "deafenedTitle": "Deafened | DogeHouse"
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Yhteys katkaistu"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -61,16 +63,16 @@
       "featureText_6": "Dogen voimalla",
       "loginGithub": "Kirjaudu GitHubilla",
       "loginTwitter": "Kirjaudu Twitterillä",
-      "createTestUser": "Luo testikäyttäjä",
-      "loginDiscord": "Kirjaudu Discordilla"
+      "loginDiscord": "Kirjaudu Discordilla",
+      "createTestUser": "Luo testikäyttäjä"
     },
     "myProfile": {
       "logout": "Kirjaudu ulos",
       "probablyLoading": "Ladataan...",
       "voiceSettings": "Puheasetukset",
-      "soundSettings": "Toistoasetukset",
-      "deleteAccount": "Poista tili",
+      "soundSettings": "Ääniasetukset",
       "overlaySettings": "Overlay-asetukset",
+      "deleteAccount": "Poista tili",
       "couldNotFindUser": "Käyttäjää ei löytynyt"
     },
     "notFound": {
@@ -86,7 +88,7 @@
       "allowAllConfirm": "Oletko varma? Tämä antaa kaikille {{count}} pyytäville käyttäjille puheoikeuden"
     },
     "searchUser": { "search": "Hae..." },
-    "soundEffectSettings": { "header": "Äänet", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "Äänet", "title": "Ääniasetukset" },
     "viewUser": {
       "editProfile": "Muokkaa profiilia",
       "followsYou": "Seuraa sinua",
@@ -242,6 +244,10 @@
       "logOut": {
         "button": "Kirjaudu ulos",
         "modalSubtitle": "Haluatko varmasti kirjautua ulos?"
+      },
+      "debugAudio": {
+        "debugAudio": "Testaa äänet",
+        "stopDebugger": "Pysäytä debuggeri"
       }
     }
   },
@@ -259,6 +265,11 @@
         "roomName": "Huoneen nimi",
         "minLength": "Minimipituus 2",
         "roomDescription": "Huoneen kuvaus"
+      },
+      "tommorow": "HUOMENNA",
+      "today": "TÄNÄÄN",
+      "deleteModal": {
+        "areYouSure": "Haluatko varmasti poistaa tämän ajoitetun huoneen?"
       }
     },
     "roomChat": {
@@ -270,7 +281,7 @@
       "searchResults": "Hakutulokset",
       "recent": "Usein käytetyt",
       "sendMessage": "Lähetä viesti",
-      "whisper": "Kuiskaa",
+      "whisper": "Kuiskaus",
       "welcomeMessage": "Tervetuloa chattiin!",
       "roomDescription": "Huoneen kuvaus"
     },

@@ -17,7 +17,8 @@ defmodule BrothTest.Message.User.UnfollowTest do
               }} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:unfollow",
-                 "payload" => %{"userId" => uuid}
+                 "payload" => %{"userId" => uuid},
+                 "reference" => UUID.uuid4()
                })
 
       # short form also allowed
@@ -27,7 +28,8 @@ defmodule BrothTest.Message.User.UnfollowTest do
               }} =
                BrothTest.Support.Message.validate(%{
                  "op" => "user:unfollow",
-                 "p" => %{"userId" => uuid}
+                 "p" => %{"userId" => uuid},
+                 "ref" => UUID.uuid4()
                })
     end
 
@@ -35,7 +37,16 @@ defmodule BrothTest.Message.User.UnfollowTest do
       assert {:error, %{errors: %{userId: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:unfollow",
-                 "payload" => %{}
+                 "payload" => %{},
+                 "reference" => UUID.uuid4()
+               })
+    end
+
+    test "omitting the reference is not allowed", %{uuid: uuid} do
+      assert {:error, %{errors: [reference: {"is required for Broth.Message.User.Unfollow", _}]}} =
+               BrothTest.Support.Message.validate(%{
+                 "operator" => "user:unfollow",
+                 "payload" => %{"userId" => uuid}
                })
     end
   end
