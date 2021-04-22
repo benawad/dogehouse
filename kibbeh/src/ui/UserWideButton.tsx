@@ -52,6 +52,10 @@ const testStyle = {
 export const UserWideButton: React.FC<UserWideButtonInfoProps> = ({ user }) => {
     const { t } = useTypeSafeTranslation();
     
+    const [buttonText, setButtonText] = useState("Unblocked");
+    const changeText = (text: React.SetStateAction<string>) => {
+    setButtonText(text);
+    };
     const onClickHandler  = (e: { type: string; }) => {
         alert("blocked");
     };
@@ -72,9 +76,9 @@ export const UserWideButton: React.FC<UserWideButtonInfoProps> = ({ user }) => {
             </span>
             <span style={{color: "#5D7290"}} className="flex text-primary-300 mr-1">@{user.username}</span>
           </div>
-          <div className="flex" style={buttonStyle} >
-          <Button size="big" color="primary" onClick={onClickHandler}>
-            Unblock
+          <div style={buttonStyle} >
+          <Button size="big" color="primary" onClick={() => changeText("Blocked")}>
+            {buttonText}
         </Button>
         </div>
         </div>
