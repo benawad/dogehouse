@@ -28,7 +28,7 @@ export const PTTKeybind: React.FC<PTTKeybindProps> = ({ className }) => {
   }, [count, setPTTKeybind]);
 
   return (
-    <div className={`flex flex items-center ${className}`}>
+    <div className={`flex items-center ${className}`}>
       <Button
         size="small"
         onClick={() => {

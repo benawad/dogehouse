@@ -21,7 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Þaggaður | DogeHouse"
+    "mutedTitle": "Þaggaður | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -41,7 +44,8 @@
     "home": {
       "createRoom": "Stofna Spjallrás",
       "refresh": "Refresh",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "rásin horfið, farðu tíl baka",
@@ -84,7 +88,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "leita..." },
-    "soundEffectSettings": { "header": "Hljóðin" },
+    "soundEffectSettings": { "header": "Hljóðin", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "breyta prófíl",
       "followsYou": "fylgir þér",
@@ -106,6 +110,11 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -130,7 +139,10 @@
       "settings": "Stillingar",
       "speaker": "Ræðumaður",
       "listener": "Hlustandi",
-      "chat": "Spjall"
+      "chat": "Spjall",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Tækið þitt er sem stendur ekki stutt. Þú getur búið til",
@@ -148,7 +160,8 @@
       "listening": "er að hlusta",
       "toggleMuteKeybind": "afþagga",
       "togglePushToTalkKeybind": "slökkva á 'Ýttu til að tala'",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "enginn hljóðnotandi af einhverjum ástæðum"
@@ -227,6 +240,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -244,6 +261,11 @@
         "roomName": "rásarheiti",
         "minLength": "lágmarkslengd 2",
         "roomDescription": "Description"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

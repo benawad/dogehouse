@@ -21,7 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muted | DogeHouse"
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken",
+    "mutedTitle": "Muted | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -33,6 +36,11 @@
     "_comment": "Respective Page UI Internationalization Strings",
     "banUser": {
       "ban": "Ban"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit GitHub Releases"
     },
     "followingOnlineList": {
       "listHeader": "List of users that are not in a private room and you follow.",
@@ -46,7 +54,8 @@
     "home": {
       "createRoom": "New room",
       "editRoom": "Edit Room",
-      "refresh": "Refresh"
+      "refresh": "Refresh",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Room gone; go back",
@@ -92,7 +101,8 @@
       "search": "search..."
     },
     "soundEffectSettings": {
-      "header": "Sounds"
+      "header": "Sounds",
+      "title": "Sound Settings"
     },
     "viewUser": {
       "editProfile": "Edit Profile",
@@ -136,8 +146,11 @@
       "inviteUsersToRoomBtn": "Invite Users to Room",
       "invite": "Invite",
       "toggleMuteMicBtn": "Toggle Mute",
+      "toggleDeafMicBtn": "Toggle Deafen",
       "mute": "Mute",
       "unmute": "Unmute",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen",
       "makeRoomPublicBtn": "Make Room Public!",
       "settings": "Settings",
       "speaker": "Speaker",
@@ -168,6 +181,7 @@
       "setKeybind": "Set Keybind",
       "listening": "Listening...",
       "toggleMuteKeybind": "Toggle mute keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind",
       "toggleOverlayKeybind": "Toggle overlay keybind",
       "togglePushToTalkKeybind": "Toggle push-to-talk keybind"
     },
@@ -196,6 +210,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     },
     "modals": {
@@ -261,11 +279,16 @@
       "myRooms": "my scheduled rooms",
       "scheduleRoomHeader": "Schedule Room",
       "startRoom": "start room",
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
       "modal": {
         "needsFuture": "needs to be in the future",
         "roomName": "room name",
         "roomDescription": "Description",
         "minLength": "min length 2"
+      },
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

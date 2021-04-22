@@ -21,7 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "குரல் முடக்கப்பட்டது  | DogeHouse"
+    "mutedTitle": "குரல் முடக்கப்பட்டது  | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -44,7 +47,8 @@
     "home": {
       "createRoom": "அறையை உருவாக்குங்கள்",
       "refresh": "புதுப்பிக்கவும்",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "அறை இல்லை, திரும்பிச் செல்லுங்கள்",
@@ -87,7 +91,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "தேடு..." },
-    "soundEffectSettings": { "header": "ஒலிகள்" },
+    "soundEffectSettings": { "header": "ஒலிகள்", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "சுயவிவரத்தைத் திருத்து",
       "followsYou": "உங்களைப் பின்தொடர்கிறார்",
@@ -112,6 +116,11 @@
         "errorMsg": "Please enter valid app title",
         "label": "Enter app title"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -136,7 +145,10 @@
       "settings": "அமைப்புகள்",
       "speaker": "பேச்சாளர்",
       "listener": "கேட்பவர்",
-      "chat": "அரட்டை"
+      "chat": "அரட்டை",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "உங்கள் சாதனம் தற்போது ஆதரிக்கப்படவில்லை. நீங்கள்",
@@ -157,7 +169,8 @@
       "listening": "கேட்கிறேன்",
       "toggleMuteKeybind": "toggle mute keybind",
       "togglePushToTalkKeybind": "toggle push-to-talk keybind",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "சில காரணங்களால் ஆடியோ நுகர்வோர் இல்லை"
@@ -236,6 +249,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -253,6 +270,11 @@
         "roomName": "அறை பெயர்",
         "roomDescription": "விளக்கம்",
         "minLength": "குறைந்தபட்ச நீளம் 2"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

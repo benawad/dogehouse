@@ -11,6 +11,7 @@ if (isElectron()) {
 export const REQUEST_TO_SPEAK_KEY = "@keybind/invite";
 export const INVITE_KEY = "@keybind/invite";
 export const MUTE_KEY = "@keybind/mute";
+export const DEAF_KEY = "@keybind/deafen";
 export const CHAT_KEY = "@keybind/chat";
 export const PTT_KEY = "@keybind/ptt";
 export const OVERLAY_KEY = "@keybind/overlay";
@@ -38,6 +39,10 @@ function getMuteKeybind() {
   return getKeybind(MUTE_KEY, "Control+m");
 }
 
+function getDeafKeybind() {
+  return getKeybind(DEAF_KEY, "Control+m");
+}
+
 function getChatKeybind() {
   return getKeybind(CHAT_KEY, "Control+9");
 }
@@ -54,6 +59,7 @@ const keyMap: KeyMap = {
   REQUEST_TO_SPEAK: getRequestToSpeakKeybind(),
   INVITE: getInviteKeybind(),
   MUTE: getMuteKeybind(),
+  DEAF: getDeafKeybind(),
   CHAT: getChatKeybind(),
   OVERLAY: getOverlayKeybind(),
   PTT: [
@@ -66,6 +72,7 @@ const keyNames: KeyMap = {
   REQUEST_TO_SPEAK: getRequestToSpeakKeybind(),
   INVITE: getInviteKeybind(),
   MUTE: getMuteKeybind(),
+  DEAF: getDeafKeybind(),
   CHAT: getChatKeybind(),
   PTT: getPTTKeybind(),
   OVERLAY: getOverlayKeybind(),
@@ -112,6 +119,18 @@ export const useKeyMapStore = create(
         set((x) => ({
           keyMap: { ...x.keyMap, MUTE: id },
           keyNames: { ...x.keyNames, MUTE: id },
+        }));
+      },
+      setDeafKeybind: (id: string) => {
+        try {
+          localStorage.setItem(DEAF_KEY, id);
+          if (isElectron()) {
+            ipcRenderer.send(DEAF_KEY, id);
+          }
+        } catch {}
+        set((x) => ({
+          keyMap: { ...x.keyMap, DEAF: id },
+          keyNames: { ...x.keyNames, DEAF: id },
         }));
       },
       setChatKeybind: (id: string) => {

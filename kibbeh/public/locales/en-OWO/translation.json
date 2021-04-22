@@ -21,7 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muted | DogeHouse xD"
+    "mutedTitle": "Muted | DogeHouse xD",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -41,7 +44,8 @@
     "home": {
       "createRoom": "OwO Cweate Woom (ʘᗩʘ')",
       "refresh": " Wefwesh (◠‿◠✿)",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Woom gone, go back <{^v^}>",
@@ -84,7 +88,10 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Seawch... >_<" },
-    "soundEffectSettings": { "header": "OWO Sounds :D" },
+    "soundEffectSettings": {
+      "header": "OWO Sounds :D",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "Edit Pwofiwe (⁎˃ᆺ˂)",
       "followsYou": "Fowwows uu (๑•́ ₃ •̀๑)",
@@ -106,6 +113,11 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -130,7 +142,10 @@
       "settings": "Settings ^_^",
       "speaker": "Speakew :D",
       "listener": "OwO Wistenew",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "HIIII! Youw device is cuwwentwy nut suppowted. You can cweate an",
@@ -148,7 +163,8 @@
       "listening": "OWO Wistening",
       "toggleMuteKeybind": "0w0 Toggwe Mute keybind (❁´◡`❁)",
       "togglePushToTalkKeybind": "Toggwe Push-to-Tawk keybind :D",
-      "toggleOverlayKeybind": "Toggwe Owerlay keybind :3"
+      "toggleOverlayKeybind": "Toggwe Owerlay keybind :3",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Nu audio consumew fow some weason D:"
@@ -227,6 +243,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -244,6 +264,11 @@
         "roomName": "Woom Name (◠‿◠✿)",
         "minLength": "<3 min wength 2 ^_^",
         "roomDescription": "Descwiptiow"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

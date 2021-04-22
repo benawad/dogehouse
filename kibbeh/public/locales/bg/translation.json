@@ -21,7 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muted | DogeHouse"
+    "mutedTitle": "Muted | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -41,7 +44,8 @@
     "home": {
       "createRoom": "Създай стая",
       "refresh": "Опресни",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "изтекла стая, върни се назад",
@@ -84,7 +88,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "търсене..." },
-    "soundEffectSettings": { "header": "Звук" },
+    "soundEffectSettings": { "header": "Звук", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "промяна на профил",
       "followsYou": "следват те",
@@ -108,6 +112,11 @@
       "header": "Overlay Settings",
       "errorMsg": "Please enter valid app title",
       "label": "Enter app title"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -132,7 +141,10 @@
       "settings": "Настройки",
       "speaker": "Говорител",
       "listener": "Слушател",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Вашето устройство не е поддържано. Можете да създадете",
@@ -150,7 +162,8 @@
       "listening": "слушане",
       "toggleMuteKeybind": "превключване на клавишна комбинация за заглушаване",
       "togglePushToTalkKeybind": "превключване на клавишна комбинация за натисни-за-говорене",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "по някаква причина няма звуков консуматор"
@@ -229,6 +242,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -246,6 +263,11 @@
         "roomName": "име на стаята",
         "minLength": "минимално 2 знака",
         "roomDescription": "Description"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

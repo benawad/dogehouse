@@ -5,6 +5,7 @@ import { apiBaseUrl } from "../../lib/constants";
 import { useRouter } from "next/router";
 import { showErrorToast } from "../../lib/showErrorToast";
 import { useMuteStore } from "../../global-stores/useMuteStore";
+import { useDeafStore } from "../../global-stores/useDeafStore";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useVoiceStore } from "../webrtc/stores/useVoiceStore";
 import { Connection } from "@dogehouse/kebab/lib/raw";
@@ -62,6 +63,7 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
               reconnectToVoice,
               currentRoomId: useCurrentRoomIdStore.getState().currentRoomId,
               muted: useMuteStore.getState().muted,
+              deafened: useDeafStore.getState().deafened,
             };
           },
           onConnectionTaken: () => {

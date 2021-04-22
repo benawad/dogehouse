@@ -2,6 +2,7 @@ defmodule Broth.Routes.GitHubAuth do
   import Plug.Conn
   use Plug.Router
 
+  require Logger
   alias Beef.Users
   alias Kousa.Utils.Urls
 
@@ -83,8 +84,7 @@ defmodule Broth.Routes.GitHubAuth do
   end
 
   def handle_callback(%Plug.Conn{assigns: %{ueberauth_failure: failure}} = conn) do
-    IO.puts("github oauth failure")
-    IO.inspect(failure)
+    Logger.warn("github oauth failure: #{inspect(failure)}")
 
     conn
     |> Broth.Plugs.Redirect.redirect(
@@ -141,8 +141,7 @@ defmodule Broth.Routes.GitHubAuth do
   end
 
   def handle_callback(conn) do
-    IO.puts("expected never to see this handle_callback in github_auth")
-    IO.inspect(conn)
+    Logger.warn("unhandled handle_callback #{inspect(conn)}")
 
     conn
     |> Broth.Plugs.Redirect.redirect(

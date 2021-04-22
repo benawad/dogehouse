@@ -21,7 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Microfon dezactivat | DogeHouse"
+    "mutedTitle": "Microfon dezactivat | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -41,7 +44,8 @@
     "home": {
       "createRoom": "Creează cameră",
       "refresh": "Refresh",
-      "editRoom": "Editeaza cameră"
+      "editRoom": "Editeaza cameră",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Camera a dispărut, du-te înapoi",
@@ -84,7 +88,7 @@
       "allowAllConfirm": "Esti sigur? Asta ar lasa toti {{count}} utilizatori sa vorbeasca"
     },
     "searchUser": { "search": "caută..." },
-    "soundEffectSettings": { "header": "Sunete" },
+    "soundEffectSettings": { "header": "Sunete", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Editează profil",
       "followsYou": "Te urmărește",
@@ -106,6 +110,11 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -130,7 +139,10 @@
       "settings": "Setări",
       "speaker": "Difuzor",
       "listener": "Ascultător",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Dispozitivul tău momentan nu este suportat. Poți crea un",
@@ -151,7 +163,8 @@
       "listening": "Ascultare",
       "toggleMuteKeybind": "Keybind comută mut",
       "togglePushToTalkKeybind": "Keybind comută push-to-talk",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "niciun consumator audio dintr-un motiv oarecare"
@@ -230,6 +243,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -247,6 +264,11 @@
         "roomName": "Numele camerei",
         "minLength": "De minim 2 caractere",
         "roomDescription": "Description"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

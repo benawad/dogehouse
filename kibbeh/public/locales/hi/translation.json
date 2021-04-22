@@ -20,7 +20,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muted | DogeHouse"
+    "mutedTitle": "Muted | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -40,7 +43,8 @@
     "home": {
       "createRoom": "रूम बनाये",
       "refresh": "रिफ्रेश",
-      "editRoom": "एडिट रूम "
+      "editRoom": "एडिट रूम ",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "रूम गया, वापस जाए",
@@ -83,7 +87,7 @@
       "allowAllConfirm": "अरे  यू  सूरे ? थिस  विल अल्लोव आल {{count}} रिक्वेस्टिंग  उसेर्स  तो  स्पीक "
     },
     "searchUser": { "search": "खोज करे..." },
-    "soundEffectSettings": { "header": "आवाज़" },
+    "soundEffectSettings": { "header": "आवाज़", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "edit profile",
       "followsYou": "follows you",
@@ -105,6 +109,11 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -129,7 +138,10 @@
       "settings": "सेटिंग्स",
       "speaker": "बोलनेवाले",
       "listener": "सुननेवाले",
-      "chat": "चैट"
+      "chat": "चैट",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "वर्तमान में आपका डिवाइस समर्थित नहीं है। आप एक",
@@ -147,7 +159,8 @@
       "listening": "सुन रहे है",
       "toggleMuteKeybind": "टॉगल म्यूट कीबाइंड",
       "togglePushToTalkKeybind": "टॉगल push-to-talk कीबाइंड",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "किसी कारण से कोई ऑडियो उपभोक्ता नहीं है"
@@ -226,6 +239,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -243,6 +260,11 @@
         "roomName": "रूम का नाम",
         "minLength": "काम से काम 2",
         "roomDescription": "रूम के बारे में"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

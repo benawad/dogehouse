@@ -9,6 +9,8 @@ defmodule Beef.Schemas.User do
     # TODO: Make this a separate Schema that sees the same table.
 
     @derive {Poison.Encoder, only: [:id, :displayName, :numFollowers]}
+    @derive {Jason.Encoder, only: [:id, :displayName, :numFollowers]}
+
     @primary_key false
     embedded_schema do
       # does User.Preview really need an id?
@@ -51,6 +53,10 @@ defmodule Beef.Schemas.User do
              lastOnline currentRoomId displayName numFollowing numFollowers
              currentRoom youAreFollowing followsYou roomPermissions)a}
 
+  @derive {Jason.Encoder, only: ~w(id username avatarUrl bio online
+    lastOnline currentRoomId displayName numFollowing numFollowers
+    youAreFollowing followsYou roomPermissions)a}
+
   @primary_key {:id, :binary_id, []}
   schema "users" do
     field(:githubId, :string)
@@ -73,6 +79,8 @@ defmodule Beef.Schemas.User do
     field(:youAreFollowing, :boolean, virtual: true)
     field(:followsYou, :boolean, virtual: true)
     field(:roomPermissions, :map, virtual: true, null: true)
+    field(:muted, :boolean, virtual: true)
+    field(:deafened, :boolean, virtual: true)
 
     belongs_to(:currentRoom, Room, foreign_key: :currentRoomId, type: :binary_id)
 

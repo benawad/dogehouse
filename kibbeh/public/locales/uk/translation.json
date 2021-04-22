@@ -21,7 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Без звуку | DogeHouse"
+    "mutedTitle": "Без звуку | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -37,11 +40,15 @@
       "currentRoom": "зараз у:",
       "startPrivateRoom": "почніть з ними приватну кімнату"
     },
-    "followList": { "followHim": "відстежувати", "followingHim": "відстежуєте" },
+    "followList": {
+      "followHim": "відстежувати",
+      "followingHim": "відстежуєте"
+    },
     "home": {
       "createRoom": "Створити Кімнату",
       "refresh": "Оновити",
-      "editRoom": "Редагувати кімнату"
+      "editRoom": "Редагувати кімнату",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "кімнати вже немає, повернутися",
@@ -84,7 +91,7 @@
       "allowAllConfirm": "Ви впевнені? Це дозволить усім {{count}} запитуючим користувачам розмовляти"
     },
     "searchUser": { "search": "шукати..." },
-    "soundEffectSettings": { "header": "Звуки" },
+    "soundEffectSettings": { "header": "Звуки", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "редагувати профіль",
       "followsYou": "підписані на вас",
@@ -104,8 +111,16 @@
       "volume": "гучність:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Недійсне ім'я додатку", "label": "Введіть назву додатку" },
+      "input": {
+        "errorMsg": "Недійсне ім'я додатку",
+        "label": "Введіть назву додатку"
+      },
       "header": "Налаштування накладення"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -130,7 +145,10 @@
       "settings": "Налаштування",
       "speaker": "Доповідач",
       "listener": "Слухач",
-      "chat": "Чат"
+      "chat": "Чат",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Ваш пристрій не підтримується. Ви можете створити",
@@ -151,11 +169,10 @@
       "listening": "слухає",
       "toggleMuteKeybind": "Перемикнути прив'язку клавіши",
       "togglePushToTalkKeybind": "Перемикнути режим рації",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "споживача аудіо відсутній"
-    },
+    "userVolumeSlider": { "noAudioMessage": "споживача аудіо відсутній" },
     "addToCalendar": { "add": "Додати до календаря" },
     "wsKilled": {
       "description": "Вебсокет був зрушиний сервером. Зазвичай це відбувається, коли ви відкриваєте веб-сайт в іншій вкладці.",
@@ -230,6 +247,10 @@
       "logOut": {
         "button": "Вийти",
         "modalSubtitle": "Ви впевнені що хочете вийти?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -247,6 +268,11 @@
         "roomName": "назва кімнати",
         "minLength": "має містити від 2 символів",
         "roomDescription": "Опис"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

@@ -8,6 +8,7 @@ import { DesktopLayout } from "../layouts/DesktopLayout";
 import { MiddlePanel } from "../layouts/GridPanels";
 import { EditScheduleRoomModalController } from "../scheduled-rooms/EditScheduleRoomModalController";
 import { ScheduledRoomCard } from "../scheduled-rooms/ScheduledRoomCard";
+import { HeaderController } from "../display/HeaderController";
 
 interface ViewScheduledRoomPageProps {}
 
@@ -37,6 +38,7 @@ export const ViewScheduledRoomPage: React.FC<ViewScheduledRoomPageProps> = ({}) 
 
   return (
     <DesktopLayout>
+      <HeaderController title={data.room.name} embed={{}} />
       <MiddlePanel>
         {deleted ? (
           <InfoText>deleted</InfoText>

@@ -21,7 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Gemute | DogeHouse"
+    "mutedTitle": "Gemute | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -41,7 +44,8 @@
     "home": {
       "createRoom": "Kamer make",
       "refresh": "Verviesje",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Kamer besjteed niet, gank teruk",
@@ -84,7 +88,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Zeucke..." },
-    "soundEffectSettings": { "header": "Geluide" },
+    "soundEffectSettings": { "header": "Geluide", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Profiel bewirke",
       "followsYou": "Volgt dich",
@@ -106,6 +110,11 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -130,7 +139,10 @@
       "settings": "Insjtellinge",
       "speaker": "Sjpreker",
       "listener": "Loestereer",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Ding apparaat weurt neet ondersjteund. Du kins inge",
@@ -151,7 +163,8 @@
       "listening": "Aan t loestere",
       "toggleMuteKeybind": "Sjakel mute sjneltoets",
       "togglePushToTalkKeybind": "Sjakel push-to-talk sjneltoets",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Ging audioapparaat veur ing of andere reje"
@@ -230,6 +243,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -247,6 +264,11 @@
         "roomName": "Kamer naam",
         "roomDescription": "Umsjrieving",
         "minLength": "Minimale lingte van 2 karakters"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

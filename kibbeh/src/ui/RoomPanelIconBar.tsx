@@ -6,6 +6,8 @@ import {
   SolidMicrophone,
   SolidMicrophoneOff,
   SolidSettings,
+  SolidVolume,
+  SolidVolumeOff,
 } from "../icons";
 import { useScreenType } from "../shared-hooks/useScreenType";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
@@ -17,6 +19,10 @@ interface RoomPanelIconBarProps {
     isMuted: boolean;
     onMute: () => void;
   };
+  deaf?: {
+    isDeaf: boolean;
+    onDeaf: () => void;
+  };
   onInvitePeopleToRoom?: () => void;
   onRoomSettings?: () => void;
   onLeaveRoom(): void;
@@ -25,6 +31,7 @@ interface RoomPanelIconBarProps {
 
 export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
   mute,
+  deaf,
   onInvitePeopleToRoom,
   onRoomSettings,
   onLeaveRoom,
@@ -45,6 +52,18 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
             onClick={() => mute.onMute()}
           >
             {mute.isMuted ? <SolidMicrophoneOff /> : <SolidMicrophone />}
+          </BoxedIcon>
+        ) : null}
+        {deaf ? (
+          <BoxedIcon
+            transition
+            hover={deaf.isDeaf}
+            className={`mr-2 ${deaf.isDeaf ? `bg-accent` : ``}`}
+            color="800"
+            title={t("components.bottomVoiceControl.toggleDeafMicBtn")}
+            onClick={() => deaf.onDeaf()}
+          >
+            {deaf.isDeaf ? <SolidVolumeOff /> : <SolidVolume />}
           </BoxedIcon>
         ) : null}
         {onInvitePeopleToRoom ? (

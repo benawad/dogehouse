@@ -21,7 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "ミュート | DogeHouse"
+    "mutedTitle": "ミュート | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -41,7 +44,8 @@
     "home": {
       "createRoom": "ルーム作成",
       "refresh": "更新",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "ルームが削除されました。前のページに戻ります",
@@ -84,7 +88,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "検索..." },
-    "soundEffectSettings": { "header": "音声設定" },
+    "soundEffectSettings": { "header": "音声設定", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "プロフィールを編集",
       "followsYou": "フォローされています",
@@ -106,6 +110,11 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -130,7 +139,10 @@
       "settings": "設定",
       "speaker": "スピーカー",
       "listener": "リスナー",
-      "chat": "チャット"
+      "chat": "チャット",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "デバイスはサポートされていません。",
@@ -148,7 +160,8 @@
       "listening": "聞いています",
       "toggleMuteKeybind": "ミュート切り替え",
       "togglePushToTalkKeybind": "プッシュトゥートーク切り替え",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "何らかの原因で音声が出ません" },
     "addToCalendar": { "add": "カレンダーに追加" },
@@ -225,6 +238,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -242,6 +259,11 @@
         "roomName": "名前",
         "minLength": "2文字以上の名前を指定してください",
         "roomDescription": "説明"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

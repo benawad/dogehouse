@@ -21,7 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Mykistetty | DogeHouse"
+    "mutedTitle": "Mykistetty | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Yhteys katkaistu"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -41,7 +44,8 @@
     "home": {
       "createRoom": "Luo huone",
       "refresh": "Päivitä",
-      "editRoom": "Muokkaa huonetta"
+      "editRoom": "Muokkaa huonetta",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Huone poistettu, palaa takaisin",
@@ -59,16 +63,16 @@
       "featureText_6": "Dogen voimalla",
       "loginGithub": "Kirjaudu GitHubilla",
       "loginTwitter": "Kirjaudu Twitterillä",
-      "createTestUser": "Luo testikäyttäjä",
-      "loginDiscord": "Kirjaudu Discordilla"
+      "loginDiscord": "Kirjaudu Discordilla",
+      "createTestUser": "Luo testikäyttäjä"
     },
     "myProfile": {
       "logout": "Kirjaudu ulos",
       "probablyLoading": "Ladataan...",
       "voiceSettings": "Puheasetukset",
-      "soundSettings": "Toistoasetukset",
-      "deleteAccount": "Poista tili",
+      "soundSettings": "Ääniasetukset",
       "overlaySettings": "Overlay-asetukset",
+      "deleteAccount": "Poista tili",
       "couldNotFindUser": "Käyttäjää ei löytynyt"
     },
     "notFound": {
@@ -84,7 +88,7 @@
       "allowAllConfirm": "Oletko varma? Tämä antaa kaikille {{count}} pyytäville käyttäjille puheoikeuden"
     },
     "searchUser": { "search": "Hae..." },
-    "soundEffectSettings": { "header": "Äänet" },
+    "soundEffectSettings": { "header": "Äänet", "title": "Ääniasetukset" },
     "viewUser": {
       "editProfile": "Muokkaa profiilia",
       "followsYou": "Seuraa sinua",
@@ -108,7 +112,12 @@
       "input": {
         "errorMsg": "Epäkelpo sovelluksen otsikko",
         "label": "Syötä sovelluksen otsikko"
-      }  
+      }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -133,7 +142,10 @@
       "settings": "Asetukset",
       "speaker": "Puhuja",
       "listener": "Kuuntelija",
-      "chat": "Chatti"
+      "chat": "Chatti",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Käyttämääsi laitetta ei tueta. Voit luoda",
@@ -154,7 +166,8 @@
       "listening": "Odotetaan näppäintä",
       "toggleMuteKeybind": "Mikrofonin mykistys -pikanäppäin",
       "togglePushToTalkKeybind": "Push-to-talk-pikanäppäin",
-      "toggleOverlayKeybind": "Overlay-pikanäppäin"
+      "toggleOverlayKeybind": "Overlay-pikanäppäin",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "Ei äänen ulostulolaitteita" },
     "addToCalendar": { "add": "Lisää kalenteriin" },
@@ -231,6 +244,10 @@
       "logOut": {
         "button": "Kirjaudu ulos",
         "modalSubtitle": "Haluatko varmasti kirjautua ulos?"
+      },
+      "debugAudio": {
+        "debugAudio": "Testaa äänet",
+        "stopDebugger": "Pysäytä debuggeri"
       }
     }
   },
@@ -248,6 +265,11 @@
         "roomName": "Huoneen nimi",
         "minLength": "Minimipituus 2",
         "roomDescription": "Huoneen kuvaus"
+      },
+      "tommorow": "HUOMENNA",
+      "today": "TÄNÄÄN",
+      "deleteModal": {
+        "areYouSure": "Haluatko varmasti poistaa tämän ajoitetun huoneen?"
       }
     },
     "roomChat": {
@@ -259,7 +281,7 @@
       "searchResults": "Hakutulokset",
       "recent": "Usein käytetyt",
       "sendMessage": "Lähetä viesti",
-      "whisper": "Kuiskaa",
+      "whisper": "Kuiskaus",
       "welcomeMessage": "Tervetuloa chattiin!",
       "roomDescription": "Huoneen kuvaus"
     },

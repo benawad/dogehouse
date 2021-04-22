@@ -56,7 +56,7 @@ const Page = ({
 
   if (!data || data.users.length === 0) {
     const styles = "text-primary-200 text-center";
-    if(isFollowing) return <div className={styles}>Not following anyone</div>;
+    if (isFollowing) return <div className={styles}>Not following anyone</div>;
     else return <div className={styles}>No followers</div>;
   }
 
@@ -123,7 +123,7 @@ const Page = ({
         </div>
       ))}
       {isLastPage && data.nextCursor ? (
-        <div className={`flex flex justify-center py-5`}>
+        <div className={`flex justify-center py-5`}>
           <Button
             size="small"
             onClick={() => {

@@ -11,12 +11,14 @@ defmodule Onion.UserSession do
             display_name: String.t(),
             current_room_id: String.t(),
             muted: boolean(),
+            deafened: boolean(),
             pid: pid()
           }
 
     defstruct user_id: nil,
               current_room_id: nil,
               muted: false,
+              deafened: false,
               pid: nil,
               username: nil,
               display_name: nil,
@@ -74,7 +76,7 @@ defmodule Onion.UserSession do
 
   defp send_ws_impl(_platform, msg, state = %{pid: pid}) do
     # TODO: refactor this to not use ws-datastructures
-    if pid, do: send(pid, {:remote_send, msg})
+    if pid, do: Broth.SocketHandler.remote_send(pid, msg)
     {:noreply, state}
   end
 
@@ -89,11 +91,22 @@ defmodule Onion.UserSession do
     {:noreply, %{state | muted: value}}
   end
 
+  def set_deafen(user_id, value) when is_boolean(value),
+    do: cast(user_id, {:set_deafen, value})
+
+  defp set_deafen_impl(value, state = %{current_room_id: current_room_id}) do
+    if current_room_id do
+      Onion.RoomSession.deafen(current_room_id, state.user_id, value)
+    end
+
+    {:noreply, %{state | deafen: value}}
+  end
+
   def new_tokens(user_id, tokens), do: cast(user_id, {:new_tokens, tokens})
 
   defp new_tokens_impl(tokens, state = %{pid: pid}) do
     # TODO: refactor this to not use ws-datastructures
-    if pid, do: send(pid, {:remote_send, %{op: "new-tokens", d: tokens}})
+    if pid, do: Broth.SocketHandler.remote_send(pid, %{op: "new-tokens", d: tokens})
     {:noreply, state}
   end
 
@@ -127,7 +140,7 @@ defmodule Onion.UserSession do
 
   defp set_pid(pid, _reply, state) do
     if state.pid do
-      send(state.pid, {:kill})
+      Broth.UserSession.exit(state.pid)
     else
       Beef.Users.set_online(state.user_id)
     end
@@ -189,6 +202,7 @@ defmodule Onion.UserSession do
     do: reconnect_impl(voice_server_id, state)
 
   def handle_cast({:set_mute, value}, state), do: set_mute_impl(value, state)
+  def handle_cast({:set_deafen, value}, state), do: set_deafen_impl(value, state)
   def handle_cast({:new_tokens, tokens}, state), do: new_tokens_impl(tokens, state)
   def handle_cast({:set_state, info}, state), do: set_state_impl(info, state)
 

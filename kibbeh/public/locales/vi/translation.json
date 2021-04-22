@@ -21,7 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Tắt âm | DogeHouse"
+    "mutedTitle": "Tắt âm | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -41,7 +44,8 @@
     "home": {
       "createRoom": "Tạo phòng",
       "refresh": "Làm mới",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "phòng đã kết thúc, quay lại đi",
@@ -84,7 +88,7 @@
       "allowAllConfirm": "Bạn có chắc không? Hành động này sẽ cho phép {{count}} người dùng có quyền nói"
     },
     "searchUser": { "search": "tìm kiếm..." },
-    "soundEffectSettings": { "header": "Âm thanh" },
+    "soundEffectSettings": { "header": "Âm thanh", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "chỉnh sửa hồ sơ",
       "followsYou": "Theo dõi bạn",
@@ -109,6 +113,11 @@
         "errorMsg": "Vui lòng nhập tiêu đề hợp lý cho App",
         "label": "Nhập tiêu đề cho app"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -133,7 +142,10 @@
       "settings": "Cài đặt",
       "speaker": "Diễn giả",
       "listener": "Thính giả",
-      "chat": "Trò chuyện"
+      "chat": "Trò chuyện",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Thiết bị của bạn hiện không được hỗ trợ. Bạn có thể tạo một",
@@ -151,7 +163,8 @@
       "listening": "đang nghe",
       "toggleMuteKeybind": "phím tắt/mở mic",
       "toggleOverlayKeybind": "phím bật/tắt overlay",
-      "togglePushToTalkKeybind": "phím nhấn-để-nói"
+      "togglePushToTalkKeybind": "phím nhấn-để-nói",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "không có âm thanh vì một số lý do"
@@ -230,6 +243,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -247,6 +264,11 @@
         "roomName": "tên phòng",
         "roomDescription": "Mô tả",
         "minLength": "tối thiểu 2 ký tự"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {
