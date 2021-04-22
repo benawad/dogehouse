@@ -189,8 +189,8 @@
         "modalSubtitle": "Êtes vous sur de vouloir vous déconnecter ?"
       },
       "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
+        "debugAudio": "Débugger l'audio",
+        "stopDebugger": "Arreter le débuggage"
       }
     },
     "modals": {
@@ -260,10 +260,10 @@
         "roomDescription": "Description",
         "minLength": "longueur minimum de 2 caractères"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "tommorow": "DEMAIN",
+      "today": "AUJOURD'HUI",
       "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
+        "areYouSure": "Êtes vous sûr de vouloir supprimer cette salle programmée?"
       }
     },
     "roomChat": {
@@ -275,7 +275,7 @@
       "searchResults": "Résultats de recherche",
       "recent": "Fréquemment utilisées",
       "sendMessage": "Envoyer un message",
-      "whisper": "Chuchoter",
+      "whisper": "Chuchotement",
       "welcomeMessage": "Bienvenue dans le chat !",
       "roomDescription": "Description de la salle"
     },

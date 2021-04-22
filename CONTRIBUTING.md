@@ -75,9 +75,9 @@ $ iex -S mix
 ```
 #### `shawarma`
 ```shell
-$ npm i
-$ npm run build
-$ npm start
+$ yarn
+$ yarn build
+$ yarn start
 ```
 #### `kibbeh`
 ```shell
