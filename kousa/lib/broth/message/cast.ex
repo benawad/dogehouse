@@ -1,6 +1,9 @@
 defmodule Broth.Message.Cast do
   @moduledoc """
   API contract statement for cast message modules
+
+  If this route can be used without authorization, set the
+  `:needs_auth` keyword parameter to false.
   """
 
   import Broth.Message.Call, only: [auth_check: 1]

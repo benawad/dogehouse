@@ -13,6 +13,9 @@ defmodule Broth.Message.Call do
 
   performs compile-time checks to validate that the reply module
   is, indeed, a reply module.
+
+  If this route can be used without authorization, set the
+  `:needs_auth` keyword parameter to false.
   """
 
   defmacro __using__(opts) do
