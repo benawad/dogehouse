@@ -136,17 +136,19 @@ defmodule Onion.UserSession do
     {:reply, Map.get(state, key), state}
   end
 
-  def set_pid(user_id, pid), do: call(user_id, {:set_pid, pid})
+  # temporary function that exists so that each user can only have
+  # one tenant websocket.
+  def set_active_ws(user_id, pid), do: call(user_id, {:set_active_ws, pid})
 
-  defp set_pid(pid, _reply, state) do
+  defp set_active_ws(pid, _reply, state) do
     if state.pid do
-      Broth.UserSession.exit(state.pid)
+      # terminates another websocket that happened to have been
+      # running.
+      Process.exit(state.pid, :normal)
     else
       Beef.Users.set_online(state.user_id)
     end
-
     Process.monitor(pid)
-
     {:reply, :ok, %{state | pid: pid}}
   end
 
@@ -208,7 +210,7 @@ defmodule Onion.UserSession do
 
   def handle_call(:get_info_for_msg, reply, state), do: get_info_for_msg_impl(reply, state)
   def handle_call({:get, key}, reply, state), do: get_impl(key, reply, state)
-  def handle_call({:set_pid, pid}, reply, state), do: set_pid(pid, reply, state)
+  def handle_call({:set_active_ws, pid}, reply, state), do: set_active_ws(pid, reply, state)
 
   def handle_info({:DOWN, _ref, :process, pid, _reason}, state), do: handle_disconnect(pid, state)
 end
