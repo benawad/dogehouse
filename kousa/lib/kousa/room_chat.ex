@@ -41,7 +41,7 @@ defmodule Kousa.RoomChat do
       end
 
     if room do
-      Onion.RoomChat.ban_user(room.id, user_id_to_ban)
+      RoomChat.ban_user(room.id, user_id_to_ban)
       :ok
     else
       {:error, "#{user_id} not authorized to ban #{user_id_to_ban}"}

@@ -66,7 +66,7 @@ defmodule BrothTest.Room.CreateTest do
         ref,
         %{
           "creatorId" => ^user_id,
-          "description" => nil,
+          "description" => "",
           "id" => room_id,
           "name" => "foo room",
           "isPrivate" => true
