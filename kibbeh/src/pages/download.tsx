@@ -5,11 +5,11 @@ import { HeaderController } from "../modules/display/HeaderController";
 
 const links: any = {
   "Mac OS":
-    "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{v}}.dmg",
+    "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{version}}.dmg",
   Windows:
-    "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-Setup-{{v}}.exe",
+    "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-Setup-{{version}}.exe",
   Linux:
-    "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{v}}.AppImage",
+    "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{version}}.AppImage",
 };
 
 export default function Download() {
@@ -28,11 +28,11 @@ export default function Download() {
       xmlHttp.onreadystatechange = () => {
         if (xmlHttp.responseText && !res) {
           res = true;
-          let data = JSON.parse(xmlHttp.responseText);
-          let tag = data.tag_name;
+          const data = JSON.parse(xmlHttp.responseText);
+          const tag = data.tag_name;
           if (tag) {
-            let v = tag.replace("v", "");
-            let link = links[os.os].replace("{{tag}}", tag).replace("{{v}}", v);
+            let version = tag.replace("version", "");
+            let link = links[os.os].replace("{{tag}}", tag).replace("{{version}}", version);
             window.location.href = link;
           } else {
             setDownloadFailed(true);
@@ -93,7 +93,7 @@ function getOS() {
   } else if (/Android/.test(userAgent)) {
     os = "Android";
     isPhone = true;
-  } else if (!os && /Linux/.test(platform)) {
+  } else if (/Linux/.test(platform)) {
     os = "Linux";
     isLinux = true;
   }
