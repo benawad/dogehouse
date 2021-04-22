@@ -68,7 +68,7 @@ export const UserWideButton: React.FC<UserWideButtonInfoProps> = ({ user }) => {
     return (
       <>
         <div style={divStyle} className="flex flex-row items-center " >
-        <div style={avatarStyle} className="flex mr-" >
+        <div style={avatarStyle} className="flex mr-0.5" >
           <SingleUser
             size="md"
             src={user.avatarUrl}
