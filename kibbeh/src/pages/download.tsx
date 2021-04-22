@@ -76,7 +76,7 @@ function getOS() {
 
   const userAgent = window.navigator.userAgent;
   const platform = window.navigator.platform;
-  const macosPlatforms = ["Macintosh", "MacIntel", "MacPPC", "Mac68K"];
+  const macosPlatforms = ["Macintosh", "MacIntel", "MacPPC", "Mac68K", "darwin"];
   const windowsPlatforms = ["Win32", "Win64", "Windows", "WinCE"];
   const iosPlatforms = ["iPhone", "iPad", "iPod"];
 
