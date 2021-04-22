@@ -53,6 +53,10 @@ function App({ Component, pageProps }: AppProps) {
           useHostStore.getState().setData(platform);
         }
       );
+      document.documentElement.style.setProperty(
+        "--screen-height-reduction",
+        "30px"
+      );
     }
   }, []);
 
