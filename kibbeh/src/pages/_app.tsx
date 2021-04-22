@@ -58,12 +58,11 @@ function App({ Component, pageProps }: AppProps) {
         "30px"
       );
     }
-    let a = 0;
-    window.onscroll = () => {
-      a++;
-      console.log("Scrolled", a);
-      useScrollStore().setData(Date.now());
-    };
+
+    // this is to fix #2212, but it isn't working as of right now, for some reason the hook below isnt called.
+    // window.onscroll = () => {
+    //   useScrollStore().setData(Date.now());
+    // };
   }, []);
 
   if (isServer && (Component as PageComponent<unknown>).ws) {
