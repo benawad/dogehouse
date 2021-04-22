@@ -15362,15 +15362,9 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-"react-virtuoso@npm:^1.8.2":
-  version: 1.8.2
-  resolution: "react-virtuoso@npm:1.8.2"
-=======
 "react-virtual@npm:^2.7.0":
   version: 2.7.0
   resolution: "react-virtual@npm:2.7.0"
->>>>>>> 1b2b4abb2372763ffd3f84b77a5113343c6578b1
   dependencies:
     "@reach/observe-rect": ^1.1.0
     ts-toolbelt: ^6.4.2
