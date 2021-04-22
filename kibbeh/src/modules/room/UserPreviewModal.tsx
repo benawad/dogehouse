@@ -71,23 +71,19 @@ const UserPreview: React.FC<{
     return <div className={`flex text-primary-100`}>This user is gone.</div>;
   }
 
-  // @todo pretty sure this is some what bugged
-  // will add it back when 100% works
-  // const setNewCreatorButton = (
-  //   <Button
-  //     onClick={() => {
-  //       onClose();
-  //       changeRoomCreator([id]);
-  //     }}
-  //   >
-  //     {t("components.modals.profileModal.makeRoomCreator")}
-  //   </Button>
-  // );
-
   const canDoModStuffOnThisUser = !isMe && (iAmCreator || iAmMod) && !isCreator;
 
   // [shouldShow, key, onClick, text]
   const buttonData = [
+    [
+      iAmCreator && !isMe && roomPermissions?.isSpeaker,
+      "changeRoomCreator",
+      () => {
+        onClose();
+        changeRoomCreator([id]);
+      },
+      t("components.modals.profileModal.makeRoomCreator"),
+    ],
     [
       !isMe && iAmCreator,
       "makeMod",

@@ -35,6 +35,8 @@ p.bold {
   --color-accent: #fd4d4d;
   --color-accent-hover: #fd6868;
   --color-accent-disabled: #f5bfbf;
+
+  --screen-height-reduction: 0px;
 }
 
 h1 {
@@ -72,7 +74,7 @@ p.small {
 ::-webkit-scrollbar {
   overflow: overlay;
   width: 8px;
-  /* shouldnt hardcode width, pls find way to make it dynamic, thin wasn't working for me... */
+  /* shouldnt hardcode width, pls find way to make it dynamic, thin wasn't working for me...*/
 }
 
 ::-webkit-scrollbar-track {
@@ -81,6 +83,7 @@ p.small {
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--color-primary-700);
+  border-radius: 5px;
 }
 
 html,
@@ -119,4 +122,8 @@ img.emoji {
   width: 1em;
   margin: 0 0.05em 0 0.1em;
   vertical-align: -0.1em;
+}
+
+.h-screen {
+  height: calc(100vh - var(--screen-height-reduction));
 }

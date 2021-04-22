@@ -14,10 +14,9 @@ if (isElectron()) {
   ipcRenderer = window.require("electron").ipcRenderer;
 }
 export const useGetRoomByQueryParam = () => {
-  const { currentRoomId, setCurrentRoomId } = useCurrentRoomIdStore();
+  const { setCurrentRoomId } = useCurrentRoomIdStore();
   const { query } = useRouter();
   const roomId = typeof query.id === "string" ? query.id : "";
-  const reset = useRoomChatStore((s) => s.reset);
   const { data, isLoading } = useTypeSafeQuery(
     ["joinRoomAndGetInfo", roomId || ""],
     {
@@ -27,9 +26,6 @@ export const useGetRoomByQueryParam = () => {
         if (d && !("error" in d) && d.room) {
           if (isElectron()) {
             ipcRenderer.send("@room/joined", true);
-          }
-          if (currentRoomId !== d.room.id) {
-            reset();
           }
           setCurrentRoomId(() => d.room.id);
         }

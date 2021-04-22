@@ -7,6 +7,9 @@ import { useSplitUsersIntoSections } from "./useSplitUsersIntoSections";
 import { WebSocketContext } from "../../modules/ws/WebSocketProvider";
 import { useScreenType } from "../../shared-hooks/useScreenType";
 import { useMediaQuery } from "react-responsive";
+import { AudioDebugPanel } from "../debugging/AudioDebugPanel";
+import { useDebugAudioStore } from "../../global-stores/useDebugAudio";
+import { useMuteStore } from "../../global-stores/useMuteStore";
 
 interface RoomUsersPanelProps extends JoinRoomAndGetInfoResponse {}
 
@@ -23,8 +26,8 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
     canIAskToSpeak,
   } = useSplitUsersIntoSections(props);
   const { t } = useTypeSafeTranslation();
-  const me = useContext(WebSocketContext).conn?.user || {};
-
+  const me = useContext(WebSocketContext).conn?.user;
+  const muted = useMuteStore().muted;
   let gridTemplateColumns = "repeat(5, minmax(0, 1fr))";
   const screenType = useScreenType();
   const isBigFullscreen = useMediaQuery({ minWidth: 640 });
@@ -34,15 +37,17 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
   } else if (screenType === "fullscreen") {
     gridTemplateColumns = "repeat(3, minmax(0, 1fr))";
   }
-
   useEffect(() => {
     if (isElectron()) {
       ipcRenderer.send("@room/data", {
         currentRoom: props,
-        me,
+        muted,
+        me: me || {},
       });
     }
-  });
+  }, [props, muted, me]);
+
+  const { debugAudio } = useDebugAudioStore();
 
   return (
     <div
@@ -50,6 +55,7 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
       id={props.room.isPrivate ? "private-room" : "public-room"}
     >
       <div className="w-full block">
+        {debugAudio ? <AudioDebugPanel /> : null}
         <div
           style={{
             gridTemplateColumns,

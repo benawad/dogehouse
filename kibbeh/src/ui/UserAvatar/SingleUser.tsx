@@ -78,7 +78,7 @@ export const SingleUser: React.FC<AvatarProps> = ({
   const sizeStyle = onlineIndicatorStyleMap[size];
   return (
     <div
-      className={`flex relative inline-block ${className}`}
+      className={`relative inline-block ${className}`}
       style={{
         width: avatarSizeMap[size],
         height: avatarSizeMap[size],
@@ -86,7 +86,7 @@ export const SingleUser: React.FC<AvatarProps> = ({
       data-testid="single-user-avatar"
     >
       <img
-        alt="avatar"
+        alt={username ? `${username}-s-avatar` : "your-avatar"}
         style={{
           boxShadow: activeSpeaker ? "0 0 0 2px var(--color-accent)" : "",
         }}

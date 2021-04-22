@@ -21,7 +21,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muted | DogeHouse"
+    "mutedTitle": "Muted | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -41,7 +43,8 @@
     "home": {
       "createRoom": "Abuur qol",
       "refresh": "Cusbooneysii",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Qolka wuu dhamaday, dib u noqo",
@@ -84,7 +87,7 @@
       "allowAllConfirm": "Ma hubtaa? Tani waxay u oggolaan doontaa dhammaan {{count}} Isticmaalayaasha inay codsadaan inay hadlaan"
     },
     "searchUser": { "search": "raadi..." },
-    "soundEffectSettings": { "header": "Codka" },
+    "soundEffectSettings": { "header": "Codka", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "wax ka beddel koontada",
       "followsYou": "adiga kuraacay",
@@ -109,6 +112,11 @@
         "errorMsg": "Please enter valid app title",
         "label": "Enter app title"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -233,6 +241,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -250,6 +262,11 @@
         "roomName": "magaca qolka",
         "roomDescription": "qeexitaan",
         "minLength": "ugu yaraan 2"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

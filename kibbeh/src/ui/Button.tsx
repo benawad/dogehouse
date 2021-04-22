@@ -7,7 +7,7 @@ import { Spinner } from "./Spinner";
 
 const sizeClassnames = {
   big: "py-2 px-6 text-sm rounded-lg",
-  small: "px-2 py-1 text-xs rounded-md",
+  small: "px-2 py-1 text-sm rounded-md",
 };
 
 const colorClassnames = {
@@ -17,6 +17,8 @@ const colorClassnames = {
     "text-button bg-primary-700 hover:bg-primary-600 disabled:text-primary-300",
   "secondary-800":
     "text-button bg-primary-800 hover:bg-primary-600 disabled:text-primary-300",
+  "primary-300":
+    "text-button bg-primary-700 hover:bg-primary-600 disabled:text-primary-300",
 };
 
 export type ButtonProps = DetailedHTMLProps<
@@ -44,9 +46,9 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <button
       disabled={disabled || loading}
-      className={`flex ${sizeClassnames[size]} ${
-        transition ? `transition duration-200 ease-in-out` : ``
-      } ${
+      className={`flex outline-none focus:ring-4 focus:ring-${color} ${
+        sizeClassnames[size]
+      } ${transition ? `transition duration-200 ease-in-out` : ``} ${
         colorClassnames[color]
       } font-bold flex items-center justify-center ${className}`}
       data-testid="button"

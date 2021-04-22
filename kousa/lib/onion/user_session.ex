@@ -74,7 +74,7 @@ defmodule Onion.UserSession do
 
   defp send_ws_impl(_platform, msg, state = %{pid: pid}) do
     # TODO: refactor this to not use ws-datastructures
-    if pid, do: send(pid, {:remote_send, msg})
+    if pid, do: Broth.SocketHandler.remote_send(pid, msg)
     {:noreply, state}
   end
 
@@ -93,7 +93,7 @@ defmodule Onion.UserSession do
 
   defp new_tokens_impl(tokens, state = %{pid: pid}) do
     # TODO: refactor this to not use ws-datastructures
-    if pid, do: send(pid, {:remote_send, %{op: "new-tokens", d: tokens}})
+    if pid, do: Broth.SocketHandler.remote_send(pid, %{op: "new-tokens", d: tokens})
     {:noreply, state}
   end
 
@@ -127,7 +127,7 @@ defmodule Onion.UserSession do
 
   defp set_pid(pid, _reply, state) do
     if state.pid do
-      send(state.pid, {:kill})
+      Broth.UserSession.exit(state.pid)
     else
       Beef.Users.set_online(state.user_id)
     end

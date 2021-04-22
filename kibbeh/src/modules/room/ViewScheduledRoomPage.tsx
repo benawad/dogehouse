@@ -8,6 +8,7 @@ import { DesktopLayout } from "../layouts/DesktopLayout";
 import { MiddlePanel } from "../layouts/GridPanels";
 import { EditScheduleRoomModalController } from "../scheduled-rooms/EditScheduleRoomModalController";
 import { ScheduledRoomCard } from "../scheduled-rooms/ScheduledRoomCard";
+import { HeaderController } from "../display/HeaderController";
 
 interface ViewScheduledRoomPageProps {}
 
@@ -30,13 +31,14 @@ export const ViewScheduledRoomPage: React.FC<ViewScheduledRoomPageProps> = ({}) 
   if ("error" in data || !data.room) {
     return (
       <DesktopLayout>
-        <InfoText>could not find room</InfoText>
+        <InfoText>Could not find room</InfoText>
       </DesktopLayout>
     );
   }
 
   return (
     <DesktopLayout>
+      <HeaderController title={data.room.name} embed={{}} />
       <MiddlePanel>
         {deleted ? (
           <InfoText>deleted</InfoText>

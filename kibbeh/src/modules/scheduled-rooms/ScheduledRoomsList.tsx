@@ -31,7 +31,8 @@ const Page = ({
 }) => {
   const { isLoading, data } = useTypeSafeQuery(
     ["getScheduledRooms", cursor, getOnlyMyScheduledRooms],
-    { staleTime: Infinity, refetchOnMount: "always" }
+    { staleTime: Infinity, refetchOnMount: "always" },
+    [cursor, getOnlyMyScheduledRooms]
   );
   const update = useTypeSafeUpdateQuery();
   const { t } = useTypeSafeTranslation();
@@ -53,7 +54,7 @@ const Page = ({
   }
 
   return (
-    <>
+    <div className={`${isLastPage ? "mb-24" : ""}`}>
       {data.scheduledRooms.map((r) => (
         <div className={`mt-4`} key={r.id}>
           <ScheduledRoomCard
@@ -82,7 +83,7 @@ const Page = ({
           </Button>
         </div>
       ) : null}
-    </>
+    </div>
   );
 };
 
