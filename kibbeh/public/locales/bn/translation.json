@@ -89,7 +89,7 @@
       "allowAllConfirm": "আপনি কি নিশ্চিত? এটা অনুমতি দেবে সব {{count}} জন অনুরোধ করা ইউজারদের কথা বলতে"
     },
     "searchUser": { "search": "খুঁজুন..." },
-    "soundEffectSettings": { "header": "সাউন্ডস", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "সাউন্ডস", "title": "সাউন্ড সেটিংস" },
     "viewUser": {
       "editProfile": "প্রোফাইল এডিট করুন",
       "followsYou": "আপনাকে অনুসরণ করে",
@@ -249,6 +249,10 @@
       "logOut": {
         "button": "লগ আউট",
         "modalSubtitle": "আপনি কি নিশ্চিত আপনি লগ আউট করতে চান?"
+      },
+      "debugAudio": {
+        "debugAudio": "অডিও ডিবাগ করুন",
+        "stopDebugger": "ডিবাগার বন্ধ করুন"
       }
     }
   },
@@ -266,6 +270,11 @@
         "roomName": "রুমের নাম",
         "minLength": "মিনিমাম ২ অক্ষরের",
         "roomDescription": "রুমের বর্ণনা"
+      },
+      "tommorow": "আগামীকাল",
+      "today": "আজ",
+      "deleteModal": {
+        "areYouSure": "আপনি কি নিশ্চিত আপনি এই পরিকল্পিত রুমটি ডিলিট করতে চান?"
       }
     },
     "roomChat": {

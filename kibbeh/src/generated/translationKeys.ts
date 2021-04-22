@@ -34,7 +34,6 @@ export type TranslationKeys =
 	| "pages.home.createRoom"
 	| "pages.home.editRoom"
 	| "pages.home.refresh"
-	| "pages.home.desktopAlert"
 	| "pages.inviteList.roomGone"
 	| "pages.inviteList.shareRoomLink"
 	| "pages.inviteList.inviteFollowers"
