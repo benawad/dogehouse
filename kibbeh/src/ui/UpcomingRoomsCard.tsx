@@ -8,16 +8,20 @@ import { RoomCardHeading } from "./RoomCardHeading";
 import { MultipleUsers } from "./UserAvatar";
 
 interface FormattedDateProps {
-  scheduledFor: Date
+  scheduledFor: Date;
 }
 
 const FormattedDate: React.FC<FormattedDateProps> = ({ scheduledFor }) => {
   const { t } = useTypeSafeTranslation();
-  let text = '';
+  let text = "";
   if (isToday(scheduledFor)) {
-    text = t("modules.scheduledRooms.today") + " " + format(scheduledFor, `K:mm a`);
+    text =
+      t("modules.scheduledRooms.today") + " " + format(scheduledFor, `K:mm a`);
   } else if (isTomorrow(scheduledFor)) {
-    text = t("modules.scheduledRooms.tommorow") + " " + format(scheduledFor, `K:mm a`);
+    text =
+      t("modules.scheduledRooms.tommorow") +
+      " " +
+      format(scheduledFor, `K:mm a`);
   } else {
     text = format(scheduledFor, `EEE, do MMM, K:mm a`);
   }

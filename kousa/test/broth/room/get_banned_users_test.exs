@@ -1,4 +1,4 @@
-defmodule BrothTest.GetBlockedFromRoomUsersTest do
+defmodule BrothTest.Room.GetUsersTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 
@@ -17,7 +17,7 @@ defmodule BrothTest.GetBlockedFromRoomUsersTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket get_blocked_from_room_users operation" do
+  describe "the websocket room:get_banned_users operation" do
     test "returns one banned user if you are in the room", t do
       user_id = t.user.id
       # first, create a room owned by the primary user.
@@ -33,15 +33,16 @@ defmodule BrothTest.GetBlockedFromRoomUsersTest do
       Kousa.Room.block_from_room(user_id, user_to_ban.id)
 
       ref =
-        WsClient.send_call_legacy(
+        WsClient.send_call(
           t.client_ws,
-          "get_blocked_from_room_users",
+          "room:get_banned_users",
           %{}
         )
 
       banned_user_id = user_to_ban.id
 
-      WsClient.assert_reply_legacy(
+      WsClient.assert_reply(
+        "room:get_banned_users:reply",
         ref,
         %{
           "users" => [%{"id" => ^banned_user_id}]
@@ -52,17 +53,16 @@ defmodule BrothTest.GetBlockedFromRoomUsersTest do
 
     test "returns what if you're not in a room", t do
       ref =
-        WsClient.send_call_legacy(
+        WsClient.send_call(
           t.client_ws,
-          "get_blocked_from_room_users",
+          "room:get_banned_users",
           %{}
         )
 
-      WsClient.assert_reply_legacy(
+      WsClient.assert_reply(
+        "room:get_banned_users:reply",
         ref,
-        %{
-          "users" => []
-        },
+        %{"users" => []},
         t.client_ws
       )
     end

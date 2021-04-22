@@ -31,6 +31,10 @@ defmodule Broth.Message.Auth.Request do
       displayName
       avatarUrl
       bio
+      online
+      numFollowing
+      numFollowers
+      lastOnline
     )a}
 
     @primary_key {:id, :binary_id, []}
@@ -40,6 +44,10 @@ defmodule Broth.Message.Auth.Request do
       field(:avatarUrl, :string)
       field(:bio, :string, default: "")
       field(:currentRoomId, :binary_id)
+      field(:numFollowing, :integer)
+      field(:numFollowers, :integer)
+      field(:online, :boolean)
+      field(:lastOnline, :utc_datetime_usec)
     end
   end
 
@@ -104,7 +112,7 @@ defmodule Broth.Message.Auth.Request do
             voice_server_id: room.voiceServerId
           )
 
-          RoomSession.join_room(room.id, user, request.muted)
+          RoomSession.join_room(room.id, user.id, request.muted)
 
           if request.reconnectToVoice == true do
             Kousa.Room.join_vc_room(user.id, room)

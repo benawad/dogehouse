@@ -53,7 +53,7 @@
     "react-popper": "^2.2.5",
     "react-query": "^3.13.8",
     "react-responsive": "^8.2.0",
-    "react-virtuoso": "^1.8.2",
+    "react-virtual": "^2.7.0",
     "superstruct": "^0.15.1",
     "tslib": "^2.2.0",
     "twemoji-parser": "^13.0.0",

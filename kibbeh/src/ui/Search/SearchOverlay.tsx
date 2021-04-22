@@ -22,10 +22,10 @@ export const SearchOverlay = forwardRef<
         right: "0px",
         boxShadow: "-3px 4px 14px rgba(0, 0, 0, 0.7)",
         width: "calc(100% + 20px)",
-        zIndex: -1
+        zIndex: -1,
       }}
       {...props}
-      >
+    >
       {children}
     </div>
   );

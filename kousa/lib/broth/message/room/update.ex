@@ -7,7 +7,7 @@ defmodule Broth.Message.Room.Update do
   @primary_key {:id, :binary_id, []}
   schema "rooms" do
     field(:name, :string)
-    field(:description, :string)
+    field(:description, :string, default: "")
     field(:isPrivate, :boolean)
     field(:autoSpeaker, :boolean, virtual: true)
   end
@@ -36,7 +36,7 @@ defmodule Broth.Message.Room.Update do
   def execute(changeset, state) do
     # TODO: move this changeset stuff into Kousa itself.
     with {:ok, update} <- apply_action(changeset, :validate),
-         {:ok, room} <- Kousa.Room.update(state.user_id, Map.from_struct(update))  do
+         {:ok, room} <- Kousa.Room.update(state.user_id, Map.from_struct(update)) do
       changes = changeset.changes
 
       if Map.has_key?(changes, :isPrivate) do

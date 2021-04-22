@@ -62,14 +62,14 @@ defmodule Broth.LegacyHandler do
     reply =
       case Kousa.Room.join_room(state.user_id, room_id_to_join) do
         %{error: err} ->
-          %{error: err}
+          %{op: "fetch_done", d: %{error: err}, fetchId: fetch_id}
 
         %{room: room} ->
           {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
 
           case Onion.RoomSession.lookup(room_id) do
             [] ->
-              %{error: "Room no longer exists."}
+              %{op: "error", d: "Room no longer exists."}
 
             _ ->
               {muteMap, autoSpeaker, activeSpeakerMap} =
@@ -92,7 +92,7 @@ defmodule Broth.LegacyHandler do
           end
 
         _ ->
-          %{error: "error"}
+          %{op: "error", d: "unexpected error"}
       end
 
     {:reply, prepare_socket_msg(reply, state), state}

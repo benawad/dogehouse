@@ -7,23 +7,31 @@ defmodule Broth.Message.User.GetInfo do
     field(:userId, :binary_id)
   end
 
-  alias Kousa.Utils.UUID
-
   def initialize(state) do
     %__MODULE__{userId: state.user_id}
   end
 
+  # userId is either a uuid or username
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
     |> cast(data, [:userId])
     |> validate_required([:userId])
-    |> UUID.normalize(:userId)
   end
 
   defmodule Reply do
     use Broth.Message.Push
 
-    @derive {Jason.Encoder, only: [:id, :username, :displayName, :avatarUrl, :bio]}
+    @derive {Jason.Encoder, only: ~w(
+      id
+      username
+      displayName
+      avatarUrl
+      bio
+      online
+      numFollowing
+      numFollowers
+      lastOnline
+    )a}
 
     @primary_key {:id, :binary_id, []}
     schema "users" do
@@ -31,15 +39,28 @@ defmodule Broth.Message.User.GetInfo do
       field(:displayName, :string)
       field(:avatarUrl, :string)
       field(:bio, :string, default: "")
+      field(:currentRoomId, :binary_id)
+      field(:numFollowing, :integer)
+      field(:numFollowers, :integer)
+      field(:online, :boolean)
+      field(:lastOnline, :utc_datetime_usec)
+      field(:youAreFollowing, :boolean, virtual: true)
+      field(:followsYou, :boolean, virtual: true)
     end
   end
 
-  alias Beef.Repo
+  alias Beef.Users
 
   def execute(changeset, state) do
     case apply_action(changeset, :validate) do
       {:ok, %{userId: user_id}} ->
-        {:reply, Repo.get(Reply, user_id), state}
+        case Ecto.UUID.cast(user_id) do
+          {:ok, _} ->
+            {:reply, Users.get_by_id_with_follow_info(state.user_id, user_id), state}
+
+          _ ->
+            {:reply, Users.get_by_username_with_follow_info(state.user_id, user_id), state}
+        end
 
       error ->
         error
