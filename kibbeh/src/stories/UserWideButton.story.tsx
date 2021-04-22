@@ -1,7 +1,7 @@
 import { Story } from "@storybook/react";
 import React from "react";
 import { sampleBaseUser } from "./data/BaseUser";
-import { UserWideButton, UserWideButtonInfoProps } from '../ui/UserWideButton';
+import { UserWideButton, UserWideButtonInfoProps } from "../ui/UserWideButton";
 
 export default {
   title: "UserWideButton",
