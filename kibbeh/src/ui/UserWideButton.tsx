@@ -6,7 +6,6 @@ import { BaseUser } from '@dogehouse/kebab';
 
 export interface UserWideButtonInfoProps {
     user: BaseUser;
-
 }
 
 const divStyle = {
@@ -52,12 +51,14 @@ const testStyle = {
 export const UserWideButton: React.FC<UserWideButtonInfoProps> = ({ user }) => {
     const { t } = useTypeSafeTranslation();
     
-    const [buttonText, setButtonText] = useState("Unblocked");
+    const [buttonText, setButtonText] = useState("Unblock");
+    
     const changeText = (text: React.SetStateAction<string>) => {
-        if (buttonText == "Unblocked"){
+        console.log({user});
+        if (buttonText == "Unblock"){
             setButtonText(text);
         } else{
-            setButtonText("Unblocked");
+            setButtonText("Unblock");
         }
     
     };
@@ -66,21 +67,21 @@ export const UserWideButton: React.FC<UserWideButtonInfoProps> = ({ user }) => {
     return (
       <>
         <div style={divStyle} className="flex flex-row items-center " >
-        <span style={avatarStyle} >
+        <div style={avatarStyle} className="flex mr-0.5" >
           <SingleUser
             size="md"
             src={user.avatarUrl}
             username={user.username}
           />
-          </span>
+          </div>
           <div className="flex flex-col px-2">
-            <span className="flex text-primary-100 mr-1 font-bold h-full break-all line-clamp-1 truncate" style={testStyle}>
+            <span className="flex text-primary-100 mr-3 font-bold h-full break-all line-clamp-1 truncate" style={testStyle}>
               {user.displayName}
             </span>
-            <span style={{color: "#5D7290"}} className="flex text-primary-300 mr-1">@{user.username}</span>
+            <span style={{color: "#5D7290"}} className="flex text-primary-300 mr-3">@{user.username}</span>
           </div>
           <div style={buttonStyle} >
-          <Button size="big" color="primary" onClick={() => changeText("Blocked")}>
+          <Button size="big" color="primary" onClick={() => changeText("Block")}>
             {buttonText}
         </Button>
         </div>
