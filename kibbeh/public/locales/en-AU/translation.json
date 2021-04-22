@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "ǝsnoHǝƃoᗡ",
     "mutedTitle": "ǝsnoHǝƃoᗡ | pǝʇnW",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -141,7 +142,10 @@
       "settings": "sƃuᴉʇʇǝS",
       "speaker": "ɹǝʞɐǝdS",
       "listener": "ɹǝuǝʇsᴉꞀ",
-      "chat": "ʇɐɥƆ"
+      "chat": "ʇɐɥƆ",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "uɐ ǝʇɐǝɹɔ uɐɔ no⅄ ˙pǝʇɹoddns ʇou ʎꞁʇuǝɹɹnɔ sᴉ ǝɔᴉʌǝp ɹno⅄",
@@ -159,7 +163,8 @@
       "listening": "ƃuᴉuǝʇsᴉꞁ",
       "toggleMuteKeybind": "puᴉqʎǝʞ ǝʇnɯ ǝꞁƃƃoʇ",
       "toggleOverlayKeybind": "puᴉqʎǝʞ ʎɐꞁɹǝʌo ǝꞁƃƃoʇ",
-      "togglePushToTalkKeybind": "puᴉqʎǝʞ ʞꞁɐʇ-oʇ-ɥsnd ǝꞁƃƃoʇ"
+      "togglePushToTalkKeybind": "puᴉqʎǝʞ ʞꞁɐʇ-oʇ-ɥsnd ǝꞁƃƃoʇ",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "uosɐǝɹ ǝɯos ɹoɟ ɹǝɯnsuoɔ oᴉpnɐ ou"

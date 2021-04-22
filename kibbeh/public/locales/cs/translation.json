@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Ztlumen | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -140,7 +141,10 @@
       "settings": "Nastavení",
       "speaker": "Mluvící",
       "listener": "Posluchač",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Tvé zařízení není momentálně podporováno. Můžeš o podporu",
@@ -161,7 +165,8 @@
       "listening": "Poslouchám",
       "toggleMuteKeybind": "Ztlumit mikrofon",
       "togglePushToTalkKeybind": "Push-To-Talk (mluvit jen po zmáčknutí tlačítka)",
-      "toggleOverlayKeybind": "Nastavit klávesovou zkratku pro overlay"
+      "toggleOverlayKeybind": "Nastavit klávesovou zkratku pro overlay",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Z nějakého důvodu není vysílán zvuk"

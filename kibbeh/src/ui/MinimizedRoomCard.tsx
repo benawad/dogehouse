@@ -1,6 +1,11 @@
 import React from "react";
 import { BoxedIcon } from "./BoxedIcon";
-import { SolidFullscreen, SolidMicrophone, SolidVolume } from "../icons";
+import {
+  SolidFullscreen,
+  SolidMicrophone,
+  SolidVolume,
+  SolidVolumeOff,
+} from "../icons";
 import { useRouter } from "next/router";
 import { Button } from "./Button";
 import { DurationTicker } from "./DurationTicker";
@@ -67,12 +72,12 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
               )}
             </BoxedIcon>
           ) : null}
-          {/* <BoxedIcon
+          <BoxedIcon
             onClick={room.myself.switchDeafened}
             className={room.myself.isDeafened ? "bg-accent" : ""}
           >
-            <SolidVolume />
-          </BoxedIcon> */}
+            {room.myself.isDeafened ? <SolidVolumeOff /> : <SolidVolume />}
+          </BoxedIcon>
           <BoxedIcon transition onClick={onFullscreenClick}>
             <SolidFullscreen />
           </BoxedIcon>

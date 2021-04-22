@@ -21,6 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "已靜音 | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -137,7 +138,10 @@
       "settings": "設定",
       "speaker": "講者",
       "listener": "聽眾",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "你的裝置目前並不支援，你可以到",
@@ -155,7 +159,8 @@
       "listening": "請輸入按鍵",
       "toggleMuteKeybind": "觸發靜音的按鍵組合",
       "togglePushToTalkKeybind": "觸發發言的按鍵組合",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "沒有聲音" },
     "addToCalendar": { "add": "加到行事曆" },

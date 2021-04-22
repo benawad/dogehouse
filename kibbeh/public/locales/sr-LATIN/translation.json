@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Prigušen | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -138,7 +139,10 @@
       "settings": "Podešavanja",
       "speaker": "Govornik",
       "listener": "Slušalac",
-      "chat": "Ćaskanje"
+      "chat": "Ćaskanje",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Vaš uređaj ternutno nije podržan. Možete stvoriti",
@@ -156,7 +160,8 @@
       "listening": "slušanje",
       "toggleMuteKeybind": "uključi/isključi prečicu na tastaturi za mutiranje",
       "togglePushToTalkKeybind": "uključi/isključi prečicu na tastaturi za govor na pritisak",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "nema audio konzumera iz nekog razloga"

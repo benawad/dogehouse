@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "../styles/globals.css";
 import "../styles/electron-header.css";
+import "../styles/banner-button.css";
 import { AppProps } from "next/app";
 import { QueryClientProvider } from "react-query";
 import { WebSocketProvider } from "../modules/ws/WebSocketProvider";
@@ -51,10 +52,6 @@ function App({ Component, pageProps }: AppProps) {
         ) => {
           useHostStore.getState().setData(platform);
         }
-      );
-      document.documentElement.style.setProperty(
-        "--screen-height-reduction",
-        "30px"
       );
     }
   }, []);

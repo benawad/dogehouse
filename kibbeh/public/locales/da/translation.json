@@ -21,6 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Lydløs | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -139,7 +140,10 @@
       "settings": "Indstillinger",
       "speaker": "Taler",
       "listener": "Lytter",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Din enhed understøttes ikke lige nu. Du kan oprette et",
@@ -160,7 +164,8 @@
       "listening": "Lytter",
       "toggleMuteKeybind": "Slå mikrofon til/fra genvej",
       "togglePushToTalkKeybind": "Slå push-to-talk til/fra genvej",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Ingen audio consumer af en eller anden grund"

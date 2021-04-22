@@ -49,7 +49,8 @@ defmodule BrothTest.Auth.RequestTest do
           "refreshToken" => tokens.refreshToken,
           "platform" => "foo",
           "reconnectToVoice" => false,
-          "muted" => false
+          "muted" => false,
+          "deafen" => false
         })
 
       WsClient.assert_reply("auth:request:reply", ref, %{"id" => ^user_id})
@@ -68,7 +69,8 @@ defmodule BrothTest.Auth.RequestTest do
             "refreshToken" => "bar",
             "platform" => "foo",
             "reconnectToVoice" => false,
-            "muted" => false
+            "muted" => false,
+            "deafen" => false
           })
         end,
         {:remote, 4001, "invalid_authentication"}

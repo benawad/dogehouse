@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Σε σίγαση | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Ταμπλό",
     "connectionTaken": "Έγινε σύνδεση"
   },
@@ -145,7 +146,10 @@
       "settings": "Ρυθμίσεις",
       "speaker": "Ομιλητής",
       "listener": "Ακροατής",
-      "chat": "Συζήτηση"
+      "chat": "Συζήτηση",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Η συσκευή σας δεν υποστηρίζεται αυτή τη στιγμή. Μπορείτε να δημιουργήσετε ένα",
@@ -166,7 +170,8 @@
       "listening": "Ακροατές",
       "toggleMuteKeybind": "Συντόμευση εναλλαγής σίγασης",
       "togglePushToTalkKeybind": "Συντόμευση εναλλαγής push-to-talk",
-      "toggleOverlayKeybind": "Συντόμευση για το overlay"
+      "toggleOverlayKeybind": "Συντόμευση για το overlay",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Δεν υπάρχει δέκτης ήχου για κάποιο λόγο"

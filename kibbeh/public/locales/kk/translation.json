@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Үнсіз | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -141,7 +142,10 @@
       "settings": "Баптамалар",
       "speaker": "Спикер",
       "listener": "Тыңдармандар",
-      "chat": "Чат"
+      "chat": "Чат",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Өкінішке орай, сіздің құрылғыға қолдау көрсетілмейді. Сіз келесіні жасай аласыз",
@@ -162,7 +166,8 @@
       "listening": "тыңдалуда",
       "toggleMuteKeybind": "Микрофонды осы пернені басқанда қосу",
       "togglePushToTalkKeybind": "Осы пернені басып сөйлеулң қосу",
-      "toggleOverlayKeybind": "Қабаттасуды осы перне арқылы өшіріп/қосу"
+      "toggleOverlayKeybind": "Қабаттасуды осы перне арқылы өшіріп/қосу",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "белгісіз себептермен дыбыс жоқ" },
     "addToCalendar": { "add": "Күнтізбеге қосу" },

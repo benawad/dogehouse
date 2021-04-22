@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Muted | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -141,7 +142,10 @@
       "settings": "Settings",
       "speaker": "Hadle",
       "listener": "Dhageyste",
-      "chat": "Wadahadal"
+      "chat": "Wadahadal",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Ma taagerayo devicekaga. Waad abuuri kartaa",
@@ -162,7 +166,8 @@
       "listening": "dhagaysi",
       "toggleMuteKeybind": "toggle mute keybind",
       "toggleOverlayKeybind": "toggle overlay keybind",
-      "togglePushToTalkKeybind": "toggle push-to-talk keybind"
+      "togglePushToTalkKeybind": "toggle push-to-talk keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "no audio consumer for some reason"

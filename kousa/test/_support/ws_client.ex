@@ -199,7 +199,8 @@ defmodule BrothTest.WsClientFactory do
       "refreshToken" => tokens.refreshToken,
       "platform" => "foo",
       "reconnectToVoice" => false,
-      "muted" => false
+      "muted" => false,
+      "deafened" => false
     })
 
     WsClient.assert_frame("auth-good", _)

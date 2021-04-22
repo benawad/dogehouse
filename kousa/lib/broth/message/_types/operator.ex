@@ -29,7 +29,6 @@ defenum(
     {Room.SetAuth, 71},
     {Room.Join, 72},
     {Room.GetUsers, 73},
-    {Room.GetBannedUsers, 84},
     {Room.UpdateScheduled, 74},
     {Room.DeleteScheduled, 75},
     {Room.Create, 76},
@@ -40,6 +39,8 @@ defenum(
     {Room.GetTop, 81},
     {Room.SetActiveSpeaker, 82},
     {Room.Mute, 83},
+    {Room.GetBannedUsers, 84},
+    {Room.Deafen, 85},
     # chat commands and casts: 128..191
     {Chat.Ban, 129},
     {Chat.SendMsg, 130},

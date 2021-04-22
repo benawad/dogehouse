@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Gemute | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -138,7 +139,10 @@
       "settings": "Insjtellinge",
       "speaker": "Sjpreker",
       "listener": "Loestereer",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Ding apparaat weurt neet ondersjteund. Du kins inge",
@@ -159,7 +163,8 @@
       "listening": "Aan t loestere",
       "toggleMuteKeybind": "Sjakel mute sjneltoets",
       "togglePushToTalkKeybind": "Sjakel push-to-talk sjneltoets",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Ging audioapparaat veur ing of andere reje"

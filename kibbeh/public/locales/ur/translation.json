@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Muted | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -141,7 +142,10 @@
       "settings": "ترتیبات",
       "speaker": "اسپیکر",
       "listener": "سننے والا",
-      "chat": "چیٹ"
+      "chat": "چیٹ",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "آپ کا آلہ فی الحال تعاون یافتہ نہیں ہے۔ آپ ایک تشکیل دے سکتے ہیں",
@@ -162,7 +166,8 @@
       "listening": "سن رہا ہے",
       "toggleMuteKeybind": "گونگا کی بائنڈ ٹوگل کریں",
       "togglePushToTalkKeybind": "ٹوگل کریں پش ٹو ٹاک کی بائنڈ",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "کسی وجہ سے آڈیو صارف نہیں ہے" },
     "addToCalendar": { "add": "کیلنڈر میں شامل کریں" },

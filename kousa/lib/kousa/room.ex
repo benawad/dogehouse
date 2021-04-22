@@ -286,7 +286,8 @@ defmodule Kousa.Room do
         Onion.RoomSession.add_speaker(
           room_id,
           user_id,
-          Onion.UserSession.get(user_id, :muted)
+          Onion.UserSession.get(user_id, :muted),
+          Onion.UserSession.get(user_id, :deafened)
         )
 
       err ->
@@ -390,8 +391,9 @@ defmodule Kousa.Room do
         )
 
         muted? = Onion.UserSession.get(user_id, :muted)
+        deafened? = Onion.UserSession.get(user_id, :deafened)
 
-        Onion.RoomSession.join_room(room.id, user_id, muted?, no_fan: true)
+        Onion.RoomSession.join_room(room.id, user_id, muted?, deafened?, no_fan: true)
 
         Onion.VoiceRabbit.send(room.voiceServerId, %{
           op: "create-room",
@@ -460,8 +462,9 @@ defmodule Kousa.Room do
               updated_user = Rooms.join_room(room, user_id)
 
               muted = Onion.UserSession.get(user_id, :muted)
+              deafened = Onion.UserSession.get(user_id, :deafened)
 
-              Onion.RoomSession.join_room(room_id, user_id, muted)
+              Onion.RoomSession.join_room(room_id, user_id, muted, deafened)
 
               canSpeak =
                 case updated_user do

@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Nutildyta | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -138,7 +139,10 @@
       "settings": "Nustatymai",
       "speaker": "Kalbėtojas",
       "listener": "Klausytojai",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Jūsų įrenginys šiuo metu nepalaikomas.",
@@ -159,7 +163,8 @@
       "listening": "Klausomasi",
       "toggleMuteKeybind": "perjungti nutildytą klavišą",
       "togglePushToTalkKeybind": "perjungti tiesioginio ryšio klavišą",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "dėl kokių nors priežasčių nėra garso vartotojo"
