@@ -17,7 +17,7 @@ export const ProfileHeaderWrapper: React.FC<ProfileHeaderWrapperProps> = ({
         src={coverUrl}
         className="rounded-t-8 w-full object-cover"
       />
-      <div className="p-4">{children}</div>
+      <div className="container mx-auto flex p-4 relative">{children}</div>
     </div>
   );
 };
