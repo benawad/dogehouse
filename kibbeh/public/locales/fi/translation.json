@@ -23,7 +23,7 @@
     "title": "DogeHouse",
     "mutedTitle": "Mykistetty | DogeHouse",
     "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "connectionTaken": "Yhteys katkaistu"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -61,16 +61,16 @@
       "featureText_6": "Dogen voimalla",
       "loginGithub": "Kirjaudu GitHubilla",
       "loginTwitter": "Kirjaudu Twitterillä",
-      "createTestUser": "Luo testikäyttäjä",
-      "loginDiscord": "Kirjaudu Discordilla"
+      "loginDiscord": "Kirjaudu Discordilla",
+      "createTestUser": "Luo testikäyttäjä"
     },
     "myProfile": {
       "logout": "Kirjaudu ulos",
       "probablyLoading": "Ladataan...",
       "voiceSettings": "Puheasetukset",
-      "soundSettings": "Toistoasetukset",
-      "deleteAccount": "Poista tili",
+      "soundSettings": "Ääniasetukset",
       "overlaySettings": "Overlay-asetukset",
+      "deleteAccount": "Poista tili",
       "couldNotFindUser": "Käyttäjää ei löytynyt"
     },
     "notFound": {
@@ -86,7 +86,7 @@
       "allowAllConfirm": "Oletko varma? Tämä antaa kaikille {{count}} pyytäville käyttäjille puheoikeuden"
     },
     "searchUser": { "search": "Hae..." },
-    "soundEffectSettings": { "header": "Äänet", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "Äänet", "title": "Ääniasetukset" },
     "viewUser": {
       "editProfile": "Muokkaa profiilia",
       "followsYou": "Seuraa sinua",
@@ -235,8 +235,8 @@
         "modalSubtitle": "Haluatko varmasti kirjautua ulos?"
       },
       "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
+        "debugAudio": "Testaa äänet",
+        "stopDebugger": "Pysäytä debuggeri"
       }
     }
   },
@@ -255,10 +255,10 @@
         "minLength": "Minimipituus 2",
         "roomDescription": "Huoneen kuvaus"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "tommorow": "HUOMENNA",
+      "today": "TÄNÄÄN",
       "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
+        "areYouSure": "Haluatko varmasti poistaa tämän ajoitetun huoneen?"
       }
     },
     "roomChat": {
@@ -270,7 +270,7 @@
       "searchResults": "Hakutulokset",
       "recent": "Usein käytetyt",
       "sendMessage": "Lähetä viesti",
-      "whisper": "Kuiskaa",
+      "whisper": "Kuiskaus",
       "welcomeMessage": "Tervetuloa chattiin!",
       "roomDescription": "Huoneen kuvaus"
     },
