@@ -61,7 +61,7 @@
       "loginGithub": "GitHub ile giriş yap",
       "loginTwitter": "Twitter ile giriş yap",
       "createTestUser": "Test kullanıcısı oluştur",
-      "loginDiscord": "Login with Discord"
+      "loginDiscord": "Discord ile giriş yap"
     },
     "myProfile": {
       "logout": "Çıkış yap",
@@ -70,7 +70,7 @@
       "soundSettings": "Ses ayarlarına git",
       "deleteAccount": "Hesabı sil",
       "overlaySettings": "Kaplama ayarlarına git",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Üzgünüz, böyle bir kullanıcı bulamadık"
     },
     "notFound": {
       "whoopsError": "Uups! Bu sayfa sohbette kayboldu.",
@@ -81,11 +81,11 @@
       "speakers": "Konuşmacılar",
       "requestingToSpeak": "Konuşmak için izin istiyor",
       "listeners": "Dinleyiciler",
-      "allowAll": "Allow all",
+      "allowAll": "Herkese izin ver",
       "allowAllConfirm": "Emin misiniz? Bu, talep eden {{count}} kullanıcının konuşmasına izin verecektir"
     },
     "searchUser": { "search": "Ara..." },
-    "soundEffectSettings": { "header": "Sesler", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "Sesler", "title": "Ses Ayarları" },
     "viewUser": {
       "editProfile": "Profili düzenle",
       "followsYou": "Seni takip ediyor",
@@ -95,7 +95,7 @@
       "followingHim": "Takiptesin",
       "copyProfileUrl": "Profil URL'sini kopyala",
       "urlCopied": "URL kopyalandı",
-      "unfollow": "Unfollow"
+      "unfollow": "Takipten çık"
     },
     "voiceSettings": {
       "header": "Ses Ayarları",
@@ -150,7 +150,7 @@
         "roomDescription": "Oda açıklaması",
         "descriptionError": "Maksimum uzunluk 500",
         "nameError": "2 ila 60 karakter uzunluğunda olmalıdır",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "Yeni bir oda başlatmak için gerekli alanları doldurun"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Yeni oda oluşturuldu",
@@ -202,7 +202,7 @@
       "toggleOverlayKeybind": "kaplama tuş ataması"
     },
     "wsKilled": {
-      "description": "WebSocket, sunucu tarafından kapatıldı. Bu genellikle websiteyi başka bir sekmede açtığında yaşanır.",
+      "description": "WebSocket bağlantısı sunucu tarafından kapatıldı. Bu genellikle websiteyi başka bir sekmede açtığında yaşanır.",
       "reconnect": "Yeniden Bağlan"
     },
     "deviceNotSupported": {
