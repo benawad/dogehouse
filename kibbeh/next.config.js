@@ -1,8 +1,6 @@
 const withTM = require("next-transpile-modules")(["@dogehouse/kebab"]);
-const withPWA = require('next-pwa')
-const runtimeCaching = require('next-pwa/cache')
 
-module.exports = withPWA(withTM({
+module.exports = withTM({
   reactStrictMode: true,
   typescript: {
     // !! WARN !!
@@ -11,9 +9,5 @@ module.exports = withPWA(withTM({
     // @todo remove this once storybook is fixed
     // !! WARN !!
     ignoreBuildErrors: true,
-  },
-  pwa: {
-    dest: "public",
-    runtimeCaching,
   }
-}));
+});
