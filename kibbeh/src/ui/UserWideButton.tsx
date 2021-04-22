@@ -54,11 +54,14 @@ export const UserWideButton: React.FC<UserWideButtonInfoProps> = ({ user }) => {
     
     const [buttonText, setButtonText] = useState("Unblocked");
     const changeText = (text: React.SetStateAction<string>) => {
-    setButtonText(text);
+        if (buttonText == "Unblocked"){
+            setButtonText(text);
+        } else{
+            setButtonText("Unblocked");
+        }
+    
     };
-    const onClickHandler  = (e: { type: string; }) => {
-        alert("blocked");
-    };
+    
     
     return (
       <>
