@@ -1,12 +1,10 @@
-import { format, isToday, isPast, differenceInMilliseconds } from "date-fns";
 import React, { useEffect, useState } from "react";
 import { SingleUser } from './UserAvatar';
 import { Button } from './Button';
-import { HeaderController } from '../modules/display/HeaderController';
 import { useTypeSafeTranslation } from '../shared-hooks/useTypeSafeTranslation';
 import { BaseUser } from '@dogehouse/kebab';
 
-interface VerticalUserInfoProps {
+export interface UserWideButtonInfoProps {
     user: BaseUser;
 
 }
@@ -22,23 +20,24 @@ const divStyle = {
 
 const avatarStyle = {
     width: '44px',
-height: '44px',
-left: '-2px',
-top: '-3px',
-marginLeft:'57px',
-// marginRight:'618px',
-marginBottom:'53px',
-marginTop: '46px'
+    height: '44px',
+    left: '-2px',
+    top: '-3px',
+    marginLeft:'57px',
+    // marginRight:'618px',
+    marginBottom:'53px',
+    marginTop: '46px'
 
 }
-const newStyle = {
+
+const buttonStyle = {
     // position: 'static',
-width: '90px',
-height: '22px',
-marginTop: '60px',
-marginRight: '59px',
-marginLeft: '250px',
-marginBottom: '61px'
+    width: '90px',
+    height: '22px',
+    marginTop: '60px',
+    marginRight: '59px',
+    marginLeft: '250px',
+    marginBottom: '61px'
 };
 
 const testStyle = {
@@ -50,21 +49,16 @@ const testStyle = {
 }
 
 
-export const UserWideButton: React.FC<VerticalUserInfoProps> = ({ user }) => {
+export const UserWideButton: React.FC<UserWideButtonInfoProps> = ({ user }) => {
     const { t } = useTypeSafeTranslation();
     
-    const deleteHandler  = (e: { type: string; }) => {
+    const onClickHandler  = (e: { type: string; }) => {
         alert("blocked");
     };
     
     return (
       <>
-      
-        {/* <HeaderController
-          embed={{}}
-          title={`${user.displayName} (@${user.username})`}
-        /> */}
-        <div style={divStyle} className="flex flex-row rounded-8  items-center " >
+        <div style={divStyle} className="flex flex-row items-center " >
         <span style={avatarStyle} >
           <SingleUser
             size="md"
@@ -72,18 +66,17 @@ export const UserWideButton: React.FC<VerticalUserInfoProps> = ({ user }) => {
             username={user.username}
           />
           </span>
-          <div className="flex flex-col mt-3 px-3 max-w-full ">
+          <div className="flex flex-col px-2">
             <span className="flex text-primary-100 mr-1 font-bold h-full break-all line-clamp-1 truncate" style={testStyle}>
               {user.displayName}
             </span>
             <span style={{color: "#5D7290"}} className="flex text-primary-300 mr-1">@{user.username}</span>
-            {/* <Badges badges={badges} /> */}
           </div>
-          <span style={newStyle} >
-          <Button size="big" color="primary" onClick={deleteHandler}>
-            unblock
+          <div className="flex" style={buttonStyle} >
+          <Button size="big" color="primary" onClick={onClickHandler}>
+            Unblock
         </Button>
-        </span>
+        </div>
         </div>
         </>
     );

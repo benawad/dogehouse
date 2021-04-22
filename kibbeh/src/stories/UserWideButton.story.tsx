@@ -1,13 +1,13 @@
 import { Story } from "@storybook/react";
 import React from "react";
-import { RoomCardHeadingProps } from "../ui/RoomCardHeading";
 import { sampleBaseUser } from "./data/BaseUser";
-import { UserWideButton } from '../ui/UserWideButton';
+import { UserWideButton, UserWideButtonInfoProps } from '../ui/UserWideButton';
 
 export default {
   title: "UserWideButton",
+  component: UserWideButton,
 };
 
-export const Main: Story<RoomCardHeadingProps> = () => {
+export const Main: Story<UserWideButtonInfoProps> = () => {
   return <UserWideButton user={sampleBaseUser} />;
 };
