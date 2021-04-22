@@ -99,6 +99,10 @@ defmodule Broth.SocketHandler do
   @impl true
   def websocket_handle({:text, "ping"}, state), do: {[text: "pong"], state}
 
+  # this is for firefox
+  @impl true
+  def websocket_handle({:ping, _}, state), do: {[text: "pong"], state}
+
   def websocket_handle({:text, command_json}, state) do
     with {:ok, message_map!} <- Jason.decode(command_json),
          # temporary trap mediasoup direct commands

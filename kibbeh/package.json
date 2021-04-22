@@ -17,7 +17,8 @@
     "build-storybook": "build-storybook -s ./public",
     "convert-icons": "svgr ../.redesign-assets/mobile/icons --replace-attr-values '#fff'='currentColor' --replace-attr-values 'none'='currentColor' --typescript --out-dir src/icons",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "e2e": "yarn run cypress open"
   },
   "dependencies": {
     "@date-io/date-fns": "^1.3.13",
@@ -95,6 +96,7 @@
     "babel-loader": "^8.2.2",
     "cross-env": "^7.0.3",
     "css-loader": "^5.2.1",
+    "cypress": "^7.1.0",
     "eslint": "^7.24.0",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
