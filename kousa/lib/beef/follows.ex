@@ -60,7 +60,12 @@ defmodule Beef.Follows do
           f.followerId == ^user_id and
             (is_nil(cr.isPrivate) or
                cr.isPrivate == false),
-        select: %{u | currentRoom: cr, followsYou: not is_nil(f2.userId)},
+        select: %{
+          u
+          | currentRoom: cr,
+            followsYou: not is_nil(f2.userId),
+            youAreFollowing: true
+        },
         limit: ^@fetch_limit,
         offset: ^offset,
         order_by: [desc: u.online]
