@@ -9,7 +9,7 @@ export const BaseSettingsItem: React.FC<BaseSettingsItemProps> = ({
   ...props
 }) => {
   return (
-    <div className="bg-primary-900 rounded-8" {...props}>
+    <div className={`bg-primary-900 rounded-8 ${className}`} {...props}>
       {children}
     </div>
   );
