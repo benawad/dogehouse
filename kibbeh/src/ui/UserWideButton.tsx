@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { SingleUser } from "./UserAvatar";
 import { Button } from "./Button";
-import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { BaseUser } from "@dogehouse/kebab";
 
 export interface UserWideButtonInfoProps {
