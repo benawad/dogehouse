@@ -22,6 +22,7 @@ defmodule Kousa.RoomChat do
         },
         whisperedTo
       )
+
       :ok
     end
   end
@@ -51,6 +52,7 @@ defmodule Kousa.RoomChat do
     case Rooms.get_room_status(user_id) do
       {role, room} when role in @ban_roles ->
         RoomChat.unban_user(room.id, user_id_to_unban)
+
       _ ->
         nil
     end

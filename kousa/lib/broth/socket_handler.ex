@@ -59,7 +59,7 @@ defmodule Broth.SocketHandler do
   #######################################################################
   ## API
 
-  @typep command :: :cow_ws.frame | {:shutdown, :normal}
+  @typep command :: :cow_ws.frame() | {:shutdown, :normal}
   @typep call_result :: {[command], state}
 
   # exit
@@ -85,7 +85,7 @@ defmodule Broth.SocketHandler do
   # transitional remote_send message
   def remote_send(socket, message), do: send(socket, {:remote_send, message})
 
-  @spec remote_send_impl(Kousa.json, state) :: call_result
+  @spec remote_send_impl(Kousa.json(), state) :: call_result
   defp remote_send_impl(message, state) do
     {[prepare_socket_msg(message, state)], state}
   end
@@ -98,6 +98,7 @@ defmodule Broth.SocketHandler do
 
   @impl true
   def websocket_handle({:text, "ping"}, state), do: {[text: "pong"], state}
+
   def websocket_handle({:text, command_json}, state) do
     with {:ok, message_map!} <- Jason.decode(command_json),
          # temporary trap mediasoup direct commands
@@ -285,5 +286,4 @@ defmodule Broth.SocketHandler do
   def websocket_info(:exit, state), do: exit_impl(state)
   def websocket_info(:auth_timeout, state), do: auth_timeout_impl(state)
   def websocket_info({:remote_send, message}, state), do: remote_send_impl(message, state)
-
 end

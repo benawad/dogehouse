@@ -43,7 +43,7 @@ defmodule BrothTest.Message.User.UnfollowTest do
     end
 
     test "omitting the reference is not allowed", %{uuid: uuid} do
-      assert {:error, %{errors: [reference: {"can't be blank", _}]}} =
+      assert {:error, %{errors: [reference: {"is required for Broth.Message.User.Unfollow", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "user:unfollow",
                  "payload" => %{"userId" => uuid}

@@ -29,7 +29,7 @@ defmodule BrothTest.ScheduleRoomTest do
 
       WsClient.assert_reply_legacy(
         ref,
-        %{"id" => room_id, "name" => "foo room"}
+        %{"scheduledRoom" => %{"id" => room_id, "name" => "foo room"}}
       )
 
       assert %{name: "foo room"} = Beef.ScheduledRooms.get_by_id(room_id)
