@@ -11,7 +11,7 @@
     "edit": "Düzenle",
     "delete": "Sil",
     "joinRoom": "Odaya katıl",
-    "copyLink": "Linki kopyala",
+    "copyLink": "Bağlantıyı kopyala",
     "copied": "Kopyalandı!",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
@@ -21,8 +21,8 @@
     "_comment": "Ana başlık arayüz ulusallaştırma yazıları",
     "title": "DogeHouse",
     "mutedTitle": "Sessiz | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "dashboard": "Panel",
+    "connectionTaken": "Bağlantı Sağlandı"
   },
   "footer": {
     "_comment": "Ana altbilgi arayüz ulusallaştırma yazıları",
@@ -54,8 +54,8 @@
       "headerText": "Sesli sohbet aya gönderiliyor 🚀",
       "featureText_1": "Karanlık Tema",
       "featureText_2": "Açık kayıtlar",
-      "featureText_3": "Cross-Platform desteği",
-      "featureText_4": "Açık kaynak kodlu",
+      "featureText_3": "Çoklu platform desteği",
+      "featureText_4": "Açık kaynak kodu",
       "featureText_5": "Yazılı sohbet",
       "featureText_6": "Doge tarafından desteklenmektedir",
       "loginGithub": "GitHub ile giriş yap",
@@ -93,8 +93,8 @@
       "following": "Takip",
       "followHim": "Takip Et",
       "followingHim": "Takiptesin",
-      "copyProfileUrl": "Profil URL'sini kopyala",
-      "urlCopied": "URL kopyalandı",
+      "copyProfileUrl": "Profil bağlantısını kopyala",
+      "urlCopied": "Bağlantı kopyalandı",
       "unfollow": "Takipten çık"
     },
     "voiceSettings": {
@@ -285,6 +285,6 @@
       "galacticDoge": "Galaktik doge'u",
       "spottedLife": "Yaşam tespit edilen gezegen"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": { "yourFeed": "Akışın" }
   }
 }
