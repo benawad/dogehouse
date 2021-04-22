@@ -41,7 +41,8 @@
     "home": {
       "createRoom": "Crear sala",
       "editRoom": "Editar sala",
-      "refresh": "Recargar"
+      "refresh": "Recargar",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Sala no disponible, volver atrás",
@@ -109,6 +110,11 @@
         "errorMsg": "Ese nombre de aplicación no es válido",
         "label": "Introduce el nombre de la aplicación"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

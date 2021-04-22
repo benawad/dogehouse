@@ -42,7 +42,8 @@
     "home": {
       "createRoom": "방 만들기",
       "refresh": "새로고침",
-      "editRoom": "방 수정하기"
+      "editRoom": "방 수정하기",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "채팅방이 삭제됨. 이전 페이지로 돌아가기.",
@@ -105,8 +106,16 @@
       "volume": "음량:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "유효하지 않은 앱 타이틀 입니다.", "label": "앱 타이틀 입력하기" },
+      "input": {
+        "errorMsg": "유효하지 않은 앱 타이틀 입니다.",
+        "label": "앱 타이틀 입력하기"
+      },
       "header": "오버레이 설정"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -252,9 +261,7 @@
       },
       "tommorow": "내일",
       "today": "오늘",
-      "deleteModal": {
-        "areYouSure": "정말 예약 된 방을 제거하시겠습니까?"
-      }
+      "deleteModal": { "areYouSure": "정말 예약 된 방을 제거하시겠습니까?" }
     },
     "roomChat": {
       "title": "문자 채팅",

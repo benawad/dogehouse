@@ -43,7 +43,8 @@
     "home": {
       "createRoom": "Creează cameră",
       "refresh": "Refresh",
-      "editRoom": "Editeaza cameră"
+      "editRoom": "Editeaza cameră",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Camera a dispărut, du-te înapoi",
@@ -108,6 +109,11 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

@@ -43,7 +43,8 @@
     "home": {
       "createRoom": "Raum erstellen",
       "refresh": "Aktualisieren",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Raum konnte nicht gefunden werden! Zurück",
@@ -110,6 +111,11 @@
       "header": "Overlay Einstellungen",
       "errorMsg": "Bitte gib einen gültigen App Titel ein",
       "label": "App Titel eingeben"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

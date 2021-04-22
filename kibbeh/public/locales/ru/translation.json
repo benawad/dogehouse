@@ -46,7 +46,8 @@
     "home": {
       "createRoom": "Создать комнату",
       "refresh": "Обновить",
-      "editRoom": "Редактировать комнату"
+      "editRoom": "Редактировать комнату",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Комната исчезла, вернитесь назад",
@@ -114,6 +115,11 @@
         "label": "Введите название приложения"
       },
       "header": "Настройки оверлея"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

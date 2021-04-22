@@ -21,7 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "已静音 | DogeHouse",
-    "dashboard": "Dashboard",
+    "dashboard": "概览",
     "connectionTaken": "Connection Taken"
   },
   "footer": {
@@ -42,7 +42,8 @@
     "home": {
       "createRoom": "新建聊天室",
       "refresh": "刷新",
-      "editRoom": "修改聊天室"
+      "editRoom": "修改聊天室",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "聊天室已被删除，请回到前一页",
@@ -85,7 +86,7 @@
       "allowAllConfirm": "确定？这将会允许全部{{}}位成员讲话"
     },
     "searchUser": { "search": "搜索..." },
-    "soundEffectSettings": { "header": "声音", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "声音", "title": "声音设置" },
     "viewUser": {
       "editProfile": "编辑个人主页",
       "followsYou": "关注您的人",
@@ -107,6 +108,11 @@
     "overlaySettings": {
       "input": { "errorMsg": "不允许的App标题", "label": "输入App标题" },
       "header": "覆盖层设置"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -226,10 +232,7 @@
       "reportABug": "反馈Bug",
       "useOldVersion": "使用旧版本",
       "logOut": { "button": "登出", "modalSubtitle": "是否确定登出?" },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
-      }
+      "debugAudio": { "debugAudio": "调试声音", "stopDebugger": "取消调试" }
     }
   },
   "modules": {
@@ -247,11 +250,9 @@
         "minLength": "最短长度为2",
         "roomDescription": "聊天室描述"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
-      }
+      "tommorow": "明天",
+      "today": "今天",
+      "deleteModal": { "areYouSure": "你确定要删除此预定的聊天室？" }
     },
     "roomChat": {
       "title": "文字聊天",

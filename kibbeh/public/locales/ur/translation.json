@@ -43,7 +43,8 @@
     "home": {
       "createRoom": "روم بنائیں",
       "refresh": "ریفریش",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "یہ روم اب موجود نہیں ہے",
@@ -111,6 +112,11 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

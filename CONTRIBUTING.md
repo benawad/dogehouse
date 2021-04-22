@@ -75,9 +75,9 @@ $ iex -S mix
 ```
 #### `shawarma`
 ```shell
-$ npm i
-$ npm run build
-$ npm start
+$ yarn
+$ yarn build
+$ yarn start
 ```
 #### `kibbeh`
 ```shell
@@ -155,7 +155,7 @@ $ iex -S mix
 ```
 
 #### `shawarma`
-Navigate to `/shawarma` and run `npm i`.
+Navigate to `/shawarma` and run `yarn`.
 
 > Mediasoup requires `node >=0.8 <=14` and has [specific requirements](https://mediasoup.org/documentation/v3/mediasoup/installation/#windows) on Windows.
 
@@ -165,7 +165,7 @@ Create an `.env` file and set the following environment variable:
 WEBRTC_LISTEN_IP=127.0.0.1
 ```
 
-Then run `npm run build` and `npm start`.
+Then run `yarn build` and `yarn start`.
 
 ## Issues
 We use GitHub issues to track public bugs. Please ensure your description is

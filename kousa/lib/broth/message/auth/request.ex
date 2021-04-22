@@ -1,5 +1,6 @@
 defmodule Broth.Message.Auth.Request do
-  use Broth.Message.Call
+  use Broth.Message.Call,
+    needs_auth: false
 
   @primary_key false
   embedded_schema do
@@ -107,15 +108,12 @@ defmodule Broth.Message.Auth.Request do
           # TODO: move toroom business logic
           room = Rooms.get_room_by_id(user.currentRoomId)
 
-          IO.puts("here")
-          IO.inspect(user)
-
           RoomSession.start_supervised(
             room_id: user.currentRoomId,
             voice_server_id: room.voiceServerId
           )
 
-          RoomSession.join_room(room.id, user, request.muted)
+          RoomSession.join_room(room.id, user.id, request.muted)
 
           if request.reconnectToVoice == true do
             Kousa.Room.join_vc_room(user.id, room)

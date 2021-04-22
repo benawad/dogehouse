@@ -24,10 +24,6 @@ defmodule Broth.LegacyHandler do
     join_room_and_get_info(payload, fetch_id, state)
   end
 
-  def process(%{"op" => "audio_autoplay_error"}, state) do
-    audio_autoplay_error(state)
-  end
-
   # legacy implementation special cases
   defp block_user_and_from_room(%{"userId" => user_id_to_block}, state) do
     Logger.error(
@@ -36,7 +32,7 @@ defmodule Broth.LegacyHandler do
 
     Kousa.UserBlock.block(state.user_id, user_id_to_block)
     Kousa.Room.block_from_room(state.user_id, user_id_to_block)
-    {:ok, state}
+    nil
   end
 
   defp fetch_follow_list(
@@ -46,27 +42,26 @@ defmodule Broth.LegacyHandler do
     {users, nextCursor} =
       Kousa.Follow.get_follow_list(state.user_id, user_id, get_following_list, cursor)
 
-    {:reply,
-     prepare_socket_msg(
-       %{
-         op: "fetch_follow_list_done",
-         d: %{
-           isFollowing: get_following_list,
-           userId: user_id,
-           users: users,
-           nextCursor: nextCursor,
-           initial: cursor == 0
-         }
-       },
-       state
-     ), state}
+    prepare_socket_msg(
+      %{
+        op: "fetch_follow_list_done",
+        d: %{
+          isFollowing: get_following_list,
+          userId: user_id,
+          users: users,
+          nextCursor: nextCursor,
+          initial: cursor == 0
+        }
+      },
+      state
+    )
   end
 
   defp join_room_and_get_info(%{"roomId" => room_id_to_join}, fetch_id, state) do
     reply =
       case Kousa.Room.join_room(state.user_id, room_id_to_join) do
         %{error: err} ->
-          %{op: "error", d: err}
+          %{op: "fetch_done", d: %{error: err}, fetchId: fetch_id}
 
         %{room: room} ->
           {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
@@ -99,19 +94,6 @@ defmodule Broth.LegacyHandler do
           %{op: "error", d: "unexpected error"}
       end
 
-    {:reply, prepare_socket_msg(reply, state), state}
-  end
-
-  defp audio_autoplay_error(state) do
-    Onion.UserSession.send_ws(
-      state.user_id,
-      nil,
-      %{
-        op: "error",
-        d: "browser can't autoplay audio the first time, go press play audio in your browser"
-      }
-    )
-
-    {:ok, state}
+    prepare_socket_msg(reply, state)
   end
 end

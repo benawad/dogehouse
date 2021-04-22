@@ -43,7 +43,8 @@
     "home": {
       "createRoom": "OwO Cweate Woom (ʘᗩʘ')",
       "refresh": " Wefwesh (◠‿◠✿)",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Woom gone, go back <{^v^}>",
@@ -111,6 +112,11 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

@@ -107,7 +107,7 @@ export const connect = (
     });
 
     socket.addEventListener("message", (e) => {
-      if (e.data === `"pong"`) {
+      if (e.data === `"pong"` || e.data === `pong`) {
         logger("in", "pong");
 
         return;

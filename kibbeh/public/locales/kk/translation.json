@@ -43,7 +43,8 @@
     "home": {
       "createRoom": "Бөлме ашу",
       "refresh": "Жаңарту",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Бөлме жойылып кетті, артқа қайтыңыз",
@@ -111,6 +112,11 @@
         "label": "Қолданба тақырыбын еңгізіңіз"
       },
       "header": "Қабаттасу (Overlay) баптамалары"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
