@@ -50,7 +50,7 @@ export const MinimizedRoomCardController: React.FC<MinimizedRoomCardControllerPr
             leaveRoom();
           },
           switchDeafened: () => {
-            setMute(!deafened);
+            setDeaf(!deafened);
           },
           switchMuted: () => {
             setMute(!muted);
