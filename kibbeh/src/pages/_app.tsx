@@ -22,7 +22,6 @@ import { ConfirmModal } from "../shared-components/ConfirmModal";
 import isElectron from "is-electron";
 import Head from "next/head";
 import { useHostStore } from "../global-stores/useHostStore";
-import { useScrollStore } from "../global-stores/useScrollStore";
 
 if (!isServer) {
   init_i18n();
@@ -58,11 +57,6 @@ function App({ Component, pageProps }: AppProps) {
         "30px"
       );
     }
-
-    // this is to fix #2212, but it isn't working as of right now, for some reason the hook below isnt called.
-    // window.onscroll = () => {
-    //   useScrollStore().setData(Date.now());
-    // };
   }, []);
 
   if (isServer && (Component as PageComponent<unknown>).ws) {
