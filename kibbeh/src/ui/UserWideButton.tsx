@@ -1,93 +1,97 @@
-import React, { useEffect, useState } from "react";
-import { SingleUser } from './UserAvatar';
-import { Button } from './Button';
-import { useTypeSafeTranslation } from '../shared-hooks/useTypeSafeTranslation';
-import { BaseUser } from '@dogehouse/kebab';
+import React, { useState } from "react";
+import { SingleUser } from "./UserAvatar";
+import { Button } from "./Button";
+import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
+import { BaseUser } from "@dogehouse/kebab";
 
 export interface UserWideButtonInfoProps {
-    user: BaseUser;
-
+  user: BaseUser;
 }
 
 const divStyle = {
-    width: '719px',
-    height: '143px',
-    left: '55px',
-    top: '91px',
-    background: '#151A21'
-
+  width: "719px",
+  height: "143px",
+  background: "#151A21",
 };
 
 const avatarStyle = {
-    width: '44px',
-    height: '44px',
-    left: '-2px',
-    top: '-3px',
-    marginLeft:'57px',
-    // marginRight:'618px',
-    marginBottom:'53px',
-    marginTop: '46px'
-
-}
-
-const buttonStyle = {
-    // position: 'static',
-    width: '90px',
-    height: '22px',
-    marginTop: '60px',
-    marginRight: '59px',
-    marginLeft: '250px',
-    marginBottom: '61px'
+  width: "44px",
+  height: "44px",
+  left: "-2px",
+  top: "-3px",
+  marginLeft: "57px",
+  marginBottom: "53px",
+  marginTop: "46px",
 };
 
-const testStyle = {
-    width: '81px',
-    height: '22px',
-    left: '70px',
-    top: '0px',
-    color: '#DEE3EA'
-}
+const buttonStyle = {
+  width: "90px",
+  height: "22px",
+  marginTop: "60px",
+  marginRight: "79px",
+  left: "531px",
+  top: "11px",
+  marginLeft: "350px",
+  marginBottom: "61px",
+};
 
+const displayStyle = {
+  height: "22px",
+  left: "70px",
+  fontSize: "14px",
+  lineHeight: "22px",
+  top: "0px",
+  color: "#DEE3EA",
+};
+
+const nameStyle = {
+  height: "22px",
+  left: "70px",
+  top: "22px",
+  fontSize: "12px",
+  lineHeight: "22px",
+  color: "#5D7290",
+};
 
 export const UserWideButton: React.FC<UserWideButtonInfoProps> = ({ user }) => {
-    const { t } = useTypeSafeTranslation();
-    
-    const [buttonText, setButtonText] = useState("Unblock");
-    
-    const changeText = (text: React.SetStateAction<string>) => {
-        console.log({user});
-        if (buttonText == "Unblock"){
-            setButtonText(text);
-        } else{
-            setButtonText("Unblock");
-        }
-    
-    };
-    
-    
-    return (
-      <>
-        <div style={divStyle} className="flex flex-row items-center " >
-        <div style={avatarStyle} className="flex mr-0.5" >
-          <SingleUser
-            size="md"
-            src={user.avatarUrl}
-            username={user.username}
-          />
-          </div>
-          <div className="flex flex-col px-2">
-            <span className="flex text-primary-100 mr-3 font-bold h-full break-all line-clamp-1 truncate" style={testStyle}>
-              {user.displayName}
-            </span>
-            <span style={{color: "#5D7290"}} className="flex text-primary-300 mr-3">@{user.username}</span>
-          </div>
-          <div style={buttonStyle} >
-          <Button size="big" color="primary" onClick={() => changeText("Block")}>
-            {buttonText}
-        </Button>
-        </div>
-        </div>
-        </>
-    );
+  const [buttonText, setButtonText] = useState("Unblock");
+
+  const changeText = (text: React.SetStateAction<string>) => {
+    console.log({ user });
+    if (buttonText == "Unblock") {
+      setButtonText(text);
+    } else {
+      setButtonText("Unblock");
+    }
   };
-  
+
+  return (
+    <>
+      <div style={divStyle} className="flex flex-row items-center mr-3.688">
+        <div style={avatarStyle} className="flex">
+          <SingleUser size="av" src={user.avatarUrl} username={user.username} />
+        </div>
+        <div className="flex flex-col ml-1.5">
+          <span
+            className="flex font-bold h-full break-all line-clamp-1 truncate"
+            style={displayStyle}
+          >
+            {user.displayName}
+          </span>
+          <span style={nameStyle} className="flex">
+            @{user.username}
+          </span>
+        </div>
+        <div style={buttonStyle} className="flex flex-col">
+          <Button
+            size="small"
+            color="primary"
+            onClick={() => changeText("Block")}
+          >
+            {buttonText}
+          </Button>
+        </div>
+      </div>
+    </>
+  );
+};
