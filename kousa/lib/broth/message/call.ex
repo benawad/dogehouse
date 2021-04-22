@@ -30,6 +30,10 @@ defmodule Broth.Message.Call do
         [:outbound]
       end
 
+      auth_check = opts
+      |> Keyword.get(:needs_auth, true)
+      |> auth_check()
+
     quote do
       use Ecto.Schema
       import Ecto.Changeset
@@ -41,6 +45,8 @@ defmodule Broth.Message.Call do
       Module.register_attribute(__MODULE__, :directions, accumulate: true, persist: true)
       @directions unquote(directions)
 
+      unquote(auth_check)
+
       @impl true
       def reply_module, do: unquote(reply_module)
 
@@ -51,9 +57,24 @@ defmodule Broth.Message.Call do
     end
   end
 
+  def auth_check(true) do
+    quote do
+      @impl true
+      def auth_check(%{user_id: nil}), do: {:error, :auth}
+      def auth_check(_), do: :ok
+    end
+  end
+  def auth_check(false) do
+    quote do
+      @impl true
+      def auth_check(_), do: :ok
+    end
+  end
+
   alias Ecto.Changeset
   alias Broth.SocketHandler
 
+  @callback auth_check(SocketHandler.state()) :: :ok | {:error, :auth}
   @callback reply_module() :: module
   @callback execute(Changeset.t(), SocketHandler.state()) ::
               {:reply, map, SocketHandler.state()}

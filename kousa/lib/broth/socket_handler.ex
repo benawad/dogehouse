@@ -107,7 +107,8 @@ defmodule Broth.SocketHandler do
          %{"op" => not_special_case} when not_special_case not in @special_cases <- message_map!,
          # translation from legacy maps to new maps
          message_map! = Broth.Translator.translate_inbound(message_map!),
-         {:ok, message = %{errors: nil}} <- validate(message_map!, state) do
+         {:ok, message = %{errors: nil}} <- validate(message_map!, state),
+         :ok <- auth_check(message, state) do
       dispatch(message, state)
     else
       # special cases: mediasoup operations
@@ -117,6 +118,9 @@ defmodule Broth.SocketHandler do
       # legacy special cases
       msg = %{"op" => special_case} when special_case in @special_cases ->
         Broth.LegacyHandler.process(msg, state)
+
+      {:error, :auth} ->
+        {[{:close, 4004, "not_authenticated"}], state}
 
       {:error, %Jason.DecodeError{}} ->
         {[{:close, 4001, "invalid input"}], state}
@@ -143,6 +147,8 @@ defmodule Broth.SocketHandler do
     |> Broth.Message.changeset(state)
     |> apply_action(:validate)
   end
+
+  def auth_check(%{operator: op}, state), do: op.auth_check(state)
 
   def dispatch(message, state) do
     case message.operator.execute(message.payload, state) do
