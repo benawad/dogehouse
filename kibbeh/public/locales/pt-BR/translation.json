@@ -22,7 +22,9 @@
     "_comment": "Cabeçalho da interface principal para traduções",
     "title": "DogeHouse",
     "mutedTitle": "Silenciado | DogeHouse",
-    "deafenedTitle": "Deafened | DogeHouse"
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "link_1": "História da Origem",

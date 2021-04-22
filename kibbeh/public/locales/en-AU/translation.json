@@ -22,7 +22,9 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "ǝsnoHǝƃoᗡ",
     "mutedTitle": "ǝsnoHǝƃoᗡ | pǝʇnW",
-    "deafenedTitle": "Deafened | DogeHouse"
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",

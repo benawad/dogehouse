@@ -21,7 +21,9 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "음소거 | DogeHouse",
-    "deafenedTitle": "Deafened | DogeHouse"
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -40,8 +42,8 @@
     "followList": { "followHim": "follow", "followingHim": "following" },
     "home": {
       "createRoom": "방 만들기",
-      "refresh": "Refresh",
-      "editRoom": "Edit Room",
+      "refresh": "새로고침",
+      "editRoom": "방 수정하기",
       "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
@@ -105,8 +107,11 @@
       "volume": "음량:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings"
+      "input": {
+        "errorMsg": "유효하지 않은 앱 타이틀 입니다.",
+        "label": "앱 타이틀 입력하기"
+      },
+      "header": "오버레이 설정"
     },
     "download": {
       "starting": "Starting download...",
@@ -253,8 +258,11 @@
         "needsFuture": "시간을 미래로 설정하세요",
         "roomName": "채팅방 이름",
         "minLength": "최소 2자",
-        "roomDescription": "Description"
-      }
+        "roomDescription": "설명"
+      },
+      "tommorow": "내일",
+      "today": "오늘",
+      "deleteModal": { "areYouSure": "정말 예약 된 방을 제거하시겠습니까?" }
     },
     "roomChat": {
       "title": "문자 채팅",

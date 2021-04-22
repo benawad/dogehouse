@@ -44,7 +44,8 @@
     "home": {
       "createRoom": "Nowy pokój",
       "editRoom": "Edytuj pokój",
-      "refresh": "Odśwież"
+      "refresh": "Odśwież",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Pokój usunięty, wróć",
@@ -173,9 +174,9 @@
       "setKeybind": "Skrót klawiszowy",
       "listening": "Słuchanie...",
       "toggleMuteKeybind": "Wyciszanie",
+      "toggleDeafKeybind": "Toggle deafen keybind",
       "toggleOverlayKeybind": "Nakładka",
-      "togglePushToTalkKeybind": "Naciśnij i mów",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "togglePushToTalkKeybind": "Naciśnij i mów"
     },
     "userVolumeSlider": { "noAudioMessage": "Brak urządzenia audio" },
     "upcomingRoomsCard": {
