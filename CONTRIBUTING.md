@@ -123,25 +123,7 @@ $ CREATE DATABASE kousa_repo2;
 Elixir installation guide [here](https://elixir-lang.org/install.html).
 
 #### `kousa`
-Navigate to `/kousa` and set the following environment variables:
-```
-export DATABASE_URL=postgres://user:password@localhost/kousa_repo2
-export BEN_GITHUB_ID=7872329
-export RABBITMQ_URL=amqp://user:password@yourinternalip:5672
-export ACCESS_TOKEN_SECRET=
-export REFRESH_TOKEN_SECRET=
-export GITHUB_CLIENT_ID=
-export TWITTER_API_KEY=
-export TWITTER_SECRET_KEY=
-export TWITTER_BEARER_TOKEN=
-export GITHUB_CLIENT_SECRET=
-export SENTRY_DNS=
-export API_URL=http://localhost:4001
-export WEB_URL=http://localhost:3000
-export PORT=4001
-```
-
-> You can save these variables in a `.txt` and run `source path/to/file.txt`
+Navigate to `/kousa` and run `call env.windows.bat` if you are on Windows or `source env.unix.sh` if you are on a Mac or Unix based system. This will set the necessary environment variables.
 
 Run the following commands:
 ```shell
