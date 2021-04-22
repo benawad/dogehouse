@@ -1,6 +1,6 @@
 import React from "react";
 import { MainInnerGrid } from "../../ui/MainGrid";
-import { ErrorToast } from "../../ui/Toast";
+import { ErrorToast } from "../../ui/ErrorToast";
 import { useErrorToastStore } from "./useErrorToastStore";
 
 interface ErrorToastControllerProps {}
@@ -20,13 +20,7 @@ export const ErrorToastController: React.FC<ErrorToastControllerProps> = ({}) =>
               <ErrorToast
                 message={t.message}
                 duration={t.duration}
-                onClose={() => {
-                  hideToast(t.id);
-                  if (t.onClose) {
-                    t.onClose();
-                  }
-                }}
-                button={t.button}
+                onClose={() => hideToast(t.id)}
               />
             </div>
           ))}
