@@ -7,7 +7,6 @@ import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslatio
 import { useTypeSafeUpdateQuery } from "../../shared-hooks/useTypeSafeUpdateQuery";
 import { Button } from "../../ui/Button";
 import { VerticalUserInfo } from "../../ui/VerticalUserInfo";
-import UserSummaryCardStory from '../../stories/UserSummaryCard.story';
 
 interface VerticalUserInfoControllerProps {
   user: UserWithFollowInfo;
