@@ -46,7 +46,8 @@
     "home": {
       "createRoom": "রুম বানান",
       "refresh": "রিফ্রেশ করুন",
-      "editRoom": "রুম এডিট করুন"
+      "editRoom": "রুম এডিট করুন",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "রুম শেষ, ফিরে আসুন",
@@ -116,6 +117,11 @@
       "header": "ওভারলে সেটিংস",
       "errorMsg": "দয়া করে বৈধ অ্যাপ শিরোনাম দিন",
       "label": "অ্যাপ শিরোনাম দিন"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

@@ -43,7 +43,8 @@
     "home": {
       "createRoom": "ክፍል ፍጠር",
       "refresh": "Refresh",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "ክፍሉ ጠፋ, ተመለስ",
@@ -111,6 +112,11 @@
       "header": "Overlay Settings",
       "errorMsg": "Please enter valid app title",
       "label": "Enter app title"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

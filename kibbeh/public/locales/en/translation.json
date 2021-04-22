@@ -21,7 +21,7 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "dashboard" : "Dashboard",
+    "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken",
     "mutedTitle": "Muted | DogeHouse"
   },
@@ -36,6 +36,11 @@
     "banUser": {
       "ban": "Ban"
     },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit GitHub Releases"
+    },
     "followingOnlineList": {
       "listHeader": "List of users that are not in a private room and you follow.",
       "currentRoom": "Currently in:",
@@ -48,7 +53,8 @@
     "home": {
       "createRoom": "New room",
       "editRoom": "Edit Room",
-      "refresh": "Refresh"
+      "refresh": "Refresh",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Room gone; go back",

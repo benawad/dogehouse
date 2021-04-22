@@ -42,7 +42,8 @@
     "home": {
       "createRoom": "Bagong room",
       "editRoom": "Edit Room",
-      "refresh": "Refresh"
+      "refresh": "Refresh",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "nawala ang room, bumalik ka",
@@ -110,6 +111,11 @@
         "errorMsg": "Please enter a valid app title",
         "label": "App title"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

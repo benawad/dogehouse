@@ -42,7 +42,8 @@
     "home": {
       "createRoom": "Kamer maken",
       "refresh": "Verversen",
-      "editRoom": "Kamer aanpassen"
+      "editRoom": "Kamer aanpassen",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Kamer bestaat niet, ga terug",
@@ -110,6 +111,11 @@
         "label": "Voer applicatietitel in"
       },
       "header": "Overlay-instellingen"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

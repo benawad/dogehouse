@@ -42,7 +42,8 @@
     "home": {
       "createRoom": "Criar sala",
       "refresh": "Atualizar",
-      "editRoom": "Editar sala"
+      "editRoom": "Editar sala",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "A sala não existe, voltar atrás",
@@ -110,6 +111,11 @@
         "label": "Introduza o título da aplicação"
       },
       "header": "Definições de Overlay"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {

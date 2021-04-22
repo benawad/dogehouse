@@ -21,7 +21,7 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "dashboard" : "Tablica",
+    "dashboard": "Tablica",
     "connectionTaken": "Połączenie zostało podjęte",
     "mutedTitle": "Wyciszony | DogeHouse"
   },
@@ -33,22 +33,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "Zablokuj"
-    },
+    "banUser": { "ban": "Zablokuj" },
     "followingOnlineList": {
       "listHeader": "Lista użytkowników którzy nie są w prywatnym pokoju i których obserwujesz.",
       "currentRoom": "Obecnie w:",
       "startPrivateRoom": "Załóż z nim prywatny pokój"
     },
-    "followList": {
-      "followHim": "Obserwuj",
-      "followingHim": "Obserwujący"
-    },
+    "followList": { "followHim": "Obserwuj", "followingHim": "Obserwujący" },
     "home": {
       "createRoom": "Nowy pokój",
       "editRoom": "Edytuj pokój",
-      "refresh": "Odśwież"
+      "refresh": "Odśwież",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Pokój usunięty, wróć",
@@ -56,7 +52,7 @@
       "inviteFollowers": "Możesz zaprosić swoich obserwujących którzy są online:",
       "whenFollowersOnline": "Kiedy twoi obserwujący są online, pokażą się oni tutaj."
     },
-    "login": { 
+    "login": {
       "headerText": "Przenosimy rozmowy głosowe na księżyc 🚀",
       "featureText_1": "Tryb ciemny",
       "featureText_2": "Otwarte Zapisy",
@@ -90,9 +86,7 @@
       "allowAll": "Dopuść wszystkich",
       "allowAllConfirm": "Czy na pewno? To dopuści {{count}} użytkowników do mówienia"
     },
-    "searchUser": {
-      "search": "szukaj..."
-    },
+    "searchUser": { "search": "szukaj..." },
     "soundEffectSettings": {
       "header": "Dźwięk",
       "title": "Ustawienia dźwięku"
@@ -121,6 +115,11 @@
         "errorMsg": "Wpisz poprawną nazwę aplikacji",
         "label": "Nazwa aplikacji"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -174,23 +173,17 @@
       "toggleOverlayKeybind": "Nakładka",
       "togglePushToTalkKeybind": "Naciśnij i mów"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "Brak urządzenia audio"
-    },
+    "userVolumeSlider": { "noAudioMessage": "Brak urządzenia audio" },
     "upcomingRoomsCard": {
       "upcomingRooms": "Nadchodzące spotkania w pokojach",
       "exploreMoreRooms": "Odkrywaj pokoje"
     },
-    "addToCalendar": {
-      "add": "Dodaj do kalendarza"
-    },
+    "addToCalendar": { "add": "Dodaj do kalendarza" },
     "wsKilled": {
       "description": "WebSocket został zabity przez serwer. Dzieje się tak kiedy otwierasz strone w nowej karcie.",
       "reconnect": "Połącz ponownie"
     },
-    "search": {
-      "placeholder": "Znajdź pokój, użytkowników lub kategorie"
-    },
+    "search": { "placeholder": "Znajdź pokój, użytkowników lub kategorie" },
     "settingsDropdown": {
       "profile": "Twój profil",
       "language": "Język",
@@ -258,9 +251,7 @@
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
-    "feed": {
-      "yourFeed": "Twoje pokoje"
-    },
+    "feed": { "yourFeed": "Twoje pokoje" },
     "scheduledRooms": {
       "title": "Zaplanowane pokoje",
       "noneFound": "nie znaleziono",
