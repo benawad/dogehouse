@@ -10,6 +10,7 @@ defmodule Broth.Message.Auth.Request do
     field(:currentRoomId, :binary_id)
     field(:reconnectToVoice, :boolean)
     field(:muted, :boolean)
+    field(:deafened, :boolean)
   end
 
   alias Kousa.Utils.UUID
@@ -17,7 +18,7 @@ defmodule Broth.Message.Auth.Request do
   @impl true
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
-    |> cast(data, [:accessToken, :refreshToken, :platform, :reconnectToVoice, :muted])
+    |> cast(data, [:accessToken, :refreshToken, :platform, :reconnectToVoice, :muted, :deafened])
     |> validate_required([:accessToken])
     |> UUID.normalize(:currentRoomId)
   end
@@ -92,10 +93,14 @@ defmodule Broth.Message.Auth.Request do
         avatar_url: user.avatarUrl,
         display_name: user.displayName,
         current_room_id: user.currentRoomId,
-        muted: request.muted
+        muted: request.muted,
+        deafened: request.deafened
       )
 
-      UserSession.set_pid(user_id, self())
+      # currently we only allow one active websocket connection per-user
+      # at some point soon we're going to make this multi-connection, and we
+      # won't have to do this.
+      UserSession.set_active_ws(user_id, self())
 
       if tokens do
         UserSession.new_tokens(user_id, tokens)
@@ -113,7 +118,7 @@ defmodule Broth.Message.Auth.Request do
             voice_server_id: room.voiceServerId
           )
 
-          RoomSession.join_room(room.id, user.id, request.muted)
+          RoomSession.join_room(room.id, user.id, request.muted, request.deafened)
 
           if request.reconnectToVoice == true do
             Kousa.Room.join_vc_room(user.id, room)

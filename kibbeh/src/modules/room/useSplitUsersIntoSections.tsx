@@ -1,6 +1,7 @@
 import { JoinRoomAndGetInfoResponse, wrap } from "@dogehouse/kebab";
 import React, { useContext } from "react";
 import { useMuteStore } from "../../global-stores/useMuteStore";
+import { useDeafStore } from "../../global-stores/useDeafStore";
 import { SolidMegaphone } from "../../icons";
 import { modalConfirm } from "../../shared-components/ConfirmModal";
 import { useConn } from "../../shared-hooks/useConn";
@@ -13,9 +14,11 @@ export const useSplitUsersIntoSections = ({
   users,
   activeSpeakerMap,
   muteMap,
+  deafMap = {},
 }: JoinRoomAndGetInfoResponse) => {
   const conn = useConn();
   const { muted } = useMuteStore();
+  const { deafened } = useDeafStore();
   const { setData } = useContext(UserPreviewModalContext);
   const speakers: React.ReactNode[] = [];
   const askingToSpeak: React.ReactNode[] = [];
@@ -38,6 +41,7 @@ export const useSplitUsersIntoSections = ({
     const isSpeaker = !!u.roomPermissions?.isSpeaker;
     const canSpeak = isCreator || isSpeaker;
     const isMuted = conn.user.id === u.id ? muted : muteMap[u.id];
+    const isDeafened = conn.user.id === u.id ? deafened : deafMap[u.id];
 
     if (isCreator || u.roomPermissions?.isMod) {
       flair = (
@@ -62,6 +66,7 @@ export const useSplitUsersIntoSections = ({
         username={u.username}
         activeSpeaker={canSpeak && !isMuted && u.id in activeSpeakerMap}
         muted={canSpeak && isMuted}
+        deafened={canSpeak && isDeafened}
         onClick={() => {
           setData({ userId: u.id });
         }}

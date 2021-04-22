@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Səssizdir | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -140,7 +141,10 @@
       "settings": "Parametlər",
       "speaker": "Natiqlər",
       "listener": "Dinləyicilər",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Your device is currently not supported. You can create an",
@@ -161,7 +165,8 @@
       "listening": "listening",
       "toggleMuteKeybind": "toggle mute keybind",
       "togglePushToTalkKeybind": "toggle push-to-talk keybind",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "no audio consumer for some reason"

@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Muet | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -141,7 +142,10 @@
       "settings": "Paramètres",
       "speaker": "Interlocuteur",
       "listener": "Auditeur",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Votre système n'est pas encore supporté. Vous pouvez créer une",
@@ -168,7 +172,8 @@
       "listening": "Écoute...",
       "toggleMuteKeybind": "Activer / Désactiver le raccourci clavier pour rendre muet",
       "toggleOverlayKeybind": "Activer / Désactiver le raccourci clavier pour l'overlay",
-      "togglePushToTalkKeybind": "Activer / Désactiver le raccourci clavier appuyer-pour-parler"
+      "togglePushToTalkKeybind": "Activer / Désactiver le raccourci clavier appuyer-pour-parler",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Pas d'audio pour une raison inconnue"

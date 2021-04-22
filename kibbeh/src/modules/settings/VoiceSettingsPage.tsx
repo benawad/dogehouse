@@ -7,6 +7,7 @@ import { NativeSelect } from "../../ui/NativeSelect";
 import { VolumeSlider } from "../../ui/VolumeSlider";
 import {
   MuteKeybind,
+  DeafKeybind,
   PTTKeybind,
   ChatKeybind,
   InviteKeybind,
@@ -91,6 +92,7 @@ export const VoiceSettingsPage: PageComponent<VoiceSettingsProps> = () => {
             />
           </div>
           <MuteKeybind className={`mb-4`} />
+          <DeafKeybind className={`mb-4`} />
           <PTTKeybind className={`mb-4`} />
           <ChatKeybind className={`mb-4`} />
           <InviteKeybind className={`mb-4`} />

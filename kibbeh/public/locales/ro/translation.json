@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Microfon dezactivat | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -138,7 +139,10 @@
       "settings": "Setări",
       "speaker": "Difuzor",
       "listener": "Ascultător",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Dispozitivul tău momentan nu este suportat. Poți crea un",
@@ -159,7 +163,8 @@
       "listening": "Ascultare",
       "toggleMuteKeybind": "Keybind comută mut",
       "togglePushToTalkKeybind": "Keybind comută push-to-talk",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "niciun consumator audio dintr-un motiv oarecare"

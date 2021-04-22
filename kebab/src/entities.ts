@@ -118,8 +118,10 @@ export type RoomUser = {
 export type CurrentRoom = Room & {
   users: RoomUser[];
   muteMap: Record<string, boolean>;
+  deafMap: Record<string, boolean>;
   activeSpeakerMap: Record<string, boolean>;
   autoSpeaker: boolean;
 };
 
 export type MuteMap = Record<UUID, boolean>;
+export type DeafMap = Record<UUID, boolean>;

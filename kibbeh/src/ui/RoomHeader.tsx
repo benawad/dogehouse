@@ -14,7 +14,7 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
   names,
   description,
 }) => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   return (
     <div
       className={`flex flex-col p-4 bg-primary-800 rounded-t-8 border-b border-primary-600 w-full`}

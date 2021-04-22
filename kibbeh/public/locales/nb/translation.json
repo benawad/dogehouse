@@ -21,6 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Dempet | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -137,7 +138,10 @@
       "settings": "Innstillinger",
       "speaker": "Taler",
       "listener": "Lytter",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Enheten din støttes foreløpig ikke. Du kan opprette ett",
@@ -158,7 +162,8 @@
       "listening": "Lytter",
       "toggleMuteKeybind": "Veksle demping av hurtigtast",
       "togglePushToTalkKeybind": "Veksle trykk for å snakke hurtigtast",
-      "toggleOverlayKeybind": "Overlay hurtigtast"
+      "toggleOverlayKeybind": "Overlay hurtigtast",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Ingen lydmottaker av en eller annen grunn"

@@ -18,7 +18,8 @@ defmodule BrothTest.Message.Auth.RequestTest do
                   refreshToken: "bar",
                   platform: "baz",
                   reconnectToVoice: false,
-                  muted: false
+                  muted: false,
+                  deafened: false
                 }
               }} =
                BrothTest.Support.Message.validate(%{
@@ -28,7 +29,8 @@ defmodule BrothTest.Message.Auth.RequestTest do
                    "refreshToken" => "bar",
                    "platform" => "baz",
                    "reconnectToVoice" => false,
-                   "muted" => false
+                   "muted" => false,
+                   "deafened" => false
                  },
                  "reference" => UUID.uuid4()
                })
@@ -41,7 +43,8 @@ defmodule BrothTest.Message.Auth.RequestTest do
                   refreshToken: "bar",
                   platform: "baz",
                   reconnectToVoice: false,
-                  muted: false
+                  muted: false,
+                  deafened: false
                 }
               }} =
                BrothTest.Support.Message.validate(%{
@@ -51,7 +54,8 @@ defmodule BrothTest.Message.Auth.RequestTest do
                    "refreshToken" => "bar",
                    "platform" => "baz",
                    "reconnectToVoice" => false,
-                   "muted" => false
+                   "muted" => false,
+                   "deafened" => false
                  },
                  "ref" => UUID.uuid4()
                })
@@ -65,7 +69,8 @@ defmodule BrothTest.Message.Auth.RequestTest do
                    "refreshToken" => "bar",
                    "platform" => "baz",
                    "reconnectToVoice" => false,
-                   "muted" => false
+                   "muted" => false,
+                   "deafened" => false
                  },
                  "reference" => UUID.uuid4()
                })

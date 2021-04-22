@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "குரல் முடக்கப்பட்டது  | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -144,7 +145,10 @@
       "settings": "அமைப்புகள்",
       "speaker": "பேச்சாளர்",
       "listener": "கேட்பவர்",
-      "chat": "அரட்டை"
+      "chat": "அரட்டை",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "உங்கள் சாதனம் தற்போது ஆதரிக்கப்படவில்லை. நீங்கள்",
@@ -165,7 +169,8 @@
       "listening": "கேட்கிறேன்",
       "toggleMuteKeybind": "toggle mute keybind",
       "togglePushToTalkKeybind": "toggle push-to-talk keybind",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "சில காரணங்களால் ஆடியோ நுகர்வோர் இல்லை"

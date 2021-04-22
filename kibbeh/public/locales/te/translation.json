@@ -21,6 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Muted | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -140,7 +141,10 @@
       "settings": "సెట్టింగులు",
       "speaker": "స్పీకర్",
       "listener": "వినేవారు",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "మీ పరికరానికి ప్రస్తుతం మద్దతు లేదు. మీరు ",
@@ -158,7 +162,8 @@
       "listening": "నేను వింటున్నాను",
       "toggleMuteKeybind": "మ్యూట్ కీబైండ్‌ను టోగుల్ చేయండి",
       "toggleOverlayKeybind": "toggle overlay keybind",
-      "togglePushToTalkKeybind": "టోగుల్  push-to-talk కీబైండ్"
+      "togglePushToTalkKeybind": "టోగుల్  push-to-talk కీబైండ్",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "కొన్ని కారణాల వల్ల ఆడియో వినియోగదారుడు లేరు"

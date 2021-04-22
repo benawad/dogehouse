@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "ድምፀ-ከል | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -141,7 +142,10 @@
       "settings": "ቅንብሮች",
       "speaker": "ተናጋሪ",
       "listener": "አድማጭ",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "የእርስዎ መሣሪያ በአሁኑ ጊዜ አይደገፍም፡፡ ቸግሩን",
@@ -159,7 +163,8 @@
       "listening": "በማዳመጥ ላይ",
       "toggleMuteKeybind": "ድምጸ ማጥፍያ/ማብርያ ቁልፍ",
       "togglePushToTalkKeybind": "ተጭኖ ማውሪያ ማጥፍያ/ማብርያ ቁልፍ",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "በሆነ ምክንያት ምንም ድምጽ ተጠቃሚ የለም" },
     "addToCalendar": { "add": "ወደ ቀን መቁጠሪያ ጨምር" },

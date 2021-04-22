@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "صوت مكتوم | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -140,7 +141,10 @@
       "settings": "الإعدادات",
       "speaker": "متحدث",
       "listener": "مستمع",
-      "chat": "المحادثة"
+      "chat": "المحادثة",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "جهازك غير مدعوم حاليا. يمكنك إنشاء",
@@ -158,7 +162,8 @@
       "listening": "جاري الإستماع",
       "toggleMuteKeybind": "تبديل رابط مفتاح كتم الصوت",
       "togglePushToTalkKeybind": "تبديل رابط مفتاح الضغط والتحدث",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "لا يوجد مستهلك صوتي لسبب ما" },
     "addToCalendar": { "add": "أضف إلى التقويم" },

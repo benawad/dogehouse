@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Tovushsiz | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -144,7 +145,10 @@
       "settings": "sozlamalar",
       "speaker": "Gapiruvchi",
       "listener": "Tinglovchi",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Qurilmangiz qo'llab-quvvatlanmaydi. Siz ",
@@ -165,7 +169,8 @@
       "listening": "Tinglayabsiz...",
       "toggleMuteKeybind": "Bosilganda mikrofonni faollashtirish",
       "togglePushToTalkKeybind": "Raciya rejimini yoqing",
-      "toggleOverlayKeybind": "Keybind almashtirish tugmachasini biriktirish"
+      "toggleOverlayKeybind": "Keybind almashtirish tugmachasini biriktirish",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "Audio yo'q" },
     "addToCalendar": { "add": "Taqvimga qo'shish" },

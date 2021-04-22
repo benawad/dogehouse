@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { SolidMicrophoneOff } from "../../icons";
+import SolidVolumeOff from "../../icons/SolidVolumeOff";
 
 export const avatarSizeMap = {
   default: "80px",
@@ -69,6 +70,7 @@ export interface AvatarProps {
   className?: string;
   isOnline?: boolean;
   muted?: boolean;
+  deafened?: boolean;
   activeSpeaker?: boolean;
   username?: string;
 }
@@ -79,6 +81,7 @@ export const SingleUser: React.FC<AvatarProps> = ({
   className = "",
   isOnline = false,
   muted,
+  deafened,
   activeSpeaker,
   username,
 }) => {
@@ -129,6 +132,17 @@ export const SingleUser: React.FC<AvatarProps> = ({
             width={sizeStyle.width}
             height={sizeStyle.width}
           />
+        </span>
+      )}
+      {deafened && (
+        <span
+          className={
+            "rounded-full absolute box-content bg-primary-800 border-primary-800 text-accent items-center justify-center"
+          }
+          style={{ ...sizeStyle, padding: 2 }}
+          data-testid="online-indictor"
+        >
+          <SolidVolumeOff width={sizeStyle.width} height={sizeStyle.width} />
         </span>
       )}
     </div>
