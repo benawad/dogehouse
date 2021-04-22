@@ -21,7 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "已静音 | DogeHouse",
-    "dashboard": "Dashboard",
+    "dashboard": "概览",
     "connectionTaken": "Connection Taken"
   },
   "footer": {
@@ -85,7 +85,7 @@
       "allowAllConfirm": "确定？这将会允许全部{{}}位成员讲话"
     },
     "searchUser": { "search": "搜索..." },
-    "soundEffectSettings": { "header": "声音", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "声音", "title": "声音设置" },
     "viewUser": {
       "editProfile": "编辑个人主页",
       "followsYou": "关注您的人",
@@ -227,8 +227,8 @@
       "useOldVersion": "使用旧版本",
       "logOut": { "button": "登出", "modalSubtitle": "是否确定登出?" },
       "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
+        "debugAudio": "调试声音",
+        "stopDebugger": "取消调试"
       }
     }
   },
@@ -247,10 +247,10 @@
         "minLength": "最短长度为2",
         "roomDescription": "聊天室描述"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "tommorow": "明天",
+      "today": "今天",
       "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
+        "areYouSure": "你确定要删除此预定的聊天室？"
       }
     },
     "roomChat": {
