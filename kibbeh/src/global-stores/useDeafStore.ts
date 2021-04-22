@@ -12,7 +12,7 @@ export const useDeafStore = create(
       // use useSetMute hook intead
       setInternalDeaf: (deafened: boolean) => {
         if (deafened) {
-          // todo: add deafen/undeafen sounds
+          // @todo: add deafen/undeafen sounds
           useSoundEffectStore.getState().playSoundEffect("mute");
         } else {
           useSoundEffectStore.getState().playSoundEffect("unmute");
