@@ -1,4 +1,4 @@
-defmodule Kousa.Support.EctoSandbox do
+defmodule KousaTest.Support.EctoSandbox do
   # see https://hexdocs.pm/ecto/testing-with-ecto.html
 
   defmacro __using__(_) do

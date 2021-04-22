@@ -20,7 +20,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muted | DogeHouse"
+    "mutedTitle": "Muted | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -30,22 +32,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "Ban"
-    },
+    "banUser": { "ban": "Ban" },
     "followingOnlineList": {
-      "listHeader": "Listahan nang mga users na hindi naka private at iyong sinundan", 
+      "listHeader": "Listahan nang mga users na hindi naka private at iyong sinundan",
       "currentRoom": "kasalukuyan nasa:",
       "startPrivateRoom": "magsimula ng isang pribadong silid sa kanila"
     },
-    "followList": {
-      "followHim": "I-follow",
-      "followingHim": "sinusubaybayan"
-    },
+    "followList": { "followHim": "I-follow", "followingHim": "sinusubaybayan" },
     "home": {
       "createRoom": "Bagong room",
       "editRoom": "Edit Room",
-      "refresh": "Refresh"
+      "refresh": "Refresh",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "nawala ang room, bumalik ka",
@@ -87,12 +85,8 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "maghanap..."
-    },
-    "soundEffectSettings": {
-      "header": "Tunog"
-    },
+    "searchUser": { "search": "maghanap..." },
+    "soundEffectSettings": { "header": "Tunog", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "I-edit ang profile",
       "followsYou": "mga sumusunod sayo",
@@ -117,6 +111,11 @@
         "errorMsg": "Please enter a valid app title",
         "label": "App title"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -177,16 +176,12 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore more rooms"
     },
-    "addToCalendar": {
-      "add": "Idagdag sa kalendaryo"
-    },
+    "addToCalendar": { "add": "Idagdag sa kalendaryo" },
     "wsKilled": {
       "description": "Pinatay ng server ang websocket. Karaniwang magyayari ito dahil naka bukas ang website sa ibang tab.",
       "reconnect": "kumonekta"
     },
-    "search": {
-      "placeholder": "Search for rooms, users or categories"
-    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",
@@ -195,6 +190,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     },
     "modals": {
@@ -250,9 +249,7 @@
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
-    "feed": {
-      "yourFeed": "Your feed"
-    },
+    "feed": { "yourFeed": "Your feed" },
     "scheduledRooms": {
       "title": "Mga Nakaiskedyul na",
       "noneFound": "walang nakita",
@@ -265,6 +262,11 @@
         "roomName": "pangalan ng room",
         "roomDescription": "Deskripsyon",
         "minLength": "haba ng 2"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

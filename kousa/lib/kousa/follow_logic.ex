@@ -26,7 +26,7 @@ defmodule Kousa.Follow do
         end
 
       _ ->
-        %{users: [], next_cursor: nil}
+        %{users: [], nextCursor: nil}
     end
   end
 

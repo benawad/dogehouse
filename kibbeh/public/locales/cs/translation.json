@@ -21,7 +21,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Ztlumen | DogeHouse"
+    "mutedTitle": "Ztlumen | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -41,7 +43,8 @@
     "home": {
       "createRoom": "Vytvořit místnost",
       "refresh": "Obnovit",
-      "editRoom": "Upravit místnost"
+      "editRoom": "Upravit místnost",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Místnost není dostupná, jít zpět",
@@ -84,7 +87,7 @@
       "allowAllConfirm": "Jsi si jistý? Tohle povolí všem {{count}} žádajícím uživatelům mluvit"
     },
     "searchUser": { "search": "Hledat..." },
-    "soundEffectSettings": { "header": "Zvuky" },
+    "soundEffectSettings": { "header": "Zvuky", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Pozměnit profil",
       "followsYou": "Sleduje tě.",
@@ -108,6 +111,11 @@
       "header": "Overlay Settings",
       "errorMsg": "Please enter valid app title",
       "label": "Enter app title"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -232,6 +240,10 @@
       "logOut": {
         "button": "Odhlásit se",
         "modalSubtitle": "Určitě se chceš odhlásit?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -249,6 +261,11 @@
         "roomName": "Jméno místnosti",
         "minLength": "Minimálně dva znaky",
         "roomDescription": "Popis místnosti"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

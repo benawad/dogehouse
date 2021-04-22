@@ -48,7 +48,6 @@ const CalenderDropDown: React.FC<DropdownProps> = () => {
     console.log(value);
   };
 
-  useOnClickOutside(ref, () => setOpen(false));
   return (
     <div ref={ref} className="relative">
       <Button

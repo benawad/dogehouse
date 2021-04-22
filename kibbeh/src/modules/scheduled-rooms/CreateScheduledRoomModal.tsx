@@ -133,7 +133,7 @@ export const CreateScheduleRoomModal: React.FC<CreateRoomModalProps> = ({
                 </div>
 
                 <div
-                  className={`flex flex pt-4 space-x-3 col-span-full items-center`}
+                  className={`flex pt-4 space-x-3 col-span-full items-center`}
                 >
                   <Button
                     loading={isSubmitting}

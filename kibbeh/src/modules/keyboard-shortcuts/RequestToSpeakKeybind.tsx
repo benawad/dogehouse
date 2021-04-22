@@ -30,7 +30,7 @@ export const RequestToSpeakKeybind: React.FC<RequestToSpeakKeybindProps> = ({
   }, [count, setRequestToSpeakKeybind]);
 
   return (
-    <div className={`flex flex items-center ${className}`}>
+    <div className={`flex items-center ${className}`}>
       <Button
         size="small"
         onClick={() => {

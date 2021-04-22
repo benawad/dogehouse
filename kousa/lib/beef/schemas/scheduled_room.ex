@@ -23,6 +23,19 @@ defmodule Beef.Schemas.ScheduledRoom do
              :creator,
              :creatorId
            ]}
+
+  @derive {Jason.Encoder,
+           only: [
+             :id,
+             :name,
+             :numAttending,
+             :scheduledFor,
+             :description,
+             :roomId,
+             :creator,
+             :creatorId
+           ]}
+
   @primary_key {:id, :binary_id, []}
   schema "scheduled_rooms" do
     field(:name, :string)

@@ -20,7 +20,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Némítva | DogeHouse"
+    "mutedTitle": "Némítva | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "link_1": "Története",
@@ -39,7 +41,8 @@
     "home": {
       "createRoom": "Szoba létrehozása",
       "refresh": "Frissítés",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "beszélgetés véget ért, lépjen vissza",
@@ -82,7 +85,7 @@
       "allowAllConfirm": "Biztos benne? Ezzel engedélyezi mind a {{count}} felhasználónak, hogy beszéljen"
     },
     "searchUser": { "search": "keresés..." },
-    "soundEffectSettings": { "header": "Hangok" },
+    "soundEffectSettings": { "header": "Hangok", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "fiók szerkesztése",
       "followsYou": "követ téged",
@@ -104,6 +107,11 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay beállítások"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -226,6 +234,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -242,6 +254,11 @@
         "roomName": "szoba neve",
         "minLength": "legalább 2 karakter hosszú",
         "roomDescription": "Leírás"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

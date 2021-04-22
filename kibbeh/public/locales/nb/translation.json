@@ -20,7 +20,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Dempet | DogeHouse"
+    "mutedTitle": "Dempet | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -40,7 +42,8 @@
     "home": {
       "createRoom": "Lag et rom",
       "refresh": "Last inn på nytt",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Rommet finnes ikke lengre, gå tilbake",
@@ -53,7 +56,7 @@
       "featureText_1": "Mørkt tema",
       "featureText_2": "Åpne registreringer",
       "featureText_3": "Støtte på tvers av plattformer",
-      "featureText_4": "Åpen kildekode",
+      "featureText_4": "Åpene kildekoden",
       "featureText_5": "Tekstchat",
       "featureText_6": "Drevet av Doge",
       "loginGithub": "Logg inn med GitHub",
@@ -68,7 +71,7 @@
       "soundSettings": "Gå til lydinnstillinger",
       "deleteAccount": "Slett konto",
       "overlaySettings": "Gå til overleggsinnstillinger",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Beklager, vi kunne ikke finne denne brukeren.."
     },
     "notFound": {
       "whoopsError": "Oi sann! Denne siden ble tapt i samtalen.",
@@ -83,7 +86,7 @@
       "allowAllConfirm": "Er du sikker? Dette vil tillate alle {{count}} spørrende brukere til å snakke"
     },
     "searchUser": { "search": "søk..." },
-    "soundEffectSettings": { "header": "Lyder" },
+    "soundEffectSettings": { "header": "Lyder", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Rediger profil",
       "followsYou": "Følger deg",
@@ -105,6 +108,11 @@
     "overlaySettings": {
       "input": { "errorMsg": "Ugyldig tittel", "label": "Angi tittel" },
       "header": "Innstillinger for overlegg"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -211,24 +219,28 @@
       }
     },
     "followingOnline": {
-      "people": "People",
-      "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "people": "Mennesker",
+      "online": "Pålogget",
+      "noOnline": "Du har ingen venner pålogget",
+      "showMore": "Vis flere"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "Kommende rom",
+      "exploreMoreRooms": "Utforsk flere rom"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": { "placeholder": "Søk etter rom, brukere eller kategorier" },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "Profil",
+      "language": "Språk",
+      "reportABug": "Rapporter en feil",
+      "useOldVersion": "Bruk den gamle versjonen",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "Logg ut",
+        "modalSubtitle": "Er du sikker på at du vil logge ut?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -246,6 +258,11 @@
         "roomName": "Romnavn",
         "minLength": "Minimum lengde er 2 tegn",
         "roomDescription": "Beskrivelse"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {
@@ -273,6 +290,6 @@
       "galacticDoge": "Galakse-doge",
       "spottedLife": "Planet med liv oppdaget"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": { "yourFeed": "Din Feed" }
   }
 }

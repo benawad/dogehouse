@@ -20,7 +20,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muted | DogeHouse"
+    "mutedTitle": "Muted | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -40,7 +42,8 @@
     "home": {
       "createRoom": "रूम बनाये",
       "refresh": "रिफ्रेश",
-      "editRoom": "एडिट रूम "
+      "editRoom": "एडिट रूम ",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "रूम गया, वापस जाए",
@@ -83,7 +86,7 @@
       "allowAllConfirm": "अरे  यू  सूरे ? थिस  विल अल्लोव आल {{count}} रिक्वेस्टिंग  उसेर्स  तो  स्पीक "
     },
     "searchUser": { "search": "खोज करे..." },
-    "soundEffectSettings": { "header": "आवाज़" },
+    "soundEffectSettings": { "header": "आवाज़", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "edit profile",
       "followsYou": "follows you",
@@ -105,6 +108,11 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases"
     }
   },
   "components": {
@@ -119,17 +127,17 @@
     "bottomVoiceControl": {
       "leaveCurrentRoomBtn": "वर्तमान रूम छोड़े",
       "confirmLeaveRoom": "क्या आप छोड़ना चाहते हैं?",
-      "leave": "Leave",
+      "leave": "लीव",
       "inviteUsersToRoomBtn": "उपयोगकर्ताओं को रूम में आमंत्रित करें",
       "invite": "आमंत्रण",
       "toggleMuteMicBtn": "म्यूट माइक्रोफोन टॉगल करें",
-      "mute": "Mute",
-      "unmute": "Unmute",
+      "mute": "म्यूट",
+      "unmute": "अनम्यूट",
       "makeRoomPublicBtn": "रूम को सार्वजनिक करें!",
       "settings": "सेटिंग्स",
       "speaker": "बोलनेवाले",
       "listener": "सुननेवाले",
-      "chat": "Chat"
+      "chat": "चैट"
     },
     "deviceNotSupported": {
       "notSupported": "वर्तमान में आपका डिवाइस समर्थित नहीं है। आप एक",
@@ -226,6 +234,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -243,10 +255,15 @@
         "roomName": "रूम का नाम",
         "minLength": "काम से काम 2",
         "roomDescription": "रूम के बारे में"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {
-      "title": "चाट",
+      "title": "चैट",
       "emotesSoon": "[emotes soon]",
       "bannedAlert": "आपको चैट से प्रतिबंधित कर दिया गया है",
       "waitAlert": "आपको दूसरा मैसेज भेजने से पहले एक सेकंड इंतजार करना होगा",
