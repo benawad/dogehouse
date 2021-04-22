@@ -75,7 +75,11 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
   const { t } = useTypeSafeTranslation();
   return (
     <div className="flex flex-col rounded-8 bg-primary-800 p-4 w-full">
-      <button className="flex" onClick={onClick}>
+      <button
+        data-testid="edit-profile-widget"
+        className="flex"
+        onClick={onClick}
+      >
         <div className="flex">
           <SingleUser size="default" isOnline={isOnline} src={avatarUrl} />
         </div>
@@ -113,7 +117,10 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
           </ApiPreloadLink>
         </div>
       </div>
-      <div className="flex text-primary-300 mt-3 break-words text-left">
+      <div
+        data-testid="current-user:bio"
+        className="flex text-primary-300 mt-3 break-words text-left"
+      >
         {bio}
       </div>
       {website && <Website website={website} />}

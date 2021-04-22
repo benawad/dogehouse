@@ -29,7 +29,7 @@ defmodule Broth.Translator.V0_1_0 do
     "change_room_creator" => "room:set_auth",
     "make_room_public" => "room:update",
     "edit_room" => "room:update",
-    "fetch_invite_list" => "room:get_invite_list",
+    "get_invite_list" => "room:get_invite_list",
     "get_user_profile" => "user:get_info",
     "ask_to_speak" => "room:set_role",
     "ban_from_room_chat" => "chat:ban",
@@ -189,7 +189,7 @@ defmodule Broth.Translator.V0_1_0 do
 
   # these casts need to be instrumented with fetchId in order to be treated
   # as a cast.
-  @casts_to_calls ~w(auth leave_room ban fetch_invite_list make_room_public mute deafen)
+  @casts_to_calls ~w(auth leave_room ban make_room_public mute deafen)
 
   def add_in_ref(message, op) when op in @casts_to_calls do
     Map.put(message, "fetchId", UUID.uuid4())
@@ -257,7 +257,7 @@ defmodule Broth.Translator.V0_1_0 do
 
   def translate_out_body(message, "room:get_invite_list") do
     data = %{users: message.d.invites, nextCursor: message.d.nextCursor}
-    %{message | op: "fetch_invite_list_done", d: data}
+    %{message | d: data}
   end
 
   def translate_out_body(message, "user:get_following") do

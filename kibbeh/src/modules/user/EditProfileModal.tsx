@@ -1,16 +1,12 @@
-import { BaseUser } from "@dogehouse/kebab";
 import { Form, Formik } from "formik";
 import isElectron from "is-electron";
 import React, { useContext, useEffect } from "react";
-import { useQueryClient } from "react-query";
 import { object, pattern, size, string } from "superstruct";
-import { FieldSpacer } from "../../form-fields/FieldSpacer";
 import { InputField } from "../../form-fields/InputField";
 import { showErrorToast } from "../../lib/showErrorToast";
 import { validateStruct } from "../../lib/validateStruct";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
-import { useTypeSafeUpdateQuery } from "../../shared-hooks/useTypeSafeUpdateQuery";
 import { Button } from "../../ui/Button";
 import { ButtonLink } from "../../ui/ButtonLink";
 import { Modal } from "../../ui/Modal";

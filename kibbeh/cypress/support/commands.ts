@@ -26,8 +26,17 @@
 
 import { defaultTestUsername } from "./test-constants";
 
-Cypress.Commands.add("dataTestId", (value) => {
-  return cy.get(`[data-testid=${value}]`);
+Cypress.Commands.add("dataTestId", (value, wait = false) => {
+  const selector = `[data-testid="${value}"]`;
+  if (wait) {
+    return cy.waitFor(selector);
+  } else {
+    return cy.get(selector);
+  }
+});
+
+Cypress.Commands.add("closeModal", () => {
+  return cy.get(`[data-testid="close-modal"]`).click();
 });
 
 Cypress.Commands.add("byName", (value) => {
@@ -39,6 +48,7 @@ Cypress.Commands.add("clickSubmit", () => {
 });
 
 Cypress.Commands.add("loginTestUser", (value = defaultTestUsername) => {
+  cy.viewport(2560, 1440);
   cy.visit("/", {
     onBeforeLoad(win) {
       cy.stub(win, "prompt").returns(value);
