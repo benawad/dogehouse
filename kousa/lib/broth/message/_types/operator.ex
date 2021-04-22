@@ -29,6 +29,7 @@ defenum(
     {Room.SetAuth, 71},
     {Room.Join, 72},
     {Room.GetUsers, 73},
+    {Room.GetBannedUsers, 84},
     {Room.UpdateScheduled, 74},
     {Room.DeleteScheduled, 75},
     {Room.Create, 76},

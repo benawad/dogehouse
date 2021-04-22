@@ -109,15 +109,12 @@ defmodule Broth.Message.Auth.Request do
           # TODO: move toroom business logic
           room = Rooms.get_room_by_id(user.currentRoomId)
 
-          IO.puts("here")
-          IO.inspect(user)
-
           RoomSession.start_supervised(
             room_id: user.currentRoomId,
             voice_server_id: room.voiceServerId
           )
 
-          RoomSession.join_room(room.id, user, request.muted, request.deafened)
+          RoomSession.join_room(room.id, user.id, request.muted, request.deafened)
 
           if request.reconnectToVoice == true do
             Kousa.Room.join_vc_room(user.id, room)

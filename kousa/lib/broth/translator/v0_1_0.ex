@@ -14,6 +14,7 @@ defmodule Broth.Translator.V0_1_0 do
     "get_my_following" => "user:get_following",
     "get_top_public_rooms" => "room:get_top",
     "get_current_room_users" => "room:get_users",
+    "get_blocked_from_room_users" => "room:get_banned_users",
     "mute" => "room:mute",
     "deafen" => "room:deafen",
     "delete_room_chat_message" => "chat:delete_msg",
@@ -45,6 +46,8 @@ defmodule Broth.Translator.V0_1_0 do
     "unban_from_room_chat" => "chat:unban",
     # follow needs to arbitrate if it becomes follow or unfollow.
     "follow" => nil,
+    # get_follow_list needs to arbitrate if its followers or following.
+    "get_follow_list" => nil,
     # these are special cases:
     "block_user_and_from_room" => "block_user_and_from_room",
     "fetch_follow_list" => "fetch_follow_list",
@@ -124,6 +127,16 @@ defmodule Broth.Translator.V0_1_0 do
   def translate_in_body(message, "follow") do
     # this one has to also alter the operation.
     operation = if get_in(message, ["d", "value"]), do: "user:follow", else: "user:unfollow"
+    put_in(message, ["op"], operation)
+  end
+
+  def translate_in_body(message, "get_follow_list") do
+    # this one has to also alter the operation.
+    operation =
+      if get_in(message, ["d", "isFollowing"]),
+        do: "user:get_following",
+        else: "user:get_followers"
+
     put_in(message, ["op"], operation)
   end
 
@@ -235,6 +248,10 @@ defmodule Broth.Translator.V0_1_0 do
     %{message | d: new_data}
   end
 
+  def translate_out_body(message, "room:create_scheduled") do
+    %{message | d: %{scheduledRoom: message.d}}
+  end
+
   def translate_out_body(message, "room:update") do
     %{message | d: !Map.get(message, :e)}
   end
@@ -246,6 +263,11 @@ defmodule Broth.Translator.V0_1_0 do
 
   def translate_out_body(message, "user:get_following") do
     data = %{users: message.d.following, nextCursor: message.d.nextCursor}
+    %{message | d: data}
+  end
+
+  def translate_out_body(message, "user:get_followers") do
+    data = %{users: message.d.followers, nextCursor: message.d.nextCursor}
     %{message | d: data}
   end
 

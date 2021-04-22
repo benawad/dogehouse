@@ -25,6 +25,7 @@ defmodule Broth.Message.Manifest do
     "room:set_auth" => Room.SetAuth,
     "room:join" => Room.Join,
     "room:get_users" => Room.GetUsers,
+    "room:get_banned_users" => Room.GetBannedUsers,
     "room:update_scheduled" => Room.UpdateScheduled,
     "room:delete_scheduled" => Room.DeleteScheduled,
     "room:create" => Room.Create,
