@@ -72,7 +72,11 @@ export const SettingsDropdown: React.FC<{
             />
           </a>
           <SettingsIcon
-            label={!debugAudio ? t("components.settingsDropdown.debugAudio.debugAudio") : t("components.settingsDropdown.debugAudio.stopDebugger")}
+            label={
+              !debugAudio
+                ? t("components.settingsDropdown.debugAudio.debugAudio")
+                : t("components.settingsDropdown.debugAudio.stopDebugger")
+            }
             icon={<SolidVolume />}
             transition
             onClick={() => setDebugAudio(!debugAudio)}

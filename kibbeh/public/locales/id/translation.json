@@ -11,7 +11,7 @@
     "edit": "Ubah",
     "delete": "Hapus",
     "joinRoom": "Gabung ke ruangan",
-    "copyLink": "Calin tautan",
+    "copyLink": "Salin tautan",
     "copied": "Disalin",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
@@ -21,8 +21,8 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Bisu | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "dashboard": "Dasbor",
+    "connectionTaken": "Koneksi Diambil"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -232,7 +232,7 @@
       },
       "debugAudio": {
         "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
+        "stopDebugger": "Berhentikan Debugger"
       }
     }
   },
@@ -251,10 +251,10 @@
         "minLength": "minimal panjang 2",
         "roomDescription": "Deskripsi"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "tommorow": "BESOK",
+      "today": "HARI INI",
       "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
+        "areYouSure": "Apakah kamu yakin ingin menghapus ruangan yang sudah terjadwal ini?"
       }
     },
     "roomChat": {

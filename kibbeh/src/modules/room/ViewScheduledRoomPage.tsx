@@ -38,7 +38,7 @@ export const ViewScheduledRoomPage: React.FC<ViewScheduledRoomPageProps> = ({}) 
 
   return (
     <DesktopLayout>
-      <HeaderController title={data.room.name} embed={{}}/>
+      <HeaderController title={data.room.name} embed={{}} />
       <MiddlePanel>
         {deleted ? (
           <InfoText>deleted</InfoText>
