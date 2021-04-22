@@ -184,23 +184,33 @@ defmodule Broth.SocketHandler do
     %{message | operator: message.inbound_operator <> ":reply", payload: payload}
   end
 
-  defp wrap_error(message, changeset = %Ecto.Changeset{}) do
-    do_wrap_error(message, Kousa.Utils.Errors.changeset_errors(changeset))
-  end
-
-  defp wrap_error(message, string) when is_binary(string) do
-    do_wrap_error(message, %{message: string})
-  end
-
-  defp wrap_error(message, other) do
-    do_wrap_error(message, %{message: inspect(other)})
-  end
-
-  defp do_wrap_error(message, error_map) do
+  defp wrap_error(message, error) do
     Map.merge(
       message,
-      %{payload: nil, operator: message.inbound_operator, errors: error_map}
+      %{
+        payload: nil,
+        operator: message.inbound_operator,
+        errors: to_map(error)
+      }
     )
+  end
+
+  # we expect three types of errors:
+  # - Changeset errors
+  # - textual errors
+  # - anything else
+  # this common `to_map` function handles them all.
+
+  defp to_map(changeset = %Ecto.Changeset{}) do
+    Kousa.Utils.Errors.changeset_errors(changeset)
+  end
+
+  defp to_map(string) when is_binary(string) do
+    %{message: string}
+  end
+
+  defp to_map(other) do
+    %{message: inspect(other)}
   end
 
   defp dispatch_mediasoup_message(msg, %{user_id: user_id}) do
