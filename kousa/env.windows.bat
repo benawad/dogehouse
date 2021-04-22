@@ -1,0 +1,14 @@
+set DATABASE_URL="postgres://user:password@localhost/kousa_repo2"
+set BEN_GITHUB_ID=7872329
+set RABBITMQ_URL="amqp://user:password@yourinternalip:5672"
+set ACCESS_TOKEN_SECRET=""
+set REFRESH_TOKEN_SECRET=""
+set GITHUB_CLIENT_ID=""
+set TWITTER_API_KEY=""
+set TWITTER_SECRET_KEY=""
+set TWITTER_BEARER_TOKEN=""
+set GITHUB_CLIENT_SECRET=""
+set SENTRY_DNS=""
+set API_URL="http://localhost:4001"
+set WEB_URL="http://localhost:3000"
+set PORT=4001
