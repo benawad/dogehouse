@@ -1,5 +1,5 @@
 defmodule Broth.Message.User.Unfollow do
-  use Broth.Message.Cast
+  use Broth.Message.Call
 
   @primary_key false
   embedded_schema do
@@ -12,10 +12,20 @@ defmodule Broth.Message.User.Unfollow do
     |> validate_required([:userId])
   end
 
+  defmodule Reply do
+    use Broth.Message.Push
+
+    @derive {Jason.Encoder, only: []}
+
+    @primary_key false
+    embedded_schema do
+    end
+  end
+
   def execute(changeset, state) do
     with {:ok, %{userId: user_id}} <- apply_action(changeset, :validate) do
       Kousa.Follow.follow(state.user_id, user_id, false)
-      {:noreply, state}
+      {:reply, %Reply{}, state}
     end
   end
 end

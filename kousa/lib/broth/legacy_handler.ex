@@ -66,7 +66,7 @@ defmodule Broth.LegacyHandler do
     reply =
       case Kousa.Room.join_room(state.user_id, room_id_to_join) do
         %{error: err} ->
-          %{op: "error", d: err}
+          %{op: "fetch_done", d: %{error: err}, fetchId: fetch_id}
 
         %{room: room} ->
           {room_id, users} = Beef.Users.get_users_in_current_room(state.user_id)
