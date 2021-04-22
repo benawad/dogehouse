@@ -69,7 +69,7 @@ export const SingleUser: React.FC<AvatarProps> = ({
   src,
   size = "default",
   className = "",
-  isOnline = true,
+  isOnline = false,
   muted,
   activeSpeaker,
   username,
