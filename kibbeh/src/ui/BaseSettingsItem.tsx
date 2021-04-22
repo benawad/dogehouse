@@ -6,6 +6,7 @@ export interface BaseSettingsItemProps {
 
 export const BaseSettingsItem: React.FC<BaseSettingsItemProps> = ({
   children,
+  className = "",
   ...props
 }) => {
   return (
