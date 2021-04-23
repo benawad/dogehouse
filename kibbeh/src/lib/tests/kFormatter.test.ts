@@ -24,4 +24,24 @@ describe("Number formatter", () => {
   it("should return 101k", () => {
     expect(kFormatter(101800)).toBe("101k");
   });
+
+  it("should return 3m", () => {
+    expect(kFormatter(3000000)).toBe("3m");
+  });
+
+  it("should return 3.8m", () => {
+    expect(kFormatter(3800000)).toBe("3.8m");
+  });
+
+  it("should return 98m", () => {
+    expect(kFormatter(98150000)).toBe("98m");
+  });
+
+  it("should return 124m", () => {
+    expect(kFormatter(124200000)).toBe("124m");
+  });
+
+  it("should return 9.9m", () => {
+    expect(kFormatter(9999999)).toBe("9.9m");
+  });
 });
