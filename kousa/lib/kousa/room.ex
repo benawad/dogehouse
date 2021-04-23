@@ -269,6 +269,9 @@ defmodule Kousa.Room do
       {_, nil} ->
         :noop
 
+      {:mod, _} ->
+        internal_set_speaker(user_id, room_id)
+
       {:creator, _} ->
         internal_set_speaker(user_id, room_id)
 
