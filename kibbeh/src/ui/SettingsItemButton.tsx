@@ -24,6 +24,5 @@ export const SettingsItemButton: React.FC<SettingsItemButtonProps> = ({
         </p>
       </Button>
     </BaseSettingsItem>
-
   );
 };
