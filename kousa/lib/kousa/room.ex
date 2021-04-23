@@ -59,6 +59,7 @@ defmodule Kousa.Room do
             displayName: user.displayName,
             username: user.username,
             avatarUrl: user.avatarUrl,
+            bannerUrl: user.bannerUrl,
             type: "invite"
           }
         )

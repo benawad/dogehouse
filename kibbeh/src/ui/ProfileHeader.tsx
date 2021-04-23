@@ -46,7 +46,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   return (
     // @TODO: Add the cover api (once it's implemented)}
     <ProfileHeaderWrapper
-      coverUrl={"https://source.unsplash.com/random/640x155"}
+      coverUrl={user.bannerUrl}
     >
       <EditProfileModal
         isOpen={showEditProfileModal}

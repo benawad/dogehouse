@@ -109,7 +109,8 @@ defmodule Broth.Routes.TwitterAuth do
               "name" => displayName,
               "id_str" => twitterId,
               "email" => email,
-              "profile_image_url_https" => avatarUrl
+              "profile_image_url_https" => avatarUrl,
+              "profile_banner_url" => bannerUrl
             }
           }
         } = conn
@@ -121,7 +122,8 @@ defmodule Broth.Routes.TwitterAuth do
           displayName: displayName,
           twitterId: twitterId,
           email: email,
-          avatarUrl: avatarUrl
+          avatarUrl: avatarUrl,
+          bannerUrl: bannerUrl
         })
 
       if not is_nil(db_user.reasonForBan) do
