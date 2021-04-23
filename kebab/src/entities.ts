@@ -55,6 +55,7 @@ export type User = {
   currentRoom: Room;
   bio: string;
   avatarUrl: string;
+  bannerUrl: string;
 };
 
 export type MessageToken<T extends string = string, V = unknown> = {
@@ -90,6 +91,7 @@ export type BaseUser = {
   bio: string;
   displayName: string;
   avatarUrl: string;
+  bannerUrl: string;
   numFollowing: number;
   numFollowers: number;
   currentRoom?: Room;
