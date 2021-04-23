@@ -3,14 +3,14 @@ defmodule Broth.Message.User.GetFollowing do
 
   @primary_key false
   embedded_schema do
-    field(:id, :binary_id)
+    field(:username, :string)
     field(:cursor, :integer, default: 0)
     field(:limit, :integer, default: 100)
   end
 
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
-    |> cast(data, [:cursor, :limit])
+    |> cast(data, [:cursor, :limit, :username])
     |> validate_number(:limit, greater_than: 0, message: "too low")
   end
 
@@ -30,9 +30,20 @@ defmodule Broth.Message.User.GetFollowing do
   def execute(changeset, state) do
     alias Beef.Follows
 
-    with {:ok, request} <- apply_action(changeset, :validate),
-         {users, nextCursor} <- Follows.get_my_following(state.user_id, request.cursor) do
-      {:reply, %Reply{following: users, nextCursor: nextCursor, initial: request.cursor == 0},
+    with {:ok, request} <- apply_action(changeset, :validate) do
+      {users, next_cursor} =
+        if is_nil(request.username) do
+          Follows.get_my_following(state.user_id, request.cursor)
+        else
+          Kousa.Follow.get_follow_list_by_username(
+            state.user_id,
+            request.username,
+            true,
+            request.cursor
+          )
+        end
+
+      {:reply, %Reply{following: users, nextCursor: next_cursor, initial: request.cursor == 0},
        state}
     end
   end

@@ -22,7 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Mykistetty | DogeHouse",
-    "deafenedTitle": "Deafened | DogeHouse",
+    "deafenedTitle": "Hiljennetty | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Yhteys katkaistu"
   },
@@ -45,7 +45,7 @@
       "createRoom": "Luo huone",
       "refresh": "Päivitä",
       "editRoom": "Muokkaa huonetta",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "desktopAlert": "Lataa DogeHouse-työpöytäsovellus tänään!"
     },
     "inviteList": {
       "roomGone": "Huone poistettu, palaa takaisin",
@@ -115,12 +115,12 @@
       }
     },
     "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
-      "download_for": "Downoad for {{platform}}"
+      "starting": "Aloitetaan lataaminen...",
+      "failed": "Automaattinen lataus epäonnistui, yritä uudelleen myöhemmin",
+      "visit_gh": "Näe Github-julkaisut",
+      "prompt": "Aloita lataaminen klikkaamalla alla olevaa painiketta",
+      "download_now": "Lataa nyt",
+      "download_for": "Lataa {{platform}}ille"
     }
   },
   "components": {
@@ -146,9 +146,9 @@
       "speaker": "Puhuja",
       "listener": "Kuuntelija",
       "chat": "Chatti",
-      "toggleDeafMicBtn": "Toggle Deafen",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen"
+      "toggleDeafMicBtn": "Kytke hiljennys",
+      "deafen": "Hiljennä",
+      "undeafen": "Poista hiljennys"
     },
     "deviceNotSupported": {
       "notSupported": "Käyttämääsi laitetta ei tueta. Voit luoda",
@@ -170,7 +170,7 @@
       "toggleMuteKeybind": "Mikrofonin mykistys -pikanäppäin",
       "togglePushToTalkKeybind": "Push-to-talk-pikanäppäin",
       "toggleOverlayKeybind": "Overlay-pikanäppäin",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Hiljennys-pikanäppäin"
     },
     "userVolumeSlider": { "noAudioMessage": "Ei äänen ulostulolaitteita" },
     "addToCalendar": { "add": "Lisää kalenteriin" },

@@ -38,6 +38,27 @@ defmodule BrothTest.User.GetFollowingTest do
       })
     end
 
+    test "can get following for someone else", t do
+      %{id: follower_id, username: username} = Factory.create(User)
+      Kousa.Follow.follow(follower_id, t.user.id, true)
+
+      ref =
+        WsClient.send_call(t.client_ws, "user:get_following", %{
+          "cursor" => 0,
+          "username" => username
+        })
+
+      user_id = t.user.id
+
+      WsClient.assert_reply("user:get_following:reply", ref, %{
+        "following" => [
+          %{
+            "id" => ^user_id
+          }
+        ]
+      })
+    end
+
     @tag :skip
     test "test proper pagination of user:get_following"
   end

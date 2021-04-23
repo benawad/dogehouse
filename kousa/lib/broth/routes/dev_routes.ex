@@ -1,4 +1,4 @@
-defmodule Broth.Routes.Dev do
+defmodule Broth.Routes.DevOnly do
   import Plug.Conn
 
   alias Beef.Schemas.User

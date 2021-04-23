@@ -25,14 +25,14 @@ defmodule BrothTest.Room.DeafenTest do
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
       # deaf ON
-      ref = WsClient.send_call(t.client_ws, "room:deafen", %{"deafen" => true})
+      ref = WsClient.send_call(t.client_ws, "room:deafen", %{"deafened" => true})
       WsClient.assert_reply("room:deafen:reply", ref, _)
       Process.sleep(100)
       map = Onion.RoomSession.get(room_id, :deafMap)
       assert is_map_key(map, t.user.id)
 
       # deaf OFF
-      ref = WsClient.send_call(t.client_ws, "room:deafen", %{"deafen" => false})
+      ref = WsClient.send_call(t.client_ws, "room:deafen", %{"deafened" => false})
       WsClient.assert_reply("room:deafen:reply", ref, _)
       Process.sleep(100)
       map = Onion.RoomSession.get(room_id, :deafMap)
@@ -45,7 +45,7 @@ defmodule BrothTest.Room.DeafenTest do
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
-      ref = WsClient.send_call(t.client_ws, "room:deafen", %{"deafen" => false})
+      ref = WsClient.send_call(t.client_ws, "room:deafen", %{"deafened" => false})
 
       WsClient.assert_reply("room:deafen:reply", ref, _)
 
