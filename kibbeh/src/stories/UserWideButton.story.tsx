@@ -8,6 +8,18 @@ export default {
   component: UserWideButton,
 };
 
-export const Main: Story<UserWideButtonInfoProps> = () => {
-  return <UserWideButton user={sampleBaseUser} />;
+const changeText = (isBlocked: boolean, isFollowing: boolean, text: string) => {
+    if(isBlocked){
+        return "Unblock";
+    } else if (isFollowing){
+        return "Follows you"
+    } else{
+        return "block"
+    }
+};
+
+export const Main: Story<UserWideButtonInfoProps> = ({ ...props }) => {
+    // <div style={{ height:"100px", width: "719px" }}>
+      return  <UserWideButton { ...props } userStatus={() => { return changeText(false, false, "Unblock")}} user={sampleBaseUser} />;
+    // </div>
 };
