@@ -6,6 +6,9 @@ defmodule Broth.Message.User.Update do
 
   @derive {Jason.Encoder, only: ~w(
     username
+    bio
+    avatarUrl
+    displayName
     muted
     deafened
   )a}
@@ -13,6 +16,9 @@ defmodule Broth.Message.User.Update do
   @primary_key {:id, :binary_id, []}
   schema "users" do
     field(:username, :string)
+    field(:avatarUrl, :string)
+    field(:displayName, :string)
+    field(:bio, :string)
     field(:muted, :boolean, virtual: true)
     field(:deafened, :boolean, virtual: true)
   end
@@ -23,8 +29,7 @@ defmodule Broth.Message.User.Update do
 
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
-    |> cast(data, [:muted, :username])
-    |> cast(data, [:deafened, :username])
+    |> cast(data, [:muted, :deafened, :username, :bio, :displayName, :avatarUrl])
     |> validate_required([:username])
   end
 
