@@ -43,7 +43,7 @@
     "followList": { "followHim": "İzlə", "followingHim": "İzlənir" },
     "home": {
       "createRoom": "Otaq yaratmaq",
-      "refresh": "Təzələ",
+      "refresh": "Yenilə",
       "editRoom": "Otaqda düzəliş et",
       "desktopAlert": "DogeHouse tətbiqini yükləyin!"
     },
