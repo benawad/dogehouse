@@ -9,8 +9,8 @@ defmodule Broth.Message.Auth.Request do
     field(:platform, :string)
     field(:currentRoomId, :binary_id)
     field(:reconnectToVoice, :boolean)
-    field(:muted, :boolean)
-    field(:deafened, :boolean)
+    field(:muted, :boolean, default: false)
+    field(:deafened, :boolean, default: false)
   end
 
   alias Kousa.Utils.UUID

@@ -51,6 +51,27 @@ function getOS() {
   return { isWindows, isMac, isLinux, isPhone, os };
 }
 
+function OtherPlatformButton(props: {
+  platform: string;
+  currentPlatform: number;
+  downloadLinks: string[];
+}) {
+  const { t } = useTypeSafeTranslation();
+  const index = platforms.indexOf(props.platform);
+  const isCurrent = index === props.currentPlatform;
+  return !isCurrent ? (
+    <Button
+      color="secondary"
+      className="my-2"
+      onClick={() => {
+        window.location.href = props.downloadLinks[index];
+      }}
+    >
+      {t("pages.download.download_for").replace("%platform%", platforms[index])}
+    </Button>
+  ) : null;
+}
+
 export default function Download() {
   const [loaded, setLoaded] = useState(false);
   const [downloadLinks, setDownloadLinks] = useState(links);
@@ -78,7 +99,7 @@ export default function Download() {
             if (tag) {
               const version = tag.replace("v", "");
               links.forEach((l) => {
-                let i = links.indexOf(l);
+                const i = links.indexOf(l);
                 links[i] = l
                   .replace("{{tag}}", tag)
                   .replace("{{version}}", version);
@@ -103,17 +124,21 @@ export default function Download() {
     }
   }, []);
 
+  let text = "";
+
+  if (!loaded) {
+    text = t("common.loading");
+  } else if (downloadFailed) {
+    text = t("pages.download.failed");
+  } else {
+    text = t("pages.download.prompt");
+  }
+
   return (
     <>
       <HeaderController title="Download" />
       <div className="flex w-full h-full flex-col items-center justify-center p-8">
-        <h4 className="text-primary-100 mb-4">
-          {loaded
-            ? downloadFailed
-              ? t("pages.download.failed")
-              : t("pages.download.prompt")
-            : t("common.loading")}
-        </h4>
+        <h4 className="text-primary-100 mb-4">{text}</h4>
 
         {loaded ? (
           <Button
@@ -132,43 +157,20 @@ export default function Download() {
           </Button>
         ) : null}
 
-        {loaded ? (
-          !downloadFailed ? (
-            <div className="flex lg:flex-row md:flex-col sm:flex-col lg:space-x-4 p-2 items-center">
-              {platforms &&
-                platforms.map((platform) => (
-                  <OtherPlatformButton
-                    platform={platform}
-                    currentPlatform={currentPlatform}
-                    downloadLinks={downloadLinks}
-                    key={platform}
-                  />
-                ))}
-            </div>
-          ) : null
-        ) : null}
+        {!loaded || downloadFailed ? null : (
+          <div className="flex lg:flex-row md:flex-col sm:flex-col lg:space-x-4 p-2 items-center">
+            {platforms &&
+              platforms.map((platform) => (
+                <OtherPlatformButton
+                  platform={platform}
+                  currentPlatform={currentPlatform}
+                  downloadLinks={downloadLinks}
+                  key={platform}
+                />
+              ))}
+          </div>
+        )}
       </div>
     </>
   );
-}
-
-function OtherPlatformButton(props: {
-  platform: string;
-  currentPlatform: number;
-  downloadLinks: string[];
-}) {
-  const { t } = useTypeSafeTranslation();
-  const index = platforms.indexOf(props.platform);
-  const isCurrent = index === props.currentPlatform;
-  return !isCurrent ? (
-    <Button
-      color="secondary"
-      className="my-2"
-      onClick={() => {
-        window.location.href = props.downloadLinks[index];
-      }}
-    >
-      {t("pages.download.download_for").replace("%platform%", platforms[index])}
-    </Button>
-  ) : null;
 }

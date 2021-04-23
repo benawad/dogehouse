@@ -6,6 +6,8 @@ export const soundEffects = {
   unmute: "unmute.wav",
   mute: "mute.wav",
   roomInvite: "roomInvite.wav",
+  deafen: "deafen.wav",
+  undeafen: "undeafen.wav",
 };
 
 export type PossibleSoundEffect = keyof typeof soundEffects;
@@ -18,6 +20,8 @@ function getInitialSettings() {
     unmute: true,
     mute: true,
     roomInvite: true,
+    deafen: true,
+    undeafen: true,
   };
 
   try {
