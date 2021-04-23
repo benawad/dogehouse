@@ -12,15 +12,13 @@ import {
     OVERLAY_KEY,
     isMac,
     DEAF_KEY,
-} from "../../constants";
+} from "../constants";
 import { overlayWindow } from "electron-overlay-window";
-import { createOverlay } from "../overlay";
-import { startOverlayIPCHandler } from "../overlay/ipc";
-import { bWindowsType } from "../../types";
-import { Worker } from 'worker_threads';
+import { createOverlay } from "./overlay";
+import { startOverlayIPCHandler } from "./overlay/ipc";
+import { bWindowsType } from "../types";
 import globkey from 'globkey';
-import path from "path";
-import { stopRPC } from "../rpc";
+import { stopRPC } from "./rpc";
 
 export let CURRENT_REQUEST_TO_SPEAK_KEY = "Control+8";
 export let CURRENT_INVITE_KEY = "Control+7";
@@ -35,10 +33,9 @@ export let CURRENT_APP_TITLE = "";
 
 let PREV_PTT_STATUS = false;
 
-export let worker: Worker;
 
 export async function RegisterKeybinds(bWindows: bWindowsType) {
-    await SpawnWorker();
+    //await SpawnWorker();
     ipcMain.on(REQUEST_TO_SPEAK_KEY, (event, keyCode) => {
         if (globalShortcut.isRegistered(CURRENT_REQUEST_TO_SPEAK_KEY)) {
             globalShortcut.unregister(CURRENT_REQUEST_TO_SPEAK_KEY);
@@ -121,43 +118,30 @@ export async function RegisterKeybinds(bWindows: bWindowsType) {
     ipcMain.on("@overlay/app_title", (event, appTitle: string) => {
         CURRENT_APP_TITLE = appTitle;
     })
-    //setTimeout(() => { globkey.unload(); }, 15000);
-    worker.on('message', (msg) => {
-        if (msg.type == "keys") {
-            let keypair = msg.keys;
-            keypair.forEach((key: any) => {
-                let i = keypair.indexOf(key);
-                keypair[i] = keypair[i].replace("L", "");
-                keypair[i] = keypair[i].replace("R", "");
-                keypair[i] = keypair[i].replace("Key", "");
-            });
-            keypair = keypair.sort();
-            let ks = keypair.join().toLowerCase();
-            let PTT = ks !== CURRENT_PTT_KEY_STRING;
-            if (PREV_PTT_STATUS !== PTT) {
-                bWindows.main.webContents.send("@voice/ptt_status_change", PTT);
-                PREV_PTT_STATUS = PTT;
-            }
+
+    globkey.start((keypair) => {
+        keypair.forEach((key: any) => {
+            let i = keypair.indexOf(key);
+            keypair[i] = keypair[i].replace("L", "");
+            keypair[i] = keypair[i].replace("R", "");
+            keypair[i] = keypair[i].replace("Key", "");
+        });
+        keypair = keypair.sort();
+        let ks = keypair.join().toLowerCase();
+        let PTT = ks !== CURRENT_PTT_KEY_STRING;
+        if (PREV_PTT_STATUS !== PTT) {
+            bWindows.main.webContents.send("@voice/ptt_status_change", PTT);
+            PREV_PTT_STATUS = PTT;
         }
     });
 }
 
-export async function SpawnWorker() {
-    globkey.start();
-    if (app.isPackaged) {
-        worker = new Worker(path.join(process.resourcesPath, 'app.asar.unpacked/dist/utils/keybinds/worker.js'));
-    } else {
-        worker = new Worker(path.join(__dirname, './worker.js'));
-    }
-}
 
-export async function exitApp(quit = true) {
-    stopRPC();
-    if (quit) {
+
+export async function exitApp() {
+    if (globkey.isRunning()) {
         globkey.stop()
     }
-    if (worker) {
-        globkey.unload();
-        await worker.terminate();
-    }
+    stopRPC();
+    app.quit();
 }
