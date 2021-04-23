@@ -60,7 +60,7 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
     return <CenterLoader />;
   }
 
-  if (!data) {
+  if (!data || "error" in data) {
     return <InfoText>{t("pages.myProfile.couldNotFindUser")}</InfoText>;
   }
 
