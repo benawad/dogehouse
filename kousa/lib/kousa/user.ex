@@ -14,7 +14,8 @@ defmodule Kousa.User do
           %{
             display_name: user.displayName,
             username: user.username,
-            avatar_url: user.avatarUrl
+            avatar_url: user.avatarUrl,
+            banner_url: user.bannerUrl,
           }
         )
 

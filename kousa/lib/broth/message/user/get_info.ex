@@ -26,6 +26,7 @@ defmodule Broth.Message.User.GetInfo do
       username
       displayName
       avatarUrl
+      bannerUrl
       bio
       online
       numFollowing
@@ -38,6 +39,7 @@ defmodule Broth.Message.User.GetInfo do
       field(:username, :string)
       field(:displayName, :string)
       field(:avatarUrl, :string)
+      field(:bannerUrl, :string)
       field(:bio, :string, default: "")
       field(:currentRoomId, :binary_id)
       field(:numFollowing, :integer)

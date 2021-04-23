@@ -26,7 +26,8 @@ defmodule Kousa.Beef.UsersTest do
           bio: "updated bio",
           username: "dave",
           displayName: "bar",
-          avatarUrl: "https://www.pbs.twimg.com/profile_images/ghi.jpg"
+          avatarUrl: "https://www.pbs.twimg.com/profile_images/ghi.jpg",
+          bannerUrl: "https://bit.ly/3dzG9DB#https://avatars.githubusercontent.com/u/44095206?v=4"
         })
 
       assert %{
@@ -34,7 +35,8 @@ defmodule Kousa.Beef.UsersTest do
                bio: "updated bio",
                username: "dave",
                displayName: "bar",
-               avatarUrl: "https://www.pbs.twimg.com/profile_images/ghi.jpg"
+               avatarUrl: "https://www.pbs.twimg.com/profile_images/ghi.jpg",
+               bannerUrl: "https://www.pbs.twimg.com/profile_images/ghi.jpg"
              } = Repo.get!(User, user.id)
     end
 
@@ -57,13 +59,15 @@ defmodule Kousa.Beef.UsersTest do
           bio: "lorem ipsum",
           username: "david",
           displayName: "d0",
-          avatarUrl: "https://foo.bar/d0"
+          avatarUrl: "https://foo.bar/d0",
+          bannerUrl: "https://foo.bar/d0"
         },
         %{
           bio: "dolor sunt",
           username: "karen",
           displayName: "d1",
-          avatarUrl: "https://foo.bar/d1"
+          avatarUrl: "https://foo.bar/d1",
+          bannerUrl: "https://foo.bar/d1"
         }
       ])
 
@@ -77,6 +81,7 @@ defmodule Kousa.Beef.UsersTest do
           username: "david",
           displayName: "d0",
           avatarUrl: "https://foo.bar/d0",
+          bannerUrl: "https://foo.bar/d0",
           githubId: "abcdef"
         },
         %{
@@ -84,6 +89,7 @@ defmodule Kousa.Beef.UsersTest do
           username: "karen",
           displayName: "d1",
           avatarUrl: "https://foo.bar/d1",
+          bannerUrl: "https://foo.bar/d1",
           githubId: "ghijkl"
         }
       ])

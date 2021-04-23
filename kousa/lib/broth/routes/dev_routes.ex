@@ -31,6 +31,7 @@ defmodule Broth.Routes.Dev do
                     githubAccessToken: "",
                     githubId: "id:" <> username,
                     avatarUrl: "https://placekitten.com/200/200",
+                    bannerUrl: "https://placekitten.com/1000/300",
                     displayName: String.capitalize(username),
                     bio:
                       "This is some interesting info about the ex-founder of nothing, welcome to the bio of such a ocol pers on !"

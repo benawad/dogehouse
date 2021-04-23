@@ -41,10 +41,12 @@ export const wrap = (connection: Connection) => ({
       connection.addListener("invitation_to_room", handler),
     handRaised: (handler: Handler<{ userId: UUID }>) =>
       connection.addListener("hand_raised", handler),
-    speakerAdded: (handler: Handler<{ userId: UUID; muteMap: MuteMap, deafMap: DeafMap }>) =>
-      connection.addListener("speaker_added", handler),
-    speakerRemoved: (handler: Handler<{ userId: UUID; muteMap: MuteMap, deafMap: DeafMap }>) =>
-      connection.addListener("speaker_removed", handler),
+    speakerAdded: (
+      handler: Handler<{ userId: UUID; muteMap: MuteMap; deafMap: DeafMap }>
+    ) => connection.addListener("speaker_added", handler),
+    speakerRemoved: (
+      handler: Handler<{ userId: UUID; muteMap: MuteMap; deafMap: DeafMap }>
+    ) => connection.addListener("speaker_removed", handler),
   },
   query: {
     search: (query: string): Promise<{ items: Array<Room | User> }> =>
@@ -166,7 +168,7 @@ export const wrap = (connection: Connection) => ({
     setMute: (isMuted: boolean): Promise<Record<string, never>> =>
       connection.fetch("mute", { value: isMuted }),
     setDeaf: (isDeafened: boolean): Promise<Record<string, never>> =>
-      connection.fetch("deafen", { value: isDeafened }),
+      connection.fetch("room:deafen", { deafened: isDeafened }),
     leaveRoom: (): Promise<{ roomId: UUID }> =>
       connection.fetch("leave_room", {}, "you_left_room"),
     createRoom: (data: {
@@ -180,6 +182,7 @@ export const wrap = (connection: Connection) => ({
       username: string;
       bio: string;
       avatarUrl: string;
+      bannerUrl: string;
     }): Promise<{ isUsernameTaken: boolean }> =>
       connection.fetch("edit_profile", { data }),
     editRoom: (data: {

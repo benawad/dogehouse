@@ -62,6 +62,7 @@ defmodule Kousa.Follow do
             displayName: user.displayName,
             username: user.username,
             avatarUrl: user.avatarUrl,
+            bannerUrl: user.bannerUrl, # Here if banner will be included in the refactored someone you followed created a room popup
             type: "someone_you_follow_created_a_room"
           }
         })

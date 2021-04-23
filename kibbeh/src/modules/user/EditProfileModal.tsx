@@ -20,6 +20,10 @@ const profileStruct = object({
     string(),
     /^https?:\/\/(www\.|)((a|p)bs.twimg.com\/(profile_images|sticky\/default_profile_images)\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/)/
   ),
+  bannerUrl: pattern(
+      string(),
+      /^https?:\/\/(www\.|)((a|p)bs.twimg.com\/(profile_images|sticky\/default_profile_images)\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/)/
+    )
 });
 
 interface EditProfileModalProps {
@@ -71,6 +75,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
             username: user.username,
             bio: user.bio,
             avatarUrl: user.avatarUrl,
+            bannerUrl: user.bannerUrl,
           }}
           validateOnChange={false}
           validate={(values) => {
@@ -111,6 +116,12 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                 )}
                 label={t("components.modals.editProfileModal.avatarUrlLabel")}
                 name="avatarUrl"
+              />
+              <InputField
+                className={`mb-4`}
+                errorMsg="Something unexpected happened"
+                label="Banner Image"
+                name="bannerUrl"
               />
               <InputField
                 className={`mb-4`}
