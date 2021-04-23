@@ -21,7 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muet | DogeHouse"
+    "mutedTitle": "Muet | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -41,7 +44,8 @@
     "home": {
       "createRoom": "Créer une salle",
       "editRoom": "Editer la salle",
-      "refresh": "Actualiser"
+      "refresh": "Actualiser",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Cette salle n'existe plus; revenez en arrière",
@@ -84,7 +88,7 @@
       "allowAllConfirm": "Êtes-vous sur? Cela autorisera {{count}} utilisateurs en attente à parler"
     },
     "searchUser": { "search": "recherche..." },
-    "soundEffectSettings": { "header": "Sons" },
+    "soundEffectSettings": { "header": "Sons", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Éditer le profil",
       "followsYou": "Vous suit",
@@ -109,6 +113,14 @@
         "errorMsg": "Veuillez rentrer un titre valide",
         "label": "Titrede l'application"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Downoad for {{platform}}"
     }
   },
   "components": {
@@ -133,7 +145,10 @@
       "settings": "Paramètres",
       "speaker": "Interlocuteur",
       "listener": "Auditeur",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Votre système n'est pas encore supporté. Vous pouvez créer une",
@@ -160,7 +175,8 @@
       "listening": "Écoute...",
       "toggleMuteKeybind": "Activer / Désactiver le raccourci clavier pour rendre muet",
       "toggleOverlayKeybind": "Activer / Désactiver le raccourci clavier pour l'overlay",
-      "togglePushToTalkKeybind": "Activer / Désactiver le raccourci clavier appuyer-pour-parler"
+      "togglePushToTalkKeybind": "Activer / Désactiver le raccourci clavier appuyer-pour-parler",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Pas d'audio pour une raison inconnue"
@@ -185,6 +201,10 @@
       "logOut": {
         "button": "Se déconnecter",
         "modalSubtitle": "Êtes vous sur de vouloir vous déconnecter ?"
+      },
+      "debugAudio": {
+        "debugAudio": "Débugger l'audio",
+        "stopDebugger": "Arreter le débuggage"
       }
     },
     "modals": {
@@ -253,6 +273,11 @@
         "roomName": "nom de salle",
         "roomDescription": "Description",
         "minLength": "longueur minimum de 2 caractères"
+      },
+      "tommorow": "DEMAIN",
+      "today": "AUJOURD'HUI",
+      "deleteModal": {
+        "areYouSure": "Êtes vous sûr de vouloir supprimer cette salle programmée?"
       }
     },
     "roomChat": {
@@ -264,7 +289,7 @@
       "searchResults": "Résultats de recherche",
       "recent": "Fréquemment utilisées",
       "sendMessage": "Envoyer un message",
-      "whisper": "Chuchoter",
+      "whisper": "Chuchotement",
       "welcomeMessage": "Bienvenue dans le chat !",
       "roomDescription": "Description de la salle"
     },

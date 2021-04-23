@@ -55,10 +55,12 @@ module.exports = {
     spacing: {
       0: "0px",
       1: "5px",
+      1.5: "6px",
       2: "10px",
       3: "15px",
       4: "20px",
       5: "30px",
+      5.5: "35px",
       6: "40px",
       7: "60px",
       8: "75px",
@@ -68,14 +70,24 @@ module.exports = {
       24: "24rem",
       400: "400px",
     },
+
+    boxShadow: {
+      avator: "0 0 0 4pt var(--color-primary-800)",
+    },
     borderWidth: {
       DEFAULT: "1px",
       0: "0px",
+      4: "4px",
+      2: "2px"
     },
     extend: {
       borderRadius: {
         5: "5px",
         8: "8px",
+        40: "40px",
+      },
+      borderColor: {
+        "color-800": "var(--color-primary-800)",
       },
       outline: {
         "no-chrome": "none",
@@ -90,8 +102,5 @@ module.exports = {
       borderWidth: ["last"],
     },
   },
-  plugins: [
-    require("tailwind-scrollbar"),
-    require("@tailwindcss/line-clamp")
-  ],
+  plugins: [require("tailwind-scrollbar"), require("@tailwindcss/line-clamp")],
 };

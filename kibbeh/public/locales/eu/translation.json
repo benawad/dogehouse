@@ -20,7 +20,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Isilik | DogeHouse"
+    "mutedTitle": "Isilik | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -30,22 +33,18 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "blokeatu"
-    },
+    "banUser": { "ban": "blokeatu" },
     "followingOnlineList": {
       "listHeader": "List of users that are not in a private room and you follow.",
       "currentRoom": "orain:",
       "startPrivateRoom": "hasi saio pribatu bat"
     },
-    "followList": {
-      "followHim": "Follow",
-      "followingHim": "Following"
-    },
+    "followList": { "followHim": "Follow", "followingHim": "Following" },
     "home": {
       "createRoom": "Gela Sortu",
       "editRoom": "Edit Room",
-      "refresh": "Refresh"
+      "refresh": "Refresh",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "gela ez dago erabilgarri",
@@ -87,12 +86,8 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
-    "searchUser": {
-      "search": "bilatu..."
-    },
-    "soundEffectSettings": {
-      "header": "Soinuak"
-    },
+    "searchUser": { "search": "bilatu..." },
+    "soundEffectSettings": { "header": "Soinuak", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "editatu profila",
       "followsYou": "jarraitzen zaitu",
@@ -117,6 +112,14 @@
         "errorMsg": "Please enter a valid app title",
         "label": "App title"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Downoad for {{platform}}"
     }
   },
   "components": {
@@ -141,7 +144,10 @@
       "settings": "Aukerak",
       "speaker": "Mintzatzaile",
       "listener": "Entzule",
-      "chat": "Txat"
+      "chat": "Txat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Gaur egun zure gailua ez da bateragarri. Sortu",
@@ -168,7 +174,8 @@
       "listening": "entzuten...",
       "toggleMuteKeybind": "Piztu/itzali isiltzeko tekla konbinazioa",
       "toggleOverlayKeybind": "Toggle overlay keybind",
-      "togglePushToTalkKeybind": "Piztu/itzali sakatu-hitz-egiteko tekla konbinazioa"
+      "togglePushToTalkKeybind": "Piztu/itzali sakatu-hitz-egiteko tekla konbinazioa",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "No audio consumer for some reason"
@@ -177,16 +184,12 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore more rooms"
     },
-    "addToCalendar": {
-      "add": "Egutegira gehitu"
-    },
+    "addToCalendar": { "add": "Egutegira gehitu" },
     "wsKilled": {
       "description": "Serbitzariak websocket-a ezabatu du. Hau gertatzen da web-orrialdea beste fitxa batean irekeitzen denean.",
       "reconnect": "berriro konektatu"
     },
-    "search": {
-      "placeholder": "Search for rooms, users or categories"
-    },
+    "search": { "placeholder": "Search for rooms, users or categories" },
     "settingsDropdown": {
       "profile": "Profila",
       "language": "Hizkuntza",
@@ -195,6 +198,10 @@
       "logOut": {
         "button": "Saioa itxi",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     },
     "modals": {
@@ -250,9 +257,7 @@
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
-    "feed": {
-      "yourFeed": "Your feed"
-    },
+    "feed": { "yourFeed": "Your feed" },
     "scheduledRooms": {
       "title": "Gela programatuak",
       "noneFound": "ez da bakar bat ere aurkitu",
@@ -265,6 +270,11 @@
         "roomName": "gelaren izena",
         "roomDescription": "deskribapena",
         "minLength": "luzera minimoa: 2 karaktere"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

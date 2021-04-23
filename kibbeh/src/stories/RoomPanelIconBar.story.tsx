@@ -13,6 +13,7 @@ export const Main: Story = () => {
       onLeaveRoom={() => {}}
       onInvitePeopleToRoom={() => {}}
       mute={{ isMuted: false, onMute: () => {} }}
+      deaf={{ isDeaf: false, onDeaf: () => {} }}
       onRoomSettings={() => {}}
     />
   );

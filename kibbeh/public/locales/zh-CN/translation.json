@@ -20,7 +20,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "已静音 | DogeHouse"
+    "mutedTitle": "已静音 | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "概览",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -40,7 +43,8 @@
     "home": {
       "createRoom": "新建聊天室",
       "refresh": "刷新",
-      "editRoom": "修改聊天室"
+      "editRoom": "修改聊天室",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "聊天室已被删除，请回到前一页",
@@ -83,7 +87,7 @@
       "allowAllConfirm": "确定？这将会允许全部{{}}位成员讲话"
     },
     "searchUser": { "search": "搜索..." },
-    "soundEffectSettings": { "header": "声音" },
+    "soundEffectSettings": { "header": "声音", "title": "声音设置" },
     "viewUser": {
       "editProfile": "编辑个人主页",
       "followsYou": "关注您的人",
@@ -105,6 +109,14 @@
     "overlaySettings": {
       "input": { "errorMsg": "不允许的App标题", "label": "输入App标题" },
       "header": "覆盖层设置"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Downoad for {{platform}}"
     }
   },
   "components": {
@@ -129,7 +141,10 @@
       "settings": "设置",
       "speaker": "扬声器",
       "listener": "听者",
-      "chat": "文字聊天"
+      "chat": "文字聊天",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "micPermissionBanner": {
       "permissionDenied": "麦克风使用权被拒绝（可能需要更改设置并且刷新页面）",
@@ -195,7 +210,8 @@
       "listening": "等待输入",
       "toggleMuteKeybind": "切换静音键绑定",
       "togglePushToTalkKeybind": "切换按键说话绑定",
-      "toggleOverlayKeybind": "切换覆盖层绑定"
+      "toggleOverlayKeybind": "切换覆盖层绑定",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "wsKilled": {
       "description": "连接被服务器终止。当您在另一个标签中打开此网站时，通常会发生这种情况 ",
@@ -223,10 +239,8 @@
       "language": "语言",
       "reportABug": "反馈Bug",
       "useOldVersion": "使用旧版本",
-      "logOut": {
-        "button": "登出",
-        "modalSubtitle": "是否确定登出?"
-      }
+      "logOut": { "button": "登出", "modalSubtitle": "是否确定登出?" },
+      "debugAudio": { "debugAudio": "调试声音", "stopDebugger": "取消调试" }
     }
   },
   "modules": {
@@ -243,7 +257,10 @@
         "roomName": "聊天室名字",
         "minLength": "最短长度为2",
         "roomDescription": "聊天室描述"
-      }
+      },
+      "tommorow": "明天",
+      "today": "今天",
+      "deleteModal": { "areYouSure": "你确定要删除此预定的聊天室？" }
     },
     "roomChat": {
       "title": "文字聊天",

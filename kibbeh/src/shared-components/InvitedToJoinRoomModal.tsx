@@ -68,7 +68,7 @@ export const InvitedToJoinRoomModal: React.FC<Props> = () => {
                 ? t("components.modals.invitedToJoinRoomModal.newRoomCreated")
                 : t("components.modals.invitedToJoinRoomModal.roomInviteFrom")}
             </h1>
-            <div className={`flex flex items-center`}>
+            <div className={`flex items-center`}>
               <SingleUser size="md" src={options.avatarUrl} />
               <div className={`flex ml-2 flex-col`}>
                 <div className={`flex font-bold`}>{options.displayName}</div>
@@ -88,7 +88,7 @@ export const InvitedToJoinRoomModal: React.FC<Props> = () => {
             </div>
           </div>
         ) : null}
-        <div className={`flex flex mt-4 items-center`}>
+        <div className={`flex mt-4 items-center`}>
           <Button
             onClick={() => {
               close();

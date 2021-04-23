@@ -69,6 +69,7 @@ export const connect = (
       reconnectToVoice: boolean;
       currentRoomId: string | null;
       muted: boolean;
+      deafened: boolean;
       token: Token;
       refreshToken: Token;
     }>;
@@ -107,7 +108,7 @@ export const connect = (
     });
 
     socket.addEventListener("message", (e) => {
-      if (e.data === `"pong"`) {
+      if (e.data === `"pong"` || e.data === `pong`) {
         logger("in", "pong");
 
         return;
@@ -191,6 +192,7 @@ export const connect = (
         reconnectToVoice: false,
         currentRoomId: null,
         muted: false,
+        deafened: false,
         ...getAuthOptions?.(),
       });
     });

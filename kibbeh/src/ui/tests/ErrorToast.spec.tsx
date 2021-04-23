@@ -1,7 +1,7 @@
 import React from "react";
 
 import { render, act } from "../../../test-utils";
-import { ErrorToast } from "../ErrorToast";
+import { ErrorToast } from "../Toast";
 
 jest.useFakeTimers();
 

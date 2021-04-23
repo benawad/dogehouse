@@ -21,7 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Nutildyta | DogeHouse"
+    "mutedTitle": "Nutildyta | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -41,7 +44,8 @@
     "home": {
       "createRoom": "Sukurti kambarį",
       "refresh": "Refresh",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Kambario nebėra, grįžkite atgal",
@@ -84,7 +88,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "Ieškoma..." },
-    "soundEffectSettings": { "header": "Garsai" },
+    "soundEffectSettings": { "header": "Garsai", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Redaguoti profilį",
       "followsYou": "Seka tave",
@@ -106,6 +110,14 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Downoad for {{platform}}"
     }
   },
   "components": {
@@ -130,7 +142,10 @@
       "settings": "Nustatymai",
       "speaker": "Kalbėtojas",
       "listener": "Klausytojai",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Jūsų įrenginys šiuo metu nepalaikomas.",
@@ -151,7 +166,8 @@
       "listening": "Klausomasi",
       "toggleMuteKeybind": "perjungti nutildytą klavišą",
       "togglePushToTalkKeybind": "perjungti tiesioginio ryšio klavišą",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "dėl kokių nors priežasčių nėra garso vartotojo"
@@ -230,6 +246,10 @@
       "logOut": {
         "button": "Atsijungti",
         "modalSubtitle": "Ar tikrai norite atsijungti?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -247,6 +267,11 @@
         "roomName": "Kambario pavadinimas",
         "minLength": "Mažiausias ilgis 2",
         "roomDescription": "Kambario aprašymas"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

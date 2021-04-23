@@ -5,6 +5,7 @@ export const roomToCurrentRoom = (r: Room): CurrentRoom =>
     ? {
         ...r,
         muteMap: {},
+        deafMap: {},
         users: [],
         activeSpeakerMap: {},
         autoSpeaker: false,

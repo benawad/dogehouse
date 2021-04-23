@@ -14,7 +14,7 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
   names,
   description,
 }) => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   return (
     <div
       className={`flex flex-col p-4 bg-primary-800 rounded-t-8 border-b border-primary-600 w-full`}
@@ -23,6 +23,7 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
         <button
           onClick={onTitleClick}
           className={`flex text-xl font-bold flex-1 truncate`}
+          data-testid="room-title"
         >
           {title}
         </button>

@@ -20,7 +20,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Tystad | DogeHouse"
+    "mutedTitle": "Tystad | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -40,7 +43,8 @@
     "home": {
       "createRoom": "Skapa ett rum",
       "refresh": "Uppdatera",
-      "editRoom": "Redigera rummet"
+      "editRoom": "Redigera rummet",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Rummet försvann under månförmörkelsen, gå tillbaka",
@@ -83,7 +87,7 @@
       "allowAllConfirm": "Är du säker på detta sergeant? Detta kommer tillåta {{count}} användare att få tala. Det kan utplåna månen! 🚀☢️"
     },
     "searchUser": { "search": "Sök..." },
-    "soundEffectSettings": { "header": "Ljud" },
+    "soundEffectSettings": { "header": "Ljud", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Redigera profil",
       "followsYou": "Följer dig",
@@ -108,6 +112,14 @@
         "errorMsg": "Ogiltlig fönstertitel",
         "label": "Ange fönstertitel"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Downoad for {{platform}}"
     }
   },
   "components": {
@@ -132,7 +144,10 @@
       "settings": "Inställningar",
       "speaker": "Talare",
       "listener": "Lyssnare",
-      "chat": "Chatt"
+      "chat": "Chatt",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "micPermissionBanner": {
       "permissionDenied": "Åtkomst nekad när vi försökte att ansluta till din mikrofon (du kan behöva gå till webbläsarinställningarna, tillåta att webläsaren tillåter din mikrofon och sedan ladda om sidan)",
@@ -207,7 +222,8 @@
       "listening": "Lyssnar",
       "toggleMuteKeybind": "Växla tystad kortkommando",
       "togglePushToTalkKeybind": "Växla tryck-för-tal kortkommando",
-      "toggleOverlayKeybind": "Växla overlay-keybind"
+      "toggleOverlayKeybind": "Växla overlay-keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "wsKilled": {
       "description": "WebSocket anslutningen blev nerstängd av servern. Detta händer oftast när du öppnar hemsidan i en annan flik.",
@@ -232,6 +248,10 @@
       "logOut": {
         "button": "Logga ut",
         "modalSubtitle": "Är du säker på att du vill logga ut?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -249,6 +269,11 @@
         "roomName": "Namn",
         "roomDescription": "Beskrivning",
         "minLength": "Lägsta längden: 2"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

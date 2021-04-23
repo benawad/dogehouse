@@ -21,7 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Prigušen | DogeHouse"
+    "mutedTitle": "Prigušen | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -41,7 +44,8 @@
     "home": {
       "createRoom": "Kreiraj sobu",
       "refresh": "Refresh",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "soba je nestala, vrati me nazad",
@@ -84,7 +88,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "pretraži..." },
-    "soundEffectSettings": { "header": "Zvukovi" },
+    "soundEffectSettings": { "header": "Zvukovi", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "uredi profil",
       "followsYou": "prati vas",
@@ -106,6 +110,14 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Downoad for {{platform}}"
     }
   },
   "components": {
@@ -130,7 +142,10 @@
       "settings": "Podešavanja",
       "speaker": "Govornik",
       "listener": "Slušalac",
-      "chat": "Ćaskanje"
+      "chat": "Ćaskanje",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Vaš uređaj ternutno nije podržan. Možete stvoriti",
@@ -148,7 +163,8 @@
       "listening": "slušanje",
       "toggleMuteKeybind": "uključi/isključi prečicu na tastaturi za mutiranje",
       "togglePushToTalkKeybind": "uključi/isključi prečicu na tastaturi za govor na pritisak",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "nema audio konzumera iz nekog razloga"
@@ -227,6 +243,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -244,6 +264,11 @@
         "roomName": "naziv sobe",
         "minLength": "minimalna dužina 2",
         "roomDescription": "Description"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

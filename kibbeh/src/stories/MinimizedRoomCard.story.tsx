@@ -17,6 +17,7 @@ const room = {
   myself: {
     isSpeaker: true,
     isMuted: false,
+    isdeafened: false,
     switchMuted: () => {
       // no-op
     },

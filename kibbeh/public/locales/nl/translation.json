@@ -20,7 +20,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Gedempt | DogeHouse"
+    "mutedTitle": "Gedempt | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -40,7 +43,8 @@
     "home": {
       "createRoom": "Kamer maken",
       "refresh": "Verversen",
-      "editRoom": "Kamer aanpassen"
+      "editRoom": "Kamer aanpassen",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Kamer bestaat niet, ga terug",
@@ -83,7 +87,7 @@
       "allowAllConfirm": "Weet je het zeker? Dit geeft toestemming aan {{count}} verzoekende gebruikers om te spreken"
     },
     "searchUser": { "search": "Zoek..." },
-    "soundEffectSettings": { "header": "Geluiden" },
+    "soundEffectSettings": { "header": "Geluiden", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Profiel bewerken",
       "followsYou": "Volgt jou",
@@ -108,6 +112,14 @@
         "label": "Voer applicatietitel in"
       },
       "header": "Overlay-instellingen"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Downoad for {{platform}}"
     }
   },
   "components": {
@@ -132,7 +144,10 @@
       "settings": "Instellingen",
       "speaker": "Spreker",
       "listener": "Luisteraar",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Je apparaat wordt momenteel niet ondersteund. Je kunt een",
@@ -153,7 +168,8 @@
       "listening": "Aan het luisteren",
       "toggleMuteKeybind": "Schakel demp sneltoets",
       "togglePushToTalkKeybind": "Schakel push-to-talk sneltoets",
-      "toggleOverlayKeybind": "schakel overlay keybind"
+      "toggleOverlayKeybind": "schakel overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Geen audioapparaat (om een of andere reden)"
@@ -232,6 +248,10 @@
       "logOut": {
         "button": "Log uit",
         "modalSubtitle": "Weet je zeker dat je wilt uitloggen?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -249,6 +269,11 @@
         "roomName": "Kamer naam",
         "minLength": "Naam moet minimaal 2 karakters zijn",
         "roomDescription": "Beschrijving"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {
