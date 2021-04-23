@@ -40,7 +40,7 @@ function getMuteKeybind() {
 }
 
 function getDeafKeybind() {
-  return getKeybind(DEAF_KEY, "Control+m");
+  return getKeybind(DEAF_KEY, "Control+x");
 }
 
 function getChatKeybind() {
