@@ -129,6 +129,7 @@ export const SingleUser: React.FC<AvatarProps> = ({
           data-testid="online-indictor"
         >
           <SolidMicrophoneOff
+            data-testid={`muted:${username}`}
             width={sizeStyle.width}
             height={sizeStyle.width}
           />
@@ -142,7 +143,11 @@ export const SingleUser: React.FC<AvatarProps> = ({
           style={{ ...sizeStyle, padding: 2 }}
           data-testid="online-indictor"
         >
-          <SolidVolumeOff width={sizeStyle.width} height={sizeStyle.width} />
+          <SolidVolumeOff
+            data-testid={`deafened:${username}`}
+            width={sizeStyle.width}
+            height={sizeStyle.width}
+          />
         </span>
       )}
     </div>

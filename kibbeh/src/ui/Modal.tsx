@@ -72,6 +72,7 @@ export const Modal: React.FC<
           <button
             className={`p-1 text-primary-100`}
             onClick={(e) => props?.onRequestClose?.(e)}
+            data-testid="close-modal"
           >
             <SolidPlus className={`transform rotate-45`} />
           </button>

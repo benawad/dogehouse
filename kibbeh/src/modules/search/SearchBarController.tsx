@@ -93,6 +93,7 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                   "username" in item ? (
                     // eslint-disable-next-line react/jsx-key
                     <li
+                      data-testid={`search:user:${item.username}`}
                       className={`flex p-3 ${
                         highlightedIndex === index
                           ? "bg-primary-700"

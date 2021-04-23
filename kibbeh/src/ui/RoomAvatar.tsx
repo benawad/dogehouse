@@ -40,7 +40,11 @@ export const RoomAvatar: React.FC<RoomAvatarProps> = ({
     />
   );
   return (
-    <button className={`flex flex-col items-center`} onClick={onClick}>
+    <button
+      data-testid={`room:user:node:${username}`}
+      className={`flex flex-col items-center`}
+      onClick={onClick}
+    >
       {!isMe && canSpeak && id && debugAudio ? (
         <AudioDebugAvatar id={id}>{avatar}</AudioDebugAvatar>
       ) : (

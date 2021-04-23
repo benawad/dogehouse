@@ -3,6 +3,7 @@ defmodule BrothTest.Auth.RequestTest do
   use KousaTest.Support.EctoSandbox
 
   alias Beef.Schemas.User
+  alias Beef.Users
   alias BrothTest.WsClient
   alias KousaTest.Support.Factory
 
@@ -54,6 +55,40 @@ defmodule BrothTest.Auth.RequestTest do
         })
 
       WsClient.assert_reply("auth:request:reply", ref, %{"id" => ^user_id})
+    end
+
+    test "no deafen", %{tokens: tokens, user_id: user_id} do
+      # start and link the websocket client
+      pid = start_supervised!(WsClient)
+      Process.link(pid)
+      WsClient.forward_frames(pid)
+
+      # login
+      ref =
+        WsClient.send_call(pid, "auth:request", %{
+          "accessToken" => tokens.accessToken,
+          "refreshToken" => tokens.refreshToken,
+          "platform" => "foo",
+          "reconnectToVoice" => false,
+          "muted" => false,
+          "deafen" => false
+        })
+
+      WsClient.assert_reply("auth:request:reply", ref, %{"id" => ^user_id})
+
+      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(user_id, "foo room", "foo", false)
+      assert %{currentRoomId: ^room_id} = Users.get_by_id(user_id)
+
+      ref2 =
+        WsClient.send_call(pid, "auth:request", %{
+          "accessToken" => tokens.accessToken,
+          "refreshToken" => tokens.refreshToken,
+          "platform" => "foo",
+          "reconnectToVoice" => false,
+          "muted" => false
+        })
+
+      WsClient.assert_reply("auth:request:reply", ref2, %{"id" => ^user_id})
     end
 
     test "fails auth if the accessToken is borked" do

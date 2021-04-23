@@ -11,24 +11,24 @@ defmodule BrothTest.Message.Room.DeafenTest do
 
   describe "when you send an room:deafen message" do
     test "an empty payload is ok.", %{uuid: uuid} do
-      assert {:ok, %{payload: %Deafen{deafen: true}}} =
+      assert {:ok, %{payload: %Deafen{deafened: true}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:deafen",
-                 "payload" => %{deafen: true},
+                 "payload" => %{deafened: true},
                  "reference" => uuid
                })
 
       # short form also allowed
-      assert {:ok, %{payload: %Deafen{deafen: false}}} =
+      assert {:ok, %{payload: %Deafen{deafened: false}}} =
                BrothTest.Support.Message.validate(%{
                  "op" => "room:deafen",
-                 "p" => %{deafen: false},
+                 "p" => %{deafened: false},
                  "ref" => uuid
                })
     end
 
     test "deafen parameter is required", %{uuid: uuid} do
-      assert {:error, %{errors: %{deafen: "can't be blank"}}} =
+      assert {:error, %{errors: %{deafened: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:deafen",
                  "payload" => %{},
@@ -40,7 +40,7 @@ defmodule BrothTest.Message.Room.DeafenTest do
       assert {:error, %{errors: [reference: {"is required for Broth.Message.Room.Deafen", _}]}} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:deafen",
-                 "payload" => %{"deafen" => true}
+                 "payload" => %{"deafened" => true}
                })
     end
   end

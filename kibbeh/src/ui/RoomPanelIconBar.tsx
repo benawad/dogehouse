@@ -50,6 +50,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
             color="800"
             title={t("components.bottomVoiceControl.toggleMuteMicBtn")}
             onClick={() => mute.onMute()}
+            data-testid="mute"
           >
             {mute.isMuted ? <SolidMicrophoneOff /> : <SolidMicrophone />}
           </BoxedIcon>
@@ -62,6 +63,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
             color="800"
             title={t("components.bottomVoiceControl.toggleDeafMicBtn")}
             onClick={() => deaf.onDeaf()}
+            data-testid="deafen"
           >
             {deaf.isDeaf ? <SolidVolumeOff /> : <SolidVolume />}
           </BoxedIcon>
@@ -73,6 +75,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
             color="800"
             title={t("components.bottomVoiceControl.inviteUsersToRoomBtn")}
             onClick={onInvitePeopleToRoom}
+            data-testid="invite-friends"
           >
             {/* @todo swap out right icon */}
             <SolidFriends />
@@ -84,6 +87,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
             className="mr-2"
             color="800"
             onClick={onToggleChat}
+            data-testid="chat"
           >
             <SolidChatBubble />
           </BoxedIcon>
@@ -95,6 +99,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
             color="800"
             title={t("components.bottomVoiceControl.settings")}
             onClick={onRoomSettings}
+            data-testid="room-settings"
           >
             <SolidSettings />
           </BoxedIcon>
@@ -108,6 +113,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
         onClick={() => {
           onLeaveRoom();
         }}
+        data-testid="leave-room"
       >
         {t("components.bottomVoiceControl.leave")}
       </Button>
