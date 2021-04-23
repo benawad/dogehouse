@@ -1,4 +1,5 @@
 import React from "react";
+import { BaseSettingsItem } from "./BaseSettingsItem";
 import { Button } from "./Button";
 
 export type SettingsItemButtonProps = {
@@ -15,13 +16,14 @@ export const SettingsItemButton: React.FC<SettingsItemButtonProps> = ({
   onClick,
 }) => {
   return (
-    <div className="bg-primary-900 rounded-8 p-4" style={{ maxWidth: 600 }}>
+    <BaseSettingsItem className="p-4">
       <p className="text-primary-200 mb-4">{text}</p>
-      <Button color="accent-secondary" size="small" onClick={onClick} disabled={disabled} className="py-2" >
+      <Button color="secondary-accent" size="small" onClick={onClick} disabled={disabled} className="py-2" >
         <p className="font-bold">
           {buttonText}
         </p>
       </Button>
-    </div>
+    </BaseSettingsItem>
+
   );
 };
