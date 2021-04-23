@@ -13,7 +13,6 @@ defmodule Broth.Translator.V0_1_0 do
     "invite_to_room" => "room:invite",
     "get_my_following" => "user:get_following",
     "get_top_public_rooms" => "room:get_top",
-    "get_current_room_users" => "room:get_users",
     "get_blocked_from_room_users" => "room:get_banned_users",
     "mute" => "room:mute",
     "deafen" => "room:deafen",
