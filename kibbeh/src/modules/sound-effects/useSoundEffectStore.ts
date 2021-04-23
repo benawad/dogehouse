@@ -6,8 +6,8 @@ export const soundEffects = {
   unmute: "unmute.wav",
   mute: "mute.wav",
   roomInvite: "roomInvite.wav",
-  deafen: "mute.wav",
-  undeafen: "unmute.wav",
+  deafen: "deafen.wav",
+  undeafen: "undeafen.wav",
 };
 
 export type PossibleSoundEffect = keyof typeof soundEffects;
