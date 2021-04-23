@@ -54,7 +54,7 @@ export const RoomPanelIconBarController: React.FC<RoomPanelIconBarControllerProp
             : undefined
         }
         deaf={
-          canSpeak
+          canSpeak || !canSpeak
             ? { isDeaf: deafened, onDeaf: () => setDeaf(!deafened) }
             : undefined
         }
