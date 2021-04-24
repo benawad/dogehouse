@@ -108,7 +108,10 @@
       "volume": "Səs:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Uyğunsuz tətbiq adı", "label": "Tətbiq adını daxil et" },
+      "input": {
+        "errorMsg": "Uyğunsuz tətbiq adı",
+        "label": "Tətbiq adını daxil et"
+      },
       "header": "Overlay parametrləri",
       "errorMsg": "Zəhmət olmasa uyğun bir tətbiq adı daxil edin",
       "label": "Tətbiq başlığını daxil et"
@@ -239,7 +242,9 @@
       "upcomingRooms": "Növbəti otaqlar",
       "exploreMoreRooms": "Daha çox otaq kəşf et"
     },
-    "search": { "placeholder": "Otaqlar, istifadəçilər və ya kateqoriyalar axtar" },
+    "search": {
+      "placeholder": "Otaqlar, istifadəçilər və ya kateqoriyalar axtar"
+    },
     "settingsDropdown": {
       "profile": "Profil",
       "language": "Dil",
