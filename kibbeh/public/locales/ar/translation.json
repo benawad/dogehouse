@@ -21,16 +21,16 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "صوت مكتوم | DogeHouse",
-    "deafenedTitle": "Deafened | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "mutedTitle": "مايكروفون مكتوم | DogeHouse",
+    "deafenedTitle": "مكتوم | DogeHouse",
+    "dashboard": "لوحة الاعدادات",
+    "connectionTaken": "اتصال مأخوذ"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
     "link_1": "القصة الاصلية",
     "link_2": "ديسكورد",
-    "link_3": "بلغ عن خلل"
+    "link_3": "ابلغ عن خلل"
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
@@ -40,12 +40,12 @@
       "currentRoom": "حاليا في:",
       "startPrivateRoom": "ابدأ غرفة خاصة معهم"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": { "followHim": "تابع", "followingHim": "متابع" },
     "home": {
       "createRoom": "ابدأ غرفة",
       "refresh": "تحديث",
-      "editRoom": "Edit Room",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "editRoom": "عدل الغرفة",
+      "desktopAlert": "!على الدسكتوب اليوم DogeHouse حمل تطبيق"
     },
     "inviteList": {
       "roomGone": "انتهت الغرفة، عد إلى الوراء",
@@ -64,7 +64,7 @@
       "loginGithub": "GitHub التسجيل باستخدام",
       "loginTwitter": "التسجيل باستخدام حساب تويتر",
       "createTestUser": "إنشاء حساب تجريبي",
-      "loginDiscord": "Login with Discord"
+      "loginDiscord": "Discord سجل الدخول ب"
     },
     "myProfile": {
       "logout": "تسجيل خروج",
@@ -73,7 +73,7 @@
       "soundSettings": "اذهب إلى إعدادات الصوت",
       "deleteAccount": "حذف الحساب",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "عفوا، لم نعثر على هذا المستخدم"
     },
     "notFound": {
       "whoopsError": "عذرا! ضاعت هذه الصفحة بين المحادثات.",
@@ -88,7 +88,7 @@
       "allowAllConfirm": "هل انت متأكد ؟ هذا سيسمح لـ {{count}} مستخدم بالتحدث"
     },
     "searchUser": { "search": "ابحث..." },
-    "soundEffectSettings": { "header": "الأصوات", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "الأصوات", "title": "اعدادات الصوت" },
     "viewUser": {
       "editProfile": "تعديل الحساب",
       "followsYou": "يتابعك",
@@ -96,9 +96,9 @@
       "following": "المتابَعون",
       "followHim": "تابع",
       "followingHim": "متابَع",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "copyProfileUrl": "انسخ رابط البروفايل",
+      "urlCopied": "تم نسخ الرابط",
+      "unfollow": "الغاء المتابعة"
     },
     "voiceSettings": {
       "header": "إعدادات المحادثة الصوتية",
@@ -114,7 +114,7 @@
       "label": "Enter app title"
     },
     "download": {
-      "starting": "Starting download...",
+      "starting": "...بدأ التحميل",
       "failed": "Could not auto-download, please try again later",
       "visit_gh": "Visit Github Releases",
       "prompt": "Click on the button below to start download",
@@ -145,9 +145,9 @@
       "speaker": "متحدث",
       "listener": "مستمع",
       "chat": "المحادثة",
-      "toggleDeafMicBtn": "Toggle Deafen",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen"
+      "toggleDeafMicBtn": "بدل الكمت",
+      "deafen": "اكمت",
+      "undeafen": "لا تكمت"
     },
     "deviceNotSupported": {
       "notSupported": "جهازك غير مدعوم حاليا. يمكنك إنشاء",
@@ -182,7 +182,7 @@
         "roomDescription": "وصف عن الغرفة",
         "descriptionError": "أقصى حد 500",
         "nameError": "يجب أن يكون ما بين حرفين و 60 حرف",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "اكمل المعلومات التالية لتبدأ غرفة جديدة"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "تم إنشاء غرفة جديدة",
@@ -214,35 +214,35 @@
         "goBackToListener": "إرجع إلى مستمع",
         "deleteMessage": "حذف الرسالة",
         "makeRoomCreator": "اضف كإداري للغرفة",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "الغاء الحظر من المحادثات"
       },
       "roomSettingsModal": {
         "requirePermission": "جعل التحدث بطلب فقط",
         "makePublic": "جعل الغرفة عامة",
         "makePrivate": "جعل الغرفة خاصة",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "اختار اسم الغرفة العامة",
+        "renamePrivate": "اختار اسم الغرفة الخاصة"
       }
     },
     "followingOnline": {
-      "people": "People",
-      "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "people": "أشخاص",
+      "online": "اونلاين",
+      "noOnline": "لديك 0 اصدفاء اونلاين الان",
+      "showMore": "اظهر المزيد"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "غرف قادمة",
+      "exploreMoreRooms": "اكتشف غرف اكثر"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": { "placeholder": "ابحث عن غرف، اشخاص او تصنيفات" },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "الحساب الشخصي",
+      "language": "اللغة",
+      "reportABug": "ابلغ عن مشكلة",
+      "useOldVersion": "استعمل نسخة اقدم",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "تسجيل الخروج",
+        "modalSubtitle": "هل انت متأكد انك تريد تسجيل خروجك؟"
       },
       "debugAudio": {
         "debugAudio": "Debug Audio",
@@ -265,10 +265,10 @@
         "minLength": "أقل طول 2",
         "roomDescription": "الوصف"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "tommorow": "غدا",
+      "today": "اليوم",
       "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
+        "areYouSure": "هل انت متأكد بأنك تريد حذف هذه الغرفة المقررة؟"
       }
     },
     "roomChat": {
