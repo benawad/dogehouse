@@ -21,8 +21,8 @@ export const UserProfile: React.FC<UserProfileProps> = ({
         displayName={user.displayName}
         isCurrentUser={isCurrentUser}
         username={user.username}
-      ></ProfileHeader>
-      <ProfileTabs className="mt-4" activeTab="about"></ProfileTabs>
+      />
+      <ProfileTabs className="mt-4" activeTab="about" />
       <ProfileAbout
         className={"mt-2"}
         username={user.username}
@@ -30,7 +30,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
         following={user.numFollowing}
         description={user.bio}
         tags={[]}
-      ></ProfileAbout>
+      />
     </>
   );
 };

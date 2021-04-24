@@ -67,10 +67,7 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
 
   return (
     <>
-      <UserProfile
-        user={data}
-        isCurrentUser={data.id === conn.user.id}
-      ></UserProfile>
+      <UserProfile user={data} isCurrentUser={data.id === conn.user.id} />
       {data.id === conn.user.id && (
         <div className={`pt-6 flex`}>
           <EditProfileModal
