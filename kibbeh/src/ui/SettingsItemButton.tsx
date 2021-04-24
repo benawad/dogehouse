@@ -11,7 +11,7 @@ export type SettingsItemButtonProps = {
 };
 
 export const SettingsItemButton: React.FC<SettingsItemButtonProps> = ({
-  text,
+  children,
   buttonText,
   disabled = false,
   className = "",
@@ -20,18 +20,16 @@ export const SettingsItemButton: React.FC<SettingsItemButtonProps> = ({
   return (
     <BaseSettingsItem className={`p-4 ${className}`}>
       <p className="text-primary-100 mb-4">
-        {text}
+        {children}
       </p>
       <Button
-        color="secondary-accent"
+        color="accent-secondary"
         size="small"
         onClick={onClick}
         disabled={disabled}
         className="py-2"
       >
-        <p className="font-bold">
-          {buttonText}
-        </p>
+        {buttonText}
       </Button>
     </BaseSettingsItem>
   );
