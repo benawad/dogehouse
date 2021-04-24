@@ -12,20 +12,25 @@ defmodule BrothTest.Room.SetActiveSpeakerTest do
   setup do
     user = Factory.create(User)
     client_ws = WsClientFactory.create_client_for(user)
+    %{"id" => room_id} =
+      WsClient.do_call(
+        t.client_ws,
+        "room:create",
+        %{"name" => "foo room", "description" => "foo"})
 
-    {:ok, user: user, client_ws: client_ws}
+    {:ok, user: user, client_ws: client_ws, room_id: room_id}
   end
 
   describe "the websocket room:set_active_speaker operation" do
     test "toggles the active speaking state", t do
       user_id = t.user.id
-
-      {:ok, %{room: room}} = Kousa.Room.create_room(user_id, "foo room", "foobar", false)
+      room_id = t.room_id
 
       # add a second user to the test
       other = %{id: other_id} = Factory.create(User)
       other_ws = WsClientFactory.create_client_for(other)
-      Kousa.Room.join_room(other_id, room.id)
+      WsClient.do_call(other_ws, "room:join", %{"roomId" => room_id})
+
 
       WsClient.assert_frame("new_user_join_room", _)
 
@@ -89,13 +94,12 @@ defmodule BrothTest.Room.SetActiveSpeakerTest do
 
     test "does nothing if it's unset", t do
       user_id = t.user.id
-
-      {:ok, %{room: room}} = Kousa.Room.create_room(user_id, "foo room", "foobar", false)
+      room_id = t.room_id
 
       # add a second user to the test
       other = %{id: other_id} = Factory.create(User)
-      _other_ws = WsClientFactory.create_client_for(other)
-      Kousa.Room.join_room(other_id, room.id)
+      other_ws = WsClientFactory.create_client_for(other)
+      WsClient.do_call(other_ws, "room:join", %{"roomId" => room_id})
 
       WsClient.assert_frame("new_user_join_room", _)
 

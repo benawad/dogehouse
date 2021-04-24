@@ -66,13 +66,11 @@ defmodule BrothTest.User.BanTest do
       banned = %{id: banned_id} = Factory.create(User)
       banned_ws = WsClientFactory.create_client_for(banned)
 
-      {:ok, %{room: room}} =
-        Kousa.Room.create_room(
-          banned_id,
-          "my public room",
-          "come in",
-          true
-        )
+      %{"id" => room_id} =
+        WsClient.do_call(
+          banned_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"})
 
       assert %{peoplePreviewList: [%{id: ^banned_id}]} = room
 
@@ -99,16 +97,14 @@ defmodule BrothTest.User.BanTest do
       safe = %{id: safe_id} = Factory.create(User)
       WsClientFactory.create_client_for(safe)
 
-      {:ok, %{room: room}} =
-        Kousa.Room.create_room(
-          safe_id,
-          "my private room",
-          "stay out",
-          false
-        )
+      %{"id" => room_id} =
+        WsClient.do_call(
+          banned_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"})
 
       # join the safe user to the room
-      Kousa.Room.join_room(banned_id, room.id)
+      WsClient.do_call(banned_ws, "room:join", %{"roomId" => room_id})
 
       assert %{peoplePreviewList: [_, _]} = Beef.Rooms.get_room_by_id(room.id)
 

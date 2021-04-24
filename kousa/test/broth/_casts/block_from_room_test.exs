@@ -16,13 +16,18 @@ defmodule BrothTest.BlockFromRoomTest do
     user = Factory.create(User)
     client_ws = WsClientFactory.create_client_for(user)
 
-    {:ok, user: user, client_ws: client_ws}
+    %{"id" => room_id} =
+      WsClient.do_call(
+        client_ws,
+        "room:create",
+        %{"name" => "foo room", "description" => "foo"})
+
+    {:ok, user: user, client_ws: client_ws, room_id: room_id}
   end
 
   describe "the websocket block_from_room operation" do
     test "blocks that person from a room", t do
-      # first, create a room owned by the test user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)
+      room_id = t.room_id
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
@@ -31,7 +36,7 @@ defmodule BrothTest.BlockFromRoomTest do
       WsClientFactory.create_client_for(blocked)
 
       # join the blocked user into the room
-      Kousa.Room.join_room(blocked_id, room_id)
+      WsClient.do_call(blocked_ws, "room:join", %{"roomId" => room_id})
       WsClient.assert_frame("new_user_join_room", _)
 
       # block the person.
@@ -49,8 +54,7 @@ defmodule BrothTest.BlockFromRoomTest do
 
   describe "the websocket block_user_and_from_room operation" do
     test "blocks that person from a room", t do
-      # first, create a room owned by the test user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)
+      room_id = t.room_id
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
@@ -59,7 +63,7 @@ defmodule BrothTest.BlockFromRoomTest do
       WsClientFactory.create_client_for(blocked)
 
       # join the blocked user into the room
-      Kousa.Room.join_room(blocked_id, room_id)
+      WsClient.do_call(blocked_ws, "room:join", %{"roomId" => room_id})
       WsClient.assert_frame("new_user_join_room", _)
 
       capture_deprecation(fn ->

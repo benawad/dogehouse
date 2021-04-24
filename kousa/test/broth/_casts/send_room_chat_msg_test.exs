@@ -23,17 +23,21 @@ defmodule BrothTest.SendRoomChatMsgTest do
     test "be sure to test from whom the msg came"
 
     test "sends a message to the room", t do
-      # first, create a room owned by the primary user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"})
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
       # create a user that is logged in.
-      listener = %{id: listener_id} = Factory.create(User)
-      listener_ws = WsClientFactory.create_client_for(listener)
+      can_hear = %{id: listener_id} = Factory.create(User)
+      listener_ws = WsClientFactory.create_client_for(can_hear)
 
       # join the speaker user into the room
-      Kousa.Room.join_room(listener_id, room_id)
+      WsClient.do_call(listener_ws, "room:join", %{"roomId" => room_id})
       WsClient.assert_frame("new_user_join_room", _)
 
       WsClient.send_msg_legacy(t.client_ws, "send_room_chat_msg", %{"tokens" => @text_token})
@@ -55,28 +59,32 @@ defmodule BrothTest.SendRoomChatMsgTest do
     test "won't send an invalid token over."
 
     test "can be used to send a whispered message", t do
-      # first, create a room owned by the primary user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"})
+          
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
-      # create a user that is logged in.
-      listener = %{id: listener_id} = Factory.create(User)
-      listener_ws = WsClientFactory.create_client_for(listener)
+      # create a user that can hear.
+      can_hear = %{id: listener_id} = Factory.create(User)
+      can_hear_ws = WsClientFactory.create_client_for(can_hear)
 
-      # create a user that is logged in.
-      whispener = %{id: whispener_id} = Factory.create(User)
-      whispener_ws = WsClientFactory.create_client_for(whispener)
+      # create a user that can't hear
+      cant_hear = %{id: whispener_id} = Factory.create(User)
+      cant_hear_ws = WsClientFactory.create_client_for(cant_hear)
 
       # join the speaker user into the room
-      Kousa.Room.join_room(listener_id, room_id)
-      Kousa.Room.join_room(whispener_id, room_id)
+      WsClient.do_call(can_hear_ws, "room:join", %{"roomId" => room_id})
+      WsClient.do_call(cant_hear_ws, "room:join", %{"roomId" => room_id})
       WsClient.assert_frame("new_user_join_room", _)
       WsClient.assert_frame("new_user_join_room", _)
 
       WsClient.send_msg_legacy(t.client_ws, "send_room_chat_msg", %{
         "tokens" => @text_token,
-        "whisperedTo" => [whispener_id]
+        "whisperedTo" => [can_hear.id]
       })
 
       WsClient.assert_frame(
@@ -88,12 +96,12 @@ defmodule BrothTest.SendRoomChatMsgTest do
       WsClient.assert_frame(
         "new_chat_msg",
         %{"msg" => %{"tokens" => @text_token}},
-        whispener_ws
+        cant_hear_ws
       )
 
       WsClient.refute_frame(
         "new_chat_msg",
-        listener_ws
+        can_hear_ws
       )
     end
   end

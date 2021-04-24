@@ -24,8 +24,6 @@ defmodule BrothTest.Chat.SendMsgTest do
     {:ok, user: user, client_ws: client_ws, room_id: room_id}
   end
 
-  test "go through and change all Kousa.Room.join and Kousa.Room.create things"
-
   describe "the websocket chat:send_msg operation" do
     @text_token [%{"t" => "text", "v" => "foobar"}]
 

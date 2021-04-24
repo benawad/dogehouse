@@ -76,7 +76,12 @@ defmodule BrothTest.Auth.RequestTest do
 
       WsClient.assert_reply("auth:request:reply", ref, %{"id" => ^user_id})
 
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(user_id, "foo room", "foo", false)
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"})
+          
       assert %{currentRoomId: ^room_id} = Users.get_by_id(user_id)
 
       ref2 =

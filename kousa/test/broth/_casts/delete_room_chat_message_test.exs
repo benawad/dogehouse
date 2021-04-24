@@ -20,8 +20,13 @@ defmodule BrothTest.DeleteRoomChatMessageTest do
   describe "the websocket delete_room_chat_message operation" do
     test "sends a message to the room", t do
       user_id = t.user.id
-      # first, create a room owned by the primary user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)
+      
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"})
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
@@ -30,7 +35,7 @@ defmodule BrothTest.DeleteRoomChatMessageTest do
       listener_ws = WsClientFactory.create_client_for(listener)
 
       # join the speaker user into the room
-      Kousa.Room.join_room(listener_id, room_id)
+      WsClient.do_call(listener_ws, "room:join", %{"roomId" => room_id})
       WsClient.assert_frame("new_user_join_room", _)
 
       # note that an asynchronous delete request doesn't really have

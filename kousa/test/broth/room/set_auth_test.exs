@@ -14,13 +14,19 @@ defmodule BrothTest.Room.SetAuthTest do
     user = Factory.create(User)
     client_ws = WsClientFactory.create_client_for(user)
 
-    {:ok, user: user, client_ws: client_ws}
+    %{"id" => room_id} =
+      WsClient.do_call(
+        client_ws,
+        "room:create",
+        %{"name" => "foo room", "description" => "foo"})
+
+    {:ok, user: user, client_ws: client_ws, room_id: room_id}
   end
 
   describe "the using room:set_auth with mod" do
     test "makes the person a mod", t do
-      # first, create a room owned by the primary user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)
+      room_id = t.room_id
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
@@ -29,7 +35,7 @@ defmodule BrothTest.Room.SetAuthTest do
       speaker_ws = WsClientFactory.create_client_for(speaker)
 
       # join the speaker user into the room
-      Kousa.Room.join_room(speaker_id, room_id)
+      WsClient.do_call(speaker_ws, "room:join", %{"roomId" => room_id})
 
       WsClient.assert_frame("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
 
@@ -62,17 +68,17 @@ defmodule BrothTest.Room.SetAuthTest do
 
   describe "the set_auth command can" do
     test "makes the person a room_creator", t do
-      # first, create a room owned by the primary user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)
+      room_id = t.room_id
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
       # create a user that is logged in.
       speaker = %{id: speaker_id} = Factory.create(User)
-      _ws_speaker = WsClientFactory.create_client_for(speaker)
+      speaker_ws = WsClientFactory.create_client_for(speaker)
 
       # join the speaker user into the room
-      Kousa.Room.join_room(speaker_id, room_id)
+      WsClient.do_call(speaker_ws, "room:join", %{"roomId" => room_id})
 
       WsClient.assert_frame("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
 
