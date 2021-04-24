@@ -98,13 +98,13 @@ defmodule BrothTest.User.BanTest do
 
       %{"id" => room_id} =
         WsClient.do_call(
-          banned_ws,
+          safe_ws,
           "room:create",
           %{"name" => "foo room", "description" => "foo"}
         )
 
-      # join the safe user to the room
-      WsClient.do_call(safe_ws, "room:join", %{"roomId" => room_id})
+      # join the banned user to the room
+      WsClient.do_call(banned_ws, "room:join", %{"roomId" => room_id})
 
       assert %{peoplePreviewList: [_, _]} = Beef.Rooms.get_room_by_id(room_id)
 

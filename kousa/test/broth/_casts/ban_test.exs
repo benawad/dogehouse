@@ -54,7 +54,7 @@ defmodule BrothTest.BanTest do
       assert %{reasonForBan: "you're a douche"} = Users.get_by_id(banned.id)
     end
 
-    test "will destroy a room if they are alone", t do
+    test "will destroy a room if they are the owner", t do
       t.user
       |> User.changeset(%{githubId: @ben_github_id})
       |> Beef.Repo.update!()
@@ -89,11 +89,11 @@ defmodule BrothTest.BanTest do
       banned_ws = WsClientFactory.create_client_for(banned)
 
       safe = %{id: safe_id} = Factory.create(User)
-      WsClientFactory.create_client_for(safe)
+      safe_ws = WsClientFactory.create_client_for(safe)
 
       %{"id" => room_id} =
         WsClient.do_call(
-          banned_ws,
+          safe_ws,
           "room:create",
           %{"name" => "foo room", "description" => "foo"}
         )
