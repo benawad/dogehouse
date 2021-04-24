@@ -1,4 +1,4 @@
-defmodule Kousa.RoomChat do
+defmodule Kousa.Chat do
   alias Beef.Rooms
   alias Onion.RoomChat
 

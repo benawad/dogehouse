@@ -106,7 +106,7 @@ defmodule Broth.Message.Chat.SendMsg do
 
   def execute(changeset, state) do
     with {:ok, %{tokens: tokens, whisperedTo: whisperedTo}} <- apply_action(changeset, :validate) do
-      Kousa.RoomChat.send_msg(
+      Kousa.Chat.send_msg(
         state.user_id,
         tokens,
         whisperedTo
