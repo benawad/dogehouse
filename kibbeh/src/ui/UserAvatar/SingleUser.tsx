@@ -6,7 +6,6 @@ export const avatarSizeMap = {
   default: "80px",
   lg: "60px",
   md: "50px",
-  av: "44px",
   sm: "40px",
   xs: "20px",
   xxs: "30px",
@@ -23,13 +22,6 @@ export const onlineIndicatorStyleMap = {
   lg: {
     width: "12px",
     height: "12px",
-    right: "2px",
-    bottom: "-2px",
-    borderWidth: "2px",
-  },
-  av: {
-    width: "10px",
-    height: "10px",
     right: "2px",
     bottom: "-2px",
     borderWidth: "2px",
