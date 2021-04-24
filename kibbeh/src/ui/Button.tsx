@@ -19,6 +19,8 @@ const colorClassnames = {
     "text-button bg-primary-800 hover:bg-primary-600 disabled:text-primary-300",
   "primary-300":
     "text-button bg-primary-700 hover:bg-primary-600 disabled:text-primary-300",
+  "accent-secondary":
+    "text-button bg-secondary hover:bg-secondary-washed-out disabled:text-secondary-washed-out"
 };
 
 export type ButtonProps = DetailedHTMLProps<
