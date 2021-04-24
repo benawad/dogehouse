@@ -2,6 +2,20 @@
 @import "tailwindcss/base";
 @import "tailwindcss/utilities";
 
+@layer components {
+  [type="radio"]:checked {
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='9.5' stroke='%23FD4D4D'/%3E%3Cellipse cx='10.0007' cy='9.99967' rx='4.66667' ry='4.66667' fill='%23FD4D4D'/%3E%3C/svg%3E");
+  }
+  [type="radio"]:not(:checked) {
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='11.5' stroke='%23DEE3EA'/%3E%3C/svg%3E");
+    background-color: var(--color-primary-900);
+    border: 0.75px solid #dee3ea;
+  }
+  [type="radio"] {
+    @apply focus:ring-0 focus:ring-offset-0;
+  }
+}
+
 h1,
 h2,
 h3,
