@@ -17,7 +17,7 @@ defmodule BrothTest.Room.LeaveTest do
 
     %{"id" => room_id} =
       WsClient.do_call(
-        t.client_ws,
+        client_ws,
         "room:create",
         %{"name" => "foo room", "description" => "foo"})
 
@@ -35,7 +35,7 @@ defmodule BrothTest.Room.LeaveTest do
       WsClient.assert_reply("room:leave:reply", ref, _)
 
       refute Users.get_by_id(t.user.id).currentRoomId
-      refute Rooms.get_room_by_id(room.id)
+      refute Rooms.get_room_by_id(room_id)
     end
 
     test "removes the person from the room if they aren't the only person", t do

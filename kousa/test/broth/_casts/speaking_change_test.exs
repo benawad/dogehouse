@@ -33,7 +33,7 @@ defmodule BrothTest.SpeakingChangeTest do
 
       WsClient.assert_frame("new_user_join_room", _)
 
-      assert %{} = Onion.RoomSession.get(room.id, :activeSpeakerMap)
+      assert %{} = Onion.RoomSession.get(room_id, :activeSpeakerMap)
 
       WsClient.send_msg_legacy(
         t.client_ws,
@@ -58,7 +58,7 @@ defmodule BrothTest.SpeakingChangeTest do
 
       assert is_map_key(map, t.user.id)
 
-      map = Onion.RoomSession.get(room.id, :activeSpeakerMap)
+      map = Onion.RoomSession.get(room_id, :activeSpeakerMap)
 
       assert is_map_key(map, t.user.id)
 
@@ -86,7 +86,7 @@ defmodule BrothTest.SpeakingChangeTest do
 
       refute is_map_key(map, t.user.id)
 
-      map = Onion.RoomSession.get(room.id, :activeSpeakerMap)
+      map = Onion.RoomSession.get(room_id, :activeSpeakerMap)
 
       refute is_map_key(map, t.user.id)
     end
@@ -102,7 +102,7 @@ defmodule BrothTest.SpeakingChangeTest do
 
       WsClient.assert_frame("new_user_join_room", _)
 
-      Onion.RoomSession.get(room.id, :activeSpeakerMap)
+      Onion.RoomSession.get(room_id, :activeSpeakerMap)
 
       WsClient.send_msg_legacy(
         t.client_ws,
@@ -117,7 +117,7 @@ defmodule BrothTest.SpeakingChangeTest do
 
       assert map == %{}
 
-      map = Onion.RoomSession.get(room.id, :activeSpeakerMap)
+      map = Onion.RoomSession.get(room_id, :activeSpeakerMap)
 
       assert map == %{}
     end

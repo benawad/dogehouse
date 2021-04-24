@@ -72,8 +72,6 @@ defmodule BrothTest.User.BanTest do
           "room:create",
           %{"name" => "foo room", "description" => "foo"})
 
-      assert %{peoplePreviewList: [%{id: ^banned_id}]} = room
-
       WsClient.send_call(t.client_ws, "user:ban", %{
         "userId" => banned.id,
         "reason" => "you're a douche"
@@ -83,7 +81,7 @@ defmodule BrothTest.User.BanTest do
       WsClient.assert_frame("banned", _, banned_ws)
 
       # check that the room is gone.
-      refute Beef.Rooms.get_room_by_id(room.id)
+      refute Beef.Rooms.get_room_by_id(room_id)
     end
 
     test "will eject a user from a room if they aren't alone", t do
@@ -106,7 +104,7 @@ defmodule BrothTest.User.BanTest do
       # join the safe user to the room
       WsClient.do_call(banned_ws, "room:join", %{"roomId" => room_id})
 
-      assert %{peoplePreviewList: [_, _]} = Beef.Rooms.get_room_by_id(room.id)
+      assert %{peoplePreviewList: [_, _]} = Beef.Rooms.get_room_by_id(room_id)
 
       WsClient.send_call(t.client_ws, "user:ban", %{
         "userId" => banned.id,
@@ -118,7 +116,7 @@ defmodule BrothTest.User.BanTest do
       # check that the room is still there
       assert %{
                peoplePreviewList: [%{id: ^safe_id}]
-             } = Beef.Rooms.get_room_by_id(room.id)
+             } = Beef.Rooms.get_room_by_id(room_id)
     end
   end
 end

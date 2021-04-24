@@ -26,13 +26,14 @@ defmodule BrothTest.GetBlockedFromRoomUsersTest do
           t.client_ws,
           "room:create",
           %{"name" => "foo room", "description" => "foo"})
-          
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(user_id)
 
       # make user to ban and put them in the room
       user_to_ban = Factory.create(User)
-      WsClient.do_call(listener_ws, "room:join", %{"roomId" => room_id})
+      user_to_ban_ws = WsClientFactory.create_client_for(user_to_ban)
+      WsClient.do_call(user_to_ban_ws, "room:join", %{"roomId" => room_id})
 
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(user_to_ban.id)

@@ -16,7 +16,7 @@ defmodule BrothTest.Misc.Search do
 
     %{"id" => room_id} =
       WsClient.do_call(
-        t.client_ws,
+        client_ws,
         "room:create",
         %{"name" => "foo room", "description" => "foo"})
 

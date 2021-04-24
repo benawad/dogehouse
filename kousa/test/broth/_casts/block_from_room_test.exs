@@ -33,7 +33,7 @@ defmodule BrothTest.BlockFromRoomTest do
 
       # create a blocked user that is logged in.
       blocked = %{id: blocked_id} = Factory.create(User)
-      WsClientFactory.create_client_for(blocked)
+      blocked_ws = WsClientFactory.create_client_for(blocked)
 
       # join the blocked user into the room
       WsClient.do_call(blocked_ws, "room:join", %{"roomId" => room_id})
@@ -60,7 +60,7 @@ defmodule BrothTest.BlockFromRoomTest do
 
       # create a blocked user that is logged in.
       blocked = %{id: blocked_id} = Factory.create(User)
-      WsClientFactory.create_client_for(blocked)
+      blocked_ws = WsClientFactory.create_client_for(blocked)
 
       # join the blocked user into the room
       WsClient.do_call(blocked_ws, "room:join", %{"roomId" => room_id})

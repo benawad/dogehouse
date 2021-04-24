@@ -16,7 +16,7 @@ defmodule BrothTest.Room.SetRoleTest do
 
     %{"id" => room_id} =
       WsClient.do_call(
-        t.client_ws,
+        client_ws,
         "room:create",
         %{"name" => "foo room", "description" => "foo"})
 
@@ -24,7 +24,7 @@ defmodule BrothTest.Room.SetRoleTest do
   end
 
   describe "for when you room:set_role to listener" do
-    test "takes a speaker and turns them into lister" do
+    test "takes a speaker and turns them into lister", t do
       room_id = t.room_id
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)

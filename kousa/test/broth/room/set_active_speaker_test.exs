@@ -14,7 +14,7 @@ defmodule BrothTest.Room.SetActiveSpeakerTest do
     client_ws = WsClientFactory.create_client_for(user)
     %{"id" => room_id} =
       WsClient.do_call(
-        t.client_ws,
+        client_ws,
         "room:create",
         %{"name" => "foo room", "description" => "foo"})
 
@@ -34,7 +34,7 @@ defmodule BrothTest.Room.SetActiveSpeakerTest do
 
       WsClient.assert_frame("new_user_join_room", _)
 
-      assert %{} = Onion.RoomSession.get(room.id, :activeSpeakerMap)
+      assert %{} = Onion.RoomSession.get(room_id, :activeSpeakerMap)
 
       WsClient.send_msg(
         t.client_ws,
@@ -59,7 +59,7 @@ defmodule BrothTest.Room.SetActiveSpeakerTest do
 
       assert is_map_key(map, t.user.id)
 
-      map = Onion.RoomSession.get(room.id, :activeSpeakerMap)
+      map = Onion.RoomSession.get(room_id, :activeSpeakerMap)
 
       assert is_map_key(map, t.user.id)
 
@@ -87,7 +87,7 @@ defmodule BrothTest.Room.SetActiveSpeakerTest do
 
       refute is_map_key(map, t.user.id)
 
-      map = Onion.RoomSession.get(room.id, :activeSpeakerMap)
+      map = Onion.RoomSession.get(room_id, :activeSpeakerMap)
 
       refute is_map_key(map, t.user.id)
     end
@@ -103,7 +103,7 @@ defmodule BrothTest.Room.SetActiveSpeakerTest do
 
       WsClient.assert_frame("new_user_join_room", _)
 
-      Onion.RoomSession.get(room.id, :activeSpeakerMap)
+      Onion.RoomSession.get(room_id, :activeSpeakerMap)
 
       WsClient.send_msg(
         t.client_ws,
@@ -118,7 +118,7 @@ defmodule BrothTest.Room.SetActiveSpeakerTest do
 
       assert map == %{}
 
-      map = Onion.RoomSession.get(room.id, :activeSpeakerMap)
+      map = Onion.RoomSession.get(room_id, :activeSpeakerMap)
 
       assert map == %{}
     end
