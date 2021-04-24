@@ -23,8 +23,9 @@ defmodule BrothTest.Room.InviteTest do
         WsClient.do_call(
           t.client_ws,
           "room:create",
-          %{"name" => "foo room", "description" => "foo"})
-          
+          %{"name" => "foo room", "description" => "foo"}
+        )
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
@@ -36,7 +37,7 @@ defmodule BrothTest.Room.InviteTest do
       WsClient.send_msg(t.client_ws, "room:invite", %{"userId" => follower_id})
 
       # note this comes from the follower's client
-      WsClient.assert_frame("invitation_to_room", %{"roomId" => ^room_id}, follower_ws)
+      WsClient.assert_frame_legacy("invitation_to_room", %{"roomId" => ^room_id}, follower_ws)
     end
   end
 end

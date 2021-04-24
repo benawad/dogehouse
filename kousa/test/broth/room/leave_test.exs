@@ -19,7 +19,8 @@ defmodule BrothTest.Room.LeaveTest do
       WsClient.do_call(
         client_ws,
         "room:create",
-        %{"name" => "foo room", "description" => "foo"})
+        %{"name" => "foo room", "description" => "foo"}
+      )
 
     {:ok, user: user, client_ws: client_ws, room_id: room_id}
   end
@@ -42,7 +43,7 @@ defmodule BrothTest.Room.LeaveTest do
       user_id = t.user.id
       room_id = t.room_id
 
-      other = %{id: other_id} = Factory.create(User)
+      other = Factory.create(User)
       other_ws = WsClientFactory.create_client_for(other)
 
       assert %{peoplePreviewList: [_]} = Rooms.get_room_by_id(room_id)

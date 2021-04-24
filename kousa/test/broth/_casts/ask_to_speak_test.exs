@@ -23,8 +23,9 @@ defmodule BrothTest.AskToSpeakTest do
         WsClient.do_call(
           t.client_ws,
           "room:create",
-          %{"name" => "foo room", "description" => "foo"})
-          
+          %{"name" => "foo room", "description" => "foo"}
+        )
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
@@ -35,19 +36,19 @@ defmodule BrothTest.AskToSpeakTest do
       # join the speaker user into the room
       WsClient.do_call(speaker_ws, "room:join", %{"roomId" => room_id})
 
-      WsClient.assert_frame("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
+      WsClient.assert_frame_legacy("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
 
       # make the ask_to_speak request
       WsClient.send_msg_legacy(speaker_ws, "ask_to_speak", %{})
 
       # both clients get notified
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "hand_raised",
         %{"userId" => ^speaker_id, "roomId" => ^room_id},
         t.client_ws
       )
 
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "hand_raised",
         %{"userId" => ^speaker_id, "roomId" => ^room_id},
         speaker_ws

@@ -23,8 +23,9 @@ defmodule BrothTest.Room.BanTest do
         WsClient.do_call(
           t.client_ws,
           "room:create",
-          %{"name" => "foo room", "description" => "foo"})
-          
+          %{"name" => "foo room", "description" => "foo"}
+        )
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
@@ -34,12 +35,12 @@ defmodule BrothTest.Room.BanTest do
 
       # join the blocked user into the room
       WsClient.do_call(blocked_ws, "room:join", %{"roomId" => room_id})
-      WsClient.assert_frame("new_user_join_room", _)
+      WsClient.assert_frame_legacy("new_user_join_room", _)
 
       # block the person.
       WsClient.send_msg(t.client_ws, "room:ban", %{"userId" => blocked_id})
 
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "user_left_room",
         %{"roomId" => ^room_id, "userId" => ^blocked_id},
         t.client_ws

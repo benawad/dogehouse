@@ -3,7 +3,6 @@ defmodule BrothTest.Chat.SendMsgTest do
   use KousaTest.Support.EctoSandbox
 
   alias Beef.Schemas.User
-  alias Beef.Users
   alias BrothTest.WsClient
   alias BrothTest.WsClientFactory
   alias KousaTest.Support.Factory
@@ -19,7 +18,8 @@ defmodule BrothTest.Chat.SendMsgTest do
       WsClient.do_call(
         client_ws,
         "room:create",
-        %{"name" => "foo room", "description" => "foo"})
+        %{"name" => "foo room", "description" => "foo"}
+      )
 
     {:ok, user: user, client_ws: client_ws, room_id: room_id}
   end
@@ -28,11 +28,10 @@ defmodule BrothTest.Chat.SendMsgTest do
     @text_token [%{"t" => "text", "v" => "foobar"}]
 
     test "sends a message to the room", t do
-      user_id = t.user.id
       room_id = t.room_id
 
       # create a user that is logged in.
-      listener = %{id: listener_id} = Factory.create(User)
+      listener = Factory.create(User)
       listener_ws = WsClientFactory.create_client_for(listener)
 
       WsClient.do_call(listener_ws, "room:join", %{"roomId" => room_id})

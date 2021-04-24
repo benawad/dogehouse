@@ -24,13 +24,14 @@ defmodule BrothTest.LeaveRoomTest do
         WsClient.do_call(
           t.client_ws,
           "room:create",
-          %{"name" => "foo room", "description" => "foo"})
+          %{"name" => "foo room", "description" => "foo"}
+        )
 
       assert Users.get_by_id(t.user.id).currentRoomId == room_id
 
       WsClient.send_msg_legacy(t.client_ws, "leave_room", %{})
 
-      WsClient.assert_frame("you_left_room", _)
+      WsClient.assert_frame_legacy("you_left_room", _)
 
       refute Users.get_by_id(t.user.id).currentRoomId
       refute Rooms.get_room_by_id(room_id)
@@ -43,9 +44,10 @@ defmodule BrothTest.LeaveRoomTest do
         WsClient.do_call(
           t.client_ws,
           "room:create",
-          %{"name" => "foo room", "description" => "foo"})
+          %{"name" => "foo room", "description" => "foo"}
+        )
 
-      other = %{id: other_id} = Factory.create(User)
+      other = Factory.create(User)
       other_ws = WsClientFactory.create_client_for(other)
 
       assert %{peoplePreviewList: [_]} = Rooms.get_room_by_id(room_id)
@@ -56,7 +58,7 @@ defmodule BrothTest.LeaveRoomTest do
 
       WsClient.send_msg_legacy(other_ws, "leave_room", %{})
 
-      WsClient.assert_frame("you_left_room", _, other_ws)
+      WsClient.assert_frame_legacy("you_left_room", _, other_ws)
 
       assert %{
                peoplePreviewList: [

@@ -24,8 +24,9 @@ defmodule BrothTest.Room.UpdateTest do
         WsClient.do_call(
           t.client_ws,
           "room:create",
-          %{"name" => "foo room", "description" => "foo"})
-          
+          %{"name" => "foo room", "description" => "foo", "isPrivate" => true}
+        )
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
       # make sure the room is private

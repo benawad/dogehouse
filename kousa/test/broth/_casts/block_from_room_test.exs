@@ -20,7 +20,8 @@ defmodule BrothTest.BlockFromRoomTest do
       WsClient.do_call(
         client_ws,
         "room:create",
-        %{"name" => "foo room", "description" => "foo"})
+        %{"name" => "foo room", "description" => "foo"}
+      )
 
     {:ok, user: user, client_ws: client_ws, room_id: room_id}
   end
@@ -37,12 +38,12 @@ defmodule BrothTest.BlockFromRoomTest do
 
       # join the blocked user into the room
       WsClient.do_call(blocked_ws, "room:join", %{"roomId" => room_id})
-      WsClient.assert_frame("new_user_join_room", _)
+      WsClient.assert_frame_legacy("new_user_join_room", _)
 
       # block the person.
       WsClient.send_msg_legacy(t.client_ws, "block_from_room", %{"userId" => blocked_id})
 
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "user_left_room",
         %{"roomId" => ^room_id, "userId" => ^blocked_id},
         t.client_ws
@@ -64,7 +65,7 @@ defmodule BrothTest.BlockFromRoomTest do
 
       # join the blocked user into the room
       WsClient.do_call(blocked_ws, "room:join", %{"roomId" => room_id})
-      WsClient.assert_frame("new_user_join_room", _)
+      WsClient.assert_frame_legacy("new_user_join_room", _)
 
       capture_deprecation(fn ->
         # block the person.
@@ -72,7 +73,7 @@ defmodule BrothTest.BlockFromRoomTest do
           "userId" => blocked_id
         })
 
-        WsClient.assert_frame(
+        WsClient.assert_frame_legacy(
           "user_left_room",
           %{"roomId" => ^room_id, "userId" => ^blocked_id},
           t.client_ws

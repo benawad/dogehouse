@@ -80,7 +80,8 @@ defmodule BrothTest.Auth.RequestTest do
         WsClient.do_call(
           client_ws,
           "room:create",
-          %{"name" => "foo room", "description" => "foo"})
+          %{"name" => "foo room", "description" => "foo"}
+        )
 
       assert %{currentRoomId: ^room_id} = Users.get_by_id(user_id)
 

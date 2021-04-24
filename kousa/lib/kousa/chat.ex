@@ -7,7 +7,6 @@ defmodule Kousa.Chat do
   def send_msg(user_id, payload) do
     with room_id when not is_nil(room_id) <- Beef.Users.get_current_room_id(user_id),
          {avatar_url, display_name, username} <- Onion.UserSession.get_info_for_msg(user_id) do
-
       # verify that the user isn't banned from chatting in the room.
 
       # if it's a whisper, verify that the user isn't blocked by the target user.

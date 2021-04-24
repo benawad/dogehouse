@@ -23,8 +23,9 @@ defmodule BrothTest.SetListenerTest do
         WsClient.do_call(
           t.client_ws,
           "room:create",
-          %{"name" => "foo room", "description" => "foo"})
-          
+          %{"name" => "foo room", "description" => "foo"}
+        )
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
@@ -34,7 +35,7 @@ defmodule BrothTest.SetListenerTest do
 
       # join the speaker user into the room
       WsClient.do_call(speaker_ws, "room:join", %{"roomId" => room_id})
-      WsClient.assert_frame("new_user_join_room", _)
+      WsClient.assert_frame_legacy("new_user_join_room", _)
 
       Beef.RoomPermissions.set_speaker(t.user.id, room_id, true)
 
@@ -42,13 +43,13 @@ defmodule BrothTest.SetListenerTest do
 
       WsClient.send_msg_legacy(t.client_ws, "set_listener", %{"userId" => speaker_id})
 
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "speaker_removed",
         %{"roomId" => ^room_id, "userId" => ^speaker_id},
         t.client_ws
       )
 
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "speaker_removed",
         %{"roomId" => ^room_id, "userId" => ^speaker_id},
         speaker_ws

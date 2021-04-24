@@ -24,7 +24,8 @@ defmodule BrothTest.Room.UnbanTest do
         WsClient.do_call(
           t.client_ws,
           "room:create",
-          %{"name" => "foo room", "description" => "foo"})
+          %{"name" => "foo room", "description" => "foo"}
+        )
 
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)

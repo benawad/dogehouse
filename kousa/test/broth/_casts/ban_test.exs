@@ -27,7 +27,7 @@ defmodule BrothTest.BanTest do
         "reason" => "you're a douche"
       })
 
-      WsClient.assert_frame("ban_done", %{"worked" => false})
+      WsClient.assert_frame_legacy("ban_done", %{"worked" => false})
     end
 
     @ben_github_id Application.compile_env!(:kousa, :ben_github_id)
@@ -45,10 +45,10 @@ defmodule BrothTest.BanTest do
         "reason" => "you're a douche"
       })
 
-      WsClient.assert_frame("ban_done", %{"worked" => true})
+      WsClient.assert_frame_legacy("ban_done", %{"worked" => true})
 
       # this frame is targetted to the banned user
-      WsClient.assert_frame("banned", _, banned_ws)
+      WsClient.assert_frame_legacy("banned", _, banned_ws)
 
       # check that the user has been updated.
       assert %{reasonForBan: "you're a douche"} = Users.get_by_id(banned.id)
@@ -59,21 +59,22 @@ defmodule BrothTest.BanTest do
       |> User.changeset(%{githubId: @ben_github_id})
       |> Beef.Repo.update!()
 
-      banned = %{id: banned_id} = Factory.create(User)
+      banned = Factory.create(User)
       banned_ws = WsClientFactory.create_client_for(banned)
 
       %{"id" => room_id} =
         WsClient.do_call(
           banned_ws,
           "room:create",
-          %{"name" => "foo room", "description" => "foo"})
+          %{"name" => "foo room", "description" => "foo"}
+        )
 
       WsClient.send_msg_legacy(t.client_ws, "ban", %{
         "username" => banned.username,
         "reason" => "you're a douche"
       })
 
-      WsClient.assert_frame("banned", _, banned_ws)
+      WsClient.assert_frame_legacy("banned", _, banned_ws)
 
       # check that the room is gone.
       refute Beef.Rooms.get_room_by_id(room_id)
@@ -84,7 +85,7 @@ defmodule BrothTest.BanTest do
       |> User.changeset(%{githubId: @ben_github_id})
       |> Beef.Repo.update!()
 
-      banned = %{id: banned_id} = Factory.create(User)
+      banned = Factory.create(User)
       banned_ws = WsClientFactory.create_client_for(banned)
 
       safe = %{id: safe_id} = Factory.create(User)
@@ -94,7 +95,8 @@ defmodule BrothTest.BanTest do
         WsClient.do_call(
           banned_ws,
           "room:create",
-          %{"name" => "foo room", "description" => "foo"})
+          %{"name" => "foo room", "description" => "foo"}
+        )
 
       # join the banned user to the room
       WsClient.do_call(banned_ws, "room:join", %{"roomId" => room_id})
@@ -106,7 +108,7 @@ defmodule BrothTest.BanTest do
         "reason" => "you're a douche"
       })
 
-      WsClient.assert_frame("banned", _, banned_ws)
+      WsClient.assert_frame_legacy("banned", _, banned_ws)
 
       # check that the room is still there
       assert %{

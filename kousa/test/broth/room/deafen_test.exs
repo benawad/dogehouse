@@ -18,7 +18,8 @@ defmodule BrothTest.Room.DeafenTest do
       WsClient.do_call(
         client_ws,
         "room:create",
-        %{"name" => "foo room", "description" => "foo"})
+        %{"name" => "foo room", "description" => "foo"}
+      )
 
     {:ok, user: user, client_ws: client_ws, room_id: room_id}
   end

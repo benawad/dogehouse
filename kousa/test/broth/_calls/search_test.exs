@@ -18,7 +18,8 @@ defmodule BrothTest.SearchTest do
       WsClient.do_call(
         client_ws,
         "room:create",
-        %{"name" => "foo room", "description" => "foo"})
+        %{"name" => "foo room", "description" => "foo"}
+      )
 
     {:ok, user: user, client_ws: client_ws, room_id: room_id}
   end
@@ -47,7 +48,7 @@ defmodule BrothTest.SearchTest do
     test "doesn't return a room if it's private", t do
       user_id = t.user.id
       room_id = t.room_id
-      
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(user_id)
 

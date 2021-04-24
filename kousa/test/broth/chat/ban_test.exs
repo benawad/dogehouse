@@ -23,8 +23,9 @@ defmodule BrothTest.Chat.BanTest do
         WsClient.do_call(
           t.client_ws,
           "room:create",
-          %{"name" => "foo room", "description" => "foo"})
-          
+          %{"name" => "foo room", "description" => "foo"}
+        )
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
@@ -34,11 +35,11 @@ defmodule BrothTest.Chat.BanTest do
 
       # join the speaker user into the room
       WsClient.do_call(banned_ws, "room:join", %{"roomId" => room_id})
-      WsClient.assert_frame("new_user_join_room", _)
+      WsClient.assert_frame_legacy("new_user_join_room", _)
 
       WsClient.send_msg(t.client_ws, "chat:ban", %{"userId" => banned_id})
-      WsClient.assert_frame("chat_user_banned", %{"userId" => ^banned_id}, t.client_ws)
-      WsClient.assert_frame("chat_user_banned", %{"userId" => ^banned_id}, banned_ws)
+      WsClient.assert_frame_legacy("chat_user_banned", %{"userId" => ^banned_id}, t.client_ws)
+      WsClient.assert_frame_legacy("chat_user_banned", %{"userId" => ^banned_id}, banned_ws)
 
       assert Onion.Chat.banned?(room_id, banned_id)
     end

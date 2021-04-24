@@ -57,10 +57,12 @@ defmodule BrothTest.WsClient do
   def do_call(ws, op, payload) do
     ref = send_call(ws, op, payload)
     reply_op = op <> ":reply"
+
     receive do
       {:text, %{"op" => ^reply_op, "ref" => ^ref, "p" => payload}, ^ws} ->
         payload
-      after 100 ->
+    after
+      100 ->
         raise "reply to `#{op}` not received"
     end
   end
@@ -228,14 +230,15 @@ defmodule BrothTest.WsClientFactory do
     client_ws = ExUnit.Callbacks.start_supervised!(WsClient)
     WsClient.forward_frames(client_ws)
 
-    ref = WsClient.send_call(client_ws, "auth:request", %{
-      "accessToken" => tokens.accessToken,
-      "refreshToken" => tokens.refreshToken,
-      "platform" => "foo",
-      "reconnectToVoice" => false,
-      "muted" => false,
-      "deafened" => false
-    })
+    ref =
+      WsClient.send_call(client_ws, "auth:request", %{
+        "accessToken" => tokens.accessToken,
+        "refreshToken" => tokens.refreshToken,
+        "platform" => "foo",
+        "reconnectToVoice" => false,
+        "muted" => false,
+        "deafened" => false
+      })
 
     WsClient.assert_reply("auth:request:reply", ref, _)
 

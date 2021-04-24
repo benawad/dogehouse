@@ -113,6 +113,7 @@ defmodule Broth.Message.Chat.SendMsg do
     :format_error -> add_error(changeset, :whisperedTo, "is invalid")
   end
 
+  @impl true
   def execute(changeset, state) do
     with {:ok, payload} <- apply_action(changeset, :validate) do
       Kousa.Chat.send_msg(state.user_id, payload)

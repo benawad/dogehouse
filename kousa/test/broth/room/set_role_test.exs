@@ -18,7 +18,8 @@ defmodule BrothTest.Room.SetRoleTest do
       WsClient.do_call(
         client_ws,
         "room:create",
-        %{"name" => "foo room", "description" => "foo"})
+        %{"name" => "foo room", "description" => "foo"}
+      )
 
     {:ok, user: user, client_ws: client_ws, room_id: room_id}
   end
@@ -35,7 +36,7 @@ defmodule BrothTest.Room.SetRoleTest do
 
       # join the speaker user into the room
       WsClient.do_call(speaker_ws, "room:join", %{"roomId" => room_id})
-      WsClient.assert_frame("new_user_join_room", _)
+      WsClient.assert_frame_legacy("new_user_join_room", _)
 
       Beef.RoomPermissions.set_speaker(t.user.id, room_id, true)
 
@@ -46,13 +47,13 @@ defmodule BrothTest.Room.SetRoleTest do
         "role" => "listener"
       })
 
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "speaker_removed",
         %{"roomId" => ^room_id, "userId" => ^speaker_id},
         t.client_ws
       )
 
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "speaker_removed",
         %{"roomId" => ^room_id, "userId" => ^speaker_id},
         speaker_ws
@@ -81,7 +82,7 @@ defmodule BrothTest.Room.SetRoleTest do
       # join the speaker user into the room
       WsClient.do_call(speaker_ws, "room:join", %{"roomId" => room_id})
 
-      WsClient.assert_frame("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
+      WsClient.assert_frame_legacy("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
 
       # add the person as a speaker.
       WsClient.send_msg(
@@ -91,13 +92,13 @@ defmodule BrothTest.Room.SetRoleTest do
       )
 
       # both clients get notified
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "speaker_added",
         %{"userId" => ^speaker_id, "roomId" => ^room_id},
         t.client_ws
       )
 
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "speaker_added",
         %{"userId" => ^speaker_id, "roomId" => ^room_id},
         speaker_ws

@@ -52,7 +52,7 @@ defmodule BrothTest.User.BanTest do
       refute is_map_key(reply, "error")
 
       # this frame is targetted to the banned user
-      WsClient.assert_frame("banned", _, banned_ws)
+      WsClient.assert_frame_legacy("banned", _, banned_ws)
 
       # check that the user has been updated.
       assert %{reasonForBan: "you're a douche"} = Users.get_by_id(banned.id)
@@ -63,22 +63,23 @@ defmodule BrothTest.User.BanTest do
       |> User.changeset(%{githubId: @ben_github_id})
       |> Beef.Repo.update!()
 
-      banned = %{id: banned_id} = Factory.create(User)
+      banned = Factory.create(User)
       banned_ws = WsClientFactory.create_client_for(banned)
 
       %{"id" => room_id} =
         WsClient.do_call(
           banned_ws,
           "room:create",
-          %{"name" => "foo room", "description" => "foo"})
+          %{"name" => "foo room", "description" => "foo"}
+        )
 
-      WsClient.send_call(t.client_ws, "user:ban", %{
+      WsClient.do_call(t.client_ws, "user:ban", %{
         "userId" => banned.id,
         "reason" => "you're a douche"
       })
 
       # note: targeted to banned_ws
-      WsClient.assert_frame("banned", _, banned_ws)
+      WsClient.assert_frame_legacy("banned", _, banned_ws)
 
       # check that the room is gone.
       refute Beef.Rooms.get_room_by_id(room_id)
@@ -89,20 +90,21 @@ defmodule BrothTest.User.BanTest do
       |> User.changeset(%{githubId: @ben_github_id})
       |> Beef.Repo.update!()
 
-      banned = %{id: banned_id} = Factory.create(User)
+      banned = Factory.create(User)
       banned_ws = WsClientFactory.create_client_for(banned)
 
       safe = %{id: safe_id} = Factory.create(User)
-      WsClientFactory.create_client_for(safe)
+      safe_ws = WsClientFactory.create_client_for(safe)
 
       %{"id" => room_id} =
         WsClient.do_call(
           banned_ws,
           "room:create",
-          %{"name" => "foo room", "description" => "foo"})
+          %{"name" => "foo room", "description" => "foo"}
+        )
 
       # join the safe user to the room
-      WsClient.do_call(banned_ws, "room:join", %{"roomId" => room_id})
+      WsClient.do_call(safe_ws, "room:join", %{"roomId" => room_id})
 
       assert %{peoplePreviewList: [_, _]} = Beef.Rooms.get_room_by_id(room_id)
 
@@ -111,9 +113,9 @@ defmodule BrothTest.User.BanTest do
         "reason" => "you're a douche"
       })
 
-      WsClient.assert_frame("banned", _, banned_ws)
+      WsClient.assert_frame_legacy("banned", _, banned_ws)
 
-      # check that the room is still there
+      # check that the room is still there and the safe user is there
       assert %{
                peoplePreviewList: [%{id: ^safe_id}]
              } = Beef.Rooms.get_room_by_id(room_id)
