@@ -99,7 +99,7 @@ defmodule Onion.UserSession do
       Onion.RoomSession.deafen(current_room_id, state.user_id, value)
     end
 
-    {:noreply, %{state | deafen: value}}
+    {:noreply, %{state | deafened: value}}
   end
 
   def new_tokens(user_id, tokens), do: cast(user_id, {:new_tokens, tokens})
@@ -148,6 +148,7 @@ defmodule Onion.UserSession do
     else
       Beef.Users.set_online(state.user_id)
     end
+
     Process.monitor(pid)
     {:reply, :ok, %{state | pid: pid}}
   end

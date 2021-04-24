@@ -30,7 +30,12 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
           <span className="flex text-primary-100 font-bold h-full break-all line-clamp-1 truncate">
             {user.displayName}
           </span>
-          <span className="flex text-primary-300 ml-1">@{user.username}</span>
+          <span
+            data-testid="profile-info-username"
+            className="flex text-primary-300 ml-1"
+          >
+            @{user.username}
+          </span>
           {/* <Badges badges={badges} /> */}
         </div>
         <div className="flex mt-2">
@@ -65,7 +70,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
         <div className="flex w-full mt-2">
           <p className="text-primary-300 mt-2 text-center w-full whitespace-pre-wrap break-words inline line-clamp-6">
             {user.bio.split(/\n/).map((line, i) => (
-              <>
+              <React.Fragment key={i}>
                 {i > 0 ? <br key={i} /> : null}
                 {line.split(" ").map((chunk, j) => {
                   try {
@@ -88,7 +93,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
 
                   return null;
                 })}
-              </>
+              </React.Fragment>
             ))}
           </p>
         </div>

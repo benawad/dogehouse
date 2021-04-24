@@ -156,7 +156,7 @@ export const InviteRoomPage: PageComponent<InviteRoomPageProps> = ({}) => {
                 {t("pages.inviteList.shareRoomLink")}
               </div>
             ) : null}
-            <div className={`flex mb-8 flex`}>
+            <div data-testid="container" className={`mb-8 flex`}>
               <Input readOnly ref={inputRef} value={url} className="mr-2" />
               <Button
                 size="small"

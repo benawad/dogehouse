@@ -43,7 +43,10 @@
     "download": {
       "starting": "Starting download...",
       "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases"
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     },
     "followList": {
       "followHim": "Ακολουθήστε",

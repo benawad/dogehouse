@@ -39,8 +39,9 @@ defmodule BrothTest.MuteTest do
 
       # obtain the pseudo-response
       assert_receive({:text, _, _})
-      map = Onion.RoomSession.get(room_id, :muteMap)
+      Process.sleep(100)
 
+      map = Onion.RoomSession.get(room_id, :muteMap)
       refute is_map_key(map, t.user.id)
     end
 

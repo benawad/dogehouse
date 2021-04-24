@@ -222,8 +222,7 @@ defmodule Onion.RoomSession do
     {:noreply, %{state | muteMap: new_mm, deafMap: new_dm}}
   end
 
-  def join_room(room_id, user_id, mute, deaf, opts \\ [])
-      when is_boolean(mute) and is_boolean(deaf) do
+  def join_room(room_id, user_id, mute, deaf, opts \\ []) do
     cast(room_id, {:join_room, user_id, mute, deaf, opts})
   end
 

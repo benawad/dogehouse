@@ -23,6 +23,7 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
         <button
           onClick={onTitleClick}
           className={`flex text-xl font-bold flex-1 truncate`}
+          data-testid="room-title"
         >
           {title}
         </button>
