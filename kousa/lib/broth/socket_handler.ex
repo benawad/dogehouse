@@ -50,7 +50,6 @@ defmodule Broth.SocketHandler do
 
   @impl true
   def websocket_init(state) do
-    self() |> IO.inspect(label: "54")
     Process.send_after(self(), :auth_timeout, @auth_timeout)
     Process.put(:"$callers", state.callers)
 
@@ -100,11 +99,13 @@ defmodule Broth.SocketHandler do
   ##########################################################################
   ## CHAT MESSAGES
 
-  def chat_impl({"chat:" <> _room_id, payload}, state) do
+  def chat_impl({"chat:" <> _room_id, message}, state) do
     # TODO: make this guard against room_id when we put room into the state.
-    payload |> IO.inspect(label: "104")
-    |> prepare_socket_msg(state) |> IO.inspect(label: "105")
-    |> ws_push(state) |> IO.inspect(label: "106")
+    %{whisperedTo: private, from: from} = message.payload
+    frame = if private == [] or state.user_id in [from | private] do
+      prepare_socket_msg(message, state)
+    end
+    ws_push(frame, state)
   end
   def chat_impl(_, state), do: ws_push(nil, state)
 
@@ -317,7 +318,7 @@ defmodule Broth.SocketHandler do
   def websocket_info({:remote_send, message}, state), do: remote_send_impl(message, state)
   def websocket_info(message = {"chat:" <> _, _}, state), do: chat_impl(message, state)
   # throw out all other messages
-  def websocket_info(msg, state) do
+  def websocket_info(_, state) do
     {[], state}
   end
 end

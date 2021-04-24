@@ -20,6 +20,8 @@ defmodule BrothTest.SendRoomChatMsgTest do
   describe "the websocket send_room_chat operation" do
     @text_token [%{"t" => "text", "v" => "foobar"}]
 
+    test "be sure to test from whom the msg came"
+
     test "sends a message to the room", t do
       # first, create a room owned by the primary user.
       {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)

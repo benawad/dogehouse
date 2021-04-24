@@ -5,14 +5,21 @@ defmodule Broth.Message.Chat.SendMsg do
 
   @message_character_limit Application.compile_env!(:kousa, :message_character_limit)
 
-  @derive {Jason.Encoder, only: [:tokens, :whisperedTo]}
+  @derive {Jason.Encoder, only: [:tokens, :whisperedTo, :from]}
 
   @primary_key false
   embedded_schema do
     embeds_many(:tokens, ChatToken)
     field(:whisperedTo, {:array, :binary_id})
+    field(:from, :binary_id)
   end
 
+  @impl true
+  def initialize(state) do
+    %__MODULE__{from: state.user_id}
+  end
+
+  @impl true
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
     |> cast(data, [:whisperedTo])
@@ -109,7 +116,6 @@ defmodule Broth.Message.Chat.SendMsg do
   def execute(changeset, state) do
     with {:ok, payload} <- apply_action(changeset, :validate) do
       Kousa.Chat.send_msg(state.user_id, payload)
-      |> IO.inspect(label: "110")
       {:noreply, state}
     end
   end

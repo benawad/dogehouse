@@ -14,7 +14,14 @@ defmodule Onion.PubSub do
     PubSub.subscribe(__MODULE__, topic)
   end
 
-  def broadcast(topic, message = %Broth.Message{}) do
+  @valid_classes ~w(chat)
+
+  def broadcast(
+    topic = <<class::binary-size(4)>> <> _,
+    message = %Broth.Message{}) when class in @valid_classes do
+
+    # do other validation here in test and dev, in the future.
+
     PubSub.broadcast(__MODULE__, topic, {topic, message})
   end
 

@@ -8,35 +8,14 @@ defmodule Kousa.Chat do
     with room_id when not is_nil(room_id) <- Beef.Users.get_current_room_id(user_id),
          {avatar_url, display_name, username} <- Onion.UserSession.get_info_for_msg(user_id) do
 
-      IO.puts("hi mom")
-
       # verify that the user isn't banned from chatting in the room.
 
       # if it's a whisper, verify that the user isn't blocked by the target user.
-
-      room_id |> IO.inspect(label: "17")
 
       PubSub.broadcast("chat:" <> room_id, %Message{
         operator: "chat:send",
         payload: payload
       })
-      |> IO.inspect(label: "21")
-
-      #Onion.Chat.new_msg(
-      #  room_id,
-      #  user_id,
-      #  %{
-      #    id: Ecto.UUID.generate(),
-      #    avatarUrl: avatar_url,
-      #    displayName: display_name,
-      #    username: username,
-      #    userId: user_id,
-      #    tokens: tokens,
-      #    sentAt: DateTime.utc_now(),
-      #    isWhisper: whisperedTo != []
-      #  },
-      #  whisperedTo
-      #)
 
       :ok
     end

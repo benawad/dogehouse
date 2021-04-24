@@ -30,10 +30,8 @@ defmodule BrothTest.Chat.SendMsgTest do
     @text_token [%{"t" => "text", "v" => "foobar"}]
 
     test "sends a message to the room", t do
+      user_id = t.user.id
       room_id = t.room_id
-
-      # make sure the user is in there.
-      assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
       # create a user that is logged in.
       listener = %{id: listener_id} = Factory.create(User)
@@ -58,9 +56,8 @@ defmodule BrothTest.Chat.SendMsgTest do
     end
 
     test "can be used to send a whispered message", t do
+      user_id = t.user.id
       room_id = t.room_id
-      # make sure the user is in there.
-      assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
       # create a user that won't be able to hear
       cant_hear = Factory.create(User)
@@ -85,13 +82,13 @@ defmodule BrothTest.Chat.SendMsgTest do
 
       WsClient.assert_frame(
         "chat:send",
-        %{"tokens" => @text_token},
+        %{"tokens" => @text_token, "from" => ^user_id},
         t.client_ws
       )
 
       WsClient.assert_frame(
         "chat:send",
-        %{"tokens" => @text_token},
+        %{"tokens" => @text_token, "from" => ^user_id},
         can_hear_ws
       )
 

@@ -416,8 +416,6 @@ defmodule Kousa.Room do
         end
 
         # subscribe to this room's chat
-        self() |> IO.inspect(label: "419")
-        id |> IO.inspect(label: "420")
         Onion.PubSub.subscribe("chat:" <> id)
 
         {:ok, %{room: room}}
