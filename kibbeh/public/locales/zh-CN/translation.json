@@ -44,7 +44,7 @@
       "createRoom": "新建聊天室",
       "refresh": "刷新",
       "editRoom": "修改聊天室",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "desktopAlert": "现在下载神烦狗桌面app吧！"
     },
     "inviteList": {
       "roomGone": "聊天室已被删除，请回到前一页",
@@ -111,11 +111,11 @@
       "header": "覆盖层设置"
     },
     "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
+      "starting": "开始下载...",
+      "failed": "无法自动下载，请稍后再尝试",
+      "visit_gh": "查看Github的Releases",
+      "prompt": "按下面的按键开始下载",
+      "download_now": "下载",
       "download_for": "Download for %platform% (%ext%)"
     }
   },

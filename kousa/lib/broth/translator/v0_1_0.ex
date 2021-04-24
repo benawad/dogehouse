@@ -234,10 +234,6 @@ defmodule Broth.Translator.V0_1_0 do
     %{message | d: %{isUsernameTaken: errors =~ "has already been taken"}}
   end
 
-  def translate_out_body(message, "user:update") do
-    %{message | d: %{isUsernameTaken: false}}
-  end
-
   def translate_out_body(message, "user:get_relationship") do
     new_data =
       case message.d.relationship do

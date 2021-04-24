@@ -41,6 +41,27 @@ defmodule BrothTest.User.UpdateTest do
       assert Users.get_by_id(user_id).username == "new_username"
     end
 
+    test "username taken", t do
+      %{username: existing_username} = Factory.create(User)
+
+      ref =
+        WsClient.send_call(
+          t.client_ws,
+          "user:update",
+          %{
+            "username" => existing_username
+          }
+        )
+
+      WsClient.assert_reply(
+        "user:update:reply",
+        ref,
+        %{
+          "isUsernameTaken" => true
+        }
+      )
+    end
+
     test "a bio,displayName,avatarUrl can be changed", t do
       user_id = t.user.id
 

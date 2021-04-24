@@ -20,6 +20,9 @@ defmodule Kousa.User do
 
         {:ok, user}
 
+      {:error, %Ecto.Changeset{errors: [username: {"has already been taken", _}]}} ->
+        {:ok, %{isUsernameTaken: true}}
+
       error ->
         error
     end

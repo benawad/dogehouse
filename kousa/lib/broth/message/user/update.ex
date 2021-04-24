@@ -21,6 +21,7 @@ defmodule Broth.Message.User.Update do
     field(:bio, :string)
     field(:muted, :boolean, virtual: true)
     field(:deafened, :boolean, virtual: true)
+    field(:isUsernameTaken, :boolean, virtual: true)
   end
 
   def initialize(state) do
@@ -37,7 +38,13 @@ defmodule Broth.Message.User.Update do
     # TODO: make this a proper changeset-mediated alteration.
     with {:ok, update} <- apply_action(changeset, :validate),
          {:ok, user} <- Kousa.User.update(state.user_id, Map.from_struct(update)) do
-      {:reply, struct(__MODULE__, Map.from_struct(user)), state}
+      case user do
+        %{isUsernameTaken: _} ->
+          {:reply, %{isUsernameTaken: true}, state}
+
+        _ ->
+          {:reply, struct(__MODULE__, Map.from_struct(user)), state}
+      end
     end
   end
 end
