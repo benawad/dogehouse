@@ -19,7 +19,7 @@ export const SettingsItemButton: React.FC<SettingsItemButtonProps> = ({
 }) => {
   return (
     <BaseSettingsItem className={`p-4 ${className}`}>
-      <p className="text-primary-200 mb-4">
+      <p className="text-primary-100 mb-4">
         {text}
       </p>
       <Button
