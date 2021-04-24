@@ -16,6 +16,7 @@ defmodule Kousa do
       Onion.Supervisors.VoiceRabbit,
       Onion.Supervisors.VoiceOnlineRabbit,
       {Beef.Repo, []},
+      {Phoenix.PubSub, name: Onion.PubSub},
       Onion.Telemetry,
       Plug.Cowboy.child_spec(
         scheme: :http,
