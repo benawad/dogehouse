@@ -21,7 +21,7 @@ const colorClassnames = {
   "primary-300":
     "text-button bg-primary-700 hover:bg-primary-600 disabled:text-primary-300",
   transparent:
-    "text-button bg-transparent"
+    "text-button bg-transparent",
   "accent-secondary":
     "text-button bg-secondary hover:bg-secondary-washed-out disabled:text-secondary-washed-out"
 };
