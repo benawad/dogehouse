@@ -116,7 +116,7 @@
       "visit_gh": "查看Github的Releases",
       "prompt": "按下面的按键开始下载",
       "download_now": "下载",
-      "download_for": "Downoad for {{platform}}"
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
