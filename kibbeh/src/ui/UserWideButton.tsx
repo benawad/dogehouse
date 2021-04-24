@@ -28,15 +28,17 @@ export const UserWideButton: React.FC<UserWideButtonInfoProps> = ({
             @{user.username}
           </span>
         </div>
-        <div className="flex mt-2 mb-2 pl-4">
+        <div className="flex content-end justify-end w-full pl-4">
           <Button
             size="small"
-            className="flex"
+            className="flex w-10 h-5"
             onClick={() => {
               userStatus();
             }}
           >
+            <p className="text-sm break-all text-bold">
             {buttonText}
+            </p>
           </Button>
         </div>
       </div>
