@@ -35,7 +35,10 @@ defmodule BrothTest.MakeRoomPublicTest do
 
       WsClient.send_msg_legacy(t.client_ws, "make_room_public", %{"newName" => "quux room"})
 
-      WsClient.assert_frame_legacy("room_privacy_change", %{"name" => "quux room", "isPrivate" => false})
+      WsClient.assert_frame_legacy("room_privacy_change", %{
+        "name" => "quux room",
+        "isPrivate" => false
+      })
 
       # make sure the room is actually private
       assert %{

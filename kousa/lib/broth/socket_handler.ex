@@ -7,7 +7,7 @@ defmodule Broth.SocketHandler do
           user_id: String.t(),
           encoding: :etf | :json,
           compression: nil | :zlib,
-          version: Version.t,
+          version: Version.t(),
           callers: [pid]
         }
 
@@ -139,7 +139,6 @@ defmodule Broth.SocketHandler do
          message_map! = Broth.Translator.translate_inbound(message_map!),
          {:ok, message = %{errors: nil}} <- validate(message_map!, state),
          :ok <- auth_check(message, state) do
-
       # make the state adopt the version of the inbound message.
       dispatch(message, adopt_version(state, message))
     else
