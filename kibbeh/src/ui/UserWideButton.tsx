@@ -36,7 +36,7 @@ export const UserWideButton: React.FC<UserWideButtonInfoProps> = ({
               userStatus();
             }}
           >
-            <p className="text-sm break-all text-bold">
+            <p className="text-sm text-bold">
             {buttonText}
             </p>
           </Button>
