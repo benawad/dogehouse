@@ -64,7 +64,7 @@ function OtherPlatformButton(props: {
   const index = platforms.indexOf(props.platform);
   const isCurrent = index === props.currentPlatform;
   let add = 0;
-  if (platforms[props.currentPlatform] === "Linux") {
+  if (platforms[index] === "Linux") {
     add = props.linuxed;
   }
   return !isCurrent ? (
