@@ -45,7 +45,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
         {mute ? (
           <BoxedIcon
             transition
-            hover={mute.isMuted}
+            hover={!mute.isMuted}
             className={`mr-2 w-8 ${
               !mute.isMuted ? `bg-accent hover:bg-accent-hover text-button` : ``
             }`}
