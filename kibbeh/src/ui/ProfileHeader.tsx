@@ -1,57 +1,122 @@
-import React, { ReactChild } from "react";
+import React, { ReactChild, useState } from "react";
 import { ProfileHeaderWrapper } from "./ProfileHeaderWrapper";
 import { Button } from "./Button";
 import { UserBadge } from "./UserBadge";
 import { SingleUser } from "./UserAvatar/SingleUser";
-import { SolidMessages, SolidPersonAdd } from "../icons";
-
-import profileCover from "../stories/img/profile-cover.png";
-import src from "../img/avatar.png";
+import {
+  SolidCompass,
+  SolidFriends,
+  SolidMessages,
+  SolidPersonAdd,
+} from "../icons";
+import { useTypeSafeMutation } from "../shared-hooks/useTypeSafeMutation";
+import { UserWithFollowInfo } from "@dogehouse/kebab";
+import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
+import { useTypeSafeUpdateQuery } from "../shared-hooks/useTypeSafeUpdateQuery";
+import { EditProfileModal } from "../modules/user/EditProfileModal";
 
 export interface ProfileHeaderProps {
   displayName: string;
   username: string;
-  isFollowing?: boolean;
-  doesFollow?: boolean;
-  isOnline?: boolean;
   children?: ReactChild;
+  pfp?: string;
+  canDM?: boolean;
+  isCurrentUser?: boolean;
+  user: UserWithFollowInfo;
 }
 
 export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   displayName,
   username,
-  isFollowing = true,
-  doesFollow = true,
-  isOnline = true,
+  user,
   children,
+  canDM,
+  isCurrentUser,
+  pfp = "https://dogehouse.tv/favicon.ico",
 }) => {
+  const {
+    mutateAsync,
+    isLoading: followLoading,
+    variables,
+  } = useTypeSafeMutation("follow");
+
+  const { t } = useTypeSafeTranslation();
+  const updater = useTypeSafeUpdateQuery();
+  const [showEditProfileModal, setShowEditProfileModal] = useState(false);
   return (
-    <ProfileHeaderWrapper coverUrl={profileCover}>
+    // @TODO: Add the cover api (once it's implemented)}
+    <ProfileHeaderWrapper
+      coverUrl={user.bannerUrl}
+    >
+      <EditProfileModal
+        isOpen={showEditProfileModal}
+        onRequestClose={() => setShowEditProfileModal(false)}
+      />
       <div className="flex mr-4 ">
         <SingleUser
-          isOnline={isOnline}
+          isOnline={user.online}
           className="absolute flex-none -top-5.5 rounded-full shadow-avator"
-          src={src}
+          src={pfp}
         />
       </div>
       <div className="flex flex-col w-3/6 font-sans">
-        <h4 className="text-primary-100 font-bold">{displayName}</h4>
+        <h4 className="text-primary-100 font-bold truncate">{displayName}</h4>
         <div className="flex flex-row items-center">
-          <p className="text-primary-300 mr-2">{username}</p>
-          {isFollowing ?? <UserBadge color="grey">Follows you</UserBadge>}
+          <p className="text-primary-300 mr-2">{`@${username}`}</p>
+          {user.followsYou ? (
+            <UserBadge color="grey">{t("pages.viewUser.followsYou")}</UserBadge>
+          ) : (
+            ""
+          )}
         </div>
         <div className="mt-2">{children}</div>
       </div>
       <div className="w-3/6 ">
         <div className="flex flex-row justify-end content-end gap-2">
-          {doesFollow && (
-            <Button size="small" icon={<SolidPersonAdd />}>
-              Follow
+          {!isCurrentUser && (
+            <Button
+              loading={false}
+              onClick={async () => {
+                await mutateAsync([user.id, !user.youAreFollowing]);
+                updater(["getUserProfile", username], (u) =>
+                  !u
+                    ? u
+                    : {
+                        ...u,
+                        numFollowers:
+                          u.numFollowers + (user.youAreFollowing ? -1 : 1),
+                        youAreFollowing: !user.youAreFollowing,
+                      }
+                );
+              }}
+              size="small"
+              color={user.youAreFollowing ? "secondary" : "primary"}
+              icon={user.youAreFollowing ? null : <SolidFriends />}
+            >
+              {user.youAreFollowing
+                ? t("pages.viewUser.unfollow")
+                : t("pages.viewUser.followHim")}
             </Button>
           )}
-          <Button size="small" color="secondary" icon={<SolidMessages />}>
-            Send DM
-          </Button>
+          {isCurrentUser ? (
+            <Button
+              size="small"
+              color="secondary"
+              onClick={() => setShowEditProfileModal(true)}
+              icon={<SolidCompass />}
+            >
+              {t("pages.viewUser.editProfile")}
+            </Button>
+          ) : (
+            ""
+          )}
+          {canDM ? (
+            <Button size="small" color="secondary" icon={<SolidMessages />}>
+              Send DM
+            </Button>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </ProfileHeaderWrapper>

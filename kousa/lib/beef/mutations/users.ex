@@ -129,6 +129,7 @@ defmodule Beef.Mutations.Users do
            email: if(user.email == "", do: nil, else: user.email),
            twitterId: user.twitterId,
            avatarUrl: user.avatarUrl,
+           bannerUrl: user.bannerUrl,
            displayName:
              if(is_nil(user.displayName) or String.trim(user.displayName) == "",
                do: "Novice Doge",
@@ -178,6 +179,7 @@ defmodule Beef.Mutations.Users do
            email: if(user["email"] == "", do: nil, else: user["email"]),
            githubAccessToken: github_access_token,
            avatarUrl: user["avatar_url"],
+           bannerUrl: user["banner_url"],
            displayName:
              if(is_nil(user["name"]) or String.trim(user["name"]) == "",
                do: "Novice Doge",

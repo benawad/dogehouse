@@ -11,11 +11,12 @@ export const ProfileHeaderWrapper: React.FC<ProfileHeaderWrapperProps> = ({
   ...props
 }) => {
   return (
-    <div className="bg-primary-800 rounded-8" {...props}>
+    <div className="bg-primary-800 rounded-8 relative" {...props}>
       <img
         alt="cover"
         src={coverUrl}
         className="rounded-t-8 w-full object-cover"
+        style={{ height: "155px" }}
       />
       <div className="container mx-auto flex p-4 relative">{children}</div>
     </div>
