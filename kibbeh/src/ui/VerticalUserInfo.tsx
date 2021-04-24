@@ -70,7 +70,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
         <div className="flex w-full mt-2">
           <p className="text-primary-300 mt-2 text-center w-full whitespace-pre-wrap break-words inline line-clamp-6">
             {user.bio.split(/\n/).map((line, i) => (
-              <>
+              <React.Fragment key={i}>
                 {i > 0 ? <br key={i} /> : null}
                 {line.split(" ").map((chunk, j) => {
                   try {
@@ -93,7 +93,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
 
                   return null;
                 })}
-              </>
+              </React.Fragment>
             ))}
           </p>
         </div>
