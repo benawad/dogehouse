@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react";
 
 const badgeVariants = {
-  primary: "bg-primary-600",
+  primary: "bg-primary-700",
   secondary: "bg-accent",
 };
 
