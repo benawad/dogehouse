@@ -7,9 +7,12 @@ const links = [
   "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-Setup-{{version}}.exe", // windows
   "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{version}}.dmg", // macOS
   "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{version}}.AppImage", // linux
+  "https://github.com/benawad/dogehouse/releases/download/{{tag}}/dogehouse_{{version}}_amd64.deb", // linux deb
 ];
 
-const platforms = ["Windows", "macOS", "Linux"];
+const platforms = ["Windows", "macOS", "Linux", "Linux"];
+
+const extentions = [".exe", ".dmg", ".AppImage", ".deb"];
 
 function getOS() {
   let isWindows = false;
@@ -55,21 +58,52 @@ function OtherPlatformButton(props: {
   platform: string;
   currentPlatform: number;
   downloadLinks: string[];
+  linuxed: number;
 }) {
   const { t } = useTypeSafeTranslation();
   const index = platforms.indexOf(props.platform);
   const isCurrent = index === props.currentPlatform;
+  let add = 0;
+  if (platforms[props.currentPlatform] === "Linux") {
+    add = props.linuxed;
+  }
   return !isCurrent ? (
     <Button
       color="secondary"
       className="my-2"
       onClick={() => {
-        window.location.href = props.downloadLinks[index];
+        window.location.href = props.downloadLinks[index + add];
       }}
     >
-      {t("pages.download.download_for").replace("%platform%", platforms[index])}
+      {t("pages.download.download_for")
+        .replace("%platform%", platforms[index + add])
+        .replace("%ext%", extentions[index + add])}
     </Button>
   ) : null;
+}
+
+function CurrentPlatformButton(props: {
+  platform: number;
+  downloadLinks: string[];
+  linuxed: number;
+}) {
+  const { t } = useTypeSafeTranslation();
+  const plat = platforms[props.platform];
+  let add = 0;
+  if (plat === "Linux") {
+    add = props.linuxed;
+  }
+  return (
+    <Button
+      onClick={() => {
+        window.location.href = props.downloadLinks[props.platform + add];
+      }}
+    >
+      {t("pages.download.download_for")
+        .replace("%platform%", plat)
+        .replace("%ext%", extentions[props.platform + add])}
+    </Button>
+  );
 }
 
 export default function Download() {
@@ -77,6 +111,8 @@ export default function Download() {
   const [downloadLinks, setDownloadLinks] = useState(links);
   const [currentPlatform, setCurrentPlatform] = useState(0);
   const [downloadFailed, setDownloadFailed] = useState(false);
+
+  let linuxed = -1;
 
   const { t } = useTypeSafeTranslation();
 
@@ -141,33 +177,50 @@ export default function Download() {
         <h4 className="text-primary-100 mb-4">{text}</h4>
 
         {loaded ? (
-          <Button
-            onClick={() => {
-              window.location.href = downloadFailed
-                ? "https://github.com/benawad/dogehouse/releases/latest"
-                : downloadLinks[currentPlatform];
-            }}
-          >
-            {downloadFailed
-              ? t("pages.download.visit_gh")
-              : t("pages.download.download_for").replace(
-                  "%platform%",
-                  platforms[currentPlatform]
-                )}
-          </Button>
+          downloadFailed ? (
+            <Button
+              onClick={() => {
+                window.location.href =
+                  "https://github.com/benawad/dogehouse/releases/latest";
+              }}
+            >
+              {t("pages.download.visit_gh")}
+            </Button>
+          ) : (
+            <div className="flex lg:flex-row md:flex-col sm:flex-col lg:space-x-4 p-2 items-center">
+              {platforms.map((platform) => {
+                if (platform === platforms[currentPlatform]) {
+                  if (platform === "Linux") linuxed++;
+                  return (
+                    <CurrentPlatformButton
+                      platform={currentPlatform}
+                      downloadLinks={downloadLinks}
+                      linuxed={linuxed}
+                    />
+                  );
+                } else {
+                  return null;
+                }
+              })}
+            </div>
+          )
         ) : null}
 
         {!loaded || downloadFailed ? null : (
           <div className="flex lg:flex-row md:flex-col sm:flex-col lg:space-x-4 p-2 items-center">
             {platforms &&
-              platforms.map((platform) => (
-                <OtherPlatformButton
-                  platform={platform}
-                  currentPlatform={currentPlatform}
-                  downloadLinks={downloadLinks}
-                  key={platform}
-                />
-              ))}
+              platforms.map((platform) => {
+                if (platform === "Linux") linuxed++;
+                return (
+                  <OtherPlatformButton
+                    platform={platform}
+                    currentPlatform={currentPlatform}
+                    downloadLinks={downloadLinks}
+                    linuxed={linuxed}
+                    key={`${platform}-${linuxed}`}
+                  />
+                );
+              })}
           </div>
         )}
       </div>
