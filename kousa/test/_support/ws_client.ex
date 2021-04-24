@@ -67,6 +67,18 @@ defmodule BrothTest.WsClient do
     end
   end
 
+  def do_call_legacy(ws, op, payload) do
+    ref = send_call_legacy(ws, op, payload)
+
+    receive do
+      {:text, %{"op" => _, "fetchId" => ^ref, "d" => payload}, ^ws} ->
+        payload
+    after
+      100 ->
+        raise "reply to `#{op}` not received"
+    end
+  end
+
   def send_msg(client_ws, op, payload),
     do: WebSockex.cast(client_ws, {:send, %{"op" => op, "p" => payload, "v" => "0.2.0"}})
 

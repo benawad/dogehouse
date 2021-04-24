@@ -25,22 +25,22 @@ defmodule BrothTest.SendRoomChatMsgTest do
     test "be sure to test from whom the msg came"
 
     test "sends a message to the room", t do
-      %{"id" => room_id} =
-        WsClient.do_call(
+      %{"room" => %{"id" => room_id}} =
+        WsClient.do_call_legacy(
           t.client_ws,
-          "room:create",
+          "create_room",
           %{"name" => "foo room", "description" => "foo"}
         )
 
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
-      # create a user that is logged in.
-      can_hear = %{id: listener_id} = Factory.create(User)
-      listener_ws = WsClientFactory.create_client_for(can_hear)
+      # create a listener user that is logged in.
+      listener = Factory.create(User)
+      listener_ws = WsClientFactory.create_client_for(listener)
 
-      # join the speaker user into the room
-      WsClient.do_call(listener_ws, "room:join", %{"roomId" => room_id})
+      # join the listener user into the room
+      WsClient.do_call_legacy(listener_ws, "join_room_and_get_info", %{"roomId" => room_id})
       WsClient.assert_frame_legacy("new_user_join_room", _)
 
       WsClient.send_msg_legacy(t.client_ws, "send_room_chat_msg", %{"tokens" => @text_token})
@@ -62,10 +62,10 @@ defmodule BrothTest.SendRoomChatMsgTest do
     test "won't send an invalid token over."
 
     test "can be used to send a whispered message", t do
-      %{"id" => room_id} =
-        WsClient.do_call(
+      %{"room" => %{"id" => room_id}} =
+        WsClient.do_call_legacy(
           t.client_ws,
-          "room:create",
+          "create_room",
           %{"name" => "foo room", "description" => "foo"}
         )
 
@@ -81,8 +81,8 @@ defmodule BrothTest.SendRoomChatMsgTest do
       cant_hear_ws = WsClientFactory.create_client_for(cant_hear)
 
       # join the speaker user into the room
-      WsClient.do_call(can_hear_ws, "room:join", %{"roomId" => room_id})
-      WsClient.do_call(cant_hear_ws, "room:join", %{"roomId" => room_id})
+      WsClient.do_call_legacy(can_hear_ws, "join_room_and_get_info", %{"roomId" => room_id})
+      WsClient.do_call_legacy(cant_hear_ws, "join_room_and_get_info", %{"roomId" => room_id})
       WsClient.assert_frame_legacy("new_user_join_room", _)
       WsClient.assert_frame_legacy("new_user_join_room", _)
 
@@ -100,12 +100,12 @@ defmodule BrothTest.SendRoomChatMsgTest do
       WsClient.assert_frame_legacy(
         "new_chat_msg",
         %{"msg" => %{"tokens" => @text_token}},
-        cant_hear_ws
+        can_hear_ws
       )
 
       WsClient.refute_frame(
         "new_chat_msg",
-        can_hear_ws
+        cant_hear_ws
       )
     end
   end

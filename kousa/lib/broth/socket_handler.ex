@@ -1,17 +1,21 @@
 defmodule Broth.SocketHandler do
   require Logger
+  import Kousa.Utils.Version
 
   @type state :: %__MODULE__{
           awaiting_init: boolean(),
           user_id: String.t(),
           encoding: :etf | :json,
-          compression: nil | :zlib
+          compression: nil | :zlib,
+          version: Version.t,
+          callers: [pid]
         }
 
   defstruct awaiting_init: true,
             user_id: nil,
             encoding: nil,
             compression: nil,
+            version: nil,
             callers: []
 
   @behaviour :cowboy_websocket
@@ -105,7 +109,9 @@ defmodule Broth.SocketHandler do
 
     frame =
       if private == [] or state.user_id in [payload.from | private] do
-        prepare_socket_msg(message, state)
+        message
+        |> adopt_version(state)
+        |> prepare_socket_msg(state)
       end
 
     ws_push(frame, state)
@@ -127,13 +133,15 @@ defmodule Broth.SocketHandler do
     with {:ok, message_map!} <- Jason.decode(command_json),
          # temporary trap mediasoup direct commands
          %{"op" => <<not_at>> <> _} when not_at != ?@ <- message_map!,
-         # temporarily trap special cased commands
+         # temporarily trap special cased commands (to go by version 0.3.0)
          %{"op" => not_special_case} when not_special_case not in @special_cases <- message_map!,
          # translation from legacy maps to new maps
          message_map! = Broth.Translator.translate_inbound(message_map!),
          {:ok, message = %{errors: nil}} <- validate(message_map!, state),
          :ok <- auth_check(message, state) do
-      dispatch(message, state)
+
+      # make the state adopt the version of the inbound message.
+      dispatch(message, adopt_version(state, message))
     else
       # special cases: mediasoup operations
       msg = %{"op" => "@" <> _} ->
@@ -144,7 +152,7 @@ defmodule Broth.SocketHandler do
       msg = %{"op" => special_case} when special_case in @special_cases ->
         msg
         |> Broth.LegacyHandler.process(state)
-        |> ws_push(state)
+        |> ws_push(adopt_version(state, %{version: ~v(0.1.0)}))
 
       {:error, :auth} ->
         ws_push({:close, 4004, "not_authenticated"}, state)
@@ -295,8 +303,12 @@ defmodule Broth.SocketHandler do
     {List.wrap(frame), state}
   end
 
+  defp adopt_version(target = %{version: _}, %{version: version}) do
+    %{target | version: version}
+  end
+
   ########################################################################
-  # helper functions
+  # test helper functions
 
   if Mix.env() == :test do
     defp get_callers(request) do
