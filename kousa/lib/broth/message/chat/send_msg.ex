@@ -5,6 +5,8 @@ defmodule Broth.Message.Chat.SendMsg do
 
   @message_character_limit Application.compile_env!(:kousa, :message_character_limit)
 
+  @derive {Jason.Encoder, only: [:tokens, :whisperedTo]}
+
   @primary_key false
   embedded_schema do
     embeds_many(:tokens, ChatToken)
@@ -105,13 +107,9 @@ defmodule Broth.Message.Chat.SendMsg do
   end
 
   def execute(changeset, state) do
-    with {:ok, %{tokens: tokens, whisperedTo: whisperedTo}} <- apply_action(changeset, :validate) do
-      Kousa.Chat.send_msg(
-        state.user_id,
-        tokens,
-        whisperedTo
-      )
-
+    with {:ok, payload} <- apply_action(changeset, :validate) do
+      Kousa.Chat.send_msg(state.user_id, payload)
+      |> IO.inspect(label: "110")
       {:noreply, state}
     end
   end

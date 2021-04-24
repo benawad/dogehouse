@@ -1,4 +1,4 @@
-defmodule Onion.RoomChat do
+defmodule Onion.Chat do
   use GenServer, restart: :temporary
 
   require Logger

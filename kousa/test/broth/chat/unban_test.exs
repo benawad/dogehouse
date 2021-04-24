@@ -35,12 +35,12 @@ defmodule BrothTest.Chat.UnbanTest do
       WsClient.send_msg(t.client_ws, "chat:ban", %{"userId" => banned_id})
       WsClient.assert_frame("chat_user_banned", %{"userId" => ^banned_id}, t.client_ws)
 
-      assert Onion.RoomChat.banned?(room_id, banned_id)
+      assert Onion.Chat.banned?(room_id, banned_id)
 
       WsClient.send_msg(t.client_ws, "chat:unban", %{"userId" => banned_id})
       WsClient.assert_frame("chat_user_unbanned", %{"userId" => ^banned_id}, t.client_ws)
 
-      refute Onion.RoomChat.banned?(room_id, banned_id)
+      refute Onion.Chat.banned?(room_id, banned_id)
     end
 
     @tag :skip

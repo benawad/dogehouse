@@ -12,7 +12,7 @@ defmodule Kousa do
       # top-level supervisor for UserSession group
       Onion.Supervisors.UserSession,
       Onion.Supervisors.RoomSession,
-      Onion.Supervisors.RoomChat,
+      Onion.Supervisors.Chat,
       Onion.Supervisors.VoiceRabbit,
       Onion.Supervisors.VoiceOnlineRabbit,
       {Beef.Repo, []},

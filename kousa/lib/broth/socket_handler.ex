@@ -50,6 +50,7 @@ defmodule Broth.SocketHandler do
 
   @impl true
   def websocket_init(state) do
+    self() |> IO.inspect(label: "54")
     Process.send_after(self(), :auth_timeout, @auth_timeout)
     Process.put(:"$callers", state.callers)
 
@@ -87,7 +88,7 @@ defmodule Broth.SocketHandler do
 
   @spec remote_send_impl(Kousa.json(), state) :: call_result
   defp remote_send_impl(message, state) do
-    {[prepare_socket_msg(message, state)], state}
+    ws_push(prepare_socket_msg(message, state), state)
   end
 
   @special_cases ~w(
@@ -95,6 +96,20 @@ defmodule Broth.SocketHandler do
     fetch_follow_list
     join_room_and_get_info
   )
+
+  ##########################################################################
+  ## CHAT MESSAGES
+
+  def chat_impl({"chat:" <> _room_id, payload}, state) do
+    # TODO: make this guard against room_id when we put room into the state.
+    payload |> IO.inspect(label: "104")
+    |> prepare_socket_msg(state) |> IO.inspect(label: "105")
+    |> ws_push(state) |> IO.inspect(label: "106")
+  end
+  def chat_impl(_, state), do: ws_push(nil, state)
+
+  ##########################################################################
+  ## WEBSOCKET API
 
   @impl true
   def websocket_handle({:text, "ping"}, state), do: {[text: "pong"], state}
@@ -300,4 +315,9 @@ defmodule Broth.SocketHandler do
   def websocket_info(:exit, state), do: exit_impl(state)
   def websocket_info(:auth_timeout, state), do: auth_timeout_impl(state)
   def websocket_info({:remote_send, message}, state), do: remote_send_impl(message, state)
+  def websocket_info(message = {"chat:" <> _, _}, state), do: chat_impl(message, state)
+  # throw out all other messages
+  def websocket_info(msg, state) do
+    {[], state}
+  end
 end

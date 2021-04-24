@@ -36,7 +36,7 @@ defmodule BrothTest.BanFromRoomChatTest do
       WsClient.assert_frame("chat_user_banned", %{"userId" => ^banned_id}, t.client_ws)
       WsClient.assert_frame("chat_user_banned", %{"userId" => ^banned_id}, ws_banned)
 
-      assert Onion.RoomChat.banned?(room_id, banned_id)
+      assert Onion.Chat.banned?(room_id, banned_id)
     end
 
     @tag :skip

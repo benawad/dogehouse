@@ -278,5 +278,8 @@ defmodule Broth.Translator.V0_1_0 do
     %{message | d: %{"scheduledRooms" => rooms}}
   end
 
+  #################################################################
+  # pure outbound messages
+
   def translate_out_body(message, _), do: message
 end

@@ -49,6 +49,22 @@ defmodule BrothTest.WsClient do
     call_ref
   end
 
+  @doc """
+  performs the call AND traps its reply.  Should not be used for anything which is
+  the primary call under test; only to be used for supporting calls necessary as a
+  part of the setup.
+  """
+  def do_call(ws, op, payload) do
+    ref = send_call(ws, op, payload)
+    reply_op = op <> ":reply"
+    receive do
+      {:text, %{"op" => ^reply_op, "ref" => ^ref, "p" => payload}, ^ws} ->
+        payload
+      after 100 ->
+        raise "reply to `#{op}` not received"
+    end
+  end
+
   def send_msg(client_ws, op, payload),
     do: WebSockex.cast(client_ws, {:send, %{"op" => op, "p" => payload, "v" => "0.2.0"}})
 
@@ -63,6 +79,24 @@ defmodule BrothTest.WsClient do
   defp forward_frames_impl(test_pid, _state), do: {:ok, test_pid}
 
   defmacro assert_frame(op, payload, from \\ nil) do
+    if from do
+      quote do
+        from = unquote(from)
+
+        ExUnit.Assertions.assert_receive(
+          {:text, %{"op" => unquote(op), "p" => unquote(payload)}, ^from}
+        )
+      end
+    else
+      quote do
+        ExUnit.Assertions.assert_receive(
+          {:text, %{"op" => unquote(op), "p" => unquote(payload)}, _}
+        )
+      end
+    end
+  end
+
+  defmacro assert_frame_legacy(op, payload, from \\ nil) do
     if from do
       quote do
         from = unquote(from)
@@ -188,6 +222,32 @@ defmodule BrothTest.WsClientFactory do
   # note that this function ALSO causes the calling process to be subscribed
   # to forwarded messages from the websocket client.
   def create_client_for(user = %User{}) do
+    tokens = Kousa.Utils.TokenUtils.create_tokens(user)
+
+    # start and link the websocket client
+    client_ws = ExUnit.Callbacks.start_supervised!(WsClient)
+    WsClient.forward_frames(client_ws)
+
+    ref = WsClient.send_call(client_ws, "auth:request", %{
+      "accessToken" => tokens.accessToken,
+      "refreshToken" => tokens.refreshToken,
+      "platform" => "foo",
+      "reconnectToVoice" => false,
+      "muted" => false,
+      "deafened" => false
+    })
+
+    WsClient.assert_reply("auth:request:reply", ref, _)
+
+    # link the UserProcess to prevent dangling DB sandbox lookups
+    [{usersession_pid, _}] = Registry.lookup(Onion.UserSessionRegistry, user.id)
+    # associate the user session with the database.
+    Process.link(usersession_pid)
+
+    client_ws
+  end
+
+  def create_client_for_legacy(user = %User{}) do
     tokens = Kousa.Utils.TokenUtils.create_tokens(user)
 
     # start and link the websocket client

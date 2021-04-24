@@ -18,4 +18,8 @@ defmodule Onion.PubSub do
     PubSub.broadcast(__MODULE__, topic, {topic, message})
   end
 
+  def unsubscribe(topic) do
+    PubSub.unsubscribe(__MODULE__, topic)
+  end
+
 end

@@ -1,27 +1,42 @@
 defmodule Kousa.Chat do
   alias Beef.Rooms
-  alias Onion.RoomChat
+  alias Onion.Chat
+  alias Onion.PubSub
+  alias Broth.Message
 
-  def send_msg(_, [], _), do: :ok
-
-  def send_msg(user_id, tokens, whisperedTo) do
+  def send_msg(user_id, payload) do
     with room_id when not is_nil(room_id) <- Beef.Users.get_current_room_id(user_id),
          {avatar_url, display_name, username} <- Onion.UserSession.get_info_for_msg(user_id) do
-      Onion.RoomChat.new_msg(
-        room_id,
-        user_id,
-        %{
-          id: Ecto.UUID.generate(),
-          avatarUrl: avatar_url,
-          displayName: display_name,
-          username: username,
-          userId: user_id,
-          tokens: tokens,
-          sentAt: DateTime.utc_now(),
-          isWhisper: whisperedTo != []
-        },
-        whisperedTo
-      )
+
+      IO.puts("hi mom")
+
+      # verify that the user isn't banned from chatting in the room.
+
+      # if it's a whisper, verify that the user isn't blocked by the target user.
+
+      room_id |> IO.inspect(label: "17")
+
+      PubSub.broadcast("chat:" <> room_id, %Message{
+        operator: "chat:send",
+        payload: payload
+      })
+      |> IO.inspect(label: "21")
+
+      #Onion.Chat.new_msg(
+      #  room_id,
+      #  user_id,
+      #  %{
+      #    id: Ecto.UUID.generate(),
+      #    avatarUrl: avatar_url,
+      #    displayName: display_name,
+      #    username: username,
+      #    userId: user_id,
+      #    tokens: tokens,
+      #    sentAt: DateTime.utc_now(),
+      #    isWhisper: whisperedTo != []
+      #  },
+      #  whisperedTo
+      #)
 
       :ok
     end
@@ -41,7 +56,7 @@ defmodule Kousa.Chat do
       end
 
     if room do
-      RoomChat.ban_user(room.id, user_id_to_ban)
+      Chat.ban_user(room.id, user_id_to_ban)
       :ok
     else
       {:error, "#{user_id} not authorized to ban #{user_id_to_ban}"}
@@ -51,7 +66,7 @@ defmodule Kousa.Chat do
   def unban_user(user_id, user_id_to_unban) do
     case Rooms.get_room_status(user_id) do
       {role, room} when role in @ban_roles ->
-        RoomChat.unban_user(room.id, user_id_to_unban)
+        Chat.unban_user(room.id, user_id_to_unban)
 
       _ ->
         nil
@@ -78,7 +93,7 @@ defmodule Kousa.Chat do
       end
 
     if room do
-      Onion.RoomChat.message_deleted(room.id, deleter_id, message_id)
+      Onion.Chat.message_deleted(room.id, deleter_id, message_id)
       :ok
     else
       {:error, "#{user_id} not authorized to delete the selected message"}
