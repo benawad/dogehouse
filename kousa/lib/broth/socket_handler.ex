@@ -99,10 +99,10 @@ defmodule Broth.SocketHandler do
   ##########################################################################
   ## CHAT MESSAGES
 
-  def chat_impl({"chat:" <> _room_id, message}, state) do
+  def chat_impl({"chat:" <> _room_id, message = %{payload: payload}}, state) do
     # TODO: make this guard against room_id when we put room into the state.
-    %{whisperedTo: private, from: from} = message.payload
-    frame = if private == [] or state.user_id in [from | private] do
+    private = payload.whisperedTo
+    frame = if private == [] or state.user_id in [payload.from | private] do
       prepare_socket_msg(message, state)
     end
     ws_push(frame, state)
