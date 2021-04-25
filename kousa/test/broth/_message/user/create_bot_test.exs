@@ -3,7 +3,7 @@ defmodule BrothTest.Message.Room.CreateTest do
 
   @moduletag :message
 
-  alias Broth.Message.Bot.Create
+  alias Broth.Message.User.CreateBot
 
   setup do
     {:ok, uuid: UUID.uuid4()}
@@ -11,26 +11,26 @@ defmodule BrothTest.Message.Room.CreateTest do
 
   describe "when you send create bot" do
     test "it populates create fields", %{uuid: uuid} do
-      assert {:ok, %{payload: %Create{username: "foobar"}}} =
+      assert {:ok, %{payload: %CreateBot{username: "foobar"}}} =
                BrothTest.Support.Message.validate(%{
-                 "operator" => "bot:create",
+                 "operator" => "user:create_bot",
                  "payload" => %{"username" => "foobar"},
                  "reference" => uuid
                })
 
       # short form also allowed
-      assert {:ok, %{payload: %Create{username: "foobar"}}} =
+      assert {:ok, %{payload: %CreateBot{username: "foobar"}}} =
                BrothTest.Support.Message.validate(%{
-                 "op" => "bot:create",
+                 "op" => "user:create_bot",
                  "p" => %{"username" => "foobar"},
                  "ref" => uuid
                })
     end
 
     test "omitting the reference is not allowed" do
-      assert {:error, %{errors: [reference: {"is required for Broth.Message.Bot.Create", _}]}} =
+      assert {:error, %{errors: [reference: {"is required for Broth.Message.User.CreateBot", _}]}} =
                BrothTest.Support.Message.validate(%{
-                 "operator" => "bot:create",
+                 "operator" => "user:create_bot",
                  "payload" => %{"username" => "foobar"}
                })
     end
@@ -38,7 +38,7 @@ defmodule BrothTest.Message.Room.CreateTest do
     test "providing the wrong datatype for username is disallowed", %{uuid: uuid} do
       assert {:error, %{errors: %{username: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
-                 "operator" => "bot:create",
+                 "operator" => "user:create_bot",
                  "payload" => %{"username" => ["foobar", "barbaz"]},
                  "reference" => uuid
                })

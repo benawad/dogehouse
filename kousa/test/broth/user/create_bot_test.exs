@@ -1,4 +1,4 @@
-defmodule BrothTest.Room.CreateTest do
+defmodule BrothTest.Room.CreateBotTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 
@@ -17,19 +17,19 @@ defmodule BrothTest.Room.CreateTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket bot:create operation" do
+  describe "the websocket user:create_bot operation" do
     test "creates new user with username", t do
       ref =
         WsClient.send_call(
           t.client_ws,
-          "bot:create",
+          "user:create_bot",
           %{
             "username" => "qowidjoqwd"
           }
         )
 
       WsClient.assert_reply(
-        "bot:create:reply",
+        "user:create_bot:reply",
         ref,
         %{"apiKey" => _}
       )
@@ -39,14 +39,14 @@ defmodule BrothTest.Room.CreateTest do
       ref =
         WsClient.send_call(
           t.client_ws,
-          "bot:create",
+          "user:create_bot",
           %{
             "username" => t.user.username
           }
         )
 
       WsClient.assert_reply(
-        "bot:create:reply",
+        "user:create_bot:reply",
         ref,
         %{"isUsernameTaken" => true}
       )

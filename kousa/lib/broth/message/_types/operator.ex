@@ -1,7 +1,6 @@
 import EctoEnum
 
 alias Broth.Message.User
-alias Broth.Message.Bot
 alias Broth.Message.Room
 alias Broth.Message.Chat
 alias Broth.Message.Auth
@@ -20,6 +19,7 @@ defenum(
     {User.GetRelationship, 7},
     {User.Block, 10},
     {User.Unfollow, 11},
+    {User.CreateBot, 12},
     # room commands and casts: 64..127
     {Room.Invite, 65},
     {Room.Update, 66},
@@ -50,8 +50,6 @@ defenum(
     {Auth.Request, 193},
     {Misc.Search, 210},
     # etc 255 - 317
-    {BrothTest.MessageTest.TestOperator, 255},
-    # bot 317 - 392
-    {Bot.Create, 317}
+    {BrothTest.MessageTest.TestOperator, 255}
   ]
 )

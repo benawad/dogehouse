@@ -152,4 +152,12 @@ defmodule Beef.Access.Users do
         end
     end
   end
+
+  def get_by_api_key(api_key) do
+    Repo.get_by(User, apiKey: api_key)
+  end
+
+  def count_bot_accounts(user_id) do
+    Repo.one(from(u in User, select: fragment("count(*)"), where: u.botOwnerId == user_id))
+  end
 end

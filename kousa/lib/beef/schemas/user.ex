@@ -2,7 +2,6 @@ defmodule Beef.Schemas.User do
   use Ecto.Schema
   import Ecto.Changeset
   alias Beef.Schemas.Room
-  alias Beef.Schemas.BotApiKey
 
   defmodule Preview do
     use Ecto.Schema
@@ -84,9 +83,10 @@ defmodule Beef.Schemas.User do
     field(:roomPermissions, :map, virtual: true, null: true)
     field(:muted, :boolean, virtual: true)
     field(:deafened, :boolean, virtual: true)
+    field(:apiKey, :binary_id)
 
+    belongs_to(:botOwner, User, foreign_key: :botOwnerId, type: :binary_id)
     belongs_to(:currentRoom, Room, foreign_key: :currentRoomId, type: :binary_id)
-    has_many(:botApiKeys, BotApiKey, foreign_key: :ownerId)
 
     timestamps()
   end

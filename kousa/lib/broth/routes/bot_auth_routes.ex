@@ -15,7 +15,7 @@ defmodule Broth.Routes.BotAuth do
   plug(:dispatch)
 
   alias Onion.BotAuthRateLimit
-  alias Beef.Bots
+  alias Beef.Users
 
   post "/auth" do
     with %{"apiKey" => api_key} <- conn.body_params,
@@ -30,7 +30,7 @@ defmodule Broth.Routes.BotAuth do
           Poison.encode!(%{error: "too many invalid requests"})
         )
       else
-        user = Bots.get_user!(api_key)
+        user = Users.get_by_api_key(api_key)
 
         if is_nil(user) do
           # @todo refactor to atomic increment
