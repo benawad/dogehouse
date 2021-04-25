@@ -85,10 +85,16 @@
       "requestingToSpeak": "Заявка за говорене",
       "listeners": "Слушатели",
       "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "търсене..." },
-    "soundEffectSettings": { "header": "Звук", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Звук",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "промяна на профил",
       "followsYou": "следват те",
@@ -166,7 +172,10 @@
       "toggleMuteKeybind": "превключване на клавишна комбинация за заглушаване",
       "togglePushToTalkKeybind": "превключване на клавишна комбинация за натисни-за-говорене",
       "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "по някаква причина няма звуков консуматор"

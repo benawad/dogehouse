@@ -84,10 +84,16 @@
       "requestingToSpeak": "발언권 요청",
       "listeners": "청취자",
       "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "검색..." },
-    "soundEffectSettings": { "header": "소리", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "소리",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "프로필 변경",
       "followsYou": "나를 팔로우하는 사람들",
@@ -166,7 +172,10 @@
       "toggleMuteKeybind": "음소거 키 토글",
       "togglePushToTalkKeybind": "푸시 투 토크 키 토글",
       "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "오디오 컨수머를 찾을수 없었습니다"

@@ -85,10 +85,16 @@
       "requestingToSpeak": "කතා කිරීමට අවසර ලබා ගන්න",
       "listeners": "Listeners",
       "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "සොයන්න..." },
-    "soundEffectSettings": { "header": "ශබ්ද", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "ශබ්ද",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "profile එක සංස්කරණය කරන්න",
       "followsYou": "ඔබව හඹා යයි",
@@ -170,7 +176,10 @@
       "toggleMuteKeybind": "keybind වල තත්වය වෙනස් කරන්න",
       "togglePushToTalkKeybind": "push-to-talk keybind වල තත්වය වෙනස් කරන්න",
       "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "no audio consumer for some reason"

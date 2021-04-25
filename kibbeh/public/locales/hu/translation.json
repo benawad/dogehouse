@@ -83,10 +83,16 @@
       "requestingToSpeak": "Beszélő jog kérése",
       "listeners": "Hallgatók",
       "allowAll": "Mindegyik engedélyezése",
-      "allowAllConfirm": "Biztos benne? Ezzel engedélyezi mind a {{count}} felhasználónak, hogy beszéljen"
+      "allowAllConfirm": "Biztos benne? Ezzel engedélyezi mind a {{count}} felhasználónak, hogy beszéljen",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "keresés..." },
-    "soundEffectSettings": { "header": "Hangok", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Hangok",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "fiók szerkesztése",
       "followsYou": "követ téged",
@@ -208,7 +214,10 @@
       "toggleMuteKeybind": "Némítás kapcsolása",
       "togglePushToTalkKeybind": "Push-to-talk kapcsolása",
       "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "wsKilled": {
       "description": "A Websocket kapcsolatot megszakította a szerver. Ez általában akkor fordul elő, amikor több fülön meg van nyitva a weboldal.",

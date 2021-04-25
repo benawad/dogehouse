@@ -84,10 +84,16 @@
       "requestingToSpeak": "Chce povolenie rozprávať",
       "listeners": "Poslucháči",
       "allowAll": "Povoliť rozprávať všetkým",
-      "allowAllConfirm": "Si si istý? Povolíš rozprávať všetkým {{count}} žiadateľom"
+      "allowAllConfirm": "Si si istý? Povolíš rozprávať všetkým {{count}} žiadateľom",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "hľadať..." },
-    "soundEffectSettings": { "header": "Zvuky", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Zvuky",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "upraviť profil",
       "followsYou": "sleduje ťa",
@@ -169,7 +175,10 @@
       "toggleMuteKeybind": "prepínač stíšenia",
       "togglePushToTalkKeybind": "prepínač push-to-talk",
       "toggleOverlayKeybind": "prepínač prekreslenia",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "z nejakého dôvodu nemáme žiadny zvuk"

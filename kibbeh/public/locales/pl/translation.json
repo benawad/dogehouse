@@ -85,12 +85,15 @@
       "requestingToSpeak": "Prośba o pozwolenie na mówienie",
       "listeners": "Słuchacze",
       "allowAll": "Dopuść wszystkich",
-      "allowAllConfirm": "Czy na pewno? To dopuści {{count}} użytkowników do mówienia"
+      "allowAllConfirm": "Czy na pewno? To dopuści {{count}} użytkowników do mówienia",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "szukaj..." },
     "soundEffectSettings": {
       "header": "Dźwięk",
-      "title": "Ustawienia dźwięku"
+      "title": "Ustawienia dźwięku",
+      "playSound": "Play Sound"
     },
     "viewUser": {
       "editProfile": "Edytuj profil",
@@ -179,7 +182,10 @@
       "toggleMuteKeybind": "Wyciszanie",
       "toggleDeafKeybind": "Toggle deafen keybind",
       "toggleOverlayKeybind": "Nakładka",
-      "togglePushToTalkKeybind": "Naciśnij i mów"
+      "togglePushToTalkKeybind": "Naciśnij i mów",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "Brak urządzenia audio" },
     "upcomingRoomsCard": {

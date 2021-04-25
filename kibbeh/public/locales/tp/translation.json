@@ -88,10 +88,16 @@
       "requestingToSpeak": "mi wile e toki",
       "listeners": "jan pi kute",
       "allowAll": "Ken jan ale e toki",
-      "allowAllConfirm": "sina wile e ni? ni li ken jan ale {{count}} e toki."
+      "allowAllConfirm": "sina wile e ni? ni li ken jan ale {{count}} e toki.",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "o lukin..." },
-    "soundEffectSettings": { "header": "Kalama", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Kalama",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "ante e jan sina",
       "followsYou": "li lukin e sina",
@@ -173,7 +179,10 @@
       "toggleMuteKeybind": "nena pi ante e ken toki",
       "toggleOverlayKeybind": "nena pi ante e sitelen sewi sitelen sina",
       "togglePushToTalkKeybind": "nena pi ante e \"utala la toki\"",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "ali li kute e kalama" },
     "addToCalendar": { "add": "sitelen e ni lon lipu tenpo suno" },

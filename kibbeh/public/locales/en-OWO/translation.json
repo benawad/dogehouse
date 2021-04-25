@@ -85,12 +85,15 @@
       "requestingToSpeak": "Wequesting to speak (╯﹏╰）",
       "listeners": "Wistenews (´・ω・｀)",
       "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "Seawch... >_<" },
     "soundEffectSettings": {
       "header": "OWO Sounds :D",
-      "title": "Sound Settings"
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
     },
     "viewUser": {
       "editProfile": "Edit Pwofiwe (⁎˃ᆺ˂)",
@@ -167,7 +170,10 @@
       "toggleMuteKeybind": "0w0 Toggwe Mute keybind (❁´◡`❁)",
       "togglePushToTalkKeybind": "Toggwe Push-to-Tawk keybind :D",
       "toggleOverlayKeybind": "Toggwe Owerlay keybind :3",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Nu audio consumew fow some weason D:"

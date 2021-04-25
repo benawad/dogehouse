@@ -85,10 +85,16 @@
       "requestingToSpeak": "Duke kërkuar leje për të folur",
       "listeners": "Dëgjuesit",
       "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "kerko..." },
-    "soundEffectSettings": { "header": "Tingujt", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Tingujt",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "redakto profilin",
       "followsYou": "ju ndjek",
@@ -164,7 +170,10 @@
       "toggleMuteKeybind": "Keybind hesht/ç'hesht",
       "togglePushToTalkKeybind": "Keybind ndiz/fik shtyp-për-të-folur",
       "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "për ndonjë arsye nuk ka asnje konsumator audio"

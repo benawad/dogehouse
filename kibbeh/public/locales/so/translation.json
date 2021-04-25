@@ -85,10 +85,16 @@
       "requestingToSpeak": "Requesting to speak",
       "listeners": "Dhageystayaal",
       "allowAll": "Dhammaan oggolow",
-      "allowAllConfirm": "Ma hubtaa? Tani waxay u oggolaan doontaa dhammaan {{count}} Isticmaalayaasha inay codsadaan inay hadlaan"
+      "allowAllConfirm": "Ma hubtaa? Tani waxay u oggolaan doontaa dhammaan {{count}} Isticmaalayaasha inay codsadaan inay hadlaan",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "raadi..." },
-    "soundEffectSettings": { "header": "Codka", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Codka",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "wax ka beddel koontada",
       "followsYou": "adiga kuraacay",
@@ -170,7 +176,10 @@
       "toggleMuteKeybind": "toggle mute keybind",
       "toggleOverlayKeybind": "toggle overlay keybind",
       "togglePushToTalkKeybind": "toggle push-to-talk keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "no audio consumer for some reason"

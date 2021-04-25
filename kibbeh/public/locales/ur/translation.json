@@ -85,12 +85,15 @@
       "requestingToSpeak": "بولنے کی درخواسات",
       "listeners": "سامعین",
       "allowAll": "سب کو اجازت دیں",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "تلاش کریں" },
     "soundEffectSettings": {
       "header": "آواز کی ترتیبات",
-      "title": "Sound Settings"
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
     },
     "viewUser": {
       "editProfile": "پروفائل میں ترمیم کریں",
@@ -170,7 +173,10 @@
       "toggleMuteKeybind": "گونگا کی بائنڈ ٹوگل کریں",
       "togglePushToTalkKeybind": "ٹوگل کریں پش ٹو ٹاک کی بائنڈ",
       "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "کسی وجہ سے آڈیو صارف نہیں ہے" },
     "addToCalendar": { "add": "کیلنڈر میں شامل کریں" },

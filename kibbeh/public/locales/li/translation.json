@@ -85,10 +85,16 @@
       "requestingToSpeak": "Aanvroage om te sjpreke",
       "listeners": "Loestereers",
       "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "Zeucke..." },
-    "soundEffectSettings": { "header": "Geluide", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Geluide",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Profiel bewirke",
       "followsYou": "Volgt dich",
@@ -167,7 +173,10 @@
       "toggleMuteKeybind": "Sjakel mute sjneltoets",
       "togglePushToTalkKeybind": "Sjakel push-to-talk sjneltoets",
       "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Ging audioapparaat veur ing of andere reje"

@@ -84,10 +84,16 @@
       "requestingToSpeak": "hitza eskatzen",
       "listeners": "entzuleak",
       "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "bilatu..." },
-    "soundEffectSettings": { "header": "Soinuak", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Soinuak",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "editatu profila",
       "followsYou": "jarraitzen zaitu",
@@ -175,7 +181,10 @@
       "toggleMuteKeybind": "Piztu/itzali isiltzeko tekla konbinazioa",
       "toggleOverlayKeybind": "Toggle overlay keybind",
       "togglePushToTalkKeybind": "Piztu/itzali sakatu-hitz-egiteko tekla konbinazioa",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "No audio consumer for some reason"

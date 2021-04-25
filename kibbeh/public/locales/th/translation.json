@@ -84,12 +84,15 @@
       "requestingToSpeak": "กำลังขอขึ้นเป็นผู้พูด",
       "listeners": "ผู้ฟัง",
       "allowAll": "อนุญาตทั้งหมด",
-      "allowAllConfirm": "แน่ใจหรือไม่? คุณกำลังอนุมัติให้ผู้ใช้ {{count}} คน ขึ้นมาเป็นผู้พูด"
+      "allowAllConfirm": "แน่ใจหรือไม่? คุณกำลังอนุมัติให้ผู้ใช้ {{count}} คน ขึ้นมาเป็นผู้พูด",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "ค้นหา..." },
     "soundEffectSettings": {
       "header": "การแจ้งเตือนเสียง",
-      "title": "Sound Settings"
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
     },
     "viewUser": {
       "editProfile": "แก้ไขโปรไฟล์",
@@ -169,7 +172,10 @@
       "toggleMuteKeybind": "Keybind เปิด/ปิด ไมโครโฟน",
       "togglePushToTalkKeybind": "Keybind เปิด/ปิด Push to Talk",
       "toggleOverlayKeybind": "Keybind เปิด/ปิด โอเวอร์เลย์",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "ไม่พบลำโพง" },
     "addToCalendar": { "add": "เพิ่มไปยังปฏิทิน" },

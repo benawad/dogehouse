@@ -85,10 +85,16 @@
       "requestingToSpeak": "Petante paroli",
       "listeners": "Aŭskultantoj",
       "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "serĉi..." },
-    "soundEffectSettings": { "header": "Sonoj", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Sonoj",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "redakti profilon",
       "followsYou": "sekvas vin",
@@ -170,7 +176,10 @@
       "toggleMuteKeybind": "baskuli mutan klavaron",
       "togglePushToTalkKeybind": "ŝalti puŝ-al-parolan klavaron",
       "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "neniu audio-konsumanto ial" },
     "addToCalendar": { "add": "Aldoni al Kalendaro" },

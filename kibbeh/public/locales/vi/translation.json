@@ -85,10 +85,16 @@
       "requestingToSpeak": "Yêu cầu nói",
       "listeners": "Thính giả",
       "allowAll": "Cho phép tất cả",
-      "allowAllConfirm": "Bạn có chắc không? Hành động này sẽ cho phép {{count}} người dùng có quyền nói"
+      "allowAllConfirm": "Bạn có chắc không? Hành động này sẽ cho phép {{count}} người dùng có quyền nói",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "tìm kiếm..." },
-    "soundEffectSettings": { "header": "Âm thanh", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Âm thanh",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "chỉnh sửa hồ sơ",
       "followsYou": "Theo dõi bạn",
@@ -167,7 +173,10 @@
       "toggleMuteKeybind": "phím tắt/mở mic",
       "toggleOverlayKeybind": "phím bật/tắt overlay",
       "togglePushToTalkKeybind": "phím nhấn-để-nói",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "không có âm thanh vì một số lý do"

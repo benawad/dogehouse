@@ -88,10 +88,16 @@
       "requestingToSpeak": "Gapirishni istaganlar",
       "listeners": "tinglovchilar",
       "allowAll": "Barchaga ruxsat berish",
-      "allowAllConfirm": "Ishonchingiz komilmi? Bu {{count}} foydalanuvchilariga gapirish uchun ruxsat so'rab murojaat qilganlarga gapirishga imkon beradi"
+      "allowAllConfirm": "Ishonchingiz komilmi? Bu {{count}} foydalanuvchilariga gapirish uchun ruxsat so'rab murojaat qilganlarga gapirishga imkon beradi",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "Qidirish..." },
-    "soundEffectSettings": { "header": "Tovushlar", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Tovushlar",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Profilni tahrirlash",
       "followsYou": "Obunachilaringiz",
@@ -173,7 +179,10 @@
       "toggleMuteKeybind": "Bosilganda mikrofonni faollashtirish",
       "togglePushToTalkKeybind": "Raciya rejimini yoqing",
       "toggleOverlayKeybind": "Keybind almashtirish tugmachasini biriktirish",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "Audio yo'q" },
     "addToCalendar": { "add": "Taqvimga qo'shish" },

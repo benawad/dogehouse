@@ -85,10 +85,16 @@
       "requestingToSpeak": "Сөйлегісі келетіндер",
       "listeners": "Тыңдармандар",
       "allowAll": "Барлығына рұқсат беру",
-      "allowAllConfirm": "Бұл барлық рұқсат сұраған {{count}} қолданушыға, сөйлеуге мүмкіндік береді.Сіз сенімдісіз бе?"
+      "allowAllConfirm": "Бұл барлық рұқсат сұраған {{count}} қолданушыға, сөйлеуге мүмкіндік береді.Сіз сенімдісіз бе?",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "іздеу..." },
-    "soundEffectSettings": { "header": "дыбыстар", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "дыбыстар",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Профайлды өңдеу",
       "followsYou": "сізге жазылған",
@@ -170,7 +176,10 @@
       "toggleMuteKeybind": "Микрофонды осы пернені басқанда қосу",
       "togglePushToTalkKeybind": "Осы пернені басып сөйлеулң қосу",
       "toggleOverlayKeybind": "Қабаттасуды осы перне арқылы өшіріп/қосу",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "белгісіз себептермен дыбыс жоқ" },
     "addToCalendar": { "add": "Күнтізбеге қосу" },

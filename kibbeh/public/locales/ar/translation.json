@@ -85,10 +85,16 @@
       "requestingToSpeak": "جاري طلب التحدث",
       "listeners": "المستمعون",
       "allowAll": "السماح للكل",
-      "allowAllConfirm": "هل انت متأكد ؟ هذا سيسمح لـ {{count}} مستخدم بالتحدث"
+      "allowAllConfirm": "هل انت متأكد ؟ هذا سيسمح لـ {{count}} مستخدم بالتحدث",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "ابحث..." },
-    "soundEffectSettings": { "header": "الأصوات", "title": "اعدادات الصوت" },
+    "soundEffectSettings": {
+      "header": "الأصوات",
+      "title": "اعدادات الصوت",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "تعديل الحساب",
       "followsYou": "يتابعك",
@@ -166,7 +172,10 @@
       "toggleMuteKeybind": "تبديل رابط مفتاح كتم الصوت",
       "togglePushToTalkKeybind": "تبديل رابط مفتاح الضغط والتحدث",
       "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "لا يوجد مستهلك صوتي لسبب ما" },
     "addToCalendar": { "add": "أضف إلى التقويم" },

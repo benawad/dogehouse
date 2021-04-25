@@ -84,10 +84,16 @@
       "requestingToSpeak": "Aanvragen om te spreken",
       "listeners": "Luisteraars",
       "allowAll": "Iedereen toestaan",
-      "allowAllConfirm": "Weet je het zeker? Dit geeft toestemming aan {{count}} verzoekende gebruikers om te spreken"
+      "allowAllConfirm": "Weet je het zeker? Dit geeft toestemming aan {{count}} verzoekende gebruikers om te spreken",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "Zoek..." },
-    "soundEffectSettings": { "header": "Geluiden", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Geluiden",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Profiel bewerken",
       "followsYou": "Volgt jou",
@@ -169,7 +175,10 @@
       "toggleMuteKeybind": "Schakel demp sneltoets",
       "togglePushToTalkKeybind": "Schakel push-to-talk sneltoets",
       "toggleOverlayKeybind": "Schakel overlay sneltoets",
-      "toggleDeafKeybind": "Schakel hoorbaarheid sneltoets"
+      "toggleDeafKeybind": "Schakel hoorbaarheid sneltoets",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Geen audioapparaat (om een of andere reden)"

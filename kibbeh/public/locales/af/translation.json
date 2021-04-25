@@ -85,10 +85,16 @@
       "requestingToSpeak": "Versoek om te praat",
       "listeners": "Luisteraars",
       "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "soek..." },
-    "soundEffectSettings": { "header": "Klanke", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Klanke",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "wysig profiel",
       "followsYou": "volg jou",
@@ -166,7 +172,10 @@
       "toggleMuteKeybind": "wissel demp sleutelbind",
       "togglePushToTalkKeybind": "wissel push-to-talk sleutelbind",
       "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "geen klank verbruiker vir een of ander rede"

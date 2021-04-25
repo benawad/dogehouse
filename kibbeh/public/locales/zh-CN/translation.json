@@ -84,10 +84,16 @@
       "requestingToSpeak": "要求讲话",
       "listeners": "听者",
       "allowAll": "允许全体成员讲话",
-      "allowAllConfirm": "确定？这将会允许全部{{}}位成员讲话"
+      "allowAllConfirm": "确定？这将会允许全部{{}}位成员讲话",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "搜索..." },
-    "soundEffectSettings": { "header": "声音", "title": "声音设置" },
+    "soundEffectSettings": {
+      "header": "声音",
+      "title": "声音设置",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "编辑个人主页",
       "followsYou": "关注您的人",
@@ -211,7 +217,10 @@
       "toggleMuteKeybind": "切换麦克风静音键绑定",
       "togglePushToTalkKeybind": "切换按键说话绑定",
       "toggleOverlayKeybind": "切换覆盖层绑定",
-      "toggleDeafKeybind": "切换静音键绑定"
+      "toggleDeafKeybind": "切换静音键绑定",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "wsKilled": {
       "description": "连接被服务器终止。当您在另一个标签中打开此网站时，通常会发生这种情况 ",

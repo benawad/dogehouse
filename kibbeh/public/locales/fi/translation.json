@@ -85,10 +85,16 @@
       "requestingToSpeak": "Pyytävät puheoikeutta",
       "listeners": "Kuuntelijat",
       "allowAll": "Hyväksy kaikki",
-      "allowAllConfirm": "Oletko varma? Tämä antaa kaikille {{count}} pyytäville käyttäjille puheoikeuden"
+      "allowAllConfirm": "Oletko varma? Tämä antaa kaikille {{count}} pyytäville käyttäjille puheoikeuden",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "Hae..." },
-    "soundEffectSettings": { "header": "Äänet", "title": "Ääniasetukset" },
+    "soundEffectSettings": {
+      "header": "Äänet",
+      "title": "Ääniasetukset",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Muokkaa profiilia",
       "followsYou": "Seuraa sinua",
@@ -170,7 +176,10 @@
       "toggleMuteKeybind": "Mikrofonin mykistys -pikanäppäin",
       "togglePushToTalkKeybind": "Push-to-talk-pikanäppäin",
       "toggleOverlayKeybind": "Overlay-pikanäppäin",
-      "toggleDeafKeybind": "Hiljennys-pikanäppäin"
+      "toggleDeafKeybind": "Hiljennys-pikanäppäin",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "Ei äänen ulostulolaitteita" },
     "addToCalendar": { "add": "Lisää kalenteriin" },

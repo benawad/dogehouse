@@ -84,10 +84,16 @@
       "requestingToSpeak": "Humihiling na magsalita",
       "listeners": "Mga nakikinig",
       "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "maghanap..." },
-    "soundEffectSettings": { "header": "Tunog", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Tunog",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "I-edit ang profile",
       "followsYou": "mga sumusunod sayo",
@@ -175,7 +181,10 @@
       "toggleMuteKeybind": "I-toggle ang mute keybind",
       "toggleOverlayKeybind": "Toggle overlay keybind",
       "togglePushToTalkKeybind": "I-toggle ang push-to-talk keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Walang na detect na audio consumer"

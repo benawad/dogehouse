@@ -84,10 +84,16 @@
       "requestingToSpeak": "Vogliono parlare",
       "listeners": "Ascoltatori",
       "allowAll": "Permetti a tutti",
-      "allowAllConfirm": "Sei sicuro? Questo permetterà a {{count}} che vogliono parlare di prendere la parola"
+      "allowAllConfirm": "Sei sicuro? Questo permetterà a {{count}} che vogliono parlare di prendere la parola",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "Cerca..." },
-    "soundEffectSettings": { "header": "Suoni", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Suoni",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Modifica profilo",
       "followsYou": "Ti segue",
@@ -169,7 +175,10 @@
       "toggleMuteKeybind": "Scorciatoia per attivare/disattivare il microfono",
       "togglePushToTalkKeybind": "Scorciatoia per il push-to-talk",
       "toggleOverlayKeybind": "Attiva/disattiva la schermata delle scorciatoie",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Nessun audio è disponibile per qualche motivo"

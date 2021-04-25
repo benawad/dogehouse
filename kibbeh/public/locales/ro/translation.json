@@ -85,10 +85,16 @@
       "requestingToSpeak": "Cere să vorbească",
       "listeners": "Ascultători",
       "allowAll": "Permiteți-le pe toate",
-      "allowAllConfirm": "Esti sigur? Asta ar lasa toti {{count}} utilizatori sa vorbeasca"
+      "allowAllConfirm": "Esti sigur? Asta ar lasa toti {{count}} utilizatori sa vorbeasca",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "caută..." },
-    "soundEffectSettings": { "header": "Sunete", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Sunete",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Editează profil",
       "followsYou": "Te urmărește",
@@ -167,7 +173,10 @@
       "toggleMuteKeybind": "Keybind comută mut",
       "togglePushToTalkKeybind": "Keybind comută push-to-talk",
       "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "niciun consumator audio dintr-un motiv oarecare"

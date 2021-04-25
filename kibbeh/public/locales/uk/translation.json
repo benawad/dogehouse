@@ -88,10 +88,16 @@
       "requestingToSpeak": "Запитую дозвіл говорити",
       "listeners": "Слухачі",
       "allowAll": "Дозволити все",
-      "allowAllConfirm": "Ви впевнені? Це дозволить усім {{count}} запитуючим користувачам розмовляти"
+      "allowAllConfirm": "Ви впевнені? Це дозволить усім {{count}} запитуючим користувачам розмовляти",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "шукати..." },
-    "soundEffectSettings": { "header": "Звуки", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Звуки",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "редагувати профіль",
       "followsYou": "підписані на вас",
@@ -173,7 +179,10 @@
       "toggleMuteKeybind": "Перемикнути прив'язку клавіши",
       "togglePushToTalkKeybind": "Перемикнути режим рації",
       "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "споживача аудіо відсутній" },
     "addToCalendar": { "add": "Додати до календаря" },

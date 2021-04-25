@@ -85,10 +85,16 @@
       "requestingToSpeak": "Requestin' t' speak",
       "listeners": "Shipmates",
       "allowAll": "Allow all",
-      "allowAllConfirm": "Ye sure? Ye will allow all {{count}} skallywags to speak!"
+      "allowAllConfirm": "Ye sure? Ye will allow all {{count}} skallywags to speak!",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "searchin' fer booty..." },
-    "soundEffectSettings": { "header": "Sounds", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Sounds",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "avast ye profile",
       "followsYou": "follows you",
@@ -164,7 +170,10 @@
       "toggleMuteKeybind": "toggle mute keybind",
       "togglePushToTalkKeybind": "toggle push-t'-natter keybind",
       "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "no audio consumer fer some reason"

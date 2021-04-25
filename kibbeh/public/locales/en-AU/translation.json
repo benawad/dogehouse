@@ -85,10 +85,16 @@
       "requestingToSpeak": "ʞɐǝds oʇ ƃuᴉʇsǝnbǝᴚ",
       "listeners": "sɹǝuǝʇsᴉꞀ",
       "allowAll": "ꞁꞁɐ ʍoꞁꞁⱯ",
-      "allowAllConfirm": "ʞɐǝds oʇ sɹǝsn ƃuᴉʇsǝnbǝɹ {{count}} ꞁꞁɐ ʍoꞁꞁɐ ꞁꞁᴉʍ sᴉɥ⊥ ¿ǝɹns noʎ ǝɹⱯ"
+      "allowAllConfirm": "ʞɐǝds oʇ sɹǝsn ƃuᴉʇsǝnbǝɹ {{count}} ꞁꞁɐ ʍoꞁꞁɐ ꞁꞁᴉʍ sᴉɥ⊥ ¿ǝɹns noʎ ǝɹⱯ",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "˙˙˙ɥɔɹɐǝs" },
-    "soundEffectSettings": { "header": "spunoS", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "spunoS",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "ǝꞁᴉɟoɹd ʇᴉpǝ",
       "followsYou": "noʎ sʍoꞁꞁoɟ",
@@ -167,7 +173,10 @@
       "toggleMuteKeybind": "puᴉqʎǝʞ ǝʇnɯ ǝꞁƃƃoʇ",
       "toggleOverlayKeybind": "puᴉqʎǝʞ ʎɐꞁɹǝʌo ǝꞁƃƃoʇ",
       "togglePushToTalkKeybind": "puᴉqʎǝʞ ʞꞁɐʇ-oʇ-ɥsnd ǝꞁƃƃoʇ",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "uosɐǝɹ ǝɯos ɹoɟ ɹǝɯnsuoɔ oᴉpnɐ ou"

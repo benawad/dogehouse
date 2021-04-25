@@ -84,10 +84,16 @@
       "requestingToSpeak": "మాట్లాడటానికి అభ్యర్థిస్తోంది",
       "listeners": "Listeners",
       "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "అన్వేషించు..." },
-    "soundEffectSettings": { "header": "సౌండ్స్", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "సౌండ్స్",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "edit profile",
       "followsYou": "Follows you",
@@ -166,7 +172,10 @@
       "toggleMuteKeybind": "మ్యూట్ కీబైండ్‌ను టోగుల్ చేయండి",
       "toggleOverlayKeybind": "toggle overlay keybind",
       "togglePushToTalkKeybind": "టోగుల్  push-to-talk కీబైండ్",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "కొన్ని కారణాల వల్ల ఆడియో వినియోగదారుడు లేరు"

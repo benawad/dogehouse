@@ -84,10 +84,16 @@
       "requestingToSpeak": "Konuşmak için izin istiyor",
       "listeners": "Dinleyiciler",
       "allowAll": "Herkese izin ver",
-      "allowAllConfirm": "Emin misiniz? Bu, talep eden {{count}} kullanıcının konuşmasına izin verecektir"
+      "allowAllConfirm": "Emin misiniz? Bu, talep eden {{count}} kullanıcının konuşmasına izin verecektir",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "Ara..." },
-    "soundEffectSettings": { "header": "Sesler", "title": "Ses Ayarları" },
+    "soundEffectSettings": {
+      "header": "Sesler",
+      "title": "Ses Ayarları",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Profili düzenle",
       "followsYou": "Seni takip ediyor",
@@ -213,7 +219,10 @@
       "toggleMuteKeybind": "susturma aç/kapat tuş ataması",
       "togglePushToTalkKeybind": "bas-konuş tuş ataması",
       "toggleOverlayKeybind": "kaplama tuş ataması",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "wsKilled": {
       "description": "WebSocket bağlantısı sunucu tarafından kapatıldı. Bu genellikle websiteyi başka bir sekmede açtığında yaşanır.",

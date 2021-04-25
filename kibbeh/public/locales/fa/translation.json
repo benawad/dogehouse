@@ -85,10 +85,16 @@
       "requestingToSpeak": "درخواست حرف زدن",
       "listeners": "شنوندگان",
       "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "جستجو..." },
-    "soundEffectSettings": { "header": "صدا", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "صدا",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "ویرایش حساب",
       "followsYou": "شما را دنبال میکنند",
@@ -167,7 +173,10 @@
       "toggleMuteKeybind": "کلید فعال/غیرفعال بی صدا",
       "togglePushToTalkKeybind": "کلید حرف زدن با فشردن دکمه",
       "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "بدون مخاطب به دلایلی" },
     "addToCalendar": { "add": "اضافه کردن به تقویم" },

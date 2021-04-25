@@ -85,10 +85,16 @@
       "requestingToSpeak": "Danışmaq istəyənlər",
       "listeners": "Dinləyicilər",
       "allowAll": "Hərkəsə icazə ver",
-      "allowAllConfirm": "Təsdiqləyirsiniz? Bu seçim {{count}} istifadəçiyə danışma haqqı verəcəkdir"
+      "allowAllConfirm": "Təsdiqləyirsiniz? Bu seçim {{count}} istifadəçiyə danışma haqqı verəcəkdir",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "Axtarış..." },
-    "soundEffectSettings": { "header": "Səslər", "title": "Səs paratmertləri" },
+    "soundEffectSettings": {
+      "header": "Səslər",
+      "title": "Səs paratmertləri",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "Profildə düzəliş et",
       "followsYou": "Sizi izləyənlər",
@@ -172,7 +178,10 @@
       "toggleMuteKeybind": "Susdurma açma/bağlama düymə kombinasiyası",
       "togglePushToTalkKeybind": "Bas danış açma/bağlama düymə kombinasiyası",
       "toggleOverlayKeybind": "Overlay açma/bağlama düymə kombinasiyası",
-      "toggleDeafKeybind": "Karlaşdırma açma/bağlama düymə kombinasiyası"
+      "toggleDeafKeybind": "Karlaşdırma açma/bağlama düymə kombinasiyası",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Bir səbəbə görə səs qəbuledici yoxdur!"

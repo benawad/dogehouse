@@ -85,10 +85,16 @@
       "requestingToSpeak": "Molim za reč",
       "listeners": "Slušaoci",
       "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "pretraži..." },
-    "soundEffectSettings": { "header": "Zvukovi", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Zvukovi",
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "uredi profil",
       "followsYou": "prati vas",
@@ -164,7 +170,10 @@
       "toggleMuteKeybind": "uključi/isključi prečicu na tastaturi za mutiranje",
       "togglePushToTalkKeybind": "uključi/isključi prečicu na tastaturi za govor na pritisak",
       "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "nema audio konzumera iz nekog razloga"

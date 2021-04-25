@@ -88,10 +88,16 @@
       "requestingToSpeak": "কথা বলার জন্য অনুরোধ করছেন",
       "listeners": "শ্রোতাগণ",
       "allowAll": "সবাইকে অনুমতি দিন",
-      "allowAllConfirm": "আপনি কি নিশ্চিত? এটা অনুমতি দেবে সব {{count}} জন অনুরোধ করা ইউজারদের কথা বলতে"
+      "allowAllConfirm": "আপনি কি নিশ্চিত? এটা অনুমতি দেবে সব {{count}} জন অনুরোধ করা ইউজারদের কথা বলতে",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "খুঁজুন..." },
-    "soundEffectSettings": { "header": "সাউন্ডস", "title": "সাউন্ড সেটিংস" },
+    "soundEffectSettings": {
+      "header": "সাউন্ডস",
+      "title": "সাউন্ড সেটিংস",
+      "playSound": "Play Sound"
+    },
     "viewUser": {
       "editProfile": "প্রোফাইল এডিট করুন",
       "followsYou": "আপনাকে অনুসরণ করে",
@@ -175,7 +181,10 @@
       "toggleMuteKeybind": "টগল করুন মাইক কীবাইন্ড",
       "togglePushToTalkKeybind": "টগল করুন পুশ-টু-টক কীবাইন্ড",
       "toggleOverlayKeybind": "টগল করুন ওভারলে কীবাইন্ড",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Toggle deafen keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "কিছু কারনে অডিও কনসিউম করা যাইনি"
