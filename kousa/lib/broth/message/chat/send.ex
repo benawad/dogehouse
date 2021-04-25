@@ -1,4 +1,4 @@
-defmodule Broth.Message.Chat.SendMsg do
+defmodule Broth.Message.Chat.Send do
   use Broth.Message.Cast
 
   alias Broth.Message.Types.ChatToken

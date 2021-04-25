@@ -103,18 +103,12 @@ defmodule Broth.SocketHandler do
   ##########################################################################
   ## CHAT MESSAGES
 
-  def chat_impl({"chat:" <> _room_id, message = %{payload: payload}}, state) do
-    # TODO: make this guard against room_id when we put room into the state.
-    private = payload.whisperedTo
-
-    frame =
-      if private == [] or state.user_id in [payload.from | private] do
-        message
-        |> adopt_version(state)
-        |> prepare_socket_msg(state)
-      end
-
-    ws_push(frame, state)
+  def chat_impl({"chat:" <> _room_id, message}, state) do
+    # TODO: make this guard against room_id or self_id when we put room into the state.
+    message
+    |> adopt_version(state)
+    |> prepare_socket_msg(state) 
+    |> ws_push(state)
   end
 
   def chat_impl(_, state), do: ws_push(nil, state)
@@ -175,6 +169,7 @@ defmodule Broth.SocketHandler do
 
   import Ecto.Changeset
 
+  @spec validate(map, state) :: {:ok, Broth.Message.t} | {:error, Ecto.Changeset.t}
   def validate(message, state) do
     message
     |> Broth.Message.changeset(state)

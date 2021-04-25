@@ -62,6 +62,7 @@ defmodule Broth.Message.Auth.Request do
   end
 
   alias Beef.Repo
+  alias Onion.PubSub
 
   defp convert_tokens(request, state) do
     alias Kousa.Utils.TokenUtils
@@ -130,6 +131,9 @@ defmodule Broth.Message.Auth.Request do
         true ->
           :ok
       end
+
+      # subscribe to chats directed to oneself.
+      PubSub.subscribe("chat:" <> user_id)
 
       {:reply, Repo.get(Reply, user_id), %{state | user_id: user_id, awaiting_init: false}}
     else

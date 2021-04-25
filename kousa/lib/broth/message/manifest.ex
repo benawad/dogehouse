@@ -38,7 +38,7 @@ defmodule Broth.Message.Manifest do
     "room:get_scheduled" => Room.GetScheduled,
     "chat:ban" => Chat.Ban,
     "chat:unban" => Chat.Unban,
-    "chat:send_msg" => Chat.SendMsg,
+    "chat:send_msg" => Chat.Send,
     "chat:delete_msg" => Chat.DeleteMsg,
     "auth:request" => Auth.Request,
     "misc:search" => Misc.Search
