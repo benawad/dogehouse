@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { useTypeSafeTranslation } from "../../src/shared-hooks/useTypeSafeTranslation";
 import { Twemoji } from "./Twemoji";
 import backIcon from "../icons/SolidCaretRight";
 import { SettingsIcon } from "./SettingsIcon";
@@ -85,6 +86,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   ];
 
   const { i18n } = useTranslation();
+  const { t } = useTypeSafeTranslation();
 
   const parsedOptions = options.map((e, i) => (
     <SettingsIcon
@@ -112,7 +114,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
             {backIcon({ style: { transform: "rotate(180deg)" } })}
           </button>
           <p className="block relative text-center top-1/2 transform translate-y-n1/2 w-full font-semibold text-primary-100">
-            Language
+            {t("components.settingsDropdown.language")}
           </p>
         </div>
         <div
