@@ -4,9 +4,11 @@ defmodule Broth.Message.Manifest do
   alias Broth.Message.Room
   alias Broth.Message.User
   alias Broth.Message.Misc
+  alias Broth.Message.Bot
 
   @actions %{
     "test:operator" => BrothTest.MessageTest.TestOperator,
+    "bot:create" => Bot.Create,
     "user:ban" => User.Ban,
     "user:block" => User.Block,
     "user:follow" => User.Follow,

@@ -2,6 +2,7 @@ defmodule Beef.Schemas.User do
   use Ecto.Schema
   import Ecto.Changeset
   alias Beef.Schemas.Room
+  alias Beef.Schemas.BotApiKey
 
   defmodule Preview do
     use Ecto.Schema
@@ -85,6 +86,7 @@ defmodule Beef.Schemas.User do
     field(:deafened, :boolean, virtual: true)
 
     belongs_to(:currentRoom, Room, foreign_key: :currentRoomId, type: :binary_id)
+    has_many(:botApiKeys, BotApiKey, foreign_key: :ownerId)
 
     timestamps()
   end
@@ -101,7 +103,7 @@ defmodule Beef.Schemas.User do
   def edit_changeset(user, attrs) do
     user
     |> cast(attrs, [:id, :username, :bio, :displayName, :avatarUrl, :bannerUrl])
-    |> validate_required([:username, :displayName, :avatarUrl, :bannerUrl])
+    |> validate_required([:username, :displayName, :avatarUrl])
     |> update_change(:displayName, &String.trim/1)
     |> validate_length(:bio, min: 0, max: 160)
     |> validate_length(:displayName, min: 2, max: 50)
