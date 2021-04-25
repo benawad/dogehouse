@@ -56,7 +56,7 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({
                 type="file"
                 name="avatar"
                 id="avatar"
-                accept="image/png, image/jpg, image/jpeg"
+                accept="image/png, image/jpeg"
                 className="hidden"
               />
             </label>
