@@ -63,7 +63,7 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({ user }) => {
             className="ml-2"
             color="secondary"
             size="small"
-            // style={{ minHeight: "28px" }}
+            style={{ minHeight: "28px" }}
             onClick={deleteHandler}
           >
             <SolidTrashIcon className="text-primary-100" />
