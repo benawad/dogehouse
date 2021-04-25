@@ -83,7 +83,9 @@ defmodule Beef.Schemas.User do
     field(:roomPermissions, :map, virtual: true, null: true)
     field(:muted, :boolean, virtual: true)
     field(:deafened, :boolean, virtual: true)
+    field(:apiKey, :binary_id)
 
+    belongs_to(:botOwner, User, foreign_key: :botOwnerId, type: :binary_id)
     belongs_to(:currentRoom, Room, foreign_key: :currentRoomId, type: :binary_id)
 
     timestamps()
@@ -101,7 +103,7 @@ defmodule Beef.Schemas.User do
   def edit_changeset(user, attrs) do
     user
     |> cast(attrs, [:id, :username, :bio, :displayName, :avatarUrl, :bannerUrl])
-    |> validate_required([:username, :displayName, :avatarUrl, :bannerUrl])
+    |> validate_required([:username, :displayName, :avatarUrl])
     |> update_change(:displayName, &String.trim/1)
     |> validate_length(:bio, min: 0, max: 160)
     |> validate_length(:displayName, min: 2, max: 50)
