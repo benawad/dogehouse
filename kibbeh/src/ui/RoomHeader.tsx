@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SolidCaretRight } from "../icons";
 
 interface RoomHeaderProps {
@@ -15,9 +15,18 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
   description,
 }) => {
   const [open, setOpen] = useState(false);
+  const [hasDescription, setHasDescription] = useState<boolean>(false);
+
+  useEffect(() => {
+    setHasDescription(description.trim().length > 0);
+  }, [description]);
+
   return (
     <div
-      className={`flex flex-col p-4 bg-primary-800 rounded-t-8 border-b border-primary-600 w-full`}
+      className={`flex flex-col p-4 bg-primary-800 rounded-t-8 border-b border-primary-600 w-full ${
+        hasDescription ? "cursor-pointer" : ""
+      }`}
+      onClick={hasDescription ? () => setOpen(!open) : undefined}
     >
       <div className={`flex text-primary-100 mb-2`}>
         <button
@@ -27,7 +36,7 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
         >
           {title}
         </button>
-        {description.trim().length > 0 && (
+        {hasDescription && (
           <button className="flex" onClick={() => setOpen(!open)}>
             <SolidCaretRight
               className={`transform ${
