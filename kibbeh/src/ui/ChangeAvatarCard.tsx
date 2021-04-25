@@ -14,8 +14,9 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({ user }) => {
   const [avatar, setAvatar] = useState(user.avatarUrl);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // TODO: set picture to no image/some default
   const deleteHandler = () => {
-    console.log("profile picture deleted");
+    alert("profile picture deleted");
   };
 
   const fileUploadHandler: ChangeEventHandler<HTMLInputElement> = (e) => {
