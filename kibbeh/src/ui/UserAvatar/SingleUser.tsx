@@ -65,6 +65,7 @@ export interface AvatarProps {
   deafened?: boolean;
   activeSpeaker?: boolean;
   username?: string;
+  hover?: boolean;
 }
 
 export const SingleUser: React.FC<AvatarProps> = ({
@@ -72,6 +73,7 @@ export const SingleUser: React.FC<AvatarProps> = ({
   size = "default",
   className = "",
   isOnline = false,
+  hover = false,
   muted,
   deafened,
   activeSpeaker,
@@ -105,6 +107,11 @@ export const SingleUser: React.FC<AvatarProps> = ({
             : src
         }
       />
+      {hover ? (
+        <div
+          className={`bg-primary-900 hover:opacity-20 transition duration-200 opacity-0 absolute w-full h-full top-0 left-0 rounded-full`}
+        ></div>
+      ) : null}
       {isOnline && (
         <span
           className={

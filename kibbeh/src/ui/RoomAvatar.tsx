@@ -37,6 +37,7 @@ export const RoomAvatar: React.FC<RoomAvatarProps> = ({
       muted={muted}
       deafened={deafened}
       username={username}
+      hover={true}
     />
   );
   return (
