@@ -141,5 +141,29 @@ defmodule BrothTest.Chat.SendTest do
       WsClient.refute_frame("chat:send", t.client_ws)
       WsClient.refute_frame("chat:send", banned_ws)
     end
+
+    test "if they have been blocked by the user", t do
+      user_id = t.user.id
+      room_id = t.room_id
+
+      # create a user that is logged in.
+      blocked = Factory.create(User)
+      blocked_ws = WsClientFactory.create_client_for(blocked)
+
+      WsClient.do_call(blocked_ws, "room:join", %{"roomId" => room_id})
+      WsClient.assert_frame_legacy("new_user_join_room", _)
+
+      # block the new user
+      WsClient.do_call(t.client_ws, "user:block", %{"userId" => blocked.id})
+
+      WsClient.send_msg(
+        blocked_ws,
+        "chat:send_msg",
+        %{"tokens" => @text_token, "whisperedTo" => [user_id]})
+
+      WsClient.refute_frame("chat:send", t.client_ws)
+      # you will still get the message yourself.
+      WsClient.assert_frame("chat:send", _, blocked_ws)
+    end
   end
 end

@@ -84,6 +84,8 @@ defmodule Beef.Schemas.User do
 
     belongs_to(:currentRoom, Room, foreign_key: :currentRoomId, type: :binary_id)
 
+    many_to_many(:blocked_by, __MODULE__, join_through: "user_blocks", join_keys: [userIdBlocked: :id, userId: :id])
+
     timestamps()
   end
 

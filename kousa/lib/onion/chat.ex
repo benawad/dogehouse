@@ -184,7 +184,17 @@ defmodule Onion.Chat do
         :ok
 
       list ->
-        Enum.each([payload.from | list], fn recipient_id ->
+        # TODO: hoist this processing so we don't have to do a DB lookup.
+        blocks = Beef.Schemas.User
+        |> Beef.Repo.get(payload.from)
+        |> Beef.Repo.preload(:blocked_by)
+        |> Map.get(:blocked_by)
+        |> Enum.map(&(&1.id))
+
+        list
+        |> Enum.reject(&(&1 in blocks))
+        |> List.insert_at(0, payload.from)
+        |> Enum.each(fn recipient_id ->
           PubSub.broadcast("chat:" <> recipient_id, %Broth.Message{
             operator: "chat:send",
             payload: payload
