@@ -1,14 +1,14 @@
 /* eslint-disable operator-linebreak */
-import React, { HTMLAttributes, ReactNode } from "react";
+import { Console } from "node:console";
+import React, { ChangeEvent, HTMLAttributes, ReactNode } from "react";
 import SolidMoon from "../icons/SolidMoon";
 
 export interface NativeRadioProps {
   icon?: string | React.SVGProps<SVGSVGElement>;
-  checked?: boolean;
   title: string;
   description: string;
-  id?: Settings | string;
-  onClick?: () => void;
+  id?: Settings;
+  checked?: boolean;
   radios?: Array<RadioOptions>;
   children?: ReactNode;
 }
@@ -17,31 +17,34 @@ export type RadioOptions = Omit<NativeRadioProps, "children">;
 
 export type Settings = "online" | "not-disturb" | "dark-theme" | "light-theme";
 
-// this allows us to set a default color when checked is false
 const optionalChangedColor = "text-primary-300";
 
-const backgroundColor = "text-primary-800";
-
-function NativeRadioList({
+export function NativeRadioList({
   radios,
   icon,
-  checked,
   title,
   id,
+  checked = false,
   description,
-  ...props
+  children,
+  ...args
 }: NativeRadioProps) {
-  const [radioSelected, setRadioSelected] = React.useState<NativeRadioProps>();
-  const selectedRadio = React.useRef(null);
-  const handleSubmit = () => {
-    return radioSelected
-      ? // eslint-disable-next-line no-alert
-        alert(`Selected settings: ${radioSelected}`)
-      : undefined;
+  const [radioSelected, setRadioSelected] = React.useState<
+    NativeRadioProps | boolean
+  >(false);
+  const radioRef = React.useRef<HTMLInputElement>(null);
+
+  const setSetttings = (e: React.MouseEvent) => {
+    const { current } = radioRef;
+    if (current && !current.contains(e.target as any)) {
+      setRadioSelected(false);
+    }
+
+    console.log(radioRef.current?.value);
   };
 
   return (
-    <>
+    <React.Fragment>
       <div
         style={{
           width: "601px",
@@ -53,12 +56,20 @@ function NativeRadioList({
       >
         <div
           style={{ marginTop: "16px", marginBottom: "38px" }}
-          className="flex flex-none absolute ml-3 mr-3"
+          className={icon ? `flex flex-none absolute ml-3 mr-3` : `absolute `}
         >
           {icon}
         </div>
-        <div className="ml-6 mt-2 mb-2">
-          <span className={`${optionalChangedColor} font-bold`}>{title}</span>
+        <div className={icon ? `ml-6 mt-2 mb-2 relative` : `ml-3 mt-2 mb-2`}>
+          <span
+            className={
+              radioSelected !== checked
+                ? `text-primary-100 font-bold`
+                : `${optionalChangedColor} font-bold`
+            }
+          >
+            {title}
+          </span>
           <p className="text-primary-300">{description}</p>
         </div>
         <div>
@@ -68,30 +79,31 @@ function NativeRadioList({
           >
             <input
               type="radio"
-              ref={selectedRadio}
+              ref={radioRef}
+              name={id}
               className="form-radio text-primary-900"
               id={id}
-              checked={checked}
-              // onClick={handleRadioChange}
+              checked={checked !== radioSelected}
+              onChange={() => setRadioSelected(!radioSelected)}
+              onClick={setSetttings}
+              value={id}
             />
           </label>
         </div>
       </div>
-    </>
+      {children}
+    </React.Fragment>
   );
 }
 
-export const NativeRadio: React.FC<NativeRadioProps> = ({
-  radios,
-  children,
-  ...props
-}) => {
+export const NativeRadio: React.FC<NativeRadioProps> = ({ radios }) => {
   return (
     <div>
-      <div className="container flex flex-col" {...props}>
-        {radios?.map((room, idx) => (
+      <div className="container flex flex-col">
+        {radios?.map((room) => (
           <NativeRadioList
             key={room.id}
+            id={room.id}
             icon={room.icon}
             title={room.title}
             description={room.description}
@@ -99,7 +111,6 @@ export const NativeRadio: React.FC<NativeRadioProps> = ({
           />
         ))}
       </div>
-      {children}
     </div>
   );
 };
