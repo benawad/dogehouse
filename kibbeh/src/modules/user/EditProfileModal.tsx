@@ -1,7 +1,7 @@
 import { Form, Formik } from "formik";
 import isElectron from "is-electron";
 import React, { useContext, useEffect } from "react";
-import { object, pattern, size, string } from "superstruct";
+import { object, pattern, size, string, optional } from "superstruct";
 import { InputField } from "../../form-fields/InputField";
 import { showErrorToast } from "../../lib/showErrorToast";
 import { validateStruct } from "../../lib/validateStruct";
@@ -20,10 +20,13 @@ const profileStruct = object({
     string(),
     /^https?:\/\/(www\.|)((a|p)bs.twimg.com\/(profile_images|sticky\/default_profile_images)\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/)/
   ),
-  bannerUrl: pattern(
-    string(),
-    /^https?:\/\/(www\.|)((a|p)bs.twimg.com\/(profile_images|sticky\/default_profile_images)\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/)/
-  ),
+  // @todo validation wasn't working needs to be fixed
+  // bannerUrl: optional(
+  //   pattern(
+  //     string(),
+  //     /^https?:\/\/(www\.|)((a|p)bs.twimg.com\/(profile_images|sticky\/default_profile_images)\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/)/
+  //   )
+  // ),
 });
 
 interface EditProfileModalProps {
@@ -73,14 +76,15 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
           initialValues={{
             displayName: user.displayName,
             username: user.username,
-            bio: user.bio,
+            bio: user.bio || "",
             avatarUrl: user.avatarUrl,
-            bannerUrl: user.bannerUrl,
+            // bannerUrl: user.bannerUrl || "",
           }}
           validateOnChange={false}
           validate={(values) => {
             return validateFn({
               ...values,
+              // bannerUrl: values.bannerUrl || undefined,
               displayName: values.displayName.trim(),
             });
           }}
@@ -117,12 +121,14 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                 label={t("components.modals.editProfileModal.avatarUrlLabel")}
                 name="avatarUrl"
               />
-              <InputField
+              {/* <InputField
                 className={`mb-4`}
-                errorMsg="Something unexpected happened"
-                label="Banner Image"
+                errorMsg={t(
+                  "components.modals.editProfileModal.avatarUrlError"
+                )}
+                label="Twitter Banner URL"
                 name="bannerUrl"
-              />
+              /> */}
               <InputField
                 className={`mb-4`}
                 errorMsg={t(
