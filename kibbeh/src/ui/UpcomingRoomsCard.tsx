@@ -15,15 +15,9 @@ const FormattedDate: React.FC<FormattedDateProps> = ({ scheduledFor }) => {
   const { t } = useTypeSafeTranslation();
   let text = "";
   if (isToday(scheduledFor)) {
-    text =
-      t("modules.scheduledRooms.today") + " " + format(scheduledFor, `K:mm a`);
-  } else if (isTomorrow(scheduledFor)) {
-    text =
-      t("modules.scheduledRooms.tommorow") +
-      " " +
-      format(scheduledFor, `K:mm a`);
+    text = format(scheduledFor, `K:mm a`);
   } else {
-    text = format(scheduledFor, `EEE, do MMM, K:mm a`);
+    text = format(scheduledFor, `do MMM, K:mm a`);
   }
   return <>{text}</>;
 };
