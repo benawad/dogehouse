@@ -34,7 +34,7 @@ defmodule BrothTest.EditProfileTest do
 
       WsClient.assert_reply_legacy(
         ref,
-        %{"isUsernameTaken" => false}
+        %{"username" => "new_username"}
       )
 
       assert Users.get_by_id(user_id).username == "new_username"

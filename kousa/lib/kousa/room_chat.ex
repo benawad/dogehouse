@@ -6,14 +6,14 @@ defmodule Kousa.RoomChat do
 
   def send_msg(user_id, tokens, whisperedTo) do
     with room_id when not is_nil(room_id) <- Beef.Users.get_current_room_id(user_id),
-         {avatar_url, banner_url, display_name, username} <- Onion.UserSession.get_info_for_msg(user_id) do
+         {avatar_url, display_name, username} <-
+           Onion.UserSession.get_info_for_msg(user_id) do
       Onion.RoomChat.new_msg(
         room_id,
         user_id,
         %{
           id: Ecto.UUID.generate(),
           avatarUrl: avatar_url,
-          bannerUrl: banner_url,
           displayName: display_name,
           username: username,
           userId: user_id,

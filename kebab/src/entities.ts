@@ -53,9 +53,9 @@ export type User = {
   displayName: string;
   currentRoomId?: UUID;
   currentRoom: Room;
-  bio: string;
+  bio: string | null;
   avatarUrl: string;
-  bannerUrl: string;
+  bannerUrl: string | null;
 };
 
 export type MessageToken<T extends string = string, V = unknown> = {
