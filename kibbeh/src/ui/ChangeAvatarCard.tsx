@@ -6,11 +6,13 @@ import SolidTrashIcon from "../icons/SolidTrash";
 import { BaseUser } from "@dogehouse/kebab";
 
 export interface ChangeAvatarCardProps {
-  user: BaseUser;
+  avatarUrl: string;
 }
 
-export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({ user }) => {
-  const [avatarUrl, setAvatarUrl] = useState(user.avatarUrl);
+export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({
+  avatarUrl,
+}) => {
+  const [baseAvatarUrl, setAvatarUrl] = useState(avatarUrl);
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const MAX_FILE_SIZE = 3145728;
@@ -28,7 +30,7 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({ user }) => {
 
     // handle upload
     console.log(file);
-    // TODO: add upload to image store/github/twitter
+    // add upload to image store/github/twitter
     setAvatarUrl(URL.createObjectURL(file));
   };
 
@@ -40,7 +42,7 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({ user }) => {
   return (
     <BaseSettingsItem className="flex items-center px-4 py-3">
       <div>
-        <SingleUser src={avatarUrl} />
+        <SingleUser src={baseAvatarUrl} />
       </div>
       <div className="flex flex-col ml-5">
         <div className="flex items-center">

@@ -5,7 +5,6 @@ import {
   ChangeAvatarCardProps,
 } from "../ui/ChangeAvatarCard";
 import avatar from "../img/avatar.png";
-import { sampleBaseUser } from "./data/BaseUser";
 
 export default {
   title: "ChangeAvatarCard",
@@ -13,7 +12,7 @@ export default {
 };
 
 ChangeAvatarCard.defaultProps = {
-  user: sampleBaseUser,
+  avatarUrl: avatar,
 };
 
 export const Main: Story<ChangeAvatarCardProps> = ({ ...props }) => (
