@@ -11,7 +11,7 @@
     "edit": "Ubah",
     "delete": "Hapus",
     "joinRoom": "Gabung ke ruangan",
-    "copyLink": "Calin tautan",
+    "copyLink": "Salin tautan",
     "copied": "Disalin",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
@@ -22,8 +22,8 @@
     "title": "DogeHouse",
     "mutedTitle": "Bisu | DogeHouse",
     "deafenedTitle": "Deafened | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "dashboard": "Dasbor",
+    "connectionTaken": "Koneksi Diambil"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -44,7 +44,7 @@
       "createRoom": "Buat Ruangan",
       "refresh": "Segarkan",
       "editRoom": "Ubah Ruangan",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "desktopAlert": "Unduh aplikasi desktop DogeHouse hari ini!"
     },
     "inviteList": {
       "roomGone": "Ruangan hilang, kembali",
@@ -55,7 +55,7 @@
     "login": {
       "headerText": "Membawa obrolan suara ke bulan 🚀",
       "featureText_1": "Mode Gelap",
-      "featureText_2": "Buka Pendaftaran",
+      "featureText_2": "Pendaftaran terbuka",
       "featureText_3": "Dukungan Lintas Platform",
       "featureText_4": "Sumber Terbuka",
       "featureText_5": "Obrolan Teks",
@@ -111,12 +111,12 @@
       "header": "Overlay Settings"
     },
     "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
-      "download_for": "Download for %platform% (%ext%)"
+      "starting": "Mengunduh...",
+      "failed": "Tidak bisa mengunduh otomatis, mohon coba lagi",
+      "visit_gh": "Kunjungi Rilis Github",
+      "prompt": "Tekan tombol di bawah untuk memulai mengunduh",
+      "download_now": "Unduh Sekarang",
+      "download_for": "Unduh untuk %platform% (%ext%)"
     }
   },
   "components": {
@@ -246,7 +246,7 @@
       },
       "debugAudio": {
         "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
+        "stopDebugger": "Berhentikan Debugger"
       }
     }
   },
@@ -265,10 +265,10 @@
         "minLength": "minimal panjang 2",
         "roomDescription": "Deskripsi"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "tommorow": "BESOK",
+      "today": "HARI INI",
       "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
+        "areYouSure": "Apakah kamu yakin ingin menghapus ruangan yang sudah terjadwal ini?"
       }
     },
     "roomChat": {
