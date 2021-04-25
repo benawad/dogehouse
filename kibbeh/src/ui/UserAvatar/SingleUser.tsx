@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SolidMicrophoneOff } from "../../icons";
+import { SolidDeafenedOff, SolidMicrophoneOff } from "../../icons";
 import SolidVolumeOff from "../../icons/SolidVolumeOff";
 
 export const avatarSizeMap = {
@@ -93,7 +93,9 @@ export const SingleUser: React.FC<AvatarProps> = ({
         style={{
           boxShadow: activeSpeaker ? "0 0 0 2px var(--color-accent)" : "",
         }}
-        className="rounded-full w-full h-full object-cover"
+        className={`rounded-full w-full h-full object-cover ${
+          deafened ? "opacity-60" : ""
+        }`}
         onError={() => setError(true)}
         src={
           isError
@@ -135,7 +137,7 @@ export const SingleUser: React.FC<AvatarProps> = ({
           style={{ ...sizeStyle, padding: 2 }}
           data-testid="online-indictor"
         >
-          <SolidVolumeOff
+          <SolidDeafenedOff
             data-testid={`deafened:${username}`}
             width={sizeStyle.width}
             height={sizeStyle.width}

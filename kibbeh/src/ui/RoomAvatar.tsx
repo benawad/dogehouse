@@ -50,7 +50,7 @@ export const RoomAvatar: React.FC<RoomAvatarProps> = ({
       ) : (
         avatar
       )}
-      <div className={`flex items-center mt-2`}>
+      <div className={`flex items-center mt-2 ${deafened ? "opacity-60" : ""}`}>
         <span className={`truncate text-primary-100 text-sm block`}>
           {username}
         </span>
