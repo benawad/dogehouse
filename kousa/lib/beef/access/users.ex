@@ -158,6 +158,6 @@ defmodule Beef.Access.Users do
   end
 
   def count_bot_accounts(user_id) do
-    Repo.one(from(u in User, select: fragment("count(*)"), where: u.botOwnerId == user_id))
+    Repo.one(from(u in User, select: fragment("count(*)"), where: u.botOwnerId == ^user_id))
   end
 end
