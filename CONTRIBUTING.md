@@ -139,6 +139,8 @@ export SENTRY_DNS=
 export API_URL=http://localhost:4001
 export WEB_URL=http://localhost:3000
 export PORT=4001
+export DISCORD_CLIENT_ID=
+export DISCORD_CLIENT_SECRET=
 ```
 
 > You can save these variables in a `.txt` and run `source path/to/file.txt`
