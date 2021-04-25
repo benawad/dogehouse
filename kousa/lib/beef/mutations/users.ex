@@ -236,4 +236,19 @@ defmodule Beef.Mutations.Users do
        )}
     end
   end
+
+  def create_bot(owner_id, username) do
+    %User{}
+    |> User.edit_changeset(%{
+      id: Ecto.UUID.generate(),
+      username: username,
+      # @todo pick better default
+      avatarUrl: "https://pbs.twimg.com/profile_images/1384417471944290304/4epg3HTW_400x400.jpg",
+      displayName: username,
+      botOwnerId: owner_id,
+      bio: "I am a bot",
+      apiKey: Ecto.UUID.generate()
+    })
+    |> Repo.insert()
+  end
 end

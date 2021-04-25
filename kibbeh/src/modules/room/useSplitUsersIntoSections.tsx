@@ -14,7 +14,7 @@ export const useSplitUsersIntoSections = ({
   users,
   activeSpeakerMap,
   muteMap,
-  deafMap = {},
+  deafMap,
 }: JoinRoomAndGetInfoResponse) => {
   const conn = useConn();
   const { muted } = useMuteStore();
@@ -64,9 +64,11 @@ export const useSplitUsersIntoSections = ({
         key={u.id}
         src={u.avatarUrl}
         username={u.username}
-        activeSpeaker={canSpeak && !isMuted && u.id in activeSpeakerMap}
-        muted={canSpeak && isMuted}
-        deafened={canSpeak && isDeafened}
+        activeSpeaker={
+          canSpeak && !isMuted && !isDeafened && u.id in activeSpeakerMap
+        }
+        muted={canSpeak && isMuted && !isDeafened}
+        deafened={isDeafened}
         onClick={() => {
           setData({ userId: u.id });
         }}

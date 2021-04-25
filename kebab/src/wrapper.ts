@@ -182,7 +182,7 @@ export const wrap = (connection: Connection) => ({
       username: string;
       bio: string;
       avatarUrl: string;
-      bannerUrl: string;
+      bannerUrl?: string;
     }): Promise<{ isUsernameTaken: boolean }> =>
       connection.fetch("edit_profile", { data }),
     editRoom: (data: {

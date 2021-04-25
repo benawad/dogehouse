@@ -9,6 +9,7 @@ defmodule Broth do
   alias Broth.Routes.ScheduledRoom
   alias Broth.Routes.Room
   alias Broth.Routes.Stats
+  alias Broth.Routes.BotAuth
 
   use Plug.Router
   use Sentry.PlugCapture
@@ -28,6 +29,7 @@ defmodule Broth do
   forward("/scheduled-room", to: ScheduledRoom)
   forward("/room", to: Room)
   forward("/stats", to: Stats)
+  forward("/bot", to: BotAuth)
 
   get _ do
     send_resp(conn, 404, "not found")
