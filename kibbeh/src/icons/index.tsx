@@ -18,6 +18,7 @@ export { default as SolidFullscreen } from "./SolidFullscreen";
 export { default as SolidHelp } from "./SolidHelp";
 export { default as SolidLink } from "./SolidLink";
 export { default as SolidMegaphone } from "./SolidMegaphone";
+export { default as SolidSimpleMegaphone } from "./SolidSimpleMegaphone";
 export { default as SolidMicrophone } from "./SolidMicrophone";
 export { default as SolidMicrophoneOff } from "./SolidMicrophoneOff";
 export { default as SolidSettings } from "./SolidSettings";
