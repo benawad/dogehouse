@@ -63,7 +63,8 @@ export const EmojiPicker: React.FC<EmojiPickerProps> = ({
 
   return (
     <div
-      className={`flex bg-primary-700 rounded-8 flex flex-row flex-grow p-1 max-h-24 pt-2 px-2`}
+      className={`flex bg-primary-700 rounded-8 flex flex-row flex-grow p-1 max-h-24 pt-2 px-2 absolute bottom-full w-full`}
+      data-testid="emote-picker"
     >
       <div
         className={`flex grid grid-cols-7 w-full pr-3 gap-2 max-h-16 overflow-y-scroll scrollbar-thin scrollbar-thumb-rounded-xl scrollbar-thumb-primary-800`}
