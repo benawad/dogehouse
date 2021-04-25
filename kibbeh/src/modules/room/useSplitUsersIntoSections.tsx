@@ -14,7 +14,7 @@ export const useSplitUsersIntoSections = ({
   users,
   activeSpeakerMap,
   muteMap,
-  deafMap = {},
+  deafMap,
 }: JoinRoomAndGetInfoResponse) => {
   const conn = useConn();
   const { muted } = useMuteStore();
