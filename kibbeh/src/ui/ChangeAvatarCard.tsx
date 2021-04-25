@@ -21,12 +21,16 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({ user }) => {
   const fileChangeHandler: ChangeEventHandler<HTMLInputElement> = (e) => {
     const MAX_FILE_SIZE = 3145728;
     if (e.target.files!.length < 1) return;
+    
+    // get file 
     const file = e.target.files![0];
+    console.log(file);
 
     if (file.size > MAX_FILE_SIZE) {
       alert("File size must be less than 3MB");
       return;
     }
+
     const type = file.type.toLocaleLowerCase();
     if (type.includes("jpg") || type.includes("jpeg") || type.includes("png")) {
       // upload the new banner
@@ -80,7 +84,6 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({ user }) => {
           </span>
         </div>
       </div>
-      {/* </div> */}
     </BaseSettingsItem>
   );
 };
