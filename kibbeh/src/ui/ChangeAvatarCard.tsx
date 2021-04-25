@@ -33,7 +33,7 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({
          <div className="flex flex-col ml-5">
             <div className="flex items-center">
                <Button size="small" color="secondary" className="">
-                  <label htmlFor="avatar" className="relative cursor-pointer">
+                  <label htmlFor="avatar" className="relative cursor-pointer text-primary-100">
                      Change profile picture
                      <input 
                         onChange={handleImageUpload}
