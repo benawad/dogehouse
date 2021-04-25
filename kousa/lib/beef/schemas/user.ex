@@ -85,7 +85,7 @@ defmodule Beef.Schemas.User do
     field(:deafened, :boolean, virtual: true)
     field(:apiKey, :binary_id)
 
-    belongs_to(:botOwner, User, foreign_key: :botOwnerId, type: :binary_id)
+    belongs_to(:botOwner, Beef.Schemas.User, foreign_key: :botOwnerId, type: :binary_id)
     belongs_to(:currentRoom, Room, foreign_key: :currentRoomId, type: :binary_id)
 
     timestamps()
