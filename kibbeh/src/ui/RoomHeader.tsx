@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { SolidCaretRight } from "../icons";
+import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
 
 interface RoomHeaderProps {
   onTitleClick?: () => void;
@@ -49,13 +50,22 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
         )}
       </div>
       <div className={`flex text-primary-200 text-sm`}>
-        with{" "}
-        <span
-          style={{ marginLeft: 3 }}
-          className={`font-bold text-primary-100`}
-        >
-          {names.join(", ")}
-        </span>
+        <span style={{ marginRight: 4 }}>with</span>{" "}
+        {names.map((username, i) => (
+          <ApiPreloadLink
+            route="profile"
+            data={{ username }}
+            key={username + i}
+          >
+            <span
+              className={`font-bold text-primary-100 hover:underline`}
+              style={{ marginRight: 4 }}
+            >
+              {`${username}`}
+              {i === names.length - 1 ? "" : `,`}
+            </span>
+          </ApiPreloadLink>
+        ))}
       </div>
       {open ? <div className="text-primary-100 mt-4">{description}</div> : null}
     </div>
