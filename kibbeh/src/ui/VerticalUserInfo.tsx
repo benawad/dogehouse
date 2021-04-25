@@ -70,7 +70,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
         <div className="flex w-full mt-2">
           {/* Tailwind's max-height is not working, so I used style */}
           <p
-            className="text-primary-300 mt-2 text-center w-full whitespace-pre-wrap break-words inline line-clamp-6 overflow-y-auto"
+            className="text-primary-300 mt-2 text-center w-full whitespace-pre-wrap break-words inline overflow-y-auto"
             style={{ maxHeight: "300px" }}
           >
             {user.bio &&
