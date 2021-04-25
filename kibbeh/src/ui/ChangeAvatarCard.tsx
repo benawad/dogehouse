@@ -18,11 +18,14 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({ user }) => {
     console.log("profile picture deleted");
   };
 
-  const fileChangeHandler: ChangeEventHandler<HTMLInputElement> = (e) => {
+  const fileUploadHandler: ChangeEventHandler<HTMLInputElement> = (e) => {
     const MAX_FILE_SIZE = 3145728;
-    if (e.target.files!.length < 1) return;
-    
-    // get file 
+    if (e.target.files!.length < 1) {
+      console.log("Empty file");
+      return;
+    }
+
+    // get file
     const file = e.target.files![0];
     console.log(file);
 
@@ -38,7 +41,7 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({ user }) => {
     }
   };
 
-  const changeProfileButtonClickHandler = () => {
+  const uploadProfilePictureHandler = () => {
     if (!fileInputRef.current) return;
     fileInputRef.current.click();
   };
@@ -53,11 +56,9 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({ user }) => {
           <Button
             size="small"
             color="secondary"
-            onClick={changeProfileButtonClickHandler}
+            onClick={uploadProfilePictureHandler}
           >
-            <label htmlFor="avatar" className="relative cursor-pointer">
-              Change profile picture
-            </label>
+            Change profile picture
           </Button>
           <Button
             className="ml-2"
@@ -71,9 +72,7 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({ user }) => {
           <input
             type="file"
             ref={fileInputRef}
-            name="avatar"
-            id="avatar"
-            onChange={fileChangeHandler}
+            onChange={fileUploadHandler}
             className="w-0 h-0 invisible"
             accept="image/jpeg, image/jpg, image/png"
           />
