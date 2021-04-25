@@ -23,8 +23,8 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({
   const fileChangeHandler: ChangeEventHandler<HTMLInputElement> = (e) => {
     if (e.target.files!.length < 1) return;
     const file = e.target.files![0];
-    if (file.size > 3000000) {
-      console.log("File size must be less than 3MB");
+    if (file.size > 3145728) {
+      alert("File size must be less than 3MB");
       return;
     }
     const type = file.type.toLocaleLowerCase();
@@ -40,7 +40,7 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({
   };
 
   return (
-    <BaseSettingsItem className="flex items-center justify-between px-2 py-2 w-full">
+    <BaseSettingsItem className="flex items-center px-2 py-2 w-full">
     <div className="flex">
       <SingleUser src={avatar} username={user.username} />
       <div className="flex flex-col p-3">
