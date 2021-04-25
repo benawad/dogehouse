@@ -1,9 +1,8 @@
-import React, { ChangeEvent, useState, useRef } from "react";
+import React, { useState } from "react";
 import { BaseSettingsItem } from "./BaseSettingsItem";
 import { SingleUser } from "./UserAvatar";
 import { Button } from "./Button";
 import SolidTrashIcon from "../icons/SolidTrash";
-import { BaseUser } from "@dogehouse/kebab";
 
 export interface ChangeAvatarCardProps {
   avatarUrl: string;
