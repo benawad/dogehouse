@@ -34,6 +34,7 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({ user }) => {
       return;
     }
 
+    // TODO: add upload to image store/github/twitter
     const type = file.type.toLocaleLowerCase();
     if (type.includes("jpg") || type.includes("jpeg") || type.includes("png")) {
       // upload the new banner
@@ -49,7 +50,7 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({ user }) => {
   return (
     <BaseSettingsItem className="flex items-center px-4 py-3">
       <div>
-        <SingleUser src={avatar} username={user.username} />
+        <SingleUser src={avatar}  username={user.username} />
       </div>
       <div className="flex flex-col p-3">
         <div className="flex">
