@@ -48,7 +48,7 @@ defmodule BrothTest.Chat.SendTest do
           "from" => ^user_id,
           "id" => msg_uuid,
           "isWhisper" => false
-          },
+        },
         t.client_ws
       )
 
@@ -60,7 +60,7 @@ defmodule BrothTest.Chat.SendTest do
           "from" => ^user_id,
           "id" => ^msg_uuid,
           "isWhisper" => false
-          },
+        },
         listener_ws
       )
     end
@@ -115,6 +115,31 @@ defmodule BrothTest.Chat.SendTest do
       )
 
       WsClient.refute_frame("chat:send", cant_hear_ws)
+    end
+  end
+
+  describe "the sender should not be able to send" do
+    test "if they have been chat banned from the room", t do
+      user_id = t.user.id
+      room_id = t.room_id
+
+      # create a user that is logged in.
+      banned = Factory.create(User)
+      banned_ws = WsClientFactory.create_client_for(banned)
+
+      WsClient.do_call(banned_ws, "room:join", %{"roomId" => room_id})
+      WsClient.assert_frame_legacy("new_user_join_room", _)
+
+      # ban the new user
+      WsClient.send_msg(t.client_ws, "chat:ban", %{"userId" => banned.id})
+
+      WsClient.assert_frame_legacy("chat_user_banned", _)
+      WsClient.assert_frame_legacy("chat_user_banned", _)
+
+      WsClient.send_msg(banned_ws, "chat:send_msg", %{"tokens" => @text_token})
+
+      WsClient.refute_frame("chat:send", t.client_ws)
+      WsClient.refute_frame("chat:send", banned_ws)
     end
   end
 end

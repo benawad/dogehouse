@@ -1,31 +1,18 @@
 defmodule Kousa.Chat do
   alias Beef.Rooms
   alias Onion.Chat
-  alias Onion.PubSub
-  alias Broth.Message
 
-  def send_msg(user_id, payload) do
-    with room_id when not is_nil(room_id) <- Beef.Users.get_current_room_id(user_id) do
-      # verify that the user isn't banned from chatting in the room.
+  def send_msg(payload) do
+    # TODO: pull room information from passed parameters from ws_session.
+    case Beef.Users.get_current_room_id(payload.from) do
+      nil ->
+        :noop
 
-      # if it's a whisper, verify that the user isn't blocked by the target user.
-
-      case payload.whisperedTo do
-        [] ->
-          PubSub.broadcast("chat:" <> room_id, %Message{
-            operator: "chat:send",
-            payload: payload
-          })
-          :ok
-        list ->
-          Enum.each([user_id | list], fn recipient_id ->
-            PubSub.broadcast("chat:" <> recipient_id, %Message{
-              operator: "chat:send",
-              payload: payload
-            })
-          end)
-      end
+      room_id ->
+        Onion.Chat.send_msg(room_id, payload)
     end
+
+    :ok
   end
 
   @ban_roles [:creator, :mod]

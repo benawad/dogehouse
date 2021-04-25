@@ -107,7 +107,7 @@ defmodule Broth.SocketHandler do
     # TODO: make this guard against room_id or self_id when we put room into the state.
     message
     |> adopt_version(state)
-    |> prepare_socket_msg(state) 
+    |> prepare_socket_msg(state)
     |> ws_push(state)
   end
 
@@ -169,7 +169,7 @@ defmodule Broth.SocketHandler do
 
   import Ecto.Changeset
 
-  @spec validate(map, state) :: {:ok, Broth.Message.t} | {:error, Ecto.Changeset.t}
+  @spec validate(map, state) :: {:ok, Broth.Message.t()} | {:error, Ecto.Changeset.t()}
   def validate(message, state) do
     message
     |> Broth.Message.changeset(state)

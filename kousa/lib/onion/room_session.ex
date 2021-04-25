@@ -11,7 +11,8 @@ defmodule Onion.RoomSession do
             deafMap: map(),
             inviteMap: map(),
             activeSpeakerMap: map(),
-            auto_speaker: boolean()
+            auto_speaker: boolean(),
+            last_message_times: %{optional(Kousa.Utils.UUID.t()) => DateTime.t()}
           }
 
     defstruct room_id: "",
@@ -21,7 +22,8 @@ defmodule Onion.RoomSession do
               deafMap: %{},
               inviteMap: %{},
               activeSpeakerMap: %{},
-              auto_speaker: false
+              auto_speaker: false,
+              last_message_times: %{}
   end
 
   #################################################################################

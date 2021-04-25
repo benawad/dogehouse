@@ -22,7 +22,7 @@ defmodule Broth.Message.Chat.Send do
     %__MODULE__{
       id: UUID.uuid4(),
       from: state.user_id,
-      sentAt: DateTime.utc_now(),
+      sentAt: DateTime.utc_now()
     }
   end
 
@@ -125,7 +125,8 @@ defmodule Broth.Message.Chat.Send do
   @impl true
   def execute(changeset, state) do
     with {:ok, payload} <- apply_action(changeset, :validate) do
-      Kousa.Chat.send_msg(state.user_id, payload)
+      # note that payload bears the user_id inside of its `from` parameter.
+      Kousa.Chat.send_msg(payload)
       {:noreply, state}
     end
   end

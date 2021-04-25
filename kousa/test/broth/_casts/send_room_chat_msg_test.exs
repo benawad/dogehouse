@@ -24,6 +24,7 @@ defmodule BrothTest.SendRoomChatMsgTest do
 
     test "sends a message to the room", t do
       user_id = t.user.id
+
       %{"room" => %{"id" => room_id}} =
         WsClient.do_call_legacy(
           t.client_ws,
@@ -55,9 +56,10 @@ defmodule BrothTest.SendRoomChatMsgTest do
             "username" => _,
             "userId" => ^user_id,
             "sentAt" => _,
-            "isWhisper" => false},
-          "userId" => ^user_id
+            "isWhisper" => false
           },
+          "userId" => ^user_id
+        },
         t.client_ws
       )
 
@@ -72,7 +74,8 @@ defmodule BrothTest.SendRoomChatMsgTest do
             "username" => _,
             "userId" => ^user_id,
             "sentAt" => _,
-            "isWhisper" => false},
+            "isWhisper" => false
+          },
           "userId" => ^user_id
         },
         listener_ws
