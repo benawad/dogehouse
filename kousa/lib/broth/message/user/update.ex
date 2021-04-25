@@ -8,6 +8,7 @@ defmodule Broth.Message.User.Update do
     username
     bio
     avatarUrl
+    bannerUrl
     displayName
     muted
     deafened
@@ -17,6 +18,7 @@ defmodule Broth.Message.User.Update do
   schema "users" do
     field(:username, :string)
     field(:avatarUrl, :string)
+    field(:bannerUrl, :string)
     field(:displayName, :string)
     field(:bio, :string)
     field(:muted, :boolean, virtual: true)
@@ -30,7 +32,7 @@ defmodule Broth.Message.User.Update do
 
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
-    |> cast(data, [:muted, :deafened, :username, :bio, :displayName, :avatarUrl])
+    |> cast(data, [:muted, :deafened, :username, :bio, :displayName, :avatarUrl, :bannerUrl])
     |> validate_required([:username])
   end
 

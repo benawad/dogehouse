@@ -27,7 +27,8 @@ defmodule Kousa.Beef.UsersTest do
           username: "dave",
           displayName: "bar",
           avatarUrl: "https://www.pbs.twimg.com/profile_images/ghi.jpg",
-          bannerUrl: "https://bit.ly/3dzG9DB#https://avatars.githubusercontent.com/u/44095206?v=4"
+          bannerUrl:
+            "https://pbs.twimg.com/profile_banners/840626569743912960/1601562221/1500x500"
         })
 
       assert %{
@@ -36,7 +37,8 @@ defmodule Kousa.Beef.UsersTest do
                username: "dave",
                displayName: "bar",
                avatarUrl: "https://www.pbs.twimg.com/profile_images/ghi.jpg",
-               bannerUrl: "https://www.pbs.twimg.com/profile_images/ghi.jpg"
+               bannerUrl:
+                 "https://pbs.twimg.com/profile_banners/840626569743912960/1601562221/1500x500"
              } = Repo.get!(User, user.id)
     end
 
