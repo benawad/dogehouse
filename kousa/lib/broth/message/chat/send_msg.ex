@@ -5,18 +5,25 @@ defmodule Broth.Message.Chat.SendMsg do
 
   @message_character_limit Application.compile_env!(:kousa, :message_character_limit)
 
-  @derive {Jason.Encoder, only: [:tokens, :whisperedTo, :from]}
+  @derive {Jason.Encoder, only: [:id, :tokens, :from, :sentAt, :isWhisper]}
 
   @primary_key false
   embedded_schema do
+    field(:id, :binary_id)
     embeds_many(:tokens, ChatToken)
     field(:whisperedTo, {:array, :binary_id})
     field(:from, :binary_id)
+    field(:sentAt, :utc_datetime)
+    field(:isWhisper, :boolean, default: false)
   end
 
   @impl true
   def initialize(state) do
-    %__MODULE__{from: state.user_id}
+    %__MODULE__{
+      id: UUID.uuid4(),
+      from: state.user_id,
+      sentAt: DateTime.utc_now(),
+    }
   end
 
   @impl true
@@ -105,7 +112,9 @@ defmodule Broth.Message.Chat.SendMsg do
           end
         end)
 
-      put_change(changeset, :whisperedTo, normalized_uuids)
+      changeset
+      |> put_change(:whisperedTo, normalized_uuids)
+      |> put_change(:isWhisper, normalized_uuids != [])
     else
       changeset
     end

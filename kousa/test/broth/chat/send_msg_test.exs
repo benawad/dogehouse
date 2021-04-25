@@ -28,6 +28,7 @@ defmodule BrothTest.Chat.SendMsgTest do
     @text_token [%{"t" => "text", "v" => "foobar"}]
 
     test "sends a message to the room", t do
+      user_id = t.user.id
       room_id = t.room_id
 
       # create a user that is logged in.
@@ -41,13 +42,25 @@ defmodule BrothTest.Chat.SendMsgTest do
 
       WsClient.assert_frame(
         "chat:send",
-        %{"tokens" => @text_token},
+        %{
+          "tokens" => @text_token,
+          "sentAt" => _,
+          "from" => ^user_id,
+          "id" => msg_uuid,
+          "isWhisper" => false
+          },
         t.client_ws
       )
 
       WsClient.assert_frame(
         "chat:send",
-        %{"tokens" => @text_token},
+        %{
+          "tokens" => @text_token,
+          "sentAt" => _,
+          "from" => ^user_id,
+          "id" => ^msg_uuid,
+          "isWhisper" => false
+          },
         listener_ws
       )
     end
@@ -79,13 +92,25 @@ defmodule BrothTest.Chat.SendMsgTest do
 
       WsClient.assert_frame(
         "chat:send",
-        %{"tokens" => @text_token, "from" => ^user_id},
+        %{
+          "tokens" => @text_token,
+          "from" => ^user_id,
+          "sentAt" => _,
+          "id" => msg_id,
+          "isWhisper" => true
+        },
         t.client_ws
       )
 
       WsClient.assert_frame(
         "chat:send",
-        %{"tokens" => @text_token, "from" => ^user_id},
+        %{
+          "tokens" => @text_token,
+          "from" => ^user_id,
+          "sentAt" => _,
+          "id" => ^msg_id,
+          "isWhisper" => true
+        },
         can_hear_ws
       )
 

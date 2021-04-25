@@ -22,9 +22,8 @@ defmodule BrothTest.SendRoomChatMsgTest do
   describe "the websocket send_room_chat operation" do
     @text_token [%{"t" => "text", "v" => "foobar"}]
 
-    test "be sure to test from whom the msg came"
-
     test "sends a message to the room", t do
+      user_id = t.user.id
       %{"room" => %{"id" => room_id}} =
         WsClient.do_call_legacy(
           t.client_ws,
@@ -47,13 +46,35 @@ defmodule BrothTest.SendRoomChatMsgTest do
 
       WsClient.assert_frame_legacy(
         "new_chat_msg",
-        %{"msg" => %{"tokens" => @text_token}},
+        %{
+          "msg" => %{
+            "tokens" => @text_token,
+            "id" => _,
+            "avatarUrl" => _,
+            "displayName" => _,
+            "username" => _,
+            "userId" => ^user_id,
+            "sentAt" => _,
+            "isWhisper" => false},
+          "userId" => ^user_id
+          },
         t.client_ws
       )
 
       WsClient.assert_frame_legacy(
         "new_chat_msg",
-        %{"msg" => %{"tokens" => @text_token}},
+        %{
+          "msg" => %{
+            "tokens" => @text_token,
+            "id" => _,
+            "avatarUrl" => _,
+            "displayName" => _,
+            "username" => _,
+            "userId" => ^user_id,
+            "sentAt" => _,
+            "isWhisper" => false},
+          "userId" => ^user_id
+        },
         listener_ws
       )
     end
@@ -93,13 +114,13 @@ defmodule BrothTest.SendRoomChatMsgTest do
 
       WsClient.assert_frame_legacy(
         "new_chat_msg",
-        %{"msg" => %{"tokens" => @text_token}},
+        %{"msg" => %{"tokens" => @text_token, "isWhisper" => true}},
         t.client_ws
       )
 
       WsClient.assert_frame_legacy(
         "new_chat_msg",
-        %{"msg" => %{"tokens" => @text_token}},
+        %{"msg" => %{"tokens" => @text_token, "isWhisper" => true}},
         can_hear_ws
       )
 
