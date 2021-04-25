@@ -43,3 +43,4 @@ export { default as LinkIcon } from "./Link";
 export { default as SolidTrash } from "./SolidTrash";
 export { default as SolidMoon } from "./SolidMoon";
 export { default as SolidWarning } from "./SolidWarning";
+export { default as OutlineSend } from "./OutlineSend";

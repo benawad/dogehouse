@@ -1,6 +1,6 @@
 import { RoomUser } from "@dogehouse/kebab";
 import React, { useRef, useState, useEffect } from "react";
-import { Smiley } from "../../../icons";
+import { Smiley, OutlineSend } from "../../../icons";
 import { createChatMessage } from "../../../lib/createChatMessage";
 import { showErrorToast } from "../../../lib/showErrorToast";
 import { useConn } from "../../../shared-hooks/useConn";
@@ -39,6 +39,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
   const conn = useConn();
   const me = conn.user;
   const inputRef = useRef<HTMLInputElement>(null);
+  const submitRef = useRef<HTMLButtonElement>(null);
   const [lastMessageTimestamp, setLastMessageTimestamp] = useState<number>(0);
   const { t } = useTypeSafeTranslation();
 
@@ -150,6 +151,15 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
           >
             <Smiley style={{ inlineSize: "23px" }}></Smiley>
           </div>
+          <div
+            className={`right-12 cursor-pointer flex flex-row-reverse fill-current text-primary-200 mr-3`}
+            onClick={() => {
+              // formref.current?.dispatchEvent(new Event('submit', { cancelable: true }))
+              submitRef.current?.click();
+            }}
+          >
+            <OutlineSend style={{inlineSize: "23px"}}></OutlineSend>
+          </div>
         </div>
 
         {/* Send button (mobile only) */}
@@ -163,6 +173,8 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
           </Button>
         )} */}
       </div>
+      {/* Needed to programatically submit form with submit button */}
+      <button ref={submitRef} type="submit" style={{visibility: "hidden"}} />
     </form>
   );
 };
