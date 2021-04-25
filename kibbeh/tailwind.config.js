@@ -78,7 +78,7 @@ module.exports = {
       DEFAULT: "1px",
       0: "0px",
       4: "4px",
-      2: "2px"
+      2: "2px",
     },
     extend: {
       borderRadius: {
@@ -102,5 +102,9 @@ module.exports = {
       borderWidth: ["last"],
     },
   },
-  plugins: [require("tailwind-scrollbar"), require("@tailwindcss/line-clamp")],
+  plugins: [
+    require("tailwind-scrollbar"),
+    require("@tailwindcss/line-clamp"),
+    require("@tailwindcss/forms"),
+  ],
 };
