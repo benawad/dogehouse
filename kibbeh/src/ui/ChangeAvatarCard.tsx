@@ -21,14 +21,14 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({ user }) => {
 
   const fileUploadHandler: ChangeEventHandler<HTMLInputElement> = (e) => {
     const MAX_FILE_SIZE = 3145728;
-    if (e.target.files!.length < 1) {
+    // get file
+    const file = (e.target.files as FileList)[0];
+    console.log(file);
+
+    if (file.size < 1) {
       console.log("Empty file");
       return;
     }
-
-    // get file
-    const file = e.target.files![0];
-    console.log(file);
 
     if (file.size > MAX_FILE_SIZE) {
       alert("File size must be less than 3MB");
@@ -38,7 +38,7 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({ user }) => {
     // TODO: add upload to image store/github/twitter
     const type = file.type.toLocaleLowerCase();
     if (type.includes("jpg") || type.includes("jpeg") || type.includes("png")) {
-      // upload the new banner
+      // upload the new url
       setAvatar(URL.createObjectURL(file));
     }
   };
@@ -60,7 +60,17 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({ user }) => {
             color="secondary"
             onClick={uploadProfilePictureHandler}
           >
-            Change profile picture
+            <label htmlFor="avatar" className="relative cursor-pointer">
+              Change profile picture
+              <input
+                onChange={fileUploadHandler}
+                type="file"
+                name="avatar"
+                id="avatar"
+                accept="image/png,image/jpg, image/jpeg"
+                className="hidden"
+              />
+            </label>
           </Button>
           <Button
             className="ml-2"
@@ -71,13 +81,6 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({ user }) => {
           >
             <SolidTrashIcon className="text-primary-100" />
           </Button>
-          <input
-            type="file"
-            ref={fileInputRef}
-            onChange={fileUploadHandler}
-            className="w-0 h-0 invisible"
-            accept="image/jpeg, image/jpg, image/png"
-          />
         </div>
         <div className="flex mt-2">
           <span className="text-primary-300 font-medium text-sm">
