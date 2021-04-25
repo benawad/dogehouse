@@ -26,6 +26,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
             size="default"
             src={user.avatarUrl}
             username={user.username}
+            hover={true}
           />
         </ApiPreloadLink>
         <ApiPreloadLink route="profile" data={{ username: user.username }}>
