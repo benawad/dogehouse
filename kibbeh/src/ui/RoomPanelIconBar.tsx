@@ -64,7 +64,9 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
           <BoxedIcon
             transition
             hover={deaf.isDeaf}
-            className={`mr-2 h-6.5 w-6.5 ${deaf.isDeaf ? `bg-accent` : ``}`}
+            className={`mr-2 h-6.5 w-6.5 ${
+              deaf.isDeaf ? `bg-accent hover:bg-accent-hover text-button` : ``
+            }`}
             color="800"
             title={t("components.bottomVoiceControl.toggleDeafMicBtn")}
             onClick={() => deaf.onDeaf()}

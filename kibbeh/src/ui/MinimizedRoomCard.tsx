@@ -1,12 +1,11 @@
 import React from "react";
 import { BoxedIcon } from "./BoxedIcon";
 import {
+  SolidDeafened,
+  SolidDeafenedOff,
   SolidFullscreen,
   SolidMicrophone,
-  SolidVolume,
-  SolidVolumeOff,
 } from "../icons";
-import { useRouter } from "next/router";
 import { Button } from "./Button";
 import { DurationTicker } from "./DurationTicker";
 import SvgSolidMicrophoneOff from "../icons/SolidMicrophoneOff";
@@ -63,7 +62,11 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
               transition
               hover={room.myself.isMuted}
               onClick={room.myself.switchMuted}
-              className={room.myself.isMuted ? "bg-accent" : ""}
+              className={
+                !room.myself.isMuted
+                  ? "bg-accent hover:bg-accent-hover text-button"
+                  : ""
+              }
             >
               {room.myself.isMuted ? (
                 <SvgSolidMicrophoneOff data-testid="mic-off-icon" />
@@ -74,9 +77,13 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
           ) : null}
           <BoxedIcon
             onClick={room.myself.switchDeafened}
-            className={room.myself.isDeafened ? "bg-accent" : ""}
+            className={
+              room.myself.isDeafened
+                ? "bg-accent hover:bg-accent-hover text-button"
+                : ""
+            }
           >
-            {room.myself.isDeafened ? <SolidVolumeOff /> : <SolidVolume />}
+            {room.myself.isDeafened ? <SolidDeafenedOff /> : <SolidDeafened />}
           </BoxedIcon>
           <BoxedIcon transition onClick={onFullscreenClick}>
             <SolidFullscreen />
@@ -84,6 +91,7 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
         </div>
         <Button
           transition
+          color="primary-300"
           loading={leaveLoading}
           className="flex-grow ml-4"
           onClick={room.myself.leave}
