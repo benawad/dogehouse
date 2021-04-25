@@ -13,6 +13,7 @@ import {
 } from "../../global-stores/useKeyMapStore";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useDeafStore } from "../../global-stores/useDeafStore";
+import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { modalConfirm } from "../../shared-components/ConfirmModal";
 import { setMute } from "../../shared-hooks/useSetMute";
 import { setDeaf } from "../../shared-hooks/useSetDeaf";
@@ -29,6 +30,7 @@ interface KeybindListenerProps {}
 function ListenerElectron() {
   const { push } = useRouter();
   const { conn } = useContext(WebSocketContext);
+  const { t } = useTypeSafeTranslation();
   const toggleOpen = useRoomChatStore((s) => s.toggleOpen);
 
   useEffect(() => {
@@ -38,7 +40,7 @@ function ListenerElectron() {
     const wrapper: Wrapper = wrap(conn);
     // keybind event functions
     const REQUEST_TO_SPEAK_KEY_FUNC = (event: any, args: any) => {
-      modalConfirm("Would you like to ask to speak?", () => {
+      modalConfirm(t("pages.room.confirmAskToSpeak"), () => {
         wrapper.mutation.askToSpeak();
       });
     };
@@ -106,7 +108,7 @@ function ListenerBrowser() {
         const wrapper = wrap(conn);
         return {
           REQUEST_TO_SPEAK: () => {
-            modalConfirm("Would you like to ask to speak?", () => {
+            modalConfirm(t("pages.room.confirmAskToSpeak"), () => {
               wrapper.mutation.askToSpeak();
             });
           },

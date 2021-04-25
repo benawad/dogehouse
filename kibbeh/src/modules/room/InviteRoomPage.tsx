@@ -136,14 +136,14 @@ export const InviteRoomPage: PageComponent<InviteRoomPageProps> = ({}) => {
   const { room } = data;
   const url = window.location.origin + `/room/${room.id}`;
 
-  let buttonText = "copy";
+  let buttonText = t("common.copyLink");
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   if (navigator.share) {
-    buttonText = "share link to room";
+    buttonText = t("pages.room.shareLinkToRoom");
   } else if (copied) {
-    buttonText = "copied";
+    buttonText = t("common.copied");
   }
 
   return (

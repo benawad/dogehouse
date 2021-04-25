@@ -39,7 +39,7 @@ export const InviteKeybind: React.FC<InviteKeybindProps> = ({ className }) => {
         {t("components.keyboardShortcuts.setKeybind")}
       </Button>
       <div className={`flex ml-4`}>
-        invite keybind:{" "}
+        {t("components.keyboardShortcuts.inviteKeybind")}:{" "}
         <span className={`font-bold text-lg`}>
           {active ? "listening" : INVITE}
         </span>

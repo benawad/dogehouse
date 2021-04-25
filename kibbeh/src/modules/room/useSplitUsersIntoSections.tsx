@@ -2,6 +2,7 @@ import { JoinRoomAndGetInfoResponse, wrap } from "@dogehouse/kebab";
 import React, { useContext } from "react";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useDeafStore } from "../../global-stores/useDeafStore";
+import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { SolidMegaphone } from "../../icons";
 import { modalConfirm } from "../../shared-components/ConfirmModal";
 import { useConn } from "../../shared-hooks/useConn";
@@ -20,6 +21,7 @@ export const useSplitUsersIntoSections = ({
   const { muted } = useMuteStore();
   const { deafened } = useDeafStore();
   const { setData } = useContext(UserPreviewModalContext);
+  const { t } = useTypeSafeTranslation();
   const speakers: React.ReactNode[] = [];
   const askingToSpeak: React.ReactNode[] = [];
   const listeners: React.ReactNode[] = [];
@@ -82,7 +84,7 @@ export const useSplitUsersIntoSections = ({
         <BoxedIcon
           key="megaphone"
           onClick={() => {
-            modalConfirm("Would you like to ask to speak?", () => {
+            modalConfirm(t("pages.room.confirmAskToSpeak"), () => {
               wrap(conn).mutation.askToSpeak();
             });
           }}

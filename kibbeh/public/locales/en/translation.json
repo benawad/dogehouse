@@ -96,14 +96,17 @@
       "requestingToSpeak": "Requesting to Speak",
       "listeners": "Listeners",
       "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak",
+      "confirmAskToSpeak": "Would you like to ask to speak?",
+      "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": {
       "search": "search..."
     },
     "soundEffectSettings": {
       "header": "Sounds",
-      "title": "Sound Settings"
+      "title": "Sound Settings",
+      "playSound": "Play Sound"
     },
     "viewUser": {
       "editProfile": "Edit Profile",
@@ -184,7 +187,10 @@
       "toggleMuteKeybind": "Toggle mute keybind",
       "toggleDeafKeybind": "Toggle deafen keybind",
       "toggleOverlayKeybind": "Toggle overlay keybind",
-      "togglePushToTalkKeybind": "Toggle push-to-talk keybind"
+      "togglePushToTalkKeybind": "Toggle push-to-talk keybind",
+      "requestToSpeakKeybind": "Request to speak keybind",
+      "toggleChatKeyBind": "Toggle chat keybind",
+      "inviteKeybind": "Invite keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "No audio consumer for some reason"
