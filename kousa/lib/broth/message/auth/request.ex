@@ -64,6 +64,7 @@ defmodule Broth.Message.Auth.Request do
   end
 
   alias Beef.Repo
+  alias Beef.Schemas.User
   alias Onion.PubSub
 
   defp convert_tokens(request, state) do
@@ -74,7 +75,7 @@ defmodule Broth.Message.Auth.Request do
         {:close, 4001, "invalid_authentication"}
 
       {:existing_claim, user_id} ->
-        do_auth(user_id, nil, Repo.get(Reply, user_id), request, state)
+        do_auth(user_id, nil, Repo.get(User, user_id), request, state)
 
       {:new_tokens, user_id, tokens, user} ->
         do_auth(user_id, tokens, user, request, state)
@@ -127,6 +128,9 @@ defmodule Broth.Message.Auth.Request do
           if request.reconnectToVoice == true do
             Kousa.Room.join_vc_room(user.id, room)
           end
+
+          # This seems janky, should probably be refactored into a Kousa.Auth module.
+          PubSub.subscribe("chat:" <> room.id)
 
         roomIdFromFrontend ->
           Kousa.Room.join_room(user.id, roomIdFromFrontend)

@@ -128,6 +128,13 @@ defmodule BrothTest.WsClient do
     end
   end
 
+  @doc """
+  asserts that a reply from a previously issued call operation has been
+  receieved, as identified by its reference uuid (`ref`).
+
+  Note that the third parameter is matchable, so you can use `_`, use
+  it to assign a to a variable, or, do partial matches on maps.
+  """
   defmacro assert_reply(op, ref, payload, from \\ nil) do
     if from do
       quote do
@@ -151,6 +158,13 @@ defmodule BrothTest.WsClient do
     end
   end
 
+  @doc """
+  asserts that an error has been returned from a previously issued call or
+  cast operation has been received, as identified by its reference uuid (`ref`).
+
+  Note that the third parameter is matchable, so you can use `_`, use
+  it to assign a to a variable, or, do partial matches on the error.
+  """
   defmacro assert_error(op, ref, error, from \\ nil) do
     if from do
       quote do
