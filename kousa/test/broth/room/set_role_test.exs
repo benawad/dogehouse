@@ -120,7 +120,7 @@ defmodule BrothTest.Room.SetRoleTest do
       # join the speaker user into the room
       Kousa.Room.join_room(speaker_id, room_id)
 
-      WsClient.assert_frame("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
+      WsClient.assert_frame_legacy("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
 
       # create mod
       mod = %{id: mod_id} = Factory.create(User)
@@ -128,7 +128,7 @@ defmodule BrothTest.Room.SetRoleTest do
 
       Kousa.Room.join_room(mod_id, room_id)
 
-      WsClient.assert_frame("new_user_join_room", %{"user" => %{"id" => ^mod_id}})
+      WsClient.assert_frame_legacy("new_user_join_room", %{"user" => %{"id" => ^mod_id}})
 
       Kousa.Room.set_auth(mod_id, :mod, by: t.user.id)
 
@@ -140,13 +140,13 @@ defmodule BrothTest.Room.SetRoleTest do
       )
 
       # both clients get notified
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "speaker_added",
         %{"userId" => ^speaker_id, "roomId" => ^room_id},
         mod_ws
       )
 
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "speaker_added",
         %{"userId" => ^speaker_id, "roomId" => ^room_id},
         speaker_ws
