@@ -73,6 +73,10 @@ defmodule Broth.Translator.V0_1_0 do
     put_in(message, ["d"], get_in(message, ["d", "data"]))
   end
 
+  def translate_in_body(message, "get_user_profile") do
+    put_in(message, ["d", "userIdOrUsername"], get_in(message, ["d", "userId"]))
+  end
+
   def translate_in_body(message, "create_room") do
     is_private = get_in(message, ["d", "privacy"]) == "private"
     put_in(message, ["d", "isPrivate"], is_private)
@@ -228,10 +232,6 @@ defmodule Broth.Translator.V0_1_0 do
 
   def translate_out_body(message = %{e: errors}, "user:update") do
     %{message | d: %{isUsernameTaken: errors =~ "has already been taken"}}
-  end
-
-  def translate_out_body(message, "user:update") do
-    %{message | d: %{isUsernameTaken: false}}
   end
 
   def translate_out_body(message, "user:get_relationship") do

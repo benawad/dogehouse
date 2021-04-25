@@ -3,10 +3,13 @@ defmodule Broth do
 
   @type json :: String.t() | number | boolean | nil | [json] | %{String.t() => json}
 
+  alias Broth.Routes.DevOnly
   alias Broth.Routes.GitHubAuth
   alias Broth.Routes.TwitterAuth
   alias Broth.Routes.ScheduledRoom
-  alias Broth.Routes.Dev
+  alias Broth.Routes.Room
+  alias Broth.Routes.Stats
+  alias Broth.Routes.BotAuth
 
   use Plug.Router
   use Sentry.PlugCapture
@@ -22,8 +25,11 @@ defmodule Broth do
   forward("/auth/github", to: GitHubAuth)
   forward("/auth/twitter", to: TwitterAuth)
   # forward("/me", to: Kousa.Me)
-  forward("/dev", to: Dev)
+  forward("/dev", to: DevOnly)
   forward("/scheduled-room", to: ScheduledRoom)
+  forward("/room", to: Room)
+  forward("/stats", to: Stats)
+  forward("/bot", to: BotAuth)
 
   get _ do
     send_resp(conn, 404, "not found")

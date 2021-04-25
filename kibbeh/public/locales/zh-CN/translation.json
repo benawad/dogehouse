@@ -20,8 +20,8 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "已静音 | DogeHouse",
-    "deafenedTitle": "Deafened | DogeHouse",
+    "mutedTitle": "已关闭麦克风 | DogeHouse",
+    "deafenedTitle": "已静音 | DogeHouse",
     "dashboard": "概览",
     "connectionTaken": "Connection Taken"
   },
@@ -44,7 +44,7 @@
       "createRoom": "新建聊天室",
       "refresh": "刷新",
       "editRoom": "修改聊天室",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "desktopAlert": "现在下载神烦狗桌面app吧！"
     },
     "inviteList": {
       "roomGone": "聊天室已被删除，请回到前一页",
@@ -111,12 +111,12 @@
       "header": "覆盖层设置"
     },
     "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
-      "download_for": "Downoad for {{platform}}"
+      "starting": "开始下载...",
+      "failed": "无法自动下载，请稍后再尝试",
+      "visit_gh": "查看Github的发布",
+      "prompt": "按下面的按键开始下载",
+      "download_now": "下载",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -142,9 +142,9 @@
       "speaker": "扬声器",
       "listener": "听者",
       "chat": "文字聊天",
-      "toggleDeafMicBtn": "Toggle Deafen",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen"
+      "toggleDeafMicBtn": "切换静音",
+      "deafen": "静音",
+      "undeafen": "取消静音"
     },
     "micPermissionBanner": {
       "permissionDenied": "麦克风使用权被拒绝（可能需要更改设置并且刷新页面）",
@@ -208,10 +208,10 @@
     "keyboardShortcuts": {
       "setKeybind": "设置快捷键",
       "listening": "等待输入",
-      "toggleMuteKeybind": "切换静音键绑定",
+      "toggleMuteKeybind": "切换麦克风静音键绑定",
       "togglePushToTalkKeybind": "切换按键说话绑定",
       "toggleOverlayKeybind": "切换覆盖层绑定",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "切换静音键绑定"
     },
     "wsKilled": {
       "description": "连接被服务器终止。当您在另一个标签中打开此网站时，通常会发生这种情况 ",

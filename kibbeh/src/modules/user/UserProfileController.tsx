@@ -10,6 +10,7 @@ import { useTypeSafeUpdateQuery } from "../../shared-hooks/useTypeSafeUpdateQuer
 import { Button } from "../../ui/Button";
 import { CenterLoader } from "../../ui/CenterLoader";
 import { InfoText } from "../../ui/InfoText";
+import { UserProfile } from "../../ui/UserProfile";
 import { EditProfileModal } from "./EditProfileModal";
 import { VerticalUserInfoWithFollowButton } from "./VerticalUserInfoWithFollowButton";
 
@@ -60,16 +61,13 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
     return <CenterLoader />;
   }
 
-  if (!data) {
+  if (!data || "error" in data) {
     return <InfoText>{t("pages.myProfile.couldNotFindUser")}</InfoText>;
   }
 
   return (
     <>
-      <VerticalUserInfoWithFollowButton
-        idOrUsernameUsedForQuery={data.username}
-        user={data}
-      />
+      <UserProfile user={data} isCurrentUser={data.id === conn.user.id} />
       {data.id === conn.user.id && (
         <div className={`pt-6 flex`}>
           <EditProfileModal
@@ -87,13 +85,13 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
               }
             }}
           />
-          <Button
+          {/* <Button
             style={{ marginRight: "10px" }}
             size="small"
             onClick={() => setOpen(true)}
           >
             {t("pages.viewUser.editProfile")}
-          </Button>
+          </Button> */}
           <Button
             style={{ marginRight: "10px" }}
             size="small"

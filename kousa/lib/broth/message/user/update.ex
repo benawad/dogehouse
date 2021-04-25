@@ -6,6 +6,10 @@ defmodule Broth.Message.User.Update do
 
   @derive {Jason.Encoder, only: ~w(
     username
+    bio
+    avatarUrl
+    bannerUrl
+    displayName
     muted
     deafened
   )a}
@@ -13,8 +17,13 @@ defmodule Broth.Message.User.Update do
   @primary_key {:id, :binary_id, []}
   schema "users" do
     field(:username, :string)
+    field(:avatarUrl, :string)
+    field(:bannerUrl, :string)
+    field(:displayName, :string)
+    field(:bio, :string)
     field(:muted, :boolean, virtual: true)
     field(:deafened, :boolean, virtual: true)
+    field(:isUsernameTaken, :boolean, virtual: true)
   end
 
   def initialize(state) do
@@ -23,8 +32,7 @@ defmodule Broth.Message.User.Update do
 
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
-    |> cast(data, [:muted, :username])
-    |> cast(data, [:deafened, :username])
+    |> cast(data, [:muted, :deafened, :username, :bio, :displayName, :avatarUrl, :bannerUrl])
     |> validate_required([:username])
   end
 
@@ -32,7 +40,13 @@ defmodule Broth.Message.User.Update do
     # TODO: make this a proper changeset-mediated alteration.
     with {:ok, update} <- apply_action(changeset, :validate),
          {:ok, user} <- Kousa.User.update(state.user_id, Map.from_struct(update)) do
-      {:reply, struct(__MODULE__, Map.from_struct(user)), state}
+      case user do
+        %{isUsernameTaken: _} ->
+          {:reply, %{isUsernameTaken: true}, state}
+
+        _ ->
+          {:reply, struct(__MODULE__, Map.from_struct(user)), state}
+      end
     end
   end
 end

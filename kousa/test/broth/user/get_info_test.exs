@@ -24,7 +24,7 @@ defmodule BrothTest.User.GetInfoTest do
         WsClient.send_call(
           t.client_ws,
           "user:get_info",
-          %{"id" => t.user.id}
+          %{"userIdOrUsername" => t.user.id}
         )
 
       WsClient.assert_reply(
@@ -33,6 +33,23 @@ defmodule BrothTest.User.GetInfoTest do
         %{
           "id" => ^user_id
         }
+      )
+    end
+
+    test "you get nil back for username that doesn't exist", t do
+      user_id = t.user.id
+
+      ref =
+        WsClient.send_call(
+          t.client_ws,
+          "user:get_info",
+          %{"userIdOrUsername" => "aosifdjoqwejfoq"}
+        )
+
+      WsClient.assert_reply(
+        "user:get_info:reply",
+        ref,
+        %{"error" => "could not find user"}
       )
     end
 

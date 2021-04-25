@@ -7,6 +7,7 @@ defmodule Broth.Message.Manifest do
 
   @actions %{
     "test:operator" => BrothTest.MessageTest.TestOperator,
+    "user:create_bot" => User.CreateBot,
     "user:ban" => User.Ban,
     "user:block" => User.Block,
     "user:follow" => User.Follow,

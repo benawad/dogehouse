@@ -42,6 +42,7 @@ export type InvitationToRoomResponse = {
   username: string;
   displayName: string;
   avatarUrl: string;
+  bannerUrl: string;
   roomName: string;
   roomId: UUID;
 };

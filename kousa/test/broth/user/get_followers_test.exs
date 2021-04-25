@@ -41,6 +41,27 @@ defmodule BrothTest.User.GetFollowersTest do
       })
     end
 
+    test "can get followers for someone else", t do
+      %{id: following_id, username: username} = Factory.create(User)
+      Kousa.Follow.follow(t.user.id, following_id, true)
+
+      ref =
+        WsClient.send_call(t.client_ws, "user:get_followers", %{
+          "cursor" => 0,
+          "username" => username
+        })
+
+      user_id = t.user.id
+
+      WsClient.assert_reply("user:get_followers:reply", ref, %{
+        "followers" => [
+          %{
+            "id" => ^user_id
+          }
+        ]
+      })
+    end
+
     @tag :skip
     test "you can't stalk someone who has blocked you"
 

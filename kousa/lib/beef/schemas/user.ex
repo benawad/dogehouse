@@ -34,6 +34,7 @@ defmodule Beef.Schemas.User do
           discordAccessToken: String.t(),
           displayName: String.t(),
           avatarUrl: String.t(),
+          bannerUrl: String.t(),
           bio: String.t(),
           reasonForBan: String.t(),
           tokenVersion: integer(),
@@ -49,11 +50,11 @@ defmodule Beef.Schemas.User do
           currentRoom: Room.t() | Ecto.Association.NotLoaded.t()
         }
 
-  @derive {Poison.Encoder, only: ~w(id username avatarUrl bio online
+  @derive {Poison.Encoder, only: ~w(id username avatarUrl bannerUrl bio online
              lastOnline currentRoomId displayName numFollowing numFollowers
              currentRoom youAreFollowing followsYou roomPermissions)a}
 
-  @derive {Jason.Encoder, only: ~w(id username avatarUrl bio online
+  @derive {Jason.Encoder, only: ~w(id username avatarUrl bannerUrl bio online
     lastOnline currentRoomId displayName numFollowing numFollowers
     youAreFollowing followsYou roomPermissions)a}
 
@@ -68,6 +69,7 @@ defmodule Beef.Schemas.User do
     field(:discordAccessToken, :string)
     field(:displayName, :string)
     field(:avatarUrl, :string)
+    field(:bannerUrl, :string)
     field(:bio, :string, default: "")
     field(:reasonForBan, :string)
     field(:tokenVersion, :integer)
@@ -81,7 +83,9 @@ defmodule Beef.Schemas.User do
     field(:roomPermissions, :map, virtual: true, null: true)
     field(:muted, :boolean, virtual: true)
     field(:deafened, :boolean, virtual: true)
+    field(:apiKey, :binary_id)
 
+    belongs_to(:botOwner, Beef.Schemas.User, foreign_key: :botOwnerId, type: :binary_id)
     belongs_to(:currentRoom, Room, foreign_key: :currentRoomId, type: :binary_id)
 
     many_to_many(:blocked_by, __MODULE__, join_through: "user_blocks", join_keys: [userIdBlocked: :id, userId: :id])
@@ -94,13 +98,13 @@ defmodule Beef.Schemas.User do
     # TODO: amend this to accept *either* githubId or twitterId and also
     # pipe edit_changeset into this puppy.
     user
-    |> cast(attrs, ~w(username githubId avatarUrl)a)
-    |> validate_required([:username, :githubId, :avatarUrl])
+    |> cast(attrs, ~w(username githubId avatarUrl bannerUrl)a)
+    |> validate_required([:username, :githubId, :avatarUrl, :bannerUrl])
   end
 
   def edit_changeset(user, attrs) do
     user
-    |> cast(attrs, [:id, :username, :bio, :displayName, :avatarUrl])
+    |> cast(attrs, [:id, :username, :bio, :displayName, :avatarUrl, :bannerUrl])
     |> validate_required([:username, :displayName, :avatarUrl])
     |> update_change(:displayName, &String.trim/1)
     |> validate_length(:bio, min: 0, max: 160)
@@ -109,6 +113,10 @@ defmodule Beef.Schemas.User do
     |> validate_format(
       :avatarUrl,
       ~r/^https?:\/\/(www\.|)(pbs.twimg.com\/profile_images\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/)/
+    )
+    |> validate_format(
+      :bannerUrl,
+      ~r/^https?:\/\/(www\.|)(pbs.twimg.com\/profile_banners\/(.+)\/(.+)\/(.+)(?:\.(jpg|png|jpeg|webp))?|avatars\.githubusercontent\.com\/u\/)/
     )
     |> unique_constraint(:username)
   end

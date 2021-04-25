@@ -15,6 +15,8 @@ defmodule Kousa do
       Onion.Supervisors.Chat,
       Onion.Supervisors.VoiceRabbit,
       Onion.Supervisors.VoiceOnlineRabbit,
+      Onion.BotAuthRateLimit,
+      Onion.StatsCache,
       {Beef.Repo, []},
       {Phoenix.PubSub, name: Onion.PubSub},
       Onion.Telemetry,

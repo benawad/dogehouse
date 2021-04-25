@@ -73,7 +73,8 @@ defmodule Broth.SocketHandler do
     # note the remote webserver will then close the connection.  The
     # second command forces a shutdown in case the client is a jerk and
     # tries to DOS us by holding open connections.
-    ws_push([{:close, 1000, "killed by server"}, shutdown: :normal], state)
+    # frontend expects 4003
+    ws_push([{:close, 4003, "killed by server"}, shutdown: :normal], state)
   end
 
   # auth timeout
@@ -240,7 +241,8 @@ defmodule Broth.SocketHandler do
   end
 
   defp dispatch_mediasoup_message(msg, %{user_id: user_id}) do
-    with {:ok, room_id} <- Beef.Users.tuple_get_current_room_id(user_id) do
+    with {:ok, room_id} <- Beef.Users.tuple_get_current_room_id(user_id),
+         [{_, _}] <- Onion.RoomSession.lookup(room_id) do
       voice_server_id = Onion.RoomSession.get(room_id, :voice_server_id)
 
       mediasoup_message =
@@ -323,6 +325,7 @@ defmodule Broth.SocketHandler do
   # ROUTER
 
   @impl true
+  def websocket_info({:EXIT, _, _}, state), do: exit_impl(state)
   def websocket_info(:exit, state), do: exit_impl(state)
   def websocket_info(:auth_timeout, state), do: auth_timeout_impl(state)
   def websocket_info({:remote_send, message}, state), do: remote_send_impl(message, state)

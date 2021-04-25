@@ -60,7 +60,11 @@ function App({ Component, pageProps }: AppProps) {
     }
   }, []);
 
-  if (isServer && (Component as PageComponent<unknown>).ws) {
+  if (
+    isServer &&
+    !Component.getInitialProps &&
+    (Component as PageComponent<unknown>).ws
+  ) {
     return null;
   }
 

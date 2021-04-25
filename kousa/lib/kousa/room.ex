@@ -60,6 +60,7 @@ defmodule Kousa.Room do
             displayName: user.displayName,
             username: user.username,
             avatarUrl: user.avatarUrl,
+            bannerUrl: user.bannerUrl,
             type: "invite"
           }
         )
@@ -269,6 +270,9 @@ defmodule Kousa.Room do
     case Rooms.get_room_status(setter_id) do
       {_, nil} ->
         :noop
+
+      {:mod, _} ->
+        internal_set_speaker(user_id, room_id)
 
       {:creator, _} ->
         internal_set_speaker(user_id, room_id)

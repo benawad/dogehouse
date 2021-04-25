@@ -1,1 +1,3 @@
-export type PageComponent<T> = React.FC<T> & { ws?: boolean };
+import { NextPage } from "next";
+
+export type PageComponent<T> = NextPage<T> & { ws?: boolean };

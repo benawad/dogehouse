@@ -7,6 +7,7 @@ defmodule Onion.UserSession do
     @type t :: %__MODULE__{
             user_id: String.t(),
             avatar_url: String.t(),
+            banner_url: String.t(),
             username: String.t(),
             display_name: String.t(),
             current_room_id: String.t(),
@@ -22,7 +23,8 @@ defmodule Onion.UserSession do
               pid: nil,
               username: nil,
               display_name: nil,
-              avatar_url: nil
+              avatar_url: nil,
+              banner_url: nil
   end
 
   #################################################################################

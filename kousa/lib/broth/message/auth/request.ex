@@ -32,6 +32,7 @@ defmodule Broth.Message.Auth.Request do
       username
       displayName
       avatarUrl
+      bannerUrl
       bio
       online
       numFollowing
@@ -44,6 +45,7 @@ defmodule Broth.Message.Auth.Request do
       field(:username, :string)
       field(:displayName, :string)
       field(:avatarUrl, :string)
+      field(:bannerUrl, :string)
       field(:bio, :string, default: "")
       field(:currentRoomId, :binary_id)
       field(:numFollowing, :integer)
@@ -92,6 +94,7 @@ defmodule Broth.Message.Auth.Request do
         user_id: user_id,
         username: user.username,
         avatar_url: user.avatarUrl,
+        banner_url: user.bannerUrl,
         display_name: user.displayName,
         current_room_id: user.currentRoomId,
         muted: request.muted,
