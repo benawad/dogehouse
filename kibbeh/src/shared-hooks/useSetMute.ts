@@ -7,12 +7,14 @@ import { setDeaf } from "./useSetDeaf";
 export const useSetMute = () => {
   const conn = useWrappedConn();
   const { setInternalMute } = useMuteStore();
+  const { setInternalDeaf } = useDeafStore();
   const { deafened } = useDeafStore();
   return (mute: boolean) => {
     // auto undeafen on unmute
     let playSound = true;
     if (!mute && deafened) {
-      setDeaf(conn, false);
+      setInternalDeaf(false);
+      conn.mutation.setDeaf(false);
       playSound = false;
     }
     setInternalMute(mute, playSound);
@@ -25,7 +27,8 @@ export const setMute = (conn: Wrapper, value: boolean) => {
   const { deafened } = useDeafStore();
   let playSound = true;
   if (!value && deafened) {
-    setDeaf(conn, false);
+    useDeafStore.getState().setInternalDeaf(false);
+    conn.mutation.setDeaf(false);
     playSound = false;
   }
   useMuteStore.getState().setInternalMute(value, playSound);
