@@ -68,7 +68,11 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
           </div>
         </div>
         <div className="flex w-full mt-2">
-          <p className="text-primary-300 mt-2 text-center w-full whitespace-pre-wrap break-words inline line-clamp-6">
+          {/* Tailwind's max-height is not working, so I used style */}
+          <p
+            className="text-primary-300 mt-2 text-center w-full whitespace-pre-wrap break-words inline line-clamp-6 overflow-y-auto"
+            style={{ maxHeight: "300px" }}
+          >
             {user.bio &&
               user.bio.split(/\n/).map((line, i) => (
                 <React.Fragment key={i}>
