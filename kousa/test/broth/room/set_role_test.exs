@@ -27,8 +27,6 @@ defmodule BrothTest.Room.SetRoleTest do
   describe "for when you room:set_role to listener" do
     test "takes a speaker and turns them into lister", t do
       room_id = t.room_id
-      # make sure the user is in there.
-      assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
       # create a speaker user that is logged in.
       speaker = %{id: speaker_id} = Factory.create(User)
@@ -72,8 +70,6 @@ defmodule BrothTest.Room.SetRoleTest do
   describe "when you set_role to speaker" do
     test "makes the person a speaker", t do
       room_id = t.room_id
-      # make sure the user is in there.
-      assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
       # create a user that is logged in.
       speaker = %{id: speaker_id} = Factory.create(User)
@@ -108,10 +104,7 @@ defmodule BrothTest.Room.SetRoleTest do
     end
 
     test "mod can make the person a speaker", t do
-      # first, create a room owned by the primary user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)
-      # make sure the user is in there.
-      assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
+      room_id = t.room_id
 
       # create a user that is logged in.
       speaker = %{id: speaker_id} = Factory.create(User)
@@ -120,7 +113,7 @@ defmodule BrothTest.Room.SetRoleTest do
       # join the speaker user into the room
       Kousa.Room.join_room(speaker_id, room_id)
 
-      WsClient.assert_frame("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
+      WsClient.assert_frame_legacy("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
 
       # create mod
       mod = %{id: mod_id} = Factory.create(User)
@@ -128,7 +121,7 @@ defmodule BrothTest.Room.SetRoleTest do
 
       Kousa.Room.join_room(mod_id, room_id)
 
-      WsClient.assert_frame("new_user_join_room", %{"user" => %{"id" => ^mod_id}})
+      WsClient.assert_frame_legacy("new_user_join_room", %{"user" => %{"id" => ^mod_id}})
 
       Kousa.Room.set_auth(mod_id, :mod, by: t.user.id)
 
@@ -140,13 +133,13 @@ defmodule BrothTest.Room.SetRoleTest do
       )
 
       # both clients get notified
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "speaker_added",
         %{"userId" => ^speaker_id, "roomId" => ^room_id},
         mod_ws
       )
 
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "speaker_added",
         %{"userId" => ^speaker_id, "roomId" => ^room_id},
         speaker_ws

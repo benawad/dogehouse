@@ -109,7 +109,7 @@ defmodule Beef.Schemas.User do
     |> update_change(:displayName, &String.trim/1)
     |> validate_length(:bio, min: 0, max: 160)
     |> validate_length(:displayName, min: 2, max: 50)
-    |> validate_format(:username, ~r/^(\w){4,15}$/)
+    |> validate_format(:username, ~r/^[\w\.]{4,15}$/)
     |> validate_format(
       :avatarUrl,
       ~r/^https?:\/\/(www\.|)(pbs.twimg.com\/profile_images\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/)/
