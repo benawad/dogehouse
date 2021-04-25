@@ -53,9 +53,7 @@ export const RoomPanelIconBarController: React.FC<RoomPanelIconBarControllerProp
             ? { isMuted: muted, onMute: () => setMute(!muted) }
             : undefined
         }
-        deaf={
-            { isDeaf: deafened, onDeaf: () => setDeaf(!deafened) }
-        }
+        deaf={{ isDeaf: deafened, onDeaf: () => setDeaf(!deafened) }}
         onLeaveRoom={() => {
           push("/dash");
           leaveRoom();

@@ -170,41 +170,49 @@ export default function Download() {
     text = t("pages.download.prompt");
   }
 
+  let button = null;
+
+  if (loaded) {
+    if (downloadFailed) {
+      button = (
+        <Button
+          onClick={() => {
+            window.location.href =
+              "https://github.com/benawad/dogehouse/releases/latest";
+          }}
+        >
+          {t("pages.download.visit_gh")}
+        </Button>
+      );
+    } else {
+      button = (
+        <div className="flex lg:flex-row md:flex-col sm:flex-col lg:space-x-4 p-2 items-center">
+          {platforms.map((platform) => {
+            if (platform === platforms[currentPlatform]) {
+              if (platform === "Linux") linuxed++;
+              return (
+                <CurrentPlatformButton
+                  platform={currentPlatform}
+                  downloadLinks={downloadLinks}
+                  linuxed={linuxed}
+                />
+              );
+            } else {
+              return null;
+            }
+          })}
+        </div>
+      );
+    }
+  }
+
   return (
     <>
       <HeaderController title="Download" />
       <div className="flex w-full h-full flex-col items-center justify-center p-8">
         <h4 className="text-primary-100 mb-4">{text}</h4>
 
-        {loaded ? (
-          downloadFailed ? (
-            <Button
-              onClick={() => {
-                window.location.href =
-                  "https://github.com/benawad/dogehouse/releases/latest";
-              }}
-            >
-              {t("pages.download.visit_gh")}
-            </Button>
-          ) : (
-            <div className="flex lg:flex-row md:flex-col sm:flex-col lg:space-x-4 p-2 items-center">
-              {platforms.map((platform) => {
-                if (platform === platforms[currentPlatform]) {
-                  if (platform === "Linux") linuxed++;
-                  return (
-                    <CurrentPlatformButton
-                      platform={currentPlatform}
-                      downloadLinks={downloadLinks}
-                      linuxed={linuxed}
-                    />
-                  );
-                } else {
-                  return null;
-                }
-              })}
-            </div>
-          )
-        ) : null}
+        {button}
 
         {!loaded || downloadFailed ? null : (
           <div className="flex lg:flex-row md:flex-col sm:flex-col lg:space-x-4 p-2 items-center">

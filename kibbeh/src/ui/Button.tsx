@@ -20,10 +20,9 @@ const colorClassnames = {
     "text-button bg-primary-800 hover:bg-primary-600 disabled:text-primary-300",
   "primary-300":
     "text-button bg-primary-700 hover:bg-primary-600 disabled:text-primary-300",
-  transparent:
-    "text-button bg-transparent",
+  transparent: "text-button bg-transparent",
   "accent-secondary":
-    "text-button bg-secondary hover:bg-secondary-washed-out disabled:text-secondary-washed-out"
+    "text-button bg-secondary hover:bg-secondary-washed-out disabled:text-secondary-washed-out",
 };
 
 export type ButtonProps = DetailedHTMLProps<
