@@ -10,7 +10,6 @@ defmodule Beef.Repo.Migrations.MostTables do
       add :username, :text, null: false
       add :bio, :text, default: ""
       add :avatarUrl, :text, null: false
-      add :bannerUrl, :text, null: true # Null because some platforms like GitHub and Discord don't provide banners from the start like twitter does.
       add :tokenVersion, :integer, default: 1
       add :numFollowing, :integer, default: 0
       add :numFollowers, :integer, default: 0
