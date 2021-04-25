@@ -55,9 +55,9 @@ export const ProfileAbout: React.FC<ProfileAboutProps> = ({
           </ApiPreloadLink>
         </div>
       </div>
-      <p className="text-primary-100 text-sm pb-2 whitespace-pre-wrap max-h-5l truncate">
+      <div className="text-primary-100 pb-2 whitespace-pre-wrap max-h-5l truncate">
         {description}
-      </p>
+      </div>
       {link && (
         <div className="flex flex-row items-center mb-4">
           <SolidLink className="mr-2" />
