@@ -43,3 +43,6 @@ export { default as LinkIcon } from "./Link";
 export { default as SolidTrash } from "./SolidTrash";
 export { default as SolidMoon } from "./SolidMoon";
 export { default as SolidWarning } from "./SolidWarning";
+export { default as SolidDeafenedOff } from "./SolidDeafenedOff";
+export { default as SolidDeafened } from "./SolidDeafened";
+export { default as SolidFriendsAdd } from "./SolidFriendsAdd";

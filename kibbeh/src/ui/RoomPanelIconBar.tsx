@@ -1,13 +1,12 @@
 import React from "react";
 import {
   SolidChatBubble,
-  SolidCompass,
-  SolidFriends,
+  SolidDeafened,
+  SolidDeafenedOff,
+  SolidFriendsAdd,
   SolidMicrophone,
   SolidMicrophoneOff,
   SolidSettings,
-  SolidVolume,
-  SolidVolumeOff,
 } from "../icons";
 import { useScreenType } from "../shared-hooks/useScreenType";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
@@ -46,7 +45,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
           <BoxedIcon
             transition
             hover={!mute.isMuted}
-            className={`mr-2 w-8 ${
+            className={`mr-2 w-11 h-6.5 ${
               !mute.isMuted ? `bg-accent hover:bg-accent-hover text-button` : ``
             }`}
             color="800"
@@ -54,33 +53,40 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
             onClick={() => mute.onMute()}
             data-testid="mute"
           >
-            {mute.isMuted ? <SolidMicrophoneOff /> : <SolidMicrophone />}
+            {mute.isMuted ? (
+              <SolidMicrophoneOff width="20" height="20" />
+            ) : (
+              <SolidMicrophone width="20" height="20" />
+            )}
           </BoxedIcon>
         ) : null}
         {deaf ? (
           <BoxedIcon
             transition
             hover={deaf.isDeaf}
-            className={`mr-2 ${deaf.isDeaf ? `bg-accent` : ``}`}
+            className={`mr-2 h-6.5 w-6.5 ${deaf.isDeaf ? `bg-accent` : ``}`}
             color="800"
             title={t("components.bottomVoiceControl.toggleDeafMicBtn")}
             onClick={() => deaf.onDeaf()}
             data-testid="deafen"
           >
-            {deaf.isDeaf ? <SolidVolumeOff /> : <SolidVolume />}
+            {deaf.isDeaf ? (
+              <SolidDeafenedOff width="20" height="20" />
+            ) : (
+              <SolidDeafened width="20" height="20" />
+            )}
           </BoxedIcon>
         ) : null}
         {onInvitePeopleToRoom ? (
           <BoxedIcon
             transition
-            className="mr-2"
+            className="mr-2 h-6.5 w-6.5"
             color="800"
             title={t("components.bottomVoiceControl.inviteUsersToRoomBtn")}
             onClick={onInvitePeopleToRoom}
             data-testid="invite-friends"
           >
-            {/* @todo swap out right icon */}
-            <SolidFriends />
+            <SolidFriendsAdd height="20" />
           </BoxedIcon>
         ) : null}
         {screenType === "1-cols" || screenType === "fullscreen" ? (
@@ -97,20 +103,20 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
         {onRoomSettings ? (
           <BoxedIcon
             transition
-            className="mr-2"
+            className="mr-2 h-6.5 w-6.5"
             color="800"
             title={t("components.bottomVoiceControl.settings")}
             onClick={onRoomSettings}
             data-testid="room-settings"
           >
-            <SolidSettings />
+            <SolidSettings width="20" height="20" />
           </BoxedIcon>
         ) : null}
       </div>
 
       <Button
         transition
-        className={`ml-2`}
+        className={`ml-2 text-base w-15`}
         color="secondary-800"
         onClick={() => {
           onLeaveRoom();
