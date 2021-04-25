@@ -11,6 +11,10 @@ import { BubbleText } from "../../ui/BubbleText";
 import { formatNumber } from "../../ui/RoomCard";
 import { useDebounce } from "use-debounce";
 import { InfoText } from "../../ui/InfoText";
+import {
+  RoomSearchResult,
+  UserSearchResult,
+} from "../../ui/Search/SearchResult";
 
 interface SearchControllerProps {}
 
@@ -92,58 +96,44 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                 {data?.items.map((item, index) =>
                   "username" in item ? (
                     // eslint-disable-next-line react/jsx-key
-                    <li
+                    <div
                       data-testid={`search:user:${item.username}`}
-                      className={`flex p-3 rounded-8 ${
-                        highlightedIndex === index
-                          ? "bg-primary-700"
-                          : "bg-primary-800"
-                      }
-                    `}
                       {...getItemProps({
                         key: item.id,
                         index,
                         item,
                       })}
                     >
-                      <SingleUser src={item.avatarUrl} size="md" />
-                      <div className="ml-2">
-                        <div className="text-primary-100">
-                          {item.displayName}
-                        </div>
-                        <div className="text-primary-300">@{item.username}</div>
-                      </div>
-                    </li>
+                      <UserSearchResult
+                        user={{
+                          username: item.username,
+                          displayName: item.displayName,
+                          isOnline: item.online,
+                          avatar: item.avatarUrl,
+                        }}
+                        className={
+                          highlightedIndex === index
+                            ? "bg-primary-700"
+                            : "bg-primary-800"
+                        }
+                      />
+                    </div>
                   ) : (
-                    // eslint-disable-next-line react/jsx-key
-                    <li
-                      className={`flex p-3 rounded-8 ${
-                        highlightedIndex === index
-                          ? "bg-primary-700"
-                          : "bg-primary-800"
-                      }
-                    `}
+                    <div
                       {...getItemProps({
                         key: item.id,
                         index,
                         item,
                       })}
                     >
-                      <div className="mr-auto">
-                        <div className="text-primary-100">{item.name}</div>
-                        <div className="text-primary-300">
-                          {item.peoplePreviewList
-                            .slice(0, 3)
-                            .map((x) => x.displayName)
-                            .join(", ")}
-                        </div>
-                      </div>
-                      <div>
-                        <BubbleText live>
-                          {formatNumber(item.numPeopleInside)}
-                        </BubbleText>
-                      </div>
-                    </li>
+                      <RoomSearchResult
+                        room={{
+                          displayName: item.name,
+                          hosts: item.peoplePreviewList,
+                          userCount: item.numPeopleInside,
+                        }}
+                      />
+                    </div>
                   )
                 )}
               </ul>
