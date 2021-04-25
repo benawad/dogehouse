@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { SingleUser } from "./UserAvatar";
 import { Button } from "./Button";
 import { BaseUser } from "@dogehouse/kebab";
@@ -19,10 +19,10 @@ export const UserWideButton: React.FC<UserWideButtonInfoProps> = ({
           <SingleUser size="sm" src={user.avatarUrl} username={user.username} />
           <div className="flex flex-col ml-2">
             <span className="font-bold text-primary-100 whitespace-nowrap">
-              {user.displayName}
+            {user.displayName}
             </span>
             <span className="text-primary-300 text-sm whitespace-nowrap">
-              @{user.username}
+            @{user.username}
             </span>
           </div>
         </div>
