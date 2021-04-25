@@ -67,8 +67,8 @@ export const useSplitUsersIntoSections = ({
         activeSpeaker={
           canSpeak && !isMuted && !isDeafened && u.id in activeSpeakerMap
         }
-        muted={canSpeak && isMuted}
-        deafened={canSpeak && isDeafened}
+        muted={canSpeak && isMuted && !isDeafened}
+        deafened={isDeafened}
         onClick={() => {
           setData({ userId: u.id });
         }}
