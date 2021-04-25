@@ -1,18 +1,16 @@
 import React, { useState, useRef, ChangeEventHandler } from "react";
 
 import { Button } from "./Button";
-import { SolidTrash } from "../icons";
-import { SingleUser } from './UserAvatar';
-import { BaseUser } from '@dogehouse/kebab';
-import { BaseSettingsItem } from './BaseSettingsItem';
+import SolidTrashIcon from "../icons/SolidTrash";
+import { SingleUser } from "./UserAvatar";
+import { BaseUser } from "@dogehouse/kebab";
+import { BaseSettingsItem } from "./BaseSettingsItem";
 
 export interface ChangeAvatarCardProps {
   user: BaseUser;
 }
 
-export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({
-  user,
-}) => {
+export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({ user }) => {
   const [avatar, setAvatar] = useState(user.avatarUrl);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -21,16 +19,18 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({
   };
 
   const fileChangeHandler: ChangeEventHandler<HTMLInputElement> = (e) => {
+    const MAX_FILE_SIZE = 3145728;
     if (e.target.files!.length < 1) return;
     const file = e.target.files![0];
-    if (file.size > 3145728) {
+
+    if (file.size > MAX_FILE_SIZE) {
       alert("File size must be less than 3MB");
       return;
     }
     const type = file.type.toLocaleLowerCase();
     if (type.includes("jpg") || type.includes("jpeg") || type.includes("png")) {
-      setAvatar(URL.createObjectURL(file));
       // upload the new banner
+      setAvatar(URL.createObjectURL(file));
     }
   };
 
@@ -40,9 +40,10 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({
   };
 
   return (
-    <BaseSettingsItem className="flex items-center px-2 py-2 w-full">
-    <div className="flex">
-      <SingleUser src={avatar} username={user.username} />
+    <BaseSettingsItem className="flex items-center px-4 py-3">
+      <div>
+        <SingleUser src={avatar} username={user.username} />
+      </div>
       <div className="flex flex-col p-3">
         <div className="flex">
           <Button
@@ -50,32 +51,36 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({
             color="secondary"
             onClick={changeProfileButtonClickHandler}
           >
-            Change profile picture
+            <label htmlFor="avatar" className="relative cursor-pointer">
+              Change profile picture
+            </label>
           </Button>
           <Button
             className="ml-2"
             color="secondary"
             size="small"
-            style={{minHeight: "28px"}}
+            // style={{ minHeight: "28px" }}
             onClick={deleteHandler}
           >
-            <SolidTrash />
+            <SolidTrashIcon className="text-primary-100" />
           </Button>
           <input
             type="file"
             ref={fileInputRef}
+            name="avatar"
+            id="avatar"
             onChange={fileChangeHandler}
             className="w-0 h-0 invisible"
             accept="image/jpeg, image/jpg, image/png"
           />
         </div>
         <div className="flex mt-2">
-        <span className="text-primary-300 font-medium text-sm">
-          Only JPG or PNG and maximum 3MB.
-        </span>
+          <span className="text-primary-300 font-medium text-sm">
+            Only JPG or PNG and maximum 3MB.
+          </span>
         </div>
       </div>
-    </div>
+      {/* </div> */}
     </BaseSettingsItem>
   );
 };

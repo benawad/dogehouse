@@ -6,14 +6,13 @@ import {
   ChangeAvatarCard,
   ChangeAvatarCardProps,
 } from "../ui/ChangeAvatarCard";
-import { sampleBaseUser } from './data/BaseUser';
+import { sampleBaseUser } from "./data/BaseUser";
 
 export default {
   title: "ChangeAvatarCard",
   component: ChangeAvatarCard,
 };
 
-
 export const Main: Story<ChangeAvatarCardProps> = ({ ...props }) => (
-    <ChangeAvatarCard {...props}  user={sampleBaseUser}/>
+  <ChangeAvatarCard {...props} user={sampleBaseUser} />
 );
