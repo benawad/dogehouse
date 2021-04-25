@@ -11,7 +11,7 @@ export const ProfileTabs: React.FC<ProfileTabsProps> = ({
 }) => {
   return (
     <div
-      className={`w-full flex items-center justify-around ${className}`}
+      className={`w-full flex items-center justify-between px-4 ${className}`}
       {...props}
     >
       <button
