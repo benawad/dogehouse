@@ -94,11 +94,11 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                     // eslint-disable-next-line react/jsx-key
                     <li
                       data-testid={`search:user:${item.username}`}
-                      className={`flex p-3 ${
+                      className={`flex p-3 rounded-8 ${
                         highlightedIndex === index
                           ? "bg-primary-700"
                           : "bg-primary-800"
-                      } ${data.items.length - 1 === index ? "rounded-b-8" : ""}
+                      }
                     `}
                       {...getItemProps({
                         key: item.id,
@@ -117,11 +117,11 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                   ) : (
                     // eslint-disable-next-line react/jsx-key
                     <li
-                      className={`flex p-3 ${
+                      className={`flex p-3 rounded-8 ${
                         highlightedIndex === index
                           ? "bg-primary-700"
                           : "bg-primary-800"
-                      } ${data.items.length - 1 === index ? "rounded-b-8" : ""}
+                      }
                     `}
                       {...getItemProps({
                         key: item.id,

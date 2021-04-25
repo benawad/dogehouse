@@ -13,7 +13,7 @@ export interface UserSearchResultProps {
 
 export const UserSearchResult: React.FC<UserSearchResultProps> = ({ user }) => {
   return (
-    <div className="flex cursor-pointer hover:bg-primary-700 px-4 py-3 w-full">
+    <div className="flex cursor-pointer hover:bg-primary-700 px-4 py-3 w-full rounded-8">
       <div className="flex mr-3">
         <SingleUser isOnline={user.isOnline} src={user.avatar} size="sm" />
       </div>
