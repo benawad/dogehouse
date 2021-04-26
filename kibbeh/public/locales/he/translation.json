@@ -113,7 +113,7 @@
     },
     "download": {
       "starting": "מתחיל בהורדה...",
-      "failed": "Could not auto-download, please try again later",r
+      "failed": "Could not auto-download, please try again later",
       "visit_gh": "Visit Github Releases",
       "prompt": "לחץ על כפתור זה כדי להתחיל בהורדה",
       "download_now": "הורד עכשיו",
