@@ -24,7 +24,7 @@
     "mutedTitle": "Silenciado | DogeHouse",
     "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "connectionTaken": "Conexao feita!"
   },
   "footer": {
     "link_1": "História da Origem",
@@ -43,8 +43,8 @@
     "home": {
       "createRoom": "Criar Sala",
       "refresh": "Atualizar",
-      "editRoom": "Edit Room",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "editRoom": "Editar sala",
+      "desktopAlert": "Baixe o aplicativo DogeHouse para Desktop hoje mesmo!"
     },
     "inviteList": {
       "roomGone": "acabou a sala, volte",
@@ -230,31 +230,31 @@
       "inviteToRoom": "convidar para sala"
     },
     "followingOnline": {
-      "people": "People",
+      "people": "Pessoas",
       "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "noOnline": "Você possui 0 amigos online no momento",
+      "showMore": "Mostrar mais"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "Proximos quartos",
+      "exploreMoreRooms": "Descubra mais salas"
     },
     "search": {
-      "placeholder": "Search for rooms, users or categories",
-      "placeholderShort": "Search"
+      "placeholder": "Procure por salas, usuarios ou categorias",
+      "placeholderShort": "Busque"
     },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "Perfil",
+      "language": "Idioma",
+      "reportABug": "Reporte um Bug",
+      "useOldVersion": "Use uma versao mais antiga",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "Deslogue",
+        "modalSubtitle": "Voce tem certeza que quer deslogar?"
       },
       "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
+        "debugAudio": "Debug de Audio",
+        "stopDebugger": "Pare o Debugger"
       }
     }
   },
