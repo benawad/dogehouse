@@ -19,6 +19,7 @@ import { RoomChatList } from "./chat/RoomChatList";
 import { RoomChatMentions } from "./chat/RoomChatMentions";
 import { useRoomChatStore } from "./chat/useRoomChatStore";
 import { RoomSettingsModal } from "./RoomSettingModal";
+import { SolidPlus } from "../../icons";
 
 interface RoomPanelIconBarControllerProps {
   room: Room;
@@ -79,9 +80,11 @@ export const RoomPanelIconBarController: React.FC<RoomPanelIconBarControllerProp
             >
               <button
                 onClick={() => toggleOpen()}
-                className="flex text-primary-100 p-4 text-2xl"
+                className="flex justify-between items-center w-full text-primary-100 p-4 text-2xl"
               >
-                {t("modules.roomChat.title")}
+                <span>{t("modules.roomChat.title")}</span>
+                {/* Just a temporary solution to make close chat ux better, until we have the design in figma */}
+                <SolidPlus className={`transform rotate-45`} />
               </button>
               <div className="flex overflow-y-auto flex-1">
                 <div className={`flex flex-1 w-full flex-col mt-4`}>

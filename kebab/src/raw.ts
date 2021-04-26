@@ -44,6 +44,11 @@ export type Connection = {
     data: unknown,
     doneOpcode?: Opcode
   ) => Promise<unknown>;
+  sendCall: (
+    opcode: Opcode,
+    data: unknown,
+    doneOpcode?: Opcode
+  ) => Promise<unknown>;
 };
 
 // probably want to remove token/refreshToken
@@ -80,6 +85,21 @@ export const connect = (
       connectionTimeout,
       WebSocket,
     });
+    const api2Send = (opcode: Opcode, data: unknown, ref?: FetchID) => {
+      // tmp fix
+      // this is to avoid ws events queuing up while socket is closed
+      // then it reconnects and fires before auth goes off
+      // and you get logged out
+      if (socket.readyState !== socket.OPEN) {
+        return;
+      }
+      const raw = `{"v":"0.2.0", "op":"${opcode}","p":${JSON.stringify(data)}${
+        ref ? `,"ref":"${ref}"` : ""
+      }}`;
+
+      socket.send(raw);
+      logger("out", opcode, data, ref, raw);
+    };
     const apiSend = (opcode: Opcode, data: unknown, fetchId?: FetchID) => {
       // tmp fix
       // this is to avoid ws events queuing up while socket is closed
@@ -151,6 +171,44 @@ export const connect = (
           user: message.d.user,
           initialCurrentRoomId: message.d.currentRoom?.id,
           send: apiSend,
+          sendCall: (
+            opcode: Opcode,
+            parameters: unknown,
+            doneOpcode?: Opcode
+          ) =>
+            new Promise((resolveCall, rejectFetch) => {
+              // tmp fix
+              // this is to avoid ws events queuing up while socket is closed
+              // then it reconnects and fires before auth goes off
+              // and you get logged out
+              if (socket.readyState !== socket.OPEN) {
+                rejectFetch(new Error("websocket not connected"));
+
+                return;
+              }
+              const ref: FetchID | false = !doneOpcode && generateUuid();
+              let timeoutId: NodeJS.Timeout | null = null;
+              const unsubscribe = connection.addListener(
+                doneOpcode ?? opcode + ":reply",
+                (data, arrivedId) => {
+                  if (!doneOpcode && arrivedId !== ref) return;
+
+                  if (timeoutId) clearTimeout(timeoutId);
+
+                  unsubscribe();
+                  resolveCall(data);
+                }
+              );
+
+              if (fetchTimeout) {
+                timeoutId = setTimeout(() => {
+                  unsubscribe();
+                  rejectFetch(new Error("timed out"));
+                }, fetchTimeout);
+              }
+
+              api2Send(opcode, parameters, ref || undefined);
+            }),
           fetch: (opcode: Opcode, parameters: unknown, doneOpcode?: Opcode) =>
             new Promise((resolveFetch, rejectFetch) => {
               // tmp fix
@@ -191,7 +249,9 @@ export const connect = (
       } else {
         listeners
           .filter(({ opcode }) => opcode === message.op)
-          .forEach((it) => it.handler(message.d, message.fetchId));
+          .forEach((it) =>
+            it.handler(message.d || message.p, message.fetchId || message.ref)
+          );
       }
     });
 

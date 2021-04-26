@@ -35,6 +35,7 @@ defmodule Broth.Message.User.CreateBot do
   end
 
   alias Beef.Users
+  alias Beef.Schemas.User
 
   def execute(changeset!, state) do
     with {:ok, %{username: username}} <- apply_action(changeset!, :validation) do
@@ -42,7 +43,7 @@ defmodule Broth.Message.User.CreateBot do
         {:reply, %Reply{error: "you've reached the max of 100 bot accounts"}, state}
       else
         case Users.create_bot(state.user_id, username) do
-          {:ok, %{apiKey: apiKey}} ->
+          {:ok, %User{apiKey: apiKey}} ->
             {:reply, %Reply{apiKey: apiKey}, state}
 
           {:error,

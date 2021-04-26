@@ -25,7 +25,8 @@ export const useSaveTokensFromQueryParams = () => {
           localStorage.setItem(loginNextPathKey, "");
         }
       } catch {}
-      push(nextPath);
+      // Push to next path after auto redirect to /dash (100 msecs is unoticeable)
+      setTimeout(() => push(nextPath), 100);
     }
   }, [params, push]);
 };

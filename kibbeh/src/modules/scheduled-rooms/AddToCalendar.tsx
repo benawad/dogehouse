@@ -134,7 +134,7 @@ const AddToCalendar: React.FC<AddToCalendarProps> = ({
   const urls = useMemo<CalendarURLs>(() => makeUrls(event), [event]);
 
   return (
-    <div className="relative">
+    <div className="relative" title="Add to Calendar">
       <DropdownController
         portal={false}
         overlay={(close) => (
