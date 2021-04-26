@@ -97,7 +97,8 @@
       "unfollow": "Unfollow",
       "followingHim": "Following",
       "copyProfileUrl": "Copy Profile URL",
-      "urlCopied": "URL copied to clipboard"
+      "urlCopied": "URL copied to clipboard",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Ahots aukerak",
@@ -189,7 +190,10 @@
       "description": "Serbitzariak websocket-a ezabatu du. Hau gertatzen da web-orrialdea beste fitxa batean irekeitzen denean.",
       "reconnect": "berriro konektatu"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profila",
       "language": "Hizkuntza",
@@ -230,7 +234,8 @@
         "usernameError": "luzera: 4-15 karaktere alfanumerikoak/azpi-gidioa",
         "usernameLabel": "Erabiltzaile izena",
         "bioError": "luzera maximoa: 160 karaktere",
-        "bioLabel": "Biografia"
+        "bioLabel": "Biografia",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Are you sure you want to block this user from joining any room you ever create?",
