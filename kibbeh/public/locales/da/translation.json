@@ -97,7 +97,9 @@
       "followingHim": "Følger",
       "copyProfileUrl": "Kopier profil url",
       "urlCopied": "URL kopieret til udklipsholder",
-      "unfollow": "Følg ikke længere"
+      "unfollow": "Følg ikke længere",
+      "about": "Om"
+
     },
     "voiceSettings": {
       "header": "Lydindstillinger",
@@ -204,7 +206,8 @@
         "usernameError": "Længde 4 til 15 tegn og kun alphanumerisk/underscore",
         "usernameLabel": "Brugernavn",
         "bioError": "Max længde på 160 tegn",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Er du sikker på at du vil blokere denne bruger fra at tilslutte sig til alle de rum du nogensinde kommer til at lave?",
@@ -238,7 +241,10 @@
       "upcomingRooms": "Kommende rum",
       "exploreMoreRooms": "Udforsk flere rum"
     },
-    "search": { "placeholder": "Søg efter rum, brugere eller kategorier" },
+    "search": {
+      "placeholder": "placeholder": "Søg efter rum, brugere eller kategorier",
+      "placeholderShort": "Søg"
+    },
     "settingsDropdown": {
       "profile": "Profil",
       "language": "Sprog",

@@ -98,7 +98,8 @@
       "followingHim": "following",
       "copyProfileUrl": "Profil URL kopian",
       "urlCopied": "URL zua Zwischenablag kopian",
-      "unfollow": "Entfolgn"
+      "unfollow": "Entfolgn",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Sprocheinstöllungen",
@@ -182,7 +183,8 @@
         "usernameError": "Läng: 4 bis 15 alphanumerische Zeichn und Unterstriche",
         "usernameLabel": "Benutzernaume",
         "bioError": "Maximal 160 Buchstauben",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Bist da sicher, dass du den Benutzer aus ollen deinen zukünftigen Räumen ausschliaßen mechast?",
@@ -240,7 +242,10 @@
       "upcomingRooms": "Zukünftige Räum",
       "exploreMoreRooms": "Erforsch mehr Räum"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profil",
       "language": "Sproch",
