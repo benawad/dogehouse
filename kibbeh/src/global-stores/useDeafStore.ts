@@ -12,8 +12,12 @@ export const useDeafStore = create(
       // use useSetDeaf hook intead
       setInternalDeaf: (deafened: boolean, playSound = true) => {
         // to prevent sound overlapping
-        if (playSound) useSoundEffectStore.getState().playSoundEffect(deafened ? "deafen" : "undeafen");
-        set({ deafened });
+        if (playSound) {
+          useSoundEffectStore
+            .getState()
+            .playSoundEffect(deafened ? "deafen" : "undeafen");
+          set({ deafened });
+        }
       },
     })
   )

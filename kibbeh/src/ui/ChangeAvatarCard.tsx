@@ -5,55 +5,65 @@ import { Button } from "./Button";
 import SolidTrashIcon from "../icons/SolidTrash";
 
 export interface ChangeAvatarCardProps {
-   avatarUrl: string
+  avatarUrl: string;
 }
 
 export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({
-   avatarUrl
+  avatarUrl,
 }) => {
-   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const MAX_FILE_SIZE = 3145728;
-      const file = (e.target.files as FileList)[0]
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const MAX_FILE_SIZE = 3145728;
+    const file = (e.target.files as FileList)[0];
 
-      if(file.size > MAX_FILE_SIZE) return // show error toast
+    if (file.size > MAX_FILE_SIZE) return; // show error toast
 
-      // handle upload
-      console.log(file);
-   }
+    // handle upload
+    console.log(file);
+  };
 
-   const handleImageDelete = () => {
-      // handle delete
-   }
+  const handleImageDelete = () => {
+    // handle delete
+  };
 
-   return (
-      <BaseSettingsItem className="flex items-center px-4 py-3">
-         <div>
-            <SingleUser src={avatarUrl} />
-         </div>
-         <div className="flex flex-col ml-5">
-            <div className="flex items-center">
-               <Button size="small" color="secondary" className="">
-                  <label htmlFor="avatar" className="relative cursor-pointer text-primary-100">
-                     Change profile picture
-                     <input 
-                        onChange={handleImageUpload}
-                        type="file" name="avatar"
-                        id="avatar" accept="image/png, image/jpeg" 
-                        className="hidden"/>
-                  </label>
-               </Button>
-               <Button 
-                  size="small" color="secondary" 
-                  className="ml-2" style={{minHeight: "28px"}}
-                  onClick={handleImageDelete}
-               >
-                  <SolidTrashIcon className="text-primary-100"/>
-               </Button>
-            </div>
-            <div className="mt-2">
-               <p className="text-primary-300 text-sm font-medium">Only JPG or PNG and maximum 3MB.</p>
-            </div>
-         </div>
-      </BaseSettingsItem>
-   );
-}
+  return (
+    <BaseSettingsItem className="flex items-center px-4 py-3">
+      <div>
+        <SingleUser src={avatarUrl} />
+      </div>
+      <div className="flex flex-col ml-5">
+        <div className="flex items-center">
+          <Button size="small" color="secondary" className="">
+            <label
+              htmlFor="avatar"
+              className="relative cursor-pointer text-primary-100"
+            >
+              Change profile picture
+              <input
+                onChange={handleImageUpload}
+                type="file"
+                name="avatar"
+                id="avatar"
+                accept="image/png, image/jpeg"
+                className="hidden"
+              />
+            </label>
+          </Button>
+          <Button
+            size="small"
+            color="secondary"
+            className="ml-2"
+            style={{ minHeight: "28px" }}
+            onClick={handleImageDelete}
+          >
+            <SolidTrashIcon className="text-primary-100" />
+          </Button>
+        </div>
+        <div className="mt-2">
+          <p className="text-primary-300 text-sm font-medium">
+            Only JPG or PNG and maximum 3MB.
+          </p>
+        </div>
+      </div>
+    </BaseSettingsItem>
+  );
+};
