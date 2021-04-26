@@ -44,8 +44,8 @@
     "home": {
       "createRoom": "צור חדר",
       "refresh": "טען מחדש",
-      "editRoom": "Edit Room",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "editRoom": "ערוך חדר",
+      "desktopAlert": "הורד את דוג' האוס דסקדופ היום!"
     },
     "inviteList": {
       "roomGone": "החדר נעלם, חזור",
@@ -64,7 +64,7 @@
       "loginGithub": "התחבר באמצעות GitHub",
       "loginTwitter": "התחבר באמצעות Twitter",
       "createTestUser": "צור משתמש נסיון",
-      "loginDiscord": "Login with Discord"
+      "loginDiscord": "התחבר עם דיסקורד"
     },
     "myProfile": {
       "logout": "התנתק",
@@ -73,7 +73,7 @@
       "soundSettings": "עבור להגדרות סאונד",
       "deleteAccount": "מחק חשבון",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "סליחה, לא הצלחנו למצוא את משתמש זה."
     },
     "notFound": {
       "whoopsError": "אופס! הדף הזה הלך לאיבוד בשיחה.",
@@ -112,11 +112,11 @@
       "header": "Overlay Settings"
     },
     "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
+      "starting": "מתחיל בהורדה...",
+      "failed": "Could not auto-download, please try again later",r
       "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
+      "prompt": "לחץ על כפתור זה כדי להתחיל בהורדה",
+      "download_now": "הורד עכשיו",
       "download_for": "Download for %platform% (%ext%)"
     }
   },
@@ -149,7 +149,7 @@
     },
     "deviceNotSupported": {
       "notSupported": "המכשיר שלך אינו נתמך כרגע. אתה יכול ליצור",
-      "linkText": "issue בGitHub",
+      "linkText": "בעיות בGitHub.",
       "addSupport": "וננסה להוסיף תמיכה למכשיר שלך."
     },
     "inviteButton": { "invited": "מוזמן", "inviteToRoom": "הזמן לחדר" },
@@ -203,8 +203,8 @@
       "profileModal": {
         "blockUserConfirm": "האם אתה בטוח שברצונך לחסום משתמש זה מלהצטרף לכל חדר שתיצור אי פעם?",
         "blockUser": "חסום משתמש",
-        "makeMod": "הפוך לmod",
-        "unmod": "הסר mod",
+        "makeMod": "הפוך למוד",
+        "unmod": "הסר מןד",
         "addAsSpeaker": "הוסף כ דובר",
         "moveToListener": "העבר למקשיב",
         "banFromChat": "הרחק מהצ'אט",
@@ -218,29 +218,29 @@
         "requirePermission": "דרוש אישור לדבר",
         "makePublic": "הפוך חדר לציבורי",
         "makePrivate": "הפוך חדר לפרטי",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "הגדר את שם החדר הציבורי",
+        "renamePrivate": "הגדר את השם של החדר הפרטי"
       }
     },
     "followingOnline": {
       "people": "People",
-      "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "online": "מחובר",
+      "noOnline": "יש לך 0 חברים מחוברים כרגע",
+      "showMore": "הראה עוד"
     },
     "upcomingRoomsCard": {
       "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "exploreMoreRooms": "טען עוד חדרים"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": { "placeholder": "חפש חדרים, משתמשים, או קטגוריות" },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "פרופיל",
+      "language": "שפה",
+      "reportABug": "דווח על באג",
+      "useOldVersion": "השתמש בגרסא ישנה",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "יציאה מהמשתמש",
+        "modalSubtitle": "האם אתה בטוח שתרצה לצאת מהמשתמש ?
       },
       "debugAudio": {
         "debugAudio": "Debug Audio",
@@ -261,17 +261,17 @@
         "needsFuture": "חייב להיות בעתיד",
         "roomName": "שם החדר",
         "minLength": "אורך מינימלי 2",
-        "roomDescription": "תיאור"
+        "roomDescription": "תיאור החדר"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "tommorow": "מחר",
+      "today": "היום",
       "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
+        "areYouSure": "האם אתה בטוח שתרצה למחוק את החדר הזה?"
       }
     },
     "roomChat": {
       "title": "צ'אט",
-      "emotesSoon": "[emotes soon]",
+      "emotesSoon": "[אימוג'ים בקרוב]",
       "bannedAlert": "קיבלת באן מהצ'אט",
       "waitAlert": "חכה שנייה לפני שליחת הודעה",
       "search": "חפש",
@@ -294,6 +294,6 @@
       "galacticDoge": "גלקטי Doge",
       "spottedLife": "כוכב לכת עם חיים נמצא"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": { "yourFeed": "הסיפור שלך" }
   }
 }
