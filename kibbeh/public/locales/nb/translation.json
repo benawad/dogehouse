@@ -97,7 +97,8 @@
       "followingHim": "Følger",
       "copyProfileUrl": "Kopiér profil URL",
       "urlCopied": "URL kopiert til utklippstavlen",
-      "unfollow": "Slutt å følge"
+      "unfollow": "Slutt å følge",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Taleinnstillinger",
@@ -202,7 +203,8 @@
         "usernameError": "Lengden må være mellom 4 og 15 tegn og kan kun inneholde alfanumerisk/understrek",
         "usernameLabel": "Brukernavn",
         "bioError": "Maksimal lengde er 160 tegn",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Er du sikker på at du vil blokkere brukeren fra å bli med i alle nye rom du lager?",
@@ -236,7 +238,10 @@
       "upcomingRooms": "Kommende rom",
       "exploreMoreRooms": "Utforsk flere rom"
     },
-    "search": { "placeholder": "Søk etter rom, brukere eller kategorier" },
+    "search": {
+      "placeholder": "Søk etter rom, brukere eller kategorier",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profil",
       "language": "Språk",

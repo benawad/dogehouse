@@ -5,16 +5,14 @@ import { SearchBar } from "../../ui/Search/SearchBar";
 import { SearchOverlay } from "../../ui/Search/SearchOverlay";
 import Downshift from "downshift";
 import { Room, User } from "@dogehouse/kebab";
-import { SingleUser } from "../../ui/UserAvatar";
 import { useRouter } from "next/router";
-import { BubbleText } from "../../ui/BubbleText";
-import { formatNumber } from "../../ui/RoomCard";
 import { useDebounce } from "use-debounce";
 import { InfoText } from "../../ui/InfoText";
 import {
   RoomSearchResult,
   UserSearchResult,
 } from "../../ui/Search/SearchResult";
+import { useMediaQuery } from "react-responsive";
 
 interface SearchControllerProps {}
 
@@ -22,6 +20,7 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
   const [rawText, setText] = useState("");
   const [text] = useDebounce(rawText, 200);
   const { t } = useTypeSafeTranslation();
+  const isOverflowing = useMediaQuery({ maxWidth: 475 });
   let enabled = false;
   const isUsernameSearch = text.startsWith("@");
 
@@ -80,7 +79,11 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
         <div className="relative w-full z-10 flex flex-col">
           <SearchBar
             {...getInputProps()}
-            placeholder={t("components.search.placeholder")}
+            placeholder={
+              isOverflowing
+                ? t("components.search.placeholderShort")
+                : t("components.search.placeholder")
+            }
           />
           {isOpen ? (
             <SearchOverlay

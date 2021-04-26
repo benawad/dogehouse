@@ -101,7 +101,8 @@
       "followingHim": "Obunachisiz",
       "copyProfileUrl": "Profil URL manzilini nusxalash",
       "urlCopied": "Profil URL nusxasi ko'chirildi",
-      "unfollow": "Obunani bekor qilish"
+      "unfollow": "Obunani bekor qilish",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Ovoz Sozlamalari",
@@ -182,7 +183,8 @@
       "reconnect": "Qayta qo'shilish"
     },
     "search": {
-      "placeholder": "Xonalarni, foydalanuvchilarni yoki toifalarni qidirish"
+      "placeholder": "Xonalarni, foydalanuvchilarni yoki toifalarni qidirish",
+      "placeholderShort": "Search"
     },
     "settingsDropdown": {
       "profile": "Profil",
@@ -224,7 +226,8 @@
         "usernameError": "Uzunligi 4 dan 15 gacha bo'lgan belgilar, alfasayısal va faqat pastki chiziq bilan belgilanadi",
         "usernameLabel": "Foydalanuvchi nomi",
         "bioError": "maksimal uzunligi 160 belgi",
-        "bioLabel": "Men haqimda"
+        "bioLabel": "Men haqimda",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Haqiqatan ham ushbu foydalanuvchi sizning xonalaringizga kirishiga to'sqinlik qilmoqchimisiz?",

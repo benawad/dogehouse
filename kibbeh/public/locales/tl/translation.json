@@ -97,7 +97,8 @@
       "unfollow": "Unfollow",
       "followingHim": "mga sinusubaybayan",
       "copyProfileUrl": "Copy Profile URL",
-      "urlCopied": "URL copied to clipboard"
+      "urlCopied": "URL copied to clipboard",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Voice Settings",
@@ -177,9 +178,7 @@
       "togglePushToTalkKeybind": "I-toggle ang push-to-talk keybind",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "Walang makitang audio consumer"
-    },
+    "userVolumeSlider": { "noAudioMessage": "Walang makitang audio consumer" },
     "upcomingRoomsCard": {
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore more rooms"
@@ -189,7 +188,10 @@
       "description": "Pinatay ng server ang websocket. Karaniwang magyayari ito dahil naka bukas ang website sa ibang tab.",
       "reconnect": "kumonekta"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",
@@ -230,7 +232,8 @@
         "usernameError": "haba ng 4 hanggang 15 na mga character at alphanumeric / underscor lamange",
         "usernameLabel": "Username",
         "bioError": "limitado hanggang 160 mga letra lamang",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Sigurado kaba na i-block mo itong user sa pagsali sa ginawa mong room?",

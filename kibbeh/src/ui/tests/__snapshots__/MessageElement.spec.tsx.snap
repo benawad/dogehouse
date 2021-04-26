@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MessageElement should match snapshot 1`] = `
-<div className="flex"
+<div
   class="items-center w-full px-4 md:bg-primary-800 md:border-b md:border-primary-600 cursor-pointer hover:bg-primary-700 bg-primary-900"
   data-testid="msg-element"
 >
-  <div className="flex"
-    class="mr-3"
+  <div
+    class="flex mr-3"
   >
-    <div className="flex"
+    <div
       class="relative inline-block "
       data-testid="single-user-avatar"
       style="width: 40px; height: 40px;"
     >
       <img
-        alt="avatar"
+        alt="your-avatar"
         class="rounded-full w-full h-full object-cover"
         src=""
       />
@@ -25,12 +25,12 @@ exports[`MessageElement should match snapshot 1`] = `
       />
     </div>
   </div>
-  <div className="flex"
+  <div
     class="flex-col py-3 border-b border-primary-600 md:border-none md:py-0"
     style="width: calc(100% - 50px);"
   >
-    <div className="flex"
-      class="justify-between"
+    <div
+      class="flex justify-between"
     >
       <span
         class="text-button font-bold inline-block truncate mr-1"
@@ -42,7 +42,7 @@ exports[`MessageElement should match snapshot 1`] = `
         class="text-primary-300 text-sm font-medium inline-block truncate"
         style="line-height: 22px;"
       >
-        about 51 years
+        over 51 years
          ago
       </span>
     </div>

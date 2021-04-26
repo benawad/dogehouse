@@ -54,7 +54,7 @@ export const FloatingRoomInfo: React.FC<MinimizedRoomCardControllerProps> = () =
             onClick={() => {
               setMute(!muted);
             }}
-            className={muted ? "bg-accent" : ""}
+            className={`mr-1 ${muted && "bg-accent"}`}
           >
             {muted ? (
               <SvgSolidMicrophoneOff data-testid="mic-off-icon" />

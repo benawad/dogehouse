@@ -98,7 +98,8 @@
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Cilësime e zërit",
@@ -200,7 +201,8 @@
         "usernameError": "gjatësia 4 deri 15 shkronja dhe vetëm alphanumerik/nevizim",
         "usernameLabel": "Emri i përdoruesit",
         "bioError": "gjatesia maks 160 shkronja",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "A jeni të sigurt që doni të bllokoni këtë perdoruest për t'iu bashkuar dhomave qe ju krijoni?",
@@ -234,7 +236,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",
