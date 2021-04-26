@@ -11,6 +11,7 @@ export type UserPreview = {
   numFollowers: number;
   id: UUID;
   displayName: string;
+  avatarUrl: string
 };
 
 export type Room = {
@@ -25,6 +26,7 @@ export type Room = {
     id: string;
     displayName: string;
     numFollowers: number;
+    avatarUrl: string
   }>;
   inserted_at: string;
 };
