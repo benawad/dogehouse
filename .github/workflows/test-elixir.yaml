@@ -8,8 +8,8 @@ on:
   pull_request:
     branches:
       - staging
-    paths:
-      - 'kousa/lib/**'
+    # paths:
+    #   - 'kousa/lib/**'
 jobs:
   test:
     name: Build
