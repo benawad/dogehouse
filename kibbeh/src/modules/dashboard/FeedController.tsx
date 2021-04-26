@@ -46,7 +46,6 @@ const Page = ({
     },
     [cursor]
   );
-  console.log(data);
   useEffect(() => {
     if (isElectron()) {
       const ipcRenderer = window.require("electron").ipcRenderer;

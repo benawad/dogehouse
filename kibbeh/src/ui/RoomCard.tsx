@@ -67,7 +67,6 @@ export const RoomCard: React.FC<RoomCardProps> = ({
     }
   }
 
-  console.log(subtitle);
   const roomLive = !scheduledFor || isPast(scheduledFor);
 
   return (
