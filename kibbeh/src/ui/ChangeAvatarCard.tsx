@@ -27,7 +27,7 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({
 
   const handleImageDelete = () => {
     // handle delete and change image to default and setAvatarUrl to default avatar
-    setAvatarUrl('');
+    setAvatarUrl("");
   };
 
   return (
