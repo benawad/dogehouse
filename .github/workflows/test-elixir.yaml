@@ -12,7 +12,7 @@ on:
       - 'kousa/lib/**'
 jobs:
   test:
-    name: Build
+    name: test-elixir
     runs-on: ubuntu-latest
     defaults:
       run:

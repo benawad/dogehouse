@@ -1,4 +1,4 @@
-name: lint-and-test-kibbeh.yaml
+name: lint-and-test-kibbeh
 
 on:
   push:
@@ -13,8 +13,8 @@ on:
       - 'kibbeh/**'
 
 jobs:
-  build:
-
+  test:
+    name: lint-and-test-kibbeh
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
