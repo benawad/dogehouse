@@ -22,9 +22,9 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "নিঃশব্দ | DogeHouse",
-    "deafenedTitle": "Deafened | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "সাউন্ড বন্ধ | DogeHouse",
+    "dashboard": "ড্যাশবোর্ড",
+    "connectionTaken": "কানেকশন নেওয়া হয়ে গিয়েছে"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -48,7 +48,7 @@
       "createRoom": "রুম বানান",
       "refresh": "রিফ্রেশ করুন",
       "editRoom": "রুম এডিট করুন",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "desktopAlert": "ডাউনলোড করুন DogeHouse ডেস্কটপ অ্যাপ্লিকেশন আজকেই!"
     },
     "inviteList": {
       "roomGone": "রুম শেষ, ফিরে আসুন",
@@ -120,8 +120,8 @@
       "label": "অ্যাপ শিরোনাম দিন"
     },
     "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
+      "starting": "ডাউনলোড শুরু হচ্ছে...",
+      "failed": "অটো-ডাউনলোড , please try again later",
       "visit_gh": "Visit Github Releases",
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
