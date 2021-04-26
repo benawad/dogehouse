@@ -98,7 +98,8 @@
       "unfollow": "Bỏ theo dõi",
       "followingHim": "đang theo dõi",
       "copyProfileUrl": "sao chép liên kết hồ sơ",
-      "urlCopied": "Đã sao chép liên kết"
+      "urlCopied": "Đã sao chép liên kết",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Cài đặt giọng nói",
@@ -203,7 +204,8 @@
         "usernameError": "phải có độ dài từ 4 đến 15 ký tự và chỉ được dùng chữ, số hoặc gạch dưới",
         "usernameLabel": "Tên người dùng",
         "bioError": "tối đa 160 ký tự",
-        "bioLabel": "Mô tả"
+        "bioLabel": "Mô tả",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Bạn có chắc chắn muốn cấm người dùng này tham gia bất kỳ phòng nào bạn tạo không?",
@@ -237,7 +239,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",

@@ -1850,6 +1850,7 @@ __metadata:
     downshift: ^6.1.2
     emoji-regex: ^9.2.2
     eslint: ^7.24.0
+    eslint-plugin-cypress: ^2.11.2
     eslint-plugin-react: ^7.23.2
     eslint-plugin-react-hooks: ^4.2.0
     formik: ^2.2.6
@@ -8510,6 +8511,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-cypress@npm:^2.11.2":
+  version: 2.11.2
+  resolution: "eslint-plugin-cypress@npm:2.11.2"
+  dependencies:
+    globals: ^11.12.0
+  peerDependencies:
+    eslint: ">= 3.2.1"
+  checksum: e68b06a371f0523281d34085f89b85c1321fb636725b3687ebd00729a3d9277ecf1cbf7788e065318be4cf8863a37577f2f87e4ca3fdd36204e53a0e24353bb5
+  languageName: node
+  linkType: hard
+
 "eslint-plugin-react-hooks@npm:^4.2.0":
   version: 4.2.0
   resolution: "eslint-plugin-react-hooks@npm:4.2.0"
@@ -9857,7 +9869,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"globals@npm:^11.1.0":
+"globals@npm:^11.1.0, globals@npm:^11.12.0":
   version: 11.12.0
   resolution: "globals@npm:11.12.0"
   checksum: 2563d3306a7e646fd9ec484b0ca29bf8847d9dc6ebbe86026f11e31bda04f420f6536c2decbd4cb96350379801d2cce352ab373c40be8b024324775b31f882f9

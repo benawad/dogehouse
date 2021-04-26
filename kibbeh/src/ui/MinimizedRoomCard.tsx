@@ -6,7 +6,6 @@ import {
   SolidVolume,
   SolidVolumeOff,
 } from "../icons";
-import { useRouter } from "next/router";
 import { Button } from "./Button";
 import { DurationTicker } from "./DurationTicker";
 import SvgSolidMicrophoneOff from "../icons/SolidMicrophoneOff";

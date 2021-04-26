@@ -97,7 +97,8 @@
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "語音設定",
@@ -107,11 +108,11 @@
       "volume": "音量:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": { "errorMsg": "無效的 app 標題 ", "label": "輸入 App 標題" },
       "header": "Overlay Settings"
     },
     "download": {
-      "starting": "Starting download...",
+      "starting": "正在下載 ...",
       "failed": "Could not auto-download, please try again later",
       "visit_gh": "Visit Github Releases",
       "prompt": "Click on the button below to start download",
@@ -197,7 +198,8 @@
         "usernameError": "長度要在 4 到 15 字元之内，只可輸入英文字母、數字與下劃線 _",
         "usernameLabel": "用户名",
         "bioError": "最大長度為 160 字元",
-        "bioLabel": "個人簡介"
+        "bioLabel": "個人簡介",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "你確定把此人加入黑名單?（他就無法加入你所建立的任何房間）",
@@ -217,34 +219,34 @@
         "requirePermission": "需要許可才能發言",
         "makePublic": "把房間設定為公開",
         "makePrivate": "把房間設定為私人",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "設公開房間名字",
+        "renamePrivate": "設私人房間名字"
       }
     },
     "followingOnline": {
       "people": "People",
-      "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
+      "online": "上線",
+      "noOnline": "你有0個朋友",
       "showMore": "Show more"
     },
     "upcomingRoomsCard": {
       "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "exploreMoreRooms": "搜尋更多房間"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
-      "language": "Language",
+      "language": "語言",
       "reportABug": "Report A Bug",
       "useOldVersion": "Use Old Version",
       "logOut": {
-        "button": "Log out",
+        "button": "登出",
         "modalSubtitle": "Are you sure you want to logout?"
       },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
-      }
+      "debugAudio": { "debugAudio": "除錯音頻", "stopDebugger": "停止除錯" }
     }
   },
   "modules": {
@@ -260,10 +262,10 @@
         "needsFuture": "需要一個在未來的時間",
         "roomName": "房間名稱",
         "minLength": "最短長度為 2",
-        "roomDescription": "Description"
+        "roomDescription": "描述"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "tommorow": "明天",
+      "today": "今天",
       "deleteModal": {
         "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
@@ -282,9 +284,9 @@
       "roomDescription": "房間簡介"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
+      "fuelingRocket": "火箭正在加油",
       "takingOff": "Taking off",
-      "inSpace": "In space",
+      "inSpace": "在太空",
       "approachingMoon": "Approaching moon",
       "lunarDoge": "Lunar doge",
       "approachingSun": "Approaching sun",

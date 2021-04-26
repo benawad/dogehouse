@@ -52,8 +52,11 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
       </div>
       {/* {open ? <div className="text-primary-100 mt-4">{description}</div> : null} */}
 
-      {open && (
-        <div className="mt-4 overflow-y-auto" style={{ maxHeight: "100px" }}>
+      {open && description?.trim() && (
+        <div
+          className="mt-4 overflow-y-auto break-words"
+          style={{ maxHeight: "100px" }}
+        >
           {description.split(/\n/).map(
             (line, i) =>
               line.trim() && (
@@ -64,7 +67,7 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
                         <a
                           href={normalizeUrl(chunk)}
                           rel="noreferrer"
-                          className="text-accent text-center hover:underline inline"
+                          className="text-accent text-center hover:underline inline break-all"
                           key={`${i}${j}`}
                           target="_blank"
                         >

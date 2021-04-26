@@ -22,7 +22,9 @@ defmodule Broth.Routes.BotAuth do
          {:ok, _} <- Ecto.UUID.cast(api_key) do
       key = to_string(:inet_parse.ntoa(conn.remote_ip))
 
-      if (BotAuthRateLimit.get(key) || 0) > 20 do
+      max_attempts = if Mix.env() == :test, do: 5, else: 20
+
+      if (BotAuthRateLimit.get(key) || 0) > max_attempts do
         conn
         |> put_resp_content_type("application/json")
         |> send_resp(

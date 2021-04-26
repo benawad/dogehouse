@@ -98,7 +98,8 @@
       "followingHim": "following",
       "copyProfileUrl": "naqli xiriiriyaha kontada",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "hagaajinta codka",
@@ -206,7 +207,8 @@
         "usernameError": "4 ilaa 15 xaraf oo ah alphanumeric/underscore kaliya",
         "usernameLabel": "Magaca isticmaalaha",
         "bioError": "ugu badnaan 160 xaraf",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Mahubtaa inaad ka mamnuucdo isticmaalaha qolkasta oo aad abuurtid?",
@@ -240,7 +242,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",

@@ -97,7 +97,8 @@
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Подешавања гласа",
@@ -199,7 +200,8 @@
         "usernameError": "дужина између 4 до 15 карактера и само слова, бројеви и доња црта",
         "usernameLabel": "Корисничко име",
         "bioError": "максимална дужина 160 карактера",
-        "bioLabel": "Опис"
+        "bioLabel": "Опис",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Да ли сте сигурни да желите да блокирате овог корисника да се придружи било којој соби коју сте икада створили?",
@@ -233,7 +235,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",

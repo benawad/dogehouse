@@ -31,7 +31,7 @@ export const ProfileAbout: React.FC<ProfileAboutProps> = ({
       style={{ maxWidth: 640 }}
     >
       <p className="text-primary-100 font-bold text-xl pb-4">
-        About {username}
+        {t("pages.viewUser.about")} {username}
       </p>
       <div className="flex mb-2">
         <div className="flex">
@@ -55,7 +55,7 @@ export const ProfileAbout: React.FC<ProfileAboutProps> = ({
           </ApiPreloadLink>
         </div>
       </div>
-      <p className="text-primary-100 text-sm pb-2 whitespace-pre-wrap max-h-5l truncate">
+      <p className="text-primary-100 text-sm pb-2 whitespace-pre-wrap max-h-5l overflow-y-auto">
         {description}
       </p>
       {link && (

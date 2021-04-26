@@ -18,7 +18,7 @@ const profileStruct = object({
   bio: size(string(), 0, 160),
   avatarUrl: pattern(
     string(),
-    /^https?:\/\/(www\.|)((a|p)bs.twimg.com\/(profile_images|sticky\/default_profile_images)\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/)/
+    /^https?:\/\/(www\.|)((a|p)bs.twimg.com\/(profile_images|sticky\/default_profile_images)\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/|github.com\/identicons\/[^\s]+)/
   ),
   bannerUrl: optional(
     pattern(
@@ -125,7 +125,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                 errorMsg={t(
                   "components.modals.editProfileModal.avatarUrlError"
                 )}
-                label="Twitter Banner URL"
+                label={t("components.modals.editProfileModal.bannerUrlLabel")}
                 name="bannerUrl"
               />
               <InputField

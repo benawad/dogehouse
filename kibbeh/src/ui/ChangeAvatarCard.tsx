@@ -17,25 +17,16 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({
     const MAX_FILE_SIZE = 3145728;
     const file = (e.target.files as FileList)[0];
 
-    if (file.size > MAX_FILE_SIZE) {
-      console.log("File size must be less than 3MB");
-      return; // show error toast
-    }
+    if (file.size > MAX_FILE_SIZE) return; // show error toast
 
-    if (file.size < 1) {
-      console.log("Empty file");
-      return;
-    }
+    if (file.size < 1) return;
 
-    // handle upload
-    console.log(file);
     // add upload to image store/github/twitter
     setAvatarUrl(URL.createObjectURL(file));
   };
 
   const handleImageDelete = () => {
     // handle delete and change image
-    console.log("profile picture deleted");
   };
 
   return (
