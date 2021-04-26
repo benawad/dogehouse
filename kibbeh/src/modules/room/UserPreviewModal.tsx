@@ -71,7 +71,8 @@ const UserPreview: React.FC<{
     return <div className={`flex text-primary-100`}>This user is gone.</div>;
   }
 
-  const canDoModStuffOnThisUser = !isMe && (iAmCreator || iAmMod) && !isCreator;
+  const canDoModStuffOnThisUser =
+    !isMe && (iAmCreator || iAmMod) && !isCreator && !roomPermissions?.isMod;
 
   // [shouldShow, key, onClick, text]
   const buttonData = [
