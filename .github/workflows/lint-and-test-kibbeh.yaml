@@ -32,4 +32,4 @@ jobs:
         name: Lint and Test Kibbeh
         conclusion: ${{ job.status }}
         output: |
-          {"summary":${{ steps.test.outputs.summary }}}
+          {"summary": "not sure what to put here"}
