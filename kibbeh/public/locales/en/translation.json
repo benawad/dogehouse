@@ -114,7 +114,8 @@
       "unfollow": "Unfollow",
       "followingHim": "Following",
       "copyProfileUrl": "Copy Profile URL",
-      "urlCopied": "URL copied to clipboard"
+      "urlCopied": "URL copied to clipboard",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Voice Settings",

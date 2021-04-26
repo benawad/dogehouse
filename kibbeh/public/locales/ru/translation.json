@@ -101,7 +101,8 @@
       "followingHim": "Вы подписаны",
       "copyProfileUrl": "скопировать URL профиля",
       "urlCopied": "URL профиля скопирован",
-      "unfollow": "Отписаться"
+      "unfollow": "Отписаться",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Голосовые настройки",

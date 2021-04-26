@@ -97,7 +97,8 @@
       "followingHim": "sledovaný",
       "copyProfileUrl": "skopírovať url profilu",
       "urlCopied": "URL skopírované do schránky",
-      "unfollow": "Prestať sledovať"
+      "unfollow": "Prestať sledovať",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Nastavenia hlasu",

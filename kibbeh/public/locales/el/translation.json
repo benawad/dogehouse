@@ -110,7 +110,8 @@
       "followingHim": "Ακολουθείτε",
       "copyProfileUrl": "Αντιγραφή συνδέσμου προφίλ",
       "urlCopied": "Ο συνδεσμος αντιγράφθηκε στο πρόχειρο",
-      "unfollow": "Ξε-ακολουθήστε"
+      "unfollow": "Ξε-ακολουθήστε",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Ρυθμίσεις Φωνής",

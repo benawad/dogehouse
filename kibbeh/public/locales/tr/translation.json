@@ -97,7 +97,8 @@
       "followingHim": "Takiptesin",
       "copyProfileUrl": "Profil bağlantısını kopyala",
       "urlCopied": "Bağlantı kopyalandı",
-      "unfollow": "Takipten çık"
+      "unfollow": "Takipten çık",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Ses Ayarları",

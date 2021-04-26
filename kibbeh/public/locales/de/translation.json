@@ -98,7 +98,8 @@
       "followingHim": "Folgt bereits",
       "copyProfileUrl": "Benutzer-Url kopieren",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Entfolgen"
+      "unfollow": "Entfolgen",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Spracheinstellungen",

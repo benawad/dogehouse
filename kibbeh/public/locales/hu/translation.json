@@ -96,7 +96,8 @@
       "followingHim": "követve",
       "copyProfileUrl": "fiók URL címének másolása",
       "urlCopied": "URL cím kimásolva a vágólapra",
-      "unfollow": "Követés megszűntetése"
+      "unfollow": "Követés megszűntetése",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Hangbeállítások",

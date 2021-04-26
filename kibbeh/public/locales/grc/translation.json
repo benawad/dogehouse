@@ -98,7 +98,8 @@
       "followingHim": "ακολουθείτε",
       "unfollow": "Unfollow",
       "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard"
+      "urlCopied": "URL copied to clipboard",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Ρυθμίσεις Φωνής",

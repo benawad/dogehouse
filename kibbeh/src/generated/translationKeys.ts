@@ -80,6 +80,7 @@ export type TranslationKeys =
 	| "pages.viewUser.followingHim"
 	| "pages.viewUser.copyProfileUrl"
 	| "pages.viewUser.urlCopied"
+	| "pages.viewUser.about"
 	| "pages.voiceSettings.header"
 	| "pages.voiceSettings.mic"
 	| "pages.voiceSettings.permissionError"

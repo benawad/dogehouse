@@ -100,7 +100,8 @@
       "followingHim": "กำลังติดตาม",
       "copyProfileUrl": "คัดลอกลิงก์โปรไฟล์",
       "urlCopied": "คัดลอกลิงก์เรียบร้อย",
-      "unfollow": "เลิกติดตาม"
+      "unfollow": "เลิกติดตาม",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "การตั้งค่าเสียง",

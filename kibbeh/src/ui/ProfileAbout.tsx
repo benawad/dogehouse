@@ -31,7 +31,7 @@ export const ProfileAbout: React.FC<ProfileAboutProps> = ({
       style={{ maxWidth: 640 }}
     >
       <p className="text-primary-100 font-bold text-xl pb-4">
-        About {username}
+        {t("pages.viewUser.about")} {username}
       </p>
       <div className="flex mb-2">
         <div className="flex">

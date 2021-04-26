@@ -97,7 +97,8 @@
       "unfollow": "deixar de seguir",
       "followingHim": "seguindo",
       "copyProfileUrl": "copiar url do perfil",
-      "urlCopied": "URL copiado para a área de transferência"
+      "urlCopied": "URL copiado para a área de transferência",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Configurações do microfone",

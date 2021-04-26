@@ -101,7 +101,8 @@
       "followingHim": "Obunachisiz",
       "copyProfileUrl": "Profil URL manzilini nusxalash",
       "urlCopied": "Profil URL nusxasi ko'chirildi",
-      "unfollow": "Obunani bekor qilish"
+      "unfollow": "Obunani bekor qilish",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Ovoz Sozlamalari",

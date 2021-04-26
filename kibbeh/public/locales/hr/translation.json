@@ -100,7 +100,8 @@
       "followsYou": "vas prati",
       "copyProfileUrl": "kopiraj url profila",
       "urlCopied": "URL kopiran u međuspremnik",
-      "unfollow": "Prestani pratiti"
+      "unfollow": "Prestani pratiti",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Postavke glasa",

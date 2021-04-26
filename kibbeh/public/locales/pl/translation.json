@@ -101,7 +101,8 @@
       "unfollow": "Przestań obserwować",
       "followingHim": "Obserwujesz",
       "copyProfileUrl": "Skopiuj URL profilu",
-      "urlCopied": "URL zostało skopiowane do schowka"
+      "urlCopied": "URL zostało skopiowane do schowka",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Ustawienia Głosu",

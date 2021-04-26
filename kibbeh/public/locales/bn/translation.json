@@ -101,7 +101,8 @@
       "followingHim": "অনুসরণ করছেন",
       "copyProfileUrl": "প্রোফাইলের URL কপি করুন",
       "urlCopied": "URL ক্লিপবোর্ডে কপি করা হয়েছে",
-      "unfollow": "অনুসরণ বাতিল করুন"
+      "unfollow": "অনুসরণ বাতিল করুন",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "ভয়েস সেটিংস",

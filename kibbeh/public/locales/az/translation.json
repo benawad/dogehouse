@@ -98,7 +98,8 @@
       "followingHim": "İzləyirsiniz",
       "copyProfileUrl": "Profil keçidini kopyalayın",
       "urlCopied": "Keçid kopyalandı",
-      "unfollow": "İzləməni dayandır"
+      "unfollow": "İzləməni dayandır",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Səs parametrləri",

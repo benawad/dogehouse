@@ -98,7 +98,8 @@
       "followingHim": "متابَع",
       "copyProfileUrl": "انسخ رابط البروفايل",
       "urlCopied": "تم نسخ الرابط",
-      "unfollow": "الغاء المتابعة"
+      "unfollow": "الغاء المتابعة",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "إعدادات المحادثة الصوتية",

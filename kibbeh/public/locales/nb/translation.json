@@ -97,7 +97,8 @@
       "followingHim": "Følger",
       "copyProfileUrl": "Kopiér profil URL",
       "urlCopied": "URL kopiert til utklippstavlen",
-      "unfollow": "Slutt å følge"
+      "unfollow": "Slutt å følge",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Taleinnstillinger",

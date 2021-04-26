@@ -98,7 +98,8 @@
       "followingHim": "Abonné",
       "copyProfileUrl": "Copier le lien du profil",
       "urlCopied": "Lien copié dans le presse-papier",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "À propos de"
     },
     "voiceSettings": {
       "header": "Paramètres vocaux",

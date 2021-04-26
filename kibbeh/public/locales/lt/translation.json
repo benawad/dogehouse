@@ -98,7 +98,8 @@
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Garso nustatymai",
