@@ -266,7 +266,7 @@ defmodule Kousa.Beef.RoomsTest do
 
     test "create" do
       %User{
-        avatarUrl: ^avatarUrl,
+        avatarUrl: avatarUrl,
         displayName: displayName,
         numFollowers: numFollowers,
         id: id
