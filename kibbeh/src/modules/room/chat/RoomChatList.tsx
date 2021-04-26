@@ -24,6 +24,8 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
   const {
     isRoomChatScrolledToTop,
     setIsRoomChatScrolledToTop,
+    message,
+    setMessage,
   } = useRoomChatStore();
   const { t } = useTypeSafeTranslation();
 
@@ -104,7 +106,21 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                       key={messages[index].id}
                     >
                       <button
-                        onClick={() => {
+                        onClick={(e) => {
+                          // Auto mention on shift click
+                          if (e.shiftKey && messages[index].userId !== me.id) {
+                            setMessage(
+                              message +
+                                (message.endsWith(" ") ? "" : " ") +
+                                "@" +
+                                messages[index].username +
+                                " "
+                            );
+                            document.getElementById("room-chat-input")?.focus();
+
+                            return;
+                          }
+
                           setData({
                             userId: messages[index].userId,
                             message:
