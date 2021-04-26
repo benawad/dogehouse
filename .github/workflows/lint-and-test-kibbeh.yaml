@@ -25,11 +25,3 @@ jobs:
     - run: cd kibbeh && yarn lint
     - run: cd kibbeh && yarn test
       id: test
-    - uses: LouisBrunner/checks-action@v1.1.1
-      if: always()
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        name: Lint and Test Kibbeh
-        conclusion: ${{ job.status }}
-        output: |
-          {"summary": "not sure what to put here"}
