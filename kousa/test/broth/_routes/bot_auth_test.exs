@@ -30,7 +30,7 @@ defmodule BrothTest.Routes.BotAuthTest do
       end)
 
       assert {:ok, %Finch.Response{status: 429}} =
-               HttpRequest.post("/bot/auth", %{apiKey: bot.apiKey}) |> IO.inspect(label: "19")
+               HttpRequest.post("/bot/auth", %{apiKey: bot.apiKey})
     end
   end
 end

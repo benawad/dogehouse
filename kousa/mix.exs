@@ -24,8 +24,10 @@ defmodule Kousa.MixProject do
 
     [
       mod: {Kousa, []},
+      # moved logger to 2nd position to kill this error
+      # calling logger:remove_handler(default) failed: :error {:badmatch, {:error, {:not_found, :default}}}
       extra_applications:
-        [:logger, :amqp, :ueberauth_github, :prometheus_ex] ++ dev_only_apps ++ test_only_apps
+        [:amqp, :logger, :ueberauth_github, :prometheus_ex] ++ dev_only_apps ++ test_only_apps
     ]
   end
 

@@ -8,8 +8,8 @@ on:
   pull_request:
     branches:
       - staging
-    # paths:
-    #   - 'kousa/lib/**'
+    paths:
+      - 'kousa/lib/**'
 jobs:
   test:
     name: Build
@@ -39,3 +39,11 @@ jobs:
       env:
           MIX_ENV: test
     - run: mix test
+      id: test
+    - uses: LouisBrunner/checks-action@v1.1.1
+      if: always()
+      with:
+        name: Test Elixir
+        conclusion: ${{ job.status }}
+        output: |
+          {"summary":${{ steps.test.outputs.summary }}}
