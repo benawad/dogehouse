@@ -20,3 +20,6 @@ EOL
 
 # shawarma
 echo "WEBRTC_LISTEN_IP=127.0.0.1" > shawarma/.env
+
+# kibbeh
+cp kibbeh/.env.example kibbeh/.env
