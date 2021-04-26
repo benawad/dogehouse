@@ -4,6 +4,7 @@ import { SolidTime } from "../icons";
 import { BubbleText } from "./BubbleText";
 import { RoomCardHeading } from "./RoomCardHeading";
 import { Tag } from "./Tag";
+import { MultipleUsers, SingleUser } from "./UserAvatar";
 
 export function formatNumber(num: number): string {
   return Math.abs(num) > 999
@@ -38,6 +39,7 @@ function useScheduleRerender(scheduledFor?: Date) {
 export type RoomCardProps = {
   title: string;
   subtitle: string;
+  avatars: string[];
   scheduledFor?: Date;
   listeners: number;
   tags: React.ReactNode[];
@@ -47,6 +49,7 @@ export type RoomCardProps = {
 export const RoomCard: React.FC<RoomCardProps> = ({
   title,
   subtitle,
+  avatars,
   scheduledFor,
   listeners,
   tags,
@@ -64,6 +67,7 @@ export const RoomCard: React.FC<RoomCardProps> = ({
     }
   }
 
+  console.log(subtitle);
   const roomLive = !scheduledFor || isPast(scheduledFor);
 
   return (
@@ -82,8 +86,13 @@ export const RoomCard: React.FC<RoomCardProps> = ({
           </BubbleText>
         </div>
       </div>
-      <div className="block w-full mt-2 text-left break-all truncate whitespace-pre-wrap line-clamp-2 text-primary-300">
-        {subtitle}
+      <div className="block w-full mt-2 flex">
+        {avatars.length > 0 ? (
+          <MultipleUsers className="mr-2" srcArray={avatars} />
+        ) : null}
+        <div className="text-left break-all truncate whitespace-pre-wrap line-clamp-2 text-primary-300">
+          {subtitle}
+        </div>
       </div>
       <div className="flex mt-4 space-x-2">
         {tags.map((tag, idx) => (

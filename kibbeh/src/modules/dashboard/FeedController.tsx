@@ -46,6 +46,7 @@ const Page = ({
     },
     [cursor]
   );
+  console.log(data);
   useEffect(() => {
     if (isElectron()) {
       const ipcRenderer = window.require("electron").ipcRenderer;
@@ -123,6 +124,14 @@ const Page = ({
                   .map((x) => x.displayName)
                   .join(", ")
               : ""
+          }
+          avatars={
+            "peoplePreviewList" in room
+              ? room.peoplePreviewList
+                  .map((x) => x.avatarUrl)
+                  .slice(0, 3)
+                  .filter((x) => x !== null)
+              : []
           }
           listeners={"numPeopleInside" in room ? room.numPeopleInside : 0}
           tags={[]}

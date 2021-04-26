@@ -76,7 +76,9 @@ module.exports = {
     },
 
     boxShadow: {
-      avator: "0 0 0 4pt var(--color-primary-800)",
+      outlineLg: "0 0 0 4pt var(--color-primary-800)",
+      outlineMd: "0 0 0 2pt var(--color-primary-800)",
+      outlineSm: "0 0 0 1pt var(--color-primary-800)",
     },
     borderWidth: {
       DEFAULT: "1px",
