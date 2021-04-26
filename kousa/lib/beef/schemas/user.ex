@@ -102,7 +102,16 @@ defmodule Beef.Schemas.User do
 
   def edit_changeset(user, attrs) do
     user
-    |> cast(attrs, [:id, :username, :bio, :displayName, :avatarUrl, :bannerUrl])
+    |> cast(attrs, [
+      :id,
+      :username,
+      :bio,
+      :displayName,
+      :avatarUrl,
+      :bannerUrl,
+      :apiKey,
+      :botOwnerId
+    ])
     |> validate_required([:username, :displayName, :avatarUrl])
     |> update_change(:displayName, &String.trim/1)
     |> validate_length(:bio, min: 0, max: 160)
