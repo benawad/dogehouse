@@ -2,18 +2,19 @@ defmodule Onion.Chat do
   use GenServer, restart: :temporary
 
   alias Onion.PubSub
+  alias Broth.Message.Chat.Send
+  alias Kousa.Utils.UUID
 
   require Logger
 
-  defmodule State do
-    @type t :: %__MODULE__{
-            room_id: String.t(),
-            users: [String.t()],
-            ban_map: map()
-          }
+  defstruct room_id: "", users: [], ban_map: %{}, last_message_map: %{}
 
-    defstruct room_id: "", users: [], ban_map: %{}
-  end
+  @type state :: %__MODULE__{
+    room_id: String.t(),
+    users: [String.t()],
+    ban_map: map(),
+    last_message_map: %{optional(UUID.t) => DateTime.t}
+  }
 
   #################################################################################
   # REGISTRY AND SUPERVISION BOILERPLATE
@@ -59,7 +60,7 @@ defmodule Onion.Chat do
   def init(init) do
     # adopt callers from the call point.
     Process.put(:"$callers", init[:callers])
-    {:ok, struct(State, init)}
+    {:ok, struct(__MODULE__, init)}
   end
 
   def kill(room_id) do
@@ -133,7 +134,7 @@ defmodule Onion.Chat do
       }
     })
 
-    {:noreply, %State{state | ban_map: Map.put(state.ban_map, user_id, 1)}}
+    {:noreply, %{state | ban_map: Map.put(state.ban_map, user_id, 1)}}
   end
 
   defp unban_user_impl(user_id, state) do
@@ -144,17 +145,18 @@ defmodule Onion.Chat do
       }
     })
 
-    {:noreply, %State{state | ban_map: Map.delete(state.ban_map, user_id)}}
+    {:noreply, %{state | ban_map: Map.delete(state.ban_map, user_id)}}
   end
 
-  @spec send_msg(Kousa.Utils.UUID.t(), Broth.Message.Chat.Send.t()) :: :ok
+  @spec send_msg(UUID.t(), Send.t()) :: :ok
   def send_msg(room_id, payload) do
     cast(room_id, {:send_msg, payload})
   end
 
+  @spec send_msg_impl(Send.t(), state) :: {:noreply, state}
   defp send_msg_impl(payload = %{from: from}, state) do
     # throttle sender
-    with false <- should_throttle(from, state),
+    with false <- should_throttle?(from, state),
          false <- user_banned?(from, state) do
       dispatch_message(payload, state)
       updated_message_map = Map.put(state.last_message_map, from, DateTime.utc_now())
@@ -166,12 +168,13 @@ defmodule Onion.Chat do
   end
 
   @message_time_limit_milliseconds 1000
-  defp should_throttle(user, %{last_message_times: m})
+  @spec should_throttle?(UUID.t, state) :: boolean
+  defp should_throttle?(user, %{last_message_times: m})
        when is_map_key(m, user) do
     DateTime.diff(m[user], DateTime.utc_now(), :millisecond) >= @message_time_limit_milliseconds
   end
 
-  defp should_throttle(_, _), do: false
+  defp should_throttle?(_, _), do: false
 
   defp dispatch_message(payload, state) do
     case payload.whisperedTo do
