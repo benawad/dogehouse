@@ -183,7 +183,8 @@
       "reconnect": "Qayta qo'shilish"
     },
     "search": {
-      "placeholder": "Xonalarni, foydalanuvchilarni yoki toifalarni qidirish"
+      "placeholder": "Xonalarni, foydalanuvchilarni yoki toifalarni qidirish",
+      "placeholderShort": "Search"
     },
     "settingsDropdown": {
       "profile": "Profil",

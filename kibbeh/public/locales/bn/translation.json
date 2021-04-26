@@ -247,7 +247,10 @@
       "upcomingRooms": "আসন্ন রুমগুলো",
       "exploreMoreRooms": "আরো রুম এক্সপ্লোর করুন"
     },
-    "search": { "placeholder": "সার্চ করুন রুম, ইউজার অথবা ক্যাটেগরি" },
+    "search": {
+      "placeholder": "সার্চ করুন রুম, ইউজার অথবা ক্যাটেগরি",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "প্রোফাইল",
       "language": "ভাষা",

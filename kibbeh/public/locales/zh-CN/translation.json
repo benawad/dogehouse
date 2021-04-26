@@ -235,7 +235,10 @@
       "upcomingRooms": "即将开始的聊天室",
       "exploreMoreRooms": "探寻更多聊天室"
     },
-    "search": { "placeholder": "搜索聊天室，用户或者种类" },
+    "search": {
+      "placeholder": "搜索聊天室，用户或者种类",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "个人信息页面",
       "language": "语言",

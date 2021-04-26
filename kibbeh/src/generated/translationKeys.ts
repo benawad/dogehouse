@@ -133,6 +133,7 @@ export type TranslationKeys =
 	| "components.wsKilled.description"
 	| "components.wsKilled.reconnect"
 	| "components.search.placeholder"
+	| "components.search.placeholderShort"
 	| "components.settingsDropdown.profile"
 	| "components.settingsDropdown.language"
 	| "components.settingsDropdown.reportABug"

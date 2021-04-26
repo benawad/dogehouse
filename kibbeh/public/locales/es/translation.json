@@ -189,7 +189,10 @@
       "description": "El Websocket fue eliminado por el servidor. Esto suele suceder cuando abres el sitio web en otra pestaña.",
       "reconnect": "Reconectar"
     },
-    "search": { "placeholder": "Buscar salas, usuarios o categorías" },
+    "search": {
+      "placeholder": "Buscar salas, usuarios o categorías",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Perfil",
       "language": "Idioma",

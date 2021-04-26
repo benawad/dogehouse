@@ -178,9 +178,7 @@
       "togglePushToTalkKeybind": "I-toggle ang push-to-talk keybind",
       "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "Walang makitang audio consumer"
-    },
+    "userVolumeSlider": { "noAudioMessage": "Walang makitang audio consumer" },
     "upcomingRoomsCard": {
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore more rooms"
@@ -190,7 +188,10 @@
       "description": "Pinatay ng server ang websocket. Karaniwang magyayari ito dahil naka bukas ang website sa ibang tab.",
       "reconnect": "kumonekta"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",

@@ -242,7 +242,8 @@
       "exploreMoreRooms": "Preskúmať viac miestností"
     },
     "search": {
-      "placeholder": "Vyhľadaj miestnosti, užívateľov alebo kategórie"
+      "placeholder": "Vyhľadaj miestnosti, užívateľov alebo kategórie",
+      "placeholderShort": "Search"
     },
     "settingsDropdown": {
       "profile": "Profil",

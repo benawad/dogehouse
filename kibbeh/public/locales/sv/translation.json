@@ -241,7 +241,10 @@
       "upcomingRooms": "Kommande rum",
       "exploreMoreRooms": "Utforska Fler Rum"
     },
-    "search": { "placeholder": "Sök efter rum, användare eller kategorier" },
+    "search": {
+      "placeholder": "Sök efter rum, användare eller kategorier",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profil",
       "language": "Språk",

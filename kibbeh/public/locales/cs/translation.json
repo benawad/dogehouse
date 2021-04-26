@@ -241,7 +241,10 @@
       "upcomingRooms": "Očekávané místnosti",
       "exploreMoreRooms": "Hledat nové místnosti"
     },
-    "search": { "placeholder": "Hledat místnosti, uživatele, nebo kategorie" },
+    "search": {
+      "placeholder": "Hledat místnosti, uživatele, nebo kategorie",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profil",
       "language": "Jazyk (Language)",

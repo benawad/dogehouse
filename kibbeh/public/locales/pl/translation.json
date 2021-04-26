@@ -192,7 +192,10 @@
       "description": "WebSocket został zabity przez serwer. Dzieje się tak kiedy otwierasz strone w nowej karcie.",
       "reconnect": "Połącz ponownie"
     },
-    "search": { "placeholder": "Znajdź pokój, użytkowników lub kategorie" },
+    "search": {
+      "placeholder": "Znajdź pokój, użytkowników lub kategorie",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Twój profil",
       "language": "Język",

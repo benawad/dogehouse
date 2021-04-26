@@ -233,7 +233,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "搜尋更多房間"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "語言",
@@ -243,10 +246,7 @@
         "button": "登出",
         "modalSubtitle": "Are you sure you want to logout?"
       },
-      "debugAudio": {
-        "debugAudio": "除錯音頻",
-        "stopDebugger": "停止除錯"
-      }
+      "debugAudio": { "debugAudio": "除錯音頻", "stopDebugger": "停止除錯" }
     }
   },
   "modules": {

@@ -239,7 +239,10 @@
       "upcomingRooms": "Būsimi kambariai",
       "exploreMoreRooms": "Rodyti daugiau kambarių"
     },
-    "search": { "placeholder": "Ieškoti kambarių, vartotojų ar kategorijų" },
+    "search": {
+      "placeholder": "Ieškoti kambarių, vartotojų ar kategorijų",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profilis",
       "language": "Kalba",

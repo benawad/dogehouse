@@ -242,7 +242,10 @@
       "upcomingRooms": "Zukünftige Räum",
       "exploreMoreRooms": "Erforsch mehr Räum"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profil",
       "language": "Sproch",

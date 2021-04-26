@@ -245,7 +245,8 @@
       "exploreMoreRooms": "Daha çox otaq kəşf et"
     },
     "search": {
-      "placeholder": "Otaqlar, istifadəçilər və ya kateqoriyalar axtar"
+      "placeholder": "Otaqlar, istifadəçilər və ya kateqoriyalar axtar",
+      "placeholderShort": "Search"
     },
     "settingsDropdown": {
       "profile": "Profil",

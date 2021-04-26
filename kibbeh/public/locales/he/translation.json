@@ -234,7 +234,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "טען עוד חדרים"
     },
-    "search": { "placeholder": "חפש חדרים, משתמשים, או קטגוריות" },
+    "search": {
+      "placeholder": "חפש חדרים, משתמשים, או קטגוריות",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "פרופיל",
       "language": "שפה",
@@ -242,7 +245,7 @@
       "useOldVersion": "השתמש בגרסא ישנה",
       "logOut": {
         "button": "יציאה מהמשתמש",
-        "modalSubtitle": "האם אתה בטוח שתרצה לצאת מהמשתמש ?
+        "modalSubtitle": "האם אתה בטוח שתרצה לצאת מהמשתמש ?"
       },
       "debugAudio": {
         "debugAudio": "Debug Audio",
@@ -267,9 +270,7 @@
       },
       "tommorow": "מחר",
       "today": "היום",
-      "deleteModal": {
-        "areYouSure": "האם אתה בטוח שתרצה למחוק את החדר הזה?"
-      }
+      "deleteModal": { "areYouSure": "האם אתה בטוח שתרצה למחוק את החדר הזה?" }
     },
     "roomChat": {
       "title": "צ'אט",

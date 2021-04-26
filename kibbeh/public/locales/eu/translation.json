@@ -190,7 +190,10 @@
       "description": "Serbitzariak websocket-a ezabatu du. Hau gertatzen da web-orrialdea beste fitxa batean irekeitzen denean.",
       "reconnect": "berriro konektatu"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profila",
       "language": "Hizkuntza",

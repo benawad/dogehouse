@@ -238,7 +238,10 @@
       "upcomingRooms": "Kommende rom",
       "exploreMoreRooms": "Utforsk flere rom"
     },
-    "search": { "placeholder": "Søk etter rom, brukere eller kategorier" },
+    "search": {
+      "placeholder": "Søk etter rom, brukere eller kategorier",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profil",
       "language": "Språk",

@@ -240,7 +240,10 @@
       "upcomingRooms": "Yaklaşan Odalar",
       "exploreMoreRooms": "Daha Çok Oda Keşfet"
     },
-    "search": { "placeholder": "Oda, kullanıcı veya kategori ara..." },
+    "search": {
+      "placeholder": "Oda, kullanıcı veya kategori ara...",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profil",
       "language": "Dil",

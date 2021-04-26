@@ -240,7 +240,10 @@
       "upcomingRooms": "Tulevat huoneet",
       "exploreMoreRooms": "Etsi lisää huoneita"
     },
-    "search": { "placeholder": "Hae huoneita, käyttäjiä tai kategorioita" },
+    "search": {
+      "placeholder": "Hae huoneita, käyttäjiä tai kategorioita",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profiili",
       "language": "Kieli",

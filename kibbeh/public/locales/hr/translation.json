@@ -241,7 +241,10 @@
       "upcomingRooms": "Nadolazeće sobe",
       "exploreMoreRooms": "Istraži još soba"
     },
-    "search": { "placeholder": "Potraži za sobe, korisnike ili kategorije" },
+    "search": {
+      "placeholder": "Potraži za sobe, korisnike ili kategorije",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profil",
       "language": "Jezik",

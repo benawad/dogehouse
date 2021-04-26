@@ -243,7 +243,10 @@
       "upcomingRooms": "Ожидаемые комнаты",
       "exploreMoreRooms": "Найти больше комнат"
     },
-    "search": { "placeholder": "Поиск комнат, пользователей или категорий" },
+    "search": {
+      "placeholder": "Поиск комнат, пользователей или категорий",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Профиль",
       "language": "Язык",

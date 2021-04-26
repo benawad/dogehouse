@@ -236,7 +236,10 @@
       "upcomingRooms": "Ruangan yang akan datang",
       "exploreMoreRooms": "Jelajahi ruangan lain"
     },
-    "search": { "placeholder": "Cari pengguna, ruangan, atau kategori" },
+    "search": {
+      "placeholder": "Cari pengguna, ruangan, atau kategori",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profil",
       "language": "Bahasa",

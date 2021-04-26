@@ -241,7 +241,10 @@
       "upcomingRooms": "Geplande kamers",
       "exploreMoreRooms": "Ontdek meer kamers"
     },
-    "search": { "placeholder": "Zoek naar kamers, gebruikers of categorieën" },
+    "search": {
+      "placeholder": "Zoek naar kamers, gebruikers of categorieën",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profiel",
       "language": "Taal",

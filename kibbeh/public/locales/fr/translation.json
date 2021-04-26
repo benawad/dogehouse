@@ -192,7 +192,8 @@
       "reconnect": "Se reconnecter"
     },
     "search": {
-      "placeholder": "Rechercher des salles, utilisateurs ou catégories"
+      "placeholder": "Rechercher des salles, utilisateurs ou catégories",
+      "placeholderShort": "Search"
     },
     "settingsDropdown": {
       "profile": "Profil",

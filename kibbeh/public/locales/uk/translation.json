@@ -243,7 +243,10 @@
       "upcomingRooms": "Заплановані кімнати",
       "exploreMoreRooms": "Знайти Більше Кімнат"
     },
-    "search": { "placeholder": "Знайти кімнати, користувачів або категорії" },
+    "search": {
+      "placeholder": "Знайти кімнати, користувачів або категорії",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Профіль",
       "language": "Мова",

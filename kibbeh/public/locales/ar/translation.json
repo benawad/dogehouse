@@ -236,7 +236,10 @@
       "upcomingRooms": "غرف قادمة",
       "exploreMoreRooms": "اكتشف غرف اكثر"
     },
-    "search": { "placeholder": "ابحث عن غرف، اشخاص او تصنيفات" },
+    "search": {
+      "placeholder": "ابحث عن غرف، اشخاص او تصنيفات",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "الحساب الشخصي",
       "language": "اللغة",

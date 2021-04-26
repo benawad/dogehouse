@@ -202,7 +202,8 @@
       "reconnect": "Reconnect"
     },
     "search": {
-      "placeholder": "Search for rooms, users or categories"
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
     },
     "settingsDropdown": {
       "profile": "Profile",

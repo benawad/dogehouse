@@ -239,7 +239,10 @@
       "upcomingRooms": "ห้องที่ใกล้จะมาถึง",
       "exploreMoreRooms": "ค้นหาห้องเพิ่มเติม"
     },
-    "search": { "placeholder": "ค้นหาห้อง ผู้ใช้ หรือหมวดหมู่" },
+    "search": {
+      "placeholder": "ค้นหาห้อง ผู้ใช้ หรือหมวดหมู่",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "โปรไฟล์",
       "language": "ภาษา",

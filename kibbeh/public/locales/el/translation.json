@@ -246,7 +246,10 @@
       "upcomingRooms": "Επερχόμενα δωμάτια ",
       "exploreMoreRooms": "Ανακαλύψτε περισσότερα δωμάτια"
     },
-    "search": { "placeholder": "Αναζητήστε δωμάτια, χρήστες ή κατηγορίες" },
+    "search": {
+      "placeholder": "Αναζητήστε δωμάτια, χρήστες ή κατηγορίες",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Προφίλ",
       "language": "Γλώσσα",
