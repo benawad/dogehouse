@@ -99,7 +99,7 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                 {data?.items.map((item, index) =>
                   "username" in item ? (
                     // eslint-disable-next-line react/jsx-key
-                    <div
+                    <li
                       data-testid={`search:user:${item.username}`}
                       {...getItemProps({
                         key: item.id,
@@ -120,9 +120,9 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                             : "bg-primary-800"
                         }
                       />
-                    </div>
+                    </li>
                   ) : (
-                    <div
+                    <li
                       {...getItemProps({
                         key: item.id,
                         index,
@@ -136,7 +136,7 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                           userCount: item.numPeopleInside,
                         }}
                       />
-                    </div>
+                    </li>
                   )
                 )}
               </ul>
