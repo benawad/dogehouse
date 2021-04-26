@@ -16,7 +16,7 @@
     "copied": "copiado",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Esteja ciente que executar o DogeHouse sem permissões de acessibilidade pode causar erros indesejados"
   },
   "header": {
     "_comment": "Cabeçalho da interface principal para traduções",
@@ -214,7 +214,7 @@
       "toggleMuteKeybind": "ativar/desativar atalho para mutar",
       "togglePushToTalkKeybind": "ativar/desativar pressione para falar",
       "toggleOverlayKeybind": "alternar o atalho de teclado de sobreposição",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "ative atalho no teclado de deafen"
     },
     "wsKilled": {
       "description": "O Websocket foi finalizado pelo servidor. Isso geralmente acontece quando você abre o site em outra guia.",
