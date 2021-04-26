@@ -21,7 +21,7 @@ defmodule Onion.RoomSession do
               deafMap: %{},
               inviteMap: %{},
               activeSpeakerMap: %{},
-              auto_speaker: false,
+              auto_speaker: false
   end
 
   #################################################################################
