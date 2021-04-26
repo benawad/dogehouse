@@ -52,7 +52,7 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
       </div>
       {/* {open ? <div className="text-primary-100 mt-4">{description}</div> : null} */}
 
-      {open && (
+      {open && description?.trim() && (
         <div className="mt-4 overflow-y-auto" style={{ maxHeight: "100px" }}>
           {description.split(/\n/).map(
             (line, i) =>
