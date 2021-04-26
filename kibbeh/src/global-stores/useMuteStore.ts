@@ -22,8 +22,8 @@ export const useMuteStore = create(
           useSoundEffectStore
             .getState()
             .playSoundEffect(muted ? "mute" : "unmute");
-          set({ muted });
         }
+        set({ muted });
       },
     })
   )

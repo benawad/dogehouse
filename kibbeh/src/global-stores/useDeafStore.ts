@@ -16,8 +16,8 @@ export const useDeafStore = create(
           useSoundEffectStore
             .getState()
             .playSoundEffect(deafened ? "deafen" : "undeafen");
-          set({ deafened });
         }
+        set({ deafened });
       },
     })
   )
