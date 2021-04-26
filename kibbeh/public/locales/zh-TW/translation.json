@@ -223,13 +223,13 @@
     },
     "followingOnline": {
       "people": "People",
-      "online": "ONLINE",
+      "online": "上線",
       "noOnline": "You have 0 friends online right now",
       "showMore": "Show more"
     },
     "upcomingRoomsCard": {
       "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "exploreMoreRooms": "搜尋更多房間"
     },
     "search": { "placeholder": "Search for rooms, users or categories" },
     "settingsDropdown": {
@@ -238,7 +238,7 @@
       "reportABug": "Report A Bug",
       "useOldVersion": "Use Old Version",
       "logOut": {
-        "button": "Log out",
+        "button": "登出",
         "modalSubtitle": "Are you sure you want to logout?"
       },
       "debugAudio": {
@@ -282,9 +282,9 @@
       "roomDescription": "房間簡介"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
+      "fuelingRocket": "火箭正在加油",
       "takingOff": "Taking off",
-      "inSpace": "In space",
+      "inSpace": "在太空",
       "approachingMoon": "Approaching moon",
       "lunarDoge": "Lunar doge",
       "approachingSun": "Approaching sun",
