@@ -198,7 +198,8 @@
         "usernameError": "長度要在 4 到 15 字元之内，只可輸入英文字母、數字與下劃線 _",
         "usernameLabel": "用户名",
         "bioError": "最大長度為 160 字元",
-        "bioLabel": "個人簡介"
+        "bioLabel": "個人簡介",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "你確定把此人加入黑名單?（他就無法加入你所建立的任何房間）",

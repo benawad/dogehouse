@@ -203,7 +203,8 @@
         "usernameError": "length 4 to 15 characters and only alphanumeric/underscore",
         "usernameLabel": "Username",
         "bioError": "max length of 160 characters",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "మీరు ఎప్పుడైనా సృష్టించిన ఏ గదిలోనైనా ఈ వినియోగదారుని నిరోధించాలనుకుంటున్నారా?",

@@ -205,7 +205,8 @@
         "usernameError": "Pituus 4-15 merkkiä ja vain aakkosia, numeroita tai alaviivoja",
         "usernameLabel": "Käyttäjätunnus",
         "bioError": "Maksimipituus 160 merkkiä",
-        "bioLabel": "Kuvaus"
+        "bioLabel": "Kuvaus",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Haluatko varmasti estää tämän käyttäjän liittymistä yhteenkään huoneeseesi?",

@@ -181,7 +181,8 @@
         "usernameError": "Maximum 4 till 15 karaktärer med bara alfanumerisk/understräck",
         "usernameLabel": "Användarnamn",
         "bioError": "Maximum längd på 160 karaktärer",
-        "bioLabel": "Biografi"
+        "bioLabel": "Biografi",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Är du säker på att du vill blockera denna användare från att ansluta till dina rum?",

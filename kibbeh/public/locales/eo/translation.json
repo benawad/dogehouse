@@ -205,7 +205,8 @@
         "usernameError": "longo 4 ĝis 15 signoj kaj nur alfanombra/substreko",
         "usernameLabel": "Uzantnomo",
         "bioError": "maksimuma longo de 160 signoj",
-        "bioLabel": "Biografio"
+        "bioLabel": "Biografio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Ĉu vi certas, ke vi volas malhelpi ĉi tiun uzanton aliĝi al iu ajn ĉambro, kiun vi iam kreis?",

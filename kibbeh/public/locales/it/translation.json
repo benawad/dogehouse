@@ -206,7 +206,8 @@
         "usernameError": "Il nome utente deve essere lungo dai 4 ai 15 caratteri e può solo contenere caratteri alfanumerici e trattini bassi",
         "usernameLabel": "Nome utente",
         "bioError": "La lunghezza massima della biografia è di 160 caratteri",
-        "bioLabel": "Biografia"
+        "bioLabel": "Biografia",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Sei sicuro di voler bloccare questo utente? non potrà più entrare nelle stanze che crei.",

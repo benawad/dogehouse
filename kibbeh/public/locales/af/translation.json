@@ -203,7 +203,8 @@
         "usernameError": "Lengte 4 tot 15 karakters en slegte alfanumeries/onderstreep",
         "usernameLabel": "gebruikersnaam",
         "bioError": "maximum lengte van 160 karakters",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Is jy seker jy wil hierdie gebruiker verban van hierdie kamer (en enige nuwe kamers van jou)?",

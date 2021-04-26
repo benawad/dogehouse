@@ -156,6 +156,7 @@ export type TranslationKeys =
 	| "components.modals.editProfileModal.usernameTaken"
 	| "components.modals.editProfileModal.avatarUrlError"
 	| "components.modals.editProfileModal.avatarUrlLabel"
+	| "components.modals.editProfileModal.bannerUrlLabel"
 	| "components.modals.editProfileModal.displayNameError"
 	| "components.modals.editProfileModal.displayNameLabel"
 	| "components.modals.editProfileModal.usernameError"

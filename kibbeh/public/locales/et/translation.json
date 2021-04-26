@@ -201,7 +201,8 @@
         "usernameError": "4 kuni 15 tähemärki pikk ja ainult tähenumbriline/alakriips",
         "usernameLabel": "Kasutajanimi",
         "bioError": "maksimum pikkus: 160 tähemärki",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Kas tahad kindlasti selle kasutaja liitumist teie ruumidesse keelata?",

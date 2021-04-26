@@ -201,7 +201,8 @@
         "usernameError": "Panjang 4 sampai 15 karakter dan hanya alfanumerik/garis bawah",
         "usernameLabel": "Nama pengguna",
         "bioError": "Maksimal 160 karakter",
-        "bioLabel": "Biodata"
+        "bioLabel": "Biodata",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Anda yakin memblokir pengguna ini untuk bergabung ke ruangan yang anda buat?",

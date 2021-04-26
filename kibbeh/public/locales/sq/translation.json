@@ -201,7 +201,8 @@
         "usernameError": "gjatësia 4 deri 15 shkronja dhe vetëm alphanumerik/nevizim",
         "usernameLabel": "Emri i përdoruesit",
         "bioError": "gjatesia maks 160 shkronja",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "A jeni të sigurt që doni të bllokoni këtë perdoruest për t'iu bashkuar dhomave qe ju krijoni?",

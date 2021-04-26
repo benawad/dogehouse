@@ -125,7 +125,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                 errorMsg={t(
                   "components.modals.editProfileModal.avatarUrlError"
                 )}
-                label="Twitter Banner URL"
+                label={t("components.modals.editProfileModal.bannerUrlLabel")}
                 name="bannerUrl"
               />
               <InputField

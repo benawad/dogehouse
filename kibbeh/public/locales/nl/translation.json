@@ -206,7 +206,8 @@
         "usernameError": "4 tot 15 karakters en alleen letters, cijfers en underscore",
         "usernameLabel": "Gebruikersnaam",
         "bioError": "Maximaal 160 karakters",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Weet je zeker dat je deze gebruiker wilt blokkeren van al je toekomstige kamers?",

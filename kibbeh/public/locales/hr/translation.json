@@ -206,7 +206,8 @@
         "usernameError": "duljina od 4 do 15 znakova i samo alfanumerički / donji znak",
         "usernameLabel": "Korisničko ime",
         "bioError": "maksimalna duljina od 160 znakova",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Jeste li sigurni da želite blokirati ovog korisnika od toga da se pridruži bilo kojoj sobi koju ste ikad stvorili?",

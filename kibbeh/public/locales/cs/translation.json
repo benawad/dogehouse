@@ -206,7 +206,8 @@
         "usernameError": "4-15 znaků bez diakritiky",
         "usernameLabel": "Uživatelské jméno",
         "bioError": "Maximálně 160 znaků",
-        "bioLabel": "O mně"
+        "bioLabel": "O mně",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Chceš zablokovat uživatele ze všech místností, co kdy vytvoříš?",

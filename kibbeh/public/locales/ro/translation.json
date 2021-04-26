@@ -204,7 +204,8 @@
         "usernameError": "Lungime între 4 și 15 caractere și numai alphanumerice/underscore",
         "usernameLabel": "Username",
         "bioError": "Lungime maximă de 160 de caractere",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Ești sigur că dorești să restrictionezi acest utilizator să intre în orice cameră pe care o creezi?",

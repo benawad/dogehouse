@@ -205,7 +205,8 @@
         "usernameError": "Længde 4 til 15 tegn og kun alphanumerisk/underscore",
         "usernameLabel": "Brugernavn",
         "bioError": "Max længde på 160 tegn",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Er du sikker på at du vil blokere denne bruger fra at tilslutte sig til alle de rum du nogensinde kommer til at lave?",

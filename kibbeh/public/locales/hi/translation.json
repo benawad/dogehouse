@@ -200,7 +200,8 @@
         "usernameError": "length 4 to 15 characters and only alphanumeric/underscore",
         "usernameLabel": "Username",
         "bioError": "max length of 160 characters",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "क्या आप इस उपयोगकर्ता को आपके द्वारा बनाए गए सभी रूम में शामिल होने से रोकना चाहते हैं?",

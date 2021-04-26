@@ -201,7 +201,8 @@
         "usernameError": "length 4 t' 15 characters 'n only alphanumeric/underscore",
         "usernameLabel": "Username",
         "bioError": "max length o' 160 characters",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Are ye sure ye wants t' block this user from joinin' any cabin ye ever create?",

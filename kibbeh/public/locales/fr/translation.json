@@ -234,7 +234,8 @@
         "usernameError": "Longueur de 4 à 15 caractères et ne doit contenir que des caractères alphanumériques ou des tirets du bas",
         "usernameLabel": "Pseudo",
         "bioError": "Longueur maximum de 160 caractères",
-        "bioLabel": "Biographie"
+        "bioLabel": "Biographie",
+        "bannerUrlLabel": "URL de bannière Twitter"
       },
       "profileModal": {
         "blockUserConfirm": "Êtes-vous sûr de vouloir bloquer cet utilisateur de toutes vos salles ?",

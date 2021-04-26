@@ -182,7 +182,8 @@
         "usernameError": "Uzunluk 4-15 arası olmalı ve sadece alfanümerik/alt_çizgi karakterlerini içermeli",
         "usernameLabel": "Kullanıcı adı",
         "bioError": "Maksimum uzunluk 160 karakter",
-        "bioLabel": "Biyo"
+        "bioLabel": "Biyo",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Oluşturduğun tüm odalar için bu kullanıcıyı yasaklamak istediğine emin misin?",

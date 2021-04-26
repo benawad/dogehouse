@@ -209,7 +209,8 @@
         "usernameError": "uzunluq 4 və 15 simvol uzunluğunda və sadəcə alfanumerik/alt xətt simvollarından ibarət olmalıdır.",
         "usernameLabel": "İstifadəçi adı",
         "bioError": "maksimum uzunluq 160 simvoldur",
-        "bioLabel": "Bioqrafiya"
+        "bioLabel": "Bioqrafiya",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Siz bu istifadəçini yaratdığınız bütün otaqlara qoşulmaması üçün bloklamağa əminsinizmi?",

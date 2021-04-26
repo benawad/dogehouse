@@ -180,7 +180,8 @@
         "usernameError": "Längi: 4 bis 15 alphanumerischi Zeiche und Ungerstriche",
         "usernameLabel": "Benutzername",
         "bioError": "Maximal 160 Buechstabe",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Bisch der sicher, dass du dä Benutzer us aune dine zuekünftige Rüüm usschliesse wettsch?",

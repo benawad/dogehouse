@@ -204,7 +204,8 @@
         "usernameError": "phải có độ dài từ 4 đến 15 ký tự và chỉ được dùng chữ, số hoặc gạch dưới",
         "usernameLabel": "Tên người dùng",
         "bioError": "tối đa 160 ký tự",
-        "bioLabel": "Mô tả"
+        "bioLabel": "Mô tả",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Bạn có chắc chắn muốn cấm người dùng này tham gia bất kỳ phòng nào bạn tạo không?",

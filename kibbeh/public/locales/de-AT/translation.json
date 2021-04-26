@@ -183,7 +183,8 @@
         "usernameError": "Läng: 4 bis 15 alphanumerische Zeichn und Unterstriche",
         "usernameLabel": "Benutzernaume",
         "bioError": "Maximal 160 Buchstauben",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Bist da sicher, dass du den Benutzer aus ollen deinen zukünftigen Räumen ausschliaßen mechast?",

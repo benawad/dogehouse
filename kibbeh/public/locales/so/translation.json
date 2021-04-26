@@ -207,7 +207,8 @@
         "usernameError": "4 ilaa 15 xaraf oo ah alphanumeric/underscore kaliya",
         "usernameLabel": "Magaca isticmaalaha",
         "bioError": "ugu badnaan 160 xaraf",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Mahubtaa inaad ka mamnuucdo isticmaalaha qolkasta oo aad abuurtid?",

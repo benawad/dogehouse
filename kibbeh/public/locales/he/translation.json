@@ -199,7 +199,8 @@
         "usernameError": "אורך 4 עד 15 תווים ורק אותיות / מספרים / קו תחתון",
         "usernameLabel": "שם משתמש",
         "bioError": "אורך מקסימלי של 160 תווים",
-        "bioLabel": "ביו"
+        "bioLabel": "ביו",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "האם אתה בטוח שברצונך לחסום משתמש זה מלהצטרף לכל חדר שתיצור אי פעם?",

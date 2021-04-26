@@ -230,7 +230,8 @@
         "usernameError": "Longitud de 4 a 15 caracteres y solo puede contener caracteres alfanuméricos/guión bajo",
         "usernameLabel": "Nombre de usuario",
         "bioError": "Longitud máxima de 160 caracteres",
-        "bioLabel": "Biografía"
+        "bioLabel": "Biografía",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "¿Estás seguro de que quieres bloquear a este usuario para que no pueda unirse a las salas que crees?",

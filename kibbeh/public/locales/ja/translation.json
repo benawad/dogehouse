@@ -199,7 +199,8 @@
         "usernameError": "4～15文字で設定してください（英数字・アンダーバーのみ）",
         "usernameLabel": "ユーザー名",
         "bioError": "160文字以内にしてください",
-        "bioLabel": "自己紹介"
+        "bioLabel": "自己紹介",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "このユーザーがあなたの作成したすべてのルームに参加するのを禁止しても良いですか？",

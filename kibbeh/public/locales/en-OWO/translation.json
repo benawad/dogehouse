@@ -204,7 +204,8 @@
         "usernameError": "OWO wength 4 to 15 chawactews and onwy awphanumewic/undewscowe (இωஇ )",
         "usernameLabel": "UwU Usewname UwU",
         "bioError": "Max wength of 160 chawactews :D",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "OwO Awe uu suwe uu want to bwock this usew fwom joining any woom uu evew cweate? (　'◟ ')",

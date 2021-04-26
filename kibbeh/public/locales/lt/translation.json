@@ -204,7 +204,8 @@
         "usernameError": "Ilgis nuo 4 iki 15 simbolių ir tik raidinis(arba skaitmeninis)/apatinis pabraukimas",
         "usernameLabel": "Slapyvardis",
         "bioError": "Didžiausias ilgis - 160 simbolių",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Ar tikrai norite užblokuoti šį vartotoją prisijungti prie bet kurio jūsų ateityje sukurto kambario?",

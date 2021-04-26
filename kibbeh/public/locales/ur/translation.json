@@ -205,7 +205,8 @@
         "usernameError": "لمبائی 4 سے 15 حروف اور صرف حرفی / انگارے کی",
         "usernameLabel": "صارف نام",
         "bioError": "160 حروف کی زیادہ سے زیادہ لمبائی",
-        "bioLabel": "بایو"
+        "bioLabel": "بایو",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "کیا آپ واقعی اس صارف کو اپنے بنائے ہوئے کسی بھی کمرے میں شامل ہونے سے روکنا چاہتے ہیں؟",

@@ -203,7 +203,8 @@
         "usernameError": "길이는 4 ~ 15 자 이내 여야하며 문자, 숫자 또는 밑줄 만 허용됩니다.",
         "usernameLabel": "사용자 이름",
         "bioError": "최대 길이는 160 자입니다.",
-        "bioLabel": "개인 프로필"
+        "bioLabel": "개인 프로필",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "이 사람을 블랙리스트에 추가 하시겠습니까? (다시는 당신이 생성 ​​한 채팅방에 참여할 수 없습니다).",
