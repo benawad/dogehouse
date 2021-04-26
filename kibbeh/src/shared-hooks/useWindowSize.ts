@@ -13,20 +13,22 @@ const useWindowSize = () => {
   });
 
   useEffect(() => {
-    const handleResize = debounce(() => {
+    const handleResize = () => {
       setWindowSize({
         width: window.innerWidth,
         height: window.innerHeight,
       });
-    }, 1000);
+    };
 
-    window.addEventListener("resize", handleResize);
+    const debounced = debounce(handleResize, 1000);
+
+    window.addEventListener("resize", debounced);
 
     handleResize();
 
     return () => {
-      handleResize.cancel(); // Prevents killing func while handleResize is running
-      window.removeEventListener("resize", handleResize);
+      debounced.cancel(); // Prevents killing func while handleResize is running
+      window.removeEventListener("resize", debounced);
     };
   }, []);
 
