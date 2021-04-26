@@ -11,7 +11,7 @@ export type UserPreview = {
   id: UUID;
   displayName: string;
   numFollowers: number;
-  avatarUrl: string
+  avatarUrl: string | null
 };
 
 export type Room = {
