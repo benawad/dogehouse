@@ -20,14 +20,7 @@ interface ChatInputProps {
 
 export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
   const { message, setMessage } = useRoomChatStore();
-  const {
-    setQueriedUsernames,
-    queriedUsernames,
-    mentions,
-    setMentions,
-    activeUsername,
-    setActiveUsername,
-  } = useRoomChatMentionStore();
+  const { setQueriedUsernames } = useRoomChatMentionStore();
   const {
     setOpen,
     open,
@@ -67,7 +60,7 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
     }
 
     const tmp = message;
-    const messageData = createChatMessage(tmp, mentions, users);
+    const messageData = createChatMessage(tmp, users);
 
     // dont empty the input, if no tokens
     if (!messageData.tokens.length) return;
