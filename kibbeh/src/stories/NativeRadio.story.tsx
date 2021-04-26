@@ -1,82 +1,75 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 import {
-  NativeRadioProps,
   NativeRadio,
-  NativeRadioList,
+  NativeRadioController,
+  NativeRadioControllerProps,
 } from "../ui/NativeRadio";
-import { OnlineIdication, SolidMoon } from "../icons";
+import { SolidMoon } from "../icons";
 
-const meta: Meta<NativeRadioProps> = {
+const meta: Meta<NativeRadioControllerProps> = {
   title: "NativeRadio",
-  component: NativeRadioList,
-  subcomponents: { NativeRadioList },
-  argTypes: {
-    id: {
-      control: {
-        type: "inline-radio",
-        options: ["online", "not-disturb", "dark-theme", "light-theme"],
-      },
-    },
-  },
 };
 
 export default meta;
 
-export const Main: Story<NativeRadioProps> = (args) => {
-  return <NativeRadio {...args} />;
+export const WithIcon: Story<NativeRadioControllerProps> = (args) => {
+  return (
+    <div style={{ width: 640 }} className="bg-primary-800 p-4">
+      <NativeRadioController radios={args.radios} />
+    </div>
+  );
 };
 
-Main.bind({});
+WithIcon.bind({});
 
-Main.args = {
+const Circle: React.FC<{ color: string }> = ({ color }) => (
+  <div className={`rounded-full bg-${color} w-2 h-2`}></div>
+);
+
+WithIcon.args = {
   radios: [
     {
-      icon: (
-        <OnlineIdication
-          strokeWidth={0}
-          fill="#FD4D4D"
-          height={10}
-          width={10}
-        />
-      ),
       title: "Online",
-      description: "When you’re online, it will be visible to everyone",
-      id: "online",
-      checked: false,
+      subtitle: "When you’re online, it will be visible to everyone",
+      icon: <Circle color="accent" />,
     },
     {
-      icon: <SolidMoon fill="#FFA928" height={10} width={10} />,
       title: "Do not disturb",
-      description: "Let your followers know that you’re away",
-      id: "not-disturb",
-      checked: false,
+      subtitle: "Let your followers know that you’re away",
+      icon: <SolidMoon width="10" height="10" style={{ color: "#FFA928" }} />,
     },
     {
-      title: "Nightly (Dark)",
-      description: "Caring about your eyes since 2021",
-      id: "dark-theme",
-    },
-    {
-      title: "Diurnal (Light)",
-      description: "Rethink your life decisions",
-      id: "light-theme",
+      title: "Offline",
+      subtitle: "Wear Harry Potter’s invisibility cloak",
+      icon: <Circle color="primary-300" />,
     },
   ],
 };
 
-export const Secondary: Story<NativeRadioProps> = (args) => {
-  return <NativeRadioList {...args} />;
+export const WithoutIcon: Story<NativeRadioControllerProps> = (args) => {
+  return (
+    <div style={{ width: 640 }} className="bg-primary-800 p-4">
+      <NativeRadioController radios={args.radios} />
+    </div>
+  );
 };
 
-Secondary.args = {
-  icon: <OnlineIdication key={1} id="online" />,
-};
+WithoutIcon.bind({});
 
-Secondary.argTypes = {
-  icon: {
-    controls: {
-      type: "select",
+WithoutIcon.args = {
+  radios: [
+    {
+      title: "Everyone",
+      subtitle: "Allow any user to send you DMs",
     },
-  },
+    {
+      title: "People I Follow",
+      subtitle: "Only users you follow will be able to DM you",
+    },
+    {
+      title: "No One",
+      subtitle: "Prevent any user from sending you a DM",
+    },
+  ],
 };

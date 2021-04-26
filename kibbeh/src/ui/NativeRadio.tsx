@@ -1,116 +1,90 @@
-/* eslint-disable operator-linebreak */
-import { Console } from "node:console";
-import React, { ChangeEvent, HTMLAttributes, ReactNode } from "react";
-import SolidMoon from "../icons/SolidMoon";
+import React, { useState } from "react";
 
 export interface NativeRadioProps {
-  icon?: string | React.SVGProps<SVGSVGElement>;
+  icon?: React.ReactElement;
   title: string;
-  description: string;
-  id?: Settings;
+  subtitle: string;
   checked?: boolean;
-  radios?: Array<RadioOptions>;
-  children?: ReactNode;
+  onClick?: (id: number | undefined) => void;
+  num?: number;
 }
 
-export type RadioOptions = Omit<NativeRadioProps, "children">;
-
-export type Settings = "online" | "not-disturb" | "dark-theme" | "light-theme";
-
-const optionalChangedColor = "text-primary-300";
-
-export function NativeRadioList({
-  radios,
+export const NativeRadio: React.FC<NativeRadioProps> = ({
   icon,
   title,
-  id,
+  subtitle,
   checked = false,
-  description,
-  children,
-  ...args
-}: NativeRadioProps) {
-  const [radioSelected, setRadioSelected] = React.useState<
-    NativeRadioProps | boolean
-  >(false);
-  const radioRef = React.useRef<HTMLInputElement>(null);
+  onClick,
+  num,
+}) => {
+  return (
+    <button
+      className="w-full flex px-3 py-2 bg-primary-900 rounded-8 justify-between group"
+      onClick={onClick ? () => onClick(num) : undefined}
+    >
+      <div className="flex">
+        {icon ? (
+          <div className="mr-3 mt-1.5">
+            {React.cloneElement(icon, { width: 10, height: 10 })}
+          </div>
+        ) : null}
+        <div className="flex flex-col items-start">
+          <div
+            className={`font-bold group-hover:text-primary-100 transition duration-100 ${
+              checked ? "text-primary-100" : "text-primary-300"
+            }`}
+          >
+            {title}
+          </div>
+          <div className="text-primary-300">{subtitle}</div>
+        </div>
+      </div>
+      <div className="flex items-center justify-center">
+        <div className="w-4 h-4 relative">
+          <div
+            className={`${
+              checked ? "bg-accent" : ""
+            } w-2 h-2 absolute top-2/4 left-2/4 rounded-full transform -translate-y-1/2 -translate-x-1/2 transition duration-100`}
+          ></div>
+          <div
+            className={`${
+              checked ? "border-accent" : "border-primary-300"
+            } border w-4 h-4 absolute top-2/4 left-2/4 rounded-full transform -translate-y-1/2 -translate-x-1/2 transition duration-100`}
+          ></div>
+        </div>
+      </div>
+    </button>
+  );
+};
 
-  const setSetttings = (e: React.MouseEvent) => {
-    const { current } = radioRef;
-    if (current && !current.contains(e.target as any)) {
-      setRadioSelected(false);
+export interface NativeRadioControllerProps {
+  radios: NativeRadioProps[];
+}
+
+export const NativeRadioController: React.FC<NativeRadioControllerProps> = ({
+  radios,
+}) => {
+  const [current, setCurrent] = useState(0); // To be changed by the stored user selection
+
+  const handleClick = (id: number | undefined) => {
+    if (id !== undefined) {
+      setCurrent(id); // Probably would be easier to pass this func
     }
-
-    console.log(radioRef.current?.value);
   };
 
   return (
-    <React.Fragment>
-      <div
-        style={{
-          width: "601px",
-          height: "64px",
-          borderRadius: "8px",
-          background: "#151A21",
-        }}
-        className="flex justify-between mt-4"
-      >
-        <div
-          style={{ marginTop: "16px", marginBottom: "38px" }}
-          className={icon ? `flex flex-none absolute ml-3 mr-3` : `absolute `}
-        >
-          {icon}
-        </div>
-        <div className={icon ? `ml-6 mt-2 mb-2 relative` : `ml-3 mt-2 mb-2`}>
-          <span
-            className={
-              radioSelected !== checked
-                ? `text-primary-100 font-bold`
-                : `${optionalChangedColor} font-bold`
-            }
-          >
-            {title}
-          </span>
-          <p className="text-primary-300">{description}</p>
-        </div>
-        <div>
-          <label
-            style={{ margin: "22px 15px 22px 0" }}
-            className="flex justify-center content-center"
-          >
-            <input
-              type="radio"
-              ref={radioRef}
-              name={id}
-              className="form-radio text-primary-900"
-              id={id}
-              checked={checked !== radioSelected}
-              onChange={() => setRadioSelected(!radioSelected)}
-              onClick={setSetttings}
-              value={id}
-            />
-          </label>
-        </div>
-      </div>
-      {children}
-    </React.Fragment>
-  );
-}
-
-export const NativeRadio: React.FC<NativeRadioProps> = ({ radios }) => {
-  return (
-    <div>
-      <div className="container flex flex-col">
-        {radios?.map((room) => (
-          <NativeRadioList
-            key={room.id}
-            id={room.id}
-            icon={room.icon}
-            title={room.title}
-            description={room.description}
-            checked={room.checked}
-          />
-        ))}
-      </div>
+    <div className="flex flex-col space-y-2">
+      {radios.map((r, i) => (
+        <NativeRadio
+          key={r.title + i}
+          title={r.title}
+          subtitle={r.subtitle}
+          icon={r.icon}
+          checked={current === i}
+          onClick={handleClick}
+          num={i}
+        />
+      ))}
     </div>
   );
 };
