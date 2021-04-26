@@ -8,9 +8,9 @@ export type RoomPeer = {
 };
 
 export type UserPreview = {
-  numFollowers: number;
   id: UUID;
   displayName: string;
+  numFollowers: number;
   avatarUrl: string
 };
 
@@ -22,12 +22,7 @@ export type Room = {
   numPeopleInside: number;
   voiceServerId: string;
   creatorId: string;
-  peoplePreviewList: Array<{
-    id: string;
-    displayName: string;
-    numFollowers: number;
-    avatarUrl: string
-  }>;
+  peoplePreviewList: Array<UserPreview>;
   inserted_at: string;
 };
 
