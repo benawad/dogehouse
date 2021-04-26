@@ -15,11 +15,6 @@ export const useSetDeaf = () => {
     }
     setInternalDeaf(deaf);
     conn.mutation.setDeaf(deaf);
-
-    if (deaf) {
-      setInternalMute(true);
-      conn.mutation.setMute(true);
-    }
   };
 };
 
