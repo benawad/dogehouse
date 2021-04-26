@@ -45,9 +45,9 @@ const UserCard: React.FC<UserCardProps> = ({ avatars, speakers }) => {
   return (
     <div className="w-full flex items-center">
       <MultipleUsers srcArray={avatars} />
-      <p className="flex ml-1 text-primary-300 text-sm">
+      <div className="flex ml-1 text-primary-300 text-sm">
         {speakers.join(", ")}
-      </p>
+      </div>
     </div>
   );
 };

@@ -111,9 +111,9 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
           >
             {backIcon({ style: { transform: "rotate(180deg)" } })}
           </button>
-          <p className="block relative text-center top-1/2 transform translate-y-n1/2 w-full font-semibold text-primary-100">
+          <div className="block relative text-center top-1/2 transform translate-y-n1/2 w-full font-bold text-primary-100">
             Language
-          </p>
+          </div>
         </div>
         <div
           className="block h-full overflow-y-auto scrollbar-thin scrollbar-thumb-primary-700"

@@ -45,15 +45,15 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
         <h4 className="text-primary-100 break-all overflow-hidden">
           {room.name}
         </h4>
-        <p className="text-primary-300 overflow-ellipsis overflow-hidden w-auto">
+        <div className="text-primary-300 overflow-ellipsis overflow-hidden w-auto">
           {room.speakers.join(", ")}
-        </p>
-        <p className="text-accent">
+        </div>
+        <div className="text-accent">
           {room.myself.isSpeaker
             ? t("components.bottomVoiceControl.speaker")
             : t("components.bottomVoiceControl.listener")}{" "}
           · <DurationTicker dt={room.roomStartedAt} />
-        </p>
+        </div>
       </div>
       <div className="flex flex-row">
         <div className="grid grid-cols-3 gap-2">

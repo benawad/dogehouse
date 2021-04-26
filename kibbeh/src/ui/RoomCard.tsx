@@ -82,9 +82,9 @@ export const RoomCard: React.FC<RoomCardProps> = ({
           </BubbleText>
         </div>
       </div>
-      <p className="block w-full mt-2 text-left break-all truncate whitespace-pre-wrap line-clamp-2 text-primary-300">
+      <div className="block w-full mt-2 text-left break-all truncate whitespace-pre-wrap line-clamp-2 text-primary-300">
         {subtitle}
-      </p>
+      </div>
       <div className="flex mt-4 space-x-2">
         {tags.map((tag, idx) => (
           <Tag key={idx}>{tag}</Tag>

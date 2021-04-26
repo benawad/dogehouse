@@ -97,9 +97,9 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
               <h4 className={`mb-2 text-primary-100`}>
                 {edit ? t("pages.home.editRoom") : t("pages.home.createRoom")}
               </h4>
-              <p className={`text-primary-300`}>
+              <div className={`text-primary-300`}>
                 {t("components.modals.createRoomModal.subtitle")}
-              </p>
+              </div>
             </div>
             <div className={`flex h-full w-full col-span-2`}>
               <InputField
