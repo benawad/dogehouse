@@ -40,8 +40,8 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
   const { t } = useTypeSafeTranslation();
   const screenType = useScreenType();
   return (
-    <div className="flex justify-between bg-primary-700 rounded-b-8 py-3 px-4 w-full">
-      <div className="flex">
+    <div className="flex flex-wrap justify-center bg-primary-700 rounded-b-8 py-3 px-4 w-full sm:justify-between">
+      <div className="flex my-1 sm:my-0">
         {mute ? (
           <BoxedIcon
             transition
@@ -108,7 +108,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
 
       <Button
         transition
-        className={`ml-2`}
+        className={`my-1 sm:my-0`}
         color="secondary-800"
         onClick={() => {
           onLeaveRoom();
