@@ -7,6 +7,7 @@ defmodule Kousa.Chat do
     case Beef.Users.get_current_room_id(payload.from) do
       nil ->
         :noop
+
       room_id ->
         Onion.Chat.send_msg(room_id, payload)
     end

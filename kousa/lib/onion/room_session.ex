@@ -11,7 +11,7 @@ defmodule Onion.RoomSession do
             deafMap: map(),
             inviteMap: map(),
             activeSpeakerMap: map(),
-            auto_speaker: boolean(),
+            auto_speaker: boolean()
           }
 
     defstruct room_id: "",
