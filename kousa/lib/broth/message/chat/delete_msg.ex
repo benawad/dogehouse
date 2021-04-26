@@ -1,4 +1,4 @@
-defmodule Broth.Message.Chat.DeleteMsg do
+defmodule Broth.Message.Chat.Delete do
   use Broth.Message.Cast
 
   @primary_key false

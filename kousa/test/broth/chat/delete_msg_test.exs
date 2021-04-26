@@ -1,4 +1,4 @@
-defmodule BrothTest.Chat.DeleteMsgTest do
+defmodule BrothTest.Chat.DeleteTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 

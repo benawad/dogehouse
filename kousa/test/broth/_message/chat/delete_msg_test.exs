@@ -1,9 +1,9 @@
-defmodule BrothTest.Message.Chat.DeleteMsgTest do
+defmodule BrothTest.Message.Chat.DeleteTest do
   use ExUnit.Case, async: true
 
   @moduletag :message
 
-  alias Broth.Message.Chat.DeleteMsg
+  alias Broth.Message.Chat.Delete
 
   describe "when you send a delete_msg message" do
     test "it populates userId" do
@@ -12,7 +12,7 @@ defmodule BrothTest.Message.Chat.DeleteMsgTest do
 
       assert {:ok,
               %{
-                payload: %DeleteMsg{
+                payload: %Delete{
                   messageId: ^msg_id,
                   userId: ^user_id
                 }
@@ -25,7 +25,7 @@ defmodule BrothTest.Message.Chat.DeleteMsgTest do
       # short form also allowed
       assert {:ok,
               %{
-                payload: %DeleteMsg{
+                payload: %Delete{
                   messageId: ^msg_id,
                   userId: ^user_id
                 }
