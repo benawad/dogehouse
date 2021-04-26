@@ -60,9 +60,9 @@ export const KeybindCard: React.FC<KeybindCardProps> = ({
          `}
     >
       <div>
-        <p className="text-base font-bold text-primary-100 capitalize">
+        <div className="text-base font-bold text-primary-100 capitalize">
           {command}
-        </p>
+        </div>
       </div>
       <div className="flex items-center">
         {isListening ? (

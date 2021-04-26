@@ -21,9 +21,9 @@ export const ErrorButtonItem: React.FC<ErrorButtonItemProps> = ({
       </div>
       <div className="flex flex-col pl-3 pr-4 flex-auto">
         {!!errorMessageHeading && (
-          <p className="font-bold text-secondary">{errorMessageHeading}</p>
+          <div className="font-bold text-secondary">{errorMessageHeading}</div>
         )}
-        <p className="text-primary-300">{errorMessageText}</p>
+        <div className="text-primary-300">{errorMessageText}</div>
       </div>
       <div>
         {!!actionButtonText && (

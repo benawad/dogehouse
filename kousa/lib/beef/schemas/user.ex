@@ -120,7 +120,7 @@ defmodule Beef.Schemas.User do
     |> validate_format(:username, ~r/^(\w){4,15}$/)
     |> validate_format(
       :avatarUrl,
-      ~r/^https?:\/\/(www\.|)(pbs.twimg.com\/profile_images\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/)/
+      ~r/^https?:\/\/(www\.|)((a|p)bs.twimg.com\/(profile_images|sticky\/default_profile_images)\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/|github.com\/identicons\/[^\s]+)/
     )
     |> validate_format(
       :bannerUrl,
