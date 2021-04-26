@@ -46,3 +46,9 @@ export type InvitationToRoomResponse = {
   roomName: string;
   roomId: UUID;
 };
+
+export type CreateBotResponse = {
+  apiKey: string | null,
+  isUsernameTaken: boolean | null,
+  error: string | null
+}
