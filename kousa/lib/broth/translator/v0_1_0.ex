@@ -303,6 +303,10 @@ defmodule Broth.Translator.V0_1_0 do
     }
   end
 
+  def translate_out_body(message, "chat:delete") do
+    %{op: "message_deleted", d: message.d}
+  end
+
   #################################################################
   # pure outbound messages
 

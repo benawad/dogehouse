@@ -41,10 +41,6 @@ defmodule BrothTest.Chat.DeleteTest do
 
       # note that an asynchronous delete request doesn't really have
       # to make sense to anyone.
-
-      # TODO: double check that the listener-id can't be hijacked
-      # (is it only sent to early-block poor attempts to delete messages?)
-      # maybe we should handle this at the frontend level?
       msg_id = UUID.uuid4()
 
       WsClient.send_msg(t.client_ws, "chat:delete", %{
@@ -52,20 +48,22 @@ defmodule BrothTest.Chat.DeleteTest do
         "userId" => listener_id
       })
 
-      WsClient.assert_frame_legacy(
-        "message_deleted",
+      WsClient.assert_frame(
+        "chat:delete",
         %{
           "deleterId" => ^user_id,
-          "messageId" => ^msg_id
+          "messageId" => ^msg_id,
+          "userId" => ^listener_id
         },
         t.client_ws
       )
 
-      WsClient.assert_frame_legacy(
-        "message_deleted",
+      WsClient.assert_frame(
+        "chat:delete",
         %{
           "deleterId" => ^user_id,
-          "messageId" => ^msg_id
+          "messageId" => ^msg_id,
+          "userId" => ^listener_id
         },
         listener_ws
       )

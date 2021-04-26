@@ -205,17 +205,14 @@ defmodule Onion.Chat do
   # - eventually when the chat message logs are taken, we'll be able to
   #   add soft-deletion of messages into the message logs.
   @spec delete_message(UUID.t, Delete.t) :: :ok
-  def delete_message(room_id, payload) do
-    cast(room_id, {:message_deleted, user_id, message_id})
+  def delete_message(room_id, deletion = %Delete{}) do
+    cast(room_id, {:delete_message, deletion})
   end
 
-  defp delete_message_impl(user_id, message_id, state) do
-    ws_fan(state.users, %{
-      op: "message_deleted",
-      d: %{
-        messageId: message_id,
-        deleterId: user_id
-      }
+  defp delete_message_impl(deletion, state) do
+    PubSub.broadcast("chat:" <> state.room_id, %Broth.Message{
+      operator: "chat:delete",
+      payload: deletion
     })
 
     {:noreply, state}
@@ -232,13 +229,9 @@ defmodule Onion.Chat do
 
   def handle_cast({:add_user, user_id}, state), do: add_user_impl(user_id, state)
 
-  def handle_cast({:send_msg, message}, state) do
-    send_msg_impl(message, state)
-  end
+  def handle_cast({:send_msg, message}, state), do: send_msg_impl(message, state)
 
-  def handle_cast({:message_deleted, user_id, message_id}, state) do
-    message_deleted_impl(user_id, message_id, state)
-  end
+  def handle_cast({:delete_message, payload}, state), do: delete_message_impl(payload, state)
 
   def handle_cast({:ban_user, user_id}, state), do: ban_user_impl(user_id, state)
 end
