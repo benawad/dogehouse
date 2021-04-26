@@ -45,7 +45,7 @@
       "createRoom": "Créer une salle",
       "editRoom": "Editer la salle",
       "refresh": "Actualiser",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "desktopAlert": "Téléchargez l'application DogeHouse aujourd'hui!"
     },
     "inviteList": {
       "roomGone": "Cette salle n'existe plus; revenez en arrière",
@@ -112,7 +112,7 @@
       "header": "Paramètres de l'Overlay",
       "input": {
         "errorMsg": "Veuillez rentrer un titre valide",
-        "label": "Titrede l'application"
+        "label": "Titre de l'application"
       }
     },
     "download": {
@@ -147,9 +147,9 @@
       "speaker": "Interlocuteur",
       "listener": "Auditeur",
       "chat": "Chat",
-      "toggleDeafMicBtn": "Toggle Deafen",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen"
+      "toggleDeafMicBtn": "Activer / Désactiver le son",
+      "deafen": "Couper le son",
+      "undeafen": "Rétablier le son"
     },
     "deviceNotSupported": {
       "notSupported": "Votre système n'est pas encore supporté. Vous pouvez créer une",
@@ -177,7 +177,7 @@
       "toggleMuteKeybind": "Activer / Désactiver le raccourci clavier pour rendre muet",
       "toggleOverlayKeybind": "Activer / Désactiver le raccourci clavier pour l'overlay",
       "togglePushToTalkKeybind": "Activer / Désactiver le raccourci clavier appuyer-pour-parler",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Activer / Désactiver le raccourci clavier pour couper le son"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Pas d'audio pour une raison inconnue"
