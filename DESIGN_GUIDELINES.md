@@ -81,7 +81,7 @@ Tag | Font Size | Line Height | Weight
 
 ## Spacing
 
-This is an approximation. On some circumstances other values will be used to ensure readability, consistency and visual balance, so make sure to also check the UI Design and the spacing used there.
+This is an approximation. On some circumstances, other values will be used to ensure readability, consistency and visual balance, so please make sure to also check the UI Design and the spacing used there.
 
 ![DogeHouse spacing](https://i.imgur.com/gRIJAXA.png)
 
