@@ -11,11 +11,11 @@ defmodule Onion.Chat do
   defstruct room_id: "", users: [], ban_map: %{}, last_message_map: %{}
 
   @type state :: %__MODULE__{
-    room_id: String.t(),
-    users: [String.t()],
-    ban_map: map(),
-    last_message_map: %{optional(UUID.t) => DateTime.t}
-  }
+          room_id: String.t(),
+          users: [String.t()],
+          ban_map: map(),
+          last_message_map: %{optional(UUID.t()) => DateTime.t()}
+        }
 
   #################################################################################
   # REGISTRY AND SUPERVISION BOILERPLATE
@@ -156,7 +156,7 @@ defmodule Onion.Chat do
   end
 
   @message_time_limit_milliseconds 1000
-  @spec should_throttle?(UUID.t, state) :: boolean
+  @spec should_throttle?(UUID.t(), state) :: boolean
   defp should_throttle?(user, %{last_message_times: m})
        when is_map_key(m, user) do
     DateTime.diff(m[user], DateTime.utc_now(), :millisecond) >= @message_time_limit_milliseconds
@@ -176,11 +176,12 @@ defmodule Onion.Chat do
 
       list ->
         # TODO: hoist this processing so we don't have to do a DB lookup.
-        blocks = Beef.Schemas.User
-        |> Beef.Repo.get(payload.from)
-        |> Beef.Repo.preload(:blocked_by)
-        |> Map.get(:blocked_by)
-        |> Enum.map(&(&1.id))
+        blocks =
+          Beef.Schemas.User
+          |> Beef.Repo.get(payload.from)
+          |> Beef.Repo.preload(:blocked_by)
+          |> Map.get(:blocked_by)
+          |> Enum.map(& &1.id)
 
         list
         |> Enum.reject(&(&1 in blocks))

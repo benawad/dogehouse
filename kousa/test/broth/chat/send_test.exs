@@ -159,7 +159,8 @@ defmodule BrothTest.Chat.SendTest do
       WsClient.send_msg(
         blocked_ws,
         "chat:send_msg",
-        %{"tokens" => @text_token, "whisperedTo" => [user_id]})
+        %{"tokens" => @text_token, "whisperedTo" => [user_id]}
+      )
 
       WsClient.refute_frame("chat:send", t.client_ws)
       # you will still get the message yourself.
