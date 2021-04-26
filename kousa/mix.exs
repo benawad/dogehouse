@@ -42,6 +42,7 @@ defmodule Kousa.MixProject do
       {:elixir_uuid, "~> 1.2"},
       # TODO: switch off of httpoison to, e.g. Mojito or Finch
       {:httpoison, "~> 1.8"},
+      {:finch, "~> 0.6"},
       {:sentry, "~> 8.0"},
       {:postgrex, ">= 0.0.0"},
       {:remix, "~> 0.0.1", only: :dev},
