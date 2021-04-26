@@ -2,35 +2,35 @@
 
 exports[`UserAvatar MultipleUsers should match snapshot 1`] = `
 Array [
-  <div className="flex"
+  <div
     class="relative inline-block "
     data-testid="single-user-avatar"
     style="width: 20px; height: 20px;"
   >
     <img
-      alt="avatar"
+      alt="your-avatar"
       class="rounded-full w-full h-full object-cover"
       src=""
     />
   </div>,
-  <div className="flex"
+  <div
     class="relative inline-block "
     data-testid="single-user-avatar"
     style="width: 20px; height: 20px;"
   >
     <img
-      alt="avatar"
+      alt="your-avatar"
       class="rounded-full w-full h-full object-cover"
       src=""
     />
   </div>,
-  <div className="flex"
+  <div
     class="relative inline-block "
     data-testid="single-user-avatar"
     style="width: 20px; height: 20px;"
   >
     <img
-      alt="avatar"
+      alt="your-avatar"
       class="rounded-full w-full h-full object-cover"
       src=""
     />
