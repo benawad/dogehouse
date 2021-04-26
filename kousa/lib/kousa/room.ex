@@ -243,15 +243,10 @@ defmodule Kousa.Room do
   defp set_listener(room_id, user_id, setter_id) do
     # TODO: refactor this to be simpler.  The list of
     # creators and mods should be in the preloads of the room.
-    case Rooms.get_room_status(setter_id) do
-      {_, nil} ->
-        :noop
-
-      {auth, _} when auth in [:creator, :mod] ->
+    with {auth, _} <- Rooms.get_room_status(setter_id), {role, _} <- Rooms.get_room_status(user_id) do
+      if auth == :creator or (auth == :mod and role not in [:creator, :mod]) do
         internal_set_listener(user_id, room_id)
-
-      _ ->
-        :noop
+      end
     end
   end
 
