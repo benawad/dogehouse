@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Silentigita | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -43,7 +44,8 @@
     "home": {
       "createRoom": "Kreu Ĉambron",
       "refresh": "Refreŝigu",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "ĉambro for, reiru",
@@ -111,6 +113,14 @@
         "errorMsg": "Please enter valid app title",
         "label": "Enter app title"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -135,7 +145,10 @@
       "settings": "Agordoj",
       "speaker": "Parolanto",
       "listener": "Aŭskultanto",
-      "chat": "Babili"
+      "chat": "Babili",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Via aparato nuntempe ne estas subtenata. Vi povas krei",
@@ -156,7 +169,8 @@
       "listening": "aŭskultanta",
       "toggleMuteKeybind": "baskuli mutan klavaron",
       "togglePushToTalkKeybind": "ŝalti puŝ-al-parolan klavaron",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "neniu audio-konsumanto ial" },
     "addToCalendar": { "add": "Aldoni al Kalendaro" },

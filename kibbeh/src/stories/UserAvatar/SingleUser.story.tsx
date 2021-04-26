@@ -22,5 +22,9 @@ export const Muted: Story<AvatarProps> = ({ ...props }) => (
   <SingleUser {...props} src={src} muted />
 );
 
+export const Deafened: Story<AvatarProps> = ({ ...props }) => (
+  <SingleUser {...props} src={src} deafened />
+);
+
 Default.bind({});
 Online.bind({});

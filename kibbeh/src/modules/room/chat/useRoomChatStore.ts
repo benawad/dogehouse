@@ -91,10 +91,10 @@ export const useRoomChatStore = create(
         set((s) => ({
           newUnreadMessages: !s.open,
           messages: [
+            { ...m, color: generateColorFromString(m.userId) },
             ...(s.messages.length <= 100 || s.frozen
               ? s.messages
-              : s.messages.slice(s.message.length - 100, s.messages.length)),
-            { ...m, color: generateColorFromString(m.userId) },
+              : s.messages.slice(0, 100)),
           ],
         })),
       setMessages: (messages: RoomChatMessage[]) =>

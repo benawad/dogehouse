@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Ztlumen | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -43,7 +44,8 @@
     "home": {
       "createRoom": "Vytvořit místnost",
       "refresh": "Obnovit",
-      "editRoom": "Upravit místnost"
+      "editRoom": "Upravit místnost",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Místnost není dostupná, jít zpět",
@@ -110,6 +112,14 @@
       "header": "Overlay Settings",
       "errorMsg": "Please enter valid app title",
       "label": "Enter app title"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -134,7 +144,10 @@
       "settings": "Nastavení",
       "speaker": "Mluvící",
       "listener": "Posluchač",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Tvé zařízení není momentálně podporováno. Můžeš o podporu",
@@ -155,7 +168,8 @@
       "listening": "Poslouchám",
       "toggleMuteKeybind": "Ztlumit mikrofon",
       "togglePushToTalkKeybind": "Push-To-Talk (mluvit jen po zmáčknutí tlačítka)",
-      "toggleOverlayKeybind": "Nastavit klávesovou zkratku pro overlay"
+      "toggleOverlayKeybind": "Nastavit klávesovou zkratku pro overlay",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Z nějakého důvodu není vysílán zvuk"

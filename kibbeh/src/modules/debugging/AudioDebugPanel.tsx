@@ -24,7 +24,7 @@ export const AudioDebugPanel: React.FC<AudioDebugPanelProps> = ({}) => {
   }, [recvTransport]);
 
   return (
-    <div className="text-primary-100 bg-primary-600 p-4 mb-2 rounded-md">
+    <div className="text-primary-100 bg-primary-600 p-1 mb-2">
       <h4>Audio Debug Information</h4>
       <div>
         recv transport state:{" "}

@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Без звуку | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -46,7 +47,8 @@
     "home": {
       "createRoom": "Створити Кімнату",
       "refresh": "Оновити",
-      "editRoom": "Редагувати кімнату"
+      "editRoom": "Редагувати кімнату",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "кімнати вже немає, повернутися",
@@ -114,6 +116,14 @@
         "label": "Введіть назву додатку"
       },
       "header": "Налаштування накладення"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -138,7 +148,10 @@
       "settings": "Налаштування",
       "speaker": "Доповідач",
       "listener": "Слухач",
-      "chat": "Чат"
+      "chat": "Чат",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Ваш пристрій не підтримується. Ви можете створити",
@@ -159,7 +172,8 @@
       "listening": "слухає",
       "toggleMuteKeybind": "Перемикнути прив'язку клавіши",
       "togglePushToTalkKeybind": "Перемикнути режим рації",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "споживача аудіо відсутній" },
     "addToCalendar": { "add": "Додати до календаря" },

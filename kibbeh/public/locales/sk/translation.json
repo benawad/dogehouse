@@ -21,6 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Stíšený | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -42,7 +43,8 @@
     "home": {
       "createRoom": "Vytvoriť miestnosť",
       "refresh": "Obnoviť",
-      "editRoom": "Upraviť miestnosť"
+      "editRoom": "Upraviť miestnosť",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "miestnosť je fuč, vráť sa",
@@ -110,6 +112,14 @@
         "label": "Vlož názov aplikácie"
       },
       "header": "Nastavenia Prekresľovania"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -134,7 +144,10 @@
       "settings": "Nastavenia",
       "speaker": "Rozprávač",
       "listener": "Poslúchač",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Tvoje zariadenie nie je podporované. Môžeš vytvoriť:",
@@ -155,7 +168,8 @@
       "listening": "počúvam",
       "toggleMuteKeybind": "prepínač stíšenia",
       "togglePushToTalkKeybind": "prepínač push-to-talk",
-      "toggleOverlayKeybind": "prepínač prekreslenia"
+      "toggleOverlayKeybind": "prepínač prekreslenia",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "z nejakého dôvodu nemáme žiadny zvuk"

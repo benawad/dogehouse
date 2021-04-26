@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "بی صدا | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -43,7 +44,8 @@
     "home": {
       "createRoom": "ساختن اتاق",
       "refresh": "تازه کردن",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "اتاق گم شد. برگردید",
@@ -111,6 +113,14 @@
         "errorMsg": "Please enter valid app title",
         "label": "Enter app title"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -135,7 +145,10 @@
       "settings": "تنظیمات",
       "speaker": "گویندگان",
       "listener": "شنوندگان",
-      "chat": "پیام"
+      "chat": "پیام",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": " دستگاه شما پشتیبانی نمیشود. شما میتوانید یک",
@@ -153,7 +166,8 @@
       "listening": "در حال گوش دادن",
       "toggleMuteKeybind": "کلید فعال/غیرفعال بی صدا",
       "togglePushToTalkKeybind": "کلید حرف زدن با فشردن دکمه",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "بدون مخاطب به دلایلی" },
     "addToCalendar": { "add": "اضافه کردن به تقویم" },

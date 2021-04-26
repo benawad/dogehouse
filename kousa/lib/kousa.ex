@@ -15,6 +15,8 @@ defmodule Kousa do
       Onion.Supervisors.RoomChat,
       Onion.Supervisors.VoiceRabbit,
       Onion.Supervisors.VoiceOnlineRabbit,
+      Onion.BotAuthRateLimit,
+      Onion.StatsCache,
       {Beef.Repo, []},
       Onion.Telemetry,
       Plug.Cowboy.child_spec(

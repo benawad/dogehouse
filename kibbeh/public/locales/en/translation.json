@@ -21,9 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "dashboard" : "Dashboard",
+    "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken",
-    "mutedTitle": "Muted | DogeHouse"
+    "mutedTitle": "Muted | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -35,6 +36,12 @@
     "_comment": "Respective Page UI Internationalization Strings",
     "banUser": {
       "ban": "Ban"
+    },
+    "download": {
+      "prompt": "Download the DogeHouse Desktop app",
+      "download_for": "Download for %platform% (%ext%)",
+      "failed": "Unable to detect platform, please try again later or visit GitHub Releases",
+      "visit_gh": "Visit GitHub Releases"
     },
     "followingOnlineList": {
       "listHeader": "List of users that are not in a private room and you follow.",
@@ -48,7 +55,8 @@
     "home": {
       "createRoom": "New room",
       "editRoom": "Edit Room",
-      "refresh": "Refresh"
+      "refresh": "Refresh",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Room gone; go back",
@@ -139,8 +147,11 @@
       "inviteUsersToRoomBtn": "Invite Users to Room",
       "invite": "Invite",
       "toggleMuteMicBtn": "Toggle Mute",
+      "toggleDeafMicBtn": "Toggle Deafen",
       "mute": "Mute",
       "unmute": "Unmute",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen",
       "makeRoomPublicBtn": "Make Room Public!",
       "settings": "Settings",
       "speaker": "Speaker",
@@ -171,6 +182,7 @@
       "setKeybind": "Set Keybind",
       "listening": "Listening...",
       "toggleMuteKeybind": "Toggle mute keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind",
       "toggleOverlayKeybind": "Toggle overlay keybind",
       "togglePushToTalkKeybind": "Toggle push-to-talk keybind"
     },

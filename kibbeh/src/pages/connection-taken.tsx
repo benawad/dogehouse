@@ -10,7 +10,7 @@ const ConnectionTaken: React.FC<ConnectionTakenProps> = ({}) => {
   const { t } = useTypeSafeTranslation();
   return (
     <>
-      <HeaderController title="Connection Taken" embed={{}}/>
+      <HeaderController title="Connection Taken" embed={{}} />
       <div className="flex w-full h-full flex-col items-center justify-center p-8">
         <ElectronHeader />
         <h4 className="text-primary-100 mb-4">

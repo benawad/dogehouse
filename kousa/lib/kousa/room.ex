@@ -59,6 +59,7 @@ defmodule Kousa.Room do
             displayName: user.displayName,
             username: user.username,
             avatarUrl: user.avatarUrl,
+            bannerUrl: user.bannerUrl,
             type: "invite"
           }
         )
@@ -90,40 +91,207 @@ defmodule Kousa.Room do
     end
   end
 
-  defp internal_set_listener(user_id_to_make_listener, room_id) do
-    RoomPermissions.make_listener(user_id_to_make_listener, room_id)
-    Onion.RoomSession.remove_speaker(room_id, user_id_to_make_listener)
+  ###################################################################
+  ## AUTH
+
+  @doc """
+  sets the authorization level of the user in the room that they're in.
+  This could be 'user', 'mod', or 'owner'.
+
+  Authorization to do so is pulled from the options `:by` keyword.
+
+  TODO: move room into the opts field, and have it be passed in by the
+  socket.
+  """
+  def set_auth(user_id, auth, opts) do
+    room_id = Beef.Users.get_current_room_id(user_id)
+
+    case auth do
+      _ when is_nil(room_id) ->
+        :noop
+
+      :owner ->
+        set_owner(room_id, user_id, opts[:by])
+
+      :mod ->
+        set_mod(room_id, user_id, opts[:by])
+
+      :user ->
+        set_user(room_id, user_id, opts[:by])
+    end
   end
 
-  def set_listener(user_id, user_id_to_set_listener) do
-    if user_id == user_id_to_set_listener do
-      internal_set_listener(
-        user_id_to_set_listener,
-        Beef.Users.get_current_room_id(user_id_to_set_listener)
-      )
-    else
-      {status, room} = Rooms.get_room_status(user_id)
-      is_creator = user_id_to_set_listener == not is_nil(room) and room.creatorId
+  ####################################################################
+  # owner
 
-      if not is_creator and (status == :creator or status == :mod) do
-        internal_set_listener(
-          user_id_to_set_listener,
-          Beef.Users.get_current_room_id(user_id_to_set_listener)
+  def set_owner(room_id, user_id, setter_id) do
+    with {:creator, _} <- Rooms.get_room_status(setter_id),
+         {1, _} <- Rooms.replace_room_owner(setter_id, user_id) do
+      internal_set_speaker(setter_id, room_id)
+
+      Onion.RoomSession.broadcast_ws(
+        room_id,
+        %{
+          op: "new_room_creator",
+          d: %{roomId: room_id, userId: user_id}
+        }
+      )
+    end
+  end
+
+  ####################################################################
+  # mod
+
+  # only creators can set someone to be mod.
+  defp set_mod(room_id, user_id, setter_id) do
+    # TODO: refactor this to pull from preloads.
+    case Rooms.get_room_status(setter_id) do
+      {:creator, _} ->
+        RoomPermissions.set_is_mod(user_id, room_id, true)
+
+        Onion.RoomSession.broadcast_ws(
+          room_id,
+          %{
+            op: "mod_changed",
+            d: %{roomId: room_id, userId: user_id}
+          }
         )
-      end
+
+      _ ->
+        :noop
+    end
+  end
+
+  ####################################################################
+  # plain user
+
+  # mods can demote their own mod status.
+  defp set_user(room_id, user_id, user_id) do
+    case Rooms.get_room_status(user_id) do
+      {:mod, _} ->
+        RoomPermissions.set_is_mod(user_id, room_id, true)
+
+        Onion.RoomSession.broadcast_ws(
+          room_id,
+          %{
+            op: "mod_changed",
+            d: %{roomId: room_id, userId: user_id}
+          }
+        )
+
+      _ ->
+        :noop
+    end
+  end
+
+  # only creators can demote mods
+  defp set_user(room_id, user_id, setter_id) do
+    case Rooms.get_room_status(setter_id) do
+      {:creator, _} ->
+        RoomPermissions.set_is_mod(user_id, room_id, false)
+
+        Onion.RoomSession.broadcast_ws(
+          room_id,
+          %{
+            op: "mod_changed",
+            d: %{roomId: room_id, userId: user_id}
+          }
+        )
+
+      _ ->
+        :noop
+    end
+  end
+
+  ####################################################################
+  ## ROLE
+
+  @doc """
+  sets the role of the user in the room that they're in.  Authorization
+  to do so is pulled from the options `:by` keyword.
+
+  TODO: move room into the opts field, and have it be passed in by the
+  socket.
+  """
+  def set_role(user_id, role, opts) do
+    room_id = Beef.Users.get_current_room_id(user_id)
+
+    case role do
+      _ when is_nil(room_id) ->
+        :noop
+
+      :listener ->
+        set_listener(room_id, user_id, opts[:by])
+
+      :speaker ->
+        set_speaker(room_id, user_id, opts[:by])
+
+      :raised_hand ->
+        set_raised_hand(room_id, user_id, opts[:by])
+    end
+  end
+
+  ####################################################################
+  ## listener
+
+  defp set_listener(nil, _, _), do: :noop
+  # you are always allowed to set yourself as listener
+  defp set_listener(room_id, user_id, user_id) do
+    internal_set_listener(user_id, room_id)
+  end
+
+  defp set_listener(room_id, user_id, setter_id) do
+    # TODO: refactor this to be simpler.  The list of
+    # creators and mods should be in the preloads of the room.
+    case Rooms.get_room_status(setter_id) do
+      {_, nil} ->
+        :noop
+
+      {auth, _} when auth in [:creator, :mod] ->
+        internal_set_listener(user_id, room_id)
+
+      _ ->
+        :noop
+    end
+  end
+
+  defp internal_set_listener(user_id, room_id) do
+    RoomPermissions.make_listener(user_id, room_id)
+    Onion.RoomSession.remove_speaker(room_id, user_id)
+  end
+
+  ####################################################################
+  ## speaker
+
+  defp set_speaker(nil, _, _), do: :noop
+
+  defp set_speaker(room_id, user_id, setter_id) do
+    case Rooms.get_room_status(setter_id) do
+      {_, nil} ->
+        :noop
+
+      {:mod, _} ->
+        internal_set_speaker(user_id, room_id)
+
+      {:creator, _} ->
+        internal_set_speaker(user_id, room_id)
+
+      {_, _} ->
+        :noop
     end
   end
 
   @spec internal_set_speaker(any, any) :: nil | :ok | {:err, {:error, :not_found}}
-  def internal_set_speaker(user_id_to_make_speaker, room_id) do
-    case RoomPermissions.set_speaker(user_id_to_make_speaker, room_id, true) do
+  defp internal_set_speaker(user_id, room_id) do
+    case RoomPermissions.set_speaker(user_id, room_id, true) do
       {:ok, _} ->
         # kind of horrible to have to make a double genserver call
         # here, we'll have to think about how this works (who owns muting)
         Onion.RoomSession.add_speaker(
           room_id,
-          user_id_to_make_speaker,
-          Onion.UserSession.get(user_id_to_make_speaker, :muted)
+          user_id,
+          Onion.UserSession.get(user_id, :muted),
+          Onion.UserSession.get(user_id, :deafened)
         )
 
       err ->
@@ -134,54 +302,49 @@ defmodule Kousa.Room do
       {:error, "room not found"}
   end
 
-  def make_speaker(user_id, user_id_to_make_speaker) do
-    with {status, room} when status in [:creator, :mod] <-
-           Rooms.get_room_status(user_id),
-         true <- RoomPermissions.asked_to_speak?(user_id_to_make_speaker, room.id) do
-      internal_set_speaker(user_id_to_make_speaker, room.id)
+  # only you can raise your own hand
+  defp set_raised_hand(room_id, user_id, user_id) do
+    # ??
+    case RoomPermissions.ask_to_speak(user_id, room_id) do
+      {:ok, %{isSpeaker: true}} ->
+        internal_set_speaker(user_id, room_id)
+
+      _ ->
+        Onion.RoomSession.broadcast_ws(
+          room_id,
+          %{
+            op: "hand_raised",
+            d: %{userId: user_id, roomId: room_id}
+          }
+        )
     end
   end
 
-  def change_mod(user_id, user_id_to_change, value) when is_boolean(value) do
+  defp set_raised_hand(_, _, _), do: :noop
+
+  ######################################################################
+  ## UPDATE
+
+  def update(user_id, data) do
     if room = Rooms.get_room_by_creator_id(user_id) do
-      RoomPermissions.set_is_mod(user_id_to_change, room.id, value)
+      case Rooms.edit(room.id, data) do
+        ok = {:ok, room} ->
+          Onion.RoomSession.broadcast_ws(room.id, %{
+            op: "new_room_details",
+            d: %{
+              name: room.name,
+              description: room.description,
+              isPrivate: room.isPrivate,
+              roomId: room.id
+            }
+          })
 
-      Onion.RoomSession.broadcast_ws(
-        room.id,
-        %{
-          op: "mod_changed",
-          d: %{roomId: room.id, userId: user_id_to_change}
-        }
-      )
-    end
-  end
+          ok
 
-  def change_room_creator(old_creator_id, new_creator_id) do
-    # get current room id
-    current_room_id = Beef.Users.get_current_room_id(new_creator_id)
-    is_speaker = Beef.RoomPermissions.speaker?(new_creator_id, current_room_id)
-
-    # get old creator's room id for validation
-    old_creator_room_id = Beef.Users.get_current_room_id(old_creator_id)
-
-    if is_speaker and not is_nil(current_room_id) and new_creator_id != old_creator_id and
-         current_room_id == old_creator_room_id do
-      case Rooms.replace_room_owner(old_creator_id, new_creator_id) do
-        {1, _} ->
-          internal_set_speaker(old_creator_id, current_room_id)
-          Beef.RoomPermissions
-
-          Onion.RoomSession.broadcast_ws(
-            current_room_id,
-            %{op: "new_room_creator", d: %{roomId: current_room_id, userId: new_creator_id}}
-          )
-
-        _ ->
-          nil
+        error = {:error, _} ->
+          error
       end
     end
-
-    nil
   end
 
   def join_vc_room(user_id, room, speaker? \\ nil) do
@@ -202,30 +365,6 @@ defmodule Kousa.Room do
       d: %{roomId: room.id, peerId: user_id},
       uid: user_id
     })
-  end
-
-  def edit_room(user_id, new_name, new_description, is_private) do
-    if room = Rooms.get_room_by_creator_id(user_id) do
-      case Rooms.edit(room.id, %{
-             name: new_name,
-             description: new_description,
-             is_private: is_private
-           }) do
-        {:ok, _room} ->
-          Onion.RoomSession.broadcast_ws(room.id, %{
-            op: "new_room_details",
-            d: %{
-              name: new_name,
-              description: new_description,
-              isPrivate: is_private,
-              roomId: room.id
-            }
-          })
-
-        {:error, x} ->
-          {:error, Kousa.Utils.Errors.changeset_to_first_err_message_with_field_name(x)}
-      end
-    end
   end
 
   @spec create_room(String.t(), String.t(), String.t(), boolean(), String.t() | nil) ::
@@ -256,8 +395,9 @@ defmodule Kousa.Room do
         )
 
         muted? = Onion.UserSession.get(user_id, :muted)
+        deafened? = Onion.UserSession.get(user_id, :deafened)
 
-        Onion.RoomSession.join_room(room.id, user_id, muted?, no_fan: true)
+        Onion.RoomSession.join_room(room.id, user_id, muted?, deafened?, no_fan: true)
 
         Onion.VoiceRabbit.send(room.voiceServerId, %{
           op: "create-room",
@@ -326,8 +466,9 @@ defmodule Kousa.Room do
               updated_user = Rooms.join_room(room, user_id)
 
               muted = Onion.UserSession.get(user_id, :muted)
+              deafened = Onion.UserSession.get(user_id, :deafened)
 
-              Onion.RoomSession.join_room(room_id, user_id, muted)
+              Onion.RoomSession.join_room(room_id, user_id, muted, deafened)
 
               canSpeak =
                 case updated_user do

@@ -9,6 +9,7 @@ interface RoomAvatarProps {
   canSpeak?: boolean;
   activeSpeaker?: boolean;
   muted?: boolean;
+  deafened?: boolean;
   username: string;
   flair?: React.ReactNode;
   src: string;
@@ -21,6 +22,7 @@ export const RoomAvatar: React.FC<RoomAvatarProps> = ({
   username,
   flair,
   muted,
+  deafened,
   onClick,
   canSpeak,
   id,
@@ -33,11 +35,16 @@ export const RoomAvatar: React.FC<RoomAvatarProps> = ({
       size="lg"
       src={src}
       muted={muted}
+      deafened={deafened}
       username={username}
     />
   );
   return (
-    <button className={`flex flex-col items-center`} onClick={onClick}>
+    <button
+      data-testid={`room:user:node:${username}`}
+      className={`flex flex-col items-center`}
+      onClick={onClick}
+    >
       {!isMe && canSpeak && id && debugAudio ? (
         <AudioDebugAvatar id={id}>{avatar}</AudioDebugAvatar>
       ) : (

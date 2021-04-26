@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Приглушено | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -46,7 +47,8 @@
     "home": {
       "createRoom": "Создать комнату",
       "refresh": "Обновить",
-      "editRoom": "Редактировать комнату"
+      "editRoom": "Редактировать комнату",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Комната исчезла, вернитесь назад",
@@ -114,6 +116,14 @@
         "label": "Введите название приложения"
       },
       "header": "Настройки оверлея"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -138,7 +148,10 @@
       "settings": "настройки",
       "speaker": "оратор",
       "listener": "слушатель",
-      "chat": "Чат"
+      "chat": "Чат",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Ваше устройство не поддерживается. Вы можете создать",
@@ -159,7 +172,8 @@
       "listening": "слушает",
       "toggleMuteKeybind": "Активация микрофона при нажатии",
       "togglePushToTalkKeybind": "Включить режим рации",
-      "toggleOverlayKeybind": "переключить привязку клавиши оверлея"
+      "toggleOverlayKeybind": "переключить привязку клавиши оверлея",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "нет аудиосвязи" },
     "addToCalendar": { "add": "Добавить в Календарь" },

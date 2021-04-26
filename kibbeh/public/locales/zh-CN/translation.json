@@ -20,8 +20,9 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "已静音 | DogeHouse",
-    "dashboard": "Dashboard",
+    "mutedTitle": "已关闭麦克风 | DogeHouse",
+    "deafenedTitle": "已静音 | DogeHouse",
+    "dashboard": "概览",
     "connectionTaken": "Connection Taken"
   },
   "footer": {
@@ -42,7 +43,8 @@
     "home": {
       "createRoom": "新建聊天室",
       "refresh": "刷新",
-      "editRoom": "修改聊天室"
+      "editRoom": "修改聊天室",
+      "desktopAlert": "现在下载神烦狗桌面app吧！"
     },
     "inviteList": {
       "roomGone": "聊天室已被删除，请回到前一页",
@@ -85,7 +87,7 @@
       "allowAllConfirm": "确定？这将会允许全部{{}}位成员讲话"
     },
     "searchUser": { "search": "搜索..." },
-    "soundEffectSettings": { "header": "声音", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "声音", "title": "声音设置" },
     "viewUser": {
       "editProfile": "编辑个人主页",
       "followsYou": "关注您的人",
@@ -107,6 +109,14 @@
     "overlaySettings": {
       "input": { "errorMsg": "不允许的App标题", "label": "输入App标题" },
       "header": "覆盖层设置"
+    },
+    "download": {
+      "starting": "开始下载...",
+      "failed": "无法自动下载，请稍后再尝试",
+      "visit_gh": "查看Github的发布",
+      "prompt": "按下面的按键开始下载",
+      "download_now": "下载",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -131,7 +141,10 @@
       "settings": "设置",
       "speaker": "扬声器",
       "listener": "听者",
-      "chat": "文字聊天"
+      "chat": "文字聊天",
+      "toggleDeafMicBtn": "切换静音",
+      "deafen": "静音",
+      "undeafen": "取消静音"
     },
     "micPermissionBanner": {
       "permissionDenied": "麦克风使用权被拒绝（可能需要更改设置并且刷新页面）",
@@ -195,9 +208,10 @@
     "keyboardShortcuts": {
       "setKeybind": "设置快捷键",
       "listening": "等待输入",
-      "toggleMuteKeybind": "切换静音键绑定",
+      "toggleMuteKeybind": "切换麦克风静音键绑定",
       "togglePushToTalkKeybind": "切换按键说话绑定",
-      "toggleOverlayKeybind": "切换覆盖层绑定"
+      "toggleOverlayKeybind": "切换覆盖层绑定",
+      "toggleDeafKeybind": "切换静音键绑定"
     },
     "wsKilled": {
       "description": "连接被服务器终止。当您在另一个标签中打开此网站时，通常会发生这种情况 ",
@@ -226,10 +240,7 @@
       "reportABug": "反馈Bug",
       "useOldVersion": "使用旧版本",
       "logOut": { "button": "登出", "modalSubtitle": "是否确定登出?" },
-      "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
-      }
+      "debugAudio": { "debugAudio": "调试声音", "stopDebugger": "取消调试" }
     }
   },
   "modules": {
@@ -247,11 +258,9 @@
         "minLength": "最短长度为2",
         "roomDescription": "聊天室描述"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
-      }
+      "tommorow": "明天",
+      "today": "今天",
+      "deleteModal": { "areYouSure": "你确定要删除此预定的聊天室？" }
     },
     "roomChat": {
       "title": "文字聊天",

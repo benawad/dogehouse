@@ -1,9 +1,9 @@
 defmodule Kousa.Beef.UserTest do
   # allow tests to run in parallel
   use ExUnit.Case, async: true
-  use Kousa.Support.EctoSandbox
+  use KousaTest.Support.EctoSandbox
 
-  alias Kousa.Support.Factory
+  alias KousaTest.Support.Factory
   alias Beef.Follows
   alias Beef.Schemas.Room
   alias Beef.Schemas.User
@@ -15,6 +15,7 @@ defmodule Kousa.Beef.UserTest do
     @gh_input %{
       "id" => 12345,
       "avatar_url" => "https://foo.bar/baz.jpg",
+      "banner_url" => "https://foo.bar/baz.jpg",
       "name" => "tester",
       "bio" => "test",
       "github_access_token" => "askldjlqwjldq"
@@ -70,7 +71,7 @@ defmodule Kousa.Beef.UserTest do
                  displayName: "tim",
                  bio: "",
                  avatarUrl:
-                   "https://bit.ly/3dzG9DB#https://avatars.githubusercontent.com/u/44095206?v=4"
+                   "https://bit.ly/3dzG9DB#https://avatars.githubusercontent.com/u/44095206?v=4",
                })
     end
 

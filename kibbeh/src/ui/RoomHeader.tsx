@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { SolidCaretRight } from "../icons";
+import { linkRegex } from "../lib/constants";
+import normalizeUrl from "normalize-url";
 
 interface RoomHeaderProps {
   onTitleClick?: () => void;
@@ -23,6 +25,7 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
         <button
           onClick={onTitleClick}
           className={`flex text-xl font-bold flex-1 truncate`}
+          data-testid="room-title"
         >
           {title}
         </button>
@@ -47,7 +50,43 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
           {names.join(", ")}
         </span>
       </div>
-      {open ? <div className="text-primary-100 mt-4">{description}</div> : null}
+      {/* {open ? <div className="text-primary-100 mt-4">{description}</div> : null} */}
+
+      {open && description?.trim() && (
+        <div className="mt-4 overflow-y-auto" style={{ maxHeight: "100px" }}>
+          {description.split(/\n/).map(
+            (line, i) =>
+              line.trim() && (
+                <div key={i}>
+                  {line.split(" ").map((chunk, j) => {
+                    try {
+                      return linkRegex.test(chunk) ? (
+                        <a
+                          href={normalizeUrl(chunk)}
+                          rel="noreferrer"
+                          className="text-accent text-center hover:underline inline"
+                          key={`${i}${j}`}
+                          target="_blank"
+                        >
+                          {chunk}&nbsp;
+                        </a>
+                      ) : (
+                        <span
+                          className="text-primary-100"
+                          key={`${i}${j}`}
+                        >{`${chunk} `}</span>
+                      );
+                    } catch (err) {}
+
+                    return null;
+                  })}
+
+                  <br />
+                </div>
+              )
+          )}
+        </div>
+      )}
     </div>
   );
 };

@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Stumm | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -43,7 +44,8 @@
     "home": {
       "createRoom": "Ruum erstelle",
       "refresh": "Aktualisiere",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Ruum isch nid gfunge worde! Zrugg",
@@ -108,6 +110,14 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Istellige"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -133,7 +143,10 @@
       "settings": "Istellige",
       "speaker": "Sprächer",
       "listener": "Zuehörer",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "micPermissionBanner": {
       "permissionDenied": "Mir hei ke Zuegriff uf dis Mikrofon. Mach dini Browseristellige uf, setz die nötige Berechtigunge und lad d Site neu.",
@@ -198,7 +211,8 @@
       "listening": "Zuelose",
       "toggleMuteKeybind": "Stummschalttaste umschalte",
       "togglePushToTalkKeybind": "Push-to-Talk Tastekürzel umschalte",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "wsKilled": {
       "description": "D Websocket Verbindig zum Server isch ungebroche worde. Das gscheht normalerwiis, wenn du d Website imne angere Tab öffnisch.",

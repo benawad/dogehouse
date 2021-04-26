@@ -21,6 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Silenciado | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -41,7 +42,8 @@
     "home": {
       "createRoom": "Crear sala",
       "editRoom": "Editar sala",
-      "refresh": "Recargar"
+      "refresh": "Recargar",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Sala no disponible, volver atrás",
@@ -109,6 +111,14 @@
         "errorMsg": "Ese nombre de aplicación no es válido",
         "label": "Introduce el nombre de la aplicación"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -133,7 +143,10 @@
       "settings": "Ajustes",
       "speaker": "Hablante",
       "listener": "Oyente",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Actualmente tu dispositivo no es compatible. Puedes crear un",
@@ -160,7 +173,8 @@
       "listening": "Escuchando",
       "toggleMuteKeybind": "Combinación de teclas para apagar/encender tu micrófono",
       "toggleOverlayKeybind": "Combinación de teclas para alternar el overlay",
-      "togglePushToTalkKeybind": "Combinación de teclas para activar/desactivar tocar-para-hablar"
+      "togglePushToTalkKeybind": "Combinación de teclas para activar/desactivar tocar-para-hablar",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Por alguna razón no hay ningún consumidor de audio"

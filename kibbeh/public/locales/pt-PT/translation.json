@@ -21,6 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Silenciado | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -42,7 +43,8 @@
     "home": {
       "createRoom": "Criar sala",
       "refresh": "Atualizar",
-      "editRoom": "Editar sala"
+      "editRoom": "Editar sala",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "A sala não existe, voltar atrás",
@@ -110,6 +112,14 @@
         "label": "Introduza o título da aplicação"
       },
       "header": "Definições de Overlay"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -134,7 +144,10 @@
       "settings": "Definições",
       "speaker": "Orador",
       "listener": "Ouvinte",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "micPermissionBanner": {
       "permissionDenied": "Sem permissão para aceder ao microfone (poderás ter que de ir às configurações do teu navegador e atualizar a página)",
@@ -200,7 +213,8 @@
       "listening": "a ouvir",
       "toggleMuteKeybind": "teclas de atalho para silenciar",
       "togglePushToTalkKeybind": "teclas de atalho para ativar o premir-para-falar",
-      "toggleOverlayKeybind": "teclas de atalho para mostrar/esconder o Overlay"
+      "toggleOverlayKeybind": "teclas de atalho para mostrar/esconder o Overlay",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "wsKilled": {
       "description": "O WebSocket foi quebrado pelo servidor. Isto geralmente acontece quando abres o site noutro separador.",

@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "குரல் முடக்கப்பட்டது  | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -46,7 +47,8 @@
     "home": {
       "createRoom": "அறையை உருவாக்குங்கள்",
       "refresh": "புதுப்பிக்கவும்",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "அறை இல்லை, திரும்பிச் செல்லுங்கள்",
@@ -114,6 +116,14 @@
         "errorMsg": "Please enter valid app title",
         "label": "Enter app title"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -138,7 +148,10 @@
       "settings": "அமைப்புகள்",
       "speaker": "பேச்சாளர்",
       "listener": "கேட்பவர்",
-      "chat": "அரட்டை"
+      "chat": "அரட்டை",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "உங்கள் சாதனம் தற்போது ஆதரிக்கப்படவில்லை. நீங்கள்",
@@ -159,7 +172,8 @@
       "listening": "கேட்கிறேன்",
       "toggleMuteKeybind": "toggle mute keybind",
       "togglePushToTalkKeybind": "toggle push-to-talk keybind",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "சில காரணங்களால் ஆடியோ நுகர்வோர் இல்லை"

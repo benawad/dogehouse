@@ -21,6 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Tystad | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -42,7 +43,8 @@
     "home": {
       "createRoom": "Skapa ett rum",
       "refresh": "Uppdatera",
-      "editRoom": "Redigera rummet"
+      "editRoom": "Redigera rummet",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Rummet försvann under månförmörkelsen, gå tillbaka",
@@ -110,6 +112,14 @@
         "errorMsg": "Ogiltlig fönstertitel",
         "label": "Ange fönstertitel"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -134,7 +144,10 @@
       "settings": "Inställningar",
       "speaker": "Talare",
       "listener": "Lyssnare",
-      "chat": "Chatt"
+      "chat": "Chatt",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "micPermissionBanner": {
       "permissionDenied": "Åtkomst nekad när vi försökte att ansluta till din mikrofon (du kan behöva gå till webbläsarinställningarna, tillåta att webläsaren tillåter din mikrofon och sedan ladda om sidan)",
@@ -209,7 +222,8 @@
       "listening": "Lyssnar",
       "toggleMuteKeybind": "Växla tystad kortkommando",
       "togglePushToTalkKeybind": "Växla tryck-för-tal kortkommando",
-      "toggleOverlayKeybind": "Växla overlay-keybind"
+      "toggleOverlayKeybind": "Växla overlay-keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "wsKilled": {
       "description": "WebSocket anslutningen blev nerstängd av servern. Detta händer oftast när du öppnar hemsidan i en annan flik.",

@@ -179,11 +179,6 @@ const UserPreview: React.FC<{
           user={data}
         />
       </div>
-      {!isMe && (isCreator || roomPermissions?.isSpeaker) ? (
-        <div className={`flex bg-primary-800 pb-3`}>
-          <VolumeSliderController userId={id} />
-        </div>
-      ) : null}
       <div className="flex mt-1 px-6 flex-col">
         {buttonData.map(([shouldShow, key, onClick, text]) => {
           return shouldShow ? (
@@ -198,6 +193,11 @@ const UserPreview: React.FC<{
           ) : null;
         })}
       </div>
+      {!isMe && (isCreator || roomPermissions?.isSpeaker) ? (
+        <div className={`flex bg-primary-800 pb-3 mt-2`}>
+          <VolumeSliderController userId={id} />
+        </div>
+      ) : null}
     </div>
   );
 };

@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Tắt âm | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -43,7 +44,8 @@
     "home": {
       "createRoom": "Tạo phòng",
       "refresh": "Làm mới",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "phòng đã kết thúc, quay lại đi",
@@ -111,6 +113,14 @@
         "errorMsg": "Vui lòng nhập tiêu đề hợp lý cho App",
         "label": "Nhập tiêu đề cho app"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -135,7 +145,10 @@
       "settings": "Cài đặt",
       "speaker": "Diễn giả",
       "listener": "Thính giả",
-      "chat": "Trò chuyện"
+      "chat": "Trò chuyện",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Thiết bị của bạn hiện không được hỗ trợ. Bạn có thể tạo một",
@@ -153,7 +166,8 @@
       "listening": "đang nghe",
       "toggleMuteKeybind": "phím tắt/mở mic",
       "toggleOverlayKeybind": "phím bật/tắt overlay",
-      "togglePushToTalkKeybind": "phím nhấn-để-nói"
+      "togglePushToTalkKeybind": "phím nhấn-để-nói",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "không có âm thanh vì một số lý do"

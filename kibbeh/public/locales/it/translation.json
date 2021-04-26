@@ -21,6 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Microfono disabilitato | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -42,7 +43,8 @@
     "home": {
       "createRoom": "Crea una stanza",
       "refresh": "Ricarica",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "La stanza non esiste, torna indietro",
@@ -110,6 +112,14 @@
         "label": "Inserisci titolo app"
       },
       "header": "Impostazioni sovrapposizione"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -134,7 +144,10 @@
       "settings": "Impostazioni",
       "speaker": "Oratore",
       "listener": "Ascoltatori",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Il tuo dispositivo non è supportato. Puoi segnalare il problema",
@@ -155,7 +168,8 @@
       "listening": "Ascoltatore",
       "toggleMuteKeybind": "Scorciatoia per attivare/disattivare il microfono",
       "togglePushToTalkKeybind": "Scorciatoia per il push-to-talk",
-      "toggleOverlayKeybind": "Attiva/disattiva la schermata delle scorciatoie"
+      "toggleOverlayKeybind": "Attiva/disattiva la schermata delle scorciatoie",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Nessun audio è disponibile per qualche motivo"

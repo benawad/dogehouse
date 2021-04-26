@@ -1,4 +1,4 @@
-defmodule Broth.Routes.Dev do
+defmodule Broth.Routes.DevOnly do
   import Plug.Conn
 
   alias Beef.Schemas.User
@@ -14,6 +14,7 @@ defmodule Broth.Routes.Dev do
 
     if env == :dev || staging? do
       username = fetch_query_params(conn).query_params["username"]
+      user = Beef.Users.get_by_username(username)
 
       conn
       |> put_resp_content_type("application/json")
@@ -21,18 +22,23 @@ defmodule Broth.Routes.Dev do
         200,
         Poison.encode!(
           Kousa.Utils.TokenUtils.create_tokens(
-            Beef.Repo.insert!(
-              %User{
-                username: username,
-                email: "test@" <> username <> "test.com",
-                githubAccessToken: "",
-                githubId: "id:" <> username,
-                avatarUrl: "https://placekitten.com/200/200",
-                displayName: String.capitalize(username),
-                bio:
-                  "This is some interesting info about the ex-founder of nothing, welcome to the bio of such a ocol pers on !"
-              },
-              returning: true
+            if(is_nil(user),
+              do:
+                Beef.Repo.insert!(
+                  %User{
+                    username: username,
+                    email: "test@" <> username <> "test.com",
+                    githubAccessToken: "",
+                    githubId: "id:" <> username,
+                    avatarUrl: "https://placekitten.com/200/200",
+                    bannerUrl: "https://placekitten.com/1000/300",
+                    displayName: String.capitalize(username),
+                    bio:
+                      "This is some interesting info about the ex-founder of nothing, welcome to the bio of such a ocol pers on !"
+                  },
+                  returning: true
+                ),
+              else: user
             )
           )
         )

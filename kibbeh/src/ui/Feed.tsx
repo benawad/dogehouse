@@ -23,7 +23,11 @@ export const FeedHeader: FC<FeedHeaderProps> = ({
   return (
     <div className="flex justify-between items-end mb-5 ml-4">
       <h4 className="text-primary-100">{title}</h4>
-      <Button transition onClick={onActionClicked}>
+      <Button
+        data-testid="feed-action-button"
+        transition
+        onClick={onActionClicked}
+      >
         {actionTitle}
       </Button>
     </div>

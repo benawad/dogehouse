@@ -15,11 +15,11 @@ export const InputField: React.FC<
     altErrorMsg?: string;
     rows?: number;
   }
-> = ({ label, textarea, errorMsg, ref: _, ...props }) => {
+> = ({ label, textarea, errorMsg, ref: _, className, ...props }) => {
   const [field, meta] = useField(props);
 
   return (
-    <div className={`h-full w-full block`}>
+    <div className={`h-full w-full block ${className}`}>
       {label ? (
         <div className={`flex mb-2 text-primary-300`}>{label}</div>
       ) : null}

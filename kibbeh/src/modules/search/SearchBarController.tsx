@@ -73,19 +73,18 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
         selectedItem,
         getRootProps,
       }) => (
-        <div
-          className="flex w-full flex-col"
-          {...getRootProps({ refKey: "ref" }, { suppressRefError: true })}
-        >
+        <div className="relative w-full z-10 flex flex-col">
           <SearchBar
             {...getInputProps()}
             placeholder={t("components.search.placeholder")}
           />
           {isOpen ? (
-            <SearchOverlay className="z-20">
+            <SearchOverlay
+              {...getRootProps({ refKey: "ref" }, { suppressRefError: true })}
+            >
               <ul
-                className="absolute w-full bg-primary-800 rounded-b-8 overflow-y-auto"
-                {...getMenuProps({ style: { maxHeight: "50vh" } })}
+                className="w-full px-2 mb-2 mt-7 bg-primary-800 rounded-b-8 overflow-y-auto"
+                {...getMenuProps({ style: { top: 0 } })}
               >
                 {data?.items.length === 0 ? (
                   <InfoText className="p-3">no results</InfoText>
@@ -94,12 +93,13 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                   "username" in item ? (
                     // eslint-disable-next-line react/jsx-key
                     <li
+                      data-testid={`search:user:${item.username}`}
                       className={`flex p-3 ${
                         highlightedIndex === index
                           ? "bg-primary-700"
                           : "bg-primary-800"
                       } ${data.items.length - 1 === index ? "rounded-b-8" : ""}
-                      `}
+                    `}
                       {...getItemProps({
                         key: item.id,
                         index,
@@ -122,7 +122,7 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                           ? "bg-primary-700"
                           : "bg-primary-800"
                       } ${data.items.length - 1 === index ? "rounded-b-8" : ""}
-                      `}
+                    `}
                       {...getItemProps({
                         key: item.id,
                         index,

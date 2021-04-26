@@ -129,6 +129,7 @@ defmodule Beef.Mutations.Users do
            email: if(user.email == "", do: nil, else: user.email),
            twitterId: user.twitterId,
            avatarUrl: user.avatarUrl,
+           bannerUrl: user.bannerUrl,
            displayName:
              if(is_nil(user.displayName) or String.trim(user.displayName) == "",
                do: "Novice Doge",
@@ -178,6 +179,7 @@ defmodule Beef.Mutations.Users do
            email: if(user["email"] == "", do: nil, else: user["email"]),
            githubAccessToken: github_access_token,
            avatarUrl: user["avatar_url"],
+           bannerUrl: user["banner_url"],
            displayName:
              if(is_nil(user["name"]) or String.trim(user["name"]) == "",
                do: "Novice Doge",
@@ -233,5 +235,20 @@ defmodule Beef.Mutations.Users do
          returning: true
        )}
     end
+  end
+
+  def create_bot(owner_id, username) do
+    %User{}
+    |> User.edit_changeset(%{
+      id: Ecto.UUID.generate(),
+      username: username,
+      # @todo pick better default
+      avatarUrl: "https://pbs.twimg.com/profile_images/1384417471944290304/4epg3HTW_400x400.jpg",
+      displayName: username,
+      botOwnerId: owner_id,
+      bio: "I am a bot",
+      apiKey: Ecto.UUID.generate()
+    })
+    |> Repo.insert(returning: true)
   end
 end

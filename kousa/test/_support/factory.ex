@@ -1,4 +1,4 @@
-defmodule Kousa.Support.Factory do
+defmodule KousaTest.Support.Factory do
   @moduledoc """
   defines the `create/2` function.
 
@@ -26,6 +26,7 @@ defmodule Kousa.Support.Factory do
           email: Faker.Internet.free_email(),
           githubAccessToken: "ntoaunthanuheoh",
           avatarUrl: "https://example.com/abc.jpg",
+          bannerUrl: "https://example.com/abc.jpg",
           bio: "a dogehouse user",
           tokenVersion: 1,
           numFollowing: 0,

@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "sina ken ala e toki | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -46,7 +47,8 @@
     "home": {
       "createRoom": "pali e tomo",
       "refresh": "tenpo tu la kama jo e ni",
-      "editRoom": "ante e tomo"
+      "editRoom": "ante e tomo",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "tomo li weka, tawa monsi",
@@ -114,6 +116,14 @@
         "errorMsg": "Please enter valid app title",
         "label": "o sitelen e nimi pi "
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -138,7 +148,10 @@
       "settings": "sitelen lawa",
       "speaker": "jan toki",
       "listener": "jan kute",
-      "chat": "sitelen kulupu"
+      "chat": "sitelen kulupu",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Lipu len ni li pali ala kepeken ilo nanpa sina. pali e",
@@ -159,7 +172,8 @@
       "listening": "kute e nena",
       "toggleMuteKeybind": "nena pi ante e ken toki",
       "toggleOverlayKeybind": "nena pi ante e sitelen sewi sitelen sina",
-      "togglePushToTalkKeybind": "nena pi ante e \"utala la toki\""
+      "togglePushToTalkKeybind": "nena pi ante e \"utala la toki\"",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "ali li kute e kalama" },
     "addToCalendar": { "add": "sitelen e ni lon lipu tenpo suno" },

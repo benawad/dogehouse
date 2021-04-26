@@ -72,7 +72,7 @@ export const InvitedToJoinRoomModal: React.FC<Props> = () => {
               <SingleUser size="md" src={options.avatarUrl} />
               <div className={`flex ml-2 flex-col`}>
                 <div className={`flex font-bold`}>{options.displayName}</div>
-                <div className={`flex my-1`}>
+                <div className={`flex my-1 flex`}>
                   <div className="flex">@{options.username}</div>
                 </div>
               </div>

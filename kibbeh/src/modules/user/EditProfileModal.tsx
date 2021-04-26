@@ -1,16 +1,12 @@
-import { BaseUser } from "@dogehouse/kebab";
 import { Form, Formik } from "formik";
 import isElectron from "is-electron";
 import React, { useContext, useEffect } from "react";
-import { useQueryClient } from "react-query";
-import { object, pattern, size, string } from "superstruct";
-import { FieldSpacer } from "../../form-fields/FieldSpacer";
+import { object, pattern, size, string, optional } from "superstruct";
 import { InputField } from "../../form-fields/InputField";
 import { showErrorToast } from "../../lib/showErrorToast";
 import { validateStruct } from "../../lib/validateStruct";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
-import { useTypeSafeUpdateQuery } from "../../shared-hooks/useTypeSafeUpdateQuery";
 import { Button } from "../../ui/Button";
 import { ButtonLink } from "../../ui/ButtonLink";
 import { Modal } from "../../ui/Modal";
@@ -23,6 +19,12 @@ const profileStruct = object({
   avatarUrl: pattern(
     string(),
     /^https?:\/\/(www\.|)((a|p)bs.twimg.com\/(profile_images|sticky\/default_profile_images)\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/)/
+  ),
+  bannerUrl: optional(
+    pattern(
+      string(),
+      /^https?:\/\/(www\.|)(pbs.twimg.com\/profile_banners\/(.+)\/(.+)\/(.+)(?:\.(jpg|png|jpeg|webp))?|avatars\.githubusercontent\.com\/u\/)/
+    )
   ),
 });
 
@@ -73,13 +75,15 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
           initialValues={{
             displayName: user.displayName,
             username: user.username,
-            bio: user.bio,
+            bio: user.bio || "",
             avatarUrl: user.avatarUrl,
+            bannerUrl: user.bannerUrl || "",
           }}
           validateOnChange={false}
           validate={(values) => {
             return validateFn({
               ...values,
+              bannerUrl: values.bannerUrl || undefined,
               displayName: values.displayName.trim(),
             });
           }}
@@ -115,6 +119,14 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                 )}
                 label={t("components.modals.editProfileModal.avatarUrlLabel")}
                 name="avatarUrl"
+              />
+              <InputField
+                className={`mb-4`}
+                errorMsg={t(
+                  "components.modals.editProfileModal.avatarUrlError"
+                )}
+                label="Twitter Banner URL"
+                name="bannerUrl"
               />
               <InputField
                 className={`mb-4`}

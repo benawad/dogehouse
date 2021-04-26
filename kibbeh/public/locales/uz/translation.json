@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Tovushsiz | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -46,7 +47,8 @@
     "home": {
       "createRoom": "Xona yaratish",
       "refresh": "Yangilash",
-      "editRoom": "Xonani tahrirlash"
+      "editRoom": "Xonani tahrirlash",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Xona yo'q, orqaga qayting",
@@ -114,6 +116,14 @@
         "errorMsg": "Ilova nomi noto‘g‘ri",
         "label": "Ilova nomini kiriting"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -138,7 +148,10 @@
       "settings": "sozlamalar",
       "speaker": "Gapiruvchi",
       "listener": "Tinglovchi",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Qurilmangiz qo'llab-quvvatlanmaydi. Siz ",
@@ -159,7 +172,8 @@
       "listening": "Tinglayabsiz...",
       "toggleMuteKeybind": "Bosilganda mikrofonni faollashtirish",
       "togglePushToTalkKeybind": "Raciya rejimini yoqing",
-      "toggleOverlayKeybind": "Keybind almashtirish tugmachasini biriktirish"
+      "toggleOverlayKeybind": "Keybind almashtirish tugmachasini biriktirish",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "Audio yo'q" },
     "addToCalendar": { "add": "Taqvimga qo'shish" },

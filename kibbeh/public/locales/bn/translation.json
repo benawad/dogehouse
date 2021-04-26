@@ -22,8 +22,9 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "নিঃশব্দ | DogeHouse",
-    "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "deafenedTitle": "সাউন্ড বন্ধ | DogeHouse",
+    "dashboard": "ড্যাশবোর্ড",
+    "connectionTaken": "কানেকশন নেওয়া হয়ে গিয়েছে"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -46,7 +47,8 @@
     "home": {
       "createRoom": "রুম বানান",
       "refresh": "রিফ্রেশ করুন",
-      "editRoom": "রুম এডিট করুন"
+      "editRoom": "রুম এডিট করুন",
+      "desktopAlert": "ডাউনলোড করুন DogeHouse ডেস্কটপ অ্যাপ্লিকেশন আজকেই!"
     },
     "inviteList": {
       "roomGone": "রুম শেষ, ফিরে আসুন",
@@ -89,7 +91,7 @@
       "allowAllConfirm": "আপনি কি নিশ্চিত? এটা অনুমতি দেবে সব {{count}} জন অনুরোধ করা ইউজারদের কথা বলতে"
     },
     "searchUser": { "search": "খুঁজুন..." },
-    "soundEffectSettings": { "header": "সাউন্ডস", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "সাউন্ডস", "title": "সাউন্ড সেটিংস" },
     "viewUser": {
       "editProfile": "প্রোফাইল এডিট করুন",
       "followsYou": "আপনাকে অনুসরণ করে",
@@ -116,6 +118,14 @@
       "header": "ওভারলে সেটিংস",
       "errorMsg": "দয়া করে বৈধ অ্যাপ শিরোনাম দিন",
       "label": "অ্যাপ শিরোনাম দিন"
+    },
+    "download": {
+      "starting": "ডাউনলোড শুরু হচ্ছে...",
+      "failed": "অটো-ডাউনলোড করা যাচ্ছে না, পরে আবার চেষ্টা করুন",
+      "visit_gh": "যান গিটহাব রিলিজেস এ",
+      "prompt": "নিচের বাটনটিতে ক্লিক করুন ডাউনলোড শুরু করতে",
+      "download_now": "ডাউনলোড করুন এখন",
+      "download_for": "%platform% (%ext%)-এর জন্য ডাউনলোড করুন"
     }
   },
   "components": {
@@ -140,7 +150,10 @@
       "settings": "সেটিংস",
       "speaker": "স্পিকার",
       "listener": "শ্রোতাগণ",
-      "chat": "চ্যাট"
+      "chat": "চ্যাট",
+      "toggleDeafMicBtn": "সাউন্ড টগল করুন",
+      "deafen": "সাউন্ড বন্ধ",
+      "undeafen": "সাউন্ড অন"
     },
     "deviceNotSupported": {
       "notSupported": "আপনার ডিভাইসটি বর্তমানে সাপোর্টেড নয়। আপনি তৈরি করতে পারেন একটি",
@@ -161,7 +174,8 @@
       "listening": "শুনুন",
       "toggleMuteKeybind": "টগল করুন মাইক কীবাইন্ড",
       "togglePushToTalkKeybind": "টগল করুন পুশ-টু-টক কীবাইন্ড",
-      "toggleOverlayKeybind": "টগল করুন ওভারলে কীবাইন্ড"
+      "toggleOverlayKeybind": "টগল করুন ওভারলে কীবাইন্ড",
+      "toggleDeafKeybind": "টগল করুন সাউন্ড কীবাইন্ড"
     },
     "userVolumeSlider": {
       "noAudioMessage": "কিছু কারনে অডিও কনসিউম করা যাইনি"
@@ -242,8 +256,8 @@
         "modalSubtitle": "আপনি কি নিশ্চিত আপনি লগ আউট করতে চান?"
       },
       "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
+        "debugAudio": "অডিও ডিবাগ করুন",
+        "stopDebugger": "ডিবাগার বন্ধ করুন"
       }
     }
   },
@@ -262,10 +276,10 @@
         "minLength": "মিনিমাম ২ অক্ষরের",
         "roomDescription": "রুমের বর্ণনা"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "tommorow": "আগামীকাল",
+      "today": "আজ",
       "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
+        "areYouSure": "আপনি কি নিশ্চিত আপনি এই পরিকল্পিত রুমটি ডিলিট করতে চান?"
       }
     },
     "roomChat": {

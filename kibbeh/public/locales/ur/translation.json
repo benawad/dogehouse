@@ -22,6 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Muted | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -43,7 +44,8 @@
     "home": {
       "createRoom": "روم بنائیں",
       "refresh": "ریفریش",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "یہ روم اب موجود نہیں ہے",
@@ -111,6 +113,14 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -135,7 +145,10 @@
       "settings": "ترتیبات",
       "speaker": "اسپیکر",
       "listener": "سننے والا",
-      "chat": "چیٹ"
+      "chat": "چیٹ",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "آپ کا آلہ فی الحال تعاون یافتہ نہیں ہے۔ آپ ایک تشکیل دے سکتے ہیں",
@@ -156,7 +169,8 @@
       "listening": "سن رہا ہے",
       "toggleMuteKeybind": "گونگا کی بائنڈ ٹوگل کریں",
       "togglePushToTalkKeybind": "ٹوگل کریں پش ٹو ٹاک کی بائنڈ",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "کسی وجہ سے آڈیو صارف نہیں ہے" },
     "addToCalendar": { "add": "کیلنڈر میں شامل کریں" },

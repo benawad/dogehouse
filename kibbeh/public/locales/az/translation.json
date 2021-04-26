@@ -1,115 +1,128 @@
 {
   "_comment": "if you change this file, do: npm run i18",
   "common": {
-    "loadMore": "load more",
-    "loading": "loading...",
-    "noUsersFound": "no users found",
+    "loadMore": "Daha çox yüklə",
+    "loading": "Yüklənir...",
+    "noUsersFound": "İstifadəçi tapılmadı",
     "ok": "ОК",
-    "yes": "bəli",
-    "no": "yox",
-    "cancel": "ləğv",
-    "save": "yadda saxlamaq",
-    "edit": "dəişməy",
-    "delete": "silmək",
-    "joinRoom": "Otağa qoşulmağ",
-    "copyLink": "Linki kopyalamaq",
+    "yes": "Bəli",
+    "no": "Xeyr",
+    "cancel": "Ləğv et",
+    "save": "Yadda saxla",
+    "edit": "Düzəliş et",
+    "delete": "Sil",
+    "joinRoom": "Otağa qoşul",
+    "copyLink": "Linki kopyala",
     "copied": "Kopyalandı",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please give DogeHouse Accessibility permessions"
+    "requestPermissions": "Zəhmət olmasa DogeHouse-a lazımlı icazələri verin"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Səssizdir | DogeHouse",
+    "mutedTitle": "Səssiz | DogeHouse",
+    "deafenedTitle": "Karlaşdırılmış | DogeHouse",
     "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "connectionTaken": "Bağlantı alındı"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
     "link_1": "Tarix",
     "link_2": "Discord",
-    "link_3": "Səhv haqqında məlumat vermək"
+    "link_3": "Səhv haqqında məlumat ver"
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
     "banUser": { "ban": "ban" },
     "followingOnlineList": {
-      "listHeader": "Список пользователей, которые не в закрытой комнате и на которых вы подписаны.",
-      "currentRoom": "сейчас в :",
-      "startPrivateRoom": "создать с ними закрытую комнату"
+      "listHeader": "Gizli otaqda olmayan və sizin izlədiyiniz istifadəçilər",
+      "currentRoom": "Hazırda:",
+      "startPrivateRoom": "Gizli otaq yaradın"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": { "followHim": "İzlə", "followingHim": "İzlənir" },
     "home": {
-      "createRoom": "Otaq yaratmağ",
-      "refresh": "Təzələmək",
-      "editRoom": "Edit Room"
+      "createRoom": "Otaq yaratmaq",
+      "refresh": "Yenilə",
+      "editRoom": "Otaqda düzəliş et",
+      "desktopAlert": "DogeHouse tətbiqini yükləyin!"
     },
     "inviteList": {
-      "roomGone": "room gone, go back",
-      "shareRoomLink": "share link to room",
-      "inviteFollowers": "You can invite your followers that are online:",
-      "whenFollowersOnline": "When your followers are online, they will show up here."
+      "roomGone": "Otaq bağlandı, geri qayıt",
+      "shareRoomLink": "Otaq keçidini paylaş",
+      "inviteFollowers": "Aktiv olan izləyicilərinə dəvət göndər:",
+      "whenFollowersOnline": "İzləyicilərin aktiv olduqları zaman burada görsənəcdirlər."
     },
     "login": {
-      "headerText": "Səs rabitəsini aya qaldırığ 🚀",
+      "headerText": "Səs rabitəsini aya qaldırırığ 🚀",
       "featureText_1": "Gecə modu",
       "featureText_2": "Açıq qeydiyyat",
-      "featureText_3": "Cross-Platform Support",
-      "featureText_4": "Open source",
+      "featureText_3": "Cross-Platform Dəstək",
+      "featureText_4": "Açıq qaynaq",
       "featureText_5": "Çat",
       "featureText_6": "Doge sayəsində işləyir",
-      "loginGithub": "GitHub ilə daxil olmaq",
-      "loginTwitter": "Twitter ilə daxil olmaq",
-      "createTestUser": "test istifadəçini yaradmaq",
-      "loginDiscord": "Login with Discord"
+      "loginGithub": "GitHub ilə daxil ol",
+      "loginTwitter": "Twitter ilə daxil ol",
+      "createTestUser": "Test istifadəçini yarat",
+      "loginDiscord": "Discord ilə daxil ol"
     },
     "myProfile": {
-      "logout": "çıxmaq",
-      "probablyLoading": "yüklənir deyəsən...",
-      "voiceSettings": "mikrofon parametrlərinə keçmək",
-      "soundSettings": "səs parametrlərinə keçmək",
-      "deleteAccount": "akkauntu ləğv etmək",
-      "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "logout": "Çıxış",
+      "probablyLoading": "Yüklənir...",
+      "voiceSettings": "Mikrofon parametrləri",
+      "soundSettings": "Səs parametrləri",
+      "deleteAccount": "Hesabı sil",
+      "overlaySettings": "Overlay parametrləri",
+      "couldNotFindUser": "Təəssüf, istifadəçi tapılmadı"
     },
     "notFound": {
-      "whoopsError": "Ups! Bu səhifə məkan və zaman içində itmişdi.",
+      "whoopsError": "Ups! Bu səhifə tapılmadı.",
       "goHomeMessage": "Narahat olmayın. Siz uğur qazanacaqsınız",
-      "goHomeLinkText": "Əsas sayfəyə keçid"
+      "goHomeLinkText": "Əsas səhifəyə keç"
     },
     "room": {
-      "speakers": "Natiqlər",
+      "speakers": "Danışanlar",
       "requestingToSpeak": "Danışmaq istəyənlər",
       "listeners": "Dinləyicilər",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "Hərkəsə icazə ver",
+      "allowAllConfirm": "Təsdiqləyirsiniz? Bu seçim {{count}} istifadəçiyə danışma haqqı verəcəkdir"
     },
-    "searchUser": { "search": "axtarış..." },
-    "soundEffectSettings": { "header": "səslər", "title": "Sound Settings" },
+    "searchUser": { "search": "Axtarış..." },
+    "soundEffectSettings": { "header": "Səslər", "title": "Səs paratmertləri" },
     "viewUser": {
-      "editProfile": "profilə düzəliş et",
-      "followsYou": "sizi izləyənlər",
-      "followers": "abunəçilər",
-      "following": "abunəsiniz",
-      "followHim": "follow",
-      "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "editProfile": "Profildə düzəliş et",
+      "followsYou": "Sizi izləyənlər",
+      "followers": "İzləyicilər",
+      "following": "İzləyirsiniz",
+      "followHim": "İzlə",
+      "followingHim": "İzləyirsiniz",
+      "copyProfileUrl": "Profil keçidini kopyalayın",
+      "urlCopied": "Keçid kopyalandı",
+      "unfollow": "İzləməni dayandır"
     },
     "voiceSettings": {
       "header": "Səs parametrləri",
-      "mic": "mikrofon:",
-      "permissionError": "no mics found, you either have none plugged in or haven't given this website permission.",
-      "refresh": "refresh mic list",
-      "volume": "volume:"
+      "mic": "Mikrofon:",
+      "permissionError": "Mikrofon tapılmadı, ya mikrofonu taxmamısınız ya da sayt üçün lazımlı icazəni verməmisiniz.",
+      "refresh": "Yenilə",
+      "volume": "Səs:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
-      "header": "Overlay Settings",
-      "errorMsg": "Please enter valid app title",
-      "label": "Enter app title"
+      "input": {
+        "errorMsg": "Uyğunsuz tətbiq adı",
+        "label": "Tətbiq adını daxil et"
+      },
+      "header": "Overlay parametrləri",
+      "errorMsg": "Zəhmət olmasa uyğun bir tətbiq adı daxil edin",
+      "label": "Tətbiq başlığını daxil et"
+    },
+    "download": {
+      "starting": "Yükləmə başlanır...",
+      "failed": "Avtomatik yükəmədə problem aşkarlandı, zəhmət olmasa daha sonra bir daha yoxlayın",
+      "visit_gh": "Github çıxışlarını ziyarət et",
+      "prompt": "Aşağıdakı düyməyə basaraq yükləməni başladın",
+      "download_now": "İndi yüklə",
+      "download_for": "{{platform}} üçün yüklə"
     }
   },
   "components": {
@@ -117,176 +130,182 @@
     "avatar": {},
     "backBar": {},
     "blockedFromRoomUsers": {
-      "header": "Banned Users",
-      "unban": "unban",
-      "noBans": "no one has been banned yet"
+      "header": "Banlanmış istifadəçilər",
+      "unban": "Banı ləğv et",
+      "noBans": "Banlanan istifadəçi yoxdur"
     },
     "bottomVoiceControl": {
-      "leaveCurrentRoomBtn": "Hazırkı otaqdan çıxmağ",
-      "confirmLeaveRoom": "Çıxmağ istədiyinizə əminsiniz?",
-      "leave": "Leave",
-      "inviteUsersToRoomBtn": "İstifadəçiləri otağa dəvət etmək",
-      "invite": "Dəvət etmək",
-      "toggleMuteMicBtn": "Toggle mute microphone",
-      "mute": "Səssiz etmək",
-      "unmute": "Səsli etmək",
-      "makeRoomPublicBtn": "Make room public!",
+      "leaveCurrentRoomBtn": "Hazırkı otağı tərk et",
+      "confirmLeaveRoom": "Tərk etmək istədiyinizə əminsiniz?",
+      "leave": "Tərk et",
+      "inviteUsersToRoomBtn": "İstifadəçiləri otağa dəvət et",
+      "invite": "Dəvət et",
+      "toggleMuteMicBtn": "Mikrofonu aç/bağla",
+      "mute": "Səssizə keçir",
+      "unmute": "Səsliyə keçir",
+      "makeRoomPublicBtn": "Otağı hərkəsə açıq et!",
       "settings": "Parametlər",
-      "speaker": "Natiqlər",
+      "speaker": "Danışanlar",
       "listener": "Dinləyicilər",
-      "chat": "Chat"
+      "chat": "Çat",
+      "toggleDeafMicBtn": "Karlaşdırılmış modu aç/bağla",
+      "deafen": "Karlaşdır",
+      "undeafen": "Karlaşdırmanı ləğv et"
     },
     "deviceNotSupported": {
-      "notSupported": "Your device is currently not supported. You can create an",
-      "linkText": "issue on GitHub",
-      "addSupport": "and I will try adding support for your device."
+      "notSupported": "Sizin cihaz dəstəklənmir. Siz yarada bilərsiz",
+      "linkText": "GitHub-da sorğu",
+      "addSupport": "və mən sizin cihaz üçün dəstək əlavə etməyə çalışacağam!"
     },
     "inviteButton": {
-      "invited": "dəvət olunub",
-      "inviteToRoom": "otağa dəvət etmək"
+      "invited": "Dəvət olunub",
+      "inviteToRoom": "Otağa dəvət et"
     },
     "micPermissionBanner": {
-      "permissionDenied": "Permission denied trying to access your mic (you may need to go into browser settings and reload the page)",
-      "dismiss": "rədd etmək",
-      "tryAgain": "yenidən cəhd etmək"
+      "permissionDenied": "Mikrofona keçid rədd edildi (Siz browser parametrlərinə keçid edib səhifəni yeniləməlisiniz)",
+      "dismiss": "Rədd et",
+      "tryAgain": "Yenidən cəhd et"
     },
     "keyboardShortcuts": {
-      "setKeybind": "set keybind",
-      "listening": "listening",
-      "toggleMuteKeybind": "toggle mute keybind",
-      "togglePushToTalkKeybind": "toggle push-to-talk keybind",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "setKeybind": "Düymə kombinasiası quraşdır",
+      "listening": "Qulaq asılır",
+      "toggleMuteKeybind": "Susdurma açma/bağlama düymə kombinasiyası",
+      "togglePushToTalkKeybind": "Bas danış açma/bağlama düymə kombinasiyası",
+      "toggleOverlayKeybind": "Overlay açma/bağlama düymə kombinasiyası",
+      "toggleDeafKeybind": "Karlaşdırma açma/bağlama düymə kombinasiyası"
     },
     "userVolumeSlider": {
-      "noAudioMessage": "no audio consumer for some reason"
+      "noAudioMessage": "Bir səbəbə görə səs qəbuledici yoxdur!"
     },
-    "addToCalendar": { "add": "Add to Calendar" },
+    "addToCalendar": { "add": "Kalendara əlavə et" },
     "wsKilled": {
-      "description": "WebSocket was killed by the server. This usually happens when you open the website in another tab.",
-      "reconnect": "reconnect"
+      "description": "WebSocket server tərəfindən bağlandı. Bu adətən birdən çox səhifədə saytı açdığınız zaman baş verir.",
+      "reconnect": "Yenidən bağlantı qur"
     },
     "modals": {
       "createRoomModal": {
-        "public": "public",
-        "private": "private",
-        "roomName": "room name",
-        "roomDescription": "room description",
-        "descriptionError": "max length 500",
-        "nameError": "must be between 2 to 60 characters long",
-        "subtitle": "Fill the following fields to start a new room"
+        "public": "Hərkəsə açıq",
+        "private": "Gizli",
+        "roomName": "Otaq adı",
+        "roomDescription": "Otaq haqqında",
+        "descriptionError": "maksimum uzunluq 500",
+        "nameError": "2 və 60 simvol uzunluğunda olmalıdır",
+        "subtitle": "Boşluqları dolduraraq yeni otaq başladın"
       },
       "invitedToJoinRoomModal": {
-        "newRoomCreated": "New Room Created",
-        "roomInviteFrom": "Room Invite from",
-        "justStarted": "They just started",
-        "likeToJoin": ", would you like to join?",
-        "inviteReceived": "you've been invited to"
+        "newRoomCreated": "Yeni otaq yaradıldı",
+        "roomInviteFrom": "Otaq dəvəti: ",
+        "justStarted": "Onlar daha yeni başladılar",
+        "likeToJoin": ", qoşulmaq istəyirsiniz?",
+        "inviteReceived": "Siz dəvət edildiniz: "
       },
       "editProfileModal": {
-        "usernameTaken": "username taken",
-        "avatarUrlError": "Invalid image",
-        "avatarUrlLabel": "GitHub/Twitter avatar url",
-        "displayNameError": "length 2 to 50 characters",
-        "displayNameLabel": "Display Name",
-        "usernameError": "length 4 to 15 characters and only alphanumeric/underscore",
-        "usernameLabel": "Username",
-        "bioError": "max length of 160 characters",
-        "bioLabel": "Bio"
+        "usernameTaken": "İstifadəçi adı götürülüb",
+        "avatarUrlError": "Uyğun olmayan şəkil",
+        "avatarUrlLabel": "GitHub/Twitter avatar keçidi",
+        "displayNameError": "uzunluq 2 və 50 simvol arasında",
+        "displayNameLabel": "Görsənən ad",
+        "usernameError": "uzunluq 4 və 15 simvol uzunluğunda və sadəcə alfanumerik/alt xətt simvollarından ibarət olmalıdır.",
+        "usernameLabel": "İstifadəçi adı",
+        "bioError": "maksimum uzunluq 160 simvoldur",
+        "bioLabel": "Bioqrafiya"
       },
       "profileModal": {
-        "blockUserConfirm": "Are you sure you want to block this user from joining any room you ever create?",
-        "blockUser": "block user",
-        "makeMod": "make mod",
-        "unmod": "unmod",
-        "addAsSpeaker": "add as speaker",
-        "moveToListener": "move to listener",
-        "banFromChat": "ban from chat",
-        "banFromRoom": "ban from room",
-        "goBackToListener": "go back to listener",
-        "deleteMessage": "delete this message",
-        "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "blockUserConfirm": "Siz bu istifadəçini yaratdığınız bütün otaqlara qoşulmaması üçün bloklamağa əminsinizmi?",
+        "blockUser": "İstifəçini blokla",
+        "makeMod": "Mod et",
+        "unmod": "Modluğu ləğv et",
+        "addAsSpeaker": "Danışan kimi əlavə et",
+        "moveToListener": "Dinləyiciyə keçir",
+        "banFromChat": "Çatdan banla",
+        "banFromRoom": "Otaqdan banla",
+        "goBackToListener": "Dinləyiciyə geri qayıt",
+        "deleteMessage": "Bu mesajı sil",
+        "makeRoomCreator": "Otaq admini et",
+        "unBanFromChat": "Çatdan banı ləğv et"
       },
       "roomSettingsModal": {
-        "requirePermission": "require permission to speak",
-        "makePublic": "make room public",
-        "makePrivate": "make room private",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "requirePermission": "Danışmaq üçün icazə istə",
+        "makePublic": "Otağı hərkəsə açıq et",
+        "makePrivate": "Otağı gizli et",
+        "renamePublic": "Hərkəsə açıq otaq adı quraşdır",
+        "renamePrivate": "Gizli otaq adı quraşdır"
       }
     },
     "followingOnline": {
-      "people": "People",
-      "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "people": "İnsanlar",
+      "online": "Aktiv",
+      "noOnline": "Sizin hazırda 0 aktiv dostunuz var",
+      "showMore": "Daha çox göstər"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "Növbəti otaqlar",
+      "exploreMoreRooms": "Daha çox otaq kəşf et"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Otaqlar, istifadəçilər və ya kateqoriyalar axtar"
+    },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "Profil",
+      "language": "Dil",
+      "reportABug": "Səhv bildir",
+      "useOldVersion": "Əvvəlki versiyanı istifadə et",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "Çıxış",
+        "modalSubtitle": "Çıxmaq istədiyinizə əminsiniz?"
       },
       "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
+        "debugAudio": "Səsi incələ",
+        "stopDebugger": "İncələmən dayandır"
       }
     }
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
     "scheduledRooms": {
-      "title": "Scheduled Rooms",
-      "noneFound": "none found",
-      "allRooms": "all scheduled rooms",
-      "myRooms": "my scheduled rooms",
-      "scheduleRoomHeader": "Schedule Room",
-      "startRoom": "start room",
+      "title": "Planlaşdırılmış otaqlar",
+      "noneFound": "Tapılmadı",
+      "allRooms": "Bütün planlaşdırılmış otaqlar",
+      "myRooms": "Mənim planlaşdırılmış otaqlarım",
+      "scheduleRoomHeader": "Otaq planlaşdır",
+      "startRoom": "Otaq başlat",
       "modal": {
-        "needsFuture": "needs to be in the future",
-        "roomName": "room name",
-        "minLength": "min length 2",
-        "roomDescription": "Description"
+        "needsFuture": "Gələcək zamanda olmalıdır.",
+        "roomName": "Otaq adı",
+        "minLength": "Minimum uzunluq 2",
+        "roomDescription": "Haqqında"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "tommorow": "Sabah",
+      "today": "Bu gün",
       "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
+        "areYouSure": "Bu planlanmış otağı silmək istədiyinizə əminsiniz?"
       }
     },
     "roomChat": {
       "title": "Çat",
       "emotesSoon": "[emodzi tezliklə]",
-      "bannedAlert": "Bu söhbətə blokdasız",
-      "waitAlert": "You have to wait a second before sending another message",
-      "search": "Search",
-      "searchResults": "Search Results",
-      "recent": "Frequently Used",
-      "sendMessage": "Send a Message",
-      "whisper": "Whisper",
-      "welcomeMessage": "Welcome to chat!",
-      "roomDescription": "room description"
+      "bannedAlert": "Bu söhbətdə blokdasınız",
+      "waitAlert": "Siz növbəti mesajı göndərmək üçün bir saniyə gözləməlisiniz.",
+      "search": "Axtarış",
+      "searchResults": "Axtarış nəticələri",
+      "recent": "Tez-tez istifadə olunan",
+      "sendMessage": "Mesaj göndər",
+      "whisper": "Pıçıltı",
+      "welcomeMessage": "Çata xoş gəlmisiniz!",
+      "roomDescription": "Otaq haqqında"
     },
     "roomStatus": {
-      "fuelingRocket": "Fueling rocket",
-      "takingOff": "Taking off",
-      "inSpace": "In space",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "fuelingRocket": "Roket yanacağı doldurulur.",
+      "takingOff": "Uçuş başlanır",
+      "inSpace": "Havada",
+      "approachingMoon": "Aya yaxınlaşırıq",
+      "lunarDoge": "Ay doge-u",
+      "approachingSun": "Günəşə yaxınlaşırıq",
+      "solarDoge": "Günəş doge-u",
+      "approachingGalaxy": "Qalaktikaya yaxınlaşırıq",
+      "galacticDoge": "Qalaktika dog-u",
+      "spottedLife": "Həyat olan planet aşkarlandı"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": { "yourFeed": "Sənin lentin" }
   }
 }

@@ -21,6 +21,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "ปิดเสียง | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Connection Taken"
   },
@@ -42,7 +43,8 @@
     "home": {
       "createRoom": "สร้างห้อง",
       "refresh": "รีเฟรช",
-      "editRoom": "แก้ไขห้อง"
+      "editRoom": "แก้ไขห้อง",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "ไม่พบห้อง, กรุณากลับไปที่หน้าหลัก",
@@ -110,6 +112,14 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "การตั้งค่าโอเวอร์เลย์"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -134,7 +144,10 @@
       "settings": "การตั้งค่า",
       "speaker": "ผู้พูด",
       "listener": "ผู้ฟัง",
-      "chat": "แชท"
+      "chat": "แชท",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "ขณะนี้เรายังไม่รองรับอุปกรณ์ของคุณ คุณสามารถแจ้งปัญหาได้ที่",
@@ -155,7 +168,8 @@
       "listening": "กำลังตรวจจับ Keybind",
       "toggleMuteKeybind": "Keybind เปิด/ปิด ไมโครโฟน",
       "togglePushToTalkKeybind": "Keybind เปิด/ปิด Push to Talk",
-      "toggleOverlayKeybind": "Keybind เปิด/ปิด โอเวอร์เลย์"
+      "toggleOverlayKeybind": "Keybind เปิด/ปิด โอเวอร์เลย์",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "ไม่พบลำโพง" },
     "addToCalendar": { "add": "เพิ่มไปยังปฏิทิน" },
