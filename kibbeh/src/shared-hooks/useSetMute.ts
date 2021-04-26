@@ -22,7 +22,7 @@ export const useSetMute = () => {
 
 export const setMute = (conn: Wrapper, value: boolean) => {
   // auto undeafen on unmute
-  const { deafened } = useDeafStore();
+  const { deafened } = useDeafStore.getState();
   let playSound = true;
   if (!value && deafened) {
     setDeaf(conn, false);
