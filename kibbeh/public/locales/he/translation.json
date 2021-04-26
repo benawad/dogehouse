@@ -98,7 +98,8 @@
       "followingHim": "עוקב",
       "copyProfileUrl": "העתק קישור פרופיל",
       "urlCopied": "הקישור הועתק",
-      "unfollow": "הפסק מעקב"
+      "unfollow": "הפסק מעקב",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "הגדרות קול",
@@ -113,7 +114,7 @@
     },
     "download": {
       "starting": "מתחיל בהורדה...",
-      "failed": "Could not auto-download, please try again later",r
+      "failed": "Could not auto-download, please try again later",
       "visit_gh": "Visit Github Releases",
       "prompt": "לחץ על כפתור זה כדי להתחיל בהורדה",
       "download_now": "הורד עכשיו",
@@ -198,7 +199,8 @@
         "usernameError": "אורך 4 עד 15 תווים ורק אותיות / מספרים / קו תחתון",
         "usernameLabel": "שם משתמש",
         "bioError": "אורך מקסימלי של 160 תווים",
-        "bioLabel": "ביו"
+        "bioLabel": "ביו",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "האם אתה בטוח שברצונך לחסום משתמש זה מלהצטרף לכל חדר שתיצור אי פעם?",

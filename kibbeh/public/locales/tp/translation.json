@@ -101,7 +101,8 @@
       "unfollow": "o lukin ala",
       "followingHim": "sina li lukin e jan ni",
       "copyProfileUrl": "tu e sitelen tawa pi jan ni",
-      "urlCopied": "ni li tu"
+      "urlCopied": "ni li tu",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "sitelen lawa pi kalama uta",
@@ -207,7 +208,8 @@
         "usernameError": "anpa pi suli li tu tu. anpa sewi pi suli li luka luka luka. wan pi nimi li sitelen Latin anu nanpa anu linja anpa",
         "usernameLabel": "nimi nanpa",
         "bioError": "anpa sewi pi suli li ale mute mute mute",
-        "bioLabel": "sitelen sina"
+        "bioLabel": "sitelen sina",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Sina wile ala wile e ken ala e jan ni pi tomo sina ale?",

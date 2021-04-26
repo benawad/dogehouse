@@ -98,7 +98,8 @@
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "تنظیمات صدا",
@@ -201,7 +202,8 @@
         "usernameError": "طول 4 تا 15 کاراکتر و فقط حروف و عدد",
         "usernameLabel": "نام کاربری",
         "bioError": "حداکثر 160 کاراکتر",
-        "bioLabel": "بیو"
+        "bioLabel": "بیو",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "مطمئن هستید که میخاهید این کاربر را مسدود کنید؟",

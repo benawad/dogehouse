@@ -98,7 +98,8 @@
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Mikrofona iestatījumi",
@@ -206,7 +207,8 @@
         "usernameError": "garums no 4 līdz 15 simboliem, tikai burtciparu simboli un pasvītra",
         "usernameLabel": "Lietotājvārds",
         "bioError": "maksimālais garums 160 simboli",
-        "bioLabel": "Par mani"
+        "bioLabel": "Par mani",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Vai esat pārliecināti, ka vēlaties nobloķēt šo lietotāju no visām jūsu telpām?",

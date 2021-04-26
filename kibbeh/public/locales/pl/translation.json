@@ -101,7 +101,8 @@
       "unfollow": "Przestań obserwować",
       "followingHim": "Obserwujesz",
       "copyProfileUrl": "Skopiuj URL profilu",
-      "urlCopied": "URL zostało skopiowane do schowka"
+      "urlCopied": "URL zostało skopiowane do schowka",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Ustawienia Głosu",
@@ -232,7 +233,8 @@
         "usernameError": "Długość od 4 do 15 znaków oraz jedynie alphanumeryczna oraz podkreślnik",
         "usernameLabel": "Nazwa użytkownika",
         "bioError": "Maksymalna długość to 160 znaków",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Czy jesteś pewny, że chcesz zablokować użytkownikowi możliwość dołączania do każdego stworzonego przez Ciebie pokoju?",

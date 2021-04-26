@@ -98,7 +98,8 @@
       "followingHim": "Slediš tej osebi",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Nastavitve zvoka",
@@ -200,7 +201,8 @@
         "usernameError": "Dolžina: 4 do 15 alfanumeričnih znakov ali podčrtaj",
         "usernameLabel": "Uporabniško ime",
         "bioError": "Največ 160 znakov",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Si prepričan, da želiš temu uporabniku onemogočiti dostop do vseh sob, ki jih boš ustvaril?",
