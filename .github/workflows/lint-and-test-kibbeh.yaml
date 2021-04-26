@@ -1,0 +1,34 @@
+name: lint-and-test-kibbeh.yaml
+
+on:
+  push:
+    branches:
+      - staging
+    paths:
+      - 'kibbeh/**'
+  pull_request:
+    branches:
+      - staging
+    paths:
+      - 'kibbeh/**'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+    - run: yarn install
+    - run: cd kebab && yarn build
+    - run: cd kibbeh && yarn lint
+    - run: cd kibbeh && yarn test
+      id: test
+    - uses: LouisBrunner/checks-action@v1.1.1
+      if: always()
+      with:
+        name: Lint and Test Kibbeh
+        conclusion: ${{ job.status }}
+        output: |
+          {"summary":${{ steps.test.outputs.summary }}}
