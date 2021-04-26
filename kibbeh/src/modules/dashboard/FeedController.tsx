@@ -106,33 +106,30 @@ const Page = ({
 
   return (
     <>
-      {data.rooms.map((room) => {
-        console.log(room);
-        return (
-          <RoomCard
-            onClick={() => {
-              if (room.id !== currentRoomId) {
-                useRoomChatStore.getState().reset();
-                prefetch(["joinRoomAndGetInfo", room.id], [room.id]);
-              }
-
-              push(`/room/[id]`, `/room/${room.id}`);
-            }}
-            key={room.id}
-            title={room.name}
-            subtitle={
-              "peoplePreviewList" in room
-                ? room.peoplePreviewList
-                    .slice(0, 3)
-                    .map((x) => x.displayName)
-                    .join(", ")
-                : ""
+      {data.rooms.map((room) => (
+        <RoomCard
+          onClick={() => {
+            if (room.id !== currentRoomId) {
+              useRoomChatStore.getState().reset();
+              prefetch(["joinRoomAndGetInfo", room.id], [room.id]);
             }
-            listeners={"numPeopleInside" in room ? room.numPeopleInside : 0}
-            tags={[]}
-          />
-        );
-      })}
+
+            push(`/room/[id]`, `/room/${room.id}`);
+          }}
+          key={room.id}
+          title={room.name}
+          subtitle={
+            "peoplePreviewList" in room
+              ? room.peoplePreviewList
+                  .slice(0, 3)
+                  .map((x) => x.displayName)
+                  .join(", ")
+              : ""
+          }
+          listeners={"numPeopleInside" in room ? room.numPeopleInside : 0}
+          tags={[]}
+        />
+      ))}
       {isLastPage && data.nextCursor ? (
         <div className={`flex justify-center py-5`}>
           <Button
