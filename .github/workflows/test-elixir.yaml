@@ -12,7 +12,7 @@ on:
       - 'kousa/lib/**'
 jobs:
   test:
-    name: Build
+    name: test-elixir
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -39,3 +39,4 @@ jobs:
       env:
           MIX_ENV: test
     - run: mix test
+      id: test

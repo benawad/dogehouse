@@ -14,6 +14,7 @@ import { UserWithFollowInfo } from "@dogehouse/kebab";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { useTypeSafeUpdateQuery } from "../shared-hooks/useTypeSafeUpdateQuery";
 import { EditProfileModal } from "../modules/user/EditProfileModal";
+import { usePreloadPush } from "../shared-components/ApiPreloadLink";
 
 export interface ProfileHeaderProps {
   displayName: string;
@@ -43,6 +44,8 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   const { t } = useTypeSafeTranslation();
   const updater = useTypeSafeUpdateQuery();
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
+  const preloadPush = usePreloadPush();
+  const update = useTypeSafeUpdateQuery();
   return (
     // @TODO: Add the cover api (once it's implemented)}
     <ProfileHeaderWrapper
@@ -51,18 +54,32 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
       <EditProfileModal
         isOpen={showEditProfileModal}
         onRequestClose={() => setShowEditProfileModal(false)}
+        onEdit={(d) => {
+          update(["getUserProfile", d.username], (x) =>
+            !x ? x : { ...x, ...d }
+          );
+          if (d.username !== username) {
+            preloadPush({
+              route: "profile",
+              data: { username: d.username },
+            });
+          }
+        }}
       />
       <div className="flex mr-4 ">
         <SingleUser
           isOnline={user.online}
-          className="absolute flex-none -top-5.5 rounded-full shadow-avator"
+          className="absolute flex-none -top-5.5 rounded-full shadow-outlineLg"
           src={pfp}
         />
       </div>
       <div className="flex flex-col w-3/6 font-sans">
         <h4 className="text-primary-100 font-bold truncate">{displayName}</h4>
         <div className="flex flex-row items-center">
-          <p className="text-primary-300 mr-2">{`@${username}`}</p>
+          <p
+            className="text-primary-300 mr-2"
+            data-testid="profile-info-username"
+          >{`@${username}`}</p>
           {user.followsYou ? (
             <UserBadge color="grey">{t("pages.viewUser.followsYou")}</UserBadge>
           ) : (

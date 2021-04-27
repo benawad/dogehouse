@@ -2,6 +2,9 @@ ExUnit.start()
 
 Ecto.Adapters.SQL.Sandbox.mode(Beef.Repo, :manual)
 
+# start up a process pool for making requests
+Finch.start_link(name: BrothHttpRequests)
+
 defmodule KousaTest do
   def elixir_module?(module) do
     module

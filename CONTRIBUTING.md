@@ -12,7 +12,7 @@ We love your input! We want to make contributing to this project as easy and tra
 The code of conduct is described in [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
 
 ## Our Development Process
-All changes happen through pull requests. Pull requests are the best way to propose changes. We actively welcome your pull requests and invite you to submit pull requests directly <a href="https://github.com/benawad/dogehouse/pulls">here</a>, and after review, these can be merged into the project.
+All changes happen through pull requests. Pull requests are the best way to propose changes. We actively welcome your pull requests and invite you to submit pull requests directly [here](https://github.com/benawad/dogehouse/pulls), and after review, these can be merged into the project.
 
 ## Using the Project's Standard Commit Messages
 This project is using the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/) standard. Please follow these steps to ensure your
@@ -40,6 +40,7 @@ Emojis need to be 28x28px. To add an emoji, add the png/gif image to public/emoj
 To avoid conflicts please add the emojis to the top of the file.
 > **NOTE:** We are not accepting new emojis atm
 
+
 ## Quickstart Local Frontend Development
 Do this if you only want to do React stuff and don't want to touch Elixir:
 
@@ -50,6 +51,15 @@ Navigate to `/kibbeh`
 - Run `yarn staging` (this tells React to connect to a hosted version of the backend for development purposes)
 - Read `kibbeh/README.md` for more information and a fixes for known development issues.
 > **NOTE:** Please follow the [design guidelines](https://github.com/benawad/dogehouse/blob/staging/DESIGN_GUIDELINES.md) and [figma mockups](https://www.figma.com/file/CS01VVLR7ArQl0afYFkNj3/Web-App) and if what you're trying to do isn't in there, consult [@ajmnz](https://github.com/ajmnz)/[@benawad](https://github.com/benawad) beforehand.
+
+## Translating
+
+1. Set up the front-end (previous step).
+2. Go to `kibbeh/public/locales`.
+3. Check if a folder with the language you want to add / edit already exists. If not, copy `en/translation`, create the folder and paste it there.
+4. Edit the JSON file. Make sure that it's valid.
+5. Go to `kibbeh/src/ui/LanguageSelector.tsx` and edit the object to include your language.
+6. Test and make a pull request.
 
 ## Devcontainer Full Local Development
 For VSCode users, we're able to use devcontainers which allows to create development environments that already have all the tools and services configured and ready to go.

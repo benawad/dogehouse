@@ -62,9 +62,13 @@ module.exports = {
       5: "30px",
       5.5: "35px",
       6: "40px",
+      6.5: "50px",
       7: "60px",
       8: "75px",
       9: "80px",
+      10: "90px",
+      11: "100px",
+      15: "150px",
       "5l": "10rem",
       "n1/2": "-50%",
       24: "24rem",
@@ -72,7 +76,9 @@ module.exports = {
     },
 
     boxShadow: {
-      avator: "0 0 0 4pt var(--color-primary-800)",
+      outlineLg: "0 0 0 4pt var(--color-primary-800)",
+      outlineMd: "0 0 0 2pt var(--color-primary-800)",
+      outlineSm: "0 0 0 1pt var(--color-primary-800)",
     },
     borderWidth: {
       DEFAULT: "1px",

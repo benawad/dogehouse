@@ -27,9 +27,203 @@ interface CreateRoomModalProps {
   onRequestClose: () => void;
 }
 
+const colors = {
+  p100: "#dee3ea",
+  p200: "#b2bdcd",
+  p300: "#5d7290",
+  p600: "#323d4d",
+  p700: "#242c37",
+  p800: "#151a21",
+  p900: "#0b0e11",
+  accent: "#fd4d4d",
+  accentHover: "#fd6868",
+  white: "#FFF",
+};
+
 const theme = createMuiTheme({
   palette: {
     type: "dark",
+    primary: {
+      main: colors.accent,
+    },
+    secondary: {
+      main: colors.accent,
+    },
+  },
+  overrides: {
+    MuiPickersDay: {
+      day: {
+        "&:hover": {
+          backgroundColor: colors.p700,
+        },
+        color: colors.p100,
+      },
+      current: {
+        "&:hover": {
+          backgroundColor: colors.p700,
+        },
+        color: colors.p100,
+      },
+      daySelected: {
+        "&:hover": {
+          backgroundColor: colors.accentHover,
+        },
+        backgroundColor: colors.accent,
+        color: colors.white,
+      },
+      dayDisabled: {
+        backgroundColor: colors.p800,
+        color: colors.p600,
+      },
+    },
+    MuiPickerDTHeader: {
+      separator: {},
+      toolbar: {},
+    },
+    MuiPickerDTTabs: {
+      tabs: {
+        backgroundColor: colors.p900,
+      },
+    },
+    MuiPickersCalendar: {
+      week: {
+        backgroundColor: colors.p800,
+        color: colors.p100,
+      },
+      progressContainer: {},
+      transitionContainer: {
+        backgroundColor: colors.p800,
+      },
+    },
+    MuiPickersCalendarHeader: {
+      switchHeader: {
+        backgroundColor: colors.p800,
+        color: colors.p100,
+      },
+      transitionContainer: {
+        backgroundColor: colors.p800,
+      },
+      iconButton: {
+        backgroundColor: colors.p800,
+        color: colors.p100,
+      },
+      daysHeader: {
+        backgroundColor: colors.p800,
+        color: colors.p100,
+      },
+      dayLabel: {
+        backgroundColor: colors.p800,
+        color: colors.p100,
+      },
+    },
+    MuiPickersSlideTransition: {
+      transitionContainer: {},
+    },
+    MuiPickersYearSelectionStyles: {
+      container: {
+        backgroundColor: colors.p800,
+        color: colors.p100,
+      },
+    },
+    MuiPickersYear: {
+      root: {
+        backgroundColor: colors.p800,
+        color: colors.p300,
+      },
+      yearSelected: {
+        backgroundColor: colors.p800,
+        color: colors.p100,
+      },
+      yearDisabled: {
+        backgroundColor: colors.p800,
+        color: colors.p600,
+      },
+    },
+    MuiPickersMonthSelection: {
+      container: {
+        backgroundColor: colors.p800,
+        color: colors.p100,
+      },
+    },
+    MuiPickersMonth: {
+      root: {
+        backgroundColor: colors.p800,
+        color: colors.p300,
+      },
+      monthSelected: {
+        backgroundColor: colors.p800,
+        color: colors.p100,
+      },
+      monthDisabled: {
+        backgroundColor: colors.p800,
+        color: colors.p600,
+      },
+    },
+    MuiPickersTimePickerToolbar: {
+      separator: {},
+      toolbarLandscape: {},
+      hourMinuteLabel: {},
+      ampmLabel: {},
+    },
+    MuiPickersClock: {
+      container: {
+        backgroundColor: colors.p800,
+        color: colors.p100,
+      },
+      clock: {
+        backgroundColor: colors.p900,
+        color: colors.accent,
+      },
+      pin: {
+        backgroundColor: colors.accent,
+      },
+    },
+    MuiPickersClockNumber: {
+      clockNumber: {
+        color: colors.p200,
+      },
+      clockNumberSelected: {
+        color: colors.white,
+      },
+    },
+    MuiPickersClockPointer: {
+      animateTransform: {},
+      pointer: {
+        backgroundColor: colors.accent,
+      },
+      thumb: {
+        backgroundColor: colors.accent,
+        borderColor: colors.accent,
+      },
+      noPoint: {
+        backgroundColor: colors.accent,
+      },
+    },
+    MuiPickersModal: {
+      dialog: {
+        backgroundColor: colors.p800,
+      },
+      dialogRoot: {
+        backgroundColor: colors.p800,
+      },
+      dialogRootWider: {
+        backgroundColor: colors.p800,
+      },
+      withAdditionalAction: {
+        backgroundColor: colors.p800,
+      },
+    },
+    MuiPickersToolbar: {
+      toolbar: {
+        backgroundColor: colors.p900,
+        color: colors.p100,
+      },
+    },
+    MuiPickersToolbarButton: {
+      toolbarBtn: {
+        color: colors.p100,
+      },
+    },
   },
 });
 

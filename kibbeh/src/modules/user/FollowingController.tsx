@@ -78,9 +78,9 @@ const Page = ({
           <div className="flex px-4 flex-1">
             <ApiPreloadLink route="profile" data={{ username: user.username }}>
               <div className="flex flex-col w-full">
-                <p className="block max-w-md text-primary-100 truncate w-full">
+                <div className="block max-w-md text-primary-100 truncate w-full">
                   {user.displayName}
-                </p>
+                </div>
                 <div className="flex text-primary-200">@{user.username}</div>
               </div>
             </ApiPreloadLink>

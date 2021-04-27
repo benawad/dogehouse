@@ -9,7 +9,7 @@ const LeftHeader: React.FC<LeftHeaderProps> = ({}) => {
   const screenType = useScreenType();
   return (
     <Link href="/dash">
-      <a className="w-full">
+      <a data-testid="logo-link" className="w-full">
         {screenType === "3-cols" ? (
           <LgLogo />
         ) : (

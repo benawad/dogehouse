@@ -98,7 +98,8 @@
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Voĉaj Agordoj",
@@ -204,7 +205,8 @@
         "usernameError": "longo 4 ĝis 15 signoj kaj nur alfanombra/substreko",
         "usernameLabel": "Uzantnomo",
         "bioError": "maksimuma longo de 160 signoj",
-        "bioLabel": "Biografio"
+        "bioLabel": "Biografio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Ĉu vi certas, ke vi volas malhelpi ĉi tiun uzanton aliĝi al iu ajn ĉambro, kiun vi iam kreis?",
@@ -238,7 +240,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",

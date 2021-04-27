@@ -20,6 +20,7 @@ import {
   GetRoomUsersResponse,
   NewRoomDetailsResponse,
   InvitationToRoomResponse,
+  CreateBotResponse
 } from "./responses";
 
 type Handler<Data> = (data: Data) => void;
@@ -108,7 +109,7 @@ export const wrap = (connection: Connection) => ({
       ),
   },
   mutation: {
-    userCreateBot: (username: string) =>
+    userCreateBot: (username: string): Promise<CreateBotResponse> =>
       connection.sendCall(`user:create_bot`, { username }),
     ban: (username: string, reason: string) =>
       connection.send(`ban`, { username, reason }),

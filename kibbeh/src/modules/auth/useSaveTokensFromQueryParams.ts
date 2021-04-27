@@ -2,11 +2,15 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useTokenStore } from "./useTokenStore";
 import { loginNextPathKey } from "../../lib/constants";
+import { showErrorToast } from "../../lib/showErrorToast";
 
 export const useSaveTokensFromQueryParams = () => {
   const { query: params, push } = useRouter();
 
   useEffect(() => {
+    if (typeof params.error === "string" && params.error) {
+      showErrorToast(params.error);
+    }
     if (
       typeof params.accessToken === "string" &&
       typeof params.refreshToken === "string" &&

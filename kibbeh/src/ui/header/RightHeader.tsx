@@ -62,6 +62,7 @@ const RightHeader: React.FC<RightHeaderProps> = ({
       )}
       {actionButton}
       <DropdownController
+        zIndex={20}
         className="top-9 right-3 md:right-0"
         overlay={(close) => (
           <SettingsDropdown
