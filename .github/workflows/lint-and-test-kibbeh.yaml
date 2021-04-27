@@ -5,23 +5,23 @@ on:
     branches:
       - staging
     paths:
-      - 'kibbeh/**'
+      - "kibbeh/**"
   pull_request:
     branches:
       - staging
     paths:
-      - 'kibbeh/**'
+      - "kibbeh/**"
 
 jobs:
   test:
     name: lint-and-test-kibbeh
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-    - run: yarn install
-    - run: cd kebab && yarn build
-    - run: cd kibbeh && yarn lint
-    - run: cd kibbeh && yarn ci:test
-      id: test
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+      - run: yarn install
+      - run: cd kebab && yarn build
+      - run: cd kibbeh && yarn lint
+      - run: cd kibbeh && yarn test:ci
+        id: test
