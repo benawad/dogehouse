@@ -44,7 +44,7 @@ const UserPreview: React.FC<{
   const { mutateAsync: deleteRoomChatMessage } = useTypeSafeMutation(
     "deleteRoomChatMessage"
   );
-  const { mutateAsync: blockFromRoom } = useTypeSafeMutation("blockFromRoom");
+  const { mutateAsync: roomBan } = useTypeSafeMutation("roomBan");
   const { mutateAsync: banFromRoomChat } = useTypeSafeMutation(
     "banFromRoomChat"
   );
@@ -139,12 +139,21 @@ const UserPreview: React.FC<{
     ],
     [
       canDoModStuffOnThisUser && (iAmCreator || !roomPermissions?.isMod),
-      "blockFromRoom",
+      "banFromRoom",
       () => {
         onClose();
-        blockFromRoom([id]);
+        roomBan([id]);
       },
       t("components.modals.profileModal.banFromRoom"),
+    ],
+    [
+      canDoModStuffOnThisUser && (iAmCreator || !roomPermissions?.isMod),
+      "banIpFromRoom",
+      () => {
+        onClose();
+        roomBan([id, true]);
+      },
+      "Ban Ip from Room",
     ],
     [
       isMe &&
