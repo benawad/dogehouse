@@ -133,7 +133,7 @@ function ListenerBrowser() {
           },
           CHAT: toggleOpen,
         };
-      }, [push, toggleOpen, conn])}
+      }, [push, toggleOpen, conn, t])}
     />
   );
 }
