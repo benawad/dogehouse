@@ -153,6 +153,18 @@ defmodule Beef.Access.Users do
     end
   end
 
+  def get_ip(user_id) do
+    try do
+      Onion.UserSession.get(user_id, :ip)
+    catch
+      _, _ ->
+        case get_by_id(user_id) do
+          nil -> nil
+          %{ip: ip} -> ip
+        end
+    end
+  end
+
   def get_by_api_key(api_key) do
     Repo.get_by(User, apiKey: api_key)
   end
