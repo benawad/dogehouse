@@ -104,7 +104,8 @@
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "የድምፅ ቅንብሮች",
@@ -210,7 +211,8 @@
         "usernameError": "ርዝምት ክ 4 እስከ 15 ፊደላት",
         "usernameLabel": "የተጠቃሚ ስም",
         "bioError": "ከ 160 ፊደል በላይ አይቻልም",
-        "bioLabel": "ስል እርሶ አጭር ገላጭ ጽሁፍ"
+        "bioLabel": "ስል እርሶ አጭር ገላጭ ጽሁፍ",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "እርስዎ መቼም ከሚፈጥሩት ማንኛውም ክፍል ከመቀላቀል ይህን ተጠቃሚ ማገድ ይፈልጋሉ፤ እርግጠኛ ኖት?",
@@ -244,7 +246,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",

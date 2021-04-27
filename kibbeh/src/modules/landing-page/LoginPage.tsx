@@ -100,7 +100,7 @@ export const LoginPage: React.FC = () => {
         <div className="flex m-auto flex-col p-6 gap-5 bg-primary-800 sm:rounded-8 z-10 sm:w-400 w-full">
           <div className="flex gap-2 flex-col">
             <span className="text-3xl text-primary-100 font-bold">Welcome</span>
-            <p className="text-primary-100 flex-wrap">
+            <div className="text-primary-100 flex-wrap">
               By logging in you accept our&nbsp;
               <a
                 href="/privacy-policy.html"
@@ -113,7 +113,7 @@ export const LoginPage: React.FC = () => {
                 Terms of Service
               </a>
               .
-            </p>
+            </div>
           </div>
           <div className="flex flex-col gap-4">
             <LoginButton oauthUrl={`${apiBaseUrl}/auth/github/web`}>

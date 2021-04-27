@@ -103,7 +103,8 @@
       "followingHim": "Seguindo",
       "copyProfileUrl": "copiar URL do perfil",
       "urlCopied": "URL copiado",
-      "unfollow": "Deixar de Seguir"
+      "unfollow": "Deixar de Seguir",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Definições de voz",
@@ -186,7 +187,8 @@
         "usernameError": "Deverá ter entre 4 e 15 caracteres alfanuméricos e com letra minúscula",
         "usernameLabel": "Nome de utilizador",
         "bioError": "Tamanho máximo de 160 caracteres",
-        "bioLabel": "Biografia"
+        "bioLabel": "Biografia",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Pretendes bloquear este utlizador de se juntar às salas que criares?",
@@ -248,7 +250,10 @@
       "upcomingRooms": "Próximas salas",
       "exploreMoreRooms": "Explorar mais salas"
     },
-    "search": { "placeholder": "Pesquisar salas, utilizadores ou categorias" },
+    "search": {
+      "placeholder": "Pesquisar salas, utilizadores ou categorias",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Perfil",
       "language": "Linguagem",

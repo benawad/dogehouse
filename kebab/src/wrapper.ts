@@ -108,6 +108,8 @@ export const wrap = (connection: Connection) => ({
       ),
   },
   mutation: {
+    userCreateBot: (username: string): Promise<CreateBotResponse> =>
+      connection.sendCall(`user:create_bot`, { username }),
     ban: (username: string, reason: string) =>
       connection.send(`ban`, { username, reason }),
     deleteScheduledRoom: (id: string): Promise =>

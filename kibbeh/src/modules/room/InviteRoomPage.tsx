@@ -19,7 +19,7 @@ import { DefaultDesktopLayout } from "../layouts/DefaultDesktopLayout";
 import { MiddlePanel } from "../layouts/GridPanels";
 import { useGetRoomByQueryParam } from "./useGetRoomByQueryParam";
 import { HeaderController } from "../display/HeaderController";
-import { FeedHeader } from "../../ui/Feed";
+import { FeedHeader } from "../../ui/FeedHeader";
 
 interface InviteRoomPageProps {}
 

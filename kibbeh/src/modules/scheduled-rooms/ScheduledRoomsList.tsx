@@ -6,7 +6,7 @@ import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslatio
 import { useTypeSafeUpdateQuery } from "../../shared-hooks/useTypeSafeUpdateQuery";
 import { Button } from "../../ui/Button";
 import { CenterLoader } from "../../ui/CenterLoader";
-import { FeedHeader } from "../../ui/Feed";
+import { FeedHeader } from "../../ui/FeedHeader";
 import { MiddlePanel } from "../layouts/GridPanels";
 import { CreateScheduleRoomModal } from "./CreateScheduledRoomModal";
 import { EditScheduleRoomModalController } from "./EditScheduleRoomModalController";

@@ -15,15 +15,9 @@ const FormattedDate: React.FC<FormattedDateProps> = ({ scheduledFor }) => {
   const { t } = useTypeSafeTranslation();
   let text = "";
   if (isToday(scheduledFor)) {
-    text =
-      t("modules.scheduledRooms.today") + " " + format(scheduledFor, `K:mm a`);
-  } else if (isTomorrow(scheduledFor)) {
-    text =
-      t("modules.scheduledRooms.tommorow") +
-      " " +
-      format(scheduledFor, `K:mm a`);
+    text = format(scheduledFor, `K:mm a`);
   } else {
-    text = format(scheduledFor, `EEE, do MMM, K:mm a`);
+    text = format(scheduledFor, `do MMM, K:mm a`);
   }
   return <>{text}</>;
 };
@@ -51,9 +45,9 @@ const UserCard: React.FC<UserCardProps> = ({ avatars, speakers }) => {
   return (
     <div className="w-full flex items-center">
       <MultipleUsers srcArray={avatars} />
-      <p className="flex ml-1 text-primary-300 text-sm">
+      <div className="flex ml-1 text-primary-300 text-sm">
         {speakers.join(", ")}
-      </p>
+      </div>
     </div>
   );
 };

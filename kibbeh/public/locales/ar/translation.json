@@ -104,7 +104,8 @@
       "followingHim": "متابَع",
       "copyProfileUrl": "انسخ رابط البروفايل",
       "urlCopied": "تم نسخ الرابط",
-      "unfollow": "الغاء المتابعة"
+      "unfollow": "الغاء المتابعة",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "إعدادات المحادثة الصوتية",
@@ -209,7 +210,8 @@
         "usernameError": "الطول من 4 إلى 15 حرفًا وفقط أبجدي او رقمي او (رمز _)",
         "usernameLabel": "اسم المستخدم",
         "bioError": "أقصى طول 160 حرفًا",
-        "bioLabel": "الوصف"
+        "bioLabel": "الوصف",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "هل أنت متأكد أنك تريد حظر هذا المستخدم من الانضمام إلى أي غرفة تقوم بإنشائها مستقبلاً؟",
@@ -243,7 +245,10 @@
       "upcomingRooms": "غرف قادمة",
       "exploreMoreRooms": "اكتشف غرف اكثر"
     },
-    "search": { "placeholder": "ابحث عن غرف، اشخاص او تصنيفات" },
+    "search": {
+      "placeholder": "ابحث عن غرف، اشخاص او تصنيفات",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "الحساب الشخصي",
       "language": "اللغة",

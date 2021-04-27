@@ -180,16 +180,16 @@ const UserPreview: React.FC<{
         />
       </div>
       {!isMe && (isCreator || roomPermissions?.isSpeaker) ? (
-        <div className={`flex bg-primary-800 pb-3`}>
+        <div className={`flex pb-3 bg-primary-800`}>
           <VolumeSliderController userId={id} />
         </div>
       ) : null}
-      <div className="flex mt-1 px-6 flex-col">
+      <div className="flex px-6 flex-col bg-primary-800">
         {buttonData.map(([shouldShow, key, onClick, text]) => {
           return shouldShow ? (
             <Button
               color="secondary"
-              className={`mb-3`}
+              className={`my-1 text-base`}
               key={key}
               onClick={onClick}
             >

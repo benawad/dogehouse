@@ -104,7 +104,8 @@
       "followingHim": "Seurannassa",
       "copyProfileUrl": "Kopioi profiilin URL-osoite",
       "urlCopied": "Osoite kopioitu leikepöydälle",
-      "unfollow": "Lopeta seuraaminen"
+      "unfollow": "Lopeta seuraaminen",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Puheasetukset",
@@ -213,7 +214,8 @@
         "usernameError": "Pituus 4-15 merkkiä ja vain aakkosia, numeroita tai alaviivoja",
         "usernameLabel": "Käyttäjätunnus",
         "bioError": "Maksimipituus 160 merkkiä",
-        "bioLabel": "Kuvaus"
+        "bioLabel": "Kuvaus",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Haluatko varmasti estää tämän käyttäjän liittymistä yhteenkään huoneeseesi?",
@@ -247,7 +249,10 @@
       "upcomingRooms": "Tulevat huoneet",
       "exploreMoreRooms": "Etsi lisää huoneita"
     },
-    "search": { "placeholder": "Hae huoneita, käyttäjiä tai kategorioita" },
+    "search": {
+      "placeholder": "Hae huoneita, käyttäjiä tai kategorioita",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profiili",
       "language": "Kieli",

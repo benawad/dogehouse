@@ -1,5 +1,6 @@
 {
   "baseUrl": "http://localhost:3000",
+  "defaultCommandTimeout": 8000,
   "env": {
     "apiBaseUrl": "http://localhost:4001"
   }

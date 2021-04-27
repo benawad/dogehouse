@@ -104,7 +104,8 @@
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Talstillingar",
@@ -209,7 +210,8 @@
         "usernameError": "lengd 4 til 15 stafir og aðeins tölustafur / undirstrikun",
         "usernameLabel": "Notendanafn",
         "bioError": "hámarkslengd 160 stafir",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Ertu viss um að þú viljir hindra þennan notanda í að fara í hvaða herbergi sem þú stofnar?",
@@ -243,7 +245,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",

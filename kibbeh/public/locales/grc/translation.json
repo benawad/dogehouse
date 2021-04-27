@@ -104,7 +104,8 @@
       "followingHim": "ακολουθείτε",
       "unfollow": "Unfollow",
       "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard"
+      "urlCopied": "URL copied to clipboard",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Ρυθμίσεις Φωνής",
@@ -215,7 +216,8 @@
         "usernameError": "μήκος από 4 έως 15 χαρακτήρες και μόνο αλφαριθμητικά/κάτω παύλα",
         "usernameLabel": "Όνομα Χρήστη",
         "bioError": "μέγιστο μήκος 160 χαρακτήρες",
-        "bioLabel": "Βιογραφικό"
+        "bioLabel": "Βιογραφικό",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Είστε σίγουροι ότι θέλετε να μπλοκάρετε αυτό το χρήστη από το να συμμετέχει σε οποιοδήποτε δωμάτιο δημιουργήσετε στο μέλλον;",
@@ -249,7 +251,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",

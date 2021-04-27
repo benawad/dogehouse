@@ -104,7 +104,8 @@
       "followingHim": "හඹා යන්නන්",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "හඬ සැකසුම්",
@@ -215,7 +216,8 @@
         "usernameError": "අකුරු 4 හා 15 අතර විය යුතු අතර alphanumeric/underscore පමණක් භාවිත කල යුතුය",
         "usernameLabel": "පරිශීලක නම",
         "bioError": "උපරිම දිග අකුරු 160 විය යුතුය",
-        "bioLabel": "වතගොත"
+        "bioLabel": "වතගොත",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "ඔබට මෙම පරිශීලකයා ඔබ ඉදිරියට සාදන සමූහවලට සම්බන්ධ වීම නැවැත්විය යුතුද?",
@@ -249,7 +251,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",

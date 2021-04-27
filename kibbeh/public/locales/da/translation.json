@@ -23,7 +23,7 @@
     "mutedTitle": "Lydløs | DogeHouse",
     "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "connectionTaken": "Forbindelse optaget"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -63,7 +63,7 @@
       "loginGithub": "Log ind med GitHub",
       "loginTwitter": "Log ind med Twitter",
       "createTestUser": "Lav en test bruger",
-      "loginDiscord": "Login with Discord"
+      "loginDiscord": "Log ind med Discord"
     },
     "myProfile": {
       "logout": "Log ud",
@@ -71,8 +71,8 @@
       "voiceSettings": "Gå til stemmeindstillinger",
       "soundSettings": "Gå til lydindstillinger",
       "deleteAccount": "Slet konto",
-      "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "overlaySettings": "Gå til overlay indstillinger",
+      "couldNotFindUser": "Vi kunne desværre ikke finde den bruger"
     },
     "notFound": {
       "whoopsError": "Ups! Denne side gik tabt i samtalen.",
@@ -84,14 +84,14 @@
       "requestingToSpeak": "Anmoder om at tale",
       "listeners": "Lyttere",
       "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak",
+      "allowAllConfirm": "Er du sikker? Dette giver tilladelse til alle {{count}} brugere der anmoder om tilladelse til at tale",
       "confirmAskToSpeak": "Would you like to ask to speak?",
       "shareLinkToRoom": "Share Link to Room"
     },
     "searchUser": { "search": "Søger..." },
     "soundEffectSettings": {
       "header": "Lyde",
-      "title": "Sound Settings",
+      "title": "Lydstillinger",
       "playSound": "Play Sound"
     },
     "viewUser": {
@@ -100,10 +100,12 @@
       "followers": "Følgere",
       "following": "Følger",
       "followHim": "follow",
-      "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "followingHim": "Følger",
+      "copyProfileUrl": "Kopier profil url",
+      "urlCopied": "URL kopieret til udklipsholder",
+      "unfollow": "Følg ikke længere",
+      "about": "Om"
+
     },
     "voiceSettings": {
       "header": "Lydindstillinger",
@@ -123,8 +125,8 @@
       "failed": "Could not auto-download, please try again later",
       "visit_gh": "Visit Github Releases",
       "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
-      "download_for": "Download for %platform% (%ext%)"
+      "download_now": "Download nu",
+      "download_for": "Download til %platform% (%ext%)"
     }
   },
   "components": {
@@ -150,14 +152,14 @@
       "speaker": "Taler",
       "listener": "Lytter",
       "chat": "Chat",
-      "toggleDeafMicBtn": "Toggle Deafen",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen"
+      "toggleDeafMicBtn": "Skift døvhed",
+      "deafen": "Gør døv",
+      "undeafen": "Stop døvhed"
     },
     "deviceNotSupported": {
       "notSupported": "Din enhed understøttes ikke lige nu. Du kan oprette et",
       "linkText": "issue på GitHub",
-      "addSupport": "og jeg vil prøve at tilføje understøttelse til din enhed."
+      "addSupport": "og så vil jeg prøve at tilføje understøttelse til din enhed."
     },
     "inviteButton": {
       "invited": "inviteret",
@@ -173,8 +175,8 @@
       "listening": "Lytter",
       "toggleMuteKeybind": "Slå mikrofon til/fra genvej",
       "togglePushToTalkKeybind": "Slå push-to-talk til/fra genvej",
-      "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind",
+      "toggleOverlayKeybind": "Skift overlay genvej",
+      "toggleDeafKeybind": "Skift døvhed genvej",
       "requestToSpeakKeybind": "Request to speak keybind",
       "toggleChatKeyBind": "Toggle chat keybind",
       "inviteKeybind": "Invite keybind"
@@ -195,7 +197,7 @@
         "roomDescription": "Rum beskrivelse",
         "descriptionError": "Max længde 500",
         "nameError": "Skal være mellem 2 og 60 tegn langt",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "Udfyld følgende felter for at starte et nyt rum"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nyt rum oprettet",
@@ -213,7 +215,8 @@
         "usernameError": "Længde 4 til 15 tegn og kun alphanumerisk/underscore",
         "usernameLabel": "Brugernavn",
         "bioError": "Max længde på 160 tegn",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Er du sikker på at du vil blokere denne bruger fra at tilslutte sig til alle de rum du nogensinde kommer til at lave?",
@@ -227,35 +230,38 @@
         "goBackToListener": "Gå tilbage til lytter",
         "deleteMessage": "Slet denne besked",
         "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Fjern bandlysning fra chatten"
       },
       "roomSettingsModal": {
         "requirePermission": "kræv tilladelse for at tale",
         "makePublic": "Gør rum offentligt",
         "makePrivate": "Gør rum privat",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "Skift navnet på offentligt rum",
+        "renamePrivate": "Skift navnet på privat rum"
       }
     },
     "followingOnline": {
-      "people": "People",
+      "people": "Personer",
       "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "noOnline": "Du har 0 venner online lige nu",
+      "showMore": "Vis mere"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "Kommende rum",
+      "exploreMoreRooms": "Udforsk flere rum"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Søg efter rum, brugere eller kategorier",
+      "placeholderShort": "Søg"
+    },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "Profil",
+      "language": "Sprog",
+      "reportABug": "Anmeld en fejl",
+      "useOldVersion": "Brug gammel version",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "Log ud",
+        "modalSubtitle": "Er du sikker på at du vil logge ud?"
       },
       "debugAudio": {
         "debugAudio": "Debug Audio",
@@ -276,12 +282,12 @@
         "needsFuture": "skal være i fremtiden",
         "roomName": "Rum navn",
         "minLength": "Minimum længde på 2 tegn",
-        "roomDescription": "Description"
+        "roomDescription": "Beskrivelse"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "tommorow": "I MORGEN",
+      "today": "I DAG",
       "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
+        "areYouSure": "Er du sikker på at du vil slette dette planlagte rum?"
       }
     },
     "roomChat": {
@@ -305,10 +311,10 @@
       "lunarDoge": "Måne doge",
       "approachingSun": "Nærmes solen",
       "solarDoge": "Sol doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "approachingGalaxy": "Nærmer galakse",
+      "galacticDoge": "Galaktisk Doge",
+      "spottedLife": "Fået øje på planet med liv"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": { "yourFeed": "Din Feed" }
   }
 }

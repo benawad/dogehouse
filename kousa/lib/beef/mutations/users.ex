@@ -249,6 +249,6 @@ defmodule Beef.Mutations.Users do
       bio: "I am a bot",
       apiKey: Ecto.UUID.generate()
     })
-    |> Repo.insert()
+    |> Repo.insert(returning: true)
   end
 end

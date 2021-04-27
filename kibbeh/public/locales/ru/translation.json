@@ -107,7 +107,8 @@
       "followingHim": "Вы подписаны",
       "copyProfileUrl": "скопировать URL профиля",
       "urlCopied": "URL профиля скопирован",
-      "unfollow": "Отписаться"
+      "unfollow": "Отписаться",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Голосовые настройки",
@@ -216,7 +217,8 @@
         "usernameError": "длина от 4 до 15 символов, только буквенно-цифровые символы и нижнее подчеркивание",
         "usernameLabel": "Имя пользователя",
         "bioError": "максимальная длина 160 символов",
-        "bioLabel": "Обо мне"
+        "bioLabel": "Обо мне",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Вы уверены, что хотите закрыть этому пользователя доступ в любую из ваших комнат?",
@@ -250,7 +252,10 @@
       "upcomingRooms": "Ожидаемые комнаты",
       "exploreMoreRooms": "Найти больше комнат"
     },
-    "search": { "placeholder": "Поиск комнат, пользователей или категорий" },
+    "search": {
+      "placeholder": "Поиск комнат, пользователей или категорий",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Профиль",
       "language": "Язык",

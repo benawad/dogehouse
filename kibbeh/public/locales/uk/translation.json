@@ -107,7 +107,8 @@
       "followingHim": "відстежується",
       "copyProfileUrl": "скопіювати посилання на профіль",
       "urlCopied": "Посилання скопійовано",
-      "unfollow": "Відписатися"
+      "unfollow": "Відписатися",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Голосові налаштування",
@@ -216,7 +217,8 @@
         "usernameError": "має містити від 4 до 15 символів і бути лише буквено-цифровим та підкреслення",
         "usernameLabel": "Ім'я користувача",
         "bioError": "має містити до 160 символів",
-        "bioLabel": "Біографія"
+        "bioLabel": "Біографія",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Ви впевнені, що хочете заблокувати цього користувача в будь-якій кімнаті, яку ви коли-небудь створювали?",
@@ -250,7 +252,10 @@
       "upcomingRooms": "Заплановані кімнати",
       "exploreMoreRooms": "Знайти Більше Кімнат"
     },
-    "search": { "placeholder": "Знайти кімнати, користувачів або категорії" },
+    "search": {
+      "placeholder": "Знайти кімнати, користувачів або категорії",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Профіль",
       "language": "Мова",

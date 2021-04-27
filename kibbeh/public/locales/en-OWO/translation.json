@@ -104,7 +104,8 @@
       "followingHim": "Fowwowing <3",
       "copyProfileUrl": "Copy Pwofile URL",
       "urlCopied": "URL Cwopied to Cwipboard (❤´艸｀❤)",
-      "unfollow": "Unfowwow"
+      "unfollow": "Unfowwow",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "OWO Voice Settings (✿ ♡‿♡)",
@@ -209,7 +210,8 @@
         "usernameError": "OWO wength 4 to 15 chawactews and onwy awphanumewic/undewscowe (இωஇ )",
         "usernameLabel": "UwU Usewname UwU",
         "bioError": "Max wength of 160 chawactews :D",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "OwO Awe uu suwe uu want to bwock this usew fwom joining any woom uu evew cweate? (　'◟ ')",
@@ -243,7 +245,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",

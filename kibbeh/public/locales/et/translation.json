@@ -104,7 +104,8 @@
       "followingHim": "jälgid",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Häälesätted",
@@ -209,7 +210,8 @@
         "usernameError": "4 kuni 15 tähemärki pikk ja ainult tähenumbriline/alakriips",
         "usernameLabel": "Kasutajanimi",
         "bioError": "maksimum pikkus: 160 tähemärki",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Kas tahad kindlasti selle kasutaja liitumist teie ruumidesse keelata?",
@@ -243,7 +245,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",

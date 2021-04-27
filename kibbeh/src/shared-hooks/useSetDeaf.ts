@@ -4,10 +4,8 @@ import { useWrappedConn } from "./useConn";
 
 export const useSetDeaf = () => {
   const conn = useWrappedConn();
-  const { setInternalDeaf } = useDeafStore();
-  return (deaf: boolean) => {
-    setInternalDeaf(deaf);
-    conn.mutation.setDeaf(deaf);
+  return (value: boolean) => {
+    setDeaf(conn, value);
   };
 };
 

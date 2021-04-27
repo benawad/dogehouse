@@ -103,7 +103,8 @@
       "followingHim": "sledovaný",
       "copyProfileUrl": "skopírovať url profilu",
       "urlCopied": "URL skopírované do schránky",
-      "unfollow": "Prestať sledovať"
+      "unfollow": "Prestať sledovať",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Nastavenia hlasu",
@@ -214,7 +215,8 @@
         "usernameError": "počet znakov musí byť medzi 4-15, povolené sú len písmená, čísla a podčiarkovník",
         "usernameLabel": "Používatelské meno",
         "bioError": "maximálna dĺžka je 160 znakov",
-        "bioLabel": "O mne"
+        "bioLabel": "O mne",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Si si istý, že chceš zabanovať tohto používateľa zo všetkých tvojich miestností?",
@@ -249,7 +251,8 @@
       "exploreMoreRooms": "Preskúmať viac miestností"
     },
     "search": {
-      "placeholder": "Vyhľadaj miestnosti, užívateľov alebo kategórie"
+      "placeholder": "Vyhľadaj miestnosti, užívateľov alebo kategórie",
+      "placeholderShort": "Search"
     },
     "settingsDropdown": {
       "profile": "Profil",

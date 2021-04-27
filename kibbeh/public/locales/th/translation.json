@@ -103,7 +103,8 @@
       "followingHim": "กำลังติดตาม",
       "copyProfileUrl": "คัดลอกลิงก์โปรไฟล์",
       "urlCopied": "คัดลอกลิงก์เรียบร้อย",
-      "unfollow": "เลิกติดตาม"
+      "unfollow": "เลิกติดตาม",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "การตั้งค่าเสียง",
@@ -209,7 +210,8 @@
         "usernameError": "ต้องมีความยาวระหว่าง 4 ถึง 15 ตัวอักษร และสามารถใส่ได้แค่ ตัวอักษรอังกฤษ, เลข และ Underscore เท่านั้น.",
         "usernameLabel": "ชื่อผู้ใช้",
         "bioError": "ความยาวสูงสุด 160 ตัวอักษร",
-        "bioLabel": "คำอธิบาย"
+        "bioLabel": "คำอธิบาย",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "คุณแน่ใจหรือไม่ที่จะบล็อกผู้ใช้นี้จากทุกห้องที่คุณสร้าง?",
@@ -243,7 +245,10 @@
       "upcomingRooms": "ห้องที่ใกล้จะมาถึง",
       "exploreMoreRooms": "ค้นหาห้องเพิ่มเติม"
     },
-    "search": { "placeholder": "ค้นหาห้อง ผู้ใช้ หรือหมวดหมู่" },
+    "search": {
+      "placeholder": "ค้นหาห้อง ผู้ใช้ หรือหมวดหมู่",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "โปรไฟล์",
       "language": "ภาษา",

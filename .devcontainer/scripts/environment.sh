@@ -21,5 +21,5 @@ EOL
 # shawarma
 echo "WEBRTC_LISTEN_IP=127.0.0.1" > shawarma/.env
 
-# kofta
-cp kofta/.env.example kofta/.env
+# kibbeh
+cp kibbeh/.env.example kibbeh/.env
