@@ -118,7 +118,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
 
       <Button
         transition
-        className={`my-1 w-full text-base sm:my-0 sm:w-15`}
+        className={`my-1 mx-1 w-full text-base sm:my-0 sm:mx-0 sm:w-15`}
         color="secondary-800"
         onClick={() => {
           onLeaveRoom();
