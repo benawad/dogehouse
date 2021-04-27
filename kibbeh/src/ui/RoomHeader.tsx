@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { SolidCaretRight } from "../icons";
 import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
 import { linkRegex } from "../lib/constants";
@@ -19,6 +20,7 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
 }) => {
   const [open, setOpen] = useState(true);
   const [hasDescription, setHasDescription] = useState<boolean>(false);
+  const { t } = useTypeSafeTranslation();
 
   useEffect(() => {
     setHasDescription(description.trim().length > 0);
@@ -52,7 +54,7 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
         )}
       </div>
       <div className={`flex text-primary-200 text-sm`}>
-        <span style={{ marginRight: 4 }}>with</span>{" "}
+        <span style={{ marginRight: 4 }}>{t("pages.room.with")}</span>{" "}
         {names.map((username, i) => (
           <ApiPreloadLink
             route="profile"
