@@ -96,7 +96,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
         {screenType === "1-cols" || screenType === "fullscreen" ? (
           <BoxedIcon
             transition
-            className="mr-2"
+            className="mr-2 h-6.5 w-6.5"
             color="800"
             onClick={onToggleChat}
             data-testid="chat"
