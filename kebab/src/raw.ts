@@ -39,6 +39,7 @@ export type Connection = {
   user: User;
   initialCurrentRoomId?: string;
   send: (opcode: Opcode, data: unknown, fetchId?: FetchID) => void;
+  sendCast: (opcode: Opcode, data: unknown, fetchId?: FetchID) => void;
   fetch: (
     opcode: Opcode,
     data: unknown,
@@ -171,6 +172,7 @@ export const connect = (
           user: message.d.user,
           initialCurrentRoomId: message.d.currentRoom?.id,
           send: apiSend,
+          sendCast: api2Send,
           sendCall: (
             opcode: Opcode,
             parameters: unknown,

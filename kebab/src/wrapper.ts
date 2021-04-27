@@ -109,6 +109,8 @@ export const wrap = (connection: Connection) => ({
       ),
   },
   mutation: {
+    roomBan: (userId: string, shouldBanIp?: boolean): Promise<void> =>
+      connection.sendCast("room:ban", { userId, shouldBanIp }),
     setDeaf: (isDeafened: boolean): Promise<Record<string, never>> =>
       connection.sendCall("room:deafen", { deafened: isDeafened }),
     userCreateBot: (username: string): Promise<CreateBotResponse> =>
@@ -162,8 +164,6 @@ export const wrap = (connection: Connection) => ({
       connection.send("add_speaker", { userId }),
     deleteRoomChatMessage: (userId: string, messageId: string): Promise<void> =>
       connection.send("delete_room_chat_message", { userId, messageId }),
-    blockFromRoom: (userId: string): Promise<void> =>
-      connection.send("block_from_room", { userId }),
     unbanFromRoomChat: (userId: string): Promise<void> =>
       connection.send("unban_from_room_chat", { userId }),
     banFromRoomChat: (userId: string): Promise<void> =>

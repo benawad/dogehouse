@@ -4,12 +4,14 @@ defmodule Broth.SocketHandler do
   @type state :: %__MODULE__{
           awaiting_init: boolean(),
           user_id: String.t(),
+          ip: String.t(),
           encoding: :etf | :json,
           compression: nil | :zlib
         }
 
   defstruct awaiting_init: true,
             user_id: nil,
+            ip: nil,
             encoding: nil,
             compression: nil,
             callers: []
@@ -20,7 +22,7 @@ defmodule Broth.SocketHandler do
   ## initialization boilerplate
 
   @impl true
-  def init(request, _state) do
+  def init(request = %{peer: {ip, _reverse_port}}, _state) do
     props = :cowboy_req.parse_qs(request)
 
     compression =
@@ -38,6 +40,7 @@ defmodule Broth.SocketHandler do
     state = %__MODULE__{
       awaiting_init: true,
       user_id: nil,
+      ip: IP.to_string(ip),
       encoding: encoding,
       compression: compression,
       callers: get_callers(request)

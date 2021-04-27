@@ -1,13 +1,14 @@
 require("dotenv").config();
 
-import { raw, wrap, tokensToString, stringToToken } from "@dogehouse/kebab";
+import { raw, wrap, tokensToString, stringToToken, http } from "@dogehouse/kebab";
 
 const commandRegex = /^\/([^ ]+) ?(.*)$/;
 const main = async () => {
   try {
+    const credentials = await http.bot.auth(process.env.DOGEHOUSE_API_KEY!);
     const wrapper = wrap(await raw.connect(
-      process.env.DOGEHOUSE_TOKEN!,
-      process.env.DOGEHOUSE_REFRESH_TOKEN!,
+      credentials.accessToken,
+      credentials.refreshToken,
       {
         onConnectionTaken: () => {
           console.error("\nAnother client has taken the connection");

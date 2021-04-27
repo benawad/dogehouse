@@ -76,14 +76,20 @@ defmodule Kousa.Room do
     end
   end
 
-  def block_from_room(user_id, user_id_to_block_from_room) do
+  @spec block_from_room(String.t(), String.t(), boolean()) ::
+          nil
+          | :ok
+          | {:askedToSpeak | :creator | :listener | :mod | nil | :speaker,
+             atom | %{:creatorId => any, optional(any) => any}}
+  def block_from_room(user_id, user_id_to_block_from_room, should_ban_ip \\ false) do
     with {status, room} when status in [:creator, :mod] <-
            Rooms.get_room_status(user_id) do
       if room.creatorId != user_id_to_block_from_room do
-        RoomBlocks.insert(%{
+        RoomBlocks.upsert(%{
           modId: user_id,
           userId: user_id_to_block_from_room,
-          roomId: room.id
+          roomId: room.id,
+          ip: if(should_ban_ip, do: Users.get_ip(user_id_to_block_from_room), else: nil)
         })
 
         internal_kick_from_room(user_id_to_block_from_room, room.id)
