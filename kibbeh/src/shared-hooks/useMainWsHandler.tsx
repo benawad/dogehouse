@@ -284,6 +284,7 @@ export const useMainWsHandler = () => {
                               id: user.id,
                               displayName: user.displayName,
                               numFollowers: user.numFollowers,
+                              avatarUrl: user.avatarUrl,
                             },
                           ]
                         : data.room.peoplePreviewList,
