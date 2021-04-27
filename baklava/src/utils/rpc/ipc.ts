@@ -49,7 +49,7 @@ const ROOM_DATA_UPDATE_FUNC = (event, data) => {
         pdata.partyId = data.currentRoom.room.id;
         pdata.startTimestamp = new Date(data.currentRoom.room.inserted_at).getTime();
         pdata.smallImageKey = !isDeafened ? isSpeaker && !isMuted ? "mic_on" : "mic_off" : "speaker_off";
-        pdata.smallImageText = isSpeaker ? `Speaker - ${voiceState}` : isDeafened ? `Listener` : `Listener - ${voiceState}`;
+        pdata.smallImageText = isSpeaker ? `Speaker - ${voiceState}` : isDeafened ? `Listener - ${voiceState}` : `Listener`;
         pdata.buttons = [
           {
             label: "Join Room",
