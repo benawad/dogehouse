@@ -3,13 +3,6 @@ import { useDeafStore } from "../global-stores/useDeafStore";
 import { useMuteStore } from "../global-stores/useMuteStore";
 import { useWrappedConn } from "./useConn";
 
-export const useSetMute = () => {
-  const conn = useWrappedConn();
-  return (value: boolean) => {
-    setMute(conn, value);
-  };
-};
-
 export const setMute = (conn: Wrapper, value: boolean) => {
   const { setInternalDeaf, deafened } = useDeafStore.getState();
   // auto undeafen on unmute
@@ -20,4 +13,11 @@ export const setMute = (conn: Wrapper, value: boolean) => {
     useMuteStore.getState().setInternalMute(value);
     conn.mutation.setMute(value);
   }
+};
+
+export const useSetMute = () => {
+  const conn = useWrappedConn();
+  return (value: boolean) => {
+    setMute(conn, value);
+  };
 };
