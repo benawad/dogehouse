@@ -43,7 +43,13 @@ export const NativeCheckbox: React.FC<NativeCheckboxProps> = ({
       onClick={onClick ? () => onClick(num) : undefined}
     >
       <div className="flex flex-col items-start">
-        <div className="font-bold group-hover:text-primary-100 text-primary-100 transition duration-200">
+        <div
+          className={`${
+            checked
+              ? "font-bold text-primary-100 transition duration-200"
+              : "font-bold group-hover:text-primary-100 text-primary-300 transition duration-200"
+          }`}
+        >
           {title}
         </div>
         <div className="text-primary-300">{subtitle}</div>
