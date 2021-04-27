@@ -71,7 +71,6 @@
     "@storybook/react": "^6.2.8",
     "@storybook/theming": "^6.2.8",
     "@svgr/cli": "^5.5.0",
-    "@tailwindcss/forms": "^0.3.2",
     "@tailwindcss/line-clamp": "^0.2.0",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
