@@ -4,6 +4,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { TitledHeader } from "../../components/header/TitledHeader";
 import { colors, fontFamily } from "../../constants/dogeStyle";
 import { useTokenStore } from "../auth/useTokenStore";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 export const ProfileController: React.FC = () => {
   const setTokens = useTokenStore((s) => s.setTokens);
