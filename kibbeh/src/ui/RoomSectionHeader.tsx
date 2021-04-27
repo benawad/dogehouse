@@ -15,8 +15,8 @@ export const RoomSectionHeader: React.FC<RoomSectionHeaderProps> = ({
         {title}
       </div>
       <div
-        style={{ height: 16, paddingTop: 1 }}
-        className={`bg-primary-600 rounded-5 px-2 text-xs font-bold text-primary-100 items-center justify-center`}
+        style={{ height: 18 }}
+        className={`bg-primary-600 rounded-5 px-2 text-sm font-bold text-primary-100 items-center justify-center`}
       >
         {tagText}
       </div>

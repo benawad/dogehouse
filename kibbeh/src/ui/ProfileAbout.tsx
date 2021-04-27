@@ -30,9 +30,9 @@ export const ProfileAbout: React.FC<ProfileAboutProps> = ({
       className={`bg-primary-800 p-4 rounded-8 w-full leading-8 ${className}`}
       style={{ maxWidth: 640 }}
     >
-      <p className="text-primary-100 font-bold text-xl pb-4">
+      <div className="text-primary-100 font-bold text-xl pb-4">
         {t("pages.viewUser.about")} {username}
-      </p>
+      </div>
       <div className="flex mb-2">
         <div className="flex">
           <ApiPreloadLink route="followers" data={{ username }}>
@@ -55,9 +55,9 @@ export const ProfileAbout: React.FC<ProfileAboutProps> = ({
           </ApiPreloadLink>
         </div>
       </div>
-      <p className="text-primary-100 text-sm pb-2 whitespace-pre-wrap max-h-5l overflow-y-auto">
+      <div className="text-primary-100 text-sm pb-2 whitespace-pre-wrap max-h-5l overflow-y-auto">
         {description}
-      </p>
+      </div>
       {link && (
         <div className="flex flex-row items-center mb-4">
           <SolidLink className="mr-2" />

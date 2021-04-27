@@ -55,7 +55,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
       <div className="flex mr-4 ">
         <SingleUser
           isOnline={user.online}
-          className="absolute flex-none -top-5.5 rounded-full shadow-avator"
+          className="absolute flex-none -top-5.5 rounded-full shadow-outlineLg"
           src={pfp}
         />
       </div>
