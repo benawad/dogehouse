@@ -9,5 +9,6 @@ declare namespace Cypress {
     clickSubmit(): Chainable<Element>;
     closeModal(): Chainable<Element>;
     loginTestUser(value?: string): Chainable<AUTWindow>;
+    testDeafenSequence(): void;
   }
 }
