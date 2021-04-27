@@ -61,14 +61,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
       onMouseEnter={toggleFrozen}
       onMouseLeave={toggleFrozen}
     >
-      <div
-        className="w-full h-full mt-auto"
-        style={{
-          height: `${rowVirtualizer.totalSize}px`,
-          width: "100%",
-          position: "relative",
-        }}
-      >
+      <div className="w-full h-full mt-auto">
         {rowVirtualizer.virtualItems.map(
           ({ index: idx, start, measureRef, size }: VirtualItem) => {
             const index = messages.length - idx - 1;
@@ -85,7 +78,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                   }px)`,
                 }}
                 key={messages[index].id}
-                className="py-1"
+                className="py-2 w-full laptop:py-1"
               >
                 <div
                   className={`flex flex-col flex-shrink-0 w-full ${
