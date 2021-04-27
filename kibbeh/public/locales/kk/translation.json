@@ -87,7 +87,8 @@
       "allowAll": "Барлығына рұқсат беру",
       "allowAllConfirm": "Бұл барлық рұқсат сұраған {{count}} қолданушыға, сөйлеуге мүмкіндік береді.Сіз сенімдісіз бе?",
       "confirmAskToSpeak": "Would you like to ask to speak?",
-      "shareLinkToRoom": "Share Link to Room"
+      "shareLinkToRoom": "Share Link to Room",
+      "with": "with"
     },
     "searchUser": { "search": "іздеу..." },
     "soundEffectSettings": {

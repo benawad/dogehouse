@@ -87,7 +87,8 @@
       "allowAll": "Dovoli vsem",
       "allowAllConfirm": "Ste prepričani? To bo omogočilo vsem {{count}}, ki zahtevajo, da govorijo",
       "confirmAskToSpeak": "Would you like to ask to speak?",
-      "shareLinkToRoom": "Share Link to Room"
+      "shareLinkToRoom": "Share Link to Room",
+      "with": "with"
     },
     "searchUser": { "search": "Iskanje..." },
     "soundEffectSettings": {
@@ -115,7 +116,10 @@
       "volume": "Glasnost:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Neveljaven naslov aplikacije", "label": "Vnesite naslov aplikacije" },
+      "input": {
+        "errorMsg": "Neveljaven naslov aplikacije",
+        "label": "Vnesite naslov aplikacije"
+      },
       "header": "Nastavitve Okna"
     },
     "download": {
@@ -159,7 +163,10 @@
       "linkText": "GitHub",
       "addSupport": "in poskusili bomo dodati podporo za vašo napravo."
     },
-    "inviteButton": { "invited": "povabljeni", "inviteToRoom": "povabite v sobo" },
+    "inviteButton": {
+      "invited": "povabljeni",
+      "inviteToRoom": "povabite v sobo"
+    },
     "micPermissionBanner": {
       "permissionDenied": "Nimamo pravic za uporabo vašega mikrofona. Odprite nastavitve brskalnika, omogočite dostop do mikrofona in nato osvežite stran.",
       "dismiss": "Opustite",

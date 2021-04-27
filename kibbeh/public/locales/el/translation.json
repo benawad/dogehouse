@@ -99,7 +99,8 @@
       "allowAll": "Να επιτρέπονται όλα",
       "allowAllConfirm": "Είστε σίγουροι; Αυτό θα επιτρέψει όλους τους {{count}} χρήστες που έχουν ζητήσει, να μιλήσουν",
       "confirmAskToSpeak": "Would you like to ask to speak?",
-      "shareLinkToRoom": "Share Link to Room"
+      "shareLinkToRoom": "Share Link to Room",
+      "with": "with"
     },
     "searchUser": { "search": "αναζήτηση..." },
     "soundEffectSettings": {

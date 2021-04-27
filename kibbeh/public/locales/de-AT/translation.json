@@ -87,7 +87,8 @@
       "allowAll": "Ollen erlaubn",
       "allowAllConfirm": "Bist da sicha? Dadurch kennan olle {{count}} anfragenden Bnutzer spröchn",
       "confirmAskToSpeak": "Would you like to ask to speak?",
-      "shareLinkToRoom": "Share Link to Room"
+      "shareLinkToRoom": "Share Link to Room",
+      "with": "with"
     },
     "searchUser": { "search": "Suachn..." },
     "soundEffectSettings": {

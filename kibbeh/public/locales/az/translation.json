@@ -87,7 +87,8 @@
       "allowAll": "Hərkəsə icazə ver",
       "allowAllConfirm": "Təsdiqləyirsiniz? Bu seçim {{count}} istifadəçiyə danışma haqqı verəcəkdir",
       "confirmAskToSpeak": "Would you like to ask to speak?",
-      "shareLinkToRoom": "Share Link to Room"
+      "shareLinkToRoom": "Share Link to Room",
+      "with": "with"
     },
     "searchUser": { "search": "Axtarış..." },
     "soundEffectSettings": {

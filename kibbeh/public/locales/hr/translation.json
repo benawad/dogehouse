@@ -88,7 +88,8 @@
       "allowAllConfirm": "Jeste li sigurni? Ovo će omogućiti svim {{count}} korisnicima koji zahtijevaju da govore",
       "speakers": "Govornici",
       "confirmAskToSpeak": "Would you like to ask to speak?",
-      "shareLinkToRoom": "Share Link to Room"
+      "shareLinkToRoom": "Share Link to Room",
+      "with": "with"
     },
     "searchUser": { "search": "traži..." },
     "soundEffectSettings": {

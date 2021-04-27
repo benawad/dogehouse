@@ -87,7 +87,8 @@
       "allowAll": "Povolit všem",
       "allowAllConfirm": "Jsi si jistý? Tohle povolí všem {{count}} žádajícím uživatelům mluvit",
       "confirmAskToSpeak": "Would you like to ask to speak?",
-      "shareLinkToRoom": "Share Link to Room"
+      "shareLinkToRoom": "Share Link to Room",
+      "with": "with"
     },
     "searchUser": { "search": "Hledat..." },
     "soundEffectSettings": {

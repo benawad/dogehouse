@@ -90,7 +90,8 @@
       "allowAll": "Ken jan ale e toki",
       "allowAllConfirm": "sina wile e ni? ni li ken jan ale {{count}} e toki.",
       "confirmAskToSpeak": "Would you like to ask to speak?",
-      "shareLinkToRoom": "Share Link to Room"
+      "shareLinkToRoom": "Share Link to Room",
+      "with": "with"
     },
     "searchUser": { "search": "o lukin..." },
     "soundEffectSettings": {

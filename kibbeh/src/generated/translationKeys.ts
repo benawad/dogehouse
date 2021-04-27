@@ -70,6 +70,7 @@ export type TranslationKeys =
 	| "pages.room.allowAllConfirm"
 	| "pages.room.confirmAskToSpeak"
 	| "pages.room.shareLinkToRoom"
+	| "pages.room.with"
 	| "pages.searchUser.search"
 	| "pages.soundEffectSettings.header"
 	| "pages.soundEffectSettings.title"

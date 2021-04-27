@@ -86,7 +86,8 @@
       "allowAll": "Tillåt alla",
       "allowAllConfirm": "Är du säker på detta sergeant? Detta kommer tillåta {{count}} användare att få tala. Det kan utplåna månen! 🚀☢️",
       "confirmAskToSpeak": "Would you like to ask to speak?",
-      "shareLinkToRoom": "Share Link to Room"
+      "shareLinkToRoom": "Share Link to Room",
+      "with": "with"
     },
     "searchUser": { "search": "Sök..." },
     "soundEffectSettings": {

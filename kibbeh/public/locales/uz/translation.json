@@ -90,7 +90,8 @@
       "allowAll": "Barchaga ruxsat berish",
       "allowAllConfirm": "Ishonchingiz komilmi? Bu {{count}} foydalanuvchilariga gapirish uchun ruxsat so'rab murojaat qilganlarga gapirishga imkon beradi",
       "confirmAskToSpeak": "Would you like to ask to speak?",
-      "shareLinkToRoom": "Share Link to Room"
+      "shareLinkToRoom": "Share Link to Room",
+      "with": "with"
     },
     "searchUser": { "search": "Qidirish..." },
     "soundEffectSettings": {

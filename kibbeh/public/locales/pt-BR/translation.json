@@ -86,7 +86,8 @@
       "allowAll": "Permitir todos",
       "allowAllConfirm": "Você tem certeza? Isso permitirá que todos os {{count}} usuários solicitantes falem",
       "confirmAskToSpeak": "Would you like to ask to speak?",
-      "shareLinkToRoom": "Share Link to Room"
+      "shareLinkToRoom": "Share Link to Room",
+      "with": "with"
     },
     "searchUser": { "search": "buscar..." },
     "soundEffectSettings": {

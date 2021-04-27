@@ -86,7 +86,8 @@
       "allowAll": "Allow all",
       "allowAllConfirm": "Er du sikker? Dette giver tilladelse til alle {{count}} brugere der anmoder om tilladelse til at tale",
       "confirmAskToSpeak": "Would you like to ask to speak?",
-      "shareLinkToRoom": "Share Link to Room"
+      "shareLinkToRoom": "Share Link to Room",
+      "with": "with"
     },
     "searchUser": { "search": "Søger..." },
     "soundEffectSettings": {
@@ -105,7 +106,6 @@
       "urlCopied": "URL kopieret til udklipsholder",
       "unfollow": "Følg ikke længere",
       "about": "Om"
-
     },
     "voiceSettings": {
       "header": "Lydindstillinger",

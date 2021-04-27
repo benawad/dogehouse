@@ -86,7 +86,8 @@
       "allowAll": "允许全体成员讲话",
       "allowAllConfirm": "确定？这将会允许全部{{}}位成员讲话",
       "confirmAskToSpeak": "Would you like to ask to speak?",
-      "shareLinkToRoom": "Share Link to Room"
+      "shareLinkToRoom": "Share Link to Room",
+      "with": "with"
     },
     "searchUser": { "search": "搜索..." },
     "soundEffectSettings": {

@@ -87,7 +87,8 @@
       "allowAll": "Luba kõik",
       "allowAllConfirm": "Oled sa kindel? See tegevus lubab kõigil {{count}} taotlejal rääkida",
       "confirmAskToSpeak": "Would you like to ask to speak?",
-      "shareLinkToRoom": "Share Link to Room"
+      "shareLinkToRoom": "Share Link to Room",
+      "with": "with"
     },
     "searchUser": { "search": "otsi..." },
     "soundEffectSettings": {

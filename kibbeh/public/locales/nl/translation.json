@@ -86,7 +86,8 @@
       "allowAll": "Iedereen toestaan",
       "allowAllConfirm": "Weet je het zeker? Dit geeft toestemming aan {{count}} verzoekende gebruikers om te spreken",
       "confirmAskToSpeak": "Would you like to ask to speak?",
-      "shareLinkToRoom": "Share Link to Room"
+      "shareLinkToRoom": "Share Link to Room",
+      "with": "with"
     },
     "searchUser": { "search": "Zoek..." },
     "soundEffectSettings": {

@@ -90,7 +90,8 @@
       "allowAll": "Разрешить всем",
       "allowAllConfirm": "Вы уверены? Это позволит всем {{count}} пользователям, запрашивающих разрешение, говорить",
       "confirmAskToSpeak": "Would you like to ask to speak?",
-      "shareLinkToRoom": "Share Link to Room"
+      "shareLinkToRoom": "Share Link to Room",
+      "with": "with"
     },
     "searchUser": { "search": "Поиск..." },
     "soundEffectSettings": {

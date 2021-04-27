@@ -87,7 +87,8 @@
       "allowAll": "Hyväksy kaikki",
       "allowAllConfirm": "Oletko varma? Tämä antaa kaikille {{count}} pyytäville käyttäjille puheoikeuden",
       "confirmAskToSpeak": "Would you like to ask to speak?",
-      "shareLinkToRoom": "Share Link to Room"
+      "shareLinkToRoom": "Share Link to Room",
+      "with": "with"
     },
     "searchUser": { "search": "Hae..." },
     "soundEffectSettings": {
