@@ -61,15 +61,31 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
       onMouseEnter={toggleFrozen}
       onMouseLeave={toggleFrozen}
     >
-      <div className="w-full h-full mt-auto">
+      <div
+        className="w-full h-full mt-auto"
+        style={{
+          height: `${rowVirtualizer.totalSize}px`,
+          width: "100%",
+          position: "relative",
+        }}
+      >
         {rowVirtualizer.virtualItems.map(
           ({ index: idx, start, measureRef, size }: VirtualItem) => {
             const index = messages.length - idx - 1;
             return (
               <div
                 ref={measureRef}
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  transform: `translateY(${
+                    messages[index].isWhisper ? start : start
+                  }px)`,
+                }}
                 key={messages[index].id}
-                className="py-2 w-full laptop:py-1"
+                className="py-1"
               >
                 <div
                   className={`flex flex-col flex-shrink-0 w-full ${
