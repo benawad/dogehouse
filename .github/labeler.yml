@@ -1,2 +1,18 @@
-bug:
+kibbeh:
   - kibbeh/*
+baklava:
+  - baklava/*
+kebab:
+  - kebab/*
+kofta:
+  - kofta/*
+kousa:
+  - kousa/*
+pilaf:
+  - pilaf/*
+shawarma:
+  - shawarma/*
+emote:
+  - kibbeh/public/emotes/*
+translation:
+  - kibbeh/public/locales/*
