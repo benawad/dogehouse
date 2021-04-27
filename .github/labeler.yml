@@ -4,8 +4,6 @@ baklava:
   - baklava/*
 kebab:
   - kebab/*
-kofta:
-  - kofta/*
 kousa:
   - kousa/*
 pilaf:
