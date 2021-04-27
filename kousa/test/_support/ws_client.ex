@@ -19,7 +19,9 @@ defmodule BrothTest.WsClient do
 
     @api_url
     |> Path.join("socket")
-    |> WebSockex.start_link(__MODULE__, nil, extra_headers: [{"user-agent", ancestors}])
+    |> WebSockex.start_link(__MODULE__, nil,
+      extra_headers: [{"user-agent", ancestors}, {"x-forwarded-for", "127.0.0.1"}]
+    )
   end
 
   ###########################################################################
