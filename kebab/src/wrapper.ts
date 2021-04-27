@@ -20,7 +20,7 @@ import {
   GetRoomUsersResponse,
   NewRoomDetailsResponse,
   InvitationToRoomResponse,
-  CreateBotResponse
+  CreateBotResponse,
 } from "./responses";
 
 type Handler<Data> = (data: Data) => void;
@@ -109,6 +109,8 @@ export const wrap = (connection: Connection) => ({
       ),
   },
   mutation: {
+    setDeaf: (isDeafened: boolean): Promise<Record<string, never>> =>
+      connection.sendCall("room:deafen", { deafened: isDeafened }),
     userCreateBot: (username: string): Promise<CreateBotResponse> =>
       connection.sendCall(`user:create_bot`, { username }),
     ban: (username: string, reason: string) =>
@@ -170,8 +172,6 @@ export const wrap = (connection: Connection) => ({
       connection.send("set_listener", { userId }),
     setMute: (isMuted: boolean): Promise<Record<string, never>> =>
       connection.fetch("mute", { value: isMuted }),
-    setDeaf: (isDeafened: boolean): Promise<Record<string, never>> =>
-      connection.fetch("room:deafen", { deafened: isDeafened }),
     leaveRoom: (): Promise<{ roomId: UUID }> =>
       connection.fetch("leave_room", {}, "you_left_room"),
     createRoom: (data: {
