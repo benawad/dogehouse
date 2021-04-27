@@ -4,6 +4,8 @@ import { useRoomChatStore } from "./useRoomChatStore";
 export const navigateThroughQueriedUsers = (e: any) => {
   const {
     queriedUsernames,
+    setMentions,
+    mentions,
     setQueriedUsernames,
     activeUsername,
     setActiveUsername,
@@ -33,9 +35,9 @@ export const navigateThroughQueriedUsers = (e: any) => {
       activeIndex === queriedUsernames.length - 1 ? 0 : activeIndex + 1;
   } else if (e.code === "Enter" || e.code === "Tab") {
     const selected = queriedUsernames[activeIndex];
+    setMentions([...mentions, selected]);
     setMessage(
-      `${message.substring(0, message.lastIndexOf("@") + 1)}${
-        selected.username
+      `${message.substring(0, message.lastIndexOf("@") + 1)}${selected.username
       } `
     );
     setQueriedUsernames([]);

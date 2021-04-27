@@ -6,11 +6,16 @@ import { useSoundEffectStore } from "../modules/sound-effects/useSoundEffectStor
 export const useRoomChatMentionStore = create(
   combine(
     {
+      mentions: [] as BaseUser[],
       queriedUsernames: [] as BaseUser[],
       activeUsername: "",
       iAmMentioned: 0,
     },
     (set) => ({
+      setMentions: (mentions: BaseUser[]) =>
+        set({
+          mentions,
+        }),
       setQueriedUsernames: (queriedUsernames: BaseUser[]) =>
         set({
           queriedUsernames,
