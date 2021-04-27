@@ -1,6 +1,6 @@
 import { UserWithFollowInfo } from "@dogehouse/kebab";
 import React from "react";
-import { SolidFriends } from "../../icons";
+import { SolidFriends, SolidFriendsAdd } from "../../icons";
 import { useConn } from "../../shared-hooks/useConn";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
@@ -47,7 +47,7 @@ export const VerticalUserInfoWithFollowButton: React.FC<VerticalUserInfoControll
             }}
             size="small"
             color={user.youAreFollowing ? "secondary" : "primary"}
-            icon={user.youAreFollowing ? null : <SolidFriends />}
+            icon={user.youAreFollowing ? null : <SolidFriendsAdd />}
           >
             {user.youAreFollowing
               ? t("pages.viewUser.unfollow")

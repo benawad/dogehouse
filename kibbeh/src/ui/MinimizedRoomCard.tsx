@@ -1,10 +1,10 @@
 import React from "react";
 import { BoxedIcon } from "./BoxedIcon";
 import {
+  SolidDeafened,
+  SolidDeafenedOff,
   SolidFullscreen,
   SolidMicrophone,
-  SolidVolume,
-  SolidVolumeOff,
 } from "../icons";
 import { Button } from "./Button";
 import { DurationTicker } from "./DurationTicker";
@@ -45,37 +45,47 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
         <h4 className="text-primary-100 break-all overflow-hidden">
           {room.name}
         </h4>
-        <p className="text-primary-300 overflow-ellipsis overflow-hidden w-auto">
+        <div className="text-primary-300 overflow-ellipsis overflow-hidden w-auto">
           {room.speakers.join(", ")}
-        </p>
-        <p className="text-accent">
+        </div>
+        <div className="text-accent">
           {room.myself.isSpeaker
             ? t("components.bottomVoiceControl.speaker")
             : t("components.bottomVoiceControl.listener")}{" "}
           · <DurationTicker dt={room.roomStartedAt} />
-        </p>
+        </div>
       </div>
       <div className="flex flex-row">
         <div className="grid grid-cols-3 gap-2">
           {room.myself.isSpeaker ? (
             <BoxedIcon
+              data-testid="mute"
               transition
               hover={room.myself.isMuted}
               onClick={room.myself.switchMuted}
-              className={room.myself.isMuted ? "bg-accent" : ""}
+              className={
+                !room.myself.isMuted
+                  ? "bg-accent hover:bg-accent-hover text-button"
+                  : ""
+              }
             >
-              {room.myself.isMuted ? (
-                <SvgSolidMicrophoneOff data-testid="mic-off-icon" />
+              {room.myself.isMuted || room.myself.isDeafened ? (
+                <SvgSolidMicrophoneOff />
               ) : (
-                <SolidMicrophone data-testid="mic-icon" />
+                <SolidMicrophone />
               )}
             </BoxedIcon>
           ) : null}
           <BoxedIcon
+            data-testid="deafen"
             onClick={room.myself.switchDeafened}
-            className={room.myself.isDeafened ? "bg-accent" : ""}
+            className={
+              room.myself.isDeafened
+                ? "bg-accent hover:bg-accent-hover text-button"
+                : ""
+            }
           >
-            {room.myself.isDeafened ? <SolidVolumeOff /> : <SolidVolume />}
+            {room.myself.isDeafened ? <SolidDeafenedOff /> : <SolidDeafened />}
           </BoxedIcon>
           <BoxedIcon transition onClick={onFullscreenClick}>
             <SolidFullscreen />
@@ -83,6 +93,7 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
         </div>
         <Button
           transition
+          color="primary-300"
           loading={leaveLoading}
           className="flex-grow ml-4"
           onClick={room.myself.leave}

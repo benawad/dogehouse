@@ -12,4 +12,4 @@ wrapper.mutation.userCreateBot("username").then((response) => console.log(respon
 { op: "user:create_bot:reply", p: { apiKey: "asdoifjo1jioj1f1f2" }, ref: "[uuid]", v: "0.2.0" }
 ```
 3. Save that api key somewhere safe (I will be adding a UI for this but it doesn't exist atm)
-4. Send a POST request to `https://api.dogehouse.tv/bot/auth` with a JSON body `{ apiKey: "asdoifjoqefjo" }` and it will return an `accessToken` and `refreshToken` for that bot account.
+4. Send a POST request to `https://api.dogehouse.tv/bot/auth` with a JSON body `{ apiKey: "asdoifjoqefjo" }` (make sure to set the header: `content-type` to `application/json`) and it will return an `accessToken` and `refreshToken` for that bot account.

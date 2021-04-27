@@ -19,7 +19,7 @@ export const SettingsItemButton: React.FC<SettingsItemButtonProps> = ({
 }) => {
   return (
     <BaseSettingsItem className={`p-4 ${className}`}>
-      <p className="text-primary-100 mb-4">{children}</p>
+      <div className="text-primary-100 mb-4">{children}</div>
       <Button
         color="accent-secondary"
         size="small"
