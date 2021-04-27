@@ -4,7 +4,6 @@ import { linkRegex, codeBlockRegex, mentionRegex } from "./constants";
 
 export const createChatMessage = (
   message: string,
-  mentions: BaseUser[],
   roomUsers: BaseUser[] = []
 ) => {
   const tokens = ([] as unknown) as [
