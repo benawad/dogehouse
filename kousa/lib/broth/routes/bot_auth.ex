@@ -17,11 +17,13 @@ defmodule Broth.Routes.BotAuth do
   alias Onion.BotAuthRateLimit
   alias Beef.Users
 
+  @env Mix.env()
+
   post "/auth" do
     with %{"apiKey" => api_key} <- conn.body_params,
          {:ok, _} <- Ecto.UUID.cast(api_key) do
       key =
-        with :test <- Mix.env(),
+        with :test <- @env,
              {_, value} <-
                Enum.find(conn.req_headers, fn {key, _} -> key == "rate-limit-key" end) do
           value
