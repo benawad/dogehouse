@@ -32,7 +32,7 @@ defmodule Broth.Routes.BotAuth do
             to_string(:inet_parse.ntoa(conn.remote_ip))
         end
 
-      max_attempts = if Mix.env() == :test, do: 5, else: 20
+      max_attempts = if @env == :test, do: 5, else: 20
 
       if (BotAuthRateLimit.get(key) || 0) > max_attempts do
         conn
