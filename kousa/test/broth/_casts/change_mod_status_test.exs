@@ -30,6 +30,7 @@ defmodule BrothTest.ChangeModStatusTest do
 
       # join the speaker user into the room
       Kousa.Room.join_room(speaker_id, room_id)
+      Kousa.Room.set_role(speaker_id, :raised_hand, by: t.user.id)
 
       WsClient.assert_frame("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
 

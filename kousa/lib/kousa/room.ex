@@ -272,18 +272,22 @@ defmodule Kousa.Room do
   defp set_speaker(nil, _, _), do: :noop
 
   defp set_speaker(room_id, user_id, setter_id) do
-    case Rooms.get_room_status(setter_id) do
-      {_, nil} ->
-        :noop
+    if not RoomPermissions.asked_to_speak?(user_id, room_id) do
+      :noop
+    else
+      case Rooms.get_room_status(setter_id) do
+        {_, nil} ->
+          :noop
 
-      {:mod, _} ->
-        internal_set_speaker(user_id, room_id)
+        {:mod, _} ->
+          internal_set_speaker(user_id, room_id)
 
-      {:creator, _} ->
-        internal_set_speaker(user_id, room_id)
+        {:creator, _} ->
+          internal_set_speaker(user_id, room_id)
 
-      {_, _} ->
-        :noop
+        {_, _} ->
+          :noop
+      end
     end
   end
 
@@ -309,7 +313,7 @@ defmodule Kousa.Room do
   end
 
   # only you can raise your own hand
-  defp set_raised_hand(room_id, user_id, user_id) do
+  defp set_raised_hand(room_id, user_id, _user_id) do
     # ??
     case RoomPermissions.ask_to_speak(user_id, room_id) do
       {:ok, %{isSpeaker: true}} ->
@@ -325,8 +329,6 @@ defmodule Kousa.Room do
         )
     end
   end
-
-  defp set_raised_hand(_, _, _), do: :noop
 
   ######################################################################
   ## UPDATE
@@ -471,8 +473,17 @@ defmodule Kousa.Room do
 
               updated_user = Rooms.join_room(room, user_id)
 
-              muted = Onion.UserSession.get(user_id, :muted)
-              deafened = Onion.UserSession.get(user_id, :deafened)
+              {muted, deafened} =
+                case Onion.UserSession.lookup(user_id) do
+                  [{_, _}] ->
+                    {
+                      Onion.UserSession.get(user_id, :muted),
+                      Onion.UserSession.get(user_id, :deafened)
+                    }
+
+                  _ ->
+                    {false, false}
+                end
 
               Onion.RoomSession.join_room(room_id, user_id, muted, deafened)
 
@@ -488,7 +499,8 @@ defmodule Kousa.Room do
       end
     end
   catch
-    _, _ -> {:error, "that room doesn't exist"}
+    _, _ ->
+      {:error, "that room doesn't exist"}
   end
 
   def leave_room(user_id, current_room_id \\ nil) do
