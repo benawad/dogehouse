@@ -40,12 +40,12 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
   const screenType = useScreenType();
   return (
     <div className="flex flex-wrap justify-center bg-primary-700 rounded-b-8 py-3 px-4 w-full sm:justify-between">
-      <div className="flex my-1 sm:my-0">
+      <div className="flex my-1 justify-between w-full sm:my-0 sm:w-auto">
         {mute ? (
           <BoxedIcon
             transition
             hover={!mute.isMuted}
-            className={`mr-2 w-11 h-6.5 ${
+            className={`mx-1 w-11 h-6.5 ${
               !mute.isMuted ? `bg-accent hover:bg-accent-hover text-button` : ``
             }`}
             color="800"
@@ -64,7 +64,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
           <BoxedIcon
             transition
             hover={deaf.isDeaf}
-            className={`mr-2 h-6.5 w-6.5 ${
+            className={`mx-1 h-6.5 w-6.5 ${
               deaf.isDeaf ? `bg-accent hover:bg-accent-hover text-button` : ``
             }`}
             color="800"
@@ -82,7 +82,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
         {onInvitePeopleToRoom ? (
           <BoxedIcon
             transition
-            className="mr-2 h-6.5 w-6.5"
+            className="mx-1 h-6.5 w-6.5"
             color="800"
             title={t("components.bottomVoiceControl.inviteUsersToRoomBtn")}
             onClick={onInvitePeopleToRoom}
@@ -94,7 +94,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
         {screenType === "1-cols" || screenType === "fullscreen" ? (
           <BoxedIcon
             transition
-            className="mr-2 h-6.5 w-6.5"
+            className="mx-1 h-6.5 w-6.5"
             color="800"
             onClick={onToggleChat}
             data-testid="chat"
@@ -105,7 +105,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
         {onRoomSettings ? (
           <BoxedIcon
             transition
-            className="mr-2 h-6.5 w-6.5"
+            className="mx-1 h-6.5 w-6.5"
             color="800"
             title={t("components.bottomVoiceControl.settings")}
             onClick={onRoomSettings}
@@ -118,7 +118,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
 
       <Button
         transition
-        className={`my-1 mx-4 w-full text-base sm:my-0 sm:w-15`}
+        className={`my-1 w-full text-base sm:my-0 sm:w-15`}
         color="secondary-800"
         onClick={() => {
           onLeaveRoom();
