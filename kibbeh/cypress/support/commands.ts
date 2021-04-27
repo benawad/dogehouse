@@ -47,26 +47,6 @@ Cypress.Commands.add("clickSubmit", () => {
   return cy.get(`button[type="submit"]`).click();
 });
 
-Cypress.Commands.add("testDeafenSequence", () => {
-  // deafen -> mute will undeafen
-  cy.dataTestId("deafen").click();
-  cy.dataTestId(`mic-off`);
-  cy.dataTestId(`headphone-off`);
-  cy.dataTestId("mute").click();
-  cy.dataTestId(`mic-on`);
-  cy.dataTestId(`headphone-on`);
-  // mute -> deafen -> mute will undeafen
-  cy.dataTestId("mute").click();
-  cy.dataTestId(`mic-off`);
-  cy.dataTestId("deafen").click();
-  cy.dataTestId(`mic-off`);
-  cy.dataTestId(`headphone-off`);
-  cy.dataTestId("mute").click();
-  cy.dataTestId(`mic-on`);
-  cy.dataTestId(`headphone-on`);
-  return;
-});
-
 Cypress.Commands.add("loginTestUser", (value = defaultTestUsername) => {
   cy.viewport(2560, 1440);
   cy.visit("/", {

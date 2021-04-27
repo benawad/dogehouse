@@ -1,6 +1,5 @@
 import { BaseUser, RoomUser } from "@dogehouse/kebab";
 import React, { useEffect } from "react";
-import { mentionRegex } from "../../../lib/constants";
 import { useConn } from "../../../shared-hooks/useConn";
 import { SingleUser } from "../../../ui/UserAvatar";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
@@ -36,7 +35,7 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({
 
   useEffect(() => {
     // regex to match mention patterns
-    const mentionMatches = message.match(mentionRegex);
+    const mentionMatches = message.match(/^(?!.*\bRT\b)(?:.+\s)?#?@\w+/i);
 
     // query usernames for matched patterns
     if (mentionMatches && me) {

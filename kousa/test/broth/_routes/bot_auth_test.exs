@@ -24,14 +24,13 @@ defmodule BrothTest.Routes.BotAuthTest do
 
     test "gets rate limited on X bad requests", t do
       bot = Factory.create(User, apiKey: UUID.uuid4(), botOwnerId: t.user.id)
-      key = "test-rl"
 
       Enum.each(0..5, fn _ ->
-        HttpRequest.post("/bot/auth", %{apiKey: UUID.uuid4()}, [{"rate-limit-key", key}])
+        HttpRequest.post("/bot/auth", %{apiKey: UUID.uuid4()})
       end)
 
       assert {:ok, %Finch.Response{status: 429}} =
-               HttpRequest.post("/bot/auth", %{apiKey: bot.apiKey}, [{"rate-limit-key", key}])
+               HttpRequest.post("/bot/auth", %{apiKey: bot.apiKey})
     end
   end
 end

@@ -40,7 +40,6 @@
   "mime": {:hex, :mime, "1.6.0", "dabde576a497cef4bbdd60aceee8160e02a6c89250d6c0b29e56c0dfb00db3d2", [:mix], [], "hexpm", "31a1a8613f8321143dde1dafc36006a17d28d02bdfecb9e95a880fa7aabd19a7"},
   "mimerl": {:hex, :mimerl, "1.2.0", "67e2d3f571088d5cfd3e550c383094b47159f3eee8ffa08e64106cdf5e981be3", [:rebar3], [], "hexpm", "f278585650aa581986264638ebf698f8bb19df297f66ad91b18910dfc6e19323"},
   "mint": {:hex, :mint, "1.2.1", "369cc8fecc54afd170e11740aa7efd066709e5ef3b5a2c63f0a47d1542cbd56a", [:mix], [{:castore, "~> 0.1.0", [hex: :castore, repo: "hexpm", optional: true]}], "hexpm", "053fe2f48c965f31878a16272478d9299fa412bc4df86dee2678986f2e40e018"},
-  "net_address": {:hex, :net_address, "0.3.0", "0fd8bdccdcb74986b7e808bc1f99a7cf4bbc8232bffd6958e18a963500adb541", [:mix], [], "hexpm", "678886a834e031009eda8a45f3e2cbda94a20a1e5fbc174e88e3f031eeb62c5f"},
   "nimble_options": {:hex, :nimble_options, "0.3.5", "a4f6820cdcb4ee444afd78635f323e58e8a5ddf2fbbe9b9d283a99f972034bae", [:mix], [], "hexpm", "f5507cc90033a8d12769522009c80aa9164af6bab245dbd4ad421d008455f1e1"},
   "nimble_pool": {:hex, :nimble_pool, "0.2.4", "1db8e9f8a53d967d595e0b32a17030cdb6c0dc4a451b8ac787bf601d3f7704c3", [:mix], [], "hexpm", "367e8071e137b787764e6a9992ccb57b276dc2282535f767a07d881951ebeac6"},
   "oauth2": {:hex, :oauth2, "2.0.0", "338382079fe16c514420fa218b0903f8ad2d4bfc0ad0c9f988867dfa246731b0", [:mix], [{:hackney, "~> 1.13", [hex: :hackney, repo: "hexpm", optional: false]}], "hexpm", "881b8364ac7385f9fddc7949379cbe3f7081da37233a1aa7aab844670a91e7e7"},

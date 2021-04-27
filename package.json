@@ -27,7 +27,6 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "commit": "cz",
-    "commit:signed": "cz -S"
+    "commit": "cz"
   }
 }

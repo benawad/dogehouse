@@ -26,8 +26,13 @@ describe("create room then", () => {
     cy.dataTestId("deafen").click();
     cy.dataTestId(`deafened:${defaultTestUsername}`).should("not.exist");
   });
-  it("deafen/mute sequence", () => {
-    cy.testDeafenSequence();
+  it("deafen then unmute", () => {
+    cy.dataTestId("deafen").click();
+    cy.dataTestId(`mic-off`);
+    cy.dataTestId(`headphone-off`);
+    cy.dataTestId("mute").click();
+    cy.dataTestId(`mic-on`);
+    cy.dataTestId(`headphone-on`);
     cy.dataTestId(`deafened:${defaultTestUsername}`).should("not.exist");
   });
   it("invite friends", () => {
@@ -46,16 +51,24 @@ describe("create room then", () => {
       .should("eq", "@" + defaultTestUsername);
     cy.closeModal();
   });
-  it("minimized room widget deafen/mute sequence desktop", () => {
+  it("minimized room widget deafen desktop", () => {
     cy.viewport(2560, 1440);
     cy.dataTestId(`logo-link`).click();
-    cy.testDeafenSequence();
+    cy.dataTestId("deafen").click();
+    cy.dataTestId(`mic-off`);
+    cy.dataTestId(`headphone-off`);
+    cy.dataTestId("mute").click();
+    cy.dataTestId(`mic-on`);
+    cy.dataTestId(`headphone-on`);
   });
-  it("floating room widget deafen/mute sequence", () => {
+  it("floating room widget deafen", () => {
     cy.viewport("iphone-x");
-    // eslint-disable-next-line cypress/no-unnecessary-waiting
-    cy.wait(1);
-    cy.testDeafenSequence();
+    cy.dataTestId("deafen").click();
+    cy.dataTestId(`mic-off`);
+    cy.dataTestId(`headphone-off`);
+    cy.dataTestId("mute").click();
+    cy.dataTestId(`mic-on`);
+    cy.dataTestId(`headphone-on`);
     cy.dataTestId(`room-card:${defaultRoomName}`).click();
   });
   it("leave room", () => {

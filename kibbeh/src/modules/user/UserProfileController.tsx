@@ -66,7 +66,7 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
     <>
       <UserProfile user={data} isCurrentUser={data.id === conn.user.id} />
       {data.id === conn.user.id && (
-        <div className={`pt-6 pb-6 flex`}>
+        <div className={`pt-6 flex`}>
           <Button
             style={{ marginRight: "10px" }}
             size="small"

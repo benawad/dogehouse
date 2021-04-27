@@ -48,7 +48,6 @@ export const useSplitUsersIntoSections = ({
         <img
           src={isCreator ? `/emotes/coolhouse.png` : `/emotes/dogehouse.png`}
           alt={isCreator ? `admin` : `mod`}
-          title={isCreator ? `Administrator` : `Moderator`}
           style={{ marginLeft: 4 }}
           className={`w-3 h-3 ml-1`}
         />

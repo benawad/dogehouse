@@ -1,5 +1,5 @@
 defmodule BrothTest.HttpRequest do
-  def post(path, body, opts \\ []) do
+  def post(path, body) do
     callers =
       self()
       |> :erlang.term_to_binary()
@@ -8,7 +8,7 @@ defmodule BrothTest.HttpRequest do
     case :post
          |> Finch.build(
            "http://localhost:4001" <> path,
-           [{"content-type", "application/json"}, {"user-agent", callers}] ++ opts,
+           [{"content-type", "application/json"}, {"user-agent", callers}],
            Jason.encode!(body)
          )
          |> Finch.request(BrothHttpRequests) do

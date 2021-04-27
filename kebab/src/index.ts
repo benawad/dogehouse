@@ -4,4 +4,3 @@ export * from "./wrapper";
 export * from "./ast";
 export * from "./responses";
 export { wrap as audioWrap } from "./audio/audioWrapper";
-export * as http from "./http";

@@ -37,7 +37,7 @@ defmodule BrothTest.User.CreateBotTest do
       assert {:ok, _} = Ecto.UUID.cast(apiKey)
       %{botOwnerId: botOwnerId} = Users.get_by_api_key(apiKey)
       user_id = t.user.id
-      assert user_id == botOwnerId
+      assert botOwnerId = user_id
     end
 
     test "returns error for username that's already taken", t do

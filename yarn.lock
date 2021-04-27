@@ -1793,7 +1793,6 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^4.22.0
     "@typescript-eslint/parser": ^4.22.0
     eslint: ^7.24.0
-    isomorphic-unfetch: ^3.1.0
     isomorphic-ws: ^4.0.1
     jest: ^26.6.3
     mediasoup-client: ^3.6.29
@@ -11493,16 +11492,6 @@ fsevents@^1.2.7:
     node-fetch: ^2.6.1
     whatwg-fetch: ^3.4.1
   checksum: 999c2845d440a6d53755d7954af40e55b38a25140a81f782aced55d56698f05aae8a0528ba6fd5630cc1040ecbf330c9858340a63b25645c0f81fa2f057fd0bb
-  languageName: node
-  linkType: hard
-
-"isomorphic-unfetch@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "isomorphic-unfetch@npm:3.1.0"
-  dependencies:
-    node-fetch: ^2.6.1
-    unfetch: ^4.2.0
-  checksum: 6453f52bfef7adbd59130b9e6727ccf6f80488920fa89b1294cba6ffc5736384fa7dfe49897b0ad48006044fbe52bc5b5d5b131c4ee33123646fd3b3813c4f15
   languageName: node
   linkType: hard
 

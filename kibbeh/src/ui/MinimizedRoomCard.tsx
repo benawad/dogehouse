@@ -64,7 +64,7 @@ export const MinimizedRoomCard: React.FC<MinimizedRoomCardProps> = ({
               hover={room.myself.isMuted}
               onClick={room.myself.switchMuted}
               className={
-                !room.myself.isMuted && !room.myself.isDeafened
+                !room.myself.isMuted
                   ? "bg-accent hover:bg-accent-hover text-button"
                   : ""
               }
