@@ -1,0 +1,11 @@
+name: Auto label pr
+
+on: [pull_request]
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@main
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
