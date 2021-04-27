@@ -62,6 +62,7 @@ defmodule Broth.Routes.BotAuth do
           |> send_resp(
             200,
             Poison.encode!(%{
+              username: user.username,
               accessToken: Kousa.AccessToken.generate_and_sign!(%{"userId" => user.id}),
               refreshToken:
                 Kousa.RefreshToken.generate_and_sign!(%{
