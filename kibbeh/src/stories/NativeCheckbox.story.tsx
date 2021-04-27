@@ -1,26 +1,40 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
-import { NativeCheckBox, ToggleContext } from "../ui/NativeCheckbox";
-
-const Template: Story<ToggleContext> = (args, { toggle }) => (
-  <div>
-    <NativeCheckBox toggle={toggle} {...args} />
-    <NativeCheckBox
-      {...args}
-      title="Whispers"
-      description="Allow room users to whisper you"
-    />
-  </div>
-);
+import {
+  NativeCheckbox,
+  NativeCheckboxController,
+  NativeCheckboxControllerProps,
+  NativeCheckboxProps,
+} from "../ui/NativeCheckbox";
 
 export default {
   title: "NativeCheckbox",
-  component: NativeCheckBox,
+  component: NativeCheckboxController,
 } as Meta;
 
-export const Main = Template.bind({});
+export const Main: Story<NativeCheckboxControllerProps> = ({ checkboxes }) => {
+  return (
+    <div style={{ width: 640 }} className="p-4 bg-primary-800">
+      <NativeCheckboxController checkboxes={checkboxes} />
+    </div>
+  );
+};
+
+Main.bind({});
 
 Main.args = {
-  title: "Bot Messages",
-  description: "Show messages by Bots",
+  checkboxes: [
+    {
+      title: "Whispers",
+      subtitle: "Allow room users to whisper you",
+    },
+    {
+      title: "Mentions",
+      subtitle: "Allow room users to mention you",
+    },
+    {
+      title: "Bot Messages",
+      subtitle: "Show messages by Bots",
+    },
+  ],
 };

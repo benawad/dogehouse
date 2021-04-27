@@ -1,121 +1,92 @@
-import React, { Children } from "react";
+import React, { useState } from "react";
 
-export interface ToggleContext {
-  title?: string;
-  description?: string;
-  on?: boolean;
-  toggle?: (s: boolean) => any;
-  onClick?: any; // for now :)
-  className?: string;
-  children?: React.ReactNode;
+export interface SwitchProps {
+  checked: boolean;
 }
-export const MyToggleContext = React.createContext<ToggleContext>({});
 
-export const Toggle: React.FC<ToggleContext> = ({ children }) => {
-  const [on, setOn] = React.useState(false);
-  const toggle = () => setOn(!on);
+export const Switch: React.FC<SwitchProps> = ({ checked }) => {
   return (
-    <MyToggleContext.Provider value={{ on, toggle }}>
-      {children}
-    </MyToggleContext.Provider>
+    <div
+      className={`w-5.5 h-4 relative rounded-full border px-1 transition duration-400 ease-in-out-hard ${
+        checked ? "border-primary-100" : "border-primary-300"
+      }`}
+    >
+      <div
+        className={`w-2 h-2  rounded-full transition duration-400 ease-in-out-hard absolute top-2/4 left-2/4 transform -translate-y-1/2 ${
+          checked
+            ? "translate-x-0 bg-primary-100"
+            : "-translate-x-full bg-primary-300"
+        }`}
+      />
+    </div>
   );
 };
 
-const ToggleSwitch: React.FC<ToggleContext> = ({
-  on,
-  onClick,
-  className = "",
-  ...props
-}) => {
-  return (
-    <label aria-label={"Toggle"} aria-hidden="false">
-      <input
-        // className="form-checkbox"
-        id="toggle"
-        type="checkbox"
-        checked={on}
-        onChange={() => {}}
-        onClick={onClick}
-        data-testid="toggle-input"
-      />
-      <span
-        className={on ? "text-primary-100" : "text-primary-300"}
-        {...props}
-      />
-    </label>
-  );
-};
-
-// small util hook for validation of context
-function useToggle() {
-  return React.useContext(MyToggleContext);
+export interface NativeCheckboxProps {
+  title: string;
+  subtitle: string;
+  onClick?: (num: number | undefined) => void;
+  checked?: boolean;
+  num?: number;
 }
 
-function ToggleOn({ children }: ToggleContext) {
-  const { on } = useToggle();
-  return <React.Fragment>{on ? children : null}</React.Fragment>;
-}
-
-function ToggleOff({ children }: ToggleContext) {
-  const { on } = useToggle();
-  return <React.Fragment>{on ? null : children}</React.Fragment>;
-}
-
-function ToggleButton({ ...props }) {
-  const { on, toggle } = useToggle();
-  console.log({ toggle, on });
-  return <ToggleSwitch on={on} onClick={toggle} {...props} />;
-}
-
-export const NativeCheckBox: React.FC<ToggleContext> = ({
-  on,
+export const NativeCheckbox: React.FC<NativeCheckboxProps> = ({
   title,
-  toggle,
-  description,
-  ...props
+  subtitle,
+  onClick,
+  checked = false,
+  num,
 }) => {
   return (
-    <div>
-      <Toggle>
-        <div className="container flex-col justify-between">
-          <div
-            style={{
-              width: "601px",
-              height: "64px",
-              borderRadius: "8px",
-              background: "#151A21",
-              justifyContent: "space-between",
-            }}
-            className="flex mt-4"
-          >
-            <div className="ml-3 mt-2 mb-2 relative">
-              <span
-                id="title"
-                className={
-                  on
-                    ? `text-primary-100 font-bold`
-                    : `text-primary-300 font-bold`
-                }
-              >
-                {console.log("on is: ", on)}
-                {title}
-              </span>
-              <p id="description" className="text-primary-300">
-                {description}
-              </p>
-            </div>
-            <div
-              style={{ margin: "22px 15px 22px 0" }}
-              className="flex justify-center content-center"
-            >
-              {on ? <ToggleOff /> : <ToggleOn />}
-              <div>
-                <ToggleButton />
-              </div>
-            </div>
-          </div>
+    <button
+      className="w-full flex px-3 py-2 bg-primary-900 rounded-8 justify-between group"
+      onClick={onClick ? () => onClick(num) : undefined}
+    >
+      <div className="flex flex-col items-start">
+        <div className="font-bold group-hover:text-primary-100 text-primary-100 transition duration-200">
+          {title}
         </div>
-      </Toggle>
+        <div className="text-primary-300">{subtitle}</div>
+      </div>
+      <div className="flex items-center justify-center">
+        <Switch checked={checked} />
+      </div>
+    </button>
+  );
+};
+
+export interface NativeCheckboxControllerProps {
+  checkboxes: NativeCheckboxProps[];
+}
+
+export const NativeCheckboxController: React.FC<NativeCheckboxControllerProps> = ({
+  checkboxes,
+}) => {
+  // Set checked items based on stored users selection
+  const [currentChecked, setCurrentChecked] = useState<Array<number>>([]);
+
+  const handleClick = (id: number | undefined) => {
+    if (id !== undefined) {
+      if (currentChecked.includes(id)) {
+        setCurrentChecked(currentChecked.filter((e) => e !== id));
+      } else {
+        setCurrentChecked([...currentChecked, id]);
+      }
+    }
+  };
+
+  return (
+    <div className="flex flex-col space-y-2">
+      {checkboxes.map((c, i) => (
+        <NativeCheckbox
+          key={c.title + i}
+          onClick={handleClick}
+          title={c.title}
+          subtitle={c.subtitle}
+          num={i}
+          checked={currentChecked.includes(i)}
+        />
+      ))}
     </div>
   );
 };
