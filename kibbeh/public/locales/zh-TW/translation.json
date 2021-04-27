@@ -39,7 +39,7 @@
       "currentRoom": "目前的房間:",
       "startPrivateRoom": "開啟私人房間"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": { "followHim": "跟隨", "followingHim": "跟隨中" },
     "home": {
       "createRoom": "新增房間",
       "refresh": "Refresh",
@@ -63,7 +63,7 @@
       "loginGithub": "用GitHub登入",
       "loginTwitter": "用Twitter登入",
       "createTestUser": "建立測試使用者",
-      "loginDiscord": "Login with Discord"
+      "loginDiscord": "使用Discord登入"
     },
     "myProfile": {
       "logout": "登出",
@@ -142,10 +142,10 @@
       "settings": "設定",
       "speaker": "講者",
       "listener": "聽眾",
-      "chat": "Chat",
+      "chat": "聊天室 ",
       "toggleDeafMicBtn": "Toggle Deafen",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen"
+      "deafen": "拒聽",
+      "undeafen": "解除拒聽"
     },
     "deviceNotSupported": {
       "notSupported": "你的裝置目前並不支援，你可以到",
@@ -199,7 +199,7 @@
         "usernameLabel": "用户名",
         "bioError": "最大長度為 160 字元",
         "bioLabel": "個人簡介",
-        "bannerUrlLabel": "Twitter banner URL"
+        "bannerUrlLabel": "Twitter 橫幅連結"
       },
       "profileModal": {
         "blockUserConfirm": "你確定把此人加入黑名單?（他就無法加入你所建立的任何房間）",
@@ -235,16 +235,16 @@
     },
     "search": {
       "placeholder": "Search for rooms, users or categories",
-      "placeholderShort": "Search"
+      "placeholderShort": "搜尋"
     },
     "settingsDropdown": {
-      "profile": "Profile",
+      "profile": "個人資料",
       "language": "語言",
       "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "useOldVersion": "舊使用版本",
       "logOut": {
         "button": "登出",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "modalSubtitle": "你確定你要登出？"
       },
       "debugAudio": { "debugAudio": "除錯音頻", "stopDebugger": "停止除錯" }
     }
