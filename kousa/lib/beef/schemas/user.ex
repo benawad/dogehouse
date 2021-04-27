@@ -38,6 +38,7 @@ defmodule Beef.Schemas.User do
           bannerUrl: String.t(),
           bio: String.t(),
           reasonForBan: String.t(),
+          ip: String.t(),
           tokenVersion: integer(),
           numFollowing: integer(),
           numFollowers: integer(),
@@ -85,6 +86,7 @@ defmodule Beef.Schemas.User do
     field(:muted, :boolean, virtual: true)
     field(:deafened, :boolean, virtual: true)
     field(:apiKey, :binary_id)
+    field(:ip, :string, null: true)
 
     belongs_to(:botOwner, Beef.Schemas.User, foreign_key: :botOwnerId, type: :binary_id)
     belongs_to(:currentRoom, Room, foreign_key: :currentRoomId, type: :binary_id)

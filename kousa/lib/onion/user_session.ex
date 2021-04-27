@@ -13,12 +13,14 @@ defmodule Onion.UserSession do
             current_room_id: String.t(),
             muted: boolean(),
             deafened: boolean(),
+            ip: String.t(),
             pid: pid()
           }
 
     defstruct user_id: nil,
               current_room_id: nil,
               muted: false,
+              ip: nil,
               deafened: false,
               pid: nil,
               username: nil,

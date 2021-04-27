@@ -41,6 +41,8 @@ defenum(
     {Room.Mute, 83},
     {Room.GetBannedUsers, 84},
     {Room.Deafen, 85},
+    {Room.BanIp, 86},
+    {Room.UnbanIp, 87},
     # chat commands and casts: 128..191
     {Chat.Ban, 129},
     {Chat.SendMsg, 130},

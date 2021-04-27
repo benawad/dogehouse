@@ -22,6 +22,8 @@ defmodule Broth.Message.Manifest do
     "room:get_invite_list" => Room.GetInviteList,
     "room:leave" => Room.Leave,
     "room:ban" => Room.Ban,
+    "room:ban_ip" => Room.BanIp,
+    "room:unban_ip" => Room.UnbanIp,
     "room:set_role" => Room.SetRole,
     "room:set_auth" => Room.SetAuth,
     "room:join" => Room.Join,
