@@ -16,7 +16,7 @@
     "copied": "copiado",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Esteja ciente que executar o DogeHouse sem permissões de acessibilidade pode causar erros indesejados"
+    "requestPermissions": "Esteja ciente que executar o DogeHouse sem as permissões corretas pode causar erros indesejados"
   },
   "header": {
     "_comment": "Cabeçalho da interface principal para traduções",
@@ -115,10 +115,10 @@
       "header": "Configurações de sobreposição"
     },
     "download": {
-      "starting": "Baixando...",
+      "starting": "Começando o download...",
       "failed": "Não foi possível iniciar o download automático, por favor tente novamente mais tarde",
-      "visit_gh": "Visite Github Releases",
-      "prompt": "Clique no botão abaixo para baixar agora",
+      "visit_gh": "Visite o Github Releases",
+      "prompt": "Clique no botão abaixo para começar a baixar",
       "download_now": "Baixe agora",
       "download_for": "Baixe para %platform% (%ext%)"
     }
@@ -146,7 +146,7 @@
       "speaker": "Apresentador",
       "listener": "Ouvintes",
       "chat": "Chat",
-      "toggleDeafMicBtn": "Alternar Deafen",
+      "toggleDeafMicBtn": "Alternar modo Deafen",
       "deafen": "Deafen",
       "undeafen": "Undeafen"
     },
@@ -214,7 +214,7 @@
       "toggleMuteKeybind": "ativar/desativar atalho para mutar",
       "togglePushToTalkKeybind": "ativar/desativar pressione para falar",
       "toggleOverlayKeybind": "alternar o atalho de teclado de sobreposição",
-      "toggleDeafKeybind": "ative atalho no teclado de deafen"
+      "toggleDeafKeybind": "Ative atalho no teclado de deafen"
     },
     "wsKilled": {
       "description": "O Websocket foi finalizado pelo servidor. Isso geralmente acontece quando você abre o site em outra guia.",
@@ -240,14 +240,14 @@
       "exploreMoreRooms": "Explore mais salas"
     },
     "search": {
-      "placeholder": "Busque por salas, usuários ou categorias",
-      "placeholderShort": "Buscar"
+      "placeholder": "Procure por salas, usuários ou categorias",
+      "placeholderShort": "Procurar"
     },
     "settingsDropdown": {
       "profile": "Perfil",
       "language": "Idioma",
       "reportABug": "Reportar um bug",
-      "useOldVersion": "Usar versão antiga",
+      "useOldVersion": "Usar uma versão antiga",
       "logOut": {
         "button": "Sair",
         "modalSubtitle": "Você tem certeza que deseja sair?"
