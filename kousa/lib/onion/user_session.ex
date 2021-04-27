@@ -11,6 +11,7 @@ defmodule Onion.UserSession do
             username: String.t(),
             display_name: String.t(),
             current_room_id: String.t(),
+            bot_owner_id: String.t(),
             muted: boolean(),
             deafened: boolean(),
             ip: String.t(),
@@ -24,6 +25,7 @@ defmodule Onion.UserSession do
               deafened: false,
               pid: nil,
               username: nil,
+              bot_owner_id: nil,
               display_name: nil,
               avatar_url: nil,
               banner_url: nil

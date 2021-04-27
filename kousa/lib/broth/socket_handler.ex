@@ -22,7 +22,7 @@ defmodule Broth.SocketHandler do
   ## initialization boilerplate
 
   @impl true
-  def init(request = %{peer: {ip, _reverse_port}}, _state) do
+  def init(request, _state) do
     props = :cowboy_req.parse_qs(request)
 
     compression =
@@ -37,10 +37,16 @@ defmodule Broth.SocketHandler do
         _ -> :json
       end
 
+    ip =
+      case request.headers do
+        %{"x-forwarded-for" => v} -> v
+        _ -> nil
+      end
+
     state = %__MODULE__{
       awaiting_init: true,
       user_id: nil,
-      ip: IP.to_string(ip),
+      ip: ip,
       encoding: encoding,
       compression: compression,
       callers: get_callers(request)

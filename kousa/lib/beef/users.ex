@@ -27,6 +27,7 @@ defmodule Beef.Users do
   defdelegate get_current_room(user_id), to: Beef.Access.Users
   defdelegate get_current_room_id(user_id), to: Beef.Access.Users
   defdelegate get_ip(user_id), to: Beef.Access.Users
+  defdelegate bot?(user_id), to: Beef.Access.Users
   defdelegate get_by_api_key(api_key), to: Beef.Access.Users
   defdelegate count_bot_accounts(user_id), to: Beef.Access.Users
 

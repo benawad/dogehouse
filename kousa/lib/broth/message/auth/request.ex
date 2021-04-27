@@ -100,7 +100,8 @@ defmodule Broth.Message.Auth.Request do
         display_name: user.displayName,
         current_room_id: user.currentRoomId,
         muted: request.muted,
-        deafened: request.deafened
+        deafened: request.deafened,
+        bot_owner_id: user.botOwnerId
       )
 
       if user.ip != state.ip do
