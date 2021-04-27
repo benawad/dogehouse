@@ -87,7 +87,7 @@ function ListenerElectron() {
       );
       ipcRenderer.removeListener(CHAT_KEY, CHAT_KEY_FUNC);
     };
-  }, [conn, push, toggleOpen]);
+  }, [conn, push, toggleOpen, t]);
 
   return null;
 }
@@ -96,6 +96,7 @@ function ListenerBrowser() {
   const { push } = useRouter();
   const { conn } = useContext(WebSocketContext);
   const { keyMap } = useKeyMapStore();
+  const { t } = useTypeSafeTranslation();
   const toggleOpen = useRoomChatStore((s) => s.toggleOpen);
   return (
     <GlobalHotKeys
