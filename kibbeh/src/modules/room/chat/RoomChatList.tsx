@@ -63,11 +63,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
     >
       <div
         className="w-full h-full mt-auto"
-        style={{
-          height: `${rowVirtualizer.totalSize}px`,
-          width: "100%",
-          position: "relative",
-        }}
       >
         {rowVirtualizer.virtualItems.map(
           ({ index: idx, start, measureRef, size }: VirtualItem) => {
@@ -75,17 +70,8 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
             return (
               <div
                 ref={measureRef}
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  transform: `translateY(${
-                    messages[index].isWhisper ? start : start
-                  }px)`,
-                }}
                 key={messages[index].id}
-                className="py-1"
+                className="py-2 md:py-2"
               >
                 <div
                   className={`flex flex-col flex-shrink-0 w-full ${
