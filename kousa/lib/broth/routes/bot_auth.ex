@@ -25,11 +25,11 @@ defmodule Broth.Routes.BotAuth do
       key =
         with :test <- @env,
              {_, value} <-
-               Enum.find(conn.req_headers, fn {key, _} -> key == "rate-limit-key" end) do
+               :proplists.get_value("rate-limit-key", conn.req_headers, nil) do
           value
         else
           _ ->
-            to_string(:inet_parse.ntoa(conn.remote_ip))
+            IP.to_string(conn.remote_ip)
         end
 
       max_attempts = if @env == :test, do: 5, else: 20
