@@ -127,7 +127,7 @@ const Page = ({
           avatars={
             "peoplePreviewList" in room
               ? room.peoplePreviewList
-                  .map((x) => x.avatarUrl)
+                  .map((x) => x.avatarUrl!)
                   .slice(0, 3)
                   .filter((x) => x !== null)
               : []
