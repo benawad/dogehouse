@@ -59,7 +59,7 @@ export const ChangeAvatarCard: React.FC<ChangeAvatarCardProps> = ({
           </Button>
         </div>
         <div className="mt-2">
-          <div className="text-primary-300 text-sm font-medium">
+          <div className="text-primary-300 text-sm">
             Only JPG or PNG and maximum 3MB.
           </div>
         </div>

@@ -105,7 +105,7 @@
       "copyProfileUrl": "复制个人主页链接",
       "urlCopied": "个人主页链接已复制到剪贴板",
       "unfollow": "取消关注",
-      "about": "About"
+      "about": "关于ta"
     },
     "voiceSettings": {
       "header": "语音设置",
@@ -186,7 +186,7 @@
         "usernameLabel": "用户名",
         "bioError": "最大长度为160字符",
         "bioLabel": "个人简介",
-        "bannerUrlLabel": "Twitter banner URL"
+        "bannerUrlLabel": "Twitter横幅图链接"
       },
       "profileModal": {
         "blockUserConfirm": "您确定把此人加入黑名单?（ta不可加入您所建立的任何聊天室）",
@@ -247,7 +247,7 @@
     },
     "search": {
       "placeholder": "搜索聊天室，用户或者种类",
-      "placeholderShort": "Search"
+      "placeholderShort": "搜索"
     },
     "settingsDropdown": {
       "profile": "个人信息页面",

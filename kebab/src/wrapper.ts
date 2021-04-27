@@ -20,6 +20,7 @@ import {
   GetRoomUsersResponse,
   NewRoomDetailsResponse,
   InvitationToRoomResponse,
+  CreateBotResponse
 } from "./responses";
 
 type Handler<Data> = (data: Data) => void;
