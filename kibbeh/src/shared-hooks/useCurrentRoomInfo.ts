@@ -48,8 +48,8 @@ export const useCurrentRoomInfo = () => {
 
   const isCreator = me.id === data.room.creatorId;
   if (isElectron()) {
-    if (iWasMod != isMod) {
-      iWasMod = isMod
+    if (iWasMod !== isMod) {
+      iWasMod = isMod;
       ipcRenderer = window.require("electron").ipcRenderer;
       ipcRenderer.send("@notification/mod", isMod);
     }
