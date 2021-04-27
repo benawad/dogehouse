@@ -7,7 +7,6 @@ import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { SingleUser } from "./UserAvatar";
 import { HeaderController } from "../modules/display/HeaderController";
-import { useRouter } from "next/router";
 
 interface VerticalUserInfoProps {
   user: BaseUser;
@@ -15,7 +14,6 @@ interface VerticalUserInfoProps {
 
 export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
   const { t } = useTypeSafeTranslation();
-  const router = useRouter();
   return (
     <>
       <HeaderController
@@ -23,24 +21,28 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
         title={`${user.displayName} (@${user.username})`}
       />
       <div className="flex flex-col rounded-8 pt-5 px-6 pb-4 w-full items-center">
-        <SingleUser
-          size="default"
-          src={user.avatarUrl}
-          username={user.username}
-        />
-        <div className="flex mt-2 max-w-full">
-          <span className="flex text-primary-100 font-bold h-full break-all line-clamp-1 truncate">
-            {user.displayName}
-          </span>
-          <button
-            data-testid="profile-info-username"
-            className="flex text-primary-300 ml-1"
-            onClick={() => router.push(`/u/${user.username}`)}
-          >
-            @{user.username}
-          </button>
-          {/* <Badges badges={badges} /> */}
-        </div>
+        <ApiPreloadLink route="profile" data={{ username: user.username }}>
+          <SingleUser
+            size="default"
+            src={user.avatarUrl}
+            username={user.username}
+            hover={true}
+          />
+        </ApiPreloadLink>
+        <ApiPreloadLink route="profile" data={{ username: user.username }}>
+          <div className="flex mt-2 max-w-full">
+            <span className="flex text-primary-100 font-bold h-full break-all line-clamp-1 truncate">
+              {user.displayName}
+            </span>
+            <span
+              data-testid="profile-info-username"
+              className="flex text-primary-300 ml-1 hover:underline"
+            >
+              @{user.username}
+            </span>
+            {/* <Badges badges={badges} /> */}
+          </div>
+        </ApiPreloadLink>
         <div className="flex mt-2">
           <div className="flex">
             <ApiPreloadLink
@@ -49,8 +51,8 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
             >
               <span className="text-primary-100 font-bold">
                 {kFormatter(user.numFollowers)}
-              </span>{" "}
-              <span className="text-primary-300 ml-1 lowercase">
+              </span>
+              <span className="text-primary-300 lowercase ml-1.5">
                 {t("pages.viewUser.followers")}
               </span>
             </ApiPreloadLink>
@@ -63,8 +65,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
               <span className="text-primary-100 font-bold">
                 {kFormatter(user.numFollowing)}
               </span>
-              <span className="text-primary-300 ml-1 lowercase">
-                {" "}
+              <span className="text-primary-300 lowercase ml-1.5">
                 {t("pages.viewUser.following")}
               </span>
             </ApiPreloadLink>
