@@ -20,7 +20,15 @@ defmodule Broth.Routes.BotAuth do
   post "/auth" do
     with %{"apiKey" => api_key} <- conn.body_params,
          {:ok, _} <- Ecto.UUID.cast(api_key) do
-      key = to_string(:inet_parse.ntoa(conn.remote_ip))
+      key =
+        with :test <- Mix.env(),
+             {_, value} <-
+               Enum.find(conn.req_headers, fn {key, _} -> key == "rate-limit-key" end) do
+          value
+        else
+          _ ->
+            to_string(:inet_parse.ntoa(conn.remote_ip))
+        end
 
       max_attempts = if Mix.env() == :test, do: 5, else: 20
 
