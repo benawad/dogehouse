@@ -14,6 +14,7 @@ import { UserWithFollowInfo } from "@dogehouse/kebab";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { useTypeSafeUpdateQuery } from "../shared-hooks/useTypeSafeUpdateQuery";
 import { EditProfileModal } from "../modules/user/EditProfileModal";
+import { usePreloadPush } from "../shared-components/ApiPreloadLink";
 
 export interface ProfileHeaderProps {
   displayName: string;
@@ -43,6 +44,8 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   const { t } = useTypeSafeTranslation();
   const updater = useTypeSafeUpdateQuery();
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
+  const preloadPush = usePreloadPush();
+  const update = useTypeSafeUpdateQuery();
   return (
     // @TODO: Add the cover api (once it's implemented)}
     <ProfileHeaderWrapper
@@ -51,6 +54,17 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
       <EditProfileModal
         isOpen={showEditProfileModal}
         onRequestClose={() => setShowEditProfileModal(false)}
+        onEdit={(d) => {
+          update(["getUserProfile", d.username], (x) =>
+            !x ? x : { ...x, ...d }
+          );
+          if (d.username !== username) {
+            preloadPush({
+              route: "profile",
+              data: { username: d.username },
+            });
+          }
+        }}
       />
       <div className="flex mr-4 ">
         <SingleUser
