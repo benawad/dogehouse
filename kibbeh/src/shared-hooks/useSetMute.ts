@@ -9,6 +9,8 @@ export const setMute = (conn: Wrapper, value: boolean) => {
   if (deafened) {
     setInternalDeaf(false);
     conn.mutation.setDeaf(false);
+    useMuteStore.getState().setInternalMute(false, false);
+    conn.mutation.setMute(false);
   } else {
     useMuteStore.getState().setInternalMute(value);
     conn.mutation.setMute(value);
