@@ -18,7 +18,7 @@ export const createChatMessage = (
   const testAndPushToken = (item: string) => {
     const isLink = linkRegex.test(item);
     const withoutAt = item.replace(/@|#/g, "");
-    const isMention = roomUsers.find((m) => withoutAt === m.username);
+    const isMention = roomUsers.find((m) => withoutAt === m.username && item.includes(`@${withoutAt}`));
 
     // whisperedTo users list
     if (isMention && item.startsWith("#@")) {
