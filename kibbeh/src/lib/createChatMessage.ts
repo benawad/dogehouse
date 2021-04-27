@@ -1,6 +1,6 @@
 import { BaseUser } from "@dogehouse/kebab";
 import normalizeUrl from "normalize-url";
-import { linkRegex, codeBlockRegex } from "./constants";
+import { linkRegex, codeBlockRegex, mentionRegex } from "./constants";
 
 export const createChatMessage = (
   message: string,
@@ -18,7 +18,9 @@ export const createChatMessage = (
   const testAndPushToken = (item: string) => {
     const isLink = linkRegex.test(item);
     const withoutAt = item.replace(/@|#/g, "");
-    const isMention = roomUsers.find((m) => withoutAt === m.username);
+    const isMention =
+      roomUsers.find((m) => withoutAt === m.username) &&
+      mentionRegex.test(item);
 
     // whisperedTo users list
     if (isMention && item.startsWith("#@")) {

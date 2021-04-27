@@ -42,6 +42,7 @@ defmodule Kousa.MixProject do
       {:jason, "~> 1.2"},
       {:joken, "~> 2.0"},
       {:elixir_uuid, "~> 1.2"},
+      {:net_address, "~> 0.3"},
       # TODO: switch off of httpoison to, e.g. Mojito or Finch
       {:httpoison, "~> 1.8"},
       {:finch, "~> 0.6"},

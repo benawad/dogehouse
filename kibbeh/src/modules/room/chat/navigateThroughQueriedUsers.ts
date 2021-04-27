@@ -33,9 +33,9 @@ export const navigateThroughQueriedUsers = (e: any) => {
       activeIndex === queriedUsernames.length - 1 ? 0 : activeIndex + 1;
   } else if (e.code === "Enter" || e.code === "Tab") {
     const selected = queriedUsernames[activeIndex];
+
     setMessage(
-      `${message.substring(0, message.lastIndexOf("@") + 1)}${
-        selected.username
+      `${message.substring(0, message.lastIndexOf("@") + 1)}${selected.username
       } `
     );
     setQueriedUsernames([]);
