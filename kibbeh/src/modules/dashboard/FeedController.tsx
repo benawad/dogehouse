@@ -10,7 +10,7 @@ import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslatio
 import { useTypeSafeUpdateQuery } from "../../shared-hooks/useTypeSafeUpdateQuery";
 import { Button } from "../../ui/Button";
 import { CenterLoader } from "../../ui/CenterLoader";
-import { FeedHeader } from "../../ui/Feed";
+import { FeedHeader } from "../../ui/FeedHeader";
 import { RoomCard } from "../../ui/RoomCard";
 import { MiddlePanel } from "../layouts/GridPanels";
 import { useRoomChatStore } from "../room/chat/useRoomChatStore";

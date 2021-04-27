@@ -3,6 +3,7 @@ import * as React from "react";
 export default function SvgSolidDeafened(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
+      data-testid="headphone-on"
       width={16}
       height={16}
       viewBox="0 0 16 16"

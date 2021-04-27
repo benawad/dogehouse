@@ -71,6 +71,7 @@ export const RoomCard: React.FC<RoomCardProps> = ({
 
   return (
     <button
+      data-testid={`room-card:${title}`}
       onClick={onClick}
       className="flex flex-col w-full p-4 rounded-lg transition duration-200 ease-in-out bg-primary-800 hover:bg-primary-700"
     >
@@ -85,7 +86,7 @@ export const RoomCard: React.FC<RoomCardProps> = ({
           </BubbleText>
         </div>
       </div>
-      <div className="block w-full mt-2 flex">
+      <div className="w-full mt-2 flex">
         {avatars.length > 0 ? (
           <MultipleUsers className="mr-2" srcArray={avatars} />
         ) : null}

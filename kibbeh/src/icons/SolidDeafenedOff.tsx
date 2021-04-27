@@ -5,6 +5,7 @@ export default function SvgSolidDeafenedOff(
 ) {
   return (
     <svg
+      data-testid="headphone-off"
       width={16}
       height={16}
       viewBox="0 0 16 16"

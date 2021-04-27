@@ -53,7 +53,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
             onClick={() => mute.onMute()}
             data-testid="mute"
           >
-            {mute.isMuted ? (
+            {mute.isMuted || deaf?.isDeaf ? (
               <SolidMicrophoneOff width="20" height="20" />
             ) : (
               <SolidMicrophone width="20" height="20" />

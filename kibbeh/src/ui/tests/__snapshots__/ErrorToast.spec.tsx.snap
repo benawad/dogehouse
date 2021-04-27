@@ -50,7 +50,7 @@ exports[`ErrorMessage should match snapshot 1`] = `
   <div
     class="flex space-x-4 items-center"
   >
-    <p
+    <div
       class="bold"
     />
   </div>
