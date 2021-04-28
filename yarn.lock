@@ -4165,6 +4165,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:^14.14.22":
+  version: 14.14.43
+  resolution: "@types/node@npm:14.14.43"
+  checksum: b7a9e6df7c2a6f90e783bfe6ef358cc2c3ff4e1dfcea56b83349cd3feefd02a9b6fa54b443983694b4398a06257d871c947abeae03bd0d39fd71981161d61765
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:^14.14.31":
   version: 14.14.41
   resolution: "@types/node@npm:14.14.41"
@@ -7949,6 +7956,17 @@ __metadata:
   checksum: c988be315dc9ec83948605da58a25912daaae787d6a5cfa0b0574383dcf9b953aa81ba3109d06bc8590b037259753d2962a362e351efcb4274e94f1b0f277065
   languageName: node
   linkType: hard
+
+"dinner@workspace:dinner":
+  version: 0.0.0-use.local
+  resolution: "dinner@workspace:dinner"
+  dependencies:
+    "@dogehouse/kebab": "workspace:kebab"
+    "@types/node": ^14.14.22
+    ts-node: ^9.1.1
+    typescript: ^4.1.3
+  languageName: unknown
+  linkType: soft
 
 "dir-glob@npm:^2.2.2":
   version: 2.2.2
@@ -18584,7 +18602,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"ts-node@npm:9.1.1":
+"ts-node@npm:9.1.1, ts-node@npm:^9.1.1":
   version: 9.1.1
   resolution: "ts-node@npm:9.1.1"
   dependencies:
@@ -18777,7 +18795,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"typescript@4.2.4, typescript@^4.2.4":
+"typescript@4.2.4, typescript@^4.1.3, typescript@^4.2.4":
   version: 4.2.4
   resolution: "typescript@npm:4.2.4"
   bin:
@@ -18787,7 +18805,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.2.4#builtin<compat/typescript>, typescript@patch:typescript@^4.2.4#builtin<compat/typescript>":
+"typescript@patch:typescript@4.2.4#builtin<compat/typescript>, typescript@patch:typescript@^4.1.3#builtin<compat/typescript>, typescript@patch:typescript@^4.2.4#builtin<compat/typescript>":
   version: 4.2.4
   resolution: "typescript@patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"
   bin:
