@@ -124,7 +124,7 @@ type AddToCalendarProps = {
   children: (tog: () => void) => ReactNode;
 };
 
-const AddToCalendar: React.FC<AddToCalendarProps> = ({
+export const AddToCalendar: React.FC<AddToCalendarProps> = ({
   children,
   event,
   filename = "download",
@@ -146,5 +146,3 @@ const AddToCalendar: React.FC<AddToCalendarProps> = ({
     </div>
   );
 };
-
-export default AddToCalendar;

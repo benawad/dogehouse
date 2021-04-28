@@ -10,9 +10,9 @@ import { BoxedIcon } from "../../ui/BoxedIcon";
 import { Button } from "../../ui/Button";
 import { SingleUser } from "../../ui/UserAvatar";
 import { WebSocketContext } from "../ws/WebSocketProvider";
-import AddToCalendar from "./AddToCalendar";
 import { CopyScheduleRoomLinkButton } from "./CopyScheduleRoomLinkButton";
 import { Edit, Trash } from "react-feather";
+import { AddToCalendar } from "./AddToCalendar";
 
 interface ScheduledRoomCardProps {
   onEdit: () => void;
