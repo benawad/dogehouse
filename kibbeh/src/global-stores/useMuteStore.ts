@@ -11,13 +11,17 @@ export const useMuteStore = create(
     (set) => ({
       // don't call this directly unless you know what you are doing
       // use useSetMute hook intead
-      setInternalMute: (muted: boolean) => {
+      setInternalMute: (muted: boolean, playSound = true) => {
         if (muted) {
-          useSoundEffectStore.getState().playSoundEffect("mute");
           useWakeLockStore.getState().releaseWakeLock();
         } else {
-          useSoundEffectStore.getState().playSoundEffect("unmute");
           useWakeLockStore.getState().requestWakeLock();
+        }
+        // to prevent sound overlapping
+        if (playSound) {
+          useSoundEffectStore
+            .getState()
+            .playSoundEffect(muted ? "mute" : "unmute");
         }
         set({ muted });
       },

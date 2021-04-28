@@ -8,7 +8,9 @@ defmodule Beef.Schemas.User do
 
     # TODO: Make this a separate Schema that sees the same table.
 
-    @derive {Poison.Encoder, only: [:id, :displayName, :numFollowers]}
+    @derive {Poison.Encoder, only: [:id, :displayName, :numFollowers, :avatarUrl]}
+    @derive {Jason.Encoder, only: [:id, :displayName, :numFollowers, :avatarUrl]}
+
     @primary_key false
     embedded_schema do
       # does User.Preview really need an id?
@@ -16,6 +18,7 @@ defmodule Beef.Schemas.User do
 
       field(:displayName, :string)
       field(:numFollowers, :integer)
+      field(:avatarUrl, :string)
     end
   end
 
@@ -32,8 +35,10 @@ defmodule Beef.Schemas.User do
           discordAccessToken: String.t(),
           displayName: String.t(),
           avatarUrl: String.t(),
+          bannerUrl: String.t(),
           bio: String.t(),
           reasonForBan: String.t(),
+          ip: String.t(),
           tokenVersion: integer(),
           numFollowing: integer(),
           numFollowers: integer(),
@@ -47,9 +52,13 @@ defmodule Beef.Schemas.User do
           currentRoom: Room.t() | Ecto.Association.NotLoaded.t()
         }
 
-  @derive {Poison.Encoder, only: ~w(id username avatarUrl bio online
+  @derive {Poison.Encoder, only: ~w(id username avatarUrl bannerUrl bio online
              lastOnline currentRoomId displayName numFollowing numFollowers
              currentRoom youAreFollowing followsYou roomPermissions)a}
+
+  @derive {Jason.Encoder, only: ~w(id username avatarUrl bannerUrl bio online
+    lastOnline currentRoomId displayName numFollowing numFollowers
+    youAreFollowing followsYou roomPermissions)a}
 
   @primary_key {:id, :binary_id, []}
   schema "users" do
@@ -62,6 +71,7 @@ defmodule Beef.Schemas.User do
     field(:discordAccessToken, :string)
     field(:displayName, :string)
     field(:avatarUrl, :string)
+    field(:bannerUrl, :string)
     field(:bio, :string, default: "")
     field(:reasonForBan, :string)
     field(:tokenVersion, :integer)
@@ -73,8 +83,18 @@ defmodule Beef.Schemas.User do
     field(:youAreFollowing, :boolean, virtual: true)
     field(:followsYou, :boolean, virtual: true)
     field(:roomPermissions, :map, virtual: true, null: true)
+    field(:muted, :boolean, virtual: true)
+    field(:deafened, :boolean, virtual: true)
+    field(:apiKey, :binary_id)
+    field(:ip, :string, null: true)
 
+    belongs_to(:botOwner, Beef.Schemas.User, foreign_key: :botOwnerId, type: :binary_id)
     belongs_to(:currentRoom, Room, foreign_key: :currentRoomId, type: :binary_id)
+
+    many_to_many(:blocked_by, __MODULE__,
+      join_through: "user_blocks",
+      join_keys: [userIdBlocked: :id, userId: :id]
+    )
 
     timestamps()
   end
@@ -84,21 +104,34 @@ defmodule Beef.Schemas.User do
     # TODO: amend this to accept *either* githubId or twitterId and also
     # pipe edit_changeset into this puppy.
     user
-    |> cast(attrs, ~w(username githubId avatarUrl)a)
-    |> validate_required([:username, :githubId, :avatarUrl])
+    |> cast(attrs, ~w(username githubId avatarUrl bannerUrl)a)
+    |> validate_required([:username, :githubId, :avatarUrl, :bannerUrl])
   end
 
   def edit_changeset(user, attrs) do
     user
-    |> cast(attrs, [:id, :username, :bio, :displayName, :avatarUrl])
+    |> cast(attrs, [
+      :id,
+      :username,
+      :bio,
+      :displayName,
+      :avatarUrl,
+      :bannerUrl,
+      :apiKey,
+      :botOwnerId
+    ])
     |> validate_required([:username, :displayName, :avatarUrl])
     |> update_change(:displayName, &String.trim/1)
     |> validate_length(:bio, min: 0, max: 160)
     |> validate_length(:displayName, min: 2, max: 50)
-    |> validate_format(:username, ~r/^(\w){4,15}$/)
+    |> validate_format(:username, ~r/^[\w\.]{4,15}$/)
     |> validate_format(
       :avatarUrl,
-      ~r/^https?:\/\/(www\.|)(pbs.twimg.com\/profile_images\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/)/
+      ~r/^https?:\/\/(www\.|)((a|p)bs.twimg.com\/(profile_images|sticky\/default_profile_images)\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/|github.com\/identicons\/[^\s]+)/
+    )
+    |> validate_format(
+      :bannerUrl,
+      ~r/^https?:\/\/(www\.|)(pbs.twimg.com\/profile_banners\/(.+)\/(.+)\/(.+)(?:\.(jpg|png|jpeg|webp))?|avatars\.githubusercontent\.com\/u\/)/
     )
     |> unique_constraint(:username)
   end

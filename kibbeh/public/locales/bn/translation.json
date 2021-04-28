@@ -21,7 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "নিঃশব্দ | DogeHouse"
+    "mutedTitle": "নিঃশব্দ | DogeHouse",
+    "deafenedTitle": "সাউন্ড বন্ধ | DogeHouse",
+    "dashboard": "ড্যাশবোর্ড",
+    "connectionTaken": "কানেকশন নেওয়া হয়ে গিয়েছে"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -44,7 +47,8 @@
     "home": {
       "createRoom": "রুম বানান",
       "refresh": "রিফ্রেশ করুন",
-      "editRoom": "রুম এডিট করুন"
+      "editRoom": "রুম এডিট করুন",
+      "desktopAlert": "ডাউনলোড করুন DogeHouse ডেস্কটপ অ্যাপ্লিকেশন আজকেই!"
     },
     "inviteList": {
       "roomGone": "রুম শেষ, ফিরে আসুন",
@@ -63,7 +67,7 @@
       "loginGithub": "GitHub এর দ্বারা লগইন করুন",
       "loginTwitter": "Twitter এর দ্বারা লগইন করুন",
       "createTestUser": "টেস্ট ইউজার তৈরি করুন",
-      "loginDiscord": "Login with Discord"
+      "loginDiscord": "Discord এর দ্বারা লগইন করুন"
     },
     "myProfile": {
       "logout": "লগআউট",
@@ -72,7 +76,7 @@
       "soundSettings": "সাউন্ড সেটিংস এ যান",
       "deleteAccount": "অ্যাকাউন্ট ডিলিট করুন",
       "overlaySettings": "ওভারলে সেটিংস এ যান",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "দুঃখিত, আমরা সেই ইউজারকে খুঁজে পাইনি"
     },
     "notFound": {
       "whoopsError": "উপস! এই পেজের বার্তালাপ কেটে গেছে।",
@@ -87,7 +91,7 @@
       "allowAllConfirm": "আপনি কি নিশ্চিত? এটা অনুমতি দেবে সব {{count}} জন অনুরোধ করা ইউজারদের কথা বলতে"
     },
     "searchUser": { "search": "খুঁজুন..." },
-    "soundEffectSettings": { "header": "সাউন্ডস" },
+    "soundEffectSettings": { "header": "সাউন্ডস", "title": "সাউন্ড সেটিংস" },
     "viewUser": {
       "editProfile": "প্রোফাইল এডিট করুন",
       "followsYou": "আপনাকে অনুসরণ করে",
@@ -97,7 +101,8 @@
       "followingHim": "অনুসরণ করছেন",
       "copyProfileUrl": "প্রোফাইলের URL কপি করুন",
       "urlCopied": "URL ক্লিপবোর্ডে কপি করা হয়েছে",
-      "unfollow": "অনুসরণ বাতিল করুন"
+      "unfollow": "অনুসরণ বাতিল করুন",
+      "about": "সম্বন্ধে"
     },
     "voiceSettings": {
       "header": "ভয়েস সেটিংস",
@@ -114,6 +119,14 @@
       "header": "ওভারলে সেটিংস",
       "errorMsg": "দয়া করে বৈধ অ্যাপ শিরোনাম দিন",
       "label": "অ্যাপ শিরোনাম দিন"
+    },
+    "download": {
+      "starting": "ডাউনলোড শুরু হচ্ছে...",
+      "failed": "অটো-ডাউনলোড করা যাচ্ছে না, পরে আবার চেষ্টা করুন",
+      "visit_gh": "যান গিটহাব রিলিজেস এ",
+      "prompt": "নিচের বাটনটিতে ক্লিক করুন ডাউনলোড শুরু করতে",
+      "download_now": "ডাউনলোড করুন এখন",
+      "download_for": "%platform% (%ext%)-এর জন্য ডাউনলোড করুন"
     }
   },
   "components": {
@@ -138,7 +151,10 @@
       "settings": "সেটিংস",
       "speaker": "স্পিকার",
       "listener": "শ্রোতাগণ",
-      "chat": "চ্যাট"
+      "chat": "চ্যাট",
+      "toggleDeafMicBtn": "সাউন্ড টগল করুন",
+      "deafen": "সাউন্ড বন্ধ",
+      "undeafen": "সাউন্ড অন"
     },
     "deviceNotSupported": {
       "notSupported": "আপনার ডিভাইসটি বর্তমানে সাপোর্টেড নয়। আপনি তৈরি করতে পারেন একটি",
@@ -159,7 +175,8 @@
       "listening": "শুনুন",
       "toggleMuteKeybind": "টগল করুন মাইক কীবাইন্ড",
       "togglePushToTalkKeybind": "টগল করুন পুশ-টু-টক কীবাইন্ড",
-      "toggleOverlayKeybind": "টগল করুন ওভারলে কীবাইন্ড"
+      "toggleOverlayKeybind": "টগল করুন ওভারলে কীবাইন্ড",
+      "toggleDeafKeybind": "টগল করুন সাউন্ড কীবাইন্ড"
     },
     "userVolumeSlider": {
       "noAudioMessage": "কিছু কারনে অডিও কনসিউম করা যাইনি"
@@ -177,7 +194,7 @@
         "roomDescription": "রুমের সম্বন্ধে",
         "descriptionError": "৫০০ শব্দের মধ্যে হতে হবে",
         "nameError": "২ থেকে ৬০ অক্ষরের মধ্যে হতে হবে",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "নিচের স্থানগুলো পূরণ করুন একটি নতুন রুম শুরু করতে"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "নতুন রুম তৈরি হয়েছে",
@@ -195,7 +212,8 @@
         "usernameError": "২ থেকে ৬০ অক্ষরের মধ্যে হতে হবে এবং শুধুমাত্র বর্ণমালা ও সংখ্যা/আন্ডারস্কোর",
         "usernameLabel": "ইউজার নাম",
         "bioError": "১৬০ অক্ষরের মধ্যে হতে হবে",
-        "bioLabel": "বর্ণনা"
+        "bioLabel": "বর্ণনা",
+        "bannerUrlLabel": "টুইটার ব্যানার URL"
       },
       "profileModal": {
         "blockUserConfirm": "আপনি কি নিশ্চিত যে আপনি এই ইউজারকে চিরকালের জন্য ব্লক করছেন আপনার সব রুমে জয়েন করা থেকে?",
@@ -209,7 +227,7 @@
         "goBackToListener": "শ্রোতাতে ফিরে যান",
         "deleteMessage": "মেসেজটি মুছে ফেলুন",
         "makeRoomCreator": "রুম অ্যাডমিন তৈরি করুন",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "চ্যাট থেকে আনব্যান করুন"
       },
       "roomSettingsModal": {
         "requirePermission": "কথা বলার জন্য পারমিশন লাগবে",
@@ -220,24 +238,31 @@
       }
     },
     "followingOnline": {
-      "people": "People",
-      "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "people": "মানুষ",
+      "online": "অনলাইন",
+      "noOnline": "এই মুহুর্তে আপনার অনলাইনে ০ জন বন্ধু রয়েছে",
+      "showMore": "আরো দেখুন"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "আসন্ন রুমগুলো",
+      "exploreMoreRooms": "আরো রুম এক্সপ্লোর করুন"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "সার্চ করুন রুম, ইউজার অথবা ক্যাটেগরি",
+      "placeholderShort": "সার্চ করুন"
+    },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "প্রোফাইল",
+      "language": "ভাষা",
+      "reportABug": "বাগ রিপোর্ট করুন",
+      "useOldVersion": "পুরাতন ভার্সন ব্যবহার করুন",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "লগ আউট",
+        "modalSubtitle": "আপনি কি নিশ্চিত আপনি লগ আউট করতে চান?"
+      },
+      "debugAudio": {
+        "debugAudio": "অডিও ডিবাগ করুন",
+        "stopDebugger": "ডিবাগার বন্ধ করুন"
       }
     }
   },
@@ -255,6 +280,11 @@
         "roomName": "রুমের নাম",
         "minLength": "মিনিমাম ২ অক্ষরের",
         "roomDescription": "রুমের বর্ণনা"
+      },
+      "tommorow": "আগামীকাল",
+      "today": "আজ",
+      "deleteModal": {
+        "areYouSure": "আপনি কি নিশ্চিত আপনি এই পরিকল্পিত রুমটি ডিলিট করতে চান?"
       }
     },
     "roomChat": {
@@ -264,7 +294,7 @@
       "waitAlert": "একটু অপেক্ষা করুন আরেকটা মেসেজ করার আগে",
       "search": "খুঁজুন",
       "searchResults": "খুঁজে পাওয়া ফলাফল",
-      "recent": "ঘনঘন ব্যবহৃত",
+      "recent": "সাম্প্রতিক",
       "sendMessage": "মেসেজ পাঠান",
       "whisper": "ফিসফিস",
       "welcomeMessage": "চ্যাট এ স্বাগতম!",
@@ -282,6 +312,6 @@
       "galacticDoge": "গ্যালাকটিক Doge",
       "spottedLife": "গ্রহে জীবনের সন্ধান পাওয়া গেছে"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": { "yourFeed": "আপনার ফিড" }
   }
 }

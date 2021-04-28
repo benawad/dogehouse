@@ -1,10 +1,7 @@
-import { BaseUser } from "@dogehouse/kebab";
 import { Form, Formik } from "formik";
 import isElectron from "is-electron";
 import React, { useContext, useEffect } from "react";
-import { useQueryClient } from "react-query";
-import { object, pattern, size, string } from "superstruct";
-import { FieldSpacer } from "../../form-fields/FieldSpacer";
+import { object, pattern, size, string, optional } from "superstruct";
 import { InputField } from "../../form-fields/InputField";
 import { showErrorToast } from "../../lib/showErrorToast";
 import { validateStruct } from "../../lib/validateStruct";
@@ -21,13 +18,25 @@ const profileStruct = object({
   bio: size(string(), 0, 160),
   avatarUrl: pattern(
     string(),
-    /^https?:\/\/(www\.|)((a|p)bs.twimg.com\/(profile_images|sticky\/default_profile_images)\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/)/
+    /^https?:\/\/(www\.|)((a|p)bs.twimg.com\/(profile_images|sticky\/default_profile_images)\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/|github.com\/identicons\/[^\s]+)/
+  ),
+  bannerUrl: optional(
+    pattern(
+      string(),
+      /^https?:\/\/(www\.|)(pbs.twimg.com\/profile_banners\/(.+)\/(.+)\/(.+)(?:\.(jpg|png|jpeg|webp))?|avatars\.githubusercontent\.com\/u\/)/
+    )
   ),
 });
 
 interface EditProfileModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
+  onEdit?: (data: {
+    displayName: string;
+    username: string;
+    bio: string;
+    avatarUrl: string;
+  }) => void;
 }
 
 const validateFn = validateStruct(profileStruct);
@@ -35,9 +44,10 @@ const validateFn = validateStruct(profileStruct);
 export const EditProfileModal: React.FC<EditProfileModalProps> = ({
   isOpen,
   onRequestClose,
+  onEdit,
 }) => {
   const { conn, setUser } = useContext(WebSocketContext);
-  const { mutateAsync, isLoading } = useTypeSafeMutation("editProfile");
+  const { mutateAsync } = useTypeSafeMutation("editProfile");
   const { t } = useTypeSafeTranslation();
 
   useEffect(() => {
@@ -65,13 +75,15 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
           initialValues={{
             displayName: user.displayName,
             username: user.username,
-            bio: user.bio,
+            bio: user.bio || "",
             avatarUrl: user.avatarUrl,
+            bannerUrl: user.bannerUrl || "",
           }}
           validateOnChange={false}
           validate={(values) => {
             return validateFn({
               ...values,
+              bannerUrl: values.bannerUrl || undefined,
               displayName: values.displayName.trim(),
             });
           }}
@@ -90,6 +102,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                   displayName: data.displayName.trim(),
                 });
               }
+              onEdit?.(data);
               onRequestClose();
             }
           }}
@@ -106,6 +119,14 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                 )}
                 label={t("components.modals.editProfileModal.avatarUrlLabel")}
                 name="avatarUrl"
+              />
+              <InputField
+                className={`mb-4`}
+                errorMsg={t(
+                  "components.modals.editProfileModal.avatarUrlError"
+                )}
+                label={t("components.modals.editProfileModal.bannerUrlLabel")}
+                name="bannerUrl"
               />
               <InputField
                 className={`mb-4`}
@@ -128,7 +149,7 @@ export const EditProfileModal: React.FC<EditProfileModalProps> = ({
                 textarea
                 name="bio"
               />
-              <div className={`flex flex pt-2 items-center`}>
+              <div className={`flex pt-2 items-center`}>
                 <Button loading={isSubmitting} type="submit" className={`mr-3`}>
                   {t("common.save")}
                 </Button>

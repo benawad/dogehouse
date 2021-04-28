@@ -19,9 +19,9 @@ export const MessagesDropdown: React.FC<MessagesDropdownProps> = ({
           <MessageElement {...message} key={idx} />
         ))
       ) : (
-        <p className="py-5 px-4" data-testid="empty-state-msg">
+        <div className="py-5 px-4" data-testid="empty-state-msg">
           No new messages
-        </p>
+        </div>
       )}
     </BaseOverlay>
   );

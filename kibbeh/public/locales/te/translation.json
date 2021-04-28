@@ -20,7 +20,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muted | DogeHouse"
+    "mutedTitle": "Muted | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -40,7 +43,8 @@
     "home": {
       "createRoom": "గదిని సృష్టించండి",
       "refresh": "Refresh",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "గది పోయింది, తిరిగి వెళ్ళు",
@@ -83,7 +87,7 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "అన్వేషించు..." },
-    "soundEffectSettings": { "header": "సౌండ్స్" },
+    "soundEffectSettings": { "header": "సౌండ్స్", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "edit profile",
       "followsYou": "Follows you",
@@ -93,7 +97,8 @@
       "unfollow": "వ్యక్తిని అనుసరించవద్దు",
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard"
+      "urlCopied": "URL copied to clipboard",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "వాయిస్ సెట్టింగ్‌లు",
@@ -108,6 +113,14 @@
         "errorMsg": "Please enter valid app title",
         "label": "Enter app title"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -132,7 +145,10 @@
       "settings": "సెట్టింగులు",
       "speaker": "స్పీకర్",
       "listener": "వినేవారు",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "మీ పరికరానికి ప్రస్తుతం మద్దతు లేదు. మీరు ",
@@ -150,7 +166,8 @@
       "listening": "నేను వింటున్నాను",
       "toggleMuteKeybind": "మ్యూట్ కీబైండ్‌ను టోగుల్ చేయండి",
       "toggleOverlayKeybind": "toggle overlay keybind",
-      "togglePushToTalkKeybind": "టోగుల్  push-to-talk కీబైండ్"
+      "togglePushToTalkKeybind": "టోగుల్  push-to-talk కీబైండ్",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "కొన్ని కారణాల వల్ల ఆడియో వినియోగదారుడు లేరు"
@@ -186,7 +203,8 @@
         "usernameError": "length 4 to 15 characters and only alphanumeric/underscore",
         "usernameLabel": "Username",
         "bioError": "max length of 160 characters",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "మీరు ఎప్పుడైనా సృష్టించిన ఏ గదిలోనైనా ఈ వినియోగదారుని నిరోధించాలనుకుంటున్నారా?",
@@ -220,7 +238,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",
@@ -229,6 +250,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -246,6 +271,11 @@
         "roomName": "గది పేరు",
         "roomDescription": "వివరణ",
         "minLength": "కనిష్ట పొడవు 2"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

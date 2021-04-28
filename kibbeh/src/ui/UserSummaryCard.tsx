@@ -75,16 +75,20 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
   const { t } = useTypeSafeTranslation();
   return (
     <div className="flex flex-col rounded-8 bg-primary-800 p-4 w-full">
-      <button className="flex" onClick={onClick}>
+      <button
+        data-testid="edit-profile-widget"
+        className="flex"
+        onClick={onClick}
+      >
         <div className="flex">
           <SingleUser size="default" isOnline={isOnline} src={avatarUrl} />
         </div>
         <div className="flex mt-2">
           <div className="flex flex-col ml-3">
-            <span className="text-sm text-primary-100 font-bold overflow-hidden break-all text-left">
+            <span className="text-primary-100 font-bold overflow-hidden break-all text-left">
               {displayName}
             </span>
-            <span className="text-sm text-primary-300 text-left break-all">
+            <span className="text-primary-300 text-left break-all">
               @{username}
             </span>
             <Badges badges={badges} />
@@ -96,8 +100,8 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
           <ApiPreloadLink route="followers" data={{ username }}>
             <span className="text-primary-100 font-bold">
               {kFormatter(numFollowers)}
-            </span>{" "}
-            <span className="text-primary-300 ml-1 lowercase">
+            </span>
+            <span className="text-primary-300 ml-1.5 lowercase">
               {t("pages.viewUser.followers")}
             </span>
           </ApiPreloadLink>
@@ -107,13 +111,16 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
             <span className="text-primary-100 font-bold">
               {kFormatter(numFollowing)}
             </span>
-            <span className="text-primary-300 ml-1 lowercase">
+            <span className="text-primary-300 ml-1.5 lowercase">
               {t("pages.viewUser.following")}
             </span>
           </ApiPreloadLink>
         </div>
       </div>
-      <div className="flex text-primary-300 mt-3 break-words text-left">
+      <div
+        data-testid="current-user:bio"
+        className="flex text-primary-300 mt-3 break-words text-left"
+      >
         {bio}
       </div>
       {website && <Website website={website} />}

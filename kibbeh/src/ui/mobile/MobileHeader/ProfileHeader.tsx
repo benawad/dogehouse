@@ -24,7 +24,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   return (
     <div className="flex w-full p-3 flex justify-between items-center bg-primary-900">
       <SingleUser size="xxs" src={avatar} isOnline={true} />
-      <div className="flex flex gap-x-5">
+      <div className="flex gap-x-5">
         {onAnnouncementsClick && (
           <button onClick={onAnnouncementsClick}>
             <SolidNotification

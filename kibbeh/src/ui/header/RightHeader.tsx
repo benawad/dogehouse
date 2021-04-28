@@ -31,9 +31,14 @@ const RightHeader: React.FC<RightHeaderProps> = ({
   onMessagesClick,
   onNotificationsClick,
 }) => {
-  const { close: closeWs, user } = useConn();
+  const conn = useConn();
   const { push } = useRouter();
   const { t } = useTypeSafeTranslation();
+
+  if (!conn) {
+    return <div />;
+  }
+
   return (
     <div className="flex space-x-4 items-center justify-end focus:outline-no-chrome w-full">
       {onAnnouncementsClick && (
@@ -57,13 +62,15 @@ const RightHeader: React.FC<RightHeaderProps> = ({
       )}
       {actionButton}
       <DropdownController
+        zIndex={20}
+        className="top-9 right-3 md:right-0"
         overlay={(close) => (
           <SettingsDropdown
             onActionButtonClicked={() => {
               modalConfirm(
                 t("components.settingsDropdown.logOut.modalSubtitle"),
                 () => {
-                  closeWs();
+                  conn.close();
                   closeVoiceConnections(null);
                   useCurrentRoomIdStore.getState().setCurrentRoomId(null);
                   useTokenStore
@@ -74,14 +81,14 @@ const RightHeader: React.FC<RightHeaderProps> = ({
               );
             }}
             onCloseDropdown={close}
-            user={user}
+            user={conn.user}
           />
         )}
       >
         <SingleUser
           className={"focus:outline-no-chrome"}
           size="sm"
-          src={user.avatarUrl}
+          src={conn.user.avatarUrl}
         />
       </DropdownController>
     </div>

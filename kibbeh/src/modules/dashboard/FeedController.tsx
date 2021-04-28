@@ -2,6 +2,7 @@ import isElectron from "is-electron";
 import { useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
+import { useDownloadAlertStore } from "../../global-stores/useDownloadAlertStore";
 import { isServer } from "../../lib/isServer";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
@@ -9,7 +10,7 @@ import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslatio
 import { useTypeSafeUpdateQuery } from "../../shared-hooks/useTypeSafeUpdateQuery";
 import { Button } from "../../ui/Button";
 import { CenterLoader } from "../../ui/CenterLoader";
-import { Feed, FeedHeader } from "../../ui/Feed";
+import { FeedHeader } from "../../ui/FeedHeader";
 import { RoomCard } from "../../ui/RoomCard";
 import { MiddlePanel } from "../layouts/GridPanels";
 import { useRoomChatStore } from "../room/chat/useRoomChatStore";
@@ -34,6 +35,7 @@ const Page = ({
   const { push } = useRouter();
   const prefetch = useTypeSafePrefetch();
   const { t } = useTypeSafeTranslation();
+  const shouldAlert = useDownloadAlertStore().shouldAlert;
   const { isLoading, data } = useTypeSafeQuery(
     ["getTopPublicRooms", cursor],
     {
@@ -64,6 +66,25 @@ const Page = ({
       };
     }
   }, [data]);
+
+  // useEffect(() => {
+  //   if (shouldAlert && !isElectron()) {
+  //     showErrorToast(
+  //       t("pages.home.desktopAlert"),
+  //       "sticky",
+  //       <BannerButton
+  //         onClick={() => {
+  //           window.location.href = window.location.origin + "/download";
+  //         }}
+  //       >
+  //         Download
+  //       </BannerButton>,
+  //       () => {
+  //         localStorage.setItem("@baklava/showDownloadAlert", "false");
+  //       }
+  //     );
+  //   }
+  // }, []);
 
   if (isLoading) {
     return <CenterLoader />;
@@ -102,6 +123,14 @@ const Page = ({
                   .map((x) => x.displayName)
                   .join(", ")
               : ""
+          }
+          avatars={
+            "peoplePreviewList" in room
+              ? room.peoplePreviewList
+                  .map((x) => x.avatarUrl!)
+                  .slice(0, 3)
+                  .filter((x) => x !== null)
+              : []
           }
           listeners={"numPeopleInside" in room ? room.numPeopleInside : 0}
           tags={[]}

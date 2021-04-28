@@ -8,9 +8,10 @@ export type RoomPeer = {
 };
 
 export type UserPreview = {
-  numFollowers: number;
   id: UUID;
   displayName: string;
+  numFollowers: number;
+  avatarUrl: string | null
 };
 
 export type Room = {
@@ -21,11 +22,7 @@ export type Room = {
   numPeopleInside: number;
   voiceServerId: string;
   creatorId: string;
-  peoplePreviewList: Array<{
-    id: string;
-    displayName: string;
-    numFollowers: number;
-  }>;
+  peoplePreviewList: Array<UserPreview>;
   inserted_at: string;
 };
 
@@ -53,8 +50,9 @@ export type User = {
   displayName: string;
   currentRoomId?: UUID;
   currentRoom: Room;
-  bio: string;
+  bio: string | null;
   avatarUrl: string;
+  bannerUrl: string | null;
 };
 
 export type MessageToken<T extends string = string, V = unknown> = {
@@ -90,6 +88,7 @@ export type BaseUser = {
   bio: string;
   displayName: string;
   avatarUrl: string;
+  bannerUrl: string;
   numFollowing: number;
   numFollowers: number;
   currentRoom?: Room;
@@ -118,8 +117,10 @@ export type RoomUser = {
 export type CurrentRoom = Room & {
   users: RoomUser[];
   muteMap: Record<string, boolean>;
+  deafMap: Record<string, boolean>;
   activeSpeakerMap: Record<string, boolean>;
   autoSpeaker: boolean;
 };
 
 export type MuteMap = Record<UUID, boolean>;
+export type DeafMap = Record<UUID, boolean>;

@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import React, { useContext, useEffect, useRef } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useMuteStore } from "../../global-stores/useMuteStore";
+import { useDeafStore } from "../../global-stores/useDeafStore";
 import { WebSocketContext } from "../ws/WebSocketProvider";
 import { ActiveSpeakerListener } from "./components/ActiveSpeakerListener";
 import { AudioRender } from "./components/AudioRender";
@@ -33,6 +34,7 @@ export const WebRtcApp: React.FC<App2Props> = () => {
   const { mic } = useVoiceStore();
   const { micId } = useMicIdStore();
   const { muted } = useMuteStore();
+  const { deafened } = useDeafStore();
   const { setCurrentRoomId } = useCurrentRoomIdStore();
   const initialLoad = useRef(true);
   const { push } = useRouter();
@@ -45,14 +47,14 @@ export const WebRtcApp: React.FC<App2Props> = () => {
   }, [micId]);
   const consumerQueue = useRef<{ roomId: string; d: any }[]>([]);
 
-  async function flushConsumerQueue(_roomId: string) {
+  function flushConsumerQueue(_roomId: string) {
     try {
       for (const {
         roomId,
         d: { peerId, consumerParameters },
       } of consumerQueue.current) {
         if (_roomId === roomId) {
-          await consumeAudio(consumerParameters, peerId);
+          consumeAudio(consumerParameters, peerId);
         }
       }
     } catch (err) {
@@ -63,9 +65,9 @@ export const WebRtcApp: React.FC<App2Props> = () => {
   }
   useEffect(() => {
     if (mic) {
-      mic.enabled = !muted;
+      mic.enabled = !muted && !deafened;
     }
-  }, [mic, muted]);
+  }, [mic, muted, deafened]);
   useEffect(() => {
     if (!conn) {
       return;

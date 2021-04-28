@@ -24,11 +24,15 @@ function WinHeader() {
         <img
           className="header-image"
           src="https://github.com/benawad/dogehouse/raw/staging/kibbeh/public/img/doge.png"
-          width="20px"
-          height="20px"
+          width="18px"
+          height="18px"
+          style={{
+            minWidth: "18px",
+            minHeight: "18px",
+          }}
         />
       </div>
-      <p className="header-title">DogeHouse</p>
+      <div className="header-title">DogeHouse</div>
       <div className="w-full header-drag-region"></div>
       <div className="header-icons flex flex-row-reverse w-auto">
         <WinButton
@@ -60,7 +64,7 @@ function MacHeader() {
   return (
     <div className="electron-header z-50">
       <div
-        className="header-icons-mac flex flex-row space-x-2 content-center mt-9 ml-5"
+        className="header-icons-mac flex flex-row space-x-2 content-center ml-5"
         onMouseEnter={() => {
           setHovering(true);
         }}
@@ -96,5 +100,9 @@ function MacHeader() {
 }
 
 export function ElectronHeader() {
+  if (!isElectron() || useHostStore.getState().isLinux) {
+    return null;
+  }
+
   return useHostStore.getState().isMac ? <MacHeader /> : <WinHeader />;
 }

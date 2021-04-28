@@ -19,7 +19,7 @@ import { DefaultDesktopLayout } from "../layouts/DefaultDesktopLayout";
 import { MiddlePanel } from "../layouts/GridPanels";
 import { useGetRoomByQueryParam } from "./useGetRoomByQueryParam";
 import { HeaderController } from "../display/HeaderController";
-import { FeedHeader } from "../../ui/Feed";
+import { FeedHeader } from "../../ui/FeedHeader";
 
 interface InviteRoomPageProps {}
 
@@ -101,7 +101,7 @@ const Page = ({
         </div>
       ))}
       {isLastPage && data.nextCursor ? (
-        <div className={`flex flex justify-center py-5`}>
+        <div className={`flex justify-center py-5`}>
           <Button
             size="small"
             onClick={() => {
@@ -156,7 +156,7 @@ export const InviteRoomPage: PageComponent<InviteRoomPageProps> = ({}) => {
                 {t("pages.inviteList.shareRoomLink")}
               </div>
             ) : null}
-            <div className={`flex mb-8 flex`}>
+            <div data-testid="container" className={`mb-8 flex`}>
               <Input readOnly ref={inputRef} value={url} className="mr-2" />
               <Button
                 size="small"

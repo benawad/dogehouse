@@ -3,8 +3,11 @@ import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
 
 export const DropdownController: React.FC<{
+  portal?: boolean;
+  className?: string;
   overlay: (c: () => void) => React.ReactNode;
-}> = ({ children, overlay }) => {
+  zIndex?: number;
+}> = ({ children, className, overlay, portal = true, zIndex }) => {
   const [visible, setVisibility] = useState(false);
 
   const referenceRef = useRef<HTMLButtonElement>(null);
@@ -36,6 +39,24 @@ export const DropdownController: React.FC<{
     };
   }, []);
 
+  const body = (
+    <div
+      className={`absolute ${className}`}
+      ref={popperRef}
+      {...attributes.popper}
+      style={{ zIndex: zIndex || 5 }}
+    >
+      <div
+        style={styles.offset}
+        className={`${
+          visible ? "" : "hidden"
+        } fixed  transform -translate-x-full`}
+      >
+        {visible ? overlay(() => setVisibility(false)) : null}
+      </div>
+    </div>
+  );
+
   return (
     <React.Fragment>
       <button
@@ -45,23 +66,7 @@ export const DropdownController: React.FC<{
       >
         {children}
       </button>
-      {createPortal(
-        <div
-          className="z-20 absolute top-9 right-3 md:right-0"
-          ref={popperRef}
-          {...attributes.popper}
-        >
-          <div
-            style={styles.offset}
-            className={`${
-              visible ? "" : "hidden"
-            } fixed transform -translate-x-full`}
-          >
-            {visible ? overlay(() => setVisibility(false)) : null}
-          </div>
-        </div>,
-        document.querySelector("#main")!
-      )}
+      {portal ? createPortal(body, document.querySelector("#main")!) : body}
     </React.Fragment>
   );
 };

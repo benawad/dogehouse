@@ -1,9 +1,9 @@
 defmodule Kousa.Beef.RoomsTest do
   # allow tests to run in parallel
   use ExUnit.Case, async: true
-  use Kousa.Support.EctoSandbox
+  use KousaTest.Support.EctoSandbox
 
-  alias Kousa.Support.Factory
+  alias KousaTest.Support.Factory
   alias Beef.Schemas.User
   alias Beef.Schemas.Room
   alias Beef.Rooms
@@ -226,7 +226,8 @@ defmodule Kousa.Beef.RoomsTest do
           %{
             id: creator.id,
             displayName: creator.displayName,
-            numFollowers: creator.numFollowers
+            numFollowers: creator.numFollowers,
+            avatarUrl: creator.avatarUrl
           }
         ]
       )
@@ -242,7 +243,8 @@ defmodule Kousa.Beef.RoomsTest do
           %{
             id: creator2.id,
             displayName: creator2.displayName,
-            numFollowers: creator2.numFollowers
+            numFollowers: creator2.numFollowers,
+            avatarUrl: creator2.avatarUrl
           }
         ]
       )
@@ -264,6 +266,7 @@ defmodule Kousa.Beef.RoomsTest do
 
     test "create" do
       %User{
+        avatarUrl: avatarUrl,
         displayName: displayName,
         numFollowers: numFollowers,
         id: id
@@ -280,6 +283,7 @@ defmodule Kousa.Beef.RoomsTest do
       assert %Room{
                peoplePreviewList: [
                  %User.Preview{
+                   avatarUrl: ^avatarUrl,
                    displayName: ^displayName,
                    numFollowers: ^numFollowers,
                    id: ^id

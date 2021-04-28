@@ -1,5 +1,6 @@
 import create from "zustand";
 import { combine } from "zustand/middleware";
+import { useRoomChatStore } from "../modules/room/chat/useRoomChatStore";
 
 type Fn = (currentRoomId: string | null) => string | null;
 
@@ -8,14 +9,18 @@ export const useCurrentRoomIdStore = create(
     {
       currentRoomId: null as string | null,
     },
-    (set) => ({
+    (set, get) => ({
       set,
       setCurrentRoomId: (currentRoomIdOrFn: string | null | Fn) => {
-        if (typeof currentRoomIdOrFn === "function") {
-          set((s) => ({ currentRoomId: currentRoomIdOrFn(s.currentRoomId) }));
-        } else {
-          set({ currentRoomId: currentRoomIdOrFn });
+        const id = get().currentRoomId;
+        const newId =
+          typeof currentRoomIdOrFn === "function"
+            ? currentRoomIdOrFn(id)
+            : currentRoomIdOrFn;
+        if (newId !== id) {
+          useRoomChatStore.getState().reset();
         }
+        set({ currentRoomId: newId });
       },
     })
   )

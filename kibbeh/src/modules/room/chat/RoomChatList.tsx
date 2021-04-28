@@ -24,6 +24,8 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
   const {
     isRoomChatScrolledToTop,
     setIsRoomChatScrolledToTop,
+    message,
+    setMessage,
   } = useRoomChatStore();
   const { t } = useTypeSafeTranslation();
 
@@ -94,9 +96,9 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                 >
                   {/* Whisper label */}
                   {messages[index].isWhisper ? (
-                    <p className="flex mb-0 text-sm text-primary-300 px-1 w-16 mt-1 text-center">
+                    <div className="flex mb-1 text-sm text-primary-300 px-1 w-16 mt-1 text-center">
                       {t("modules.roomChat.whisper")}
-                    </p>
+                    </div>
                   ) : null}
                   <div className={`flex items-center px-1`}>
                     <div
@@ -104,7 +106,21 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                       key={messages[index].id}
                     >
                       <button
-                        onClick={() => {
+                        onClick={(e) => {
+                          // Auto mention on shift click
+                          if (e.shiftKey && messages[index].userId !== me.id) {
+                            setMessage(
+                              message +
+                                (message.endsWith(" ") ? "" : " ") +
+                                "@" +
+                                messages[index].username +
+                                " "
+                            );
+                            document.getElementById("room-chat-input")?.focus();
+
+                            return;
+                          }
+
                           setData({
                             userId: messages[index].userId,
                             message:
@@ -128,13 +144,12 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                       <span className={`inline mr-1`}>: </span>
                       <div className={`inline mr-1 space-x-1`}>
                         {messages[index].deleted ? (
-                          <span className="inline text-primary-300">
-                            [message{" "}
+                          <span className="inline text-primary-300 italic">
+                            message{" "}
                             {messages[index].deleterId ===
                             messages[index].userId
                               ? "retracted"
                               : "deleted"}
-                            ]
                           </span>
                         ) : (
                           messages[index].tokens.map(({ t: token, v }, i) => {

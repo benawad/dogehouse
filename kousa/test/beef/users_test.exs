@@ -3,12 +3,12 @@ defmodule Kousa.Beef.UsersTest do
   # TODO: organize this into the correct context.
 
   use ExUnit.Case, async: true
-  use Kousa.Support.EctoSandbox
+  use KousaTest.Support.EctoSandbox
 
   alias Beef.Schemas.Room
   alias Beef.Schemas.User
   alias Beef.Users
-  alias Kousa.Support.Factory
+  alias KousaTest.Support.Factory
   alias Beef.Repo
 
   describe "Users" do
@@ -26,7 +26,9 @@ defmodule Kousa.Beef.UsersTest do
           bio: "updated bio",
           username: "dave",
           displayName: "bar",
-          avatarUrl: "https://www.pbs.twimg.com/profile_images/ghi.jpg"
+          avatarUrl: "https://www.pbs.twimg.com/profile_images/ghi.jpg",
+          bannerUrl:
+            "https://pbs.twimg.com/profile_banners/840626569743912960/1601562221/1500x500"
         })
 
       assert %{
@@ -34,7 +36,9 @@ defmodule Kousa.Beef.UsersTest do
                bio: "updated bio",
                username: "dave",
                displayName: "bar",
-               avatarUrl: "https://www.pbs.twimg.com/profile_images/ghi.jpg"
+               avatarUrl: "https://www.pbs.twimg.com/profile_images/ghi.jpg",
+               bannerUrl:
+                 "https://pbs.twimg.com/profile_banners/840626569743912960/1601562221/1500x500"
              } = Repo.get!(User, user.id)
     end
 
@@ -57,13 +61,15 @@ defmodule Kousa.Beef.UsersTest do
           bio: "lorem ipsum",
           username: "david",
           displayName: "d0",
-          avatarUrl: "https://foo.bar/d0"
+          avatarUrl: "https://foo.bar/d0",
+          bannerUrl: "https://foo.bar/d0"
         },
         %{
           bio: "dolor sunt",
           username: "karen",
           displayName: "d1",
-          avatarUrl: "https://foo.bar/d1"
+          avatarUrl: "https://foo.bar/d1",
+          bannerUrl: "https://foo.bar/d1"
         }
       ])
 
@@ -77,6 +83,7 @@ defmodule Kousa.Beef.UsersTest do
           username: "david",
           displayName: "d0",
           avatarUrl: "https://foo.bar/d0",
+          bannerUrl: "https://foo.bar/d0",
           githubId: "abcdef"
         },
         %{
@@ -84,6 +91,7 @@ defmodule Kousa.Beef.UsersTest do
           username: "karen",
           displayName: "d1",
           avatarUrl: "https://foo.bar/d1",
+          bannerUrl: "https://foo.bar/d1",
           githubId: "ghijkl"
         }
       ])
@@ -182,9 +190,12 @@ defmodule Kousa.Beef.UsersTest do
 
       assert %User{online: false, lastOnline: last_online_time} = Repo.get(User, user.id)
 
-      IO.warn("check users_test.exs set offline test")
       # is this really what we want?
       assert creation_time == last_online_time
+    end
+
+    test "get_current_room_id returns nil", %{user: %{id: id}} do
+      refute Users.get_current_room_id(id)
     end
 
     @tag :skip

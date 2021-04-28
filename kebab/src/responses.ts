@@ -14,6 +14,7 @@ export type JoinRoomAndGetInfoResponse = {
   room: Room;
   users: RoomUser[];
   muteMap: Record<string, boolean>;
+  deafMap: Record<string, boolean>;
   roomId: string;
   activeSpeakerMap: Record<string, boolean>;
   autoSpeaker: boolean;
@@ -24,6 +25,7 @@ export type GetRoomUsersResponse = {
   roomId: UUID;
   raiseHandMap: Record<string, boolean>;
   muteMap: Record<string, boolean>;
+  deafMap: Record<string, boolean>;
   autoSpeaker: boolean;
   activeSpeakerMap: Record<string, boolean>;
 };
@@ -40,6 +42,13 @@ export type InvitationToRoomResponse = {
   username: string;
   displayName: string;
   avatarUrl: string;
+  bannerUrl: string;
   roomName: string;
   roomId: UUID;
+};
+
+export type CreateBotResponse = {
+  apiKey: string | null,
+  isUsernameTaken: boolean | null,
+  error: string | null
 };

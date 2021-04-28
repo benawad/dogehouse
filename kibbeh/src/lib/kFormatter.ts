@@ -1,5 +1,10 @@
 export const kFormatter = (num: number) => {
-  return Math.abs(num) > 999
-    ? `${Math.sign(num) * Number((Math.abs(num) / 1000).toFixed(1))}k`
-    : Math.sign(num) * Math.abs(num);
+  if (num < 1000) {
+    return `${num}`;
+  }
+
+  const base = Math.floor(Math.log(Math.abs(num)) / Math.log(1000));
+  const suffix = "kmb"[base - 1];
+  const abbrev = String(num / 1000 ** base).substring(0, 3);
+  return (abbrev.endsWith(".") ? abbrev.slice(0, -1) : abbrev) + suffix;
 };

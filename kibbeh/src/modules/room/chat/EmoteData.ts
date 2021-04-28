@@ -19,7 +19,7 @@ export const customEmojis = [
   },
   {
     name: "intelxamd",
-    short_names: ["intel"],
+    short_names: ["intelxamd"],
     keywords: ["intel", "amd", "intelxamd"],
     imageUrl: "/emotes/IntelxAMD.png",
   },

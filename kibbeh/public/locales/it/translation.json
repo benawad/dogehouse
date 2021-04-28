@@ -20,7 +20,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Microfono disabilitato | DogeHouse"
+    "mutedTitle": "Microfono disabilitato | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -40,7 +43,8 @@
     "home": {
       "createRoom": "Crea una stanza",
       "refresh": "Ricarica",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "La stanza non esiste, torna indietro",
@@ -83,7 +87,7 @@
       "allowAllConfirm": "Sei sicuro? Questo permetterà a {{count}} che vogliono parlare di prendere la parola"
     },
     "searchUser": { "search": "Cerca..." },
-    "soundEffectSettings": { "header": "Suoni" },
+    "soundEffectSettings": { "header": "Suoni", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Modifica profilo",
       "followsYou": "Ti segue",
@@ -93,7 +97,8 @@
       "followingHim": "Segui già",
       "copyProfileUrl": "Copia link del profilo",
       "urlCopied": "Link copiato negli appunti",
-      "unfollow": "Smetti di seguire"
+      "unfollow": "Smetti di seguire",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Impostazioni della voce",
@@ -108,6 +113,14 @@
         "label": "Inserisci titolo app"
       },
       "header": "Impostazioni sovrapposizione"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -132,7 +145,10 @@
       "settings": "Impostazioni",
       "speaker": "Oratore",
       "listener": "Ascoltatori",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Il tuo dispositivo non è supportato. Puoi segnalare il problema",
@@ -153,7 +169,8 @@
       "listening": "Ascoltatore",
       "toggleMuteKeybind": "Scorciatoia per attivare/disattivare il microfono",
       "togglePushToTalkKeybind": "Scorciatoia per il push-to-talk",
-      "toggleOverlayKeybind": "Attiva/disattiva la schermata delle scorciatoie"
+      "toggleOverlayKeybind": "Attiva/disattiva la schermata delle scorciatoie",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Nessun audio è disponibile per qualche motivo"
@@ -189,7 +206,8 @@
         "usernameError": "Il nome utente deve essere lungo dai 4 ai 15 caratteri e può solo contenere caratteri alfanumerici e trattini bassi",
         "usernameLabel": "Nome utente",
         "bioError": "La lunghezza massima della biografia è di 160 caratteri",
-        "bioLabel": "Biografia"
+        "bioLabel": "Biografia",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Sei sicuro di voler bloccare questo utente? non potrà più entrare nelle stanze che crei.",
@@ -223,7 +241,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",
@@ -232,6 +253,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -249,6 +274,11 @@
         "roomName": "Nome della stanza",
         "minLength": "La lunghezza minima è 2",
         "roomDescription": "Descrizione"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

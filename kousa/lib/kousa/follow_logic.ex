@@ -26,7 +26,7 @@ defmodule Kousa.Follow do
         end
 
       _ ->
-        %{users: [], next_cursor: nil}
+        %{users: [], nextCursor: nil}
     end
   end
 
@@ -62,6 +62,8 @@ defmodule Kousa.Follow do
             displayName: user.displayName,
             username: user.username,
             avatarUrl: user.avatarUrl,
+            # Here if banner will be included in the refactored someone you followed created a room popup
+            bannerUrl: user.bannerUrl,
             type: "someone_you_follow_created_a_room"
           }
         })

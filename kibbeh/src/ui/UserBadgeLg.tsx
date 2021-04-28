@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { SolidDogenitro } from "../icons";
-import Logo from "../icons/LogoIcon";
+import {
+  SolidContributor,
+  SolidDogenitro,
+  SolidStaff,
+  LogoIcon,
+} from "../icons";
 
 export interface UserBadgeLgProps extends React.HTMLProps<HTMLDivElement> {
   icon: "logo" | "dogeNitro" | "dogeStaff" | "dogeContributor";
@@ -12,7 +16,7 @@ export const UserBadgeLg: React.FC<UserBadgeLgProps> = ({ icon, children }) => {
     switch (icon) {
       case "logo":
         setParsedIcon(
-          <Logo
+          <LogoIcon
             fillCurrent={true}
             className="relative transform translate-x-n1/2 translate-y-n1/2 top-1/2 left-1/2"
           />
@@ -25,27 +29,27 @@ export const UserBadgeLg: React.FC<UserBadgeLgProps> = ({ icon, children }) => {
         break;
       case "dogeStaff":
         setParsedIcon(
-          <span className="font-bold block text-center h-full w-full">ƉS</span>
+          <SolidStaff className="relative transform translate-x-n1/2 translate-y-n1/2 top-1/2 left-1/2" />
         );
         break;
       case "dogeContributor":
         setParsedIcon(
-          <span className="font-bold block text-center h-full w-full">ƉC</span>
+          <SolidContributor className="relative transform translate-x-n1/2 translate-y-n1/2 top-1/2 left-1/2" />
         );
         break;
     }
   }, [setParsedIcon, icon]);
 
   return (
-    <p className="flex text-primary-300">
+    <div className="flex text-primary-300">
       {parsedIcon ? (
-        <span style={{ width: "2em" }} className="w-5 mr-1">
+        <span style={{ width: 16 }} className="mr-2">
           {parsedIcon}
         </span>
       ) : (
         ""
       )}
       <span className="">{children}</span>
-    </p>
+    </div>
   );
 };
