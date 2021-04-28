@@ -10,6 +10,7 @@ import {
   SolidUser,
   SolidVolume,
 } from "../icons";
+import SvgSolidDownload from "../icons/SolidDownload";
 import SvgSolidDiscord from "../icons/SolidDiscord";
 import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
@@ -81,6 +82,20 @@ export const SettingsDropdown: React.FC<{
             transition
             onClick={() => setDebugAudio(!debugAudio)}
           />
+
+            <a
+            href="/download"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <SettingsIcon
+              onClick={onCloseDropdown}
+              icon={<SvgSolidDownload />}
+              label={"Download App"}
+              transition
+            />
+          </a>
+
           <a
             href="https://discord.gg/wCbKBZF9cV"
             target="_blank"
