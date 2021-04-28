@@ -4,6 +4,7 @@ on:
     branches:
       - staging
     paths:
+      - '.github/workflows/end-to-end-tests.yaml'
       - 'kousa/lib/**'
       - 'kibbeh/src/**'
   pull_request:
@@ -40,8 +41,7 @@ jobs:
       run: mix deps.get
       env:
           MIX_ENV: test
-    - run: source .envrc && mix start server
-      id: mix
+    - run: source .envrc && iex -S mix
     - name: Use Node.js
       uses: actions/setup-node@v1
     - run: yarn install
