@@ -14,7 +14,7 @@ defmodule BrothTest.SendRoomChatMsgTest do
 
   setup do
     user = Factory.create(User)
-    client_ws = WsClientFactory.create_client_for(user)
+    client_ws = WsClientFactory.create_client_for(user, legacy: true)
 
     {:ok, user: user, client_ws: client_ws}
   end
@@ -37,7 +37,7 @@ defmodule BrothTest.SendRoomChatMsgTest do
 
       # create a listener user that is logged in.
       listener = Factory.create(User)
-      listener_ws = WsClientFactory.create_client_for(listener)
+      listener_ws = WsClientFactory.create_client_for(listener, legacy: true)
 
       # join the listener user into the room
       WsClient.do_call_legacy(listener_ws, "join_room_and_get_info", %{"roomId" => room_id})
@@ -98,11 +98,11 @@ defmodule BrothTest.SendRoomChatMsgTest do
 
       # create a user that can hear.
       can_hear = Factory.create(User)
-      can_hear_ws = WsClientFactory.create_client_for(can_hear)
+      can_hear_ws = WsClientFactory.create_client_for(can_hear, legacy: true)
 
       # create a user that can't hear
       cant_hear = Factory.create(User)
-      cant_hear_ws = WsClientFactory.create_client_for(cant_hear)
+      cant_hear_ws = WsClientFactory.create_client_for(cant_hear, legacy: true)
 
       # join the speaker user into the room
       WsClient.do_call_legacy(can_hear_ws, "join_room_and_get_info", %{"roomId" => room_id})
