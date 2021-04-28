@@ -10,14 +10,14 @@ defmodule Onion.PubSub do
 
   alias Phoenix.PubSub
 
-  def subscribe(topic) do
+  @valid_classes ~w(chat)
+
+  def subscribe(topic = <<class::binary-size(4), ?:>> <> _) when class in @valid_classes do
     PubSub.subscribe(__MODULE__, topic)
   end
 
-  @valid_classes ~w(chat)
-
   def broadcast(
-        topic = <<class::binary-size(4)>> <> _,
+        topic = <<class::binary-size(4), ?:>> <> _,
         message = %Broth.Message{}
       )
       when class in @valid_classes do
@@ -26,7 +26,7 @@ defmodule Onion.PubSub do
     PubSub.broadcast(__MODULE__, topic, {topic, message})
   end
 
-  def unsubscribe(topic) do
+  def unsubscribe(topic = <<class::binary-size(4), ?:>> <> _) when class in @valid_classes do
     PubSub.unsubscribe(__MODULE__, topic)
   end
 end
