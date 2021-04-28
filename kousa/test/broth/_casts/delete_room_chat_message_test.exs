@@ -12,7 +12,7 @@ defmodule BrothTest.DeleteRoomChatMessageTest do
 
   setup do
     user = Factory.create(User)
-    client_ws = WsClientFactory.create_client_for(user)
+    client_ws = WsClientFactory.create_client_for(user, legacy: true)
 
     {:ok, user: user, client_ws: client_ws}
   end
