@@ -80,7 +80,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
             className="text-primary-300 mr-2"
             data-testid="profile-info-username"
           >{`@${username}`}</p>
-          {!user.isBot ? (
+          {user.isBot ? (
             <UserBadge color="grey">{t("pages.viewUser.bot")}</UserBadge>
           ) : (
             ""
