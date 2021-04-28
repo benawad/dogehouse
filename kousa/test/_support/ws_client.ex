@@ -249,15 +249,16 @@ defmodule BrothTest.WsClientFactory do
 
   # note that this function ALSO causes the calling process to be subscribed
   # to forwarded messages from the websocket client.
-  def create_client_for(user = %User{}) do
+  def create_client_for(user = %User{}, opts \\ []) do
     tokens = Kousa.Utils.TokenUtils.create_tokens(user)
 
     # start and link the websocket client
     client_ws = ExUnit.Callbacks.start_supervised!(WsClient)
     WsClient.forward_frames(client_ws)
 
-    ref =
-      WsClient.send_call(client_ws, "auth:request", %{
+    if opts[:legacy] do
+
+      WsClient.send_msg(client_ws, "auth", %{
         "accessToken" => tokens.accessToken,
         "refreshToken" => tokens.refreshToken,
         "platform" => "foo",
@@ -266,33 +267,21 @@ defmodule BrothTest.WsClientFactory do
         "deafened" => false
       })
 
-    WsClient.assert_reply("auth:request:reply", ref, _)
+      WsClient.assert_frame_legacy("auth-good", _)
 
-    # link the UserProcess to prevent dangling DB sandbox lookups
-    [{usersession_pid, _}] = Registry.lookup(Onion.UserSessionRegistry, user.id)
-    # associate the user session with the database.
-    Process.link(usersession_pid)
+    else
 
-    client_ws
-  end
+      WsClient.do_call(client_ws, "auth:request", %{
+        "accessToken" => tokens.accessToken,
+        "refreshToken" => tokens.refreshToken,
+        "platform" => "foo",
+        "reconnectToVoice" => false,
+        "muted" => false,
+        "deafened" => false
+        })
 
-  def create_client_for_legacy(user = %User{}) do
-    tokens = Kousa.Utils.TokenUtils.create_tokens(user)
+    end
 
-    # start and link the websocket client
-    client_ws = ExUnit.Callbacks.start_supervised!(WsClient)
-    WsClient.forward_frames(client_ws)
-
-    WsClient.send_msg(client_ws, "auth", %{
-      "accessToken" => tokens.accessToken,
-      "refreshToken" => tokens.refreshToken,
-      "platform" => "foo",
-      "reconnectToVoice" => false,
-      "muted" => false,
-      "deafened" => false
-    })
-
-    WsClient.assert_frame("auth-good", _)
 
     # link the UserProcess to prevent dangling DB sandbox lookups
     [{usersession_pid, _}] = Registry.lookup(Onion.UserSessionRegistry, user.id)
