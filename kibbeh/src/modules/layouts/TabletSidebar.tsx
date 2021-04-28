@@ -60,7 +60,10 @@ export const TabletSidebar: React.FC<FriendsOnlineControllerProps> = ({}) => {
   }
 
   return (
-    <div className="flex pb-5 w-full flex flex-col flex-1 overflow-y-auto text-primary-100">
+    <div
+      data-testid="tablet-sidebar-container"
+      className="pb-5 w-full flex flex-col flex-1 overflow-y-auto text-primary-100"
+    >
       {cursors.map((c, i) => (
         <Page
           key={c}
