@@ -64,6 +64,8 @@ defmodule Broth.Message.Auth.Request do
   end
 
   alias Beef.Repo
+  alias Beef.Schemas.User
+  alias Onion.PubSub
 
   defp convert_tokens(request, state) do
     alias Kousa.Utils.TokenUtils
@@ -73,7 +75,7 @@ defmodule Broth.Message.Auth.Request do
         {:close, 4001, "invalid_authentication"}
 
       {:existing_claim, user_id} ->
-        do_auth(user_id, nil, Repo.get(Reply, user_id), request, state)
+        do_auth(user_id, nil, Repo.get(User, user_id), request, state)
 
       {:new_tokens, user_id, tokens, user} ->
         do_auth(user_id, tokens, user, request, state)
@@ -85,20 +87,27 @@ defmodule Broth.Message.Auth.Request do
     alias Onion.RoomSession
     alias Beef.Rooms
     alias Beef.Repo
+    alias Beef.Users
 
     if user do
       # note that this will start the session and will be ignored if the
       # session is already running.
       UserSession.start_supervised(
         user_id: user_id,
+        ip: state.ip,
         username: user.username,
         avatar_url: user.avatarUrl,
         banner_url: user.bannerUrl,
         display_name: user.displayName,
         current_room_id: user.currentRoomId,
         muted: request.muted,
-        deafened: request.deafened
+        deafened: request.deafened,
+        bot_owner_id: user.botOwnerId
       )
+
+      if user.ip != state.ip do
+        Users.set_ip(user_id, state.ip)
+      end
 
       # currently we only allow one active websocket connection per-user
       # at some point soon we're going to make this multi-connection, and we
@@ -127,12 +136,18 @@ defmodule Broth.Message.Auth.Request do
             Kousa.Room.join_vc_room(user.id, room)
           end
 
+          # This seems janky, should probably be refactored into a Kousa.Auth module.
+          PubSub.subscribe("chat:" <> room.id)
+
         roomIdFromFrontend ->
           Kousa.Room.join_room(user.id, roomIdFromFrontend)
 
         true ->
           :ok
       end
+
+      # subscribe to chats directed to oneself.
+      PubSub.subscribe("chat:" <> user_id)
 
       {:reply, Repo.get(Reply, user_id), %{state | user_id: user_id, awaiting_init: false}}
     else

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SolidCaretRight } from "../icons";
+import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
 import { linkRegex } from "../lib/constants";
 import normalizeUrl from "normalize-url";
 
@@ -17,9 +18,18 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
   description,
 }) => {
   const [open, setOpen] = useState(true);
+  const [hasDescription, setHasDescription] = useState<boolean>(false);
+
+  useEffect(() => {
+    setHasDescription(description.trim().length > 0);
+  }, [description]);
+
   return (
     <div
-      className={`flex flex-col p-4 bg-primary-800 rounded-t-8 border-b border-primary-600 w-full`}
+      className={`flex flex-col p-4 bg-primary-800 rounded-t-8 border-b border-primary-600 w-full ${
+        hasDescription ? "cursor-pointer" : ""
+      }`}
+      onClick={hasDescription ? () => setOpen(!open) : undefined}
     >
       <div className={`flex text-primary-100 mb-2`}>
         <button
@@ -29,7 +39,7 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
         >
           {title}
         </button>
-        {description.trim().length > 0 && (
+        {hasDescription && (
           <button className="flex" onClick={() => setOpen(!open)}>
             <SolidCaretRight
               className={`transform ${
@@ -42,18 +52,30 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
         )}
       </div>
       <div className={`flex text-primary-200 text-sm`}>
-        with{" "}
-        <span
-          style={{ marginLeft: 3 }}
-          className={`font-bold text-primary-100`}
-        >
-          {names.join(", ")}
-        </span>
+        <span style={{ marginRight: 4 }}>with</span>{" "}
+        {names.map((username, i) => (
+          <ApiPreloadLink
+            route="profile"
+            data={{ username }}
+            key={username + i}
+          >
+            <span
+              className={`font-bold text-primary-100 hover:underline`}
+              style={{ marginRight: 4 }}
+            >
+              {`${username}`}
+              {i === names.length - 1 ? "" : `,`}
+            </span>
+          </ApiPreloadLink>
+        ))}
       </div>
       {/* {open ? <div className="text-primary-100 mt-4">{description}</div> : null} */}
 
       {open && description?.trim() && (
-        <div className="mt-4 overflow-y-auto" style={{ maxHeight: "100px" }}>
+        <div
+          className="mt-4 overflow-y-auto break-words"
+          style={{ maxHeight: "100px" }}
+        >
           {description.split(/\n/).map(
             (line, i) =>
               line.trim() && (
@@ -64,7 +86,7 @@ export const RoomHeader: React.FC<RoomHeaderProps> = ({
                         <a
                           href={normalizeUrl(chunk)}
                           rel="noreferrer"
-                          className="text-accent text-center hover:underline inline"
+                          className="text-accent text-center hover:underline inline break-all"
                           key={`${i}${j}`}
                           target="_blank"
                         >

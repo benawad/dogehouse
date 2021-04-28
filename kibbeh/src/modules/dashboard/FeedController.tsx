@@ -4,15 +4,13 @@ import React, { useContext, useEffect, useState } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useDownloadAlertStore } from "../../global-stores/useDownloadAlertStore";
 import { isServer } from "../../lib/isServer";
-import { showErrorToast } from "../../lib/showErrorToast";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { useTypeSafeUpdateQuery } from "../../shared-hooks/useTypeSafeUpdateQuery";
-import { BannerButton } from "../../ui/BannerButton";
 import { Button } from "../../ui/Button";
 import { CenterLoader } from "../../ui/CenterLoader";
-import { Feed, FeedHeader } from "../../ui/Feed";
+import { FeedHeader } from "../../ui/FeedHeader";
 import { RoomCard } from "../../ui/RoomCard";
 import { MiddlePanel } from "../layouts/GridPanels";
 import { useRoomChatStore } from "../room/chat/useRoomChatStore";
@@ -125,6 +123,14 @@ const Page = ({
                   .map((x) => x.displayName)
                   .join(", ")
               : ""
+          }
+          avatars={
+            "peoplePreviewList" in room
+              ? room.peoplePreviewList
+                  .map((x) => x.avatarUrl!)
+                  .slice(0, 3)
+                  .filter((x) => x !== null)
+              : []
           }
           listeners={"numPeopleInside" in room ? room.numPeopleInside : 0}
           tags={[]}

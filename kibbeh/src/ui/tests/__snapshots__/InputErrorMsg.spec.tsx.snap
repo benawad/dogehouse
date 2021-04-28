@@ -2,7 +2,7 @@
 
 exports[`InputErrorMsg should match snapshot 1`] = `
 <div
-  class="text-secondary"
+  class="flex text-secondary"
   data-testid="input-error-msg"
 />
 `;

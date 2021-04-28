@@ -6,7 +6,8 @@ export const DropdownController: React.FC<{
   portal?: boolean;
   className?: string;
   overlay: (c: () => void) => React.ReactNode;
-}> = ({ children, className, overlay, portal = true }) => {
+  zIndex?: number;
+}> = ({ children, className, overlay, portal = true, zIndex }) => {
   const [visible, setVisibility] = useState(false);
 
   const referenceRef = useRef<HTMLButtonElement>(null);
@@ -43,13 +44,13 @@ export const DropdownController: React.FC<{
       className={`absolute ${className}`}
       ref={popperRef}
       {...attributes.popper}
-      style={{ width: "165px", zIndex: 5 }}
+      style={{ zIndex: zIndex || 5 }}
     >
       <div
         style={styles.offset}
         className={`${
           visible ? "" : "hidden"
-        } w-full transform -translate-x-full`}
+        } fixed  transform -translate-x-full`}
       >
         {visible ? overlay(() => setVisibility(false)) : null}
       </div>

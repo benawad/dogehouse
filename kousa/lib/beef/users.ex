@@ -26,6 +26,8 @@ defmodule Beef.Users do
   defdelegate get_by_id_with_current_room(user_id), to: Beef.Access.Users
   defdelegate get_current_room(user_id), to: Beef.Access.Users
   defdelegate get_current_room_id(user_id), to: Beef.Access.Users
+  defdelegate get_ip(user_id), to: Beef.Access.Users
+  defdelegate bot?(user_id), to: Beef.Access.Users
   defdelegate get_by_api_key(api_key), to: Beef.Access.Users
   defdelegate count_bot_accounts(user_id), to: Beef.Access.Users
 
@@ -46,6 +48,7 @@ defmodule Beef.Users do
   defdelegate set_current_room(user_id, room_id, can_speak), to: Beef.Mutations.Users
   defdelegate set_current_room(user_id, room_id, can_speak, returning), to: Beef.Mutations.Users
   defdelegate twitter_find_or_create(user), to: Beef.Mutations.Users
+  defdelegate set_ip(user_id, ip), to: Beef.Mutations.Users
   defdelegate github_find_or_create(user, github_access_token), to: Beef.Mutations.Users
   defdelegate discord_find_or_create(user, discord_access_token), to: Beef.Mutations.Users
 end

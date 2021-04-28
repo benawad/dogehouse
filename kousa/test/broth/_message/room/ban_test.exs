@@ -10,14 +10,14 @@ defmodule BrothTest.Message.Room.BanTest do
   end
 
   describe "when you send a block message" do
-    test "it populates userId", %{uuid: uuid} do
+    test "it populates userId and shouldBanIp", %{uuid: uuid} do
       assert {:ok,
               %{
-                payload: %Ban{userId: ^uuid}
+                payload: %Ban{userId: ^uuid, shouldBanIp: true}
               }} =
                BrothTest.Support.Message.validate(%{
                  "operator" => "room:ban",
-                 "payload" => %{"userId" => uuid}
+                 "payload" => %{"userId" => uuid, "shouldBanIp" => true}
                })
 
       # short form also allowed
@@ -28,6 +28,17 @@ defmodule BrothTest.Message.Room.BanTest do
                BrothTest.Support.Message.validate(%{
                  "op" => "room:ban",
                  "p" => %{"userId" => uuid}
+               })
+    end
+
+    test "omitting the shouldBanIp defaults to false", %{uuid: uuid} do
+      assert {:ok,
+              %{
+                payload: %Ban{userId: ^uuid, shouldBanIp: false}
+              }} =
+               BrothTest.Support.Message.validate(%{
+                 "operator" => "room:ban",
+                 "payload" => %{"userId" => uuid}
                })
     end
 

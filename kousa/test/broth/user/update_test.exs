@@ -42,7 +42,8 @@ defmodule BrothTest.User.UpdateTest do
     end
 
     test "username taken", t do
-      %{username: existing_username} = Factory.create(User)
+      existing_username = "oiqwjodjo"
+      Factory.create(User, username: existing_username)
 
       ref =
         WsClient.send_call(
