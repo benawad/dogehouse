@@ -4,8 +4,7 @@
 import {
   Message,
   MessageToken,
-  MuteMap,
-  DeafMap,
+  BooleanMap,
   Room,
   ScheduledRoom,
   User,
@@ -43,10 +42,10 @@ export const wrap = (connection: Connection) => ({
     handRaised: (handler: Handler<{ userId: UUID }>) =>
       connection.addListener("hand_raised", handler),
     speakerAdded: (
-      handler: Handler<{ userId: UUID; muteMap: MuteMap; deafMap: DeafMap }>
+      handler: Handler<{ userId: UUID; muteMap: BooleanMap; deafMap: BooleanMap }>
     ) => connection.addListener("speaker_added", handler),
     speakerRemoved: (
-      handler: Handler<{ userId: UUID; muteMap: MuteMap; deafMap: DeafMap }>
+      handler: Handler<{ userId: UUID; muteMap: BooleanMap; deafMap: BooleanMap }>
     ) => connection.addListener("speaker_removed", handler),
   },
   query: {
