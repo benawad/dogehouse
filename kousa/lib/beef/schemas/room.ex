@@ -10,6 +10,7 @@ defmodule Beef.Schemas.Room do
           name: String.t(),
           description: String.t(),
           numPeopleInside: integer(),
+          numBotsInside: integer(),
           isPrivate: boolean(),
           user: User.t() | Ecto.Association.NotLoaded.t(),
           peoplePreviewList: [User.Preview.t()]
@@ -25,6 +26,7 @@ defmodule Beef.Schemas.Room do
     field(:name, :string)
     field(:description, :string, default: "")
     field(:numPeopleInside, :integer)
+    field(:numBotsInside, :integer)
     field(:isPrivate, :boolean)
     field(:voiceServerId, :string)
     field(:autoSpeaker, :boolean, virtual: true)
@@ -49,6 +51,7 @@ defmodule Beef.Schemas.Room do
       :creatorId,
       :isPrivate,
       :numPeopleInside,
+      :numBotsInside,
       :voiceServerId,
       :description
     ])
