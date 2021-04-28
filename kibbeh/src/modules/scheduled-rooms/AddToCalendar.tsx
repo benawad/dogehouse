@@ -130,7 +130,7 @@ export const AddToCalendar: React.FC<AddToCalendarProps> = ({
   filename = "download",
   open: initialOpen = false,
 }) => {
-  const [open, onToggle] = useOpenState(initialOpen);
+  const [_, onToggle] = useOpenState(initialOpen);
   const urls = useMemo<CalendarURLs>(() => makeUrls(event), [event]);
 
   return (
