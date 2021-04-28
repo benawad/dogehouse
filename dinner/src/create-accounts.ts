@@ -1,24 +1,27 @@
 import { http, raw, wrap } from "@dogehouse/kebab";
+import { Connection } from "@dogehouse/kebab/lib/raw";
 
 const main = async () => {
   const bot = http.wrap(http.create({ baseUrl: "http://localhost:4001" }));
   const tokens: Array<{ accessToken: string; refreshToken: string }> = [];
 
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 900; i++) {
     console.log(i);
     tokens.push(await bot.testUser("user" + i));
   }
 
-  const [{ accessToken, refreshToken }] = tokens;
-  const conn = await raw.connect(accessToken, refreshToken, {
-    url: "ws://localhost:4001/socket",
-  });
-  const api = wrap(conn);
+  const conns: Connection[] = [];
+  for (let i = 0; i < tokens.length; i++) {
+    const { accessToken, refreshToken } = tokens[i];
+    conns.push(
+      await raw.connect(accessToken, refreshToken, {
+        url: "ws://localhost:4001/socket",
+      })
+    );
+  }
 
-  const newLocal = 5 < 1;
-
-  if (newLocal) {
-    api.mutation.userCreateBot("s");
+  for (const conn of conns) {
+    await wrap(conn).query.joinRoomAndGetInfo("");
   }
 };
 
