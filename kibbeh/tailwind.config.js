@@ -98,6 +98,12 @@ module.exports = {
       outline: {
         "no-chrome": "none",
       },
+      transitionTimingFunction: {
+        "in-out-hard": "cubic-bezier(.77, 0, .175, 1)",
+      },
+      transitionDuration: {
+        400: "400ms",
+      },
     },
   },
   variants: {
