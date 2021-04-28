@@ -308,7 +308,7 @@
     "feed": { "yourFeed": "Syötteesi" }
   },
   "languages": {
-    "english": "English",
+    "english": "englantia",
     "afrikaans": "Afrikaans",
     "amharic": "Amharic",
     "arabic": "Arabic",
@@ -327,7 +327,7 @@
     "estonian": "Estonian",
     "basque": "Basque",
     "persian": "Persian",
-    "finnish": "Finnish",
+    "finnish": "suomi",
     "french": "French",
     "hebrew": "Hebrew",
     "hindi": "Hindi",

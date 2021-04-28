@@ -15,7 +15,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   const { t } = useTypeSafeTranslation();
   const { i18n } = useTranslation();
 
-  const options = [
+  const languages = [
     /* Languages that are in ISO 639-1 */
     { value: "en", flag: "🇬🇧", label: t("languages.english") },
     { value: "af", flag: "🇿🇦", label: t("languages.afrikaans") },
@@ -77,7 +77,10 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "vi", flag: "🇻🇳", label: t("languages.vietnamese") },
     { value: "zh-CN", flag: "🇨🇳", label: t("languages.chineseSimplified") },
     { value: "zh-TW", flag: "🇹🇼", label: t("languages.chineseTraditional") },
+    { value: "tp", flag: "💛", label: t("languages.tokiPona"), novelty: true },
+  ].sort((a, b) => a.label.localeCompare(b.label));
 
+  const noveltyLanguages = [
     /* Novelty languages */
     {
       value: "grc",
@@ -109,8 +112,9 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
       label: t("languages.bottom"),
       novelty: true,
     },
-    { value: "tp", flag: "💛", label: t("languages.tokiPona"), novelty: true },
   ];
+
+  const options = [...languages, ...noveltyLanguages];
 
   const parsedOptions = options.map((e, i) => (
     <SettingsIcon
@@ -122,7 +126,8 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
           : ""
       }`}
       onClick={() => i18n.changeLanguage(e.value)}
-      icon={<Twemoji text={e.label} style={{ marginRight: "1ch" }} />}
+      label={e.label}
+      icon={e.flag as any}
     ></SettingsIcon>
   ));
 
