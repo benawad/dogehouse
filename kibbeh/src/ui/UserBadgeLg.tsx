@@ -41,7 +41,7 @@ export const UserBadgeLg: React.FC<UserBadgeLgProps> = ({ icon, children }) => {
   }, [setParsedIcon, icon]);
 
   return (
-    <p className="flex text-primary-300">
+    <div className="flex text-primary-300">
       {parsedIcon ? (
         <span style={{ width: 16 }} className="mr-2">
           {parsedIcon}
@@ -50,6 +50,6 @@ export const UserBadgeLg: React.FC<UserBadgeLgProps> = ({ icon, children }) => {
         ""
       )}
       <span className="">{children}</span>
-    </p>
+    </div>
   );
 };

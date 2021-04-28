@@ -8,8 +8,8 @@ defmodule Beef.Schemas.User do
 
     # TODO: Make this a separate Schema that sees the same table.
 
-    @derive {Poison.Encoder, only: [:id, :displayName, :numFollowers]}
-    @derive {Jason.Encoder, only: [:id, :displayName, :numFollowers]}
+    @derive {Poison.Encoder, only: [:id, :displayName, :numFollowers, :avatarUrl]}
+    @derive {Jason.Encoder, only: [:id, :displayName, :numFollowers, :avatarUrl]}
 
     @primary_key false
     embedded_schema do
@@ -18,6 +18,7 @@ defmodule Beef.Schemas.User do
 
       field(:displayName, :string)
       field(:numFollowers, :integer)
+      field(:avatarUrl, :string)
     end
   end
 
@@ -37,6 +38,7 @@ defmodule Beef.Schemas.User do
           bannerUrl: String.t(),
           bio: String.t(),
           reasonForBan: String.t(),
+          ip: String.t(),
           tokenVersion: integer(),
           numFollowing: integer(),
           numFollowers: integer(),
@@ -84,6 +86,7 @@ defmodule Beef.Schemas.User do
     field(:muted, :boolean, virtual: true)
     field(:deafened, :boolean, virtual: true)
     field(:apiKey, :binary_id)
+    field(:ip, :string, null: true)
 
     belongs_to(:botOwner, Beef.Schemas.User, foreign_key: :botOwnerId, type: :binary_id)
     belongs_to(:currentRoom, Room, foreign_key: :currentRoomId, type: :binary_id)
@@ -107,7 +110,16 @@ defmodule Beef.Schemas.User do
 
   def edit_changeset(user, attrs) do
     user
-    |> cast(attrs, [:id, :username, :bio, :displayName, :avatarUrl, :bannerUrl])
+    |> cast(attrs, [
+      :id,
+      :username,
+      :bio,
+      :displayName,
+      :avatarUrl,
+      :bannerUrl,
+      :apiKey,
+      :botOwnerId
+    ])
     |> validate_required([:username, :displayName, :avatarUrl])
     |> update_change(:displayName, &String.trim/1)
     |> validate_length(:bio, min: 0, max: 160)
@@ -115,7 +127,7 @@ defmodule Beef.Schemas.User do
     |> validate_format(:username, ~r/^[\w\.]{4,15}$/)
     |> validate_format(
       :avatarUrl,
-      ~r/^https?:\/\/(www\.|)(pbs.twimg.com\/profile_images\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/)/
+      ~r/^https?:\/\/(www\.|)((a|p)bs.twimg.com\/(profile_images|sticky\/default_profile_images)\/(.*)\.(jpg|png|jpeg|webp)|avatars\.githubusercontent\.com\/u\/|github.com\/identicons\/[^\s]+)/
     )
     |> validate_format(
       :bannerUrl,

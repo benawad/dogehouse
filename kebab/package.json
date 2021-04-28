@@ -2,7 +2,7 @@
   "name": "@dogehouse/kebab",
   "author": "Ilya Maximov <mail@overlisted.net> (https://overlisted.net)",
   "bugs": "https://github.com/benawad/dogehouse/issues",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "license": "MIT",
   "keywords": [
     "dogehouse"
@@ -23,6 +23,7 @@
   "dependencies": {
     "@types/uuid": "^8.3.0",
     "@types/ws": "^7.4.1",
+    "isomorphic-unfetch": "^3.1.0",
     "isomorphic-ws": "^4.0.1",
     "mediasoup-client": "^3.6.29",
     "reconnecting-websocket": "^4.4.0",

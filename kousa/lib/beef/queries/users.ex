@@ -63,6 +63,14 @@ defmodule Beef.Queries.Users do
     )
   end
 
+  def update_set_ip(query, ip) do
+    update(query,
+      set: [
+        ip: ^ip
+      ]
+    )
+  end
+
   def update_set_online_true(query) do
     update(query,
       set: [

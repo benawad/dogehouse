@@ -98,7 +98,8 @@
       "followingHim": "ƃuᴉʍoꞁꞁoɟ",
       "copyProfileUrl": "ꞁɹn ǝꞁᴉɟoɹd ʎdoɔ",
       "urlCopied": "pɹɐoqdᴉꞁɔ oʇ pǝᴉdoɔ Ꞁᴚ∩",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "sƃuᴉʇʇǝS ǝɔᴉoɅ",
@@ -203,7 +204,8 @@
         "usernameError": "ǝɹoɔsɹǝpun/ɔᴉɹǝɯnuɐɥdꞁɐ ʎꞁuo puɐ sɹǝʇɔɐɹɐɥɔ 5І oʇ ᔭ ɥʇƃuǝꞁ",
         "usernameLabel": "ǝɯɐuɹǝs∩",
         "bioError": "sɹǝʇɔɐɹɐɥɔ 09І ɟo ɥʇƃuǝꞁ xɐɯ",
-        "bioLabel": "oᴉᗺ"
+        "bioLabel": "oᴉᗺ",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "¿ǝʇɐǝɹɔ ɹǝʌǝ noʎ ɯooɹ ʎuɐ ƃuᴉuᴉoɾ ɯoɹɟ ɹǝsn sᴉɥʇ ʞɔoꞁq oʇ ʇuɐʍ noʎ ǝɹns noʎ ǝɹⱯ",
@@ -237,7 +239,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",

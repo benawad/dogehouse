@@ -37,6 +37,7 @@ defmodule BrothTest.ChangeRoomCreatorTest do
       WsClient.do_call(speaker_ws, "room:join", %{"roomId" => room_id})
 
       WsClient.assert_frame_legacy("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
+      Kousa.Room.set_role(speaker_id, :raised_hand, by: t.user.id)
 
       # add the person as a speaker.
       WsClient.send_msg_legacy(t.client_ws, "add_speaker", %{"userId" => speaker_id})

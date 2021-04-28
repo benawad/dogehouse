@@ -40,6 +40,13 @@ defmodule Beef.Mutations.Users do
     |> Repo.update_all([])
   end
 
+  def set_ip(user_id, ip) do
+    Query.start()
+    |> Query.filter_by_id(user_id)
+    |> Query.update_set_ip(ip)
+    |> Repo.update_all([])
+  end
+
   def set_online(user_id) do
     Query.start()
     |> Query.filter_by_id(user_id)
@@ -249,6 +256,6 @@ defmodule Beef.Mutations.Users do
       bio: "I am a bot",
       apiKey: Ecto.UUID.generate()
     })
-    |> Repo.insert()
+    |> Repo.insert(returning: true)
   end
 end

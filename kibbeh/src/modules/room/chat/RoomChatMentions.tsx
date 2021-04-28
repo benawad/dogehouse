@@ -1,5 +1,6 @@
 import { BaseUser, RoomUser } from "@dogehouse/kebab";
 import React, { useEffect } from "react";
+import { mentionRegex } from "../../../lib/constants";
 import { useConn } from "../../../shared-hooks/useConn";
 import { SingleUser } from "../../../ui/UserAvatar";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
@@ -21,12 +22,9 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({
     setActiveUsername,
     queriedUsernames,
     setQueriedUsernames,
-    mentions,
-    setMentions,
   } = useRoomChatMentionStore();
 
   function addMention(m: BaseUser) {
-    setMentions([...mentions, m]);
     setMessage(
       message.substring(0, message.lastIndexOf("@") + 1) + m.username + " "
     );
@@ -38,7 +36,7 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({
 
   useEffect(() => {
     // regex to match mention patterns
-    const mentionMatches = message.match(/^(?!.*\bRT\b)(?:.+\s)?#?@\w+/i);
+    const mentionMatches = message.match(mentionRegex);
 
     // query usernames for matched patterns
     if (mentionMatches && me) {
@@ -53,7 +51,6 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({
           ({ id, username, displayName }) =>
             (username?.toLowerCase().includes(useMention?.toLowerCase()) ||
               displayName?.toLowerCase().includes(useMention?.toLowerCase())) &&
-            !mentions.find((m: BaseUser) => m.id === id) &&
             me.id !== id
         );
 
@@ -66,12 +63,6 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({
       setQueriedUsernames([]);
     }
 
-    // Remove mention if user deleted text
-    setMentions(
-      mentions.filter((u) => {
-        return message.toLowerCase().indexOf(u.username?.toLowerCase()) !== -1;
-      })
-    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [message]);
 
@@ -87,10 +78,10 @@ export const RoomChatMentions: React.FC<RoomChatMentionsProps> = ({
             onClick={() => addMention(m)}
           >
             <SingleUser size="xs" src={m.avatarUrl} />
-            <p className={`pl-3 m-0 text-primary-200 truncate`}>
+            <div className={`pl-3 m-0 text-primary-200 truncate`}>
               {m.displayName}
               {m.displayName !== m.username ? ` (${m.username})` : null}
-            </p>
+            </div>
           </button>
         ))}
       </div>

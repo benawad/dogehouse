@@ -2,7 +2,7 @@ import { JoinRoomAndGetInfoResponse, wrap } from "@dogehouse/kebab";
 import React, { useContext } from "react";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useDeafStore } from "../../global-stores/useDeafStore";
-import { SolidMegaphone } from "../../icons";
+import { SolidSimpleMegaphone } from "../../icons";
 import { modalConfirm } from "../../shared-components/ConfirmModal";
 import { useConn } from "../../shared-hooks/useConn";
 import { BoxedIcon } from "../../ui/BoxedIcon";
@@ -48,6 +48,7 @@ export const useSplitUsersIntoSections = ({
         <img
           src={isCreator ? `/emotes/coolhouse.png` : `/emotes/dogehouse.png`}
           alt={isCreator ? `admin` : `mod`}
+          title={isCreator ? `Administrator` : `Moderator`}
           style={{ marginLeft: 4 }}
           className={`w-3 h-3 ml-1`}
         />
@@ -91,9 +92,9 @@ export const useSplitUsersIntoSections = ({
           style={{ width: 60, height: 60 }}
           circle
           className="flex-shrink-0"
+          title="Request to speak"
         >
-          {/* @todo add right icon */}
-          <SolidMegaphone width={20} height={20} />
+          <SolidSimpleMegaphone width={20} height={20} />
         </BoxedIcon>
       </div>
     );

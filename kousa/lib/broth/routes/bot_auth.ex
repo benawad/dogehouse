@@ -17,12 +17,24 @@ defmodule Broth.Routes.BotAuth do
   alias Onion.BotAuthRateLimit
   alias Beef.Users
 
+  @env Mix.env()
+
   post "/auth" do
     with %{"apiKey" => api_key} <- conn.body_params,
          {:ok, _} <- Ecto.UUID.cast(api_key) do
-      key = to_string(:inet_parse.ntoa(conn.remote_ip))
+      is_test = :test == @env
 
-      if (BotAuthRateLimit.get(key) || 0) > 20 do
+      key =
+        with true <- is_test,
+             x when not is_nil(x) <- :proplists.get_value("rate-limit-key", conn.req_headers, nil) do
+          x
+        else
+          _ -> IP.to_string(conn.remote_ip)
+        end
+
+      max_attempts = if is_test, do: 5, else: 20
+
+      if (BotAuthRateLimit.get(key) || 0) > max_attempts do
         conn
         |> put_resp_content_type("application/json")
         |> send_resp(
@@ -50,6 +62,7 @@ defmodule Broth.Routes.BotAuth do
           |> send_resp(
             200,
             Poison.encode!(%{
+              username: user.username,
               accessToken: Kousa.AccessToken.generate_and_sign!(%{"userId" => user.id}),
               refreshToken:
                 Kousa.RefreshToken.generate_and_sign!(%{

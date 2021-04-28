@@ -40,6 +40,7 @@ defmodule Broth.Translator.V0_1_0 do
     "delete_scheduled_room" => "room:delete_scheduled",
     "edit_scheduled_room" => "room:update_scheduled",
     "schedule_room" => "room:create_scheduled",
+    "create_room_from_scheduled_room" => "room:create",
     "unban_from_room" => "room:unban",
     "search" => "misc:search",
     "unban_from_room_chat" => "chat:unban",
@@ -75,6 +76,10 @@ defmodule Broth.Translator.V0_1_0 do
 
   def translate_in_body(message, "get_user_profile") do
     put_in(message, ["d", "userIdOrUsername"], get_in(message, ["d", "userId"]))
+  end
+
+  def translate_in_body(message, "create_room_from_scheduled_room") do
+    put_in(message, ["d", "scheduledRoomId"], get_in(message, ["d", "id"]))
   end
 
   def translate_in_body(message, "create_room") do

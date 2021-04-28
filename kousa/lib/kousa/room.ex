@@ -77,14 +77,20 @@ defmodule Kousa.Room do
     end
   end
 
-  def block_from_room(user_id, user_id_to_block_from_room) do
+  @spec block_from_room(String.t(), String.t(), boolean()) ::
+          nil
+          | :ok
+          | {:askedToSpeak | :creator | :listener | :mod | nil | :speaker,
+             atom | %{:creatorId => any, optional(any) => any}}
+  def block_from_room(user_id, user_id_to_block_from_room, should_ban_ip \\ false) do
     with {status, room} when status in [:creator, :mod] <-
            Rooms.get_room_status(user_id) do
       if room.creatorId != user_id_to_block_from_room do
-        RoomBlocks.insert(%{
+        RoomBlocks.upsert(%{
           modId: user_id,
           userId: user_id_to_block_from_room,
-          roomId: room.id
+          roomId: room.id,
+          ip: if(should_ban_ip, do: Users.get_ip(user_id_to_block_from_room), else: nil)
         })
 
         internal_kick_from_room(user_id_to_block_from_room, room.id)
@@ -267,18 +273,22 @@ defmodule Kousa.Room do
   defp set_speaker(nil, _, _), do: :noop
 
   defp set_speaker(room_id, user_id, setter_id) do
-    case Rooms.get_room_status(setter_id) do
-      {_, nil} ->
-        :noop
+    if not RoomPermissions.asked_to_speak?(user_id, room_id) do
+      :noop
+    else
+      case Rooms.get_room_status(setter_id) do
+        {_, nil} ->
+          :noop
 
-      {:mod, _} ->
-        internal_set_speaker(user_id, room_id)
+        {:mod, _} ->
+          internal_set_speaker(user_id, room_id)
 
-      {:creator, _} ->
-        internal_set_speaker(user_id, room_id)
+        {:creator, _} ->
+          internal_set_speaker(user_id, room_id)
 
-      {_, _} ->
-        :noop
+        {_, _} ->
+          :noop
+      end
     end
   end
 
@@ -304,7 +314,7 @@ defmodule Kousa.Room do
   end
 
   # only you can raise your own hand
-  defp set_raised_hand(room_id, user_id, user_id) do
+  defp set_raised_hand(room_id, user_id, _user_id) do
     # ??
     case RoomPermissions.ask_to_speak(user_id, room_id) do
       {:ok, %{isSpeaker: true}} ->
@@ -320,8 +330,6 @@ defmodule Kousa.Room do
         )
     end
   end
-
-  defp set_raised_hand(_, _, _), do: :noop
 
   ######################################################################
   ## UPDATE
@@ -472,8 +480,17 @@ defmodule Kousa.Room do
 
               updated_user = Rooms.join_room(room, user_id)
 
-              muted = Onion.UserSession.get(user_id, :muted)
-              deafened = Onion.UserSession.get(user_id, :deafened)
+              {muted, deafened} =
+                case Onion.UserSession.lookup(user_id) do
+                  [{_, _}] ->
+                    {
+                      Onion.UserSession.get(user_id, :muted),
+                      Onion.UserSession.get(user_id, :deafened)
+                    }
+
+                  _ ->
+                    {false, false}
+                end
 
               Onion.RoomSession.join_room(room_id, user_id, muted, deafened)
 
@@ -489,7 +506,8 @@ defmodule Kousa.Room do
       end
     end
   catch
-    _, _ -> {:error, "that room doesn't exist"}
+    _, _ ->
+      {:error, "that room doesn't exist"}
   end
 
   def leave_room(user_id, current_room_id \\ nil) do
