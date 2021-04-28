@@ -126,7 +126,7 @@ Create a DB named `kousa_repo2`:
 ```shell
 $ psql postgres
 
-$ CREATE DATABASE kousa_repo2;
+$ createdb kousa_repo2;
 ```
 
 #### Elixir
