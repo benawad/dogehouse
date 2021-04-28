@@ -9,8 +9,8 @@ import {
   SolidTime,
   SolidUser,
   SolidVolume,
+  SolidDownload
 } from "../icons";
-import SvgSolidDownload from "../icons/SolidDownload";
 import SvgSolidDiscord from "../icons/SolidDiscord";
 import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
@@ -90,7 +90,7 @@ export const SettingsDropdown: React.FC<{
           >
             <SettingsIcon
               onClick={onCloseDropdown}
-              icon={<SvgSolidDownload />}
+              icon={<SolidDownload />}
               label={"Download App"}
               transition
             />

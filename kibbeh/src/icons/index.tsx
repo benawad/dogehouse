@@ -47,3 +47,5 @@ export { default as SolidWarning } from "./SolidWarning";
 export { default as SolidDeafenedOff } from "./SolidDeafenedOff";
 export { default as SolidDeafened } from "./SolidDeafened";
 export { default as SolidFriendsAdd } from "./SolidFriendsAdd";
+export { default as SolidDownload } from "./SolidDownload";
+

@@ -1,9 +1,18 @@
 import * as React from "react";
 
-export default function SvgSolidDownload(props: React.SVGProps<SVGSVGElement>) {
+function SvgSolidDownload(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg width={16} height={16} aria-hidden="true" focusable="false" data-prefix="fas" data-icon="download" className="svg-inline--fa fa-download fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-      <path fill="currentColor" d="M216 0h80c13.3 0 24 10.7 24 24v168h87.7c17.8 0 26.7 21.5 14.1 34.1L269.7 378.3c-7.5 7.5-19.8 7.5-27.3 0L90.1 226.1c-12.6-12.6-3.7-34.1 14.1-34.1H192V24c0-13.3 10.7-24 24-24zm296 376v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h146.7l49 49c20.1 20.1 52.5 20.1 72.6 0l49-49H488c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"></path>
+    <svg
+      width={16}
+      height={16}
+      viewBox="0 0 16 16"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path d="M12.9001 6.69999C12.4333 4.40003 10.4333 2.66663 8 2.66663C6.06673 2.66663 4.40007 3.76656 3.56673 5.36666C1.56673 5.56669 0 7.26656 0 9.33329C0 11.5332 1.79997 13.3333 4 13.3333H12.6667C14.5 13.3333 16 11.8333 16 9.99996C16 8.23336 14.6335 6.79993 12.9001 6.69999ZM6.93333 8.39996V5.86663H9.06667V8.39996H11.3333L8 11.7333L4.66667 8.39996H6.93333Z" />
     </svg>
   );
 }
+
+export default SvgSolidDownload;
