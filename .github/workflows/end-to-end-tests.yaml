@@ -38,6 +38,8 @@ jobs:
         elixir-version: '1.11'
     - name: fetch deps
       run: mix deps.get
+      env:
+          MIX_ENV: test
     - run: mix start server
       id: mix
     - name: Use Node.js
