@@ -1,4 +1,4 @@
-import { MessageToken, TextToken } from "./entities";
+import { MessageToken, TextToken } from "..";
 
 export const stringToToken = (string: string): [TextToken] => [{ t: "text", v: string }];
 export const tokensToString = (tokens: MessageToken[]): string => tokens

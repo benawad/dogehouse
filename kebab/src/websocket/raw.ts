@@ -1,7 +1,7 @@
 import WebSocket from "isomorphic-ws";
 import ReconnectingWebSocket from "reconnecting-websocket";
 import { v4 as generateUuid } from "uuid";
-import { User, UUID } from "./entities";
+import { User, UUID } from "..";
 
 const heartbeatInterval = 8000;
 const apiUrl = "wss://api.dogehouse.tv/socket";

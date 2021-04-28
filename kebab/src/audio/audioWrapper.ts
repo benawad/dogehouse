@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck because internet is unpredictable
 
-import { Connection } from "../raw";
+import { raw } from "..";
 import { RoomPeer, UUID } from "../entities";
 import {
   TransportOptions,
@@ -13,7 +13,7 @@ import {
 
 type Handler<Data> = (data: Data) => void;
 
-export const wrap = (connection: Connection) => ({
+export const wrap = (connection: raw.Connection) => ({
   connection,
   subscribe: {
     closeConsumer: (handler: Handler<{ producerId: UUID }>) =>

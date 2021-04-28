@@ -11,7 +11,7 @@ import {
   User,
   UserWithFollowInfo,
   UUID,
-} from "./entities";
+} from "..";
 import { Connection } from "./raw";
 import {
   GetScheduledRoomsResponse,

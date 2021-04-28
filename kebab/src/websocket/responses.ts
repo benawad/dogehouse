@@ -1,4 +1,4 @@
-import { Room, RoomUser, ScheduledRoom, User, UUID } from "./entities";
+import { Room, RoomUser, ScheduledRoom, User, UUID } from "../entities";
 
 export type GetTopPublicRoomsResponse = {
   rooms: Room[];
