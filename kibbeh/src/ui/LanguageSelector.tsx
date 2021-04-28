@@ -86,31 +86,26 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
       value: "grc",
       flag: "🧓",
       label: t("languages.ancientGreek"),
-      novelty: true,
     },
     {
       value: "en-PIRATE",
       flag: "☠️",
       label: t("languages.pirate"),
-      novelty: true,
     },
     {
       value: "en-AU",
       flag: "🇦🇺",
       label: t("languages.australian"),
-      novelty: true,
     },
     {
       value: "en-OWO",
       flag: "💕",
       label: t("languages.owoEnglish"),
-      novelty: true,
     },
     {
       value: "bottom",
       flag: "🥺",
       label: t("languages.bottom"),
-      novelty: true,
     },
   ];
 
