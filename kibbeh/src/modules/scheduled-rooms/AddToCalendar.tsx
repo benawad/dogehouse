@@ -1,9 +1,7 @@
 import React, { ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { BaseOverlay } from "../../ui/BaseOverlay";
-import { Button } from "../../ui/Button";
 import { DropdownController } from "../../ui/DropdownController";
 import { SettingsIcon } from "../../ui/SettingsIcon";
-
 import makeUrls, { CalendarEvent } from "./makeUrls";
 
 type CalendarURLs = ReturnType<typeof makeUrls>;
