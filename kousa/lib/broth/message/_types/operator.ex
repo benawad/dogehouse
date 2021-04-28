@@ -43,7 +43,7 @@ defenum(
     {Room.Deafen, 85},
     # chat commands and casts: 128..191
     {Chat.Ban, 129},
-    {Chat.SendMsg, 130},
+    {Chat.Send, 130},
     {Chat.DeleteMsg, 131},
     {Chat.Unban, 132},
     # auth and maintenance commands 192..254

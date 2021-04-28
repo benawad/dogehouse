@@ -15,48 +15,42 @@ defmodule BrothTest.Room.LeaveTest do
     user = Factory.create(User)
     client_ws = WsClientFactory.create_client_for(user)
 
-    {:ok, user: user, client_ws: client_ws}
+    %{"id" => room_id} =
+      WsClient.do_call(
+        client_ws,
+        "room:create",
+        %{"name" => "foo room", "description" => "foo"}
+      )
+
+    {:ok, user: user, client_ws: client_ws, room_id: room_id}
   end
 
   describe "the websocket room:leave operation" do
     test "deletes the room if they are the only person", t do
-      {:ok, %{room: room}} =
-        Kousa.Room.create_room(
-          t.user.id,
-          "my private room",
-          "stay out",
-          true
-        )
+      room_id = t.room_id
 
-      assert Users.get_by_id(t.user.id).currentRoomId == room.id
+      assert Users.get_by_id(t.user.id).currentRoomId == room_id
 
       ref = WsClient.send_call(t.client_ws, "room:leave", %{})
 
       WsClient.assert_reply("room:leave:reply", ref, _)
 
       refute Users.get_by_id(t.user.id).currentRoomId
-      refute Rooms.get_room_by_id(room.id)
+      refute Rooms.get_room_by_id(room_id)
     end
 
     test "removes the person from the room if they aren't the only person", t do
       user_id = t.user.id
+      room_id = t.room_id
 
-      {:ok, %{room: room}} =
-        Kousa.Room.create_room(
-          user_id,
-          "my public room",
-          "come in",
-          false
-        )
-
-      other = %{id: other_id} = Factory.create(User)
+      other = Factory.create(User)
       other_ws = WsClientFactory.create_client_for(other)
 
-      assert %{peoplePreviewList: [_]} = Rooms.get_room_by_id(room.id)
+      assert %{peoplePreviewList: [_]} = Rooms.get_room_by_id(room_id)
 
-      Kousa.Room.join_room(other_id, room.id)
+      WsClient.do_call(other_ws, "room:join", %{"roomId" => room_id})
 
-      assert %{peoplePreviewList: [_, _]} = Rooms.get_room_by_id(room.id)
+      assert %{peoplePreviewList: [_, _]} = Rooms.get_room_by_id(room_id)
 
       ref = WsClient.send_call(other_ws, "room:leave", %{})
 
@@ -66,7 +60,7 @@ defmodule BrothTest.Room.LeaveTest do
                peoplePreviewList: [
                  %{id: ^user_id}
                ]
-             } = Rooms.get_room_by_id(room.id)
+             } = Rooms.get_room_by_id(room_id)
     end
 
     @tag :skip

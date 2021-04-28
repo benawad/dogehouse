@@ -6,6 +6,7 @@ defmodule Kousa.Room do
   # note the following 2 module aliases are on the chopping block!
   alias Beef.RoomPermissions
   alias Beef.RoomBlocks
+  alias Onion.PubSub
 
   def set_auto_speaker(user_id, value) do
     if room = Rooms.get_room_by_creator_id(user_id) do
@@ -426,6 +427,9 @@ defmodule Kousa.Room do
           end)
         end
 
+        # subscribe to this room's chat
+        Onion.PubSub.subscribe("chat:" <> id)
+
         {:ok, %{room: room}}
 
       {:error, x} ->
@@ -470,6 +474,9 @@ defmodule Kousa.Room do
               if currentRoomId do
                 leave_room(user_id, currentRoomId)
               end
+
+              # subscribe to the new room chat
+              PubSub.subscribe("chat:" <> room_id)
 
               updated_user = Rooms.join_room(room, user_id)
 
@@ -536,6 +543,9 @@ defmodule Kousa.Room do
 
           Onion.RoomSession.leave_room(current_room_id, user_id)
       end
+
+      # unsubscribe to the room chat
+      PubSub.unsubscribe("chat:" <> current_room_id)
 
       {:ok, %{roomId: current_room_id}}
     else

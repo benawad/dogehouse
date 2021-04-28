@@ -19,8 +19,13 @@ defmodule BrothTest.InviteToRoomTest do
 
   describe "the websocket invite_to_room operation" do
     test "invites that person to a room", t do
-      # first, create a room owned by the primary user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"}
+        )
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
@@ -32,7 +37,7 @@ defmodule BrothTest.InviteToRoomTest do
       WsClient.send_msg_legacy(t.client_ws, "invite_to_room", %{"userId" => follower_id})
 
       # note this comes from the follower's client
-      WsClient.assert_frame("invitation_to_room", %{"roomId" => ^room_id}, follower_ws)
+      WsClient.assert_frame_legacy("invitation_to_room", %{"roomId" => ^room_id}, follower_ws)
     end
   end
 end

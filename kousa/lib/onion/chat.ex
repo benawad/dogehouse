@@ -1,18 +1,20 @@
-defmodule Onion.RoomChat do
+defmodule Onion.Chat do
   use GenServer, restart: :temporary
+
+  alias Onion.PubSub
+  alias Broth.Message.Chat.Send
+  alias Kousa.Utils.UUID
 
   require Logger
 
-  defmodule State do
-    @type t :: %__MODULE__{
-            room_id: String.t(),
-            users: [String.t()],
-            ban_map: map(),
-            last_message_map: map()
-          }
+  defstruct room_id: "", users: [], ban_map: %{}, last_message_map: %{}
 
-    defstruct room_id: "", users: [], ban_map: %{}, last_message_map: %{}
-  end
+  @type state :: %__MODULE__{
+          room_id: String.t(),
+          users: [String.t()],
+          ban_map: map(),
+          last_message_map: %{optional(UUID.t()) => DateTime.t()}
+        }
 
   #################################################################################
   # REGISTRY AND SUPERVISION BOILERPLATE
@@ -58,7 +60,7 @@ defmodule Onion.RoomChat do
   def init(init) do
     # adopt callers from the call point.
     Process.put(:"$callers", init[:callers])
-    {:ok, struct(State, init)}
+    {:ok, struct(__MODULE__, init)}
   end
 
   def kill(room_id) do
@@ -81,7 +83,11 @@ defmodule Onion.RoomChat do
   def banned?(room_id, who), do: call(room_id, {:banned?, who})
 
   defp banned_impl(who, _reply, state) do
-    {:reply, who in Map.keys(state.ban_map), state}
+    {:reply, user_banned?(who, state), state}
+  end
+
+  defp user_banned?(who, state) do
+    who in Map.keys(state.ban_map)
   end
 
   def unban_user(room_id, user_id), do: cast(room_id, {:unban_user, user_id})
@@ -99,41 +105,6 @@ defmodule Onion.RoomChat do
       {:noreply, state}
     else
       {:noreply, %{state | users: [user_id | state.users]}}
-    end
-  end
-
-  def new_msg(room_id, user_id, msg, whisperedTo) do
-    cast(room_id, {:new_msg, user_id, msg, whisperedTo})
-  end
-
-  defp new_msg_impl(user_id, msg, whisperedTo, state) do
-    last_timestamp = Map.get(state.last_message_map, user_id)
-
-    # TODO: check to make sure this will be consistent when we move to a distributed
-    # erlang cluster.
-    {_, seconds, _} = :os.timestamp()
-
-    if not Map.has_key?(state.ban_map, user_id) and
-         (is_nil(last_timestamp) or seconds - last_timestamp > 0) do
-      whispered_to_users_list = [user_id | whisperedTo]
-
-      users =
-        if whisperedTo != [],
-          do: Enum.filter(state.users, fn uid -> Enum.member?(whispered_to_users_list, uid) end),
-          else: state.users
-
-      ws_fan(users, %{
-        op: "new_chat_msg",
-        d: %{
-          userId: user_id,
-          msg: msg
-        }
-      })
-
-      {:noreply,
-       %State{state | last_message_map: Map.put(state.last_message_map, user_id, seconds)}}
-    else
-      {:noreply, state}
     end
   end
 
@@ -163,7 +134,7 @@ defmodule Onion.RoomChat do
       }
     })
 
-    {:noreply, %State{state | ban_map: Map.put(state.ban_map, user_id, 1)}}
+    {:noreply, %{state | ban_map: Map.put(state.ban_map, user_id, 1)}}
   end
 
   defp unban_user_impl(user_id, state) do
@@ -174,7 +145,66 @@ defmodule Onion.RoomChat do
       }
     })
 
-    {:noreply, %State{state | ban_map: Map.delete(state.ban_map, user_id)}}
+    {:noreply, %{state | ban_map: Map.delete(state.ban_map, user_id)}}
+  end
+
+  @spec send_msg(UUID.t(), Send.t()) :: :ok
+  def send_msg(room_id, payload) do
+    cast(room_id, {:send_msg, payload})
+  end
+
+  @spec send_msg_impl(Send.t(), state) :: {:noreply, state}
+  defp send_msg_impl(payload = %{from: from}, state) do
+    # throttle sender
+    with false <- should_throttle?(from, state),
+         false <- user_banned?(from, state) do
+      dispatch_message(payload, state)
+      updated_message_map = Map.put(state.last_message_map, from, DateTime.utc_now())
+      new_state = %{state | last_message_map: updated_message_map}
+      {:noreply, new_state}
+    else
+      _ -> {:noreply, state}
+    end
+  end
+
+  @message_time_limit_milliseconds 1000
+  @spec should_throttle?(UUID.t(), state) :: boolean
+  defp should_throttle?(user, %{last_message_times: m})
+       when is_map_key(m, user) do
+    DateTime.diff(m[user], DateTime.utc_now(), :millisecond) >= @message_time_limit_milliseconds
+  end
+
+  defp should_throttle?(_, _), do: false
+
+  defp dispatch_message(payload, state) do
+    case payload.whisperedTo do
+      [] ->
+        PubSub.broadcast("chat:" <> state.room_id, %Broth.Message{
+          operator: "chat:send",
+          payload: payload
+        })
+
+        :ok
+
+      list ->
+        # TODO: hoist this processing so we don't have to do a DB lookup.
+        blocks =
+          Beef.Schemas.User
+          |> Beef.Repo.get(payload.from)
+          |> Beef.Repo.preload(:blocked_by)
+          |> Map.get(:blocked_by)
+          |> Enum.map(& &1.id)
+
+        list
+        |> Enum.reject(&(&1 in blocks))
+        |> List.insert_at(0, payload.from)
+        |> Enum.each(fn recipient_id ->
+          PubSub.broadcast("chat:" <> recipient_id, %Broth.Message{
+            operator: "chat:send",
+            payload: payload
+          })
+        end)
+    end
   end
 
   ################################################################################ 3
@@ -188,8 +218,8 @@ defmodule Onion.RoomChat do
 
   def handle_cast({:add_user, user_id}, state), do: add_user_impl(user_id, state)
 
-  def handle_cast({:new_msg, user_id, msg, whisperedTo}, state) do
-    new_msg_impl(user_id, msg, whisperedTo, state)
+  def handle_cast({:send_msg, message}, state) do
+    send_msg_impl(message, state)
   end
 
   def handle_cast({:message_deleted, user_id, message_id}, state) do
