@@ -7,7 +7,7 @@
   "keywords": [
     "dogehouse"
   ],
-  "description": "Client-side implementation of DogeHouse API.",
+  "description": "The official DogeHouse API client.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
