@@ -101,7 +101,8 @@
       "followingHim": "இவரை பிந்தொடர்கிறீர்கள்",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "குரல் அமைப்பு",
@@ -209,7 +210,8 @@
         "usernameError": "நீளம் 4 முதல் 15 எழுத்துக்கள் மற்றும் எண்ணெழுத்து / அடிக்கோடும்",
         "usernameLabel": "பயனர்பெயர்",
         "bioError": "அதிகபட்சம் 160 எழுத்துகள்",
-        "bioLabel": "சுயசரிதை"
+        "bioLabel": "சுயசரிதை",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "நீங்கள் உருவாக்கிய எந்த அறையிலும் இந்த பயனரைச் சேர்ப்பதைத் தடுக்க விரும்புகிறீர்களா?",
@@ -243,7 +245,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",

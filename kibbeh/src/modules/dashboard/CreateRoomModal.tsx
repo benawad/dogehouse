@@ -97,13 +97,13 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
               <h4 className={`mb-2 text-primary-100`}>
                 {edit ? t("pages.home.editRoom") : t("pages.home.createRoom")}
               </h4>
-              <p className={`text-primary-300`}>
+              <div className={`text-primary-300`}>
                 {t("components.modals.createRoomModal.subtitle")}
-              </p>
+              </div>
             </div>
             <div className={`flex h-full w-full col-span-2`}>
               <InputField
-                className={`rounded-8 bg-primary-700 px-3 h-6`}
+                className={`rounded-8 bg-primary-700 h-6`}
                 name="name"
                 maxLength={60}
                 placeholder={t("components.modals.createRoomModal.roomName")}
@@ -128,7 +128,7 @@ export const CreateRoomModal: React.FC<CreateRoomModalProps> = ({
             </div>
             <div className={`flex col-span-3 bg-primary-700 rounded-8`}>
               <InputField
-                className={`px-3 h-11 col-span-3 w-full`}
+                className={`h-11 col-span-3 w-full`}
                 name="description"
                 rows={3}
                 maxLength={500}

@@ -4,6 +4,7 @@ defmodule Beef.RoomBlocks do
   alias Beef.Schemas.User
   alias Beef.Schemas.RoomBlock
   alias Beef.Repo
+  alias Beef.Users
 
   def unban(room_id, user_id) do
     from(rb in RoomBlock, where: rb.userId == ^user_id and rb.roomId == ^room_id)
@@ -11,9 +12,11 @@ defmodule Beef.RoomBlocks do
   end
 
   def blocked?(room_id, user_id) do
+    ip = Users.get_ip(user_id)
+
     not is_nil(
       from(rb in RoomBlock,
-        where: rb.userId == ^user_id and rb.roomId == ^room_id,
+        where: (rb.userId == ^user_id or rb.ip == ^ip) and rb.roomId == ^room_id,
         limit: 1
       )
       |> Beef.Repo.one()
@@ -39,5 +42,14 @@ defmodule Beef.RoomBlocks do
     %RoomBlock{}
     |> RoomBlock.insert_changeset(data)
     |> Beef.Repo.insert(on_conflict: :nothing)
+  end
+
+  def upsert(data = %{ip: ip}) do
+    %RoomBlock{}
+    |> RoomBlock.insert_changeset(data)
+    |> Beef.Repo.insert(
+      on_conflict: [set: [ip: ip]],
+      conflict_target: [:userId, :roomId]
+    )
   end
 end

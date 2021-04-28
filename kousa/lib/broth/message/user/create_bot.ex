@@ -35,22 +35,28 @@ defmodule Broth.Message.User.CreateBot do
   end
 
   alias Beef.Users
+  alias Beef.Schemas.User
 
   def execute(changeset!, state) do
     with {:ok, %{username: username}} <- apply_action(changeset!, :validation) do
-      if Users.count_bot_accounts(state.user_id) > 99 do
-        {:reply, %Reply{error: "you've reached the max of 100 bot accounts"}, state}
-      else
-        case Users.create_bot(state.user_id, username) do
-          {:ok, %{apiKey: apiKey}} ->
-            {:reply, %Reply{apiKey: apiKey}, state}
+      cond do
+        Users.bot?(state.user_id) ->
+          {:reply, %Reply{error: "bots can't create bots"}, state}
 
-          {:error,
-           %Ecto.Changeset{
-             errors: [username: {"has already been taken", _}]
-           }} ->
-            {:reply, %Reply{isUsernameTaken: true}, state}
-        end
+        Users.count_bot_accounts(state.user_id) > 99 ->
+          {:reply, %Reply{error: "you've reached the max of 100 bot accounts"}, state}
+
+        true ->
+          case Users.create_bot(state.user_id, username) do
+            {:ok, %User{apiKey: apiKey}} ->
+              {:reply, %Reply{apiKey: apiKey}, state}
+
+            {:error,
+             %Ecto.Changeset{
+               errors: [username: {"has already been taken", _}]
+             }} ->
+              {:reply, %Reply{isUsernameTaken: true}, state}
+          end
       end
     end
   end

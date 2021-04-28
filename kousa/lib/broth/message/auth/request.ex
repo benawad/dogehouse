@@ -87,20 +87,27 @@ defmodule Broth.Message.Auth.Request do
     alias Onion.RoomSession
     alias Beef.Rooms
     alias Beef.Repo
+    alias Beef.Users
 
     if user do
       # note that this will start the session and will be ignored if the
       # session is already running.
       UserSession.start_supervised(
         user_id: user_id,
+        ip: state.ip,
         username: user.username,
         avatar_url: user.avatarUrl,
         banner_url: user.bannerUrl,
         display_name: user.displayName,
         current_room_id: user.currentRoomId,
         muted: request.muted,
-        deafened: request.deafened
+        deafened: request.deafened,
+        bot_owner_id: user.botOwnerId
       )
+
+      if user.ip != state.ip do
+        Users.set_ip(user_id, state.ip)
+      end
 
       # currently we only allow one active websocket connection per-user
       # at some point soon we're going to make this multi-connection, and we

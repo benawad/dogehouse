@@ -5,6 +5,7 @@ defmodule Broth.SocketHandler do
   @type state :: %__MODULE__{
           awaiting_init: boolean(),
           user_id: String.t(),
+          ip: String.t(),
           encoding: :etf | :json,
           compression: nil | :zlib,
           version: Version.t(),
@@ -13,6 +14,7 @@ defmodule Broth.SocketHandler do
 
   defstruct awaiting_init: true,
             user_id: nil,
+            ip: nil,
             encoding: nil,
             compression: nil,
             version: nil,
@@ -39,9 +41,16 @@ defmodule Broth.SocketHandler do
         _ -> :json
       end
 
+    ip =
+      case request.headers do
+        %{"x-forwarded-for" => v} -> v
+        _ -> nil
+      end
+
     state = %__MODULE__{
       awaiting_init: true,
       user_id: nil,
+      ip: ip,
       encoding: encoding,
       compression: compression,
       callers: get_callers(request)
@@ -135,7 +144,12 @@ defmodule Broth.SocketHandler do
          {:ok, message = %{errors: nil}} <- validate(message_map!, state),
          :ok <- auth_check(message, state) do
       # make the state adopt the version of the inbound message.
-      dispatch(message, adopt_version(state, message))
+      new_state = if message.operator == Broth.Message.Auth.Request do
+        adopt_version(state, message)
+      else
+        state
+      end
+      dispatch(message, new_state)
     else
       # special cases: mediasoup operations
       msg = %{"op" => "@" <> _} ->
@@ -299,7 +313,7 @@ defmodule Broth.SocketHandler do
     {List.wrap(frame), state}
   end
 
-  defp adopt_version(target = %{version: _}, %{version: version}) do
+  def adopt_version(target = %{version: _}, %{version: version}) do
     %{target | version: version}
   end
 

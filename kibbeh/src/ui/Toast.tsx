@@ -53,7 +53,7 @@ export const ErrorToast: React.FC<ErrorMessageProps> = ({
         </div>
       ) : null}
       <div className={`flex space-x-4 items-center`}>
-        <p className={`bold`}>{message}</p>
+        <div className={`bold`}>{message}</div>
         {button}
       </div>
     </div>

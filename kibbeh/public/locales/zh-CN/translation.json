@@ -97,7 +97,8 @@
       "followingHim": "已经关注",
       "copyProfileUrl": "复制个人主页链接",
       "urlCopied": "个人主页链接已复制到剪贴板",
-      "unfollow": "取消关注"
+      "unfollow": "取消关注",
+      "about": "关于ta"
     },
     "voiceSettings": {
       "header": "语音设置",
@@ -177,7 +178,8 @@
         "usernameError": "长度为4到15字符，只允许字母或数字或下划线",
         "usernameLabel": "用户名",
         "bioError": "最大长度为160字符",
-        "bioLabel": "个人简介"
+        "bioLabel": "个人简介",
+        "bannerUrlLabel": "Twitter横幅图链接"
       },
       "profileModal": {
         "blockUserConfirm": "您确定把此人加入黑名单?（ta不可加入您所建立的任何聊天室）",
@@ -233,7 +235,10 @@
       "upcomingRooms": "即将开始的聊天室",
       "exploreMoreRooms": "探寻更多聊天室"
     },
-    "search": { "placeholder": "搜索聊天室，用户或者种类" },
+    "search": {
+      "placeholder": "搜索聊天室，用户或者种类",
+      "placeholderShort": "搜索"
+    },
     "settingsDropdown": {
       "profile": "个人信息页面",
       "language": "语言",

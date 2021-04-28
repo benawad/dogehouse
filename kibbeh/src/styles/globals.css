@@ -126,3 +126,7 @@ img.emoji {
 .h-screen {
   height: calc(100vh - var(--screen-height-reduction));
 }
+
+button:focus {
+  outline: none;
+}
