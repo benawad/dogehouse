@@ -3,8 +3,6 @@ defmodule Beef.Access.UserBlocks do
     DB Access Functions for UserBlocks Table
   """
 
-  # import Ecto.Query
-
   # alias Beef.Schemas.UserBlock
   alias Beef.Repo
   alias Beef.Queries.UserBlocks, as: Query

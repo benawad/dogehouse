@@ -1,16 +1,16 @@
-defmodule BrothTest.Message.Chat.SendMsgTest do
+defmodule BrothTest.Message.Chat.SendTest do
   use ExUnit.Case, async: true
 
   @moduletag :message
 
   alias Broth.Message.Types.ChatToken
-  alias Broth.Message.Chat.SendMsg
+  alias Broth.Message.Chat.Send
 
   describe "when you send a send_msg message" do
     test "it populates userId" do
       assert {:ok,
               %{
-                payload: %SendMsg{
+                payload: %Send{
                   tokens: [
                     %ChatToken{
                       type: :text,
@@ -35,7 +35,7 @@ defmodule BrothTest.Message.Chat.SendMsgTest do
       # short form also allowed
       assert {:ok,
               %{
-                payload: %SendMsg{
+                payload: %Send{
                   tokens: [
                     %ChatToken{
                       type: :text,

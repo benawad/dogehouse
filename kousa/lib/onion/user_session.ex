@@ -55,6 +55,8 @@ defmodule Onion.UserSession do
 
   def count, do: Registry.count(Onion.UserSessionRegistry)
 
+  def lookup(user_id), do: Registry.lookup(Onion.UserSessionRegistry, user_id)
+
   ###############################################################################
   ## INITIALIZATION BOILERPLATE
 

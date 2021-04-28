@@ -11,8 +11,9 @@ let PREV_PAGE_DATA: {
 const START_TIME = Date.now();
 const ROOM_DATA_UPDATE_FUNC = (event, data) => {
   if (inRoom) {
-    let muted = "Muted";
+    let voiceState = "Muted";
     let isMuted = true;
+    let isDeafened = false;
     let isSpeaker = false;
     if (data.currentRoom) {
       // kofta dosent send currentRoom.room
@@ -30,7 +31,11 @@ const ROOM_DATA_UPDATE_FUNC = (event, data) => {
       }
       if (isSpeaker) {
         isMuted = data.muted;
-        muted = isMuted ? "Muted" : "Unmuted";
+        voiceState = isMuted ? "Muted" : "Unmuted";
+      }
+      if (data.deafened) {
+        isDeafened = data.deafened;
+        voiceState = isDeafened ? "Deafened" : voiceState;
       }
       let pdata: Presence = {
         state: isPrivate
@@ -39,12 +44,12 @@ const ROOM_DATA_UPDATE_FUNC = (event, data) => {
       };
       if (!isPrivate) {
         pdata.details = isSpeaker
-          ? `Speaking (${data.currentRoom.users.length} of ∞)`
-          : `Listening (${data.currentRoom.users.length} of ∞)`;
+          ? `Speaking (${data.currentRoom.users.length} of ထ)`
+          : `Listening (${data.currentRoom.users.length} of ထ)`;
         pdata.partyId = data.currentRoom.room.id;
         pdata.startTimestamp = new Date(data.currentRoom.room.inserted_at).getTime();
-        pdata.smallImageKey = isSpeaker && !isMuted ? "mic_on" : "mic_off";
-        pdata.smallImageText = isSpeaker ? `Speaker - ${muted}` : `Listener`;
+        pdata.smallImageKey = !isDeafened ? isSpeaker && !isMuted ? "mic_on" : "mic_off" : "speaker_off";
+        pdata.smallImageText = isSpeaker ? `Speaker - ${voiceState}` : isDeafened ? `Listener - ${voiceState}` : `Listener`;
         pdata.buttons = [
           {
             label: "Join Room",

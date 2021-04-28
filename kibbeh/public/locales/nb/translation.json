@@ -98,7 +98,7 @@
       "copyProfileUrl": "Kopiér profil URL",
       "urlCopied": "URL kopiert til utklippstavlen",
       "unfollow": "Slutt å følge",
-      "about": "About"
+      "about": "Om bruker"
     },
     "voiceSettings": {
       "header": "Taleinnstillinger",
@@ -112,12 +112,12 @@
       "header": "Innstillinger for overlegg"
     },
     "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
-      "download_for": "Download for %platform% (%ext%)"
+      "starting": "Starter nedlastning...",
+      "failed": "Kunne ikke gjøre automatisk nedlastning, prøv igjen senere",
+      "visit_gh": "Besøk Github lanseringer",
+      "prompt": "Klikk på knappen nedenfor, for å starte nedlastningen",
+      "download_now": "Last ned nå",
+      "download_for": "Nedlastning for %platform% (%ext%)"
     }
   },
   "components": {
@@ -272,10 +272,10 @@
         "minLength": "Minimum lengde er 2 tegn",
         "roomDescription": "Beskrivelse"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "tommorow": "I MORGEN",
+      "today": "I DAG",
       "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
+        "areYouSure": "Er du sikker på at du vil slette det planlagte rommet?"
       }
     },
     "roomChat": {

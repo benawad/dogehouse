@@ -1,4 +1,4 @@
-defmodule BrothTest.Chat.DeleteMsgTest do
+defmodule BrothTest.Chat.DeleteTest do
   use ExUnit.Case, async: true
   use KousaTest.Support.EctoSandbox
 
@@ -17,11 +17,17 @@ defmodule BrothTest.Chat.DeleteMsgTest do
     {:ok, user: user, client_ws: client_ws}
   end
 
-  describe "the websocket chat:delete_msg operation" do
+  describe "the websocket chat:delete operation" do
     test "sends a message to the room", t do
       user_id = t.user.id
-      # first, create a room owned by the primary user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)
+
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"}
+        )
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
@@ -30,36 +36,34 @@ defmodule BrothTest.Chat.DeleteMsgTest do
       listener_ws = WsClientFactory.create_client_for(listener)
 
       # join the speaker user into the room
-      Kousa.Room.join_room(listener_id, room_id)
-      WsClient.assert_frame("new_user_join_room", _)
+      WsClient.do_call(listener_ws, "room:join", %{"roomId" => room_id})
+      WsClient.assert_frame_legacy("new_user_join_room", _)
 
       # note that an asynchronous delete request doesn't really have
       # to make sense to anyone.
-
-      # TODO: double check that the listener-id can't be hijacked
-      # (is it only sent to early-block poor attempts to delete messages?)
-      # maybe we should handle this at the frontend level?
       msg_id = UUID.uuid4()
 
-      WsClient.send_msg(t.client_ws, "chat:delete_msg", %{
+      WsClient.send_msg(t.client_ws, "chat:delete", %{
         "messageId" => msg_id,
         "userId" => listener_id
       })
 
       WsClient.assert_frame(
-        "message_deleted",
+        "chat:delete",
         %{
           "deleterId" => ^user_id,
-          "messageId" => ^msg_id
+          "messageId" => ^msg_id,
+          "userId" => ^listener_id
         },
         t.client_ws
       )
 
       WsClient.assert_frame(
-        "message_deleted",
+        "chat:delete",
         %{
           "deleterId" => ^user_id,
-          "messageId" => ^msg_id
+          "messageId" => ^msg_id,
+          "userId" => ^listener_id
         },
         listener_ws
       )

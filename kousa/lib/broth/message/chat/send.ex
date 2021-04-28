@@ -1,16 +1,32 @@
-defmodule Broth.Message.Chat.SendMsg do
+defmodule Broth.Message.Chat.Send do
   use Broth.Message.Cast
 
   alias Broth.Message.Types.ChatToken
 
   @message_character_limit Application.compile_env!(:kousa, :message_character_limit)
 
+  @derive {Jason.Encoder, only: [:id, :tokens, :from, :sentAt, :isWhisper]}
+
   @primary_key false
   embedded_schema do
+    field(:id, :binary_id)
     embeds_many(:tokens, ChatToken)
     field(:whisperedTo, {:array, :binary_id})
+    field(:from, :binary_id)
+    field(:sentAt, :utc_datetime)
+    field(:isWhisper, :boolean, default: false)
   end
 
+  @impl true
+  def initialize(state) do
+    %__MODULE__{
+      id: UUID.uuid4(),
+      from: state.user_id,
+      sentAt: DateTime.utc_now()
+    }
+  end
+
+  @impl true
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
     |> cast(data, [:whisperedTo])
@@ -96,7 +112,9 @@ defmodule Broth.Message.Chat.SendMsg do
           end
         end)
 
-      put_change(changeset, :whisperedTo, normalized_uuids)
+      changeset
+      |> put_change(:whisperedTo, normalized_uuids)
+      |> put_change(:isWhisper, normalized_uuids != [])
     else
       changeset
     end
@@ -104,14 +122,11 @@ defmodule Broth.Message.Chat.SendMsg do
     :format_error -> add_error(changeset, :whisperedTo, "is invalid")
   end
 
+  @impl true
   def execute(changeset, state) do
-    with {:ok, %{tokens: tokens, whisperedTo: whisperedTo}} <- apply_action(changeset, :validate) do
-      Kousa.RoomChat.send_msg(
-        state.user_id,
-        tokens,
-        whisperedTo
-      )
-
+    with {:ok, payload} <- apply_action(changeset, :validate) do
+      # note that payload bears the user_id inside of its `from` parameter.
+      Kousa.Chat.send_msg(payload)
       {:noreply, state}
     end
   end
