@@ -40,11 +40,11 @@ jobs:
       run: mix deps.get
       env:
           MIX_ENV: test
-    - run: mix start server
+    - run: source .envrc && mix start server
       id: mix
     - name: Use Node.js
       uses: actions/setup-node@v1
     - run: yarn install
-    - run: cd kebab && yarn build
-    - run: cd kibbeh && yarn dev
-    - run: cd kibbeh && yarn cy:run
+    - run: cd ../kebab && yarn build
+    - run: cd ../kibbeh && yarn dev
+    - run: cd ../kibbeh && yarn cy:run
