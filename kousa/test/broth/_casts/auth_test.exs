@@ -52,7 +52,7 @@ defmodule BrothTest.AuthTest do
         "deafened" => false
       })
 
-      WsClient.assert_frame("auth-good", %{"user" => %{"id" => ^user_id}})
+      WsClient.assert_frame_legacy("auth-good", %{"user" => %{"id" => ^user_id}})
     end
 
     test "fails auth if the accessToken is borked" do

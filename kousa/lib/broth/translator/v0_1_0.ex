@@ -214,7 +214,7 @@ defmodule Broth.Translator.V0_1_0 do
     %{op: "fetch_done", d: message.p}
     |> add_out_ref(message)
     |> add_out_err(message)
-    |> translate_out_body(original.inbound_operator)
+    |> translate_out_body(original.inbound_operator || message.op)
   end
 
   defp add_out_ref(message, %{ref: ref}), do: Map.put(message, :fetchId, ref)
@@ -282,6 +282,34 @@ defmodule Broth.Translator.V0_1_0 do
     rooms = message.d.rooms
     %{message | d: %{"scheduledRooms" => rooms}}
   end
+
+  #################################################################
+  # autogenous messages
+
+  def translate_out_body(message, "chat:send") do
+    user_info =
+      message.d.from
+      |> Beef.Users.get_by_id()
+      |> Map.take([:avatarUrl, :displayName, :username])
+
+    chat_msg =
+      message.d
+      |> Map.take([:id, :isWhisper, :sentAt, :tokens])
+      |> Map.merge(user_info)
+      |> Map.put(:userId, message.d.from)
+
+    %{
+      message
+      | d: %{
+          "msg" => chat_msg,
+          "userId" => message.d.from
+        },
+        op: "new_chat_msg"
+    }
+  end
+
+  #################################################################
+  # pure outbound messages
 
   def translate_out_body(message, _), do: message
 end

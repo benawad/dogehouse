@@ -65,6 +65,7 @@ defmodule Broth.Message.Auth.Request do
 
   alias Beef.Repo
   alias Beef.Schemas.User
+  alias Onion.PubSub
 
   defp convert_tokens(request, state) do
     alias Kousa.Utils.TokenUtils
@@ -135,12 +136,18 @@ defmodule Broth.Message.Auth.Request do
             Kousa.Room.join_vc_room(user.id, room)
           end
 
+          # This seems janky, should probably be refactored into a Kousa.Auth module.
+          PubSub.subscribe("chat:" <> room.id)
+
         roomIdFromFrontend ->
           Kousa.Room.join_room(user.id, roomIdFromFrontend)
 
         true ->
           :ok
       end
+
+      # subscribe to chats directed to oneself.
+      PubSub.subscribe("chat:" <> user_id)
 
       {:reply, Repo.get(Reply, user_id), %{state | user_id: user_id, awaiting_init: false}}
     else

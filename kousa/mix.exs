@@ -37,6 +37,7 @@ defmodule Kousa.MixProject do
       {:plug_cowboy, "~> 2.5"},
       # TODO: switch from poison to jason everywhere
       {:poison, "~> 3.1"},
+      {:phoenix_pubsub, "~> 2.0.0"},
       {:ecto_sql, "~> 3.0"},
       {:ecto_enum, "~> 1.4"},
       {:jason, "~> 1.2"},

@@ -19,7 +19,7 @@ defmodule Broth.Message.Chat.DeleteMsg do
 
   def execute(changeset, state) do
     with {:ok, delete} <- apply_action(changeset, :validate) do
-      Kousa.RoomChat.delete_message(state.user_id, delete.messageId, delete.userId)
+      Kousa.Chat.delete_message(state.user_id, delete.messageId, delete.userId)
       {:noreply, state}
     end
   end
