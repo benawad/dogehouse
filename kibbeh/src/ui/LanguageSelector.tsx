@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { Twemoji } from "./Twemoji";
 import backIcon from "../icons/SolidCaretRight";
 import { SettingsIcon } from "./SettingsIcon";
@@ -11,80 +12,105 @@ interface LanguageSelectorProps {
 export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   onClose,
 }) => {
-  const options = [
-    { value: "en", flag: "🇬🇧", label: "English" }, // English
-
-    /* Languages that are in ISO 639-1, sorted by language code (A-Z) */
-    { value: "af", flag: "🇿🇦", label: "Afrikaans" }, // Afrikaans
-    { value: "am", flag: "🇪🇹", label: "አማርኛ" }, // Amharic
-    { value: "ar", flag: "🇸🇦", label: "عربي" }, // Arabic
-    { value: "az", flag: "🇦🇿", label: "Azərbaycanca" }, // Azerbaijani
-    { value: "bg", flag: "🇧🇬", label: "Български" }, // Bulgarian
-    { value: "bn", flag: "🇧🇩", label: "বাংলা" }, // Bengali
-    { value: "cs", flag: "🇨🇿", label: "Čeština" }, // Czech
-    { value: "da", flag: "🇩🇰", label: "Dansk" }, // Danish
-    { value: "de", flag: "🇩🇪", label: "Deutsch" }, // German
-    { value: "de-AT", flag: "🇦🇹", label: "Deutsch (Österreich)" }, // German (Austria)
-    { value: "gsw", flag: "🇨🇭", label: "Schwiizerdütsch" }, // Swiss German
-    { value: "el", flag: "🇬🇷", label: "Ελληνικά" }, // Greek
-    { value: "grc", flag: "🧓", label: "Αρχαία Ελληνικά" }, // Ancient Greek
-    { value: "eo", flag: "🟢", label: "Esperanto" }, // Esperanto
-    { value: "es", flag: "🇪🇸", label: "Español" }, // Spanish
-    { value: "et", flag: "🇪🇪", label: "Eesti" }, // Estonian
-    { value: "eu", flag: "🇪🇸", label: "Euskara" }, // Basque
-    { value: "fa", flag: "🇮🇷", label: "فارسی" }, // Persian
-    { value: "fi", flag: "🇫🇮", label: "Suomi" }, // Finnish
-    { value: "fr", flag: "🇫🇷", label: "Français" }, // French
-    { value: "he", flag: "🇮🇱", label: "עברית" }, // Hebrew
-    { value: "hi", flag: "🇮🇳", label: "हिन्दी" }, // Hindi
-    { value: "hr", flag: "🇭🇷", label: "Hrvatski" }, // Croatian
-    { value: "hu", flag: "🇭🇺", label: "Magyar" }, // Hungarian
-    { value: "id", flag: "🇮🇩", label: "Bahasa Indonesia" }, // Indonesian
-    { value: "is", flag: "🇮🇸", label: "Íslenska" }, // Icelandic
-    { value: "it", flag: "🇮🇹", label: "Italiano" }, // Italian
-    { value: "ja", flag: "🇯🇵", label: "日本語" }, // Japanese
-    { value: "kk", flag: "🇰🇿", label: "Қазақша" }, // Kazakh
-    { value: "ko", flag: "🇰🇷", label: "한국어" }, // Korean
-    { value: "li", flag: "🇳🇱", label: "Limburgs" }, // Limburgish
-    { value: "lt", flag: "🇱🇹", label: "Lietuvių" }, // Lithuanian
-    { value: "lv", flag: "🇱🇻", label: "Latviešu" }, // Latvian
-    { value: "nb", flag: "🇳🇴", label: "Norsk Bokmål" }, // Norwegian Bokmål
-    { value: "ne", flag: "🇳🇵", label: "नेपाली" }, // Nepali
-    { value: "nl", flag: "🇳🇱", label: "Nederlands" }, // Dutch
-    { value: "pl", flag: "🇵🇱", label: "Polski" }, // Polish
-    { value: "pt-BR", flag: "🇧🇷", label: "Português (Brasil)" }, // Portuguese (Brazil)
-    { value: "pt-PT", flag: "🇵🇹", label: "Português (Portugal)" }, // Portuguese (Portugal)
-    { value: "ro", flag: "🇷🇴", label: "Română" }, // Romanian
-    { value: "ru", flag: "🇷🇺", label: "Русский" }, // Russian
-    { value: "si", flag: "🇱🇰", label: "සිංහල" }, // Sinhala
-    { value: "sk", flag: "🇸🇰", label: "Slovenčina" }, // Slovak
-    { value: "sl", flag: "🇸🇮", label: "Slovenščina" }, // Slovenian
-    { value: "so", flag: "🇸🇴", label: "Af Soomaali" }, // Somali
-    { value: "sq", flag: "🇦🇱", label: "Shqip" }, // Albanian
-    { value: "sr", flag: "🇷🇸", label: "Српски" }, // Serbian
-    { value: "sr-LATIN", flag: "🇷🇸", label: "Srpski" }, // Serbian (Latin)
-    { value: "sv", flag: "🇸🇪", label: "Svenska" }, // Swedish
-    { value: "ta", flag: "🇮🇳", label: "தமிழ்" }, // Tamil
-    { value: "te", flag: "🇮🇳", label: "తెలుగు" }, // Telugu
-    { value: "th", flag: "🇹🇭", label: "ไทย" }, // Thai
-    { value: "tl", flag: "🇵🇭", label: "Tagalog" }, // Tagalog
-    { value: "tr", flag: "🇹🇷", label: "Türkçe" }, // Turkish
-    { value: "uk", flag: "🇺🇦", label: "Українська" }, // Ukrainian
-    { value: "ur", flag: "🇵🇰", label: "اردو" }, // Urdu
-    { value: "uz", flag: "🇺🇿", label: "Oʻzbek" }, // Uzbek
-    { value: "vi", flag: "🇻🇳", label: "Tiếng Việt" }, // Vietnamese
-    { value: "zh-CN", flag: "🇨🇳", label: "中文 (简体)" }, // Chinese (Simplified)
-    { value: "zh-TW", flag: "🇹🇼", label: "正體中文 (繁體)" }, // Chinese (Traditional)
-
-    /* Other languages */
-    { value: "en-PIRATE", flag: "☠️", label: "Pirate" },
-    { value: "en-AU", flag: "🇦🇺", label: "uɐᴉꞁɐɹʇsnⱯ" }, // Australian
-    { value: "en-OWO", flag: "💕", label: "OwO Engwish" },
-    { value: "bottom", flag: "🥺", label: "Bottom" },
-    { value: "tp", flag: "💛", label: "Toki Pona" },
-  ];
-
+  const { t } = useTypeSafeTranslation();
   const { i18n } = useTranslation();
+
+  const options = [
+    /* Languages that are in ISO 639-1 */
+    { value: "en", flag: "🇬🇧", label: t("languages.english") },
+    { value: "af", flag: "🇿🇦", label: t("languages.afrikaans") },
+    { value: "am", flag: "🇪🇹", label: t("languages.amharic") },
+    { value: "ar", flag: "🇸🇦", label: t("languages.arabic") },
+    { value: "az", flag: "🇦🇿", label: t("languages.azerbaijani") },
+    { value: "bg", flag: "🇧🇬", label: t("languages.bulgarian") },
+    { value: "bn", flag: "🇧🇩", label: t("languages.bengali") },
+    { value: "cs", flag: "🇨🇿", label: t("languages.czech") },
+    { value: "da", flag: "🇩🇰", label: t("languages.danish") },
+    { value: "de", flag: "🇩🇪", label: t("languages.german") },
+    { value: "de-AT", flag: "🇦🇹", label: t("languages.germanAustria") },
+    { value: "gsw", flag: "🇨🇭", label: t("languages.swissGerman") },
+    { value: "el", flag: "🇬🇷", label: t("languages.greek") },
+    { value: "eo", flag: "🟢", label: t("languages.esperanto") },
+    { value: "es", flag: "🇪🇸", label: t("languages.spanish") },
+    { value: "et", flag: "🇪🇪", label: t("languages.estonian") },
+    { value: "eu", flag: "🇪🇸", label: t("languages.basque") },
+    { value: "fa", flag: "🇮🇷", label: t("languages.persian") },
+    { value: "fi", flag: "🇫🇮", label: t("languages.finnish") },
+    { value: "fr", flag: "🇫🇷", label: t("languages.french") },
+    { value: "he", flag: "🇮🇱", label: t("languages.hebrew") },
+    { value: "hi", flag: "🇮🇳", label: t("languages.hindi") },
+    { value: "hr", flag: "🇭🇷", label: t("languages.croatian") },
+    { value: "hu", flag: "🇭🇺", label: t("languages.hungarian") },
+    { value: "id", flag: "🇮🇩", label: t("languages.indonesian") },
+    { value: "is", flag: "🇮🇸", label: t("languages.icelandic") },
+    { value: "it", flag: "🇮🇹", label: t("languages.italian") },
+    { value: "ja", flag: "🇯🇵", label: t("languages.japanese") },
+    { value: "kk", flag: "🇰🇿", label: t("languages.kazakh") },
+    { value: "ko", flag: "🇰🇷", label: t("languages.korean") },
+    { value: "li", flag: "🇳🇱", label: t("languages.limburgish") },
+    { value: "lt", flag: "🇱🇹", label: t("languages.lithuanian") },
+    { value: "lv", flag: "🇱🇻", label: t("languages.latvian") },
+    { value: "nb", flag: "🇳🇴", label: t("languages.norwegianBokmal") },
+    { value: "ne", flag: "🇳🇵", label: t("languages.nepali") },
+    { value: "nl", flag: "🇳🇱", label: t("languages.dutch") },
+    { value: "pl", flag: "🇵🇱", label: t("languages.polish") },
+    { value: "pt-BR", flag: "🇧🇷", label: t("languages.portugueseBrazil") },
+    { value: "pt-PT", flag: "🇵🇹", label: t("languages.portuguesePortugal") },
+    { value: "ro", flag: "🇷🇴", label: t("languages.romanian") },
+    { value: "ru", flag: "🇷🇺", label: t("languages.russian") },
+    { value: "si", flag: "🇱🇰", label: t("languages.sinhala") },
+    { value: "sk", flag: "🇸🇰", label: t("languages.slovak") },
+    { value: "sl", flag: "🇸🇮", label: t("languages.slovenian") },
+    { value: "so", flag: "🇸🇴", label: t("languages.somali") },
+    { value: "sq", flag: "🇦🇱", label: t("languages.albanian") },
+    { value: "sr", flag: "🇷🇸", label: t("languages.serbian") },
+    { value: "sr-LATIN", flag: "🇷🇸", label: t("languages.serbianLatin") },
+    { value: "sv", flag: "🇸🇪", label: t("languages.swedish") },
+    { value: "ta", flag: "🇮🇳", label: t("languages.tamil") },
+    { value: "te", flag: "🇮🇳", label: t("languages.telugu") },
+    { value: "th", flag: "🇹🇭", label: t("languages.thai") },
+    { value: "tl", flag: "🇵🇭", label: t("languages.tagalog") },
+    { value: "tr", flag: "🇹🇷", label: t("languages.turkish") },
+    { value: "uk", flag: "🇺🇦", label: t("languages.ukrainian") },
+    { value: "ur", flag: "🇵🇰", label: t("languages.urdu") },
+    { value: "uz", flag: "🇺🇿", label: t("languages.uzbek") },
+    { value: "vi", flag: "🇻🇳", label: t("languages.vietnamese") },
+    { value: "zh-CN", flag: "🇨🇳", label: t("languages.chineseSimplified") },
+    { value: "zh-TW", flag: "🇹🇼", label: t("languages.chineseTraditional") },
+
+    /* Novelty languages */
+    {
+      value: "grc",
+      flag: "🧓",
+      label: t("languages.ancientGreek"),
+      novelty: true,
+    },
+    {
+      value: "en-PIRATE",
+      flag: "☠️",
+      label: t("languages.pirate"),
+      novelty: true,
+    },
+    {
+      value: "en-AU",
+      flag: "🇦🇺",
+      label: t("languages.australian"),
+      novelty: true,
+    },
+    {
+      value: "en-OWO",
+      flag: "💕",
+      label: t("languages.owoEnglish"),
+      novelty: true,
+    },
+    {
+      value: "bottom",
+      flag: "🥺",
+      label: t("languages.bottom"),
+      novelty: true,
+    },
+    { value: "tp", flag: "💛", label: t("languages.tokiPona"), novelty: true },
+  ];
 
   const parsedOptions = options.map((e, i) => (
     <SettingsIcon
