@@ -102,7 +102,7 @@
       "copyProfileUrl": "প্রোফাইলের URL কপি করুন",
       "urlCopied": "URL ক্লিপবোর্ডে কপি করা হয়েছে",
       "unfollow": "অনুসরণ বাতিল করুন",
-      "about": "About"
+      "about": "সম্বন্ধে"
     },
     "voiceSettings": {
       "header": "ভয়েস সেটিংস",
@@ -213,7 +213,7 @@
         "usernameLabel": "ইউজার নাম",
         "bioError": "১৬০ অক্ষরের মধ্যে হতে হবে",
         "bioLabel": "বর্ণনা",
-        "bannerUrlLabel": "Twitter banner URL"
+        "bannerUrlLabel": "টুইটার ব্যানার URL"
       },
       "profileModal": {
         "blockUserConfirm": "আপনি কি নিশ্চিত যে আপনি এই ইউজারকে চিরকালের জন্য ব্লক করছেন আপনার সব রুমে জয়েন করা থেকে?",
@@ -249,7 +249,7 @@
     },
     "search": {
       "placeholder": "সার্চ করুন রুম, ইউজার অথবা ক্যাটেগরি",
-      "placeholderShort": "Search"
+      "placeholderShort": "সার্চ করুন"
     },
     "settingsDropdown": {
       "profile": "প্রোফাইল",
