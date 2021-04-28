@@ -99,7 +99,8 @@
       "copyProfileUrl": "Kopioi profiilin URL-osoite",
       "urlCopied": "Osoite kopioitu leikepöydälle",
       "unfollow": "Lopeta seuraaminen",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Puheasetukset",

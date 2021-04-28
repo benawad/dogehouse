@@ -99,7 +99,8 @@
       "copyProfileUrl": "Copier le lien du profil",
       "urlCopied": "Lien copié dans le presse-papier",
       "unfollow": "Unfollow",
-      "about": "À propos de"
+      "about": "À propos de",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Paramètres vocaux",

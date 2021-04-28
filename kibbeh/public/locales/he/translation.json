@@ -99,7 +99,8 @@
       "copyProfileUrl": "העתק קישור פרופיל",
       "urlCopied": "הקישור הועתק",
       "unfollow": "הפסק מעקב",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "הגדרות קול",

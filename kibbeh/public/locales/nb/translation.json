@@ -98,7 +98,8 @@
       "copyProfileUrl": "Kopiér profil URL",
       "urlCopied": "URL kopiert til utklippstavlen",
       "unfollow": "Slutt å følge",
-      "about": "Om bruker"
+      "about": "Om bruker",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Taleinnstillinger",
