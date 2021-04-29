@@ -6,7 +6,7 @@
 3. Green will come from the bottom of the avatar if everything is working based on how loud they are speaking
 ![image](https://user-images.githubusercontent.com/7872329/116556759-6e723680-a8c3-11eb-913c-7506d875ac30.png)
 
-4. If you see green but can't hear them, make sure your speakers work then click on the profile image of a speaker you can't hear screen shot the debug info
+4. If you see green but can't hear them, make sure your speakers work then click on the profile image of a speaker you can't hear and screen shot the debug info
 ![image](https://user-images.githubusercontent.com/7872329/116554578-f86cd000-a8c0-11eb-883c-3a66a94eb61e.png)
 5. Then click `Force Play Audio` once
 6. If all of these things don't work, right-click the page, click inspect, click console tab, and copy/paste all the text into a GitHub issue
