@@ -12,7 +12,7 @@ defmodule BrothTest.DeleteRoomChatMessageTest do
 
   setup do
     user = Factory.create(User)
-    client_ws = WsClientFactory.create_client_for(user)
+    client_ws = WsClientFactory.create_client_for(user, legacy: true)
 
     {:ok, user: user, client_ws: client_ws}
   end
@@ -21,11 +21,11 @@ defmodule BrothTest.DeleteRoomChatMessageTest do
     test "sends a message to the room", t do
       user_id = t.user.id
 
-      %{"id" => room_id} =
-        WsClient.do_call(
+      %{"room" => %{"id" => room_id}} =
+        WsClient.do_call_legacy(
           t.client_ws,
-          "room:create",
-          %{"name" => "foo room", "description" => "foo"}
+          "create_room",
+          %{"name" => "foo room", "description" => "foo", "privacy" => "public"}
         )
 
       # make sure the user is in there.
@@ -36,7 +36,7 @@ defmodule BrothTest.DeleteRoomChatMessageTest do
       listener_ws = WsClientFactory.create_client_for(listener)
 
       # join the speaker user into the room
-      WsClient.do_call(listener_ws, "room:join", %{"roomId" => room_id})
+      WsClient.do_call_legacy(listener_ws, "join_room_and_get_info", %{"roomId" => room_id})
       WsClient.assert_frame_legacy("new_user_join_room", _)
 
       # note that an asynchronous delete request doesn't really have

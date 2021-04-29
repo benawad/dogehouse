@@ -41,6 +41,7 @@ export const FloatingRoomInfo: React.FC<MinimizedRoomCardControllerProps> = () =
 
   return (
     <div
+      data-testid="floating-room-container"
       style={{ maxWidth: "70vw" }}
       className="flex fixed bottom-6 right-6 border-accent border rounded-8 bg-primary-800 items-center"
     >

@@ -16,7 +16,7 @@ defmodule Broth.Translator.V0_1_0 do
     "get_blocked_from_room_users" => "room:get_banned_users",
     "mute" => "room:mute",
     "deafen" => "room:deafen",
-    "delete_room_chat_message" => "chat:delete_msg",
+    "delete_room_chat_message" => "chat:delete",
     "auth" => "auth:request",
     "leave_room" => "room:leave",
     "create_room" => "room:create",
@@ -306,6 +306,10 @@ defmodule Broth.Translator.V0_1_0 do
         },
         op: "new_chat_msg"
     }
+  end
+
+  def translate_out_body(message, "chat:delete") do
+    %{op: "message_deleted", d: message.d}
   end
 
   #################################################################

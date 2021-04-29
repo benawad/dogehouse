@@ -44,7 +44,7 @@ defenum(
     # chat commands and casts: 128..191
     {Chat.Ban, 129},
     {Chat.Send, 130},
-    {Chat.DeleteMsg, 131},
+    {Chat.Delete, 131},
     {Chat.Unban, 132},
     # auth and maintenance commands 192..254
     {Auth.Request, 193},
