@@ -40,7 +40,6 @@ defmodule Beef.Schemas.User do
           avatarUrl: String.t(),
           bannerUrl: String.t(),
           bio: String.t(),
-          isBot: boolean(),
           reasonForBan: String.t(),
           ip: String.t(),
           tokenVersion: integer(),
@@ -78,7 +77,6 @@ defmodule Beef.Schemas.User do
     field(:avatarUrl, :string)
     field(:bannerUrl, :string)
     field(:bio, :string, default: "")
-    field(:isBot, :boolean, default: false)
     field(:reasonForBan, :string)
     field(:tokenVersion, :integer)
     field(:numFollowing, :integer)
