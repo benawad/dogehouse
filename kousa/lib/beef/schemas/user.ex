@@ -47,7 +47,7 @@ defmodule Beef.Schemas.User do
           lastOnline: DateTime.t(),
           youAreFollowing: boolean(),
           followsYou: boolean(),
-          isBot: boolean(),
+          botOwnerId: nil | Ecto.UUID.t(),
           roomPermissions: nil | Beef.Schemas.RoomPermission.t(),
           currentRoomId: Ecto.UUID.t(),
           currentRoom: Room.t() | Ecto.Association.NotLoaded.t()
@@ -55,11 +55,11 @@ defmodule Beef.Schemas.User do
 
   @derive {Poison.Encoder, only: ~w(id username avatarUrl bannerUrl bio online
              lastOnline currentRoomId displayName numFollowing numFollowers
-             currentRoom youAreFollowing followsYou isBot roomPermissions)a}
+             currentRoom youAreFollowing followsYou botOwnerId roomPermissions)a}
 
   @derive {Jason.Encoder, only: ~w(id username avatarUrl bannerUrl bio online
     lastOnline currentRoomId displayName numFollowing numFollowers
-    youAreFollowing followsYou isBot roomPermissions)a}
+    youAreFollowing followsYou botOwnerId roomPermissions)a}
 
   @primary_key {:id, :binary_id, []}
   schema "users" do
@@ -83,7 +83,6 @@ defmodule Beef.Schemas.User do
     field(:lastOnline, :utc_datetime_usec)
     field(:youAreFollowing, :boolean, virtual: true)
     field(:followsYou, :boolean, virtual: true)
-    field(:isBot, :boolean, virtual: true)
     field(:roomPermissions, :map, virtual: true, null: true)
     field(:muted, :boolean, virtual: true)
     field(:deafened, :boolean, virtual: true)
