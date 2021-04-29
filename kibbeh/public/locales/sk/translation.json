@@ -97,7 +97,9 @@
       "followingHim": "sledovaný",
       "copyProfileUrl": "skopírovať url profilu",
       "urlCopied": "URL skopírované do schránky",
-      "unfollow": "Prestať sledovať"
+      "unfollow": "Prestať sledovať",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Nastavenia hlasu",
@@ -116,7 +118,10 @@
     "download": {
       "starting": "Starting download...",
       "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases"
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -202,7 +207,8 @@
         "usernameError": "počet znakov musí byť medzi 4-15, povolené sú len písmená, čísla a podčiarkovník",
         "usernameLabel": "Používatelské meno",
         "bioError": "maximálna dĺžka je 160 znakov",
-        "bioLabel": "O mne"
+        "bioLabel": "O mne",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Si si istý, že chceš zabanovať tohto používateľa zo všetkých tvojich miestností?",
@@ -237,7 +243,8 @@
       "exploreMoreRooms": "Preskúmať viac miestností"
     },
     "search": {
-      "placeholder": "Vyhľadaj miestnosti, užívateľov alebo kategórie"
+      "placeholder": "Vyhľadaj miestnosti, užívateľov alebo kategórie",
+      "placeholderShort": "Search"
     },
     "settingsDropdown": {
       "profile": "Profil",

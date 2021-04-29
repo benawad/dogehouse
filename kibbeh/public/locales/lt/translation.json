@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "Pakrauti daugiau",
     "loading": "Kraunasi...",
@@ -98,7 +98,9 @@
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Garso nustatymai",
@@ -114,7 +116,10 @@
     "download": {
       "starting": "Starting download...",
       "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases"
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -200,7 +205,8 @@
         "usernameError": "Ilgis nuo 4 iki 15 simbolių ir tik raidinis(arba skaitmeninis)/apatinis pabraukimas",
         "usernameLabel": "Slapyvardis",
         "bioError": "Didžiausias ilgis - 160 simbolių",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Ar tikrai norite užblokuoti šį vartotoją prisijungti prie bet kurio jūsų ateityje sukurto kambario?",
@@ -234,7 +240,10 @@
       "upcomingRooms": "Būsimi kambariai",
       "exploreMoreRooms": "Rodyti daugiau kambarių"
     },
-    "search": { "placeholder": "Ieškoti kambarių, vartotojų ar kategorijų" },
+    "search": {
+      "placeholder": "Ieškoti kambarių, vartotojų ar kategorijų",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profilis",
       "language": "Kalba",

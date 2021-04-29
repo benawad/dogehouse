@@ -19,34 +19,40 @@ defmodule BrothTest.ChangeRoomCreatorTest do
 
   describe "the websocket change_room_creator operation" do
     test "makes the person a room_creator", t do
-      # first, create a room owned by the primary user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"}
+        )
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
       # create a user that is logged in.
       speaker = %{id: speaker_id} = Factory.create(User)
-      ws_speaker = WsClientFactory.create_client_for(speaker)
+      speaker_ws = WsClientFactory.create_client_for(speaker)
 
       # join the speaker user into the room
-      Kousa.Room.join_room(speaker_id, room_id)
+      WsClient.do_call(speaker_ws, "room:join", %{"roomId" => room_id})
 
-      WsClient.assert_frame("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
+      WsClient.assert_frame_legacy("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
+      Kousa.Room.set_role(speaker_id, :raised_hand, by: t.user.id)
 
       # add the person as a speaker.
       WsClient.send_msg_legacy(t.client_ws, "add_speaker", %{"userId" => speaker_id})
 
       # both clients get notified
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "speaker_added",
         %{"userId" => ^speaker_id, "roomId" => ^room_id},
         t.client_ws
       )
 
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "speaker_added",
         %{"userId" => ^speaker_id, "roomId" => ^room_id},
-        ws_speaker
+        speaker_ws
       )
 
       # make the person a mod
@@ -56,16 +62,16 @@ defmodule BrothTest.ChangeRoomCreatorTest do
       })
 
       # both clients get notified
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "mod_changed",
         %{"userId" => ^speaker_id, "roomId" => ^room_id},
         t.client_ws
       )
 
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "mod_changed",
         %{"userId" => ^speaker_id, "roomId" => ^room_id},
-        ws_speaker
+        speaker_ws
       )
 
       # make the person a room creator.
@@ -74,7 +80,7 @@ defmodule BrothTest.ChangeRoomCreatorTest do
       })
 
       # NB: we get an extraneous speaker_added message here.
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "new_room_creator",
         %{"userId" => ^speaker_id, "roomId" => ^room_id}
       )

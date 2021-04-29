@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "ngarko më tepër",
     "loading": "duke ngarkuar...",
@@ -98,7 +98,9 @@
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Cilësime e zërit",
@@ -114,7 +116,10 @@
     "download": {
       "starting": "Starting download...",
       "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases"
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -197,7 +202,8 @@
         "usernameError": "gjatësia 4 deri 15 shkronja dhe vetëm alphanumerik/nevizim",
         "usernameLabel": "Emri i përdoruesit",
         "bioError": "gjatesia maks 160 shkronja",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "A jeni të sigurt që doni të bllokoni këtë perdoruest për t'iu bashkuar dhomave qe ju krijoni?",
@@ -231,7 +237,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",

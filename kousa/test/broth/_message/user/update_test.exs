@@ -5,35 +5,34 @@ defmodule BrothTest.Message.User.UpdateTest do
   @moduletag :message
 
   alias Beef.Schemas.User
-  alias Broth.Message.User.Update
   alias KousaTest.Support.Factory
 
   setup do
     # this "UNIT" test requires the db because the message gets
     # initialized off of information in the database.
     user = Factory.create(User)
-    state = %Broth.SocketHandler{user_id: user.id}
+    state = %Broth.SocketHandler{user: user}
     {:ok, uuid: UUID.uuid4(), state: state}
   end
 
   describe "when you send an update message to change muted state" do
     test "it populates update fields", %{uuid: uuid, state: state} do
-      assert {:ok, %{payload: %Update{muted: true, deafen: true}}} =
+      assert {:ok, %{payload: %User{muted: true, deafened: true}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "user:update",
-                   "payload" => %{"muted" => true, "deafen" => true},
+                   "payload" => %{"muted" => true, "deafened" => true},
                    "reference" => uuid
                  },
                  state
                )
 
       # short form also allowed
-      assert {:ok, %{payload: %Update{muted: false, deafen: false}}} =
+      assert {:ok, %{payload: %User{muted: false, deafened: false}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "op" => "user:update",
-                   "p" => %{"muted" => false, "deafen" => false},
+                   "p" => %{"muted" => false, "deafened" => false},
                    "ref" => uuid
                  },
                  state
@@ -45,7 +44,7 @@ defmodule BrothTest.Message.User.UpdateTest do
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "user:update",
-                   "payload" => %{"muted" => true, "deafen" => true}
+                   "payload" => %{"muted" => true, "deafened" => true}
                  },
                  state
                )
@@ -53,21 +52,24 @@ defmodule BrothTest.Message.User.UpdateTest do
 
     test "providing the wrong datatype for muted state is disallowed",
          %{uuid: uuid, state: state} do
-      assert {:error, %{errors: %{muted: "is invalid", deafen: "is invalid"}}} =
+      assert {:error, %{errors: %{muted: "is invalid", deafened: "is invalid"}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "user:update",
-                   "payload" => %{"muted" => "foobar", "deafen" => "barfoo"},
+                   "payload" => %{"muted" => "foobar", "deafened" => "barfoo"},
                    "reference" => uuid
                  },
                  state
                )
 
-      assert {:error, %{errors: %{muted: "is invalid", deafen: "is invalid"}}} =
+      assert {:error, %{errors: %{muted: "is invalid", deafened: "is invalid"}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "user:update",
-                   "payload" => %{"muted" => ["foobar", "barbaz"], "deafen" => ["foobar", "barbaz"]},
+                   "payload" => %{
+                     "muted" => ["foobar", "barbaz"],
+                     "deafened" => ["foobar", "barbaz"]
+                   },
                    "reference" => uuid
                  },
                  state
@@ -77,7 +79,7 @@ defmodule BrothTest.Message.User.UpdateTest do
 
   describe "when you send an update message to change the username" do
     test "it populates update fields", %{uuid: uuid, state: state} do
-      assert {:ok, %{payload: %Update{username: "foobar"}}} =
+      assert {:ok, %{payload: %User{username: "foobar"}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "user:update",

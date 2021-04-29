@@ -24,7 +24,7 @@ defmodule Broth.Message.User.Follow do
 
   def execute(changeset, state) do
     with {:ok, %{userId: user_id}} <- apply_action(changeset, :validate) do
-      Kousa.Follow.follow(state.user_id, user_id, true)
+      Kousa.Follow.follow(state.user.id, user_id, true)
       {:reply, %Reply{}, state}
     end
   end

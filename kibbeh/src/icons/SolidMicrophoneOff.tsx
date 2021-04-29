@@ -3,6 +3,7 @@ import * as React from "react";
 function SvgSolidMicrophoneOff(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
+      data-testid="mic-off"
       width={16}
       height={16}
       viewBox="0 0 16 16"

@@ -18,11 +18,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       <textarea
         ref={ref as any}
         className={cn}
-        {...(props as any)}
         data-testid="textarea"
+        {...(props as any)}
       />
     ) : (
-      <input ref={ref} className={cn} {...props} data-testid="input" />
+      <input ref={ref} className={cn} data-testid="input" {...props} />
     );
   }
 );

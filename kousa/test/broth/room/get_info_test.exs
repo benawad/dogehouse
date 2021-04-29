@@ -13,13 +13,19 @@ defmodule BrothTest.Room.GetInfoTest do
     user = Factory.create(User)
     client_ws = WsClientFactory.create_client_for(user)
 
-    {:ok, user: user, client_ws: client_ws}
+    %{"id" => room_id} =
+      WsClient.do_call(
+        client_ws,
+        "room:create",
+        %{"name" => "foo room", "description" => "foo"}
+      )
+
+    {:ok, user: user, client_ws: client_ws, room_id: room_id}
   end
 
   describe "the websocket room:get_info operation" do
     test "can get your own user info", t do
-      # first, create a room owned by the primary user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)
+      room_id = t.room_id
 
       ref = WsClient.send_call(t.client_ws, "room:get_info", %{"id" => room_id})
 
@@ -31,8 +37,7 @@ defmodule BrothTest.Room.GetInfoTest do
     end
 
     test "if you don't supply id, then you'll get the room you're in", t do
-      # first, create a room owned by the primary user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)
+      room_id = t.room_id
 
       ref =
         WsClient.send_call(

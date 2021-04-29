@@ -7,6 +7,7 @@ defmodule Broth.Message.Manifest do
 
   @actions %{
     "test:operator" => BrothTest.MessageTest.TestOperator,
+    "user:create_bot" => User.CreateBot,
     "user:ban" => User.Ban,
     "user:block" => User.Block,
     "user:follow" => User.Follow,
@@ -24,7 +25,6 @@ defmodule Broth.Message.Manifest do
     "room:set_role" => Room.SetRole,
     "room:set_auth" => Room.SetAuth,
     "room:join" => Room.Join,
-    "room:get_users" => Room.GetUsers,
     "room:get_banned_users" => Room.GetBannedUsers,
     "room:update_scheduled" => Room.UpdateScheduled,
     "room:delete_scheduled" => Room.DeleteScheduled,
@@ -39,8 +39,8 @@ defmodule Broth.Message.Manifest do
     "room:get_scheduled" => Room.GetScheduled,
     "chat:ban" => Chat.Ban,
     "chat:unban" => Chat.Unban,
-    "chat:send_msg" => Chat.SendMsg,
-    "chat:delete_msg" => Chat.DeleteMsg,
+    "chat:send_msg" => Chat.Send,
+    "chat:delete" => Chat.Delete,
     "auth:request" => Auth.Request,
     "misc:search" => Misc.Search
   }

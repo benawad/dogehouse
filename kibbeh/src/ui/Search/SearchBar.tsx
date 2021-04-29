@@ -25,7 +25,11 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           <SolidSearch />
         </div>
       )}
-      <Input className={`${inputClassName} pl-0`} {...props} />
+      <Input
+        data-testid="searchbar"
+        className={`${inputClassName} pl-0`}
+        {...props}
+      />
     </div>
   );
 };

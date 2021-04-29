@@ -8,9 +8,10 @@ export type RoomPeer = {
 };
 
 export type UserPreview = {
-  numFollowers: number;
   id: UUID;
   displayName: string;
+  numFollowers: number;
+  avatarUrl: string | null
 };
 
 export type Room = {
@@ -21,11 +22,7 @@ export type Room = {
   numPeopleInside: number;
   voiceServerId: string;
   creatorId: string;
-  peoplePreviewList: Array<{
-    id: string;
-    displayName: string;
-    numFollowers: number;
-  }>;
+  peoplePreviewList: Array<UserPreview>;
   inserted_at: string;
 };
 
@@ -50,11 +47,13 @@ export type User = {
   lastOnline: string;
   id: UUID;
   followsYou?: boolean;
+  botOwnerId?: string;
   displayName: string;
   currentRoomId?: UUID;
   currentRoom: Room;
-  bio: string;
+  bio: string | null;
   avatarUrl: string;
+  bannerUrl: string | null;
 };
 
 export type MessageToken<T extends string = string, V = unknown> = {
@@ -90,9 +89,11 @@ export type BaseUser = {
   bio: string;
   displayName: string;
   avatarUrl: string;
+  bannerUrl: string;
   numFollowing: number;
   numFollowers: number;
   currentRoom?: Room;
+  botOwnerId?: string;
 };
 
 export type PaginatedBaseUsers = {

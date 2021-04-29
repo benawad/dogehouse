@@ -19,8 +19,13 @@ defmodule BrothTest.MuteTest do
 
   describe "the websocket mute call operation" do
     test "can be used to swap state", t do
-      # first, create a room owned by the primary user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"}
+        )
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
@@ -39,14 +44,20 @@ defmodule BrothTest.MuteTest do
 
       # obtain the pseudo-response
       assert_receive({:text, _, _})
-      map = Onion.RoomSession.get(room_id, :muteMap)
+      Process.sleep(100)
 
+      map = Onion.RoomSession.get(room_id, :muteMap)
       refute is_map_key(map, t.user.id)
     end
 
     test "has no effect on initial value", t do
-      # first, create a room owned by the primary user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"}
+        )
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 

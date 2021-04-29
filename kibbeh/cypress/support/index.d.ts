@@ -4,9 +4,11 @@
 
 declare namespace Cypress {
   interface Chainable {
-    dataTestId(value: string): Chainable<Element>;
+    dataTestId(value: string, wait?: boolean): Chainable<Element>;
     byName(value: string): Chainable<Element>;
     clickSubmit(): Chainable<Element>;
+    closeModal(): Chainable<Element>;
     loginTestUser(value?: string): Chainable<AUTWindow>;
+    testDeafenSequence(): void;
   }
 }

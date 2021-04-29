@@ -26,8 +26,17 @@
 
 import { defaultTestUsername } from "./test-constants";
 
-Cypress.Commands.add("dataTestId", (value) => {
-  return cy.get(`[data-testid=${value}]`);
+Cypress.Commands.add("dataTestId", (value, wait = false) => {
+  const selector = `[data-testid="${value}"]`;
+  if (wait) {
+    return cy.waitFor(selector);
+  } else {
+    return cy.get(selector);
+  }
+});
+
+Cypress.Commands.add("closeModal", () => {
+  return cy.get(`[data-testid="close-modal"]`).click();
 });
 
 Cypress.Commands.add("byName", (value) => {
@@ -38,7 +47,27 @@ Cypress.Commands.add("clickSubmit", () => {
   return cy.get(`button[type="submit"]`).click();
 });
 
+Cypress.Commands.add("testDeafenSequence", () => {
+  // deafen -> mute will undeafen
+  cy.dataTestId("deafen").click();
+  cy.dataTestId(`mic-off`);
+  cy.dataTestId(`headphone-off`);
+  cy.dataTestId("mute").click();
+  cy.dataTestId(`mic-on`);
+  cy.dataTestId(`headphone-on`);
+  // mute -> deafen -> mute will undeafen
+  cy.dataTestId("mute").click();
+  cy.dataTestId(`mic-off`);
+  cy.dataTestId("deafen").click();
+  cy.dataTestId(`mic-off`);
+  cy.dataTestId(`headphone-off`);
+  cy.dataTestId("mute").click();
+  cy.dataTestId(`mic-on`);
+  cy.dataTestId(`headphone-on`);
+});
+
 Cypress.Commands.add("loginTestUser", (value = defaultTestUsername) => {
+  cy.viewport(2560, 1440);
   cy.visit("/", {
     onBeforeLoad(win) {
       cy.stub(win, "prompt").returns(value);

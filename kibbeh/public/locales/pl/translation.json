@@ -101,7 +101,9 @@
       "unfollow": "Przestań obserwować",
       "followingHim": "Obserwujesz",
       "copyProfileUrl": "Skopiuj URL profilu",
-      "urlCopied": "URL zostało skopiowane do schowka"
+      "urlCopied": "URL zostało skopiowane do schowka",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Ustawienia Głosu",
@@ -120,7 +122,10 @@
     "download": {
       "starting": "Starting download...",
       "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases"
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -188,7 +193,10 @@
       "description": "WebSocket został zabity przez serwer. Dzieje się tak kiedy otwierasz strone w nowej karcie.",
       "reconnect": "Połącz ponownie"
     },
-    "search": { "placeholder": "Znajdź pokój, użytkowników lub kategorie" },
+    "search": {
+      "placeholder": "Znajdź pokój, użytkowników lub kategorie",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Twój profil",
       "language": "Język",
@@ -229,7 +237,8 @@
         "usernameError": "Długość od 4 do 15 znaków oraz jedynie alphanumeryczna oraz podkreślnik",
         "usernameLabel": "Nazwa użytkownika",
         "bioError": "Maksymalna długość to 160 znaków",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Czy jesteś pewny, że chcesz zablokować użytkownikowi możliwość dołączania do każdego stworzonego przez Ciebie pokoju?",

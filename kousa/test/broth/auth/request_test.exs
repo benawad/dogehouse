@@ -3,6 +3,7 @@ defmodule BrothTest.Auth.RequestTest do
   use KousaTest.Support.EctoSandbox
 
   alias Beef.Schemas.User
+  alias Beef.Users
   alias BrothTest.WsClient
   alias KousaTest.Support.Factory
 
@@ -56,15 +57,55 @@ defmodule BrothTest.Auth.RequestTest do
       WsClient.assert_reply("auth:request:reply", ref, %{"id" => ^user_id})
     end
 
+    test "no deafen", %{tokens: tokens, user_id: user_id} do
+      # start and link the websocket client
+      client_ws = start_supervised!(WsClient)
+      Process.link(client_ws)
+      WsClient.forward_frames(client_ws)
+
+      # login
+      ref =
+        WsClient.send_call(client_ws, "auth:request", %{
+          "accessToken" => tokens.accessToken,
+          "refreshToken" => tokens.refreshToken,
+          "platform" => "foo",
+          "reconnectToVoice" => false,
+          "muted" => false,
+          "deafen" => false
+        })
+
+      WsClient.assert_reply("auth:request:reply", ref, %{"id" => ^user_id})
+
+      %{"id" => room_id} =
+        WsClient.do_call(
+          client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"}
+        )
+
+      assert %{currentRoomId: ^room_id} = Users.get_by_id(user_id)
+
+      ref2 =
+        WsClient.send_call(client_ws, "auth:request", %{
+          "accessToken" => tokens.accessToken,
+          "refreshToken" => tokens.refreshToken,
+          "platform" => "foo",
+          "reconnectToVoice" => false,
+          "muted" => false
+        })
+
+      WsClient.assert_reply("auth:request:reply", ref2, %{"id" => ^user_id})
+    end
+
     test "fails auth if the accessToken is borked" do
       # start and link the websocket client
-      pid = start_supervised!(WsClient)
+      client_ws = start_supervised!(WsClient)
 
       # the websocket should die.
       WsClient.assert_dies(
-        pid,
+        client_ws,
         fn ->
-          WsClient.send_call(pid, "auth:request", %{
+          WsClient.send_call(client_ws, "auth:request", %{
             "accessToken" => "foo",
             "refreshToken" => "bar",
             "platform" => "foo",

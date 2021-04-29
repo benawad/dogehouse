@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "0w0 Woad Mowe UwU",
     "loading": "<3 Woading... ;_;",
@@ -101,7 +101,9 @@
       "followingHim": "Fowwowing <3",
       "copyProfileUrl": "Copy Pwofile URL",
       "urlCopied": "URL Cwopied to Cwipboard (❤´艸｀❤)",
-      "unfollow": "Unfowwow"
+      "unfollow": "Unfowwow",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "OWO Voice Settings (✿ ♡‿♡)",
@@ -117,7 +119,10 @@
     "download": {
       "starting": "Starting download...",
       "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases"
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -200,7 +205,8 @@
         "usernameError": "OWO wength 4 to 15 chawactews and onwy awphanumewic/undewscowe (இωஇ )",
         "usernameLabel": "UwU Usewname UwU",
         "bioError": "Max wength of 160 chawactews :D",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "OwO Awe uu suwe uu want to bwock this usew fwom joining any woom uu evew cweate? (　'◟ ')",
@@ -234,7 +240,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",

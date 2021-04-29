@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "نمایش بیشتر",
     "loading": "در حال بارگذاری",
@@ -98,7 +98,9 @@
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "تنظیمات صدا",
@@ -117,7 +119,10 @@
     "download": {
       "starting": "Starting download...",
       "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases"
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -198,7 +203,8 @@
         "usernameError": "طول 4 تا 15 کاراکتر و فقط حروف و عدد",
         "usernameLabel": "نام کاربری",
         "bioError": "حداکثر 160 کاراکتر",
-        "bioLabel": "بیو"
+        "bioLabel": "بیو",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "مطمئن هستید که میخاهید این کاربر را مسدود کنید؟",
@@ -232,7 +238,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",

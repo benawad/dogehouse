@@ -7,6 +7,13 @@ defmodule Beef.Access.Users do
   alias Beef.Schemas.Room
   alias Beef.Rooms
 
+  def get(user_id) do
+    Repo.get(User, user_id)
+  end
+  def get(user_id, opts) do
+    # opts could be a preload.
+  end
+
   def find_by_github_ids(ids) do
     Query.start()
     |> Query.filter_by_github_ids(ids)
@@ -110,6 +117,7 @@ defmodule Beef.Access.Users do
   # out of the database layer, but we are keeping it here for now
   # to keep the transition smooth.
   def tuple_get_current_room_id(user_id) do
+    # DO NOT COPY/PASTE THIS FUNCTION
     case Onion.UserSession.get_current_room_id(user_id) do
       {:ok, nil} ->
         {nil, nil}
@@ -142,6 +150,7 @@ defmodule Beef.Access.Users do
   end
 
   def get_current_room_id(user_id) do
+    # DO NOT COPY/PASTE THIS FUNCTION
     try do
       Onion.UserSession.get_current_room_id(user_id)
     catch
@@ -151,5 +160,39 @@ defmodule Beef.Access.Users do
           %{currentRoomId: id} -> id
         end
     end
+  end
+
+  def get_ip(user_id) do
+    # DO NOT COPY/PASTE THIS FUNCTION
+    try do
+      Onion.UserSession.get(user_id, :ip)
+    catch
+      _, _ ->
+        case get_by_id(user_id) do
+          nil -> nil
+          %{ip: ip} -> ip
+        end
+    end
+  end
+
+  def bot?(user_id) do
+    # DO NOT COPY/PASTE THIS FUNCTION
+    try do
+      not is_nil(Onion.UserSession.get(user_id, :bot_owner_id))
+    catch
+      _, _ ->
+        case get_by_id(user_id) do
+          nil -> nil
+          %{botOwnerId: botOwnerId} -> not is_nil(botOwnerId)
+        end
+    end
+  end
+
+  def get_by_api_key(api_key) do
+    Repo.get_by(User, apiKey: api_key)
+  end
+
+  def count_bot_accounts(user_id) do
+    Repo.one(from(u in User, select: fragment("count(*)"), where: u.botOwnerId == ^user_id))
   end
 end

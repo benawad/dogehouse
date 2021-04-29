@@ -13,11 +13,10 @@ defmodule Broth.Translator.V0_1_0 do
     "invite_to_room" => "room:invite",
     "get_my_following" => "user:get_following",
     "get_top_public_rooms" => "room:get_top",
-    "get_current_room_users" => "room:get_users",
     "get_blocked_from_room_users" => "room:get_banned_users",
     "mute" => "room:mute",
     "deafen" => "room:deafen",
-    "delete_room_chat_message" => "chat:delete_msg",
+    "delete_room_chat_message" => "chat:delete",
     "auth" => "auth:request",
     "leave_room" => "room:leave",
     "create_room" => "room:create",
@@ -29,7 +28,7 @@ defmodule Broth.Translator.V0_1_0 do
     "change_room_creator" => "room:set_auth",
     "make_room_public" => "room:update",
     "edit_room" => "room:update",
-    "fetch_invite_list" => "room:get_invite_list",
+    "get_invite_list" => "room:get_invite_list",
     "get_user_profile" => "user:get_info",
     "ask_to_speak" => "room:set_role",
     "ban_from_room_chat" => "chat:ban",
@@ -41,6 +40,7 @@ defmodule Broth.Translator.V0_1_0 do
     "delete_scheduled_room" => "room:delete_scheduled",
     "edit_scheduled_room" => "room:update_scheduled",
     "schedule_room" => "room:create_scheduled",
+    "create_room_from_scheduled_room" => "room:create",
     "unban_from_room" => "room:unban",
     "search" => "misc:search",
     "unban_from_room_chat" => "chat:unban",
@@ -72,6 +72,14 @@ defmodule Broth.Translator.V0_1_0 do
 
   def translate_in_body(message, "edit_profile") do
     put_in(message, ["d"], get_in(message, ["d", "data"]))
+  end
+
+  def translate_in_body(message, "get_user_profile") do
+    put_in(message, ["d", "userIdOrUsername"], get_in(message, ["d", "userId"]))
+  end
+
+  def translate_in_body(message, "create_room_from_scheduled_room") do
+    put_in(message, ["d", "scheduledRoomId"], get_in(message, ["d", "id"]))
   end
 
   def translate_in_body(message, "create_room") do
@@ -189,7 +197,7 @@ defmodule Broth.Translator.V0_1_0 do
 
   # these casts need to be instrumented with fetchId in order to be treated
   # as a cast.
-  @casts_to_calls ~w(auth leave_room ban fetch_invite_list make_room_public mute deafen)
+  @casts_to_calls ~w(auth leave_room ban make_room_public mute deafen)
 
   def add_in_ref(message, op) when op in @casts_to_calls do
     Map.put(message, "fetchId", UUID.uuid4())
@@ -206,7 +214,7 @@ defmodule Broth.Translator.V0_1_0 do
     %{op: "fetch_done", d: message.p}
     |> add_out_ref(message)
     |> add_out_err(message)
-    |> translate_out_body(original.inbound_operator)
+    |> translate_out_body(original.inbound_operator || message.op)
   end
 
   defp add_out_ref(message, %{ref: ref}), do: Map.put(message, :fetchId, ref)
@@ -228,11 +236,7 @@ defmodule Broth.Translator.V0_1_0 do
   end
 
   def translate_out_body(message = %{e: errors}, "user:update") do
-    %{message | d: %{isUsernameTaken: errors =~ "has already been taken"}}
-  end
-
-  def translate_out_body(message, "user:update") do
-    %{message | d: %{isUsernameTaken: false}}
+    %{message | d: %{isUsernameTaken: "has already been taken" in Map.values(errors)}}
   end
 
   def translate_out_body(message, "user:get_relationship") do
@@ -257,7 +261,7 @@ defmodule Broth.Translator.V0_1_0 do
 
   def translate_out_body(message, "room:get_invite_list") do
     data = %{users: message.d.invites, nextCursor: message.d.nextCursor}
-    %{message | op: "fetch_invite_list_done", d: data}
+    %{message | d: data}
   end
 
   def translate_out_body(message, "user:get_following") do
@@ -278,6 +282,38 @@ defmodule Broth.Translator.V0_1_0 do
     rooms = message.d.rooms
     %{message | d: %{"scheduledRooms" => rooms}}
   end
+
+  #################################################################
+  # autogenous messages
+
+  def translate_out_body(message, "chat:send") do
+    user_info =
+      message.d.from
+      |> Beef.Users.get_by_id()
+      |> Map.take([:avatarUrl, :displayName, :username])
+
+    chat_msg =
+      message.d
+      |> Map.take([:id, :isWhisper, :sentAt, :tokens])
+      |> Map.merge(user_info)
+      |> Map.put(:userId, message.d.from)
+
+    %{
+      message
+      | d: %{
+          "msg" => chat_msg,
+          "userId" => message.d.from
+        },
+        op: "new_chat_msg"
+    }
+  end
+
+  def translate_out_body(message, "chat:delete") do
+    %{op: "message_deleted", d: message.d}
+  end
+
+  #################################################################
+  # pure outbound messages
 
   def translate_out_body(message, _), do: message
 end

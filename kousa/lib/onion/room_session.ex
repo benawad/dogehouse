@@ -61,7 +61,7 @@ defmodule Onion.RoomSession do
     Process.put(:"$callers", init[:callers])
 
     # also launch a linked, supervised room.
-    Onion.RoomChat.start_link_supervised(init[:room_id])
+    Onion.Chat.start_link_supervised(init[:room_id])
     {:ok, struct(State, init)}
   end
 
@@ -222,13 +222,12 @@ defmodule Onion.RoomSession do
     {:noreply, %{state | muteMap: new_mm, deafMap: new_dm}}
   end
 
-  def join_room(room_id, user_id, mute, deaf, opts \\ [])
-      when is_boolean(mute) and is_boolean(deaf) do
+  def join_room(room_id, user_id, mute, deaf, opts \\ []) do
     cast(room_id, {:join_room, user_id, mute, deaf, opts})
   end
 
   defp join_room_impl(user_id, mute, deaf, opts, state) do
-    Onion.RoomChat.add_user(state.room_id, user_id)
+    Onion.Chat.add_user(state.room_id, user_id)
 
     # consider using MapSet instead!!
     muteMap =
@@ -340,7 +339,7 @@ defmodule Onion.RoomSession do
   defp kick_from_room_impl(user_id, state) do
     users = Enum.filter(state.users, fn uid -> uid != user_id end)
 
-    Onion.RoomChat.remove_user(state.room_id, user_id)
+    Onion.Chat.remove_user(state.room_id, user_id)
 
     Onion.VoiceRabbit.send(state.voice_server_id, %{
       op: "close-peer",
@@ -367,7 +366,7 @@ defmodule Onion.RoomSession do
   defp leave_room_impl(user_id, state) do
     users = Enum.reject(state.users, &(&1 == user_id))
 
-    Onion.RoomChat.remove_user(state.room_id, user_id)
+    Onion.Chat.remove_user(state.room_id, user_id)
 
     Onion.VoiceRabbit.send(state.voice_server_id, %{
       op: "close-peer",

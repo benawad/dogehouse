@@ -9,13 +9,13 @@ export const useDeafStore = create(
     },
     (set) => ({
       // don't call this directly unless you know what you are doing
-      // use useSetMute hook intead
-      setInternalDeaf: (deafened: boolean) => {
-        if (deafened) {
-          // @todo: add deafen/undeafen sounds
-          useSoundEffectStore.getState().playSoundEffect("mute");
-        } else {
-          useSoundEffectStore.getState().playSoundEffect("unmute");
+      // use useSetDeaf hook intead
+      setInternalDeaf: (deafened: boolean, playSound = true) => {
+        // to prevent sound overlapping
+        if (playSound) {
+          useSoundEffectStore
+            .getState()
+            .playSoundEffect(deafened ? "deafen" : "undeafen");
         }
         set({ deafened });
       },

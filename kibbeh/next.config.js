@@ -9,5 +9,5 @@ module.exports = withTM({
     // @todo remove this once storybook is fixed
     // !! WARN !!
     ignoreBuildErrors: true,
-  },
+  }
 });

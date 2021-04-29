@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "Περισσότερα",
     "loading": "Φόρτωση...",
@@ -43,7 +43,10 @@
     "download": {
       "starting": "Starting download...",
       "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases"
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     },
     "followList": {
       "followHim": "Ακολουθήστε",
@@ -107,7 +110,9 @@
       "followingHim": "Ακολουθείτε",
       "copyProfileUrl": "Αντιγραφή συνδέσμου προφίλ",
       "urlCopied": "Ο συνδεσμος αντιγράφθηκε στο πρόχειρο",
-      "unfollow": "Ξε-ακολουθήστε"
+      "unfollow": "Ξε-ακολουθήστε",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Ρυθμίσεις Φωνής",
@@ -207,7 +212,8 @@
         "usernameError": "Μήκος από 4 έως 15 χαρακτήρες και μόνο αλφαριθμητικά/κάτω παύλα",
         "usernameLabel": "Όνομα χρήστη",
         "bioError": "Μέγιστο μήκος 160 χαρακτήρες",
-        "bioLabel": "Βιογραφικό"
+        "bioLabel": "Βιογραφικό",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Είστε σίγουροι ότι θέλετε να μπλοκάρετε αυτό το χρήστη από το να συμμετέχει σε οποιοδήποτε δωμάτιο δημιουργήσετε στο μέλλον;",
@@ -241,7 +247,10 @@
       "upcomingRooms": "Επερχόμενα δωμάτια ",
       "exploreMoreRooms": "Ανακαλύψτε περισσότερα δωμάτια"
     },
-    "search": { "placeholder": "Αναζητήστε δωμάτια, χρήστες ή κατηγορίες" },
+    "search": {
+      "placeholder": "Αναζητήστε δωμάτια, χρήστες ή κατηγορίες",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Προφίλ",
       "language": "Γλώσσα",

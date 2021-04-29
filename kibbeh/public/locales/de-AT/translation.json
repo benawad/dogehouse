@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "Zag mehr au",
     "loading": "Lona...",
@@ -98,7 +98,9 @@
       "followingHim": "following",
       "copyProfileUrl": "Profil URL kopian",
       "urlCopied": "URL zua Zwischenablag kopian",
-      "unfollow": "Entfolgn"
+      "unfollow": "Entfolgn",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Sprocheinstöllungen",
@@ -117,7 +119,10 @@
     "download": {
       "starting": "Starting download...",
       "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases"
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -179,7 +184,8 @@
         "usernameError": "Läng: 4 bis 15 alphanumerische Zeichn und Unterstriche",
         "usernameLabel": "Benutzernaume",
         "bioError": "Maximal 160 Buchstauben",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Bist da sicher, dass du den Benutzer aus ollen deinen zukünftigen Räumen ausschliaßen mechast?",
@@ -237,7 +243,10 @@
       "upcomingRooms": "Zukünftige Räum",
       "exploreMoreRooms": "Erforsch mehr Räum"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profil",
       "language": "Sproch",

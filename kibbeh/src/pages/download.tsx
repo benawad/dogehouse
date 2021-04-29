@@ -3,14 +3,16 @@ import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { Button } from "../ui/Button";
 import { HeaderController } from "../modules/display/HeaderController";
 
-const links: any = {
-  "Mac OS":
-    "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{version}}.dmg",
-  Windows:
-    "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-Setup-{{version}}.exe",
-  Linux:
-    "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{version}}.AppImage",
-};
+const links = [
+  "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-Setup-{{version}}.exe", // windows
+  "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{version}}.dmg", // macOS
+  "https://github.com/benawad/dogehouse/releases/download/{{tag}}/DogeHouse-{{version}}.AppImage", // linux
+  "https://github.com/benawad/dogehouse/releases/download/{{tag}}/dogehouse_{{version}}_amd64.deb", // linux deb
+];
+
+const platforms = ["Windows", "macOS", "Linux", "Linux"];
+
+const extentions = [".exe", ".dmg", ".AppImage", ".deb"];
 
 function getOS() {
   let isWindows = false;
@@ -31,8 +33,9 @@ function getOS() {
   const iosPlatforms = ["iPhone", "iPad", "iPod"];
 
   let os = "Windows";
+  isWindows = true;
   if (macosPlatforms.indexOf(platform) !== -1) {
-    os = "Mac OS";
+    os = "macOS";
     isMac = true;
   } else if (iosPlatforms.indexOf(platform) !== -1) {
     os = "iOS";
@@ -51,9 +54,68 @@ function getOS() {
   return { isWindows, isMac, isLinux, isPhone, os };
 }
 
-export default function Download() {
-  const [downloadFailed, setDownloadFailed] = useState(false);
+function OtherPlatformButton(props: {
+  platform: string;
+  currentPlatform: number;
+  downloadLinks: string[];
+  linuxed: number;
+}) {
   const { t } = useTypeSafeTranslation();
+  const index = platforms.indexOf(props.platform);
+  const isCurrent = index === props.currentPlatform;
+  let add = 0;
+  if (platforms[index] === "Linux") {
+    add = props.linuxed;
+  }
+  return !isCurrent ? (
+    <Button
+      color="secondary"
+      className="my-2"
+      onClick={() => {
+        window.location.href = props.downloadLinks[index + add];
+      }}
+    >
+      {t("pages.download.download_for")
+        .replace("%platform%", platforms[index + add])
+        .replace("%ext%", extentions[index + add])}
+    </Button>
+  ) : null;
+}
+
+function CurrentPlatformButton(props: {
+  platform: number;
+  downloadLinks: string[];
+  linuxed: number;
+}) {
+  const { t } = useTypeSafeTranslation();
+  const plat = platforms[props.platform];
+  let add = 0;
+  if (plat === "Linux") {
+    add = props.linuxed;
+  }
+  return (
+    <Button
+      onClick={() => {
+        window.location.href = props.downloadLinks[props.platform + add];
+      }}
+    >
+      {t("pages.download.download_for")
+        .replace("%platform%", plat)
+        .replace("%ext%", extentions[props.platform + add])}
+    </Button>
+  );
+}
+
+export default function Download() {
+  const [loaded, setLoaded] = useState(false);
+  const [downloadLinks, setDownloadLinks] = useState(links);
+  const [currentPlatform, setCurrentPlatform] = useState(0);
+  const [downloadFailed, setDownloadFailed] = useState(false);
+
+  let linuxed = -1;
+
+  const { t } = useTypeSafeTranslation();
+
   useEffect(() => {
     const os = getOS();
     if (!os.isPhone) {
@@ -66,44 +128,109 @@ export default function Download() {
       xmlHttp.send(null);
       xmlHttp.onreadystatechange = () => {
         if (xmlHttp.responseText && !res) {
-          res = true;
-          const data = JSON.parse(xmlHttp.responseText);
-          const tag = data.tag_name;
-          if (tag) {
-            const version = tag.replace("version", "");
-            const link = links[os.os]
-              .replace("{{tag}}", tag)
-              .replace("{{version}}", version);
-            window.location.href = link;
-          } else {
+          try {
+            const data = JSON.parse(xmlHttp.responseText);
+            res = true;
+            const tag = data.tag_name;
+            if (tag) {
+              const version = tag.replace("v", "");
+              links.forEach((l) => {
+                const i = links.indexOf(l);
+                links[i] = l
+                  .replace("{{tag}}", tag)
+                  .replace("{{version}}", version);
+              });
+              setDownloadLinks(links);
+              setCurrentPlatform(platforms.indexOf(os.os));
+              setLoaded(true);
+              setDownloadFailed(false);
+            } else {
+              setLoaded(true);
+              setDownloadFailed(true);
+            }
+          } catch (e) {
+            res = false;
             setDownloadFailed(true);
           }
         }
       };
     } else {
+      setLoaded(true);
       setDownloadFailed(true);
     }
   }, []);
+
+  let text = "";
+
+  if (!loaded) {
+    text = t("common.loading");
+  } else if (downloadFailed) {
+    text = t("pages.download.failed");
+  } else {
+    text = t("pages.download.prompt");
+  }
+
+  let button = null;
+
+  if (loaded) {
+    if (downloadFailed) {
+      button = (
+        <Button
+          onClick={() => {
+            window.location.href =
+              "https://github.com/benawad/dogehouse/releases/latest";
+          }}
+        >
+          {t("pages.download.visit_gh")}
+        </Button>
+      );
+    } else {
+      button = (
+        <div className="flex lg:flex-row md:flex-col sm:flex-col lg:space-x-4 p-2 items-center">
+          {platforms.map((platform) => {
+            if (platform === platforms[currentPlatform]) {
+              if (platform === "Linux") linuxed++;
+              return (
+                <CurrentPlatformButton
+                  platform={currentPlatform}
+                  downloadLinks={downloadLinks}
+                  linuxed={linuxed}
+                />
+              );
+            } else {
+              return null;
+            }
+          })}
+        </div>
+      );
+    }
+  }
 
   return (
     <>
       <HeaderController title="Download" />
       <div className="flex w-full h-full flex-col items-center justify-center p-8">
-        <h4 className="text-primary-100 mb-4">
-          {downloadFailed
-            ? t("pages.download.failed")
-            : t("pages.download.starting")}
-        </h4>
-        {downloadFailed ? (
-          <Button
-            onClick={() => {
-              window.location.href =
-                "https://github.com/benawad/dogehouse/releases/latest";
-            }}
-          >
-            {t("pages.download.visit_gh")}
-          </Button>
-        ) : null}
+        <h4 className="text-primary-100 mb-4">{text}</h4>
+
+        {button}
+
+        {!loaded || downloadFailed ? null : (
+          <div className="flex lg:flex-row md:flex-col sm:flex-col lg:space-x-4 p-2 items-center">
+            {platforms &&
+              platforms.map((platform) => {
+                if (platform === "Linux") linuxed++;
+                return (
+                  <OtherPlatformButton
+                    platform={platform}
+                    currentPlatform={currentPlatform}
+                    downloadLinks={downloadLinks}
+                    linuxed={linuxed}
+                    key={`${platform}-${linuxed}`}
+                  />
+                );
+              })}
+          </div>
+        )}
       </div>
     </>
   );

@@ -1,5 +1,6 @@
 import { JoinRoomAndGetInfoResponse, RoomUser } from "@dogehouse/kebab";
 import React, { useContext } from "react";
+import { useDebugAudioStore } from "../../global-stores/useDebugAudio";
 import { useConn } from "../../shared-hooks/useConn";
 import { useCurrentRoomInfo } from "../../shared-hooks/useCurrentRoomInfo";
 import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
@@ -9,6 +10,8 @@ import { Button } from "../../ui/Button";
 import { Modal } from "../../ui/Modal";
 import { Spinner } from "../../ui/Spinner";
 import { VerticalUserInfoWithFollowButton } from "../user/VerticalUserInfoWithFollowButton";
+import { useConsumerStore } from "../webrtc/stores/useConsumerStore";
+import { AudioDebugConsumerSection } from "./AudioDebugConsumerSection";
 import { RoomChatMessage, useRoomChatStore } from "./chat/useRoomChatStore";
 import { UserPreviewModalContext } from "./UserPreviewModalProvider";
 import { VolumeSliderController } from "./VolumeSliderController";
@@ -44,7 +47,7 @@ const UserPreview: React.FC<{
   const { mutateAsync: deleteRoomChatMessage } = useTypeSafeMutation(
     "deleteRoomChatMessage"
   );
-  const { mutateAsync: blockFromRoom } = useTypeSafeMutation("blockFromRoom");
+  const { mutateAsync: roomBan } = useTypeSafeMutation("roomBan");
   const { mutateAsync: banFromRoomChat } = useTypeSafeMutation(
     "banFromRoomChat"
   );
@@ -55,6 +58,7 @@ const UserPreview: React.FC<{
     id,
   ]);
   const bannedUserIdMap = useRoomChatStore((s) => s.bannedUserIdMap);
+  const { debugAudio } = useDebugAudioStore();
 
   if (isLoading) {
     return (
@@ -139,12 +143,21 @@ const UserPreview: React.FC<{
     ],
     [
       canDoModStuffOnThisUser && (iAmCreator || !roomPermissions?.isMod),
-      "blockFromRoom",
+      "banFromRoom",
       () => {
         onClose();
-        blockFromRoom([id]);
+        roomBan([id]);
       },
       t("components.modals.profileModal.banFromRoom"),
+    ],
+    [
+      canDoModStuffOnThisUser && (iAmCreator || !roomPermissions?.isMod),
+      "banIpFromRoom",
+      () => {
+        onClose();
+        roomBan([id, true]);
+      },
+      "Ban Ip from Room",
     ],
     [
       isMe &&
@@ -180,16 +193,17 @@ const UserPreview: React.FC<{
         />
       </div>
       {!isMe && (isCreator || roomPermissions?.isSpeaker) ? (
-        <div className={`flex bg-primary-800 pb-3`}>
+        <div className={`flex pb-3 bg-primary-800`}>
           <VolumeSliderController userId={id} />
         </div>
       ) : null}
-      <div className="flex mt-1 px-6 flex-col">
+      <div className="flex px-6 flex-col bg-primary-800">
+        {debugAudio ? <AudioDebugConsumerSection userId={id} /> : null}
         {buttonData.map(([shouldShow, key, onClick, text]) => {
           return shouldShow ? (
             <Button
               color="secondary"
-              className={`mb-3`}
+              className={`my-1 text-base`}
               key={key}
               onClick={onClick}
             >
