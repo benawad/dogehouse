@@ -1,4 +1,4 @@
-import React, { ReactChild, useState } from "react";
+import React, { ReactChild, useEffect, useState } from "react";
 import { ProfileHeaderWrapper } from "./ProfileHeaderWrapper";
 import { Button } from "./Button";
 import { UserBadge } from "./UserBadge";
@@ -46,6 +46,9 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
   const preloadPush = usePreloadPush();
   const update = useTypeSafeUpdateQuery();
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
   return (
     // @TODO: Add the cover api (once it's implemented)}
     <ProfileHeaderWrapper
@@ -80,7 +83,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
             className="text-primary-300 mr-2"
             data-testid="profile-info-username"
           >{`@${username}`}</p>
-          {user.isBot ? (
+          {user.botOwnerId ? (
             <UserBadge color="grey">{t("pages.viewUser.bot")}</UserBadge>
           ) : (
             ""
