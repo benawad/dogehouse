@@ -65,12 +65,14 @@ export const connect = (
     url = apiUrl,
     fetchTimeout,
     getAuthOptions,
+    waitToReconnect,
   }: {
     logger?: Logger;
     onConnectionTaken?: () => void;
     onClearTokens?: () => void;
     url?: string;
     fetchTimeout?: number;
+    waitToReconnect?: boolean;
     getAuthOptions?: () => Partial<{
       reconnectToVoice: boolean;
       currentRoomId: string | null;
@@ -135,7 +137,9 @@ export const connect = (
         socket.close();
         onClearTokens();
       }
-      reject(error);
+      if (!waitToReconnect) {
+        reject(error);
+      }
     });
 
     socket.addEventListener("message", (e) => {
