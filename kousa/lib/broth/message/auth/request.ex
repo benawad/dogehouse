@@ -57,9 +57,9 @@ defmodule Broth.Message.Auth.Request do
   @impl true
   def execute(changeset, state) do
     with {:ok, request} <- apply_action(changeset, :validate),
-         {:ok, user} <- Kousa.Auth.authenticate(request) do
+         {:ok, user} <- Kousa.Auth.authenticate(request, state.ip) do
 
-      {:reply, user, %{state | user: user, awaiting_init: false}}
+      {:reply, user, %{state | user: user}}
     else
       # don't tolerate malformed requests with any response besides closing
       # out websocket.

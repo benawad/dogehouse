@@ -2,23 +2,21 @@ defmodule Broth.SocketHandler do
   require Logger
   import Kousa.Utils.Version
 
-  @type state :: %__MODULE__{
-          awaiting_init: boolean(),
-          user_id: String.t(),
-          ip: String.t(),
-          encoding: :etf | :json,
-          compression: nil | :zlib,
-          version: Version.t(),
-          callers: [pid]
-        }
-
-  defstruct awaiting_init: true,
-            user_id: nil,
+  defstruct user: nil,
             ip: nil,
             encoding: nil,
             compression: nil,
             version: nil,
             callers: []
+
+  @type state :: %__MODULE__{
+    user: nil | Beef.Schemas.User.t(),
+    ip: String.t(),
+    encoding: :etf | :json,
+    compression: nil | :zlib,
+    version: Version.t(),
+    callers: [pid]
+  }
 
   @behaviour :cowboy_websocket
 
@@ -41,15 +39,9 @@ defmodule Broth.SocketHandler do
         _ -> :json
       end
 
-    ip =
-      case request.headers do
-        %{"x-forwarded-for" => v} -> v
-        _ -> nil
-      end
+    ip = request.headers["x-forwarded-for"]
 
     state = %__MODULE__{
-      awaiting_init: true,
-      user_id: nil,
       ip: ip,
       encoding: encoding,
       compression: compression,
@@ -89,10 +81,10 @@ defmodule Broth.SocketHandler do
   # auth timeout
   @spec auth_timeout_impl(state) :: call_result
   defp auth_timeout_impl(state) do
-    if state.awaiting_init do
-      ws_push([{:close, 1000, "authorization"}, shutdown: :normal], state)
-    else
+    if state.user do
       ws_push(nil, state)
+    else
+      ws_push([{:close, 1000, "authorization"}, shutdown: :normal], state)
     end
   end
 

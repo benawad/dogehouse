@@ -64,7 +64,7 @@ defmodule Broth.Message.Call do
   def auth_check(true) do
     quote do
       @impl true
-      def auth_check(%{user_id: nil}), do: {:error, :auth}
+      def auth_check(%{user: nil}), do: {:error, :auth}
       def auth_check(_), do: :ok
     end
   end
