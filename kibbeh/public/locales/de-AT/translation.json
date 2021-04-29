@@ -99,7 +99,8 @@
       "copyProfileUrl": "Profil URL kopian",
       "urlCopied": "URL zua Zwischenablag kopian",
       "unfollow": "Entfolgn",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Sprocheinstöllungen",

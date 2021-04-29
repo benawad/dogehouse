@@ -22,6 +22,14 @@ defmodule BrothTest.Routes.BotAuthTest do
       assert is_binary(resp_body["refreshToken"])
     end
 
+    test "banned bot accounts can't get tokens", t do
+      bot =
+        Factory.create(User, apiKey: UUID.uuid4(), botOwnerId: t.user.id, reasonForBan: "test ban")
+
+      assert {:ok, %Finch.Response{status: 400}} =
+               HttpRequest.post("/bot/auth", %{apiKey: bot.apiKey})
+    end
+
     test "gets rate limited on X bad requests", t do
       bot = Factory.create(User, apiKey: UUID.uuid4(), botOwnerId: t.user.id)
       key = "test-rl"

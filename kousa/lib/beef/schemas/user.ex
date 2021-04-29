@@ -1,5 +1,8 @@
 defmodule Beef.Schemas.User do
   use Ecto.Schema
+
+  # the struct defined here can also be pushed to the user
+  use Broth.Message.Push
   import Ecto.Changeset
   alias Beef.Schemas.Room
 
@@ -48,6 +51,7 @@ defmodule Beef.Schemas.User do
           lastOnline: DateTime.t(),
           youAreFollowing: boolean(),
           followsYou: boolean(),
+          botOwnerId: nil | Ecto.UUID.t(),
           roomPermissions: nil | Beef.Schemas.RoomPermission.t(),
           currentRoomId: Ecto.UUID.t(),
           currentRoom: Room.t() | Ecto.Association.NotLoaded.t()
@@ -55,11 +59,11 @@ defmodule Beef.Schemas.User do
 
   @derive {Poison.Encoder, only: ~w(id username avatarUrl bannerUrl bio online
              lastOnline currentRoomId displayName numFollowing numFollowers
-             currentRoom youAreFollowing followsYou roomPermissions)a}
+             currentRoom youAreFollowing followsYou botOwnerId roomPermissions)a}
 
   @derive {Jason.Encoder, only: ~w(id username avatarUrl bannerUrl bio online
     lastOnline currentRoomId displayName numFollowing numFollowers
-    youAreFollowing followsYou roomPermissions)a}
+    youAreFollowing followsYou botOwnerId roomPermissions)a}
 
   @primary_key {:id, :binary_id, []}
   schema "users" do

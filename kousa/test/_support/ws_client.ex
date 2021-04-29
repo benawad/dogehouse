@@ -259,7 +259,6 @@ defmodule BrothTest.WsClientFactory do
     WsClient.forward_frames(client_ws)
 
     if opts[:legacy] do
-
       WsClient.send_msg(client_ws, "auth", %{
         "accessToken" => tokens.accessToken,
         "refreshToken" => tokens.refreshToken,
@@ -270,9 +269,7 @@ defmodule BrothTest.WsClientFactory do
       })
 
       WsClient.assert_frame_legacy("auth-good", _)
-
     else
-
       WsClient.do_call(client_ws, "auth:request", %{
         "accessToken" => tokens.accessToken,
         "refreshToken" => tokens.refreshToken,
@@ -280,10 +277,8 @@ defmodule BrothTest.WsClientFactory do
         "reconnectToVoice" => false,
         "muted" => false,
         "deafened" => false
-        })
-
+      })
     end
-
 
     # link the UserProcess to prevent dangling DB sandbox lookups
     [{usersession_pid, _}] = Registry.lookup(Onion.UserSessionRegistry, user.id)

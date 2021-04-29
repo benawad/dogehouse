@@ -98,7 +98,8 @@
       "copyProfileUrl": "复制个人主页链接",
       "urlCopied": "个人主页链接已复制到剪贴板",
       "unfollow": "取消关注",
-      "about": "关于ta"
+      "about": "关于ta",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "语音设置",

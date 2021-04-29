@@ -102,7 +102,8 @@
       "copyProfileUrl": "скопировать URL профиля",
       "urlCopied": "URL профиля скопирован",
       "unfollow": "Отписаться",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Голосовые настройки",

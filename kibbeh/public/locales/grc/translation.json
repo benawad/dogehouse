@@ -99,7 +99,8 @@
       "unfollow": "Unfollow",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Ρυθμίσεις Φωνής",

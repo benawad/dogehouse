@@ -37,7 +37,11 @@ export const SettingsDropdown: React.FC<{
         overlay={currentOverlay}
       >
         <div className="flex flex-col">
-          <ApiPreloadLink route="profile" data={{ username: user.username }}>
+          <ApiPreloadLink
+            data-testid="profile-link"
+            route="profile"
+            data={{ username: user.username }}
+          >
             <SettingsIcon
               onClick={onCloseDropdown}
               icon={<SolidUser />}

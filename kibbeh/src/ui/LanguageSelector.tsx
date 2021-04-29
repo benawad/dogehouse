@@ -11,7 +11,7 @@ interface LanguageSelectorProps {
 export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   onClose,
 }) => {
-  const options = [
+  const languages = [
     { value: "en", flag: "🇬🇧", label: "English" }, // English
 
     /* Languages that are in ISO 639-1, sorted by language code (A-Z) */
@@ -27,7 +27,6 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "de-AT", flag: "🇦🇹", label: "Deutsch (Österreich)" }, // German (Austria)
     { value: "gsw", flag: "🇨🇭", label: "Schwiizerdütsch" }, // Swiss German
     { value: "el", flag: "🇬🇷", label: "Ελληνικά" }, // Greek
-    { value: "grc", flag: "🧓", label: "Αρχαία Ελληνικά" }, // Ancient Greek
     { value: "eo", flag: "🟢", label: "Esperanto" }, // Esperanto
     { value: "es", flag: "🇪🇸", label: "Español" }, // Spanish
     { value: "et", flag: "🇪🇪", label: "Eesti" }, // Estonian
@@ -75,14 +74,19 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     { value: "vi", flag: "🇻🇳", label: "Tiếng Việt" }, // Vietnamese
     { value: "zh-CN", flag: "🇨🇳", label: "中文 (简体)" }, // Chinese (Simplified)
     { value: "zh-TW", flag: "🇹🇼", label: "正體中文 (繁體)" }, // Chinese (Traditional)
+  ].sort((a, b) => a.label.localeCompare(b.label));
 
+  const noveltyLanguages = [
     /* Other languages */
+    { value: "grc", flag: "🧓", label: "Αρχαία Ελληνικά" }, // Ancient Greek
     { value: "en-PIRATE", flag: "☠️", label: "Pirate" },
     { value: "en-AU", flag: "🇦🇺", label: "uɐᴉꞁɐɹʇsnⱯ" }, // Australian
     { value: "en-OWO", flag: "💕", label: "OwO Engwish" },
     { value: "bottom", flag: "🥺", label: "Bottom" },
     { value: "tp", flag: "💛", label: "Toki Pona" },
   ];
+
+  const options = [...languages, ...noveltyLanguages];
 
   const { i18n } = useTranslation();
 

@@ -2,23 +2,21 @@ defmodule Broth.SocketHandler do
   require Logger
   import Kousa.Utils.Version
 
+  defstruct user: nil,
+            ip: nil,
+            encoding: nil,
+            compression: nil,
+            version: nil,
+            callers: []
+
   @type state :: %__MODULE__{
-          awaiting_init: boolean(),
-          user_id: String.t(),
+          user: nil | Beef.Schemas.User.t(),
           ip: String.t(),
           encoding: :etf | :json,
           compression: nil | :zlib,
           version: Version.t(),
           callers: [pid]
         }
-
-  defstruct awaiting_init: true,
-            user_id: nil,
-            ip: nil,
-            encoding: nil,
-            compression: nil,
-            version: nil,
-            callers: []
 
   @behaviour :cowboy_websocket
 
@@ -41,15 +39,9 @@ defmodule Broth.SocketHandler do
         _ -> :json
       end
 
-    ip =
-      case request.headers do
-        %{"x-forwarded-for" => v} -> v
-        _ -> nil
-      end
+    ip = request.headers["x-forwarded-for"]
 
     state = %__MODULE__{
-      awaiting_init: true,
-      user_id: nil,
       ip: ip,
       encoding: encoding,
       compression: compression,
@@ -89,10 +81,10 @@ defmodule Broth.SocketHandler do
   # auth timeout
   @spec auth_timeout_impl(state) :: call_result
   defp auth_timeout_impl(state) do
-    if state.awaiting_init do
-      ws_push([{:close, 1000, "authorization"}, shutdown: :normal], state)
-    else
+    if state.user do
       ws_push(nil, state)
+    else
+      ws_push([{:close, 1000, "authorization"}, shutdown: :normal], state)
     end
   end
 
@@ -109,6 +101,18 @@ defmodule Broth.SocketHandler do
     fetch_follow_list
     join_room_and_get_info
   )
+
+  ##########################################################################
+  ## USER UPDATES
+
+  def user_update_impl({"user:update:" <> user_id, user}, state = %{user: %{id: user_id}}) do
+    %Broth.Message{operator: "user:update", payload: user}
+    |> adopt_version(state)
+    |> prepare_socket_msg(state)
+    |> ws_push(%{state | user: user})
+  end
+
+  def user_update_impl(_, state), do: ws_push(nil, state)
 
   ##########################################################################
   ## CHAT MESSAGES
@@ -144,11 +148,13 @@ defmodule Broth.SocketHandler do
          {:ok, message = %{errors: nil}} <- validate(message_map!, state),
          :ok <- auth_check(message, state) do
       # make the state adopt the version of the inbound message.
-      new_state = if message.operator == Broth.Message.Auth.Request do
-        adopt_version(state, message)
-      else
-        state
-      end
+      new_state =
+        if message.operator == Broth.Message.Auth.Request do
+          adopt_version(state, message)
+        else
+          state
+        end
+
       dispatch(message, new_state)
     else
       # special cases: mediasoup operations
@@ -254,7 +260,7 @@ defmodule Broth.SocketHandler do
     %{message: inspect(other)}
   end
 
-  defp dispatch_mediasoup_message(msg, %{user_id: user_id}) do
+  defp dispatch_mediasoup_message(msg, %{user: %{id: user_id}}) do
     with {:ok, room_id} <- Beef.Users.tuple_get_current_room_id(user_id),
          [{_, _}] <- Onion.RoomSession.lookup(room_id) do
       voice_server_id = Onion.RoomSession.get(room_id, :voice_server_id)
@@ -344,8 +350,9 @@ defmodule Broth.SocketHandler do
   def websocket_info(:auth_timeout, state), do: auth_timeout_impl(state)
   def websocket_info({:remote_send, message}, state), do: remote_send_impl(message, state)
   def websocket_info(message = {"chat:" <> _, _}, state), do: chat_impl(message, state)
+  def websocket_info(message = {"user:update:" <> _, _}, state), do: user_update_impl(message, state)
   # throw out all other messages
   def websocket_info(_, state) do
-    {[], state}
+    ws_push(nil, state)
   end
 end

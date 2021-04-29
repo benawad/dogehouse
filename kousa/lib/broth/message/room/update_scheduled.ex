@@ -44,7 +44,7 @@ defmodule Broth.Message.Room.UpdateScheduled do
   def execute(changeset, state) do
     with {:ok, update} <- apply_action(changeset, :validate),
          update_data = update |> Map.from_struct() |> Map.delete(:id),
-         :ok <- Kousa.ScheduledRoom.edit(state.user_id, update.id, update_data) do
+         :ok <- Kousa.ScheduledRoom.edit(state.user.id, update.id, update_data) do
       {:reply, Repo.get(__MODULE__, update.id), state}
     end
   end

@@ -56,10 +56,10 @@ defmodule Broth.Message.User.GetInfo do
         user =
           case Ecto.UUID.cast(userIdOrUsername) do
             {:ok, _} ->
-              Users.get_by_id_with_follow_info(state.user_id, userIdOrUsername)
+              Users.get_by_id_with_follow_info(state.user.id, userIdOrUsername)
 
             _ ->
-              Users.get_by_username_with_follow_info(state.user_id, userIdOrUsername)
+              Users.get_by_username_with_follow_info(state.user.id, userIdOrUsername)
           end
 
         {:reply, if(is_nil(user), do: %{error: "could not find user"}, else: user), state}

@@ -24,7 +24,7 @@
     "mutedTitle": "Stumm | DogeHouse",
     "deafenedTitle": "Deafened | DogeHouse",
     "dashboard": "Dashboard",
-    "connectionTaken": "Connection Taken"
+    "connectionTaken": "Verbindung getrennt"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -44,8 +44,8 @@
     "home": {
       "createRoom": "Raum erstellen",
       "refresh": "Aktualisieren",
-      "editRoom": "Edit Room",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "editRoom": "Bearbeite Raum",
+      "desktopAlert": "Lade die DogeHouse Desktop-App noch heute herunter."
     },
     "inviteList": {
       "roomGone": "Raum konnte nicht gefunden werden! Zurück",
@@ -54,7 +54,7 @@
       "whenFollowersOnline": "Wenn deine Abonnenten online sind, werden sie hier angezeigt."
     },
     "login": {
-      "headerText": "Wir bringen den Sprachchat zum Mond 🚀",
+      "headerText": "Wir bringen den Sprachchat zum Mond",
       "featureText_1": "Dark-Mode",
       "featureText_2": "Unbeschränkte Registrierung",
       "featureText_3": "Plattformunabhängig",
@@ -64,7 +64,7 @@
       "loginGithub": "mit GitHub anmelden",
       "loginTwitter": "mit Twitter anmelden",
       "createTestUser": "Testnutzer erstellen",
-      "loginDiscord": "Login with Discord"
+      "loginDiscord": "mit Discord anmelden"
     },
     "myProfile": {
       "logout": "Abmelden",
@@ -73,7 +73,7 @@
       "soundSettings": "Soundeinstellungen",
       "deleteAccount": "Konto löschen",
       "overlaySettings": "Overlay-Einstellungen löschen",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Wir konnten diesen Benutzer leider nicht finden. "
     },
     "notFound": {
       "whoopsError": "Hoppla! Diese Seite ging im Gespräch verloren.",
@@ -96,10 +96,11 @@
       "followers": "Abonnenten",
       "followHim": "Folgen",
       "followingHim": "Folgt bereits",
-      "copyProfileUrl": "Benutzer-Url kopieren",
-      "urlCopied": "URL copied to clipboard",
+      "copyProfileUrl": "Benutzer-URL kopieren",
+      "urlCopied": "URL wurde in die Zwischenablage kopiert",
       "unfollow": "Entfolgen",
-      "about": "About"
+      "about": "Über",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Spracheinstellungen",
@@ -109,18 +110,21 @@
       "refresh": "Mikrofonliste aktualisieren"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
+      "input": {
+        "errorMsg": "Ungültiger App-Titel",
+        "label": "Gib den App-Titel ein"
+      },
       "header": "Overlay Einstellungen",
-      "errorMsg": "Bitte gib einen gültigen App Titel ein",
-      "label": "App Titel eingeben"
+      "errorMsg": "Bitte gib einen gültigen App-Titel ein",
+      "label": "App-Titel eingeben"
     },
     "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
-      "download_for": "Download for %platform% (%ext%)"
+      "starting": "Starte Download...",
+      "failed": "Konnte nicht automatisch herunterladen. Bitte versuche es später erneut. ",
+      "visit_gh": "Besuche Github Releases",
+      "prompt": "Drücke den Button unten, um den Download zu starten.",
+      "download_now": "Lade herunter",
+      "download_for": "Download für %platform% (%ext%)"
     }
   },
   "components": {
@@ -147,9 +151,9 @@
       "speaker": "Sprecher",
       "listener": "Zuhörer",
       "chat": "Chat",
-      "toggleDeafMicBtn": "Toggle Deafen",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen"
+      "toggleDeafMicBtn": "Audioausgabe ein-/ausschalten",
+      "deafen": "Audioausgabe",
+      "undeafen": "Audioausgabe aufheben"
     },
     "micPermissionBanner": {
       "permissionDenied": "Wir haben keinen Zugriff auf dein Mikrofon. Öffne deine Browsereinstellungen, setze die nötigen Berechtigungen und lade die Seite erneut.",
@@ -162,7 +166,7 @@
         "private": "Privat",
         "roomName": "Raumname",
         "roomDescription": "Raumbeschreibung",
-        "descriptionError": "die maximale Länge ist 500",
+        "descriptionError": "die maximale Länge beträgt 500 Zeichen",
         "nameError": "muss zwischen 2 und 60 Zeichen lang sein",
         "subtitle": "Fill the following fields to start a new room"
       },
@@ -197,14 +201,14 @@
         "goBackToListener": "Zurück zum Zuhörer",
         "deleteMessage": "Nachricht löschen",
         "makeRoomCreator": "zum Raumadmin befördern",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Vom Chat entbannen"
       },
       "roomSettingsModal": {
         "requirePermission": "Berechtigung zum Sprechen verlangen",
         "makePublic": "Raum öffentlich machen",
         "makePrivate": "Raum privat machen",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "Öffentlichen Raum-Namen setzen",
+        "renamePrivate": "Privaten Raum-Namen setzen"
       }
     },
     "userVolumeSlider": {
@@ -213,17 +217,17 @@
     "keyboardShortcuts": {
       "setKeybind": "Tastenkürzel setzen",
       "listening": "Zuhören",
-      "toggleMuteKeybind": "Stummschalttaste umschalten",
-      "togglePushToTalkKeybind": "Push-to-Talk Tastenkürzel umschalten",
-      "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleMuteKeybind": "Stummschalt-Tastenkürzel umschalten",
+      "togglePushToTalkKeybind": "Push-to-Talk-Tastenkürzel umschalten",
+      "toggleOverlayKeybind": "Overlay-Tastenkürzel umschalten",
+      "toggleDeafKeybind": "Audioausgabe-Tastenkürzel umschalten"
     },
     "wsKilled": {
       "description": "Die Websocket Verbindung zum Server wurde unterbrochen. Dies geschieht normalerweise, wenn du die Website in einem anderen Tab öffnest.",
       "reconnect": "Erneut verbinden"
     },
     "deviceNotSupported": {
-      "notSupported": "Dein Gerät wird aktuell nicht unterstützt. Du kannst einen",
+      "notSupported": "Dein Gerät wird aktuell nicht unterstützt. Du kannst ein",
       "linkText": "Issue auf GitHub",
       "addSupport": "erstellen und ich werde versuchen, die Unterstützung für dein Gerät hinzuzufügen."
     },
@@ -234,29 +238,29 @@
     "followingOnline": {
       "people": "People",
       "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "noOnline": "Aktuell sind keine deiner Freunde online.",
+      "showMore": "Zeige mehr"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "Kommende Räume",
+      "exploreMoreRooms": "Finde weitere Räume"
     },
     "search": {
-      "placeholder": "Search for rooms, users or categories",
-      "placeholderShort": "Search"
+      "placeholder": "Suche nach Räumen, Benutzern oder Kategorien",
+      "placeholderShort": "Suche"
     },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "Profil",
+      "language": "Sprache",
+      "reportABug": "Melde einen Fehler",
+      "useOldVersion": "Benutze alte Version",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "Abmelden",
+        "modalSubtitle": "Möchtest du dich wirklich abmelden?"
       },
       "debugAudio": {
         "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
+        "stopDebugger": "Stoppe Debugger"
       }
     }
   },
@@ -275,10 +279,10 @@
         "minLength": "minimale Länge: 2",
         "roomDescription": "Raumbeschreibung"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "tommorow": "morgen",
+      "today": "heute",
       "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
+        "areYouSure": "Möchtest du diesen geplanten Raum wirklich löschen?"
       }
     },
     "roomChat": {
@@ -304,8 +308,8 @@
       "solarDoge": "Solar doge",
       "approachingGalaxy": "Nähert sich einer Galaxie",
       "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "spottedLife": "Planet mit Leben gefunden"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": { "yourFeed": "Dein Feed" }
   }
 }

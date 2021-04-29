@@ -99,7 +99,8 @@
       "copyProfileUrl": "Профайл сілтемесімен көшіру",
       "urlCopied": "Сілтеме көшірілді",
       "unfollow": "Жазылуды доғару",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Дауыс баптамалары",

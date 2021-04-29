@@ -97,7 +97,8 @@
       "followingHim": "Siguiendo",
       "copyProfileUrl": "Copiar URL del perfil",
       "urlCopied": "URL copiado en el portapapeles",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Ajustes de voz",

@@ -19,7 +19,7 @@ defmodule Broth.Message.Chat.Delete do
   alias Kousa.Utils.UUID
 
   def initialize(state) do
-    %__MODULE__{deleterId: state.user_id}
+    %__MODULE__{deleterId: state.user.id}
   end
 
   def changeset(initializer \\ %__MODULE__{}, data) do
@@ -32,7 +32,7 @@ defmodule Broth.Message.Chat.Delete do
 
   def execute(changeset, state) do
     with {:ok, deletion} <- apply_action(changeset, :validate) do
-      Kousa.Chat.delete_msg(deletion, by: state.user_id)
+      Kousa.Chat.delete_msg(deletion, by: state.user.id)
       {:noreply, state}
     end
   end

@@ -87,7 +87,10 @@
       "allowAllConfirm": "Você tem certeza? Isso permitirá que todos os {{count}} usuários solicitantes falem"
     },
     "searchUser": { "search": "buscar..." },
-    "soundEffectSettings": { "header": "Sons", "title": "Configurações de áudio" },
+    "soundEffectSettings": {
+      "header": "Sons",
+      "title": "Configurações de áudio"
+    },
     "viewUser": {
       "editProfile": "editar perfil",
       "followsYou": "segue você",
@@ -98,7 +101,8 @@
       "followingHim": "seguindo",
       "copyProfileUrl": "copiar url do perfil",
       "urlCopied": "URL copiado para a área de transferência",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Configurações do microfone",
