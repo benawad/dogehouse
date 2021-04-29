@@ -103,6 +103,15 @@ defmodule Broth.SocketHandler do
   )
 
   ##########################################################################
+  ## USER UPDATES
+
+  def user_update_impl({"user:update:" <> user_id, user}, state = %{user: %{id: user_id}}) do
+    ws_push(nil, %{state | user: user})
+  end
+
+  def user_update_impl(_, state), do: ws_push(nil, state)
+
+  ##########################################################################
   ## CHAT MESSAGES
 
   def chat_impl({"chat:" <> _room_id, message}, state) do
@@ -338,8 +347,9 @@ defmodule Broth.SocketHandler do
   def websocket_info(:auth_timeout, state), do: auth_timeout_impl(state)
   def websocket_info({:remote_send, message}, state), do: remote_send_impl(message, state)
   def websocket_info(message = {"chat:" <> _, _}, state), do: chat_impl(message, state)
+  def websocket_info(message = {"user:update:" <> _, _}, state), do: user_update_impl(message, state)
   # throw out all other messages
   def websocket_info(_, state) do
-    {[], state}
+    ws_push(nil, state)
   end
 end

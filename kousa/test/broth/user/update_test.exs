@@ -54,13 +54,7 @@ defmodule BrothTest.User.UpdateTest do
           }
         )
 
-      WsClient.assert_reply(
-        "user:update:reply",
-        ref,
-        %{
-          "isUsernameTaken" => true
-        }
-      )
+      WsClient.assert_error("user:update", ref, %{"username" => "has already been taken"})
     end
 
     test "a bio,displayName,avatarUrl can be changed", t do

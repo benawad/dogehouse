@@ -1,5 +1,6 @@
 defmodule Kousa.User do
   alias Beef.Users
+  alias Onion.PubSub
 
   def delete(user_id) do
     Kousa.Room.leave_room(user_id)
@@ -7,12 +8,13 @@ defmodule Kousa.User do
   end
 
   def update_with(changeset = %Ecto.Changeset{}) do
-    case Beef.Users.update(changeset) do
+    case Users.update(changeset) do
       {:ok, user} ->
-        # TODO: clean this up by making Onion.UserSession adopt the User schema too.
+        # TODO: clean this up by making Onion.UserSession adopt the User schema and having it
+        # accept pubsub broadcast messages.
 
         Onion.UserSession.set_state(
-          user_id,
+          user.id,
           %{
             display_name: user.displayName,
             username: user.username,
