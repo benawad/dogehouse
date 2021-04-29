@@ -53,7 +53,7 @@ defmodule Beef.Mutations.Rooms do
   def increment_room_people_count(room_id) do
     from(u in Room,
       where: u.id == ^room_id,
-      where: not u.isBot,
+      where: is_nil(u.botOwnerId),
       update: [
         inc: [
           numPeopleInside: 1
@@ -63,7 +63,7 @@ defmodule Beef.Mutations.Rooms do
     #check for bots
     from(u in Room,
       where: u.id == ^room_id,
-      where: u.isBot,
+      where: not is_nil(u.botOwnerId),
       update: [
         inc: [
           numBotsInside: 1
@@ -77,7 +77,7 @@ defmodule Beef.Mutations.Rooms do
   def increment_room_people_count(room_id, new_people_list) do
     from(u in Room,
       where: u.id == ^room_id,
-      where: not u.isBot,
+      where: is_nil(u.botOwnerId),
       update: [
         inc: [
           numPeopleInside: 1
@@ -90,7 +90,7 @@ defmodule Beef.Mutations.Rooms do
     # check for bots
     from(u in Room,
       where: u.id == ^room_id,
-      where: u.isBot,
+      where: not is_nil(u.botOwnerId),
       update: [
         inc: [
           numBotsInside: 1
@@ -110,7 +110,7 @@ defmodule Beef.Mutations.Rooms do
   def decrement_room_people_count(room_id, new_people_list) do
     from(r in Room,
       where: r.id == ^room_id,
-      where: not r.isBot,
+      where: is_nil(r.botOwnerId),
       update: [
         inc: [
           numPeopleInside: -1
@@ -123,7 +123,7 @@ defmodule Beef.Mutations.Rooms do
     # check for bots
     from(r in Room,
       where: r.id == ^room_id,
-      where: r.isBot,
+      where: not is_nil(r.botOwnerId),
       update: [
         inc: [
           numBotsInside: -1
