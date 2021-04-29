@@ -47,6 +47,7 @@ export type User = {
   lastOnline: string;
   id: UUID;
   followsYou?: boolean;
+  botOwnerId?: string;
   displayName: string;
   currentRoomId?: UUID;
   currentRoom: Room;
@@ -92,6 +93,7 @@ export type BaseUser = {
   numFollowing: number;
   numFollowers: number;
   currentRoom?: Room;
+  botOwnerId?: string;
 };
 
 export type PaginatedBaseUsers = {

@@ -102,7 +102,8 @@
       "copyProfileUrl": "Profil URL manzilini nusxalash",
       "urlCopied": "Profil URL nusxasi ko'chirildi",
       "unfollow": "Obunani bekor qilish",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Ovoz Sozlamalari",

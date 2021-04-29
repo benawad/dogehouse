@@ -99,7 +99,8 @@
       "copyProfileUrl": "Benutzer-URL kopieren",
       "urlCopied": "URL wurde in die Zwischenablage kopiert",
       "unfollow": "Entfolgen",
-      "about": "Über"
+      "about": "Über",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Spracheinstellungen",
