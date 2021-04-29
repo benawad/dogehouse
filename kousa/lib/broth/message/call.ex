@@ -38,6 +38,13 @@ defmodule Broth.Message.Call do
       |> Keyword.get(:needs_auth, true)
       |> auth_check()
 
+    schema_ast = if schema = opts[:schema] do
+      quote do
+        Module.register_attribute(__MODULE__, :schema, persist: true)
+        @schema unquote(schema)
+      end
+    end
+
     quote do
       use Ecto.Schema
       import Ecto.Changeset
@@ -50,6 +57,7 @@ defmodule Broth.Message.Call do
       @directions unquote(directions)
 
       unquote(auth_check)
+      unquote(schema_ast)
 
       @impl true
       def reply_module, do: unquote(reply_module)
@@ -94,6 +102,7 @@ defmodule Broth.Message.Call do
   @callback changeset(Broth.json()) :: Ecto.Changeset.t()
 
   def __after_compile__(%{module: module}, _bin) do
+    # checks to make sure the declared reply module actually exists.
     reply_module = module.reply_module()
     Code.ensure_loaded?(reply_module)
 

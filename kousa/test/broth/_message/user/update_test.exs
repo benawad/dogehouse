@@ -5,7 +5,6 @@ defmodule BrothTest.Message.User.UpdateTest do
   @moduletag :message
 
   alias Beef.Schemas.User
-  alias Broth.Message.User.Update
   alias KousaTest.Support.Factory
 
   setup do
@@ -18,7 +17,7 @@ defmodule BrothTest.Message.User.UpdateTest do
 
   describe "when you send an update message to change muted state" do
     test "it populates update fields", %{uuid: uuid, state: state} do
-      assert {:ok, %{payload: %Update{muted: true, deafened: true}}} =
+      assert {:ok, %{payload: %User{muted: true, deafened: true}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "user:update",
@@ -29,7 +28,7 @@ defmodule BrothTest.Message.User.UpdateTest do
                )
 
       # short form also allowed
-      assert {:ok, %{payload: %Update{muted: false, deafened: false}}} =
+      assert {:ok, %{payload: %User{muted: false, deafened: false}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "op" => "user:update",
@@ -80,7 +79,7 @@ defmodule BrothTest.Message.User.UpdateTest do
 
   describe "when you send an update message to change the username" do
     test "it populates update fields", %{uuid: uuid, state: state} do
-      assert {:ok, %{payload: %Update{username: "foobar"}}} =
+      assert {:ok, %{payload: %User{username: "foobar"}}} =
                BrothTest.Support.Message.validate(
                  %{
                    "operator" => "user:update",
