@@ -123,7 +123,7 @@ export const SingleUser: React.FC<AvatarProps> = ({
           data-testid="online-indictor"
         ></span>
       )}
-      {isBot && (
+      {/* {isBot && (
         <span
           className={
             "rounded-full absolute box-content bg-primary-800 border-primary-800 text-secondary items-center justify-center"
@@ -137,7 +137,7 @@ export const SingleUser: React.FC<AvatarProps> = ({
             height={sizeStyle.width}
           />
         </span>
-      )}
+      )} */}
       {muted && (
         <span
           className={
