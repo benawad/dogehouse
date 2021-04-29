@@ -1,9 +1,7 @@
 import React, { ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { BaseOverlay } from "../../ui/BaseOverlay";
-import { Button } from "../../ui/Button";
 import { DropdownController } from "../../ui/DropdownController";
 import { SettingsIcon } from "../../ui/SettingsIcon";
-
 import makeUrls, { CalendarEvent } from "./makeUrls";
 
 type CalendarURLs = ReturnType<typeof makeUrls>;
@@ -130,7 +128,7 @@ export const AddToCalendar: React.FC<AddToCalendarProps> = ({
   filename = "download",
   open: initialOpen = false,
 }) => {
-  const [open, onToggle] = useOpenState(initialOpen);
+  const [_, onToggle] = useOpenState(initialOpen);
   const urls = useMemo<CalendarURLs>(() => makeUrls(event), [event]);
 
   return (
