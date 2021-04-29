@@ -12,7 +12,7 @@ defmodule Broth.Message.Room.SetActiveSpeaker do
     |> validate_required([:active])
   end
 
-  def execute(changeset, state = %{user_id: user_id}) do
+  def execute(changeset, state = %{user: %{id: user_id}}) do
     with {:ok, %{active: active?}} <- apply_action(changeset, :validate),
          room_id when not is_nil(room_id) <- Beef.Users.get_current_room_id(user_id) do
       Onion.RoomSession.speaking_change(room_id, user_id, active?)

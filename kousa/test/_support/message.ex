@@ -4,7 +4,7 @@ defmodule BrothTest.Support.Message do
 
   import Kousa.Utils.Version, only: [sigil_v: 2]
 
-  @init %{user_id: UUID.uuid4()}
+  @init %{user: %{id: UUID.uuid4()}}
 
   def validate(message, state \\ @init) do
     message

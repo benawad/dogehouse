@@ -33,14 +33,14 @@ defmodule Broth.Message.Room.Create do
   alias Beef.ScheduledRooms
 
   def execute(changeset!, state) do
-    changeset! = put_change(changeset!, :creatorId, state.user_id)
+    changeset! = put_change(changeset!, :creatorId, state.user.id)
 
     # TODO: pass the changeset to the create_room and avoid the validation
     # step.
     with {:ok, room_spec} <- apply_action(changeset!, :validation),
          {:ok, %{room: room}} <-
            Kousa.Room.create_room(
-             state.user_id,
+             state.user.id,
              room_spec.name,
              room_spec.description || "",
              room_spec.isPrivate,
@@ -48,7 +48,7 @@ defmodule Broth.Message.Room.Create do
            ) do
       case Ecto.UUID.cast(room_spec.scheduledRoomId) do
         {:ok, _} ->
-          ScheduledRooms.room_started(state.user_id, room_spec.scheduledRoomId, room.id)
+          ScheduledRooms.room_started(state.user.id, room_spec.scheduledRoomId, room.id)
 
         _ ->
           nil

@@ -236,7 +236,7 @@ defmodule Broth.Translator.V0_1_0 do
   end
 
   def translate_out_body(message = %{e: errors}, "user:update") do
-    %{message | d: %{isUsernameTaken: errors =~ "has already been taken"}}
+    %{message | d: %{isUsernameTaken: "has already been taken" in Map.values(errors)}}
   end
 
   def translate_out_body(message, "user:get_relationship") do

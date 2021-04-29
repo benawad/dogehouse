@@ -31,7 +31,7 @@ defmodule Broth.Message.Room.Join do
 
   def execute(changeset, state) do
     with {:ok, %{roomId: room_id}} <- apply_action(changeset, :validate) do
-      Kousa.Room.join_room(state.user_id, room_id)
+      Kousa.Room.join_room(state.user.id, room_id)
 
       {:reply, Repo.get(Reply, room_id), state}
     end
