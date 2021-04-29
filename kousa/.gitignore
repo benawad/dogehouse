@@ -1,3 +1,4 @@
+.gitignore
 # The directory Mix will write compiled artifacts to.
 /_build/
 
@@ -30,3 +31,6 @@ kousa-*.tar
 _build
 .env
 log
+
+# environmental variables file
+vars.txt
