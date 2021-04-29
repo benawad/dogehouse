@@ -106,5 +106,26 @@ config :joken,
   access_token_key: System.fetch_env!("ACCESS_TOKEN_SECRET"),
   refresh_token_key: System.fetch_env!("REFRESH_TOKEN_SECRET")
 
+config :extwitter, :oauth,
+  consumer_key:
+    System.get_env("TWITTER_API_KEY") ||
+      raise("""
+      environment variable TWITTER_API_KEY is missing.
+      Create an oauth application on Twitter to get one
+      """),
+  consumer_secret:
+    System.get_env("TWITTER_SECRET_KEY") ||
+      raise("""
+      environment variable TWITTER_SECRET_KEY is missing.
+      Create an oauth application on Twitter to get one
+      """),
+  access_token:
+    System.get_env("TWITTER_BEARER_TOKEN") ||
+      raise("""
+      environment variable TWITTER_BEARER_TOKEN is missing.
+      Create an oauth application on Twitter to get one
+      """),
+  access_token_secret: ""
+
 IO.puts("staging?:")
 IO.puts(Application.get_env(:kousa, :staging?))

@@ -21,7 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muet | DogeHouse"
+    "mutedTitle": "Muet | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -41,7 +44,8 @@
     "home": {
       "createRoom": "Créer une salle",
       "editRoom": "Editer la salle",
-      "refresh": "Actualiser"
+      "refresh": "Actualiser",
+      "desktopAlert": "Téléchargez l'application DogeHouse aujourd'hui!"
     },
     "inviteList": {
       "roomGone": "Cette salle n'existe plus; revenez en arrière",
@@ -69,7 +73,7 @@
       "overlaySettings": "Paramètres de l'overlay",
       "soundSettings": "Paramètres Audio",
       "deleteAccount": "Supprimer le Compte",
-      "couldNotFindUser": "Désolé, nous parvenons pas à trouver cet utilisateur"
+      "couldNotFindUser": "Désolé, nous ne parvenons pas à trouver cet utilisateur"
     },
     "notFound": {
       "whoopsError": "Oups ! Cette page s'est perdue dans la conversation.",
@@ -81,10 +85,10 @@
       "requestingToSpeak": "Demande la parole",
       "listeners": "Auditeurs",
       "allowAll": "Tout autoriser",
-      "allowAllConfirm": "Êtes-vous sur? Cela autorisera {{count}} utilisateurs en attente à parler"
+      "allowAllConfirm": "Êtes-vous sûr? Cela autorisera {{count}} utilisateurs en attente de parler"
     },
     "searchUser": { "search": "recherche..." },
-    "soundEffectSettings": { "header": "Sons" },
+    "soundEffectSettings": { "header": "Sons", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Éditer le profil",
       "followsYou": "Vous suit",
@@ -94,7 +98,8 @@
       "followingHim": "Abonné",
       "copyProfileUrl": "Copier le lien du profil",
       "urlCopied": "Lien copié dans le presse-papier",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "À propos de"
     },
     "voiceSettings": {
       "header": "Paramètres vocaux",
@@ -107,8 +112,16 @@
       "header": "Paramètres de l'Overlay",
       "input": {
         "errorMsg": "Veuillez rentrer un titre valide",
-        "label": "Titrede l'application"
+        "label": "Titre de l'application"
       }
+    },
+    "download": {
+      "starting": "Téléchargement entamé...",
+      "failed": "Téléchargement interrompu, essayer de nouveau plus tard",
+      "visit_gh": "Visiter toutes les versions sur Github",
+      "prompt": "Cliquer sur le bouton pour commencer le Téléchargement",
+      "download_now": "Télécharger maintenant",
+      "download_for": "Télécharger pour la %platform% (%ext%)"
     }
   },
   "components": {
@@ -133,7 +146,10 @@
       "settings": "Paramètres",
       "speaker": "Interlocuteur",
       "listener": "Auditeur",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Activer / Désactiver le son",
+      "deafen": "Couper le son",
+      "undeafen": "Rétablier le son"
     },
     "deviceNotSupported": {
       "notSupported": "Votre système n'est pas encore supporté. Vous pouvez créer une",
@@ -160,7 +176,8 @@
       "listening": "Écoute...",
       "toggleMuteKeybind": "Activer / Désactiver le raccourci clavier pour rendre muet",
       "toggleOverlayKeybind": "Activer / Désactiver le raccourci clavier pour l'overlay",
-      "togglePushToTalkKeybind": "Activer / Désactiver le raccourci clavier appuyer-pour-parler"
+      "togglePushToTalkKeybind": "Activer / Désactiver le raccourci clavier appuyer-pour-parler",
+      "toggleDeafKeybind": "Activer / Désactiver le raccourci clavier pour couper le son"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Pas d'audio pour une raison inconnue"
@@ -175,7 +192,8 @@
       "reconnect": "Se reconnecter"
     },
     "search": {
-      "placeholder": "Rechercher des salles, utilisateurs ou catégories"
+      "placeholder": "Rechercher des salles, utilisateurs ou catégories",
+      "placeholderShort": "Recherche"
     },
     "settingsDropdown": {
       "profile": "Profil",
@@ -185,11 +203,15 @@
       "logOut": {
         "button": "Se déconnecter",
         "modalSubtitle": "Êtes vous sur de vouloir vous déconnecter ?"
+      },
+      "debugAudio": {
+        "debugAudio": "Débugger l'audio",
+        "stopDebugger": "Arreter le débuggage"
       }
     },
     "modals": {
       "createRoomModal": {
-        "subtitle": "Remplit les champs suivants pour créer",
+        "subtitle": "Remplis les champs suivants pour créer",
         "public": "Publique",
         "private": "Privée",
         "roomName": "Nom de la salle",
@@ -213,7 +235,8 @@
         "usernameError": "Longueur de 4 à 15 caractères et ne doit contenir que des caractères alphanumériques ou des tirets du bas",
         "usernameLabel": "Pseudo",
         "bioError": "Longueur maximum de 160 caractères",
-        "bioLabel": "Biographie"
+        "bioLabel": "Biographie",
+        "bannerUrlLabel": "URL de bannière Twitter"
       },
       "profileModal": {
         "blockUserConfirm": "Êtes-vous sûr de vouloir bloquer cet utilisateur de toutes vos salles ?",
@@ -253,6 +276,11 @@
         "roomName": "nom de salle",
         "roomDescription": "Description",
         "minLength": "longueur minimum de 2 caractères"
+      },
+      "tommorow": "DEMAIN",
+      "today": "AUJOURD'HUI",
+      "deleteModal": {
+        "areYouSure": "Êtes vous sûr de vouloir supprimer cette salle programmée?"
       }
     },
     "roomChat": {
@@ -264,7 +292,7 @@
       "searchResults": "Résultats de recherche",
       "recent": "Fréquemment utilisées",
       "sendMessage": "Envoyer un message",
-      "whisper": "Chuchoter",
+      "whisper": "Chuchotement",
       "welcomeMessage": "Bienvenue dans le chat !",
       "roomDescription": "Description de la salle"
     },

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { SolidMicrophoneOff } from "../../icons";
+import { SolidDeafenedOff, SolidMicrophoneOff } from "../../icons";
+import SolidVolumeOff from "../../icons/SolidVolumeOff";
 
 export const avatarSizeMap = {
   default: "80px",
@@ -61,8 +62,10 @@ export interface AvatarProps {
   className?: string;
   isOnline?: boolean;
   muted?: boolean;
+  deafened?: boolean;
   activeSpeaker?: boolean;
   username?: string;
+  hover?: boolean;
 }
 
 export const SingleUser: React.FC<AvatarProps> = ({
@@ -70,7 +73,9 @@ export const SingleUser: React.FC<AvatarProps> = ({
   size = "default",
   className = "",
   isOnline = false,
+  hover = false,
   muted,
+  deafened,
   activeSpeaker,
   username,
 }) => {
@@ -86,11 +91,13 @@ export const SingleUser: React.FC<AvatarProps> = ({
       data-testid="single-user-avatar"
     >
       <img
-        alt="avatar"
+        alt={username ? `${username}-s-avatar` : "your-avatar"}
         style={{
           boxShadow: activeSpeaker ? "0 0 0 2px var(--color-accent)" : "",
         }}
-        className="rounded-full w-full h-full object-cover"
+        className={`rounded-full w-full h-full object-cover ${
+          deafened ? "opacity-60" : ""
+        }`}
         onError={() => setError(true)}
         src={
           isError
@@ -100,6 +107,11 @@ export const SingleUser: React.FC<AvatarProps> = ({
             : src
         }
       />
+      {hover ? (
+        <div
+          className={`bg-primary-900 hover:opacity-20 transition duration-200 opacity-0 absolute w-full h-full top-0 left-0 rounded-full`}
+        ></div>
+      ) : null}
       {isOnline && (
         <span
           className={
@@ -118,6 +130,22 @@ export const SingleUser: React.FC<AvatarProps> = ({
           data-testid="online-indictor"
         >
           <SolidMicrophoneOff
+            data-testid={`muted:${username}`}
+            width={sizeStyle.width}
+            height={sizeStyle.width}
+          />
+        </span>
+      )}
+      {deafened && (
+        <span
+          className={
+            "rounded-full absolute box-content bg-primary-800 border-primary-800 text-accent items-center justify-center"
+          }
+          style={{ ...sizeStyle, padding: 2 }}
+          data-testid="online-indictor"
+        >
+          <SolidDeafenedOff
+            data-testid={`deafened:${username}`}
             width={sizeStyle.width}
             height={sizeStyle.width}
           />

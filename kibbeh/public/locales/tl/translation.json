@@ -11,16 +11,19 @@
     "edit": "i-edit",
     "delete": "tanggalin",
     "joinRoom": "sumali",
-    "copyLink": "copyahin",
+    "copyLink": "kopyahin",
     "copied": "kinopya",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Laging tandaan maaring magkaroon ng di inaasahang problema ang DogeHouse kapag walang accessibility permissions"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muted | DogeHouse"
+    "mutedTitle": "Muted | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -30,28 +33,24 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "Ban"
-    },
+    "banUser": { "ban": "Ban" },
     "followingOnlineList": {
-      "listHeader": "Listahan nang mga users na hindi naka private at iyong sinundan", 
+      "listHeader": "Listahan nang mga tao na hindi pribado at iyong sinundan",
       "currentRoom": "kasalukuyan nasa:",
       "startPrivateRoom": "magsimula ng isang pribadong silid sa kanila"
     },
-    "followList": {
-      "followHim": "I-follow",
-      "followingHim": "sinusubaybayan"
-    },
+    "followList": { "followHim": "I-follow", "followingHim": "sinusubaybayan" },
     "home": {
-      "createRoom": "Bagong room",
+      "createRoom": "Bagong silid",
       "editRoom": "Edit Room",
-      "refresh": "Refresh"
+      "refresh": "Refresh",
+      "desktopAlert": "I-Download ang DogeHouse desktop app ngayon!"
     },
     "inviteList": {
       "roomGone": "nawala ang room, bumalik ka",
-      "shareRoomLink": "i-share ang link sa room nato",
-      "inviteFollowers": "Pwede kang mag imbita nang followers na naka online",
-      "whenFollowersOnline": "Dito mo makikita ang iyong followers na naka online"
+      "shareRoomLink": "i-share ang link sa room na ito",
+      "inviteFollowers": "Pwede kang mag imbita nang mga taga-subaybay na naka online",
+      "whenFollowersOnline": "Dito mo makikita ang iyong mga taga-subaybay na naka online"
     },
     "login": {
       "headerText": "Dalhin ang mga paguusap sa boses sa buwan 🚀",
@@ -72,8 +71,8 @@
       "voiceSettings": "pumunta sa voice settings",
       "overlaySettings": "Overlay Settings",
       "soundSettings": "pumunta sound settings",
-      "deleteAccount": "I-delete ang account",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "deleteAccount": "I-delete ang iyong account",
+      "couldNotFindUser": "Kinalulungkot namin na hindi matagpuan ang iyong hinahanap"
     },
     "notFound": {
       "whoopsError": "Whoops! Ang page na ito ay nawala.",
@@ -84,15 +83,11 @@
       "speakers": "Mga nagsasalita",
       "requestingToSpeak": "Humihiling na magsalita",
       "listeners": "Mga nakikinig",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
+      "allowAll": "Payagan lahat",
+      "allowAllConfirm": "Sigurado? Ang buong bilang {{count}} na tao ay papayagang makapag salita"
     },
-    "searchUser": {
-      "search": "maghanap..."
-    },
-    "soundEffectSettings": {
-      "header": "Tunog"
-    },
+    "searchUser": { "search": "maghanap..." },
+    "soundEffectSettings": { "header": "Tunog", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "I-edit ang profile",
       "followsYou": "mga sumusunod sayo",
@@ -102,13 +97,14 @@
       "unfollow": "Unfollow",
       "followingHim": "mga sinusubaybayan",
       "copyProfileUrl": "Copy Profile URL",
-      "urlCopied": "URL copied to clipboard"
+      "urlCopied": "URL copied to clipboard",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Voice Settings",
       "mic": "Mic:",
-      "permissionError": "Walang nakita na mic, siguro hindi nakaplug or hindi mo binigyan nang permiso ang website nato.",
-      "refresh": "I-refresh mic list",
+      "permissionError": " Walang makitang mikropono, maaring ito ay hindi nakaplug o hindi nabigyang permiso ang website na ito",
+      "refresh": "I-refresh and listahan ng mikropono",
       "volume": "Volume:"
     },
     "overlaySettings": {
@@ -117,6 +113,14 @@
         "errorMsg": "Please enter a valid app title",
         "label": "App title"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -141,7 +145,10 @@
       "settings": "Mga Settings",
       "speaker": "Nagsasalita",
       "listener": "Nakikinig",
-      "chat": "Chat"
+      "chat": "Chat",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Pasensya na hindi pa supportado ang iyong device.",
@@ -168,24 +175,22 @@
       "listening": "nakikinig...",
       "toggleMuteKeybind": "I-toggle ang mute keybind",
       "toggleOverlayKeybind": "Toggle overlay keybind",
-      "togglePushToTalkKeybind": "I-toggle ang push-to-talk keybind"
+      "togglePushToTalkKeybind": "I-toggle ang push-to-talk keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
-    "userVolumeSlider": {
-      "noAudioMessage": "Walang na detect na audio consumer"
-    },
+    "userVolumeSlider": { "noAudioMessage": "Walang makitang audio consumer" },
     "upcomingRoomsCard": {
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore more rooms"
     },
-    "addToCalendar": {
-      "add": "Idagdag sa kalendaryo"
-    },
+    "addToCalendar": { "add": "Idagdag sa kalendaryo" },
     "wsKilled": {
       "description": "Pinatay ng server ang websocket. Karaniwang magyayari ito dahil naka bukas ang website sa ibang tab.",
       "reconnect": "kumonekta"
     },
     "search": {
-      "placeholder": "Search for rooms, users or categories"
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
     },
     "settingsDropdown": {
       "profile": "Profile",
@@ -195,12 +200,16 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     },
     "modals": {
       "createRoomModal": {
-        "subtitle": "Fill the following fields to start a new room",
-        "public": "Public",
+        "subtitle": "ulatan ang mga sumusunod para makapag simula ng bagong room",
+        "public": "Publiko",
         "private": "Pribado",
         "roomName": "Pangalan ng room",
         "roomDescription": "Paglalarawan sa silid",
@@ -222,14 +231,15 @@
         "displayNameLabel": "Pangalan ng Display",
         "usernameError": "haba ng 4 hanggang 15 na mga character at alphanumeric / underscor lamange",
         "usernameLabel": "Username",
-        "bioError": "haba ng haba ng 160 mga character",
-        "bioLabel": "Bio"
+        "bioError": "limitado hanggang 160 mga letra lamang",
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Sigurado kaba na i-block mo itong user sa pagsali sa ginawa mong room?",
         "blockUser": "I-block ang user",
-        "makeMod": "gumawa ng mod",
-        "unmod": "I-unmod",
+        "makeMod": "gumawa ng tagapangulo",
+        "unmod": "alisin bilang tagapangulo",
         "addAsSpeaker": "idagdag bilang tagapagsalita",
         "moveToListener": "lumipat sa tagapakinig",
         "unBanFromChat": "Unban from Chat",
@@ -250,9 +260,7 @@
   },
   "modules": {
     "_comment": "Modules UI Internationalization Strings",
-    "feed": {
-      "yourFeed": "Your feed"
-    },
+    "feed": { "yourFeed": "Your feed" },
     "scheduledRooms": {
       "title": "Mga Nakaiskedyul na",
       "noneFound": "walang nakita",
@@ -265,6 +273,11 @@
         "roomName": "pangalan ng room",
         "roomDescription": "Deskripsyon",
         "minLength": "haba ng 2"
+      },
+      "tommorow": "Susunod na araw",
+      "today": "Ngayong araw",
+      "deleteModal": {
+        "areYouSure": "Sigurado ka ba na gusto mong alisin ang naka-iskedyul na silid?"
       }
     },
     "roomChat": {
@@ -278,7 +291,7 @@
       "sendMessage": "Magpadala ng Mensahe",
       "whisper": "Pabulong",
       "welcomeMessage": "Maligayang pagdating sa chat!",
-      "roomDescription": "room deskripsyon"
+      "roomDescription": "deskripsyon"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

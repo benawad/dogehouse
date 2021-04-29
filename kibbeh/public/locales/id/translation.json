@@ -11,7 +11,7 @@
     "edit": "Ubah",
     "delete": "Hapus",
     "joinRoom": "Gabung ke ruangan",
-    "copyLink": "Calin tautan",
+    "copyLink": "Salin tautan",
     "copied": "Disalin",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
@@ -20,7 +20,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Bisu | DogeHouse"
+    "mutedTitle": "Bisu | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dasbor",
+    "connectionTaken": "Koneksi Diambil"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -40,7 +43,8 @@
     "home": {
       "createRoom": "Buat Ruangan",
       "refresh": "Segarkan",
-      "editRoom": "Ubah Ruangan"
+      "editRoom": "Ubah Ruangan",
+      "desktopAlert": "Unduh aplikasi desktop DogeHouse hari ini!"
     },
     "inviteList": {
       "roomGone": "Ruangan hilang, kembali",
@@ -51,7 +55,7 @@
     "login": {
       "headerText": "Membawa obrolan suara ke bulan 🚀",
       "featureText_1": "Mode Gelap",
-      "featureText_2": "Buka Pendaftaran",
+      "featureText_2": "Pendaftaran terbuka",
       "featureText_3": "Dukungan Lintas Platform",
       "featureText_4": "Sumber Terbuka",
       "featureText_5": "Obrolan Teks",
@@ -83,7 +87,7 @@
       "allowAllConfirm": "Apakah anda yakin? Ini akan mengizinkan semua {{count}} permintaan pengguna untuk bicara"
     },
     "searchUser": { "search": "cari..." },
-    "soundEffectSettings": { "header": "Bunyi" },
+    "soundEffectSettings": { "header": "Bunyi", "title": "Pengaturan Bunyi" },
     "viewUser": {
       "editProfile": "Ubah profil",
       "followsYou": "Mengikutimu",
@@ -93,7 +97,8 @@
       "followingHim": "Mengikuti",
       "copyProfileUrl": "Salin url profil",
       "urlCopied": "URL disalin ke papan klip",
-      "unfollow": "Berhenti mengikuti"
+      "unfollow": "Berhenti mengikuti",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Pengaturan Suara",
@@ -105,6 +110,14 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
+    },
+    "download": {
+      "starting": "Mengunduh...",
+      "failed": "Tidak bisa mengunduh otomatis, mohon coba lagi",
+      "visit_gh": "Kunjungi Rilis Github",
+      "prompt": "Tekan tombol di bawah untuk memulai mengunduh",
+      "download_now": "Unduh Sekarang",
+      "download_for": "Unduh untuk %platform% (%ext%)"
     }
   },
   "components": {
@@ -129,7 +142,10 @@
       "settings": "Pengaturan",
       "speaker": "Pembicara",
       "listener": "Pendengar",
-      "chat": "Percakapan"
+      "chat": "Percakapan",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Perangkatmu saat ini belum didukung. Kamu bisa membuat",
@@ -150,7 +166,8 @@
       "listening": "Menunggu tombol",
       "toggleMuteKeybind": "Atur tombol untuk membisu",
       "togglePushToTalkKeybind": "Atur tombol klik-untuk-bicara",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "Perangkat audio tidak ditemukan" },
     "addToCalendar": { "add": "Tambahkan ke Kalender" },
@@ -184,7 +201,8 @@
         "usernameError": "Panjang 4 sampai 15 karakter dan hanya alfanumerik/garis bawah",
         "usernameLabel": "Nama pengguna",
         "bioError": "Maksimal 160 karakter",
-        "bioLabel": "Biodata"
+        "bioLabel": "Biodata",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Anda yakin memblokir pengguna ini untuk bergabung ke ruangan yang anda buat?",
@@ -218,7 +236,10 @@
       "upcomingRooms": "Ruangan yang akan datang",
       "exploreMoreRooms": "Jelajahi ruangan lain"
     },
-    "search": { "placeholder": "Cari pengguna, ruangan, atau kategori" },
+    "search": {
+      "placeholder": "Cari pengguna, ruangan, atau kategori",
+      "placeholderShort": "Cari"
+    },
     "settingsDropdown": {
       "profile": "Profil",
       "language": "Bahasa",
@@ -227,6 +248,10 @@
       "logOut": {
         "button": "Keluar",
         "modalSubtitle": "Apakah kamu yakin ingin keluar?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Berhentikan Debugger"
       }
     }
   },
@@ -244,12 +269,17 @@
         "roomName": "nama ruangan",
         "minLength": "minimal panjang 2",
         "roomDescription": "Deskripsi"
+      },
+      "tommorow": "BESOK",
+      "today": "HARI INI",
+      "deleteModal": {
+        "areYouSure": "Apakah kamu yakin ingin menghapus ruangan yang sudah terjadwal ini?"
       }
     },
     "roomChat": {
       "title": "Percakapan",
       "emotesSoon": "[emoji segera]",
-      "bannedAlert": "Kamu dibanned dari percakapan",
+      "bannedAlert": "Kamu dilarang dari percakapan",
       "waitAlert": "Kamu harus menunggu sebentar sebelum mengirim pesan lain",
       "search": "Cari",
       "searchResults": "Hasil Pencarian",

@@ -6,7 +6,7 @@ import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslatio
 import { useTypeSafeUpdateQuery } from "../../shared-hooks/useTypeSafeUpdateQuery";
 import { Button } from "../../ui/Button";
 import { CenterLoader } from "../../ui/CenterLoader";
-import { FeedHeader } from "../../ui/Feed";
+import { FeedHeader } from "../../ui/FeedHeader";
 import { MiddlePanel } from "../layouts/GridPanels";
 import { CreateScheduleRoomModal } from "./CreateScheduledRoomModal";
 import { EditScheduleRoomModalController } from "./EditScheduleRoomModalController";
@@ -54,9 +54,9 @@ const Page = ({
   }
 
   return (
-    <>
+    <div className={`${isLastPage ? "mb-24" : ""}`}>
       {data.scheduledRooms.map((r) => (
-        <div className={`mt-4 ${isLastPage ? "mb-24" : ""}`} key={r.id}>
+        <div className={`mt-4`} key={r.id}>
           <ScheduledRoomCard
             onDeleteComplete={() => {
               update(
@@ -83,7 +83,7 @@ const Page = ({
           </Button>
         </div>
       ) : null}
-    </>
+    </div>
   );
 };
 

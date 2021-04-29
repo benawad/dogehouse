@@ -5,6 +5,7 @@ import {
   Message,
   MessageToken,
   MuteMap,
+  DeafMap,
   Room,
   ScheduledRoom,
   User,
@@ -19,6 +20,7 @@ import {
   GetRoomUsersResponse,
   NewRoomDetailsResponse,
   InvitationToRoomResponse,
+  CreateBotResponse,
 } from "./responses";
 
 type Handler<Data> = (data: Data) => void;
@@ -40,10 +42,12 @@ export const wrap = (connection: Connection) => ({
       connection.addListener("invitation_to_room", handler),
     handRaised: (handler: Handler<{ userId: UUID }>) =>
       connection.addListener("hand_raised", handler),
-    speakerAdded: (handler: Handler<{ userId: UUID; muteMap: MuteMap }>) =>
-      connection.addListener("speaker_added", handler),
-    speakerRemoved: (handler: Handler<{ userId: UUID; muteMap: MuteMap }>) =>
-      connection.addListener("speaker_removed", handler),
+    speakerAdded: (
+      handler: Handler<{ userId: UUID; muteMap: MuteMap; deafMap: DeafMap }>
+    ) => connection.addListener("speaker_added", handler),
+    speakerRemoved: (
+      handler: Handler<{ userId: UUID; muteMap: MuteMap; deafMap: DeafMap }>
+    ) => connection.addListener("speaker_removed", handler),
   },
   query: {
     search: (query: string): Promise<{ items: Array<Room | User> }> =>
@@ -105,6 +109,12 @@ export const wrap = (connection: Connection) => ({
       ),
   },
   mutation: {
+    roomBan: (userId: string, shouldBanIp?: boolean): Promise<void> =>
+      connection.sendCast("room:ban", { userId, shouldBanIp }),
+    setDeaf: (isDeafened: boolean): Promise<Record<string, never>> =>
+      connection.sendCall("room:deafen", { deafened: isDeafened }),
+    userCreateBot: (username: string): Promise<CreateBotResponse> =>
+      connection.sendCall(`user:create_bot`, { username }),
     ban: (username: string, reason: string) =>
       connection.send(`ban`, { username, reason }),
     deleteScheduledRoom: (id: string): Promise =>
@@ -154,8 +164,6 @@ export const wrap = (connection: Connection) => ({
       connection.send("add_speaker", { userId }),
     deleteRoomChatMessage: (userId: string, messageId: string): Promise<void> =>
       connection.send("delete_room_chat_message", { userId, messageId }),
-    blockFromRoom: (userId: string): Promise<void> =>
-      connection.send("block_from_room", { userId }),
     unbanFromRoomChat: (userId: string): Promise<void> =>
       connection.send("unban_from_room_chat", { userId }),
     banFromRoomChat: (userId: string): Promise<void> =>
@@ -177,6 +185,7 @@ export const wrap = (connection: Connection) => ({
       username: string;
       bio: string;
       avatarUrl: string;
+      bannerUrl?: string;
     }): Promise<{ isUsernameTaken: boolean }> =>
       connection.fetch("edit_profile", { data }),
     editRoom: (data: {

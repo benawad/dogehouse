@@ -86,4 +86,4 @@ This is an approximation. On some circumstances other values will be used to ens
 ![DogeHouse spacing](https://i.imgur.com/gRIJAXA.png)
 
 ## Doubts and questions
-If you have any doubts or concerns when developing components or other UI elements, you can open an issue and tag @ajmnz or leave a message in `#design` or `#kofta` in [our Discord](https://discord.gg/82HzQCJCDg).
+If you have any doubts or concerns when developing components or other UI elements, you can open an issue and tag @ajmnz or leave a message in `#design` or `#kibbeh` in [our Discord](https://discord.gg/82HzQCJCDg).

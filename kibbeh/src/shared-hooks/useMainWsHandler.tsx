@@ -14,6 +14,7 @@ import { mergeRoomPermission } from "../modules/webrtc/utils/mergeRoomPermission
 import { WebSocketContext } from "../modules/ws/WebSocketProvider";
 import { invitedToRoomConfirm } from "../shared-components/InvitedToJoinRoomModal";
 import { setMute } from "./useSetMute";
+import { setDeaf } from "./useSetDeaf";
 import { useTypeSafeUpdateQuery } from "./useTypeSafeUpdateQuery";
 
 let ipcRenderer: any = undefined;
@@ -167,13 +168,14 @@ export const useMainWsHandler = () => {
       }),
       conn.addListener<any>(
         "speaker_removed",
-        ({ userId, roomId, muteMap }) => {
+        ({ userId, roomId, muteMap, deafMap }) => {
           updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
             !data || "error" in data
               ? data
               : {
                   ...data,
                   muteMap,
+                  deafMap,
                   users: data.users.map((x) =>
                     userId === x.id
                       ? {
@@ -189,34 +191,38 @@ export const useMainWsHandler = () => {
           );
         }
       ),
-      conn.addListener<any>("speaker_added", ({ userId, roomId, muteMap }) => {
-        // Mute user upon added as speaker
-        if (conn.user.id === userId) {
-          setMute(wrap(conn), true);
-        }
+      conn.addListener<any>(
+        "speaker_added",
+        ({ userId, roomId, muteMap, deafMap }) => {
+          // Mute user upon added as speaker
+          if (conn.user.id === userId) {
+            setMute(wrap(conn), true);
+          }
 
-        updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
-          !data || "error" in data
-            ? data
-            : {
-                ...data,
-                muteMap,
-                users: data.users.map((x) =>
-                  userId === x.id
-                    ? {
-                        ...x,
-                        roomPermissions: mergeRoomPermission(
-                          x.roomPermissions,
-                          {
-                            isSpeaker: true,
-                          }
-                        ),
-                      }
-                    : x
-                ),
-              }
-        );
-      }),
+          updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
+            !data || "error" in data
+              ? data
+              : {
+                  ...data,
+                  muteMap,
+                  deafMap,
+                  users: data.users.map((x) =>
+                    userId === x.id
+                      ? {
+                          ...x,
+                          roomPermissions: mergeRoomPermission(
+                            x.roomPermissions,
+                            {
+                              isSpeaker: true,
+                            }
+                          ),
+                        }
+                      : x
+                  ),
+                }
+          );
+        }
+      ),
       conn.addListener<any>("mod_changed", ({ userId, roomId }) => {
         updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
           !data || "error" in data
@@ -260,13 +266,14 @@ export const useMainWsHandler = () => {
       }),
       conn.addListener<any>(
         "new_user_join_room",
-        ({ user, muteMap, roomId }) => {
+        ({ user, muteMap, deafMap, roomId }) => {
           updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
             !data || "error" in data
               ? data
               : {
                   ...data,
                   muteMap,
+                  deafMap,
                   room: {
                     ...data.room,
                     peoplePreviewList:
@@ -277,6 +284,7 @@ export const useMainWsHandler = () => {
                               id: user.id,
                               displayName: user.displayName,
                               numFollowers: user.numFollowers,
+                              avatarUrl: user.avatarUrl,
                             },
                           ]
                         : data.room.peoplePreviewList,
@@ -324,6 +332,24 @@ export const useMainWsHandler = () => {
           return {
             ...data,
             muteMap,
+          };
+        });
+      }),
+      conn.addListener<any>("deafen_changed", ({ userId, value, roomId }) => {
+        updateQuery(["joinRoomAndGetInfo", roomId], (data) => {
+          if (data && "error" in data) {
+            return data;
+          }
+          let deafMap = data.deafMap;
+          if (value) {
+            deafMap = { ...data.deafMap, [userId]: true };
+          } else {
+            const { [userId]: _, ...newDm } = data.deafMap;
+            deafMap = newDm;
+          }
+          return {
+            ...data,
+            deafMap,
           };
         });
       }),

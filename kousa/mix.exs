@@ -4,7 +4,7 @@ defmodule Kousa.MixProject do
   def project do
     [
       app: :kousa,
-      version: "0.1.0",
+      version: "0.2.1",
       elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -24,23 +24,29 @@ defmodule Kousa.MixProject do
 
     [
       mod: {Kousa, []},
+      # moved logger to 2nd position to kill this error
+      # calling logger:remove_handler(default) failed: :error {:badmatch, {:error, {:not_found, :default}}}
       extra_applications:
-        [:logger, :amqp, :ueberauth_github, :prometheus_ex] ++ dev_only_apps ++ test_only_apps
+        [:amqp, :logger, :ueberauth_github, :prometheus_ex] ++ dev_only_apps ++ test_only_apps
     ]
   end
 
   defp deps do
     [
       {:amqp, "~> 2.1"},
-      {:plug_cowboy, "~> 2.0"},
+      {:plug_cowboy, "~> 2.5"},
       # TODO: switch from poison to jason everywhere
       {:poison, "~> 3.1"},
+      {:phoenix_pubsub, "~> 2.0.0"},
       {:ecto_sql, "~> 3.0"},
+      {:ecto_enum, "~> 1.4"},
       {:jason, "~> 1.2"},
       {:joken, "~> 2.0"},
       {:elixir_uuid, "~> 1.2"},
+      {:net_address, "~> 0.3"},
       # TODO: switch off of httpoison to, e.g. Mojito or Finch
       {:httpoison, "~> 1.8"},
+      {:finch, "~> 0.6"},
       {:sentry, "~> 8.0"},
       {:postgrex, ">= 0.0.0"},
       {:remix, "~> 0.0.1", only: :dev},

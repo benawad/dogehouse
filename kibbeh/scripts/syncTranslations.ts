@@ -39,5 +39,3 @@ fs.readdirSync(join(__dirname, "../public/locales")).forEach((locale) => {
     })
   );
 });
-
-

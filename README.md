@@ -19,7 +19,7 @@
   <span> · </span>
   <a href="https://discord.gg/82HzQCJCDg">Community</a>
   <span> · </span>
-  <a href="./docs/README.MD">Documentation</a>
+  <a href="https://github.com/FotieMConstant/dogehouse-docs">Documentation</a>
 </h3>
 
 ---
@@ -33,7 +33,6 @@
 | [dinner](dinner)     | Puppeteer shenanigans |
 | [baklava](baklava)   |   Electron Wrapper    |
 | [pilaf](pilaf)       |   React Native App    |
-| [feta](feta)         | Shared utils web/app  |
 | [kibbeh](kibbeh)     |   Next.js frontend    |
 | [kebab](kebab)       |      API Client       |
 
@@ -62,7 +61,7 @@ for any platform.
 from the official APT repo with these simple steps:
   * Add the repo with `echo "deb http://ppa.dogehouse.tv/ ./" | sudo tee -a /etc/apt/sources.list > /dev/null`
   * Add Ben Awad's GPG key with `$(command -v curl>>/dev/null && echo "curl -o-" || echo "wget -q0-") http://ppa.dogehouse.tv/KEY.gpg | sudo apt-key add -`.
-  * Finally, update your local repoistory list and install DogeHouse
+  * Finally, update your local repository list and install DogeHouse
 with `sudo apt update && sudo apt install dogehouse`.
 * Get the snap for your systemd-powered Linux distro from either the
 [Snap Store](https://snapcraft.io/dogehouse) or in an terminal with

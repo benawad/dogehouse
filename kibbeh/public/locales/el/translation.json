@@ -21,7 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Σε σίγαση | DogeHouse"
+    "mutedTitle": "Σε σίγαση | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Ταμπλό",
+    "connectionTaken": "Έγινε σύνδεση"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -37,6 +40,14 @@
       "currentRoom": "Aυτή τη στιγμή βρίσκεστε σε:",
       "startPrivateRoom": "Δημιουργήστε ένα ιδιωτικό δωμάτιο μαζί τους"
     },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
+    },
     "followList": {
       "followHim": "Ακολουθήστε",
       "ακολουθήστε": "Ακολουθείτε",
@@ -45,7 +56,8 @@
     "home": {
       "createRoom": "Δημιουργία δωματίου",
       "refresh": "Επαναφόρτωση",
-      "editRoom": "Επεξεργασία δωματίου"
+      "editRoom": "Επεξεργασία δωματίου",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Το δωμάτιο διαγράφηκε, πηγαίνετε πίσω",
@@ -88,7 +100,7 @@
       "allowAllConfirm": "Είστε σίγουροι; Αυτό θα επιτρέψει όλους τους {{count}} χρήστες που έχουν ζητήσει, να μιλήσουν"
     },
     "searchUser": { "search": "αναζήτηση..." },
-    "soundEffectSettings": { "header": "Ήχοι" },
+    "soundEffectSettings": { "header": "Ήχοι", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Επεξεργασία προφίλ",
       "followsYou": "Σας ακολουθεί",
@@ -98,7 +110,8 @@
       "followingHim": "Ακολουθείτε",
       "copyProfileUrl": "Αντιγραφή συνδέσμου προφίλ",
       "urlCopied": "Ο συνδεσμος αντιγράφθηκε στο πρόχειρο",
-      "unfollow": "Ξε-ακολουθήστε"
+      "unfollow": "Ξε-ακολουθήστε",
+      "about": "About"
     },
     "voiceSettings": {
       "header": "Ρυθμίσεις Φωνής",
@@ -137,7 +150,10 @@
       "settings": "Ρυθμίσεις",
       "speaker": "Ομιλητής",
       "listener": "Ακροατής",
-      "chat": "Συζήτηση"
+      "chat": "Συζήτηση",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Η συσκευή σας δεν υποστηρίζεται αυτή τη στιγμή. Μπορείτε να δημιουργήσετε ένα",
@@ -158,7 +174,8 @@
       "listening": "Ακροατές",
       "toggleMuteKeybind": "Συντόμευση εναλλαγής σίγασης",
       "togglePushToTalkKeybind": "Συντόμευση εναλλαγής push-to-talk",
-      "toggleOverlayKeybind": "Συντόμευση για το overlay"
+      "toggleOverlayKeybind": "Συντόμευση για το overlay",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Δεν υπάρχει δέκτης ήχου για κάποιο λόγο"
@@ -194,7 +211,8 @@
         "usernameError": "Μήκος από 4 έως 15 χαρακτήρες και μόνο αλφαριθμητικά/κάτω παύλα",
         "usernameLabel": "Όνομα χρήστη",
         "bioError": "Μέγιστο μήκος 160 χαρακτήρες",
-        "bioLabel": "Βιογραφικό"
+        "bioLabel": "Βιογραφικό",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Είστε σίγουροι ότι θέλετε να μπλοκάρετε αυτό το χρήστη από το να συμμετέχει σε οποιοδήποτε δωμάτιο δημιουργήσετε στο μέλλον;",
@@ -228,7 +246,10 @@
       "upcomingRooms": "Επερχόμενα δωμάτια ",
       "exploreMoreRooms": "Ανακαλύψτε περισσότερα δωμάτια"
     },
-    "search": { "placeholder": "Αναζητήστε δωμάτια, χρήστες ή κατηγορίες" },
+    "search": {
+      "placeholder": "Αναζητήστε δωμάτια, χρήστες ή κατηγορίες",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Προφίλ",
       "language": "Γλώσσα",
@@ -237,6 +258,10 @@
       "logOut": {
         "button": "Αποσύνδεση",
         "modalSubtitle": "Είστε σίγουροι πως θέλετε να αποσυνδεθείτε;"
+      },
+      "debugAudio": {
+        "debugAudio": "Κάντε debug τον ήχο",
+        "stopDebugger": "Σταματήστε το Debugger"
       }
     }
   },
@@ -254,6 +279,11 @@
         "roomName": "'Ονομα δωματίου",
         "roomDescription": "Περιγραφή δωματίου",
         "minLength": "Ελάχιστο μήκος 2"
+      },
+      "tommorow": "Άυριο",
+      "today": "Σήμερα",
+      "deleteModal": {
+        "areYouSure": "Είστε σίγουρος πως θέλετε να διαγράψετε αυτό το προγραμματισμέν δωμάτιο;"
       }
     },
     "roomChat": {

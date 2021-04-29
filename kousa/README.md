@@ -26,4 +26,4 @@ General Elixir conventions:
 - `fetch...!` should return `value` or crash if not present
 - `get...` should return `value` or `nil`
 
-`snake_case` not `camelCase` 
+`snake_case` not `camelCase`
