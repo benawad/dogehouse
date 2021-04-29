@@ -107,9 +107,7 @@ defmodule Beef.Mutations.Users do
   def twitter_find_or_create(user) do
     db_user =
       from(u in User,
-        where:
-          (not is_nil(u.email) and u.email == ^user.email and u.email != "") or
-            u.twitterId == ^user.twitterId,
+        where: u.twitterId == ^user.twitterId,
         limit: 1
       )
       |> Repo.one()
@@ -155,9 +153,7 @@ defmodule Beef.Mutations.Users do
 
     db_user =
       from(u in User,
-        where:
-          u.githubId == ^githubId or
-            (not is_nil(u.email) and u.email != "" and u.email == ^user["email"]),
+        where: u.githubId == ^githubId,
         limit: 1
       )
       |> Repo.one()
@@ -206,8 +202,7 @@ defmodule Beef.Mutations.Users do
     db_user =
       from(u in User,
         where:
-          u.discordId == ^discordId or
-            (not is_nil(u.email) and u.email != "" and u.email == ^user["email"]),
+          u.discordId == ^discordId
         limit: 1
       )
       |> Repo.one()
