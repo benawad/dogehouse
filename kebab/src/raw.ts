@@ -5,6 +5,7 @@ import { User, UUID } from "./entities";
 
 const heartbeatInterval = 8000;
 const apiUrl = "wss://api.dogehouse.tv/socket";
+// const apiUrl = "ws://localhost:4001/socket";
 const connectionTimeout = 15000;
 
 export type Token = string;
