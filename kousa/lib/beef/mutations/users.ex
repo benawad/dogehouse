@@ -201,8 +201,7 @@ defmodule Beef.Mutations.Users do
 
     db_user =
       from(u in User,
-        where:
-          u.discordId == ^discordId
+        where: u.discordId == ^discordId,
         limit: 1
       )
       |> Repo.one()
