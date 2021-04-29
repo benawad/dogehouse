@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SolidDeafenedOff, SolidMicrophoneOff } from "../../icons";
+import { SolidDeafenedOff, SolidMicrophoneOff, BotIcon } from "../../icons";
 import SolidVolumeOff from "../../icons/SolidVolumeOff";
 
 export const avatarSizeMap = {
@@ -66,6 +66,7 @@ export interface AvatarProps {
   activeSpeaker?: boolean;
   username?: string;
   hover?: boolean;
+  isBot?: boolean;
 }
 
 export const SingleUser: React.FC<AvatarProps> = ({
@@ -78,6 +79,7 @@ export const SingleUser: React.FC<AvatarProps> = ({
   deafened,
   activeSpeaker,
   username,
+  isBot,
 }) => {
   const [isError, setError] = useState(false);
   const sizeStyle = onlineIndicatorStyleMap[size];
@@ -120,6 +122,21 @@ export const SingleUser: React.FC<AvatarProps> = ({
           style={sizeStyle}
           data-testid="online-indictor"
         ></span>
+      )}
+      {isBot && (
+        <span
+          className={
+            "rounded-full absolute box-content bg-primary-800 border-primary-800 text-secondary items-center justify-center"
+          }
+          style={{ ...sizeStyle, padding: 2, top: -2 }}
+          data-testid="online-indictor"
+        >
+          <BotIcon
+            data-testid={`bot:${username}`}
+            width={sizeStyle.width}
+            height={sizeStyle.width}
+          />
+        </span>
       )}
       {muted && (
         <span

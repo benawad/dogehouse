@@ -6,9 +6,10 @@ import { kFormatter } from "../lib/kFormatter";
 import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 
-type badge = {
+export type badge = {
+  color: "white" | "grey";
   content: React.ReactNode;
-  variant: "primary" | "secondary";
+  variant: "primary" | "secondary" | "primary-700";
 };
 
 export interface UserSummaryCardProps {
@@ -36,9 +37,11 @@ interface WebsiteProps {
 export const Badges: React.FC<BadgesProps> = ({ badges }) => {
   return (
     <div className="flex mt-2">
-      {badges.map(({ content, variant }, i) => (
+      {badges.map(({ content, variant, color }, i) => (
         <span className="mr-1" key={i}>
-          <UserBadge variant={variant}>{content}</UserBadge>
+          <UserBadge variant={variant} color={color}>
+            {content}
+          </UserBadge>
         </span>
       ))}
     </div>
