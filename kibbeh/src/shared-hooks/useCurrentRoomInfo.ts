@@ -5,7 +5,7 @@ import { isServer } from "../lib/isServer";
 import { WebSocketContext } from "../modules/ws/WebSocketProvider";
 import { useTypeSafeQuery } from "./useTypeSafeQuery";
 
-let roomModData: { [id: string]: boolean; };
+let roomModData: { [id: string]: boolean; } = {};
 let ipcRenderer: any = undefined;
 
 export const useCurrentRoomInfo = () => {
