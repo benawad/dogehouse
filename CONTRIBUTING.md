@@ -53,7 +53,6 @@ Navigate to `/kibbeh`
 > **NOTE:** Please follow the [design guidelines](https://github.com/benawad/dogehouse/blob/staging/DESIGN_GUIDELINES.md) and [figma mockups](https://www.figma.com/file/CS01VVLR7ArQl0afYFkNj3/Web-App) and if what you're trying to do isn't in there, consult [@ajmnz](https://github.com/ajmnz)/[@benawad](https://github.com/benawad) beforehand.
 
 ## Translating
-
 1. Set up the front-end (previous step).
 2. Go to `kibbeh/public/locales`.
 3. Check if a folder with the language you want to add / edit already exists. If not, copy `en/translation`, create the folder and paste it there.
@@ -62,7 +61,6 @@ Navigate to `/kibbeh`
 6. Test and make a pull request.
 
 ## Supporting translation in new components
-
 1. Add your translation key into the English `translation.json` located in `kibbeh/public/locales/en/translation.json`. Make sure it is put in an appropriate section that makes sense.
 2. Run `yarn gen:i18:keys`. This will add your key into `translationKeys.ts`.
 3. Use your translation key in your code. This is done by using `useTypeSafeTranslation` like this: `const { t } = useTypeSafeTranslation();`. You can now call `t` and get your desired translation key.
