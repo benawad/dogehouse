@@ -38,6 +38,15 @@ defmodule BrothTest.User.UpdateTest do
         }
       )
 
+      # and we will get a second reply, but that's for the case where
+      # there are multiple ws out for the same user.
+      WsClient.assert_frame(
+        "user:update",
+        %{
+          "username" => "new_username"
+        }
+      )
+
       assert Users.get_by_id(user_id).username == "new_username"
     end
 
@@ -91,6 +100,9 @@ defmodule BrothTest.User.UpdateTest do
       assert user.avatarUrl ==
                "https://pbs.twimg.com/profile_images/1152793238761345024/VRBvxeCM_400x400.jpg"
     end
+
+    @tag :skip
+    test "when you have two websockets connected updating one propagates change to other"
 
     @tag :skip
     test "bad usernames"

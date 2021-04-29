@@ -53,4 +53,8 @@ defmodule Beef.Users do
   defdelegate discord_find_or_create(user, discord_access_token), to: Beef.Mutations.Users
 
   defdelegate update(changeset), to: Beef.Repo
+
+  def get(uuid) do
+    Beef.Repo.get(Beef.Schemas.User, uuid)
+  end
 end
