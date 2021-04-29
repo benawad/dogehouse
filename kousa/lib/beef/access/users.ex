@@ -117,6 +117,7 @@ defmodule Beef.Access.Users do
   # out of the database layer, but we are keeping it here for now
   # to keep the transition smooth.
   def tuple_get_current_room_id(user_id) do
+    # DO NOT COPY/PASTE THIS FUNCTION
     case Onion.UserSession.get_current_room_id(user_id) do
       {:ok, nil} ->
         {nil, nil}
@@ -149,6 +150,7 @@ defmodule Beef.Access.Users do
   end
 
   def get_current_room_id(user_id) do
+    # DO NOT COPY/PASTE THIS FUNCTION
     try do
       Onion.UserSession.get_current_room_id(user_id)
     catch
@@ -161,6 +163,7 @@ defmodule Beef.Access.Users do
   end
 
   def get_ip(user_id) do
+    # DO NOT COPY/PASTE THIS FUNCTION
     try do
       Onion.UserSession.get(user_id, :ip)
     catch
@@ -173,6 +176,7 @@ defmodule Beef.Access.Users do
   end
 
   def bot?(user_id) do
+    # DO NOT COPY/PASTE THIS FUNCTION
     try do
       not is_nil(Onion.UserSession.get(user_id, :bot_owner_id))
     catch
