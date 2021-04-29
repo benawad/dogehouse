@@ -3,7 +3,7 @@ defmodule Broth.Message.User.Update do
 
   use Broth.Message.Call,
     schema: User,
-    reply: __MODULE__
+    reply: User
 
   @impl true
   def initialize(state) do

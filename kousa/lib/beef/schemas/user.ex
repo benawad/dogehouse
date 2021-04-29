@@ -1,5 +1,8 @@
 defmodule Beef.Schemas.User do
   use Ecto.Schema
+
+  # the struct defined here can also be pushed to the user
+  use Broth.Message.Push
   import Ecto.Changeset
   alias Beef.Schemas.Room
 

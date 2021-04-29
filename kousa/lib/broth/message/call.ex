@@ -102,13 +102,37 @@ defmodule Broth.Message.Call do
   @callback changeset(Broth.json()) :: Ecto.Changeset.t()
 
   def __after_compile__(%{module: module}, _bin) do
+    # checks to make sure you've either declared a schema module, or you have
+    # implemented a schema
+
+    case {module.__info__(:attributes)[:schema], function_exported?(module, :__schema__, 2)} do
+      {nil, true} -> :ok
+      {[schema_mod], true} -> raise CompileError, description: "in module #{inspect module} you have both declared the schema module #{inspect schema_mod} and implemented a schema"
+      {nil, false} -> raise CompileError, description: "in module #{inspect module} you have failed to declare a schema module or implement a schema"
+      {[schema_mod], false} ->
+        Code.ensure_loaded?(schema_mod)
+        unless function_exported?(schema_mod, :__schema__, 2) do
+          raise CompileError, description: "in module #{inspect module} you declared the schema #{inspect schema_mod} but it doesn't appear to have a schema"
+        end
+    end
+
     # checks to make sure the declared reply module actually exists.
     reply_module = module.reply_module()
     Code.ensure_loaded?(reply_module)
 
-    unless :outbound in reply_module.__info__(:attributes)[:directions] do
+    directions = :attributes
+    |> reply_module.__info__
+    |> Keyword.get(:directions)
+    |> List.wrap
+
+    unless :outbound in directions do
       raise CompileError,
         description: "reply module #{inspect(reply_module)} does not seem to be a outbound module"
+    end
+
+    unless function_exported?(reply_module, :__schema__, 2) do
+      raise CompileError,
+        description: "in module #{inspect module} you declared the reply module #{inspect reply_module} but it doesn't appear to have a schema"
     end
   end
 end
