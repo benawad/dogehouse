@@ -63,7 +63,7 @@ defmodule Broth.Message.Auth.Request do
     else
       # don't tolerate malformed requests with any response besides closing
       # out websocket.
-      _ -> {:close, 4001, "invalid authentication"}
+      _ -> {:close, 4001, "invalid_authentication"}
     end
   end
 end

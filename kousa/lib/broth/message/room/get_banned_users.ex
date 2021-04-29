@@ -30,7 +30,7 @@ defmodule Broth.Message.Room.GetBannedUsers do
 
   def execute(changeset, state) do
     with {:ok, request} <- apply_action(changeset, :validate) do
-      case RoomBlock.get_blocked_users(state.user_id, request.cursor) do
+      case RoomBlock.get_blocked_users(state.user.id, request.cursor) do
         {users, next_cursor} ->
           {:reply, %Reply{users: users, nextCursor: next_cursor}, state}
 

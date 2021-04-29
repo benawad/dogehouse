@@ -12,7 +12,7 @@ defmodule BrothTest.Message.User.UpdateTest do
     # this "UNIT" test requires the db because the message gets
     # initialized off of information in the database.
     user = Factory.create(User)
-    state = %Broth.SocketHandler{user_id: user.id}
+    state = %Broth.SocketHandler{user: user}
     {:ok, uuid: UUID.uuid4(), state: state}
   end
 

@@ -246,7 +246,7 @@ defmodule Broth.SocketHandler do
     %{message: inspect(other)}
   end
 
-  defp dispatch_mediasoup_message(msg, %{user_id: user_id}) do
+  defp dispatch_mediasoup_message(msg, %{user: %{id: user_id}}) do
     with {:ok, room_id} <- Beef.Users.tuple_get_current_room_id(user_id),
          [{_, _}] <- Onion.RoomSession.lookup(room_id) do
       voice_server_id = Onion.RoomSession.get(room_id, :voice_server_id)

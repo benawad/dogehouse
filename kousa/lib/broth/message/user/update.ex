@@ -27,7 +27,7 @@ defmodule Broth.Message.User.Update do
   end
 
   def initialize(state) do
-    Repo.get(__MODULE__, state.user_id)
+    Repo.get(__MODULE__, state.user.id)
   end
 
   def changeset(initializer \\ %__MODULE__{}, data) do
@@ -39,7 +39,7 @@ defmodule Broth.Message.User.Update do
   def execute(changeset, state) do
     # TODO: make this a proper changeset-mediated alteration.
     with {:ok, update} <- apply_action(changeset, :validate),
-         {:ok, user} <- Kousa.User.update(state.user_id, Map.from_struct(update)) do
+         {:ok, user} <- Kousa.User.update(state.user.id, Map.from_struct(update)) do
       case user do
         %{isUsernameTaken: _} ->
           {:reply, %{isUsernameTaken: true}, state}
