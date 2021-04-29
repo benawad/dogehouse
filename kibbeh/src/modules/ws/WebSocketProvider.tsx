@@ -84,12 +84,12 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
         })
         .then((x) => {
           setConn(x);
-          if (x.initialCurrentRoomId) {
+          if (x.user.currentRoomId) {
             useCurrentRoomIdStore
               .getState()
               // if an id exists already, that means they are trying to join another room
               // just let them join the other room rather than overwriting it
-              .setCurrentRoomId((id) => id || x.initialCurrentRoomId!);
+              .setCurrentRoomId((id) => id || x.user.currentRoomId!);
           }
         })
         .catch((err) => {
