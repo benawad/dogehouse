@@ -61,11 +61,5 @@ defmodule BrothTest.EditProfileTest do
         %{"isUsernameTaken" => true}
       )
     end
-
-    @tag :skip
-    test "bad usernames"
-
-    @tag :skip
-    test "other fields"
   end
 end
