@@ -111,7 +111,8 @@
       "copyProfileUrl": "Αντιγραφή συνδέσμου προφίλ",
       "urlCopied": "Ο συνδεσμος αντιγράφθηκε στο πρόχειρο",
       "unfollow": "Ξε-ακολουθήστε",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Ρυθμίσεις Φωνής",

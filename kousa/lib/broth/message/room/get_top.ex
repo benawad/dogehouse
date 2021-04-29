@@ -30,7 +30,7 @@ defmodule Broth.Message.Room.GetTop do
 
   def execute(changeset, state) do
     with {:ok, request} <- apply_action(changeset, :validate),
-         {rooms, nextCursor} <- Rooms.get_top_public_rooms(state.user_id, request.cursor) do
+         {rooms, nextCursor} <- Rooms.get_top_public_rooms(state.user.id, request.cursor) do
       {:reply, %Reply{rooms: rooms, nextCursor: nextCursor, initial: request.cursor == 0}, state}
     end
   end

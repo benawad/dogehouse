@@ -98,7 +98,8 @@
       "copyProfileUrl": "Kopiera profillänk",
       "urlCopied": "Länken har kopierats",
       "unfollow": "Sluta följa",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Röstinställningar",

@@ -99,7 +99,8 @@
       "copyProfileUrl": "Profil URL kopiere",
       "urlCopied": "URL id Zwüscheablag kopiert",
       "unfollow": "Entfolge",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Sprachistellige",

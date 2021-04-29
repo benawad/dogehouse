@@ -99,7 +99,8 @@
       "copyProfileUrl": "Profil keçidini kopyalayın",
       "urlCopied": "Keçid kopyalandı",
       "unfollow": "İzləməni dayandır",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Səs parametrləri",

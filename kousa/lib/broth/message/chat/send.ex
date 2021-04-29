@@ -21,7 +21,7 @@ defmodule Broth.Message.Chat.Send do
   def initialize(state) do
     %__MODULE__{
       id: UUID.uuid4(),
-      from: state.user_id,
+      from: state.user.id,
       sentAt: DateTime.utc_now()
     }
   end

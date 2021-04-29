@@ -98,7 +98,8 @@
       "copyProfileUrl": "Salin url profil",
       "urlCopied": "URL disalin ke papan klip",
       "unfollow": "Berhenti mengikuti",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Pengaturan Suara",

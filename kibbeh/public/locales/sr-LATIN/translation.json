@@ -99,7 +99,8 @@
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
       "unfollow": "Unfollow",
-      "about": "Opis"
+      "about": "Opis",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Podešavanja glasa",

@@ -5,6 +5,7 @@ import { User, UUID } from "./entities";
 
 const heartbeatInterval = 8000;
 const apiUrl = "wss://api.dogehouse.tv/socket";
+// const apiUrl = "ws://localhost:4001/socket";
 const connectionTimeout = 15000;
 
 export type Token = string;
@@ -59,9 +60,9 @@ export const connect = (
   token: Token,
   refreshToken: Token,
   {
-    logger = () => {},
-    onConnectionTaken = () => {},
-    onClearTokens = () => {},
+    logger = () => { },
+    onConnectionTaken = () => { },
+    onClearTokens = () => { },
     url = apiUrl,
     fetchTimeout,
     getAuthOptions,
@@ -94,9 +95,8 @@ export const connect = (
       if (socket.readyState !== socket.OPEN) {
         return;
       }
-      const raw = `{"v":"0.2.0", "op":"${opcode}","p":${JSON.stringify(data)}${
-        ref ? `,"ref":"${ref}"` : ""
-      }}`;
+      const raw = `{"v":"0.2.0", "op":"${opcode}","p":${JSON.stringify(data)}${ref ? `,"ref":"${ref}"` : ""
+        }}`;
 
       socket.send(raw);
       logger("out", opcode, data, ref, raw);
@@ -109,9 +109,8 @@ export const connect = (
       if (socket.readyState !== socket.OPEN) {
         return;
       }
-      const raw = `{"op":"${opcode}","d":${JSON.stringify(data)}${
-        fetchId ? `,"fetchId":"${fetchId}"` : ""
-      }}`;
+      const raw = `{"op":"${opcode}","d":${JSON.stringify(data)}${fetchId ? `,"fetchId":"${fetchId}"` : ""
+        }}`;
 
       socket.send(raw);
       logger("out", opcode, data, fetchId, raw);
