@@ -9,6 +9,7 @@ defmodule Beef.Repo.Migrations.MostTables do
       add :githubId, :text, null: false
       add :username, :text, null: false
       add :bio, :text, default: ""
+      add :isBot, :boolean, default: false
       add :avatarUrl, :text, null: false
       add :tokenVersion, :integer, default: 1
       add :numFollowing, :integer, default: 0
@@ -26,6 +27,7 @@ defmodule Beef.Repo.Migrations.MostTables do
       add :id, :uuid, primary_key: true, default: fragment("uuid_generate_v4()")
       add :name, :string, null: false
       add :numPeopleInside, :integer, default: 0
+      add :numBotsInside, :integer, default: 0
 
       add :creatorId, references(:users, on_delete: :delete_all, type: :uuid), null: false
 
