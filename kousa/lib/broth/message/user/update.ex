@@ -20,15 +20,20 @@ defmodule Broth.Message.User.Update do
   @impl true
   def execute(changeset, state) do
     # TODO: make this a proper changeset-mediated alteration.
-    with {:ok, update} <- apply_action(changeset, :validate),
-         {:ok, user} <- Kousa.User.update(state.user.id, Map.from_struct(update)) do
-      case user do
-        %{isUsernameTaken: _} ->
-          {:reply, %{isUsernameTaken: true}, state}
-
-        _ ->
-          {:reply, struct(User, Map.from_struct(user)), state}
-      end
+    case Kousa.User.update_with(changeset, state) do
+      {:ok, user} -> {:reply, user, state}
     end
+
+
+    #with {:ok, update} <- apply_action(changeset, :validate),
+    #     {:ok, user} <- Kousa.User.update(state.user.id, Map.from_struct(update)) do
+    #  case user do
+    #    %{isUsernameTaken: _} ->
+    #      {:reply, %{isUsernameTaken: true}, state}
+#
+    #    _ ->
+    #      {:reply, struct(User, Map.from_struct(user)), state}
+    #  end
+    #end
   end
 end

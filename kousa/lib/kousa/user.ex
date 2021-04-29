@@ -6,9 +6,11 @@ defmodule Kousa.User do
     Users.delete(user_id)
   end
 
-  def update(user_id, data) do
-    case Users.edit_profile(user_id, data) do
+  def update_with(changeset = %Ecto.Changeset{}) do
+    case Beef.Users.update(changeset) do
       {:ok, user} ->
+        # TODO: clean this up by making Onion.UserSession adopt the User schema too.
+
         Onion.UserSession.set_state(
           user_id,
           %{
@@ -19,13 +21,11 @@ defmodule Kousa.User do
           }
         )
 
+        PubSub.broadcast("user:update:" <> user.id, user)
         {:ok, user}
-
-      {:error, %Ecto.Changeset{errors: [username: {"has already been taken", _}]}} ->
-        {:ok, %{isUsernameTaken: true}}
-
-      error ->
-        error
+      {:error, %Ecto.Changeset{errors: [username: {"has already been taken, _"}]}} ->
+        {:error, "that user name is taken"}
+      error -> error
     end
   end
 
