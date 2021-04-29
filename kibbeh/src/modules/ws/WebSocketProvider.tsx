@@ -48,7 +48,7 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
 
             const reconnectToVoice = !recvTransport
               ? true
-              : recvTransport.connectionState !== "connected" &&
+              : recvTransport.connectionState !== "connected" ||
                 sendTransport?.connectionState !== "connected";
 
             console.log({
