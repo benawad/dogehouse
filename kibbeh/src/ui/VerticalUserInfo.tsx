@@ -44,7 +44,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
             {/* <Badges badges={badges} /> */}
           </div>
         </ApiPreloadLink>
-        <span className="mt-2">
+        <span className="mt-2 flex justify-center">
           {user.botOwnerId ? (
             <UserBadge color="white" variant="primary">
               {t("pages.viewUser.bot")}
@@ -53,6 +53,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
             ""
           )}
         </span>
+
         <div className="flex mt-2">
           <div className="flex">
             <ApiPreloadLink
