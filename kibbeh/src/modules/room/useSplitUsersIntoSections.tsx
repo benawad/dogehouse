@@ -65,7 +65,7 @@ export const useSplitUsersIntoSections = ({
         key={u.id}
         src={u.avatarUrl}
         username={u.username}
-        isBot={!u.botOwnerId ? true : false}
+        isBot={u.botOwnerId ? true : false}
         activeSpeaker={
           canSpeak && !isMuted && !isDeafened && u.id in activeSpeakerMap
         }

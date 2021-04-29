@@ -45,7 +45,7 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
           </div>
         </ApiPreloadLink>
         <span className="mt-2">
-          {!user.botOwnerId ? (
+          {user.botOwnerId ? (
             <UserBadge color="white" variant="primary">
               {t("pages.viewUser.bot")}
             </UserBadge>
