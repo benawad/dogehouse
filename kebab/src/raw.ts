@@ -38,7 +38,6 @@ export type Connection = {
     handler: ListenerHandler<Data>
   ) => () => void;
   user: User;
-  initialCurrentRoomId?: string;
   send: (opcode: Opcode, data: unknown, fetchId?: FetchID) => void;
   sendCast: (opcode: Opcode, data: unknown, fetchId?: FetchID) => void;
   fetch: (
@@ -171,7 +170,6 @@ export const connect = (
             return () => listeners.splice(listeners.indexOf(listener), 1);
           },
           user: message.d.user,
-          initialCurrentRoomId: message.d.currentRoom?.id,
           send: apiSend,
           sendCast: api2Send,
           sendCall: (
