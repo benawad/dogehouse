@@ -1,6 +1,5 @@
 import isElectron from "is-electron";
 import { useContext } from "react";
-import { string } from "superstruct";
 import { useCurrentRoomIdStore } from "../global-stores/useCurrentRoomIdStore";
 import { isServer } from "../lib/isServer";
 import { WebSocketContext } from "../modules/ws/WebSocketProvider";
