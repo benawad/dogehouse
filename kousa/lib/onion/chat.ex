@@ -204,7 +204,7 @@ defmodule Onion.Chat do
   #   the messages are well-ordered for everyone.
   # - eventually when the chat message logs are taken, we'll be able to
   #   add soft-deletion of messages into the message logs.
-  @spec delete_message(UUID.t, Delete.t) :: :ok
+  @spec delete_message(UUID.t(), Delete.t()) :: :ok
   def delete_message(room_id, deletion = %Delete{}) do
     cast(room_id, {:delete_message, deletion})
   end

@@ -101,7 +101,8 @@
       "copyProfileUrl": "kopiraj url profila",
       "urlCopied": "URL kopiran u međuspremnik",
       "unfollow": "Prestani pratiti",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Postavke glasa",

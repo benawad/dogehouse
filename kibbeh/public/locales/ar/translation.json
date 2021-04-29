@@ -99,7 +99,8 @@
       "copyProfileUrl": "انسخ رابط البروفايل",
       "urlCopied": "تم نسخ الرابط",
       "unfollow": "الغاء المتابعة",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "إعدادات المحادثة الصوتية",

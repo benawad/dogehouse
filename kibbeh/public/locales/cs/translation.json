@@ -99,7 +99,8 @@
       "copyProfileUrl": "Zkopírovat URL profilu",
       "urlCopied": "URL zkopírováno do schránky",
       "unfollow": "Nesledovat",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Nastavení hlasu",

@@ -25,7 +25,7 @@ defmodule Broth.Message.User.Ban do
 
   def execute(changeset, state) do
     with {:ok, request} <- apply_action(changeset, :validate),
-         :ok <- Kousa.User.ban(request.userId, request.reason, admin_id: state.user_id) do
+         :ok <- Kousa.User.ban(request.userId, request.reason, admin_id: state.user.id) do
       {:reply, %Reply{}, state}
     end
   end
