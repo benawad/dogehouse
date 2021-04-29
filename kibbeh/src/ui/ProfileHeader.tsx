@@ -81,19 +81,26 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
             className="text-primary-300 mr-2"
             data-testid="profile-info-username"
           >{`@${username}`}</p>
-          {user.botOwnerId ? (
-            <UserBadge color="grey">{t("pages.viewUser.bot")}</UserBadge>
-          ) : (
-            ""
-          )}
-          {user.followsYou ? (
-            <UserBadge color="grey">{t("pages.viewUser.followsYou")}</UserBadge>
+          {!user.followsYou ? (
+            <UserBadge color="grey" variant="primary-700">
+              {t("pages.viewUser.followsYou")}
+            </UserBadge>
           ) : (
             ""
           )}
         </div>
-        <div className="mt-2">{children}</div>
+        <div className="mt-2">
+          {user.botOwnerId ? (
+            <UserBadge color="white" variant="primary">
+              {t("pages.viewUser.bot")}
+            </UserBadge>
+          ) : (
+            ""
+          )}
+          {children}
+        </div>
       </div>
+
       <div className="w-3/6 ">
         <div className="flex flex-row justify-end content-end gap-2">
           {!isCurrentUser && (
