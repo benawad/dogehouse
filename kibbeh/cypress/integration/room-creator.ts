@@ -53,8 +53,7 @@ describe("create room then", () => {
   });
   it("floating room widget deafen/mute sequence", () => {
     cy.viewport("iphone-x");
-    // eslint-disable-next-line cypress/no-unnecessary-waiting
-    cy.wait(1);
+    cy.dataTestId("floating-room-container").should("exist");
     cy.testDeafenSequence();
     cy.dataTestId(`room-card:${defaultRoomName}`).click();
   });

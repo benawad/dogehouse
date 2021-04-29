@@ -7,4 +7,4 @@ export type AuthResponse = {
 };
 
 export const auth = async (apiKey: string) =>
-  await request("POST", "/bot/auth", { apiKey }) as AuthResponse;
+  (await request("POST", "/bot/auth", { apiKey })) as AuthResponse;

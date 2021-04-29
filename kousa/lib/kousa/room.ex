@@ -453,56 +453,39 @@ defmodule Kousa.Room do
           %{error: message}
 
         {:ok, room} ->
-          private_check =
-            if room.isPrivate do
-              case Onion.RoomSession.redeem_invite(room.id, user_id) do
-                :error ->
-                  {:error, "the room is private, ask someone inside to invite you"}
+          # private rooms can now be joined by anyone who has the link
+          # they are functioning closer to an "unlisted" room
+          if currentRoomId do
+            leave_room(user_id, currentRoomId)
+          end
 
-                :ok ->
-                  :ok
-              end
-            else
-              :ok
+          # subscribe to the new room chat
+          PubSub.subscribe("chat:" <> room_id)
+
+          updated_user = Rooms.join_room(room, user_id)
+
+          {muted, deafened} =
+            case Onion.UserSession.lookup(user_id) do
+              [{_, _}] ->
+                {
+                  Onion.UserSession.get(user_id, :muted),
+                  Onion.UserSession.get(user_id, :deafened)
+                }
+
+              _ ->
+                {false, false}
             end
 
-          case private_check do
-            {:error, m} ->
-              %{error: m}
+          Onion.RoomSession.join_room(room_id, user_id, muted, deafened)
 
-            :ok ->
-              if currentRoomId do
-                leave_room(user_id, currentRoomId)
-              end
+          canSpeak =
+            case updated_user do
+              %{roomPermissions: %{isSpeaker: true}} -> true
+              _ -> false
+            end
 
-              # subscribe to the new room chat
-              PubSub.subscribe("chat:" <> room_id)
-
-              updated_user = Rooms.join_room(room, user_id)
-
-              {muted, deafened} =
-                case Onion.UserSession.lookup(user_id) do
-                  [{_, _}] ->
-                    {
-                      Onion.UserSession.get(user_id, :muted),
-                      Onion.UserSession.get(user_id, :deafened)
-                    }
-
-                  _ ->
-                    {false, false}
-                end
-
-              Onion.RoomSession.join_room(room_id, user_id, muted, deafened)
-
-              canSpeak =
-                case updated_user do
-                  %{roomPermissions: %{isSpeaker: true}} -> true
-                  _ -> false
-                end
-
-              join_vc_room(user_id, room, canSpeak || room.isPrivate)
-              %{room: room}
-          end
+          join_vc_room(user_id, room, canSpeak || room.isPrivate)
+          %{room: room}
       end
     end
   catch
