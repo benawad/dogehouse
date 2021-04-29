@@ -50,6 +50,14 @@ defmodule Broth.Message.Room.Update do
         )
       end
 
+      if Map.has_key?(changes, :autoSpeaker) do
+        # send the room_privacy_change message.
+        Onion.RoomSession.set_auto_speaker(
+          room.id,
+          changes.autoSpeaker
+        )
+      end
+
       {:reply, struct(__MODULE__, Map.from_struct(room)), state}
     end
   end
