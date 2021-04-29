@@ -13,6 +13,7 @@ defmodule BrothTest.Message.Room.SetRoleTest do
   describe "when you send an set role message to speaker" do
     test "it validates", %{state: state} do
       user_id = state.user.id
+
       assert {:ok,
               %{
                 payload: %SetRole{userId: ^user_id, role: :speaker}
@@ -61,6 +62,7 @@ defmodule BrothTest.Message.Room.SetRoleTest do
 
     test "if you don't supply the userId, it's treated as self", %{state: state} do
       user_id = state.user.id
+
       assert {:ok, %{payload: %SetRole{userId: ^user_id}}} =
                BrothTest.Support.Message.validate(
                  %{
@@ -75,6 +77,7 @@ defmodule BrothTest.Message.Room.SetRoleTest do
   describe "when you send an set role message to" do
     test "raised hand it validates", %{state: state} do
       user_id = state.user.id
+
       assert {:ok,
               %{
                 payload: %SetRole{userId: ^user_id, role: :raised_hand}
@@ -89,7 +92,8 @@ defmodule BrothTest.Message.Room.SetRoleTest do
     end
 
     test "listener it validates", %{state: state} do
-            user_id = state.user.id
+      user_id = state.user.id
+
       assert {:ok,
               %{
                 payload: %SetRole{userId: ^user_id, role: :listener}

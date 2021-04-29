@@ -94,14 +94,30 @@ defmodule Broth.Message.Cast do
     Code.ensure_compiled(module)
 
     attributes = module.__info__(:attributes)
+
     case {attributes[:schema], function_exported?(module, :__schema__, 2)} do
-      {[^module], true} -> :ok
-      {[schema_mod], true} -> raise CompileError, description: "in module #{inspect module} you have both declared the schema module #{inspect schema_mod} and implemented a schema"
-      {[^module], false} -> raise CompileError, description: "in module #{inspect module} you have failed to declare a schema module or implement a schema"
+      {[^module], true} ->
+        :ok
+
+      {[schema_mod], true} ->
+        raise CompileError,
+          description:
+            "in module #{inspect(module)} you have both declared the schema module #{
+              inspect(schema_mod)
+            } and implemented a schema"
+
+      {[^module], false} ->
+        raise CompileError,
+          description:
+            "in module #{inspect(module)} you have failed to declare a schema module or implement a schema"
+
       {[schema_mod], false} ->
         Code.ensure_compiled(schema_mod)
+
         unless function_exported?(schema_mod, :__schema__, 2) do
-          raise CompileError, description: "in module #{inspect module} you declared the schema #{inspect schema_mod} but it doesn't appear to have a schema"
+          raise CompileError,
+            description:
+              "in module #{inspect(module)} you declared the schema #{inspect(schema_mod)} but it doesn't appear to have a schema"
         end
     end
 

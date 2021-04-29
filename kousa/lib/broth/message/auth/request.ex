@@ -58,7 +58,6 @@ defmodule Broth.Message.Auth.Request do
   def execute(changeset, state) do
     with {:ok, request} <- apply_action(changeset, :validate),
          {:ok, user} <- Kousa.Auth.authenticate(request, state.ip) do
-
       {:reply, user, %{state | user: user}}
     else
       # don't tolerate malformed requests with any response besides closing

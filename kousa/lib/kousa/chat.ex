@@ -1,5 +1,4 @@
 defmodule Kousa.Chat do
-
   alias Beef.Rooms
   alias Broth.Message.Chat.Delete
   alias Kousa.Utils.UUID
@@ -49,8 +48,8 @@ defmodule Kousa.Chat do
     end
   end
 
-  @type delete_opts :: [by: UUID.t]
-  @spec delete_msg(Delete.t, delete_opts) :: :ok
+  @type delete_opts :: [by: UUID.t()]
+  @spec delete_msg(Delete.t(), delete_opts) :: :ok
   # Delete room chat messages
   def delete_msg(deletion, opts) do
     user_id = opts[:by]

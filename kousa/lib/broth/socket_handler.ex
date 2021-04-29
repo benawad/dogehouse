@@ -10,13 +10,13 @@ defmodule Broth.SocketHandler do
             callers: []
 
   @type state :: %__MODULE__{
-    user: nil | Beef.Schemas.User.t(),
-    ip: String.t(),
-    encoding: :etf | :json,
-    compression: nil | :zlib,
-    version: Version.t(),
-    callers: [pid]
-  }
+          user: nil | Beef.Schemas.User.t(),
+          ip: String.t(),
+          encoding: :etf | :json,
+          compression: nil | :zlib,
+          version: Version.t(),
+          callers: [pid]
+        }
 
   @behaviour :cowboy_websocket
 
@@ -136,11 +136,13 @@ defmodule Broth.SocketHandler do
          {:ok, message = %{errors: nil}} <- validate(message_map!, state),
          :ok <- auth_check(message, state) do
       # make the state adopt the version of the inbound message.
-      new_state = if message.operator == Broth.Message.Auth.Request do
-        adopt_version(state, message)
-      else
-        state
-      end
+      new_state =
+        if message.operator == Broth.Message.Auth.Request do
+          adopt_version(state, message)
+        else
+          state
+        end
+
       dispatch(message, new_state)
     else
       # special cases: mediasoup operations
