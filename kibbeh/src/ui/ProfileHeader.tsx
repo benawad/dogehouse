@@ -1,4 +1,4 @@
-import React, { ReactChild, useEffect, useState } from "react";
+import React, { ReactChild, useState } from "react";
 import { ProfileHeaderWrapper } from "./ProfileHeaderWrapper";
 import { Button } from "./Button";
 import { UserBadge } from "./UserBadge";
@@ -46,9 +46,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
   const preloadPush = usePreloadPush();
   const update = useTypeSafeUpdateQuery();
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
+
   return (
     // @TODO: Add the cover api (once it's implemented)}
     <ProfileHeaderWrapper
