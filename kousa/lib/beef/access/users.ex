@@ -7,6 +7,13 @@ defmodule Beef.Access.Users do
   alias Beef.Schemas.Room
   alias Beef.Rooms
 
+  def get(user_id) do
+    Repo.get(User, user_id)
+  end
+  def get(user_id, opts) do
+    # opts could be a preload.
+  end
+
   def find_by_github_ids(ids) do
     Query.start()
     |> Query.filter_by_github_ids(ids)
