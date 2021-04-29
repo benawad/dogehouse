@@ -81,7 +81,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
             className="text-primary-300 mr-2"
             data-testid="profile-info-username"
           >{`@${username}`}</p>
-          {!user.followsYou ? (
+          {user.followsYou ? (
             <UserBadge color="grey" variant="primary-700">
               {t("pages.viewUser.followsYou")}
             </UserBadge>
