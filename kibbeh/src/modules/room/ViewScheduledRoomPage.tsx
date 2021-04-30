@@ -1,14 +1,15 @@
 import { ScheduledRoom } from "@dogehouse/kebab";
-import { useRouter } from "next/router";
+import router, { useRouter } from "next/router";
 import { validate } from "uuid";
 import React, { useState } from "react";
 import { useQuery, useQueryClient } from "react-query";
 import { InfoText } from "../../ui/InfoText";
-import { DesktopLayout } from "../layouts/DesktopLayout";
+import { MainLayout } from "../layouts/MainLayout";
 import { MiddlePanel } from "../layouts/GridPanels";
 import { EditScheduleRoomModalController } from "../scheduled-rooms/EditScheduleRoomModalController";
 import { ScheduledRoomCard } from "../scheduled-rooms/ScheduledRoomCard";
 import { HeaderController } from "../display/HeaderController";
+import { PageHeader } from "../../ui/mobile/MobileHeader";
 
 interface ViewScheduledRoomPageProps {}
 
@@ -30,14 +31,14 @@ export const ViewScheduledRoomPage: React.FC<ViewScheduledRoomPageProps> = ({}) 
 
   if ("error" in data || !data.room) {
     return (
-      <DesktopLayout>
+      <MainLayout>
         <InfoText>could not find room</InfoText>
-      </DesktopLayout>
+      </MainLayout>
     );
   }
 
   return (
-    <DesktopLayout>
+    <MainLayout mobileHeader={<PageHeader title="Scheduled Room" onBackClick={() => router.push('/dash')}/>}>
       <HeaderController title={data.room.name} embed={{}} />
       <MiddlePanel>
         {deleted ? (
@@ -68,6 +69,6 @@ export const ViewScheduledRoomPage: React.FC<ViewScheduledRoomPageProps> = ({}) 
           </EditScheduleRoomModalController>
         )}
       </MiddlePanel>
-    </DesktopLayout>
+    </MainLayout>
   );
 };
