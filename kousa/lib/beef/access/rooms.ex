@@ -35,7 +35,6 @@ defmodule Beef.Access.Rooms do
 
   def can_join_room(room_id, user_id) do
     room = get_room_by_id(room_id)
-    room_id
     max_room_size = Application.fetch_env!(:kousa, :max_room_size)
 
     case room do
