@@ -58,11 +58,11 @@ defmodule Beef.Schemas.User do
 
   @derive {Poison.Encoder, only: ~w(id username avatarUrl bannerUrl bio online
              lastOnline currentRoomId displayName numFollowing numFollowers
-             currentRoom youAreFollowing followsYou botOwnerId roomPermissions)a}
+             currentRoom youAreFollowing followsYou botOwnerId roomPermissions iBlockedThem)a}
 
   @derive {Jason.Encoder, only: ~w(id username avatarUrl bannerUrl bio online
     lastOnline currentRoomId displayName numFollowing numFollowers
-    youAreFollowing followsYou botOwnerId roomPermissions)a}
+    youAreFollowing followsYou botOwnerId roomPermissions iBlockedThem)a}
 
   @primary_key {:id, :binary_id, []}
   schema "users" do
