@@ -98,7 +98,8 @@
       "copyProfileUrl": "kopieer link naar profiel",
       "urlCopied": "Link gekopieerd naar klembord",
       "unfollow": "Ontvolgen",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Spraakinstellingen",

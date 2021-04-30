@@ -10,7 +10,7 @@ defmodule Onion.PubSub do
 
   alias Phoenix.PubSub
 
-  @valid_classes ~w(chat)
+  @valid_classes ~w(chat user)
 
   def subscribe(topic = <<class::binary-size(4), ?:>> <> _) when class in @valid_classes do
     PubSub.subscribe(__MODULE__, topic)
@@ -18,7 +18,7 @@ defmodule Onion.PubSub do
 
   def broadcast(
         topic = <<class::binary-size(4), ?:>> <> _,
-        message = %Broth.Message{}
+        message = %_{}
       )
       when class in @valid_classes do
     # do other validation here in test and dev, in the future.

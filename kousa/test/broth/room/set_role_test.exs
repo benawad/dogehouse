@@ -107,6 +107,40 @@ defmodule BrothTest.Room.SetRoleTest do
       assert Beef.RoomPermissions.speaker?(speaker_id, room_id)
     end
 
+    test "ask to speak makes you a speaker when auto speaker is on", t do
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo", "autoSpeaker" => true}
+        )
+
+      # create a user that is logged in.
+      speaker = %{id: speaker_id} = Factory.create(User)
+      speaker_ws = WsClientFactory.create_client_for(speaker)
+
+      # join the speaker user into the room
+      WsClient.do_call(speaker_ws, "room:join", %{"roomId" => room_id})
+
+      refute Beef.RoomPermissions.speaker?(speaker_id, room_id)
+      Kousa.Room.set_role(speaker_id, :raised_hand, by: t.user.id)
+
+      # both clients get notified
+      WsClient.assert_frame_legacy(
+        "speaker_added",
+        %{"userId" => ^speaker_id, "roomId" => ^room_id},
+        t.client_ws
+      )
+
+      WsClient.assert_frame_legacy(
+        "speaker_added",
+        %{"userId" => ^speaker_id, "roomId" => ^room_id},
+        speaker_ws
+      )
+
+      assert Beef.RoomPermissions.speaker?(speaker_id, room_id)
+    end
+
     test "can only make them a speaker if they asked to speak", t do
       # first, create a room owned by the primary user.
       {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)

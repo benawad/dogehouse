@@ -36,9 +36,9 @@ defmodule Broth.Message.User.GetFollowers do
            apply_action(changeset, :validate) do
       {users, next_cursor} =
         if is_nil(username) do
-          Kousa.Follow.get_follow_list(state.user_id, state.user_id, false, cursor)
+          Kousa.Follow.get_follow_list(state.user.id, state.user.id, false, cursor)
         else
-          Kousa.Follow.get_follow_list_by_username(state.user_id, username, false, cursor)
+          Kousa.Follow.get_follow_list_by_username(state.user.id, username, false, cursor)
         end
 
       {:reply, %Reply{followers: users, nextCursor: next_cursor, initial: cursor == 0}, state}

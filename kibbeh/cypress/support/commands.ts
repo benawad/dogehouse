@@ -64,7 +64,6 @@ Cypress.Commands.add("testDeafenSequence", () => {
   cy.dataTestId("mute").click();
   cy.dataTestId(`mic-on`);
   cy.dataTestId(`headphone-on`);
-  return;
 });
 
 Cypress.Commands.add("loginTestUser", (value = defaultTestUsername) => {

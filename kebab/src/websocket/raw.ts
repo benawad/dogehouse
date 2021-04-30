@@ -5,6 +5,7 @@ import { User, UUID } from "..";
 
 const heartbeatInterval = 8000;
 const apiUrl = "wss://api.dogehouse.tv/socket";
+// const apiUrl = "ws://localhost:4001/socket";
 const connectionTimeout = 15000;
 
 export type Token = string;
@@ -37,7 +38,6 @@ export type Connection = {
     handler: ListenerHandler<Data>
   ) => () => void;
   user: User;
-  initialCurrentRoomId?: string;
   send: (opcode: Opcode, data: unknown, ref?: Ref) => void;
   sendCall: (
     opcode: Opcode,
@@ -59,12 +59,14 @@ export const connect = (
     url = apiUrl,
     fetchTimeout,
     getAuthOptions,
+    waitToReconnect,
   }: {
     logger?: Logger;
     onConnectionTaken?: () => void;
     onClearTokens?: () => void;
     url?: string;
     fetchTimeout?: number;
+    waitToReconnect?: boolean;
     getAuthOptions?: () => Partial<{
       reconnectToVoice: boolean;
       currentRoomId: string | null;
@@ -111,7 +113,7 @@ export const connect = (
         onConnectionTaken();
       }
 
-      reject(error);
+      if (!waitToReconnect) reject(error);
     });
 
     socket.addEventListener("message", (e) => {
@@ -146,7 +148,6 @@ export const connect = (
             return () => listeners.splice(listeners.indexOf(listener), 1);
           },
           user: message.d.user,
-          initialCurrentRoomId: message.d.currentRoom?.id,
           send: apiSend,
           sendCall: (
             opcode: Opcode,

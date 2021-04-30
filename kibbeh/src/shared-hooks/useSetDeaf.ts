@@ -6,7 +6,8 @@ import { useWrappedConn } from "./useConn";
 export const setDeaf = (conn: Wrapper, value: boolean) => {
   const { muted, setInternalMute } = useMuteStore.getState();
   if (muted) {
-    setInternalMute(false);
+    setInternalMute(false, false);
+    conn.mutation.setMute(false);
   }
   useDeafStore.getState().setInternalDeaf(value);
   conn.mutation.setDeaf(value);

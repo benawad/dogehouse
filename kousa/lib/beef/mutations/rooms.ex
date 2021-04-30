@@ -191,7 +191,12 @@ defmodule Beef.Mutations.Rooms do
     user = Beef.Users.get_by_id(data.creatorId)
 
     peoplePreviewList = [
-      %{id: user.id, displayName: user.displayName, numFollowers: user.numFollowers, avatarUrl: user.avatarUrl}
+      %{
+        id: user.id,
+        displayName: user.displayName,
+        numFollowers: user.numFollowers,
+        avatarUrl: user.avatarUrl
+      }
     ]
 
     resp = raw_insert(data, peoplePreviewList)

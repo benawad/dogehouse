@@ -20,7 +20,12 @@ export const useErrorToastStore = create(
       hideToast: (id: string) =>
         set((x) => ({ toasts: x.toasts.filter((y) => y.id !== id) })),
       showToast: (t: Omit<Toast, "id">) =>
-        set((x) => ({ toasts: [...x.toasts, { ...t, id: v4() }] })),
+        set((x) => {
+          const currentRemovedToasts: Toast[] = x.toasts.filter((y) => y.message !== t.message);
+          return {
+            toasts: [...currentRemovedToasts, { ...t, id: v4() }]
+          };
+        }),
     })
   )
 );

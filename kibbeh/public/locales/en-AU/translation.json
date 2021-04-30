@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "ǝɹoɯ pɐoꞁ",
     "loading": "˙˙˙ƃuᴉpɐoꞁ",
@@ -99,7 +99,8 @@
       "copyProfileUrl": "ꞁɹn ǝꞁᴉɟoɹd ʎdoɔ",
       "urlCopied": "pɹɐoqdᴉꞁɔ oʇ pǝᴉdoɔ Ꞁᴚ∩",
       "unfollow": "Unfollow",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "sƃuᴉʇʇǝS ǝɔᴉoɅ",

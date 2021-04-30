@@ -3,5 +3,7 @@
   "defaultCommandTimeout": 20000,
   "env": {
     "apiBaseUrl": "http://localhost:4001"
-  }
+  },
+  "video": false,
+  "screenshotOnRunFailure": false
 }

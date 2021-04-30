@@ -40,7 +40,7 @@ defmodule Broth.Message.Manifest do
     "chat:ban" => Chat.Ban,
     "chat:unban" => Chat.Unban,
     "chat:send_msg" => Chat.Send,
-    "chat:delete_msg" => Chat.DeleteMsg,
+    "chat:delete" => Chat.Delete,
     "auth:request" => Auth.Request,
     "misc:search" => Misc.Search
   }

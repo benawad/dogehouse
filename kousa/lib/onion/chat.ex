@@ -2,6 +2,7 @@ defmodule Onion.Chat do
   use GenServer, restart: :temporary
 
   alias Onion.PubSub
+  alias Broth.Message.Chat.Delete
   alias Broth.Message.Chat.Send
   alias Kousa.Utils.UUID
 
@@ -108,22 +109,6 @@ defmodule Onion.Chat do
     end
   end
 
-  def message_deleted(room_id, user_id, message_id) do
-    cast(room_id, {:message_deleted, user_id, message_id})
-  end
-
-  defp message_deleted_impl(user_id, message_id, state) do
-    ws_fan(state.users, %{
-      op: "message_deleted",
-      d: %{
-        messageId: message_id,
-        deleterId: user_id
-      }
-    })
-
-    {:noreply, state}
-  end
-
   def ban_user(room_id, user_id), do: cast(room_id, {:ban_user, user_id})
 
   defp ban_user_impl(user_id, state) do
@@ -147,6 +132,9 @@ defmodule Onion.Chat do
 
     {:noreply, %{state | ban_map: Map.delete(state.ban_map, user_id)}}
   end
+
+  #####################################################################
+  ## send message
 
   @spec send_msg(UUID.t(), Send.t()) :: :ok
   def send_msg(room_id, payload) do
@@ -207,7 +195,30 @@ defmodule Onion.Chat do
     end
   end
 
-  ################################################################################ 3
+  #############################################################################
+  ## delete message
+
+  # it seems like this doesn't need to be here, but, we are sending this
+  # through the chat room for two reasons.
+  # - because the chat room genserver is single-threaded it will make sure that
+  #   the messages are well-ordered for everyone.
+  # - eventually when the chat message logs are taken, we'll be able to
+  #   add soft-deletion of messages into the message logs.
+  @spec delete_message(UUID.t(), Delete.t()) :: :ok
+  def delete_message(room_id, deletion = %Delete{}) do
+    cast(room_id, {:delete_message, deletion})
+  end
+
+  defp delete_message_impl(deletion, state) do
+    PubSub.broadcast("chat:" <> state.room_id, %Broth.Message{
+      operator: "chat:delete",
+      payload: deletion
+    })
+
+    {:noreply, state}
+  end
+
+  #############################################################################
   ## ROUTER
 
   def handle_call({:banned?, who}, reply, state), do: banned_impl(who, reply, state)
@@ -218,13 +229,9 @@ defmodule Onion.Chat do
 
   def handle_cast({:add_user, user_id}, state), do: add_user_impl(user_id, state)
 
-  def handle_cast({:send_msg, message}, state) do
-    send_msg_impl(message, state)
-  end
+  def handle_cast({:send_msg, message}, state), do: send_msg_impl(message, state)
 
-  def handle_cast({:message_deleted, user_id, message_id}, state) do
-    message_deleted_impl(user_id, message_id, state)
-  end
+  def handle_cast({:delete_message, payload}, state), do: delete_message_impl(payload, state)
 
   def handle_cast({:ban_user, user_id}, state), do: ban_user_impl(user_id, state)
 end

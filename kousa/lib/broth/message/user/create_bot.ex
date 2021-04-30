@@ -40,14 +40,14 @@ defmodule Broth.Message.User.CreateBot do
   def execute(changeset!, state) do
     with {:ok, %{username: username}} <- apply_action(changeset!, :validation) do
       cond do
-        Users.bot?(state.user_id) ->
+        Users.bot?(state.user.id) ->
           {:reply, %Reply{error: "bots can't create bots"}, state}
 
-        Users.count_bot_accounts(state.user_id) > 99 ->
+        Users.count_bot_accounts(state.user.id) > 99 ->
           {:reply, %Reply{error: "you've reached the max of 100 bot accounts"}, state}
 
         true ->
-          case Users.create_bot(state.user_id, username) do
+          case Users.create_bot(state.user.id, username) do
             {:ok, %User{apiKey: apiKey}} ->
               {:reply, %Reply{apiKey: apiKey}, state}
 

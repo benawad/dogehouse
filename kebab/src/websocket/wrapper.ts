@@ -108,6 +108,12 @@ export const wrap = (connection: Connection) => ({
       ),
   },
   mutation: {
+    roomUpdate: (data: {
+      name?: string;
+      privacy?: string;
+      description?: string;
+      autoSpeaker?: boolean;
+    }): Promise<void> => connection.sendCall("room:update", data),
     roomBan: (userId: string, shouldBanIp?: boolean): Promise<void> =>
       connection.sendCast("room:ban", { userId, shouldBanIp }),
     setDeaf: (isDeafened: boolean): Promise<Record<string, never>> =>
@@ -142,8 +148,6 @@ export const wrap = (connection: Connection) => ({
     askToSpeak: () => connection.send(`ask_to_speak`, {}),
     inviteToRoom: (userId: string) =>
       connection.send(`invite_to_room`, { userId }),
-    setAutoSpeaker: (value: boolean) =>
-      connection.send(`set_auto_speaker`, { value }),
     speakingChange: (value: boolean) =>
       connection.send(`speaking_change`, { value }),
     unbanFromRoom: (userId: string): Promise<void> =>

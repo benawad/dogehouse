@@ -14,7 +14,6 @@ import { mergeRoomPermission } from "../modules/webrtc/utils/mergeRoomPermission
 import { WebSocketContext } from "../modules/ws/WebSocketProvider";
 import { invitedToRoomConfirm } from "../shared-components/InvitedToJoinRoomModal";
 import { setMute } from "./useSetMute";
-import { setDeaf } from "./useSetDeaf";
 import { useTypeSafeUpdateQuery } from "./useTypeSafeUpdateQuery";
 
 let ipcRenderer: any = undefined;

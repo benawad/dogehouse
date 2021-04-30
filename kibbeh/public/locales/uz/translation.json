@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "Ko'proq yuklash",
     "loading": "Yuklanmoqda...",
@@ -102,7 +102,8 @@
       "copyProfileUrl": "Profil URL manzilini nusxalash",
       "urlCopied": "Profil URL nusxasi ko'chirildi",
       "unfollow": "Obunani bekor qilish",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Ovoz Sozlamalari",
