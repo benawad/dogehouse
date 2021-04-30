@@ -46,6 +46,7 @@ export const SearchPage: PageComponent<LoungePageProps> = ({}) => {
               if ("username" in el) {
                 return (
                   <UserSearchResult
+                    onClick={() => router.push(`/u/${el.username}`)}
                     key={i}
                     user={{
                       username: el.username,
@@ -58,6 +59,7 @@ export const SearchPage: PageComponent<LoungePageProps> = ({}) => {
               } else {
                 return (
                   <RoomSearchResult
+                    onClick={() => router.push(`/room/${el.id}`)}
                     key={i}
                     room={{
                       displayName: el.name,
