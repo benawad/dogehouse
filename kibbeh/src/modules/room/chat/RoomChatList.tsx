@@ -133,7 +133,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                                 : undefined,
                           });
                         }}
-                        className={`inline hover:underline font-bold focus:outline-none font-mono`}
+                        className={`inline hover:underline font-bold focus:outline-none`}
                         style={{
                           textDecorationColor: messages[index].color,
                           color: messages[index].color,
