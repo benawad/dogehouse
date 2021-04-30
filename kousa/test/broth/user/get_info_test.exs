@@ -37,8 +37,6 @@ defmodule BrothTest.User.GetInfoTest do
     end
 
     test "you get nil back for username that doesn't exist", t do
-      user_id = t.user.id
-
       ref =
         WsClient.send_call(
           t.client_ws,
@@ -55,5 +53,41 @@ defmodule BrothTest.User.GetInfoTest do
 
     @tag :skip
     test "you can't stalk someone who has blocked you"
+  end
+
+  describe "doesn't return a user back" do
+    test "if the user blocked you", t do
+      blocked = Factory.create(User)
+      blocked_ws = WsClientFactory.create_client_for(blocked)
+
+      WsClient.do_call(t.client_ws, "user:block", %{"userId" => blocked.id})
+
+      ref =
+        WsClient.send_call(
+          blocked_ws,
+          "user:get_info",
+          %{"userIdOrUsername" => t.user.id}
+        )
+
+      WsClient.assert_reply(
+        "user:get_info:reply",
+        ref,
+        %{"error" => "blocked"}
+      )
+
+      # username search results in the same
+      ref2 =
+        WsClient.send_call(
+          blocked_ws,
+          "user:get_info",
+          %{"userIdOrUsername" => t.user.username}
+        )
+
+      WsClient.assert_reply(
+        "user:get_info:reply",
+        ref2,
+        %{"error" => "blocked"}
+      )
+    end
   end
 end

@@ -11,7 +11,7 @@ export type UserPreview = {
   id: UUID;
   displayName: string;
   numFollowers: number;
-  avatarUrl: string | null
+  avatarUrl: string | null;
 };
 
 export type Room = {
@@ -110,6 +110,7 @@ export type RoomPermissions = {
 export type UserWithFollowInfo = BaseUser & {
   followsYou?: boolean;
   youAreFollowing?: boolean;
+  iBlockedThem?: boolean;
 };
 
 export type RoomUser = {
