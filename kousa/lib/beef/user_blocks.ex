@@ -8,6 +8,7 @@ defmodule Beef.UserBlocks do
 
   # ACCESS
   defdelegate blocked?(user_id, user_id_blocked), to: Beef.Access.UserBlocks
+  defdelegate username_blocked?(username, user_id_blocked), to: Beef.Access.UserBlocks
 
   # MUTATIONS
   defdelegate insert(data), to: Beef.Mutations.UserBlocks

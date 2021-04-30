@@ -49,6 +49,7 @@ defmodule Broth.Message.User.GetInfo do
   end
 
   alias Beef.Users
+  alias Beef.UserBlocks
 
   def execute(changeset, state) do
     case apply_action(changeset, :validate) do
@@ -56,13 +57,30 @@ defmodule Broth.Message.User.GetInfo do
         user =
           case Ecto.UUID.cast(userIdOrUsername) do
             {:ok, _} ->
-              Users.get_by_id_with_follow_info(state.user.id, userIdOrUsername)
+              if UserBlocks.blocked?(userIdOrUsername, state.user.id) do
+                :blocked
+              else
+                Users.get_by_id_with_follow_info(state.user.id, userIdOrUsername)
+              end
 
             _ ->
-              Users.get_by_username_with_follow_info(state.user.id, userIdOrUsername)
+              if UserBlocks.username_blocked?(userIdOrUsername, state.user.id) do
+                :blocked
+              else
+                Users.get_by_username_with_follow_info(state.user.id, userIdOrUsername)
+              end
           end
 
-        {:reply, if(is_nil(user), do: %{error: "could not find user"}, else: user), state}
+        case user do
+          :blocked ->
+            {:reply, %{error: "blocked"}, state}
+
+          nil ->
+            {:reply, %{error: "could not find user"}, state}
+
+          _ ->
+            {:reply, user, state}
+        end
 
       error ->
         error
