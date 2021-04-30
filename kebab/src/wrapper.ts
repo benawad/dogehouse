@@ -23,6 +23,9 @@ import {
   CreateBotResponse,
 } from "./responses";
 
+/**
+ * Allows you to handle custom logic on websocket events
+ */
 type Handler<Data> = (data: Data) => void;
 
 /**
@@ -60,6 +63,9 @@ export const wrap = (connection: Connection) => ({
       handler: Handler<{ userId: UUID; muteMap: MuteMap; deafMap: DeafMap }>
     ) => connection.addListener("speaker_removed", handler),
   },
+  /**
+   * Allows you to call functions that return information about the ws state
+   */
   query: {
     search: (query: string): Promise<{ items: Array<Room | User> }> =>
       connection.fetch("search", { query }),
@@ -119,6 +125,9 @@ export const wrap = (connection: Connection) => ({
         "get_current_room_users_done"
       ),
   },
+  /**
+   * Allows you to call functions that mutate the ws state
+   */
   mutation: {
     userBlock: (userId: string): Promise<void> =>
       connection.sendCall("user:block", { userId }),
