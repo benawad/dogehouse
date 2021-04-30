@@ -104,7 +104,7 @@ html {
 }
 
 #__next {
-  overflow: auto;
+  overflow-y: auto;
 }
 
 textarea {
