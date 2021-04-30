@@ -34,7 +34,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   const conn = useConn();
   return (
     <div
-      className={`flex w-full p-3 flex justify-between items-center bg-primary-900 ${className}`}
+      className={`flex w-full p-3 h-8 flex justify-between items-center bg-primary-900 ${className}`}
       {...props}
     >
       <DropdownController
