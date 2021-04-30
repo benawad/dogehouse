@@ -102,6 +102,11 @@ defmodule Beef.Schemas.User do
       join_keys: [userIdBlocked: :id, userId: :id]
     )
 
+    many_to_many(:blocking, __MODULE__,
+      join_through: "user_blocks",
+      join_keys: [userId: :id, userIdBlocked: :id]
+    )
+
     timestamps()
   end
 
