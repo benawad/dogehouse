@@ -12,4 +12,5 @@ defmodule Beef.UserBlocks do
 
   # MUTATIONS
   defdelegate insert(data), to: Beef.Mutations.UserBlocks
+  defdelegate delete(user_id, user_id_blocked), to: Beef.Mutations.UserBlocks
 end

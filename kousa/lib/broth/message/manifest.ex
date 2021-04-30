@@ -10,6 +10,7 @@ defmodule Broth.Message.Manifest do
     "user:create_bot" => User.CreateBot,
     "user:ban" => User.Ban,
     "user:block" => User.Block,
+    "user:unblock" => User.Unblock,
     "user:follow" => User.Follow,
     "user:get_following" => User.GetFollowing,
     "user:get_followers" => User.GetFollowers,
