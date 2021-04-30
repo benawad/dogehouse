@@ -20,6 +20,7 @@ commit messages are standardized:
 1. Make sure your shell path is in the root of the project (not inside any of the packages).
 2. Run `yarn`.
 3. Stage the files you are commiting with `git add [files]`.
+   ###### Make sure the line endings are `lf` and not `crlf`!
 4. Run `yarn commit`. This will start an interactive prompt that generates your commit message:
     1. Select the type of change.
     2. Type the scope. This is either `global` for project-wide changes or one of the packages (kibbeh, shawarma etc.).
