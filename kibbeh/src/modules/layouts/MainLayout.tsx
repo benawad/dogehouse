@@ -53,7 +53,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
   ];
 
   if (plusButtonURL) items.push({ icon: <SolidPlus />, targetPath: plusButtonURL });
-  if (me) items.push({ icon: <SolidUser />, targetPath: `/u/${me.username}` });
+  if (me) items.push({ icon: <SolidUser />, targetPath: `/u/${me.username}/following-online` });
 
   let middle = null;
   let prepend = null;
@@ -108,7 +108,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
           isElectron() && !useHostStore.getState().isLinux
             ? `default-desktop-layout flex flex-col items-center w-full scrollbar-thin scrollbar-thumb-primary-700`
             : `flex flex-col items-center w-full scrollbar-thin scrollbar-thumb-primary-700 ${
-                prepend ? "mt-6.5 mb-4" : ""
+                prepend ? "mt-7.5 mb-7" : ""
               }`
         }
       >
