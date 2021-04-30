@@ -7,7 +7,7 @@ import { defaultQueryFn } from "../../lib/defaultQueryFn";
 import { PageComponent } from "../../types/PageComponent";
 import { WaitForWsAndAuth } from "../auth/WaitForWsAndAuth";
 import { FollowingOnlineController } from "../dashboard/FollowingOnlineController";
-import { DesktopLayout } from "../layouts/DesktopLayout";
+import { MainLayout } from "../layouts/MainLayout";
 import { TabletSidebar } from "../layouts/TabletSidebar";
 import { RoomChatController } from "./RoomChatController";
 import { RoomOpenGraphPreview } from "./RoomOpenGraphPreview";
@@ -26,14 +26,14 @@ export const RoomPage: PageComponent<RoomPageProps> = ({ room }) => {
     <RoomOpenGraphPreview room={room}>
       <WaitForWsAndAuth>
         <UserPreviewModalProvider>
-          <DesktopLayout
+          <MainLayout
             floatingRoomInfo={null}
             tabletSidebar={<TabletSidebar />}
             leftPanel={<FollowingOnlineController />}
             rightPanel={<RoomChatController />}
           >
             <RoomPanelController key={key} />
-          </DesktopLayout>
+          </MainLayout>
         </UserPreviewModalProvider>
       </WaitForWsAndAuth>
     </RoomOpenGraphPreview>

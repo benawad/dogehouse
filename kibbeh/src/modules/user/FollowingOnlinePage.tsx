@@ -4,14 +4,13 @@ import { WaitForWsAndAuth } from "../auth/WaitForWsAndAuth";
 import { FollowingOnlineController } from "../dashboard/FollowingOnlineController";
 import { ProfileBlockController } from "../dashboard/ProfileBlockController";
 import { LeftPanel, MiddlePanel, RightPanel } from "../layouts/GridPanels";
-import { FollowingController } from "./FollowingController";
-import { UserProfileController } from "./UserProfileController";
 import { HeaderController } from "../../modules/display/HeaderController";
 import { MainLayout } from "../layouts/MainLayout";
+import { FollowersOnlineWrapper } from "../../ui/FollowersOnline";
 
 interface UserPageProps {}
 
-export const FollowingPage: PageComponent<UserPageProps> = ({}) => {
+export const FollowingOnlinePage: PageComponent<UserPageProps> = ({}) => {
   return (
     <WaitForWsAndAuth>
       <HeaderController embed={{}} title="People" />
@@ -19,10 +18,12 @@ export const FollowingPage: PageComponent<UserPageProps> = ({}) => {
         leftPanel={<FollowingOnlineController />}
         rightPanel={<ProfileBlockController />}
       >
-        <FollowingController />
+        <div className="mt-4">
+          <FollowingOnlineController></FollowingOnlineController>
+        </div>
       </MainLayout>
     </WaitForWsAndAuth>
   );
 };
 
-FollowingPage.ws = true;
+FollowingOnlinePage.ws = true;

@@ -5,8 +5,8 @@ import { SearchBar } from "../../Search/SearchBar";
 export interface SearchHeaderProps {
   onBackClick?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => null;
-  onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => null;
+  ) => void;
+  onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   searchPlaceholder: string;
 }
 
