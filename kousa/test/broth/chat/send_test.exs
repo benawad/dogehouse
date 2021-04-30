@@ -120,7 +120,6 @@ defmodule BrothTest.Chat.SendTest do
 
   describe "the sender should not be able to send" do
     test "if they have been chat banned from the room", t do
-      user_id = t.user.id
       room_id = t.room_id
 
       # create a user that is logged in.
@@ -178,7 +177,6 @@ defmodule BrothTest.Chat.SendTest do
     end
 
     test "block, unblock still receives message", t do
-      user_id = t.user.id
       room_id = t.room_id
 
       # create a user that is logged in.

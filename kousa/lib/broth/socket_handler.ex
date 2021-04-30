@@ -120,16 +120,34 @@ defmodule Broth.SocketHandler do
   ##########################################################################
   ## CHAT MESSAGES
 
-  def chat_impl({"chat:" <> _room_id, message}, %__MODULE__{} = state) do
-    if Enum.any?(state.user_ids_i_am_blocking, &(&1 == message.from)) do
-      {:noreply, state}
+  defp real_chat_impl(
+         {"chat:" <> _room_id, message},
+         %__MODULE__{} = state
+       ) do
+    # TODO: make this guard against room_id or self_id when we put room into the state.
+    message
+    |> adopt_version(state)
+    |> prepare_socket_msg(state)
+    |> ws_push(state)
+  end
+
+  def chat_impl(
+        {"chat:" <> _room_id, %Broth.Message{payload: %Broth.Message.Chat.Send{from: from}}} = p1,
+        %__MODULE__{} = state
+      ) do
+    if Enum.any?(state.user_ids_i_am_blocking, &(&1 == from)) do
+      ws_push(nil, state)
     else
-      # TODO: make this guard against room_id or self_id when we put room into the state.
-      message
-      |> adopt_version(state)
-      |> prepare_socket_msg(state)
-      |> ws_push(state)
+      real_chat_impl(p1, state)
     end
+  end
+
+  def chat_impl(
+        {"chat:" <> _room_id, _} = p1,
+        %__MODULE__{} = state
+      ) do
+    # TODO: make this guard against room_id or self_id when we put room into the state.
+    real_chat_impl(p1, state)
   end
 
   def chat_impl(_, state), do: ws_push(nil, state)
