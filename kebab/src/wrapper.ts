@@ -25,10 +25,21 @@ import {
 
 type Handler<Data> = (data: Data) => void;
 
+/**
+ * A wrapper object created using `wrap()` that can be used to make websocket calls using functions
+ */
 export type Wrapper = ReturnType<typeof wrap>;
 
+/**
+ * Creates a wrapper object that allows you to make websocket calls using functions
+ * @param connection - reference to the websocket connection
+ * @returns Wrapper object
+ */
 export const wrap = (connection: Connection) => ({
   connection,
+  /**
+   * Allows you to subscribe to various pre-defined websocket events
+   */
   subscribe: {
     newChatMsg: (handler: Handler<{ userId: UUID; msg: Message }>) =>
       connection.addListener("new_chat_msg", handler),
