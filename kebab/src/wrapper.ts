@@ -91,7 +91,7 @@ export const wrap = (connection: Connection) => ({
       connection.fetch("get_top_public_rooms", { cursor }),
     getUserProfile: (
       idOrUsername: string
-    ): Promise<UserWithFollowInfo | null> =>
+    ): Promise<UserWithFollowInfo | null | { error: string }> =>
       connection.fetch("get_user_profile", { userId: idOrUsername }),
     getScheduledRooms: (
       cursor = "",
