@@ -29,7 +29,7 @@ export const MiddlePanel: React.FC<
   const screenType = useScreenType();
   return (
     <GridPanel>
-      <div className={stickyChildren !== null ? `flex sticky top-0 w-full flex-col z-10 bg-primary-900 pt-5` : ""}>
+      <div className={stickyChildren !== undefined || stickyChildren !== null ? `flex sticky top-0 w-full flex-col z-10 bg-primary-900 pt-5` : ""}>
         {screenType !== "fullscreen" ? (
           <HeaderWrapper>
             <MiddleHeader />
