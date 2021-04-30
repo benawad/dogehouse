@@ -74,6 +74,38 @@ defmodule BrothTest.Room.GetTopTest do
       )
     end
 
+    test "returns a room even if a random has blocked me", t do
+      user_id = t.user.id
+
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"}
+        )
+
+      # make sure the user is in there.
+      assert %{currentRoomId: ^room_id} = Users.get_by_id(user_id)
+
+      random_who_blocked_me = Factory.create(User)
+
+      WsClient.do_call(t.client_ws, "user:block", %{"userId" => random_who_blocked_me.id})
+
+      ref =
+        WsClient.send_call(
+          t.client_ws,
+          "room:get_top",
+          %{}
+        )
+
+      WsClient.assert_reply(
+        "room:get_top:reply",
+        ref,
+        %{"rooms" => [%{"id" => ^room_id}]},
+        t.client_ws
+      )
+    end
+
     test "doesn't return a room if creator user blocked me", t do
       user_id = t.user.id
 
