@@ -20,14 +20,29 @@ import {
   GetRoomUsersResponse,
   NewRoomDetailsResponse,
   InvitationToRoomResponse,
+  CreateBotResponse,
 } from "./responses";
 
+/**
+ * Allows you to handle custom logic on websocket events
+ */
 type Handler<Data> = (data: Data) => void;
 
+/**
+ * A wrapper object created using `wrap()` that can be used to make websocket calls using functions
+ */
 export type Wrapper = ReturnType<typeof wrap>;
 
+/**
+ * Creates a wrapper object that allows you to make websocket calls using functions
+ * @param connection - reference to the websocket connection
+ * @returns Wrapper object
+ */
 export const wrap = (connection: Connection) => ({
   connection,
+  /**
+   * Allows you to subscribe to various pre-defined websocket events
+   */
   subscribe: {
     newChatMsg: (handler: Handler<{ userId: UUID; msg: Message }>) =>
       connection.addListener("new_chat_msg", handler),
@@ -41,11 +56,16 @@ export const wrap = (connection: Connection) => ({
       connection.addListener("invitation_to_room", handler),
     handRaised: (handler: Handler<{ userId: UUID }>) =>
       connection.addListener("hand_raised", handler),
-    speakerAdded: (handler: Handler<{ userId: UUID; muteMap: MuteMap, deafMap: DeafMap }>) =>
-      connection.addListener("speaker_added", handler),
-    speakerRemoved: (handler: Handler<{ userId: UUID; muteMap: MuteMap, deafMap: DeafMap }>) =>
-      connection.addListener("speaker_removed", handler),
+    speakerAdded: (
+      handler: Handler<{ userId: UUID; muteMap: MuteMap; deafMap: DeafMap }>
+    ) => connection.addListener("speaker_added", handler),
+    speakerRemoved: (
+      handler: Handler<{ userId: UUID; muteMap: MuteMap; deafMap: DeafMap }>
+    ) => connection.addListener("speaker_removed", handler),
   },
+  /**
+   * Allows you to call functions that return information about the ws state
+   */
   query: {
     search: (query: string): Promise<{ items: Array<Room | User> }> =>
       connection.fetch("search", { query }),
@@ -105,7 +125,26 @@ export const wrap = (connection: Connection) => ({
         "get_current_room_users_done"
       ),
   },
+  /**
+   * Allows you to call functions that mutate the ws state
+   */
   mutation: {
+    userBlock: (userId: string): Promise<void> =>
+      connection.sendCall("user:block", { userId }),
+    userUnblock: (userId: string): Promise<void> =>
+      connection.sendCall("user:unblock", { userId }),
+    roomUpdate: (data: {
+      name?: string;
+      privacy?: string;
+      description?: string;
+      autoSpeaker?: boolean;
+    }): Promise<void> => connection.sendCall("room:update", data),
+    roomBan: (userId: string, shouldBanIp?: boolean): Promise<void> =>
+      connection.sendCast("room:ban", { userId, shouldBanIp }),
+    setDeaf: (isDeafened: boolean): Promise<Record<string, never>> =>
+      connection.sendCall("room:deafen", { deafened: isDeafened }),
+    userCreateBot: (username: string): Promise<CreateBotResponse> =>
+      connection.sendCall(`user:create_bot`, { username }),
     ban: (username: string, reason: string) =>
       connection.send(`ban`, { username, reason }),
     deleteScheduledRoom: (id: string): Promise =>
@@ -134,8 +173,6 @@ export const wrap = (connection: Connection) => ({
     askToSpeak: () => connection.send(`ask_to_speak`, {}),
     inviteToRoom: (userId: string) =>
       connection.send(`invite_to_room`, { userId }),
-    setAutoSpeaker: (value: boolean) =>
-      connection.send(`set_auto_speaker`, { value }),
     speakingChange: (value: boolean) =>
       connection.send(`speaking_change`, { value }),
     unbanFromRoom: (userId: string): Promise<void> =>
@@ -155,8 +192,6 @@ export const wrap = (connection: Connection) => ({
       connection.send("add_speaker", { userId }),
     deleteRoomChatMessage: (userId: string, messageId: string): Promise<void> =>
       connection.send("delete_room_chat_message", { userId, messageId }),
-    blockFromRoom: (userId: string): Promise<void> =>
-      connection.send("block_from_room", { userId }),
     unbanFromRoomChat: (userId: string): Promise<void> =>
       connection.send("unban_from_room_chat", { userId }),
     banFromRoomChat: (userId: string): Promise<void> =>
@@ -165,8 +200,6 @@ export const wrap = (connection: Connection) => ({
       connection.send("set_listener", { userId }),
     setMute: (isMuted: boolean): Promise<Record<string, never>> =>
       connection.fetch("mute", { value: isMuted }),
-    setDeaf: (isDeafened: boolean): Promise<Record<string, never>> =>
-      connection.fetch("deafen", { value: isDeafened }),
     leaveRoom: (): Promise<{ roomId: UUID }> =>
       connection.fetch("leave_room", {}, "you_left_room"),
     createRoom: (data: {
@@ -180,6 +213,7 @@ export const wrap = (connection: Connection) => ({
       username: string;
       bio: string;
       avatarUrl: string;
+      bannerUrl?: string;
     }): Promise<{ isUsernameTaken: boolean }> =>
       connection.fetch("edit_profile", { data }),
     editRoom: (data: {

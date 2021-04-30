@@ -15,6 +15,7 @@ defmodule Kousa.Beef.UserTest do
     @gh_input %{
       "id" => 12345,
       "avatar_url" => "https://foo.bar/baz.jpg",
+      "banner_url" => "https://foo.bar/baz.jpg",
       "name" => "tester",
       "bio" => "test",
       "github_access_token" => "askldjlqwjldq"

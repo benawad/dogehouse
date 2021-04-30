@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "Загрузить еще",
     "loading": "Загрузка...",
@@ -101,7 +101,9 @@
       "followingHim": "Вы подписаны",
       "copyProfileUrl": "скопировать URL профиля",
       "urlCopied": "URL профиля скопирован",
-      "unfollow": "Отписаться"
+      "unfollow": "Отписаться",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Голосовые настройки",
@@ -123,7 +125,7 @@
       "visit_gh": "Visit Github Releases",
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
-      "download_for": "Downoad for {{platform}}"
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -207,7 +209,8 @@
         "usernameError": "длина от 4 до 15 символов, только буквенно-цифровые символы и нижнее подчеркивание",
         "usernameLabel": "Имя пользователя",
         "bioError": "максимальная длина 160 символов",
-        "bioLabel": "Обо мне"
+        "bioLabel": "Обо мне",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Вы уверены, что хотите закрыть этому пользователя доступ в любую из ваших комнат?",
@@ -241,7 +244,10 @@
       "upcomingRooms": "Ожидаемые комнаты",
       "exploreMoreRooms": "Найти больше комнат"
     },
-    "search": { "placeholder": "Поиск комнат, пользователей или категорий" },
+    "search": {
+      "placeholder": "Поиск комнат, пользователей или категорий",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Профиль",
       "language": "Язык",

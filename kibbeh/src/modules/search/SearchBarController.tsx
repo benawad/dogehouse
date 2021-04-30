@@ -5,12 +5,14 @@ import { SearchBar } from "../../ui/Search/SearchBar";
 import { SearchOverlay } from "../../ui/Search/SearchOverlay";
 import Downshift from "downshift";
 import { Room, User } from "@dogehouse/kebab";
-import { SingleUser } from "../../ui/UserAvatar";
 import { useRouter } from "next/router";
-import { BubbleText } from "../../ui/BubbleText";
-import { formatNumber } from "../../ui/RoomCard";
 import { useDebounce } from "use-debounce";
 import { InfoText } from "../../ui/InfoText";
+import {
+  RoomSearchResult,
+  UserSearchResult,
+} from "../../ui/Search/SearchResult";
+import { useMediaQuery } from "react-responsive";
 
 interface SearchControllerProps {}
 
@@ -18,6 +20,7 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
   const [rawText, setText] = useState("");
   const [text] = useDebounce(rawText, 200);
   const { t } = useTypeSafeTranslation();
+  const isOverflowing = useMediaQuery({ maxWidth: 475 });
   let enabled = false;
   const isUsernameSearch = text.startsWith("@");
 
@@ -76,7 +79,11 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
         <div className="relative w-full z-10 flex flex-col">
           <SearchBar
             {...getInputProps()}
-            placeholder={t("components.search.placeholder")}
+            placeholder={
+              isOverflowing
+                ? t("components.search.placeholderShort")
+                : t("components.search.placeholder")
+            }
           />
           {isOpen ? (
             <SearchOverlay
@@ -94,55 +101,41 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                     // eslint-disable-next-line react/jsx-key
                     <li
                       data-testid={`search:user:${item.username}`}
-                      className={`flex p-3 ${
-                        highlightedIndex === index
-                          ? "bg-primary-700"
-                          : "bg-primary-800"
-                      } ${data.items.length - 1 === index ? "rounded-b-8" : ""}
-                    `}
                       {...getItemProps({
                         key: item.id,
                         index,
                         item,
                       })}
                     >
-                      <SingleUser src={item.avatarUrl} size="md" />
-                      <div className="ml-2">
-                        <div className="text-primary-100">
-                          {item.displayName}
-                        </div>
-                        <div className="text-primary-300">@{item.username}</div>
-                      </div>
+                      <UserSearchResult
+                        user={{
+                          username: item.username,
+                          displayName: item.displayName,
+                          isOnline: item.online,
+                          avatar: item.avatarUrl,
+                        }}
+                        className={
+                          highlightedIndex === index
+                            ? "bg-primary-700"
+                            : "bg-primary-800"
+                        }
+                      />
                     </li>
                   ) : (
-                    // eslint-disable-next-line react/jsx-key
                     <li
-                      className={`flex p-3 ${
-                        highlightedIndex === index
-                          ? "bg-primary-700"
-                          : "bg-primary-800"
-                      } ${data.items.length - 1 === index ? "rounded-b-8" : ""}
-                    `}
                       {...getItemProps({
                         key: item.id,
                         index,
                         item,
                       })}
                     >
-                      <div className="mr-auto">
-                        <div className="text-primary-100">{item.name}</div>
-                        <div className="text-primary-300">
-                          {item.peoplePreviewList
-                            .slice(0, 3)
-                            .map((x) => x.displayName)
-                            .join(", ")}
-                        </div>
-                      </div>
-                      <div>
-                        <BubbleText live>
-                          {formatNumber(item.numPeopleInside)}
-                        </BubbleText>
-                      </div>
+                      <RoomSearchResult
+                        room={{
+                          displayName: item.name,
+                          hosts: item.peoplePreviewList,
+                          userCount: item.numPeopleInside,
+                        }}
+                      />
                     </li>
                   )
                 )}

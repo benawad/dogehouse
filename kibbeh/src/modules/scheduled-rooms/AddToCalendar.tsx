@@ -1,9 +1,7 @@
 import React, { ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { BaseOverlay } from "../../ui/BaseOverlay";
-import { Button } from "../../ui/Button";
 import { DropdownController } from "../../ui/DropdownController";
 import { SettingsIcon } from "../../ui/SettingsIcon";
-
 import makeUrls, { CalendarEvent } from "./makeUrls";
 
 type CalendarURLs = ReturnType<typeof makeUrls>;
@@ -124,17 +122,17 @@ type AddToCalendarProps = {
   children: (tog: () => void) => ReactNode;
 };
 
-const AddToCalendar: React.FC<AddToCalendarProps> = ({
+export const AddToCalendar: React.FC<AddToCalendarProps> = ({
   children,
   event,
   filename = "download",
   open: initialOpen = false,
 }) => {
-  const [open, onToggle] = useOpenState(initialOpen);
+  const [_, onToggle] = useOpenState(initialOpen);
   const urls = useMemo<CalendarURLs>(() => makeUrls(event), [event]);
 
   return (
-    <div className="relative">
+    <div className="relative" title="Add to Calendar">
       <DropdownController
         portal={false}
         overlay={(close) => (
@@ -146,5 +144,3 @@ const AddToCalendar: React.FC<AddToCalendarProps> = ({
     </div>
   );
 };
-
-export default AddToCalendar;

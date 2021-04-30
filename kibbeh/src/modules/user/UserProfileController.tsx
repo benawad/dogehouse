@@ -10,6 +10,7 @@ import { useTypeSafeUpdateQuery } from "../../shared-hooks/useTypeSafeUpdateQuer
 import { Button } from "../../ui/Button";
 import { CenterLoader } from "../../ui/CenterLoader";
 import { InfoText } from "../../ui/InfoText";
+import { UserProfile } from "../../ui/UserProfile";
 import { EditProfileModal } from "./EditProfileModal";
 import { VerticalUserInfoWithFollowButton } from "./VerticalUserInfoWithFollowButton";
 
@@ -18,10 +19,8 @@ interface UserProfileControllerProps {}
 const isMac = process.platform === "darwin";
 
 export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) => {
-  const [open, setOpen] = useState(false);
   const conn = useConn();
   const { t } = useTypeSafeTranslation();
-  const preloadPush = usePreloadPush();
   const { push } = useRouter();
   const { query } = useRouter();
   const { data, isLoading } = useTypeSafeQuery(
@@ -33,7 +32,6 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
     },
     [query.username as string]
   );
-  const update = useTypeSafeUpdateQuery();
 
   // commented this out as rn this shows up all the time
   useEffect(() => {
@@ -60,40 +58,15 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
     return <CenterLoader />;
   }
 
-  if (!data) {
+  if (!data || "error" in data) {
     return <InfoText>{t("pages.myProfile.couldNotFindUser")}</InfoText>;
   }
 
   return (
     <>
-      <VerticalUserInfoWithFollowButton
-        idOrUsernameUsedForQuery={data.username}
-        user={data}
-      />
+      <UserProfile user={data} isCurrentUser={data.id === conn.user.id} />
       {data.id === conn.user.id && (
-        <div className={`pt-6 flex`}>
-          <EditProfileModal
-            isOpen={open}
-            onRequestClose={() => setOpen(false)}
-            onEdit={(d) => {
-              update(["getUserProfile", d.username], (x) =>
-                !x ? x : { ...x, ...d }
-              );
-              if (d.username !== data.username) {
-                preloadPush({
-                  route: "profile",
-                  data: { username: d.username },
-                });
-              }
-            }}
-          />
-          <Button
-            style={{ marginRight: "10px" }}
-            size="small"
-            onClick={() => setOpen(true)}
-          >
-            {t("pages.viewUser.editProfile")}
-          </Button>
+        <div className={`pt-6 pb-6 flex`}>
           <Button
             style={{ marginRight: "10px" }}
             size="small"

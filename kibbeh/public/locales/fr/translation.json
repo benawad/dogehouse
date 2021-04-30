@@ -45,7 +45,7 @@
       "createRoom": "Créer une salle",
       "editRoom": "Editer la salle",
       "refresh": "Actualiser",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "desktopAlert": "Téléchargez l'application DogeHouse aujourd'hui!"
     },
     "inviteList": {
       "roomGone": "Cette salle n'existe plus; revenez en arrière",
@@ -73,7 +73,7 @@
       "overlaySettings": "Paramètres de l'overlay",
       "soundSettings": "Paramètres Audio",
       "deleteAccount": "Supprimer le Compte",
-      "couldNotFindUser": "Désolé, nous parvenons pas à trouver cet utilisateur"
+      "couldNotFindUser": "Désolé, nous ne parvenons pas à trouver cet utilisateur"
     },
     "notFound": {
       "whoopsError": "Oups ! Cette page s'est perdue dans la conversation.",
@@ -85,7 +85,7 @@
       "requestingToSpeak": "Demande la parole",
       "listeners": "Auditeurs",
       "allowAll": "Tout autoriser",
-      "allowAllConfirm": "Êtes-vous sur? Cela autorisera {{count}} utilisateurs en attente à parler"
+      "allowAllConfirm": "Êtes-vous sûr? Cela autorisera {{count}} utilisateurs en attente de parler"
     },
     "searchUser": { "search": "recherche..." },
     "soundEffectSettings": { "header": "Sons", "title": "Sound Settings" },
@@ -98,7 +98,9 @@
       "followingHim": "Abonné",
       "copyProfileUrl": "Copier le lien du profil",
       "urlCopied": "Lien copié dans le presse-papier",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "À propos de",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Paramètres vocaux",
@@ -111,16 +113,16 @@
       "header": "Paramètres de l'Overlay",
       "input": {
         "errorMsg": "Veuillez rentrer un titre valide",
-        "label": "Titrede l'application"
+        "label": "Titre de l'application"
       }
     },
     "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
-      "download_for": "Downoad for {{platform}}"
+      "starting": "Téléchargement entamé...",
+      "failed": "Téléchargement interrompu, essayer de nouveau plus tard",
+      "visit_gh": "Visiter toutes les versions sur Github",
+      "prompt": "Cliquer sur le bouton pour commencer le Téléchargement",
+      "download_now": "Télécharger maintenant",
+      "download_for": "Télécharger pour la %platform% (%ext%)"
     }
   },
   "components": {
@@ -146,9 +148,9 @@
       "speaker": "Interlocuteur",
       "listener": "Auditeur",
       "chat": "Chat",
-      "toggleDeafMicBtn": "Toggle Deafen",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen"
+      "toggleDeafMicBtn": "Activer / Désactiver le son",
+      "deafen": "Couper le son",
+      "undeafen": "Rétablier le son"
     },
     "deviceNotSupported": {
       "notSupported": "Votre système n'est pas encore supporté. Vous pouvez créer une",
@@ -176,7 +178,7 @@
       "toggleMuteKeybind": "Activer / Désactiver le raccourci clavier pour rendre muet",
       "toggleOverlayKeybind": "Activer / Désactiver le raccourci clavier pour l'overlay",
       "togglePushToTalkKeybind": "Activer / Désactiver le raccourci clavier appuyer-pour-parler",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Activer / Désactiver le raccourci clavier pour couper le son"
     },
     "userVolumeSlider": {
       "noAudioMessage": "Pas d'audio pour une raison inconnue"
@@ -191,7 +193,8 @@
       "reconnect": "Se reconnecter"
     },
     "search": {
-      "placeholder": "Rechercher des salles, utilisateurs ou catégories"
+      "placeholder": "Rechercher des salles, utilisateurs ou catégories",
+      "placeholderShort": "Recherche"
     },
     "settingsDropdown": {
       "profile": "Profil",
@@ -209,7 +212,7 @@
     },
     "modals": {
       "createRoomModal": {
-        "subtitle": "Remplit les champs suivants pour créer",
+        "subtitle": "Remplis les champs suivants pour créer",
         "public": "Publique",
         "private": "Privée",
         "roomName": "Nom de la salle",
@@ -233,7 +236,8 @@
         "usernameError": "Longueur de 4 à 15 caractères et ne doit contenir que des caractères alphanumériques ou des tirets du bas",
         "usernameLabel": "Pseudo",
         "bioError": "Longueur maximum de 160 caractères",
-        "bioLabel": "Biographie"
+        "bioLabel": "Biographie",
+        "bannerUrlLabel": "URL de bannière Twitter"
       },
       "profileModal": {
         "blockUserConfirm": "Êtes-vous sûr de vouloir bloquer cet utilisateur de toutes vos salles ?",

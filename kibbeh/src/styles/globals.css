@@ -104,7 +104,7 @@ html {
 }
 
 #__next {
-  overflow: auto;
+  overflow-y: auto;
 }
 
 textarea {
@@ -125,4 +125,8 @@ img.emoji {
 
 .h-screen {
   height: calc(100vh - var(--screen-height-reduction));
+}
+
+button:focus {
+  outline: none;
 }

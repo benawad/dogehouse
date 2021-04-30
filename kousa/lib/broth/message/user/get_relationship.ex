@@ -32,14 +32,14 @@ defmodule Broth.Message.User.GetRelationship do
     end
   end
 
-  def execute(changeset, state = %{user_id: oneself}) do
+  def execute(changeset, state = %{user: %{id: user_id}}) do
     case apply_action(changeset, :validate) do
-      {:ok, %{userId: ^oneself}} ->
+      {:ok, %{userId: ^user_id}} ->
         {:reply, %Reply{relationship: :self}, state}
 
       {:ok, %{userId: user_id}} ->
         r =
-          case Follows.get_info(state.user_id, user_id) do
+          case Follows.get_info(state.user.id, user_id) do
             %{followsYou: false, youAreFollowing: false} -> nil
             %{followsYou: true, youAreFollowing: false} -> :follower
             %{followsYou: false, youAreFollowing: true} -> :following

@@ -97,7 +97,9 @@
       "followingHim": "Takiptesin",
       "copyProfileUrl": "Profil bağlantısını kopyala",
       "urlCopied": "Bağlantı kopyalandı",
-      "unfollow": "Takipten çık"
+      "unfollow": "Takipten çık",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Ses Ayarları",
@@ -120,7 +122,7 @@
       "visit_gh": "Visit Github Releases",
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
-      "download_for": "Downoad for {{platform}}"
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -181,7 +183,8 @@
         "usernameError": "Uzunluk 4-15 arası olmalı ve sadece alfanümerik/alt_çizgi karakterlerini içermeli",
         "usernameLabel": "Kullanıcı adı",
         "bioError": "Maksimum uzunluk 160 karakter",
-        "bioLabel": "Biyo"
+        "bioLabel": "Biyo",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Oluşturduğun tüm odalar için bu kullanıcıyı yasaklamak istediğine emin misin?",
@@ -238,7 +241,10 @@
       "upcomingRooms": "Yaklaşan Odalar",
       "exploreMoreRooms": "Daha Çok Oda Keşfet"
     },
-    "search": { "placeholder": "Oda, kullanıcı veya kategori ara..." },
+    "search": {
+      "placeholder": "Oda, kullanıcı veya kategori ara...",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profil",
       "language": "Dil",

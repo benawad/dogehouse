@@ -26,6 +26,10 @@ describe("create room then", () => {
     cy.dataTestId("deafen").click();
     cy.dataTestId(`deafened:${defaultTestUsername}`).should("not.exist");
   });
+  it("deafen/mute sequence", () => {
+    cy.testDeafenSequence();
+    cy.dataTestId(`deafened:${defaultTestUsername}`).should("not.exist");
+  });
   it("invite friends", () => {
     cy.dataTestId("invite-friends").click();
     cy.dataTestId("container");
@@ -41,6 +45,17 @@ describe("create room then", () => {
       .invoke("text")
       .should("eq", "@" + defaultTestUsername);
     cy.closeModal();
+  });
+  it("minimized room widget deafen/mute sequence desktop", () => {
+    cy.viewport(2560, 1440);
+    cy.dataTestId(`logo-link`).click();
+    cy.testDeafenSequence();
+  });
+  it("floating room widget deafen/mute sequence", () => {
+    cy.viewport("iphone-x");
+    cy.dataTestId("floating-room-container").should("exist");
+    cy.testDeafenSequence();
+    cy.dataTestId(`room-card:${defaultRoomName}`).click();
   });
   it("leave room", () => {
     cy.dataTestId("leave-room").click();

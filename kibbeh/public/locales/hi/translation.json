@@ -97,7 +97,9 @@
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "आवाज़ की सेटिंग्स",
@@ -116,7 +118,7 @@
       "visit_gh": "Visit Github Releases",
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
-      "download_for": "Downoad for {{platform}}"
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -199,7 +201,8 @@
         "usernameError": "length 4 to 15 characters and only alphanumeric/underscore",
         "usernameLabel": "Username",
         "bioError": "max length of 160 characters",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "क्या आप इस उपयोगकर्ता को आपके द्वारा बनाए गए सभी रूम में शामिल होने से रोकना चाहते हैं?",
@@ -233,7 +236,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",

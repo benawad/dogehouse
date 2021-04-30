@@ -6,9 +6,10 @@ import { kFormatter } from "../lib/kFormatter";
 import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 
-type badge = {
+export type badge = {
+  color: "white" | "grey";
   content: React.ReactNode;
-  variant: "primary" | "secondary";
+  variant: "primary" | "secondary" | "primary-700";
 };
 
 export interface UserSummaryCardProps {
@@ -36,9 +37,11 @@ interface WebsiteProps {
 export const Badges: React.FC<BadgesProps> = ({ badges }) => {
   return (
     <div className="flex mt-2">
-      {badges.map(({ content, variant }, i) => (
+      {badges.map(({ content, variant, color }, i) => (
         <span className="mr-1" key={i}>
-          <UserBadge variant={variant}>{content}</UserBadge>
+          <UserBadge variant={variant} color={color}>
+            {content}
+          </UserBadge>
         </span>
       ))}
     </div>
@@ -85,10 +88,10 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
         </div>
         <div className="flex mt-2">
           <div className="flex flex-col ml-3">
-            <span className="text-sm text-primary-100 font-bold overflow-hidden break-all text-left">
+            <span className="text-primary-100 font-bold overflow-hidden break-all text-left">
               {displayName}
             </span>
-            <span className="text-sm text-primary-300 text-left break-all">
+            <span className="text-primary-300 text-left break-all">
               @{username}
             </span>
             <Badges badges={badges} />
@@ -100,8 +103,8 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
           <ApiPreloadLink route="followers" data={{ username }}>
             <span className="text-primary-100 font-bold">
               {kFormatter(numFollowers)}
-            </span>{" "}
-            <span className="text-primary-300 ml-1 lowercase">
+            </span>
+            <span className="text-primary-300 ml-1.5 lowercase">
               {t("pages.viewUser.followers")}
             </span>
           </ApiPreloadLink>
@@ -111,7 +114,7 @@ export const UserSummaryCard: React.FC<UserSummaryCardProps> = ({
             <span className="text-primary-100 font-bold">
               {kFormatter(numFollowing)}
             </span>
-            <span className="text-primary-300 ml-1 lowercase">
+            <span className="text-primary-300 ml-1.5 lowercase">
               {t("pages.viewUser.following")}
             </span>
           </ApiPreloadLink>

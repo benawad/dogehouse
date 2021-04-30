@@ -96,7 +96,9 @@
       "followingHim": "követve",
       "copyProfileUrl": "fiók URL címének másolása",
       "urlCopied": "URL cím kimásolva a vágólapra",
-      "unfollow": "Követés megszűntetése"
+      "unfollow": "Követés megszűntetése",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Hangbeállítások",
@@ -115,7 +117,7 @@
       "visit_gh": "Visit Github Releases",
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
-      "download_for": "Downoad for {{platform}}"
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -176,7 +178,8 @@
         "usernameError": "Minimum 4, maximum 15 karakter, csak alfanumerikus és aláhúzás",
         "usernameLabel": "Felhasználónév",
         "bioError": "maximum 160 karakter",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Biztosan tiltaná a felhasználót a szobához való csatlakozástól?",
@@ -233,7 +236,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",

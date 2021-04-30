@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "завантажити ще",
     "loading": "завантажується",
@@ -101,7 +101,9 @@
       "followingHim": "відстежується",
       "copyProfileUrl": "скопіювати посилання на профіль",
       "urlCopied": "Посилання скопійовано",
-      "unfollow": "Відписатися"
+      "unfollow": "Відписатися",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Голосові налаштування",
@@ -123,7 +125,7 @@
       "visit_gh": "Visit Github Releases",
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
-      "download_for": "Downoad for {{platform}}"
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -207,7 +209,8 @@
         "usernameError": "має містити від 4 до 15 символів і бути лише буквено-цифровим та підкреслення",
         "usernameLabel": "Ім'я користувача",
         "bioError": "має містити до 160 символів",
-        "bioLabel": "Біографія"
+        "bioLabel": "Біографія",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Ви впевнені, що хочете заблокувати цього користувача в будь-якій кімнаті, яку ви коли-небудь створювали?",
@@ -241,7 +244,10 @@
       "upcomingRooms": "Заплановані кімнати",
       "exploreMoreRooms": "Знайти Більше Кімнат"
     },
-    "search": { "placeholder": "Знайти кімнати, користувачів або категорії" },
+    "search": {
+      "placeholder": "Знайти кімнати, користувачів або категорії",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Профіль",
       "language": "Мова",

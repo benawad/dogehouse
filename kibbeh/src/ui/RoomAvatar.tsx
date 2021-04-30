@@ -1,6 +1,7 @@
 import React from "react";
 import { useDebugAudioStore } from "../global-stores/useDebugAudio";
 import { AudioDebugAvatar } from "../modules/debugging/AudioDebugAvatar";
+import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { SingleUser } from "./UserAvatar";
 
 interface RoomAvatarProps {
@@ -13,6 +14,7 @@ interface RoomAvatarProps {
   username: string;
   flair?: React.ReactNode;
   src: string;
+  isBot?: boolean;
   onClick?: () => void;
 }
 
@@ -27,7 +29,9 @@ export const RoomAvatar: React.FC<RoomAvatarProps> = ({
   canSpeak,
   id,
   activeSpeaker,
+  isBot,
 }) => {
+  const { t } = useTypeSafeTranslation();
   const { debugAudio } = useDebugAudioStore();
   const avatar = (
     <SingleUser
@@ -35,8 +39,10 @@ export const RoomAvatar: React.FC<RoomAvatarProps> = ({
       size="lg"
       src={src}
       muted={muted}
+      isBot={isBot}
       deafened={deafened}
       username={username}
+      hover={true}
     />
   );
   return (
@@ -50,7 +56,7 @@ export const RoomAvatar: React.FC<RoomAvatarProps> = ({
       ) : (
         avatar
       )}
-      <div className={`flex items-center mt-2`}>
+      <div className={`flex items-center mt-2 ${deafened ? "opacity-60" : ""}`}>
         <span className={`truncate text-primary-100 text-sm block`}>
           {username}
         </span>

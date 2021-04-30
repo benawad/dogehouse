@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "Lataa lisää",
     "loading": "Ladataan...",
@@ -22,7 +22,7 @@
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "Mykistetty | DogeHouse",
-    "deafenedTitle": "Deafened | DogeHouse",
+    "deafenedTitle": "Hiljennetty | DogeHouse",
     "dashboard": "Dashboard",
     "connectionTaken": "Yhteys katkaistu"
   },
@@ -45,7 +45,7 @@
       "createRoom": "Luo huone",
       "refresh": "Päivitä",
       "editRoom": "Muokkaa huonetta",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "desktopAlert": "Lataa DogeHouse-työpöytäsovellus tänään!"
     },
     "inviteList": {
       "roomGone": "Huone poistettu, palaa takaisin",
@@ -98,7 +98,9 @@
       "followingHim": "Seurannassa",
       "copyProfileUrl": "Kopioi profiilin URL-osoite",
       "urlCopied": "Osoite kopioitu leikepöydälle",
-      "unfollow": "Lopeta seuraaminen"
+      "unfollow": "Lopeta seuraaminen",
+      "about": "Tietoa käyttäjästä",
+      "bot": "Botti"
     },
     "voiceSettings": {
       "header": "Puheasetukset",
@@ -115,12 +117,12 @@
       }
     },
     "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
-      "download_for": "Downoad for {{platform}}"
+      "starting": "Aloitetaan lataaminen...",
+      "failed": "Automaattinen lataus epäonnistui, yritä uudelleen myöhemmin",
+      "visit_gh": "Näe Github-julkaisut",
+      "prompt": "Aloita lataaminen klikkaamalla alla olevaa painiketta",
+      "download_now": "Lataa nyt",
+      "download_for": "Lataa %platform%ille (%ext%)"
     }
   },
   "components": {
@@ -146,9 +148,9 @@
       "speaker": "Puhuja",
       "listener": "Kuuntelija",
       "chat": "Chatti",
-      "toggleDeafMicBtn": "Toggle Deafen",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen"
+      "toggleDeafMicBtn": "Kytke hiljennys",
+      "deafen": "Hiljennä",
+      "undeafen": "Poista hiljennys"
     },
     "deviceNotSupported": {
       "notSupported": "Käyttämääsi laitetta ei tueta. Voit luoda",
@@ -170,7 +172,7 @@
       "toggleMuteKeybind": "Mikrofonin mykistys -pikanäppäin",
       "togglePushToTalkKeybind": "Push-to-talk-pikanäppäin",
       "toggleOverlayKeybind": "Overlay-pikanäppäin",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Hiljennys-pikanäppäin"
     },
     "userVolumeSlider": { "noAudioMessage": "Ei äänen ulostulolaitteita" },
     "addToCalendar": { "add": "Lisää kalenteriin" },
@@ -204,7 +206,8 @@
         "usernameError": "Pituus 4-15 merkkiä ja vain aakkosia, numeroita tai alaviivoja",
         "usernameLabel": "Käyttäjätunnus",
         "bioError": "Maksimipituus 160 merkkiä",
-        "bioLabel": "Kuvaus"
+        "bioLabel": "Kuvaus",
+        "bannerUrlLabel": "Twitter-bannerikuvan URL-osoite"
       },
       "profileModal": {
         "blockUserConfirm": "Haluatko varmasti estää tämän käyttäjän liittymistä yhteenkään huoneeseesi?",
@@ -238,7 +241,10 @@
       "upcomingRooms": "Tulevat huoneet",
       "exploreMoreRooms": "Etsi lisää huoneita"
     },
-    "search": { "placeholder": "Hae huoneita, käyttäjiä tai kategorioita" },
+    "search": {
+      "placeholder": "Hae huoneita, käyttäjiä tai kategorioita",
+      "placeholderShort": "Hae"
+    },
     "settingsDropdown": {
       "profile": "Profiili",
       "language": "Kieli",

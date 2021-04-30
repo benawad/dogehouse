@@ -6,14 +6,14 @@ defmodule Broth.Message.User.GetFollowers do
   @primary_key false
   embedded_schema do
     # TODO: add a userId key in here.
-    field(:userId, :binary_id)
+    field(:username, :string)
     field(:cursor, :integer, default: 0)
     field(:limit, :integer, default: 100)
   end
 
   def changeset(initializer \\ %__MODULE__{}, data) do
     initializer
-    |> cast(data, [:cursor, :limit])
+    |> cast(data, [:cursor, :limit, :username])
     |> validate_number(:limit, greater_than: 0, message: "too low")
     |> UUID.normalize(:userId)
   end
@@ -32,10 +32,14 @@ defmodule Broth.Message.User.GetFollowers do
 
   def execute(changeset, state) do
     # currently limit is unused.
-    with {:ok, %{userId: user_id, cursor: cursor, limit: _limit}} <-
+    with {:ok, %{username: username, cursor: cursor, limit: _limit}} <-
            apply_action(changeset, :validate) do
-      user_id = user_id || state.user_id
-      {users, next_cursor} = Kousa.Follow.get_follow_list(state.user_id, user_id, false, cursor)
+      {users, next_cursor} =
+        if is_nil(username) do
+          Kousa.Follow.get_follow_list(state.user.id, state.user.id, false, cursor)
+        else
+          Kousa.Follow.get_follow_list_by_username(state.user.id, username, false, cursor)
+        end
 
       {:reply, %Reply{followers: users, nextCursor: next_cursor, initial: cursor == 0}, state}
     end

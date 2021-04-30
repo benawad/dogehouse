@@ -16,7 +16,7 @@
     "copied": "copiado",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "Esteja ciente que executar o DogeHouse sem as permissões corretas pode causar erros indesejados"
   },
   "header": {
     "_comment": "Cabeçalho da interface principal para traduções",
@@ -43,8 +43,8 @@
     "home": {
       "createRoom": "Criar Sala",
       "refresh": "Atualizar",
-      "editRoom": "Edit Room",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "editRoom": "Editar sala",
+      "desktopAlert": "Baixe o app desktop DogeHouse hoje mesmo!"
     },
     "inviteList": {
       "roomGone": "acabou a sala, volte",
@@ -87,7 +87,10 @@
       "allowAllConfirm": "Você tem certeza? Isso permitirá que todos os {{count}} usuários solicitantes falem"
     },
     "searchUser": { "search": "buscar..." },
-    "soundEffectSettings": { "header": "Sons", "title": "Sound Settings" },
+    "soundEffectSettings": {
+      "header": "Sons",
+      "title": "Configurações de áudio"
+    },
     "viewUser": {
       "editProfile": "editar perfil",
       "followsYou": "segue você",
@@ -97,7 +100,9 @@
       "unfollow": "deixar de seguir",
       "followingHim": "seguindo",
       "copyProfileUrl": "copiar url do perfil",
-      "urlCopied": "URL copiado para a área de transferência"
+      "urlCopied": "URL copiado para a área de transferência",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Configurações do microfone",
@@ -114,12 +119,12 @@
       "header": "Configurações de sobreposição"
     },
     "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
-      "download_for": "Downoad for {{platform}}"
+      "starting": "Começando o download...",
+      "failed": "Não foi possível iniciar o download automático, por favor tente novamente mais tarde",
+      "visit_gh": "Visite o Github Releases",
+      "prompt": "Clique no botão abaixo para começar a baixar",
+      "download_now": "Baixe agora",
+      "download_for": "Baixe para %platform% (%ext%)"
     }
   },
   "components": {
@@ -145,7 +150,7 @@
       "speaker": "Apresentador",
       "listener": "Ouvintes",
       "chat": "Chat",
-      "toggleDeafMicBtn": "Toggle Deafen",
+      "toggleDeafMicBtn": "Alternar modo Deafen",
       "deafen": "Deafen",
       "undeafen": "Undeafen"
     },
@@ -162,7 +167,7 @@
         "roomDescription": "descrição da sala",
         "descriptionError": "comprimento máximo 500",
         "nameError": "deve ter entre 2 a 60 caracteres",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "Preencha os campos para iniciar uma nova sala"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nova sala criada",
@@ -180,7 +185,8 @@
         "usernameError": "de 4 até 15 caracteres alfanuméricos/sublinhados",
         "usernameLabel": "Usuário",
         "bioError": "máximo de até 160 caractéres",
-        "bioLabel": "Biografia"
+        "bioLabel": "Biografia",
+        "bannerUrlLabel": "url do banner do Twitter"
       },
       "profileModal": {
         "blockUserConfirm": "Você tem certeza que quer bloquear esse usuário de entrar em qualquer sala que você criar?",
@@ -194,14 +200,14 @@
         "goBackToListener": "voltar para ouvinte",
         "deleteMessage": "excluir essa mensagem",
         "makeRoomCreator": "criar sala de administração",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Desbanir do chat"
       },
       "roomSettingsModal": {
         "requirePermission": "precisar de permissão para falar",
         "makePublic": "fazer a sala pública",
         "makePrivate": "fazer a sala privada",
-        "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePublic": "Definir nome da sala pública",
+        "renamePrivate": "Definir nome da sala privada"
       }
     },
     "userVolumeSlider": { "noAudioMessage": "não tem áudio por algum motivo" },
@@ -212,7 +218,7 @@
       "toggleMuteKeybind": "ativar/desativar atalho para mutar",
       "togglePushToTalkKeybind": "ativar/desativar pressione para falar",
       "toggleOverlayKeybind": "alternar o atalho de teclado de sobreposição",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "Ative atalho no teclado de deafen"
     },
     "wsKilled": {
       "description": "O Websocket foi finalizado pelo servidor. Isso geralmente acontece quando você abre o site em outra guia.",
@@ -234,22 +240,25 @@
       "showMore": "Show more"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "Próximas salas",
+      "exploreMoreRooms": "Explore mais salas"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Procure por salas, usuários ou categorias",
+      "placeholderShort": "Procurar"
+    },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "Perfil",
+      "language": "Idioma",
+      "reportABug": "Reportar um bug",
+      "useOldVersion": "Usar uma versão antiga",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "Sair",
+        "modalSubtitle": "Você tem certeza que deseja sair?"
       },
       "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
+        "debugAudio": "Debugar áudio",
+        "stopDebugger": "Parar debug"
       }
     }
   },
@@ -267,10 +276,10 @@
         "minLength": "tamanho mínimo: 2",
         "roomDescription": "descrição da sala"
       },
-      "tommorow": "TOMMOROW",
-      "today": "TODAY",
+      "tommorow": "AMANHÃ",
+      "today": "HOJE",
       "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
+        "areYouSure": "Você tem certeza que deseja deletar essa sala agendada?"
       }
     },
     "roomChat": {
@@ -298,6 +307,6 @@
       "galacticDoge": "Doge galático",
       "spottedLife": "Encontrado planeta com vida"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": { "yourFeed": "Seu Feed" }
   }
 }

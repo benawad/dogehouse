@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "učitaj još",
     "loading": "učitavanje...",
@@ -73,7 +73,7 @@
       "soundSettings": "idi na podešavanje zvuka",
       "deleteAccount": "obriši nalog",
       "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Izvini, nismo pronašli ovog korisnika"
     },
     "notFound": {
       "whoopsError": "Ups! Ova stranica se izgubila u razgovoru.",
@@ -84,7 +84,7 @@
       "speakers": "Govornici",
       "requestingToSpeak": "Molim za reč",
       "listeners": "Slušaoci",
-      "allowAll": "Allow all",
+      "allowAll": "Prihvati sve",
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "pretraži..." },
@@ -98,7 +98,9 @@
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "Opis",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Podešavanja glasa",
@@ -117,7 +119,7 @@
       "visit_gh": "Visit Github Releases",
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
-      "download_for": "Downoad for {{platform}}"
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -143,7 +145,7 @@
       "speaker": "Govornik",
       "listener": "Slušalac",
       "chat": "Ćaskanje",
-      "toggleDeafMicBtn": "Toggle Deafen",
+      "toggleDeafMicBtn": "Mutiraj se",
       "deafen": "Deafen",
       "undeafen": "Undeafen"
     },
@@ -179,10 +181,10 @@
         "public": "javno",
         "private": "privatno",
         "roomName": "naziv sobe",
-        "roomDescription": "opsi sobe",
+        "roomDescription": "opis sobe",
         "descriptionError": "maksimalna dužina 500",
         "nameError": "mora biti od 2 do 60 karaktera dužine",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "Popuni sledeća polja da započneš novu sobu"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Kreirana nova soba",
@@ -200,7 +202,8 @@
         "usernameError": "dužina od 4 do 15 karaktera i samo alfanumerički znakovi/donja crta",
         "usernameLabel": "Korisničko ime",
         "bioError": "maksimalna dužina 160 karaktera",
-        "bioLabel": "Opis"
+        "bioLabel": "Opis",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Da li ste sigurni da želite da blokirate ovog korisnika da se pridruži bilo kojoj sobi koju ste ikada stvorili?",
@@ -227,26 +230,29 @@
     "followingOnline": {
       "people": "People",
       "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "noOnline": "Nemaš ni jednog prijatelja online",
+      "showMore": "Prikaži više"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "Nadolazeće sobe",
+      "exploreMoreRooms": "Istraži više soba"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Pretraži sobe, korisnike ili kategorije",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "Profil",
+      "language": "Jezik",
+      "reportABug": "Prijavi grešku",
+      "useOldVersion": "Korsiti staru verziju",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "Odjavi se",
+        "modalSubtitle": "Da li si siguran da želiš da se odjaviš?"
       },
       "debugAudio": {
-        "debugAudio": "Debug Audio",
-        "stopDebugger": "Stop Debugger"
+        "debugAudio": "Debaguj Audio",
+        "stopDebugger": "Zaustavi Debager"
       }
     }
   },
@@ -263,7 +269,7 @@
         "needsFuture": "treba da bude u budućnosti",
         "roomName": "naziv sobe",
         "minLength": "minimalna dužina 2",
-        "roomDescription": "Description"
+        "roomDescription": "opis"
       },
       "tommorow": "TOMMOROW",
       "today": "TODAY",
@@ -296,6 +302,6 @@
       "galacticDoge": "Galactic Doge",
       "spottedLife": "Planet with life spotted"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": { "yourFeed": "Tvoj Feed" }
   }
 }

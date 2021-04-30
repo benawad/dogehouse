@@ -54,6 +54,20 @@ config :joken,
   access_token_secret: System.fetch_env!("ACCESS_TOKEN_SECRET"),
   refresh_token_secret: System.fetch_env!("REFRESH_TOKEN_SECRET")
 
+config :ueberauth, Ueberauth.Strategy.Google.OAuth,
+  client_id:
+    System.get_env("GOOGLE_CLIENT_ID") ||
+      raise("""
+      environment variable GOOGLE_CLIENT_ID is missing.
+      Create an oauth application on Google to get one
+      """),
+  client_secret:
+    System.get_env("GOOGLE_CLIENT_SECRET") ||
+      raise("""
+        environment variable GOOGLE_CLIENT_SECRET is missing.
+        Create an oauth application on Google to get one
+      """)
+
 config :ueberauth, Ueberauth.Strategy.Twitter.OAuth,
   consumer_key:
     System.get_env("TWITTER_API_KEY") ||
@@ -81,3 +95,24 @@ config :ueberauth, Ueberauth.Strategy.Discord.OAuth,
       environment variable DISCORD_CLIENT_SECRET is missing.
       Create an oauth application on Discord to get one
       """)
+
+config :extwitter, :oauth,
+  consumer_key:
+    System.get_env("TWITTER_API_KEY") ||
+      raise("""
+      environment variable TWITTER_API_KEY is missing.
+      Create an oauth application on Twitter to get one
+      """),
+  consumer_secret:
+    System.get_env("TWITTER_SECRET_KEY") ||
+      raise("""
+      environment variable TWITTER_SECRET_KEY is missing.
+      Create an oauth application on Twitter to get one
+      """),
+  access_token:
+    System.get_env("TWITTER_BEARER_TOKEN") ||
+      raise("""
+      environment variable TWITTER_BEARER_TOKEN is missing.
+      Create an oauth application on Twitter to get one
+      """),
+  access_token_secret: ""

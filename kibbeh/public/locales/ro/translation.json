@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "Încarcă mai multe",
     "loading": "Se încarcă...",
@@ -98,7 +98,9 @@
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Sunete Voce",
@@ -117,7 +119,7 @@
       "visit_gh": "Visit Github Releases",
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
-      "download_for": "Downoad for {{platform}}"
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -203,7 +205,8 @@
         "usernameError": "Lungime între 4 și 15 caractere și numai alphanumerice/underscore",
         "usernameLabel": "Username",
         "bioError": "Lungime maximă de 160 de caractere",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Ești sigur că dorești să restrictionezi acest utilizator să intre în orice cameră pe care o creezi?",
@@ -237,7 +240,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, utilizatori or categories" },
+    "search": {
+      "placeholder": "Search for rooms, utilizatori or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",

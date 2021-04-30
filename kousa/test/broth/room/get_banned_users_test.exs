@@ -20,14 +20,22 @@ defmodule BrothTest.Room.GetBannedUsersTest do
   describe "the websocket room:get_banned_users operation" do
     test "returns one banned user if you are in the room", t do
       user_id = t.user.id
-      # first, create a room owned by the primary user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(user_id, "foo room", "foo", false)
+
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"}
+        )
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(user_id)
 
       # make user to ban and put them in the room
       user_to_ban = Factory.create(User)
-      Kousa.Room.join_room(user_to_ban.id, room_id)
+      user_to_ban_ws = WsClientFactory.create_client_for(user_to_ban)
+      WsClient.do_call(user_to_ban_ws, "room:join", %{"roomId" => room_id})
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(user_to_ban.id)
       Kousa.Room.block_from_room(user_id, user_to_ban.id)

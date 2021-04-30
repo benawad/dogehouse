@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "Meh lade",
     "loading": "Am lade...",
@@ -98,7 +98,9 @@
       "followingHim": "Am Folge",
       "copyProfileUrl": "Profil URL kopiere",
       "urlCopied": "URL id Zwüscheablag kopiert",
-      "unfollow": "Entfolge"
+      "unfollow": "Entfolge",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Sprachistellige",
@@ -117,7 +119,7 @@
       "visit_gh": "Visit Github Releases",
       "prompt": "Click on the button below to start download",
       "download_now": "Download Now",
-      "download_for": "Downoad for {{platform}}"
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -179,7 +181,8 @@
         "usernameError": "Längi: 4 bis 15 alphanumerischi Zeiche und Ungerstriche",
         "usernameLabel": "Benutzername",
         "bioError": "Maximal 160 Buechstabe",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Bisch der sicher, dass du dä Benutzer us aune dine zuekünftige Rüüm usschliesse wettsch?",
@@ -234,7 +237,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",
