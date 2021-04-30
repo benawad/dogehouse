@@ -220,8 +220,8 @@
         "requirePermission": "需要許可才能發言",
         "makePublic": "把房間設定為公開",
         "makePrivate": "把房間設定為私人",
-        "renamePublic": "設公開房間名字",
-        "renamePrivate": "設私人房間名字"
+        "renamePublic": "重設公開房間名字",
+        "renamePrivate": "重設私人房間名字"
       }
     },
     "followingOnline": {
@@ -231,7 +231,7 @@
       "showMore": "顯示更多"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "即將上線的房間",
+      "upcomingRooms": "即將到來的房間",
       "exploreMoreRooms": "搜尋更多房間"
     },
     "search": {
