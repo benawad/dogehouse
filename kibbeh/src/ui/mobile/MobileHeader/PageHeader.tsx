@@ -5,7 +5,7 @@ export interface PageHeaderProps {
   title: string;
   onBackClick?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => null;
+  ) => void;
 }
 
 export const PageHeader: React.FC<PageHeaderProps> = ({
