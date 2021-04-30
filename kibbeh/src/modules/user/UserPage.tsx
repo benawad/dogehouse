@@ -10,17 +10,12 @@ interface UserPageProps {}
 
 export const UserPage: PageComponent<UserPageProps> = ({}) => {
   const { query } = useRouter();
+  const username = typeof query.username === "string" ? query.username : "";
   return (
     <DefaultDesktopLayout>
-      <HeaderController
-        title={
-          query.username && !Array.isArray(query.username) ? query.username : ""
-        }
-      />
+      <HeaderController title={username} />
       <MiddlePanel>
-        <UserProfileController
-          key={typeof query.username === "string" ? query.username : ""}
-        />
+        <UserProfileController key={username} />
       </MiddlePanel>
     </DefaultDesktopLayout>
   );
