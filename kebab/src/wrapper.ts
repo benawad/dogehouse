@@ -109,6 +109,8 @@ export const wrap = (connection: Connection) => ({
       ),
   },
   mutation: {
+    userBlock: (userId: string): Promise<void> =>
+      connection.sendCall("user:block", { userId }),
     roomUpdate: (data: {
       name?: string;
       privacy?: string;
