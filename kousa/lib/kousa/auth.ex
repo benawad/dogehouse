@@ -65,6 +65,7 @@ defmodule Kousa.Auth do
             voice_server_id: room.voiceServerId
           )
 
+          PubSub.subscribe("chat:" <> room.id)
           RoomSession.join_room(room.id, user.id, request.muted, request.deafened)
 
           if request.reconnectToVoice == true do
