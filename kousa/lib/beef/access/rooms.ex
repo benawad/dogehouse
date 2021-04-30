@@ -67,7 +67,8 @@ defmodule Beef.Access.Rooms do
         left_join: rb in RoomBlock,
         on: rb.roomId == r.id and rb.userId == ^user_id,
         left_join: ub in UserBlock,
-        on: ub.userIdBlocked == ^user_id or ub.userId == ^user_id,
+        on: ub.userIdBlocked == ^user_id,
+        # on: ub.userIdBlocked == ^user_id or ub.userId == ^user_id,
         where:
           is_nil(ub.userIdBlocked) and is_nil(rb.roomId) and r.isPrivate == false and
             r.numPeopleInside < ^max_room_size,
