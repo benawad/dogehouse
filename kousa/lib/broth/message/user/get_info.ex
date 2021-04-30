@@ -28,6 +28,7 @@ defmodule Broth.Message.User.GetInfo do
       numFollowing
       numFollowers
       lastOnline
+      iBlockedThem
     )a}
 
     @primary_key {:id, :binary_id, []}
@@ -44,12 +45,12 @@ defmodule Broth.Message.User.GetInfo do
       field(:lastOnline, :utc_datetime_usec)
       field(:youAreFollowing, :boolean, virtual: true)
       field(:followsYou, :boolean, virtual: true)
+      field(:iBlockedThem, :boolean, virtual: true)
       field(:error, :string, virtual: true)
     end
   end
 
   alias Beef.Users
-  alias Beef.UserBlocks
 
   def execute(changeset, state) do
     case apply_action(changeset, :validate) do
@@ -57,26 +58,18 @@ defmodule Broth.Message.User.GetInfo do
         user =
           case Ecto.UUID.cast(userIdOrUsername) do
             {:ok, _} ->
-              if UserBlocks.blocked?(userIdOrUsername, state.user.id) do
-                :blocked
-              else
-                Users.get_by_id_with_follow_info(state.user.id, userIdOrUsername)
-              end
+              Users.get_by_id_with_follow_info(state.user.id, userIdOrUsername)
 
             _ ->
-              if UserBlocks.username_blocked?(userIdOrUsername, state.user.id) do
-                :blocked
-              else
-                Users.get_by_username_with_follow_info(state.user.id, userIdOrUsername)
-              end
+              Users.get_by_username_with_follow_info(state.user.id, userIdOrUsername)
           end
 
         case user do
-          :blocked ->
-            {:reply, %{error: "blocked"}, state}
-
           nil ->
             {:reply, %{error: "could not find user"}, state}
+
+          %{theyBlockedMe: true} ->
+            {:reply, %{error: "blocked"}, state}
 
           _ ->
             {:reply, user, state}
