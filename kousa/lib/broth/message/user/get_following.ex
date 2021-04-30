@@ -21,7 +21,7 @@ defmodule Broth.Message.User.GetFollowing do
 
     @primary_key false
     embedded_schema do
-      embeds_many(:following, Beef.Schemas.User)
+      embeds_many(:following, Beef.Schemas.User.WithRoom)
       field(:nextCursor, :integer)
       field(:initial, :boolean)
     end
@@ -43,8 +43,12 @@ defmodule Broth.Message.User.GetFollowing do
           )
         end
 
-      {:reply, %Reply{following: users, nextCursor: next_cursor, initial: request.cursor == 0},
-       state}
+      {:reply,
+       %Reply{
+         following: Enum.map(users, &struct(Beef.Schemas.User.WithRoom, Map.from_struct(&1))),
+         nextCursor: next_cursor,
+         initial: request.cursor == 0
+       }, state}
     end
   end
 end
