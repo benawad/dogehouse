@@ -27,6 +27,9 @@ export type Listener<Data = unknown> = {
   handler: ListenerHandler<Data>;
 };
 
+/**
+ * A reference to the websocket connection, can be created using `connect()`
+ */
 export type Connection = {
   close: () => void;
   once: <Data = unknown>(
@@ -55,13 +58,19 @@ export type Connection = {
 // probably want to remove token/refreshToken
 // better to use getAuthOptions
 // when ws tries to reconnect it should use current tokens not the ones it initializes with
+/**
+ * Creates a Connection object
+ * @param token - Your dogehouse token
+ * @param refreshToken - Your dogehouse refresh token
+ * @returns Connection object
+ */
 export const connect = (
   token: Token,
   refreshToken: Token,
   {
-    logger = () => {},
-    onConnectionTaken = () => {},
-    onClearTokens = () => {},
+    logger = () => { },
+    onConnectionTaken = () => { },
+    onClearTokens = () => { },
     url = apiUrl,
     fetchTimeout,
     getAuthOptions,
@@ -96,9 +105,8 @@ export const connect = (
       if (socket.readyState !== socket.OPEN) {
         return;
       }
-      const raw = `{"v":"0.2.0", "op":"${opcode}","p":${JSON.stringify(data)}${
-        ref ? `,"ref":"${ref}"` : ""
-      }}`;
+      const raw = `{"v":"0.2.0", "op":"${opcode}","p":${JSON.stringify(data)}${ref ? `,"ref":"${ref}"` : ""
+        }}`;
 
       socket.send(raw);
       logger("out", opcode, data, ref, raw);
@@ -111,9 +119,8 @@ export const connect = (
       if (socket.readyState !== socket.OPEN) {
         return;
       }
-      const raw = `{"op":"${opcode}","d":${JSON.stringify(data)}${
-        fetchId ? `,"fetchId":"${fetchId}"` : ""
-      }}`;
+      const raw = `{"op":"${opcode}","d":${JSON.stringify(data)}${fetchId ? `,"fetchId":"${fetchId}"` : ""
+        }}`;
 
       socket.send(raw);
       logger("out", opcode, data, fetchId, raw);
