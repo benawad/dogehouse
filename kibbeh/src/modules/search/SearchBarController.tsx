@@ -99,8 +99,8 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                 ) : null}
                 {data?.items.rooms.map((item, index) => (
                   <li
+                    key={item.id}
                     {...getItemProps({
-                      key: item.id,
                       index,
                       item,
                     })}
@@ -116,9 +116,9 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                 ))}
                 {data?.items.users.map((item, index) => (
                   <li
+                    key={item.id}
                     data-testid={`search:user:${item.username}`}
                     {...getItemProps({
-                      key: item.id,
                       index,
                       item,
                     })}
