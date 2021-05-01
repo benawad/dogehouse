@@ -2,7 +2,7 @@ const withTM = require("next-transpile-modules")(["@dogehouse/kebab"]);
 
 module.exports = withTM({
   future: {
-    webpack5: true
+    webpack5: false
   },
   reactStrictMode: true,
   typescript: {
