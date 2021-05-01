@@ -130,6 +130,11 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                         isOnline: item.online,
                         avatar: item.avatarUrl,
                       }}
+                      className={
+                        highlightedIndex === index
+                          ? "bg-primary-700"
+                          : "bg-primary-800"
+                      }
                     />
                   </li>
                 ))}
