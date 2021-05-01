@@ -67,21 +67,21 @@ export const wrap = (connection: Connection) => ({
    */
   query: {
     search: (query: string): Promise<{ items: Array<Room | User> }> =>
-      connection.sendCall("search", { query }),
+      connection.fetch("search", { query }),
     getMyScheduledRoomsAboutToStart: (
       roomId: string
     ): Promise<{ scheduledRooms: ScheduledRoom[] }> =>
-      connection.sendCall("get_my_scheduled_rooms_about_to_start", { roomId }),
+      connection.fetch("get_my_scheduled_rooms_about_to_start", { roomId }),
     joinRoomAndGetInfo: (
       roomId: string
     ): Promise<JoinRoomAndGetInfoResponse | { error: string }> =>
-      connection.sendCall("join_room_and_get_info", { roomId }),
+      connection.fetch("join_room_and_get_info", { roomId }),
     getInviteList: (
       cursor = 0
     ): Promise<{
       users: User[];
       nextCursor: number | null;
-    }> => connection.sendCall("get_invite_list", { cursor }),
+    }> => connection.fetch("get_invite_list", { cursor }),
     getFollowList: (
       username: string,
       isFollowing: boolean,
@@ -90,35 +90,35 @@ export const wrap = (connection: Connection) => ({
       users: UserWithFollowInfo[];
       nextCursor: number | null;
     }> =>
-      connection.sendCall("get_follow_list", { username, isFollowing, cursor }),
+      connection.fetch("get_follow_list", { username, isFollowing, cursor }),
     getBlockedFromRoomUsers: (
       cursor = 0
     ): Promise<{
       users: User[];
       nextCursor: number | null;
-    }> => connection.sendCall("get_blocked_from_room_users", { offset: cursor }),
+    }> => connection.fetch("get_blocked_from_room_users", { offset: cursor }),
     getMyFollowing: (
       cursor = 0
     ): Promise<{
       users: UserWithFollowInfo[];
       nextCursor: number | null;
-    }> => connection.sendCall("get_my_following", { cursor }),
+    }> => connection.fetch("get_my_following", { cursor }),
     getTopPublicRooms: (cursor = 0): Promise<GetTopPublicRoomsResponse> =>
-      connection.sendCall("get_top_public_rooms", { cursor }),
+      connection.fetch("get_top_public_rooms", { cursor }),
     getUserProfile: (
       idOrUsername: string
     ): Promise<UserWithFollowInfo | null | { error: string }> =>
-      connection.sendCall("get_user_profile", { userId: idOrUsername }),
+      connection.fetch("get_user_profile", { userId: idOrUsername }),
     getScheduledRooms: (
       cursor = "",
       getOnlyMyScheduledRooms = false
     ): Promise<GetScheduledRoomsResponse> =>
-      connection.sendCall("get_scheduled_rooms", {
+      connection.fetch("get_scheduled_rooms", {
         cursor,
         getOnlyMyScheduledRooms,
       }),
     getRoomUsers: (): Promise<GetRoomUsersResponse> =>
-      connection.sendCall(
+      connection.fetch(
         "get_current_room_users",
         {},
         "get_current_room_users_done"
@@ -147,19 +147,19 @@ export const wrap = (connection: Connection) => ({
     ban: (username: string, reason: string) =>
       connection.send(`ban`, { username, reason }),
     deleteScheduledRoom: (id: string): Promise =>
-      connection.sendCall(`delete_scheduled_room`, { id }),
+      connection.fetch(`delete_scheduled_room`, { id }),
     createRoomFromScheduledRoom: (data: {
       id: string;
       name: string;
       description: string;
     }): Promise<{ room: Room }> =>
-      connection.sendCall(`create_room_from_scheduled_room`, data),
+      connection.fetch(`create_room_from_scheduled_room`, data),
     createScheduledRoom: (data: {
       name: string;
       description: string;
       scheduledFor: string;
     }): Promise<{ error: string } | ScheduledRoom> =>
-      connection.sendCall(`schedule_room`, data),
+      connection.fetch(`schedule_room`, data),
     editScheduledRoom: (
       id: string,
       data: {
@@ -168,16 +168,16 @@ export const wrap = (connection: Connection) => ({
         scheduledFor: string;
       }
     ): Promise<{ error: string } | ScheduledRoom> =>
-      connection.sendCall(`edit_scheduled_room`, { id, data }),
+      connection.fetch(`edit_scheduled_room`, { id, data }),
     askToSpeak: () => connection.send(`ask_to_speak`, {}),
     inviteToRoom: (userId: string) =>
       connection.send(`invite_to_room`, { userId }),
     speakingChange: (value: boolean) =>
       connection.send(`speaking_change`, { value }),
     unbanFromRoom: (userId: string): Promise<void> =>
-      connection.sendCall("unban_from_room", { userId }),
+      connection.fetch("unban_from_room", { userId }),
     follow: (userId: string, value: boolean): Promise<void> =>
-      connection.sendCall("follow", { userId, value }),
+      connection.fetch("follow", { userId, value }),
     sendRoomChatMsg: (
       ast: MessageToken[],
       whisperedTo: string[] = []
@@ -198,15 +198,15 @@ export const wrap = (connection: Connection) => ({
     setListener: (userId: string): Promise<void> =>
       connection.send("set_listener", { userId }),
     setMute: (isMuted: boolean): Promise<Record<string, never>> =>
-      connection.sendCall("mute", { value: isMuted }),
+      connection.fetch("mute", { value: isMuted }),
     leaveRoom: (): Promise<{ roomId: UUID }> =>
-      connection.sendCall("leave_room", {}, "you_left_room"),
+      connection.fetch("leave_room", {}, "you_left_room"),
     createRoom: (data: {
       name: string;
       privacy: string;
       description: string;
     }): Promise<{ error: string } | { room: Room }> =>
-      connection.sendCall("create_room", data),
+      connection.fetch("create_room", data),
     editProfile: (data: {
       displayName: string;
       username: string;
@@ -214,12 +214,12 @@ export const wrap = (connection: Connection) => ({
       avatarUrl: string;
       bannerUrl?: string;
     }): Promise<{ isUsernameTaken: boolean }> =>
-      connection.sendCall("edit_profile", { data }),
+      connection.fetch("edit_profile", { data }),
     editRoom: (data: {
       name: string;
       privacy: string;
       description: string;
     }): Promise<{ error: string } | { room: Room }> =>
-      connection.sendCall("edit_room", data),
+      connection.fetch("edit_room", data),
   },
 });
