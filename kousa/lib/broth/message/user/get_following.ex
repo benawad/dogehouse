@@ -43,8 +43,12 @@ defmodule Broth.Message.User.GetFollowing do
           )
         end
 
-      {:reply, %Reply{following: users, nextCursor: next_cursor, initial: request.cursor == 0},
-       state}
+      {:reply,
+       %Reply{
+         following: users,
+         nextCursor: next_cursor,
+         initial: request.cursor == 0
+       }, state}
     end
   end
 end

@@ -7,7 +7,8 @@ defmodule Broth.SocketHandler do
             encoding: nil,
             compression: nil,
             version: nil,
-            callers: []
+            callers: [],
+            user_ids_i_am_blocking: []
 
   @type state :: %__MODULE__{
           user: nil | Beef.Schemas.User.t(),
@@ -15,6 +16,7 @@ defmodule Broth.SocketHandler do
           encoding: :etf | :json,
           compression: nil | :zlib,
           version: Version.t(),
+          user_ids_i_am_blocking: [String.t()],
           callers: [pid]
         }
 
@@ -43,6 +45,7 @@ defmodule Broth.SocketHandler do
 
     state = %__MODULE__{
       ip: ip,
+      user_ids_i_am_blocking: [],
       encoding: encoding,
       compression: compression,
       callers: get_callers(request)
@@ -117,12 +120,34 @@ defmodule Broth.SocketHandler do
   ##########################################################################
   ## CHAT MESSAGES
 
-  def chat_impl({"chat:" <> _room_id, message}, state) do
+  defp real_chat_impl(
+         {"chat:" <> _room_id, message},
+         %__MODULE__{} = state
+       ) do
     # TODO: make this guard against room_id or self_id when we put room into the state.
     message
     |> adopt_version(state)
     |> prepare_socket_msg(state)
     |> ws_push(state)
+  end
+
+  def chat_impl(
+        {"chat:" <> _room_id, %Broth.Message{payload: %Broth.Message.Chat.Send{from: from}}} = p1,
+        %__MODULE__{} = state
+      ) do
+    if Enum.any?(state.user_ids_i_am_blocking, &(&1 == from)) do
+      ws_push(nil, state)
+    else
+      real_chat_impl(p1, state)
+    end
+  end
+
+  def chat_impl(
+        {"chat:" <> _room_id, _} = p1,
+        %__MODULE__{} = state
+      ) do
+    # TODO: make this guard against room_id or self_id when we put room into the state.
+    real_chat_impl(p1, state)
   end
 
   def chat_impl(_, state), do: ws_push(nil, state)
@@ -350,7 +375,10 @@ defmodule Broth.SocketHandler do
   def websocket_info(:auth_timeout, state), do: auth_timeout_impl(state)
   def websocket_info({:remote_send, message}, state), do: remote_send_impl(message, state)
   def websocket_info(message = {"chat:" <> _, _}, state), do: chat_impl(message, state)
-  def websocket_info(message = {"user:update:" <> _, _}, state), do: user_update_impl(message, state)
+
+  def websocket_info(message = {"user:update:" <> _, _}, state),
+    do: user_update_impl(message, state)
+
   # throw out all other messages
   def websocket_info(_, state) do
     ws_push(nil, state)

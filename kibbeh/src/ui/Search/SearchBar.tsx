@@ -26,6 +26,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         </div>
       )}
       <Input
+        autoFocus
         data-testid="searchbar"
         className={`${inputClassName} pl-0`}
         {...props}

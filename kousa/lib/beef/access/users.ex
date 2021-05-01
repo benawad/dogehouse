@@ -10,6 +10,7 @@ defmodule Beef.Access.Users do
   def get(user_id) do
     Repo.get(User, user_id)
   end
+
   def get(user_id, opts) do
     # opts could be a preload.
   end
@@ -38,7 +39,10 @@ defmodule Beef.Access.Users do
   def get_by_id_with_follow_info(me_id, them_id) do
     Query.start()
     |> Query.filter_by_id(them_id)
+    |> select([u], u)
     |> Query.follow_info(me_id)
+    |> Query.i_blocked_them_info(me_id)
+    |> Query.they_blocked_me_info(me_id)
     |> Query.limit_one()
     |> Repo.one()
   end
@@ -67,7 +71,10 @@ defmodule Beef.Access.Users do
   def get_by_username_with_follow_info(user_id, username) do
     Query.start()
     |> Query.filter_by_username(username)
+    |> select([u], u)
     |> Query.follow_info(user_id)
+    |> Query.i_blocked_them_info(user_id)
+    |> Query.they_blocked_me_info(user_id)
     |> Query.limit_one()
     |> Repo.one()
   end

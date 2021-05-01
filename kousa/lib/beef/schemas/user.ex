@@ -41,15 +41,15 @@ defmodule Beef.Schemas.User do
           bannerUrl: String.t(),
           bio: String.t(),
           reasonForBan: String.t(),
-          ip: String.t(),
+          ip: nil | String.t(),
           tokenVersion: integer(),
           numFollowing: integer(),
           numFollowers: integer(),
           hasLoggedIn: boolean(),
           online: boolean(),
           lastOnline: DateTime.t(),
-          youAreFollowing: boolean(),
-          followsYou: boolean(),
+          youAreFollowing: nil | boolean(),
+          followsYou: nil | boolean(),
           botOwnerId: nil | Ecto.UUID.t(),
           roomPermissions: nil | Beef.Schemas.RoomPermission.t(),
           currentRoomId: Ecto.UUID.t(),
@@ -58,11 +58,7 @@ defmodule Beef.Schemas.User do
 
   @derive {Poison.Encoder, only: ~w(id username avatarUrl bannerUrl bio online
              lastOnline currentRoomId displayName numFollowing numFollowers
-             currentRoom youAreFollowing followsYou botOwnerId roomPermissions)a}
-
-  @derive {Jason.Encoder, only: ~w(id username avatarUrl bannerUrl bio online
-    lastOnline currentRoomId displayName numFollowing numFollowers
-    youAreFollowing followsYou botOwnerId roomPermissions)a}
+             currentRoom youAreFollowing followsYou botOwnerId roomPermissions iBlockedThem)a}
 
   @primary_key {:id, :binary_id, []}
   schema "users" do
@@ -91,6 +87,8 @@ defmodule Beef.Schemas.User do
     field(:deafened, :boolean, virtual: true)
     field(:apiKey, :binary_id)
     field(:ip, :string, null: true)
+    field(:theyBlockedMe, :boolean, virtual: true)
+    field(:iBlockedThem, :boolean, virtual: true)
 
     belongs_to(:botOwner, Beef.Schemas.User, foreign_key: :botOwnerId, type: :binary_id)
     belongs_to(:currentRoom, Room, foreign_key: :currentRoomId, type: :binary_id)
@@ -98,6 +96,11 @@ defmodule Beef.Schemas.User do
     many_to_many(:blocked_by, __MODULE__,
       join_through: "user_blocks",
       join_keys: [userIdBlocked: :id, userId: :id]
+    )
+
+    many_to_many(:blocking, __MODULE__,
+      join_through: "user_blocks",
+      join_keys: [userId: :id, userIdBlocked: :id]
     )
 
     timestamps()
@@ -138,5 +141,24 @@ defmodule Beef.Schemas.User do
       ~r/^https?:\/\/(www\.|)(pbs.twimg.com\/profile_banners\/(.+)\/(.+)\/(.+)(?:\.(jpg|png|jpeg|webp))?|avatars\.githubusercontent\.com\/u\/)/
     )
     |> unique_constraint(:username)
+  end
+
+  defimpl Jason.Encoder do
+    @fields ~w(id username avatarUrl bannerUrl bio online
+  lastOnline currentRoomId currentRoom displayName numFollowing numFollowers
+  youAreFollowing followsYou botOwnerId roomPermissions iBlockedThem)a
+
+    defp transform_current_room(fields = %{currentRoom: %Ecto.Association.NotLoaded{}}) do
+      Map.delete(fields, :currentRoom)
+    end
+
+    defp transform_current_room(fields), do: fields
+
+    def encode(user, opts) do
+      user
+      |> Map.take(@fields)
+      |> transform_current_room
+      |> Jason.Encoder.encode(opts)
+    end
   end
 end
