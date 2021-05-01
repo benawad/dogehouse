@@ -48,7 +48,7 @@ export const RoomPage: PageComponent<RoomPageProps> = ({ room }) => {
                       className="text-center absolute flex flex-col left-1/2 top-1/2 transform translate-x-n1/2 translate-y-n1/2 w-3/5"
                       onClick={() => roomData?.room.creatorId === conn.user.id ? setShowMobileEditModal(true) : ""}
                     >
-                      <span>{roomData?.room.name}</span>
+                      <span className="line-clamp-1">{roomData?.room.name}</span>
                       {roomData && (
                         <span
                           className={"text-sm text-center font-normal truncate"}
