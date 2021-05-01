@@ -1,0 +1,68 @@
+version: "3"
+
+# service_name:
+#   build: 
+#     context: .
+#     dockerfile: path/to/Dockerfile
+#   restart: unless-stopped
+#   labels:
+#     tv.dogehouse.description: "Service Description"
+#   depends_on:
+#     - deps
+#
+
+# We will be making use of docker-compose overloads, so be sure to check the other compose files before reporting a missing field
+# On local the containers will be built locally and tagged, able to be published.
+# On prod the compose file will pull from the docker registry
+services:
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    restart: unless-stopped
+    labels:
+      tv.dogehouse.description: "RabbitMQ broker"
+    volumes:
+      - ./.docker/rabbitmq/data/:/var/lib/rabbitmq/
+      - ./.docker/rabbitmq/logs/:/var/log/rabbitmq/
+    ports:
+      - 5672:5672
+      - 15672:15672
+    healthcheck:
+      test: ['CMD', 'rabbitmq-diagnostics', '-q', 'ping']
+      interval: 60s
+      timeout: 5s
+
+  shawarma:
+    restart: unless-stopped
+    labels:
+      tv.dogehouse.description: "Voice Server Service"
+    depends_on: 
+      - kousa
+
+  kousa:
+    restart: unless-stopped
+    labels:
+      tv.dogehouse.description: "Backend Service"
+    depends_on: 
+      - postgres
+      - rabbitmq
+      
+  postgres:
+    image: postgres:13-alpine
+    restart: unless-stopped
+    labels:
+      tv.dogehouse.description: "Postgres Database"
+    volumes:
+      - ./.docker/postgres:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+  adminer:
+    image: adminer
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    labels:
+      tv.dogehouse.description: "Adminer Database"
+    depends_on: 
+      - postgres
