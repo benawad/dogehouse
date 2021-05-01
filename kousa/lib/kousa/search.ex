@@ -3,9 +3,9 @@ defmodule Kousa.Search do
   alias Beef.Rooms
 
   def search(query) do
-    case String.trim(query) do
-      <<?@>> <> username -> Users.search_username(username)
-      roomname -> Rooms.search_name(roomname)
-    end
+    %{
+      users: Users.search_username(query),
+      rooms: Rooms.search_name(query)
+    }
   end
 end
