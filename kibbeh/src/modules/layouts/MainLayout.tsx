@@ -108,7 +108,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
           isElectron() && !useHostStore.getState().isLinux
             ? `default-desktop-layout flex flex-col items-center w-full scrollbar-thin scrollbar-thumb-primary-700`
             : `flex flex-col items-center w-full scrollbar-thin scrollbar-thumb-primary-700 ${
-                prepend ? "mt-7.5 mb-7" : ""
+                prepend ? "mt-8 mb-7" : ""
               }`
         }
       >

@@ -13,12 +13,11 @@ defmodule KousaTest.User do
 
   describe "update_with/1" do
     test "updates a user with the changeset", %{user: user = %{id: user_id}} do
-
       PubSub.subscribe("user:update:" <> user_id)
 
       user
       |> Ecto.Changeset.cast(%{username: "foobar"}, [:username])
-      |> Kousa.User.update_with
+      |> Kousa.User.update_with()
 
       # and propagates new user info to the PubSub notification channel.
       assert_receive {"user:update:" <> ^user_id, %{username: "foobar"}}

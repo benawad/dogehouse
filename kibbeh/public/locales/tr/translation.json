@@ -20,8 +20,8 @@
   "header": {
     "_comment": "Ana başlık arayüz ulusallaştırma yazıları",
     "title": "DogeHouse",
-    "mutedTitle": "Sessiz | DogeHouse",
-    "deafenedTitle": "Deafened | DogeHouse",
+    "mutedTitle": "Susturulmuş | DogeHouse",
+    "deafenedTitle": "Sağırlaştırılmış | DogeHouse",
     "dashboard": "Panel",
     "connectionTaken": "Bağlantı Sağlandı"
   },
@@ -44,7 +44,7 @@
       "createRoom": "Oda oluştur",
       "refresh": "Yenile",
       "editRoom": "Oda Düzenle",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "desktopAlert": "Bugün DogeHouse masaüstü uygulamasını indirin!"
     },
     "inviteList": {
       "roomGone": "Oda gitti, geri dön",
@@ -98,7 +98,7 @@
       "copyProfileUrl": "Profil bağlantısını kopyala",
       "urlCopied": "Bağlantı kopyalandı",
       "unfollow": "Takipten çık",
-      "about": "About",
+      "about": "Hakkında",
       "bot": "Bot"
     },
     "voiceSettings": {
@@ -117,12 +117,12 @@
       "header": "Kaplama ayarları"
     },
     "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
-      "download_for": "Download for %platform% (%ext%)"
+      "starting": "İndirme başlıyor...",
+      "failed": "Otomatik indirme başarısız oldu, sonra tekrar dene",
+      "visit_gh": "Github Yayınlamalarına git",
+      "prompt": "İndirmeyi başlatmak için aşağıdaki butona bas",
+      "download_now": "Şimdi İndir",
+      "download_for": "%platform% için indir (%ext%)"
     }
   },
   "components": {
@@ -148,9 +148,9 @@
       "speaker": "Konuşmacı",
       "listener": "Dinleyici",
       "chat": "Sohbet",
-      "toggleDeafMicBtn": "Toggle Deafen",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen"
+      "toggleDeafMicBtn": "Sağırlaştırmayı aç/kapa",
+      "deafen": "Sağırlığı aç",
+      "undeafen": "Sağırlığı kapa"
     },
     "micPermissionBanner": {
       "permissionDenied": "Mikrofonunuza erişmeye çalışırken izin reddedildi (tarayıcı ayarlarına gitmeniz ve sayfayı yeniden yüklemeniz gerekebilir)",
@@ -184,7 +184,7 @@
         "usernameLabel": "Kullanıcı adı",
         "bioError": "Maksimum uzunluk 160 karakter",
         "bioLabel": "Biyo",
-        "bannerUrlLabel": "Twitter banner URL"
+        "bannerUrlLabel": "Twitter kapak bağlantısı"
       },
       "profileModal": {
         "blockUserConfirm": "Oluşturduğun tüm odalar için bu kullanıcıyı yasaklamak istediğine emin misin?",
@@ -216,7 +216,7 @@
       "toggleMuteKeybind": "susturma aç/kapat tuş ataması",
       "togglePushToTalkKeybind": "bas-konuş tuş ataması",
       "toggleOverlayKeybind": "kaplama tuş ataması",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleDeafKeybind": "sağırlık aç/kapat tuş ataması"
     },
     "wsKilled": {
       "description": "WebSocket bağlantısı sunucu tarafından kapatıldı. Bu genellikle websiteyi başka bir sekmede açtığında yaşanır.",
@@ -243,7 +243,7 @@
     },
     "search": {
       "placeholder": "Oda, kullanıcı veya kategori ara...",
-      "placeholderShort": "Search"
+      "placeholderShort": "Ara"
     },
     "settingsDropdown": {
       "profile": "Profil",
