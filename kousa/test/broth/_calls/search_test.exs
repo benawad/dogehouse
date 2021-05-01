@@ -40,7 +40,7 @@ defmodule BrothTest.SearchTest do
 
       WsClient.assert_reply_legacy(
         ref,
-        %{"items" => [%{"id" => ^room_id}]},
+        %{"items" => %{"rooms" => [%{"id" => ^room_id}], "users" => []}},
         t.client_ws
       )
     end
@@ -67,7 +67,7 @@ defmodule BrothTest.SearchTest do
 
       WsClient.assert_reply_legacy(
         ref,
-        %{"items" => []},
+        %{"items" => %{"items" => %{"rooms" => [], "users" => []}},
         t.client_ws
       )
     end
@@ -84,7 +84,7 @@ defmodule BrothTest.SearchTest do
 
       WsClient.assert_reply_legacy(
         ref,
-        %{"items" => [%{"id" => ^u_id}]},
+        %{"items" => %{"rooms" => [], "users" => [%{"id" => ^u_id}]}},
         t.client_ws
       )
     end
