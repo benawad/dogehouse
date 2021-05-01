@@ -67,7 +67,7 @@ defmodule BrothTest.SearchTest do
 
       WsClient.assert_reply_legacy(
         ref,
-        %{"items" => %{"items" => %{"rooms" => [], "users" => []}},
+        %{"items" => %{"rooms" => [], "users" => []}},
         t.client_ws
       )
     end
