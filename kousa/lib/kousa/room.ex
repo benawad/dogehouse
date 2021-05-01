@@ -7,6 +7,8 @@ defmodule Kousa.Room do
   alias Beef.RoomPermissions
   alias Beef.RoomBlocks
   alias Onion.PubSub
+  alias Onion.UserSession
+  alias Broth.SocketHandler
 
   def set_auto_speaker(user_id, value) do
     if room = Rooms.get_room_by_creator_id(user_id) do
@@ -69,6 +71,18 @@ defmodule Kousa.Room do
   end
 
   defp internal_kick_from_room(user_id_to_kick, room_id) do
+    case UserSession.lookup(user_id_to_kick) do
+      [{_, _}] ->
+        ws_pid = UserSession.get(user_id_to_kick, :pid)
+
+        if ws_pid do
+          SocketHandler.unsub(ws_pid, "chat:" <> room_id)
+        end
+
+      _ ->
+        nil
+    end
+
     current_room_id = Beef.Users.get_current_room_id(user_id_to_kick)
 
     if current_room_id == room_id do
