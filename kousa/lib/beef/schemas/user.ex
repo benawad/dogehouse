@@ -25,36 +25,6 @@ defmodule Beef.Schemas.User do
     end
   end
 
-  defmodule WithRoom do
-    use Ecto.Schema
-
-    @derive {Jason.Encoder, only: ~w(id username avatarUrl bannerUrl bio online
-    lastOnline currentRoomId currentRoom displayName numFollowing numFollowers
-    youAreFollowing followsYou botOwnerId roomPermissions iBlockedThem)a}
-
-    @primary_key {:id, :binary_id, []}
-    schema "users" do
-      field(:username, :string)
-      field(:displayName, :string)
-      field(:avatarUrl, :string)
-      field(:bannerUrl, :string)
-      field(:bio, :string, default: "")
-      field(:numFollowing, :integer)
-      field(:numFollowers, :integer)
-      field(:online, :boolean)
-      field(:lastOnline, :utc_datetime_usec)
-      field(:youAreFollowing, :boolean, virtual: true)
-      field(:followsYou, :boolean, virtual: true)
-      field(:roomPermissions, :map, virtual: true, null: true)
-      field(:iBlockedThem, :boolean, virtual: true)
-
-      belongs_to(:botOwner, Beef.Schemas.User, foreign_key: :botOwnerId, type: :binary_id)
-      belongs_to(:currentRoom, Room, foreign_key: :currentRoomId, type: :binary_id)
-
-      timestamps()
-    end
-  end
-
   @timestamps_opts [type: :utc_datetime_usec]
 
   @type t :: %__MODULE__{
@@ -89,10 +59,6 @@ defmodule Beef.Schemas.User do
   @derive {Poison.Encoder, only: ~w(id username avatarUrl bannerUrl bio online
              lastOnline currentRoomId displayName numFollowing numFollowers
              currentRoom youAreFollowing followsYou botOwnerId roomPermissions iBlockedThem)a}
-
-  @derive {Jason.Encoder, only: ~w(id username avatarUrl bannerUrl bio online
-    lastOnline currentRoomId displayName numFollowing numFollowers
-    youAreFollowing followsYou botOwnerId roomPermissions iBlockedThem)a}
 
   @primary_key {:id, :binary_id, []}
   schema "users" do
@@ -175,5 +141,24 @@ defmodule Beef.Schemas.User do
       ~r/^https?:\/\/(www\.|)(pbs.twimg.com\/profile_banners\/(.+)\/(.+)\/(.+)(?:\.(jpg|png|jpeg|webp))?|avatars\.githubusercontent\.com\/u\/)/
     )
     |> unique_constraint(:username)
+  end
+
+  defimpl Jason.Encoder do
+    @fields ~w(id username avatarUrl bannerUrl bio online
+  lastOnline currentRoomId currentRoom displayName numFollowing numFollowers
+  youAreFollowing followsYou botOwnerId roomPermissions iBlockedThem)a
+
+    defp transform_current_room(fields = %{currentRoom: %Ecto.Association.NotLoaded{}}) do
+      Map.delete(fields, :currentRoom)
+    end
+
+    defp transform_current_room(fields), do: fields
+
+    def encode(user, opts) do
+      user
+      |> Map.take(@fields)
+      |> transform_current_room
+      |> Jason.Encoder.encode(opts)
+    end
   end
 end
