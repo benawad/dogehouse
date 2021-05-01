@@ -93,7 +93,8 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                 className="w-full px-2 mb-2 mt-7 bg-primary-800 rounded-b-8 overflow-y-auto"
                 {...getMenuProps({ style: { top: 0 } })}
               >
-                {data?.items.rooms.length && data?.items.users.length === 0 ? (
+                {data?.items.rooms.length === 0 &&
+                data?.items.users.length === 0 ? (
                   <InfoText className="p-3">no results</InfoText>
                 ) : null}
                 {data?.items.rooms.map((item, index) => (
@@ -129,11 +130,6 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                         isOnline: item.online,
                         avatar: item.avatarUrl,
                       }}
-                      className={
-                        highlightedIndex === index
-                          ? "bg-primary-700"
-                          : "bg-primary-800"
-                      }
                     />
                   </li>
                 ))}
