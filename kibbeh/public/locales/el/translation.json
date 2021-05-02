@@ -206,7 +206,7 @@
       "editProfileModal": {
         "usernameTaken": "Όνομα χρήστη μη διαθέσιμο",
         "avatarUrlError": "Μη έγκυρη φωτογραφία",
-        "avatarUrlLabel": "Διεύθυνση URL άβαταρ απο Github/Twitter",
+        "avatarUrlLabel": "Διεύθυνση URL άβαταρ απο Github/Twitter/Discord",
         "displayNameError": "Μήκος από 2 έως 50 χαρακτήρες",
         "displayNameLabel": "Εμφανιζόμενο όνομα",
         "usernameError": "Μήκος από 4 έως 15 χαρακτήρες και μόνο αλφαριθμητικά/κάτω παύλα",

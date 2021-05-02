@@ -193,7 +193,7 @@
       "editProfileModal": {
         "usernameTaken": "用户名已被使用",
         "avatarUrlError": "圖片無效",
-        "avatarUrlLabel": "Github/Twitter 頭像 URL",
+        "avatarUrlLabel": "Github/Twitter/Discord 頭像 URL",
         "displayNameError": "長度為 2 到 50 字元",
         "displayNameLabel": "顯示名稱",
         "usernameError": "長度要在 4 到 15 字元之内，只可輸入英文字母、數字與下劃線 _",

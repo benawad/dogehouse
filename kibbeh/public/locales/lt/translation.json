@@ -199,7 +199,7 @@
       "editProfileModal": {
         "usernameTaken": "Vardas užimtas, panaudotas",
         "avatarUrlError": "Negalima nuotrauka",
-        "avatarUrlLabel": "Github/Twitter avataro nuoroda",
+        "avatarUrlLabel": "Github/Twitter/Discord avataro nuoroda",
         "displayNameError": "Ilgis nuo 2 iki 50 simbolių",
         "displayNameLabel": "Rodyti vardą",
         "usernameError": "Ilgis nuo 4 iki 15 simbolių ir tik raidinis(arba skaitmeninis)/apatinis pabraukimas",

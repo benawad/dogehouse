@@ -203,7 +203,7 @@
       "editProfileModal": {
         "usernameTaken": "имя пользователя занято",
         "avatarUrlError": "Некорректное изображение",
-        "avatarUrlLabel": "URL аватара из GitHub/Twitter",
+        "avatarUrlLabel": "URL аватара из Github/Twitter/Discord",
         "displayNameError": "длина от 2 до 50 символов",
         "displayNameLabel": "Публичное имя",
         "usernameError": "длина от 4 до 15 символов, только буквенно-цифровые символы и нижнее подчеркивание",

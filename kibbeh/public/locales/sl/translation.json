@@ -202,7 +202,7 @@
       "editProfileModal": {
         "usernameTaken": "Uporabniško ime zasedeno",
         "avatarUrlError": "Neveljavna slika",
-        "avatarUrlLabel": "povezava do GitHub/Twitter slike",
+        "avatarUrlLabel": "povezava do Github/Twitter/Discord slike",
         "displayNameError": "Dolžina: 2 do 50 znakov",
         "displayNameLabel": "Prikazno ime",
         "usernameError": "Dolžina: 4 do 15 alfanumeričnih znakov ali podčrtaj",

@@ -198,7 +198,7 @@
       "editProfileModal": {
         "usernameTaken": "потребителското име е взето",
         "avatarUrlError": "Невалидна картинка",
-        "avatarUrlLabel": "линк към GitHub/Twitter аватар",
+        "avatarUrlLabel": "линк към Github/Twitter/Discord аватар",
         "displayNameError": "дължина между 2 и 60 знака",
         "displayNameLabel": "Показващо се име",
         "usernameError": "дължина между 4 и 15, само букви, цифри и долна черта",

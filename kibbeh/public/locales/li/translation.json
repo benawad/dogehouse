@@ -199,7 +199,7 @@
       "editProfileModal": {
         "usernameTaken": "Gebroekersnaam al in gebroek",
         "avatarUrlError": "Ongeldig plétje",
-        "avatarUrlLabel": "GitHub/Twitter avatar url",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar url",
         "displayNameError": "2 tot 50 karakters",
         "displayNameLabel": "Waargavenaam",
         "usernameError": "4 tot 15 karakters en alling mer litters, ciefers en underscore",
