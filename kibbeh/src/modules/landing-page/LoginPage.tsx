@@ -11,6 +11,7 @@ import {
   loginNextPathKey,
   __prod__,
 } from "../../lib/constants";
+import { isServer } from "../../lib/isServer";
 import { Button } from "../../ui/Button";
 import { useSaveTokensFromQueryParams } from "../auth/useSaveTokensFromQueryParams";
 import { useTokenStore } from "../auth/useTokenStore";
@@ -86,9 +87,10 @@ export const LoginPage: React.FC = () => {
     }
   }, [hasTokens, push]);
 
-  const queryParams = isStaging
-    ? "?redirect_after_base=" + window.location.origin
-    : "";
+  const queryParams =
+    isStaging && !isServer
+      ? "?redirect_after_base=" + window.location.origin
+      : "";
 
   return (
     <>
