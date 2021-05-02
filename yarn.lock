@@ -1894,6 +1894,8 @@ __metadata:
     react-popper: ^2.2.5
     react-query: ^3.15.0
     react-responsive: ^8.2.0
+    react-spring: ^9.1.2
+    react-use-gesture: ^9.1.3
     react-virtual: ^2.7.1
     start-server-and-test: ^1.12.1
     style-loader: ^2.0.0
@@ -2692,6 +2694,129 @@ __metadata:
     react: 15.x || 16.x || 16.4.0-alpha.0911da3
     react-dom: 15.x || 16.x || 16.4.0-alpha.0911da3
   checksum: 7fedb32b5f589d0de236f83af7a0098bef93327925ac3dc090026ce79f6571005207d872fb01378ef00dfcd6e9ed0f0583755c5817ae9d85f3fd6d5b34b84417
+  languageName: node
+  linkType: hard
+
+"@react-spring/animated@npm:~9.1.2":
+  version: 9.1.2
+  resolution: "@react-spring/animated@npm:9.1.2"
+  dependencies:
+    "@react-spring/shared": ~9.1.2
+    "@react-spring/types": ~9.1.2
+  peerDependencies:
+    react: ">=16.8"
+  checksum: 5c12882f2de055efa7e21cdd11c284fb3255e47449b6c4853900fe140b0251df7d7ba1e2720bd7f4d8288cc677acda3340f5fd8493e7d3cbb75b8dbac53a099a
+  languageName: node
+  linkType: hard
+
+"@react-spring/core@npm:~9.1.2":
+  version: 9.1.2
+  resolution: "@react-spring/core@npm:9.1.2"
+  dependencies:
+    "@react-spring/animated": ~9.1.2
+    "@react-spring/shared": ~9.1.2
+    "@react-spring/types": ~9.1.2
+  peerDependencies:
+    react: ">=16.8"
+  checksum: 257f5a1aab9f5c8b883d571349af20cb229beeca1707fd518b93d194f388a31913126786231c4e176d12012aa0c029cf5e097469aaa30eaba5d90b9504de95cb
+  languageName: node
+  linkType: hard
+
+"@react-spring/konva@npm:~9.1.2":
+  version: 9.1.2
+  resolution: "@react-spring/konva@npm:9.1.2"
+  dependencies:
+    "@react-spring/animated": ~9.1.2
+    "@react-spring/core": ~9.1.2
+    "@react-spring/shared": ~9.1.2
+    "@react-spring/types": ~9.1.2
+  peerDependencies:
+    konva: ">=2.6"
+    react: ">=16.8"
+    react-konva: ">=16.8"
+  checksum: 1798fa1fc886539e91dc1c4d963086b764ac0b62503dc9b6da946dbf89aa791b41f34f414c08bf2d17e4301f66e45b4c610d7e17affb0c386998eac883ee9632
+  languageName: node
+  linkType: hard
+
+"@react-spring/native@npm:~9.1.2":
+  version: 9.1.2
+  resolution: "@react-spring/native@npm:9.1.2"
+  dependencies:
+    "@react-spring/animated": ~9.1.2
+    "@react-spring/core": ~9.1.2
+    "@react-spring/shared": ~9.1.2
+    "@react-spring/types": ~9.1.2
+  peerDependencies:
+    react: ">=16.8"
+    react-native: ">=0.58"
+  checksum: 536305d0545edad74c1e365f745dc82c9a9bac8b2d833af47d5b682a34d47a1c144b665502db86516bc6151c3b4e49291c7cb1ac34f7e01012599e02156004c7
+  languageName: node
+  linkType: hard
+
+"@react-spring/shared@npm:~9.1.2":
+  version: 9.1.2
+  resolution: "@react-spring/shared@npm:9.1.2"
+  dependencies:
+    "@react-spring/types": ~9.1.2
+    rafz: ^0.1.14
+  peerDependencies:
+    react: ">=16.8"
+  checksum: a23efc953db5f1cb0a89cbc18d6585c5012fd9afd4de5aec633d89126af2e76d7e24b69f8bebfbabc3278ed69795d80b0bb5b7a193689d627d295de31d5f484b
+  languageName: node
+  linkType: hard
+
+"@react-spring/three@npm:~9.1.2":
+  version: 9.1.2
+  resolution: "@react-spring/three@npm:9.1.2"
+  dependencies:
+    "@react-spring/animated": ~9.1.2
+    "@react-spring/core": ~9.1.2
+    "@react-spring/shared": ~9.1.2
+    "@react-spring/types": ~9.1.2
+  peerDependencies:
+    "@react-three/fiber": ">=6.0"
+    react: ">=16.11"
+    three: ">=0.126"
+  checksum: e1f8523e1867e6e15a5810d819a81fa09e5b8194058c260731100028dcbcf9df6a00be1b00933a45a554370f316eb716b6f1b0ab9981f0f1f3b60cb8a778662e
+  languageName: node
+  linkType: hard
+
+"@react-spring/types@npm:~9.1.2":
+  version: 9.1.2
+  resolution: "@react-spring/types@npm:9.1.2"
+  checksum: fd130b41b4c2498b0add7478c44ccc7d2213c9443eac8b7815756636077513ddfe85437046b72ce04bd41ee01ed79d94a4f759c2b519c7555c2aa75745c87245
+  languageName: node
+  linkType: hard
+
+"@react-spring/web@npm:~9.1.2":
+  version: 9.1.2
+  resolution: "@react-spring/web@npm:9.1.2"
+  dependencies:
+    "@react-spring/animated": ~9.1.2
+    "@react-spring/core": ~9.1.2
+    "@react-spring/shared": ~9.1.2
+    "@react-spring/types": ~9.1.2
+  peerDependencies:
+    react: ">=16.8"
+    react-dom: ">=16.8"
+  checksum: 131c7d9e3d24ac785507a136582b32578fc0d060a5c3c9daabec019b6f206f15ffbbf8556046996278df4f136554a3cad30b1dc4a3826869c44e979a58305d99
+  languageName: node
+  linkType: hard
+
+"@react-spring/zdog@npm:~9.1.2":
+  version: 9.1.2
+  resolution: "@react-spring/zdog@npm:9.1.2"
+  dependencies:
+    "@react-spring/animated": ~9.1.2
+    "@react-spring/core": ~9.1.2
+    "@react-spring/shared": ~9.1.2
+    "@react-spring/types": ~9.1.2
+  peerDependencies:
+    react: ">=16.8"
+    react-dom: ">=16.8"
+    react-zdog: ">=1.0"
+    zdog: ">=1.0"
+  checksum: 57d8ab1206092e4c7d634de1f83291f093dec247a06e9c0b5b83f0b0d9e12bbb22d9e7613cd41d0fc418b77bd4e63b300d9ec545616f4cfd1c705ba6c20ceb74
   languageName: node
   linkType: hard
 
@@ -15640,6 +15765,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"rafz@npm:^0.1.14":
+  version: 0.1.14
+  resolution: "rafz@npm:0.1.14"
+  checksum: 3a0d585910f6b2610aa4bedeeb4e17a4cf25b1fb81ea24f1c288204aa31b5634b9180be73e2584c0e0368c966e4b9a06885c7dd8a1962e80c6f775659bcdc2c2
+  languageName: node
+  linkType: hard
+
 "ramda@npm:^0.21.0":
   version: 0.21.0
   resolution: "ramda@npm:0.21.0"
@@ -16140,6 +16272,20 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-spring@npm:^9.1.2":
+  version: 9.1.2
+  resolution: "react-spring@npm:9.1.2"
+  dependencies:
+    "@react-spring/core": ~9.1.2
+    "@react-spring/konva": ~9.1.2
+    "@react-spring/native": ~9.1.2
+    "@react-spring/three": ~9.1.2
+    "@react-spring/web": ~9.1.2
+    "@react-spring/zdog": ~9.1.2
+  checksum: 31314b2a2355d51402d706649492093a64a6b97413920216d595b7e9475c88331f17cf5a95fe3d437922ec7e9eda16c15153a7ba70a0063644fe0ba08ff3c414
+  languageName: node
+  linkType: hard
+
 "react-syntax-highlighter@npm:^13.5.3":
   version: 13.5.3
   resolution: "react-syntax-highlighter@npm:13.5.3"
@@ -16180,6 +16326,15 @@ fsevents@^1.2.7:
     react: ">=16.6.0"
     react-dom: ">=16.6.0"
   checksum: e14446123f820e804335c64be5270333c29e8cfaa43dfc33387e132c5d521cf4a0a7c2408058a147b254ae82a6569f373394d83e977ef340d6937bc2f4ff7d6c
+  languageName: node
+  linkType: hard
+
+"react-use-gesture@npm:^9.1.3":
+  version: 9.1.3
+  resolution: "react-use-gesture@npm:9.1.3"
+  peerDependencies:
+    react: ">= 16.8.0"
+  checksum: acb46284767a19082fb8777a735936380cc543a0a5b3d4b234e64f5af8b27c48624dcaa1b089f2a89e16a859ab88db736d922f8fac5bde4c9b7da486eb81ca52
   languageName: node
   linkType: hard
 

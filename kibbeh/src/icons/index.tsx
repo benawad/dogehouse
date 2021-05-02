@@ -16,6 +16,8 @@ export { default as SolidCaretRight } from "./SolidCaretRight";
 export { default as SolidDogenitro } from "./SolidDogenitro";
 export { default as SolidFullscreen } from "./SolidFullscreen";
 export { default as SolidHelp } from "./SolidHelp";
+export { default as SolidLogOut } from "./SolidLogOut";
+export { default as SolidDiscord } from "./SolidDiscord";
 export { default as SolidLink } from "./SolidLink";
 export { default as SolidMegaphone } from "./SolidMegaphone";
 export { default as SolidSimpleMegaphone } from "./SolidSimpleMegaphone";

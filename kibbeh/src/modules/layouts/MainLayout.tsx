@@ -12,6 +12,7 @@ import {
 import { useConn } from "../../shared-hooks/useConn";
 import { useScreenType } from "../../shared-hooks/useScreenType";
 import { MainInnerGrid } from "../../ui/MainGrid";
+import { AccountOverlay } from "../../ui/mobile/AccountOverlay";
 import { ProfileHeader } from "../../ui/mobile/MobileHeader";
 import { MobileNav } from "../../ui/mobile/MobileNav";
 import { ElectronHeader } from "./ElectronHeader";
@@ -52,8 +53,16 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
     { icon: <SolidCalendar />, targetPath: "/scheduled-rooms" },
   ];
 
-  if (plusButtonURL) items.push({ icon: <SolidPlus />, targetPath: plusButtonURL });
-  if (me) items.push({ icon: <SolidUser />, targetPath: `/u/${me.username}/following-online` });
+  if (plusButtonURL) {
+    items.push({ icon: <SolidPlus />, targetPath: plusButtonURL });
+  }
+
+  if (me) {
+    items.push({
+      icon: <SolidUser />,
+      targetPath: `/u/${me.username}/following-online`,
+    });
+  }
 
   let middle = null;
   let prepend = null;
@@ -96,6 +105,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
         <>
           {children}
           {floatingRoomInfo}
+          <AccountOverlay />
         </>
       );
   }
