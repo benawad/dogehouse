@@ -146,17 +146,19 @@ export const FollowingController: React.FC<FollowingControllerProps> = ({}) => {
 
   return (
     <MiddlePanel>
-      {cursors.map((cursor, i) => (
-        <Page
-          username={username}
-          isFollowing={isFollowing}
-          key={cursor}
-          cursor={cursor}
-          isOnlyPage={cursors.length === 1}
-          onLoadMore={(c) => setCursors([...cursors, c])}
-          isLastPage={i === cursors.length - 1}
-        />
-      ))}
+      <div className="flex flex-col mb-6">
+        {cursors.map((cursor, i) => (
+          <Page
+            username={username}
+            isFollowing={isFollowing}
+            key={cursor}
+            cursor={cursor}
+            isOnlyPage={cursors.length === 1}
+            onLoadMore={(c) => setCursors([...cursors, c])}
+            isLastPage={i === cursors.length - 1}
+          />
+        ))}
+      </div>
     </MiddlePanel>
   );
 };
