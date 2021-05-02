@@ -1,4 +1,4 @@
-name: build-and-release-electron
+name: baklava:build_and_release
 
 on:
   push:

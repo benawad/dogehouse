@@ -1,18 +1,21 @@
-name: test-elixir
+name: kibbeh:e2e_tests
 on:
   push:
     branches:
       - staging
     paths:
+      - '.github/workflows/end-to-end-tests.yaml'
       - 'kousa/lib/**'
+      - 'kibbeh/src/**'
   pull_request:
     branches:
       - staging
     paths:
       - 'kousa/lib/**'
+      - 'kibbeh/src/**'
 jobs:
-  test:
-    name: test-elixir
+  end-to-end-tests:
+    name: end-to-end-tests
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -38,5 +41,10 @@ jobs:
       run: mix deps.get
       env:
           MIX_ENV: test
-    - run: mix test
-      id: test
+    - run: source .envrc && iex -S mix
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+    - run: yarn install
+    - run: cd ../kebab && yarn build
+    - run: cd ../kibbeh && yarn dev
+    - run: cd ../kibbeh && yarn cy:run
