@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Twemoji } from "./Twemoji";
 import backIcon from "../icons/SolidCaretRight";
 import { SettingsIcon } from "./SettingsIcon";
+import { useRouter } from "next/router";
 
 interface LanguageSelectorProps {
   onClose?(): void;
@@ -91,7 +92,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   const options = [...languages, ...noveltyLanguages];
 
   const { i18n } = useTranslation();
-
+  const { back } = useRouter();
   const parsedOptions = options.map((e, i) => (
     <SettingsIcon
       key={e.value + i}
@@ -101,7 +102,12 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
           ? " bg-primary-700"
           : ""
       }`}
-      onClick={() => i18n.changeLanguage(e.value)}
+      onClick={() => {
+        i18n.changeLanguage(e.value);
+        if (mobile) {
+          back();
+        }
+      }}
       last={i === options.length - 1}
       icon={<Twemoji text={e.label} style={{ marginRight: "1ch" }} />}
     ></SettingsIcon>
