@@ -16,6 +16,11 @@ interface ChatListProps {
   users: RoomUser[];
 }
 
+interface BadgeIconData {
+  emoji: string,
+  title: string
+}
+
 export const RoomChatList: React.FC<ChatListProps> = ({ room, users }) => {
   const { setData } = useContext(UserPreviewModalContext);
   const { messages, toggleFrozen } = useRoomChatStore();
@@ -48,11 +53,14 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room, users }) => {
   const getBadgeIcon = (m: Message) => {
     const user = users.find((u) => u.id === m.userId);
     const isSpeaker = room.creatorId === user?.id || user?.roomPermissions?.isSpeaker;
-    let emoji = null;
+    let badgeIconData: BadgeIconData | null = null;
     if (isSpeaker) {
-      emoji = "📣";
+      badgeIconData = {
+        emoji: "📣",
+        title: "Speaker"
+      };
     }
-    return emoji && <Twemoji text={emoji} style={{ marginRight: "1ch" }}/>;
+    return badgeIconData && <Twemoji text={badgeIconData.emoji} title={badgeIconData.title} style={{ marginRight: "1ch" }}/>;
   };
 
   return (
