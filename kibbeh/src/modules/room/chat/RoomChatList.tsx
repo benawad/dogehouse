@@ -44,15 +44,15 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room, users }) => {
     estimateSize: React.useCallback(() => 20, []),
   });
 
-  const getBadgeIcon = (message: Message) => {
-    const user = users.find((u) => u.id == message.userId);
+  const getBadgeIcon = (m: Message) => {
+    const user = users.find((u) => u.id === m.userId);
     console.log(user);
     const isSpeaker = room.creatorId === user?.id || user?.roomPermissions?.isSpeaker;
     if (isSpeaker) {
       return "📣";
     }
-    return ""
-  }
+    return "";
+  };
 
   return (
     <div
@@ -154,7 +154,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room, users }) => {
                       >
                         {messages[index].username}
                       </button>
-                      {badgeIcon ? <span> {badgeIcon} </span>: ""}
+                      {badgeIcon ? <span> {badgeIcon} </span> : ""}
                       <span className={`inline mr-1`}>: </span>
                       <div className={`inline mr-1 space-x-1`}>
                         {messages[index].deleted ? (
