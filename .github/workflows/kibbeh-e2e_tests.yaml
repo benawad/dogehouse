@@ -4,7 +4,7 @@ on:
     branches:
       - staging
     paths:
-      - '.github/workflows/end-to-end-tests.yaml'
+      - '.github/workflows/kibbeh-e2e_tests.yaml'
       - 'kousa/lib/**'
       - 'kibbeh/src/**'
   pull_request:
