@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck because internet is unpredictable
 
-import { Connection } from "../raw";
+import { raw } from "..";
 import { RoomPeer, UUID } from "../entities";
 import {
   TransportOptions,
@@ -21,7 +21,7 @@ type Handler<Data> = (data: Data) => void;
  * @param connection - reference to the websocket connection
  * @returns Wrapper object
  */
-export const wrap = (connection: Connection) => ({
+export const wrap = (connection: raw.Connection) => ({
   connection,
   /**
    * Allows you to subscribe to various pre-defined websocket voice events

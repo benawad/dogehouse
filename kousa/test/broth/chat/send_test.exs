@@ -120,7 +120,6 @@ defmodule BrothTest.Chat.SendTest do
 
   describe "the sender should not be able to send" do
     test "if they have been chat banned from the room", t do
-      user_id = t.user.id
       room_id = t.room_id
 
       # create a user that is logged in.
@@ -165,6 +164,97 @@ defmodule BrothTest.Chat.SendTest do
       WsClient.refute_frame("chat:send", t.client_ws)
       # you will still get the message yourself.
       WsClient.assert_frame("chat:send", _, blocked_ws)
+
+      WsClient.send_msg(
+        blocked_ws,
+        "chat:send_msg",
+        %{"tokens" => @text_token}
+      )
+
+      WsClient.refute_frame("chat:send", t.client_ws)
+      # you will still get the message yourself.
+      WsClient.assert_frame("chat:send", _, blocked_ws)
+    end
+
+    test "block, unblock still receives message", t do
+      room_id = t.room_id
+
+      # create a user that is logged in.
+      blocked = Factory.create(User)
+      blocked_ws = WsClientFactory.create_client_for(blocked)
+
+      WsClient.do_call(blocked_ws, "room:join", %{"roomId" => room_id})
+      WsClient.assert_frame_legacy("new_user_join_room", _)
+
+      # block the new user
+      WsClient.do_call(t.client_ws, "user:block", %{"userId" => blocked.id})
+      WsClient.do_call(t.client_ws, "user:unblock", %{"userId" => blocked.id})
+
+      WsClient.send_msg(
+        blocked_ws,
+        "chat:send_msg",
+        %{"tokens" => @text_token}
+      )
+
+      blocked_id = blocked.id
+
+      WsClient.assert_frame(
+        "chat:send",
+        %{
+          "tokens" => @text_token,
+          "sentAt" => _,
+          "from" => ^blocked_id,
+          "id" => msg_uuid,
+          "isWhisper" => false
+        },
+        t.client_ws
+      )
+
+      WsClient.assert_frame(
+        "chat:send",
+        %{
+          "tokens" => @text_token,
+          "sentAt" => _,
+          "from" => ^blocked_id,
+          "id" => ^msg_uuid,
+          "isWhisper" => false
+        },
+        blocked_ws
+      )
+    end
+  end
+
+  describe "user should not be able to receive message" do
+    test "if they have been banned from the room", t do
+      room_id = t.room_id
+      user_id = t.user.id
+
+      # create a user that is logged in.
+      banned = Factory.create(User)
+      banned_ws = WsClientFactory.create_client_for(banned)
+
+      WsClient.do_call(banned_ws, "room:join", %{"roomId" => room_id})
+      WsClient.assert_frame_legacy("new_user_join_room", _)
+
+      # ban the new user
+      WsClient.send_msg(t.client_ws, "room:ban", %{"userId" => banned.id})
+
+      WsClient.assert_frame_legacy("user_left_room", _)
+
+      WsClient.send_msg(t.client_ws, "chat:send_msg", %{"tokens" => @text_token})
+
+      WsClient.assert_frame(
+        "chat:send",
+        %{
+          "tokens" => @text_token,
+          "sentAt" => _,
+          "from" => ^user_id,
+          "isWhisper" => false
+        },
+        t.client_ws
+      )
+
+      WsClient.refute_frame("chat:send", banned_ws)
     end
   end
 end

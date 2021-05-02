@@ -1,4 +1,4 @@
-name: Lint Commit Messages
+name: global:lint_commit_messages
 
 on: [push, pull_request]
 

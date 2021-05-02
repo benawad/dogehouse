@@ -25,9 +25,12 @@ defmodule Kousa.User do
 
         PubSub.broadcast("user:update:" <> user.id, user)
         {:ok, user}
+
       {:error, %Ecto.Changeset{errors: [username: {"has already been taken, _"}]}} ->
         {:error, "that user name is taken"}
-      error -> error
+
+      error ->
+        error
     end
   end
 

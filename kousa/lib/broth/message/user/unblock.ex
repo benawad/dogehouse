@@ -26,11 +26,17 @@ defmodule Broth.Message.User.Unblock do
   end
 
   alias Beef.UserBlocks
+  alias Broth.SocketHandler
 
-  def execute(changeset, state) do
+  def execute(changeset, %SocketHandler{} = state) do
     with {:ok, %{userId: user_id}} <- apply_action(changeset, :validate) do
       UserBlocks.delete(state.user.id, user_id)
-      {:reply, %Reply{}, state}
+
+      {:reply, %Reply{},
+       %{
+         state
+         | user_ids_i_am_blocking: Enum.filter(state.user_ids_i_am_blocking, &(&1 != user_id))
+       }}
     end
   end
 end

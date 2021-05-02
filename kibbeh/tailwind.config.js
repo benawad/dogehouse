@@ -1,7 +1,12 @@
 /* eslint-disable global-require */
 module.exports = {
   darkMode: "class",
-  purge: ["./src/**/*.tsx", "./public/index.html"],
+  purge: {
+    content: ["./src/**/*.tsx", "./public/index.html"],
+    options: {
+      safelist: ["h-8", "h-11"],
+    },
+  },
   theme: {
     fontFamily: {
       sans: [
@@ -64,6 +69,7 @@ module.exports = {
       6: "40px",
       6.5: "50px",
       7: "60px",
+      7.5: "65px",
       8: "75px",
       9: "80px",
       10: "90px",

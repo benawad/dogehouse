@@ -1,4 +1,4 @@
-import { MessageToken, TextToken } from "./entities";
+import { MessageToken, TextToken } from "..";
 
 /**
  * 
