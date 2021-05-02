@@ -102,7 +102,7 @@ export const AccountOverlay: React.FC<AccountOverlyProps> = ({}) => {
           <ApiPreloadLink
             data-testid="profile-link"
             route="profile"
-            data={{ username: conn.user.username }}
+            data={{ username: conn ? conn.user.username : "" }}
           >
             <SettingsIcon
               icon={
