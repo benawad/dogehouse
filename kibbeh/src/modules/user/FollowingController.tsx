@@ -11,6 +11,7 @@ import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslatio
 import { useTypeSafeUpdateQuery } from "../../shared-hooks/useTypeSafeUpdateQuery";
 import { Button } from "../../ui/Button";
 import { CenterLoader } from "../../ui/CenterLoader";
+import { Spinner } from "../../ui/Spinner";
 import { SingleUser } from "../../ui/UserAvatar";
 import { MiddlePanel } from "../layouts/GridPanels";
 
@@ -53,9 +54,9 @@ const Page = ({
   );
 
   useEffect(() => {
-    const loadMoreButtonVisible = !!entry?.isIntersecting;
+    const shouldLoadMore = !!entry?.isIntersecting;
 
-    if (loadMoreButtonVisible && data?.nextCursor) {
+    if (shouldLoadMore && data?.nextCursor) {
       onLoadMore(data.nextCursor!);
     }
   }, [data?.nextCursor, entry?.isIntersecting, onLoadMore]);
@@ -125,15 +126,8 @@ const Page = ({
         </div>
       ))}
       {isLastPage && data.nextCursor && (
-        <div className={`flex justify-center py-5`}>
-          <Button
-            size="small"
-            onClick={() => {
-              onLoadMore(data.nextCursor!);
-            }}
-          >
-            {t("common.loadMore")}
-          </Button>
+        <div ref={ref} className={`flex justify-center py-5`}>
+          <Spinner />
         </div>
       )}
     </>
