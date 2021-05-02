@@ -77,11 +77,7 @@ export const AccountOverlay: React.FC<AccountOverlyProps> = ({}) => {
   }, [isOpen, open]);
 
   return createPortal(
-    <a.div
-      data-testid="account-overlay"
-      className="absolute w-screen h-full"
-      style={{ display }}
-    >
+    <a.div className="absolute w-screen h-full" style={{ display }}>
       <a.div
         className="w-screen h-screen absolute top-0 left-0 bg-black z-10 opacity-100"
         onClick={() => close()}
