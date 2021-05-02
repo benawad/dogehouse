@@ -34,7 +34,7 @@ export const connect: ConnectFunction<(device: Device) => Promise<void>> = (
     const result = await wrapper.mutation.connectTransport(transport.id, simplerDirection, dtlsParameters);
 
     if("error" in result) {
-      console.error(result.error);
+      console.error(result.error); // eslint-disable-line no-console
       reject();
     } else {
       resolve();
@@ -54,7 +54,7 @@ export const connect: ConnectFunction<(device: Device) => Promise<void>> = (
       );
 
       if("error" in result) {
-        console.error(result.error);
+        console.error(result.error); // eslint-disable-line no-console
         reject();
       } else {
         resolve(result);

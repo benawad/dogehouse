@@ -1,0 +1,58 @@
+version: "3"
+
+# service_name:
+#   build: 
+#     context: .
+#     dockerfile: path/to/Dockerfile
+#
+
+services:
+  # voice server
+  shawarma:
+    build: ./shawarma
+    environment: 
+      - WEBRTC_LISTEN_IP=127.0.0.1
+      - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672
+  kofta:
+    build: ./kofta
+    # # uncomment if you want your changes to kofta code to hot reload. you'll need to npm install.
+    # volumes:
+    #   - './kofta:/usr/src/frontend'
+    labels:
+      tv.dogehouse.description: "Frontend Service"
+    environment: 
+      - REACT_APP_API_BASE_URL=http://localhost:4001
+    ports: 
+      - 3000:3000
+  # backend
+  kousa:
+    build: ./kousa
+    environment: 
+      - DATABASE_URL=postgresql://postgres:postgres@postgres/postgres
+      - BEN_GITHUB_ID=benawad
+      - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672
+      - GITHUB_CLIENT_ID=5d5xxxxxxab70
+      - GITHUB_CLIENT_SECRET=48xxxxxxxxxxxxd1cd5
+      - TWITTER_SECRET_KEY=testtwittersecret
+      - TWITER_BEARER_TOKEN=testtwitterbearer
+      - TWITTER_API_KEY=testtwitterkey
+      - ACCESS_TOKEN_SECRET=8f51exxxxxx7211dd
+      - SENTRY_DSN=SIJHFIUSDHIF
+      - SECRET_KEY_BASE=TESTING
+      - REFRESH_TOKEN_SECRET=dbb85xxxxxx9ebde
+      - WEB_URL=http://localhost:3000
+      - API_URL=http://localhost:4001
+      - PORT=4001
+    ports: 
+      - 4001:4001
+  postgres:
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRE_DB=postgres
+  rabbitmq:
+    environment: 
+      RABBITMQ_ERLANG_COOKIE: erlang_dev_only_cookie
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+  adminer:

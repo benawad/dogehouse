@@ -1,7 +1,7 @@
 import WebSocket from "isomorphic-ws";
 import ReconnectingWebSocket from "reconnecting-websocket";
 import { v4 as generateUuid } from "uuid";
-import { User, UUID } from "./entities";
+import { User, UUID } from "..";
 
 const heartbeatInterval = 8000;
 const apiUrl = "wss://api.dogehouse.tv/socket";
@@ -10,6 +10,7 @@ const connectionTimeout = 15000;
 
 export type Token = string;
 export type FetchID = UUID;
+export type Ref = UUID;
 export type Opcode = string;
 export type Logger = (
   direction: "in" | "out",
@@ -41,8 +42,9 @@ export type Connection = {
     handler: ListenerHandler<Data>
   ) => () => void;
   user: User;
+  initialCurrentRoomId?: string;
   send: (opcode: Opcode, data: unknown, fetchId?: FetchID) => void;
-  sendCast: (opcode: Opcode, data: unknown, fetchId?: FetchID) => void;
+  sendCast: (opcode: Opcode, data: unknown, ref?: Ref) => void;
   fetch: (
     opcode: Opcode,
     data: unknown,
@@ -97,14 +99,13 @@ export const connect = (
       connectionTimeout,
       WebSocket,
     });
-    const api2Send = (opcode: Opcode, data: unknown, ref?: FetchID) => {
+    const api2Send = (opcode: Opcode, data: unknown, ref?: Ref) => {
       // tmp fix
       // this is to avoid ws events queuing up while socket is closed
       // then it reconnects and fires before auth goes off
       // and you get logged out
-      if (socket.readyState !== socket.OPEN) {
-        return;
-      }
+      if (socket.readyState !== socket.OPEN) return;
+
       const raw = `{"v":"0.2.0", "op":"${opcode}","p":${JSON.stringify(data)}${ref ? `,"ref":"${ref}"` : ""
         }}`;
 
@@ -119,8 +120,9 @@ export const connect = (
       if (socket.readyState !== socket.OPEN) {
         return;
       }
-      const raw = `{"op":"${opcode}","d":${JSON.stringify(data)}${fetchId ? `,"fetchId":"${fetchId}"` : ""
-        }}`;
+      const raw = `{"op":"${opcode}","d":${JSON.stringify(data)}${
+        fetchId ? `,"fetchId":"${fetchId}"` : ""
+      }}`;
 
       socket.send(raw);
       logger("out", opcode, data, fetchId, raw);
@@ -144,9 +146,8 @@ export const connect = (
         socket.close();
         onClearTokens();
       }
-      if (!waitToReconnect) {
-        reject(error);
-      }
+
+      if (!waitToReconnect) reject(error);
     });
 
     socket.addEventListener("message", (e) => {
