@@ -67,7 +67,8 @@ export const wrap = (connection: Connection) => ({
 
   query: {
     search: (query: string): Promise<{
-      items: {
+      items: Array<User | Room>,
+      data: {
         rooms: Room[];
         users: User[];
       }

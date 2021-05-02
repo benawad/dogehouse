@@ -93,11 +93,11 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                 className="w-full px-2 mb-2 mt-7 bg-primary-800 rounded-b-8 overflow-y-auto"
                 {...getMenuProps({ style: { top: 0 } })}
               >
-                {data?.items.rooms.length === 0 &&
-                data?.items.users.length === 0 ? (
+                {data?.data.rooms.length === 0 &&
+                data?.data.users.length === 0 ? (
                   <InfoText className="p-3">no results</InfoText>
                 ) : null}
-                {data?.items.rooms.map((item, index) => (
+                {data?.data.rooms.map((item, index) => (
                   <li
                     key={item.id}
                     {...getItemProps({
@@ -114,7 +114,7 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                     />
                   </li>
                 ))}
-                {data?.items.users.map((item, index) => (
+                {data?.data.users.map((item, index) => (
                   <li
                     key={item.id}
                     data-testid={`search:user:${item.username}`}

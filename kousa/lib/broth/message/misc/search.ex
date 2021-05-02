@@ -22,6 +22,7 @@ defmodule Broth.Message.Misc.Search do
 
     @derive {Jason.Encoder, only: ~w(
         items
+        data
         nextCursor
       )a}
 
@@ -31,6 +32,7 @@ defmodule Broth.Message.Misc.Search do
       # currently not enforced, but once we have real DisplayRoom and
       # DisplayUser schemas we'll make sure Search.search outputs those.
       field(:items, {:array, :map})
+      field(:data, {:array, :map})
       field(:nextCursor, :integer)
     end
   end
@@ -41,7 +43,9 @@ defmodule Broth.Message.Misc.Search do
   def execute(changeset, state) do
     case apply_action(changeset, :validate) do
       {:ok, %{query: query}} ->
-        {:reply, %Reply{items: Search.search(query), nextCursor: nil}, state}
+        {:reply,
+         %Reply{items: Search.search(query), data: Search.search_new(query), nextCursor: nil},
+         state}
 
       error ->
         error
