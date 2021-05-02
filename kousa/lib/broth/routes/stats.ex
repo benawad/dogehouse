@@ -17,7 +17,7 @@ defmodule Broth.Routes.Stats do
     two_days_ago = Timex.now |> Timex.shift(days: -2)
     query =
       from u in User,
-        where: u.lastOnline > ^two_days_ago;
+        where: u.lastOnline > ^two_days_ago or u.online;
 
     numActive = Repo.aggregate(query, :count, :id)
 
