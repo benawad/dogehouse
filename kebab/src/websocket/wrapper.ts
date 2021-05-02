@@ -68,10 +68,7 @@ export const wrap = (connection: Connection) => ({
   query: {
     search: (query: string): Promise<{
       items: Array<User | Room>,
-      data: {
-        rooms: Room[];
-        users: User[];
-      }
+      data: Array<User | Room>,
     }> =>
       connection.fetch("search", { query }),
     getMyScheduledRoomsAboutToStart: (

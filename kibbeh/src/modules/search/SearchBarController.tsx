@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { SearchBar } from "../../ui/Search/SearchBar";
@@ -93,51 +93,52 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                 className="w-full px-2 mb-2 mt-7 bg-primary-800 rounded-b-8 overflow-y-auto"
                 {...getMenuProps({ style: { top: 0 } })}
               >
-                {data?.data.rooms.length === 0 &&
-                data?.data.users.length === 0 ? (
+                {data?.items.length === 0 ? (
                   <InfoText className="p-3">no results</InfoText>
                 ) : null}
-                {data?.data.rooms.map((item, index) => (
-                  <li
-                    key={item.id}
-                    {...getItemProps({
-                      index,
-                      item,
-                    })}
-                  >
-                    <RoomSearchResult
-                      room={{
-                        displayName: item.name,
-                        hosts: item.peoplePreviewList,
-                        userCount: item.numPeopleInside,
-                      }}
-                    />
-                  </li>
-                ))}
-                {data?.data.users.map((item, index) => (
-                  <li
-                    key={item.id}
-                    data-testid={`search:user:${item.username}`}
-                    {...getItemProps({
-                      index,
-                      item,
-                    })}
-                  >
-                    <UserSearchResult
-                      user={{
-                        username: item.username,
-                        displayName: item.displayName,
-                        isOnline: item.online,
-                        avatar: item.avatarUrl,
-                      }}
-                      className={
-                        highlightedIndex === index
-                          ? "bg-primary-700"
-                          : "bg-primary-800"
-                      }
-                    />
-                  </li>
-                ))}
+                {data?.items.map((item, index) =>
+                  "username" in item ? (
+                    // eslint-disable-next-line react/jsx-key
+                    <li
+                      data-testid={`search:user:${item.username}`}
+                      {...getItemProps({
+                        key: item.id,
+                        index,
+                        item,
+                      })}
+                    >
+                      <UserSearchResult
+                        user={{
+                          username: item.username,
+                          displayName: item.displayName,
+                          isOnline: item.online,
+                          avatar: item.avatarUrl,
+                        }}
+                        className={
+                          highlightedIndex === index
+                            ? "bg-primary-700"
+                            : "bg-primary-800"
+                        }
+                      />
+                    </li>
+                  ) : (
+                    <li
+                      {...getItemProps({
+                        key: item.id,
+                        index,
+                        item,
+                      })}
+                    >
+                      <RoomSearchResult
+                        room={{
+                          displayName: item.name,
+                          hosts: item.peoplePreviewList,
+                          userCount: item.numPeopleInside,
+                        }}
+                      />
+                    </li>
+                  )
+                )}
               </ul>
             </SearchOverlay>
           ) : null}
