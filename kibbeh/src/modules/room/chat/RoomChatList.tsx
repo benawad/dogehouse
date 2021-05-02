@@ -9,6 +9,7 @@ import { UserPreviewModalContext } from "../UserPreviewModalProvider";
 import { emoteMap } from "./EmoteData";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { useRoomChatStore } from "./useRoomChatStore";
+import { Twemoji } from "../../../ui/Twemoji";
 
 interface ChatListProps {
   room: Room;
@@ -47,10 +48,11 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room, users }) => {
   const getBadgeIcon = (m: Message) => {
     const user = users.find((u) => u.id === m.userId);
     const isSpeaker = room.creatorId === user?.id || user?.roomPermissions?.isSpeaker;
+    let emoji = null;
     if (isSpeaker) {
-      return "📣";
+      emoji = "📣";
     }
-    return "";
+    return emoji && <Twemoji text={emoji} style={{ marginRight: "1ch" }}/>;
   };
 
   return (
@@ -116,6 +118,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room, users }) => {
                       className={`block break-words overflow-hidden max-w-full items-start flex-1 text-primary-100`}
                       key={messages[index].id}
                     >
+                      {badgeIcon}
                       <button
                         onClick={(e) => {
                           // Auto mention on shift click
@@ -153,7 +156,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room, users }) => {
                       >
                         {messages[index].username}
                       </button>
-                      {badgeIcon ? <span> {badgeIcon} </span> : ""}
                       <span className={`inline mr-1`}>: </span>
                       <div className={`inline mr-1 space-x-1`}>
                         {messages[index].deleted ? (
