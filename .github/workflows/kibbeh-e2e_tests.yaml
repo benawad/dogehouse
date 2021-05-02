@@ -48,5 +48,4 @@ jobs:
       uses: actions/setup-node@v1
     - run: yarn install
     - run: cd ../kebab && yarn build
-    - run: cd ../kibbeh && yarn dev
-    - run: cd ../kibbeh && yarn cy:run
+    - run: cd ../kibbeh && yarn test:e2e:ci
