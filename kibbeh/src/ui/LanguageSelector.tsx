@@ -5,11 +5,13 @@ import backIcon from "../icons/SolidCaretRight";
 import { SettingsIcon } from "./SettingsIcon";
 
 interface LanguageSelectorProps {
-  onClose(): void;
+  onClose?(): void;
+  mobile?: boolean;
 }
 
 export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   onClose,
+  mobile = false,
 }) => {
   const languages = [
     { value: "en", flag: "🇬🇧", label: "English" }, // English
@@ -100,28 +102,40 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
           : ""
       }`}
       onClick={() => i18n.changeLanguage(e.value)}
+      last={i === options.length - 1}
       icon={<Twemoji text={e.label} style={{ marginRight: "1ch" }} />}
     ></SettingsIcon>
   ));
 
   return (
-    <div className="flex absolute h-full w-full z-20 bg-primary-800">
+    <div
+      className={`flex h-full w-full ${
+        mobile ? "" : "z-20 absolute bg-primary-800"
+      }`}
+    >
       <div className="block h-full w-full">
-        <div className="block h-6 w-full border-b border-primary-700 sticky top-0 bg-primary-800">
-          <button
-            onClick={onClose}
-            className="absolute left-3 text-primary-100 top-1/2 transform translate-y-n1/2 py-1 focus:outline-no-chrome hover:bg-primary-700 z-30 rounded-5"
-            style={{ paddingLeft: "10px", paddingRight: "-6px" }}
+        {mobile ? null : (
+          <div
+            className={`block h-6 w-full border-b border-primary-700 sticky top-0 bg-primary-800`}
           >
-            {backIcon({ style: { transform: "rotate(180deg)" } })}
-          </button>
-          <div className="block relative text-center top-1/2 transform translate-y-n1/2 w-full font-bold text-primary-100">
-            Language
+            {onClose ? (
+              <button
+                onClick={onClose}
+                className="absolute left-3 text-primary-100 top-1/2 transform translate-y-n1/2 py-1 focus:outline-no-chrome hover:bg-primary-700 z-30 rounded-5"
+                style={{ paddingLeft: "10px", paddingRight: "-6px" }}
+              >
+                {backIcon({ style: { transform: "rotate(180deg)" } })}
+              </button>
+            ) : null}
+
+            <div className="block relative text-center top-1/2 transform translate-y-n1/2 w-full font-bold text-primary-100">
+              Language
+            </div>
           </div>
-        </div>
+        )}
         <div
-          className="block h-full overflow-y-auto scrollbar-thin scrollbar-thumb-primary-700"
-          style={{ height: "calc(100% - 40px)" }}
+          className="block h-full overflow-y-auto scrollbar-thin scrollbar-thumb-primary-700 overflow-x-hidden"
+          style={{ height: mobile ? "auto" : "calc(100% - 40px)" }}
         >
           <div className="block">{parsedOptions}</div>
         </div>

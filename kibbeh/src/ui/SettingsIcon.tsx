@@ -26,10 +26,8 @@ export const SettingsIcon: React.FC<SettingsIconProps> = ({
   last,
 }) => {
   const cn = `
-      flex w-full items-center px-4 py-4 md:py-2 cursor-pointer hover:bg-primary-700
-       pointer-events-none md:pointer-events-auto md:border-none ${
-         last ? "" : "border-b"
-       } border-primary-700 ${
+      flex w-full items-center px-4 py-4 md:py-2 cursor-pointer md:hover:bg-primary-700
+       md:border-none ${last ? "" : "border-b"} border-primary-700 ${
     transition ? `transition duration-200 ease-out` : ``
   } ${classes}`;
 
