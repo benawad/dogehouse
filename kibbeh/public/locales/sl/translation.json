@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "Prikažite več",
     "loading": "Nalaganje...",
@@ -99,7 +99,8 @@
       "copyProfileUrl": "kopirajte povezavo profile",
       "urlCopied": "povezava kopirana v odložišče",
       "unfollow": "Prenehajte slediti",
-      "about": "O"
+      "about": "O",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Nastavitve zvoka",
@@ -109,7 +110,10 @@
       "volume": "Glasnost:"
     },
     "overlaySettings": {
-      "input": { "errorMsg": "Neveljaven naslov aplikacije", "label": "Vnesite naslov aplikacije" },
+      "input": {
+        "errorMsg": "Neveljaven naslov aplikacije",
+        "label": "Vnesite naslov aplikacije"
+      },
       "header": "Nastavitve Okna"
     },
     "download": {
@@ -153,7 +157,10 @@
       "linkText": "GitHub",
       "addSupport": "in poskusili bomo dodati podporo za vašo napravo."
     },
-    "inviteButton": { "invited": "povabljeni", "inviteToRoom": "povabite v sobo" },
+    "inviteButton": {
+      "invited": "povabljeni",
+      "inviteToRoom": "povabite v sobo"
+    },
     "micPermissionBanner": {
       "permissionDenied": "Nimamo pravic za uporabo vašega mikrofona. Odprite nastavitve brskalnika, omogočite dostop do mikrofona in nato osvežite stran.",
       "dismiss": "Opustite",

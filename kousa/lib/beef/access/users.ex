@@ -7,6 +7,14 @@ defmodule Beef.Access.Users do
   alias Beef.Schemas.Room
   alias Beef.Rooms
 
+  def get(user_id) do
+    Repo.get(User, user_id)
+  end
+
+  def get(user_id, opts) do
+    # opts could be a preload.
+  end
+
   def find_by_github_ids(ids) do
     Query.start()
     |> Query.filter_by_github_ids(ids)
@@ -31,7 +39,10 @@ defmodule Beef.Access.Users do
   def get_by_id_with_follow_info(me_id, them_id) do
     Query.start()
     |> Query.filter_by_id(them_id)
+    |> select([u], u)
     |> Query.follow_info(me_id)
+    |> Query.i_blocked_them_info(me_id)
+    |> Query.they_blocked_me_info(me_id)
     |> Query.limit_one()
     |> Repo.one()
   end
@@ -60,7 +71,10 @@ defmodule Beef.Access.Users do
   def get_by_username_with_follow_info(user_id, username) do
     Query.start()
     |> Query.filter_by_username(username)
+    |> select([u], u)
     |> Query.follow_info(user_id)
+    |> Query.i_blocked_them_info(user_id)
+    |> Query.they_blocked_me_info(user_id)
     |> Query.limit_one()
     |> Repo.one()
   end
@@ -110,6 +124,7 @@ defmodule Beef.Access.Users do
   # out of the database layer, but we are keeping it here for now
   # to keep the transition smooth.
   def tuple_get_current_room_id(user_id) do
+    # DO NOT COPY/PASTE THIS FUNCTION
     case Onion.UserSession.get_current_room_id(user_id) do
       {:ok, nil} ->
         {nil, nil}
@@ -142,6 +157,7 @@ defmodule Beef.Access.Users do
   end
 
   def get_current_room_id(user_id) do
+    # DO NOT COPY/PASTE THIS FUNCTION
     try do
       Onion.UserSession.get_current_room_id(user_id)
     catch
@@ -149,6 +165,32 @@ defmodule Beef.Access.Users do
         case get_by_id(user_id) do
           nil -> nil
           %{currentRoomId: id} -> id
+        end
+    end
+  end
+
+  def get_ip(user_id) do
+    # DO NOT COPY/PASTE THIS FUNCTION
+    try do
+      Onion.UserSession.get(user_id, :ip)
+    catch
+      _, _ ->
+        case get_by_id(user_id) do
+          nil -> nil
+          %{ip: ip} -> ip
+        end
+    end
+  end
+
+  def bot?(user_id) do
+    # DO NOT COPY/PASTE THIS FUNCTION
+    try do
+      not is_nil(Onion.UserSession.get(user_id, :bot_owner_id))
+    catch
+      _, _ ->
+        case get_by_id(user_id) do
+          nil -> nil
+          %{botOwnerId: botOwnerId} -> not is_nil(botOwnerId)
         end
     end
   end

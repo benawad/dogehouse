@@ -12,11 +12,12 @@ export interface RoomSearchResultProps {
     }>;
     userCount: number;
   };
+  onClick?: () => void;
 }
 
-export const RoomSearchResult: React.FC<RoomSearchResultProps> = ({ room }) => {
+export const RoomSearchResult: React.FC<RoomSearchResultProps> = ({ room, onClick = () => undefined }) => {
   return (
-    <div className="flex cursor-pointer hover:bg-primary-700 px-4 py-3 w-full rounded-8">
+    <div className="flex cursor-pointer hover:bg-primary-700 px-4 py-3 w-full rounded-8" onClick={onClick}>
       <div className="flex flex-col w-full">
         <div className="flex w-full">
           <span className="text-primary-100 font-bold flex-1 items-center">

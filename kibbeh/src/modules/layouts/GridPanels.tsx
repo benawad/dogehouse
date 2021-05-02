@@ -1,4 +1,5 @@
 import React, { FC, useContext } from "react";
+import { useScreenType } from "../../shared-hooks/useScreenType";
 import { FixedGridPanel, GridPanel } from "../../ui/GridPanel";
 import LeftHeader from "../../ui/header/LeftHeader";
 import { MiddleHeader } from "../../ui/header/MiddleHeader";
@@ -25,12 +26,17 @@ export const LeftPanel: React.FC<LeftPanelProps> = ({ children }) => {
 export const MiddlePanel: React.FC<
   LeftPanelProps & { stickyChildren?: React.ReactNode }
 > = ({ stickyChildren, children }) => {
+  const screenType = useScreenType();
   return (
     <GridPanel>
-      <div className="flex sticky top-0 w-full flex-col z-10 bg-primary-900 pt-5">
-        <HeaderWrapper>
-          <MiddleHeader />
-        </HeaderWrapper>
+      <div className={!(screenType === "fullscreen" && !stickyChildren) ? `flex sticky top-0 w-full flex-col z-10 bg-primary-900 pt-5` : ""}>
+        {screenType !== "fullscreen" ? (
+          <HeaderWrapper>
+            <MiddleHeader />
+          </HeaderWrapper>
+        ) : (
+          ""
+        )}
         {stickyChildren}
       </div>
       {children}

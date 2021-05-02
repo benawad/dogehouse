@@ -38,6 +38,39 @@ defmodule BrothTest.User.GetFollowingTest do
       })
     end
 
+    test "returns that person if you are following someone including the current room they are in",
+         t do
+      %{id: followed_id} = followed = Factory.create(User)
+      followed_ws = WsClientFactory.create_client_for(followed)
+      Kousa.Follow.follow(t.user.id, followed_id, true)
+
+      room_ref =
+        WsClient.send_call(
+          followed_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"}
+        )
+
+      WsClient.assert_reply(
+        "room:create:reply",
+        room_ref,
+        %{
+          "id" => room_id
+        }
+      )
+
+      ref = WsClient.send_call(t.client_ws, "user:get_following", %{"cursor" => 0})
+
+      WsClient.assert_reply("user:get_following:reply", ref, %{
+        "following" => [
+          %{
+            "id" => ^followed_id,
+            "currentRoom" => %{"id" => ^room_id}
+          }
+        ]
+      })
+    end
+
     test "can get following for someone else", t do
       %{id: follower_id, username: username} = Factory.create(User)
       Kousa.Follow.follow(follower_id, t.user.id, true)

@@ -81,6 +81,7 @@ export type TranslationKeys =
 	| "pages.viewUser.copyProfileUrl"
 	| "pages.viewUser.urlCopied"
 	| "pages.viewUser.about"
+	| "pages.viewUser.bot"
 	| "pages.voiceSettings.header"
 	| "pages.voiceSettings.mic"
 	| "pages.voiceSettings.permissionError"

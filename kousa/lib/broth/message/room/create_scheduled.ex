@@ -42,7 +42,7 @@ defmodule Broth.Message.Room.CreateScheduled do
            "scheduledFor" => room.scheduledFor,
            "description" => room.description
          },
-         {:ok, s_room} <- Kousa.ScheduledRoom.schedule(state.user_id, room_data) do
+         {:ok, s_room} <- Kousa.ScheduledRoom.schedule(state.user.id, room_data) do
       reply = %__MODULE__{
         id: s_room.id,
         name: s_room.name,

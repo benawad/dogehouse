@@ -19,28 +19,33 @@ defmodule BrothTest.UnbanFromRoomChatTest do
 
   describe "the websocket unban_from_room_chat operation" do
     test "unbans the person from the room chat", t do
-      # first, create a room owned by the primary user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"}
+        )
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
       # create a user that is logged in.
       banned = %{id: banned_id} = Factory.create(User)
-      WsClientFactory.create_client_for(banned)
+      banned_ws = WsClientFactory.create_client_for(banned)
 
       # join the speaker user into the room
-      Kousa.Room.join_room(banned_id, room_id)
-      WsClient.assert_frame("new_user_join_room", _)
+      WsClient.do_call(banned_ws, "room:join", %{"roomId" => room_id})
+      WsClient.assert_frame_legacy("new_user_join_room", _)
 
       WsClient.send_msg_legacy(t.client_ws, "ban_from_room_chat", %{"userId" => banned_id})
-      WsClient.assert_frame("chat_user_banned", %{"userId" => ^banned_id}, t.client_ws)
+      WsClient.assert_frame_legacy("chat_user_banned", %{"userId" => ^banned_id}, t.client_ws)
 
-      assert Onion.RoomChat.banned?(room_id, banned_id)
+      assert Onion.Chat.banned?(room_id, banned_id)
 
       WsClient.send_msg_legacy(t.client_ws, "unban_from_room_chat", %{"userId" => banned_id})
-      WsClient.assert_frame("chat_user_unbanned", %{"userId" => ^banned_id}, t.client_ws)
+      WsClient.assert_frame_legacy("chat_user_unbanned", %{"userId" => ^banned_id}, t.client_ws)
 
-      refute Onion.RoomChat.banned?(room_id, banned_id)
+      refute Onion.Chat.banned?(room_id, banned_id)
     end
 
     @tag :skip

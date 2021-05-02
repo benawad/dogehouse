@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "0w0 Woad Mowe UwU",
     "loading": "<3 Woading... ;_;",
@@ -102,7 +102,8 @@
       "copyProfileUrl": "Copy Pwofile URL",
       "urlCopied": "URL Cwopied to Cwipboard (❤´艸｀❤)",
       "unfollow": "Unfowwow",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "OWO Voice Settings (✿ ♡‿♡)",

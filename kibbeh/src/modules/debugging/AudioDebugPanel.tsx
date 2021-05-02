@@ -1,3 +1,4 @@
+import { detectDevice } from "mediasoup-client";
 import React, { useEffect, useState } from "react";
 import { useVoiceStore } from "../webrtc/stores/useVoiceStore";
 
@@ -23,6 +24,8 @@ export const AudioDebugPanel: React.FC<AudioDebugPanelProps> = ({}) => {
     };
   }, [recvTransport]);
 
+  const [supportedDevice] = useState(() => !!detectDevice());
+
   return (
     <div className="text-primary-100 bg-primary-600 p-1 mb-2">
       <h4>Audio Debug Information</h4>
@@ -30,6 +33,20 @@ export const AudioDebugPanel: React.FC<AudioDebugPanelProps> = ({}) => {
         recv transport state:{" "}
         <span className="text-accent">{recvTransport?.connectionState}</span>
       </div>
+      {!supportedDevice ? (
+        <div className="mt-2">
+          WARNING: Your browser is not officially supported and has defaulted to
+          Chrome74 audio driver which may affect your experience.{" "}
+          <a
+            className="text-accent"
+            target="_blank"
+            rel="noreferrer"
+            href="https://mediasoup.org/documentation/v3/mediasoup-client/api/#BuiltinHandlerName"
+          >
+            List of supported browsers.
+          </a>
+        </div>
+      ) : null}
     </div>
   );
 };

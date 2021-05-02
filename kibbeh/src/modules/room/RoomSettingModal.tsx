@@ -41,7 +41,7 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
                 updater(["joinRoomAndGetInfo", roomId!], (d) =>
                   !d ? d : { ...d, autoSpeaker }
                 );
-                conn.mutation.setAutoSpeaker(autoSpeaker);
+                conn.mutation.roomUpdate({ autoSpeaker });
               }}
               id="auto-speaker"
               type="checkbox"

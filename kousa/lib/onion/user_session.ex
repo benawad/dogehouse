@@ -11,17 +11,21 @@ defmodule Onion.UserSession do
             username: String.t(),
             display_name: String.t(),
             current_room_id: String.t(),
+            bot_owner_id: String.t(),
             muted: boolean(),
             deafened: boolean(),
+            ip: String.t(),
             pid: pid()
           }
 
     defstruct user_id: nil,
               current_room_id: nil,
               muted: false,
+              ip: nil,
               deafened: false,
               pid: nil,
               username: nil,
+              bot_owner_id: nil,
               display_name: nil,
               avatar_url: nil,
               banner_url: nil
@@ -50,6 +54,8 @@ defmodule Onion.UserSession do
   def child_spec(init), do: %{super(init) | id: Keyword.get(init, :user_id)}
 
   def count, do: Registry.count(Onion.UserSessionRegistry)
+
+  def lookup(user_id), do: Registry.lookup(Onion.UserSessionRegistry, user_id)
 
   ###############################################################################
   ## INITIALIZATION BOILERPLATE

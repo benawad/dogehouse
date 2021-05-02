@@ -1,7 +1,6 @@
-import React, { FC, MouseEventHandler, ReactNode } from "react";
-import { RoomCard } from "./RoomCard";
-import { Button } from "./Button";
 import { Room, ScheduledRoom } from "@dogehouse/kebab";
+import React, { FC, MouseEventHandler, ReactNode } from "react";
+import { Button } from "./Button";
 
 export interface FeedProps {
   rooms: Array<Room | ScheduledRoom>;

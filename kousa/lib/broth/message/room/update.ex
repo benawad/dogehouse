@@ -13,7 +13,7 @@ defmodule Broth.Message.Room.Update do
   end
 
   def initialize(state) do
-    if room = Beef.Rooms.get_room_by_creator_id(state.user_id) do
+    if room = Beef.Rooms.get_room_by_creator_id(state.user.id) do
       struct(__MODULE__, Map.from_struct(room))
     end
   end
@@ -36,7 +36,7 @@ defmodule Broth.Message.Room.Update do
   def execute(changeset, state) do
     # TODO: move this changeset stuff into Kousa itself.
     with {:ok, update} <- apply_action(changeset, :validate),
-         {:ok, room} <- Kousa.Room.update(state.user_id, Map.from_struct(update)) do
+         {:ok, room} <- Kousa.Room.update(state.user.id, Map.from_struct(update)) do
       changes = changeset.changes
 
       if Map.has_key?(changes, :isPrivate) do
@@ -47,6 +47,14 @@ defmodule Broth.Message.Room.Update do
             op: "room_privacy_change",
             d: %{roomId: room.id, name: room.name, isPrivate: changes.isPrivate}
           }
+        )
+      end
+
+      if Map.has_key?(changes, :autoSpeaker) do
+        # send the room_privacy_change message.
+        Onion.RoomSession.set_auto_speaker(
+          room.id,
+          changes.autoSpeaker
         )
       end
 

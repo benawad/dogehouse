@@ -4,7 +4,9 @@ defmodule BrothTest.Support.Message do
 
   import Kousa.Utils.Version, only: [sigil_v: 2]
 
-  def validate(message, state \\ nil) do
+  @init %{user: %{id: UUID.uuid4()}}
+
+  def validate(message, state \\ @init) do
     message
     # TODO: make this version match the mix project version.
     |> Map.put("version", ~v(0.2.0))
