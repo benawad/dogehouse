@@ -13,11 +13,13 @@ import {
   UserSearchResult,
 } from "../../ui/Search/SearchResult";
 import { useMediaQuery } from "react-responsive";
+import usePageVisibility from "../../shared-hooks/usePageVisibility";
 
 interface SearchControllerProps {}
 
 export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
   const [rawText, setText] = useState("");
+  const visible = usePageVisibility();
   const [text] = useDebounce(rawText, 200);
   const { t } = useTypeSafeTranslation();
   const isOverflowing = useMediaQuery({ maxWidth: 475 });
@@ -54,7 +56,9 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
         push(`/room/[id]`, `/room/${selection.id}`);
       }}
       onInputValueChange={(v) => {
-        setText(v);
+        if(visible) {
+          setText(v);
+        }
       }}
       itemToString={(item) => {
         if (!item) {
@@ -79,6 +83,7 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
         <div className="relative w-full z-10 flex flex-col">
           <SearchBar
             {...getInputProps()}
+            value={rawText}
             placeholder={
               isOverflowing
                 ? t("components.search.placeholderShort")
