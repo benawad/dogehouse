@@ -246,7 +246,8 @@
       "reportABug": "反馈Bug",
       "useOldVersion": "使用旧版本",
       "logOut": { "button": "登出", "modalSubtitle": "是否确定登出?" },
-      "debugAudio": { "debugAudio": "调试声音", "stopDebugger": "取消调试" }
+      "debugAudio": { "debugAudio": "调试声音", "stopDebugger": "取消调试" },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

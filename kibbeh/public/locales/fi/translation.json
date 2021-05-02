@@ -257,7 +257,8 @@
       "debugAudio": {
         "debugAudio": "Testaa äänet",
         "stopDebugger": "Pysäytä debuggeri"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

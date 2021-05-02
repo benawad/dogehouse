@@ -260,7 +260,8 @@
       "debugAudio": {
         "debugAudio": "Отладка звука",
         "stopDebugger": "Остановить отладчик"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

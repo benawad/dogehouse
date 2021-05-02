@@ -260,7 +260,8 @@
       "debugAudio": {
         "debugAudio": "Налагодження звуку",
         "stopDebugger": "Зупинити налагодження"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

@@ -258,7 +258,8 @@
       "debugAudio": {
         "debugAudio": "Felsök ljud",
         "stopDebugger": "Stoppa felsökaren"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {
