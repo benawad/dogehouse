@@ -56,6 +56,7 @@ module.exports = {
         hover: "var(--color-accent-hover)",
         disabled: "var(--color-accent-disabled)",
       },
+      black: "#000",
     },
     spacing: {
       0: "0px",
@@ -96,6 +97,7 @@ module.exports = {
       borderRadius: {
         5: "5px",
         8: "8px",
+        10: "20px",
         40: "40px",
       },
       borderColor: {
