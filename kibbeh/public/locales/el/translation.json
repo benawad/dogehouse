@@ -263,7 +263,8 @@
       "debugAudio": {
         "debugAudio": "Κάντε debug τον ήχο",
         "stopDebugger": "Σταματήστε το Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

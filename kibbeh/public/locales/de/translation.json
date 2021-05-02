@@ -261,7 +261,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stoppe Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

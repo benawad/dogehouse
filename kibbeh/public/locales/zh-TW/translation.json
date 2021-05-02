@@ -243,11 +243,9 @@
       "language": "語言",
       "reportABug": "回報漏洞",
       "useOldVersion": "使用舊版本",
-      "logOut": {
-        "button": "登出",
-        "modalSubtitle": "你確定要登出嗎？"
-      },
-      "debugAudio": { "debugAudio": "除錯音頻", "stopDebugger": "停止除錯" }
+      "logOut": { "button": "登出", "modalSubtitle": "你確定要登出嗎？" },
+      "debugAudio": { "debugAudio": "除錯音頻", "stopDebugger": "停止除錯" },
+      "downloadApp": "Download App"
     }
   },
   "modules": {
@@ -267,9 +265,7 @@
       },
       "tommorow": "明天",
       "today": "今天",
-      "deleteModal": {
-        "areYouSure": "你確定要刪除這間已排程的房間嗎？"
-      }
+      "deleteModal": { "areYouSure": "你確定要刪除這間已排程的房間嗎？" }
     },
     "roomChat": {
       "title": "房間",
