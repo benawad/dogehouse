@@ -33,8 +33,8 @@ defmodule Broth.Message.Misc.Search do
       # currently not enforced, but once we have real DisplayRoom and
       # DisplayUser schemas we'll make sure Search.search outputs those.
       field(:items, {:array, :map})
-      field(:rooms, {:array, :map})
-      field(:users, {:array, :map})
+      embeds_many(:rooms, Beef.Schemas.Room)
+      embeds_many(:users, Beef.Schemas.User)
       field(:nextCursor, :integer)
     end
   end
