@@ -9,6 +9,7 @@ import { useConn } from "../../../shared-hooks/useConn";
 import { DropdownController } from "../../DropdownController";
 import { SettingsDropdown } from "../../SettingsDropdown";
 import { SingleUser } from "../../UserAvatar";
+import { useTypeSafeTranslation } from "../../../shared-hooks/useTypeSafeTranslation";
 
 export interface ProfileHeaderProps extends HTMLProps<HTMLDivElement> {
   avatar: string;
@@ -32,6 +33,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   ...props
 }) => {
   const conn = useConn();
+  const { t } = useTypeSafeTranslation();
   return (
     <div
       className={`flex w-full p-3 h-8 flex justify-between items-center bg-primary-900 ${className}`}
@@ -93,6 +95,3 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
     </div>
   );
 };
-function t(arg0: string): string {
-  throw new Error("Function not implemented.");
-}
