@@ -22,6 +22,8 @@ defmodule Broth.Message.Misc.Search do
 
     @derive {Jason.Encoder, only: ~w(
         items
+        rooms
+        users
         nextCursor
       )a}
 
@@ -31,17 +33,24 @@ defmodule Broth.Message.Misc.Search do
       # currently not enforced, but once we have real DisplayRoom and
       # DisplayUser schemas we'll make sure Search.search outputs those.
       field(:items, {:array, :map})
+      field(:rooms, {:array, :map})
+      field(:users, {:array, :map})
       field(:nextCursor, :integer)
     end
   end
 
-  alias Kousa.Search
+  alias Beef.Users
+  alias Beef.Rooms
 
   @impl true
   def execute(changeset, state) do
     case apply_action(changeset, :validate) do
       {:ok, %{query: query}} ->
-        {:reply, %Reply{items: Search.search(query), nextCursor: nil}, state}
+        rooms = Rooms.search_name(query)
+        users = Users.search_username(query)
+        items = Enum.concat(rooms, users)
+
+        {:reply, %Reply{items: items, rooms: rooms, users: users, nextCursor: nil}, state}
 
       error ->
         error

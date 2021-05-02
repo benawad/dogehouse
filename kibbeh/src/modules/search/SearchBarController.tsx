@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTypeSafeQuery } from "../../shared-hooks/useTypeSafeQuery";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { SearchBar } from "../../ui/Search/SearchBar";
@@ -39,6 +39,13 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
     [text]
   );
   const { push } = useRouter();
+  const [results, setResults] = useState<Array<Room | User>>([]);
+
+  useEffect(() => {
+    if (data?.rooms && data?.users) {
+      setResults([...data.rooms, ...data.users]);
+    }
+  }, [data]);
 
   return (
     <Downshift<Room | User>
@@ -93,10 +100,11 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                 className="w-full px-2 mb-2 mt-7 bg-primary-800 rounded-b-8 overflow-y-auto"
                 {...getMenuProps({ style: { top: 0 } })}
               >
-                {data?.items.length === 0 ? (
+                {data?.rooms.length === 0 && data?.users.length === 0 ? (
                   <InfoText className="p-3">no results</InfoText>
                 ) : null}
-                {data?.items.map((item, index) =>
+
+                {results.map((item, index) =>
                   "username" in item ? (
                     // eslint-disable-next-line react/jsx-key
                     <li
@@ -135,6 +143,11 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
                           hosts: item.peoplePreviewList,
                           userCount: item.numPeopleInside,
                         }}
+                        className={
+                          highlightedIndex === index
+                            ? "bg-primary-700"
+                            : "bg-primary-800"
+                        }
                       />
                     </li>
                   )
