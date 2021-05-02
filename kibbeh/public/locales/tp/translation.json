@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "tenpo kama la sin li lon",
     "loading": "sin li kama...",
@@ -21,7 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "sina ken ala e toki | DogeHouse"
+    "mutedTitle": "sina ken ala e toki | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -44,7 +47,8 @@
     "home": {
       "createRoom": "pali e tomo",
       "refresh": "tenpo tu la kama jo e ni",
-      "editRoom": "ante e tomo"
+      "editRoom": "ante e tomo",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "tomo li weka, tawa monsi",
@@ -87,7 +91,7 @@
       "allowAllConfirm": "sina wile e ni? ni li ken jan ale {{count}} e toki."
     },
     "searchUser": { "search": "o lukin..." },
-    "soundEffectSettings": { "header": "Kalama" },
+    "soundEffectSettings": { "header": "Kalama", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "ante e jan sina",
       "followsYou": "li lukin e sina",
@@ -97,7 +101,9 @@
       "unfollow": "o lukin ala",
       "followingHim": "sina li lukin e jan ni",
       "copyProfileUrl": "tu e sitelen tawa pi jan ni",
-      "urlCopied": "ni li tu"
+      "urlCopied": "ni li tu",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "sitelen lawa pi kalama uta",
@@ -112,6 +118,14 @@
         "errorMsg": "Please enter valid app title",
         "label": "o sitelen e nimi pi "
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -136,7 +150,10 @@
       "settings": "sitelen lawa",
       "speaker": "jan toki",
       "listener": "jan kute",
-      "chat": "sitelen kulupu"
+      "chat": "sitelen kulupu",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Lipu len ni li pali ala kepeken ilo nanpa sina. pali e",
@@ -157,7 +174,8 @@
       "listening": "kute e nena",
       "toggleMuteKeybind": "nena pi ante e ken toki",
       "toggleOverlayKeybind": "nena pi ante e sitelen sewi sitelen sina",
-      "togglePushToTalkKeybind": "nena pi ante e \"utala la toki\""
+      "togglePushToTalkKeybind": "nena pi ante e \"utala la toki\"",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "ali li kute e kalama" },
     "addToCalendar": { "add": "sitelen e ni lon lipu tenpo suno" },
@@ -191,7 +209,8 @@
         "usernameError": "anpa pi suli li tu tu. anpa sewi pi suli li luka luka luka. wan pi nimi li sitelen Latin anu nanpa anu linja anpa",
         "usernameLabel": "nimi nanpa",
         "bioError": "anpa sewi pi suli li ale mute mute mute",
-        "bioLabel": "sitelen sina"
+        "bioLabel": "sitelen sina",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Sina wile ala wile e ken ala e jan ni pi tomo sina ale?",
@@ -225,7 +244,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",
@@ -234,6 +256,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -251,6 +277,11 @@
         "roomName": "nimi tomo",
         "roomDescription": "sitelen tomo",
         "minLength": "anpa pi suli li tu tu."
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

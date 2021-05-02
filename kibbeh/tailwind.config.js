@@ -1,7 +1,12 @@
 /* eslint-disable global-require */
 module.exports = {
   darkMode: "class",
-  purge: ["./src/**/*.tsx", "./public/index.html"],
+  purge: {
+    content: ["./src/**/*.tsx", "./public/index.html"],
+    options: {
+      safelist: ["h-8", "h-11"],
+    },
+  },
   theme: {
     fontFamily: {
       sans: [
@@ -55,30 +60,55 @@ module.exports = {
     spacing: {
       0: "0px",
       1: "5px",
+      1.5: "6px",
       2: "10px",
       3: "15px",
       4: "20px",
       5: "30px",
+      5.5: "35px",
       6: "40px",
+      6.5: "50px",
       7: "60px",
+      7.5: "65px",
       8: "75px",
       9: "80px",
+      10: "90px",
+      11: "100px",
+      15: "150px",
       "5l": "10rem",
       "n1/2": "-50%",
       24: "24rem",
       400: "400px",
     },
+
+    boxShadow: {
+      outlineLg: "0 0 0 4pt var(--color-primary-800)",
+      outlineMd: "0 0 0 2pt var(--color-primary-800)",
+      outlineSm: "0 0 0 1pt var(--color-primary-800)",
+    },
     borderWidth: {
       DEFAULT: "1px",
       0: "0px",
+      4: "4px",
+      2: "2px",
     },
     extend: {
       borderRadius: {
         5: "5px",
         8: "8px",
+        40: "40px",
+      },
+      borderColor: {
+        "color-800": "var(--color-primary-800)",
       },
       outline: {
         "no-chrome": "none",
+      },
+      transitionTimingFunction: {
+        "in-out-hard": "cubic-bezier(.77, 0, .175, 1)",
+      },
+      transitionDuration: {
+        400: "400ms",
       },
     },
   },
@@ -90,8 +120,5 @@ module.exports = {
       borderWidth: ["last"],
     },
   },
-  plugins: [
-    require("tailwind-scrollbar"),
-    require("@tailwindcss/line-clamp")
-  ],
+  plugins: [require("tailwind-scrollbar"), require("@tailwindcss/line-clamp")],
 };

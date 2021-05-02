@@ -27,14 +27,21 @@ export const SettingsDropdown: React.FC<{
   const { debugAudio, setDebugAudio } = useDebugAudioStore();
 
   return (
-    <div className="flex" style={{ width: 200 }}>
+    <div
+      className="flex whitespace-nowrap overflow-ellipsis"
+      style={{ width: 200 }}
+    >
       <BaseOverlay
         onActionButtonClicked={onActionButtonClicked}
         actionButton={t("components.settingsDropdown.logOut.button")}
         overlay={currentOverlay}
       >
         <div className="flex flex-col">
-          <ApiPreloadLink route="profile" data={{ username: user.username }}>
+          <ApiPreloadLink
+            data-testid="profile-link"
+            route="profile"
+            data={{ username: user.username }}
+          >
             <SettingsIcon
               onClick={onCloseDropdown}
               icon={<SolidUser />}
@@ -69,7 +76,11 @@ export const SettingsDropdown: React.FC<{
             />
           </a>
           <SettingsIcon
-            label={!debugAudio ? "Debug Audio" : "Stop Debugger"}
+            label={
+              !debugAudio
+                ? t("components.settingsDropdown.debugAudio.debugAudio")
+                : t("components.settingsDropdown.debugAudio.stopDebugger")
+            }
             icon={<SolidVolume />}
             transition
             onClick={() => setDebugAudio(!debugAudio)}

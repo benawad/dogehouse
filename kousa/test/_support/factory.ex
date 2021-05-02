@@ -1,4 +1,4 @@
-defmodule Kousa.Support.Factory do
+defmodule KousaTest.Support.Factory do
   @moduledoc """
   defines the `create/2` function.
 
@@ -22,10 +22,11 @@ defmodule Kousa.Support.Factory do
           githubId: Faker.Internet.user_name(),
           twitterId: Faker.Internet.user_name(),
           displayName: Faker.Internet.user_name(),
-          username: Faker.Internet.user_name(),
+          username: String.slice(String.replace(Faker.Internet.user_name(), ".", "_"), 0..14),
           email: Faker.Internet.free_email(),
           githubAccessToken: "ntoaunthanuheoh",
           avatarUrl: "https://example.com/abc.jpg",
+          bannerUrl: "https://example.com/abc.jpg",
           bio: "a dogehouse user",
           tokenVersion: 1,
           numFollowing: 0,

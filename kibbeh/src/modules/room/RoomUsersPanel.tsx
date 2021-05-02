@@ -10,6 +10,8 @@ import { useMediaQuery } from "react-responsive";
 import { AudioDebugPanel } from "../debugging/AudioDebugPanel";
 import { useDebugAudioStore } from "../../global-stores/useDebugAudio";
 import { useMuteStore } from "../../global-stores/useMuteStore";
+import { useDeafStore } from "../../global-stores/useDeafStore";
+import { isWebRTCEnabled } from "../../lib/isWebRTCEnabled";
 
 interface RoomUsersPanelProps extends JoinRoomAndGetInfoResponse {}
 
@@ -28,6 +30,7 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
   const { t } = useTypeSafeTranslation();
   const me = useContext(WebSocketContext).conn?.user;
   const muted = useMuteStore().muted;
+  const deafened = useDeafStore().deafened;
   let gridTemplateColumns = "repeat(5, minmax(0, 1fr))";
   const screenType = useScreenType();
   const isBigFullscreen = useMediaQuery({ minWidth: 640 });
@@ -42,19 +45,25 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
       ipcRenderer.send("@room/data", {
         currentRoom: props,
         muted,
+        deafened,
         me: me || {},
       });
     }
-  }, [props, muted, me]);
+  }, [props, muted, deafened, me]);
 
   const { debugAudio } = useDebugAudioStore();
 
   return (
     <div
-      className={`flex pt-4 px-4 flex-1 bg-primary-800`}
+      className={`flex pt-4 px-4 flex-1 ${screenType !== "fullscreen" ? "bg-primary-800" : "bg-primary-900"}`}
       id={props.room.isPrivate ? "private-room" : "public-room"}
     >
       <div className="w-full block">
+        {!isWebRTCEnabled() ? (
+          <div className="text-accent bg-primary-600 p-1 mb-2">
+            Your browser does not support WebRTC or it is disabled.
+          </div>
+        ) : null}
         {debugAudio ? <AudioDebugPanel /> : null}
         <div
           style={{

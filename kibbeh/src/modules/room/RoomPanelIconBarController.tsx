@@ -4,10 +4,12 @@ import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useMuteStore } from "../../global-stores/useMuteStore";
+import { useDeafStore } from "../../global-stores/useDeafStore";
 import { useCurrentRoomInfo } from "../../shared-hooks/useCurrentRoomInfo";
 import { useLeaveRoom } from "../../shared-hooks/useLeaveRoom";
 import { useScreenType } from "../../shared-hooks/useScreenType";
 import { useSetMute } from "../../shared-hooks/useSetMute";
+import { useSetDeaf } from "../../shared-hooks/useSetDeaf";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { RoomPanelIconBar } from "../../ui/RoomPanelIconBar";
@@ -17,6 +19,7 @@ import { RoomChatList } from "./chat/RoomChatList";
 import { RoomChatMentions } from "./chat/RoomChatMentions";
 import { useRoomChatStore } from "./chat/useRoomChatStore";
 import { RoomSettingsModal } from "./RoomSettingModal";
+import { SolidPlus } from "../../icons";
 
 interface RoomPanelIconBarControllerProps {
   room: Room;
@@ -30,6 +33,8 @@ export const RoomPanelIconBarController: React.FC<RoomPanelIconBarControllerProp
   const { t } = useTypeSafeTranslation();
   const { muted } = useMuteStore();
   const setMute = useSetMute();
+  const { deafened } = useDeafStore();
+  const setDeaf = useSetDeaf();
   const { canSpeak, isCreator } = useCurrentRoomInfo();
   const { leaveRoom } = useLeaveRoom();
   const { push } = useRouter();
@@ -49,6 +54,7 @@ export const RoomPanelIconBarController: React.FC<RoomPanelIconBarControllerProp
             ? { isMuted: muted, onMute: () => setMute(!muted) }
             : undefined
         }
+        deaf={{ isDeaf: deafened, onDeaf: () => setDeaf(!deafened) }}
         onLeaveRoom={() => {
           push("/dash");
           leaveRoom();
@@ -74,9 +80,11 @@ export const RoomPanelIconBarController: React.FC<RoomPanelIconBarControllerProp
             >
               <button
                 onClick={() => toggleOpen()}
-                className="flex text-primary-100 p-4 text-2xl"
+                className="flex justify-between items-center w-full text-primary-100 p-4 text-2xl"
               >
-                {t("modules.roomChat.title")}
+                <span>{t("modules.roomChat.title")}</span>
+                {/* Just a temporary solution to make close chat ux better, until we have the design in figma */}
+                <SolidPlus className={`transform rotate-45`} />
               </button>
               <div className="flex overflow-y-auto flex-1">
                 <div className={`flex flex-1 w-full flex-col mt-4`}>

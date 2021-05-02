@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "مزید لوڈ کریں",
     "loading": "لوڈ ہو رہا ہے",
@@ -21,7 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Muted | DogeHouse"
+    "mutedTitle": "Muted | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -41,7 +44,8 @@
     "home": {
       "createRoom": "روم بنائیں",
       "refresh": "ریفریش",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "یہ روم اب موجود نہیں ہے",
@@ -84,7 +88,10 @@
       "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak"
     },
     "searchUser": { "search": "تلاش کریں" },
-    "soundEffectSettings": { "header": "آواز کی ترتیبات" },
+    "soundEffectSettings": {
+      "header": "آواز کی ترتیبات",
+      "title": "Sound Settings"
+    },
     "viewUser": {
       "editProfile": "پروفائل میں ترمیم کریں",
       "followsYou": "آپ کو فالو کیا ہوا ہے",
@@ -94,7 +101,9 @@
       "followingHim": "فالونگ",
       "copyProfileUrl": "کاپی پروفائل یو آر ایل",
       "urlCopied": "یو آر ایل کو کلپ بورڈ میں کاپی کیا گیا",
-      "unfollow": "ان فالو کریں"
+      "unfollow": "ان فالو کریں",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "آواز کی ترتیبات",
@@ -106,6 +115,14 @@
     "overlaySettings": {
       "input": { "errorMsg": "Invalid app title", "label": "Enter App Title" },
       "header": "Overlay Settings"
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -130,7 +147,10 @@
       "settings": "ترتیبات",
       "speaker": "اسپیکر",
       "listener": "سننے والا",
-      "chat": "چیٹ"
+      "chat": "چیٹ",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "آپ کا آلہ فی الحال تعاون یافتہ نہیں ہے۔ آپ ایک تشکیل دے سکتے ہیں",
@@ -151,7 +171,8 @@
       "listening": "سن رہا ہے",
       "toggleMuteKeybind": "گونگا کی بائنڈ ٹوگل کریں",
       "togglePushToTalkKeybind": "ٹوگل کریں پش ٹو ٹاک کی بائنڈ",
-      "toggleOverlayKeybind": "toggle overlay keybind"
+      "toggleOverlayKeybind": "toggle overlay keybind",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "کسی وجہ سے آڈیو صارف نہیں ہے" },
     "addToCalendar": { "add": "کیلنڈر میں شامل کریں" },
@@ -185,7 +206,8 @@
         "usernameError": "لمبائی 4 سے 15 حروف اور صرف حرفی / انگارے کی",
         "usernameLabel": "صارف نام",
         "bioError": "160 حروف کی زیادہ سے زیادہ لمبائی",
-        "bioLabel": "بایو"
+        "bioLabel": "بایو",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "کیا آپ واقعی اس صارف کو اپنے بنائے ہوئے کسی بھی کمرے میں شامل ہونے سے روکنا چاہتے ہیں؟",
@@ -219,7 +241,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",
@@ -228,6 +253,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -245,6 +274,11 @@
         "roomName": "کمرے کا نام",
         "minLength": "منٹ لمبائی 2",
         "roomDescription": "کمرے کی تفصیل"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

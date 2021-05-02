@@ -20,7 +20,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "已静音 | DogeHouse"
+    "mutedTitle": "已关闭麦克风 | DogeHouse",
+    "deafenedTitle": "已静音 | DogeHouse",
+    "dashboard": "概览",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -40,7 +43,8 @@
     "home": {
       "createRoom": "新建聊天室",
       "refresh": "刷新",
-      "editRoom": "修改聊天室"
+      "editRoom": "修改聊天室",
+      "desktopAlert": "现在下载神烦狗桌面app吧！"
     },
     "inviteList": {
       "roomGone": "聊天室已被删除，请回到前一页",
@@ -83,7 +87,7 @@
       "allowAllConfirm": "确定？这将会允许全部{{}}位成员讲话"
     },
     "searchUser": { "search": "搜索..." },
-    "soundEffectSettings": { "header": "声音" },
+    "soundEffectSettings": { "header": "声音", "title": "声音设置" },
     "viewUser": {
       "editProfile": "编辑个人主页",
       "followsYou": "关注您的人",
@@ -93,7 +97,9 @@
       "followingHim": "已经关注",
       "copyProfileUrl": "复制个人主页链接",
       "urlCopied": "个人主页链接已复制到剪贴板",
-      "unfollow": "取消关注"
+      "unfollow": "取消关注",
+      "about": "关于ta",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "语音设置",
@@ -105,6 +111,14 @@
     "overlaySettings": {
       "input": { "errorMsg": "不允许的App标题", "label": "输入App标题" },
       "header": "覆盖层设置"
+    },
+    "download": {
+      "starting": "开始下载...",
+      "failed": "无法自动下载，请稍后再尝试",
+      "visit_gh": "查看Github的发布",
+      "prompt": "按下面的按键开始下载",
+      "download_now": "下载",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -129,7 +143,10 @@
       "settings": "设置",
       "speaker": "扬声器",
       "listener": "听者",
-      "chat": "文字聊天"
+      "chat": "文字聊天",
+      "toggleDeafMicBtn": "切换静音",
+      "deafen": "静音",
+      "undeafen": "取消静音"
     },
     "micPermissionBanner": {
       "permissionDenied": "麦克风使用权被拒绝（可能需要更改设置并且刷新页面）",
@@ -162,7 +179,8 @@
         "usernameError": "长度为4到15字符，只允许字母或数字或下划线",
         "usernameLabel": "用户名",
         "bioError": "最大长度为160字符",
-        "bioLabel": "个人简介"
+        "bioLabel": "个人简介",
+        "bannerUrlLabel": "Twitter横幅图链接"
       },
       "profileModal": {
         "blockUserConfirm": "您确定把此人加入黑名单?（ta不可加入您所建立的任何聊天室）",
@@ -193,9 +211,10 @@
     "keyboardShortcuts": {
       "setKeybind": "设置快捷键",
       "listening": "等待输入",
-      "toggleMuteKeybind": "切换静音键绑定",
+      "toggleMuteKeybind": "切换麦克风静音键绑定",
       "togglePushToTalkKeybind": "切换按键说话绑定",
-      "toggleOverlayKeybind": "切换覆盖层绑定"
+      "toggleOverlayKeybind": "切换覆盖层绑定",
+      "toggleDeafKeybind": "切换静音键绑定"
     },
     "wsKilled": {
       "description": "连接被服务器终止。当您在另一个标签中打开此网站时，通常会发生这种情况 ",
@@ -217,16 +236,17 @@
       "upcomingRooms": "即将开始的聊天室",
       "exploreMoreRooms": "探寻更多聊天室"
     },
-    "search": { "placeholder": "搜索聊天室，用户或者种类" },
+    "search": {
+      "placeholder": "搜索聊天室，用户或者种类",
+      "placeholderShort": "搜索"
+    },
     "settingsDropdown": {
       "profile": "个人信息页面",
       "language": "语言",
       "reportABug": "反馈Bug",
       "useOldVersion": "使用旧版本",
-      "logOut": {
-        "button": "登出",
-        "modalSubtitle": "是否确定登出?"
-      }
+      "logOut": { "button": "登出", "modalSubtitle": "是否确定登出?" },
+      "debugAudio": { "debugAudio": "调试声音", "stopDebugger": "取消调试" }
     }
   },
   "modules": {
@@ -243,7 +263,10 @@
         "roomName": "聊天室名字",
         "minLength": "最短长度为2",
         "roomDescription": "聊天室描述"
-      }
+      },
+      "tommorow": "明天",
+      "today": "今天",
+      "deleteModal": { "areYouSure": "你确定要删除此预定的聊天室？" }
     },
     "roomChat": {
       "title": "文字聊天",

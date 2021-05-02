@@ -29,6 +29,7 @@ const LoginButton: React.FC<LoginButtonProps> = ({
   onClick,
   oauthUrl,
   dev,
+  ...props
 }) => {
   const { query } = useRouter();
   const clickHandler = useCallback(() => {
@@ -46,6 +47,7 @@ const LoginButton: React.FC<LoginButtonProps> = ({
       className="justify-center text-base py-3 mt-2"
       color={dev ? "primary" : "secondary"}
       onClick={oauthUrl ? clickHandler : onClick}
+      {...props}
     >
       <div
         className="grid gap-4"
@@ -98,7 +100,7 @@ export const LoginPage: React.FC = () => {
         <div className="flex m-auto flex-col p-6 gap-5 bg-primary-800 sm:rounded-8 z-10 sm:w-400 w-full">
           <div className="flex gap-2 flex-col">
             <span className="text-3xl text-primary-100 font-bold">Welcome</span>
-            <p className="text-primary-100 flex-wrap">
+            <div className="text-primary-100 flex-wrap">
               By logging in you accept our&nbsp;
               <a
                 href="/privacy-policy.html"
@@ -111,7 +113,7 @@ export const LoginPage: React.FC = () => {
                 Terms of Service
               </a>
               .
-            </p>
+            </div>
           </div>
           <div className="flex flex-col gap-4">
             <LoginButton oauthUrl={`${apiBaseUrl}/auth/github/web`}>
@@ -122,10 +124,10 @@ export const LoginPage: React.FC = () => {
               <SvgSolidTwitter width={20} height={20} />
               Log in with Twitter
             </LoginButton>
-            {/* <LoginButton oauthUrl={`${apiBaseUrl}/auth/discord/web`}>
-            <SvgSolidDiscord width={20} height={20} />
-            Log in with Discord
-          </LoginButton> */}
+            <LoginButton oauthUrl={`${apiBaseUrl}/auth/discord/web`}>
+              <SvgSolidDiscord width={20} height={20} />
+              Log in with Discord
+            </LoginButton>
             {!__prod__ ? (
               <LoginButton
                 dev
@@ -145,6 +147,7 @@ export const LoginPage: React.FC = () => {
                   });
                   push("/dash");
                 }}
+                data-testid="create-test-user"
               >
                 <SvgSolidBug width={20} height={20} />
                 Create a test user

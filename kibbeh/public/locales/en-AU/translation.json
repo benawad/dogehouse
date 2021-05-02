@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "ǝɹoɯ pɐoꞁ",
     "loading": "˙˙˙ƃuᴉpɐoꞁ",
@@ -21,7 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "ǝsnoHǝƃoᗡ",
-    "mutedTitle": "ǝsnoHǝƃoᗡ | pǝʇnW"
+    "mutedTitle": "ǝsnoHǝƃoᗡ | pǝʇnW",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -41,7 +44,8 @@
     "home": {
       "createRoom": "ɯooᴚ ǝʇɐǝɹƆ",
       "refresh": "ɥsǝɹɟǝᴚ",
-      "editRoom": "Edit Room"
+      "editRoom": "Edit Room",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "ʞɔɐq oƃ 'ǝuoƃ ɯooɹ",
@@ -84,7 +88,7 @@
       "allowAllConfirm": "ʞɐǝds oʇ sɹǝsn ƃuᴉʇsǝnbǝɹ {{count}} ꞁꞁɐ ʍoꞁꞁɐ ꞁꞁᴉʍ sᴉɥ⊥ ¿ǝɹns noʎ ǝɹⱯ"
     },
     "searchUser": { "search": "˙˙˙ɥɔɹɐǝs" },
-    "soundEffectSettings": { "header": "spunoS" },
+    "soundEffectSettings": { "header": "spunoS", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "ǝꞁᴉɟoɹd ʇᴉpǝ",
       "followsYou": "noʎ sʍoꞁꞁoɟ",
@@ -94,7 +98,9 @@
       "followingHim": "ƃuᴉʍoꞁꞁoɟ",
       "copyProfileUrl": "ꞁɹn ǝꞁᴉɟoɹd ʎdoɔ",
       "urlCopied": "pɹɐoqdᴉꞁɔ oʇ pǝᴉdoɔ Ꞁᴚ∩",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "sƃuᴉʇʇǝS ǝɔᴉoɅ",
@@ -109,6 +115,14 @@
         "errorMsg": "ǝꞁʇᴉʇ ddɐ pᴉꞁɐʌ ɹǝʇuǝ ǝsɐǝꞁԀ",
         "label": "ǝꞁʇᴉʇ ddɐ ɹǝʇuƎ"
       }
+    },
+    "download": {
+      "starting": "Starting download...",
+      "failed": "Could not auto-download, please try again later",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Click on the button below to start download",
+      "download_now": "Download Now",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -133,7 +147,10 @@
       "settings": "sƃuᴉʇʇǝS",
       "speaker": "ɹǝʞɐǝdS",
       "listener": "ɹǝuǝʇsᴉꞀ",
-      "chat": "ʇɐɥƆ"
+      "chat": "ʇɐɥƆ",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Deafen",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "uɐ ǝʇɐǝɹɔ uɐɔ no⅄ ˙pǝʇɹoddns ʇou ʎꞁʇuǝɹɹnɔ sᴉ ǝɔᴉʌǝp ɹno⅄",
@@ -151,7 +168,8 @@
       "listening": "ƃuᴉuǝʇsᴉꞁ",
       "toggleMuteKeybind": "puᴉqʎǝʞ ǝʇnɯ ǝꞁƃƃoʇ",
       "toggleOverlayKeybind": "puᴉqʎǝʞ ʎɐꞁɹǝʌo ǝꞁƃƃoʇ",
-      "togglePushToTalkKeybind": "puᴉqʎǝʞ ʞꞁɐʇ-oʇ-ɥsnd ǝꞁƃƃoʇ"
+      "togglePushToTalkKeybind": "puᴉqʎǝʞ ʞꞁɐʇ-oʇ-ɥsnd ǝꞁƃƃoʇ",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": {
       "noAudioMessage": "uosɐǝɹ ǝɯos ɹoɟ ɹǝɯnsuoɔ oᴉpnɐ ou"
@@ -187,7 +205,8 @@
         "usernameError": "ǝɹoɔsɹǝpun/ɔᴉɹǝɯnuɐɥdꞁɐ ʎꞁuo puɐ sɹǝʇɔɐɹɐɥɔ 5І oʇ ᔭ ɥʇƃuǝꞁ",
         "usernameLabel": "ǝɯɐuɹǝs∩",
         "bioError": "sɹǝʇɔɐɹɐɥɔ 09І ɟo ɥʇƃuǝꞁ xɐɯ",
-        "bioLabel": "oᴉᗺ"
+        "bioLabel": "oᴉᗺ",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "¿ǝʇɐǝɹɔ ɹǝʌǝ noʎ ɯooɹ ʎuɐ ƃuᴉuᴉoɾ ɯoɹɟ ɹǝsn sᴉɥʇ ʞɔoꞁq oʇ ʇuɐʍ noʎ ǝɹns noʎ ǝɹⱯ",
@@ -221,7 +240,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",
@@ -230,6 +252,10 @@
       "logOut": {
         "button": "Log out",
         "modalSubtitle": "Are you sure you want to logout?"
+      },
+      "debugAudio": {
+        "debugAudio": "Debug Audio",
+        "stopDebugger": "Stop Debugger"
       }
     }
   },
@@ -247,6 +273,11 @@
         "roomName": "ǝɯɐu ɯooɹ",
         "roomDescription": "uoᴉʇdᴉɹɔsǝᗡ",
         "minLength": "ᘔ ɥʇƃuǝꞁ uᴉɯ"
+      },
+      "tommorow": "TOMMOROW",
+      "today": "TODAY",
+      "deleteModal": {
+        "areYouSure": "Are you sure you want to delete this scheduled room?"
       }
     },
     "roomChat": {

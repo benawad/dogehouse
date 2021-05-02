@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "Lataa lisää",
     "loading": "Ladataan...",
@@ -21,7 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Mykistetty | DogeHouse"
+    "mutedTitle": "Mykistetty | DogeHouse",
+    "deafenedTitle": "Hiljennetty | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Yhteys katkaistu"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -41,7 +44,8 @@
     "home": {
       "createRoom": "Luo huone",
       "refresh": "Päivitä",
-      "editRoom": "Muokkaa huonetta"
+      "editRoom": "Muokkaa huonetta",
+      "desktopAlert": "Lataa DogeHouse-työpöytäsovellus tänään!"
     },
     "inviteList": {
       "roomGone": "Huone poistettu, palaa takaisin",
@@ -59,16 +63,16 @@
       "featureText_6": "Dogen voimalla",
       "loginGithub": "Kirjaudu GitHubilla",
       "loginTwitter": "Kirjaudu Twitterillä",
-      "createTestUser": "Luo testikäyttäjä",
-      "loginDiscord": "Kirjaudu Discordilla"
+      "loginDiscord": "Kirjaudu Discordilla",
+      "createTestUser": "Luo testikäyttäjä"
     },
     "myProfile": {
       "logout": "Kirjaudu ulos",
       "probablyLoading": "Ladataan...",
       "voiceSettings": "Puheasetukset",
-      "soundSettings": "Toistoasetukset",
-      "deleteAccount": "Poista tili",
+      "soundSettings": "Ääniasetukset",
       "overlaySettings": "Overlay-asetukset",
+      "deleteAccount": "Poista tili",
       "couldNotFindUser": "Käyttäjää ei löytynyt"
     },
     "notFound": {
@@ -84,7 +88,7 @@
       "allowAllConfirm": "Oletko varma? Tämä antaa kaikille {{count}} pyytäville käyttäjille puheoikeuden"
     },
     "searchUser": { "search": "Hae..." },
-    "soundEffectSettings": { "header": "Äänet" },
+    "soundEffectSettings": { "header": "Äänet", "title": "Ääniasetukset" },
     "viewUser": {
       "editProfile": "Muokkaa profiilia",
       "followsYou": "Seuraa sinua",
@@ -94,7 +98,9 @@
       "followingHim": "Seurannassa",
       "copyProfileUrl": "Kopioi profiilin URL-osoite",
       "urlCopied": "Osoite kopioitu leikepöydälle",
-      "unfollow": "Lopeta seuraaminen"
+      "unfollow": "Lopeta seuraaminen",
+      "about": "Tietoa käyttäjästä",
+      "bot": "Botti"
     },
     "voiceSettings": {
       "header": "Puheasetukset",
@@ -108,7 +114,15 @@
       "input": {
         "errorMsg": "Epäkelpo sovelluksen otsikko",
         "label": "Syötä sovelluksen otsikko"
-      }  
+      }
+    },
+    "download": {
+      "starting": "Aloitetaan lataaminen...",
+      "failed": "Automaattinen lataus epäonnistui, yritä uudelleen myöhemmin",
+      "visit_gh": "Näe Github-julkaisut",
+      "prompt": "Aloita lataaminen klikkaamalla alla olevaa painiketta",
+      "download_now": "Lataa nyt",
+      "download_for": "Lataa %platform%ille (%ext%)"
     }
   },
   "components": {
@@ -133,7 +147,10 @@
       "settings": "Asetukset",
       "speaker": "Puhuja",
       "listener": "Kuuntelija",
-      "chat": "Chatti"
+      "chat": "Chatti",
+      "toggleDeafMicBtn": "Kytke hiljennys",
+      "deafen": "Hiljennä",
+      "undeafen": "Poista hiljennys"
     },
     "deviceNotSupported": {
       "notSupported": "Käyttämääsi laitetta ei tueta. Voit luoda",
@@ -154,7 +171,8 @@
       "listening": "Odotetaan näppäintä",
       "toggleMuteKeybind": "Mikrofonin mykistys -pikanäppäin",
       "togglePushToTalkKeybind": "Push-to-talk-pikanäppäin",
-      "toggleOverlayKeybind": "Overlay-pikanäppäin"
+      "toggleOverlayKeybind": "Overlay-pikanäppäin",
+      "toggleDeafKeybind": "Hiljennys-pikanäppäin"
     },
     "userVolumeSlider": { "noAudioMessage": "Ei äänen ulostulolaitteita" },
     "addToCalendar": { "add": "Lisää kalenteriin" },
@@ -188,7 +206,8 @@
         "usernameError": "Pituus 4-15 merkkiä ja vain aakkosia, numeroita tai alaviivoja",
         "usernameLabel": "Käyttäjätunnus",
         "bioError": "Maksimipituus 160 merkkiä",
-        "bioLabel": "Kuvaus"
+        "bioLabel": "Kuvaus",
+        "bannerUrlLabel": "Twitter-bannerikuvan URL-osoite"
       },
       "profileModal": {
         "blockUserConfirm": "Haluatko varmasti estää tämän käyttäjän liittymistä yhteenkään huoneeseesi?",
@@ -222,7 +241,10 @@
       "upcomingRooms": "Tulevat huoneet",
       "exploreMoreRooms": "Etsi lisää huoneita"
     },
-    "search": { "placeholder": "Hae huoneita, käyttäjiä tai kategorioita" },
+    "search": {
+      "placeholder": "Hae huoneita, käyttäjiä tai kategorioita",
+      "placeholderShort": "Hae"
+    },
     "settingsDropdown": {
       "profile": "Profiili",
       "language": "Kieli",
@@ -231,6 +253,10 @@
       "logOut": {
         "button": "Kirjaudu ulos",
         "modalSubtitle": "Haluatko varmasti kirjautua ulos?"
+      },
+      "debugAudio": {
+        "debugAudio": "Testaa äänet",
+        "stopDebugger": "Pysäytä debuggeri"
       }
     }
   },
@@ -248,6 +274,11 @@
         "roomName": "Huoneen nimi",
         "minLength": "Minimipituus 2",
         "roomDescription": "Huoneen kuvaus"
+      },
+      "tommorow": "HUOMENNA",
+      "today": "TÄNÄÄN",
+      "deleteModal": {
+        "areYouSure": "Haluatko varmasti poistaa tämän ajoitetun huoneen?"
       }
     },
     "roomChat": {
@@ -259,7 +290,7 @@
       "searchResults": "Hakutulokset",
       "recent": "Usein käytetyt",
       "sendMessage": "Lähetä viesti",
-      "whisper": "Kuiskaa",
+      "whisper": "Kuiskaus",
       "welcomeMessage": "Tervetuloa chattiin!",
       "roomDescription": "Huoneen kuvaus"
     },

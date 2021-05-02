@@ -20,7 +20,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Tystad | DogeHouse"
+    "mutedTitle": "Tystad | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Connection Taken"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -40,7 +43,8 @@
     "home": {
       "createRoom": "Skapa ett rum",
       "refresh": "Uppdatera",
-      "editRoom": "Redigera rummet"
+      "editRoom": "Redigera rummet",
+      "desktopAlert": "Download the DogeHouse desktop app today!"
     },
     "inviteList": {
       "roomGone": "Rummet försvann under månförmörkelsen, gå tillbaka",
@@ -57,9 +61,9 @@
       "featureText_5": "Textchatt",
       "featureText_6": "Drivs av Doge",
       "loginGithub": "Logga in med GitHub",
-      "loginTwitter": "Logga in Twitter",
+      "loginTwitter": "Logga in med Twitter",
       "createTestUser": "Skapa testanvändare",
-      "loginDiscord": "Login with Discord"
+      "loginDiscord": "Logga in med Discord"
     },
     "myProfile": {
       "logout": "Logga ut",
@@ -68,7 +72,7 @@
       "soundSettings": "Ljudinställningar",
       "deleteAccount": "Radera konto",
       "overlaySettings": "Overlayinställningar",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "Förlåt, vi kunde inte hitta den användaren"
     },
     "notFound": {
       "whoopsError": "Whoops! Denna sida blev förlorad i konversationen.",
@@ -83,7 +87,7 @@
       "allowAllConfirm": "Är du säker på detta sergeant? Detta kommer tillåta {{count}} användare att få tala. Det kan utplåna månen! 🚀☢️"
     },
     "searchUser": { "search": "Sök..." },
-    "soundEffectSettings": { "header": "Ljud" },
+    "soundEffectSettings": { "header": "Ljud", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Redigera profil",
       "followsYou": "Följer dig",
@@ -93,7 +97,9 @@
       "followingHim": "Följer",
       "copyProfileUrl": "Kopiera profillänk",
       "urlCopied": "Länken har kopierats",
-      "unfollow": "Sluta följa"
+      "unfollow": "Sluta följa",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Röstinställningar",
@@ -108,6 +114,14 @@
         "errorMsg": "Ogiltlig fönstertitel",
         "label": "Ange fönstertitel"
       }
+    },
+    "download": {
+      "starting": "Påbörjar nedladdning...",
+      "failed": "Det gick inte att ladda ner automatiskt, försök igen senare",
+      "visit_gh": "Visit Github Releases",
+      "prompt": "Klicka på knappen nedan för att starta nedladdningen",
+      "download_now": "Ladda ner nu",
+      "download_for": "Ladda ner för %platform% (%ext%)"
     }
   },
   "components": {
@@ -132,7 +146,10 @@
       "settings": "Inställningar",
       "speaker": "Talare",
       "listener": "Lyssnare",
-      "chat": "Chatt"
+      "chat": "Chatt",
+      "toggleDeafMicBtn": "Växla ljud",
+      "deafen": "Ljud av",
+      "undeafen": "Ljud på"
     },
     "micPermissionBanner": {
       "permissionDenied": "Åtkomst nekad när vi försökte att ansluta till din mikrofon (du kan behöva gå till webbläsarinställningarna, tillåta att webläsaren tillåter din mikrofon och sedan ladda om sidan)",
@@ -165,13 +182,14 @@
         "usernameError": "Maximum 4 till 15 karaktärer med bara alfanumerisk/understräck",
         "usernameLabel": "Användarnamn",
         "bioError": "Maximum längd på 160 karaktärer",
-        "bioLabel": "Biografi"
+        "bioLabel": "Biografi",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Är du säker på att du vill blockera denna användare från att ansluta till dina rum?",
         "blockUser": "Blockera användare",
         "makeMod": "Gör moderator",
-        "unmod": "Ogör moderator",
+        "unmod": "Ta bort moderator",
         "addAsSpeaker": "Lägg till som talare",
         "moveToListener": "Flytta till lyssnare",
         "banFromChat": "Bannlys från chatt",
@@ -179,7 +197,7 @@
         "goBackToListener": "Gå tillbaka till lyssnare",
         "deleteMessage": "Ta bort meddelande",
         "makeRoomCreator": "Gör till rumsadministratör",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Ta bort avstängning från chatt"
       },
       "roomSettingsModal": {
         "requirePermission": "Be om tillåtelse att prata",
@@ -207,7 +225,8 @@
       "listening": "Lyssnar",
       "toggleMuteKeybind": "Växla tystad kortkommando",
       "togglePushToTalkKeybind": "Växla tryck-för-tal kortkommando",
-      "toggleOverlayKeybind": "Växla overlay-keybind"
+      "toggleOverlayKeybind": "Växla overlay kortkommando",
+      "toggleDeafKeybind": "Växla tyst kortkommando"
     },
     "wsKilled": {
       "description": "WebSocket anslutningen blev nerstängd av servern. Detta händer oftast när du öppnar hemsidan i en annan flik.",
@@ -223,15 +242,22 @@
       "upcomingRooms": "Kommande rum",
       "exploreMoreRooms": "Utforska Fler Rum"
     },
-    "search": { "placeholder": "Sök efter rum, användare eller kategorier" },
+    "search": {
+      "placeholder": "Sök efter rum, användare eller kategorier",
+      "placeholderShort": "Sök"
+    },
     "settingsDropdown": {
       "profile": "Profil",
       "language": "Språk",
       "reportABug": "Rapportera ett fel",
-      "useOldVersion": "Använd förra verisionen",
+      "useOldVersion": "Använd förra versionen",
       "logOut": {
         "button": "Logga ut",
         "modalSubtitle": "Är du säker på att du vill logga ut?"
+      },
+      "debugAudio": {
+        "debugAudio": "Felsök ljud",
+        "stopDebugger": "Stoppa felsökaren"
       }
     }
   },
@@ -249,6 +275,11 @@
         "roomName": "Namn",
         "roomDescription": "Beskrivning",
         "minLength": "Lägsta längden: 2"
+      },
+      "tommorow": "IMORGON",
+      "today": "IDAG",
+      "deleteModal": {
+        "areYouSure": "är du säker på att du vill ta bort det här schemalagda rummet?"
       }
     },
     "roomChat": {

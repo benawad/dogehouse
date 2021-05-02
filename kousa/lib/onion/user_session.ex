@@ -7,20 +7,28 @@ defmodule Onion.UserSession do
     @type t :: %__MODULE__{
             user_id: String.t(),
             avatar_url: String.t(),
+            banner_url: String.t(),
             username: String.t(),
             display_name: String.t(),
             current_room_id: String.t(),
+            bot_owner_id: String.t(),
             muted: boolean(),
+            deafened: boolean(),
+            ip: String.t(),
             pid: pid()
           }
 
     defstruct user_id: nil,
               current_room_id: nil,
               muted: false,
+              ip: nil,
+              deafened: false,
               pid: nil,
               username: nil,
+              bot_owner_id: nil,
               display_name: nil,
-              avatar_url: nil
+              avatar_url: nil,
+              banner_url: nil
   end
 
   #################################################################################
@@ -46,6 +54,8 @@ defmodule Onion.UserSession do
   def child_spec(init), do: %{super(init) | id: Keyword.get(init, :user_id)}
 
   def count, do: Registry.count(Onion.UserSessionRegistry)
+
+  def lookup(user_id), do: Registry.lookup(Onion.UserSessionRegistry, user_id)
 
   ###############################################################################
   ## INITIALIZATION BOILERPLATE
@@ -74,7 +84,7 @@ defmodule Onion.UserSession do
 
   defp send_ws_impl(_platform, msg, state = %{pid: pid}) do
     # TODO: refactor this to not use ws-datastructures
-    if pid, do: send(pid, {:remote_send, msg})
+    if pid, do: Broth.SocketHandler.remote_send(pid, msg)
     {:noreply, state}
   end
 
@@ -89,11 +99,22 @@ defmodule Onion.UserSession do
     {:noreply, %{state | muted: value}}
   end
 
+  def set_deafen(user_id, value) when is_boolean(value),
+    do: cast(user_id, {:set_deafen, value})
+
+  defp set_deafen_impl(value, state = %{current_room_id: current_room_id}) do
+    if current_room_id do
+      Onion.RoomSession.deafen(current_room_id, state.user_id, value)
+    end
+
+    {:noreply, %{state | deafened: value}}
+  end
+
   def new_tokens(user_id, tokens), do: cast(user_id, {:new_tokens, tokens})
 
   defp new_tokens_impl(tokens, state = %{pid: pid}) do
     # TODO: refactor this to not use ws-datastructures
-    if pid, do: send(pid, {:remote_send, %{op: "new-tokens", d: tokens}})
+    if pid, do: Broth.SocketHandler.remote_send(pid, %{op: "new-tokens", d: tokens})
     {:noreply, state}
   end
 
@@ -123,17 +144,20 @@ defmodule Onion.UserSession do
     {:reply, Map.get(state, key), state}
   end
 
-  def set_pid(user_id, pid), do: call(user_id, {:set_pid, pid})
+  # temporary function that exists so that each user can only have
+  # one tenant websocket.
+  def set_active_ws(user_id, pid), do: call(user_id, {:set_active_ws, pid})
 
-  defp set_pid(pid, _reply, state) do
+  defp set_active_ws(pid, _reply, state) do
     if state.pid do
-      send(state.pid, {:kill})
+      # terminates another websocket that happened to have been
+      # running.
+      Process.exit(state.pid, :normal)
     else
       Beef.Users.set_online(state.user_id)
     end
 
     Process.monitor(pid)
-
     {:reply, :ok, %{state | pid: pid}}
   end
 
@@ -189,12 +213,13 @@ defmodule Onion.UserSession do
     do: reconnect_impl(voice_server_id, state)
 
   def handle_cast({:set_mute, value}, state), do: set_mute_impl(value, state)
+  def handle_cast({:set_deafen, value}, state), do: set_deafen_impl(value, state)
   def handle_cast({:new_tokens, tokens}, state), do: new_tokens_impl(tokens, state)
   def handle_cast({:set_state, info}, state), do: set_state_impl(info, state)
 
   def handle_call(:get_info_for_msg, reply, state), do: get_info_for_msg_impl(reply, state)
   def handle_call({:get, key}, reply, state), do: get_impl(key, reply, state)
-  def handle_call({:set_pid, pid}, reply, state), do: set_pid(pid, reply, state)
+  def handle_call({:set_active_ws, pid}, reply, state), do: set_active_ws(pid, reply, state)
 
   def handle_info({:DOWN, _ref, :process, pid, _reason}, state), do: handle_disconnect(pid, state)
 end

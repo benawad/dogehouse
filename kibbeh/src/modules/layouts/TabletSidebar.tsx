@@ -30,14 +30,7 @@ const Page: React.FC<{
     <>
       {data?.users.map((u) => (
         <div key={u.id} className="flex pb-3 w-full justify-center">
-          <ApiPreloadLink
-            {...(u.currentRoom
-              ? { route: "room", data: { id: u.currentRoom.id } }
-              : {
-                  route: "profile",
-                  data: { username: u.username },
-                })}
-          >
+          <ApiPreloadLink route="profile" data={{ username: u.username }}>
             <SingleUser
               size="sm"
               isOnline={u.online}
@@ -67,7 +60,10 @@ export const TabletSidebar: React.FC<FriendsOnlineControllerProps> = ({}) => {
   }
 
   return (
-    <div className="flex pb-5 w-full flex flex-col flex-1 overflow-y-auto text-primary-100">
+    <div
+      data-testid="tablet-sidebar-container"
+      className="pb-5 w-full flex flex-col flex-1 overflow-y-auto text-primary-100"
+    >
       {cursors.map((c, i) => (
         <Page
           key={c}

@@ -40,6 +40,13 @@ defmodule Beef.Mutations.Users do
     |> Repo.update_all([])
   end
 
+  def set_ip(user_id, ip) do
+    Query.start()
+    |> Query.filter_by_id(user_id)
+    |> Query.update_set_ip(ip)
+    |> Repo.update_all([])
+  end
+
   def set_online(user_id) do
     Query.start()
     |> Query.filter_by_id(user_id)
@@ -100,9 +107,7 @@ defmodule Beef.Mutations.Users do
   def twitter_find_or_create(user) do
     db_user =
       from(u in User,
-        where:
-          (not is_nil(u.email) and u.email == ^user.email and u.email != "") or
-            u.twitterId == ^user.twitterId,
+        where: u.twitterId == ^user.twitterId,
         limit: 1
       )
       |> Repo.one()
@@ -129,6 +134,7 @@ defmodule Beef.Mutations.Users do
            email: if(user.email == "", do: nil, else: user.email),
            twitterId: user.twitterId,
            avatarUrl: user.avatarUrl,
+           bannerUrl: user.bannerUrl,
            displayName:
              if(is_nil(user.displayName) or String.trim(user.displayName) == "",
                do: "Novice Doge",
@@ -147,9 +153,7 @@ defmodule Beef.Mutations.Users do
 
     db_user =
       from(u in User,
-        where:
-          u.githubId == ^githubId or
-            (not is_nil(u.email) and u.email != "" and u.email == ^user["email"]),
+        where: u.githubId == ^githubId,
         limit: 1
       )
       |> Repo.one()
@@ -178,6 +182,7 @@ defmodule Beef.Mutations.Users do
            email: if(user["email"] == "", do: nil, else: user["email"]),
            githubAccessToken: github_access_token,
            avatarUrl: user["avatar_url"],
+           bannerUrl: user["banner_url"],
            displayName:
              if(is_nil(user["name"]) or String.trim(user["name"]) == "",
                do: "Novice Doge",
@@ -196,9 +201,7 @@ defmodule Beef.Mutations.Users do
 
     db_user =
       from(u in User,
-        where:
-          u.discordId == ^discordId or
-            (not is_nil(u.email) and u.email != "" and u.email == ^user["email"]),
+        where: u.discordId == ^discordId,
         limit: 1
       )
       |> Repo.one()
@@ -233,5 +236,20 @@ defmodule Beef.Mutations.Users do
          returning: true
        )}
     end
+  end
+
+  def create_bot(owner_id, username) do
+    %User{}
+    |> User.edit_changeset(%{
+      id: Ecto.UUID.generate(),
+      username: username,
+      # @todo pick better default
+      avatarUrl: "https://pbs.twimg.com/profile_images/1384417471944290304/4epg3HTW_400x400.jpg",
+      displayName: username,
+      botOwnerId: owner_id,
+      bio: "I am a bot",
+      apiKey: Ecto.UUID.generate()
+    })
+    |> Repo.insert(returning: true)
   end
 end

@@ -5,8 +5,8 @@ import { SearchBar } from "../../Search/SearchBar";
 export interface SearchHeaderProps {
   onBackClick?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => null;
-  onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => null;
+  ) => void;
+  onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   searchPlaceholder: string;
 }
 
@@ -16,7 +16,7 @@ export const SearchHeader: React.FC<SearchHeaderProps> = ({
   searchPlaceholder,
 }) => {
   return (
-    <div className="flex w-full px-3 py-2 bg-primary-900 text-primary-100">
+    <div className="flex w-full px-4 gap-1 bg-primary-900 text-primary-100" style={{ paddingTop: 17, paddingBottom: 17 }}>
       {onBackClick && (
         <button onClick={onBackClick}>
           <SolidCaretRight
@@ -26,7 +26,11 @@ export const SearchHeader: React.FC<SearchHeaderProps> = ({
           />
         </button>
       )}
-      <SearchBar placeholder={searchPlaceholder} onChange={onSearchChange} />
+      <SearchBar
+        mobile={true}
+        placeholder={searchPlaceholder}
+        onChange={onSearchChange}
+      />
     </div>
   );
 };

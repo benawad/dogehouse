@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "Загрузить еще",
     "loading": "Загрузка...",
@@ -21,7 +21,10 @@
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
-    "mutedTitle": "Приглушено | DogeHouse"
+    "mutedTitle": "Приглушено | DogeHouse",
+    "deafenedTitle": "Deafened | DogeHouse",
+    "dashboard": "Dashboard",
+    "connectionTaken": "Соединение установлено"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -44,7 +47,8 @@
     "home": {
       "createRoom": "Создать комнату",
       "refresh": "Обновить",
-      "editRoom": "Edit Room"
+      "editRoom": "Редактировать комнату",
+      "desktopAlert": "Скачайте приложение DogeHouse сегодня!"
     },
     "inviteList": {
       "roomGone": "Комната исчезла, вернитесь назад",
@@ -63,7 +67,7 @@
       "loginGithub": "Войти через GitHub",
       "loginTwitter": "Войти через Twitter",
       "createTestUser": "Создать тестового пользователя",
-      "loginDiscord": "Login with Discord"
+      "loginDiscord": "Войти через Discord"
     },
     "myProfile": {
       "logout": "Выйти",
@@ -72,7 +76,7 @@
       "soundSettings": "Настройки звука",
       "deleteAccount": "Удалить аккаунт",
       "overlaySettings": "Настройки оверлея",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "couldNotFindUser": "К сожалению, мы не можем найти этого пользователя"
     },
     "notFound": {
       "whoopsError": "Упс! Эта страница была потеряна.",
@@ -87,7 +91,7 @@
       "allowAllConfirm": "Вы уверены? Это позволит всем {{count}} пользователям, запрашивающих разрешение, говорить"
     },
     "searchUser": { "search": "Поиск..." },
-    "soundEffectSettings": { "header": "Звуки" },
+    "soundEffectSettings": { "header": "Звуки", "title": "Настройки звука" },
     "viewUser": {
       "editProfile": "редактировать профиль",
       "followsYou": "подписаны на вас",
@@ -97,7 +101,9 @@
       "followingHim": "Вы подписаны",
       "copyProfileUrl": "скопировать URL профиля",
       "urlCopied": "URL профиля скопирован",
-      "unfollow": "Отписаться"
+      "unfollow": "Отписаться",
+      "about": "About",
+      "bot": "Бот"
     },
     "voiceSettings": {
       "header": "Голосовые настройки",
@@ -112,6 +118,14 @@
         "label": "Введите название приложения"
       },
       "header": "Настройки оверлея"
+    },
+    "download": {
+      "starting": "Начало загрузки...",
+      "failed": "Не удалось выполнить автоматическую загрузку, повторите попытку позже",
+      "visit_gh": "Посетите Github Releases",
+      "prompt": "Нажмите на кнопку ниже, чтобы начать загрузку",
+      "download_now": "Скачать сейчас",
+      "download_for": "Download for %platform% (%ext%)"
     }
   },
   "components": {
@@ -136,7 +150,10 @@
       "settings": "настройки",
       "speaker": "оратор",
       "listener": "слушатель",
-      "chat": "Чат"
+      "chat": "Чат",
+      "toggleDeafMicBtn": "Toggle Deafen",
+      "deafen": "Заглушить",
+      "undeafen": "Undeafen"
     },
     "deviceNotSupported": {
       "notSupported": "Ваше устройство не поддерживается. Вы можете создать",
@@ -157,13 +174,14 @@
       "listening": "слушает",
       "toggleMuteKeybind": "Активация микрофона при нажатии",
       "togglePushToTalkKeybind": "Включить режим рации",
-      "toggleOverlayKeybind": "переключить привязку клавиши оверлея"
+      "toggleOverlayKeybind": "переключить привязку клавиши оверлея",
+      "toggleDeafKeybind": "Toggle deafen keybind"
     },
     "userVolumeSlider": { "noAudioMessage": "нет аудиосвязи" },
     "addToCalendar": { "add": "Добавить в Календарь" },
     "wsKilled": {
       "description": "Вебсокет был удален сервером. Обычно это происходит когда вы открываете сайт в другой вкладке.",
-      "reconnect": "присоединиться заново"
+      "reconnect": "Переподключиться"
     },
     "modals": {
       "createRoomModal": {
@@ -173,7 +191,7 @@
         "roomDescription": "описание комнаты",
         "descriptionError": "максимальная длина 500",
         "nameError": "длина должна быть от 2 до 60 символов",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "Заполните следующие поля чтобы создать новую комнату"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Новая комната создана",
@@ -191,7 +209,8 @@
         "usernameError": "длина от 4 до 15 символов, только буквенно-цифровые символы и нижнее подчеркивание",
         "usernameLabel": "Имя пользователя",
         "bioError": "максимальная длина 160 символов",
-        "bioLabel": "Обо мне"
+        "bioLabel": "Обо мне",
+        "bannerUrlLabel": "URL баннера Twitter"
       },
       "profileModal": {
         "blockUserConfirm": "Вы уверены, что хотите закрыть этому пользователя доступ в любую из ваших комнат?",
@@ -205,7 +224,7 @@
         "goBackToListener": "стать слушателем",
         "deleteMessage": "удалить это сообщение",
         "makeRoomCreator": "назначить админом комнаты",
-        "unBanFromChat": "Unban from Chat"
+        "unBanFromChat": "Разбанить в чате"
       },
       "roomSettingsModal": {
         "requirePermission": "чтобы разговаривать здесь требуется разрешение",
@@ -216,24 +235,31 @@
       }
     },
     "followingOnline": {
-      "people": "People",
-      "online": "ONLINE",
-      "noOnline": "You have 0 friends online right now",
-      "showMore": "Show more"
+      "people": "Люди",
+      "online": "Онлайн",
+      "noOnline": "В данный момент 0 ваших друзей онлайн",
+      "showMore": "Показать больше"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
-      "exploreMoreRooms": "Explore More Rooms"
+      "upcomingRooms": "Ожидаемые комнаты",
+      "exploreMoreRooms": "Найти больше комнат"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Поиск комнат, пользователей или категорий",
+      "placeholderShort": "Поиск"
+    },
     "settingsDropdown": {
-      "profile": "Profile",
-      "language": "Language",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
+      "profile": "Профиль",
+      "language": "Язык",
+      "reportABug": "Сообщить о проблеме",
+      "useOldVersion": "Использовать старую версию",
       "logOut": {
-        "button": "Log out",
-        "modalSubtitle": "Are you sure you want to logout?"
+        "button": "Выход",
+        "modalSubtitle": "Вы уверены что хотите выйти?"
+      },
+      "debugAudio": {
+        "debugAudio": "Отладка звука",
+        "stopDebugger": "Остановить отладчик"
       }
     }
   },
@@ -251,6 +277,11 @@
         "roomName": "название комнаты",
         "roomDescription": "Описание",
         "minLength": "минимальная длина 2"
+      },
+      "tommorow": "Завтра",
+      "today": "Сегодня",
+      "deleteModal": {
+        "areYouSure": "Вы действительно хотите удалить эту запланированную комнату?"
       }
     },
     "roomChat": {
@@ -268,7 +299,7 @@
     },
     "roomStatus": {
       "fuelingRocket": "заправляем ракету",
-      "takingOff": "старт двигатерей",
+      "takingOff": "старт двигателей",
       "inSpace": "В космосе",
       "approachingMoon": "приближаемся к луне",
       "lunarDoge": "лунный Doge",
@@ -278,6 +309,6 @@
       "galacticDoge": "галактический Doge",
       "spottedLife": "замечена планета с жизнью"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": { "yourFeed": "Ваша лента" }
   }
 }
