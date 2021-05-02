@@ -201,7 +201,7 @@
       "editProfileModal": {
         "usernameTaken": "Gebruikersnaam bezet",
         "avatarUrlError": "Ongeldige afbeelding",
-        "avatarUrlLabel": "Github/Twitter avatar url",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar url",
         "displayNameError": "2 tot 50 karakters",
         "displayNameLabel": "Weergavenaam",
         "usernameError": "4 tot 15 karakters en alleen letters, cijfers en underscore",

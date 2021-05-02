@@ -173,7 +173,7 @@
       "editProfileModal": {
         "usernameTaken": "用户名已被占用",
         "avatarUrlError": "图片无效",
-        "avatarUrlLabel": "GitHub/Twitter头像URL",
+        "avatarUrlLabel": "Github/Twitter/Discord头像URL",
         "displayNameError": "长度为2到50字符",
         "displayNameLabel": "所显名称",
         "usernameError": "长度为4到15字符，只允许字母或数字或下划线",

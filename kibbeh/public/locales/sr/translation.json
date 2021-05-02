@@ -195,7 +195,7 @@
       "editProfileModal": {
         "usernameTaken": "Корисничко име је заузето",
         "avatarUrlError": "Неважећа слика",
-        "avatarUrlLabel": "Github/Twitter аватар url",
+        "avatarUrlLabel": "Github/Twitter/Discord аватар url",
         "displayNameError": "дужина између 2 до 50 карактера",
         "displayNameLabel": "Приказано име",
         "usernameError": "дужина између 4 до 15 карактера и само слова, бројеви и доња црта",

@@ -196,7 +196,7 @@
       "editProfileModal": {
         "usernameTaken": "kasutajanimi on juba kasutusel",
         "avatarUrlError": "Vigane pilt",
-        "avatarUrlLabel": "Github/Twitter avatari URL",
+        "avatarUrlLabel": "Github/Twitter/Discord avatari URL",
         "displayNameError": "2 kuni 50 tähemärki pikk",
         "displayNameLabel": "Kuvatav nimi",
         "usernameError": "4 kuni 15 tähemärki pikk ja ainult tähenumbriline/alakriips",

@@ -200,7 +200,7 @@
       "editProfileModal": {
         "usernameTaken": "Uzantnomo estis prenita",
         "avatarUrlError": "Nevalida bildo",
-        "avatarUrlLabel": "URL de GitHub/Twitter avataro",
+        "avatarUrlLabel": "URL de Github/Twitter/Discord avataro",
         "displayNameError": "longo 2 ĝis 50 signoj",
         "displayNameLabel": "Vidiga Nomo",
         "usernameError": "longo 4 ĝis 15 signoj kaj nur alfanombra/substreko",

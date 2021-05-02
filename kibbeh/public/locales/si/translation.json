@@ -202,7 +202,7 @@
       "editProfileModal": {
         "usernameTaken": "පරිශීලක නම භාවිතා කර ඇත",
         "avatarUrlError": "අවලංගු පිංතූරයකි",
-        "avatarUrlLabel": "GitHub/Twitter පිංතූරයේ සබැඳිය",
+        "avatarUrlLabel": "Github/Twitter/Discord පිංතූරයේ සබැඳිය",
         "displayNameError": "අකුරු 2 හා 50 අතර ",
         "displayNameLabel": "පෙන්විය යුතු නම",
         "usernameError": "අකුරු 4 හා 15 අතර විය යුතු අතර alphanumeric/underscore පමණක් භාවිත කල යුතුය",

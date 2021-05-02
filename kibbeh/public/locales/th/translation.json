@@ -199,7 +199,7 @@
       "editProfileModal": {
         "usernameTaken": "มีชื่อผู้ใช้นี้อยู่แล้ว",
         "avatarUrlError": "รูปผิดพลาด",
-        "avatarUrlLabel": "URL โปรไฟล์จาก Github/Twitter",
+        "avatarUrlLabel": "URL โปรไฟล์จาก Github/Twitter/Discord",
         "displayNameError": "ต้องมีความยาวระหว่าง 2 ถึง 50 ตัวอักษร",
         "displayNameLabel": "ชื่อที่แสดง",
         "usernameError": "ต้องมีความยาวระหว่าง 4 ถึง 15 ตัวอักษร และสามารถใส่ได้แค่ ตัวอักษรอังกฤษ, เลข และ Underscore เท่านั้น.",

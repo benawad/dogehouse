@@ -230,7 +230,7 @@
       "editProfileModal": {
         "usernameTaken": "Pseudo déjà pris",
         "avatarUrlError": "Image invalide",
-        "avatarUrlLabel": "URL d'avatar GitHub/Twitter",
+        "avatarUrlLabel": "URL d'avatar Github/Twitter/Discord",
         "displayNameError": "Longueur de 2 à 50 caractères",
         "displayNameLabel": "Nom affiché",
         "usernameError": "Longueur de 4 à 15 caractères et ne doit contenir que des caractères alphanumériques ou des tirets du bas",

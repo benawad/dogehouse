@@ -202,7 +202,7 @@
       "editProfileModal": {
         "usernameTaken": "lietotājvārds aizņemts",
         "avatarUrlError": "Nederīgs attēls",
-        "avatarUrlLabel": "Attēli URL no GitHub/Twitter",
+        "avatarUrlLabel": "Attēli URL no Github/Twitter/Discord",
         "displayNameError": "garums no 2 līdz 50 simboliem",
         "displayNameLabel": "Publiskais vārds",
         "usernameError": "garums no 4 līdz 15 simboliem, tikai burtciparu simboli un pasvītra",

@@ -203,7 +203,7 @@
       "editProfileModal": {
         "usernameTaken": "jan sin li jo e nimi nanpa ni",
         "avatarUrlError": "sitelen sina li ike",
-        "avatarUrlLabel": "sitelen tawa pi sitelen sina pi lipu Github/Twitter",
+        "avatarUrlLabel": "sitelen tawa pi sitelen sina pi lipu Github/Twitter/Discord",
         "displayNameError": "anpa pi suli li tu. anpa sewi pi suli li mute mute luka luka.",
         "displayNameLabel": "nimi",
         "usernameError": "anpa pi suli li tu tu. anpa sewi pi suli li luka luka luka. wan pi nimi li sitelen Latin anu nanpa anu linja anpa",

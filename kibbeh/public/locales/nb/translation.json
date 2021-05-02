@@ -198,7 +198,7 @@
       "editProfileModal": {
         "usernameTaken": "Brukernavnet er allerede i bruk",
         "avatarUrlError": "Ugyldig bilde",
-        "avatarUrlLabel": "GitHub/Twitter profilbilde URL",
+        "avatarUrlLabel": "Github/Twitter/Discord profilbilde URL",
         "displayNameError": "Lengden må være mellom 2 og 50 tegn",
         "displayNameLabel": "Visningsnavn",
         "usernameError": "Lengden må være mellom 4 og 15 tegn og kan kun inneholde alfanumerisk/understrek",
