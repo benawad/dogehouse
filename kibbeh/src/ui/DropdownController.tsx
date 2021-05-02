@@ -66,7 +66,7 @@ export const DropdownController: React.FC<{
   return (
     <React.Fragment>
       <button
-        className="focus:outline-no-chrome"
+        className="flex focus:outline-no-chrome"
         ref={referenceRef}
         onClick={() => setVisibility(!visible)}
         data-testid="dropdown-trigger"
