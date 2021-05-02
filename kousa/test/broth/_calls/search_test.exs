@@ -99,7 +99,7 @@ defmodule BrothTest.SearchTest do
       )
     end
 
-    test "doesn't return a room if it's private", t do
+    test "doesn't return a room if it's private (mixed search)", t do
       user_id = t.user.id
 
       %{"id" => room_id} =
