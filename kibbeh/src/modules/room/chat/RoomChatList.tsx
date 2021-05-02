@@ -46,7 +46,6 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room, users }) => {
 
   const getBadgeIcon = (m: Message) => {
     const user = users.find((u) => u.id === m.userId);
-    console.log(user);
     const isSpeaker = room.creatorId === user?.id || user?.roomPermissions?.isSpeaker;
     if (isSpeaker) {
       return "📣";
