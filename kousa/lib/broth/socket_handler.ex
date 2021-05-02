@@ -91,6 +91,16 @@ defmodule Broth.SocketHandler do
     end
   end
 
+  # unsub from PubSub topic
+  def unsub(socket, topic), do: send(socket, {:unsub, topic})
+
+  alias Onion.PubSub
+
+  defp unsub_impl(topic, state) do
+    PubSub.unsubscribe(topic)
+    ws_push(nil, state)
+  end
+
   # transitional remote_send message
   def remote_send(socket, message), do: send(socket, {:remote_send, message})
 
@@ -374,6 +384,7 @@ defmodule Broth.SocketHandler do
   def websocket_info(:exit, state), do: exit_impl(state)
   def websocket_info(:auth_timeout, state), do: auth_timeout_impl(state)
   def websocket_info({:remote_send, message}, state), do: remote_send_impl(message, state)
+  def websocket_info({:unsub, topic}, state), do: unsub_impl(topic, state)
   def websocket_info(message = {"chat:" <> _, _}, state), do: chat_impl(message, state)
 
   def websocket_info(message = {"user:update:" <> _, _}, state),
