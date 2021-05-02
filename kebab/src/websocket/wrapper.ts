@@ -31,7 +31,6 @@ type Handler<Data> = (data: Data) => void;
  * A wrapper object created using `wrap()` that can be used to make websocket calls using functions
  */
 export type Wrapper = ReturnType<typeof wrap>;
-
 /**
  * Creates a wrapper object that allows you to make websocket calls using functions
  * @param connection - reference to the websocket connection
@@ -65,8 +64,13 @@ export const wrap = (connection: Connection) => ({
   /**
    * Allows you to call functions that return information about the ws state
    */
+
   query: {
-    search: (query: string): Promise<{ items: Array<Room | User> }> =>
+    search: (query: string): Promise<{
+      items: Array<User | Room>,
+      rooms: Room[],
+      users: User[]
+    }> =>
       connection.fetch("search", { query }),
     getMyScheduledRoomsAboutToStart: (
       roomId: string

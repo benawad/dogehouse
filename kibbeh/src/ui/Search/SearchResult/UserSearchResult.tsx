@@ -10,7 +10,7 @@ export interface UserSearchResultProps {
     avatar: string;
   };
   className?: string;
-  onClick?: () => void
+  onClick?: () => void;
 }
 
 export const UserSearchResult: React.FC<UserSearchResultProps> = ({
