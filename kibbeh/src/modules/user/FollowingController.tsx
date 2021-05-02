@@ -70,14 +70,6 @@ const Page = ({
     else return <div className={styles}>No followers</div>;
   }
 
-  // if (isOnlyPage && data.rooms.length === 0) {
-  //   return (
-  //     <Button variant="small" onClick={() => refetch()}>
-  //       {t("pages.home.refresh")}
-  //     </Button>
-  //   );
-  // }
-
   return (
     <>
       {data.users.map((user) => (
@@ -95,7 +87,7 @@ const Page = ({
               </div>
             </ApiPreloadLink>
           </div>
-          <div className="flex block">
+          <div className="flex">
             {conn.user.username !== user.username && (
               <Button
                 loading={followLoading && variables?.[0] === user.id}
@@ -132,7 +124,7 @@ const Page = ({
           </div>
         </div>
       ))}
-      {isLastPage && data.nextCursor ? (
+      {isLastPage && data.nextCursor && (
         <div className={`flex justify-center py-5`}>
           <Button
             size="small"
@@ -143,7 +135,7 @@ const Page = ({
             {t("common.loadMore")}
           </Button>
         </div>
-      ) : null}
+      )}
     </>
   );
 };
