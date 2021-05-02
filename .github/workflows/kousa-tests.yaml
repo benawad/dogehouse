@@ -1,4 +1,4 @@
-name: test-elixir
+name: kousa:tests
 on:
   push:
     branches:
