@@ -1,4 +1,4 @@
-import { Room } from "@dogehouse/kebab";
+import { Room, RoomUser, Message } from "@dogehouse/kebab";
 import normalizeUrl from "normalize-url";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useVirtual, VirtualItem } from "react-virtual";
@@ -12,9 +12,10 @@ import { useRoomChatStore } from "./useRoomChatStore";
 
 interface ChatListProps {
   room: Room;
+  users: RoomUser[];
 }
 
-export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
+export const RoomChatList: React.FC<ChatListProps> = ({ room, users }) => {
   const { setData } = useContext(UserPreviewModalContext);
   const { messages, toggleFrozen } = useRoomChatStore();
   const me = useConn().user;
@@ -42,6 +43,16 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
     parentRef: chatListRef,
     estimateSize: React.useCallback(() => 20, []),
   });
+
+  const getBadgeIcon = (message: Message) => {
+    const user = users.find((u) => u.id == message.userId);
+    console.log(user);
+    const isSpeaker = room.creatorId === user?.id || user?.roomPermissions?.isSpeaker;
+    if (isSpeaker) {
+      return "📣";
+    }
+    return ""
+  }
 
   return (
     <div
@@ -72,6 +83,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
         {rowVirtualizer.virtualItems.map(
           ({ index: idx, start, measureRef, size }: VirtualItem) => {
             const index = messages.length - idx - 1;
+            const badgeIcon = getBadgeIcon(messages[index]);
             return (
               <div
                 ref={measureRef}
@@ -142,6 +154,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                       >
                         {messages[index].username}
                       </button>
+                      {badgeIcon ? <span> {badgeIcon} </span>: ""}
                       <span className={`inline mr-1`}>: </span>
                       <div className={`inline mr-1 space-x-1`}>
                         {messages[index].deleted ? (
