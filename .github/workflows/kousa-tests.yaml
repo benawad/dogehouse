@@ -1,21 +1,18 @@
-name: end-to-end-tests
+name: kousa:tests
 on:
   push:
     branches:
       - staging
     paths:
-      - '.github/workflows/end-to-end-tests.yaml'
       - 'kousa/lib/**'
-      - 'kibbeh/src/**'
   pull_request:
     branches:
       - staging
     paths:
       - 'kousa/lib/**'
-      - 'kibbeh/src/**'
 jobs:
-  end-to-end-tests:
-    name: end-to-end-tests
+  test:
+    name: test-elixir
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -41,10 +38,5 @@ jobs:
       run: mix deps.get
       env:
           MIX_ENV: test
-    - run: source .envrc && iex -S mix
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-    - run: yarn install
-    - run: cd ../kebab && yarn build
-    - run: cd ../kibbeh && yarn dev
-    - run: cd ../kibbeh && yarn cy:run
+    - run: mix test
+      id: test
