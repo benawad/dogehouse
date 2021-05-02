@@ -4,14 +4,13 @@
 import {
   Message,
   MessageToken,
-  MuteMap,
-  DeafMap,
+  BooleanMap,
   Room,
   ScheduledRoom,
   User,
   UserWithFollowInfo,
   UUID,
-} from "./entities";
+} from "..";
 import { Connection } from "./raw";
 import {
   GetScheduledRoomsResponse,
@@ -57,10 +56,10 @@ export const wrap = (connection: Connection) => ({
     handRaised: (handler: Handler<{ userId: UUID }>) =>
       connection.addListener("hand_raised", handler),
     speakerAdded: (
-      handler: Handler<{ userId: UUID; muteMap: MuteMap; deafMap: DeafMap }>
+      handler: Handler<{ userId: UUID; muteMap: BooleanMap; deafMap: BooleanMap }>
     ) => connection.addListener("speaker_added", handler),
     speakerRemoved: (
-      handler: Handler<{ userId: UUID; muteMap: MuteMap; deafMap: DeafMap }>
+      handler: Handler<{ userId: UUID; muteMap: BooleanMap; deafMap: BooleanMap }>
     ) => connection.addListener("speaker_removed", handler),
   },
   /**
@@ -108,7 +107,7 @@ export const wrap = (connection: Connection) => ({
       connection.fetch("get_top_public_rooms", { cursor }),
     getUserProfile: (
       idOrUsername: string
-    ): Promise<UserWithFollowInfo | null> =>
+    ): Promise<UserWithFollowInfo | null | { error: string }> =>
       connection.fetch("get_user_profile", { userId: idOrUsername }),
     getScheduledRooms: (
       cursor = "",

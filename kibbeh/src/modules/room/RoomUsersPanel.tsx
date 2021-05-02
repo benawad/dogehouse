@@ -55,7 +55,7 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
 
   return (
     <div
-      className={`flex pt-4 px-4 flex-1 bg-primary-800`}
+      className={`flex pt-4 px-4 flex-1 ${screenType !== "fullscreen" ? "bg-primary-800" : "bg-primary-900"}`}
       id={props.room.isPrivate ? "private-room" : "public-room"}
     >
       <div className="w-full block">

@@ -1,11 +1,11 @@
 # Kebab
-Client-side implementation of DogeHouse API.
+The official DogeHouse API client.
 
 ## Usage
-- **In web =>** see `examples/mediasoup-audio/` and `examples/react-chat`
+- **In web =>** see `examples/mediasoup-audio/` and `examples/react-chat/`
 - **In Node =>** see `examples/chat/` and `examples/bot/` (note that you need to have DOM in tsc's libs)
 
-### An example bot
+### A simple bot
 ```typescript
 require("dotenv").config();
 
