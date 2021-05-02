@@ -39,13 +39,7 @@ export const SearchBarController: React.FC<SearchControllerProps> = ({}) => {
     [text]
   );
   const { push } = useRouter();
-  const [results, setResults] = useState<Array<Room | User>>([]);
-
-  useEffect(() => {
-    if (data?.rooms && data?.users) {
-      setResults([...data.rooms, ...data.users]);
-    }
-  }, [data]);
+  const results = data ? [...data.rooms, ...data.users] : [];
 
   return (
     <Downshift<Room | User>
