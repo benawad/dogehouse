@@ -5,7 +5,7 @@ const usePageVisibility = () => {
 
   useEffect(() => {
     const handleVisibility = () => {
-      const isVisible = document.visibilityState === "visible";
+      const isVisible = document.visibilityState === "visible" || !document.hidden;
       setVisible(isVisible);
     };
     document.addEventListener("visibilitychange", handleVisibility);
