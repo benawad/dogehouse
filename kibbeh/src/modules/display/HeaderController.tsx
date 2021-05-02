@@ -37,10 +37,7 @@ export const HeaderController: NextPage<HeaderControllerProps> = ({
           {owner ? <meta name="music:creator" content={owner} /> : ""}
           <meta name="og:description" content={description} />
           <meta name="og:site_name" content="DogeHouse" />
-          <meta
-            name="og:image"
-            content={`${baseUrl || "https://next.dogehouse.tv"}/img/doge.png`}
-          />
+          <meta name="og:image" content={`${baseUrl}/img/doge.png`} />
         </>
       ) : (
         ""

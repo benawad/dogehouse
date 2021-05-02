@@ -1,4 +1,4 @@
-name: end-to-end-tests
+name: kibbeh:e2e_tests
 on:
   push:
     branches:
@@ -41,6 +41,7 @@ jobs:
       run: mix deps.get
       env:
           MIX_ENV: test
+    - run: source .envrc && mix ecto.migrate
     - run: source .envrc && iex -S mix
     - name: Use Node.js
       uses: actions/setup-node@v1

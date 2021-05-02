@@ -1,4 +1,4 @@
-name: lint-and-test-kibbeh
+name: kibbeh:lint_and_test
 
 on:
   push:
