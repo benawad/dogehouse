@@ -1,5 +1,6 @@
 import router from "next/router";
 import React, { HTMLProps } from "react";
+import { useAccountOverlay } from "../../../global-stores/useAccountOverlay";
 import { useCurrentRoomIdStore } from "../../../global-stores/useCurrentRoomIdStore";
 import { SolidMessages, SolidNotification, SolidSearch } from "../../../icons";
 import { useTokenStore } from "../../../modules/auth/useTokenStore";
@@ -32,41 +33,23 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   className = "",
   ...props
 }) => {
-  const conn = useConn();
-  const { t } = useTypeSafeTranslation();
+  const { set, isOpen } = useAccountOverlay.getState();
+  const handleClick = () => {
+    if (!isOpen) {
+      set({
+        isOpen: !isOpen,
+      });
+    }
+  };
+
   return (
     <div
       className={`flex w-full p-3 h-8 flex justify-between items-center bg-primary-900 ${className}`}
       {...props}
     >
-      <DropdownController
-        zIndex={20}
-        className="top-2 left-4 md:right-0 fixed"
-        innerClassName="fixed transform"
-        overlay={(close) => (
-          <SettingsDropdown
-            onActionButtonClicked={() => {
-              modalConfirm(
-                // eslint-disable-next-line @typescript-eslint/no-use-before-define
-                t("components.settingsDropdown.logOut.modalSubtitle"),
-                () => {
-                  conn.close();
-                  closeVoiceConnections(null);
-                  useCurrentRoomIdStore.getState().setCurrentRoomId(null);
-                  useTokenStore
-                    .getState()
-                    .setTokens({ accessToken: "", refreshToken: "" });
-                  router.push("/logout");
-                }
-              );
-            }}
-            onCloseDropdown={close}
-            user={conn.user}
-          />
-        )}
-      >
+      <button onClick={handleClick}>
         <SingleUser size="xxs" src={avatar} isOnline={true} />
-      </DropdownController>
+      </button>
       <div className="flex gap-x-5">
         {onAnnouncementsClick && (
           <button onClick={onAnnouncementsClick}>

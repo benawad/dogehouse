@@ -253,7 +253,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Berhentikan Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

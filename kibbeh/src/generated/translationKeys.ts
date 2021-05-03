@@ -143,6 +143,7 @@ export type TranslationKeys =
 	| "components.settingsDropdown.logOut.modalSubtitle"
 	| "components.settingsDropdown.debugAudio.debugAudio"
 	| "components.settingsDropdown.debugAudio.stopDebugger"
+	| "components.settingsDropdown.downloadApp"
 	| "components.modals.createRoomModal.subtitle"
 	| "components.modals.createRoomModal.public"
 	| "components.modals.createRoomModal.private"

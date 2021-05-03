@@ -208,7 +208,8 @@
       "debugAudio": {
         "debugAudio": "Débugger l'audio",
         "stopDebugger": "Arreter le débuggage"
-      }
+      },
+      "downloadApp": "Télécharger l'App"
     },
     "modals": {
       "createRoomModal": {

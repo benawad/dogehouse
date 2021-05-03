@@ -259,7 +259,8 @@
       "debugAudio": {
         "debugAudio": "Odpravite napake zvoka",
         "stopDebugger": "Ustavite razhroščevalec"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

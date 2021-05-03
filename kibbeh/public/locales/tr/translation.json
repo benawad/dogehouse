@@ -257,7 +257,8 @@
       "debugAudio": {
         "debugAudio": "Ses Hatalarını Ayıkla",
         "stopDebugger": "Hata Ayıklamayı Durdur"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {
