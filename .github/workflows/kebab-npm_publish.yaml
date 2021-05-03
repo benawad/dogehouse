@@ -2,7 +2,7 @@ name: Publish kebab to NPM
 on:
   push:
     branches:
-      - main # Change this to your default branch
+      - staging
 jobs:
   npm-publish:
     name: npm-publish
