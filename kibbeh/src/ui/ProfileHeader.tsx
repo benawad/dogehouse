@@ -72,118 +72,122 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
           }
         }}
       />
-      <div className="flex mr-4 ">
-        <SingleUser
-          isOnline={user.online}
-          className="absolute flex-none -top-5.5 rounded-full shadow-outlineLg bg-primary-900"
-          src={pfp}
-        />
-      </div>
-      <div className="flex flex-col w-3/6 font-sans">
-        <h4 className="text-primary-100 font-bold truncate">{displayName}</h4>
-        <div className="flex flex-row items-center">
-          <p
-            className="text-primary-300 mr-2"
-            data-testid="profile-info-username"
-          >{`@${username}`}</p>
-          {user.followsYou ? (
-            <UserBadge color="grey" variant="primary-700">
-              {t("pages.viewUser.followsYou")}
-            </UserBadge>
-          ) : (
-            ""
-          )}
+      <div className="flex flex-wrap w-full">
+        <div className="flex flex-1">
+          <SingleUser
+            isOnline={user.online}
+            className="absolute flex-none -top-5.5 rounded-full shadow-outlineLg bg-primary-900"
+            src={pfp}
+          />
+          <div className="flex flex-col ml-4 font-sans flex-1">
+            <h4 className="text-primary-100 font-bold truncate w-5/6 sm:w-auto">
+              {displayName}
+            </h4>
+            <div className="flex flex-row items-center">
+              <p
+                className="text-primary-300 mr-2"
+                data-testid="profile-info-username"
+              >{`@${username}`}</p>
+              {user.followsYou ? (
+                <UserBadge color="grey" variant="primary-700">
+                  {t("pages.viewUser.followsYou")}
+                </UserBadge>
+              ) : (
+                ""
+              )}
+            </div>
+            <div className="mt-2">
+              {user.botOwnerId ? (
+                <UserBadge color="white" variant="primary">
+                  {t("pages.viewUser.bot")}
+                </UserBadge>
+              ) : (
+                ""
+              )}
+              {children}
+            </div>
+          </div>
         </div>
-        <div className="mt-2">
-          {user.botOwnerId ? (
-            <UserBadge color="white" variant="primary">
-              {t("pages.viewUser.bot")}
-            </UserBadge>
-          ) : (
-            ""
-          )}
-          {children}
-        </div>
-      </div>
 
-      <div className="w-3/6 ">
-        <div className="flex flex-row justify-end content-end gap-2">
-          {!isCurrentUser && (
-            <Button
-              loading={blockLoading || unblockLoading}
-              size="small"
-              color={user.iBlockedThem ? "secondary" : "primary"}
-              onClick={async () => {
-                if (user.iBlockedThem) {
-                  await unblock([user.id]);
+        <div className="max-w-full sm:w-auto sm:ml-auto">
+          <div className="flex flex-row sm:justify-end content-end gap-2">
+            {!isCurrentUser && (
+              <Button
+                loading={blockLoading || unblockLoading}
+                size="small"
+                color={user.iBlockedThem ? "secondary" : "primary"}
+                onClick={async () => {
+                  if (user.iBlockedThem) {
+                    await unblock([user.id]);
+                    updater(["getUserProfile", username], (u) =>
+                      !u
+                        ? u
+                        : {
+                            ...u,
+                            iBlockedThem: false,
+                          }
+                    );
+                  } else {
+                    await block([user.id]);
+                    updater(["getUserProfile", username], (u) =>
+                      !u
+                        ? u
+                        : {
+                            ...u,
+                            iBlockedThem: true,
+                          }
+                    );
+                  }
+                }}
+              >
+                {user.iBlockedThem ? "unblock" : "block"}
+              </Button>
+            )}
+            {!isCurrentUser && (
+              <Button
+                loading={followLoading}
+                onClick={async () => {
+                  await mutateAsync([user.id, !user.youAreFollowing]);
                   updater(["getUserProfile", username], (u) =>
                     !u
                       ? u
                       : {
                           ...u,
-                          iBlockedThem: false,
+                          numFollowers:
+                            u.numFollowers + (user.youAreFollowing ? -1 : 1),
+                          youAreFollowing: !user.youAreFollowing,
                         }
                   );
-                } else {
-                  await block([user.id]);
-                  updater(["getUserProfile", username], (u) =>
-                    !u
-                      ? u
-                      : {
-                          ...u,
-                          iBlockedThem: true,
-                        }
-                  );
-                }
-              }}
-            >
-              {user.iBlockedThem ? "unblock" : "block"}
-            </Button>
-          )}
-          {!isCurrentUser && (
-            <Button
-              loading={followLoading}
-              onClick={async () => {
-                await mutateAsync([user.id, !user.youAreFollowing]);
-                updater(["getUserProfile", username], (u) =>
-                  !u
-                    ? u
-                    : {
-                        ...u,
-                        numFollowers:
-                          u.numFollowers + (user.youAreFollowing ? -1 : 1),
-                        youAreFollowing: !user.youAreFollowing,
-                      }
-                );
-              }}
-              size="small"
-              color={user.youAreFollowing ? "secondary" : "primary"}
-              icon={user.youAreFollowing ? null : <SolidFriends />}
-            >
-              {user.youAreFollowing
-                ? t("pages.viewUser.unfollow")
-                : t("pages.viewUser.followHim")}
-            </Button>
-          )}
-          {isCurrentUser ? (
-            <Button
-              size="small"
-              color="secondary"
-              onClick={() => setShowEditProfileModal(true)}
-              icon={<SolidCompass />}
-            >
-              {t("pages.viewUser.editProfile")}
-            </Button>
-          ) : (
-            ""
-          )}
-          {canDM ? (
-            <Button size="small" color="secondary" icon={<SolidMessages />}>
-              Send DM
-            </Button>
-          ) : (
-            ""
-          )}
+                }}
+                size="small"
+                color={user.youAreFollowing ? "secondary" : "primary"}
+                icon={user.youAreFollowing ? null : <SolidFriends />}
+              >
+                {user.youAreFollowing
+                  ? t("pages.viewUser.unfollow")
+                  : t("pages.viewUser.followHim")}
+              </Button>
+            )}
+            {isCurrentUser ? (
+              <Button
+                size="small"
+                color="secondary"
+                onClick={() => setShowEditProfileModal(true)}
+                icon={<SolidCompass />}
+              >
+                {t("pages.viewUser.editProfile")}
+              </Button>
+            ) : (
+              ""
+            )}
+            {canDM ? (
+              <Button size="small" color="secondary" icon={<SolidMessages />}>
+                Send DM
+              </Button>
+            ) : (
+              ""
+            )}
+          </div>
         </div>
       </div>
     </ProfileHeaderWrapper>
