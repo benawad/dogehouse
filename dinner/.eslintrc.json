@@ -4,7 +4,7 @@
     "es2021": true,
     "node": true
   },
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "extends": ["eslint:recommended"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -15,63 +15,7 @@
   },
   "plugins": ["@typescript-eslint/eslint-plugin"],
   "rules": {
-    "@typescript-eslint/no-empty-interface": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/member-delimiter-style": "off",
-    "no-empty": "off",
-    "no-empty-pattern": "off",
-    "react/prop-types": "off",
-    "accessor-pairs": "error",
-    "array-bracket-newline": "error",
-    "array-bracket-spacing": "error",
-    "array-callback-return": "error",
-    "array-element-newline": ["error", "consistent"],
-    "arrow-body-style": "off",
-    "arrow-parens": "off",
-    "arrow-spacing": "error",
-    "block-scoped-var": "error",
-    "block-spacing": "error",
-    "brace-style": "error",
-    "camelcase": "off",
-    "comma-dangle": "off",
-    "comma-spacing": "error",
-    "comma-style": "error",
-    "complexity": "error",
-    "computed-property-spacing": "error",
-    "consistent-this": "error",
-    "default-case-last": "error",
-    "default-param-last": "error",
-    "dot-location": ["error", "property"],
-    "dot-notation": "error",
-    "eol-last": "error",
-    "eqeqeq": "error",
-    "func-call-spacing": "error",
-    "func-name-matching": "error",
-    "func-names": "error",
-    "func-style": [
-      "error",
-      "declaration",
-      {
-        "allowArrowFunctions": true
-      }
-    ],
-    "function-call-argument-newline": ["error", "consistent"],
-    "function-paren-newline": "off",
-    "generator-star-spacing": "error",
-    "global-require": "error",
-    "grouped-accessor-pairs": "error",
-    "guard-for-in": "error",
-    "handle-callback-err": "error",
-    "id-blacklist": "error",
-    "id-denylist": "error",
-    "id-match": "error",
-    "indent": [
-      "error",
-      2,
-      {
-        "offsetTernaryExpressions": true,
-        "SwitchCase": 1
-      }
-    ]
+    "no-unused-vars": "off",
+    "no-empty": "off"
   }
 }

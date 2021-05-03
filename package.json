@@ -18,6 +18,8 @@
     "commitizen": "^4.2.3",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^6.0.0",
+    "mediasoup-client": "^3.6.30",
+    "mediasoup-client-aiortc": "^3.6.3",
     "ts-jest": "^26.5.5"
   },
   "config": {
