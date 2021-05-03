@@ -5,7 +5,7 @@ function WinMinimizeIcon(props: React.SVGProps<SVGSVGElement>) {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="15"
-      height="1.24"
+      height="1"
       viewBox="0 0 15 1.24"
       fill="currentColor"
       {...props}
