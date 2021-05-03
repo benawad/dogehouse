@@ -20,8 +20,14 @@ defmodule BrothTest.SearchTest do
   describe "the websocket misc:search operation" do
     test "returns public room if query matches", t do
       user_id = t.user.id
-      # first, create a room owned by the primary user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(user_id, "foo room", "foo", false)
+
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"}
+        )
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(user_id)
 
@@ -39,10 +45,43 @@ defmodule BrothTest.SearchTest do
       )
     end
 
+    test "returns public room if query matches (mixed search)", t do
+      user_id = t.user.id
+
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"}
+        )
+
+      # make sure the user is in there.
+      assert %{currentRoomId: ^room_id} = Users.get_by_id(user_id)
+
+      ref =
+        WsClient.send_call_legacy(
+          t.client_ws,
+          "search",
+          %{query: "foo"}
+        )
+
+      WsClient.assert_reply_legacy(
+        ref,
+        %{"rooms" => [%{"id" => ^room_id}]},
+        t.client_ws
+      )
+    end
+
     test "doesn't return a room if it's private", t do
       user_id = t.user.id
-      # first, create a room owned by the primary user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(user_id, "foo room", "foo", true)
+
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo", "isPrivate" => true}
+        )
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(user_id)
 
@@ -60,6 +99,33 @@ defmodule BrothTest.SearchTest do
       )
     end
 
+    test "doesn't return a room if it's private (mixed search)", t do
+      user_id = t.user.id
+
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo", "isPrivate" => true}
+        )
+
+      # make sure the user is in there.
+      assert %{currentRoomId: ^room_id} = Users.get_by_id(user_id)
+
+      ref =
+        WsClient.send_call_legacy(
+          t.client_ws,
+          "search",
+          %{query: "foo"}
+        )
+
+      WsClient.assert_reply_legacy(
+        ref,
+        %{"rooms" => []},
+        t.client_ws
+      )
+    end
+
     test "returns user if query matches", t do
       ref =
         WsClient.send_call_legacy(
@@ -73,6 +139,23 @@ defmodule BrothTest.SearchTest do
       WsClient.assert_reply_legacy(
         ref,
         %{"items" => [%{"id" => ^u_id}]},
+        t.client_ws
+      )
+    end
+
+    test "returns user if query matches (mixed search)", t do
+      ref =
+        WsClient.send_call_legacy(
+          t.client_ws,
+          "search",
+          %{query: "@" <> t.user.username}
+        )
+
+      u_id = t.user.id
+
+      WsClient.assert_reply_legacy(
+        ref,
+        %{"users" => [%{"id" => ^u_id}]},
         t.client_ws
       )
     end

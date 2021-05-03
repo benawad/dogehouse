@@ -1,7 +1,8 @@
 import React, { HTMLAttributes } from "react";
 
 const badgeVariants = {
-  primary: "bg-primary-700",
+  "primary-700": "bg-primary-700",
+  primary: "bg-primary-600",
   secondary: "bg-accent",
 };
 
@@ -13,17 +14,19 @@ const colorVariants = {
 interface UserBadgeProps {
   variant?: keyof typeof badgeVariants;
   color?: keyof typeof colorVariants;
+  className?: string;
 }
 
 export const UserBadge: React.FC<UserBadgeProps> = ({
   children,
   color = "white",
-  variant = "primary",
+  variant = "primary-700",
+  className = "",
 }) => {
   return (
     <div
-      className={`flex ${badgeVariants[variant]} select-none text-xs px-1 font-bold ${colorVariants[color]} justify-center items-center mr-1 rounded`}
-      style={{ minWidth: "31px", height: "16px" }}
+      className={`flex ${badgeVariants[variant]} select-none text-xs px-1 font-bold ${colorVariants[color]} justify-center items-center mr-1 rounded ${className}`}
+      style={{ height: "16px", minWidth: "31px", width: "max-content" }}
     >
       {children}
     </div>

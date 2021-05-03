@@ -18,6 +18,8 @@ defmodule Broth.Message.Call do
   `:needs_auth` keyword parameter to false.
   """
 
+  alias Broth.Message.Cast
+
   defmacro __using__(opts) do
     default_reply_module = Module.concat(__CALLER__.module, Reply)
 
@@ -30,19 +32,17 @@ defmodule Broth.Message.Call do
       if reply_module == __CALLER__.module do
         [:inbound, :outbound]
       else
-        [:outbound]
+        [:inbound]
       end
 
     auth_check =
       opts
       |> Keyword.get(:needs_auth, true)
-      |> auth_check()
+      |> Cast.auth_check()
 
     quote do
       use Ecto.Schema
       import Ecto.Changeset
-
-      @after_compile Broth.Message.Call
 
       @behaviour Broth.Message.Call
 
@@ -50,6 +50,7 @@ defmodule Broth.Message.Call do
       @directions unquote(directions)
 
       unquote(auth_check)
+      unquote(Cast.schema_ast(opts))
 
       @impl true
       def reply_module, do: unquote(reply_module)
@@ -58,21 +59,9 @@ defmodule Broth.Message.Call do
       def initialize(_state), do: struct(__MODULE__)
 
       defoverridable initialize: 1
-    end
-  end
 
-  def auth_check(true) do
-    quote do
-      @impl true
-      def auth_check(%{user_id: nil}), do: {:error, :auth}
-      def auth_check(_), do: :ok
-    end
-  end
-
-  def auth_check(false) do
-    quote do
-      @impl true
-      def auth_check(_), do: :ok
+      # verify compile-time guarantees
+      @after_compile Broth.Message.Call
     end
   end
 
@@ -94,12 +83,14 @@ defmodule Broth.Message.Call do
   @callback changeset(Broth.json()) :: Ecto.Changeset.t()
 
   def __after_compile__(%{module: module}, _bin) do
-    reply_module = module.reply_module()
-    Code.ensure_loaded?(reply_module)
+    # checks to make sure you've either declared a schema module, or you have
+    # implemented a schema
+    Cast.check_for_schema(module, :inbound)
 
-    unless :outbound in reply_module.__info__(:attributes)[:directions] do
-      raise CompileError,
-        description: "reply module #{inspect(reply_module)} does not seem to be a outbound module"
-    end
+    # checks to make sure the declared reply module actually exists.
+    reply_module = module.reply_module()
+    Code.ensure_compiled(reply_module)
+
+    Cast.check_for_schema(reply_module, :outbound)
   end
 end

@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "Načíst více",
     "loading": "Načítám...",
@@ -98,7 +98,9 @@
       "followingHim": "Sleduješ",
       "copyProfileUrl": "Zkopírovat URL profilu",
       "urlCopied": "URL zkopírováno do schránky",
-      "unfollow": "Nesledovat"
+      "unfollow": "Nesledovat",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Nastavení hlasu",
@@ -205,7 +207,8 @@
         "usernameError": "4-15 znaků bez diakritiky",
         "usernameLabel": "Uživatelské jméno",
         "bioError": "Maximálně 160 znaků",
-        "bioLabel": "O mně"
+        "bioLabel": "O mně",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Chceš zablokovat uživatele ze všech místností, co kdy vytvoříš?",
@@ -239,7 +242,10 @@
       "upcomingRooms": "Očekávané místnosti",
       "exploreMoreRooms": "Hledat nové místnosti"
     },
-    "search": { "placeholder": "Hledat místnosti, uživatele, nebo kategorie" },
+    "search": {
+      "placeholder": "Hledat místnosti, uživatele, nebo kategorie",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profil",
       "language": "Jazyk (Language)",
@@ -252,7 +258,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

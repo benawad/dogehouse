@@ -20,8 +20,14 @@ defmodule BrothTest.JoinRoomAndGetInfoTest do
   describe "the websocket join_room_and_get_info operation" do
     test "can be used to join a room", t do
       user_id = t.user.id
-      # first, create a room owned by the primary user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(user_id, "foo room", "foo", false)
+
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"}
+        )
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(user_id)
 
@@ -49,7 +55,7 @@ defmodule BrothTest.JoinRoomAndGetInfoTest do
       assert Enum.any?(users, &match?(%{"id" => ^user_id}, &1))
       assert Enum.any?(users, &match?(%{"id" => ^joiner_id}, &1))
 
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "new_user_join_room",
         %{"roomId" => ^room_id, "user" => %{"id" => ^joiner_id}},
         t.client_ws

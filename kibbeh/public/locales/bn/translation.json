@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "আরো লোড করুন",
     "loading": "লোডিং...",
@@ -79,7 +79,7 @@
       "couldNotFindUser": "দুঃখিত, আমরা সেই ইউজারকে খুঁজে পাইনি"
     },
     "notFound": {
-      "whoopsError": "উপস! এই পেজের বার্তালাপ কেটে গেছে।",
+      "whoopsError": "উফ! এই পেজের বার্তালাপ কেটে গেছে।",
       "goHomeMessage": "চিন্তা করবেন না। আপনি পারবেন",
       "goHomeLinkText": "হোমে যেতে"
     },
@@ -101,7 +101,9 @@
       "followingHim": "অনুসরণ করছেন",
       "copyProfileUrl": "প্রোফাইলের URL কপি করুন",
       "urlCopied": "URL ক্লিপবোর্ডে কপি করা হয়েছে",
-      "unfollow": "অনুসরণ বাতিল করুন"
+      "unfollow": "অনুসরণ বাতিল করুন",
+      "about": "সম্বন্ধে",
+      "bot": "বট"
     },
     "voiceSettings": {
       "header": "ভয়েস সেটিংস",
@@ -205,13 +207,14 @@
       "editProfileModal": {
         "usernameTaken": "ইউজার নাম নেওয়া হয়ে গিয়েছে",
         "avatarUrlError": "অবৈধ ছবি",
-        "avatarUrlLabel": "GitHub/Twitter এর avatar url",
+        "avatarUrlLabel": "GitHub/Twitter এর Avatar URL",
         "displayNameError": "২ থেকে ৬০ অক্ষরের মধ্যে হতে হবে",
         "displayNameLabel": "ডিসপ্লে নাম",
         "usernameError": "২ থেকে ৬০ অক্ষরের মধ্যে হতে হবে এবং শুধুমাত্র বর্ণমালা ও সংখ্যা/আন্ডারস্কোর",
         "usernameLabel": "ইউজার নাম",
         "bioError": "১৬০ অক্ষরের মধ্যে হতে হবে",
-        "bioLabel": "বর্ণনা"
+        "bioLabel": "বর্ণনা",
+        "bannerUrlLabel": "টুইটার ব্যানার URL"
       },
       "profileModal": {
         "blockUserConfirm": "আপনি কি নিশ্চিত যে আপনি এই ইউজারকে চিরকালের জন্য ব্লক করছেন আপনার সব রুমে জয়েন করা থেকে?",
@@ -245,7 +248,10 @@
       "upcomingRooms": "আসন্ন রুমগুলো",
       "exploreMoreRooms": "আরো রুম এক্সপ্লোর করুন"
     },
-    "search": { "placeholder": "সার্চ করুন রুম, ইউজার অথবা ক্যাটেগরি" },
+    "search": {
+      "placeholder": "সার্চ করুন রুম, ইউজার অথবা ক্যাটেগরি",
+      "placeholderShort": "সার্চ করুন"
+    },
     "settingsDropdown": {
       "profile": "প্রোফাইল",
       "language": "ভাষা",
@@ -258,7 +264,8 @@
       "debugAudio": {
         "debugAudio": "অডিও ডিবাগ করুন",
         "stopDebugger": "ডিবাগার বন্ধ করুন"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {
@@ -289,7 +296,7 @@
       "waitAlert": "একটু অপেক্ষা করুন আরেকটা মেসেজ করার আগে",
       "search": "খুঁজুন",
       "searchResults": "খুঁজে পাওয়া ফলাফল",
-      "recent": "ঘনঘন ব্যবহৃত",
+      "recent": "সাম্প্রতিক",
       "sendMessage": "মেসেজ পাঠান",
       "whisper": "ফিসফিস",
       "welcomeMessage": "চ্যাট এ স্বাগতম!",

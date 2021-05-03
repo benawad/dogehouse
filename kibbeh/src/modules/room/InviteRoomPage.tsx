@@ -19,7 +19,7 @@ import { DefaultDesktopLayout } from "../layouts/DefaultDesktopLayout";
 import { MiddlePanel } from "../layouts/GridPanels";
 import { useGetRoomByQueryParam } from "./useGetRoomByQueryParam";
 import { HeaderController } from "../display/HeaderController";
-import { FeedHeader } from "../../ui/Feed";
+import { FeedHeader } from "../../ui/FeedHeader";
 
 interface InviteRoomPageProps {}
 
@@ -53,9 +53,6 @@ const Page = ({
   onLoadMore: (o: number) => void;
 }) => {
   const conn = useWrappedConn();
-  const { currentRoomId } = useCurrentRoomIdStore();
-  const { push } = useRouter();
-  const prefetch = useTypeSafePrefetch();
   const { t } = useTypeSafeTranslation();
   const { isLoading, data } = useTypeSafeQuery(
     ["getInviteList", cursor],
@@ -91,7 +88,7 @@ const Page = ({
               </div>
             </ApiPreloadLink>
           </div>
-          <div className="flex block">
+          <div className="block">
             <InviteButton
               onClick={() => {
                 conn.mutation.inviteToRoom(user.id);
@@ -149,32 +146,30 @@ export const InviteRoomPage: PageComponent<InviteRoomPageProps> = ({}) => {
   return (
     <DefaultDesktopLayout>
       <MiddlePanel>
-        {room.isPrivate ? null : (
-          <>
-            {!navigator.share ? (
-              <div className={`flex text-primary-100 font-bold text-2xl mb-2`}>
-                {t("pages.inviteList.shareRoomLink")}
-              </div>
-            ) : null}
-            <div data-testid="container" className={`mb-8 flex`}>
-              <Input readOnly ref={inputRef} value={url} className="mr-2" />
-              <Button
-                size="small"
-                onClick={() => {
-                  if (navigator.share) {
-                    navigator.share({ url });
-                  } else {
-                    inputRef.current?.select();
-                    document.execCommand("copy");
-                    setCopied(true);
-                  }
-                }}
-              >
-                {buttonText}
-              </Button>
+        <>
+          {!navigator.share ? (
+            <div className={`flex text-primary-100 font-bold text-2xl mb-2`}>
+              {t("pages.inviteList.shareRoomLink")}
             </div>
-          </>
-        )}
+          ) : null}
+          <div data-testid="container" className={`mb-8 flex`}>
+            <Input readOnly ref={inputRef} value={url} className="mr-2" />
+            <Button
+              size="small"
+              onClick={() => {
+                if (navigator.share) {
+                  navigator.share({ url });
+                } else {
+                  inputRef.current?.select();
+                  document.execCommand("copy");
+                  setCopied(true);
+                }
+              }}
+            >
+              {buttonText}
+            </Button>
+          </div>
+        </>
         {cursors.map((cursor, i) => (
           <Page
             key={cursor}

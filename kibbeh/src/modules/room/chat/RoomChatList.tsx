@@ -1,20 +1,28 @@
-import { Room } from "@dogehouse/kebab";
+import { Message, Room, RoomUser } from "@dogehouse/kebab";
 import normalizeUrl from "normalize-url";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { useVirtual, VirtualItem } from "react-virtual";
 import { useConn } from "../../../shared-hooks/useConn";
 import { useCurrentRoomInfo } from "../../../shared-hooks/useCurrentRoomInfo";
 import { useTypeSafeTranslation } from "../../../shared-hooks/useTypeSafeTranslation";
+import { StaticTwemoji } from "../../../ui/Twemoji";
 import { UserPreviewModalContext } from "../UserPreviewModalProvider";
-import { emoteMap } from "./EmoteData";
+import { Emote } from "./Emote";
+import { EmoteKeys } from "./EmoteData";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { useRoomChatStore } from "./useRoomChatStore";
 
 interface ChatListProps {
   room: Room;
+  userMap: Record<string, RoomUser>;
 }
 
-export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
+interface BadgeIconData {
+  emoji: string;
+  title: string;
+}
+
+export const RoomChatList: React.FC<ChatListProps> = ({ room, userMap }) => {
   const { setData } = useContext(UserPreviewModalContext);
   const { messages, toggleFrozen } = useRoomChatStore();
   const me = useConn().user;
@@ -24,6 +32,8 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
   const {
     isRoomChatScrolledToTop,
     setIsRoomChatScrolledToTop,
+    message,
+    setMessage,
   } = useRoomChatStore();
   const { t } = useTypeSafeTranslation();
 
@@ -40,6 +50,22 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
     parentRef: chatListRef,
     estimateSize: React.useCallback(() => 20, []),
   });
+
+  const getBadgeIcon = (m: Message) => {
+    const user = userMap[m.userId];
+    const isCreator = room.creatorId === user?.id;
+    let badge: React.ReactNode | null = null;
+    if (isCreator) {
+      badge = (
+        <Emote title="Admin" alt="admin" size="small" emote="coolhouse" />
+      );
+    } else if (user?.roomPermissions?.isMod) {
+      badge = <Emote title="Mod" alt="mod" size="small" emote="dogehouse" />;
+    } else if (user?.roomPermissions?.isSpeaker) {
+      badge = <StaticTwemoji emoji="📣" title="Speaker" />;
+    }
+    return <span style={{ marginRight: 4 }}>{badge}</span>;
+  };
 
   return (
     <div
@@ -70,6 +96,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
         {rowVirtualizer.virtualItems.map(
           ({ index: idx, start, measureRef, size }: VirtualItem) => {
             const index = messages.length - idx - 1;
+            const badgeIcon = getBadgeIcon(messages[index]);
             return (
               <div
                 ref={measureRef}
@@ -94,17 +121,32 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                 >
                   {/* Whisper label */}
                   {messages[index].isWhisper ? (
-                    <p className="flex mb-0 text-sm text-primary-300 px-1 w-16 mt-1 text-center">
+                    <div className="flex mb-1 text-sm text-primary-300 px-1 w-16 mt-1 text-center">
                       {t("modules.roomChat.whisper")}
-                    </p>
+                    </div>
                   ) : null}
                   <div className={`flex items-center px-1`}>
                     <div
                       className={`block break-words overflow-hidden max-w-full items-start flex-1 text-primary-100`}
                       key={messages[index].id}
                     >
+                      {badgeIcon}
                       <button
-                        onClick={() => {
+                        onClick={(e) => {
+                          // Auto mention on shift click
+                          if (e.shiftKey && messages[index].userId !== me.id) {
+                            setMessage(
+                              message +
+                                (message.endsWith(" ") ? "" : " ") +
+                                "@" +
+                                messages[index].username +
+                                " "
+                            );
+                            document.getElementById("room-chat-input")?.focus();
+
+                            return;
+                          }
+
                           setData({
                             userId: messages[index].userId,
                             message:
@@ -117,7 +159,8 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                                 : undefined,
                           });
                         }}
-                        className={`inline hover:underline font-bold focus:outline-none font-mono`}
+                        // DO NOT CHANGE FONT ON THIS BUTTON, IT CRASHES FIREFOX
+                        className={`inline hover:underline font-bold focus:outline-none`}
                         style={{
                           textDecorationColor: messages[index].color,
                           color: messages[index].color,
@@ -145,17 +188,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                                   >{`${v} `}</React.Fragment>
                                 );
                               case "emote":
-                                return emoteMap[v.toLowerCase()] ? (
-                                  <React.Fragment key={i}>
-                                    <img
-                                      className="inline"
-                                      alt={`:${v}:`}
-                                      src={emoteMap[v.toLowerCase()]}
-                                    />{" "}
-                                  </React.Fragment>
-                                ) : (
-                                  ":" + v + ":"
-                                );
+                                return <Emote emote={v as EmoteKeys} key={i} />;
 
                               case "mention":
                                 return (

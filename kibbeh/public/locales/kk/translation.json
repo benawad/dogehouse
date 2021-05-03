@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "тағы да жүктеу",
     "loading": "жүктелуде...",
@@ -98,7 +98,9 @@
       "followingHim": "Сіз жазылғансыз",
       "copyProfileUrl": "Профайл сілтемесімен көшіру",
       "urlCopied": "Сілтеме көшірілді",
-      "unfollow": "Жазылуды доғару"
+      "unfollow": "Жазылуды доғару",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Дауыс баптамалары",
@@ -204,7 +206,8 @@
         "usernameError": "ұзындығы 4-тен 15 символ болуы керек және олар тек әріптік/сандық символ немес төменгі сызық (_) бола алады",
         "usernameLabel": "Қолданушы аты",
         "bioError": "Тек 160 символға дейін ғана",
-        "bioLabel": "Мен туралы"
+        "bioLabel": "Мен туралы",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Бұл қолданушыға сіздің барлық бөлмелеріңізге кіруіне жол бермеуге сенімдісіз бе?",
@@ -238,7 +241,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",
@@ -251,7 +257,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

@@ -96,7 +96,9 @@
       "unfollow": "Dejar de seguir",
       "followingHim": "Siguiendo",
       "copyProfileUrl": "Copiar URL del perfil",
-      "urlCopied": "URL copiado en el portapapeles"
+      "urlCopied": "URL copiado en el portapapeles",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Ajustes de voz",
@@ -188,7 +190,10 @@
       "description": "El Websocket fue eliminado por el servidor. Esto suele suceder cuando abres el sitio web en otra pestaña.",
       "reconnect": "Reconectar"
     },
-    "search": { "placeholder": "Buscar salas, usuarios o categorías" },
+    "search": {
+      "placeholder": "Buscar salas, usuarios o categorías",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Perfil",
       "language": "Idioma",
@@ -201,7 +206,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     },
     "modals": {
       "createRoomModal": {
@@ -229,7 +235,8 @@
         "usernameError": "Longitud de 4 a 15 caracteres y solo puede contener caracteres alfanuméricos/guión bajo",
         "usernameLabel": "Nombre de usuario",
         "bioError": "Longitud máxima de 160 caracteres",
-        "bioLabel": "Biografía"
+        "bioLabel": "Biografía",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "¿Estás seguro de que quieres bloquear a este usuario para que no pueda unirse a las salas que crees?",

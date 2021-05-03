@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "tenpo kama la sin li lon",
     "loading": "sin li kama...",
@@ -101,7 +101,9 @@
       "unfollow": "o lukin ala",
       "followingHim": "sina li lukin e jan ni",
       "copyProfileUrl": "tu e sitelen tawa pi jan ni",
-      "urlCopied": "ni li tu"
+      "urlCopied": "ni li tu",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "sitelen lawa pi kalama uta",
@@ -207,7 +209,8 @@
         "usernameError": "anpa pi suli li tu tu. anpa sewi pi suli li luka luka luka. wan pi nimi li sitelen Latin anu nanpa anu linja anpa",
         "usernameLabel": "nimi nanpa",
         "bioError": "anpa sewi pi suli li ale mute mute mute",
-        "bioLabel": "sitelen sina"
+        "bioLabel": "sitelen sina",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Sina wile ala wile e ken ala e jan ni pi tomo sina ale?",
@@ -241,7 +244,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",
@@ -254,7 +260,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

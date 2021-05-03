@@ -19,7 +19,7 @@ if (isElectron()) {
 
 function WinHeader() {
   return (
-    <div className="electron-header z-50">
+    <div className="electron-header z-10">
       <div className="header-image-cont">
         <img
           className="header-image"
@@ -32,7 +32,7 @@ function WinHeader() {
           }}
         />
       </div>
-      <p className="header-title">DogeHouse</p>
+      <div className="header-title">DogeHouse</div>
       <div className="w-full header-drag-region"></div>
       <div className="header-icons flex flex-row-reverse w-auto">
         <WinButton

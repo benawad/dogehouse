@@ -2,12 +2,13 @@ import { JoinRoomAndGetInfoResponse, wrap } from "@dogehouse/kebab";
 import React, { useContext } from "react";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useDeafStore } from "../../global-stores/useDeafStore";
-import { SolidMegaphone } from "../../icons";
+import { SolidSimpleMegaphone } from "../../icons";
 import { modalConfirm } from "../../shared-components/ConfirmModal";
 import { useConn } from "../../shared-hooks/useConn";
 import { BoxedIcon } from "../../ui/BoxedIcon";
 import { RoomAvatar } from "../../ui/RoomAvatar";
 import { UserPreviewModalContext } from "./UserPreviewModalProvider";
+import { Emote } from "./chat/Emote";
 
 export const useSplitUsersIntoSections = ({
   room,
@@ -45,9 +46,10 @@ export const useSplitUsersIntoSections = ({
 
     if (isCreator || u.roomPermissions?.isMod) {
       flair = (
-        <img
-          src={isCreator ? `/emotes/coolhouse.png` : `/emotes/dogehouse.png`}
+        <Emote
+          emote={isCreator ? "coolhouse" : "dogehouse"}
           alt={isCreator ? `admin` : `mod`}
+          title={isCreator ? `Admin` : `Mod`}
           style={{ marginLeft: 4 }}
           className={`w-3 h-3 ml-1`}
         />
@@ -64,6 +66,7 @@ export const useSplitUsersIntoSections = ({
         key={u.id}
         src={u.avatarUrl}
         username={u.username}
+        isBot={!!u.botOwnerId}
         activeSpeaker={
           canSpeak && !isMuted && !isDeafened && u.id in activeSpeakerMap
         }
@@ -80,9 +83,8 @@ export const useSplitUsersIntoSections = ({
 
   if (canIAskToSpeak) {
     speakers.push(
-      <div className={`flex justify-center`}>
+      <div key="megaphone" className={`flex justify-center`}>
         <BoxedIcon
-          key="megaphone"
           onClick={() => {
             modalConfirm("Would you like to ask to speak?", () => {
               wrap(conn).mutation.askToSpeak();
@@ -91,9 +93,9 @@ export const useSplitUsersIntoSections = ({
           style={{ width: 60, height: 60 }}
           circle
           className="flex-shrink-0"
+          title="Request to speak"
         >
-          {/* @todo add right icon */}
-          <SolidMegaphone width={20} height={20} />
+          <SolidSimpleMegaphone width={20} height={20} />
         </BoxedIcon>
       </div>
     );

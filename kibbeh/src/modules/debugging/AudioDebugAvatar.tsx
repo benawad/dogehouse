@@ -52,7 +52,7 @@ export const AudioDebugAvatar: React.FC<AudioDebugAvatarProps> = ({
   return (
     <div style={{ height: 60 }} className="relative">
       {children}
-      <div className="rounded-full flex z-10 absolute top-0 h-full w-full opacity-70 overflow-hidden">
+      <div className="rounded-full flex absolute top-0 h-full w-full opacity-70 overflow-hidden">
         <div
           className="mt-auto w-full"
           style={{

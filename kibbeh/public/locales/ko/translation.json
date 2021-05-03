@@ -97,7 +97,9 @@
       "followingHim": "following",
       "copyProfileUrl": "프로필 URL 복사",
       "urlCopied": "URL이 클립보드에 복사 되었습니다.",
-      "unfollow": "팔로우 취소"
+      "unfollow": "팔로우 취소",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "음성 설정",
@@ -202,7 +204,8 @@
         "usernameError": "길이는 4 ~ 15 자 이내 여야하며 문자, 숫자 또는 밑줄 만 허용됩니다.",
         "usernameLabel": "사용자 이름",
         "bioError": "최대 길이는 160 자입니다.",
-        "bioLabel": "개인 프로필"
+        "bioLabel": "개인 프로필",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "이 사람을 블랙리스트에 추가 하시겠습니까? (다시는 당신이 생성 ​​한 채팅방에 참여할 수 없습니다).",
@@ -236,7 +239,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",
@@ -249,7 +255,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

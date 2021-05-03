@@ -87,7 +87,7 @@
       "allowAllConfirm": "Apakah anda yakin? Ini akan mengizinkan semua {{count}} permintaan pengguna untuk bicara"
     },
     "searchUser": { "search": "cari..." },
-    "soundEffectSettings": { "header": "Bunyi", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "Bunyi", "title": "Pengaturan Bunyi" },
     "viewUser": {
       "editProfile": "Ubah profil",
       "followsYou": "Mengikutimu",
@@ -97,7 +97,9 @@
       "followingHim": "Mengikuti",
       "copyProfileUrl": "Salin url profil",
       "urlCopied": "URL disalin ke papan klip",
-      "unfollow": "Berhenti mengikuti"
+      "unfollow": "Berhenti mengikuti",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Pengaturan Suara",
@@ -200,7 +202,8 @@
         "usernameError": "Panjang 4 sampai 15 karakter dan hanya alfanumerik/garis bawah",
         "usernameLabel": "Nama pengguna",
         "bioError": "Maksimal 160 karakter",
-        "bioLabel": "Biodata"
+        "bioLabel": "Biodata",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Anda yakin memblokir pengguna ini untuk bergabung ke ruangan yang anda buat?",
@@ -234,7 +237,10 @@
       "upcomingRooms": "Ruangan yang akan datang",
       "exploreMoreRooms": "Jelajahi ruangan lain"
     },
-    "search": { "placeholder": "Cari pengguna, ruangan, atau kategori" },
+    "search": {
+      "placeholder": "Cari pengguna, ruangan, atau kategori",
+      "placeholderShort": "Cari"
+    },
     "settingsDropdown": {
       "profile": "Profil",
       "language": "Bahasa",
@@ -247,7 +253,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Berhentikan Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {
@@ -274,7 +281,7 @@
     "roomChat": {
       "title": "Percakapan",
       "emotesSoon": "[emoji segera]",
-      "bannedAlert": "Kamu dibanned dari percakapan",
+      "bannedAlert": "Kamu dilarang dari percakapan",
       "waitAlert": "Kamu harus menunggu sebentar sebelum mengirim pesan lain",
       "search": "Cari",
       "searchResults": "Hasil Pencarian",

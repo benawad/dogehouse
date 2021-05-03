@@ -8,9 +8,10 @@ export type RoomPeer = {
 };
 
 export type UserPreview = {
-  numFollowers: number;
   id: UUID;
   displayName: string;
+  numFollowers: number;
+  avatarUrl: string | null;
 };
 
 export type Room = {
@@ -21,11 +22,7 @@ export type Room = {
   numPeopleInside: number;
   voiceServerId: string;
   creatorId: string;
-  peoplePreviewList: Array<{
-    id: string;
-    displayName: string;
-    numFollowers: number;
-  }>;
+  peoplePreviewList: Array<UserPreview>;
   inserted_at: string;
 };
 
@@ -50,6 +47,7 @@ export type User = {
   lastOnline: string;
   id: UUID;
   followsYou?: boolean;
+  botOwnerId?: string;
   displayName: string;
   currentRoomId?: UUID;
   currentRoom: Room;
@@ -95,6 +93,7 @@ export type BaseUser = {
   numFollowing: number;
   numFollowers: number;
   currentRoom?: Room;
+  botOwnerId?: string;
 };
 
 export type PaginatedBaseUsers = {
@@ -111,6 +110,7 @@ export type RoomPermissions = {
 export type UserWithFollowInfo = BaseUser & {
   followsYou?: boolean;
   youAreFollowing?: boolean;
+  iBlockedThem?: boolean;
 };
 
 export type RoomUser = {
@@ -119,11 +119,10 @@ export type RoomUser = {
 
 export type CurrentRoom = Room & {
   users: RoomUser[];
-  muteMap: Record<string, boolean>;
-  deafMap: Record<string, boolean>;
-  activeSpeakerMap: Record<string, boolean>;
+  muteMap: BooleanMap;
+  deafMap: BooleanMap;
+  activeSpeakerMap: BooleanMap;
   autoSpeaker: boolean;
 };
 
-export type MuteMap = Record<UUID, boolean>;
-export type DeafMap = Record<UUID, boolean>;
+export type BooleanMap = Record<UUID, boolean>;

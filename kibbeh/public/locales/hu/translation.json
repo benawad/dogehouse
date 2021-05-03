@@ -96,7 +96,9 @@
       "followingHim": "követve",
       "copyProfileUrl": "fiók URL címének másolása",
       "urlCopied": "URL cím kimásolva a vágólapra",
-      "unfollow": "Követés megszűntetése"
+      "unfollow": "Követés megszűntetése",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Hangbeállítások",
@@ -176,7 +178,8 @@
         "usernameError": "Minimum 4, maximum 15 karakter, csak alfanumerikus és aláhúzás",
         "usernameLabel": "Felhasználónév",
         "bioError": "maximum 160 karakter",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Biztosan tiltaná a felhasználót a szobához való csatlakozástól?",
@@ -233,7 +236,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",
@@ -246,7 +252,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

@@ -3,7 +3,12 @@ import React from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useDeafStore } from "../../global-stores/useDeafStore";
-import { SolidMicrophone, SolidVolume } from "../../icons";
+import {
+  SolidDeafened,
+  SolidDeafenedOff,
+  SolidMicrophone,
+  SolidVolume,
+} from "../../icons";
 import SvgSolidMicrophoneOff from "../../icons/SolidMicrophoneOff";
 import { useCurrentRoomInfo } from "../../shared-hooks/useCurrentRoomInfo";
 import { useSetMute } from "../../shared-hooks/useSetMute";
@@ -36,8 +41,9 @@ export const FloatingRoomInfo: React.FC<MinimizedRoomCardControllerProps> = () =
 
   return (
     <div
+      data-testid="floating-room-container"
       style={{ maxWidth: "70vw" }}
-      className="flex fixed bottom-6 right-6 border-accent border rounded-8 bg-primary-800 items-center"
+      className="flex fixed bottom-8 right-6 border-accent border rounded-8 bg-primary-800 items-center"
     >
       <button
         onClick={() => {
@@ -51,28 +57,26 @@ export const FloatingRoomInfo: React.FC<MinimizedRoomCardControllerProps> = () =
       {canSpeak ? (
         <div className="flex py-2 pr-2">
           <BoxedIcon
+            data-testid="mute"
             onClick={() => {
               setMute(!muted);
             }}
-            className={muted ? "bg-accent" : ""}
+            className={`mr-1 ${muted && "bg-accent"}`}
           >
-            {muted ? (
-              <SvgSolidMicrophoneOff data-testid="mic-off-icon" />
+            {muted || deafened ? (
+              <SvgSolidMicrophoneOff />
             ) : (
-              <SolidMicrophone data-testid="mic-icon" />
+              <SolidMicrophone />
             )}
           </BoxedIcon>
           <BoxedIcon
+            data-testid="deafen"
             onClick={() => {
               setDeaf(!deafened);
             }}
             className={deafened ? "bg-accent" : ""}
           >
-            {deafened ? (
-              <SvgSolidVolumeOff data-testid="mic-off-icon" />
-            ) : (
-              <SolidVolume data-testid="mic-icon" />
-            )}
+            {deafened ? <SolidDeafenedOff /> : <SolidDeafened />}
           </BoxedIcon>
         </div>
       ) : null}

@@ -19,10 +19,8 @@ interface UserProfileControllerProps {}
 const isMac = process.platform === "darwin";
 
 export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) => {
-  const [open, setOpen] = useState(false);
   const conn = useConn();
   const { t } = useTypeSafeTranslation();
-  const preloadPush = usePreloadPush();
   const { push } = useRouter();
   const { query } = useRouter();
   const { data, isLoading } = useTypeSafeQuery(
@@ -34,7 +32,6 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
     },
     [query.username as string]
   );
-  const update = useTypeSafeUpdateQuery();
 
   // commented this out as rn this shows up all the time
   useEffect(() => {
@@ -61,37 +58,19 @@ export const UserProfileController: React.FC<UserProfileControllerProps> = ({}) 
     return <CenterLoader />;
   }
 
-  if (!data || "error" in data) {
+  if (!data || ("error" in data && data.error.includes("could not find"))) {
     return <InfoText>{t("pages.myProfile.couldNotFindUser")}</InfoText>;
+  } else if ("error" in data && data.error.includes("blocked")) {
+    return <InfoText>You have been blocked.</InfoText>;
+  } else if ("error" in data) {
+    return <InfoText>{data.error}</InfoText>;
   }
 
   return (
     <>
       <UserProfile user={data} isCurrentUser={data.id === conn.user.id} />
       {data.id === conn.user.id && (
-        <div className={`pt-6 flex`}>
-          <EditProfileModal
-            isOpen={open}
-            onRequestClose={() => setOpen(false)}
-            onEdit={(d) => {
-              update(["getUserProfile", d.username], (x) =>
-                !x ? x : { ...x, ...d }
-              );
-              if (d.username !== data.username) {
-                preloadPush({
-                  route: "profile",
-                  data: { username: d.username },
-                });
-              }
-            }}
-          />
-          {/* <Button
-            style={{ marginRight: "10px" }}
-            size="small"
-            onClick={() => setOpen(true)}
-          >
-            {t("pages.viewUser.editProfile")}
-          </Button> */}
+        <div className={`pt-6 pb-6 flex`}>
           <Button
             style={{ marginRight: "10px" }}
             size="small"

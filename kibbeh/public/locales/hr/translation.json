@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "učitaj više",
     "loading": "učitavanje ...",
@@ -44,7 +44,7 @@
     "home": {
       "createRoom": "Stvori sobu",
       "refresh": "Osvježi",
-      "editRoom": "Edit Room",
+      "editRoom": "Uredi Sobu",
       "desktopAlert": "Preuzmite DogeHouse Desktop aplikaciju danas!"
     },
     "inviteList": {
@@ -54,15 +54,15 @@
       "whenFollowersOnline": "Kad su vaši pratitelji na mreži, oni će se pojaviti ovdje."
     },
     "login": {
-      "headerText": "Vođenje glasovnih razgovora na mjesec 🚀",
+      "headerText": "Dovodimo glasovne razgovore na mjesec 🚀",
       "featureText_1": "Tamna tema",
       "featureText_2": "Otvorene prijave",
       "featureText_3": "Podrška za više platformi",
       "featureText_4": "Otvoreni kod",
       "featureText_5": "Tekstualni chat",
       "featureText_6": "Powered by Doge",
-      "loginGithub": "prijava s GitHubom",
-      "loginTwitter": "prijava putem Twittera",
+      "loginGithub": "prijava GitHub-om",
+      "loginTwitter": "prijava Twitter-om",
       "createTestUser": "izradi test korisnika",
       "loginDiscord": "Prijava Discord-om"
     },
@@ -100,7 +100,9 @@
       "followsYou": "vas prati",
       "copyProfileUrl": "kopiraj url profila",
       "urlCopied": "URL kopiran u međuspremnik",
-      "unfollow": "Prestani pratiti"
+      "unfollow": "Prestani pratiti",
+      "about": "O",
+      "bot": "Robot"
     },
     "voiceSettings": {
       "header": "Postavke glasa",
@@ -148,9 +150,9 @@
       "speaker": "Govornik",
       "listener": "Slušatelj",
       "chat": "Chat",
-      "toggleDeafMicBtn": "Toggle Deafen",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen"
+      "toggleDeafMicBtn": "Uključivanje / isključivanje Oglušenja",
+      "deafen": "Ogluši",
+      "undeafen": "Ozvuči"
     },
     "deviceNotSupported": {
       "notSupported": "Vaš uređaj trenutno nije podržan. Možete stvoriti",
@@ -168,8 +170,8 @@
       "listening": "Slušanje",
       "toggleMuteKeybind": "uključivanje/isključivanje isključivanja tipkovničkih prečaca",
       "togglePushToTalkKeybind": "uključivanje/isključivanje push-to-talk",
-      "toggleOverlayKeybind": "toggle overlay keybind",
-      "toggleDeafKeybind": "Toggle deafen keybind"
+      "toggleOverlayKeybind": "Prećac za uključivanje / isključivanje prekrivača",
+      "toggleDeafKeybind": "Prećac za uključivanje / isključivanje oglušenja"
     },
     "userVolumeSlider": {
       "noAudioMessage": "iz nekog razloga nema potrošača zvuka"
@@ -177,7 +179,7 @@
     "addToCalendar": { "add": "Dodaj u kalendar" },
     "wsKilled": {
       "description": "Poslužitelj je ubio WebSocket. To se obično događa kada web mjesto otvorite na drugoj kartici.",
-      "reconnect": "ponovno se povezati"
+      "reconnect": "ponovno se poveži"
     },
     "modals": {
       "createRoomModal": {
@@ -191,7 +193,7 @@
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "Nova soba stvorena",
-        "roomInviteFrom": "Soba poziva iz",
+        "roomInviteFrom": "Poziv u sobu od",
         "justStarted": "Tek su započeli",
         "likeToJoin": ", želite li se pridružiti?",
         "inviteReceived": "pozvani ste u"
@@ -205,7 +207,8 @@
         "usernameError": "duljina od 4 do 15 znakova i samo alfanumerički / donji znak",
         "usernameLabel": "Korisničko ime",
         "bioError": "maksimalna duljina od 160 znakova",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Jeste li sigurni da želite blokirati ovog korisnika od toga da se pridruži bilo kojoj sobi koju ste ikad stvorili?",
@@ -239,7 +242,10 @@
       "upcomingRooms": "Nadolazeće sobe",
       "exploreMoreRooms": "Istraži još soba"
     },
-    "search": { "placeholder": "Potraži za sobe, korisnike ili kategorije" },
+    "search": {
+      "placeholder": "Potraži za sobe, korisnike ili kategorije",
+      "placeholderShort": "Potraži"
+    },
     "settingsDropdown": {
       "profile": "Profil",
       "language": "Jezik",
@@ -252,7 +258,8 @@
       "debugAudio": {
         "debugAudio": "Debuggaj Audio",
         "stopDebugger": "Zaustavi Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {
@@ -301,6 +308,6 @@
       "galacticDoge": "Galaktički doge",
       "spottedLife": "Planeta sa životom uočena"
     },
-    "feed": { "yourFeed": "Your Feed" }
+    "feed": { "yourFeed": "Vaš Feed" }
   }
 }

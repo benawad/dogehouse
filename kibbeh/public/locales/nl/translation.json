@@ -86,7 +86,7 @@
       "allowAll": "Iedereen toestaan",
       "allowAllConfirm": "Weet je het zeker? Dit geeft toestemming aan {{count}} verzoekende gebruikers om te spreken"
     },
-    "searchUser": { "search": "Zoek..." },
+    "searchUser": { "search": "Zoeken..." },
     "soundEffectSettings": { "header": "Geluiden", "title": "Sound Settings" },
     "viewUser": {
       "editProfile": "Profiel bewerken",
@@ -97,13 +97,15 @@
       "followingHim": "Volgend",
       "copyProfileUrl": "kopieer link naar profiel",
       "urlCopied": "Link gekopieerd naar klembord",
-      "unfollow": "Ontvolgen"
+      "unfollow": "Ontvolgen",
+      "about": "Over",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Spraakinstellingen",
       "mic": "Microfoon:",
       "permissionError": "Geen microfoon gevonden, waarschijnlijk is er geen microfoon aangesloten of heb je geen toestemming gegeven.",
-      "refresh": "Ververs microfoonlijst",
+      "refresh": "Microfoonlijst verversen",
       "volume": "Volume:"
     },
     "overlaySettings": {
@@ -205,7 +207,8 @@
         "usernameError": "4 tot 15 karakters en alleen letters, cijfers en underscore",
         "usernameLabel": "Gebruikersnaam",
         "bioError": "Maximaal 160 karakters",
-        "bioLabel": "Bio"
+        "bioLabel": "Bio",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Weet je zeker dat je deze gebruiker wilt blokkeren van al je toekomstige kamers?",
@@ -239,20 +242,24 @@
       "upcomingRooms": "Geplande kamers",
       "exploreMoreRooms": "Ontdek meer kamers"
     },
-    "search": { "placeholder": "Zoek naar kamers, gebruikers of categorieën" },
+    "search": {
+      "placeholder": "Zoek naar kamers, gebruikers of categorieën",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profiel",
       "language": "Taal",
       "reportABug": "Rapporteer een bug",
       "useOldVersion": "Gebruik de oude versie",
       "logOut": {
-        "button": "Log uit",
+        "button": "Uitloggen",
         "modalSubtitle": "Weet je zeker dat je wilt uitloggen?"
       },
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Debugger stoppen"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

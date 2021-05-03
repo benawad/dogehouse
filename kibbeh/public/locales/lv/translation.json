@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "Ielādēt vairāk",
     "loading": "Ielāde...",
@@ -98,7 +98,9 @@
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow"
+      "unfollow": "Unfollow",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Mikrofona iestatījumi",
@@ -206,7 +208,8 @@
         "usernameError": "garums no 4 līdz 15 simboliem, tikai burtciparu simboli un pasvītra",
         "usernameLabel": "Lietotājvārds",
         "bioError": "maksimālais garums 160 simboli",
-        "bioLabel": "Par mani"
+        "bioLabel": "Par mani",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Vai esat pārliecināti, ka vēlaties nobloķēt šo lietotāju no visām jūsu telpām?",
@@ -240,7 +243,10 @@
       "upcomingRooms": "Upcoming rooms",
       "exploreMoreRooms": "Explore More Rooms"
     },
-    "search": { "placeholder": "Search for rooms, users or categories" },
+    "search": {
+      "placeholder": "Search for rooms, users or categories",
+      "placeholderShort": "Search"
+    },
     "settingsDropdown": {
       "profile": "Profile",
       "language": "Language",
@@ -253,7 +259,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

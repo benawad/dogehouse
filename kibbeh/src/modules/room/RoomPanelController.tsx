@@ -1,3 +1,4 @@
+import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
 import React, { useState } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useConn } from "../../shared-hooks/useConn";
@@ -15,9 +16,19 @@ import { RoomUsersPanel } from "./RoomUsersPanel";
 import { useGetRoomByQueryParam } from "./useGetRoomByQueryParam";
 import { UserPreviewModal } from "./UserPreviewModal";
 
-interface RoomPanelControllerProps {}
+interface RoomPanelControllerProps {
+  setRoomData?: React.Dispatch<
+    React.SetStateAction<JoinRoomAndGetInfoResponse | undefined>
+  >;
+  showMobileEditModal: boolean;
+  setShowMobileEditModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
+export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({
+  setRoomData,
+  showMobileEditModal,
+  setShowMobileEditModal,
+}) => {
   const conn = useConn();
   const { currentRoomId } = useCurrentRoomIdStore();
   const [showEditModal, setShowEditModal] = useState(false);
@@ -40,12 +51,16 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
   }
 
   const roomCreator = data.users.find((x: any) => x.id === data.room.creatorId);
+  if (setRoomData) setRoomData(data);
 
   return (
     <>
-      {showEditModal ? (
+      {showEditModal || showMobileEditModal ? (
         <CreateRoomModal
-          onRequestClose={() => setShowEditModal(false)}
+          onRequestClose={() => {
+            setShowEditModal(false);
+            setShowMobileEditModal(false);
+          }}
           edit
           data={{
             name: data.room.name,
@@ -57,16 +72,20 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({}) => {
       <HeaderController embed={{}} title={data.room.name} />
       <MiddlePanel
         stickyChildren={
-          <RoomHeader
-            onTitleClick={
-              data.room.creatorId === conn.user.id
-                ? () => setShowEditModal(true)
-                : undefined
-            }
-            title={data.room.name}
-            description={data.room.description || ""}
-            names={roomCreator ? [roomCreator.username] : []}
-          />
+          screenType !== "fullscreen" ? (
+            <RoomHeader
+              onTitleClick={
+                data.room.creatorId === conn.user.id
+                  ? () => setShowEditModal(true)
+                  : undefined
+              }
+              title={data.room.name}
+              description={data.room.description || ""}
+              names={roomCreator ? [roomCreator.username] : []}
+            />
+          ) : (
+            ""
+          )
         }
       >
         <UserPreviewModal {...data} />

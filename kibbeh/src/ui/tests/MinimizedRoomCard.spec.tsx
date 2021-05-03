@@ -32,7 +32,7 @@ describe("MinimizedRoomCard", () => {
 
   it("should render mic icon if myself isn't muted", () => {
     const { getByTestId } = render(<MinimizedRoomCard {...defaultProps} />);
-    const component = getByTestId("mic-icon");
+    const component = getByTestId("mic-on");
 
     expect(component).toBeVisible();
   });
@@ -49,7 +49,7 @@ describe("MinimizedRoomCard", () => {
       },
     };
     const { getByTestId } = render(<MinimizedRoomCard {...props} />);
-    const component = getByTestId("mic-off-icon");
+    const component = getByTestId("mic-off");
 
     expect(component).toBeVisible();
   });

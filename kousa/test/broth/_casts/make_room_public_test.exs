@@ -20,8 +20,13 @@ defmodule BrothTest.MakeRoomPublicTest do
 
   describe "the websocket make_room_public operation" do
     test "makes the room public", t do
-      # first, create a room owned by the primary user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", true)
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo", "isPrivate" => true}
+        )
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
       # make sure the room is private
@@ -30,7 +35,10 @@ defmodule BrothTest.MakeRoomPublicTest do
 
       WsClient.send_msg_legacy(t.client_ws, "make_room_public", %{"newName" => "quux room"})
 
-      WsClient.assert_frame("room_privacy_change", %{"name" => "quux room", "isPrivate" => false})
+      WsClient.assert_frame_legacy("room_privacy_change", %{
+        "name" => "quux room",
+        "isPrivate" => false
+      })
 
       # make sure the room is actually private
       assert %{

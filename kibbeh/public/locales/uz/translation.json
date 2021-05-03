@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "Ko'proq yuklash",
     "loading": "Yuklanmoqda...",
@@ -101,7 +101,9 @@
       "followingHim": "Obunachisiz",
       "copyProfileUrl": "Profil URL manzilini nusxalash",
       "urlCopied": "Profil URL nusxasi ko'chirildi",
-      "unfollow": "Obunani bekor qilish"
+      "unfollow": "Obunani bekor qilish",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Ovoz Sozlamalari",
@@ -182,7 +184,8 @@
       "reconnect": "Qayta qo'shilish"
     },
     "search": {
-      "placeholder": "Xonalarni, foydalanuvchilarni yoki toifalarni qidirish"
+      "placeholder": "Xonalarni, foydalanuvchilarni yoki toifalarni qidirish",
+      "placeholderShort": "Search"
     },
     "settingsDropdown": {
       "profile": "Profil",
@@ -196,7 +199,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     },
     "modals": {
       "createRoomModal": {
@@ -224,7 +228,8 @@
         "usernameError": "Uzunligi 4 dan 15 gacha bo'lgan belgilar, alfasayısal va faqat pastki chiziq bilan belgilanadi",
         "usernameLabel": "Foydalanuvchi nomi",
         "bioError": "maksimal uzunligi 160 belgi",
-        "bioLabel": "Men haqimda"
+        "bioLabel": "Men haqimda",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Haqiqatan ham ushbu foydalanuvchi sizning xonalaringizga kirishiga to'sqinlik qilmoqchimisiz?",

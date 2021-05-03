@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "Daha çox yüklə",
     "loading": "Yüklənir...",
@@ -98,7 +98,9 @@
       "followingHim": "İzləyirsiniz",
       "copyProfileUrl": "Profil keçidini kopyalayın",
       "urlCopied": "Keçid kopyalandı",
-      "unfollow": "İzləməni dayandır"
+      "unfollow": "İzləməni dayandır",
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Səs parametrləri",
@@ -208,7 +210,8 @@
         "usernameError": "uzunluq 4 və 15 simvol uzunluğunda və sadəcə alfanumerik/alt xətt simvollarından ibarət olmalıdır.",
         "usernameLabel": "İstifadəçi adı",
         "bioError": "maksimum uzunluq 160 simvoldur",
-        "bioLabel": "Bioqrafiya"
+        "bioLabel": "Bioqrafiya",
+        "bannerUrlLabel": "Twitter banner URL"
       },
       "profileModal": {
         "blockUserConfirm": "Siz bu istifadəçini yaratdığınız bütün otaqlara qoşulmaması üçün bloklamağa əminsinizmi?",
@@ -243,7 +246,8 @@
       "exploreMoreRooms": "Daha çox otaq kəşf et"
     },
     "search": {
-      "placeholder": "Otaqlar, istifadəçilər və ya kateqoriyalar axtar"
+      "placeholder": "Otaqlar, istifadəçilər və ya kateqoriyalar axtar",
+      "placeholderShort": "Search"
     },
     "settingsDropdown": {
       "profile": "Profil",
@@ -257,7 +261,8 @@
       "debugAudio": {
         "debugAudio": "Səsi incələ",
         "stopDebugger": "İncələmən dayandır"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

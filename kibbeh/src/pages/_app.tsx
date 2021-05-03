@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "../styles/globals.css";
 import "../styles/electron-header.css";
 import "../styles/banner-button.css";
+import "../styles/date-time-picker.css";
 import { AppProps } from "next/app";
 import { QueryClientProvider } from "react-query";
 import { WebSocketProvider } from "../modules/ws/WebSocketProvider";
@@ -55,7 +56,7 @@ function App({ Component, pageProps }: AppProps) {
       );
       document.documentElement.style.setProperty(
         "--screen-height-reduction",
-        "30px"
+        "38px"
       );
     }
   }, []);
