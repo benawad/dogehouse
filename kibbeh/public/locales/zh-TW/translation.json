@@ -15,14 +15,14 @@
     "copied": "已複製",
     "formattedIntlDate": "{{date, intlDate}}",
     "formattedIntlTime": "{{time, intlTime}}",
-    "requestPermissions": "Please note running DogeHouse without accessibility permissions may cause unwanted errors"
+    "requestPermissions": "請注意，在沒有存取權限下DogeHouse可能會出現運作異常"
   },
   "header": {
     "_comment": "Main Header UI Internationalization Strings",
     "title": "DogeHouse",
     "mutedTitle": "已靜音 | DogeHouse",
-    "deafenedTitle": "Deafened | DogeHouse",
-    "dashboard": "Dashboard",
+    "deafenedTitle": "已拒聽 | DogeHouse",
+    "dashboard": "儀錶版",
     "connectionTaken": "Connection Taken"
   },
   "footer": {
@@ -39,12 +39,12 @@
       "currentRoom": "目前的房間:",
       "startPrivateRoom": "開啟私人房間"
     },
-    "followList": { "followHim": "follow", "followingHim": "following" },
+    "followList": { "followHim": "追蹤", "followingHim": "已追蹤" },
     "home": {
       "createRoom": "新增房間",
-      "refresh": "Refresh",
-      "editRoom": "Edit Room",
-      "desktopAlert": "Download the DogeHouse desktop app today!"
+      "refresh": "重新整理",
+      "editRoom": "房間設定",
+      "desktopAlert": "下載DogeHouse桌上版吧！"
     },
     "inviteList": {
       "roomGone": "房間已被删除，請回到前一頁",
@@ -53,17 +53,17 @@
       "whenFollowersOnline": "當你的追蹤者在線上，他們會顯示在這裡"
     },
     "login": {
-      "headerText": "Taking voice conversations to the moon 🚀",
+      "headerText": "把語音對話帶上月球 🚀",
       "featureText_1": "暗黑模式",
       "featureText_2": "開放註冊",
       "featureText_3": "跨平台支援",
       "featureText_4": "開源",
       "featureText_5": "文字聊天",
       "featureText_6": "Powered by Doge",
-      "loginGithub": "用GitHub登入",
-      "loginTwitter": "用Twitter登入",
+      "loginGithub": "以GitHub登入",
+      "loginTwitter": "以Twitter登入",
       "createTestUser": "建立測試使用者",
-      "loginDiscord": "Login with Discord"
+      "loginDiscord": "以Discord登入"
     },
     "myProfile": {
       "logout": "登出",
@@ -71,8 +71,8 @@
       "voiceSettings": "音量設定",
       "soundSettings": "聲音設定",
       "deleteAccount": "刪除帳號",
-      "overlaySettings": "go to overlay settings",
-      "couldNotFindUser": "Sorry, we could not find that user"
+      "overlaySettings": "介面設定",
+      "couldNotFindUser": "很抱歉，我們找不到這名用戶"
     },
     "notFound": {
       "whoopsError": "噢！這一頁不見了‧",
@@ -83,8 +83,8 @@
       "speakers": "講者",
       "requestingToSpeak": "要求發言",
       "listeners": "聽眾",
-      "allowAll": "Allow all",
-      "allowAllConfirm": "Are you sure? This will allow all {{count}} requesting users to speak",
+      "allowAll": "允許所有",
+      "allowAllConfirm": "你確定嗎? 這將會允許所有 {{count}} 發出請求的用戶發言",
       "confirmAskToSpeak": "Would you like to ask to speak?",
       "shareLinkToRoom": "Share Link to Room",
       "with": "with"
@@ -92,7 +92,7 @@
     "searchUser": { "search": "搜尋..." },
     "soundEffectSettings": {
       "header": "聲音",
-      "title": "Sound Settings",
+      "title": "聲音設定",
       "playSound": "Play Sound"
     },
     "viewUser": {
@@ -100,12 +100,13 @@
       "followsYou": "正在追蹤你",
       "followers": "追蹤者們",
       "following": "你正在追蹤",
-      "followHim": "follow",
-      "followingHim": "following",
-      "copyProfileUrl": "copy profile url",
-      "urlCopied": "URL copied to clipboard",
-      "unfollow": "Unfollow",
-      "about": "About"
+      "followHim": "追蹤",
+      "followingHim": "已追蹤",
+      "copyProfileUrl": "複製連結",
+      "urlCopied": "連結已被複製簿被",
+      "unfollow": "取消追蹤",
+      "about": "關於",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "語音設定",
@@ -120,10 +121,10 @@
     },
     "download": {
       "starting": "正在下載 ...",
-      "failed": "Could not auto-download, please try again later",
+      "failed": "自動下載失敗，請稍後再試",
       "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
+      "prompt": "點擊以下按鈕開始下載",
+      "download_now": "現在就下載",
       "download_for": "Download for %platform% (%ext%)"
     }
   },
@@ -140,22 +141,22 @@
       "leaveCurrentRoomBtn": "離開房間",
       "confirmLeaveRoom": "確定離開嗎?",
       "leave": "離開",
-      "inviteUsersToRoomBtn": "邀请使用者進入房間",
-      "invite": "邀请",
-      "toggleMuteMicBtn": "切换麥克風静音",
+      "inviteUsersToRoomBtn": "邀請使用者進入房間",
+      "invite": "邀請",
+      "toggleMuteMicBtn": "切換麥克風静音",
       "mute": "麥克風靜音",
       "unmute": "取消麥克風靜音",
       "makeRoomPublicBtn": "把房間設定為公開",
       "settings": "設定",
       "speaker": "講者",
       "listener": "聽眾",
-      "chat": "Chat",
-      "toggleDeafMicBtn": "Toggle Deafen",
-      "deafen": "Deafen",
-      "undeafen": "Undeafen"
+      "chat": "聊天框",
+      "toggleDeafMicBtn": "切換拒聽",
+      "deafen": "拒聽",
+      "undeafen": "取消拒聽"
     },
     "deviceNotSupported": {
-      "notSupported": "你的裝置目前並不支援，你可以到",
+      "notSupported": "目前我們還未支援你的裝置，你可以到",
       "linkText": " GitHub 建立 issue.",
       "addSupport": " 而我會試著支援你的裝置‧"
     },
@@ -190,7 +191,7 @@
         "roomDescription": "房間敘述",
         "descriptionError": "最大長度為 500 字元",
         "nameError": "名稱長度只能在 2 到 60 字元",
-        "subtitle": "Fill the following fields to start a new room"
+        "subtitle": "填寫以下資料以開設房間"
       },
       "invitedToJoinRoomModal": {
         "newRoomCreated": "新房間被建立",
@@ -209,7 +210,7 @@
         "usernameLabel": "用户名",
         "bioError": "最大長度為 160 字元",
         "bioLabel": "個人簡介",
-        "bannerUrlLabel": "Twitter banner URL"
+        "bannerUrlLabel": "Twitter 橫額連結"
       },
       "profileModal": {
         "blockUserConfirm": "你確定把此人加入黑名單?（他就無法加入你所建立的任何房間）",
@@ -222,41 +223,39 @@
         "banFromRoom": "踢出房間",
         "goBackToListener": "回到聽眾",
         "deleteMessage": "删除此訊息",
-        "makeRoomCreator": "make room admin",
-        "unBanFromChat": "Unban from Chat"
+        "makeRoomCreator": "設定為房間主人",
+        "unBanFromChat": "解禁用戶使用文字聊天"
       },
       "roomSettingsModal": {
         "requirePermission": "需要許可才能發言",
         "makePublic": "把房間設定為公開",
         "makePrivate": "把房間設定為私人",
-        "renamePublic": "設公開房間名字",
-        "renamePrivate": "設私人房間名字"
+        "renamePublic": "重設公開房間名字",
+        "renamePrivate": "重設私人房間名字"
       }
     },
     "followingOnline": {
-      "people": "People",
+      "people": "其他人",
       "online": "上線",
       "noOnline": "你有0個朋友",
-      "showMore": "Show more"
+      "showMore": "顯示更多"
     },
     "upcomingRoomsCard": {
-      "upcomingRooms": "Upcoming rooms",
+      "upcomingRooms": "即將到來的房間",
       "exploreMoreRooms": "搜尋更多房間"
     },
     "search": {
-      "placeholder": "Search for rooms, users or categories",
-      "placeholderShort": "Search"
+      "placeholder": "搜尋房間，用戶及種類",
+      "placeholderShort": "搜尋"
     },
     "settingsDropdown": {
-      "profile": "Profile",
+      "profile": "個人檔案",
       "language": "語言",
-      "reportABug": "Report A Bug",
-      "useOldVersion": "Use Old Version",
-      "logOut": {
-        "button": "登出",
-        "modalSubtitle": "Are you sure you want to logout?"
-      },
-      "debugAudio": { "debugAudio": "除錯音頻", "stopDebugger": "停止除錯" }
+      "reportABug": "回報漏洞",
+      "useOldVersion": "使用舊版本",
+      "logOut": { "button": "登出", "modalSubtitle": "你確定要登出嗎？" },
+      "debugAudio": { "debugAudio": "除錯音頻", "stopDebugger": "停止除錯" },
+      "downloadApp": "Download App"
     }
   },
   "modules": {
@@ -276,9 +275,7 @@
       },
       "tommorow": "明天",
       "today": "今天",
-      "deleteModal": {
-        "areYouSure": "Are you sure you want to delete this scheduled room?"
-      }
+      "deleteModal": { "areYouSure": "你確定要刪除這間已排程的房間嗎？" }
     },
     "roomChat": {
       "title": "房間",
@@ -295,15 +292,15 @@
     },
     "roomStatus": {
       "fuelingRocket": "火箭正在加油",
-      "takingOff": "Taking off",
+      "takingOff": "準備起飛",
       "inSpace": "在太空",
-      "approachingMoon": "Approaching moon",
-      "lunarDoge": "Lunar doge",
-      "approachingSun": "Approaching sun",
-      "solarDoge": "Solar doge",
-      "approachingGalaxy": "Approaching galaxy",
-      "galacticDoge": "Galactic Doge",
-      "spottedLife": "Planet with life spotted"
+      "approachingMoon": "靠近月球中",
+      "lunarDoge": "月球上的狗狗",
+      "approachingSun": "靠近太陽中",
+      "solarDoge": "太陽系上的狗狗",
+      "approachingGalaxy": "靠近銀河系中",
+      "galacticDoge": "銀河上的狗狗",
+      "spottedLife": "發現星球上有生命跡象"
     },
     "feed": { "yourFeed": "Your Feed" }
   }

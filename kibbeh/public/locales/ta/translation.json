@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "மேலும் காட்டு",
     "loading": "பதிவேறுகிறது, காத்திருக்கவும்...",
@@ -109,7 +109,8 @@
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
       "unfollow": "Unfollow",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "குரல் அமைப்பு",
@@ -271,7 +272,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

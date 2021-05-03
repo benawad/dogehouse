@@ -105,7 +105,8 @@
       "copyProfileUrl": "คัดลอกลิงก์โปรไฟล์",
       "urlCopied": "คัดลอกลิงก์เรียบร้อย",
       "unfollow": "เลิกติดตาม",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "การตั้งค่าเสียง",
@@ -262,7 +263,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

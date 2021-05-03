@@ -105,7 +105,8 @@
       "copyProfileUrl": "Copia link del profilo",
       "urlCopied": "Link copiato negli appunti",
       "unfollow": "Smetti di seguire",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Impostazioni della voce",
@@ -267,7 +268,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

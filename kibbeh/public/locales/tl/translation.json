@@ -105,7 +105,8 @@
       "followingHim": "mga sinusubaybayan",
       "copyProfileUrl": "Copy Profile URL",
       "urlCopied": "URL copied to clipboard",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Voice Settings",
@@ -214,7 +215,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     },
     "modals": {
       "createRoomModal": {

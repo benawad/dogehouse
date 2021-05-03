@@ -105,7 +105,8 @@
       "copyProfileUrl": "复制个人主页链接",
       "urlCopied": "个人主页链接已复制到剪贴板",
       "unfollow": "取消关注",
-      "about": "关于ta"
+      "about": "关于ta",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "语音设置",
@@ -255,7 +256,8 @@
       "reportABug": "反馈Bug",
       "useOldVersion": "使用旧版本",
       "logOut": { "button": "登出", "modalSubtitle": "是否确定登出?" },
-      "debugAudio": { "debugAudio": "调试声音", "stopDebugger": "取消调试" }
+      "debugAudio": { "debugAudio": "调试声音", "stopDebugger": "取消调试" },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

@@ -105,7 +105,8 @@
       "followingHim": "following",
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "వాయిస్ సెట్టింగ్‌లు",
@@ -264,7 +265,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

@@ -19,8 +19,13 @@ defmodule BrothTest.AskToSpeakTest do
 
   describe "the websocket ask_to_speak operation" do
     test "poromotes the person to ask_to_speak", t do
-      # first, create a room owned by the primary user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(t.user.id, "foo room", "foo", false)
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"}
+        )
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
 
@@ -29,21 +34,21 @@ defmodule BrothTest.AskToSpeakTest do
       speaker_ws = WsClientFactory.create_client_for(speaker)
 
       # join the speaker user into the room
-      Kousa.Room.join_room(speaker_id, room_id)
+      WsClient.do_call(speaker_ws, "room:join", %{"roomId" => room_id})
 
-      WsClient.assert_frame("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
+      WsClient.assert_frame_legacy("new_user_join_room", %{"user" => %{"id" => ^speaker_id}})
 
       # make the ask_to_speak request
       WsClient.send_msg_legacy(speaker_ws, "ask_to_speak", %{})
 
       # both clients get notified
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "hand_raised",
         %{"userId" => ^speaker_id, "roomId" => ^room_id},
         t.client_ws
       )
 
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "hand_raised",
         %{"userId" => ^speaker_id, "roomId" => ^room_id},
         speaker_ws

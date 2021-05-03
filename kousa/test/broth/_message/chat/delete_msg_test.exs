@@ -1,9 +1,9 @@
-defmodule BrothTest.Message.Chat.DeleteMsgTest do
+defmodule BrothTest.Message.Chat.DeleteTest do
   use ExUnit.Case, async: true
 
   @moduletag :message
 
-  alias Broth.Message.Chat.DeleteMsg
+  alias Broth.Message.Chat.Delete
 
   describe "when you send a delete_msg message" do
     test "it populates userId" do
@@ -12,26 +12,26 @@ defmodule BrothTest.Message.Chat.DeleteMsgTest do
 
       assert {:ok,
               %{
-                payload: %DeleteMsg{
+                payload: %Delete{
                   messageId: ^msg_id,
                   userId: ^user_id
                 }
               }} =
                BrothTest.Support.Message.validate(%{
-                 "operator" => "chat:delete_msg",
+                 "operator" => "chat:delete",
                  "payload" => %{"messageId" => msg_id, "userId" => user_id}
                })
 
       # short form also allowed
       assert {:ok,
               %{
-                payload: %DeleteMsg{
+                payload: %Delete{
                   messageId: ^msg_id,
                   userId: ^user_id
                 }
               }} =
                BrothTest.Support.Message.validate(%{
-                 "op" => "chat:delete_msg",
+                 "op" => "chat:delete",
                  "p" => %{"messageId" => msg_id, "userId" => user_id}
                })
     end
@@ -41,13 +41,13 @@ defmodule BrothTest.Message.Chat.DeleteMsgTest do
 
       assert {:error, %{errors: %{messageId: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
-                 "operator" => "chat:delete_msg",
+                 "operator" => "chat:delete",
                  "payload" => %{"userId" => id, "messageId" => "aaa"}
                })
 
       assert {:error, %{errors: %{messageId: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
-                 "operator" => "chat:delete_msg",
+                 "operator" => "chat:delete",
                  "payload" => %{"userId" => id, "messageId" => %{"foo" => "bar"}}
                })
     end
@@ -57,13 +57,13 @@ defmodule BrothTest.Message.Chat.DeleteMsgTest do
 
       assert {:error, %{errors: %{userId: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
-                 "operator" => "chat:delete_msg",
+                 "operator" => "chat:delete",
                  "payload" => %{"messageId" => id, "userId" => "aaa"}
                })
 
       assert {:error, %{errors: %{userId: "is invalid"}}} =
                BrothTest.Support.Message.validate(%{
-                 "operator" => "chat:delete_msg",
+                 "operator" => "chat:delete",
                  "payload" => %{"messageId" => id, "userId" => %{"foo" => "bar"}}
                })
     end
@@ -73,7 +73,7 @@ defmodule BrothTest.Message.Chat.DeleteMsgTest do
 
       assert {:error, %{errors: %{messageId: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
-                 "operator" => "chat:delete_msg",
+                 "operator" => "chat:delete",
                  "payload" => %{"userId" => id}
                })
     end
@@ -83,7 +83,7 @@ defmodule BrothTest.Message.Chat.DeleteMsgTest do
 
       assert {:error, %{errors: %{userId: "can't be blank"}}} =
                BrothTest.Support.Message.validate(%{
-                 "operator" => "chat:delete_msg",
+                 "operator" => "chat:delete",
                  "payload" => %{"messageId" => id}
                })
     end

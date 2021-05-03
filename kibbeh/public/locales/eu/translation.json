@@ -105,7 +105,8 @@
       "followingHim": "Following",
       "copyProfileUrl": "Copy Profile URL",
       "urlCopied": "URL copied to clipboard",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Ahots aukerak",
@@ -216,7 +217,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     },
     "modals": {
       "createRoomModal": {

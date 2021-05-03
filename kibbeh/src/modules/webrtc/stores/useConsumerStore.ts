@@ -7,11 +7,11 @@ export const useConsumerStore = create(
     {
       consumerMap: {} as Record<
         string,
-        { consumer: Consumer; volume: number; debug?: boolean }
+        { consumer: Consumer; volume: number; audioRef?: HTMLAudioElement }
       >,
     },
     (set) => ({
-      startDebugging: (userId: string) => {
+      setAudioRef: (userId: string, audioRef: HTMLAudioElement) => {
         set((s) => {
           if (userId in s.consumerMap) {
             return {
@@ -19,7 +19,7 @@ export const useConsumerStore = create(
                 ...s.consumerMap,
                 [userId]: {
                   ...s.consumerMap[userId],
-                  debug: true,
+                  audioRef,
                 },
               },
             };

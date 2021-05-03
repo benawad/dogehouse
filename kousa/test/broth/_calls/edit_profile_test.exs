@@ -40,10 +40,26 @@ defmodule BrothTest.EditProfileTest do
       assert Users.get_by_id(user_id).username == "new_username"
     end
 
-    @tag :skip
-    test "bad usernames"
+    test "a username can't be changed to an existing username", t do
+      user_id = t.user.id
 
-    @tag :skip
-    test "other fields"
+      user2 = Factory.create(User)
+
+      ref =
+        WsClient.send_call_legacy(
+          t.client_ws,
+          "edit_profile",
+          %{
+            "data" => %{
+              "username" => user2.username
+            }
+          }
+        )
+
+      WsClient.assert_reply_legacy(
+        ref,
+        %{"isUsernameTaken" => true}
+      )
+    end
   end
 end

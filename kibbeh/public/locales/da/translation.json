@@ -105,7 +105,8 @@
       "copyProfileUrl": "Kopier profil url",
       "urlCopied": "URL kopieret til udklipsholder",
       "unfollow": "Følg ikke længere",
-      "about": "Om"
+      "about": "Om",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Lydindstillinger",
@@ -266,7 +267,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

@@ -71,7 +71,7 @@ defmodule Kousa.Beef.UserTest do
                  displayName: "tim",
                  bio: "",
                  avatarUrl:
-                   "https://bit.ly/3dzG9DB#https://avatars.githubusercontent.com/u/44095206?v=4",
+                   "https://bit.ly/3dzG9DB#https://avatars.githubusercontent.com/u/44095206?v=4"
                })
     end
 

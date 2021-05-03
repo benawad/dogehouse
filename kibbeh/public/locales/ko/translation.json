@@ -105,7 +105,8 @@
       "copyProfileUrl": "프로필 URL 복사",
       "urlCopied": "URL이 클립보드에 복사 되었습니다.",
       "unfollow": "팔로우 취소",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "음성 설정",
@@ -264,7 +265,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

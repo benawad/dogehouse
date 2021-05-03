@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "učitaj još",
     "loading": "učitavanje...",
@@ -106,7 +106,8 @@
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
       "unfollow": "Unfollow",
-      "about": "Opis"
+      "about": "Opis",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Podešavanja glasa",
@@ -262,7 +263,8 @@
       "debugAudio": {
         "debugAudio": "Debaguj Audio",
         "stopDebugger": "Zaustavi Debager"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

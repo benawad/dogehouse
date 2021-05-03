@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "Lataa lisää",
     "loading": "Ladataan...",
@@ -106,7 +106,8 @@
       "copyProfileUrl": "Kopioi profiilin URL-osoite",
       "urlCopied": "Osoite kopioitu leikepöydälle",
       "unfollow": "Lopeta seuraaminen",
-      "about": "About"
+      "about": "Tietoa käyttäjästä",
+      "bot": "Botti"
     },
     "voiceSettings": {
       "header": "Puheasetukset",
@@ -128,7 +129,7 @@
       "visit_gh": "Näe Github-julkaisut",
       "prompt": "Aloita lataaminen klikkaamalla alla olevaa painiketta",
       "download_now": "Lataa nyt",
-      "download_for": "Lataa {{platform}}ille"
+      "download_for": "Lataa %platform%ille (%ext%)"
     }
   },
   "components": {
@@ -216,7 +217,7 @@
         "usernameLabel": "Käyttäjätunnus",
         "bioError": "Maksimipituus 160 merkkiä",
         "bioLabel": "Kuvaus",
-        "bannerUrlLabel": "Twitter banner URL"
+        "bannerUrlLabel": "Twitter-bannerikuvan URL-osoite"
       },
       "profileModal": {
         "blockUserConfirm": "Haluatko varmasti estää tämän käyttäjän liittymistä yhteenkään huoneeseesi?",
@@ -252,7 +253,7 @@
     },
     "search": {
       "placeholder": "Hae huoneita, käyttäjiä tai kategorioita",
-      "placeholderShort": "Search"
+      "placeholderShort": "Hae"
     },
     "settingsDropdown": {
       "profile": "Profiili",
@@ -266,7 +267,8 @@
       "debugAudio": {
         "debugAudio": "Testaa äänet",
         "stopDebugger": "Pysäytä debuggeri"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

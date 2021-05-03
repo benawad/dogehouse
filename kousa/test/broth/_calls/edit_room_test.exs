@@ -21,7 +21,13 @@ defmodule BrothTest.EditRoomTest do
     test "changes the name of the room you're in", t do
       user_id = t.user.id
       # first, create a room owned by the primary user.
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(user_id, "foo room", "foo", false)
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"}
+        )
+
       # make sure the user is in there.
       assert %{currentRoomId: ^room_id} = Users.get_by_id(user_id)
 
@@ -38,7 +44,7 @@ defmodule BrothTest.EditRoomTest do
         t.client_ws
       )
 
-      WsClient.assert_frame(
+      WsClient.assert_frame_legacy(
         "new_room_details",
         %{
           "description" => "baz quux",
@@ -48,9 +54,9 @@ defmodule BrothTest.EditRoomTest do
         }
       )
 
-      # TODO: make sure that privacy is actually
+      # TODO: make sure that privacy is actually set
       assert %{
-               isPrivate: _,
+               isPrivate: true,
                description: "baz quux",
                name: "bar room"
              } = Beef.Rooms.get_room_by_id(room_id)

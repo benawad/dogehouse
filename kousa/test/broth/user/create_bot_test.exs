@@ -37,7 +37,7 @@ defmodule BrothTest.User.CreateBotTest do
       assert {:ok, _} = Ecto.UUID.cast(apiKey)
       %{botOwnerId: botOwnerId} = Users.get_by_api_key(apiKey)
       user_id = t.user.id
-      assert botOwnerId = user_id
+      assert user_id == botOwnerId
     end
 
     test "returns error for username that's already taken", t do
@@ -54,6 +54,42 @@ defmodule BrothTest.User.CreateBotTest do
         "user:create_bot:reply",
         ref,
         %{"isUsernameTaken" => true}
+      )
+    end
+
+    test "bot accounts can't create bot accounts", t do
+      ref =
+        WsClient.send_call(
+          t.client_ws,
+          "user:create_bot",
+          %{
+            "username" => "oqieuoqw"
+          }
+        )
+
+      WsClient.assert_reply(
+        "user:create_bot:reply",
+        ref,
+        %{"apiKey" => apiKey}
+      )
+
+      assert {:ok, _} = Ecto.UUID.cast(apiKey)
+      user = Users.get_by_api_key(apiKey)
+      bot_ws = WsClientFactory.create_client_for(user)
+
+      bot_ref =
+        WsClient.send_call(
+          bot_ws,
+          "user:create_bot",
+          %{
+            "username" => "qowidjoqwdqwe"
+          }
+        )
+
+      WsClient.assert_reply(
+        "user:create_bot:reply",
+        bot_ref,
+        %{"error" => "bots can't create bots"}
       )
     end
   end

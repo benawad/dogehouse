@@ -104,7 +104,8 @@
       "copyProfileUrl": "fiók URL címének másolása",
       "urlCopied": "URL cím kimásolva a vágólapra",
       "unfollow": "Követés megszűntetése",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Hangbeállítások",
@@ -261,7 +262,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

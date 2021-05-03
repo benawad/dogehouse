@@ -105,7 +105,8 @@
       "followingHim": "seguindo",
       "copyProfileUrl": "copiar url do perfil",
       "urlCopied": "URL copiado para a área de transferência",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Configurações do microfone",
@@ -265,7 +266,8 @@
       "debugAudio": {
         "debugAudio": "Debugar áudio",
         "stopDebugger": "Parar debug"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

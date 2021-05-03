@@ -105,7 +105,8 @@
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
       "unfollow": "Unfollow",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "आवाज़ की सेटिंग्स",
@@ -261,7 +262,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "Meh lade",
     "loading": "Am lade...",
@@ -106,7 +106,8 @@
       "copyProfileUrl": "Profil URL kopiere",
       "urlCopied": "URL id Zwüscheablag kopiert",
       "unfollow": "Entfolge",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Sprachistellige",
@@ -262,7 +263,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

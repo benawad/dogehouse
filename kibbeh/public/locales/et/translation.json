@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "laadi rohkem",
     "loading": "laadib...",
@@ -106,7 +106,8 @@
       "copyProfileUrl": "copy profile url",
       "urlCopied": "URL copied to clipboard",
       "unfollow": "Unfollow",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Häälesätted",
@@ -262,7 +263,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Stop Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

@@ -4,7 +4,8 @@
   "workspaces": {
     "packages": [
       "kebab",
-      "kibbeh"
+      "kibbeh",
+      "dinner"
     ],
     "nohoist": [
       "**"
@@ -13,11 +14,13 @@
   "devDependencies": {
     "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^12.1.1",
-    "@types/jest": "^26.0.22",
+    "@types/jest": "^26.0.23",
     "commitizen": "^4.2.3",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^6.0.0",
-    "ts-jest": "^26.5.4"
+    "mediasoup-client": "^3.6.30",
+    "mediasoup-client-aiortc": "^3.6.3",
+    "ts-jest": "^26.5.5"
   },
   "config": {
     "commitizen": {
@@ -27,6 +30,7 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "commit": "cz"
+    "commit": "cz",
+    "commit:signed": "cz -S"
   }
 }

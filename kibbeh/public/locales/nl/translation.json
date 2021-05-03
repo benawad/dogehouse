@@ -89,7 +89,7 @@
       "shareLinkToRoom": "Share Link to Room",
       "with": "with"
     },
-    "searchUser": { "search": "Zoek..." },
+    "searchUser": { "search": "Zoeken..." },
     "soundEffectSettings": {
       "header": "Geluiden",
       "title": "Sound Settings",
@@ -105,13 +105,14 @@
       "copyProfileUrl": "kopieer link naar profiel",
       "urlCopied": "Link gekopieerd naar klembord",
       "unfollow": "Ontvolgen",
-      "about": "About"
+      "about": "Over",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Spraakinstellingen",
       "mic": "Microfoon:",
       "permissionError": "Geen microfoon gevonden, waarschijnlijk is er geen microfoon aangesloten of heb je geen toestemming gegeven.",
-      "refresh": "Ververs microfoonlijst",
+      "refresh": "Microfoonlijst verversen",
       "volume": "Volume:"
     },
     "overlaySettings": {
@@ -261,13 +262,14 @@
       "reportABug": "Rapporteer een bug",
       "useOldVersion": "Gebruik de oude versie",
       "logOut": {
-        "button": "Log uit",
+        "button": "Uitloggen",
         "modalSubtitle": "Weet je zeker dat je wilt uitloggen?"
       },
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Debugger stoppen"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

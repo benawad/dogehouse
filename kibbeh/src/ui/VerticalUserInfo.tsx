@@ -1,4 +1,4 @@
-import { BaseUser } from "@dogehouse/kebab";
+import { UserWithFollowInfo } from "@dogehouse/kebab";
 import normalizeUrl from "normalize-url";
 import React from "react";
 import { linkRegex } from "../lib/constants";
@@ -7,9 +7,10 @@ import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
 import { useTypeSafeTranslation } from "../shared-hooks/useTypeSafeTranslation";
 import { SingleUser } from "./UserAvatar";
 import { HeaderController } from "../modules/display/HeaderController";
+import { UserBadge } from "./UserBadge";
 
 interface VerticalUserInfoProps {
-  user: BaseUser;
+  user: UserWithFollowInfo;
 }
 
 export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
@@ -43,6 +44,24 @@ export const VerticalUserInfo: React.FC<VerticalUserInfoProps> = ({ user }) => {
             {/* <Badges badges={badges} /> */}
           </div>
         </ApiPreloadLink>
+        <span className="mt-2 flex justify-center">
+          {user.botOwnerId ? (
+            <UserBadge color="white" variant="primary">
+              {t("pages.viewUser.bot")}
+            </UserBadge>
+          ) : (
+            ""
+          )}
+
+          {user.followsYou ? (
+            <UserBadge color="grey" variant="primary-700" className="ml-1">
+              {t("pages.viewUser.followsYou")}
+            </UserBadge>
+          ) : (
+            ""
+          )}
+        </span>
+
         <div className="flex mt-2">
           <div className="flex">
             <ApiPreloadLink

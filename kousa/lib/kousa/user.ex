@@ -1,28 +1,33 @@
 defmodule Kousa.User do
   alias Beef.Users
+  alias Onion.PubSub
 
   def delete(user_id) do
     Kousa.Room.leave_room(user_id)
     Users.delete(user_id)
   end
 
-  def update(user_id, data) do
-    case Users.edit_profile(user_id, data) do
+  def update_with(changeset = %Ecto.Changeset{}) do
+    case Users.update(changeset) do
       {:ok, user} ->
+        # TODO: clean this up by making Onion.UserSession adopt the User schema and having it
+        # accept pubsub broadcast messages.
+
         Onion.UserSession.set_state(
-          user_id,
+          user.id,
           %{
             display_name: user.displayName,
             username: user.username,
             avatar_url: user.avatarUrl,
-            banner_url: user.bannerUrl,
+            banner_url: user.bannerUrl
           }
         )
 
+        PubSub.broadcast("user:update:" <> user.id, user)
         {:ok, user}
 
-      {:error, %Ecto.Changeset{errors: [username: {"has already been taken", _}]}} ->
-        {:ok, %{isUsernameTaken: true}}
+      {:error, %Ecto.Changeset{errors: [username: {"has already been taken, _"}]}} ->
+        {:error, "that user name is taken"}
 
       error ->
         error

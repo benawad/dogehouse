@@ -106,7 +106,8 @@
       "followingHim": "Obserwujesz",
       "copyProfileUrl": "Skopiuj URL profilu",
       "urlCopied": "URL zostało skopiowane do schowka",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Ustawienia Głosu",
@@ -215,7 +216,8 @@
       "debugAudio": {
         "debugAudio": "Debuguj audio",
         "stopDebugger": "Wyłącz debugger"
-      }
+      },
+      "downloadApp": "Download App"
     },
     "modals": {
       "createRoomModal": {

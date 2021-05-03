@@ -27,7 +27,7 @@ defmodule BrothTest.BanTest do
         "reason" => "you're a douche"
       })
 
-      WsClient.assert_frame("ban_done", %{"worked" => false})
+      WsClient.assert_frame_legacy("ban_done", %{"worked" => false})
     end
 
     @ben_github_id Application.compile_env!(:kousa, :ben_github_id)
@@ -45,42 +45,39 @@ defmodule BrothTest.BanTest do
         "reason" => "you're a douche"
       })
 
-      WsClient.assert_frame("ban_done", %{"worked" => true})
+      WsClient.assert_frame_legacy("ban_done", %{"worked" => true})
 
       # this frame is targetted to the banned user
-      WsClient.assert_frame("banned", _, banned_ws)
+      WsClient.assert_frame_legacy("banned", _, banned_ws)
 
       # check that the user has been updated.
       assert %{reasonForBan: "you're a douche"} = Users.get_by_id(banned.id)
     end
 
-    test "will destroy a room if they are alone", t do
+    test "will destroy a room if they are the owner", t do
       t.user
       |> User.changeset(%{githubId: @ben_github_id})
       |> Beef.Repo.update!()
 
-      banned = %{id: banned_id} = Factory.create(User)
+      banned = Factory.create(User)
       banned_ws = WsClientFactory.create_client_for(banned)
 
-      {:ok, %{room: room}} =
-        Kousa.Room.create_room(
-          banned_id,
-          "my public room",
-          "come in",
-          true
+      %{"id" => room_id} =
+        WsClient.do_call(
+          banned_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"}
         )
-
-      assert %{peoplePreviewList: [%{id: ^banned_id}]} = room
 
       WsClient.send_msg_legacy(t.client_ws, "ban", %{
         "username" => banned.username,
         "reason" => "you're a douche"
       })
 
-      WsClient.assert_frame("banned", _, banned_ws)
+      WsClient.assert_frame_legacy("banned", _, banned_ws)
 
       # check that the room is gone.
-      refute Beef.Rooms.get_room_by_id(room.id)
+      refute Beef.Rooms.get_room_by_id(room_id)
     end
 
     test "will eject a user from a room if they aren't alone", t do
@@ -88,36 +85,35 @@ defmodule BrothTest.BanTest do
       |> User.changeset(%{githubId: @ben_github_id})
       |> Beef.Repo.update!()
 
-      banned = %{id: banned_id} = Factory.create(User)
+      banned = Factory.create(User)
       banned_ws = WsClientFactory.create_client_for(banned)
 
       safe = %{id: safe_id} = Factory.create(User)
-      WsClientFactory.create_client_for(safe)
+      safe_ws = WsClientFactory.create_client_for(safe)
 
-      {:ok, %{room: room}} =
-        Kousa.Room.create_room(
-          safe_id,
-          "my private room",
-          "stay out",
-          false
+      %{"id" => room_id} =
+        WsClient.do_call(
+          safe_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"}
         )
 
-      # join the safe user to the room
-      Kousa.Room.join_room(banned_id, room.id)
+      # join the banned user to the room
+      WsClient.do_call(banned_ws, "room:join", %{"roomId" => room_id})
 
-      assert %{peoplePreviewList: [_, _]} = Beef.Rooms.get_room_by_id(room.id)
+      assert %{peoplePreviewList: [_, _]} = Beef.Rooms.get_room_by_id(room_id)
 
       WsClient.send_msg_legacy(t.client_ws, "ban", %{
         "username" => banned.username,
         "reason" => "you're a douche"
       })
 
-      WsClient.assert_frame("banned", _, banned_ws)
+      WsClient.assert_frame_legacy("banned", _, banned_ws)
 
       # check that the room is still there
       assert %{
                peoplePreviewList: [%{id: ^safe_id}]
-             } = Beef.Rooms.get_room_by_id(room.id)
+             } = Beef.Rooms.get_room_by_id(room_id)
     end
   end
 end

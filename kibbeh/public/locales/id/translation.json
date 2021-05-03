@@ -92,7 +92,7 @@
     "searchUser": { "search": "cari..." },
     "soundEffectSettings": {
       "header": "Bunyi",
-      "title": "Sound Settings",
+      "title": "Pengaturan Bunyi",
       "playSound": "Play Sound"
     },
     "viewUser": {
@@ -105,7 +105,8 @@
       "copyProfileUrl": "Salin url profil",
       "urlCopied": "URL disalin ke papan klip",
       "unfollow": "Berhenti mengikuti",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Pengaturan Suara",
@@ -248,7 +249,7 @@
     },
     "search": {
       "placeholder": "Cari pengguna, ruangan, atau kategori",
-      "placeholderShort": "Search"
+      "placeholderShort": "Cari"
     },
     "settingsDropdown": {
       "profile": "Profil",
@@ -262,7 +263,8 @@
       "debugAudio": {
         "debugAudio": "Debug Audio",
         "stopDebugger": "Berhentikan Debugger"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {
@@ -289,7 +291,7 @@
     "roomChat": {
       "title": "Percakapan",
       "emotesSoon": "[emoji segera]",
-      "bannedAlert": "Kamu dibanned dari percakapan",
+      "bannedAlert": "Kamu dilarang dari percakapan",
       "waitAlert": "Kamu harus menunggu sebentar sebelum mengirim pesan lain",
       "search": "Cari",
       "searchResults": "Hasil Pencarian",

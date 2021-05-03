@@ -51,6 +51,20 @@ config :ueberauth, Ueberauth.Strategy.Discord.OAuth,
       Create an oauth application on Discord to get one
       """)
 
+config :ueberauth, Ueberauth.Strategy.Google.OAuth,
+  client_id:
+    System.get_env("GOOGLE_CLIENT_ID") ||
+      raise("""
+      environment variable GOOGLE_CLIENT_ID is missing.
+      Create an oauth application on Google to get one
+      """),
+  client_secret:
+    System.get_env("GOOGLE_CLIENT_SECRET") ||
+      raise("""
+        environment variable GOOGLE_CLIENT_SECRET is missing.
+        Create an oauth application on Google to get one
+      """)
+
 config :kousa,
   num_voice_servers: 1,
   staging?: System.get_env("IS_STAGING") == "true",
