@@ -121,7 +121,7 @@
       "visit_gh": "Bezoek Github Releases",
       "prompt": "Klik op de onderstaande knop om het downloaden te starten",
       "download_now": "Nu downloaden",
-      "download_for": "Download voor %platform%"
+      "download_for": "Download voor %platform% (%ext%)"
     }
   },
   "components": {
