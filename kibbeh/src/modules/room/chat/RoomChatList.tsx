@@ -1,27 +1,28 @@
-import { Room, RoomUser, Message } from "@dogehouse/kebab";
+import { Message, Room, RoomUser } from "@dogehouse/kebab";
 import normalizeUrl from "normalize-url";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { useVirtual, VirtualItem } from "react-virtual";
 import { useConn } from "../../../shared-hooks/useConn";
 import { useCurrentRoomInfo } from "../../../shared-hooks/useCurrentRoomInfo";
 import { useTypeSafeTranslation } from "../../../shared-hooks/useTypeSafeTranslation";
+import { StaticTwemoji } from "../../../ui/Twemoji";
 import { UserPreviewModalContext } from "../UserPreviewModalProvider";
-import { emoteMap } from "./EmoteData";
+import { Emote } from "./Emote";
+import { EmoteKeys } from "./EmoteData";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { useRoomChatStore } from "./useRoomChatStore";
-import { Twemoji } from "../../../ui/Twemoji";
 
 interface ChatListProps {
   room: Room;
-  users: RoomUser[];
+  userMap: Record<string, RoomUser>;
 }
 
 interface BadgeIconData {
-  emoji: string,
-  title: string
+  emoji: string;
+  title: string;
 }
 
-export const RoomChatList: React.FC<ChatListProps> = ({ room, users }) => {
+export const RoomChatList: React.FC<ChatListProps> = ({ room, userMap }) => {
   const { setData } = useContext(UserPreviewModalContext);
   const { messages, toggleFrozen } = useRoomChatStore();
   const me = useConn().user;
@@ -51,16 +52,19 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room, users }) => {
   });
 
   const getBadgeIcon = (m: Message) => {
-    const user = users.find((u) => u.id === m.userId);
-    const isSpeaker = room.creatorId === user?.id || user?.roomPermissions?.isSpeaker;
-    let badgeIconData: BadgeIconData | null = null;
-    if (isSpeaker) {
-      badgeIconData = {
-        emoji: "📣",
-        title: "Speaker"
-      };
+    const user = userMap[m.userId];
+    const isCreator = room.creatorId === user?.id;
+    let badge: React.ReactNode | null = null;
+    if (isCreator) {
+      badge = (
+        <Emote title="Admin" alt="admin" size="small" emote="coolhouse" />
+      );
+    } else if (user?.roomPermissions?.isMod) {
+      badge = <Emote title="Mod" alt="mod" size="small" emote="dogehouse" />;
+    } else if (user?.roomPermissions?.isSpeaker) {
+      badge = <StaticTwemoji emoji="📣" title="Speaker" />;
     }
-    return badgeIconData && <Twemoji text={badgeIconData.emoji} title={badgeIconData.title} style={{ marginRight: "1ch" }}/>;
+    return <span style={{ marginRight: 4 }}>{badge}</span>;
   };
 
   return (
@@ -184,17 +188,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room, users }) => {
                                   >{`${v} `}</React.Fragment>
                                 );
                               case "emote":
-                                return emoteMap[v.toLowerCase()] ? (
-                                  <React.Fragment key={i}>
-                                    <img
-                                      className="inline"
-                                      alt={`:${v}:`}
-                                      src={emoteMap[v.toLowerCase()]}
-                                    />{" "}
-                                  </React.Fragment>
-                                ) : (
-                                  ":" + v + ":"
-                                );
+                                return <Emote emote={v as EmoteKeys} key={i} />;
 
                               case "mention":
                                 return (

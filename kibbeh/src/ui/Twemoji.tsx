@@ -10,7 +10,7 @@ interface TwemojiProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 
 const splitter = new Grapheme();
 
-export const Twemoji: React.FC<TwemojiProps> = ({
+export const ParseTextToTwemoji: React.FC<TwemojiProps> = ({
   text,
   className = "",
   ...props
@@ -18,16 +18,45 @@ export const Twemoji: React.FC<TwemojiProps> = ({
   const regex = eRegex();
   const chars = splitter.splitGraphemes(text);
 
-  const parsedChars = chars.map((e) =>
-    regex.test(e) ? (
+  return (
+    <>
+      {chars.map((e, i) =>
+        regex.test(e) ? (
+          <img
+            {...props}
+            key={i}
+            className={`emoji ${className || ""}`}
+            src={parse(e)[0].url}
+          />
+        ) : (
+          <React.Fragment key={i}>{e}</React.Fragment>
+        )
+      )}
+    </>
+  );
+};
+
+const twemojiMap = {
+  "📣": "1f4e3",
+};
+
+interface StaticTwemojiProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+  emoji: keyof typeof twemojiMap;
+  className?: string;
+}
+
+export const StaticTwemoji: React.FC<StaticTwemojiProps> = ({
+  emoji,
+  className = "",
+  ...props
+}) => {
+  return (
+    <>
       <img
         {...props}
         className={`emoji ${className || ""}`}
-        src={parse(e)[0].url}
+        src={`https://twemoji.maxcdn.com/v/latest/svg/${twemojiMap[emoji]}.svg`}
       />
-    ) : (
-      <>{e}</>
-    )
+    </>
   );
-  return <>{parsedChars}</>;
 };
