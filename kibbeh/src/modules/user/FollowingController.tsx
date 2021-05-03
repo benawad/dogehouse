@@ -61,7 +61,6 @@ const Page = ({
 
   useEffect(() => {
     if (shouldLoadMore && data?.nextCursor) {
-      console.log("HERE");
       onLoadMore(data.nextCursor!);
       setShouldLoadMore(false);
     }
