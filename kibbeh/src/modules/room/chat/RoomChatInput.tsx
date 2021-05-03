@@ -1,6 +1,6 @@
 import { RoomUser } from "@dogehouse/kebab";
 import React, { useRef, useState, useEffect } from "react";
-import { Smiley } from "../../../icons";
+import { Smiley, OutlineSend } from "../../../icons";
 import { createChatMessage } from "../../../lib/createChatMessage";
 import { showErrorToast } from "../../../lib/showErrorToast";
 import { useConn } from "../../../shared-hooks/useConn";
@@ -134,6 +134,15 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
               position = 0;
             }}
           />
+
+          <div
+            className={`right-12 cursor-pointer flex flex-row-reverse fill-current text-primary-200 mr-3`}
+          >
+            <button onClick={handleSubmit}>
+              <OutlineSend style={{ inlineSize: "23px" }}></OutlineSend>
+            </button>
+          </div>
+
           <div
             className={`right-12 cursor-pointer flex flex-row-reverse fill-current text-primary-200 mr-3`}
             onClick={() => {
