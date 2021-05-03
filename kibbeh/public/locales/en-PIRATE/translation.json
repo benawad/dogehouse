@@ -196,7 +196,7 @@
       "editProfileModal": {
         "usernameTaken": "username taken",
         "avatarUrlError": "Invalid image",
-        "avatarUrlLabel": "GitHub/Twitter avatar url",
+        "avatarUrlLabel": "GitHub/Twitter/Discord avatar URL",
         "displayNameError": "length 2 t' 50 characters",
         "displayNameLabel": "Display Name",
         "usernameError": "length 4 t' 15 characters 'n only alphanumeric/underscore",
