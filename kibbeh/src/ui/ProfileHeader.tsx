@@ -109,7 +109,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
           </div>
         </div>
 
-        <div className="max-w-full sm:w-auto sm:ml-auto">
+        <div className="sm:w-auto sm:ml-auto overflow-auto whitespace-nowrap md:whitespace-normal">
           <div className="flex flex-row sm:justify-end content-end gap-2">
             {!isCurrentUser && (
               <Button
