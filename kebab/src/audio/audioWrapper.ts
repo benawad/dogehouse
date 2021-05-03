@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck because internet is unpredictable
 
-import { Connection } from "../raw";
+import { raw } from "..";
 import { RoomPeer, UUID } from "../entities";
 import {
   TransportOptions,
@@ -11,10 +11,21 @@ import {
   RtpParameters
 } from "mediasoup-client/lib/types";
 
+/**
+ * Allows you to handle custom logic on websocket voice events
+ */
 type Handler<Data> = (data: Data) => void;
 
-export const wrap = (connection: Connection) => ({
+/**
+ * Creates a wrapper object that allows you to make websocket voice related calls using functions
+ * @param connection - reference to the websocket connection
+ * @returns Wrapper object
+ */
+export const wrap = (connection: raw.Connection) => ({
   connection,
+  /**
+   * Allows you to subscribe to various pre-defined websocket voice events
+   */
   subscribe: {
     closeConsumer: (handler: Handler<{ producerId: UUID }>) =>
       connection.addListener("close_consumer", handler),
@@ -34,6 +45,9 @@ export const wrap = (connection: Connection) => ({
     youBecameSpeaker: (handler: Handler<{ sendTransportOptions: TransportOptions }>) =>
       connection.addListener("you-are-now-a-speaker", handler),
   },
+  /**
+  * Allows you to call functions that return information about the ws voice state
+  */
   query: {
     getConsumersParameters: (
       rtpCapabilities: RtpCapabilities
@@ -44,6 +58,9 @@ export const wrap = (connection: Connection) => ({
         "@get-recv-tracks-done"
       ),
   },
+  /**
+  * Allows you to call functions that mutate the ws voice state
+  */
   mutation: {
     connectTransport: (
       transportId: UUID,

@@ -1,4 +1,8 @@
-import { JoinRoomAndGetInfoResponse, RoomUser } from "@dogehouse/kebab";
+import {
+  JoinRoomAndGetInfoResponse,
+  RoomUser,
+  UserWithFollowInfo,
+} from "@dogehouse/kebab";
 import React, { useContext } from "react";
 import { useDebugAudioStore } from "../../global-stores/useDebugAudio";
 import { useConn } from "../../shared-hooks/useConn";
@@ -157,7 +161,7 @@ const UserPreview: React.FC<{
         onClose();
         roomBan([id, true]);
       },
-      "Ban Ip from Room",
+      "Ban IP from Room",
     ],
     [
       isMe &&
@@ -188,8 +192,8 @@ const UserPreview: React.FC<{
     <div className={`flex flex-col w-full`}>
       <div className={`flex bg-primary-900 flex-col`}>
         <VerticalUserInfoWithFollowButton
-          idOrUsernameUsedForQuery={data.id}
-          user={data}
+          idOrUsernameUsedForQuery={id}
+          user={data as UserWithFollowInfo}
         />
       </div>
       {!isMe && (isCreator || roomPermissions?.isSpeaker) ? (

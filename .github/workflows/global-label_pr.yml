@@ -1,4 +1,4 @@
-name: Auto label pr
+name: global:label_pr
 
 on:
   - pull_request_target

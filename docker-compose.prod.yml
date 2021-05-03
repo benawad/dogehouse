@@ -1,0 +1,25 @@
+version: "3"
+
+# service_name:
+#   build: 
+#     context: .
+#     dockerfile: path/to/Dockerfile
+#
+
+# kofta is not here cause it's manually deployed.
+services:
+  shawarma:
+    image: dogehouse/shawarma
+    env_file: 
+      - shawarma.env
+  kousa:
+    image: dogehouse/kousa
+    env_file: 
+      - kousa.env
+  postgres:
+    env_file: 
+      - pg.env
+  rabbitmq:
+    env_file: 
+      - rabbit.env
+  adminer:

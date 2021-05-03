@@ -44,7 +44,8 @@ defmodule Broth.Message.Room.Create do
              room_spec.name,
              room_spec.description || "",
              room_spec.isPrivate,
-             room_spec.userIdToInvite
+             room_spec.userIdToInvite,
+             room_spec.autoSpeaker
            ) do
       case Ecto.UUID.cast(room_spec.scheduledRoomId) do
         {:ok, _} ->

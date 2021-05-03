@@ -4,14 +4,13 @@
 import {
   Message,
   MessageToken,
-  MuteMap,
-  DeafMap,
+  BooleanMap,
   Room,
   ScheduledRoom,
   User,
   UserWithFollowInfo,
   UUID,
-} from "./entities";
+} from "..";
 import { Connection } from "./raw";
 import {
   GetScheduledRoomsResponse,
@@ -23,12 +22,25 @@ import {
   CreateBotResponse,
 } from "./responses";
 
+/**
+ * Allows you to handle custom logic on websocket events
+ */
 type Handler<Data> = (data: Data) => void;
 
+/**
+ * A wrapper object created using `wrap()` that can be used to make websocket calls using functions
+ */
 export type Wrapper = ReturnType<typeof wrap>;
-
+/**
+ * Creates a wrapper object that allows you to make websocket calls using functions
+ * @param connection - reference to the websocket connection
+ * @returns Wrapper object
+ */
 export const wrap = (connection: Connection) => ({
   connection,
+  /**
+   * Allows you to subscribe to various pre-defined websocket events
+   */
   subscribe: {
     newChatMsg: (handler: Handler<{ userId: UUID; msg: Message }>) =>
       connection.addListener("new_chat_msg", handler),
@@ -43,14 +55,22 @@ export const wrap = (connection: Connection) => ({
     handRaised: (handler: Handler<{ userId: UUID }>) =>
       connection.addListener("hand_raised", handler),
     speakerAdded: (
-      handler: Handler<{ userId: UUID; muteMap: MuteMap; deafMap: DeafMap }>
+      handler: Handler<{ userId: UUID; muteMap: BooleanMap; deafMap: BooleanMap }>
     ) => connection.addListener("speaker_added", handler),
     speakerRemoved: (
-      handler: Handler<{ userId: UUID; muteMap: MuteMap; deafMap: DeafMap }>
+      handler: Handler<{ userId: UUID; muteMap: BooleanMap; deafMap: BooleanMap }>
     ) => connection.addListener("speaker_removed", handler),
   },
+  /**
+   * Allows you to call functions that return information about the ws state
+   */
+
   query: {
-    search: (query: string): Promise<{ items: Array<Room | User> }> =>
+    search: (query: string): Promise<{
+      items: Array<User | Room>,
+      rooms: Room[],
+      users: User[]
+    }> =>
       connection.fetch("search", { query }),
     getMyScheduledRoomsAboutToStart: (
       roomId: string
@@ -91,7 +111,7 @@ export const wrap = (connection: Connection) => ({
       connection.fetch("get_top_public_rooms", { cursor }),
     getUserProfile: (
       idOrUsername: string
-    ): Promise<UserWithFollowInfo | null> =>
+    ): Promise<UserWithFollowInfo | null | { error: string }> =>
       connection.fetch("get_user_profile", { userId: idOrUsername }),
     getScheduledRooms: (
       cursor = "",
@@ -108,7 +128,20 @@ export const wrap = (connection: Connection) => ({
         "get_current_room_users_done"
       ),
   },
+  /**
+   * Allows you to call functions that mutate the ws state
+   */
   mutation: {
+    userBlock: (userId: string): Promise<void> =>
+      connection.sendCall("user:block", { userId }),
+    userUnblock: (userId: string): Promise<void> =>
+      connection.sendCall("user:unblock", { userId }),
+    roomUpdate: (data: {
+      name?: string;
+      privacy?: string;
+      description?: string;
+      autoSpeaker?: boolean;
+    }): Promise<void> => connection.sendCall("room:update", data),
     roomBan: (userId: string, shouldBanIp?: boolean): Promise<void> =>
       connection.sendCast("room:ban", { userId, shouldBanIp }),
     setDeaf: (isDeafened: boolean): Promise<Record<string, never>> =>
@@ -143,8 +176,6 @@ export const wrap = (connection: Connection) => ({
     askToSpeak: () => connection.send(`ask_to_speak`, {}),
     inviteToRoom: (userId: string) =>
       connection.send(`invite_to_room`, { userId }),
-    setAutoSpeaker: (value: boolean) =>
-      connection.send(`set_auto_speaker`, { value }),
     speakingChange: (value: boolean) =>
       connection.send(`speaking_change`, { value }),
     unbanFromRoom: (userId: string): Promise<void> =>

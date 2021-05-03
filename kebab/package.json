@@ -2,12 +2,12 @@
   "name": "@dogehouse/kebab",
   "author": "Ilya Maximov <mail@overlisted.net> (https://overlisted.net)",
   "bugs": "https://github.com/benawad/dogehouse/issues",
-  "version": "0.2.8",
+  "version": "0.3.1",
   "license": "MIT",
   "keywords": [
     "dogehouse"
   ],
-  "description": "Client-side implementation of DogeHouse API.",
+  "description": "The official DogeHouse API client.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {

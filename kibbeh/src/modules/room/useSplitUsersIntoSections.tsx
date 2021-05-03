@@ -8,6 +8,7 @@ import { useConn } from "../../shared-hooks/useConn";
 import { BoxedIcon } from "../../ui/BoxedIcon";
 import { RoomAvatar } from "../../ui/RoomAvatar";
 import { UserPreviewModalContext } from "./UserPreviewModalProvider";
+import { Emote } from "./chat/Emote";
 
 export const useSplitUsersIntoSections = ({
   room,
@@ -45,10 +46,10 @@ export const useSplitUsersIntoSections = ({
 
     if (isCreator || u.roomPermissions?.isMod) {
       flair = (
-        <img
-          src={isCreator ? `/emotes/coolhouse.png` : `/emotes/dogehouse.png`}
+        <Emote
+          emote={isCreator ? "coolhouse" : "dogehouse"}
           alt={isCreator ? `admin` : `mod`}
-          title={isCreator ? `Administrator` : `Moderator`}
+          title={isCreator ? `Admin` : `Mod`}
           style={{ marginLeft: 4 }}
           className={`w-3 h-3 ml-1`}
         />

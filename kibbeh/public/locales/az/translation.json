@@ -261,7 +261,8 @@
       "debugAudio": {
         "debugAudio": "Səsi incələ",
         "stopDebugger": "İncələmən dayandır"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {

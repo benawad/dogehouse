@@ -34,9 +34,7 @@
   },
   "pages": {
     "_comment": "Respective Page UI Internationalization Strings",
-    "banUser": {
-      "ban": "ব্যান করুন"
-    },
+    "banUser": { "ban": "ব্যান করুন" },
     "followingOnlineList": {
       "listHeader": "যেসব ইউজারকে আপনি অনুসরণ করেন কিন্তু এখন তারা কোনো প্রাইভেট রুম এ নেই।",
       "currentRoom": "ভেতরে আছেন:",
@@ -81,7 +79,7 @@
       "couldNotFindUser": "দুঃখিত, আমরা সেই ইউজারকে খুঁজে পাইনি"
     },
     "notFound": {
-      "whoopsError": "উপস! এই পেজের বার্তালাপ কেটে গেছে।",
+      "whoopsError": "উফ! এই পেজের বার্তালাপ কেটে গেছে।",
       "goHomeMessage": "চিন্তা করবেন না। আপনি পারবেন",
       "goHomeLinkText": "হোমে যেতে"
     },
@@ -92,13 +90,8 @@
       "allowAll": "সবাইকে অনুমতি দিন",
       "allowAllConfirm": "আপনি কি নিশ্চিত? এটা অনুমতি দেবে সব {{count}} জন অনুরোধ করা ইউজারদের কথা বলতে"
     },
-    "searchUser": {
-      "search": "খুঁজুন..."
-    },
-    "soundEffectSettings": {
-      "header": "সাউন্ডস",
-      "title": "সাউন্ড সেটিংস"
-    },
+    "searchUser": { "search": "খুঁজুন..." },
+    "soundEffectSettings": { "header": "সাউন্ডস", "title": "সাউন্ড সেটিংস" },
     "viewUser": {
       "editProfile": "প্রোফাইল এডিট করুন",
       "followsYou": "আপনাকে অনুসরণ করে",
@@ -110,7 +103,7 @@
       "urlCopied": "URL ক্লিপবোর্ডে কপি করা হয়েছে",
       "unfollow": "অনুসরণ বাতিল করুন",
       "about": "সম্বন্ধে",
-      "bot": "Bot"
+      "bot": "বট"
     },
     "voiceSettings": {
       "header": "ভয়েস সেটিংস",
@@ -189,9 +182,7 @@
     "userVolumeSlider": {
       "noAudioMessage": "কিছু কারনে অডিও কনসিউম করা যাইনি"
     },
-    "addToCalendar": {
-      "add": "ক্যালেন্ডারে যুক্ত করুন"
-    },
+    "addToCalendar": { "add": "ক্যালেন্ডারে যুক্ত করুন" },
     "wsKilled": {
       "description": "সার্ভারের দ্বারা ওয়েবসকেটটি শেষ হয়ে গেছে। এটি সাধারণত হয় যখন আপনি ওয়েবসাইটটি আরেকটি ট্যাব এ ওপেন করেন।",
       "reconnect": "পুনরায় সংযোগ করুন"
@@ -216,7 +207,7 @@
       "editProfileModal": {
         "usernameTaken": "ইউজার নাম নেওয়া হয়ে গিয়েছে",
         "avatarUrlError": "অবৈধ ছবি",
-        "avatarUrlLabel": "GitHub/Twitter এর avatar url",
+        "avatarUrlLabel": "GitHub/Twitter এর Avatar URL",
         "displayNameError": "২ থেকে ৬০ অক্ষরের মধ্যে হতে হবে",
         "displayNameLabel": "ডিসপ্লে নাম",
         "usernameError": "২ থেকে ৬০ অক্ষরের মধ্যে হতে হবে এবং শুধুমাত্র বর্ণমালা ও সংখ্যা/আন্ডারস্কোর",
@@ -273,7 +264,8 @@
       "debugAudio": {
         "debugAudio": "অডিও ডিবাগ করুন",
         "stopDebugger": "ডিবাগার বন্ধ করুন"
-      }
+      },
+      "downloadApp": "Download App"
     }
   },
   "modules": {
@@ -322,8 +314,6 @@
       "galacticDoge": "গ্যালাকটিক Doge",
       "spottedLife": "গ্রহে জীবনের সন্ধান পাওয়া গেছে"
     },
-    "feed": {
-      "yourFeed": "আপনার ফিড"
-    }
+    "feed": { "yourFeed": "আপনার ফিড" }
   }
 }

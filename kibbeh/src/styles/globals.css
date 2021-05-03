@@ -104,7 +104,7 @@ html {
 }
 
 #__next {
-  overflow: auto;
+  overflow-y: auto;
 }
 
 textarea {
@@ -121,6 +121,7 @@ img.emoji {
   width: 1em;
   margin: 0 0.05em 0 0.1em;
   vertical-align: -0.1em;
+  display: inline;
 }
 
 .h-screen {

@@ -11,7 +11,7 @@ export type UserPreview = {
   id: UUID;
   displayName: string;
   numFollowers: number;
-  avatarUrl: string | null
+  avatarUrl: string | null;
 };
 
 export type Room = {
@@ -110,6 +110,7 @@ export type RoomPermissions = {
 export type UserWithFollowInfo = BaseUser & {
   followsYou?: boolean;
   youAreFollowing?: boolean;
+  iBlockedThem?: boolean;
 };
 
 export type RoomUser = {
@@ -118,11 +119,10 @@ export type RoomUser = {
 
 export type CurrentRoom = Room & {
   users: RoomUser[];
-  muteMap: Record<string, boolean>;
-  deafMap: Record<string, boolean>;
-  activeSpeakerMap: Record<string, boolean>;
+  muteMap: BooleanMap;
+  deafMap: BooleanMap;
+  activeSpeakerMap: BooleanMap;
   autoSpeaker: boolean;
 };
 
-export type MuteMap = Record<UUID, boolean>;
-export type DeafMap = Record<UUID, boolean>;
+export type BooleanMap = Record<UUID, boolean>;

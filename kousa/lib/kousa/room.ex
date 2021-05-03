@@ -7,6 +7,8 @@ defmodule Kousa.Room do
   alias Beef.RoomPermissions
   alias Beef.RoomBlocks
   alias Onion.PubSub
+  alias Onion.UserSession
+  alias Broth.SocketHandler
 
   def set_auto_speaker(user_id, value) do
     if room = Rooms.get_room_by_creator_id(user_id) do
@@ -69,6 +71,18 @@ defmodule Kousa.Room do
   end
 
   defp internal_kick_from_room(user_id_to_kick, room_id) do
+    case UserSession.lookup(user_id_to_kick) do
+      [{_, _}] ->
+        ws_pid = UserSession.get(user_id_to_kick, :pid)
+
+        if ws_pid do
+          SocketHandler.unsub(ws_pid, "chat:" <> room_id)
+        end
+
+      _ ->
+        nil
+    end
+
     current_room_id = Beef.Users.get_current_room_id(user_id_to_kick)
 
     if current_room_id == room_id do
@@ -315,19 +329,22 @@ defmodule Kousa.Room do
 
   # only you can raise your own hand
   defp set_raised_hand(room_id, user_id, _user_id) do
-    # ??
-    case RoomPermissions.ask_to_speak(user_id, room_id) do
-      {:ok, %{isSpeaker: true}} ->
-        internal_set_speaker(user_id, room_id)
+    if Onion.RoomSession.get(room_id, :auto_speaker) do
+      internal_set_speaker(user_id, room_id)
+    else
+      case RoomPermissions.ask_to_speak(user_id, room_id) do
+        {:ok, %{isSpeaker: true}} ->
+          internal_set_speaker(user_id, room_id)
 
-      _ ->
-        Onion.RoomSession.broadcast_ws(
-          room_id,
-          %{
-            op: "hand_raised",
-            d: %{userId: user_id, roomId: room_id}
-          }
-        )
+        _ ->
+          Onion.RoomSession.broadcast_ws(
+            room_id,
+            %{
+              op: "hand_raised",
+              d: %{userId: user_id, roomId: room_id}
+            }
+          )
+      end
     end
   end
 
@@ -379,7 +396,14 @@ defmodule Kousa.Room do
   @spec create_room(String.t(), String.t(), String.t(), boolean(), String.t() | nil) ::
           {:error, any}
           | {:ok, %{room: atom | %{:id => any, :voiceServerId => any, optional(any) => any}}}
-  def create_room(user_id, room_name, room_description, is_private, user_id_to_invite \\ nil) do
+  def create_room(
+        user_id,
+        room_name,
+        room_description,
+        is_private,
+        user_id_to_invite \\ nil,
+        auto_speaker \\ nil
+      ) do
     room_id = Users.get_current_room_id(user_id)
 
     if not is_nil(room_id) do
@@ -400,7 +424,8 @@ defmodule Kousa.Room do
       {:ok, room} ->
         Onion.RoomSession.start_supervised(
           room_id: room.id,
-          voice_server_id: room.voiceServerId
+          voice_server_id: room.voiceServerId,
+          auto_speaker: auto_speaker
         )
 
         muted? = Onion.UserSession.get(user_id, :muted)

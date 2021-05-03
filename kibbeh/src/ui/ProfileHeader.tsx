@@ -35,11 +35,16 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   isCurrentUser,
   pfp = "https://dogehouse.tv/favicon.ico",
 }) => {
+  const { mutateAsync, isLoading: followLoading } = useTypeSafeMutation(
+    "follow"
+  );
   const {
-    mutateAsync,
-    isLoading: followLoading,
-    variables,
-  } = useTypeSafeMutation("follow");
+    mutateAsync: unblock,
+    isLoading: unblockLoading,
+  } = useTypeSafeMutation("userUnblock");
+  const { mutateAsync: block, isLoading: blockLoading } = useTypeSafeMutation(
+    "userBlock"
+  );
 
   const { t } = useTypeSafeTranslation();
   const updater = useTypeSafeUpdateQuery();
@@ -105,7 +110,39 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
         <div className="flex flex-row justify-end content-end gap-2">
           {!isCurrentUser && (
             <Button
-              loading={false}
+              loading={blockLoading || unblockLoading}
+              size="small"
+              color={user.iBlockedThem ? "secondary" : "primary"}
+              onClick={async () => {
+                if (user.iBlockedThem) {
+                  await unblock([user.id]);
+                  updater(["getUserProfile", username], (u) =>
+                    !u
+                      ? u
+                      : {
+                          ...u,
+                          iBlockedThem: false,
+                        }
+                  );
+                } else {
+                  await block([user.id]);
+                  updater(["getUserProfile", username], (u) =>
+                    !u
+                      ? u
+                      : {
+                          ...u,
+                          iBlockedThem: true,
+                        }
+                  );
+                }
+              }}
+            >
+              {user.iBlockedThem ? "unblock" : "block"}
+            </Button>
+          )}
+          {!isCurrentUser && (
+            <Button
+              loading={followLoading}
               onClick={async () => {
                 await mutateAsync([user.id, !user.youAreFollowing]);
                 updater(["getUserProfile", username], (u) =>

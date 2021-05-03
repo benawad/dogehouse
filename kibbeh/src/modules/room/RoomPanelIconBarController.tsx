@@ -1,6 +1,6 @@
 import { Room, RoomUser } from "@dogehouse/kebab";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useMuteStore } from "../../global-stores/useMuteStore";
@@ -43,6 +43,13 @@ export const RoomPanelIconBarController: React.FC<RoomPanelIconBarControllerProp
   const [roomId, setRoomId] = useState("");
   const [open, toggleOpen] = useRoomChatStore((s) => [s.open, s.toggleOpen]);
   const screenType = useScreenType();
+  const userMap = useMemo(() => {
+    const map: Record<string, RoomUser> = {};
+    users.forEach((u) => {
+      map[u.id] = u;
+    });
+    return map;
+  }, [users]);
 
   return (
     <div className="flex flex-col w-full">
@@ -88,7 +95,7 @@ export const RoomPanelIconBarController: React.FC<RoomPanelIconBarControllerProp
               </button>
               <div className="flex overflow-y-auto flex-1">
                 <div className={`flex flex-1 w-full flex-col mt-4`}>
-                  <RoomChatList room={room} />
+                  <RoomChatList room={room} userMap={userMap} />
                   <RoomChatMentions users={users} />
                   <RoomChatInput users={users} />
                 </div>

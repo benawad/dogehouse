@@ -1,7 +1,7 @@
 import WebSocket from "isomorphic-ws";
 import ReconnectingWebSocket from "reconnecting-websocket";
 import { v4 as generateUuid } from "uuid";
-import { User, UUID } from "./entities";
+import { User, UUID } from "..";
 
 const heartbeatInterval = 8000;
 const apiUrl = "wss://api.dogehouse.tv/socket";
@@ -10,6 +10,7 @@ const connectionTimeout = 15000;
 
 export type Token = string;
 export type FetchID = UUID;
+export type Ref = UUID;
 export type Opcode = string;
 export type Logger = (
   direction: "in" | "out",
@@ -27,6 +28,9 @@ export type Listener<Data = unknown> = {
   handler: ListenerHandler<Data>;
 };
 
+/**
+ * A reference to the websocket connection, can be created using `connect()`
+ */
 export type Connection = {
   close: () => void;
   once: <Data = unknown>(
@@ -38,8 +42,9 @@ export type Connection = {
     handler: ListenerHandler<Data>
   ) => () => void;
   user: User;
+  initialCurrentRoomId?: string;
   send: (opcode: Opcode, data: unknown, fetchId?: FetchID) => void;
-  sendCast: (opcode: Opcode, data: unknown, fetchId?: FetchID) => void;
+  sendCast: (opcode: Opcode, data: unknown, ref?: Ref) => void;
   fetch: (
     opcode: Opcode,
     data: unknown,
@@ -55,13 +60,19 @@ export type Connection = {
 // probably want to remove token/refreshToken
 // better to use getAuthOptions
 // when ws tries to reconnect it should use current tokens not the ones it initializes with
+/**
+ * Creates a Connection object
+ * @param token - Your dogehouse token
+ * @param refreshToken - Your dogehouse refresh token
+ * @returns Connection object
+ */
 export const connect = (
   token: Token,
   refreshToken: Token,
   {
-    logger = () => {},
-    onConnectionTaken = () => {},
-    onClearTokens = () => {},
+    logger = () => { },
+    onConnectionTaken = () => { },
+    onClearTokens = () => { },
     url = apiUrl,
     fetchTimeout,
     getAuthOptions,
@@ -88,17 +99,15 @@ export const connect = (
       connectionTimeout,
       WebSocket,
     });
-    const api2Send = (opcode: Opcode, data: unknown, ref?: FetchID) => {
+    const api2Send = (opcode: Opcode, data: unknown, ref?: Ref) => {
       // tmp fix
       // this is to avoid ws events queuing up while socket is closed
       // then it reconnects and fires before auth goes off
       // and you get logged out
-      if (socket.readyState !== socket.OPEN) {
-        return;
-      }
-      const raw = `{"v":"0.2.0", "op":"${opcode}","p":${JSON.stringify(data)}${
-        ref ? `,"ref":"${ref}"` : ""
-      }}`;
+      if (socket.readyState !== socket.OPEN) return;
+
+      const raw = `{"v":"0.2.0", "op":"${opcode}","p":${JSON.stringify(data)}${ref ? `,"ref":"${ref}"` : ""
+        }}`;
 
       socket.send(raw);
       logger("out", opcode, data, ref, raw);
@@ -137,9 +146,8 @@ export const connect = (
         socket.close();
         onClearTokens();
       }
-      if (!waitToReconnect) {
-        reject(error);
-      }
+
+      if (!waitToReconnect) reject(error);
     });
 
     socket.addEventListener("message", (e) => {
