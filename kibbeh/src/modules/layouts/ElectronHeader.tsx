@@ -49,7 +49,7 @@ function WinHeader() {
           }}
         />
         <WinButton
-          icon={<WinMinimizeIcon width={10} height={10} />}
+          icon={<WinMinimizeIcon width={10} height={1} />}
           onClick={() => {
             if (isElectron()) ipcRenderer.send("@app/minimize");
           }}
