@@ -100,7 +100,7 @@ function MacHeader() {
 }
 
 export function ElectronHeader() {
-  if (!isElectron() || useHostStore.getState().isLinux) {
+  if (isElectron() || useHostStore.getState().isLinux) {
     return null;
   }
 
