@@ -87,7 +87,7 @@ export const AccountOverlay: React.FC<AccountOverlyProps> = ({}) => {
         className="bg-primary-800 w-full h-full rounded-t-20 relative pt-5"
         {...bind()}
         style={{
-          bottom: `calc(-100% + ${height - 70}px)`,
+          bottom: `calc(-100% + ${height - 100}px)`,
           y,
           zIndex: 11,
           touchAction: "none",

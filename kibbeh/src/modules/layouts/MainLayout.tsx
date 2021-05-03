@@ -114,7 +114,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
     <>
       <ElectronHeader />
       <div
-        className={`fixed left-0 w-full z-50`}
+        className={`fixed left-0 w-full z-10`}
         style={
           isElectron() && !useHostStore.getState().isLinux
             ? { top: 30 }
