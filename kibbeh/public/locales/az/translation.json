@@ -204,7 +204,7 @@
       "editProfileModal": {
         "usernameTaken": "İstifadəçi adı götürülüb",
         "avatarUrlError": "Uyğun olmayan şəkil",
-        "avatarUrlLabel": "GitHub/Twitter avatar keçidi",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar keçidi",
         "displayNameError": "uzunluq 2 və 50 simvol arasında",
         "displayNameLabel": "Görsənən ad",
         "usernameError": "uzunluq 4 və 15 simvol uzunluğunda və sadəcə alfanumerik/alt xətt simvollarından ibarət olmalıdır.",

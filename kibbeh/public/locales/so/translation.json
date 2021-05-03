@@ -202,7 +202,7 @@
       "editProfileModal": {
         "usernameTaken": "magaca isticmaalahan waa la qaatay",
         "avatarUrlError": "Invalid image",
-        "avatarUrlLabel": "GitHub/Twitter avatar url",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar url",
         "displayNameError": "2 ilaa 50 xaraf",
         "displayNameLabel": "magaca bandhigmaya",
         "usernameError": "4 ilaa 15 xaraf oo ah alphanumeric/underscore kaliya",

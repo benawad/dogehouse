@@ -194,7 +194,7 @@
       "editProfileModal": {
         "usernameTaken": "ユーザーネームトークン",
         "avatarUrlError": "画像が正しくありません",
-        "avatarUrlLabel": "GitHub/Twitter 画像URL",
+        "avatarUrlLabel": "Github/Twitter/Discord 画像URL",
         "displayNameError": "2～50文字で設定してください",
         "displayNameLabel": "表示名",
         "usernameError": "4～15文字で設定してください（英数字・アンダーバーのみ）",

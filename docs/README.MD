@@ -13,14 +13,14 @@ DogeHouse makes it easy to connect with friends and people over voice and chat m
 
 ### Overview
 - Dark Theme
-- Open Sign-Ups (Twitter and GitHub)
+- Open Sign-Ups (Twitter, GitHub, and Discord)
 - Cross-Platform Support
 - Open Source
 - Text Chat
 - Powered by Doge
 
 ### Basic Features
-- Create account (Twitter and GitHub for now)
+- Create account (Twitter, GitHub, and Discord for now)
 - Create rooms and invite friends (Public/Private)
   - When you create a room, you are automatically a mod and have a doge with glasses.
   - You can also make people in room mod by clicking on their profile.
@@ -32,7 +32,7 @@ DogeHouse makes it easy to connect with friends and people over voice and chat m
     - Outlook
     - Outlook Web App
     - Yahoo! Calendar
-- Join room, leave room, chat in room (chat now has emojis😋), mute/unmute and invite
+- Join room, leave room, chat in room (chat now has emojis😋), mute/unmute, deafen room, and invite
 - Mention someone in the chat with an @ (e.g. `@username`)
 - Whisper to someone in the room by using `#@username`
 - Write codeblocks using \`backticks\`

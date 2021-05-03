@@ -19,7 +19,7 @@ if (isElectron()) {
 
 function WinHeader() {
   return (
-    <div className="electron-header z-50">
+    <div className="electron-header z-10">
       <div className="header-image-cont">
         <img
           className="header-image"

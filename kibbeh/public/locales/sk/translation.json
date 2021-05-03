@@ -201,7 +201,7 @@
       "editProfileModal": {
         "usernameTaken": "používatelské meno je obsadené",
         "avatarUrlError": "Nesprávny obrázok",
-        "avatarUrlLabel": "odkaz na Github/Twitter obrázok",
+        "avatarUrlLabel": "odkaz na Github/Twitter/Discord obrázok",
         "displayNameError": "počet znakov musí byť medzi 2-50",
         "displayNameLabel": "Verejná prezývka",
         "usernameError": "počet znakov musí byť medzi 4-15, povolené sú len písmená, čísla a podčiarkovník",

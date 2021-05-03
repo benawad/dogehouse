@@ -228,7 +228,7 @@
       "editProfileModal": {
         "usernameTaken": "username ay nakuha na",
         "avatarUrlError": "Di-wastong imahe",
-        "avatarUrlLabel": "GitHub/Twitter avatar url",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar url",
         "displayNameError": "haba ng 2 hanggang 50 na character",
         "displayNameLabel": "Pangalan ng Display",
         "usernameError": "haba ng 4 hanggang 15 na mga character at alphanumeric / underscor lamange",
