@@ -95,7 +95,6 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
       );
       break;
     case "fullscreen":
-      console.log("FULLSCREEN");
       prepend = (
         <>
           {mHeader}
