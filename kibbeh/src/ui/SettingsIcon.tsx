@@ -50,7 +50,7 @@ export const SettingsIcon: React.FC<SettingsIconProps> = ({
   return (
     <button onClick={onClick} className={cn}>
       {icon}
-      <span className="text-lg flex md:ml-2 ml-4 text-primary-100 flex-1">
+      <span className="text-lg md:text-base flex md:ml-2 ml-4 text-primary-100 flex-1">
         {label}
       </span>
       {trailingIcon ? trailingIcon : null}
