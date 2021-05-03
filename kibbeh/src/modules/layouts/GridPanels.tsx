@@ -35,10 +35,10 @@ export const MiddlePanel: React.FC<
       <div
         className={
           !(screenType === "fullscreen" && !stickyChildren)
-            ? `flex sticky w-full flex-col z-8 bg-primary-900 pt-5`
+            ? `flex sticky w-full flex-col z-10 bg-primary-900 pt-5`
             : ""
         }
-        style={useIsElectronMobile() ? { marginTop: "38px" } : { top: "0px" }}
+        style={useIsElectronMobile() ? { marginTop: "45px" } : { top: "0px" }}
       >
         {screenType !== "fullscreen" ? (
           <HeaderWrapper>
