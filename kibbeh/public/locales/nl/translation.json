@@ -119,9 +119,9 @@
       "starting": "Aan het downloaden...",
       "failed": "De automatische download is mislukt, probeer het later nog een keer",
       "visit_gh": "Bezoek Github Releases",
-      "prompt": "Click on the button below to start download",
+      "prompt": "Klik op de onderstaande knop om het downloaden te starten",
       "download_now": "Nu downloaden",
-      "download_for": "Download voor {{platform}}"
+      "download_for": "Download voor %platform%"
     }
   },
   "components": {
