@@ -12,7 +12,7 @@ import { useDebugAudioStore } from "../../global-stores/useDebugAudio";
 import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useDeafStore } from "../../global-stores/useDeafStore";
 import { isWebRTCEnabled } from "../../lib/isWebRTCEnabled";
-import { useHostStore } from "../../global-stores/useHostStore";
+import { isElectronMobile } from "../../global-stores/useElectronMobileStore";
 
 interface RoomUsersPanelProps extends JoinRoomAndGetInfoResponse {}
 
@@ -60,13 +60,7 @@ export const RoomUsersPanel: React.FC<RoomUsersPanelProps> = (props) => {
         screenType !== "fullscreen" ? "bg-primary-800" : "bg-primary-900"
       }`}
       id={props.room.isPrivate ? "private-room" : "public-room"}
-      style={
-        screenType === "fullscreen" &&
-        isElectron() &&
-        !useHostStore.getState().isLinux
-          ? { marginTop: "38px" }
-          : { top: "0px" }
-      }
+      style={isElectronMobile() ? { marginTop: "38px" } : { top: "0px" }}
     >
       <div className="w-full block">
         {!isWebRTCEnabled() ? (

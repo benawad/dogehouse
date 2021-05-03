@@ -1,6 +1,7 @@
 import isElectron from "is-electron";
 import router from "next/router";
 import React from "react";
+import { isElectronMobile } from "../../global-stores/useElectronMobileStore";
 import { useHostStore } from "../../global-stores/useHostStore";
 import {
   SolidCalendar,
@@ -133,13 +134,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
                 prepend ? "mt-8 mb-7" : ""
               }`
         }
-        style={
-          screenType === "fullscreen" &&
-          isElectron() &&
-          !useHostStore.getState().isLinux
-            ? { marginTop: "38px" }
-            : {}
-        }
+        style={isElectronMobile() ? { marginTop: "38px" } : {}}
       >
         <MainInnerGrid>{middle}</MainInnerGrid>
       </div>

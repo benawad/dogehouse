@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react";
-import { useHostStore } from "../global-stores/useHostStore";
-import isElectron from "is-electron";
 import { useScreenType } from "../shared-hooks/useScreenType";
+import { isElectronMobile } from "../global-stores/useElectronMobileStore";
 
 export interface ProfileHeaderWrapperProps {
   children: ReactNode;
@@ -13,18 +12,11 @@ export const ProfileHeaderWrapper: React.FC<ProfileHeaderWrapperProps> = ({
   coverUrl,
   ...props
 }) => {
-  const screenType = useScreenType();
   return (
     <div
       className="bg-primary-800 rounded-8 relative"
       {...props}
-      style={
-        screenType === "fullscreen" &&
-        isElectron() &&
-        !useHostStore.getState().isLinux
-          ? { marginTop: "30px" }
-          : {}
-      }
+      style={isElectronMobile() ? { marginTop: "30px" } : {}}
     >
       <img
         alt="cover"
