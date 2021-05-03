@@ -1,4 +1,4 @@
-import { Room } from "@dogehouse/kebab";
+import { Room, RoomUser, Message } from "@dogehouse/kebab";
 import normalizeUrl from "normalize-url";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useVirtual, VirtualItem } from "react-virtual";
@@ -9,12 +9,19 @@ import { UserPreviewModalContext } from "../UserPreviewModalProvider";
 import { emoteMap } from "./EmoteData";
 import { useRoomChatMentionStore } from "./useRoomChatMentionStore";
 import { useRoomChatStore } from "./useRoomChatStore";
+import { Twemoji } from "../../../ui/Twemoji";
 
 interface ChatListProps {
   room: Room;
+  users: RoomUser[];
 }
 
-export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
+interface BadgeIconData {
+  emoji: string,
+  title: string
+}
+
+export const RoomChatList: React.FC<ChatListProps> = ({ room, users }) => {
   const { setData } = useContext(UserPreviewModalContext);
   const { messages, toggleFrozen } = useRoomChatStore();
   const me = useConn().user;
@@ -42,6 +49,19 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
     parentRef: chatListRef,
     estimateSize: React.useCallback(() => 20, []),
   });
+
+  const getBadgeIcon = (m: Message) => {
+    const user = users.find((u) => u.id === m.userId);
+    const isSpeaker = room.creatorId === user?.id || user?.roomPermissions?.isSpeaker;
+    let badgeIconData: BadgeIconData | null = null;
+    if (isSpeaker) {
+      badgeIconData = {
+        emoji: "📣",
+        title: "Speaker"
+      };
+    }
+    return badgeIconData && <Twemoji text={badgeIconData.emoji} title={badgeIconData.title} style={{ marginRight: "1ch" }}/>;
+  };
 
   return (
     <div
@@ -72,6 +92,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
         {rowVirtualizer.virtualItems.map(
           ({ index: idx, start, measureRef, size }: VirtualItem) => {
             const index = messages.length - idx - 1;
+            const badgeIcon = getBadgeIcon(messages[index]);
             return (
               <div
                 ref={measureRef}
@@ -105,6 +126,7 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room }) => {
                       className={`block break-words overflow-hidden max-w-full items-start flex-1 text-primary-100`}
                       key={messages[index].id}
                     >
+                      {badgeIcon}
                       <button
                         onClick={(e) => {
                           // Auto mention on shift click
