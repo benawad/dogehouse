@@ -10,11 +10,11 @@ export const useIntersectionObserver = ({
   const observer = useRef<IntersectionObserver>(null);
 
   useEffect(() => {
-    if (node) {
-      if (observer.current) {
-        observer?.current?.disconnect();
-      }
+    if (observer.current) {
+      observer?.current?.disconnect();
+    }
 
+    if (node) {
       if (window.IntersectionObserver) {
         observer.current = new window.IntersectionObserver(
           ([newEntry]) => setEntry(newEntry),
@@ -25,17 +25,15 @@ export const useIntersectionObserver = ({
           }
         );
 
-        const { current: currentObserver } = observer;
-
-        currentObserver.observe(node);
-
-        return () => {
-          if (currentObserver) {
-            currentObserver.disconnect();
-          }
-        };
+        observer.current.observe(node);
       }
     }
+
+    return () => {
+      if (observer?.current) {
+        observer?.current?.disconnect();
+      }
+    };
   }, [threshold, root, rootMargin, node]);
 
   return { setNode, entry };
