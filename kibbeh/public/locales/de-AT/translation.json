@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "Zag mehr au",
     "loading": "Lona...",
@@ -99,7 +99,8 @@
       "copyProfileUrl": "Profil URL kopian",
       "urlCopied": "URL zua Zwischenablag kopian",
       "unfollow": "Entfolgn",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Sprocheinstöllungen",

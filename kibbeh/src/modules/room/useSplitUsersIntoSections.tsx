@@ -65,6 +65,7 @@ export const useSplitUsersIntoSections = ({
         key={u.id}
         src={u.avatarUrl}
         username={u.username}
+        isBot={!!u.botOwnerId}
         activeSpeaker={
           canSpeak && !isMuted && !isDeafened && u.id in activeSpeakerMap
         }
@@ -81,9 +82,8 @@ export const useSplitUsersIntoSections = ({
 
   if (canIAskToSpeak) {
     speakers.push(
-      <div className={`flex justify-center`}>
+      <div key="megaphone" className={`flex justify-center`}>
         <BoxedIcon
-          key="megaphone"
           onClick={() => {
             modalConfirm("Would you like to ask to speak?", () => {
               wrap(conn).mutation.askToSpeak();

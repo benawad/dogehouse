@@ -20,7 +20,7 @@ function getKeybind(actionKey: string, defaultKeybind: string) {
   let v = "";
   try {
     v = localStorage.getItem(actionKey) || "";
-  } catch {}
+  } catch { }
   if (isElectron()) {
     ipcRenderer.send(actionKey, v || defaultKeybind);
   }
@@ -40,7 +40,7 @@ function getMuteKeybind() {
 }
 
 function getDeafKeybind() {
-  return getKeybind(DEAF_KEY, "Control+x");
+  return getKeybind(DEAF_KEY, "Control+1");
 }
 
 function getChatKeybind() {
@@ -91,7 +91,7 @@ export const useKeyMapStore = create(
           if (isElectron()) {
             ipcRenderer.send(REQUEST_TO_SPEAK_KEY, id);
           }
-        } catch {}
+        } catch { }
         set((x) => ({
           keyMap: { ...x.keyMap, REQUEST_TO_SPEAK: id },
           keyNames: { ...x.keyNames, REQUEST_TO_SPEAK: id },
@@ -103,7 +103,7 @@ export const useKeyMapStore = create(
           if (isElectron()) {
             ipcRenderer.send(INVITE_KEY, id);
           }
-        } catch {}
+        } catch { }
         set((x) => ({
           keyMap: { ...x.keyMap, INVITE: id },
           keyNames: { ...x.keyNames, INVITE: id },
@@ -115,7 +115,7 @@ export const useKeyMapStore = create(
           if (isElectron()) {
             ipcRenderer.send(MUTE_KEY, id);
           }
-        } catch {}
+        } catch { }
         set((x) => ({
           keyMap: { ...x.keyMap, MUTE: id },
           keyNames: { ...x.keyNames, MUTE: id },
@@ -127,7 +127,7 @@ export const useKeyMapStore = create(
           if (isElectron()) {
             ipcRenderer.send(DEAF_KEY, id);
           }
-        } catch {}
+        } catch { }
         set((x) => ({
           keyMap: { ...x.keyMap, DEAF: id },
           keyNames: { ...x.keyNames, DEAF: id },
@@ -139,7 +139,7 @@ export const useKeyMapStore = create(
           if (isElectron()) {
             ipcRenderer.send(CHAT_KEY, id);
           }
-        } catch {}
+        } catch { }
         set((x) => ({
           keyMap: { ...x.keyMap, CHAT: id },
           keyNames: { ...x.keyNames, CHAT: id },
@@ -151,7 +151,7 @@ export const useKeyMapStore = create(
           if (isElectron()) {
             ipcRenderer.send(OVERLAY_KEY, id);
           }
-        } catch {}
+        } catch { }
         set((x) => ({
           keyMap: { ...x.keyMap, OVERLAY: id },
           keyNames: { ...x.keyNames, OVERLAY: id },
@@ -163,7 +163,7 @@ export const useKeyMapStore = create(
           if (isElectron()) {
             ipcRenderer.send(PTT_KEY, id);
           }
-        } catch {}
+        } catch { }
         set((x) => ({
           keyMap: {
             ...x.keyMap,

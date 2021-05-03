@@ -3,6 +3,7 @@ defmodule BrothTest.Room.JoinTest do
   use KousaTest.Support.EctoSandbox
 
   alias Beef.Schemas.User
+  alias Beef.UserBlocks
   alias Beef.Users
   alias BrothTest.WsClient
   alias BrothTest.WsClientFactory
@@ -19,9 +20,12 @@ defmodule BrothTest.Room.JoinTest do
 
   describe "the websocket room:join operation" do
     test "joins a user to a room", t do
-      user_id = t.user.id
-
-      {:ok, %{room: %{id: room_id}}} = Kousa.Room.create_room(user_id, "foo room", "foo", false)
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"}
+        )
 
       other = Factory.create(User)
       other_ws = WsClientFactory.create_client_for(other)
@@ -45,6 +49,43 @@ defmodule BrothTest.Room.JoinTest do
       )
 
       assert %{currentRoomId: ^room_id} = Users.get_by_id(other.id)
+    end
+  end
+
+  describe "the user cannot join a room" do
+    test "if the creator blocked them", t do
+      %{"id" => room_id, "creatorId" => creatorId} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"}
+        )
+
+      # create a user that is logged in.
+      blocked = Factory.create(User)
+      blocked_ws = WsClientFactory.create_client_for(blocked)
+
+      # block the new user
+      WsClient.do_call(t.client_ws, "user:block", %{"userId" => blocked.id})
+
+      assert UserBlocks.blocked?(creatorId, blocked.id)
+
+      ref =
+        WsClient.send_call(
+          blocked_ws,
+          "room:join",
+          %{"roomId" => room_id}
+        )
+
+      WsClient.assert_error(
+        "room:join",
+        ref,
+        %{
+          "message" => "the creator of the room blocked you"
+        }
+      )
+
+      assert %{currentRoomId: nil} = Users.get_by_id(blocked.id)
     end
   end
 end

@@ -22,7 +22,7 @@ defmodule Broth.Message.Room.Mute do
 
   def execute(changeset, state) do
     with {:ok, %{muted: muted?}} <- apply_action(changeset, :validation) do
-      Onion.UserSession.set_mute(state.user_id, muted?)
+      Onion.UserSession.set_mute(state.user.id, muted?)
       {:reply, %Reply{}, state}
     end
   end

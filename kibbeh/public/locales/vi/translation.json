@@ -1,5 +1,5 @@
 {
-  "_comment": "if you change this file, do: npm run i18",
+  "_comment": "if you change this file, do: yarn i18",
   "common": {
     "loadMore": "tải thêm",
     "loading": "đang tải...",
@@ -99,7 +99,8 @@
       "followingHim": "đang theo dõi",
       "copyProfileUrl": "sao chép liên kết hồ sơ",
       "urlCopied": "Đã sao chép liên kết",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Cài đặt giọng nói",

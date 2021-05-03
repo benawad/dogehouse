@@ -87,7 +87,7 @@
       "allowAllConfirm": "Apakah anda yakin? Ini akan mengizinkan semua {{count}} permintaan pengguna untuk bicara"
     },
     "searchUser": { "search": "cari..." },
-    "soundEffectSettings": { "header": "Bunyi", "title": "Sound Settings" },
+    "soundEffectSettings": { "header": "Bunyi", "title": "Pengaturan Bunyi" },
     "viewUser": {
       "editProfile": "Ubah profil",
       "followsYou": "Mengikutimu",
@@ -98,7 +98,8 @@
       "copyProfileUrl": "Salin url profil",
       "urlCopied": "URL disalin ke papan klip",
       "unfollow": "Berhenti mengikuti",
-      "about": "About"
+      "about": "About",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Pengaturan Suara",
@@ -238,7 +239,7 @@
     },
     "search": {
       "placeholder": "Cari pengguna, ruangan, atau kategori",
-      "placeholderShort": "Search"
+      "placeholderShort": "Cari"
     },
     "settingsDropdown": {
       "profile": "Profil",
@@ -279,7 +280,7 @@
     "roomChat": {
       "title": "Percakapan",
       "emotesSoon": "[emoji segera]",
-      "bannedAlert": "Kamu dibanned dari percakapan",
+      "bannedAlert": "Kamu dilarang dari percakapan",
       "waitAlert": "Kamu harus menunggu sebentar sebelum mengirim pesan lain",
       "search": "Cari",
       "searchResults": "Hasil Pencarian",

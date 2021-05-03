@@ -32,7 +32,7 @@ defmodule Broth.Message.Room.GetInfo do
 
   def execute(changeset, state) do
     with {:ok, request} <- apply_action(changeset, :validate) do
-      room_id = request.roomId || Beef.Users.get_current_room_id(state.user_id)
+      room_id = request.roomId || Beef.Users.get_current_room_id(state.user.id)
 
       if room = room_id && Repo.get(Reply, room_id) do
         {:reply, room, state}

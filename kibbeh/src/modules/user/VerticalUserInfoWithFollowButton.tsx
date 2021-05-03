@@ -40,7 +40,8 @@ export const VerticalUserInfoWithFollowButton: React.FC<VerticalUserInfoControll
                   : {
                       ...u,
                       numFollowers:
-                        u.numFollowers + (user.youAreFollowing ? -1 : 1),
+                        (u as UserWithFollowInfo).numFollowers +
+                        (user.youAreFollowing ? -1 : 1),
                       youAreFollowing: !user.youAreFollowing,
                     }
               );

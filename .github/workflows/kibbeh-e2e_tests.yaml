@@ -1,0 +1,51 @@
+name: kibbeh:e2e_tests
+on:
+  push:
+    branches:
+      - staging
+    paths:
+      - '.github/workflows/kibbeh-e2e_tests.yaml'
+      - 'kousa/lib/**'
+      - 'kibbeh/src/**'
+  pull_request:
+    branches:
+      - staging
+    paths:
+      - 'kousa/lib/**'
+      - 'kibbeh/src/**'
+jobs:
+  end-to-end-tests:
+    name: end-to-end-tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./kousa
+    services:
+      db:
+        image: postgres:11
+        ports: ['5432:5432']
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: kousa_repo2
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+    - uses: actions/checkout@v2
+    - uses: erlef/setup-elixir@v1
+      with:
+        otp-version: '22.2'
+        elixir-version: '1.11'
+    - name: fetch deps
+      run: mix deps.get
+      env:
+          MIX_ENV: test
+    - run: source .envrc && mix ecto.migrate
+    - run: source .envrc && iex -S mix
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+    - run: yarn install
+    - run: cd ../kebab && yarn build
+    - run: cd ../kibbeh && yarn test:e2e:ci

@@ -5,9 +5,17 @@ import { usePopper } from "react-popper";
 export const DropdownController: React.FC<{
   portal?: boolean;
   className?: string;
+  innerClassName?: string;
   overlay: (c: () => void) => React.ReactNode;
   zIndex?: number;
-}> = ({ children, className, overlay, portal = true, zIndex }) => {
+}> = ({
+  children,
+  className,
+  innerClassName,
+  overlay,
+  portal = true,
+  zIndex,
+}) => {
   const [visible, setVisibility] = useState(false);
 
   const referenceRef = useRef<HTMLButtonElement>(null);
@@ -48,9 +56,7 @@ export const DropdownController: React.FC<{
     >
       <div
         style={styles.offset}
-        className={`${
-          visible ? "" : "hidden"
-        } fixed  transform -translate-x-full`}
+        className={`${visible ? "" : "hidden"} ${innerClassName}`}
       >
         {visible ? overlay(() => setVisibility(false)) : null}
       </div>
@@ -60,9 +66,10 @@ export const DropdownController: React.FC<{
   return (
     <React.Fragment>
       <button
-        className="focus:outline-no-chrome"
+        className="flex focus:outline-no-chrome"
         ref={referenceRef}
         onClick={() => setVisibility(!visible)}
+        data-testid="dropdown-trigger"
       >
         {children}
       </button>

@@ -25,7 +25,6 @@ defmodule Broth.Message.Auth.Request do
 
   defmodule Reply do
     use Broth.Message.Push
-    alias Beef.Repo
 
     @derive {Jason.Encoder, only: ~w(
       id
@@ -57,86 +56,19 @@ defmodule Broth.Message.Auth.Request do
 
   @impl true
   def execute(changeset, state) do
-    case apply_action(changeset, :validate) do
-      {:ok, request} -> convert_tokens(request, state)
-      error -> error
-    end
-  end
+    with {:ok, request} <- apply_action(changeset, :validate),
+         {:ok, user} <- Kousa.Auth.authenticate(request, state.ip) do
+      user_ids_i_am_blocking =
+        user
+        |> Beef.Repo.preload(:blocking)
+        |> Map.get(:blocking)
+        |> Enum.map(& &1.id)
 
-  alias Beef.Repo
-
-  defp convert_tokens(request, state) do
-    alias Kousa.Utils.TokenUtils
-
-    case TokenUtils.tokens_to_user_id(request.accessToken, request.refreshToken) do
-      nil ->
-        {:close, 4001, "invalid_authentication"}
-
-      {:existing_claim, user_id} ->
-        do_auth(user_id, nil, Repo.get(Reply, user_id), request, state)
-
-      {:new_tokens, user_id, tokens, user} ->
-        do_auth(user_id, tokens, user, request, state)
-    end
-  end
-
-  defp do_auth(user_id, tokens, user, request, state) do
-    alias Onion.UserSession
-    alias Onion.RoomSession
-    alias Beef.Rooms
-    alias Beef.Repo
-
-    if user do
-      # note that this will start the session and will be ignored if the
-      # session is already running.
-      UserSession.start_supervised(
-        user_id: user_id,
-        username: user.username,
-        avatar_url: user.avatarUrl,
-        banner_url: user.bannerUrl,
-        display_name: user.displayName,
-        current_room_id: user.currentRoomId,
-        muted: request.muted,
-        deafened: request.deafened
-      )
-
-      # currently we only allow one active websocket connection per-user
-      # at some point soon we're going to make this multi-connection, and we
-      # won't have to do this.
-      UserSession.set_active_ws(user_id, self())
-
-      if tokens do
-        UserSession.new_tokens(user_id, tokens)
-      end
-
-      roomIdFromFrontend = request.currentRoomId
-
-      cond do
-        user.currentRoomId ->
-          # TODO: move toroom business logic
-          room = Rooms.get_room_by_id(user.currentRoomId)
-
-          RoomSession.start_supervised(
-            room_id: user.currentRoomId,
-            voice_server_id: room.voiceServerId
-          )
-
-          RoomSession.join_room(room.id, user.id, request.muted, request.deafened)
-
-          if request.reconnectToVoice == true do
-            Kousa.Room.join_vc_room(user.id, room)
-          end
-
-        roomIdFromFrontend ->
-          Kousa.Room.join_room(user.id, roomIdFromFrontend)
-
-        true ->
-          :ok
-      end
-
-      {:reply, Repo.get(Reply, user_id), %{state | user_id: user_id, awaiting_init: false}}
+      {:reply, user, %{state | user: user, user_ids_i_am_blocking: user_ids_i_am_blocking}}
     else
-      {:close, 4001, "invalid authentication"}
+      # don't tolerate malformed requests with any response besides closing
+      # out websocket.
+      _ -> {:close, 4001, "invalid_authentication"}
     end
   end
 end

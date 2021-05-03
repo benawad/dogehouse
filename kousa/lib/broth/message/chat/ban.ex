@@ -15,7 +15,7 @@ defmodule Broth.Message.Chat.Ban do
   def execute(changeset, state) do
     with {:ok, %{userId: userId}} <- apply_action(changeset, :validate) do
       # TODO: change to by: format
-      Kousa.RoomChat.ban_user(state.user_id, userId)
+      Kousa.Chat.ban_user(state.user.id, userId)
       {:noreply, state}
     end
   end

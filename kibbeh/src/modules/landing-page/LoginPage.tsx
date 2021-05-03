@@ -5,7 +5,13 @@ import SvgSolidBug from "../../icons/SolidBug";
 import SvgSolidDiscord from "../../icons/SolidDiscord";
 import SvgSolidGitHub from "../../icons/SolidGitHub";
 import SvgSolidTwitter from "../../icons/SolidTwitter";
-import { apiBaseUrl, loginNextPathKey, __prod__ } from "../../lib/constants";
+import {
+  apiBaseUrl,
+  isStaging,
+  loginNextPathKey,
+  __prod__,
+} from "../../lib/constants";
+import { isServer } from "../../lib/isServer";
 import { Button } from "../../ui/Button";
 import { useSaveTokensFromQueryParams } from "../auth/useSaveTokensFromQueryParams";
 import { useTokenStore } from "../auth/useTokenStore";
@@ -81,6 +87,11 @@ export const LoginPage: React.FC = () => {
     }
   }, [hasTokens, push]);
 
+  const queryParams =
+    isStaging && !isServer
+      ? "?redirect_after_base=" + window.location.origin
+      : "";
+
   return (
     <>
       <div className="flex">
@@ -116,18 +127,24 @@ export const LoginPage: React.FC = () => {
             </div>
           </div>
           <div className="flex flex-col gap-4">
-            <LoginButton oauthUrl={`${apiBaseUrl}/auth/github/web`}>
+            <LoginButton
+              oauthUrl={`${apiBaseUrl}/auth/github/web${queryParams}`}
+            >
               <SvgSolidGitHub width={20} height={20} />
               Log in with GitHub
             </LoginButton>
-            <LoginButton oauthUrl={`${apiBaseUrl}/auth/twitter/web`}>
+            <LoginButton
+              oauthUrl={`${apiBaseUrl}/auth/twitter/web${queryParams}`}
+            >
               <SvgSolidTwitter width={20} height={20} />
               Log in with Twitter
             </LoginButton>
-            {/* <LoginButton oauthUrl={`${apiBaseUrl}/auth/discord/web`}>
-            <SvgSolidDiscord width={20} height={20} />
-            Log in with Discord
-          </LoginButton> */}
+            <LoginButton
+              oauthUrl={`${apiBaseUrl}/auth/discord/web${queryParams}`}
+            >
+              <SvgSolidDiscord width={20} height={20} />
+              Log in with Discord
+            </LoginButton>
             {!__prod__ ? (
               <LoginButton
                 dev

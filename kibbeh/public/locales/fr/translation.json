@@ -73,7 +73,7 @@
       "overlaySettings": "Paramètres de l'overlay",
       "soundSettings": "Paramètres Audio",
       "deleteAccount": "Supprimer le Compte",
-      "couldNotFindUser": "Désolé, nous parvenons pas à trouver cet utilisateur"
+      "couldNotFindUser": "Désolé, nous ne parvenons pas à trouver cet utilisateur"
     },
     "notFound": {
       "whoopsError": "Oups ! Cette page s'est perdue dans la conversation.",
@@ -85,7 +85,7 @@
       "requestingToSpeak": "Demande la parole",
       "listeners": "Auditeurs",
       "allowAll": "Tout autoriser",
-      "allowAllConfirm": "Êtes-vous sur? Cela autorisera {{count}} utilisateurs en attente à parler"
+      "allowAllConfirm": "Êtes-vous sûr? Cela autorisera {{count}} utilisateurs en attente de parler"
     },
     "searchUser": { "search": "recherche..." },
     "soundEffectSettings": { "header": "Sons", "title": "Sound Settings" },
@@ -99,7 +99,8 @@
       "copyProfileUrl": "Copier le lien du profil",
       "urlCopied": "Lien copié dans le presse-papier",
       "unfollow": "Unfollow",
-      "about": "À propos de"
+      "about": "À propos de",
+      "bot": "Bot"
     },
     "voiceSettings": {
       "header": "Paramètres vocaux",
@@ -116,12 +117,12 @@
       }
     },
     "download": {
-      "starting": "Starting download...",
-      "failed": "Could not auto-download, please try again later",
-      "visit_gh": "Visit Github Releases",
-      "prompt": "Click on the button below to start download",
-      "download_now": "Download Now",
-      "download_for": "Download for %platform% (%ext%)"
+      "starting": "Téléchargement entamé...",
+      "failed": "Téléchargement interrompu, essayer de nouveau plus tard",
+      "visit_gh": "Visiter toutes les versions sur Github",
+      "prompt": "Cliquer sur le bouton pour commencer le Téléchargement",
+      "download_now": "Télécharger maintenant",
+      "download_for": "Télécharger pour la %platform% (%ext%)"
     }
   },
   "components": {
@@ -193,7 +194,7 @@
     },
     "search": {
       "placeholder": "Rechercher des salles, utilisateurs ou catégories",
-      "placeholderShort": "Search"
+      "placeholderShort": "Recherche"
     },
     "settingsDropdown": {
       "profile": "Profil",
@@ -211,7 +212,7 @@
     },
     "modals": {
       "createRoomModal": {
-        "subtitle": "Remplit les champs suivants pour créer",
+        "subtitle": "Remplis les champs suivants pour créer",
         "public": "Publique",
         "private": "Privée",
         "roomName": "Nom de la salle",

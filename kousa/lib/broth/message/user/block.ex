@@ -28,11 +28,14 @@ defmodule Broth.Message.User.Block do
     end
   end
 
-  def execute(changeset, state) do
+  alias Broth.SocketHandler
+
+  def execute(changeset, %SocketHandler{} = state) do
     with {:ok, %{userId: user_id}} <- apply_action(changeset, :validate),
-         {:ok, %{userIdBlocked: blocked}} <- Kousa.UserBlock.block(state.user_id, user_id) do
+         {:ok, %{userIdBlocked: blocked}} <- Kousa.UserBlock.block(state.user.id, user_id) do
       # TODO: update this to return a full user update.
-      {:reply, %Reply{blocked: [blocked]}, state}
+      {:reply, %Reply{blocked: [blocked]},
+       %{state | user_ids_i_am_blocking: [user_id | state.user_ids_i_am_blocking]}}
     else
       error = {:error, %Ecto.Changeset{}} ->
         error
