@@ -33,7 +33,7 @@ const Page = ({
 }) => {
   const conn = useConn();
   const ref = useRef<HTMLDivElement | null>(null);
-  const entry = useIntersectionObserver(ref, {});
+  const { setNode, entry } = useIntersectionObserver(ref);
   const {
     mutateAsync,
     isLoading: followLoading,
@@ -53,13 +53,19 @@ const Page = ({
     vars
   );
 
-  useEffect(() => {
-    const shouldLoadMore = !!entry?.isIntersecting;
+  const [shouldLoadMore, setShouldLoadMore] = useState(false);
 
+  useEffect(() => {
+    setShouldLoadMore(!!entry?.isIntersecting);
+  }, [entry?.isIntersecting]);
+
+  useEffect(() => {
     if (shouldLoadMore && data?.nextCursor) {
+      console.log("HERE");
       onLoadMore(data.nextCursor!);
+      setShouldLoadMore(false);
     }
-  }, [data?.nextCursor, entry?.isIntersecting, onLoadMore]);
+  }, [data?.nextCursor, entry?.isIntersecting, onLoadMore, shouldLoadMore]);
 
   if (isLoading) {
     return <CenterLoader />;
@@ -126,7 +132,7 @@ const Page = ({
         </div>
       ))}
       {isLastPage && data.nextCursor && (
-        <div ref={ref} className={`flex justify-center py-5`}>
+        <div ref={setNode} className={`flex justify-center py-5`}>
           <Spinner />
         </div>
       )}
