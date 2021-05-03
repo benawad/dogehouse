@@ -1,4 +1,6 @@
 import React, { ReactNode } from "react";
+import { useScreenType } from "../shared-hooks/useScreenType";
+import { useIsElectronMobile } from "../global-stores/useElectronMobileStore";
 
 export interface ProfileHeaderWrapperProps {
   children: ReactNode;
@@ -11,7 +13,11 @@ export const ProfileHeaderWrapper: React.FC<ProfileHeaderWrapperProps> = ({
   ...props
 }) => {
   return (
-    <div className="bg-primary-800 rounded-8 relative" {...props}>
+    <div
+      className="bg-primary-800 rounded-8 relative"
+      {...props}
+      style={useIsElectronMobile() ? { marginTop: "30px" } : {}}
+    >
       <img
         alt="cover"
         src={coverUrl}

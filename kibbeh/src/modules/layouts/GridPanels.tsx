@@ -1,4 +1,7 @@
+import isElectron from "is-electron";
 import React, { FC, useContext } from "react";
+import { useIsElectronMobile } from "../../global-stores/useElectronMobileStore";
+import { useHostStore } from "../../global-stores/useHostStore";
 import { useScreenType } from "../../shared-hooks/useScreenType";
 import { FixedGridPanel, GridPanel } from "../../ui/GridPanel";
 import LeftHeader from "../../ui/header/LeftHeader";
@@ -29,7 +32,14 @@ export const MiddlePanel: React.FC<
   const screenType = useScreenType();
   return (
     <GridPanel>
-      <div className={!(screenType === "fullscreen" && !stickyChildren) ? `flex sticky top-0 w-full flex-col z-10 bg-primary-900 pt-5` : ""}>
+      <div
+        className={
+          !(screenType === "fullscreen" && !stickyChildren)
+            ? `flex sticky w-full flex-col z-8 bg-primary-900 pt-5`
+            : ""
+        }
+        style={useIsElectronMobile() ? { marginTop: "38px" } : { top: "0px" }}
+      >
         {screenType !== "fullscreen" ? (
           <HeaderWrapper>
             <MiddleHeader />

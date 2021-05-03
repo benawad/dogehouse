@@ -56,7 +56,7 @@ function App({ Component, pageProps }: AppProps) {
       );
       document.documentElement.style.setProperty(
         "--screen-height-reduction",
-        "30px"
+        "38px"
       );
     }
   }, []);
