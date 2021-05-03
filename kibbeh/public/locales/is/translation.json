@@ -196,7 +196,7 @@
       "editProfileModal": {
         "usernameTaken": "notendanafn tekið",
         "avatarUrlError": "Ógild mynd",
-        "avatarUrlLabel": "GitHub/Twitter avatar slóð",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar slóð",
         "displayNameError": "lengd 2 til 50 stafir",
         "displayNameLabel": "Sýna nafn",
         "usernameError": "lengd 4 til 15 stafir og aðeins tölustafur / undirstrikun",

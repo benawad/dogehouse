@@ -199,7 +199,7 @@
       "editProfileModal": {
         "usernameTaken": "tên người dùng đã tồn tại",
         "avatarUrlError": "Hình ảnh không hợp lệ",
-        "avatarUrlLabel": "Liên kết đến ảnh đại diện GitHub/Twitter",
+        "avatarUrlLabel": "Liên kết đến ảnh đại diện Github/Twitter/Discord",
         "displayNameError": "phải có độ dài từ 2 tới 50 ký tự",
         "displayNameLabel": "Tên hiển thị",
         "usernameError": "phải có độ dài từ 4 đến 15 ký tự và chỉ được dùng chữ, số hoặc gạch dưới",

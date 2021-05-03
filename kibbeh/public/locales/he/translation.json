@@ -194,7 +194,7 @@
       "editProfileModal": {
         "usernameTaken": "שם המשתמש תפוס",
         "avatarUrlError": "תמונה לא תקינה",
-        "avatarUrlLabel": "GitHub/Twitterשל התמונה מ url",
+        "avatarUrlLabel": "Github/Twitter/Discordשל התמונה מ url",
         "displayNameError": "אורך 2 עד 50 תווים",
         "displayNameLabel": "שם מוצג",
         "usernameError": "אורך 4 עד 15 תווים ורק אותיות / מספרים / קו תחתון",

@@ -230,7 +230,7 @@
       "editProfileModal": {
         "usernameTaken": "erabiltzaile izena hartuta",
         "avatarUrlError": "Irudi baliogabea",
-        "avatarUrlLabel": "GitHub/Twitter avatar url",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar url",
         "displayNameError": "luzera: 2-50 karaktere",
         "displayNameLabel": "Erakusteko izena",
         "usernameError": "luzera: 4-15 karaktere alfanumerikoak/azpi-gidioa",

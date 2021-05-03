@@ -198,7 +198,7 @@
       "editProfileModal": {
         "usernameTaken": "gebruikersnaam geneem",
         "avatarUrlError": "Ongeldige foto",
-        "avatarUrlLabel": "GitHub/Twitter avatar skakel",
+        "avatarUrlLabel": "Github/Twitter/Discord avatar skakel",
         "displayNameError": "lengte 2 tot 50 karakters",
         "displayNameLabel": "Vertoonnaam",
         "usernameError": "Lengte 4 tot 15 karakters en slegte alfanumeries/onderstreep",

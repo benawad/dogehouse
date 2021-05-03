@@ -199,7 +199,7 @@
       "editProfileModal": {
         "usernameTaken": "Username deja folosit",
         "avatarUrlError": "Imagine invalidă",
-        "avatarUrlLabel": "URL avatar Github/Twitter",
+        "avatarUrlLabel": "URL avatar Github/Twitter/Discord",
         "displayNameError": "Lungime între 2 și 50 caractere",
         "displayNameLabel": "Nume de ecran",
         "usernameError": "Lungime între 4 și 15 caractere și numai alphanumerice/underscore",

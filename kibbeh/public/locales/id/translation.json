@@ -196,7 +196,7 @@
       "editProfileModal": {
         "usernameTaken": "Nama pengguna telah dipakai",
         "avatarUrlError": "Gambar tidak valid",
-        "avatarUrlLabel": "URL avatar GitHub/Twitter",
+        "avatarUrlLabel": "URL avatar Github/Twitter/Discord",
         "displayNameError": "Panjang 2 sampai 50 karakter",
         "displayNameLabel": "Nama Tampilan",
         "usernameError": "Panjang 4 sampai 15 karakter dan hanya alfanumerik/garis bawah",
