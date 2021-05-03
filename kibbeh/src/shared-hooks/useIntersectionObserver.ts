@@ -4,9 +4,9 @@ export const useIntersectionObserver = ({
   threshold = 0,
   root = null,
   rootMargin = "0%",
-}): IntersectionObserverEntry | undefined => {
+}) => {
   const [entry, setEntry] = useState<IntersectionObserverEntry>();
-  const [node, setNode] = useState<Element>();
+  const [node, setNode] = useState<HTMLElement | null>(null);
   const observer = useRef<IntersectionObserver>(null);
 
   useEffect(() => {
