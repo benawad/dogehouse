@@ -1,4 +1,4 @@
-name: Publish kebab to NPM
+name: kebab:npm_publish
 on:
   push:
     branches:
