@@ -15,7 +15,7 @@
     "watch": "tsc -w",
     "lint": "eslint src/",
     "test": "jest",
-    "postinstall": "npm install && npm run build"
+    "postinstall": "yarn install && yarn build"
   },
   "publishConfig": {
     "access": "public"
