@@ -8146,6 +8146,8 @@ __metadata:
   dependencies:
     "@dogehouse/kebab": "workspace:kebab"
     "@types/node": ^14.14.22
+    mediasoup-client: ^3.6.30
+    mediasoup-client-aiortc: ^3.6.3
     ts-node: ^9.1.1
     typescript: ^4.1.3
   languageName: unknown
@@ -8204,6 +8206,8 @@ __metadata:
     commitizen: ^4.2.3
     cz-conventional-changelog: ^3.3.0
     husky: ^6.0.0
+    mediasoup-client: ^3.6.30
+    mediasoup-client-aiortc: ^3.6.3
     ts-jest: ^26.5.5
   languageName: unknown
   linkType: soft
@@ -9002,6 +9006,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"event-target-shim@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "event-target-shim@npm:5.0.1"
+  checksum: d176477a31adf328ff50148886e46cef3f61ff8bdc1d6db161f6b3ead2501085d5652a81fab8dddc59aed93727231c0b5c8a0948de77ae401b2d977a3d18329e
+  languageName: node
+  linkType: hard
+
 "eventemitter2@npm:^6.4.3":
   version: 6.4.4
   resolution: "eventemitter2@npm:6.4.4"
@@ -9277,6 +9288,16 @@ __metadata:
   version: 1.4.0
   resolution: "extsprintf@npm:1.4.0"
   checksum: 092e011574324c5cddd78b5a27f869c2703613c1140eb7763aef8f5b0e33769a9b4c7dbcc50acd39b6afebe79bf66adcec73bf3c84e095c5bcfb42306d128ad0
+  languageName: node
+  linkType: hard
+
+"fake-mediastreamtrack@npm:^1.1.3":
+  version: 1.1.6
+  resolution: "fake-mediastreamtrack@npm:1.1.6"
+  dependencies:
+    event-target-shim: ^5.0.1
+    uuid: ^8.1.0
+  checksum: 82237e997937f43b6f6f6caab36700541d9451c511b2814e0faea785274cc453b6932b76927cba122b61146067606a4d28267a8582e87afaecafcfbea828a98c
   languageName: node
   linkType: hard
 
@@ -13420,6 +13441,21 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"mediasoup-client-aiortc@npm:^3.6.3":
+  version: 3.6.3
+  resolution: "mediasoup-client-aiortc@npm:3.6.3"
+  dependencies:
+    event-target-shim: ^5.0.1
+    fake-mediastreamtrack: ^1.1.3
+    netstring: ^0.3.0
+    sdp-transform: ^2.14.0
+    uuid: ^7.0.3
+  peerDependencies:
+    mediasoup-client: ^3.6.2
+  checksum: 2ce06094d1080ab5be800171c299851d4b5b15f7b8b624361d76def98433b7ac1ef903dd57c9ca1ae2f220437e2c540765dc1c2cb2611f97e1afa9fbc81f39dc
+  languageName: node
+  linkType: hard
+
 "mediasoup-client@npm:^3.6.30":
   version: 3.6.30
   resolution: "mediasoup-client@npm:3.6.30"
@@ -13991,6 +14027,13 @@ fsevents@^1.2.7:
   version: 2.1.0
   resolution: "nested-error-stacks@npm:2.1.0"
   checksum: f3f930722ef2b02e6dd5d91662d3b39820d3fc1440e50174ee354f2744243587cabebdd659887b577a593684aa0caec428d0706a587455e3320e164a1ad5290d
+  languageName: node
+  linkType: hard
+
+"netstring@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "netstring@npm:0.3.0"
+  checksum: b168b88e0f91f7386510386c571f59d51f4bd519c7b036e8ea9dc3687e501687d87c993c7019c1ac5c1a9c7da4c9a2729afc8e7a1bdbb3f22618578a7466e916
   languageName: node
   linkType: hard
 
@@ -17161,7 +17204,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"sdp-transform@npm:^2.14.1":
+"sdp-transform@npm:^2.14.0, sdp-transform@npm:^2.14.1":
   version: 2.14.1
   resolution: "sdp-transform@npm:2.14.1"
   bin:
@@ -19540,7 +19583,16 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"uuid@npm:^8.3.0, uuid@npm:^8.3.2":
+"uuid@npm:^7.0.3":
+  version: 7.0.3
+  resolution: "uuid@npm:7.0.3"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: a56be8a5bbf2bae755d749d0693637274935b5ae250dfaaaf79241391cf1a7c142a202492196363ec62ec51a476e5e3fc4de2944d854abf2e9b35a33e0e31d4c
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^8.1.0, uuid@npm:^8.3.0, uuid@npm:^8.3.2":
   version: 8.3.2
   resolution: "uuid@npm:8.3.2"
   bin:

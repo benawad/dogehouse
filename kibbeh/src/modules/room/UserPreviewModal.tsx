@@ -161,7 +161,7 @@ const UserPreview: React.FC<{
         onClose();
         roomBan([id, true]);
       },
-      "Ban Ip from Room",
+      "Ban IP from Room",
     ],
     [
       isMe &&

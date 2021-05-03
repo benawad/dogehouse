@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Twemoji } from "./Twemoji";
+import { ParseTextToTwemoji } from "./Twemoji";
 import backIcon from "../icons/SolidCaretRight";
 import { SettingsIcon } from "./SettingsIcon";
 import { useRouter } from "next/router";
@@ -109,7 +109,9 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
         }
       }}
       last={i === options.length - 1}
-      icon={<Twemoji text={e.label} style={{ marginRight: "1ch" }} />}
+      icon={
+        <ParseTextToTwemoji text={e.label} style={{ marginRight: "1ch" }} />
+      }
     ></SettingsIcon>
   ));
 
