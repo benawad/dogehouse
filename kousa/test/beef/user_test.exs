@@ -65,7 +65,7 @@ defmodule Kousa.Beef.UserTest do
     end
 
     test "with avatar_url that is from twitter", %{user: %{id: id}} do
-      assert {:error, _} =
+      assert {:ok, user} =
                Users.edit_profile(id, %{
                  username: "timmy",
                  displayName: "tim",
@@ -76,7 +76,7 @@ defmodule Kousa.Beef.UserTest do
     end
 
     test "with avatar_url that is from github", %{user: %{id: id}} do
-      assert {:error, _} =
+      assert {:ok, user} =
                Users.edit_profile(id, %{
                  username: "timmy",
                  displayName: "tim",
@@ -86,7 +86,7 @@ defmodule Kousa.Beef.UserTest do
     end
 
     test "with avatar_url that is from discord", %{user: %{id: id}} do
-      assert {:error, _} =
+      assert {:ok, user} =
                Users.edit_profile(id, %{
                  username: "timmy",
                  displayName: "tim",
