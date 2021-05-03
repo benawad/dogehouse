@@ -112,7 +112,7 @@ function createMainWindow() {
   }
 
   // start rpc
-  startRPC();
+  //startRPC();
 
   // registers global keybinds
   RegisterKeybinds(bWindows);

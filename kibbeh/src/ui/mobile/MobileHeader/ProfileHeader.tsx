@@ -44,7 +44,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
 
   return (
     <div
-      className={`flex w-full p-3 h-8 flex justify-between items-center bg-primary-900 ${className}`}
+      className={`flex w-full p-3 h-8 justify-between items-center bg-primary-900 ${className}`}
       {...props}
     >
       <button onClick={handleClick}>

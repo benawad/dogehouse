@@ -95,6 +95,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
       );
       break;
     case "fullscreen":
+      console.log("FULLSCREEN");
       prepend = (
         <>
           {mHeader}
@@ -112,17 +113,35 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
 
   return (
     <>
-      <div className="fixed top-0 left-0 w-full z-10">{prepend}</div>
+      <ElectronHeader />
+      <div
+        className={`fixed left-0 w-full z-50`}
+        style={
+          isElectron() && !useHostStore.getState().isLinux
+            ? { top: 30 }
+            : { top: 0 }
+        }
+      >
+        {prepend}
+      </div>
       <div
         className={
           isElectron() && !useHostStore.getState().isLinux
-            ? `default-desktop-layout flex flex-col items-center w-full scrollbar-thin scrollbar-thumb-primary-700`
+            ? `default-desktop-layout flex flex-col items-center w-full scrollbar-thin scrollbar-thumb-primary-700 ${
+                prepend ? "mb-7" : ""
+              }`
             : `flex flex-col items-center w-full scrollbar-thin scrollbar-thumb-primary-700 ${
                 prepend ? "mt-8 mb-7" : ""
               }`
         }
+        style={
+          screenType === "fullscreen" &&
+          isElectron() &&
+          !useHostStore.getState().isLinux
+            ? { marginTop: "38px" }
+            : {}
+        }
       >
-        <ElectronHeader />
         <MainInnerGrid>{middle}</MainInnerGrid>
       </div>
     </>
