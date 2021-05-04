@@ -359,6 +359,7 @@ defmodule Kousa.Room do
             d: %{
               name: room.name,
               description: room.description,
+              chatCooldown: room.chatCooldown,
               isPrivate: room.isPrivate,
               roomId: room.id
             }

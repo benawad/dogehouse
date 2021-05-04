@@ -27,6 +27,8 @@ defmodule Beef.Schemas.Room do
     field(:name, :string)
     field(:description, :string, default: "")
     field(:numPeopleInside, :integer)
+    # 1_000_000 microsec = 1 sec
+    field(:chatCooldown, :integer, default: 1_000_000, min: 1_000_000, virtual: true)
     field(:isPrivate, :boolean)
     field(:voiceServerId, :string)
     field(:autoSpeaker, :boolean, default: false)

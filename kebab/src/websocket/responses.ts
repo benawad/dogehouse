@@ -33,6 +33,7 @@ export type GetRoomUsersResponse = {
 export type NewRoomDetailsResponse = {
   roomId: UUID;
   name: string;
+  chatCooldown: number;
   isPrivate: boolean;
   description: string;
 };

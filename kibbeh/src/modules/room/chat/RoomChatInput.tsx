@@ -67,11 +67,11 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
       return;
     }
 
-    if (Date.now() - lastMessageTimestamp <= 1000) {
-      showErrorToast(t("modules.roomChat.waitAlert"));
+    // if (Date.now() - lastMessageTimestamp <= 1000) {
+    //   showErrorToast(t("modules.roomChat.waitAlert"));
 
-      return;
-    }
+    //   return;
+    // }
 
     const tmp = message;
     const messageData = createChatMessage(tmp, users);

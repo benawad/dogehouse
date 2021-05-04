@@ -3,13 +3,21 @@ defmodule Broth.Message.Room.Create do
     reply: __MODULE__
 
   @derive {Jason.Encoder,
-           only: [:id, :creatorId, :name, :description, :isPrivate, :scheduledRoomId]}
+           only: [
+             :id,
+             :creatorId,
+             :name,
+             :description,
+             :isPrivate,
+             :scheduledRoomId
+           ]}
 
   @primary_key {:id, :binary_id, []}
   schema "rooms" do
     field(:creatorId, :binary_id)
     field(:name, :string)
     field(:description, :string)
+    field(:chatCooldown, :integer, default: 1_000_000, min: 1_000_000, virtual: true)
     field(:isPrivate, :boolean, default: false)
     field(:userIdToInvite, {:array, :binary_id}, virtual: true)
     field(:autoSpeaker, :boolean)
@@ -22,6 +30,7 @@ defmodule Broth.Message.Room.Create do
     |> cast(data, [
       :name,
       :description,
+      :chatCooldown,
       :isPrivate,
       :userIdToInvite,
       :autoSpeaker,
@@ -43,6 +52,7 @@ defmodule Broth.Message.Room.Create do
              state.user.id,
              room_spec.name,
              room_spec.description || "",
+             room_spec.chatCooldown,
              room_spec.isPrivate,
              room_spec.userIdToInvite,
              room_spec.autoSpeaker
