@@ -9,6 +9,7 @@ import { createTransport, transportToOptions } from "./utils/createTransport";
 import { deleteRoom } from "./utils/deleteRoom";
 import { startMediasoup } from "./utils/startMediasoup";
 import { HandlerMap, startRabbit } from "./utils/startRabbit";
+import { createRecordingTransport } from "./recording/createRecordingTransport";
 
 const log = debugModule("shawarma:index");
 const errLog = debugModule("shawarma:ERROR");
@@ -46,7 +47,7 @@ export async function main() {
   const createRoom = () => {
     const { worker, router } = getNextWorker();
 
-    return { worker, router, state: {} };
+    return { worker, router, state: {}, rtpConsumers: [] };
   };
 
   await startRabbit({
@@ -146,7 +147,7 @@ export async function main() {
         errBack();
         return;
       }
-      const { state } = rooms[roomId];
+      const { state, rtpTransport, rtpConsumers } = rooms[roomId];
       const { sendTransport, producer: previousProducer, consumers } = state[
         myPeerId
       ];
@@ -174,6 +175,17 @@ export async function main() {
           paused,
           appData: { ...appData, peerId: myPeerId, transportId },
         });
+
+        if (rtpTransport) {
+          rtpConsumers.push(
+            await rtpTransport.consume({
+              producerId: producer.id,
+              rtpCapabilities,
+              paused: false, // see note above about always starting paused
+              appData: { mediaPeerId: producer.appData.peerId },
+            })
+          );
+        }
 
         rooms[roomId].state[myPeerId].producer = producer;
         for (const theirPeerId of Object.keys(state)) {
@@ -275,8 +287,19 @@ export async function main() {
     ["create-room"]: async ({ roomId }, uid, send) => {
       if (!(roomId in rooms)) {
         rooms[roomId] = createRoom();
+        const { ip, port, rtpTransport } = await createRecordingTransport(
+          rooms[roomId].router
+        );
+        rooms[roomId].rtpTransport = rtpTransport;
+        console.log(ip, port);
+        rooms[roomId].rtpInfo = { ip, port };
       }
-      send({ op: "room-created", d: { roomId }, uid });
+
+      send({
+        op: "room-created",
+        d: { roomId, rtpRecordingInfo: rooms[roomId].rtpInfo },
+        uid,
+      });
     },
     ["add-speaker"]: async ({ roomId, peerId }, uid, send, errBack) => {
       if (!rooms[roomId]?.state[peerId]) {

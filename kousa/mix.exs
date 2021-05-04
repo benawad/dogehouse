@@ -60,6 +60,21 @@ defmodule Kousa.MixProject do
       {:prometheus_ex, "~> 3.0"},
       {:prometheus_plugs, "~> 1.1.1"},
       {:timex, "~> 3.6"},
+      # membrane
+      {:membrane_core, "~> 0.6.1"},
+      {:membrane_rtp_plugin, "~> 0.5.0"},
+      {:membrane_element_udp, "~> 0.4.0"},
+      {:membrane_h264_ffmpeg_plugin, "~> 0.7.0"},
+      {:membrane_rtp_h264_plugin, "~> 0.4.0"},
+      {:membrane_opus_plugin, "~> 0.2.1"},
+      {:membrane_rtp_opus_plugin, "~> 0.2.0"},
+      {:membrane_sdl_plugin, "~> 0.5.0"},
+      {:membrane_portaudio_plugin, "~> 0.5.1"},
+      {:membrane_hackney_plugin, "~> 0.4.0"},
+      {:ex_libsrtp, "~> 0.1.0"},
+      {:membrane_realtimer_plugin, "~> 0.1.0"},
+      {:membrane_ffmpeg_swresample_plugin, "~> 0.5.0"},
+      {:membrane_mp3_mad_plugin, "~> 0.5.0"},
       # style ENFORCEMENT
       {:credo, "~> 1.5.5"},
       # test helpers

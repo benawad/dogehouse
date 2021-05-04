@@ -39,6 +39,8 @@ defmodule Kousa do
       {:ok, pid} ->
         start_rabbits()
         start_rooms()
+        # remove this
+        playground()
         {:ok, pid}
 
       error ->
@@ -81,5 +83,16 @@ defmodule Kousa do
     end)
 
     IO.puts("finished rabbits")
+  end
+
+  def playground() do
+    alias Broth.RTP.ReceivePipeline
+
+    {:ok, pid} =
+      ReceivePipeline.start_link(%{
+        audio_port: 24496
+      })
+
+    ReceivePipeline.play(pid)
   end
 end

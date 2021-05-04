@@ -79,6 +79,10 @@ type OutgoingMessageDataMap = {
   error: string;
   "room-created": {
     roomId: string;
+    rtpRecordingInfo?: {
+      port: number;
+      ip: string;
+    };
   };
   "@get-recv-tracks-done": {
     consumerParametersArr: Consumer[];
