@@ -78,7 +78,7 @@ export const RoomPanelIconBarController: React.FC<RoomPanelIconBarControllerProp
             : undefined
         }
       />
-      {(screenType === "fullscreen" || screenType === "1-cols") && open
+      {screenType === "1-cols" && open
         ? createPortal(
             // this is kind of hard to embed in the page
             // so tmp solution of portaling this and absolute positioning for fullscreen

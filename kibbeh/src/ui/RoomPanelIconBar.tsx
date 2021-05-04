@@ -93,7 +93,7 @@ export const RoomPanelIconBar: React.FC<RoomPanelIconBarProps> = ({
             <SolidFriendsAdd height="20" />
           </BoxedIcon>
         ) : null}
-        {screenType === "1-cols" || screenType === "fullscreen" ? (
+        {screenType === "1-cols" ? (
           <BoxedIcon
             transition
             className="mx-1 h-6.5 w-6.5"
