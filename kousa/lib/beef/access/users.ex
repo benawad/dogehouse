@@ -33,7 +33,7 @@ defmodule Beef.Access.Users do
     # here
     |> where([u], ilike(u.username, ^search_str))
     |> limit([], 15)
-    |> order_by(desc: u.numFollowers)
+    |> order_by([u], desc: u.numFollowers)
     |> Repo.all()
   end
 
