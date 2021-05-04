@@ -50,6 +50,11 @@ defmodule Broth.RTP.ReceivePipeline do
   end
 
   @impl true
+  def handle_notification({:new_rtp_stream, ssrc, 72}, :rtp, _ctx, state) do
+    {:ok, state}
+  end
+
+  @impl true
   def handle_notification({:new_rtp_stream, _ssrc, encoding_name}, :rtp, _ctx, _state) do
     raise "Unsupported encoding: #{inspect(encoding_name)}"
   end

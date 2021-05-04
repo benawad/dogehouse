@@ -1,25 +1,25 @@
 defmodule Banana do
-  @moduledoc """
-  Documentation for `Banana`.
-  """
+  use Application
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Banana.hello()
-      :world
-
-  """
-    def playground() do
+  def start(_type, _args) do
       alias Broth.RTP.ReceivePipeline
 
       {:ok, pid} =
         ReceivePipeline.start_link(%{
-          audio_port: 27929
+          audio_port: 26089
         })
 
       ReceivePipeline.play(pid)
+
+      opts = [strategy: :one_for_one, name: Kousa.Supervisor]
+
+
+    case Supervisor.start_link([], opts) do
+      {:ok, pid} ->
+        {:ok, pid}
+
+      error ->
+        error
+    end
     end
 end
