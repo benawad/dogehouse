@@ -2,12 +2,13 @@ defmodule Broth.Message.Room.Update do
   use Broth.Message.Call,
     reply: __MODULE__
 
-  @derive {Jason.Encoder, only: [:name, :description, :isPrivate, :autoSpeaker]}
+  @derive {Jason.Encoder, only: [:name, :description, :chatCooldown, :isPrivate, :autoSpeaker]}
 
   @primary_key {:id, :binary_id, []}
   schema "rooms" do
     field(:name, :string)
     field(:description, :string, default: "")
+    field(:chatCooldown, :integer, default: 1_000_000, min: 1_000_000, virtual: true)
     field(:isPrivate, :boolean)
     field(:autoSpeaker, :boolean, virtual: true)
   end
@@ -29,7 +30,7 @@ defmodule Broth.Message.Room.Update do
 
   def changeset(initializer, data) do
     initializer
-    |> cast(data, ~w(description isPrivate name autoSpeaker)a)
+    |> cast(data, ~w(description chatCooldown isPrivate name autoSpeaker)a)
     |> validate_required([:name])
   end
 

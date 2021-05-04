@@ -139,6 +139,7 @@ export const wrap = (connection: Connection) => ({
     roomUpdate: (data: {
       name?: string;
       privacy?: string;
+      chatCooldown?: number;
       description?: string;
       autoSpeaker?: boolean;
     }): Promise<void> => connection.sendCall("room:update", data),
