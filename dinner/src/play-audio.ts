@@ -82,7 +82,7 @@ const test = async () => {
   const wrapper = wrap(conn);
   await startAudio(wrapper);
   await wrapper.query.joinRoomAndGetInfo(
-    "d34c120e-3b76-49d7-b4a9-50be27f9e9af"
+    "7bc58dbf-2818-48b9-be10-c006c67496fb"
   );
 };
 
