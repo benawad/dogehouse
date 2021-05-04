@@ -39,7 +39,7 @@ defmodule BrothTest.EditRoomTest do
             "name" => "bar room",
             "description" => "baz quux",
             "privacy" => "private",
-            "chatCooldown" => 2_000_000
+            "chatCooldown" => 1_000_000
           }
         )
 
@@ -54,7 +54,7 @@ defmodule BrothTest.EditRoomTest do
         %{
           "description" => "baz quux",
           "isPrivate" => true,
-          "chatCooldown" => 2_000_000,
+          "chatCooldown" => 1_000_000,
           "name" => "bar room",
           "roomId" => ^room_id
         }
@@ -64,7 +64,7 @@ defmodule BrothTest.EditRoomTest do
       assert %{
                isPrivate: true,
                description: "baz quux",
-               chatCooldown: 2_000_000,
+               chatCooldown: 1_000_000,
                name: "bar room"
              } = Beef.Rooms.get_room_by_id(room_id)
     end
