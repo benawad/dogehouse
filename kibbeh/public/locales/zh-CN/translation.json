@@ -23,7 +23,7 @@
     "mutedTitle": "已关闭麦克风 | DogeHouse",
     "deafenedTitle": "已静音 | DogeHouse",
     "dashboard": "概览",
-    "connectionTaken": "Connection Taken"
+    "connectionTaken": "连接被占用"
   },
   "footer": {
     "_comment": "Main Footer UI Internationalization Strings",
@@ -99,7 +99,7 @@
       "urlCopied": "个人主页链接已复制到剪贴板",
       "unfollow": "取消关注",
       "about": "关于ta",
-      "bot": "Bot"
+      "bot": "机器人"
     },
     "voiceSettings": {
       "header": "语音设置",
@@ -247,7 +247,7 @@
       "useOldVersion": "使用旧版本",
       "logOut": { "button": "登出", "modalSubtitle": "是否确定登出?" },
       "debugAudio": { "debugAudio": "调试声音", "stopDebugger": "取消调试" },
-      "downloadApp": "Download App"
+      "downloadApp": "下载App"
     }
   },
   "modules": {
