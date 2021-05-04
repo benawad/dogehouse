@@ -2,15 +2,15 @@ defmodule Broth.Message.Room.Update do
   use Broth.Message.Call,
     reply: __MODULE__
 
-  @derive {Jason.Encoder, only: [:name, :description, :chatCooldown, :isPrivate, :autoSpeaker]}
+  @derive {Jason.Encoder, only: [:name, :description, :isPrivate, :autoSpeaker, :chatCooldown]}
 
   @primary_key {:id, :binary_id, []}
   schema "rooms" do
     field(:name, :string)
     field(:description, :string, default: "")
-    field(:chatCooldown, :integer, default: 1_000_000, min: 1_000_000, virtual: true)
     field(:isPrivate, :boolean)
     field(:autoSpeaker, :boolean, virtual: true)
+    field(:chatCooldown, :integer, default: 1_000_000, min: 1_000_000, virtual: true)
   end
 
   def initialize(state) do
@@ -30,7 +30,7 @@ defmodule Broth.Message.Room.Update do
 
   def changeset(initializer, data) do
     initializer
-    |> cast(data, ~w(description chatCooldown isPrivate name autoSpeaker)a)
+    |> cast(data, ~w(description isPrivate name autoSpeaker chatCooldown)a)
     |> validate_required([:name])
   end
 
@@ -47,6 +47,17 @@ defmodule Broth.Message.Room.Update do
           %{
             op: "room_privacy_change",
             d: %{roomId: room.id, name: room.name, isPrivate: changes.isPrivate}
+          }
+        )
+      end
+
+      if Map.has_key?(changes, :chatCooldown) do
+        # send the room_privacy_change message.
+        Onion.RoomSession.broadcast_ws(
+          room.id,
+          %{
+            op: "room_chat_cooldown_change",
+            d: %{roomId: room.id, name: room.name, chatCooldown: changes.chatCooldown}
           }
         )
       end

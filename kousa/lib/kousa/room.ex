@@ -403,7 +403,8 @@ defmodule Kousa.Room do
         room_description,
         is_private,
         user_id_to_invite \\ nil,
-        auto_speaker \\ nil
+        auto_speaker \\ nil,
+        chat_cooldown \\ nil
       ) do
     room_id = Users.get_current_room_id(user_id)
 
@@ -426,7 +427,8 @@ defmodule Kousa.Room do
         Onion.RoomSession.start_supervised(
           room_id: room.id,
           voice_server_id: room.voiceServerId,
-          auto_speaker: auto_speaker
+          auto_speaker: auto_speaker,
+          chat_cooldown: chat_cooldown
         )
 
         muted? = Onion.UserSession.get(user_id, :muted)
