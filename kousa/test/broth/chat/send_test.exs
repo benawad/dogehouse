@@ -288,7 +288,6 @@ defmodule BrothTest.Chat.SendTest do
     end
 
     test "if the room chat is disabled by the owner", t do
-    
       user_id = t.user.id
       room_id = t.room_id
 
@@ -301,7 +300,7 @@ defmodule BrothTest.Chat.SendTest do
       WsClient.assert_frame_legacy("new_user_join_room", _)
 
       # disable room chat
-      Onion.RoomSession.set_chat_disabled(room_id, true)
+      WsClient.do_call(t.client_ws, "room:update", %{"chatMode" => "disabled"})
 
       # send chat msg via sender
       WsClient.send_msg(
@@ -310,8 +309,8 @@ defmodule BrothTest.Chat.SendTest do
         %{"tokens" => @text_token}
       )
 
-      # the other user should not get the message
       WsClient.refute_frame("chat:send", t.client_ws)
+      WsClient.refute_frame("chat:send", sender_ws)
     end
   end
 

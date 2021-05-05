@@ -194,12 +194,22 @@ defmodule Onion.Chat do
     {:noreply, Map.put(state, key, value)}
   end
 
+  def get(room_id, key), do: call(room_id, {:get, key})
+
+  defp get_impl(key, _reply, state) do
+    {:reply, Map.get(state, key), state}
+  end
+
   #####################################################################
   ## send message
 
   @spec send_msg(UUID.t(), Send.t()) :: :ok
   def send_msg(room_id, payload) do
     cast(room_id, {:send_msg, payload})
+  end
+
+  defp send_msg_impl(_, %__MODULE__{chat_mode: :disabled} = state) do
+    {:noreply, state}
   end
 
   @spec send_msg_impl(Send.t(), state) :: {:noreply, state}
@@ -280,6 +290,8 @@ defmodule Onion.Chat do
   ## ROUTER
 
   def handle_call({:banned?, who}, reply, state), do: banned_impl(who, reply, state)
+
+  def handle_call({:get, key}, reply, state), do: get_impl(key, reply, state)
 
   def handle_cast({:set_room_creator_id, id}, state) do
     set_room_creator_id_impl(id, state)

@@ -12,8 +12,7 @@ defmodule Onion.RoomSession do
             deafMap: map(),
             inviteMap: map(),
             activeSpeakerMap: map(),
-            auto_speaker: boolean(),
-            chat_disabled: boolean()
+            auto_speaker: boolean()
           }
 
     defstruct room_id: "",
@@ -24,8 +23,7 @@ defmodule Onion.RoomSession do
               deafMap: %{},
               inviteMap: %{},
               activeSpeakerMap: %{},
-              auto_speaker: false,
-              chat_disabled: false
+              auto_speaker: false
   end
 
   #################################################################################
@@ -87,7 +85,7 @@ defmodule Onion.RoomSession do
   def get_maps(room_id), do: call(room_id, :get_maps)
 
   defp get_maps_impl(_reply, state) do
-    {:reply, {state.muteMap, state.deafMap, state.auto_speaker, state.activeSpeakerMap, state.chat_disabled}, state}
+    {:reply, {state.muteMap, state.deafMap, state.auto_speaker, state.activeSpeakerMap}, state}
   end
 
   def set(user_id, key, value), do: cast(user_id, {:set, key, value})
@@ -145,14 +143,6 @@ defmodule Onion.RoomSession do
 
   defp set_auto_speaker_impl(value, state) do
     {:noreply, %{state | auto_speaker: value}}
-  end
-
-  def set_chat_disabled(room_id, value) when is_boolean(value) do
-    cast(room_id, {:set_chat_disabled, value})
-  end
-
-  defp set_chat_disabled_impl(value, state) do
-    {:noreply, %{state | chat_disabled: value}}
   end
 
   def broadcast_ws(room_id, msg), do: cast(room_id, {:broadcast_ws, msg})
@@ -450,10 +440,6 @@ defmodule Onion.RoomSession do
 
   def handle_cast({:set_auto_speaker, value}, state) do
     set_auto_speaker_impl(value, state)
-  end
-
-  def handle_cast({:set_chat_disabled, value}, state) do
-    set_chat_disabled_impl(value, state)
   end
 
   def handle_cast({:broadcast_ws, msg}, state) do
