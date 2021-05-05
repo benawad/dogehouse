@@ -20,7 +20,7 @@ defmodule Broth.Message.Room.Create do
     field(:isPrivate, :boolean, default: false)
     field(:userIdToInvite, {:array, :binary_id}, virtual: true)
     field(:autoSpeaker, :boolean)
-    field(:chatCooldown, :integer, default: 1000, min: 500)
+    field(:chatThrottle, :integer, default: 1000, min: 500)
     field(:scheduledRoomId, :binary_id, virtual: true)
   end
 
@@ -33,7 +33,7 @@ defmodule Broth.Message.Room.Create do
       :isPrivate,
       :userIdToInvite,
       :autoSpeaker,
-      :chatCooldown,
+      :chatThrottle,
       :scheduledRoomId
     ])
     |> validate_required([:name])
@@ -55,7 +55,7 @@ defmodule Broth.Message.Room.Create do
              room_spec.isPrivate,
              room_spec.userIdToInvite,
              room_spec.autoSpeaker,
-             room_spec.chatCooldown
+             room_spec.chatThrottle
            ) do
       case Ecto.UUID.cast(room_spec.scheduledRoomId) do
         {:ok, _} ->
