@@ -53,7 +53,7 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
 
           <label className={`flex items-center my-1`} htmlFor="chat-cooldown">
             <input
-              defaultValue={data.chatCooldown}
+              defaultValue={data.room.chatCooldown}
               className={`rounded-8 bg-primary-700 h-6`}
               onChange={(e) => {
                 const chatCooldown = Number(e.target.value);

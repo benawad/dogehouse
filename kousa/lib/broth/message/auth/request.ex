@@ -37,7 +37,6 @@ defmodule Broth.Message.Auth.Request do
       numFollowing
       numFollowers
       lastOnline
-      lastChatMsg
     )a}
 
     @primary_key {:id, :binary_id, []}
@@ -52,7 +51,6 @@ defmodule Broth.Message.Auth.Request do
       field(:numFollowers, :integer)
       field(:online, :boolean)
       field(:lastOnline, :utc_datetime_usec)
-      field(:lastChatMsg, :utc_datetime_usec)
     end
   end
 

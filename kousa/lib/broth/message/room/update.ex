@@ -57,8 +57,9 @@ defmodule Broth.Message.Room.Update do
           }
         )
 
-        Onion.RoomSession.set_chat_cooldown(
+        Onion.Chat.set(
           room.id,
+          :chat_cooldown,
           changes.chatCooldown
         )
       end

@@ -32,7 +32,7 @@ defmodule Beef.Schemas.Room do
     field(:voiceServerId, :string)
     field(:autoSpeaker, :boolean, default: false)
     field(:chatMode, Ecto.Enum, values: [:default, :follower_only])
-    field(:chatCooldown, :integer, default: 1, min: 1)
+    field(:chatCooldown, :integer, default: 1000, min: 500)
 
     # TODO: change this to creator!
     belongs_to(:user, User, foreign_key: :creatorId, type: :binary_id)

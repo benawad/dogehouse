@@ -14,7 +14,8 @@ defmodule Onion.Chat do
             ban_map: %{},
             last_message_map: %{},
             follow_at_map: %{},
-            chat_mode: :default
+            chat_mode: :default,
+            chat_cooldown: 1000
 
   @type state :: %__MODULE__{
           room_id: String.t(),
@@ -23,7 +24,8 @@ defmodule Onion.Chat do
           ban_map: map(),
           last_message_map: %{optional(UUID.t()) => DateTime.t()},
           follow_at_map: %{optional(UUID.t()) => DateTime.t() | nil},
-          chat_mode: Beef.Schemas.Room.chatMode()
+          chat_mode: Beef.Schemas.Room.chatMode(),
+          chat_cooldown: integer()
         }
 
   #################################################################################
@@ -99,6 +101,14 @@ defmodule Onion.Chat do
 
   defp set_room_creator_id_impl(id, %__MODULE__{} = state) do
     {:noreply, %{state | room_creator_id: id, follow_at_map: %{}}}
+  end
+
+  def set_chat_cooldown(room_id, value) do
+    cast(room_id, {:set_chat_cooldown, value})
+  end
+
+  defp set_chat_cooldown_impl(value, %__MODULE__{} = state) do
+    {:noreply, %{state | chat_cooldown: value}}
   end
 
   def banned?(room_id, who), do: call(room_id, {:banned?, who})
@@ -205,6 +215,9 @@ defmodule Onion.Chat do
   @spec send_msg_impl(Send.t(), state) :: {:noreply, state}
   defp send_msg_impl(payload = %{from: from}, state) do
     # throttle sender
+    IO.puts(state)
+    IO.puts(from)
+
     with false <- should_throttle?(from, state),
          false <- user_banned?(from, state) do
       {new_state, can_chat} = eligible_to_chat?(from, state)
@@ -221,14 +234,14 @@ defmodule Onion.Chat do
     end
   end
 
-  @message_time_limit_milliseconds 1000
-  @spec should_throttle?(UUID.t(), state) :: boolean
-  defp should_throttle?(user, %{last_message_times: m})
-       when is_map_key(m, user) do
-    DateTime.diff(m[user], DateTime.utc_now(), :millisecond) >= @message_time_limit_milliseconds
+  @spec should_throttle?(UUID.t(), state) :: boolean()
+  defp should_throttle?(user, state)
+       when is_map_key(state.last_message_map, user) do
+    DateTime.diff(state.last_message_map[user], DateTime.utc_now(), :millisecond) >=
+      state.chat_cooldown
   end
 
-  defp should_throttle?(_, _), do: false
+  # defp should_throttle?(_, _), do: false
 
   defp dispatch_message(payload, state) do
     case payload.whisperedTo do
@@ -283,6 +296,10 @@ defmodule Onion.Chat do
 
   def handle_cast({:set_room_creator_id, id}, state) do
     set_room_creator_id_impl(id, state)
+  end
+
+  def handle_cast({:set_chat_cooldown, value}, state) do
+    set_chat_cooldown_impl(value, state)
   end
 
   def handle_cast({:set, key, value}, state), do: set_impl(key, value, state)

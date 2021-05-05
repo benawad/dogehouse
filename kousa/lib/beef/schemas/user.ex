@@ -49,7 +49,6 @@ defmodule Beef.Schemas.User do
           hasLoggedIn: boolean(),
           online: boolean(),
           lastOnline: DateTime.t(),
-          lastChatMsg: DateTime.t(),
           youAreFollowing: nil | boolean(),
           followsYou: nil | boolean(),
           botOwnerId: nil | Ecto.UUID.t(),
@@ -60,7 +59,7 @@ defmodule Beef.Schemas.User do
 
   @derive {Poison.Encoder,
            only: ~w(id whisperPrivacySetting username avatarUrl bannerUrl bio online
-             lastOnline lastChatMsg currentRoomId displayName numFollowing numFollowers
+             lastOnline currentRoomId displayName numFollowing numFollowers
              currentRoom youAreFollowing followsYou botOwnerId roomPermissions iBlockedThem)a}
 
   @primary_key {:id, :binary_id, []}
@@ -83,7 +82,6 @@ defmodule Beef.Schemas.User do
     field(:hasLoggedIn, :boolean)
     field(:online, :boolean)
     field(:lastOnline, :utc_datetime_usec)
-    field(:lastChatMsg, :utc_datetime_usec)
     field(:youAreFollowing, :boolean, virtual: true)
     field(:followsYou, :boolean, virtual: true)
     field(:roomPermissions, :map, virtual: true, null: true)
@@ -150,7 +148,7 @@ defmodule Beef.Schemas.User do
 
   defimpl Jason.Encoder do
     @fields ~w(id whisperPrivacySetting username avatarUrl bannerUrl bio online
-  lastOnline lastChatMsg currentRoomId currentRoom displayName numFollowing numFollowers
+  lastOnline currentRoomId currentRoom displayName numFollowing numFollowers
   youAreFollowing followsYou botOwnerId roomPermissions iBlockedThem)a
 
     defp transform_current_room(fields = %{currentRoom: %Ecto.Association.NotLoaded{}}) do
