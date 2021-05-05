@@ -57,5 +57,53 @@ defmodule BrothTest.SetListenerTest do
 
       refute Beef.RoomPermissions.speaker?(speaker_id, room_id)
     end
+
+    test "mods can't move other mods to listeners", t do
+      %{"id" => room_id} =
+        WsClient.do_call(
+          t.client_ws,
+          "room:create",
+          %{"name" => "foo room", "description" => "foo"}
+        )
+
+      # make sure the user is in there.
+      assert %{currentRoomId: ^room_id} = Users.get_by_id(t.user.id)
+
+      # create a speaker user that is logged in.
+      speaker = %{id: speaker_id} = Factory.create(User)
+      speaker_ws = WsClientFactory.create_client_for(speaker)
+
+      # create a user that is logged in and will be moded.
+      mod1 = %{id: mod1_id} = Factory.create(User)
+      mod1_ws = WsClientFactory.create_client_for(mod1)
+
+      # create another user that is logged in and will be moded.
+      mod2 = %{id: mod2_id} = Factory.create(User)
+      mod2_ws = WsClientFactory.create_client_for(mod2)
+
+      # join the speaker user into the room
+      WsClient.do_call(speaker_ws, "room:join", %{"roomId" => room_id})
+      WsClient.assert_frame_legacy("new_user_join_room", _)
+
+      Beef.RoomPermissions.set_speaker(t.user.id, room_id, true)
+
+      assert Beef.RoomPermissions.speaker?(t.user.id, room_id)
+
+      WsClient.send_msg_legacy(t.client_ws, "set_listener", %{"userId" => speaker_id})
+
+      WsClient.assert_frame_legacy(
+        "speaker_removed",
+        %{"roomId" => ^room_id, "userId" => ^speaker_id},
+        t.client_ws
+      )
+
+      WsClient.assert_frame_legacy(
+        "speaker_removed",
+        %{"roomId" => ^room_id, "userId" => ^speaker_id},
+        speaker_ws
+      )
+
+      refute Beef.RoomPermissions.speaker?(speaker_id, room_id)
+    end
   end
 end
