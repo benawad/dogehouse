@@ -15,21 +15,22 @@ defmodule Kousa.Chat do
       user ->
         current_time = DateTime.utc_now()
 
-        if is_nil(user.lastChatMsg) do
-          Beef.Users.set_last_chat_msg(user.id, current_time)
-        else
-          time_diff = DateTime.diff(current_time, user.lastChatMsg)
+        if not is_nil(user.currentRoom) do
+          if is_nil(user.lastChatMsg) do
+            Beef.Users.set_last_chat_msg(user.id, current_time)
+            Onion.Chat.send_msg(user.currentRoom.id, payload)
+          else
+            time_diff = DateTime.diff(current_time, user.lastChatMsg)
 
-          if not is_nil(user.currentRoom) do
             if time_diff >= user.currentRoom.chatCooldown do
               Onion.Chat.send_msg(user.currentRoom.id, payload)
               Beef.Users.set_last_chat_msg(user.id, current_time)
             else
               {:error, "cooldown"}
             end
-          else
-            {:error, "not in a room"}
           end
+        else
+          {:error, "not in a room"}
         end
     end
 
