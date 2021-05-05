@@ -65,15 +65,11 @@ defmodule BrothTest.Chat.SendTest do
       )
     end
 
-    test "if I am a follower in follower only mode", t do
+    test "if I am a follower, mod, speaker, or creator in follower only mode", t do
       room_id = t.room_id
       # create a user that is logged in.
       follower = Factory.create(User)
       follower_ws = WsClientFactory.create_client_for(follower)
-
-      WsClient.do_call(t.client_ws, "room:update", %{
-        "chatMode" => "follower_only"
-      })
 
       WsClient.do_call(follower_ws, "user:follow", %{
         "userId" => t.user.id
@@ -82,31 +78,49 @@ defmodule BrothTest.Chat.SendTest do
       WsClient.do_call(follower_ws, "room:join", %{"roomId" => room_id})
       WsClient.assert_frame_legacy("new_user_join_room", _)
 
+      mod = Factory.create(User)
+      mod_ws = WsClientFactory.create_client_for(mod)
+      WsClient.do_call(mod_ws, "room:join", %{"roomId" => room_id})
+      Kousa.Room.set_auth(mod.id, :mod, by: t.user.id)
+      WsClient.assert_frame_legacy("new_user_join_room", _)
+
+      speaker = Factory.create(User)
+      speaker_ws = WsClientFactory.create_client_for(speaker)
+      WsClient.do_call(speaker_ws, "room:join", %{"roomId" => room_id})
+
+      Kousa.Room.set_role(speaker.id, :raised_hand, by: speaker.id)
+      Kousa.Room.set_role(speaker.id, :speaker, by: t.user.id)
+
+      WsClient.assert_frame_legacy("new_user_join_room", _)
+
+      WsClient.do_call(t.client_ws, "room:update", %{
+        "chatMode" => "follower_only"
+      })
+
       follower_id = follower.id
-      WsClient.send_msg(follower_ws, "chat:send_msg", %{"tokens" => @text_token})
 
-      WsClient.assert_frame(
-        "chat:send",
-        %{
-          "tokens" => @text_token,
-          "sentAt" => _,
-          "from" => ^follower_id,
-          "id" => msg_uuid,
-          "isWhisper" => false
-        },
-        t.client_ws
-      )
+      Enum.each(
+        [
+          {"follower", follower.id, follower_ws},
+          {"mod", mod.id, mod_ws},
+          {"speaker", speaker.id, speaker_ws},
+          {"room creator", t.user.id, t.client_ws}
+        ],
+        fn {label, id, ws} ->
+          WsClient.send_msg(ws, "chat:send_msg", %{"tokens" => @text_token})
 
-      WsClient.assert_frame(
-        "chat:send",
-        %{
-          "tokens" => @text_token,
-          "sentAt" => _,
-          "from" => ^follower_id,
-          "id" => ^msg_uuid,
-          "isWhisper" => false
-        },
-        follower_ws
+          WsClient.assert_frame(
+            "chat:send",
+            %{
+              "tokens" => @text_token,
+              "sentAt" => _,
+              "from" => ^id,
+              "id" => msg_uuid,
+              "isWhisper" => false
+            },
+            t.client_ws
+          )
+        end
       )
     end
 
