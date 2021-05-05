@@ -2,7 +2,7 @@ defmodule Broth.Message.Room.Update do
   use Broth.Message.Call,
     reply: __MODULE__
 
-  @derive {Jason.Encoder, only: [:name, :description, :isPrivate, :autoSpeaker]}
+  @derive {Jason.Encoder, only: [:name, :description, :isPrivate, :autoSpeaker, :chatDisabled]}
 
   @primary_key {:id, :binary_id, []}
   schema "rooms" do
@@ -10,6 +10,7 @@ defmodule Broth.Message.Room.Update do
     field(:description, :string, default: "")
     field(:isPrivate, :boolean)
     field(:autoSpeaker, :boolean, virtual: true)
+    field(:chatDisabled, :boolean, virtual: true)
   end
 
   def initialize(state) do
@@ -29,7 +30,7 @@ defmodule Broth.Message.Room.Update do
 
   def changeset(initializer, data) do
     initializer
-    |> cast(data, ~w(description isPrivate name autoSpeaker)a)
+    |> cast(data, ~w(description isPrivate name autoSpeaker chatDisabled)a)
     |> validate_required([:name])
   end
 
@@ -38,6 +39,8 @@ defmodule Broth.Message.Room.Update do
     with {:ok, update} <- apply_action(changeset, :validate),
          {:ok, room} <- Kousa.Room.update(state.user.id, Map.from_struct(update)) do
       changes = changeset.changes
+
+        
 
       if Map.has_key?(changes, :isPrivate) do
         # send the room_privacy_change message.
@@ -51,10 +54,16 @@ defmodule Broth.Message.Room.Update do
       end
 
       if Map.has_key?(changes, :autoSpeaker) do
-        # send the room_privacy_change message.
         Onion.RoomSession.set_auto_speaker(
           room.id,
           changes.autoSpeaker
+        )
+      end
+
+      if Map.has_key?(changes, :chatDisabled) do
+        Onion.RoomSession.set_chat_disabled(
+          room.id,
+          changes.chatDisabled
         )
       end
 
