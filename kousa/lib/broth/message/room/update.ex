@@ -70,7 +70,6 @@ defmodule Broth.Message.Room.Update do
         )
       end
 
-      {:reply, struct(__MODULE__, Map.from_struct(room)), state}
       if Map.has_key?(changes, :chatMode) do
         # send the room_privacy_change message.
         Onion.Chat.set(
