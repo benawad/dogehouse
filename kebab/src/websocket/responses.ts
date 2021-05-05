@@ -10,6 +10,8 @@ export type GetScheduledRoomsResponse = {
   scheduledRooms: ScheduledRoom[];
 };
 
+export type ChatMode = "default" | "follower_only" | "disabled";
+
 export type JoinRoomAndGetInfoResponse = {
   room: Room;
   users: RoomUser[];
@@ -18,7 +20,7 @@ export type JoinRoomAndGetInfoResponse = {
   roomId: string;
   activeSpeakerMap: Record<string, boolean>;
   autoSpeaker: boolean;
-  chatDisabled: boolean;
+  chatMode: ChatMode;
 };
 
 export type GetRoomUsersResponse = {
