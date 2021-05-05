@@ -114,6 +114,25 @@ defmodule Onion.Chat do
   alias Beef.Follows
   alias Beef.Schemas.Follow
 
+  # users that meet the following criteria,
+  # can chat in follower_only mode:
+  # 0. creator of room
+  # 1. mod
+  # 2. speaker
+  # 3. following room owner prior to joining room
+
+  defp eligible_to_chat?(
+         from,
+         %__MODULE__{
+           chat_mode: :follower_only,
+           room_creator_id: room_creator_id
+         } = state
+       )
+       when from == room_creator_id,
+       do: {state, true}
+
+  alias Beef.Rooms
+
   defp eligible_to_chat?(
          from,
          %__MODULE__{
@@ -122,26 +141,32 @@ defmodule Onion.Chat do
            follow_at_map: follow_at_map
          } = state
        ) do
-    {new_state, inserted_at} =
+    {new_state, inserted_at_or_true} =
       if Map.has_key?(follow_at_map, from) do
         # cache hit
         {state, Map.get(follow_at_map, from)}
       else
-        # cache miss
-        inserted_at =
-          case Follows.get_follow(room_creator_id, from) do
-            nil ->
-              nil
+        {status, _} = Rooms.get_room_status(from)
 
-            %Follow{inserted_at: inserted_at} ->
-              inserted_at
+        # cache miss
+        inserted_at_or_true =
+          if status in [:mod, :speaker] do
+            true
+          else
+            case Follows.get_follow(room_creator_id, from) do
+              nil ->
+                nil
+
+              %Follow{inserted_at: inserted_at} ->
+                inserted_at
+            end
           end
 
-        {%__MODULE__{state | follow_at_map: Map.put(follow_at_map, from, inserted_at)},
-         inserted_at}
+        {%__MODULE__{state | follow_at_map: Map.put(follow_at_map, from, inserted_at_or_true)},
+         inserted_at_or_true}
       end
 
-    {new_state, not is_nil(inserted_at)}
+    {new_state, not is_nil(inserted_at_or_true)}
   end
 
   defp eligible_to_chat?(_, state), do: {state, true}
