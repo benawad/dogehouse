@@ -28,6 +28,7 @@ defmodule Beef.Schemas.Room do
     field(:isPrivate, :boolean)
     field(:voiceServerId, :string)
     field(:autoSpeaker, :boolean, virtual: true)
+    field(:chatDisabled, :boolean, virtual: true)
 
     # TODO: change this to creator!
     belongs_to(:user, User, foreign_key: :creatorId, type: :binary_id)
