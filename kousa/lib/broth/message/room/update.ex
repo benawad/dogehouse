@@ -65,6 +65,14 @@ defmodule Broth.Message.Room.Update do
           room.id,
           changes.chatDisabled
         )
+
+        Onion.RoomSession.broadcast_ws(
+          room.id,
+          %{
+            op: "room_chat_status_changed",
+            d: %{roomId: room.id, chatDisabled: changes.chatDisabled}
+          }
+        )
       end
 
       {:reply, struct(__MODULE__, Map.from_struct(room)), state}
