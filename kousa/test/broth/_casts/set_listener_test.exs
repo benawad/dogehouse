@@ -86,17 +86,6 @@ defmodule BrothTest.SetListenerTest do
     WsClient.do_call(mod2_ws, "room:join", %{"roomId" => room_id})
     WsClient.assert_frame_legacy("new_user_join_room", _)
 
-    Beef.RoomPermissions.set_speaker(t.user.id, room_id, true)
-    assert Beef.RoomPermissions.speaker?(t.user.id, room_id)
-
-    # set mod1 as speaker
-    Beef.RoomPermissions.set_speaker(mod1_id, room_id, true)
-    assert Beef.RoomPermissions.speaker?(mod1_id, room_id)
-
-    # set mod2 as speaker
-    Beef.RoomPermissions.set_speaker(mod2_id, room_id, true)
-    assert Beef.RoomPermissions.speaker?(mod2_id, room_id)
-
     # make mod1 user a mod
     Beef.RoomPermissions.set_is_mod(mod1_id, room_id, true)
     assert Beef.RoomPermissions.mod?(mod1_id, room_id)
@@ -105,11 +94,14 @@ defmodule BrothTest.SetListenerTest do
     Beef.RoomPermissions.set_is_mod(mod2_id, room_id, true)
     assert Beef.RoomPermissions.mod?(mod2_id, room_id)
 
+    # set mod2 as speaker
+    Beef.RoomPermissions.set_speaker(mod2_id, room_id, true)
+    assert Beef.RoomPermissions.speaker?(mod2_id, room_id)
 
     # set mod2 as listener using mod1
     WsClient.send_msg_legacy(mod1_ws, "set_listener", %{"userId" => mod2_id})
 
-
+    #mod1 can't move mod2 to listeners
     refute Beef.RoomPermissions.listener?(mod2_id, room_id)
   end
 end
