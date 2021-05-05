@@ -37,6 +37,19 @@ defmodule Kousa.Beef.FollowTest do
                follower: %User{id: ^id2}
              } = Repo.preload(follow, [:user, :follower])
     end
+
+    test "search_username orders by numFollowers" do
+      Factory.create(User, [{:username, "user1"}, {:numFollowers, 3}])
+      Factory.create(User, [{:username, "user2"}, {:numFollowers, 2}])
+
+      assert [%{username: "user1"}, %{username: "user2"}] = Users.search_username("user")
+
+      # creates user with most followers
+      Factory.create(User, [{:username, "user3"}, {:numFollowers, 4}])
+
+      assert [%{username: "user3"}, %{username: "user1"}, %{username: "user2"}] =
+               Users.search_username("user")
+    end
   end
 
   describe "Follows" do
