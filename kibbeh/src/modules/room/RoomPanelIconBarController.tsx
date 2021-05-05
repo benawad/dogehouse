@@ -3,13 +3,16 @@ import { useRouter } from "next/router";
 import React, { useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
-import { useMuteStore } from "../../global-stores/useMuteStore";
 import { useDeafStore } from "../../global-stores/useDeafStore";
+import { useMuteStore } from "../../global-stores/useMuteStore";
+import { SolidPlus } from "../../icons";
+import { useConn } from "../../shared-hooks/useConn";
 import { useCurrentRoomInfo } from "../../shared-hooks/useCurrentRoomInfo";
 import { useLeaveRoom } from "../../shared-hooks/useLeaveRoom";
 import { useScreenType } from "../../shared-hooks/useScreenType";
-import { useSetMute } from "../../shared-hooks/useSetMute";
 import { useSetDeaf } from "../../shared-hooks/useSetDeaf";
+import { useSetMute } from "../../shared-hooks/useSetMute";
+import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
 import { useTypeSafePrefetch } from "../../shared-hooks/useTypeSafePrefetch";
 import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { RoomPanelIconBar } from "../../ui/RoomPanelIconBar";
@@ -17,25 +20,21 @@ import { RoomChatInput } from "./chat/RoomChatInput";
 import { RoomChatList } from "./chat/RoomChatList";
 import { RoomChatMentions } from "./chat/RoomChatMentions";
 import { useRoomChatStore } from "./chat/useRoomChatStore";
-import { RoomSettingsModal } from "./RoomSettingModal";
-import { SolidPlus } from "../../icons";
 import RoomOverlay from "./mobile/RoomOverlay";
-import { useSplitUsersIntoSections } from "./useSplitUsersIntoSections";
-import { useTypeSafeMutation } from "../../shared-hooks/useTypeSafeMutation";
-import { useConn } from "../../shared-hooks/useConn";
+import { RoomSettingsModal } from "./RoomSettingModal";
 
-export const RoomPanelIconBarController: React.FC<JoinRoomAndGetInfoResponse> = (
-  props
-) => {
+export const RoomPanelIconBarController: React.FC<JoinRoomAndGetInfoResponse> = ({
+  users,
+  room,
+}) => {
   const { t } = useTypeSafeTranslation();
   const { muted } = useMuteStore();
   const setMute = useSetMute();
   const { deafened } = useDeafStore();
   const conn = useConn();
   const setDeaf = useSetDeaf();
-  const { canSpeak, isCreator } = useCurrentRoomInfo();
+  const { canSpeak, isCreator, canIAskToSpeak } = useCurrentRoomInfo();
   const { leaveRoom } = useLeaveRoom();
-  const { canIAskToSpeak } = useSplitUsersIntoSections(props);
   const { push } = useRouter();
   const prefetch = useTypeSafePrefetch();
   const { mutateAsync: setListener } = useTypeSafeMutation("setListener");
@@ -45,11 +44,11 @@ export const RoomPanelIconBarController: React.FC<JoinRoomAndGetInfoResponse> = 
   const screenType = useScreenType();
   const userMap = useMemo(() => {
     const map: Record<string, RoomUser> = {};
-    props.users.forEach((u) => {
+    users.forEach((u) => {
       map[u.id] = u;
     });
     return map;
-  }, [props]);
+  }, [users]);
 
   return (
     <div className="flex flex-col w-full">
@@ -122,9 +121,9 @@ export const RoomPanelIconBarController: React.FC<JoinRoomAndGetInfoResponse> = 
               </button>
               <div className="flex overflow-y-auto flex-1">
                 <div className={`flex flex-1 w-full flex-col mt-4`}>
-                  <RoomChatList room={props.room} userMap={userMap} />
-                  <RoomChatMentions users={props.users} />
-                  <RoomChatInput users={props.users} />
+                  <RoomChatList room={room} userMap={userMap} />
+                  <RoomChatMentions users={users} />
+                  <RoomChatInput users={users} />
                 </div>
               </div>
             </div>,
