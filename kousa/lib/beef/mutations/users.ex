@@ -40,13 +40,6 @@ defmodule Beef.Mutations.Users do
     |> Repo.update_all([])
   end
 
-  def set_last_chat_msg(user_id, time) do
-    Query.start()
-    |> Query.filter_by_id(user_id)
-    |> Query.update_last_chat_msg(time)
-    |> Repo.update_all([])
-  end
-
   def set_ip(user_id, ip) do
     Query.start()
     |> Query.filter_by_id(user_id)
