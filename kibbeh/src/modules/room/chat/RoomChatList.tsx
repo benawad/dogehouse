@@ -44,13 +44,12 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room, userMap }) => {
       chatListRef.current?.scrollTo(0, chatListRef.current.scrollHeight);
     }
   });
-  const size = useResize();
-
+  const windowSize = useResize();
   const rowVirtualizer = useVirtual({
     overscan: 10,
     size: messages.length,
     parentRef: chatListRef,
-    estimateSize: React.useCallback(() => 20, [size]),
+    estimateSize: React.useCallback(() => windowSize.y * 0.2, [windowSize]),
   });
 
   const getBadgeIcon = (m: Message) => {
@@ -87,6 +86,9 @@ export const RoomChatList: React.FC<ChatListProps> = ({ room, userMap }) => {
       onMouseEnter={toggleFrozen}
       onMouseLeave={toggleFrozen}
     >
+      <div className="text-primary-300 absolute top-0 left-0 py-2 px-3 border border-primary-200">
+        {windowSize.x + " : " + windowSize.y}
+      </div>
       <div
         className="w-full h-full mt-auto"
         style={{
