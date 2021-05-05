@@ -111,10 +111,7 @@ export const useMainWsHandler = () => {
               ? data
               : {
                   ...data,
-                  room: {
-                    ...data.room,
-                    chatDisabled,
-                  },
+                  chatDisabled,
                 }
           );
         }
