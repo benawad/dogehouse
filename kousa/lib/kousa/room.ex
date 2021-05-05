@@ -394,7 +394,14 @@ defmodule Kousa.Room do
     })
   end
 
-  @spec create_room(String.t(), String.t(), String.t(), boolean(), String.t() | nil, boolean() | nil, boolean() | nil) ::
+  @spec create_room(
+          String.t(),
+          String.t(),
+          String.t(),
+          boolean(),
+          String.t() | nil,
+          boolean() | nil
+        ) ::
           {:error, any}
           | {:ok, %{room: atom | %{:id => any, :voiceServerId => any, optional(any) => any}}}
   def create_room(
@@ -403,8 +410,7 @@ defmodule Kousa.Room do
         room_description,
         is_private,
         user_id_to_invite \\ nil,
-        auto_speaker \\ nil,
-        chat_disabled \\ nil
+        auto_speaker \\ nil
       ) do
     room_id = Users.get_current_room_id(user_id)
 
@@ -428,7 +434,6 @@ defmodule Kousa.Room do
           room_id: room.id,
           voice_server_id: room.voiceServerId,
           auto_speaker: auto_speaker,
-          chat_disabled: chat_disabled,
           chat_mode: room.chatMode,
           room_creator_id: room.creatorId
         )
@@ -443,7 +448,7 @@ defmodule Kousa.Room do
           d: %{roomId: id},
           uid: user_id
         })
-        
+
         join_vc_room(user_id, room, true)
 
         if not is_private do

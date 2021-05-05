@@ -5,7 +5,7 @@ defmodule Beef.Schemas.Room do
   @timestamps_opts [type: :utc_datetime_usec]
 
   alias Beef.Schemas.User
-  @type chatMode :: :default | :follower_only
+  @type chatMode :: :default | :disabled | :follower_only
   @type t :: %__MODULE__{
           id: Ecto.UUID.t(),
           name: String.t(),
@@ -29,9 +29,8 @@ defmodule Beef.Schemas.Room do
     field(:numPeopleInside, :integer)
     field(:isPrivate, :boolean)
     field(:voiceServerId, :string)
-    field(:chatDisabled, :boolean, virtual: true)
     field(:autoSpeaker, :boolean, default: false)
-    field(:chatMode, Ecto.Enum, values: [:default, :follower_only])
+    field(:chatMode, Ecto.Enum, values: [:default, :disabled, :follower_only])
 
     # TODO: change this to creator!
     belongs_to(:user, User, foreign_key: :creatorId, type: :binary_id)
