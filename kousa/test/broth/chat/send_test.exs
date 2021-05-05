@@ -286,6 +286,32 @@ defmodule BrothTest.Chat.SendTest do
         blocked_ws
       )
     end
+
+    test "if the room chat is disabled by the owner", t do
+      user_id = t.user.id
+      room_id = t.room_id
+
+      # create a user that will send message
+      sender = Factory.create(User)
+      sender_ws = WsClientFactory.create_client_for(sender)
+
+      # join the user into room
+      WsClient.do_call(sender_ws, "room:join", %{"roomId" => room_id})
+      WsClient.assert_frame_legacy("new_user_join_room", _)
+
+      # disable room chat
+      WsClient.do_call(t.client_ws, "room:update", %{"chatMode" => "disabled"})
+
+      # send chat msg via sender
+      WsClient.send_msg(
+        sender_ws,
+        "chat:send_msg",
+        %{"tokens" => @text_token}
+      )
+
+      WsClient.refute_frame("chat:send", t.client_ws)
+      WsClient.refute_frame("chat:send", sender_ws)
+    end
   end
 
   describe "user should not be able to receive message" do

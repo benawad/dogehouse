@@ -231,7 +231,8 @@
         "makePublic": "kulupu e tomo",
         "makePrivate": "kulupu ala e tomo",
         "renamePublic": "ante e nimi tomo kulupu",
-        "renamePrivate": "ante e nimi tomo pi kulupu ala"
+        "renamePrivate": "ante e nimi tomo pi kulupu ala",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -296,7 +297,8 @@
       "sendMessage": "pana e sitelen",
       "whisper": "Toki pi kalama lili",
       "welcomeMessage": "Kama pona lon toki sitelen!",
-      "roomDescription": "sitelen tomo"
+      "roomDescription": "sitelen tomo",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "telo suli li tawa tawa palisa pi kon pi sewi mute",

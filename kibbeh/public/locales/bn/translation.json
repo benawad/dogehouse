@@ -235,7 +235,8 @@
         "makePublic": "রুমটাকে পাবলিক করুন",
         "makePrivate": "রুমটাকে প্রাইভেট করুন",
         "renamePublic": "পাবলিক রুমের নাম সেট করুন",
-        "renamePrivate": "প্রাইভেট রুমের নাম সেট করুন"
+        "renamePrivate": "প্রাইভেট রুমের নাম সেট করুন",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -300,7 +301,8 @@
       "sendMessage": "মেসেজ পাঠান",
       "whisper": "ফিসফিস",
       "welcomeMessage": "চ্যাট এ স্বাগতম!",
-      "roomDescription": "রুমের বর্ণনা"
+      "roomDescription": "রুমের বর্ণনা",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "রকেটে জ্বালানি দেওয়া হচ্ছে",

@@ -234,7 +234,8 @@
         "makePublic": "Κάντε το δωμάτιο δημόσιο",
         "makePrivate": "Κάντε το δωμάτιο ιδιωτικό",
         "renamePublic": "Ορίστε ένα όνομα για το δημόσιο δωμάτιο",
-        "renamePrivate": "Ορίστε ένα όνομα για το ιδιωτικό δωμάτιο"
+        "renamePrivate": "Ορίστε ένα όνομα για το ιδιωτικό δωμάτιο",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -299,7 +300,8 @@
       "sendMessage": "Στείλτε ένα Μήνυμα",
       "whisper": "Ψίθυρος",
       "welcomeMessage": "Καλως ήλθατε στο Τσάτ!",
-      "roomDescription": "Περιγραφή δωματίου"
+      "roomDescription": "Περιγραφή δωματίου",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Ανεφοδιασμός πυραύλου",

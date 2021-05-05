@@ -225,7 +225,8 @@
         "makePublic": "تبدیل به اتاق عمومی",
         "makePrivate": "تبدیل به اتاق خصوصی",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -290,7 +291,8 @@
       "sendMessage": "ارسال پیام",
       "whisper": "نجوا",
       "welcomeMessage": "به چت خوش آمدید",
-      "roomDescription": "توضیحات اتاق"
+      "roomDescription": "توضیحات اتاق",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "سوخت گیری راکت",

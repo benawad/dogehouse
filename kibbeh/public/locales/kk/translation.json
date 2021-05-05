@@ -228,7 +228,8 @@
         "makePublic": "бөлмені жариялы ету",
         "makePrivate": "бөлмені жеке қылдыру",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -293,7 +294,8 @@
       "sendMessage": "хабарламаны жіберу",
       "whisper": "Сыбырлау",
       "welcomeMessage": "Чатқа қош келдіңіз!",
-      "roomDescription": "Бөлме сипаттамасы"
+      "roomDescription": "Бөлме сипаттамасы",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Зымыранға жанармай құйылуда",

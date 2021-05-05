@@ -227,7 +227,8 @@
         "makePublic": "ɔᴉꞁqnd ɯooɹ ǝʞɐɯ",
         "makePrivate": "ǝʇɐʌᴉɹd ɯooɹ ǝʞɐɯ",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -292,7 +293,8 @@
       "sendMessage": "ǝƃɐssǝW ɐ puǝS",
       "whisper": "ɹǝdsᴉɥM",
       "welcomeMessage": "¡ʇɐɥɔ oʇ ǝɯoɔꞁǝM",
-      "roomDescription": "uoᴉʇdᴉɹɔsǝp ɯooɹ"
+      "roomDescription": "uoᴉʇdᴉɹɔsǝp ɯooɹ",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "ʇǝʞɔoɹ ƃuᴉꞁǝnᖵ",

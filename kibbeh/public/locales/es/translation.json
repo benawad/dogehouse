@@ -257,7 +257,8 @@
         "makePublic": "Hacer la sala pública",
         "makePrivate": "Hacer la sala privada",
         "renamePublic": "Configurar el nombre de la sala pública",
-        "renamePrivate": "Configurar el nombre de la sala privada"
+        "renamePrivate": "Configurar el nombre de la sala privada",
+        "chatDisabled": "disable chat"
       }
     }
   },
@@ -293,7 +294,8 @@
       "sendMessage": "Enviar un mensaje",
       "whisper": "Susurrar",
       "welcomeMessage": "¡Bienvenido al chat!",
-      "roomDescription": "Descripción de la sala"
+      "roomDescription": "Descripción de la sala",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Llenando el cohete de combustible",

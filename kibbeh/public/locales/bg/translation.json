@@ -226,7 +226,8 @@
         "makePublic": "направи стаята публична",
         "makePrivate": "направи стаята частна",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -291,7 +292,8 @@
       "sendMessage": "Изпрати съобщение",
       "whisper": "Прошепни",
       "welcomeMessage": "Добре дошъл в чата!",
-      "roomDescription": "описание на стаята"
+      "roomDescription": "описание на стаята",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",
