@@ -431,7 +431,7 @@ defmodule BrothTest.Chat.SendTest do
       WsClient.do_call(listener_ws, "room:join", %{"roomId" => room_id})
       WsClient.assert_frame_legacy("new_user_join_room", _)
 
-      ####### send the first message
+      # send the first message
       WsClient.send_msg(t.client_ws, "chat:send_msg", %{"tokens" => @text_token})
 
       # verify that first message is received
