@@ -239,7 +239,7 @@ defmodule Onion.Chat do
   @spec should_throttle?(UUID.t(), state) :: boolean
   defp should_throttle?(user_id, %__MODULE__{last_message_map: m})
        when is_map_key(m, user_id) do
-    DateTime.diff(m[user_id], DateTime.utc_now(), :millisecond) <
+    DateTime.diff(DateTime.utc_now(), m[user_id], :millisecond) <
       @message_time_limit_milliseconds
   end
 
