@@ -4,8 +4,6 @@ defmodule Kousa.Chat do
   alias Kousa.Utils.UUID
   alias Onion.Chat
 
-  @timestamps_opts [type: :utc_datetime_usec]
-
   def send_msg(payload) do
     # TODO: pull room information from passed parameters from ws_session.
     case Beef.Users.get_by_id_with_current_room(payload.from) do
