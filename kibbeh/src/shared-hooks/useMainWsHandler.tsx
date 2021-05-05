@@ -111,7 +111,10 @@ export const useMainWsHandler = () => {
               ? data
               : {
                   ...data,
-                  chatMode,
+                  room: {
+                    ...data.room,
+                    chatMode,
+                  },
                 }
           );
         }
