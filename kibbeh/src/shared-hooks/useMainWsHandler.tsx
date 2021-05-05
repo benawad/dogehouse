@@ -33,7 +33,7 @@ export const useMainWsHandler = () => {
     const unsubs = [
       conn.addListener<any>(
         "new_room_details",
-        ({ name, description, isPrivate, roomId, chatThrottle }) => {
+        ({ name, description, isPrivate, roomId }) => {
           updateQuery(["joinRoomAndGetInfo", roomId], (data) =>
             !data || "error" in data
               ? data
@@ -44,7 +44,6 @@ export const useMainWsHandler = () => {
                     name,
                     description,
                     isPrivate,
-                    chatThrottle,
                   },
                 }
           );

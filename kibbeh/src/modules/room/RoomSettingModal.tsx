@@ -71,7 +71,7 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
               type="number"
             />
             <span className={`ml-2 text-primary-100`}>
-              Chat Cooldown (seconds)
+              Chat Cooldown (milliseconds)
             </span>
           </label>
 
