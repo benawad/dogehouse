@@ -419,6 +419,11 @@ defmodule BrothTest.Chat.SendTest do
       user_id = t.user.id
       room_id = t.room_id
 
+
+      WsClient.do_call(t.client_ws, "room:update", %{
+        "chatThrottle" => 50
+      })
+
       # create a user that is logged in.
       listener = Factory.create(User)
       listener_ws = WsClientFactory.create_client_for(listener)
@@ -426,35 +431,50 @@ defmodule BrothTest.Chat.SendTest do
       WsClient.do_call(listener_ws, "room:join", %{"roomId" => room_id})
       WsClient.assert_frame_legacy("new_user_join_room", _)
 
-      WsClient.send_msg(t.client_ws, "chat:send_msg", %{"tokens" => @text_token})
+      ####### send the first message
       WsClient.send_msg(t.client_ws, "chat:send_msg", %{"tokens" => @text_token})
 
+      # verify that first message is received
       WsClient.assert_frame(
         "chat:send",
-        %{
-          "tokens" => @text_token,
-          "sentAt" => _,
-          "from" => ^user_id,
-          "id" => msg_uuid,
-          "isWhisper" => false
-        },
+        _,
         t.client_ws
       )
-
       WsClient.assert_frame(
         "chat:send",
-        %{
-          "tokens" => @text_token,
-          "sentAt" => _,
-          "from" => ^user_id,
-          "id" => ^msg_uuid,
-          "isWhisper" => false
-        },
+        _,
         listener_ws
       )
 
-      WsClient.refute_frame("chat:send", t.client_ws)
-      WsClient.refute_frame("chat:send", listener_ws)
+
+      # send second message before the throttle limit is finished, half time of total throttle
+      Process.sleep(25)
+      WsClient.send_msg(t.client_ws, "chat:send_msg", %{"tokens" => @text_token})
+      # this message should be throttled
+      WsClient.refute_frame(
+        "chat:send",
+        t.client_ws
+      )
+      WsClient.refute_frame(
+        "chat:send",
+        listener_ws
+      )
+
+      # this message should not be throttled
+      Process.sleep(51)
+      WsClient.send_msg(t.client_ws, "chat:send_msg", %{"tokens" => @text_token})
+      # this message should be throttled
+      WsClient.assert_frame(
+        "chat:send",
+        _,
+        t.client_ws
+      )
+      WsClient.assert_frame(
+        "chat:send",
+        _,
+        listener_ws
+      )
+
     end
   end
 end
