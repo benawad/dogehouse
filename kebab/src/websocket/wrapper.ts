@@ -152,6 +152,7 @@ export const wrap = (connection: Connection) => ({
       privacy?: string;
       description?: string;
       autoSpeaker?: boolean;
+      chatDisabled?: boolean;
     }): Promise<void> => connection.sendCall("room:update", data),
     roomBan: (userId: string, shouldBanIp?: boolean): Promise<void> =>
       connection.sendCast("room:ban", { userId, shouldBanIp }),
