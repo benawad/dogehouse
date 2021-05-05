@@ -4,6 +4,8 @@ defmodule Kousa.Chat do
   alias Kousa.Utils.UUID
   alias Onion.Chat
 
+  @timestamps_opts [type: :utc_datetime_usec]
+
   def send_msg(payload) do
     # TODO: pull room information from passed parameters from ws_session.
     case Beef.Users.get_by_id(payload.from) do
@@ -11,14 +13,17 @@ defmodule Kousa.Chat do
         :noop
 
       user ->
-        IO.puts(user)
+        if is_nil(user.lastChatMsg) do
+          Beef.Users.set_last_chat_msg(user.id, DateTime.utc_now())
+        end
 
-        case Beef.Users.get_current_room(payload.from) do
-          nil ->
-            :noop
+        IO.puts("LAST CHAT MSG")
+        IO.puts(user.lastChatMsg)
 
-          room ->
-            Onion.Chat.send_msg(room.id, payload)
+        if not is_nil(user.currentRoomId) do
+          Onion.Chat.send_msg(user.currentRoomId, payload)
+        else
+          {:error, "Not in a room"}
         end
     end
 
