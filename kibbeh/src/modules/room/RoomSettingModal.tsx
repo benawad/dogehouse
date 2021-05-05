@@ -50,6 +50,26 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
               {t("components.modals.roomSettingsModal.requirePermission")}
             </span>
           </label>
+
+          <label className={`flex items-center my-1`} htmlFor="chat-cooldown">
+            <input
+              defaultValue={data.chatCooldown}
+              onChange={(e) => {
+                const chatCooldown = Number(e.target.value);
+                console.log(chatCooldown);
+
+                updater(["joinRoomAndGetInfo", roomId!], (d) =>
+                  !d ? d : { ...d, chatCooldown }
+                );
+                conn.mutation.roomUpdate({ chatCooldown });
+              }}
+              id="chat-cooldown"
+              type="number"
+            />
+            <span className={`ml-2 text-primary-100`}>
+              Chat Cooldown (seconds)
+            </span>
+          </label>
           <BlockedFromRoomUsers />
         </div>
       )}
