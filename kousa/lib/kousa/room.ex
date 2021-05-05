@@ -395,7 +395,14 @@ defmodule Kousa.Room do
     })
   end
 
-  @spec create_room(String.t(), String.t(), String.t(), boolean(), String.t() | nil) ::
+  @spec create_room(
+          String.t(),
+          String.t(),
+          String.t(),
+          boolean(),
+          String.t() | nil,
+          boolean() | nil
+        ) ::
           {:error, any}
           | {:ok, %{room: atom | %{:id => any, :voiceServerId => any, optional(any) => any}}}
   def create_room(

@@ -10,6 +10,8 @@ export type GetScheduledRoomsResponse = {
   scheduledRooms: ScheduledRoom[];
 };
 
+export type ChatMode = "default" | "follower_only" | "disabled";
+
 export type JoinRoomAndGetInfoResponse = {
   room: Room;
   users: RoomUser[];
@@ -18,6 +20,7 @@ export type JoinRoomAndGetInfoResponse = {
   roomId: string;
   activeSpeakerMap: Record<string, boolean>;
   autoSpeaker: boolean;
+  chatMode: ChatMode;
 };
 
 export type GetRoomUsersResponse = {
@@ -49,7 +52,7 @@ export type InvitationToRoomResponse = {
 };
 
 export type CreateBotResponse = {
-  apiKey: string | null,
-  isUsernameTaken: boolean | null,
-  error: string | null
+  apiKey: string | null;
+  isUsernameTaken: boolean | null;
+  error: string | null;
 };

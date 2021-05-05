@@ -205,42 +205,34 @@ defmodule BrothTest.Chat.SendTest do
       WsClient.refute_frame("chat:send", banned_ws)
     end
 
-    test "if they have been blocked by the user", t do
+    test "if the room chat is disabled by the owner", t do
       user_id = t.user.id
       room_id = t.room_id
 
-      # create a user that is logged in.
-      blocked = Factory.create(User)
-      blocked_ws = WsClientFactory.create_client_for(blocked)
+      # create a user that will send message
+      sender = Factory.create(User)
+      sender_ws = WsClientFactory.create_client_for(sender)
 
-      WsClient.do_call(blocked_ws, "room:join", %{"roomId" => room_id})
+      # join the user into room
+      WsClient.do_call(sender_ws, "room:join", %{"roomId" => room_id})
       WsClient.assert_frame_legacy("new_user_join_room", _)
 
-      # block the new user
-      WsClient.do_call(t.client_ws, "user:block", %{"userId" => blocked.id})
+      # disable room chat
+      WsClient.do_call(t.client_ws, "room:update", %{"chatMode" => "disabled"})
 
+      # send chat msg via sender
       WsClient.send_msg(
-        blocked_ws,
-        "chat:send_msg",
-        %{"tokens" => @text_token, "whisperedTo" => [user_id]}
-      )
-
-      WsClient.refute_frame("chat:send", t.client_ws)
-      # you will still get the message yourself.
-      WsClient.assert_frame("chat:send", _, blocked_ws)
-
-      WsClient.send_msg(
-        blocked_ws,
+        sender_ws,
         "chat:send_msg",
         %{"tokens" => @text_token}
       )
 
       WsClient.refute_frame("chat:send", t.client_ws)
-      # you will still get the message yourself.
-      # this does not work as intened for some reason
-      # WsClient.assert_frame("chat:send", _, blocked_ws)
+      WsClient.refute_frame("chat:send", sender_ws)
     end
+  end
 
+  describe "user should not be able to receive message" do
     test "block, unblock still receives message", t do
       room_id = t.room_id
 
@@ -287,9 +279,54 @@ defmodule BrothTest.Chat.SendTest do
         blocked_ws
       )
     end
-  end
 
-  describe "user should not be able to receive message" do
+    test "if they have been blocked by the user", t do
+      user_id = t.user.id
+      room_id = t.room_id
+
+      # create a user that is logged in.
+      blocked = Factory.create(User)
+      blocked_ws = WsClientFactory.create_client_for(blocked)
+
+      WsClient.do_call(blocked_ws, "room:join", %{"roomId" => room_id})
+      WsClient.assert_frame_legacy("new_user_join_room", _)
+
+      # block the new user
+      WsClient.do_call(t.client_ws, "user:block", %{"userId" => blocked.id})
+
+      WsClient.send_msg(
+        blocked_ws,
+        "chat:send_msg",
+        %{"tokens" => @text_token, "whisperedTo" => [user_id]}
+      )
+
+      WsClient.refute_frame("chat:send", t.client_ws)
+      # you will still get the message yourself.
+      WsClient.assert_frame("chat:send", _, blocked_ws)
+
+      # new user to avoid 1 sec throttle
+
+      # create a user that is logged in.
+      blocked2 = Factory.create(User)
+      blocked2_ws = WsClientFactory.create_client_for(blocked2)
+
+      WsClient.do_call(blocked2_ws, "room:join", %{"roomId" => room_id})
+      WsClient.assert_frame_legacy("new_user_join_room", _)
+
+      # block the new user
+      WsClient.do_call(t.client_ws, "user:block", %{"userId" => blocked2.id})
+
+      WsClient.send_msg(
+        blocked2_ws,
+        "chat:send_msg",
+        %{"tokens" => @text_token}
+      )
+
+      WsClient.refute_frame("chat:send", t.client_ws)
+      # you will still get the message yourself.
+      WsClient.assert_frame("chat:send", _, blocked2_ws)
+    end
+
     test "if they have been banned from the room", t do
       room_id = t.room_id
       user_id = t.user.id
@@ -374,6 +411,50 @@ defmodule BrothTest.Chat.SendTest do
       )
 
       WsClient.refute_frame("chat:send", cant_hear_ws)
+    end
+  end
+
+  describe "when throttled" do
+    test "message not sent", t do
+      user_id = t.user.id
+      room_id = t.room_id
+
+      # create a user that is logged in.
+      listener = Factory.create(User)
+      listener_ws = WsClientFactory.create_client_for(listener)
+
+      WsClient.do_call(listener_ws, "room:join", %{"roomId" => room_id})
+      WsClient.assert_frame_legacy("new_user_join_room", _)
+
+      WsClient.send_msg(t.client_ws, "chat:send_msg", %{"tokens" => @text_token})
+      WsClient.send_msg(t.client_ws, "chat:send_msg", %{"tokens" => @text_token})
+
+      WsClient.assert_frame(
+        "chat:send",
+        %{
+          "tokens" => @text_token,
+          "sentAt" => _,
+          "from" => ^user_id,
+          "id" => msg_uuid,
+          "isWhisper" => false
+        },
+        t.client_ws
+      )
+
+      WsClient.assert_frame(
+        "chat:send",
+        %{
+          "tokens" => @text_token,
+          "sentAt" => _,
+          "from" => ^user_id,
+          "id" => ^msg_uuid,
+          "isWhisper" => false
+        },
+        listener_ws
+      )
+
+      WsClient.refute_frame("chat:send", t.client_ws)
+      WsClient.refute_frame("chat:send", listener_ws)
     end
   end
 end

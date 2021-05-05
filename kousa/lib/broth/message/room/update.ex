@@ -5,11 +5,6 @@ defmodule Broth.Message.Room.Update do
     schema: Room,
     reply: Room
 
-  @derive {Jason.Encoder,
-           only:
-             ~w(id name description numPeopleInside isPrivate chatMode autoSpeaker chatCooldown
-    creatorId voiceServerId inserted_at)a}
-
   @impl true
   def initialize(state) do
     Beef.Rooms.get_room_by_creator_id(state.user.id)
@@ -65,7 +60,6 @@ defmodule Broth.Message.Room.Update do
       end
 
       if Map.has_key?(changes, :autoSpeaker) do
-        # send the room_privacy_change message.
         Onion.RoomSession.set_auto_speaker(
           room.id,
           changes.autoSpeaker
@@ -78,6 +72,14 @@ defmodule Broth.Message.Room.Update do
           room.id,
           :chat_mode,
           changes.chatMode
+        )
+
+        Onion.RoomSession.broadcast_ws(
+          room.id,
+          %{
+            op: "room_chat_mode_changed",
+            d: %{roomId: room.id, chatMode: changes.chatMode}
+          }
         )
       end
 

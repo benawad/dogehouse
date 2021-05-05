@@ -204,6 +204,12 @@ defmodule Onion.Chat do
     {:noreply, Map.put(state, key, value)}
   end
 
+  def get(room_id, key), do: call(room_id, {:get, key})
+
+  defp get_impl(key, _reply, state) do
+    {:reply, Map.get(state, key), state}
+  end
+
   #####################################################################
   ## send message
 
@@ -212,8 +218,12 @@ defmodule Onion.Chat do
     cast(room_id, {:send_msg, payload})
   end
 
+  defp send_msg_impl(_, %__MODULE__{chat_mode: :disabled} = state) do
+    {:noreply, state}
+  end
+
   @spec send_msg_impl(Send.t(), state) :: {:noreply, state}
-  defp send_msg_impl(payload = %{from: from}, state) do
+  defp send_msg_impl(payload = %{from: from}, %__MODULE__{} = state) do
     # throttle sender
     IO.puts(state)
     IO.puts(from)
@@ -224,8 +234,12 @@ defmodule Onion.Chat do
 
       if can_chat do
         dispatch_message(payload, new_state)
-        updated_message_map = Map.put(new_state.last_message_map, from, DateTime.utc_now())
-        {:noreply, %{new_state | last_message_map: updated_message_map}}
+
+        {:noreply,
+         %{
+           new_state
+           | last_message_map: Map.put(new_state.last_message_map, from, DateTime.utc_now())
+         }}
       else
         {:noreply, new_state}
       end
@@ -234,11 +248,12 @@ defmodule Onion.Chat do
     end
   end
 
-  @spec should_throttle?(UUID.t(), state) :: boolean()
-  defp should_throttle?(user, state)
-       when is_map_key(state.last_message_map, user) do
-    DateTime.diff(state.last_message_map[user], DateTime.utc_now(), :millisecond) >=
-      state.chat_cooldown
+  @message_time_limit_milliseconds 1000
+  @spec should_throttle?(UUID.t(), state) :: boolean
+  defp should_throttle?(user_id, %__MODULE__{last_message_map: m})
+       when is_map_key(m, user_id) do
+    DateTime.diff(m[user_id], DateTime.utc_now(), :millisecond) <
+      @message_time_limit_milliseconds
   end
 
   # defp should_throttle?(_, _), do: false
@@ -293,6 +308,8 @@ defmodule Onion.Chat do
   ## ROUTER
 
   def handle_call({:banned?, who}, reply, state), do: banned_impl(who, reply, state)
+
+  def handle_call({:get, key}, reply, state), do: get_impl(key, reply, state)
 
   def handle_cast({:set_room_creator_id, id}, state) do
     set_room_creator_id_impl(id, state)

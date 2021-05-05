@@ -201,7 +201,8 @@
         "makePublic": "把聊天室设为公开",
         "makePrivate": "把聊天室设为私人",
         "renamePublic": "设置公开聊天室名称",
-        "renamePrivate": "设置私人聊天室名称"
+        "renamePrivate": "设置私人聊天室名称",
+        "chatDisabled": "disable chat"
       }
     },
     "userVolumeSlider": {
@@ -280,7 +281,8 @@
       "sendMessage": "发一条信息",
       "whisper": "私信",
       "welcomeMessage": "欢迎来到文字聊天!",
-      "roomDescription": "聊天室介绍"
+      "roomDescription": "聊天室介绍",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "火箭在加油",

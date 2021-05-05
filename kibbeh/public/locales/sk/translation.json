@@ -229,7 +229,8 @@
         "makePublic": "zverejniť miestnosť",
         "makePrivate": "zosúkromniť miestnosť",
         "renamePublic": "Nastaviť názov verejnej miestnosti",
-        "renamePrivate": "Nastaviť názov súkromnej miestnosti"
+        "renamePrivate": "Nastaviť názov súkromnej miestnosti",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -294,7 +295,8 @@
       "sendMessage": "Odoslať správu",
       "whisper": "Pošepkať",
       "welcomeMessage": "Vitaj v chate!",
-      "roomDescription": "popis miestnosti"
+      "roomDescription": "popis miestnosti",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Tankujeme raketu",

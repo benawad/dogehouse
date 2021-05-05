@@ -33,6 +33,7 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
         <InfoText>something went wrong</InfoText>
       ) : (
         <div className={`flex flex-col w-full`}>
+          {/* require ask to speak */}
           <label className={`flex items-center my-1`} htmlFor="auto-speaker">
             <input
               checked={!data.autoSpeaker}
@@ -74,6 +75,24 @@ export const RoomSettingsModal: React.FC<RoomSettingsModalProps> = ({
             </span>
           </label>
 
+          {/* chat disabled */}
+          <label className={`flex items-center my-1`} htmlFor="chat-disabled">
+            <input
+              checked={data.chatMode === "disabled"}
+              onChange={(e) => {
+                const chatMode = e.target.checked ? "disabled" : "default";
+                updater(["joinRoomAndGetInfo", roomId!], (d) =>
+                  !d ? d : { ...d, chatMode }
+                );
+                conn.mutation.roomUpdate({ chatMode });
+              }}
+              id="chat-disabled"
+              type="checkbox"
+            />
+            <span className={`ml-2 text-primary-100`}>
+              {t("components.modals.roomSettingsModal.chatDisabled")}
+            </span>
+          </label>
           <BlockedFromRoomUsers />
         </div>
       )}

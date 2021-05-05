@@ -2,14 +2,14 @@ import { debounce } from "lodash";
 import { useEffect, useState } from "react";
 
 interface WindowSize {
-  width: number | undefined;
-  height: number | undefined;
+  width: number;
+  height: number;
 }
 
 const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState<WindowSize>({
-    width: undefined,
-    height: undefined,
+    width: window.innerWidth,
+    height: window.innerHeight,
   });
 
   useEffect(() => {

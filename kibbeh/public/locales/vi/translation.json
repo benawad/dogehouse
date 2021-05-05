@@ -227,7 +227,8 @@
         "makePublic": "chuyển thành phòng công khai",
         "makePrivate": "chuyển thành phòng riêng tư",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -292,7 +293,8 @@
       "sendMessage": "Gửi tin nhắn",
       "whisper": "Thì thầm",
       "welcomeMessage": "Chào mừng đến với phòng trò chuyện!",
-      "roomDescription": "mô tả phòng"
+      "roomDescription": "mô tả phòng",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Tên lửa đang đổ xăng",

@@ -225,7 +225,8 @@
         "makePublic": "ክፍሉን ለሁሉም ክፍት ያድርጉ",
         "makePrivate": "ክፍሉን የግል ያድርጉ",
         "renamePublic": "Set public room name",
-        "renamePrivate": "Set private room name"
+        "renamePrivate": "Set private room name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -290,7 +291,8 @@
       "sendMessage": "መልዕክት ይላኩ",
       "whisper": "ተንሸካሾክ",
       "welcomeMessage": "ለውይይት እንኳን ደህና መጡ!",
-      "roomDescription": "ክፍል መግለጫ"
+      "roomDescription": "ክፍል መግለጫ",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fueling rocket",

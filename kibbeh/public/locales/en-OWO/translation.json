@@ -227,7 +227,8 @@
         "makePublic": "UwU Make Woom Pubwic (⁎˃ᆺ˂)",
         "makePrivate": "Make Woom Pwivate xD",
         "renamePublic": "Set Public Room Name",
-        "renamePrivate": "Set Private Room Name"
+        "renamePrivate": "Set Private Room Name",
+        "chatDisabled": "disable chat"
       }
     },
     "followingOnline": {
@@ -292,7 +293,8 @@
       "sendMessage": "Send a Message xD",
       "whisper": "Whispew <{^v^}>",
       "welcomeMessage": "UwU Wewcome to chat! (✿ ♡‿♡)",
-      "roomDescription": "Woom Descwiption（＾ｖ＾）"
+      "roomDescription": "Woom Descwiption（＾ｖ＾）",
+      "disabled": "room chat has been disabled"
     },
     "roomStatus": {
       "fuelingRocket": "Fuewing rocket uwu",
