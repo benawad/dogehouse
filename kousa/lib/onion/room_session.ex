@@ -147,6 +147,14 @@ defmodule Onion.RoomSession do
     {:noreply, %{state | auto_speaker: value}}
   end
 
+  def set_chat_disabled(room_id, value) when is_boolean(value) do
+    cast(room_id, {:set_chat_disabled, value})
+  end
+
+  defp set_chat_disabled_impl(value, state) do
+    {:noreply, %{state | chat_disabled: value}}
+  end
+
   def broadcast_ws(room_id, msg), do: cast(room_id, {:broadcast_ws, msg})
 
   defp broadcast_ws_impl(msg, state) do
@@ -442,6 +450,10 @@ defmodule Onion.RoomSession do
 
   def handle_cast({:set_auto_speaker, value}, state) do
     set_auto_speaker_impl(value, state)
+  end
+
+  def handle_cast({:set_chat_disabled, value}, state) do
+    set_chat_disabled_impl(value, state)
   end
 
   def handle_cast({:broadcast_ws, msg}, state) do
