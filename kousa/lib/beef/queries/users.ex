@@ -87,6 +87,14 @@ defmodule Beef.Queries.Users do
     )
   end
 
+  def update_last_chat_msg(query, time) do
+    update(query,
+      set: [
+        lastChatMsg: ^time
+      ]
+    )
+  end
+
   def update_set_ip(query, ip) do
     update(query,
       set: [
