@@ -2,11 +2,8 @@ import { JoinRoomAndGetInfoResponse } from "@dogehouse/kebab";
 import React, { useState } from "react";
 import { useCurrentRoomIdStore } from "../../global-stores/useCurrentRoomIdStore";
 import { useConn } from "../../shared-hooks/useConn";
-import { useCurrentRoomInfo } from "../../shared-hooks/useCurrentRoomInfo";
 import { useScreenType } from "../../shared-hooks/useScreenType";
-import { useTypeSafeTranslation } from "../../shared-hooks/useTypeSafeTranslation";
 import { CenterLoader } from "../../ui/CenterLoader";
-import RoomOverlay from "../../ui/mobile/RoomOverlay";
 import { RoomHeader } from "../../ui/RoomHeader";
 import { CreateRoomModal } from "../dashboard/CreateRoomModal";
 import { HeaderController } from "../display/HeaderController";
@@ -100,11 +97,7 @@ export const RoomPanelController: React.FC<RoomPanelControllerProps> = ({
               : ""
           }`}
         >
-          {screenType === "fullscreen" ? (
-            <RoomOverlay {...data} />
-          ) : (
-            <RoomPanelIconBarController {...data} />
-          )}
+          <RoomPanelIconBarController {...data} />
         </div>
       </MiddlePanel>
     </>
