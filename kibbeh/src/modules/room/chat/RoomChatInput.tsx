@@ -13,6 +13,7 @@ import { EmojiPicker } from "../../../ui/EmojiPicker";
 import { useEmojiPickerStore } from "../../../global-stores/useEmojiPickerStore";
 import { navigateThroughQueriedUsers } from "./navigateThroughQueriedUsers";
 import { navigateThroughQueriedEmojis } from "./navigateThroughQueriedEmojis";
+import { useScreenType } from "../../../shared-hooks/useScreenType";
 
 interface ChatInputProps {
   users: RoomUser[];
@@ -34,12 +35,13 @@ export const RoomChatInput: React.FC<ChatInputProps> = ({ users }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [lastMessageTimestamp, setLastMessageTimestamp] = useState<number>(0);
   const { t } = useTypeSafeTranslation();
+  const screenType = useScreenType();
 
   let position = 0;
 
   useEffect(() => {
-    if (!open) inputRef.current?.focus();
-  }, [open]);
+    if (!open && screenType !== "fullscreen") inputRef.current?.focus(); // Prevent autofocus on mobile
+  }, [open, screenType]);
 
   const handleSubmit = (
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>

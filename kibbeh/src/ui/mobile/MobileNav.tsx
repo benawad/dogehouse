@@ -56,6 +56,12 @@ export interface MobileNavProps {
 }
 
 export const MobileNav: React.FC<MobileNavProps> = ({ items }) => {
+  const { asPath } = useRouter();
+
+  if (asPath.startsWith("/room")) {
+    return null;
+  }
+
   return (
     <MobileNavContainer>
       {items.map((item) => {
